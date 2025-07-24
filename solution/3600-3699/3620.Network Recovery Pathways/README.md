@@ -2,6 +2,14 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3620.Network%20Recovery%20Pathways/README.md
+tags:
+    - 图
+    - 拓扑排序
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

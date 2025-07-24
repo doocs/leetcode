@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README.md
+tags:
+    - 线段树
+    - 数组
 ---
 
 <!-- problem:start -->

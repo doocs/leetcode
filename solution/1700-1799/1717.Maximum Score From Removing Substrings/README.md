@@ -88,9 +88,9 @@ tags:
 
 -   如果 $c$ 是 "a"，由于要先删除 "ab"，因此此时我们不消除该字符，只增加 $\textit{cnt1}$；
 -   如果 $c$ 是 "b"，如果此时 $\textit{cnt1} > 0$，我们可以消除一个 "ab"，并增加 $x$ 分，否则我们只能增加 $\textit{cnt2}$；
--   如果 $c$ 是其他字符，那么对于该子字符串，我们剩下了一个 $\textit{cnt2}$ 个 "b" 和 $\textit{cnt1}$ 个 "a"，我们可以消除 $\min(\textit{cnt1}, \textit{cnt2})$ 个 "ab"，并增加 $y$ 分。
+-   如果 $c$ 是其他字符，那么对于该子字符串，我们剩下了 $\textit{cnt2}$ 个 "b" 和 $\textit{cnt1}$ 个 "a"，我们可以消除 $\min(\textit{cnt1}, \textit{cnt2})$ 个 "ba"，并增加若干个 $y$ 分。
 
-遍历结束后，我们还需要额外处理一下剩余的 "ab"，增加若干个 $y$ 分。
+遍历结束后，我们还需要额外处理一下剩余的 "ba"，增加若干个 $y$ 分。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
@@ -259,6 +259,44 @@ function maximumGain(s: string, x: number, y: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_gain(s: String, mut x: i32, mut y: i32) -> i32 {
+        let (mut a, mut b) = ('a', 'b');
+        if x < y {
+            std::mem::swap(&mut x, &mut y);
+            std::mem::swap(&mut a, &mut b);
+        }
+
+        let mut ans = 0;
+        let mut cnt1 = 0;
+        let mut cnt2 = 0;
+
+        for c in s.chars() {
+            if c == a {
+                cnt1 += 1;
+            } else if c == b {
+                if cnt1 > 0 {
+                    ans += x;
+                    cnt1 -= 1;
+                } else {
+                    cnt2 += 1;
+                }
+            } else {
+                ans += cnt1.min(cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
+            }
+        }
+
+        ans += cnt1.min(cnt2) * y;
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -291,81 +329,38 @@ function maximumGain(s, x, y) {
 }
 ```
 
-<!-- tabs:end -->
+#### C#
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Greedy + Stack
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function maximumGain(s: string, x: number, y: number): number {
-    const stk: string[] = [];
-    const pairs: Record<string, string> = { a: 'b', b: 'a' };
-    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
-    let str = [...s];
-    let ans = 0;
-    let havePairs = true;
-
-    while (havePairs) {
-        for (const p of pair) {
-            havePairs = true;
-
-            for (const ch of str) {
-                if (stk.at(-1) === p && ch === pairs[p]) {
-                    stk.pop();
-                } else stk.push(ch);
-            }
-
-            if (str.length === stk.length) havePairs = false;
-
-            const multiplier = p === 'a' ? x : y;
-            ans += (multiplier * (str.length - stk.length)) / 2;
-            str = [...stk];
-            stk.length = 0;
+```cs
+public class Solution {
+    public int MaximumGain(string s, int x, int y) {
+        char a = 'a', b = 'b';
+        if (x < y) {
+            (x, y) = (y, x);
+            (a, b) = (b, a);
         }
-    }
 
-    return ans;
-}
-```
-
-#### JavaeScript
-
-```js
-function maximumGain(s, x, y) {
-    const stk = [];
-    const pairs = { a: 'b', b: 'a' };
-    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
-    let str = [...s];
-    let ans = 0;
-    let havePairs = true;
-
-    while (havePairs) {
-        for (const p of pair) {
-            havePairs = true;
-
-            for (const ch of str) {
-                if (stk.at(-1) === p && ch === pairs[p]) {
-                    stk.pop();
-                } else stk.push(ch);
+        int ans = 0, cnt1 = 0, cnt2 = 0;
+        foreach (char c in s) {
+            if (c == a) {
+                cnt1++;
+            } else if (c == b) {
+                if (cnt1 > 0) {
+                    ans += x;
+                    cnt1--;
+                } else {
+                    cnt2++;
+                }
+            } else {
+                ans += Math.Min(cnt1, cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
             }
-
-            if (str.length === stk.length) havePairs = false;
-
-            const multiplier = p === 'a' ? x : y;
-            ans += (multiplier * (str.length - stk.length)) / 2;
-            str = [...stk];
-            stk.length = 0;
         }
-    }
 
-    return ans;
+        ans += Math.Min(cnt1, cnt2) * y;
+        return ans;
+    }
 }
 ```
 

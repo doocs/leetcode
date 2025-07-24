@@ -76,23 +76,23 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 
 ### Solution 1: Greedy
 
-Let's assume that the score of the substring "ab" is always not lower than the score of the substring "ba". If not, we can swap "a" and "b", and simultaneously swap $x$ and $y$.
+We can assume that the score of substring "ab" is always no less than the score of substring "ba". If not, we can swap "a" and "b", and simultaneously swap $x$ and $y$.
 
-Next, we only need to consider the case where the string contains only "a" and "b". If the string contains other characters, we can treat them as a dividing point, splitting the string into several substrings that contain only "a" and "b", and then calculate the score for each substring separately.
+Next, we only need to consider the case where the string contains only "a" and "b". If the string contains other characters, we can treat them as split points, dividing the string into several substrings that contain only "a" and "b", and then calculate the score for each substring separately.
 
-We observe that, for a substring containing only "a" and "b", no matter what operations are taken, in the end, there will only be one type of character left, or an empty string. Since each operation will delete one "a" and one "b" simultaneously, the total number of operations is fixed. We can greedily delete "ab" first, then "ba", to ensure the maximum score.
+We observe that for a substring containing only "a" and "b", no matter what operations we take, we will eventually be left with only one type of character, or an empty string. Since each operation removes one "a" and one "b" simultaneously, the total number of operations is fixed. We can greedily remove "ab" first, then remove "ba", which ensures the maximum score.
 
-Therefore, we can use two variables $\textit{cnt1}$ and $\textit{cnt2}$ to record the number of "a" and "b", respectively. Then, we traverse the string, update $\textit{cnt1}$ and $\textit{cnt2}$ based on the current character, and calculate the score.
+Therefore, we can use two variables $\textit{cnt1}$ and $\textit{cnt2}$ to record the counts of "a" and "b" respectively, then traverse the string and update $\textit{cnt1}$ and $\textit{cnt2}$ according to different cases of the current character, while calculating the score.
 
-For the current character $c$:
+For the current character $c$ being traversed:
 
--   If $c$ is "a", since we need to delete "ab" first, we do not eliminate this character at this time, only increase $\textit{cnt1}$;
--   If $c$ is "b", if $\textit{cnt1} > 0$ at this time, we can eliminate an "ab" and add $x$ points; otherwise, we can only increase $\textit{cnt2}$;
--   If $c$ is another character, then for this substring, we are left with $\textit{cnt2}$ "b" and $\textit{cnt1}$ "a", we can eliminate $\min(\textit{cnt1}, \textit{cnt2})$ "ab" and add $y$ points.
+-   If $c$ is "a", since we want to remove "ab" first, we don't eliminate this character at this time, only increment $\textit{cnt1}$;
+-   If $c$ is "b", if $\textit{cnt1} > 0$ at this time, we can eliminate one "ab" and add $x$ points; otherwise, we can only increment $\textit{cnt2}$;
+-   If $c$ is another character, then for this substring, we have $\textit{cnt2}$ "b"s and $\textit{cnt1}$ "a"s left. We can eliminate $\min(\textit{cnt1}, \textit{cnt2})$ "ba"s and add several $y$ points.
 
-After the traversal is finished, we also need to additionally handle the remaining "ab", adding several $y$ points.
+After traversal, we need to handle the remaining "ba"s and add several $y$ points.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -259,6 +259,44 @@ function maximumGain(s: string, x: number, y: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_gain(s: String, mut x: i32, mut y: i32) -> i32 {
+        let (mut a, mut b) = ('a', 'b');
+        if x < y {
+            std::mem::swap(&mut x, &mut y);
+            std::mem::swap(&mut a, &mut b);
+        }
+
+        let mut ans = 0;
+        let mut cnt1 = 0;
+        let mut cnt2 = 0;
+
+        for c in s.chars() {
+            if c == a {
+                cnt1 += 1;
+            } else if c == b {
+                if cnt1 > 0 {
+                    ans += x;
+                    cnt1 -= 1;
+                } else {
+                    cnt2 += 1;
+                }
+            } else {
+                ans += cnt1.min(cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
+            }
+        }
+
+        ans += cnt1.min(cnt2) * y;
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -291,81 +329,38 @@ function maximumGain(s, x, y) {
 }
 ```
 
-<!-- tabs:end -->
+#### C#
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Greedy + Stack
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function maximumGain(s: string, x: number, y: number): number {
-    const stk: string[] = [];
-    const pairs: Record<string, string> = { a: 'b', b: 'a' };
-    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
-    let str = [...s];
-    let ans = 0;
-    let havePairs = true;
-
-    while (havePairs) {
-        for (const p of pair) {
-            havePairs = true;
-
-            for (const ch of str) {
-                if (stk.at(-1) === p && ch === pairs[p]) {
-                    stk.pop();
-                } else stk.push(ch);
-            }
-
-            if (str.length === stk.length) havePairs = false;
-
-            const multiplier = p === 'a' ? x : y;
-            ans += (multiplier * (str.length - stk.length)) / 2;
-            str = [...stk];
-            stk.length = 0;
+```cs
+public class Solution {
+    public int MaximumGain(string s, int x, int y) {
+        char a = 'a', b = 'b';
+        if (x < y) {
+            (x, y) = (y, x);
+            (a, b) = (b, a);
         }
-    }
 
-    return ans;
-}
-```
-
-#### JavaeScript
-
-```js
-function maximumGain(s, x, y) {
-    const stk = [];
-    const pairs = { a: 'b', b: 'a' };
-    const pair = x > y ? ['a', 'b'] : ['b', 'a'];
-    let str = [...s];
-    let ans = 0;
-    let havePairs = true;
-
-    while (havePairs) {
-        for (const p of pair) {
-            havePairs = true;
-
-            for (const ch of str) {
-                if (stk.at(-1) === p && ch === pairs[p]) {
-                    stk.pop();
-                } else stk.push(ch);
+        int ans = 0, cnt1 = 0, cnt2 = 0;
+        foreach (char c in s) {
+            if (c == a) {
+                cnt1++;
+            } else if (c == b) {
+                if (cnt1 > 0) {
+                    ans += x;
+                    cnt1--;
+                } else {
+                    cnt2++;
+                }
+            } else {
+                ans += Math.Min(cnt1, cnt2) * y;
+                cnt1 = 0;
+                cnt2 = 0;
             }
-
-            if (str.length === stk.length) havePairs = false;
-
-            const multiplier = p === 'a' ? x : y;
-            ans += (multiplier * (str.length - stk.length)) / 2;
-            str = [...stk];
-            stk.length = 0;
         }
-    }
 
-    return ans;
+        ans += Math.Min(cnt1, cnt2) * y;
+        return ans;
+    }
 }
 ```
 
