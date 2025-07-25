@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Mi
 rating: 2666
 source: 第 396 场周赛 Q4
 tags:
-  - 贪心
-  - 数组
-  - 枚举
+    - 贪心
+    - 数组
+    - 枚举
 ---
 
 <!-- problem:start -->

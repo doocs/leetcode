@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Mi
 rating: 2666
 source: Weekly Contest 396 Q4
 tags:
-  - Greedy
-  - Array
-  - Enumeration
+    - Greedy
+    - Array
+    - Enumeration
 ---
 
 <!-- problem:start -->
