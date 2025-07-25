@@ -1,5 +1,5 @@
 {
-  "cache_date": 1753400501,
+  "cache_date": 1753448140,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -129105,6 +129105,28 @@
         }
       ],
       "retrieved": 1753314496
+    },
+    "solution/3600-3699/3626.Find Stores with Inventory Imbalance/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1753447186
+    },
+    "solution/3600-3699/3626.Find Stores with Inventory Imbalance/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1753447994
     }
   }
 }
