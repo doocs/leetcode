@@ -321,6 +321,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3601 | [Find Drivers with Improved Fuel Efficiency](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README_EN.md)                                                     | `Database` | Medium     |        |
 | 3611 | [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)                                                                                             | `Database` | Medium     |        |
 | 3617 | [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)                                                           |            | Hard       |        |
+| 3626 | [Find Stores with Inventory Imbalance](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README_EN.md)                                                                   |            | Medium     |        |
 
 ## Copyright
 

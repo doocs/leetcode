@@ -3634,6 +3634,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3623  |  [Count Number of Trapezoids I](/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README_EN.md)  |  `Geometry`,`Array`,`Hash Table`,`Math`  |  Medium  |  Weekly Contest 459  |
 |  3624  |  [Number of Integers With Popcount-Depth Equal to K II](/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README_EN.md)  |  `Segment Tree`,`Array`  |  Hard  |  Weekly Contest 459  |
 |  3625  |  [Count Number of Trapezoids II](/solution/3600-3699/3625.Count%20Number%20of%20Trapezoids%20II/README_EN.md)  |  `Geometry`,`Array`,`Hash Table`,`Math`  |  Hard  |  Weekly Contest 459  |
+|  3626  |  [Find Stores with Inventory Imbalance](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 
