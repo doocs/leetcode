@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3139.Mi
 rating: 2666
 source: 第 396 场周赛 Q4
 tags:
-    - 贪心
-    - 数组
-    - 枚举
+  - 贪心
+  - 数组
+  - 枚举
 ---
 
 <!-- problem:start -->
@@ -121,11 +121,73 @@ tags:
 
 ```python
 
+class Solution:
+    MOD = 10 ** 9 + 7
+
+    def solve(self, k):
+        sumDifferences = k * len(self.nums) - self.sumNums
+
+        ones = max(2 * (k - self.minNums) - sumDifferences, 0)
+        if (sumDifferences - ones) & 1 != 0:
+            ones += 1
+
+        return ones * self.cost1 + ((sumDifferences - ones) // 2) * self.cost2
+
+    def minCostToEqualizeArray(self, nums: List[int], cost1: int, cost2: int) -> int:
+        cost2 = min(2 * cost1, cost2)
+
+        self.nums = nums
+        self.minNums = min(nums)
+        self.sumNums = sum(nums)
+        self.cost1 = cost1
+        self.cost2 = cost2
+
+        m = max(nums)
+
+        sameParity = range(m, 10 ** 18, 2)
+        diffParity = range(m + 1, 10 ** 18, 2)
+        i = bisect_left(sameParity, 0, key=lambda i: self.solve(i + 2) - self.solve(i))
+        j = bisect_left(diffParity, 0, key=lambda j: self.solve(j + 2) - self.solve(j))
+
+        return min(self.solve(sameParity[i]), self.solve(diffParity[j])) % Solution.MOD
+
 ```
 
 #### Java
 
 ```java
+
+class Solution {
+        public int minCostToEqualizeArray(int[] A, int c1, int c2) {
+        int ma = A[0], mi = A[0], n = A.length, mod = 1000000007;
+        long total = 0;
+        for (int a: A) {
+            mi = Math.min(mi, a);
+            ma = Math.max(ma, a);
+            total += a;
+        }
+        total = 1l * ma * n - total;
+
+        if (c1 * 2 <= c2 || n <= 2) {
+            return (int) ((total * c1) % mod);
+        }
+
+        long op1 = Math.max(0L, (ma - mi) * 2L - total);
+        long op2 = total - op1;
+        long res = (op1 + op2 % 2) * c1 + op2 / 2 * c2;
+
+        total += op1 / (n - 2) * n;
+        op1 %= n - 2;
+        op2 = total - op1;
+        res = Math.min(res, (op1 + op2 % 2) * c1 + op2 / 2 * c2);
+
+        for (int i = 0; i < 2; i++) {
+            total += n;
+            res = Math.min(res, total % 2 * c1 + total / 2 * c2);
+        }
+        return (int) (res % mod);
+    }
+}
 
 ```
 
@@ -133,11 +195,88 @@ tags:
 
 ```cpp
 
+class Solution {
+public:
+        int minCostToEqualizeArray(vector<int>& A, int c1, int c2) {
+        int ma = *max_element(A.begin(), A.end());
+        int mi = *min_element(A.begin(), A.end());
+        int n = A.size(), mod = 1000000007;
+        long long su = accumulate(A.begin(), A.end(), 0LL);
+        long long total = 1LL * ma * n - su;
+
+        if (c1 * 2 <= c2 || n <= 2) {
+            return (total * c1) % mod;
+        }
+
+        long long op1 = max(0LL, (ma - mi) * 2 - total);
+        long long op2 = total - op1;
+        long long res = (op1 + op2 % 2) * c1 + op2 / 2 * c2;
+
+        total += op1 / (n - 2) * n;
+        op1 %= n - 2;
+        op2 = total - op1;
+        res = min(res, (op1 + op2 % 2) * c1 + op2 / 2 * c2);
+
+        for (int i = 0; i < 2; i++) {
+            total += n;
+            res = min(res, total % 2 * c1 + total / 2 * c2);
+        }
+
+        return res % mod;
+    }
+};
+
+
 ```
 
 #### Go
 
 ```go
+
+func minCostToEqualizeArray(nums []int, cost1 int, cost2 int) int {
+    mx, mod := 0, int(1e9)+7
+    for _, v := range nums {
+        if v > mx {
+            mx = v
+        }
+    }
+    mv, cnt := 0, 0
+    for _, v := range nums {
+        d := mx - v
+        if cnt += d; d > mv {
+            mv = d
+        }
+    }
+    ans := find(mv, cnt, cost1, cost2)
+    if len(nums) <= 2 {
+        return ans % mod
+    }
+    for (mv<<1) > cnt {
+        mv, cnt = mv + 1, cnt + len(nums)
+        ans = min(ans, find(mv, cnt, cost1, cost2))
+    }
+    mv, cnt = mv + 1, cnt + len(nums)
+    ans = min(ans, find(mv, cnt, cost1, cost2))
+    return ans % mod
+}
+
+func find(mv, cnt, c1, c2 int) int {
+    switch {
+    case c1<<1 <= c2:
+        return cnt * c1
+    case mv<<1 <= cnt:
+        return (cnt>>1)*c2 + (cnt&1)*c1
+    }
+    return (cnt-mv)*c2 + (mv<<1-cnt)*c1
+}
+
+func min(x, y int) int {
+    if x < y {
+        return x
+    }
+    return y
+}
+
 
 ```
 
