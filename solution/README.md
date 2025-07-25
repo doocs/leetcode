@@ -3636,6 +3636,7 @@
 |  3623  |  [统计梯形的数目 I](/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README.md)  |  `几何`,`数组`,`哈希表`,`数学`  |  中等  |  第 459 场周赛  |
 |  3624  |  [位计数深度为 K 的整数数目 II](/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README.md)  |  `线段树`,`数组`  |  困难  |  第 459 场周赛  |
 |  3625  |  [统计梯形的数目 II](/solution/3600-3699/3625.Count%20Number%20of%20Trapezoids%20II/README.md)  |  `几何`,`数组`,`哈希表`,`数学`  |  困难  |  第 459 场周赛  |
+|  3626  |  [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)  |    |  中等  |    |
 
 ## 版权
 
