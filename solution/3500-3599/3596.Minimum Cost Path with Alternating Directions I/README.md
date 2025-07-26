@@ -21,7 +21,7 @@ tags:
 
 <p>进入单元格&nbsp;<code>(i, j)</code>&nbsp;的花费定义为&nbsp;<code>(i + 1) * (j + 1)</code>。</p>
 
-<p>你在第 1 步时从单元格 <code>(0, 0)</code> 开始。</p>
+<p>路径始终从第 1 步进入单元格 <code>(0, 0)</code> 并支付入场花费开始。</p>
 
 <p>在每一步，你移动到 <strong>相邻</strong>&nbsp;的单元格，遵循交替的模式：</p>
 

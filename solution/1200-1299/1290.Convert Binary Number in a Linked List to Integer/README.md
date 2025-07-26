@@ -23,38 +23,24 @@ tags:
 
 <p>请你返回该链表所表示数字的 <strong>十进制值</strong> 。</p>
 
+<p><strong>最高位</strong> 在链表的头部。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/images/graph-1.png" style="height: 108px; width: 426px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/images/graph-1.png" style="height: 108px; width: 426px;" /></p>
 
-<pre><strong>输入：</strong>head = [1,0,1]
+<pre>
+<strong>输入：</strong>head = [1,0,1]
 <strong>输出：</strong>5
 <strong>解释：</strong>二进制数 (101) 转化为十进制数 (5)
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>head = [0]
-<strong>输出：</strong>0
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>head = [1]
-<strong>输出：</strong>1
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>head = [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]
-<strong>输出：</strong>18880
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>head = [0,0]
+<pre>
+<strong>输入：</strong>head = [0]
 <strong>输出：</strong>0
 </pre>
 

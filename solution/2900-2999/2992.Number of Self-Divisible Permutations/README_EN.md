@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2992.Nu
 tags:
     - Bit Manipulation
     - Array
+    - Math
     - Dynamic Programming
     - Backtracking
     - Bitmask
+    - Number Theory
 ---
 
 <!-- problem:start -->

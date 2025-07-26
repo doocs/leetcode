@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1258.Sy
 rating: 1847
 source: Biweekly Contest 13 Q3
 tags:
+    - Sort
     - Union Find
     - Array
     - Hash Table
