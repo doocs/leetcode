@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2992.Nu
 tags:
     - 位运算
     - 数组
+    - 数学
     - 动态规划
     - 回溯
     - 状态压缩
+    - 数论
 ---
 
 <!-- problem:start -->

@@ -31,7 +31,7 @@ tags:
 
 <p>一开始，所有产品价格都为 10。</p>
 
-<p>编写一个解决方案，找出在&nbsp;<code>2019-08-16</code><strong>。</strong></p>
+<p>编写一个解决方案，找出在&nbsp;<code>2019-08-16</code><strong>&nbsp;</strong>所有产品的价格。</p>
 
 <p>以 <strong>任意顺序 </strong>返回结果表。</p>
 

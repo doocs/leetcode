@@ -32,7 +32,12 @@ Each row of this table indicates the id of a customer, their name, and the id of
 
 <p>&nbsp;</p>
 
-<p>Find the names of the customer that are <strong>not referred by</strong> the customer with <code>id = 2</code>.</p>
+<p>Find the names of the customer that are either:</p>
+
+<ol>
+	<li><strong>referred by</strong>&nbsp;any&nbsp;customer with&nbsp;<code>id != 2</code>.</li>
+	<li><strong>not referred by</strong> any customer.</li>
+</ol>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 

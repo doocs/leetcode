@@ -4,6 +4,7 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md
 tags:
     - Breadth-First Search
+    - Hash Table
     - String
 ---
 

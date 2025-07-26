@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0963.Mi
 tags:
     - 几何
     - 数组
+    - 哈希表
     - 数学
 ---
 
@@ -18,58 +19,48 @@ tags:
 
 <!-- description:start -->
 
-<p>给定在 xy 平面上的一组点，确定由这些点组成的任何矩形的最小面积，其中矩形的边<strong>不一定平行于</strong> x 轴和 y 轴。</p>
+<p>给你一个&nbsp;<strong>X-Y&nbsp;</strong>平面上的点数组 <code>points</code>，其中 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>。</p>
 
-<p>如果没有任何矩形，就返回 0。</p>
+<p>返回由这些点形成的任意矩形的最小面积，矩形的边&nbsp;<strong>不一定 </strong>平行于 X 轴和 Y 轴。如果不存在这样的矩形，则返回 <code>0</code>。</p>
+
+<p>答案只需在<code>10<sup>-5</sup></code> 的误差范围内即可被视作正确答案。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/1a.png" style="height: 151px; width: 150px;"></strong></p>
-
-<pre><strong>输入：</strong>[[1,2],[2,1],[1,0],[0,1]]
-<strong>输出：</strong>2.00000
-<strong>解释：</strong>最小面积的矩形出现在 [1,2],[2,1],[1,0],[0,1] 处，面积为 2。</pre>
-
-<p><strong>示例 2：</strong></p>
-
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/2.png" style="height: 94px; width: 150px;"></p>
-
-<pre><strong>输入：</strong>[[0,1],[2,1],[1,1],[1,0],[2,0]]
-<strong>输出：</strong>1.00000
-<strong>解释：</strong>最小面积的矩形出现在 [1,0],[1,1],[2,1],[2,0] 处，面积为 1。
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/1a.png" style="width: 398px; height: 400px;" />
+<pre>
+<strong>输入：</strong> points = [[1,2],[2,1],[1,0],[0,1]]
+<strong>输出：</strong> 2.00000
+<strong>解释：</strong> 最小面积矩形由 [1,2]、[2,1]、[1,0]、[0,1] 组成，其面积为 2。
 </pre>
 
-<p><strong>示例 3：</strong></p>
-
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/3.png" style="height: 94px; width: 150px;"></p>
-
-<pre><strong>输入：</strong>[[0,3],[1,2],[3,1],[1,3],[2,1]]
-<strong>输出：</strong>0
-<strong>解释：</strong>没法从这些点中组成任何矩形。
+<p><strong class="example">示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/2.png" style="width: 400px; height: 251px;" />
+<pre>
+<strong>输入：</strong> points = [[0,1],[2,1],[1,1],[1,0],[2,0]]
+<strong>输出：</strong> 1.00000
+<strong>解释：</strong> 最小面积矩形由 [1,0]、[1,1]、[2,1]、[2,0] 组成，其面积为 1。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/4c.png" style="height: 155px; width: 160px;"></strong></p>
-
-<pre><strong>输入：</strong>[[3,1],[1,1],[0,1],[2,1],[3,3],[3,2],[0,2],[2,3]]
-<strong>输出：</strong>2.00000
-<strong>解释：</strong>最小面积的矩形出现在 [2,1],[2,3],[3,3],[3,1] 处，面积为 2。
+<p><strong class="example">示例 3：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/images/3.png" style="width: 383px; height: 400px;" />
+<pre>
+<strong>输入：</strong> points = [[0,3],[1,2],[3,1],[1,3],[2,1]]
+<strong>输出：</strong> 0
+<strong>解释：</strong> 无法由这些点组成任何矩形。
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>1 &lt;= points.length &lt;= 50</code></li>
-	<li><code>0 &lt;=&nbsp;points[i][0] &lt;=&nbsp;40000</code></li>
-	<li><code>0 &lt;=&nbsp;points[i][1] &lt;=&nbsp;40000</code></li>
-	<li>所有的点都是不同的。</li>
-	<li>与真实值误差不超过 <code>10^-5</code>&nbsp;的答案将视为正确结果。</li>
-</ol>
+	<li><code>points[i].length == 2</code></li>
+	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 4 * 10<sup>4</sup></code></li>
+	<li>所有给定的点都是&nbsp;<strong>唯一&nbsp;</strong>的。</li>
+</ul>
 
 <!-- description:end -->
 

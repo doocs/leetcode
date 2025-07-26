@@ -20,34 +20,36 @@ tags:
 
 <!-- description:start -->
 
-<p>给定在 xy 平面上的一组点，确定由这些点组成的矩形的最小面积，其中矩形的边平行于 x 轴和 y 轴。</p>
+<p>给你一个&nbsp;<strong>X-Y&nbsp;</strong>平面上的点数组 <code>points</code>，其中 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>。</p>
 
-<p>如果没有任何矩形，就返回 0。</p>
+<p>返回由这些点形成的矩形的最小面积，矩形的边与 X 轴和 Y 轴平行。如果不存在这样的矩形，则返回 <code>0</code>。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>[[1,1],[1,3],[3,1],[3,3],[2,2]]
-<strong>输出：</strong>4
+<p><strong class="example">示例 1：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/images/rec1.jpg" style="width: 500px; height: 447px;" />
+<pre>
+<strong>输入：</strong> points = [[1,1],[1,3],[3,1],[3,3],[2,2]]
+<strong>输出：</strong> 4
 </pre>
 
-<p><strong>示例 2：</strong></p>
-
-<pre><strong>输入：</strong>[[1,1],[1,3],[3,1],[3,3],[4,1],[4,3]]
-<strong>输出：</strong>2
+<p><strong class="example">示例 2：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0939.Minimum%20Area%20Rectangle/images/rec2.jpg" style="width: 500px; height: 477px;" />
+<pre>
+<strong>输入：</strong> points = [[1,1],[1,3],[3,1],[3,3],[4,1],[4,3]]
+<strong>输出：</strong> 2
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>1 &lt;= points.length &lt;= 500</code></li>
-	<li><code>0 &lt;=&nbsp;points[i][0] &lt;=&nbsp;40000</code></li>
-	<li><code>0 &lt;=&nbsp;points[i][1] &lt;=&nbsp;40000</code></li>
-	<li>所有的点都是不同的。</li>
-</ol>
+	<li><code>points[i].length == 2</code></li>
+	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 4 * 10<sup>4</sup></code></li>
+	<li>所有给定的点都是&nbsp;<strong>唯一&nbsp;</strong>的。</li>
+</ul>
 
 <!-- description:end -->
 

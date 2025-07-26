@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3479. 将水果装入篮子 III](https://leetcode.cn/problems/fruits-into-baskets-iii)
+# [3479. 水果成篮 III](https://leetcode.cn/problems/fruits-into-baskets-iii)
 
 [English Version](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README_EN.md)
 

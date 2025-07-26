@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>请在 n &times;&nbsp;n 的棋盘上，实现一个判定井字棋（Tic-Tac-Toe）胜负的神器，判断每一次玩家落子后，是否有胜出的玩家。</p>
+<p>请在 n ×&nbsp;n 的棋盘上，实现一个判定井字棋（Tic-Tac-Toe）胜负的神器，判断每一次玩家落子后，是否有胜出的玩家。</p>
 
 <p>在这个井字棋游戏中，会有 2 名玩家，他们将轮流在棋盘上放置自己的棋子。</p>
 
@@ -34,7 +34,8 @@ tags:
 
 <p><strong>示例:</strong></p>
 
-<pre>给定棋盘边长 <em>n</em> = 3, 玩家 1 的棋子符号是 &quot;X&quot;，玩家 2 的棋子符号是 &quot;O&quot;。
+<pre>
+给定棋盘边长 <em>n</em> = 3, 玩家 1 的棋子符号是 "X"，玩家 2 的棋子符号是 "O"。
 
 TicTacToe toe = new TicTacToe(3);
 
@@ -76,7 +77,17 @@ toe.move(2, 1, 1); -&gt; 函数返回 1 (此时，玩家 1 赢得了该场比赛
 
 <p>&nbsp;</p>
 
-<p><strong>进阶:</strong><br>
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>2 &lt;= n &lt;= 100</code></li>
+	<li>玩家是&nbsp;<code>1</code> 或&nbsp;<code>2</code>。</li>
+	<li><code>0 &lt;= row, col &lt; n</code></li>
+	<li>每次调用 <code>move</code>&nbsp;时&nbsp;<code>(row, col)</code>&nbsp;都是不同的。</li>
+	<li>最多调用&nbsp;<code>move</code>&nbsp;&nbsp;<code>n<sup>2</sup></code>&nbsp;次。</li>
+</ul>
+
+<p><strong>进阶:</strong><br />
 您有没有可能将每一步的&nbsp;<code>move()</code>&nbsp;操作优化到比&nbsp;O(<em>n</em><sup>2</sup>) 更快吗?</p>
 
 <!-- description:end -->
