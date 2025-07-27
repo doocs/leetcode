@@ -1,5 +1,5 @@
-func countMaxOrSubsets(nums []int) int {
-	mx, ans := 0, 0
+func countMaxOrSubsets(nums []int) (ans int) {
+	mx := 0
 	for _, x := range nums {
 		mx |= x
 	}
@@ -17,5 +17,5 @@ func countMaxOrSubsets(nums []int) int {
 	}
 
 	dfs(0, 0)
-	return ans
+	return
 }

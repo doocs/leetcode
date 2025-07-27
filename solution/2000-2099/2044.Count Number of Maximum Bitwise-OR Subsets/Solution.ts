@@ -1,18 +1,18 @@
 function countMaxOrSubsets(nums: number[]): number {
-    let n = nums.length;
-    let max = 0;
-    for (let i = 0; i < n; i++) {
-        max |= nums[i];
-    }
     let ans = 0;
-    function dfs(pre: number, depth: number): void {
-        if (depth == n) {
-            if (pre == max) ++ans;
+    const mx = nums.reduce((x, y) => x | y, 0);
+
+    const dfs = (i: number, t: number) => {
+        if (i === nums.length) {
+            if (t === mx) {
+                ans++;
+            }
             return;
         }
-        dfs(pre, depth + 1);
-        dfs(pre | nums[depth], depth + 1);
-    }
+        dfs(i + 1, t);
+        dfs(i + 1, t | nums[i]);
+    };
+
     dfs(0, 0);
     return ans;
 }

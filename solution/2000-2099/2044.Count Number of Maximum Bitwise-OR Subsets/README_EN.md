@@ -73,7 +73,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+The maximum bitwise OR value $\textit{mx}$ in the array $\textit{nums}$ can be obtained by performing bitwise OR on all elements in the array.
+
+Then we can use depth-first search to enumerate all subsets and count the number of subsets whose bitwise OR equals $\textit{mx}$. We design a function $\text{dfs(i, t)}$, which represents the number of subsets starting from index $\textit{i}$ with the current bitwise OR value being $\textit{t}$. Initially, $\textit{i} = 0$ and $\textit{t} = 0$.
+
+In the function $\text{dfs(i, t)}$, if $\textit{i}$ equals the array length, it means we have enumerated all elements. At this point, if $\textit{t}$ equals $\textit{mx}$, we increment the answer by one. Otherwise, we can choose to either exclude the current element $\textit{nums[i]}$ or include the current element $\textit{nums[i]}$, so we can recursively call $\text{dfs(i + 1, t)}$ and $\text{dfs(i + 1, t | nums[i])}$.
+
+Finally, we return the answer.
+
+The time complexity is $O(2^n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -82,12 +92,8 @@ tags:
 ```python
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
-        mx = ans = 0
-        for x in nums:
-            mx |= x
-
         def dfs(i, t):
-            nonlocal mx, ans
+            nonlocal ans, mx
             if i == len(nums):
                 if t == mx:
                     ans += 1
@@ -95,6 +101,8 @@ class Solution:
             dfs(i + 1, t)
             dfs(i + 1, t | nums[i])
 
+        ans = 0
+        mx = reduce(lambda x, y: x | y, nums)
         dfs(0, 0)
         return ans
 ```
@@ -135,26 +143,21 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int mx;
-    int ans;
-    vector<int> nums;
-
     int countMaxOrSubsets(vector<int>& nums) {
-        this->nums = nums;
-        mx = 0;
-        ans = 0;
-        for (int x : nums) mx |= x;
+        int ans = 0;
+        int mx = accumulate(nums.begin(), nums.end(), 0, bit_or<int>());
+        auto dfs = [&](this auto&& dfs, int i, int t) {
+            if (i == nums.size()) {
+                if (t == mx) {
+                    ans++;
+                }
+                return;
+            }
+            dfs(i + 1, t);
+            dfs(i + 1, t | nums[i]);
+        };
         dfs(0, 0);
         return ans;
-    }
-
-    void dfs(int i, int t) {
-        if (i == nums.size()) {
-            if (t == mx) ++ans;
-            return;
-        }
-        dfs(i + 1, t);
-        dfs(i + 1, t | nums[i]);
     }
 };
 ```
@@ -162,8 +165,8 @@ public:
 #### Go
 
 ```go
-func countMaxOrSubsets(nums []int) int {
-	mx, ans := 0, 0
+func countMaxOrSubsets(nums []int) (ans int) {
+	mx := 0
 	for _, x := range nums {
 		mx |= x
 	}
@@ -181,7 +184,7 @@ func countMaxOrSubsets(nums []int) int {
 	}
 
 	dfs(0, 0)
-	return ans
+	return
 }
 ```
 
@@ -189,20 +192,20 @@ func countMaxOrSubsets(nums []int) int {
 
 ```ts
 function countMaxOrSubsets(nums: number[]): number {
-    let n = nums.length;
-    let max = 0;
-    for (let i = 0; i < n; i++) {
-        max |= nums[i];
-    }
     let ans = 0;
-    function dfs(pre: number, depth: number): void {
-        if (depth == n) {
-            if (pre == max) ++ans;
+    const mx = nums.reduce((x, y) => x | y, 0);
+
+    const dfs = (i: number, t: number) => {
+        if (i === nums.length) {
+            if (t === mx) {
+                ans++;
+            }
             return;
         }
-        dfs(pre, depth + 1);
-        dfs(pre | nums[depth], depth + 1);
-    }
+        dfs(i + 1, t);
+        dfs(i + 1, t | nums[i]);
+    };
+
     dfs(0, 0);
     return ans;
 }
@@ -212,174 +215,24 @@ function countMaxOrSubsets(nums: number[]): number {
 
 ```rust
 impl Solution {
-    fn dfs(nums: &Vec<i32>, i: usize, sum: i32) -> (i32, i32) {
-        let n = nums.len();
-        let mut max = i32::MIN;
-        let mut res = 0;
-        for j in i..n {
-            let num = sum | nums[j];
-            if num >= max {
-                if num > max {
-                    max = num;
-                    res = 0;
-                }
-                res += 1;
-            }
-            let (r_max, r_res) = Self::dfs(nums, j + 1, num);
-            if r_max >= max {
-                if r_max > max {
-                    max = r_max;
-                    res = 0;
-                }
-                res += r_res;
-            }
-        }
-        (max, res)
-    }
-
     pub fn count_max_or_subsets(nums: Vec<i32>) -> i32 {
-        Self::dfs(&nums, 0, 0).1
-    }
-}
-```
+        let mut ans = 0;
+        let mx = nums.iter().fold(0, |x, &y| x | y);
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def countMaxOrSubsets(self, nums: List[int]) -> int:
-        def dfs(u, t):
-            nonlocal ans, mx
-            if u == len(nums):
-                if t > mx:
-                    mx, ans = t, 1
-                elif t == mx:
-                    ans += 1
-                return
-            dfs(u + 1, t | nums[u])
-            dfs(u + 1, t)
-
-        ans = mx = 0
-        dfs(0, 0)
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    private int mx;
-    private int ans;
-    private int[] nums;
-
-    public int countMaxOrSubsets(int[] nums) {
-        this.nums = nums;
-        dfs(0, 0);
-        return ans;
-    }
-
-    private void dfs(int u, int t) {
-        if (u == nums.length) {
-            if (t > mx) {
-                mx = t;
-                ans = 1;
-            } else if (t == mx) {
-                ++ans;
-            }
-            return;
-        }
-        dfs(u + 1, t);
-        dfs(u + 1, t | nums[u]);
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int mx;
-    int ans;
-
-    int countMaxOrSubsets(vector<int>& nums) {
-        dfs(0, 0, nums);
-        return ans;
-    }
-
-    void dfs(int u, int t, vector<int>& nums) {
-        if (u == nums.size()) {
-            if (t > mx) {
-                mx = t;
-                ans = 1;
-            } else if (t == mx)
-                ++ans;
-            return;
-        }
-        dfs(u + 1, t, nums);
-        dfs(u + 1, t | nums[u], nums);
-    }
-};
-```
-
-#### Go
-
-```go
-func countMaxOrSubsets(nums []int) int {
-	n := len(nums)
-	ans := 0
-	mx := 0
-	for mask := 1; mask < 1<<n; mask++ {
-		t := 0
-		for i, v := range nums {
-			if ((mask >> i) & 1) == 1 {
-				t |= v
-			}
-		}
-		if mx < t {
-			mx = t
-			ans = 1
-		} else if mx == t {
-			ans++
-		}
-	}
-	return ans
-}
-```
-
-#### TypeScript
-
-```ts
-function countMaxOrSubsets(nums: number[]): number {
-    const n = nums.length;
-    let res = 0;
-    let max = -Infinity;
-    const dfs = (i: number, sum: number) => {
-        for (let j = i; j < n; j++) {
-            const num = sum | nums[j];
-            if (num >= max) {
-                if (num > max) {
-                    max = num;
-                    res = 0;
+        fn dfs(i: usize, t: i32, nums: &Vec<i32>, mx: i32, ans: &mut i32) {
+            if i == nums.len() {
+                if t == mx {
+                    *ans += 1;
                 }
-                res++;
+                return;
             }
-            dfs(j + 1, num);
+            dfs(i + 1, t, nums, mx, ans);
+            dfs(i + 1, t | nums[i], nums, mx, ans);
         }
-    };
-    dfs(0, 0);
 
-    return res;
+        dfs(0, 0, &nums, mx, &mut ans);
+        ans
+    }
 }
 ```
 
@@ -389,7 +242,13 @@ function countMaxOrSubsets(nums: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 2: Binary Enumeration
+
+We can use binary enumeration to count the bitwise OR results of all subsets. For an array $\textit{nums}$ of length $n$, we can use an integer $\textit{mask}$ to represent a subset, where the $i$-th bit of $\textit{mask}$ being 1 means including element $\textit{nums[i]}$, and 0 means not including it.
+
+We can iterate through all possible $\textit{mask}$ values from $0$ to $2^n - 1$. For each $\textit{mask}$, we can calculate the bitwise OR result of the corresponding subset and update the maximum value $\textit{mx}$ and answer $\textit{ans}$.
+
+The time complexity is $O(2^n \cdot n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -471,23 +330,82 @@ public:
 #### Go
 
 ```go
-func countMaxOrSubsets(nums []int) int {
-	mx, ans := 0, 0
-	var dfs func(u, t int)
-	dfs = func(u, t int) {
-		if u == len(nums) {
-			if t > mx {
-				mx, ans = t, 1
-			} else if t == mx {
-				ans++
+func countMaxOrSubsets(nums []int) (ans int) {
+	n := len(nums)
+	mx := 0
+
+	for mask := 0; mask < (1 << n); mask++ {
+		t := 0
+		for i, v := range nums {
+			if (mask>>i)&1 == 1 {
+				t |= v
 			}
-			return
 		}
-		dfs(u+1, t)
-		dfs(u+1, t|nums[u])
+		if mx < t {
+			mx = t
+			ans = 1
+		} else if mx == t {
+			ans++
+		}
 	}
-	dfs(0, 0)
-	return ans
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countMaxOrSubsets(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    let mx = 0;
+
+    for (let mask = 0; mask < 1 << n; mask++) {
+        let t = 0;
+        for (let i = 0; i < n; i++) {
+            if ((mask >> i) & 1) {
+                t |= nums[i];
+            }
+        }
+        if (mx < t) {
+            mx = t;
+            ans = 1;
+        } else if (mx === t) {
+            ans++;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_max_or_subsets(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+        let mut mx = 0;
+
+        for mask in 0..(1 << n) {
+            let mut t = 0;
+            for i in 0..n {
+                if (mask >> i) & 1 == 1 {
+                    t |= nums[i];
+                }
+            }
+            if mx < t {
+                mx = t;
+                ans = 1;
+            } else if mx == t {
+                ans += 1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
