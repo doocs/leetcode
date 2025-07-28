@@ -1,5 +1,5 @@
 {
-  "cache_date": 1753660834,
+  "cache_date": 1753746957,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -26982,7 +26982,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669400
+      "retrieved": 1753745781
     },
     "solution/2400-2499/2412.Minimum Money Required Before Transactions/README.md": {
       "authors": [
@@ -94217,7 +94217,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670965
+      "retrieved": 1753746588
     },
     "solution/2400-2499/2412.Minimum Money Required Before Transactions/README_EN.md": {
       "authors": [
@@ -129192,7 +129192,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1753623792
+      "retrieved": 1753746812
     },
     "solution/3600-3699/3629.Minimum Jumps to Reach End via Prime Teleportation/README_EN.md": {
       "authors": [
@@ -129203,7 +129203,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1753623792
+      "retrieved": 1753746812
     },
     "solution/3600-3699/3630.Partition Array for Maximum XOR and AND/README_EN.md": {
       "authors": [
@@ -129214,7 +129214,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1753623793
+      "retrieved": 1753746813
     }
   }
 }
