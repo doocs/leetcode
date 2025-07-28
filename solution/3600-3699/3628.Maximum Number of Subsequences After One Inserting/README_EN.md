@@ -18,9 +18,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3628.Ma
 
 <p>You are allowed to insert <strong>at most one</strong> uppercase English letter at <strong>any</strong> position (including the beginning or end) of the string.</p>
 
-<p>Return the <strong>maximum</strong> number of <code>&quot;LCT&quot;</code> subsequences that can be formed in the resulting string after <strong>at most one insertion</strong>.</p>
-
-<p>A <strong>subsequence</strong> is a <strong>non-empty</strong> string that can be derived from another string by deleting some or no characters without changing the order of the remaining characters.</p>
+<p>Return the <strong>maximum</strong> number of <code>&quot;LCT&quot;</code> <span data-keyword="subsequence-string-nonempty">subsequences</span> that can be formed in the resulting string after <strong>at most one insertion</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
