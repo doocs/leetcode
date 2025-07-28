@@ -181,6 +181,56 @@ func smallestSubarrays(nums []int) []int {
 }
 ```
 
+#### TypeScript
+
+```ts
+function smallestSubarrays(nums: number[]): number[] {
+    const n = nums.length;
+    const ans: number[] = Array(n).fill(1);
+    const f: number[] = Array(32).fill(-1);
+
+    for (let i = n - 1; i >= 0; i--) {
+        let t = 1;
+        for (let j = 0; j < 32; j++) {
+            if ((nums[i] >> j) & 1) {
+                f[j] = i;
+            } else if (f[j] !== -1) {
+                t = Math.max(t, f[j] - i + 1);
+            }
+        }
+        ans[i] = t;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_subarrays(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut ans = vec![1; n];
+        let mut f = vec![-1; 32];
+
+        for i in (0..n).rev() {
+            let mut t = 1;
+            for j in 0..32 {
+                if (nums[i] >> j) & 1 != 0 {
+                    f[j] = i as i32;
+                } else if f[j] != -1 {
+                    t = t.max(f[j] - i as i32 + 1);
+                }
+            }
+            ans[i] = t;
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
