@@ -18,9 +18,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个仅包含数字&nbsp;<code>0-9</code>&nbsp;的字符串 <code>num</code> 和一个目标值整数 <code>target</code> ，在 <code>num</code> 的数字之间添加 <strong>二元 </strong>运算符（不是一元）<code>+</code>、<code>-</code>&nbsp;或&nbsp;<code>*</code>&nbsp;，返回 <strong>所有</strong> 能够得到 <code>target </code>的表达式。</p>
+<p>给定一个仅包含数字&nbsp;<code>0-9</code>&nbsp;的字符串 <code>num</code> 和一个目标值整数 <code>target</code> ，在 <code>num</code> 的数字之间添加 <strong>二元 </strong>运算符（不是一元）<code>+</code>、<code>-</code>&nbsp;或&nbsp;<code>*</code>&nbsp;，返回 <strong>所有</strong> 能够得到 <code>target</code>&nbsp;的表达式。</p>
 
 <p>注意，返回表达式中的操作数 <strong>不应该</strong> 包含前导零。</p>
+
+<p><strong>注意</strong>，一个数字可以包含多个数位。</p>
 
 <p>&nbsp;</p>
 

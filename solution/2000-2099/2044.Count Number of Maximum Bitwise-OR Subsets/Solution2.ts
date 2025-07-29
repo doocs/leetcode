@@ -1,21 +1,22 @@
 function countMaxOrSubsets(nums: number[]): number {
     const n = nums.length;
-    let res = 0;
-    let max = -Infinity;
-    const dfs = (i: number, sum: number) => {
-        for (let j = i; j < n; j++) {
-            const num = sum | nums[j];
-            if (num >= max) {
-                if (num > max) {
-                    max = num;
-                    res = 0;
-                }
-                res++;
-            }
-            dfs(j + 1, num);
-        }
-    };
-    dfs(0, 0);
+    let ans = 0;
+    let mx = 0;
 
-    return res;
+    for (let mask = 0; mask < 1 << n; mask++) {
+        let t = 0;
+        for (let i = 0; i < n; i++) {
+            if ((mask >> i) & 1) {
+                t |= nums[i];
+            }
+        }
+        if (mx < t) {
+            mx = t;
+            ans = 1;
+        } else if (mx === t) {
+            ans++;
+        }
+    }
+
+    return ans;
 }

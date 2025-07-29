@@ -61,6 +61,14 @@ tags:
 <p><span class="example-io"><b>输出：</b>true</span></p>
 </div>
 
+<p><strong class="example">示例 5：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "([)]"</span></p>
+
+<p><span class="example-io"><b>输出：</b>false</span></p>
+</div>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

@@ -28,28 +28,67 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>n = 00000010100101000001111010011100
-<strong>输出：</strong>964176192 (00111001011110000010100101000000)
-<strong>解释：</strong>输入的二进制串 <strong>00000010100101000001111010011100 </strong>表示无符号整数<strong> 43261596</strong><strong>，
-    </strong> 因此返回 964176192，其二进制表示形式为 <strong>00111001011110000010100101000000</strong>。</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 43261596</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>964176192</span></p>
 
-<pre>
-<strong>输入：</strong>n = 11111111111111111111111111111101
-<strong>输出：</strong>3221225471 (10111111111111111111111111111111)
-<strong>解释：</strong>输入的二进制串 <strong>11111111111111111111111111111101</strong> 表示无符号整数 4294967293，
-   &nbsp; 因此返回 3221225471 其二进制表示形式为 <strong>10111111111111111111111111111111 。</strong></pre>
+<p><strong>解释：</strong></p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>整数</th>
+			<th>二进制</th>
+		</tr>
+		<tr>
+			<td>43261596</td>
+			<td>00000010100101000001111010011100</td>
+		</tr>
+		<tr>
+			<td>964176192</td>
+			<td>00111001011110000010100101000000</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>n = 2147483644</span></p>
+
+<p><span class="example-io"><b>输出：</b>1073741822</span></p>
+
+<p><strong>解释：</strong></p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>整数</th>
+			<th>二进制</th>
+		</tr>
+		<tr>
+			<td>2147483644</td>
+			<td>01111111111111111111111111111100</td>
+		</tr>
+		<tr>
+			<td>1073741822</td>
+			<td>00111111111111111111111111111110</td>
+		</tr>
+	</tbody>
+</table>
+</div>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>输入是一个长度为 <code>32</code> 的二进制字符串</li>
+	<li><code>0 &lt;= n &lt;= 2<sup>31</sup>&nbsp;- 2</code></li>
+	<li><code>n</code>&nbsp;为偶数</li>
 </ul>
 
 <p>&nbsp;</p>

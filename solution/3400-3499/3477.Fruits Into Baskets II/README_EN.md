@@ -8,6 +8,7 @@ tags:
     - Segment Tree
     - Array
     - Binary Search
+    - Ordered Set
     - Simulation
 ---
 

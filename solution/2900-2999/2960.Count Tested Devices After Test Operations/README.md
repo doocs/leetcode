@@ -29,7 +29,7 @@ tags:
 
     <ul>
     	<li><strong>增加</strong> 已测试设备的计数。</li>
-    	<li>将下标在 <code>[i + 1, n - 1]</code> 的所有设备的电池百分比减少 <code>1</code>，确保它们的电池百分比<strong> 不会低于</strong> <code>0</code> ，即 <code>batteryPercentages[j] = max(0, batteryPercentages[j] - 1)</code>。</li>
+    	<li>将下标&nbsp;<code>j</code> 在 <code>[i + 1, n - 1]</code> 的所有设备的电池百分比减少 <code>1</code>，确保它们的电池百分比<strong> 不会低于</strong> <code>0</code> ，即 <code>batteryPercentages[j] = max(0, batteryPercentages[j] - 1)</code>。</li>
     	<li>移动到下一个设备。</li>
     </ul>
     </li>

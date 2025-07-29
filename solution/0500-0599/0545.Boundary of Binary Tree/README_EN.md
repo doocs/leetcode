@@ -24,7 +24,7 @@ tags:
 
 <ul>
 	<li>The root node&#39;s left child is in the left boundary. If the root does not have a left child, then the left boundary is <strong>empty</strong>.</li>
-	<li>If a node in the left boundary and has a left child, then the left child is in the left boundary.</li>
+	<li>If a node is in the left boundary and has a left child, then the left child is in the left boundary.</li>
 	<li>If a node is in the left boundary, has <strong>no</strong> left child, but has a right child, then the right child is in the left boundary.</li>
 	<li>The leftmost leaf is <strong>not</strong> in the left boundary.</li>
 </ul>
