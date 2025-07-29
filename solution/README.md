@@ -401,7 +401,7 @@
 |  0388  |  [文件的最长绝对路径](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README.md)  |  `栈`,`深度优先搜索`,`字符串`  |  中等  |    |
 |  0389  |  [找不同](/solution/0300-0399/0389.Find%20the%20Difference/README.md)  |  `位运算`,`哈希表`,`字符串`,`排序`  |  简单  |    |
 |  0390  |  [消除游戏](/solution/0300-0399/0390.Elimination%20Game/README.md)  |  `递归`,`数学`  |  中等  |    |
-|  0391  |  [完美矩形](/solution/0300-0399/0391.Perfect%20Rectangle/README.md)  |  `数组`,`扫描线`  |  困难  |    |
+|  0391  |  [完美矩形](/solution/0300-0399/0391.Perfect%20Rectangle/README.md)  |  `几何`,`数组`,`哈希表`,`数学`,`扫描线`  |  困难  |    |
 |  0392  |  [判断子序列](/solution/0300-0399/0392.Is%20Subsequence/README.md)  |  `双指针`,`字符串`,`动态规划`  |  简单  |    |
 |  0393  |  [UTF-8 编码验证](/solution/0300-0399/0393.UTF-8%20Validation/README.md)  |  `位运算`,`数组`  |  中等  |    |
 |  0394  |  [字符串解码](/solution/0300-0399/0394.Decode%20String/README.md)  |  `栈`,`递归`,`字符串`  |  中等  |    |
@@ -864,7 +864,7 @@
 |  0851  |  [喧闹和富有](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)  |  `深度优先搜索`,`图`,`拓扑排序`,`数组`  |  中等  |  第 88 场周赛  |
 |  0852  |  [山脉数组的峰顶索引](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README.md)  |  `数组`,`二分查找`  |  中等  |  第 89 场周赛  |
 |  0853  |  [车队](/solution/0800-0899/0853.Car%20Fleet/README.md)  |  `栈`,`数组`,`排序`,`单调栈`  |  中等  |  第 89 场周赛  |
-|  0854  |  [相似度为 K 的字符串](/solution/0800-0899/0854.K-Similar%20Strings/README.md)  |  `广度优先搜索`,`字符串`  |  困难  |  第 89 场周赛  |
+|  0854  |  [相似度为 K 的字符串](/solution/0800-0899/0854.K-Similar%20Strings/README.md)  |  `广度优先搜索`,`哈希表`,`字符串`  |  困难  |  第 89 场周赛  |
 |  0855  |  [考场就座](/solution/0800-0899/0855.Exam%20Room/README.md)  |  `设计`,`有序集合`,`堆（优先队列）`  |  中等  |  第 89 场周赛  |
 |  0856  |  [括号的分数](/solution/0800-0899/0856.Score%20of%20Parentheses/README.md)  |  `栈`,`字符串`  |  中等  |  第 90 场周赛  |
 |  0857  |  [雇佣 K 名工人的最低成本](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  困难  |  第 90 场周赛  |
@@ -973,7 +973,7 @@
 |  0960  |  [删列造序 III](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README.md)  |  `数组`,`字符串`,`动态规划`  |  困难  |  第 115 场周赛  |
 |  0961  |  [在长度 2N 的数组中找出重复 N 次的元素](/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README.md)  |  `数组`,`哈希表`  |  简单  |  第 116 场周赛  |
 |  0962  |  [最大宽度坡](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md)  |  `栈`,`数组`,`双指针`,`单调栈`  |  中等  |  第 116 场周赛  |
-|  0963  |  [最小面积矩形 II](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README.md)  |  `几何`,`数组`,`数学`  |  中等  |  第 116 场周赛  |
+|  0963  |  [最小面积矩形 II](/solution/0900-0999/0963.Minimum%20Area%20Rectangle%20II/README.md)  |  `几何`,`数组`,`哈希表`,`数学`  |  中等  |  第 116 场周赛  |
 |  0964  |  [表示数字的最少运算符](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README.md)  |  `记忆化搜索`,`数学`,`动态规划`  |  困难  |  第 116 场周赛  |
 |  0965  |  [单值二叉树](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉树`  |  简单  |  第 117 场周赛  |
 |  0966  |  [元音拼写检查器](/solution/0900-0999/0966.Vowel%20Spellchecker/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |  第 117 场周赛  |
@@ -1268,7 +1268,7 @@
 |  1255  |  [得分最高的单词集合](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md)  |  `位运算`,`数组`,`字符串`,`动态规划`,`回溯`,`状态压缩`  |  困难  |  第 162 场周赛  |
 |  1256  |  [加密数字](/solution/1200-1299/1256.Encode%20Number/README.md)  |  `位运算`,`数学`,`字符串`  |  中等  |  第 13 场双周赛  |
 |  1257  |  [最小公共区域](/solution/1200-1299/1257.Smallest%20Common%20Region/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`数组`,`哈希表`,`字符串`  |  中等  |  第 13 场双周赛  |
-|  1258  |  [近义词句子](/solution/1200-1299/1258.Synonymous%20Sentences/README.md)  |  `并查集`,`数组`,`哈希表`,`字符串`,`回溯`  |  中等  |  第 13 场双周赛  |
+|  1258  |  [近义词句子](/solution/1200-1299/1258.Synonymous%20Sentences/README.md)  |  `排序`,`并查集`,`数组`,`哈希表`,`字符串`,`回溯`  |  中等  |  第 13 场双周赛  |
 |  1259  |  [不相交的握手](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README.md)  |  `数学`,`动态规划`  |  困难  |  第 13 场双周赛  |
 |  1260  |  [二维网格迁移](/solution/1200-1299/1260.Shift%202D%20Grid/README.md)  |  `数组`,`矩阵`,`模拟`  |  简单  |  第 163 场周赛  |
 |  1261  |  [在受污染的二叉树中查找元素](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`设计`,`哈希表`,`二叉树`  |  中等  |  第 163 场周赛  |
@@ -2571,7 +2571,7 @@
 |  2558  |  [从数量最多的堆取走礼物](/solution/2500-2599/2558.Take%20Gifts%20From%20the%20Richest%20Pile/README.md)  |  `数组`,`模拟`,`堆（优先队列）`  |  简单  |  第 331 场周赛  |
 |  2559  |  [统计范围内的元音字符串数](/solution/2500-2599/2559.Count%20Vowel%20Strings%20in%20Ranges/README.md)  |  `数组`,`字符串`,`前缀和`  |  中等  |  第 331 场周赛  |
 |  2560  |  [打家劫舍 IV](/solution/2500-2599/2560.House%20Robber%20IV/README.md)  |  `贪心`,`数组`,`二分查找`,`动态规划`  |  中等  |  第 331 场周赛  |
-|  2561  |  [重排水果](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)  |  `贪心`,`数组`,`哈希表`  |  困难  |  第 331 场周赛  |
+|  2561  |  [重排水果](/solution/2500-2599/2561.Rearranging%20Fruits/README.md)  |  `贪心`,`排序`,`数组`,`哈希表`  |  困难  |  第 331 场周赛  |
 |  2562  |  [找出数组的串联值](/solution/2500-2599/2562.Find%20the%20Array%20Concatenation%20Value/README.md)  |  `数组`,`双指针`,`模拟`  |  简单  |  第 332 场周赛  |
 |  2563  |  [统计公平数对的数目](/solution/2500-2599/2563.Count%20the%20Number%20of%20Fair%20Pairs/README.md)  |  `数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 332 场周赛  |
 |  2564  |  [子字符串异或查询](/solution/2500-2599/2564.Substring%20XOR%20Queries/README.md)  |  `位运算`,`数组`,`哈希表`,`字符串`  |  中等  |  第 332 场周赛  |
@@ -3002,7 +3002,7 @@
 |  2989  |  [班级表现](/solution/2900-2999/2989.Class%20Performance/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2990  |  [贷款类型](/solution/2900-2999/2990.Loan%20Types/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  2991  |  [最好的三家酒庄](/solution/2900-2999/2991.Top%20Three%20Wineries/README.md)  |  `数据库`  |  困难  |  🔒  |
-|  2992  |  [自整除排列的数量](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)  |  `位运算`,`数组`,`动态规划`,`回溯`,`状态压缩`  |  中等  |  🔒  |
+|  2992  |  [自整除排列的数量](/solution/2900-2999/2992.Number%20of%20Self-Divisible%20Permutations/README.md)  |  `位运算`,`数组`,`数学`,`动态规划`,`回溯`,`状态压缩`,`数论`  |  中等  |  🔒  |
 |  2993  |  [发生在周五的交易 I](/solution/2900-2999/2993.Friday%20Purchases%20I/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  2994  |  [发生在周五的交易 II](/solution/2900-2999/2994.Friday%20Purchases%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  2995  |  [观众变主播](/solution/2900-2999/2995.Viewers%20Turned%20Streamers/README.md)  |  `数据库`  |  困难  |  🔒  |
@@ -3487,9 +3487,9 @@
 |  3474  |  [字典序最小的生成字符串](/solution/3400-3499/3474.Lexicographically%20Smallest%20Generated%20String/README.md)  |  `贪心`,`字符串`,`字符串匹配`  |  困难  |  第 439 场周赛  |
 |  3475  |  [DNA 模式识别](/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md)  |    |  中等  |    |
 |  3476  |  [最大化任务分配的利润](/solution/3400-3499/3476.Maximize%20Profit%20from%20Task%20Assignment/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  中等  |  🔒  |
-|  3477  |  [水果成篮 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)  |  `线段树`,`数组`,`二分查找`,`模拟`  |  简单  |  第 440 场周赛  |
+|  3477  |  [水果成篮 II](/solution/3400-3499/3477.Fruits%20Into%20Baskets%20II/README.md)  |  `线段树`,`数组`,`二分查找`,`有序集合`,`模拟`  |  简单  |  第 440 场周赛  |
 |  3478  |  [选出和最大的 K 个元素](/solution/3400-3499/3478.Choose%20K%20Elements%20With%20Maximum%20Sum/README.md)  |  `数组`,`排序`,`堆（优先队列）`  |  中等  |  第 440 场周赛  |
-|  3479  |  [将水果装入篮子 III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md)  |  `线段树`,`数组`,`二分查找`,`有序集合`  |  中等  |  第 440 场周赛  |
+|  3479  |  [水果成篮 III](/solution/3400-3499/3479.Fruits%20Into%20Baskets%20III/README.md)  |  `线段树`,`数组`,`二分查找`,`有序集合`  |  中等  |  第 440 场周赛  |
 |  3480  |  [删除一个冲突对后最大子数组数目](/solution/3400-3499/3480.Maximize%20Subarrays%20After%20Removing%20One%20Conflicting%20Pair/README.md)  |  `线段树`,`数组`,`枚举`,`前缀和`  |  困难  |  第 440 场周赛  |
 |  3481  |  [应用替换](/solution/3400-3499/3481.Apply%20Substitutions/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`,`拓扑排序`,`数组`,`哈希表`,`字符串`  |  中等  |  🔒  |
 |  3482  |  [分析组织层级](/solution/3400-3499/3482.Analyze%20Organization%20Hierarchy/README.md)  |  `数据库`  |  困难  |    |
@@ -3636,6 +3636,11 @@
 |  3623  |  [统计梯形的数目 I](/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README.md)  |  `几何`,`数组`,`哈希表`,`数学`  |  中等  |  第 459 场周赛  |
 |  3624  |  [位计数深度为 K 的整数数目 II](/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README.md)  |  `线段树`,`数组`  |  困难  |  第 459 场周赛  |
 |  3625  |  [统计梯形的数目 II](/solution/3600-3699/3625.Count%20Number%20of%20Trapezoids%20II/README.md)  |  `几何`,`数组`,`哈希表`,`数学`  |  困难  |  第 459 场周赛  |
+|  3626  |  [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)  |    |  中等  |    |
+|  3627  |  [中位数之和的最大值](/solution/3600-3699/3627.Maximum%20Median%20Sum%20of%20Subsequences%20of%20Size%203/README.md)  |    |  中等  |  第 460 场周赛  |
+|  3628  |  [插入一个字母的最大子序列数](/solution/3600-3699/3628.Maximum%20Number%20of%20Subsequences%20After%20One%20Inserting/README.md)  |    |  中等  |  第 460 场周赛  |
+|  3629  |  [通过质数传送到达终点的最少跳跃次数](/solution/3600-3699/3629.Minimum%20Jumps%20to%20Reach%20End%20via%20Prime%20Teleportation/README.md)  |    |  中等  |  第 460 场周赛  |
+|  3630  |  [划分数组得到最大异或运算和与运算之和](/solution/3600-3699/3630.Partition%20Array%20for%20Maximum%20XOR%20and%20AND/README.md)  |    |  困难  |  第 460 场周赛  |
 
 ## 版权
 

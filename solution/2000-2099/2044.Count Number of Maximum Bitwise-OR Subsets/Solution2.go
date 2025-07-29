@@ -1,11 +1,11 @@
-func countMaxOrSubsets(nums []int) int {
+func countMaxOrSubsets(nums []int) (ans int) {
 	n := len(nums)
-	ans := 0
 	mx := 0
-	for mask := 1; mask < 1<<n; mask++ {
+
+	for mask := 0; mask < (1 << n); mask++ {
 		t := 0
 		for i, v := range nums {
-			if ((mask >> i) & 1) == 1 {
+			if (mask>>i)&1 == 1 {
 				t |= v
 			}
 		}
@@ -16,5 +16,6 @@ func countMaxOrSubsets(nums []int) int {
 			ans++
 		}
 	}
-	return ans
+
+	return
 }

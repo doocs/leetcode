@@ -3,7 +3,10 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0391.Perfect%20Rectangle/README.md
 tags:
+    - 几何
     - 数组
+    - 哈希表
+    - 数学
     - 扫描线
 ---
 

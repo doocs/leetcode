@@ -6,6 +6,7 @@ rating: 2221
 source: Weekly Contest 331 Q4
 tags:
     - Greedy
+    - Sort
     - Array
     - Hash Table
 ---

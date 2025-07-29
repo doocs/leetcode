@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1258.Sy
 rating: 1847
 source: 第 13 场双周赛 Q3
 tags:
+    - 排序
     - 并查集
     - 数组
     - 哈希表

@@ -29,7 +29,12 @@ tags:
 在 SQL 中，id 是该表的主键列。
 该表的每一行表示一个客户的 id、姓名以及推荐他们的客户的 id。</pre>
 
-<p>找出那些 <strong>没有被</strong> <code>id = 2</code> 的客户 <strong>推荐</strong> 的客户的姓名。</p>
+<p>找出以下客户的姓名：</p>
+
+<ol>
+	<li><strong>被任何</strong>&nbsp;<code>id != 2</code>&nbsp;的用户推荐。</li>
+	<li><strong>没有被</strong>&nbsp;任何用户推荐。</li>
+</ol>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 

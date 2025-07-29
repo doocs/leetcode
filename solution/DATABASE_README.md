@@ -323,6 +323,7 @@
 | 3601 | [寻找燃油效率提升的驾驶员](/solution/3600-3699/3601.Find%20Drivers%20with%20Improved%20Fuel%20Efficiency/README.md)                                          | `数据库` | 中等 |      |
 | 3611 | [查找超预订员工](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README.md)                                                                           | `数据库` | 中等 |      |
 | 3617 | [查找具有螺旋学习模式的学生](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)                                           |          | 困难 |      |
+| 3626 | [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)                                                      |          | 中等 |      |
 
 ## 版权
 

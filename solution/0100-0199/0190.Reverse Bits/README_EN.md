@@ -23,31 +23,70 @@ tags:
 
 <ul>
 	<li>Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer&#39;s internal binary representation is the same, whether it is signed or unsigned.</li>
-	<li>In Java, the compiler represents the signed integers using <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">2&#39;s complement notation</a>. Therefore, in <strong class="example">Example 2</strong> above, the input represents the signed integer <code>-3</code> and the output represents the signed integer <code>-1073741825</code>.</li>
+	<li>In Java, the compiler represents the signed integers using <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">2&#39;s complement notation</a>. Therefore, in <strong class="example">Example 2</strong>&nbsp;below, the input represents the signed integer <code>-3</code> and the output represents the signed integer <code>-1073741825</code>.</li>
 </ul>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 00000010100101000001111010011100
-<strong>Output:</strong>    964176192 (00111001011110000010100101000000)
-<strong>Explanation: </strong>The input binary string <strong>00000010100101000001111010011100</strong> represents the unsigned integer 43261596, so return 964176192 which its binary representation is <strong>00111001011110000010100101000000</strong>.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 43261596</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">964176192</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Integer</th>
+			<th>Binary</th>
+		</tr>
+		<tr>
+			<td>43261596</td>
+			<td>00000010100101000001111010011100</td>
+		</tr>
+		<tr>
+			<td>964176192</td>
+			<td>00111001011110000010100101000000</td>
+		</tr>
+	</tbody>
+</table>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> n = 11111111111111111111111111111101
-<strong>Output:</strong>   3221225471 (10111111111111111111111111111111)
-<strong>Explanation: </strong>The input binary string <strong>11111111111111111111111111111101</strong> represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is <strong>10111111111111111111111111111111</strong>.
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">n = 2147483644</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">1073741822</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<table>
+	<tbody>
+		<tr>
+			<th>Integer</th>
+			<th>Binary</th>
+		</tr>
+		<tr>
+			<td>2147483644</td>
+			<td>01111111111111111111111111111100</td>
+		</tr>
+		<tr>
+			<td>1073741822</td>
+			<td>00111111111111111111111111111110</td>
+		</tr>
+	</tbody>
+</table>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The input must be a <strong>binary string</strong> of length <code>32</code></li>
+	<li><code>0 &lt;= n &lt;= 2<sup>31</sup> - 2</code></li>
+	<li><code>n</code> is even.</li>
 </ul>
 
 <p>&nbsp;</p>
