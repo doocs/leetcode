@@ -161,6 +161,38 @@ function doesValidArrayExist(derived: number[]): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn does_valid_array_exist(derived: Vec<i32>) -> bool {
+        derived.iter().fold(0, |acc, &x| acc ^ x) == 0
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} derived
+ * @return {boolean}
+ */
+var doesValidArrayExist = function (derived) {
+    return derived.reduce((acc, x) => acc ^ x) === 0;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool DoesValidArrayExist(int[] derived) {
+        return derived.Aggregate(0, (acc, x) => acc ^ x) == 0;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
