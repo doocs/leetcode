@@ -17,14 +17,14 @@ class Solution {
     long op2 = total - op1;
     long res = (op1 + op2 % 2) * c1 + op2 / 2 * c2;
 
-    total += op1 / (n - 2) * n;
-    op1 %= n - 2;
+    total += (op1 / (n - 2)) * n;
+    op1 %= (n - 2);
     op2 = total - op1;
     res = Math.min(res, (op1 + op2 % 2) * c1 + op2 / 2 * c2);
 
     for (int i = 0; i < 2; i++) {
       total += n;
-      res = Math.min(res, total % 2 * c1 + total / 2 * c2);
+      res = Math.min(res, (total % 2) * c1 + (total / 2) * c2);
     }
 
     return (int) (res % mod);
