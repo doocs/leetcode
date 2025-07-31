@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3566.Partition%20Array%20into%20Two%20Equal%20Product%20Subsets/README_EN.md
+rating: 1459
+source: Weekly Contest 452 Q1
 tags:
     - Bit Manipulation
     - Recursion
