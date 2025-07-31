@@ -1,5 +1,5 @@
 {
-  "cache_date": 1753918621,
+  "cache_date": 1754006278,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -3673,13 +3673,13 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "0xtch",
+          "name": "0xtch",
+          "url": "https://github.com/0xtch",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         }
       ],
-      "retrieved": 1745668871
+      "retrieved": 1754004830
     },
     "solution/1100-1199/1180.Count Substrings with Only One Distinct Letter/README.md": {
       "authors": [
@@ -70764,13 +70764,13 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "0xtch",
+          "name": "0xtch",
+          "url": "https://github.com/0xtch",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         }
       ],
-      "retrieved": 1745670453
+      "retrieved": 1754005664
     },
     "solution/1100-1199/1180.Count Substrings with Only One Distinct Letter/README_EN.md": {
       "authors": [
@@ -127761,7 +127761,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940200
+      "retrieved": 1754005311
     },
     "solution/3500-3599/3567.Minimum Absolute Difference in Sliding Submatrix/README.md": {
       "authors": [
@@ -127772,7 +127772,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940201
+      "retrieved": 1754005311
     },
     "solution/3500-3599/3568.Minimum Moves to Clean the Classroom/README.md": {
       "authors": [
@@ -127783,7 +127783,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940201
+      "retrieved": 1754005311
     },
     "solution/3500-3599/3569.Maximize Count of Distinct Primes After Split/README.md": {
       "authors": [
@@ -127794,7 +127794,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940202
+      "retrieved": 1754005312
     },
     "solution/3500-3599/3570.Find Books with No Available Copies/README.md": {
       "authors": [
@@ -127827,7 +127827,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940986
+      "retrieved": 1754006119
     },
     "solution/3500-3599/3567.Minimum Absolute Difference in Sliding Submatrix/README_EN.md": {
       "authors": [
@@ -127838,7 +127838,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940987
+      "retrieved": 1754006119
     },
     "solution/3500-3599/3568.Minimum Moves to Clean the Classroom/README_EN.md": {
       "authors": [
@@ -127849,7 +127849,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940987
+      "retrieved": 1754006120
     },
     "solution/3500-3599/3569.Maximize Count of Distinct Primes After Split/README_EN.md": {
       "authors": [
@@ -127860,7 +127860,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1748940988
+      "retrieved": 1754006120
     },
     "solution/3500-3599/3570.Find Books with No Available Copies/README_EN.md": {
       "authors": [
@@ -129215,6 +129215,50 @@
         }
       ],
       "retrieved": 1753746813
+    },
+    "solution/3600-3699/3631.Sort Threats by Severity and Exploitability/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754005323
+    },
+    "solution/3600-3699/3632.Subarrays with XOR at Least K/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754005323
+    },
+    "solution/3600-3699/3631.Sort Threats by Severity and Exploitability/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754006131
+    },
+    "solution/3600-3699/3632.Subarrays with XOR at Least K/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754006131
     }
   }
 }
