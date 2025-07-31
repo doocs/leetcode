@@ -217,6 +217,51 @@ var longestSubarray = function (nums) {
 };
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public int LongestSubarray(int[] nums) {
+        int mx = nums.Max();
+        int ans = 0, cnt = 0;
+        foreach (int x in nums) {
+            if (x == mx) {
+                ans = Math.Max(ans, ++cnt);
+            } else {
+                cnt = 0;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function longestSubarray($nums) {
+        $mx = max($nums);
+        $ans = 0;
+        $cnt = 0;
+
+        foreach ($nums as $x) {
+            if ($x == $mx) {
+                $ans = max($ans, ++$cnt);
+            } else {
+                $cnt = 0;
+            }
+        }
+
+        return $ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
