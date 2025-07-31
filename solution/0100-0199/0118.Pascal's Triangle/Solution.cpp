@@ -6,8 +6,8 @@ public:
         for (int i = 0; i < numRows - 1; ++i) {
             vector<int> g;
             g.push_back(1);
-            for (int j = 0; j < f[i].size() - 1; ++j) {
-                g.push_back(f[i][j] + f[i][j + 1]);
+            for (int j = 1; j < f[i].size(); ++j) {
+                g.push_back(f[i][j - 1] + f[i][j]);
             }
             g.push_back(1);
             f.push_back(g);
