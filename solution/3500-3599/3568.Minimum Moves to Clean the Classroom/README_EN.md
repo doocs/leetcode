@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3568.Minimum%20Moves%20to%20Clean%20the%20Classroom/README_EN.md
+rating: 2143
+source: Weekly Contest 452 Q3
 tags:
     - Bit Manipulation
     - Breadth-First Search

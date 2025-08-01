@@ -3641,6 +3641,8 @@
 |  3628  |  [插入一个字母的最大子序列数](/solution/3600-3699/3628.Maximum%20Number%20of%20Subsequences%20After%20One%20Inserting/README.md)  |    |  中等  |  第 460 场周赛  |
 |  3629  |  [通过质数传送到达终点的最少跳跃次数](/solution/3600-3699/3629.Minimum%20Jumps%20to%20Reach%20End%20via%20Prime%20Teleportation/README.md)  |    |  中等  |  第 460 场周赛  |
 |  3630  |  [划分数组得到最大异或运算和与运算之和](/solution/3600-3699/3630.Partition%20Array%20for%20Maximum%20XOR%20and%20AND/README.md)  |    |  困难  |  第 460 场周赛  |
+|  3631  |  [按严重性和可利用性排序威胁](/solution/3600-3699/3631.Sort%20Threats%20by%20Severity%20and%20Exploitability/README.md)  |  `数组`,`排序`  |  中等  |  🔒  |
+|  3632  |  [子数组异或至少为 K 的数目](/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

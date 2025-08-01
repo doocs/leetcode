@@ -57,7 +57,7 @@ tags:
 
 我们先创建一个答案数组 $f$，然后将 $f$ 的第一行元素设为 $[1]$。接下来，我们从第二行开始，每一行的开头和结尾元素都是 $1$，其它 $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是行数。
+时间复杂度 $O(n^2)$，其中 $n$ 为给定的行数。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -83,8 +83,8 @@ class Solution {
         for (int i = 0; i < numRows - 1; ++i) {
             List<Integer> g = new ArrayList<>();
             g.add(1);
-            for (int j = 0; j < f.get(i).size() - 1; ++j) {
-                g.add(f.get(i).get(j) + f.get(i).get(j + 1));
+            for (int j = 1; j < f.get(i).size(); ++j) {
+                g.add(f.get(i).get(j - 1) + f.get(i).get(j));
             }
             g.add(1);
             f.add(g);
@@ -105,8 +105,8 @@ public:
         for (int i = 0; i < numRows - 1; ++i) {
             vector<int> g;
             g.push_back(1);
-            for (int j = 0; j < f[i].size() - 1; ++j) {
-                g.push_back(f[i][j] + f[i][j + 1]);
+            for (int j = 1; j < f[i].size(); ++j) {
+                g.push_back(f[i][j - 1] + f[i][j]);
             }
             g.push_back(1);
             f.push_back(g);
@@ -123,8 +123,8 @@ func generate(numRows int) [][]int {
 	f := [][]int{[]int{1}}
 	for i := 0; i < numRows-1; i++ {
 		g := []int{1}
-		for j := 0; j < len(f[i])-1; j++ {
-			g = append(g, f[i][j]+f[i][j+1])
+		for j := 1; j < len(f[i]); j++ {
+			g = append(g, f[i][j-1]+f[i][j])
 		}
 		g = append(g, 1)
 		f = append(f, g)
@@ -140,8 +140,8 @@ function generate(numRows: number): number[][] {
     const f: number[][] = [[1]];
     for (let i = 0; i < numRows - 1; ++i) {
         const g: number[] = [1];
-        for (let j = 0; j < f[i].length - 1; ++j) {
-            g.push(f[i][j] + f[i][j + 1]);
+        for (let j = 1; j < f[i].length; ++j) {
+            g.push(f[i][j - 1] + f[i][j]);
         }
         g.push(1);
         f.push(g);
@@ -154,21 +154,17 @@ function generate(numRows: number): number[][] {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn generate(num_rows: i32) -> Vec<Vec<i32>> {
-        let mut ret_vec: Vec<Vec<i32>> = Vec::new();
-        let mut cur_vec: Vec<i32> = Vec::new();
-
-        for i in 0..num_rows as usize {
-            let mut new_vec: Vec<i32> = vec![1; i + 1];
-            for j in 1..i {
-                new_vec[j] = cur_vec[j - 1] + cur_vec[j];
+        let mut f = vec![vec![1]];
+        for i in 1..num_rows {
+            let mut g = vec![1];
+            for j in 1..f[i as usize - 1].len() {
+                g.push(f[i as usize - 1][j - 1] + f[i as usize - 1][j]);
             }
-            cur_vec = new_vec.clone();
-            ret_vec.push(new_vec);
+            g.push(1);
+            f.push(g);
         }
-
-        ret_vec
+        f
     }
 }
 ```
@@ -184,14 +180,33 @@ var generate = function (numRows) {
     const f = [[1]];
     for (let i = 0; i < numRows - 1; ++i) {
         const g = [1];
-        for (let j = 0; j < f[i].length - 1; ++j) {
-            g.push(f[i][j] + f[i][j + 1]);
+        for (let j = 1; j < f[i].length; ++j) {
+            g.push(f[i][j - 1] + f[i][j]);
         }
         g.push(1);
         f.push(g);
     }
     return f;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<IList<int>> Generate(int numRows) {
+        var f = new List<IList<int>> { new List<int> { 1 } };
+        for (int i = 1; i < numRows; ++i) {
+            var g = new List<int> { 1 };
+            for (int j = 1; j < f[i - 1].Count; ++j) {
+                g.Add(f[i - 1][j - 1] + f[i - 1][j]);
+            }
+            g.Add(1);
+            f.Add(g);
+        }
+        return f;
+    }
+}
 ```
 
 <!-- tabs:end -->
