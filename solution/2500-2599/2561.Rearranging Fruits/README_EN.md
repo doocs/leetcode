@@ -157,7 +157,7 @@ public:
             }
             mi = min(mi, x);
         }
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int m = nums.size();
         long long ans = 0;
         for (int i = 0; i < m / 2; ++i) {
@@ -201,6 +201,80 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(basket1: number[], basket2: number[]): number {
+    const n = basket1.length;
+    const cnt: Map<number, number> = new Map();
+    for (let i = 0; i < n; i++) {
+        cnt.set(basket1[i], (cnt.get(basket1[i]) || 0) + 1);
+        cnt.set(basket2[i], (cnt.get(basket2[i]) || 0) - 1);
+    }
+    let mi = Number.MAX_SAFE_INTEGER;
+    const nums: number[] = [];
+    for (const [x, v] of cnt.entries()) {
+        if (v % 2 !== 0) {
+            return -1;
+        }
+        for (let i = 0; i < Math.abs(v) / 2; i++) {
+            nums.push(x);
+        }
+        mi = Math.min(mi, x);
+    }
+
+    nums.sort((a, b) => a - b);
+    const m = nums.length;
+    let ans = 0;
+    for (let i = 0; i < m / 2; i++) {
+        ans += Math.min(nums[i], mi * 2);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_cost(basket1: Vec<i32>, basket2: Vec<i32>) -> i64 {
+        let n = basket1.len();
+        let mut cnt: HashMap<i32, i32> = HashMap::new();
+
+        for i in 0..n {
+            *cnt.entry(basket1[i]).or_insert(0) += 1;
+            *cnt.entry(basket2[i]).or_insert(0) -= 1;
+        }
+
+        let mut mi = i32::MAX;
+        let mut nums = Vec::new();
+
+        for (x, v) in cnt {
+            if v % 2 != 0 {
+                return -1;
+            }
+            for _ in 0..(v.abs() / 2) {
+                nums.push(x);
+            }
+            mi = mi.min(x);
+        }
+
+        nums.sort();
+
+        let m = nums.len();
+        let mut ans = 0;
+
+        for i in 0..(m / 2) {
+            ans += nums[i].min(mi * 2) as i64;
+        }
+
+        ans
+    }
 }
 ```
 
