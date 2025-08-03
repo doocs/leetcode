@@ -85,32 +85,99 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3638.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We maintain the maximum value $\text{mx}$ of the currently traversed array, and iterate through each element $x$ in the array. If $x < \text{mx}$, it means the current element can serve as the last parcel of a balanced shipment, so we increment the answer by one and reset $\text{mx}$ to 0. Otherwise, we update $\text{mx}$ to the value of the current element $x$.
+
+After the traversal, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant extra space.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxBalancedShipments(self, weight: List[int]) -> int:
+        ans = mx = 0
+        for x in weight:
+            mx = max(mx, x)
+            if x < mx:
+                ans += 1
+                mx = 0
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxBalancedShipments(int[] weight) {
+        int ans = 0;
+        int mx = 0;
+        for (int x : weight) {
+            mx = Math.max(mx, x);
+            if (x < mx) {
+                ++ans;
+                mx = 0;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxBalancedShipments(vector<int>& weight) {
+        int ans = 0;
+        int mx = 0;
+        for (int x : weight) {
+            mx = max(mx, x);
+            if (x < mx) {
+                ++ans;
+                mx = 0;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxBalancedShipments(weight []int) (ans int) {
+	mx := 0
+	for _, x := range weight {
+		mx = max(mx, x)
+		if x < mx {
+			ans++
+			mx = 0
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxBalancedShipments(weight: number[]): number {
+    let [ans, mx] = [0, 0];
+    for (const x of weight) {
+        mx = Math.max(mx, x);
+        if (x < mx) {
+            ans++;
+            mx = 0;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
