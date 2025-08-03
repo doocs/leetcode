@@ -126,32 +126,129 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3633.Ea
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Greedy
+
+We can consider two orders of rides: first land rides then water rides, or first water rides then land rides.
+
+For each order, we first calculate the earliest end time $\textit{minEnd}$ of the first type of ride, then enumerate the second type of ride and calculate the earliest end time of the second type of ride as $\max(\textit{minEnd}, \textit{startTime}) + \textit{duration}$, where $\textit{startTime}$ is the start time of the second type of ride. We take the minimum value among all possible earliest end times as the answer.
+
+Finally, we return the minimum value between the answers of the two orders.
+
+The time complexity is $O(n + m)$, where $n$ and $m$ are the numbers of land rides and water rides respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def earliestFinishTime(self, landStartTime: List[int], landDuration: List[int], waterStartTime: List[int], waterDuration: List[int]) -> int:
+        def calc(a1, t1, a2, t2):
+            min_end = min(a + t for a, t in zip(a1, t1))
+            return min(max(a, min_end) + t for a, t in zip(a2, t2))
 
+        x = calc(landStartTime, landDuration, waterStartTime, waterDuration)
+        y = calc(waterStartTime, waterDuration, landStartTime, landDuration)
+        return min(x, y)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int earliestFinishTime(
+        int[] landStartTime, int[] landDuration, int[] waterStartTime, int[] waterDuration) {
+        int x = calc(landStartTime, landDuration, waterStartTime, waterDuration);
+        int y = calc(waterStartTime, waterDuration, landStartTime, landDuration);
+        return Math.min(x, y);
+    }
 
+    private int calc(int[] a1, int[] t1, int[] a2, int[] t2) {
+        int minEnd = Integer.MAX_VALUE;
+        for (int i = 0; i < a1.length; ++i) {
+            minEnd = Math.min(minEnd, a1[i] + t1[i]);
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < a2.length; ++i) {
+            ans = Math.min(ans, Math.max(minEnd, a2[i]) + t2[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int earliestFinishTime(vector<int>& landStartTime, vector<int>& landDuration, vector<int>& waterStartTime, vector<int>& waterDuration) {
+        int x = calc(landStartTime, landDuration, waterStartTime, waterDuration);
+        int y = calc(waterStartTime, waterDuration, landStartTime, landDuration);
+        return min(x, y);
+    }
 
+    int calc(vector<int>& a1, vector<int>& t1, vector<int>& a2, vector<int>& t2) {
+        int minEnd = INT_MAX;
+        for (int i = 0; i < a1.size(); ++i) {
+            minEnd = min(minEnd, a1[i] + t1[i]);
+        }
+        int ans = INT_MAX;
+        for (int i = 0; i < a2.size(); ++i) {
+            ans = min(ans, max(minEnd, a2[i]) + t2[i]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func earliestFinishTime(landStartTime []int, landDuration []int, waterStartTime []int, waterDuration []int) int {
+	x := calc(landStartTime, landDuration, waterStartTime, waterDuration)
+	y := calc(waterStartTime, waterDuration, landStartTime, landDuration)
+	return min(x, y)
+}
 
+func calc(a1 []int, t1 []int, a2 []int, t2 []int) int {
+	minEnd := math.MaxInt32
+	for i := 0; i < len(a1); i++ {
+		minEnd = min(minEnd, a1[i]+t1[i])
+	}
+	ans := math.MaxInt32
+	for i := 0; i < len(a2); i++ {
+		ans = min(ans, max(minEnd, a2[i])+t2[i])
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function earliestFinishTime(
+    landStartTime: number[],
+    landDuration: number[],
+    waterStartTime: number[],
+    waterDuration: number[],
+): number {
+    const x = calc(landStartTime, landDuration, waterStartTime, waterDuration);
+    const y = calc(waterStartTime, waterDuration, landStartTime, landDuration);
+    return Math.min(x, y);
+}
+
+function calc(a1: number[], t1: number[], a2: number[], t2: number[]): number {
+    let minEnd = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < a1.length; i++) {
+        minEnd = Math.min(minEnd, a1[i] + t1[i]);
+    }
+    let ans = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < a2.length; i++) {
+        ans = Math.min(ans, Math.max(minEnd, a2[i]) + t2[i]);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
