@@ -87,32 +87,99 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3638.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+我们维护当前遍历的数组的最大值 $\text{mx}$，并遍历数组中的每个元素 $x$。如果 $x < \text{mx}$，则说明当前元素可以作为一个平衡装运的最后一个包裹，因此我们就将答案加一，并将 $\text{mx}$ 重置为 0。否则，我们更新 $\text{mx}$ 为当前元素 $x$ 的值。
+
+遍历结束后，返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$，只使用了常数级别的额外空间。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxBalancedShipments(self, weight: List[int]) -> int:
+        ans = mx = 0
+        for x in weight:
+            mx = max(mx, x)
+            if x < mx:
+                ans += 1
+                mx = 0
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxBalancedShipments(int[] weight) {
+        int ans = 0;
+        int mx = 0;
+        for (int x : weight) {
+            mx = Math.max(mx, x);
+            if (x < mx) {
+                ++ans;
+                mx = 0;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxBalancedShipments(vector<int>& weight) {
+        int ans = 0;
+        int mx = 0;
+        for (int x : weight) {
+            mx = max(mx, x);
+            if (x < mx) {
+                ++ans;
+                mx = 0;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxBalancedShipments(weight []int) (ans int) {
+	mx := 0
+	for _, x := range weight {
+		mx = max(mx, x)
+		if x < mx {
+			ans++
+			mx = 0
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxBalancedShipments(weight: number[]): number {
+    let [ans, mx] = [0, 0];
+    for (const x of weight) {
+        mx = Math.max(mx, x);
+        if (x < mx) {
+            ans++;
+            mx = 0;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
