@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3620.Network%20Recovery%20Pathways/README.md
+rating: 1998
+source: 第 161 场双周赛 Q3
 tags:
     - 图
     - 拓扑排序

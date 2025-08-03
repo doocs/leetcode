@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3597.Partition%20String/README.md
+rating: 1347
+source: 第 456 场周赛 Q1
 tags:
     - 字典树
     - 哈希表

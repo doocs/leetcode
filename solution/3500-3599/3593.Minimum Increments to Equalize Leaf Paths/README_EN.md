@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3593.Minimum%20Increments%20to%20Equalize%20Leaf%20Paths/README_EN.md
+rating: 1959
+source: Weekly Contest 455 Q3
 tags:
     - Tree
     - Depth-First Search

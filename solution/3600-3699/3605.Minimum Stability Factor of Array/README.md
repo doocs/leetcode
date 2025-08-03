@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README.md
+rating: 2409
+source: 第 160 场双周赛 Q4
 tags:
     - 贪心
     - 线段树

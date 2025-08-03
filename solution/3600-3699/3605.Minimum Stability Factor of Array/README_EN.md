@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3605.Minimum%20Stability%20Factor%20of%20Array/README_EN.md
+rating: 2409
+source: Biweekly Contest 160 Q4
 tags:
     - Greedy
     - Segment Tree

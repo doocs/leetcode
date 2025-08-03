@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3585.Find%20Weighted%20Median%20Node%20in%20Tree/README.md
+rating: 2428
+source: 第 454 场周赛 Q4
 tags:
     - 树
     - 深度优先搜索

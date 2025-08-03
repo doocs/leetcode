@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Minimize%20Maximum%20Component%20Cost/README_EN.md
+rating: 1641
+source: Weekly Contest 458 Q2
 tags:
     - Sort
     - Union Find

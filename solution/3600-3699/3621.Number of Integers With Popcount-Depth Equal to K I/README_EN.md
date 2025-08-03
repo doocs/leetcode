@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3621.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20I/README_EN.md
+rating: 2330
+source: Biweekly Contest 161 Q4
 tags:
     - Math
     - Dynamic Programming

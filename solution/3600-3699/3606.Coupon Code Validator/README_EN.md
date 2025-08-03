@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3606.Coupon%20Code%20Validator/README_EN.md
+rating: 1312
+source: Weekly Contest 457 Q1
 tags:
     - Array
     - Hash Table
