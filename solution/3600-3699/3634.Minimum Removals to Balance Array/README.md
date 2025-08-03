@@ -86,32 +86,107 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3634.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序 + 二分查找
+
+我们首先对数组进行排序，然后我们从小到大枚举每个元素 $\textit{nums}[i]$ 作为平衡数组的最小值，那么平衡数组的最大值 $\textit{max}$ 必须满足 $\textit{max} \leq \textit{nums}[i] \times k$。因此，我们可以使用二分查找来找到第一个大于 $\textit{nums}[i] \times k$ 的元素的下标 $j$，那么此时平衡数组的长度为 $j - i$，我们记录下最大的长度 $\textit{cnt}$，最后的答案就是数组长度减去 $\textit{cnt}$。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minRemoval(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        cnt = 0
+        for i, x in enumerate(nums):
+            j = bisect_right(nums, k * x)
+            cnt = max(cnt, j - i)
+        return len(nums) - cnt
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minRemoval(int[] nums, int k) {
+        Arrays.sort(nums);
+        int cnt = 0;
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            int j = n;
+            if (1L * nums[i] * k <= nums[n - 1]) {
+                j = Arrays.binarySearch(nums, nums[i] * k + 1);
+                j = j < 0 ? -j - 1 : j;
+            }
+            cnt = Math.max(cnt, j - i);
+        }
+        return n - cnt;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minRemoval(vector<int>& nums, int k) {
+        ranges::sort(nums);
+        int cnt = 0;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            int j = n;
+            if (1LL * nums[i] * k <= nums[n - 1]) {
+                j = upper_bound(nums.begin(), nums.end(), 1LL * nums[i] * k) - nums.begin();
+            }
+            cnt = max(cnt, j - i);
+        }
+        return n - cnt;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minRemoval(nums []int, k int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	cnt := 0
+	for i := 0; i < n; i++ {
+		j := n
+		if int64(nums[i])*int64(k) <= int64(nums[n-1]) {
+			target := int64(nums[i])*int64(k) + 1
+			j = sort.Search(n, func(x int) bool {
+				return int64(nums[x]) >= target
+			})
+		}
+		cnt = max(cnt, j-i)
+	}
+	return n - cnt
+}
+```
 
+#### TypeScript
+
+```ts
+function minRemoval(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let cnt = 0;
+    for (let i = 0; i < n; ++i) {
+        let j = n;
+        if (nums[i] * k <= nums[n - 1]) {
+            const target = nums[i] * k + 1;
+            j = _.sortedIndexBy(nums, target, x => x);
+        }
+        cnt = Math.max(cnt, j - i);
+    }
+    return n - cnt;
+}
 ```
 
 <!-- tabs:end -->
