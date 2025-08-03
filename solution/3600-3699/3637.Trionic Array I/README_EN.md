@@ -71,32 +71,146 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3637.Tr
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+We first define a pointer $p$, initially $p = 0$, pointing to the first element of the array. We move $p$ to the right until we find the first element that doesn't satisfy strict increasing order, i.e., $nums[p] \geq nums[p + 1]$. If $p = 0$ at this point, it means the first part of the array doesn't have a strictly increasing section, so we return $\text{false}$ directly.
+
+Next, we define another pointer $q$, initially $q = p$, pointing to the first element of the second part of the array. We move $q$ to the right until we find the first element that doesn't satisfy strict decreasing order, i.e., $nums[q] \leq nums[q + 1]$. If $q = p$ or $q = n - 1$ at this point, it means the second part of the array doesn't have a strictly decreasing section or there's no third part, so we return $\text{false}$ directly.
+
+If all the above conditions are satisfied, it means the array is trionic, and we return $\text{true}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant extra space.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isTrionic(self, nums: List[int]) -> bool:
+        n = len(nums)
+        p = 0
+        while p < n - 2 and nums[p] < nums[p + 1]:
+            p += 1
+        if p == 0:
+            return False
+        q = p
+        while q < n - 1 and nums[q] > nums[q + 1]:
+            q += 1
+        if q == p or q == n - 1:
+            return False
+        while q < n - 1 and nums[q] < nums[q + 1]:
+            q += 1
+        return q == n - 1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isTrionic(int[] nums) {
+        int n = nums.length;
+        int p = 0;
+        while (p < n - 2 && nums[p] < nums[p + 1]) {
+            p++;
+        }
+        if (p == 0) {
+            return false;
+        }
+        int q = p;
+        while (q < n - 1 && nums[q] > nums[q + 1]) {
+            q++;
+        }
+        if (q == p || q == n - 1) {
+            return false;
+        }
+        while (q < n - 1 && nums[q] < nums[q + 1]) {
+            q++;
+        }
+        return q == n - 1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isTrionic(vector<int>& nums) {
+        int n = nums.size();
+        int p = 0;
+        while (p < n - 2 && nums[p] < nums[p + 1]) {
+            p++;
+        }
+        if (p == 0) {
+            return false;
+        }
+        int q = p;
+        while (q < n - 1 && nums[q] > nums[q + 1]) {
+            q++;
+        }
+        if (q == p || q == n - 1) {
+            return false;
+        }
+        while (q < n - 1 && nums[q] < nums[q + 1]) {
+            q++;
+        }
+        return q == n - 1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isTrionic(nums []int) bool {
+	n := len(nums)
+	p := 0
+	for p < n-2 && nums[p] < nums[p+1] {
+		p++
+	}
+	if p == 0 {
+		return false
+	}
+	q := p
+	for q < n-1 && nums[q] > nums[q+1] {
+		q++
+	}
+	if q == p || q == n-1 {
+		return false
+	}
+	for q < n-1 && nums[q] < nums[q+1] {
+		q++
+	}
+	return q == n-1
+}
+```
 
+#### TypeScript
+
+```ts
+function isTrionic(nums: number[]): boolean {
+    const n = nums.length;
+    let p = 0;
+    while (p < n - 2 && nums[p] < nums[p + 1]) {
+        p++;
+    }
+    if (p === 0) {
+        return false;
+    }
+    let q = p;
+    while (q < n - 1 && nums[q] > nums[q + 1]) {
+        q++;
+    }
+    if (q === p || q === n - 1) {
+        return false;
+    }
+    while (q < n - 1 && nums[q] < nums[q + 1]) {
+        q++;
+    }
+    return q === n - 1;
+}
 ```
 
 <!-- tabs:end -->
