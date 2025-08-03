@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3600.Maximize%20Spanning%20Tree%20Stability%20with%20Upgrades/README_EN.md
+rating: 2301
+source: Weekly Contest 456 Q4
 tags:
     - Greedy
     - Union Find

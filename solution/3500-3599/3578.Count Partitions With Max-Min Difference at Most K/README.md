@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README.md
+rating: 2032
+source: 第 453 场周赛 Q3
 tags:
     - 队列
     - 数组

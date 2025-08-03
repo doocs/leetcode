@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II/README_EN.md
+rating: 2085
+source: Weekly Contest 459 Q3
 tags:
     - Segment Tree
     - Array

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3584.Maximum%20Product%20of%20First%20and%20Last%20Elements%20of%20a%20Subsequence/README.md
+rating: 1763
+source: 第 454 场周赛 Q3
 tags:
     - 数组
     - 双指针

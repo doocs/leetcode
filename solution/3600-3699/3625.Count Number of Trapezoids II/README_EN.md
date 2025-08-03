@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3625.Count%20Number%20of%20Trapezoids%20II/README_EN.md
+rating: 2643
+source: Weekly Contest 459 Q4
 tags:
     - Geometry
     - Array

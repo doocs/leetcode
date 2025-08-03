@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3628.Maximum%20Number%20of%20Subsequences%20After%20One%20Inserting/README.md
+rating: 1753
+source: 第 460 场周赛 Q2
 ---
 
 <!-- problem:start -->

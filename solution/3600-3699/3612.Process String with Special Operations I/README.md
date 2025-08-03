@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3612.Process%20String%20with%20Special%20Operations%20I/README.md
+rating: 1185
+source: 第 458 场周赛 Q1
 tags:
     - 字符串
     - 模拟

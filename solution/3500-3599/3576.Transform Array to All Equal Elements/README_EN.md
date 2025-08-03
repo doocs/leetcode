@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3576.Transform%20Array%20to%20All%20Equal%20Elements/README_EN.md
+rating: 1489
+source: Weekly Contest 453 Q1
 tags:
     - Greedy
     - Array

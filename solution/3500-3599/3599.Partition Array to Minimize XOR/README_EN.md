@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README_EN.md
+rating: 1954
+source: Weekly Contest 456 Q3
 tags:
     - Bit Manipulation
     - Array

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3614.Process%20String%20with%20Special%20Operations%20II/README_EN.md
+rating: 2010
+source: Weekly Contest 458 Q3
 tags:
     - String
     - Simulation

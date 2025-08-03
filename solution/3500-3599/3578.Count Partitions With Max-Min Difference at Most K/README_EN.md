@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3578.Count%20Partitions%20With%20Max-Min%20Difference%20at%20Most%20K/README_EN.md
+rating: 2032
+source: Weekly Contest 453 Q3
 tags:
     - Queue
     - Array

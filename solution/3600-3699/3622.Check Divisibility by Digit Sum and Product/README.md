@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3622.Check%20Divisibility%20by%20Digit%20Sum%20and%20Product/README.md
+rating: 1148
+source: 第 459 场周赛 Q1
 tags:
     - 数学
 ---

@@ -68,6 +68,14 @@ Notice that node 4 is the last child of node 1.</pre>
 <strong>Explanation:</strong> This example follows case 3 because node p is not in the sub-tree of node q and vice-versa. We can move node 3 with its sub-tree and make it as node 8&#39;s child.
 </pre>
 
+<p><strong class="example">Example 4:</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/untitled-diagramdrawio.png" style="width: 500px; height: 175px;" />
+<pre>
+<strong>Input:</strong> root = [1,null,2,3,null,4], p = 1, q = 4
+<strong>Output:</strong> [4,null,1,null,2,3]
+<strong>Explanation:</strong> This example follows case 1 because node q is in the sub-tree of node p. Disconnect 4 with its parent and move node 1 with its sub-tree and make it as node 4&#39;s child.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

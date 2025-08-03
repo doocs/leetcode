@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3608.Minimum%20Time%20for%20K%20Connected%20Components/README_EN.md
+rating: 1892
+source: Weekly Contest 457 Q3
 tags:
     - Union Find
     - Graph

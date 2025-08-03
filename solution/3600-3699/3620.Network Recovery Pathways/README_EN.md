@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3620.Network%20Recovery%20Pathways/README_EN.md
+rating: 1998
+source: Biweekly Contest 161 Q3
 tags:
     - Graph
     - Topological Sort
