@@ -83,9 +83,9 @@ tags:
 
 ### 方法一：哈希表 + 滑动窗口
 
-我们用哈希表 $cnt$ 维护当前窗口内的水果种类以及对应的数量，用双指针 $j$ 和 $i$ 维护窗口的左右边界。
+我们用哈希表 $\textit{cnt}$ 维护当前窗口内的水果种类以及对应的数量，用双指针 $j$ 和 $i$ 维护窗口的左右边界。
 
-遍历数组 `fruits`，将当前水果 $x$ 加入窗口，即 $cnt[x]++$，然后判断当前窗口内的水果种类是否超过了 $2$ 种，如果超过了 $2$ 种，就需要将窗口的左边界 $j$ 右移，直到窗口内的水果种类不超过 $2$ 种为止。然后更新答案，即 $ans = \max(ans, i - j + 1)$。
+遍历数组 $\textit{fruits}$，将当前水果 $x$ 加入窗口，即 $\textit{cnt}[x]++$，然后判断当前窗口内的水果种类是否超过了 $2$ 种，如果超过了 $2$ 种，就需要将窗口的左边界 $j$ 右移，直到窗口内的水果种类不超过 $2$ 种为止。然后更新答案，即 $\textit{ans} = \max(\textit{ans}, i - j + 1)$。
 
 遍历结束后，即可得到最终的答案。
 
@@ -105,7 +105,7 @@ j   i
   j     i
 ```
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 `fruits` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{fruits}$ 的长度。空间复杂度 $O(1)$，因为哈希表 $\textit{cnt}$ 中的键值对数量最多为 $2$。
 
 <!-- tabs:start -->
 
@@ -248,19 +248,49 @@ impl Solution {
 }
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public int TotalFruit(int[] fruits) {
+        var cnt = new Dictionary<int, int>();
+        int ans = 0;
+        for (int i = 0, j = 0; i < fruits.Length; ++i) {
+            int x = fruits[i];
+            if (cnt.ContainsKey(x)) {
+                cnt[x]++;
+            } else {
+                cnt[x] = 1;
+            }
+            while (cnt.Count > 2) {
+                int y = fruits[j++];
+                if (cnt.ContainsKey(y)) {
+                    cnt[y]--;
+                    if (cnt[y] == 0) {
+                        cnt.Remove(y);
+                    }
+                }
+            }
+            ans = Math.Max(ans, i - j + 1);
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### 方法二：滑动窗口优化
+### 方法二：单调变长滑动窗口
 
 在方法一中，我们发现，窗口大小会时而变大，时而变小，这就需要我们每一次更新答案。
 
 但本题实际上求的是水果的最大数目，也就是“最大”的窗口，我们没有必要缩小窗口，只需要让窗口单调增大。于是代码就少了每次更新答案的操作，只需要在遍历结束后将此时的窗口大小作为答案返回即可。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 `fruits` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{fruits}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -391,6 +421,35 @@ impl Solution {
         }
 
         (n - j) as i32
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int TotalFruit(int[] fruits) {
+        var cnt = new Dictionary<int, int>();
+        int j = 0, n = fruits.Length;
+        foreach (int x in fruits) {
+            if (cnt.ContainsKey(x)) {
+                cnt[x]++;
+            } else {
+                cnt[x] = 1;
+            }
+
+            if (cnt.Count > 2) {
+                int y = fruits[j++];
+                if (cnt.ContainsKey(y)) {
+                    cnt[y]--;
+                    if (cnt[y] == 0) {
+                        cnt.Remove(y);
+                    }
+                }
+            }
+        }
+        return n - j;
     }
 }
 ```
