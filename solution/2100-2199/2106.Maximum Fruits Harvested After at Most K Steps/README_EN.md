@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> fruits = [[2,8],[6,3],[8,6]], startPos = 5, k = 4
 <strong>Output:</strong> 9
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The optimal way is to:
 - Move right to position 6 and harvest 3 fruits
 - Move right to position 8 and harvest 6 fruits
@@ -45,7 +45,7 @@ You moved 3 steps and harvested 3 + 6 = 9 fruits in total.
 <pre>
 <strong>Input:</strong> fruits = [[0,9],[4,1],[5,7],[6,2],[7,4],[10,9]], startPos = 5, k = 4
 <strong>Output:</strong> 14
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 You can move at most k = 4 steps, so you cannot reach position 0 nor 10.
 The optimal way is to:
 - Harvest the 7 fruits at the starting position 5
