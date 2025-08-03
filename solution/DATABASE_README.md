@@ -10,12 +10,22 @@
 
 | 题号 | 题解                                                                                                                                                         | 标签     | 难度 | 备注 |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ---- | ---- |
+| 0175 | [组合两个表](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)                                                                                      | `数据库` | 简单 |      |
+| 0176 | [第二高的薪水](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)                                                                                 | `数据库` | 中等 |      |
+| 0177 | [第N高的薪水](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)                                                                                     | `数据库` | 中等 |      |
+| 0178 | [分数排名](/solution/0100-0199/0178.Rank%20Scores/README.md)                                                                                                 | `数据库` | 中等 |      |
+| 0180 | [连续出现的数字](/solution/0100-0199/0180.Consecutive%20Numbers/README.md)                                                                                   | `数据库` | 中等 |      |
 | 0181 | [超过经理收入的员工](/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README.md)                                                | `数据库` | 简单 |      |
 | 0182 | [查找重复的电子邮箱](/solution/0100-0199/0182.Duplicate%20Emails/README.md)                                                                                  | `数据库` | 简单 |      |
+| 0183 | [从不订购的客户](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README.md)                                                                         | `数据库` | 简单 |      |
+| 0184 | [部门工资最高的员工](/solution/0100-0199/0184.Department%20Highest%20Salary/README.md)                                                                       | `数据库` | 中等 |      |
 | 0185 | [部门工资前三高的所有员工](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md)                                                           | `数据库` | 困难 |      |
+| 0196 | [删除重复的电子邮箱](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md)                                                                         | `数据库` | 简单 |      |
 | 0197 | [上升的温度](/solution/0100-0199/0197.Rising%20Temperature/README.md)                                                                                        | `数据库` | 简单 |      |
 | 0262 | [行程和用户](/solution/0200-0299/0262.Trips%20and%20Users/README.md)                                                                                         | `数据库` | 困难 |      |
+| 0511 | [游戏玩法分析 I](/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README.md)                                                                              | `数据库` | 简单 |      |
 | 0512 | [游戏玩法分析 II](/solution/0500-0599/0512.Game%20Play%20Analysis%20II/README.md)                                                                            | `数据库` | 简单 | 🔒   |
+| 0534 | [游戏玩法分析 III](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md)                                                                          | `数据库` | 中等 | 🔒   |
 | 0550 | [游戏玩法分析 IV](/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README.md)                                                                            | `数据库` | 中等 |      |
 | 0569 | [员工薪水中位数](/solution/0500-0599/0569.Median%20Employee%20Salary/README.md)                                                                              | `数据库` | 困难 | 🔒   |
 | 0570 | [至少有5名直接下属的经理](/solution/0500-0599/0570.Managers%20with%20at%20Least%205%20Direct%20Reports/README.md)                                            | `数据库` | 中等 |      |
@@ -25,6 +35,7 @@
 | 0578 | [查询回答率最高的问题](/solution/0500-0599/0578.Get%20Highest%20Answer%20Rate%20Question/README.md)                                                          | `数据库` | 中等 | 🔒   |
 | 0579 | [查询员工的累计薪水](/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README.md)                                                     | `数据库` | 困难 | 🔒   |
 | 0580 | [统计各专业学生人数](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README.md)                                                         | `数据库` | 中等 | 🔒   |
+| 0584 | [寻找用户推荐人](/solution/0500-0599/0584.Find%20Customer%20Referee/README.md)                                                                               | `数据库` | 简单 |      |
 | 0585 | [2016年的投资](/solution/0500-0599/0585.Investments%20in%202016/README.md)                                                                                   | `数据库` | 中等 |      |
 | 0586 | [订单最多的客户](/solution/0500-0599/0586.Customer%20Placing%20the%20Largest%20Number%20of%20Orders/README.md)                                               | `数据库` | 简单 |      |
 | 0595 | [大的国家](/solution/0500-0599/0595.Big%20Countries/README.md)                                                                                               | `数据库` | 简单 |      |
@@ -34,31 +45,56 @@
 | 0602 | [好友申请 II ：谁有最多的好友](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)                                 | `数据库` | 中等 |      |
 | 0603 | [连续空余座位](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)                                                                           | `数据库` | 简单 | 🔒   |
 | 0607 | [销售员](/solution/0600-0699/0607.Sales%20Person/README.md)                                                                                                  | `数据库` | 简单 |      |
+| 0608 | [树节点](/solution/0600-0699/0608.Tree%20Node/README.md)                                                                                                     | `数据库` | 中等 |      |
+| 0610 | [判断三角形](/solution/0600-0699/0610.Triangle%20Judgement/README.md)                                                                                        | `数据库` | 简单 |      |
+| 0612 | [平面上的最近距离](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)                                                                  | `数据库` | 中等 | 🔒   |
 | 0613 | [直线上的最近距离](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md)                                                                   | `数据库` | 简单 | 🔒   |
 | 0614 | [二级关注者](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)                                                                                  | `数据库` | 中等 | 🔒   |
 | 0615 | [平均工资：部门与公司比较](/solution/0600-0699/0615.Average%20Salary%20Departments%20VS%20Company/README.md)                                                 | `数据库` | 困难 | 🔒   |
 | 0618 | [学生地理信息报告](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README.md)                                                                    | `数据库` | 困难 | 🔒   |
 | 0619 | [只出现一次的最大数字](/solution/0600-0699/0619.Biggest%20Single%20Number/README.md)                                                                         | `数据库` | 简单 |      |
 | 0620 | [有趣的电影](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)                                                                                       | `数据库` | 简单 |      |
+| 0626 | [换座位](/solution/0600-0699/0626.Exchange%20Seats/README.md)                                                                                                | `数据库` | 中等 |      |
+| 0627 | [变更性别](/solution/0600-0699/0627.Swap%20Salary/README.md)                                                                                                 | `数据库` | 简单 |      |
+| 1045 | [买下所有产品的客户](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)                                                           | `数据库` | 中等 |      |
+| 1050 | [合作过至少三次的演员和导演](/solution/1000-1099/1050.Actors%20and%20Directors%20Who%20Cooperated%20At%20Least%20Three%20Times/README.md)                    | `数据库` | 简单 |      |
 | 1068 | [产品销售分析 I](/solution/1000-1099/1068.Product%20Sales%20Analysis%20I/README.md)                                                                          | `数据库` | 简单 |      |
 | 1069 | [产品销售分析 II](/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README.md)                                                                        | `数据库` | 简单 | 🔒   |
+| 1070 | [产品销售分析 III](/solution/1000-1099/1070.Product%20Sales%20Analysis%20III/README.md)                                                                      | `数据库` | 中等 |      |
+| 1075 | [项目员工 I](/solution/1000-1099/1075.Project%20Employees%20I/README.md)                                                                                     | `数据库` | 简单 |      |
 | 1076 | [项目员工II](/solution/1000-1099/1076.Project%20Employees%20II/README.md)                                                                                    | `数据库` | 简单 | 🔒   |
+| 1077 | [项目员工 III](/solution/1000-1099/1077.Project%20Employees%20III/README.md)                                                                                 | `数据库` | 中等 | 🔒   |
 | 1082 | [销售分析 I ](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)                                                                                       | `数据库` | 简单 | 🔒   |
+| 1083 | [销售分析 II](/solution/1000-1099/1083.Sales%20Analysis%20II/README.md)                                                                                      | `数据库` | 简单 | 🔒   |
 | 1084 | [销售分析 III](/solution/1000-1099/1084.Sales%20Analysis%20III/README.md)                                                                                    | `数据库` | 简单 |      |
+| 1097 | [游戏玩法分析 V](/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README.md)                                                                              | `数据库` | 困难 | 🔒   |
+| 1098 | [小众书籍](/solution/1000-1099/1098.Unpopular%20Books/README.md)                                                                                             | `数据库` | 中等 | 🔒   |
+| 1107 | [每日新用户统计](/solution/1100-1199/1107.New%20Users%20Daily%20Count/README.md)                                                                             | `数据库` | 中等 | 🔒   |
+| 1112 | [每位学生的最高成绩](/solution/1100-1199/1112.Highest%20Grade%20For%20Each%20Student/README.md)                                                              | `数据库` | 中等 | 🔒   |
+| 1113 | [报告的记录](/solution/1100-1199/1113.Reported%20Posts/README.md)                                                                                            | `数据库` | 简单 | 🔒   |
 | 1126 | [查询活跃业务](/solution/1100-1199/1126.Active%20Businesses/README.md)                                                                                       | `数据库` | 中等 | 🔒   |
 | 1127 | [用户购买平台](/solution/1100-1199/1127.User%20Purchase%20Platform/README.md)                                                                                | `数据库` | 困难 | 🔒   |
 | 1132 | [报告的记录 II](/solution/1100-1199/1132.Reported%20Posts%20II/README.md)                                                                                    | `数据库` | 中等 | 🔒   |
+| 1141 | [查询近30天活跃用户数](/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README.md)                                                | `数据库` | 简单 |      |
+| 1142 | [过去30天的用户活动 II](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README.md)                                              | `数据库` | 简单 | 🔒   |
+| 1148 | [文章浏览 I](/solution/1100-1199/1148.Article%20Views%20I/README.md)                                                                                         | `数据库` | 简单 |      |
+| 1149 | [文章浏览 II](/solution/1100-1199/1149.Article%20Views%20II/README.md)                                                                                       | `数据库` | 中等 | 🔒   |
 | 1158 | [市场分析 I](/solution/1100-1199/1158.Market%20Analysis%20I/README.md)                                                                                       | `数据库` | 中等 |      |
 | 1159 | [市场分析 II](/solution/1100-1199/1159.Market%20Analysis%20II/README.md)                                                                                     | `数据库` | 困难 | 🔒   |
+| 1164 | [指定日期的产品价格](/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README.md)                                                             | `数据库` | 中等 |      |
 | 1173 | [即时食物配送 I](/solution/1100-1199/1173.Immediate%20Food%20Delivery%20I/README.md)                                                                         | `数据库` | 简单 | 🔒   |
 | 1174 | [即时食物配送 II](/solution/1100-1199/1174.Immediate%20Food%20Delivery%20II/README.md)                                                                       | `数据库` | 中等 |      |
+| 1179 | [重新格式化部门表](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)                                                                         | `数据库` | 简单 |      |
 | 1193 | [每月交易 I](/solution/1100-1199/1193.Monthly%20Transactions%20I/README.md)                                                                                  | `数据库` | 中等 |      |
+| 1194 | [锦标赛优胜者](/solution/1100-1199/1194.Tournament%20Winners/README.md)                                                                                      | `数据库` | 困难 | 🔒   |
 | 1204 | [最后一个能进入巴士的人](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Bus/README.md)                                                       | `数据库` | 中等 |      |
 | 1205 | [每月交易 II](/solution/1200-1299/1205.Monthly%20Transactions%20II/README.md)                                                                                | `数据库` | 中等 | 🔒   |
 | 1211 | [查询结果的质量和占比](/solution/1200-1299/1211.Queries%20Quality%20and%20Percentage/README.md)                                                              | `数据库` | 简单 |      |
 | 1212 | [查询球队积分](/solution/1200-1299/1212.Team%20Scores%20in%20Football%20Tournament/README.md)                                                                | `数据库` | 中等 | 🔒   |
 | 1225 | [报告系统状态的连续日期](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README.md)                                                                     | `数据库` | 困难 | 🔒   |
 | 1241 | [每个帖子的评论数](/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README.md)                                                                   | `数据库` | 简单 | 🔒   |
+| 1251 | [平均售价](/solution/1200-1299/1251.Average%20Selling%20Price/README.md)                                                                                     | `数据库` | 简单 |      |
+| 1264 | [页面推荐](/solution/1200-1299/1264.Page%20Recommendations/README.md)                                                                                        | `数据库` | 中等 | 🔒   |
 | 1270 | [向公司 CEO 汇报工作的所有人](/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README.md)                                         | `数据库` | 中等 | 🔒   |
 | 1280 | [学生们参加各科测试的次数](/solution/1200-1299/1280.Students%20and%20Examinations/README.md)                                                                 | `数据库` | 简单 |      |
 | 1285 | [找到连续区间的开始和结束数字](/solution/1200-1299/1285.Find%20the%20Start%20and%20End%20Number%20of%20Continuous%20Ranges/README.md)                        | `数据库` | 中等 | 🔒   |
@@ -76,17 +112,23 @@
 | 1369 | [获取最近第二次的活动](/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md)                                                     | `数据库` | 困难 | 🔒   |
 | 1378 | [使用唯一标识码替换员工ID](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README.md)                                    | `数据库` | 简单 |      |
 | 1384 | [按年度列出销售总额](/solution/1300-1399/1384.Total%20Sales%20Amount%20by%20Year/README.md)                                                                  | `数据库` | 困难 | 🔒   |
+| 1393 | [股票的资本损益](/solution/1300-1399/1393.Capital%20GainLoss/README.md)                                                                                      | `数据库` | 中等 |      |
 | 1398 | [购买了产品 A 和产品 B 却没有购买产品 C 的顾客](/solution/1300-1399/1398.Customers%20Who%20Bought%20Products%20A%20and%20B%20but%20Not%20C/README.md)        | `数据库` | 中等 | 🔒   |
 | 1407 | [排名靠前的旅行者](/solution/1400-1499/1407.Top%20Travellers/README.md)                                                                                      | `数据库` | 简单 |      |
+| 1412 | [查找成绩处于中游的学生](/solution/1400-1499/1412.Find%20the%20Quiet%20Students%20in%20All%20Exams/README.md)                                                | `数据库` | 困难 | 🔒   |
 | 1421 | [净现值查询](/solution/1400-1499/1421.NPV%20Queries/README.md)                                                                                               | `数据库` | 简单 | 🔒   |
 | 1435 | [制作会话柱状图](/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README.md)                                                                      | `数据库` | 简单 | 🔒   |
 | 1440 | [计算布尔表达式的值](/solution/1400-1499/1440.Evaluate%20Boolean%20Expression/README.md)                                                                     | `数据库` | 中等 | 🔒   |
 | 1445 | [苹果和桔子](/solution/1400-1499/1445.Apples%20%26%20Oranges/README.md)                                                                                      | `数据库` | 中等 | 🔒   |
+| 1454 | [活跃用户](/solution/1400-1499/1454.Active%20Users/README.md)                                                                                                | `数据库` | 中等 | 🔒   |
 | 1459 | [矩形面积](/solution/1400-1499/1459.Rectangles%20Area/README.md)                                                                                             | `数据库` | 中等 | 🔒   |
 | 1468 | [计算税后工资](/solution/1400-1499/1468.Calculate%20Salaries/README.md)                                                                                      | `数据库` | 中等 | 🔒   |
+| 1479 | [周内每天的销售情况](/solution/1400-1499/1479.Sales%20by%20Day%20of%20the%20Week/README.md)                                                                  | `数据库` | 困难 | 🔒   |
+| 1484 | [按日期分组销售产品](/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README.md)                                                           | `数据库` | 简单 |      |
 | 1495 | [上月播放的儿童适宜电影](/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README.md)                                                     | `数据库` | 简单 | 🔒   |
 | 1501 | [可以放心投资的国家](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README.md)                                                        | `数据库` | 中等 | 🔒   |
 | 1511 | [消费者下单频率](/solution/1500-1599/1511.Customer%20Order%20Frequency/README.md)                                                                            | `数据库` | 简单 | 🔒   |
+| 1517 | [查找拥有有效邮箱的用户](/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README.md)                                                           | `数据库` | 简单 |      |
 | 1527 | [患某种疾病的患者](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)                                                                       | `数据库` | 简单 |      |
 | 1532 | [最近的三笔订单](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)                                                                    | `数据库` | 中等 | 🔒   |
 | 1543 | [产品名称格式修复](/solution/1500-1599/1543.Fix%20Product%20Name%20Format/README.md)                                                                         | `数据库` | 简单 | 🔒   |
@@ -97,10 +139,12 @@
 | 1581 | [进店却未进行过交易的顾客](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README.md)                        | `数据库` | 简单 |      |
 | 1587 | [银行账户概要 II](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README.md)                                                                          | `数据库` | 简单 |      |
 | 1596 | [每位顾客最经常订购的商品](/solution/1500-1599/1596.The%20Most%20Frequently%20Ordered%20Products%20for%20Each%20Customer/README.md)                          | `数据库` | 中等 | 🔒   |
+| 1607 | [没有卖出的卖家](/solution/1600-1699/1607.Sellers%20With%20No%20Sales/README.md)                                                                             | `数据库` | 简单 | 🔒   |
 | 1613 | [找到遗失的ID](/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README.md)                                                                                | `数据库` | 中等 | 🔒   |
 | 1623 | [三人国家代表队](/solution/1600-1699/1623.All%20Valid%20Triplets%20That%20Can%20Represent%20a%20Country/README.md)                                           | `数据库` | 简单 | 🔒   |
 | 1633 | [各赛事的用户注册率](/solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README.md)                                                    | `数据库` | 简单 |      |
 | 1635 | [Hopper 公司查询 I](/solution/1600-1699/1635.Hopper%20Company%20Queries%20I/README.md)                                                                       | `数据库` | 困难 | 🔒   |
+| 1645 | [Hopper 公司查询 II](/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/README.md)                                                                     | `数据库` | 困难 | 🔒   |
 | 1651 | [Hopper 公司查询 III](/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README.md)                                                                   | `数据库` | 困难 | 🔒   |
 | 1661 | [每台机器的进程平均运行时间](/solution/1600-1699/1661.Average%20Time%20of%20Process%20per%20Machine/README.md)                                               | `数据库` | 简单 |      |
 | 1667 | [修复表中的名字](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README.md)                                                                            | `数据库` | 简单 |      |
@@ -108,6 +152,7 @@
 | 1683 | [无效的推文](/solution/1600-1699/1683.Invalid%20Tweets/README.md)                                                                                            | `数据库` | 简单 |      |
 | 1693 | [每天的领导和合伙人](/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README.md)                                                                      | `数据库` | 简单 |      |
 | 1699 | [两人之间的通话次数](/solution/1600-1699/1699.Number%20of%20Calls%20Between%20Two%20Persons/README.md)                                                       | `数据库` | 中等 | 🔒   |
+| 1709 | [访问日期之间最大的空档期](/solution/1700-1799/1709.Biggest%20Window%20Between%20Visits/README.md)                                                           | `数据库` | 中等 | 🔒   |
 | 1715 | [苹果和橘子的个数](/solution/1700-1799/1715.Count%20Apples%20and%20Oranges/README.md)                                                                        | `数据库` | 中等 | 🔒   |
 | 1729 | [求关注者的数量](/solution/1700-1799/1729.Find%20Followers%20Count/README.md)                                                                                | `数据库` | 简单 |      |
 | 1731 | [每位经理的下属员工数量](/solution/1700-1799/1731.The%20Number%20of%20Employees%20Which%20Report%20to%20Each%20Employee/README.md)                           | `数据库` | 简单 |      |
@@ -120,6 +165,7 @@
 | 1789 | [员工的直属部门](/solution/1700-1799/1789.Primary%20Department%20for%20Each%20Employee/README.md)                                                            | `数据库` | 简单 |      |
 | 1795 | [每个产品在不同商店的价格](/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md)                                                                  | `数据库` | 简单 |      |
 | 1809 | [没有广告的剧集](/solution/1800-1899/1809.Ad-Free%20Sessions/README.md)                                                                                      | `数据库` | 简单 | 🔒   |
+| 1811 | [寻找面试候选人](/solution/1800-1899/1811.Find%20Interview%20Candidates/README.md)                                                                           | `数据库` | 中等 | 🔒   |
 | 1821 | [寻找今年具有正收入的客户](/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README.md)                                    | `数据库` | 简单 | 🔒   |
 | 1831 | [每天的最大交易](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md)                                                                      | `数据库` | 中等 | 🔒   |
 | 1841 | [联赛信息统计](/solution/1800-1899/1841.League%20Statistics/README.md)                                                                                       | `数据库` | 中等 | 🔒   |
@@ -134,6 +180,8 @@
 | 1917 | [Leetcodify 好友推荐](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README.md)                                                             | `数据库` | 困难 | 🔒   |
 | 1919 | [兴趣相同的朋友](/solution/1900-1999/1919.Leetcodify%20Similar%20Friends/README.md)                                                                          | `数据库` | 困难 | 🔒   |
 | 1934 | [确认率](/solution/1900-1999/1934.Confirmation%20Rate/README.md)                                                                                             | `数据库` | 中等 |      |
+| 1939 | [主动请求确认消息的用户](/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README.md)                                     | `数据库` | 简单 | 🔒   |
+| 1949 | [坚定的友谊](/solution/1900-1999/1949.Strong%20Friendship/README.md)                                                                                         | `数据库` | 中等 | 🔒   |
 | 1951 | [查询具有最多共同关注者的所有两两结对组](/solution/1900-1999/1951.All%20the%20Pairs%20With%20the%20Maximum%20Number%20of%20Common%20Followers/README.md)     | `数据库` | 中等 | 🔒   |
 | 1965 | [丢失信息的雇员](/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README.md)                                                                | `数据库` | 简单 |      |
 | 1972 | [同一天的第一个电话和最后一个电话](/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README.md)                                     | `数据库` | 困难 | 🔒   |
@@ -142,7 +190,9 @@
 | 1990 | [统计实验的数量](/solution/1900-1999/1990.Count%20the%20Number%20of%20Experiments/README.md)                                                                 | `数据库` | 中等 | 🔒   |
 | 2004 | [职员招聘人数](/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README.md)                                   | `数据库` | 困难 | 🔒   |
 | 2010 | [职员招聘人数 II](/solution/2000-2099/2010.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company%20II/README.md)                           | `数据库` | 困难 | 🔒   |
+| 2020 | [无流量的帐户数](/solution/2000-2099/2020.Number%20of%20Accounts%20That%20Did%20Not%20Stream/README.md)                                                      | `数据库` | 中等 | 🔒   |
 | 2026 | [低质量的问题](/solution/2000-2099/2026.Low-Quality%20Problems/README.md)                                                                                    | `数据库` | 简单 | 🔒   |
+| 2041 | [面试中被录取的候选人](/solution/2000-2099/2041.Accepted%20Candidates%20From%20the%20Interviews/README.md)                                                   | `数据库` | 中等 | 🔒   |
 | 2051 | [商店中每个成员的级别](/solution/2000-2099/2051.The%20Category%20of%20Each%20Member%20in%20the%20Store/README.md)                                            | `数据库` | 中等 | 🔒   |
 | 2066 | [账户余额](/solution/2000-2099/2066.Account%20Balance/README.md)                                                                                             | `数据库` | 中等 | 🔒   |
 | 2072 | [赢得比赛的大学](/solution/2000-2099/2072.The%20Winner%20University/README.md)                                                                               | `数据库` | 简单 | 🔒   |
@@ -150,20 +200,25 @@
 | 2084 | [为订单类型为 0 的客户删除类型为 1 的订单](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md)         | `数据库` | 中等 | 🔒   |
 | 2112 | [最繁忙的机场](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md)                                                               | `数据库` | 中等 | 🔒   |
 | 2118 | [建立方程](/solution/2100-2199/2118.Build%20the%20Equation/README.md)                                                                                        | `数据库` | 困难 | 🔒   |
+| 2142 | [每辆车的乘客人数 I](/solution/2100-2199/2142.The%20Number%20of%20Passengers%20in%20Each%20Bus%20I/README.md)                                                | `数据库` | 中等 | 🔒   |
 | 2153 | [每辆车的乘客人数 II](/solution/2100-2199/2153.The%20Number%20of%20Passengers%20in%20Each%20Bus%20II/README.md)                                              | `数据库` | 困难 | 🔒   |
 | 2159 | [分别排序两列](/solution/2100-2199/2159.Order%20Two%20Columns%20Independently/README.md)                                                                     | `数据库` | 中等 | 🔒   |
 | 2173 | [最多连胜的次数](/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md)                                                                              | `数据库` | 困难 | 🔒   |
 | 2175 | [世界排名的变化](/solution/2100-2199/2175.The%20Change%20in%20Global%20Rankings/README.md)                                                                   | `数据库` | 中等 | 🔒   |
 | 2199 | [找到每篇文章的主题](/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README.md)                                                            | `数据库` | 困难 | 🔒   |
 | 2205 | [有资格享受折扣的用户数量](/solution/2200-2299/2205.The%20Number%20of%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)                            | `数据库` | 简单 | 🔒   |
+| 2228 | [7 天内两次购买的用户](/solution/2200-2299/2228.Users%20With%20Two%20Purchases%20Within%20Seven%20Days/README.md)                                            | `数据库` | 中等 | 🔒   |
 | 2230 | [查找可享受优惠的用户](/solution/2200-2299/2230.The%20Users%20That%20Are%20Eligible%20for%20Discount/README.md)                                              | `数据库` | 简单 | 🔒   |
 | 2238 | [司机成为乘客的次数](/solution/2200-2299/2238.Number%20of%20Times%20a%20Driver%20Was%20a%20Passenger/README.md)                                              | `数据库` | 中等 | 🔒   |
+| 2252 | [表的动态旋转](/solution/2200-2299/2252.Dynamic%20Pivoting%20of%20a%20Table/README.md)                                                                       | `数据库` | 困难 | 🔒   |
 | 2253 | [动态取消表的旋转](/solution/2200-2299/2253.Dynamic%20Unpivoting%20of%20a%20Table/README.md)                                                                 | `数据库` | 困难 | 🔒   |
 | 2292 | [连续两年有 3 个及以上订单的产品](/solution/2200-2299/2292.Products%20With%20Three%20or%20More%20Orders%20in%20Two%20Consecutive%20Years/README.md)          | `数据库` | 中等 | 🔒   |
+| 2298 | [周末任务计数](/solution/2200-2299/2298.Tasks%20Count%20in%20the%20Weekend/README.md)                                                                        | `数据库` | 中等 | 🔒   |
 | 2308 | [按性别排列表格](/solution/2300-2399/2308.Arrange%20Table%20by%20Gender/README.md)                                                                           | `数据库` | 中等 | 🔒   |
 | 2314 | [每个城市最高气温的第一天](/solution/2300-2399/2314.The%20First%20Day%20of%20the%20Maximum%20Recorded%20Degree%20in%20Each%20City/README.md)                 | `数据库` | 中等 | 🔒   |
 | 2324 | [产品销售分析 IV](/solution/2300-2399/2324.Product%20Sales%20Analysis%20IV/README.md)                                                                        | `数据库` | 中等 | 🔒   |
 | 2329 | [产品销售分析Ⅴ](/solution/2300-2399/2329.Product%20Sales%20Analysis%20V/README.md)                                                                           | `数据库` | 简单 | 🔒   |
+| 2339 | [联赛的所有比赛](/solution/2300-2399/2339.All%20the%20Matches%20of%20the%20League/README.md)                                                                 | `数据库` | 简单 | 🔒   |
 | 2346 | [以百分比计算排名](/solution/2300-2399/2346.Compute%20the%20Rank%20as%20a%20Percentage/README.md)                                                            | `数据库` | 中等 | 🔒   |
 | 2356 | [每位教师所教授的科目种类的数量](/solution/2300-2399/2356.Number%20of%20Unique%20Subjects%20Taught%20by%20Each%20Teacher/README.md)                          | `数据库` | 简单 |      |
 | 2362 | [生成发票](/solution/2300-2399/2362.Generate%20the%20Invoice/README.md)                                                                                      | `数据库` | 困难 | 🔒   |

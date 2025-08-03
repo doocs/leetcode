@@ -24,8 +24,8 @@ tags:
 <p><strong>有效</strong> 二叉搜索树定义如下：</p>
 
 <ul>
-	<li>节点的左<span data-keyword="subtree">子树</span>只包含<strong> 小于 </strong>当前节点的数。</li>
-	<li>节点的右子树只包含 <strong>大于</strong> 当前节点的数。</li>
+	<li>节点的左<span data-keyword="subtree">子树</span>只包含<strong>&nbsp;严格小于 </strong>当前节点的数。</li>
+	<li>节点的右子树只包含 <strong>严格大于</strong> 当前节点的数。</li>
 	<li>所有左子树和右子树自身必须也是二叉搜索树。</li>
 </ul>
 

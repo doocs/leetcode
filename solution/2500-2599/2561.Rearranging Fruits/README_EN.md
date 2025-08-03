@@ -24,8 +24,8 @@ tags:
 <p>You have two fruit baskets containing <code>n</code> fruits each. You are given two <strong>0-indexed</strong> integer arrays <code>basket1</code> and <code>basket2</code> representing the cost of fruit in each basket. You want to make both baskets <strong>equal</strong>. To do so, you can use the following operation as many times as you want:</p>
 
 <ul>
-	<li>Chose two indices <code>i</code> and <code>j</code>, and swap the <code>i<font size="1">th</font>&nbsp;</code>fruit of <code>basket1</code> with the <code>j<font size="1">th</font></code>&nbsp;fruit of <code>basket2</code>.</li>
-	<li>The cost of the swap is <code>min(basket1[i],basket2[j])</code>.</li>
+	<li>Choose two indices <code>i</code> and <code>j</code>, and swap the <code>i<sup><font size="1">th</font></sup></code> fruit of <code>basket1</code> with the <code>j<sup><font size="1">th</font></sup></code> fruit of <code>basket2</code>.</li>
+	<li>The cost of the swap is <code>min(basket1[i], basket2[j])</code>.</li>
 </ul>
 
 <p>Two baskets are considered equal if sorting them according to the fruit cost makes them exactly the same baskets.</p>
@@ -55,7 +55,7 @@ tags:
 <ul>
 	<li><code>basket1.length == basket2.length</code></li>
 	<li><code>1 &lt;= basket1.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= basket1[i],basket2[i]&nbsp;&lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= basket1[i], basket2[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->
