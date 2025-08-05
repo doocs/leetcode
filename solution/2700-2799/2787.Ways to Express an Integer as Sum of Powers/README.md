@@ -60,7 +60,24 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i][j]$ 表示在前 $i$ 个正整数中选取一些数的 $x$ 次幂之和等于 $j$ 的方案数，初始时 $f[0][0] = 1$，其余均为 $0$。答案为 $f[n][n]$。
+
+对于每个正整数 $i$，我们可以选择不选它或者选它：
+
+-   不选它：此时方案数为 $f[i-1][j]$；
+-   选它：此时方案数为 $f[i-1][j-i^x]$（前提是 $j \geq i^x$）。
+
+因此状态转移方程为：
+
+$$
+f[i][j] = f[i-1][j] + (j \geq i^x ? f[i-1][j-i^x] : 0)
+$$
+
+注意到答案可能非常大，我们需要对 $10^9 + 7$ 取余。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是题目中给定的整数。
 
 <!-- tabs:start -->
 
@@ -155,9 +172,7 @@ func numberOfWays(n int, x int) int {
 ```ts
 function numberOfWays(n: number, x: number): number {
     const mod = 10 ** 9 + 7;
-    const f: number[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
+    const f = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= n; ++i) {
         const k = Math.pow(i, x);
@@ -169,6 +184,30 @@ function numberOfWays(n: number, x: number): number {
         }
     }
     return f[n][n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_ways(n: i32, x: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let n = n as usize;
+        let x = x as u32;
+        let mut f = vec![vec![0; n + 1]; n + 1];
+        f[0][0] = 1;
+        for i in 1..=n {
+            let k = (i as i64).pow(x);
+            for j in 0..=n {
+                f[i][j] = f[i - 1][j];
+                if j >= k as usize {
+                    f[i][j] = (f[i][j] + f[i - 1][j - k as usize]) % MOD;
+                }
+            }
+        }
+        f[n][n] as i32
+    }
 }
 ```
 
