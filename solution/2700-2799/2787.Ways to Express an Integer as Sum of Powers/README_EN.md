@@ -60,7 +60,24 @@ It can be shown that it is the only way to express 10 as the sum of the 2<sup>nd
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the number of ways to select some numbers from the first $i$ positive integers such that the sum of their $x$-th powers equals $j$. Initially, $f[0][0] = 1$, and all others are $0$. The answer is $f[n][n]$.
+
+For each positive integer $i$, we can choose to either include it or not:
+
+-   Not include it: the number of ways is $f[i-1][j]$;
+-   Include it: the number of ways is $f[i-1][j-i^x]$ (provided that $j \geq i^x$).
+
+Therefore, the state transition equation is:
+
+$$
+f[i][j] = f[i-1][j] + (j \geq i^x ? f[i-1][j-i^x] : 0)
+$$
+
+Note that the answer can be very large, so we need to take modulo $10^9 + 7$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the given integer in the
 
 <!-- tabs:start -->
 
@@ -155,9 +172,7 @@ func numberOfWays(n int, x int) int {
 ```ts
 function numberOfWays(n: number, x: number): number {
     const mod = 10 ** 9 + 7;
-    const f: number[][] = Array(n + 1)
-        .fill(0)
-        .map(() => Array(n + 1).fill(0));
+    const f = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0));
     f[0][0] = 1;
     for (let i = 1; i <= n; ++i) {
         const k = Math.pow(i, x);
@@ -169,6 +184,30 @@ function numberOfWays(n: number, x: number): number {
         }
     }
     return f[n][n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_ways(n: i32, x: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let n = n as usize;
+        let x = x as u32;
+        let mut f = vec![vec![0; n + 1]; n + 1];
+        f[0][0] = 1;
+        for i in 1..=n {
+            let k = (i as i64).pow(x);
+            for j in 0..=n {
+                f[i][j] = f[i - 1][j];
+                if j >= k as usize {
+                    f[i][j] = (f[i][j] + f[i - 1][j - k as usize]) % MOD;
+                }
+            }
+        }
+        f[n][n] as i32
+    }
 }
 ```
 
