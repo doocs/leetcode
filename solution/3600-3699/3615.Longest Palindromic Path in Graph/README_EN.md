@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3615.Longest%20Palindromic%20Path%20in%20Graph/README_EN.md
+rating: 2463
+source: Weekly Contest 458 Q4
 tags:
     - Bit Manipulation
     - Graph

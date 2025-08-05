@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3597.Partition%20String/README_EN.md
+rating: 1347
+source: Weekly Contest 456 Q1
 tags:
     - Trie
     - Hash Table

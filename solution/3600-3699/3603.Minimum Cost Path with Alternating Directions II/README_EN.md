@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README_EN.md
+rating: 1639
+source: Biweekly Contest 160 Q2
 tags:
     - Array
     - Dynamic Programming

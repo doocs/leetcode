@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3591.Check%20if%20Any%20Element%20Has%20Prime%20Frequency/README.md
+rating: 1234
+source: 第 455 场周赛 Q1
 tags:
     - 数组
     - 哈希表

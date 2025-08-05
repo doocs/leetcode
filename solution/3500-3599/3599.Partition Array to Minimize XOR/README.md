@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3599.Partition%20Array%20to%20Minimize%20XOR/README.md
+rating: 1954
+source: 第 456 场周赛 Q3
 tags:
     - 位运算
     - 数组

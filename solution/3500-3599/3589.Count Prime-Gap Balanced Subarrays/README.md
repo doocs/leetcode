@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3589.Count%20Prime-Gap%20Balanced%20Subarrays/README.md
+rating: 2235
+source: 第 159 场双周赛 Q3
 tags:
     - 队列
     - 数组

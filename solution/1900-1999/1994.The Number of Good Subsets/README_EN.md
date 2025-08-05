@@ -7,9 +7,12 @@ source: Biweekly Contest 60 Q4
 tags:
     - Bit Manipulation
     - Array
+    - Hash Table
     - Math
     - Dynamic Programming
     - Bitmask
+    - Counting
+    - Number Theory
 ---
 
 <!-- problem:start -->

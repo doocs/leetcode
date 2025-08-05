@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3592.Inverse%20Coin%20Change/README_EN.md
+rating: 1700
+source: Weekly Contest 455 Q2
 tags:
     - Array
     - Dynamic Programming

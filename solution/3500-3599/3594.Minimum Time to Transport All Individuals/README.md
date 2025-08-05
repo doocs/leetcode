@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README.md
+rating: 2604
+source: 第 455 场周赛 Q4
 tags:
     - 位运算
     - 图

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3579.Minimum%20Steps%20to%20Convert%20String%20with%20Operations/README.md
+rating: 2492
+source: 第 453 场周赛 Q4
 tags:
     - 贪心
     - 字符串

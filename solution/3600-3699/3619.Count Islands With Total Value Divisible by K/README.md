@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3619.Count%20Islands%20With%20Total%20Value%20Divisible%20by%20K/README.md
+rating: 1461
+source: 第 161 场双周赛 Q2
 tags:
     - 深度优先搜索
     - 广度优先搜索

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3573.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20V/README_EN.md
+rating: 1777
+source: Biweekly Contest 158 Q2
 tags:
     - Array
     - Dynamic Programming

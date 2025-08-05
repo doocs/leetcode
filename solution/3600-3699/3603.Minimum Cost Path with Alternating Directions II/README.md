@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3603.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20II/README.md
+rating: 1639
+source: 第 160 场双周赛 Q2
 tags:
     - 数组
     - 动态规划

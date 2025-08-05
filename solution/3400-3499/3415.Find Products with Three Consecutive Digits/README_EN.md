@@ -29,11 +29,13 @@ product_id is the unique key for this table.
 Each row of this table contains the ID and name of a product.
 </pre>
 
-<p>Write a solution to find all <strong>products</strong> whose names contain a <strong>sequence of exactly three digits in a row</strong>.&nbsp;</p>
+<p>Write a solution to find all <strong>products</strong> whose names contain a <strong>sequence of exactly three consecutive digits in a row</strong>.&nbsp;</p>
 
 <p>Return <em>the result table ordered by</em> <code>product_id</code> <em>in <strong>ascending</strong> order.</em></p>
 
 <p>The result format is in the following example.</p>
+
+<p><strong>Note</strong> that the name may contain multiple such sequences, but each should have length three.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example:</strong></p>
