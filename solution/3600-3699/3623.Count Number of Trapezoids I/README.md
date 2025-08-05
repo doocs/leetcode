@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3623.Count%20Number%20of%20Trapezoids%20I/README.md
+rating: 1579
+source: 第 459 场周赛 Q2
 tags:
     - 几何
     - 数组

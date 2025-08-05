@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3574.Maximize%20Subarray%20GCD%20Score/README_EN.md
+rating: 2257
+source: Biweekly Contest 158 Q3
 tags:
     - Array
     - Math

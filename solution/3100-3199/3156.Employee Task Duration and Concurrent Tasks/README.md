@@ -31,7 +31,7 @@ tags:
 这张表的每一行包含任务标识，员工标识和每个任务的开始和结束时间。
 </pre>
 
-<p>编写一个解决方案来查找 <strong>每个</strong> 员工的任务 <strong>总持续时间</strong> 以及员工在任何时间点处理的 <strong>最大并发任务数</strong>。总时长应该 <strong>舍入</strong> 到最近的 <strong>整小时</strong>。</p>
+<p>编写一个解决方案来查找 <strong>每个</strong> 员工的任务 <strong>总持续时间</strong> 以及员工在任何时间点处理的 <strong>最大并发任务数</strong>。总时长应该 <strong>向下取整</strong>&nbsp;到最近的 <strong>整小时</strong>。</p>
 
 <p>返回结果表以&nbsp;<code>employee_id</code><strong> <em>升序</em></strong><em>&nbsp;排序。</em></p>
 

@@ -83,24 +83,24 @@ tags:
 
 ### 方法一：双指针
 
-我们不妨假设移动的位置区间为 $[l,r]$，开始位置为 $startPos$，来看看如何算出移动的最小步数。根据 $startPos$ 所处的位置，我们可以分为三种情况：
+我们不妨假设移动的位置区间为 $[l, r]$，开始位置为 $\textit{startPos}$，来看看如何算出移动的最小步数。根据 $\textit{startPos}$ 所处的位置，我们可以分为三种情况：
 
-1. 如果 $startPos \leq l$，那么就是从 $startPos$ 一直向右移动到 $r$。移动的最小步数为 $r - startPos$；
-2. 如果 $startPos \geq r$，那么就是从 $startPos$ 一直向左移动到 $l$。移动的最小步数为 $startPos - l$；
-3. 如果 $l \lt startPos \lt r$，那么可以从 $startPos$ 向左移动到 $l$，再向右移动到 $r$；也可以从 $startPos$ 向右移动到 $r$，再向左移动到 $l$。移动的最小步数为 $r - l + \min(\lvert startPos - l \rvert, \lvert r - startPos \rvert)$。
+1. 如果 $\textit{startPos} \leq l$，那么就是从 $\textit{startPos}$ 一直向右移动到 $r$。移动的最小步数为 $r - \textit{startPos}$；
+2. 如果 $\textit{startPos} \geq r$，那么就是从 $\textit{startPos}$ 一直向左移动到 $l$。移动的最小步数为 $\textit{startPos} - l$；
+3. 如果 $l < \textit{startPos} < r$，那么可以从 $\textit{startPos}$ 向左移动到 $l$，再向右移动到 $r$；也可以从 $\textit{startPos}$ 向右移动到 $r$，再向左移动到 $l$。移动的最小步数为 $r - l + \min(\lvert \textit{startPos} - l \rvert, \lvert r - \textit{startPos} \rvert)$。
 
-以上三种情况可以统一用式子 $r - l + \min(\lvert startPos - l \rvert, \lvert r - startPos \rvert)$ 表示。
+以上三种情况可以统一用式子 $r - l + \min(\lvert \textit{startPos} - l \rvert, \lvert r - \textit{startPos} \rvert)$ 表示。
 
 假设我们固定区间右端点 $r$，向右移动左端点 $l$，我们来看看最小移动步数是怎么变化的。
 
-1. 如果 $startPos \leq l$，随着 $l$ 的增大，最小步数不会发生变化。
-2. 如果 $startPos \gt l$，随着 $l$ 的增大，最小步数会减小。
+1. 如果 $\textit{startPos} \leq l$，随着 $l$ 的增大，最小步数不会发生变化。
+2. 如果 $\textit{startPos} > l$，随着 $l$ 的增大，最小步数会减小。
 
 因此，随着 $l$ 的增大，最小移动步数一定是非严格单调递减的。基于此，我们可以使用双指针的方法，找出所有符合条件的最大区间，然后取所有符合条件的区间中水果总数最大的一个作为答案。
 
 具体地，我们用两个指针 $i$ 和 $j$ 分别指向区间的左右下标，初始时 $i = j = 0$。另外用一个变量 $s$ 记录区间内的水果总数，初始时 $s = 0$。
 
-每次我们将 $j$ 加入区间中，然后更新 $s = s + fruits[j][1]$。如果此时区间内的最小步数 $fruits[j][0] - fruits[i][0] + \min(\lvert startPos - fruits[i][0] \rvert, \lvert startPos - fruits[j][0] \rvert)$ 大于 $k$，那么我们就将 $i$ 循环向右移动，直到 $i \gt j$ 或者区间内的最小步数小于等于 $k$。此时我们更新答案 $ans = \max(ans, s)$。继续移动 $j$，直到 $j$ 到达数组末尾。
+每次我们将 $j$ 加入区间中，然后更新 $s = s + \textit{fruits}[j][1]$。如果此时区间内的最小步数 $\textit{fruits}[j][0] - \textit{fruits}[i][0] + \min(\lvert \textit{startPos} - \textit{fruits}[i][0] \rvert, \lvert \textit{startPos} - \textit{fruits}[j][0] \rvert)$ 大于 $k$，那么我们就将 $i$ 循环向右移动，直到 $i > j$ 或者区间内的最小步数小于等于 $k$。此时我们更新答案 $\textit{ans} = \max(\textit{ans}, s)$。继续移动 $j$，直到 $j$ 到达数组末尾。
 
 最后返回答案即可。
 
@@ -216,6 +216,29 @@ function maxTotalFruits(fruits: number[][], startPos: number, k: number): number
         ans = Math.max(ans, s);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_total_fruits(fruits: Vec<Vec<i32>>, start_pos: i32, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut s = 0;
+        let mut i = 0;
+        for j in 0..fruits.len() {
+            let pj = fruits[j][0];
+            let fj = fruits[j][1];
+            s += fj;
+            while i <= j && pj - fruits[i][0] + std::cmp::min((start_pos - fruits[i][0]).abs(), (start_pos - pj).abs()) > k {
+                s -= fruits[i][1];
+                i += 1;
+            }
+            ans = ans.max(s)
+        }
+        ans
+    }
 }
 ```
 

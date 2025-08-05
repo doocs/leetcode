@@ -480,7 +480,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0469  |  [Convex Polygon](/solution/0400-0499/0469.Convex%20Polygon/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Medium  |  🔒  |
 |  0470  |  [Implement Rand10() Using Rand7()](/solution/0400-0499/0470.Implement%20Rand10%28%29%20Using%20Rand7%28%29/README_EN.md)  |  `Math`,`Rejection Sampling`,`Probability and Statistics`,`Randomized`  |  Medium  |    |
 |  0471  |  [Encode String with Shortest Length](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |  🔒  |
-|  0472  |  [Concatenated Words](/solution/0400-0499/0472.Concatenated%20Words/README_EN.md)  |  `Depth-First Search`,`Trie`,`Array`,`String`,`Dynamic Programming`  |  Hard  |    |
+|  0472  |  [Concatenated Words](/solution/0400-0499/0472.Concatenated%20Words/README_EN.md)  |  `Depth-First Search`,`Trie`,`Array`,`String`,`Dynamic Programming`,`Sorting`  |  Hard  |    |
 |  0473  |  [Matchsticks to Square](/solution/0400-0499/0473.Matchsticks%20to%20Square/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Medium  |    |
 |  0474  |  [Ones and Zeroes](/solution/0400-0499/0474.Ones%20and%20Zeroes/README_EN.md)  |  `Array`,`String`,`Dynamic Programming`  |  Medium  |    |
 |  0475  |  [Heaters](/solution/0400-0499/0475.Heaters/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |    |
@@ -2002,7 +2002,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  1991  |  [Find the Middle Index in Array](/solution/1900-1999/1991.Find%20the%20Middle%20Index%20in%20Array/README_EN.md)  |  `Array`,`Prefix Sum`  |  Easy  |  Biweekly Contest 60  |
 |  1992  |  [Find All Groups of Farmland](/solution/1900-1999/1992.Find%20All%20Groups%20of%20Farmland/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Array`,`Matrix`  |  Medium  |  Biweekly Contest 60  |
 |  1993  |  [Operations on Tree](/solution/1900-1999/1993.Operations%20on%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Design`,`Array`,`Hash Table`  |  Medium  |  Biweekly Contest 60  |
-|  1994  |  [The Number of Good Subsets](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Dynamic Programming`,`Bitmask`  |  Hard  |  Biweekly Contest 60  |
+|  1994  |  [The Number of Good Subsets](/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Math`,`Dynamic Programming`,`Bitmask`,`Counting`,`Number Theory`  |  Hard  |  Biweekly Contest 60  |
 |  1995  |  [Count Special Quadruplets](/solution/1900-1999/1995.Count%20Special%20Quadruplets/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`  |  Easy  |  Weekly Contest 257  |
 |  1996  |  [The Number of Weak Characters in the Game](/solution/1900-1999/1996.The%20Number%20of%20Weak%20Characters%20in%20the%20Game/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Sorting`,`Monotonic Stack`  |  Medium  |  Weekly Contest 257  |
 |  1997  |  [First Day Where You Have Been in All the Rooms](/solution/1900-1999/1997.First%20Day%20Where%20You%20Have%20Been%20in%20All%20the%20Rooms/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 257  |
@@ -3641,6 +3641,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3630  |  [Partition Array for Maximum XOR and AND](/solution/3600-3699/3630.Partition%20Array%20for%20Maximum%20XOR%20and%20AND/README_EN.md)  |    |  Hard  |  Weekly Contest 460  |
 |  3631  |  [Sort Threats by Severity and Exploitability](/solution/3600-3699/3631.Sort%20Threats%20by%20Severity%20and%20Exploitability/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  🔒  |
 |  3632  |  [Subarrays with XOR at Least K](/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README_EN.md)  |    |  Hard  |  🔒  |
+|  3633  |  [Earliest Finish Time for Land and Water Rides I](/solution/3600-3699/3633.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 162  |
+|  3634  |  [Minimum Removals to Balance Array](/solution/3600-3699/3634.Minimum%20Removals%20to%20Balance%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 162  |
+|  3635  |  [Earliest Finish Time for Land and Water Rides II](/solution/3600-3699/3635.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 162  |
+|  3636  |  [Threshold Majority Queries](/solution/3600-3699/3636.Threshold%20Majority%20Queries/README_EN.md)  |    |  Hard  |  Biweekly Contest 162  |
+|  3637  |  [Trionic Array I](/solution/3600-3699/3637.Trionic%20Array%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 461  |
+|  3638  |  [Maximum Balanced Shipments](/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README_EN.md)  |    |  Medium  |  Weekly Contest 461  |
+|  3639  |  [Minimum Time to Activate String](/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 461  |
+|  3640  |  [Trionic Array II](/solution/3600-3699/3640.Trionic%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 461  |
 
 ## Copyright
 

@@ -18,7 +18,7 @@ public:
             }
             mi = min(mi, x);
         }
-        sort(nums.begin(), nums.end());
+        ranges::sort(nums);
         int m = nums.size();
         long long ans = 0;
         for (int i = 0; i < m / 2; ++i) {

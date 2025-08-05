@@ -1,0 +1,13 @@
+class Solution {
+    public int[][] sortThreats(int[][] threats) {
+        Arrays.sort(threats, (a, b) -> {
+            long score1 = 2L * a[1] + a[2];
+            long score2 = 2L * b[1] + b[2];
+            if (score1 == score2) {
+                return Integer.compare(a[0], b[0]);
+            }
+            return Long.compare(score2, score1);
+        });
+        return threats;
+    }
+}

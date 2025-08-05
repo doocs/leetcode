@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3607.Power%20Grid%20Maintenance/README_EN.md
+rating: 1699
+source: Weekly Contest 457 Q2
 tags:
     - Depth-First Search
     - Breadth-First Search

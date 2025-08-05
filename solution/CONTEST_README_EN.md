@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 461
+
+- [3637. Trionic Array I](/solution/3600-3699/3637.Trionic%20Array%20I/README_EN.md)
+- [3638. Maximum Balanced Shipments](/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README_EN.md)
+- [3639. Minimum Time to Activate String](/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README_EN.md)
+- [3640. Trionic Array II](/solution/3600-3699/3640.Trionic%20Array%20II/README_EN.md)
+
+#### Biweekly Contest 162
+
+- [3633. Earliest Finish Time for Land and Water Rides I](/solution/3600-3699/3633.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20I/README_EN.md)
+- [3634. Minimum Removals to Balance Array](/solution/3600-3699/3634.Minimum%20Removals%20to%20Balance%20Array/README_EN.md)
+- [3635. Earliest Finish Time for Land and Water Rides II](/solution/3600-3699/3635.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20II/README_EN.md)
+- [3636. Threshold Majority Queries](/solution/3600-3699/3636.Threshold%20Majority%20Queries/README_EN.md)
+
 #### Weekly Contest 460
 
 - [3627. Maximum Median Sum of Subsequences of Size 3](/solution/3600-3699/3627.Maximum%20Median%20Sum%20of%20Subsequences%20of%20Size%203/README_EN.md)

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3594.Minimum%20Time%20to%20Transport%20All%20Individuals/README_EN.md
+rating: 2604
+source: Weekly Contest 455 Q4
 tags:
     - Bit Manipulation
     - Graph

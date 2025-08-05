@@ -82,7 +82,30 @@ You can move at most k = 2 steps and cannot reach any position with fruits.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers
+
+Let's assume the movement range is $[l, r]$ and the starting position is $\textit{startPos}$. We need to calculate the minimum number of steps required. Based on the position of $\textit{startPos}$, we can divide this into three cases:
+
+1. If $\textit{startPos} \leq l$, then we move right from $\textit{startPos}$ to $r$. The minimum number of steps is $r - \textit{startPos}$;
+2. If $\textit{startPos} \geq r$, then we move left from $\textit{startPos}$ to $l$. The minimum number of steps is $\textit{startPos} - l$;
+3. If $l < \textit{startPos} < r$, we can either move left from $\textit{startPos}$ to $l$ then right to $r$, or move right from $\textit{startPos}$ to $r$ then left to $l$. The minimum number of steps is $r - l + \min(\lvert \textit{startPos} - l \rvert, \lvert r - \textit{startPos} \rvert)$.
+
+All three cases can be unified by the formula $r - l + \min(\lvert \textit{startPos} - l \rvert, \lvert r - \textit{startPos} \rvert)$.
+
+Suppose we fix the right endpoint $r$ of the interval and move the left endpoint $l$ to the right. Let's see how the minimum number of steps changes:
+
+1. If $\textit{startPos} \leq l$, as $l$ increases, the minimum number of steps remains unchanged.
+2. If $\textit{startPos} > l$, as $l$ increases, the minimum number of steps decreases.
+
+Therefore, as $l$ increases, the minimum number of steps is non-strictly monotonically decreasing. Based on this, we can use the two-pointer approach to find all qualifying maximum intervals, then take the one with the maximum total fruits among all qualifying intervals as the answer.
+
+Specifically, we use two pointers $i$ and $j$ to point to the left and right indices of the interval, initially $i = j = 0$. We also use a variable $s$ to record the total number of fruits in the interval, initially $s = 0$.
+
+Each time we include $j$ in the interval, then update $s = s + \textit{fruits}[j][1]$. If the minimum number of steps in the current interval $\textit{fruits}[j][0] - \textit{fruits}[i][0] + \min(\lvert \textit{startPos} - \textit{fruits}[i][0] \rvert, \lvert \textit{startPos} - \textit{fruits}[j][0] \rvert)$ is greater than $k$, we move $i$ to the right in a loop until $i > j$ or the minimum number of steps in the interval is less than or equal to $k$. At this point, we update the answer $\textit{ans} = \max(\textit{ans}, s)$. Continue moving $j$ until $j$ reaches the end of the array.
+
+Finally, return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -194,6 +217,29 @@ function maxTotalFruits(fruits: number[][], startPos: number, k: number): number
         ans = Math.max(ans, s);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_total_fruits(fruits: Vec<Vec<i32>>, start_pos: i32, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut s = 0;
+        let mut i = 0;
+        for j in 0..fruits.len() {
+            let pj = fruits[j][0];
+            let fj = fruits[j][1];
+            s += fj;
+            while i <= j && pj - fruits[i][0] + std::cmp::min((start_pos - fruits[i][0]).abs(), (start_pos - pj).abs()) > k {
+                s -= fruits[i][1];
+                i += 1;
+            }
+            ans = ans.max(s)
+        }
+        ans
+    }
 }
 ```
 

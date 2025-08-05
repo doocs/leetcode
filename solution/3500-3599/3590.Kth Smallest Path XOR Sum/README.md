@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3590.Kth%20Smallest%20Path%20XOR%20Sum/README.md
+rating: 2645
+source: 第 159 场双周赛 Q4
 tags:
     - 树
     - 深度优先搜索
