@@ -536,6 +536,158 @@ impl Solution {
 }
 ```
 
+#### C#
+
+```cs
+public class SegmentTree {
+    int[] nums;
+    int[] tr;
+
+    public SegmentTree(int[] nums) {
+        this.nums = nums;
+        int n = nums.Length;
+        this.tr = new int[n << 2];
+        Build(1, 1, n);
+    }
+
+    public void Build(int u, int l, int r) {
+        if (l == r) {
+            tr[u] = nums[l - 1];
+            return;
+        }
+        int mid = (l + r) >> 1;
+        Build(u << 1, l, mid);
+        Build(u << 1 | 1, mid + 1, r);
+        Pushup(u);
+    }
+
+    public void Modify(int u, int l, int r, int i, int v) {
+        if (l == r) {
+            tr[u] = v;
+            return;
+        }
+        int mid = (l + r) >> 1;
+        if (i <= mid) {
+            Modify(u << 1, l, mid, i, v);
+        } else {
+            Modify(u << 1 | 1, mid + 1, r, i, v);
+        }
+        Pushup(u);
+    }
+
+    public int Query(int u, int l, int r, int v) {
+        if (tr[u] < v) {
+            return -1;
+        }
+        if (l == r) {
+            return l;
+        }
+        int mid = (l + r) >> 1;
+        if (tr[u << 1] >= v) {
+            return Query(u << 1, l, mid, v);
+        }
+        return Query(u << 1 | 1, mid + 1, r, v);
+    }
+
+    public void Pushup(int u) {
+        tr[u] = Math.Max(tr[u << 1], tr[u << 1 | 1]);
+    }
+}
+
+public class Solution {
+    public int NumOfUnplacedFruits(int[] fruits, int[] baskets) {
+        SegmentTree tree = new SegmentTree(baskets);
+        int n = baskets.Length;
+        int ans = 0;
+        foreach (var x in fruits) {
+            int i = tree.Query(1, 1, n, x);
+            if (i < 0) {
+                ans++;
+            } else {
+                tree.Modify(1, 1, n, i, 0);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### Swift
+
+```swift
+class SegmentTree {
+    var nums: [Int]
+    var tr: [Int]
+
+    init(_ nums: [Int]) {
+        self.nums = nums
+        let n = nums.count
+        self.tr = [Int](repeating: 0, count: n << 2)
+        build(1, 1, n)
+    }
+
+    func build(_ u: Int, _ l: Int, _ r: Int) {
+        if l == r {
+            tr[u] = nums[l - 1]
+            return
+        }
+        let mid = (l + r) >> 1
+        build(u << 1, l, mid)
+        build(u << 1 | 1, mid + 1, r)
+        pushup(u)
+    }
+
+    func modify(_ u: Int, _ l: Int, _ r: Int, _ i: Int, _ v: Int) {
+        if l == r {
+            tr[u] = v
+            return
+        }
+        let mid = (l + r) >> 1
+        if i <= mid {
+            modify(u << 1, l, mid, i, v)
+        } else {
+            modify(u << 1 | 1, mid + 1, r, i, v)
+        }
+        pushup(u)
+    }
+
+    func query(_ u: Int, _ l: Int, _ r: Int, _ v: Int) -> Int {
+        if tr[u] < v {
+            return -1
+        }
+        if l == r {
+            return l
+        }
+        let mid = (l + r) >> 1
+        if tr[u << 1] >= v {
+            return query(u << 1, l, mid, v)
+        }
+        return query(u << 1 | 1, mid + 1, r, v)
+    }
+
+    func pushup(_ u: Int) {
+        tr[u] = max(tr[u << 1], tr[u << 1 | 1])
+    }
+}
+
+class Solution {
+    func numOfUnplacedFruits(_ fruits: [Int], _ baskets: [Int]) -> Int {
+        let tree = SegmentTree(baskets)
+        let n = baskets.count
+        var ans = 0
+        for x in fruits {
+            let i = tree.query(1, 1, n, x)
+            if i < 0 {
+                ans += 1
+            } else {
+                tree.modify(1, 1, n, i, 0)
+            }
+        }
+        return ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
