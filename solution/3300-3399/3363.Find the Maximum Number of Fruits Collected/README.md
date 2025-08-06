@@ -96,32 +96,251 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+根据题目描述，从 $(0, 0)$ 出发的小朋友要想在 $n - 1$ 步后到达 $(n - 1, n - 1)$，那么他只能走主对角线上的房间 $(i, i)$，即 $i = 0, 1, \ldots, n - 1$。而从 $(0, n - 1)$ 出发的小朋友只能走主对角线以上的房间，而从 $(n - 1, 0)$ 出发的小朋友只能走主对角线以下的房间。这意味着三个小朋友除了在 $(n - 1, n - 1)$ 到达终点外，其他房间都不会有多个小朋友重复进入。
+
+我们可以用动态规划的方式，计算从 $(0, n - 1)$ 和 $(n - 1, 0)$ 出发的小朋友达到 $(i, j)$ 时，能收集到的水果数。定义 $f[i][j]$ 表示小朋友到达 $(i, j)$ 时能收集到的水果数。
+
+对于从 $(0, n - 1)$ 出发的小朋友，状态转移方程为：
+
+$$
+f[i][j] = \max(f[i - 1][j], f[i - 1][j - 1], f[i - 1][j + 1]) + \text{fruits}[i][j]
+$$
+
+注意，只有当 $j + 1 < n$ 时，$f[i - 1][j + 1]$ 才是有效的。
+
+对于从 $(n - 1, 0)$ 出发的小朋友，状态转移方程为：
+
+$$
+f[i][j] = \max(f[i][j - 1], f[i - 1][j - 1], f[i + 1][j - 1]) + \text{fruits}[i][j]
+$$
+
+同样，只有当 $i + 1 < n$ 时，$f[i + 1][j - 1]$ 才是有效的。
+
+最后，答案为 $\sum_{i=0}^{n-1} \text{fruits}[i][i] + f[n-2][n-1] + f[n-1][n-2]$，即主对角线上的水果数加上两个小朋友到达 $(n - 2, n - 1)$ 和 $(n - 1, n - 2)$ 时能收集到的水果数。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为房间的边长。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxCollectedFruits(self, fruits: List[List[int]]) -> int:
+        n = len(fruits)
+        f = [[-inf] * n for _ in range(n)]
+        f[0][n - 1] = fruits[0][n - 1]
+        for i in range(1, n):
+            for j in range(i + 1, n):
+                f[i][j] = max(f[i - 1][j], f[i - 1][j - 1]) + fruits[i][j]
+                if j + 1 < n:
+                    f[i][j] = max(f[i][j], f[i - 1][j + 1] + fruits[i][j])
+        f[n - 1][0] = fruits[n - 1][0]
+        for j in range(1, n):
+            for i in range(j + 1, n):
+                f[i][j] = max(f[i][j - 1], f[i - 1][j - 1]) + fruits[i][j]
+                if i + 1 < n:
+                    f[i][j] = max(f[i][j], f[i + 1][j - 1] + fruits[i][j])
+        return sum(fruits[i][i] for i in range(n)) + f[n - 2][n - 1] + f[n - 1][n - 2]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxCollectedFruits(int[][] fruits) {
+        int n = fruits.length;
+        final int inf = 1 << 29;
+        int[][] f = new int[n][n];
+        for (var row : f) {
+            Arrays.fill(row, -inf);
+        }
+        f[0][n - 1] = fruits[0][n - 1];
+        for (int i = 1; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                f[i][j] = Math.max(f[i - 1][j], f[i - 1][j - 1]) + fruits[i][j];
+                if (j + 1 < n) {
+                    f[i][j] = Math.max(f[i][j], f[i - 1][j + 1] + fruits[i][j]);
+                }
+            }
+        }
+        f[n - 1][0] = fruits[n - 1][0];
+        for (int j = 1; j < n; j++) {
+            for (int i = j + 1; i < n; i++) {
+                f[i][j] = Math.max(f[i][j - 1], f[i - 1][j - 1]) + fruits[i][j];
+                if (i + 1 < n) {
+                    f[i][j] = Math.max(f[i][j], f[i + 1][j - 1] + fruits[i][j]);
+                }
+            }
+        }
+        int ans = f[n - 2][n - 1] + f[n - 1][n - 2];
+        for (int i = 0; i < n; i++) {
+            ans += fruits[i][i];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maxCollectedFruits(vector<vector<int>>& fruits) {
+        int n = fruits.size();
+        const int inf = 1 << 29;
+        vector<vector<int>> f(n, vector<int>(n, -inf));
 
+        f[0][n - 1] = fruits[0][n - 1];
+        for (int i = 1; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                f[i][j] = max(f[i - 1][j], f[i - 1][j - 1]) + fruits[i][j];
+                if (j + 1 < n) {
+                    f[i][j] = max(f[i][j], f[i - 1][j + 1] + fruits[i][j]);
+                }
+            }
+        }
+
+        f[n - 1][0] = fruits[n - 1][0];
+        for (int j = 1; j < n; j++) {
+            for (int i = j + 1; i < n; i++) {
+                f[i][j] = max(f[i][j - 1], f[i - 1][j - 1]) + fruits[i][j];
+                if (i + 1 < n) {
+                    f[i][j] = max(f[i][j], f[i + 1][j - 1] + fruits[i][j]);
+                }
+            }
+        }
+
+        int ans = f[n - 2][n - 1] + f[n - 1][n - 2];
+        for (int i = 0; i < n; i++) {
+            ans += fruits[i][i];
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxCollectedFruits(fruits [][]int) int {
+	n := len(fruits)
+	const inf = 1 << 29
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, n)
+		for j := range f[i] {
+			f[i][j] = -inf
+		}
+	}
 
+	f[0][n-1] = fruits[0][n-1]
+	for i := 1; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = max(f[i-1][j], f[i-1][j-1]) + fruits[i][j]
+			if j+1 < n {
+				f[i][j] = max(f[i][j], f[i-1][j+1]+fruits[i][j])
+			}
+		}
+	}
+
+	f[n-1][0] = fruits[n-1][0]
+	for j := 1; j < n; j++ {
+		for i := j + 1; i < n; i++ {
+			f[i][j] = max(f[i][j-1], f[i-1][j-1]) + fruits[i][j]
+			if i+1 < n {
+				f[i][j] = max(f[i][j], f[i+1][j-1]+fruits[i][j])
+			}
+		}
+	}
+
+	ans := f[n-2][n-1] + f[n-1][n-2]
+	for i := 0; i < n; i++ {
+		ans += fruits[i][i]
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxCollectedFruits(fruits: number[][]): number {
+    const n = fruits.length;
+    const inf = 1 << 29;
+    const f: number[][] = Array.from({ length: n }, () => Array(n).fill(-inf));
+
+    f[0][n - 1] = fruits[0][n - 1];
+    for (let i = 1; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            f[i][j] = Math.max(f[i - 1][j], f[i - 1][j - 1]) + fruits[i][j];
+            if (j + 1 < n) {
+                f[i][j] = Math.max(f[i][j], f[i - 1][j + 1] + fruits[i][j]);
+            }
+        }
+    }
+
+    f[n - 1][0] = fruits[n - 1][0];
+    for (let j = 1; j < n; j++) {
+        for (let i = j + 1; i < n; i++) {
+            f[i][j] = Math.max(f[i][j - 1], f[i - 1][j - 1]) + fruits[i][j];
+            if (i + 1 < n) {
+                f[i][j] = Math.max(f[i][j], f[i + 1][j - 1] + fruits[i][j]);
+            }
+        }
+    }
+
+    let ans = f[n - 2][n - 1] + f[n - 1][n - 2];
+    for (let i = 0; i < n; i++) {
+        ans += fruits[i][i];
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_collected_fruits(fruits: Vec<Vec<i32>>) -> i32 {
+        let n = fruits.len();
+        let inf = 1 << 29;
+        let mut f = vec![vec![-inf; n]; n];
+
+        f[0][n - 1] = fruits[0][n - 1];
+        for i in 1..n {
+            for j in i + 1..n {
+                f[i][j] = std::cmp::max(f[i - 1][j], f[i - 1][j - 1]) + fruits[i][j];
+                if j + 1 < n {
+                    f[i][j] = std::cmp::max(f[i][j], f[i - 1][j + 1] + fruits[i][j]);
+                }
+            }
+        }
+
+        f[n - 1][0] = fruits[n - 1][0];
+        for j in 1..n {
+            for i in j + 1..n {
+                f[i][j] = std::cmp::max(f[i][j - 1], f[i - 1][j - 1]) + fruits[i][j];
+                if i + 1 < n {
+                    f[i][j] = std::cmp::max(f[i][j], f[i + 1][j - 1] + fruits[i][j]);
+                }
+            }
+        }
+
+        let mut ans = f[n - 2][n - 1] + f[n - 1][n - 2];
+        for i in 0..n {
+            ans += fruits[i][i];
+        }
+
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
