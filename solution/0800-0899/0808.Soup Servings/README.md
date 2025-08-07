@@ -157,7 +157,7 @@ class Solution {
 public:
     double soupServings(int n) {
         double f[200][200] = {0.0};
-        function<double(int, int)> dfs = [&](int i, int j) -> double {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> double {
             if (i <= 0 && j <= 0) return 0.5;
             if (i <= 0) return 1;
             if (j <= 0) return 0;
@@ -205,7 +205,7 @@ func soupServings(n int) float64 {
 
 ```ts
 function soupServings(n: number): number {
-    const f = new Array(200).fill(0).map(() => new Array(200).fill(-1));
+    const f = Array.from({ length: 200 }, () => Array(200).fill(-1));
     const dfs = (i: number, j: number): number => {
         if (i <= 0 && j <= 0) {
             return 0.5;
@@ -224,6 +224,77 @@ function soupServings(n: number): number {
         return f[i][j];
     };
     return n >= 4800 ? 1 : dfs(Math.ceil(n / 25), Math.ceil(n / 25));
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn soup_servings(n: i32) -> f64 {
+        if n > 4800 {
+            return 1.0;
+        }
+        Self::dfs((n + 24) / 25, (n + 24) / 25)
+    }
+
+    fn dfs(i: i32, j: i32) -> f64 {
+        static mut F: [[f64; 200]; 200] = [[0.0; 200]; 200];
+
+        unsafe {
+            if i <= 0 && j <= 0 {
+                return 0.5;
+            }
+            if i <= 0 {
+                return 1.0;
+            }
+            if j <= 0 {
+                return 0.0;
+            }
+            if F[i as usize][j as usize] > 0.0 {
+                return F[i as usize][j as usize];
+            }
+
+            let ans = 0.25 * (Self::dfs(i - 4, j) + Self::dfs(i - 3, j - 1) + Self::dfs(i - 2, j - 2) + Self::dfs(i - 1, j - 3));
+            F[i as usize][j as usize] = ans;
+            ans
+        }
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private double[,] f = new double[200, 200];
+
+    public double SoupServings(int n) {
+        if (n > 4800) {
+            return 1.0;
+        }
+
+        return Dfs((n + 24) / 25, (n + 24) / 25);
+    }
+
+    private double Dfs(int i, int j) {
+        if (i <= 0 && j <= 0) {
+            return 0.5;
+        }
+        if (i <= 0) {
+            return 1.0;
+        }
+        if (j <= 0) {
+            return 0.0;
+        }
+        if (f[i, j] > 0) {
+            return f[i, j];
+        }
+
+        double ans = 0.25 * (Dfs(i - 4, j) + Dfs(i - 3, j - 1) + Dfs(i - 2, j - 2) + Dfs(i - 1, j - 3));
+        f[i, j] = ans;
+        return ans;
+    }
 }
 ```
 
