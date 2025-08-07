@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README.md
+rating: 1853
+source: 第 461 场周赛 Q3
 ---
 
 <!-- problem:start -->

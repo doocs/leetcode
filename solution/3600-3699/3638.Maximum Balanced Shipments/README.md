@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README.md
+rating: 1463
+source: 第 461 场周赛 Q2
 ---
 
 <!-- problem:start -->
