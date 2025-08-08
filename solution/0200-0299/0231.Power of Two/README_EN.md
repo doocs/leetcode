@@ -62,7 +62,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bit Manipulation
+
+According to the properties of bit manipulation, executing $\texttt{n\&(n-1)}$ can eliminate the last bit $1$ in the binary form of $n$. Therefore, if $n > 0$ and $\texttt{n\&(n-1)}$ results in $0$, then $n$ is a power of $2$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -111,6 +115,16 @@ function isPowerOfTwo(n: number): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_two(n: i32) -> bool {
+        n > 0 && (n & (n - 1)) == 0
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -129,7 +143,11 @@ var isPowerOfTwo = function (n) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Lowbit
+
+According to the definition of $\text{lowbit}$, we know that $\text{lowbit}(x) = x \& (-x)$, which can get the decimal number represented by the last bit $1$ of $n$. Therefore, if $n > 0$ and $\text{lowbit}(n)$ equals $n$, then $n$ is a power of $2$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -174,7 +192,17 @@ func isPowerOfTwo(n int) bool {
 
 ```ts
 function isPowerOfTwo(n: number): boolean {
-    return n > 0 && (n & (n - 1)) === 0;
+    return n > 0 && n === (n & -n);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_two(n: i32) -> bool {
+        n > 0 && n == (n & (-n))
+    }
 }
 ```
 
@@ -186,7 +214,7 @@ function isPowerOfTwo(n: number): boolean {
  * @return {boolean}
  */
 var isPowerOfTwo = function (n) {
-    return n > 0 && n == (n & -n);
+    return n > 0 && n === (n & -n);
 };
 ```
 
