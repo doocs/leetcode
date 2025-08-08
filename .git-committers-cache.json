@@ -1,5 +1,5 @@
 {
-  "cache_date": 1754610006,
+  "cache_date": 1754615519,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -129269,7 +129269,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754193681
+      "retrieved": 1754614558
     },
     "solution/3600-3699/3634.Minimum Removals to Balance Array/README.md": {
       "authors": [
@@ -129280,7 +129280,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754216096
+      "retrieved": 1754614559
     },
     "solution/3600-3699/3635.Earliest Finish Time for Land and Water Rides II/README.md": {
       "authors": [
@@ -129291,7 +129291,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754193682
+      "retrieved": 1754614559
     },
     "solution/3600-3699/3636.Threshold Majority Queries/README.md": {
       "authors": [
@@ -129302,7 +129302,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754185424
+      "retrieved": 1754614559
     },
     "solution/3600-3699/3633.Earliest Finish Time for Land and Water Rides I/README_EN.md": {
       "authors": [
@@ -129313,7 +129313,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754194478
+      "retrieved": 1754615371
     },
     "solution/3600-3699/3634.Minimum Removals to Balance Array/README_EN.md": {
       "authors": [
@@ -129324,7 +129324,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754216913
+      "retrieved": 1754615372
     },
     "solution/3600-3699/3635.Earliest Finish Time for Land and Water Rides II/README_EN.md": {
       "authors": [
@@ -129335,7 +129335,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754194478
+      "retrieved": 1754615372
     },
     "solution/3600-3699/3636.Threshold Majority Queries/README_EN.md": {
       "authors": [
@@ -129346,7 +129346,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754186237
+      "retrieved": 1754615372
     },
     "solution/3600-3699/3637.Trionic Array I/README.md": {
       "authors": [
@@ -129357,7 +129357,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754227345
+      "retrieved": 1754614560
     },
     "solution/3600-3699/3638.Maximum Balanced Shipments/README.md": {
       "authors": [
@@ -129368,7 +129368,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754229503
+      "retrieved": 1754614560
     },
     "solution/3600-3699/3639.Minimum Time to Activate String/README.md": {
       "authors": [
@@ -129379,7 +129379,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754224775
+      "retrieved": 1754614560
     },
     "solution/3600-3699/3640.Trionic Array II/README.md": {
       "authors": [
@@ -129390,7 +129390,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754224776
+      "retrieved": 1754614561
     },
     "solution/3600-3699/3637.Trionic Array I/README_EN.md": {
       "authors": [
@@ -129401,7 +129401,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754228142
+      "retrieved": 1754615373
     },
     "solution/3600-3699/3638.Maximum Balanced Shipments/README_EN.md": {
       "authors": [
@@ -129412,7 +129412,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754230303
+      "retrieved": 1754615373
     },
     "solution/3600-3699/3639.Minimum Time to Activate String/README_EN.md": {
       "authors": [
@@ -129423,7 +129423,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754225581
+      "retrieved": 1754615373
     },
     "solution/3600-3699/3640.Trionic Array II/README_EN.md": {
       "authors": [
@@ -129434,7 +129434,29 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754225581
+      "retrieved": 1754615374
+    },
+    "solution/3600-3699/3641.Longest Semi-Repeating Subarray/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754614561
+    },
+    "solution/3600-3699/3641.Longest Semi-Repeating Subarray/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754615374
     }
   }
 }
