@@ -3651,6 +3651,7 @@
 |  3638  |  [平衡装运的最大数量](/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README.md)  |    |  中等  |  第 461 场周赛  |
 |  3639  |  [变为活跃状态的最小时间](/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README.md)  |    |  中等  |  第 461 场周赛  |
 |  3640  |  [三段式数组 II](/solution/3600-3699/3640.Trionic%20Array%20II/README.md)  |    |  困难  |  第 461 场周赛  |
+|  3641  |  [最长半重复子数组](/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

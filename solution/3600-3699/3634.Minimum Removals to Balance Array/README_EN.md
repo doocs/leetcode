@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3634.Minimum%20Removals%20to%20Balance%20Array/README_EN.md
+rating: 1453
+source: Biweekly Contest 162 Q2
 ---
 
 <!-- problem:start -->

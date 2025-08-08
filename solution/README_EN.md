@@ -3649,6 +3649,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3638  |  [Maximum Balanced Shipments](/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README_EN.md)  |    |  Medium  |  Weekly Contest 461  |
 |  3639  |  [Minimum Time to Activate String](/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 461  |
 |  3640  |  [Trionic Array II](/solution/3600-3699/3640.Trionic%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 461  |
+|  3641  |  [Longest Semi-Repeating Subarray](/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
