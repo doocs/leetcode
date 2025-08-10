@@ -225,25 +225,100 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3645.Ma
 #### Python3
 
 ```python
-
+class Solution:
+    def maxTotal(self, value: List[int], limit: List[int]) -> int:
+        g = defaultdict(list)
+        for v, lim in zip(value, limit):
+            g[lim].append(v)
+        ans = 0
+        for lim, vs in g.items():
+            vs.sort()
+            ans += sum(vs[-lim:])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxTotal(int[] value, int[] limit) {
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int i = 0; i < value.length; ++i) {
+            g.computeIfAbsent(limit[i], k -> new ArrayList<>()).add(value[i]);
+        }
+        long ans = 0;
+        for (var e : g.entrySet()) {
+            int lim = e.getKey();
+            var vs = e.getValue();
+            vs.sort((a, b) -> b - a);
+            for (int i = 0; i < Math.min(lim, vs.size()); ++i) {
+                ans += vs.get(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxTotal(vector<int>& value, vector<int>& limit) {
+        unordered_map<int, vector<int>> g;
+        int n = value.size();
+        for (int i = 0; i < n; ++i) {
+            g[limit[i]].push_back(value[i]);
+        }
+        long long ans = 0;
+        for (auto& [lim, vs] : g) {
+            sort(vs.begin(), vs.end(), greater<int>());
+            for (int i = 0; i < min(lim, (int) vs.size()); ++i) {
+                ans += vs[i];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxTotal(value []int, limit []int) (ans int64) {
+	g := make(map[int][]int)
+	for i := range value {
+		g[limit[i]] = append(g[limit[i]], value[i])
+	}
+	for lim, vs := range g {
+		slices.SortFunc(vs, func(a, b int) int { return b - a })
+		for i := 0; i < min(lim, len(vs)); i++ {
+			ans += int64(vs[i])
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxTotal(value: number[], limit: number[]): number {
+    const g = new Map<number, number[]>();
+    for (let i = 0; i < value.length; i++) {
+        if (!g.has(limit[i])) {
+            g.set(limit[i], []);
+        }
+        g.get(limit[i])!.push(value[i]);
+    }
+    let ans = 0;
+    for (const [lim, vs] of g) {
+        vs.sort((a, b) => b - a);
+        ans += vs.slice(0, lim).reduce((acc, v) => acc + v, 0);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
