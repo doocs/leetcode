@@ -46,7 +46,7 @@ tags:
 
 <p><strong>Explanation:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/images/example_1.gif" style="width: 250px; height: 214px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/images/clideo_editor_d0b446db9ba448e1a3fcdd0eecdb58d0-ezgifcom-crop.gif" style="width: 250px; height: 210px;" /></p>
 
 <p>In this example:</p>
 

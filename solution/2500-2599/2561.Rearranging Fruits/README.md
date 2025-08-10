@@ -55,7 +55,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>basket1.length == bakste2.length</code></li>
+	<li><code>basket1.length == basket2.length</code></li>
 	<li><code>1 &lt;= basket1.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= basket1<sub>i</sub>,basket2<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>

@@ -7,6 +7,7 @@ source: Weekly Contest 459 Q3
 tags:
     - Segment Tree
     - Array
+    - Divide and Conquer
 ---
 
 <!-- problem:start -->

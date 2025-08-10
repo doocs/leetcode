@@ -48,7 +48,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/images/example_1.gif" style="width: 250px; height: 214px;" /></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3363.Find%20the%20Maximum%20Number%20of%20Fruits%20Collected/images/clideo_editor_d0b446db9ba448e1a3fcdd0eecdb58d0-ezgifcom-crop.gif" style="width: 250px; height: 210px;" /></p>
 
 <p>这个例子中：</p>
 
@@ -58,7 +58,7 @@ tags:
 	<li>第 3&nbsp;个小朋友（蓝色）的移动路径为&nbsp;<code>(3,0) -&gt; (3,1) -&gt; (3,2) -&gt; (3, 3)</code>&nbsp;。</li>
 </ul>
 
-<p>他们总共能收集&nbsp;<code>1 + 6 + 11 + 1 + 4 + 8 + 12 + 13 + 14 + 15 = 100</code>&nbsp;个水果。</p>
+<p>他们总共能收集&nbsp;<code>1 + 6 + 11 + 16 + 4 + 8 + 12 + 13 + 14 + 15 = 100</code>&nbsp;个水果。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
