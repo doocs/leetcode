@@ -167,14 +167,94 @@ Each row represents a reading session where someone read a portion of a book. se
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：连接 + 分组聚合
+
+我们可以通过连接 `books` 表和 `reading_sessions` 表，然后对结果进行分组和聚合来实现。
+
+首先，我们需要计算每本书的评分范围、极端评分的数量和极端评分的比例。
+
+然后，我们可以根据这些指标筛选出符合条件的书籍。
+
+最后，按照极端评分比例和书名的降序排列结果。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+# Write your MySQL query statement below
+SELECT
+    book_id,
+    title,
+    author,
+    genre,
+    pages,
+    (MAX(session_rating) - MIN(session_rating)) AS rating_spread,
+    ROUND((SUM(session_rating <= 2) + SUM(session_rating >= 4)) / COUNT(1), 2) polarization_score
+FROM
+    books
+    JOIN reading_sessions USING (book_id)
+GROUP BY book_id
+HAVING
+    COUNT(1) >= 5
+    AND MAX(session_rating) >= 4
+    AND MIN(session_rating) <= 2
+    AND polarization_score >= 0.6
+ORDER BY polarization_score DESC, title DESC;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+from decimal import Decimal, ROUND_HALF_UP
+
+
+def find_polarized_books(
+    books: pd.DataFrame, reading_sessions: pd.DataFrame
+) -> pd.DataFrame:
+    df = books.merge(reading_sessions, on="book_id")
+    agg_df = (
+        df.groupby(["book_id", "title", "author", "genre", "pages"])
+        .agg(
+            max_rating=("session_rating", "max"),
+            min_rating=("session_rating", "min"),
+            rating_spread=("session_rating", lambda x: x.max() - x.min()),
+            count_sessions=("session_rating", "count"),
+            low_or_high_count=("session_rating", lambda x: ((x <= 2) | (x >= 4)).sum()),
+        )
+        .reset_index()
+    )
+
+    agg_df["polarization_score"] = agg_df.apply(
+        lambda r: float(
+            Decimal(r["low_or_high_count"] / r["count_sessions"]).quantize(
+                Decimal("0.01"), rounding=ROUND_HALF_UP
+            )
+        ),
+        axis=1,
+    )
+
+    result = agg_df[
+        (agg_df["count_sessions"] >= 5)
+        & (agg_df["max_rating"] >= 4)
+        & (agg_df["min_rating"] <= 2)
+        & (agg_df["polarization_score"] >= 0.6)
+    ]
+
+    return result.sort_values(
+        by=["polarization_score", "title"], ascending=[False, False]
+    )[
+        [
+            "book_id",
+            "title",
+            "author",
+            "genre",
+            "pages",
+            "rating_spread",
+            "polarization_score",
+        ]
+    ]
 ```
 
 <!-- tabs:end -->
