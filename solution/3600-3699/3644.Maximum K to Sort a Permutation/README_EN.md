@@ -81,25 +81,74 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3644.Ma
 #### Python3
 
 ```python
-
+class Solution:
+    def sortPermutation(self, nums: List[int]) -> int:
+        ans = -1
+        for i, x in enumerate(nums):
+            if i != x:
+                ans &= x
+        return max(ans, 0)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int sortPermutation(int[] nums) {
+        int ans = -1;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i != nums[i]) {
+                ans &= nums[i];
+            }
+        }
+        return Math.max(ans, 0);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int sortPermutation(vector<int>& nums) {
+        int ans = -1;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i != nums[i]) {
+                ans &= nums[i];
+            }
+        }
+        return max(ans, 0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sortPermutation(nums []int) int {
+	ans := -1
+	for i, x := range nums {
+		if i != x {
+			ans &= x
+		}
+	}
+	return max(ans, 0)
+}
+```
 
+#### TypeScript
+
+```ts
+function sortPermutation(nums: number[]): number {
+    let ans = -1;
+    for (let i = 0; i < nums.length; ++i) {
+        if (i != nums[i]) {
+            ans &= nums[i];
+        }
+    }
+    return Math.max(ans, 0);
+}
 ```
 
 <!-- tabs:end -->
