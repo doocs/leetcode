@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 462 场周赛(2025-08-10 10:30, 90 分钟) 参赛人数 1710
+
+- [3643. 垂直翻转子矩阵](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README.md)
+- [3644. 排序排列](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README.md)
+- [3645. 最优激活顺序得到的最大总和](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README.md)
+- [3646. 下一个特殊回文数](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README.md)
+
 #### 第 461 场周赛(2025-08-03 10:30, 90 分钟) 参赛人数 1663
 
 - [3637. 三段式数组 I](/solution/3600-3699/3637.Trionic%20Array%20I/README.md)

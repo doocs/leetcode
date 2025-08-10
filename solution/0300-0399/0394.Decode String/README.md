@@ -26,6 +26,8 @@ tags:
 
 <p>此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 <code>k</code> ，例如不会出现像&nbsp;<code>3a</code>&nbsp;或&nbsp;<code>2[4]</code>&nbsp;的输入。</p>
 
+<p>测试用例保证输出的长度不会超过&nbsp;<code>10<sup>5</sup></code>。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>

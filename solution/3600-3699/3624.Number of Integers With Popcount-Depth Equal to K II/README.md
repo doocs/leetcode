@@ -7,6 +7,7 @@ source: 第 459 场周赛 Q3
 tags:
     - 线段树
     - 数组
+    - 分治
 ---
 
 <!-- problem:start -->

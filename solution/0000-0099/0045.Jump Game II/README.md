@@ -20,14 +20,14 @@ tags:
 
 <p>给定一个长度为 <code>n</code> 的 <strong>0 索引</strong>整数数组 <code>nums</code>。初始位置为 <code>nums[0]</code>。</p>
 
-<p>每个元素 <code>nums[i]</code> 表示从索引 <code>i</code> 向后跳转的最大长度。换句话说，如果你在 <code>nums[i]</code> 处，你可以跳转到任意 <code>nums[i + j]</code> 处:</p>
+<p>每个元素 <code>nums[i]</code> 表示从索引 <code>i</code> 向后跳转的最大长度。换句话说，如果你在索引&nbsp;<code>i</code>&nbsp;处，你可以跳转到任意 <code>(i + j)</code> 处：</p>
 
 <ul>
-	<li><code>0 &lt;= j &lt;= nums[i]</code>&nbsp;</li>
+	<li><code>0 &lt;= j &lt;= nums[i]</code>&nbsp;且</li>
 	<li><code>i + j &lt; n</code></li>
 </ul>
 
-<p>返回到达&nbsp;<code>nums[n - 1]</code> 的最小跳跃次数。生成的测试用例可以到达 <code>nums[n - 1]</code>。</p>
+<p>返回到达&nbsp;<code>n - 1</code>&nbsp;的最小跳跃次数。测试用例保证可以到达 <code>n - 1</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -54,7 +54,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
-	<li>题目保证可以到达&nbsp;<code>nums[n-1]</code></li>
+	<li>题目保证可以到达&nbsp;<code>n - 1</code></li>
 </ul>
 
 <!-- description:end -->

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 462
+
+- [3643. Flip Square Submatrix Vertically](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README_EN.md)
+- [3644. Maximum K to Sort a Permutation](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README_EN.md)
+- [3645. Maximum Total from Optimal Activation Order](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README_EN.md)
+- [3646. Next Special Palindrome Number](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README_EN.md)
+
 #### Weekly Contest 461
 
 - [3637. Trionic Array I](/solution/3600-3699/3637.Trionic%20Array%20I/README_EN.md)

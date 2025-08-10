@@ -8,6 +8,7 @@ tags:
     - Stack
     - Memoization
     - Array
+    - Hash Table
     - Math
     - String
     - Dynamic Programming
@@ -81,6 +82,7 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 	<li>All the integer operands in the expression are in the <strong>inclusive</strong> range <code>[0, 9]</code>.</li>
 	<li><code>1 &lt;=</code> The count of all operators (<code>&#39;+&#39;</code> and <code>&#39;*&#39;</code>) in the math expression <code>&lt;= 15</code></li>
 	<li>Test data are generated such that the correct answer of the expression is in the range of <code>[0, 1000]</code>.</li>
+	<li>Test data are generated such that value never exceeds 10<sup>9</sup> in intermediate steps of multiplication.</li>
 	<li><code>n == answers.length</code></li>
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= answers[i] &lt;= 1000</code></li>
