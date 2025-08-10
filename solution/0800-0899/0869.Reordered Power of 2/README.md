@@ -57,7 +57,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们可以在 $[1, 10^9]$ 的范围内枚举所有的 $2$ 的幂，判断它们的数字组成是否与给定的数字相同。
+
+定义一个函数 $f(x)$，表示数字 $x$ 的数字组成。我们可以将数字 $x$ 转换为一个长度为 $10$ 的数组，或者一个按数字大小排序的字符串。
+
+首先，我们计算给定数字 $n$ 的数字组成 $\text{target} = f(n)$。然后，我们枚举 $i$ 从 1 开始，每次将 $i$ 左移一位（相当于乘以 $2$），直到 $i$ 超过 $10^9$。对于每个 $i$，我们计算它的数字组成，并与 $\text{target}$ 进行比较。如果相同，则返回 $\text{true}$；如果枚举结束仍未找到相同的数字组成，则返回 $\text{false}$。
+
+时间复杂度 $O(\log^2 M)$，空间复杂度 $O(\log M)$。其中 $M$ 是本题的输入范围上限 ${10}^9$。
 
 <!-- tabs:start -->
 
@@ -66,16 +74,17 @@ tags:
 ```python
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
-        def convert(n):
+        def f(x: int) -> List[int]:
             cnt = [0] * 10
-            while n:
-                n, v = divmod(n, 10)
+            while x:
+                x, v = divmod(x, 10)
                 cnt[v] += 1
             return cnt
 
-        i, s = 1, convert(n)
+        target = f(n)
+        i = 1
         while i <= 10**9:
-            if convert(i) == s:
+            if f(i) == target:
                 return True
             i <<= 1
         return False
@@ -86,19 +95,19 @@ class Solution:
 ```java
 class Solution {
     public boolean reorderedPowerOf2(int n) {
-        String s = convert(n);
-        for (int i = 1; i <= Math.pow(10, 9); i <<= 1) {
-            if (s.equals(convert(i))) {
+        String target = f(n);
+        for (int i = 1; i <= 1000000000; i <<= 1) {
+            if (target.equals(f(i))) {
                 return true;
             }
         }
         return false;
     }
 
-    private String convert(int n) {
+    private String f(int x) {
         char[] cnt = new char[10];
-        for (; n > 0; n /= 10) {
-            cnt[n % 10]++;
+        for (; x > 0; x /= 10) {
+            cnt[x % 10]++;
         }
         return new String(cnt);
     }
@@ -111,17 +120,23 @@ class Solution {
 class Solution {
 public:
     bool reorderedPowerOf2(int n) {
-        vector<int> s = convert(n);
-        for (int i = 1; i <= pow(10, 9); i <<= 1)
-            if (s == convert(i))
+        string target = f(n);
+        for (int i = 1; i <= 1000000000; i <<= 1) {
+            if (target == f(i)) {
                 return true;
+            }
+        }
         return false;
     }
 
-    vector<int> convert(int n) {
-        vector<int> cnt(10);
-        for (; n; n /= 10) ++cnt[n % 10];
-        return cnt;
+private:
+    string f(int x) {
+        char cnt[10] = {};
+        while (x > 0) {
+            cnt[x % 10]++;
+            x /= 10;
+        }
+        return string(cnt, cnt + 10);
     }
 };
 ```
@@ -130,20 +145,71 @@ public:
 
 ```go
 func reorderedPowerOf2(n int) bool {
-	convert := func(n int) []byte {
-		cnt := make([]byte, 10)
-		for ; n > 0; n /= 10 {
-			cnt[n%10]++
-		}
-		return cnt
-	}
-	s := convert(n)
-	for i := 1; i <= 1e9; i <<= 1 {
-		if bytes.Equal(s, convert(i)) {
+	target := f(n)
+	for i := 1; i <= 1000000000; i <<= 1 {
+		if bytes.Equal(target, f(i)) {
 			return true
 		}
 	}
 	return false
+}
+
+func f(x int) []byte {
+	cnt := make([]byte, 10)
+	for x > 0 {
+		cnt[x%10]++
+		x /= 10
+	}
+	return cnt
+}
+```
+
+#### TypeScript
+
+```ts
+function reorderedPowerOf2(n: number): boolean {
+    const f = (x: number) => {
+        const cnt = Array(10).fill(0);
+        while (x > 0) {
+            cnt[x % 10]++;
+            x = (x / 10) | 0;
+        }
+        return cnt.join(',');
+    };
+    const target = f(n);
+    for (let i = 1; i <= 1_000_000_000; i <<= 1) {
+        if (target === f(i)) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn reordered_power_of2(n: i32) -> bool {
+        fn f(mut x: i32) -> [u8; 10] {
+            let mut cnt = [0u8; 10];
+            while x > 0 {
+                cnt[(x % 10) as usize] += 1;
+                x /= 10;
+            }
+            cnt
+        }
+
+        let target = f(n);
+        let mut i = 1i32;
+        while i <= 1_000_000_000 {
+            if target == f(i) {
+                return true;
+            }
+            i <<= 1;
+        }
+        false
+    }
 }
 ```
 
