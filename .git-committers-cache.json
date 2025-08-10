@@ -1,5 +1,5 @@
 {
-  "cache_date": 1754789400,
+  "cache_date": 1754801998,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -10061,7 +10061,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669019
+      "retrieved": 1754800604
     },
     "solution/1500-1599/1517.Find Users With Valid E-Mails/README.md": {
       "authors": [
@@ -15001,7 +15001,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669121
+      "retrieved": 1754800653
     },
     "solution/1700-1799/1753.Maximum Score From Removing Stones/README.md": {
       "authors": [
@@ -17807,7 +17807,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1753573636
+      "retrieved": 1754800683
     },
     "solution/1900-1999/1900.The Earliest and Latest Rounds Where Players Compete/README.md": {
       "authors": [
@@ -18884,7 +18884,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1752881207
+      "retrieved": 1754800696
     },
     "solution/1900-1999/1963.Minimum Number of Swaps to Make the String Balanced/README.md": {
       "authors": [
@@ -19936,7 +19936,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669236
+      "retrieved": 1754800708
     },
     "solution/0200-0299/0202.Happy Number/README.md": {
       "authors": [
@@ -29642,7 +29642,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1754090564
+      "retrieved": 1754800818
     },
     "solution/2500-2599/2562.Find the Array Concatenation Value/README.md": {
       "authors": [
@@ -34835,7 +34835,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/3740139?v=4"
         }
       ],
-      "retrieved": 1745669585
+      "retrieved": 1754800879
     },
     "solution/2800-2899/2862.Maximum Element-Sum of a Complete Subset of Indices/README.md": {
       "authors": [
@@ -38485,7 +38485,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745669672
+      "retrieved": 1754800923
     },
     "solution/3000-3099/3070.Count Submatrices with Top-Left Element and Sum Less Than k/README.md": {
       "authors": [
@@ -38612,7 +38612,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669676
+      "retrieved": 1754800925
     },
     "solution/3000-3099/3080.Mark Elements on Array by Performing Queries/README.md": {
       "authors": [
@@ -40189,7 +40189,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1745669725
+      "retrieved": 1754800951
     },
     "solution/0300-0399/0320.Generalized Abbreviation/README.md": {
       "authors": [
@@ -41488,16 +41488,16 @@
     "solution/0000-0099/0033.Search in Rotated Sorted Array/README.md": {
       "authors": [
         {
-          "login": "djvelimir",
-          "name": "djvelimir",
-          "url": "https://github.com/djvelimir",
-          "avatar": "https://avatars.githubusercontent.com/u/20823832?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "djvelimir",
+          "name": "djvelimir",
+          "url": "https://github.com/djvelimir",
+          "avatar": "https://avatars.githubusercontent.com/u/20823832?v=4"
         },
         {
           "login": "ZylalMinollari",
@@ -41518,10 +41518,10 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "0xtch",
+          "name": "0xtch",
+          "url": "https://github.com/0xtch",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         },
         {
           "login": "gqjia",
@@ -41530,7 +41530,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/11976651?v=4"
         }
       ],
-      "retrieved": 1745669765
+      "retrieved": 1754800971
     },
     "solution/0300-0399/0330.Patching Array/README.md": {
       "authors": [
@@ -42365,7 +42365,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1754524537
+      "retrieved": 1754800984
     },
     "solution/3300-3399/3364.Minimum Positive Sum Subarray/README.md": {
       "authors": [
@@ -42648,7 +42648,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669797
+      "retrieved": 1754800988
     },
     "solution/3300-3399/3385.Minimum Time to Break Locks II/README.md": {
       "authors": [
@@ -45433,7 +45433,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745669868
+      "retrieved": 1754801043
     },
     "solution/0300-0399/0395.Longest Substring with At Least K Repeating Characters/README.md": {
       "authors": [
@@ -46583,7 +46583,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745669892
+      "retrieved": 1754801056
     },
     "solution/0400-0499/0450.Delete Node in a BST/README.md": {
       "authors": [
@@ -47585,7 +47585,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669913
+      "retrieved": 1754801066
     },
     "solution/0000-0099/0005.Longest Palindromic Substring/README.md": {
       "authors": [
@@ -48530,7 +48530,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669933
+      "retrieved": 1754801076
     },
     "solution/0500-0599/0545.Boundary of Binary Tree/README.md": {
       "authors": [
@@ -54159,7 +54159,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1754609149
+      "retrieved": 1754801131
     },
     "solution/0800-0899/0809.Expressive Words/README.md": {
       "authors": [
@@ -55299,7 +55299,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1750857985
+      "retrieved": 1754801145
     },
     "solution/0800-0899/0874.Walking Robot Simulation/README.md": {
       "authors": [
@@ -82152,7 +82152,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670696
+      "retrieved": 1754801489
     },
     "solution/1700-1799/1753.Maximum Score From Removing Stones/README_EN.md": {
       "authors": [
@@ -85042,7 +85042,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1753574452
+      "retrieved": 1754801517
     },
     "solution/1900-1999/1900.The Earliest and Latest Rounds Where Players Compete/README_EN.md": {
       "authors": [
@@ -87207,7 +87207,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670806
+      "retrieved": 1754801539
     },
     "solution/0200-0299/0202.Happy Number/README_EN.md": {
       "authors": [
@@ -105552,7 +105552,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1745671228
+      "retrieved": 1754801743
     },
     "solution/3000-3099/3070.Count Submatrices with Top-Left Element and Sum Less Than k/README_EN.md": {
       "authors": [
@@ -108525,16 +108525,16 @@
     "solution/0000-0099/0033.Search in Rotated Sorted Array/README_EN.md": {
       "authors": [
         {
-          "login": "djvelimir",
-          "name": "djvelimir",
-          "url": "https://github.com/djvelimir",
-          "avatar": "https://avatars.githubusercontent.com/u/20823832?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "djvelimir",
+          "name": "djvelimir",
+          "url": "https://github.com/djvelimir",
+          "avatar": "https://avatars.githubusercontent.com/u/20823832?v=4"
         },
         {
           "login": "ZylalMinollari",
@@ -108549,10 +108549,10 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         },
         {
-          "login": "lo0b0o",
-          "name": "lo0b0o",
-          "url": "https://github.com/lo0b0o",
-          "avatar": "https://avatars.githubusercontent.com/u/18715489?v=4"
+          "login": "0xtch",
+          "name": "0xtch",
+          "url": "https://github.com/0xtch",
+          "avatar": "https://avatars.githubusercontent.com/u/193441053?v=4"
         },
         {
           "login": "gqjia",
@@ -108561,7 +108561,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/11976651?v=4"
         }
       ],
-      "retrieved": 1745671318
+      "retrieved": 1754801788
     },
     "solution/0300-0399/0330.Patching Array/README_EN.md": {
       "authors": [
@@ -109390,7 +109390,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754525339
+      "retrieved": 1754801800
     },
     "solution/3300-3399/3364.Minimum Positive Sum Subarray/README_EN.md": {
       "authors": [
@@ -109522,7 +109522,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671346
+      "retrieved": 1754801802
     },
     "solution/3300-3399/3375.Minimum Operations to Make Array Values Equal to K/README_EN.md": {
       "authors": [
@@ -113566,7 +113566,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745671443
+      "retrieved": 1754801868
     },
     "solution/0400-0499/0450.Delete Node in a BST/README_EN.md": {
       "authors": [
@@ -114084,7 +114084,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745671454
+      "retrieved": 1754801873
     },
     "solution/0400-0499/0476.Number Complement/README_EN.md": {
       "authors": [
@@ -121052,7 +121052,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1754609948
+      "retrieved": 1754801940
     },
     "solution/0800-0899/0809.Expressive Words/README_EN.md": {
       "authors": [
@@ -129005,7 +129005,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754185421
+      "retrieved": 1754801031
     },
     "solution/3600-3699/3625.Count Number of Trapezoids II/README.md": {
       "authors": [
@@ -129093,7 +129093,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754186233
+      "retrieved": 1754801845
     },
     "solution/3600-3699/3625.Count Number of Trapezoids II/README_EN.md": {
       "authors": [
@@ -129302,7 +129302,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754614559
+      "retrieved": 1754801033
     },
     "solution/3600-3699/3633.Earliest Finish Time for Land and Water Rides I/README_EN.md": {
       "authors": [
@@ -129335,7 +129335,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754615372
+      "retrieved": 1754801847
     },
     "solution/3600-3699/3636.Threshold Majority Queries/README_EN.md": {
       "authors": [
@@ -129346,7 +129346,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754615372
+      "retrieved": 1754801847
     },
     "solution/3600-3699/3637.Trionic Array I/README.md": {
       "authors": [
@@ -129379,7 +129379,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754614560
+      "retrieved": 1754801034
     },
     "solution/3600-3699/3640.Trionic Array II/README.md": {
       "authors": [
@@ -129390,7 +129390,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754614561
+      "retrieved": 1754801035
     },
     "solution/3600-3699/3637.Trionic Array I/README_EN.md": {
       "authors": [
@@ -129423,7 +129423,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754615373
+      "retrieved": 1754801848
     },
     "solution/3600-3699/3640.Trionic Array II/README_EN.md": {
       "authors": [
@@ -129434,7 +129434,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754615374
+      "retrieved": 1754801848
     },
     "solution/3600-3699/3641.Longest Semi-Repeating Subarray/README.md": {
       "authors": [
@@ -129457,6 +129457,116 @@
         }
       ],
       "retrieved": 1754615374
+    },
+    "solution/3600-3699/3642.Find Books with Polarized Opinions/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801035
+    },
+    "solution/3600-3699/3643.Flip Square Submatrix Vertically/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801036
+    },
+    "solution/3600-3699/3644.Maximum K to Sort a Permutation/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801036
+    },
+    "solution/3600-3699/3645.Maximum Total from Optimal Activation Order/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801037
+    },
+    "solution/3600-3699/3646.Next Special Palindrome Number/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801037
+    },
+    "solution/3600-3699/3642.Find Books with Polarized Opinions/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801849
+    },
+    "solution/3600-3699/3643.Flip Square Submatrix Vertically/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801849
+    },
+    "solution/3600-3699/3644.Maximum K to Sort a Permutation/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801850
+    },
+    "solution/3600-3699/3645.Maximum Total from Optimal Activation Order/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801850
+    },
+    "solution/3600-3699/3646.Next Special Palindrome Number/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754801850
     }
   }
 }
