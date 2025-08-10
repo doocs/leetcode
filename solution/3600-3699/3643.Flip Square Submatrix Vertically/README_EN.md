@@ -66,32 +66,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3643.Fl
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We start from row $x$ and flip a total of $\lfloor \frac{k}{2} \rfloor$ rows.
+
+For each row $i$, we need to swap it with the corresponding row $i_2$, where $i_2 = x + k - 1 - (i - x)$.
+
+During the swap, we need to traverse $j \in [y, y + k)$ and swap $\text{grid}[i][j]$ with $\text{grid}[i_2][j]$.
+
+Finally, return the updated matrix.
+
+The time complexity is $O(k^2)$, where $k$ is the side length of the submatrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def reverseSubmatrix(
+        self, grid: List[List[int]], x: int, y: int, k: int
+    ) -> List[List[int]]:
+        for i in range(x, x + k // 2):
+            i2 = x + k - 1 - (i - x)
+            for j in range(y, y + k):
+                grid[i][j], grid[i2][j] = grid[i2][j], grid[i][j]
+        return grid
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[][] reverseSubmatrix(int[][] grid, int x, int y, int k) {
+        for (int i = x; i < x + k / 2; i++) {
+            int i2 = x + k - 1 - (i - x);
+            for (int j = y; j < y + k; j++) {
+                int t = grid[i][j];
+                grid[i][j] = grid[i2][j];
+                grid[i2][j] = t;
+            }
+        }
+        return grid;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> reverseSubmatrix(vector<vector<int>>& grid, int x, int y, int k) {
+        for (int i = x; i < x + k / 2; i++) {
+            int i2 = x + k - 1 - (i - x);
+            for (int j = y; j < y + k; j++) {
+                swap(grid[i][j], grid[i2][j]);
+            }
+        }
+        return grid;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func reverseSubmatrix(grid [][]int, x int, y int, k int) [][]int {
+	for i := x; i < x+k/2; i++ {
+		i2 := x + k - 1 - (i - x)
+		for j := y; j < y+k; j++ {
+			grid[i][j], grid[i2][j] = grid[i2][j], grid[i][j]
+		}
+	}
+	return grid
+}
+```
 
+#### TypeScript
+
+```ts
+function reverseSubmatrix(grid: number[][], x: number, y: number, k: number): number[][] {
+    for (let i = x; i < x + Math.floor(k / 2); i++) {
+        const i2 = x + k - 1 - (i - x);
+        for (let j = y; j < y + k; j++) {
+            [grid[i][j], grid[i2][j]] = [grid[i2][j], grid[i][j]];
+        }
+    }
+    return grid;
+}
 ```
 
 <!-- tabs:end -->

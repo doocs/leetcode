@@ -68,32 +68,95 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3643.Fl
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们从第 $x$ 行开始，一共翻转 $\lfloor \frac{k}{2} \rfloor$ 行。
+
+对于每一行 $i$，我们需要将其与对应的行 $i_2$ 进行交换，其中 $i_2 = x + k - 1 - (i - x)$。
+
+在交换时，我们需要遍历 $j \in [y, y + k)$，将 $\text{grid}[i][j]$ 和 $\text{grid}[i_2][j]$ 进行交换。
+
+最后，返回更新后的矩阵。
+
+时间复杂度 $O(k^2)$，其中 $k$ 是子矩阵的边长。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def reverseSubmatrix(
+        self, grid: List[List[int]], x: int, y: int, k: int
+    ) -> List[List[int]]:
+        for i in range(x, x + k // 2):
+            i2 = x + k - 1 - (i - x)
+            for j in range(y, y + k):
+                grid[i][j], grid[i2][j] = grid[i2][j], grid[i][j]
+        return grid
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[][] reverseSubmatrix(int[][] grid, int x, int y, int k) {
+        for (int i = x; i < x + k / 2; i++) {
+            int i2 = x + k - 1 - (i - x);
+            for (int j = y; j < y + k; j++) {
+                int t = grid[i][j];
+                grid[i][j] = grid[i2][j];
+                grid[i2][j] = t;
+            }
+        }
+        return grid;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> reverseSubmatrix(vector<vector<int>>& grid, int x, int y, int k) {
+        for (int i = x; i < x + k / 2; i++) {
+            int i2 = x + k - 1 - (i - x);
+            for (int j = y; j < y + k; j++) {
+                swap(grid[i][j], grid[i2][j]);
+            }
+        }
+        return grid;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func reverseSubmatrix(grid [][]int, x int, y int, k int) [][]int {
+	for i := x; i < x+k/2; i++ {
+		i2 := x + k - 1 - (i - x)
+		for j := y; j < y+k; j++ {
+			grid[i][j], grid[i2][j] = grid[i2][j], grid[i][j]
+		}
+	}
+	return grid
+}
+```
 
+#### TypeScript
+
+```ts
+function reverseSubmatrix(grid: number[][], x: number, y: number, k: number): number[][] {
+    for (let i = x; i < x + Math.floor(k / 2); i++) {
+        const i2 = x + k - 1 - (i - x);
+        for (let j = y; j < y + k; j++) {
+            [grid[i][j], grid[i2][j]] = [grid[i2][j], grid[i][j]];
+        }
+    }
+    return grid;
+}
 ```
 
 <!-- tabs:end -->
