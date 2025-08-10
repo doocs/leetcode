@@ -9,7 +9,7 @@ class Solution:
         ans = []
         for l, r in queries:
             x = 1
-            for y in powers[l : r + 1]:
-                x = (x * y) % mod
+            for i in range(l, r + 1):
+                x = x * powers[i] % mod
             ans.append(x)
         return ans
