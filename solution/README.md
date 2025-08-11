@@ -3652,11 +3652,12 @@
 |  3639  |  [变为活跃状态的最小时间](/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README.md)  |    |  中等  |  第 461 场周赛  |
 |  3640  |  [三段式数组 II](/solution/3600-3699/3640.Trionic%20Array%20II/README.md)  |    |  困难  |  第 461 场周赛  |
 |  3641  |  [最长半重复子数组](/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README.md)  |    |  中等  |  🔒  |
-|  3642  |  [Find Books with Polarized Opinions](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)  |    |  简单  |    |
+|  3642  |  [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)  |    |  简单  |    |
 |  3643  |  [垂直翻转子矩阵](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README.md)  |    |  简单  |  第 462 场周赛  |
 |  3644  |  [排序排列](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README.md)  |    |  中等  |  第 462 场周赛  |
 |  3645  |  [最优激活顺序得到的最大总和](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README.md)  |    |  中等  |  第 462 场周赛  |
 |  3646  |  [下一个特殊回文数](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README.md)  |    |  困难  |  第 462 场周赛  |
+|  3647  |  [两个袋子中的最大重量](/solution/3600-3699/3647.Maximum%20Weight%20in%20Two%20Bags/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
