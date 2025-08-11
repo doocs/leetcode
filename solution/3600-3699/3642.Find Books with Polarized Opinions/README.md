@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3642. Find Books with Polarized Opinions](https://leetcode.cn/problems/find-books-with-polarized-opinions)
+# [3642. 查找有两极分化观点的书籍](https://leetcode.cn/problems/find-books-with-polarized-opinions)
 
 [English Version](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>books</code></p>
+<p>表：<code>books</code></p>
 
 <pre>
 +-------------+---------+
@@ -28,11 +28,11 @@ tags:
 | genre       | varchar |
 | pages       | int     |
 +-------------+---------+
-book_id is the unique ID for this table.
-Each row contains information about a book including its genre and page count.
+book_id 是这张表的唯一主键。
+每一行包含关于一本书的信息，包括其类型和页数。
 </pre>
 
-<p>Table: <code>reading_sessions</code></p>
+<p>表：<code>reading_sessions</code></p>
 
 <pre>
 +----------------+---------+
@@ -44,31 +44,32 @@ Each row contains information about a book including its genre and page count.
 | pages_read     | int     |
 | session_rating | int     |
 +----------------+---------+
-session_id is the unique ID for this table.
-Each row represents a reading session where someone read a portion of a book. session_rating is on a scale of 1-5.
+session_id 是这张表的唯一主键。
+每一行代表一次阅读事件，有人阅读了书籍的一部分。session_rating 在 1-5 的范围内。
 </pre>
 
-<p>Write a solution to find books that have <strong>polarized opinions</strong> - books that receive both very high ratings and very low ratings from different readers.</p>
+<p>编写一个解决方案来找到具有 <strong>两极分化观点</strong> 的书 - 同时获得不同读者极高和极低评分的书籍。</p>
 
 <ul>
-	<li>A book has polarized opinions if it has <code>at least one rating &ge; 4</code> and <code>at least one rating &le; 2</code></li>
-	<li>Only consider books that have <strong>at least </strong><code>5</code><strong> reading sessions</strong></li>
-	<li>Calculate the <strong>rating spread</strong> as (<code>highest_rating - lowest_rating</code>)</li>
-	<li>Calculate the <strong>polarization score</strong> as the number of extreme ratings (<code>ratings &le; 2 or &ge; 4</code>) divided by total sessions</li>
-	<li><strong>Only include</strong> books where <code>polarization score &ge; 0.6</code> (at least <code>60%</code> extreme ratings)</li>
+	<li>如果一本书有至少一个大于等于&nbsp;<code>4</code>&nbsp;的评分和至少一个小于等于&nbsp;<code>2</code>&nbsp;的评分则是有两极分化观点的书</li>
+	<li>只考虑有至少 <code>5</code> 次阅读事件的书籍</li>
+	<li>按&nbsp;<code>highest_rating - lowest_rating</code>&nbsp;计算评分差幅&nbsp;<strong>rating spread</strong></li>
+	<li>按极端评分（评分小于等于 <code>2</code> 或大于等于 <code>4</code>）的数量除以总阅读事件计算 <strong>极化得分&nbsp;polarization score</strong></li>
+	<li><strong>只包含</strong>&nbsp;极化得分大于等于&nbsp;<code>0.6</code>&nbsp;的书（至少&nbsp;<code>60%</code>&nbsp;极端评分）</li>
 </ul>
 
-<p>Return <em>the result table ordered by polarization score in <strong>descending</strong> order, then by title in <strong>descending</strong> order</em>.</p>
+<p>返回结果表按极化得分 <strong>降序</strong> 排序，然后按标题 <strong>降序</strong> 排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>books table:</p>
+<p>books 表：</p>
 
 <pre class="example-io">
 +---------+------------------------+---------------+----------+-------+
@@ -82,7 +83,7 @@ Each row represents a reading session where someone read a portion of a book. se
 +---------+------------------------+---------------+----------+-------+
 </pre>
 
-<p>reading_sessions table:</p>
+<p>reading_sessions 表：</p>
 
 <pre class="example-io">
 +------------+---------+-------------+------------+----------------+
@@ -111,7 +112,7 @@ Each row represents a reading session where someone read a portion of a book. se
 +------------+---------+-------------+------------+----------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+------------------+---------------+-----------+-------+---------------+--------------------+
@@ -122,43 +123,43 @@ Each row represents a reading session where someone read a portion of a book. se
 +---------+------------------+---------------+-----------+-------+---------------+--------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>The Great Gatsby (book_id = 1):</strong>
+	<li><strong>了不起的盖茨比（book_id = 1）：</strong>
 
     <ul>
-    	<li>Has 5 reading sessions (meets minimum requirement)</li>
-    	<li>Ratings: 5, 1, 4, 2, 5</li>
-    	<li>Has ratings &ge; 4: 5, 4, 5 (3 sessions)</li>
-    	<li>Has ratings &le; 2: 1, 2 (2 sessions)</li>
-    	<li>Rating spread: 5 - 1 = 4</li>
-    	<li>Extreme ratings (&le;2 or &ge;4): All 5 sessions (5, 1, 4, 2, 5)</li>
-    	<li>Polarization score: 5/5 = 1.00 (&ge; 0.6, qualifies)</li>
+    	<li>有 5 次阅读事件（满足最少要求）</li>
+    	<li>评分：5, 1, 4, 2, 5</li>
+    	<li>大于等于 4 的评分：5，4，5（3 次事件）</li>
+    	<li>小于等于 2 的评分：1，2（2 次事件）</li>
+    	<li>评分差：5 - 1 = 4</li>
+    	<li>极端评分（≤2 或&nbsp;≥4）：所有 5 次事件（5，1，4，2，5）</li>
+    	<li>极化得分：5/5 = 1.00（≥&nbsp;0.6，符合）</li>
     </ul>
     </li>
     <li><strong>1984 (book_id = 3):</strong>
     <ul>
-    	<li>Has 6 reading sessions (meets minimum requirement)</li>
-    	<li>Ratings: 2, 1, 2, 1, 4, 5</li>
-    	<li>Has ratings &ge; 4: 4, 5 (2 sessions)</li>
-    	<li>Has ratings &le; 2: 2, 1, 2, 1 (4 sessions)</li>
-    	<li>Rating spread: 5 - 1 = 4</li>
-    	<li>Extreme ratings (&le;2 or &ge;4): All 6 sessions (2, 1, 2, 1, 4, 5)</li>
-    	<li>Polarization score: 6/6 = 1.00 (&ge; 0.6, qualifies)</li>
+    	<li>有 6&nbsp;次阅读事件（满足最少要求）</li>
+    	<li>评分：2，1，2，1，4，5</li>
+    	<li>大于等于 4 的评分：4，5（2 次事件）</li>
+    	<li>小于等于 2 的评分：2，1，2，1（4&nbsp;次事件）</li>
+    	<li>评分差：5 - 1 = 4</li>
+    	<li>极端评分（≤2 或&nbsp;≥4）：所有 6&nbsp;次事件（2，1，2，1，4，5）</li>
+    	<li>极化得分：6/6 = 1.00 (≥ 0.6，符合）</li>
     </ul>
     </li>
-    <li><strong>Books not included:</strong>
+    <li><strong>未包含的书：</strong>
     <ul>
-    	<li>To Kill a Mockingbird (book_id = 2): All ratings are 4-5, no low ratings (&le;2)</li>
-    	<li>Pride and Prejudice (book_id = 4): Only 2 sessions (&lt; 5 minimum)</li>
-    	<li>The Catcher in the Rye (book_id = 5): Only 2 sessions (&lt; 5 minimum)</li>
+    	<li>杀死一只知更鸟（book_id = 2）：所有评分为 4-5，没有低分（≤2）</li>
+    	<li>傲慢与偏见（book_id = 4）：只有&nbsp;2 次事件（&lt; 最少 5 次）</li>
+    	<li>麦田里的守望者（book_id = 5）：只有&nbsp;2 次事件（&lt; 最少 5 次）</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The result table is ordered by polarization score in descending order, then by book title in descending order.</p>
+<p>结果表按极化得分降序排序，然后按标题降序排序。</p>
 </div>
 
 <!-- description:end -->
