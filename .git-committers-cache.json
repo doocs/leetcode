@@ -1,5 +1,5 @@
 {
-  "cache_date": 1754871096,
+  "cache_date": 1754957544,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -33610,7 +33610,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754437257
+      "retrieved": 1754956419
     },
     "solution/2700-2799/2788.Split Strings by Separator/README.md": {
       "authors": [
@@ -100779,7 +100779,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754438058
+      "retrieved": 1754957237
     },
     "solution/2700-2799/2788.Split Strings by Separator/README_EN.md": {
       "authors": [
@@ -129225,7 +129225,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754094902
+      "retrieved": 1754956586
     },
     "solution/3600-3699/3632.Subarrays with XOR at Least K/README.md": {
       "authors": [
@@ -129467,7 +129467,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754803150
+      "retrieved": 1754956588
     },
     "solution/3600-3699/3643.Flip Square Submatrix Vertically/README.md": {
       "authors": [
@@ -129544,7 +129544,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754828717
+      "retrieved": 1754957397
     },
     "solution/3600-3699/3645.Maximum Total from Optimal Activation Order/README_EN.md": {
       "authors": [
@@ -129555,7 +129555,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754831280
+      "retrieved": 1754957398
     },
     "solution/3600-3699/3646.Next Special Palindrome Number/README_EN.md": {
       "authors": [
@@ -129566,7 +129566,29 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754801850
+      "retrieved": 1754957398
+    },
+    "solution/3600-3699/3647.Maximum Weight in Two Bags/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754956589
+    },
+    "solution/3600-3699/3647.Maximum Weight in Two Bags/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1754957398
     }
   }
 }
