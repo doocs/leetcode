@@ -1,4 +1,8 @@
-function canMakeArithmeticProgression(arr: number[]): boolean {
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
     const n = arr.length;
     const a = Math.min(...arr);
     const b = Math.max(...arr);
@@ -16,4 +20,4 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
         }
     }
     return true;
-}
+};
