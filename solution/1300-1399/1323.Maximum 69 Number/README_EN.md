@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>Input:</strong> num = 9669
 <strong>Output:</strong> 9969
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Changing the first digit results in 6669.
 Changing the second digit results in 9969.
 Changing the third digit results in 9699.
