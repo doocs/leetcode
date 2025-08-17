@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 463 场周赛(2025-08-17 10:30, 90 分钟) 参赛人数 2033
+
+- [3652. 按策略买卖股票的最佳时机](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README.md)
+- [3653. 区间乘法查询后的异或 I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README.md)
+- [3654. 删除可整除和后的最小数组和](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README.md)
+- [3655. 区间乘法查询后的异或 II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README.md)
+
 #### 第 163 场双周赛(2025-08-16 22:30, 90 分钟) 参赛人数 1308
 
 - [3648. 覆盖网格的最少传感器数目](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README.md)
