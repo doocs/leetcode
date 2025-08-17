@@ -1,5 +1,5 @@
 {
-  "cache_date": 1755304528,
+  "cache_date": 1755393888,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -54661,7 +54661,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670061
+      "retrieved": 1755393046
     },
     "solution/0800-0899/0838.Push Dominoes/README.md": {
       "authors": [
@@ -73562,7 +73562,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1755303949
+      "retrieved": 1755393308
     },
     "solution/1300-1399/1324.Print Words Vertically/README_EN.md": {
       "authors": [
@@ -121548,7 +121548,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745671609
+      "retrieved": 1755393837
     },
     "solution/0800-0899/0838.Push Dominoes/README_EN.md": {
       "authors": [
@@ -129478,7 +129478,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754803150
+      "retrieved": 1755392946
     },
     "solution/3600-3699/3644.Maximum K to Sort a Permutation/README.md": {
       "authors": [
@@ -129489,7 +129489,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754827876
+      "retrieved": 1755392947
     },
     "solution/3600-3699/3645.Maximum Total from Optimal Activation Order/README.md": {
       "authors": [
@@ -129500,7 +129500,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754830480
+      "retrieved": 1755392947
     },
     "solution/3600-3699/3646.Next Special Palindrome Number/README.md": {
       "authors": [
@@ -129511,7 +129511,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754801037
+      "retrieved": 1755392947
     },
     "solution/3600-3699/3642.Find Books with Polarized Opinions/README_EN.md": {
       "authors": [
@@ -129533,7 +129533,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754803978
+      "retrieved": 1755393742
     },
     "solution/3600-3699/3644.Maximum K to Sort a Permutation/README_EN.md": {
       "authors": [
@@ -129544,7 +129544,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754957397
+      "retrieved": 1755393742
     },
     "solution/3600-3699/3645.Maximum Total from Optimal Activation Order/README_EN.md": {
       "authors": [
@@ -129555,7 +129555,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754957398
+      "retrieved": 1755393742
     },
     "solution/3600-3699/3646.Next Special Palindrome Number/README_EN.md": {
       "authors": [
@@ -129566,7 +129566,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1754957398
+      "retrieved": 1755393743
     },
     "solution/3600-3699/3647.Maximum Weight in Two Bags/README.md": {
       "authors": [
@@ -129589,6 +129589,94 @@
         }
       ],
       "retrieved": 1754957398
+    },
+    "solution/3600-3699/3648.Minimum Sensors to Cover Grid/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755392948
+    },
+    "solution/3600-3699/3649.Number of Perfect Pairs/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755392948
+    },
+    "solution/3600-3699/3650.Minimum Cost Path with Edge Reversals/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755392949
+    },
+    "solution/3600-3699/3651.Minimum Cost Path with Teleportations/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755392949
+    },
+    "solution/3600-3699/3648.Minimum Sensors to Cover Grid/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755393743
+    },
+    "solution/3600-3699/3649.Number of Perfect Pairs/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755393743
+    },
+    "solution/3600-3699/3650.Minimum Cost Path with Edge Reversals/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755393744
+    },
+    "solution/3600-3699/3651.Minimum Cost Path with Teleportations/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755393744
     }
   }
 }
