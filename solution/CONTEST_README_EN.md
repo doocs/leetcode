@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 163
+
+- [3648. Minimum Sensors to Cover Grid](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README_EN.md)
+- [3649. Number of Perfect Pairs](/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README_EN.md)
+- [3650. Minimum Cost Path with Edge Reversals](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README_EN.md)
+- [3651. Minimum Cost Path with Teleportations](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README_EN.md)
+
 #### Weekly Contest 462
 
 - [3643. Flip Square Submatrix Vertically](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README_EN.md)

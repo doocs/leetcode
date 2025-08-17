@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README.md
+rating: 2018
+source: 第 462 场周赛 Q3
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README.md
+rating: 2445
+source: 第 462 场周赛 Q4
 ---
 
 <!-- problem:start -->
