@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 463
+
+- [3652. Best Time to Buy and Sell Stock using Strategy](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README_EN.md)
+- [3653. XOR After Range Multiplication Queries I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README_EN.md)
+- [3654. Minimum Sum After Divisible Sum Deletions](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md)
+- [3655. XOR After Range Multiplication Queries II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README_EN.md)
+
 #### Biweekly Contest 163
 
 - [3648. Minimum Sensors to Cover Grid](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README_EN.md)
