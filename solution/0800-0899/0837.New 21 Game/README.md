@@ -75,17 +75,17 @@ tags:
 函数 $dfs(i)$ 的计算方法如下：
 
 -   如果 $i \ge k$，那么停止抽取数字，如果 $i \le n$，返回 $1$，否则返回 $0$；
--   否则，可以在 $[1,..maxPts]$ 范围内抽取下一个数字 $j$，那么 $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$。
+-   否则，可以在 $[1,..\textit{maxPts}]$ 范围内抽取下一个数字 $j$，那么 $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$。
 
 这里我们可以使用记忆化搜索来加速计算。
 
-以上方法的时间复杂度为 $O(k \times maxPts)$，会超出时间限制，我们需要优化一下。
+以上方法的时间复杂度为 $O(k \times \textit{maxPts})$，会超出时间限制，我们需要优化一下。
 
 当 $i \lt k$ 时，以下等式成立：
 
 $$
 \begin{aligned}
-dfs(i) &= (dfs(i + 1) + dfs(i + 2) + \cdots + dfs(i + maxPts)) / maxPts & (1)
+dfs(i) &= (dfs(i + 1) + dfs(i + 2) + \cdots + dfs(i + \textit{maxPts})) / \ & (1)
 \end{aligned}
 $$
 
@@ -93,7 +93,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i+1) &= (dfs(i + 2) + dfs(i + 3) + \cdots + dfs(i + maxPts + 1)) / maxPts & (2)
+dfs(i+1) &= (dfs(i + 2) + dfs(i + 3) + \cdots + dfs(i + \textit{maxPts} + 1)) / \textit{maxPts} & (2)
 \end{aligned}
 $$
 
@@ -101,7 +101,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) - dfs(i+1) &= (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts
+dfs(i) - dfs(i+1) &= (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -109,7 +109,7 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) &= dfs(i + 1) + (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts
+dfs(i) &= dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -117,15 +117,15 @@ $$
 
 $$
 \begin{aligned}
-dfs(i) &= dfs(k - 1) &= dfs(k) + dfs(k + 1) + \cdots + dfs(k + maxPts - 1) / maxPts & (3)
+dfs(i) &= dfs(k - 1) &= dfs(k) + dfs(k + 1) + \cdots + dfs(k + \textit{maxPts} - 1) / \textit{maxPts} & (3)
 \end{aligned}
 $$
 
-我们假设有 $i$ 个数不超过 $n$，那么 $k+i-1 \leq n$，又因为 $i\leq maxPts$，所以 $i \leq \min(n-k+1, maxPts)$，因此等式 $(3)$ 可以写成：
+我们假设有 $i$ 个数不超过 $n$，那么 $k+i-1 \leq n$，又因为 $i\leq \textit{maxPts}$，所以 $i \leq \min(n-k+1, \textit{maxPts})$，因此等式 $(3)$ 可以写成：
 
 $$
 \begin{aligned}
-dfs(k-1) &= \min(n-k+1, maxPts) / maxPts
+dfs(k-1) &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
 \end{aligned}
 $$
 
@@ -136,13 +136,13 @@ $$
 dfs(i) &= \begin{cases}
 1, & i \geq k, i \leq n \\
 0, & i \geq k, i \gt n \\
-\min(n-k+1, maxPts) / maxPts, & i = k - 1 \\
-dfs(i + 1) + (dfs(i + 1) - dfs(i + maxPts + 1)) / maxPts, & i < k - 1
+\min(n-k+1, \textit{maxPts}) / \textit{maxPts}, & i = k - 1 \\
+dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i < k - 1
 \end{cases}
 \end{aligned}
 $$
 
-时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
+时间复杂度 $O(k + \textit{maxPts})$，空间复杂度 $O(k + \textit{maxPts})$。其中 $k$ 为最大分数。
 
 <!-- tabs:start -->
 
@@ -246,7 +246,7 @@ func new21Game(n int, k int, maxPts int) float64 {
 
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {
-    const f = new Array(k).fill(0);
+    const f: number[] = Array(k).fill(0);
     const dfs = (i: number): number => {
         if (i >= k) {
             return i <= n ? 1 : 0;
@@ -275,13 +275,13 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 定义 $f[i]$ 表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $f[0]$。
 
-当 $k \leq i \leq \min(n, k + maxPts - 1)$ 时，有 $f[i] = 1$。
+当 $k \leq i \leq \min(n, k + \textit{maxPts} - 1)$ 时，有 $f[i] = 1$。
 
-当 $i = k - 1$ 时，有 $f[i] = \min(n-k+1, maxPts) / maxPts$。
+当 $i = k - 1$ 时，有 $f[i] = \min(n-k+1, \textit{maxPts}) / \textit{maxPts}$。
 
-当 $i \lt k - 1$ 时，有 $f[i] = f[i + 1] + (f[i + 1] - f[i + maxPts + 1]) / maxPts$。
+当 $i \lt k - 1$ 时，有 $f[i] = f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}$。
 
-时间复杂度 $O(k + maxPts)$，空间复杂度 $O(k + maxPts)$。其中 $k$ 为最大分数。
+时间复杂度 $O(k + \textit{maxPts})$，空间复杂度 $O(k + \textit{maxPts})$。其中 $k$ 为最大分数。
 
 <!-- tabs:start -->
 
@@ -369,7 +369,7 @@ function new21Game(n: number, k: number, maxPts: number): number {
     if (k === 0) {
         return 1;
     }
-    const f = new Array(k + maxPts).fill(0);
+    const f: number[] = Array(k + maxPts).fill(0);
     for (let i = k; i < Math.min(n + 1, k + maxPts); ++i) {
         f[i] = 1;
     }
