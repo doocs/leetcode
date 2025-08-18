@@ -3662,6 +3662,10 @@
 |  3649  |  [完美对的数目](/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README.md)  |    |  中等  |  第 163 场双周赛  |
 |  3650  |  [边反转的最小路径总成本](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README.md)  |    |  中等  |  第 163 场双周赛  |
 |  3651  |  [带传送的最小路径成本](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README.md)  |    |  困难  |  第 163 场双周赛  |
+|  3652  |  [按策略买卖股票的最佳时机](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README.md)  |    |  中等  |  第 463 场周赛  |
+|  3653  |  [区间乘法查询后的异或 I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README.md)  |    |  中等  |  第 463 场周赛  |
+|  3654  |  [删除可整除和后的最小数组和](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README.md)  |    |  中等  |  第 463 场周赛  |
+|  3655  |  [区间乘法查询后的异或 II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README.md)  |    |  困难  |  第 463 场周赛  |
 
 ## 版权
 
