@@ -1,7 +1,10 @@
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
         ans = cnt = 0
-        for v in nums:
-            cnt = 0 if v else cnt + 1
-            ans += cnt
+        for x in nums:
+            if x == 0:
+                cnt += 1
+                ans += cnt
+            else:
+                cnt = 0
         return ans
