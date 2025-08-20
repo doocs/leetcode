@@ -1,5 +1,5 @@
 {
-  "cache_date": 1755566563,
+  "cache_date": 1755655841,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -5575,7 +5575,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745668914
+      "retrieved": 1755654398
     },
     "solution/1200-1299/1278.Palindrome Partitioning III/README.md": {
       "authors": [
@@ -72648,7 +72648,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745670497
+      "retrieved": 1755655233
     },
     "solution/1200-1299/1278.Palindrome Partitioning III/README_EN.md": {
       "authors": [
@@ -93040,7 +93040,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1755566171
+      "retrieved": 1755655441
     },
     "solution/2300-2399/2349.Design a Number Container System/README_EN.md": {
       "authors": [
@@ -129765,6 +129765,28 @@
         }
       ],
       "retrieved": 1755431891
+    },
+    "solution/3600-3699/3656.Determine if a Simple Graph Exists/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755654875
+    },
+    "solution/3600-3699/3656.Determine if a Simple Graph Exists/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1755655692
     }
   }
 }
