@@ -3664,6 +3664,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3653  |  [XOR After Range Multiplication Queries I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 463  |
 |  3654  |  [Minimum Sum After Divisible Sum Deletions](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md)  |    |  Medium  |  Weekly Contest 463  |
 |  3655  |  [XOR After Range Multiplication Queries II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 463  |
+|  3656  |  [Determine if a Simple Graph Exists](/solution/3600-3699/3656.Determine%20if%20a%20Simple%20Graph%20Exists/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
