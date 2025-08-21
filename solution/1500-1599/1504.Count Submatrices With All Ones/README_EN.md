@@ -30,11 +30,11 @@ tags:
 <pre>
 <strong>Input:</strong> mat = [[1,0,1],[1,1,0],[1,1,0]]
 <strong>Output:</strong> 13
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are 6 rectangles of side 1x1.
 There are 2 rectangles of side 1x2.
 There are 3 rectangles of side 2x1.
-There is 1 rectangle of side 2x2. 
+There is 1 rectangle of side 2x2.
 There is 1 rectangle of side 3x1.
 Total number of rectangles = 6 + 2 + 3 + 1 + 1 = 13.
 </pre>
@@ -44,14 +44,14 @@ Total number of rectangles = 6 + 2 + 3 + 1 + 1 = 13.
 <pre>
 <strong>Input:</strong> mat = [[0,1,1,0],[0,1,1,1],[1,1,1,0]]
 <strong>Output:</strong> 24
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 There are 8 rectangles of side 1x1.
 There are 5 rectangles of side 1x2.
-There are 2 rectangles of side 1x3. 
+There are 2 rectangles of side 1x3.
 There are 4 rectangles of side 2x1.
-There are 2 rectangles of side 2x2. 
-There are 2 rectangles of side 3x1. 
-There is 1 rectangle of side 3x2. 
+There are 2 rectangles of side 2x2.
+There are 2 rectangles of side 3x1.
+There is 1 rectangle of side 3x2.
 Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 </pre>
 
@@ -219,6 +219,79 @@ function numSubmat(mat: number[][]): number {
 
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_submat(mat: Vec<Vec<i32>>) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut g = vec![vec![0; n]; m];
+
+        for i in 0..m {
+            for j in 0..n {
+                if mat[i][j] == 1 {
+                    if j == 0 {
+                        g[i][j] = 1;
+                    } else {
+                        g[i][j] = 1 + g[i][j - 1];
+                    }
+                }
+            }
+        }
+
+        let mut ans = 0;
+        for i in 0..m {
+            for j in 0..n {
+                let mut col = i32::MAX;
+                let mut k = i as i32;
+                while k >= 0 && col > 0 {
+                    col = col.min(g[k as usize][j]);
+                    ans += col;
+                    k -= 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+var numSubmat = function (mat) {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g = Array.from({ length: m }, () => Array(n).fill(0));
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j]) {
+                g[i][j] = j === 0 ? 1 : 1 + g[i][j - 1];
+            }
+        }
+    }
+
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            let col = Infinity;
+            for (let k = i; k >= 0; k--) {
+                col = Math.min(col, g[k][j]);
+                ans += col;
+            }
+        }
+    }
+
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
