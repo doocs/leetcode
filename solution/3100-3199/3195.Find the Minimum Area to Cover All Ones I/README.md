@@ -180,6 +180,84 @@ function minimumArea(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_area(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut x1 = m as i32;
+        let mut y1 = n as i32;
+        let mut x2 = 0i32;
+        let mut y2 = 0i32;
+
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] == 1 {
+                    x1 = x1.min(i as i32);
+                    y1 = y1.min(j as i32);
+                    x2 = x2.max(i as i32);
+                    y2 = y2.max(j as i32);
+                }
+            }
+        }
+
+        (x2 - x1 + 1) * (y2 - y1 + 1)
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var minimumArea = function (grid) {
+    const [m, n] = [grid.length, grid[0].length];
+    let [x1, y1] = [m, n];
+    let [x2, y2] = [0, 0];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] === 1) {
+                x1 = Math.min(x1, i);
+                y1 = Math.min(y1, j);
+                x2 = Math.max(x2, i);
+                y2 = Math.max(y2, j);
+            }
+        }
+    }
+    return (x2 - x1 + 1) * (y2 - y1 + 1);
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimumArea(int[][] grid) {
+        int m = grid.Length, n = grid[0].Length;
+        int x1 = m, y1 = n;
+        int x2 = 0, y2 = 0;
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    x1 = Math.Min(x1, i);
+                    y1 = Math.Min(y1, j);
+                    x2 = Math.Max(x2, i);
+                    y2 = Math.Max(y2, j);
+                }
+            }
+        }
+
+        return (x2 - x1 + 1) * (y2 - y1 + 1);
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
