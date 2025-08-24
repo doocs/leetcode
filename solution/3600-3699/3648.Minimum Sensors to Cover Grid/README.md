@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README.md
+rating: 1395
+source: 第 163 场双周赛 Q1
 ---
 
 <!-- problem:start -->

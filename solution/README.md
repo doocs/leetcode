@@ -3667,6 +3667,11 @@
 |  3654  |  [删除可整除和后的最小数组和](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README.md)  |    |  中等  |  第 463 场周赛  |
 |  3655  |  [区间乘法查询后的异或 II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README.md)  |    |  困难  |  第 463 场周赛  |
 |  3656  |  [判断是否存在简单图](/solution/3600-3699/3656.Determine%20if%20a%20Simple%20Graph%20Exists/README.md)  |    |  中等  |  🔒  |
+|  3657  |  [Find Loyal Customers](/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md)  |    |  中等  |    |
+|  3658  |  [奇数和与偶数和的最大公约数](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README.md)  |    |  简单  |  第 464 场周赛  |
+|  3659  |  [数组元素分组](/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README.md)  |    |  中等  |  第 464 场周赛  |
+|  3660  |  [跳跃游戏 9](/solution/3600-3699/3660.Jump%20Game%20IX/README.md)  |    |  中等  |  第 464 场周赛  |
+|  3661  |  [可以被机器人摧毁的最大墙壁数目](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README.md)  |    |  困难  |  第 464 场周赛  |
 
 ## 版权
 

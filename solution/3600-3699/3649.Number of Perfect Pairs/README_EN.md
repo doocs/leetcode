@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README_EN.md
+rating: 1715
+source: Biweekly Contest 163 Q2
 ---
 
 <!-- problem:start -->

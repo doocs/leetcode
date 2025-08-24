@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README.md
+rating: 1715
+source: 第 163 场双周赛 Q2
 ---
 
 <!-- problem:start -->

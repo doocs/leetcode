@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 464
+
+- [3658. GCD of Odd and Even Sums](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README_EN.md)
+- [3659. Partition Array Into K-Distinct Groups](/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README_EN.md)
+- [3660. Jump Game IX](/solution/3600-3699/3660.Jump%20Game%20IX/README_EN.md)
+- [3661. Maximum Walls Destroyed by Robots](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README_EN.md)
+
 #### Weekly Contest 463
 
 - [3652. Best Time to Buy and Sell Stock using Strategy](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README_EN.md)

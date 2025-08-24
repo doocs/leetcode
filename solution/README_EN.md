@@ -3665,6 +3665,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3654  |  [Minimum Sum After Divisible Sum Deletions](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md)  |    |  Medium  |  Weekly Contest 463  |
 |  3655  |  [XOR After Range Multiplication Queries II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 463  |
 |  3656  |  [Determine if a Simple Graph Exists](/solution/3600-3699/3656.Determine%20if%20a%20Simple%20Graph%20Exists/README_EN.md)  |    |  Medium  |  🔒  |
+|  3657  |  [Find Loyal Customers](/solution/3600-3699/3657.Find%20Loyal%20Customers/README_EN.md)  |    |  Medium  |    |
+|  3658  |  [GCD of Odd and Even Sums](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README_EN.md)  |    |  Easy  |  Weekly Contest 464  |
+|  3659  |  [Partition Array Into K-Distinct Groups](/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README_EN.md)  |    |  Medium  |  Weekly Contest 464  |
+|  3660  |  [Jump Game IX](/solution/3600-3699/3660.Jump%20Game%20IX/README_EN.md)  |    |  Medium  |  Weekly Contest 464  |
+|  3661  |  [Maximum Walls Destroyed by Robots](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README_EN.md)  |    |  Hard  |  Weekly Contest 464  |
 
 ## Copyright
 
