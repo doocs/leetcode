@@ -84,32 +84,124 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3660.Ju
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+如果 $i = n - 1$，那么它可以跳到 $\textit{nums}$ 中的最大值，因此 $\textit{ans}[i] = \max(\textit{nums})$。对于其他位置 $i$，我们可以通过维护一个前缀最大值数组和一个后缀最小值变量来计算。
+
+具体步骤如下：
+
+1. 创建一个数组 $\textit{preMax}$，其中 $\textit{preMax}[i]$ 表示从左到右遍历时 $[0, i]$ 区间内的最大值。
+2. 创建一个变量 $\textit{sufMin}$，表示从右到左遍历时，当前元素右侧的最小值。初始时 $\textit{sufMin} = \infty$。
+3. 首先预处理 $\textit{preMax}$ 数组。
+4. 接下来，从右到左遍历数组，对于每个位置 $i$，如果 $\textit{preMax}[i] > \textit{sufMin}$，说明可以从 $i$ 跳到 $\textit{preMax}$ 所在的位置，再跳到 $\textit{sufMin}$ 所在的位置，最后跳到 $i + 1$。因此在 $i + 1$ 能跳到的数，在 $i$ 也能跳到，因此 $\textit{ans}[i] = \textit{ans}[i + 1]$；否则更新为 $\textit{preMax}[i]$。然后更新 $\textit{sufMin}$。
+5. 最后返回结果数组 $\textit{ans}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxValue(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        ans = [0] * n
+        pre_max = [nums[0]] * n
+        for i in range(1, n):
+            pre_max[i] = max(pre_max[i - 1], nums[i])
+        suf_min = inf
+        for i in range(n - 1, -1, -1):
+            ans[i] = ans[i + 1] if pre_max[i] > suf_min else pre_max[i]
+            suf_min = min(suf_min, nums[i])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] maxValue(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int[] preMax = new int[n];
+        preMax[0] = nums[0];
+        for (int i = 1; i < n; ++i) {
+            preMax[i] = Math.max(preMax[i - 1], nums[i]);
+        }
+        int sufMin = 1 << 30;
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] = preMax[i] > sufMin ? ans[i + 1] : preMax[i];
+            sufMin = Math.min(sufMin, nums[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> maxValue(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        vector<int> preMax(n, nums[0]);
+        for (int i = 1; i < n; ++i) {
+            preMax[i] = max(preMax[i - 1], nums[i]);
+        }
+        int sufMin = 1 << 30;
+        for (int i = n - 1; i >= 0; --i) {
+            ans[i] = preMax[i] > sufMin ? ans[i + 1] : preMax[i];
+            sufMin = min(sufMin, nums[i]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxValue(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	preMax := make([]int, n)
+	preMax[0] = nums[0]
+	for i := 1; i < n; i++ {
+		preMax[i] = max(preMax[i-1], nums[i])
+	}
+	sufMin := 1 << 30
+	for i := n - 1; i >= 0; i-- {
+		if preMax[i] > sufMin {
+			ans[i] = ans[i+1]
+		} else {
+			ans[i] = preMax[i]
+		}
+		sufMin = min(sufMin, nums[i])
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxValue(nums: number[]): number[] {
+    const n = nums.length;
+    const ans = Array(n).fill(0);
+    const preMax = Array(n).fill(nums[0]);
+    for (let i = 1; i < n; i++) {
+        preMax[i] = Math.max(preMax[i - 1], nums[i]);
+    }
+    let sufMin = 1 << 30;
+    for (let i = n - 1; i >= 0; i--) {
+        ans[i] = preMax[i] > sufMin ? ans[i + 1] : preMax[i];
+        sufMin = Math.min(sufMin, nums[i]);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
