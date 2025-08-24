@@ -196,6 +196,37 @@ function longestSubarray(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_subarray(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut left = vec![0; n + 1];
+        let mut right = vec![0; n + 1];
+
+        for i in 1..=n {
+            if nums[i - 1] == 1 {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+
+        for i in (0..n).rev() {
+            if nums[i] == 1 {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+
+        let mut ans = 0;
+        for i in 0..n {
+            ans = ans.max(left[i] + right[i + 1]);
+        }
+
+        ans as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -299,6 +330,30 @@ function longestSubarray(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_subarray(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+        let mut j = 0;
+        let mut cnt = 0;
+
+        for i in 0..n {
+            cnt += nums[i] ^ 1;
+            while cnt > 1 {
+                cnt -= nums[j] ^ 1;
+                j += 1;
+            }
+            ans = ans.max(i - j);
+        }
+
+        ans as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -334,7 +389,7 @@ class Solution:
 ```java
 class Solution {
     public int longestSubarray(int[] nums) {
-        int ans = 0, cnt = 0, l = 0;
+        int cnt = 0, l = 0;
         for (int x : nums) {
             cnt += x ^ 1;
             if (cnt > 1) {
@@ -352,7 +407,7 @@ class Solution {
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int ans = 0, cnt = 0, l = 0;
+        int cnt = 0, l = 0;
         for (int x : nums) {
             cnt += x ^ 1;
             if (cnt > 1) {
@@ -367,7 +422,7 @@ public:
 #### Go
 
 ```go
-func longestSubarray(nums []int) (ans int) {
+func longestSubarray(nums []int) int {
 	cnt, l := 0, 0
 	for _, x := range nums {
 		cnt += x ^ 1
@@ -392,6 +447,27 @@ function longestSubarray(nums: number[]): number {
         }
     }
     return nums.length - l - 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_subarray(nums: Vec<i32>) -> i32 {
+        let mut cnt = 0;
+        let mut l = 0;
+
+        for &x in &nums {
+            cnt += x ^ 1;
+            if cnt > 1 {
+                cnt -= nums[l] ^ 1;
+                l += 1;
+            }
+        }
+
+        (nums.len() - l - 1) as i32
+    }
 }
 ```
 
