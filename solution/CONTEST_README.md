@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 464 场周赛(2025-08-24 10:30, 90 分钟) 参赛人数 1705
+
+- [3658. 奇数和与偶数和的最大公约数](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README.md)
+- [3659. 数组元素分组](/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README.md)
+- [3660. 跳跃游戏 9](/solution/3600-3699/3660.Jump%20Game%20IX/README.md)
+- [3661. 可以被机器人摧毁的最大墙壁数目](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README.md)
+
 #### 第 463 场周赛(2025-08-17 10:30, 90 分钟) 参赛人数 2033
 
 - [3652. 按策略买卖股票的最佳时机](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README.md)

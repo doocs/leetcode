@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README_EN.md
+rating: 1556
+source: Weekly Contest 463 Q1
 ---
 
 <!-- problem:start -->

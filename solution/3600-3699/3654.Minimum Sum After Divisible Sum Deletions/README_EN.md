@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md
+rating: 2038
+source: Weekly Contest 463 Q3
 ---
 
 <!-- problem:start -->

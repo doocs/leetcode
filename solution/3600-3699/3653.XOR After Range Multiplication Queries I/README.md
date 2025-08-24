@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README.md
+rating: 1556
+source: 第 463 场周赛 Q2
 ---
 
 <!-- problem:start -->
