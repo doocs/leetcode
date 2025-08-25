@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3660.Ju
 
 <!-- problem:start -->
 
-# [3660. 跳跃游戏 9](https://leetcode.cn/problems/jump-game-ix)
+# [3660. 跳跃游戏 IX](https://leetcode.cn/problems/jump-game-ix)
 
 [English Version](/solution/3600-3699/3660.Jump%20Game%20IX/README_EN.md)
 

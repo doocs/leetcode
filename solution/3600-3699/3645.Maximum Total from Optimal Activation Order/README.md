@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README.md
 rating: 2018
 source: 第 462 场周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
@@ -83,7 +89,7 @@ source: 第 462 场周赛 Q3
 			<td align="center" style="border: 1px solid black;">1</td>
 			<td align="center" style="border: 1px solid black;">2</td>
 			<td align="center" style="border: 1px solid black;"><code>j = 0</code> 因为 <code>limit[0] = 2</code></td>
-			<td align="center" style="border: 1px solid black;">[1, 2]</td>
+			<td align="center" style="border: 1px solid black;">[0, 1]</td>
 			<td align="center" style="border: 1px solid black;">16</td>
 		</tr>
 	</tbody>

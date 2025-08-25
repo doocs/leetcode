@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README_EN.md
 rating: 2445
 source: Weekly Contest 462 Q4
+tags:
+    - Backtracking
 ---
 
 <!-- problem:start -->

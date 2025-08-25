@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3657. Find Loyal Customers](https://leetcode.cn/problems/find-loyal-customers)
+# [3657. 寻找忠实客户](https://leetcode.cn/problems/find-loyal-customers)
 
 [English Version](/solution/3600-3699/3657.Find%20Loyal%20Customers/README_EN.md)
 
@@ -16,11 +16,11 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>customer_transactions</code></p>
+<p>表：<code>customer_transactions</code></p>
 
 <pre>
 +------------------+---------+
-| Column Name      | Type    |
+| Column Name      | Type    | 
 +------------------+---------+
 | transaction_id   | int     |
 | customer_id      | int     |
@@ -28,29 +28,30 @@ tags:
 | amount           | decimal |
 | transaction_type | varchar |
 +------------------+---------+
-transaction_id is the unique identifier for this table.
-transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
+transaction_id 是这张表的唯一主键。
+transaction_type 可以是 “purchase” 或 “refund”。
 </pre>
 
-<p>Write a solution to find <strong>loyal customers</strong>. A customer is considered <strong>loyal</strong> if they meet ALL the following criteria:</p>
+<p>编写一个解决方案来查找 <strong>忠实客户</strong>。如果满足下述所有条件，可以认为该客户是 <strong>忠实</strong> 客户：</p>
 
 <ul>
-	<li>Made <strong>at least</strong>&nbsp;<code><font face="monospace">3</font></code>&nbsp;purchase transactions.</li>
-	<li>Have been active for <strong>at least</strong> <code>30</code> days.</li>
-	<li>Their <strong>refund rate</strong> is less than <code>20%</code> .</li>
+	<li>进行了 <strong>至少</strong>&nbsp;<code><font face="monospace">3</font></code>&nbsp;次购买交易。</li>
+	<li>活跃了&nbsp;<strong>至少</strong>&nbsp;<code>30</code>&nbsp;天。</li>
+	<li>他们的 <strong>退款率</strong>&nbsp;少于&nbsp;<code>20%</code>。</li>
 </ul>
 
-<p>Return <em>the result table&nbsp;ordered by</em> <code>customer_id</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表以&nbsp;<code>customer_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>customer_transactions table:</p>
+<p>customer_transactions 表：</p>
 
 <pre class="example-io">
 +----------------+-------------+------------------+--------+------------------+
@@ -77,7 +78,7 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
 +----------------+-------------+------------------+--------+------------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+
@@ -88,49 +89,49 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
 +-------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Customer 101</strong>:
+	<li><strong>客户 101</strong>:
 
     <ul>
-    	<li>Purchase transactions: 4 (IDs: 1, 2, 3, 4)&nbsp;</li>
-    	<li>Refund transactions: 0</li>
-    	<li>Refund rate: 0/4 = 0% (less than 20%)&nbsp;</li>
-    	<li>Active period: Jan 5 to Feb 20 = 46 days (at least 30 days)&nbsp;</li>
-    	<li>Qualifies as loyal&nbsp;</li>
+    	<li>购买交易：4 (IDs: 1, 2, 3, 4)&nbsp;</li>
+    	<li>退款交易：0</li>
+    	<li>退款率：0/4 = 0%（少于 20%）</li>
+    	<li>活跃时期：1 月&nbsp;5 日到 2 月 20 日 = 46 天（至少 30 天）</li>
+    	<li>符合忠诚客户条件</li>
     </ul>
     </li>
-    <li><strong>Customer 102</strong>:
+    <li><strong>客户 102</strong>:
     <ul>
-    	<li>Purchase transactions: 3 (IDs: 5, 6, 9)&nbsp;</li>
-    	<li>Refund transactions: 2 (IDs: 7, 8)</li>
-    	<li>Refund rate: 2/5 = 40% (exceeds 20%)&nbsp;</li>
-    	<li>Not loyal&nbsp;</li>
+    	<li>购买交易：3 (IDs: 5, 6, 9)&nbsp;</li>
+    	<li>退款交易：2 (IDs: 7, 8)</li>
+    	<li>退款率：2/5 = 40% (超过&nbsp;20%)&nbsp;</li>
+    	<li>不符合忠诚客户条件</li>
     </ul>
     </li>
-    <li><strong>Customer 103</strong>:
+    <li><strong>客户 103</strong>:
     <ul>
-    	<li>Purchase transactions: 3 (IDs: 10, 11, 12)&nbsp;</li>
-    	<li>Refund transactions: 0</li>
-    	<li>Refund rate: 0/3 = 0% (less than 20%)&nbsp;</li>
-    	<li>Active period: Jan 1 to Jan 3 = 2 days (less than 30 days)&nbsp;</li>
-    	<li>Not loyal&nbsp;</li>
+    	<li>购买交易：3 (IDs: 10, 11, 12)&nbsp;</li>
+    	<li>退款交易：0</li>
+    	<li>退款率：0/3 = 0%（少于 20%）</li>
+    	<li>活跃时期：1 月 1 日到 1 月 3 日 =&nbsp;2 天（少于 30 天）</li>
+    	<li>不符合忠诚客户条件</li>
     </ul>
     </li>
-    <li><strong>Customer 104</strong>:
+    <li><strong>客户 104</strong>:
     <ul>
-    	<li>Purchase transactions: 5 (IDs: 13, 14, 15, 16, 17)&nbsp;</li>
-    	<li>Refund transactions: 1 (ID: 18)</li>
-    	<li>Refund rate: 1/6 = 16.67% (less than 20%)&nbsp;</li>
-    	<li>Active period: Jan 1 to Mar 15 = 73 days (at least 30 days)&nbsp;</li>
-    	<li>Qualifies as loyal&nbsp;</li>
+    	<li>购买交易：5 (IDs: 13, 14, 15, 16, 17)&nbsp;</li>
+    	<li>退款交易：1 (ID: 18)</li>
+    	<li>退款率：1/6 = 16.67%（少于 20%）</li>
+    	<li>活跃时期：1 月 1 日到 3 月 15 日 = 73 天（至少 30 天）</li>
+    	<li>符合忠诚客户条件</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The result table is ordered by customer_id in ascending order.</p>
+<p>结果表以 customer_id 升序排序。</p>
 </div>
 
 <!-- description:end -->

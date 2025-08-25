@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README_EN.md
 rating: 1853
 source: Weekly Contest 461 Q3
+tags:
+    - Array
+    - Binary Search
 ---
 
 <!-- problem:start -->
