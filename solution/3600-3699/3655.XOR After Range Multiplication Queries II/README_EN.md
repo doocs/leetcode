@@ -4,6 +4,9 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README_EN.md
 rating: 2453
 source: Weekly Contest 463 Q4
+tags:
+    - Array
+    - Divide and Conquer
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,8 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3637.Trionic%20Array%20I/README_EN.md
 rating: 1263
 source: Weekly Contest 461 Q1
+tags:
+    - Array
 ---
 
 <!-- problem:start -->

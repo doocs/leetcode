@@ -4,6 +4,12 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README_EN.md
 rating: 2018
 source: Weekly Contest 462 Q3
+tags:
+    - Greedy
+    - Array
+    - Two Pointers
+    - Sorting
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->
@@ -81,7 +87,7 @@ source: Weekly Contest 462 Q3
 			<td align="center" style="border: 1px solid black;">1</td>
 			<td align="center" style="border: 1px solid black;">2</td>
 			<td align="center" style="border: 1px solid black;"><code>j = 0</code> as <code>limit[0] = 2</code></td>
-			<td align="center" style="border: 1px solid black;">[1, 2]</td>
+			<td align="center" style="border: 1px solid black;">[0, 1]</td>
 			<td align="center" style="border: 1px solid black;">16</td>
 		</tr>
 	</tbody>

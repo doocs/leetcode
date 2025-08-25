@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README.md
 rating: 1556
 source: 第 463 场周赛 Q1
+tags:
+    - 数组
+    - 前缀和
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

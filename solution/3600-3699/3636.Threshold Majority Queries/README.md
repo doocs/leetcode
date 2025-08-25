@@ -4,6 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3636.Threshold%20Majority%20Queries/README.md
 rating: 2451
 source: 第 162 场双周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 二分查找
+    - 分治
+    - 计数
+    - 前缀和
 ---
 
 <!-- problem:start -->

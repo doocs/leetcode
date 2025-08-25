@@ -4,6 +4,10 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README_EN.md
 rating: 1234
 source: Weekly Contest 462 Q1
+tags:
+    - Array
+    - Two Pointers
+    - Matrix
 ---
 
 <!-- problem:start -->

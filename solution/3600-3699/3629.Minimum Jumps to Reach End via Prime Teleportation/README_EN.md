@@ -4,6 +4,12 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3629.Minimum%20Jumps%20to%20Reach%20End%20via%20Prime%20Teleportation/README_EN.md
 rating: 2139
 source: Weekly Contest 460 Q3
+tags:
+    - Breadth-First Search
+    - Array
+    - Hash Table
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->
