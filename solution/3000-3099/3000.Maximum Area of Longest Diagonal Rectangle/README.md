@@ -61,7 +61,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+根据勾股定理，矩形的对角线的平方为 $l^2 + w^2$，其中 $l$ 和 $w$ 分别是矩形的长度和宽度。
+
+我们可以遍历所有矩形，计算它们的对角线长度的平方，并记录下最大的对角线长度和对应的面积。
+
+遍历结束后，我们返回记录的最大面积。
+
+时间复杂度 $O(n)$，其中 $n$ 是矩形的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -158,6 +166,50 @@ function areaOfMaxDiagonal(dimensions: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn area_of_max_diagonal(dimensions: Vec<Vec<i32>>) -> i32 {
+        let mut ans = 0;
+        let mut mx = 0;
+        for d in dimensions {
+            let l = d[0];
+            let w = d[1];
+            let t = l * l + w * w;
+            if mx < t {
+                mx = t;
+                ans = l * w;
+            } else if mx == t {
+                ans = ans.max(l * w);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int AreaOfMaxDiagonal(int[][] dimensions) {
+        int ans = 0, mx = 0;
+        foreach (var d in dimensions) {
+            int l = d[0], w = d[1];
+            int t = l * l + w * w;
+            if (mx < t) {
+                mx = t;
+                ans = l * w;
+            } else if (mx == t) {
+                ans = Math.Max(ans, l * w);
+            }
+        }
+        return ans;
+    }
 }
 ```
 

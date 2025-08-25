@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> dimensions = [[9,3],[8,6]]
 <strong>Output:</strong> 48
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 For index = 0, length = 9 and width = 3. Diagonal length = sqrt(9 * 9 + 3 * 3) = sqrt(90) &asymp;<!-- notionvc: 882cf44c-3b17-428e-9c65-9940810216f1 --> 9.487.
 For index = 1, length = 8 and width = 6. Diagonal length = sqrt(8 * 8 + 6 * 6) = sqrt(100) = 10.
 So, the rectangle at index 1 has a greater diagonal length therefore we return area = 8 * 6 = 48.
@@ -59,7 +59,15 @@ So, the rectangle at index 1 has a greater diagonal length therefore we return a
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+According to the Pythagorean theorem, the square of the diagonal of a rectangle is $l^2 + w^2$, where $l$ and $w$ are the length and width of the rectangle, respectively.
+
+We can iterate through all the rectangles, calculate the square of their diagonal lengths, and keep track of the maximum diagonal length and the corresponding area.
+
+After the iteration, we return the recorded maximum area.
+
+The time complexity is $O(n)$, where $n$ is the number of rectangles. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -156,6 +164,50 @@ function areaOfMaxDiagonal(dimensions: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn area_of_max_diagonal(dimensions: Vec<Vec<i32>>) -> i32 {
+        let mut ans = 0;
+        let mut mx = 0;
+        for d in dimensions {
+            let l = d[0];
+            let w = d[1];
+            let t = l * l + w * w;
+            if mx < t {
+                mx = t;
+                ans = l * w;
+            } else if mx == t {
+                ans = ans.max(l * w);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int AreaOfMaxDiagonal(int[][] dimensions) {
+        int ans = 0, mx = 0;
+        foreach (var d in dimensions) {
+            int l = d[0], w = d[1];
+            int t = l * l + w * w;
+            if (mx < t) {
+                mx = t;
+                ans = l * w;
+            } else if (mx == t) {
+                ans = Math.Max(ans, l * w);
+            }
+        }
+        return ans;
+    }
 }
 ```
 
