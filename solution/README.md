@@ -3557,7 +3557,7 @@
 |  3544  |  [子树反转和](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  困难  |  第 156 场双周赛  |
 |  3545  |  [不同字符数量最多为 K 时的最少删除数](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README.md)  |  `贪心`,`哈希表`,`字符串`,`计数`,`排序`  |  简单  |  第 449 场周赛  |
 |  3546  |  [等和矩阵分割 I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README.md)  |  `数组`,`枚举`,`矩阵`,`前缀和`  |  中等  |  第 449 场周赛  |
-|  3547  |  [图中边值的最大和](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README.md)  |  `贪心`,`深度优先搜索`,`图`,`排序`  |  困难  |  第 449 场周赛  |
+|  3547  |  [图中边值的最大和](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README.md)  |  `贪心`,`图`,`数学`  |  困难  |  第 449 场周赛  |
 |  3548  |  [等和矩阵分割 II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README.md)  |  `数组`,`哈希表`,`枚举`,`矩阵`,`前缀和`  |  困难  |  第 449 场周赛  |
 |  3549  |  [两个多项式相乘](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README.md)  |  `数组`,`数学`  |  困难  |  🔒  |
 |  3550  |  [数位和等于下标的最小下标](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README.md)  |  `数组`,`数学`  |  简单  |  第 450 场周赛  |

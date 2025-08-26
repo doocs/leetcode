@@ -3555,7 +3555,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3544  |  [Subtree Inversion Sum](/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 156  |
 |  3545  |  [Minimum Deletions for At Most K Distinct Characters](/solution/3500-3599/3545.Minimum%20Deletions%20for%20At%20Most%20K%20Distinct%20Characters/README_EN.md)  |  `Greedy`,`Hash Table`,`String`,`Counting`,`Sorting`  |  Easy  |  Weekly Contest 449  |
 |  3546  |  [Equal Sum Grid Partition I](/solution/3500-3599/3546.Equal%20Sum%20Grid%20Partition%20I/README_EN.md)  |  `Array`,`Enumeration`,`Matrix`,`Prefix Sum`  |  Medium  |  Weekly Contest 449  |
-|  3547  |  [Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)  |  `Greedy`,`Depth-First Search`,`Graph`,`Sorting`  |  Hard  |  Weekly Contest 449  |
+|  3547  |  [Maximum Sum of Edge Values in a Graph](/solution/3500-3599/3547.Maximum%20Sum%20of%20Edge%20Values%20in%20a%20Graph/README_EN.md)  |  `Greedy`,`Graph`,`Math`  |  Hard  |  Weekly Contest 449  |
 |  3548  |  [Equal Sum Grid Partition II](/solution/3500-3599/3548.Equal%20Sum%20Grid%20Partition%20II/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Matrix`,`Prefix Sum`  |  Hard  |  Weekly Contest 449  |
 |  3549  |  [Multiply Two Polynomials](/solution/3500-3599/3549.Multiply%20Two%20Polynomials/README_EN.md)  |  `Array`,`Math`  |  Hard  |  🔒  |
 |  3550  |  [Smallest Index With Digit Sum Equal to Index](/solution/3500-3599/3550.Smallest%20Index%20With%20Digit%20Sum%20Equal%20to%20Index/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 450  |

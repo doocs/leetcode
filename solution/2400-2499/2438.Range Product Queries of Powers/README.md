@@ -30,19 +30,21 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>n = 15, queries = [[0,1],[2,2],[0,3]]
+<pre>
+<b>输入：</b>n = 15, queries = [[0,1],[2,2],[0,3]]
 <b>输出：</b>[2,4,64]
 <strong>解释：</strong>
 对于 n = 15 ，得到 powers = [1,2,4,8] 。没法得到元素数目更少的数组。
 第 1 个查询的答案：powers[0] * powers[1] = 1 * 2 = 2 。
 第 2 个查询的答案：powers[2] = 4 。
 第 3 个查询的答案：powers[0] * powers[1] * powers[2] * powers[3] = 1 * 2 * 4 * 8 = 64 。
-每个答案对 10<sup>9</sup> + 7 得到的结果都相同，所以返回 [2,4,64] 。
+每个答案对 10<sup>9</sup> + 7 取余得到的结果都相同，所以返回 [2,4,64] 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>n = 2, queries = [[0,0]]
+<pre>
+<b>输入：</b>n = 2, queries = [[0,0]]
 <b>输出：</b>[2]
 <strong>解释：</strong>
 对于 n = 2, powers = [2] 。

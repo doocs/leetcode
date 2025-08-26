@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> dimensions = [[9,3],[8,6]]
 <strong>Output:</strong> 48
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 For index = 0, length = 9 and width = 3. Diagonal length = sqrt(9 * 9 + 3 * 3) = sqrt(90) &asymp;<!-- notionvc: 882cf44c-3b17-428e-9c65-9940810216f1 --> 9.487.
 For index = 1, length = 8 and width = 6. Diagonal length = sqrt(8 * 8 + 6 * 6) = sqrt(100) = 10.
 So, the rectangle at index 1 has a greater diagonal length therefore we return area = 8 * 6 = 48.

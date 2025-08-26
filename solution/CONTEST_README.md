@@ -47,7 +47,7 @@ comments: true
 - [3650. 边反转的最小路径总成本](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README.md)
 - [3651. 带传送的最小路径成本](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README.md)
 
-#### 第 462 场周赛(2025-08-10 10:30, 90 分钟) 参赛人数 1710
+#### 第 462 场周赛(2025-08-10 10:30, 90 分钟) 参赛人数 1711
 
 - [3643. 垂直翻转子矩阵](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README.md)
 - [3644. 排序排列](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README.md)
