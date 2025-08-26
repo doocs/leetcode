@@ -37,7 +37,7 @@ tags:
 <strong>Input:</strong> nums = [2,4,-2], k = 5
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> All the possible subsequence sums that we can obtain are the following sorted in decreasing order:
-- 6, 4, 4, 2, <u>2</u>, 0, 0, -2.
+6, 4, 4, 2, <u>2</u>, 0, 0, -2.
 The 5-Sum of the array is 2.
 </pre>
 
