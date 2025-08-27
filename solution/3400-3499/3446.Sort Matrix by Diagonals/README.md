@@ -273,6 +273,128 @@ function sortMatrix(grid: number[][]): number[][] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sort_matrix(mut grid: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let n = grid.len();
+        if n <= 1 {
+            return grid;
+        }
+        for k in (0..=n - 2).rev() {
+            let mut i = k;
+            let mut j = 0;
+            let mut t = Vec::new();
+            while i < n && j < n {
+                t.push(grid[i][j]);
+                i += 1;
+                j += 1;
+            }
+            t.sort();
+            let mut i = k;
+            let mut j = 0;
+            while i < n && j < n {
+                grid[i][j] = t.pop().unwrap();
+                i += 1;
+                j += 1;
+            }
+        }
+        for k in (1..=n - 2).rev() {
+            let mut i = k;
+            let mut j = n - 1;
+            let mut t = Vec::new();
+            loop {
+                t.push(grid[i][j]);
+                if i == 0 { break; }
+                i -= 1;
+                j -= 1;
+            }
+            t.sort();
+            let mut i = k;
+            let mut j = n - 1;
+            loop {
+                grid[i][j] = t.pop().unwrap();
+                if i == 0 { break; }
+                i -= 1;
+                j -= 1;
+            }
+        }
+        grid
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number[][]}
+ */
+var sortMatrix = function (grid) {
+    const n = grid.length;
+    for (let k = n - 2; k >= 0; --k) {
+        let i = k,
+            j = 0;
+        const t = [];
+        while (i < n && j < n) {
+            t.push(grid[i++][j++]);
+        }
+        t.sort((a, b) => a - b);
+        for (const x of t) {
+            grid[--i][--j] = x;
+        }
+    }
+    for (let k = n - 2; k > 0; --k) {
+        let i = k,
+            j = n - 1;
+        const t = [];
+        while (i >= 0 && j >= 0) {
+            t.push(grid[i--][j--]);
+        }
+        t.sort((a, b) => a - b);
+        for (const x of t) {
+            grid[++i][++j] = x;
+        }
+    }
+    return grid;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[][] SortMatrix(int[][] grid) {
+        int n = grid.Length;
+        for (int k = n - 2; k >= 0; --k) {
+            int i = k, j = 0;
+            List<int> t = new List<int>();
+            while (i < n && j < n) {
+                t.Add(grid[i++][j++]);
+            }
+            t.Sort();
+            foreach (int x in t) {
+                grid[--i][--j] = x;
+            }
+        }
+        for (int k = n - 2; k > 0; --k) {
+            int i = k, j = n - 1;
+            List<int> t = new List<int>();
+            while (i >= 0 && j >= 0) {
+                t.Add(grid[i--][j--]);
+            }
+            t.Sort();
+            foreach (int x in t) {
+                grid[++i][++j] = x;
+            }
+        }
+        return grid;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
