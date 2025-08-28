@@ -44,7 +44,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,3,2,4]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> We can select the subset {1}, which can be placed in the array as [1] which follows the pattern. Hence the answer is 1. Note that we could have also selected the subsets {2}, {3}, or {4}, there may be multiple subsets which provide the same answer. 
+<strong>Explanation:</strong> We can select the subset {1}, which can be placed in the array as [1] which follows the pattern. Hence the answer is 1. Note that we could have also selected the subsets {2}, {3}, or {4}, there may be multiple subsets which provide the same answer.
 </pre>
 
 <p>&nbsp;</p>
@@ -188,6 +188,39 @@ function maximumLength(nums: number[]): number {
         ans = Math.max(ans, t);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn maximum_length(nums: Vec<i32>) -> i32 {
+        let mut cnt: HashMap<i64, i32> = HashMap::new();
+        for &x in &nums {
+            *cnt.entry(x as i64).or_insert(0) += 1;
+        }
+
+        let mut ans = 0;
+        if let Some(t) = cnt.remove(&1) {
+            ans = t - ((t % 2) ^ 1);
+        }
+
+        for &key in cnt.keys() {
+            let mut x = key;
+            let mut t = 0;
+            while *cnt.get(&x).unwrap_or(&0) > 1 {
+                x = x * x;
+                t += 2;
+            }
+            t += cnt.get(&x).unwrap_or(&-1);
+            ans = ans.max(t);
+        }
+
+        ans
+    }
 }
 ```
 
