@@ -31,7 +31,7 @@ tags:
 <pre>
 <strong>输入：</strong>s = "aAbBcC"
 <strong>输出：</strong>2
-<strong>解释：</strong> 
+<strong>解释：</strong>
 从 s[0] = 'a' 到 s[1] = 'A'，不存在按键变更，因为不计入 caps lock 或 shift 。
 从 s[1] = 'A' 到 s[2] = 'b'，按键变更。
 从 s[2] = 'b' 到 s[3] = 'B'，不存在按键变更，因为不计入 caps lock 或 shift 。
@@ -136,6 +136,24 @@ function countKeyChanges(s: string): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_key_changes(s: String) -> i32 {
+        let s = s.to_lowercase();
+        let bytes = s.as_bytes();
+        let mut ans = 0;
+        for i in 1..bytes.len() {
+            if bytes[i] != bytes[i - 1] {
+                ans += 1;
+            }
+        }
+        ans
+    }
 }
 ```
 
