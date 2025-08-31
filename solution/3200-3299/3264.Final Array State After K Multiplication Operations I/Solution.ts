@@ -1,7 +1,8 @@
 function getFinalState(nums: number[], k: number, multiplier: number): number[] {
-    const pq = new PriorityQueue({
-        compare: (i, j) => (nums[i] === nums[j] ? i - j : nums[i] - nums[j]),
-    });
+    const pq = new PriorityQueue<number>((i, j) =>
+        nums[i] === nums[j] ? i - j : nums[i] - nums[j],
+    );
+
     for (let i = 0; i < nums.length; ++i) {
         pq.enqueue(i);
     }
