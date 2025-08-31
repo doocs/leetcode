@@ -3676,6 +3676,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3665  |  [Twisted Mirror Path Count](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README_EN.md)  |    |  Medium  |  Biweekly Contest 164  |
 |  3666  |  [Minimum Operations to Equalize Binary String](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README_EN.md)  |    |  Hard  |  Biweekly Contest 164  |
 |  3667  |  [Sort Array By Absolute Value](/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README_EN.md)  |    |  Easy  |  🔒  |
+|  3668  |  [Restore Finishing Order](/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md)  |    |  Easy  |  Weekly Contest 465  |
+|  3669  |  [Balanced K-Factor Decomposition](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README_EN.md)  |    |  Medium  |  Weekly Contest 465  |
+|  3670  |  [Maximum Product of Two Integers With No Common Bits](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md)  |    |  Medium  |  Weekly Contest 465  |
+|  3671  |  [Sum of Beautiful Subsequences](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 465  |
 
 ## Copyright
 
