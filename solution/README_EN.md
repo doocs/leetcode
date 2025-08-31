@@ -3671,6 +3671,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3660  |  [Jump Game IX](/solution/3600-3699/3660.Jump%20Game%20IX/README_EN.md)  |    |  Medium  |  Weekly Contest 464  |
 |  3661  |  [Maximum Walls Destroyed by Robots](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README_EN.md)  |    |  Hard  |  Weekly Contest 464  |
 |  3662  |  [Filter Characters by Frequency](/solution/3600-3699/3662.Filter%20Characters%20by%20Frequency/README_EN.md)  |    |  Easy  |  🔒  |
+|  3663  |  [Find The Least Frequent Digit](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README_EN.md)  |    |  Easy  |  Biweekly Contest 164  |
+|  3664  |  [Two-Letter Card Game](/solution/3600-3699/3664.Two-Letter%20Card%20Game/README_EN.md)  |    |  Medium  |  Biweekly Contest 164  |
+|  3665  |  [Twisted Mirror Path Count](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README_EN.md)  |    |  Medium  |  Biweekly Contest 164  |
+|  3666  |  [Minimum Operations to Equalize Binary String](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README_EN.md)  |    |  Hard  |  Biweekly Contest 164  |
+|  3667  |  [Sort Array By Absolute Value](/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 
