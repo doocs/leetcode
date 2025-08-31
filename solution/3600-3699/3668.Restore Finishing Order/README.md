@@ -67,32 +67,88 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3668.Re
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：自定义排序
+
+我们先根据 $\textit{order}$ 数组构建一个映射，记录每个 ID 的完成顺序。然后对 $\textit{friends}$ 数组进行排序，排序的依据就是这些 ID 在 $\textit{order}$ 中的完成顺序。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{order}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def recoverOrder(self, order: List[int], friends: List[int]) -> List[int]:
+        d = {x: i for i, x in enumerate(order)}
+        return sorted(friends, key=lambda x: d[x])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] recoverOrder(int[] order, int[] friends) {
+        int n = order.length;
+        int[] d = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            d[order[i]] = i;
+        }
+        return Arrays.stream(friends)
+            .boxed()
+            .sorted((a, b) -> d[a] - d[b])
+            .mapToInt(Integer::intValue)
+            .toArray();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> recoverOrder(vector<int>& order, vector<int>& friends) {
+        int n = order.size();
+        vector<int> d(n + 1);
+        for (int i = 0; i < n; ++i) {
+            d[order[i]] = i;
+        }
+        sort(friends.begin(), friends.end(), [&](int a, int b) {
+            return d[a] < d[b];
+        });
+        return friends;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func recoverOrder(order []int, friends []int) []int {
+	n := len(order)
+	d := make([]int, n+1)
+	for i, x := range order {
+		d[x] = i
+	}
+	sort.Slice(friends, func(i, j int) bool {
+		return d[friends[i]] < d[friends[j]]
+	})
+	return friends
+}
+```
 
+#### TypeScript
+
+```ts
+function recoverOrder(order: number[], friends: number[]): number[] {
+    const n = order.length;
+    const d: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        d[order[i]] = i;
+    }
+    return friends.sort((a, b) => d[a] - d[b]);
+}
 ```
 
 <!-- tabs:end -->

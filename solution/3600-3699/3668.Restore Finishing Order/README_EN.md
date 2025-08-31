@@ -65,32 +65,88 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3668.Re
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Custom Sorting
+
+First, we build a mapping from the order array to record the finishing position of each ID. Then, we sort the friends array based on the finishing order of these IDs in the order array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the order array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def recoverOrder(self, order: List[int], friends: List[int]) -> List[int]:
+        d = {x: i for i, x in enumerate(order)}
+        return sorted(friends, key=lambda x: d[x])
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] recoverOrder(int[] order, int[] friends) {
+        int n = order.length;
+        int[] d = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            d[order[i]] = i;
+        }
+        return Arrays.stream(friends)
+            .boxed()
+            .sorted((a, b) -> d[a] - d[b])
+            .mapToInt(Integer::intValue)
+            .toArray();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> recoverOrder(vector<int>& order, vector<int>& friends) {
+        int n = order.size();
+        vector<int> d(n + 1);
+        for (int i = 0; i < n; ++i) {
+            d[order[i]] = i;
+        }
+        sort(friends.begin(), friends.end(), [&](int a, int b) {
+            return d[a] < d[b];
+        });
+        return friends;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func recoverOrder(order []int, friends []int) []int {
+	n := len(order)
+	d := make([]int, n+1)
+	for i, x := range order {
+		d[x] = i
+	}
+	sort.Slice(friends, func(i, j int) bool {
+		return d[friends[i]] < d[friends[j]]
+	})
+	return friends
+}
+```
 
+#### TypeScript
+
+```ts
+function recoverOrder(order: number[], friends: number[]): number[] {
+    const n = order.length;
+    const d: number[] = Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        d[order[i]] = i;
+    }
+    return friends.sort((a, b) => d[a] - d[b]);
+}
 ```
 
 <!-- tabs:end -->
