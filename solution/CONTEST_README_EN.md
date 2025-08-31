@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 465
+
+- [3668. Restore Finishing Order](/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md)
+- [3669. Balanced K-Factor Decomposition](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README_EN.md)
+- [3670. Maximum Product of Two Integers With No Common Bits](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md)
+- [3671. Sum of Beautiful Subsequences](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md)
+
 #### Biweekly Contest 164
 
 - [3663. Find The Least Frequent Digit](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README_EN.md)

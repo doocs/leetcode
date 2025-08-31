@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 465 场周赛(2025-08-31 10:30, 90 分钟) 参赛人数 1648
+
+- [3668. 重排完成顺序](/solution/3600-3699/3668.Restore%20Finishing%20Order/README.md)
+- [3669. K 因数分解](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README.md)
+- [3670. 没有公共位的整数最大乘积](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README.md)
+- [3671. 子序列美丽值求和](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README.md)
+
 #### 第 164 场双周赛(2025-08-30 22:30, 90 分钟) 参赛人数 1241
 
 - [3663. 出现频率最低的数字](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README.md)
