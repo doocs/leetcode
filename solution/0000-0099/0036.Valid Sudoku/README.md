@@ -41,7 +41,7 @@ tags:
 <p><strong>示例 1：</strong></p>
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0036.Valid%20Sudoku/images/250px-sudoku-by-l2g-20050714svg.png" style="height:250px; width:250px" />
 <pre>
-<strong>输入：</strong>board =
+<strong>输入：</strong>board = 
 [["5","3",".",".","7",".",".",".","."]
 ,["6",".",".","1","9","5",".",".","."]
 ,[".","9","8",".",".",".",".","6","."]
@@ -57,7 +57,7 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>board =
+<strong>输入：</strong>board = 
 [["8","3",".",".","7",".",".",".","."]
 ,["6",".",".","1","9","5",".",".","."]
 ,[".","9","8",".",".",".",".","6","."]

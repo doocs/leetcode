@@ -30,7 +30,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;aAbBcC&quot;
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 From s[0] = &#39;a&#39; to s[1] = &#39;A&#39;, there is no change of key as caps lock or shift is not counted.
 From s[1] = &#39;A&#39; to s[2] = &#39;b&#39;, there is a change of key.
 From s[2] = &#39;b&#39; to s[3] = &#39;B&#39;, there is no change of key as caps lock or shift is not counted.

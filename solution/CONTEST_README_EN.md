@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 164
+
+- [3663. Find The Least Frequent Digit](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README_EN.md)
+- [3664. Two-Letter Card Game](/solution/3600-3699/3664.Two-Letter%20Card%20Game/README_EN.md)
+- [3665. Twisted Mirror Path Count](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README_EN.md)
+- [3666. Minimum Operations to Equalize Binary String](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README_EN.md)
+
 #### Weekly Contest 464
 
 - [3658. GCD of Odd and Even Sums](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README_EN.md)
