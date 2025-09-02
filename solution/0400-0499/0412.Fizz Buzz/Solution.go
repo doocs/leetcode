@@ -1,4 +1,4 @@
-func fizzBuzz(n int) (ans []string) {
+func fizzBuzz(n int) []string {
 	ans := make([]string, 0, n)
 	for i := 1; i < n+1; i++ {
 		switch {
