@@ -1,6 +1,6 @@
-#include <vector>
 #include <algorithm>
 #include <ranges>
+#include <vector>
 using namespace std;
 using namespace std::ranges;
 
