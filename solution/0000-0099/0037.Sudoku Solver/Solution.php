@@ -1,75 +1,49 @@
 class Solution {
     /**
-     * @param string[][] $board
-     * @return bool
+     * @param String[][] $board
+     * @return NULL
      */
+    function solveSudoku(&$board) {
+        $row = array_fill(0, 9, array_fill(0, 9, false));
+        $col = array_fill(0, 9, array_fill(0, 9, false));
+        $block = array_fill(0, 3, array_fill(0, 3, array_fill(0, 9, false)));
+        $ok = false;
+        $t = [];
 
-    public function solveSudoku(&$board) {
-        if (isSolved($board)) {
-            return true;
-        }
-
-        $emptyCell = findEmptyCell($board);
-        $row = $emptyCell[0];
-        $col = $emptyCell[1];
-
-        for ($num = 1; $num <= 9; $num++) {
-            if (isValid($board, $row, $col, $num)) {
-                $board[$row][$col] = (string) $num;
-                if ($this->solveSudoku($board)) {
-                    return true;
+        for ($i = 0; $i < 9; ++$i) {
+            for ($j = 0; $j < 9; ++$j) {
+                if ($board[$i][$j] === '.') {
+                    $t[] = [$i, $j];
+                } else {
+                    $v = ord($board[$i][$j]) - ord('1');
+                    $row[$i][$v] = true;
+                    $col[$j][$v] = true;
+                    $block[intval($i / 3)][intval($j / 3)][$v] = true;
                 }
-                $board[$row][$col] = '.';
             }
         }
-        return false;
-    }
-}
 
-function isSolved($board) {
-    foreach ($board as $row) {
-        if (in_array('.', $row)) {
-            return false;
-        }
-    }
-    return true;
-}
-
-function findEmptyCell($board) {
-    for ($row = 0; $row < 9; $row++) {
-        for ($col = 0; $col < 9; $col++) {
-            if ($board[$row][$col] === '.') {
-                return [$row, $col];
+        $dfs = function ($k) use (&$dfs, &$board, &$row, &$col, &$block, &$ok, &$t) {
+            if ($k === count($t)) {
+                $ok = true;
+                return;
             }
-        }
-    }
-
-    return null;
-}
-
-function isValid($board, $row, $col, $num) {
-    for ($i = 0; $i < 9; $i++) {
-        if ($board[$row][$i] == $num) {
-            return false;
-        }
-    }
-
-    for ($i = 0; $i < 9; $i++) {
-        if ($board[$i][$col] == $num) {
-            return false;
-        }
-    }
-
-    $startRow = floor($row / 3) * 3;
-    $endCol = floor($col / 3) * 3;
-
-    for ($i = 0; $i < 3; $i++) {
-        for ($j = 0; $j < 3; $j++) {
-            if ($board[$startRow + $i][$endCol + $j] == $num) {
-                return false;
+            [$i, $j] = $t[$k];
+            for ($v = 0; $v < 9; ++$v) {
+                if (!$row[$i][$v] && !$col[$j][$v] && !$block[intval($i / 3)][intval($j / 3)][$v]) {
+                    $row[$i][$v] = $col[$j][$v] = $block[intval($i / 3)][intval($j / 3)][$v] = true;
+                    $board[$i][$j] = chr($v + ord('1'));
+                    $dfs($k + 1);
+                    if ($ok) {
+                        return;
+                    }
+                    $row[$i][$v] = $col[$j][$v] = $block[intval($i / 3)][intval($j / 3)][
+                        $v
+                    ] = false;
+                }
             }
-        }
-    }
+        };
 
-    return true;
+        $dfs(0);
+    }
 }

@@ -35,7 +35,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>releaseTimes = [9,29,49,50], keysPressed = "cbcd"
-<strong>输出：</strong>"c"
+<strong>输出：'</strong>c'
 <strong>解释：</strong>按键顺序和持续时间如下：
 按下 'c' ，持续时间 9（时间 0 按下，时间 9 松开）
 按下 'b' ，持续时间 29 - 9 = 20（松开上一个键的时间 9 按下，时间 29 松开）
@@ -49,7 +49,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>releaseTimes = [12,23,36,46,62], keysPressed = "spuda"
-<strong>输出：</strong>"a"
+<strong>输出：'</strong>a'
 <strong>解释：</strong>按键顺序和持续时间如下：
 按下 's' ，持续时间 12
 按下 'p' ，持续时间 23 - 12 = 11

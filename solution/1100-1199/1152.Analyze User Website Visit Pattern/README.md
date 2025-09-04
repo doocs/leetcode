@@ -34,7 +34,7 @@ tags:
 <ul>
 	<li>例如，如果模式是 <code>[“home”，“away”，“love”] </code>，那么分数就是用户数量 <code>x</code> , <code>x</code> 访问了 “<code>home”</code> ，然后访问了 <code>“away”</code> ，然后访问了 <code>“love” </code>。</li>
 	<li>同样，如果模式是 <code>["leetcode"， "love"， "leetcode"]</code> ，那么分数就是用户数量&nbsp;<code>x</code>&nbsp;，使得 <code>x</code> 访问了<code>"leetcode"</code>，然后访问了 <code>"love"</code> ，之后又访问了 <code>"leetcode"</code> 。</li>
-	<li>另外，如果模式是 <code>[“luffy”，“luffy”，“luffy”]</code>&nbsp;，那么分数就是用户数量 <code>x</code> ，这样 <code>x</code> 就可以在不同的时间戳上访问 <code>“luffy”</code> 三次。</li>
+	<li>另外，如果模式是 <code>[“luffy”，“luffy”，“luffy”]</code>&nbsp;，那么分数就是用户数量 <code>x</code> ，使得&nbsp;<code>x</code> 就可以在不同的时间戳上访问 <code>“luffy”</code> 三次。</li>
 </ul>
 
 <p>返回<em> <strong>得分</strong> 最大的 <strong>访问</strong><strong>模式</strong></em> 。如果有多个访问模式具有相同的最大分数，则返回字典序最小的。</p>

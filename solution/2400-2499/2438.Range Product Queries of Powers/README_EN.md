@@ -67,9 +67,19 @@ The answer to the only query is powers[0] = 2. The answer modulo 10<sup>9</sup> 
 
 ### Solution 1: Bit Manipulation + Simulation
 
-First, we use bit manipulation (lowbit) to get the powers array, and then simulate to get the answer for each query.
+We can use bit manipulation (lowbit) to obtain the $\textit{powers}$ array, and then use simulation to find the answer for each query.
 
-The time complexity is $O(n \times \log n)$, ignoring the space consumption of the answer, the space complexity is $O(\log n)$. Here, $n$ is the length of $queries$.
+First, for a given positive integer $n$, we can quickly obtain the value corresponding to the lowest bit $1$ in the binary representation through $n \& -n$, which is the minimum power of $2$ factor of the current number. By repeatedly performing this operation on $n$ and subtracting this value, we can sequentially obtain all the powers of $2$ corresponding to the set bits, forming the $\textit{powers}$ array. This array is in increasing order, and its length equals the number of $1$s in the binary representation of $n$.
+
+Next, we need to process each query. For the current query $(l, r)$, we need to calculate
+
+$$
+\textit{answers}[i] = \prod_{j=l}^{r} \textit{powers}[j]
+$$
+
+where $\textit{answers}[i]$ is the answer to the $i$-th query. Since the query results can be very large, we need to take modulo $10^9 + 7$ for each answer.
+
+The time complexity is $O(m \times \log n)$, where $m$ is the length of the array $\textit{queries}$. Ignoring the space consumption of the answer, the space complexity is $O(\log n)$.
 
 <!-- tabs:start -->
 
@@ -87,8 +97,8 @@ class Solution:
         ans = []
         for l, r in queries:
             x = 1
-            for y in powers[l : r + 1]:
-                x = (x * y) % mod
+            for i in range(l, r + 1):
+                x = x * powers[i] % mod
             ans.append(x)
         return ans
 ```
@@ -97,8 +107,6 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int[] productQueries(int n, int[][] queries) {
         int[] powers = new int[Integer.bitCount(n)];
         for (int i = 0; n > 0; ++i) {
@@ -106,12 +114,14 @@ class Solution {
             powers[i] = x;
             n -= x;
         }
-        int[] ans = new int[queries.length];
-        for (int i = 0; i < ans.length; ++i) {
-            long x = 1;
+        int m = queries.length;
+        int[] ans = new int[m];
+        final int mod = (int) 1e9 + 7;
+        for (int i = 0; i < m; ++i) {
             int l = queries[i][0], r = queries[i][1];
+            long x = 1;
             for (int j = l; j <= r; ++j) {
-                x = (x * powers[j]) % MOD;
+                x = x * powers[j] % mod;
             }
             ans[i] = (int) x;
         }
@@ -125,23 +135,22 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     vector<int> productQueries(int n, vector<vector<int>>& queries) {
         vector<int> powers;
         while (n) {
             int x = n & -n;
-            powers.emplace_back(x);
+            powers.push_back(x);
             n -= x;
         }
         vector<int> ans;
-        for (auto& q : queries) {
+        const int mod = 1e9 + 7;
+        for (const auto& q : queries) {
             int l = q[0], r = q[1];
-            long long x = 1l;
+            long long x = 1;
             for (int j = l; j <= r; ++j) {
-                x = (x * powers[j]) % mod;
+                x = x * powers[j] % mod;
             }
-            ans.emplace_back(x);
+            ans.push_back(x);
         }
         return ans;
     }
@@ -152,23 +161,73 @@ public:
 
 ```go
 func productQueries(n int, queries [][]int) []int {
-	var mod int = 1e9 + 7
-	powers := []int{}
+	var powers []int
 	for n > 0 {
 		x := n & -n
 		powers = append(powers, x)
 		n -= x
 	}
-	ans := make([]int, len(queries))
-	for i, q := range queries {
+	const mod = 1_000_000_007
+	ans := make([]int, 0, len(queries))
+	for _, q := range queries {
 		l, r := q[0], q[1]
 		x := 1
-		for _, y := range powers[l : r+1] {
-			x = (x * y) % mod
+		for j := l; j <= r; j++ {
+			x = x * powers[j] % mod
 		}
-		ans[i] = x
+		ans = append(ans, x)
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function productQueries(n: number, queries: number[][]): number[] {
+    const powers: number[] = [];
+    while (n > 0) {
+        const x = n & -n;
+        powers.push(x);
+        n -= x;
+    }
+    const mod = 1_000_000_007;
+    const ans: number[] = [];
+    for (const [l, r] of queries) {
+        let x = 1;
+        for (let j = l; j <= r; j++) {
+            x = (x * powers[j]) % mod;
+        }
+        ans.push(x);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn product_queries(mut n: i32, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        let mut powers = Vec::new();
+        while n > 0 {
+            let x = n & -n;
+            powers.push(x);
+            n -= x;
+        }
+        let modulo = 1_000_000_007;
+        let mut ans = Vec::with_capacity(queries.len());
+        for q in queries {
+            let l = q[0] as usize;
+            let r = q[1] as usize;
+            let mut x: i64 = 1;
+            for j in l..=r {
+                x = x * powers[j] as i64 % modulo;
+            }
+            ans.push(x as i32);
+        }
+        ans
+    }
 }
 ```
 

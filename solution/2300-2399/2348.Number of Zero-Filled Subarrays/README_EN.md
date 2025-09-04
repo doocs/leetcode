@@ -68,7 +68,18 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal and Counting
+
+We traverse the array $\textit{nums}$ and use a variable $\textit{cnt}$ to record the current number of consecutive $0$s. For the current element $x$ we are traversing, if $x$ is $0$, then $\textit{cnt}$ is incremented by $1$, and the number of all-zero subarrays ending with the current $x$ is $\textit{cnt}$, which we add to the answer. Otherwise, we set $\textit{cnt}$ to $0$.
+
+After the traversal, we return the answer.
+
+Time complexity $O(n)$, where $n$ is the length of the array $\textit{nums}$. Space complexity $O(1)$.
+
+Similar problems:
+
+-   [413. Arithmetic Slices](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)
+-   [1513. Number of Substrings With Only 1s](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1513.Number%20of%20Substrings%20With%20Only%201s/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -78,9 +89,12 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
         ans = cnt = 0
-        for v in nums:
-            cnt = 0 if v else cnt + 1
-            ans += cnt
+        for x in nums:
+            if x == 0:
+                cnt += 1
+                ans += cnt
+            else:
+                cnt = 0
         return ans
 ```
 
@@ -91,9 +105,12 @@ class Solution {
     public long zeroFilledSubarray(int[] nums) {
         long ans = 0;
         int cnt = 0;
-        for (int v : nums) {
-            cnt = v != 0 ? 0 : cnt + 1;
-            ans += cnt;
+        for (int x : nums) {
+            if (x == 0) {
+                ans += ++cnt;
+            } else {
+                cnt = 0;
+            }
         }
         return ans;
     }
@@ -108,9 +125,12 @@ public:
     long long zeroFilledSubarray(vector<int>& nums) {
         long long ans = 0;
         int cnt = 0;
-        for (int& v : nums) {
-            cnt = v ? 0 : cnt + 1;
-            ans += cnt;
+        for (int x : nums) {
+            if (x == 0) {
+                ans += ++cnt;
+            } else {
+                cnt = 0;
+            }
         }
         return ans;
     }
@@ -122,13 +142,13 @@ public:
 ```go
 func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
-	for _, v := range nums {
-		if v != 0 {
-			cnt = 0
-		} else {
+	for _, x := range nums {
+		if x == 0 {
 			cnt++
+			ans += int64(cnt)
+		} else {
+			cnt = 0
 		}
-		ans += int64(cnt)
 	}
 	return
 }
@@ -138,13 +158,35 @@ func zeroFilledSubarray(nums []int) (ans int64) {
 
 ```ts
 function zeroFilledSubarray(nums: number[]): number {
-    let ans = 0;
-    let cnt = 0;
-    for (const v of nums) {
-        cnt = v ? 0 : cnt + 1;
-        ans += cnt;
+    let [ans, cnt] = [0, 0];
+    for (const x of nums) {
+        if (!x) {
+            ans += ++cnt;
+        } else {
+            cnt = 0;
+        }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn zero_filled_subarray(nums: Vec<i32>) -> i64 {
+        let mut ans: i64 = 0;
+        let mut cnt: i64 = 0;
+        for x in nums {
+            if x == 0 {
+                cnt += 1;
+                ans += cnt;
+            } else {
+                cnt = 0;
+            }
+        }
+        ans
+    }
 }
 ```
 

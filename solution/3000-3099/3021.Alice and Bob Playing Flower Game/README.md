@@ -151,6 +151,35 @@ function flowerGame(n: number, m: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn flower_game(n: i32, m: i32) -> i64 {
+        let a1 = ((n + 1) / 2) as i64;
+        let b1 = ((m + 1) / 2) as i64;
+        let a2 = (n / 2) as i64;
+        let b2 = (m / 2) as i64;
+        a1 * b2 + a2 * b1
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} m
+ * @return {number}
+ */
+var flowerGame = function (n, m) {
+    const [a1, b1] = [(n + 1) >> 1, (m + 1) >> 1];
+    const [a2, b2] = [n >> 1, m >> 1];
+    return a1 * b2 + a2 * b1;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -218,6 +247,29 @@ func flowerGame(n int, m int) int64 {
 function flowerGame(n: number, m: number): number {
     return Number(((BigInt(n) * BigInt(m)) / 2n) | 0n);
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn flower_game(n: i32, m: i32) -> i64 {
+        (n as i64 * m as i64) / 2
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} m
+ * @return {number}
+ */
+var flowerGame = function (n, m) {
+    return Number(((BigInt(n) * BigInt(m)) / 2n) | 0n);
+};
 ```
 
 <!-- tabs:end -->

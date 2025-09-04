@@ -1,5 +1,5 @@
 function soupServings(n: number): number {
-    const f = new Array(200).fill(0).map(() => new Array(200).fill(-1));
+    const f = Array.from({ length: 200 }, () => Array(200).fill(-1));
     const dfs = (i: number, j: number): number => {
         if (i <= 0 && j <= 0) {
             return 0.5;

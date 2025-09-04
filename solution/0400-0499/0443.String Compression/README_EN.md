@@ -32,6 +32,8 @@ tags:
 
 <p>You must write an algorithm that uses only constant extra space.</p>
 
+<p><strong>Note: </strong>The characters in the array beyond the returned length do not matter and should be ignored.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

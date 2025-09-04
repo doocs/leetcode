@@ -68,7 +68,81 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoized Search
+
+We design a function $dfs(i)$, which represents the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $dfs(0)$.
+
+The calculation method of function $dfs(i)$ is as follows:
+
+-   If $i \ge k$, then we stop drawing numbers. If $i \le n$, return $1$, otherwise return $0$;
+-   Otherwise, we can draw the next number $j$ in the range $[1,..\textit{maxPts}]$, then $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$.
+
+Here we can use memoized search to accelerate the calculation.
+
+The time complexity of the above method is $O(k \times \textit{maxPts})$, which will exceed the time limit, so we need to optimize it.
+
+When $i \lt k$, the following equation holds:
+
+$$
+\begin{aligned}
+dfs(i) &= (dfs(i + 1) + dfs(i + 2) + \cdots + dfs(i + \textit{maxPts})) / \textit{maxPts} & (1)
+\end{aligned}
+$$
+
+When $i \lt k - 1$, the following equation holds:
+
+$$
+\begin{aligned}
+dfs(i+1) &= (dfs(i + 2) + dfs(i + 3) + \cdots + dfs(i + \textit{maxPts} + 1)) / \textit{maxPts} & (2)
+\end{aligned}
+$$
+
+Therefore, when $i \lt k-1$, we subtract equation $(2)$ from equation $(1)$ to get:
+
+$$
+\begin{aligned}
+dfs(i) - dfs(i+1) &= (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
+\end{aligned}
+$$
+
+That is:
+
+$$
+\begin{aligned}
+dfs(i) &= dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}
+\end{aligned}
+$$
+
+If $i=k-1$, we have:
+
+$$
+\begin{aligned}
+dfs(i) &= dfs(k - 1) = (dfs(k) + dfs(k + 1) + \cdots + dfs(k + \textit{maxPts} - 1)) / \textit{maxPts} & (3)
+\end{aligned}
+$$
+
+We assume there are $i$ numbers not exceeding $n$, then $k+i-1 \leq n$, and since $i\leq \textit{maxPts}$, we have $i \leq \min(n-k+1, \textit{maxPts})$, so equation $(3)$ can be written as:
+
+$$
+\begin{aligned}
+dfs(k-1) &= \min(n-k+1, \textit{maxPts}) / \textit{maxPts}
+\end{aligned}
+$$
+
+In summary, we have the following state transition equation:
+
+$$
+\begin{aligned}
+dfs(i) &= \begin{cases}
+1, & i \geq k, i \leq n \\
+0, & i \geq k, i \gt n \\
+\min(n-k+1, \textit{maxPts}) / \textit{maxPts}, & i = k - 1 \\
+dfs(i + 1) + (dfs(i + 1) - dfs(i + \textit{maxPts} + 1)) / \textit{maxPts}, & i < k - 1
+\end{cases}
+\end{aligned}
+$$
+
+Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
 
 <!-- tabs:start -->
 
@@ -125,7 +199,7 @@ class Solution {
 public:
     double new21Game(int n, int k, int maxPts) {
         vector<double> f(k);
-        function<double(int)> dfs = [&](int i) -> double {
+        auto dfs = [&](this auto&& dfs, int i) -> double {
             if (i >= k) {
                 return i <= n ? 1 : 0;
             }
@@ -172,7 +246,7 @@ func new21Game(n int, k int, maxPts int) float64 {
 
 ```ts
 function new21Game(n: number, k: number, maxPts: number): number {
-    const f = new Array(k).fill(0);
+    const f: number[] = Array(k).fill(0);
     const dfs = (i: number): number => {
         if (i >= k) {
             return i <= n ? 1 : 0;
@@ -195,7 +269,19 @@ function new21Game(n: number, k: number, maxPts: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+We can convert the memoized search in Solution 1 into dynamic programming.
+
+Define $f[i]$ to represent the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $f[0]$.
+
+When $k \leq i \leq \min(n, k + \textit{maxPts} - 1)$, we have $f[i] = 1$.
+
+When $i = k - 1$, we have $f[i] = \min(n-k+1, \textit{maxPts}) / \textit{maxPts}$.
+
+When $i \lt k - 1$, we have $f[i] = f[i + 1] + (f[i + 1] - f[i + \textit{maxPts} + 1]) / \textit{maxPts}$.
+
+Time complexity $O(k + \textit{maxPts})$, space complexity $O(k + \textit{maxPts})$. Where $k$ is the maximum score.
 
 <!-- tabs:start -->
 
@@ -283,7 +369,7 @@ function new21Game(n: number, k: number, maxPts: number): number {
     if (k === 0) {
         return 1;
     }
-    const f = new Array(k + maxPts).fill(0);
+    const f: number[] = Array(k + maxPts).fill(0);
     for (let i = k; i < Math.min(n + 1, k + maxPts); ++i) {
         f[i] = 1;
     }

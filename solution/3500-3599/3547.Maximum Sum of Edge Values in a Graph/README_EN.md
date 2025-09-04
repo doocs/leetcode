@@ -6,9 +6,8 @@ rating: 2343
 source: Weekly Contest 449 Q3
 tags:
     - Greedy
-    - Depth-First Search
     - Graph
-    - Sorting
+    - Math
 ---
 
 <!-- problem:start -->

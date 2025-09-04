@@ -71,7 +71,20 @@ Total number of squares = 6 + 1 = <b>7</b>.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the side length of the square submatrix with $(i,j)$ as the bottom-right corner. Initially $f[i][j] = 0$, and the answer is $\sum_{i,j} f[i][j]$.
+
+Consider how to perform state transition for $f[i][j]$.
+
+-   When $\text{matrix}[i][j] = 0$, we have $f[i][j] = 0$.
+-   When $\text{matrix}[i][j] = 1$, the value of state $f[i][j]$ depends on the values of the three positions above, left, and top-left:
+    -   If $i = 0$ or $j = 0$, then $f[i][j] = 1$.
+    -   Otherwise $f[i][j] = \min(f[i-1][j-1], f[i-1][j], f[i][j-1]) + 1$.
+
+The answer is $\sum_{i,j} f[i][j]$.
+
+Time complexity $O(m \times n)$, space complexity $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
 <!-- tabs:start -->
 
@@ -133,11 +146,14 @@ public:
         vector<vector<int>> f(m, vector<int>(n));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (matrix[i][j] == 0) continue;
-                if (i == 0 || j == 0)
+                if (matrix[i][j] == 0) {
+                    continue;
+                }
+                if (i == 0 || j == 0) {
                     f[i][j] = 1;
-                else
+                } else {
                     f[i][j] = min(f[i - 1][j - 1], min(f[i - 1][j], f[i][j - 1])) + 1;
+                }
                 ans += f[i][j];
             }
         }
@@ -176,18 +192,22 @@ func countSquares(matrix [][]int) int {
 
 ```ts
 function countSquares(matrix: number[][]): number {
-    const [m, n] = [matrix.length, matrix[0].length];
-    const f = Array.from({ length: m }, () => Array(n));
-    const dfs = (i: number, j: number): number => {
-        if (i === m || j === n || !matrix[i][j]) return 0;
-        f[i][j] ??= 1 + Math.min(dfs(i + 1, j), dfs(i, j + 1), dfs(i + 1, j + 1));
-        return f[i][j];
-    };
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const f: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
     let ans = 0;
 
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            ans += dfs(i, j);
+            if (matrix[i][j] === 0) {
+                continue;
+            }
+            if (i === 0 || j === 0) {
+                f[i][j] = 1;
+            } else {
+                f[i][j] = Math.min(f[i - 1][j - 1], Math.min(f[i - 1][j], f[i][j - 1])) + 1;
+            }
+            ans += f[i][j];
         }
     }
 
@@ -195,26 +215,92 @@ function countSquares(matrix: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_squares(matrix: Vec<Vec<i32>>) -> i32 {
+        let m = matrix.len();
+        let n = matrix[0].len();
+        let mut f = vec![vec![0; n]; m];
+        let mut ans = 0;
+
+        for i in 0..m {
+            for j in 0..n {
+                if matrix[i][j] == 0 {
+                    continue;
+                }
+                if i == 0 || j == 0 {
+                    f[i][j] = 1;
+                } else {
+                    f[i][j] = std::cmp::min(f[i - 1][j - 1], std::cmp::min(f[i - 1][j], f[i][j - 1])) + 1;
+                }
+                ans += f[i][j];
+            }
+        }
+
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
-function countSquares(matrix) {
-    const [m, n] = [matrix.length, matrix[0].length];
-    const f = Array.from({ length: m }, () => Array(n));
-    const dfs = (i, j) => {
-        if (i === m || j === n || !matrix[i][j]) return 0;
-        f[i][j] ??= 1 + Math.min(dfs(i + 1, j), dfs(i, j + 1), dfs(i + 1, j + 1));
-        return f[i][j];
-    };
+/**
+ * @param {number[][]} matrix
+ * @return {number}
+ */
+var countSquares = function (matrix) {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const f = Array.from({ length: m }, () => Array(n).fill(0));
     let ans = 0;
 
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            ans += dfs(i, j);
+            if (matrix[i][j] === 0) {
+                continue;
+            }
+            if (i === 0 || j === 0) {
+                f[i][j] = 1;
+            } else {
+                f[i][j] = Math.min(f[i - 1][j - 1], Math.min(f[i - 1][j], f[i][j - 1])) + 1;
+            }
+            ans += f[i][j];
         }
     }
 
     return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountSquares(int[][] matrix) {
+        int m = matrix.Length;
+        int n = matrix[0].Length;
+        int[,] f = new int[m, n];
+        int ans = 0;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    continue;
+                }
+                if (i == 0 || j == 0) {
+                    f[i, j] = 1;
+                } else {
+                    f[i, j] = Math.Min(f[i - 1, j - 1], Math.Min(f[i - 1, j], f[i, j - 1])) + 1;
+                }
+                ans += f[i, j];
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

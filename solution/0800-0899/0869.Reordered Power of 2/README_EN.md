@@ -52,7 +52,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We can enumerate all powers of 2 in the range $[1, 10^9]$ and check if their digit composition is the same as the given number.
+
+Define a function $f(x)$ that represents the digit composition of number $x$. We can convert the number $x$ into an array of length 10, or a string sorted by digit size.
+
+First, we calculate the digit composition of the given number $n$ as $\text{target} = f(n)$. Then, we enumerate $i$ starting from 1, shifting $i$ left by one bit each time (equivalent to multiplying by 2), until $i$ exceeds $10^9$. For each $i$, we calculate its digit composition and compare it with $\text{target}$. If they are the same, we return $\text{true}$; if the enumeration ends without finding the same digit composition, we return $\text{false}$.
+
+Time complexity $O(\log^2 M)$, space complexity $O(\log M)$. Where $M$ is the upper limit of the input range ${10}^9$ for this problem.
 
 <!-- tabs:start -->
 
@@ -61,16 +69,17 @@ tags:
 ```python
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
-        def convert(n):
+        def f(x: int) -> List[int]:
             cnt = [0] * 10
-            while n:
-                n, v = divmod(n, 10)
+            while x:
+                x, v = divmod(x, 10)
                 cnt[v] += 1
             return cnt
 
-        i, s = 1, convert(n)
+        target = f(n)
+        i = 1
         while i <= 10**9:
-            if convert(i) == s:
+            if f(i) == target:
                 return True
             i <<= 1
         return False
@@ -81,19 +90,19 @@ class Solution:
 ```java
 class Solution {
     public boolean reorderedPowerOf2(int n) {
-        String s = convert(n);
-        for (int i = 1; i <= Math.pow(10, 9); i <<= 1) {
-            if (s.equals(convert(i))) {
+        String target = f(n);
+        for (int i = 1; i <= 1000000000; i <<= 1) {
+            if (target.equals(f(i))) {
                 return true;
             }
         }
         return false;
     }
 
-    private String convert(int n) {
+    private String f(int x) {
         char[] cnt = new char[10];
-        for (; n > 0; n /= 10) {
-            cnt[n % 10]++;
+        for (; x > 0; x /= 10) {
+            cnt[x % 10]++;
         }
         return new String(cnt);
     }
@@ -106,17 +115,23 @@ class Solution {
 class Solution {
 public:
     bool reorderedPowerOf2(int n) {
-        vector<int> s = convert(n);
-        for (int i = 1; i <= pow(10, 9); i <<= 1)
-            if (s == convert(i))
+        string target = f(n);
+        for (int i = 1; i <= 1000000000; i <<= 1) {
+            if (target == f(i)) {
                 return true;
+            }
+        }
         return false;
     }
 
-    vector<int> convert(int n) {
-        vector<int> cnt(10);
-        for (; n; n /= 10) ++cnt[n % 10];
-        return cnt;
+private:
+    string f(int x) {
+        char cnt[10] = {};
+        while (x > 0) {
+            cnt[x % 10]++;
+            x /= 10;
+        }
+        return string(cnt, cnt + 10);
     }
 };
 ```
@@ -125,20 +140,71 @@ public:
 
 ```go
 func reorderedPowerOf2(n int) bool {
-	convert := func(n int) []byte {
-		cnt := make([]byte, 10)
-		for ; n > 0; n /= 10 {
-			cnt[n%10]++
-		}
-		return cnt
-	}
-	s := convert(n)
-	for i := 1; i <= 1e9; i <<= 1 {
-		if bytes.Equal(s, convert(i)) {
+	target := f(n)
+	for i := 1; i <= 1000000000; i <<= 1 {
+		if bytes.Equal(target, f(i)) {
 			return true
 		}
 	}
 	return false
+}
+
+func f(x int) []byte {
+	cnt := make([]byte, 10)
+	for x > 0 {
+		cnt[x%10]++
+		x /= 10
+	}
+	return cnt
+}
+```
+
+#### TypeScript
+
+```ts
+function reorderedPowerOf2(n: number): boolean {
+    const f = (x: number) => {
+        const cnt = Array(10).fill(0);
+        while (x > 0) {
+            cnt[x % 10]++;
+            x = (x / 10) | 0;
+        }
+        return cnt.join(',');
+    };
+    const target = f(n);
+    for (let i = 1; i <= 1_000_000_000; i <<= 1) {
+        if (target === f(i)) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn reordered_power_of2(n: i32) -> bool {
+        fn f(mut x: i32) -> [u8; 10] {
+            let mut cnt = [0u8; 10];
+            while x > 0 {
+                cnt[(x % 10) as usize] += 1;
+                x /= 10;
+            }
+            cnt
+        }
+
+        let target = f(n);
+        let mut i = 1i32;
+        while i <= 1_000_000_000 {
+            if target == f(i) {
+                return true;
+            }
+            i <<= 1;
+        }
+        false
+    }
 }
 ```
 

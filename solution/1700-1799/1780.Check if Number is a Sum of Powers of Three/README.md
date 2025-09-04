@@ -62,7 +62,7 @@ tags:
 
 我们发现，如果一个数 $n$ 可以表示成若干个“不同的”三的幂之和，那么 $n$ 的三进制表示中，每一位上的数字只能是 $0$ 或者 $1$。
 
-因此，我们将 $n$ 转换成三进制，然后判断每一位上的数字是否是 $0$ 或者 $1$。如果不是，那么 $n$ 就不可以表示成若干个三的幂之和，直接返回 `false`；否则 $n$ 可以表示成若干个三的幂之和，返回 `true`。
+因此，我们将 $n$ 转换成三进制，然后判断每一位上的数字是否是 $0$ 或者 $1$。如果不是，那么 $n$ 就不可以表示成若干个三的幂之和，直接返回 $\textit{false}$；否则 $n$ 可以表示成若干个三的幂之和，返回 $\textit{true}$。
 
 时间复杂度 $O(\log_3 n)$，空间复杂度 $O(1)$。
 
@@ -134,6 +134,39 @@ function checkPowersOfThree(n: number): boolean {
         n = Math.floor(n / 3);
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn check_powers_of_three(n: i32) -> bool {
+        let mut n = n;
+        while n > 0 {
+            if n % 3 > 1 {
+                return false;
+            }
+            n /= 3;
+        }
+        true
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool CheckPowersOfThree(int n) {
+        while (n > 0) {
+            if (n % 3 > 1) {
+                return false;
+            }
+            n /= 3;
+        }
+        return true;
+    }
 }
 ```
 

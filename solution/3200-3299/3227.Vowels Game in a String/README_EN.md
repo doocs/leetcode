@@ -165,6 +165,38 @@ function doesAliceWin(s: string): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn does_alice_win(s: String) -> bool {
+        let vowels = "aeiou";
+        for c in s.chars() {
+            if vowels.contains(c) {
+                return true;
+            }
+        }
+        false
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool DoesAliceWin(string s) {
+        string vowels = "aeiou";
+        foreach (char c in s) {
+            if (vowels.Contains(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

@@ -18,20 +18,26 @@ tags:
 
 <!-- description:start -->
 
-<p>There are two types of soup: <strong>type A</strong> and <strong>type B</strong>. Initially, we have <code>n</code> ml of each type of soup. There are four kinds of operations:</p>
+<p>You have two soups, <strong>A</strong> and <strong>B</strong>, each starting with <code>n</code> mL. On every turn, one of the following four serving operations is chosen <em>at random</em>, each with probability <code>0.25</code> <strong>independent</strong> of all previous turns:</p>
 
-<ol>
-	<li>Serve <code>100</code> ml of <strong>soup A</strong> and <code>0</code> ml of <strong>soup B</strong>,</li>
-	<li>Serve <code>75</code> ml of <strong>soup A</strong> and <code>25</code> ml of <strong>soup B</strong>,</li>
-	<li>Serve <code>50</code> ml of <strong>soup A</strong> and <code>50</code> ml of <strong>soup B</strong>, and</li>
-	<li>Serve <code>25</code> ml of <strong>soup A</strong> and <code>75</code> ml of <strong>soup B</strong>.</li>
-</ol>
+<ul>
+	<li>pour 100 mL from type A and 0 mL from type B</li>
+	<li>pour 75 mL from type A and 25 mL from type B</li>
+	<li>pour 50 mL from type A and 50 mL from type B</li>
+	<li>pour 25 mL from type A and 75 mL from type B</li>
+</ul>
 
-<p>When we serve some soup, we give it to someone, and we no longer have it. Each turn, we will choose from the four operations with an equal probability <code>0.25</code>. If the remaining volume of soup is not enough to complete the operation, we will serve as much as possible. We stop once we no longer have some quantity of both types of soup.</p>
+<p><strong>Note:</strong></p>
 
-<p><strong>Note</strong> that we do not have an operation where all <code>100</code> ml&#39;s of <strong>soup B</strong> are used first.</p>
+<ul>
+	<li>There is no operation that pours 0 mL from A and 100 mL from B.</li>
+	<li>The amounts from A and B are poured <em>simultaneously</em> during the turn.</li>
+	<li>If an operation asks you to pour <strong>more than</strong> you have left of a soup, pour all that remains of that soup.</li>
+</ul>
 
-<p>Return <em>the probability that <strong>soup A</strong> will be empty first, plus half the probability that <strong>A</strong> and <strong>B</strong> become empty at the same time</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
+<p>The process stops immediately after any turn in which <em>one of the soups</em> is used up.</p>
+
+<p>Return the probability that A is used up <em>before</em> B, plus half the probability that both soups are used up in the<strong> same turn</strong>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -39,9 +45,10 @@ tags:
 <pre>
 <strong>Input:</strong> n = 50
 <strong>Output:</strong> 0.62500
-<strong>Explanation:</strong> If we choose the first two operations, A will become empty first.
-For the third operation, A and B will become empty at the same time.
-For the fourth operation, B will become empty first.
+<strong>Explanation:</strong> 
+If we perform either of the first two serving operations, soup A will become empty first.
+If we perform the third operation, A and B will become empty at the same time.
+If we perform the fourth operation, B will become empty first.
 So the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.25 * (1 + 1 + 0.5 + 0) = 0.625.
 </pre>
 
@@ -50,6 +57,12 @@ So the total probability of A becoming empty first plus half the probability tha
 <pre>
 <strong>Input:</strong> n = 100
 <strong>Output:</strong> 0.71875
+<strong>Explanation:</strong> 
+If we perform the first serving operation, soup A will become empty first.
+If we perform the second serving operations, A will become empty on performing operation [1, 2, 3], and both A and B become empty on performing operation 4.
+If we perform the third operation, A will become empty on performing operation [1, 2], and both A and B become empty on performing operation 3.
+If we perform the fourth operation, A will become empty on performing operation 1, and both A and B become empty on performing operation 2.
+So the total probability of A becoming empty first plus half the probability that A and B become empty at the same time, is 0.71875.
 </pre>
 
 <p>&nbsp;</p>
@@ -155,7 +168,7 @@ class Solution {
 public:
     double soupServings(int n) {
         double f[200][200] = {0.0};
-        function<double(int, int)> dfs = [&](int i, int j) -> double {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> double {
             if (i <= 0 && j <= 0) return 0.5;
             if (i <= 0) return 1;
             if (j <= 0) return 0;
@@ -203,7 +216,7 @@ func soupServings(n int) float64 {
 
 ```ts
 function soupServings(n: number): number {
-    const f = new Array(200).fill(0).map(() => new Array(200).fill(-1));
+    const f = Array.from({ length: 200 }, () => Array(200).fill(-1));
     const dfs = (i: number, j: number): number => {
         if (i <= 0 && j <= 0) {
             return 0.5;
@@ -222,6 +235,77 @@ function soupServings(n: number): number {
         return f[i][j];
     };
     return n >= 4800 ? 1 : dfs(Math.ceil(n / 25), Math.ceil(n / 25));
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn soup_servings(n: i32) -> f64 {
+        if n > 4800 {
+            return 1.0;
+        }
+        Self::dfs((n + 24) / 25, (n + 24) / 25)
+    }
+
+    fn dfs(i: i32, j: i32) -> f64 {
+        static mut F: [[f64; 200]; 200] = [[0.0; 200]; 200];
+
+        unsafe {
+            if i <= 0 && j <= 0 {
+                return 0.5;
+            }
+            if i <= 0 {
+                return 1.0;
+            }
+            if j <= 0 {
+                return 0.0;
+            }
+            if F[i as usize][j as usize] > 0.0 {
+                return F[i as usize][j as usize];
+            }
+
+            let ans = 0.25 * (Self::dfs(i - 4, j) + Self::dfs(i - 3, j - 1) + Self::dfs(i - 2, j - 2) + Self::dfs(i - 1, j - 3));
+            F[i as usize][j as usize] = ans;
+            ans
+        }
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private double[,] f = new double[200, 200];
+
+    public double SoupServings(int n) {
+        if (n > 4800) {
+            return 1.0;
+        }
+
+        return Dfs((n + 24) / 25, (n + 24) / 25);
+    }
+
+    private double Dfs(int i, int j) {
+        if (i <= 0 && j <= 0) {
+            return 0.5;
+        }
+        if (i <= 0) {
+            return 1.0;
+        }
+        if (j <= 0) {
+            return 0.0;
+        }
+        if (f[i, j] > 0) {
+            return f[i, j];
+        }
+
+        double ans = 0.25 * (Dfs(i - 4, j) + Dfs(i - 3, j - 1) + Dfs(i - 2, j - 2) + Dfs(i - 1, j - 3));
+        f[i, j] = ans;
+        return ans;
+    }
 }
 ```
 

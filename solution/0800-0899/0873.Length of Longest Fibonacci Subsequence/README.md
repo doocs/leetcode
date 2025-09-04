@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>如果序列&nbsp;<code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>2</sub></code>&nbsp;满足下列条件，就说它是&nbsp;<em>斐波那契式&nbsp;</em>的：</p>
+<p>如果序列&nbsp;<code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code>&nbsp;满足下列条件，就说它是&nbsp;<em>斐波那契式&nbsp;</em>的：</p>
 
 <ul>
 	<li><code>n &gt;= 3</code></li>

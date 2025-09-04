@@ -26,22 +26,22 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入: </strong>letters = ["c", "f", "j"]，target = "a"
-<strong>输出:</strong> "c"
+<strong>输入: </strong>letters = ['c', 'f', 'j']，target = 'a'
+<strong>输出:</strong> 'c'
 <strong>解释：</strong>letters 中字典上比 'a' 大的最小字符是 'c'。</pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> letters = ["c","f","j"], target = "c"
-<strong>输出:</strong> "f"
+<strong>输入:</strong> letters = ['c','f','j'], target = 'c'
+<strong>输出:</strong> 'f'
 <strong>解释：</strong>letters 中字典顺序上大于 'c' 的最小字符是 'f'。</pre>
 
 <p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>输入:</strong> letters = ["x","x","y","y"], target = "z"
-<strong>输出:</strong> "x"
+<strong>输入:</strong> letters = ['x','x','y','y'], target = 'z'
+<strong>输出:</strong> 'x'
 <strong>解释：</strong>letters 中没有一个字符在字典上大于 'z'，所以我们返回 letters[0]。</pre>
 
 <p>&nbsp;</p>

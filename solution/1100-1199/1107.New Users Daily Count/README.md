@@ -28,12 +28,11 @@ tags:
 +---------------+---------+
 该表可能有重复的行。
 activity 列是 ENUM 类型，可能取 ('login', 'logout', 'jobs', 'groups', 'homepage') 几个值之一。
-
 </pre>
 
 <p>&nbsp;</p>
 
-<p>编写解决方案，找出从今天起最多 90 天内，每个日期该日期首次登录的用户数。假设今天是&nbsp;<strong>2019-06-30 </strong>。</p>
+<p>编写解决方案，找出从今天起最多 <code>90</code> 天内，每个日期首次登录的用户数。假设今天是&nbsp;<strong>2019-06-30 </strong>。</p>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 

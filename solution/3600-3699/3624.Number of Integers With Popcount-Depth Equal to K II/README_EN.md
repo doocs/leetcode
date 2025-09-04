@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3624.Nu
 rating: 2085
 source: Weekly Contest 459 Q3
 tags:
+    - Binary Indexed Tree
     - Segment Tree
     - Array
+    - Divide and Conquer
 ---
 
 <!-- problem:start -->

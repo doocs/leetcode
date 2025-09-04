@@ -62,13 +62,13 @@ numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 200</code></li>
-	<li><code>-10<sup>5</sup> &lt;= matrix[i][j] &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<font size="1">00</font>&nbsp;&lt;= matrix[i][j] &lt;= 10<font size="1">00</font></code></li>
 	<li><code>0 &lt;= row &lt; m</code></li>
 	<li><code>0 &lt;= col &lt; n</code></li>
-	<li><code>-10<sup>5</sup> &lt;= val &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<font size="1">00</font>&nbsp;&lt;= val &lt;= 10<font size="1">00</font></code></li>
 	<li><code>0 &lt;= row1 &lt;= row2 &lt; m</code></li>
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
-	<li>最多调用<code>10<sup>4</sup></code> 次&nbsp;<code>sumRegion</code> 和 <code>update</code> 方法</li>
+	<li>最多调用<code>5000</code>&nbsp;次&nbsp;<code>sumRegion</code> 和 <code>update</code> 方法</li>
 </ul>
 
 <!-- description:end -->

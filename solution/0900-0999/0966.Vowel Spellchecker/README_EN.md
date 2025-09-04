@@ -192,30 +192,30 @@ public:
             }
             return res;
         };
-        for (auto& w : wordlist) {
+        for (const auto& w : wordlist) {
             string t = w;
             transform(t.begin(), t.end(), t.begin(), ::tolower);
-            if (!low.count(t)) {
+            if (!low.contains(t)) {
                 low[t] = w;
             }
             t = f(t);
-            if (!pat.count(t)) {
+            if (!pat.contains(t)) {
                 pat[t] = w;
             }
         }
         vector<string> ans;
         for (auto& q : queries) {
-            if (s.count(q)) {
+            if (s.contains(q)) {
                 ans.emplace_back(q);
                 continue;
             }
             transform(q.begin(), q.end(), q.begin(), ::tolower);
-            if (low.count(q)) {
+            if (low.contains(q)) {
                 ans.emplace_back(low[q]);
                 continue;
             }
             q = f(q);
-            if (pat.count(q)) {
+            if (pat.contains(q)) {
                 ans.emplace_back(pat[q]);
                 continue;
             }
@@ -270,6 +270,113 @@ func spellchecker(wordlist []string, queries []string) (ans []string) {
 		ans = append(ans, "")
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function spellchecker(wordlist: string[], queries: string[]): string[] {
+    const s = new Set(wordlist);
+    const low = new Map<string, string>();
+    const pat = new Map<string, string>();
+
+    const f = (w: string): string => {
+        let res = '';
+        for (const c of w) {
+            if ('aeiou'.includes(c)) {
+                res += '*';
+            } else {
+                res += c;
+            }
+        }
+        return res;
+    };
+
+    for (const w of wordlist) {
+        let t = w.toLowerCase();
+        if (!low.has(t)) {
+            low.set(t, w);
+        }
+        t = f(t);
+        if (!pat.has(t)) {
+            pat.set(t, w);
+        }
+    }
+
+    const ans: string[] = [];
+    for (let q of queries) {
+        if (s.has(q)) {
+            ans.push(q);
+            continue;
+        }
+        q = q.toLowerCase();
+        if (low.has(q)) {
+            ans.push(low.get(q)!);
+            continue;
+        }
+        q = f(q);
+        if (pat.has(q)) {
+            ans.push(pat.get(q)!);
+            continue;
+        }
+        ans.push('');
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashSet, HashMap};
+
+impl Solution {
+    pub fn spellchecker(wordlist: Vec<String>, queries: Vec<String>) -> Vec<String> {
+        let s: HashSet<String> = wordlist.iter().cloned().collect();
+        let mut low: HashMap<String, String> = HashMap::new();
+        let mut pat: HashMap<String, String> = HashMap::new();
+
+        let f = |w: &str| -> String {
+            w.chars()
+                .map(|c| match c {
+                    'a' | 'e' | 'i' | 'o' | 'u' => '*',
+                    _ => c,
+                })
+                .collect()
+        };
+
+        for w in &wordlist {
+            let mut t = w.to_lowercase();
+            if !low.contains_key(&t) {
+                low.insert(t.clone(), w.clone());
+            }
+            t = f(&t);
+            if !pat.contains_key(&t) {
+                pat.insert(t.clone(), w.clone());
+            }
+        }
+
+        let mut ans: Vec<String> = Vec::new();
+        for query in queries {
+            if s.contains(&query) {
+                ans.push(query);
+                continue;
+            }
+            let mut q = query.to_lowercase();
+            if let Some(v) = low.get(&q) {
+                ans.push(v.clone());
+                continue;
+            }
+            q = f(&q);
+            if let Some(v) = pat.get(&q) {
+                ans.push(v.clone());
+                continue;
+            }
+            ans.push("".to_string());
+        }
+        ans
+    }
 }
 ```
 

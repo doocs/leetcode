@@ -77,7 +77,7 @@ tags:
 
 对于每个好友关系，如果两个人掌握的语言集合不相交，则需要教一门语言，使得两个人可以相互沟通，我们将这些人放入一个哈希集合 $s$ 中。
 
-然后在这个集合 $s$ 中，统计每种语言掌握的人数，获取最大的人数，我们记为 $mx$，那么答案就是 `len(s) - mx`。
+然后在这个集合 $s$ 中，统计每种语言掌握的人数，获取最大的人数，我们记为 $mx$，那么答案就是 $|s| - mx$。其中 $|s|$ 表示集合 $s$ 的大小。
 
 时间复杂度 $O(m^2 \times k)$。其中 $m$ 为语言的数量，而 $k$ 为好友关系的数量。
 
@@ -90,7 +90,7 @@ class Solution:
     def minimumTeachings(
         self, n: int, languages: List[List[int]], friendships: List[List[int]]
     ) -> int:
-        def check(u, v):
+        def check(u: int, v: int) -> bool:
             for x in languages[u - 1]:
                 for y in languages[v - 1]:
                     if x == y:
@@ -158,9 +158,19 @@ class Solution {
 public:
     int minimumTeachings(int n, vector<vector<int>>& languages, vector<vector<int>>& friendships) {
         unordered_set<int> s;
+        auto check = [&](int u, int v) {
+            for (int x : languages[u - 1]) {
+                for (int y : languages[v - 1]) {
+                    if (x == y) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
         for (auto& e : friendships) {
             int u = e[0], v = e[1];
-            if (!check(u, v, languages)) {
+            if (!check(u, v)) {
                 s.insert(u);
                 s.insert(v);
             }
@@ -174,18 +184,7 @@ public:
                 ++cnt[l];
             }
         }
-        return s.size() - *max_element(cnt.begin(), cnt.end());
-    }
-
-    bool check(int u, int v, vector<vector<int>>& languages) {
-        for (int x : languages[u - 1]) {
-            for (int y : languages[v - 1]) {
-                if (x == y) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return s.size() - ranges::max(cnt);
     }
 };
 ```
@@ -221,6 +220,81 @@ func minimumTeachings(n int, languages [][]int, friendships [][]int) int {
 		}
 	}
 	return len(s) - slices.Max(cnt)
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumTeachings(n: number, languages: number[][], friendships: number[][]): number {
+    function check(u: number, v: number): boolean {
+        for (const x of languages[u - 1]) {
+            for (const y of languages[v - 1]) {
+                if (x === y) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    const s = new Set<number>();
+    for (const [u, v] of friendships) {
+        if (!check(u, v)) {
+            s.add(u);
+            s.add(v);
+        }
+    }
+
+    const cnt = new Map<number, number>();
+    for (const u of s) {
+        for (const l of languages[u - 1]) {
+            cnt.set(l, (cnt.get(l) || 0) + 1);
+        }
+    }
+
+    return s.size - Math.max(0, ...cnt.values());
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashSet, HashMap};
+
+impl Solution {
+    pub fn minimum_teachings(n: i32, languages: Vec<Vec<i32>>, friendships: Vec<Vec<i32>>) -> i32 {
+        fn check(u: usize, v: usize, languages: &Vec<Vec<i32>>) -> bool {
+            for &x in &languages[u - 1] {
+                for &y in &languages[v - 1] {
+                    if x == y {
+                        return true;
+                    }
+                }
+            }
+            false
+        }
+
+        let mut s: HashSet<usize> = HashSet::new();
+        for edge in friendships.iter() {
+            let u = edge[0] as usize;
+            let v = edge[1] as usize;
+            if !check(u, v, &languages) {
+                s.insert(u);
+                s.insert(v);
+            }
+        }
+
+        let mut cnt: HashMap<i32, i32> = HashMap::new();
+        for &u in s.iter() {
+            for &l in &languages[u - 1] {
+                *cnt.entry(l).or_insert(0) += 1;
+            }
+        }
+
+        let mx = cnt.values().cloned().max().unwrap_or(0);
+        (s.len() as i32) - mx
+    }
 }
 ```
 

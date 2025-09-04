@@ -2,7 +2,7 @@ class Solution {
 public:
     double new21Game(int n, int k, int maxPts) {
         vector<double> f(k);
-        function<double(int)> dfs = [&](int i) -> double {
+        auto dfs = [&](this auto&& dfs, int i) -> double {
             if (i >= k) {
                 return i <= n ? 1 : 0;
             }

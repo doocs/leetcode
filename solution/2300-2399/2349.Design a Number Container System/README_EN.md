@@ -54,7 +54,7 @@ nc.change(1, 10); // Your container at index 1 will be filled with number 10.
 nc.change(3, 10); // Your container at index 3 will be filled with number 10.
 nc.change(5, 10); // Your container at index 5 will be filled with number 10.
 nc.find(10); // Number 10 is at the indices 1, 2, 3, and 5. Since the smallest index that is filled with 10 is 1, we return 1.
-nc.change(1, 20); // Your container at index 1 will be filled with number 20. Note that index 1 was filled with 10 and then replaced with 20. 
+nc.change(1, 20); // Your container at index 1 will be filled with number 20. Note that index 1 was filled with 10 and then replaced with 20.
 nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that is filled with 10 is 2. Therefore, we return 2.
 </pre>
 
@@ -742,6 +742,84 @@ class TreeSet<T = number> {
  * var obj = new NumberContainers()
  * obj.change(index,number)
  * var param_2 = obj.find(number)
+ */
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashMap, BTreeSet};
+
+struct NumberContainers {
+    d: HashMap<i32, i32>,
+    g: HashMap<i32, BTreeSet<i32>>,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl NumberContainers {
+    fn new() -> Self {
+        Self {
+            d: HashMap::new(),
+            g: HashMap::new(),
+        }
+    }
+
+    fn change(&mut self, index: i32, number: i32) {
+        if let Some(&old_number) = self.d.get(&index) {
+            if let Some(set) = self.g.get_mut(&old_number) {
+                set.remove(&index);
+            }
+        }
+        self.d.insert(index, number);
+        self.g.entry(number).or_insert_with(BTreeSet::new).insert(index);
+    }
+
+    fn find(&self, number: i32) -> i32 {
+        match self.g.get(&number) {
+            Some(set) if !set.is_empty() => *set.iter().next().unwrap(),
+            _ => -1,
+        }
+    }
+}
+```
+
+#### C#
+
+```cs
+public class NumberContainers {
+    private Dictionary<int, int> d = new Dictionary<int, int>();
+    private Dictionary<int, SortedSet<int>> g = new Dictionary<int, SortedSet<int>>();
+
+    public NumberContainers() {
+    }
+
+    public void Change(int index, int number) {
+        if (d.TryGetValue(index, out int oldNumber)) {
+            g[oldNumber].Remove(index);
+        }
+        d[index] = number;
+        if (!g.ContainsKey(number)) {
+            g[number] = new SortedSet<int>();
+        }
+        g[number].Add(index);
+    }
+
+    public int Find(int number) {
+        if (!g.ContainsKey(number) || g[number].Count == 0) {
+            return -1;
+        }
+        return g[number].Min;
+    }
+}
+
+/**
+ * Your NumberContainers object will be instantiated and called as such:
+ * NumberContainers obj = new NumberContainers();
+ * obj.Change(index, number);
+ * int param_2 = obj.Find(number);
  */
 ```
 

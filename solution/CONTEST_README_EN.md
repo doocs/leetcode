@@ -29,6 +29,48 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 465
+
+- [3668. Restore Finishing Order](/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md)
+- [3669. Balanced K-Factor Decomposition](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README_EN.md)
+- [3670. Maximum Product of Two Integers With No Common Bits](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md)
+- [3671. Sum of Beautiful Subsequences](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md)
+
+#### Biweekly Contest 164
+
+- [3663. Find The Least Frequent Digit](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README_EN.md)
+- [3664. Two-Letter Card Game](/solution/3600-3699/3664.Two-Letter%20Card%20Game/README_EN.md)
+- [3665. Twisted Mirror Path Count](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README_EN.md)
+- [3666. Minimum Operations to Equalize Binary String](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README_EN.md)
+
+#### Weekly Contest 464
+
+- [3658. GCD of Odd and Even Sums](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README_EN.md)
+- [3659. Partition Array Into K-Distinct Groups](/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README_EN.md)
+- [3660. Jump Game IX](/solution/3600-3699/3660.Jump%20Game%20IX/README_EN.md)
+- [3661. Maximum Walls Destroyed by Robots](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README_EN.md)
+
+#### Weekly Contest 463
+
+- [3652. Best Time to Buy and Sell Stock using Strategy](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README_EN.md)
+- [3653. XOR After Range Multiplication Queries I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README_EN.md)
+- [3654. Minimum Sum After Divisible Sum Deletions](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README_EN.md)
+- [3655. XOR After Range Multiplication Queries II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README_EN.md)
+
+#### Biweekly Contest 163
+
+- [3648. Minimum Sensors to Cover Grid](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README_EN.md)
+- [3649. Number of Perfect Pairs](/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README_EN.md)
+- [3650. Minimum Cost Path with Edge Reversals](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README_EN.md)
+- [3651. Minimum Cost Path with Teleportations](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README_EN.md)
+
+#### Weekly Contest 462
+
+- [3643. Flip Square Submatrix Vertically](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README_EN.md)
+- [3644. Maximum K to Sort a Permutation](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README_EN.md)
+- [3645. Maximum Total from Optimal Activation Order](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README_EN.md)
+- [3646. Next Special Palindrome Number](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README_EN.md)
+
 #### Weekly Contest 461
 
 - [3637. Trionic Array I](/solution/3600-3699/3637.Trionic%20Array%20I/README_EN.md)

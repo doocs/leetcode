@@ -1,18 +1,18 @@
 class Solution {
     public boolean reorderedPowerOf2(int n) {
-        String s = convert(n);
-        for (int i = 1; i <= Math.pow(10, 9); i <<= 1) {
-            if (s.equals(convert(i))) {
+        String target = f(n);
+        for (int i = 1; i <= 1000000000; i <<= 1) {
+            if (target.equals(f(i))) {
                 return true;
             }
         }
         return false;
     }
 
-    private String convert(int n) {
+    private String f(int x) {
         char[] cnt = new char[10];
-        for (; n > 0; n /= 10) {
-            cnt[n % 10]++;
+        for (; x > 0; x /= 10) {
+            cnt[x % 10]++;
         }
         return new String(cnt);
     }

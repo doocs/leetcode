@@ -43,7 +43,7 @@ tags:
 <pre>
 <strong>Input:</strong> points = [[1,1],[2,2],[3,3]]
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no way to place Alice and Bob such that Alice can build a fence with Alice&#39;s position as the upper left corner and Bob&#39;s position as the lower right corner. Hence we return 0. 
+<strong>Explanation:</strong> There is no way to place Alice and Bob such that Alice can build a fence with Alice&#39;s position as the upper left corner and Bob&#39;s position as the lower right corner. Hence we return 0.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -207,6 +207,37 @@ function numberOfPairs(points: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_pairs(mut points: Vec<Vec<i32>>) -> i32 {
+        points.sort_by(|a, b| {
+            if a[0] == b[0] {
+                b[1].cmp(&a[1])
+            } else {
+                a[0].cmp(&b[0])
+            }
+        });
+
+        let n = points.len();
+        let mut ans = 0;
+        for i in 0..n {
+            let y1 = points[i][1];
+            let mut max_y = i32::MIN;
+            for j in (i + 1)..n {
+                let y2 = points[j][1];
+                if max_y < y2 && y2 <= y1 {
+                    max_y = y2;
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 

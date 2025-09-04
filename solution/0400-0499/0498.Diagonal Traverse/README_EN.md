@@ -52,7 +52,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Fixed Point Traversal
+
+For each round $k$, we fix the starting point from the top-right and traverse diagonally to the bottom-left to get $t$. If $k$ is even, we reverse $t$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Ignoring the space used for the answer.
 
 <!-- tabs:start -->
 
@@ -113,15 +117,22 @@ class Solution {
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
-        int m = mat.size(), n = mat[0].size();
+        int m = mat.size();
+        int n = mat[0].size();
         vector<int> ans;
         vector<int> t;
         for (int k = 0; k < m + n - 1; ++k) {
-            int i = k < n ? 0 : k - n + 1;
-            int j = k < n ? k : n - 1;
-            while (i < m && j >= 0) t.push_back(mat[i++][j--]);
-            if (k % 2 == 0) reverse(t.begin(), t.end());
-            for (int& v : t) ans.push_back(v);
+            int i = (k < n) ? 0 : k - n + 1;
+            int j = (k < n) ? k : n - 1;
+            while (i < m && j >= 0) {
+                t.push_back(mat[i][j]);
+                ++i;
+                --j;
+            }
+            if (k % 2 == 0) {
+                ranges::reverse(t);
+            }
+            ans.insert(ans.end(), t.begin(), t.end());
             t.clear();
         }
         return ans;
@@ -133,13 +144,18 @@ public:
 
 ```go
 func findDiagonalOrder(mat [][]int) []int {
-	m, n := len(mat), len(mat[0])
-	var ans []int
+	m := len(mat)
+	n := len(mat[0])
+	ans := make([]int, 0, m*n)
 	for k := 0; k < m+n-1; k++ {
-		var t []int
-		i, j := k-n+1, n-1
+		t := make([]int, 0)
+		var i, j int
 		if k < n {
-			i, j = 0, k
+			i = 0
+			j = k
+		} else {
+			i = k - n + 1
+			j = n - 1
 		}
 		for i < m && j >= 0 {
 			t = append(t, mat[i][j])
@@ -147,16 +163,9 @@ func findDiagonalOrder(mat [][]int) []int {
 			j--
 		}
 		if k%2 == 0 {
-			p, q := 0, len(t)-1
-			for p < q {
-				t[p], t[q] = t[q], t[p]
-				p++
-				q--
-			}
+			slices.Reverse(t)
 		}
-		for _, v := range t {
-			ans = append(ans, v)
-		}
+		ans = append(ans, t...)
 	}
 	return ans
 }
@@ -166,39 +175,24 @@ func findDiagonalOrder(mat [][]int) []int {
 
 ```ts
 function findDiagonalOrder(mat: number[][]): number[] {
-    const res = [];
     const m = mat.length;
     const n = mat[0].length;
-    let i = 0;
-    let j = 0;
-    let mark = true;
-    while (res.length !== n * m) {
-        if (mark) {
-            while (i >= 0 && j < n) {
-                res.push(mat[i][j]);
-                i--;
-                j++;
-            }
-            if (j === n) {
-                j--;
-                i++;
-            }
+    const ans: number[] = [];
+    for (let k = 0; k < m + n - 1; k++) {
+        const t: number[] = [];
+        let i = k < n ? 0 : k - n + 1;
+        let j = k < n ? k : n - 1;
+        while (i < m && j >= 0) {
+            t.push(mat[i][j]);
             i++;
-        } else {
-            while (i < m && j >= 0) {
-                res.push(mat[i][j]);
-                i++;
-                j--;
-            }
-            if (i === m) {
-                i--;
-                j++;
-            }
-            j++;
+            j--;
         }
-        mark = !mark;
+        if (k % 2 === 0) {
+            t.reverse();
+        }
+        ans.push(...t);
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -207,33 +201,55 @@ function findDiagonalOrder(mat: number[][]): number[] {
 ```rust
 impl Solution {
     pub fn find_diagonal_order(mat: Vec<Vec<i32>>) -> Vec<i32> {
-        let (m, n) = (mat.len(), mat[0].len());
-        let (mut i, mut j) = (0, 0);
-        (0..m * n)
-            .map(|_| {
-                let res = mat[i][j];
-                if (i + j) % 2 == 0 {
-                    if j == n - 1 {
-                        i += 1;
-                    } else if i == 0 {
-                        j += 1;
-                    } else {
-                        i -= 1;
-                        j += 1;
-                    }
-                } else {
-                    if i == m - 1 {
-                        j += 1;
-                    } else if j == 0 {
-                        i += 1;
-                    } else {
-                        i += 1;
-                        j -= 1;
-                    }
-                }
-                res
-            })
-            .collect()
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut ans = Vec::with_capacity(m * n);
+        for k in 0..(m + n - 1) {
+            let mut t = Vec::new();
+            let (mut i, mut j) = if k < n {
+                (0, k)
+            } else {
+                (k - n + 1, n - 1)
+            };
+            while i < m && j < n {
+                t.push(mat[i][j]);
+                i += 1;
+                if j == 0 { break; }
+                j -= 1;
+            }
+            if k % 2 == 0 {
+                t.reverse();
+            }
+            ans.extend(t);
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] FindDiagonalOrder(int[][] mat) {
+        int m = mat.Length;
+        int n = mat[0].Length;
+        List<int> ans = new List<int>();
+        for (int k = 0; k < m + n - 1; k++) {
+            List<int> t = new List<int>();
+            int i = k < n ? 0 : k - n + 1;
+            int j = k < n ? k : n - 1;
+            while (i < m && j >= 0) {
+                t.Add(mat[i][j]);
+                i++;
+                j--;
+            }
+            if (k % 2 == 0) {
+                t.Reverse();
+            }
+            ans.AddRange(t);
+        }
+        return ans.ToArray();
     }
 }
 ```
