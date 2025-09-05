@@ -22,7 +22,8 @@ source: 第 464 场周赛 Q2
 <p>请你判断是否可以将 <code>nums</code> 中的所有元素分成一个或多个组，使得：</p>
 
 <ul>
-	<li>每个组&nbsp;<strong>恰好&nbsp;</strong>包含 <code>k</code> 个&nbsp;<strong>不同的&nbsp;</strong>元素。</li>
+	<li>每个组&nbsp;<strong>恰好&nbsp;</strong>包含 <code>k</code> 个元素。</li>
+	<li>每组中的元素&nbsp;<strong>互不相同</strong>。</li>
 	<li><code>nums</code> 中的每个元素&nbsp;<strong>必须&nbsp;</strong>被分配到&nbsp;<strong>恰好一个&nbsp;</strong>组中。</li>
 </ul>
 

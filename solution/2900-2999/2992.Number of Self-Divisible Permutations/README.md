@@ -22,11 +22,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>可能的排列组合数量</strong>，使其满足 <strong>自整除</strong> 条件。</p>
+<p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>可能的排列数量</strong>，使其满足 <strong>自整除</strong> 条件。</p>
 
-<p>如果对于每个 <code>1 &lt;= i &lt;= n</code>，满足 <code>gcd(a[i], i) == 1</code>，数组 <code>nums</code> 就是 <strong>自整除</strong> 的。</p>
+<p>如果对于每个 <code>1 &lt;= i &lt;= n</code>，满足 <code><span data-keyword="gcd-function">gcd</span>(a[i], i) == 1</code>，数组 <code>nums</code> 就是 <strong>自整除</strong> 的。</p>
 
-<p>数组的 <strong>排列</strong>&nbsp;是对数组元素的重新排列组合，例如，下面是数组 <code>[1, 2, 3]</code>&nbsp;的所有排列组合：</p>
+<p>数组的 <strong>排列</strong>&nbsp;是对数组元素的重新排序，例如，下面是数组 <code>[1, 2, 3]</code>&nbsp;的所有排列：</p>
 
 <ul>
 	<li><code>[1, 2, 3]</code></li>
