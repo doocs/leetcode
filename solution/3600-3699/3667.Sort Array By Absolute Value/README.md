@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3667.So
 
 <!-- problem:start -->
 
-# [3667. Sort Array By Absolute Value 🔒](https://leetcode.cn/problems/sort-array-by-absolute-value)
+# [3667. 按绝对值排序数组 🔒](https://leetcode.cn/problems/sort-array-by-absolute-value)
 
 [English Version](/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README_EN.md)
 
@@ -14,54 +14,56 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3667.So
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code>.</p>
+<p>给定一个整数数组&nbsp;<code>nums</code>。</p>
 
-<p>Rearrange elements of <code>nums</code> in <strong>non-decreasing</strong> order of their absolute value.</p>
+<p>将 <code>nums</code> 中的元素按照它们的绝对值 <strong>非递减</strong> 顺序排列。</p>
 
-<p>Return <strong>any</strong> rearranged array that satisfies this condition.</p>
+<p>返回 <strong>任何</strong> 满足此条件的重新排列数组。</p>
 
-<p><strong>Note</strong>: The absolute value of an integer x is defined as:</p>
+<p><strong>注意：</strong>整数 <code>x</code> 的绝对值定义为：</p>
 
 <ul>
-	<li><code>x</code> if <code>x &gt;= 0</code></li>
-	<li><code>-x</code> if <code>x &lt; 0</code></li>
+	<li><code>x</code>&nbsp;若&nbsp;<code>x &gt;= 0</code></li>
+	<li><code>-x</code> 若&nbsp;<code>x &lt; 0</code></li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [3,-1,-4,1,5]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [3,-1,-4,1,5]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[-1,1,3,-4,5]</span></p>
+<p><span class="example-io"><b>输出：</b>[-1,1,3,-4,5]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>The absolute values of elements in <code>nums</code> are 3, 1, 4, 1, 5 respectively.</li>
-	<li>Rearranging them in increasing order, we get 1, 1, 3, 4, 5.</li>
-	<li>This corresponds to <code>[-1, 1, 3, -4, 5]</code>. Another possible rearrangement is <code>[1, -1, 3, -4, 5].</code></li>
+	<li><code>nums</code>&nbsp;中元素的绝对值分别是 3，1，4，1，5。</li>
+	<li>将它们按升序排序，得到&nbsp;1，1，3，4，5。</li>
+	<li>这对应于&nbsp;<code>[-1, 1, 3, -4, 5]</code>。另一种可能的排序是&nbsp;<code>[1, -1, 3, -4, 5]</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [-100,100]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [-100,100]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[-100,100]</span></p>
+<p><span class="example-io"><b>输出：</b>[-100,100]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>The absolute values of elements in <code>nums</code> are 100, 100 respectively.</li>
-	<li>Rearranging them in increasing order, we get 100, 100.</li>
-	<li>This corresponds to <code>[-100, 100]</code>. Another possible rearrangement is <code>[100, -100]</code>.</li>
+	<li><code>nums</code>&nbsp;中元素的绝对值分别是 100，100。</li>
+	<li>将它们按升序排列，得到 100，100。</li>
+	<li>这对应于 <code>[-100, 100]</code>。另一种可能的排序是&nbsp;<code>[100, -100]</code>。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>

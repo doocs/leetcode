@@ -25,45 +25,44 @@ tags:
 
 <p>A <em>phrase</em> is a string that consists of lowercase English letters and spaces only. No space appears in the start or the end of a phrase. There are&nbsp;no consecutive spaces&nbsp;in a phrase.</p>
 
-<p><em>Before and After&nbsp;puzzles</em> are phrases that are formed by merging&nbsp;two phrases where the <strong>last&nbsp;word of the first&nbsp;phrase</strong> is the same as the <strong>first word of the second phrase</strong>.</p>
+<p><em>Before and After&nbsp;puzzles</em> are phrases that are formed by merging&nbsp;two phrases where the <strong>last&nbsp;word of the first&nbsp;phrase</strong> is the same as the <strong>first word of the second phrase</strong>. Note that only the <em>last word of the first phrase</em> and the <em>first word of the second phrase</em> are merged in this process.</p>
 
 <p>Return the&nbsp;Before and After&nbsp;puzzles that can be formed by every two phrases&nbsp;<code>phrases[i]</code>&nbsp;and&nbsp;<code>phrases[j]</code>&nbsp;where&nbsp;<code>i != j</code>. Note that the order of matching two phrases matters, we want to consider both orders.</p>
 
-<p>You should return a list of&nbsp;<strong>distinct</strong>&nbsp;strings <strong>sorted&nbsp;lexicographically</strong>.</p>
+<p>You should return a list of&nbsp;<strong>distinct</strong>&nbsp;strings <strong>sorted&nbsp;lexicographically</strong>, after removing all <em>duplicate</em> phrases in the generated Before and After puzzles.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> phrases = [&quot;writing code&quot;,&quot;code rocks&quot;]
-<strong>Output:</strong> [&quot;writing code rocks&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">phrases = [&quot;writing code&quot;,&quot;code rocks&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;writing code rocks&quot;]</span></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> phrases = [&quot;mission statement&quot;,
-                  &quot;a quick bite to eat&quot;,
-&nbsp;                 &quot;a chip off the old block&quot;,
-&nbsp;                 &quot;chocolate bar&quot;,
-&nbsp;                 &quot;mission impossible&quot;,
-&nbsp;                 &quot;a man on a mission&quot;,
-&nbsp;                 &quot;block party&quot;,
-&nbsp;                 &quot;eat my words&quot;,
-&nbsp;                 &quot;bar of soap&quot;]
-<strong>Output:</strong> [&quot;a chip off the old block party&quot;,
-&nbsp;        &quot;a man on a mission impossible&quot;,
-&nbsp;        &quot;a man on a mission statement&quot;,
-&nbsp;        &quot;a quick bite to eat my words&quot;,
-         &quot;chocolate bar of soap&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">phrases = [&quot;mission statement&quot;,&quot;a quick bite to eat&quot;,&quot;a chip off the old block&quot;,&quot;chocolate bar&quot;,&quot;mission impossible&quot;,&quot;a man on a mission&quot;,&quot;block party&quot;,&quot;eat my words&quot;,&quot;bar of soap&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;a chip off the old block party&quot;,&quot;a man on a mission impossible&quot;,&quot;a man on a mission statement&quot;,&quot;a quick bite to eat my words&quot;,&quot;chocolate bar of soap&quot;]</span></p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> phrases = [&quot;a&quot;,&quot;b&quot;,&quot;a&quot;]
-<strong>Output:</strong> [&quot;a&quot;]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">phrases = [&quot;a&quot;,&quot;b&quot;,&quot;a&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;a&quot;]</span></p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">phrases = [&quot;ab ba&quot;,&quot;ba ab&quot;,&quot;ab ba&quot;]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[&quot;ab ba ab&quot;,&quot;ba ab ba&quot;]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

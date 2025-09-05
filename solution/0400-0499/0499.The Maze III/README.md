@@ -74,16 +74,29 @@ tags:
 <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0499.The%20Maze%20III/images/maze_2_example_2.png" style="width: 100%;" />
 </pre>
 
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>maze = [[0,0,0,0,0,0,0],[0,0,1,0,0,1,0],[0,0,0,0,1,0,0],[0,0,0,0,0,0,1]], ball = [0,4], hole = [3,5]
+<b>输出：</b>"dldr"
+</pre>
+
 <p>&nbsp;</p>
 
-<p><strong>注意:</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li>迷宫中只有一个球和一个目的地。</li>
-	<li>球和洞都在空地上，且初始时它们不在同一位置。</li>
-	<li>给定的迷宫不包括边界 (如图中的红色矩形), 但你可以假设迷宫的边缘都是墙壁。</li>
-	<li>迷宫至少包括2块空地，行数和列数均不超过30。</li>
-</ol>
+<ul>
+	<li><code>m == maze.length</code></li>
+	<li><code>n == maze[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>maze[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+	<li><code>ball.length == 2</code></li>
+	<li><code>hole.length == 2</code></li>
+	<li><code>0 &lt;= ball<sub>row</sub>, hole<sub>row</sub> &lt;= m</code></li>
+	<li><code>0 &lt;= ball<sub>col</sub>, hole<sub>col</sub> &lt;= n</code></li>
+	<li>球和洞都存在于一个空地中，它们最初不会处于同一位置。</li>
+	<li>迷宫中至少有 <code>2</code> 个空地。</li>
+</ul>
 
 <!-- description:end -->
 

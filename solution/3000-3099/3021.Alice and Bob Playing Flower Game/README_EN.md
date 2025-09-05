@@ -18,22 +18,24 @@ tags:
 
 <!-- description:start -->
 
-<p>Alice and Bob are playing a turn-based game on a circular field surrounded by flowers. The circle represents the field, and there are <code>x</code> flowers in the clockwise direction between Alice and Bob, and <code>y</code> flowers in the anti-clockwise direction between them.</p>
+<p>Alice and Bob are playing a turn-based game on a field, with two lanes of flowers between them. There are <code>x</code> flowers in the first lane between Alice and Bob, and <code>y</code> flowers in the second lane between them.</p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/images/3021.png" style="width: 300px; height: 150px;" /></p>
 
 <p>The game proceeds as follows:</p>
 
 <ol>
 	<li>Alice takes the first turn.</li>
-	<li>In each turn, a player must choose either the clockwise or anti-clockwise direction and pick one flower from that side.</li>
-	<li>At the end of the turn, if there are no flowers left at all, the <strong>current</strong> player captures their opponent and wins the game.</li>
+	<li>In each turn, a player must choose either one of the lane&nbsp;and pick one flower from that side.</li>
+	<li>At the end of the turn, if there are no flowers left at all in either lane, the <strong>current</strong> player captures their opponent and wins the game.</li>
 </ol>
 
 <p>Given two integers, <code>n</code> and <code>m</code>, the task is to compute the number of possible pairs <code>(x, y)</code> that satisfy the conditions:</p>
 
 <ul>
 	<li>Alice must win the game according to the described rules.</li>
-	<li>The number of flowers <code>x</code> in the clockwise direction must be in the range <code>[1,n]</code>.</li>
-	<li>The number of flowers <code>y</code> in the anti-clockwise direction must be in the range <code>[1,m]</code>.</li>
+	<li>The number of flowers <code>x</code> in the first lane must be in the range <code>[1,n]</code>.</li>
+	<li>The number of flowers <code>y</code> in the second lane must be in the range <code>[1,m]</code>.</li>
 </ul>
 
 <p>Return <em>the number of possible pairs</em> <code>(x, y)</code> <em>that satisfy the conditions mentioned in the statement</em>.</p>
