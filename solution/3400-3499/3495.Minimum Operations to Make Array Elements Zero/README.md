@@ -103,7 +103,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：前缀和
+
+根据题目描述，我们不妨假设把一个元素 $x$ 变为 $0$ 需要的最小操作次数为 $p$，那么 $p$ 是满足 $4^p \gt x$ 的最小整数。
+
+我们知道了一个元素的最小操作次数，那么对于一个范围 $[l, r]$，我们假设 $[l, r]$ 范围内所有元素的**最小操作次数之和**为 $s$，**最大操作次数**为元素 $r$ 的操作次数 $mx$，那么 $[l, r]$ 范围内所有元素变为 $0$ 的最少操作次数为 $\max(\lceil s / 2 \rceil, mx)$。
+
+我们定义一个函数 $f(x)$，表示范围 $[1, x]$ 内所有元素的最小操作次数之和，那么对于每个查询 $[l, r]$，我们可以计算出 $s = f(r) - f(l - 1)$ 和 $mx = f(r) - f(r - 1)$，从而得到答案。
+
+时间复杂度 $O(q \log M)$，其中 $q$ 是查询次数，而 $M$ 是查询范围的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -240,6 +248,37 @@ function minOperations(queries: number[][]): number {
         ans += Math.max(Math.ceil(s / 2), mx);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(queries: Vec<Vec<i32>>) -> i64 {
+        let f = |x: i64| -> i64 {
+            let mut res: i64 = 0;
+            let mut p: i64 = 1;
+            let mut i: i64 = 1;
+            while p <= x {
+                let cnt = std::cmp::min(p * 4 - 1, x) - p + 1;
+                res += cnt * i;
+                i += 1;
+                p *= 4;
+            }
+            res
+        };
+
+        let mut ans: i64 = 0;
+        for q in queries {
+            let l = q[0] as i64;
+            let r = q[1] as i64;
+            let s = f(r) - f(l - 1);
+            let mx = f(r) - f(r - 1);
+            ans += std::cmp::max((s + 1) / 2, mx);
+        }
+        ans
+    }
 }
 ```
 
