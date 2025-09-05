@@ -100,7 +100,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+According to the problem description, suppose the minimum number of operations required to make an element $x$ become $0$ is $p$, where $p$ is the smallest integer such that $4^p > x$.
+
+Once we know the minimum number of operations for each element, for a range $[l, r]$, let $s$ be the sum of the minimum operations for all elements in $[l, r]$, and let $mx$ be the maximum number of operations, which is the number of operations for element $r$. Then, the minimum number of operations to make all elements in $[l, r]$ become $0$ is $\max(\lceil s / 2 \rceil, mx)$.
+
+We define a function $f(x)$ to represent the sum of the minimum operations for all elements in the range $[1, x]$. For each query $[l, r]$, we can compute $s = f(r) - f(l - 1)$ and $mx = f(r) - f(r - 1)$ to obtain the answer.
+
+The time complexity is $O(q \log M)$, where $q$ is the number of queries and $M$ is the maximum value in the query range. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -237,6 +245,37 @@ function minOperations(queries: number[][]): number {
         ans += Math.max(Math.ceil(s / 2), mx);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(queries: Vec<Vec<i32>>) -> i64 {
+        let f = |x: i64| -> i64 {
+            let mut res: i64 = 0;
+            let mut p: i64 = 1;
+            let mut i: i64 = 1;
+            while p <= x {
+                let cnt = std::cmp::min(p * 4 - 1, x) - p + 1;
+                res += cnt * i;
+                i += 1;
+                p *= 4;
+            }
+            res
+        };
+
+        let mut ans: i64 = 0;
+        for q in queries {
+            let l = q[0] as i64;
+            let r = q[1] as i64;
+            let s = f(r) - f(l - 1);
+            let mx = f(r) - f(r - 1);
+            ans += std::cmp::max((s + 1) / 2, mx);
+        }
+        ans
+    }
 }
 ```
 
