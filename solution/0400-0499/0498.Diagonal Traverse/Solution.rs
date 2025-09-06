@@ -1,31 +1,24 @@
 impl Solution {
     pub fn find_diagonal_order(mat: Vec<Vec<i32>>) -> Vec<i32> {
-        let (m, n) = (mat.len(), mat[0].len());
-        let (mut i, mut j) = (0, 0);
-        (0..m * n)
-            .map(|_| {
-                let res = mat[i][j];
-                if (i + j) % 2 == 0 {
-                    if j == n - 1 {
-                        i += 1;
-                    } else if i == 0 {
-                        j += 1;
-                    } else {
-                        i -= 1;
-                        j += 1;
-                    }
-                } else {
-                    if i == m - 1 {
-                        j += 1;
-                    } else if j == 0 {
-                        i += 1;
-                    } else {
-                        i += 1;
-                        j -= 1;
-                    }
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut ans = Vec::with_capacity(m * n);
+        for k in 0..(m + n - 1) {
+            let mut t = Vec::new();
+            let (mut i, mut j) = if k < n { (0, k) } else { (k - n + 1, n - 1) };
+            while i < m && j < n {
+                t.push(mat[i][j]);
+                i += 1;
+                if j == 0 {
+                    break;
                 }
-                res
-            })
-            .collect()
+                j -= 1;
+            }
+            if k % 2 == 0 {
+                t.reverse();
+            }
+            ans.extend(t);
+        }
+        ans
     }
 }

@@ -48,6 +48,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= currentState.length &lt;= 60</code></li>
 	<li><code>currentState[i]</code> 不是 <code>'+'</code> 就是 <code>'-'</code></li>
+	<li>不能有超过 20 个连续的&nbsp;<code>'+'</code>。</li>
 </ul>
 
 <p>&nbsp;</p>

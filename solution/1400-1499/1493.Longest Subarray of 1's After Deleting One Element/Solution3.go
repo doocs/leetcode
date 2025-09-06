@@ -1,4 +1,4 @@
-func longestSubarray(nums []int) (ans int) {
+func longestSubarray(nums []int) int {
 	cnt, l := 0, 0
 	for _, x := range nums {
 		cnt += x ^ 1

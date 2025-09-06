@@ -25,7 +25,7 @@ tags:
 
 <p>A car cannot pass another car, but it can catch up and then travel next to it at the speed of the slower car.</p>
 
-<p>A <strong>car fleet</strong> is a car or cars driving next to each other. The speed of the car fleet is the <strong>minimum</strong> speed of any car in the fleet.</p>
+<p>A <strong>car fleet</strong> is a single car or a group of cars driving next to each other. The speed of the car fleet is the <strong>minimum</strong> speed of any car in the fleet.</p>
 
 <p>If a car catches up to a car fleet at the mile <code>target</code>, it will still be considered as part of the car fleet.</p>
 

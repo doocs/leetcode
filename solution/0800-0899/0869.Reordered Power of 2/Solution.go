@@ -1,16 +1,18 @@
 func reorderedPowerOf2(n int) bool {
-	convert := func(n int) []byte {
-		cnt := make([]byte, 10)
-		for ; n > 0; n /= 10 {
-			cnt[n%10]++
-		}
-		return cnt
-	}
-	s := convert(n)
-	for i := 1; i <= 1e9; i <<= 1 {
-		if bytes.Equal(s, convert(i)) {
+	target := f(n)
+	for i := 1; i <= 1000000000; i <<= 1 {
+		if bytes.Equal(target, f(i)) {
 			return true
 		}
 	}
 	return false
+}
+
+func f(x int) []byte {
+	cnt := make([]byte, 10)
+	for x > 0 {
+		cnt[x%10]++
+		x /= 10
+	}
+	return cnt
 }

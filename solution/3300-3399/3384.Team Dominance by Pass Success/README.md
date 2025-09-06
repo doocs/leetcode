@@ -47,7 +47,7 @@ pass_to 表示 player_id 对应队员接球。
 
 </pre>
 
-<p>编写一个解决方案来计算每支球队&nbsp;<strong>在上半场的优势得分</strong>。规则如下：</p>
+<p>编写一个解决方案来计算每支球队&nbsp;<strong>在上下两个半场的优势得分</strong>。规则如下：</p>
 
 <ul>
 	<li>一场比赛分为两个半场：<strong>上半场</strong>（<code>00:00</code>-<code><font face="monospace">45:00</font></code>&nbsp;分钟）和&nbsp;<strong>下半场</strong>（<code>45:01</code>-<code>90:00</code>&nbsp;分钟）</li>

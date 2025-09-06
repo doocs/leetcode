@@ -34,7 +34,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = "abcdefghi", k = 3, fill = "x"
+<pre>
+<strong>输入：</strong>s = "abcdefghi", k = 3, fill = 'x'
 <strong>输出：</strong>["abc","def","ghi"]
 <strong>解释：</strong>
 前 3 个字符是 "abc" ，形成第一组。
@@ -46,7 +47,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = "abcdefghij", k = 3, fill = "x"
+<pre>
+<strong>输入：</strong>s = "abcdefghij", k = 3, fill = 'x'
 <strong>输出：</strong>["abc","def","ghi","jxx"]
 <strong>解释：</strong>
 与前一个例子类似，形成前三组 "abc"、"def" 和 "ghi" 。

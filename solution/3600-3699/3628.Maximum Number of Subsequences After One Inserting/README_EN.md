@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3628.Maximum%20Number%20of%20Subsequences%20After%20One%20Inserting/README_EN.md
 rating: 1753
 source: Weekly Contest 460 Q2
+tags:
+    - Greedy
+    - String
+    - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

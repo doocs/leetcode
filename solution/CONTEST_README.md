@@ -26,6 +26,48 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 465 场周赛(2025-08-31 10:30, 90 分钟) 参赛人数 1648
+
+- [3668. 重排完成顺序](/solution/3600-3699/3668.Restore%20Finishing%20Order/README.md)
+- [3669. K 因数分解](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README.md)
+- [3670. 没有公共位的整数最大乘积](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README.md)
+- [3671. 子序列美丽值求和](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README.md)
+
+#### 第 164 场双周赛(2025-08-30 22:30, 90 分钟) 参赛人数 1241
+
+- [3663. 出现频率最低的数字](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README.md)
+- [3664. 两个字母卡牌游戏](/solution/3600-3699/3664.Two-Letter%20Card%20Game/README.md)
+- [3665. 统计镜子反射路径数目](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README.md)
+- [3666. 使二进制字符串全为 1 的最少操作次数](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README.md)
+
+#### 第 464 场周赛(2025-08-24 10:30, 90 分钟) 参赛人数 1705
+
+- [3658. 奇数和与偶数和的最大公约数](/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README.md)
+- [3659. 数组元素分组](/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README.md)
+- [3660. 跳跃游戏 IX](/solution/3600-3699/3660.Jump%20Game%20IX/README.md)
+- [3661. 可以被机器人摧毁的最大墙壁数目](/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README.md)
+
+#### 第 463 场周赛(2025-08-17 10:30, 90 分钟) 参赛人数 2033
+
+- [3652. 按策略买卖股票的最佳时机](/solution/3600-3699/3652.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20using%20Strategy/README.md)
+- [3653. 区间乘法查询后的异或 I](/solution/3600-3699/3653.XOR%20After%20Range%20Multiplication%20Queries%20I/README.md)
+- [3654. 删除可整除和后的最小数组和](/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README.md)
+- [3655. 区间乘法查询后的异或 II](/solution/3600-3699/3655.XOR%20After%20Range%20Multiplication%20Queries%20II/README.md)
+
+#### 第 163 场双周赛(2025-08-16 22:30, 90 分钟) 参赛人数 1308
+
+- [3648. 覆盖网格的最少传感器数目](/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README.md)
+- [3649. 完美对的数目](/solution/3600-3699/3649.Number%20of%20Perfect%20Pairs/README.md)
+- [3650. 边反转的最小路径总成本](/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README.md)
+- [3651. 带传送的最小路径成本](/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README.md)
+
+#### 第 462 场周赛(2025-08-10 10:30, 90 分钟) 参赛人数 1711
+
+- [3643. 垂直翻转子矩阵](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README.md)
+- [3644. 排序排列](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README.md)
+- [3645. 最优激活顺序得到的最大总和](/solution/3600-3699/3645.Maximum%20Total%20from%20Optimal%20Activation%20Order/README.md)
+- [3646. 下一个特殊回文数](/solution/3600-3699/3646.Next%20Special%20Palindrome%20Number/README.md)
+
 #### 第 461 场周赛(2025-08-03 10:30, 90 分钟) 参赛人数 1663
 
 - [3637. 三段式数组 I](/solution/3600-3699/3637.Trionic%20Array%20I/README.md)

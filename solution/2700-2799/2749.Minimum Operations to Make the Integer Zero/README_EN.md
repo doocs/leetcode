@@ -167,6 +167,47 @@ function makeTheIntegerZero(num1: number, num2: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn make_the_integer_zero(num1: i32, num2: i32) -> i32 {
+        let num1 = num1 as i64;
+        let num2 = num2 as i64;
+        for k in 1.. {
+            let x = num1 - k * num2;
+            if x < 0 {
+                break;
+            }
+            if (x.count_ones() as i64) <= k && k <= x {
+                return k as i32;
+            }
+        }
+        -1
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MakeTheIntegerZero(int num1, int num2) {
+        long a = num1, b = num2;
+        for (long k = 1; ; ++k) {
+            long x = a - k * b;
+            if (x < 0) {
+                break;
+            }
+            if (BitOperations.PopCount((ulong)x) <= k && k <= x) {
+                return (int)k;
+            }
+        }
+        return -1;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

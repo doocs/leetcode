@@ -56,9 +56,9 @@ tags:
 
 ### Solution 1: Sorting + Traversal
 
-We can first sort the array `arr`, then traverse the array, and check whether the difference between adjacent items is equal.
+We can first sort the array $\textit{arr}$, then traverse the array, and check whether the difference between adjacent items is equal.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array `arr`.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -128,8 +128,9 @@ func canMakeArithmeticProgression(arr []int) bool {
 function canMakeArithmeticProgression(arr: number[]): boolean {
     arr.sort((a, b) => a - b);
     const n = arr.length;
+    const d = arr[1] - arr[0];
     for (let i = 2; i < n; i++) {
-        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
+        if (arr[i] - arr[i - 1] !== d) {
             return false;
         }
     }
@@ -144,8 +145,9 @@ impl Solution {
     pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
         arr.sort();
         let n = arr.len();
+        let d = arr[1] - arr[0];
         for i in 2..n {
-            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
+            if arr[i] - arr[i - 1] != d {
                 return false;
             }
         }
@@ -163,8 +165,10 @@ impl Solution {
  */
 var canMakeArithmeticProgression = function (arr) {
     arr.sort((a, b) => a - b);
-    for (let i = 1; i < arr.length - 1; i++) {
-        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
+    const n = arr.length;
+    const d = arr[1] - arr[0];
+    for (let i = 2; i < n; i++) {
+        if (arr[i] - arr[i - 1] !== d) {
             return false;
         }
     }
@@ -181,8 +185,9 @@ int cmp(const void* a, const void* b) {
 
 bool canMakeArithmeticProgression(int* arr, int arrSize) {
     qsort(arr, arrSize, sizeof(int), cmp);
+    int d = arr[1] - arr[0];
     for (int i = 2; i < arrSize; i++) {
-        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
+        if (arr[i] - arr[i - 1] != d) {
             return 0;
         }
     }
@@ -198,11 +203,11 @@ bool canMakeArithmeticProgression(int* arr, int arrSize) {
 
 ### Solution 2: Hash Table + Mathematics
 
-We first find the minimum value $a$ and the maximum value $b$ in the array $arr$. If the array $arr$ can be rearranged into an arithmetic sequence, then the common difference $d = \frac{b - a}{n - 1}$ must be an integer.
+We first find the minimum value $a$ and the maximum value $b$ in the array $\textit{arr}$. If the array $\textit{arr}$ can be rearranged into an arithmetic sequence, then the common difference $d = \frac{b - a}{n - 1}$ must be an integer.
 
-We can use a hash table to record all elements in the array $arr$, then traverse $i \in [0, n)$, and check whether $a + d \times i$ is in the hash table. If not, it means that the array $arr$ cannot be rearranged into an arithmetic sequence, and we return `false`. Otherwise, after traversing the array, we return `true`.
+We can use a hash table to record all elements in the array $\textit{arr}$, then traverse $i \in [0, n)$, and check whether $a + d \times i$ is in the hash table. If not, it means that the array $\textit{arr}$ cannot be rearranged into an arithmetic sequence, and we return `false`. Otherwise, after traversing the array, we return `true`.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `arr`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -299,23 +304,18 @@ func canMakeArithmeticProgression(arr []int) bool {
 ```ts
 function canMakeArithmeticProgression(arr: number[]): boolean {
     const n = arr.length;
-    const map = new Map<number, number>();
-    let min = Infinity;
-    let max = -Infinity;
-    for (const num of arr) {
-        map.set(num, (map.get(num) ?? 0) + 1);
-        min = Math.min(min, num);
-        max = Math.max(max, num);
-    }
-    if (max === min) {
-        return true;
-    }
-    if ((max - min) % (arr.length - 1)) {
+    const a = Math.min(...arr);
+    const b = Math.max(...arr);
+
+    if ((b - a) % (n - 1) !== 0) {
         return false;
     }
-    const diff = (max - min) / (arr.length - 1);
-    for (let i = min; i <= max; i += diff) {
-        if (map.get(i) !== 1) {
+
+    const d = (b - a) / (n - 1);
+    const s = new Set(arr);
+
+    for (let i = 0; i < n; ++i) {
+        if (!s.has(a + d * i)) {
             return false;
         }
     }
@@ -326,35 +326,55 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
 #### Rust
 
 ```rust
-use std::collections::HashMap;
 impl Solution {
     pub fn can_make_arithmetic_progression(arr: Vec<i32>) -> bool {
-        let n = arr.len() as i32;
-        let mut min = i32::MAX;
-        let mut max = i32::MIN;
-        let mut map = HashMap::new();
-        for &num in arr.iter() {
-            *map.entry(num).or_insert(0) += 1;
-            min = min.min(num);
-            max = max.max(num);
-        }
-        if min == max {
-            return true;
-        }
-        if (max - min) % (n - 1) != 0 {
+        let n = arr.len();
+        let a = *arr.iter().min().unwrap();
+        let b = *arr.iter().max().unwrap();
+
+        if (b - a) % (n as i32 - 1) != 0 {
             return false;
         }
-        let diff = (max - min) / (n - 1);
-        let mut k = min;
-        while k <= max {
-            if *map.get(&k).unwrap_or(&0) != 1 {
+
+        let d = (b - a) / (n as i32 - 1);
+        let s: std::collections::HashSet<_> = arr.into_iter().collect();
+
+        for i in 0..n {
+            if !s.contains(&(a + d * i as i32)) {
                 return false;
             }
-            k += diff;
         }
         true
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
+    const n = arr.length;
+    const a = Math.min(...arr);
+    const b = Math.max(...arr);
+
+    if ((b - a) % (n - 1) !== 0) {
+        return false;
+    }
+
+    const d = (b - a) / (n - 1);
+    const s = new Set(arr);
+
+    for (let i = 0; i < n; ++i) {
+        if (!s.has(a + d * i)) {
+            return false;
+        }
+    }
+    return true;
+};
 ```
 
 <!-- tabs:end -->

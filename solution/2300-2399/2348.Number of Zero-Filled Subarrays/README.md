@@ -69,11 +69,11 @@ tags:
 
 ### 方法一：遍历计数
 
-我们可以遍历数组 `nums`，用变量 $cnt$ 记录当前连续的 `0` 的个数，用变量 $ans$ 记录答案。当遍历到 `nums[i]` 时，如果 `nums[i]` 为 `0`，则 $cnt$ 自增 $1$，否则 $cnt$ 置 $0$。然后将 $cnt$ 累加到答案 $ans$ 中。
+我们遍历数组 $\textit{nums}$，用变量 $\textit{cnt}$ 记录当前连续的 $0$ 的个数。那么对于当前遍历到的元素 $x$，如果 $x$ 为 $0$，则 $\textit{cnt}$ 自增 $1$，以当前 $x$ 为结尾的全 $0$ 子数组的个数为 $\textit{cnt}$，将其累加到答案中。否则，我们将 $\textit{cnt}$ 置为 $0$。
 
-最后，返回 $ans$ 即可。
+遍历结束后，返回答案即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 相似题目：
 
@@ -88,9 +88,12 @@ tags:
 class Solution:
     def zeroFilledSubarray(self, nums: List[int]) -> int:
         ans = cnt = 0
-        for v in nums:
-            cnt = 0 if v else cnt + 1
-            ans += cnt
+        for x in nums:
+            if x == 0:
+                cnt += 1
+                ans += cnt
+            else:
+                cnt = 0
         return ans
 ```
 
@@ -101,9 +104,12 @@ class Solution {
     public long zeroFilledSubarray(int[] nums) {
         long ans = 0;
         int cnt = 0;
-        for (int v : nums) {
-            cnt = v != 0 ? 0 : cnt + 1;
-            ans += cnt;
+        for (int x : nums) {
+            if (x == 0) {
+                ans += ++cnt;
+            } else {
+                cnt = 0;
+            }
         }
         return ans;
     }
@@ -118,9 +124,12 @@ public:
     long long zeroFilledSubarray(vector<int>& nums) {
         long long ans = 0;
         int cnt = 0;
-        for (int& v : nums) {
-            cnt = v ? 0 : cnt + 1;
-            ans += cnt;
+        for (int x : nums) {
+            if (x == 0) {
+                ans += ++cnt;
+            } else {
+                cnt = 0;
+            }
         }
         return ans;
     }
@@ -132,13 +141,13 @@ public:
 ```go
 func zeroFilledSubarray(nums []int) (ans int64) {
 	cnt := 0
-	for _, v := range nums {
-		if v != 0 {
-			cnt = 0
-		} else {
+	for _, x := range nums {
+		if x == 0 {
 			cnt++
+			ans += int64(cnt)
+		} else {
+			cnt = 0
 		}
-		ans += int64(cnt)
 	}
 	return
 }
@@ -148,13 +157,35 @@ func zeroFilledSubarray(nums []int) (ans int64) {
 
 ```ts
 function zeroFilledSubarray(nums: number[]): number {
-    let ans = 0;
-    let cnt = 0;
-    for (const v of nums) {
-        cnt = v ? 0 : cnt + 1;
-        ans += cnt;
+    let [ans, cnt] = [0, 0];
+    for (const x of nums) {
+        if (!x) {
+            ans += ++cnt;
+        } else {
+            cnt = 0;
+        }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn zero_filled_subarray(nums: Vec<i32>) -> i64 {
+        let mut ans: i64 = 0;
+        let mut cnt: i64 = 0;
+        for x in nums {
+            if x == 0 {
+                cnt += 1;
+                ans += cnt;
+            } else {
+                cnt = 0;
+            }
+        }
+        ans
+    }
 }
 ```
 

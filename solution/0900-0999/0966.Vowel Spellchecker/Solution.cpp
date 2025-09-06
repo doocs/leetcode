@@ -15,30 +15,30 @@ public:
             }
             return res;
         };
-        for (auto& w : wordlist) {
+        for (const auto& w : wordlist) {
             string t = w;
             transform(t.begin(), t.end(), t.begin(), ::tolower);
-            if (!low.count(t)) {
+            if (!low.contains(t)) {
                 low[t] = w;
             }
             t = f(t);
-            if (!pat.count(t)) {
+            if (!pat.contains(t)) {
                 pat[t] = w;
             }
         }
         vector<string> ans;
         for (auto& q : queries) {
-            if (s.count(q)) {
+            if (s.contains(q)) {
                 ans.emplace_back(q);
                 continue;
             }
             transform(q.begin(), q.end(), q.begin(), ::tolower);
-            if (low.count(q)) {
+            if (low.contains(q)) {
                 ans.emplace_back(low[q]);
                 continue;
             }
             q = f(q);
-            if (pat.count(q)) {
+            if (pat.contains(q)) {
                 ans.emplace_back(pat[q]);
                 continue;
             }

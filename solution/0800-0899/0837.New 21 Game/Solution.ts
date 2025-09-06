@@ -1,5 +1,5 @@
 function new21Game(n: number, k: number, maxPts: number): number {
-    const f = new Array(k).fill(0);
+    const f: number[] = Array(k).fill(0);
     const dfs = (i: number): number => {
         if (i >= k) {
             return i <= n ? 1 : 0;

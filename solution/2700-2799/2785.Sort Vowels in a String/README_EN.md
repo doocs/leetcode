@@ -125,7 +125,7 @@ public:
                 vs.push_back(c);
             }
         }
-        sort(vs.begin(), vs.end());
+        ranges::sort(vs);
         for (int i = 0, j = 0; i < s.size(); ++i) {
             char d = tolower(s[i]);
             if (d == 'a' || d == 'e' || d == 'i' || d == 'o' || d == 'u') {

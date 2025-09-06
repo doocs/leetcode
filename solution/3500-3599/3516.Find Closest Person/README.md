@@ -184,6 +184,52 @@ function findClosest(x: number, y: number, z: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_closest(x: i32, y: i32, z: i32) -> i32 {
+        let a = (x - z).abs();
+        let b = (y - z).abs();
+        if a == b {
+            0
+        } else if a < b {
+            1
+        } else {
+            2
+        }
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
+ * @return {number}
+ */
+var findClosest = function (x, y, z) {
+    const a = Math.abs(x - z);
+    const b = Math.abs(y - z);
+    return a === b ? 0 : a < b ? 1 : 2;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int FindClosest(int x, int y, int z) {
+        int a = Math.Abs(x - z);
+        int b = Math.Abs(y - z);
+        return a == b ? 0 : (a < b ? 1 : 2);
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

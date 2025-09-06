@@ -75,6 +75,14 @@ tags:
 <strong>解释:</strong> 该示例属于第三种情况，节点 p 不在节点 q 的子树中，反之亦然。我们可以移动节点 3 及其子树，使之成为节点 8 的子节点。
 </pre>
 
+<p><strong class="example">示例 4：</strong></p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/images/untitled-diagramdrawio.png" style="width: 500px; height: 175px;" />
+<pre>
+<strong>输入：</strong>root = [1,null,2,3,null,4], p = 1, q = 4
+<b>输出：</b>[4,null,1,null,2,3]
+<strong>解释：</strong>该示例属于第一种情况，因为节点 q 在节点 p 的子树中。断开节点 4 与其父节点，并将节点 1 及其子树移动，使其成为节点 4 的子节点。
+</pre>
+
 <p>&nbsp;</p>
 
 <p><strong>提示:</strong></p>

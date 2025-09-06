@@ -1,7 +1,7 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
-        int ans = 0, cnt = 0, l = 0;
+        int cnt = 0, l = 0;
         for (int x : nums) {
             cnt += x ^ 1;
             if (cnt > 1) {

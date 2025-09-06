@@ -58,7 +58,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>n == 2x</code>，并且 <code>x</code> 在范围 <code>[1,12]</code> 内。</li>
+	<li><code>n == 2<sup>x</sup></code>，并且 <code>x</code> 在范围 <code>[1, 12]</code> 内。</li>
 </ul>
 
 <!-- description:end -->

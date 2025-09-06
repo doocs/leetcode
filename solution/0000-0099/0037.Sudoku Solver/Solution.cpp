@@ -1,5 +1,3 @@
-using pii = pair<int, int>;
-
 class Solution {
 public:
     void solveSudoku(vector<vector<char>>& board) {
@@ -7,7 +5,7 @@ public:
         bool col[9][9] = {false};
         bool block[3][3][9] = {false};
         bool ok = false;
-        vector<pii> t;
+        vector<pair<int, int>> t;
         for (int i = 0; i < 9; ++i) {
             for (int j = 0; j < 9; ++j) {
                 if (board[i][j] == '.') {
@@ -18,7 +16,7 @@ public:
                 }
             }
         }
-        function<void(int k)> dfs = [&](int k) {
+        auto dfs = [&](this auto&& dfs, int k) -> void {
             if (k == t.size()) {
                 ok = true;
                 return;
