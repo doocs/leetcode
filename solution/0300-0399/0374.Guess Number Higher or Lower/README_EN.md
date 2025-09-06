@@ -19,7 +19,7 @@ tags:
 
 <p>We are playing the Guess Game. The game is as follows:</p>
 
-<p>I pick a number from <code>1</code> to <code>n</code>. You have to guess which number I picked.</p>
+<p>I pick a number from <code>1</code> to <code>n</code>. You have to guess which number I picked (the number I picked stays the same throughout the game).</p>
 
 <p>Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.</p>
 

@@ -6,9 +6,8 @@ rating: 2343
 source: 第 449 场周赛 Q3
 tags:
     - 贪心
-    - 深度优先搜索
     - 图
-    - 排序
+    - 数学
 ---
 
 <!-- problem:start -->

@@ -51,9 +51,9 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
-If a number is a power of 4, then it must be greater than $0$. Suppose this number is $4^x$, which is $2^{2x}$. Therefore, its binary representation has only one $1$, and this $1$ appears at an even position.
+If a number is a power of $4$, then it must be greater than $0$. Suppose this number is $4^x$, which is $2^{2x}$. Therefore, its binary representation has only one $1$, and this $1$ appears at an even position.
 
-First, we check if the number is greater than $0$. Then, we verify if the number is $2^{2x}$ by checking if the bitwise AND of $n$ and $n-1$ is $0$. Finally, we check if the $1$ appears at an even position by verifying if the bitwise AND of $n$ and $\textit{0xAAAAAAAA}$ is $0$. If all three conditions are met, then the number is a power of 4.
+First, we check if the number is greater than $0$. Then, we verify if the number is $2^{2x}$ by checking if the bitwise AND of $n$ and $n-1$ is $0$. Finally, we check if the $1$ appears at an even position by verifying if the bitwise AND of $n$ and $\textit{0xAAAAAAAA}$ is $0$. If all three conditions are met, then the number is a power of $4$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
@@ -104,6 +104,16 @@ function isPowerOfFour(n: number): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_four(n: i32) -> bool {
+        n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa_u32 as i32) == 0
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -114,6 +124,16 @@ function isPowerOfFour(n: number): boolean {
 var isPowerOfFour = function (n) {
     return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsPowerOfFour(int n) {
+        return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+    }
+}
 ```
 
 <!-- tabs:end -->

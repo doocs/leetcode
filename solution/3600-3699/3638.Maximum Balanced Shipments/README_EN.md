@@ -2,6 +2,14 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README_EN.md
+rating: 1463
+source: Weekly Contest 461 Q2
+tags:
+    - Stack
+    - Greedy
+    - Array
+    - Dynamic Programming
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

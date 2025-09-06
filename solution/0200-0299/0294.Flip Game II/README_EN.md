@@ -48,6 +48,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= currentState.length &lt;= 60</code></li>
 	<li><code>currentState[i]</code> is either <code>&#39;+&#39;</code> or <code>&#39;-&#39;</code>.</li>
+	<li>There cannot be more than 20 consecutive <code>&#39;+&#39;</code>.</li>
 </ul>
 
 <p>&nbsp;</p>

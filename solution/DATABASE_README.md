@@ -324,6 +324,8 @@
 | 3611 | [查找超预订员工](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README.md)                                                                           | `数据库` | 中等 |      |
 | 3617 | [查找具有螺旋学习模式的学生](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)                                           |          | 困难 |      |
 | 3626 | [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)                                                      |          | 中等 |      |
+| 3642 | [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)                                                    |          | 简单 |      |
+| 3657 | [寻找忠实客户](/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md)                                                                                  |          | 中等 |      |
 
 ## 版权
 

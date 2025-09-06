@@ -1,5 +1,5 @@
 function longestDiverseString(a: number, b: number, c: number): string {
-    let ans = [];
+    let ans: string[] = [];
     let store: Array<[string, number]> = [
         ['a', a],
         ['b', b],

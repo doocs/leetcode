@@ -322,6 +322,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3611 | [Find Overbooked Employees](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README_EN.md)                                                                                             | `Database` | Medium     |        |
 | 3617 | [Find Students with Study Spiral Pattern](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README_EN.md)                                                           |            | Hard       |        |
 | 3626 | [Find Stores with Inventory Imbalance](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README_EN.md)                                                                   |            | Medium     |        |
+| 3642 | [Find Books with Polarized Opinions](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README_EN.md)                                                                       |            | Easy       |        |
+| 3657 | [Find Loyal Customers](/solution/3600-3699/3657.Find%20Loyal%20Customers/README_EN.md)                                                                                                       |            | Medium     |        |
 
 ## Copyright
 

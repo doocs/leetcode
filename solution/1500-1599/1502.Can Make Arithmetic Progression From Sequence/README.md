@@ -58,9 +58,9 @@ tags:
 
 ### 方法一：排序 + 遍历
 
-我们可以先将数组 `arr` 排序，然后遍历数组，判断相邻两项的差是否相等即可。
+我们可以先将数组 $\textit{arr}$ 排序，然后计算前两项的差值 $d$，接着遍历数组，判断相邻两项的差是否等于 $d$。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `arr` 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -130,8 +130,9 @@ func canMakeArithmeticProgression(arr []int) bool {
 function canMakeArithmeticProgression(arr: number[]): boolean {
     arr.sort((a, b) => a - b);
     const n = arr.length;
+    const d = arr[1] - arr[0];
     for (let i = 2; i < n; i++) {
-        if (arr[i - 2] - arr[i - 1] !== arr[i - 1] - arr[i]) {
+        if (arr[i] - arr[i - 1] !== d) {
             return false;
         }
     }
@@ -146,8 +147,9 @@ impl Solution {
     pub fn can_make_arithmetic_progression(mut arr: Vec<i32>) -> bool {
         arr.sort();
         let n = arr.len();
+        let d = arr[1] - arr[0];
         for i in 2..n {
-            if arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i] {
+            if arr[i] - arr[i - 1] != d {
                 return false;
             }
         }
@@ -165,8 +167,10 @@ impl Solution {
  */
 var canMakeArithmeticProgression = function (arr) {
     arr.sort((a, b) => a - b);
-    for (let i = 1; i < arr.length - 1; i++) {
-        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) {
+    const n = arr.length;
+    const d = arr[1] - arr[0];
+    for (let i = 2; i < n; i++) {
+        if (arr[i] - arr[i - 1] !== d) {
             return false;
         }
     }
@@ -183,8 +187,9 @@ int cmp(const void* a, const void* b) {
 
 bool canMakeArithmeticProgression(int* arr, int arrSize) {
     qsort(arr, arrSize, sizeof(int), cmp);
+    int d = arr[1] - arr[0];
     for (int i = 2; i < arrSize; i++) {
-        if (arr[i - 2] - arr[i - 1] != arr[i - 1] - arr[i]) {
+        if (arr[i] - arr[i - 1] != d) {
             return 0;
         }
     }
@@ -200,11 +205,11 @@ bool canMakeArithmeticProgression(int* arr, int arrSize) {
 
 ### 方法二：哈希表 + 数学
 
-我们先找出数组 $arr$ 中的最小值 $a$ 和最大值 $b$，如果数组 $arr$ 可以重排成等差数列，那么公差 $d = \frac{b - a}{n - 1}$ 必须为整数。
+我们先找出数组 $\textit{arr}$ 中的最小值 $a$ 和最大值 $b$，如果数组 $\textit{arr}$ 可以重排成等差数列，那么公差 $d = \frac{b - a}{n - 1}$ 必须为整数。
 
-我们可以用哈希表来记录数组 $arr$ 中的所有元素，然后遍历 $i \in [0, n)$，判断 $a + d \times i$ 是否在哈希表中，如果不在，说明数组 $arr$ 不能重排成等差数列，返回 `false`。否则遍历完数组后，返回 `true`。
+我们可以用哈希表来记录数组 $\textit{arr}$ 中的所有元素，然后遍历 $i \in [0, n)$，判断 $a + d \times i$ 是否在哈希表中，如果不在，说明数组 $\textit{arr}$ 不能重排成等差数列，返回 `false`。否则遍历完数组后，返回 `true`。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `arr` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -301,23 +306,18 @@ func canMakeArithmeticProgression(arr []int) bool {
 ```ts
 function canMakeArithmeticProgression(arr: number[]): boolean {
     const n = arr.length;
-    const map = new Map<number, number>();
-    let min = Infinity;
-    let max = -Infinity;
-    for (const num of arr) {
-        map.set(num, (map.get(num) ?? 0) + 1);
-        min = Math.min(min, num);
-        max = Math.max(max, num);
-    }
-    if (max === min) {
-        return true;
-    }
-    if ((max - min) % (arr.length - 1)) {
+    const a = Math.min(...arr);
+    const b = Math.max(...arr);
+
+    if ((b - a) % (n - 1) !== 0) {
         return false;
     }
-    const diff = (max - min) / (arr.length - 1);
-    for (let i = min; i <= max; i += diff) {
-        if (map.get(i) !== 1) {
+
+    const d = (b - a) / (n - 1);
+    const s = new Set(arr);
+
+    for (let i = 0; i < n; ++i) {
+        if (!s.has(a + d * i)) {
             return false;
         }
     }
@@ -328,35 +328,55 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
 #### Rust
 
 ```rust
-use std::collections::HashMap;
 impl Solution {
     pub fn can_make_arithmetic_progression(arr: Vec<i32>) -> bool {
-        let n = arr.len() as i32;
-        let mut min = i32::MAX;
-        let mut max = i32::MIN;
-        let mut map = HashMap::new();
-        for &num in arr.iter() {
-            *map.entry(num).or_insert(0) += 1;
-            min = min.min(num);
-            max = max.max(num);
-        }
-        if min == max {
-            return true;
-        }
-        if (max - min) % (n - 1) != 0 {
+        let n = arr.len();
+        let a = *arr.iter().min().unwrap();
+        let b = *arr.iter().max().unwrap();
+
+        if (b - a) % (n as i32 - 1) != 0 {
             return false;
         }
-        let diff = (max - min) / (n - 1);
-        let mut k = min;
-        while k <= max {
-            if *map.get(&k).unwrap_or(&0) != 1 {
+
+        let d = (b - a) / (n as i32 - 1);
+        let s: std::collections::HashSet<_> = arr.into_iter().collect();
+
+        for i in 0..n {
+            if !s.contains(&(a + d * i as i32)) {
                 return false;
             }
-            k += diff;
         }
         true
     }
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var canMakeArithmeticProgression = function (arr) {
+    const n = arr.length;
+    const a = Math.min(...arr);
+    const b = Math.max(...arr);
+
+    if ((b - a) % (n - 1) !== 0) {
+        return false;
+    }
+
+    const d = (b - a) / (n - 1);
+    const s = new Set(arr);
+
+    for (let i = 0; i < n; ++i) {
+        if (!s.has(a + d * i)) {
+            return false;
+        }
+    }
+    return true;
+};
 ```
 
 <!-- tabs:end -->

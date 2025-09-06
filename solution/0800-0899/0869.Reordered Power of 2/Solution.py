@@ -1,15 +1,16 @@
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
-        def convert(n):
+        def f(x: int) -> List[int]:
             cnt = [0] * 10
-            while n:
-                n, v = divmod(n, 10)
+            while x:
+                x, v = divmod(x, 10)
                 cnt[v] += 1
             return cnt
 
-        i, s = 1, convert(n)
+        target = f(n)
+        i = 1
         while i <= 10**9:
-            if convert(i) == s:
+            if f(i) == target:
                 return True
             i <<= 1
         return False

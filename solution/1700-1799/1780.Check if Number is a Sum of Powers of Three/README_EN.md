@@ -63,7 +63,7 @@ tags:
 
 We find that if a number $n$ can be expressed as the sum of several "different" powers of three, then in the ternary representation of $n$, each digit can only be $0$ or $1$.
 
-Therefore, we convert $n$ to ternary and then check whether each digit is $0$ or $1$. If not, then $n$ cannot be expressed as the sum of several powers of three, and we directly return `false`; otherwise, $n$ can be expressed as the sum of several powers of three, and we return `true`.
+Therefore, we convert $n$ to ternary and then check whether each digit is $0$ or $1$. If not, then $n$ cannot be expressed as the sum of several powers of three, and we directly return $\textit{false}$; otherwise, $n$ can be expressed as the sum of several powers of three, and we return $\textit{true}$.
 
 The time complexity is $O(\log_3 n)$, and the space complexity is $O(1)$.
 
@@ -135,6 +135,39 @@ function checkPowersOfThree(n: number): boolean {
         n = Math.floor(n / 3);
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn check_powers_of_three(n: i32) -> bool {
+        let mut n = n;
+        while n > 0 {
+            if n % 3 > 1 {
+                return false;
+            }
+            n /= 3;
+        }
+        true
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool CheckPowersOfThree(int n) {
+        while (n > 0) {
+            if (n % 3 > 1) {
+                return false;
+            }
+            n /= 3;
+        }
+        return true;
+    }
 }
 ```
 

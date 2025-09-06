@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3634.Minimum%20Removals%20to%20Balance%20Array/README.md
+rating: 1453
+source: 第 162 场双周赛 Q2
+tags:
+    - 数组
+    - 排序
+    - 滑动窗口
 ---
 
 <!-- problem:start -->
