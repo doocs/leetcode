@@ -74,32 +74,80 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3675.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+According to the problem description, we always start from the character 'b' and successively change each character to the next one until it becomes 'a'. Therefore, we only need to find the character in the string that is farthest from 'a' and calculate its distance to 'a' to get the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, s: str) -> int:
+        return max((26 - (ord(c) - 97) for c in s if c != "a"), default=0)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(String s) {
+        int ans = 0;
+        for (char c : s.toCharArray()) {
+            if (c != 'a') {
+                ans = Math.max(ans, 26 - (c - 'a'));
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(string s) {
+        int ans = 0;
+        for (char c : s) {
+            if (c != 'a') {
+                ans = max(ans, 26 - (c - 'a'));
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(s string) (ans int) {
+	for _, c := range s {
+		if c != 'a' {
+			ans = max(ans, 26-int(c-'a'))
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(s: string): number {
+    let ans = 0;
+    for (const c of s) {
+        if (c !== 'a') {
+            ans = Math.max(ans, 26 - (c.charCodeAt(0) - 97));
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

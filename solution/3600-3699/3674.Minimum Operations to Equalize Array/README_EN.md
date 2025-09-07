@@ -59,32 +59,77 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+If all elements in $\textit{nums}$ are equal, no operations are needed; otherwise, we can select the entire array as a subarray and perform one operation.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        return int(any(x != nums[0] for x in nums))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums) {
+        for (int x : nums) {
+            if (x != nums[0]) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        for (int x : nums) {
+            if (x != nums[0]) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int) int {
+	for _, x := range nums {
+		if x != nums[0] {
+			return 1
+		}
+	}
+	return 0
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(nums: number[]): number {
+    for (const x of nums) {
+        if (x !== nums[0]) {
+            return 1;
+        }
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->

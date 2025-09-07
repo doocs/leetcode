@@ -76,32 +76,80 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3675.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+根据题目描述，我们一定是先从字符 'b' 开始，依次将每个字符变为下一个字符，直到变为 'a'。因此，我们只需要统计字符串中距离 'a' 最远的字符与 'a' 的距离，即可得到答案。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, s: str) -> int:
+        return max((26 - (ord(c) - 97) for c in s if c != "a"), default=0)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(String s) {
+        int ans = 0;
+        for (char c : s.toCharArray()) {
+            if (c != 'a') {
+                ans = Math.max(ans, 26 - (c - 'a'));
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(string s) {
+        int ans = 0;
+        for (char c : s) {
+            if (c != 'a') {
+                ans = max(ans, 26 - (c - 'a'));
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(s string) (ans int) {
+	for _, c := range s {
+		if c != 'a' {
+			ans = max(ans, 26-int(c-'a'))
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(s: string): number {
+    let ans = 0;
+    for (const c of s) {
+        if (c !== 'a') {
+            ans = Math.max(ans, 26 - (c.charCodeAt(0) - 97));
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
