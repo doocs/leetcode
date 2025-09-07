@@ -29,7 +29,7 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>number = "123", digit = "3"
+<strong>输入：</strong>number = "123", digit = '3'
 <strong>输出：</strong>"12"
 <strong>解释：</strong>"123" 中只有一个 '3' ，在移除 '3' 之后，结果为 "12" 。
 </pre>
@@ -37,7 +37,7 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>number = "1231", digit = "1"
+<strong>输入：</strong>number = "1231", digit = '1'
 <strong>输出：</strong>"231"
 <strong>解释：</strong>可以移除第一个 '1' 得到 "231" 或者移除第二个 '1' 得到 "123" 。
 由于 231 &gt; 123 ，返回 "231" 。
@@ -46,7 +46,7 @@ tags:
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>number = "551", digit = "5"
+<strong>输入：</strong>number = "551", digit = '5'
 <strong>输出：</strong>"51"
 <strong>解释：</strong>可以从 "551" 中移除第一个或者第二个 '5' 。
 两种方案的结果都是 "51" 。

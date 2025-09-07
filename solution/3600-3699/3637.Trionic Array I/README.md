@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3637.Trionic%20Array%20I/README.md
+rating: 1263
+source: 第 461 场周赛 Q1
+tags:
+    - 数组
 ---
 
 <!-- problem:start -->

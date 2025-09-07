@@ -5,10 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Mi
 rating: 1641
 source: 第 458 场周赛 Q2
 tags:
-    - 排序
     - 并查集
     - 图
     - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

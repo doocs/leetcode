@@ -1,13 +1,13 @@
 int maximum69Number(int num) {
-    int n = 0;
-    int i = 0;
-    int t = num;
-    while (t) {
-        n++;
-        if (t % 10 == 6) {
-            i = n;
+    char buf[12];
+    sprintf(buf, "%d", num);
+    for (int i = 0; buf[i] != '\0'; i++) {
+        if (buf[i] == '6') {
+            buf[i] = '9';
+            break;
         }
-        t /= 10;
     }
-    return num + 3 * pow(10, i - 1);
+    int ans;
+    sscanf(buf, "%d", &ans);
+    return ans;
 }

@@ -3,9 +3,12 @@ public:
     long long zeroFilledSubarray(vector<int>& nums) {
         long long ans = 0;
         int cnt = 0;
-        for (int& v : nums) {
-            cnt = v ? 0 : cnt + 1;
-            ans += cnt;
+        for (int x : nums) {
+            if (x == 0) {
+                ans += ++cnt;
+            } else {
+                cnt = 0;
+            }
         }
         return ans;
     }

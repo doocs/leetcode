@@ -236,6 +236,36 @@ function isValidSudoku(board: string[][]): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
+        let mut row = vec![vec![false; 9]; 9];
+        let mut col = vec![vec![false; 9]; 9];
+        let mut sub = vec![vec![false; 9]; 9];
+
+        for i in 0..9 {
+            for j in 0..9 {
+                let c = board[i][j];
+                if c == '.' {
+                    continue;
+                }
+                let num = (c as u8 - b'0' - 1) as usize;
+                let k = i / 3 * 3 + j / 3;
+                if row[i][num] || col[j][num] || sub[k][num] {
+                    return false;
+                }
+                row[i][num] = true;
+                col[j][num] = true;
+                sub[k][num] = true;
+            }
+        }
+        true
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -266,43 +296,63 @@ var isValidSudoku = function (board) {
 };
 ```
 
+#### C#
+
+```cs
+public class Solution {
+    public bool IsValidSudoku(char[][] board) {
+        bool[,] row = new bool[9, 9];
+        bool[,] col = new bool[9, 9];
+        bool[,] sub = new bool[9, 9];
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                char c = board[i][j];
+                if (c == '.') {
+                    continue;
+                }
+                int num = c - '0' - 1;
+                int k = (i / 3) * 3 + (j / 3);
+                if (row[i, num] || col[j, num] || sub[k, num]) {
+                    return false;
+                }
+                row[i, num] = true;
+                col[j, num] = true;
+                sub[k, num] = true;
+            }
+        }
+        return true;
+    }
+}
+```
+
 #### PHP
 
 ```php
 class Solution {
     /**
-     * @param string[][] $board
-     * @return boolean
+     * @param String[][] $board
+     * @return Boolean
      */
-
     function isValidSudoku($board) {
-        $rows = [];
-        $columns = [];
-        $boxes = [];
+        $row = array_fill(0, 9, array_fill(0, 9, false));
+        $col = array_fill(0, 9, array_fill(0, 9, false));
+        $sub = array_fill(0, 9, array_fill(0, 9, false));
 
         for ($i = 0; $i < 9; $i++) {
-            $rows[$i] = [];
-            $columns[$i] = [];
-            $boxes[$i] = [];
-        }
-
-        for ($row = 0; $row < 9; $row++) {
-            for ($column = 0; $column < 9; $column++) {
-                $cell = $board[$row][$column];
-
-                if ($cell != '.') {
-                    if (
-                        in_array($cell, $rows[$row]) ||
-                        in_array($cell, $columns[$column]) ||
-                        in_array($cell, $boxes[floor($row / 3) * 3 + floor($column / 3)])
-                    ) {
-                        return false;
-                    }
-
-                    $rows[$row][] = $cell;
-                    $columns[$column][] = $cell;
-                    $boxes[floor($row / 3) * 3 + floor($column / 3)][] = $cell;
+            for ($j = 0; $j < 9; $j++) {
+                $c = $board[$i][$j];
+                if ($c === '.') {
+                    continue;
                 }
+                $num = intval($c) - 1;
+                $k = intdiv($i, 3) * 3 + intdiv($j, 3);
+                if ($row[$i][$num] || $col[$j][$num] || $sub[$k][$num]) {
+                    return false;
+                }
+                $row[$i][$num] = true;
+                $col[$j][$num] = true;
+                $sub[$k][$num] = true;
             }
         }
         return true;

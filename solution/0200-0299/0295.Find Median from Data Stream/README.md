@@ -31,7 +31,7 @@ tags:
 
 <ul>
 	<li>
-	<p><code>MedianFinder() </code>初始化 <code>MedianFinder</code>&nbsp;对象。</p>
+	<p><code>MedianFinder()</code> 初始化 <code>MedianFinder</code>&nbsp;对象。</p>
 	</li>
 	<li>
 	<p><code>void addNum(int num)</code> 将数据流中的整数 <code>num</code> 添加到数据结构中。</p>

@@ -228,6 +228,79 @@ function numSubmat(mat: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_submat(mat: Vec<Vec<i32>>) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut g = vec![vec![0; n]; m];
+
+        for i in 0..m {
+            for j in 0..n {
+                if mat[i][j] == 1 {
+                    if j == 0 {
+                        g[i][j] = 1;
+                    } else {
+                        g[i][j] = 1 + g[i][j - 1];
+                    }
+                }
+            }
+        }
+
+        let mut ans = 0;
+        for i in 0..m {
+            for j in 0..n {
+                let mut col = i32::MAX;
+                let mut k = i as i32;
+                while k >= 0 && col > 0 {
+                    col = col.min(g[k as usize][j]);
+                    ans += col;
+                    k -= 1;
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} mat
+ * @return {number}
+ */
+var numSubmat = function (mat) {
+    const m = mat.length;
+    const n = mat[0].length;
+    const g = Array.from({ length: m }, () => Array(n).fill(0));
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j]) {
+                g[i][j] = j === 0 ? 1 : 1 + g[i][j - 1];
+            }
+        }
+    }
+
+    let ans = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            let col = Infinity;
+            for (let k = i; k >= 0; k--) {
+                col = Math.min(col, g[k][j]);
+                ans += col;
+            }
+        }
+    }
+
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

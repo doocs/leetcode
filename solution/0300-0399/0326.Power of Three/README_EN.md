@@ -62,7 +62,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Trial Division
+
+If $n \gt 2$, we can continuously divide $n$ by $3$. If it's not divisible, it means $n$ is not a power of $3$, otherwise we continue dividing by $3$ until $n$ is less than or equal to $2$. If $n$ equals $1$, it means $n$ is a power of $3$, otherwise it's not a power of $3$.
+
+Time complexity $O(\log_3n)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
 
@@ -129,7 +133,29 @@ func isPowerOfThree(n int) bool {
 
 ```ts
 function isPowerOfThree(n: number): boolean {
-    return n > 0 && 1162261467 % n == 0;
+    while (n > 2) {
+        if (n % 3 !== 0) {
+            return false;
+        }
+        n = Math.floor(n / 3);
+    }
+    return n === 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_three(mut n: i32) -> bool {
+        while n > 2 {
+            if n % 3 != 0 {
+                return false;
+            }
+            n /= 3;
+        }
+        n == 1
+    }
 }
 ```
 
@@ -141,7 +167,13 @@ function isPowerOfThree(n: number): boolean {
  * @return {boolean}
  */
 var isPowerOfThree = function (n) {
-    return n > 0 && 1162261467 % n == 0;
+    while (n > 2) {
+        if (n % 3 !== 0) {
+            return false;
+        }
+        n = Math.floor(n / 3);
+    }
+    return n === 1;
 };
 ```
 
@@ -151,7 +183,11 @@ var isPowerOfThree = function (n) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Mathematics
+
+If $n$ is a power of $3$, then the maximum value of $n$ is $3^{19} = 1162261467$. Therefore, we only need to check if $n$ is a divisor of $3^{19}$.
+
+Time complexity $O(1)$, space complexity $O(1)$.
 
 <!-- tabs:start -->
 
@@ -190,6 +226,36 @@ public:
 func isPowerOfThree(n int) bool {
 	return n > 0 && 1162261467%n == 0
 }
+```
+
+#### TypeScript
+
+```ts
+function isPowerOfThree(n: number): boolean {
+    return n > 0 && 1162261467 % n == 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_three(mut n: i32) -> bool {
+        n > 0 && 1162261467 % n == 0
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfThree = function (n) {
+    return n > 0 && 1162261467 % n == 0;
+};
 ```
 
 <!-- tabs:end -->

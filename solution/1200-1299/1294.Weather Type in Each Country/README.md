@@ -34,13 +34,13 @@ country_id 是这张表的主键(具有唯一值的列)。
 <p>表：<code>Weather</code></p>
 
 <pre>
-+---------------+---------+
-| Column Name   | Type    |
-+---------------+---------+
-| country_id    | int     |
-| weather_state | varchar |
-| day           | date    |
-+---------------+---------+
++---------------+------+
+| Column Name   | Type |
++---------------+------+
+| country_id    | int  |
+| weather_state | int  |
+| day           | date |
++---------------+------+
 (country_id, day) 是该表的复合主键(具有唯一值的列)。
 该表的每一行记录了某个国家某一天的天气情况。
 </pre>

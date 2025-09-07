@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3624.Nu
 rating: 2085
 source: 第 459 场周赛 Q3
 tags:
+    - 树状数组
     - 线段树
     - 数组
+    - 分治
 ---
 
 <!-- problem:start -->

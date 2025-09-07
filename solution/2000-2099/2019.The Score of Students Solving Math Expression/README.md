@@ -8,6 +8,7 @@ tags:
     - 栈
     - 记忆化搜索
     - 数组
+    - 哈希表
     - 数学
     - 字符串
     - 动态规划
@@ -44,9 +45,10 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/images/student_solving_math.png" style="width: 678px; height: 109px;"></p>
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/images/student_solving_math.png" style="width: 678px; height: 109px;" /></p>
 
-<pre><b>输入：</b>s = "7+3*1*2", answers = [20,13,42]
+<pre>
+<b>输入：</b>s = "7+3*1*2", answers = [20,13,42]
 <b>输出：</b>7
 <b>解释：</b>如上图所示，正确答案为 13 ，因此有一位学生得分为 5 分：[20,<em><strong>13</strong></em>,42] 。
 一位学生可能通过错误的运算顺序得到结果 20 ：7+3=10，10*1=10，10*2=20 。所以这位学生得分为 2 分：[<em><strong>20</strong></em>,13,42] 。
@@ -55,7 +57,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>s = "3+5*2", answers = [13,0,10,13,13,16,16]
+<pre>
+<b>输入：</b>s = "3+5*2", answers = [13,0,10,13,13,16,16]
 <b>输出：</b>19
 <b>解释：</b>表达式的正确结果为 13 ，所以有 3 位学生得到 5 分：[<em><strong>13</strong></em>,0,10,<em><strong>13</strong></em>,<em><strong>13</strong></em>,16,16] 。
 学生可能通过错误的运算顺序得到结果 16 ：3+5=8，8*2=16 。所以两位学生得到 2 分：[13,0,10,13,13,<em><strong>16</strong></em>,<em><strong>16</strong></em>] 。
@@ -64,7 +67,8 @@ tags:
 
 <p><strong>示例 3：</strong></p>
 
-<pre><b>输入：</b>s = "6+0*1", answers = [12,9,6,4,8,6]
+<pre>
+<b>输入：</b>s = "6+0*1", answers = [12,9,6,4,8,6]
 <b>输出：</b>10
 <b>解释：</b>表达式的正确结果为 6 。
 如果一位学生通过错误的运算顺序计算该表达式，结果仍为 6 。
@@ -82,6 +86,7 @@ tags:
 	<li>表达式中所有整数运算数字都在闭区间&nbsp;<code>[0, 9]</code>&nbsp;以内。</li>
 	<li><code>1 &lt;=</code>&nbsp;数学表达式中所有运算符数目（<code>'+'</code> 和&nbsp;<code>'*'</code>）&nbsp;<code>&lt;= 15</code></li>
 	<li>测试数据保证正确表达式结果在范围&nbsp;<code>[0, 1000]</code>&nbsp;以内。</li>
+	<li>测试用例保证乘法中间步骤中的值永远不会超过 <code>10<sup>9</sup></code>。</li>
 	<li><code>n == answers.length</code></li>
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= answers[i] &lt;= 1000</code></li>

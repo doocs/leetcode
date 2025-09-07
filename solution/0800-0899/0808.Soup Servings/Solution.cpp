@@ -2,7 +2,7 @@ class Solution {
 public:
     double soupServings(int n) {
         double f[200][200] = {0.0};
-        function<double(int, int)> dfs = [&](int i, int j) -> double {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> double {
             if (i <= 0 && j <= 0) return 0.5;
             if (i <= 0) return 1;
             if (j <= 0) return 0;

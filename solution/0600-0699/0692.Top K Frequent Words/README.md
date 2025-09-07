@@ -53,7 +53,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 500</code></li>
-	<li><code>1 &lt;= words[i] &lt;= 10</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 10</code></li>
 	<li><code>words[i]</code>&nbsp;由小写英文字母组成。</li>
 	<li><code>k</code> 的取值范围是&nbsp;<code>[1, <strong>不同</strong> words[i] 的数量]</code></li>
 </ul>

@@ -7,6 +7,7 @@ tags:
     - Binary Indexed Tree
     - Segment Tree
     - Array
+    - Divide and Conquer
 ---
 
 <!-- problem:start -->

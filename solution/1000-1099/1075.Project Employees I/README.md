@@ -26,7 +26,7 @@ tags:
 | employee_id | int     |
 +-------------+---------+
 主键为 (project_id, employee_id)。
-employee_id 是员工表 <code>Employee 表的外键。</code>
+employee_id 是员工表 <code>Employee</code> 表的外键。
 这张表的每一行表示 employee_id 的员工正在 project_id 的项目上工作。
 </pre>
 

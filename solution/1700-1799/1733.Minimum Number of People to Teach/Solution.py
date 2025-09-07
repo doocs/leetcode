@@ -2,7 +2,7 @@ class Solution:
     def minimumTeachings(
         self, n: int, languages: List[List[int]], friendships: List[List[int]]
     ) -> int:
-        def check(u, v):
+        def check(u: int, v: int) -> bool:
             for x in languages[u - 1]:
                 for y in languages[v - 1]:
                     if x == y:

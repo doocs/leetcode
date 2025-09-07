@@ -18,7 +18,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个只包含 <code>'('</code>&nbsp;和 <code>')'</code>&nbsp;的字符串，找出最长有效（格式正确且连续）括号<span data-keyword="substring">子串</span>的长度。</p>
+<p>给你一个只包含 <code>'('</code> 和 <code>')'</code> 的字符串，找出最长有效（格式正确且连续）括号 <span data-keyword="substring">子串</span> 的长度。</p>
+
+<p>左右括号匹配，即每个左括号都有对应的右括号将其闭合的字符串是格式正确的，比如&nbsp;<code>"(()())"</code>。</p>
 
 <p>&nbsp;</p>
 

@@ -127,12 +127,30 @@ func sumZero(n int) []int {
 
 ```ts
 function sumZero(n: number): number[] {
-    const ans = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = 1, j = 0; i <= n / 2; ++i) {
         ans[j++] = i;
         ans[j++] = -i;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_zero(n: i32) -> Vec<i32> {
+        let mut ans = vec![0; n as usize];
+        let mut j = 0;
+        for i in 1..=n / 2 {
+            ans[j] = i;
+            j += 1;
+            ans[j] = -i;
+            j += 1;
+        }
+        ans
+    }
 }
 ```
 
@@ -212,6 +230,21 @@ function sumZero(n: number): number[] {
     }
     ans[0] = -((n * (n - 1)) / 2);
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_zero(n: i32) -> Vec<i32> {
+        let mut ans = vec![0; n as usize];
+        for i in 1..n {
+            ans[i as usize] = i;
+        }
+        ans[0] = -(n * (n - 1) / 2);
+        ans
+    }
 }
 ```
 

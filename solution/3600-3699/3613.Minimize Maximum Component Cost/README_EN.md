@@ -5,10 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3613.Mi
 rating: 1641
 source: Weekly Contest 458 Q2
 tags:
-    - Sort
     - Union Find
     - Graph
     - Binary Search
+    - Sorting
 ---
 
 <!-- problem:start -->
