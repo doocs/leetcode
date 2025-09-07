@@ -63,32 +63,77 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3674.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+如果 $\textit{nums}$ 中所有元素都相等，则不需要任何操作；否则，选择整个数组作为子数组进行一次操作即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        return int(any(x != nums[0] for x in nums))
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums) {
+        for (int x : nums) {
+            if (x != nums[0]) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        for (int x : nums) {
+            if (x != nums[0]) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int) int {
+	for _, x := range nums {
+		if x != nums[0] {
+			return 1
+		}
+	}
+	return 0
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(nums: number[]): number {
+    for (const x of nums) {
+        if (x !== nums[0]) {
+            return 1;
+        }
+    }
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
