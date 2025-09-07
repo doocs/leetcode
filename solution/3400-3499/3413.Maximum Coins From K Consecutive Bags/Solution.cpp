@@ -4,9 +4,12 @@ private:
         int start = -1, end = -1, value = 0;
 
         interval() = default;
-        interval(int _start, int _end, int _value) : start(_start), end(_end), value(_value) {}
+        interval(int _start, int _end, int _value)
+            : start(_start)
+            , end(_end)
+            , value(_value) {}
 
-        bool operator < (const interval &other) const {
+        bool operator<(const interval& other) const {
             return start < other.start || (start == other.start && end < other.end);
         }
         int64_t cost() const { return int64_t(value) * (end - start + 1); }
