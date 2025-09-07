@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 466
+
+- [3674. Minimum Operations to Equalize Array](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md)
+- [3675. Minimum Operations to Transform String](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README_EN.md)
+- [3676. Count Bowl Subarrays](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README_EN.md)
+- [3677. Count Binary Palindromic Numbers](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README_EN.md)
+
 #### Weekly Contest 465
 
 - [3668. Restore Finishing Order](/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md)

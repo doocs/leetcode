@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 466 场周赛(2025-09-07 10:30, 90 分钟) 参赛人数 1770
+
+- [3674. 数组元素相等的最小操作次数](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README.md)
+- [3675. 转换字符串的最小操作次数](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README.md)
+- [3676. 碗子数组的数目](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README.md)
+- [3677. 统计二进制回文数字的数目](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README.md)
+
 #### 第 465 场周赛(2025-08-31 10:30, 90 分钟) 参赛人数 1648
 
 - [3668. 重排完成顺序](/solution/3600-3699/3668.Restore%20Finishing%20Order/README.md)
