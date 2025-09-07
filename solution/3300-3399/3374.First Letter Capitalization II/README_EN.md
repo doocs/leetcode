@@ -106,6 +106,13 @@ Each row contains a unique ID and the corresponding text content.
 </ul>
 </div>
 
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>context_text</code> contains only English letters, and the characters in the list <code>[&#39;\&#39;, &#39; &#39;, &#39;@&#39;, &#39;-&#39;, &#39;/&#39;, &#39;^&#39;, &#39;,&#39;]</code></li>
+</ul>
+
 <!-- description:end -->
 
 ## Solutions

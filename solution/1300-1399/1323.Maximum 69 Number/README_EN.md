@@ -67,7 +67,11 @@ The maximum number is 9969.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We convert the number to a string, then traverse the string from left to right to find the first occurrence of $6$, replace it with $9$, and then return the integer corresponding to the converted string.
+
+Time complexity $O(\log \textit{num})$, space complexity $O(\log \textit{num})$. Where $\textit{num}$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -111,15 +115,8 @@ public:
 
 ```go
 func maximum69Number(num int) int {
-	s := strconv.Itoa(num)
-	nums := []byte(s)
-	for i, ch := range nums {
-		if ch == '6' {
-			nums[i] = '9'
-			break
-		}
-	}
-	ans, _ := strconv.Atoi(string(nums))
+	s := strings.Replace(strconv.Itoa(num), "6", "9", 1)
+	ans, _ := strconv.Atoi(s)
 	return ans
 }
 ```
@@ -163,17 +160,17 @@ class Solution {
 
 ```c
 int maximum69Number(int num) {
-    int n = 0;
-    int i = 0;
-    int t = num;
-    while (t) {
-        n++;
-        if (t % 10 == 6) {
-            i = n;
+    char buf[12];
+    sprintf(buf, "%d", num);
+    for (int i = 0; buf[i] != '\0'; i++) {
+        if (buf[i] == '6') {
+            buf[i] = '9';
+            break;
         }
-        t /= 10;
     }
-    return num + 3 * pow(10, i - 1);
+    int ans;
+    sscanf(buf, "%d", &ans);
+    return ans;
 }
 ```
 

@@ -37,9 +37,9 @@ tags:
 <p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>输入：</strong><span class="example-io">board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</span></p>
+<p><strong>输入：</strong><span class="example-io">board = [['X','X','X','X'],['X','O','O','X'],['X','X','O','X'],['X','O','X','X']]</span></p>
 
-<p><b>输出：</b><span class="example-io">[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</span></p>
+<p><b>输出：</b><span class="example-io">[['X','X','X','X'],['X','X','X','X'],['X','X','X','X'],['X','O','X','X']]</span></p>
 
 <p><strong>解释：</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0130.Surrounded%20Regions/images/1718167191-XNjUTG-image.png" style="width: 367px; height: 158px;" />
@@ -49,9 +49,9 @@ tags:
 <p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>输入：</strong><span class="example-io">board = [["X"]]</span></p>
+<p><strong>输入：</strong><span class="example-io">board = [['X']]</span></p>
 
-<p><strong>输出：</strong><span class="example-io">[["X"]]</span></p>
+<p><strong>输出：</strong><span class="example-io">[['X']]</span></p>
 </div>
 
 <p>&nbsp;</p>

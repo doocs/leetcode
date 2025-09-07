@@ -43,7 +43,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [2,1,5,0,4,6]
 <strong>输出：</strong>true
-<strong>解释：</strong>三元组 (3, 4, 5) 满足题意，因为 nums[3] == 0 &lt; nums[4] == 4 &lt; nums[5] == 6
+<strong>解释：</strong>其中一个满足题意的三元组是 (3, 4, 5)，因为 nums[3] == 0 &lt; nums[4] == 4 &lt; nums[5] == 6
 </pre>
 
 <p>&nbsp;</p>

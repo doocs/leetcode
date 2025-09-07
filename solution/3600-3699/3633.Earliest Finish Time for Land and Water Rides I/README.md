@@ -2,6 +2,14 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3633.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20I/README.md
+rating: 1342
+source: 第 162 场双周赛 Q1
+tags:
+    - 贪心
+    - 数组
+    - 双指针
+    - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

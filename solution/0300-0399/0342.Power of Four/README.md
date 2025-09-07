@@ -65,9 +65,9 @@ tags:
 
 ### 方法一：位运算
 
-如果一个数是 4 的幂次方，那么这个数必须是大于 $0$ 的。不妨假设这个数是 $4^x$，即 $2^{2x}$，那么这个数的二进制表示中有且仅有一个 $1$，且这个 $1$ 出现在偶数位上。
+如果一个数是 $4$ 的幂次方，那么这个数必须是大于 $0$ 的。不妨假设这个数是 $4^x$，即 $2^{2x}$，那么这个数的二进制表示中有且仅有一个 $1$，且这个 $1$ 出现在偶数位上。
 
-因此，我们首先判断这个数是否大于 $0$，然后判断这个数是否是 $2^{2x}$，即 $n$ 与 $n-1$ 的按位与结果是否为 $0$，最后判断这个数的 $1$ 是否出现在偶数位上，即 $n$ 与 $\textit{0xAAAAAAAA}$ 的按位与结果是否为 $0$。如果这三个条件都满足，那么这个数就是 4 的幂次方。
+因此，我们首先判断这个数是否大于 $0$，然后判断这个数是否是 $2^{2x}$，即 $n$ 与 $n-1$ 的按位与结果是否为 $0$，最后判断这个数的 $1$ 是否出现在偶数位上，即 $n$ 与 $\textit{0xAAAAAAAA}$ 的按位与结果是否为 $0$。如果这三个条件都满足，那么这个数就是 $4$ 的幂次方。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -118,6 +118,16 @@ function isPowerOfFour(n: number): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_four(n: i32) -> bool {
+        n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa_u32 as i32) == 0
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -128,6 +138,16 @@ function isPowerOfFour(n: number): boolean {
 var isPowerOfFour = function (n) {
     return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
 };
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool IsPowerOfFour(int n) {
+        return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+    }
+}
 ```
 
 <!-- tabs:end -->

@@ -140,7 +140,29 @@ func isPowerOfThree(n int) bool {
 
 ```ts
 function isPowerOfThree(n: number): boolean {
-    return n > 0 && 1162261467 % n == 0;
+    while (n > 2) {
+        if (n % 3 !== 0) {
+            return false;
+        }
+        n = Math.floor(n / 3);
+    }
+    return n === 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_three(mut n: i32) -> bool {
+        while n > 2 {
+            if n % 3 != 0 {
+                return false;
+            }
+            n /= 3;
+        }
+        n == 1
+    }
 }
 ```
 
@@ -152,7 +174,13 @@ function isPowerOfThree(n: number): boolean {
  * @return {boolean}
  */
 var isPowerOfThree = function (n) {
-    return n > 0 && 1162261467 % n == 0;
+    while (n > 2) {
+        if (n % 3 !== 0) {
+            return false;
+        }
+        n = Math.floor(n / 3);
+    }
+    return n === 1;
 };
 ```
 
@@ -205,6 +233,36 @@ public:
 func isPowerOfThree(n int) bool {
 	return n > 0 && 1162261467%n == 0
 }
+```
+
+#### TypeScript
+
+```ts
+function isPowerOfThree(n: number): boolean {
+    return n > 0 && 1162261467 % n == 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_three(mut n: i32) -> bool {
+        n > 0 && 1162261467 % n == 0
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfThree = function (n) {
+    return n > 0 && 1162261467 % n == 0;
+};
 ```
 
 <!-- tabs:end -->

@@ -57,7 +57,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Construction
+
+We can start from $1$ and alternately add positive and negative numbers to the result array. We repeat this process $\frac{n}{2}$ times. If $n$ is odd, we add $0$ to the result array at the end.
+
+The time complexity is $O(n)$, where $n$ is the given integer. Ignoring the space used for the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -124,12 +128,30 @@ func sumZero(n int) []int {
 
 ```ts
 function sumZero(n: number): number[] {
-    const ans = new Array(n).fill(0);
+    const ans: number[] = Array(n).fill(0);
     for (let i = 1, j = 0; i <= n / 2; ++i) {
         ans[j++] = i;
         ans[j++] = -i;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_zero(n: i32) -> Vec<i32> {
+        let mut ans = vec![0; n as usize];
+        let mut j = 0;
+        for i in 1..=n / 2 {
+            ans[j] = i;
+            j += 1;
+            ans[j] = -i;
+            j += 1;
+        }
+        ans
+    }
 }
 ```
 
@@ -139,7 +161,11 @@ function sumZero(n: number): number[] {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Construction + Mathematics
+
+We can also add all integers from $1$ to $n-1$ to the result array, and finally add the opposite of the sum of the first $n-1$ integers, which is $-\frac{n(n-1)}{2}$, to the result array.
+
+The time complexity is $O(n)$, where $n$ is the given integer. Ignoring the space used for the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -205,6 +231,21 @@ function sumZero(n: number): number[] {
     }
     ans[0] = -((n * (n - 1)) / 2);
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_zero(n: i32) -> Vec<i32> {
+        let mut ans = vec![0; n as usize];
+        for i in 1..n {
+            ans[i as usize] = i;
+        }
+        ans[0] = -(n * (n - 1) / 2);
+        ans
+    }
 }
 ```
 

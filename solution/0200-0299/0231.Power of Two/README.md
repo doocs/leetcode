@@ -67,7 +67,9 @@ tags:
 
 ### 方法一：位运算
 
-$\texttt{n\&(n-1)}$ 可将最后一个二进制形式的 $n$ 的最后一位 $1$ 移除，若移除后为 $0$，说明 $n$ 是 $2$ 的幂。
+根据位运算的性质，执行 $\texttt{n\&(n-1)}$ 可以消去二进制形式的 $n$ 的最后一位 $1$。因此，如果 $n \gt 0$，并且满足 $\texttt{n\&(n-1)}$ 结果为 $0$，则说明 $n$ 是 $2$ 的幂。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -116,6 +118,16 @@ function isPowerOfTwo(n: number): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_two(n: i32) -> bool {
+        n > 0 && (n & (n - 1)) == 0
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -134,11 +146,11 @@ var isPowerOfTwo = function (n) {
 
 <!-- solution:start -->
 
-### 方法二：lowbit
+### 方法二：Lowbit
 
-$\texttt{n\&(-n)}$ 可以得到 $n$ 的最后一位 $1$ 表示的十进制数，若与 $n$ 相等，说明 $n$ 是 $2$ 的幂。
+根据 $\text{lowbit}$ 的定义，我们知道 $\text{lowbit}(x) = x \& (-x)$，可以得到 $n$ 的最后一位 $1$ 表示的十进制数。因此，如果 $n > 0$，并且满足 $\text{lowbit}(n)$ 等于 $n$，则说明 $n$ 是 $2$ 的幂。
 
-注意：要满足 $n$ 是 $2$ 的幂次方，需要保证 $n$ 大于 $0$。
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -183,7 +195,17 @@ func isPowerOfTwo(n int) bool {
 
 ```ts
 function isPowerOfTwo(n: number): boolean {
-    return n > 0 && (n & (n - 1)) === 0;
+    return n > 0 && n === (n & -n);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_power_of_two(n: i32) -> bool {
+        n > 0 && n == (n & (-n))
+    }
 }
 ```
 
@@ -195,7 +217,7 @@ function isPowerOfTwo(n: number): boolean {
  * @return {boolean}
  */
 var isPowerOfTwo = function (n) {
-    return n > 0 && n == (n & -n);
+    return n > 0 && n === (n & -n);
 };
 ```
 
