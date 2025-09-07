@@ -15,6 +15,7 @@ private:
         int64_t cost() const { return int64_t(value) * (end - start + 1); }
         int64_t cost(int len) const { return int64_t(value) * len; }
     };
+
 public:
     long long maximumCoins(vector<vector<int>>& coins, int k) {
         int N = int(coins.size());
