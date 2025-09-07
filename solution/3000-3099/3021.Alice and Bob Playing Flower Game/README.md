@@ -18,22 +18,24 @@ tags:
 
 <!-- description:start -->
 
-<p>Alice 和 Bob 在一个长满鲜花的环形草地玩一个回合制游戏。环形的草地上有一些鲜花，Alice 到&nbsp;Bob 之间顺时针有 <code>x</code>&nbsp;朵鲜花，逆时针有 <code>y</code>&nbsp;朵鲜花。</p>
+<p>Alice 和 Bob 在一片田野上玩一个回合制游戏，他们之间有两排花。Alice 和 Bob 之间第一排有 <code>x</code> 朵花，第二排有 <code>y</code> 朵花。</p>
+
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3021.Alice%20and%20Bob%20Playing%20Flower%20Game/images/3021.png" style="width: 300px; height: 150px;" /></p>
 
 <p>游戏过程如下：</p>
 
 <ol>
 	<li>Alice 先行动。</li>
-	<li>每一次行动中，当前玩家必须选择顺时针或者逆时针，然后在这个方向上摘一朵鲜花。</li>
-	<li>一次行动结束后，如果所有鲜花都被摘完了，那么 <strong>当前</strong>&nbsp;玩家抓住对手并赢得游戏的胜利。</li>
+	<li>每一次行动中，当前玩家必须选择其中一排，然后在这边摘一朵鲜花。</li>
+	<li>一次行动结束后，如果两排上都没有剩下鲜花，那么 <strong>当前</strong>&nbsp;玩家抓住对手并赢得游戏的胜利。</li>
 </ol>
 
 <p>给你两个整数&nbsp;<code>n</code>&nbsp;和&nbsp;<code>m</code>&nbsp;，你的任务是求出满足以下条件的所有&nbsp;<code>(x, y)</code>&nbsp;对：</p>
 
 <ul>
 	<li>按照上述规则，Alice 必须赢得游戏。</li>
-	<li>Alice 顺时针方向上的鲜花数目&nbsp;<code>x</code>&nbsp;必须在区间&nbsp;<code>[1,n]</code>&nbsp;之间。</li>
-	<li>Alice 逆时针方向上的鲜花数目 <code>y</code>&nbsp;必须在区间&nbsp;<code>[1,m]</code>&nbsp;之间。</li>
+	<li>第一排的鲜花数目&nbsp;<code>x</code>&nbsp;必须在区间&nbsp;<code>[1,n]</code>&nbsp;之间。</li>
+	<li>第二排的鲜花数目 <code>y</code>&nbsp;必须在区间&nbsp;<code>[1,m]</code>&nbsp;之间。</li>
 </ul>
 
 <p>请你返回满足题目描述的数对&nbsp;<code>(x, y)</code>&nbsp;的数目。</p>

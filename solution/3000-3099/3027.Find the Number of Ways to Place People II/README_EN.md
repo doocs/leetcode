@@ -43,7 +43,7 @@ tags:
 <pre>
 <strong>Input:</strong> points = [[1,1],[2,2],[3,3]]
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no way to place Alice and Bob such that Alice can build a fence with Alice&#39;s position as the upper left corner and Bob&#39;s position as the lower right corner. Hence we return 0.
+<strong>Explanation:</strong> There is no way to place Alice and Bob such that Alice can build a fence with Alice&#39;s position as the upper left corner and Bob&#39;s position as the lower right corner. Hence we return 0. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

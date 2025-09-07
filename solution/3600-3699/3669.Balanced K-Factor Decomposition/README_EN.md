@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README_EN.md
+rating: 1917
+source: Weekly Contest 465 Q2
 ---
 
 <!-- problem:start -->

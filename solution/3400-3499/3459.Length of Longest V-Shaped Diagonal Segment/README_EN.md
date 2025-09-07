@@ -37,8 +37,6 @@ tags:
 	</li>
 </ul>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3400-3499/3459.Length%20of%20Longest%20V-Shaped%20Diagonal%20Segment/images/length_of_longest3.jpg" style="width: 481px; height: 202px;" /></p>
-
 <p>Return the <strong>length</strong> of the <strong>longest</strong> <strong>V-shaped diagonal segment</strong>. If no valid segment <em>exists</em>, return 0.</p>
 
 <p>&nbsp;</p>

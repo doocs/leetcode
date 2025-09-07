@@ -3680,6 +3680,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3669  |  [Balanced K-Factor Decomposition](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README_EN.md)  |    |  Medium  |  Weekly Contest 465  |
 |  3670  |  [Maximum Product of Two Integers With No Common Bits](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md)  |    |  Medium  |  Weekly Contest 465  |
 |  3671  |  [Sum of Beautiful Subsequences](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 465  |
+|  3672  |  [Sum of Weighted Modes in Subarrays](/solution/3600-3699/3672.Sum%20of%20Weighted%20Modes%20in%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
+|  3673  |  [Find Zombie Sessions](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README_EN.md)  |    |  Hard  |    |
+|  3674  |  [Minimum Operations to Equalize Array](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 466  |
+|  3675  |  [Minimum Operations to Transform String](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 466  |
+|  3676  |  [Count Bowl Subarrays](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 466  |
+|  3677  |  [Count Binary Palindromic Numbers](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README_EN.md)  |    |  Hard  |  Weekly Contest 466  |
 
 ## Copyright
 
