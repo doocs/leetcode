@@ -326,6 +326,7 @@
 | 3626 | [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)                                                      |          | 中等 |      |
 | 3642 | [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)                                                    |          | 简单 |      |
 | 3657 | [寻找忠实客户](/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md)                                                                                  |          | 中等 |      |
+| 3673 | [Find Zombie Sessions](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README.md)                                                                          |          | 困难 |      |
 
 ## 版权
 

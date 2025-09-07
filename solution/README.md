@@ -3682,6 +3682,12 @@
 |  3669  |  [K 因数分解](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README.md)  |    |  中等  |  第 465 场周赛  |
 |  3670  |  [没有公共位的整数最大乘积](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README.md)  |    |  中等  |  第 465 场周赛  |
 |  3671  |  [子序列美丽值求和](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README.md)  |    |  困难  |  第 465 场周赛  |
+|  3672  |  [Sum of Weighted Modes in Subarrays](/solution/3600-3699/3672.Sum%20of%20Weighted%20Modes%20in%20Subarrays/README.md)  |    |  中等  |  🔒  |
+|  3673  |  [Find Zombie Sessions](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README.md)  |    |  困难  |    |
+|  3674  |  [数组元素相等的最小操作次数](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README.md)  |    |  简单  |  第 466 场周赛  |
+|  3675  |  [转换字符串的最小操作次数](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README.md)  |    |  中等  |  第 466 场周赛  |
+|  3676  |  [碗子数组的数目](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README.md)  |    |  中等  |  第 466 场周赛  |
+|  3677  |  [统计二进制回文数字的数目](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README.md)  |    |  困难  |  第 466 场周赛  |
 
 ## 版权
 
