@@ -100,18 +100,16 @@ jobs:
 
           echo "Cloning docs branch ..."
           git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
+          cp "$CACHE_FILE" docs-cache/
 
           cd docs-cache
-          git checkout --orphan docs
-          git rm -rf .
-          cp "../$CACHE_FILE" ./
 
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
           git add .git-committers-cache.json
           git commit -m "chore: update committer cache [skip ci]" || echo "No changes to commit"
-          git push --force origin docs
+          git push origin docs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
