@@ -67,7 +67,15 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+We use a difference array $d[i]$ to record the change in the number of people who know the secret on day $i$, and an array $cnt[i]$ to record the number of people who newly learn the secret on day $i$.
+
+For the $cnt[i]$ people who newly learn the secret on day $i$, they can share the secret with another $cnt[i]$ people each day during the interval $[i+\text{delay}, i+\text{forget})$.
+
+The answer is $\sum_{i=1}^{n} d[i]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -96,27 +104,26 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int peopleAwareOfSecret(int n, int delay, int forget) {
+        final int mod = (int) 1e9 + 7;
         int m = (n << 1) + 10;
         long[] d = new long[m];
         long[] cnt = new long[m];
         cnt[1] = 1;
         for (int i = 1; i <= n; ++i) {
             if (cnt[i] > 0) {
-                d[i] = (d[i] + cnt[i]) % MOD;
-                d[i + forget] = (d[i + forget] - cnt[i] + MOD) % MOD;
+                d[i] = (d[i] + cnt[i]) % mod;
+                d[i + forget] = (d[i + forget] - cnt[i] + mod) % mod;
                 int nxt = i + delay;
                 while (nxt < i + forget) {
-                    cnt[nxt] = (cnt[nxt] + cnt[i]) % MOD;
+                    cnt[nxt] = (cnt[nxt] + cnt[i]) % mod;
                     ++nxt;
                 }
             }
         }
         long ans = 0;
         for (int i = 1; i <= n; ++i) {
-            ans = (ans + d[i]) % MOD;
+            ans = (ans + d[i]) % mod;
         }
         return (int) ans;
     }
@@ -126,29 +133,29 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-const int mod = 1e9 + 7;
-
 class Solution {
 public:
     int peopleAwareOfSecret(int n, int delay, int forget) {
+        const int mod = 1e9 + 7;
         int m = (n << 1) + 10;
-        vector<ll> d(m);
-        vector<ll> cnt(m);
+        vector<long long> d(m), cnt(m);
         cnt[1] = 1;
-        for (int i = 1; i <= n; ++i) {
-            if (!cnt[i]) continue;
-            d[i] = (d[i] + cnt[i]) % mod;
-            d[i + forget] = (d[i + forget] - cnt[i] + mod) % mod;
-            int nxt = i + delay;
-            while (nxt < i + forget) {
-                cnt[nxt] = (cnt[nxt] + cnt[i]) % mod;
-                ++nxt;
+        for (int i = 1; i <= n; i++) {
+            if (cnt[i]) {
+                d[i] = (d[i] + cnt[i]) % mod;
+                d[i + forget] = (d[i + forget] - cnt[i] + mod) % mod;
+                int nxt = i + delay;
+                while (nxt < i + forget) {
+                    cnt[nxt] = (cnt[nxt] + cnt[i]) % mod;
+                    nxt++;
+                }
             }
         }
-        int ans = 0;
-        for (int i = 1; i <= n; ++i) ans = (ans + d[i]) % mod;
-        return ans;
+        long long ans = 0;
+        for (int i = 0; i <= n; i++) {
+            ans += d[i];
+        }
+        return ans % mod;
     }
 };
 ```
@@ -186,25 +193,65 @@ func peopleAwareOfSecret(n int, delay int, forget int) int {
 
 ```ts
 function peopleAwareOfSecret(n: number, delay: number, forget: number): number {
-    let dp = new Array(n + 1).fill(0n);
-    dp[1] = 1n;
-    for (let i = 2; i <= n; i++) {
-        let pre = 0n;
-        for (let j = i - forget + 1; j <= i - delay; j++) {
-            if (j > 0) {
-                pre += dp[j];
+    const mod = 1e9 + 7;
+    const m = (n << 1) + 10;
+    const d: number[] = Array(m).fill(0);
+    const cnt: number[] = Array(m).fill(0);
+
+    cnt[1] = 1;
+    for (let i = 1; i <= n; ++i) {
+        if (cnt[i] > 0) {
+            d[i] = (d[i] + cnt[i]) % mod;
+            d[i + forget] = (d[i + forget] - cnt[i] + mod) % mod;
+            let nxt = i + delay;
+            while (nxt < i + forget) {
+                cnt[nxt] = (cnt[nxt] + cnt[i]) % mod;
+                ++nxt;
             }
         }
-        dp[i] = pre;
     }
-    let pre = 0n;
-    let i = n + 1;
-    for (let j = i - forget; j < i; j++) {
-        if (j > 0) {
-            pre += dp[j];
+
+    let ans = 0;
+    for (let i = 1; i <= n; ++i) {
+        ans = (ans + d[i]) % mod;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn people_aware_of_secret(n: i32, delay: i32, forget: i32) -> i32 {
+        let n = n as usize;
+        let delay = delay as usize;
+        let forget = forget as usize;
+        let m = (n << 1) + 10;
+        let modulo: i64 = 1_000_000_007;
+
+        let mut d = vec![0i64; m];
+        let mut cnt = vec![0i64; m];
+
+        cnt[1] = 1;
+        for i in 1..=n {
+            if cnt[i] > 0 {
+                d[i] = (d[i] + cnt[i]) % modulo;
+                d[i + forget] = (d[i + forget] - cnt[i] + modulo) % modulo;
+                let mut nxt = i + delay;
+                while nxt < i + forget {
+                    cnt[nxt] = (cnt[nxt] + cnt[i]) % modulo;
+                    nxt += 1;
+                }
+            }
         }
+
+        let mut ans: i64 = 0;
+        for i in 1..=n {
+            ans = (ans + d[i]) % modulo;
+        }
+        ans as i32
     }
-    return Number(pre % BigInt(10 ** 9 + 7));
 }
 ```
 
