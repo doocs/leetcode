@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +------------------+----------+
-| Column Name      | Type     | 
+| Column Name      | Type     |
 +------------------+----------+
 | event_id         | int      |
 | user_id          | int      |
@@ -151,14 +151,65 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Grouped Aggregation
+
+We can group the sessions by session_id, calculate the session duration, the number of scroll events, click events, and purchase events for each session, then filter according to the conditions given in the problem. Finally, we sort by the number of scroll events in descending order and by session ID in ascending order.
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+# Write your MySQL query statement below
+SELECT
+    session_id,
+    user_id,
+    TIMESTAMPDIFF(MINUTE, MIN(event_timestamp), MAX(event_timestamp)) session_duration_minutes,
+    SUM(event_type = 'scroll') scroll_count
+FROM app_events
+GROUP BY session_id
+HAVING
+    session_duration_minutes >= 30
+    AND SUM(event_type = 'click') / SUM(event_type = 'scroll') < 0.2
+    AND SUM(event_type = 'purchase') = 0
+    AND SUM(event_type = 'scroll') >= 5
+ORDER BY scroll_count DESC, session_id;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def find_zombie_sessions(app_events: pd.DataFrame) -> pd.DataFrame:
+    if not pd.api.types.is_datetime64_any_dtype(app_events["event_timestamp"]):
+        app_events["event_timestamp"] = pd.to_datetime(app_events["event_timestamp"])
+
+    grouped = app_events.groupby(["session_id", "user_id"])
+
+    result = grouped.agg(
+        session_duration_minutes=(
+            "event_timestamp",
+            lambda x: (x.max() - x.min()).total_seconds() // 60,
+        ),
+        scroll_count=("event_type", lambda x: (x == "scroll").sum()),
+        click_count=("event_type", lambda x: (x == "click").sum()),
+        purchase_count=("event_type", lambda x: (x == "purchase").sum()),
+    ).reset_index()
+
+    result = result[
+        (result["session_duration_minutes"] >= 30)
+        & (result["click_count"] / result["scroll_count"] < 0.2)
+        & (result["purchase_count"] == 0)
+        & (result["scroll_count"] >= 5)
+    ]
+
+    result = result.sort_values(
+        by=["scroll_count", "session_id"], ascending=[False, True]
+    ).reset_index(drop=True)
+
+    return result[["session_id", "user_id", "session_duration_minutes", "scroll_count"]]
 ```
 
 <!-- tabs:end -->
