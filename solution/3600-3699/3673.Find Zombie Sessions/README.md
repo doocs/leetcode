@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +------------------+----------+
-| Column Name      | Type     | 
+| Column Name      | Type     |
 +------------------+----------+
 | event_id         | int      |
 | user_id          | int      |
@@ -151,14 +151,65 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：分组统计
+
+我们可以将会话按照 `session_id` 进行分组，统计每个会话的持续时间、滚动事件数、点击事件数和购买事件数，然后根据题目中的条件进行筛选，最后按照滚动事件数降序、会话 ID 升序排序。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+# Write your MySQL query statement below
+SELECT
+    session_id,
+    user_id,
+    TIMESTAMPDIFF(MINUTE, MIN(event_timestamp), MAX(event_timestamp)) session_duration_minutes,
+    SUM(event_type = 'scroll') scroll_count
+FROM app_events
+GROUP BY session_id
+HAVING
+    session_duration_minutes >= 30
+    AND SUM(event_type = 'click') / SUM(event_type = 'scroll') < 0.2
+    AND SUM(event_type = 'purchase') = 0
+    AND SUM(event_type = 'scroll') >= 5
+ORDER BY scroll_count DESC, session_id;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def find_zombie_sessions(app_events: pd.DataFrame) -> pd.DataFrame:
+    if not pd.api.types.is_datetime64_any_dtype(app_events["event_timestamp"]):
+        app_events["event_timestamp"] = pd.to_datetime(app_events["event_timestamp"])
+
+    grouped = app_events.groupby(["session_id", "user_id"])
+
+    result = grouped.agg(
+        session_duration_minutes=(
+            "event_timestamp",
+            lambda x: (x.max() - x.min()).total_seconds() // 60,
+        ),
+        scroll_count=("event_type", lambda x: (x == "scroll").sum()),
+        click_count=("event_type", lambda x: (x == "click").sum()),
+        purchase_count=("event_type", lambda x: (x == "purchase").sum()),
+    ).reset_index()
+
+    result = result[
+        (result["session_duration_minutes"] >= 30)
+        & (result["click_count"] / result["scroll_count"] < 0.2)
+        & (result["purchase_count"] == 0)
+        & (result["scroll_count"] >= 5)
+    ]
+
+    result = result.sort_values(
+        by=["scroll_count", "session_id"], ascending=[False, True]
+    ).reset_index(drop=True)
+
+    return result[["session_id", "user_id", "session_duration_minutes", "scroll_count"]]
 ```
 
 <!-- tabs:end -->
