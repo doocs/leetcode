@@ -10,3 +10,6 @@ FROM
         GROUP BY 1
     ) AS t
 WHERE duration > (SELECT AVG(duration) FROM Calls);
+
+
+trying pull request
