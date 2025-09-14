@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 467
+
+- [3683. Earliest Time to Finish One Task](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README_EN.md)
+- [3684. Maximize Sum of At Most K Distinct Elements](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README_EN.md)
+- [3685. Subsequence Sum After Capping Elements](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md)
+- [3686. Number of Stable Subsequences](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README_EN.md)
+
 #### Biweekly Contest 165
 
 - [3678. Smallest Absent Positive Greater Than Average](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README_EN.md)
