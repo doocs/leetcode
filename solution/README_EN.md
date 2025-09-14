@@ -3691,6 +3691,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3680  |  [Generate Schedule](/solution/3600-3699/3680.Generate%20Schedule/README_EN.md)  |    |  Medium  |  Biweekly Contest 165  |
 |  3681  |  [Maximum XOR of Subsequences](/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README_EN.md)  |    |  Hard  |  Biweekly Contest 165  |
 |  3682  |  [Minimum Index Sum of Common Elements](/solution/3600-3699/3682.Minimum%20Index%20Sum%20of%20Common%20Elements/README_EN.md)  |    |  Medium  |  🔒  |
+|  3683  |  [Earliest Time to Finish One Task](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README_EN.md)  |    |  Easy  |  Weekly Contest 467  |
+|  3684  |  [Maximize Sum of At Most K Distinct Elements](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 467  |
+|  3685  |  [Subsequence Sum After Capping Elements](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 467  |
+|  3686  |  [Number of Stable Subsequences](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 467  |
 
 ## Copyright
 

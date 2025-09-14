@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 467 场周赛(2025-09-14 10:30, 90 分钟) 参赛人数 1800
+
+- [3683. 完成一个任务的最早时间](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README.md)
+- [3684. 至多 K 个不同元素的最大和](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README.md)
+- [3685. 含上限元素的子序列和](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README.md)
+- [3686. 稳定子序列的数量](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README.md)
+
 #### 第 165 场双周赛(2025-09-13 22:30, 90 分钟) 参赛人数 1411
 
 - [3678. 大于平均值的最小未出现正整数](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README.md)
