@@ -62,32 +62,69 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3683.Ea
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+我们遍历 $\textit{tasks}$ 数组，对于每个任务，计算其完成时间 $s_i + t_i$，求出所有任务完成时间的最小值，即为至少完成一个任务的最早时间。
+
+时间复杂度 $O(n)$，其中 $n$ 为 $\textit{tasks}$ 数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def earliestTime(self, tasks: List[List[int]]) -> int:
+        return min(s + t for s, t in tasks)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int earliestTime(int[][] tasks) {
+        int ans = 200;
+        for (var task : tasks) {
+            ans = Math.min(ans, task[0] + task[1]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int earliestTime(vector<vector<int>>& tasks) {
+        int ans = 200;
+        for (const auto& task : tasks) {
+            ans = min(ans, task[0] + task[1]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func earliestTime(tasks [][]int) int {
+	ans := 200
+	for _, task := range tasks {
+		ans = min(ans, task[0]+task[1])
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function earliestTime(tasks: number[][]): number {
+    return Math.min(...tasks.map(task => task[0] + task[1]));
+}
 ```
 
 <!-- tabs:end -->

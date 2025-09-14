@@ -75,32 +75,114 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3684.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序
+
+我们先对数组 $\textit{nums}$ 进行排序，然后从后向前遍历，选择最大的 $k$ 个不同的元素。由于我们需要严格递减的顺序，因此在选择时需要跳过重复的元素。
+
+时间复杂度 $O(n \times \log n)$，其中 $n$ 为 $\textit{nums}$ 数组的长度。忽略答案的空间消耗，空间复杂度 $O(\log n)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxKDistinct(self, nums: List[int], k: int) -> List[int]:
+        nums.sort()
+        n = len(nums)
+        ans = []
+        for i in range(n - 1, -1, -1):
+            if i + 1 < n and nums[i] == nums[i + 1]:
+                continue
+            ans.append(nums[i])
+            k -= 1
+            if k == 0:
+                break
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] maxKDistinct(int[] nums, int k) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = n - 1; i >= 0; --i) {
+            if (i + 1 < n && nums[i] == nums[i + 1]) {
+                continue;
+            }
+            ans.add(nums[i]);
+            if (--k == 0) {
+                break;
+            }
+        }
+        return ans.stream().mapToInt(x -> x).toArray();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> maxKDistinct(vector<int>& nums, int k) {
+        ranges::sort(nums);
+        int n = nums.size();
+        vector<int> ans;
+        for (int i = n - 1; ~i; --i) {
+            if (i + 1 < n && nums[i] == nums[i + 1]) {
+                continue;
+            }
+            ans.push_back(nums[i]);
+            if (--k == 0) {
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxKDistinct(nums []int, k int) (ans []int) {
+	slices.Sort(nums)
+	n := len(nums)
+	for i := n - 1; i >= 0; i-- {
+		if i+1 < n && nums[i] == nums[i+1] {
+			continue
+		}
+		ans = append(ans, nums[i])
+		if k--; k == 0 {
+			break
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxKDistinct(nums: number[], k: number): number[] {
+    nums.sort((a, b) => a - b);
+    const ans: number[] = [];
+    const n = nums.length;
+    for (let i = n - 1; ~i; --i) {
+        if (i + 1 < n && nums[i] === nums[i + 1]) {
+            continue;
+        }
+        ans.push(nums[i]);
+        if (--k === 0) {
+            break;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

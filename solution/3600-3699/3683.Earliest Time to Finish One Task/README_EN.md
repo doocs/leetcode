@@ -60,32 +60,69 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3683.Ea
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+We iterate through the $\textit{tasks}$ array and, for each task, calculate its completion time $s_i + t_i$. The minimum of all task completion times is the earliest time to finish at least one task.
+
+The time complexity is $O(n)$, where $n$ is the length of the $\textit{tasks}$ array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def earliestTime(self, tasks: List[List[int]]) -> int:
+        return min(s + t for s, t in tasks)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int earliestTime(int[][] tasks) {
+        int ans = 200;
+        for (var task : tasks) {
+            ans = Math.min(ans, task[0] + task[1]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int earliestTime(vector<vector<int>>& tasks) {
+        int ans = 200;
+        for (const auto& task : tasks) {
+            ans = min(ans, task[0] + task[1]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func earliestTime(tasks [][]int) int {
+	ans := 200
+	for _, task := range tasks {
+		ans = min(ans, task[0]+task[1])
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function earliestTime(tasks: number[][]): number {
+    return Math.min(...tasks.map(task => task[0] + task[1]));
+}
 ```
 
 <!-- tabs:end -->
