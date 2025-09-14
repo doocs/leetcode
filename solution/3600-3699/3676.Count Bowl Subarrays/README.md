@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README.md
+rating: 1847
+source: 第 466 场周赛 Q3
 ---
 
 <!-- problem:start -->

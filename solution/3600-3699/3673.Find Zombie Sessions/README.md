@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +------------------+----------+
-| Column Name      | Type     |
+| Column Name      | Type     | 
 +------------------+----------+
 | event_id         | int      |
 | user_id          | int      |

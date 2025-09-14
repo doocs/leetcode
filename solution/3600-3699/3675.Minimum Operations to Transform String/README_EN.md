@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README_EN.md
+rating: 1414
+source: Weekly Contest 466 Q2
 ---
 
 <!-- problem:start -->

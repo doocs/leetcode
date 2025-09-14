@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md
+rating: 1369
+source: Weekly Contest 466 Q1
 ---
 
 <!-- problem:start -->
