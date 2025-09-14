@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 165 场双周赛(2025-09-13 22:30, 90 分钟) 参赛人数 1411
+
+- [3678. 大于平均值的最小未出现正整数](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README.md)
+- [3679. 使库存平衡的最少丢弃次数](/solution/3600-3699/3679.Minimum%20Discards%20to%20Balance%20Inventory/README.md)
+- [3680. 生成赛程](/solution/3600-3699/3680.Generate%20Schedule/README.md)
+- [3681. 子序列最大 XOR 值](/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README.md)
+
 #### 第 466 场周赛(2025-09-07 10:30, 90 分钟) 参赛人数 1770
 
 - [3674. 数组元素相等的最小操作次数](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README.md)

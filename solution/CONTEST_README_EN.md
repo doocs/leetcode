@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 165
+
+- [3678. Smallest Absent Positive Greater Than Average](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README_EN.md)
+- [3679. Minimum Discards to Balance Inventory](/solution/3600-3699/3679.Minimum%20Discards%20to%20Balance%20Inventory/README_EN.md)
+- [3680. Generate Schedule](/solution/3600-3699/3680.Generate%20Schedule/README_EN.md)
+- [3681. Maximum XOR of Subsequences](/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README_EN.md)
+
 #### Weekly Contest 466
 
 - [3674. Minimum Operations to Equalize Array](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md)

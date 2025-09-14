@@ -3688,6 +3688,11 @@
 |  3675  |  [转换字符串的最小操作次数](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README.md)  |    |  中等  |  第 466 场周赛  |
 |  3676  |  [碗子数组的数目](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README.md)  |    |  中等  |  第 466 场周赛  |
 |  3677  |  [统计二进制回文数字的数目](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README.md)  |    |  困难  |  第 466 场周赛  |
+|  3678  |  [大于平均值的最小未出现正整数](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README.md)  |    |  简单  |  第 165 场双周赛  |
+|  3679  |  [使库存平衡的最少丢弃次数](/solution/3600-3699/3679.Minimum%20Discards%20to%20Balance%20Inventory/README.md)  |    |  中等  |  第 165 场双周赛  |
+|  3680  |  [生成赛程](/solution/3600-3699/3680.Generate%20Schedule/README.md)  |    |  中等  |  第 165 场双周赛  |
+|  3681  |  [子序列最大 XOR 值](/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README.md)  |    |  困难  |  第 165 场双周赛  |
+|  3682  |  [Minimum Index Sum of Common Elements](/solution/3600-3699/3682.Minimum%20Index%20Sum%20of%20Common%20Elements/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
