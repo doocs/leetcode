@@ -42,7 +42,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [6,4,3,2,7,6,2]
 <strong>Output:</strong> [12,7,6]
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - (6, 4) are non-coprime with LCM(6, 4) = 12. Now, nums = [<strong><u>12</u></strong>,3,2,7,6,2].
 - (12, 3) are non-coprime with LCM(12, 3) = 12. Now, nums = [<strong><u>12</u></strong>,2,7,6,2].
 - (12, 2) are non-coprime with LCM(12, 2) = 12. Now, nums = [<strong><u>12</u></strong>,7,6,2].
@@ -57,7 +57,7 @@ Note that there are other ways to obtain the same resultant array.
 <pre>
 <strong>Input:</strong> nums = [2,2,1,1,3,3,3]
 <strong>Output:</strong> [2,1,1,3]
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - (3, 3) are non-coprime with LCM(3, 3) = 3. Now, nums = [2,2,1,1,<u><strong>3</strong></u>,3].
 - (3, 3) are non-coprime with LCM(3, 3) = 3. Now, nums = [2,2,1,1,<u><strong>3</strong></u>].
 - (2, 2) are non-coprime with LCM(2, 2) = 2. Now, nums = [<u><strong>2</strong></u>,1,1,3].
@@ -224,6 +224,79 @@ function replaceNonCoprimes(nums: number[]): number[] {
         }
     }
     return stk;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn replace_non_coprimes(nums: Vec<i32>) -> Vec<i32> {
+        fn gcd(mut a: i64, mut b: i64) -> i64 {
+            while b != 0 {
+                let t = a % b;
+                a = b;
+                b = t;
+            }
+            a
+        }
+
+        let mut stk: Vec<i64> = Vec::new();
+        for x in nums {
+            stk.push(x as i64);
+            while stk.len() > 1 {
+                let x = *stk.last().unwrap();
+                let y = stk[stk.len() - 2];
+                let g = gcd(x, y);
+                if g == 1 {
+                    break;
+                }
+                stk.pop();
+                let last = stk.last_mut().unwrap();
+                *last = x / g * y;
+            }
+        }
+
+        stk.into_iter().map(|v| v as i32).collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<int> ReplaceNonCoprimes(int[] nums) {
+        long Gcd(long a, long b) {
+            while (b != 0) {
+                long t = a % b;
+                a = b;
+                b = t;
+            }
+            return a;
+        }
+
+        var stk = new List<long>();
+        foreach (int num in nums) {
+            stk.Add(num);
+            while (stk.Count > 1) {
+                long x = stk[stk.Count - 1];
+                long y = stk[stk.Count - 2];
+                long g = Gcd(x, y);
+                if (g == 1) {
+                    break;
+                }
+                stk.RemoveAt(stk.Count - 1);
+                stk[stk.Count - 1] = x / g * y;
+            }
+        }
+
+        var ans = new List<int>();
+        foreach (long v in stk) {
+            ans.Add((int)v);
+        }
+        return ans;
+    }
 }
 ```
 
