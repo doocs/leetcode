@@ -89,32 +89,141 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3679.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation + Sliding Window
+
+We use a hash map $\textit{cnt}$ to record the quantity of each item type in the current window, and an array $\textit{marked}$ to record whether each item is kept.
+
+We iterate through the array from left to right. For each item $x$:
+
+1. If the current day $i$ is greater than or equal to the window size $w$, we subtract $\textit{marked}[i - w]$ from the count of the leftmost item in the window (if that item was kept).
+2. If the quantity of the current item in the window exceeds $m$, we discard the item.
+3. Otherwise, we keep the item and increment its count.
+
+Finally, the answer is the number of items discarded.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minArrivalsToDiscard(self, arrivals: List[int], w: int, m: int) -> int:
+        cnt = Counter()
+        n = len(arrivals)
+        marked = [0] * n
+        ans = 0
+        for i, x in enumerate(arrivals):
+            if i >= w:
+                cnt[arrivals[i - w]] -= marked[i - w]
+            if cnt[x] >= m:
+                ans += 1
+            else:
+                marked[i] = 1
+                cnt[x] += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minArrivalsToDiscard(int[] arrivals, int w, int m) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int n = arrivals.length;
+        int[] marked = new int[n];
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int x = arrivals[i];
+            if (i >= w) {
+                int prev = arrivals[i - w];
+                cnt.merge(prev, -marked[i - w], Integer::sum);
+            }
+            if (cnt.getOrDefault(x, 0) >= m) {
+                ans++;
+            } else {
+                marked[i] = 1;
+                cnt.merge(x, 1, Integer::sum);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minArrivalsToDiscard(vector<int>& arrivals, int w, int m) {
+        unordered_map<int, int> cnt;
+        int n = arrivals.size();
+        vector<int> marked(n, 0);
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            int x = arrivals[i];
+            if (i >= w) {
+                cnt[arrivals[i - w]] -= marked[i - w];
+            }
+            if (cnt[x] >= m) {
+                ans++;
+            } else {
+                marked[i] = 1;
+                cnt[x] += 1;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minArrivalsToDiscard(arrivals []int, w int, m int) (ans int) {
+	cnt := make(map[int]int)
+	n := len(arrivals)
+	marked := make([]int, n)
+	for i, x := range arrivals {
+		if i >= w {
+			cnt[arrivals[i-w]] -= marked[i-w]
+		}
+		if cnt[x] >= m {
+			ans++
+		} else {
+			marked[i] = 1
+			cnt[x]++
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function minArrivalsToDiscard(arrivals: number[], w: number, m: number): number {
+    const cnt = new Map<number, number>();
+    const n = arrivals.length;
+    const marked = Array<number>(n).fill(0);
+    let ans = 0;
+
+    for (let i = 0; i < n; i++) {
+        const x = arrivals[i];
+        if (i >= w) {
+            cnt.set(arrivals[i - w], (cnt.get(arrivals[i - w]) || 0) - marked[i - w]);
+        }
+        if ((cnt.get(x) || 0) >= m) {
+            ans++;
+        } else {
+            marked[i] = 1;
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
