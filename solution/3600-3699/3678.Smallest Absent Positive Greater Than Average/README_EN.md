@@ -78,32 +78,103 @@ The <strong>average</strong> of an array is defined as the sum of all its elemen
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Map
+
+We use a hash map $\textit{s}$ to record the elements that appear in the array $\textit{nums}$.
+
+Then, we calculate the average value $\textit{avg}$ of the array $\textit{nums}$, and initialize the answer $\textit{ans}$ as $\max(1, \lfloor \textit{avg} \rfloor + 1)$.
+
+If $\textit{ans}$ appears in $\textit{s}$, we increment $\textit{ans}$ until it no longer appears in $\textit{s}$.
+
+Finally, we return $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def smallestAbsent(self, nums: List[int]) -> int:
+        s = set(nums)
+        ans = max(1, sum(nums) // len(nums) + 1)
+        while ans in s:
+            ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int smallestAbsent(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        int sum = 0;
+        for (int x : nums) {
+            s.add(x);
+            sum += x;
+        }
+        int ans = Math.max(1, sum / nums.length + 1);
+        while (s.contains(ans)) {
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int smallestAbsent(vector<int>& nums) {
+        unordered_set<int> s;
+        int sum = 0;
+        for (int x : nums) {
+            s.insert(x);
+            sum += x;
+        }
+        int ans = max(1, sum / (int) nums.size() + 1);
+        while (s.contains(ans)) {
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func smallestAbsent(nums []int) int {
+	s := map[int]bool{}
+	sum := 0
+	for _, x := range nums {
+		s[x] = true
+		sum += x
+	}
+	ans := max(1, sum/len(nums)+1)
+	for s[ans] {
+		ans++
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function smallestAbsent(nums: number[]): number {
+    const s = new Set<number>(nums);
+    const sum = nums.reduce((a, b) => a + b, 0);
+    let ans = Math.max(1, Math.floor(sum / nums.length) + 1);
+    while (s.has(ans)) {
+        ans++;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

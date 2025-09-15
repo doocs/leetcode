@@ -81,32 +81,103 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3678.Sm
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们用一个哈希表 $\textit{s}$ 来记录数组 $\textit{nums}$ 中出现过的元素。
+
+然后，我们计算数组 $\textit{nums}$ 的平均值 $\textit{avg}$，并将答案 $\textit{ans}$ 初始化为 $\max(1, \lfloor \textit{avg} \rfloor + 1)$。
+
+如果 $\textit{ans}$ 在 $\textit{s}$ 中出现过，那么我们将 $\textit{ans}$ 加一，直到 $\textit{ans}$ 不在 $\textit{s}$ 中出现过为止。
+
+最后，返回 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def smallestAbsent(self, nums: List[int]) -> int:
+        s = set(nums)
+        ans = max(1, sum(nums) // len(nums) + 1)
+        while ans in s:
+            ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int smallestAbsent(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        int sum = 0;
+        for (int x : nums) {
+            s.add(x);
+            sum += x;
+        }
+        int ans = Math.max(1, sum / nums.length + 1);
+        while (s.contains(ans)) {
+            ++ans;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int smallestAbsent(vector<int>& nums) {
+        unordered_set<int> s;
+        int sum = 0;
+        for (int x : nums) {
+            s.insert(x);
+            sum += x;
+        }
+        int ans = max(1, sum / (int) nums.size() + 1);
+        while (s.contains(ans)) {
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func smallestAbsent(nums []int) int {
+	s := map[int]bool{}
+	sum := 0
+	for _, x := range nums {
+		s[x] = true
+		sum += x
+	}
+	ans := max(1, sum/len(nums)+1)
+	for s[ans] {
+		ans++
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function smallestAbsent(nums: number[]): number {
+    const s = new Set<number>(nums);
+    const sum = nums.reduce((a, b) => a + b, 0);
+    let ans = Math.max(1, Math.floor(sum / nums.length) + 1);
+    while (s.has(ans)) {
+        ans++;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
