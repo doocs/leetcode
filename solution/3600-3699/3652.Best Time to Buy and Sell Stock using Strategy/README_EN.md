@@ -153,32 +153,128 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Enumeration
+
+We use an array $\textit{s}$ to represent the prefix sum, where $\textit{s}[i]$ is the total profit for the first $i$ days, i.e., $\textit{s}[i] = \sum_{j=0}^{i-1} \textit{prices}[j] \times \textit{strategy}[j]$. We also use an array $\textit{t}$ to represent the prefix sum of stock prices, where $\textit{t}[i] = \sum_{j=0}^{i-1} \textit{prices}[j]$.
+
+Initially, the maximum profit is $\textit{s}[n]$. We enumerate the right endpoint $i$ of the subarray to be modified, with the left endpoint being $i-k$. After modification, the first $k/2$ days of the subarray have strategy $0$, and the last $k/2$ days have strategy $1$, so the profit change is:
+
+$$\Delta = -(\textit{s}[i] - \textit{s}[i-k]) + (\textit{t}[i] - \textit{t}[i-k/2])$$
+
+Therefore, we can update the maximum profit by enumerating all possible $i$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int], strategy: List[int], k: int) -> int:
+        n = len(prices)
+        s = [0] * (n + 1)
+        t = [0] * (n + 1)
+        for i, (a, b) in enumerate(zip(prices, strategy), 1):
+            s[i] = s[i - 1] + a * b
+            t[i] = t[i - 1] + a
+        ans = s[n]
+        for i in range(k, n + 1):
+            ans = max(ans, s[n] - (s[i] - s[i - k]) + t[i] - t[i - k // 2])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxProfit(int[] prices, int[] strategy, int k) {
+        int n = prices.length;
+        long[] s = new long[n + 1];
+        long[] t = new long[n + 1];
+        for (int i = 1; i <= n; i++) {
+            int a = prices[i - 1];
+            int b = strategy[i - 1];
+            s[i] = s[i - 1] + a * b;
+            t[i] = t[i - 1] + a;
+        }
+        long ans = s[n];
+        for (int i = k; i <= n; i++) {
+            ans = Math.max(ans, s[n] - (s[i] - s[i - k]) + (t[i] - t[i - k / 2]));
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxProfit(vector<int>& prices, vector<int>& strategy, int k) {
+        int n = prices.size();
+        vector<long long> s(n + 1), t(n + 1);
+        for (int i = 1; i <= n; i++) {
+            int a = prices[i - 1];
+            int b = strategy[i - 1];
+            s[i] = s[i - 1] + a * b;
+            t[i] = t[i - 1] + a;
+        }
+        long long ans = s[n];
+        for (int i = k; i <= n; i++) {
+            ans = max(ans, s[n] - (s[i] - s[i - k]) + (t[i] - t[i - k / 2]));
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxProfit(prices []int, strategy []int, k int) int64 {
+	n := len(prices)
+	s := make([]int64, n+1)
+	t := make([]int64, n+1)
 
+	for i := 1; i <= n; i++ {
+		a := prices[i-1]
+		b := strategy[i-1]
+		s[i] = s[i-1] + int64(a*b)
+		t[i] = t[i-1] + int64(a)
+	}
+
+	ans := s[n]
+	for i := k; i <= n; i++ {
+		ans = max(ans, s[n]-(s[i]-s[i-k])+(t[i]-t[i-k/2]))
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProfit(prices: number[], strategy: number[], k: number): number {
+    const n = prices.length;
+    const s: number[] = Array(n + 1).fill(0);
+    const t: number[] = Array(n + 1).fill(0);
+
+    for (let i = 1; i <= n; i++) {
+        const a = prices[i - 1];
+        const b = strategy[i - 1];
+        s[i] = s[i - 1] + a * b;
+        t[i] = t[i - 1] + a;
+    }
+
+    let ans = s[n];
+    for (let i = k; i <= n; i++) {
+        const val = s[n] - (s[i] - s[i - k]) + (t[i] - t[i - Math.floor(k / 2)]);
+        ans = Math.max(ans, val);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

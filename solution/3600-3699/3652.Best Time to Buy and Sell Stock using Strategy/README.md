@@ -155,32 +155,128 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：前缀和 + 枚举
+
+我们用一个数组 $\textit{s}$ 来表示前缀和，其中 $\textit{s}[i]$ 表示前 $i$ 天的利润和，即 $\textit{s}[i] = \sum_{j=0}^{i-1} \textit{prices}[j] \times \textit{strategy}[j]$。我们还用一个数组 $\textit{t}$ 来表示前缀和，其中 $\textit{t}[i]$ 表示前 $i$ 天的股票价格和，即 $\textit{t}[i] = \sum_{j=0}^{i-1} \textit{prices}[j]$。
+
+初始时，最大利润为 $\textit{s}[n]$。我们枚举修改的子数组的右端点 $i$，则左端点为 $i-k$。修改后，子数组内前 $k/2$ 天的策略变为 $0$，后 $k/2$ 天的策略变为 $1$，因此利润变化为：
+
+$$\Delta = -(\textit{s}[i] - \textit{s}[i-k]) + (\textit{t}[i] - \textit{t}[i-k/2])$$
+
+因此，我们可以通过枚举所有可能的 $i$ 来更新最大利润。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int], strategy: List[int], k: int) -> int:
+        n = len(prices)
+        s = [0] * (n + 1)
+        t = [0] * (n + 1)
+        for i, (a, b) in enumerate(zip(prices, strategy), 1):
+            s[i] = s[i - 1] + a * b
+            t[i] = t[i - 1] + a
+        ans = s[n]
+        for i in range(k, n + 1):
+            ans = max(ans, s[n] - (s[i] - s[i - k]) + t[i] - t[i - k // 2])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxProfit(int[] prices, int[] strategy, int k) {
+        int n = prices.length;
+        long[] s = new long[n + 1];
+        long[] t = new long[n + 1];
+        for (int i = 1; i <= n; i++) {
+            int a = prices[i - 1];
+            int b = strategy[i - 1];
+            s[i] = s[i - 1] + a * b;
+            t[i] = t[i - 1] + a;
+        }
+        long ans = s[n];
+        for (int i = k; i <= n; i++) {
+            ans = Math.max(ans, s[n] - (s[i] - s[i - k]) + (t[i] - t[i - k / 2]));
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxProfit(vector<int>& prices, vector<int>& strategy, int k) {
+        int n = prices.size();
+        vector<long long> s(n + 1), t(n + 1);
+        for (int i = 1; i <= n; i++) {
+            int a = prices[i - 1];
+            int b = strategy[i - 1];
+            s[i] = s[i - 1] + a * b;
+            t[i] = t[i - 1] + a;
+        }
+        long long ans = s[n];
+        for (int i = k; i <= n; i++) {
+            ans = max(ans, s[n] - (s[i] - s[i - k]) + (t[i] - t[i - k / 2]));
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxProfit(prices []int, strategy []int, k int) int64 {
+	n := len(prices)
+	s := make([]int64, n+1)
+	t := make([]int64, n+1)
 
+	for i := 1; i <= n; i++ {
+		a := prices[i-1]
+		b := strategy[i-1]
+		s[i] = s[i-1] + int64(a*b)
+		t[i] = t[i-1] + int64(a)
+	}
+
+	ans := s[n]
+	for i := k; i <= n; i++ {
+		ans = max(ans, s[n]-(s[i]-s[i-k])+(t[i]-t[i-k/2]))
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProfit(prices: number[], strategy: number[], k: number): number {
+    const n = prices.length;
+    const s: number[] = Array(n + 1).fill(0);
+    const t: number[] = Array(n + 1).fill(0);
+
+    for (let i = 1; i <= n; i++) {
+        const a = prices[i - 1];
+        const b = strategy[i - 1];
+        s[i] = s[i - 1] + a * b;
+        t[i] = t[i - 1] + a;
+    }
+
+    let ans = s[n];
+    for (let i = k; i <= n; i++) {
+        const val = s[n] - (s[i] - s[i - k]) + (t[i] - t[i - Math.floor(k / 2)]);
+        ans = Math.max(ans, val);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
