@@ -84,7 +84,21 @@ taskManager.execTop(); // return 5. Executes task 105 for User 5.</div>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Map + Ordered Set
+
+We use a hash map $\text{d}$ to store task information, where the key is the task ID and the value is a tuple $(\text{userId}, \text{priority})$ representing the user ID and the priority of the task.
+
+We use an ordered set $\text{st}$ to store all tasks currently in the system, where each element is a tuple $(-\text{priority}, -\text{taskId})$ representing the negative priority and negative task ID. We use negative values so that the task with the highest priority and largest task ID appears first in the ordered set.
+
+For each operation, we can process as follows:
+
+-   **Initialization**: For each task $(\text{userId}, \text{taskId}, \text{priority})$, add it to the hash map $\text{d}$ and the ordered set $\text{st}$.
+-   **Add Task**: Add the task $(\text{userId}, \text{taskId}, \text{priority})$ to the hash map $\text{d}$ and the ordered set $\text{st}$.
+-   **Edit Task**: Retrieve the user ID and old priority for the given task ID from the hash map $\text{d}$, remove the old task information from the ordered set $\text{st}$, then add the new task information to both the hash map and the ordered set.
+-   **Remove Task**: Retrieve the priority for the given task ID from the hash map $\text{d}$, remove the task information from the ordered set $\text{st}$, and delete the task from the hash map.
+-   **Execute Top Priority Task**: If the ordered set $\text{st}$ is empty, return -1. Otherwise, take the first element from the ordered set, get the task ID, retrieve the corresponding user ID from the hash map, and remove the task from both the hash map and the ordered set. Finally, return the user ID.
+
+For time complexity, initialization requires $O(n \log n)$ time, where $n$ is the number of initial tasks. Each add, edit, remove, and execute operation requires $O(\log m)$ time, where $m$ is the current number of tasks in the system. Since the total number of operations does not exceed $2 \times 10^5$, the overall time complexity is acceptable. The space complexity is $O(n + m)$ for storing the hash map and ordered set.
 
 <!-- tabs:start -->
 
@@ -247,7 +261,140 @@ public:
 #### Go
 
 ```go
+type TaskManager struct {
+	d  map[int][2]int
+	st *redblacktree.Tree[int, int]
+}
 
+func encode(priority, taskId int) int {
+	return (priority << 32) | taskId
+}
+
+func comparator(a, b int) int {
+	if a > b {
+		return -1
+	} else if a < b {
+		return 1
+	}
+	return 0
+}
+
+func Constructor(tasks [][]int) TaskManager {
+	tm := TaskManager{
+		d:  make(map[int][2]int),
+		st: redblacktree.NewWith[int, int](comparator),
+	}
+	for _, task := range tasks {
+		tm.Add(task[0], task[1], task[2])
+	}
+	return tm
+}
+
+func (this *TaskManager) Add(userId int, taskId int, priority int) {
+	this.d[taskId] = [2]int{userId, priority}
+	this.st.Put(encode(priority, taskId), taskId)
+}
+
+func (this *TaskManager) Edit(taskId int, newPriority int) {
+	if e, ok := this.d[taskId]; ok {
+		priority := e[1]
+		this.st.Remove(encode(priority, taskId))
+		this.d[taskId] = [2]int{e[0], newPriority}
+		this.st.Put(encode(newPriority, taskId), taskId)
+	}
+}
+
+func (this *TaskManager) Rmv(taskId int) {
+	if e, ok := this.d[taskId]; ok {
+		priority := e[1]
+		delete(this.d, taskId)
+		this.st.Remove(encode(priority, taskId))
+	}
+}
+
+func (this *TaskManager) ExecTop() int {
+	if this.st.Empty() {
+		return -1
+	}
+	it := this.st.Iterator()
+	it.Next()
+	taskId := it.Value()
+	if e, ok := this.d[taskId]; ok {
+		delete(this.d, taskId)
+		this.st.Remove(it.Key())
+		return e[0]
+	}
+	return -1
+}
+
+/**
+ * Your TaskManager object will be instantiated and called as such:
+ * obj := Constructor(tasks);
+ * obj.Add(userId,taskId,priority);
+ * obj.Edit(taskId,newPriority);
+ * obj.Rmv(taskId);
+ * param_4 := obj.ExecTop();
+ */
+```
+
+#### TypeScript
+
+```ts
+class TaskManager {
+    private d: Map<number, [number, number]>;
+    private pq: PriorityQueue<[number, number]>;
+
+    constructor(tasks: number[][]) {
+        this.d = new Map();
+        this.pq = new PriorityQueue<[number, number]>((a, b) => {
+            if (a[0] === b[0]) {
+                return b[1] - a[1];
+            }
+            return b[0] - a[0];
+        });
+        for (const task of tasks) {
+            this.add(task[0], task[1], task[2]);
+        }
+    }
+
+    add(userId: number, taskId: number, priority: number): void {
+        this.d.set(taskId, [userId, priority]);
+        this.pq.enqueue([priority, taskId]);
+    }
+
+    edit(taskId: number, newPriority: number): void {
+        const e = this.d.get(taskId);
+        if (!e) return;
+        const userId = e[0];
+        this.d.set(taskId, [userId, newPriority]);
+        this.pq.enqueue([newPriority, taskId]);
+    }
+
+    rmv(taskId: number): void {
+        this.d.delete(taskId);
+    }
+
+    execTop(): number {
+        while (!this.pq.isEmpty()) {
+            const [priority, taskId] = this.pq.dequeue();
+            const e = this.d.get(taskId);
+            if (e && e[1] === priority) {
+                this.d.delete(taskId);
+                return e[0];
+            }
+        }
+        return -1;
+    }
+}
+
+/**
+ * Your TaskManager object will be instantiated and called as such:
+ * var obj = new TaskManager(tasks)
+ * obj.add(userId,taskId,priority)
+ * obj.edit(taskId,newPriority)
+ * obj.rmv(taskId)
+ * var param_4 = obj.execTop()
+ */
 ```
 
 <!-- tabs:end -->
