@@ -9,4 +9,4 @@ func digitCount(num string) bool {
 		}
 	}
 	return true
-}
+} 
