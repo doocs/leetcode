@@ -65,7 +65,11 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table $\textit{ts}$ to store the next available print timestamp for each message. When the `shouldPrintMessage` method is called, we check whether the current timestamp is greater than or equal to the next available print timestamp for the message. If so, we update the next available print timestamp to the current timestamp plus 10 and return `true`; otherwise, we return `false`.
+
+The time complexity is $O(1)$. The space complexity is $O(m)$, where $m$ is the number of distinct messages.
 
 <!-- tabs:start -->
 
@@ -73,22 +77,15 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 
 ```python
 class Logger:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.limiter = {}
+        self.ts = {}
 
     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
-        """
-        Returns true if the message should be printed in the given timestamp, otherwise returns false.
-        If this method returns false, the message will not be printed.
-        The timestamp is in seconds granularity.
-        """
-        t = self.limiter.get(message, 0)
+        t = self.ts.get(message, 0)
         if t > timestamp:
             return False
-        self.limiter[message] = timestamp + 10
+        self.ts[message] = timestamp + 10
         return True
 
 
@@ -101,25 +98,17 @@ class Logger:
 
 ```java
 class Logger {
+    private Map<String, Integer> ts = new HashMap<>();
 
-    private Map<String, Integer> limiter;
-
-    /** Initialize your data structure here. */
     public Logger() {
-        limiter = new HashMap<>();
     }
 
-    /**
-       Returns true if the message should be printed in the given timestamp, otherwise returns
-       false. If this method returns false, the message will not be printed. The timestamp is in
-       seconds granularity.
-     */
     public boolean shouldPrintMessage(int timestamp, String message) {
-        int t = limiter.getOrDefault(message, 0);
-        if (t > timestamp) {
+        int t = ts.getOrDefault(message, 0);
+        if (timestamp < t) {
             return false;
         }
-        limiter.put(message, timestamp + 10);
+        ts.put(message, timestamp + 10);
         return true;
     }
 }
@@ -128,6 +117,59 @@ class Logger {
  * Your Logger object will be instantiated and called as such:
  * Logger obj = new Logger();
  * boolean param_1 = obj.shouldPrintMessage(timestamp,message);
+ */
+```
+
+#### C++
+
+```cpp
+class Logger {
+public:
+    Logger() {
+    }
+
+    bool shouldPrintMessage(int timestamp, string message) {
+        if (ts.contains(message) && ts[message] > timestamp) {
+            return false;
+        }
+        ts[message] = timestamp + 10;
+        return true;
+    }
+
+private:
+    unordered_map<string, int> ts;
+};
+
+/**
+ * Your Logger object will be instantiated and called as such:
+ * Logger* obj = new Logger();
+ * bool param_1 = obj->shouldPrintMessage(timestamp,message);
+ */
+```
+
+#### Go
+
+```go
+type Logger struct {
+	ts map[string]int
+}
+
+func Constructor() Logger {
+	return Logger{ts: make(map[string]int)}
+}
+
+func (this *Logger) ShouldPrintMessage(timestamp int, message string) bool {
+	if t, ok := this.ts[message]; ok && timestamp < t {
+		return false
+	}
+	this.ts[message] = timestamp + 10
+	return true
+}
+
+/**
+ * Your Logger object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.ShouldPrintMessage(timestamp,message);
  */
 ```
 
@@ -144,8 +186,8 @@ var Logger = function () {
 /**
  * Returns true if the message should be printed in the given timestamp, otherwise returns false.
         If this method returns false, the message will not be printed.
-        The timestamp is in seconds granularity. 
- * @param {number} timestamp 
+        The timestamp is in seconds granularity.
+ * @param {number} timestamp
  * @param {string} message
  * @return {boolean}
  */
