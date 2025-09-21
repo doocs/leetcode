@@ -85,7 +85,25 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Ordered Set
+
+We define an ordered set $\textit{available}$, where $\textit{available}[movie]$ stores a list of all shops that have not rented out the movie $movie$. Each element in the list is $(\textit{price}, \textit{shop})$, sorted in ascending order by $\textit{price}$, and if prices are equal, by $\textit{shop}$ in ascending order.
+
+Additionally, we define a hash map $\textit{price\_map}$, where $\textit{price\_map}[f(\textit{shop}, \textit{movie})]$ stores the rental price of movie $\textit{movie}$ in shop $\textit{shop}$.
+
+We also define an ordered set $\textit{rented}$, which stores all rented movies as $(\textit{price}, \textit{shop}, \textit{movie})$, sorted in ascending order by $\textit{price}$, then by $\textit{shop}$, and if both are equal, by $\textit{movie}$.
+
+For the $\text{MovieRentingSystem}(n, \text{entries})$ operation, we iterate through $\text{entries}$ and add each shop's movie information to both $\textit{available}$ and $\textit{price\_map}$. The time complexity is $O(m \log m)$, where $m$ is the length of $\text{entries}$.
+
+For the $\text{search}(\text{movie})$ operation, we return the shop IDs of the first 5 shops in $\textit{available}[\text{movie}]$. The time complexity is $O(1)$.
+
+For the $\text{rent}(\text{shop}, \text{movie})$ operation, we remove $(\textit{price}, \textit{shop})$ from $\textit{available}[\text{movie}]$ and add $(\textit{price}, \textit{shop}, \textit{movie})$ to $\textit{rented}$. The time complexity is $O(\log m)$.
+
+For the $\text{drop}(\text{shop}, \text{movie})$ operation, we remove $(\textit{price}, \textit{shop}, \textit{movie})$ from $\textit{rented}$ and add $(\textit{price}, \textit{shop})$ back to $\textit{available}[\text{movie}]$. The time complexity is $O(\log m)$.
+
+For the $\text{report}()$ operation, we return the shop and movie IDs of the first 5 rented movies in $\textit{rented}$. The time complexity is $O(1)$.
+
+The space complexity is $O(m)$, where $m$ is the length of $\text{entries}$.
 
 <!-- tabs:start -->
 
@@ -93,29 +111,33 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 ```python
 class MovieRentingSystem:
+
     def __init__(self, n: int, entries: List[List[int]]):
-        self.unrented = collections.defaultdict(SortedList)  # {movie: (price, shop)}
-        self.shopAndMovieToPrice = {}  # {(shop, movie): price}
-        self.rented = SortedList()  # (price, shop, movie)
+        self.available = defaultdict(lambda: SortedList())
+        self.price_map = {}
         for shop, movie, price in entries:
-            self.unrented[movie].add((price, shop))
-            self.shopAndMovieToPrice[(shop, movie)] = price
+            self.available[movie].add((price, shop))
+            self.price_map[self.f(shop, movie)] = price
+        self.rented = SortedList()
 
     def search(self, movie: int) -> List[int]:
-        return [shop for _, shop in self.unrented[movie][:5]]
+        return [shop for _, shop in self.available[movie][:5]]
 
     def rent(self, shop: int, movie: int) -> None:
-        price = self.shopAndMovieToPrice[(shop, movie)]
-        self.unrented[movie].remove((price, shop))
+        price = self.price_map[self.f(shop, movie)]
+        self.available[movie].remove((price, shop))
         self.rented.add((price, shop, movie))
 
     def drop(self, shop: int, movie: int) -> None:
-        price = self.shopAndMovieToPrice[(shop, movie)]
-        self.unrented[movie].add((price, shop))
+        price = self.price_map[self.f(shop, movie)]
         self.rented.remove((price, shop, movie))
+        self.available[movie].add((price, shop))
 
     def report(self) -> List[List[int]]:
         return [[shop, movie] for _, shop, movie in self.rented[:5]]
+
+    def f(self, shop: int, movie: int) -> int:
+        return shop << 30 | movie
 
 
 # Your MovieRentingSystem object will be instantiated and called as such:
@@ -124,6 +146,268 @@ class MovieRentingSystem:
 # obj.rent(shop,movie)
 # obj.drop(shop,movie)
 # param_4 = obj.report()
+```
+
+#### Java
+
+```java
+class MovieRentingSystem {
+    private Map<Integer, TreeSet<int[]>> available = new HashMap<>();
+    private Map<Long, Integer> priceMap = new HashMap<>();
+    private TreeSet<int[]> rented = new TreeSet<>((a, b) -> {
+        if (a[0] != b[0]) {
+            return a[0] - b[0];
+        }
+        if (a[1] != b[1]) {
+            return a[1] - b[1];
+        }
+        return a[2] - b[2];
+    });
+
+    public MovieRentingSystem(int n, int[][] entries) {
+        for (int[] entry : entries) {
+            int shop = entry[0], movie = entry[1], price = entry[2];
+            available
+                .computeIfAbsent(movie, k -> new TreeSet<>((a, b) -> {
+                    if (a[0] != b[0]) {
+                        return a[0] - b[0];
+                    }
+                    return a[1] - b[1];
+                }))
+                .add(new int[] {price, shop});
+            priceMap.put(f(shop, movie), price);
+        }
+    }
+
+    public List<Integer> search(int movie) {
+        List<Integer> res = new ArrayList<>();
+        if (!available.containsKey(movie)) {
+            return res;
+        }
+        int cnt = 0;
+        for (int[] item : available.get(movie)) {
+            res.add(item[1]);
+            if (++cnt == 5) {
+                break;
+            }
+        }
+        return res;
+    }
+
+    public void rent(int shop, int movie) {
+        int price = priceMap.get(f(shop, movie));
+        available.get(movie).remove(new int[] {price, shop});
+        rented.add(new int[] {price, shop, movie});
+    }
+
+    public void drop(int shop, int movie) {
+        int price = priceMap.get(f(shop, movie));
+        rented.remove(new int[] {price, shop, movie});
+        available.get(movie).add(new int[] {price, shop});
+    }
+
+    public List<List<Integer>> report() {
+        List<List<Integer>> res = new ArrayList<>();
+        int cnt = 0;
+        for (int[] item : rented) {
+            res.add(Arrays.asList(item[1], item[2]));
+            if (++cnt == 5) {
+                break;
+            }
+        }
+        return res;
+    }
+
+    private long f(int shop, int movie) {
+        return ((long) shop << 30) | movie;
+    }
+}
+
+/**
+ * Your MovieRentingSystem object will be instantiated and called as such:
+ * MovieRentingSystem obj = new MovieRentingSystem(n, entries);
+ * List<Integer> param_1 = obj.search(movie);
+ * obj.rent(shop,movie);
+ * obj.drop(shop,movie);
+ * List<List<Integer>> param_4 = obj.report();
+ */
+```
+
+#### C++
+
+```cpp
+class MovieRentingSystem {
+private:
+    unordered_map<int, set<pair<int, int>>> available; // movie -> {(price, shop)}
+    unordered_map<long long, int> priceMap;
+    set<tuple<int, int, int>> rented; // {(price, shop, movie)}
+
+    long long f(int shop, int movie) {
+        return ((long long) shop << 30) | movie;
+    }
+
+public:
+    MovieRentingSystem(int n, vector<vector<int>>& entries) {
+        for (auto& e : entries) {
+            int shop = e[0], movie = e[1], price = e[2];
+            available[movie].insert({price, shop});
+            priceMap[f(shop, movie)] = price;
+        }
+    }
+
+    vector<int> search(int movie) {
+        vector<int> res;
+        if (!available.count(movie)) {
+            return res;
+        }
+        int cnt = 0;
+        for (auto& [price, shop] : available[movie]) {
+            res.push_back(shop);
+            if (++cnt == 5) {
+                break;
+            }
+        }
+        return res;
+    }
+
+    void rent(int shop, int movie) {
+        int price = priceMap[f(shop, movie)];
+        available[movie].erase({price, shop});
+        rented.insert({price, shop, movie});
+    }
+
+    void drop(int shop, int movie) {
+        int price = priceMap[f(shop, movie)];
+        rented.erase({price, shop, movie});
+        available[movie].insert({price, shop});
+    }
+
+    vector<vector<int>> report() {
+        vector<vector<int>> res;
+        int cnt = 0;
+        for (auto& [price, shop, movie] : rented) {
+            res.push_back({shop, movie});
+            if (++cnt == 5) {
+                break;
+            }
+        }
+        return res;
+    }
+};
+
+/**
+ * Your MovieRentingSystem object will be instantiated and called as such:
+ * MovieRentingSystem* obj = new MovieRentingSystem(n, entries);
+ * vector<int> param_1 = obj->search(movie);
+ * obj->rent(shop,movie);
+ * obj->drop(shop,movie);
+ * vector<vector<int>> param_4 = obj->report();
+ */
+```
+
+#### Go
+
+```go
+type MovieRentingSystem struct {
+	available map[int]*treeset.Set // movie -> (price, shop)
+	priceMap  map[int64]int
+	rented    *treeset.Set // (price, shop, movie)
+}
+
+func Constructor(n int, entries [][]int) MovieRentingSystem {
+	// comparator for (price, shop)
+	cmpAvail := func(a, b any) int {
+		x := a.([2]int)
+		y := b.([2]int)
+		if x[0] != y[0] {
+			return x[0] - y[0]
+		}
+		return x[1] - y[1]
+	}
+	// comparator for (price, shop, movie)
+	cmpRented := func(a, b any) int {
+		x := a.([3]int)
+		y := b.([3]int)
+		if x[0] != y[0] {
+			return x[0] - y[0]
+		}
+		if x[1] != y[1] {
+			return x[1] - y[1]
+		}
+		return x[2] - y[2]
+	}
+
+	mrs := MovieRentingSystem{
+		available: make(map[int]*treeset.Set),
+		priceMap:  make(map[int64]int),
+		rented:    treeset.NewWith(cmpRented),
+	}
+
+	for _, e := range entries {
+		shop, movie, price := e[0], e[1], e[2]
+		if _, ok := mrs.available[movie]; !ok {
+			mrs.available[movie] = treeset.NewWith(cmpAvail)
+		}
+		mrs.available[movie].Add([2]int{price, shop})
+		mrs.priceMap[f(shop, movie)] = price
+	}
+
+	return mrs
+}
+
+func (this *MovieRentingSystem) Search(movie int) []int {
+	res := []int{}
+	if _, ok := this.available[movie]; !ok {
+		return res
+	}
+	it := this.available[movie].Iterator()
+	it.Begin()
+	cnt := 0
+	for it.Next() && cnt < 5 {
+		pair := it.Value().([2]int)
+		res = append(res, pair[1])
+		cnt++
+	}
+	return res
+}
+
+func (this *MovieRentingSystem) Rent(shop int, movie int) {
+	price := this.priceMap[f(shop, movie)]
+	this.available[movie].Remove([2]int{price, shop})
+	this.rented.Add([3]int{price, shop, movie})
+}
+
+func (this *MovieRentingSystem) Drop(shop int, movie int) {
+	price := this.priceMap[f(shop, movie)]
+	this.rented.Remove([3]int{price, shop, movie})
+	this.available[movie].Add([2]int{price, shop})
+}
+
+func (this *MovieRentingSystem) Report() [][]int {
+	res := [][]int{}
+	it := this.rented.Iterator()
+	it.Begin()
+	cnt := 0
+	for it.Next() && cnt < 5 {
+		t := it.Value().([3]int)
+		res = append(res, []int{t[1], t[2]})
+		cnt++
+	}
+	return res
+}
+
+func f(shop, movie int) int64 {
+	return (int64(shop) << 30) | int64(movie)
+}
+
+/**
+ * Your MovieRentingSystem object will be instantiated and called as such:
+ * obj := Constructor(n, entries);
+ * param_1 := obj.Search(movie);
+ * obj.Rent(shop,movie);
+ * obj.Drop(shop,movie);
+ * param_4 := obj.Report();
+ */
 ```
 
 <!-- tabs:end -->
