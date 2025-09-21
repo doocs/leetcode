@@ -47,7 +47,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math + Two Pointers
+
+By mathematical knowledge, the graph of a quadratic function is a parabola. When $a \gt 0$, the parabola opens upwards and its vertex is the minimum value; when $a \lt 0$, the parabola opens downwards and its vertex is the maximum value.
+
+Since the array $\textit{nums}$ is already sorted, we can use two pointers at both ends of the array. Depending on the sign of $a$, we decide whether to fill the result array from the beginning or the end with the larger (or smaller) values.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -58,31 +64,29 @@ class Solution:
     def sortTransformedArray(
         self, nums: List[int], a: int, b: int, c: int
     ) -> List[int]:
-        def f(x):
+        def f(x: int) -> int:
             return a * x * x + b * x + c
 
         n = len(nums)
-        i, j, k = 0, n - 1, 0 if a < 0 else n - 1
-        res = [0] * n
-        while i <= j:
-            v1, v2 = f(nums[i]), f(nums[j])
-            if a < 0:
-                if v1 <= v2:
-                    res[k] = v1
+        i, j = 0, n - 1
+        ans = [0] * n
+        for k in range(n):
+            y1, y2 = f(nums[i]), f(nums[j])
+            if a > 0:
+                if y1 > y2:
+                    ans[n - k - 1] = y1
                     i += 1
                 else:
-                    res[k] = v2
+                    ans[n - k - 1] = y2
                     j -= 1
-                k += 1
             else:
-                if v1 >= v2:
-                    res[k] = v1
-                    i += 1
-                else:
-                    res[k] = v2
+                if y1 > y2:
+                    ans[k] = y2
                     j -= 1
-                k -= 1
-        return res
+                else:
+                    ans[k] = y1
+                    i += 1
+        return ans
 ```
 
 #### Java
@@ -91,35 +95,33 @@ class Solution:
 class Solution {
     public int[] sortTransformedArray(int[] nums, int a, int b, int c) {
         int n = nums.length;
-        int i = 0, j = n - 1, k = a < 0 ? 0 : n - 1;
-        int[] res = new int[n];
-        while (i <= j) {
-            int v1 = f(a, b, c, nums[i]), v2 = f(a, b, c, nums[j]);
-            if (a < 0) {
-                if (v1 <= v2) {
-                    res[k] = v1;
-                    ++i;
+        int[] ans = new int[n];
+        int i = 0, j = n - 1;
+
+        IntUnaryOperator f = x -> a * x * x + b * x + c;
+
+        for (int k = 0; k < n; k++) {
+            int y1 = f.applyAsInt(nums[i]);
+            int y2 = f.applyAsInt(nums[j]);
+            if (a > 0) {
+                if (y1 > y2) {
+                    ans[n - k - 1] = y1;
+                    i++;
                 } else {
-                    res[k] = v2;
-                    --j;
+                    ans[n - k - 1] = y2;
+                    j--;
                 }
-                ++k;
             } else {
-                if (v1 >= v2) {
-                    res[k] = v1;
-                    ++i;
+                if (y1 > y2) {
+                    ans[k] = y2;
+                    j--;
                 } else {
-                    res[k] = v2;
-                    --j;
+                    ans[k] = y1;
+                    i++;
                 }
-                --k;
             }
         }
-        return res;
-    }
-
-    private int f(int a, int b, int c, int x) {
-        return a * x * x + b * x + c;
+        return ans;
     }
 }
 ```
@@ -131,35 +133,35 @@ class Solution {
 public:
     vector<int> sortTransformedArray(vector<int>& nums, int a, int b, int c) {
         int n = nums.size();
-        int i = 0, j = n - 1, k = a < 0 ? 0 : n - 1;
-        vector<int> res(n);
-        while (i <= j) {
-            int v1 = f(a, b, c, nums[i]), v2 = f(a, b, c, nums[j]);
-            if (a < 0) {
-                if (v1 <= v2) {
-                    res[k] = v1;
-                    ++i;
+        vector<int> ans(n);
+        int i = 0, j = n - 1;
+
+        auto f = [&](int x) {
+            return a * x * x + b * x + c;
+        };
+
+        for (int k = 0; k < n; k++) {
+            int y1 = f(nums[i]);
+            int y2 = f(nums[j]);
+            if (a > 0) {
+                if (y1 > y2) {
+                    ans[n - k - 1] = y1;
+                    i++;
                 } else {
-                    res[k] = v2;
-                    --j;
+                    ans[n - k - 1] = y2;
+                    j--;
                 }
-                ++k;
             } else {
-                if (v1 >= v2) {
-                    res[k] = v1;
-                    ++i;
+                if (y1 > y2) {
+                    ans[k] = y2;
+                    j--;
                 } else {
-                    res[k] = v2;
-                    --j;
+                    ans[k] = y1;
+                    i++;
                 }
-                --k;
             }
         }
-        return res;
-    }
-
-    int f(int a, int b, int c, int x) {
-        return a * x * x + b * x + c;
+        return ans;
     }
 };
 ```
@@ -168,40 +170,109 @@ public:
 
 ```go
 func sortTransformedArray(nums []int, a int, b int, c int) []int {
-	n := len(nums)
-	i, j, k := 0, n-1, 0
-	if a >= 0 {
-		k = n - 1
+	f := func(x int) int {
+		return a*x*x + b*x + c
 	}
-	res := make([]int, n)
-	for i <= j {
-		v1, v2 := f(a, b, c, nums[i]), f(a, b, c, nums[j])
-		if a < 0 {
-			if v1 <= v2 {
-				res[k] = v1
+
+	n := len(nums)
+	ans := make([]int, n)
+	i, j := 0, n-1
+
+	for k := 0; k < n; k++ {
+		y1, y2 := f(nums[i]), f(nums[j])
+		if a > 0 {
+			if y1 > y2 {
+				ans[n-k-1] = y1
 				i++
 			} else {
-				res[k] = v2
+				ans[n-k-1] = y2
 				j--
 			}
-			k++
 		} else {
-			if v1 >= v2 {
-				res[k] = v1
-				i++
-			} else {
-				res[k] = v2
+			if y1 > y2 {
+				ans[k] = y2
 				j--
+			} else {
+				ans[k] = y1
+				i++
 			}
-			k--
 		}
 	}
-	return res
+	return ans
 }
+```
 
-func f(a, b, c, x int) int {
-	return a*x*x + b*x + c
+#### TypeScript
+
+```ts
+function sortTransformedArray(nums: number[], a: number, b: number, c: number): number[] {
+    const f = (x: number): number => a * x * x + b * x + c;
+    const n = nums.length;
+    let [i, j] = [0, n - 1];
+    const ans: number[] = Array(n);
+    for (let k = 0; k < n; ++k) {
+        const y1 = f(nums[i]);
+        const y2 = f(nums[j]);
+        if (a > 0) {
+            if (y1 > y2) {
+                ans[n - k - 1] = y1;
+                ++i;
+            } else {
+                ans[n - k - 1] = y2;
+                --j;
+            }
+        } else {
+            if (y1 > y2) {
+                ans[k] = y2;
+                --j;
+            } else {
+                ans[k] = y1;
+                ++i;
+            }
+        }
+    }
+    return ans;
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @return {number[]}
+ */
+var sortTransformedArray = function (nums, a, b, c) {
+    const f = x => a * x * x + b * x + c;
+    const n = nums.length;
+    let [i, j] = [0, n - 1];
+    const ans = Array(n);
+    for (let k = 0; k < n; ++k) {
+        const y1 = f(nums[i]);
+        const y2 = f(nums[j]);
+        if (a > 0) {
+            if (y1 > y2) {
+                ans[n - k - 1] = y1;
+                ++i;
+            } else {
+                ans[n - k - 1] = y2;
+                --j;
+            }
+        } else {
+            if (y1 > y2) {
+                ans[k] = y2;
+                --j;
+            } else {
+                ans[k] = y1;
+                ++i;
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
