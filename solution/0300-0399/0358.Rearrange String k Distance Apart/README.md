@@ -29,7 +29,7 @@ tags:
 
 <pre>
 <strong>输入: </strong>s = "aabbcc", k = 3
-<strong>输出: </strong>"abcabc"
+<strong>输出: </strong>"abcabc" 
 <strong>解释: </strong>相同的字母在新的字符串中间隔至少 3 个单位距离。
 </pre>
 
@@ -37,7 +37,7 @@ tags:
 
 <pre>
 <strong>输入: </strong>s = "aaabc", k = 3
-<strong>输出: </strong>""
+<strong>输出: </strong>"" 
 <strong>解释:</strong> 没有办法找到可能的重排结果。
 </pre>
 

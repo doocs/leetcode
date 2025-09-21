@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 468
+
+- [3688. Bitwise OR of Even Numbers in an Array](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md)
+- [3689. Maximum Total Subarray Value I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README_EN.md)
+- [3690. Split and Merge Array Transformation](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README_EN.md)
+- [3691. Maximum Total Subarray Value II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md)
+
 #### Weekly Contest 467
 
 - [3683. Earliest Time to Finish One Task](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README_EN.md)

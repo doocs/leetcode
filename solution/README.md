@@ -3697,6 +3697,11 @@
 |  3684  |  [至多 K 个不同元素的最大和](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README.md)  |    |  简单  |  第 467 场周赛  |
 |  3685  |  [含上限元素的子序列和](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README.md)  |    |  中等  |  第 467 场周赛  |
 |  3686  |  [稳定子序列的数量](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README.md)  |    |  困难  |  第 467 场周赛  |
+|  3687  |  [Library Late Fee Calculator](/solution/3600-3699/3687.Library%20Late%20Fee%20Calculator/README.md)  |    |  简单  |  🔒  |
+|  3688  |  [偶数的按位或运算](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README.md)  |    |  简单  |  第 468 场周赛  |
+|  3689  |  [最大子数组总值 I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README.md)  |    |  中等  |  第 468 场周赛  |
+|  3690  |  [拆分合并数组](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README.md)  |    |  中等  |  第 468 场周赛  |
+|  3691  |  [最大子数组总值 II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README.md)  |    |  困难  |  第 468 场周赛  |
 
 ## 版权
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3680.Generate%20Schedule/README_EN.md
+rating: 2377
+source: Biweekly Contest 165 Q3
 ---
 
 <!-- problem:start -->
