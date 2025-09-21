@@ -2,34 +2,34 @@ class Solution {
 public:
     vector<int> sortTransformedArray(vector<int>& nums, int a, int b, int c) {
         int n = nums.size();
-        int i = 0, j = n - 1, k = a < 0 ? 0 : n - 1;
-        vector<int> res(n);
-        while (i <= j) {
-            int v1 = f(a, b, c, nums[i]), v2 = f(a, b, c, nums[j]);
-            if (a < 0) {
-                if (v1 <= v2) {
-                    res[k] = v1;
-                    ++i;
+        vector<int> ans(n);
+        int i = 0, j = n - 1;
+
+        auto f = [&](int x) {
+            return a * x * x + b * x + c;
+        };
+
+        for (int k = 0; k < n; k++) {
+            int y1 = f(nums[i]);
+            int y2 = f(nums[j]);
+            if (a > 0) {
+                if (y1 > y2) {
+                    ans[n - k - 1] = y1;
+                    i++;
                 } else {
-                    res[k] = v2;
-                    --j;
+                    ans[n - k - 1] = y2;
+                    j--;
                 }
-                ++k;
             } else {
-                if (v1 >= v2) {
-                    res[k] = v1;
-                    ++i;
+                if (y1 > y2) {
+                    ans[k] = y2;
+                    j--;
                 } else {
-                    res[k] = v2;
-                    --j;
+                    ans[k] = y1;
+                    i++;
                 }
-                --k;
             }
         }
-        return res;
-    }
-
-    int f(int a, int b, int c, int x) {
-        return a * x * x + b * x + c;
+        return ans;
     }
 };
