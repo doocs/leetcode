@@ -193,6 +193,54 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxFrequencyElements = function (nums) {
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let [ans, mx] = [0, -1];
+    for (const x of cnt) {
+        if (mx < x) {
+            mx = x;
+            ans = x;
+        } else if (mx === x) {
+            ans += x;
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxFrequencyElements(int[] nums) {
+        int[] cnt = new int[101];
+        foreach (int x in nums) {
+            ++cnt[x];
+        }
+        int ans = 0, mx = -1;
+        foreach (int x in cnt) {
+            if (mx < x) {
+                mx = x;
+                ans = x;
+            } else if (mx == x) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
