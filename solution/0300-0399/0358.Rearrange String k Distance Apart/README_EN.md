@@ -63,7 +63,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Hash Table + Priority Queue (Max Heap)
+
+We use a hash table or array $\textit{cnt}$ to count the occurrences of each character in the string. Then, we use a max heap $\textit{pq}$ to store each character and its count. Each element in the heap is a tuple $(v, c)$, where $v$ is the count and $c$ is the character.
+
+When rearranging the string, we repeatedly pop the top element $(v, c)$ from the heap, add character $c$ to the result string, and push $(v-1, c)$ into a queue $\textit{q}$. When the length of the queue $\textit{q}$ reaches $k$ or more, we pop the front element; if its $v$ is greater than $0$, we push it back into the heap. Repeat this process until the heap is empty.
+
+Finally, we check whether the length of the result string equals the original string. If so, we return the result string; otherwise, we return an empty string.
+
+The time complexity is $O(n \log n)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set, which is $26$ in this problem.
+
+Related problems:
+
+-   [767. Reorganize String](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0767.Reorganize%20String/README.md)
 
 <!-- tabs:start -->
 
@@ -72,20 +84,20 @@ tags:
 ```python
 class Solution:
     def rearrangeString(self, s: str, k: int) -> str:
-        h = [(-v, c) for c, v in Counter(s).items()]
-        heapify(h)
+        cnt = Counter(s)
+        pq = [(-v, c) for c, v in cnt.items()]
+        heapify(pq)
         q = deque()
         ans = []
-        while h:
-            v, c = heappop(h)
-            v *= -1
+        while pq:
+            v, c = heappop(pq)
             ans.append(c)
-            q.append((v - 1, c))
+            q.append((v + 1, c))
             if len(q) >= k:
-                w, c = q.popleft()
-                if w:
-                    heappush(h, (-w, c))
-        return "" if len(ans) != len(s) else "".join(ans)
+                e = q.popleft()
+                if e[0]:
+                    heappush(pq, e)
+        return "" if len(ans) < len(s) else "".join(ans)
 ```
 
 #### Java
@@ -93,13 +105,12 @@ class Solution:
 ```java
 class Solution {
     public String rearrangeString(String s, int k) {
-        int n = s.length();
         int[] cnt = new int[26];
         for (char c : s.toCharArray()) {
             ++cnt[c - 'a'];
         }
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
-        for (int i = 0; i < 26; ++i) {
+        for (int i = 0; i < cnt.length; ++i) {
             if (cnt[i] > 0) {
                 pq.offer(new int[] {cnt[i], i});
             }
@@ -108,9 +119,9 @@ class Solution {
         StringBuilder ans = new StringBuilder();
         while (!pq.isEmpty()) {
             var p = pq.poll();
-            int v = p[0], c = p[1];
-            ans.append((char) ('a' + c));
-            q.offer(new int[] {v - 1, c});
+            p[0] -= 1;
+            ans.append((char) ('a' + p[1]));
+            q.offerLast(p);
             if (q.size() >= k) {
                 p = q.pollFirst();
                 if (p[0] > 0) {
@@ -118,7 +129,7 @@ class Solution {
                 }
             }
         }
-        return ans.length() == n ? ans.toString() : "";
+        return ans.length() < s.length() ? "" : ans.toString();
     }
 }
 ```
@@ -129,26 +140,36 @@ class Solution {
 class Solution {
 public:
     string rearrangeString(string s, int k) {
-        unordered_map<char, int> cnt;
-        for (char c : s) ++cnt[c];
-        priority_queue<pair<int, char>> pq;
-        for (auto& [c, v] : cnt) pq.push({v, c});
-        queue<pair<int, char>> q;
+        vector<int> cnt(26, 0);
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
+
+        priority_queue<pair<int, int>> pq;
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                pq.emplace(cnt[i], i);
+            }
+        }
+
+        queue<pair<int, int>> q;
         string ans;
         while (!pq.empty()) {
-            auto [v, c] = pq.top();
+            auto p = pq.top();
             pq.pop();
-            ans += c;
-            q.push({v - 1, c});
+            p.first -= 1;
+            ans.push_back('a' + p.second);
+            q.push(p);
             if (q.size() >= k) {
-                auto p = q.front();
+                p = q.front();
                 q.pop();
-                if (p.first) {
+                if (p.first > 0) {
                     pq.push(p);
                 }
             }
         }
-        return ans.size() == s.size() ? ans : "";
+
+        return ans.size() < s.size() ? "" : ans;
     }
 };
 ```
@@ -157,50 +178,80 @@ public:
 
 ```go
 func rearrangeString(s string, k int) string {
-	cnt := map[byte]int{}
-	for i := range s {
-		cnt[s[i]]++
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
 	}
-	pq := hp{}
-	for c, v := range cnt {
-		heap.Push(&pq, pair{v, c})
+	pq := priorityqueue.NewWith(func(a, b any) int {
+		x := a.([2]int)
+		y := b.([2]int)
+		return y[0] - x[0]
+	})
+
+	for i := 0; i < 26; i++ {
+		if cnt[i] > 0 {
+			pq.Enqueue([2]int{cnt[i], i})
+		}
 	}
-	ans := []byte{}
-	q := []pair{}
-	for len(pq) > 0 {
-		p := heap.Pop(&pq).(pair)
-		v, c := p.v, p.c
-		ans = append(ans, c)
-		q = append(q, pair{v - 1, c})
+
+	var q [][2]int
+	var ans strings.Builder
+
+	for pq.Size() > 0 {
+		p, _ := pq.Dequeue()
+		pair := p.([2]int)
+		pair[0]--
+		ans.WriteByte(byte('a' + pair[1]))
+		q = append(q, pair)
+
 		if len(q) >= k {
-			p = q[0]
+			front := q[0]
 			q = q[1:]
-			if p.v > 0 {
-				heap.Push(&pq, p)
+			if front[0] > 0 {
+				pq.Enqueue(front)
 			}
 		}
 	}
-	if len(ans) == len(s) {
-		return string(ans)
+
+	if ans.Len() < len(s) {
+		return ""
 	}
-	return ""
+	return ans.String()
 }
+```
 
-type pair struct {
-	v int
-	c byte
+#### TypeScript
+
+```ts
+export function rearrangeString(s: string, k: number): string {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+
+    const pq = new PriorityQueue<[number, number]>((a, b) => b[0] - a[0]);
+    for (let i = 0; i < 26; i++) {
+        if (cnt[i] > 0) {
+            pq.enqueue([cnt[i], i]);
+        }
+    }
+
+    const q: [number, number][] = [];
+    const ans: string[] = [];
+    while (!pq.isEmpty()) {
+        const [count, idx] = pq.dequeue()!;
+        const newCount = count - 1;
+        ans.push(String.fromCharCode('a'.charCodeAt(0) + idx));
+        q.push([newCount, idx]);
+        if (q.length >= k) {
+            const [frontCount, frontIdx] = q.shift()!;
+            if (frontCount > 0) {
+                pq.enqueue([frontCount, frontIdx]);
+            }
+        }
+    }
+    return ans.length < s.length ? '' : ans.join('');
 }
-
-type hp []pair
-
-func (h hp) Len() int { return len(h) }
-func (h hp) Less(i, j int) bool {
-	a, b := h[i], h[j]
-	return a.v > b.v
-}
-func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 <!-- tabs:end -->

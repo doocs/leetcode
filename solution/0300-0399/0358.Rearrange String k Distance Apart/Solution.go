@@ -1,45 +1,41 @@
 func rearrangeString(s string, k int) string {
-	cnt := map[byte]int{}
-	for i := range s {
-		cnt[s[i]]++
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
 	}
-	pq := hp{}
-	for c, v := range cnt {
-		heap.Push(&pq, pair{v, c})
+	pq := priorityqueue.NewWith(func(a, b any) int {
+		x := a.([2]int)
+		y := b.([2]int)
+		return y[0] - x[0]
+	})
+
+	for i := 0; i < 26; i++ {
+		if cnt[i] > 0 {
+			pq.Enqueue([2]int{cnt[i], i})
+		}
 	}
-	ans := []byte{}
-	q := []pair{}
-	for len(pq) > 0 {
-		p := heap.Pop(&pq).(pair)
-		v, c := p.v, p.c
-		ans = append(ans, c)
-		q = append(q, pair{v - 1, c})
+
+	var q [][2]int
+	var ans strings.Builder
+
+	for pq.Size() > 0 {
+		p, _ := pq.Dequeue()
+		pair := p.([2]int)
+		pair[0]--
+		ans.WriteByte(byte('a' + pair[1]))
+		q = append(q, pair)
+
 		if len(q) >= k {
-			p = q[0]
+			front := q[0]
 			q = q[1:]
-			if p.v > 0 {
-				heap.Push(&pq, p)
+			if front[0] > 0 {
+				pq.Enqueue(front)
 			}
 		}
 	}
-	if len(ans) == len(s) {
-		return string(ans)
+
+	if ans.Len() < len(s) {
+		return ""
 	}
-	return ""
+	return ans.String()
 }
-
-type pair struct {
-	v int
-	c byte
-}
-
-type hp []pair
-
-func (h hp) Len() int { return len(h) }
-func (h hp) Less(i, j int) bool {
-	a, b := h[i], h[j]
-	return a.v > b.v
-}
-func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }

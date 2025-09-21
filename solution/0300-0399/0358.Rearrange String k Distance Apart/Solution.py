@@ -1,16 +1,16 @@
 class Solution:
     def rearrangeString(self, s: str, k: int) -> str:
-        h = [(-v, c) for c, v in Counter(s).items()]
-        heapify(h)
+        cnt = Counter(s)
+        pq = [(-v, c) for c, v in cnt.items()]
+        heapify(pq)
         q = deque()
         ans = []
-        while h:
-            v, c = heappop(h)
-            v *= -1
+        while pq:
+            v, c = heappop(pq)
             ans.append(c)
-            q.append((v - 1, c))
+            q.append((v + 1, c))
             if len(q) >= k:
-                w, c = q.popleft()
-                if w:
-                    heappush(h, (-w, c))
-        return "" if len(ans) != len(s) else "".join(ans)
+                e = q.popleft()
+                if e[0]:
+                    heappush(pq, e)
+        return "" if len(ans) < len(s) else "".join(ans)

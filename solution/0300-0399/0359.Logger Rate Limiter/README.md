@@ -67,7 +67,11 @@ logger.shouldPrintMessage(11, "foo"); // 11 >= 11 ，返回 true ，下一次 "f
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们用一个哈希表 $\textit{ts}$ 来存储每个消息的下一个可打印时间戳。在调用 `shouldPrintMessage` 方法时，我们检查当前时间戳是否大于等于消息的下一个可打印时间戳，若是则更新该消息的下一个可打印时间戳为当前时间戳加 10，并返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(1)$。空间复杂度 $O(m)$，其中 $m$ 是不同消息的数量。
 
 <!-- tabs:start -->
 
@@ -75,22 +79,15 @@ logger.shouldPrintMessage(11, "foo"); // 11 >= 11 ，返回 true ，下一次 "f
 
 ```python
 class Logger:
+
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.limiter = {}
+        self.ts = {}
 
     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
-        """
-        Returns true if the message should be printed in the given timestamp, otherwise returns false.
-        If this method returns false, the message will not be printed.
-        The timestamp is in seconds granularity.
-        """
-        t = self.limiter.get(message, 0)
+        t = self.ts.get(message, 0)
         if t > timestamp:
             return False
-        self.limiter[message] = timestamp + 10
+        self.ts[message] = timestamp + 10
         return True
 
 
@@ -103,25 +100,17 @@ class Logger:
 
 ```java
 class Logger {
+    private Map<String, Integer> ts = new HashMap<>();
 
-    private Map<String, Integer> limiter;
-
-    /** Initialize your data structure here. */
     public Logger() {
-        limiter = new HashMap<>();
     }
 
-    /**
-       Returns true if the message should be printed in the given timestamp, otherwise returns
-       false. If this method returns false, the message will not be printed. The timestamp is in
-       seconds granularity.
-     */
     public boolean shouldPrintMessage(int timestamp, String message) {
-        int t = limiter.getOrDefault(message, 0);
-        if (t > timestamp) {
+        int t = ts.getOrDefault(message, 0);
+        if (timestamp < t) {
             return false;
         }
-        limiter.put(message, timestamp + 10);
+        ts.put(message, timestamp + 10);
         return true;
     }
 }
@@ -130,6 +119,59 @@ class Logger {
  * Your Logger object will be instantiated and called as such:
  * Logger obj = new Logger();
  * boolean param_1 = obj.shouldPrintMessage(timestamp,message);
+ */
+```
+
+#### C++
+
+```cpp
+class Logger {
+public:
+    Logger() {
+    }
+
+    bool shouldPrintMessage(int timestamp, string message) {
+        if (ts.contains(message) && ts[message] > timestamp) {
+            return false;
+        }
+        ts[message] = timestamp + 10;
+        return true;
+    }
+
+private:
+    unordered_map<string, int> ts;
+};
+
+/**
+ * Your Logger object will be instantiated and called as such:
+ * Logger* obj = new Logger();
+ * bool param_1 = obj->shouldPrintMessage(timestamp,message);
+ */
+```
+
+#### Go
+
+```go
+type Logger struct {
+	ts map[string]int
+}
+
+func Constructor() Logger {
+	return Logger{ts: make(map[string]int)}
+}
+
+func (this *Logger) ShouldPrintMessage(timestamp int, message string) bool {
+	if t, ok := this.ts[message]; ok && timestamp < t {
+		return false
+	}
+	this.ts[message] = timestamp + 10
+	return true
+}
+
+/**
+ * Your Logger object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.ShouldPrintMessage(timestamp,message);
  */
 ```
 
@@ -146,8 +188,8 @@ var Logger = function () {
 /**
  * Returns true if the message should be printed in the given timestamp, otherwise returns false.
         If this method returns false, the message will not be printed.
-        The timestamp is in seconds granularity. 
- * @param {number} timestamp 
+        The timestamp is in seconds granularity.
+ * @param {number} timestamp
  * @param {string} message
  * @return {boolean}
  */
