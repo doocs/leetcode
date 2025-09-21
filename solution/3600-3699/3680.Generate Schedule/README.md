@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3680.Generate%20Schedule/README.md
+rating: 2377
+source: 第 165 场双周赛 Q3
 ---
 
 <!-- problem:start -->

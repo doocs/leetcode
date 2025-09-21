@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README_EN.md
+rating: 2026
+source: Biweekly Contest 165 Q4
 ---
 
 <!-- problem:start -->

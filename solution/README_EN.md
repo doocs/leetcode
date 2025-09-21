@@ -3695,6 +3695,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3684  |  [Maximize Sum of At Most K Distinct Elements](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 467  |
 |  3685  |  [Subsequence Sum After Capping Elements](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 467  |
 |  3686  |  [Number of Stable Subsequences](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 467  |
+|  3687  |  [Library Late Fee Calculator](/solution/3600-3699/3687.Library%20Late%20Fee%20Calculator/README_EN.md)  |    |  Easy  |  🔒  |
+|  3688  |  [Bitwise OR of Even Numbers in an Array](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 468  |
+|  3689  |  [Maximum Total Subarray Value I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 468  |
+|  3690  |  [Split and Merge Array Transformation](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README_EN.md)  |    |  Medium  |  Weekly Contest 468  |
+|  3691  |  [Maximum Total Subarray Value II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 468  |
 
 ## Copyright
 

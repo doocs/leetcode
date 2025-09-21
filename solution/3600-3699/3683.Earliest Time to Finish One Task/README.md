@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README.md
+rating: 1198
+source: 第 467 场周赛 Q1
 ---
 
 <!-- problem:start -->

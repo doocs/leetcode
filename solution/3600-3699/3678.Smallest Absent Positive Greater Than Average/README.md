@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README.md
+rating: 1306
+source: 第 165 场双周赛 Q1
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md
+rating: 2073
+source: Weekly Contest 467 Q3
 ---
 
 <!-- problem:start -->

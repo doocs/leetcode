@@ -42,7 +42,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [6,4,3,2,7,6,2]
 <strong>Output:</strong> [12,7,6]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - (6, 4) are non-coprime with LCM(6, 4) = 12. Now, nums = [<strong><u>12</u></strong>,3,2,7,6,2].
 - (12, 3) are non-coprime with LCM(12, 3) = 12. Now, nums = [<strong><u>12</u></strong>,2,7,6,2].
 - (12, 2) are non-coprime with LCM(12, 2) = 12. Now, nums = [<strong><u>12</u></strong>,7,6,2].
@@ -57,7 +57,7 @@ Note that there are other ways to obtain the same resultant array.
 <pre>
 <strong>Input:</strong> nums = [2,2,1,1,3,3,3]
 <strong>Output:</strong> [2,1,1,3]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - (3, 3) are non-coprime with LCM(3, 3) = 3. Now, nums = [2,2,1,1,<u><strong>3</strong></u>,3].
 - (3, 3) are non-coprime with LCM(3, 3) = 3. Now, nums = [2,2,1,1,<u><strong>3</strong></u>].
 - (2, 2) are non-coprime with LCM(2, 2) = 2. Now, nums = [<u><strong>2</strong></u>,1,1,3].

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 468 场周赛(2025-09-21 10:30, 90 分钟) 参赛人数 1864
+
+- [3688. 偶数的按位或运算](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README.md)
+- [3689. 最大子数组总值 I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README.md)
+- [3690. 拆分合并数组](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README.md)
+- [3691. 最大子数组总值 II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README.md)
+
 #### 第 467 场周赛(2025-09-14 10:30, 90 分钟) 参赛人数 1800
 
 - [3683. 完成一个任务的最早时间](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README.md)
