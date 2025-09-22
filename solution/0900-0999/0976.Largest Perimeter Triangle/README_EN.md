@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,2,1,10]
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 You cannot use the side lengths 1, 1, and 2 to form a triangle.
 You cannot use the side lengths 1, 1, and 10 to form a triangle.
 You cannot use the side lengths 1, 2, and 10 to form a triangle.
@@ -56,7 +56,13 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+Suppose the three sides of the triangle are $a \leq b \leq c$. The triangle has non-zero area if and only if $a + b \gt c$.
+
+We can enumerate the largest side $c$, then select the two largest remaining sides $a$ and $b$. If $a + b \gt c$, a triangle with non-zero area can be formed, and its perimeter will be the largest possible; otherwise, continue to enumerate the next largest side $c$.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -95,10 +101,12 @@ class Solution {
 class Solution {
 public:
     int largestPerimeter(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        for (int i = nums.size() - 1; i >= 2; --i) {
+        ranges::sort(nums);
+        for (int i = nums.size() - 1; i > 1; --i) {
             int c = nums[i - 1] + nums[i - 2];
-            if (c > nums[i]) return c + nums[i];
+            if (c > nums[i]) {
+                return c + nums[i];
+            }
         }
         return 0;
     }
@@ -111,8 +119,7 @@ public:
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
 	for i := len(nums) - 1; i >= 2; i-- {
-		c := nums[i-1] + nums[i-2]
-		if c > nums[i] {
+		if c := nums[i-1] + nums[i-2]; c > nums[i] {
 			return c + nums[i]
 		}
 	}
@@ -124,11 +131,10 @@ func largestPerimeter(nums []int) int {
 
 ```ts
 function largestPerimeter(nums: number[]): number {
-    const n = nums.length;
-    nums.sort((a, b) => b - a);
-    for (let i = 2; i < n; i++) {
-        const [a, b, c] = [nums[i - 2], nums[i - 1], nums[i]];
-        if (a < b + c) {
+    nums.sort((a, b) => a - b);
+    for (let i = nums.length - 1; i > 1; --i) {
+        const [a, b, c] = nums.slice(i - 2, i + 1);
+        if (a + b > c) {
             return a + b + c;
         }
     }
