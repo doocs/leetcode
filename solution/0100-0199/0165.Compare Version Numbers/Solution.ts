@@ -1,14 +1,21 @@
 function compareVersion(version1: string, version2: string): number {
-    const v1 = version1.split('.');
-    const v2 = version2.split('.');
-    for (let i = 0; i < Math.max(v1.length, v2.length); ++i) {
-        const [n1, n2] = [+v1[i] || 0, +v2[i] || 0];
-        if (n1 < n2) {
-            return -1;
+    const [m, n] = [version1.length, version2.length];
+    let [i, j] = [0, 0];
+    while (i < m || j < n) {
+        let [a, b] = [0, 0];
+        while (i < m && version1[i] !== '.') {
+            a = a * 10 + +version1[i];
+            i++;
         }
-        if (n1 > n2) {
-            return 1;
+        while (j < n && version2[j] !== '.') {
+            b = b * 10 + +version2[j];
+            j++;
         }
+        if (a !== b) {
+            return a < b ? -1 : 1;
+        }
+        i++;
+        j++;
     }
     return 0;
 }
