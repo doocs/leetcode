@@ -70,9 +70,9 @@ num1 和 num2 的二进制表示分别是 0001 和 1100 。
 
 ### 方法一：贪心 + 位运算
 
-根据题目描述，我们先求出 $num2$ 的置位数 $cnt$，然后从高位到低位枚举 $num1$ 的每一位，如果该位为 $1$，则将 $x$ 的对应位设为 $1$，并将 $cnt$ 减 $1$，直到 $cnt$ 为 $0$。如果此时 $cnt$ 仍不为 $0$，则从低位开始将 $num1$ 的每一位为 $0$ 的位置设为 $1$，并将 $cnt$ 减 $1$，直到 $cnt$ 为 $0$。
+根据题目描述，我们先求出 $\textit{nums2}$ 的置位数 $\textit{cnt}$，然后从高位到低位枚举 $\textit{num1}$ 的每一位，如果该位为 $1$，则将 $x$ 的对应位设为 $1$，并将 $\textit{cnt}$ 减 $1$，直到 $\textit{cnt}$ 为 $0$。如果此时 $\textit{cnt}$ 仍不为 $0$，则从低位开始将 $\textit{num1}$ 的每一位为 $0$ 的位置设为 $1$，并将 $\textit{cnt}$ 减 $1$，直到 $\textit{cnt}$ 为 $0$。
 
-时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $num1$ 和 $num2$ 的最大值。
+时间复杂度 $O(\log n)$，其中 $n$ 为 $\textit{num1}$ 和 $\textit{num2}$ 的最大值。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -191,107 +191,59 @@ function minimizeXor(num1: number, num2: number): number {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimizeXor(self, num1: int, num2: int) -> int:
-        cnt1 = num1.bit_count()
-        cnt2 = num2.bit_count()
-        while cnt1 > cnt2:
-            num1 &= num1 - 1
-            cnt1 -= 1
-        while cnt1 < cnt2:
-            num1 |= num1 + 1
-            cnt1 += 1
-        return num1
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minimizeXor(int num1, int num2) {
-        int cnt1 = Integer.bitCount(num1);
-        int cnt2 = Integer.bitCount(num2);
-        for (; cnt1 > cnt2; --cnt1) {
-            num1 &= (num1 - 1);
+```rust
+impl Solution {
+    pub fn minimize_xor(num1: i32, mut num2: i32) -> i32 {
+        let mut cnt = 0;
+        while num2 > 0 {
+            num2 -= num2 & -num2;
+            cnt += 1;
         }
-        for (; cnt1 < cnt2; ++cnt1) {
-            num1 |= (num1 + 1);
+        let mut x = 0;
+        let mut c = cnt;
+        for i in (0..=30).rev() {
+            if c > 0 && (num1 >> i) & 1 == 1 {
+                x |= 1 << i;
+                c -= 1;
+            }
         }
-        return num1;
+        for i in 0..=30 {
+            if c == 0 {
+                break;
+            }
+            if ((num1 >> i) & 1) == 0 {
+                x |= 1 << i;
+                c -= 1;
+            }
+        }
+        x
     }
 }
 ```
 
-#### C++
+#### C#
 
-```cpp
-class Solution {
-public:
-    int minimizeXor(int num1, int num2) {
-        int cnt1 = __builtin_popcount(num1);
-        int cnt2 = __builtin_popcount(num2);
-        for (; cnt1 > cnt2; --cnt1) {
-            num1 &= (num1 - 1);
+```cs
+public class Solution {
+    public int MinimizeXor(int num1, int num2) {
+        int cnt = BitOperations.PopCount((uint)num2);
+        int x = 0;
+        for (int i = 30; i >= 0 && cnt > 0; --i) {
+            if (((num1 >> i) & 1) == 1) {
+                x |= 1 << i;
+                --cnt;
+            }
         }
-        for (; cnt1 < cnt2; ++cnt1) {
-            num1 |= (num1 + 1);
+        for (int i = 0; cnt > 0; ++i) {
+            if (((num1 >> i) & 1) == 0) {
+                x |= 1 << i;
+                --cnt;
+            }
         }
-        return num1;
+        return x;
     }
-};
-```
-
-#### Go
-
-```go
-func minimizeXor(num1 int, num2 int) int {
-	cnt1 := bits.OnesCount(uint(num1))
-	cnt2 := bits.OnesCount(uint(num2))
-	for ; cnt1 > cnt2; cnt1-- {
-		num1 &= (num1 - 1)
-	}
-	for ; cnt1 < cnt2; cnt1++ {
-		num1 |= (num1 + 1)
-	}
-	return num1
-}
-```
-
-#### TypeScript
-
-```ts
-function minimizeXor(num1: number, num2: number): number {
-    let cnt1 = bitCount(num1);
-    let cnt2 = bitCount(num2);
-    for (; cnt1 > cnt2; --cnt1) {
-        num1 &= num1 - 1;
-    }
-    for (; cnt1 < cnt2; ++cnt1) {
-        num1 |= num1 + 1;
-    }
-    return num1;
-}
-
-function bitCount(i: number): number {
-    i = i - ((i >>> 1) & 0x55555555);
-    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
-    i = (i + (i >>> 4)) & 0x0f0f0f0f;
-    i = i + (i >>> 8);
-    i = i + (i >>> 16);
-    return i & 0x3f;
 }
 ```
 
