@@ -116,12 +116,14 @@ class Solution {
 public:
     int canBeTypedWords(string text, string brokenLetters) {
         bool s[26]{};
-        for (char& c : brokenLetters) {
+        for (char c : brokenLetters) {
             s[c - 'a'] = true;
         }
         int ans = 0;
-        for (auto& w : split(text, ' ')) {
-            for (char& c : w) {
+        stringstream ss(text);
+        string w;
+        while (ss >> w) {
+            for (char c : w) {
                 if (s[c - 'a']) {
                     --ans;
                     break;
@@ -129,21 +131,6 @@ public:
             }
             ++ans;
         }
-        return ans;
-    }
-
-    vector<string> split(const string& s, char c) {
-        vector<string> ans;
-        string t;
-        for (char d : s) {
-            if (d == c) {
-                ans.push_back(t);
-                t.clear();
-            } else {
-                t.push_back(d);
-            }
-        }
-        ans.push_back(t);
         return ans;
     }
 };
@@ -213,6 +200,31 @@ impl Solution {
             ans += 1;
         }
         ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CanBeTypedWords(string text, string brokenLetters) {
+        bool[] s = new bool[26];
+        foreach (char c in brokenLetters) {
+            s[c - 'a'] = true;
+        }
+        int ans = 0;
+        string[] words = text.Split(' ');
+        foreach (string w in words) {
+            foreach (char c in w) {
+                if (s[c - 'a']) {
+                    --ans;
+                    break;
+                }
+            }
+            ++ans;
+        }
+        return ans;
     }
 }
 ```

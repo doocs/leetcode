@@ -1,35 +1,31 @@
 func sortTransformedArray(nums []int, a int, b int, c int) []int {
-	n := len(nums)
-	i, j, k := 0, n-1, 0
-	if a >= 0 {
-		k = n - 1
+	f := func(x int) int {
+		return a*x*x + b*x + c
 	}
-	res := make([]int, n)
-	for i <= j {
-		v1, v2 := f(a, b, c, nums[i]), f(a, b, c, nums[j])
-		if a < 0 {
-			if v1 <= v2 {
-				res[k] = v1
+
+	n := len(nums)
+	ans := make([]int, n)
+	i, j := 0, n-1
+
+	for k := 0; k < n; k++ {
+		y1, y2 := f(nums[i]), f(nums[j])
+		if a > 0 {
+			if y1 > y2 {
+				ans[n-k-1] = y1
 				i++
 			} else {
-				res[k] = v2
+				ans[n-k-1] = y2
 				j--
 			}
-			k++
 		} else {
-			if v1 >= v2 {
-				res[k] = v1
-				i++
-			} else {
-				res[k] = v2
+			if y1 > y2 {
+				ans[k] = y2
 				j--
+			} else {
+				ans[k] = y1
+				i++
 			}
-			k--
 		}
 	}
-	return res
-}
-
-func f(a, b, c, x int) int {
-	return a*x*x + b*x + c
+	return ans
 }

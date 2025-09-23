@@ -6,7 +6,6 @@
 *.iml
 __pycache__
 /node_modules
-/solution/result.json
 /solution/__pycache__
 /solution/.env
 .cache

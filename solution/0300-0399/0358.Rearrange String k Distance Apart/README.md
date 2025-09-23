@@ -67,13 +67,13 @@ tags:
 
 ### 方法一：贪心 + 哈希表 + 优先队列（大根堆）
 
-先用哈希表 `cnt` 统计每个字母出现的次数，然后构建一个大根堆 `pq`，其中每个元素是一个 `(v, c)` 的元组，其中 `c` 是字母，`v` 是字母出现的次数。
+我们用一个哈希表或数组 $\textit{cnt}$ 来统计字符串中每个字母出现的次数，然后用一个大根堆 $\textit{pq}$ 来存储每个字母及其出现次数。堆中的每个元素是一个二元组 $(v, c)$，其中 $v$ 和 $c$ 分别表示字母出现的次数和字母本身。
 
-重排字符串时，我们每次从堆顶弹出一个元素 `(v, c)`，将 `c` 添加到结果字符串中，并将 `(v-1, c)` 放入队列 `q` 中。当队列 `q` 的长度达到 $k$ 及以上时，弹出队首元素，若此时 `v` 大于 0，则将队首元素放入堆中。循环，直至堆为空。
+在重排字符串时，我们每次从堆顶弹出一个元素 $(v, c)$，将字母 $c$ 添加到结果字符串中，并将 $(v-1, c)$ 放入一个队列 $\textit{q}$ 中。当队列 $\textit{q}$ 的长度达到 $k$ 及以上时，弹出队首元素，若此时 $v$ 大于 $0$，则将队首元素重新放入堆中。重复该过程，直到堆为空。
 
-最后判断结果字符串的长度，若与 `s` 长度相等，则返回结果字符串，否则返回空串。
+最后，我们判断结果字符串的长度是否与原字符串相等，若相等则返回结果字符串，否则返回空串。
 
-时间复杂度 $O(n\log n)$，其中 $n$ 是字符串 `s` 的长度。
+时间复杂度为 $O(n \log n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(|\Sigma|)$，其中 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma| = 26$。
 
 相似题目：
 
@@ -86,20 +86,20 @@ tags:
 ```python
 class Solution:
     def rearrangeString(self, s: str, k: int) -> str:
-        h = [(-v, c) for c, v in Counter(s).items()]
-        heapify(h)
+        cnt = Counter(s)
+        pq = [(-v, c) for c, v in cnt.items()]
+        heapify(pq)
         q = deque()
         ans = []
-        while h:
-            v, c = heappop(h)
-            v *= -1
+        while pq:
+            v, c = heappop(pq)
             ans.append(c)
-            q.append((v - 1, c))
+            q.append((v + 1, c))
             if len(q) >= k:
-                w, c = q.popleft()
-                if w:
-                    heappush(h, (-w, c))
-        return "" if len(ans) != len(s) else "".join(ans)
+                e = q.popleft()
+                if e[0]:
+                    heappush(pq, e)
+        return "" if len(ans) < len(s) else "".join(ans)
 ```
 
 #### Java
@@ -107,13 +107,12 @@ class Solution:
 ```java
 class Solution {
     public String rearrangeString(String s, int k) {
-        int n = s.length();
         int[] cnt = new int[26];
         for (char c : s.toCharArray()) {
             ++cnt[c - 'a'];
         }
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]);
-        for (int i = 0; i < 26; ++i) {
+        for (int i = 0; i < cnt.length; ++i) {
             if (cnt[i] > 0) {
                 pq.offer(new int[] {cnt[i], i});
             }
@@ -122,9 +121,9 @@ class Solution {
         StringBuilder ans = new StringBuilder();
         while (!pq.isEmpty()) {
             var p = pq.poll();
-            int v = p[0], c = p[1];
-            ans.append((char) ('a' + c));
-            q.offer(new int[] {v - 1, c});
+            p[0] -= 1;
+            ans.append((char) ('a' + p[1]));
+            q.offerLast(p);
             if (q.size() >= k) {
                 p = q.pollFirst();
                 if (p[0] > 0) {
@@ -132,7 +131,7 @@ class Solution {
                 }
             }
         }
-        return ans.length() == n ? ans.toString() : "";
+        return ans.length() < s.length() ? "" : ans.toString();
     }
 }
 ```
@@ -143,26 +142,36 @@ class Solution {
 class Solution {
 public:
     string rearrangeString(string s, int k) {
-        unordered_map<char, int> cnt;
-        for (char c : s) ++cnt[c];
-        priority_queue<pair<int, char>> pq;
-        for (auto& [c, v] : cnt) pq.push({v, c});
-        queue<pair<int, char>> q;
+        vector<int> cnt(26, 0);
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
+
+        priority_queue<pair<int, int>> pq;
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                pq.emplace(cnt[i], i);
+            }
+        }
+
+        queue<pair<int, int>> q;
         string ans;
         while (!pq.empty()) {
-            auto [v, c] = pq.top();
+            auto p = pq.top();
             pq.pop();
-            ans += c;
-            q.push({v - 1, c});
+            p.first -= 1;
+            ans.push_back('a' + p.second);
+            q.push(p);
             if (q.size() >= k) {
-                auto p = q.front();
+                p = q.front();
                 q.pop();
-                if (p.first) {
+                if (p.first > 0) {
                     pq.push(p);
                 }
             }
         }
-        return ans.size() == s.size() ? ans : "";
+
+        return ans.size() < s.size() ? "" : ans;
     }
 };
 ```
@@ -171,50 +180,80 @@ public:
 
 ```go
 func rearrangeString(s string, k int) string {
-	cnt := map[byte]int{}
-	for i := range s {
-		cnt[s[i]]++
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
 	}
-	pq := hp{}
-	for c, v := range cnt {
-		heap.Push(&pq, pair{v, c})
+	pq := priorityqueue.NewWith(func(a, b any) int {
+		x := a.([2]int)
+		y := b.([2]int)
+		return y[0] - x[0]
+	})
+
+	for i := 0; i < 26; i++ {
+		if cnt[i] > 0 {
+			pq.Enqueue([2]int{cnt[i], i})
+		}
 	}
-	ans := []byte{}
-	q := []pair{}
-	for len(pq) > 0 {
-		p := heap.Pop(&pq).(pair)
-		v, c := p.v, p.c
-		ans = append(ans, c)
-		q = append(q, pair{v - 1, c})
+
+	var q [][2]int
+	var ans strings.Builder
+
+	for pq.Size() > 0 {
+		p, _ := pq.Dequeue()
+		pair := p.([2]int)
+		pair[0]--
+		ans.WriteByte(byte('a' + pair[1]))
+		q = append(q, pair)
+
 		if len(q) >= k {
-			p = q[0]
+			front := q[0]
 			q = q[1:]
-			if p.v > 0 {
-				heap.Push(&pq, p)
+			if front[0] > 0 {
+				pq.Enqueue(front)
 			}
 		}
 	}
-	if len(ans) == len(s) {
-		return string(ans)
+
+	if ans.Len() < len(s) {
+		return ""
 	}
-	return ""
+	return ans.String()
 }
+```
 
-type pair struct {
-	v int
-	c byte
+#### TypeScript
+
+```ts
+export function rearrangeString(s: string, k: number): string {
+    const cnt: number[] = Array(26).fill(0);
+    for (const c of s) {
+        cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+
+    const pq = new PriorityQueue<[number, number]>((a, b) => b[0] - a[0]);
+    for (let i = 0; i < 26; i++) {
+        if (cnt[i] > 0) {
+            pq.enqueue([cnt[i], i]);
+        }
+    }
+
+    const q: [number, number][] = [];
+    const ans: string[] = [];
+    while (!pq.isEmpty()) {
+        const [count, idx] = pq.dequeue()!;
+        const newCount = count - 1;
+        ans.push(String.fromCharCode('a'.charCodeAt(0) + idx));
+        q.push([newCount, idx]);
+        if (q.length >= k) {
+            const [frontCount, frontIdx] = q.shift()!;
+            if (frontCount > 0) {
+                pq.enqueue([frontCount, frontIdx]);
+            }
+        }
+    }
+    return ans.length < s.length ? '' : ans.join('');
 }
-
-type hp []pair
-
-func (h hp) Len() int { return len(h) }
-func (h hp) Less(i, j int) bool {
-	a, b := h[i], h[j]
-	return a.v > b.v
-}
-func (h hp) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
-func (h *hp) Push(v any)   { *h = append(*h, v.(pair)) }
-func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
 <!-- tabs:end -->

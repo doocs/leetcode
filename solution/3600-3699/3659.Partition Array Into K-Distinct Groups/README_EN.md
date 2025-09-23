@@ -21,7 +21,8 @@ source: Weekly Contest 464 Q2
 <p>Your task is to determine whether it is possible to partition all elements of <code>nums</code> into one or more groups such that:</p>
 
 <ul>
-	<li>Each group contains <strong>exactly</strong> <code>k</code> <strong>distinct</strong> elements.</li>
+	<li>Each group contains <strong>exactly</strong> <code>k</code> elements.</li>
+	<li>All elements in each group are <strong>distinct</strong>.</li>
 	<li>Each element in <code>nums</code> must be assigned to <strong>exactly</strong> one group.</li>
 </ul>
 

@@ -75,9 +75,9 @@ The time complexity is $O(n \times \log n)$, where $n$ is the integer given in t
 ```python
 class Solution:
     def getNoZeroIntegers(self, n: int) -> List[int]:
-        for a in range(1, n):
+        for a in count(1):
             b = n - a
-            if "0" not in str(a) + str(b):
+            if "0" not in f"{a}{b}":
                 return [a, b]
 ```
 
@@ -138,6 +138,22 @@ function getNoZeroIntegers(n: number): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn get_no_zero_integers(n: i32) -> Vec<i32> {
+        for a in 1..n {
+            let b = n - a;
+            if !a.to_string().contains('0') && !b.to_string().contains('0') {
+                return vec![a, b];
+            }
+        }
+        vec![]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -157,14 +173,14 @@ The time complexity is $O(n \times \log n)$, where $n$ is the integer given in t
 ```python
 class Solution:
     def getNoZeroIntegers(self, n: int) -> List[int]:
-        def f(x):
+        def f(x: int) -> bool:
             while x:
                 if x % 10 == 0:
                     return False
                 x //= 10
             return True
 
-        for a in range(1, n):
+        for a in count(1):
             b = n - a
             if f(a) and f(b):
                 return [a, b]
@@ -256,6 +272,32 @@ function getNoZeroIntegers(n: number): number[] {
         if (f(a) && f(b)) {
             return [a, b];
         }
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn get_no_zero_integers(n: i32) -> Vec<i32> {
+        fn f(mut x: i32) -> bool {
+            while x > 0 {
+                if x % 10 == 0 {
+                    return false;
+                }
+                x /= 10;
+            }
+            true
+        }
+
+        for a in 1..n {
+            let b = n - a;
+            if f(a) && f(b) {
+                return vec![a, b];
+            }
+        }
+        vec![]
     }
 }
 ```

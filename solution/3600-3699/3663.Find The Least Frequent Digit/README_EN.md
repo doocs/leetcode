@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README_EN.md
+rating: 1284
+source: Biweekly Contest 164 Q1
 ---
 
 <!-- problem:start -->

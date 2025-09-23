@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README.md
+rating: 1883
+source: 第 164 场双周赛 Q3
 ---
 
 <!-- problem:start -->

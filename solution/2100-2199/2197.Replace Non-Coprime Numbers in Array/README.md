@@ -229,6 +229,79 @@ function replaceNonCoprimes(nums: number[]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn replace_non_coprimes(nums: Vec<i32>) -> Vec<i32> {
+        fn gcd(mut a: i64, mut b: i64) -> i64 {
+            while b != 0 {
+                let t = a % b;
+                a = b;
+                b = t;
+            }
+            a
+        }
+
+        let mut stk: Vec<i64> = Vec::new();
+        for x in nums {
+            stk.push(x as i64);
+            while stk.len() > 1 {
+                let x = *stk.last().unwrap();
+                let y = stk[stk.len() - 2];
+                let g = gcd(x, y);
+                if g == 1 {
+                    break;
+                }
+                stk.pop();
+                let last = stk.last_mut().unwrap();
+                *last = x / g * y;
+            }
+        }
+
+        stk.into_iter().map(|v| v as i32).collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<int> ReplaceNonCoprimes(int[] nums) {
+        long Gcd(long a, long b) {
+            while (b != 0) {
+                long t = a % b;
+                a = b;
+                b = t;
+            }
+            return a;
+        }
+
+        var stk = new List<long>();
+        foreach (int num in nums) {
+            stk.Add(num);
+            while (stk.Count > 1) {
+                long x = stk[stk.Count - 1];
+                long y = stk[stk.Count - 2];
+                long g = Gcd(x, y);
+                if (g == 1) {
+                    break;
+                }
+                stk.RemoveAt(stk.Count - 1);
+                stk[stk.Count - 1] = x / g * y;
+            }
+        }
+
+        var ans = new List<int>();
+        foreach (long v in stk) {
+            ans.Add((int)v);
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

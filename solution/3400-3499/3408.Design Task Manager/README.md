@@ -86,7 +86,21 @@ taskManager.execTop(); // 返回 5 。执行用户 5 的任务 105 。</div>
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + 有序集合
+
+我们用一个哈希表 $\text{d}$ 来存储任务信息，键为任务 ID，值为一个二元组 $(\text{userId}, \text{priority})$，表示该任务所属的用户 ID 以及任务的优先级。
+
+我们用一个有序集合 $\text{st}$ 来存储当前系统中的所有任务，元素为一个二元组 $(-\text{priority}, -\text{taskId})$，表示任务的优先级和任务 ID 的相反数。我们将优先级和任务 ID 取相反数是为了让优先级最高且任务 ID 最大的任务在有序集合中排在最前面。
+
+对于每个操作，我们可以按如下方式进行处理：
+
+-   **初始化**：对于每个任务 $(\text{userId}, \text{taskId}, \text{priority})$，我们将其添加到哈希表 $\text{d}$ 和有序集合 $\text{st}$ 中。
+-   **添加任务**：将任务 $(\text{userId}, \text{taskId}, \text{priority})$ 添加到哈希表 $\text{d}$ 和有序集合 $\text{st}$ 中。
+-   **编辑任务**：从哈希表 $\text{d}$ 中获取任务 ID对应的用户 ID 和旧优先级，然后从有序集合 $\text{st}$ 中删除旧的任务信息，再将新的任务信息添加到哈希表 $\text{d}$ 和有序集合 $\text{st}$ 中。
+-   **删除任务**：从哈希表 $\text{d}$ 中获取任务 ID 对应的优先级，然后从有序集合 $\text{st}$ 中删除任务信息，并从哈希表 $\text{d}$ 中删除任务。
+-   **执行最高优先级任务**：如果有序集合 $\text{st}$ 为空，返回 -1。否则，从有序集合 $\text{st}$ 中取出第一个元素，获取任务 ID，然后从哈希表 $\text{d}$ 中获取对应的用户 ID，并将任务从哈希表 $\text{d}$ 和有序集合 $\text{st}$ 中删除，最后返回用户 ID。
+
+时间复杂度方面，初始化操作需要 $O(n \log n)$ 的时间，其中 $n$ 是初始任务的数量。每个添加、编辑、删除和执行操作都需要 $O(\log m)$ 的时间，其中 $m$ 是当前系统中的任务数量。由于总操作次数不超过 $2 \times 10^5$，因此整体时间复杂度是可接受的。空间复杂度 $O(n + m)$，用于存储哈希表和有序集合。
 
 <!-- tabs:start -->
 
@@ -249,7 +263,140 @@ public:
 #### Go
 
 ```go
+type TaskManager struct {
+	d  map[int][2]int
+	st *redblacktree.Tree[int, int]
+}
 
+func encode(priority, taskId int) int {
+	return (priority << 32) | taskId
+}
+
+func comparator(a, b int) int {
+	if a > b {
+		return -1
+	} else if a < b {
+		return 1
+	}
+	return 0
+}
+
+func Constructor(tasks [][]int) TaskManager {
+	tm := TaskManager{
+		d:  make(map[int][2]int),
+		st: redblacktree.NewWith[int, int](comparator),
+	}
+	for _, task := range tasks {
+		tm.Add(task[0], task[1], task[2])
+	}
+	return tm
+}
+
+func (this *TaskManager) Add(userId int, taskId int, priority int) {
+	this.d[taskId] = [2]int{userId, priority}
+	this.st.Put(encode(priority, taskId), taskId)
+}
+
+func (this *TaskManager) Edit(taskId int, newPriority int) {
+	if e, ok := this.d[taskId]; ok {
+		priority := e[1]
+		this.st.Remove(encode(priority, taskId))
+		this.d[taskId] = [2]int{e[0], newPriority}
+		this.st.Put(encode(newPriority, taskId), taskId)
+	}
+}
+
+func (this *TaskManager) Rmv(taskId int) {
+	if e, ok := this.d[taskId]; ok {
+		priority := e[1]
+		delete(this.d, taskId)
+		this.st.Remove(encode(priority, taskId))
+	}
+}
+
+func (this *TaskManager) ExecTop() int {
+	if this.st.Empty() {
+		return -1
+	}
+	it := this.st.Iterator()
+	it.Next()
+	taskId := it.Value()
+	if e, ok := this.d[taskId]; ok {
+		delete(this.d, taskId)
+		this.st.Remove(it.Key())
+		return e[0]
+	}
+	return -1
+}
+
+/**
+ * Your TaskManager object will be instantiated and called as such:
+ * obj := Constructor(tasks);
+ * obj.Add(userId,taskId,priority);
+ * obj.Edit(taskId,newPriority);
+ * obj.Rmv(taskId);
+ * param_4 := obj.ExecTop();
+ */
+```
+
+#### TypeScript
+
+```ts
+class TaskManager {
+    private d: Map<number, [number, number]>;
+    private pq: PriorityQueue<[number, number]>;
+
+    constructor(tasks: number[][]) {
+        this.d = new Map();
+        this.pq = new PriorityQueue<[number, number]>((a, b) => {
+            if (a[0] === b[0]) {
+                return b[1] - a[1];
+            }
+            return b[0] - a[0];
+        });
+        for (const task of tasks) {
+            this.add(task[0], task[1], task[2]);
+        }
+    }
+
+    add(userId: number, taskId: number, priority: number): void {
+        this.d.set(taskId, [userId, priority]);
+        this.pq.enqueue([priority, taskId]);
+    }
+
+    edit(taskId: number, newPriority: number): void {
+        const e = this.d.get(taskId);
+        if (!e) return;
+        const userId = e[0];
+        this.d.set(taskId, [userId, newPriority]);
+        this.pq.enqueue([newPriority, taskId]);
+    }
+
+    rmv(taskId: number): void {
+        this.d.delete(taskId);
+    }
+
+    execTop(): number {
+        while (!this.pq.isEmpty()) {
+            const [priority, taskId] = this.pq.dequeue();
+            const e = this.d.get(taskId);
+            if (e && e[1] === priority) {
+                this.d.delete(taskId);
+                return e[0];
+            }
+        }
+        return -1;
+    }
+}
+
+/**
+ * Your TaskManager object will be instantiated and called as such:
+ * var obj = new TaskManager(tasks)
+ * obj.add(userId,taskId,priority)
+ * obj.edit(taskId,newPriority)
+ * obj.rmv(taskId)
+ * var param_4 = obj.execTop()
+ */
 ```
 
 <!-- tabs:end -->

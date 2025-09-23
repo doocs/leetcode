@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README.md
+rating: 2647
+source: 第 465 场周赛 Q4
 ---
 
 <!-- problem:start -->

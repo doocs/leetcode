@@ -62,14 +62,11 @@ tags:
 
 ### 方法一：排序 + 贪心
 
-> 三角形由三条边组成，且满足 <var>C</var> >= <var>B</var> && <var>C</var> >= <var>A</var> && <var>C</var> < <var>A</var> + <var>B</var>
+我们不妨假设三角形的三条边长分别为 $a \leq b \leq c$，则三角形的面积不为零等价于 $a + b \gt c$。
 
-贪心策略，尽可能使用长边来组成三角形。
+我们可以枚举最大的边长 $c$，然后从剩下的边长中选取两个最大的边长 $a$ 和 $b$，如果 $a + b \gt c$，则可以构成一个面积不为零的三角形，且该三角形的周长最大；否则继续枚举下一个最大的边长 $c$。
 
-1. 对 `nums` 排序（从大到小）。
-2. 遍历 `nums`，以三个元素一组，进行条件判断，如滑动窗口一般。
-3. 当找到满足条件的三个元素时直接返回即可。
-4. 否则，在遍历结束时返回 0。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -108,10 +105,12 @@ class Solution {
 class Solution {
 public:
     int largestPerimeter(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        for (int i = nums.size() - 1; i >= 2; --i) {
+        ranges::sort(nums);
+        for (int i = nums.size() - 1; i > 1; --i) {
             int c = nums[i - 1] + nums[i - 2];
-            if (c > nums[i]) return c + nums[i];
+            if (c > nums[i]) {
+                return c + nums[i];
+            }
         }
         return 0;
     }
@@ -124,8 +123,7 @@ public:
 func largestPerimeter(nums []int) int {
 	sort.Ints(nums)
 	for i := len(nums) - 1; i >= 2; i-- {
-		c := nums[i-1] + nums[i-2]
-		if c > nums[i] {
+		if c := nums[i-1] + nums[i-2]; c > nums[i] {
 			return c + nums[i]
 		}
 	}
@@ -137,11 +135,10 @@ func largestPerimeter(nums []int) int {
 
 ```ts
 function largestPerimeter(nums: number[]): number {
-    const n = nums.length;
-    nums.sort((a, b) => b - a);
-    for (let i = 2; i < n; i++) {
-        const [a, b, c] = [nums[i - 2], nums[i - 1], nums[i]];
-        if (a < b + c) {
+    nums.sort((a, b) => a - b);
+    for (let i = nums.length - 1; i > 1; --i) {
+        const [a, b, c] = nums.slice(i - 2, i + 1);
+        if (a + b > c) {
             return a + b + c;
         }
     }

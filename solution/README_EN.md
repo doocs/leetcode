@@ -3680,6 +3680,26 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3669  |  [Balanced K-Factor Decomposition](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README_EN.md)  |    |  Medium  |  Weekly Contest 465  |
 |  3670  |  [Maximum Product of Two Integers With No Common Bits](/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md)  |    |  Medium  |  Weekly Contest 465  |
 |  3671  |  [Sum of Beautiful Subsequences](/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 465  |
+|  3672  |  [Sum of Weighted Modes in Subarrays](/solution/3600-3699/3672.Sum%20of%20Weighted%20Modes%20in%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
+|  3673  |  [Find Zombie Sessions](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README_EN.md)  |    |  Hard  |    |
+|  3674  |  [Minimum Operations to Equalize Array](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 466  |
+|  3675  |  [Minimum Operations to Transform String](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 466  |
+|  3676  |  [Count Bowl Subarrays](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 466  |
+|  3677  |  [Count Binary Palindromic Numbers](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README_EN.md)  |    |  Hard  |  Weekly Contest 466  |
+|  3678  |  [Smallest Absent Positive Greater Than Average](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README_EN.md)  |    |  Easy  |  Biweekly Contest 165  |
+|  3679  |  [Minimum Discards to Balance Inventory](/solution/3600-3699/3679.Minimum%20Discards%20to%20Balance%20Inventory/README_EN.md)  |    |  Medium  |  Biweekly Contest 165  |
+|  3680  |  [Generate Schedule](/solution/3600-3699/3680.Generate%20Schedule/README_EN.md)  |    |  Medium  |  Biweekly Contest 165  |
+|  3681  |  [Maximum XOR of Subsequences](/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README_EN.md)  |    |  Hard  |  Biweekly Contest 165  |
+|  3682  |  [Minimum Index Sum of Common Elements](/solution/3600-3699/3682.Minimum%20Index%20Sum%20of%20Common%20Elements/README_EN.md)  |    |  Medium  |  🔒  |
+|  3683  |  [Earliest Time to Finish One Task](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README_EN.md)  |    |  Easy  |  Weekly Contest 467  |
+|  3684  |  [Maximize Sum of At Most K Distinct Elements](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 467  |
+|  3685  |  [Subsequence Sum After Capping Elements](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 467  |
+|  3686  |  [Number of Stable Subsequences](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 467  |
+|  3687  |  [Library Late Fee Calculator](/solution/3600-3699/3687.Library%20Late%20Fee%20Calculator/README_EN.md)  |    |  Easy  |  🔒  |
+|  3688  |  [Bitwise OR of Even Numbers in an Array](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 468  |
+|  3689  |  [Maximum Total Subarray Value I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 468  |
+|  3690  |  [Split and Merge Array Transformation](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README_EN.md)  |    |  Medium  |  Weekly Contest 468  |
+|  3691  |  [Maximum Total Subarray Value II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 468  |
 
 ## Copyright
 

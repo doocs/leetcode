@@ -37,33 +37,35 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>phrases = [&quot;writing code&quot;,&quot;code rocks&quot;]
-<strong>输出：</strong>[&quot;writing code rocks&quot;]
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>phrases = ["writing code","code rocks"]</p>
+
+<p><strong>输出：</strong>["writing code rocks"]</p>
+</div>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>phrases = [&quot;mission statement&quot;,
-                &quot;a quick bite to eat&quot;,
-&nbsp;               &quot;a chip off the old block&quot;,
-&nbsp;               &quot;chocolate bar&quot;,
-&nbsp;               &quot;mission impossible&quot;,
-&nbsp;               &quot;a man on a mission&quot;,
-&nbsp;               &quot;block party&quot;,
-&nbsp;               &quot;eat my words&quot;,
-&nbsp;               &quot;bar of soap&quot;]
-<strong>输出：</strong>[&quot;a chip off the old block party&quot;,
-&nbsp;     &quot;a man on a mission impossible&quot;,
-&nbsp;     &quot;a man on a mission statement&quot;,
-&nbsp;     &quot;a quick bite to eat my words&quot;,
-      &quot;chocolate bar of soap&quot;]
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>phrases = ["mission statement", "a quick bite to eat", &nbsp; "a chip off the old block", &nbsp; "chocolate bar", &nbsp; "mission impossible", &nbsp; "a man on a mission", &nbsp; "block party", &nbsp; "eat my words", &nbsp; "bar of soap"]</p>
+
+<p><strong>输出：</strong>["a chip off the old block party", &nbsp; "a man on a mission impossible", &nbsp; "a man on a mission statement", &nbsp; "a quick bite to eat my words", "chocolate bar of soap"]</p>
+</div>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>phrases = [&quot;a&quot;,&quot;b&quot;,&quot;a&quot;]
-<strong>输出：</strong>[&quot;a&quot;]
-</pre>
+<div class="example-block">
+<p><strong>输入：</strong>phrases = ["a","b","a"]</p>
+
+<p><strong>输出：</strong>["a"]</p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>phrases = ["ab ba","ba ab","ab ba"]</span></p>
+
+<p><span class="example-io"><b>输出：</b>["ab ba ab","ba ab ba"]</span></p>
+</div>
 
 <p>&nbsp;</p>
 

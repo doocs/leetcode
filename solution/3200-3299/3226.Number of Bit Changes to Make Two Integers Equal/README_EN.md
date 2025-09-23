@@ -137,6 +137,30 @@ function bitCount(i: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_changes(n: i32, k: i32) -> i32 {
+        if (n & k) != k {
+            -1
+        } else {
+            (n ^ k).count_ones() as i32
+        }
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinChanges(int n, int k) {
+        return (n & k) != k ? -1 : BitOperations.PopCount((uint)(n ^ k));
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

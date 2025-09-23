@@ -169,6 +169,78 @@ function maxFrequencyElements(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_frequency_elements(nums: Vec<i32>) -> i32 {
+        let mut cnt = [0; 101];
+        for &x in &nums {
+            cnt[x as usize] += 1;
+        }
+        let mut ans = 0;
+        let mut mx = -1;
+        for &x in &cnt {
+            if mx < x {
+                mx = x;
+                ans = x;
+            } else if mx == x {
+                ans += x;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxFrequencyElements = function (nums) {
+    const cnt = new Array(101).fill(0);
+    for (const x of nums) {
+        ++cnt[x];
+    }
+    let [ans, mx] = [0, -1];
+    for (const x of cnt) {
+        if (mx < x) {
+            mx = x;
+            ans = x;
+        } else if (mx === x) {
+            ans += x;
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxFrequencyElements(int[] nums) {
+        int[] cnt = new int[101];
+        foreach (int x in nums) {
+            ++cnt[x];
+        }
+        int ans = 0, mx = -1;
+        foreach (int x in cnt) {
+            if (mx < x) {
+                mx = x;
+                ans = x;
+            } else if (mx == x) {
+                ans += x;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

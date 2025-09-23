@@ -36,6 +36,14 @@ tags:
 <strong>输出：</strong>[[1,5]]
 <strong>解释：</strong>区间 [1,4] 和 [4,5] 可被视为重叠区间。</pre>
 
+<p><strong class="example">示例 3：</strong></p>
+
+<pre>
+<b>输入：</b>intervals = [[4,7],[1,4]]
+<b>输出：</b>[[1,7]]
+<b>解释：</b>区间 [1,4] 和 [4,7] 可被视为重叠区间。
+</pre>
+
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>

@@ -169,6 +169,31 @@ func maxFreqSum(s string) int {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn max_freq_sum(s: String) -> i32 {
+        let mut cnt: HashMap<char, i32> = HashMap::new();
+        for c in s.chars() {
+            *cnt.entry(c).or_insert(0) += 1;
+        }
+        let mut a = 0;
+        let mut b = 0;
+        for (c, v) in cnt {
+            if "aeiou".contains(c) {
+                a = a.max(v);
+            } else {
+                b = b.max(v);
+            }
+        }
+        a + b
+    }
+}
+```
+
 #### TypeScript
 
 ```ts
@@ -187,6 +212,29 @@ function maxFreqSum(s: string): number {
         }
     }
     return a + b;
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxFreqSum(string s) {
+        int[] cnt = new int[26];
+        foreach (char c in s) {
+            cnt[c - 'a']++;
+        }
+        int a = 0, b = 0;
+        for (int i = 0; i < 26; i++) {
+            char c = (char)('a' + i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                a = Math.Max(a, cnt[i]);
+            } else {
+                b = Math.Max(b, cnt[i]);
+            }
+        }
+        return a + b;
+    }
 }
 ```
 

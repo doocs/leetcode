@@ -29,6 +29,34 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 468
+
+- [3688. Bitwise OR of Even Numbers in an Array](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md)
+- [3689. Maximum Total Subarray Value I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README_EN.md)
+- [3690. Split and Merge Array Transformation](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README_EN.md)
+- [3691. Maximum Total Subarray Value II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md)
+
+#### Weekly Contest 467
+
+- [3683. Earliest Time to Finish One Task](/solution/3600-3699/3683.Earliest%20Time%20to%20Finish%20One%20Task/README_EN.md)
+- [3684. Maximize Sum of At Most K Distinct Elements](/solution/3600-3699/3684.Maximize%20Sum%20of%20At%20Most%20K%20Distinct%20Elements/README_EN.md)
+- [3685. Subsequence Sum After Capping Elements](/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README_EN.md)
+- [3686. Number of Stable Subsequences](/solution/3600-3699/3686.Number%20of%20Stable%20Subsequences/README_EN.md)
+
+#### Biweekly Contest 165
+
+- [3678. Smallest Absent Positive Greater Than Average](/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README_EN.md)
+- [3679. Minimum Discards to Balance Inventory](/solution/3600-3699/3679.Minimum%20Discards%20to%20Balance%20Inventory/README_EN.md)
+- [3680. Generate Schedule](/solution/3600-3699/3680.Generate%20Schedule/README_EN.md)
+- [3681. Maximum XOR of Subsequences](/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README_EN.md)
+
+#### Weekly Contest 466
+
+- [3674. Minimum Operations to Equalize Array](/solution/3600-3699/3674.Minimum%20Operations%20to%20Equalize%20Array/README_EN.md)
+- [3675. Minimum Operations to Transform String](/solution/3600-3699/3675.Minimum%20Operations%20to%20Transform%20String/README_EN.md)
+- [3676. Count Bowl Subarrays](/solution/3600-3699/3676.Count%20Bowl%20Subarrays/README_EN.md)
+- [3677. Count Binary Palindromic Numbers](/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README_EN.md)
+
 #### Weekly Contest 465
 
 - [3668. Restore Finishing Order](/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md)
