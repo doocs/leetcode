@@ -65,14 +65,14 @@ tags:
 
 ### Solution 1: Simulation
 
-We can drink all the full water bottles at the beginning, so the initial amount of water we drink is `numBottles`. Then we continuously perform the following operations:
+We can drink all the full water bottles at the beginning, so initially the amount of water we drink is $\textit{numBottles}$. Then, we repeatedly perform the following operations:
 
--   If we currently have `numExchange` empty water bottles, we can exchange them for a full water bottle, after which the value of `numExchange` increases by 1. Then, we drink this bottle of water, the amount of water we drink increases by $1$, and the number of empty water bottles increases by $1$.
--   If we currently do not have `numExchange` empty water bottles, then we can no longer exchange for water, at which point we can stop the operation.
+-   If we currently have $\textit{numExchange}$ empty bottles, we can exchange them for one full bottle. After the exchange, the value of $\textit{numExchange}$ increases by $1$. Then, we drink this bottle, increasing the total amount of water drunk by $1$, and the number of empty bottles increases by $1$.
+-   If we do not have $\textit{numExchange}$ empty bottles, we cannot exchange for more water and should stop.
 
-We continuously perform the above operations until we can no longer exchange for water. The final amount of water we drink is the answer.
+We repeat the above process until we can no longer exchange bottles. The total amount of water drunk is the answer.
 
-The time complexity is $O(\sqrt{numBottles})$ and the space complexity is $O(1)$.
+The time complexity is $O(\sqrt{n})$, where $n$ is the initial number of full bottles. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -170,6 +170,45 @@ impl Solution {
         }
 
         ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxBottlesDrunk(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange) {
+            numBottles -= numExchange;
+            ++numExchange;
+            ++ans;
+            ++numBottles;
+        }
+        return ans;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer $numBottles
+     * @param Integer $numExchange
+     * @return Integer
+     */
+    function maxBottlesDrunk($numBottles, $numExchange) {
+        $ans = $numBottles;
+        while ($numBottles >= $numExchange) {
+            $numBottles -= $numExchange;
+            $numExchange++;
+            $ans++;
+            $numBottles++;
+        }
+        return $ans;
     }
 }
 ```
