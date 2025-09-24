@@ -73,16 +73,10 @@ tags:
 我们定义 $f[i][j]$ 表示从三角形底部走到位置 $(i, j)$ 的最小路径和。这里的位置 $(i, j)$ 指的是三角形中第 $i$ 行第 $j$ 列（均从 $0$ 开始编号）的位置。那么我们有如下的状态转移方程：
 
 $$
-f[i][j] = \min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j]
+f[i][j] = \min(f[i + 1][j], f[i + 1][j + 1]) + \text{triangle}[i][j]
 $$
 
 答案即为 $f[0][0]$。
-
-我们注意到，状态 $f[i][j]$ 仅与状态 $f[i + 1][j]$ 和状态 $f[i + 1][j + 1]$ 有关，因此我们可以使用一维数组代替二维数组，将空间复杂度从 $O(n^2)$ 降低至 $O(n)$。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是三角形的行数。
-
-更进一步，我们还可以直接复用 $triangle$ 作为 $f$ 数组，这样就无需再额外创建 $f$ 数组，空间复杂度降低至 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -97,6 +91,118 @@ class Solution:
             for j in range(i + 1):
                 f[i][j] = min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j]
         return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        int[][] f = new int[n + 1][n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j <= i; ++j) {
+                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle.get(i).get(j);
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        vector<vector<int>> f(n + 1, vector<int>(n + 1, 0));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j <= i; ++j) {
+                f[i][j] = min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumTotal(triangle [][]int) int {
+	n := len(triangle)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j <= i; j++ {
+			f[i][j] = min(f[i+1][j], f[i+1][j+1]) + triangle[i][j]
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumTotal(triangle: number[][]): number {
+    const n = triangle.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 0; j <= i; ++j) {
+            f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle[i][j];
+        }
+    }
+    return f[0][0];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_total(triangle: Vec<Vec<i32>>) -> i32 {
+        let n = triangle.len();
+        let mut f = vec![vec![0; n + 1]; n + 1];
+        for i in (0..n).rev() {
+            for j in 0..=i {
+                f[i][j] = f[i + 1][j].min(f[i + 1][j + 1]) + triangle[i][j];
+            }
+        }
+        f[0][0]
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划（空间优化）
+
+我们注意到，状态 $f[i][j]$ 仅与状态 $f[i + 1][j]$ 和状态 $f[i + 1][j + 1]$ 有关，因此我们可以使用一维数组代替二维数组，将空间复杂度从 $O(n^2)$ 降低至 $O(n)$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是三角形的行数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        n = len(triangle)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1):
+                f[j] = min(f[j], f[j + 1]) + triangle[i][j]
+        return f[0]
 ```
 
 #### Java
@@ -123,9 +229,8 @@ class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        for (int i = n - 1; ~i; --i) {
+        vector<int> f(n + 1, 0);
+        for (int i = n - 1; i >= 0; --i) {
             for (int j = 0; j <= i; ++j) {
                 f[j] = min(f[j], f[j + 1]) + triangle[i][j];
             }
@@ -156,7 +261,7 @@ func minimumTotal(triangle [][]int) int {
 function minimumTotal(triangle: number[][]): number {
     const n = triangle.length;
     const f: number[] = Array(n + 1).fill(0);
-    for (let i = n - 1; ~i; --i) {
+    for (let i = n - 1; i >= 0; --i) {
         for (let j = 0; j <= i; ++j) {
             f[j] = Math.min(f[j], f[j + 1]) + triangle[i][j];
         }
@@ -180,128 +285,6 @@ impl Solution {
         f[0]
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimumTotal(self, triangle: List[List[int]]) -> int:
-        n = len(triangle)
-        f = [0] * (n + 1)
-        for i in range(n - 1, -1, -1):
-            for j in range(i + 1):
-                f[j] = min(f[j], f[j + 1]) + triangle[i][j]
-        return f[0]
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minimumTotal(List<List<Integer>> triangle) {
-        for (int i = triangle.size() - 2; i >= 0; --i) {
-            for (int j = 0; j <= i; ++j) {
-                int x = triangle.get(i).get(j);
-                int y = Math.min(triangle.get(i + 1).get(j), triangle.get(i + 1).get(j + 1));
-                triangle.get(i).set(j, x + y);
-            }
-        }
-        return triangle.get(0).get(0);
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int minimumTotal(vector<vector<int>>& triangle) {
-        for (int i = triangle.size() - 2; ~i; --i) {
-            for (int j = 0; j <= i; ++j) {
-                triangle[i][j] += min(triangle[i + 1][j], triangle[i + 1][j + 1]);
-            }
-        }
-        return triangle[0][0];
-    }
-};
-```
-
-#### Go
-
-```go
-func minimumTotal(triangle [][]int) int {
-	for i := len(triangle) - 2; i >= 0; i-- {
-		for j := 0; j <= i; j++ {
-			triangle[i][j] += min(triangle[i+1][j], triangle[i+1][j+1])
-		}
-	}
-	return triangle[0][0]
-}
-```
-
-#### TypeScript
-
-```ts
-function minimumTotal(triangle: number[][]): number {
-    for (let i = triangle.length - 2; ~i; --i) {
-        for (let j = 0; j <= i; ++j) {
-            triangle[i][j] += Math.min(triangle[i + 1][j], triangle[i + 1][j + 1]);
-        }
-    }
-    return triangle[0][0];
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn minimum_total(triangle: Vec<Vec<i32>>) -> i32 {
-        let mut triangle = triangle;
-        for i in (0..triangle.len() - 1).rev() {
-            for j in 0..=i {
-                triangle[i][j] += triangle[i + 1][j].min(triangle[i + 1][j + 1]);
-            }
-        }
-        triangle[0][0]
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimumTotal(self, triangle: List[List[int]]) -> int:
-        n = len(triangle)
-        for i in range(n - 2, -1, -1):
-            for j in range(i + 1):
-                triangle[i][j] = (
-                    min(triangle[i + 1][j], triangle[i + 1][j + 1]) + triangle[i][j]
-                )
-        return triangle[0][0]
 ```
 
 <!-- tabs:end -->
