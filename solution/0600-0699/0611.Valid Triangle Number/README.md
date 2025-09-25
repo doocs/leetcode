@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>输入:</strong> nums = [2,2,3,4]
 <strong>输出:</strong> 3
-<strong>解释:</strong>有效的组合是: 
+<strong>解释:</strong>有效的组合是:
 2,3,4 (使用第一个 2)
 2,3,4 (使用第二个 2)
 2,2,3
@@ -58,13 +58,19 @@ tags:
 
 ### 方法一：排序 + 二分查找
 
-一个有效三角形需要满足：**任意两边之和大于第三边**。即：`a + b > c`①, `a + c > b`②, `b + c > a`③。
+一个有效三角形需要满足：**任意两边之和大于第三边**。即：
 
-如果我们将边按从小到大顺序排列，即 `a < b < c`，那么显然 ②③ 成立，我们只需要确保 ① 也成立，就可以形成一个有效三角形。
+$$a + b \gt c \tag{1}$$
 
-我们在 `[0, n - 3]` 范围内枚举 i，在 `[i + 1, n - 2]` 范围内枚举 j，在 `[j + 1, n - 1]` 范围内进行二分查找，找出第一个大于等于 `nums[i] + nums[j]` 的下标 left，那么在 `[j + 1, left - 1]` 范围内的 k 满足条件，将其累加到结果 ans。
+$$a + c \gt b \tag{2}$$
 
-时间复杂度：$O(n^2\log n)$。
+$$b + c \gt a \tag{3}$$
+
+如果我们将边按从小到大顺序排列，即 $a \leq b \leq c$，那么显然 (2)(3) 成立，我们只需要确保 (1) 也成立，就可以形成一个有效三角形。
+
+我们在 $[0, n - 3]$ 范围内枚举 i，在 $[i + 1, n - 2]$ 范围内枚举 j，在 $[j + 1, n - 1]$ 范围内进行二分查找，找出第一个大于等于 $nums[i] + nums[j]$ 的下标 left，那么在 $[j + 1, left - 1]$ 范围内的 k 满足条件，将其累加到结果 $\textit{ans}$。
+
+时间复杂度 $O(n^2\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -88,131 +94,6 @@ class Solution:
 class Solution {
     public int triangleNumber(int[] nums) {
         Arrays.sort(nums);
-        int n = nums.length;
-        int res = 0;
-        for (int i = n - 1; i >= 2; --i) {
-            int l = 0, r = i - 1;
-            while (l < r) {
-                if (nums[l] + nums[r] > nums[i]) {
-                    res += r - l;
-                    --r;
-                } else {
-                    ++l;
-                }
-            }
-        }
-        return res;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int triangleNumber(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        int ans = 0, n = nums.size();
-        for (int i = 0; i < n - 2; ++i) {
-            for (int j = i + 1; j < n - 1; ++j) {
-                int k = lower_bound(nums.begin() + j + 1, nums.end(), nums[i] + nums[j]) - nums.begin() - 1;
-                ans += k - j;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func triangleNumber(nums []int) int {
-	sort.Ints(nums)
-	ans := 0
-	for i, n := 0, len(nums); i < n-2; i++ {
-		for j := i + 1; j < n-1; j++ {
-			left, right := j+1, n
-			for left < right {
-				mid := (left + right) >> 1
-				if nums[mid] >= nums[i]+nums[j] {
-					right = mid
-				} else {
-					left = mid + 1
-				}
-			}
-			ans += left - j - 1
-		}
-	}
-	return ans
-}
-```
-
-#### TypeScript
-
-```ts
-function triangleNumber(nums: number[]): number {
-    nums.sort((a, b) => a - b);
-    let n = nums.length;
-    let ans = 0;
-    for (let i = n - 1; i >= 2; i--) {
-        let left = 0,
-            right = i - 1;
-        while (left < right) {
-            if (nums[left] + nums[right] > nums[i]) {
-                ans += right - left;
-                right--;
-            } else {
-                left++;
-            }
-        }
-    }
-    return ans;
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn triangle_number(mut nums: Vec<i32>) -> i32 {
-        nums.sort();
-        let n = nums.len();
-        let mut res = 0;
-        for i in (2..n).rev() {
-            let mut left = 0;
-            let mut right = i - 1;
-            while left < right {
-                if nums[left] + nums[right] > nums[i] {
-                    res += right - left;
-                    right -= 1;
-                } else {
-                    left += 1;
-                }
-            }
-        }
-        res as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-    public int triangleNumber(int[] nums) {
-        Arrays.sort(nums);
         int ans = 0;
         for (int i = 0, n = nums.length; i < n - 2; ++i) {
             for (int j = i + 1; j < n - 1; ++j) {
@@ -229,6 +110,98 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int triangleNumber(vector<int>& nums) {
+        ranges::sort(nums);
+        int ans = 0, n = nums.size();
+        for (int i = 0; i < n - 2; ++i) {
+            for (int j = i + 1; j < n - 1; ++j) {
+                int sum = nums[i] + nums[j];
+                auto it = ranges::lower_bound(nums.begin() + j + 1, nums.end(), sum);
+                int k = int(it - nums.begin()) - 1;
+                ans += max(0, k - j);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func triangleNumber(nums []int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	ans := 0
+	for i := 0; i < n-2; i++ {
+		for j := i + 1; j < n-1; j++ {
+			sum := nums[i] + nums[j]
+			k := sort.SearchInts(nums[j+1:], sum) + j + 1 - 1
+			if k > j {
+				ans += k - j
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function triangleNumber(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n - 2; i++) {
+        for (let j = i + 1; j < n - 1; j++) {
+            const sum = nums[i] + nums[j];
+            let k = _.sortedIndex(nums, sum, j + 1) - 1;
+            if (k > j) {
+                ans += k - j;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn triangle_number(mut nums: Vec<i32>) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let mut ans = 0;
+        for i in 0..n.saturating_sub(2) {
+            for j in i + 1..n.saturating_sub(1) {
+                let sum = nums[i] + nums[j];
+                let mut left = j + 1;
+                let mut right = n;
+                while left < right {
+                    let mid = (left + right) / 2;
+                    if nums[mid] < sum {
+                        left = mid + 1;
+                    } else {
+                        right = mid;
+                    }
+                }
+                if left > j + 1 {
+                    ans += (left - 1 - j) as i32;
+                }
+            }
+        }
+        ans
     }
 }
 ```
