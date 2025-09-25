@@ -2,19 +2,25 @@ impl Solution {
     pub fn triangle_number(mut nums: Vec<i32>) -> i32 {
         nums.sort();
         let n = nums.len();
-        let mut res = 0;
-        for i in (2..n).rev() {
-            let mut left = 0;
-            let mut right = i - 1;
-            while left < right {
-                if nums[left] + nums[right] > nums[i] {
-                    res += right - left;
-                    right -= 1;
-                } else {
-                    left += 1;
+        let mut ans = 0;
+        for i in 0..n.saturating_sub(2) {
+            for j in i + 1..n.saturating_sub(1) {
+                let sum = nums[i] + nums[j];
+                let mut left = j + 1;
+                let mut right = n;
+                while left < right {
+                    let mid = (left + right) / 2;
+                    if nums[mid] < sum {
+                        left = mid + 1;
+                    } else {
+                        right = mid;
+                    }
+                }
+                if left > j + 1 {
+                    ans += (left - 1 - j) as i32;
                 }
             }
         }
-        res as i32
+        ans
     }
 }
