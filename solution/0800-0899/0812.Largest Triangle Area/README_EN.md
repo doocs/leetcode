@@ -51,7 +51,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution: Enumerate Triangle Area Formula
+
+Given three points $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ on a plane, the area formula is:
+
+$$S = \frac{1}{2} \left| x_1y_2 + x_2y_3 + x_3y_1 - x_1y_3 - x_2y_1 - x_3y_2 \right|$$
+
+We can enumerate all combinations of three points and calculate the maximum area.
+
+The time complexity is $O(n^3)$, where $n$ is the number of points. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -146,6 +154,53 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function largestTriangleArea(points: number[][]): number {
+    let ans = 0;
+    for (const [x1, y1] of points) {
+        for (const [x2, y2] of points) {
+            for (const [x3, y3] of points) {
+                const u1 = x2 - x1,
+                    v1 = y2 - y1;
+                const u2 = x3 - x1,
+                    v2 = y3 - y1;
+                const t = Math.abs(u1 * v2 - u2 * v1) / 2;
+                ans = Math.max(ans, t);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn largest_triangle_area(points: Vec<Vec<i32>>) -> f64 {
+        let mut ans: f64 = 0.0;
+        for point1 in &points {
+            let (x1, y1) = (point1[0], point1[1]);
+            for point2 in &points {
+                let (x2, y2) = (point2[0], point2[1]);
+                for point3 in &points {
+                    let (x3, y3) = (point3[0], point3[1]);
+                    let u1 = x2 - x1;
+                    let v1 = y2 - y1;
+                    let u2 = x3 - x1;
+                    let v2 = y3 - y1;
+                    let t = ((u1 * v2 - u2 * v1) as f64).abs() / 2.0;
+                    ans = ans.max(t);
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
