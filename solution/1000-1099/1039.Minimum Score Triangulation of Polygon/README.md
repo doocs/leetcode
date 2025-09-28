@@ -148,9 +148,8 @@ class Solution {
 public:
     int minScoreTriangulation(vector<int>& values) {
         int n = values.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
+        vector<vector<int>> f(n, vector<int>(n));
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i + 1 == j) {
                 return 0;
             }
@@ -302,8 +301,7 @@ class Solution {
 public:
     int minScoreTriangulation(vector<int>& values) {
         int n = values.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n));
         for (int i = n - 3; i >= 0; --i) {
             for (int j = i + 2; j < n; ++j) {
                 f[i][j] = 1 << 30;
@@ -413,8 +411,7 @@ class Solution {
 public:
     int minScoreTriangulation(vector<int>& values) {
         int n = values.size();
-        int f[n][n];
-        memset(f, 0, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n));
         for (int l = 3; l <= n; ++l) {
             for (int i = 0; i + l - 1 < n; ++i) {
                 int j = i + l - 1;
