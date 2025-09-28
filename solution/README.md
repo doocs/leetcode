@@ -3702,6 +3702,15 @@
 |  3689  |  [最大子数组总值 I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README.md)  |    |  中等  |  第 468 场周赛  |
 |  3690  |  [拆分合并数组](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README.md)  |    |  中等  |  第 468 场周赛  |
 |  3691  |  [最大子数组总值 II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README.md)  |    |  困难  |  第 468 场周赛  |
+|  3692  |  [众数频率字符](/solution/3600-3699/3692.Majority%20Frequency%20Characters/README.md)  |    |  简单  |  第 166 场双周赛  |
+|  3693  |  [爬楼梯 II](/solution/3600-3699/3693.Climbing%20Stairs%20II/README.md)  |    |  中等  |  第 166 场双周赛  |
+|  3694  |  [删除子字符串后不同的终点](/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README.md)  |    |  中等  |  第 166 场双周赛  |
+|  3695  |  [交换元素后的最大交替和](/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README.md)  |    |  困难  |  第 166 场双周赛  |
+|  3696  |  [Maximum Distance Between Unequal Words in Array I](/solution/3600-3699/3696.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20I/README.md)  |    |  简单  |  🔒  |
+|  3697  |  [计算十进制表示](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md)  |    |  简单  |  第 469 场周赛  |
+|  3698  |  [分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)  |    |  中等  |  第 469 场周赛  |
+|  3699  |  [ZigZag 数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)  |    |  困难  |  第 469 场周赛  |
+|  3700  |  [ZigZag 数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)  |    |  困难  |  第 469 场周赛  |
 
 ## 版权
 

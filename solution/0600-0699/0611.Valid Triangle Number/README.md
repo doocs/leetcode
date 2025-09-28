@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>输入:</strong> nums = [2,2,3,4]
 <strong>输出:</strong> 3
-<strong>解释:</strong>有效的组合是:
+<strong>解释:</strong>有效的组合是: 
 2,3,4 (使用第一个 2)
 2,3,4 (使用第二个 2)
 2,2,3

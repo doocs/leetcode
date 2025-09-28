@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README.md
+rating: 1982
+source: 第 468 场周赛 Q3
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md
+rating: 2469
+source: Weekly Contest 468 Q4
 ---
 
 <!-- problem:start -->

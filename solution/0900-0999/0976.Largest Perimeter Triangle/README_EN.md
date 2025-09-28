@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,2,1,10]
 <strong>Output:</strong> 0
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 You cannot use the side lengths 1, 1, and 2 to form a triangle.
 You cannot use the side lengths 1, 1, and 10 to form a triangle.
 You cannot use the side lengths 1, 2, and 10 to form a triangle.

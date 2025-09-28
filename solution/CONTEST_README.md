@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 469 场周赛(2025-09-28 10:30, 90 分钟) 参赛人数 1384
+
+- [3697. 计算十进制表示](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md)
+- [3698. 分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)
+- [3699. ZigZag 数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)
+- [3700. ZigZag 数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)
+
+#### 第 166 场双周赛(2025-09-27 22:30, 90 分钟) 参赛人数 1198
+
+- [3692. 众数频率字符](/solution/3600-3699/3692.Majority%20Frequency%20Characters/README.md)
+- [3693. 爬楼梯 II](/solution/3600-3699/3693.Climbing%20Stairs%20II/README.md)
+- [3694. 删除子字符串后不同的终点](/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README.md)
+- [3695. 交换元素后的最大交替和](/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README.md)
+
 #### 第 468 场周赛(2025-09-21 10:30, 90 分钟) 参赛人数 1864
 
 - [3688. 偶数的按位或运算](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README.md)
