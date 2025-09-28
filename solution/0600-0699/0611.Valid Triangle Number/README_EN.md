@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [2,2,3,4]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> Valid combinations are:
+<strong>Explanation:</strong> Valid combinations are: 
 2,3,4 (using the first 2)
 2,3,4 (using the second 2)
 2,2,3

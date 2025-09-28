@@ -3700,6 +3700,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3689  |  [Maximum Total Subarray Value I](/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 468  |
 |  3690  |  [Split and Merge Array Transformation](/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README_EN.md)  |    |  Medium  |  Weekly Contest 468  |
 |  3691  |  [Maximum Total Subarray Value II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 468  |
+|  3692  |  [Majority Frequency Characters](/solution/3600-3699/3692.Majority%20Frequency%20Characters/README_EN.md)  |    |  Easy  |  Biweekly Contest 166  |
+|  3693  |  [Climbing Stairs II](/solution/3600-3699/3693.Climbing%20Stairs%20II/README_EN.md)  |    |  Medium  |  Biweekly Contest 166  |
+|  3694  |  [Distinct Points Reachable After Substring Removal](/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README_EN.md)  |    |  Medium  |  Biweekly Contest 166  |
+|  3695  |  [Maximize Alternating Sum Using Swaps](/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README_EN.md)  |    |  Hard  |  Biweekly Contest 166  |
+|  3696  |  [Maximum Distance Between Unequal Words in Array I](/solution/3600-3699/3696.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20I/README_EN.md)  |    |  Easy  |  🔒  |
+|  3697  |  [Compute Decimal Representation](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README_EN.md)  |    |  Easy  |  Weekly Contest 469  |
+|  3698  |  [Split Array With Minimum Difference](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README_EN.md)  |    |  Medium  |  Weekly Contest 469  |
+|  3699  |  [Number of ZigZag Arrays I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 469  |
+|  3700  |  [Number of ZigZag Arrays II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 469  |
 
 ## Copyright
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3689.Maximum%20Total%20Subarray%20Value%20I/README.md
+rating: 1370
+source: 第 468 场周赛 Q2
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3690.Split%20and%20Merge%20Array%20Transformation/README_EN.md
+rating: 1982
+source: Weekly Contest 468 Q3
 ---
 
 <!-- problem:start -->

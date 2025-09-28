@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 469
+
+- [3697. Compute Decimal Representation](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README_EN.md)
+- [3698. Split Array With Minimum Difference](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README_EN.md)
+- [3699. Number of ZigZag Arrays I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README_EN.md)
+- [3700. Number of ZigZag Arrays II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README_EN.md)
+
+#### Biweekly Contest 166
+
+- [3692. Majority Frequency Characters](/solution/3600-3699/3692.Majority%20Frequency%20Characters/README_EN.md)
+- [3693. Climbing Stairs II](/solution/3600-3699/3693.Climbing%20Stairs%20II/README_EN.md)
+- [3694. Distinct Points Reachable After Substring Removal](/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README_EN.md)
+- [3695. Maximize Alternating Sum Using Swaps](/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README_EN.md)
+
 #### Weekly Contest 468
 
 - [3688. Bitwise OR of Even Numbers in an Array](/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md)
