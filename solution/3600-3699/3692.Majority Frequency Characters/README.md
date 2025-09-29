@@ -156,32 +156,156 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3692.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表
+
+我们先用一个数组或哈希表 $\textit{cnt}$ 统计字符串中每个字符的出现频率。然后，我们再用一个哈希表 $\textit{f}$，将出现频率 $k$ 相同的字符放在同一个列表中，即 $\textit{f}[k]$ 存储所有出现频率为 $k$ 的字符。
+
+接下来，我们遍历哈希表 $\textit{f}$，找到组大小最大的频率组。如果有多个频率组的大小并列最大，则选择其频率 $k$ 较大的那个组。最后，我们将该频率组中的所有字符连接成一个字符串并返回。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{s}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def majorityFrequencyGroup(self, s: str) -> str:
+        cnt = Counter(s)
+        f = defaultdict(list)
+        for c, v in cnt.items():
+            f[v].append(c)
+        mx = mv = 0
+        ans = []
+        for v, cs in f.items():
+            if mx < len(cs) or (mx == len(cs) and mv < v):
+                mx = len(cs)
+                mv = v
+                ans = cs
+        return "".join(ans)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String majorityFrequencyGroup(String s) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        Map<Integer, StringBuilder> f = new HashMap<>();
+        for (int i = 0; i < cnt.length; ++i) {
+            if (cnt[i] > 0) {
+                f.computeIfAbsent(cnt[i], k -> new StringBuilder()).append((char) ('a' + i));
+            }
+        }
+        int mx = 0;
+        int mv = 0;
+        String ans = "";
+        for (var e : f.entrySet()) {
+            int v = e.getKey();
+            var cs = e.getValue();
+            if (mx < cs.length() || (mx == cs.length() && mv < v)) {
+                mx = cs.length();
+                mv = v;
+                ans = cs.toString();
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    string majorityFrequencyGroup(string s) {
+        vector<int> cnt(26, 0);
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
 
+        unordered_map<int, string> f;
+        for (int i = 0; i < 26; ++i) {
+            if (cnt[i] > 0) {
+                f[cnt[i]].push_back('a' + i);
+            }
+        }
+
+        int mx = 0, mv = 0;
+        string ans;
+        for (auto& e : f) {
+            int v = e.first;
+            string& cs = e.second;
+            if (mx < (int) cs.size() || (mx == (int) cs.size() && mv < v)) {
+                mx = cs.size();
+                mv = v;
+                ans = cs;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func majorityFrequencyGroup(s string) string {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
 
+	f := make(map[int][]byte)
+	for i, v := range cnt {
+		if v > 0 {
+			f[v] = append(f[v], byte('a'+i))
+		}
+	}
+
+	mx, mv := 0, 0
+	var ans []byte
+	for v, cs := range f {
+		if len(cs) > mx || (len(cs) == mx && v > mv) {
+			mx = len(cs)
+			mv = v
+			ans = cs
+		}
+	}
+	return string(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function majorityFrequencyGroup(s: string): string {
+    const cnt: Record<string, number> = {};
+    for (const c of s) {
+        cnt[c] = (cnt[c] || 0) + 1;
+    }
+    const f = new Map<number, string[]>();
+    for (const [c, v] of Object.entries(cnt)) {
+        if (!f.has(v)) {
+            f.set(v, []);
+        }
+        f.get(v)!.push(c);
+    }
+    let [mx, mv] = [0, 0];
+    let ans = '';
+    f.forEach((cs, v) => {
+        if (mx < cs.length || (mx == cs.length && mv < v)) {
+            mx = cs.length;
+            mv = v;
+            ans = cs.join('');
+        }
+    });
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
