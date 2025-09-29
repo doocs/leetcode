@@ -76,32 +76,106 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3696.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+我们可以发现，最大距离的两个单词中至少有一个单词在数组的两端（即下标为 $0$ 或 $n - 1$）。否则，假设最大距离的两个单词分别在下标 $i$ 和 $j$ 处，即 $0 < i < j < n - 1$，那么单词 $\textit{words}[0]$ 和 $\textit{words}[j]$ 相同，而单词 $\textit{words}[n - 1]$ 和 $\textit{words}[i]$ 也相同（否则距离会更大），因此单词 $\textit{words}[0]$ 和 $\textit{words}[n - 1]$ 不同，且它们的距离 $n - 1 - 0 + 1 = n$ 一定大于 $j - i + 1$，与假设矛盾。因此，最大距离的两个单词中至少有一个单词在数组的两端。
+
+所以，我们只需要遍历数组，计算每个单词与数组两端单词的距离，并更新最大距离。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{words}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxDistance(self, words: List[str]) -> int:
+        n = len(words)
+        ans = 0
+        for i in range(n):
+            if words[i] != words[0]:
+                ans = max(ans, i + 1)
+            if words[i] != words[-1]:
+                ans = max(ans, n - i)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxDistance(String[] words) {
+        int n = words.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!words[i].equals(words[0])) {
+                ans = Math.max(ans, i + 1);
+            }
+            if (!words[i].equals(words[n - 1])) {
+                ans = Math.max(ans, n - i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxDistance(vector<string>& words) {
+        int n = words.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (words[i] != words[0]) {
+                ans = max(ans, i + 1);
+            }
+            if (words[i] != words[n - 1]) {
+                ans = max(ans, n - i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxDistance(words []string) int {
+	n := len(words)
+	ans := 0
+	for i := 0; i < n; i++ {
+		if words[i] != words[0] {
+			ans = max(ans, i+1)
+		}
+		if words[i] != words[n-1] {
+			ans = max(ans, n-i)
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxDistance(words: string[]): number {
+    const n = words.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        if (words[i] !== words[0]) {
+            ans = Math.max(ans, i + 1);
+        }
+        if (words[i] !== words[n - 1]) {
+            ans = Math.max(ans, n - i);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
