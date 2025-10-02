@@ -74,32 +74,115 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3697.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以不断地对 $n$ 进行取模和整除操作，取模得到的值乘以当前的位值 $p$ 就是一个 10 进制分量。如果取模的结果不为 $0$，我们就将这个分量加入答案中。然后我们将 $p$ 乘以 $10$，继续处理下一个位。
+
+最后，我们将答案反转，使其按降序排列。
+
+时间复杂度 $O(\log n)$，其中 $n$ 是输入的正整数。空间复杂度 $O(\log n)$，用于存储答案。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def decimalRepresentation(self, n: int) -> List[int]:
+        ans = []
+        p = 1
+        while n:
+            n, v = divmod(n, 10)
+            if v:
+                ans.append(p * v)
+            p *= 10
+        ans.reverse()
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] decimalRepresentation(int n) {
+        List<Integer> parts = new ArrayList<>();
+        int p = 1;
+        while (n > 0) {
+            int v = n % 10;
+            n /= 10;
+            if (v != 0) {
+                parts.add(p * v);
+            }
+            p *= 10;
+        }
+        Collections.reverse(parts);
+        int[] ans = new int[parts.size()];
+        for (int i = 0; i < parts.size(); ++i) {
+            ans[i] = parts.get(i);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> decimalRepresentation(int n) {
+        vector<int> ans;
+        long long p = 1;
+        while (n > 0) {
+            int v = n % 10;
+            n /= 10;
+            if (v != 0) {
+                ans.push_back(p * v);
+            }
+            p *= 10;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func decimalRepresentation(n int) []int {
+    ans := []int{}
+    p := 1
+    for n > 0 {
+        v := n % 10
+        n /= 10
+        if v != 0 {
+            ans = append(ans, p*v)
+        }
+        p *= 10
+    }
+    slices.Reverse(ans)
+    return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function decimalRepresentation(n: number): number[] {
+    const ans: number[] = [];
+    let p: number = 1;
+    while (n) {
+        const v = n % 10;
+        n = (n / 10) | 0;
+        if (v) {
+            ans.push(p * v);
+        }
+        p *= 10;
+    }
+    ans.reverse();
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

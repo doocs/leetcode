@@ -79,25 +79,102 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3697.Co
 #### Python3
 
 ```python
-
+class Solution:
+    def decimalRepresentation(self, n: int) -> List[int]:
+        ans = []
+        p = 1
+        while n:
+            n, v = divmod(n, 10)
+            if v:
+                ans.append(p * v)
+            p *= 10
+        ans.reverse()
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] decimalRepresentation(int n) {
+        List<Integer> parts = new ArrayList<>();
+        int p = 1;
+        while (n > 0) {
+            int v = n % 10;
+            n /= 10;
+            if (v != 0) {
+                parts.add(p * v);
+            }
+            p *= 10;
+        }
+        Collections.reverse(parts);
+        int[] ans = new int[parts.size()];
+        for (int i = 0; i < parts.size(); ++i) {
+            ans[i] = parts.get(i);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> decimalRepresentation(int n) {
+        vector<int> ans;
+        long long p = 1;
+        while (n > 0) {
+            int v = n % 10;
+            n /= 10;
+            if (v != 0) {
+                ans.push_back(p * v);
+            }
+            p *= 10;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func decimalRepresentation(n int) []int {
+    ans := []int{}
+    p := 1
+    for n > 0 {
+        v := n % 10
+        n /= 10
+        if v != 0 {
+            ans = append(ans, p*v)
+        }
+        p *= 10
+    }
+    slices.Reverse(ans)
+    return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function decimalRepresentation(n: number): number[] {
+    const ans: number[] = [];
+    let p: number = 1;
+    while (n) {
+        const v = n % 10;
+        n = (n / 10) | 0;
+        if (v) {
+            ans.push(p * v);
+        }
+        p *= 10;
+    }
+    ans.reverse();
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
