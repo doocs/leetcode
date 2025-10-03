@@ -55,7 +55,11 @@ The total volume of water trapped is 4.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Priority Queue (Min Heap)
+
+This is a variant of the trapping rain water problem. Since the heights on the matrix boundaries are fixed, we can add these boundary heights to a priority queue. Then, we repeatedly take out the minimum height from the priority queue and compare it with the heights of its four adjacent cells. If an adjacent cell's height is less than the current height, we can trap water there. The volume of trapped water is the difference between the current height and the adjacent height. We then add the larger height back to the priority queue and repeat this process until the priority queue is empty.
+
+The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -196,6 +200,43 @@ func (h hp) Less(i, j int) bool { return h[i].v < h[j].v }
 func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 func (h *hp) Push(v any)        { *h = append(*h, v.(tuple)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+#### TypeScript
+
+```ts
+function trapRainWater(heightMap: number[][]): number {
+    const m = heightMap.length;
+    const n = heightMap[0].length;
+    const vis: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
+    const pq = new MinPriorityQueue<[number, number, number]>({
+        compare: (a, b) => a[0] - b[0],
+    });
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i === 0 || i === m - 1 || j === 0 || j === n - 1) {
+                pq.enqueue([heightMap[i][j], i, j]);
+                vis[i][j] = true;
+            }
+        }
+    }
+
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    while (!pq.isEmpty()) {
+        const [h, i, j] = pq.dequeue();
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && !vis[x][y]) {
+                ans += Math.max(0, h - heightMap[x][y]);
+                vis[x][y] = true;
+                pq.enqueue([Math.max(h, heightMap[x][y]), x, y]);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

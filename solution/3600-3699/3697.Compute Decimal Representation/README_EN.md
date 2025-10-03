@@ -72,7 +72,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3697.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can repeatedly perform modulo and division operations on $n$. Each modulo result multiplied by the current position value $p$ represents a decimal component. If the modulo result is not $0$, we add this component to our answer. Then we multiply $p$ by $10$ and continue processing the next position.
+
+Finally, we reverse the answer to arrange it in descending order.
+
+The time complexity is $O(\log n)$, where $n$ is the input positive integer. The space complexity is $O(\log n)$ for storing the answer.
 
 <!-- tabs:start -->
 
