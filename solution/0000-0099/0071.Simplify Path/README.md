@@ -248,30 +248,18 @@ function simplifyPath(path: string): string {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn simplify_path(path: String) -> String {
-        let mut s: Vec<&str> = Vec::new();
-
-        // Split the path
-        let p_vec = path.split("/").collect::<Vec<&str>>();
-
-        // Traverse the path vector
-        for p in p_vec {
-            match p {
-                // Do nothing for "" or "."
-                "" | "." => {
-                    continue;
-                }
+        let mut stk = Vec::new();
+        for s in path.split('/') {
+            match s {
+                "" | "." => continue,
                 ".." => {
-                    if !s.is_empty() {
-                        s.pop();
-                    }
+                    stk.pop();
                 }
-                _ => s.push(p),
+                _ => stk.push(s),
             }
         }
-
-        "/".to_string() + &s.join("/")
+        "/".to_string() + &stk.join("/")
     }
 }
 ```
@@ -300,24 +288,6 @@ public class Solution {
         }
         return sb.Length == 0 ? "/" : sb.ToString();
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Go
-
-```go
-func simplifyPath(path string) string {
-	return filepath.Clean(path)
 }
 ```
 
