@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md
+rating: 2123
+source: 第 469 场周赛 Q3
 ---
 
 <!-- problem:start -->

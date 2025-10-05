@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 470
+
+- [3701. Compute Alternating Sum](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README_EN.md)
+- [3702. Longest Subsequence With Non-Zero Bitwise XOR](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README_EN.md)
+- [3703. Remove K-Balanced Substrings](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README_EN.md)
+- [3704. Count No-Zero Pairs That Sum to N](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README_EN.md)
+
 #### Weekly Contest 469
 
 - [3697. Compute Decimal Representation](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README_EN.md)

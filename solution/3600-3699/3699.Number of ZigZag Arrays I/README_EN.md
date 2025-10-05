@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README_EN.md
+rating: 2123
+source: Weekly Contest 469 Q3
 ---
 
 <!-- problem:start -->

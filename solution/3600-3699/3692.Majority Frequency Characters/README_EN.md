@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3692.Majority%20Frequency%20Characters/README_EN.md
+rating: 1384
+source: Biweekly Contest 166 Q1
 ---
 
 <!-- problem:start -->

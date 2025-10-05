@@ -3711,6 +3711,10 @@
 |  3698  |  [分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)  |    |  中等  |  第 469 场周赛  |
 |  3699  |  [ZigZag 数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)  |    |  困难  |  第 469 场周赛  |
 |  3700  |  [ZigZag 数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)  |    |  困难  |  第 469 场周赛  |
+|  3701  |  [计算交替和](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md)  |    |  简单  |  第 470 场周赛  |
+|  3702  |  [按位异或非零的最长子序列](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README.md)  |    |  中等  |  第 470 场周赛  |
+|  3703  |  [移除K-平衡子字符串](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md)  |    |  中等  |  第 470 场周赛  |
+|  3704  |  [统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)  |    |  困难  |  第 470 场周赛  |
 
 ## 版权
 
