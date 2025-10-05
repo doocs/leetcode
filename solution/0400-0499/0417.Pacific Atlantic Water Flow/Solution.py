@@ -1,37 +1,39 @@
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
-        def bfs(q, vis):
+        def bfs(q: Deque[Tuple[int, int]], vis: List[List[bool]]) -> None:
             while q:
-                for _ in range(len(q)):
-                    i, j = q.popleft()
-                    for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
-                        x, y = i + a, j + b
-                        if (
-                            0 <= x < m
-                            and 0 <= y < n
-                            and (x, y) not in vis
-                            and heights[x][y] >= heights[i][j]
-                        ):
-                            vis.add((x, y))
-                            q.append((x, y))
+                x, y = q.popleft()
+                for dx, dy in pairwise(dirs):
+                    nx, ny = x + dx, y + dy
+                    if (
+                        0 <= nx < m
+                        and 0 <= ny < n
+                        and not vis[nx][ny]
+                        and heights[nx][ny] >= heights[x][y]
+                    ):
+                        vis[nx][ny] = True
+                        q.append((nx, ny))
 
         m, n = len(heights), len(heights[0])
-        vis1, vis2 = set(), set()
-        q1 = deque()
-        q2 = deque()
+        vis1 = [[False] * n for _ in range(m)]
+        vis2 = [[False] * n for _ in range(m)]
+        q1: Deque[Tuple[int, int]] = deque()
+        q2: Deque[Tuple[int, int]] = deque()
+        dirs = (-1, 0, 1, 0, -1)
+
         for i in range(m):
-            for j in range(n):
-                if i == 0 or j == 0:
-                    vis1.add((i, j))
-                    q1.append((i, j))
-                if i == m - 1 or j == n - 1:
-                    vis2.add((i, j))
-                    q2.append((i, j))
+            q1.append((i, 0))
+            vis1[i][0] = True
+            q2.append((i, n - 1))
+            vis2[i][n - 1] = True
+
+        for j in range(n):
+            q1.append((0, j))
+            vis1[0][j] = True
+            q2.append((m - 1, j))
+            vis2[m - 1][j] = True
+
         bfs(q1, vis1)
         bfs(q2, vis2)
-        return [
-            (i, j)
-            for i in range(m)
-            for j in range(n)
-            if (i, j) in vis1 and (i, j) in vis2
-        ]
+
+        return [(i, j) for i in range(m) for j in range(n) if vis1[i][j] and vis2[i][j]]

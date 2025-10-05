@@ -1,60 +1,48 @@
-typedef pair<int, int> pii;
-
 class Solution {
 public:
-    vector<vector<int>> heights;
-    int m;
-    int n;
-
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& heights) {
-        m = heights.size();
-        n = heights[0].size();
-        this->heights = heights;
-        queue<pii> q1;
-        queue<pii> q2;
-        unordered_set<int> vis1;
-        unordered_set<int> vis2;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (i == 0 || j == 0) {
-                    vis1.insert(i * n + j);
-                    q1.emplace(i, j);
-                }
-                if (i == m - 1 || j == n - 1) {
-                    vis2.insert(i * n + j);
-                    q2.emplace(i, j);
-                }
-            }
-        }
-        bfs(q1, vis1);
-        bfs(q2, vis2);
-        vector<vector<int>> ans;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                int x = i * n + j;
-                if (vis1.count(x) && vis2.count(x)) {
-                    ans.push_back({i, j});
-                }
-            }
-        }
-        return ans;
-    }
-
-    void bfs(queue<pii>& q, unordered_set<int>& vis) {
+        int m = heights.size(), n = heights[0].size();
+        vector<vector<bool>> vis1(m, vector<bool>(n, false)), vis2(m, vector<bool>(n, false));
+        queue<pair<int, int>> q1, q2;
         vector<int> dirs = {-1, 0, 1, 0, -1};
-        while (!q.empty()) {
-            for (int k = q.size(); k > 0; --k) {
-                auto p = q.front();
+
+        for (int i = 0; i < m; ++i) {
+            q1.emplace(i, 0);
+            vis1[i][0] = true;
+            q2.emplace(i, n - 1);
+            vis2[i][n - 1] = true;
+        }
+        for (int j = 0; j < n; ++j) {
+            q1.emplace(0, j);
+            vis1[0][j] = true;
+            q2.emplace(m - 1, j);
+            vis2[m - 1][j] = true;
+        }
+
+        auto bfs = [&](queue<pair<int, int>>& q, vector<vector<bool>>& vis) {
+            while (!q.empty()) {
+                auto [x, y] = q.front();
                 q.pop();
-                for (int i = 0; i < 4; ++i) {
-                    int x = p.first + dirs[i];
-                    int y = p.second + dirs[i + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && !vis.count(x * n + y) && heights[x][y] >= heights[p.first][p.second]) {
-                        vis.insert(x * n + y);
-                        q.emplace(x, y);
+                for (int k = 0; k < 4; ++k) {
+                    int nx = x + dirs[k], ny = y + dirs[k + 1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n
+                        && !vis[nx][ny]
+                        && heights[nx][ny] >= heights[x][y]) {
+                        vis[nx][ny] = true;
+                        q.emplace(nx, ny);
                     }
                 }
             }
-        }
+        };
+
+        bfs(q1, vis1);
+        bfs(q2, vis2);
+
+        vector<vector<int>> ans;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (vis1[i][j] && vis2[i][j])
+                    ans.push_back({i, j});
+        return ans;
     }
 };
