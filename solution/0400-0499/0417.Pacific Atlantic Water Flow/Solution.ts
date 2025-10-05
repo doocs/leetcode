@@ -1,50 +1,56 @@
 function pacificAtlantic(heights: number[][]): number[][] {
-    const m = heights.length;
-    const n = heights[0].length;
-    const dirs = [
-        [1, 0],
-        [0, 1],
-        [-1, 0],
-        [0, -1],
-    ];
-    const gird = new Array(m).fill(0).map(() => new Array(n).fill(0));
-    const isVis = new Array(m).fill(0).map(() => new Array(n).fill(false));
+    const m = heights.length,
+        n = heights[0].length;
+    const vis1: boolean[][] = Array.from({ length: m }, () => Array(n).fill(false));
+    const vis2: boolean[][] = Array.from({ length: m }, () => Array(n).fill(false));
+    const q1: [number, number][] = [];
+    const q2: [number, number][] = [];
+    const dirs = [-1, 0, 1, 0, -1];
 
-    const dfs = (i: number, j: number) => {
-        if (isVis[i][j]) {
-            return;
-        }
-        gird[i][j]++;
-        isVis[i][j] = true;
-        const h = heights[i][j];
-        for (const [x, y] of dirs) {
-            if (h <= (heights[i + x] ?? [])[j + y]) {
-                dfs(i + x, j + y);
+    for (let i = 0; i < m; ++i) {
+        q1.push([i, 0]);
+        vis1[i][0] = true;
+        q2.push([i, n - 1]);
+        vis2[i][n - 1] = true;
+    }
+    for (let j = 0; j < n; ++j) {
+        q1.push([0, j]);
+        vis1[0][j] = true;
+        q2.push([m - 1, j]);
+        vis2[m - 1][j] = true;
+    }
+
+    const bfs = (q: [number, number][], vis: boolean[][]) => {
+        while (q.length) {
+            const [x, y] = q.shift()!;
+            for (let k = 0; k < 4; ++k) {
+                const nx = x + dirs[k],
+                    ny = y + dirs[k + 1];
+                if (
+                    nx >= 0 &&
+                    nx < m &&
+                    ny >= 0 &&
+                    ny < n &&
+                    !vis[nx][ny] &&
+                    heights[nx][ny] >= heights[x][y]
+                ) {
+                    vis[nx][ny] = true;
+                    q.push([nx, ny]);
+                }
             }
         }
     };
 
-    for (let i = 0; i < n; i++) {
-        dfs(0, i);
-    }
-    for (let i = 0; i < m; i++) {
-        dfs(i, 0);
-    }
-    isVis.forEach(v => v.fill(false));
-    for (let i = 0; i < n; i++) {
-        dfs(m - 1, i);
-    }
-    for (let i = 0; i < m; i++) {
-        dfs(i, n - 1);
-    }
+    bfs(q1, vis1);
+    bfs(q2, vis2);
 
-    const res = [];
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (gird[i][j] === 2) {
-                res.push([i, j]);
+    const ans: number[][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (vis1[i][j] && vis2[i][j]) {
+                ans.push([i, j]);
             }
         }
     }
-    return res;
+    return ans;
 }
