@@ -3709,6 +3709,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3698  |  [Split Array With Minimum Difference](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README_EN.md)  |    |  Medium  |  Weekly Contest 469  |
 |  3699  |  [Number of ZigZag Arrays I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 469  |
 |  3700  |  [Number of ZigZag Arrays II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 469  |
+|  3701  |  [Compute Alternating Sum](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 470  |
+|  3702  |  [Longest Subsequence With Non-Zero Bitwise XOR](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 470  |
+|  3703  |  [Remove K-Balanced Substrings](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README_EN.md)  |    |  Medium  |  Weekly Contest 470  |
+|  3704  |  [Count No-Zero Pairs That Sum to N](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README_EN.md)  |    |  Hard  |  Weekly Contest 470  |
 
 ## Copyright
 

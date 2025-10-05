@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 470 场周赛(2025-10-05 10:30, 90 分钟) 参赛人数 1226
+
+- [3701. 计算交替和](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md)
+- [3702. 按位异或非零的最长子序列](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README.md)
+- [3703. 移除K-平衡子字符串](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md)
+- [3704. 统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)
+
 #### 第 469 场周赛(2025-09-28 10:30, 90 分钟) 参赛人数 1384
 
 - [3697. 计算十进制表示](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md)

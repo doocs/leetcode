@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README.md
+rating: 1739
+source: 第 166 场双周赛 Q3
 ---
 
 <!-- problem:start -->
