@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3685.Subsequence%20Sum%20After%20Capping%20Elements/README.md
 rating: 2073
 source: 第 467 场周赛 Q3
+tags:
+    - 数组
+    - 双指针
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -72,7 +72,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：并查集
+
+我们可以将每个位置 $(i, j)$ 映射为一个编号 $id = i \times n + j$，并使用并查集维护连通分量。
+
+我们首先用一个一维数组 $hi$ 记录每个高度对应的位置编号，即 $hi[h]$ 表示高度为 $h$ 的位置编号。
+
+然后我们从高度 $0$ 开始遍历到高度 $n^2 - 1$，对于每个高度 $t$，我们将位置 $hi[t]$ 与其四个相邻且高度不超过 $t$ 的位置进行合并。如果合并后，位置 $0$ 和位置 $n^2 - 1$ 连通了，那么我们就找到了最小的时间 $t$，返回 $t$ 即可。
+
+时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 是矩阵的边长。
 
 <!-- tabs:start -->
 
@@ -81,71 +89,75 @@ tags:
 ```python
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
-        def find(x):
+        def find(x: int) -> int:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
         n = len(grid)
-        p = list(range(n * n))
-        hi = [0] * (n * n)
+        m = n * n
+        p = list(range(m))
+        hi = [0] * m
         for i, row in enumerate(grid):
             for j, h in enumerate(row):
                 hi[h] = i * n + j
-        for t in range(n * n):
-            i, j = hi[t] // n, hi[t] % n
-            for a, b in [(0, -1), (0, 1), (1, 0), (-1, 0)]:
-                x, y = i + a, j + b
-                if 0 <= x < n and 0 <= y < n and grid[x][y] <= t:
-                    p[find(x * n + y)] = find(hi[t])
-                if find(0) == find(n * n - 1):
-                    return t
-        return -1
+        dirs = (-1, 0, 1, 0, -1)
+        for t in range(m):
+            x, y = divmod(hi[t], n)
+            for dx, dy in pairwise(dirs):
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < n and 0 <= ny < n and grid[nx][ny] <= t:
+                    p[find(x * n + y)] = find(nx * n + ny)
+            if find(0) == find(m - 1):
+                return t
+        return 0
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int[] p;
-
     public int swimInWater(int[][] grid) {
         int n = grid.length;
-        p = new int[n * n];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
-        }
-        int[] hi = new int[n * n];
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
+        int m = n * n;
+        int[] p = new int[m];
+        Arrays.setAll(p, i -> i);
+        IntUnaryOperator find = new IntUnaryOperator() {
+            @Override
+            public int applyAsInt(int x) {
+                if (p[x] != x) p[x] = applyAsInt(p[x]);
+                return p[x];
+            }
+        };
+
+        int[] hi = new int[m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 hi[grid[i][j]] = i * n + j;
             }
         }
+
         int[] dirs = {-1, 0, 1, 0, -1};
-        for (int t = 0; t < n * n; ++t) {
-            int i = hi[t] / n;
-            int j = hi[t] % n;
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k];
-                int y = j + dirs[k + 1];
-                if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t) {
-                    p[find(x * n + y)] = find(i * n + j);
-                }
-                if (find(0) == find(n * n - 1)) {
-                    return t;
+
+        for (int t = 0; t < m; t++) {
+            int id = hi[t];
+            int x = id / n, y = id % n;
+            for (int k = 0; k < 4; k++) {
+                int nx = x + dirs[k], ny = y + dirs[k + 1];
+                if (nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] <= t) {
+                    int a = find.applyAsInt(x * n + y);
+                    int b = find.applyAsInt(nx * n + ny);
+                    p[a] = b;
                 }
             }
+            if (find.applyAsInt(0) == find.applyAsInt(m - 1)) {
+                return t;
+            }
         }
-        return -1;
-    }
-
-    private int find(int x) {
-        if (p[x] != x) {
-            p[x] = find(p[x]);
-        }
-        return p[x];
+        return 0;
     }
 }
+
 ```
 
 #### C++
@@ -153,32 +165,44 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-
     int swimInWater(vector<vector<int>>& grid) {
         int n = grid.size();
-        p.resize(n * n);
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
-        vector<int> hi(n * n);
-        for (int i = 0; i < n; ++i)
-            for (int j = 0; j < n; ++j)
+        int m = n * n;
+        vector<int> p(m);
+        iota(p.begin(), p.end(), 0);
+
+        auto find = [&](this auto&& find, int x) -> int {
+            if (p[x] != x) {
+                p[x] = find(p[x]);
+            }
+            return p[x];
+        };
+
+        vector<int> hi(m);
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
                 hi[grid[i][j]] = i * n + j;
-        vector<int> dirs = {-1, 0, 1, 0, -1};
-        for (int t = 0; t < n * n; ++t) {
-            int i = hi[t] / n, j = hi[t] % n;
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t)
-                    p[find(x * n + y)] = find(hi[t]);
-                if (find(0) == find(n * n - 1)) return t;
             }
         }
-        return -1;
-    }
 
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+        array<int, 5> dirs{-1, 0, 1, 0, -1};
+
+        for (int t = 0; t < m; ++t) {
+            int id = hi[t];
+            int x = id / n, y = id % n;
+            for (int k = 0; k < 4; ++k) {
+                int nx = x + dirs[k], ny = y + dirs[k + 1];
+                if (nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] <= t) {
+                    int a = find(x * n + y);
+                    int b = find(nx * n + ny);
+                    p[a] = b;
+                }
+            }
+            if (find(0) == find(m - 1)) {
+                return t;
+            }
+        }
+        return 0;
     }
 };
 ```
@@ -188,37 +212,41 @@ public:
 ```go
 func swimInWater(grid [][]int) int {
 	n := len(grid)
-	p := make([]int, n*n)
+	m := n * n
+	p := make([]int, m)
 	for i := range p {
 		p[i] = i
 	}
-	hi := make([]int, n*n)
-	for i, row := range grid {
-		for j, h := range row {
-			hi[h] = i*n + j
-		}
-	}
-	var find func(x int) int
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for t := 0; t < n*n; t++ {
-		i, j := hi[t]/n, hi[t]%n
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t {
-				p[find(x*n+y)] = find(hi[t])
-			}
-			if find(0) == find(n*n-1) {
-				return t
-			}
+	hi := make([]int, m)
+	for i := range grid {
+		for j, h := range grid[i] {
+			hi[h] = i*n + j
 		}
 	}
-	return -1
+	dirs := []int{-1, 0, 1, 0, -1}
+	for t := 0; t < m; t++ {
+		id := hi[t]
+		x, y := id/n, id%n
+		for k := 0; k < 4; k++ {
+			nx, ny := x+dirs[k], y+dirs[k+1]
+			if nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] <= t {
+				a := find(x*n + y)
+				b := find(nx*n + ny)
+				p[a] = b
+			}
+		}
+		if find(0) == find(m-1) {
+			return t
+		}
+	}
+	return 0
 }
 ```
 
@@ -226,109 +254,91 @@ func swimInWater(grid [][]int) int {
 
 ```ts
 function swimInWater(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let visited = Array.from({ length: m }, () => new Array(n).fill(false));
-    let ans = 0;
-    let stack = [[0, 0, grid[0][0]]];
-    const dir = [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ];
+    const n = grid.length;
+    const m = n * n;
+    const p = Array.from({ length: m }, (_, i) => i);
+    const hi = new Array<number>(m);
+    const find = (x: number): number => (p[x] === x ? x : (p[x] = find(p[x])));
 
-    while (stack.length) {
-        let [i, j] = stack.shift();
-        ans = Math.max(grid[i][j], ans);
-        if (i == m - 1 && j == n - 1) break;
-        for (let [dx, dy] of dir) {
-            let x = i + dx,
-                y = j + dy;
-            if (x < m && x > -1 && y < n && y > -1 && !visited[x][y]) {
-                visited[x][y] = true;
-                stack.push([x, y, grid[x][y]]);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            hi[grid[i][j]] = i * n + j;
+        }
+    }
+
+    const dirs = [-1, 0, 1, 0, -1];
+
+    for (let t = 0; t < m; ++t) {
+        const id = hi[t];
+        const x = Math.floor(id / n);
+        const y = id % n;
+
+        for (let k = 0; k < 4; ++k) {
+            const nx = x + dirs[k];
+            const ny = y + dirs[k + 1];
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] <= t) {
+                p[find(x * n + y)] = find(nx * n + ny);
             }
         }
-        stack.sort((a, b) => a[2] - b[2]);
+        if (find(0) === find(m - 1)) {
+            return t;
+        }
     }
-    return ans;
+
+    return 0;
 }
 ```
 
 #### Rust
 
 ```rust
-const DIR: [(i32, i32); 4] = [(-1, 0), (1, 0), (0, -1), (0, 1)];
-
 impl Solution {
-    #[allow(dead_code)]
     pub fn swim_in_water(grid: Vec<Vec<i32>>) -> i32 {
         let n = grid.len();
-        let m = grid[0].len();
-        let mut ret_time = 0;
-        let mut disjoint_set: Vec<usize> = vec![0; n * m];
-
-        // Initialize the disjoint set
-        for i in 0..n * m {
-            disjoint_set[i] = i;
-        }
-
-        loop {
-            if Self::check_and_union(&grid, &mut disjoint_set, ret_time) {
-                break;
-            }
-            // Otherwise, keep checking
-            ret_time += 1;
-        }
-
-        ret_time
-    }
-
-    #[allow(dead_code)]
-    fn check_and_union(grid: &Vec<Vec<i32>>, d_set: &mut Vec<usize>, cur_time: i32) -> bool {
-        let n = grid.len();
-        let m = grid[0].len();
+        let m = n * n;
+        let mut p: Vec<usize> = (0..m).collect();
+        let mut hi = vec![0usize; m];
 
         for i in 0..n {
-            for j in 0..m {
-                if grid[i][j] != cur_time {
-                    continue;
-                }
-                // Otherwise, let's union the square with its neighbors
-                for (dx, dy) in DIR {
-                    let x = dx + (i as i32);
-                    let y = dy + (j as i32);
-                    if Self::check_bounds(x, y, n as i32, m as i32)
-                        && grid[x as usize][y as usize] <= cur_time
-                    {
-                        Self::union(i * m + j, (x as usize) * m + (y as usize), d_set);
+            for j in 0..n {
+                hi[grid[i][j] as usize] = i * n + j;
+            }
+        }
+
+        fn find(x: usize, p: &mut Vec<usize>) -> usize {
+            if p[x] != x {
+                p[x] = find(p[x], p);
+            }
+            p[x]
+        }
+
+        let dirs = [-1isize, 0, 1, 0, -1];
+
+        for t in 0..m {
+            let id = hi[t];
+            let x = id / n;
+            let y = id % n;
+
+            for k in 0..4 {
+                let nx = x as isize + dirs[k];
+                let ny = y as isize + dirs[k + 1];
+                if nx >= 0 && nx < n as isize && ny >= 0 && ny < n as isize {
+                    let nx = nx as usize;
+                    let ny = ny as usize;
+                    if grid[nx][ny] as usize <= t {
+                        let a = find(x * n + y, &mut p);
+                        let b = find(nx * n + ny, &mut p);
+                        p[a] = b;
                     }
                 }
             }
+
+            if find(0, &mut p) == find(m - 1, &mut p) {
+                return t as i32;
+            }
         }
 
-        Self::find(0, d_set) == Self::find(n * m - 1, d_set)
-    }
-
-    #[allow(dead_code)]
-    fn find(x: usize, d_set: &mut Vec<usize>) -> usize {
-        if d_set[x] != x {
-            d_set[x] = Self::find(d_set[x], d_set);
-        }
-        d_set[x]
-    }
-
-    #[allow(dead_code)]
-    fn union(x: usize, y: usize, d_set: &mut Vec<usize>) {
-        let p_x = Self::find(x, d_set);
-        let p_y = Self::find(y, d_set);
-        d_set[p_x] = p_y;
-    }
-
-    #[allow(dead_code)]
-    fn check_bounds(i: i32, j: i32, n: i32, m: i32) -> bool {
-        i >= 0 && i < n && j >= 0 && j < m
+        0
     }
 }
 ```

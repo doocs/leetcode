@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README.md
 rating: 1917
 source: 第 465 场周赛 Q2
+tags:
+    - 数学
+    - 回溯
+    - 数论
 ---
 
 <!-- problem:start -->

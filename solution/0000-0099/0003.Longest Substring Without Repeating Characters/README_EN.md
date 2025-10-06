@@ -26,7 +26,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;abcabcbb&quot;
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> The answer is &quot;abc&quot;, with the length of 3.
+<strong>Explanation:</strong> The answer is &quot;abc&quot;, with the length of 3. Note that <code>&quot;bca&quot;</code> and <code>&quot;cab&quot;</code> are also correct answers.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

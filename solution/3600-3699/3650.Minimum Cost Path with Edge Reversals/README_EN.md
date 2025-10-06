@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README_EN.md
 rating: 1853
 source: Biweekly Contest 163 Q3
+tags:
+    - Graph
+    - Shortest Path
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

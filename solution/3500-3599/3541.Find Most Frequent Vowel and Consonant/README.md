@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个由小写英文字母（<code>'a'</code> 到 <code>'z'</code>）组成的字符串 <code>s</code>。你的任务是找出出现频率&nbsp;<strong>最高&nbsp;</strong>的元音（<code>'a'</code>、<code>'e'</code>、<code>'i'</code>、<code>'o'</code>、<code>'u'</code> 中的一个）和出现频率<strong>最高</strong>的辅音（除元音以外的所有字母），并返回这两个频率之和。</p>
+<p>给你一个由小写英文字母（<code>'a'</code> 到 <code>'z'</code>）组成的字符串 <code>s</code>。你的任务是找出出现频率&nbsp;<strong>最高&nbsp;</strong>的元音（<code>'a'</code>、<code>'e'</code>、<code>'i'</code>、<code>'o'</code>、<code>'u'</code> 中的一个）和出现频率<strong>最高</strong>的辅音（除元音以外的所有字母），并返回这两个频数之和。</p>
 
 <p><strong>注意</strong>：如果有多个元音或辅音具有相同的最高频率，可以任选其中一个。如果字符串中没有元音或没有辅音，则其频率视为 0。</p>
 一个字母 <code>x</code> 的&nbsp;<strong>频率&nbsp;</strong>是它在字符串中出现的次数。

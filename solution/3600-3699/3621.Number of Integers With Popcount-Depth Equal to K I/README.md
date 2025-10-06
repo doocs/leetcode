@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3621.Nu
 rating: 2330
 source: 第 161 场双周赛 Q4
 tags:
+    - 位运算
     - 数学
     - 动态规划
     - 组合数学

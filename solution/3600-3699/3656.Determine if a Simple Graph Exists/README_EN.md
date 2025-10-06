@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3656.Determine%20if%20a%20Simple%20Graph%20Exists/README_EN.md
+tags:
+    - Graph
+    - Array
+    - Binary Search
+    - Prefix Sum
+    - Sorting
 ---
 
 <!-- problem:start -->

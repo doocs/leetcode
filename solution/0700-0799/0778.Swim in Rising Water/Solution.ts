@@ -1,29 +1,34 @@
 function swimInWater(grid: number[][]): number {
-    const m = grid.length,
-        n = grid[0].length;
-    let visited = Array.from({ length: m }, () => new Array(n).fill(false));
-    let ans = 0;
-    let stack = [[0, 0, grid[0][0]]];
-    const dir = [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ];
+    const n = grid.length;
+    const m = n * n;
+    const p = Array.from({ length: m }, (_, i) => i);
+    const hi = new Array<number>(m);
+    const find = (x: number): number => (p[x] === x ? x : (p[x] = find(p[x])));
 
-    while (stack.length) {
-        let [i, j] = stack.shift();
-        ans = Math.max(grid[i][j], ans);
-        if (i == m - 1 && j == n - 1) break;
-        for (let [dx, dy] of dir) {
-            let x = i + dx,
-                y = j + dy;
-            if (x < m && x > -1 && y < n && y > -1 && !visited[x][y]) {
-                visited[x][y] = true;
-                stack.push([x, y, grid[x][y]]);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            hi[grid[i][j]] = i * n + j;
+        }
+    }
+
+    const dirs = [-1, 0, 1, 0, -1];
+
+    for (let t = 0; t < m; ++t) {
+        const id = hi[t];
+        const x = Math.floor(id / n);
+        const y = id % n;
+
+        for (let k = 0; k < 4; ++k) {
+            const nx = x + dirs[k];
+            const ny = y + dirs[k + 1];
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] <= t) {
+                p[find(x * n + y)] = find(nx * n + ny);
             }
         }
-        stack.sort((a, b) => a[2] - b[2]);
+        if (find(0) === find(m - 1)) {
+            return t;
+        }
     }
-    return ans;
+
+    return 0;
 }

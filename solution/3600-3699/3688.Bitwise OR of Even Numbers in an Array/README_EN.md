@@ -4,6 +4,10 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3688.Bitwise%20OR%20of%20Even%20Numbers%20in%20an%20Array/README_EN.md
 rating: 1204
 source: Weekly Contest 468 Q1
+tags:
+    - Bit Manipulation
+    - Array
+    - Simulation
 ---
 
 <!-- problem:start -->

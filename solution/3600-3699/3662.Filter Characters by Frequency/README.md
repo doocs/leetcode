@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3662.Filter%20Characters%20by%20Frequency/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->

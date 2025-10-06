@@ -248,7 +248,7 @@
 | 2893 | [计算每个区间内的订单](/solution/2800-2899/2893.Calculate%20Orders%20Within%20Each%20Interval/README.md)                                                     | `数据库` | 中等 | 🔒   |
 | 2922 | [市场分析 III](/solution/2900-2999/2922.Market%20Analysis%20III/README.md)                                                                                   | `数据库` | 中等 | 🔒   |
 | 2978 | [对称坐标](/solution/2900-2999/2978.Symmetric%20Coordinates/README.md)                                                                                       | `数据库` | 中等 | 🔒   |
-| 2984 | [找到每座城市的高峰通话时间](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)                                           | `数据库` | 中等 | 🔒   |
+| 2984 | [找到每座城市的高峰通话小时](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README.md)                                           | `数据库` | 中等 | 🔒   |
 | 2985 | [计算订单平均商品数量](/solution/2900-2999/2985.Calculate%20Compressed%20Mean/README.md)                                                                     | `数据库` | 简单 | 🔒   |
 | 2986 | [找到第三笔交易](/solution/2900-2999/2986.Find%20Third%20Transaction/README.md)                                                                              | `数据库` | 中等 | 🔒   |
 | 2987 | [寻找房价最贵的城市](/solution/2900-2999/2987.Find%20Expensive%20Cities/README.md)                                                                           | `数据库` | 简单 | 🔒   |
@@ -326,7 +326,7 @@
 | 3626 | [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)                                                      |          | 中等 |      |
 | 3642 | [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)                                                    |          | 简单 |      |
 | 3657 | [寻找忠实客户](/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md)                                                                                  |          | 中等 |      |
-| 3673 | [Find Zombie Sessions](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README.md)                                                                          |          | 困难 |      |
+| 3673 | [查找僵尸会话](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README.md)                                                                                  |          | 困难 |      |
 
 ## 版权
 

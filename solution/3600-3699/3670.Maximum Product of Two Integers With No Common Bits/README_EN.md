@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3670.Maximum%20Product%20of%20Two%20Integers%20With%20No%20Common%20Bits/README_EN.md
 rating: 2233
 source: Weekly Contest 465 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

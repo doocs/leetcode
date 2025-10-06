@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3646.Ne
 rating: 2445
 source: Weekly Contest 462 Q4
 tags:
+    - Bit Manipulation
     - Backtracking
 ---
 

@@ -9,7 +9,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1059. 从始点到终点的所有路径 🔒](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination)
+# [1059. 从起点到终点的所有路径 🔒](https://leetcode.cn/problems/all-paths-from-source-lead-to-destination)
 
 [English Version](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README_EN.md)
 
@@ -17,15 +17,15 @@ tags:
 
 <!-- description:start -->
 
-<p>给定有向图的边&nbsp;<code>edges</code>，以及该图的始点&nbsp;<code>source</code>&nbsp;和目标终点&nbsp;<code>destination</code>，确定从始点&nbsp;<code>source</code>&nbsp;出发的所有路径是否最终结束于目标终点&nbsp;<code>destination</code>，即：</p>
+<p>给定有向图的边&nbsp;<code>edges</code>，以及该图的起点&nbsp;<code>source</code>&nbsp;和目标终点&nbsp;<code>destination</code>，确定从起点&nbsp;<code>source</code>&nbsp;出发的所有路径是否最终结束于目标终点&nbsp;<code>destination</code>，即：</p>
 
 <ul>
-	<li>从始点&nbsp;<code>source</code> 到目标终点&nbsp;<code>destination</code> 存在至少一条路径</li>
-	<li>如果存在从始点&nbsp;<code>source</code> 到没有出边的节点的路径，则该节点就是路径终点。</li>
-	<li>从始点<code>source</code>到目标终点&nbsp;<code>destination</code> 可能路径数是有限数字</li>
+	<li>从起点&nbsp;<code>source</code> 到目标终点&nbsp;<code>destination</code> 存在至少一条路径</li>
+	<li>如果存在从起点&nbsp;<code>source</code> 到没有出边的节点的路径，则该节点就是路径终点。</li>
+	<li>从起点<code>source</code>到目标终点&nbsp;<code>destination</code> 可能路径数是有限数字</li>
 </ul>
 
-<p>当从始点&nbsp;<code>source</code> 出发的所有路径都可以到达目标终点&nbsp;<code>destination</code> 时返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</p>
+<p>当从起点&nbsp;<code>source</code> 出发的所有路径都可以到达目标终点&nbsp;<code>destination</code> 时返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
 

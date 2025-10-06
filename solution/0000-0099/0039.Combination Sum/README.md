@@ -28,7 +28,7 @@ tags:
 <p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
-<strong>输入：</strong>candidates = <code>[2,3,6,7]</code>, target = <code>7</code>
+<strong>输入：</strong>candidates = [2,3,6,7], target = 7
 <strong>输出：</strong>[[2,2,3],[7]]
 <strong>解释：</strong>
 2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
@@ -38,13 +38,13 @@ tags:
 <p><strong>示例&nbsp;2：</strong></p>
 
 <pre>
-<strong>输入: </strong>candidates = [2,3,5]<code>, </code>target = 8
+<strong>输入: </strong>candidates = [2,3,5], target = 8
 <strong>输出: </strong>[[2,2,2,2],[2,3,3],[3,5]]</pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入: </strong>candidates = <code>[2], </code>target = 1
+<strong>输入: </strong>candidates = [2], target = 1
 <strong>输出: </strong>[]
 </pre>
 

@@ -6,6 +6,7 @@ rating: 2743
 source: Weekly Contest 460 Q4
 tags:
     - Greedy
+    - Bit Manipulation
     - Array
     - Math
     - Enumeration

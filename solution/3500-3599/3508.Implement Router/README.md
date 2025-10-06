@@ -61,7 +61,7 @@ tags:
 	<li>返回当前存储在路由器中（即尚未转发）的，且目标地址为指定 <code>destination</code> 且时间戳在范围 <code>[startTime, endTime]</code>（包括两端）内的数据包数量。</li>
 </ul>
 
-<p><strong>注意</strong>：对于 <code>addPacket</code> 的查询会按照 <code>timestamp</code> 的递增顺序进行。</p>
+<p><strong>注意</strong>：对于 <code>addPacket</code> 的查询会按照 <code>timestamp</code> 的非递减顺序进行。</p>
 
 <p>&nbsp;</p>
 
@@ -112,7 +112,7 @@ tags:
 	<li><code>1 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= startTime &lt;= endTime &lt;= 10<sup>9</sup></code></li>
 	<li><code>addPacket</code>、<code>forwardPacket</code> 和 <code>getCount</code> 方法的总调用次数最多为 <code>10<sup>5</sup></code>。</li>
-	<li>对于 <code>addPacket</code> 的查询，<code>timestamp</code> 按递增顺序给出。</li>
+	<li>对于 <code>addPacket</code> 的查询，<code>timestamp</code> 按非递减顺序给出。</li>
 </ul>
 
 <!-- description:end -->

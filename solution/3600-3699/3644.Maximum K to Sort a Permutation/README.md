@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README.md
 rating: 1775
 source: 第 462 场周赛 Q2
+tags:
+    - 位运算
+    - 数组
 ---
 
 <!-- problem:start -->

@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [2984. 找到每座城市的高峰通话时间 🔒](https://leetcode.cn/problems/find-peak-calling-hours-for-each-city)
+# [2984. 找到每座城市的高峰通话小时 🔒](https://leetcode.cn/problems/find-peak-calling-hours-for-each-city)
 
 [English Version](/solution/2900-2999/2984.Find%20Peak%20Calling%20Hours%20for%20Each%20City/README_EN.md)
 
@@ -31,9 +31,9 @@ tags:
 每一行包含 caller id, recipient id, call time,和 city。
 </pre>
 
-<p>编写一个查询，找到每个 <code>city</code>&nbsp;的 <strong>高峰</strong> 通话 <b>时间</b>。如果 <strong>多个时间</strong>&nbsp;有 <strong>相同</strong> 数量的通话，则所有这些时间都将被视为该特定城市的 <strong>高峰时间</strong>。</p>
+<p>编写一个查询，找到每个 <code>city</code>&nbsp;的 <strong>高峰</strong> 通话 <b>小时</b>。如果 <strong>多个小时</strong>&nbsp;有 <strong>相同</strong> 数量的通话，则所有这些小时都将被视为该特定城市的 <strong>高峰小时</strong>。</p>
 
-<p>按照 <strong>高峰时间</strong>&nbsp;和<em> </em><code>city</code><em> </em>按 <strong>降序</strong> 排序返回结果表。</p>
+<p>按照 <strong>高峰小时</strong>&nbsp;和<em> </em><code>city</code><em> </em>按 <strong>降序</strong> 排序返回结果表。</p>
 
 <p>结果格式如下例所示。</p>
 
@@ -64,10 +64,10 @@ Calls table:
 +----------+-------------------+-----------------+
 <b>解释：</b>
 对于 Houston：
-  - 高峰时间是 22:00，总共记录了 3 次通话。 
+  - 高峰小时是 22:00，总共记录了 3 次通话。 
 对于 New York：
-  - 3:00 和 14:00 都有相同数量的通话，因此这两个时间都被视为高峰时间。
-输出表按照高峰时间和城市按降序排序。</pre>
+  - 3:00 和 14:00 都有相同数量的通话，因此这两个小时都被视为高峰小时。
+输出表按照高峰小时和城市按降序排序。</pre>
 
 <!-- description:end -->
 

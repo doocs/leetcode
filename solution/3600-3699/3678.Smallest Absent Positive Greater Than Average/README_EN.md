@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3678.Smallest%20Absent%20Positive%20Greater%20Than%20Average/README_EN.md
 rating: 1306
 source: Biweekly Contest 165 Q1
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

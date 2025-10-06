@@ -30,9 +30,7 @@ tags:
 +---------------+---------+
 This table may have duplicate rows.
 The action column is an ENUM (category) type of (&#39;view&#39;, &#39;like&#39;, &#39;reaction&#39;, &#39;comment&#39;, &#39;report&#39;, &#39;share&#39;).
-The extra column has optional information about the action, such as a reason for the report or a type of reaction.
-extra is never NULL.
-</pre>
+The extra column has optional information about the action, such as a reason for the report or a type of reaction.</pre>
 
 <p>&nbsp;</p>
 

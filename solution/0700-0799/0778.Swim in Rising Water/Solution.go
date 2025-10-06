@@ -1,34 +1,38 @@
 func swimInWater(grid [][]int) int {
 	n := len(grid)
-	p := make([]int, n*n)
+	m := n * n
+	p := make([]int, m)
 	for i := range p {
 		p[i] = i
 	}
-	hi := make([]int, n*n)
-	for i, row := range grid {
-		for j, h := range row {
-			hi[h] = i*n + j
-		}
-	}
-	var find func(x int) int
+	var find func(int) int
 	find = func(x int) int {
 		if p[x] != x {
 			p[x] = find(p[x])
 		}
 		return p[x]
 	}
-	dirs := []int{-1, 0, 1, 0, -1}
-	for t := 0; t < n*n; t++ {
-		i, j := hi[t]/n, hi[t]%n
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t {
-				p[find(x*n+y)] = find(hi[t])
-			}
-			if find(0) == find(n*n-1) {
-				return t
-			}
+	hi := make([]int, m)
+	for i := range grid {
+		for j, h := range grid[i] {
+			hi[h] = i*n + j
 		}
 	}
-	return -1
+	dirs := []int{-1, 0, 1, 0, -1}
+	for t := 0; t < m; t++ {
+		id := hi[t]
+		x, y := id/n, id%n
+		for k := 0; k < 4; k++ {
+			nx, ny := x+dirs[k], y+dirs[k+1]
+			if nx >= 0 && nx < n && ny >= 0 && ny < n && grid[nx][ny] <= t {
+				a := find(x*n + y)
+				b := find(nx*n + ny)
+				p[a] = b
+			}
+		}
+		if find(0) == find(m-1) {
+			return t
+		}
+	}
+	return 0
 }

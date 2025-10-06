@@ -4,6 +4,12 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3664.Two-Letter%20Card%20Game/README_EN.md
 rating: 2157
 source: Biweekly Contest 164 Q2
+tags:
+    - Array
+    - Hash Table
+    - String
+    - Counting
+    - Enumeration
 ---
 
 <!-- problem:start -->

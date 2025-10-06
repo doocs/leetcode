@@ -7,6 +7,7 @@ source: Weekly Contest 175 Q3
 tags:
     - Design
     - Hash Table
+    - String
     - Binary Search
     - Ordered Set
     - Sorting

@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README_EN.md
 rating: 1775
 source: Weekly Contest 462 Q2
+tags:
+    - Bit Manipulation
+    - Array
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target/README_EN.md
+tags:
+    - Array
+    - Math
+    - Dynamic Programming
+    - Number Theory
 ---
 
 <!-- problem:start -->

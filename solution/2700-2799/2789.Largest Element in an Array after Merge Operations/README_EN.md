@@ -24,7 +24,7 @@ tags:
 <p>You can do the following operation on the array <strong>any</strong> number of times:</p>
 
 <ul>
-	<li>Choose an integer <code>i</code> such that <code>0 &lt;= i &lt; nums.length - 1</code> and <code>nums[i] &lt;= nums[i + 1]</code>. Replace the element <code>nums[i + 1]</code> with <code>nums[i] + nums[i + 1]</code> and delete the element <code>nums[i]</code> from the array.</li>
+	<li>Choose an index&nbsp;<code>i</code> such that <code>0 &lt;= i &lt; nums.length - 1</code> and <code>nums[i] &lt;= nums[i + 1]</code>. Replace the element <code>nums[i + 1]</code> with <code>nums[i] + nums[i + 1]</code> and delete the element <code>nums[i]</code> from the array.</li>
 </ul>
 
 <p>Return <em>the value of the <b>largest</b> element that you can possibly obtain in the final array.</em></p>
