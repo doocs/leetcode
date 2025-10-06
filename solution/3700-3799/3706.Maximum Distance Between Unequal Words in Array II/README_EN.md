@@ -77,32 +77,106 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3706.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution: Single Pass
+
+We can observe that at least one of the two words with maximum distance must be at either end of the array (i.e., at index $0$ or $n - 1$). Otherwise, suppose the two words with maximum distance are at indices $i$ and $j$ where $0 < i < j < n - 1$. Then $\textit{words}[0]$ must be the same as $\textit{words}[j]$, and $\textit{words}[n - 1]$ must be the same as $\textit{words}[i]$ (otherwise the distance would be greater). This means $\textit{words}[0]$ and $\textit{words}[n - 1]$ are different, and their distance $n - 1 - 0 + 1 = n$ is definitely greater than $j - i + 1$, which contradicts our assumption. Therefore, at least one of the two words with maximum distance must be at either end of the array.
+
+So, we only need to traverse the array, calculate the distance between each word and the words at both ends of the array, and update the maximum distance.
+
+The time complexity is $O(n)$, where $n$ is the length of array $\textit{words}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxDistance(self, words: List[str]) -> int:
+        n = len(words)
+        ans = 0
+        for i in range(n):
+            if words[i] != words[0]:
+                ans = max(ans, i + 1)
+            if words[i] != words[-1]:
+                ans = max(ans, n - i)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxDistance(String[] words) {
+        int n = words.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!words[i].equals(words[0])) {
+                ans = Math.max(ans, i + 1);
+            }
+            if (!words[i].equals(words[n - 1])) {
+                ans = Math.max(ans, n - i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxDistance(vector<string>& words) {
+        int n = words.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (words[i] != words[0]) {
+                ans = max(ans, i + 1);
+            }
+            if (words[i] != words[n - 1]) {
+                ans = max(ans, n - i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxDistance(words []string) int {
+	n := len(words)
+	ans := 0
+	for i := 0; i < n; i++ {
+		if words[i] != words[0] {
+			ans = max(ans, i+1)
+		}
+		if words[i] != words[n-1] {
+			ans = max(ans, n-i)
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxDistance(words: string[]): number {
+    const n = words.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        if (words[i] !== words[0]) {
+            ans = Math.max(ans, i + 1);
+        }
+        if (words[i] !== words[n - 1]) {
+            ans = Math.max(ans, n - i);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
