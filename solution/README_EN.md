@@ -3713,6 +3713,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3702  |  [Longest Subsequence With Non-Zero Bitwise XOR](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 470  |
 |  3703  |  [Remove K-Balanced Substrings](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README_EN.md)  |    |  Medium  |  Weekly Contest 470  |
 |  3704  |  [Count No-Zero Pairs That Sum to N](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README_EN.md)  |    |  Hard  |  Weekly Contest 470  |
+|  3705  |  [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README_EN.md)  |    |  Medium  |    |
+|  3706  |  [Maximum Distance Between Unequal Words in Array II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
