@@ -3715,6 +3715,8 @@
 |  3702  |  [按位异或非零的最长子序列](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README.md)  |    |  中等  |  第 470 场周赛  |
 |  3703  |  [移除K-平衡子字符串](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md)  |    |  中等  |  第 470 场周赛  |
 |  3704  |  [统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)  |    |  困难  |  第 470 场周赛  |
+|  3705  |  [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)  |    |  中等  |    |
+|  3706  |  [Maximum Distance Between Unequal Words in Array II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

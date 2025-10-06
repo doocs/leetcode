@@ -325,6 +325,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3642 | [Find Books with Polarized Opinions](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README_EN.md)                                                                       |            | Easy       |        |
 | 3657 | [Find Loyal Customers](/solution/3600-3699/3657.Find%20Loyal%20Customers/README_EN.md)                                                                                                       |            | Medium     |        |
 | 3673 | [Find Zombie Sessions](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README_EN.md)                                                                                                       |            | Hard       |        |
+| 3705 | [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README_EN.md)                                                                                         |            | Medium     |        |
 
 ## Copyright
 

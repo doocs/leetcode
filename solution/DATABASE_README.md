@@ -327,6 +327,7 @@
 | 3642 | [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)                                                    |          | 简单 |      |
 | 3657 | [寻找忠实客户](/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md)                                                                                  |          | 中等 |      |
 | 3673 | [查找僵尸会话](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README.md)                                                                                  |          | 困难 |      |
+| 3705 | [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)                                                            |          | 中等 |      |
 
 ## 版权
 
