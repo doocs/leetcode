@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3673. Find Zombie Sessions](https://leetcode.cn/problems/find-zombie-sessions)
+# [3673. 查找僵尸会话](https://leetcode.cn/problems/find-zombie-sessions)
 
 [English Version](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>app_events</code></p>
+<p>表：<code>app_events</code></p>
 
 <pre>
 +------------------+----------+
@@ -29,32 +29,33 @@ tags:
 | session_id       | varchar  |
 | event_value      | int      |
 +------------------+----------+
-event_id is the unique identifier for this table.
-event_type can be app_open, click, scroll, purchase, or app_close.
-session_id groups events within the same user session.
-event_value represents: for purchase - amount in dollars, for scroll - pixels scrolled, for others - NULL.
+event_id 是这张表的唯一主键。
+event_type 可以是 app_open，click，scroll，purchase 或 app_close。
+session_id 将事件按同一用户会话分组。
+event_value 表示：对于 purchase - 美元金额，对于 scroll - 滚动的像素数，对于其它 - NULL。
 </pre>
 
-<p>Write a solution to identify <strong>zombie sessions,&nbsp;</strong>sessions where users appear active but show abnormal behavior patterns. A session is considered a <strong>zombie session</strong> if it meets ALL the following criteria:</p>
+<p>编写一个解决方案来识别 <strong>僵尸会话</strong>，即用户看似活跃但表现出异常行为模式的会话。如果会话满足以下所有条件，则被视为 <strong>僵尸会话</strong>：</p>
 
 <ul>
-	<li>The session duration is <strong>more than</strong> <code>30</code> minutes.</li>
-	<li>Has <strong>at least</strong> <code>5</code> scroll events.</li>
-	<li>The <strong>click-to-scroll ratio</strong> is less than <code>0.20</code> .</li>
-	<li><strong>No purchases</strong> were made during the session.</li>
+	<li>会话时长&nbsp;<strong>超过</strong>&nbsp;<code>30</code>&nbsp;分钟。</li>
+	<li>至少有 <code>5</code> 次滚动事件。</li>
+	<li>点击滚动比率低于 <code>0.20</code>。</li>
+	<li>会话期间 <strong>没有进行任何购买</strong>。</li>
 </ul>
 
-<p>Return <em>the result table ordered by</em>&nbsp;<code>scroll_count</code> <em>in <strong>descending</strong> order, then by</em> <code>session_id</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表按&nbsp;<code>scroll_count</code> <strong>降序</strong>&nbsp;排序，然后按&nbsp;<code>session_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>返回格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>app_events table:</p>
+<p>app_events 表：</p>
 
 <pre class="example-io">
 +----------+---------+---------------------+------------+------------+-------------+
@@ -91,7 +92,7 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 +----------+---------+---------------------+------------+------------+-------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +------------+---------+--------------------------+--------------+
@@ -101,48 +102,48 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 +------------+---------+--------------------------+--------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Session S001 (User 201)</strong>:
+	<li><strong>会话 S001 (User 201)</strong>:
 
     <ul>
-    	<li>Duration: 10:00:00 to 10:35:00 = 35 minutes (more than 30)&nbsp;</li>
-    	<li>Scroll events: 6 (at least 5)&nbsp;</li>
-    	<li>Click events: 0</li>
-    	<li>Click-to-scroll ratio: 0/6 = 0.00 (less than 0.20)&nbsp;</li>
-    	<li>Purchases: 0 (no purchases)&nbsp;</li>
-    	<li>S001 is a zombie session (meets all criteria)</li>
+    	<li>时长：10:00:00 到 10:35:00 = 35 分钟（大于 30 分钟）</li>
+    	<li>滚动事件：6（至少 5 次）</li>
+    	<li>点击事件：0</li>
+    	<li>点击滚动比率：0/6 = 0.00（少于 0.20）</li>
+    	<li>购买数：0（没有购买）</li>
+    	<li>S001 是一个僵尸会话（满足所有条件）</li>
     </ul>
     </li>
-    <li><strong>Session S002 (User 202)</strong>:
+    <li><strong>会话 S002 (User 202)</strong>:
     <ul>
-    	<li>Duration: 11:00:00 to 11:20:00 = 20 minutes (less than 30)&nbsp;</li>
-    	<li>Has a purchase event&nbsp;</li>
-    	<li>S002 is&nbsp;not a zombie session&nbsp;</li>
+    	<li>时长：11:00:00 到 11:20:00 = 20 分钟（少于 30 分钟）</li>
+    	<li>有一次购买事件</li>
+    	<li>S002 不是一个僵尸会话</li>
     </ul>
     </li>
-    <li><strong>Session S003 (User 203)</strong>:
+    <li><strong>会话 S003 (User 203)</strong>:
     <ul>
-    	<li>Duration: 12:00:00 to 13:00:00 = 60 minutes (more than 30)&nbsp;</li>
-    	<li>Scroll events: 5 (at least 5)&nbsp;</li>
-    	<li>Click events: 1</li>
-    	<li>Click-to-scroll ratio: 1/5 = 0.20 (not less than 0.20)&nbsp;</li>
-    	<li>Purchases: 0 (no purchases)&nbsp;</li>
-    	<li>S003 is&nbsp;not a zombie session (click-to-scroll ratio equals 0.20, needs to be less)</li>
+    	<li>时长：12:00:00 到 13:00:00 = 60 分钟（超过 30 分钟）</li>
+    	<li>滚动事件：5（至少 5 次）</li>
+    	<li>点击事件：1</li>
+    	<li>点击滚动比率：1/5 = 0.20（不少于 0.20）</li>
+    	<li>购买数：0（没有购买）</li>
+    	<li>S003 不是一个僵尸会话（点击滚动比率等于 0.20，需要更少）。</li>
     </ul>
     </li>
-    <li><strong>Session S004 (User 204)</strong>:
+    <li><strong>会话 S004 (User 204)</strong>:
     <ul>
-    	<li>Duration: 14:00:00 to 14:12:00 = 12 minutes (less than 30)&nbsp;</li>
-    	<li>Scroll events: 2 (less than 5)&nbsp;</li>
-    	<li>S004&nbsp; is not a zombie session&nbsp;</li>
+    	<li>时长：14:00:00 到 14:12:00 = 12 分钟（少于 30 分钟）</li>
+    	<li>滚动事件：2（少于&nbsp;5 次）</li>
+    	<li>S004&nbsp; 不是一个僵尸会话</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The result table is ordered by scroll_count in descending order, then by session_id in ascending order.</p>
+<p>结果表按 scroll_count 降序排序，然后按 session_id 升序排序。</p>
 </div>
 
 <!-- description:end -->

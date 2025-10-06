@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3681.Maximum%20XOR%20of%20Subsequences/README.md
 rating: 2026
 source: 第 165 场双周赛 Q4
+tags:
+    - 贪心
+    - 位运算
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

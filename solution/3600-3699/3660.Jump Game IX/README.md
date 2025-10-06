@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3660.Jump%20Game%20IX/README.md
 rating: 2187
 source: 第 464 场周赛 Q3
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

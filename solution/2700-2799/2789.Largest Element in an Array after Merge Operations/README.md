@@ -24,7 +24,7 @@ tags:
 <p>你可以在数组上执行下述操作 <strong>任意</strong> 次：</p>
 
 <ul>
-	<li>选中一个同时满足&nbsp;<code>0 &lt;= i &lt; nums.length - 1</code> 和 <code>nums[i] &lt;= nums[i + 1]</code> 的整数 <code>i</code> 。将元素 <code>nums[i + 1]</code> 替换为 <code>nums[i] + nums[i + 1]</code> ，并从数组中删除元素 <code>nums[i]</code> 。</li>
+	<li>选中一个同时满足&nbsp;<code>0 &lt;= i &lt; nums.length - 1</code> 和 <code>nums[i] &lt;= nums[i + 1]</code> 的下标&nbsp;<code>i</code> 。将元素 <code>nums[i + 1]</code> 替换为 <code>nums[i] + nums[i + 1]</code> ，并从数组中删除元素 <code>nums[i]</code> 。</li>
 </ul>
 
 <p>返回你可以从最终数组中获得的 <strong>最大</strong> 元素的值。</p>
@@ -33,7 +33,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,3,7,9,3]
+<pre>
+<strong>输入：</strong>nums = [2,3,7,9,3]
 <strong>输出：</strong>21
 <strong>解释：</strong>我们可以在数组上执行下述操作：
 - 选中 i = 0 ，得到数组 nums = [<strong><em>5</em></strong>,7,9,3] 。
@@ -44,7 +45,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [5,3,3]
+<pre>
+<strong>输入：</strong>nums = [5,3,3]
 <strong>输出：</strong>11
 <strong>解释：</strong>我们可以在数组上执行下述操作：
 - 选中 i = 1 ，得到数组 nums = [5,<em><strong>6</strong></em>] 。

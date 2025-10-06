@@ -37,8 +37,8 @@ comments: true
 
 - [3697. 计算十进制表示](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md)
 - [3698. 分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)
-- [3699. ZigZag 数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)
-- [3700. ZigZag 数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)
+- [3699. 锯齿形数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)
+- [3700. 锯齿形数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)
 
 #### 第 166 场双周赛(2025-09-27 22:30, 90 分钟) 参赛人数 1198
 
@@ -3551,7 +3551,7 @@ comments: true
 
 - [1029. 两地调度](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
 - [1030. 距离顺序排列矩阵单元格](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md)
-- [1031. 两个非重叠子数组的最大和](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md)
+- [1031. 两个无重叠子数组的最大和](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md)
 - [1032. 字符流](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
 
 #### 第 132 场周赛(2019-04-14 10:30, 90 分钟) 参赛人数 1050
@@ -3740,7 +3740,7 @@ comments: true
 
 - [0922. 按奇偶排序数组 II](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 - [0921. 使括号有效的最少添加](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README.md)
-- [0923. 多重三数之和](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
+- [0923. 三数之和的多种可能](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
 - [0924. 尽量减少恶意软件的传播](/solution/0900-0999/0924.Minimize%20Malware%20Spread/README.md)
 
 #### 第 105 场周赛(2018-10-07 09:30, 90 分钟) 参赛人数 393

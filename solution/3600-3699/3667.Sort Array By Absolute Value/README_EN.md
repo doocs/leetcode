@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README_EN.md
+tags:
+    - Array
+    - Math
+    - Two Pointers
+    - Sorting
 ---
 
 <!-- problem:start -->

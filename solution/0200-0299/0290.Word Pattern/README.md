@@ -19,7 +19,13 @@ tags:
 
 <p>给定一种规律 <code>pattern</code>&nbsp;和一个字符串&nbsp;<code>s</code>&nbsp;，判断 <code>s</code>&nbsp;是否遵循相同的规律。</p>
 
-<p>这里的&nbsp;<strong>遵循&nbsp;</strong>指完全匹配，例如，&nbsp;<code>pattern</code>&nbsp;里的每个字母和字符串&nbsp;<code>s</code><strong>&nbsp;</strong>中的每个非空单词之间存在着双向连接的对应规律。</p>
+<p>这里的&nbsp;<strong>遵循&nbsp;</strong>指完全匹配，例如，&nbsp;<code>pattern</code>&nbsp;里的每个字母和字符串&nbsp;<code>s</code><strong>&nbsp;</strong>中的每个非空单词之间存在着双向连接的对应规律。具体来说：</p>
+
+<ul>
+	<li><code>pattern</code>&nbsp;中的每个字母都 <strong>恰好</strong> 映射到 <code>s</code> 中的一个唯一单词。</li>
+	<li><code>s</code> 中的每个唯一单词都 <strong>恰好</strong> 映射到&nbsp;<code>pattern</code> 中的一个字母。</li>
+	<li>没有两个字母映射到同一个单词，也没有两个单词映射到同一个字母。</li>
+</ul>
 
 <p>&nbsp;</p>
 

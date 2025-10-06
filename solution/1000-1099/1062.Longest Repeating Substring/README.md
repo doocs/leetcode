@@ -21,14 +21,14 @@ tags:
 
 <!-- description:start -->
 
-<p>给定字符串&nbsp;<code>s</code>，找出最长重复子串的长度。如果不存在重复子串就返回 <code>0</code>。</p>
+<p>给你一个字符串&nbsp;<code>s</code>，找出并返回&nbsp;<strong>最长重复子串</strong> 的长度。如果不存在重复子串，返回 <code>0</code>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>"abcd"
+<strong>输入：</strong>s = "abcd"
 <strong>输出：</strong>0
 <strong>解释：</strong>没有重复子串。
 </pre>
@@ -36,7 +36,7 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>"abbaba"
+<strong>输入：</strong>s = "abbaba"
 <strong>输出：</strong>2
 <strong>解释：</strong>最长的重复子串为 "ab" 和 "ba"，每个出现 2 次。
 </pre>
@@ -44,7 +44,7 @@ tags:
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>"aabcaabdaab"
+<strong>输入：</strong>s = "aabcaabdaab"
 <strong>输出：</strong>3
 <strong>解释：</strong>最长的重复子串为 "aab"，出现 3 次。
 </pre>

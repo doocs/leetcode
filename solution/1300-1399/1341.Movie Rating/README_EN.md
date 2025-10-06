@@ -27,9 +27,7 @@ tags:
 +---------------+---------+
 movie_id is the primary key (column with unique values) for this table.
 title is the name of the movie.
-</pre>
-
-<p>&nbsp;</p>
+Each movie has a unique title.</pre>
 
 <p>Table: <code>Users</code></p>
 

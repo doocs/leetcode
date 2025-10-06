@@ -2,11 +2,14 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3682.Minimum%20Index%20Sum%20of%20Common%20Elements/README.md
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->
 
-# [3682. Minimum Index Sum of Common Elements 🔒](https://leetcode.cn/problems/minimum-index-sum-of-common-elements)
+# [3682. 公共元素的最小索引和 🔒](https://leetcode.cn/problems/minimum-index-sum-of-common-elements)
 
 [English Version](/solution/3600-3699/3682.Minimum%20Index%20Sum%20of%20Common%20Elements/README_EN.md)
 
@@ -14,63 +17,65 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3682.Mi
 
 <!-- description:start -->
 
-<p>You are given two integer arrays <code>nums1</code> and <code>nums2</code> of equal length <code>n</code>.</p>
+<p>给定两个整数数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>，长度都为&nbsp;<code>n</code>。</p>
 
-<p>We define a pair of indices <code>(i, j)</code> as a <strong>good pair</strong> if <code>nums1[i] == nums2[j]</code>.</p>
+<p>如果&nbsp;<code>nums1[i] == nums2[j]</code>，我们定义下标对&nbsp;<code>(i, j)</code>&nbsp;是 <strong>好数对</strong>。</p>
 
-<p>Return the <strong>minimum index sum</strong> <code>i + j</code> among all possible good pairs. If no such pairs exist, return -1.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums1 = [3,2,1], nums2 = [1,3,1]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">1</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>Common elements between <code>nums1</code> and <code>nums2</code> are 1 and 3.</li>
-	<li>For 3, <code>[i, j] = [0, 1]</code>, giving an index sum of <code>i + j = 1</code>.</li>
-	<li>For 1, <code>[i, j] = [2, 0]</code>, giving an index sum of <code>i + j = 2</code>.</li>
-	<li>The minimum index sum is 1.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums1 = [5,1,2], nums2 = [2,1,3]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>Common elements between <code>nums1</code> and <code>nums2</code> are 1 and 2.</li>
-	<li>For 1, <code>[i, j] = [1, 1]</code>, giving an index sum of <code>i + j = 2</code>.</li>
-	<li>For 2, <code>[i, j] = [2, 0]</code>, giving an index sum of <code>i + j = 2</code>.</li>
-	<li>The minimum index sum is 2.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums1 = [6,4], nums2 = [7,8]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">-1</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>Since no common elements between <code>nums1</code> and <code>nums2</code>, the output is -1.</li>
-</ul>
-</div>
+<p>返回所有可能的好数对中 <code>i + j</code> 的最小索引和。如果不存在这样的数对，则返回 -1。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums1 = [3,2,1], nums2 = [1,3,1]</span></p>
+
+<p><strong>输出：</strong><span class="example-io">1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li><code>nums1</code> 和 <code>nums2</code> 之间的公共元素是 1 和 3。</li>
+	<li>对于 3，<code>[i, j] = [0, 1]</code>，得到下标和是&nbsp;<code>i + j = 1</code>。</li>
+	<li>对于 1，<code>[i, j] = [2, 0]</code>，得到下标和是&nbsp;<code>i + j = 2</code>。</li>
+	<li>最小下标和是 1。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums1 = [5,1,2], nums2 = [2,1,3]</span></p>
+
+<p><span class="example-io"><b>输出：</b>2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li><code>nums1</code> 和 <code>nums2</code> 之间的公共元素是 1 和 2。</li>
+	<li>对于 1，<code>[i, j] = [1, 1]</code>，得到下标和是&nbsp;<code>i + j = 2</code>。</li>
+	<li>对于 2，<code>[i, j] = [2, 0]</code>，得到下标和是&nbsp;<code>i + j = 2</code>。</li>
+	<li>最小下标和是 2。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums1 = [6,4], nums2 = [7,8]</span></p>
+
+<p><span class="example-io"><b>输出：</b>-1</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>由于 <code>nums1</code> 和 <code>nums2</code> 之间没有公共元素，输出为 -1。</li>
+</ul>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums1.length == nums2.length &lt;= 10<sup>5</sup></code></li>

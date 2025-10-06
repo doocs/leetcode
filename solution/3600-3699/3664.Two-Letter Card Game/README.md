@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3664.Two-Letter%20Card%20Game/README.md
 rating: 2157
 source: 第 164 场双周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
+    - 枚举
 ---
 
 <!-- problem:start -->

@@ -20,7 +20,7 @@ tags:
 
 <p>给你一个整数数组 <code>prices</code> ，其中&nbsp;<code>prices[i]</code> 表示某支股票第 <code>i</code> 天的价格。</p>
 
-<p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候&nbsp;<strong>最多</strong>&nbsp;只能持有 <strong>一股</strong> 股票。你也可以先购买，然后在 <strong>同一天</strong> 出售。</p>
+<p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候&nbsp;<strong>最多</strong>&nbsp;只能持有 <strong>一股</strong> 股票。然而，你可以在 <strong>同一天</strong> 多次买卖该股票，但要确保你持有的股票不超过一股。</p>
 
 <p>返回 <em>你能获得的 <strong>最大</strong> 利润</em>&nbsp;。</p>
 

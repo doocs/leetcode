@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3656.Determine%20if%20a%20Simple%20Graph%20Exists/README.md
+tags:
+    - 图
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 排序
 ---
 
 <!-- problem:start -->
@@ -18,7 +24,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3656.De
 
 <p>你的任务是确定是否存在一个&nbsp;<strong>恰好</strong> 具有这些顶点度数的 <strong>无向简单</strong> 图。</p>
 
-<p>一个 <strong>简单</strong> 图没有同一对顶点之间的自环或平行边。</p>
+<p>一个 <strong>简单</strong> 图没有自环或同一对顶点之间的平行边。</p>
 
 <p>如果存在这样的图，返回&nbsp;<code>true</code>，否则返回&nbsp;<code>false</code>。</p>
 
@@ -50,7 +56,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3656.De
 
 <p><span class="example-io"><b>输出：</b>false</span></p>
 
-<p><strong>解释：</strong>​​​​​​​</p>
+<p><strong>解释：</strong></p>
 
 <ul>
 	<li><code>degrees[1] = 3</code> 和&nbsp;<code>degrees[2] = 3</code> 意味着它们必须连接到所有其他顶点。</li>

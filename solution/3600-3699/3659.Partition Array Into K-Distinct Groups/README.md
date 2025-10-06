@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README.md
 rating: 1439
 source: 第 464 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 计数
 ---
 
 <!-- problem:start -->

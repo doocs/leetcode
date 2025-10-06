@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3654.Minimum%20Sum%20After%20Divisible%20Sum%20Deletions/README.md
 rating: 2038
 source: 第 463 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->

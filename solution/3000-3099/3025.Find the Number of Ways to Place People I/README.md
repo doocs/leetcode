@@ -30,7 +30,7 @@ tags:
 
 <ul>
 	<li><code>A</code> 在 <code>B</code> 的左上角，并且</li>
-	<li>它们形成的长方形中（或直线上）没有其它点（<strong>包括边界</strong>）。</li>
+	<li>它们形成的长方形中（或直线上）没有其它点（<strong>包括边界</strong>），除了点&nbsp;<code>A</code> 和点 <code>B</code>。</li>
 </ul>
 
 <p>返回数量。</p>

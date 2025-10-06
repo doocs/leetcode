@@ -45,7 +45,7 @@ tags:
 
 <ul>
 	<li>When the query exactly matches a word in the wordlist (<strong>case-sensitive</strong>), you should return the same word back.</li>
-	<li>When the query matches a word up to capitlization, you should return the first such match in the wordlist.</li>
+	<li>When the query matches a word up to capitalization, you should return the first such match in the wordlist.</li>
 	<li>When the query matches a word up to vowel errors, you should return the first such match in the wordlist.</li>
 	<li>If the query has no matches in the wordlist, you should return the empty string.</li>
 </ul>

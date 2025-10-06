@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3671.Sum%20of%20Beautiful%20Subsequences/README_EN.md
 rating: 2647
 source: Weekly Contest 465 Q4
+tags:
+    - Tree
+    - Array
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3648.Minimum%20Sensors%20to%20Cover%20Grid/README_EN.md
 rating: 1395
 source: Biweekly Contest 163 Q1
+tags:
+    - Math
 ---
 
 <!-- problem:start -->

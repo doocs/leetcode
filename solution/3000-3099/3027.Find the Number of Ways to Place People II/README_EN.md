@@ -34,7 +34,7 @@ tags:
 
 <ul>
 	<li>With Alice at <code>(3, 3)</code> and Bob at <code>(1, 1)</code>, Alice&#39;s position is not the upper left corner and Bob&#39;s position is not the lower right corner of the fence.</li>
-	<li>With Alice at <code>(1, 3)</code> and Bob at <code>(1, 1)</code>, Bob&#39;s position is not the lower right corner of the fence.</li>
+	<li>With Alice at <code>(1, 3)</code> and Bob at <code>(1, 1)</code>&nbsp;(as the rectangle shown in the image instead of a line),&nbsp;Bob&#39;s position is not the lower right corner of the fence.</li>
 </ul>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3000-3099/3027.Find%20the%20Number%20of%20Ways%20to%20Place%20People%20II/images/example0alicebob-1.png" style="width: 750px; height: 308px;padding: 10px; background: #fff; border-radius: .5rem;" />
 <p>&nbsp;</p>

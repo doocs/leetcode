@@ -2,6 +2,11 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README.md
+tags:
+    - 数组
+    - 数学
+    - 双指针
+    - 排序
 ---
 
 <!-- problem:start -->

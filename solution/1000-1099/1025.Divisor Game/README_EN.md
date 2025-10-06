@@ -26,7 +26,7 @@ tags:
 <p>Initially, there is a number <code>n</code> on the chalkboard. On each player&#39;s turn, that player makes a move consisting of:</p>
 
 <ul>
-	<li>Choosing any <code>x</code> with <code>0 &lt; x &lt; n</code> and <code>n % x == 0</code>.</li>
+	<li>Choosing any integer <code>x</code> with <code>0 &lt; x &lt; n</code> and <code>n % x == 0</code>.</li>
 	<li>Replacing the number <code>n</code> on the chalkboard with <code>n - x</code>.</li>
 </ul>
 

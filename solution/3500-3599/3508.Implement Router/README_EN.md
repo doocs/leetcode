@@ -61,7 +61,7 @@ tags:
 	<li>Returns the number of packets currently stored in the router (i.e., not yet forwarded) that have the specified destination and have timestamps in the inclusive range <code>[startTime, endTime]</code>.</li>
 </ul>
 
-<p><strong>Note</strong> that queries for <code>addPacket</code> will be made in increasing order of <code>timestamp</code>.</p>
+<p><strong>Note</strong> that queries for <code>addPacket</code> will be made in non-decreasing order of <code>timestamp</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -110,7 +110,7 @@ router.forwardPacket(); // There are no packets left, return <code>[]</code>.</d
 	<li><code>1 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= startTime &lt;= endTime &lt;= 10<sup>9</sup></code></li>
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>addPacket</code>, <code>forwardPacket</code>, and <code>getCount</code> methods altogether.</li>
-	<li>queries for <code>addPacket</code> will be made in increasing order of <code>timestamp</code>.</li>
+	<li>queries for <code>addPacket</code> will be made in non-decreasing order of <code>timestamp</code>.</li>
 </ul>
 
 <!-- description:end -->

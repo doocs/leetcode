@@ -4,6 +4,9 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3677.Count%20Binary%20Palindromic%20Numbers/README.md
 rating: 2222
 source: 第 466 场周赛 Q4
+tags:
+    - 位运算
+    - 数学
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3659.Partition%20Array%20Into%20K-Distinct%20Groups/README_EN.md
 rating: 1439
 source: Weekly Contest 464 Q2
+tags:
+    - Array
+    - Hash Table
+    - Counting
 ---
 
 <!-- problem:start -->

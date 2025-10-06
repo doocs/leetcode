@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3658.GCD%20of%20Odd%20and%20Even%20Sums/README.md
 rating: 1220
 source: 第 464 场周赛 Q1
+tags:
+    - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

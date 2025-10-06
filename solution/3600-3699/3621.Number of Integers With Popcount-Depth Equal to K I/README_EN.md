@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3621.Nu
 rating: 2330
 source: Biweekly Contest 161 Q4
 tags:
+    - Bit Manipulation
     - Math
     - Dynamic Programming
     - Combinatorics

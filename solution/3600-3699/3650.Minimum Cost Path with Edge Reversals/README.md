@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3650.Minimum%20Cost%20Path%20with%20Edge%20Reversals/README.md
 rating: 1853
 source: 第 163 场双周赛 Q3
+tags:
+    - 图
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3646.Ne
 rating: 2445
 source: 第 462 场周赛 Q4
 tags:
+    - 位运算
     - 回溯
 ---
 

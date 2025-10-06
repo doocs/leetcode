@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3668.Restore%20Finishing%20Order/README_EN.md
 rating: 1255
 source: Weekly Contest 465 Q1
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3661.Maximum%20Walls%20Destroyed%20by%20Robots/README.md
 rating: 2525
 source: 第 464 场周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->
