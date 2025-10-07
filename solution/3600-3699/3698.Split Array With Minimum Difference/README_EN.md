@@ -150,32 +150,209 @@ source: Weekly Contest 469 Q2
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Two Arrays to Record Monotonicity
+
+We use a prefix sum array $s$ to record the prefix sum of the array, where $s[i]$ represents the sum of the array $[0,..i]$. Then we use two boolean arrays $f$ and $g$ to record the monotonicity of prefixes and suffixes respectively, where $f[i]$ indicates whether the array $[0,..i]$ is strictly increasing, and $g[i]$ indicates whether the array $[i,..n-1]$ is strictly decreasing.
+
+Finally, we traverse array positions $i$ where $0 \leq i < n-1$. If both $f[i]$ and $g[i+1]$ are true, then we can calculate the sums of $left$ and $right$, which are $s[i]$ and $s[n-1]-s[i]$ respectively, and update the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def splitArray(self, nums: List[int]) -> int:
+        s = list(accumulate(nums))
+        n = len(nums)
+        f = [True] * n
+        for i in range(1, n):
+            f[i] = f[i - 1]
+            if nums[i] <= nums[i - 1]:
+                f[i] = False
+        g = [True] * n
+        for i in range(n - 2, -1, -1):
+            g[i] = g[i + 1]
+            if nums[i] <= nums[i + 1]:
+                g[i] = False
+        ans = inf
+        for i in range(n - 1):
+            if f[i] and g[i + 1]:
+                s1 = s[i]
+                s2 = s[n - 1] - s[i]
+                ans = min(ans, abs(s1 - s2))
+        return ans if ans < inf else -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long splitArray(int[] nums) {
+        int n = nums.length;
+        long[] s = new long[n];
+        s[0] = nums[0];
+        boolean[] f = new boolean[n];
+        Arrays.fill(f, true);
+        boolean[] g = new boolean[n];
+        Arrays.fill(g, true);
+        for (int i = 1; i < n; ++i) {
+            s[i] = s[i - 1] + nums[i];
+            f[i] = f[i - 1];
+            if (nums[i] <= nums[i - 1]) {
+                f[i] = false;
+            }
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            g[i] = g[i + 1];
+            if (nums[i] <= nums[i + 1]) {
+                g[i] = false;
+            }
+        }
+        final long inf = Long.MAX_VALUE;
+        long ans = inf;
+        for (int i = 0; i < n - 1; ++i) {
+            if (f[i] && g[i + 1]) {
+                long s1 = s[i];
+                long s2 = s[n - 1] - s[i];
+                ans = Math.min(ans, Math.abs(s1 - s2));
+            }
+        }
+        return ans < inf ? ans : -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long splitArray(vector<int>& nums) {
+        int n = nums.size();
+        vector<long long> s(n);
+        s[0] = nums[0];
+        vector<bool> f(n, true), g(n, true);
 
+        for (int i = 1; i < n; ++i) {
+            s[i] = s[i - 1] + nums[i];
+            f[i] = f[i - 1];
+            if (nums[i] <= nums[i - 1]) {
+                f[i] = false;
+            }
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            g[i] = g[i + 1];
+            if (nums[i] <= nums[i + 1]) {
+                g[i] = false;
+            }
+        }
+
+        const long long inf = LLONG_MAX;
+        long long ans = inf;
+        for (int i = 0; i < n - 1; ++i) {
+            if (f[i] && g[i + 1]) {
+                long long s1 = s[i];
+                long long s2 = s[n - 1] - s[i];
+                ans = min(ans, llabs(s1 - s2));
+            }
+        }
+        return ans < inf ? ans : -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func splitArray(nums []int) int64 {
+	n := len(nums)
+	s := make([]int64, n)
+	f := make([]bool, n)
+	g := make([]bool, n)
+	for i := range f {
+		f[i] = true
+		g[i] = true
+	}
 
+	s[0] = int64(nums[0])
+	for i := 1; i < n; i++ {
+		s[i] = s[i-1] + int64(nums[i])
+		f[i] = f[i-1]
+		if nums[i] <= nums[i-1] {
+			f[i] = false
+		}
+	}
+	for i := n - 2; i >= 0; i-- {
+		g[i] = g[i+1]
+		if nums[i] <= nums[i+1] {
+			g[i] = false
+		}
+	}
+
+	const inf = int64(^uint64(0) >> 1)
+	ans := inf
+	for i := 0; i < n-1; i++ {
+		if f[i] && g[i+1] {
+			s1 := s[i]
+			s2 := s[n-1] - s[i]
+			ans = min(ans, abs(s1-s2))
+		}
+	}
+	if ans < inf {
+		return ans
+	}
+	return -1
+}
+
+func abs(x int64) int64 {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function splitArray(nums: number[]): number {
+    const n = nums.length;
+    const s: number[] = Array(n);
+    const f: boolean[] = Array(n).fill(true);
+    const g: boolean[] = Array(n).fill(true);
+
+    s[0] = nums[0];
+    for (let i = 1; i < n; ++i) {
+        s[i] = s[i - 1] + nums[i];
+        f[i] = f[i - 1];
+        if (nums[i] <= nums[i - 1]) {
+            f[i] = false;
+        }
+    }
+
+    for (let i = n - 2; i >= 0; --i) {
+        g[i] = g[i + 1];
+        if (nums[i] <= nums[i + 1]) {
+            g[i] = false;
+        }
+    }
+
+    const INF = Number.MAX_SAFE_INTEGER;
+    let ans = INF;
+
+    for (let i = 0; i < n - 1; ++i) {
+        if (f[i] && g[i + 1]) {
+            const s1 = s[i];
+            const s2 = s[n - 1] - s[i];
+            ans = Math.min(ans, Math.abs(s1 - s2));
+        }
+    }
+
+    return ans < INF ? ans : -1;
+}
 ```
 
 <!-- tabs:end -->
