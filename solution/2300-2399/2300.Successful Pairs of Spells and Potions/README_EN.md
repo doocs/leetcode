@@ -47,8 +47,8 @@ Thus, [4,0,3] is returned.
 <strong>Output:</strong> [2,0,2]
 <strong>Explanation:</strong>
 - 0<sup>th</sup> spell: 3 * [8,5,8] = [<u><strong>24</strong></u>,15,<u><strong>24</strong></u>]. 2 pairs are successful.
-- 1<sup>st</sup> spell: 1 * [8,5,8] = [8,5,8]. 0 pairs are successful. 
-- 2<sup>nd</sup> spell: 2 * [8,5,8] = [<strong><u>16</u></strong>,10,<u><strong>16</strong></u>]. 2 pairs are successful. 
+- 1<sup>st</sup> spell: 1 * [8,5,8] = [8,5,8]. 0 pairs are successful.
+- 2<sup>nd</sup> spell: 2 * [8,5,8] = [<strong><u>16</u></strong>,10,<u><strong>16</strong></u>]. 2 pairs are successful.
 Thus, [2,0,2] is returned.
 </pre>
 
@@ -120,12 +120,14 @@ class Solution {
 class Solution {
 public:
     vector<int> successfulPairs(vector<int>& spells, vector<int>& potions, long long success) {
-        sort(potions.begin(), potions.end());
+        ranges::sort(potions);
+        const int m = potions.size();
         vector<int> ans;
-        int m = potions.size();
-        for (int& v : spells) {
-            int i = lower_bound(potions.begin(), potions.end(), success * 1.0 / v) - potions.begin();
-            ans.push_back(m - i);
+        ans.reserve(spells.size());
+
+        for (int v : spells) {
+            auto it = ranges::lower_bound(potions, static_cast<double>(success) / v);
+            ans.push_back(m - static_cast<int>(it - potions.begin()));
         }
         return ans;
     }
@@ -153,19 +155,13 @@ function successfulPairs(spells: number[], potions: number[], success: number): 
     potions.sort((a, b) => a - b);
     const m = potions.length;
     const ans: number[] = [];
+
     for (const v of spells) {
-        let left = 0;
-        let right = m;
-        while (left < right) {
-            const mid = (left + right) >> 1;
-            if (v * potions[mid] >= success) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        ans.push(m - left);
+        const targetPotion = success / v;
+        const idx = _.sortedIndexBy(potions, targetPotion, p => p);
+        ans.push(m - idx);
     }
+
     return ans;
 }
 ```
@@ -177,18 +173,15 @@ impl Solution {
     pub fn successful_pairs(spells: Vec<i32>, mut potions: Vec<i32>, success: i64) -> Vec<i32> {
         potions.sort();
         let m = potions.len();
+        let mut ans = Vec::with_capacity(spells.len());
 
-        spells.into_iter().map(|v| {
-            let i = potions.binary_search_by(|&p| {
-                let prod = (p as i64) * (v as i64);
-                if prod >= success {
-                    std::cmp::Ordering::Greater
-                } else {
-                    std::cmp::Ordering::Less
-                }
-            }).unwrap_or_else(|x| x);
-            (m - i) as i32
-        }).collect()
+        for &v in &spells {
+            let target = (success + v as i64 - 1) / v as i64;
+            let idx = potions.partition_point(|&p| (p as i64) < target);
+            ans.push((m - idx) as i32);
+        }
+
+        ans
     }
 }
 ```
