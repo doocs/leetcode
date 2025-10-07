@@ -5,7 +5,7 @@ class Solution {
             if (!stk.isEmpty() && stk.get(stk.size() - 1)[0] == c) {
                 stk.get(stk.size() - 1)[1] += 1;
             } else {
-                stk.add(new int[]{c, 1});
+                stk.add(new int[] {c, 1});
             }
             if (c == ')' && stk.size() > 1) {
                 int[] top = stk.get(stk.size() - 1);
