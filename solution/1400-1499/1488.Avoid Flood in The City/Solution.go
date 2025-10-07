@@ -4,21 +4,24 @@ func avoidFlood(rains []int) []int {
 	for i := range ans {
 		ans[i] = -1
 	}
-	sunny := []int{}
+
+	sunny := redblacktree.New[int, struct{}]()
 	rainy := map[int]int{}
+
 	for i, v := range rains {
 		if v > 0 {
-			if j, ok := rainy[v]; ok {
-				idx := sort.SearchInts(sunny, j+1)
-				if idx == len(sunny) {
+			if last, ok := rainy[v]; ok {
+				node, found := sunny.Ceiling(last + 1)
+				if !found {
 					return []int{}
 				}
-				ans[sunny[idx]] = v
-				sunny = append(sunny[:idx], sunny[idx+1:]...)
+				t := node.Key
+				ans[t] = v
+				sunny.Remove(t)
 			}
 			rainy[v] = i
 		} else {
-			sunny = append(sunny, i)
+			sunny.Put(i, struct{}{})
 			ans[i] = 1
 		}
 	}
