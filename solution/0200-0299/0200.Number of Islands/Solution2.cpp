@@ -9,7 +9,6 @@ public:
             grid[i][j] = '0';
             queue<pair<int, int>> q;
             q.push({i, j});
-            vector<int> dirs = {-1, 0, 1, 0, -1};
             while (!q.empty()) {
                 auto [a, b] = q.front();
                 q.pop();
