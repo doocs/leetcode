@@ -126,32 +126,123 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the time when wizard $i$ completes the previous potion.
+
+For the current potion $x$, we need to calculate the completion time for each wizard. Let $\textit{tot}$ represent the completion time of the current potion, initially $\textit{tot} = 0$.
+
+For each wizard $i$, the time he starts processing the current potion is $\max(\textit{tot}, f[i])$, and the time required to process this potion is $skill[i] \times mana[x]$. Therefore, the time he completes this potion is $\max(\textit{tot}, f[i]) + skill[i] \times mana[x]$. We update $\textit{tot}$ to this value.
+
+Since the brewing process requires that the potion must be immediately passed to the next wizard and processing must start immediately after the current wizard completes their work, we need to update the completion time $f[i]$ for each wizard's previous potion. For the last wizard $n-1$, we directly update $f[n-1]$ to $\textit{tot}$. For other wizards $i$, we can update $f[i]$ by traversing in reverse order, specifically, $f[i] = f[i+1] - skill[i+1] \times mana[x]$.
+
+Finally, $f[n-1]$ is the minimum total time required to complete brewing all potions.
+
+The time complexity is $O(n \times m)$ and the space complexity is $O(n)$, where $n$ and $m$ are the number of wizards and potions respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minTime(self, skill: List[int], mana: List[int]) -> int:
+        max = lambda a, b: a if a > b else b
+        n = len(skill)
+        f = [0] * n
+        for x in mana:
+            tot = 0
+            for i in range(n):
+                tot = max(tot, f[i]) + skill[i] * x
+            f[-1] = tot
+            for i in range(n - 2, -1, -1):
+                f[i] = f[i + 1] - skill[i + 1] * x
+        return f[-1]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minTime(int[] skill, int[] mana) {
+        int n = skill.length;
+        long[] f = new long[n];
+        for (int x : mana) {
+            long tot = 0;
+            for (int i = 0; i < n; ++i) {
+                tot = Math.max(tot, f[i]) + skill[i] * x;
+            }
+            f[n - 1] = tot;
+            for (int i = n - 2; i >= 0; --i) {
+                f[i] = f[i + 1] - skill[i + 1] * x;
+            }
+        }
+        return f[n - 1];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minTime(vector<int>& skill, vector<int>& mana) {
+        int n = skill.size();
+        vector<long long> f(n);
+        for (int x : mana) {
+            long long tot = 0;
+            for (int i = 0; i < n; ++i) {
+                tot = max(tot, f[i]) + 1LL * skill[i] * x;
+            }
+            f[n - 1] = tot;
+            for (int i = n - 2; i >= 0; --i) {
+                f[i] = f[i + 1] - 1LL * skill[i + 1] * x;
+            }
+        }
+        return f[n - 1];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minTime(skill []int, mana []int) int64 {
+	n := len(skill)
+	f := make([]int64, n)
+	for _, x := range mana {
+		var tot int64
+		for i := 0; i < n; i++ {
+			tot = max(tot, f[i]) + int64(skill[i])*int64(x)
+		}
+		f[n-1] = tot
+		for i := n - 2; i >= 0; i-- {
+			f[i] = f[i+1] - int64(skill[i+1])*int64(x)
+		}
+	}
+	return f[n-1]
+}
+```
 
+#### TypeScript
+
+```ts
+function minTime(skill: number[], mana: number[]): number {
+    const n = skill.length;
+    const f: number[] = Array(n).fill(0);
+    for (const x of mana) {
+        let tot = 0;
+        for (let i = 0; i < n; ++i) {
+            tot = Math.max(tot, f[i]) + skill[i] * x;
+        }
+        f[n - 1] = tot;
+        for (let i = n - 2; i >= 0; --i) {
+            f[i] = f[i + 1] - skill[i + 1] * x;
+        }
+    }
+    return f[n - 1];
+}
 ```
 
 <!-- tabs:end -->

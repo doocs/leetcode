@@ -129,32 +129,123 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：递推
+
+我们定义 $f[i]$ 表示巫师 $i$ 完成上一瓶药水的时间。
+
+对于当前的药水 $x$，我们需要计算每个巫师完成该药水的时间。定义 $\textit{tot}$ 表示当前药水完成的时间，初始时 $\textit{tot} = 0$。
+
+对于每个巫师 $i$，他开始处理当前药水的时间为 $\max(\textit{tot}, f[i])$，处理该药水需要的时间为 $skill[i] \times mana[x]$，因此他完成该药水的时间为 $\max(\textit{tot}, f[i]) + skill[i] \times mana[x]$。我们更新 $\textit{tot}$ 为该值。
+
+由于酿造过程要求药水在当前巫师完成工作后必须立即传递给下一个巫师并开始处理，因此我们需要更新每个巫师完成上一瓶药水的时间 $f[i]$。对于最后一个巫师 $n-1$，我们直接将 $f[n-1]$ 更新为 $\textit{tot}$。对于其他巫师 $i$，我们可以通过倒序遍历来更新 $f[i]$，具体地，$f[i] = f[i+1] - skill[i+1] \times mana[x]$。
+
+最终 $f[n-1]$ 即为所有药水酿造完成的最短总时间。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别为巫师和药水的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minTime(self, skill: List[int], mana: List[int]) -> int:
+        max = lambda a, b: a if a > b else b
+        n = len(skill)
+        f = [0] * n
+        for x in mana:
+            tot = 0
+            for i in range(n):
+                tot = max(tot, f[i]) + skill[i] * x
+            f[-1] = tot
+            for i in range(n - 2, -1, -1):
+                f[i] = f[i + 1] - skill[i + 1] * x
+        return f[-1]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minTime(int[] skill, int[] mana) {
+        int n = skill.length;
+        long[] f = new long[n];
+        for (int x : mana) {
+            long tot = 0;
+            for (int i = 0; i < n; ++i) {
+                tot = Math.max(tot, f[i]) + skill[i] * x;
+            }
+            f[n - 1] = tot;
+            for (int i = n - 2; i >= 0; --i) {
+                f[i] = f[i + 1] - skill[i + 1] * x;
+            }
+        }
+        return f[n - 1];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minTime(vector<int>& skill, vector<int>& mana) {
+        int n = skill.size();
+        vector<long long> f(n);
+        for (int x : mana) {
+            long long tot = 0;
+            for (int i = 0; i < n; ++i) {
+                tot = max(tot, f[i]) + 1LL * skill[i] * x;
+            }
+            f[n - 1] = tot;
+            for (int i = n - 2; i >= 0; --i) {
+                f[i] = f[i + 1] - 1LL * skill[i + 1] * x;
+            }
+        }
+        return f[n - 1];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minTime(skill []int, mana []int) int64 {
+	n := len(skill)
+	f := make([]int64, n)
+	for _, x := range mana {
+		var tot int64
+		for i := 0; i < n; i++ {
+			tot = max(tot, f[i]) + int64(skill[i])*int64(x)
+		}
+		f[n-1] = tot
+		for i := n - 2; i >= 0; i-- {
+			f[i] = f[i+1] - int64(skill[i+1])*int64(x)
+		}
+	}
+	return f[n-1]
+}
+```
 
+#### TypeScript
+
+```ts
+function minTime(skill: number[], mana: number[]): number {
+    const n = skill.length;
+    const f: number[] = Array(n).fill(0);
+    for (const x of mana) {
+        let tot = 0;
+        for (let i = 0; i < n; ++i) {
+            tot = Math.max(tot, f[i]) + skill[i] * x;
+        }
+        f[n - 1] = tot;
+        for (let i = n - 2; i >= 0; --i) {
+            f[i] = f[i + 1] - skill[i + 1] * x;
+        }
+    }
+    return f[n - 1];
+}
 ```
 
 <!-- tabs:end -->
