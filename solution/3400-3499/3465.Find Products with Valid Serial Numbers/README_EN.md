@@ -112,7 +112,7 @@ Based on the above rules, we can use a regular expression to match valid serial 
 # Write your MySQL query statement below
 SELECT product_id, product_name, description
 FROM products
-WHERE description REGEXP '\\bSN[0-9]{4}-[0-9]{4}\\b'
+WHERE description REGEXP '(?-i)\\bSN[0-9]{4}-[0-9]{4}\\b'
 ORDER BY 1;
 ```
 
