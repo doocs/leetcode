@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +------------------+----------+
-| Column Name      | Type     |
+| Column Name      | Type     | 
 +------------------+----------+
 | order_id         | int      |
 | customer_id      | int      |

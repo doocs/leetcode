@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3697.Compute%20Decimal%20Representation/README_EN.md
 rating: 1250
 source: Weekly Contest 469 Q1
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README_EN.md
 rating: 1739
 source: Biweekly Contest 166 Q3
+tags:
+    - Hash Table
+    - String
+    - Prefix Sum
+    - Sliding Window
 ---
 
 <!-- problem:start -->
