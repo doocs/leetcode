@@ -97,11 +97,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：枚举 + 后缀和
+### 方法一：枚举 + 逆序遍历
 
 我们可以在 $[n - k, n)$ 的范围内枚举终点，然后从终点开始向前遍历，每次累加间隔为 $k$ 的魔法师的能量值，更新答案。
 
-时间复杂度 $O(n)$，其中 $n$ 是数组 `energy` 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{energy}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -187,6 +187,27 @@ function maximumEnergy(energy: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_energy(energy: Vec<i32>, k: i32) -> i32 {
+        let n = energy.len();
+        let mut ans = i32::MIN;
+        for i in n - k as usize..n {
+            let mut s = 0;
+            let mut j = i as i32;
+            while j >= 0 {
+                s += energy[j as usize];
+                ans = ans.max(s);
+                j -= k;
+            }
+        }
+        ans
+    }
 }
 ```
 

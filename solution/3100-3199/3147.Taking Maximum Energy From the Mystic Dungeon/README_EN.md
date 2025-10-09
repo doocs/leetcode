@@ -98,11 +98,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Enumeration + Suffix Sum
+### Solution 1: Enumeration + Reverse Traversal
 
-We can enumerate the endpoint in the range of $[n - k, n)$, then start from the endpoint and traverse backwards, adding the energy value of the magician at each $k$ interval, and update the answer.
+We can enumerate the endpoints within the range $[n - k, n)$, then traverse backwards from each endpoint, accumulating the energy values of wizards at intervals of $k$, and update the answer.
 
-The time complexity is $O(n)$, where $n$ is the length of the array `energy`. The space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of array $\textit{energy}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -188,6 +188,27 @@ function maximumEnergy(energy: number[], k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_energy(energy: Vec<i32>, k: i32) -> i32 {
+        let n = energy.len();
+        let mut ans = i32::MIN;
+        for i in n - k as usize..n {
+            let mut s = 0;
+            let mut j = i as i32;
+            while j >= 0 {
+                s += energy[j as usize];
+                ans = ans.max(s);
+                j -= k;
+            }
+        }
+        ans
+    }
 }
 ```
 
