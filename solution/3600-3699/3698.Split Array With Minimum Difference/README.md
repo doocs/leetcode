@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md
 rating: 1648
 source: 第 469 场周赛 Q2
+tags:
+    - 数组
+    - 前缀和
 ---
 
 <!-- problem:start -->

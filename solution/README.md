@@ -3704,11 +3704,11 @@
 |  3691  |  [最大子数组总值 II](/solution/3600-3699/3691.Maximum%20Total%20Subarray%20Value%20II/README.md)  |  `贪心`,`线段树`,`数组`,`堆（优先队列）`  |  困难  |  第 468 场周赛  |
 |  3692  |  [众数频率字符](/solution/3600-3699/3692.Majority%20Frequency%20Characters/README.md)  |    |  简单  |  第 166 场双周赛  |
 |  3693  |  [爬楼梯 II](/solution/3600-3699/3693.Climbing%20Stairs%20II/README.md)  |    |  中等  |  第 166 场双周赛  |
-|  3694  |  [删除子字符串后不同的终点](/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README.md)  |    |  中等  |  第 166 场双周赛  |
-|  3695  |  [交换元素后的最大交替和](/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README.md)  |    |  困难  |  第 166 场双周赛  |
-|  3696  |  [不同单词间的最大距离 I](/solution/3600-3699/3696.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20I/README.md)  |    |  简单  |  🔒  |
-|  3697  |  [计算十进制表示](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md)  |    |  简单  |  第 469 场周赛  |
-|  3698  |  [分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)  |    |  中等  |  第 469 场周赛  |
+|  3694  |  [删除子字符串后不同的终点](/solution/3600-3699/3694.Distinct%20Points%20Reachable%20After%20Substring%20Removal/README.md)  |  `哈希表`,`字符串`,`前缀和`,`滑动窗口`  |  中等  |  第 166 场双周赛  |
+|  3695  |  [交换元素后的最大交替和](/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README.md)  |  `贪心`,`并查集`,`数组`,`排序`  |  困难  |  第 166 场双周赛  |
+|  3696  |  [不同单词间的最大距离 I](/solution/3600-3699/3696.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20I/README.md)  |  `数组`,`字符串`  |  简单  |  🔒  |
+|  3697  |  [计算十进制表示](/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md)  |  `数组`,`数学`  |  简单  |  第 469 场周赛  |
+|  3698  |  [分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)  |  `数组`,`前缀和`  |  中等  |  第 469 场周赛  |
 |  3699  |  [锯齿形数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)  |    |  困难  |  第 469 场周赛  |
 |  3700  |  [锯齿形数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)  |    |  困难  |  第 469 场周赛  |
 |  3701  |  [计算交替和](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md)  |    |  简单  |  第 470 场周赛  |
@@ -3716,7 +3716,7 @@
 |  3703  |  [移除K-平衡子字符串](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md)  |    |  中等  |  第 470 场周赛  |
 |  3704  |  [统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)  |    |  困难  |  第 470 场周赛  |
 |  3705  |  [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)  |    |  中等  |    |
-|  3706  |  [Maximum Distance Between Unequal Words in Array II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README.md)  |    |  中等  |  🔒  |
+|  3706  |  [不同单词间的最大距离 II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

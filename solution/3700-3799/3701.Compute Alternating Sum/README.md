@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md
+rating: 1228
+source: 第 470 场周赛 Q1
 ---
 
 <!-- problem:start -->

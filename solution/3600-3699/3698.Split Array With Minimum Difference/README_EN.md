@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README_EN.md
 rating: 1648
 source: Weekly Contest 469 Q2
+tags:
+    - Array
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

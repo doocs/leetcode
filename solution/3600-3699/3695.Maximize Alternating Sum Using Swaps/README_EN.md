@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3695.Maximize%20Alternating%20Sum%20Using%20Swaps/README_EN.md
 rating: 1984
 source: Biweekly Contest 166 Q4
+tags:
+    - Greedy
+    - Union Find
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

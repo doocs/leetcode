@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3697.Compute%20Decimal%20Representation/README.md
 rating: 1250
 source: 第 469 场周赛 Q1
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
