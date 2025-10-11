@@ -411,6 +411,153 @@ function countOfPeaks(nums: number[], queries: number[][]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_of_peaks(mut nums: Vec<i32>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        struct BinaryIndexedTree {
+            n: usize,
+            c: Vec<i32>,
+        }
+
+        impl BinaryIndexedTree {
+            fn new(n: usize) -> Self {
+                Self { n, c: vec![0; n + 1] }
+            }
+
+            fn update(&mut self, mut x: usize, delta: i32) {
+                while x <= self.n {
+                    self.c[x] += delta;
+                    x += x & (!x + 1);
+                }
+            }
+
+            fn query(&self, mut x: usize) -> i32 {
+                let mut s = 0;
+                while x > 0 {
+                    s += self.c[x];
+                    x &= x - 1;
+                }
+                s
+            }
+        }
+
+        let n = nums.len();
+        let mut tree = BinaryIndexedTree::new(n - 1);
+
+        let mut update = |i: usize, val: i32, nums: &Vec<i32>, tree: &mut BinaryIndexedTree| {
+            if i == 0 || i >= n - 1 {
+                return;
+            }
+            if nums[i - 1] < nums[i] && nums[i] > nums[i + 1] {
+                tree.update(i, val);
+            }
+        };
+
+        for i in 1..n - 1 {
+            update(i, 1, &nums, &mut tree);
+        }
+
+        let mut ans = Vec::new();
+        for q in queries {
+            if q[0] == 1 {
+                let l = (q[1] + 1).max(1) as usize;
+                let r = (q[2] - 1).max(0) as usize;
+                if l > r {
+                    ans.push(0);
+                } else {
+                    ans.push(tree.query(r) - tree.query(l - 1));
+                }
+            } else {
+                let idx = q[1] as usize;
+                let val = q[2];
+                let left = if idx > 0 { idx - 1 } else { 0 };
+                let right = usize::min(idx + 1, n - 1);
+                for i in left..=right {
+                    update(i, -1, &nums, &mut tree);
+                }
+                nums[idx] = val;
+                for i in left..=right {
+                    update(i, 1, &nums, &mut tree);
+                }
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+class BinaryIndexedTree {
+    constructor(n) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x, delta) {
+        for (; x <= this.n; x += x & -x) {
+            this.c[x] += delta;
+        }
+    }
+
+    query(x) {
+        let s = 0;
+        for (; x > 0; x -= x & -x) {
+            s += this.c[x];
+        }
+        return s;
+    }
+}
+
+/**
+ * @param {number[]} nums
+ * @param {number[][]} queries
+ * @return {number[]}
+ */
+var countOfPeaks = function (nums, queries) {
+    const n = nums.length;
+    const tree = new BinaryIndexedTree(n - 1);
+
+    const update = (i, val) => {
+        if (i <= 0 || i >= n - 1) {
+            return;
+        }
+        if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) {
+            tree.update(i, val);
+        }
+    };
+
+    for (let i = 1; i < n - 1; ++i) {
+        update(i, 1);
+    }
+
+    const ans = [];
+    for (const q of queries) {
+        if (q[0] === 1) {
+            const l = q[1] + 1;
+            const r = q[2] - 1;
+            ans.push(l > r ? 0 : tree.query(r) - tree.query(l - 1));
+        } else {
+            const idx = q[1];
+            const val = q[2];
+            for (let i = idx - 1; i <= idx + 1; ++i) {
+                update(i, -1);
+            }
+            nums[idx] = val;
+            for (let i = idx - 1; i <= idx + 1; ++i) {
+                update(i, 1);
+            }
+        }
+    }
+
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
