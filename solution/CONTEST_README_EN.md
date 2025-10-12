@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 471
+
+- [3712. Sum of Elements With Frequency Divisible by K](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README_EN.md)
+- [3713. Longest Balanced Substring I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README_EN.md)
+- [3714. Longest Balanced Substring II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README_EN.md)
+- [3715. Sum of Perfect Square Ancestors](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README_EN.md)
+
 #### Biweekly Contest 167
 
 - [3707. Equal Score Substrings](/solution/3700-3799/3707.Equal%20Score%20Substrings/README_EN.md)
