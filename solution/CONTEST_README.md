@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 167 场双周赛(2025-10-11 22:30, 90 分钟) 参赛人数 1294
+
+- [3707. 相等子字符串分数](/solution/3700-3799/3707.Equal%20Score%20Substrings/README.md)
+- [3708. 最长斐波那契子数组](/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README.md)
+- [3709. 设计考试分数记录器](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README.md)
+- [3710. 最大划分因子](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README.md)
+
 #### 第 470 场周赛(2025-10-05 10:30, 90 分钟) 参赛人数 1226
 
 - [3701. 计算交替和](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md)

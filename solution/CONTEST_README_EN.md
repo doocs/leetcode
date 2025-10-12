@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 167
+
+- [3707. Equal Score Substrings](/solution/3700-3799/3707.Equal%20Score%20Substrings/README_EN.md)
+- [3708. Longest Fibonacci Subarray](/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README_EN.md)
+- [3709. Design Exam Scores Tracker](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README_EN.md)
+- [3710. Maximum Partition Factor](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README_EN.md)
+
 #### Weekly Contest 470
 
 - [3701. Compute Alternating Sum](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README_EN.md)
