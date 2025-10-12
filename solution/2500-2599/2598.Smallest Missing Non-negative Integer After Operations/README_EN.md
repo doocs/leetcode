@@ -74,13 +74,13 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 <!-- solution:start -->
 
-### Solution 1: Count
+### Solution 1: Counting
 
-We use a hash table or array $cnt$ to count the number of times each remainder of $value$ is taken modulo in the array.
+We use a hash table $\textit{cnt}$ to count the number of remainders when each number in the array is modulo $\textit{value}$.
 
-Then start from $0$ and traverse, for the current number $i$ traversed, if $cnt[i \bmod value]$ is $0$, it means that there is no number in the array that takes $i$ modulo $value$ as the remainder, then $i$ is the MEX of the array, and return directly. Otherwise, reduce $cnt[i \bmod value]$ by $1$ and continue to traverse.
+Then we traverse starting from $0$. For the current number $i$ being traversed, if $\textit{cnt}[i \bmod \textit{value}]$ is $0$, it means there is no number in the array whose remainder when modulo $\textit{value}$ is $i$, so $i$ is the MEX of the array, and we can return it directly. Otherwise, we decrement $\textit{cnt}[i \bmod \textit{value}]$ by $1$ and continue traversing.
 
-The time complexity is $O(n)$ and the space complexity is $O(value)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$ and the space complexity is $O(\textit{value})$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 
