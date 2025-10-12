@@ -3722,6 +3722,10 @@
 |  3709  |  [设计考试分数记录器](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README.md)  |    |  中等  |  第 167 场双周赛  |
 |  3710  |  [最大划分因子](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README.md)  |    |  困难  |  第 167 场双周赛  |
 |  3711  |  [Maximum Transactions Without Negative Balance](/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README.md)  |    |  中等  |  🔒  |
+|  3712  |  [出现次数能被 K 整除的元素总和](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README.md)  |    |  简单  |  第 471 场周赛  |
+|  3713  |  [最长的平衡子串 I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README.md)  |    |  中等  |  第 471 场周赛  |
+|  3714  |  [最长的平衡子串 II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README.md)  |    |  中等  |  第 471 场周赛  |
+|  3715  |  [完全平方数的祖先个数总和](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README.md)  |    |  困难  |  第 471 场周赛  |
 
 ## 版权
 

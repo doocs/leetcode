@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 471 场周赛(2025-10-12 10:30, 90 分钟) 参赛人数 1754
+
+- [3712. 出现次数能被 K 整除的元素总和](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README.md)
+- [3713. 最长的平衡子串 I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README.md)
+- [3714. 最长的平衡子串 II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README.md)
+- [3715. 完全平方数的祖先个数总和](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README.md)
+
 #### 第 167 场双周赛(2025-10-11 22:30, 90 分钟) 参赛人数 1294
 
 - [3707. 相等子字符串分数](/solution/3700-3799/3707.Equal%20Score%20Substrings/README.md)
