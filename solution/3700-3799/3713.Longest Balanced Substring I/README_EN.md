@@ -72,32 +72,136 @@ A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of charac
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Counting
+
+We can enumerate the starting position $i$ of substrings in the range $[0,..n-1]$, then enumerate the ending position $j$ of substrings in the range $[i,..,n-1]$, and use a hash table $\textit{cnt}$ to record the frequency of each character in substring $s[i..j]$. We use variable $\textit{mx}$ to record the maximum frequency of characters in the substring, and use variable $v$ to record the number of distinct characters in the substring. If at some position $j$, we have $\textit{mx} \times v = j - i + 1$, it means substring $s[i..j]$ is a balanced substring, and we update the answer $\textit{ans} = \max(\textit{ans}, j - i + 1)$.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the string. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set, which is $|\Sigma| = 26$ in this problem.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def longestBalanced(self, s: str) -> int:
+        n = len(s)
+        ans = 0
+        for i in range(n):
+            cnt = Counter()
+            mx = v = 0
+            for j in range(i, n):
+                cnt[s[j]] += 1
+                mx = max(mx, cnt[s[j]])
+                if cnt[s[j]] == 1:
+                    v += 1
+                if mx * v == j - i + 1:
+                    ans = max(ans, j - i + 1)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int longestBalanced(String s) {
+        int n = s.length();
+        int[] cnt = new int[26];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            Arrays.fill(cnt, 0);
+            int mx = 0, v = 0;
+            for (int j = i; j < n; ++j) {
+                int c = s.charAt(j) - 'a';
+                if (++cnt[c] == 1) {
+                    ++v;
+                }
+                mx = Math.max(mx, cnt[c]);
+                if (mx * v == j - i + 1) {
+                    ans = Math.max(ans, j - i + 1);
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int longestBalanced(string s) {
+        int n = s.size();
+        vector<int> cnt(26, 0);
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            fill(cnt.begin(), cnt.end(), 0);
+            int mx = 0, v = 0;
+            for (int j = i; j < n; ++j) {
+                int c = s[j] - 'a';
+                if (++cnt[c] == 1) {
+                    ++v;
+                }
+                mx = max(mx, cnt[c]);
+                if (mx * v == j - i + 1) {
+                    ans = max(ans, j - i + 1);
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestBalanced(s string) (ans int) {
+	n := len(s)
+	for i := 0; i < n; i++ {
+		cnt := [26]int{}
+		mx, v := 0, 0
+		for j := i; j < n; j++ {
+			c := s[j] - 'a'
+			cnt[c]++
+			if cnt[c] == 1 {
+				v++
+			}
+			mx = max(mx, cnt[c])
+			if mx*v == j-i+1 {
+				ans = max(ans, j-i+1)
+			}
+		}
+	}
 
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function longestBalanced(s: string): number {
+    const n = s.length;
+    let ans: number = 0;
+    for (let i = 0; i < n; ++i) {
+        const cnt: number[] = Array(26).fill(0);
+        let [mx, v] = [0, 0];
+        for (let j = i; j < n; ++j) {
+            const c = s[j].charCodeAt(0) - 97;
+            if (++cnt[c] === 1) {
+                ++v;
+            }
+            mx = Math.max(mx, cnt[c]);
+            if (mx * v === j - i + 1) {
+                ans = Math.max(ans, j - i + 1);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
