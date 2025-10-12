@@ -74,13 +74,13 @@ The MEX of nums is 2. It can be shown that 2 is the maximum MEX we can achieve.
 
 <!-- solution:start -->
 
-### Solution 1: Count
+### Solution 1: Counting
 
-We use a hash table or array $cnt$ to count the number of times each remainder of $value$ is taken modulo in the array.
+We use a hash table $\textit{cnt}$ to count the number of remainders when each number in the array is modulo $\textit{value}$.
 
-Then start from $0$ and traverse, for the current number $i$ traversed, if $cnt[i \bmod value]$ is $0$, it means that there is no number in the array that takes $i$ modulo $value$ as the remainder, then $i$ is the MEX of the array, and return directly. Otherwise, reduce $cnt[i \bmod value]$ by $1$ and continue to traverse.
+Then we traverse starting from $0$. For the current number $i$ being traversed, if $\textit{cnt}[i \bmod \textit{value}]$ is $0$, it means there is no number in the array whose remainder when modulo $\textit{value}$ is $i$, so $i$ is the MEX of the array, and we can return it directly. Otherwise, we decrement $\textit{cnt}[i \bmod \textit{value}]$ by $1$ and continue traversing.
 
-The time complexity is $O(n)$ and the space complexity is $O(value)$. Where $n$ is the length of the array $nums$.
+The time complexity is $O(n)$ and the space complexity is $O(\textit{value})$, where $n$ is the length of array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -165,6 +165,51 @@ function findSmallestInteger(nums: number[], value: number): number {
         }
     }
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_smallest_integer(nums: Vec<i32>, value: i32) -> i32 {
+        let mut cnt = vec![0; value as usize];
+        for &x in &nums {
+            let idx = ((x % value + value) % value) as usize;
+            cnt[idx] += 1;
+        }
+
+        let mut i = 0;
+        loop {
+            let idx = (i % value) as usize;
+            if cnt[idx] == 0 {
+                return i;
+            }
+            cnt[idx] -= 1;
+            i += 1;
+        }
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} value
+ * @return {number}
+ */
+var findSmallestInteger = function (nums, value) {
+    const cnt = Array(value).fill(0);
+    for (const x of nums) {
+        ++cnt[((x % value) + value) % value];
+    }
+    for (let i = 0; ; ++i) {
+        if (cnt[i % value]-- === 0) {
+            return i;
+        }
+    }
+};
 ```
 
 <!-- tabs:end -->

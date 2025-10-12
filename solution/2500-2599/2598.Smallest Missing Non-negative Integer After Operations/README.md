@@ -76,11 +76,11 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 
 ### 方法一：计数
 
-我们用哈希表或数组 $cnt$ 统计数组中每个数对 $value$ 取模后的余数的个数。
+我们用哈希表 $\textit{cnt}$ 统计数组中每个数对 $\textit{value}$ 取模后的余数的个数。
 
-然后从 $0$ 开始遍历，对于当前遍历到的数 $i$，如果 $cnt[i \bmod value]$ 为 $0$，说明数组中不存在一个数对 $value$ 取模后的余数为 $i$，那么 $i$ 就是数组的 MEX，直接返回即可。否则，将 $cnt[i \bmod value]$ 减 $1$，继续遍历。
+然后从 $0$ 开始遍历，对于当前遍历到的数 $i$，如果 $\textit{cnt}[i \bmod \textit{value}]$ 为 $0$，说明数组中不存在一个数对 $\textit{value}$ 取模后的余数为 $i$，那么 $i$ 就是数组的 MEX，直接返回即可。否则，将 $\textit{cnt}[i \bmod \textit{value}]$ 减 $1$，继续遍历。
 
-时间复杂度 $O(n)$，空间复杂度 $O(value)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(\textit{value})$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -165,6 +165,51 @@ function findSmallestInteger(nums: number[], value: number): number {
         }
     }
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_smallest_integer(nums: Vec<i32>, value: i32) -> i32 {
+        let mut cnt = vec![0; value as usize];
+        for &x in &nums {
+            let idx = ((x % value + value) % value) as usize;
+            cnt[idx] += 1;
+        }
+
+        let mut i = 0;
+        loop {
+            let idx = (i % value) as usize;
+            if cnt[idx] == 0 {
+                return i;
+            }
+            cnt[idx] -= 1;
+            i += 1;
+        }
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} value
+ * @return {number}
+ */
+var findSmallestInteger = function (nums, value) {
+    const cnt = Array(value).fill(0);
+    for (const x of nums) {
+        ++cnt[((x % value) + value) % value];
+    }
+    for (let i = 0; ; ++i) {
+        if (cnt[i % value]-- === 0) {
+            return i;
+        }
+    }
+};
 ```
 
 <!-- tabs:end -->
