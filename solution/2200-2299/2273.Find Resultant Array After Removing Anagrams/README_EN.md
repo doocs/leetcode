@@ -223,6 +223,73 @@ function removeAnagrams(words: string[]): string[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn remove_anagrams(words: Vec<String>) -> Vec<String> {
+        fn check(s: &str, t: &str) -> bool {
+            if s.len() != t.len() {
+                return true;
+            }
+            let mut cnt = [0; 26];
+            for c in s.bytes() {
+                cnt[(c - b'a') as usize] += 1;
+            }
+            for c in t.bytes() {
+                let idx = (c - b'a') as usize;
+                cnt[idx] -= 1;
+                if cnt[idx] < 0 {
+                    return true;
+                }
+            }
+            false
+        }
+
+        let mut ans = vec![words[0].clone()];
+        for i in 1..words.len() {
+            if check(&words[i - 1], &words[i]) {
+                ans.push(words[i].clone());
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string[]} words
+ * @return {string[]}
+ */
+var removeAnagrams = function (words) {
+    const ans = [words[0]];
+    const check = (s, t) => {
+        if (s.length !== t.length) {
+            return true;
+        }
+        const cnt = Array(26).fill(0);
+        for (const c of s) {
+            ++cnt[c.charCodeAt() - 97];
+        }
+        for (const c of t) {
+            if (--cnt[c.charCodeAt() - 97] < 0) {
+                return true;
+            }
+        }
+        return false;
+    };
+    for (let i = 1; i < words.length; ++i) {
+        if (check(words[i - 1], words[i])) {
+            ans.push(words[i]);
+        }
+    }
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
