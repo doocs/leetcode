@@ -3717,6 +3717,11 @@
 |  3704  |  [统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)  |    |  困难  |  第 470 场周赛  |
 |  3705  |  [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)  |    |  中等  |    |
 |  3706  |  [不同单词间的最大距离 II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README.md)  |    |  中等  |  🔒  |
+|  3707  |  [相等子字符串分数](/solution/3700-3799/3707.Equal%20Score%20Substrings/README.md)  |    |  简单  |  第 167 场双周赛  |
+|  3708  |  [最长斐波那契子数组](/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README.md)  |    |  中等  |  第 167 场双周赛  |
+|  3709  |  [设计考试分数记录器](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README.md)  |    |  中等  |  第 167 场双周赛  |
+|  3710  |  [最大划分因子](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README.md)  |    |  困难  |  第 167 场双周赛  |
+|  3711  |  [Maximum Transactions Without Negative Balance](/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

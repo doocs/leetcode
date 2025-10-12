@@ -3715,6 +3715,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3704  |  [Count No-Zero Pairs That Sum to N](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README_EN.md)  |    |  Hard  |  Weekly Contest 470  |
 |  3705  |  [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README_EN.md)  |    |  Medium  |    |
 |  3706  |  [Maximum Distance Between Unequal Words in Array II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  3707  |  [Equal Score Substrings](/solution/3700-3799/3707.Equal%20Score%20Substrings/README_EN.md)  |    |  Easy  |  Biweekly Contest 167  |
+|  3708  |  [Longest Fibonacci Subarray](/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README_EN.md)  |    |  Medium  |  Biweekly Contest 167  |
+|  3709  |  [Design Exam Scores Tracker](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README_EN.md)  |    |  Medium  |  Biweekly Contest 167  |
+|  3710  |  [Maximum Partition Factor](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README_EN.md)  |    |  Hard  |  Biweekly Contest 167  |
+|  3711  |  [Maximum Transactions Without Negative Balance](/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
