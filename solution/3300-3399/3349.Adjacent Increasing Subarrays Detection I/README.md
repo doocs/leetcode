@@ -71,7 +71,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+根据题目描述，我们只需要找到最大的相邻递增子数组长度 $\textit{mx}$，如果 $\textit{mx} \ge k$，则说明存在两个相邻且长度为 $k$ 的严格递增子数组。
+
+我们可以使用一次遍历来计算 $\textit{mx}$。具体来说，我们维护三个变量，其中 $\textit{cur}$ 和 $\textit{pre}$ 分别表示当前递增子数组的长度和前一个递增子数组的长度，而 $\textit{mx}$ 表示最大的相邻递增子数组长度。
+
+每当遇到一个非递增的位置时，我们就更新 $\textit{mx}$，并将 $\textit{cur}$ 赋值给 $\textit{pre}$，然后将 $\textit{cur}$ 重置为 $0$，其中 $\textit{mx}$ 的更新方式为 $\textit{mx} = \max(\textit{mx}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \text{cur}))$，即相邻递增子数组来自于当前递增子数组的一半长度，或者前一个递增子数组和当前递增子数组的较小值。
+
+最后，我们只需要判断 $\textit{mx}$ 是否大于等于 $k$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -161,6 +171,51 @@ function hasIncreasingSubarrays(nums: number[], k: number): boolean {
     }
     return mx >= k;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn has_increasing_subarrays(nums: Vec<i32>, k: i32) -> bool {
+        let n = nums.len();
+        let (mut mx, mut pre, mut cur) = (0, 0, 0);
+
+        for i in 0..n {
+            cur += 1;
+            if i == n - 1 || nums[i] >= nums[i + 1] {
+                mx = mx.max(cur / 2).max(pre.min(cur));
+                pre = cur;
+                cur = 0;
+            }
+        }
+
+        mx >= k
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var hasIncreasingSubarrays = function (nums, k) {
+    const n = nums.length;
+    let [mx, pre, cur] = [0, 0, 0];
+    for (let i = 0; i < n; ++i) {
+        ++cur;
+        if (i === n - 1 || nums[i] >= nums[i + 1]) {
+            mx = Math.max(mx, cur >> 1, Math.min(pre, cur));
+            pre = cur;
+            cur = 0;
+        }
+    }
+    return mx >= k;
+};
 ```
 
 <!-- tabs:end -->

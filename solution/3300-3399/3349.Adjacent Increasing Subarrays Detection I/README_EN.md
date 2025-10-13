@@ -67,7 +67,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+According to the problem description, we only need to find the maximum length of adjacent increasing subarrays $\textit{mx}$. If $\textit{mx} \ge k$, then there exist two adjacent strictly increasing subarrays of length $k$.
+
+We can use a single pass to calculate $\textit{mx}$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $\textit{mx}$ represents the maximum length of adjacent increasing subarrays.
+
+Whenever we encounter a non-increasing position, we update $\textit{mx}$, assign $\textit{cur}$ to $\textit{pre}$, and reset $\textit{cur}$ to $0$. The update formula for $\textit{mx}$ is $\textit{mx} = \max(\textit{mx}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$, meaning the adjacent increasing subarrays come from either half the length of the current increasing subarray, or the smaller value between the previous increasing subarray and the current increasing subarray.
+
+Finally, we just need to check whether $\textit{mx}$ is greater than or equal to $k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -157,6 +167,51 @@ function hasIncreasingSubarrays(nums: number[], k: number): boolean {
     }
     return mx >= k;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn has_increasing_subarrays(nums: Vec<i32>, k: i32) -> bool {
+        let n = nums.len();
+        let (mut mx, mut pre, mut cur) = (0, 0, 0);
+
+        for i in 0..n {
+            cur += 1;
+            if i == n - 1 || nums[i] >= nums[i + 1] {
+                mx = mx.max(cur / 2).max(pre.min(cur));
+                pre = cur;
+                cur = 0;
+            }
+        }
+
+        mx >= k
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var hasIncreasingSubarrays = function (nums, k) {
+    const n = nums.length;
+    let [mx, pre, cur] = [0, 0, 0];
+    for (let i = 0; i < n; ++i) {
+        ++cur;
+        if (i === n - 1 || nums[i] >= nums[i + 1]) {
+            mx = Math.max(mx, cur >> 1, Math.min(pre, cur));
+            pre = cur;
+            cur = 0;
+        }
+    }
+    return mx >= k;
+};
 ```
 
 <!-- tabs:end -->
