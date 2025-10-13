@@ -77,7 +77,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+We can use a single pass to calculate the maximum length of adjacent increasing subarrays $\textit{ans}$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $\textit{ans}$ represents the maximum length of adjacent increasing subarrays.
+
+Whenever we encounter a non-increasing position, we update $\textit{ans}$, assign $\textit{cur}$ to $\textit{pre}$, and reset $\textit{cur}$ to $0$. The update formula for $\textit{ans}$ is $\textit{ans} = \max(\textit{ans}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$, meaning the adjacent increasing subarrays come from either half the length of the current increasing subarray, or the smaller value between the previous increasing subarray and the current increasing subarray.
+
+Finally, we just need to return $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -167,6 +175,49 @@ function maxIncreasingSubarrays(nums: number[]): number {
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_increasing_subarrays(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let (mut ans, mut pre, mut cur) = (0, 0, 0);
+
+        for i in 0..n {
+            cur += 1;
+            if i == n - 1 || nums[i] >= nums[i + 1] {
+                ans = ans.max(cur / 2).max(pre.min(cur));
+                pre = cur;
+                cur = 0;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxIncreasingSubarrays = function (nums) {
+    let [ans, pre, cur] = [0, 0, 0];
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        ++cur;
+        if (i === n - 1 || nums[i] >= nums[i + 1]) {
+            ans = Math.max(ans, cur >> 1, Math.min(pre, cur));
+            [pre, cur] = [cur, 0];
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

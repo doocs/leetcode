@@ -79,7 +79,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：一次遍历
+
+我们可以使用一次遍历来计算最大的相邻递增子数组长度 $\textit{ans}$。具体地，我们维护三个变量 $\textit{cur}$ 和 $\textit{pre}$ 分别表示当前递增子数组和上一个递增子数组的长度，而 $\textit{ans}$ 表示最大的相邻递增子数组长度。
+
+每当遇到一个非递增的位置时，我们就更新 $\textit{ans}$，将 $\textit{cur}$ 赋值给 $\textit{pre}$，并将 $\textit{cur}$ 重置为 $0$。更新 $\textit{ans}$ 的公式为 $\textit{ans} = \max(\textit{ans}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$，表示相邻递增子数组要么来自当前递增子数组长度的一半，要么来自前一个递增子数组和当前递增子数组的较小值。
+
+最后我们只需要返回 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -169,6 +177,49 @@ function maxIncreasingSubarrays(nums: number[]): number {
     }
     return ans;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_increasing_subarrays(nums: Vec<i32>) -> i32 {
+        let n = nums.len();
+        let (mut ans, mut pre, mut cur) = (0, 0, 0);
+
+        for i in 0..n {
+            cur += 1;
+            if i == n - 1 || nums[i] >= nums[i + 1] {
+                ans = ans.max(cur / 2).max(pre.min(cur));
+                pre = cur;
+                cur = 0;
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxIncreasingSubarrays = function (nums) {
+    let [ans, pre, cur] = [0, 0, 0];
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        ++cur;
+        if (i === n - 1 || nums[i] >= nums[i + 1]) {
+            ans = Math.max(ans, cur >> 1, Math.min(pre, cur));
+            [pre, cur] = [cur, 0];
+        }
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->
