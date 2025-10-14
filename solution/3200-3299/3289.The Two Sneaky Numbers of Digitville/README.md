@@ -172,4 +172,132 @@ function getSneakyNumbers(nums: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：位运算
+
+设数组 $\textit{nums}$ 的长度为 $n + 2$，其中包含 $0 \sim n - 1$ 的整数，且有两个数字出现了两次。
+
+我们可以通过异或运算来找出这两个数字。首先，我们对数组 $\textit{nums}$ 中的所有数字以及 $0 \sim n - 1$ 的整数进行异或运算，得到的结果为这两个重复数字的异或值，记为 $xx$。
+
+接下来，我们可以通过 $xx$ 找到这两个数字的某些特征，进而将它们分开。具体步骤如下：
+
+1. 找到 $xx$ 的二进制表示中最低位或最高位的 $1$ 的位置，记为 $k$。这个位置表示这两个数字在该位上是不同的。
+2. 根据第 $k$ 位的值，将数组 $\textit{nums}$ 中的数字以及 $0 \sim n - 1$ 的整数分成两组：一组在第 $k$ 位上为 $0$，另一组在第 $k$ 位上为 $1$。然后分别对这两组数字进行异或运算，得到的结果即为这两个重复数字。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        n = len(nums) - 2
+        xx = nums[n] ^ nums[n + 1]
+        for i in range(n):
+            xx ^= i ^ nums[i]
+        k = xx.bit_length() - 1
+        ans = [0, 0]
+        for x in nums:
+            ans[x >> k & 1] ^= x
+        for i in range(n):
+            ans[i >> k & 1] ^= i
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] getSneakyNumbers(int[] nums) {
+        int n = nums.length - 2;
+        int xx = nums[n] ^ nums[n + 1];
+        for (int i = 0; i < n; ++i) {
+            xx ^= i ^ nums[i];
+        }
+        int k = Integer.numberOfTrailingZeros(xx);
+        int[] ans = new int[2];
+        for (int x : nums) {
+            ans[x >> k & 1] ^= x;
+        }
+        for (int i = 0; i < n; ++i) {
+            ans[i >> k & 1] ^= i;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> getSneakyNumbers(vector<int>& nums) {
+        int n = nums.size() - 2;
+        int xx = nums[n] ^ nums[n + 1];
+        for (int i = 0; i < n; ++i) {
+            xx ^= i ^ nums[i];
+        }
+        int k = __builtin_ctz(xx);
+        vector<int> ans(2);
+        for (int x : nums) {
+            ans[(x >> k) & 1] ^= x;
+        }
+        for (int i = 0; i < n; ++i) {
+            ans[(i >> k) & 1] ^= i;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func getSneakyNumbers(nums []int) []int {
+	n := len(nums) - 2
+	xx := nums[n] ^ nums[n+1]
+	for i := 0; i < n; i++ {
+		xx ^= i ^ nums[i]
+	}
+	k := bits.TrailingZeros(uint(xx))
+	ans := make([]int, 2)
+	for _, x := range nums {
+		ans[(x>>k)&1] ^= x
+	}
+	for i := 0; i < n; i++ {
+		ans[(i>>k)&1] ^= i
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function getSneakyNumbers(nums: number[]): number[] {
+    const n = nums.length - 2;
+    let xx = nums[n] ^ nums[n + 1];
+    for (let i = 0; i < n; ++i) {
+        xx ^= i ^ nums[i];
+    }
+    const k = Math.clz32(xx & -xx) ^ 31;
+    const ans = [0, 0];
+    for (const x of nums) {
+        ans[(x >> k) & 1] ^= x;
+    }
+    for (let i = 0; i < n; ++i) {
+        ans[(i >> k) & 1] ^= i;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
