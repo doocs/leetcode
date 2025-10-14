@@ -146,6 +146,38 @@ function minOperations(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>) -> i32 {
+        let mut ans = 0;
+        for i in 1..nums.len() {
+            if nums[i] != nums[i - 1] {
+                ans += 1;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minOperations = function (nums) {
+    let ans = 0;
+    for (let i = 1; i < nums.length; ++i) {
+        ans += nums[i] !== nums[i - 1] ? 1 : 0;
+    }
+    return ans;
+};
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
