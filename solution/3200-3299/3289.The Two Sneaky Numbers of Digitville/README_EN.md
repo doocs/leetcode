@@ -168,4 +168,132 @@ function getSneakyNumbers(nums: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Bit Manipulation
+
+Let the length of array $\textit{nums}$ be $n + 2$, which contains integers from $0$ to $n - 1$, with two numbers appearing twice.
+
+We can find these two numbers using XOR operations. First, we perform XOR operations on all numbers in array $\textit{nums}$ and the integers from $0$ to $n - 1$. The result is the XOR value of the two duplicate numbers, denoted as $xx$.
+
+Next, we can find certain characteristics of these two numbers through $xx$ and separate them. The specific steps are as follows:
+
+1. Find the position of the lowest bit or highest bit with value $1$ in the binary representation of $xx$, denoted as $k$. This position indicates that the two numbers differ at this bit.
+2. Based on the value of the $k$-th bit, divide the numbers in array $\textit{nums}$ and the integers from $0$ to $n - 1$ into two groups: one group with $0$ at the $k$-th bit, and another group with $1$ at the $k$-th bit. Then perform XOR operations on these two groups separately, and the results are the two duplicate numbers.
+
+The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        n = len(nums) - 2
+        xx = nums[n] ^ nums[n + 1]
+        for i in range(n):
+            xx ^= i ^ nums[i]
+        k = xx.bit_length() - 1
+        ans = [0, 0]
+        for x in nums:
+            ans[x >> k & 1] ^= x
+        for i in range(n):
+            ans[i >> k & 1] ^= i
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] getSneakyNumbers(int[] nums) {
+        int n = nums.length - 2;
+        int xx = nums[n] ^ nums[n + 1];
+        for (int i = 0; i < n; ++i) {
+            xx ^= i ^ nums[i];
+        }
+        int k = Integer.numberOfTrailingZeros(xx);
+        int[] ans = new int[2];
+        for (int x : nums) {
+            ans[x >> k & 1] ^= x;
+        }
+        for (int i = 0; i < n; ++i) {
+            ans[i >> k & 1] ^= i;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> getSneakyNumbers(vector<int>& nums) {
+        int n = nums.size() - 2;
+        int xx = nums[n] ^ nums[n + 1];
+        for (int i = 0; i < n; ++i) {
+            xx ^= i ^ nums[i];
+        }
+        int k = __builtin_ctz(xx);
+        vector<int> ans(2);
+        for (int x : nums) {
+            ans[(x >> k) & 1] ^= x;
+        }
+        for (int i = 0; i < n; ++i) {
+            ans[(i >> k) & 1] ^= i;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func getSneakyNumbers(nums []int) []int {
+	n := len(nums) - 2
+	xx := nums[n] ^ nums[n+1]
+	for i := 0; i < n; i++ {
+		xx ^= i ^ nums[i]
+	}
+	k := bits.TrailingZeros(uint(xx))
+	ans := make([]int, 2)
+	for _, x := range nums {
+		ans[(x>>k)&1] ^= x
+	}
+	for i := 0; i < n; i++ {
+		ans[(i>>k)&1] ^= i
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function getSneakyNumbers(nums: number[]): number[] {
+    const n = nums.length - 2;
+    let xx = nums[n] ^ nums[n + 1];
+    for (let i = 0; i < n; ++i) {
+        xx ^= i ^ nums[i];
+    }
+    const k = Math.clz32(xx & -xx) ^ 31;
+    const ans = [0, 0];
+    for (const x of nums) {
+        ans[(x >> k) & 1] ^= x;
+    }
+    for (let i = 0; i < n; ++i) {
+        ans[(i >> k) & 1] ^= i;
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
