@@ -3,7 +3,7 @@ public:
     int maxPartitionsAfterOperations(string s, int k) {
         int n = s.size();
         unordered_map<long long, int> f;
-        function<int(int, int, int)> dfs = [&](int i, int cur, int t) {
+        auto dfs = [&](this auto&& dfs, int i, int cur, int t) -> int {
             if (i >= n) {
                 return 1;
             }

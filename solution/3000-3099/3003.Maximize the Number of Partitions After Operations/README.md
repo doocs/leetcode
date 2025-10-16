@@ -100,7 +100,19 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：记忆化搜索
+
+我们设计一个函数 $\textit{dfs}(i, \textit{cur}, t)$ 表示当前处理到字符串 $s$ 的下标 $i$，当前前缀中已经包含的字符集合为 $\textit{cur}$，并且还可以修改 $t$ 次字符时，能够得到的最大分割数量。那么答案即为 $\textit{dfs}(0, 0, 1)$。
+
+函数 $\textit{dfs}(i, \textit{cur}, t)$ 的执行逻辑如下：
+
+1. 如果 $i \geq n$，说明已经处理完字符串 $s$，返回 1。
+2. 计算当前字符 $s[i]$ 对应的位掩码 $v = 1 \ll (s[i] - 'a')$，并计算更新后的字符集合 $\textit{nxt} = \textit{cur} \mid v$。
+3. 如果 $\textit{nxt}$ 中的位数超过 $k$，说明当前前缀已经包含超过 $k$ 个不同字符，我们需要进行一次分割，此时分割数量加 1，并递归调用 $\textit{dfs}(i + 1, v, t)$；否则，继续递归调用 $\textit{dfs}(i + 1, \textit{nxt}, t)$。
+4. 如果 $t > 0$，说明我们还可以修改一次字符。我们尝试将当前字符 $s[i]$ 修改为任意一个小写字母（共 26 种选择），对于每个选择，计算更新后的字符集合 $\textit{nxt} = \textit{cur} \mid (1 \ll j)$，并根据是否超过 $k$ 个不同字符，选择相应的递归调用方式，更新最大分割数量。
+5. 使用哈希表缓存已经计算过的状态，避免重复计算。
+
+时间复杂度 $O(n \times |\Sigma| \times k)$，空间复杂度 $O(n \times |\Sigma| \times k)$。其中 $n$ 为字符串 $s$ 的长度，而 $|\Sigma|$ 为字符集大小。
 
 <!-- tabs:start -->
 
@@ -181,7 +193,7 @@ public:
     int maxPartitionsAfterOperations(string s, int k) {
         int n = s.size();
         unordered_map<long long, int> f;
-        function<int(int, int, int)> dfs = [&](int i, int cur, int t) {
+        auto dfs = [&](this auto&& dfs, int i, int cur, int t) -> int {
             if (i >= n) {
                 return 1;
             }
