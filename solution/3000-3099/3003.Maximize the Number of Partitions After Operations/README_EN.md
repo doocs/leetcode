@@ -98,7 +98,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoized Search
+
+We design a function $\textit{dfs}(i, \textit{cur}, t)$ that represents the maximum number of partitions we can obtain when currently processing index $i$ of string $s$, the current prefix already contains the character set $\textit{cur}$, and we can still modify $t$ characters. Then the answer is $\textit{dfs}(0, 0, 1)$.
+
+The execution logic of function $\textit{dfs}(i, \textit{cur}, t)$ is as follows:
+
+1. If $i \geq n$, it means we have finished processing string $s$, return 1.
+2. Calculate the bitmask $v = 1 \ll (s[i] - 'a')$ corresponding to the current character $s[i]$, and calculate the updated character set $\textit{nxt} = \textit{cur} \mid v$.
+3. If the number of bits in $\textit{nxt}$ exceeds $k$, it means the current prefix already contains more than $k$ distinct characters. We need to make a partition, increment the partition count by 1, and recursively call $\textit{dfs}(i + 1, v, t)$. Otherwise, continue recursively calling $\textit{dfs}(i + 1, \textit{nxt}, t)$.
+4. If $t > 0$, it means we can still modify a character once. We try to change the current character $s[i]$ to any lowercase letter (26 choices in total). For each choice, calculate the updated character set $\textit{nxt} = \textit{cur} \mid (1 \ll j)$, and based on whether it exceeds $k$ distinct characters, choose the corresponding recursive call method to update the maximum partition count.
+5. Use a hash table to cache already computed states to avoid redundant calculations.
+
+The time complexity is $O(n \times |\Sigma| \times k)$ and the space complexity is $O(n \times |\Sigma| \times k)$, where $n$ is the length of string $s$, and $|\Sigma|$ is the size of the character set.
 
 <!-- tabs:start -->
 
@@ -179,7 +191,7 @@ public:
     int maxPartitionsAfterOperations(string s, int k) {
         int n = s.size();
         unordered_map<long long, int> f;
-        function<int(int, int, int)> dfs = [&](int i, int cur, int t) {
+        auto dfs = [&](this auto&& dfs, int i, int cur, int t) -> int {
             if (i >= n) {
                 return 1;
             }
