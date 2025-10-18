@@ -166,6 +166,25 @@ impl Solution {
 
 <!-- tabs:end -->
 
+### Solution 2: Concise Implementation (Integer.toString)
+
+We can directly use Java’s built-in base conversion method.  
+Time complexity: $O(\log_7 n)$, space complexity: $O(1)$.
+
+<!-- tabs:start -->
+
+#### Java
+
+```java
+class Solution {
+    public String convertToBase7(int num) {
+        return Integer.toString(num, 7);
+    }
+}
+```
+
+<!-- tabs:end -->
+
 <!-- solution:end -->
 
 <!-- problem:end -->
