@@ -216,6 +216,35 @@ func findLexSmallestString(s string, a int, b int) string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function findLexSmallestString(s: string, a: number, b: number): string {
+    const q: string[] = [s];
+    const vis = new Set<string>([s]);
+    let ans = s;
+    let i = 0;
+    while (i < q.length) {
+        s = q[i++];
+        if (ans > s) {
+            ans = s;
+        }
+        const t1 = s
+            .split('')
+            .map((c, j) => (j & 1 ? String((Number(c) + a) % 10) : c))
+            .join('');
+        const t2 = s.slice(-b) + s.slice(0, -b);
+        for (const t of [t1, t2]) {
+            if (!vis.has(t)) {
+                vis.add(t);
+                q.push(t);
+            }
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -361,6 +390,41 @@ func findLexSmallestString(s string, a int, b int) string {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findLexSmallestString(s: string, a: number, b: number): string {
+    let ans = s;
+    const n = s.length;
+    let arr = s.split('');
+    for (let _ = 0; _ < n; _++) {
+        arr = arr.slice(-b).concat(arr.slice(0, -b));
+        for (let j = 0; j < 10; j++) {
+            for (let k = 1; k < n; k += 2) {
+                arr[k] = String((Number(arr[k]) + a) % 10);
+            }
+            if (b & 1) {
+                for (let p = 0; p < 10; p++) {
+                    for (let k = 0; k < n; k += 2) {
+                        arr[k] = String((Number(arr[k]) + a) % 10);
+                    }
+                    const t = arr.join('');
+                    if (ans > t) {
+                        ans = t;
+                    }
+                }
+            } else {
+                const t = arr.join('');
+                if (ans > t) {
+                    ans = t;
+                }
+            }
+        }
+    }
+    return ans;
 }
 ```
 

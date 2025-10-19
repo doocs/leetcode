@@ -91,7 +91,9 @@ There is no way to obtain a string that is lexicographically smaller than &quot;
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+Since the data scale of this problem is relatively small, we can use BFS to brute-force search all possible states and then take the lexicographically smallest state.
 
 <!-- tabs:start -->
 
@@ -212,13 +214,50 @@ func findLexSmallestString(s string, a int, b int) string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function findLexSmallestString(s: string, a: number, b: number): string {
+    const q: string[] = [s];
+    const vis = new Set<string>([s]);
+    let ans = s;
+    let i = 0;
+    while (i < q.length) {
+        s = q[i++];
+        if (ans > s) {
+            ans = s;
+        }
+        const t1 = s
+            .split('')
+            .map((c, j) => (j & 1 ? String((Number(c) + a) % 10) : c))
+            .join('');
+        const t2 = s.slice(-b) + s.slice(0, -b);
+        for (const t of [t1, t2]) {
+            if (!vis.has(t)) {
+                vis.add(t);
+                q.push(t);
+            }
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Enumeration
+
+We observe that for the addition operation, a digit will return to its original state after at most $10$ additions; for the rotation operation, the string will also return to its original state after at most $n$ rotations.
+
+Therefore, the rotation operation produces at most $n$ states. If the rotation count $b$ is even, the addition operation only affects digits at odd indices, resulting in a total of $n \times 10$ states; if the rotation count $b$ is odd, the addition operation affects both odd and even index digits, resulting in a total of $n \times 10 \times 10$ states.
+
+Thus, we can directly enumerate all possible string states and take the lexicographically smallest one.
+
+The time complexity is $O(n^2 \times 10^2)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -349,6 +388,41 @@ func findLexSmallestString(s string, a int, b int) string {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function findLexSmallestString(s: string, a: number, b: number): string {
+    let ans = s;
+    const n = s.length;
+    let arr = s.split('');
+    for (let _ = 0; _ < n; _++) {
+        arr = arr.slice(-b).concat(arr.slice(0, -b));
+        for (let j = 0; j < 10; j++) {
+            for (let k = 1; k < n; k += 2) {
+                arr[k] = String((Number(arr[k]) + a) % 10);
+            }
+            if (b & 1) {
+                for (let p = 0; p < 10; p++) {
+                    for (let k = 0; k < n; k += 2) {
+                        arr[k] = String((Number(arr[k]) + a) % 10);
+                    }
+                    const t = arr.join('');
+                    if (ans > t) {
+                        ans = t;
+                    }
+                }
+            } else {
+                const t = arr.join('');
+                if (ans > t) {
+                    ans = t;
+                }
+            }
+        }
+    }
+    return ans;
 }
 ```
 
