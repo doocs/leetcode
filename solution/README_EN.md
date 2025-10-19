@@ -3724,6 +3724,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3713  |  [Longest Balanced Substring I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 471  |
 |  3714  |  [Longest Balanced Substring II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 471  |
 |  3715  |  [Sum of Perfect Square Ancestors](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README_EN.md)  |    |  Hard  |  Weekly Contest 471  |
+|  3716  |  [Find Churn Risk Customers](/solution/3700-3799/3716.Find%20Churn%20Risk%20Customers/README_EN.md)  |    |  Medium  |    |
+|  3717  |  [Minimum Operations to Make the Array Beautiful](/solution/3700-3799/3717.Minimum%20Operations%20to%20Make%20the%20Array%20Beautiful/README_EN.md)  |    |  Medium  |  🔒  |
+|  3718  |  [Smallest Missing Multiple of K](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README_EN.md)  |    |  Easy  |  Weekly Contest 472  |
+|  3719  |  [Longest Balanced Subarray I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 472  |
+|  3720  |  [Lexicographically Smallest Permutation Greater Than Target](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README_EN.md)  |    |  Medium  |  Weekly Contest 472  |
+|  3721  |  [Longest Balanced Subarray II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 472  |
 
 ## Copyright
 

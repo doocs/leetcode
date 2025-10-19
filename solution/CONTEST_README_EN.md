@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 472
+
+- [3718. Smallest Missing Multiple of K](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README_EN.md)
+- [3719. Longest Balanced Subarray I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README_EN.md)
+- [3720. Lexicographically Smallest Permutation Greater Than Target](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README_EN.md)
+- [3721. Longest Balanced Subarray II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README_EN.md)
+
 #### Weekly Contest 471
 
 - [3712. Sum of Elements With Frequency Divisible by K](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README_EN.md)

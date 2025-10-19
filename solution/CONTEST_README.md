@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 472 场周赛(2025-10-19 10:30, 90 分钟) 参赛人数 1738
+
+- [3718. 缺失的最小倍数](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README.md)
+- [3719. 最长平衡子数组 I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README.md)
+- [3720. 大于 target 的最小字典序排列](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README.md)
+- [3721. 最长平衡子数组 II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README.md)
+
 #### 第 471 场周赛(2025-10-12 10:30, 90 分钟) 参赛人数 1754
 
 - [3712. 出现次数能被 K 整除的元素总和](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README.md)

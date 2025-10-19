@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README_EN.md
+rating: 2235
+source: Weekly Contest 471 Q4
 ---
 
 <!-- problem:start -->

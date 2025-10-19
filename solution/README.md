@@ -3726,6 +3726,12 @@
 |  3713  |  [最长的平衡子串 I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README.md)  |    |  中等  |  第 471 场周赛  |
 |  3714  |  [最长的平衡子串 II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README.md)  |    |  中等  |  第 471 场周赛  |
 |  3715  |  [完全平方数的祖先个数总和](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README.md)  |    |  困难  |  第 471 场周赛  |
+|  3716  |  [寻找流失风险客户](/solution/3700-3799/3716.Find%20Churn%20Risk%20Customers/README.md)  |    |  中等  |    |
+|  3717  |  [Minimum Operations to Make the Array Beautiful](/solution/3700-3799/3717.Minimum%20Operations%20to%20Make%20the%20Array%20Beautiful/README.md)  |    |  中等  |  🔒  |
+|  3718  |  [缺失的最小倍数](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README.md)  |    |  简单  |  第 472 场周赛  |
+|  3719  |  [最长平衡子数组 I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README.md)  |    |  中等  |  第 472 场周赛  |
+|  3720  |  [大于 target 的最小字典序排列](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README.md)  |    |  中等  |  第 472 场周赛  |
+|  3721  |  [最长平衡子数组 II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README.md)  |    |  困难  |  第 472 场周赛  |
 
 ## 版权
 

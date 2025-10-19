@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README_EN.md
+rating: 1380
+source: Biweekly Contest 167 Q2
 ---
 
 <!-- problem:start -->
