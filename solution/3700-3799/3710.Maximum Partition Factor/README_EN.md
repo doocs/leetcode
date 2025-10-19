@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3710.Maximum%20Partition%20Factor/README_EN.md
+rating: 2135
+source: Biweekly Contest 167 Q4
 ---
 
 <!-- problem:start -->
