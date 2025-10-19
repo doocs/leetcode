@@ -20,7 +20,7 @@ tags:
 
 <pre>
 +------------------+---------+
-| Column Name      | Type    | 
+| Column Name      | Type    |
 +------------------+---------+
 | event_id         | int     |
 | user_id          | int     |
@@ -157,14 +157,126 @@ monthly_amount 表示此次事件后的月度订阅费用。
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：分组统计 + 连接 + 条件筛选
+
+我们先通过窗口函数获取每个用户按照事件日期和事件 ID 降序排列的最后一条记录，得到每个用户的最新事件信息。然后，我们通过分组统计每个用户的订阅历史信息，包括订阅开始日期、最后事件日期、历史最高订阅费用以及降级事件的数量。最后，我们将最新事件信息与历史统计信息进行连接，并根据题目要求的条件进行筛选，得到流失风险客户列表。
 
 <!-- tabs:start -->
 
 #### MySQL
 
 ```sql
+WITH
+    user_with_last_event AS (
+        SELECT
+            s.*,
+            ROW_NUMBER() OVER (
+                PARTITION BY user_id
+                ORDER BY event_date DESC, event_id DESC
+            ) AS rn
+        FROM subscription_events s
+    ),
+    user_history AS (
+        SELECT
+            user_id,
+            MIN(event_date) AS start_date,
+            MAX(event_date) AS last_event_date,
+            MAX(monthly_amount) AS max_historical_amount,
+            SUM(
+                CASE
+                    WHEN event_type = 'downgrade' THEN 1
+                    ELSE 0
+                END
+            ) AS downgrade_count
+        FROM subscription_events
+        GROUP BY user_id
+    ),
+    latest_event AS (
+        SELECT
+            user_id,
+            event_type AS last_event_type,
+            plan_name AS current_plan,
+            monthly_amount AS current_monthly_amount
+        FROM user_with_last_event
+        WHERE rn = 1
+    )
+SELECT
+    l.user_id,
+    l.current_plan,
+    l.current_monthly_amount,
+    h.max_historical_amount,
+    DATEDIFF(h.last_event_date, h.start_date) AS days_as_subscriber
+FROM
+    latest_event l
+    JOIN user_history h ON l.user_id = h.user_id
+WHERE
+    l.last_event_type <> 'cancel'
+    AND h.downgrade_count >= 1
+    AND l.current_monthly_amount < 0.5 * h.max_historical_amount
+    AND DATEDIFF(h.last_event_date, h.start_date) >= 60
+ORDER BY days_as_subscriber DESC, l.user_id ASC;
+```
 
+#### Pandas
+
+```python
+import pandas as pd
+
+
+def find_churn_risk_customers(subscription_events: pd.DataFrame) -> pd.DataFrame:
+    subscription_events["event_date"] = pd.to_datetime(
+        subscription_events["event_date"]
+    )
+    subscription_events = subscription_events.sort_values(
+        ["user_id", "event_date", "event_id"]
+    )
+    last_events = (
+        subscription_events.groupby("user_id")
+        .tail(1)[["user_id", "event_type", "plan_name", "monthly_amount"]]
+        .rename(
+            columns={
+                "event_type": "last_event_type",
+                "plan_name": "current_plan",
+                "monthly_amount": "current_monthly_amount",
+            }
+        )
+    )
+
+    agg_df = (
+        subscription_events.groupby("user_id")
+        .agg(
+            start_date=("event_date", "min"),
+            last_event_date=("event_date", "max"),
+            max_historical_amount=("monthly_amount", "max"),
+            downgrade_count=("event_type", lambda x: (x == "downgrade").sum()),
+        )
+        .reset_index()
+    )
+
+    merged = pd.merge(agg_df, last_events, on="user_id", how="inner")
+    merged["days_as_subscriber"] = (
+        merged["last_event_date"] - merged["start_date"]
+    ).dt.days
+
+    result = merged[
+        (merged["last_event_type"] != "cancel")
+        & (merged["downgrade_count"] >= 1)
+        & (merged["current_monthly_amount"] < 0.5 * merged["max_historical_amount"])
+        & (merged["days_as_subscriber"] >= 60)
+    ][
+        [
+            "user_id",
+            "current_plan",
+            "current_monthly_amount",
+            "max_historical_amount",
+            "days_as_subscriber",
+        ]
+    ]
+
+    result = result.sort_values(
+        ["days_as_subscriber", "user_id"], ascending=[False, True]
+    ).reset_index(drop=True)
+    return result
 ```
 
 <!-- tabs:end -->
