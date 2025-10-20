@@ -60,32 +60,93 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3718.Sm
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + 枚举
+
+我们先用一个哈希表 $\textit{s}$ 存储数组 $\textit{nums}$ 中出现的数字。然后从 $k$ 的第一个正倍数 $k \times 1$ 开始，依次枚举每个正倍数，直到找到第一个不在哈希表 $\textit{s}$ 中出现的倍数，即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def missingMultiple(self, nums: List[int], k: int) -> int:
+        s = set(nums)
+        for i in count(1):
+            x = k * i
+            if x not in s:
+                return x
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        boolean[] s = new boolean[101];
+        for (int x : nums) {
+            s[x] = true;
+        }
+        for (int i = 1;; ++i) {
+            int x = k * i;
+            if (x >= s.length || !s[x]) {
+                return x;
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int missingMultiple(vector<int>& nums, int k) {
+        unordered_set<int> s;
+        for (int x : nums) {
+            s.insert(x);
+        }
+        for (int i = 1;; ++i) {
+            int x = k * i;
+            if (!s.contains(x)) {
+                return x;
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func missingMultiple(nums []int, k int) int {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
+	}
+	for i := 1; ; i++ {
+		if x := k * i; !s[x] {
+			return x
+		}
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function missingMultiple(nums: number[], k: number): number {
+    const s = new Set<number>(nums);
+    for (let i = 1; ; ++i) {
+        const x = k * i;
+        if (!s.has(x)) {
+            return x;
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
