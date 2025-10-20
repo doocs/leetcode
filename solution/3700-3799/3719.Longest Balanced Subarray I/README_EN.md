@@ -80,32 +80,126 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3719.Lo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We can enumerate the left endpoint $i$ of the subarray, and then enumerate the right endpoint $j$ from the left endpoint. During the enumeration process, we use a hash table $\textit{vis}$ to record the numbers that have appeared in the subarray, and use an array $\textit{cnt}$ of length $2$ to record the count of distinct even numbers and distinct odd numbers in the subarray respectively. When $\textit{cnt}[0] = \textit{cnt}[1]$, we update the answer $\textit{ans} = \max(\textit{ans}, j - i + 1)$.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def longestBalanced(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i in range(n):
+            cnt = [0, 0]
+            vis = set()
+            for j in range(i, n):
+                if nums[j] not in vis:
+                    cnt[nums[j] & 1] += 1
+                    vis.add(nums[j])
+                if cnt[0] == cnt[1]:
+                    ans = max(ans, j - i + 1)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int longestBalanced(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            Set<Integer> vis = new HashSet<>();
+            int[] cnt = new int[2];
+            for (int j = i; j < n; ++j) {
+                if (vis.add(nums[j])) {
+                    ++cnt[nums[j] & 1];
+                }
+                if (cnt[0] == cnt[1]) {
+                    ans = Math.max(ans, j - i + 1);
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int longestBalanced(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            unordered_set<int> vis;
+            int cnt[2]{};
+            for (int j = i; j < n; ++j) {
+                if (!vis.contains(nums[j])) {
+                    vis.insert(nums[j]);
+                    ++cnt[nums[j] & 1];
+                }
+                if (cnt[0] == cnt[1]) {
+                    ans = max(ans, j - i + 1);
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestBalanced(nums []int) (ans int) {
+	n := len(nums)
+	for i := 0; i < n; i++ {
+		vis := map[int]bool{}
+		cnt := [2]int{}
+		for j := i; j < n; j++ {
+			if !vis[nums[j]] {
+				vis[nums[j]] = true
+				cnt[nums[j]&1]++
+			}
+			if cnt[0] == cnt[1] {
+				ans = max(ans, j-i+1)
+			}
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function longestBalanced(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        const vis = new Set<number>();
+        const cnt: number[] = Array(2).fill(0);
+        for (let j = i; j < n; ++j) {
+            if (!vis.has(nums[j])) {
+                vis.add(nums[j]);
+                ++cnt[nums[j] & 1];
+            }
+            if (cnt[0] === cnt[1]) {
+                ans = Math.max(ans, j - i + 1);
+            }
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -58,32 +58,93 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3718.Sm
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We first use a hash table $\textit{s}$ to store the numbers that appear in the array $\textit{nums}$. Then, starting from the first positive multiple of $k$, which is $k \times 1$, we enumerate each positive multiple in sequence until we find the first multiple that does not appear in the hash table $\textit{s}$, which is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def missingMultiple(self, nums: List[int], k: int) -> int:
+        s = set(nums)
+        for i in count(1):
+            x = k * i
+            if x not in s:
+                return x
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        boolean[] s = new boolean[101];
+        for (int x : nums) {
+            s[x] = true;
+        }
+        for (int i = 1;; ++i) {
+            int x = k * i;
+            if (x >= s.length || !s[x]) {
+                return x;
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int missingMultiple(vector<int>& nums, int k) {
+        unordered_set<int> s;
+        for (int x : nums) {
+            s.insert(x);
+        }
+        for (int i = 1;; ++i) {
+            int x = k * i;
+            if (!s.contains(x)) {
+                return x;
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func missingMultiple(nums []int, k int) int {
+	s := map[int]bool{}
+	for _, x := range nums {
+		s[x] = true
+	}
+	for i := 1; ; i++ {
+		if x := k * i; !s[x] {
+			return x
+		}
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function missingMultiple(nums: number[], k: number): number {
+    const s = new Set<number>(nums);
+    for (let i = 1; ; ++i) {
+        const x = k * i;
+        if (!s.has(x)) {
+            return x;
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
