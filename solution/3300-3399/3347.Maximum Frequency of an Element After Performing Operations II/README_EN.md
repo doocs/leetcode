@@ -83,7 +83,30 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Difference Array
+
+According to the problem description, for each element $x$ in the array $\textit{nums}$, we can change it to any integer within the range $[x-k, x+k]$. We want to perform operations on some elements in $\textit{nums}$ to maximize the frequency of a certain integer in the array.
+
+The problem can be transformed into merging all elements in the interval $[x-k, x+k]$ corresponding to each element $x$, and finding the integer that contains the most original elements in the merged intervals. This can be implemented using a difference array.
+
+We use a dictionary $d$ to record the difference array. For each element $x$, we perform the following operations on the difference array:
+
+-   Add $1$ at position $x-k$, indicating that a new interval starts from this position.
+-   Subtract $1$ at position $x+k+1$, indicating that an interval ends from this position.
+-   Add $0$ at position $x$, ensuring that position $x$ exists in the difference array for subsequent calculations.
+
+At the same time, we need to record the number of occurrences of each element in the original array, using a dictionary $cnt$ to implement this.
+
+Next, we perform prefix sum calculation on the difference array to get how many intervals cover each position. For each position $x$, we calculate the number of intervals covering it as $s$. Then we discuss by cases:
+
+-   If $x$ appears in the original array, operations on $x$ itself are meaningless. Therefore, there are $s - cnt[x]$ other elements that can be changed to $x$ through operations, but at most $\textit{numOperations}$ operations can be performed. So the maximum frequency at this position is $\textit{cnt}[x] + \min(s - \textit{cnt}[x], \textit{numOperations})$.
+-   If $x$ does not appear in the original array, then at most $\textit{numOperations}$ operations can be performed to change other elements to $x$. Therefore, the maximum frequency at this position is $\min(s, \textit{numOperations})$.
+
+Combining the above two cases, we can uniformly express it as $\min(s, \textit{cnt}[x] + \textit{numOperations})$.
+
+Finally, we traverse all positions, calculate the maximum frequency at each position, and take the maximum value among them as the answer.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
