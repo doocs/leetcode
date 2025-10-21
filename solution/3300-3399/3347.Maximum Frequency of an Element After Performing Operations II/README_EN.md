@@ -233,6 +233,77 @@ function maxFrequency(nums: number[], k: number, numOperations: number): number 
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::{HashMap, BTreeMap};
+
+impl Solution {
+    pub fn max_frequency(nums: Vec<i32>, k: i32, num_operations: i32) -> i32 {
+        let mut cnt = HashMap::new();
+        let mut d = BTreeMap::new();
+
+        for &x in &nums {
+            *cnt.entry(x).or_insert(0) += 1;
+            d.entry(x).or_insert(0);
+            *d.entry(x - k).or_insert(0) += 1;
+            *d.entry(x + k + 1).or_insert(0) -= 1;
+        }
+
+        let mut ans = 0;
+        let mut s = 0;
+        for (&x, &t) in d.iter() {
+            s += t;
+            let cur = s.min(cnt.get(&x).copied().unwrap_or(0) + num_operations);
+            ans = ans.max(cur);
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxFrequency(int[] nums, int k, int numOperations) {
+        var cnt = new Dictionary<int, int>();
+        var d = new SortedDictionary<int, int>();
+
+        foreach (var x in nums) {
+            if (!cnt.ContainsKey(x)) {
+                cnt[x] = 0;
+            }
+            cnt[x]++;
+
+            if (!d.ContainsKey(x)) {
+                d[x] = 0;
+            }
+            if (!d.ContainsKey(x - k)) {
+                d[x - k] = 0;
+            }
+            if (!d.ContainsKey(x + k + 1)) {
+                d[x + k + 1] = 0;
+            }
+
+            d[x - k] += 1;
+            d[x + k + 1] -= 1;
+        }
+
+        int ans = 0, s = 0;
+        foreach (var kvp in d) {
+            int x = kvp.Key, t = kvp.Value;
+            s += t;
+            int cur = Math.Min(s, (cnt.ContainsKey(x) ? cnt[x] : 0) + numOperations);
+            ans = Math.Max(ans, cur);
+        }
+
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
