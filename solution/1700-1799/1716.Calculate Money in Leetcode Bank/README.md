@@ -61,7 +61,35 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+根据题目描述，每周的存款情况如下：
+
+```
+第 1 周：1, 2, 3, 4, 5, 6, 7
+第 2 周：2, 3, 4, 5, 6, 7, 8
+第 3 周：3, 4, 5, 6, 7, 8, 9
+...
+第 k 周：k, k+1, k+2, k+3, k+4, k+5, k+6
+```
+
+存款天数为 $n$，那么完整的周数为 $k = \lfloor n / 7 \rfloor$，剩余天数为 $b = n \mod 7$。
+
+完整的 $k$ 周的存款总额，可以通过等差数列求和公式计算：
+
+$$
+S_1 = \frac{k}{2} \times (28 + 28 + 7 \times (k - 1))
+$$
+
+剩余的 $b$ 天的存款总额，同样可以通过等差数列求和公式计算：
+
+$$
+S_2 = \frac{b}{2} \times (k + 1 + k + 1 + b - 1)
+$$
+
+最终的总存款金额为 $S = S_1 + S_2$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -70,8 +98,10 @@ tags:
 ```python
 class Solution:
     def totalMoney(self, n: int) -> int:
-        a, b = divmod(n, 7)
-        return (28 + 28 + 7 * (a - 1)) * a // 2 + (a * 2 + b + 1) * b // 2
+        k, b = divmod(n, 7)
+        s1 = (28 + 28 + 7 * (k - 1)) * k // 2
+        s2 = (k + 1 + k + 1 + b - 1) * b // 2
+        return s1 + s2
 ```
 
 #### Java
@@ -79,8 +109,10 @@ class Solution:
 ```java
 class Solution {
     public int totalMoney(int n) {
-        int a = n / 7, b = n % 7;
-        return (28 + 28 + 7 * (a - 1)) * a / 2 + (a * 2 + b + 1) * b / 2;
+        int k = n / 7, b = n % 7;
+        int s1 = (28 + 28 + 7 * (k - 1)) * k / 2;
+        int s2 = (k + 1 + k + 1 + b - 1) * b / 2;
+        return s1 + s2;
     }
 }
 ```
@@ -91,8 +123,10 @@ class Solution {
 class Solution {
 public:
     int totalMoney(int n) {
-        int a = n / 7, b = n % 7;
-        return (28 + 28 + 7 * (a - 1)) * a / 2 + (a * 2 + b + 1) * b / 2;
+        int k = n / 7, b = n % 7;
+        int s1 = (28 + 28 + 7 * (k - 1)) * k / 2;
+        int s2 = (k + 1 + k + 1 + b - 1) * b / 2;
+        return s1 + s2;
     }
 };
 ```
@@ -101,8 +135,22 @@ public:
 
 ```go
 func totalMoney(n int) int {
-	a, b := n/7, n%7
-	return (28+28+7*(a-1))*a/2 + (a*2+b+1)*b/2
+	k, b := n/7, n%7
+	s1 := (28 + 28 + 7*(k-1)) * k / 2
+	s2 := (k + 1 + k + 1 + b - 1) * b / 2
+	return s1 + s2
+}
+```
+
+#### TypeScript
+
+```ts
+function totalMoney(n: number): number {
+    const k = (n / 7) | 0;
+    const b = n % 7;
+    const s1 = (((28 + 28 + 7 * (k - 1)) * k) / 2) | 0;
+    const s2 = (((k + 1 + k + 1 + b - 1) * b) / 2) | 0;
+    return s1 + s2;
 }
 ```
 

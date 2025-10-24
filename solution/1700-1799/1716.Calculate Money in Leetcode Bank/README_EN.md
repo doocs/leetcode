@@ -62,7 +62,35 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math
+
+According to the problem description, the deposit situation for each week is as follows:
+
+```bash
+Week 1: 1, 2, 3, 4, 5, 6, 7
+Week 2: 2, 3, 4, 5, 6, 7, 8
+Week 3: 3, 4, 5, 6, 7, 8, 9
+...
+Week k: k, k+1, k+2, k+3, k+4, k+5, k+6
+```
+
+Given $n$ days of deposits, the number of complete weeks is $k = \lfloor n / 7 \rfloor$, and the remaining days is $b = n \mod 7$.
+
+The total deposit for the complete $k$ weeks can be calculated using the arithmetic sequence sum formula:
+
+$$
+S_1 = \frac{k}{2} \times (28 + 28 + 7 \times (k - 1))
+$$
+
+The total deposit for the remaining $b$ days can also be calculated using the arithmetic sequence sum formula:
+
+$$
+S_2 = \frac{b}{2} \times (k + 1 + k + 1 + b - 1)
+$$
+
+The final total deposit amount is $S = S_1 + S_2$.
+
+The time complexity is $O(1)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -71,8 +99,10 @@ tags:
 ```python
 class Solution:
     def totalMoney(self, n: int) -> int:
-        a, b = divmod(n, 7)
-        return (28 + 28 + 7 * (a - 1)) * a // 2 + (a * 2 + b + 1) * b // 2
+        k, b = divmod(n, 7)
+        s1 = (28 + 28 + 7 * (k - 1)) * k // 2
+        s2 = (k + 1 + k + 1 + b - 1) * b // 2
+        return s1 + s2
 ```
 
 #### Java
@@ -80,8 +110,10 @@ class Solution:
 ```java
 class Solution {
     public int totalMoney(int n) {
-        int a = n / 7, b = n % 7;
-        return (28 + 28 + 7 * (a - 1)) * a / 2 + (a * 2 + b + 1) * b / 2;
+        int k = n / 7, b = n % 7;
+        int s1 = (28 + 28 + 7 * (k - 1)) * k / 2;
+        int s2 = (k + 1 + k + 1 + b - 1) * b / 2;
+        return s1 + s2;
     }
 }
 ```
@@ -92,8 +124,10 @@ class Solution {
 class Solution {
 public:
     int totalMoney(int n) {
-        int a = n / 7, b = n % 7;
-        return (28 + 28 + 7 * (a - 1)) * a / 2 + (a * 2 + b + 1) * b / 2;
+        int k = n / 7, b = n % 7;
+        int s1 = (28 + 28 + 7 * (k - 1)) * k / 2;
+        int s2 = (k + 1 + k + 1 + b - 1) * b / 2;
+        return s1 + s2;
     }
 };
 ```
@@ -102,8 +136,22 @@ public:
 
 ```go
 func totalMoney(n int) int {
-	a, b := n/7, n%7
-	return (28+28+7*(a-1))*a/2 + (a*2+b+1)*b/2
+	k, b := n/7, n%7
+	s1 := (28 + 28 + 7*(k-1)) * k / 2
+	s2 := (k + 1 + k + 1 + b - 1) * b / 2
+	return s1 + s2
+}
+```
+
+#### TypeScript
+
+```ts
+function totalMoney(n: number): number {
+    const k = (n / 7) | 0;
+    const b = n % 7;
+    const s1 = (((28 + 28 + 7 * (k - 1)) * k) / 2) | 0;
+    const s2 = (((k + 1 + k + 1 + b - 1) * b) / 2) | 0;
+    return s1 + s2;
 }
 ```
 
