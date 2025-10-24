@@ -1,4 +1,6 @@
 func totalMoney(n int) int {
-	a, b := n/7, n%7
-	return (28+28+7*(a-1))*a/2 + (a*2+b+1)*b/2
+	k, b := n/7, n%7
+	s1 := (28 + 28 + 7*(k-1)) * k / 2
+	s2 := (k + 1 + k + 1 + b - 1) * b / 2
+	return s1 + s2
 }
