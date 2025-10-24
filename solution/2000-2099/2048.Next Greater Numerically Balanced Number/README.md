@@ -35,7 +35,7 @@ tags:
 <strong>输出：</strong>22
 <strong>解释：</strong>
 22 是一个数值平衡数，因为：
-- 数字 2 出现 2 次 
+- 数字 2 出现 2 次
 这也是严格大于 1 的最小数值平衡数。
 </pre>
 
@@ -47,7 +47,7 @@ tags:
 <strong>解释：</strong>
 1333 是一个数值平衡数，因为：
 - 数字 1 出现 1 次。
-- 数字 3 出现 3 次。 
+- 数字 3 出现 3 次。
 这也是严格大于 1000 的最小数值平衡数。
 注意，1022 不能作为本输入的答案，因为数字 0 的出现次数超过了 0 。</pre>
 
@@ -59,7 +59,7 @@ tags:
 <strong>解释：</strong>
 3133 是一个数值平衡数，因为：
 - 数字 1 出现 1 次。
-- 数字 3 出现 3 次。 
+- 数字 3 出现 3 次。
 这也是严格大于 3000 的最小数值平衡数。
 </pre>
 
@@ -192,6 +192,38 @@ function nextBeautifulNumber(n: number): number {
         }
         if (ok) {
             return x;
+        }
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn next_beautiful_number(n: i32) -> i32 {
+        let mut x = n + 1;
+        loop {
+            let mut cnt = [0; 10];
+            let mut y = x;
+            while y > 0 {
+                cnt[(y % 10) as usize] += 1;
+                y /= 10;
+            }
+            let mut ok = true;
+            let mut y2 = x;
+            while y2 > 0 {
+                let d = (y2 % 10) as usize;
+                if d != cnt[d] {
+                    ok = false;
+                    break;
+                }
+                y2 /= 10;
+            }
+            if ok {
+                return x;
+            }
+            x += 1;
         }
     }
 }
