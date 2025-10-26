@@ -78,7 +78,55 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3729.Co
 #### Java
 
 ```java
+class Solution {
+    public long numGoodSubarrays(int[] nums, int k) {
+        long A = 0;
+        Map<Integer, Integer> modMap = new HashMap<>();
+        modMap.put(0, 1);
+        long prefix = 0;
 
+        // First part: prefix sums mod k
+        for (int v : nums) {
+            prefix = (prefix + v) % k;
+            if (prefix < 0) prefix += k;
+            int mod = (int) prefix;
+            A += modMap.getOrDefault(mod, 0);
+            modMap.merge(mod, 1, Integer::sum);
+        }
+
+        // Second part: handle consecutive identical segments efficiently
+        long C = 0, B = 0;
+        int i = 0;
+        while (i < nums.length) {
+            int j = i;
+            while (j < nums.length && nums[j] == nums[i]) j++;
+
+            int segLen = j - i;
+            long v = nums[i];
+            long g = gcd(Math.abs(v), k);
+            long step = k / g;
+
+            long countL = segLen / step; // number of valid L values
+            if (countL > 0) {
+                // Sum of contributions for all valid L
+                C += countL * (segLen + 1) - step * countL * (countL + 1) / 2;
+                B += countL;
+            }
+            i = j;
+        }
+
+        return A - C + B;
+    }
+
+    private long gcd(long a, long b) {
+        while (b != 0) {
+            long temp = a % b;
+            a = b;
+            b = temp;
+        }
+        return a;
+    }
+}
 ```
 
 #### C++
