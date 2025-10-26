@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README_EN.md
+rating: 2723
+source: Weekly Contest 472 Q4
 ---
 
 <!-- problem:start -->

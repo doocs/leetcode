@@ -80,14 +80,15 @@ bank.withdraw(10, 50);   // return false, it is invalid because account 10 does 
 
 ### Solution 1: Simulation
 
-According to the problem description, we can use an array `balance` to simulate the balance of bank accounts. The array index starts from 0, and the value of the array represents the balance of the account.
+We can use an array $\textit{balance}$ to store the balance of each account. For each operation, we simply perform the required checks and updates according to the problem statement.
 
--   During initialization, we assign the `balance` array to the member variable `this.balance`, and assign the length of `balance` to the member variable `this.n`.
--   In the `transfer` function, if `account1` or `account2` is greater than `n` or `balance[account1 - 1]` is less than `money`, return `false`. Otherwise, subtract `money` from `balance[account1 - 1]`, add `money` to `balance[account2 - 1]`, and return `true`.
--   In the `deposit` function, if `account` is greater than `n`, return `false`. Otherwise, add `money` to `balance[account - 1]`, and return `true`.
--   In the `withdraw` function, if `account` is greater than `n` or `balance[account - 1]` is less than `money`, return `false`. Otherwise, subtract `money` from `balance[account - 1]`, and return `true`.
+For the $\textit{transfer}$ operation, we need to check whether the account numbers are valid and whether the balance is sufficient. If the conditions are met, we perform the transfer.
 
-The time complexity of the above operations is $O(1)$, and the space complexity is $O(n)$. Here, $n$ is the length of `balance`.
+For the $\textit{deposit}$ operation, we only need to check whether the account number is valid, and then perform the deposit.
+
+For the $\textit{withdraw}$ operation, we need to check whether the account number is valid and whether the balance is sufficient. If the conditions are met, we perform the withdrawal.
+
+Each operation has a time complexity of $O(1)$, so the overall time complexity is $O(q)$, where $q$ is the number of operations. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
