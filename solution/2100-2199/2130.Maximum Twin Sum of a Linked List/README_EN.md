@@ -39,7 +39,7 @@ tags:
 <strong>Explanation:</strong>
 Nodes 0 and 1 are the twins of nodes 3 and 2, respectively. All have twin sum = 6.
 There are no other nodes with twins in the linked list.
-Thus, the maximum twin sum of the linked list is 6. 
+Thus, the maximum twin sum of the linked list is 6.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -51,7 +51,7 @@ Thus, the maximum twin sum of the linked list is 6.
 The nodes with twins present in this linked list are:
 - Node 0 is the twin of node 3 having a twin sum of 4 + 3 = 7.
 - Node 1 is the twin of node 2 having a twin sum of 2 + 2 = 4.
-Thus, the maximum twin sum of the linked list is max(7, 4) = 7. 
+Thus, the maximum twin sum of the linked list is max(7, 4) = 7.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -77,7 +77,11 @@ There is only one node with a twin in the linked list having twin sum of 1 + 100
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can store the values of the nodes in the linked list into an array, then use two pointers pointing to the beginning and end of the array to calculate the twin sum for each pair of twin nodes. The maximum twin sum is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the linked list.
 
 <!-- tabs:start -->
 
