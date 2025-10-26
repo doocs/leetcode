@@ -3730,6 +3730,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3719  |  [Longest Balanced Subarray I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 472  |
 |  3720  |  [Lexicographically Smallest Permutation Greater Than Target](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README_EN.md)  |    |  Medium  |  Weekly Contest 472  |
 |  3721  |  [Longest Balanced Subarray II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 472  |
+|  3722  |  [Lexicographically Smallest String After Reverse](/solution/3700-3799/3722.Lexicographically%20Smallest%20String%20After%20Reverse/README_EN.md)  |    |  Medium  |  Biweekly Contest 168  |
+|  3723  |  [Maximize Sum of Squares of Digits](/solution/3700-3799/3723.Maximize%20Sum%20of%20Squares%20of%20Digits/README_EN.md)  |    |  Medium  |  Biweekly Contest 168  |
+|  3724  |  [Minimum Operations to Transform Array](/solution/3700-3799/3724.Minimum%20Operations%20to%20Transform%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 168  |
+|  3725  |  [Count Ways to Choose Coprime Integers from Rows](/solution/3700-3799/3725.Count%20Ways%20to%20Choose%20Coprime%20Integers%20from%20Rows/README_EN.md)  |    |  Hard  |  Biweekly Contest 168  |
+|  3726  |  [Remove Zeros in Decimal Representation](/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README_EN.md)  |    |  Easy  |  Weekly Contest 473  |
+|  3727  |  [Maximum Alternating Sum of Squares](/solution/3700-3799/3727.Maximum%20Alternating%20Sum%20of%20Squares/README_EN.md)  |    |  Medium  |  Weekly Contest 473  |
+|  3728  |  [Stable Subarrays With Equal Boundary and Interior Sum](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 473  |
+|  3729  |  [Count Distinct Subarrays Divisible by K in Sorted Array](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 473  |
+|  3730  |  [Maximum Calories Burnt from Jumps](/solution/3700-3799/3730.Maximum%20Calories%20Burnt%20from%20Jumps/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

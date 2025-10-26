@@ -32,9 +32,9 @@ tags:
 <pre>
 <strong>Input:</strong> n = 1
 <strong>Output:</strong> 22
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 22 is numerically balanced since:
-- The digit 2 occurs 2 times.
+- The digit 2 occurs 2 times. 
 It is also the smallest numerically balanced number strictly greater than 1.
 </pre>
 
@@ -43,10 +43,10 @@ It is also the smallest numerically balanced number strictly greater than 1.
 <pre>
 <strong>Input:</strong> n = 1000
 <strong>Output:</strong> 1333
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 1333 is numerically balanced since:
 - The digit 1 occurs 1 time.
-- The digit 3 occurs 3 times.
+- The digit 3 occurs 3 times. 
 It is also the smallest numerically balanced number strictly greater than 1000.
 Note that 1022 cannot be the answer because 0 appeared more than 0 times.
 </pre>
@@ -56,7 +56,7 @@ Note that 1022 cannot be the answer because 0 appeared more than 0 times.
 <pre>
 <strong>Input:</strong> n = 3000
 <strong>Output:</strong> 3133
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 3133 is numerically balanced since:
 - The digit 1 occurs 1 time.
 - The digit 3 occurs 3 times.

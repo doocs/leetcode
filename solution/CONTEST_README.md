@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 473 场周赛(2025-10-26 10:30, 90 分钟) 参赛人数 1606
+
+- [3726. 移除十进制表示中的所有零](/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README.md)
+- [3727. 最大交替平方和](/solution/3700-3799/3727.Maximum%20Alternating%20Sum%20of%20Squares/README.md)
+- [3728. 边界与内部和相等的稳定子数组](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README.md)
+- [3729. 统计有序数组中可被 K 整除的子数组数量](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README.md)
+
+#### 第 168 场双周赛(2025-10-25 22:30, 90 分钟) 参赛人数 1294
+
+- [3722. 反转后字典序最小的字符串](/solution/3700-3799/3722.Lexicographically%20Smallest%20String%20After%20Reverse/README.md)
+- [3723. 数位平方和的最大值](/solution/3700-3799/3723.Maximize%20Sum%20of%20Squares%20of%20Digits/README.md)
+- [3724. 转换数组的最少操作次数](/solution/3700-3799/3724.Minimum%20Operations%20to%20Transform%20Array/README.md)
+- [3725. 统计每一行选择互质整数的方案数](/solution/3700-3799/3725.Count%20Ways%20to%20Choose%20Coprime%20Integers%20from%20Rows/README.md)
+
 #### 第 472 场周赛(2025-10-19 10:30, 90 分钟) 参赛人数 1738
 
 - [3718. 缺失的最小倍数](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README.md)
