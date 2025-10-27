@@ -68,7 +68,27 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We observe that if two rows in the matrix satisfy one of the following conditions, they can be made equal by flipping certain columns:
+
+1. The corresponding elements of the two rows are equal, i.e., if one row is $1,0,0,1$, the other row is also $1,0,0,1$;
+1. The corresponding elements of the two rows are opposite, i.e., if one row is $1,0,0,1$, the other row is $0,1,1,0$.
+
+We call two rows that satisfy one of the above conditions "equivalent rows." The answer to the problem is the maximum number of equivalent rows in the matrix.
+
+Therefore, we can traverse each row of the matrix and convert each row into an "equivalent row" that starts with $0$. Specifically:
+
+-   If the first element of the current row is $0$, keep the row unchanged;
+-   If the first element of the current row is $1$, flip every element in the row, i.e., $0$ becomes $1$, $1$ becomes $0$. In other words, we flip rows starting with $1$ into "equivalent rows" starting with $0$.
+
+In this way, we only need to use a hash table to count each converted row. If the hash table contains only one element at the end, it means we can remove all $1$s from the matrix by flipping rows or columns.
+
+The time complexity is $O(mn)$ and the space complexity is $O(m)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively.
+
+Related problem:
+
+-   [1072. Flip Columns For Maximum Number of Equal Rows](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -156,6 +176,29 @@ function removeOnes(grid: number[][]): boolean {
         s.add(t);
     }
     return s.size === 1;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn remove_ones(grid: Vec<Vec<i32>>) -> bool {
+        let n = grid[0].len();
+        let mut set = HashSet::new();
+
+        for row in grid.iter() {
+            let mut pattern = String::with_capacity(n);
+            for &x in row.iter() {
+                pattern.push(((row[0] ^ x) as u8 + b'0') as char);
+            }
+            set.insert(pattern);
+        }
+
+        set.len() == 1
+    }
 }
 ```
 
