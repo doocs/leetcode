@@ -145,6 +145,34 @@ function smallestNumber(n: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_number(n: i32) -> i32 {
+        let mut x = 1;
+        while x - 1 < n {
+            x <<= 1;
+        }
+        x - 1
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int SmallestNumber(int n) {
+        int x = 1;
+        while (x - 1 < n) {
+            x <<= 1;
+        }
+        return x - 1;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
