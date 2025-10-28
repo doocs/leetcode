@@ -212,6 +212,68 @@ function getLargestOutlier(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn get_largest_outlier(nums: Vec<i32>) -> i32 {
+        let mut s = 0;
+        let mut cnt = HashMap::new();
+        for &x in &nums {
+            s += x;
+            *cnt.entry(x).or_insert(0) += 1;
+        }
+
+        let mut ans = i32::MIN;
+        for (&x, &v) in &cnt {
+            let t = s - x;
+            if t % 2 != 0 {
+                continue;
+            }
+            let y = t / 2;
+            if let Some(&count_y) = cnt.get(&y) {
+                if x != y || v > 1 {
+                    ans = ans.max(x);
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int GetLargestOutlier(int[] nums) {
+        int s = 0;
+        var cnt = new Dictionary<int, int>();
+        foreach (int x in nums) {
+            s += x;
+            if (!cnt.ContainsKey(x)) cnt[x] = 0;
+            cnt[x]++;
+        }
+
+        int ans = int.MinValue;
+        foreach (var kv in cnt) {
+            int x = kv.Key, v = kv.Value;
+            int t = s - x;
+            if (t % 2 != 0) continue;
+            int y = t / 2;
+            if (cnt.ContainsKey(y)) {
+                if (x != y || v > 1) {
+                    ans = Math.Max(ans, x);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
