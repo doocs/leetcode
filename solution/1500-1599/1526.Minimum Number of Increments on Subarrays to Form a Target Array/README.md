@@ -56,7 +56,7 @@ tags:
 
 <pre><strong>输入：</strong>target = [3,1,5,4,2]
 <strong>输出：</strong>7
-<strong>解释：</strong>(initial)[0,0,0,0,0] -&gt; [1,1,1,1,1] -&gt; [2,1,1,1,1] -&gt; [3,1,1,1,1] 
+<strong>解释：</strong>(initial)[0,0,0,0,0] -&gt; [1,1,1,1,1] -&gt; [2,1,1,1,1] -&gt; [3,1,1,1,1]
                                   -&gt; [3,1,2,2,2] -&gt; [3,1,3,3,2] -&gt; [3,1,4,4,2] -&gt; [3,1,5,4,2] (target)。
 </pre>
 
@@ -165,6 +165,38 @@ function minNumberOperations(target: number[]): number {
         }
     }
     return f;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_number_operations(target: Vec<i32>) -> i32 {
+        let mut f = target[0];
+        for i in 1..target.len() {
+            if target[i] > target[i - 1] {
+                f += target[i] - target[i - 1];
+            }
+        }
+        f
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinNumberOperations(int[] target) {
+        int f = target[0];
+        for (int i = 1; i < target.Length; ++i) {
+            if (target[i] > target[i - 1]) {
+                f += target[i] - target[i - 1];
+            }
+        }
+        return f;
+    }
 }
 ```
 
