@@ -55,7 +55,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table $\textit{d}$ to store each element of the array $\textit{nums2}$ and its corresponding index. Then we iterate through the array $\textit{nums1}$, and for each element $\textit{nums1}[i]$, we retrieve its corresponding index from the hash table $\textit{d}$ and store it in the result array.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -64,10 +68,8 @@ tags:
 ```python
 class Solution:
     def anagramMappings(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        mapper = defaultdict(set)
-        for i, num in enumerate(nums2):
-            mapper[num].add(i)
-        return [mapper[num].pop() for num in nums1]
+        d = {x: i for i, x in enumerate(nums2)}
+        return [d[x] for x in nums1]
 ```
 
 #### Java
@@ -75,18 +77,65 @@ class Solution:
 ```java
 class Solution {
     public int[] anagramMappings(int[] nums1, int[] nums2) {
-        Map<Integer, Set<Integer>> map = new HashMap<>();
-        for (int i = 0; i < nums2.length; ++i) {
-            map.computeIfAbsent(nums2[i], k -> new HashSet<>()).add(i);
+        int n = nums1.length;
+        Map<Integer, Integer> d = new HashMap<>(n);
+        for (int i = 0; i < n; ++i) {
+            d.put(nums2[i], i);
         }
-        int[] res = new int[nums1.length];
-        for (int i = 0; i < nums1.length; ++i) {
-            int idx = map.get(nums1[i]).iterator().next();
-            res[i] = idx;
-            map.get(nums1[i]).remove(idx);
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = d.get(nums1[i]);
         }
-        return res;
+        return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> anagramMappings(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        unordered_map<int, int> d;
+        for (int i = 0; i < n; ++i) {
+            d[nums2[i]] = i;
+        }
+        vector<int> ans;
+        for (int x : nums1) {
+            ans.push_back(d[x]);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func anagramMappings(nums1 []int, nums2 []int) []int {
+	d := map[int]int{}
+	for i, x := range nums2 {
+		d[x] = i
+	}
+	ans := make([]int, len(nums1))
+	for i, x := range nums1 {
+		ans[i] = d[x]
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function anagramMappings(nums1: number[], nums2: number[]): number[] {
+    const d: Map<number, number> = new Map();
+    for (let i = 0; i < nums2.length; ++i) {
+        d.set(nums2[i], i);
+    }
+    return nums1.map(num => d.get(num)!);
 }
 ```
 
