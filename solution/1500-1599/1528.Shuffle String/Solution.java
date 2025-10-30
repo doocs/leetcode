@@ -5,6 +5,6 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             ans[indices[i]] = s.charAt(i);
         }
-        return String.valueOf(ans);
+        return new String(ans);
     }
 }

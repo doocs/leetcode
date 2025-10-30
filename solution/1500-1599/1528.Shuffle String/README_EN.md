@@ -57,7 +57,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We create a character array or string $\textit{ans}$ of the same length as the input string, then iterate through the string $\textit{s}$ and place each character $\textit{s}[i]$ at position $\textit{indices}[i]$ in $\textit{ans}$. Finally, we join the character array or string $\textit{ans}$ to form the final result and return it.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string.
 
 <!-- tabs:start -->
 
@@ -66,10 +70,10 @@ tags:
 ```python
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
-        ans = [0] * len(s)
-        for i, c in enumerate(s):
-            ans[indices[i]] = c
-        return ''.join(ans)
+        ans = [None] * len(s)
+        for c, j in zip(s, indices):
+            ans[j] = c
+        return "".join(ans)
 ```
 
 #### Java
@@ -82,7 +86,7 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             ans[indices[i]] = s.charAt(i);
         }
-        return String.valueOf(ans);
+        return new String(ans);
     }
 }
 ```
@@ -115,6 +119,34 @@ func restoreString(s string, indices []int) string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function restoreString(s: string, indices: number[]): string {
+    const ans: string[] = [];
+    for (let i = 0; i < s.length; i++) {
+        ans[indices[i]] = s[i];
+    }
+    return ans.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn restore_string(s: String, indices: Vec<i32>) -> String {
+        let n = s.len();
+        let mut ans = vec![' '; n];
+        let chars: Vec<char> = s.chars().collect();
+        for i in 0..n {
+            ans[indices[i] as usize] = chars[i];
+        }
+        ans.iter().collect()
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -124,11 +156,11 @@ func restoreString(s string, indices []int) string {
  * @return {string}
  */
 var restoreString = function (s, indices) {
-    let rs = [];
+    const ans = [];
     for (let i = 0; i < s.length; i++) {
-        rs[indices[i]] = s[i];
+        ans[indices[i]] = s[i];
     }
-    return rs.join('');
+    return ans.join('');
 };
 ```
 
