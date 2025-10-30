@@ -81,9 +81,9 @@ tags:
 
 ### 方法一：贪心
 
-从前往后遍历 $target$，判断每个位置是否需要翻转，如果需要翻转，则翻转，并记录翻转次数。
+我们从左到右遍历字符串 $\textit{target}$，用变量 $\textit{ans}$ 记录翻转次数。 当遍历到下标 $i$ 时，如果当前的翻转次数 $\textit{ans}$ 的奇偶性与 $\textit{target}[i]$ 不同，则需要在下标 $i$ 处进行一次翻转操作，将 $\textit{ans}$ 加 $1$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -146,6 +146,37 @@ func minFlips(target string) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minFlips(target: string): number {
+    let ans = 0;
+    for (const c of target) {
+        if (ans % 2 !== +c) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_flips(target: String) -> i32 {
+        let mut ans = 0;
+        for c in target.chars() {
+            let bit = (c as u8 - b'0') as i32;
+            if ans % 2 != bit {
+                ans += 1;
+            }
+        }
+        ans
+    }
 }
 ```
 

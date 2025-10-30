@@ -73,7 +73,11 @@ We need at least 3 flip operations to form target.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We traverse the string $\textit{target}$ from left to right, using a variable $\textit{ans}$ to record the number of flips. When we reach index $i$, if the parity of the current flip count $\textit{ans}$ is different from $\textit{target}[i]$, we need to perform a flip operation at index $i$ and increment $\textit{ans}$ by $1$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -136,6 +140,37 @@ func minFlips(target string) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minFlips(target: string): number {
+    let ans = 0;
+    for (const c of target) {
+        if (ans % 2 !== +c) {
+            ++ans;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_flips(target: String) -> i32 {
+        let mut ans = 0;
+        for c in target.chars() {
+            let bit = (c as u8 - b'0') as i32;
+            if ans % 2 != bit {
+                ans += 1;
+            }
+        }
+        ans
+    }
 }
 ```
 
