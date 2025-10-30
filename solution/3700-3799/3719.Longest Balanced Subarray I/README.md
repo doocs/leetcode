@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README.md
 rating: 1467
 source: 第 472 场周赛 Q2
+tags:
+    - 线段树
+    - 数组
+    - 哈希表
+    - 分治
+    - 前缀和
 ---
 
 <!-- problem:start -->

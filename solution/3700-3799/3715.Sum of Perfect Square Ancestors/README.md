@@ -4,6 +4,14 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README.md
 rating: 2235
 source: 第 471 场周赛 Q4
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 哈希表
+    - 数学
+    - 计数
+    - 数论
 ---
 
 <!-- problem:start -->

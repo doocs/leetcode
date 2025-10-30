@@ -4,7 +4,7 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README_EN.md
 tags:
     - Bit Manipulation
-    - Tree
+    - Trie
     - Array
     - Prefix Sum
 ---

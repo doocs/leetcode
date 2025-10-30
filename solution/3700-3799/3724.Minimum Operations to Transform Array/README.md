@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3724.Minimum%20Operations%20to%20Transform%20Array/README.md
+rating: 1789
+source: 第 168 场双周赛 Q3
+tags:
+    - 贪心
+    - 数组
 ---
 
 <!-- problem:start -->

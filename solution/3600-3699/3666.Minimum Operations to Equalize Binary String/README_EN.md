@@ -6,9 +6,10 @@ rating: 2476
 source: Biweekly Contest 164 Q4
 tags:
     - Breadth-First Search
-    - Hash Table
+    - Union Find
     - Math
     - String
+    - Ordered Set
 ---
 
 <!-- problem:start -->

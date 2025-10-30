@@ -4,6 +4,10 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README_EN.md
 rating: 1198
 source: Weekly Contest 471 Q1
+tags:
+    - Array
+    - Hash Table
+    - Counting
 ---
 
 <!-- problem:start -->
@@ -18,11 +22,9 @@ source: Weekly Contest 471 Q1
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>.</p>
 
-<p>Return an integer denoting the <strong>sum</strong> of all elements in <code>nums</code> whose <strong>frequency</strong> is divisible by <code>k</code>, or 0 if there are no such elements.</p>
+<p>Return an integer denoting the <strong>sum</strong> of all elements in <code>nums</code> whose <strong><span data-keyword="frequency-array">frequency</span></strong> is divisible by <code>k</code>, or 0 if there are no such elements.</p>
 
 <p><strong>Note:</strong> An element is included in the sum <strong>exactly</strong> as many times as it appears in the array if its total frequency is divisible by <code>k</code>.</p>
-
-<p>The <strong>frequency</strong> of an element <code>x</code> is the number of times it occurs in the array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

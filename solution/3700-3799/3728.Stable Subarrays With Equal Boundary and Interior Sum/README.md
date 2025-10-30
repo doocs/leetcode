@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README.md
+rating: 1908
+source: 第 473 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 前缀和
 ---
 
 <!-- problem:start -->

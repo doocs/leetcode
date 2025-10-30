@@ -4,6 +4,12 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README_EN.md
 rating: 1467
 source: Weekly Contest 472 Q2
+tags:
+    - Segment Tree
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

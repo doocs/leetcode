@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README_EN.md
 rating: 1227
 source: Weekly Contest 472 Q1
+tags:
+    - Array
+    - Hash Table
 ---
 
 <!-- problem:start -->

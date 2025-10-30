@@ -4,14 +4,14 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README.md
 tags:
     - 位运算
-    - 树
+    - 字典树
     - 数组
     - 前缀和
 ---
 
 <!-- problem:start -->
 
-# [3632. 子数组异或至少为 K 的数目 🔒](https://leetcode.cn/problems/subarrays-with-xor-at-least-k)
+# [3632. 异或至少为 K 的子数组数目 🔒](https://leetcode.cn/problems/subarrays-with-xor-at-least-k)
 
 [English Version](/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README_EN.md)
 

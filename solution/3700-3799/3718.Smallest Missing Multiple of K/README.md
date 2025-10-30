@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README.md
 rating: 1227
 source: 第 472 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->

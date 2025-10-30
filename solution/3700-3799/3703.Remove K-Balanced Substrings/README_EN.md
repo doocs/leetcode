@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README_EN.md
 rating: 1802
 source: Weekly Contest 470 Q3
+tags:
+    - Stack
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

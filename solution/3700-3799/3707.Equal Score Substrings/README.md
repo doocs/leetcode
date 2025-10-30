@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3707.Equal%20Score%20Substrings/README.md
 rating: 1262
 source: 第 167 场双周赛 Q1
+tags:
+    - 字符串
+    - 前缀和
 ---
 
 <!-- problem:start -->

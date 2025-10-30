@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3705. Find Golden Hour Customers](https://leetcode.cn/problems/find-golden-hour-customers)
+# [3705. 寻找黄金时段客户](https://leetcode.cn/problems/find-golden-hour-customers)
 
 [English Version](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>restaurant_orders</code></p>
+<p>表：<code>restaurant_orders</code></p>
 
 <pre>
 +------------------+----------+
@@ -29,32 +29,33 @@ tags:
 | payment_method   | varchar  |
 | order_rating     | int      |
 +------------------+----------+
-order_id is the unique identifier for this table.
-payment_method can be cash, card, or app.
-order_rating is between 1 and 5, where 5 is the best (NULL if not rated).
-order_timestamp contains both date and time information.
+order_id 是这张表的唯一主键。
+payment_method 可以是 cash，card 或 app。
+order_rating 在 1 到 5 之间，其中 5 是最佳（如果没有评分则是 NULL）。
+order_timestamp 同时包含日期和时间信息。
 </pre>
 
-<p>Write a solution to find <strong>golden hour customers</strong>&nbsp;- customers who consistently order during peak hours and provide high satisfaction. A customer is a <strong>golden hour customer</strong> if they meet ALL the following criteria:</p>
+<p>编写一个解决方案来寻找 <strong>黄金时间客户</strong>&nbsp;- 高峰时段持续订购且满意度高的客户。客户若满足以下所有条件，则被视为 <strong>黄金时段客户</strong>：</p>
 
 <ul>
-	<li>Made <strong>at least</strong> <code>3</code> orders.</li>
-	<li><strong>At least</strong> <code>60%</code> of their orders are during <strong>peak hours&nbsp;</strong>(<code>11:00</code>-<code>14:00</code> or <code>18:00</code>-<code>21:00</code>).</li>
-	<li>Their <strong>average rating</strong> for rated orders is at least <code>4.0,</code> round it to<code> 2 </code>decimal places.</li>
-	<li>Have rated <strong>at least</strong> <code>50%</code> of their orders.</li>
+	<li>进行 <strong>至少</strong>&nbsp;<code>3</code>&nbsp;笔订单。</li>
+	<li>他们有&nbsp;<strong>至少</strong>&nbsp;<code>60%</code>&nbsp;的订单在 <strong>高峰时间</strong>&nbsp;中（<code>11:00</code>-<code>14:00</code> 或&nbsp;<code>18:00</code>-<code>21:00</code>）。</li>
+	<li>他们的 <strong>平均评分</strong> 至少为 <code>4.0</code>，四舍五入到小数点后 <code>2</code> 位。</li>
+	<li>已评价至少 <code>50%</code> 的订单。</li>
 </ul>
 
-<p>Return <em>the result table ordered by</em> <code>average_rating</code> <em>in <strong>descending</strong> order, then by</em> <code>customer_id</code>​​​​​​​ <em>in <strong>descending</strong> order</em>.</p>
+<p>返回结果表按&nbsp;<code>average_rating</code> <strong>降序</strong>&nbsp;排序，然后按&nbsp;<code>customer_id</code> <strong>降序&nbsp;</strong>排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><b>输入：</b></p>
 
-<p>restaurant_orders table:</p>
+<p>restaurant_orders 表：</p>
 
 <pre class="example-io">
 +----------+-------------+---------------------+--------------+----------------+--------------+
@@ -79,74 +80,74 @@ order_timestamp contains both date and time information.
 +----------+-------------+---------------------+--------------+----------------+--------------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-------------+--------------+----------------------+----------------+
 | customer_id | total_orders | peak_hour_percentage | average_rating |
 +-------------+--------------+----------------------+----------------+
 | 103         | 3            | 100                  | 4.67           |
-| 101         | 4            | 75                   | 4.67           |
+| 101         | 4            | 100                  | 4.67           |
 | 105         | 3            | 100                  | 4.33           |
 +-------------+--------------+----------------------+----------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>Customer 101</strong>:
+	<li><strong>客户 101：</strong>
 
     <ul>
-    	<li>Total orders: 4 (at least 3)&nbsp;</li>
-    	<li>Peak hour orders: 3 out of 4 (12:30, 19:15, 13:45, and 20:30 are in peak hours)</li>
-    	<li>Peak hour percentage: 3/4 = 75% (at least 60%)&nbsp;</li>
-    	<li>Rated orders: 3 out of 4 (75% rating completion)&nbsp;</li>
-    	<li>Average rating: (5+4+5)/3 = 4.67 (at least 4.0)&nbsp;</li>
-    	<li>Result: <strong>Golden hour customer</strong></li>
+    	<li>总订单数：4（至少 3 笔）</li>
+    	<li>高峰时间订单：4 笔中有 4 笔（12:30，19:15，13:45 和 20:30 在高峰时间）</li>
+    	<li>高峰时间占比：100%（至少 60%）</li>
+    	<li>已评分的订单：4 笔中有 3 笔（75% 评分完成率）</li>
+    	<li>平均评分：(5+4+5)/3 = 4.67（至少 4.0）</li>
+    	<li>结果：<strong>黄金时段客户</strong></li>
     </ul>
     </li>
-    <li><strong>Customer 102</strong>:
+    <li><strong>客户 102</strong>:
     <ul>
-    	<li>Total orders: 3 (at least 3)&nbsp;</li>
-    	<li>Peak hour orders: 2 out of 3 (11:30, 12:00 are in peak hours; 15:30 is not)</li>
-    	<li>Peak hour percentage: 2/3 = 66.67% (at least 60%)&nbsp;</li>
-    	<li>Rated orders: 2 out of 3 (66.67% rating completion)&nbsp;</li>
-    	<li>Average rating: (4+3)/2 = 3.5 (less than 4.0)&nbsp;</li>
-    	<li>Result: <strong>Not a golden hour customer</strong> (average rating too low)</li>
+    	<li>总订单数：3（至少 3 笔）</li>
+    	<li>高峰时间订单：3 笔中有 2 笔（11:30，12:00 都在高峰时间，但 15:30 不是）</li>
+    	<li>高峰时间占比：2/3 = 66.67%（至少 60%）</li>
+    	<li>已评分的订单：3 笔中有 2 笔（66.67% 评分完成率）</li>
+    	<li>平均评分：(4+3)/2 = 3.5（少于 4.0）</li>
+    	<li>结果：<strong>不是黄金时段客户</strong>（平均评分太低）</li>
     </ul>
     </li>
-    <li><strong>Customer 103</strong>:
+    <li><strong>客户 103</strong>:
     <ul>
-    	<li>Total orders: 3 (at least 3)&nbsp;</li>
-    	<li>Peak hour orders: 3 out of 3 (19:00, 20:45, 18:30 all in evening peak)</li>
-    	<li>Peak hour percentage: 3/3 = 100% (at least 60%)&nbsp;</li>
-    	<li>Rated orders: 3 out of 3 (100% rating completion)&nbsp;</li>
-    	<li>Average rating: (5+4+5)/3 = 4.67 (at least 4.0)&nbsp;</li>
-    	<li>Result: <strong>Golden hour customer</strong></li>
+    	<li>总订单数：3（至少 3 笔）</li>
+    	<li>高峰时间订单：3 笔中有 3 （19:00，20:45，18:30 都在傍晚高峰时间）</li>
+    	<li>高峰时间占比：3/3 = 100%（至少 60%）</li>
+    	<li>已评分的订单：3 笔中有 3 笔（100% 评分完成率）</li>
+    	<li>平均评分：(5+4+5)/3 = 4.67（至少 4.0）</li>
+    	<li>结果：<strong>黄金时段客户</strong></li>
     </ul>
     </li>
-    <li><strong>Customer 104</strong>:
+    <li><strong>客户 104</strong>:
     <ul>
-    	<li>Total orders: 3 (at least 3)&nbsp;</li>
-    	<li>Peak hour orders: 0 out of 3 (10:00, 09:30, 16:00 all outside peak hours)</li>
-    	<li>Peak hour percentage: 0/3 = 0% (less than 60%)&nbsp;</li>
-    	<li>Result: <strong>Not a golden hour customer</strong> (insufficient peak hour orders)</li>
+    	<li>总订单数：3（至少 3 笔）</li>
+    	<li>高峰时间订单：3 笔中有 0 笔（10:00，09:30，16:00 都不在高峰时间）</li>
+    	<li>高峰时间占比：0/3 = 0%（至少 60%）</li>
+    	<li>结果：<strong>不是黄金时段客户</strong>（高峰时段订单不足）</li>
     </ul>
     </li>
-    <li><strong>Customer 105</strong>:
+    <li><strong>客户 105</strong>:
     <ul>
-    	<li>Total orders: 3 (at least 3)&nbsp;</li>
-    	<li>Peak hour orders: 3 out of 3 (12:15, 13:00, 11:45 all in lunch peak)</li>
-    	<li>Peak hour percentage: 3/3 = 100% (at least 60%)&nbsp;</li>
-    	<li>Rated orders: 3 out of 3 (100% rating completion)&nbsp;</li>
-    	<li>Average rating: (4+5+4)/3 = 4.33 (at least 4.0)&nbsp;</li>
-    	<li>Result: <strong>Golden hour customer</strong></li>
+    	<li>总订单数：3（至少 3 笔）</li>
+    	<li>高峰时间订单：3 笔中有 3 笔（12:15，13:00，11:45 都在中午高峰时间）</li>
+    	<li>高峰时间占比：3/3 = 100%（至少 60%）</li>
+    	<li>已评分的订单：3 笔中有 3 笔（100% 评分完成率）</li>
+    	<li>平均评分：(4+5+4)/3 = 4.33（至少 4.0）</li>
+    	<li>结果：<strong>黄金时段客户</strong></li>
     </ul>
     </li>
 
 </ul>
 
-<p>The results table is ordered by average_rating DESC, then customer_id DESC.</p>
+<p>结果表按 average_rating 降序排序，然后按 customer_id 降序排序。</p>
 </div>
 
 <!-- description:end -->
