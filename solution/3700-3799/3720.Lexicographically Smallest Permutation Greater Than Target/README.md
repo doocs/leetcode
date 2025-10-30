@@ -4,11 +4,17 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README.md
 rating: 1958
 source: 第 472 场周赛 Q3
+tags:
+    - 贪心
+    - 哈希表
+    - 字符串
+    - 计数
+    - 枚举
 ---
 
 <!-- problem:start -->
 
-# [3720. 大于 target 的最小字典序排列](https://leetcode.cn/problems/lexicographically-smallest-permutation-greater-than-target)
+# [3720. 大于目标字符串的最小字典序排列](https://leetcode.cn/problems/lexicographically-smallest-permutation-greater-than-target)
 
 [English Version](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README_EN.md)
 

@@ -2,6 +2,11 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README_EN.md
+rating: 1175
+source: Weekly Contest 473 Q1
+tags:
+    - Math
+    - Simulation
 ---
 
 <!-- problem:start -->

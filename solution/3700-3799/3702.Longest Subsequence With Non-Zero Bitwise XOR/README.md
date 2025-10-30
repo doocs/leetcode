@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README.md
 rating: 1489
 source: 第 470 场周赛 Q2
+tags:
+    - 位运算
+    - 数组
 ---
 
 <!-- problem:start -->

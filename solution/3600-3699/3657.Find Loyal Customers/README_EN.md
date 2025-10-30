@@ -40,6 +40,8 @@ transaction_type can be either &#39;purchase&#39; or &#39;refund&#39;.
 	<li>Their <strong>refund rate</strong> is less than <code>20%</code> .</li>
 </ul>
 
+<p><em>Refund rate</em> is the proportion of transactions that are refunds, calculated as the number of refund transactions divided by the total number of transactions (purchases plus refunds).</p>
+
 <p>Return <em>the result table&nbsp;ordered by</em> <code>customer_id</code> <em>in <strong>ascending</strong> order</em>.</p>
 
 <p>The result format is in the following example.</p>

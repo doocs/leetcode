@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3723.Maximize%20Sum%20of%20Squares%20of%20Digits/README.md
+rating: 1536
+source: 第 168 场双周赛 Q2
+tags:
+    - 贪心
+    - 数学
 ---
 
 <!-- problem:start -->

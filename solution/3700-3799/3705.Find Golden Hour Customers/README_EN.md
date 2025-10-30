@@ -86,7 +86,7 @@ order_timestamp contains both date and time information.
 | customer_id | total_orders | peak_hour_percentage | average_rating |
 +-------------+--------------+----------------------+----------------+
 | 103         | 3            | 100                  | 4.67           |
-| 101         | 4            | 75                   | 4.67           |
+| 101         | 4            | 100                  | 4.67           |
 | 105         | 3            | 100                  | 4.33           |
 +-------------+--------------+----------------------+----------------+
 </pre>
@@ -98,8 +98,8 @@ order_timestamp contains both date and time information.
 
     <ul>
     	<li>Total orders: 4 (at least 3)&nbsp;</li>
-    	<li>Peak hour orders: 3 out of 4 (12:30, 19:15, 13:45, and 20:30 are in peak hours)</li>
-    	<li>Peak hour percentage: 3/4 = 75% (at least 60%)&nbsp;</li>
+    	<li>Peak hour orders: 4 out of 4 (12:30, 19:15, 13:45, and 20:30 are in peak hours)</li>
+    	<li>Peak hour percentage: 100% (at least 60%)&nbsp;</li>
     	<li>Rated orders: 3 out of 4 (75% rating completion)&nbsp;</li>
     	<li>Average rating: (5+4+5)/3 = 4.67 (at least 4.0)&nbsp;</li>
     	<li>Result: <strong>Golden hour customer</strong></li>

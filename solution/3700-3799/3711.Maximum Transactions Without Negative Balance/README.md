@@ -2,11 +2,15 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README.md
+tags:
+    - 贪心
+    - 数组
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
 
-# [3711. Maximum Transactions Without Negative Balance 🔒](https://leetcode.cn/problems/maximum-transactions-without-negative-balance)
+# [3711. 不出现负余额的最大交易额 🔒](https://leetcode.cn/problems/maximum-transactions-without-negative-balance)
 
 [English Version](/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README_EN.md)
 
@@ -14,56 +18,58 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3711.Ma
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>transactions</code>, where <code>transactions[i]</code> represents the amount of the <code>i<sup>th</sup></code> transaction:</p>
+<p>给定一个整数数组&nbsp;<code>transactions</code>，其中&nbsp;<code>transactions[i]</code>&nbsp;表示第&nbsp;<code>i</code>&nbsp;笔交易的总额：</p>
 
 <ul>
-	<li>A positive value means money is <strong>received</strong>.</li>
-	<li>A negative value means money is <strong>sent</strong>.</li>
+	<li>正值表示 <strong>收到</strong> 的钱。</li>
+	<li>负值表示 <strong>支付</strong>&nbsp;的钱。</li>
 </ul>
 
-<p>The account starts with a balance of 0, and the balance <strong>must never become negative</strong>. Transactions must be considered in the given order, but you are allowed to skip some transactions.</p>
+<p>账户初始余额为 0，且余额 <strong>必须始终保持非负</strong>。交易必须按照给定的顺序进行处理，但你可以跳过一些交易。</p>
 
-<p>Return an integer denoting the <strong>maximum number of transactions</strong> that can be performed without the balance ever going negative.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">transactions = [2,-5,3,-1,-2]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>One optimal sequence is <code>[2, 3, -1, -2]</code>, balance: <code>0 &rarr; 2 &rarr; 5 &rarr; 4 &rarr; 2</code>.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">transactions = [-1,-2,-3]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>All transactions are negative. Including any would make the balance negative.</p>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">transactions = [3,-2,3,-2,1,-1]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">6</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>All transactions can be taken in order, balance: <code>0 &rarr; 3 &rarr; 1 &rarr; 4 &rarr; 2 &rarr; 3 &rarr; 2</code>.</p>
-</div>
+<p>返回一个整数，表示在不使余额变为负数的情况下可以执行的 <strong>最大交易次数</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>transactions = [2,-5,3,-1,-2]</span></p>
+
+<p><span class="example-io"><b>输出：</b>4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>一个最优序列是 <code>[2, 3, -1, -2]</code>，余额：<code>0 → 2 → 5 → 4 → 2</code>。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>transactions = [-1,-2,-3]</span></p>
+
+<p><span class="example-io"><b>输出：</b>0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>所有交易均为负数。进行任何一项交易都会使余额变为负数。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>transactions = [3,-2,3,-2,1,-1]</span></p>
+
+<p><span class="example-io"><b>输出：</b>6</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>所有交易都可以按顺序进行，余额：<code>0 → 3 → 1 → 4 → 2 → 3 → 2</code>。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= transactions.length &lt;= 10<sup>5</sup></code></li>

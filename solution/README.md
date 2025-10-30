@@ -3642,7 +3642,7 @@
 |  3629  |  [通过质数传送到达终点的最少跳跃次数](/solution/3600-3699/3629.Minimum%20Jumps%20to%20Reach%20End%20via%20Prime%20Teleportation/README.md)  |  `广度优先搜索`,`数组`,`哈希表`,`数学`,`数论`  |  中等  |  第 460 场周赛  |
 |  3630  |  [划分数组得到最大异或运算和与运算之和](/solution/3600-3699/3630.Partition%20Array%20for%20Maximum%20XOR%20and%20AND/README.md)  |  `贪心`,`位运算`,`数组`,`数学`,`枚举`  |  困难  |  第 460 场周赛  |
 |  3631  |  [按严重性和可利用性排序威胁](/solution/3600-3699/3631.Sort%20Threats%20by%20Severity%20and%20Exploitability/README.md)  |  `数组`,`排序`  |  中等  |  🔒  |
-|  3632  |  [子数组异或至少为 K 的数目](/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README.md)  |  `位运算`,`树`,`数组`,`前缀和`  |  困难  |  🔒  |
+|  3632  |  [异或至少为 K 的子数组数目](/solution/3600-3699/3632.Subarrays%20with%20XOR%20at%20Least%20K/README.md)  |  `位运算`,`字典树`,`数组`,`前缀和`  |  困难  |  🔒  |
 |  3633  |  [最早完成陆地和水上游乐设施的时间 I](/solution/3600-3699/3633.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20I/README.md)  |  `贪心`,`数组`,`双指针`,`二分查找`,`排序`  |  简单  |  第 162 场双周赛  |
 |  3634  |  [使数组平衡的最少移除数目](/solution/3600-3699/3634.Minimum%20Removals%20to%20Balance%20Array/README.md)  |  `数组`,`排序`,`滑动窗口`  |  中等  |  第 162 场双周赛  |
 |  3635  |  [最早完成陆地和水上游乐设施的时间 II](/solution/3600-3699/3635.Earliest%20Finish%20Time%20for%20Land%20and%20Water%20Rides%20II/README.md)  |  `贪心`,`数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 162 场双周赛  |
@@ -3676,7 +3676,7 @@
 |  3663  |  [出现频率最低的数字](/solution/3600-3699/3663.Find%20The%20Least%20Frequent%20Digit/README.md)  |  `数组`,`哈希表`,`数学`,`计数`  |  简单  |  第 164 场双周赛  |
 |  3664  |  [两个字母卡牌游戏](/solution/3600-3699/3664.Two-Letter%20Card%20Game/README.md)  |  `数组`,`哈希表`,`字符串`,`计数`,`枚举`  |  中等  |  第 164 场双周赛  |
 |  3665  |  [统计镜子反射路径数目](/solution/3600-3699/3665.Twisted%20Mirror%20Path%20Count/README.md)  |  `数组`,`动态规划`,`矩阵`  |  中等  |  第 164 场双周赛  |
-|  3666  |  [使二进制字符串全为 1 的最少操作次数](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README.md)  |  `广度优先搜索`,`哈希表`,`数学`,`字符串`  |  困难  |  第 164 场双周赛  |
+|  3666  |  [使二进制字符串全为 1 的最少操作次数](/solution/3600-3699/3666.Minimum%20Operations%20to%20Equalize%20Binary%20String/README.md)  |  `广度优先搜索`,`并查集`,`数学`,`字符串`,`有序集合`  |  困难  |  第 164 场双周赛  |
 |  3667  |  [按绝对值排序数组](/solution/3600-3699/3667.Sort%20Array%20By%20Absolute%20Value/README.md)  |  `数组`,`数学`,`双指针`,`排序`  |  简单  |  🔒  |
 |  3668  |  [重排完成顺序](/solution/3600-3699/3668.Restore%20Finishing%20Order/README.md)  |  `数组`,`哈希表`  |  简单  |  第 465 场周赛  |
 |  3669  |  [K 因数分解](/solution/3600-3699/3669.Balanced%20K-Factor%20Decomposition/README.md)  |  `数学`,`回溯`,`数论`  |  中等  |  第 465 场周赛  |
@@ -3711,36 +3711,36 @@
 |  3698  |  [分割数组得到最小绝对差](/solution/3600-3699/3698.Split%20Array%20With%20Minimum%20Difference/README.md)  |  `数组`,`前缀和`  |  中等  |  第 469 场周赛  |
 |  3699  |  [锯齿形数组的总数 I](/solution/3600-3699/3699.Number%20of%20ZigZag%20Arrays%20I/README.md)  |    |  困难  |  第 469 场周赛  |
 |  3700  |  [锯齿形数组的总数 II](/solution/3700-3799/3700.Number%20of%20ZigZag%20Arrays%20II/README.md)  |    |  困难  |  第 469 场周赛  |
-|  3701  |  [计算交替和](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md)  |    |  简单  |  第 470 场周赛  |
-|  3702  |  [按位异或非零的最长子序列](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README.md)  |    |  中等  |  第 470 场周赛  |
-|  3703  |  [移除K-平衡子字符串](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md)  |    |  中等  |  第 470 场周赛  |
-|  3704  |  [统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)  |    |  困难  |  第 470 场周赛  |
-|  3705  |  [Find Golden Hour Customers](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)  |    |  中等  |    |
-|  3706  |  [不同单词间的最大距离 II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README.md)  |    |  中等  |  🔒  |
-|  3707  |  [相等子字符串分数](/solution/3700-3799/3707.Equal%20Score%20Substrings/README.md)  |    |  简单  |  第 167 场双周赛  |
-|  3708  |  [最长斐波那契子数组](/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README.md)  |    |  中等  |  第 167 场双周赛  |
-|  3709  |  [设计考试分数记录器](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README.md)  |    |  中等  |  第 167 场双周赛  |
-|  3710  |  [最大划分因子](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README.md)  |    |  困难  |  第 167 场双周赛  |
-|  3711  |  [Maximum Transactions Without Negative Balance](/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README.md)  |    |  中等  |  🔒  |
-|  3712  |  [出现次数能被 K 整除的元素总和](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README.md)  |    |  简单  |  第 471 场周赛  |
-|  3713  |  [最长的平衡子串 I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README.md)  |    |  中等  |  第 471 场周赛  |
-|  3714  |  [最长的平衡子串 II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README.md)  |    |  中等  |  第 471 场周赛  |
-|  3715  |  [完全平方数的祖先个数总和](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README.md)  |    |  困难  |  第 471 场周赛  |
+|  3701  |  [计算交替和](/solution/3700-3799/3701.Compute%20Alternating%20Sum/README.md)  |  `数组`,`模拟`  |  简单  |  第 470 场周赛  |
+|  3702  |  [按位异或非零的最长子序列](/solution/3700-3799/3702.Longest%20Subsequence%20With%20Non-Zero%20Bitwise%20XOR/README.md)  |  `位运算`,`数组`  |  中等  |  第 470 场周赛  |
+|  3703  |  [移除K-平衡子字符串](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md)  |  `栈`,`字符串`,`模拟`  |  中等  |  第 470 场周赛  |
+|  3704  |  [统计和为 N 的无零数对](/solution/3700-3799/3704.Count%20No-Zero%20Pairs%20That%20Sum%20to%20N/README.md)  |  `数学`,`动态规划`  |  困难  |  第 470 场周赛  |
+|  3705  |  [寻找黄金时段客户](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)  |    |  中等  |    |
+|  3706  |  [不同单词间的最大距离 II](/solution/3700-3799/3706.Maximum%20Distance%20Between%20Unequal%20Words%20in%20Array%20II/README.md)  |  `数组`,`字符串`  |  中等  |  🔒  |
+|  3707  |  [相等子字符串分数](/solution/3700-3799/3707.Equal%20Score%20Substrings/README.md)  |  `字符串`,`前缀和`  |  简单  |  第 167 场双周赛  |
+|  3708  |  [最长斐波那契子数组](/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README.md)  |  `数组`  |  中等  |  第 167 场双周赛  |
+|  3709  |  [设计考试分数记录器](/solution/3700-3799/3709.Design%20Exam%20Scores%20Tracker/README.md)  |  `设计`,`数组`,`二分查找`,`前缀和`  |  中等  |  第 167 场双周赛  |
+|  3710  |  [最大划分因子](/solution/3700-3799/3710.Maximum%20Partition%20Factor/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`图`,`数组`,`二分查找`  |  困难  |  第 167 场双周赛  |
+|  3711  |  [不出现负余额的最大交易额](/solution/3700-3799/3711.Maximum%20Transactions%20Without%20Negative%20Balance/README.md)  |  `贪心`,`数组`,`堆（优先队列）`  |  中等  |  🔒  |
+|  3712  |  [出现次数能被 K 整除的元素总和](/solution/3700-3799/3712.Sum%20of%20Elements%20With%20Frequency%20Divisible%20by%20K/README.md)  |  `数组`,`哈希表`,`计数`  |  简单  |  第 471 场周赛  |
+|  3713  |  [最长的平衡子串 I](/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README.md)  |  `哈希表`,`字符串`,`计数`,`枚举`  |  中等  |  第 471 场周赛  |
+|  3714  |  [最长的平衡子串 II](/solution/3700-3799/3714.Longest%20Balanced%20Substring%20II/README.md)  |  `哈希表`,`字符串`,`前缀和`  |  中等  |  第 471 场周赛  |
+|  3715  |  [完全平方数的祖先个数总和](/solution/3700-3799/3715.Sum%20of%20Perfect%20Square%20Ancestors/README.md)  |  `树`,`深度优先搜索`,`数组`,`哈希表`,`数学`,`计数`,`数论`  |  困难  |  第 471 场周赛  |
 |  3716  |  [寻找流失风险客户](/solution/3700-3799/3716.Find%20Churn%20Risk%20Customers/README.md)  |    |  中等  |    |
-|  3717  |  [Minimum Operations to Make the Array Beautiful](/solution/3700-3799/3717.Minimum%20Operations%20to%20Make%20the%20Array%20Beautiful/README.md)  |    |  中等  |  🔒  |
-|  3718  |  [缺失的最小倍数](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README.md)  |    |  简单  |  第 472 场周赛  |
-|  3719  |  [最长平衡子数组 I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README.md)  |    |  中等  |  第 472 场周赛  |
-|  3720  |  [大于 target 的最小字典序排列](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README.md)  |    |  中等  |  第 472 场周赛  |
-|  3721  |  [最长平衡子数组 II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README.md)  |    |  困难  |  第 472 场周赛  |
-|  3722  |  [反转后字典序最小的字符串](/solution/3700-3799/3722.Lexicographically%20Smallest%20String%20After%20Reverse/README.md)  |    |  中等  |  第 168 场双周赛  |
-|  3723  |  [数位平方和的最大值](/solution/3700-3799/3723.Maximize%20Sum%20of%20Squares%20of%20Digits/README.md)  |    |  中等  |  第 168 场双周赛  |
-|  3724  |  [转换数组的最少操作次数](/solution/3700-3799/3724.Minimum%20Operations%20to%20Transform%20Array/README.md)  |    |  中等  |  第 168 场双周赛  |
-|  3725  |  [统计每一行选择互质整数的方案数](/solution/3700-3799/3725.Count%20Ways%20to%20Choose%20Coprime%20Integers%20from%20Rows/README.md)  |    |  困难  |  第 168 场双周赛  |
-|  3726  |  [移除十进制表示中的所有零](/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README.md)  |    |  简单  |  第 473 场周赛  |
-|  3727  |  [最大交替平方和](/solution/3700-3799/3727.Maximum%20Alternating%20Sum%20of%20Squares/README.md)  |    |  中等  |  第 473 场周赛  |
-|  3728  |  [边界与内部和相等的稳定子数组](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README.md)  |    |  中等  |  第 473 场周赛  |
-|  3729  |  [统计有序数组中可被 K 整除的子数组数量](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README.md)  |    |  困难  |  第 473 场周赛  |
-|  3730  |  [Maximum Calories Burnt from Jumps](/solution/3700-3799/3730.Maximum%20Calories%20Burnt%20from%20Jumps/README.md)  |    |  中等  |  🔒  |
+|  3717  |  [使数组变美的最小操作次数](/solution/3700-3799/3717.Minimum%20Operations%20to%20Make%20the%20Array%20Beautiful/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
+|  3718  |  [缺失的最小倍数](/solution/3700-3799/3718.Smallest%20Missing%20Multiple%20of%20K/README.md)  |  `数组`,`哈希表`  |  简单  |  第 472 场周赛  |
+|  3719  |  [最长平衡子数组 I](/solution/3700-3799/3719.Longest%20Balanced%20Subarray%20I/README.md)  |  `线段树`,`数组`,`哈希表`,`分治`,`前缀和`  |  中等  |  第 472 场周赛  |
+|  3720  |  [大于目标字符串的最小字典序排列](/solution/3700-3799/3720.Lexicographically%20Smallest%20Permutation%20Greater%20Than%20Target/README.md)  |  `贪心`,`哈希表`,`字符串`,`计数`,`枚举`  |  中等  |  第 472 场周赛  |
+|  3721  |  [最长平衡子数组 II](/solution/3700-3799/3721.Longest%20Balanced%20Subarray%20II/README.md)  |  `线段树`,`数组`,`哈希表`,`分治`,`前缀和`  |  困难  |  第 472 场周赛  |
+|  3722  |  [反转后字典序最小的字符串](/solution/3700-3799/3722.Lexicographically%20Smallest%20String%20After%20Reverse/README.md)  |  `双指针`,`二分查找`,`枚举`  |  中等  |  第 168 场双周赛  |
+|  3723  |  [数位平方和的最大值](/solution/3700-3799/3723.Maximize%20Sum%20of%20Squares%20of%20Digits/README.md)  |  `贪心`,`数学`  |  中等  |  第 168 场双周赛  |
+|  3724  |  [转换数组的最少操作次数](/solution/3700-3799/3724.Minimum%20Operations%20to%20Transform%20Array/README.md)  |  `贪心`,`数组`  |  中等  |  第 168 场双周赛  |
+|  3725  |  [统计每一行选择互质整数的方案数](/solution/3700-3799/3725.Count%20Ways%20to%20Choose%20Coprime%20Integers%20from%20Rows/README.md)  |  `数组`,`数学`,`动态规划`,`组合数学`,`矩阵`,`数论`  |  困难  |  第 168 场双周赛  |
+|  3726  |  [移除十进制表示中的所有零](/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README.md)  |  `数学`,`模拟`  |  简单  |  第 473 场周赛  |
+|  3727  |  [最大交替平方和](/solution/3700-3799/3727.Maximum%20Alternating%20Sum%20of%20Squares/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |  第 473 场周赛  |
+|  3728  |  [边界与内部和相等的稳定子数组](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README.md)  |  `数组`,`哈希表`,`前缀和`  |  中等  |  第 473 场周赛  |
+|  3729  |  [统计有序数组中可被 K 整除的子数组数量](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README.md)  |  `数组`,`哈希表`,`前缀和`  |  困难  |  第 473 场周赛  |
+|  3730  |  [跳跃燃烧的最大卡路里](/solution/3700-3799/3730.Maximum%20Calories%20Burnt%20from%20Jumps/README.md)  |  `贪心`,`数组`,`双指针`,`排序`  |  中等  |  🔒  |
 
 ## 版权
 

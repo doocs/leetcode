@@ -40,6 +40,8 @@ transaction_type 可以是 “purchase” 或 “refund”。
 	<li>他们的 <strong>退款率</strong>&nbsp;少于&nbsp;<code>20%</code>。</li>
 </ul>
 
+<p>退款率是退款交易占交易总数（购买加退款）的比例，计算公式为退款交易数量除以总交易数量。</p>
+
 <p>返回结果表以&nbsp;<code>customer_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
 <p>结果格式如下所示。</p>

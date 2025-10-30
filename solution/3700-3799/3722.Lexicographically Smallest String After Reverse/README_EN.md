@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3722.Lexicographically%20Smallest%20String%20After%20Reverse/README_EN.md
+rating: 1414
+source: Biweekly Contest 168 Q1
+tags:
+    - Two Pointers
+    - Binary Search
+    - Enumeration
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README.md
 rating: 1802
 source: 第 470 场周赛 Q3
+tags:
+    - 栈
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

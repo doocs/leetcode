@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README.md
 rating: 1490
 source: 第 471 场周赛 Q2
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
+    - 枚举
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3707.Equal%20Score%20Substrings/README_EN.md
 rating: 1262
 source: Biweekly Contest 167 Q1
+tags:
+    - String
+    - Prefix Sum
 ---
 
 <!-- problem:start -->
@@ -20,10 +23,10 @@ source: Biweekly Contest 167 Q1
 
 <p>The <strong>score</strong> of a string is the sum of the positions of its characters in the alphabet, where <code>&#39;a&#39; = 1</code>, <code>&#39;b&#39; = 2</code>, ..., <code>&#39;z&#39; = 26</code>.</p>
 
-<p>Determine whether there exists an index <code>i</code> such that the string can be split into two <strong>non-empty substrings</strong> <code>s[0..i]</code> and <code>s[(i + 1)..(n - 1)]</code> that have <strong>equal</strong> scores.</p>
+<p>Determine whether there exists an index <code>i</code> such that the string can be split into two <strong>non-empty</strong> <strong><strong><span data-keyword="substring-nonempty">substrings</span></strong></strong> <code>s[0..i]</code> and <code>s[(i + 1)..(n - 1)]</code> that have <strong>equal</strong> scores.</p>
 
 <p>Return <code>true</code> if such a split exists, otherwise return <code>false</code>.</p>
-A <strong>substring</strong> is a contiguous <b>non-empty</b> sequence of characters within a string.
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
