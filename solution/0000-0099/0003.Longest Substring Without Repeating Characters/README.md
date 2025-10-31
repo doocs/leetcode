@@ -27,7 +27,7 @@ tags:
 <pre>
 <strong>输入: </strong>s = "abcabcbb"
 <strong>输出: </strong>3 
-<strong>解释:</strong> 因为无重复字符的最长子串是 <code>"abc"</code>，所以其长度为 3。
+<strong>解释:</strong> 因为无重复字符的最长子串是 <code>"abc"</code>，所以其长度为 3。注意 "bca" 和 "cab" 也是正确答案。
 </pre>
 
 <p><strong>示例 2:</strong></p>

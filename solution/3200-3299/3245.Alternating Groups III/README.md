@@ -7,6 +7,7 @@ source: 第 409 场周赛 Q4
 tags:
     - 树状数组
     - 数组
+    - 有序集合
 ---
 
 <!-- problem:start -->

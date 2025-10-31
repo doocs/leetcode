@@ -9,7 +9,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3596. 最小花费路径交替方向 I 🔒](https://leetcode.cn/problems/minimum-cost-path-with-alternating-directions-i)
+# [3596. 交替方向的最小路径代价 I 🔒](https://leetcode.cn/problems/minimum-cost-path-with-alternating-directions-i)
 
 [English Version](/solution/3500-3599/3596.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20I/README_EN.md)
 

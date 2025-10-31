@@ -36,7 +36,7 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<b>输入：</b>num1 = "1", num2 = "12", min_num = 1, max_num = 8
+<b>输入：</b>num1 = "1", num2 = "12", min_sum = 1, max_sum = 8
 <b>输出：</b>11
 <b>解释：</b>总共有 11 个整数的数位和在 1 到 8 之间，分别是 1,2,3,4,5,6,7,8,10,11 和 12 。所以我们返回 11 。
 </pre>
@@ -44,7 +44,7 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<b>输入：</b>num1 = "1", num2 = "5", min_num = 1, max_num = 5
+<b>输入：</b>num1 = "1", num2 = "5", min_sum = 1, max_sum = 5
 <b>输出：</b>5
 <b>解释：</b>数位和在 1 到 5 之间的 5 个整数分别为 1,2,3,4 和 5 。所以我们返回 5 。
 </pre>

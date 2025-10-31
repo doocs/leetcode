@@ -7,6 +7,7 @@ source: 第 320 场周赛 Q4
 tags:
     - 字符串
     - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->

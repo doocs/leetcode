@@ -21,6 +21,8 @@ tags:
 
 <p>测试用例的答案是一个&nbsp;<strong>32-位</strong> 整数。</p>
 
+<p><strong>请注意</strong>，一个只包含一个元素的数组的乘积是这个元素的值。</p>
+
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1:</strong></p>

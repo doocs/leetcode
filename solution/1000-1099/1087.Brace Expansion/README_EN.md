@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1087.Br
 rating: 1480
 source: Biweekly Contest 2 Q3
 tags:
+    - Stack
     - Breadth-First Search
     - String
     - Backtracking
+    - Sorting
 ---
 
 <!-- problem:start -->

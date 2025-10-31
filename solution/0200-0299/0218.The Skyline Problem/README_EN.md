@@ -8,6 +8,7 @@ tags:
     - Array
     - Divide and Conquer
     - Ordered Set
+    - Sorting
     - Line Sweep
     - Heap (Priority Queue)
 ---

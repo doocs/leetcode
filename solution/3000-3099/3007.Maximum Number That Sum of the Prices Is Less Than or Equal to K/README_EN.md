@@ -6,6 +6,7 @@ rating: 2258
 source: Weekly Contest 380 Q3
 tags:
     - Bit Manipulation
+    - Math
     - Binary Search
     - Dynamic Programming
 ---

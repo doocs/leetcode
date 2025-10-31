@@ -6,7 +6,9 @@ rating: 2824
 source: Weekly Contest 339 Q4
 tags:
     - Breadth-First Search
+    - Union Find
     - Array
+    - Hash Table
     - Ordered Set
 ---
 

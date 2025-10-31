@@ -31,7 +31,6 @@ tags:
 此表可能会有重复的行。
 action 字段是 ENUM 类型的，包含:('view', 'like', 'reaction', 'comment', <em><strong>'</strong></em>report<em><strong>'</strong></em>, 'share')
 extra 包含关于 action 的可选信息，例如举报的原因或反馈的类型。
-当 action 为 'report' 时 extra 不会为 NULL。
 </pre>
 
 <p>&nbsp;</p>
