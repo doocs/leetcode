@@ -20,7 +20,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个数组&nbsp;<code>coordinates</code>&nbsp;，其中&nbsp;<code>coordinates[i] = [x, y]</code>&nbsp;，<meta charset="UTF-8" />&nbsp;<code>[x, y]</code>&nbsp;表示横坐标为 <code>x</code>、纵坐标为 <code>y</code>&nbsp;的点。请你来判断，这些点是否在该坐标系中属于同一条直线上。</p>
+<p>给定一个整数数组&nbsp;<code>coordinates</code>&nbsp;，其中&nbsp;<code>coordinates[i] = [x, y]</code>&nbsp;，<meta charset="UTF-8" />&nbsp;<code>[x, y]</code>&nbsp;表示横坐标为 <code>x</code>、纵坐标为 <code>y</code>&nbsp;的点。请你来判断，这些点是否在该坐标系中属于同一条直线上。</p>
 
 <p>&nbsp;</p>
 
@@ -49,7 +49,7 @@ tags:
 <ul>
 	<li><code>2 &lt;=&nbsp;coordinates.length &lt;= 1000</code></li>
 	<li><code>coordinates[i].length == 2</code></li>
-	<li><code>-10^4 &lt;=&nbsp;coordinates[i][0],&nbsp;coordinates[i][1] &lt;= 10^4</code></li>
+	<li><code>-10<sup>4</sup> &lt;=&nbsp;coordinates[i][0],&nbsp;coordinates[i][1] &lt;= 10<sup>4</sup></code></li>
 	<li><code>coordinates</code>&nbsp;中不含重复的点</li>
 </ul>
 

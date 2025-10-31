@@ -7,8 +7,10 @@ source: Weekly Contest 142 Q4
 tags:
     - Stack
     - Breadth-First Search
+    - Hash Table
     - String
     - Backtracking
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -22,7 +22,7 @@ tags:
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> of <strong>even</strong> length consisting of an <strong>equal</strong> number of positive and negative integers.</p>
 
-<p>You should return the array of nums such that the the array follows the given conditions:</p>
+<p>You should return the array of nums such that the array follows the given conditions:</p>
 
 <ol>
 	<li>Every <strong>consecutive pair</strong> of integers have <strong>opposite signs</strong>.</li>

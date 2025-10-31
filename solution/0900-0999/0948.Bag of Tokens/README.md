@@ -40,7 +40,7 @@ tags:
 <pre>
 <strong>输入：</strong>tokens = [100], power = 50
 <strong>输出：</strong>0
-<strong>解释：</strong>因为你的初始分数为 <code>0，</code>无法使令牌朝下。你也不能使令牌朝上因为你的能量（<code>50</code>）比 <code>tokens[0]</code>&nbsp;少（<code>100</code>）。</pre>
+<strong>解释：</strong>因为你的初始分数为 <code>0</code>，无法使令牌朝下。你也不能使令牌朝上因为你的能量（<code>50</code>）比 <code>tokens[0]</code>&nbsp;少（<code>100</code>）。</pre>
 
 <p><strong>示例 2：</strong></p>
 

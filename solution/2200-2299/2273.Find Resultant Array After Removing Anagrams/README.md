@@ -21,7 +21,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个下标从 <strong>0</strong> 开始的字符串 <code>words</code> ，其中 <code>words[i]</code> 由小写英文字符组成。</p>
+<p>给你一个下标从 <strong>0</strong> 开始的字符串数组&nbsp;<code>words</code> ，其中 <code>words[i]</code> 由小写英文字符组成。</p>
 
 <p>在一步操作中，需要选出任一下标 <code>i</code> ，从 <code>words</code> 中 <strong>删除</strong> <code>words[i]</code> 。其中下标 <code>i</code> 需要同时满足下述两个条件：</p>
 
@@ -40,7 +40,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>words = ["abba","baba","bbaa","cd","cd"]
+<pre>
+<strong>输入：</strong>words = ["abba","baba","bbaa","cd","cd"]
 <strong>输出：</strong>["abba","cd"]
 <strong>解释：</strong>
 获取结果数组的方法之一是执行下述步骤：
@@ -54,7 +55,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>words = ["a","b","c","d","e"]
+<pre>
+<strong>输入：</strong>words = ["a","b","c","d","e"]
 <strong>输出：</strong>["a","b","c","d","e"]
 <strong>解释：</strong>
 words 中不存在互为字母异位词的两个相邻字符串，所以无需执行任何操作。</pre>

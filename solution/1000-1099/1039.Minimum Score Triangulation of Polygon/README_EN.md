@@ -30,7 +30,7 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape1.jpg" /></p>
+<p><strong class="example"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/ex0-2.png" style="width: 200px; height: 200px;" /></strong></p>
 
 <div class="example-block">
 <p><strong>Input:</strong> <span class="example-io">values = [1,2,3]</span></p>
@@ -42,9 +42,9 @@ tags:
 
 <p><strong class="example">Example 2:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape2.jpg" /></p>
-
 <div class="example-block">
+<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/ex1-2.png" style="width: 432px; height: 200px;" /></p>
+
 <p><strong>Input:</strong> <span class="example-io">values = [3,7,4,5]</span></p>
 
 <p><strong>Output:</strong> <span class="example-io">144</span></p>
@@ -55,7 +55,7 @@ The minimum score is 144.</p>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/shape3.jpg" /></p>
+<p><strong class="example"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/ex2.png" style="width: 200px; height: 200px;" />​​​​​​​</strong></p>
 
 <div class="example-block">
 <p><strong>Input:</strong> <span class="example-io">values = [1,3,1,4,1,5]</span></p>

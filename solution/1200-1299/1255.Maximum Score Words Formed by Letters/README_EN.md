@@ -7,10 +7,12 @@ source: Weekly Contest 162 Q4
 tags:
     - Bit Manipulation
     - Array
+    - Hash Table
     - String
     - Dynamic Programming
     - Backtracking
     - Bitmask
+    - Counting
 ---
 
 <!-- problem:start -->

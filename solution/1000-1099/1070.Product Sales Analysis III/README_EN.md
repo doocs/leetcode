@@ -29,7 +29,6 @@ tags:
 | price       | int   |
 +-------------+-------+
 (sale_id, year) is the primary key (combination of columns with unique values) of this table.
-product_id is a foreign key (reference column) to <code>Product</code> table.
 Each row records a sale of a product in a given year.
 A product may have multiple sales entries in the same year.
 Note that the per-unit price.

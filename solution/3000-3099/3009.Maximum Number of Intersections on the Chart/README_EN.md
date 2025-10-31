@@ -6,7 +6,10 @@ tags:
     - Binary Indexed Tree
     - Geometry
     - Array
+    - Hash Table
     - Math
+    - Sorting
+    - Line Sweep
 ---
 
 <!-- problem:start -->

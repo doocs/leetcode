@@ -21,18 +21,18 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个下标从 <strong>0</strong> 开始的字符串&nbsp;<code>s</code>&nbsp;和一个整数&nbsp;<code>k</code>。</p>
+<p>给定一个字符串&nbsp;<code>s</code>&nbsp;和一个整数&nbsp;<code>k</code>。</p>
 
-<p>你需要执行以下分割操作，直到字符串&nbsp;<code>s&nbsp;</code>变为&nbsp;<strong>空</strong>：</p>
+<p>首先，你最多可以更改 <code>s</code> 中的 <strong>一处</strong> 下标对应字符为另一个小写英文字母。</p>
+
+<p>之后，执行以下分割操作，直到&nbsp;<code>s</code>&nbsp;变为&nbsp;<strong>空串</strong>：</p>
 
 <ul>
-	<li>选择&nbsp;<code>s</code>&nbsp;的最长&nbsp;<strong>前缀</strong>，该前缀最多包含&nbsp;<code>k&nbsp;</code>个&nbsp;<strong>不同&nbsp;</strong>字符。</li>
-	<li><strong>删除&nbsp;</strong>这个前缀，并将分割数量加一。如果有剩余字符，它们在&nbsp;<code>s</code>&nbsp;中保持原来的顺序。</li>
+	<li>选择&nbsp;<code>s</code>&nbsp;的最长&nbsp;<strong>前缀</strong>，该前缀最多包含&nbsp;<code>k</code>&nbsp;个&nbsp;<strong>不同&nbsp;</strong>字符。</li>
+	<li>从&nbsp;<code>s</code> 中&nbsp;<strong>删除&nbsp;</strong>这个前缀，并将分割数量加一。如果有剩余字符，它们在&nbsp;<code>s</code>&nbsp;中保持原来的顺序。</li>
 </ul>
 
-<p>执行操作之 <strong>前</strong> ，你可以将&nbsp;<code>s</code>&nbsp;中&nbsp;<strong>至多一处 </strong>下标的对应字符更改为另一个小写英文字母。</p>
-
-<p>在最优选择情形下改变至多一处下标对应字符后，用整数表示并返回操作结束时得到的 <strong>最大</strong> 分割数量。</p>
+<p>返回一个整数，表示在 <strong>最多</strong> 改变一处下标对应字符的情况下，经过操作后得到的最大分割数。</p>
 
 <p>&nbsp;</p>
 

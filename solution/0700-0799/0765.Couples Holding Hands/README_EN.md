@@ -48,8 +48,7 @@ tags:
 
 <ul>
 	<li><code>2n == row.length</code></li>
-	<li><code>2 &lt;= n &lt;= 30</code></li>
-	<li><code>n</code> is even.</li>
+	<li><code>2 &lt;= n &lt;= 30</code>​​​​​​​</li>
 	<li><code>0 &lt;= row[i] &lt; 2n</code></li>
 	<li>All the elements of <code>row</code> are <strong>unique</strong>.</li>
 </ul>

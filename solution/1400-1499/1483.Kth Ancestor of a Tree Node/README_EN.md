@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1483.Kt
 rating: 2115
 source: Weekly Contest 193 Q4
 tags:
+    - Bit Manipulation
     - Tree
     - Depth-First Search
     - Breadth-First Search

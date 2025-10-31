@@ -3,12 +3,12 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README.md
 tags:
-    - 栈
     - 设计
-    - 树状数组
     - 数组
-    - 哈希表
-    - 有序集合
+    - 链表
+    - 分治
+    - 双向链表
+    - 模拟
 ---
 
 <!-- problem:start -->

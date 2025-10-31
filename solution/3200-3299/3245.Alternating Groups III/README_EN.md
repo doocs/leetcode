@@ -7,6 +7,7 @@ source: Weekly Contest 409 Q4
 tags:
     - Binary Indexed Tree
     - Array
+    - Ordered Set
 ---
 
 <!-- problem:start -->

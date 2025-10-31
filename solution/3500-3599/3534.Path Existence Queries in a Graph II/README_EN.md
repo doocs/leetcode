@@ -6,9 +6,12 @@ rating: 2507
 source: Weekly Contest 447 Q4
 tags:
     - Greedy
+    - Bit Manipulation
     - Graph
     - Array
+    - Two Pointers
     - Binary Search
+    - Dynamic Programming
     - Sorting
 ---
 

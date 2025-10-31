@@ -5,9 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1606.Fi
 rating: 2275
 source: 第 36 场双周赛 Q4
 tags:
-    - 贪心
     - 数组
     - 有序集合
+    - 模拟
     - 堆（优先队列）
 ---
 

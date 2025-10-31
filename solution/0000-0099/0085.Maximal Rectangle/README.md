@@ -53,7 +53,7 @@ tags:
 <ul>
 	<li><code>rows == matrix.length</code></li>
 	<li><code>cols == matrix[0].length</code></li>
-	<li><code>1 &lt;= row, cols &lt;= 200</code></li>
+	<li><code>1 &lt;= rows, cols &lt;= 200</code></li>
 	<li><code>matrix[i][j]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 

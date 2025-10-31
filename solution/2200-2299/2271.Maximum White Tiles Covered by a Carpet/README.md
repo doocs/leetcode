@@ -27,7 +27,7 @@ tags:
 
 <p>同时给你一个整数&nbsp;<code>carpetLen</code>&nbsp;，表示可以放在&nbsp;<strong>任何位置</strong>&nbsp;的一块毯子的长度。</p>
 
-<p>请你返回使用这块毯子，<strong>最多</strong>&nbsp;可以盖住多少块瓷砖。</p>
+<p>请你返回使用这块毯子，<strong>最多</strong>&nbsp;可以盖住多少块白色瓷砖。</p>
 
 <p>&nbsp;</p>
 

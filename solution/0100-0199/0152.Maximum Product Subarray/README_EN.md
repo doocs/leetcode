@@ -21,6 +21,8 @@ tags:
 
 <p>The test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
 
+<p><strong>Note</strong> that the product of an array with a single element is the value of that element.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

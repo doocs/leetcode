@@ -36,13 +36,6 @@ tags:
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>digits = ""
-<strong>输出：</strong>[]
-</pre>
-
-<p><strong>示例 3：</strong></p>
-
-<pre>
 <strong>输入：</strong>digits = "2"
 <strong>输出：</strong>["a","b","c"]
 </pre>
@@ -52,7 +45,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 &lt;= digits.length &lt;= 4</code></li>
+	<li><code>1 &lt;= digits.length &lt;= 4</code></li>
 	<li><code>digits[i]</code> 是范围 <code>['2', '9']</code> 的一个数字。</li>
 </ul>
 

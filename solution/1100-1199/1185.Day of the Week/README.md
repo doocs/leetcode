@@ -22,26 +22,31 @@ tags:
 
 <p>输入为三个整数：<code>day</code>、<code>month</code> 和&nbsp;<code>year</code>，分别表示日、月、年。</p>
 
-<p>您返回的结果必须是这几个值中的一个&nbsp;<code>{&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}</code>。</p>
+<p>您返回的结果必须是这几个值中的一个&nbsp;<code>{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}</code>。</p>
+
+<p><strong>注意</strong>：1971 年 1 月 1 日是星期五。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>day = 31, month = 8, year = 2019
-<strong>输出：</strong>&quot;Saturday&quot;
+<pre>
+<strong>输入：</strong>day = 31, month = 8, year = 2019
+<strong>输出：</strong>"Saturday"
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>day = 18, month = 7, year = 1999
-<strong>输出：</strong>&quot;Sunday&quot;
+<pre>
+<strong>输入：</strong>day = 18, month = 7, year = 1999
+<strong>输出：</strong>"Sunday"
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>day = 15, month = 8, year = 1993
-<strong>输出：</strong>&quot;Sunday&quot;
+<pre>
+<strong>输入：</strong>day = 15, month = 8, year = 1993
+<strong>输出：</strong>"Sunday"
 </pre>
 
 <p>&nbsp;</p>

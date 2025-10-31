@@ -22,7 +22,7 @@ tags:
 
 <ul>
 	<li>If <code>nums[i]</code> is positive, move <code>nums[i]</code> steps <strong>forward</strong>, and</li>
-	<li>If <code>nums[i]</code> is negative, move <code>nums[i]</code> steps <strong>backward</strong>.</li>
+	<li>If <code>nums[i]</code> is negative, move <code>abs(nums[i])</code> steps <strong>backward</strong>.</li>
 </ul>
 
 <p>Since the array is <strong>circular</strong>, you may assume that moving forward from the last element puts you on the first element, and moving backwards from the first element puts you on the last element.</p>

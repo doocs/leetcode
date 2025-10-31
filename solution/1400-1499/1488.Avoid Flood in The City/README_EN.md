@@ -22,13 +22,13 @@ tags:
 
 <!-- description:start -->
 
-<p>Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the <code>nth</code> lake, the <code>nth</code> lake becomes full of water. If it rains over a lake that is <strong>full of water</strong>, there will be a <strong>flood</strong>. Your goal is to avoid floods in any lake.</p>
+<p>Your country has 10<sup>9</sup> lakes. Initially, all the lakes are empty, but when it rains over the <code>n<sup>th</sup></code> lake, the <code>n<sup>th</sup></code> lake becomes full of water. If it rains over a lake that is <strong>full of water</strong>, there will be a <strong>flood</strong>. Your goal is to avoid floods in any lake.</p>
 
 <p>Given an integer array <code>rains</code> where:</p>
 
 <ul>
 	<li><code>rains[i] &gt; 0</code> means there will be rains over the <code>rains[i]</code> lake.</li>
-	<li><code>rains[i] == 0</code> means there are no rains this day and you can choose <strong>one lake</strong> this day and <strong>dry it</strong>.</li>
+	<li><code>rains[i] == 0</code> means there are no rains this day and you&nbsp;<strong>must</strong> choose&nbsp;<strong>one lake</strong> this day and <strong>dry it</strong>.</li>
 </ul>
 
 <p>Return <em>an array <code>ans</code></em> where:</p>

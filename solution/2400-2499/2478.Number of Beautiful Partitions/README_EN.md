@@ -7,6 +7,7 @@ source: Weekly Contest 320 Q4
 tags:
     - String
     - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->
