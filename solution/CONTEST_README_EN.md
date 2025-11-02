@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 474
+
+- [3731. Find Missing Elements](/solution/3700-3799/3731.Find%20Missing%20Elements/README_EN.md)
+- [3732. Maximum Product of Three Elements After One Replacement](/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README_EN.md)
+- [3733. Minimum Time to Complete All Deliveries](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README_EN.md)
+- [3734. Lexicographically Smallest Palindromic Permutation Greater Than Target](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README_EN.md)
+
 #### Weekly Contest 473
 
 - [3726. Remove Zeros in Decimal Representation](/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README_EN.md)

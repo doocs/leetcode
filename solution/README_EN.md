@@ -3739,6 +3739,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3728  |  [Stable Subarrays With Equal Boundary and Interior Sum](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 473  |
 |  3729  |  [Count Distinct Subarrays Divisible by K in Sorted Array](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Hard  |  Weekly Contest 473  |
 |  3730  |  [Maximum Calories Burnt from Jumps](/solution/3700-3799/3730.Maximum%20Calories%20Burnt%20from%20Jumps/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Sorting`  |  Medium  |  🔒  |
+|  3731  |  [Find Missing Elements](/solution/3700-3799/3731.Find%20Missing%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 474  |
+|  3732  |  [Maximum Product of Three Elements After One Replacement](/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README_EN.md)  |    |  Medium  |  Weekly Contest 474  |
+|  3733  |  [Minimum Time to Complete All Deliveries](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README_EN.md)  |    |  Medium  |  Weekly Contest 474  |
+|  3734  |  [Lexicographically Smallest Palindromic Permutation Greater Than Target](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README_EN.md)  |    |  Hard  |  Weekly Contest 474  |
+|  3735  |  [Lexicographically Smallest String After Reverse II](/solution/3700-3799/3735.Lexicographically%20Smallest%20String%20After%20Reverse%20II/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
