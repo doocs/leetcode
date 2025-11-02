@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 474 场周赛(2025-11-02 10:30, 90 分钟) 参赛人数 1713
+
+- [3731. 找出缺失的元素](/solution/3700-3799/3731.Find%20Missing%20Elements/README.md)
+- [3732. 一次替换后的三元素最大乘积](/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README.md)
+- [3733. 完成所有送货任务的最少时间](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README.md)
+- [3734. 大于目标字符串的最小字典序回文排列](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README.md)
+
 #### 第 473 场周赛(2025-10-26 10:30, 90 分钟) 参赛人数 1606
 
 - [3726. 移除十进制表示中的所有零](/solution/3700-3799/3726.Remove%20Zeros%20in%20Decimal%20Representation/README.md)

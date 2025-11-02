@@ -3741,6 +3741,11 @@
 |  3728  |  [边界与内部和相等的稳定子数组](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README.md)  |  `数组`,`哈希表`,`前缀和`  |  中等  |  第 473 场周赛  |
 |  3729  |  [统计有序数组中可被 K 整除的子数组数量](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README.md)  |  `数组`,`哈希表`,`前缀和`  |  困难  |  第 473 场周赛  |
 |  3730  |  [跳跃燃烧的最大卡路里](/solution/3700-3799/3730.Maximum%20Calories%20Burnt%20from%20Jumps/README.md)  |  `贪心`,`数组`,`双指针`,`排序`  |  中等  |  🔒  |
+|  3731  |  [找出缺失的元素](/solution/3700-3799/3731.Find%20Missing%20Elements/README.md)  |    |  简单  |  第 474 场周赛  |
+|  3732  |  [一次替换后的三元素最大乘积](/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README.md)  |    |  中等  |  第 474 场周赛  |
+|  3733  |  [完成所有送货任务的最少时间](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README.md)  |    |  中等  |  第 474 场周赛  |
+|  3734  |  [大于目标字符串的最小字典序回文排列](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README.md)  |    |  困难  |  第 474 场周赛  |
+|  3735  |  [反转后字典序最小的字符串 II](/solution/3700-3799/3735.Lexicographically%20Smallest%20String%20After%20Reverse%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
