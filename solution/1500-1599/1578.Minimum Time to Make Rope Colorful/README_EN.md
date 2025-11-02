@@ -70,7 +70,11 @@ There are no longer two consecutive balloons of the same color. Total time = 1 +
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two Pointers + Greedy
+
+We can use two pointers to point to the beginning and end of the current consecutive balloons with the same color, then calculate the total time $s$ of these consecutive balloons with the same color, as well as the maximum time $mx$. If the number of consecutive balloons with the same color is greater than $1$, we can greedily choose to keep the balloon with the maximum time and remove the other balloons with the same color, which takes time $s - mx$, and add it to the answer. Then we continue to traverse until all balloons are traversed.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the number of balloons.
 
 <!-- tabs:start -->
 
@@ -154,9 +158,7 @@ func minCost(colors string, neededTime []int) (ans int) {
 		s, mx := 0, 0
 		for j < n && colors[j] == colors[i] {
 			s += neededTime[j]
-			if mx < neededTime[j] {
-				mx = neededTime[j]
-			}
+			mx = max(mx, neededTime[j])
 			j++
 		}
 		if j-i > 1 {
@@ -164,6 +166,62 @@ func minCost(colors string, neededTime []int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(colors: string, neededTime: number[]): number {
+    let ans = 0;
+    const n = neededTime.length;
+
+    for (let i = 0, j = 0; i < n; i = j) {
+        j = i;
+        let [s, mx] = [0, 0];
+        while (j < n && colors[j] === colors[i]) {
+            s += neededTime[j];
+            mx = Math.max(mx, neededTime[j]);
+            ++j;
+        }
+        if (j - i > 1) {
+            ans += s - mx;
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_cost(colors: String, needed_time: Vec<i32>) -> i32 {
+        let n = needed_time.len();
+        let mut ans = 0;
+        let bytes = colors.as_bytes();
+        let mut i = 0;
+
+        while i < n {
+            let mut j = i;
+            let mut s = 0;
+            let mut mx = 0;
+
+            while j < n && bytes[j] == bytes[i] {
+                s += needed_time[j];
+                mx = mx.max(needed_time[j]);
+                j += 1;
+            }
+
+            if j - i > 1 {
+                ans += s - mx;
+            }
+            i = j;
+        }
+
+        ans
+    }
 }
 ```
 
