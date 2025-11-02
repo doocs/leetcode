@@ -5,9 +5,7 @@ func minCost(colors string, neededTime []int) (ans int) {
 		s, mx := 0, 0
 		for j < n && colors[j] == colors[i] {
 			s += neededTime[j]
-			if mx < neededTime[j] {
-				mx = neededTime[j]
-			}
+			mx = max(mx, neededTime[j])
 			j++
 		}
 		if j-i > 1 {
