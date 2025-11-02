@@ -279,81 +279,86 @@ function countUnguarded(m, n, guards, walls) {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：DFS + 模拟
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function countUnguarded(m: number, n: number, guards: number[][], walls: number[][]): number {
-    let c = 0;
-    const mtx = Array.from({ length: m }, () => Array(n).fill(0));
-    for (const [i, j] of guards) mtx[i][j] = 2;
-    for (const [i, j] of walls) mtx[i][j] = 2;
-
-    const dfs = (i: number, j: number, dx: number, dy: number) => {
-        [i, j] = [i + dx, j + dy];
-
-        if (i < 0 || m <= i || j < 0 || n <= j || mtx[i][j] === 2) return;
-
-        if (mtx[i][j] === 0) {
-            mtx[i][j] = 1;
-            c++;
+```rust
+impl Solution {
+    pub fn count_unguarded(m: i32, n: i32, guards: Vec<Vec<i32>>, walls: Vec<Vec<i32>>) -> i32 {
+        let m = m as usize;
+        let n = n as usize;
+        let mut g = vec![vec![0; n]; m];
+        for e in &guards {
+            g[e[0] as usize][e[1] as usize] = 2;
         }
-
-        dfs(i, j, dx, dy);
-    };
-
-    const DIRS = [-1, 0, 1, 0, -1];
-    for (const [i, j] of guards) {
-        for (let k = 0; k < 4; k++) {
-            const [dx, dy] = [DIRS[k], DIRS[k + 1]];
-            dfs(i, j, dx, dy);
+        for e in &walls {
+            g[e[0] as usize][e[1] as usize] = 2;
         }
+        let dirs = [-1, 0, 1, 0, -1];
+        for e in &guards {
+            let (x0, y0) = (e[0] as i32, e[1] as i32);
+            for k in 0..4 {
+                let (mut x, mut y) = (x0, y0);
+                let (a, b) = (dirs[k], dirs[k + 1]);
+                while x + a >= 0
+                    && x + a < m as i32
+                    && y + b >= 0
+                    && y + b < n as i32
+                    && g[(x + a) as usize][(y + b) as usize] < 2
+                {
+                    x += a;
+                    y += b;
+                    g[x as usize][y as usize] = 1;
+                }
+            }
+        }
+        let mut ans = 0;
+        for row in g {
+            for v in row {
+                if v == 0 {
+                    ans += 1;
+                }
+            }
+        }
+        ans
     }
-
-    return m * n - guards.length - walls.length - c;
 }
 ```
 
-#### JavaScript
+#### C#
 
-```js
-function countUnguarded(m, n, guards, walls) {
-    let c = 0;
-    const mtx = Array.from({ length: m }, () => Array(n).fill(0));
-    for (const [i, j] of guards) mtx[i][j] = 2;
-    for (const [i, j] of walls) mtx[i][j] = 2;
-
-    const dfs = (i, j, dx, dy) => {
-        [i, j] = [i + dx, j + dy];
-
-        if (i < 0 || m <= i || j < 0 || n <= j || mtx[i][j] === 2) return;
-
-        if (mtx[i][j] === 0) {
-            mtx[i][j] = 1;
-            c++;
+```cs
+public class Solution {
+    public int CountUnguarded(int m, int n, int[][] guards, int[][] walls) {
+        int[,] g = new int[m, n];
+        foreach (var e in guards) {
+            g[e[0], e[1]] = 2;
         }
-
-        dfs(i, j, dx, dy);
-    };
-
-    const DIRS = [-1, 0, 1, 0, -1];
-    for (const [i, j] of guards) {
-        for (let k = 0; k < 4; k++) {
-            const [dx, dy] = [DIRS[k], DIRS[k + 1]];
-            dfs(i, j, dx, dy);
+        foreach (var e in walls) {
+            g[e[0], e[1]] = 2;
         }
+        int[] dirs = { -1, 0, 1, 0, -1 };
+        foreach (var e in guards) {
+            int x0 = e[0], y0 = e[1];
+            for (int k = 0; k < 4; ++k) {
+                int x = x0, y = y0;
+                int a = dirs[k], b = dirs[k + 1];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && g[x + a, y + b] < 2) {
+                    x += a;
+                    y += b;
+                    g[x, y] = 1;
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (g[i, j] == 0) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
     }
-
-    return m * n - guards.length - walls.length - c;
 }
 ```
 
