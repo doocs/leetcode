@@ -83,7 +83,17 @@ Index 2, 4, 6, 7 is also a correct answer.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brainteaser
+
+We first call `reader.query(0, 1, 2, 3)` and record the result as $x$.
+
+Next, we iterate from index $4$ onwards. Each time we call `reader.query(0, 1, 2, i)`, if the result is the same as $x$, we increment $a$ by one; otherwise, we increment $b$ by one and update $k$ to $i$.
+
+Then, we need to check whether the elements at indices $0, 1, 2$ are the same as the element at index $3$. If they are the same, we increment $a$ by one; otherwise, we increment $b$ by one and update $k$ to the corresponding index.
+
+Finally, if $a = b$, it means the number of $0$s and $1$s in the array are equal, so we return $-1$; otherwise, if $a > b$, we return $3$, otherwise we return $k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

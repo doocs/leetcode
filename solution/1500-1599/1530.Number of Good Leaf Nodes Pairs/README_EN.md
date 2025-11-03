@@ -64,7 +64,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+The problem asks for the number of good leaf node pairs in a binary tree. The answer can be divided into three parts: the number of good leaf node pairs in the left subtree, the number of good leaf node pairs in the right subtree, and the number of good leaf node pairs formed by leaf nodes from the left subtree and leaf nodes from the right subtree.
+
+We can solve this recursively.
+
+The time complexity is $O(n \times d^2 \times h)$, where $n$ is the number of nodes in the binary tree, and $h$ and $d$ are the height of the binary tree and the distance limit, respectively. The space complexity is $O(h)$ for the recursion stack.
 
 <!-- tabs:start -->
 
