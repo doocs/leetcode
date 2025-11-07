@@ -65,7 +65,29 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Gray Code Inverse Transform (Gray Code to Binary Code)
+
+This problem essentially asks for the inverse transformation of Gray code at position $n$, i.e., constructing the original number from the Gray code.
+
+Let's first review how to convert binary code to binary Gray code. The rule is to keep the most significant bit of the binary code as the most significant bit of the Gray code, while the second most significant bit of the Gray code is obtained by XORing the most significant bit and the second most significant bit of the binary code. The remaining bits of the Gray code are computed similarly to the second most significant bit.
+
+Suppose a binary number is represented as $B_{n-1}B_{n-2}...B_2B_1B_0$, and its Gray code representation is $G_{n-1}G_{n-2}...G_2G_1G_0$. The most significant bit is kept, so $G_{n-1} = B_{n-1}$; and for other bits $G_i = B_{i+1} \oplus B_{i}$, where $i=0,1,2..,n-2$.
+
+So what is the inverse transformation from Gray code to binary code?
+
+We can observe that the most significant bit of the Gray code is kept, so $B_{n-1} = G_{n-1}$; and $B_{n-2} = G_{n-2} \oplus B_{n-1} = G_{n-2} \oplus G_{n-1}$; and for other bits $B_i = G_{i} \oplus G_{i+1} \cdots \oplus G_{n-1}$, where $i=0,1,2..,n-2$. Therefore, we can use the following function $rev(x)$ to obtain its binary code:
+
+```java
+int rev(int x) {
+    int n = 0;
+    for (; x != 0; x >>= 1) {
+        n ^= x;
+    }
+    return n;
+}
+```
+
+The time complexity is $O(\log n)$, where $n$ is the integer given in the problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -133,72 +155,18 @@ function minimumOneBitOperations(n: number): number {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimumOneBitOperations(self, n: int) -> int:
-        if n == 0:
-            return 0
-        return n ^ self.minimumOneBitOperations(n >> 1)
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minimumOneBitOperations(int n) {
-        if (n == 0) {
-            return 0;
+```rust
+impl Solution {
+    pub fn minimum_one_bit_operations(mut n: i32) -> i32 {
+        let mut ans = 0;
+        while n > 0 {
+            ans ^= n;
+            n >>= 1;
         }
-        return n ^ minimumOneBitOperations(n >> 1);
+        ans
     }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int minimumOneBitOperations(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        return n ^ minimumOneBitOperations(n >> 1);
-    }
-};
-```
-
-#### Go
-
-```go
-func minimumOneBitOperations(n int) int {
-	if n == 0 {
-		return 0
-	}
-	return n ^ minimumOneBitOperations(n>>1)
-}
-```
-
-#### TypeScript
-
-```ts
-function minimumOneBitOperations(n: number): number {
-    if (n === 0) {
-        return 0;
-    }
-    return n ^ minimumOneBitOperations(n >> 1);
 }
 ```
 

@@ -157,72 +157,18 @@ function minimumOneBitOperations(n: number): number {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimumOneBitOperations(self, n: int) -> int:
-        if n == 0:
-            return 0
-        return n ^ self.minimumOneBitOperations(n >> 1)
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minimumOneBitOperations(int n) {
-        if (n == 0) {
-            return 0;
+```rust
+impl Solution {
+    pub fn minimum_one_bit_operations(mut n: i32) -> i32 {
+        let mut ans = 0;
+        while n > 0 {
+            ans ^= n;
+            n >>= 1;
         }
-        return n ^ minimumOneBitOperations(n >> 1);
+        ans
     }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int minimumOneBitOperations(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        return n ^ minimumOneBitOperations(n >> 1);
-    }
-};
-```
-
-#### Go
-
-```go
-func minimumOneBitOperations(n int) int {
-	if n == 0 {
-		return 0
-	}
-	return n ^ minimumOneBitOperations(n>>1)
-}
-```
-
-#### TypeScript
-
-```ts
-function minimumOneBitOperations(n: number): number {
-    if (n === 0) {
-        return 0;
-    }
-    return n ^ minimumOneBitOperations(n >> 1);
 }
 ```
 
