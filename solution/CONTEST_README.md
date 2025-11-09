@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 475 场周赛(2025-11-09 10:30, 90 分钟) 参赛人数 1687
+
+- [3740. 三个相等元素之间的最小距离 I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README.md)
+- [3741. 三个相等元素之间的最小距离 II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README.md)
+- [3742. 网格中得分最大的路径](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README.md)
+- [3743. 循环划分的最大得分](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README.md)
+
 #### 第 169 场双周赛(2025-11-08 22:30, 90 分钟) 参赛人数 1312
 
 - [3736. 最小操作次数使数组元素相等 III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README.md)

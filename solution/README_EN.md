@@ -3748,6 +3748,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3737  |  [Count Subarrays With Majority Element I](/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 169  |
 |  3738  |  [Longest Non-Decreasing Subarray After Replacing at Most One Element](/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README_EN.md)  |    |  Medium  |  Biweekly Contest 169  |
 |  3739  |  [Count Subarrays With Majority Element II](/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 169  |
+|  3740  |  [Minimum Distance Between Three Equal Elements I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 475  |
+|  3741  |  [Minimum Distance Between Three Equal Elements II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
+|  3742  |  [Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
+|  3743  |  [Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 475  |
 
 ## Copyright
 
