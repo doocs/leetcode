@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3731.Find%20Missing%20Elements/README.md
+rating: 1217
+source: 第 474 场周赛 Q1
 ---
 
 <!-- problem:start -->

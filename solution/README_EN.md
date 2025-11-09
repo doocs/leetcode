@@ -3744,6 +3744,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3733  |  [Minimum Time to Complete All Deliveries](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README_EN.md)  |    |  Medium  |  Weekly Contest 474  |
 |  3734  |  [Lexicographically Smallest Palindromic Permutation Greater Than Target](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README_EN.md)  |    |  Hard  |  Weekly Contest 474  |
 |  3735  |  [Lexicographically Smallest String After Reverse II](/solution/3700-3799/3735.Lexicographically%20Smallest%20String%20After%20Reverse%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3736  |  [Minimum Moves to Equal Array Elements III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README_EN.md)  |    |  Easy  |  Biweekly Contest 169  |
+|  3737  |  [Count Subarrays With Majority Element I](/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 169  |
+|  3738  |  [Longest Non-Decreasing Subarray After Replacing at Most One Element](/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README_EN.md)  |    |  Medium  |  Biweekly Contest 169  |
+|  3739  |  [Count Subarrays With Majority Element II](/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 169  |
 
 ## Copyright
 

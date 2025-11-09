@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 169 场双周赛(2025-11-08 22:30, 90 分钟) 参赛人数 1312
+
+- [3736. 最小操作次数使数组元素相等 III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README.md)
+- [3737. 统计主要元素子数组数目 I](/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README.md)
+- [3738. 替换至多一个元素后最长非递减子数组](/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README.md)
+- [3739. 统计主要元素子数组数目 II](/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README.md)
+
 #### 第 474 场周赛(2025-11-02 10:30, 90 分钟) 参赛人数 1713
 
 - [3731. 找出缺失的元素](/solution/3700-3799/3731.Find%20Missing%20Elements/README.md)

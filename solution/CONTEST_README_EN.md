@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 169
+
+- [3736. Minimum Moves to Equal Array Elements III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README_EN.md)
+- [3737. Count Subarrays With Majority Element I](/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md)
+- [3738. Longest Non-Decreasing Subarray After Replacing at Most One Element](/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README_EN.md)
+- [3739. Count Subarrays With Majority Element II](/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README_EN.md)
+
 #### Weekly Contest 474
 
 - [3731. Find Missing Elements](/solution/3700-3799/3731.Find%20Missing%20Elements/README_EN.md)
