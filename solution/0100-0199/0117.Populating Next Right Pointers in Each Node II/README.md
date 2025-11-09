@@ -148,20 +148,20 @@ class Solution {
             return root;
         }
         Deque<Node> q = new ArrayDeque<>();
-        q.offer(root);
+        q.offerLast(root);
         while (!q.isEmpty()) {
             Node p = null;
             for (int n = q.size(); n > 0; --n) {
-                Node node = q.poll();
+                Node node = q.pollFirst();
                 if (p != null) {
                     p.next = node;
                 }
                 p = node;
                 if (node.left != null) {
-                    q.offer(node.left);
+                    q.offerLast(node.left);
                 }
                 if (node.right != null) {
-                    q.offer(node.right);
+                    q.offerLast(node.right);
                 }
             }
         }
