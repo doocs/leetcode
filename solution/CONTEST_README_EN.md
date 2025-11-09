@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 475
+
+- [3740. Minimum Distance Between Three Equal Elements I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README_EN.md)
+- [3741. Minimum Distance Between Three Equal Elements II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md)
+- [3742. Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)
+- [3743. Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)
+
 #### Biweekly Contest 169
 
 - [3736. Minimum Moves to Equal Array Elements III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README_EN.md)
