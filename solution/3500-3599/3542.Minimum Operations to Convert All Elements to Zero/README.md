@@ -103,25 +103,103 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        stk = []
+        ans = 0
+        for x in nums:
+            while stk and stk[-1] > x:
+                ans += 1
+                stk.pop()
+            if x and (not stk or stk[-1] != x):
+                stk.append(x)
+        ans += len(stk)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int ans = 0;
+        for (int x : nums) {
+            while (!stk.isEmpty() && stk.peek() > x) {
+                ans++;
+                stk.pop();
+            }
+            if (x != 0 && (stk.isEmpty() || stk.peek() != x)) {
+                stk.push(x);
+            }
+        }
+        ans += stk.size();
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        vector<int> stk;
+        int ans = 0;
+        for (int x : nums) {
+            while (!stk.empty() && stk.back() > x) {
+                ++ans;
+                stk.pop_back();
+            }
+            if (x != 0 && (stk.empty() || stk.back() != x)) {
+                stk.push_back(x);
+            }
+        }
+        ans += stk.size();
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int) int {
+	stk := []int{}
+	ans := 0
+	for _, x := range nums {
+		for len(stk) > 0 && stk[len(stk)-1] > x {
+			ans++
+			stk = stk[:len(stk)-1]
+		}
+		if x != 0 && (len(stk) == 0 || stk[len(stk)-1] != x) {
+			stk = append(stk, x)
+		}
+	}
+	ans += len(stk)
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minOperations(nums: number[]): number {
+    const stk: number[] = [];
+    let ans = 0;
+    for (const x of nums) {
+        while (stk.length > 0 && stk[stk.length - 1] > x) {
+            ans++;
+            stk.pop();
+        }
+        if (x !== 0 && (stk.length === 0 || stk[stk.length - 1] !== x)) {
+            stk.push(x);
+        }
+    }
+    ans += stk.length;
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
