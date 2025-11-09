@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README.md
+rating: 1529
+source: 第 474 场周赛 Q2
 ---
 
 <!-- problem:start -->
