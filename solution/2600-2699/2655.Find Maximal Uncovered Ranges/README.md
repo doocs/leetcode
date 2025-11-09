@@ -82,11 +82,13 @@ tags:
 
 ### 方法一：排序
 
-我们将所有的区间按照左端点从小到大排序，然后从左到右遍历所有的区间，维护一个变量 $last$ 表示当前已经被覆盖的最右端点，初始时 $last=-1$。如果当前区间的左端点大于 $last+1$，那么说明 $[last+1, l-1]$ 是一个未被覆盖的区间，我们将其加入答案数组中。然后我们更新 $last$ 为当前区间的右端点，继续遍历下一个区间。当遍历完所有的区间后，如果 $last+1 \lt n$，那么说明 $[last+1, n-1]$ 是一个未被覆盖的区间，我们将其加入答案数组中。
+我们将所有的区间按照左端点从小到大排序，然后从左到右遍历所有的区间，维护一个变量 $\textit{last}$ 表示当前已经被覆盖的最右端点，初始时 $\textit{last}=-1$。
+
+如果当前区间的左端点大于 $\textit{last}+1$，那么说明 $[\textit{last}+1, l-1]$ 是一个未被覆盖的区间，我们将其加入答案数组中。然后我们更新 $\textit{last}$ 为当前区间的右端点，继续遍历下一个区间。当遍历完所有的区间后，如果 $\textit{last}+1 < n$，那么说明 $[\textit{last}+1, n-1]$ 是一个未被覆盖的区间，我们将其加入答案数组中。
 
 最后我们将答案数组返回即可。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $ranges$ 的长度。
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{ranges}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -174,6 +176,50 @@ func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 		ans = append(ans, []int{last + 1, n - 1})
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findMaximalUncoveredRanges(n: number, ranges: number[][]): number[][] {
+    ranges.sort((a, b) => a[0] - b[0]);
+    let last = -1;
+    const ans: number[][] = [];
+    for (const [l, r] of ranges) {
+        if (last + 1 < l) {
+            ans.push([last + 1, l - 1]);
+        }
+        last = Math.max(last, r);
+    }
+    if (last + 1 < n) {
+        ans.push([last + 1, n - 1]);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_maximal_uncovered_ranges(n: i32, mut ranges: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        ranges.sort_by_key(|x| x[0]);
+        let mut last = -1;
+        let mut ans = Vec::new();
+        for range in ranges {
+            let l = range[0];
+            let r = range[1];
+            if last + 1 < l {
+                ans.push(vec![last + 1, l - 1]);
+            }
+            last = last.max(r);
+        }
+        if last + 1 < n {
+            ans.push(vec![last + 1, n - 1]);
+        }
+        ans
+    }
 }
 ```
 

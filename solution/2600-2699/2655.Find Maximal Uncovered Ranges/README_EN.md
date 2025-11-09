@@ -79,7 +79,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+We sort all intervals by their left endpoints in ascending order, then traverse all intervals from left to right, maintaining a variable $\textit{last}$ to represent the rightmost endpoint that has been covered so far, initially $\textit{last}=-1$.
+
+If the left endpoint of the current interval is greater than $\textit{last}+1$, it means $[\textit{last}+1, l-1]$ is an uncovered interval, and we add it to the answer array. Then we update $\textit{last}$ to the right endpoint of the current interval and continue traversing the next interval. After traversing all intervals, if $\textit{last}+1 < n$, it means $[\textit{last}+1, n-1]$ is an uncovered interval, and we add it to the answer array.
+
+Finally, we return the answer array.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{ranges}$.
 
 <!-- tabs:start -->
 
@@ -167,6 +175,50 @@ func findMaximalUncoveredRanges(n int, ranges [][]int) (ans [][]int) {
 		ans = append(ans, []int{last + 1, n - 1})
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function findMaximalUncoveredRanges(n: number, ranges: number[][]): number[][] {
+    ranges.sort((a, b) => a[0] - b[0]);
+    let last = -1;
+    const ans: number[][] = [];
+    for (const [l, r] of ranges) {
+        if (last + 1 < l) {
+            ans.push([last + 1, l - 1]);
+        }
+        last = Math.max(last, r);
+    }
+    if (last + 1 < n) {
+        ans.push([last + 1, n - 1]);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_maximal_uncovered_ranges(n: i32, mut ranges: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        ranges.sort_by_key(|x| x[0]);
+        let mut last = -1;
+        let mut ans = Vec::new();
+        for range in ranges {
+            let l = range[0];
+            let r = range[1];
+            if last + 1 < l {
+                ans.push(vec![last + 1, l - 1]);
+            }
+            last = last.max(r);
+        }
+        if last + 1 < n {
+            ans.push(vec![last + 1, n - 1]);
+        }
+        ans
+    }
 }
 ```
 
