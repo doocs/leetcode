@@ -66,7 +66,24 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: 2D Difference Array
+
+A 2D difference array is a technique used to efficiently handle range updates on 2D arrays. We can implement fast updates on submatrices by maintaining a difference matrix of the same size as the original matrix.
+
+Suppose we have a 2D difference matrix $\textit{diff}$, initially with all elements set to $0$. For each query $[\textit{row1}, \textit{col1}, \textit{row2}, \textit{col2}]$, we can update the difference matrix through the following steps:
+
+1. Increment position $(\textit{row1}, \textit{col1})$ by $1$.
+2. Decrement position $(\textit{row2} + 1, \textit{col1})$ by $1$, provided that $\textit{row2} + 1 < n$.
+3. Decrement position $(\textit{row1}, \textit{col2} + 1)$ by $1$, provided that $\textit{col2} + 1 < n$.
+4. Increment position $(\textit{row2} + 1, \textit{col2} + 1)$ by $1$, provided that $\textit{row2} + 1 < n$ and $\textit{col2} + 1 < n$.
+
+After completing all queries, we need to convert the difference matrix back to the original matrix using prefix sums. That is, for each position $(i, j)$, we calculate:
+
+$$
+\textit{mat}[i][j] = \textit{diff}[i][j] + (\textit{mat}[i-1][j] \text{ if } i > 0 \text{ else } 0) + (\textit{mat}[i][j-1] \text{ if } j > 0 \text{ else } 0) - (\textit{mat}[i-1][j-1] \text{ if } i > 0 \text{ and } j > 0 \text{ else } 0)
+$$
+
+The time complexity is $O(m + n^2)$, where $m$ and $n$ are the length of $\textit{queries}$ and the given $n$, respectively. Ignoring the space consumed by the answer, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -206,6 +223,72 @@ func rangeAddQueries(n int, queries [][]int) [][]int {
 		}
 	}
 	return mat
+}
+```
+
+#### TypeScript
+
+```ts
+function rangeAddQueries(n: number, queries: number[][]): number[][] {
+    const mat: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (const [x1, y1, x2, y2] of queries) {
+        mat[x1][y1] += 1;
+        if (x2 + 1 < n) mat[x2 + 1][y1] -= 1;
+        if (y2 + 1 < n) mat[x1][y2 + 1] -= 1;
+        if (x2 + 1 < n && y2 + 1 < n) mat[x2 + 1][y2 + 1] += 1;
+    }
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i > 0) mat[i][j] += mat[i - 1][j];
+            if (j > 0) mat[i][j] += mat[i][j - 1];
+            if (i > 0 && j > 0) mat[i][j] -= mat[i - 1][j - 1];
+        }
+    }
+
+    return mat;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn range_add_queries(n: i32, queries: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let n = n as usize;
+        let mut mat = vec![vec![0; n]; n];
+
+        for q in queries {
+            let (x1, y1, x2, y2) = (q[0] as usize, q[1] as usize, q[2] as usize, q[3] as usize);
+            mat[x1][y1] += 1;
+            if x2 + 1 < n {
+                mat[x2 + 1][y1] -= 1;
+            }
+            if y2 + 1 < n {
+                mat[x1][y2 + 1] -= 1;
+            }
+            if x2 + 1 < n && y2 + 1 < n {
+                mat[x2 + 1][y2 + 1] += 1;
+            }
+        }
+
+        for i in 0..n {
+            for j in 0..n {
+                if i > 0 {
+                    mat[i][j] += mat[i - 1][j];
+                }
+                if j > 0 {
+                    mat[i][j] += mat[i][j - 1];
+                }
+                if i > 0 && j > 0 {
+                    mat[i][j] -= mat[i - 1][j - 1];
+                }
+            }
+        }
+
+        mat
+    }
 }
 ```
 

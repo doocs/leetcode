@@ -40,8 +40,8 @@ tags:
 <strong>输入：</strong>n = 3, queries = [[1,1,2,2],[0,0,1,1]]
 <strong>输出：</strong>[[1,1,0],[1,2,1],[0,1,1]]
 <strong>解释：</strong>上图所展示的分别是：初始矩阵、执行完第一个操作后的矩阵、执行完第二个操作后的矩阵。
-- 第一个操作：将左上角为 (1, 1) 且右下角为 (2, 2) 的子矩阵中的每个元素加 1 。 
-- 第二个操作：将左上角为 (0, 0) 且右下角为 (1, 1) 的子矩阵中的每个元素加 1 。 
+- 第一个操作：将左上角为 (1, 1) 且右下角为 (2, 2) 的子矩阵中的每个元素加 1 。
+- 第二个操作：将左上角为 (0, 0) 且右下角为 (1, 1) 的子矩阵中的每个元素加 1 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -51,7 +51,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 2, queries = [[0,0,1,1]]
 <strong>输出：</strong>[[1,1],[1,1]]
-<strong>解释：</strong>上图所展示的分别是：初始矩阵、执行完第一个操作后的矩阵。 
+<strong>解释：</strong>上图所展示的分别是：初始矩阵、执行完第一个操作后的矩阵。
 - 第一个操作：将矩阵中的每个元素加 1 。</pre>
 
 <p>&nbsp;</p>
@@ -73,25 +73,22 @@ tags:
 
 ### 方法一：二维差分
 
-二维差分模板题。
+二维差分数组是一种用于高效处理二维数组区间更新的技巧。我们可以通过维护一个与原矩阵大小相同的差分矩阵来实现对子矩阵的快速更新。
 
-```python
-mat = [[0] * (n + 1) for _ in range(n + 1)]
+假设我们有一个二维差分矩阵 $\textit{diff}$，初始时所有元素均为 $0$。对于每个查询 $[\textit{row1}, \textit{col1}, \textit{row2}, \textit{col2}]$，我们可以通过以下步骤更新差分矩阵：
 
+1. 在位置 $(\textit{row1}, \textit{col1})$ 加 $1$。
+2. 在位置 $(\textit{row2} + 1, \textit{col1})$ 减 $1$，前提是 $\textit{row2} + 1 < n$。
+3. 在位置 $(\textit{row1}, \textit{col2} + 1)$ 减 $1$，前提是 $\textit{col2} + 1 < n$。
+4. 在位置 $(\textit{row2} + 1, \textit{col2} + 1)$ 加 $1$，前提是 $\textit{row2} + 1 < n$ 且 $\textit{col2} + 1 < n$。
 
-def insert(x1, y1, x2, y2, c):
-    mat[x1][y1] += c
-    mat[x1][y2 + 1] -= c
-    mat[x2 + 1][y1] -= c
-    mat[x2 + 1][y2 + 1] += c
+完成所有查询后，我们需要通过前缀和的方式将差分矩阵转换回原矩阵。即，对于每个位置 $(i, j)$，我们计算：
 
+$$
+\textit{mat}[i][j] = \textit{diff}[i][j] + (\textit{mat}[i-1][j] \text{ if } i > 0 \text{ else } 0) + (\textit{mat}[i][j-1] \text{ if } j > 0 \text{ else } 0) - (\textit{mat}[i-1][j-1] \text{ if } i > 0 \text{ and } j > 0 \text{ else } 0)
+$$
 
-for i in range(1, n + 1):
-    for j in range(1, n + 1):
-        mat[i][j] += mat[i - 1][j] + mat[i][j - 1] - mat[i - 1][j - 1]
-```
-
-时间复杂度 $O(m + n^2)$，其中 $m$ 和 $n$ 分别是 `queries` 的长度和给定的 $n$。忽略答案的空间消耗，空间复杂度 $O(1)$。
+时间复杂度 $O(m + n^2)$，其中 $m$ 和 $n$ 分别是 $\textit{queries}$ 的长度和给定的 $n$。忽略答案的空间消耗，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -231,6 +228,72 @@ func rangeAddQueries(n int, queries [][]int) [][]int {
 		}
 	}
 	return mat
+}
+```
+
+#### TypeScript
+
+```ts
+function rangeAddQueries(n: number, queries: number[][]): number[][] {
+    const mat: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+    for (const [x1, y1, x2, y2] of queries) {
+        mat[x1][y1] += 1;
+        if (x2 + 1 < n) mat[x2 + 1][y1] -= 1;
+        if (y2 + 1 < n) mat[x1][y2 + 1] -= 1;
+        if (x2 + 1 < n && y2 + 1 < n) mat[x2 + 1][y2 + 1] += 1;
+    }
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (i > 0) mat[i][j] += mat[i - 1][j];
+            if (j > 0) mat[i][j] += mat[i][j - 1];
+            if (i > 0 && j > 0) mat[i][j] -= mat[i - 1][j - 1];
+        }
+    }
+
+    return mat;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn range_add_queries(n: i32, queries: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
+        let n = n as usize;
+        let mut mat = vec![vec![0; n]; n];
+
+        for q in queries {
+            let (x1, y1, x2, y2) = (q[0] as usize, q[1] as usize, q[2] as usize, q[3] as usize);
+            mat[x1][y1] += 1;
+            if x2 + 1 < n {
+                mat[x2 + 1][y1] -= 1;
+            }
+            if y2 + 1 < n {
+                mat[x1][y2 + 1] -= 1;
+            }
+            if x2 + 1 < n && y2 + 1 < n {
+                mat[x2 + 1][y2 + 1] += 1;
+            }
+        }
+
+        for i in 0..n {
+            for j in 0..n {
+                if i > 0 {
+                    mat[i][j] += mat[i - 1][j];
+                }
+                if j > 0 {
+                    mat[i][j] += mat[i][j - 1];
+                }
+                if i > 0 && j > 0 {
+                    mat[i][j] -= mat[i - 1][j - 1];
+                }
+            }
+        }
+
+        mat
+    }
 }
 ```
 
