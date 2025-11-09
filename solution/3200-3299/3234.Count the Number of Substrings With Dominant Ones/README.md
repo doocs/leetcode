@@ -167,32 +167,170 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：预处理 + 枚举
+
+根据题目描述，显著字符串满足 $\textit{cnt}_1 \geq \textit{cnt}_0^2$，那么 $\textit{cnt}_0$ 的最大值不超过 $\sqrt{n}$，其中 $n$ 是字符串的长度。因此我们可以枚举 $\textit{cnt}_0$ 的值，然后计算满足条件的子字符串数量。
+
+我们首先预处理字符串中每个位置开始的第一个 $0$ 的位置，存储在数组 $\textit{nxt}$ 中，其中 $\textit{nxt}[i]$ 表示从位置 $i$ 开始的第一个 $0$ 的位置，如果不存在则为 $n$。
+
+接下来，我们遍历字符串的每个位置 $i$ 作为子字符串的起始位置，初始化 $\textit{cnt}_0$ 的值为 $0$ 或 $1$（取决于当前位置是否为 $0$）。然后我们使用一个指针 $j$ 从位置 $i$ 开始，逐步跳转到下一个 $0$ 的位置，同时更新 $\textit{cnt}_0$ 的值。
+
+对于从位置 $i$ 开始，且包含 $\textit{cnt}_0$ 个 $0$ 的子字符串，最多可以包含 $\textit{nxt}[j + 1] - i - \textit{cnt}_0$ 个 $1$。如果这个数量大于等于 $\textit{cnt}_0^2$，则说明存在满足条件的子字符串。此时需要判断字符串从右端点 $\textit{nxt}[j + 1] - 1$ 向左移动多少个位置，可以使得子字符串仍然满足条件。具体来说，右端点一共可以有 $\min(\textit{nxt}[j + 1] - j, \textit{cnt}_1 - \textit{cnt}_0^2 + 1)$ 种选择方式。我们将这些数量累加到答案中。然后将指针 $j$ 移动到下一个 $0$ 的位置，继续枚举下一个 $\textit{cnt}_0$ 的值，直到 $\textit{cnt}_0^2$ 超过字符串长度为止。
+
+时间复杂度 $O(n \times \sqrt{n})$，空间复杂度 $O(n)$，其中 $n$ 是字符串的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        n = len(s)
+        nxt = [n] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            nxt[i] = nxt[i + 1]
+            if s[i] == "0":
+                nxt[i] = i
+        ans = 0
+        for i in range(n):
+            cnt0 = int(s[i] == "0")
+            j = i
+            while j < n and cnt0 * cnt0 <= n:
+                cnt1 = (nxt[j + 1] - i) - cnt0
+                if cnt1 >= cnt0 * cnt0:
+                    ans += min(nxt[j + 1] - j, cnt1 - cnt0 * cnt0 + 1)
+                j = nxt[j + 1]
+                cnt0 += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfSubstrings(String s) {
+        int n = s.length();
+        int[] nxt = new int[n + 1];
+        nxt[n] = n;
+        for (int i = n - 1; i >= 0; --i) {
+            nxt[i] = nxt[i + 1];
+            if (s.charAt(i) == '0') {
+                nxt[i] = i;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int cnt0 = s.charAt(i) == '0' ? 1 : 0;
+            int j = i;
+            while (j < n && 1L * cnt0 * cnt0 <= n) {
+                int cnt1 = nxt[j + 1] - i - cnt0;
+                if (cnt1 >= cnt0 * cnt0) {
+                    ans += Math.min(nxt[j + 1] - j, cnt1 - cnt0 * cnt0 + 1);
+                }
+                j = nxt[j + 1];
+                ++cnt0;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        int n = s.size();
+        vector<int> nxt(n + 1);
+        nxt[n] = n;
+        for (int i = n - 1; i >= 0; --i) {
+            nxt[i] = nxt[i + 1];
+            if (s[i] == '0') {
+                nxt[i] = i;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int cnt0 = s[i] == '0' ? 1 : 0;
+            int j = i;
+            while (j < n && 1LL * cnt0 * cnt0 <= n) {
+                int cnt1 = nxt[j + 1] - i - cnt0;
+                if (cnt1 >= cnt0 * cnt0) {
+                    ans += min(nxt[j + 1] - j, cnt1 - cnt0 * cnt0 + 1);
+                }
+                j = nxt[j + 1];
+                ++cnt0;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func numberOfSubstrings(s string) int {
+	n := len(s)
+	nxt := make([]int, n+1)
+	nxt[n] = n
+	for i := n - 1; i >= 0; i-- {
+		nxt[i] = nxt[i+1]
+		if s[i] == '0' {
+			nxt[i] = i
+		}
+	}
+	ans := 0
+	for i := 0; i < n; i++ {
+		cnt0 := 0
+		if s[i] == '0' {
+			cnt0 = 1
+		}
+		j := i
+		for j < n && int64(cnt0*cnt0) <= int64(n) {
+			cnt1 := nxt[j+1] - i - cnt0
+			if cnt1 >= cnt0*cnt0 {
+				ans += min(nxt[j+1]-j, cnt1-cnt0*cnt0+1)
+			}
+			j = nxt[j+1]
+			cnt0++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function numberOfSubstrings(s: string): number {
+    const n = s.length;
+    const nxt: number[] = Array(n + 1).fill(0);
+    nxt[n] = n;
+    for (let i = n - 1; i >= 0; --i) {
+        nxt[i] = nxt[i + 1];
+        if (s[i] === '0') {
+            nxt[i] = i;
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        let cnt0 = s[i] === '0' ? 1 : 0;
+        let j = i;
+        while (j < n && cnt0 * cnt0 <= n) {
+            const cnt1 = nxt[j + 1] - i - cnt0;
+            if (cnt1 >= cnt0 * cnt0) {
+                ans += Math.min(nxt[j + 1] - j, cnt1 - cnt0 * cnt0 + 1);
+            }
+            j = nxt[j + 1];
+            ++cnt0;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
