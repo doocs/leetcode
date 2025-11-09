@@ -93,7 +93,18 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Monotonic Stack
+
+According to the problem description, we should first convert the smallest numbers to $0$, then the second smallest numbers to $0$, and so on. During this process, if two numbers are separated by smaller numbers, they require an additional operation to become $0$.
+
+We can maintain a monotonically increasing stack $\textit{stk}$ from bottom to top, and traverse each number $\textit{x}$ in the array $\textit{nums}$:
+
+-   When the top element of the stack is greater than $\textit{x}$, it means $\textit{x}$ separates the top element. We need to pop the top element and increment the answer by $1$, continuing until the top element is not greater than $\textit{x}$.
+-   If $\textit{x}$ is not $0$, and the stack is empty or the top element is not equal to $\textit{x}$, then push $\textit{x}$ onto the stack.
+
+After traversal, the remaining elements in the stack all require an additional operation to become $0$, so we add the size of the stack to the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -196,6 +207,32 @@ function minOperations(nums: number[]): number {
     }
     ans += stk.length;
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>) -> i32 {
+        let mut stk = Vec::new();
+        let mut ans = 0;
+        for &x in nums.iter() {
+            while let Some(&last) = stk.last() {
+                if last > x {
+                    ans += 1;
+                    stk.pop();
+                } else {
+                    break;
+                }
+            }
+            if x != 0 && (stk.is_empty() || *stk.last().unwrap() != x) {
+                stk.push(x);
+            }
+        }
+        ans += stk.len() as i32;
+        ans
+    }
 }
 ```
 
