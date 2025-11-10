@@ -59,7 +59,20 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j][k]$ as the maximum number of strings that can be obtained from the first $i$ strings using $j$ zeros and $k$ ones. Initially, $f[i][j][k]=0$, and the answer is $f[sz][m][n]$, where $sz$ is the length of the array $strs$.
+
+For $f[i][j][k]$, we have two choices:
+
+-   Do not select the $i$-th string, in which case $f[i][j][k]=f[i-1][j][k]$;
+-   Select the $i$-th string, in which case $f[i][j][k]=f[i-1][j-a][k-b]+1$, where $a$ and $b$ are the number of zeros and ones in the $i$-th string, respectively.
+
+We take the maximum of these two choices to obtain the value of $f[i][j][k]$.
+
+The final answer is $f[sz][m][n]$.
+
+The time complexity is $O(sz \times m \times n)$, and the space complexity is $O(sz \times m \times n)$, where $sz$ is the length of the array $strs$, and $m$ and $n$ are the upper limits on the number of zeros and ones, respectively.
 
 <!-- tabs:start -->
 
@@ -203,13 +216,41 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_max_form(strs: Vec<String>, m: i32, n: i32) -> i32 {
+        let sz = strs.len();
+        let m = m as usize;
+        let n = n as usize;
+        let mut f = vec![vec![vec![0; n + 1]; m + 1]; sz + 1];
+        for i in 1..=sz {
+            let a = strs[i - 1].chars().filter(|&c| c == '0').count();
+            let b = strs[i - 1].len() - a;
+            for j in 0..=m {
+                for k in 0..=n {
+                    f[i][j][k] = f[i - 1][j][k];
+                    if j >= a && k >= b {
+                        f[i][j][k] = f[i][j][k].max(f[i - 1][j - a][k - b] + 1);
+                    }
+                }
+            }
+        }
+        f[sz][m][n] as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+We notice that the calculation of $f[i][j][k]$ only depends on $f[i-1][j][k]$ and $f[i-1][j-a][k-b]$. Therefore, we can eliminate the first dimension and optimize the space complexity to $O(m \times n)$.
 
 <!-- tabs:start -->
 
@@ -326,6 +367,30 @@ function findMaxForm(strs: string[], m: number, n: number): number {
         }
     }
     return f[m][n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_max_form(strs: Vec<String>, m: i32, n: i32) -> i32 {
+        let m = m as usize;
+        let n = n as usize;
+        let mut f = vec![vec![0; n + 1]; m + 1];
+
+        for s in strs {
+            let a = s.chars().filter(|&c| c == '0').count();
+            let b = s.len() - a;
+            for i in (a..=m).rev() {
+                for j in (b..=n).rev() {
+                    f[i][j] = f[i][j].max(f[i - a][j - b] + 1);
+                }
+            }
+        }
+
+        f[m][n]
+    }
 }
 ```
 

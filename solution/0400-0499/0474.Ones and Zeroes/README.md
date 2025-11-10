@@ -77,8 +77,6 @@ tags:
 
 时间复杂度 $O(sz \times m \times n)$，空间复杂度 $O(sz \times m \times n)$。其中 $sz$ 是数组 $strs$ 的长度；而 $m$ 和 $n$ 分别是字符串中 $0$ 和 $1$ 的数量上限。
 
-我们注意到 $f[i][j][k]$ 的计算只和 $f[i-1][j][k]$ 以及 $f[i-1][j-a][k-b]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(m \times n)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -221,13 +219,41 @@ function findMaxForm(strs: string[], m: number, n: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_max_form(strs: Vec<String>, m: i32, n: i32) -> i32 {
+        let sz = strs.len();
+        let m = m as usize;
+        let n = n as usize;
+        let mut f = vec![vec![vec![0; n + 1]; m + 1]; sz + 1];
+        for i in 1..=sz {
+            let a = strs[i - 1].chars().filter(|&c| c == '0').count();
+            let b = strs[i - 1].len() - a;
+            for j in 0..=m {
+                for k in 0..=n {
+                    f[i][j][k] = f[i - 1][j][k];
+                    if j >= a && k >= b {
+                        f[i][j][k] = f[i][j][k].max(f[i - 1][j - a][k - b] + 1);
+                    }
+                }
+            }
+        }
+        f[sz][m][n] as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+我们注意到 $f[i][j][k]$ 的计算只和 $f[i-1][j][k]$ 以及 $f[i-1][j-a][k-b]$ 有关，因此我们可以去掉第一维，将空间复杂度优化到 $O(m \times n)$。
 
 <!-- tabs:start -->
 
@@ -344,6 +370,30 @@ function findMaxForm(strs: string[], m: number, n: number): number {
         }
     }
     return f[m][n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_max_form(strs: Vec<String>, m: i32, n: i32) -> i32 {
+        let m = m as usize;
+        let n = n as usize;
+        let mut f = vec![vec![0; n + 1]; m + 1];
+
+        for s in strs {
+            let a = s.chars().filter(|&c| c == '0').count();
+            let b = s.len() - a;
+            for i in (a..=m).rev() {
+                for j in (b..=n).rev() {
+                    f[i][j] = f[i][j].max(f[i - a][j - b] + 1);
+                }
+            }
+        }
+
+        f[m][n]
+    }
 }
 ```
 
