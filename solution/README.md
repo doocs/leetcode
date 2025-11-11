@@ -3754,6 +3754,7 @@
 |  3741  |  [三个相等元素之间的最小距离 II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README.md)  |    |  中等  |  第 475 场周赛  |
 |  3742  |  [网格中得分最大的路径](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README.md)  |    |  中等  |  第 475 场周赛  |
 |  3743  |  [循环划分的最大得分](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README.md)  |    |  困难  |  第 475 场周赛  |
+|  3744  |  [在展开字符串中查找第 K 个字符](/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

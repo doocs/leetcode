@@ -3752,6 +3752,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3741  |  [Minimum Distance Between Three Equal Elements II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
 |  3742  |  [Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
 |  3743  |  [Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 475  |
+|  3744  |  [Find Kth Character in Expanded String](/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
