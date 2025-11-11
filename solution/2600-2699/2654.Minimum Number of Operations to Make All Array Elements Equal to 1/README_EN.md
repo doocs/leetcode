@@ -65,7 +65,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math
+
+We first count the number of $1$s in the array $nums$ as $cnt$. If $cnt \gt 0$, then we only need $n - cnt$ operations to turn the entire array into $1$s.
+
+Otherwise, we need to first turn one element in the array into $1$, and then the minimum number of remaining operations is $n - 1$.
+
+Consider how to turn one element in the array into $1$ while minimizing the number of operations. In fact, we only need to find a minimum contiguous subarray interval $nums[i,..j]$ such that the greatest common divisor of all elements in the subarray is $1$, with the subarray length being $mi = \min(mi, j - i + 1)$. Finally, our total number of operations is $n - 1 + mi - 1$.
+
+The time complexity is $O(n \times (n + \log M))$ and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.
 
 <!-- tabs:start -->
 
@@ -220,6 +228,45 @@ function minOperations(nums: number[]): number {
 
 function gcd(a: number, b: number): number {
     return b === 0 ? a : gcd(b, a % b);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>) -> i32 {
+        let n = nums.len() as i32;
+        let cnt = nums.iter().filter(|&&x| x == 1).count() as i32;
+        if cnt > 0 {
+            return n - cnt;
+        }
+        let mut mi = n + 1;
+        for i in 0..nums.len() {
+            let mut g = 0;
+            for j in i..nums.len() {
+                g = gcd(g, nums[j]);
+                if g == 1 {
+                    mi = mi.min((j - i + 1) as i32);
+                    break;
+                }
+            }
+        }
+        if mi > n {
+            -1
+        } else {
+            n - 1 + mi - 1
+        }
+    }
+}
+
+fn gcd(mut a: i32, mut b: i32) -> i32 {
+    while b != 0 {
+        let tmp = a % b;
+        a = b;
+        b = tmp;
+    }
+    a.abs()
 }
 ```
 
