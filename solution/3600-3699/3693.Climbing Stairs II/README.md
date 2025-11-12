@@ -133,32 +133,134 @@ source: 第 166 场双周赛 Q2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[i]$ 表示到达第 $i$ 级台阶所需的最小总成本，初始时 $f[0] = 0$，其余 $f[i] = +\infty$。
+
+对于每一级台阶 $i$，我们可以从第 $i-1$ 级、第 $i-2$ 级或第 $i-3$ 级台阶跳跃过来，因此我们有以下状态转移方程：
+
+$$
+f[i] = \min_{j=i-3}^{i-1} (f[j] + \textit{costs}[i - 1] + (i - j)^2)
+$$
+
+其中 $\textit{costs}[i]$ 是第 $i$ 级台阶的成本，$(i - j)^2$ 是从第 $j$ 级台阶跳到第 $i$ 级台阶的跳跃成本。注意，我们需要确保 $j$ 不小于 $0$。
+
+最终答案为 $f[n]$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是台阶的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def climbStairs(self, n: int, costs: List[int]) -> int:
+        n = len(costs)
+        f = [inf] * (n + 1)
+        f[0] = 0
+        for i, x in enumerate(costs, 1):
+            for j in range(i - 3, i):
+                if j >= 0:
+                    f[i] = min(f[i], f[j] + x + (i - j) ** 2)
+        return f[n]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int climbStairs(int n, int[] costs) {
+        int[] f = new int[n + 1];
+        final int inf = Integer.MAX_VALUE / 2;
+        Arrays.fill(f, inf);
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = costs[i - 1];
+            for (int j = Math.max(0, i - 3); j < i; ++j) {
+                f[i] = Math.min(f[i], f[j] + x + (i - j) * (i - j));
+            }
+        }
+        return f[n];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int climbStairs(int n, vector<int>& costs) {
+        vector<int> f(n + 1, INT_MAX / 2);
+        f[0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            int x = costs[i - 1];
+            for (int j = max(0, i - 3); j < i; ++j) {
+                f[i] = min(f[i], f[j] + x + (i - j) * (i - j));
+            }
+        }
+        return f[n];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func climbStairs(n int, costs []int) int {
+	const inf = int(1e9)
+	f := make([]int, n+1)
+	for i := range f {
+		f[i] = inf
+	}
+	f[0] = 0
+	for i := 1; i <= n; i++ {
+		x := costs[i-1]
+		for j := max(0, i-3); j < i; j++ {
+			f[i] = min(f[i], f[j]+x+(i-j)*(i-j))
+		}
+	}
+	return f[n]
+}
+```
 
+#### TypeScript
+
+```ts
+function climbStairs(n: number, costs: number[]): number {
+    const inf = Number.MAX_SAFE_INTEGER / 2;
+    const f = Array(n + 1).fill(inf);
+    f[0] = 0;
+
+    for (let i = 1; i <= n; ++i) {
+        const x = costs[i - 1];
+        for (let j = Math.max(0, i - 3); j < i; ++j) {
+            f[i] = Math.min(f[i], f[j] + x + (i - j) * (i - j));
+        }
+    }
+    return f[n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn climb_stairs(n: i32, costs: Vec<i32>) -> i32 {
+        let n = n as usize;
+        let inf = i32::MAX / 2;
+        let mut f = vec![inf; n + 1];
+        f[0] = 0;
+        for i in 1..=n {
+            let x = costs[i - 1];
+            for j in (i.saturating_sub(3))..i {
+                f[i] = f[i].min(f[j] + x + ((i - j) * (i - j)) as i32);
+            }
+        }
+        f[n]
+    }
+}
 ```
 
 <!-- tabs:end -->
