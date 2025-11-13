@@ -90,32 +90,123 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们可以直接模拟题目中的操作，遍历每个查询并更新数组 $\textit{nums}$ 中的对应元素。最后计算数组中所有元素的按位异或结果并返回。
+
+时间复杂度 $O(q \times \frac{n}{k})$，其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $q$ 是查询的数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def xorAfterQueries(self, nums: List[int], queries: List[List[int]]) -> int:
+        mod = 10**9 + 7
+        for l, r, k, v in queries:
+            for idx in range(l, r + 1, k):
+                nums[idx] = nums[idx] * v % mod
+        return reduce(xor, nums)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int xorAfterQueries(int[] nums, int[][] queries) {
+        final int mod = (int) 1e9 + 7;
+        for (var q : queries) {
+            int l = q[0], r = q[1], k = q[2], v = q[3];
+            for (int idx = l; idx <= r; idx += k) {
+                nums[idx] = (int) (1L * nums[idx] * v % mod);
+            }
+        }
+        int ans = 0;
+        for (int x : nums) {
+            ans ^= x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int xorAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
+        const int mod = 1e9 + 7;
+        for (const auto& q : queries) {
+            int l = q[0], r = q[1], k = q[2], v = q[3];
+            for (int idx = l; idx <= r; idx += k) {
+                nums[idx] = 1LL * nums[idx] * v % mod;
+            }
+        }
+        int ans = 0;
+        for (int x : nums) {
+            ans ^= x;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func xorAfterQueries(nums []int, queries [][]int) int {
+	const mod = int(1e9 + 7)
+	for _, q := range queries {
+		l, r, k, v := q[0], q[1], q[2], q[3]
+		for idx := l; idx <= r; idx += k {
+			nums[idx] = nums[idx] * v % mod
+		}
+	}
+	ans := 0
+	for _, x := range nums {
+		ans ^= x
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function xorAfterQueries(nums: number[], queries: number[][]): number {
+    const mod = 1e9 + 7;
+    for (const [l, r, k, v] of queries) {
+        for (let idx = l; idx <= r; idx += k) {
+            nums[idx] = (nums[idx] * v) % mod;
+        }
+    }
+    return nums.reduce((acc, x) => acc ^ x, 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn xor_after_queries(mut nums: Vec<i32>, queries: Vec<Vec<i32>>) -> i32 {
+        let modv: i64 = 1_000_000_007;
+        for q in queries {
+            let (l, r, k, v) = (q[0] as usize, q[1] as usize, q[2] as usize, q[3] as i64);
+            let mut idx = l;
+            while idx <= r {
+                nums[idx] = ((nums[idx] as i64 * v) % modv) as i32;
+                idx += k;
+            }
+        }
+        let mut ans = 0;
+        for x in nums {
+            ans ^= x;
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
