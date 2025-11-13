@@ -88,32 +88,214 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Hash Table
+
+We can use prefix sum arrays to track position changes after each move. Specifically, we use two prefix sum arrays $f$ and $g$ to record the position changes on the $x$-axis and $y$-axis respectively after each move.
+
+Initialize $f[0] = 0$ and $g[0] = 0$, representing the initial position at $(0, 0)$. Then, we iterate through the string $s$, and for each character:
+
+-   If the character is 'U', then $g[i] = g[i-1] + 1$.
+-   If the character is 'D', then $g[i] = g[i-1] - 1$.
+-   If the character is 'L', then $f[i] = f[i-1] - 1$.
+-   If the character is 'R', then $f[i] = f[i-1] + 1$.
+
+Next, we use a hash set to store the distinct final coordinates. For each possible substring removal position $i$ (from $k$ to $n$), we calculate the final coordinates $(a, b)$ after removing the substring, where $a = f[n] - (f[i] - f[i-k])$ and $b = g[n] - (g[i] - g[i-k])$. Add the coordinates $(a, b)$ to the hash set.
+
+Finally, the size of the hash set is the number of distinct final coordinates.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def distinctPoints(self, s: str, k: int) -> int:
+        n = len(s)
+        f = [0] * (n + 1)
+        g = [0] * (n + 1)
+        x = y = 0
+        for i, c in enumerate(s, 1):
+            if c == "U":
+                y += 1
+            elif c == "D":
+                y -= 1
+            elif c == "L":
+                x -= 1
+            else:
+                x += 1
+            f[i] = x
+            g[i] = y
+        st = set()
+        for i in range(k, n + 1):
+            a = f[n] - (f[i] - f[i - k])
+            b = g[n] - (g[i] - g[i - k])
+            st.add((a, b))
+        return len(st)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int distinctPoints(String s, int k) {
+        int n = s.length();
+        int[] f = new int[n + 1];
+        int[] g = new int[n + 1];
+        int x = 0, y = 0;
+        for (int i = 1; i <= n; ++i) {
+            char c = s.charAt(i - 1);
+            if (c == 'U') {
+                ++y;
+            } else if (c == 'D') {
+                --y;
+            } else if (c == 'L') {
+                --x;
+            } else {
+                ++x;
+            }
+            f[i] = x;
+            g[i] = y;
+        }
+        Set<Long> st = new HashSet<>();
+        for (int i = k; i <= n; ++i) {
+            int a = f[n] - (f[i] - f[i - k]);
+            int b = g[n] - (g[i] - g[i - k]);
+            st.add(1L * a * n + b);
+        }
+        return st.size();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int distinctPoints(string s, int k) {
+        int n = s.size();
+        vector<int> f(n + 1), g(n + 1);
+        int x = 0, y = 0;
+        for (int i = 1; i <= n; ++i) {
+            char c = s[i - 1];
+            if (c == 'U')
+                ++y;
+            else if (c == 'D')
+                --y;
+            else if (c == 'L')
+                --x;
+            else
+                ++x;
+            f[i] = x;
+            g[i] = y;
+        }
+        unordered_set<long long> st;
+        for (int i = k; i <= n; ++i) {
+            int a = f[n] - (f[i] - f[i - k]);
+            int b = g[n] - (g[i] - g[i - k]);
+            st.insert(1LL * a * n + b);
+        }
+        return st.size();
+    }
+};
 ```
 
 #### Go
 
 ```go
+func distinctPoints(s string, k int) int {
+	n := len(s)
+	f := make([]int, n+1)
+	g := make([]int, n+1)
+	x, y := 0, 0
+	for i := 1; i <= n; i++ {
+		c := s[i-1]
+		if c == 'U' {
+			y++
+		} else if c == 'D' {
+			y--
+		} else if c == 'L' {
+			x--
+		} else {
+			x++
+		}
+		f[i] = x
+		g[i] = y
+	}
+	st := make(map[int64]struct{})
+	for i := k; i <= n; i++ {
+		a := f[n] - (f[i] - f[i-k])
+		b := g[n] - (g[i] - g[i-k])
+		key := int64(a)*int64(n) + int64(b)
+		st[key] = struct{}{}
+	}
+	return len(st)
+}
+```
 
+#### TypeScript
+
+```ts
+function distinctPoints(s: string, k: number): number {
+    const n = s.length;
+    const f = new Array(n + 1).fill(0);
+    const g = new Array(n + 1).fill(0);
+    let x = 0,
+        y = 0;
+    for (let i = 1; i <= n; ++i) {
+        const c = s[i - 1];
+        if (c === 'U') ++y;
+        else if (c === 'D') --y;
+        else if (c === 'L') --x;
+        else ++x;
+        f[i] = x;
+        g[i] = y;
+    }
+    const st = new Set<number>();
+    for (let i = k; i <= n; ++i) {
+        const a = f[n] - (f[i] - f[i - k]);
+        const b = g[n] - (g[i] - g[i - k]);
+        st.add(a * n + b);
+    }
+    return st.size;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn distinct_points(s: String, k: i32) -> i32 {
+        let n = s.len();
+        let mut f = vec![0; n + 1];
+        let mut g = vec![0; n + 1];
+        let mut x = 0;
+        let mut y = 0;
+        let bytes = s.as_bytes();
+        for i in 1..=n {
+            match bytes[i - 1] as char {
+                'U' => y += 1,
+                'D' => y -= 1,
+                'L' => x -= 1,
+                _ => x += 1,
+            }
+            f[i] = x;
+            g[i] = y;
+        }
+        let mut st = HashSet::new();
+        let k = k as usize;
+        for i in k..=n {
+            let a = f[n] - (f[i] - f[i - k]);
+            let b = g[n] - (g[i] - g[i - k]);
+            st.insert((a as i64) * (n as i64) + (b as i64));
+        }
+        st.len() as i32
+    }
+}
 ```
 
 <!-- tabs:end -->
