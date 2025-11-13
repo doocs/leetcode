@@ -40,8 +40,8 @@ tags:
 <strong>输入：</strong>n = 3, queries = [[1,1,2,2],[0,0,1,1]]
 <strong>输出：</strong>[[1,1,0],[1,2,1],[0,1,1]]
 <strong>解释：</strong>上图所展示的分别是：初始矩阵、执行完第一个操作后的矩阵、执行完第二个操作后的矩阵。
-- 第一个操作：将左上角为 (1, 1) 且右下角为 (2, 2) 的子矩阵中的每个元素加 1 。 
-- 第二个操作：将左上角为 (0, 0) 且右下角为 (1, 1) 的子矩阵中的每个元素加 1 。 
+- 第一个操作：将左上角为 (1, 1) 且右下角为 (2, 2) 的子矩阵中的每个元素加 1 。
+- 第二个操作：将左上角为 (0, 0) 且右下角为 (1, 1) 的子矩阵中的每个元素加 1 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -51,7 +51,7 @@ tags:
 <pre>
 <strong>输入：</strong>n = 2, queries = [[0,0,1,1]]
 <strong>输出：</strong>[[1,1],[1,1]]
-<strong>解释：</strong>上图所展示的分别是：初始矩阵、执行完第一个操作后的矩阵。 
+<strong>解释：</strong>上图所展示的分别是：初始矩阵、执行完第一个操作后的矩阵。
 - 第一个操作：将矩阵中的每个元素加 1 。</pre>
 
 <p>&nbsp;</p>
@@ -293,6 +293,51 @@ impl Solution {
         }
 
         mat
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[][] RangeAddQueries(int n, int[][] queries) {
+        int[][] mat = new int[n][];
+        for (int i = 0; i < n; i++) {
+            mat[i] = new int[n];
+        }
+
+        foreach (var q in queries) {
+            int x1 = q[0], y1 = q[1], x2 = q[2], y2 = q[3];
+
+            mat[x1][y1]++;
+
+            if (x2 + 1 < n) {
+                mat[x2 + 1][y1]--;
+            }
+            if (y2 + 1 < n) {
+                mat[x1][y2 + 1]--;
+            }
+            if (x2 + 1 < n && y2 + 1 < n) {
+                mat[x2 + 1][y2 + 1]++;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i > 0) {
+                    mat[i][j] += mat[i - 1][j];
+                }
+                if (j > 0) {
+                    mat[i][j] += mat[i][j - 1];
+                }
+                if (i > 0 && j > 0) {
+                    mat[i][j] -= mat[i - 1][j - 1];
+                }
+            }
+        }
+
+        return mat;
     }
 }
 ```
