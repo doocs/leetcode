@@ -9,7 +9,7 @@ class Solution {
                 ss.add(t.charAt(j));
             }
             if (ss.size() <= maxLetters) {
-                cnt.put(t, cnt.getOrDefault(t, 0) + 1);
+                cnt.merge(t, 1, Integer::sum);
                 ans = Math.max(ans, cnt.get(t));
             }
         }
