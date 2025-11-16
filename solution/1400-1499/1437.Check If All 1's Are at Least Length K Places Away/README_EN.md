@@ -52,7 +52,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We can iterate through the array $\textit{nums}$ and use a variable $j$ to record the index of the previous $1$. When the element at the current position $i$ is $1$, we just need to check if $i - j - 1$ is less than $k$. If it is less than $k$, it means there exists a pair of $1$s with fewer than $k$ zeros between them, so we return $\text{false}$. Otherwise, we update $j$ to $i$ and continue iterating through the array.
+
+After the iteration is complete, we return $\text{true}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -140,6 +146,25 @@ function kLengthApart(nums: number[], k: number): boolean {
         }
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn k_length_apart(nums: Vec<i32>, k: i32) -> bool {
+        let mut j = -(k + 1);
+        for (i, &x) in nums.iter().enumerate() {
+            if x == 1 {
+                if (i as i32) - j - 1 < k {
+                    return false;
+                }
+                j = i as i32;
+            }
+        }
+        true
+    }
 }
 ```
 
