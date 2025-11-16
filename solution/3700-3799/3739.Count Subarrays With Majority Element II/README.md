@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README.md
+rating: 2089
+source: 第 169 场双周赛 Q4
 ---
 
 <!-- problem:start -->

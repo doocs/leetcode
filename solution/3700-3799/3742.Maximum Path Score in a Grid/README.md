@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README.md
+rating: 1804
+source: 第 475 场周赛 Q3
 ---
 
 <!-- problem:start -->

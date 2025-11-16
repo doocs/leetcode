@@ -55,7 +55,7 @@
 | 0619 | [只出现一次的最大数字](/solution/0600-0699/0619.Biggest%20Single%20Number/README.md)                                                                         | `数据库` | 简单 |      |
 | 0620 | [有趣的电影](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)                                                                                       | `数据库` | 简单 |      |
 | 0626 | [换座位](/solution/0600-0699/0626.Exchange%20Seats/README.md)                                                                                                | `数据库` | 中等 |      |
-| 0627 | [变更性别](/solution/0600-0699/0627.Swap%20Salary/README.md)                                                                                                 | `数据库` | 简单 |      |
+| 0627 | [变更性别](/solution/0600-0699/0627.Swap%20Sex%20of%20Employees/README.md)                                                                                   | `数据库` | 简单 |      |
 | 1045 | [买下所有产品的客户](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)                                                           | `数据库` | 中等 |      |
 | 1050 | [合作过至少三次的演员和导演](/solution/1000-1099/1050.Actors%20and%20Directors%20Who%20Cooperated%20At%20Least%20Three%20Times/README.md)                    | `数据库` | 简单 |      |
 | 1068 | [产品销售分析 I](/solution/1000-1099/1068.Product%20Sales%20Analysis%20I/README.md)                                                                          | `数据库` | 简单 |      |

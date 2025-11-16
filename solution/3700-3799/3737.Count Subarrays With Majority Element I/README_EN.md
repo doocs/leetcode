@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md
+rating: 1422
+source: Biweekly Contest 169 Q2
 ---
 
 <!-- problem:start -->

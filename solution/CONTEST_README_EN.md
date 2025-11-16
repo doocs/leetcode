@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 476
+
+- [3745. Maximize Expression of Three Elements](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md)
+- [3746. Minimum String Length After Balanced Removals](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md)
+- [3747. Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)
+- [3748. Count Stable Subarrays](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md)
+
 #### Weekly Contest 475
 
 - [3740. Minimum Distance Between Three Equal Elements I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README_EN.md)
