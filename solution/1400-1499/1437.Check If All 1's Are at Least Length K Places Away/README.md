@@ -58,11 +58,11 @@ tags:
 
 ### 方法一：模拟
 
-我们可以遍历数组 $nums$，用变量 $j$ 记录上一个 $1$ 的下标，那么当前位置 $i$ 的元素为 $1$ 时，只需要判断 $i - j - 1$ 是否小于 $k$ 即可。如果小于 $k$，则说明存在两个 $1$ 之间的 $0$ 的个数小于 $k$，返回 `false`；否则，将 $j$ 更新为 $i$，继续遍历数组。
+我们可以遍历数组 $\textit{nums}$，用变量 $j$ 记录上一个 $1$ 的下标，那么当前位置 $i$ 的元素为 $1$ 时，只需要判断 $i - j - 1$ 是否小于 $k$ 即可。如果小于 $k$，则说明存在两个 $1$ 之间的 $0$ 的个数小于 $k$，返回 $\text{false}$；否则，将 $j$ 更新为 $i$，继续遍历数组。
 
-遍历结束后，返回 `true`。
+遍历结束后，返回 $\text{true}$。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -150,6 +150,25 @@ function kLengthApart(nums: number[], k: number): boolean {
         }
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn k_length_apart(nums: Vec<i32>, k: i32) -> bool {
+        let mut j = -(k + 1);
+        for (i, &x) in nums.iter().enumerate() {
+            if x == 1 {
+                if (i as i32) - j - 1 < k {
+                    return false;
+                }
+                j = i as i32;
+            }
+        }
+        true
+    }
 }
 ```
 
