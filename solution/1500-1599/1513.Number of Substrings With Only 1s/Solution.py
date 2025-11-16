@@ -1,10 +1,11 @@
 class Solution:
     def numSub(self, s: str) -> int:
-        ans = cnt = 0
+        mod = 10**9 + 7
+        ans = cur = 0
         for c in s:
-            if c == "1":
-                cnt += 1
+            if c == "0":
+                cur = 0
             else:
-                cnt = 0
-            ans += cnt
-        return ans % (10**9 + 7)
+                cur += 1
+                ans = (ans + cur) % mod
+        return ans

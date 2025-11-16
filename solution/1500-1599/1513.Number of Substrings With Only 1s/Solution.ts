@@ -1,10 +1,13 @@
 function numSub(s: string): number {
-    const mod = 10 ** 9 + 7;
-    let ans = 0;
-    let cnt = 0;
+    const mod = 1_000_000_007;
+    let [ans, cur] = [0, 0];
     for (const c of s) {
-        cnt = c == '1' ? cnt + 1 : 0;
-        ans = (ans + cnt) % mod;
+        if (c === '0') {
+            cur = 0;
+        } else {
+            cur++;
+            ans = (ans + cur) % mod;
+        }
     }
     return ans;
 }

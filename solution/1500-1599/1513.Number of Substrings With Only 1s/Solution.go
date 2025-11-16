@@ -1,13 +1,13 @@
 func numSub(s string) (ans int) {
-	const mod = 1e9 + 7
-	cnt := 0
+	const mod int = 1e9 + 7
+	cur := 0
 	for _, c := range s {
-		if c == '1' {
-			cnt++
+		if c == '0' {
+			cur = 0
 		} else {
-			cnt = 0
+			cur++
+			ans = (ans + cur) % mod
 		}
-		ans = (ans + cnt) % mod
 	}
 	return
 }
