@@ -73,11 +73,11 @@ tags:
 
 ### 方法一：遍历计数
 
-我们遍历字符串 $s$，用变量 $cnt$ 记录当前连续的 1 的个数，用变量 $ans$ 记录答案。当遍历到字符 $s[i]$ 时，如果 $s[i] = 1$，则 $cnt$ 自增 1，否则 $cnt$ 置 0。此时 $ans$ 自增 $cnt$。
+我们遍历字符串 $s$，用一个变量 $\textit{cur}$ 记录当前连续的 1 的个数，用变量 $\textit{ans}$ 记录答案。当遍历到字符 $s[i]$ 时，如果 $s[i] = 0$，则 $\textit{cur}$ 置 0，否则 $\textit{cur}$ 自增 1，然后 $\textit{ans}$ 自增 $\textit{cur}$，并对 $10^9 + 7$ 取模。
 
-遍历结束，返回 $ans$ 即可。
+遍历结束，返回 $\textit{ans}$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 相似题目：
 
@@ -91,14 +91,15 @@ tags:
 ```python
 class Solution:
     def numSub(self, s: str) -> int:
-        ans = cnt = 0
+        mod = 10**9 + 7
+        ans = cur = 0
         for c in s:
-            if c == "1":
-                cnt += 1
+            if c == "0":
+                cur = 0
             else:
-                cnt = 0
-            ans += cnt
-        return ans % (10**9 + 7)
+                cur += 1
+                ans = (ans + cur) % mod
+        return ans
 ```
 
 #### Java
@@ -106,11 +107,15 @@ class Solution:
 ```java
 class Solution {
     public int numSub(String s) {
-        final int mod = (int) 1e9 + 7;
-        int ans = 0, cnt = 0;
+        final int mod = 1_000_000_007;
+        int ans = 0, cur = 0;
         for (int i = 0; i < s.length(); ++i) {
-            cnt = s.charAt(i) == '1' ? cnt + 1 : 0;
-            ans = (ans + cnt) % mod;
+            if (s.charAt(i) == '0') {
+                cur = 0;
+            } else {
+                cur++;
+                ans = (ans + cur) % mod;
+            }
         }
         return ans;
     }
@@ -123,11 +128,15 @@ class Solution {
 class Solution {
 public:
     int numSub(string s) {
-        int ans = 0, cnt = 0;
         const int mod = 1e9 + 7;
-        for (char& c : s) {
-            cnt = c == '1' ? cnt + 1 : 0;
-            ans = (ans + cnt) % mod;
+        int ans = 0, cur = 0;
+        for (char c : s) {
+            if (c == '0') {
+                cur = 0;
+            } else {
+                cur++;
+                ans = (ans + cur) % mod;
+            }
         }
         return ans;
     }
@@ -138,15 +147,15 @@ public:
 
 ```go
 func numSub(s string) (ans int) {
-	const mod = 1e9 + 7
-	cnt := 0
+	const mod int = 1e9 + 7
+	cur := 0
 	for _, c := range s {
-		if c == '1' {
-			cnt++
+		if c == '0' {
+			cur = 0
 		} else {
-			cnt = 0
+			cur++
+			ans = (ans + cur) % mod
 		}
-		ans = (ans + cnt) % mod
 	}
 	return
 }
@@ -156,14 +165,38 @@ func numSub(s string) (ans int) {
 
 ```ts
 function numSub(s: string): number {
-    const mod = 10 ** 9 + 7;
-    let ans = 0;
-    let cnt = 0;
+    const mod = 1_000_000_007;
+    let [ans, cur] = [0, 0];
     for (const c of s) {
-        cnt = c == '1' ? cnt + 1 : 0;
-        ans = (ans + cnt) % mod;
+        if (c === '0') {
+            cur = 0;
+        } else {
+            cur++;
+            ans = (ans + cur) % mod;
+        }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_sub(s: String) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let mut ans: i32 = 0;
+        let mut cur: i32 = 0;
+        for c in s.chars() {
+            if c == '0' {
+                cur = 0;
+            } else {
+                cur += 1;
+                ans = (ans + cur) % MOD;
+            }
+        }
+        ans
+    }
 }
 ```
 

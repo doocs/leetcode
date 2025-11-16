@@ -62,7 +62,18 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Traversal and Counting
+
+We traverse the string $s$, using a variable $\textit{cur}$ to record the current count of consecutive 1s, and a variable $\textit{ans}$ to record the answer. When we traverse to character $s[i]$, if $s[i] = 0$, then set $\textit{cur}$ to 0; otherwise, increment $\textit{cur}$ by 1, then add $\textit{cur}$ to $\textit{ans}$, and take modulo $10^9 + 7$.
+
+After the traversal is complete, return $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+Similar problems:
+
+-   [413. Arithmetic Slices](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)
+-   [2348. Number of Zero-Filled Subarrays](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2348.Number%20of%20Zero-Filled%20Subarrays/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -71,14 +82,15 @@ tags:
 ```python
 class Solution:
     def numSub(self, s: str) -> int:
-        ans = cnt = 0
+        mod = 10**9 + 7
+        ans = cur = 0
         for c in s:
-            if c == "1":
-                cnt += 1
+            if c == "0":
+                cur = 0
             else:
-                cnt = 0
-            ans += cnt
-        return ans % (10**9 + 7)
+                cur += 1
+                ans = (ans + cur) % mod
+        return ans
 ```
 
 #### Java
@@ -86,11 +98,15 @@ class Solution:
 ```java
 class Solution {
     public int numSub(String s) {
-        final int mod = (int) 1e9 + 7;
-        int ans = 0, cnt = 0;
+        final int mod = 1_000_000_007;
+        int ans = 0, cur = 0;
         for (int i = 0; i < s.length(); ++i) {
-            cnt = s.charAt(i) == '1' ? cnt + 1 : 0;
-            ans = (ans + cnt) % mod;
+            if (s.charAt(i) == '0') {
+                cur = 0;
+            } else {
+                cur++;
+                ans = (ans + cur) % mod;
+            }
         }
         return ans;
     }
@@ -103,11 +119,15 @@ class Solution {
 class Solution {
 public:
     int numSub(string s) {
-        int ans = 0, cnt = 0;
         const int mod = 1e9 + 7;
-        for (char& c : s) {
-            cnt = c == '1' ? cnt + 1 : 0;
-            ans = (ans + cnt) % mod;
+        int ans = 0, cur = 0;
+        for (char c : s) {
+            if (c == '0') {
+                cur = 0;
+            } else {
+                cur++;
+                ans = (ans + cur) % mod;
+            }
         }
         return ans;
     }
@@ -118,15 +138,15 @@ public:
 
 ```go
 func numSub(s string) (ans int) {
-	const mod = 1e9 + 7
-	cnt := 0
+	const mod int = 1e9 + 7
+	cur := 0
 	for _, c := range s {
-		if c == '1' {
-			cnt++
+		if c == '0' {
+			cur = 0
 		} else {
-			cnt = 0
+			cur++
+			ans = (ans + cur) % mod
 		}
-		ans = (ans + cnt) % mod
 	}
 	return
 }
@@ -136,14 +156,38 @@ func numSub(s string) (ans int) {
 
 ```ts
 function numSub(s: string): number {
-    const mod = 10 ** 9 + 7;
-    let ans = 0;
-    let cnt = 0;
+    const mod = 1_000_000_007;
+    let [ans, cur] = [0, 0];
     for (const c of s) {
-        cnt = c == '1' ? cnt + 1 : 0;
-        ans = (ans + cnt) % mod;
+        if (c === '0') {
+            cur = 0;
+        } else {
+            cur++;
+            ans = (ans + cur) % mod;
+        }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_sub(s: String) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let mut ans: i32 = 0;
+        let mut cur: i32 = 0;
+        for c in s.chars() {
+            if c == '0' {
+                cur = 0;
+            } else {
+                cur += 1;
+                ans = (ans + cur) % MOD;
+            }
+        }
+        ans
+    }
 }
 ```
 

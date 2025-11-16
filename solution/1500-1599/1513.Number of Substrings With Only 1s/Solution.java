@@ -1,10 +1,14 @@
 class Solution {
     public int numSub(String s) {
-        final int mod = (int) 1e9 + 7;
-        int ans = 0, cnt = 0;
+        final int mod = 1_000_000_007;
+        int ans = 0, cur = 0;
         for (int i = 0; i < s.length(); ++i) {
-            cnt = s.charAt(i) == '1' ? cnt + 1 : 0;
-            ans = (ans + cnt) % mod;
+            if (s.charAt(i) == '0') {
+                cur = 0;
+            } else {
+                cur++;
+                ans = (ans + cur) % mod;
+            }
         }
         return ans;
     }
