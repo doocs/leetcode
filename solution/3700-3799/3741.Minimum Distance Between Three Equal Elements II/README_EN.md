@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md
+rating: 1449
+source: Weekly Contest 475 Q2
 ---
 
 <!-- problem:start -->

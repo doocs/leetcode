@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,4]
 <strong>Output:</strong> 5
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The triplets and their corresponding effective values are listed below:
 - (0,0,0) with effective value ((1 | 1) &amp; 1) = 1
 - (0,0,1) with effective value ((1 | 1) &amp; 4) = 0
@@ -50,7 +50,7 @@ The triplets and their corresponding effective values are listed below:
 - (1,0,0) with effective value ((4 | 1) &amp; 1) = 1
 - (1,0,1) with effective value ((4 | 1) &amp; 4) = 4
 - (1,1,0) with effective value ((4 | 4) &amp; 1) = 0
-- (1,1,1) with effective value ((4 | 4) &amp; 4) = 4
+- (1,1,1) with effective value ((4 | 4) &amp; 4) = 4 
 Xor-beauty of array will be bitwise XOR of all beauties = 1 ^ 0 ^ 1 ^ 4 ^ 1 ^ 4 ^ 0 ^ 4 = 5.</pre>
 
 <p><strong class="example">Example 2:</strong></p>

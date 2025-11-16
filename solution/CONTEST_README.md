@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 476 场周赛(2025-11-16 10:30, 90 分钟) 参赛人数 1751
+
+- [3745. 三元素表达式的最大值](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README.md)
+- [3746. 等量移除后的字符串最小长度](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README.md)
+- [3747. 统计移除零后不同整数的数目](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README.md)
+- [3748. 统计稳定子数组的数目](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README.md)
+
 #### 第 475 场周赛(2025-11-09 10:30, 90 分钟) 参赛人数 1687
 
 - [3740. 三个相等元素之间的最小距离 I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README.md)

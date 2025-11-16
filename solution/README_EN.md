@@ -636,6 +636,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0625  |  [Minimum Factorization](/solution/0600-0699/0625.Minimum%20Factorization/README_EN.md)  |  `Greedy`,`Math`  |  Medium  |  🔒  |
 |  0626  |  [Exchange Seats](/solution/0600-0699/0626.Exchange%20Seats/README_EN.md)  |  `Database`  |  Medium  |    |
 |  0627  |  [Swap Salary](/solution/0600-0699/0627.Swap%20Salary/README_EN.md)  |  `Database`  |  Easy  |    |
+|  0627  |  [Swap Sex of Employees](/solution/0600-0699/0627.Swap%20Sex%20of%20Employees/README_EN.md)  |  `Database`  |  Easy  |    |
 |  0628  |  [Maximum Product of Three Numbers](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README_EN.md)  |  `Array`,`Math`,`Sorting`  |  Easy  |    |
 |  0629  |  [K Inverse Pairs Array](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 |  0630  |  [Course Schedule III](/solution/0600-0699/0630.Course%20Schedule%20III/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |    |
@@ -3753,6 +3754,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3742  |  [Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
 |  3743  |  [Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 475  |
 |  3744  |  [Find Kth Character in Expanded String](/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README_EN.md)  |    |  Medium  |  🔒  |
+|  3745  |  [Maximize Expression of Three Elements](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 476  |
+|  3746  |  [Minimum String Length After Balanced Removals](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
+|  3747  |  [Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
+|  3748  |  [Count Stable Subarrays](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 476  |
 
 ## Copyright
 
