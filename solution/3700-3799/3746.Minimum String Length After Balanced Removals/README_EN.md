@@ -71,32 +71,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3746.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+According to the problem description, as long as adjacent characters are different, we can remove them. Therefore, the final remaining string will only contain the same character, either all 'a' or all 'b'. So we only need to count the number of 'a' and 'b' in the string, and the final minimum length is the absolute difference between their counts.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minLengthAfterRemovals(self, s: str) -> int:
+        a = s.count("a")
+        b = len(s) - a
+        return abs(a - b)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minLengthAfterRemovals(String s) {
+        int n = s.length();
+        int a = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == 'a') {
+                ++a;
+            }
+        }
+        int b = n - a;
+        return Math.abs(a - b);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minLengthAfterRemovals(string s) {
+        int a = 0;
+        for (char c : s) {
+            if (c == 'a') {
+                ++a;
+            }
+        }
+        int b = s.size() - a;
+        return abs(a - b);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minLengthAfterRemovals(s string) int {
+	a := strings.Count(s, "a")
+	b := len(s) - a
+	return abs(a - b)
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minLengthAfterRemovals(s: string): number {
+    let a = 0;
+    for (const c of s) {
+        if (c === 'a') {
+            ++a;
+        }
+    }
+    const b = s.length - a;
+    return Math.abs(a - b);
+}
 ```
 
 <!-- tabs:end -->

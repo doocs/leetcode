@@ -76,32 +76,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3746.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+根据题目描述，只要相邻字符不同，我们就可以移除它们。因此，最终剩下的字符串中只会包含相同字符，即全部是 'a' 或全部是 'b'。所以我们只需要计算字符串中 'a' 和 'b' 的数量，最终的最小长度就是两者数量的差的绝对值。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minLengthAfterRemovals(self, s: str) -> int:
+        a = s.count("a")
+        b = len(s) - a
+        return abs(a - b)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minLengthAfterRemovals(String s) {
+        int n = s.length();
+        int a = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == 'a') {
+                ++a;
+            }
+        }
+        int b = n - a;
+        return Math.abs(a - b);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minLengthAfterRemovals(string s) {
+        int a = 0;
+        for (char c : s) {
+            if (c == 'a') {
+                ++a;
+            }
+        }
+        int b = s.size() - a;
+        return abs(a - b);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minLengthAfterRemovals(s string) int {
+	a := strings.Count(s, "a")
+	b := len(s) - a
+	return abs(a - b)
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minLengthAfterRemovals(s: string): number {
+    let a = 0;
+    for (const c of s) {
+        if (c === 'a') {
+            ++a;
+        }
+    }
+    const b = s.length - a;
+    return Math.abs(a - b);
+}
 ```
 
 <!-- tabs:end -->
