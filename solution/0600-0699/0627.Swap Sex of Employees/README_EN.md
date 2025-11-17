@@ -44,7 +44,7 @@ The table contains information about an employee.
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>Input:</strong> 
 Salary table:
 +----+------+-----+--------+
 | id | name | sex | salary |
@@ -54,7 +54,7 @@ Salary table:
 | 3  | C    | m   | 5500   |
 | 4  | D    | f   | 500    |
 +----+------+-----+--------+
-<strong>Output:</strong>
+<strong>Output:</strong> 
 +----+------+-----+--------+
 | id | name | sex | salary |
 +----+------+-----+--------+
@@ -63,7 +63,7 @@ Salary table:
 | 3  | C    | f   | 5500   |
 | 4  | D    | m   | 500    |
 +----+------+-----+--------+
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 (1, A) and (3, C) were changed from &#39;m&#39; to &#39;f&#39;.
 (2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
 </pre>
