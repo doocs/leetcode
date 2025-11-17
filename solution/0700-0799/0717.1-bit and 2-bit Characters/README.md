@@ -60,7 +60,16 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：直接遍历
+
+我们可以直接遍历数组 $\textit{bits}$ 的前 $n-1$ 个元素，每次根据当前元素的值决定跳过多少个元素：
+
+-   如果当前元素为 $0$，则跳过 $1$ 个元素（表示一个一比特字符）；
+-   如果当前元素为 $1$，则跳过 $2$ 个元素（表示一个两比特字符）。
+
+当遍历结束时，如果当前索引等于 $n-1$，则说明最后一个字符是一个一比特字符，返回 $\text{true}$；否则，返回 $\text{false}$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{bits}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -96,7 +105,9 @@ class Solution {
 public:
     bool isOneBitCharacter(vector<int>& bits) {
         int i = 0, n = bits.size();
-        while (i < n - 1) i += bits[i] + 1;
+        while (i < n - 1) {
+            i += bits[i] + 1;
+        }
         return i == n - 1;
     }
 };
@@ -114,6 +125,34 @@ func isOneBitCharacter(bits []int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isOneBitCharacter(bits: number[]): boolean {
+    let i = 0;
+    const n = bits.length;
+    while (i < n - 1) {
+        i += bits[i] + 1;
+    }
+    return i === n - 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_one_bit_character(bits: Vec<i32>) -> bool {
+        let mut i = 0usize;
+        let n = bits.len();
+        while i < n - 1 {
+            i += (bits[i] + 1) as usize;
+        }
+        i == n - 1
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -127,7 +166,7 @@ var isOneBitCharacter = function (bits) {
     while (i < n - 1) {
         i += bits[i] + 1;
     }
-    return i == n - 1;
+    return i === n - 1;
 };
 ```
 
