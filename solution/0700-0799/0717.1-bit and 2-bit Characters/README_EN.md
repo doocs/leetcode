@@ -58,7 +58,16 @@ So the last character is not one-bit character.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Direct Traversal
+
+We can directly traverse the first $n-1$ elements of the array $\textit{bits}$, and each time decide how many elements to skip based on the value of the current element:
+
+-   If the current element is $0$, skip $1$ element (representing a one-bit character);
+-   If the current element is $1$, skip $2$ elements (representing a two-bit character).
+
+When the traversal ends, if the current index equals $n-1$, it means the last character is a one-bit character, and we return $\text{true}$; otherwise, return $\text{false}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{bits}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -94,7 +103,9 @@ class Solution {
 public:
     bool isOneBitCharacter(vector<int>& bits) {
         int i = 0, n = bits.size();
-        while (i < n - 1) i += bits[i] + 1;
+        while (i < n - 1) {
+            i += bits[i] + 1;
+        }
         return i == n - 1;
     }
 };
@@ -112,6 +123,34 @@ func isOneBitCharacter(bits []int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function isOneBitCharacter(bits: number[]): boolean {
+    let i = 0;
+    const n = bits.length;
+    while (i < n - 1) {
+        i += bits[i] + 1;
+    }
+    return i === n - 1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_one_bit_character(bits: Vec<i32>) -> bool {
+        let mut i = 0usize;
+        let n = bits.len();
+        while i < n - 1 {
+            i += (bits[i] + 1) as usize;
+        }
+        i == n - 1
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -125,7 +164,7 @@ var isOneBitCharacter = function (bits) {
     while (i < n - 1) {
         i += bits[i] + 1;
     }
-    return i == n - 1;
+    return i === n - 1;
 };
 ```
 
