@@ -26,7 +26,7 @@ tags:
 <p>请你执行所有 <strong>有效的</strong> 交易。如果满足下面全部条件，则交易 <strong>有效</strong> ：</p>
 
 <ul>
-	<li>指定的账户数量在 <code>1</code> 和 <code>n</code> 之间，且</li>
+	<li>指定的账户编号在 <code>1</code> 和 <code>n</code> 之间，且</li>
 	<li>取款或者转账需要的钱的总数 <strong>小于或者等于</strong> 账户余额。</li>
 </ul>
 

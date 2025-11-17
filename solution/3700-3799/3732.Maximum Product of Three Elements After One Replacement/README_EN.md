@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README_EN.md
 rating: 1529
 source: Weekly Contest 474 Q2
+tags:
+    - Greedy
+    - Array
+    - Math
+    - Sorting
 ---
 
 <!-- problem:start -->

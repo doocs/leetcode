@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3735.Lexicographically%20Smallest%20String%20After%20Reverse%20II/README_EN.md
+tags:
+    - String
+    - Binary Search
+    - Suffix Array
+    - Hash Function
+    - Rolling Hash
 ---
 
 <!-- problem:start -->

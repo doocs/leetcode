@@ -6,6 +6,7 @@ tags:
     - Binary Indexed Tree
     - Segment Tree
     - Array
+    - Hash Table
     - Binary Search
     - Divide and Conquer
     - Ordered Set

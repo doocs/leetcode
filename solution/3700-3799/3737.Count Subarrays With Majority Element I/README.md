@@ -4,6 +4,14 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README.md
 rating: 1422
 source: 第 169 场双周赛 Q2
+tags:
+    - 线段树
+    - 数组
+    - 哈希表
+    - 分治
+    - 计数
+    - 前缀和
+    - 归并排序
 ---
 
 <!-- problem:start -->

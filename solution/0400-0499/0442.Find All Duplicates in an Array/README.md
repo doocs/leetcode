@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0442.Fi
 tags:
     - 数组
     - 哈希表
+    - 排序
 ---
 
 <!-- problem:start -->

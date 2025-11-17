@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README.md
 rating: 1972
 source: 第 474 场周赛 Q3
+tags:
+    - 数学
+    - 二分查找
 ---
 
 <!-- problem:start -->

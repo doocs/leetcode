@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README_EN.md
 rating: 1972
 source: Weekly Contest 474 Q3
+tags:
+    - Math
+    - Binary Search
 ---
 
 <!-- problem:start -->

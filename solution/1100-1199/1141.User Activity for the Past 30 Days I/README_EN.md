@@ -41,6 +41,8 @@ Note that each session belongs to exactly one user.
 
 <p>The&nbsp;result format is in the following example.</p>
 
+<p>Note: <strong>Any</strong> activity from (<code>&#39;open_session&#39;</code>, <code>&#39;end_session&#39;</code>, <code>&#39;scroll_down&#39;</code>, <code>&#39;send_message&#39;</code>) will be considered valid activity for a user to be considered active on a day.</p>
+
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
