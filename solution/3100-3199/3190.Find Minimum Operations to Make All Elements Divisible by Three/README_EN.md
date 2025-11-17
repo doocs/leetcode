@@ -64,9 +64,14 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Mathematics
+### Solution 1: Counting
 
-We directly iterate through the array $\textit{nums}$. For each element $x$, we calculate the remainder of $x$ divided by 3, $x \bmod 3$. If the remainder is not 0, we need to make $x$ divisible by 3 with the minimum number of operations. Therefore, we can choose to either decrease $x$ by $x \bmod 3$ or increase $x$ by $3 - x \bmod 3$, and we accumulate the minimum of these two values to the answer.
+We directly iterate through the array $\textit{nums}$. For each element $x$, if $x \bmod 3 \neq 0$, there are two cases:
+
+-   If $x \bmod 3 = 1$, we can decrease $x$ by $1$ to make it $x - 1$, which is divisible by $3$.
+-   If $x \bmod 3 = 2$, we can increase $x$ by $1$ to make it $x + 1$, which is divisible by $3$.
+
+Therefore, we only need to count the number of elements in the array that are not divisible by $3$ to get the minimum number of operations.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 
@@ -77,11 +82,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array $\textit{num
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        ans = 0
-        for x in nums:
-            if mod := x % 3:
-                ans += min(mod, 3 - mod)
-        return ans
+        return sum(x % 3 != 0 for x in nums)
 ```
 
 #### Java
@@ -91,10 +92,7 @@ class Solution {
     public int minimumOperations(int[] nums) {
         int ans = 0;
         for (int x : nums) {
-            int mod = x % 3;
-            if (mod != 0) {
-                ans += Math.min(mod, 3 - mod);
-            }
+            ans += x % 3 != 0 ? 1 : 0;
         }
         return ans;
     }
@@ -109,10 +107,7 @@ public:
     int minimumOperations(vector<int>& nums) {
         int ans = 0;
         for (int x : nums) {
-            int mod = x % 3;
-            if (mod) {
-                ans += min(mod, 3 - mod);
-            }
+            ans += x % 3 != 0 ? 1 : 0;
         }
         return ans;
     }
@@ -124,8 +119,8 @@ public:
 ```go
 func minimumOperations(nums []int) (ans int) {
 	for _, x := range nums {
-		if mod := x % 3; mod > 0 {
-			ans += min(mod, 3-mod)
+		if x%3 != 0 {
+			ans++
 		}
 	}
 	return
@@ -136,14 +131,17 @@ func minimumOperations(nums []int) (ans int) {
 
 ```ts
 function minimumOperations(nums: number[]): number {
-    let ans = 0;
-    for (const x of nums) {
-        const mod = x % 3;
-        if (mod) {
-            ans += Math.min(mod, 3 - mod);
-        }
+    return nums.reduce((acc, x) => acc + (x % 3 !== 0 ? 1 : 0), 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_operations(nums: Vec<i32>) -> i32 {
+        nums.iter().filter(|&&x| x % 3 != 0).count() as i32
     }
-    return ans;
 }
 ```
 
