@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README.md
 rating: 1811
 source: 第 169 场双周赛 Q3
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

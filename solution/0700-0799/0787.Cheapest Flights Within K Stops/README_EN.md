@@ -61,7 +61,7 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 100</code></li>
+	<li><code>2 &lt;= n &lt;= 100</code></li>
 	<li><code>0 &lt;= flights.length &lt;= (n * (n - 1) / 2)</code></li>
 	<li><code>flights[i].length == 3</code></li>
 	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt; n</code></li>

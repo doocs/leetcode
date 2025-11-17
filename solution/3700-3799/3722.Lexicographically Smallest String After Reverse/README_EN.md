@@ -29,9 +29,7 @@ tags:
 	<li>reverse the <strong>last</strong> <code>k</code> characters of <code>s</code>.</li>
 </ul>
 
-<p>Return the <strong>lexicographically smallest</strong> string that can be obtained after <strong>exactly</strong> one such operation.</p>
-
-<p>A string <code>a</code> is <strong>lexicographically smaller</strong> than a string <code>b</code> if, at the first position where they differ, <code>a</code> has a letter that appears earlier in the alphabet than the corresponding letter in <code>b</code>. If the first <code>min(a.length, b.length)</code> characters are the same, then the shorter string is considered lexicographically smaller.</p>
+<p>Return the <strong><span data-keyword="lexicographically-smaller-string">lexicographically smallest</span></strong> string that can be obtained after <strong>exactly</strong> one such operation.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2094.Fi
 rating: 1454
 source: Weekly Contest 270 Q1
 tags:
+    - Recursion
     - Array
     - Hash Table
     - Enumeration

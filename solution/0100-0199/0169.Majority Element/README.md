@@ -46,6 +46,7 @@ tags:
 	<li><code>n == nums.length</code></li>
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li>输入保证数组中一定有一个多数元素。</li>
 </ul>
 
 <p>&nbsp;</p>

@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md
 rating: 1804
 source: Weekly Contest 475 Q3
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
 ---
 
 <!-- problem:start -->

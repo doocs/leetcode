@@ -54,8 +54,8 @@ tags:
 	<li><code>1 &lt;= s.length &lt;= 3&nbsp;* 10<sup>5</sup></code></li>
 	<li><code>s</code> 由数字、<code>'+'</code>、<code>'-'</code>、<code>'('</code>、<code>')'</code>、和 <code>' '</code> 组成</li>
 	<li><code>s</code> 表示一个有效的表达式</li>
-	<li><font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'+'</span></span></font></font> 不能用作一元运算(例如， <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">"+1"</span></span></font></font>&nbsp;和 <code>"+(2 + 3)"</code>&nbsp;无效)</li>
-	<li><font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">'-'</span></span></font></font> 可以用作一元运算(即 <font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">"-1"</span></span></font></font>&nbsp;和 <code>"-(2 + 3)"</code>&nbsp;是有效的)</li>
+	<li><code>'+'</code>&nbsp;不能用作一元运算(例如， <code>"+1"</code>&nbsp;和 <code>"+(2 + 3)"</code>&nbsp;无效)</li>
+	<li><code>'-'</code>&nbsp;可以用作一元运算(即 <code>"-1"</code>&nbsp;和 <code>"-(2 + 3)"</code>&nbsp;是有效的)</li>
 	<li>输入中不存在两个连续的操作符</li>
 	<li>每个数字和运行的计算将适合于一个有符号的 32位 整数</li>
 </ul>

@@ -450,7 +450,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0439  |  [Ternary Expression Parser](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README_EN.md)  |  `Stack`,`Recursion`,`String`  |  Medium  |  🔒  |
 |  0440  |  [K-th Smallest in Lexicographical Order](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README_EN.md)  |  `Trie`  |  Hard  |    |
 |  0441  |  [Arranging Coins](/solution/0400-0499/0441.Arranging%20Coins/README_EN.md)  |  `Math`,`Binary Search`  |  Easy  |    |
-|  0442  |  [Find All Duplicates in an Array](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |    |
+|  0442  |  [Find All Duplicates in an Array](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Medium  |    |
 |  0443  |  [String Compression](/solution/0400-0499/0443.String%20Compression/README_EN.md)  |  `Two Pointers`,`String`  |  Medium  |    |
 |  0444  |  [Sequence Reconstruction](/solution/0400-0499/0444.Sequence%20Reconstruction/README_EN.md)  |  `Graph`,`Topological Sort`,`Array`  |  Medium  |  🔒  |
 |  0445  |  [Add Two Numbers II](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md)  |  `Stack`,`Linked List`,`Math`  |  Medium  |    |
@@ -635,7 +635,6 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  0624  |  [Maximum Distance in Arrays](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
 |  0625  |  [Minimum Factorization](/solution/0600-0699/0625.Minimum%20Factorization/README_EN.md)  |  `Greedy`,`Math`  |  Medium  |  🔒  |
 |  0626  |  [Exchange Seats](/solution/0600-0699/0626.Exchange%20Seats/README_EN.md)  |  `Database`  |  Medium  |    |
-|  0627  |  [Swap Salary](/solution/0600-0699/0627.Swap%20Salary/README_EN.md)  |  `Database`  |  Easy  |    |
 |  0627  |  [Swap Sex of Employees](/solution/0600-0699/0627.Swap%20Sex%20of%20Employees/README_EN.md)  |  `Database`  |  Easy  |    |
 |  0628  |  [Maximum Product of Three Numbers](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README_EN.md)  |  `Array`,`Math`,`Sorting`  |  Easy  |    |
 |  0629  |  [K Inverse Pairs Array](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
@@ -2040,7 +2039,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2028  |  [Find Missing Observations](/solution/2000-2099/2028.Find%20Missing%20Observations/README_EN.md)  |  `Array`,`Math`,`Simulation`  |  Medium  |  Weekly Contest 261  |
 |  2029  |  [Stone Game IX](/solution/2000-2099/2029.Stone%20Game%20IX/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Counting`,`Game Theory`  |  Medium  |  Weekly Contest 261  |
 |  2030  |  [Smallest K-Length Subsequence With Occurrences of a Letter](/solution/2000-2099/2030.Smallest%20K-Length%20Subsequence%20With%20Occurrences%20of%20a%20Letter/README_EN.md)  |  `Stack`,`Greedy`,`String`,`Monotonic Stack`  |  Hard  |  Weekly Contest 261  |
-|  2031  |  [Count Subarrays With More Ones Than Zeros](/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Medium  |  🔒  |
+|  2031  |  [Count Subarrays With More Ones Than Zeros](/solution/2000-2099/2031.Count%20Subarrays%20With%20More%20Ones%20Than%20Zeros/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Hash Table`,`Binary Search`,`Divide and Conquer`,`Ordered Set`,`Merge Sort`  |  Medium  |  🔒  |
 |  2032  |  [Two Out of Three](/solution/2000-2099/2032.Two%20Out%20of%20Three/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`  |  Easy  |  Weekly Contest 262  |
 |  2033  |  [Minimum Operations to Make a Uni-Value Grid](/solution/2000-2099/2033.Minimum%20Operations%20to%20Make%20a%20Uni-Value%20Grid/README_EN.md)  |  `Array`,`Math`,`Matrix`,`Sorting`  |  Medium  |  Weekly Contest 262  |
 |  2034  |  [Stock Price Fluctuation](/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md)  |  `Design`,`Hash Table`,`Data Stream`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 262  |
@@ -2103,7 +2102,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  2091  |  [Removing Minimum and Maximum From Array](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 269  |
 |  2092  |  [Find All People With Secret](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Graph`,`Sorting`  |  Hard  |  Weekly Contest 269  |
 |  2093  |  [Minimum Cost to Reach City With Discounts](/solution/2000-2099/2093.Minimum%20Cost%20to%20Reach%20City%20With%20Discounts/README_EN.md)  |  `Graph`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
-|  2094  |  [Finding 3-Digit Even Numbers](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Sorting`  |  Easy  |  Weekly Contest 270  |
+|  2094  |  [Finding 3-Digit Even Numbers](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md)  |  `Recursion`,`Array`,`Hash Table`,`Enumeration`,`Sorting`  |  Easy  |  Weekly Contest 270  |
 |  2095  |  [Delete the Middle Node of a Linked List](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |  Weekly Contest 270  |
 |  2096  |  [Step-By-Step Directions From a Binary Tree Node to Another](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README_EN.md)  |  `Tree`,`Depth-First Search`,`String`,`Binary Tree`  |  Medium  |  Weekly Contest 270  |
 |  2097  |  [Valid Arrangement of Pairs](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md)  |  `Depth-First Search`,`Graph`,`Eulerian Circuit`  |  Hard  |  Weekly Contest 270  |
@@ -3740,20 +3739,20 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3728  |  [Stable Subarrays With Equal Boundary and Interior Sum](/solution/3700-3799/3728.Stable%20Subarrays%20With%20Equal%20Boundary%20and%20Interior%20Sum/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 473  |
 |  3729  |  [Count Distinct Subarrays Divisible by K in Sorted Array](/solution/3700-3799/3729.Count%20Distinct%20Subarrays%20Divisible%20by%20K%20in%20Sorted%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Hard  |  Weekly Contest 473  |
 |  3730  |  [Maximum Calories Burnt from Jumps](/solution/3700-3799/3730.Maximum%20Calories%20Burnt%20from%20Jumps/README_EN.md)  |  `Greedy`,`Array`,`Two Pointers`,`Sorting`  |  Medium  |  🔒  |
-|  3731  |  [Find Missing Elements](/solution/3700-3799/3731.Find%20Missing%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 474  |
-|  3732  |  [Maximum Product of Three Elements After One Replacement](/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README_EN.md)  |    |  Medium  |  Weekly Contest 474  |
-|  3733  |  [Minimum Time to Complete All Deliveries](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README_EN.md)  |    |  Medium  |  Weekly Contest 474  |
-|  3734  |  [Lexicographically Smallest Palindromic Permutation Greater Than Target](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README_EN.md)  |    |  Hard  |  Weekly Contest 474  |
-|  3735  |  [Lexicographically Smallest String After Reverse II](/solution/3700-3799/3735.Lexicographically%20Smallest%20String%20After%20Reverse%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  3736  |  [Minimum Moves to Equal Array Elements III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README_EN.md)  |    |  Easy  |  Biweekly Contest 169  |
-|  3737  |  [Count Subarrays With Majority Element I](/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 169  |
-|  3738  |  [Longest Non-Decreasing Subarray After Replacing at Most One Element](/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README_EN.md)  |    |  Medium  |  Biweekly Contest 169  |
-|  3739  |  [Count Subarrays With Majority Element II](/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 169  |
-|  3740  |  [Minimum Distance Between Three Equal Elements I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 475  |
-|  3741  |  [Minimum Distance Between Three Equal Elements II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
-|  3742  |  [Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 475  |
-|  3743  |  [Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)  |    |  Hard  |  Weekly Contest 475  |
-|  3744  |  [Find Kth Character in Expanded String](/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README_EN.md)  |    |  Medium  |  🔒  |
+|  3731  |  [Find Missing Elements](/solution/3700-3799/3731.Find%20Missing%20Elements/README_EN.md)  |  `Array`,`Hash Table`,`Sorting`  |  Easy  |  Weekly Contest 474  |
+|  3732  |  [Maximum Product of Three Elements After One Replacement](/solution/3700-3799/3732.Maximum%20Product%20of%20Three%20Elements%20After%20One%20Replacement/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Sorting`  |  Medium  |  Weekly Contest 474  |
+|  3733  |  [Minimum Time to Complete All Deliveries](/solution/3700-3799/3733.Minimum%20Time%20to%20Complete%20All%20Deliveries/README_EN.md)  |  `Math`,`Binary Search`  |  Medium  |  Weekly Contest 474  |
+|  3734  |  [Lexicographically Smallest Palindromic Permutation Greater Than Target](/solution/3700-3799/3734.Lexicographically%20Smallest%20Palindromic%20Permutation%20Greater%20Than%20Target/README_EN.md)  |  `Two Pointers`,`String`,`Enumeration`  |  Hard  |  Weekly Contest 474  |
+|  3735  |  [Lexicographically Smallest String After Reverse II](/solution/3700-3799/3735.Lexicographically%20Smallest%20String%20After%20Reverse%20II/README_EN.md)  |  `String`,`Binary Search`,`Suffix Array`,`Hash Function`,`Rolling Hash`  |  Hard  |  🔒  |
+|  3736  |  [Minimum Moves to Equal Array Elements III](/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Biweekly Contest 169  |
+|  3737  |  [Count Subarrays With Majority Element I](/solution/3700-3799/3737.Count%20Subarrays%20With%20Majority%20Element%20I/README_EN.md)  |  `Segment Tree`,`Array`,`Hash Table`,`Divide and Conquer`,`Counting`,`Prefix Sum`,`Merge Sort`  |  Medium  |  Biweekly Contest 169  |
+|  3738  |  [Longest Non-Decreasing Subarray After Replacing at Most One Element](/solution/3700-3799/3738.Longest%20Non-Decreasing%20Subarray%20After%20Replacing%20at%20Most%20One%20Element/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 169  |
+|  3739  |  [Count Subarrays With Majority Element II](/solution/3700-3799/3739.Count%20Subarrays%20With%20Majority%20Element%20II/README_EN.md)  |  `Segment Tree`,`Array`,`Hash Table`,`Divide and Conquer`,`Prefix Sum`,`Merge Sort`  |  Hard  |  Biweekly Contest 169  |
+|  3740  |  [Minimum Distance Between Three Equal Elements I](/solution/3700-3799/3740.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20I/README_EN.md)  |  `Array`,`Hash Table`  |  Easy  |  Weekly Contest 475  |
+|  3741  |  [Minimum Distance Between Three Equal Elements II](/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |  Weekly Contest 475  |
+|  3742  |  [Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Weekly Contest 475  |
+|  3743  |  [Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 475  |
+|  3744  |  [Find Kth Character in Expanded String](/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README_EN.md)  |  `String`  |  Medium  |  🔒  |
 |  3745  |  [Maximize Expression of Three Elements](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 476  |
 |  3746  |  [Minimum String Length After Balanced Removals](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
 |  3747  |  [Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |

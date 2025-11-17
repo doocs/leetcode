@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README.md
+tags:
+    - 字符串
 ---
 
 <!-- problem:start -->

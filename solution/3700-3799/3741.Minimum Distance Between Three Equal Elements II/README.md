@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3741.Minimum%20Distance%20Between%20Three%20Equal%20Elements%20II/README.md
 rating: 1449
 source: 第 475 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->

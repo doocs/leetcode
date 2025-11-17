@@ -27,7 +27,7 @@ tags:
 
 <ul>
 	<li>在替换之后，同行或同列中的每两个元素的&nbsp;<strong>相对&nbsp;</strong>顺序应该保持&nbsp;<strong>不变</strong>。</li>
-	<li>替换后矩阵中的 <strong>最大</strong> 数目应尽可能 <strong>小</strong>。</li>
+	<li>替换后矩阵中的 <strong>最大</strong> 值应尽可能 <strong>小</strong>。</li>
 </ul>
 
 <p>如果对于原始矩阵中的所有元素对，使&nbsp;<code>grid[r<sub>1</sub>][c<sub>1</sub>] &gt; grid[r<sub>2</sub>][c<sub>2</sub>]</code>，其中要么&nbsp;<code>r<sub>1</sub> == r<sub>2</sub></code> ，要么&nbsp;<code>c<sub>1</sub> == c<sub>2</sub></code>，则相对顺序保持不变。那么在替换之后一定满足&nbsp;<code>grid[r<sub>1</sub>][c<sub>1</sub>] &gt; grid[r<sub>2</sub>][c<sub>2</sub>]</code>。</p>

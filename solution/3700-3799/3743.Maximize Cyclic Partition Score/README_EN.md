@@ -4,6 +4,9 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md
 rating: 3124
 source: Weekly Contest 475 Q4
+tags:
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3736.Minimum%20Moves%20to%20Equal%20Array%20Elements%20III/README.md
 rating: 1251
 source: 第 169 场双周赛 Q1
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

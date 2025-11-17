@@ -62,7 +62,7 @@ n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 100</code></li>
+	<li><code>2 &lt;= n &lt;= 100</code></li>
 	<li><code>0 &lt;= flights.length &lt;= (n * (n - 1) / 2)</code></li>
 	<li><code>flights[i].length == 3</code></li>
 	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt; n</code></li>

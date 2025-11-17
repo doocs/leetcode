@@ -41,6 +41,8 @@ activity_type 列是 ENUM(category) 类型， 从 ('open_session'， 'end_sessio
 
 <p>结果示例如下。</p>
 
+<p><strong>注意</strong>：（<code>'open_session'</code>，<code>'end_session'</code>，<code>'scroll_down'</code>，<code>'send_message'</code>）中的任何活动将被视为用户在某一天活跃的有效活动。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>

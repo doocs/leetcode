@@ -65,6 +65,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= target.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= target[i] &lt;= 10<sup>5</sup></code></li>
+	<li>​​​​​​​The input is generated such that the answer fits inside a 32 bit integer.</li>
 </ul>
 
 <!-- description:end -->
