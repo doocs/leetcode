@@ -637,6 +637,7 @@
 |  0624  |  [数组列表中的最大距离](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README.md)  |  `贪心`,`数组`  |  中等  |    |
 |  0625  |  [最小因式分解](/solution/0600-0699/0625.Minimum%20Factorization/README.md)  |  `贪心`,`数学`  |  中等  |  🔒  |
 |  0626  |  [换座位](/solution/0600-0699/0626.Exchange%20Seats/README.md)  |  `数据库`  |  中等  |    |
+|  0627  |  [变更性别](/solution/0600-0699/0627.Swap%20Salary/README.md)  |  `数据库`  |  简单  |    |
 |  0627  |  [变更性别](/solution/0600-0699/0627.Swap%20Sex%20of%20Employees/README.md)  |  `数据库`  |  简单  |    |
 |  0628  |  [三个数的最大乘积](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README.md)  |  `数组`,`数学`,`排序`  |  简单  |    |
 |  0629  |  [K 个逆序对数组](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README.md)  |  `动态规划`  |  困难  |    |
@@ -3759,6 +3760,7 @@
 |  3746  |  [等量移除后的字符串最小长度](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README.md)  |    |  中等  |  第 476 场周赛  |
 |  3747  |  [统计移除零后不同整数的数目](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README.md)  |    |  中等  |  第 476 场周赛  |
 |  3748  |  [统计稳定子数组的数目](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README.md)  |    |  困难  |  第 476 场周赛  |
+|  3749  |  [计算有效表达式](/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

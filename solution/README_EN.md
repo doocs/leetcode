@@ -3758,6 +3758,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3746  |  [Minimum String Length After Balanced Removals](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
 |  3747  |  [Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
 |  3748  |  [Count Stable Subarrays](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 476  |
+|  3749  |  [Evaluate Valid Expressions](/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
