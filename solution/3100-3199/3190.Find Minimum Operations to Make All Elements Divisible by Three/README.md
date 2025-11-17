@@ -66,11 +66,16 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数学
+### 方法一：计数
 
-我们直接遍历数组 $\textit{nums}$，对于每个元素 $x$，我们计算 $x$ 除以 3 的余数 $x \bmod 3$，如果余数不为 0，我们需要将 $x$ 变为能被 3 整除且操作次数最少，那么我们可以选择将 $x$ 减少 $x \bmod 3$ 或者增加 $3 - x \bmod 3$，取两者的最小值累加到答案中。
+我们直接遍历数组 $\textit{nums}$，对于每个元素 $x$，如果 $x \bmod 3 \neq 0$，那么有两种情况：
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+-   如果 $x \bmod 3 = 1$，我们可以将 $x$ 减少 $1$，使其变为 $x - 1$，此时 $x - 1$ 可以被 $3$ 整除。
+-   如果 $x \bmod 3 = 2$，我们可以将 $x$ 增加 $1$，使其变为 $x + 1$，此时 $x + 1$ 可以被 $3$ 整除。
+
+因此，我们只需要统计数组中不能被 $3$ 整除的元素个数，即可得到最少操作次数。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -79,11 +84,7 @@ tags:
 ```python
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        ans = 0
-        for x in nums:
-            if mod := x % 3:
-                ans += min(mod, 3 - mod)
-        return ans
+        return sum(x % 3 != 0 for x in nums)
 ```
 
 #### Java
@@ -93,10 +94,7 @@ class Solution {
     public int minimumOperations(int[] nums) {
         int ans = 0;
         for (int x : nums) {
-            int mod = x % 3;
-            if (mod != 0) {
-                ans += Math.min(mod, 3 - mod);
-            }
+            ans += x % 3 != 0 ? 1 : 0;
         }
         return ans;
     }
@@ -111,10 +109,7 @@ public:
     int minimumOperations(vector<int>& nums) {
         int ans = 0;
         for (int x : nums) {
-            int mod = x % 3;
-            if (mod) {
-                ans += min(mod, 3 - mod);
-            }
+            ans += x % 3 != 0 ? 1 : 0;
         }
         return ans;
     }
@@ -126,8 +121,8 @@ public:
 ```go
 func minimumOperations(nums []int) (ans int) {
 	for _, x := range nums {
-		if mod := x % 3; mod > 0 {
-			ans += min(mod, 3-mod)
+		if x%3 != 0 {
+			ans++
 		}
 	}
 	return
@@ -138,14 +133,17 @@ func minimumOperations(nums []int) (ans int) {
 
 ```ts
 function minimumOperations(nums: number[]): number {
-    let ans = 0;
-    for (const x of nums) {
-        const mod = x % 3;
-        if (mod) {
-            ans += Math.min(mod, 3 - mod);
-        }
+    return nums.reduce((acc, x) => acc + (x % 3 !== 0 ? 1 : 0), 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_operations(nums: Vec<i32>) -> i32 {
+        nums.iter().filter(|&&x| x % 3 != 0).count() as i32
     }
-    return ans;
 }
 ```
 
