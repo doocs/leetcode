@@ -1,39 +1,22 @@
 class Solution {
-    private int m;
-    private int n;
-    private int k;
-    private static final int MOD = (int) 1e9 + 7;
-    private int[][] grid;
-    private int[][][] f;
-
-    public int numberOfPaths(int[][] grid, int k) {
-        this.grid = grid;
-        this.k = k;
-        m = grid.length;
-        n = grid[0].length;
-        f = new int[m][n][k];
-        for (var a : f) {
-            for (var b : a) {
-                Arrays.fill(b, -1);
+    public int numberOfPaths(int[][] grid, int K) {
+        final int mod = (int) 1e9 + 7;
+        int m = grid.length, n = grid[0].length;
+        int[][][] f = new int[m][n][K];
+        f[0][0][grid[0][0] % K] = 1;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < K; ++k) {
+                    int k0 = ((k - grid[i][j] % K) + K) % K;
+                    if (i > 0) {
+                        f[i][j][k] = (f[i][j][k] + f[i - 1][j][k0]) % mod;
+                    }
+                    if (j > 0) {
+                        f[i][j][k] = (f[i][j][k] + f[i][j - 1][k0]) % mod;
+                    }
+                }
             }
         }
-        return dfs(0, 0, 0);
-    }
-
-    private int dfs(int i, int j, int s) {
-        if (i < 0 || i >= m || j < 0 || j >= n) {
-            return 0;
-        }
-        s = (s + grid[i][j]) % k;
-        if (f[i][j][s] != -1) {
-            return f[i][j][s];
-        }
-        if (i == m - 1 && j == n - 1) {
-            return s == 0 ? 1 : 0;
-        }
-        int ans = dfs(i + 1, j, s) + dfs(i, j + 1, s);
-        ans %= MOD;
-        f[i][j][s] = ans;
-        return ans;
+        return f[m - 1][n - 1][0];
     }
 }

@@ -1,35 +1,26 @@
-func numberOfPaths(grid [][]int, k int) int {
+func numberOfPaths(grid [][]int, K int) int {
+	const mod = 1e9 + 7
 	m, n := len(grid), len(grid[0])
-	var mod int = 1e9 + 7
 	f := make([][][]int, m)
 	for i := range f {
 		f[i] = make([][]int, n)
 		for j := range f[i] {
-			f[i][j] = make([]int, k)
-			for x := 0; x < k; x++ {
-				f[i][j][x] = -1
+			f[i][j] = make([]int, K)
+		}
+	}
+	f[0][0][grid[0][0]%K] = 1
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < K; k++ {
+				k0 := ((k - grid[i][j]%K) + K) % K
+				if i > 0 {
+					f[i][j][k] = (f[i][j][k] + f[i-1][j][k0]) % mod
+				}
+				if j > 0 {
+					f[i][j][k] = (f[i][j][k] + f[i][j-1][k0]) % mod
+				}
 			}
 		}
 	}
-	var dfs func(i, j, s int) int
-	dfs = func(i, j, s int) int {
-		if i < 0 || i >= m || j < 0 || j >= n {
-			return 0
-		}
-		s = (s + grid[i][j]) % k
-		if i == m-1 && j == n-1 {
-			if s == 0 {
-				return 1
-			}
-			return 0
-		}
-		if f[i][j][s] != -1 {
-			return f[i][j][s]
-		}
-		ans := dfs(i+1, j, s) + dfs(i, j+1, s)
-		ans %= mod
-		f[i][j][s] = ans
-		return ans
-	}
-	return dfs(0, 0, 0)
+	return f[m-1][n-1][0]
 }
