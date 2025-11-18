@@ -79,7 +79,7 @@ tags:
 
 ### 方法一：DFS
 
-我们注意到，题目保证了整棵树的节点值之和可以被 $k$ 整除，因此，如果我们删除一棵元素和能被 $k$ 整除的边，那么剩下的每个连通块的节点值之和也一定可以被 $k$ 整除。
+我们注意到，题目保证了整棵树的节点值之和可以被 $k$ 整除，因此，如果我们删除一棵元素和能被 $k$ 整除的子树，那么剩下的每个连通块的节点值之和也一定可以被 $k$ 整除。
 
 因此，我们可以使用深度优先搜索的方法，从根节点开始遍历整棵树，对于每个节点，我们计算其子树中所有节点值之和，如果该和能被 $k$ 整除，那么我们就将答案加一。
 
@@ -161,7 +161,7 @@ public:
             g[a].push_back(b);
             g[b].push_back(a);
         }
-        function<long long(int, int)> dfs = [&](int i, int fa) {
+        auto dfs = [&](this auto&& dfs, int i, int fa) -> long long {
             long long s = values[i];
             for (int j : g[i]) {
                 if (j != fa) {
@@ -234,6 +234,41 @@ function maxKDivisibleComponents(
     };
     dfs(0, -1);
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_k_divisible_components(n: i32, edges: Vec<Vec<i32>>, values: Vec<i32>, k: i32) -> i32 {
+        let n = n as usize;
+        let mut g = vec![vec![]; n];
+        for e in edges {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+
+        let mut ans = 0;
+
+        fn dfs(i: usize, fa: i32, g: &Vec<Vec<usize>>, values: &Vec<i32>, k: i32, ans: &mut i32) -> i64 {
+            let mut s = values[i] as i64;
+            for &j in &g[i] {
+                if j as i32 != fa {
+                    s += dfs(j, i as i32, g, values, k, ans);
+                }
+            }
+            if s % k as i64 == 0 {
+                *ans += 1;
+            }
+            s
+        }
+
+        dfs(0, -1, &g, &values, k, &mut ans);
+        ans
+    }
 }
 ```
 

@@ -73,11 +73,11 @@ It can be shown that no other valid split has more than 3 connected components.
 
 ### Solution 1: DFS
 
-We notice that the problem guarantees that the sum of the node values in the entire tree can be divided by $k$, so if we remove an edge whose weight is divisible by $k$, then the sum of the node values in each connected component that remains can also be divided by $k$.
+We note that the problem guarantees the sum of all node values in the entire tree is divisible by $k$. Therefore, if we remove a subtree whose sum of elements is divisible by $k$, the sum of node values in each of the remaining connected components must also be divisible by $k$.
 
-Therefore, we can use depth-first search to traverse the entire tree starting from the root node. For each node, we calculate the sum of all node values in its subtree. If this sum can be divided by k, then we increment the answer by one.
+Thus, we can use a depth-first search approach, starting from the root node to traverse the entire tree. For each node, we calculate the sum of all node values in its subtree. If this sum is divisible by $k$, we increment the answer by one.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where n is the number of nodes in the tree.
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
@@ -155,7 +155,7 @@ public:
             g[a].push_back(b);
             g[b].push_back(a);
         }
-        function<long long(int, int)> dfs = [&](int i, int fa) {
+        auto dfs = [&](this auto&& dfs, int i, int fa) -> long long {
             long long s = values[i];
             for (int j : g[i]) {
                 if (j != fa) {
@@ -228,6 +228,41 @@ function maxKDivisibleComponents(
     };
     dfs(0, -1);
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_k_divisible_components(n: i32, edges: Vec<Vec<i32>>, values: Vec<i32>, k: i32) -> i32 {
+        let n = n as usize;
+        let mut g = vec![vec![]; n];
+        for e in edges {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+
+        let mut ans = 0;
+
+        fn dfs(i: usize, fa: i32, g: &Vec<Vec<usize>>, values: &Vec<i32>, k: i32, ans: &mut i32) -> i64 {
+            let mut s = values[i] as i64;
+            for &j in &g[i] {
+                if j as i32 != fa {
+                    s += dfs(j, i as i32, g, values, k, ans);
+                }
+            }
+            if s % k as i64 == 0 {
+                *ans += 1;
+            }
+            s
+        }
+
+        dfs(0, -1, &g, &values, k, &mut ans);
+        ans
+    }
 }
 ```
 

@@ -8,7 +8,7 @@ public:
             g[a].push_back(b);
             g[b].push_back(a);
         }
-        function<long long(int, int)> dfs = [&](int i, int fa) {
+        auto dfs = [&](this auto&& dfs, int i, int fa) -> long long {
             long long s = values[i];
             for (int j : g[i]) {
                 if (j != fa) {
