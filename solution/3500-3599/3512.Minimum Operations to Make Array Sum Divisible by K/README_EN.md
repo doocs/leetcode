@@ -143,6 +143,26 @@ function minOperations(nums: number[], k: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(nums: Vec<i32>, k: i32) -> i32 {
+        nums.iter().sum::<i32>() % k
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinOperations(int[] nums, int k) {
+        return nums.Sum() % k;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
