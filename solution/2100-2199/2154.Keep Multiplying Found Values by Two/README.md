@@ -40,7 +40,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [5,3,6,1,12], original = 3
 <strong>输出：</strong>24
-<strong>解释：</strong> 
+<strong>解释：</strong>
 - 3 能在 nums 中找到。3 * 2 = 6 。
 - 6 能在 nums 中找到。6 * 2 = 12 。
 - 12 能在 nums 中找到。12 * 2 = 24 。
@@ -149,6 +149,22 @@ function findFinalValue(nums: number[], original: number): number {
         original <<= 1;
     }
     return original;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_final_value(nums: Vec<i32>, original: i32) -> i32 {
+        use std::collections::HashSet;
+        let s: HashSet<i32> = nums.into_iter().collect();
+        let mut original = original;
+        while s.contains(&original) {
+            original <<= 1;
+        }
+        original
+    }
 }
 ```
 

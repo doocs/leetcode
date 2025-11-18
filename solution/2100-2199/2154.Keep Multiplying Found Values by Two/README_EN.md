@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [5,3,6,1,12], original = 3
 <strong>Output:</strong> 24
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - 3 is found in nums. 3 is multiplied by 2 to obtain 6.
 - 6 is found in nums. 6 is multiplied by 2 to obtain 12.
 - 12 is found in nums. 12 is multiplied by 2 to obtain 24.
@@ -147,6 +147,22 @@ function findFinalValue(nums: number[], original: number): number {
         original <<= 1;
     }
     return original;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_final_value(nums: Vec<i32>, original: i32) -> i32 {
+        use std::collections::HashSet;
+        let s: HashSet<i32> = nums.into_iter().collect();
+        let mut original = original;
+        while s.contains(&original) {
+            original <<= 1;
+        }
+        original
+    }
 }
 ```
 
