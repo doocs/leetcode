@@ -71,7 +71,33 @@ It can be shown that there cannot be any containing array of size 4.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Greedy
+
+We want to select as few integer points as possible on the number line such that each interval contains at least two points. A classic and effective strategy is to sort intervals by their right endpoints and try to place selected points towards the right side of intervals, so that these points can cover more subsequent intervals.
+
+First, sort all intervals by the following rules:
+
+1. Sort by right endpoint in ascending order;
+2. If right endpoints are equal, sort by left endpoint in descending order.
+
+The reason for this sorting is: intervals with smaller right endpoints have less "operational space" and should be satisfied first; when right endpoints are equal, intervals with larger left endpoints are narrower and should be prioritized.
+
+Next, we use two variables $s$ and $e$ to record the **second-to-last point** and **last point** that are common to all currently processed intervals. Initially, $s = e = -1$, indicating that no points have been placed yet.
+
+Then we process the sorted intervals $[a, b]$ one by one, and discuss three cases based on their relationship with $\{s, e\}$:
+
+1. **If $a \leq s$**:
+   The current interval already contains both points $s$ and $e$, so no additional points are needed.
+
+2. **If $s < a \leq e$**:
+   The current interval only contains one point (i.e., $e$), and needs one more point. To make the new point most helpful for subsequent intervals, we choose the rightmost point $b$ in the interval. Update $\textit{ans} = \textit{ans} + 1$, and set the new two points to $\{e, b\}$.
+
+3. **If $a > e$**:
+   The current interval does not contain either of the existing two points, so two points need to be added. The optimal choice is to place $\{b - 1, b\}$ at the rightmost side of the interval. Update $\textit{ans} = \textit{ans} + 2$, and set the new two points to $\{b - 1, b\}$.
+
+Finally, return the total number of points placed, $\textit{ans}$.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(\log n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 
@@ -179,6 +205,32 @@ func intersectionSizeTwo(intervals [][]int) int {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function intersectionSizeTwo(intervals: number[][]): number {
+    intervals.sort((a, b) => (a[1] !== b[1] ? a[1] - b[1] : b[0] - a[0]));
+    let s = -1;
+    let e = -1;
+    let ans = 0;
+    for (const [a, b] of intervals) {
+        if (a <= s) {
+            continue;
+        }
+        if (a > e) {
+            ans += 2;
+            s = b - 1;
+            e = b;
+        } else {
+            ans += 1;
+            s = e;
+            e = b;
+        }
+    }
+    return ans;
 }
 ```
 
