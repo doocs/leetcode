@@ -75,7 +75,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Enumeration
+
+According to the problem description, for a subarray's length to be divisible by $k$, it is equivalent to requiring that for subarray $\textit{nums}[i+1 \ldots j]$, we have $i \bmod k = j \bmod k$.
+
+We can enumerate the right endpoint $j$ of the subarray and use an array $\textit{f}$ of length $k$ to record the minimum prefix sum for each modulo $k$. Initially, $\textit{f}[k-1] = 0$, indicating that the prefix sum at index $-1$ is $0$.
+
+Then for the current right endpoint $j$ with prefix sum $s$, we can calculate the maximum sum of subarrays ending at $j$ with length divisible by $k$ as $s - \textit{f}[j \bmod k]$, and update the answer accordingly. At the same time, we need to update $\textit{f}[j \bmod k]$ to be the minimum of the current prefix sum $s$ and $\textit{f}[j \bmod k]$.
+
+After the enumeration is complete, return the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(k)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -174,6 +184,27 @@ function maxSubarraySum(nums: number[], k: number): number {
         f[i % k] = Math.min(f[i % k], s);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_subarray_sum(nums: Vec<i32>, k: i32) -> i64 {
+        let k = k as usize;
+        let inf = 1i64 << 62;
+        let mut f = vec![inf; k];
+        f[k - 1] = 0;
+        let mut s = 0i64;
+        let mut ans = -inf;
+        for (i, &x) in nums.iter().enumerate() {
+            s += x as i64;
+            ans = ans.max(s - f[i % k]);
+            f[i % k] = f[i % k].min(s);
+        }
+        ans
+    }
 }
 ```
 

@@ -78,7 +78,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：前缀和 + 枚举
+
+根据题目描述，要使得子数组的长度可以被 $k$ 整除，等价于要求子数组 $\textit{nums}[i+1 \ldots j]$ 中，满足 $i \bmod k = j \bmod k$。
+
+我们可以枚举子数组的右端点 $j$，并使用一个长度为 $k$ 的数组 $\textit{f}$ 来记录每个模 $k$ 的前缀和的最小值。初始时 $\textit{f}[k-1] = 0$，表示下标 $-1$ 的前缀和为 $0$。
+
+那么对于当前的右端点 $j$，前缀和为 $s$，我们可以计算出以 $j$ 为右端点的、长度可以被 $k$ 整除的子数组的最大和为 $s - \textit{f}[j \bmod k]$，以此更新答案。同时，我们也需要更新 $\textit{f}[j \bmod k]$，使其等于当前前缀和 $s$ 和 $\textit{f}[j \bmod k]$ 的较小值。
+
+枚举结束后，返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -177,6 +187,27 @@ function maxSubarraySum(nums: number[], k: number): number {
         f[i % k] = Math.min(f[i % k], s);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_subarray_sum(nums: Vec<i32>, k: i32) -> i64 {
+        let k = k as usize;
+        let inf = 1i64 << 62;
+        let mut f = vec![inf; k];
+        f[k - 1] = 0;
+        let mut s = 0i64;
+        let mut ans = -inf;
+        for (i, &x) in nums.iter().enumerate() {
+            s += x as i64;
+            ans = ans.max(s - f[i % k]);
+            f[i % k] = f[i % k].min(s);
+        }
+        ans
+    }
 }
 ```
 
