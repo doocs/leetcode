@@ -74,9 +74,9 @@ tags:
 
 两个数 $a$ 和 $b$ 的和能被 $k$ 整除，当且仅当这两个数分别对 $k$ 取模的结果之和能被 $k$ 整除。
 
-因此，我们可以统计数组中每个数对 $k$ 取模的结果，即余数，记录在数组 `cnt` 中。然后我们遍历数组 `cnt`，对于范围在 $[1,..k-1]$ 的每个数 $i$，如果 $cnt[i]$ 和 $cnt[k-i]$ 的值不相等，说明无法将数组中的数字分为 $n/2$ 对，使得每对数字的和都能被 $k$ 整除。如果 $cnt[0]$ 的值不是偶数，也说明无法将数组中的数字分为 $n/2$ 对，使得每对数字的和都能被 $k$ 整除。
+因此，我们可以统计数组中每个数对 $k$ 取模的结果，即余数，记录在数组 $\textit{cnt}$ 中。然后我们遍历数组 $\textit{cnt}$，对于范围在 $[1,..k-1]$ 的每个数 $i$，如果 $\textit{cnt}[i]$ 和 $\textit{cnt}[k-i]$ 的值不相等，说明无法将数组中的数字分为 $n/2$ 对，使得每对数字的和都能被 $k$ 整除。如果 $\textit{cnt}[0]$ 的值不是偶数，也说明无法将数组中的数字分为 $n/2$ 对，使得每对数字的和都能被 $k$ 整除。
 
-时间复杂度 $O(n)$，空间复杂度 $O(k)$。其中 $n$ 为数组 `arr` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{arr}$ 的长度。空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 
@@ -149,36 +149,59 @@ func canArrange(arr []int, k int) bool {
 
 ```ts
 function canArrange(arr: number[], k: number): boolean {
-    const cnt = Array(k).fill(0);
-
+    const cnt: number[] = Array(k).fill(0);
     for (const x of arr) {
-        cnt[((x % k) + k) % k]++;
+        ++cnt[((x % k) + k) % k];
     }
-
-    for (let i = 1; i < k; i++) {
-        if (cnt[i] !== cnt[k - i]) return false;
+    for (let i = 1; i < k; ++i) {
+        if (cnt[i] !== cnt[k - i]) {
+            return false;
+        }
     }
-
     return cnt[0] % 2 === 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_arrange(arr: Vec<i32>, k: i32) -> bool {
+        let k = k as usize;
+        let mut cnt = vec![0; k];
+        for &x in &arr {
+            cnt[((x % k as i32 + k as i32) % k as i32) as usize] += 1;
+        }
+        for i in 1..k {
+            if cnt[i] != cnt[k - i] {
+                return false;
+            }
+        }
+        cnt[0] % 2 == 0
+    }
 }
 ```
 
 #### JavaScript
 
 ```js
-function canArrange(arr, k) {
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @return {boolean}
+ */
+var canArrange = function (arr, k) {
     const cnt = Array(k).fill(0);
-
     for (const x of arr) {
-        cnt[((x % k) + k) % k]++;
+        ++cnt[((x % k) + k) % k];
     }
-
-    for (let i = 1; i < k; i++) {
-        if (cnt[i] !== cnt[k - i]) return false;
+    for (let i = 1; i < k; ++i) {
+        if (cnt[i] !== cnt[k - i]) {
+            return false;
+        }
     }
-
     return cnt[0] % 2 === 0;
-}
+};
 ```
 
 <!-- tabs:end -->

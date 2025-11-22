@@ -68,7 +68,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting Remainders
+
+The sum of two numbers $a$ and $b$ is divisible by $k$ if and only if the sum of their remainders when divided by $k$ is divisible by $k$.
+
+Therefore, we can count the remainder of each number in the array when divided by $k$, and record them in an array $\textit{cnt}$. Then we traverse the array $\textit{cnt}$. For each number $i$ in the range $[1,..k-1]$, if the values of $\textit{cnt}[i]$ and $\textit{cnt}[k-i]$ are not equal, it means we cannot divide the numbers in the array into $n/2$ pairs such that the sum of each pair is divisible by $k$. Similarly, if the value of $\textit{cnt}[0]$ is not even, it also means we cannot divide the numbers in the array into $n/2$ pairs such that the sum of each pair is divisible by $k$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -141,36 +147,59 @@ func canArrange(arr []int, k int) bool {
 
 ```ts
 function canArrange(arr: number[], k: number): boolean {
-    const cnt = Array(k).fill(0);
-
+    const cnt: number[] = Array(k).fill(0);
     for (const x of arr) {
-        cnt[((x % k) + k) % k]++;
+        ++cnt[((x % k) + k) % k];
     }
-
-    for (let i = 1; i < k; i++) {
-        if (cnt[i] !== cnt[k - i]) return false;
+    for (let i = 1; i < k; ++i) {
+        if (cnt[i] !== cnt[k - i]) {
+            return false;
+        }
     }
-
     return cnt[0] % 2 === 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_arrange(arr: Vec<i32>, k: i32) -> bool {
+        let k = k as usize;
+        let mut cnt = vec![0; k];
+        for &x in &arr {
+            cnt[((x % k as i32 + k as i32) % k as i32) as usize] += 1;
+        }
+        for i in 1..k {
+            if cnt[i] != cnt[k - i] {
+                return false;
+            }
+        }
+        cnt[0] % 2 == 0
+    }
 }
 ```
 
 #### JavaScript
 
 ```js
-function canArrange(arr, k) {
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @return {boolean}
+ */
+var canArrange = function (arr, k) {
     const cnt = Array(k).fill(0);
-
     for (const x of arr) {
-        cnt[((x % k) + k) % k]++;
+        ++cnt[((x % k) + k) % k];
     }
-
-    for (let i = 1; i < k; i++) {
-        if (cnt[i] !== cnt[k - i]) return false;
+    for (let i = 1; i < k; ++i) {
+        if (cnt[i] !== cnt[k - i]) {
+            return false;
+        }
     }
-
     return cnt[0] % 2 === 0;
-}
+};
 ```
 
 <!-- tabs:end -->
