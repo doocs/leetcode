@@ -45,7 +45,7 @@ tags:
 <strong>输入：</strong>intervals = [[1,3],[1,4],[2,5],[3,5]]
 <strong>输出：</strong>3
 <strong>解释：</strong>nums = [2, 3, 4].
-可以证明不存在元素数量为 2 的包含集合。
+可以证明不存在元素数量为 2 的包含集合。 
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -54,7 +54,7 @@ tags:
 <strong>输入：</strong>intervals = [[1,2],[2,3],[2,4],[4,5]]
 <strong>输出：</strong>5
 <strong>解释：</strong>nums = [1, 2, 3, 4, 5].
-可以证明不存在元素数量为 4 的包含集合。
+可以证明不存在元素数量为 4 的包含集合。 
 </pre>
 
 <p>&nbsp;</p>

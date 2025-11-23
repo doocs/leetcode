@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README.md
+rating: 1326
+source: 第 476 场周赛 Q2
 ---
 
 <!-- problem:start -->

@@ -3760,6 +3760,10 @@
 |  3747  |  [统计移除零后不同整数的数目](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README.md)  |    |  中等  |  第 476 场周赛  |
 |  3748  |  [统计稳定子数组的数目](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README.md)  |    |  困难  |  第 476 场周赛  |
 |  3749  |  [计算有效表达式](/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README.md)  |    |  困难  |  🔒  |
+|  3750  |  [最少反转次数得到翻转二进制字符串](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README.md)  |    |  简单  |  第 170 场双周赛  |
+|  3751  |  [范围内总波动值 I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README.md)  |    |  中等  |  第 170 场双周赛  |
+|  3752  |  [字典序最小和为目标值且绝对值是排列的数组](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README.md)  |    |  中等  |  第 170 场双周赛  |
+|  3753  |  [范围内总波动值 II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README.md)  |    |  困难  |  第 170 场双周赛  |
 
 ## 版权
 

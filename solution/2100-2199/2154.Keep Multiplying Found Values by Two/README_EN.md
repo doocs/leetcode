@@ -39,7 +39,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [5,3,6,1,12], original = 3
 <strong>Output:</strong> 24
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - 3 is found in nums. 3 is multiplied by 2 to obtain 6.
 - 6 is found in nums. 6 is multiplied by 2 to obtain 12.
 - 12 is found in nums. 12 is multiplied by 2 to obtain 24.

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md
+rating: 1218
+source: Weekly Contest 476 Q1
 ---
 
 <!-- problem:start -->

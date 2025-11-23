@@ -3758,6 +3758,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3747  |  [Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
 |  3748  |  [Count Stable Subarrays](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 476  |
 |  3749  |  [Evaluate Valid Expressions](/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README_EN.md)  |    |  Hard  |  🔒  |
+|  3750  |  [Minimum Number of Flips to Reverse Binary String](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README_EN.md)  |    |  Easy  |  Biweekly Contest 170  |
+|  3751  |  [Total Waviness of Numbers in Range I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 170  |
+|  3752  |  [Lexicographically Smallest Negated Permutation that Sums to Target](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README_EN.md)  |    |  Medium  |  Biweekly Contest 170  |
+|  3753  |  [Total Waviness of Numbers in Range II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 170  |
 
 ## Copyright
 
