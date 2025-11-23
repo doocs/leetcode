@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 170 场双周赛(2025-11-22 22:30, 90 分钟) 参赛人数 1399
+
+- [3750. 最少反转次数得到翻转二进制字符串](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README.md)
+- [3751. 范围内总波动值 I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README.md)
+- [3752. 字典序最小和为目标值且绝对值是排列的数组](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README.md)
+- [3753. 范围内总波动值 II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README.md)
+
 #### 第 476 场周赛(2025-11-16 10:30, 90 分钟) 参赛人数 1751
 
 - [3745. 三元素表达式的最大值](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README.md)
