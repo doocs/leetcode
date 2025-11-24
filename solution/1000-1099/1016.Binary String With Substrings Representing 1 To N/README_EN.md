@@ -48,7 +48,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+We observe that the length of string $s$ does not exceed $1000$, so string $s$ can represent at most $1000$ binary integers. Therefore, if $n \gt 1000$, then $s$ definitely cannot represent the binary representation of all integers in the range $[1,.. n]$.
+
+Additionally, for an integer $x$, if the binary representation of $x$ is a substring of $s$, then the binary representation of $\lfloor x / 2 \rfloor$ is also a substring of $s$. Therefore, we only need to check whether the binary representations of integers in the range $[\lfloor n / 2 \rfloor + 1,.. n]$ are substrings of $s$.
+
+The time complexity is $O(m^2 \times \log m)$ and the space complexity is $O(\log n)$, where $m$ is the length of string $s$ and $n$ is the positive integer given in the problem.
 
 <!-- tabs:start -->
 
@@ -130,6 +136,22 @@ function queryString(s: string, n: number): boolean {
         }
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+func queryString(s string, n int) bool {
+	if n > 1000 {
+		return false
+	}
+	for i := n; i > n/2; i-- {
+		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
+			return false
+		}
+	}
+	return true
 }
 ```
 
