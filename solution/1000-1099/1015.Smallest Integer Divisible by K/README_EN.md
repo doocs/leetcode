@@ -63,7 +63,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+We observe that the positive integer $n$ starts with an initial value of $1$, and each time it is multiplied by $10$ and then $1$ is added, i.e., $n = n \times 10 + 1$. Since $(n \times 10 + 1) \bmod k = ((n \bmod k) \times 10 + 1) \bmod k$, we can determine whether $n$ is divisible by $k$ by calculating $n \bmod k$.
+
+We start from $n = 1$ and calculate $n \bmod k$ each time until $n \bmod k = 0$. At this point, $n$ is the smallest positive integer we are looking for, and its length is the number of digits in $n$. Otherwise, we update $n = (n \times 10 + 1) \bmod k$. If after looping $k$ times we still haven't found $n \bmod k = 0$, it means no such $n$ exists, and we return $-1$.
+
+The time complexity is $O(k)$ and the space complexity is $O(1)$, where $k$ is the given positive integer.
 
 <!-- tabs:start -->
 
@@ -142,6 +148,23 @@ function smallestRepunitDivByK(k: number): number {
         n = (n * 10 + 1) % k;
     }
     return -1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn smallest_repunit_div_by_k(k: i32) -> i32 {
+        let mut n = 1 % k;
+        for i in 1..=k {
+            if n == 0 {
+                return i;
+            }
+            n = (n * 10 + 1) % k;
+        }
+        -1
+    }
 }
 ```
 
