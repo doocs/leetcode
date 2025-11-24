@@ -103,32 +103,150 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3758.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们首先将数字单词与对应的数字建立映射关系，记录在数组 $d$ 中，其中 $d[i]$ 表示数字 $i$ 对应的单词。
+
+然后我们从左到右遍历字符串 $s$，对于每个位置 $i$，我们依次枚举数字单词 $d[j]$，判断从位置 $i$ 开始的子串是否与 $d[j]$ 匹配。如果匹配成功，则将数字 $j$ 添加到结果中，并将位置 $i$ 向后移动 $|d[j]|$ 个位置。否则，将位置 $i$ 向后移动 1 个位置。
+
+我们重复上述过程，直到遍历完整个字符串 $s$。最后将结果中的数字连接成字符串并返回。
+
+时间复杂度 $O(n \times |d|)$，空间复杂度 $O(|d|)$，其中 $n$ 是字符串 $s$ 的长度，而 $|d|$ 是数字单词的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def convertNumber(self, s: str) -> str:
+        d = [
+            "zero",
+            "one",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "nine",
+        ]
+        i, n = 0, len(s)
+        ans = []
+        while i < n:
+            for j, t in enumerate(d):
+                m = len(t)
+                if i + m <= n and s[i : i + m] == t:
+                    ans.append(str(j))
+                    i += m - 1
+                    break
+            i += 1
+        return "".join(ans)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String convertNumber(String s) {
+        String[] d
+            = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        int n = s.length();
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < d.length; ++j) {
+                String t = d[j];
+                int m = t.length();
+                if (i + m <= n && s.substring(i, i + m).equals(t)) {
+                    ans.append(j);
+                    i += m - 1;
+                    break;
+                }
+            }
+        }
+        return ans.toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string convertNumber(string s) {
+        vector<string> d = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        int n = s.length();
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < d.size(); ++j) {
+                string t = d[j];
+                int m = t.length();
+                if (i + m <= n && s.substr(i, m) == t) {
+                    ans += to_string(j);
+                    i += m - 1;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func convertNumber(s string) string {
+	d := []string{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	n := len(s)
+	var ans strings.Builder
+	for i := 0; i < n; i++ {
+		for j, t := range d {
+			m := len(t)
+			if i+m <= n && s[i:i+m] == t {
+				ans.WriteString(strconv.Itoa(j))
+				i += m - 1
+				break
+			}
+		}
+	}
+	return ans.String()
+}
+```
 
+#### TypeScript
+
+```ts
+function convertNumber(s: string): string {
+    const d: string[] = [
+        'zero',
+        'one',
+        'two',
+        'three',
+        'four',
+        'five',
+        'six',
+        'seven',
+        'eight',
+        'nine',
+    ];
+    const n = s.length;
+    const ans: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < d.length; ++j) {
+            const t = d[j];
+            const m = t.length;
+            if (i + m <= n && s.substring(i, i + m) === t) {
+                ans.push(j.toString());
+                i += m - 1;
+                break;
+            }
+        }
+    }
+    return ans.join('');
+}
 ```
 
 <!-- tabs:end -->
