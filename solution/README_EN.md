@@ -3762,6 +3762,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3751  |  [Total Waviness of Numbers in Range I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 170  |
 |  3752  |  [Lexicographically Smallest Negated Permutation that Sums to Target](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README_EN.md)  |    |  Medium  |  Biweekly Contest 170  |
 |  3753  |  [Total Waviness of Numbers in Range II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 170  |
+|  3754  |  [Concatenate Non-Zero Digits and Multiply by Sum I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 477  |
+|  3755  |  [Find Maximum Balanced XOR Subarray Length](/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README_EN.md)  |    |  Medium  |  Weekly Contest 477  |
+|  3756  |  [Concatenate Non-Zero Digits and Multiply by Sum II](/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 477  |
+|  3757  |  [Number of Effective Subsequences](/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 477  |
+|  3758  |  [Convert Number Words to Digits](/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
