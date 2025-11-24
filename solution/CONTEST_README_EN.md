@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 477
+
+- [3754. Concatenate Non-Zero Digits and Multiply by Sum I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README_EN.md)
+- [3755. Find Maximum Balanced XOR Subarray Length](/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README_EN.md)
+- [3756. Concatenate Non-Zero Digits and Multiply by Sum II](/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README_EN.md)
+- [3757. Number of Effective Subsequences](/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README_EN.md)
+
 #### Biweekly Contest 170
 
 - [3750. Minimum Number of Flips to Reverse Binary String](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README_EN.md)

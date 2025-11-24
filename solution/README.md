@@ -3764,6 +3764,11 @@
 |  3751  |  [范围内总波动值 I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README.md)  |    |  中等  |  第 170 场双周赛  |
 |  3752  |  [字典序最小和为目标值且绝对值是排列的数组](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README.md)  |    |  中等  |  第 170 场双周赛  |
 |  3753  |  [范围内总波动值 II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README.md)  |    |  困难  |  第 170 场双周赛  |
+|  3754  |  [连接非零数字并乘以其数字和 I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README.md)  |    |  简单  |  第 477 场周赛  |
+|  3755  |  [最大平衡异或子数组的长度](/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README.md)  |    |  中等  |  第 477 场周赛  |
+|  3756  |  [连接非零数字并乘以其数字和 II](/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README.md)  |    |  中等  |  第 477 场周赛  |
+|  3757  |  [有效子序列的数量](/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README.md)  |    |  困难  |  第 477 场周赛  |
+|  3758  |  [Convert Number Words to Digits](/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

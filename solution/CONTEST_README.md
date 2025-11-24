@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 477 场周赛(2025-11-23 10:30, 90 分钟) 参赛人数 1751
+
+- [3754. 连接非零数字并乘以其数字和 I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README.md)
+- [3755. 最大平衡异或子数组的长度](/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README.md)
+- [3756. 连接非零数字并乘以其数字和 II](/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README.md)
+- [3757. 有效子序列的数量](/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README.md)
+
 #### 第 170 场双周赛(2025-11-22 22:30, 90 分钟) 参赛人数 1399
 
 - [3750. 最少反转次数得到翻转二进制字符串](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README.md)
