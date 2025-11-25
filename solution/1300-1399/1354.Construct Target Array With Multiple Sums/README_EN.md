@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> target = [9,3,5]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Start with arr = [1, 1, 1] 
+<strong>Explanation:</strong> Start with arr = [1, 1, 1]
 [1, 1, 1], sum = 3 choose index 1
 [1, 3, 1], sum = 5 choose index 2
 [1, 3, 5], sum = 9 choose index 0
@@ -74,11 +74,11 @@ tags:
 
 ### Solution 1: Reverse Construction + Priority Queue (Max Heap)
 
-We find that if we start from the array $arr$ and construct the target array $target$ forward, it is not easy to determine which index $i$ to choose each time, and the problem is relatively complex. However, if we start from the array $target$ and construct it in reverse, each construction must choose the largest element in the current array, which can ensure that each construction is unique, and the problem is relatively simple.
+We observe that if we start constructing the target array $\textit{target}$ from the array $\textit{arr}$ in a forward manner, it is difficult to determine which index $i$ to choose each time, making the problem quite complex. However, if we construct in reverse starting from the array $\textit{target}$, each construction step must select the largest element in the current array, which ensures that each construction is unique, making the problem relatively simple.
 
-Therefore, we can use a priority queue (max heap) to store the elements in the array $target$, and use a variable $s$ to record the sum of all elements in the array $target$. Each time we take out the largest element $mx$ from the priority queue, calculate the sum $t$ of all elements in the current array except $mx$. If $t < 1$ or $mx - t < 1$, it means that the target array $target$ cannot be constructed, and we return `false`. Otherwise, we calculate $mx \bmod t$. If $mx \bmod t = 0$, let $x = t$, otherwise let $x = mx \bmod t$, add $x$ to the priority queue, and update the value of $s$, repeat the above operations until all elements in the priority queue become $1$, then return `true`.
+Therefore, we can use a priority queue (max heap) to store the elements of array $\textit{target}$, and use a variable $s$ to record the sum of all elements in array $\textit{target}$. Each time we extract the maximum element $mx$ from the priority queue and calculate the sum $t$ of all elements in the current array except $mx$. If $t \lt 1$ or $mx - t \lt 1$, it means the target array $\textit{target}$ cannot be constructed, and we return `false`. Otherwise, we calculate $mx \bmod t$. If $mx \bmod t = 0$, we set $x = t$; otherwise, we set $x = mx \bmod t$. We add $x$ to the priority queue and update the value of $s$. We repeat this process until all elements in the priority queue become $1$, at which point we return `true`.
 
-The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $target$.
+The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the length of array $\textit{target}$.
 
 <!-- tabs:start -->
 
@@ -216,6 +216,34 @@ function isPossible(target: number[]): boolean {
         s = s - mx + x;
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn is_possible(target: Vec<i32>) -> bool {
+        let mut pq = BinaryHeap::from(target.clone());
+        let mut s: i64 = target.iter().map(|&x| x as i64).sum();
+
+        while let Some(&mx) = pq.peek() {
+            if mx == 1 {
+                break;
+            }
+            let mx = pq.pop().unwrap() as i64;
+            let t = s - mx;
+            if t < 1 || mx - t < 1 {
+                return false;
+            }
+            let x = if mx % t == 0 { t } else { mx % t };
+            pq.push(x as i32);
+            s = s - mx + x;
+        }
+        true
+    }
 }
 ```
 
