@@ -65,7 +65,34 @@ trie.search(&quot;app&quot;);     // return True
 
 <!-- solution:start -->
 
-### Solution 1
+## Solution 1: Trie (Prefix Tree)
+
+Each node in the trie contains two parts:
+
+1. An array of pointers to child nodes `children`. For this problem, the array length is 26, representing the number of lowercase English letters. `children[0]` corresponds to lowercase letter 'a', ..., and `children[25]` corresponds to lowercase letter 'z'.
+2. A boolean field `isEnd` indicating whether the node is the end of a string.
+
+### 1. Insert a String
+
+We start from the root of the trie and insert the string. For the child node corresponding to the current character, there are two cases:
+
+-   The child node exists. Move along the pointer to the child node and continue processing the next character.
+-   The child node does not exist. Create a new child node, record it in the corresponding position of the `children` array, then move along the pointer to the child node and continue searching for the next character.
+
+Repeat the above steps until the last character of the string is processed, then mark the current node as the end of the string.
+
+### 2. Search for a Prefix
+
+We start from the root of the trie and search for the prefix. For the child node corresponding to the current character, there are two cases:
+
+-   The child node exists. Move along the pointer to the child node and continue searching for the next character.
+-   The child node does not exist. This means the trie does not contain the prefix, so return a null pointer.
+
+Repeat the above steps until a null pointer is returned or the last character of the prefix is searched.
+
+If we search to the end of the prefix, it means the trie contains the prefix. Additionally, if the `isEnd` of the node corresponding to the end of the prefix is true, it means the trie contains the string.
+
+The time complexity for inserting a string is $O(m \times |\Sigma|)$, and the time complexity for searching a prefix is $O(m)$, where $m$ is the length of the string and $|\Sigma|$ is the size of the character set (26 in this problem). The space complexity is $O(q \times m \times |\Sigma|)$, where $q$ is the number of inserted strings.
 
 <!-- tabs:start -->
 
