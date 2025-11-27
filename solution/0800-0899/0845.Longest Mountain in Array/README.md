@@ -190,6 +190,31 @@ func longestMountain(arr []int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function longestMountain(arr: number[]): number {
+    const n = arr.length;
+    const f: number[] = Array(n).fill(1);
+    const g: number[] = Array(n).fill(1);
+    for (let i = 1; i < n; ++i) {
+        if (arr[i] > arr[i - 1]) {
+            f[i] = f[i - 1] + 1;
+        }
+    }
+    let ans = 0;
+    for (let i = n - 2; i >= 0; --i) {
+        if (arr[i] > arr[i + 1]) {
+            g[i] = g[i + 1] + 1;
+            if (f[i] > 1) {
+                ans = Math.max(ans, f[i] + g[i] - 1);
+            }
+        }
+    }
+    return ans;
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -200,7 +225,7 @@ func longestMountain(arr []int) (ans int) {
 
 我们可以枚举山脉的左侧山脚，然后向右寻找山脉的右侧山脚。我们可以使用两个指针 $l$ 和 $r$，其中 $l$ 表示左侧山脚的下标，$r$ 表示右侧山脚的下标，初始时 $l=0$,$r=0$，然后我们向右移动 $r$，找到山顶的位置，此时判断 $r$ 是否满足 $r + 1 \lt n$ 并且 $arr[r] \gt arr[r + 1]$，如果满足，我们向右继续移动 $r$，直到找到右侧山脚的位置，此时山脉的长度为 $r - l + 1$，我们更新答案，然后将 $l$ 的值更新为 $r$，继续寻找下一个山脉。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $arr$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -305,6 +330,32 @@ func longestMountain(arr []int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function longestMountain(arr: number[]): number {
+    const n = arr.length;
+    let ans = 0;
+    for (let l = 0, r = 0; l + 2 < n; l = r) {
+        r = l + 1;
+        if (arr[l] < arr[r]) {
+            while (r + 1 < n && arr[r] < arr[r + 1]) {
+                ++r;
+            }
+            if (r + 1 < n && arr[r] > arr[r + 1]) {
+                while (r + 1 < n && arr[r] > arr[r + 1]) {
+                    ++r;
+                }
+                ans = Math.max(ans, r - l + 1);
+            } else {
+                ++r;
+            }
+        }
+    }
+    return ans;
 }
 ```
 
