@@ -80,6 +80,8 @@ plugins:
       shadow: true
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
 
 hooks:
   - hooks/edit_url.py

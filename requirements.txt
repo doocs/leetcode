@@ -7,3 +7,4 @@ mkdocs-glightbox==0.3.7
 jieba==0.42.1
 beautifulsoup4==4.13.3
 gitpython==3.1.44
+mkdocs-minify-plugin==0.8.0
