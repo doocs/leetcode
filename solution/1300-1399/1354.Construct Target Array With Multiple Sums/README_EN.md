@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> target = [9,3,5]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Start with arr = [1, 1, 1]
+<strong>Explanation:</strong> Start with arr = [1, 1, 1] 
 [1, 1, 1], sum = 3 choose index 1
 [1, 3, 1], sum = 5 choose index 2
 [1, 3, 5], sum = 9 choose index 0

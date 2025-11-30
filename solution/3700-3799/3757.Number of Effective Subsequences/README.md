@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README.md
+rating: 2519
+source: 第 477 场周赛 Q4
 ---
 
 <!-- problem:start -->
