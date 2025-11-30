@@ -68,7 +68,15 @@ No operations were done so return 0.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hungarian Algorithm
+
+We observe that if two $1$s in the matrix are adjacent, they must belong to different groups. Therefore, we can treat all $1$s in the matrix as vertices, and connect an edge between two adjacent $1$s to construct a bipartite graph.
+
+Then, the problem can be transformed into finding the minimum vertex cover of a bipartite graph, which means selecting the minimum number of vertices to cover all edges. Since the minimum vertex cover of a bipartite graph equals the maximum matching, we can use the Hungarian algorithm to find the maximum matching of the bipartite graph.
+
+The core idea of the Hungarian algorithm is to continuously search for augmenting paths starting from unmatched vertices until no augmenting path exists, which yields the maximum matching.
+
+The time complexity is $O(m \times n)$, where $n$ and $m$ are the number of $1$s in the matrix and the number of edges, respectively.
 
 <!-- tabs:start -->
 
