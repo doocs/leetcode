@@ -111,17 +111,10 @@ jobs:
           git commit -m "chore: update committer cache [skip ci]" || echo "No changes to commit"
           git push origin docs
 
-      - name: Compress site for upload
-        run: |
-          tar -czf site.tar.gz -C site .
-          ls -lh site.tar.gz
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: site.tar.gz
-          retention-days: 1
+          path: site
 
   deploy:
     needs: build
@@ -133,21 +126,6 @@ jobs:
       name: github_pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-
-      - name: Extract site
-        run: |
-          mkdir -p site
-          tar -xzf site.tar.gz -C site
-
-      - name: Upload to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
