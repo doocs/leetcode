@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md
+rating: 1404
+source: Biweekly Contest 170 Q2
 ---
 
 <!-- problem:start -->

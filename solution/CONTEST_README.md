@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 478 场周赛(2025-11-30 10:30, 90 分钟) 参赛人数 1796
+
+- [3759. 统计合格元素的数目](/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README.md)
+- [3760. 不同首字母的子字符串数目](/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README.md)
+- [3761. 镜像对之间最小绝对距离](/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README.md)
+- [3762. 使数组元素相等的最小操作次数](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README.md)
+
 #### 第 477 场周赛(2025-11-23 10:30, 90 分钟) 参赛人数 1751
 
 - [3754. 连接非零数字并乘以其数字和 I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README.md)

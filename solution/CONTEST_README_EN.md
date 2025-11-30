@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 478
+
+- [3759. Count Elements With at Least K Greater Values](/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README_EN.md)
+- [3760. Maximum Substrings With Distinct Start](/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README_EN.md)
+- [3761. Minimum Absolute Distance Between Mirror Pairs](/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README_EN.md)
+- [3762. Minimum Operations to Equalize Subarrays](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md)
+
 #### Weekly Contest 477
 
 - [3754. Concatenate Non-Zero Digits and Multiply by Sum I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README_EN.md)
