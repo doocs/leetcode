@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> n = 2, batteries = [3,3,3]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Initially, insert battery 0 into the first computer and battery 1 into the second computer.
 After two minutes, remove battery 1 from the second computer and insert battery 2 instead. Note that battery 1 can still run for one minute.
 At the end of the third minute, battery 0 is drained, and you need to remove it from the first computer and insert battery 1 instead.
@@ -49,9 +49,9 @@ We can run the two computers simultaneously for at most 4 minutes, so we return 
 <pre>
 <strong>Input:</strong> n = 2, batteries = [1,1,1,1]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> 
-Initially, insert battery 0 into the first computer and battery 2 into the second computer. 
-After one minute, battery 0 and battery 2 are drained so you need to remove them and insert battery 1 into the first computer and battery 3 into the second computer. 
+<strong>Explanation:</strong>
+Initially, insert battery 0 into the first computer and battery 2 into the second computer.
+After one minute, battery 0 and battery 2 are drained so you need to remove them and insert battery 1 into the first computer and battery 3 into the second computer.
 After another minute, battery 1 and battery 3 are also drained so the first and second computers are no longer running.
 We can run the two computers simultaneously for at most 2 minutes, so we return 2.
 </pre>
@@ -203,51 +203,58 @@ function maxRunTime(n: number, batteries: number[]): number {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn max_run_time(n: i32, batteries: Vec<i32>) -> i64 {
-        // First sort the batteries
-        let mut batteries = batteries;
-        let m = batteries.len() as i32;
-        batteries.sort();
+        let n = n as i64;
+        let mut l: i64 = 0;
+        let mut r: i64 = batteries.iter().map(|&x| x as i64).sum();
 
-        let mut extra_sum: i64 = 0;
-        for i in 0..(m - n) as usize {
-            extra_sum += batteries[i] as i64;
-        }
+        while l < r {
+            let mid = (l + r + 1) >> 1;
+            let mut s: i64 = 0;
 
-        let mut i = (m - n) as usize;
-        let mut cur_height = batteries[i];
-        let mut ret = cur_height as i64;
-        while extra_sum != 0 {
-            if i + 1 == (m as usize) {
-                assert!(cur_height == *batteries.last().unwrap());
-                ret += extra_sum / (n as i64);
-                break;
+            for &x in &batteries {
+                let v = x as i64;
+                s += if v < mid { v } else { mid };
             }
 
-            if batteries[i] == batteries[i + 1] {
-                i += 1;
-                continue;
-            }
-
-            let diff = extra_sum / ((i - ((m - n) as usize) + 1) as i64);
-
-            if (cur_height as i64) + diff <= (batteries[i + 1] as i64) {
-                ret = (cur_height as i64) + diff;
-                break;
+            if s >= n * mid {
+                l = mid;
             } else {
-                extra_sum -= ((batteries[i + 1] - batteries[i]) as i64)
-                    * ((i - ((m - n) as usize) + 1) as i64);
-                ret = batteries[i + 1] as i64;
-            }
-
-            i += 1;
-            if i != (m as usize) {
-                cur_height = batteries[i];
+                r = mid - 1;
             }
         }
 
-        ret
+        l
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public long MaxRunTime(int n, int[] batteries) {
+        long l = 0, r = 0;
+        foreach (int x in batteries) {
+            r += x;
+        }
+
+        while (l < r) {
+            long mid = (l + r + 1) >> 1;
+            long s = 0;
+
+            foreach (int x in batteries) {
+                s += Math.Min(mid, (long)x);
+            }
+
+            if (s >= (long)n * mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+
+        return l;
     }
 }
 ```
