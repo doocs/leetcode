@@ -3771,6 +3771,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3760  |  [Maximum Substrings With Distinct Start](/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README_EN.md)  |    |  Medium  |  Weekly Contest 478  |
 |  3761  |  [Minimum Absolute Distance Between Mirror Pairs](/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 478  |
 |  3762  |  [Minimum Operations to Equalize Subarrays](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 478  |
+|  3763  |  [Maximum Total Sum with Threshold Constraints](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
