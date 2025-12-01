@@ -79,32 +79,120 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+According to the problem description, horizontal edges have the same $y$ coordinate. Therefore, we can group points by their $y$ coordinates and count the number of points for each $y$ coordinate.
+
+We use a hash table $\textit{cnt}$ to store the number of points for each $y$ coordinate. For each $y$ coordinate $y_i$, assuming the number of corresponding points is $v$, the number of ways to select two points from these points as a horizontal edge is $\binom{v}{2} = \frac{v(v-1)}{2}$, denoted as $t$.
+
+We use a variable $s$ to record the sum of the number of horizontal edges for all previous $y$ coordinates. Then, we can multiply the number of horizontal edges $t$ for the current $y$ coordinate by the sum $s$ of the number of horizontal edges for all previous $y$ coordinates to get the number of trapezoids with the current $y$ coordinate as one pair of horizontal edges, and add it to the answer. Finally, we add the number of horizontal edges $t$ for the current $y$ coordinate to $s$ for subsequent calculations.
+
+Note that since the answer may be very large, we need to take the modulo $10^9 + 7$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of points.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countTrapezoids(self, points: List[List[int]]) -> int:
+        mod = 10**9 + 7
+        cnt = Counter(p[1] for p in points)
+        ans = s = 0
+        for v in cnt.values():
+            t = v * (v - 1) // 2
+            ans = (ans + s * t) % mod
+            s += t
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countTrapezoids(int[][] points) {
+        final int mod = (int) 1e9 + 7;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (var p : points) {
+            cnt.merge(p[1], 1, Integer::sum);
+        }
+        long ans = 0, s = 0;
+        for (int v : cnt.values()) {
+            long t = 1L * v * (v - 1) / 2;
+            ans = (ans + s * t) % mod;
+            s += t;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countTrapezoids(vector<vector<int>>& points) {
+        const int mod = 1e9 + 7;
+        unordered_map<int, int> cnt;
+        for (auto& p : points) {
+            cnt[p[1]]++;
+        }
+        long long ans = 0, s = 0;
+        for (auto& [_, v] : cnt) {
+            long long t = 1LL * v * (v - 1) / 2;
+            ans = (ans + s * t) % mod;
+            s += t;
+        }
+        return (int) ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countTrapezoids(points [][]int) int {
+	const mod = 1_000_000_007
+	cnt := make(map[int]int)
+	for _, p := range points {
+		cnt[p[1]]++
+	}
 
+	var ans, s int64
+	for _, v := range cnt {
+		t := int64(v) * int64(v-1) / 2
+		ans = (ans + s*t) % mod
+		s += t
+	}
+	return int(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function countTrapezoids(points: number[][]): number {
+    const mod = 1_000_000_007;
+    const cnt = new Map<number, number>();
+
+    for (const p of points) {
+        cnt.set(p[1], (cnt.get(p[1]) ?? 0) + 1);
+    }
+
+    let ans = 0;
+    let s = 0;
+    for (const v of cnt.values()) {
+        const t = (v * (v - 1)) / 2;
+        const mul = BigInt(s) * BigInt(t);
+        ans = Number((BigInt(ans) + mul) % BigInt(mod));
+        s += t;
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
