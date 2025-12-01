@@ -99,6 +99,7 @@ jobs:
           fi
 
           echo "Cloning docs branch ..."
+          git config --global http.version HTTP/1.1
           git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
           cp "$CACHE_FILE" docs-cache/
 
