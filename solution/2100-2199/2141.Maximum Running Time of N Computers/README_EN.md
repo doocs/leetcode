@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> n = 2, batteries = [3,3,3]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 Initially, insert battery 0 into the first computer and battery 1 into the second computer.
 After two minutes, remove battery 1 from the second computer and insert battery 2 instead. Note that battery 1 can still run for one minute.
 At the end of the third minute, battery 0 is drained, and you need to remove it from the first computer and insert battery 1 instead.
@@ -49,9 +49,9 @@ We can run the two computers simultaneously for at most 4 minutes, so we return 
 <pre>
 <strong>Input:</strong> n = 2, batteries = [1,1,1,1]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-Initially, insert battery 0 into the first computer and battery 2 into the second computer.
-After one minute, battery 0 and battery 2 are drained so you need to remove them and insert battery 1 into the first computer and battery 3 into the second computer.
+<strong>Explanation:</strong> 
+Initially, insert battery 0 into the first computer and battery 2 into the second computer. 
+After one minute, battery 0 and battery 2 are drained so you need to remove them and insert battery 1 into the first computer and battery 3 into the second computer. 
 After another minute, battery 1 and battery 3 are also drained so the first and second computers are no longer running.
 We can run the two computers simultaneously for at most 2 minutes, so we return 2.
 </pre>
