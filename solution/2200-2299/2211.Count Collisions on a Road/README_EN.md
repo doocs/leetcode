@@ -47,7 +47,7 @@ The collisions that will happen on the road are:
 - Cars 2 and 3 will collide with each other. Since car 3 is stationary, the number of collisions becomes 2 + 1 = 3.
 - Cars 3 and 4 will collide with each other. Since car 3 is stationary, the number of collisions becomes 3 + 1 = 4.
 - Cars 4 and 5 will collide with each other. After car 4 collides with car 3, it will stay at the point of collision and get hit by car 5. The number of collisions becomes 4 + 1 = 5.
-Thus, the total number of collisions that will happen on the road is 5. 
+Thus, the total number of collisions that will happen on the road is 5.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -161,6 +161,17 @@ function countCollisions(directions: string): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_collisions(directions: String) -> i32 {
+        let s = directions.trim_start_matches('L').trim_end_matches('R');
+        (s.len() as i32) - (s.matches('S').count() as i32)
+    }
 }
 ```
 
