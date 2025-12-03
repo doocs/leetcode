@@ -1,39 +1,36 @@
 class Solution {
     private List<Integer>[] g;
-    private int[] f;
-    private boolean[] vis;
-    private int k;
+    private int[] st;
+    private int destination;
 
     public boolean leadsToDestination(int n, int[][] edges, int source, int destination) {
-        vis = new boolean[n];
+        this.destination = destination;
         g = new List[n];
-        k = destination;
-        f = new int[n];
-        Arrays.setAll(g, key -> new ArrayList<>());
-        for (var e : edges) {
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
             g[e[0]].add(e[1]);
         }
+        if (!g[destination].isEmpty()) {
+            return false;
+        }
+        st = new int[n];
         return dfs(source);
     }
 
     private boolean dfs(int i) {
-        if (i == k) {
-            return g[i].isEmpty();
+        if (st[i] != 0) {
+            return st[i] == 2;
         }
-        if (f[i] != 0) {
-            return f[i] == 1;
+        if (g[i].isEmpty()) {
+            return i == destination;
         }
-        if (vis[i] || g[i].isEmpty()) {
-            return false;
-        }
-        vis[i] = true;
+        st[i] = 1;
         for (int j : g[i]) {
             if (!dfs(j)) {
-                f[i] = -1;
                 return false;
             }
         }
-        f[i] = 1;
+        st[i] = 2;
         return true;
     }
 }
