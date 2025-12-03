@@ -78,23 +78,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：记忆化搜索
+### 方法一：DFS
 
-建图，然后从 `source` 出发，进行深度优先搜索：
+我们用一个状态数组 $\textit{state}$ 来记录每个节点的状态，其中：
 
-如果遇到了 `destination`，判断此时是否还有出边，如果有出边，返回 `false`，否则返回 `true`。
+-   状态 0 表示该节点未被访问过；
+-   状态 1 表示该节点正在被访问；
+-   状态 2 表示该节点已经被访问过且可以通向终点。
 
-如果遇到了环（此前访问过），或者遇到了没有出边的节点，直接返回 `false`。
+我们首先将图构建为邻接表的形式，然后从起点出发进行深度优先搜索（DFS）。在 DFS 过程中：
 
-否则，我们把当前节点标记为已访问，然后对当前节点的所有出边进行深度优先搜索，只要有一条路径无法可以到达 `destination`，就返回 `false`，否则返回 `true`。
+-   如果当前节点的状态为 1，说明我们遇到了一个环，直接返回 $\text{false}$；
+-   如果当前节点的状态为 2，说明该节点已经被访问过且可以通向终点，直接返回 $\text{true}$；
+-   如果当前节点没有出边，则检查该节点是否为终点，如果是则返回 $\text{true}$，否则返回 $\text{false}$；
+-   否则，将当前节点的状态设为 1，递归访问所有相邻节点；
+-   如果所有相邻节点都能通向终点，则将当前节点的状态设为 2 并返回 $\text{true}$，否则返回 $\text{false}$。
 
-过程中我们用一个数组 $f$ 记录每个节点的状态，每个 $f[i]$ 的值有三种，分别表示：
+答案为 $\text{dfs}(\text{source})$ 的结果。
 
--   对于 $f[i] = 0$，表示节点 $i$ 未被访问；
--   对于 $f[i] = 1$，表示节点 $i$ 已被访问，且可以到达 `destination`；
--   对于 $f[i] = 2$，表示节点 $i$ 已被访问，但无法到达 `destination`。
-
-时间复杂度 $O(n)$。其中 $n$ 为节点数。
+时间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别为节点数和边数。空间复杂度 $O(n + m)$，用于存储图的邻接表和状态数组。
 
 <!-- tabs:start -->
 
@@ -105,22 +107,26 @@ class Solution:
     def leadsToDestination(
         self, n: int, edges: List[List[int]], source: int, destination: int
     ) -> bool:
-        @cache
-        def dfs(i):
-            if i == destination:
-                return not g[i]
-            if i in vis or not g[i]:
-                return False
-            vis.add(i)
+        def dfs(i: int) -> bool:
+            if st[i]:
+                return st[i] == 2
+            if not g[i]:
+                return i == destination
+
+            st[i] = 1
             for j in g[i]:
                 if not dfs(j):
                     return False
+            st[i] = 2
             return True
 
-        g = defaultdict(list)
+        g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
-        vis = set()
+        if g[destination]:
+            return False
+
+        st = [0] * n
         return dfs(source)
 ```
 
@@ -129,40 +135,37 @@ class Solution:
 ```java
 class Solution {
     private List<Integer>[] g;
-    private int[] f;
-    private boolean[] vis;
-    private int k;
+    private int[] st;
+    private int destination;
 
     public boolean leadsToDestination(int n, int[][] edges, int source, int destination) {
-        vis = new boolean[n];
+        this.destination = destination;
         g = new List[n];
-        k = destination;
-        f = new int[n];
-        Arrays.setAll(g, key -> new ArrayList<>());
-        for (var e : edges) {
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
             g[e[0]].add(e[1]);
         }
+        if (!g[destination].isEmpty()) {
+            return false;
+        }
+        st = new int[n];
         return dfs(source);
     }
 
     private boolean dfs(int i) {
-        if (i == k) {
-            return g[i].isEmpty();
+        if (st[i] != 0) {
+            return st[i] == 2;
         }
-        if (f[i] != 0) {
-            return f[i] == 1;
+        if (g[i].isEmpty()) {
+            return i == destination;
         }
-        if (vis[i] || g[i].isEmpty()) {
-            return false;
-        }
-        vis[i] = true;
+        st[i] = 1;
         for (int j : g[i]) {
             if (!dfs(j)) {
-                f[i] = -1;
                 return false;
             }
         }
-        f[i] = 1;
+        st[i] = 2;
         return true;
     }
 }
@@ -173,34 +176,38 @@ class Solution {
 ```cpp
 class Solution {
 public:
+    vector<vector<int>> g;
+    vector<int> st;
+    int destination;
+
     bool leadsToDestination(int n, vector<vector<int>>& edges, int source, int destination) {
-        vector<bool> vis(n);
-        vector<vector<int>> g(n);
-        vector<int> f(n);
+        this->destination = destination;
+        g.assign(n, {});
         for (auto& e : edges) {
             g[e[0]].push_back(e[1]);
         }
-        function<bool(int)> dfs = [&](int i) {
-            if (i == destination) {
-                return g[i].empty();
-            }
-            if (f[i]) {
-                return f[i] == 1;
-            }
-            if (vis[i] || g[i].empty()) {
+        if (!g[destination].empty()) {
+            return false;
+        }
+        st.assign(n, 0);
+        return dfs(source);
+    }
+
+    bool dfs(int i) {
+        if (st[i] != 0) {
+            return st[i] == 2;
+        }
+        if (g[i].empty()) {
+            return i == destination;
+        }
+        st[i] = 1;
+        for (int j : g[i]) {
+            if (!dfs(j)) {
                 return false;
             }
-            vis[i] = true;
-            for (int j : g[i]) {
-                if (!dfs(j)) {
-                    f[i] = -1;
-                    return false;
-                }
-            }
-            f[i] = 1;
-            return true;
-        };
-        return dfs(source);
+        }
+        st[i] = 2;
+        return true;
     }
 };
 ```
@@ -209,34 +216,75 @@ public:
 
 ```go
 func leadsToDestination(n int, edges [][]int, source int, destination int) bool {
-	vis := make([]bool, n)
 	g := make([][]int, n)
-	f := make([]int, n)
 	for _, e := range edges {
 		g[e[0]] = append(g[e[0]], e[1])
 	}
-	var dfs func(int) bool
+	if len(g[destination]) > 0 {
+		return false
+	}
+
+	st := make([]int, n)
+
+	var dfs func(i int) bool
 	dfs = func(i int) bool {
-		if i == destination {
-			return len(g[i]) == 0
+		if st[i] != 0 {
+			return st[i] == 2
 		}
-		if f[i] != 0 {
-			return f[i] == 1
+		if len(g[i]) == 0 {
+			return i == destination
 		}
-		if vis[i] || len(g[i]) == 0 {
-			return false
-		}
-		vis[i] = true
+		st[i] = 1
 		for _, j := range g[i] {
 			if !dfs(j) {
-				f[i] = -1
 				return false
 			}
 		}
-		f[i] = 1
+		st[i] = 2
 		return true
 	}
+
 	return dfs(source)
+}
+```
+
+#### TypeScript
+
+```ts
+function leadsToDestination(
+    n: number,
+    edges: number[][],
+    source: number,
+    destination: number,
+): boolean {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+    }
+    if (g[destination].length > 0) {
+        return false;
+    }
+
+    const st: number[] = Array(n).fill(0);
+
+    const dfs = (i: number): boolean => {
+        if (st[i] !== 0) {
+            return st[i] === 2;
+        }
+        if (g[i].length === 0) {
+            return i === destination;
+        }
+        st[i] = 1;
+        for (const j of g[i]) {
+            if (!dfs(j)) {
+                return false;
+            }
+        }
+        st[i] = 2;
+        return true;
+    };
+
+    return dfs(source);
 }
 ```
 

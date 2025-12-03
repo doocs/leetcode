@@ -1,32 +1,36 @@
 class Solution {
 public:
+    vector<vector<int>> g;
+    vector<int> st;
+    int destination;
+
     bool leadsToDestination(int n, vector<vector<int>>& edges, int source, int destination) {
-        vector<bool> vis(n);
-        vector<vector<int>> g(n);
-        vector<int> f(n);
+        this->destination = destination;
+        g.assign(n, {});
         for (auto& e : edges) {
             g[e[0]].push_back(e[1]);
         }
-        function<bool(int)> dfs = [&](int i) {
-            if (i == destination) {
-                return g[i].empty();
-            }
-            if (f[i]) {
-                return f[i] == 1;
-            }
-            if (vis[i] || g[i].empty()) {
+        if (!g[destination].empty()) {
+            return false;
+        }
+        st.assign(n, 0);
+        return dfs(source);
+    }
+
+    bool dfs(int i) {
+        if (st[i] != 0) {
+            return st[i] == 2;
+        }
+        if (g[i].empty()) {
+            return i == destination;
+        }
+        st[i] = 1;
+        for (int j : g[i]) {
+            if (!dfs(j)) {
                 return false;
             }
-            vis[i] = true;
-            for (int j : g[i]) {
-                if (!dfs(j)) {
-                    f[i] = -1;
-                    return false;
-                }
-            }
-            f[i] = 1;
-            return true;
-        };
-        return dfs(source);
+        }
+        st[i] = 2;
+        return true;
     }
 };
