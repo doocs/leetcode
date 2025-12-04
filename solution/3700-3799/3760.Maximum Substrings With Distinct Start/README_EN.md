@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README_EN.md
+rating: 1364
+source: Weekly Contest 478 Q2
 ---
 
 <!-- problem:start -->

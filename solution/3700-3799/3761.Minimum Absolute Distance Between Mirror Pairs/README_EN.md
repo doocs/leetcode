@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README_EN.md
+rating: 1668
+source: Weekly Contest 478 Q3
 ---
 
 <!-- problem:start -->
