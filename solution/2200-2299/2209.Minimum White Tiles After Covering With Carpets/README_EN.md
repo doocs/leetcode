@@ -37,7 +37,7 @@ tags:
 <pre>
 <strong>Input:</strong> floor = &quot;10110101&quot;, numCarpets = 2, carpetLen = 2
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The figure above shows one way of covering the tiles with the carpets such that only 2 white tiles are visible.
 No other way of covering the tiles with the carpets can leave less than 2 white tiles visible.
 </pre>
@@ -47,7 +47,7 @@ No other way of covering the tiles with the carpets can leave less than 2 white 
 <pre>
 <strong>Input:</strong> floor = &quot;11111&quot;, numCarpets = 2, carpetLen = 3
 <strong>Output:</strong> 0
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The figure above shows one way of covering the tiles with the carpets such that no white tiles are visible.
 Note that the carpets are able to overlap one another.
 </pre>

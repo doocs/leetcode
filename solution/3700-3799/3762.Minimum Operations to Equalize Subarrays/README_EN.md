@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md
+rating: 2497
+source: Weekly Contest 478 Q4
 ---
 
 <!-- problem:start -->

@@ -3774,6 +3774,7 @@
 |  3761  |  [镜像对之间最小绝对距离](/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README.md)  |    |  中等  |  第 478 场周赛  |
 |  3762  |  [使数组元素相等的最小操作次数](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README.md)  |    |  困难  |  第 478 场周赛  |
 |  3763  |  [Maximum Total Sum with Threshold Constraints](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README.md)  |    |  中等  |  🔒  |
+|  3764  |  [最常见的课程组合](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README.md)  |    |  困难  |    |
 
 ## 版权
 
