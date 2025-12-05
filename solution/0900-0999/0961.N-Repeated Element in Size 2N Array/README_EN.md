@@ -54,7 +54,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+Since the array $\textit{nums}$ has a total of $2n$ elements, with $n + 1$ distinct elements, and one element repeated $n$ times, this means the remaining $n$ elements in the array are all distinct.
+
+Therefore, we only need to iterate through the array $\textit{nums}$ and use a hash table $s$ to record the elements we've encountered. When we encounter an element $x$, if $x$ already exists in the hash table $s$, it means $x$ is the repeated element, and we can directly return $x$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -145,6 +151,109 @@ var repeatedNTimes = function (nums) {
         }
         s.add(x);
     }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Mathematics
+
+According to the problem description, half of the elements in the array $\textit{nums}$ are the same. If we view the array as a circular arrangement, then there is at most $1$ other element between two identical elements.
+
+Therefore, we iterate through the array $\textit{nums}$ starting from index $2$. For each index $i$, we compare $\textit{nums}[i]$ with $\textit{nums}[i - 1]$ and $\textit{nums}[i - 2]$. If they are equal, we return that value.
+
+If we don't find the repeated element in the above process, then the repeated element must be $\textit{nums}[0]$, and we can directly return $\textit{nums}[0]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        for i in range(2, len(nums)):
+            if nums[i] == nums[i - 1] or nums[i] == nums[i - 2]:
+                return nums[i]
+        return nums[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        for (int i = 2; i < nums.length; ++i) {
+            if (nums[i] == nums[i - 1] || nums[i] == nums[i - 2]) {
+                return nums[i];
+            }
+        }
+        return nums[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& nums) {
+        for (int i = 2; i < nums.size(); ++i) {
+            if (nums[i] == nums[i - 1] || nums[i] == nums[i - 2]) {
+                return nums[i];
+            }
+        }
+        return nums[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func repeatedNTimes(nums []int) int {
+	for i := 2; i < len(nums); i++ {
+		if nums[i] == nums[i-1] || nums[i] == nums[i-2] {
+			return nums[i]
+		}
+	}
+	return nums[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function repeatedNTimes(nums: number[]): number {
+    for (let i = 2; i < nums.length; ++i) {
+        if (nums[i] === nums[i - 1] || nums[i] === nums[i - 2]) {
+            return nums[i];
+        }
+    }
+    return nums[0];
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var repeatedNTimes = function (nums) {
+    for (let i = 2; i < nums.length; ++i) {
+        if (nums[i] === nums[i - 1] || nums[i] === nums[i - 2]) {
+            return nums[i];
+        }
+    }
+    return nums[0];
 };
 ```
 
