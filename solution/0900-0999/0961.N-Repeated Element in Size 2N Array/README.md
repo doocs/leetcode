@@ -73,11 +73,11 @@ tags:
 
 ### 方法一：哈希表
 
-由于数组 $nums$ 一共有 $2n$ 个元素，其中有 $n + 1$ 个不同的元素，且有一个元素重复了 $n$ 次，说明数组中的其余 $n$ 个元素都是不同的。
+由于数组 $\textit{nums}$ 一共有 $2n$ 个元素，其中有 $n + 1$ 个不同的元素，且有一个元素重复了 $n$ 次，说明数组中的其余 $n$ 个元素都是不同的。
 
-因此，我们只需要遍历数组 $nums$，用哈希表 $s$ 记录遍历过的元素。当遍历到某个元素 $x$ 时，如果 $x$ 在哈希表 $s$ 中已经存在，说明 $x$ 是重复的元素，直接返回 $x$ 即可。
+因此，我们只需要遍历数组 $\textit{nums}$，用哈希表 $s$ 记录遍历过的元素。当遍历到某个元素 $x$ 时，如果 $x$ 在哈希表 $s$ 中已经存在，说明 $x$ 是重复的元素，直接返回 $x$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -168,6 +168,109 @@ var repeatedNTimes = function (nums) {
         }
         s.add(x);
     }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：数学
+
+根据题目描述，数组 $\textit{nums}$ 中有一半的元素都是相同的，如果我们将数组视为环形排列，那么两个相同元素之间的最多间隔 $1$ 个其他元素。
+
+因此，我们从下标 $2$ 开始遍历数组 $\textit{nums}$，对于每个下标 $i$，我们比较 $\textit{nums}[i]$ 与 $\textit{nums}[i - 1]$ 和 $\textit{nums}[i - 2]$ 的值，如果相等则返回该值。
+
+如果没有在上述过程中找到重复的元素，那么重复的元素一定是 $\textit{nums}[0]$，我们直接返回 $\textit{nums}[0]$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        for i in range(2, len(nums)):
+            if nums[i] == nums[i - 1] or nums[i] == nums[i - 2]:
+                return nums[i]
+        return nums[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        for (int i = 2; i < nums.length; ++i) {
+            if (nums[i] == nums[i - 1] || nums[i] == nums[i - 2]) {
+                return nums[i];
+            }
+        }
+        return nums[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& nums) {
+        for (int i = 2; i < nums.size(); ++i) {
+            if (nums[i] == nums[i - 1] || nums[i] == nums[i - 2]) {
+                return nums[i];
+            }
+        }
+        return nums[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func repeatedNTimes(nums []int) int {
+	for i := 2; i < len(nums); i++ {
+		if nums[i] == nums[i-1] || nums[i] == nums[i-2] {
+			return nums[i]
+		}
+	}
+	return nums[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function repeatedNTimes(nums: number[]): number {
+    for (let i = 2; i < nums.length; ++i) {
+        if (nums[i] === nums[i - 1] || nums[i] === nums[i - 2]) {
+            return nums[i];
+        }
+    }
+    return nums[0];
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var repeatedNTimes = function (nums) {
+    for (let i = 2; i < nums.length; ++i) {
+        if (nums[i] === nums[i - 1] || nums[i] === nums[i - 2]) {
+            return nums[i];
+        }
+    }
+    return nums[0];
 };
 ```
 
