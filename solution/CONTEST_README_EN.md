@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 171
+
+- [3765. Complete Prime Number](/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md)
+- [3766. Minimum Operations to Make Binary Palindrome](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README_EN.md)
+- [3767. Maximize Points After Choosing K Tasks](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md)
+- [3768. Minimum Inversion Count in Subarrays of Fixed Length](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README_EN.md)
+
 #### Weekly Contest 478
 
 - [3759. Count Elements With at Least K Greater Values](/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README_EN.md)

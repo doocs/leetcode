@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 171 场双周赛(2025-12-06 22:30, 90 分钟) 参赛人数 1403
+
+- [3765. 完全质数](/solution/3700-3799/3765.Complete%20Prime%20Number/README.md)
+- [3766. 将数字变成二进制回文数的最少操作](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README.md)
+- [3767. 选择 K 个任务的最大总分数](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README.md)
+- [3768. 固定长度子数组中的最小逆序对数目](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README.md)
+
 #### 第 478 场周赛(2025-11-30 10:30, 90 分钟) 参赛人数 1796
 
 - [3759. 统计合格元素的数目](/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README.md)

@@ -3773,6 +3773,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3762  |  [Minimum Operations to Equalize Subarrays](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 478  |
 |  3763  |  [Maximum Total Sum with Threshold Constraints](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README_EN.md)  |    |  Medium  |  🔒  |
 |  3764  |  [Most Common Course Pairs](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README_EN.md)  |    |  Hard  |    |
+|  3765  |  [Complete Prime Number](/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
+|  3766  |  [Minimum Operations to Make Binary Palindrome](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
+|  3767  |  [Maximize Points After Choosing K Tasks](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
+|  3768  |  [Minimum Inversion Count in Subarrays of Fixed Length](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README_EN.md)  |    |  Hard  |  Biweekly Contest 171  |
 
 ## Copyright
 

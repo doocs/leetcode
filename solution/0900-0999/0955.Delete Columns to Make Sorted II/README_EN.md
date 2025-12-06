@@ -32,7 +32,7 @@ tags:
 <pre>
 <strong>Input:</strong> strs = [&quot;ca&quot;,&quot;bb&quot;,&quot;ac&quot;]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 After deleting the first column, strs = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].
 Now strs is in lexicographic order (ie. strs[0] &lt;= strs[1] &lt;= strs[2]).
 We require at least 1 deletion since initially strs was not in lexicographic order, so the answer is 1.
@@ -43,7 +43,7 @@ We require at least 1 deletion since initially strs was not in lexicographic ord
 <pre>
 <strong>Input:</strong> strs = [&quot;xc&quot;,&quot;yb&quot;,&quot;za&quot;]
 <strong>Output:</strong> 0
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 strs is already in lexicographic order, so we do not need to delete anything.
 Note that the rows of strs are not necessarily in lexicographic order:
 i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
