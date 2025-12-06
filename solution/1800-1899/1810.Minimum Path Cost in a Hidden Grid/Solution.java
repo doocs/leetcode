@@ -9,57 +9,66 @@
  */
 
 class Solution {
-    private static final char[] dir = {'U', 'R', 'D', 'L'};
-    private static final char[] ndir = {'D', 'L', 'U', 'R'};
-    private static final int[] dirs = {-1, 0, 1, 0, -1};
-    private static final int N = 200;
-    private static final int INF = 0x3f3f3f3f;
-    private static int[][] g = new int[N][N];
-    private static int[][] dist = new int[N][N];
-    private int[] target;
+    private final int m = 200;
+    private final int n = 200;
+    private final int inf = Integer.MAX_VALUE / 2;
+    private final int[] dirs = {-1, 0, 1, 0, -1};
+    private final char[] s = {'U', 'R', 'D', 'L'};
+    private int[][] g;
+    private int sx = 100, sy = 100;
+    private int tx = -1, ty = -1;
+    private GridMaster master;
 
     public int findShortestPath(GridMaster master) {
-        target = new int[] {-1, -1};
-        for (int i = 0; i < N; ++i) {
-            Arrays.fill(g[i], -1);
-            Arrays.fill(dist[i], INF);
+        this.master = master;
+        g = new int[m][n];
+        for (var gg : g) {
+            Arrays.fill(gg, -1);
         }
-        dfs(100, 100, master);
-        if (target[0] == -1 && target[1] == -1) {
+        dfs(sx, sy);
+        if (tx == -1 && ty == -1) {
             return -1;
         }
-        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[] {0, 100, 100});
-        dist[100][100] = 0;
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
-            int w = p[0], i = p[1], j = p[2];
-            if (i == target[0] && j == target[1]) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        pq.offer(new int[] {0, sx, sy});
+        int[][] dist = new int[m][n];
+        for (var gg : dist) {
+            Arrays.fill(gg, inf);
+        }
+        dist[sx][sy] = 0;
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int w = p[0], x = p[1], y = p[2];
+            if (x == tx && y == ty) {
                 return w;
             }
+            if (w > dist[x][y]) {
+                continue;
+            }
             for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < N && y >= 0 && y < N && g[x][y] != -1
-                    && dist[x][y] > w + g[x][y]) {
-                    dist[x][y] = w + g[x][y];
-                    q.offer(new int[] {dist[x][y], x, y});
+                int nx = x + dirs[k], ny = y + dirs[k + 1];
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n && g[nx][ny] != -1
+                    && w + g[nx][ny] < dist[nx][ny]) {
+                    dist[nx][ny] = w + g[nx][ny];
+                    pq.offer(new int[] {dist[nx][ny], nx, ny});
                 }
             }
         }
-        return 0;
+        return -1;
     }
 
-    private void dfs(int i, int j, GridMaster master) {
+    private void dfs(int x, int y) {
         if (master.isTarget()) {
-            target = new int[] {i, j};
+            tx = x;
+            ty = y;
         }
         for (int k = 0; k < 4; ++k) {
-            char d = dir[k], nd = ndir[k];
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < N && y >= 0 && y < N && master.canMove(d) && g[x][y] == -1) {
-                g[x][y] = master.move(d);
-                dfs(x, y, master);
-                master.move(nd);
+            int dx = dirs[k], dy = dirs[k + 1];
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n && g[nx][ny] == -1 && master.canMove(s[k])) {
+                g[nx][ny] = master.move(s[k]);
+                dfs(nx, ny);
+                master.move(s[(k + 2) % 4]);
             }
         }
     }

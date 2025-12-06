@@ -116,6 +116,12 @@ tags:
 
 ### 方法一：DFS 建图 + 堆优化版 Dijkstra 算法
 
+我们注意到，网格的大小为 $m \times n$，其中 $m, n \leq 100$。因此，我们可以初始化起点坐标 $(sx, sy) = (100, 100)$，并假设网格的大小为 $200 \times 200$。然后，我们可以使用深度优先搜索（DFS）来探索整个网格，并构建一个表示网格的二维数组 $g$，其中 $g[i][j]$ 表示从起点 $(sx, sy)$ 到坐标 $(i, j)$ 的移动消耗。如果某个单元格不可达，则将其值设为 $-1$。我们将终点坐标存储在 $\textit{target}$ 中，如果无法到达终点，则 $\textit{target} = (-1, -1)$。
+
+接下来，我们可以使用堆优化版的 Dijkstra 算法来计算从起点 $(sx, sy)$ 到终点 $\textit{target}$ 的最小消耗路径。我们使用一个优先队列来存储当前的路径消耗和坐标，并使用一个二维数组 $\textit{dist}$ 来记录从起点到每个单元格的最小消耗。当我们从优先队列中取出一个节点时，如果该节点是终点，则返回当前的路径消耗作为答案。如果该节点的路径消耗大于 $\textit{dist}$ 中记录的值，则跳过该节点。否则，我们遍历该节点的四个邻居，如果邻居可达且通过该节点到达邻居的路径消耗更小，则更新邻居的路径消耗并将其加入优先队列。
+
+时间复杂度 $O(m \times n \log(m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -132,55 +138,57 @@ tags:
 #    def move(self, direction: str) -> int:
 #
 #
-#    def isTarget(self) -> None:
+#    def isTarget(self) -> bool:
 #
 #
 
 
 class Solution(object):
-    def findShortestPath(self, master: 'GridMaster') -> int:
-        def dfs(i, j):
+    def findShortestPath(self, master: "GridMaster") -> int:
+        def dfs(x: int, y: int) -> None:
             nonlocal target
             if master.isTarget():
-                target = (i, j)
-            for dir, (a, b, ndir) in dirs.items():
-                x, y = i + a, j + b
-                if 0 <= x < N and 0 <= y < N and master.canMove(dir) and g[x][y] == -1:
-                    g[x][y] = master.move(dir)
-                    dfs(x, y)
-                    master.move(ndir)
+                target = (x, y)
+            for k in range(4):
+                dx, dy = dirs[k], dirs[k + 1]
+                nx, ny = x + dx, y + dy
+                if (
+                    0 <= nx < m
+                    and 0 <= ny < n
+                    and g[nx][ny] == -1
+                    and master.canMove(s[k])
+                ):
+                    g[nx][ny] = master.move(s[k])
+                    dfs(nx, ny)
+                    master.move(s[(k + 2) % 4])
 
+        dirs = (-1, 0, 1, 0, -1)
+        s = "URDL"
+        m = n = 200
+        g = [[-1] * n for _ in range(m)]
         target = (-1, -1)
-        N = 200
-        INF = 0x3F3F3F3F
-        g = [[-1] * N for _ in range(N)]
-        dirs = {
-            'U': (-1, 0, 'D'),
-            'D': (1, 0, 'U'),
-            'L': (0, -1, 'R'),
-            'R': (0, 1, 'L'),
-        }
-        dfs(100, 100)
+        sx = sy = 100
+        dfs(sx, sy)
         if target == (-1, -1):
             return -1
-        q = [(0, 100, 100)]
-        dist = [[INF] * N for _ in range(N)]
-        dist[100][100] = 0
-        while q:
-            w, i, j = heappop(q)
-            if (i, j) == target:
+        pq = [(0, sx, sy)]
+        dist = [[inf] * n for _ in range(m)]
+        dist[sx][sy] = 0
+        while pq:
+            w, x, y = heappop(pq)
+            if (x, y) == target:
                 return w
-            for a, b, _ in dirs.values():
-                x, y = i + a, j + b
+            for dx, dy in pairwise(dirs):
+                nx, ny = x + dx, y + dy
                 if (
-                    0 <= x < N
-                    and 0 <= y < N
-                    and g[x][y] != -1
-                    and dist[x][y] > w + g[x][y]
+                    0 <= nx < m
+                    and 0 <= ny < n
+                    and g[nx][ny] != -1
+                    and w + g[nx][ny] < dist[nx][ny]
                 ):
-                    dist[x][y] = w + g[x][y]
-                    heappush(q, (dist[x][y], x, y))
-        return 0
+                    dist[nx][ny] = w + g[nx][ny]
+                    heappush(pq, (dist[nx][ny], nx, ny))
+        return -1
 ```
 
 #### Java
@@ -197,61 +205,245 @@ class Solution(object):
  */
 
 class Solution {
-    private static final char[] dir = {'U', 'R', 'D', 'L'};
-    private static final char[] ndir = {'D', 'L', 'U', 'R'};
-    private static final int[] dirs = {-1, 0, 1, 0, -1};
-    private static final int N = 200;
-    private static final int INF = 0x3f3f3f3f;
-    private static int[][] g = new int[N][N];
-    private static int[][] dist = new int[N][N];
-    private int[] target;
+    private final int m = 200;
+    private final int n = 200;
+    private final int inf = Integer.MAX_VALUE / 2;
+    private final int[] dirs = {-1, 0, 1, 0, -1};
+    private final char[] s = {'U', 'R', 'D', 'L'};
+    private int[][] g;
+    private int sx = 100, sy = 100;
+    private int tx = -1, ty = -1;
+    private GridMaster master;
 
     public int findShortestPath(GridMaster master) {
-        target = new int[] {-1, -1};
-        for (int i = 0; i < N; ++i) {
-            Arrays.fill(g[i], -1);
-            Arrays.fill(dist[i], INF);
+        this.master = master;
+        g = new int[m][n];
+        for (var gg : g) {
+            Arrays.fill(gg, -1);
         }
-        dfs(100, 100, master);
-        if (target[0] == -1 && target[1] == -1) {
+        dfs(sx, sy);
+        if (tx == -1 && ty == -1) {
             return -1;
         }
-        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        q.offer(new int[] {0, 100, 100});
-        dist[100][100] = 0;
-        while (!q.isEmpty()) {
-            int[] p = q.poll();
-            int w = p[0], i = p[1], j = p[2];
-            if (i == target[0] && j == target[1]) {
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        pq.offer(new int[] {0, sx, sy});
+        int[][] dist = new int[m][n];
+        for (var gg : dist) {
+            Arrays.fill(gg, inf);
+        }
+        dist[sx][sy] = 0;
+        while (!pq.isEmpty()) {
+            var p = pq.poll();
+            int w = p[0], x = p[1], y = p[2];
+            if (x == tx && y == ty) {
                 return w;
             }
+            if (w > dist[x][y]) {
+                continue;
+            }
             for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < N && y >= 0 && y < N && g[x][y] != -1
-                    && dist[x][y] > w + g[x][y]) {
-                    dist[x][y] = w + g[x][y];
-                    q.offer(new int[] {dist[x][y], x, y});
+                int nx = x + dirs[k], ny = y + dirs[k + 1];
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n && g[nx][ny] != -1
+                    && w + g[nx][ny] < dist[nx][ny]) {
+                    dist[nx][ny] = w + g[nx][ny];
+                    pq.offer(new int[] {dist[nx][ny], nx, ny});
                 }
             }
         }
-        return 0;
+        return -1;
     }
 
-    private void dfs(int i, int j, GridMaster master) {
+    private void dfs(int x, int y) {
         if (master.isTarget()) {
-            target = new int[] {i, j};
+            tx = x;
+            ty = y;
         }
         for (int k = 0; k < 4; ++k) {
-            char d = dir[k], nd = ndir[k];
-            int x = i + dirs[k], y = j + dirs[k + 1];
-            if (x >= 0 && x < N && y >= 0 && y < N && master.canMove(d) && g[x][y] == -1) {
-                g[x][y] = master.move(d);
-                dfs(x, y, master);
-                master.move(nd);
+            int dx = dirs[k], dy = dirs[k + 1];
+            int nx = x + dx, ny = y + dy;
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n && g[nx][ny] == -1 && master.canMove(s[k])) {
+                g[nx][ny] = master.move(s[k]);
+                dfs(nx, ny);
+                master.move(s[(k + 2) % 4]);
             }
         }
     }
 }
+```
+
+#### C++
+
+```cpp
+/**
+ * // This is the GridMaster's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class GridMaster {
+ *   public:
+ *     bool canMove(char direction);
+ *     int move(char direction);
+ *     boolean isTarget();
+ * };
+ */
+
+class Solution {
+public:
+    int findShortestPath(GridMaster& master) {
+        const int m = 200, n = 200;
+        const int sx = 100, sy = 100;
+        const int INF = INT_MAX / 2;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        char s[4] = {'U', 'R', 'D', 'L'};
+
+        vector<vector<int>> g(m, vector<int>(n, -1));
+        pair<int, int> target = {-1, -1};
+
+        auto dfs = [&](this auto& dfs, int x, int y) -> void {
+            if (master.isTarget()) {
+                target = {x, y};
+            }
+            for (int k = 0; k < 4; ++k) {
+                int dx = dirs[k], dy = dirs[k + 1];
+                int nx = x + dx, ny = y + dy;
+                if (0 <= nx && nx < m && 0 <= ny && ny < n && g[nx][ny] == -1 && master.canMove(s[k])) {
+                    g[nx][ny] = master.move(s[k]);
+                    dfs(nx, ny);
+                    master.move(s[(k + 2) % 4]);
+                }
+            }
+        };
+
+        g[sx][sy] = 0;
+        dfs(sx, sy);
+
+        if (target.first == -1 && target.second == -1) {
+            return -1;
+        }
+
+        vector<vector<int>> dist(m, vector<int>(n, INF));
+        dist[sx][sy] = 0;
+
+        using Node = tuple<int, int, int>;
+        priority_queue<Node, vector<Node>, greater<Node>> pq;
+        pq.emplace(0, sx, sy);
+
+        while (!pq.empty()) {
+            auto [w, x, y] = pq.top();
+            pq.pop();
+            if (x == target.first && y == target.second) {
+                return w;
+            }
+            if (w > dist[x][y]) {
+                continue;
+            }
+
+            for (int k = 0; k < 4; ++k) {
+                int nx = x + dirs[k], ny = y + dirs[k + 1];
+                if (0 <= nx && nx < m && 0 <= ny && ny < n && g[nx][ny] != -1) {
+                    int nd = w + g[nx][ny];
+                    if (nd < dist[nx][ny]) {
+                        dist[nx][ny] = nd;
+                        pq.emplace(nd, nx, ny);
+                    }
+                }
+            }
+        }
+
+        return -1;
+    }
+};
+```
+
+#### JavaScript
+
+```js
+/**
+ * // This is the GridMaster's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * function GridMaster() {
+ *
+ *     @param {character} direction
+ *     @return {boolean}
+ *     this.canMove = function(direction) {
+ *         ...
+ *     };
+ *     @param {character} direction
+ *     @return {integer}
+ *     this.move = function(direction) {
+ *         ...
+ *     };
+ *     @return {boolean}
+ *     this.isTarget = function() {
+ *         ...
+ *     };
+ * };
+ */
+
+/**
+ * @param {GridMaster} master
+ * @return {integer}
+ */
+var findShortestPath = function (master) {
+    const [m, n] = [200, 200];
+    const [sx, sy] = [100, 100];
+    const inf = Number.MAX_SAFE_INTEGER;
+    const dirs = [-1, 0, 1, 0, -1];
+    const s = ['U', 'R', 'D', 'L'];
+    const g = Array.from({ length: m }, () => Array(n).fill(-1));
+    let target = [-1, -1];
+    const dfs = (x, y) => {
+        if (master.isTarget()) {
+            target = [x, y];
+        }
+        for (let k = 0; k < 4; ++k) {
+            const dx = dirs[k],
+                dy = dirs[k + 1];
+            const nx = x + dx,
+                ny = y + dy;
+            if (
+                0 <= nx &&
+                nx < m &&
+                0 <= ny &&
+                ny < n &&
+                g[nx][ny] === -1 &&
+                master.canMove(s[k])
+            ) {
+                g[nx][ny] = master.move(s[k]);
+                dfs(nx, ny);
+                master.move(s[(k + 2) % 4]);
+            }
+        }
+    };
+    g[sx][sy] = 0;
+    dfs(sx, sy);
+    if (target[0] === -1 && target[1] === -1) {
+        return -1;
+    }
+    const dist = Array.from({ length: m }, () => Array(n).fill(inf));
+    dist[sx][sy] = 0;
+    const pq = new MinPriorityQueue(node => node[0]);
+    pq.enqueue([0, sx, sy]);
+    while (!pq.isEmpty()) {
+        const [w, x, y] = pq.dequeue();
+        if (x === target[0] && y === target[1]) {
+            return w;
+        }
+        if (w > dist[x][y]) {
+            continue;
+        }
+        for (let k = 0; k < 4; ++k) {
+            const nx = x + dirs[k],
+                ny = y + dirs[k + 1];
+            if (0 <= nx && nx < m && 0 <= ny && ny < n && g[nx][ny] !== -1) {
+                const nd = w + g[nx][ny];
+                if (nd < dist[nx][ny]) {
+                    dist[nx][ny] = nd;
+                    pq.enqueue([nd, nx, ny]);
+                }
+            }
+        }
+    }
+    return -1;
+};
 ```
 
 <!-- tabs:end -->

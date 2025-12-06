@@ -9,52 +9,54 @@
 #    def move(self, direction: str) -> int:
 #
 #
-#    def isTarget(self) -> None:
+#    def isTarget(self) -> bool:
 #
 #
 
 
 class Solution(object):
-    def findShortestPath(self, master: 'GridMaster') -> int:
-        def dfs(i, j):
+    def findShortestPath(self, master: "GridMaster") -> int:
+        def dfs(x: int, y: int) -> None:
             nonlocal target
             if master.isTarget():
-                target = (i, j)
-            for dir, (a, b, ndir) in dirs.items():
-                x, y = i + a, j + b
-                if 0 <= x < N and 0 <= y < N and master.canMove(dir) and g[x][y] == -1:
-                    g[x][y] = master.move(dir)
-                    dfs(x, y)
-                    master.move(ndir)
+                target = (x, y)
+            for k in range(4):
+                dx, dy = dirs[k], dirs[k + 1]
+                nx, ny = x + dx, y + dy
+                if (
+                    0 <= nx < m
+                    and 0 <= ny < n
+                    and g[nx][ny] == -1
+                    and master.canMove(s[k])
+                ):
+                    g[nx][ny] = master.move(s[k])
+                    dfs(nx, ny)
+                    master.move(s[(k + 2) % 4])
 
+        dirs = (-1, 0, 1, 0, -1)
+        s = "URDL"
+        m = n = 200
+        g = [[-1] * n for _ in range(m)]
         target = (-1, -1)
-        N = 200
-        INF = 0x3F3F3F3F
-        g = [[-1] * N for _ in range(N)]
-        dirs = {
-            'U': (-1, 0, 'D'),
-            'D': (1, 0, 'U'),
-            'L': (0, -1, 'R'),
-            'R': (0, 1, 'L'),
-        }
-        dfs(100, 100)
+        sx = sy = 100
+        dfs(sx, sy)
         if target == (-1, -1):
             return -1
-        q = [(0, 100, 100)]
-        dist = [[INF] * N for _ in range(N)]
-        dist[100][100] = 0
-        while q:
-            w, i, j = heappop(q)
-            if (i, j) == target:
+        pq = [(0, sx, sy)]
+        dist = [[inf] * n for _ in range(m)]
+        dist[sx][sy] = 0
+        while pq:
+            w, x, y = heappop(pq)
+            if (x, y) == target:
                 return w
-            for a, b, _ in dirs.values():
-                x, y = i + a, j + b
+            for dx, dy in pairwise(dirs):
+                nx, ny = x + dx, y + dy
                 if (
-                    0 <= x < N
-                    and 0 <= y < N
-                    and g[x][y] != -1
-                    and dist[x][y] > w + g[x][y]
+                    0 <= nx < m
+                    and 0 <= ny < n
+                    and g[nx][ny] != -1
+                    and w + g[nx][ny] < dist[nx][ny]
                 ):
-                    dist[x][y] = w + g[x][y]
-                    heappush(q, (dist[x][y], x, y))
-        return 0
+                    dist[nx][ny] = w + g[nx][ny]
+                    heappush(pq, (dist[nx][ny], nx, ny))
+        return -1
