@@ -50,7 +50,9 @@ tags:
 
 ### 方法一：前缀和思想
 
-`[0, x]` 之间的奇数个数为 `(x + 1) >> 1`，那么 `[low, high]` 之间的奇数个数为 `((high + 1) >> 1) - (low >> 1)`。
+我们知道，在 $[0, x]$ 范围内奇数的个数为 $\lfloor\frac{x+1}{2}\rfloor$。因此，$[low, high]$ 范围内奇数的个数为 $\lfloor\frac{high+1}{2}\rfloor - \lfloor\frac{low}{2}\rfloor$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

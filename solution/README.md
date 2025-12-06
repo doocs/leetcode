@@ -3775,6 +3775,10 @@
 |  3762  |  [使数组元素相等的最小操作次数](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README.md)  |    |  困难  |  第 478 场周赛  |
 |  3763  |  [Maximum Total Sum with Threshold Constraints](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README.md)  |    |  中等  |  🔒  |
 |  3764  |  [最常见的课程组合](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README.md)  |    |  困难  |    |
+|  3765  |  [完全质数](/solution/3700-3799/3765.Complete%20Prime%20Number/README.md)  |    |  中等  |  第 171 场双周赛  |
+|  3766  |  [将数字变成二进制回文数的最少操作](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README.md)  |    |  中等  |  第 171 场双周赛  |
+|  3767  |  [选择 K 个任务的最大总分数](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README.md)  |    |  中等  |  第 171 场双周赛  |
+|  3768  |  [固定长度子数组中的最小逆序对数目](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README.md)  |    |  困难  |  第 171 场双周赛  |
 
 ## 版权
 
