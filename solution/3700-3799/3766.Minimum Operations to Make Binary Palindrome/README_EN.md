@@ -153,32 +153,202 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3766.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + Binary Search
+
+We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $\textit{primes}$.
+
+Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $\textit{primes}$, denoted as $\textit{primes}[i]$, as well as the first palindromic number less than $x$, denoted as $\textit{primes}[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $\textit{nums}$, and $M$ is the number of preprocessed binary palindromic numbers.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+primes = []
+for i in range(1 << 14):
+    s = bin(i)[2:]
+    if s == s[::-1]:
+        primes.append(i)
 
+
+class Solution:
+    def minOperations(self, nums: List[int]) -> List[int]:
+        ans = []
+        for x in nums:
+            i = bisect_left(primes, x)
+            times = inf
+            if i < len(primes):
+                times = min(times, primes[i] - x)
+            if i >= 1:
+                times = min(times, x - primes[i - 1])
+            ans.append(times)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final List<Integer> primes = new ArrayList<>();
 
+    static {
+        int N = 1 << 14;
+        for (int i = 0; i < N; i++) {
+            String s = Integer.toBinaryString(i);
+            String rs = new StringBuilder(s).reverse().toString();
+            if (s.equals(rs)) {
+                primes.add(i);
+            }
+        }
+    }
+
+    public int[] minOperations(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, Integer.MAX_VALUE);
+        for (int k = 0; k < n; ++k) {
+            int x = nums[k];
+            int i = binarySearch(primes, x);
+            if (i < primes.size()) {
+                ans[k] = Math.min(ans[k], primes.get(i) - x);
+            }
+            if (i >= 1) {
+                ans[k] = Math.min(ans[k], x - primes.get(i - 1));
+            }
+        }
+
+        return ans;
+    }
+
+    private int binarySearch(List<Integer> primes, int x) {
+        int l = 0, r = primes.size();
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            if (primes.get(mid) >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+vector<int> primes;
 
+auto init = [] {
+    int N = 1 << 14;
+    for (int i = 0; i < N; ++i) {
+        string s = bitset<14>(i).to_string();
+        s = s.substr(s.find_first_not_of('0') == string::npos ? 13 : s.find_first_not_of('0'));
+        string rs = s;
+        reverse(rs.begin(), rs.end());
+        if (s == rs) {
+            primes.push_back(i);
+        }
+    }
+    return 0;
+}();
+
+class Solution {
+public:
+    vector<int> minOperations(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n, INT_MAX);
+        for (int k = 0; k < n; ++k) {
+            int x = nums[k];
+            int i = lower_bound(primes.begin(), primes.end(), x) - primes.begin();
+            if (i < (int) primes.size()) {
+                ans[k] = min(ans[k], primes[i] - x);
+            }
+            if (i >= 1) {
+                ans[k] = min(ans[k], x - primes[i - 1]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+var primes []int
 
+func init() {
+	N := 1 << 14
+	for i := 0; i < N; i++ {
+		s := strconv.FormatInt(int64(i), 2)
+		if isPalindrome(s) {
+			primes = append(primes, i)
+		}
+	}
+}
+
+func isPalindrome(s string) bool {
+	runes := []rune(s)
+	for i := 0; i < len(runes)/2; i++ {
+		if runes[i] != runes[len(runes)-1-i] {
+			return false
+		}
+	}
+	return true
+}
+
+func minOperations(nums []int) []int {
+	ans := make([]int, len(nums))
+	for k, x := range nums {
+		i := sort.SearchInts(primes, x)
+		t := math.MaxInt32
+		if i < len(primes) {
+			t = primes[i] - x
+		}
+		if i >= 1 {
+			t = min(t, x-primes[i-1])
+		}
+		ans[k] = t
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+const primes: number[] = (() => {
+    const res: number[] = [];
+    const N = 1 << 14;
+    for (let i = 0; i < N; i++) {
+        const s = i.toString(2);
+        if (s === s.split('').reverse().join('')) {
+            res.push(i);
+        }
+    }
+    return res;
+})();
+
+function minOperations(nums: number[]): number[] {
+    const ans: number[] = Array(nums.length).fill(Number.MAX_SAFE_INTEGER);
+
+    for (let k = 0; k < nums.length; k++) {
+        const x = nums[k];
+        const i = _.sortedIndex(primes, x);
+        if (i < primes.length) {
+            ans[k] = primes[i] - x;
+        }
+        if (i >= 1) {
+            ans[k] = Math.min(ans[k], x - primes[i - 1]);
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

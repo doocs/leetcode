@@ -88,32 +88,168 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3767.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Sorting
+
+We can first assign all tasks to technique 2, so the initial total score is $\sum_{i=0}^{n-1} technique2[i]$.
+
+Then, we calculate the score increase for each task if it were completed using technique 1 instead, denoted as $\text{diff}[i] = technique1[i] - technique2[i]$. We sort this in descending order to obtain a sorted array of task indices $\text{idx}$.
+
+Next, we select the first $k$ tasks to be completed using technique 1 and add their score differences to the total score. For the remaining tasks, if a task can increase the score by using technique 1 (i.e., $\text{diff}[i] \geq 0$), we also choose to complete it using technique 1.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of tasks.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxPoints(self, technique1: List[int], technique2: List[int], k: int) -> int:
+        n = len(technique1)
+        idx = sorted(range(n), key=lambda i: -(technique1[i] - technique2[i]))
+        ans = sum(technique2)
+        for i in idx[:k]:
+            ans -= technique2[i]
+            ans += technique1[i]
+        for i in idx[k:]:
+            if technique1[i] >= technique2[i]:
+                ans -= technique2[i]
+                ans += technique1[i]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxPoints(int[] technique1, int[] technique2, int k) {
+        int n = technique1.length;
+        Integer[] idx = new Integer[n];
+        Arrays.setAll(idx, i -> i);
+        Arrays.sort(idx, (i, j) -> technique1[j] - technique2[j] - (technique1[i] - technique2[i]));
+        long ans = 0;
+        for (int x : technique2) {
+            ans += x;
+        }
+        for (int i = 0; i < k; i++) {
+            int index = idx[i];
+            ans -= technique2[index];
+            ans += technique1[index];
+        }
+        for (int i = k; i < n; i++) {
+            int index = idx[i];
+            if (technique1[index] >= technique2[index]) {
+                ans -= technique2[index];
+                ans += technique1[index];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maxPoints(vector<int>& technique1, vector<int>& technique2, int k) {
+        int n = technique1.size();
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
 
+        sort(idx.begin(), idx.end(), [&](int i, int j) {
+            return (technique1[j] - technique2[j]) < (technique1[i] - technique2[i]);
+        });
+
+        long long ans = 0;
+        for (int x : technique2) {
+            ans += x;
+        }
+
+        for (int i = 0; i < k; i++) {
+            int index = idx[i];
+            ans -= technique2[index];
+            ans += technique1[index];
+        }
+
+        for (int i = k; i < n; i++) {
+            int index = idx[i];
+            if (technique1[index] >= technique2[index]) {
+                ans -= technique2[index];
+                ans += technique1[index];
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxPoints(technique1 []int, technique2 []int, k int) int64 {
+	n := len(technique1)
+	idx := make([]int, n)
+	for i := 0; i < n; i++ {
+		idx[i] = i
+	}
 
+	sort.Slice(idx, func(i, j int) bool {
+		return technique1[idx[j]]-technique2[idx[j]] < technique1[idx[i]]-technique2[idx[i]]
+	})
+
+	var ans int64
+	for _, x := range technique2 {
+		ans += int64(x)
+	}
+
+	for i := 0; i < k; i++ {
+		index := idx[i]
+		ans -= int64(technique2[index])
+		ans += int64(technique1[index])
+	}
+
+	for i := k; i < n; i++ {
+		index := idx[i]
+		if technique1[index] >= technique2[index] {
+			ans -= int64(technique2[index])
+			ans += int64(technique1[index])
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxPoints(technique1: number[], technique2: number[], k: number): number {
+    const n = technique1.length;
+    const idx = Array.from({ length: n }, (_, i) => i);
+
+    idx.sort((i, j) => technique1[j] - technique2[j] - (technique1[i] - technique2[i]));
+
+    let ans = technique2.reduce((sum, x) => sum + x, 0);
+
+    for (let i = 0; i < k; i++) {
+        const index = idx[i];
+        ans -= technique2[index];
+        ans += technique1[index];
+    }
+
+    for (let i = k; i < n; i++) {
+        const index = idx[i];
+        if (technique1[index] >= technique2[index]) {
+            ans -= technique2[index];
+            ans += technique1[index];
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
