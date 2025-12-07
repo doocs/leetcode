@@ -91,32 +91,199 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3765.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+我们定义一个函数 $\text{is\_prime}(x)$ 来判断一个数 $x$ 是否为质数。具体地，如果 $x < 2$，则 $x$ 不是质数；否则，我们检查从 $2$ 到 $\sqrt{x}$ 的所有整数 $i$，如果存在某个 $i$ 能整除 $x$，则 $x$ 不是质数，否则 $x$ 是质数。
+
+接下来，我们将整数 $\textit{num}$ 转换为字符串 $s$，并依次检查 $s$ 的每个前缀和后缀所对应的整数是否为质数。对于前缀，我们从左到右构造整数 $x$，对于后缀，我们从右到左构造整数 $x$。如果在检查过程中发现某个前缀或后缀对应的整数不是质数，则返回 $\text{false}$；如果所有前缀和后缀对应的整数都是质数，则返回 $\text{true}$。
+
+时间复杂度 $O(\sqrt{n} \times \log n)$，空间复杂度 $O(\log n)$，其中 $n$ 是整数 $\textit{num}$ 的大小。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def completePrime(self, num: int) -> bool:
+        def is_prime(x: int) -> bool:
+            if x < 2:
+                return False
+            return all(x % i for i in range(2, int(sqrt(x)) + 1))
 
+        s = str(num)
+        x = 0
+        for c in s:
+            x = x * 10 + int(c)
+            if not is_prime(x):
+                return False
+        x, p = 0, 1
+        for c in s[::-1]:
+            x = p * int(c) + x
+            p *= 10
+            if not is_prime(x):
+                return False
+        return True
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public boolean completePrime(int num) {
+        char[] s = String.valueOf(num).toCharArray();
+        int x = 0;
+        for (int i = 0; i < s.length; i++) {
+            x = x * 10 + (s[i] - '0');
+            if (!isPrime(x)) {
+                return false;
+            }
+        }
+        x = 0;
+        int p = 1;
+        for (int i = s.length - 1; i >= 0; i--) {
+            x = p * (s[i] - '0') + x;
+            p *= 10;
+            if (!isPrime(x)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
+    private boolean isPrime(int x) {
+        if (x < 2) {
+            return false;
+        }
+        for (int i = 2; i * i <= x; i++) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    bool completePrime(int num) {
+        auto isPrime = [&](int x) {
+            if (x < 2) {
+                return false;
+            }
+            for (int i = 2; i * i <= x; ++i) {
+                if (x % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
 
+        string s = to_string(num);
+
+        int x = 0;
+        for (char c : s) {
+            x = x * 10 + (c - '0');
+            if (!isPrime(x)) {
+                return false;
+            }
+        }
+
+        x = 0;
+        int p = 1;
+        for (int i = (int) s.size() - 1; i >= 0; --i) {
+            x = p * (s[i] - '0') + x;
+            p *= 10;
+            if (!isPrime(x)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func completePrime(num int) bool {
+    isPrime := func(x int) bool {
+        if x < 2 {
+            return false
+        }
+        for i := 2; i*i <= x; i++ {
+            if x%i == 0 {
+                return false
+            }
+        }
+        return true
+    }
 
+    s := strconv.Itoa(num)
+
+    x := 0
+    for i := 0; i < len(s); i++ {
+        x = x*10 + int(s[i]-'0')
+        if !isPrime(x) {
+            return false
+        }
+    }
+
+    x = 0
+    p := 1
+    for i := len(s) - 1; i >= 0; i-- {
+        x = p*int(s[i]-'0') + x
+        p *= 10
+        if !isPrime(x) {
+            return false
+        }
+    }
+
+    return true
+}
+```
+
+#### TypeScript
+
+```ts
+function completePrime(num: number): boolean {
+    const isPrime = (x: number): boolean => {
+        if (x < 2) return false;
+        for (let i = 2; i * i <= x; i++) {
+            if (x % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    const s = String(num);
+
+    let x = 0;
+    for (let i = 0; i < s.length; i++) {
+        x = x * 10 + (s.charCodeAt(i) - 48);
+        if (!isPrime(x)) {
+            return false;
+        }
+    }
+
+    x = 0;
+    let p = 1;
+    for (let i = s.length - 1; i >= 0; i--) {
+        x = p * (s.charCodeAt(i) - 48) + x;
+        p *= 10;
+        if (!isPrime(x)) {
+            return false;
+        }
+    }
+
+    return true;
+}
 ```
 
 <!-- tabs:end -->
