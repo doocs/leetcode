@@ -155,32 +155,202 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3766.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：预处理 + 二分查找
+
+我们注意到，题目中给定的数字范围仅为 $[1, 5000]$，因此，我们直接预处理 $[0, 2^{14})$ 范围内的所有二进制回文数，并将其存储在一个数组中，记为 $\textit{primes}$。
+
+接下来，对于每个数字 $x$，我们使用二分查找在数组 $\textit{primes}$ 中找到第一个大于等于 $x$ 的回文数 $\textit{primes}[i]$，以及第一个小于 $x$ 的回文数 $\textit{primes}[i - 1]$。然后，我们计算将 $x$ 转换为这两个回文数所需的操作次数，并取其中的最小值作为答案。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是预处理的二进制回文数的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+primes = []
+for i in range(1 << 14):
+    s = bin(i)[2:]
+    if s == s[::-1]:
+        primes.append(i)
 
+
+class Solution:
+    def minOperations(self, nums: List[int]) -> List[int]:
+        ans = []
+        for x in nums:
+            i = bisect_left(primes, x)
+            times = inf
+            if i < len(primes):
+                times = min(times, primes[i] - x)
+            if i >= 1:
+                times = min(times, x - primes[i - 1])
+            ans.append(times)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final List<Integer> primes = new ArrayList<>();
 
+    static {
+        int N = 1 << 14;
+        for (int i = 0; i < N; i++) {
+            String s = Integer.toBinaryString(i);
+            String rs = new StringBuilder(s).reverse().toString();
+            if (s.equals(rs)) {
+                primes.add(i);
+            }
+        }
+    }
+
+    public int[] minOperations(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, Integer.MAX_VALUE);
+        for (int k = 0; k < n; ++k) {
+            int x = nums[k];
+            int i = binarySearch(primes, x);
+            if (i < primes.size()) {
+                ans[k] = Math.min(ans[k], primes.get(i) - x);
+            }
+            if (i >= 1) {
+                ans[k] = Math.min(ans[k], x - primes.get(i - 1));
+            }
+        }
+
+        return ans;
+    }
+
+    private int binarySearch(List<Integer> primes, int x) {
+        int l = 0, r = primes.size();
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            if (primes.get(mid) >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+vector<int> primes;
 
+auto init = [] {
+    int N = 1 << 14;
+    for (int i = 0; i < N; ++i) {
+        string s = bitset<14>(i).to_string();
+        s = s.substr(s.find_first_not_of('0') == string::npos ? 13 : s.find_first_not_of('0'));
+        string rs = s;
+        reverse(rs.begin(), rs.end());
+        if (s == rs) {
+            primes.push_back(i);
+        }
+    }
+    return 0;
+}();
+
+class Solution {
+public:
+    vector<int> minOperations(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n, INT_MAX);
+        for (int k = 0; k < n; ++k) {
+            int x = nums[k];
+            int i = lower_bound(primes.begin(), primes.end(), x) - primes.begin();
+            if (i < (int) primes.size()) {
+                ans[k] = min(ans[k], primes[i] - x);
+            }
+            if (i >= 1) {
+                ans[k] = min(ans[k], x - primes[i - 1]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+var primes []int
 
+func init() {
+	N := 1 << 14
+	for i := 0; i < N; i++ {
+		s := strconv.FormatInt(int64(i), 2)
+		if isPalindrome(s) {
+			primes = append(primes, i)
+		}
+	}
+}
+
+func isPalindrome(s string) bool {
+	runes := []rune(s)
+	for i := 0; i < len(runes)/2; i++ {
+		if runes[i] != runes[len(runes)-1-i] {
+			return false
+		}
+	}
+	return true
+}
+
+func minOperations(nums []int) []int {
+	ans := make([]int, len(nums))
+	for k, x := range nums {
+		i := sort.SearchInts(primes, x)
+		t := math.MaxInt32
+		if i < len(primes) {
+			t = primes[i] - x
+		}
+		if i >= 1 {
+			t = min(t, x-primes[i-1])
+		}
+		ans[k] = t
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+const primes: number[] = (() => {
+    const res: number[] = [];
+    const N = 1 << 14;
+    for (let i = 0; i < N; i++) {
+        const s = i.toString(2);
+        if (s === s.split('').reverse().join('')) {
+            res.push(i);
+        }
+    }
+    return res;
+})();
+
+function minOperations(nums: number[]): number[] {
+    const ans: number[] = Array(nums.length).fill(Number.MAX_SAFE_INTEGER);
+
+    for (let k = 0; k < nums.length; k++) {
+        const x = nums[k];
+        const i = _.sortedIndex(primes, x);
+        if (i < primes.length) {
+            ans[k] = primes[i] - x;
+        }
+        if (i >= 1) {
+            ans[k] = Math.min(ans[k], x - primes[i - 1]);
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
