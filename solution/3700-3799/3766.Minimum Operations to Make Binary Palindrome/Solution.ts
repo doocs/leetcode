@@ -1,4 +1,4 @@
-const primes: number[] = (() => {
+const p: number[] = (() => {
     const res: number[] = [];
     const N = 1 << 14;
     for (let i = 0; i < N; i++) {
@@ -15,12 +15,12 @@ function minOperations(nums: number[]): number[] {
 
     for (let k = 0; k < nums.length; k++) {
         const x = nums[k];
-        const i = _.sortedIndex(primes, x);
-        if (i < primes.length) {
-            ans[k] = primes[i] - x;
+        const i = _.sortedIndex(p, x);
+        if (i < p.length) {
+            ans[k] = p[i] - x;
         }
         if (i >= 1) {
-            ans[k] = Math.min(ans[k], x - primes[i - 1]);
+            ans[k] = Math.min(ans[k], x - p[i - 1]);
         }
     }
 

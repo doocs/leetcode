@@ -1,11 +1,11 @@
-var primes []int
+var p []int
 
 func init() {
 	N := 1 << 14
 	for i := 0; i < N; i++ {
 		s := strconv.FormatInt(int64(i), 2)
 		if isPalindrome(s) {
-			primes = append(primes, i)
+			p = append(p, i)
 		}
 	}
 }
@@ -23,13 +23,13 @@ func isPalindrome(s string) bool {
 func minOperations(nums []int) []int {
 	ans := make([]int, len(nums))
 	for k, x := range nums {
-		i := sort.SearchInts(primes, x)
+		i := sort.SearchInts(p, x)
 		t := math.MaxInt32
-		if i < len(primes) {
-			t = primes[i] - x
+		if i < len(p) {
+			t = p[i] - x
 		}
 		if i >= 1 {
-			t = min(t, x-primes[i-1])
+			t = min(t, x-p[i-1])
 		}
 		ans[k] = t
 	}

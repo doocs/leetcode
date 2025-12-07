@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 479
+
+- [3769. Sort Integers by Binary Reflection](/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README_EN.md)
+- [3770. Largest Prime from Consecutive Prime Sum](/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README_EN.md)
+- [3771. Total Score of Dungeon Runs](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md)
+- [3772. Maximum Subgraph Score in a Tree](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md)
+
 #### Biweekly Contest 171
 
 - [3765. Complete Prime Number](/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md)
