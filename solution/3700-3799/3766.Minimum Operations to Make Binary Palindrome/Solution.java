@@ -1,5 +1,5 @@
 class Solution {
-    private static final List<Integer> primes = new ArrayList<>();
+    private static final List<Integer> p = new ArrayList<>();
 
     static {
         int N = 1 << 14;
@@ -7,7 +7,7 @@ class Solution {
             String s = Integer.toBinaryString(i);
             String rs = new StringBuilder(s).reverse().toString();
             if (s.equals(rs)) {
-                primes.add(i);
+                p.add(i);
             }
         }
     }
@@ -18,23 +18,23 @@ class Solution {
         Arrays.fill(ans, Integer.MAX_VALUE);
         for (int k = 0; k < n; ++k) {
             int x = nums[k];
-            int i = binarySearch(primes, x);
-            if (i < primes.size()) {
-                ans[k] = Math.min(ans[k], primes.get(i) - x);
+            int i = binarySearch(p, x);
+            if (i < p.size()) {
+                ans[k] = Math.min(ans[k], p.get(i) - x);
             }
             if (i >= 1) {
-                ans[k] = Math.min(ans[k], x - primes.get(i - 1));
+                ans[k] = Math.min(ans[k], x - p.get(i - 1));
             }
         }
 
         return ans;
     }
 
-    private int binarySearch(List<Integer> primes, int x) {
-        int l = 0, r = primes.size();
+    private int binarySearch(List<Integer> p, int x) {
+        int l = 0, r = p.size();
         while (l < r) {
             int mid = (l + r) >>> 1;
-            if (primes.get(mid) >= x) {
+            if (p.get(mid) >= x) {
                 r = mid;
             } else {
                 l = mid + 1;

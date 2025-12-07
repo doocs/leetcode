@@ -155,9 +155,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3766.Mi
 
 ### Solution 1: Preprocessing + Binary Search
 
-We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $\textit{primes}$.
+We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $\textit{p}$.
 
-Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $\textit{primes}$, denoted as $\textit{primes}[i]$, as well as the first palindromic number less than $x$, denoted as $\textit{primes}[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.
+Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $\textit{p}$, denoted as $\textit{p}[i]$, as well as the first palindromic number less than $x$, denoted as $\textit{p}[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $\textit{nums}$, and $M$ is the number of preprocessed binary palindromic numbers.
 
@@ -166,23 +166,23 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$.
 #### Python3
 
 ```python
-primes = []
+p = []
 for i in range(1 << 14):
     s = bin(i)[2:]
     if s == s[::-1]:
-        primes.append(i)
+        p.append(i)
 
 
 class Solution:
     def minOperations(self, nums: List[int]) -> List[int]:
         ans = []
         for x in nums:
-            i = bisect_left(primes, x)
+            i = bisect_left(p, x)
             times = inf
-            if i < len(primes):
-                times = min(times, primes[i] - x)
+            if i < len(p):
+                times = min(times, p[i] - x)
             if i >= 1:
-                times = min(times, x - primes[i - 1])
+                times = min(times, x - p[i - 1])
             ans.append(times)
         return ans
 ```
@@ -191,7 +191,7 @@ class Solution:
 
 ```java
 class Solution {
-    private static final List<Integer> primes = new ArrayList<>();
+    private static final List<Integer> p = new ArrayList<>();
 
     static {
         int N = 1 << 14;
@@ -199,7 +199,7 @@ class Solution {
             String s = Integer.toBinaryString(i);
             String rs = new StringBuilder(s).reverse().toString();
             if (s.equals(rs)) {
-                primes.add(i);
+                p.add(i);
             }
         }
     }
@@ -210,23 +210,23 @@ class Solution {
         Arrays.fill(ans, Integer.MAX_VALUE);
         for (int k = 0; k < n; ++k) {
             int x = nums[k];
-            int i = binarySearch(primes, x);
-            if (i < primes.size()) {
-                ans[k] = Math.min(ans[k], primes.get(i) - x);
+            int i = binarySearch(p, x);
+            if (i < p.size()) {
+                ans[k] = Math.min(ans[k], p.get(i) - x);
             }
             if (i >= 1) {
-                ans[k] = Math.min(ans[k], x - primes.get(i - 1));
+                ans[k] = Math.min(ans[k], x - p.get(i - 1));
             }
         }
 
         return ans;
     }
 
-    private int binarySearch(List<Integer> primes, int x) {
-        int l = 0, r = primes.size();
+    private int binarySearch(List<Integer> p, int x) {
+        int l = 0, r = p.size();
         while (l < r) {
             int mid = (l + r) >>> 1;
-            if (primes.get(mid) >= x) {
+            if (p.get(mid) >= x) {
                 r = mid;
             } else {
                 l = mid + 1;
@@ -240,7 +240,7 @@ class Solution {
 #### C++
 
 ```cpp
-vector<int> primes;
+vector<int> p;
 
 auto init = [] {
     int N = 1 << 14;
@@ -250,7 +250,7 @@ auto init = [] {
         string rs = s;
         reverse(rs.begin(), rs.end());
         if (s == rs) {
-            primes.push_back(i);
+            p.push_back(i);
         }
     }
     return 0;
@@ -263,12 +263,12 @@ public:
         vector<int> ans(n, INT_MAX);
         for (int k = 0; k < n; ++k) {
             int x = nums[k];
-            int i = lower_bound(primes.begin(), primes.end(), x) - primes.begin();
-            if (i < (int) primes.size()) {
-                ans[k] = min(ans[k], primes[i] - x);
+            int i = lower_bound(p.begin(), p.end(), x) - p.begin();
+            if (i < (int) p.size()) {
+                ans[k] = min(ans[k], p[i] - x);
             }
             if (i >= 1) {
-                ans[k] = min(ans[k], x - primes[i - 1]);
+                ans[k] = min(ans[k], x - p[i - 1]);
             }
         }
         return ans;
@@ -279,14 +279,14 @@ public:
 #### Go
 
 ```go
-var primes []int
+var p []int
 
 func init() {
 	N := 1 << 14
 	for i := 0; i < N; i++ {
 		s := strconv.FormatInt(int64(i), 2)
 		if isPalindrome(s) {
-			primes = append(primes, i)
+			p = append(p, i)
 		}
 	}
 }
@@ -304,13 +304,13 @@ func isPalindrome(s string) bool {
 func minOperations(nums []int) []int {
 	ans := make([]int, len(nums))
 	for k, x := range nums {
-		i := sort.SearchInts(primes, x)
+		i := sort.SearchInts(p, x)
 		t := math.MaxInt32
-		if i < len(primes) {
-			t = primes[i] - x
+		if i < len(p) {
+			t = p[i] - x
 		}
 		if i >= 1 {
-			t = min(t, x-primes[i-1])
+			t = min(t, x-p[i-1])
 		}
 		ans[k] = t
 	}
@@ -321,7 +321,7 @@ func minOperations(nums []int) []int {
 #### TypeScript
 
 ```ts
-const primes: number[] = (() => {
+const p: number[] = (() => {
     const res: number[] = [];
     const N = 1 << 14;
     for (let i = 0; i < N; i++) {
@@ -338,12 +338,12 @@ function minOperations(nums: number[]): number[] {
 
     for (let k = 0; k < nums.length; k++) {
         const x = nums[k];
-        const i = _.sortedIndex(primes, x);
-        if (i < primes.length) {
-            ans[k] = primes[i] - x;
+        const i = _.sortedIndex(p, x);
+        if (i < p.length) {
+            ans[k] = p[i] - x;
         }
         if (i >= 1) {
-            ans[k] = Math.min(ans[k], x - primes[i - 1]);
+            ans[k] = Math.min(ans[k], x - p[i - 1]);
         }
     }
 

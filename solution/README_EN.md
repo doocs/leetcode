@@ -3777,6 +3777,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3766  |  [Minimum Operations to Make Binary Palindrome](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
 |  3767  |  [Maximize Points After Choosing K Tasks](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
 |  3768  |  [Minimum Inversion Count in Subarrays of Fixed Length](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README_EN.md)  |    |  Hard  |  Biweekly Contest 171  |
+|  3769  |  [Sort Integers by Binary Reflection](/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README_EN.md)  |    |  Easy  |  Weekly Contest 479  |
+|  3770  |  [Largest Prime from Consecutive Prime Sum](/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 479  |
+|  3771  |  [Total Score of Dungeon Runs](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md)  |    |  Medium  |  Weekly Contest 479  |
+|  3772  |  [Maximum Subgraph Score in a Tree](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 479  |
 
 ## Copyright
 

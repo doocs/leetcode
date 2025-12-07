@@ -1,4 +1,4 @@
-vector<int> primes;
+vector<int> p;
 
 auto init = [] {
     int N = 1 << 14;
@@ -8,7 +8,7 @@ auto init = [] {
         string rs = s;
         reverse(rs.begin(), rs.end());
         if (s == rs) {
-            primes.push_back(i);
+            p.push_back(i);
         }
     }
     return 0;
@@ -21,12 +21,12 @@ public:
         vector<int> ans(n, INT_MAX);
         for (int k = 0; k < n; ++k) {
             int x = nums[k];
-            int i = lower_bound(primes.begin(), primes.end(), x) - primes.begin();
-            if (i < (int) primes.size()) {
-                ans[k] = min(ans[k], primes[i] - x);
+            int i = lower_bound(p.begin(), p.end(), x) - p.begin();
+            if (i < (int) p.size()) {
+                ans[k] = min(ans[k], p[i] - x);
             }
             if (i >= 1) {
-                ans[k] = min(ans[k], x - primes[i - 1]);
+                ans[k] = min(ans[k], x - p[i - 1]);
             }
         }
         return ans;
