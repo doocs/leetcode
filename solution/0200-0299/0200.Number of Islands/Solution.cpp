@@ -5,7 +5,7 @@ public:
         int n = grid[0].size();
         int ans = 0;
         int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> void {
             grid[i][j] = '0';
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];

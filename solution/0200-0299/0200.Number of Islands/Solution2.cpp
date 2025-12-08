@@ -5,11 +5,10 @@ public:
         int n = grid[0].size();
         int ans = 0;
         int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> bfs = [&](int i, int j) {
+        auto bfs = [&](int i, int j) -> void {
             grid[i][j] = '0';
             queue<pair<int, int>> q;
             q.push({i, j});
-            vector<int> dirs = {-1, 0, 1, 0, -1};
             while (!q.empty()) {
                 auto [a, b] = q.front();
                 q.pop();
