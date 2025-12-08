@@ -3783,6 +3783,7 @@
 |  3770  |  [可表示为连续质数和的最大质数](/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README.md)  |    |  中等  |  第 479 场周赛  |
 |  3771  |  [探索地牢的得分](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README.md)  |    |  中等  |  第 479 场周赛  |
 |  3772  |  [子图的最大得分](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README.md)  |    |  困难  |  第 479 场周赛  |
+|  3773  |  [最大等长连续字符组](/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
