@@ -65,7 +65,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+We can use depth-first search (DFS) to traverse each island. We iterate through each cell $(i, j)$ in the grid. If the cell's value is '1', it means we have found a new island. We can start a DFS from this cell, marking all connected land cells as '0' to avoid duplicate counting. Each time we find a new island, we increment the island count by 1.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -140,7 +144,7 @@ public:
         int n = grid[0].size();
         int ans = 0;
         int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> void {
             grid[i][j] = '0';
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
@@ -198,24 +202,28 @@ function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
     let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+
     const dfs = (i: number, j: number) => {
-        if (grid[i]?.[j] !== '1') {
-            return;
-        }
         grid[i][j] = '0';
-        dfs(i + 1, j);
-        dfs(i - 1, j);
-        dfs(i, j + 1);
-        dfs(i, j - 1);
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (grid[x]?.[y] === '1') {
+                dfs(x, y);
+            }
+        }
     };
+
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (grid[i][j] === '1') {
                 dfs(i, j);
-                ++ans;
+                ans++;
             }
         }
     }
+
     return ans;
 }
 ```
@@ -261,44 +269,37 @@ impl Solution {
 #### C#
 
 ```cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
-    public int NumIslands(char[][] grid)
-    {
-        var queue = new Queue<Tuple<int, int>>();
-        var lenI = grid.Length;
-        var lenJ = lenI == 0 ? 0 : grid[0].Length;
-        var paths = new int[,] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
-        var result = 0;
-        for (var i = 0; i < lenI; ++i)
-        {
-            for (var j = 0; j < lenJ; ++j)
-            {
-                if (grid[i][j] == '1')
+    public int NumIslands(char[][] grid) {
+        int m = grid.Length;
+        int n = grid[0].Length;
+        int ans = 0;
+        int[] dirs = { -1, 0, 1, 0, -1 };
+
+        void Dfs(int i, int j) {
+            grid[i][j] = '0';
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < m &&
+                    y >= 0 && y < n &&
+                    grid[x][y] == '1')
                 {
-                    ++result;
-                    grid[i][j] = '0';
-                    queue.Enqueue(Tuple.Create(i, j));
-                    while (queue.Any())
-                    {
-                        var position = queue.Dequeue();
-                        for (var k = 0; k < 4; ++k)
-                        {
-                            var next = Tuple.Create(position.Item1 + paths[k, 0], position.Item2 + paths[k, 1]);
-                            if (next.Item1 >= 0 && next.Item1 < lenI && next.Item2 >= 0 && next.Item2 < lenJ && grid[next.Item1][next.Item2] == '1')
-                            {
-                                grid[next.Item1][next.Item2] = '0';
-                                queue.Enqueue(next);
-                            }
-                        }
-                    }
+                    Dfs(x, y);
                 }
             }
         }
-        return result;
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    Dfs(i, j);
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
     }
 }
 ```
@@ -309,7 +310,18 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: BFS
+
+We can also use breadth-first search (BFS) to traverse each island. We iterate through each cell $(i, j)$ in the grid. If the cell's value is '1', it means we have found a new island. We can start a BFS from this cell, marking all connected land cells as '0' to avoid duplicate counting. Each time we find a new island, we increment the island count by 1.
+
+The specific BFS process is as follows:
+
+1. Enqueue the starting cell $(i, j)$ and mark its value as '0'.
+2. While the queue is not empty, perform the following operations:
+    - Dequeue a cell $p$.
+    - Iterate through the four adjacent cells $(x, y)$ of $p$. If $(x, y)$ is within the grid bounds and its value is '1', enqueue it and mark its value as '0'.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -394,11 +406,10 @@ public:
         int n = grid[0].size();
         int ans = 0;
         int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> bfs = [&](int i, int j) {
+        auto bfs = [&](int i, int j) -> void {
             grid[i][j] = '0';
             queue<pair<int, int>> q;
             q.push({i, j});
-            vector<int> dirs = {-1, 0, 1, 0, -1};
             while (!q.empty()) {
                 auto [a, b] = q.front();
                 q.pop();
@@ -466,22 +477,21 @@ function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
     let ans = 0;
-    function bfs(i, j) {
+    const bfs = (i: number, j: number) => {
         grid[i][j] = '0';
-        let q = [[i, j]];
+        const q = [[i, j]];
         const dirs = [-1, 0, 1, 0, -1];
-        while (q.length) {
-            [i, j] = q.shift();
+        for (const [i, j] of q) {
             for (let k = 0; k < 4; ++k) {
                 const x = i + dirs[k];
                 const y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                if (grid[x]?.[y] == '1') {
                     q.push([x, y]);
                     grid[x][y] = '0';
                 }
             }
         }
-    }
+    };
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (grid[i][j] == '1') {
@@ -545,7 +555,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Union-Find
+
+We can use the Union-Find data structure to solve this problem. We traverse each cell $(i, j)$ in the grid, and if the cell's value is '1', we merge it with adjacent land cells. Finally, we count the number of distinct root nodes in the Union-Find structure, which represents the number of islands.
+
+The time complexity is $O(m \times n \times \log (m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -711,11 +725,8 @@ func numIslands(grid [][]byte) int {
 function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    let p = [];
-    for (let i = 0; i < m * n; ++i) {
-        p.push(i);
-    }
-    function find(x) {
+    const p: number[] = Array.from({ length: m * n }, (_, i) => i);
+    function find(x: number): number {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
@@ -728,7 +739,7 @@ function numIslands(grid: string[][]): number {
                 for (let k = 0; k < 2; ++k) {
                     const x = i + dirs[k];
                     const y = j + dirs[k + 1];
-                    if (x < m && y < n && grid[x][y] == '1') {
+                    if (grid[x]?.[y] == '1') {
                         p[find(i * n + j)] = find(x * n + y);
                     }
                 }

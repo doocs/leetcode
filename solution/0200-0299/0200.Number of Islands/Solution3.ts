@@ -1,11 +1,8 @@
 function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    let p = [];
-    for (let i = 0; i < m * n; ++i) {
-        p.push(i);
-    }
-    function find(x) {
+    const p: number[] = Array.from({ length: m * n }, (_, i) => i);
+    function find(x: number): number {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
@@ -18,7 +15,7 @@ function numIslands(grid: string[][]): number {
                 for (let k = 0; k < 2; ++k) {
                     const x = i + dirs[k];
                     const y = j + dirs[k + 1];
-                    if (x < m && y < n && grid[x][y] == '1') {
+                    if (grid[x]?.[y] == '1') {
                         p[find(i * n + j)] = find(x * n + y);
                     }
                 }

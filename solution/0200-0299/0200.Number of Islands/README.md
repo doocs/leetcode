@@ -69,13 +69,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：Flood fill 算法
+### 方法一：DFS
 
-Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻区域区分开（或分别染成不同颜色）的经典算法。因为其思路类似洪水从一个区域扩散到所有能到达的区域而得名。
+我们可以使用深度优先搜索（DFS）来遍历每个岛屿。遍历网格中的每个单元格 $(i, j)$，如果该单元格的值为 '1'，则说明我们找到了一个新的岛屿。我们可以从该单元格开始进行 DFS，将与之相连的所有陆地单元格的值都标记为 '0'，以避免重复计数。每次找到一个新的岛屿时，我们将岛屿数量加 1。
 
-最简单的实现方法是采用 DFS 的递归方法，也可以采用 BFS 的迭代来实现。
-
-时间复杂度 $O(m\times n)$，空间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -150,7 +148,7 @@ public:
         int n = grid[0].size();
         int ans = 0;
         int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> void {
             grid[i][j] = '0';
             for (int k = 0; k < 4; ++k) {
                 int x = i + dirs[k], y = j + dirs[k + 1];
@@ -208,24 +206,28 @@ function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
     let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+
     const dfs = (i: number, j: number) => {
-        if (grid[i]?.[j] !== '1') {
-            return;
-        }
         grid[i][j] = '0';
-        dfs(i + 1, j);
-        dfs(i - 1, j);
-        dfs(i, j + 1);
-        dfs(i, j - 1);
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (grid[x]?.[y] === '1') {
+                dfs(x, y);
+            }
+        }
     };
+
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (grid[i][j] === '1') {
                 dfs(i, j);
-                ++ans;
+                ans++;
             }
         }
     }
+
     return ans;
 }
 ```
@@ -271,44 +273,37 @@ impl Solution {
 #### C#
 
 ```cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
-    public int NumIslands(char[][] grid)
-    {
-        var queue = new Queue<Tuple<int, int>>();
-        var lenI = grid.Length;
-        var lenJ = lenI == 0 ? 0 : grid[0].Length;
-        var paths = new int[,] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
-        var result = 0;
-        for (var i = 0; i < lenI; ++i)
-        {
-            for (var j = 0; j < lenJ; ++j)
-            {
-                if (grid[i][j] == '1')
+    public int NumIslands(char[][] grid) {
+        int m = grid.Length;
+        int n = grid[0].Length;
+        int ans = 0;
+        int[] dirs = { -1, 0, 1, 0, -1 };
+
+        void Dfs(int i, int j) {
+            grid[i][j] = '0';
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < m &&
+                    y >= 0 && y < n &&
+                    grid[x][y] == '1')
                 {
-                    ++result;
-                    grid[i][j] = '0';
-                    queue.Enqueue(Tuple.Create(i, j));
-                    while (queue.Any())
-                    {
-                        var position = queue.Dequeue();
-                        for (var k = 0; k < 4; ++k)
-                        {
-                            var next = Tuple.Create(position.Item1 + paths[k, 0], position.Item2 + paths[k, 1]);
-                            if (next.Item1 >= 0 && next.Item1 < lenI && next.Item2 >= 0 && next.Item2 < lenJ && grid[next.Item1][next.Item2] == '1')
-                            {
-                                grid[next.Item1][next.Item2] = '0';
-                                queue.Enqueue(next);
-                            }
-                        }
-                    }
+                    Dfs(x, y);
                 }
             }
         }
-        return result;
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == '1') {
+                    Dfs(i, j);
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
     }
 }
 ```
@@ -319,44 +314,18 @@ public class Solution {
 
 <!-- solution:start -->
 
-### 方法二：并查集
+### 方法二：BFS
 
-并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
+我们也可以使用广度优先搜索（BFS）来遍历每个岛屿。遍历网格中的每个单元格 $(i, j)$，如果该单元格的值为 '1'，则说明我们找到了一个新的岛屿。我们可以从该单元格开始进行 BFS，将与之相连的所有陆地单元格的值都标记为 '0'，以避免重复计数。每次找到一个新的岛屿时，我们将岛屿数量加 1。
 
-1. 查找（Find）：确定某个元素处于哪个子集，单次操作时间复杂度 $O(\alpha(n))$
-1. 合并（Union）：将两个子集合并成一个集合，单次操作时间复杂度 $O(\alpha(n))$
+BFS 的具体过程如下：
 
-其中 $\alpha$ 为阿克曼函数的反函数，其增长极其缓慢，也就是说其单次操作的平均运行时间可以认为是一个很小的常数。
+1. 将起始单元格 $(i, j)$ 入队，并将其值标记为 '0'。
+2. 当队列不为空时，执行以下操作：
+    - 出队一个单元格 $p$。
+    - 遍历 $p$ 的四个相邻单元格 $(x, y)$，如果 $(x, y)$ 在网格范围内且值为 '1'，则将其入队并将其值标记为 '0'。
 
-以下是并查集的常用模板，需要熟练掌握。其中：
-
--   `n` 表示节点数
--   `p` 存储每个点的父节点，初始时每个点的父节点都是自己
--   `size` 只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
--   `find(x)` 函数用于查找 $x$ 所在集合的祖宗节点
--   `union(a, b)` 函数用于合并 $a$ 和 $b$ 所在的集合
-
-```python
-p = list(range(n))
-size = [1] * n
-
-
-def find(x):
-    if p[x] != x:
-        # 路径压缩
-        p[x] = find(p[x])
-    return p[x]
-
-
-def union(a, b):
-    pa, pb = find(a), find(b)
-    if pa == pb:
-        return
-    p[pa] = pb
-    size[pb] += size[pa]
-```
-
-时间复杂度 $O(m\times n\times \alpha(m\times n))$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -441,11 +410,10 @@ public:
         int n = grid[0].size();
         int ans = 0;
         int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> bfs = [&](int i, int j) {
+        auto bfs = [&](int i, int j) -> void {
             grid[i][j] = '0';
             queue<pair<int, int>> q;
             q.push({i, j});
-            vector<int> dirs = {-1, 0, 1, 0, -1};
             while (!q.empty()) {
                 auto [a, b] = q.front();
                 q.pop();
@@ -513,22 +481,21 @@ function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
     let ans = 0;
-    function bfs(i, j) {
+    const bfs = (i: number, j: number) => {
         grid[i][j] = '0';
-        let q = [[i, j]];
+        const q = [[i, j]];
         const dirs = [-1, 0, 1, 0, -1];
-        while (q.length) {
-            [i, j] = q.shift();
+        for (const [i, j] of q) {
             for (let k = 0; k < 4; ++k) {
                 const x = i + dirs[k];
                 const y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                if (grid[x]?.[y] == '1') {
                     q.push([x, y]);
                     grid[x][y] = '0';
                 }
             }
         }
-    }
+    };
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (grid[i][j] == '1') {
@@ -592,7 +559,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三： 并查集
+
+我们可以使用并查集（Union-Find）来解决这个问题。遍历网格中的每个单元格 $(i, j)$，如果该单元格的值为 '1'，则将其与相邻的陆地单元格进行合并。最后，我们统计并查集中不同根节点的数量，即为岛屿的数量。
+
+时间复杂度 $O(m \times n \times \log (m \times n))$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为网格的行数和列数。
 
 <!-- tabs:start -->
 
@@ -758,11 +729,8 @@ func numIslands(grid [][]byte) int {
 function numIslands(grid: string[][]): number {
     const m = grid.length;
     const n = grid[0].length;
-    let p = [];
-    for (let i = 0; i < m * n; ++i) {
-        p.push(i);
-    }
-    function find(x) {
+    const p: number[] = Array.from({ length: m * n }, (_, i) => i);
+    function find(x: number): number {
         if (p[x] != x) {
             p[x] = find(p[x]);
         }
@@ -775,7 +743,7 @@ function numIslands(grid: string[][]): number {
                 for (let k = 0; k < 2; ++k) {
                     const x = i + dirs[k];
                     const y = j + dirs[k + 1];
-                    if (x < m && y < n && grid[x][y] == '1') {
+                    if (grid[x]?.[y] == '1') {
                         p[find(i * n + j)] = find(x * n + y);
                     }
                 }
