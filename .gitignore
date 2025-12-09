@@ -12,3 +12,8 @@ __pycache__
 !.cache/plugin/
 !.cache/plugin/git-committers/
 !.cache/plugin/git-committers/page-authors.json
+
+# pnpm
+pnpm-lock.yaml
+.pnpm-store/
+.pnpm-debug.log
