@@ -17,5 +17,5 @@
     "*.py": "black -S",
     "*.rs": "rustfmt"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@10.25.0"
 }
