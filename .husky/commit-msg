@@ -1,3 +1,2 @@
-#!/bin/sh
-
-npx --no -- commitlint --edit $1
+#!/usr/bin/env sh
+pnpm exec commitlint --edit $1
