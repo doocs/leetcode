@@ -244,32 +244,343 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3777.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：树状数组
+
+我们可以将字符串 $s$ 转换为一个长度为 $n$ 的数组 $\textit{nums}$，其中 $\textit{nums}[0] = 0$，对于 $1 \leq i < n$，如果 $s[i] = s[i-1]$，则 $\textit{nums}[i] = 1$，否则 $\textit{nums}[i] = 0$。这样 $\textit{nums}[i]$ 表示在索引 $i$ 处是否存在相邻且相等的字符。那么我们计算区间 $[l, r]$ 内使子字符串 $s[l..r]$ 变成交替字符串所需的最小字符删除数就等价于计算 $\textit{nums}$ 数组在区间 $[l+1, r]$ 上的元素和。
+
+为了高效地处理查询，我们可以使用树状数组来维护 $\textit{nums}$ 数组的前缀和。对于类型为 $[1, j]$ 的查询，我们需要将 $\textit{nums}[j]$ 和 $\textit{nums}[j+1]$（如果 $j+1 < n$）进行翻转，并更新树状数组。对于类型为 $[2, l, r]$ 的查询，我们可以通过树状数组快速计算区间 $[l+1, r]$ 上的元素和。
+
+时间复杂度 $O((n + q) \log n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度，而 $q$ 是查询的数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    __slots__ = "n", "c"
 
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
+
+    def update(self, x: int, delta: int) -> None:
+        while x <= self.n:
+            self.c[x] += delta
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        s = 0
+        while x:
+            s += self.c[x]
+            x -= x & -x
+        return s
+
+
+class Solution:
+    def minDeletions(self, s: str, queries: List[List[int]]) -> List[int]:
+        n = len(s)
+        nums = [0] * n
+        bit = BinaryIndexedTree(n)
+        for i in range(1, n):
+            nums[i] = int(s[i] == s[i - 1])
+            if nums[i]:
+                bit.update(i + 1, 1)
+        ans = []
+        for q in queries:
+            if q[0] == 1:
+                j = q[1]
+                delta = (nums[j] ^ 1) - nums[j]
+                nums[j] ^= 1
+                bit.update(j + 1, delta)
+                if j + 1 < n:
+                    delta = (nums[j + 1] ^ 1) - nums[j + 1]
+                    nums[j + 1] ^= 1
+                    bit.update(j + 2, delta)
+            else:
+                _, l, r = q
+                ans.append(bit.query(r + 1) - bit.query(l + 1))
+        return ans
 ```
 
 #### Java
 
 ```java
+class BinaryIndexedTree {
+    int n;
+    int[] c;
 
+    BinaryIndexedTree(int n) {
+        this.n = n;
+        this.c = new int[n + 1];
+    }
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class Solution {
+    public int[] minDeletions(String s, int[][] queries) {
+        int n = s.length();
+        int[] nums = new int[n];
+        BinaryIndexedTree bit = new BinaryIndexedTree(n);
+
+        for (int i = 1; i < n; i++) {
+            nums[i] = (s.charAt(i) == s.charAt(i - 1)) ? 1 : 0;
+            if (nums[i] == 1) {
+                bit.update(i + 1, 1);
+            }
+        }
+
+        int cnt = 0;
+        for (int[] q : queries) {
+            if (q[0] == 2) {
+                cnt++;
+            }
+        }
+
+        int[] ans = new int[cnt];
+        int idx = 0;
+
+        for (int[] q : queries) {
+            if (q[0] == 1) {
+                int j = q[1];
+
+                int delta = (nums[j] ^ 1) - nums[j];
+                nums[j] ^= 1;
+                bit.update(j + 1, delta);
+
+                if (j + 1 < n) {
+                    delta = (nums[j + 1] ^ 1) - nums[j + 1];
+                    nums[j + 1] ^= 1;
+                    bit.update(j + 2, delta);
+                }
+            } else {
+                int l = q[1];
+                int r = q[2];
+                ans[idx++] = bit.query(r + 1) - bit.query(l + 1);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
 
+    BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1, 0) {}
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+};
+
+class Solution {
+public:
+    vector<int> minDeletions(string s, vector<vector<int>>& queries) {
+        int n = s.size();
+        vector<int> nums(n, 0);
+        BinaryIndexedTree bit(n);
+
+        for (int i = 1; i < n; i++) {
+            nums[i] = (s[i] == s[i - 1]);
+            if (nums[i]) {
+                bit.update(i + 1, 1);
+            }
+        }
+
+        vector<int> ans;
+
+        for (auto& q : queries) {
+            if (q[0] == 1) {
+                int j = q[1];
+
+                int delta = (nums[j] ^ 1) - nums[j];
+                nums[j] ^= 1;
+                bit.update(j + 1, delta);
+
+                if (j + 1 < n) {
+                    delta = (nums[j + 1] ^ 1) - nums[j + 1];
+                    nums[j + 1] ^= 1;
+                    bit.update(j + 2, delta);
+                }
+            } else {
+                int l = q[1];
+                int r = q[2];
+                ans.push_back(bit.query(r + 1) - bit.query(l + 1));
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type binaryIndexedTree struct {
+	n int
+	c []int
+}
 
+func newBinaryIndexedTree(n int) *binaryIndexedTree {
+	return &binaryIndexedTree{
+		n: n,
+		c: make([]int, n+1),
+	}
+}
+
+func (bit *binaryIndexedTree) update(x, delta int) {
+	for x <= bit.n {
+		bit.c[x] += delta
+		x += x & -x
+	}
+}
+
+func (bit *binaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += bit.c[x]
+		x -= x & -x
+	}
+	return s
+}
+
+func minDeletions(s string, queries [][]int) []int {
+	n := len(s)
+	nums := make([]int, n)
+	bit := newBinaryIndexedTree(n)
+
+	for i := 1; i < n; i++ {
+		if s[i] == s[i-1] {
+			nums[i] = 1
+			bit.update(i+1, 1)
+		}
+	}
+
+	ans := make([]int, 0)
+
+	for _, q := range queries {
+		if q[0] == 1 {
+			j := q[1]
+
+			delta := (nums[j] ^ 1 - nums[j])
+			nums[j] ^= 1
+			bit.update(j+1, delta)
+
+			if j+1 < n {
+				delta = (nums[j+1] ^ 1 - nums[j+1])
+				nums[j+1] ^= 1
+				bit.update(j+2, delta)
+			}
+		} else {
+			l, r := q[1], q[2]
+			ans = append(ans, bit.query(r+1)-bit.query(l+1))
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+class BinaryIndexedTree {
+    n: number;
+    c: number[];
+
+    constructor(n: number) {
+        this.n = n;
+        this.c = Array(n + 1).fill(0);
+    }
+
+    update(x: number, delta: number): void {
+        while (x <= this.n) {
+            this.c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    query(x: number): number {
+        let s = 0;
+        while (x > 0) {
+            s += this.c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+function minDeletions(s: string, queries: number[][]): number[] {
+    const n = s.length;
+    const nums: number[] = Array(n).fill(0);
+    const bit = new BinaryIndexedTree(n);
+
+    for (let i = 1; i < n; i++) {
+        if (s[i] === s[i - 1]) {
+            nums[i] = 1;
+            bit.update(i + 1, 1);
+        }
+    }
+
+    const ans: number[] = [];
+
+    for (const q of queries) {
+        if (q[0] === 1) {
+            const j = q[1];
+
+            let delta = (nums[j] ^ 1) - nums[j];
+            nums[j] ^= 1;
+            bit.update(j + 1, delta);
+
+            if (j + 1 < n) {
+                delta = (nums[j + 1] ^ 1) - nums[j + 1];
+                nums[j + 1] ^= 1;
+                bit.update(j + 2, delta);
+            }
+        } else {
+            const l = q[1],
+                r = q[2];
+            ans.push(bit.query(r + 1) - bit.query(l + 1));
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
