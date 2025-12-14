@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README.md
+rating: 1703
+source: 第 171 场双周赛 Q3
 ---
 
 <!-- problem:start -->

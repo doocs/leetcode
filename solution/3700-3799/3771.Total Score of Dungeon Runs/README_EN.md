@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md
+rating: 1981
+source: Weekly Contest 479 Q3
 ---
 
 <!-- problem:start -->

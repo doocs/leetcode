@@ -3784,6 +3784,10 @@
 |  3771  |  [探索地牢的得分](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README.md)  |    |  中等  |  第 479 场周赛  |
 |  3772  |  [子图的最大得分](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README.md)  |    |  困难  |  第 479 场周赛  |
 |  3773  |  [最大等长连续字符组](/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README.md)  |    |  中等  |  🔒  |
+|  3774  |  [最大和最小 K 个元素的绝对差](/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README.md)  |    |  简单  |  第 480 场周赛  |
+|  3775  |  [反转元音数相同的单词](/solution/3700-3799/3775.Reverse%20Words%20With%20Same%20Vowel%20Count/README.md)  |    |  中等  |  第 480 场周赛  |
+|  3776  |  [使循环数组余额非负的最少移动次数](/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README.md)  |    |  中等  |  第 480 场周赛  |
+|  3777  |  [使子字符串变交替的最少删除次数](/solution/3700-3799/3777.Minimum%20Deletions%20to%20Make%20Alternating%20Substring/README.md)  |    |  困难  |  第 480 场周赛  |
 
 ## 版权
 

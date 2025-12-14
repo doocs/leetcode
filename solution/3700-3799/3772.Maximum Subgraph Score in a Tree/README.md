@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README.md
+rating: 2234
+source: 第 479 场周赛 Q4
 ---
 
 <!-- problem:start -->

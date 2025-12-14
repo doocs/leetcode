@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 480 场周赛(2025-12-14 10:30, 90 分钟) 参赛人数 1772
+
+- [3774. 最大和最小 K 个元素的绝对差](/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README.md)
+- [3775. 反转元音数相同的单词](/solution/3700-3799/3775.Reverse%20Words%20With%20Same%20Vowel%20Count/README.md)
+- [3776. 使循环数组余额非负的最少移动次数](/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README.md)
+- [3777. 使子字符串变交替的最少删除次数](/solution/3700-3799/3777.Minimum%20Deletions%20to%20Make%20Alternating%20Substring/README.md)
+
 #### 第 479 场周赛(2025-12-07 10:30, 90 分钟) 参赛人数 1787
 
 - [3769. 二进制反射排序](/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README.md)

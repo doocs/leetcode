@@ -176,8 +176,8 @@ ride_id 是该表的主键(具有唯一值的列)。
 
 ```sql
 # Write your MySQL query statement below
-WITH
-    recursive Months AS (
+WITH RECURSIVE
+    Months AS (
         SELECT
             1 AS month
         UNION ALL
@@ -190,8 +190,7 @@ WITH
         SELECT MONTH(requested_at) AS month, COUNT(1) AS cnt
         FROM
             Rides AS r
-            JOIN AcceptedRides AS a
-                ON r.ride_id = a.ride_id AND YEAR(requested_at) = 2020
+            JOIN AcceptedRides AS a ON r.ride_id = a.ride_id AND YEAR(requested_at) = 2020
         GROUP BY month
     )
 SELECT
@@ -201,8 +200,7 @@ SELECT
 FROM
     Months AS m
     LEFT JOIN Drivers AS d
-        ON (m.month >= MONTH(d.join_date) AND YEAR(d.join_date) = 2020)
-        OR YEAR(d.join_date) < 2020
+        ON (m.month >= MONTH(d.join_date) AND YEAR(d.join_date) = 2020) OR YEAR(d.join_date) < 2020
     LEFT JOIN Ride AS r ON m.month = r.month
 GROUP BY month;
 ```

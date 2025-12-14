@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README.md
+rating: 1363
+source: 第 479 场周赛 Q1
 ---
 
 <!-- problem:start -->
