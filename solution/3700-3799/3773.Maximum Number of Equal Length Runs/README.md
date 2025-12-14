@@ -67,7 +67,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3773.Ma
 
 我们可以用一个哈希表 $\textit{cnt}$ 来记录每个连续字符组长度出现的次数。遍历字符串 $s$，对于每个连续字符组，计算其长度 $m$，并将 $\textit{cnt}[m]$ 加 $1$。最后，答案即为 $\textit{cnt}$ 中的最大值。
 
-时间复杂度
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 

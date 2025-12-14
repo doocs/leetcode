@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [600. 不含连续1的非负整数](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones)
+# [600. 不含连续 1 的非负整数](https://leetcode.cn/problems/non-negative-integers-without-consecutive-ones)
 
 [English Version](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
 
@@ -79,16 +79,16 @@ $$
 
 我们首先获取数字 $n$ 的二进制长度，记为 $m$。然后根据题目信息，我们设计函数 $\textit{dfs}(i, \textit{pre}, \textit{limit})$，其中：
 
--   数字 $i$ 表示当前搜索到的位置，我们从数字的最高位开始搜索，即二进制字符串的首字符；
--   数字 $\textit{pre}$ 表示上一个数字二进制位上的数字，对于本题，$\textit{pre}$ 的初始值为 $0$；
--   布尔值 $\textit{limit}$ 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1]$，否则，只能选择 $[0, \textit{up}]$。
+- 数字 $i$ 表示当前搜索到的位置，我们从数字的最高位开始搜索，即二进制字符串的首字符；
+- 数字 $\textit{pre}$ 表示上一个数字二进制位上的数字，对于本题，$\textit{pre}$ 的初始值为 $0$；
+- 布尔值 $\textit{limit}$ 表示可填的数字的限制，如果无限制，那么可以选择 $[0,1]$，否则，只能选择 $[0, \textit{up}]$。
 
 函数的执行过程如下：
 
 如果 $i$ 超过了数字 $n$ 的长度，即 $i \lt 0$，说明搜索结束，直接返回 $1$。否则，我们从 $0$ 到 $\textit{up}$ 枚举位置 $i$ 的数字 $j$，对于每一个 $j$：
 
--   如果 $\textit{pre}$ 和 $j$ 都为 $1$，说明有连续的 $1$，直接跳过；
--   否则，我们递归到下一层，更新 $\textit{pre}$ 为 $j$，并将 $\textit{limit}$ 更新为 $\textit{limit}$ 与 $j$ 是否等于 $\textit{up}$ 的逻辑与。
+- 如果 $\textit{pre}$ 和 $j$ 都为 $1$，说明有连续的 $1$，直接跳过；
+- 否则，我们递归到下一层，更新 $\textit{pre}$ 为 $j$，并将 $\textit{limit}$ 更新为 $\textit{limit}$ 与 $j$ 是否等于 $\textit{up}$ 的逻辑与。
 
 最后，我们将所有递归到下一层的结果累加，即为答案。
 
@@ -96,12 +96,12 @@ $$
 
 相似题目：
 
--   [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
--   [357. 统计各位数字都不同的数字个数](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
--   [788. 旋转数字](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README.md)
--   [902. 最大为 N 的数字组合](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
--   [1012. 至少有 1 位重复的数字](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
--   [2376. 统计特殊整数](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
+- [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
+- [357. 统计各位数字都不同的数字个数](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
+- [788. 旋转数字](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README.md)
+- [902. 最大为 N 的数字组合](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
+- [1012. 至少有 1 位重复的数字](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
+- [2376. 统计特殊整数](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
 
 <!-- tabs:start -->
 

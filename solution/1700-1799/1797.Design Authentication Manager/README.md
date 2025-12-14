@@ -51,7 +51,7 @@ authenticationManager.<code>renew</code>("aaa", 1); // 时刻 1 时，没有验�
 authenticationManager.generate("aaa", 2); // 时刻 2 时，生成一个 tokenId 为 "aaa" 的新验证码。
 authenticationManager.<code>countUnexpiredTokens</code>(6); // 时刻 6 时，只有 tokenId 为 "aaa" 的验证码未过期，所以返回 1 。
 authenticationManager.generate("bbb", 7); // 时刻 7 时，生成一个 tokenId 为 "bbb" 的新验证码。
-authenticationManager.<code>renew</code>("aaa", 8); // tokenId 为 "aaa" 的验证码在时刻 7 过期，且 8 >= 7 ，所以时刻 8 的renew 操作被忽略，没有验证码被更新。
+authenticationManager.<code>renew</code>("aaa", 8); // tokenId 为 "aaa" 的验证码在时刻 7 过期，且 8 >= 7 ，所以时刻 8 的 renew 操作被忽略，没有验证码被更新。
 authenticationManager.<code>renew</code>("bbb", 10); // tokenId 为 "bbb" 的验证码在时刻 10 没有过期，所以 renew 操作会执行，该 token 将在时刻 15 过期。
 authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb" 的验证码在时刻 15 过期，tokenId 为 "aaa" 的验证码在时刻 7 过期，所有验证码均已过期，所以返回 0 。
 
@@ -81,9 +81,9 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 
 我们可以简单维护一个哈希表 $d$，键为 `tokenId`，值为过期时间。
 
--   `generate` 操作时，将 `tokenId` 作为键，`currentTime + timeToLive` 作为值存入哈希表 $d$ 中。
--   `renew` 操作时，如果 `tokenId` 不在哈希表 $d$ 中，或者 `currentTime >= d[tokenId]`，则忽略该操作；否则，更新 `d[tokenId]` 为 `currentTime + timeToLive`。
--   `countUnexpiredTokens` 操作时，遍历哈希表 $d$，统计未过期的 `tokenId` 个数。
+- `generate` 操作时，将 `tokenId` 作为键，`currentTime + timeToLive` 作为值存入哈希表 $d$ 中。
+- `renew` 操作时，如果 `tokenId` 不在哈希表 $d$ 中，或者 `currentTime >= d[tokenId]`，则忽略该操作；否则，更新 `d[tokenId]` 为 `currentTime + timeToLive`。
+- `countUnexpiredTokens` 操作时，遍历哈希表 $d$，统计未过期的 `tokenId` 个数。
 
 时间复杂度方面，`generate` 和 `renew` 操作的时间复杂度均为 $O(1)$，`countUnexpiredTokens` 操作的时间复杂度为 $O(n)$，其中 $n$ 为哈希表 $d$ 的键值对个数。
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README.md
+rating: 1981
+source: 第 479 场周赛 Q3
 ---
 
 <!-- problem:start -->

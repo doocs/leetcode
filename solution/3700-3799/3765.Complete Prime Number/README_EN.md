@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md
+rating: 1378
+source: Biweekly Contest 171 Q1
 ---
 
 <!-- problem:start -->

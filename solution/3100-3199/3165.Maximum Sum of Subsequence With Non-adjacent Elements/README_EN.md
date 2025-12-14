@@ -79,10 +79,10 @@ According to the problem description, we need to perform multiple point updates 
 
 First, we define a $\textit{Node}$ class to store the information of the segment tree nodes, including the left and right endpoints $l$ and $r$, as well as four state values $s_{00}$, $s_{01}$, $s_{10}$, and $s_{11}$. Specifically:
 
--   $s_{00}$ represents the maximum sum of the subsequence that does not include the left and right endpoints of the current node;
--   $s_{01}$ represents the maximum sum of the subsequence that does not include the left endpoint of the current node;
--   $s_{10}$ represents the maximum sum of the subsequence that does not include the right endpoint of the current node;
--   $s_{11}$ represents the maximum sum of the subsequence that includes the left and right endpoints of the current node.
+- $s_{00}$ represents the maximum sum of the subsequence that does not include the left and right endpoints of the current node;
+- $s_{01}$ represents the maximum sum of the subsequence that does not include the left endpoint of the current node;
+- $s_{10}$ represents the maximum sum of the subsequence that does not include the right endpoint of the current node;
+- $s_{11}$ represents the maximum sum of the subsequence that includes the left and right endpoints of the current node.
 
 Next, we define a $\textit{SegmentTree}$ class to construct the segment tree. During the construction of the segment tree, we need to recursively build the left and right subtrees and update the state values of the current node based on the state values of the left and right subtrees.
 

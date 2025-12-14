@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md
+rating: 1703
+source: Biweekly Contest 171 Q3
 ---
 
 <!-- problem:start -->

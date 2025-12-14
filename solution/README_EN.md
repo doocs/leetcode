@@ -3782,6 +3782,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3771  |  [Total Score of Dungeon Runs](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md)  |    |  Medium  |  Weekly Contest 479  |
 |  3772  |  [Maximum Subgraph Score in a Tree](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 479  |
 |  3773  |  [Maximum Number of Equal Length Runs](/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README_EN.md)  |    |  Medium  |  🔒  |
+|  3774  |  [Absolute Difference Between Maximum and Minimum K Elements](/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 480  |
+|  3775  |  [Reverse Words With Same Vowel Count](/solution/3700-3799/3775.Reverse%20Words%20With%20Same%20Vowel%20Count/README_EN.md)  |    |  Medium  |  Weekly Contest 480  |
+|  3776  |  [Minimum Moves to Balance Circular Array](/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 480  |
+|  3777  |  [Minimum Deletions to Make Alternating Substring](/solution/3700-3799/3777.Minimum%20Deletions%20to%20Make%20Alternating%20Substring/README_EN.md)  |    |  Hard  |  Weekly Contest 480  |
 
 ## Copyright
 
