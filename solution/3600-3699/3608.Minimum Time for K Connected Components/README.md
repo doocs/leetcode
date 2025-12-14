@@ -107,32 +107,306 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：并查集
+
+我们可以将边按时间从小到大排序，然后从时间最大的边开始依次将边加入图中，同时使用并查集维护当前图的连通分量数量。当连通分量数量小于 $k$ 时，说明当前时间即为所求的最小时间。
+
+时间复杂度 $O(n \times \alpha(n))$，空间复杂度 $O(n)$，其中 $\alpha$ 是反阿克曼函数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
 
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        return True
+
+
+class Solution:
+    def minTime(self, n: int, edges: List[List[int]], k: int) -> int:
+        edges.sort(key=lambda x: x[2])
+        uf = UnionFind(n)
+        cnt = n
+        for u, v, t in edges[::-1]:
+            if uf.union(u, v):
+                cnt -= 1
+                if cnt < k:
+                    return t
+        return 0
 ```
 
 #### Java
 
 ```java
+class UnionFind {
+    private int[] p;
+    private int[] size;
 
+    public UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        for (int i = 0; i < n; i++) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+}
+
+class Solution {
+    public int minTime(int n, int[][] edges, int k) {
+        Arrays.sort(edges, (a, b) -> Integer.compare(a[2], b[2]));
+
+        UnionFind uf = new UnionFind(n);
+        int cnt = n;
+
+        for (int i = edges.length - 1; i >= 0; i--) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            int t = edges[i][2];
+
+            if (uf.union(u, v)) {
+                if (--cnt < k) {
+                    return t;
+                }
+            }
+        }
+        return 0;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class UnionFind {
+public:
+    vector<int> p;
+    vector<int> size;
 
+    UnionFind(int n) {
+        p.resize(n);
+        size.resize(n, 1);
+        for (int i = 0; i < n; i++) {
+            p[i] = i;
+        }
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    bool unite(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) {
+            return false;
+        }
+
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        return true;
+    }
+};
+
+class Solution {
+public:
+    int minTime(int n, vector<vector<int>>& edges, int k) {
+        sort(edges.begin(), edges.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[2] < b[2];
+        });
+
+        UnionFind uf(n);
+        int cnt = n;
+
+        for (int i = edges.size() - 1; i >= 0; i--) {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            int t = edges[i][2];
+
+            if (uf.unite(u, v)) {
+                cnt--;
+                if (cnt < k) {
+                    return t;
+                }
+            }
+        }
+        return 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type UnionFind struct {
+    p    []int
+    size []int
+}
 
+func NewUnionFind(n int) *UnionFind {
+    uf := &UnionFind{
+        p:    make([]int, n),
+        size: make([]int, n),
+    }
+    for i := 0; i < n; i++ {
+        uf.p[i] = i
+        uf.size[i] = 1
+    }
+    return uf
+}
+
+func (uf *UnionFind) find(x int) int {
+    if uf.p[x] != x {
+        uf.p[x] = uf.find(uf.p[x])
+    }
+    return uf.p[x]
+}
+
+func (uf *UnionFind) union(a, b int) bool {
+    pa := uf.find(a)
+    pb := uf.find(b)
+    if pa == pb {
+        return false
+    }
+
+    if uf.size[pa] > uf.size[pb] {
+        uf.p[pb] = pa
+        uf.size[pa] += uf.size[pb]
+    } else {
+        uf.p[pa] = pb
+        uf.size[pb] += uf.size[pa]
+    }
+    return true
+}
+
+func minTime(n int, edges [][]int, k int) int {
+    sort.Slice(edges, func(i, j int) bool {
+        return edges[i][2] < edges[j][2]
+    })
+
+    uf := NewUnionFind(n)
+    cnt := n
+
+    for i := len(edges) - 1; i >= 0; i-- {
+        u := edges[i][0]
+        v := edges[i][1]
+        t := edges[i][2]
+
+        if uf.union(u, v) {
+            cnt--
+            if cnt < k {
+                return t
+            }
+        }
+    }
+    return 0
+}
+```
+
+#### TypeScript
+
+```ts
+class UnionFind {
+    p: number[];
+    size: number[];
+
+    constructor(n: number) {
+        this.p = Array.from({ length: n }, (_, i) => i);
+        this.size = Array(n).fill(1);
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const pa = this.find(a);
+        const pb = this.find(b);
+        if (pa === pb) return false;
+
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+        return true;
+    }
+}
+
+function minTime(n: number, edges: number[][], k: number): number {
+    edges.sort((a, b) => a[2] - b[2]);
+
+    const uf = new UnionFind(n);
+    let cnt = n;
+
+    for (let i = edges.length - 1; i >= 0; i--) {
+        const [u, v, t] = edges[i];
+
+        if (uf.union(u, v)) {
+            if (--cnt < k) {
+                return t;
+            }
+        }
+    }
+
+    return 0;
+}
 ```
 
 <!-- tabs:end -->
