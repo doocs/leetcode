@@ -140,7 +140,39 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Tree Dynamic Programming
+
+For each node $u$, we maintain a 2D array $f_u[j][pre]$, representing the maximum profit that can be obtained in the subtree rooted at $u$ with a budget not exceeding $j$ and whether $u$'s manager purchased stocks (where $pre=1$ means purchased, and $pre=0$ means not purchased). The answer is $f_1[\text{budget}][0]$.
+
+For node $u$, the function $\text{dfs}(u)$ returns a $(\text{budget}+1) \times 2$ 2D array $f$, representing the maximum profit that can be obtained in the subtree rooted at $u$ with a budget not exceeding $j$ and whether $u$'s manager purchased stocks.
+
+For $u$, we need to consider two things:
+
+1. Whether node $u$ itself buys stocks (which will consume part of the budget $\text{cost}$, where $\text{cost} = \lfloor \text{present}[u] / (pre + 1) \rfloor$), and increase the profit by $\text{future}[u] - \text{cost}$.
+2. How to allocate the budget among node $u$'s child nodes $v$ to maximize profit. We treat each child node's $\text{dfs}(v)$ as an "item" and use a knapsack approach to merge the subtree profits into the current $u$'s $\text{nxt}$ array.
+
+In the specific implementation, we first initialize a $(\text{budget}+1) \times 2$ 2D array $\text{nxt}$, representing the profits that have been merged from child nodes. Then for each child node $v$, we recursively call $\text{dfs}(v)$ to get the profit array $\text{fv}$ of the child node, and use a knapsack approach to merge $\text{fv}$ into $\text{nxt}$.
+
+The merge formula is:
+
+$$
+\text{nxt}[j][pre] = \max(\text{nxt}[j][pre], \text{nxt}[j - j_v][pre] + \text{fv}[j_v][pre])
+$$
+
+where $j_v$ represents the budget allocated to child node $v$.
+
+After merging all child nodes, $\text{nxt}[j][pre]$ represents the maximum profit that can be obtained by allocating the entire budget $j$ to child nodes when $u$ itself has not yet decided whether to buy stocks, and $u$'s manager's purchase state is $pre$.
+
+Finally, we decide whether $u$ purchases stocks.
+
+- If $j \lt \text{cost}$, then $u$ cannot purchase stocks, in which case $f[j][pre] = \text{nxt}[j][0]$.
+- If $j \geq \text{cost}$, then $u$ can choose to purchase or not purchase stocks, in which case $f[j][pre] = \max(\text{nxt}[j][0], \text{nxt}[j - \text{cost}][1] + (\text{future}[u] - \text{cost}))$.
+
+Finally, return $f$.
+
+The answer is $\text{dfs}(1)[\text{budget}][0]$.
+
+The time complexity is $O(n \times \text{budget}^2)$, and the space complexity is $O(n \times \text{budget})$.
 
 <!-- tabs:start -->
 
