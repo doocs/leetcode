@@ -90,7 +90,27 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3778.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：Dijkstra 算法
+
+题目实际上等价于从节点 $0$ 到节点 $n-1$ 寻找一条路径，可以有一次机会将经过的某条边的权重视为 $0$，使得路径权重和最小。
+
+我们首先将 $\textit{edges}$ 转化为邻接表 $\textit{g}$，其中 $\textit{g}[u]$ 存储所有与节点 $u$ 相连的边 $(v, w)$，表示节点 $u$ 与节点 $v$ 之间有一条权重为 $w$ 的边。
+
+接下来，我们使用 Dijkstra 算法来寻找最短路径。我们定义一个二维数组 $\textit{dist}$，其中 $\textit{dist}[u][0]$ 表示从节点 $0$ 到节点 $u$ 的路径权重和的最小值，且没有使用将某条边权重视为 $0$ 的机会；$\textit{dist}[u][1]$ 表示从节点 $0$ 到节点 $u$ 的路径权重和的最小值，且已经使用了将某条边权重视为 $0$ 的机会。
+
+我们使用一个优先队列 $\textit{pq}$ 来存储待处理的节点，初始时将 $(0, 0, 0)$ 入队，表示从节点 $0$ 出发，当前路径权重和为 $0$，且没有使用机会。
+
+在每次迭代中，我们从优先队列中取出路径权重和最小的节点 $(\textit{cur}, u, \textit{used})$。如果当前路径权重和 $\textit{cur}$ 大于 $\textit{dist}[u][\textit{used}]$，则跳过该节点。
+
+如果当前节点 $u$ 是节点 $n-1$ 且已经使用了机会 $\textit{used} = 1$，则返回当前路径权重和 $\textit{cur}$。
+
+对于节点 $u$ 的每一条边 $(v, w)$，我们计算不使用机会的情况下到达节点 $v$ 的路径权重和 $\textit{nxt} = \textit{cur} + w$。如果 $\textit{nxt} < \textit{dist}[v][\textit{used}]$，则更新 $\textit{dist}[v][\textit{used}]$ 并将 $(\textit{nxt}, v, \textit{used})$ 入队。
+
+如果当前还没有使用机会 $\textit{used} = 0$，则计算使用机会的情况下到达节点 $v$ 的路径权重和 $\textit{nxt} = \textit{cur}$。如果 $\textit{nxt} < \textit{dist}[v][1]$，则更新 $\textit{dist}[v][1]$ 并将 $(\textit{nxt}, v, 1)$ 入队。
+
+遍历结束后，返回 $\textit{dist}[n-1][1]$ 即为答案。
+
+时间复杂度 $O(m \times \log n)$，空间复杂度 $O(n + m)$，其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
 
@@ -357,6 +377,66 @@ function minCostExcludingMax(n: number, edges: number[][]): number {
     }
 
     return dist[n - 1][1];
+}
+```
+
+#### Rust
+
+```rust
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn min_cost_excluding_max(n: i32, edges: Vec<Vec<i32>>) -> i64 {
+        let n = n as usize;
+
+        let mut g: Vec<Vec<(usize, i64)>> = vec![Vec::new(); n];
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            let w = e[2] as i64;
+            g[u].push((v, w));
+            g[v].push((u, w));
+        }
+
+        let inf: i64 = i64::MAX / 4;
+        let mut dist = vec![[inf; 2]; n];
+        dist[0][0] = 0;
+
+        // (cur_cost, node, used)
+        let mut pq = BinaryHeap::new();
+        pq.push(Reverse((0_i64, 0_usize, 0_usize)));
+
+        while let Some(Reverse((cur, u, used))) = pq.pop() {
+            if cur > dist[u][used] {
+                continue;
+            }
+
+            if u == n - 1 && used == 1 {
+                return cur;
+            }
+
+            for &(v, w) in &g[u] {
+                // normal edge
+                let nxt = cur + w;
+                if nxt < dist[v][used] {
+                    dist[v][used] = nxt;
+                    pq.push(Reverse((nxt, v, used)));
+                }
+
+                // skip max edge (only once)
+                if used == 0 {
+                    let nxt = cur;
+                    if nxt < dist[v][1] {
+                        dist[v][1] = nxt;
+                        pq.push(Reverse((nxt, v, 1)));
+                    }
+                }
+            }
+        }
+
+        dist[n - 1][1]
+    }
 }
 ```
 
