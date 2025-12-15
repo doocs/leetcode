@@ -89,24 +89,24 @@ We can make $36 of profit through 3 transactions:
 
 We define $f[i][j][k]$ to represent the maximum profit on the first $i$ days, with at most $j$ transactions, and the current state $k$. Here, the state $k$ has three possibilities:
 
--   If $k = 0$, it means we do not hold any stock.
--   If $k = 1$, it means we are holding a stock.
--   If $k = 2$, it means we are holding a short position.
+- If $k = 0$, it means we do not hold any stock.
+- If $k = 1$, it means we are holding a stock.
+- If $k = 2$, it means we are holding a short position.
 
 Initially, for any $j \in [1, k]$, we have $f[0][j][1] = -prices[0]$ and $f[0][j][2] = prices[0]$. This means buying a stock or opening a short position on day 0.
 
 Next, we update $f[i][j][k]$ using state transitions. For each day $i$ and each transaction $j$, we update according to the current state $k$:
 
--   If $k = 0$, meaning no stock is held, this state can be reached from three situations:
-    -   No stock was held the previous day.
-    -   A stock was held the previous day and sold today.
-    -   A short position was held the previous day and bought back today.
--   If $k = 1$, meaning a stock is held, this state can be reached from two situations:
-    -   A stock was held the previous day.
-    -   No stock was held the previous day and a stock is bought today.
--   If $k = 2$, meaning a short position is held, this state can be reached from two situations:
-    -   A short position was held the previous day.
-    -   No stock was held the previous day and a short position is opened (sold) today.
+- If $k = 0$, meaning no stock is held, this state can be reached from three situations:
+    - No stock was held the previous day.
+    - A stock was held the previous day and sold today.
+    - A short position was held the previous day and bought back today.
+- If $k = 1$, meaning a stock is held, this state can be reached from two situations:
+    - A stock was held the previous day.
+    - No stock was held the previous day and a stock is bought today.
+- If $k = 2$, meaning a short position is held, this state can be reached from two situations:
+    - A short position was held the previous day.
+    - No stock was held the previous day and a short position is opened (sold) today.
 
 That is, for $1 \leq i < n$ and $1 \leq j \leq k$, we have the following state transition equations:
 

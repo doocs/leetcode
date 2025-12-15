@@ -238,7 +238,7 @@ int distinctSubseqII(char* s) {
 
 相似题目：
 
--   [1987. 不同的好子序列数目](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)
+- [1987. 不同的好子序列数目](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)
 
 <!-- tabs:start -->
 

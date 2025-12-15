@@ -62,9 +62,9 @@ tags:
 
 考虑 $f[i][j]$：
 
--   如果 $j = 0$，那么 $f[i][j] = f[i - 1][j] + grid[i][j]$；
--   如果 $i = 0$，那么 $f[i][j] = f[i][j - 1] + grid[i][j]$；
--   如果 $i \gt 0$ 且 $j \gt 0$，那么 $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + grid[i][j]$。
+- 如果 $j = 0$，那么 $f[i][j] = f[i - 1][j] + grid[i][j]$；
+- 如果 $i = 0$，那么 $f[i][j] = f[i][j - 1] + grid[i][j]$；
+- 如果 $i \gt 0$ 且 $j \gt 0$，那么 $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + grid[i][j]$。
 
 最后返回 $f[m - 1][n - 1]$ 即可。
 

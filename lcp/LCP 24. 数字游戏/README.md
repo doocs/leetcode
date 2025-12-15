@@ -57,8 +57,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2024.%20%E6%95%B0%
 
 **提示：**
 
--   `1 <= nums.length <= 10^5`
--   `1 <= nums[i] <= 10^3`
+- `1 <= nums.length <= 10^5`
+- `1 <= nums[i] <= 10^3`
 
 <!-- description:end -->
 

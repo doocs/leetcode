@@ -88,9 +88,9 @@ The problem requires us to find the longest common suffix, so we can consider us
 
 We define the structure of the Trie node as follows:
 
--   `children`: An array of length 26, used to store child nodes.
--   `length`: The length of the shortest string at the current node.
--   `idx`: The index of the string at the current node.
+- `children`: An array of length 26, used to store child nodes.
+- `length`: The length of the shortest string at the current node.
+- `idx`: The index of the string at the current node.
 
 We traverse the string array `wordsContainer`, and insert each string in reverse order into the Trie. During the insertion process, we update the `length` and `idx` of each node.
 

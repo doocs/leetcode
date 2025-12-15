@@ -82,17 +82,17 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 对于每一对数，我们有以下几种情况：
 
--   如果不需要替换，那么 $x + y = s$。
--   如果替换一次，那么 $x + 1 \le s \le y + \textit{limit}$。
--   如果替换两次，那么 $2 \le s \le x$ 或 $y + \textit{limit} + 1 \le s \le 2 \times \textit{limit}$。
+- 如果不需要替换，那么 $x + y = s$。
+- 如果替换一次，那么 $x + 1 \le s \le y + \textit{limit}$。
+- 如果替换两次，那么 $2 \le s \le x$ 或 $y + \textit{limit} + 1 \le s \le 2 \times \textit{limit}$。
 
 即：
 
--   在 $[2,..x]$ 范围内，需要替换 $2$ 次。
--   在 $[x+1,..x+y-1]$ 范围内，需要替换 $1$ 次。
--   在 $[x+y]$ 时，不需要替换。
--   在 $[x+y+1,..y + \textit{limit}]$ 范围内，需要替换 $1$ 次。
--   在 $[y + \textit{limit} + 1,..2 \times \textit{limit}]$ 范围内，需要替换 $2$ 次。
+- 在 $[2,..x]$ 范围内，需要替换 $2$ 次。
+- 在 $[x+1,..x+y-1]$ 范围内，需要替换 $1$ 次。
+- 在 $[x+y]$ 时，不需要替换。
+- 在 $[x+y+1,..y + \textit{limit}]$ 范围内，需要替换 $1$ 次。
+- 在 $[y + \textit{limit} + 1,..2 \times \textit{limit}]$ 范围内，需要替换 $2$ 次。
 
 我们枚举每一个数对，利用差分数组，更新每个数对在不同区间范围内的替换次数。
 
@@ -102,7 +102,7 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 相似题目：
 
--   [3224. 使差值相等的最少数组改动次数](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README.md)
+- [3224. 使差值相等的最少数组改动次数](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README.md)
 
 <!-- tabs:start -->
 

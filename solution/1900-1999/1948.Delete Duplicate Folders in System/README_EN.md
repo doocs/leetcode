@@ -105,8 +105,8 @@ Note that the returned array can be in a different order as the order does not m
 
 We can use a trie to store the folder structure, where each node in the trie contains the following data:
 
--   `children`: A dictionary where the key is the name of the subfolder and the value is the corresponding child node.
--   `deleted`: A boolean value indicating whether the node is marked for deletion.
+- `children`: A dictionary where the key is the name of the subfolder and the value is the corresponding child node.
+- `deleted`: A boolean value indicating whether the node is marked for deletion.
 
 We insert all paths into the trie, then use DFS to traverse the trie and build a string representation for each subtree. For each subtree, if its string representation already exists in a global dictionary, we mark both the current node and the corresponding node in the global dictionary for deletion. Finally, we use DFS again to traverse the trie and add the paths of unmarked nodes to the result list.
 

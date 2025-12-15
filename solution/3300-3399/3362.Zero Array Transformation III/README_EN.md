@@ -108,11 +108,9 @@ The specific steps are as follows:
 1. Sort `queries` by the left endpoint `l` in ascending order;
 2. Initialize the difference array `d` with length `n+1` (to handle the decrement at `r+1`), and set the current coverage count `s=0`, heap pointer `j=0`;
 3. For $i=0$ to $n-1$:
-
     - First, add `d[i]` to `s` to update the current coverage count;
     - Push all queries $[l, r]$ with left endpoint $\le i$ into the max heap `pq` (store `-r`), and advance `j`;
     - While the current coverage `s` is less than the required value `nums[i]`, and the heap is not empty, and the top interval in the heap still covers $i$ (i.e., $-pq[0] \ge i$):
-
         1. Pop the top of the heap (the longest interval), which is equivalent to "applying" this query;
         2. Increment `s` by 1 and do `d[r+1] -= 1` (so that after passing $r$, the coverage count automatically decreases);
 

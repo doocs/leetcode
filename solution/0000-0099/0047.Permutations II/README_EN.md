@@ -58,8 +58,8 @@ We can first sort the array so that duplicate numbers are placed together, makin
 
 Then, we design a function $\textit{dfs}(i)$, which represents the current number to be placed at the $i$-th position. The specific implementation of the function is as follows:
 
--   If $i = n$, it means we have filled all positions, add the current permutation to the answer array, and then return.
--   Otherwise, we enumerate the number $nums[j]$ for the $i$-th position, where the range of $j$ is $[0, n - 1]$. We need to ensure that $nums[j]$ has not been used and is different from the previously enumerated number to ensure that the current permutation is not duplicated. If the conditions are met, we can place $nums[j]$ and continue to recursively fill the next position by calling $\textit{dfs}(i + 1)$. After the recursive call ends, we need to mark $nums[j]$ as unused to facilitate subsequent enumeration.
+- If $i = n$, it means we have filled all positions, add the current permutation to the answer array, and then return.
+- Otherwise, we enumerate the number $nums[j]$ for the $i$-th position, where the range of $j$ is $[0, n - 1]$. We need to ensure that $nums[j]$ has not been used and is different from the previously enumerated number to ensure that the current permutation is not duplicated. If the conditions are met, we can place $nums[j]$ and continue to recursively fill the next position by calling $\textit{dfs}(i + 1)$. After the recursive call ends, we need to mark $nums[j]$ as unused to facilitate subsequent enumeration.
 
 In the main function, we first sort the array, then call $\textit{dfs}(0)$ to start filling from the 0th position, and finally return the answer array.
 
@@ -67,7 +67,7 @@ The time complexity is $O(n \times n!)$, and the space complexity is $O(n)$. Her
 
 Similar problems:
 
--   [46. Permutations](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0046.Permutations/README_EN.md)
+- [46. Permutations](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0046.Permutations/README_EN.md)
 
 <!-- tabs:start -->
 

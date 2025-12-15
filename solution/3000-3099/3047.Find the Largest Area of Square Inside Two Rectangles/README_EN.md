@@ -92,10 +92,10 @@ We can enumerate two rectangles, where the coordinates of the bottom left and to
 
 If rectangle 1 and rectangle 2 intersect, then the coordinates of the intersection are:
 
--   The x-coordinate of the bottom left corner is the maximum of the x-coordinates of the bottom left corners of the two rectangles, i.e., $\max(x_1, x_3)$;
--   The y-coordinate of the bottom left corner is the maximum of the y-coordinates of the bottom left corners of the two rectangles, i.e., $\max(y_1, y_3)$;
--   The x-coordinate of the top right corner is the minimum of the x-coordinates of the top right corners of the two rectangles, i.e., $\min(x_2, x_4)$;
--   The y-coordinate of the top right corner is the minimum of the y-coordinates of the top right corners of the two rectangles, i.e., $\min(y_2, y_4)$.
+- The x-coordinate of the bottom left corner is the maximum of the x-coordinates of the bottom left corners of the two rectangles, i.e., $\max(x_1, x_3)$;
+- The y-coordinate of the bottom left corner is the maximum of the y-coordinates of the bottom left corners of the two rectangles, i.e., $\max(y_1, y_3)$;
+- The x-coordinate of the top right corner is the minimum of the x-coordinates of the top right corners of the two rectangles, i.e., $\min(x_2, x_4)$;
+- The y-coordinate of the top right corner is the minimum of the y-coordinates of the top right corners of the two rectangles, i.e., $\min(y_2, y_4)$.
 
 Then the width and height of the intersection are $w = \min(x_2, x_4) - \max(x_1, x_3)$ and $h = \min(y_2, y_4) - \max(y_1, y_3)$ respectively. We take the minimum of the two as the side length, i.e., $e = \min(w, h)$. If $e > 0$, then we can get a square with an area of $e^2$. We take the maximum area of all squares.
 

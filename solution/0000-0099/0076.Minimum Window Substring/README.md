@@ -18,16 +18,9 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个字符串 <code>s</code> 、一个字符串 <code>t</code> 。返回 <code>s</code> 中涵盖 <code>t</code> 所有字符的最小子串。如果 <code>s</code> 中不存在涵盖 <code>t</code> 所有字符的子串，则返回空字符串 <code>""</code> 。</p>
+<p>给定两个字符串&nbsp;<code>s</code> 和&nbsp;<code>t</code>，长度分别是&nbsp;<code>m</code> 和&nbsp;<code>n</code>，返回 s 中的&nbsp;<strong>最短窗口 <span data-keyword="substring-nonempty">子串</span></strong>，使得该子串包含 <code>t</code> 中的每一个字符（<strong>包括重复字符</strong>）。如果没有这样的子串，返回空字符串<em>&nbsp;</em><code>""</code>。</p>
 
-<p>&nbsp;</p>
-
-<p><strong>注意：</strong></p>
-
-<ul>
-	<li>对于 <code>t</code> 中重复字符，我们寻找的子字符串中该字符数量必须不少于 <code>t</code> 中该字符数量。</li>
-	<li>如果 <code>s</code> 中存在这样的子串，我们保证它是唯一的答案。</li>
-</ul>
+<p>测试用例保证答案唯一。</p>
 
 <p>&nbsp;</p>
 
@@ -60,14 +53,14 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code><sup>m == s.length</sup></code></li>
-	<li><code><sup>n == t.length</sup></code></li>
+	<li><code>m == s.length</code></li>
+	<li><code>n == t.length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> 和 <code>t</code> 由英文字母组成</li>
 </ul>
 
 <p>&nbsp;</p>
-<strong>进阶：</strong>你能设计一个在 <code>o(m+n)</code> 时间内解决此问题的算法吗？
+<strong>进阶：</strong>你能设计一个在 <code>O(m + n)</code> 时间内解决此问题的算法吗？
 
 <!-- description:end -->
 
@@ -81,10 +74,10 @@ tags:
 
 我们从左到右遍历字符串 $s$，对于当前遍历到的字符 $s[r]$：
 
--   我们将其加入窗口中，即 $\textit{window}[s[r]] = \textit{window}[s[r]] + 1$，如果此时 $\textit{need}[s[r]] \geq \textit{window}[s[r]]$，则说明 $s[r]$ 是一个「必要的字符」，我们将 $\textit{cnt}$ 加一。
--   如果 $\textit{cnt}$ 等于 $t$ 的长度，说明此时窗口中已经包含了 $t$ 中的所有字符，我们就可以尝试更新最小覆盖子串的起始位置和长度了。如果 $r - l + 1 < \textit{mi}$，说明当前窗口表示的子串更短，我们就更新 $\textit{mi} = r - l + 1$ 和 $k = l$。
--   然后，我们尝试移动左边界 $l$，如果此时 $\textit{need}[s[l]] \geq \textit{window}[s[l]]$，则说明 $s[l]$ 是一个「必要的字符」，移动左边界时会把 $s[l]$ 这个字符从窗口中移除，因此我们需要将 $\textit{cnt}$ 减一，然后更新 $\textit{window}[s[l]] = \textit{window}[s[l]] - 1$，并将 $l$ 右移一位。
--   如果 $\textit{cnt}$ 与 $t$ 的长度不相等，说明此时窗口中还没有包含 $t$ 中的所有字符，我们就不需要移动左边界了，直接将 $r$ 右移一位，继续遍历即可。
+- 我们将其加入窗口中，即 $\textit{window}[s[r]] = \textit{window}[s[r]] + 1$，如果此时 $\textit{need}[s[r]] \geq \textit{window}[s[r]]$，则说明 $s[r]$ 是一个「必要的字符」，我们将 $\textit{cnt}$ 加一。
+- 如果 $\textit{cnt}$ 等于 $t$ 的长度，说明此时窗口中已经包含了 $t$ 中的所有字符，我们就可以尝试更新最小覆盖子串的起始位置和长度了。如果 $r - l + 1 < \textit{mi}$，说明当前窗口表示的子串更短，我们就更新 $\textit{mi} = r - l + 1$ 和 $k = l$。
+- 然后，我们尝试移动左边界 $l$，如果此时 $\textit{need}[s[l]] \geq \textit{window}[s[l]]$，则说明 $s[l]$ 是一个「必要的字符」，移动左边界时会把 $s[l]$ 这个字符从窗口中移除，因此我们需要将 $\textit{cnt}$ 减一，然后更新 $\textit{window}[s[l]] = \textit{window}[s[l]] - 1$，并将 $l$ 右移一位。
+- 如果 $\textit{cnt}$ 与 $t$ 的长度不相等，说明此时窗口中还没有包含 $t$ 中的所有字符，我们就不需要移动左边界了，直接将 $r$ 右移一位，继续遍历即可。
 
 遍历结束，如果没有找到最小覆盖子串，返回空字符串，否则返回 $s[k:k+\textit{mi}]$ 即可。
 

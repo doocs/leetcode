@@ -73,10 +73,10 @@ We design a function $\textit{dfs}(i, j)$ to represent the minimum number of whi
 
 For index $i$, we discuss the following cases:
 
--   If $i \ge n$, it means all tiles have been covered, return $0$;
--   If $\textit{floor}[i] = 0$, then we do not need to use a carpet, just skip it, i.e., $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$;
--   If $j = 0$, then we can directly use the prefix sum array $s$ to calculate the number of remaining uncovered white tiles, i.e., $\textit{dfs}(i, j) = s[n] - s[i]$;
--   If $\textit{floor}[i] = 1$, then we can choose to use a carpet or not, and take the minimum of the two, i.e., $\textit{dfs}(i, j) = \min(\textit{dfs}(i + 1, j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$.
+- If $i \ge n$, it means all tiles have been covered, return $0$;
+- If $\textit{floor}[i] = 0$, then we do not need to use a carpet, just skip it, i.e., $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$;
+- If $j = 0$, then we can directly use the prefix sum array $s$ to calculate the number of remaining uncovered white tiles, i.e., $\textit{dfs}(i, j) = s[n] - s[i]$;
+- If $\textit{floor}[i] = 1$, then we can choose to use a carpet or not, and take the minimum of the two, i.e., $\textit{dfs}(i, j) = \min(\textit{dfs}(i + 1, j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$.
 
 We use memoization search to solve this problem.
 

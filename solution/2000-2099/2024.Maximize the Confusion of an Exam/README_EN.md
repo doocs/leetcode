@@ -87,8 +87,8 @@ Time complexity is $O(n)$, where $n$ is the length of the string. Space complexi
 
 Similar problems:
 
--   [487. Max Consecutive Ones II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
--   [1004. Max Consecutive Ones III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
+- [487. Max Consecutive Ones II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
+- [1004. Max Consecutive Ones III](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
 
 <!-- tabs:start -->
 

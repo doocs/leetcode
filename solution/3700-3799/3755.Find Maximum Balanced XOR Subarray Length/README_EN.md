@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README_EN.md
 rating: 1663
 source: Weekly Contest 477 Q2
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

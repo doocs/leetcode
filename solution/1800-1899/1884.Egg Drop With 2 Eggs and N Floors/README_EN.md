@@ -68,8 +68,8 @@ We define $f[i]$ to represent the minimum number of operations to determine $f$ 
 
 Considering $f[i]$, we can enumerate the first egg thrown from the $j$-th floor, where $1 \leq j \leq i$. At this point, there are two cases:
 
--   The egg breaks. At this time, we have one egg left and need to determine $f$ in $j - 1$ floors, which requires $j - 1$ operations. Therefore, the total number of operations is $1 + (j - 1)$;
--   The egg does not break. At this time, we have two eggs left and need to determine $f$ in $i - j$ floors, which requires $f[i - j]$ operations. Therefore, the total number of operations is $1 + f[i - j]$.
+- The egg breaks. At this time, we have one egg left and need to determine $f$ in $j - 1$ floors, which requires $j - 1$ operations. Therefore, the total number of operations is $1 + (j - 1)$;
+- The egg does not break. At this time, we have two eggs left and need to determine $f$ in $i - j$ floors, which requires $f[i - j]$ operations. Therefore, the total number of operations is $1 + f[i - j]$.
 
 In summary, we can obtain the state transition equation:
 

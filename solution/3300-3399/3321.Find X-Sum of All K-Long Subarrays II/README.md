@@ -95,7 +95,7 @@ tags:
 
 相似题目：
 
--   [3013. 将数组分成最小总代价的子数组 II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README.md)
+- [3013. 将数组分成最小总代价的子数组 II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README.md)
 
 <!-- tabs:start -->
 

@@ -73,8 +73,8 @@ Next, we design a function $dfs(i, j)$, which represents the score difference be
 
 The calculation process of the function $dfs(i, j)$ is as follows:
 
--   If $i > j$, it means there are no stones currently, so return $0$;
--   Otherwise, the first player has two choices, which are to remove $stones[i]$ or $stones[j]$, and then calculate the score difference, i.e., $a = s[j + 1] - s[i + 1] - dfs(i + 1, j)$ and $b = s[j] - s[i] - dfs(i, j - 1)$. We take the larger of the two as the return value of $dfs(i, j)$.
+- If $i > j$, it means there are no stones currently, so return $0$;
+- Otherwise, the first player has two choices, which are to remove $stones[i]$ or $stones[j]$, and then calculate the score difference, i.e., $a = s[j + 1] - s[i + 1] - dfs(i + 1, j)$ and $b = s[j] - s[i] - dfs(i, j - 1)$. We take the larger of the two as the return value of $dfs(i, j)$.
 
 During the process, we use memorization search, i.e., use an array $f$ to record the return value of the function $dfs(i, j)$, to avoid repeated calculations.
 

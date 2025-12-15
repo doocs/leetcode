@@ -62,8 +62,8 @@ We can use the idea of prefix sums and a hash table `vis` to record the first oc
 
 Next, we iterate through the array, calculating the prefix sum `s` at the current position `i`:
 
--   If the prefix sum `s` at the current position exists in the hash table `vis`, we denote the first occurrence of `s` as `j`, then the sum of the subarray in the interval $[j + 1,..,i]$ is $0$. If the length of the current subarray is greater than the length of the longest subarray found so far, i.e., $mx < i - j$, we update `mx = i - j` and `k = j + 1`.
--   Otherwise, we store the current prefix sum `s` as the key and the current position `i` as the value in the hash table `vis`.
+- If the prefix sum `s` at the current position exists in the hash table `vis`, we denote the first occurrence of `s` as `j`, then the sum of the subarray in the interval $[j + 1,..,i]$ is $0$. If the length of the current subarray is greater than the length of the longest subarray found so far, i.e., $mx < i - j$, we update `mx = i - j` and `k = j + 1`.
+- Otherwise, we store the current prefix sum `s` as the key and the current position `i` as the value in the hash table `vis`.
 
 After the iteration, we return the subarray with a left endpoint of `k` and a length of `mx`.
 

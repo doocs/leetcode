@@ -119,8 +119,8 @@ tags:
 
 对于 $f[i][j]$，我们有两种选择：
 
--   我们可以跳过 $\textit{source}$ 的第 $i$ 个字符，此时 $f[i][j] = f[i-1][j] + \text{int}(i-1 \in \textit{targetIndices})$；
--   如果 $\textit{source}[i-1] = \textit{pattern}[j-1]$，我们可以匹配 $\textit{source}$ 的第 $i$ 个字符，此时 $f[i][j] = \max(f[i][j], f[i-1][j-1])$。
+- 我们可以跳过 $\textit{source}$ 的第 $i$ 个字符，此时 $f[i][j] = f[i-1][j] + \text{int}(i-1 \in \textit{targetIndices})$；
+- 如果 $\textit{source}[i-1] = \textit{pattern}[j-1]$，我们可以匹配 $\textit{source}$ 的第 $i$ 个字符，此时 $f[i][j] = \max(f[i][j], f[i-1][j-1])$。
 
 最终答案即为 $f[m][n]$。
 

@@ -81,8 +81,8 @@ First, we construct a graph $g$ based on the given edges, where $g[u]$ represent
 
 Then, we use Dijkstra's algorithm to find the shortest path from node $s$ to node $d$. However, we need to make some modifications to Dijkstra's algorithm:
 
--   We need to record the shortest path length from each node $u$ to node $d$, but since we can cross at most $k$ edges, we need to record the shortest path length from each node $u$ to node $d$ and the number of edges crossed $t$, i.e., $dist[u][t]$ represents the shortest path length from node $u$ to node $d$ and the number of edges crossed is $t$.
--   We need to use a priority queue to maintain the current shortest path, but since we need to record the number of edges crossed, we need to use a triple $(dis, u, t)$ to represent the current shortest path, where $dis$ represents the current shortest path length, and $u$ and $t$ represent the current node and the number of edges crossed, respectively.
+- We need to record the shortest path length from each node $u$ to node $d$, but since we can cross at most $k$ edges, we need to record the shortest path length from each node $u$ to node $d$ and the number of edges crossed $t$, i.e., $dist[u][t]$ represents the shortest path length from node $u$ to node $d$ and the number of edges crossed is $t$.
+- We need to use a priority queue to maintain the current shortest path, but since we need to record the number of edges crossed, we need to use a triple $(dis, u, t)$ to represent the current shortest path, where $dis$ represents the current shortest path length, and $u$ and $t$ represent the current node and the number of edges crossed, respectively.
 
 Finally, we only need to return the minimum value in $dist[d][0..k]$.
 

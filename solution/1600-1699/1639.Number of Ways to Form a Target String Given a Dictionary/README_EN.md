@@ -87,9 +87,9 @@ Next, we design a function $dfs(i, j)$, which represents the number of schemes t
 
 The calculation logic of function $dfs(i, j)$ is as follows:
 
--   If $i \geq m$, it means that all characters in $target$ have been selected, then the number of schemes is $1$.
--   If $j \geq n$, it means that all characters in $words$ have been selected, then the number of schemes is $0$.
--   Otherwise, we can choose not to select the character in the $j$-th position of $words$, then the number of schemes is $dfs(i, j + 1)$; or we choose the character in the $j$-th position of $words$, then the number of schemes is $dfs(i + 1, j + 1) \times cnt[j][target[i] - 'a']$.
+- If $i \geq m$, it means that all characters in $target$ have been selected, then the number of schemes is $1$.
+- If $j \geq n$, it means that all characters in $words$ have been selected, then the number of schemes is $0$.
+- Otherwise, we can choose not to select the character in the $j$-th position of $words$, then the number of schemes is $dfs(i, j + 1)$; or we choose the character in the $j$-th position of $words$, then the number of schemes is $dfs(i + 1, j + 1) \times cnt[j][target[i] - 'a']$.
 
 Finally, we return $dfs(0, 0)$. Note that the answer is taken in modulo operation.
 

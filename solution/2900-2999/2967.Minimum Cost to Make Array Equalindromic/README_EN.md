@@ -90,7 +90,7 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(M)$.
 
 Similar problems:
 
--   [906. Super Palindromes](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
+- [906. Super Palindromes](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -79,9 +79,9 @@ First, we use a hash table $\textit{cnt}$ to count the occurrences of each word.
 
 Iterate through each word $k$ and its count $v$ in $\textit{cnt}$:
 
--   If the two letters in $k$ are the same, we can concatenate $\left \lfloor \frac{v}{2}  \right \rfloor \times 2$ copies of $k$ to the front and back of the palindrome. If there is one $k$ left, we can record it in $x$ for now.
+- If the two letters in $k$ are the same, we can concatenate $\left \lfloor \frac{v}{2}  \right \rfloor \times 2$ copies of $k$ to the front and back of the palindrome. If there is one $k$ left, we can record it in $x$ for now.
 
--   If the two letters in $k$ are different, we need to find a word $k'$ such that the two letters in $k'$ are the reverse of $k$, i.e., $k' = k[1] + k[0]$. If $k'$ exists, we can concatenate $\min(v, \textit{cnt}[k'])$ copies of $k$ to the front and back of the palindrome.
+- If the two letters in $k$ are different, we need to find a word $k'$ such that the two letters in $k'$ are the reverse of $k$, i.e., $k' = k[1] + k[0]$. If $k'$ exists, we can concatenate $\min(v, \textit{cnt}[k'])$ copies of $k$ to the front and back of the palindrome.
 
 After the iteration, if $x$ is not empty, we can also place one word in the middle of the palindrome.
 

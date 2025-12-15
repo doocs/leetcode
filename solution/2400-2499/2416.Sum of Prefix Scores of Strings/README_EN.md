@@ -85,13 +85,13 @@ We can use a prefix tree to maintain all prefixes of the strings and count the o
 
 Define the prefix tree node structure `Trie`, which includes two properties:
 
--   `children`: An array of length 26 used to store the current node's children.
--   `cnt`: The occurrence count of the current node.
+- `children`: An array of length 26 used to store the current node's children.
+- `cnt`: The occurrence count of the current node.
 
 Define two methods for the prefix tree:
 
--   `insert`: Inserts a string, adding its prefixes into the prefix tree.
--   `search`: Searches for a string and returns the occurrence count of its prefixes.
+- `insert`: Inserts a string, adding its prefixes into the prefix tree.
+- `search`: Searches for a string and returns the occurrence count of its prefixes.
 
 We traverse all strings, inserting each string into the prefix tree. Then we traverse all strings again, calling the `search` method for each string and summing up the occurrence counts of each prefix.
 

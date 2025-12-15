@@ -104,7 +104,7 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 
 Similar problems:
 
--   [678. Valid Parenthesis String](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README_EN.md)
+- [678. Valid Parenthesis String](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0678.Valid%20Parenthesis%20String/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -70,9 +70,9 @@ We consider enumerating the number of operations, and define $f[i][j]$ as the mi
 
 For the $i$-th chocolate:
 
--   If $j = 0$, i.e., no operation is performed, then $f[i][j] = nums[i]$.
--   If $0 < j \leq n-1$, its minimum cost is the minimum cost within the index range $[i,.. (i - j + n) \bmod n]$, i.e., $f[i][j] = \min\{nums[i], nums[i - 1], \cdots, nums[(i - j + n) \bmod n]\}$, or it can be written as $f[i][j] = \min\{f[i][j - 1], nums[(i - j + n) \bmod n]\}$.
--   If $j \ge n$, since when $j = n - 1$, all minimum costs have been covered, if $j$ continues to increase, the minimum cost will not change, but the increase in the number of operations will lead to an increase in the final cost, so we do not need to consider the case where $j \ge n$.
+- If $j = 0$, i.e., no operation is performed, then $f[i][j] = nums[i]$.
+- If $0 < j \leq n-1$, its minimum cost is the minimum cost within the index range $[i,.. (i - j + n) \bmod n]$, i.e., $f[i][j] = \min\{nums[i], nums[i - 1], \cdots, nums[(i - j + n) \bmod n]\}$, or it can be written as $f[i][j] = \min\{f[i][j - 1], nums[(i - j + n) \bmod n]\}$.
+- If $j \ge n$, since when $j = n - 1$, all minimum costs have been covered, if $j$ continues to increase, the minimum cost will not change, but the increase in the number of operations will lead to an increase in the final cost, so we do not need to consider the case where $j \ge n$.
 
 In summary, we can get the state transition equation:
 

@@ -80,9 +80,9 @@ Let's denote the current energy as $x$ and the current experience as $y$.
 
 Next, we traverse each opponent. For the $i$-th opponent, let their energy be $dx$ and their experience be $dy$.
 
--   If $x \leq dx$, then we need to train for $dx + 1 - x$ hours to increase our energy to $dx + 1$.
--   If $y \leq dy$, then we need to train for $dy + 1 - y$ hours to increase our experience to $dy + 1$.
--   Then, we subtract $dx$ from our energy and add $dy$ to our experience.
+- If $x \leq dx$, then we need to train for $dx + 1 - x$ hours to increase our energy to $dx + 1$.
+- If $y \leq dy$, then we need to train for $dy + 1 - y$ hours to increase our experience to $dy + 1$.
+- Then, we subtract $dx$ from our energy and add $dy$ to our experience.
 
 Finally, return the answer.
 

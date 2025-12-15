@@ -82,10 +82,10 @@ If $k > m$, it means the $k$-th character is not in the expanded part of the cur
 
 Otherwise, the $k$-th character is in the expanded part of the current word. We can find the $k$-th character by simulating the expansion process:
 
--   Initialize a variable $\textit{cur} = 0$ to represent the number of characters that have been expanded so far.
--   Iterate through each character $\textit{w}[i]$ of the word $\textit{w}$:
-    -   Increase $\textit{cur}$ by $i + 1$.
-    -   If $k < \textit{cur}$, it means the $k$-th character is $\textit{w}[i]$, and we return this character.
+- Initialize a variable $\textit{cur} = 0$ to represent the number of characters that have been expanded so far.
+- Iterate through each character $\textit{w}[i]$ of the word $\textit{w}$:
+    - Increase $\textit{cur}$ by $i + 1$.
+    - If $k < \textit{cur}$, it means the $k$-th character is $\textit{w}[i]$, and we return this character.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
 

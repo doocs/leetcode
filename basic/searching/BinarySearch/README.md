@@ -55,8 +55,8 @@ int search(int left, int right) {
 
 ## 例题
 
--   [在排序数组中查找元素的第一个和最后一个位置](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md)
--   [x 的平方根](/solution/0000-0099/0069.Sqrt%28x%29/README.md)
--   [寻找峰值](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
--   [第一个错误的版本](/solution/0200-0299/0278.First%20Bad%20Version/README.md)
--   [不动点](/solution/1000-1099/1064.Fixed%20Point/README.md)
+- [在排序数组中查找元素的第一个和最后一个位置](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md)
+- [x 的平方根](/solution/0000-0099/0069.Sqrt%28x%29/README.md)
+- [寻找峰值](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
+- [第一个错误的版本](/solution/0200-0299/0278.First%20Bad%20Version/README.md)
+- [不动点](/solution/1000-1099/1064.Fixed%20Point/README.md)

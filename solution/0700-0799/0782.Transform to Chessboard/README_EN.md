@@ -76,8 +76,8 @@ For example, if one row on the chessboard is "01010011", then any other row can 
 
 Additionally, each row and each column has half $0$s and half $1$s. Suppose the chessboard is $n \times n$:
 
--   If $n = 2 \times k$, then each row and each column has $k$ $1$s and $k$ $0$s.
--   If $n = 2 \times k + 1$, then each row has $k$ $1$s and $k + 1$ $0$s, or $k + 1$ $1$s and $k$ $0$s.
+- If $n = 2 \times k$, then each row and each column has $k$ $1$s and $k$ $0$s.
+- If $n = 2 \times k + 1$, then each row has $k$ $1$s and $k + 1$ $0$s, or $k + 1$ $1$s and $k$ $0$s.
 
 Based on the above conclusions, we can determine whether a chessboard is valid. If valid, we can calculate the minimum number of moves required.
 

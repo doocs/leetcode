@@ -53,6 +53,7 @@ tags:
 	<li><code>0 &lt;= n &lt;= 3500</code></li>
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>-100 &lt;= target &lt;= 100</code></li>
+	<li>The input is generated such that the answer is less than or equal to 10<sup>9</sup>.</li>
 </ul>
 
 <!-- description:end -->
@@ -67,8 +68,8 @@ Since the order of elements does not affect the result, we can sort the array fi
 
 First, we sort the array and then enumerate the first element $\textit{nums}[i]$. Within the range $\textit{nums}[i+1:n-1]$, we use two pointers pointing to $\textit{nums}[j]$ and $\textit{nums}[k]$, where $j$ is the next element of $\textit{nums}[i]$ and $k$ is the last element of the array.
 
--   If $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] < \textit{target}$, then for any element $j \lt k' \leq k$, we have $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k'] < \textit{target}$. There are $k - j$ such $k'$, and we add $k - j$ to the answer. Next, move $j$ one position to the right and continue to find the next $k$ that meets the condition until $j \geq k$.
--   If $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] \geq \textit{target}$, then for any element $j \leq j' \lt k$, it is impossible to make $\textit{nums}[i] + \textit{nums}[j'] + \textit{nums}[k] < \textit{target}$. Therefore, we move $k$ one position to the left and continue to find the next $k$ that meets the condition until $j \geq k$.
+- If $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] < \textit{target}$, then for any element $j \lt k' \leq k$, we have $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k'] < \textit{target}$. There are $k - j$ such $k'$, and we add $k - j$ to the answer. Next, move $j$ one position to the right and continue to find the next $k$ that meets the condition until $j \geq k$.
+- If $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] \geq \textit{target}$, then for any element $j \leq j' \lt k$, it is impossible to make $\textit{nums}[i] + \textit{nums}[j'] + \textit{nums}[k] < \textit{target}$. Therefore, we move $k$ one position to the left and continue to find the next $k$ that meets the condition until $j \geq k$.
 
 After enumerating all $i$, we get the number of triplets that meet the condition.
 

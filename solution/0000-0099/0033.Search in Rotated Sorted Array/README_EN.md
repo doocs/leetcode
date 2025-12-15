@@ -59,12 +59,12 @@ We use binary search to divide the array into two parts, $[left,.. mid]$ and $[m
 
 Therefore, we can determine whether $target$ is in this part based on the sorted part:
 
--   If the elements in the range $[0,.. mid]$ form a sorted array:
-    -   If $nums[0] \leq target \leq nums[mid]$, then our search range can be narrowed down to $[left,.. mid]$;
-    -   Otherwise, search in $[mid + 1,.. right]$;
--   If the elements in the range $[mid + 1, n - 1]$ form a sorted array:
-    -   If $nums[mid] \lt target \leq nums[n - 1]$, then our search range can be narrowed down to $[mid + 1,.. right]$;
-    -   Otherwise, search in $[left,.. mid]$.
+- If the elements in the range $[0,.. mid]$ form a sorted array:
+    - If $nums[0] \leq target \leq nums[mid]$, then our search range can be narrowed down to $[left,.. mid]$;
+    - Otherwise, search in $[mid + 1,.. right]$;
+- If the elements in the range $[mid + 1, n - 1]$ form a sorted array:
+    - If $nums[mid] \lt target \leq nums[n - 1]$, then our search range can be narrowed down to $[mid + 1,.. right]$;
+    - Otherwise, search in $[left,.. mid]$.
 
 The termination condition for binary search is $left \geq right$. If at the end we find that $nums[left]$ is not equal to $target$, it means that there is no element with a value of $target$ in the array, and we return $-1$. Otherwise, we return the index $left$.
 

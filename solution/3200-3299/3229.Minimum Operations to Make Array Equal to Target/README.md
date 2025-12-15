@@ -84,7 +84,7 @@ tags:
 
 相似题目：
 
--   [1526. 形成目标数组的子数组最少增加次数](https://github.com/doocs/leetcode/tree/main/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md)
+- [1526. 形成目标数组的子数组最少增加次数](https://github.com/doocs/leetcode/tree/main/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md)
 
 <!-- tabs:start -->
 

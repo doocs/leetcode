@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README.md
 rating: 1668
 source: 第 478 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 数学
 ---
 
 <!-- problem:start -->

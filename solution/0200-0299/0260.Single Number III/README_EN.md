@@ -63,8 +63,8 @@ tags:
 
 The XOR operation has the following properties:
 
--   Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
--   Any number XOR itself is 0, i.e., $x \oplus x = 0$;
+- Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
+- Any number XOR itself is 0, i.e., $x \oplus x = 0$;
 
 Since all numbers in the array appear twice except for two numbers, we can perform XOR operation on all numbers in the array to get the XOR result of the two numbers that only appear once.
 

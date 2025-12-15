@@ -91,10 +91,10 @@ We design a function $dfs(i, j, k)$ to represent the number of stable binary arr
 
 The calculation process of the function $dfs(i, j, k)$ is as follows:
 
--   If $i < 0$ or $j < 0$, return $0$.
--   If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.
--   If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.
--   If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
+- If $i < 0$ or $j < 0$, return $0$.
+- If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.
+- If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.
+- If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
 
 <!-- tabs:start -->
 
@@ -294,8 +294,8 @@ Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\textit{limit}, \
 
 The state transition equation is as follows:
 
--   $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
--   $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
+- $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
+- $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
 
 The time complexity is $O(zero \times one)$, and the space complexity is $O(zero \times one)$.
 

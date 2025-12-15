@@ -93,10 +93,10 @@ Therefore, we need a data structure to maintain the maximum value of the interva
 
 The segment tree divides the entire interval into multiple discontinuous subintervals, and the number of subintervals does not exceed $log(width)$. To update the value of an element, only $log(width)$ intervals need to be updated, and these intervals are all contained in a large interval that contains the element.
 
--   Each node of the segment tree represents an interval;
--   The segment tree has a unique root node, which represents the entire statistical range, such as $[1,N]$;
--   Each leaf node of the segment tree represents an elementary interval of length $1$, $[x, x]$;
--   For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid = \left \lfloor \frac{l+r}{2} \right \rfloor$.
+- Each node of the segment tree represents an interval;
+- The segment tree has a unique root node, which represents the entire statistical range, such as $[1,N]$;
+- Each leaf node of the segment tree represents an elementary interval of length $1$, $[x, x]$;
+- For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid = \left \lfloor \frac{l+r}{2} \right \rfloor$.
 
 For this problem, the information maintained by the segment tree node is the maximum value within the interval range.
 

@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README_EN.md
+tags:
+    - Trie
+    - String
 ---
 
 <!-- problem:start -->

@@ -67,8 +67,8 @@ We define $f[i][j]$ as the maximum sum of several numbers selected from the firs
 
 For $f[i][j]$, we can consider the state of the $i$th number $x$:
 
--   If we do not select $x$, then $f[i][j]=f[i-1][j]$;
--   If we select $x$, then $f[i][j]=f[i-1][(j-x \bmod 3 + 3)\bmod 3]+x$.
+- If we do not select $x$, then $f[i][j]=f[i-1][j]$;
+- If we select $x$, then $f[i][j]=f[i-1][(j-x \bmod 3 + 3)\bmod 3]+x$.
 
 Therefore, we can get the state transition equation:
 

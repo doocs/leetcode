@@ -74,16 +74,16 @@ We notice that the problem requires us to find the possible majority element in 
 
 We define each node of the segment tree as `Node`, each node contains the following attributes:
 
--   `l`: The left endpoint of the node, the index starts from $1$.
--   `r`: The right endpoint of the node, the index starts from $1$.
--   `x`: The candidate majority element of the node.
--   `cnt`: The occurrence of the candidate majority element of the node.
+- `l`: The left endpoint of the node, the index starts from $1$.
+- `r`: The right endpoint of the node, the index starts from $1$.
+- `x`: The candidate majority element of the node.
+- `cnt`: The occurrence of the candidate majority element of the node.
 
 The segment tree mainly has the following operations:
 
--   `build(u, l, r)`: Build the segment tree.
--   `pushup(u)`: Use the information of the child nodes to update the information of the parent node.
--   `query(u, l, r)`: Query the interval sum.
+- `build(u, l, r)`: Build the segment tree.
+- `pushup(u)`: Use the information of the child nodes to update the information of the parent node.
+- `query(u, l, r)`: Query the interval sum.
 
 In the initialization method of the main function, we first create a segment tree, and use a hash table $d$ to record all indexes of each element in the array.
 

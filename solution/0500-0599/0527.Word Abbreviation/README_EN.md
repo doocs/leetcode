@@ -69,8 +69,8 @@ We notice that if two words have the same abbreviation, their first and last let
 
 The structure of each node in the trie is as follows:
 
--   `children`: An array of length $26$, representing all child nodes of this node.
--   `cnt`: The number of words passing through this node.
+- `children`: An array of length $26$, representing all child nodes of this node.
+- `cnt`: The number of words passing through this node.
 
 For each word, we insert it into the trie and record the `cnt` value of each node.
 

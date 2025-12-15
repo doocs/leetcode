@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README.md
 rating: 1404
 source: 第 170 场双周赛 Q2
+tags:
+    - 数学
+    - 动态规划
+    - 枚举
 ---
 
 <!-- problem:start -->

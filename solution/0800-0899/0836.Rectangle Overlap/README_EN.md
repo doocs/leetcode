@@ -56,10 +56,10 @@ Let the coordinates of rectangle $\text{rec1}$ be $(x_1, y_1, x_2, y_2)$, and th
 
 The rectangles $\text{rec1}$ and $\text{rec2}$ do not overlap if any of the following conditions are met:
 
--   $y_3 \geq y_2$: $\text{rec2}$ is above $\text{rec1}$;
--   $y_4 \leq y_1$: $\text{rec2}$ is below $\text{rec1}$;
--   $x_3 \geq x_2$: $\text{rec2}$ is to the right of $\text{rec1}$;
--   $x_4 \leq x_1$: $\text{rec2}$ is to the left of $\text{rec1}$.
+- $y_3 \geq y_2$: $\text{rec2}$ is above $\text{rec1}$;
+- $y_4 \leq y_1$: $\text{rec2}$ is below $\text{rec1}$;
+- $x_3 \geq x_2$: $\text{rec2}$ is to the right of $\text{rec1}$;
+- $x_4 \leq x_1$: $\text{rec2}$ is to the left of $\text{rec1}$.
 
 If none of the above conditions are met, the rectangles $\text{rec1}$ and $\text{rec2}$ overlap.
 

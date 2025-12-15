@@ -221,7 +221,7 @@ $$
 
 相似题目：
 
--   [1039. 多边形三角剖分的最低得分](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
+- [1039. 多边形三角剖分的最低得分](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
 
 <!-- tabs:start -->
 

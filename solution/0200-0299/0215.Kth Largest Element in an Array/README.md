@@ -12,7 +12,7 @@ tags:
 
 <!-- problem:start -->
 
-# [215. 数组中的第 K 个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array)
+# [215. 数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array)
 
 [English Version](/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README_EN.md)
 

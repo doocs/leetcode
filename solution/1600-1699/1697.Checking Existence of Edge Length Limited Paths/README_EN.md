@@ -304,11 +304,11 @@ Here, $\alpha$ is the inverse Ackermann function, which grows extremely slowly. 
 
 Below is a common template for Union-Find, which needs to be mastered proficiently. Where:
 
--   `n` represents the number of nodes.
--   `p` stores the parent node of each point. Initially, the parent node of each point is itself.
--   `size` only makes sense when the node is an ancestor node, indicating the number of points in the set where the ancestor node is located.
--   `find(x)` function is used to find the ancestor node of the set where $x$ is located.
--   `union(a, b)` function is used to merge the sets where $a$ and $b$ are located.
+- `n` represents the number of nodes.
+- `p` stores the parent node of each point. Initially, the parent node of each point is itself.
+- `size` only makes sense when the node is an ancestor node, indicating the number of points in the set where the ancestor node is located.
+- `find(x)` function is used to find the ancestor node of the set where $x$ is located.
+- `union(a, b)` function is used to merge the sets where $a$ and $b$ are located.
 
 <!-- tabs:start -->
 

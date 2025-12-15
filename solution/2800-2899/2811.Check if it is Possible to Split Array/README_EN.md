@@ -112,9 +112,9 @@ If $i = j$, then there is only one element, no need to split, return `true`;
 
 Otherwise, we enumerate the split point $k$, where $k \in [i, j]$, if the following conditions are met, then it can be split into two subarrays $nums[i,.. k]$ and $nums[k + 1,.. j]$:
 
--   The subarray $nums[i,..k]$ has only one element, or the sum of the elements of the subarray $nums[i,..k]$ is greater than or equal to $m$;
--   The subarray $nums[k + 1,..j]$ has only one element, or the sum of the elements of the subarray $nums[k + 1,..j]$ is greater than or equal to $m$;
--   Both $dfs(i, k)$ and $dfs(k + 1, j)$ are `true`.
+- The subarray $nums[i,..k]$ has only one element, or the sum of the elements of the subarray $nums[i,..k]$ is greater than or equal to $m$;
+- The subarray $nums[k + 1,..j]$ has only one element, or the sum of the elements of the subarray $nums[k + 1,..j]$ is greater than or equal to $m$;
+- Both $dfs(i, k)$ and $dfs(k + 1, j)$ are `true`.
 
 To avoid repeated calculations, we use the method of memoization search, and use a two-dimensional array $f$ to record all the return values of $dfs(i, j)$, where $f[i][j]$ represents the return value of $dfs(i, j)$.
 

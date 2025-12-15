@@ -89,10 +89,10 @@ First, we store the edges of the graph in the adjacency list $g$. Then, we desig
 
 The logic of the function $\textit{dfs}(u, \textit{cost}, \textit{value})$ is as follows:
 
--   If the current node number $u$ equals $0$, it means we have returned to the starting point, so we update the answer to $\max(\textit{ans}, \textit{value})$;
--   For each neighbor node $v$ of the current node $u$, if the current path's cost time plus the time $t$ of the edge $(u, v)$ does not exceed $\textit{maxTime}$, then we can choose to continue visiting node $v$;
-    -   If node $v$ has already been visited, we directly recursively call $\textit{dfs}(v, \textit{cost} + t, \textit{value})$;
-    -   If node $v$ has not been visited, we mark node $v$ as visited, then recursively call $\textit{dfs}(v, \textit{cost} + t, \textit{value} + \textit{values}[v])$, and finally restore the visit status of node $v$.
+- If the current node number $u$ equals $0$, it means we have returned to the starting point, so we update the answer to $\max(\textit{ans}, \textit{value})$;
+- For each neighbor node $v$ of the current node $u$, if the current path's cost time plus the time $t$ of the edge $(u, v)$ does not exceed $\textit{maxTime}$, then we can choose to continue visiting node $v$;
+    - If node $v$ has already been visited, we directly recursively call $\textit{dfs}(v, \textit{cost} + t, \textit{value})$;
+    - If node $v$ has not been visited, we mark node $v$ as visited, then recursively call $\textit{dfs}(v, \textit{cost} + t, \textit{value} + \textit{values}[v])$, and finally restore the visit status of node $v$.
 
 In the main function, we call $\textit{dfs}(0, 0, \textit{values}[0])$ and return the answer $\textit{ans}$.
 

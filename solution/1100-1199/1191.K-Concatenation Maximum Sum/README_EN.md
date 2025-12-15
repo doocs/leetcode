@@ -72,9 +72,9 @@ We traverse the array $arr$. For each element $x$, we update $s = s + x$, $mxPre
 
 Next, we consider the value of $k$:
 
--   When $k = 1$, the answer is $mxSub$.
--   When $k \ge 2$, if the maximum subarray spans two $arr$, then the answer is $mxPre + mxSuf$, where $mxSuf = s - miPre$.
--   When $k \ge 2$ and $s > 0$, if the maximum subarray spans three $arr$, then the answer is $(k - 2) \times s + mxPre + mxSuf$.
+- When $k = 1$, the answer is $mxSub$.
+- When $k \ge 2$, if the maximum subarray spans two $arr$, then the answer is $mxPre + mxSuf$, where $mxSuf = s - miPre$.
+- When $k \ge 2$ and $s > 0$, if the maximum subarray spans three $arr$, then the answer is $(k - 2) \times s + mxPre + mxSuf$.
 
 Finally, we return the result of the answer modulo $10^9 + 7$.
 

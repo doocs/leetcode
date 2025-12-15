@@ -72,9 +72,9 @@ Therefore, the problem is transformed into finding the minimum value of $a = |x 
 
 For $x \in [x_1, x_2]$:
 
--   If $x_1 \leq xCenter \leq x_2$, then the minimum value of $|x - xCenter|$ is $0$;
--   If $xCenter < x_1$, then the minimum value of $|x - xCenter|$ is $x_1 - xCenter$;
--   If $xCenter > x_2$, then the minimum value of $|x - xCenter|$ is $xCenter - x_2$.
+- If $x_1 \leq xCenter \leq x_2$, then the minimum value of $|x - xCenter|$ is $0$;
+- If $xCenter < x_1$, then the minimum value of $|x - xCenter|$ is $x_1 - xCenter$;
+- If $xCenter > x_2$, then the minimum value of $|x - xCenter|$ is $xCenter - x_2$.
 
 Similarly, we can find the minimum value of $|y - yCenter|$ when $y \in [y_1, y_2]$. We can use a function $f(i, j, k)$ to handle the above situations.
 

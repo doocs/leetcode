@@ -80,9 +80,9 @@ Purchases table:
 
 我们用到的日期函数有：
 
--   `DATE_FORMAT(date, format)`：将日期格式化为字符串
--   `DAYOFWEEK(date)`：返回日期对应的星期几，1 代表星期日，2 代表星期一，以此类推
--   `DAYOFMONTH(date)`：返回日期对应的月份中的第几天
+- `DATE_FORMAT(date, format)`：将日期格式化为字符串
+- `DAYOFWEEK(date)`：返回日期对应的星期几，1 代表星期日，2 代表星期一，以此类推
+- `DAYOFMONTH(date)`：返回日期对应的月份中的第几天
 
 我们先用 `DATE_FORMAT` 函数将日期格式化为 `YYYYMM` 的形式，然后筛选出 2023 年 11 月且是星期五的记录，然后将记录按照 `purchase_date` 分组，计算出每个星期五的总消费金额。
 

@@ -88,8 +88,8 @@ Therefore, we design a function $dfs(i)$, which represents the maximum number of
 
 The calculation process of function $dfs(i)$ is as follows:
 
--   If $i = n - 1$, then we have reached the end index and no jumps are required, so return $0$;
--   Otherwise, we need to enumerate the positions $j$ that can be jumped from position $i$, and calculate the maximum number of jumps needed to jump to the end index starting from $j$, then $dfs(i)$ is equal to the maximum value of all $dfs(j)$ plus $1$. If there is no position $j$ that can be jumped from $i$, then $dfs(i) = -\infty$.
+- If $i = n - 1$, then we have reached the end index and no jumps are required, so return $0$;
+- Otherwise, we need to enumerate the positions $j$ that can be jumped from position $i$, and calculate the maximum number of jumps needed to jump to the end index starting from $j$, then $dfs(i)$ is equal to the maximum value of all $dfs(j)$ plus $1$. If there is no position $j$ that can be jumped from $i$, then $dfs(i) = -\infty$.
 
 To avoid duplicate calculations, we can use memoization.
 

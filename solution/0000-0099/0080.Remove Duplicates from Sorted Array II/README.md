@@ -90,12 +90,12 @@ for (int i = 0; i &lt; len; i++) {
 
 原问题要求最多相同的数字最多出现 $2$ 次，我们可以扩展至相同的数字最多保留 $k$ 个。
 
--   由于相同的数字最多保留 $k$ 个，那么原数组的前 $k$ 个元素我们可以直接保留；
--   对于后面的数字，能够保留的前提是：当前数字 $x$ 与前面已保留的数字的倒数第 $k$ 个元素比较，不同则保留，相同则跳过。
+- 由于相同的数字最多保留 $k$ 个，那么原数组的前 $k$ 个元素我们可以直接保留；
+- 对于后面的数字，能够保留的前提是：当前数字 $x$ 与前面已保留的数字的倒数第 $k$ 个元素比较，不同则保留，相同则跳过。
 
 相似题目：
 
--   [26. 删除有序数组中的重复项](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
+- [26. 删除有序数组中的重复项](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
 
 <!-- tabs:start -->
 

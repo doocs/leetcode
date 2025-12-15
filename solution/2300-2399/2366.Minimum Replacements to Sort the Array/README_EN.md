@@ -69,8 +69,8 @@ We observe that to make the array $nums$ non-decreasing or monotonically increas
 
 In other words, we can traverse the array $nums$ from the end to the beginning, maintaining the current maximum value $mx$, initially $mx = nums[n-1]$.
 
--   If the current element $nums[i] \leq mx$, there is no need to replace $nums[i]$. We simply update $mx = nums[i]$.
--   Otherwise, we need to replace $nums[i]$ with multiple numbers that sum to $nums[i]$. The maximum of these numbers is $mx$, and the total number of replacements is $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$. Therefore, we need to perform $k-1$ operations, which are added to the answer. Among these $k$ numbers, the smallest number is $\left \lfloor \frac{nums[i]}{k} \right \rfloor$. Therefore, we update $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$.
+- If the current element $nums[i] \leq mx$, there is no need to replace $nums[i]$. We simply update $mx = nums[i]$.
+- Otherwise, we need to replace $nums[i]$ with multiple numbers that sum to $nums[i]$. The maximum of these numbers is $mx$, and the total number of replacements is $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$. Therefore, we need to perform $k-1$ operations, which are added to the answer. Among these $k$ numbers, the smallest number is $\left \lfloor \frac{nums[i]}{k} \right \rfloor$. Therefore, we update $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$.
 
 After the traversal, we return the total number of operations.
 

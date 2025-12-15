@@ -70,8 +70,8 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 我们可以发现，要显示最多的 `A`，要么一直按 `A`，要么以 `Ctrl-V` 结束。
 
--   一直按 `A` 的情况，满足 $dp[i] = i$。
--   以 `Ctrl-V` 结束的情况，我们枚举对应的 `Ctrl-A` 的位置 $j$，可以得到 $dp[i]=max(dp[i], dp[j-1] \times (i - j))$。
+- 一直按 `A` 的情况，满足 $dp[i] = i$。
+- 以 `Ctrl-V` 结束的情况，我们枚举对应的 `Ctrl-A` 的位置 $j$，可以得到 $dp[i]=max(dp[i], dp[j-1] \times (i - j))$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
 

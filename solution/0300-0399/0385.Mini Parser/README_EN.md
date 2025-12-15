@@ -378,10 +378,10 @@ We can use a stack to simulate the recursive process.
 
 We first judge whether the string $s$ is an integer. If so, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. For the character $c$ currently traversed:
 
--   If $c$ is a negative sign, we set the negative sign to `true`;
--   If $c$ is a number, we add the number to the current number $x$, where the initial value of $x$ is $0$;
--   If $c$ is a left parenthesis, we push a new `NestedInteger` onto the stack;
--   If $c$ is a right parenthesis or comma, we judge whether the previous character of the current character is a number. If so, we add the current number $x$ to the top `NestedInteger` of the stack according to the negative sign, and then reset the negative sign to `false` and the current number $x$ to $0$. If $c$ is a right parenthesis and the size of the current stack is greater than $1$, we pop the top `NestedInteger` of the stack and add it to the top `NestedInteger` of the stack.
+- If $c$ is a negative sign, we set the negative sign to `true`;
+- If $c$ is a number, we add the number to the current number $x$, where the initial value of $x$ is $0$;
+- If $c$ is a left parenthesis, we push a new `NestedInteger` onto the stack;
+- If $c$ is a right parenthesis or comma, we judge whether the previous character of the current character is a number. If so, we add the current number $x$ to the top `NestedInteger` of the stack according to the negative sign, and then reset the negative sign to `false` and the current number $x$ to $0$. If $c$ is a right parenthesis and the size of the current stack is greater than $1$, we pop the top `NestedInteger` of the stack and add it to the top `NestedInteger` of the stack.
 
 After the traversal is over, return the top `NestedInteger` of the stack.
 

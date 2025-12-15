@@ -75,8 +75,8 @@ First, sort the chickens and grains by their position from left to right. Then e
 
 For each chicken, we use the pointer $j$ to point to the leftmost grain that has not been eaten, and the current position of the chicken is $x$ and the position of the grain is $y$. There are the following cases:
 
--   If $y \leq x$, we note that $d = x - y$. If $d \gt t$, the current grain cannot be eaten, so directly return `false`. Otherwise, move the pointer $j$ to the right until $j=m$ or $grains[j] \gt x$. At this point, we need to check whether the chicken can eat the grain pointed to by $j$. If it can, continue to move the pointer $j$ to the right until $j=m$ or $min(d, grains[j] - x) + grains[j] - y \gt t$.
--   If $y \lt x$, move the pointer $j$ to the right until $j=m$ or $grains[j] - x \gt t$.
+- If $y \leq x$, we note that $d = x - y$. If $d \gt t$, the current grain cannot be eaten, so directly return `false`. Otherwise, move the pointer $j$ to the right until $j=m$ or $grains[j] \gt x$. At this point, we need to check whether the chicken can eat the grain pointed to by $j$. If it can, continue to move the pointer $j$ to the right until $j=m$ or $min(d, grains[j] - x) + grains[j] - y \gt t$.
+- If $y \lt x$, move the pointer $j$ to the right until $j=m$ or $grains[j] - x \gt t$.
 
 If $j=m$, it means that all the grains have been eaten, return `true`, otherwise return `false`.
 

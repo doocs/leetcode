@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README.md
 rating: 1663
 source: 第 477 场周赛 Q2
+tags:
+    - 位运算
+    - 数组
+    - 哈希表
+    - 前缀和
 ---
 
 <!-- problem:start -->

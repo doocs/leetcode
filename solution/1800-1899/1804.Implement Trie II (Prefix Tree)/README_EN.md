@@ -82,8 +82,8 @@ Each node in the Trie includes three parts:
 
 We start from the root of the Trie and insert the string. For the child node corresponding to the current character, there are two cases:
 
--   The child node exists. Move to the child node along the pointer and continue to process the next character.
--   The child node does not exist. Create a new child node, record it in the corresponding position of the `children` array, then move to the child node along the pointer, and increase the `pv` value of the child node by 1. Continue to search for the next character.
+- The child node exists. Move to the child node along the pointer and continue to process the next character.
+- The child node does not exist. Create a new child node, record it in the corresponding position of the `children` array, then move to the child node along the pointer, and increase the `pv` value of the child node by 1. Continue to search for the next character.
 
 Repeat the above steps until the last character of the string is processed, then increase the `v` value of the current node by 1.
 
@@ -93,8 +93,8 @@ The time complexity is $O(n)$, where $n$ is the length of the string.
 
 We start from the root of the Trie and search for the prefix. For the child node corresponding to the current character, there are two cases:
 
--   The child node exists. Move to the child node along the pointer and continue to search for the next character.
--   The child node does not exist. This means that the Trie does not contain this prefix, return a null pointer.
+- The child node exists. Move to the child node along the pointer and continue to search for the next character.
+- The child node does not exist. This means that the Trie does not contain this prefix, return a null pointer.
 
 Repeat the above steps until a null pointer is returned or the last character of the prefix is searched.
 

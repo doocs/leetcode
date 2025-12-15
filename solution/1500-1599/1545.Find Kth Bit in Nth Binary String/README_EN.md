@@ -79,10 +79,10 @@ We can observe that for $S_n$, the first half is the same as $S_{n-1}$, and the 
 
 The calculation process of the function $dfs(n, k)$ is as follows:
 
--   If $k = 1$, then the answer is $0$;
--   If $k$ is a power of $2$, then the answer is $1$;
--   If $k \times 2 < 2^n - 1$, it means that $k$ is in the first half, and the answer is $dfs(n - 1, k)$;
--   Otherwise, the answer is $dfs(n - 1, 2^n - k) \oplus 1$, where $\oplus$ represents the XOR operation.
+- If $k = 1$, then the answer is $0$;
+- If $k$ is a power of $2$, then the answer is $1$;
+- If $k \times 2 < 2^n - 1$, it means that $k$ is in the first half, and the answer is $dfs(n - 1, k)$;
+- Otherwise, the answer is $dfs(n - 1, 2^n - k) \oplus 1$, where $\oplus$ represents the XOR operation.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the given $n$ in the problem.
 

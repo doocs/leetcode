@@ -72,8 +72,8 @@ Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
 
 函数 $dfs(i, j)$ 的计算方法如下：
 
--   如果 $i \gt j$，说明当前没有石子了，所以当前玩家没有石子可以拿，差值为 $0$，即 $dfs(i, j) = 0$。
--   否则，当前玩家有两种选择，如果选择第 $i$ 堆石子，那么当前玩家与另一个玩家的石子数量之差为 $piles[i] - dfs(i + 1, j)$；如果选择第 $j$ 堆石子，那么当前玩家与另一个玩家的石子数量之差为 $piles[j] - dfs(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $dfs(i, j) = \max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1))$。
+- 如果 $i \gt j$，说明当前没有石子了，所以当前玩家没有石子可以拿，差值为 $0$，即 $dfs(i, j) = 0$。
+- 否则，当前玩家有两种选择，如果选择第 $i$ 堆石子，那么当前玩家与另一个玩家的石子数量之差为 $piles[i] - dfs(i + 1, j)$；如果选择第 $j$ 堆石子，那么当前玩家与另一个玩家的石子数量之差为 $piles[j] - dfs(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $dfs(i, j) = \max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1))$。
 
 最后，我们只需要判断 $dfs(0, n - 1) \gt 0$ 即可。
 
@@ -202,8 +202,8 @@ function stoneGame(piles: number[]): boolean {
 
 考虑 $f[i][j]$，其中 $i \lt j$，有两种情况：
 
--   如果当前玩家拿走了石子堆 $piles[i]$，那么剩下的石子堆为 $piles[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[i] - f[i + 1][j]$。
--   如果当前玩家拿走了石子堆 $piles[j]$，那么剩下的石子堆为 $piles[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[j] - f[i][j - 1]$。
+- 如果当前玩家拿走了石子堆 $piles[i]$，那么剩下的石子堆为 $piles[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[i] - f[i + 1][j]$。
+- 如果当前玩家拿走了石子堆 $piles[j]$，那么剩下的石子堆为 $piles[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = piles[j] - f[i][j - 1]$。
 
 因此，最终的状态转移方程为 $f[i][j] = \max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])$。
 
@@ -213,7 +213,7 @@ function stoneGame(piles: number[]): boolean {
 
 相似题目：
 
--   [486. 预测赢家](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
+- [486. 预测赢家](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
 
 <!-- tabs:start -->
 

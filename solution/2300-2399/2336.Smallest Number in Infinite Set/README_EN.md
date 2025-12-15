@@ -72,8 +72,8 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 
 We note that the range of elements in the set given by the problem is $[1, 1000]$, and the operations we need to support are:
 
--   `popSmallest`: Pop the smallest element from the set
--   `addBack`: Add an element back to the set
+- `popSmallest`: Pop the smallest element from the set
+- `addBack`: Add an element back to the set
 
 Therefore, we can use an ordered set to simulate this. Let's denote the ordered set as $s$, and the elements in the set as $s_1, s_2, \cdots, s_n$, where $n$ is the number of elements in the ordered set. In this problem, $n \le 1000$.
 

@@ -90,7 +90,7 @@ The time complexity is $O((n + m) \log n)$, where $n$ is the number of servers a
 
 Similar problems:
 
--   [2402. Meeting Rooms III](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md)
+- [2402. Meeting Rooms III](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README_EN.md)
 
 <!-- tabs:start -->
 

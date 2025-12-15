@@ -58,9 +58,9 @@ We define the left boundary of the binary search as $l = 0$ and the right bounda
 
 Each time during the binary search, we get the current midpoint $\textit{mid} = (l + r) / 2$.
 
--   If $\textit{nums}[\textit{mid}] > \textit{nums}[r]$, it means $[l, \textit{mid}]$ is ordered. If $\textit{nums}[l] \le \textit{target} \le \textit{nums}[\textit{mid}]$, it means $\textit{target}$ is in $[l, \textit{mid}]$. Otherwise, $\textit{target}$ is in $[\textit{mid} + 1, r]$.
--   If $\textit{nums}[\textit{mid}] < \textit{nums}[r]$, it means $[\textit{mid} + 1, r]$ is ordered. If $\textit{nums}[\textit{mid}] < \textit{target} \le \textit{nums}[r]$, it means $\textit{target}$ is in $[\textit{mid} + 1, r]$. Otherwise, $\textit{target}$ is in $[l, \textit{mid}]$.
--   If $\textit{nums}[\textit{mid}] = \textit{nums}[r]$, it means the elements $\textit{nums}[\textit{mid}]$ and $\textit{nums}[r]$ are equal. In this case, we cannot determine which interval $\textit{target}$ is in, so we can only decrease $r$ by $1$.
+- If $\textit{nums}[\textit{mid}] > \textit{nums}[r]$, it means $[l, \textit{mid}]$ is ordered. If $\textit{nums}[l] \le \textit{target} \le \textit{nums}[\textit{mid}]$, it means $\textit{target}$ is in $[l, \textit{mid}]$. Otherwise, $\textit{target}$ is in $[\textit{mid} + 1, r]$.
+- If $\textit{nums}[\textit{mid}] < \textit{nums}[r]$, it means $[\textit{mid} + 1, r]$ is ordered. If $\textit{nums}[\textit{mid}] < \textit{target} \le \textit{nums}[r]$, it means $\textit{target}$ is in $[\textit{mid} + 1, r]$. Otherwise, $\textit{target}$ is in $[l, \textit{mid}]$.
+- If $\textit{nums}[\textit{mid}] = \textit{nums}[r]$, it means the elements $\textit{nums}[\textit{mid}]$ and $\textit{nums}[r]$ are equal. In this case, we cannot determine which interval $\textit{target}$ is in, so we can only decrease $r$ by $1$.
 
 After the binary search, if $\textit{nums}[l] = \textit{target}$, it means the target value $\textit{target}$ exists in the array. Otherwise, it does not exist.
 

@@ -83,8 +83,8 @@ We design a function $\textit{dfs}(i)$, which represents the maximum score that 
 
 The function $\textit{dfs}(i)$ is calculated as follows:
 
--   If $i \geq n$, it means all questions have been solved, so return $0$;
--   Otherwise, let the score of the $i$-th question be $p$, and the number of questions to skip be $b$. Then, $\textit{dfs}(i) = \max(p + \textit{dfs}(i + b + 1), \textit{dfs}(i + 1))$.
+- If $i \geq n$, it means all questions have been solved, so return $0$;
+- Otherwise, let the score of the $i$-th question be $p$, and the number of questions to skip be $b$. Then, $\textit{dfs}(i) = \max(p + \textit{dfs}(i + b + 1), \textit{dfs}(i + 1))$.
 
 To avoid repeated calculations, we can use memoization by storing the values of $\textit{dfs}(i)$ in an array $f$.
 

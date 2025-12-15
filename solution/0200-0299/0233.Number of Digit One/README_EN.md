@@ -66,16 +66,16 @@ The basic steps are as follows:
 
 First, we convert the number $n$ to a string $s$. Then we design a function $\textit{dfs}(i, \textit{cnt}, \textit{limit})$, where:
 
--   The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
--   The digit $\textit{cnt}$ represents the current count of the digit $1$ in the number.
--   The boolean $\textit{limit}$ indicates whether the current number is restricted by the upper bound.
+- The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
+- The digit $\textit{cnt}$ represents the current count of the digit $1$ in the number.
+- The boolean $\textit{limit}$ indicates whether the current number is restricted by the upper bound.
 
 The function executes as follows:
 
 If $i$ exceeds the length of the number $n$, it means the search is over, directly return $cnt$. If $\textit{limit}$ is true, $up$ is the $i$-th digit of the current number. Otherwise, $up = 9$. Next, we iterate $j$ from $0$ to $up$. For each $j$:
 
--   If $j$ equals $1$, we increment $cnt$ by one.
--   Recursively call $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \land j = up)$.
+- If $j$ equals $1$, we increment $cnt$ by one.
+- Recursively call $\textit{dfs}(i + 1, \textit{cnt}, \textit{limit} \land j = up)$.
 
 The answer is $\textit{dfs}(0, 0, \text{True})$.
 
@@ -85,12 +85,12 @@ Similar Problems:
 
 Here is the translation of the similar problems into English:
 
--   [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
--   [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
--   [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
--   [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
--   [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
--   [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
+- [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
+- [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
+- [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
+- [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
+- [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
+- [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
 
 <!-- tabs:start -->
 

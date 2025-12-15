@@ -79,7 +79,7 @@ $v$ 作为当前连通块的最小值，当前连通块的大小为 $size[find(i
 
 相似题目：
 
--   [1562. 查找大小为 M 的最新分组](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
+- [1562. 查找大小为 M 的最新分组](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
 
 <!-- tabs:start -->
 

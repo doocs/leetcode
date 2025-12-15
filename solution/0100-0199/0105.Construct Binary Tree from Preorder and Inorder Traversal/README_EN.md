@@ -66,10 +66,10 @@ Therefore, we design a function $dfs(i, j, n)$, where $i$ and $j$ represent the 
 
 The execution process of the function $dfs(i, j, n)$ is as follows:
 
--   If $n \leq 0$, it means there are no nodes, return a null node.
--   Take out the first node $v = preorder[i]$ of the pre-order sequence as the root node, and then use the hash table $d$ to find the position $k$ of the root node in the in-order sequence. Then the number of nodes in the left subtree is $k - j$, and the number of nodes in the right subtree is $n - k + j - 1$.
--   Recursively construct the left subtree $l = dfs(i + 1, j, k - j)$ and the right subtree $r = dfs(i + 1 + k - j, k + 1, n - k + j - 1)$.
--   Finally, return the binary tree with $v$ as the root node and $l$ and $r$ as the left and right subtrees, respectively.
+- If $n \leq 0$, it means there are no nodes, return a null node.
+- Take out the first node $v = preorder[i]$ of the pre-order sequence as the root node, and then use the hash table $d$ to find the position $k$ of the root node in the in-order sequence. Then the number of nodes in the left subtree is $k - j$, and the number of nodes in the right subtree is $n - k + j - 1$.
+- Recursively construct the left subtree $l = dfs(i + 1, j, k - j)$ and the right subtree $r = dfs(i + 1 + k - j, k + 1, n - k + j - 1)$.
+- Finally, return the binary tree with $v$ as the root node and $l$ and $r$ as the left and right subtrees, respectively.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 

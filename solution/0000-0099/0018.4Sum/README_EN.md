@@ -64,9 +64,9 @@ We notice that the problem requires us to find non-repeating quadruplets. Theref
 
 Next, we enumerate the first two elements of the quadruplet, $nums[i]$ and $nums[j]$, where $i \lt j$. During the enumeration process, we skip duplicate $nums[i]$ and $nums[j]$. Then, we use two pointers $k$ and $l$ to point to the two ends behind $nums[i]$ and $nums[j]$. Let $x = nums[i] + nums[j] + nums[k] + nums[l]$, we compare $x$ with $target$ and perform the following operations:
 
--   If $x \lt target$, then update $k = k + 1$ to get a larger $x$;
--   If $x \gt target$, then update $l = l - 1$ to get a smaller $x$;
--   Otherwise, it means that a quadruplet $(nums[i], nums[j], nums[k], nums[l])$ is found. Add it to the answer, then we update the pointers $k$ and $l$, and skip all duplicate elements to prevent the answer from containing duplicate quadruplets, and continue to find the next quadruplet.
+- If $x \lt target$, then update $k = k + 1$ to get a larger $x$;
+- If $x \gt target$, then update $l = l - 1$ to get a smaller $x$;
+- Otherwise, it means that a quadruplet $(nums[i], nums[j], nums[k], nums[l])$ is found. Add it to the answer, then we update the pointers $k$ and $l$, and skip all duplicate elements to prevent the answer from containing duplicate quadruplets, and continue to find the next quadruplet.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.
 

@@ -72,8 +72,8 @@ We initialize an array $\textit{ans} = [0, 0]$ to store the index of the row wit
 
 Then, we iterate through each row of the matrix:
 
--   Compute the number of $1$s in the current row, denoted as $\textit{cnt}$ (since the matrix contains only $0$s and $1$s, we can directly sum up the row).
--   If $\textit{ans}[1] < \textit{cnt}$, update $\textit{ans} = [i, \textit{cnt}]$.
+- Compute the number of $1$s in the current row, denoted as $\textit{cnt}$ (since the matrix contains only $0$s and $1$s, we can directly sum up the row).
+- If $\textit{ans}[1] < \textit{cnt}$, update $\textit{ans} = [i, \textit{cnt}]$.
 
 After finishing the iteration, we return $\textit{ans}$.
 

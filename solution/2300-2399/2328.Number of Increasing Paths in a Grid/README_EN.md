@@ -78,8 +78,8 @@ We design a function $dfs(i, j)$, which represents the number of strictly increa
 
 The calculation process of the function $dfs(i, j)$ is as follows:
 
--   If $f[i][j]$ is not $0$, it means that it has been calculated, and $f[i][j]$ is returned directly;
--   Otherwise, we initialize $f[i][j] = 1$, and then enumerate the four directions of $(i, j)$. If the grid $(x, y)$ in a certain direction satisfies $0 \leq x \lt m$, $0 \leq y \lt n$, and $grid[i][j] \lt grid[x][y]$, we can start from the grid $(i, j)$ to the grid $(x, y)$, and the number on the path is strictly increasing, so $f[i][j] += dfs(x, y)$.
+- If $f[i][j]$ is not $0$, it means that it has been calculated, and $f[i][j]$ is returned directly;
+- Otherwise, we initialize $f[i][j] = 1$, and then enumerate the four directions of $(i, j)$. If the grid $(x, y)$ in a certain direction satisfies $0 \leq x \lt m$, $0 \leq y \lt n$, and $grid[i][j] \lt grid[x][y]$, we can start from the grid $(i, j)$ to the grid $(x, y)$, and the number on the path is strictly increasing, so $f[i][j] += dfs(x, y)$.
 
 Finally, we return $f[i][j]$.
 

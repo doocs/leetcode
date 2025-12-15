@@ -71,9 +71,9 @@ We design a function $\textit{dfs}$, which calculates the sum and the number of 
 
 The execution process of the function $\textit{dfs}$ is as follows:
 
--   If the current node is null, return $(0, 0)$.
--   Otherwise, we recursively calculate the sum and the number of nodes of the left and right subtrees, denoted as $(\textit{ls}, \textit{ln})$ and $(\textit{rs}, \textit{rn})$, respectively. Then, the sum $\textit{s}$ and the number of nodes $\textit{n}$ of the subtree rooted at the current node are $\textit{ls} + \textit{rs} + \textit{root.val}$ and $\textit{ln} + \textit{rn} + 1$, respectively. If $\textit{s} / \textit{n} = \textit{root.val}$, it means the current node meets the requirement of the problem, and we increment the answer $\textit{ans}$ by $1$.
--   Finally, the function $\textit{dfs}$ returns $\textit{s}$ and $\textit{n}$.
+- If the current node is null, return $(0, 0)$.
+- Otherwise, we recursively calculate the sum and the number of nodes of the left and right subtrees, denoted as $(\textit{ls}, \textit{ln})$ and $(\textit{rs}, \textit{rn})$, respectively. Then, the sum $\textit{s}$ and the number of nodes $\textit{n}$ of the subtree rooted at the current node are $\textit{ls} + \textit{rs} + \textit{root.val}$ and $\textit{ln} + \textit{rn} + 1$, respectively. If $\textit{s} / \textit{n} = \textit{root.val}$, it means the current node meets the requirement of the problem, and we increment the answer $\textit{ans}$ by $1$.
+- Finally, the function $\textit{dfs}$ returns $\textit{s}$ and $\textit{n}$.
 
 We initialize the answer $\textit{ans}$ to $0$, then call the $\textit{dfs}$ function, and finally return the answer $\textit{ans}$.
 

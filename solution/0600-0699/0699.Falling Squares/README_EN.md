@@ -74,10 +74,10 @@ According to the problem description, we need to maintain a set of intervals tha
 
 A segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(width)$, where $width$ is the length of the interval. To update the value of an element, we only need to update $\log(width)$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.
 
--   Each node of the segment tree represents an interval;
--   The segment tree has a unique root node representing the entire statistical range, such as $[1, n]$;
--   Each leaf node of the segment tree represents a primitive interval of length 1, $[x, x]$;
--   For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$, and its right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \frac{l + r}{2}$;
+- Each node of the segment tree represents an interval;
+- The segment tree has a unique root node representing the entire statistical range, such as $[1, n]$;
+- Each leaf node of the segment tree represents a primitive interval of length 1, $[x, x]$;
+- For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$, and its right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \frac{l + r}{2}$;
 
 For this problem, the information maintained by the segment tree nodes includes:
 

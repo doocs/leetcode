@@ -66,7 +66,7 @@ tags:
 
 相似题目：
 
--   [47. 全排列 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0047.Permutations%20II/README.md)
+- [47. 全排列 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0047.Permutations%20II/README.md)
 
 <!-- tabs:start -->
 

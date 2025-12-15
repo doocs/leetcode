@@ -75,8 +75,8 @@ To find products with the same prefix, we can use a trie; to return the three pr
 
 Each node of the trie maintains the following information:
 
--   `children`: This is an array of length $26$, used to store the child nodes of the current node. `children[i]` represents the node whose character is `i + 'a'` among the child nodes of the current node.
--   `v`: This is an array, used to store the indices of the characters in the `products` array among the child nodes of the current node, storing up to three indices.
+- `children`: This is an array of length $26$, used to store the child nodes of the current node. `children[i]` represents the node whose character is `i + 'a'` among the child nodes of the current node.
+- `v`: This is an array, used to store the indices of the characters in the `products` array among the child nodes of the current node, storing up to three indices.
 
 During the search, we start from the root node of the trie, find the index array corresponding to each prefix, and store it in the result array. Finally, we only need to map each index in the index array to the `products` array.
 

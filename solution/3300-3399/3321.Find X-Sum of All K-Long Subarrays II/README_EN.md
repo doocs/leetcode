@@ -90,7 +90,7 @@ The time complexity is $O(n \times \log k)$, and the space complexity is $O(n)$.
 
 Similar problems:
 
--   [3013. Divide an Array Into Subarrays With Minimum Cost II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md)
+- [3013. Divide an Array Into Subarrays With Minimum Cost II](/solution/3000-3099/3013.Divide%20an%20Array%20Into%20Subarrays%20With%20Minimum%20Cost%20II/README_EN.md)
 
 <!-- tabs:start -->
 

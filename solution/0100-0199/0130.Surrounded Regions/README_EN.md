@@ -73,8 +73,8 @@ We can start from the boundary of the matrix, taking each 'O' on the matrix boun
 
 Then we traverse the matrix again, for each position:
 
--   If it is '.', replace it with 'O';
--   Otherwise, if it is 'O', replace it with 'X'.
+- If it is '.', replace it with 'O';
+- Otherwise, if it is 'O', replace it with 'X'.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the matrix, respectively.
 

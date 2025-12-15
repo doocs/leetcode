@@ -71,10 +71,10 @@ Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + 
 
 We notice that the range of elements in the array `nums` is $[1, 100]$. Therefore, we can enumerate three numbers $a, b, c$, where $a, b, c \in [1, 100]$, and then determine whether $a + b + c$ can only be divided by one of $a, b, c$. If so, we can calculate the number of single-factor triples with $a, b, c$ as elements. The specific calculation method is as follows:
 
--   If $a = b$, then the number of single-factor triples with $a, b, c$ as elements is $x \times (x - 1) \times z$, where $x$, $y$, $z$ represent the number of occurrences of $a$, $b$, $c$ in the array `nums` respectively.
--   If $a = c$, then the number of single-factor triples with $a, b, c$ as elements is $x \times (x - 1) \times y$.
--   If $b = c$, then the number of single-factor triples with $a, b, c$ as elements is $x \times y \times (y - 1)$.
--   If $a, b, c$ are all different, then the number of single-factor triples with $a, b, c$ as elements is $x \times y \times z$.
+- If $a = b$, then the number of single-factor triples with $a, b, c$ as elements is $x \times (x - 1) \times z$, where $x$, $y$, $z$ represent the number of occurrences of $a$, $b$, $c$ in the array `nums` respectively.
+- If $a = c$, then the number of single-factor triples with $a, b, c$ as elements is $x \times (x - 1) \times y$.
+- If $b = c$, then the number of single-factor triples with $a, b, c$ as elements is $x \times y \times (y - 1)$.
+- If $a, b, c$ are all different, then the number of single-factor triples with $a, b, c$ as elements is $x \times y \times z$.
 
 Finally, we add up the numbers of all single-factor triples.
 

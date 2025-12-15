@@ -86,9 +86,9 @@ The number of "LCT" subsequences can be calculated by traversing the string. We 
 
 Next, we need to consider the case of inserting one letter. Consider inserting an "L", "C", or "T":
 
--   Insert an "L": we only need to count the number of "CT" subsequences in the original string.
--   Insert a "T": we only need to count the number of "LC" subsequences in the original string.
--   Insert a "C": we only need to count the number of "LT" subsequences in the original string. In this case, during the enumeration process above, we can maintain a variable $\textit{mx}$ representing the current maximum value of $l \times r$.
+- Insert an "L": we only need to count the number of "CT" subsequences in the original string.
+- Insert a "T": we only need to count the number of "LC" subsequences in the original string.
+- Insert a "C": we only need to count the number of "LT" subsequences in the original string. In this case, during the enumeration process above, we can maintain a variable $\textit{mx}$ representing the current maximum value of $l \times r$.
 
 Finally, we add the number of "LCT" subsequences in the original string to the maximum number of subsequences after inserting one letter to get the final result.
 

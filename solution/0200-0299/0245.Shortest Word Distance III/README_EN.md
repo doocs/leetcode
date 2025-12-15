@@ -49,8 +49,8 @@ tags:
 
 First, we check whether $\textit{word1}$ and $\textit{word2}$ are equal:
 
--   If they are equal, iterate through the array $\textit{wordsDict}$ to find two indices $i$ and $j$ of $\textit{word1}$, and compute the minimum value of $i-j$.
--   If they are not equal, iterate through the array $\textit{wordsDict}$ to find the indices $i$ of $\textit{word1}$ and $j$ of $\textit{word2}$, and compute the minimum value of $i-j$.
+- If they are equal, iterate through the array $\textit{wordsDict}$ to find two indices $i$ and $j$ of $\textit{word1}$, and compute the minimum value of $i-j$.
+- If they are not equal, iterate through the array $\textit{wordsDict}$ to find the indices $i$ of $\textit{word1}$ and $j$ of $\textit{word2}$, and compute the minimum value of $i-j$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{wordsDict}$. The space complexity is $O(1)$.
 

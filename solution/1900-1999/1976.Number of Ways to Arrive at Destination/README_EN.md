@@ -73,10 +73,10 @@ The four ways to get there in 7 minutes are:
 
 We define the following arrays:
 
--   `g` represents the adjacency matrix of the graph. `g[i][j]` represents the shortest path length from point `i` to point `j`. Initially, all are infinity, while `g[0][0]` is 0. Then we traverse `roads` and update `g[u][v]` and `g[v][u]` to `t`.
--   `dist[i]` represents the shortest path length from the starting point to point `i`. Initially, all are infinity, while `dist[0]` is 0.
--   `f[i]` represents the number of shortest paths from the starting point to point `i`. Initially, all are 0, while `f[0]` is 1.
--   `vis[i]` represents whether point `i` has been visited. Initially, all are `False`.
+- `g` represents the adjacency matrix of the graph. `g[i][j]` represents the shortest path length from point `i` to point `j`. Initially, all are infinity, while `g[0][0]` is 0. Then we traverse `roads` and update `g[u][v]` and `g[v][u]` to `t`.
+- `dist[i]` represents the shortest path length from the starting point to point `i`. Initially, all are infinity, while `dist[0]` is 0.
+- `f[i]` represents the number of shortest paths from the starting point to point `i`. Initially, all are 0, while `f[0]` is 1.
+- `vis[i]` represents whether point `i` has been visited. Initially, all are `False`.
 
 Then, we use the naive Dijkstra algorithm to find the shortest path length from the starting point to the end point, and record the number of shortest paths for each point during the process.
 

@@ -80,8 +80,8 @@ tags:
 
 我们使用双指针 $i$ 和 $j$ 从头到尾遍历 `start` 和 `target`：
 
--   如果当前字符为 `L` 且 $i\lt j$，那么这个 `L` 无法向右移动，返回 `false`；
--   如果当前字符为 `R` 且 $i\gt j$，那么这个 `R` 无法向左移动，返回 `false`。
+- 如果当前字符为 `L` 且 $i\lt j$，那么这个 `L` 无法向右移动，返回 `false`；
+- 如果当前字符为 `R` 且 $i\gt j$，那么这个 `R` 无法向左移动，返回 `false`。
 
 如果双指针均遍历到末尾，返回 `true`。
 
@@ -89,7 +89,7 @@ tags:
 
 相似题目：
 
--   [777. 在 LR 字符串中交换相邻字符](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
+- [777. 在 LR 字符串中交换相邻字符](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README.md)
 
 <!-- tabs:start -->
 

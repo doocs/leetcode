@@ -74,14 +74,14 @@ tags:
 
 函数 $dfs(i, j)$ 的执行逻辑如下：
 
--   如果 $(i, j)$ 已经被访问过，直接返回 $\textit{f}(i, j)$；
--   否则对 $(i, j)$ 进行搜索，搜索四个方向的坐标 $(x, y)$，如果满足 $0 \le x < m, 0 \le y < n$ 以及 $matrix[x][y] \gt matrix[i][j]$，那么对 $(x, y)$ 进行搜索。搜索结束后，将 $\textit{f}(i, j)$ 更新为 $\textit{f}(i, j) = \max(\textit{f}(i, j), \textit{f}(x, y) + 1)$。最后返回 $\textit{f}(i, j)$。
+- 如果 $(i, j)$ 已经被访问过，直接返回 $\textit{f}(i, j)$；
+- 否则对 $(i, j)$ 进行搜索，搜索四个方向的坐标 $(x, y)$，如果满足 $0 \le x < m, 0 \le y < n$ 以及 $matrix[x][y] \gt matrix[i][j]$，那么对 $(x, y)$ 进行搜索。搜索结束后，将 $\textit{f}(i, j)$ 更新为 $\textit{f}(i, j) = \max(\textit{f}(i, j), \textit{f}(x, y) + 1)$。最后返回 $\textit{f}(i, j)$。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 相似题目：
 
--   [2328. 网格图中递增路径的数目](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md)
+- [2328. 网格图中递增路径的数目](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README.md)
 
 <!-- tabs:start -->
 

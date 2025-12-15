@@ -98,7 +98,7 @@ tags:
 
 相似题目：
 
--   [1573. 分割字符串的方案数](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)
+- [1573. 分割字符串的方案数](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)
 
 <!-- tabs:start -->
 

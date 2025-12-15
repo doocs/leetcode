@@ -72,10 +72,10 @@ tags:
 
 我们将数字 $n$ 转为字符串 $s$，接下来，我们设计一个函数 $\textit{dfs}(i, \textit{mask}, \textit{lead}, \textit{limit})$，其中：
 
--   数字 $i$ 表示当前处理的数字下标，从 $0$ 开始。
--   数字 $\textit{mask}$ 表示当前数字中出现过的数字，用二进制数表示。其中 $\textit{mask}$ 的二进制的第 $j$ 位为 $1$ 表示数字 $j$ 出现过，为 $0$ 表示数字 $j$ 没有出现过。
--   布尔值 $\textit{lead}$ 表示是否只包含前导零。
--   布尔值 $\textit{limit}$ 表示当前位置是否受到上界的限制。
+- 数字 $i$ 表示当前处理的数字下标，从 $0$ 开始。
+- 数字 $\textit{mask}$ 表示当前数字中出现过的数字，用二进制数表示。其中 $\textit{mask}$ 的二进制的第 $j$ 位为 $1$ 表示数字 $j$ 出现过，为 $0$ 表示数字 $j$ 没有出现过。
+- 布尔值 $\textit{lead}$ 表示是否只包含前导零。
+- 布尔值 $\textit{limit}$ 表示当前位置是否受到上界的限制。
 
 函数的执行过程如下：
 
@@ -91,12 +91,12 @@ tags:
 
 相似题目：
 
--   [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
--   [357. 统计各位数字都不同的数字个数](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
--   [600. 不含连续 1 的非负整数](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
--   [788. 旋转数字](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README.md)
--   [902. 最大为 N 的数字组合](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
--   [2376. 统计特殊整数](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
+- [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
+- [357. 统计各位数字都不同的数字个数](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
+- [600. 不含连续 1 的非负整数](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
+- [788. 旋转数字](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README.md)
+- [902. 最大为 N 的数字组合](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
+- [2376. 统计特殊整数](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
 
 <!-- tabs:start -->
 

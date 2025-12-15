@@ -68,9 +68,9 @@ tags:
 
 我们可以遍历数组 $\textit{nums}$，对于每个元素 $\textit{nums}[i]$，检查是否满足条件：
 
--   如果 $i \ge k$ 且 $\textit{nums}[i] \le \textit{nums}[i - k]$，则 $\textit{nums}[i]$ 不是好数字；
--   如果 $i + k < \textit{len}(\textit{nums})$ 且 $\textit{nums}[i] \le \textit{nums}[i + k]$，则 $\textit{nums}[i]$ 不是好数字。
--   否则，$\textit{nums}[i]$ 是好数字，我们将其累加到答案中。
+- 如果 $i \ge k$ 且 $\textit{nums}[i] \le \textit{nums}[i - k]$，则 $\textit{nums}[i]$ 不是好数字；
+- 如果 $i + k < \textit{len}(\textit{nums})$ 且 $\textit{nums}[i] \le \textit{nums}[i + k]$，则 $\textit{nums}[i]$ 不是好数字。
+- 否则，$\textit{nums}[i]$ 是好数字，我们将其累加到答案中。
 
 遍历结束后，返回答案即可。
 

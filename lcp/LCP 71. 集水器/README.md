@@ -14,17 +14,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2071.%20%E9%9B%86%
 
 字符串数组 `shape` 描述了一个二维平面中的矩阵形式的集水器，`shape[i][j]` 表示集水器的第 `i` 行 `j` 列为：
 
--   `'l'`表示向左倾斜的隔板（即从左上到右下）；
--   `'r'`表示向右倾斜的隔板（即从左下到右上）；
--   `'.'` 表示此位置没有隔板
-    ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424667-wMnPja-image.png){:width=200px}
+- `'l'`表示向左倾斜的隔板（即从左上到右下）；
+- `'r'`表示向右倾斜的隔板（即从左下到右上）；
+- `'.'` 表示此位置没有隔板
+  ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/images/1664424667-wMnPja-image.png){:width=200px}
 
 已知当隔板构成存储容器可以存水，每个方格代表的蓄水量为 `2`。集水器初始浸泡在水中，除内部密闭空间外，所有位置均被水填满。
 现将其从水中竖直向上取出，请返回集水器最终的蓄水量。
 
 **注意：**
 
--   隔板具有良好的透气性，因此空气可以穿过隔板，但水无法穿过
+- 隔板具有良好的透气性，因此空气可以穿过隔板，但水无法穿过
 
 **示例 1：**
 
@@ -66,9 +66,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2071.%20%E9%9B%86%
 
 **提示**：
 
--   `1 <= shape.length <= 50`
--   `1 <= shape[i].length <= 50`
--   `shape[i][j]` 仅为 `'l'`、`'r'` 或 `'.'`
+- `1 <= shape.length <= 50`
+- `1 <= shape[i].length <= 50`
+- `shape[i][j]` 仅为 `'l'`、`'r'` 或 `'.'`
 
 <!-- description:end -->
 

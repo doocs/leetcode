@@ -136,7 +136,7 @@ function minimizeResult(expression: string): string {
         arr3 = n2.split(''),
         arr4 = [];
     while (arr2.length) {
-        (arr3 = n2.split('')), (arr4 = []);
+        ((arr3 = n2.split('')), (arr4 = []));
         while (arr3.length) {
             let cur = (getNum(arr2) + getNum(arr3)) * getNum(arr1) * getNum(arr4);
             if (cur < minSum) {

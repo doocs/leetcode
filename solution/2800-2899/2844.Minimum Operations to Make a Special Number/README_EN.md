@@ -77,8 +77,8 @@ We notice that an integer $x$ can be divisible by $25$, i.e., $x \bmod 25 = 0$. 
 
 The execution logic of the function $dfs(i, k)$ is as follows:
 
--   If $i = n$, i.e., all digits of the string $num$ have been processed, then if $k = 0$, the current number can be divisible by $25$, return $0$, otherwise return $n$;
--   Otherwise, the $i$th digit can be deleted, in this case one digit needs to be deleted, i.e., $dfs(i + 1, k) + 1$; if the $i$th digit is not deleted, then the value of $k$ becomes $(k \times 10 + \textit{num}[i]) \bmod 25$, i.e., $dfs(i + 1, (k \times 10 + \textit{num}[i]) \bmod 25)$. Take the minimum of these two.
+- If $i = n$, i.e., all digits of the string $num$ have been processed, then if $k = 0$, the current number can be divisible by $25$, return $0$, otherwise return $n$;
+- Otherwise, the $i$th digit can be deleted, in this case one digit needs to be deleted, i.e., $dfs(i + 1, k) + 1$; if the $i$th digit is not deleted, then the value of $k$ becomes $(k \times 10 + \textit{num}[i]) \bmod 25$, i.e., $dfs(i + 1, (k \times 10 + \textit{num}[i]) \bmod 25)$. Take the minimum of these two.
 
 To prevent repeated calculations, we can use memoization to optimize the time complexity.
 

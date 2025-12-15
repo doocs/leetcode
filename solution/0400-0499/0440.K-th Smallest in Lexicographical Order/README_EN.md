@@ -53,10 +53,10 @@ The problem asks for the \$k\$-th smallest number in the range $[1, n]$ when all
 
 We treat the range $[1, n]$ as a **10-ary prefix tree (Trie)**:
 
--   Each node represents a numeric prefix, starting from an empty root;
--   Each node has 10 children, corresponding to appending digits $0 \sim 9$;
--   For example, prefix $1$ has children $10, 11, \ldots, 19$, and node $10$ has children $100, 101, \ldots, 109$;
--   This tree naturally reflects lexicographical order traversal.
+- Each node represents a numeric prefix, starting from an empty root;
+- Each node has 10 children, corresponding to appending digits $0 \sim 9$;
+- For example, prefix $1$ has children $10, 11, \ldots, 19$, and node $10$ has children $100, 101, \ldots, 109$;
+- This tree naturally reflects lexicographical order traversal.
 
 ```
 root
@@ -72,13 +72,13 @@ We use a variable $\textit{curr}$ to denote the current prefix, initialized as $
 
 At each step, we calculate how many valid numbers (i.e., numbers $\le n$ with prefix $\textit{curr}$) exist under this prefix subtree. Let this count be $\textit{count}(\text{curr})$:
 
--   If $k \ge \text{count}(\text{curr})$: the target number is not in this subtree. We skip the entire subtree by moving to the next sibling:
+- If $k \ge \text{count}(\text{curr})$: the target number is not in this subtree. We skip the entire subtree by moving to the next sibling:
 
     $$
     \textit{curr} \leftarrow \textit{curr} + 1,\quad k \leftarrow k - \text{count}(\text{curr})
     $$
 
--   Otherwise: the target is within this subtree. We go one level deeper:
+- Otherwise: the target is within this subtree. We go one level deeper:
 
     $$
     \textit{curr} \leftarrow \textit{curr} \times 10,\quad k \leftarrow k - 1

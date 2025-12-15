@@ -77,8 +77,8 @@ Suppose the current amount we need to construct is $s$, and we have already cons
 
 Next, we discuss in two cases:
 
--   If $x \le s$, then we can merge the two intervals above to get all amounts in $[0, s+x-1]$.
--   If $x \gt s$, then we need to add a coin with a face value of $s$, so that we can construct all amounts in $[0, 2s-1]$. Then we consider the size relationship between $x$ and $s$ and continue to analyze.
+- If $x \le s$, then we can merge the two intervals above to get all amounts in $[0, s+x-1]$.
+- If $x \gt s$, then we need to add a coin with a face value of $s$, so that we can construct all amounts in $[0, 2s-1]$. Then we consider the size relationship between $x$ and $s$ and continue to analyze.
 
 Therefore, we sort the array $coins$ in ascending order, and then traverse the coins in the array from small to large. For each coin $x$, we discuss in the above two cases until $s > target$.
 

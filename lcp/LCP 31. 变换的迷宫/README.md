@@ -18,8 +18,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2031.%20%E5%8F%98%
 
 小力背包有以下两个魔法卷轴（卷轴使用一次后消失）：
 
--   临时消除术：将指定位置在下一个时刻变为空地；
--   永久消除术：将指定位置永久变为空地。
+- 临时消除术：将指定位置在下一个时刻变为空地；
+- 永久消除术：将指定位置永久变为空地。
 
 请判断在迷宫变化结束前（含最后时刻），小力能否在不经过任意陷阱的情况下到达迷宫出口呢？
 
@@ -52,9 +52,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2031.%20%E5%8F%98%
 
 **提示：**
 
--   `1 <= maze.length <= 100`
--   `1 <= maze[i].length, maze[i][j].length <= 50`
--   `maze[i][j]` 仅包含 `"."`、`"#"`
+- `1 <= maze.length <= 100`
+- `1 <= maze[i].length, maze[i][j].length <= 50`
+- `maze[i][j]` 仅包含 `"."`、`"#"`
 
 <!-- description:end -->
 

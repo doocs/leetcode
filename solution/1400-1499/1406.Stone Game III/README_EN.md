@@ -81,8 +81,8 @@ We design a function $dfs(i)$, which represents the maximum score difference tha
 
 The execution logic of the function $dfs(i)$ is as follows:
 
--   If $i \geq n$, it means that there are no stones to take now, so we can directly return $0$;
--   Otherwise, we enumerate that the current player takes the first $j+1$ piles of stones, where $j \in \{0, 1, 2\}$. Then the score difference that the other player can get in the next round is $dfs(i + j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
+- If $i \geq n$, it means that there are no stones to take now, so we can directly return $0$;
+- Otherwise, we enumerate that the current player takes the first $j+1$ piles of stones, where $j \in \{0, 1, 2\}$. Then the score difference that the other player can get in the next round is $dfs(i + j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
 
 $$
 dfs(i) = \max_{j \in \{0, 1, 2\}} \left\{\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)\right\}

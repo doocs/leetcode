@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1890. 2020 年最后一次登录](https://leetcode.cn/problems/the-latest-login-in-2020)
+# [1890. 2020年最后一次登录](https://leetcode.cn/problems/the-latest-login-in-2020)
 
 [English Version](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)
 

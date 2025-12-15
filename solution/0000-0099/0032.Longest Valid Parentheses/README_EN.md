@@ -66,10 +66,10 @@ When $i \lt 2$, the length of the string is less than $2$, and there is no valid
 
 When $i \ge 2$, we consider the length of the longest valid parentheses that ends with $s[i-1]$, that is, $f[i]$:
 
--   If $s[i-1]$ is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ must be $0$, so $f[i] = 0$.
--   If $s[i-1]$ is a right parenthesis, there are the following two cases:
-    -   If $s[i-2]$ is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-2] + 2$.
-    -   If $s[i-2]$ is a right parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-1] + 2$, but we also need to consider whether $s[i-f[i-1]-2]$ is a left parenthesis. If it is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-1] + 2 + f[i-f[i-1]-2]$.
+- If $s[i-1]$ is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ must be $0$, so $f[i] = 0$.
+- If $s[i-1]$ is a right parenthesis, there are the following two cases:
+    - If $s[i-2]$ is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-2] + 2$.
+    - If $s[i-2]$ is a right parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-1] + 2$, but we also need to consider whether $s[i-f[i-1]-2]$ is a left parenthesis. If it is a left parenthesis, then the length of the longest valid parentheses that ends with $s[i-1]$ is $f[i-1] + 2 + f[i-f[i-1]-2]$.
 
 Therefore, we can get the state transition equation:
 
@@ -282,12 +282,12 @@ public class Solution {
 
 ### Solution 2: Using Stack
 
--   Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
--   Iterate through each element of the string:
-    -   If the character is a left parenthesis, push the index of the character onto the stack.
-    -   If the character is a right parenthesis, pop an element from the stack to represent that we have found a valid pair of parentheses.
-        -   If the stack is empty, it means we couldn't find a left parenthesis to match the right parenthesis. In this case, push the index of the character as a new starting point.
-        -   If the stack is not empty, calculate the length of the valid parentheses and update it.
+- Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
+- Iterate through each element of the string:
+    - If the character is a left parenthesis, push the index of the character onto the stack.
+    - If the character is a right parenthesis, pop an element from the stack to represent that we have found a valid pair of parentheses.
+        - If the stack is empty, it means we couldn't find a left parenthesis to match the right parenthesis. In this case, push the index of the character as a new starting point.
+        - If the stack is not empty, calculate the length of the valid parentheses and update it.
 
 Summary:
 

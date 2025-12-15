@@ -42,7 +42,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 **限制：**
 
--   `1 <= target <= 10^5`
+- `1 <= target <= 10^5`
 
 <!-- description:end -->
 

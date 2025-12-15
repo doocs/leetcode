@@ -89,7 +89,7 @@ In terms of time complexity, the initialization is $O(n \times \log n)$, and the
 
 Similar problems:
 
--   [2836. Maximize Value of Function in a Ball Passing Game](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
+- [2836. Maximize Value of Function in a Ball Passing Game](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -61,8 +61,8 @@ tags:
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> Status can be:
 - [off, off, off] by pressing button 1
-- [off, on, off] by pressing button 2
-- [on, off, on] by pressing button 3
+- [on, off, on] by pressing button 2
+- [off, on, off] by pressing button 3
 - [off, on, on] by pressing button 4
 </pre>
 

@@ -84,10 +84,10 @@ tags:
 
 函数的具体实现如下：
 
--   如果 $\textit{root}$ 为空，那么直接返回。
--   如果 $\textit{i} = 0$，那么我们需要找到左边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。如果 $\textit{root}$ 有左子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。
--   如果 $\textit{i} = 1$，那么我们需要找到叶节点。如果 $\textit{root}$ 是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$，以及 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。
--   如果 $\textit{i} = 2$，那么我们需要找到右边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中，如果 $\textit{root}$ 有右子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$。
+- 如果 $\textit{root}$ 为空，那么直接返回。
+- 如果 $\textit{i} = 0$，那么我们需要找到左边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。如果 $\textit{root}$ 有左子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。
+- 如果 $\textit{i} = 1$，那么我们需要找到叶节点。如果 $\textit{root}$ 是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$，以及 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。
+- 如果 $\textit{i} = 2$，那么我们需要找到右边界。如果 $\textit{root}$ 不是叶节点，那么我们将 $\textit{root}$ 的值加入到 $\textit{nums}$ 中，如果 $\textit{root}$ 有右子节点，那么我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的右子节点和 $\textit{i}$。否则，我们递归地调用 $\textit{dfs}$ 函数，传入 $\textit{nums}$, $\textit{root}$ 的左子节点和 $\textit{i}$。
 
 我们分别调用 $\textit{dfs}$ 函数，找到左边界、叶节点和右边界，然后将这三个部分连接起来，即可得到答案。
 

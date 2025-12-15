@@ -81,10 +81,10 @@ First, according to the edge information given in the problem, we construct an a
 
 Next, we design a function $dfs(a, fa)$, which will return whether the subtree with node $a$ as the root meets the requirements of the problem. The execution process of the function $dfs(a, fa)$ is as follows:
 
--   First, we use a variable $ok$ to record whether the subtree with node $a$ as the root meets the requirements of the problem, and initially $ok$ is $true$.
--   Then, we traverse all adjacent nodes $b$ of node $a$. If $b$ is not the parent node $fa$ of $a$, then we recursively call $dfs(b, a)$, save the return value into the variable $t$, and update $ok$ to the value of $ok$ and $colors[a] = colors[b] \land t$, where $\land$ represents logical AND operation. Then, we update $size[a] = size[a] + size[b]$.
--   After that, we judge the value of $ok$. If $ok$ is $true$, then we update the answer $ans = \max(ans, size[a])$.
--   Finally, we return the value of $ok$.
+- First, we use a variable $ok$ to record whether the subtree with node $a$ as the root meets the requirements of the problem, and initially $ok$ is $true$.
+- Then, we traverse all adjacent nodes $b$ of node $a$. If $b$ is not the parent node $fa$ of $a$, then we recursively call $dfs(b, a)$, save the return value into the variable $t$, and update $ok$ to the value of $ok$ and $colors[a] = colors[b] \land t$, where $\land$ represents logical AND operation. Then, we update $size[a] = size[a] + size[b]$.
+- After that, we judge the value of $ok$. If $ok$ is $true$, then we update the answer $ans = \max(ans, size[a])$.
+- Finally, we return the value of $ok$.
 
 We call $dfs(0, -1)$, where $0$ represents the root node number, and $-1$ represents that the root node has no parent node. The final answer is $ans$.
 

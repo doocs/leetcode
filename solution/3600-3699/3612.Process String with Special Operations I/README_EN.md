@@ -149,10 +149,10 @@ tags:
 
 We can directly simulate the operations described in the problem. We use a list $\text{result}$ to store the current result string. For each character in the input string $s$, we perform the corresponding operation based on the character type:
 
--   If the character is a lowercase English letter, add it to $\text{result}$.
--   If the character is `*`, delete the last character in $\text{result}$ (if it exists).
--   If the character is `#`, copy $\text{result}$ and append it to itself.
--   If the character is `%`, reverse $\text{result}$.
+- If the character is a lowercase English letter, add it to $\text{result}$.
+- If the character is `*`, delete the last character in $\text{result}$ (if it exists).
+- If the character is `#`, copy $\text{result}$ and append it to itself.
+- If the character is `%`, reverse $\text{result}$.
 
 Finally, we convert $\text{result}$ to a string and return it.
 

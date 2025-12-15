@@ -46,10 +46,10 @@ minStack.getMin();   --&gt; return -2.</pre>
 
 We use two stacks to implement this, where `stk1` is used to store data, and `stk2` is used to store the current minimum value in the stack. Initially, `stk2` stores a very large value.
 
--   When we push an element `x` into the stack, we push `x` into `stk1`, and push `min(x, stk2[-1])` into `stk2`.
--   When we pop an element from the stack, we pop the top elements of both `stk1` and `stk2`.
--   When we want to get the top element in the current stack, we just need to return the top element of `stk1`.
--   When we want to get the minimum value in the current stack, we just need to return the top element of `stk2`.
+- When we push an element `x` into the stack, we push `x` into `stk1`, and push `min(x, stk2[-1])` into `stk2`.
+- When we pop an element from the stack, we pop the top elements of both `stk1` and `stk2`.
+- When we want to get the top element in the current stack, we just need to return the top element of `stk1`.
+- When we want to get the minimum value in the current stack, we just need to return the top element of `stk2`.
 
 For each operation, the time complexity is $O(1)$, and the space complexity is $O(n)$.
 

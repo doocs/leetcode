@@ -18,9 +18,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2055.%20%E9%87%87%
 
 当前勇者需要完成「采集若干批果实」的任务， `fruits[j] = [type, num]` 表示第 `j` 批需要采集 `num` 颗 `type` 类型的果实。采集规则如下：
 
--   按 `fruits` 给定的顺序**依次**采集每一批次
--   采集完当前批次的果实才能开始采集下一批次
--   勇者完成当前批次的采集后将**清空背包**（即多余的果实将清空）
+- 按 `fruits` 给定的顺序**依次**采集每一批次
+- 采集完当前批次的果实才能开始采集下一批次
+- 勇者完成当前批次的采集后将**清空背包**（即多余的果实将清空）
 
 请计算并返回勇者完成采集任务最少需要的时间。
 
@@ -51,12 +51,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2055.%20%E9%87%87%
 
 **提示：**
 
--   `1 <= time.length <= 100`
--   `1 <= time[i] <= 100`
--   `1 <= fruits.length <= 10^3`
--   `0 <= fruits[i][0] < time.length`
--   `1 <= fruits[i][1] < 10^3`
--   `1 <= limit <= 100`
+- `1 <= time.length <= 100`
+- `1 <= time[i] <= 100`
+- `1 <= fruits.length <= 10^3`
+- `0 <= fruits[i][0] < time.length`
+- `1 <= fruits[i][1] < 10^3`
+- `1 <= limit <= 100`
 
 <!-- description:end -->
 

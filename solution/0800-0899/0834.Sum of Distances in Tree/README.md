@@ -82,7 +82,7 @@ tags:
 
 相似题目：
 
--   [2581. 统计可能的树根数目](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
+- [2581. 统计可能的树根数目](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README.md)
 
 <!-- tabs:start -->
 

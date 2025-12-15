@@ -26,24 +26,35 @@ tags:
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;
-<strong>Output:</strong> &quot;ABC&quot;
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">&quot;ABC&quot;</span></p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre>
-<strong>Input:</strong> str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;
-<strong>Output:</strong> &quot;AB&quot;
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">&quot;AB&quot;</span></p>
+</div>
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;
-<strong>Output:</strong> &quot;&quot;
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">&quot;&quot;</span></p>
+</div>
+
+<p><strong class="example">Example 4:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">str1 = &quot;AAAAAB&quot;, str2 = &quot;AAA&quot;</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">&quot;&quot;</span>​​​​​​​</p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

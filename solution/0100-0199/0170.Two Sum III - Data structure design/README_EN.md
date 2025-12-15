@@ -74,8 +74,8 @@ When the `find` method is called, we iterate over the hash table `cnt`. For each
 
 Time complexity:
 
--   The time complexity of the `add` method is $O(1)$.
--   The time complexity of the `find` method is $O(n)$.
+- The time complexity of the `add` method is $O(1)$.
+- The time complexity of the `find` method is $O(n)$.
 
 Space complexity is $O(n)$, where $n$ is the size of the hash table `cnt`.
 

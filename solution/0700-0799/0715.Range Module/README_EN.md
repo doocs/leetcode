@@ -70,10 +70,10 @@ According to the problem description, we need to maintain a set of intervals, su
 
 The segment tree divides the entire interval into multiple non-continuous sub-intervals, the number of which does not exceed $\log(width)$. To update the value of an element, only $\log(width)$ intervals need to be updated, and these intervals are all included in a large interval containing the element. When modifying the interval, we need to use **lazy propagation** to ensure efficiency.
 
--   Each node of the segment tree represents an interval;
--   The segment tree has a unique root node, representing the entire statistical range, such as $[1,N]$;
--   Each leaf node of the segment tree represents an elementary interval of length $1$, $[x,x]$;
--   For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid=⌊(l+r)/2⌋$ (rounded down).
+- Each node of the segment tree represents an interval;
+- The segment tree has a unique root node, representing the entire statistical range, such as $[1,N]$;
+- Each leaf node of the segment tree represents an elementary interval of length $1$, $[x,x]$;
+- For each internal node $[l,r]$, its left child is $[l,mid]$, and the right child is $[mid+1,r]$, where $mid=⌊(l+r)/2⌋$ (rounded down).
 
 Due to the large data range of the problem, we can implement it with a dynamically allocated segment tree. A dynamically allocated segment tree means that we only allocate nodes when needed, instead of allocating all nodes at the beginning. This can save space, but it requires **lazy propagation** to maintain interval modification.
 

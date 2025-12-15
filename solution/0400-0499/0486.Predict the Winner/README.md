@@ -67,8 +67,8 @@ tags:
 
 函数 $\textit{dfs}(i, j)$ 的计算方法如下：
 
--   如果 $i > j$，说明当前没有数字了，所以当前玩家没有分数可以拿，差值为 $0$，即 $\textit{dfs}(i, j) = 0$。
--   否则，当前玩家有两种选择，如果选择第 $i$ 个数，那么当前玩家与另一个玩家的得分之差为 $\textit{nums}[i] - \textit{dfs}(i + 1, j)$；如果选择第 $j$ 个数，那么当前玩家与另一个玩家的得分之差为 $\textit{nums}[j] - \textit{dfs}(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $\textit{dfs}(i, j) = \max(\textit{nums}[i] - \textit{dfs}(i + 1, j), \textit{nums}[j] - \textit{dfs}(i, j - 1))$。
+- 如果 $i > j$，说明当前没有数字了，所以当前玩家没有分数可以拿，差值为 $0$，即 $\textit{dfs}(i, j) = 0$。
+- 否则，当前玩家有两种选择，如果选择第 $i$ 个数，那么当前玩家与另一个玩家的得分之差为 $\textit{nums}[i] - \textit{dfs}(i + 1, j)$；如果选择第 $j$ 个数，那么当前玩家与另一个玩家的得分之差为 $\textit{nums}[j] - \textit{dfs}(i, j - 1)$。当前玩家会选择两种情况中差值较大的情况，也就是说 $\textit{dfs}(i, j) = \max(\textit{nums}[i] - \textit{dfs}(i + 1, j), \textit{nums}[j] - \textit{dfs}(i, j - 1))$。
 
 最后，我们只需要判断 $\textit{dfs}(0, n - 1) \geq 0$ 即可。
 
@@ -222,8 +222,8 @@ impl Solution {
 
 考虑 $f[i][j]$，其中 $i < j$，有两种情况：
 
--   如果当前玩家拿走了 $\textit{nums}[i]$，那么剩下的数字为 $\textit{nums}[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = \textit{nums}[i] - f[i + 1][j]$。
--   如果当前玩家拿走了 $\textit{nums}[j]$，那么剩下的数字为 $\textit{nums}[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = \textit{nums}[j] - f[i][j - 1]$。
+- 如果当前玩家拿走了 $\textit{nums}[i]$，那么剩下的数字为 $\textit{nums}[i + 1..j]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = \textit{nums}[i] - f[i + 1][j]$。
+- 如果当前玩家拿走了 $\textit{nums}[j]$，那么剩下的数字为 $\textit{nums}[i..j - 1]$，此时轮到另一个玩家进行游戏，所以 $f[i][j] = \textit{nums}[j] - f[i][j - 1]$。
 
 因此，最终的状态转移方程为 $f[i][j] = \max(\textit{nums}[i] - f[i + 1][j], \textit{nums}[j] - f[i][j - 1])$。
 
@@ -233,7 +233,7 @@ impl Solution {
 
 相似题目：
 
--   [877. 石子游戏](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0877.Stone%20Game/README.md)
+- [877. 石子游戏](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0877.Stone%20Game/README.md)
 
 <!-- tabs:start -->
 

@@ -79,9 +79,9 @@ tags:
 
 我们定义一个函数 $\text{check}(mi)$ 来判断是否满足条件，具体实现如下：
 
--   我们定义一个变量 $\textit{last} = -\infty$，表示上一个选择的整数。
--   我们遍历 $\textit{start}$ 数组，如果 $\textit{last} + \textit{mi} > \textit{st} + d$，那么说明我们无法选择整数 $\textit{st}$，返回 $\text{false}$。否则，我们更新 $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$。
--   如果遍历完整个 $\textit{start}$ 数组都满足条件，那么返回 $\text{true}$。
+- 我们定义一个变量 $\textit{last} = -\infty$，表示上一个选择的整数。
+- 我们遍历 $\textit{start}$ 数组，如果 $\textit{last} + \textit{mi} > \textit{st} + d$，那么说明我们无法选择整数 $\textit{st}$，返回 $\text{false}$。否则，我们更新 $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$。
+- 如果遍历完整个 $\textit{start}$ 数组都满足条件，那么返回 $\text{true}$。
 
 时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是 $\textit{start}$ 数组的长度和最大值。空间复杂度 $O(1)$。
 

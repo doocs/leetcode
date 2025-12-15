@@ -94,8 +94,8 @@ tags:
 
 我们遍历植物，对于每一株植物：
 
--   如果当前水罐中的水量足够浇灌这株植物，我们就向前移动一步，浇灌这株植物，同时更新 $\textit{water} = \textit{water} - \textit{plants}[i]$。
--   否则我们就需要返回河边重新装满水罐，再次走到当前位置，然后向前移动一步，此时我们需要的步数为 $i \times 2 + 1$，然后我们浇灌这株植物，更新 $\textit{water} = \textit{capacity} - \textit{plants}[i]$。
+- 如果当前水罐中的水量足够浇灌这株植物，我们就向前移动一步，浇灌这株植物，同时更新 $\textit{water} = \textit{water} - \textit{plants}[i]$。
+- 否则我们就需要返回河边重新装满水罐，再次走到当前位置，然后向前移动一步，此时我们需要的步数为 $i \times 2 + 1$，然后我们浇灌这株植物，更新 $\textit{water} = \textit{capacity} - \textit{plants}[i]$。
 
 最后返回总的步数即可。
 

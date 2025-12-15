@@ -82,7 +82,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array $\textit{num
 
 Similar problems:
 
--   [1526. Minimum Number of Increments on Subarrays to Form a Target Array](https://github.com/doocs/leetcode/tree/main/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README_EN.md)
+- [1526. Minimum Number of Increments on Subarrays to Form a Target Array](https://github.com/doocs/leetcode/tree/main/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README_EN.md)
 
 <!-- tabs:start -->
 

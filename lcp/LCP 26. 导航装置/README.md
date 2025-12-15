@@ -49,9 +49,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2026.%20%E5%AF%BC%
 
 **提示：**
 
--   `2 <= N <= 50000`
+- `2 <= N <= 50000`
 
--   二叉树的非空节点值为 `1~N` 的一个排列。
+- 二叉树的非空节点值为 `1~N` 的一个排列。
 
 <!-- description:end -->
 

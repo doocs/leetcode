@@ -107,12 +107,12 @@ We design a function $dfs(i, j, a)$, which represents the possible minimum sum o
 
 The execution process of the function $dfs(i, j, a)$ is as follows:
 
--   If $n - i < m - j$, it means that the remaining elements are not enough to divide into $m - j$ subarrays, return $+\infty$.
--   If $j = m$, it means that $m$ subarrays have been divided. At this time, check whether $i = n$ holds. If it holds, return $0$, otherwise return $+\infty$.
--   Otherwise, we perform a bitwise AND operation on $a$ and $nums[i]$ to get a new $a$. If $a < andValues[j]$, it means that the bitwise AND result of the current subarray to be divided does not meet the requirements, return $+\infty$. Otherwise, we have two choices:
-    -   Do not divide the current element, i.e., $dfs(i + 1, j, a)$.
-    -   Divide the current element, i.e., $dfs(i + 1, j + 1, -1) + nums[i]$.
--   Return the minimum of the above two choices.
+- If $n - i < m - j$, it means that the remaining elements are not enough to divide into $m - j$ subarrays, return $+\infty$.
+- If $j = m$, it means that $m$ subarrays have been divided. At this time, check whether $i = n$ holds. If it holds, return $0$, otherwise return $+\infty$.
+- Otherwise, we perform a bitwise AND operation on $a$ and $nums[i]$ to get a new $a$. If $a < andValues[j]$, it means that the bitwise AND result of the current subarray to be divided does not meet the requirements, return $+\infty$. Otherwise, we have two choices:
+    - Do not divide the current element, i.e., $dfs(i + 1, j, a)$.
+    - Divide the current element, i.e., $dfs(i + 1, j + 1, -1) + nums[i]$.
+- Return the minimum of the above two choices.
 
 To avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, j, a)$ in a hash table.
 

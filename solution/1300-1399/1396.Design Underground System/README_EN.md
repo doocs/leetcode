@@ -121,8 +121,8 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 
 We use two hash tables to store data:
 
--   `ts`: Stores the passenger's id, check-in time, and check-in station. The key is the passenger's id, and the value is a tuple `(t, stationName)`.
--   `d`: Stores the passenger's check-in station, check-out station, travel time, and number of trips. The key is a tuple `(startStation, endStation)`, and the value is a tuple `(totalTime, count)`.
+- `ts`: Stores the passenger's id, check-in time, and check-in station. The key is the passenger's id, and the value is a tuple `(t, stationName)`.
+- `d`: Stores the passenger's check-in station, check-out station, travel time, and number of trips. The key is a tuple `(startStation, endStation)`, and the value is a tuple `(totalTime, count)`.
 
 When a passenger checks in, we store the passenger's id, check-in time, and check-in station in `ts`, i.e., `ts[id] = (t, stationName)`.
 

@@ -17,13 +17,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2027.%20%E9%BB%91%
 
 店长告诉小扣，这里是「几何学的快问快答」，店长可能有两种操作：
 
--   `open(int index, int direction)` - 若小孔处于关闭状态，则打开小孔，照入光线；否则直接照入光线；
--   `close(int index)` - 关闭处于打开状态小孔，店长保证不会关闭已处于关闭状态的小孔；
+- `open(int index, int direction)` - 若小孔处于关闭状态，则打开小孔，照入光线；否则直接照入光线；
+- `close(int index)` - 关闭处于打开状态小孔，店长保证不会关闭已处于关闭状态的小孔；
 
 其中：
 
--   `index`： 表示小孔序号
--   `direction`：`1` 表示光线沿 $y=x$ 方向，`-1` 表示光线沿 $y=-x$ 方向。
+- `index`： 表示小孔序号
+- `direction`：`1` 表示光线沿 $y=x$ 方向，`-1` 表示光线沿 $y=-x$ 方向。
 
 ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2027.%20黑盒光线反射/images/1599620810-HdOlMi-image.png)
 
@@ -74,10 +74,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2027.%20%E9%BB%91%
 
 **提示：**
 
--   `1 <= n, m <= 10000`
--   `1 <= 操作次数 <= 10000`
--   `direction` 仅为 `1` 或 `-1`
--   `0 <= index < 2*(m+n)`
+- `1 <= n, m <= 10000`
+- `1 <= 操作次数 <= 10000`
+- `direction` 仅为 `1` 或 `-1`
+- `0 <= index < 2*(m+n)`
 
 <!-- description:end -->
 

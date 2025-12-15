@@ -95,9 +95,9 @@ We design a function $\textit{dfs}(i, j, k)$, which represents the number of way
 
 The execution logic of the function $\textit{dfs}(i, j, k)$ is as follows:
 
--   If $j < 0$, it means the remaining positions are less than $0$, so return $0$;
--   If $i \ge n$, it means all positions are filled. If $j = 0$, it means the condition is satisfied, so return $1$, otherwise return $0$;
--   Otherwise, we can choose to fill with an odd or even number, calculate the number of ways for both, and return their sum.
+- If $j < 0$, it means the remaining positions are less than $0$, so return $0$;
+- If $i \ge n$, it means all positions are filled. If $j = 0$, it means the condition is satisfied, so return $1$, otherwise return $0$;
+- Otherwise, we can choose to fill with an odd or even number, calculate the number of ways for both, and return their sum.
 
 The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ and $k$ are the parameters given in the problem.
 

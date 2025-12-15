@@ -72,8 +72,8 @@ tags:
 
 否则，我们计算得到当前数位的上界 $up$，然后在 $[0,..up]$ 范围内枚举当前数位的数字 $i$：
 
--   如果 $i=0$ 且 $lead$ 为真，说明当前数字只包含前导零，我们递归计算 $dfs(pos+1,pre, true, limit\ and\ i=up)$ 的值并累加到答案中；
--   否则，如果 $pre$ 为 $-1$，或者 $i$ 和 $pre$ 之间的差的绝对值为 $1$，说明当前数字是一个合法的步进数，我们递归计算 $dfs(pos+1,i, false, limit\ and\ i=up)$ 的值并累加到答案中。
+- 如果 $i=0$ 且 $lead$ 为真，说明当前数字只包含前导零，我们递归计算 $dfs(pos+1,pre, true, limit\ and\ i=up)$ 的值并累加到答案中；
+- 否则，如果 $pre$ 为 $-1$，或者 $i$ 和 $pre$ 之间的差的绝对值为 $1$，说明当前数字是一个合法的步进数，我们递归计算 $dfs(pos+1,i, false, limit\ and\ i=up)$ 的值并累加到答案中。
 
 最终我们返回答案。
 
@@ -83,7 +83,7 @@ tags:
 
 相似题目：
 
--   [2719. 统计整数数目](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README.md)
+- [2719. 统计整数数目](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README.md)
 
 <!-- tabs:start -->
 

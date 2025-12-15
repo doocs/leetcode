@@ -52,9 +52,9 @@ tags:
 
 We can count the number of uppercase letters in the string, and then determine whether it meets the requirements of the problem based on the number of uppercase letters.
 
--   If the number of uppercase letters is 0 or equal to the length of the string, then return `true`.
--   If the number of uppercase letters is 1 and the first letter is an uppercase letter, then return `true`.
--   Otherwise, return `false`.
+- If the number of uppercase letters is 0 or equal to the length of the string, then return `true`.
+- If the number of uppercase letters is 1 and the first letter is an uppercase letter, then return `true`.
+- Otherwise, return `false`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string `word`. The space complexity is $O(1)$.
 

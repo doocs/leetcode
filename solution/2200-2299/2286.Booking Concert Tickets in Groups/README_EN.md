@@ -86,25 +86,25 @@ bms.scatter(5, 1); // return False
 
 From the problem description, we can deduce the following:
 
--   For the `gather(k, maxRow)` operation, the goal is to seat $k$ people on the same row with consecutive seats. In other words, we need to find the smallest row where the remaining seats are greater than or equal to $k$.
--   For the `scatter(k, maxRow)` operation, we just need to find $k$ seats in total, but we want to minimize the row number. Therefore, we need to find the first row that has more than $0$ seats remaining, allocate seats there, and continue searching for the rest.
+- For the `gather(k, maxRow)` operation, the goal is to seat $k$ people on the same row with consecutive seats. In other words, we need to find the smallest row where the remaining seats are greater than or equal to $k$.
+- For the `scatter(k, maxRow)` operation, we just need to find $k$ seats in total, but we want to minimize the row number. Therefore, we need to find the first row that has more than $0$ seats remaining, allocate seats there, and continue searching for the rest.
 
 We can implement this using a segment tree. Each segment tree node contains the following information:
 
--   `l`: The left endpoint of the node's interval
--   `r`: The right endpoint of the node's interval
--   `s`: The total remaining seats in the interval corresponding to the node
--   `mx`: The maximum remaining seats in the interval corresponding to the node
+- `l`: The left endpoint of the node's interval
+- `r`: The right endpoint of the node's interval
+- `s`: The total remaining seats in the interval corresponding to the node
+- `mx`: The maximum remaining seats in the interval corresponding to the node
 
 Note that the index range for the segment tree starts from $1$.
 
 The operations of the segment tree are as follows:
 
--   `build(u, l, r)`: Builds node $u$, corresponding to the interval $[l, r]$, and recursively builds its left and right children.
--   `modify(u, x, v)`: Starting from node $u$, finds the first node corresponding to the interval $[l, r]$ where $l = r = x$, and modifies the `s` and `mx` values of this node to $v$, then updates the tree upwards.
--   `query_sum(u, l, r)`: Starting from node $u$, calculates the sum of `s` values in the interval $[l, r]$.
--   `query_idx(u, l, r, k)`: Starting from node $u$, finds the first node in the interval $[l, r]$ where `mx` is greater than or equal to $k$, and returns the left endpoint `l` of this node. When searching, we start from the largest interval $[1, maxRow]$. Since we need to find the leftmost node with `mx` greater than or equal to $k$, we check whether the `mx` of the first half of the interval meets the condition. If so, the answer is in the first half, and we recursively search that half. Otherwise, the answer is in the second half, and we search that half recursively.
--   `pushup(u)`: Updates the information of node $u$ using the information from its children.
+- `build(u, l, r)`: Builds node $u$, corresponding to the interval $[l, r]$, and recursively builds its left and right children.
+- `modify(u, x, v)`: Starting from node $u$, finds the first node corresponding to the interval $[l, r]$ where $l = r = x$, and modifies the `s` and `mx` values of this node to $v$, then updates the tree upwards.
+- `query_sum(u, l, r)`: Starting from node $u$, calculates the sum of `s` values in the interval $[l, r]$.
+- `query_idx(u, l, r, k)`: Starting from node $u$, finds the first node in the interval $[l, r]$ where `mx` is greater than or equal to $k$, and returns the left endpoint `l` of this node. When searching, we start from the largest interval $[1, maxRow]$. Since we need to find the leftmost node with `mx` greater than or equal to $k$, we check whether the `mx` of the first half of the interval meets the condition. If so, the answer is in the first half, and we recursively search that half. Otherwise, the answer is in the second half, and we search that half recursively.
+- `pushup(u)`: Updates the information of node $u$ using the information from its children.
 
 For the `gather(k, maxRow)` operation, we first use `query_idx(1, 1, n, k)` to find the first row where the remaining seats are greater than or equal to $k$, denoted as $i$. Then, we use `query_sum(1, i, i)` to get the remaining seats in this row, denoted as $s$. Next, we use `modify(1, i, s - k)` to modify the remaining seats of this row to $s - k$, and update the tree upwards. Finally, we return the result $[i - 1, m - s]$.
 
@@ -112,9 +112,9 @@ For the `scatter(k, maxRow)` operation, we first use `query_sum(1, 1, maxRow)` t
 
 Time complexity:
 
--   The initialization time complexity is $O(n)$.
--   The time complexity of `gather(k, maxRow)` is $O(\log n)$.
--   The time complexity of `scatter(k, maxRow)` is $O((n + q) \times \log n)$.
+- The initialization time complexity is $O(n)$.
+- The time complexity of `gather(k, maxRow)` is $O(\log n)$.
+- The time complexity of `scatter(k, maxRow)` is $O((n + q) \times \log n)$.
 
 The overall time complexity is $O(n + q \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of rows, and $q$ is the number of operations.
 

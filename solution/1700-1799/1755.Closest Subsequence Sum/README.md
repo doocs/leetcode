@@ -81,7 +81,7 @@ tags:
 
 相似题目：
 
--   [1774. 最接近目标价格的甜点成本](https://github.com/doocs/leetcode/blob/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README.md)
+- [1774. 最接近目标价格的甜点成本](https://github.com/doocs/leetcode/blob/main/solution/1700-1799/1774.Closest%20Dessert%20Cost/README.md)
 
 <!-- tabs:start -->
 

@@ -7,7 +7,6 @@ source: 第 408 场周赛 Q3
 tags:
     - 字符串
     - 枚举
-    - 滑动窗口
 ---
 
 <!-- problem:start -->

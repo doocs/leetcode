@@ -75,9 +75,9 @@ tags:
 
 下面我们讨论上述不等式成立的条件：
 
--   当 $ans \lt \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式显然成立；
--   当 $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式成立的充要条件是 $y \leq 7$。如果 $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ 并且还能继续添加数字，说明此时数字是最高位，即此时 $y$ 一定不超过 $2$，因此，不等式一定成立；
--   当 $ans \gt \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式显然不成立。
+- 当 $ans \lt \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式显然成立；
+- 当 $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式成立的充要条件是 $y \leq 7$。如果 $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ 并且还能继续添加数字，说明此时数字是最高位，即此时 $y$ 一定不超过 $2$，因此，不等式一定成立；
+- 当 $ans \gt \left \lfloor \frac{mx}{10} \right \rfloor$ 时，不等式显然不成立。
 
 综上，当 $x \gt 0$ 时，不等式成立的充要条件是 $ans \leq \left \lfloor \frac{mx}{10} \right \rfloor$。
 

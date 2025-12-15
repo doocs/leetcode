@@ -69,9 +69,9 @@ We design a function $\textit{dfs}(i, j)$, which represents the maximum score th
 
 The function $\textit{dfs}(i, j)$ is calculated as follows:
 
--   If $j \geq \text{len}(b)$, it means array $b$ has been completely traversed. At this point, if array $a$ has also been completely traversed, return $0$; otherwise, return negative infinity.
--   If $i \geq \text{len}(a)$, it means array $a$ has been completely traversed. Return $0$.
--   Otherwise, we can either skip the $j$-th element of array $b$ and move to the next element, i.e., $\textit{dfs}(i, j + 1)$; or we can choose the $j$-th element of array $b$, in which case the score is $a[i] \times b[j]$ plus $\textit{dfs}(i + 1, j + 1)$. We take the maximum of these two values as the return value of $\textit{dfs}(i, j)$.
+- If $j \geq \text{len}(b)$, it means array $b$ has been completely traversed. At this point, if array $a$ has also been completely traversed, return $0$; otherwise, return negative infinity.
+- If $i \geq \text{len}(a)$, it means array $a$ has been completely traversed. Return $0$.
+- Otherwise, we can either skip the $j$-th element of array $b$ and move to the next element, i.e., $\textit{dfs}(i, j + 1)$; or we can choose the $j$-th element of array $b$, in which case the score is $a[i] \times b[j]$ plus $\textit{dfs}(i + 1, j + 1)$. We take the maximum of these two values as the return value of $\textit{dfs}(i, j)$.
 
 We can use memoization to avoid redundant calculations.
 

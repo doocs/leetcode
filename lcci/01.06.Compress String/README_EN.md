@@ -42,7 +42,7 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 
 <p><strong>Note:</strong></p>
 
--   `0 <= S.length <= 50000`
+- `0 <= S.length <= 50000`
 
 <!-- description:end -->
 

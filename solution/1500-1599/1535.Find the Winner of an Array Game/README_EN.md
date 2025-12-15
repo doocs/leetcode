@@ -74,7 +74,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 Similar problems:
 
--   [1535. Find the Winner of an Array Game](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md)
+- [1535. Find the Winner of an Array Game](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3175.Find%20The%20First%20Player%20to%20win%20K%20Games%20in%20a%20Row/README_EN.md)
 
 <!-- tabs:start -->
 

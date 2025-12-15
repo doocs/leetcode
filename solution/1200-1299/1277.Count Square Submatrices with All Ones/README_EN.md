@@ -77,10 +77,10 @@ We define $f[i][j]$ as the side length of the square submatrix with $(i,j)$ as t
 
 Consider how to perform state transition for $f[i][j]$.
 
--   When $\text{matrix}[i][j] = 0$, we have $f[i][j] = 0$.
--   When $\text{matrix}[i][j] = 1$, the value of state $f[i][j]$ depends on the values of the three positions above, left, and top-left:
-    -   If $i = 0$ or $j = 0$, then $f[i][j] = 1$.
-    -   Otherwise $f[i][j] = \min(f[i-1][j-1], f[i-1][j], f[i][j-1]) + 1$.
+- When $\text{matrix}[i][j] = 0$, we have $f[i][j] = 0$.
+- When $\text{matrix}[i][j] = 1$, the value of state $f[i][j]$ depends on the values of the three positions above, left, and top-left:
+    - If $i = 0$ or $j = 0$, then $f[i][j] = 1$.
+    - Otherwise $f[i][j] = \min(f[i-1][j-1], f[i-1][j], f[i][j-1]) + 1$.
 
 The answer is $\sum_{i,j} f[i][j]$.
 

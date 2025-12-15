@@ -74,14 +74,14 @@ Therefore, we can preprocess the array $ranges$. For the $i$-th tap, it can cove
 
 Then we define the following three variables:
 
--   Variable $ans$ represents the final answer, i.e., the minimum number of taps;
--   Variable $mx$ represents the farthest right endpoint that can currently be covered;
--   Variable $pre$ represents the farthest right endpoint covered by the previous tap.
+- Variable $ans$ represents the final answer, i.e., the minimum number of taps;
+- Variable $mx$ represents the farthest right endpoint that can currently be covered;
+- Variable $pre$ represents the farthest right endpoint covered by the previous tap.
 
 We traverse all positions in the range $[0, \ldots, n-1]$. For the current position $i$, we use $last[i]$ to update $mx$, i.e., $mx = \max(mx, last[i])$.
 
--   If $mx \leq i$, it means the next position cannot be covered, so we return $-1$.
--   If $pre = i$, it means a new subinterval needs to be used, so we increment $ans$ by $1$ and update $pre = mx$.
+- If $mx \leq i$, it means the next position cannot be covered, so we return $-1$.
+- If $pre = i$, it means a new subinterval needs to be used, so we increment $ans$ by $1$ and update $pre = mx$.
 
 After the traversal, we return $ans$.
 
@@ -89,9 +89,9 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 Similar problems:
 
--   [45. Jump Game II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README.md)
--   [55. Jump Game](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README.md)
--   [1024. Video Stitching](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1024.Video%20Stitching/README.md)
+- [45. Jump Game II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README.md)
+- [55. Jump Game](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README.md)
+- [1024. Video Stitching](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1024.Video%20Stitching/README.md)
 
 <!-- tabs:start -->
 

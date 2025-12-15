@@ -77,7 +77,7 @@ tags:
 
 相似题目：
 
--   [2203.得到要求路径的最小带权子图](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README.md)
+- [2203.得到要求路径的最小带权子图](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README.md)
 
 <!-- tabs:start -->
 

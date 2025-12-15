@@ -54,6 +54,7 @@ tags:
 	<li><code>0 &lt;= n &lt;= 3500</code></li>
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>-100 &lt;= target &lt;= 100</code></li>
+	<li>输入保证答案小于或等于 10<sup>9</sup>。</li>
 </ul>
 
 <!-- description:end -->
@@ -68,8 +69,8 @@ tags:
 
 我们先将数组排序，然后枚举第一个元素 $\textit{nums}[i]$，并在 $\textit{nums}[i+1:n-1]$ 的区间内使用双指针分别指向 $\textit{nums}[j]$ 和 $\textit{nums}[k]$，其中 $j$ 是 $\textit{nums}[i]$ 的下一个元素，而 $k$ 是数组的最后一个元素。
 
--   如果 $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] < \textit{target}$，那么对于任意 $j \lt k' \leq k$ 的元素，都有 $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k'] \lt \textit{target}$，一共有 $k - j$ 个这样的 $k'$，我们将 $k - j$ 累加到答案中。接下来，将 $j$ 右移一个位置，继续寻找下一个满足条件的 $k$，直到 $j \geq k$ 为止。
--   如果 $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] \geq \textit{target}$，那么对于任意 $j \leq j' \lt k$ 的元素，都不可能使得 $\textit{nums}[i] + \textit{nums}[j'] + \textit{nums}[k] \lt \textit{target}$，因此我们将 $k$ 左移一个位置，继续寻找下一个满足条件的 $k$，直到 $j \geq k$ 为止。
+- 如果 $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] < \textit{target}$，那么对于任意 $j \lt k' \leq k$ 的元素，都有 $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k'] \lt \textit{target}$，一共有 $k - j$ 个这样的 $k'$，我们将 $k - j$ 累加到答案中。接下来，将 $j$ 右移一个位置，继续寻找下一个满足条件的 $k$，直到 $j \geq k$ 为止。
+- 如果 $\textit{nums}[i] + \textit{nums}[j] + \textit{nums}[k] \geq \textit{target}$，那么对于任意 $j \leq j' \lt k$ 的元素，都不可能使得 $\textit{nums}[i] + \textit{nums}[j'] + \textit{nums}[k] \lt \textit{target}$，因此我们将 $k$ 左移一个位置，继续寻找下一个满足条件的 $k$，直到 $j \geq k$ 为止。
 
 枚举完所有的 $i$ 后，我们就得到了满足条件的三元组的个数。
 

@@ -87,10 +87,10 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 
 We can maintain the following data structures or variables:
 
--   A queue $q$ of length $m$, where the head of the queue is the earliest added element, and the tail of the queue is the most recently added element;
--   Three ordered sets, namely $lo$, $mid$, $hi$, where $lo$ and $hi$ store the smallest $k$ elements and the largest $k$ elements respectively, and $mid$ stores the remaining elements;
--   A variable $s$, maintaining the sum of all elements in $mid$;
--   Some programming languages (such as Java, Go) additionally maintain two variables $size1$ and $size3$, representing the number of elements in $lo$ and $hi$ respectively.
+- A queue $q$ of length $m$, where the head of the queue is the earliest added element, and the tail of the queue is the most recently added element;
+- Three ordered sets, namely $lo$, $mid$, $hi$, where $lo$ and $hi$ store the smallest $k$ elements and the largest $k$ elements respectively, and $mid$ stores the remaining elements;
+- A variable $s$, maintaining the sum of all elements in $mid$;
+- Some programming languages (such as Java, Go) additionally maintain two variables $size1$ and $size3$, representing the number of elements in $lo$ and $hi$ respectively.
 
 When calling the $addElement(num)$ function, perform the following operations in order:
 

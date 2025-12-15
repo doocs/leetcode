@@ -9,7 +9,7 @@ function beautifulSubstrings(s: string, k: number): number {
         const char = s[i];
         const bit = (AEIOU_MASK >> (char.charCodeAt(0) - 'a'.charCodeAt(0))) & 1;
         sum += bit * 2 - 1; // 1 -> 1    0 -> -1
-        const key = (i % l << 17) | sum;
+        const key = ((i % l) << 17) | sum;
         ans += counter.get(key) || 0; // ans += cnt[(i%k,sum)]++
         counter.set(key, (counter.get(key) ?? 0) + 1);
     }

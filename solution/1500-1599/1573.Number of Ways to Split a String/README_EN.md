@@ -82,7 +82,7 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 
 Similar problems:
 
--   [927. Three Equal Parts](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
+- [927. Three Equal Parts](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
 
 <!-- tabs:start -->
 

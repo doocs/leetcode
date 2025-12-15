@@ -100,9 +100,9 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 
 According to the problem description, we can find that the order of throne inheritance is actually a preorder traversal of a multi-branch tree. We can use a hash table $g$ to store the children of each person, and a set $dead$ to store the people who have died.
 
--   When calling `birth(parentName, childName)`, we add `childName` to the child list of `parentName`.
--   When calling `death(name)`, we add `name` to the `dead` set.
--   When calling `getInheritanceOrder()`, we start a depth-first search from the king. If the current node `x` is not dead, we add `x` to the answer list, and then recursively traverse all children of `x`.
+- When calling `birth(parentName, childName)`, we add `childName` to the child list of `parentName`.
+- When calling `death(name)`, we add `name` to the `dead` set.
+- When calling `getInheritanceOrder()`, we start a depth-first search from the king. If the current node `x` is not dead, we add `x` to the answer list, and then recursively traverse all children of `x`.
 
 In terms of time complexity, both `birth` and `death` have a time complexity of $O(1)$, and `getInheritanceOrder` has a time complexity of $O(n)$. The space complexity is $O(n)$, where $n$ is the number of nodes.
 

@@ -98,9 +98,9 @@ Each row in the table represents a product with its unique ID, name, and descrip
 
 According to the problem statement, we need to find all products that contain a valid serial number, and the rules for a valid serial number are:
 
--   Starts with `SN` (case-sensitive).
--   Followed by 4 digits.
--   Must have a hyphen `-`, followed by 4 digits.
+- Starts with `SN` (case-sensitive).
+- Followed by 4 digits.
+- Must have a hyphen `-`, followed by 4 digits.
 
 Based on the above rules, we can use a regular expression to match valid serial numbers, then filter out the products that contain valid serial numbers, and finally sort them in ascending order by `product_id`.
 

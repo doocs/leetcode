@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README.md
 rating: 1848
 source: 第 476 场周赛 Q3
+tags:
+    - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->

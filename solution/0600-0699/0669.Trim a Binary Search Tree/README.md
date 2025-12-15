@@ -61,9 +61,9 @@ tags:
 
 判断 `root.val` 与 `low` 和 `high` 的大小关系：
 
--   若 `root.val` 大于 `high`，说明当前 `root` 节点与其右子树所有节点的值均大于 `high`，那么递归修剪 `root.left` 即可；
--   若 `root.val` 小于 `low`，说明当前 `root` 节点与其左子树所有节点的值均小于 `low`，那么递归修剪 `root.right` 即可；
--   若 `root.val` 在 `[low, high]` 之间，说明当前 `root` 应该保留，递归修剪 `root.left`, `root.right`，并且返回 `root`。
+- 若 `root.val` 大于 `high`，说明当前 `root` 节点与其右子树所有节点的值均大于 `high`，那么递归修剪 `root.left` 即可；
+- 若 `root.val` 小于 `low`，说明当前 `root` 节点与其左子树所有节点的值均小于 `low`，那么递归修剪 `root.right` 即可；
+- 若 `root.val` 在 `[low, high]` 之间，说明当前 `root` 应该保留，递归修剪 `root.left`, `root.right`，并且返回 `root`。
 
 递归的终止条件是 `root` 节点为空。
 
@@ -348,9 +348,9 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 
 以左子树 `node = root.left` 为例：
 
--   若 `node.left.val` 小于 `low`，那么 `node.left` 及其左孩子均不满足条件，我们直接将 `node.left` 置为 `node.left.right`；
--   否则，我们将 `node` 置为 `node.left`；
--   循环判断，直至 `node.left` 为空。
+- 若 `node.left.val` 小于 `low`，那么 `node.left` 及其左孩子均不满足条件，我们直接将 `node.left` 置为 `node.left.right`；
+- 否则，我们将 `node` 置为 `node.left`；
+- 循环判断，直至 `node.left` 为空。
 
 右子树的修剪过程与之类似。
 

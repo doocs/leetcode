@@ -70,8 +70,8 @@ tags:
 
 对于第 $i$ 支股票，我们有两种选择：
 
--   不购买，那么 $f[i][j] = f[i - 1][j]$；
--   购买，那么 $f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]$。
+- 不购买，那么 $f[i][j] = f[i - 1][j]$；
+- 购买，那么 $f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]$。
 
 最后返回 $f[n][\textit{budget}]$ 即可。
 

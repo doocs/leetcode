@@ -57,9 +57,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.03.Stack%20of%20Pl
 
 We can use a list of stacks $stk$ to simulate this process, initially $stk$ is empty.
 
--   When the `push` method is called, if $cap$ is 0, return directly. Otherwise, if $stk$ is empty or the length of the last stack in $stk$ is greater than or equal to $cap$, then create a new stack. Then add the element $val$ to the last stack in $stk$. The time complexity is $O(1)$.
--   When the `pop` method is called, return the result of `popAt(|stk| - 1)`. The time complexity is $O(1)$.
--   When the `popAt` method is called, if $index$ is not in the range $[0, |stk|)$, return -1. Otherwise, return the top element of $stk[index]$ and pop it out. If $stk[index]$ is empty after popping, remove it from $stk$. The time complexity is $O(1)$.
+- When the `push` method is called, if $cap$ is 0, return directly. Otherwise, if $stk$ is empty or the length of the last stack in $stk$ is greater than or equal to $cap$, then create a new stack. Then add the element $val$ to the last stack in $stk$. The time complexity is $O(1)$.
+- When the `pop` method is called, return the result of `popAt(|stk| - 1)`. The time complexity is $O(1)$.
+- When the `popAt` method is called, if $index$ is not in the range $[0, |stk|)$, return -1. Otherwise, return the top element of $stk[index]$ and pop it out. If $stk[index]$ is empty after popping, remove it from $stk$. The time complexity is $O(1)$.
 
 The space complexity is $O(n)$, where $n$ is the number of elements.
 

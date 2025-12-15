@@ -114,9 +114,9 @@ Next, we design a function $\text{dfs}(\textit{last}, \textit{state}, \textit{k}
 
 The specific implementation of the function $\text{dfs}$ is as follows:
 
--   If $\textit{state} = 0$, it means there are no pawns left, return $0$;
--   If $\textit{k} = 1$, it means it is Alice's turn. We need to find a pawn such that the number of moves after eating this pawn is maximized, i.e., $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$;
--   If $\textit{k} = 0$, it means it is Bob's turn. We need to find a pawn such that the number of moves after eating this pawn is minimized, i.e., $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$.
+- If $\textit{state} = 0$, it means there are no pawns left, return $0$;
+- If $\textit{k} = 1$, it means it is Alice's turn. We need to find a pawn such that the number of moves after eating this pawn is maximized, i.e., $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$;
+- If $\textit{k} = 0$, it means it is Bob's turn. We need to find a pawn such that the number of moves after eating this pawn is minimized, i.e., $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$.
 
 To avoid repeated calculations, we use memoization, i.e., using a hash table to record the states that have already been calculated.
 

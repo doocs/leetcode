@@ -61,9 +61,9 @@ We design a function $dfs(root, x)$, which represents the sum of the values of t
 
 The execution process of the function $dfs(root, x)$ is as follows:
 
--   If $root$ is null, return $0$.
--   Otherwise, we recursively calculate the answers of the left and right subtrees of $root$, that is, $dfs(root.left, root.val)$ and $dfs(root.right, root.val)$, and add them to the answer. If $x$ is even, we check whether the left and right children of $root$ exist. If they exist, we add their values to the answer.
--   Finally, return the answer.
+- If $root$ is null, return $0$.
+- Otherwise, we recursively calculate the answers of the left and right subtrees of $root$, that is, $dfs(root.left, root.val)$ and $dfs(root.right, root.val)$, and add them to the answer. If $x$ is even, we check whether the left and right children of $root$ exist. If they exist, we add their values to the answer.
+- Finally, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
 

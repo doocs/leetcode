@@ -62,10 +62,10 @@ We can maintain a coordinate $(x, y)$ to represent the robot's movement in the h
 
 Traverse the string $\textit{moves}$ and update the coordinate $(x, y)$ based on the current character:
 
--   If the current character is `'U'`, then $y$ increases by $1$;
--   If the current character is `'D'$, then $y$ decreases by $1$;
--   If the current character is `'L'$, then $x$ decreases by $1$;
--   If the current character is `'R'$, then $x$ increases by $1$.
+- If the current character is `'U'`, then $y$ increases by $1$;
+- If the current character is `'D'$, then $y$ decreases by $1$;
+- If the current character is `'L'$, then $x$ decreases by $1$;
+- If the current character is `'R'$, then $x$ increases by $1$.
 
 Finally, check if both $x$ and $y$ are $0$.
 

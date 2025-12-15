@@ -86,10 +86,10 @@ According to the problem description, we know that a good factor of $n$ must be 
 
 Next, we just need to discuss different cases.
 
--   If $primeFactors \lt 4$, then directly return `primeFactors`.
--   If $primeFactors$ is a multiple of $3$, then we split `primeFactors` into multiples of $3$, i.e., $3^{\frac{primeFactors}{3}}$.
--   If $primeFactors$ modulo $3$ equals $1$, then we split `primeFactors` into $\frac{primeFactors}{3} - 1$ multiples of $3$, and then multiply by $4$, i.e., $3^{\frac{primeFactors}{3} - 1} \times 4$.
--   If $primeFactors$ modulo $3$ equals $2$, then we split `primeFactors` into $\frac{primeFactors}{3}$ multiples of $3$, and then multiply by $2$, i.e., $3^{\frac{primeFactors}{3}} \times 2$.
+- If $primeFactors \lt 4$, then directly return `primeFactors`.
+- If $primeFactors$ is a multiple of $3$, then we split `primeFactors` into multiples of $3$, i.e., $3^{\frac{primeFactors}{3}}$.
+- If $primeFactors$ modulo $3$ equals $1$, then we split `primeFactors` into $\frac{primeFactors}{3} - 1$ multiples of $3$, and then multiply by $4$, i.e., $3^{\frac{primeFactors}{3} - 1} \times 4$.
+- If $primeFactors$ modulo $3$ equals $2$, then we split `primeFactors` into $\frac{primeFactors}{3}$ multiples of $3$, and then multiply by $2$, i.e., $3^{\frac{primeFactors}{3}} \times 2$.
 
 In the above process, we use fast power to calculate the modulus.
 

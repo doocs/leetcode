@@ -51,9 +51,9 @@ Next, we iterate through the sorted list of words. For each word $\textit{w}$, w
 
 The execution logic of the function $\textit{dfs}$ is as follows:
 
--   If $\textit{w}$ is empty, return $\text{true}$;
--   Iterate through all prefixes of $\textit{w}$. If a prefix is in the hash table $\textit{s}$ and $\textit{dfs}$ returns $\text{true}$, then return $\text{true}$;
--   If no prefix meets the condition, return $\text{false}$.
+- If $\textit{w}$ is empty, return $\text{true}$;
+- Iterate through all prefixes of $\textit{w}$. If a prefix is in the hash table $\textit{s}$ and $\textit{dfs}$ returns $\text{true}$, then return $\text{true}$;
+- If no prefix meets the condition, return $\text{false}$.
 
 If no word meets the condition, return an empty string.
 

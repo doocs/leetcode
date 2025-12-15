@@ -85,7 +85,7 @@ The time complexity is $O(n)$, where $n$ is the length of `arr`. The space compl
 
 Similar problems:
 
--   [1573. Number of Ways to Split a String](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md)
+- [1573. Number of Ways to Split a String](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md)
 
 <!-- tabs:start -->
 

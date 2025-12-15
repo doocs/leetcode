@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->

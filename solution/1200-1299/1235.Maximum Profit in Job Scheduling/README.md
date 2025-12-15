@@ -284,8 +284,8 @@ $$
 
 相似题目：
 
--   [2008. 出租车的最大盈利](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
--   [1751. 最多可以参加的会议数目 II](https://github.com/doocs/leetcode/blob/main/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
+- [2008. 出租车的最大盈利](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2008.Maximum%20Earnings%20From%20Taxi/README.md)
+- [1751. 最多可以参加的会议数目 II](https://github.com/doocs/leetcode/blob/main/solution/1700-1799/1751.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended%20II/README.md)
 
 <!-- tabs:start -->
 

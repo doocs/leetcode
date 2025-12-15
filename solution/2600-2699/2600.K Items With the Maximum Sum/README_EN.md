@@ -72,9 +72,9 @@ According to the problem description, we should take as many items marked as $1$
 
 Thus:
 
--   If the number of items marked as $1$ in the bag is greater than or equal to $k$, we take $k$ items, and the sum of the numbers is $k$.
--   If the number of items marked as $1$ is less than $k$, we take $\textit{numOnes}$ items, resulting in a sum of $\textit{numOnes}$. If the number of items marked as $0$ is greater than or equal to $k - \textit{numOnes}$, we take $k - \textit{numOnes}$ more items, keeping the sum at $\textit{numOnes}$.
--   Otherwise, we take $k - \textit{numOnes} - \textit{numZeros}$ items from those marked as $-1$, resulting in a sum of $\textit{numOnes} - (k - \textit{numOnes} - \textit{numZeros})$.
+- If the number of items marked as $1$ in the bag is greater than or equal to $k$, we take $k$ items, and the sum of the numbers is $k$.
+- If the number of items marked as $1$ is less than $k$, we take $\textit{numOnes}$ items, resulting in a sum of $\textit{numOnes}$. If the number of items marked as $0$ is greater than or equal to $k - \textit{numOnes}$, we take $k - \textit{numOnes}$ more items, keeping the sum at $\textit{numOnes}$.
+- Otherwise, we take $k - \textit{numOnes} - \textit{numZeros}$ items from those marked as $-1$, resulting in a sum of $\textit{numOnes} - (k - \textit{numOnes} - \textit{numZeros})$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

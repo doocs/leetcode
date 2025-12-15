@@ -69,9 +69,9 @@ tags:
 
 函数 $\textit{dfs}(i, j)$ 的执行过程如下：
 
--   如果 $i \ge m$ 或者 $j \ge n$，或者 $\textit{obstacleGrid}[i][j] = 1$，则路径数为 $0$；
--   如果 $i = m - 1$ 且 $j = n - 1$，则路径数为 $1$；
--   否则，路径数为 $\textit{dfs}(i + 1, j) + \textit{dfs}(i, j + 1)$。
+- 如果 $i \ge m$ 或者 $j \ge n$，或者 $\textit{obstacleGrid}[i][j] = 1$，则路径数为 $0$；
+- 如果 $i = m - 1$ 且 $j = n - 1$，则路径数为 $1$；
+- 否则，路径数为 $\textit{dfs}(i + 1, j) + \textit{dfs}(i, j + 1)$。
 
 为了避免重复计算，我们可以使用记忆化搜索的方法。
 
@@ -275,8 +275,8 @@ var uniquePathsWithObstacles = function (obstacleGrid) {
 
 我们首先初始化 $f$ 的第一列和第一行的所有值，然后遍历其它行和列，有两种情况：
 
--   若 $\textit{obstacleGrid}[i][j] = 1$，说明路径数为 $0$，那么 $f[i][j] = 0$；
--   若 $\textit{obstacleGrid}[i][j] = 0$，则 $f[i][j] = f[i - 1][j] + f[i][j - 1]$。
+- 若 $\textit{obstacleGrid}[i][j] = 1$，说明路径数为 $0$，那么 $f[i][j] = 0$；
+- 若 $\textit{obstacleGrid}[i][j] = 0$，则 $f[i][j] = f[i - 1][j] + f[i][j - 1]$。
 
 最后返回 $f[m - 1][n - 1]$ 即可。
 

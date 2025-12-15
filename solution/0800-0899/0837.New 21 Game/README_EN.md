@@ -74,8 +74,8 @@ We design a function $dfs(i)$, which represents the probability that when the cu
 
 The calculation method of function $dfs(i)$ is as follows:
 
--   If $i \ge k$, then we stop drawing numbers. If $i \le n$, return $1$, otherwise return $0$;
--   Otherwise, we can draw the next number $j$ in the range $[1,..\textit{maxPts}]$, then $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$.
+- If $i \ge k$, then we stop drawing numbers. If $i \le n$, return $1$, otherwise return $0$;
+- Otherwise, we can draw the next number $j$ in the range $[1,..\textit{maxPts}]$, then $dfs(i) = \frac{1}{maxPts} \sum_{j=1}^{maxPts} dfs(i+j)$.
 
 Here we can use memoized search to accelerate the calculation.
 

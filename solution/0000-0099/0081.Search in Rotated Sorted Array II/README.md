@@ -73,9 +73,9 @@ tags:
 
 每次在二分查找的过程中，我们会得到当前的中点 $\textit{mid} = (l + r) / 2$。
 
--   如果 $\textit{nums}[\textit{mid}] > \textit{nums}[r]$，说明 $[l, \textit{mid}]$ 是有序的，此时如果 $\textit{nums}[l] \le \textit{target} \le \textit{nums}[\textit{mid}]$，说明 $\textit{target}$ 位于 $[l, \textit{mid}]$，否则 $\textit{target}$ 位于 $[\textit{mid} + 1, r]$。
--   如果 $\textit{nums}[\textit{mid}] < \textit{nums}[r]$，说明 $[\textit{mid} + 1, r]$ 是有序的，此时如果 $\textit{nums}[\textit{mid}] < \textit{target} \le \textit{nums}[r]$，说明 $\textit{target}$ 位于 $[\textit{mid} + 1, r]$，否则 $\textit{target}$ 位于 $[l, \textit{mid}]$。
--   如果 $\textit{nums}[\textit{mid}] = \textit{nums}[r]$，说明元素 $\textit{nums}[\textit{mid}]$ 和 $\textit{nums}[r]$ 相等，此时无法判断 $\textit{target}$ 位于哪个区间，我们只能将 $r$ 减少 $1$。
+- 如果 $\textit{nums}[\textit{mid}] > \textit{nums}[r]$，说明 $[l, \textit{mid}]$ 是有序的，此时如果 $\textit{nums}[l] \le \textit{target} \le \textit{nums}[\textit{mid}]$，说明 $\textit{target}$ 位于 $[l, \textit{mid}]$，否则 $\textit{target}$ 位于 $[\textit{mid} + 1, r]$。
+- 如果 $\textit{nums}[\textit{mid}] < \textit{nums}[r]$，说明 $[\textit{mid} + 1, r]$ 是有序的，此时如果 $\textit{nums}[\textit{mid}] < \textit{target} \le \textit{nums}[r]$，说明 $\textit{target}$ 位于 $[\textit{mid} + 1, r]$，否则 $\textit{target}$ 位于 $[l, \textit{mid}]$。
+- 如果 $\textit{nums}[\textit{mid}] = \textit{nums}[r]$，说明元素 $\textit{nums}[\textit{mid}]$ 和 $\textit{nums}[r]$ 相等，此时无法判断 $\textit{target}$ 位于哪个区间，我们只能将 $r$ 减少 $1$。
 
 二分查找结束后，如果 $\textit{nums}[l] = \textit{target}$，则说明数组中存在目标值 $\textit{target}$，否则说明不存在。
 

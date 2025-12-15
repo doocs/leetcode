@@ -82,10 +82,10 @@ We design a function $\textit{dfs}(i, j, k)$, which represents the length of the
 
 The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
 
--   If $i > j$, return $0$;
--   If $i = j$, return $1$;
--   Otherwise, we can ignore $s[i]$ or $s[j]$ and calculate $\textit{dfs}(i + 1, j, k)$ and $\textit{dfs}(i, j - 1, k)$ respectively; or we can change $s[i]$ and $s[j]$ to the same character and calculate $\textit{dfs}(i + 1, j - 1, k - t) + 2$, where $t$ is the ASCII code difference between $s[i]$ and $s[j]$.
--   Return the maximum value of the above three cases.
+- If $i > j$, return $0$;
+- If $i = j$, return $1$;
+- Otherwise, we can ignore $s[i]$ or $s[j]$ and calculate $\textit{dfs}(i + 1, j, k)$ and $\textit{dfs}(i, j - 1, k)$ respectively; or we can change $s[i]$ and $s[j]$ to the same character and calculate $\textit{dfs}(i + 1, j - 1, k - t) + 2$, where $t$ is the ASCII code difference between $s[i]$ and $s[j]$.
+- Return the maximum value of the above three cases.
 
 To avoid repeated calculations, we use memoized search.
 

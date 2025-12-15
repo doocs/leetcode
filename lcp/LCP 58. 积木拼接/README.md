@@ -19,9 +19,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%
 
 拼接积木的规则如下：
 
--   积木片可以旋转、翻面
--   积木片边缘必须完全吻合才能拼接在一起
--   **每片积木片 `shapes[i]` 的中心点在拼接时必须处于正方体对应面的中心点**
+- 积木片可以旋转、翻面
+- 积木片边缘必须完全吻合才能拼接在一起
+- **每片积木片 `shapes[i]` 的中心点在拼接时必须处于正方体对应面的中心点**
 
 例如 `3*3`、`4*4` 的积木片的中心点如图所示（红色点）：
 ![middle_img_v2_c2d91eb5-9beb-4c06-9726-f7dae149d86g.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2058.%20%E7%A7%AF%E6%9C%A8%E6%8B%BC%E6%8E%A5/images/1650509082-wObiEp-middle_img_v2_c2d91eb5-9beb-4c06-9726-f7dae149d86g.png){:height="150px"}
@@ -30,8 +30,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%
 
 **注意：**
 
--   输入确保每片积木均无空心情况（即输入数据保证对于大小 `N*N` 的 `shapes[i]`，内部的 `(N-2)*(N-2)` 的区域必然均为 1）
--   输入确保每片积木的所有 `1` 位置均连通
+- 输入确保每片积木均无空心情况（即输入数据保证对于大小 `N*N` 的 `shapes[i]`，内部的 `(N-2)*(N-2)` 的区域必然均为 1）
+- 输入确保每片积木的所有 `1` 位置均连通
 
 **示例 1：**
 
@@ -53,10 +53,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2058.%20%E7%A7%AF%
 
 **提示：**
 
--   `shapes.length == 6`
--   `shapes[i].length == shapes[j].length`
--   `shapes[i].length == shapes[i][j].length`
--   `3 <= shapes[i].length <= 10`
+- `shapes.length == 6`
+- `shapes[i].length == shapes[j].length`
+- `shapes[i].length == shapes[i][j].length`
+- `3 <= shapes[i].length <= 10`
 
 <!-- description:end -->
 

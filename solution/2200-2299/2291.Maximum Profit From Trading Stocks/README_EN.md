@@ -76,8 +76,8 @@ We define $f[i][j]$ to represent the maximum profit when considering the first $
 
 For the $i$-th stock, we have two choices:
 
--   Do not buy it, then $f[i][j] = f[i - 1][j]$;
--   Buy it, then $f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]$.
+- Do not buy it, then $f[i][j] = f[i - 1][j]$;
+- Buy it, then $f[i][j] = f[i - 1][j - \textit{present}[i]] + \textit{future}[i] - \textit{present}[i]$.
 
 Finally, return $f[n][\textit{budget}]$.
 

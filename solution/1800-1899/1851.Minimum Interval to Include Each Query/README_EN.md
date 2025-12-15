@@ -78,9 +78,9 @@ We use a priority queue (min heap) $pq$ to maintain all current intervals. Each 
 
 We traverse each query $(x, j)$ in ascending order and perform the following operations:
 
--   If the pointer $i$ has not traversed all intervals, and the left endpoint of the current interval $[a, b]$ is less than or equal to $x$, then we add this interval to the priority queue and move the pointer $i$ one step forward. Repeat this process.
--   If the priority queue is not empty, and the right endpoint of the heap top element is less than $x$, then we pop the heap top element. Repeat this process.
--   At this point, if the priority queue is not empty, then the heap top element is the smallest interval containing $x$. We add its length $v$ to the answer array $ans$.
+- If the pointer $i$ has not traversed all intervals, and the left endpoint of the current interval $[a, b]$ is less than or equal to $x$, then we add this interval to the priority queue and move the pointer $i$ one step forward. Repeat this process.
+- If the priority queue is not empty, and the right endpoint of the heap top element is less than $x$, then we pop the heap top element. Repeat this process.
+- At this point, if the priority queue is not empty, then the heap top element is the smallest interval containing $x$. We add its length $v$ to the answer array $ans$.
 
 After the above process is over, we return the answer array $ans$.
 

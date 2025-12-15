@@ -81,9 +81,9 @@ Then, we design a function $\textit{dfs}(cur)$, representing the minimum amount 
 
 The calculation method of the function $\textit{dfs}(cur)$ is as follows:
 
--   First, we calculate the cost of the current shopping list $\textit{cur}$ without using any bundles, denoted as $\textit{ans}$.
--   Then, we iterate through each bundle $\textit{offer}$. If the current shopping list $\textit{cur}$ can use the bundle $\textit{offer}$, i.e., the quantity of each item in $\textit{cur}$ is not less than that in the bundle $\textit{offer}$, then we can try to use this bundle. We subtract the quantity of each item in the bundle $\textit{offer}$ from $\textit{cur}$, obtaining a new shopping list $\textit{nxt}$, then recursively calculate the minimum cost of $\textit{nxt}$ and add the price of the bundle $\textit{offer}[n]$, updating $\textit{ans}$, i.e., $\textit{ans} = \min(\textit{ans}, \textit{offer}[n] + \textit{dfs}(\textit{nxt}))$.
--   Finally, return $\textit{ans}$.
+- First, we calculate the cost of the current shopping list $\textit{cur}$ without using any bundles, denoted as $\textit{ans}$.
+- Then, we iterate through each bundle $\textit{offer}$. If the current shopping list $\textit{cur}$ can use the bundle $\textit{offer}$, i.e., the quantity of each item in $\textit{cur}$ is not less than that in the bundle $\textit{offer}$, then we can try to use this bundle. We subtract the quantity of each item in the bundle $\textit{offer}$ from $\textit{cur}$, obtaining a new shopping list $\textit{nxt}$, then recursively calculate the minimum cost of $\textit{nxt}$ and add the price of the bundle $\textit{offer}[n]$, updating $\textit{ans}$, i.e., $\textit{ans} = \min(\textit{ans}, \textit{offer}[n] + \textit{dfs}(\textit{nxt}))$.
+- Finally, return $\textit{ans}$.
 
 To avoid repeated calculations, we use a hash table $\textit{f}$ to record the minimum cost corresponding to each state $\textit{cur}$.
 

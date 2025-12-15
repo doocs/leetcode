@@ -114,7 +114,7 @@ First, we merge the `start_time` and `end_time` for each `employee_id` into a ne
 
 Similar Problem:
 
--   [3268. Find Overlapping Shifts II 🔒](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)
+- [3268. Find Overlapping Shifts II 🔒](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3268.Find%20Overlapping%20Shifts%20II/README_EN.md)
 
 <!-- tabs:start -->
 

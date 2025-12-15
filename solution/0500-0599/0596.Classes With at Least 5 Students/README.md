@@ -26,12 +26,12 @@ tags:
 | class       | varchar |
 +-------------+---------+
 (student, class)是该表的主键（不同值的列的组合）。
-该表的每一行表示学生的名字和他们注册的班级。
+该表的每一行表示学生的名字和他们注册的课程。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>查询&nbsp;<strong>至少有 5 个学生</strong> 的所有班级。</p>
+<p>查询&nbsp;<strong>至少有 5 个学生</strong> 的所有课程。</p>
 
 <p>以 <strong>任意顺序 </strong>返回结果表。</p>
 

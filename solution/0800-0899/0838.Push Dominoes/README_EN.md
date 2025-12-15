@@ -85,8 +85,8 @@ $$
 
 If $0 \leq j < n$:
 
--   If $\text{time[j]} = -1$, it means _j_ has not been affected yet. Record $\text{time[j]} = \text{time[i]} + 1$, enqueue it, and append $f$ to $\text{force[j]}$.
--   If $\text{time[j]} = \text{time[i]} + 1$, it means _j_ has already been affected by another force at the same "next moment." In this case, append $f$ to $\text{force[j]}$, causing a standoff. Subsequently, since $\text{len(force[j])} = 2$, it will remain upright.
+- If $\text{time[j]} = -1$, it means _j_ has not been affected yet. Record $\text{time[j]} = \text{time[i]} + 1$, enqueue it, and append $f$ to $\text{force[j]}$.
+- If $\text{time[j]} = \text{time[i]} + 1$, it means _j_ has already been affected by another force at the same "next moment." In this case, append $f$ to $\text{force[j]}$, causing a standoff. Subsequently, since $\text{len(force[j])} = 2$, it will remain upright.
 
 After the queue is emptied, all positions where $\text{force[i]}$ has a length of 1 will fall in the corresponding direction, while positions with a length of 2 will remain as `.`. Finally, concatenate the character array to form the answer.
 

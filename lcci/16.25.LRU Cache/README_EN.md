@@ -60,8 +60,8 @@ cache.get(4);       // returns 4
 
 We can implement an LRU (Least Recently Used) cache using a "hash table" and a "doubly linked list".
 
--   Hash Table: Used to store the key and its corresponding node location.
--   Doubly Linked List: Used to store node data, sorted by access time.
+- Hash Table: Used to store the key and its corresponding node location.
+- Doubly Linked List: Used to store node data, sorted by access time.
 
 When accessing a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. This ensures that the node stored at the tail of the list is the least recently used node. When the number of nodes exceeds the maximum cache space, we eliminate the node at the tail of the list.
 

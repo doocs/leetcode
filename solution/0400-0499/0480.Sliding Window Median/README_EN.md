@@ -74,11 +74,11 @@ We can use two priority queues (min-heap and max-heap) to maintain the elements 
 
 We design a class $\textit{MedianFinder}$ to maintain the elements in the current window. This class includes the following methods:
 
--   `add_num(num)`: Adds $\textit{num}$ to the current window.
--   `find_median()`: Returns the median of the elements in the current window.
--   `remove_num(num)`: Removes $\textit{num}$ from the current window.
--   `prune(pq)`: If the top element of the heap is in the lazy deletion dictionary $\textit{delayed}$, it pops the top element from the heap and decrements its lazy deletion count. If the lazy deletion count of the element becomes zero, it removes the element from the lazy deletion dictionary.
--   `rebalance()`: If the number of elements in the smaller half exceeds the number of elements in the larger half by $2$, it moves the top element of the larger half to the smaller half. If the number of elements in the smaller half is less than the number of elements in the larger half, it moves the top element of the larger half to the smaller half.
+- `add_num(num)`: Adds $\textit{num}$ to the current window.
+- `find_median()`: Returns the median of the elements in the current window.
+- `remove_num(num)`: Removes $\textit{num}$ from the current window.
+- `prune(pq)`: If the top element of the heap is in the lazy deletion dictionary $\textit{delayed}$, it pops the top element from the heap and decrements its lazy deletion count. If the lazy deletion count of the element becomes zero, it removes the element from the lazy deletion dictionary.
+- `rebalance()`: If the number of elements in the smaller half exceeds the number of elements in the larger half by $2$, it moves the top element of the larger half to the smaller half. If the number of elements in the smaller half is less than the number of elements in the larger half, it moves the top element of the larger half to the smaller half.
 
 In the `add_num(num)` method, we first consider adding $\textit{num}$ to the smaller half. If $\textit{num}$ is greater than the top element of the larger half, we add $\textit{num}$ to the larger half. Then we call the `rebalance()` method to ensure that the size difference between the two priority queues does not exceed $1$.
 

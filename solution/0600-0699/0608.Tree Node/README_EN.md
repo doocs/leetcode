@@ -109,9 +109,9 @@ Tree table:
 
 We can use the `CASE WHEN` conditional statement to determine the type of each node as follows:
 
--   If a node's `p_id` is `NULL`, then it is a root node.
--   Otherwise, if a node is the parent node of another node (we use a subquery to determine this), then it is an internal node.
--   Otherwise, it is a leaf node.
+- If a node's `p_id` is `NULL`, then it is a root node.
+- Otherwise, if a node is the parent node of another node (we use a subquery to determine this), then it is an internal node.
+- Otherwise, it is a leaf node.
 
 <!-- tabs:start -->
 

@@ -89,7 +89,7 @@ tags:
 
 相似题目：
 
--   [2402. 会议室 III](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
+- [2402. 会议室 III](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2402.Meeting%20Rooms%20III/README.md)
 
 <!-- tabs:start -->
 

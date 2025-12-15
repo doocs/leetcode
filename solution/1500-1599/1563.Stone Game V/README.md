@@ -78,8 +78,8 @@ tags:
 
 函数 $\textit{dfs}(i, j)$ 的计算过程如下：
 
--   如果 $i \geq j$，说明只剩下一块石子，Alice 无法进行分割，因此返回 $0$。
--   否则，我们枚举分割点 $k$，即 $i \leq k < j$，将数组 $\textit{stoneValue}$ 中下标范围 $[i, j]$ 内的石子分割为 $[i, k]$ 和 $[k + 1, j]$ 两部分，计算出 $a$ 和 $b$，分别表示两部分的石子总和。然后我们分别计算 $\textit{dfs}(i, k)$ 和 $\textit{dfs}(k + 1, j)$，并更新答案。
+- 如果 $i \geq j$，说明只剩下一块石子，Alice 无法进行分割，因此返回 $0$。
+- 否则，我们枚举分割点 $k$，即 $i \leq k < j$，将数组 $\textit{stoneValue}$ 中下标范围 $[i, j]$ 内的石子分割为 $[i, k]$ 和 $[k + 1, j]$ 两部分，计算出 $a$ 和 $b$，分别表示两部分的石子总和。然后我们分别计算 $\textit{dfs}(i, k)$ 和 $\textit{dfs}(k + 1, j)$，并更新答案。
 
 注意，如果满足 $a < b$ 并且 $\textit{ans} \geq a \times 2$，那么这一次枚举可以跳过；如果满足 $a > b$ 并且 $\textit{ans} \geq b \times 2$，那么后续的枚举都可以跳过，直接退出循环。
 

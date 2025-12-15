@@ -80,8 +80,8 @@ Then we design a function $dfs(i, m)$, which represents the maximum number of st
 
 The calculation process of the function $dfs(i, m)$ is as follows:
 
--   If the current player can take all the remaining stones, the maximum number of stones they can take is $s[n] - s[i]$;
--   Otherwise, the current player can take all the stones from the first $x$ piles of the remaining ones, where $1 \leq x \leq 2m$, and the maximum number of stones they can take is $s[n] - s[i] - dfs(i + x, max(m, x))$. That is to say, the number of stones that the current player can take is the number of all the remaining stones minus the number of stones that the opponent can take in the next round. We need to enumerate all $x$, and take the maximum value as the return value of the function $dfs(i, m)$.
+- If the current player can take all the remaining stones, the maximum number of stones they can take is $s[n] - s[i]$;
+- Otherwise, the current player can take all the stones from the first $x$ piles of the remaining ones, where $1 \leq x \leq 2m$, and the maximum number of stones they can take is $s[n] - s[i] - dfs(i + x, max(m, x))$. That is to say, the number of stones that the current player can take is the number of all the remaining stones minus the number of stones that the opponent can take in the next round. We need to enumerate all $x$, and take the maximum value as the return value of the function $dfs(i, m)$.
 
 To avoid repeated calculations, we can use memoization search.
 

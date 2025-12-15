@@ -80,13 +80,13 @@ We define an answer array `ans` of length `n`, initially all elements are `0`. A
 
 Otherwise, we traverse each position `i`:
 
--   If `k` is a positive number, then the value at position `i` is the sum of the values at the `k` positions after position `i`, that is:
+- If `k` is a positive number, then the value at position `i` is the sum of the values at the `k` positions after position `i`, that is:
 
 $$
 ans[i] = \sum_{j=i+1}^{i+k} code[j \bmod n]
 $$
 
--   If `k` is a negative number, then the value at position `i` is the sum of the values at the `|k|` positions before position `i`, that is:
+- If `k` is a negative number, then the value at position `i` is the sum of the values at the `|k|` positions before position `i`, that is:
 
 $$
 ans[i] = \sum_{j=i+k}^{i-1} code[(j+n) \bmod n]

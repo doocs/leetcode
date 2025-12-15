@@ -78,7 +78,7 @@ The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log
 
 Similar problems:
 
--   [3171. Find Subarray With Bitwise AND Closest to K](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)
+- [3171. Find Subarray With Bitwise AND Closest to K](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3171.Find%20Subarray%20With%20Bitwise%20AND%20Closest%20to%20K/README_EN.md)
 
 <!-- tabs:start -->
 

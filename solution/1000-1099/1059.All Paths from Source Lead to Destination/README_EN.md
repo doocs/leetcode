@@ -74,17 +74,17 @@ tags:
 
 We use a state array $\textit{state}$ to record the status of each node, where:
 
--   State 0 indicates the node has not been visited;
--   State 1 indicates the node is currently being visited;
--   State 2 indicates the node has been visited and can lead to the destination.
+- State 0 indicates the node has not been visited;
+- State 1 indicates the node is currently being visited;
+- State 2 indicates the node has been visited and can lead to the destination.
 
 First, we build the graph as an adjacency list, then perform a depth-first search (DFS) starting from the source node. During the DFS process:
 
--   If the current node's state is 1, it means we have encountered a cycle, and we return $\text{false}$ directly;
--   If the current node's state is 2, it means the node has been visited and can lead to the destination, and we return $\text{true}$ directly;
--   If the current node has no outgoing edges, we check whether it is the destination node. If so, return $\text{true}$; otherwise, return $\text{false}$;
--   Otherwise, set the current node's state to 1 and recursively visit all adjacent nodes;
--   If all adjacent nodes can lead to the destination, set the current node's state to 2 and return $\text{true}$; otherwise, return $\text{false}$.
+- If the current node's state is 1, it means we have encountered a cycle, and we return $\text{false}$ directly;
+- If the current node's state is 2, it means the node has been visited and can lead to the destination, and we return $\text{true}$ directly;
+- If the current node has no outgoing edges, we check whether it is the destination node. If so, return $\text{true}$; otherwise, return $\text{false}$;
+- Otherwise, set the current node's state to 1 and recursively visit all adjacent nodes;
+- If all adjacent nodes can lead to the destination, set the current node's state to 2 and return $\text{true}$; otherwise, return $\text{false}$.
 
 The answer is the result of $\text{dfs}(\text{source})$.
 

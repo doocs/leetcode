@@ -74,7 +74,7 @@ tags:
 
 相似题目：
 
--   [1062. 最长重复子串](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md)
+- [1062. 最长重复子串](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md)
 
 <!-- tabs:start -->
 

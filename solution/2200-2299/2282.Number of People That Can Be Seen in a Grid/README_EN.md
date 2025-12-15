@@ -92,7 +92,7 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(\max(m, n
 
 Similar problems:
 
--   [1944. Number of Visible People in a Queue](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README_EN.md)
+- [1944. Number of Visible People in a Queue](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1944.Number%20of%20Visible%20People%20in%20a%20Queue/README_EN.md)
 
 <!-- tabs:start -->
 

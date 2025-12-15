@@ -104,10 +104,10 @@ $$
 
 Where:
 
--   $ix[cur]$ represents the number of introverted people in state $cur$;
--   $ex[cur]$ represents the number of extroverted people in state $cur$;
--   $f[cur]$ represents the initial happiness of the people in state $cur$;
--   $g[pre][cur]$ represents the contribution to happiness of two adjacent state rows.
+- $ix[cur]$ represents the number of introverted people in state $cur$;
+- $ex[cur]$ represents the number of extroverted people in state $cur$;
+- $f[cur]$ represents the initial happiness of the people in state $cur$;
+- $g[pre][cur]$ represents the contribution to happiness of two adjacent state rows.
 
 These values can be obtained through preprocessing. And we can use the method of memoization to avoid repeated calculations.
 

@@ -87,10 +87,10 @@ The problem asks for the minimum number of moves for the snake to reach the targ
 
 We define the following data structures or variables:
 
--   Queue $q$: Stores the current position of the snake. Each position is a tuple $(a, b)$, where $a$ represents the tail position of the snake, and $b$ represents the head position of the snake. Initially, we add the position $(0, 1)$ to the queue $q$. If we flatten the 2D maze into a 1D array, then the position $(0, 1)$ represents the two cells with indices $0$ and $1$ in the 1D array.
--   Target position $target$: The value is fixed at $(n^2 - 2, n^2 - 1)$, which is the last two cells of the last row of the 2D maze.
--   Array or set $vis$: Stores whether the current position state of the snake has been visited. Each state is a tuple $(a, status)$, where $a$ represents the tail position of the snake, and $status$ represents the current state of the snake, with values of $0$ or $1$, representing the horizontal and vertical states of the snake, respectively. Initially, add the state of the starting position $(0, 1)$ to the set $vis$.
--   Answer variable $ans$: Stores the number of moves for the snake to reach the target position from the starting position. Initially, it is $0$.
+- Queue $q$: Stores the current position of the snake. Each position is a tuple $(a, b)$, where $a$ represents the tail position of the snake, and $b$ represents the head position of the snake. Initially, we add the position $(0, 1)$ to the queue $q$. If we flatten the 2D maze into a 1D array, then the position $(0, 1)$ represents the two cells with indices $0$ and $1$ in the 1D array.
+- Target position $target$: The value is fixed at $(n^2 - 2, n^2 - 1)$, which is the last two cells of the last row of the 2D maze.
+- Array or set $vis$: Stores whether the current position state of the snake has been visited. Each state is a tuple $(a, status)$, where $a$ represents the tail position of the snake, and $status$ represents the current state of the snake, with values of $0$ or $1$, representing the horizontal and vertical states of the snake, respectively. Initially, add the state of the starting position $(0, 1)$ to the set $vis$.
+- Answer variable $ans$: Stores the number of moves for the snake to reach the target position from the starting position. Initially, it is $0$.
 
 We use BFS to solve it. Each time we take a position from the queue $q$, we check whether the position is the target position $target$. If it is, we directly return the answer variable $ans$. If not, we add the next possible position of this position to the queue $q$ and add this position to $vis$. Note that the next position could be the horizontal or vertical state of the snake, and we need to judge them separately (see the following code comments). At the end of each round of search, the answer variable $ans$ increments by $1$.
 

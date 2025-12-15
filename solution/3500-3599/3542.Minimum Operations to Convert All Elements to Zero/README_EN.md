@@ -99,8 +99,8 @@ According to the problem description, we should first convert the smallest numbe
 
 We can maintain a monotonically increasing stack $\textit{stk}$ from bottom to top, and traverse each number $\textit{x}$ in the array $\textit{nums}$:
 
--   When the top element of the stack is greater than $\textit{x}$, it means $\textit{x}$ separates the top element. We need to pop the top element and increment the answer by $1$, continuing until the top element is not greater than $\textit{x}$.
--   If $\textit{x}$ is not $0$, and the stack is empty or the top element is not equal to $\textit{x}$, then push $\textit{x}$ onto the stack.
+- When the top element of the stack is greater than $\textit{x}$, it means $\textit{x}$ separates the top element. We need to pop the top element and increment the answer by $1$, continuing until the top element is not greater than $\textit{x}$.
+- If $\textit{x}$ is not $0$, and the stack is empty or the top element is not equal to $\textit{x}$, then push $\textit{x}$ onto the stack.
 
 After traversal, the remaining elements in the stack all require an additional operation to become $0$, so we add the size of the stack to the answer.
 

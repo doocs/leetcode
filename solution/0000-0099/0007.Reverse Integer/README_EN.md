@@ -65,9 +65,9 @@ If $x \gt 0$, it needs to satisfy $ans \times 10 + y \leq mx$, that is, $ans \ti
 
 Next, we discuss the conditions for the inequality to hold:
 
--   When $ans \lt \left \lfloor \frac{mx}{10} \right \rfloor$, the inequality obviously holds;
--   When $ans = \left \lfloor \frac{mx}{10} \right \rfloor$, the necessary and sufficient condition for the inequality to hold is $y \leq 7$. If $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ and we can still add numbers, it means that the number is at the highest digit, that is, $y$ must not exceed $2$, therefore, the inequality must hold;
--   When $ans \gt \left \lfloor \frac{mx}{10} \right \rfloor$, the inequality obviously does not hold.
+- When $ans \lt \left \lfloor \frac{mx}{10} \right \rfloor$, the inequality obviously holds;
+- When $ans = \left \lfloor \frac{mx}{10} \right \rfloor$, the necessary and sufficient condition for the inequality to hold is $y \leq 7$. If $ans = \left \lfloor \frac{mx}{10} \right \rfloor$ and we can still add numbers, it means that the number is at the highest digit, that is, $y$ must not exceed $2$, therefore, the inequality must hold;
+- When $ans \gt \left \lfloor \frac{mx}{10} \right \rfloor$, the inequality obviously does not hold.
 
 In summary, when $x \gt 0$, the necessary and sufficient condition for the inequality to hold is $ans \leq \left \lfloor \frac{mx}{10} \right \rfloor$.
 

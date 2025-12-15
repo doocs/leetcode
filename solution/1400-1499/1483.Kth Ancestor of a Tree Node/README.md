@@ -95,7 +95,7 @@ $$
 
 相似题目：
 
--   [2836. 在传球游戏中最大化函数值](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
+- [2836. 在传球游戏中最大化函数值](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2836.Maximize%20Value%20of%20Function%20in%20a%20Ball%20Passing%20Game/README.md)
 
 <!-- tabs:start -->
 

@@ -42,9 +42,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/
 
 函数 $\textit{dfs}$ 的执行逻辑如下：
 
--   如果 $\textit{w}$ 为空，返回 $\text{true}$；
--   遍历 $\textit{w}$ 的所有前缀，如果前缀在哈希表 $\textit{s}$ 中且 $\textit{dfs}$ 返回 $\text{true}$，则返回 $\text{true}$；
--   如果没有符合条件的前缀，返回 $\text{false}$。
+- 如果 $\textit{w}$ 为空，返回 $\text{true}$；
+- 遍历 $\textit{w}$ 的所有前缀，如果前缀在哈希表 $\textit{s}$ 中且 $\textit{dfs}$ 返回 $\text{true}$，则返回 $\text{true}$；
+- 如果没有符合条件的前缀，返回 $\text{false}$。
 
 如果没有找到符合条件的单词，返回空字符串。
 

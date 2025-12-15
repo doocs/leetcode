@@ -82,9 +82,9 @@ Account ID 4 --&gt; The account was active from &quot;2021-02-01 17:00:00&quot; 
 
 We can use a self-join to find out the cases where each account logs in from different IP addresses on the same day. The conditions for joining are:
 
--   The account numbers are the same.
--   The IP addresses are different.
--   The login time of one record is within the login-logout time range of another record.
+- The account numbers are the same.
+- The IP addresses are different.
+- The login time of one record is within the login-logout time range of another record.
 
 <!-- tabs:start -->
 

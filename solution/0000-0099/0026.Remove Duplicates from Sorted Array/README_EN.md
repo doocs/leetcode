@@ -89,12 +89,12 @@ Supplement:
 
 The original problem requires that the same number appear at most once. We can extend it to keep at most $k$ identical numbers.
 
--   Since the same number can be kept at most $k$ times, we can directly keep the first $k$ elements of the original array;
--   For the following numbers, the premise of being able to keep them is: the current number $x$ is compared with the last $k$th element of the previously retained numbers. If they are different, keep them, otherwise skip them.
+- Since the same number can be kept at most $k$ times, we can directly keep the first $k$ elements of the original array;
+- For the following numbers, the premise of being able to keep them is: the current number $x$ is compared with the last $k$th element of the previously retained numbers. If they are different, keep them, otherwise skip them.
 
 Similar problems:
 
--   [80. Remove Duplicates from Sorted Array II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
+- [80. Remove Duplicates from Sorted Array II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
 
 <!-- tabs:start -->
 

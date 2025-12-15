@@ -82,7 +82,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Where $n$
 
 Similar problems:
 
--   [1044. Longest Duplicate Substring 🔒](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)
+- [1044. Longest Duplicate Substring 🔒](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)
 
 <!-- tabs:start -->
 

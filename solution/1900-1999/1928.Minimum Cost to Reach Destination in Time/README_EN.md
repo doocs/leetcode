@@ -85,8 +85,8 @@ We define $f[i][j]$ to represent the minimum cost to reach city $j$ from city $0
 
 Next, within the time range $[1, \textit{maxTime}]$, we traverse all edges. For each edge $(x, y, t)$, if $t \leq i$, then we:
 
--   Can first spend $i - t$ minutes to reach city $y$ from city $0$, then spend $t$ minutes to reach city $x$ from city $y$, and add the passing fee to reach city $x$, i.e., $f[i][x] = \min(f[i][x], f[i - t][y] + \textit{passingFees}[x])$;
--   Can also first spend $i - t$ minutes to reach city $x$ from city $0$, then spend $t$ minutes to reach city $y$ from city $x$, and add the passing fee to reach city $y$, i.e., $f[i][y] = \min(f[i][y], f[i - t][x] + \textit{passingFees}[y])$.
+- Can first spend $i - t$ minutes to reach city $y$ from city $0$, then spend $t$ minutes to reach city $x$ from city $y$, and add the passing fee to reach city $x$, i.e., $f[i][x] = \min(f[i][x], f[i - t][y] + \textit{passingFees}[x])$;
+- Can also first spend $i - t$ minutes to reach city $x$ from city $0$, then spend $t$ minutes to reach city $y$ from city $x$, and add the passing fee to reach city $y$, i.e., $f[i][y] = \min(f[i][y], f[i - t][x] + \textit{passingFees}[y])$.
 
 The final answer is $\min\{f[i][n - 1]\}$, where $i \in [0, \textit{maxTime}]$. If the answer is $+\infty$, return $-1$.
 

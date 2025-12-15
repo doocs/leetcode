@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [187. 重复的 DNA 序列](https://leetcode.cn/problems/repeated-dna-sequences)
+# [187. 重复的DNA序列](https://leetcode.cn/problems/repeated-dna-sequences)
 
 [English Version](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README_EN.md)
 

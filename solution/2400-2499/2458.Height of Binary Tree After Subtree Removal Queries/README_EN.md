@@ -87,9 +87,9 @@ First, we perform a DFS traversal to determine the depth of each node, which we 
 
 Then we design a function $dfs(root, depth, rest)$, where:
 
--   `root` represents the current node;
--   `depth` represents the depth of the current node;
--   `rest` represents the height of the tree after deleting the current node.
+- `root` represents the current node;
+- `depth` represents the depth of the current node;
+- `rest` represents the height of the tree after deleting the current node.
 
 The function's computation logic is as follows:
 

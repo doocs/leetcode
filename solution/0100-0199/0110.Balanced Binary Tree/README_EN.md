@@ -60,8 +60,8 @@ tags:
 
 We define a function $height(root)$ to calculate the height of a binary tree, with the following logic:
 
--   If the binary tree $root$ is null, return $0$.
--   Otherwise, recursively calculate the heights of the left and right subtrees, denoted as $l$ and $r$ respectively. If either $l$ or $r$ is $-1$, or the absolute difference between $l$ and $r$ is greater than $1$, then return $-1$. Otherwise, return $max(l, r) + 1$.
+- If the binary tree $root$ is null, return $0$.
+- Otherwise, recursively calculate the heights of the left and right subtrees, denoted as $l$ and $r$ respectively. If either $l$ or $r$ is $-1$, or the absolute difference between $l$ and $r$ is greater than $1$, then return $-1$. Otherwise, return $max(l, r) + 1$.
 
 Therefore, if the function $height(root)$ returns $-1$, it means the binary tree $root$ is not balanced. Otherwise, it is balanced.
 

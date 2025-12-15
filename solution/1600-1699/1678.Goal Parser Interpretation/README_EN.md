@@ -163,8 +163,8 @@ char* interpret(char* command) {
 
 We can also iterate over the string `command`. For each character $c$:
 
--   If it is `'G'`, directly add $c$ to the result string;
--   If it is `'('`, check if the next character is `')'`. If it is, add `'o'` to the result string. Otherwise, add `"al"` to the result string.
+- If it is `'G'`, directly add $c$ to the result string;
+- If it is `'('`, check if the next character is `')'`. If it is, add `'o'` to the result string. Otherwise, add `"al"` to the result string.
 
 After the iteration, return the result string.
 

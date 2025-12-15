@@ -65,8 +65,8 @@ We define $f[i]$ as the minimum number of characters to be deleted in the first 
 
 We traverse the string $s$, maintaining a variable $b$, which represents the number of character 'b' in the characters before the current position.
 
--   If the current character is 'b', it does not affect the balance of the first $i$ characters, so $f[i]=f[i-1]$, then we update $b \leftarrow b+1$.
--   If the current character is 'a', we can choose to delete the current character, so $f[i]=f[i-1]+1$; or we can choose to delete the previous character 'b', so $f[i]=b$. Therefore, we take the minimum of the two, that is, $f[i]=\min(f[i-1]+1,b)$.
+- If the current character is 'b', it does not affect the balance of the first $i$ characters, so $f[i]=f[i-1]$, then we update $b \leftarrow b+1$.
+- If the current character is 'a', we can choose to delete the current character, so $f[i]=f[i-1]+1$; or we can choose to delete the previous character 'b', so $f[i]=b$. Therefore, we take the minimum of the two, that is, $f[i]=\min(f[i-1]+1,b)$.
 
 In summary, we can get the state transition equation:
 

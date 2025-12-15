@@ -82,10 +82,10 @@ Next, we iterate over the array elements in the range $i \in [1, n)$, and for ea
 
 We can calculate the values of $ff$ and $gg$ based on the values of $f$ and $g$:
 
--   If $nums1[i] \ge nums1[i - 1]$, then $ff = \max(ff, f + 1)$;
--   If $nums1[i] \ge nums2[i - 1]$, then $ff = \max(ff, g + 1)$;
--   If $nums2[i] \ge nums1[i - 1]$, then $gg = \max(gg, f + 1)$;
--   If $nums2[i] \ge nums2[i - 1]$, then $gg = \max(gg, g + 1)$.
+- If $nums1[i] \ge nums1[i - 1]$, then $ff = \max(ff, f + 1)$;
+- If $nums1[i] \ge nums2[i - 1]$, then $ff = \max(ff, g + 1)$;
+- If $nums2[i] \ge nums1[i - 1]$, then $gg = \max(gg, f + 1)$;
+- If $nums2[i] \ge nums2[i - 1]$, then $gg = \max(gg, g + 1)$.
 
 Then, we update $f = ff$ and $g = gg$, and update $ans$ to $\max(ans, f, g)$.
 

@@ -100,9 +100,9 @@ tags:
 
 考虑 $f[i][j]$：
 
--   如果 $i \gt 0$，此时 $f[i][j]$ 的值可以由 $f[i - 1][j]$ 转移而来。如果 $nums[i - 1] \ge queries[f[i - 1][j]]$，那么我们可以选择删除 $nums[i - 1]$，因此我们有 $f[i][j] = f[i - 1][j] + (nums[i - 1] \ge queries[f[i - 1][j]])$。
--   如果 $j + 1 \lt n$，此时 $f[i][j]$ 的值可以由 $f[i][j + 1]$ 转移而来。如果 $nums[j + 1] \ge queries[f[i][j + 1]]$，那么我们可以选择删除 $nums[j + 1]$，因此我们有 $f[i][j] = f[i][j + 1] + (nums[j + 1] \ge queries[f[i][j + 1]])$。
--   如果 $f[i][j] = m$，那么我们就可以直接返回 $m$。
+- 如果 $i \gt 0$，此时 $f[i][j]$ 的值可以由 $f[i - 1][j]$ 转移而来。如果 $nums[i - 1] \ge queries[f[i - 1][j]]$，那么我们可以选择删除 $nums[i - 1]$，因此我们有 $f[i][j] = f[i - 1][j] + (nums[i - 1] \ge queries[f[i - 1][j]])$。
+- 如果 $j + 1 \lt n$，此时 $f[i][j]$ 的值可以由 $f[i][j + 1]$ 转移而来。如果 $nums[j + 1] \ge queries[f[i][j + 1]]$，那么我们可以选择删除 $nums[j + 1]$，因此我们有 $f[i][j] = f[i][j + 1] + (nums[j + 1] \ge queries[f[i][j + 1]])$。
+- 如果 $f[i][j] = m$，那么我们就可以直接返回 $m$。
 
 最后的答案即为 $\max\limits_{0 \le i \lt n} f[i][i] + (nums[i] \ge queries[f[i][i]])$。
 

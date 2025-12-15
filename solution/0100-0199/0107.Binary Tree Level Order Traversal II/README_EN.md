@@ -60,8 +60,8 @@ tags:
 
 We can use the BFS (Breadth-First Search) method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
 
--   Traverse all nodes in the current queue, store their values in a temporary array $t$, and then enqueue their child nodes.
--   Store the temporary array $t$ in the answer array.
+- Traverse all nodes in the current queue, store their values in a temporary array $t$, and then enqueue their child nodes.
+- Store the temporary array $t$ in the answer array.
 
 Finally, return the reversed answer array.
 

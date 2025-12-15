@@ -87,16 +87,16 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 
 We define the following data structures or variables:
 
--   `d`: a hash table that stores the timestamp and the corresponding price;
--   `ls`: an ordered set that stores all prices;
--   `last`: the timestamp of the last update.
+- `d`: a hash table that stores the timestamp and the corresponding price;
+- `ls`: an ordered set that stores all prices;
+- `last`: the timestamp of the last update.
 
 Then, we can perform the following operations:
 
--   `update(timestamp, price)`: update the price corresponding to the timestamp `timestamp` to `price`. If `timestamp` already exists, we need to first remove its corresponding price from the ordered set, and then update it to `price`. Otherwise, we directly update it to `price`. Then, we need to update `last` to `max(last, timestamp)`. The time complexity is O(log n).
--   `current()`: return the price corresponding to `last`. The time complexity is $O(1)$.
--   `maximum()`: return the maximum value in the ordered set. The time complexity is $O(\log n)$.
--   `minimum()`: return the minimum value in the ordered set. The time complexity is $O(\log n)$.
+- `update(timestamp, price)`: update the price corresponding to the timestamp `timestamp` to `price`. If `timestamp` already exists, we need to first remove its corresponding price from the ordered set, and then update it to `price`. Otherwise, we directly update it to `price`. Then, we need to update `last` to `max(last, timestamp)`. The time complexity is O(log n).
+- `current()`: return the price corresponding to `last`. The time complexity is $O(1)$.
+- `maximum()`: return the maximum value in the ordered set. The time complexity is $O(\log n)$.
+- `minimum()`: return the minimum value in the ordered set. The time complexity is $O(\log n)$.
 
 The space complexity is $O(n)$, where $n$ is the number of `update` operations.
 

@@ -35,9 +35,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2002.%20%E5%AE%8C%
 
 **提示：**
 
--   `questions.length == 2*n`
--   `2 <= questions.length <= 10^5`
--   `1 <= questions[i] <= 1000`
+- `questions.length == 2*n`
+- `2 <= questions.length <= 10^5`
+- `1 <= questions[i] <= 1000`
 
 <!-- description:end -->
 

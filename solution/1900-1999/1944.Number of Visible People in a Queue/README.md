@@ -84,7 +84,7 @@ tags:
 
 相似题目：
 
--   [2282. 在一个网格中可以看到的人数](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)
+- [2282. 在一个网格中可以看到的人数](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2282.Number%20of%20People%20That%20Can%20Be%20Seen%20in%20a%20Grid/README.md)
 
 <!-- tabs:start -->
 

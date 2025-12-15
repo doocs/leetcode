@@ -94,16 +94,16 @@ tags:
 
 对于每一对数，我们有以下几种情况：
 
--   如果不需要改动，那么 $y - x = s$。
--   如果改动一次，那么 $s \le \max(y, k - x)$，最大值就是把 $x$ 变为 $0$，或者把 $y$ 变为 $k$。
--   如果改动两次，那么 $s \gt \max(y, k - x)$。
+- 如果不需要改动，那么 $y - x = s$。
+- 如果改动一次，那么 $s \le \max(y, k - x)$，最大值就是把 $x$ 变为 $0$，或者把 $y$ 变为 $k$。
+- 如果改动两次，那么 $s \gt \max(y, k - x)$。
 
 即：
 
--   在 $[0,y-x-1]$ 范围内，需要改动 $1$ 次。
--   在 $[y-x]$ 时，不需要改动。
--   在 $[y-x+1, \max(y, k-x)]$ 范围内，需要改动 $1$ 次。
--   在 $[\max(y, k-x)+1, k]$ 范围内，需要改动 $2$ 次。
+- 在 $[0,y-x-1]$ 范围内，需要改动 $1$ 次。
+- 在 $[y-x]$ 时，不需要改动。
+- 在 $[y-x+1, \max(y, k-x)]$ 范围内，需要改动 $1$ 次。
+- 在 $[\max(y, k-x)+1, k]$ 范围内，需要改动 $2$ 次。
 
 我们枚举每一个数对，利用差分数组，更新每个数对在不同区间范围内的改动次数。
 
@@ -113,7 +113,7 @@ tags:
 
 相似题目：
 
--   [1674. 使数组互补的最少操作次数](https://github.com/doocs/leetcode/tree/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
+- [1674. 使数组互补的最少操作次数](https://github.com/doocs/leetcode/tree/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
 
 <!-- tabs:start -->
 

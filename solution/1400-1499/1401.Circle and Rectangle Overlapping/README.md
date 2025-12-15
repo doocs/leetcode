@@ -76,9 +76,9 @@ tags:
 
 对于 $x \in [x_1, x_2]$：
 
--   如果 $x_1 \leq xCenter \leq x_2$，那么 $|x - xCenter|$ 的最小值为 $0$；
--   如果 $xCenter \lt x_1$，那么 $|x - xCenter|$ 的最小值为 $x_1 - xCenter$；
--   如果 $xCenter \gt x_2$，那么 $|x - xCenter|$ 的最小值为 $xCenter - x_2$。
+- 如果 $x_1 \leq xCenter \leq x_2$，那么 $|x - xCenter|$ 的最小值为 $0$；
+- 如果 $xCenter \lt x_1$，那么 $|x - xCenter|$ 的最小值为 $x_1 - xCenter$；
+- 如果 $xCenter \gt x_2$，那么 $|x - xCenter|$ 的最小值为 $xCenter - x_2$。
 
 同理，我们可以求出 $y \in [y_1, y_2]$ 时 $|y - yCenter|$ 的最小值。以上我们可以统一用函数 $f(i, j, k)$ 来处理。
 

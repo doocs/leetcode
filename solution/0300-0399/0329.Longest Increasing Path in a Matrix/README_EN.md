@@ -73,14 +73,14 @@ We design a function $dfs(i, j)$, which represents the length of the longest inc
 
 The execution logic of the function $dfs(i, j)$ is as follows:
 
--   If $(i, j)$ has been visited, directly return $\textit{f}(i, j)$;
--   Otherwise, search $(i, j)$, search the coordinates $(x, y)$ in four directions. If $0 \le x < m, 0 \le y < n$ and $matrix[x][y] > matrix[i][j]$, then search $(x, y)$. After the search is over, update $\textit{f}(i, j)$ to $\textit{f}(i, j) = \max(\textit{f}(i, j), \textit{f}(x, y) + 1)$. Finally, return $\textit{f}(i, j)$.
+- If $(i, j)$ has been visited, directly return $\textit{f}(i, j)$;
+- Otherwise, search $(i, j)$, search the coordinates $(x, y)$ in four directions. If $0 \le x < m, 0 \le y < n$ and $matrix[x][y] > matrix[i][j]$, then search $(x, y)$. After the search is over, update $\textit{f}(i, j)$ to $\textit{f}(i, j) = \max(\textit{f}(i, j), \textit{f}(x, y) + 1)$. Finally, return $\textit{f}(i, j)$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 Similar problems:
 
--   [2328. Number of Increasing Paths in a Grid](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)
+- [2328. Number of Increasing Paths in a Grid](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2328.Number%20of%20Increasing%20Paths%20in%20a%20Grid/README_EN.md)
 
 <!-- tabs:start -->
 

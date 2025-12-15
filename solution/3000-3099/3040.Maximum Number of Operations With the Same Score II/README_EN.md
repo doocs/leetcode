@@ -78,11 +78,11 @@ There are three possible values for the score $s$, which are $s = nums[0] + nums
 
 We design a function $dfs(i, j)$, which represents the maximum number of operations from index $i$ to index $j$ when the score is $s$. The execution process of function $dfs(i, j)$ is as follows:
 
--   If $j - i < 1$, it means that the length of the interval $[i, j]$ is less than $2$, and no operation can be performed, so return $0$.
--   If $nums[i] + nums[i+1] = s$, it means that the elements at index $i$ and index $i+1$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i+2, j)$.
--   If $nums[i] + nums[j] = s$, it means that the elements at index $i$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i+1, j-1)$.
--   If $nums[j-1] + nums[j] = s$, it means that the elements at index $j-1$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i, j-2)$.
--   Return the maximum of the above values.
+- If $j - i < 1$, it means that the length of the interval $[i, j]$ is less than $2$, and no operation can be performed, so return $0$.
+- If $nums[i] + nums[i+1] = s$, it means that the elements at index $i$ and index $i+1$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i+2, j)$.
+- If $nums[i] + nums[j] = s$, it means that the elements at index $i$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i+1, j-1)$.
+- If $nums[j-1] + nums[j] = s$, it means that the elements at index $j-1$ and index $j$ can be deleted. In this case, the maximum number of operations is $1 + dfs(i, j-2)$.
+- Return the maximum of the above values.
 
 Finally, we calculate the maximum number of operations for the three cases separately, and return the maximum value.
 

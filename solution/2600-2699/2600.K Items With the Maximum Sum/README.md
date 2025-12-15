@@ -73,9 +73,9 @@ tags:
 
 因此：
 
--   如果袋子中的物品标记为 $1$ 的数量大于等于 $k$，那么取 $k$ 件物品，数字之和为 $k$；
--   如果袋子中的物品标记为 $1$ 的数量小于 $k$，那么取 $\textit{numOnes}$ 件物品，数字之和为 $\textit{numOnes}$；如果标记为 $0$ 的物品数量大于等于 $k - \textit{numOnes}$，那么再取 $k - \textit{numOnes}$ 件物品，数字之和还是 $\textit{numOnes}$；
--   否则，我们再从标记为 $-1$ 的物品中取 $k - \textit{numOnes} - \textit{numZeros}$ 件物品，数字之和为 $\textit{numOnes} - (k - \textit{numOnes} - \textit{numZeros})$。
+- 如果袋子中的物品标记为 $1$ 的数量大于等于 $k$，那么取 $k$ 件物品，数字之和为 $k$；
+- 如果袋子中的物品标记为 $1$ 的数量小于 $k$，那么取 $\textit{numOnes}$ 件物品，数字之和为 $\textit{numOnes}$；如果标记为 $0$ 的物品数量大于等于 $k - \textit{numOnes}$，那么再取 $k - \textit{numOnes}$ 件物品，数字之和还是 $\textit{numOnes}$；
+- 否则，我们再从标记为 $-1$ 的物品中取 $k - \textit{numOnes} - \textit{numZeros}$ 件物品，数字之和为 $\textit{numOnes} - (k - \textit{numOnes} - \textit{numZeros})$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 

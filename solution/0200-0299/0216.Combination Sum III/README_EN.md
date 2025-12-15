@@ -79,9 +79,9 @@ The execution logic of the function $dfs(i, s)$ is as follows:
 
 Approach One:
 
--   If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
--   If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
--   Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue to search, i.e., execute $dfs(i + 1, s - i)$. After the search is completed, remove $i$ from the search path $t$; we can also choose not to add the number $i$ to the search path $t$, and directly execute $dfs(i + 1, s)$.
+- If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
+- If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
+- Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue to search, i.e., execute $dfs(i + 1, s - i)$. After the search is completed, remove $i$ from the search path $t$; we can also choose not to add the number $i$ to the search path $t$, and directly execute $dfs(i + 1, s)$.
 
 <!-- tabs:start -->
 
@@ -332,9 +332,9 @@ public class Solution {
 
 Another approach:
 
--   If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
--   If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
--   Otherwise, we enumerate the next number $j$, i.e., $j \in [i, 9]$, add the number $j$ to the search path $t$, and then continue to search, i.e., execute $dfs(j + 1, s - j)$. After the search is completed, remove $j$ from the search path $t$.
+- If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.
+- If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.
+- Otherwise, we enumerate the next number $j$, i.e., $j \in [i, 9]$, add the number $j$ to the search path $t$, and then continue to search, i.e., execute $dfs(j + 1, s - j)$. After the search is completed, remove $j$ from the search path $t$.
 
 In the main function, we call $dfs(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.
 
@@ -558,9 +558,9 @@ The time complexity is $O(2^9 \times 9)$, and the space complexity is $O(k)$.
 
 Similar problems:
 
--   [39. Combination Sum](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
--   [40. Combination Sum II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
--   [77. Combinations](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0077.Combinations/README_EN.md)
+- [39. Combination Sum](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README_EN.md)
+- [40. Combination Sum II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)
+- [77. Combinations](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0077.Combinations/README_EN.md)
 
 <!-- tabs:start -->
 

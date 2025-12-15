@@ -69,8 +69,8 @@ This problem is a classic parenthesis matching problem, which can be solved usin
 
 Iterate through each character $c$ in the string $s$:
 
--   If $c$ is a left parenthesis, directly push $c$ into the stack;
--   If $c$ is a right parenthesis, at this point if the stack is not empty, and the top element of the stack is a left parenthesis, then pop the top element of the stack, indicating a successful match; otherwise, push $c$ into the stack.
+- If $c$ is a left parenthesis, directly push $c$ into the stack;
+- If $c$ is a right parenthesis, at this point if the stack is not empty, and the top element of the stack is a left parenthesis, then pop the top element of the stack, indicating a successful match; otherwise, push $c$ into the stack.
 
 After the iteration ends, the number of remaining elements in the stack is the number of parentheses that need to be added.
 
@@ -174,8 +174,8 @@ Define a variable `cnt` to represent the current number of left parentheses to b
 
 Iterate through each character $c$ in the string $s$:
 
--   If $c$ is a left parenthesis, increase the value of `cnt` by $1$;
--   If $c$ is a right parenthesis, at this point if $cnt > 0$, it means that there are left parentheses that can be matched, so decrease the value of `cnt` by $1$; otherwise, it means that the current right parenthesis cannot be matched, so increase the value of `ans` by $1$.
+- If $c$ is a left parenthesis, increase the value of `cnt` by $1$;
+- If $c$ is a right parenthesis, at this point if $cnt > 0$, it means that there are left parentheses that can be matched, so decrease the value of `cnt` by $1$; otherwise, it means that the current right parenthesis cannot be matched, so increase the value of `ans` by $1$.
 
 After the iteration ends, add the value of `cnt` to `ans`, which is the answer.
 

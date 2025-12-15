@@ -61,8 +61,8 @@ We design a function $dfs(i)$, which represents the number of handshake schemes 
 
 The execution logic of the function $dfs(i)$ is as follows:
 
--   If $i \lt 2$, then there is only one handshake scheme, which is not to shake hands, so return $1$.
--   Otherwise, we can enumerate who the first person shakes hands with. Let the number of remaining people on the left be $l$, and the number of people on the right be $r=i-l-2$. Then we have $dfs(i)= \sum_{l=0}^{i-1} dfs(l) \times dfs(r)$.
+- If $i \lt 2$, then there is only one handshake scheme, which is not to shake hands, so return $1$.
+- Otherwise, we can enumerate who the first person shakes hands with. Let the number of remaining people on the left be $l$, and the number of people on the right be $r=i-l-2$. Then we have $dfs(i)= \sum_{l=0}^{i-1} dfs(l) \times dfs(r)$.
 
 To avoid repeated calculations, we use the method of memoization search.
 

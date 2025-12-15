@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%
 
 「力扣挑战赛」中 `N*M` 大小的自行车炫技赛场的场地由一片连绵起伏的上下坡组成，场地的高度值记录于二维数组 `terrain` 中，场地的减速值记录于二维数组 `obstacle` 中。
 
--   若选手骑着自行车从高度为 `h1` 且减速值为 `o1` 的位置到高度为 `h2` 且减速值为 `o2` 的相邻位置（上下左右四个方向），速度变化值为 `h1-h2-o2`（负值减速，正值增速）。
+- 若选手骑着自行车从高度为 `h1` 且减速值为 `o1` 的位置到高度为 `h2` 且减速值为 `o2` 的相邻位置（上下左右四个方向），速度变化值为 `h1-h2-o2`（负值减速，正值增速）。
 
 选手初始位于坐标 `position` 处且初始速度为 1，请问选手可以刚好到其他哪些位置时速度依旧为 1。请以二维数组形式返回这些位置。若有多个位置则按行坐标升序排列，若有多个位置行坐标相同则按列坐标升序排列。
 
@@ -40,14 +40,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%
 
 **提示：**
 
--   `n == terrain.length == obstacle.length`
--   `m == terrain[i].length == obstacle[i].length`
--   `1 <= n <= 100`
--   `1 <= m <= 100`
--   `0 <= terrain[i][j], obstacle[i][j] <= 100`
--   `position.length == 2`
--   `0 <= position[0] < n`
--   `0 <= position[1] < m`
+- `n == terrain.length == obstacle.length`
+- `m == terrain[i].length == obstacle[i].length`
+- `1 <= n <= 100`
+- `1 <= m <= 100`
+- `0 <= terrain[i][j], obstacle[i][j] <= 100`
+- `position.length == 2`
+- `0 <= position[0] < n`
+- `0 <= position[1] < m`
 
 <!-- description:end -->
 

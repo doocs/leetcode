@@ -102,7 +102,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array. The space c
 
 Similar problems:
 
--   [1535. Find the Winner of an Array Game](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
+- [1535. Find the Winner of an Array Game](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -76,10 +76,10 @@ We define a stack `stk`, initially we push $n$ into the stack, and define a vari
 
 Then we start from $n-1$, enumerate $x$, and decide how to handle $x$ based on the current value of $k$:
 
--   When $k = 0$, it represents a multiplication operation, we pop the top element of the stack, multiply it by $x$, and then push it back into the stack;
--   When $k = 1$, it represents a division operation, we pop the top element of the stack, divide it by $x$, take the integer part, and then push it back into the stack;
--   When $k = 2$, it represents an addition operation, we directly push $x$ into the stack;
--   When $k = 3$, it represents a subtraction operation, we push $-x$ into the stack.
+- When $k = 0$, it represents a multiplication operation, we pop the top element of the stack, multiply it by $x$, and then push it back into the stack;
+- When $k = 1$, it represents a division operation, we pop the top element of the stack, divide it by $x$, take the integer part, and then push it back into the stack;
+- When $k = 2$, it represents an addition operation, we directly push $x$ into the stack;
+- When $k = 3$, it represents a subtraction operation, we push $-x$ into the stack.
 
 Next, we update $k = (k + 1) \mod 4$.
 

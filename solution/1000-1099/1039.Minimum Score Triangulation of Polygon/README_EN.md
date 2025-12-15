@@ -86,8 +86,8 @@ We design a function $\text{dfs}(i, j)$, which represents the minimum score afte
 
 The calculation process of $\text{dfs}(i, j)$ is as follows:
 
--   If $i + 1 = j$, it means the polygon has only two vertices and cannot be triangulated, so we return $0$;
--   Otherwise, we enumerate a vertex $k$ between $i$ and $j$, i.e., $i \lt k \lt j$. Triangulating the polygon from vertex $i$ to $j$ can be divided into two subproblems: triangulating the polygon from vertex $i$ to $k$ and triangulating the polygon from vertex $k$ to $j$. The minimum scores of these two subproblems are $\text{dfs}(i, k)$ and $\text{dfs}(k, j)$, respectively. The score of the triangle formed by vertices $i$, $j$, and $k$ is $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$. Thus, the minimum score for this triangulation is $\text{dfs}(i, k) + \text{dfs}(k, j) + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$. We take the minimum value of all possibilities, which is the value of $\text{dfs}(i, j)$.
+- If $i + 1 = j$, it means the polygon has only two vertices and cannot be triangulated, so we return $0$;
+- Otherwise, we enumerate a vertex $k$ between $i$ and $j$, i.e., $i \lt k \lt j$. Triangulating the polygon from vertex $i$ to $j$ can be divided into two subproblems: triangulating the polygon from vertex $i$ to $k$ and triangulating the polygon from vertex $k$ to $j$. The minimum scores of these two subproblems are $\text{dfs}(i, k)$ and $\text{dfs}(k, j)$, respectively. The score of the triangle formed by vertices $i$, $j$, and $k$ is $\text{values}[i] \times \text{values}[k] \times \text{values}[j]$. Thus, the minimum score for this triangulation is $\text{dfs}(i, k) + \text{dfs}(k, j) + \text{values}[i] \times \text{values}[k] \times \text{values}[j]$. We take the minimum value of all possibilities, which is the value of $\text{dfs}(i, j)$.
 
 To avoid repeated calculations, we can use memoization, i.e., use a hash table or an array to store the already computed function values.
 
@@ -257,7 +257,7 @@ The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$, where $n$
 
 Related problems:
 
--   [1312. Minimum Insertion Steps to Make a String Palindrome](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
+- [1312. Minimum Insertion Steps to Make a String Palindrome](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
 
 <!-- tabs:start -->
 

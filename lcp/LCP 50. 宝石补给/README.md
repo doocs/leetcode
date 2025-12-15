@@ -20,7 +20,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2050.%20%E5%AE%9D%
 
 **注意：**
 
--   赠送将按顺序逐步进行。
+- 赠送将按顺序逐步进行。
 
 **示例 1：**
 
@@ -55,11 +55,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2050.%20%E5%AE%9D%
 
 **提示：**
 
--   `2 <= gem.length <= 10^3`
--   `0 <= gem[i] <= 10^3`
--   `0 <= operations.length <= 10^4`
--   `operations[i].length == 2`
--   `0 <= operations[i][0], operations[i][1] < gem.length`
+- `2 <= gem.length <= 10^3`
+- `0 <= gem[i] <= 10^3`
+- `0 <= operations.length <= 10^4`
+- `operations[i].length == 2`
+- `0 <= operations[i][0], operations[i][1] < gem.length`
 
 <!-- description:end -->
 

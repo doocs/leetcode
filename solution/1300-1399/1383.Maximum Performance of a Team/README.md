@@ -82,7 +82,7 @@ tags:
 
 相似题目：
 
--   [857. 雇佣 K 名工人的最低成本](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README.md)
+- [857. 雇佣 K 名工人的最低成本](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README.md)
 
 <!-- tabs:start -->
 

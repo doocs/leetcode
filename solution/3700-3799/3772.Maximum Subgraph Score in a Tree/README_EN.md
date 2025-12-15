@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md
 rating: 2234
 source: Weekly Contest 479 Q4
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

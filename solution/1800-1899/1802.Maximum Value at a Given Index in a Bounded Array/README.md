@@ -72,8 +72,8 @@ tags:
 
 为了方便计算数组左侧、右侧的元素之和，我们定义一个函数 $sum(x, cnt)$，表示一共有 $cnt$ 个元素，且最大值为 $x$ 的数组的总和。函数 $sum(x, cnt)$ 可以分为两种情况：
 
--   如果 $x \geq cnt$，那么数组的总和为 $\frac{(x + x - cnt + 1) \times cnt}{2}$
--   如果 $x \lt cnt$，那么数组的总和为 $\frac{(x + 1) \times x}{2} + cnt - x$
+- 如果 $x \geq cnt$，那么数组的总和为 $\frac{(x + x - cnt + 1) \times cnt}{2}$
+- 如果 $x \lt cnt$，那么数组的总和为 $\frac{(x + 1) \times x}{2} + cnt - x$
 
 接下来，定义二分的左边界 $left = 1$，右边界 $right = maxSum$，然后二分查找 $nums[index]$ 的值 $mid$，如果 $sum(mid - 1, index) + sum(mid, n - index) \leq maxSum$，那么此时的 $mid$ 是合法的，我们可以将 $left$ 更新为 $mid$，否则我们将 $right$ 更新为 $mid - 1$。
 

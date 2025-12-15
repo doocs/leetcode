@@ -86,8 +86,8 @@ We design a function $dfs(i)$ to represent the minimum number of partitions star
 
 The calculation process of the function $dfs(i)$ is as follows:
 
--   If $i \geq n$, it means that it has reached the end of the string, return $0$.
--   Otherwise, we enumerate all substrings starting from $i$. If the value of the substring is less than or equal to $k$, then we can take the substring as a partition. Then we can get $dfs(j + 1)$, where $j$ is the end index of the substring. We take the minimum value among all possible partitions, add $1$, and that is the value of $dfs(i)$.
+- If $i \geq n$, it means that it has reached the end of the string, return $0$.
+- Otherwise, we enumerate all substrings starting from $i$. If the value of the substring is less than or equal to $k$, then we can take the substring as a partition. Then we can get $dfs(j + 1)$, where $j$ is the end index of the substring. We take the minimum value among all possible partitions, add $1$, and that is the value of $dfs(i)$.
 
 Finally, if $dfs(0) = \infty$, it means there is no good partition, return $-1$. Otherwise, return $dfs(0)$.
 

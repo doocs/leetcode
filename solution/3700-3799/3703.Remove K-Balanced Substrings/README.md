@@ -12,7 +12,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3703. 移除 K-平衡子字符串](https://leetcode.cn/problems/remove-k-balanced-substrings)
+# [3703. 移除K-平衡子字符串](https://leetcode.cn/problems/remove-k-balanced-substrings)
 
 [English Version](/solution/3700-3799/3703.Remove%20K-Balanced%20Substrings/README_EN.md)
 

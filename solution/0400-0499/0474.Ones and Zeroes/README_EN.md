@@ -65,8 +65,8 @@ We define $f[i][j][k]$ as the maximum number of strings that can be obtained fro
 
 For $f[i][j][k]$, we have two choices:
 
--   Do not select the $i$-th string, in which case $f[i][j][k]=f[i-1][j][k]$;
--   Select the $i$-th string, in which case $f[i][j][k]=f[i-1][j-a][k-b]+1$, where $a$ and $b$ are the number of zeros and ones in the $i$-th string, respectively.
+- Do not select the $i$-th string, in which case $f[i][j][k]=f[i-1][j][k]$;
+- Select the $i$-th string, in which case $f[i][j][k]=f[i-1][j-a][k-b]+1$, where $a$ and $b$ are the number of zeros and ones in the $i$-th string, respectively.
 
 We take the maximum of these two choices to obtain the value of $f[i][j][k]$.
 

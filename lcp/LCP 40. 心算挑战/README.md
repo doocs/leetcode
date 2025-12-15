@@ -33,8 +33,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2040.%20%E5%BF%83%
 
 **提示：**
 
--   `1 <= cnt <= cards.length <= 10^5`
--   `1 <= cards[i] <= 1000`
+- `1 <= cnt <= cards.length <= 10^5`
+- `1 <= cards[i] <= 1000`
 
 <!-- description:end -->
 

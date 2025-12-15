@@ -116,8 +116,8 @@ tags:
 
 然后进行 BFS，依次从 $\textit{q}$ 中取出盒子：
 
--   获取盒子中的钥匙 $\textit{keys[box]}$，将能解锁的盒子加入队列；
--   收集盒子中包含的其他盒子 $\textit{containedBoxes[box]}$，如果状态是开启的且未处理过，则立即处理；
+- 获取盒子中的钥匙 $\textit{keys[box]}$，将能解锁的盒子加入队列；
+- 收集盒子中包含的其他盒子 $\textit{containedBoxes[box]}$，如果状态是开启的且未处理过，则立即处理；
 
 每个盒子最多处理一次，糖果累计一次，最终返回总糖果数 $\textit{ans}$。
 

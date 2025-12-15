@@ -84,8 +84,8 @@ The diagonals of a parallelogram share the same midpoint. Therefore, we also com
 
 Specifically, we use two hash tables $\textit{cnt1}$ and $\textit{cnt2}$ to record the following information:
 
--   $\textit{cnt1}$ records the number of occurrences of slope $k$ and intercept $b$, with the key being the slope $k$ and the value being another hash table that records the number of occurrences of intercept $b$;
--   $\textit{cnt2}$ records the number of occurrences of the midpoint coordinates and slope $k$ of point pairs, with the key being the midpoint coordinates $p$ of the point pair and the value being another hash table that records the number of occurrences of slope $k$.
+- $\textit{cnt1}$ records the number of occurrences of slope $k$ and intercept $b$, with the key being the slope $k$ and the value being another hash table that records the number of occurrences of intercept $b$;
+- $\textit{cnt2}$ records the number of occurrences of the midpoint coordinates and slope $k$ of point pairs, with the key being the midpoint coordinates $p$ of the point pair and the value being another hash table that records the number of occurrences of slope $k$.
 
 For a point pair $(x_1, y_1)$ and $(x_2, y_2)$, we denote $dx = x_2 - x_1$ and $dy = y_2 - y_1$. If $dx = 0$, it means the two points are on the same vertical line, and we denote the slope $k = +\infty$ and the intercept $b = x_1$; otherwise, the slope $k = \frac{dy}{dx}$ and the intercept $b = \frac{y_1 \cdot dx - x_1 \cdot dy}{dx}$. The midpoint coordinates $p$ of the point pair can be expressed as $p = (x_1 + x_2 + 2000) \cdot 4000 + (y_1 + y_2 + 2000)$, where the offset is added to avoid negative numbers.
 

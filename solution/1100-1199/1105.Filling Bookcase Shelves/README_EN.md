@@ -72,8 +72,8 @@ We define $f[i]$ as the minimum height for placing the first $i$ books, initiall
 
 Consider $f[i]$, the last book is $books[i - 1]$, its thickness is $w$, and its height is $h$.
 
--   If this book is placed on a new layer alone, then $f[i] = f[i - 1] + h$;
--   If this book can be placed on the same layer with the last few books in front, we enumerate the first book $books[j-1]$ on the same layer from back to front, where $j \in [1, i - 1]$, accumulate the thickness of the book to $w$, if $w > shelfWidth$, it means that $books[j-1]$ can no longer be placed on the same layer with $books[i-1]$, stop enumeration; otherwise, we update the maximum height $h = \max(h, books[j-1][1])$ of the current layer, then $f[i] = \min(f[i], f[j - 1] + h)$.
+- If this book is placed on a new layer alone, then $f[i] = f[i - 1] + h$;
+- If this book can be placed on the same layer with the last few books in front, we enumerate the first book $books[j-1]$ on the same layer from back to front, where $j \in [1, i - 1]$, accumulate the thickness of the book to $w$, if $w > shelfWidth$, it means that $books[j-1]$ can no longer be placed on the same layer with $books[i-1]$, stop enumeration; otherwise, we update the maximum height $h = \max(h, books[j-1][1])$ of the current layer, then $f[i] = \min(f[i], f[j - 1] + h)$.
 
 The final answer is $f[n]$.
 

@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Sliding Window
 ---
 
 <!-- problem:start -->

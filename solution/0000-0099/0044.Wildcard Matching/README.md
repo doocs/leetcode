@@ -79,10 +79,10 @@ tags:
 
 函数 $dfs(i, j)$ 的执行过程如下：
 
--   如果 $i \geq \textit{len}(s)$，那么只有当 $j \geq \textit{len}(p)$ 或者 $p[j] = '*'$ 且 $dfs(i, j + 1)$ 为真时，$dfs(i, j)$ 才为真。
--   如果 $j \geq \textit{len}(p)$，那么 $dfs(i, j)$ 为假。
--   如果 $p[j] = '*'$，那么 $dfs(i, j)$ 为真当且仅当 $dfs(i + 1, j)$ 或 $dfs(i + 1, j + 1)$ 或 $dfs(i, j + 1)$ 中有一个为真。
--   否则 $dfs(i, j)$ 为真当且仅当 $p[j] = '?'$ 或 $s[i] = p[j]$ 且 $dfs(i + 1, j + 1)$ 为真。
+- 如果 $i \geq \textit{len}(s)$，那么只有当 $j \geq \textit{len}(p)$ 或者 $p[j] = '*'$ 且 $dfs(i, j + 1)$ 为真时，$dfs(i, j)$ 才为真。
+- 如果 $j \geq \textit{len}(p)$，那么 $dfs(i, j)$ 为假。
+- 如果 $p[j] = '*'$，那么 $dfs(i, j)$ 为真当且仅当 $dfs(i + 1, j)$ 或 $dfs(i + 1, j + 1)$ 或 $dfs(i, j + 1)$ 中有一个为真。
+- 否则 $dfs(i, j)$ 为真当且仅当 $p[j] = '?'$ 或 $s[i] = p[j]$ 且 $dfs(i + 1, j + 1)$ 为真。
 
 为了避免重复计算，我们使用记忆化搜索的方法，将 $dfs(i, j)$ 的结果存储在一个哈希表中。
 
@@ -297,8 +297,8 @@ public class Solution {
 
 接下来我们考虑 $i \in [1, m]$ 和 $j \in [1, n]$ 的情况：
 
--   如果 $p[j-1] = '*'$，那么 $f[i][j] = f[i-1][j] \lor f[i][j-1] \lor f[i-1][j-1]$。
--   否则 $f[i][j] = (p[j-1] = '?' \lor s[i-1] = p[j-1]) \land f[i-1][j-1]$。
+- 如果 $p[j-1] = '*'$，那么 $f[i][j] = f[i-1][j] \lor f[i][j-1] \lor f[i-1][j-1]$。
+- 否则 $f[i][j] = (p[j-1] = '?' \lor s[i-1] = p[j-1]) \land f[i-1][j-1]$。
 
 最终答案为 $f[m][n]$。
 

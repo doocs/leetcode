@@ -72,9 +72,9 @@ tags:
 
 函数 $dfs(root, mi, mx)$ 的逻辑如下：
 
--   若 $root$ 为空，直接返回。
--   否则，我们更新 $ans = max(ans, |mi - root.val|, |mx - root.val|)$。
--   然后更新 $mi = min(mi, root.val)$, $mx = max(mx, root.val)$，并且递归搜索左右子树。
+- 若 $root$ 为空，直接返回。
+- 否则，我们更新 $ans = max(ans, |mi - root.val|, |mx - root.val|)$。
+- 然后更新 $mi = min(mi, root.val)$, $mx = max(mx, root.val)$，并且递归搜索左右子树。
 
 在主函数中，我们调用 $dfs(root, root.val, root.val)$，最后返回 $ans$ 即可。
 

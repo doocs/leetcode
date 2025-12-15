@@ -81,13 +81,15 @@ Closing the shop at 2<sup>nd</sup> or 4<sup>th</sup> hour gives a minimum penalt
 
 <!-- solution:start -->
 
-### Solution 1: Prefix Sum + Enumeration
+### Solution 1: Enumeration
 
-First, we calculate how many customers arrive in the first $i$ hours and record it in the prefix sum array $s$.
+If the shop closes at hour $0$, then the cost is the number of character `'Y'` in $\textit{customers}$. We initialize the answer variable $\textit{ans}$ to $0$, and the cost variable $\textit{cost}$ to the number of character `'Y'` in $\textit{customers}$.
 
-Then we enumerate the closing time $j$ of the shop, calculate the cost, and take the earliest closing time with the smallest cost.
+Next, we enumerate the shop closing at hour $j$ ($1 \leq j \leq n$). If $\textit{customers}[j - 1]$ is `'N'`, it means no customer arrived during the open period, and the cost increases by $1$; otherwise, it means a customer arrived during the closed period, and the cost decreases by $1$. If the current cost $\textit{cost}$ is less than the minimum cost $\textit{mn}$, we update the answer variable $\textit{ans}$ to $j$, and update the minimum cost $\textit{mn}$ to the current cost $\textit{cost}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $customers$.
+After the traversal ends, we return the answer variable $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{customers}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -96,15 +98,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 ```python
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
-        n = len(customers)
-        s = [0] * (n + 1)
-        for i, c in enumerate(customers):
-            s[i + 1] = s[i] + int(c == 'Y')
-        ans, cost = 0, inf
-        for j in range(n + 1):
-            t = j - s[j] + s[-1] - s[j]
-            if cost > t:
-                ans, cost = j, t
+        ans = 0
+        mn = cost = customers.count("Y")
+        for j, c in enumerate(customers, 1):
+            cost += 1 if c == "N" else -1
+            if cost < mn:
+                ans, mn = j, cost
         return ans
 ```
 
@@ -114,16 +113,18 @@ class Solution:
 class Solution {
     public int bestClosingTime(String customers) {
         int n = customers.length();
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (customers.charAt(i) == 'Y' ? 1 : 0);
+        int ans = 0, cost = 0;
+        for (int i = 0; i < n; i++) {
+            if (customers.charAt(i) == 'Y') {
+                cost++;
+            }
         }
-        int ans = 0, cost = 1 << 30;
-        for (int j = 0; j <= n; ++j) {
-            int t = j - s[j] + s[n] - s[j];
-            if (cost > t) {
+        int mn = cost;
+        for (int j = 1; j <= n; j++) {
+            cost += customers.charAt(j - 1) == 'N' ? 1 : -1;
+            if (cost < mn) {
                 ans = j;
-                cost = t;
+                mn = cost;
             }
         }
         return ans;
@@ -137,17 +138,19 @@ class Solution {
 class Solution {
 public:
     int bestClosingTime(string customers) {
-        int n = customers.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (customers[i] == 'Y');
+        int ans = 0;
+        int cost = 0;
+        for (char c : customers) {
+            if (c == 'Y') {
+                cost++;
+            }
         }
-        int ans = 0, cost = 1 << 30;
-        for (int j = 0; j <= n; ++j) {
-            int t = j - s[j] + s[n] - s[j];
-            if (cost > t) {
+        int mn = cost;
+        for (int j = 1; j <= customers.size(); ++j) {
+            cost += customers[j - 1] == 'N' ? 1 : -1;
+            if (cost < mn) {
                 ans = j;
-                cost = t;
+                mn = cost;
             }
         }
         return ans;
@@ -158,23 +161,48 @@ public:
 #### Go
 
 ```go
-func bestClosingTime(customers string) (ans int) {
-	n := len(customers)
-	s := make([]int, n+1)
-	for i, c := range customers {
-		s[i+1] = s[i]
-		if c == 'Y' {
-			s[i+1]++
+func bestClosingTime(customers string) int {
+	ans := 0
+	cost := strings.Count(customers, "Y")
+	mn := cost
+	for j := 1; j <= len(customers); j++ {
+		c := customers[j-1]
+		if c == 'N' {
+			cost++
+		} else {
+			cost--
+		}
+		if cost < mn {
+			ans = j
+			mn = cost
 		}
 	}
-	cost := 1 << 30
-	for j := 0; j <= n; j++ {
-		t := j - s[j] + s[n] - s[j]
-		if cost > t {
-			ans, cost = j, t
-		}
-	}
-	return
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function bestClosingTime(customers: string): number {
+    let ans = 0;
+    let cost = 0;
+    for (const ch of customers) {
+        if (ch === 'Y') {
+            cost++;
+        }
+    }
+    let mn = cost;
+
+    for (let j = 1; j <= customers.length; j++) {
+        const c = customers[j - 1];
+        cost += c === 'N' ? 1 : -1;
+        if (cost < mn) {
+            mn = cost;
+            ans = j;
+        }
+    }
+    return ans;
 }
 ```
 
@@ -182,27 +210,26 @@ func bestClosingTime(customers string) (ans int) {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn best_closing_time(customers: String) -> i32 {
-        let n = customers.len();
-        let mut penalty = i32::MAX;
-        let mut ret = -1;
-        let mut prefix_sum = vec![0; n + 1];
+        let bytes = customers.as_bytes();
 
-        // Initialize the vector
-        for (i, c) in customers.chars().enumerate() {
-            prefix_sum[i + 1] = prefix_sum[i] + (if c == 'Y' { 1 } else { 0 });
-        }
+        let mut cost: i32 = bytes.iter().filter(|&&c| c == b'Y').count() as i32;
+        let mut mn = cost;
+        let mut ans: i32 = 0;
 
-        // Calculate the answer
-        for i in 0..=n {
-            if penalty > ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32) {
-                penalty = ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32);
-                ret = i as i32;
+        for j in 1..=bytes.len() {
+            let c = bytes[j - 1];
+            if c == b'N' {
+                cost += 1;
+            } else {
+                cost -= 1;
+            }
+            if cost < mn {
+                mn = cost;
+                ans = j as i32;
             }
         }
-
-        ret
+        ans
     }
 }
 ```

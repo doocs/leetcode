@@ -83,13 +83,13 @@ For each word, we can use a boolean variable $\textit{st}$ to record whether a h
 
 For each character $s[i]$, we have the following cases:
 
--   If $s[i]$ is a digit, then $s$ is not a valid word, and we return $\text{false}$ directly;
--   If $s[i]$ is a punctuation mark ('!', '.', ','), and $i < \text{len}(s) - 1$, then $s$ is not a valid word, and we return $\text{false}$ directly;
--   If $s[i]$ is a hyphen, then we need to check if the following conditions are met:
-    -   The hyphen can only appear once;
-    -   The hyphen cannot appear at the beginning or end of the word;
-    -   Both sides of the hyphen must be letters;
--   If $s[i]$ is a letter, then we do not need to do anything.
+- If $s[i]$ is a digit, then $s$ is not a valid word, and we return $\text{false}$ directly;
+- If $s[i]$ is a punctuation mark ('!', '.', ','), and $i < \text{len}(s) - 1$, then $s$ is not a valid word, and we return $\text{false}$ directly;
+- If $s[i]$ is a hyphen, then we need to check if the following conditions are met:
+    - The hyphen can only appear once;
+    - The hyphen cannot appear at the beginning or end of the word;
+    - Both sides of the hyphen must be letters;
+- If $s[i]$ is a letter, then we do not need to do anything.
 
 Finally, we count the number of valid words in the sentence.
 

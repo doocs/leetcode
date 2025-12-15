@@ -78,10 +78,10 @@ tags:
 
 设机器人当前位置为 $(i, j)$，目标位置为 $(x, y)$。
 
--   如果 $i \lt x$，则机器人往下移动，代价为 $rowCosts[i + 1] + rowCosts[i + 2] + \cdots + rowCosts[x]$。
--   如果 $i \gt x$，则机器人往上移动，代价为 $rowCosts[x] + rowCosts[x + 1] + \cdots + rowCosts[i - 1]$。
--   如果 $j \lt y$，则机器人往右移动，代价为 $colCosts[j + 1] + colCosts[j + 2] + \cdots + colCosts[y]$。
--   如果 $j \gt y$，则机器人往左移动，代价为 $colCosts[y] + colCosts[y + 1] + \cdots + colCosts[j - 1]$。
+- 如果 $i \lt x$，则机器人往下移动，代价为 $rowCosts[i + 1] + rowCosts[i + 2] + \cdots + rowCosts[x]$。
+- 如果 $i \gt x$，则机器人往上移动，代价为 $rowCosts[x] + rowCosts[x + 1] + \cdots + rowCosts[i - 1]$。
+- 如果 $j \lt y$，则机器人往右移动，代价为 $colCosts[j + 1] + colCosts[j + 2] + \cdots + colCosts[y]$。
+- 如果 $j \gt y$，则机器人往左移动，代价为 $colCosts[y] + colCosts[y + 1] + \cdots + colCosts[j - 1]$。
 
 时间复杂度 $O(m + n)$，空间复杂度 $O(1)$。其中 $m$ 和 $n$ 分别为 $rowCosts$ 和 $colCosts$ 的长度。
 

@@ -21,7 +21,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2056.%20%E4%BF%A1%
 
 **注意：**
 
--   `start` 和 `end` 的格式均为 `[i,j]`
+- `start` 和 `end` 的格式均为 `[i,j]`
 
 **示例 1:**
 
@@ -51,11 +51,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2056.%20%E4%BF%A1%
 
 **提示：**
 
--   `matrix` 中仅包含 `'^'、'v'、'<'、'>'`
--   `0 < matrix.length <= 100`
--   `0 < matrix[i].length <= 100`
--   `0 <= start[0],end[0] < matrix.length`
--   `0 <= start[1],end[1] < matrix[i].length`
+- `matrix` 中仅包含 `'^'、'v'、'<'、'>'`
+- `0 < matrix.length <= 100`
+- `0 < matrix[i].length <= 100`
+- `0 <= start[0],end[0] < matrix.length`
+- `0 <= start[1],end[1] < matrix[i].length`
 
 <!-- description:end -->
 

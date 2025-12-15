@@ -77,10 +77,10 @@ Here, we use memoized search to implement Digit DP. We search from the starting 
 
 Based on the problem information, we design a function $\textit{dfs}(i, \textit{mask}, \textit{lead}, \textit{limit})$, where:
 
--   The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
--   The digit $\textit{mask}$ represents the current state of the number, i.e., the $j$-th bit of $\textit{mask}$ being $1$ indicates that the digit $j$ has been used.
--   The boolean $\textit{lead}$ indicates whether the current number only contains leading $0$s.
--   The boolean $\textit{limit}$ indicates whether the current number is restricted by the upper bound.
+- The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
+- The digit $\textit{mask}$ represents the current state of the number, i.e., the $j$-th bit of $\textit{mask}$ being $1$ indicates that the digit $j$ has been used.
+- The boolean $\textit{lead}$ indicates whether the current number only contains leading $0$s.
+- The boolean $\textit{limit}$ indicates whether the current number is restricted by the upper bound.
 
 The function executes as follows:
 
@@ -100,12 +100,12 @@ The time complexity is $O(m \times 2^D \times D)$, and the space complexity is $
 
 Similar Problems:
 
--   [233. Number of Digit One](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
--   [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
--   [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
--   [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
--   [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
--   [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
+- [233. Number of Digit One](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
+- [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
+- [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
+- [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
+- [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
+- [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
 
 <!-- tabs:start -->
 

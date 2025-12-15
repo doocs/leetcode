@@ -57,6 +57,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>4</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>k</code> 的取值范围是 <code>[1, 数组中不相同的元素的个数]</code></li>
 	<li>题目数据保证答案唯一，换句话说，数组中前 <code>k</code> 个高频元素的集合是唯一的</li>
 </ul>

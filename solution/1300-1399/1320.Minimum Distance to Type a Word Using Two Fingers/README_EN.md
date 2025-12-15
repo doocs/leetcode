@@ -82,8 +82,8 @@ We implement a function $\textit{dist}(a, b)$ to represent the distance between 
 
 Next, we consider typing $\textit{word}[0]$, i.e., the case with only one letter. There are two choices:
 
--   Finger 1 is at the position of $\textit{word}[0]$, and finger 2 is at any position. In this case, $f[0][\textit{word}[0]][k] = 0$, where $k \in [0,..25]$.
--   Finger 2 is at the position of $\textit{word}[0]$, and finger 1 is at any position. In this case, $f[0][k][\textit{word}[0]] = 0$, where $k \in [0,..25]$.
+- Finger 1 is at the position of $\textit{word}[0]$, and finger 2 is at any position. In this case, $f[0][\textit{word}[0]][k] = 0$, where $k \in [0,..25]$.
+- Finger 2 is at the position of $\textit{word}[0]$, and finger 1 is at any position. In this case, $f[0][k][\textit{word}[0]] = 0$, where $k \in [0,..25]$.
 
 Then we consider typing $\textit{word}[1,..n-1]$. Let the positions of the previous letter and the current letter be $a$ and $b$, respectively. Next, we discuss the following cases:
 

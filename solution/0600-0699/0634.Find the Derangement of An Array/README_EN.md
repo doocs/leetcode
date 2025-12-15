@@ -57,8 +57,8 @@ We define $f[i]$ as the number of derangement of an array of length $i$. Initial
 
 For an array of length $i$, we consider where to place the number $1$. Suppose it is placed in the $j$-th position, where there are $i-1$ choices. Then, the number $j$ has two choices:
 
--   Placed in the first position, then the remaining $i - 2$ positions have $f[i - 2]$ derangements, so there are a total of $(i - 1) \times f[i - 2]$ derangements;
--   Not placed in the first position, which is equivalent to the derangement of an array of length $i - 1$, so there are a total of $(i - 1) \times f[i - 1]$ derangements.
+- Placed in the first position, then the remaining $i - 2$ positions have $f[i - 2]$ derangements, so there are a total of $(i - 1) \times f[i - 2]$ derangements;
+- Not placed in the first position, which is equivalent to the derangement of an array of length $i - 1$, so there are a total of $(i - 1) \times f[i - 1]$ derangements.
 
 In summary, we have the following state transition equation:
 

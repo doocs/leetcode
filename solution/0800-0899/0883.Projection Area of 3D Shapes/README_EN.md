@@ -71,9 +71,9 @@ tags:
 
 We can calculate the area of the three projections separately.
 
--   Projection area on the xy plane: Each non-zero value will be projected onto the xy plane, so the projection area on the xy plane is the count of non-zero values.
--   Projection area on the yz plane: The maximum value in each row.
--   Projection area on the zx plane: The maximum value in each column.
+- Projection area on the xy plane: Each non-zero value will be projected onto the xy plane, so the projection area on the xy plane is the count of non-zero values.
+- Projection area on the yz plane: The maximum value in each row.
+- Projection area on the zx plane: The maximum value in each column.
 
 Finally, add up the three areas.
 

@@ -70,8 +70,8 @@ We can transform this problem into: In a circular array of length $3n$, select $
 
 The proof is as follows:
 
--   When $n = 1$, we can choose any number in the array.
--   When $n > 1$, there must exist a number such that there are two consecutive numbers on one side of it that have not been selected, and at least one number on the other side has not been selected. Therefore, we can remove this number and the numbers on both sides of it from the array, and then the remaining $3(n - 1)$ numbers form a new circular array. The problem scale is reduced to selecting $n - 1$ non-adjacent numbers in a circular array of length $3(n - 1)$, so that the sum of these $n - 1$ numbers is maximized.
+- When $n = 1$, we can choose any number in the array.
+- When $n > 1$, there must exist a number such that there are two consecutive numbers on one side of it that have not been selected, and at least one number on the other side has not been selected. Therefore, we can remove this number and the numbers on both sides of it from the array, and then the remaining $3(n - 1)$ numbers form a new circular array. The problem scale is reduced to selecting $n - 1$ non-adjacent numbers in a circular array of length $3(n - 1)$, so that the sum of these $n - 1$ numbers is maximized.
 
 Therefore, the problem we need to solve can be transformed into: In a circular array of length $3n$, select $n$ non-adjacent numbers so that the sum of these $n$ numbers is maximized.
 

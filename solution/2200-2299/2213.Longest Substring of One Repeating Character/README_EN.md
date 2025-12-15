@@ -74,10 +74,10 @@ Thus, we return [2,3].
 
 The segment tree divides the entire interval into multiple non-continuous sub-intervals, and the number of sub-intervals does not exceed $\log(\textit{width})$. To update the value of an element, you only need to update $\log(\textit{width})$ intervals, and these intervals are all contained in a large interval that contains the element. When modifying the interval, you need to use **lazy tags** to ensure efficiency.
 
--   Each node of the segment tree represents an interval;
--   The segment tree has a unique root node, which represents the entire statistical range, such as $[1, n]$;
--   Each leaf node of the segment tree represents an elementary interval of length $1$, $[x, x]$;
--   For each internal node $[l, r]$, its left child is $[l, mid]$, and the right child is $[mid + 1, r]$, where $mid = \frac{l + r}{2}$;
+- Each node of the segment tree represents an interval;
+- The segment tree has a unique root node, which represents the entire statistical range, such as $[1, n]$;
+- Each leaf node of the segment tree represents an elementary interval of length $1$, $[x, x]$;
+- For each internal node $[l, r]$, its left child is $[l, mid]$, and the right child is $[mid + 1, r]$, where $mid = \frac{l + r}{2}$;
 
 For this problem, the information maintained by the segment tree node includes:
 

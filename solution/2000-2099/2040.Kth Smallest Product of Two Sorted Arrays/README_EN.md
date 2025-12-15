@@ -84,9 +84,9 @@ For each $p$, we calculate the number of products less than or equal to $p$. If 
 
 The key to the problem is how to calculate the number of products less than or equal to $p$. We can enumerate each number $x$ in $\textit{nums1}$ and discuss in cases:
 
--   If $x > 0$, then $x \times \textit{nums2}[i]$ is monotonically increasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \textit{nums2}[i] > p$. Then, $i$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$;
--   If $x < 0$, then $x \times \textit{nums2}[i]$ is monotonically decreasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \textit{nums2}[i] \leq p$. Then, $n - i$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$;
--   If $x = 0$, then $x \times \textit{nums2}[i] = 0$. If $p \geq 0$, then $n$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$.
+- If $x > 0$, then $x \times \textit{nums2}[i]$ is monotonically increasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \textit{nums2}[i] > p$. Then, $i$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$;
+- If $x < 0$, then $x \times \textit{nums2}[i]$ is monotonically decreasing as $i$ increases. We can use binary search to find the smallest $i$ such that $x \times \textit{nums2}[i] \leq p$. Then, $n - i$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$;
+- If $x = 0$, then $x \times \textit{nums2}[i] = 0$. If $p \geq 0$, then $n$ is the number of products less than or equal to $p$, which is accumulated into the count $\textit{cnt}$.
 
 This way, we can find the $k$-th smallest product through binary search.
 

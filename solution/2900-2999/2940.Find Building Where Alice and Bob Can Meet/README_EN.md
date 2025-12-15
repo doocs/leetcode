@@ -91,7 +91,7 @@ The time complexity is $O((n + m) \times \log n + m \times \log m)$, and the spa
 
 Similar problems:
 
--   [2736. Maximum Sum Queries](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
+- [2736. Maximum Sum Queries](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README_EN.md)
 
 <!-- tabs:start -->
 

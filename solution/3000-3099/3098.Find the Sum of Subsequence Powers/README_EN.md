@@ -88,11 +88,11 @@ Next, we design a function $dfs(i, j, k, mi)$, representing the value of the ene
 
 The execution process of the function $dfs(i, j, k, mi)$ is as follows:
 
--   If $i \geq n$, it means all elements have been processed. If $k = 0$, return $mi$; otherwise, return $0$.
--   If the remaining number of elements $n - i$ is less than $k$, return $0$.
--   Otherwise, we can choose not to select the $i$-th element, and the energy sum obtained is $dfs(i + 1, j, k, mi)$.
--   We can also choose to select the $i$-th element. If $j = n$, it means no element has been selected before, then the energy sum obtained is $dfs(i + 1, i, k - 1, mi)$; otherwise, the energy sum obtained is $dfs(i + 1, i, k - 1, \min(mi, \textit{nums}[i] - \textit{nums}[j]))$.
--   We add up the above results and return the result modulo $10^9 + 7$.
+- If $i \geq n$, it means all elements have been processed. If $k = 0$, return $mi$; otherwise, return $0$.
+- If the remaining number of elements $n - i$ is less than $k$, return $0$.
+- Otherwise, we can choose not to select the $i$-th element, and the energy sum obtained is $dfs(i + 1, j, k, mi)$.
+- We can also choose to select the $i$-th element. If $j = n$, it means no element has been selected before, then the energy sum obtained is $dfs(i + 1, i, k - 1, mi)$; otherwise, the energy sum obtained is $dfs(i + 1, i, k - 1, \min(mi, \textit{nums}[i] - \textit{nums}[j]))$.
+- We add up the above results and return the result modulo $10^9 + 7$.
 
 To avoid repeated calculations, we can use memoization, saving the results that have already been calculated.
 

@@ -361,8 +361,8 @@ class Solution {
 
 接下来，我们比较 `l1` 和 `l2` 的值：
 
--   如果 `l1` 的值小于等于 `l2` 的值，我们递归调用 `mergeTwoLists(l1.next, l2)`，并将 `l1.next` 指向返回的链表，然后返回 `l1`。
--   如果 `l1` 的值大于 `l2` 的值，我们递归调用 `mergeTwoLists(l1, l2.next)`，并将 `l2.next` 指向返回的链表，然后返回 `l2`。
+- 如果 `l1` 的值小于等于 `l2` 的值，我们递归调用 `mergeTwoLists(l1.next, l2)`，并将 `l1.next` 指向返回的链表，然后返回 `l1`。
+- 如果 `l1` 的值大于 `l2` 的值，我们递归调用 `mergeTwoLists(l1, l2.next)`，并将 `l2.next` 指向返回的链表，然后返回 `l2`。
 
 时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个链表的长度。
 

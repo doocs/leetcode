@@ -76,10 +76,10 @@ We maintain a monotonic queue $q$ that is decreasing from the front to the back,
 
 We traverse $i$ from $0$ to $n - 1$. For each $i$, we perform the following operations:
 
--   If the front element $q[0]$ satisfies $i - q[0] > k$, it means the front element is no longer within the sliding window, and we need to remove the front element from the queue;
--   Then, we calculate $f[i] = \max(0, f[q[0]]) + \textit{nums}[i]$, which means we add $\textit{nums}[i]$ to the sliding window to get the maximum subsequence sum;
--   Next, we update the answer $\textit{ans} = \max(\textit{ans}, f[i])$;
--   Finally, we add $i$ to the back of the queue and maintain the monotonicity of the queue. If $f[q[\textit{back}]] \leq f[i]$, we need to remove the back element until the queue is empty or $f[q[\textit{back}]] > f[i]$.
+- If the front element $q[0]$ satisfies $i - q[0] > k$, it means the front element is no longer within the sliding window, and we need to remove the front element from the queue;
+- Then, we calculate $f[i] = \max(0, f[q[0]]) + \textit{nums}[i]$, which means we add $\textit{nums}[i]$ to the sliding window to get the maximum subsequence sum;
+- Next, we update the answer $\textit{ans} = \max(\textit{ans}, f[i])$;
+- Finally, we add $i$ to the back of the queue and maintain the monotonicity of the queue. If $f[q[\textit{back}]] \leq f[i]$, we need to remove the back element until the queue is empty or $f[q[\textit{back}]] > f[i]$.
 
 The final answer is $\textit{ans}$.
 

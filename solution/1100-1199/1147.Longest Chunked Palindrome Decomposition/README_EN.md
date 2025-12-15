@@ -76,8 +76,8 @@ tags:
 
 We can start from both ends of the string, looking for the shortest, identical, and non-overlapping prefixes and suffixes:
 
--   If such prefixes and suffixes cannot be found, then the entire string is treated as a segmented palindrome, and the answer is incremented by $1$;
--   If such prefixes and suffixes are found, then this prefix and suffix are treated as a segmented palindrome, and the answer is incremented by $2$, then continue to find the prefixes and suffixes of the remaining string.
+- If such prefixes and suffixes cannot be found, then the entire string is treated as a segmented palindrome, and the answer is incremented by $1$;
+- If such prefixes and suffixes are found, then this prefix and suffix are treated as a segmented palindrome, and the answer is incremented by $2$, then continue to find the prefixes and suffixes of the remaining string.
 
 The proof of the above greedy strategy is as follows:
 

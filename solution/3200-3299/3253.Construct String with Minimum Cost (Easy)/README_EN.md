@@ -86,8 +86,8 @@ Next, we define a memoized search function $\textit{dfs}(i)$, which represents t
 
 The calculation process of the function $\textit{dfs}(i)$ is as follows:
 
--   If $i \geq \textit{len}(\textit{target})$, it means the entire string has been constructed, so return $0$.
--   Otherwise, we start from the root node of the $\textit{trie}$ and traverse all suffixes starting from $\textit{target}[i]$, finding the minimum cost, which is the $\textit{cost}$ variable in the $\textit{trie}$, plus the result of $\textit{dfs}(j+1)$, where $j$ is the ending position of the suffix starting from $\textit{target}[i]$.
+- If $i \geq \textit{len}(\textit{target})$, it means the entire string has been constructed, so return $0$.
+- Otherwise, we start from the root node of the $\textit{trie}$ and traverse all suffixes starting from $\textit{target}[i]$, finding the minimum cost, which is the $\textit{cost}$ variable in the $\textit{trie}$, plus the result of $\textit{dfs}(j+1)$, where $j$ is the ending position of the suffix starting from $\textit{target}[i]$.
 
 Finally, if $\textit{dfs}(0) < \textit{inf}$, return $\textit{dfs}(0)$; otherwise, return $-1$.
 

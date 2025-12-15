@@ -67,9 +67,9 @@ We design a function $\textit{dfs}(i, j)$ to represent the number of paths from 
 
 The execution process of the function $\textit{dfs}(i, j)$ is as follows:
 
--   If $i \ge m$ or $j \ge n$, or $\textit{obstacleGrid}[i][j] = 1$, the number of paths is $0$;
--   If $i = m - 1$ and $j = n - 1$, the number of paths is $1$;
--   Otherwise, the number of paths is $\textit{dfs}(i + 1, j) + \textit{dfs}(i, j + 1)$.
+- If $i \ge m$ or $j \ge n$, or $\textit{obstacleGrid}[i][j] = 1$, the number of paths is $0$;
+- If $i = m - 1$ and $j = n - 1$, the number of paths is $1$;
+- Otherwise, the number of paths is $\textit{dfs}(i + 1, j) + \textit{dfs}(i, j + 1)$.
 
 To avoid redundant calculations, we can use memoization.
 
@@ -273,8 +273,8 @@ We can use a dynamic programming approach by defining a 2D array $f$, where $f[i
 
 We first initialize all values in the first column and the first row of $f$, then traverse the other rows and columns with two cases:
 
--   If $\textit{obstacleGrid}[i][j] = 1$, it means the number of paths is $0$, so $f[i][j] = 0$;
--   If $\textit{obstacleGrid}[i][j] = 0$, then $f[i][j] = f[i - 1][j] + f[i][j - 1]$.
+- If $\textit{obstacleGrid}[i][j] = 1$, it means the number of paths is $0$, so $f[i][j] = 0$;
+- If $\textit{obstacleGrid}[i][j] = 0$, then $f[i][j] = f[i - 1][j] + f[i][j - 1]$.
 
 Finally, return $f[m - 1][n - 1]$.
 

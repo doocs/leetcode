@@ -101,10 +101,10 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 We can use two stacks, $\textit{left}$ and $\textit{right}$, where the stack $\textit{left}$ stores the characters to the left of the cursor, and the stack $\textit{right}$ stores the characters to the right of the cursor.
 
--   When calling the $\text{addText}$ method, we push the characters in $\text{text}$ onto the $\text{left}$ stack one by one. The time complexity is $O(|\text{text}|)$.
--   When calling the $\text{deleteText}$ method, we pop characters from the $\text{left}$ stack up to $k$ times. The time complexity is $O(k)$.
--   When calling the $\text{cursorLeft}$ method, we pop characters from the $\text{left}$ stack up to $k$ times, then push the popped characters onto the $\text{right}$ stack one by one, and finally return up to 10 characters from the $\text{left}$ stack. The time complexity is $O(k)$.
--   When calling the $\text{cursorRight}$ method, we pop characters from the $\text{right}$ stack up to $k$ times, then push the popped characters onto the $\text{left}$ stack one by one, and finally return up to 10 characters from the $\text{left}$ stack. The time complexity is $O(k)$.
+- When calling the $\text{addText}$ method, we push the characters in $\text{text}$ onto the $\text{left}$ stack one by one. The time complexity is $O(|\text{text}|)$.
+- When calling the $\text{deleteText}$ method, we pop characters from the $\text{left}$ stack up to $k$ times. The time complexity is $O(k)$.
+- When calling the $\text{cursorLeft}$ method, we pop characters from the $\text{left}$ stack up to $k$ times, then push the popped characters onto the $\text{right}$ stack one by one, and finally return up to 10 characters from the $\text{left}$ stack. The time complexity is $O(k)$.
+- When calling the $\text{cursorRight}$ method, we pop characters from the $\text{right}$ stack up to $k$ times, then push the popped characters onto the $\text{left}$ stack one by one, and finally return up to 10 characters from the $\text{left}$ stack. The time complexity is $O(k)$.
 
 <!-- tabs:start -->
 

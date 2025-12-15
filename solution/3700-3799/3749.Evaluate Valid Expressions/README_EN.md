@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README_EN.md
+tags:
+    - Stack
+    - Hash Table
+    - Math
+    - String
+    - Divide and Conquer
 ---
 
 <!-- problem:start -->

@@ -68,8 +68,8 @@ In this problem, we limit the step size of the large step size query to $\sqrt{n
 
 We define a two-dimensional array $suf$, where $suf[i][j]$ represents the suffix sum starting from position $j$ with a step size of $i$. Then for each query $[x, y]$, we can divide it into two cases:
 
--   If $y \le \sqrt{n}$, then we can directly query $suf[y][x]$;
--   If $y > \sqrt{n}$, then we can directly brute force the solution.
+- If $y \le \sqrt{n}$, then we can directly query $suf[y][x]$;
+- If $y > \sqrt{n}$, then we can directly brute force the solution.
 
 The time complexity is $O((n +  m) \times \sqrt{n})$, and the space complexity is $O(n \times \sqrt{n})$. Here, $n$ is the length of the array, and $m$ is the number of queries.
 

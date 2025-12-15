@@ -75,8 +75,8 @@ We can find that a palindrome string of length $2$ must have two adjacent charac
 
 We can greedily search backwards from the last index of the string, find an index $i$ such that the character at index $i$ can be replaced by a slightly larger character, while ensuring that it is different from its two previous adjacent characters.
 
--   If such an index $i$ is found, then we replace $s[i]$ with $c$, and replace the characters from $s[i+1]$ to $s[n-1]$ with the characters in the first $k$ characters of the alphabet in the order of the minimum dictionary that are not the same as the previous two adjacent characters. After the replacement is completed, we obtain a beautiful string that is the smallest in the dictionary and greater than $s$.
--   If such an index $i$ cannot be found, then we cannot construct a beautiful string greater than $s$ in dictionary order, so return an empty string.
+- If such an index $i$ is found, then we replace $s[i]$ with $c$, and replace the characters from $s[i+1]$ to $s[n-1]$ with the characters in the first $k$ characters of the alphabet in the order of the minimum dictionary that are not the same as the previous two adjacent characters. After the replacement is completed, we obtain a beautiful string that is the smallest in the dictionary and greater than $s$.
+- If such an index $i$ cannot be found, then we cannot construct a beautiful string greater than $s$ in dictionary order, so return an empty string.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 

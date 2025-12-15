@@ -70,26 +70,26 @@ tags:
 
 According to the problem description:
 
--   Operation $1$ is to reverse all numbers in the index range $[l,..r]$ of array `nums1`, that is, change $0$ to $1$ and $1$ to $0$.
--   Operation $3$ is to sum all numbers in array `nums2`.
--   Operation $2$ is to add the sum of all numbers in array `nums2` with $p$ times the sum of all numbers in array `nums1`, that is, $sum(nums2) = sum(nums2) + p * sum(nums1)$.
+- Operation $1$ is to reverse all numbers in the index range $[l,..r]$ of array `nums1`, that is, change $0$ to $1$ and $1$ to $0$.
+- Operation $3$ is to sum all numbers in array `nums2`.
+- Operation $2$ is to add the sum of all numbers in array `nums2` with $p$ times the sum of all numbers in array `nums1`, that is, $sum(nums2) = sum(nums2) + p * sum(nums1)$.
 
 Therefore, we actually only need to maintain the segment sum of array `nums1`, which can be implemented through a segment tree.
 
 We define each node of the segment tree as `Node`, each node contains the following attributes:
 
--   `l`: The left endpoint of the node, the index starts from $1$.
--   `r`: The right endpoint of the node, the index starts from $1$.
--   `s`: The segment sum of the node.
--   `lazy`: The lazy tag of the node.
+- `l`: The left endpoint of the node, the index starts from $1$.
+- `r`: The right endpoint of the node, the index starts from $1$.
+- `s`: The segment sum of the node.
+- `lazy`: The lazy tag of the node.
 
 The segment tree mainly has the following operations:
 
--   `build(u, l, r)`: Build the segment tree.
--   `pushdown(u)`: Propagate the lazy tag.
--   `pushup(u)`: Update the information of the parent node with the information of the child nodes.
--   `modify(u, l, r)`: Modify the segment sum. In this problem, it is to reverse each number in the segment, so the segment sum $s = r - l + 1 - s$.
--   `query(u, l, r)`: Query the segment sum.
+- `build(u, l, r)`: Build the segment tree.
+- `pushdown(u)`: Propagate the lazy tag.
+- `pushup(u)`: Update the information of the parent node with the information of the child nodes.
+- `modify(u, l, r)`: Modify the segment sum. In this problem, it is to reverse each number in the segment, so the segment sum $s = r - l + 1 - s$.
+- `query(u, l, r)`: Query the segment sum.
 
 First, calculate the sum of all numbers in array `nums2`, denoted as $s$.
 

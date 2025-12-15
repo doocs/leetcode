@@ -71,7 +71,7 @@ The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma
 
 Similar problems:
 
--   [2840. Check if Strings Can be Made Equal With Operations II](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README_EN.md)
+- [2840. Check if Strings Can be Made Equal With Operations II](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2840.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20II/README_EN.md)
 
 <!-- tabs:start -->
 

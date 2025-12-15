@@ -4,11 +4,16 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README.md
 rating: 2234
 source: 第 479 场周赛 Q4
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->
 
-# [3772. 子图的最大得分](https://leetcode.cn/problems/maximum-subgraph-score-in-a-tree)
+# [3772. 树中子图的最大得分](https://leetcode.cn/problems/maximum-subgraph-score-in-a-tree)
 
 [English Version](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md)
 

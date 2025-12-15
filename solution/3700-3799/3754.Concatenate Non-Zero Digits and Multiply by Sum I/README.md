@@ -4,6 +4,8 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README.md
 rating: 1247
 source: 第 477 场周赛 Q1
+tags:
+    - 数学
 ---
 
 <!-- problem:start -->

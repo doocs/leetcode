@@ -79,7 +79,7 @@ tags:
 
 相似题目：
 
--   [2611. 老鼠和奶酪](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
+- [2611. 老鼠和奶酪](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2611.Mice%20and%20Cheese/README.md)
 
 <!-- tabs:start -->
 

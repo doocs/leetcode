@@ -83,9 +83,9 @@ tags:
 
 那么问题的关键就是如何计算乘积小于等于 $p$ 的乘积的个数。我们可以枚举 $\textit{nums1}$ 中的每个数 $x$，分类讨论：
 
--   如果 $x > 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
--   如果 $x < 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
--   如果 $x = 0$，那么 $x \times \textit{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中。
+- 如果 $x > 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递增的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] > p$，那么 $i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
+- 如果 $x < 0$，那么 $x \times \textit{nums2}[i]$ 随着 $i$ 的增大是单调递减的，我们可以使用二分查找找到最小的 $i$，使得 $x \times \textit{nums2}[i] \leq p$，那么 $n - i$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中；
+- 如果 $x = 0$，那么 $x \times \textit{nums2}[i] = 0$，如果 $p \geq 0$，那么 $n$ 就是小于等于 $p$ 的乘积的个数，累加到个数 $\textit{cnt}$ 中。
 
 这样我们就可以通过二分查找找到第 $k$ 小的乘积。
 

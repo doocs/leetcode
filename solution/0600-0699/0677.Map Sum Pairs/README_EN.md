@@ -72,8 +72,8 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 We use a hash table $d$ to store key-value pairs and a trie $t$ to store the prefix sums of the key-value pairs. Each node in the trie contains two pieces of information:
 
--   `val`: the total sum of the values of the key-value pairs with this node as the prefix
--   `children`: an array of length $26$ that stores the child nodes of this node
+- `val`: the total sum of the values of the key-value pairs with this node as the prefix
+- `children`: an array of length $26$ that stores the child nodes of this node
 
 When inserting a key-value pair $(key, val)$, we first check if the key exists in the hash table. If it does, the `val` of each node in the trie needs to subtract the original value of the key and then add the new value. If it does not exist, the `val` of each node in the trie needs to add the new value.
 

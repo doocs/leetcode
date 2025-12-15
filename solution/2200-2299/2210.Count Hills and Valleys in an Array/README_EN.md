@@ -73,9 +73,9 @@ There are 0 hills and valleys so we return 0.
 
 We initialize a pointer $j$ to point to the position with index $0$, and then traverse the array in the range $[1, n-1]$. For each position $i$:
 
--   If $nums[i] = nums[i+1]$, then skip.
--   Otherwise, if $nums[i]$ is greater than $nums[j]$ and $nums[i]$ is greater than $nums[i+1]$, then $i$ is a peak; if $nums[i]$ is less than $nums[j]$ and $nums[i]$ is less than $nums[i+1]$, then $i$ is a valley.
--   Then, we update $j$ to $i$ and continue to traverse.
+- If $nums[i] = nums[i+1]$, then skip.
+- Otherwise, if $nums[i]$ is greater than $nums[j]$ and $nums[i]$ is greater than $nums[i+1]$, then $i$ is a peak; if $nums[i]$ is less than $nums[j]$ and $nums[i]$ is less than $nums[i+1]$, then $i$ is a valley.
+- Then, we update $j$ to $i$ and continue to traverse.
 
 After the traversal, we can get the number of peaks and valleys.
 

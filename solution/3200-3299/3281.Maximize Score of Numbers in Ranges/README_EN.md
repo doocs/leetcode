@@ -77,9 +77,9 @@ We define the left boundary of the binary search as $l = 0$ and the right bounda
 
 We define a function $\text{check}(mi)$ to determine whether the condition is satisfied, implemented as follows:
 
--   We define a variable $\textit{last} = -\infty$, representing the last selected integer.
--   We traverse the $\textit{start}$ array. If $\textit{last} + \textit{mi} > \textit{st} + d$, it means we cannot select the integer $\textit{st}$, and we return $\text{false}$. Otherwise, we update $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$.
--   If we traverse the entire $\textit{start}$ array and all conditions are satisfied, we return $\text{true}$.
+- We define a variable $\textit{last} = -\infty$, representing the last selected integer.
+- We traverse the $\textit{start}$ array. If $\textit{last} + \textit{mi} > \textit{st} + d$, it means we cannot select the integer $\textit{st}$, and we return $\text{false}$. Otherwise, we update $\textit{last} = \max(\textit{st}, \textit{last} + \textit{mi})$.
+- If we traverse the entire $\textit{start}$ array and all conditions are satisfied, we return $\text{true}$.
 
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and the maximum value of the $\textit{start}$ array, respectively. The space complexity is $O(1)$.
 

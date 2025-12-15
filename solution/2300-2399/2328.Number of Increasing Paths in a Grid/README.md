@@ -80,8 +80,8 @@ tags:
 
 函数 $dfs(i, j)$ 的计算过程如下：
 
--   如果 $f[i][j]$ 不为 $0$，说明已经计算过，直接返回 $f[i][j]$；
--   否则，我们初始化 $f[i][j] = 1$，然后枚举 $(i, j)$ 的四个方向，如果某个方向的格子 $(x, y)$ 满足 $0 \leq x \lt m$, $0 \leq y \lt n$ 且 $grid[i][j] \lt grid[x][y]$，我们就可以从格子 $(i, j)$ 出发，到达格子 $(x, y)$，且路径上的数字是严格递增的，因此有 $f[i][j] += dfs(x, y)$。
+- 如果 $f[i][j]$ 不为 $0$，说明已经计算过，直接返回 $f[i][j]$；
+- 否则，我们初始化 $f[i][j] = 1$，然后枚举 $(i, j)$ 的四个方向，如果某个方向的格子 $(x, y)$ 满足 $0 \leq x \lt m$, $0 \leq y \lt n$ 且 $grid[i][j] \lt grid[x][y]$，我们就可以从格子 $(i, j)$ 出发，到达格子 $(x, y)$，且路径上的数字是严格递增的，因此有 $f[i][j] += dfs(x, y)$。
 
 最后，我们返回 $f[i][j]$。
 
@@ -91,7 +91,7 @@ tags:
 
 相似题目：
 
--   [329. 矩阵中的最长递增路径](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)。
+- [329. 矩阵中的最长递增路径](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)。
 
 <!-- tabs:start -->
 

@@ -79,8 +79,8 @@ We call two rows that satisfy one of the above conditions "equivalent rows." The
 
 Therefore, we can traverse each row of the matrix and convert each row into an "equivalent row" that starts with $0$. Specifically:
 
--   If the first element of the current row is $0$, keep the row unchanged;
--   If the first element of the current row is $1$, flip every element in the row, i.e., $0$ becomes $1$, $1$ becomes $0$. In other words, we flip rows starting with $1$ into "equivalent rows" starting with $0$.
+- If the first element of the current row is $0$, keep the row unchanged;
+- If the first element of the current row is $1$, flip every element in the row, i.e., $0$ becomes $1$, $1$ becomes $0$. In other words, we flip rows starting with $1$ into "equivalent rows" starting with $0$.
 
 In this way, we only need to use a hash table to count each converted row. If the hash table contains only one element at the end, it means we can remove all $1$s from the matrix by flipping rows or columns.
 
@@ -88,7 +88,7 @@ The time complexity is $O(mn)$ and the space complexity is $O(m)$, where $m$ and
 
 Related problem:
 
--   [1072. Flip Columns For Maximum Number of Equal Rows](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README_EN.md)
+- [1072. Flip Columns For Maximum Number of Equal Rows](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1072.Flip%20Columns%20For%20Maximum%20Number%20of%20Equal%20Rows/README_EN.md)
 
 <!-- tabs:start -->
 

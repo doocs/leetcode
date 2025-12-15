@@ -79,7 +79,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 
 Similar problems:
 
--   [2581. Count Number of Possible Root Nodes](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
+- [2581. Count Number of Possible Root Nodes](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2581.Count%20Number%20of%20Possible%20Root%20Nodes/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -63,9 +63,9 @@ We define three pointers $i$, $j$, and $k$. Pointer $i$ is used to point to the 
 
 When $k < j$, we perform the following operations:
 
--   If $nums[k] = 0$, then swap it with $nums[i+1]$, then increment both $i$ and $k$ by $1$;
--   If $nums[k] = 2$, then swap it with $nums[j-1]$, then decrement $j$ by $1$;
--   If $nums[k] = 1$, then increment $k$ by $1$.
+- If $nums[k] = 0$, then swap it with $nums[i+1]$, then increment both $i$ and $k$ by $1$;
+- If $nums[k] = 2$, then swap it with $nums[j-1]$, then decrement $j$ by $1$;
+- If $nums[k] = 1$, then increment $k$ by $1$.
 
 After the traversal, the elements in the array are divided into three parts: $[0,i]$, $[i+1,j-1]$ and $[j,n-1]$.
 

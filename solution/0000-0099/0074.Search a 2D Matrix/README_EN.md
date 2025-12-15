@@ -238,9 +238,9 @@ var searchMatrix = function (matrix, target) {
 
 Here, we start searching from the bottom left corner and move towards the top right direction. We compare the current element $matrix[i][j]$ with $target$:
 
--   If $matrix[i][j] = target$, we have found the target value and return `true`.
--   If $matrix[i][j] > target$, all elements to the right of the current position in this row are greater than target, so we should move the pointer $i$ upwards, i.e., $i = i - 1$.
--   If $matrix[i][j] < target$, all elements above the current position in this column are less than target, so we should move the pointer $j$ to the right, i.e., $j = j + 1$.
+- If $matrix[i][j] = target$, we have found the target value and return `true`.
+- If $matrix[i][j] > target$, all elements to the right of the current position in this row are greater than target, so we should move the pointer $i$ upwards, i.e., $i = i - 1$.
+- If $matrix[i][j] < target$, all elements above the current position in this column are less than target, so we should move the pointer $j$ to the right, i.e., $j = j + 1$.
 
 If we still can't find $target$ after the search, return `false`.
 

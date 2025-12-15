@@ -264,9 +264,9 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 我们可以定义两个指针 $x$ 和 $y$，初始时 $x = 1$, $y = z$。
 
--   如果 $f(x, y) = z$，我们将 $(x, y)$ 加入答案中，然后 $x \leftarrow x + 1$, $y \leftarrow y - 1$；
--   如果 $f(x, y) \lt z$，此时对任意的 $y' \lt y$，都有 $f(x, y') \lt f(x, y) \lt z$，因此我们不能将 $y$ 减小，只能将 $x$ 增大，所以 $x \leftarrow x + 1$；
--   如果 $f(x, y) \gt z$，此时对任意的 $x' \gt x$，都有 $f(x', y) \gt f(x, y) \gt z$，因此我们不能将 $x$ 增大，只能将 $y$ 减小，所以 $y \leftarrow y - 1$。
+- 如果 $f(x, y) = z$，我们将 $(x, y)$ 加入答案中，然后 $x \leftarrow x + 1$, $y \leftarrow y - 1$；
+- 如果 $f(x, y) \lt z$，此时对任意的 $y' \lt y$，都有 $f(x, y') \lt f(x, y) \lt z$，因此我们不能将 $y$ 减小，只能将 $x$ 增大，所以 $x \leftarrow x + 1$；
+- 如果 $f(x, y) \gt z$，此时对任意的 $x' \gt x$，都有 $f(x', y) \gt f(x, y) \gt z$，因此我们不能将 $x$ 增大，只能将 $y$ 减小，所以 $y \leftarrow y - 1$。
 
 循环结束后，返回答案。
 

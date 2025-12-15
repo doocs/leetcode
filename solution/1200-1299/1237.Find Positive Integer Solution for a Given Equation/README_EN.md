@@ -264,9 +264,9 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 
 We can define two pointers $x$ and $y$, initially $x = 1$, $y = z$.
 
--   If $f(x, y) = z$, we add $(x, y)$ to the answer, then $x \leftarrow x + 1$, $y \leftarrow y - 1$;
--   If $f(x, y) \lt z$, at this time for any $y' \lt y$, we have $f(x, y') \lt f(x, y) \lt z$, so we cannot decrease $y$, we can only increase $x$, so $x \leftarrow x + 1$;
--   If $f(x, y) \gt z$, at this time for any $x' \gt x$, we have $f(x', y) \gt f(x, y) \gt z$, so we cannot increase $x$, we can only decrease $y$, so $y \leftarrow y - 1$.
+- If $f(x, y) = z$, we add $(x, y)$ to the answer, then $x \leftarrow x + 1$, $y \leftarrow y - 1$;
+- If $f(x, y) \lt z$, at this time for any $y' \lt y$, we have $f(x, y') \lt f(x, y) \lt z$, so we cannot decrease $y$, we can only increase $x$, so $x \leftarrow x + 1$;
+- If $f(x, y) \gt z$, at this time for any $x' \gt x$, we have $f(x', y) \gt f(x, y) \gt z$, so we cannot increase $x$, we can only decrease $y$, so $y \leftarrow y - 1$.
 
 After the loop ends, return the answer.
 

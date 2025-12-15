@@ -20,8 +20,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%
 
 **注意：**
 
--   若翻转白棋成黑棋后，棋盘上仍存在可以翻转的白棋，将可以 **继续** 翻转白棋
--   输入数据保证初始棋盘状态无可以翻转的棋子且存在空余位置
+- 若翻转白棋成黑棋后，棋盘上仍存在可以翻转的白棋，将可以 **继续** 翻转白棋
+- 输入数据保证初始棋盘状态无可以翻转的棋子且存在空余位置
 
 **示例 1：**
 
@@ -54,8 +54,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2041.%20%E9%BB%91%
 
 **提示：**
 
--   `1 <= chessboard.length, chessboard[i].length <= 8`
--   `chessboard[i]` 仅包含 `"."、"O"` 和 `"X"`
+- `1 <= chessboard.length, chessboard[i].length <= 8`
+- `chessboard[i]` 仅包含 `"."、"O"` 和 `"X"`
 
 <!-- description:end -->
 

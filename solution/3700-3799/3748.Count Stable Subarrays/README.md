@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3748.Count%20Stable%20Subarrays/README.md
 rating: 2209
 source: 第 476 场周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
 ---
 
 <!-- problem:start -->

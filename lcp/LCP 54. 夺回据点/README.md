@@ -18,9 +18,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%
 
 现在勇者要将按照以下原则将这些据点逐一夺回：
 
--   在开始的时候，勇者可以花费资源先夺回一些据点，初始夺回第 `j` 个据点所需消耗的资源数量为 `cost[j]`
+- 在开始的时候，勇者可以花费资源先夺回一些据点，初始夺回第 `j` 个据点所需消耗的资源数量为 `cost[j]`
 
--   接下来，勇者在不消耗资源情况下，每次可以夺回**一个**和「已夺回据点」相连接的魔物据点，并对其进行夺回
+- 接下来，勇者在不消耗资源情况下，每次可以夺回**一个**和「已夺回据点」相连接的魔物据点，并对其进行夺回
 
 > 注：为了防止魔物暴动，勇者在每一次夺回据点后（包括花费资源夺回据点后），需要保证剩余的所有魔物据点之间是相连通的（不经过「已夺回据点」）。
 
@@ -28,7 +28,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%
 
 **注意：**
 
--   输入保证初始所有据点都是连通的，且不存在重边和自环
+- 输入保证初始所有据点都是连通的，且不存在重边和自环
 
 **示例 1：**
 
@@ -63,9 +63,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%
 
 **提示：**
 
--   `1 <= roads.length, cost.length <= 10^5`
--   `0 <= roads[i][0], roads[i][1] < cost.length`
--   `1 <= cost[i] <= 10^9`
+- `1 <= roads.length, cost.length <= 10^5`
+- `0 <= roads[i][0], roads[i][1] < cost.length`
+- `1 <= cost[i] <= 10^9`
 
 <!-- description:end -->
 

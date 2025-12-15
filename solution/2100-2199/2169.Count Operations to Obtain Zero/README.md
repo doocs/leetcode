@@ -73,9 +73,9 @@ tags:
 
 我们可以直接模拟这个过程，循环执行以下操作：
 
--   如果 $\textit{num1} \ge \textit{num2}$，则 $\textit{num1} = \textit{num1} - \textit{num2}$；
--   否则，$\textit{num2} = \textit{num2} - \textit{num1}$。
--   每执行一次操作，操作数加一。
+- 如果 $\textit{num1} \ge \textit{num2}$，则 $\textit{num1} = \textit{num1} - \textit{num2}$；
+- 否则，$\textit{num2} = \textit{num2} - \textit{num1}$。
+- 每执行一次操作，操作数加一。
 
 当 $\textit{num1}$ 或 $\textit{num2}$ 有一个为 $0$ 时，停止循环，返回操作数。
 

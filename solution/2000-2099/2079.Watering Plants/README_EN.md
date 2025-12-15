@@ -93,8 +93,8 @@ We can simulate the process of watering the plants. We use a variable $\textit{w
 
 We traverse the plants. For each plant:
 
--   If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\textit{water} = \textit{water} - \textit{plants}[i]$.
--   Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\textit{water} = \textit{capacity} - \textit{plants}[i]$.
+- If the current amount of water in the watering can is enough to water this plant, we move forward one step, water this plant, and update $\textit{water} = \textit{water} - \textit{plants}[i]$.
+- Otherwise, we need to return to the river to refill the watering can, walk back to the current position, and then move forward one step. The number of steps we need is $i \times 2 + 1$. Then we water this plant and update $\textit{water} = \textit{capacity} - \textit{plants}[i]$.
 
 Finally, return the total number of steps.
 

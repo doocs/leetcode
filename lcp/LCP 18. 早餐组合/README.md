@@ -69,13 +69,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2018.%20%E6%97%A9%
 
 **提示：**
 
--   `1 <= staple.length <= 10^5`
+- `1 <= staple.length <= 10^5`
 
--   `1 <= drinks.length <= 10^5`
+- `1 <= drinks.length <= 10^5`
 
--   `1 <= staple[i],drinks[i] <= 10^5`
+- `1 <= staple[i],drinks[i] <= 10^5`
 
--   `1 <= x <= 2*10^5`
+- `1 <= x <= 2*10^5`
 
 <!-- description:end -->
 

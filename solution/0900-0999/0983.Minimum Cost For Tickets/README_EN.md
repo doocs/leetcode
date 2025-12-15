@@ -82,8 +82,8 @@ We define a function $\textit{dfs(i)}$, which represents the minimum cost requir
 
 The execution process of the function $\textit{dfs(i)}$ is as follows:
 
--   If $i \geq n$, it means all trips have ended, return $0$;
--   Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\textit{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.
+- If $i \geq n$, it means all trips have ended, return $0$;
+- Otherwise, we need to consider three types of purchases: buying a 1-day pass, buying a 7-day pass, and buying a 30-day pass. We calculate the cost for these three purchasing methods separately and use binary search to find the index $j$ of the next trip, then recursively call $\textit{dfs(j)}$, and finally return the minimum cost among these three purchasing methods.
 
 To avoid repeated calculations, we use memoization search to save the results that have already been calculated.
 

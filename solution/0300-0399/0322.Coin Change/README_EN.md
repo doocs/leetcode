@@ -263,7 +263,7 @@ We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. The
 
 Similar problems:
 
--   [279. Perfect Squares](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
+- [279. Perfect Squares](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
 
 <!-- tabs:start -->
 

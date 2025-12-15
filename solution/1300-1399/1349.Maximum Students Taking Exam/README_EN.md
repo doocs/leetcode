@@ -89,8 +89,8 @@ Next, we design a function $dfs(seat, i)$, which represents the maximum number o
 
 We can enumerate all the seat selection states $mask$ of the $i$th row, and judge whether $mask$ meets the following conditions:
 
--   The state $mask$ cannot select seats outside of $seat$;
--   The state $mask$ cannot select adjacent seats.
+- The state $mask$ cannot select seats outside of $seat$;
+- The state $mask$ cannot select adjacent seats.
 
 If the conditions are met, we calculate the number of seats selected in the current row $cnt$. If it is the last row, update the return value of the function, that is, $ans = \max(ans, cnt)$. Otherwise, we continue to recursively solve the maximum number of the next row. The seat state of the next row is $nxt = ss[i + 1]$, and we need to exclude the left and right sides of the selected seats in the current row. Then we recursively solve the maximum number of the next row, that is, $ans = \max(ans, cnt + dfs(nxt, i + 1))$.
 

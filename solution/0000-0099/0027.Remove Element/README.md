@@ -53,7 +53,7 @@ for (int i = 0; i &lt; actualLength; i++) {
 <pre>
 <strong>输入：</strong>nums = [3,2,2,3], val = 3
 <strong>输出：</strong>2, nums = [2,2,_,_]
-<strong>解释：</strong>你的函数函数应该返回 k = 2, 并且 nums<em> </em>中的前两个元素均为 2。
+<strong>解释：</strong>你的函数应该返回 k = 2, 并且 nums<em> </em>中的前两个元素均为 2。
 你在返回的 k 个元素之外留下了什么并不重要（因此它们并不计入评测）。</pre>
 
 <p><strong>示例 2：</strong></p>

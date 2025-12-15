@@ -63,9 +63,9 @@ tags:
 
 First, we determine special cases:
 
--   If $x < 0$, then $x$ is not a palindrome, directly return `false`;
--   If $x > 0$ and the last digit of $x$ is $0$, then $x$ is not a palindrome, directly return `false`;
--   If the last digit of $x$ is not $0$, then $x$ might be a palindrome, continue the following steps.
+- If $x < 0$, then $x$ is not a palindrome, directly return `false`;
+- If $x > 0$ and the last digit of $x$ is $0$, then $x$ is not a palindrome, directly return `false`;
+- If the last digit of $x$ is not $0$, then $x$ might be a palindrome, continue the following steps.
 
 We reverse the second half of $x$ and compare it with the first half. If they are equal, then $x$ is a palindrome, otherwise, $x$ is not a palindrome.
 

@@ -80,8 +80,8 @@ tags:
 
 For the constraint that the length is at least $k$, we can split it into two subproblems:
 
--   Without length restriction, for each group of consecutive identical characters, we can choose any number from $1$ to the length of the group. Let the number of ways be $a$.
--   For length less than $k$, let the number of ways be $b$.
+- Without length restriction, for each group of consecutive identical characters, we can choose any number from $1$ to the length of the group. Let the number of ways be $a$.
+- For length less than $k$, let the number of ways be $b$.
 
 Thus, the final answer is $a - b$.
 

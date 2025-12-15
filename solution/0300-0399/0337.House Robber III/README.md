@@ -73,8 +73,8 @@ tags:
 
 否则，我们首先计算出左右子节点的结果，即 $dfs(root.left)$ 和 $dfs(root.right)$，这样就得到了两对值 $(l_a, l_b)$ 以及 $(r_a, r_b)$。对于 $dfs(root)$ 的结果，我们可以分为两种情况：
 
--   如果偷取 $root$ 节点，那么不能偷取其左右子节点，结果为 $root.val + l_b + r_b$；
--   如果不偷取 $root$ 节点，那么可以偷取其左右子节点，结果为 $\max(l_a, l_b) + \max(r_a, r_b)$。
+- 如果偷取 $root$ 节点，那么不能偷取其左右子节点，结果为 $root.val + l_b + r_b$；
+- 如果不偷取 $root$ 节点，那么可以偷取其左右子节点，结果为 $\max(l_a, l_b) + \max(r_a, r_b)$。
 
 在主函数中，我们可以直接返回 $dfs(root)$ 的较大值，即 $\max(dfs(root))$。
 

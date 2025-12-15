@@ -83,9 +83,9 @@ $$
 
 Therefore, we design a function $dfs(x, d)$, which starts searching from $x$ with depth $d$. The execution process of $dfs(x, d)$ is as follows:
 
--   We first update $\textit{maxDepth} = \max(\textit{maxDepth}, d)$;
--   If $x$ is an integer, then we update $s = s + x$, $ws = ws + x \times d$;
--   Otherwise, we recursively traverse each element $y$ of $x$, and call $dfs(y, d + 1)$.
+- We first update $\textit{maxDepth} = \max(\textit{maxDepth}, d)$;
+- If $x$ is an integer, then we update $s = s + x$, $ws = ws + x \times d$;
+- Otherwise, we recursively traverse each element $y$ of $x$, and call $dfs(y, d + 1)$.
 
 We traverse the entire list, for each element $x$, we call $dfs(x, 1)$, and finally return $(\textit{maxDepth} + 1) \times s - ws$.
 

@@ -1,24 +1,23 @@
 impl Solution {
-    #[allow(dead_code)]
     pub fn best_closing_time(customers: String) -> i32 {
-        let n = customers.len();
-        let mut penalty = i32::MAX;
-        let mut ret = -1;
-        let mut prefix_sum = vec![0; n + 1];
+        let bytes = customers.as_bytes();
 
-        // Initialize the vector
-        for (i, c) in customers.chars().enumerate() {
-            prefix_sum[i + 1] = prefix_sum[i] + (if c == 'Y' { 1 } else { 0 });
-        }
+        let mut cost: i32 = bytes.iter().filter(|&&c| c == b'Y').count() as i32;
+        let mut mn = cost;
+        let mut ans: i32 = 0;
 
-        // Calculate the answer
-        for i in 0..=n {
-            if penalty > ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32) {
-                penalty = ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32);
-                ret = i as i32;
+        for j in 1..=bytes.len() {
+            let c = bytes[j - 1];
+            if c == b'N' {
+                cost += 1;
+            } else {
+                cost -= 1;
+            }
+            if cost < mn {
+                mn = cost;
+                ans = j as i32;
             }
         }
-
-        ret
+        ans
     }
 }

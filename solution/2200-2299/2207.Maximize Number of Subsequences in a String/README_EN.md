@@ -71,8 +71,8 @@ We can use two variables $x$ and $y$ to record the current counts of $\textit{pa
 
 Then, traverse the string $\textit{text}$. For the current character $c$:
 
--   If $c$ equals $\textit{pattern}[1]$, increment $y$ by one. At this point, all previously encountered $\textit{pattern}[0]$ can form a $\textit{pattern}$ subsequence with the current $c$, so add $x$ to the answer.
--   If $c$ equals $\textit{pattern}[0]$, increment $x$ by one.
+- If $c$ equals $\textit{pattern}[1]$, increment $y$ by one. At this point, all previously encountered $\textit{pattern}[0]$ can form a $\textit{pattern}$ subsequence with the current $c$, so add $x$ to the answer.
+- If $c$ equals $\textit{pattern}[0]$, increment $x$ by one.
 
 After the traversal, since we can insert one character, if we add $\textit{pattern}[0]$ at the beginning of the string, we can get $y$ $\textit{pattern}$ subsequences. If we add $\textit{pattern}[1]$ at the end of the string, we can get $x$ $\textit{pattern}$ subsequences. Therefore, we add the larger value of $x$ and $y$ to the answer.
 

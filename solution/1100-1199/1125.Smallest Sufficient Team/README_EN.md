@@ -72,9 +72,9 @@ First, we map each skill in `req_skills` to a number, i.e., $d[s]$ represents th
 
 Next, we define the following three arrays:
 
--   Array $f[i]$ represents the minimum number of people to master the skill set $i$, where each bit of the binary representation of $i$ is $1$, indicating that the corresponding skill is mastered. Initially, $f[0] = 0$, and all other positions are infinity.
--   Array $g[i]$ represents the number of the last person when the skill set $i$ is mastered by the minimum number of people.
--   Array $h[i]$ represents the previous skill set state when the skill set $i$ is mastered by the minimum number of people.
+- Array $f[i]$ represents the minimum number of people to master the skill set $i$, where each bit of the binary representation of $i$ is $1$, indicating that the corresponding skill is mastered. Initially, $f[0] = 0$, and all other positions are infinity.
+- Array $g[i]$ represents the number of the last person when the skill set $i$ is mastered by the minimum number of people.
+- Array $h[i]$ represents the previous skill set state when the skill set $i$ is mastered by the minimum number of people.
 
 We enumerate each skill set in the range of $[0,..2^m-1]$, for each skill set $i$:
 

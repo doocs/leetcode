@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README.md
 rating: 2497
 source: 第 478 场周赛 Q4
+tags:
+    - 线段树
+    - 数组
+    - 数学
+    - 二分查找
 ---
 
 <!-- problem:start -->

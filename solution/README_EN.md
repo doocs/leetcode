@@ -3242,7 +3242,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3231  |  [Minimum Number of Increasing Subsequence to Be Removed](/solution/3200-3299/3231.Minimum%20Number%20of%20Increasing%20Subsequence%20to%20Be%20Removed/README_EN.md)  |  `Array`,`Binary Search`  |  Hard  |  🔒  |
 |  3232  |  [Find if Digit Game Can Be Won](/solution/3200-3299/3232.Find%20if%20Digit%20Game%20Can%20Be%20Won/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 408  |
 |  3233  |  [Find the Count of Numbers Which Are Not Special](/solution/3200-3299/3233.Find%20the%20Count%20of%20Numbers%20Which%20Are%20Not%20Special/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 408  |
-|  3234  |  [Count the Number of Substrings With Dominant Ones](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README_EN.md)  |  `String`,`Enumeration`,`Sliding Window`  |  Medium  |  Weekly Contest 408  |
+|  3234  |  [Count the Number of Substrings With Dominant Ones](/solution/3200-3299/3234.Count%20the%20Number%20of%20Substrings%20With%20Dominant%20Ones/README_EN.md)  |  `String`,`Enumeration`  |  Medium  |  Weekly Contest 408  |
 |  3235  |  [Check if the Rectangle Corner Is Reachable](/solution/3200-3299/3235.Check%20if%20the%20Rectangle%20Corner%20Is%20Reachable/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Geometry`,`Array`,`Math`  |  Hard  |  Weekly Contest 408  |
 |  3236  |  [CEO Subordinate Hierarchy](/solution/3200-3299/3236.CEO%20Subordinate%20Hierarchy/README_EN.md)  |  `Database`  |  Hard  |  🔒  |
 |  3237  |  [Alt and Tab Simulation](/solution/3200-3299/3237.Alt%20and%20Tab%20Simulation/README_EN.md)  |  `Array`,`Hash Table`,`Simulation`  |  Medium  |  🔒  |
@@ -3649,7 +3649,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3638  |  [Maximum Balanced Shipments](/solution/3600-3699/3638.Maximum%20Balanced%20Shipments/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Medium  |  Weekly Contest 461  |
 |  3639  |  [Minimum Time to Activate String](/solution/3600-3699/3639.Minimum%20Time%20to%20Activate%20String/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Weekly Contest 461  |
 |  3640  |  [Trionic Array II](/solution/3600-3699/3640.Trionic%20Array%20II/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 461  |
-|  3641  |  [Longest Semi-Repeating Subarray](/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README_EN.md)  |    |  Medium  |  🔒  |
+|  3641  |  [Longest Semi-Repeating Subarray](/solution/3600-3699/3641.Longest%20Semi-Repeating%20Subarray/README_EN.md)  |  `Array`,`Hash Table`,`Sliding Window`  |  Medium  |  🔒  |
 |  3642  |  [Find Books with Polarized Opinions](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README_EN.md)  |    |  Easy  |    |
 |  3643  |  [Flip Square Submatrix Vertically](/solution/3600-3699/3643.Flip%20Square%20Submatrix%20Vertically/README_EN.md)  |  `Array`,`Two Pointers`,`Matrix`  |  Easy  |  Weekly Contest 462  |
 |  3644  |  [Maximum K to Sort a Permutation](/solution/3600-3699/3644.Maximum%20K%20to%20Sort%20a%20Permutation/README_EN.md)  |  `Bit Manipulation`,`Array`  |  Medium  |  Weekly Contest 462  |
@@ -3753,39 +3753,40 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3742  |  [Maximum Path Score in a Grid](/solution/3700-3799/3742.Maximum%20Path%20Score%20in%20a%20Grid/README_EN.md)  |  `Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Weekly Contest 475  |
 |  3743  |  [Maximize Cyclic Partition Score](/solution/3700-3799/3743.Maximize%20Cyclic%20Partition%20Score/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 475  |
 |  3744  |  [Find Kth Character in Expanded String](/solution/3700-3799/3744.Find%20Kth%20Character%20in%20Expanded%20String/README_EN.md)  |  `String`  |  Medium  |  🔒  |
-|  3745  |  [Maximize Expression of Three Elements](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 476  |
-|  3746  |  [Minimum String Length After Balanced Removals](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
-|  3747  |  [Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)  |    |  Medium  |  Weekly Contest 476  |
-|  3748  |  [Count Stable Subarrays](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 476  |
-|  3749  |  [Evaluate Valid Expressions](/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README_EN.md)  |    |  Hard  |  🔒  |
-|  3750  |  [Minimum Number of Flips to Reverse Binary String](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README_EN.md)  |    |  Easy  |  Biweekly Contest 170  |
-|  3751  |  [Total Waviness of Numbers in Range I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 170  |
-|  3752  |  [Lexicographically Smallest Negated Permutation that Sums to Target](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README_EN.md)  |    |  Medium  |  Biweekly Contest 170  |
-|  3753  |  [Total Waviness of Numbers in Range II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 170  |
-|  3754  |  [Concatenate Non-Zero Digits and Multiply by Sum I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 477  |
-|  3755  |  [Find Maximum Balanced XOR Subarray Length](/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README_EN.md)  |    |  Medium  |  Weekly Contest 477  |
-|  3756  |  [Concatenate Non-Zero Digits and Multiply by Sum II](/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 477  |
-|  3757  |  [Number of Effective Subsequences](/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README_EN.md)  |    |  Hard  |  Weekly Contest 477  |
-|  3758  |  [Convert Number Words to Digits](/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README_EN.md)  |    |  Medium  |  🔒  |
-|  3759  |  [Count Elements With at Least K Greater Values](/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README_EN.md)  |    |  Medium  |  Weekly Contest 478  |
-|  3760  |  [Maximum Substrings With Distinct Start](/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README_EN.md)  |    |  Medium  |  Weekly Contest 478  |
-|  3761  |  [Minimum Absolute Distance Between Mirror Pairs](/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 478  |
-|  3762  |  [Minimum Operations to Equalize Subarrays](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 478  |
-|  3763  |  [Maximum Total Sum with Threshold Constraints](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README_EN.md)  |    |  Medium  |  🔒  |
+|  3745  |  [Maximize Expression of Three Elements](/solution/3700-3799/3745.Maximize%20Expression%20of%20Three%20Elements/README_EN.md)  |  `Greedy`,`Array`,`Enumeration`,`Sorting`  |  Easy  |  Weekly Contest 476  |
+|  3746  |  [Minimum String Length After Balanced Removals](/solution/3700-3799/3746.Minimum%20String%20Length%20After%20Balanced%20Removals/README_EN.md)  |  `Stack`,`String`,`Counting`  |  Medium  |  Weekly Contest 476  |
+|  3747  |  [Count Distinct Integers After Removing Zeros](/solution/3700-3799/3747.Count%20Distinct%20Integers%20After%20Removing%20Zeros/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Medium  |  Weekly Contest 476  |
+|  3748  |  [Count Stable Subarrays](/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`  |  Hard  |  Weekly Contest 476  |
+|  3749  |  [Evaluate Valid Expressions](/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README_EN.md)  |  `Stack`,`Hash Table`,`Math`,`String`,`Divide and Conquer`  |  Hard  |  🔒  |
+|  3750  |  [Minimum Number of Flips to Reverse Binary String](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README_EN.md)  |  `Bit Manipulation`,`Math`,`Two Pointers`,`String`  |  Easy  |  Biweekly Contest 170  |
+|  3751  |  [Total Waviness of Numbers in Range I](/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md)  |  `Math`,`Dynamic Programming`,`Enumeration`  |  Medium  |  Biweekly Contest 170  |
+|  3752  |  [Lexicographically Smallest Negated Permutation that Sums to Target](/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Two Pointers`,`Sorting`  |  Medium  |  Biweekly Contest 170  |
+|  3753  |  [Total Waviness of Numbers in Range II](/solution/3700-3799/3753.Total%20Waviness%20of%20Numbers%20in%20Range%20II/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 170  |
+|  3754  |  [Concatenate Non-Zero Digits and Multiply by Sum I](/solution/3700-3799/3754.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20I/README_EN.md)  |  `Math`  |  Easy  |  Weekly Contest 477  |
+|  3755  |  [Find Maximum Balanced XOR Subarray Length](/solution/3700-3799/3755.Find%20Maximum%20Balanced%20XOR%20Subarray%20Length/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Prefix Sum`  |  Medium  |  Weekly Contest 477  |
+|  3756  |  [Concatenate Non-Zero Digits and Multiply by Sum II](/solution/3700-3799/3756.Concatenate%20Non-Zero%20Digits%20and%20Multiply%20by%20Sum%20II/README_EN.md)  |  `Math`,`String`,`Prefix Sum`  |  Medium  |  Weekly Contest 477  |
+|  3757  |  [Number of Effective Subsequences](/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README_EN.md)  |  `Bit Manipulation`,`Array`,`Math`,`Dynamic Programming`,`Combinatorics`  |  Hard  |  Weekly Contest 477  |
+|  3758  |  [Convert Number Words to Digits](/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README_EN.md)  |  `Trie`,`String`  |  Medium  |  🔒  |
+|  3759  |  [Count Elements With at Least K Greater Values](/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README_EN.md)  |  `Array`,`Binary Search`,`Divide and Conquer`,`Quickselect`,`Sorting`  |  Medium  |  Weekly Contest 478  |
+|  3760  |  [Maximum Substrings With Distinct Start](/solution/3700-3799/3760.Maximum%20Substrings%20With%20Distinct%20Start/README_EN.md)  |  `Hash Table`,`String`  |  Medium  |  Weekly Contest 478  |
+|  3761  |  [Minimum Absolute Distance Between Mirror Pairs](/solution/3700-3799/3761.Minimum%20Absolute%20Distance%20Between%20Mirror%20Pairs/README_EN.md)  |  `Array`,`Hash Table`,`Math`  |  Medium  |  Weekly Contest 478  |
+|  3762  |  [Minimum Operations to Equalize Subarrays](/solution/3700-3799/3762.Minimum%20Operations%20to%20Equalize%20Subarrays/README_EN.md)  |  `Segment Tree`,`Array`,`Math`,`Binary Search`  |  Hard  |  Weekly Contest 478  |
+|  3763  |  [Maximum Total Sum with Threshold Constraints](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  🔒  |
 |  3764  |  [Most Common Course Pairs](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README_EN.md)  |    |  Hard  |    |
-|  3765  |  [Complete Prime Number](/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
-|  3766  |  [Minimum Operations to Make Binary Palindrome](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
-|  3767  |  [Maximize Points After Choosing K Tasks](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md)  |    |  Medium  |  Biweekly Contest 171  |
-|  3768  |  [Minimum Inversion Count in Subarrays of Fixed Length](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README_EN.md)  |    |  Hard  |  Biweekly Contest 171  |
-|  3769  |  [Sort Integers by Binary Reflection](/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README_EN.md)  |    |  Easy  |  Weekly Contest 479  |
-|  3770  |  [Largest Prime from Consecutive Prime Sum](/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README_EN.md)  |    |  Medium  |  Weekly Contest 479  |
-|  3771  |  [Total Score of Dungeon Runs](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md)  |    |  Medium  |  Weekly Contest 479  |
-|  3772  |  [Maximum Subgraph Score in a Tree](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Weekly Contest 479  |
-|  3773  |  [Maximum Number of Equal Length Runs](/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README_EN.md)  |    |  Medium  |  🔒  |
+|  3765  |  [Complete Prime Number](/solution/3700-3799/3765.Complete%20Prime%20Number/README_EN.md)  |  `Math`,`Enumeration`,`Number Theory`  |  Medium  |  Biweekly Contest 171  |
+|  3766  |  [Minimum Operations to Make Binary Palindrome](/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README_EN.md)  |  `Bit Manipulation`,`Array`,`Two Pointers`,`Binary Search`  |  Medium  |  Biweekly Contest 171  |
+|  3767  |  [Maximize Points After Choosing K Tasks](/solution/3700-3799/3767.Maximize%20Points%20After%20Choosing%20K%20Tasks/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Biweekly Contest 171  |
+|  3768  |  [Minimum Inversion Count in Subarrays of Fixed Length](/solution/3700-3799/3768.Minimum%20Inversion%20Count%20in%20Subarrays%20of%20Fixed%20Length/README_EN.md)  |  `Segment Tree`,`Array`,`Sliding Window`  |  Hard  |  Biweekly Contest 171  |
+|  3769  |  [Sort Integers by Binary Reflection](/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README_EN.md)  |  `Array`,`Sorting`  |  Easy  |  Weekly Contest 479  |
+|  3770  |  [Largest Prime from Consecutive Prime Sum](/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README_EN.md)  |  `Array`,`Math`,`Number Theory`  |  Medium  |  Weekly Contest 479  |
+|  3771  |  [Total Score of Dungeon Runs](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 479  |
+|  3772  |  [Maximum Subgraph Score in a Tree](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 479  |
+|  3773  |  [Maximum Number of Equal Length Runs](/solution/3700-3799/3773.Maximum%20Number%20of%20Equal%20Length%20Runs/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Medium  |  🔒  |
 |  3774  |  [Absolute Difference Between Maximum and Minimum K Elements](/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README_EN.md)  |    |  Easy  |  Weekly Contest 480  |
 |  3775  |  [Reverse Words With Same Vowel Count](/solution/3700-3799/3775.Reverse%20Words%20With%20Same%20Vowel%20Count/README_EN.md)  |    |  Medium  |  Weekly Contest 480  |
 |  3776  |  [Minimum Moves to Balance Circular Array](/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 480  |
 |  3777  |  [Minimum Deletions to Make Alternating Substring](/solution/3700-3799/3777.Minimum%20Deletions%20to%20Make%20Alternating%20Substring/README_EN.md)  |    |  Hard  |  Weekly Contest 480  |
+|  3778  |  [Minimum Distance Excluding One Maximum Weighted Edge](/solution/3700-3799/3778.Minimum%20Distance%20Excluding%20One%20Maximum%20Weighted%20Edge/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

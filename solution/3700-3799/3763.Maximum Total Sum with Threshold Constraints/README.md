@@ -2,11 +2,16 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README.md
+tags:
+    - 贪心
+    - 数组
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
 
-# [3763. Maximum Total Sum with Threshold Constraints 🔒](https://leetcode.cn/problems/maximum-total-sum-with-threshold-constraints)
+# [3763. 带阈值约束的最大总和 🔒](https://leetcode.cn/problems/maximum-total-sum-with-threshold-constraints)
 
 [English Version](/solution/3700-3799/3763.Maximum%20Total%20Sum%20with%20Threshold%20Constraints/README_EN.md)
 
@@ -14,74 +19,76 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3763.Ma
 
 <!-- description:start -->
 
-<p>You are given two integer arrays <code>nums</code> and <code>threshold</code>, both of length <code>n</code>.</p>
+<p>给定两个整数数组&nbsp;<code>nums</code> 和&nbsp;<code>threshold</code>，长度都是&nbsp;<code>n</code>。</p>
 
-<p>Starting at <code>step = 1</code>, you perform the following repeatedly:</p>
+<p>从&nbsp;<code>step = 1</code>&nbsp;开始，重复执行下面操作：</p>
 
 <ul>
-	<li>Choose an <strong>unused</strong> index <code>i</code> such that <code>threshold[i] &lt;= step</code>.
+	<li>找到一个 <strong>未使用</strong>&nbsp;的下标&nbsp;<code>i</code> 使得&nbsp;<code>threshold[i] &lt;= step</code>。
 
     <ul>
-    	<li>If no such index exists, the process ends.</li>
+    	<li>如果没有这样的下标存在，流程结束。</li>
     </ul>
     </li>
-    <li>Add <code>nums[i]</code> to your running total.</li>
-    <li>Mark index <code>i</code> as used and increment <code>step</code> by 1.</li>
+    <li>将 <code>nums[i]</code> 加到你的累计总和中。</li>
+    <li>将索引 <code>i</code> 标记为已使用，并将&nbsp;<code>step</code> 增加 1。</li>
 
 </ul>
 
-<p>Return the <strong>maximum</strong> <strong>total sum</strong> you can obtain by choosing indices optimally.</p>
+<p>返回通过选择索引来获得的 <strong>最大总和</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,10,4,2,1,6], threshold = [5,1,5,5,2,2]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [1,10,4,2,1,6], threshold = [5,1,5,5,2,2]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">17</span></p>
+<p><span class="example-io"><b>输出：</b>17</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>At <code>step = 1</code>, choose <code>i = 1</code> since <code>threshold[1] &lt;= step</code>. The total sum becomes 10. Mark index 1.</li>
-	<li>At <code>step = 2</code>, choose <code>i = 4</code> since <code>threshold[4] &lt;= step</code>. The total sum becomes 11. Mark index 4.</li>
-	<li>At <code>step = 3</code>, choose <code>i = 5</code> since <code>threshold[5] &lt;= step</code>. The total sum becomes 17. Mark index 5.</li>
-	<li>At <code>step = 4</code>, we cannot choose indices 0, 2, or 3 because their thresholds are <code>&gt; 4</code>, so we end the process.</li>
+	<li>在&nbsp;<code>step = 1</code>，由于&nbsp;<code>threshold[1] &lt;= step</code>，选择&nbsp;<code>i = 1</code>。总和变为 10。标记下标 1。</li>
+	<li>在&nbsp;<code>step = 2</code>，由于&nbsp;<code>threshold[4] &lt;= step</code>，选择&nbsp;<code>i = 4</code>。总和变为 11。标记下标 4。</li>
+	<li>在&nbsp;<code>step = 3</code>，由于&nbsp;<code>threshold[5] &lt;= step</code>，选择&nbsp;<code>i = 5</code>。总和变为 17。标记下标 5。</li>
+	<li>在&nbsp;<code>step = 4</code>，我们不能选择下标 0，2 或 3 因为它们的阈值&nbsp;<code>&gt; 4</code>，所以我们结束流程。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [4,1,5,2,3], threshold = [3,3,2,3,3]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [4,1,5,2,3], threshold = [3,3,2,3,3]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+<p><span class="example-io"><b>输出：</b>0</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>At <code>step = 1</code> there is no index <code>i</code> with <code>threshold[i] &lt;= 1</code>, so the process ends immediately. Thus, the total sum is 0.</p>
+<p>在&nbsp;<code>step = 1</code>&nbsp;时没有下标&nbsp;<code>i</code> 使得&nbsp;<code>threshold[i] &lt;= 1</code>，所以流程立刻结束。因此，总和为 0。</p>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [2,6,10,13], threshold = [2,1,1,1]</span></p>
+<p><strong>输入：</strong><span class="example-io">nums = [2,6,10,13], threshold = [2,1,1,1]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">31</span></p>
+<p><span class="example-io"><b>输出：</b>31</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>At <code>step = 1</code>, choose <code>i = 3</code> since <code>threshold[3] &lt;= step</code>. The total sum becomes 13. Mark index 3.</li>
-	<li>At <code>step = 2</code>, choose <code>i = 2</code> since <code>threshold[2] &lt;= step</code>. The total sum becomes 23. Mark index 2.</li>
-	<li>At <code>step = 3</code>, choose <code>i = 1</code> since <code>threshold[1] &lt;= step</code>. The total sum becomes 29. Mark index 1.</li>
-	<li>At <code>step = 4</code>, choose <code>i = 0</code> since <code>threshold[0] &lt;= step</code>. The total sum becomes 31. Mark index 0.</li>
-	<li>After <code>step = 4</code> all indices have been chosen, so the process ends.</li>
+	<li>在&nbsp;<code>step = 1</code>，由于&nbsp;<code>threshold[3] &lt;= step</code>，选择&nbsp;<code>i = 3</code>。总和变为 13。标记下标 3。</li>
+	<li>在&nbsp;<code>step = 2</code>，由于&nbsp;<code>threshold[2] &lt;= step</code>，选择&nbsp;<code>i = 2</code>。总和变为 23。标记下标 2。</li>
+	<li>在&nbsp;<code>step = 3</code>，由于&nbsp;<code>threshold[1] &lt;= step</code>，选择&nbsp;<code>i = 1</code>。总和变为 29。标记下标 1。</li>
+	<li>在&nbsp;<code>step = 4</code>，由于&nbsp;<code>threshold[0] &lt;= step</code>，选择&nbsp;<code>i = 0</code>。总和变为 31。标记下标 0。</li>
+	<li>在&nbsp;<code>step = 4</code>&nbsp;后所有下标都已经被选择，所以流程结束。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == nums.length == threshold.length</code></li>

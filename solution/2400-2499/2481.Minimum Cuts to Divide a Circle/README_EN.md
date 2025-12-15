@@ -66,9 +66,9 @@ Also note that the first cut will not divide the circle into distinct parts.
 
 ### Solution 1: Case Discussion
 
--   When $n=1$, no cutting is needed, so the number of cuts is $0$;
--   When $n$ is odd, there is no collinear situation, and at least $n$ cuts are needed;
--   When $n$ is even, they can be collinear in pairs, and at least $\frac{n}{2}$ cuts are needed.
+- When $n=1$, no cutting is needed, so the number of cuts is $0$;
+- When $n$ is odd, there is no collinear situation, and at least $n$ cuts are needed;
+- When $n$ is even, they can be collinear in pairs, and at least $\frac{n}{2}$ cuts are needed.
 
 In summary, we can get:
 

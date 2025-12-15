@@ -34,10 +34,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2037.%20%E6%9C%80%
 
 **限制：**
 
--   `1 <= lines.length <= 10^5 且 lines[i].length == 2`
--   `1 <= lines[0] <= 10000`
--   `-10000 <= lines[1] <= 10000`
--   `与标准答案绝对误差或相对误差在 10^-4 以内的结果都被视为正确结果`
+- `1 <= lines.length <= 10^5 且 lines[i].length == 2`
+- `1 <= lines[0] <= 10000`
+- `-10000 <= lines[1] <= 10000`
+- `与标准答案绝对误差或相对误差在 10^-4 以内的结果都被视为正确结果`
 
 <!-- description:end -->
 

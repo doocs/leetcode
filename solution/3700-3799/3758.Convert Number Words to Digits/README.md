@@ -2,11 +2,14 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README.md
+tags:
+    - 字典树
+    - 字符串
 ---
 
 <!-- problem:start -->
 
-# [3758. Convert Number Words to Digits 🔒](https://leetcode.cn/problems/convert-number-words-to-digits)
+# [3758. 将数字词转换为数字 🔒](https://leetcode.cn/problems/convert-number-words-to-digits)
 
 [English Version](/solution/3700-3799/3758.Convert%20Number%20Words%20to%20Digits/README_EN.md)
 
@@ -14,87 +17,89 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3758.Co
 
 <!-- description:start -->
 
-<p>You are given a string <code>s</code> consisting of lowercase English letters. <code>s</code> may contain <strong>valid concatenated</strong> English words representing the digits 0 to 9, without spaces.</p>
+<p>给定一个由小写英文字母组成的字符串&nbsp;<code>s</code>。<code>s</code> 可能包含表示数字 0 到 9 的 <strong>有效连续</strong> 英文单词，没有空格。</p>
 
-<p>Your task is to <strong>extract</strong> each valid number word <strong>in order</strong> and convert it to its corresponding digit, producing a string of digits.</p>
+<p>你的任务是 <strong>按顺序</strong> 提取 <strong>每个</strong> 有效的数字词，并将其转换为相应的数字，生成一个数字字符串。</p>
 
-<p>Parse <code>s</code> from left to right. At each position:</p>
+<p>从左往右解析&nbsp;<code>s</code>。在每个位置：</p>
 
 <ul>
-	<li>If a valid number word starts at the current position, append its corresponding digit to the result and advance by the length of that word.</li>
-	<li>Otherwise, skip <strong>exactly</strong> one character and continue parsing.</li>
+	<li>如果当前位置有一个有效的数字单词，将其对应的数字添加到结果中，并将位置向前移动该单词的长度。</li>
+	<li>否则，跳过 <strong>恰好</strong> 一个字符，继续解析。</li>
 </ul>
 
-<p>Return the resulting digit string. If no number words are found, return an empty string.</p>
+<p>返回结果数字字符串。如果没有找到数字单词，返回空字符串。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;onefourthree&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "onefourthree"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;143&quot;</span></p>
+<p><span class="example-io"><b>输出：</b>"143"</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Parsing from left to right, extract the valid number words &quot;one&quot;, &quot;four&quot;, &quot;three&quot;.</li>
-	<li>These map to digits 1, 4, 3. Thus, the final result is <code>&quot;143&quot;</code>.</li>
+	<li>从左到右解析，提取有效的数字词 "one"，"four"，"three"。</li>
+	<li>他们映射到数字 1，4，3。因此，最终结果是&nbsp;<code>"143"</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;ninexsix&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "ninexsix"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;96&quot;</span></p>
+<p><span class="example-io"><b>输出：</b>"96"</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>The substring <code>&quot;nine&quot;</code> is a valid number word and maps to 9.</li>
-	<li>The character <code>&quot;x&quot;</code> does not match any valid number word prefix and is skipped.</li>
-	<li>Then, the substring <code>&quot;six&quot;</code> is a valid number word and maps to 6, so the final result is <code>&quot;96&quot;</code>.</li>
+	<li>子字符串&nbsp;<code>"nine"</code>&nbsp;是一个合法的数字词，映射到 9。</li>
+	<li>字符&nbsp;<code>"x"</code>&nbsp;没有对应任何有效数字词的前缀，被跳过。</li>
+	<li>然后，子字符串&nbsp;<code>"six"</code>&nbsp;是一个有效的数字词并且被映射到 6，所以最后结果是&nbsp;<code>"96"</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;zeero&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "zeero"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;&quot;</span></p>
+<p><span class="example-io"><b>输出：</b>""</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>No substring forms a valid number word during left-to-right parsing.</li>
-	<li>All characters are skipped and incomplete fragments are ignored, so the result is an empty string.</li>
+	<li>在从左到右解析过程中，没有任何子串构成有效的数字词。</li>
+	<li>所有字符都被跳过，不完整的片段被忽略，因此结果是空字符串。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 4:</strong></p>
+<p><strong class="example">示例 4：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;tw&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "tw"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">&quot;&quot;</span></p>
+<p><span class="example-io"><b>输出：</b>""</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>No substring forms a valid number word during left-to-right parsing.</li>
-	<li>All characters are skipped and incomplete fragments are ignored, so the result is an empty string.</li>
+	<li>在从左到右解析过程中，没有任何子串构成有效的数字词。</li>
+	<li>所有字符都被跳过，不完整的片段被忽略，因此结果是空字符串。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> contains only lowercase English letters.</li>
+	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
 <!-- description:end -->

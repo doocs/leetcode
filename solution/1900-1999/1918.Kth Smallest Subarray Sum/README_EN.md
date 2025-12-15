@@ -83,9 +83,9 @@ The problem reduces to calculating the number of subarrays in an array with sums
 
 The function $f(s)$ is calculated as follows:
 
--   Initialize two pointers $j$ and $i$, representing the left and right boundaries of the current window, with $j = i = 0$. Also, initialize the sum of elements in the window $t = 0$.
--   Use a variable $\textit{cnt}$ to record the number of subarrays with sums less than or equal to $s$, initially $\textit{cnt} = 0$.
--   Traverse the array $\textit{nums}$. For each element $\textit{nums}[i]$, add it to the window, i.e., $t = t + \textit{nums}[i]$. If $t > s$, move the left boundary of the window to the right until $t \leq s$, i.e., repeatedly execute $t -= \textit{nums}[j]$ and $j = j + 1$. Then update $\textit{cnt}$ as $\textit{cnt} = \textit{cnt} + i - j + 1$. Continue to the next element until the entire array is traversed.
+- Initialize two pointers $j$ and $i$, representing the left and right boundaries of the current window, with $j = i = 0$. Also, initialize the sum of elements in the window $t = 0$.
+- Use a variable $\textit{cnt}$ to record the number of subarrays with sums less than or equal to $s$, initially $\textit{cnt} = 0$.
+- Traverse the array $\textit{nums}$. For each element $\textit{nums}[i]$, add it to the window, i.e., $t = t + \textit{nums}[i]$. If $t > s$, move the left boundary of the window to the right until $t \leq s$, i.e., repeatedly execute $t -= \textit{nums}[j]$ and $j = j + 1$. Then update $\textit{cnt}$ as $\textit{cnt} = \textit{cnt} + i - j + 1$. Continue to the next element until the entire array is traversed.
 
 Finally, return $cnt$ as the result of the function $f(s)$.
 

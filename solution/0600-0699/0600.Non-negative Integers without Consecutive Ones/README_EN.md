@@ -78,16 +78,16 @@ Here, we use memoized search to implement Digit DP. The basic steps are as follo
 
 First, we get the binary length of the number $n$, denoted as $m$. Then, based on the problem information, we design a function $\textit{dfs}(i, \textit{pre}, \textit{limit})$, where:
 
--   The digit $i$ represents the current position being searched, starting from the highest digit, i.e., the first character of the binary string.
--   The digit $\textit{pre}$ represents the digit at the previous binary position. For this problem, the initial value of $\textit{pre}$ is $0$.
--   The boolean $\textit{limit}$ indicates whether the digits that can be filled are restricted. If there is no restriction, then we can choose $[0,1]$. Otherwise, we can only choose $[0, \textit{up}]$.
+- The digit $i$ represents the current position being searched, starting from the highest digit, i.e., the first character of the binary string.
+- The digit $\textit{pre}$ represents the digit at the previous binary position. For this problem, the initial value of $\textit{pre}$ is $0$.
+- The boolean $\textit{limit}$ indicates whether the digits that can be filled are restricted. If there is no restriction, then we can choose $[0,1]$. Otherwise, we can only choose $[0, \textit{up}]$.
 
 The function executes as follows:
 
 If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search is over, directly return $1$. Otherwise, we enumerate the digits $j$ from $0$ to $\textit{up}$ for the position $i$. For each $j$:
 
--   If both $\textit{pre}$ and $j$ are $1$, it means there are consecutive $1$, so we skip it.
--   Otherwise, we recurse to the next level, update $\textit{pre}$ to $j$, and update $\textit{limit}$ to the logical AND of $\textit{limit}$ and whether $j$ equals $\textit{up}$.
+- If both $\textit{pre}$ and $j$ are $1$, it means there are consecutive $1$, so we skip it.
+- Otherwise, we recurse to the next level, update $\textit{pre}$ to $j$, and update $\textit{limit}$ to the logical AND of $\textit{limit}$ and whether $j$ equals $\textit{up}$.
 
 Finally, we sum all the results from the recursive calls to the next level, which is the answer.
 
@@ -95,12 +95,12 @@ The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Her
 
 Similar problems:
 
--   [233. Number of Digit One](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
--   [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
--   [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
--   [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
--   [1012. Numbers With Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
--   [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
+- [233. Number of Digit One](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
+- [357. Count Numbers with Unique Digits](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README_EN.md)
+- [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
+- [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
+- [1012. Numbers With Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
+- [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
 
 <!-- tabs:start -->
 

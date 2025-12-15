@@ -102,7 +102,7 @@ tags:
 
 相似题目：
 
--   [2572. 无平方子集计数](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
+- [2572. 无平方子集计数](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2572.Count%20the%20Number%20of%20Square-Free%20Subsets/README.md)
 
 <!-- tabs:start -->
 
