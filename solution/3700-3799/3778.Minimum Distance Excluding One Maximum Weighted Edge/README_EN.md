@@ -88,7 +88,27 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3778.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dijkstra's Algorithm
+
+The problem is essentially equivalent to finding a path from node $0$ to node $n-1$, where we have one opportunity to treat the weight of a traversed edge as $0$, in order to minimize the sum of path weights.
+
+We first convert $\textit{edges}$ into an adjacency list $\textit{g}$, where $\textit{g}[u]$ stores all edges $(v, w)$ connected to node $u$, indicating that there is an edge with weight $w$ between node $u$ and node $v$.
+
+Next, we use Dijkstra's algorithm to find the shortest path. We define a 2D array $\textit{dist}$, where $\textit{dist}[u][0]$ represents the minimum sum of path weights from node $0$ to node $u$ without using the opportunity to treat an edge weight as $0$; $\textit{dist}[u][1]$ represents the minimum sum of path weights from node $0$ to node $u$ having already used the opportunity to treat an edge weight as $0$.
+
+We use a priority queue $\textit{pq}$ to store pending nodes. Initially, we enqueue $(0, 0, 0)$, indicating that we start from node $0$, with a current path weight sum of $0$, and haven't used the opportunity.
+
+In each iteration, we dequeue the node $(\textit{cur}, u, \textit{used})$ with the minimum path weight sum from the priority queue. If the current path weight sum $\textit{cur}$ is greater than $\textit{dist}[u][\textit{used}]$, we skip this node.
+
+If the current node $u$ is node $n-1$ and we have already used the opportunity $\textit{used} = 1$, we return the current path weight sum $\textit{cur}$.
+
+For each edge $(v, w)$ of node $u$, we calculate the path weight sum to reach node $v$ without using the opportunity: $\textit{nxt} = \textit{cur} + w$. If $\textit{nxt} < \textit{dist}[v][\textit{used}]$, we update $\textit{dist}[v][\textit{used}]$ and enqueue $(\textit{nxt}, v, \textit{used})$.
+
+If we haven't used the opportunity yet $\textit{used} = 0$, we calculate the path weight sum to reach node $v$ when using the opportunity: $\textit{nxt} = \textit{cur}$. If $\textit{nxt} < \textit{dist}[v][1]$, we update $\textit{dist}[v][1]$ and enqueue $(\textit{nxt}, v, 1)$.
+
+After the traversal ends, we return $\textit{dist}[n-1][1]$ as the answer.
+
+The time complexity is $O(m \times \log n)$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
@@ -355,6 +375,66 @@ function minCostExcludingMax(n: number, edges: number[][]): number {
     }
 
     return dist[n - 1][1];
+}
+```
+
+#### Rust
+
+```rust
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn min_cost_excluding_max(n: i32, edges: Vec<Vec<i32>>) -> i64 {
+        let n = n as usize;
+
+        let mut g: Vec<Vec<(usize, i64)>> = vec![Vec::new(); n];
+        for e in edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            let w = e[2] as i64;
+            g[u].push((v, w));
+            g[v].push((u, w));
+        }
+
+        let inf: i64 = i64::MAX / 4;
+        let mut dist = vec![[inf; 2]; n];
+        dist[0][0] = 0;
+
+        // (cur_cost, node, used)
+        let mut pq = BinaryHeap::new();
+        pq.push(Reverse((0_i64, 0_usize, 0_usize)));
+
+        while let Some(Reverse((cur, u, used))) = pq.pop() {
+            if cur > dist[u][used] {
+                continue;
+            }
+
+            if u == n - 1 && used == 1 {
+                return cur;
+            }
+
+            for &(v, w) in &g[u] {
+                // normal edge
+                let nxt = cur + w;
+                if nxt < dist[v][used] {
+                    dist[v][used] = nxt;
+                    pq.push(Reverse((nxt, v, used)));
+                }
+
+                // skip max edge (only once)
+                if used == 0 {
+                    let nxt = cur;
+                    if nxt < dist[v][1] {
+                        dist[v][1] = nxt;
+                        pq.push(Reverse((nxt, v, 1)));
+                    }
+                }
+            }
+        }
+
+        dist[n - 1][1]
+    }
 }
 ```
 
