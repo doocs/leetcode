@@ -108,10 +108,10 @@ tags:
 
 函数 $\textit{dfs}(u, \textit{cost}, \textit{value})$ 的逻辑如下：
 
--   如果当前节点编号 $u$ 等于 $0$，表示我们已经回到了起点，那么我们更新答案为 $\max(\textit{ans}, \textit{value})$；
--   遍历当前节点 $u$ 的所有邻居节点 $v$，如果当前路径的花费时间加上边 $(u, v)$ 的时间 $t$ 不超过 $\textit{maxTime}$，那么我们可以选择继续访问节点 $v$；
-    -   如果节点 $v$ 已经被访问过，那么我们直接递归调用 $\textit{dfs}(v, \textit{cost} + t, \textit{value})$；
-    -   如果节点 $v$ 没有被访问过，我们标记节点 $v$ 为已访问，然后递归调用 $\textit{dfs}(v, \textit{cost} + t, \textit{value} + \textit{values}[v])$，最后恢复节点 $v$ 的访问状态。
+- 如果当前节点编号 $u$ 等于 $0$，表示我们已经回到了起点，那么我们更新答案为 $\max(\textit{ans}, \textit{value})$；
+- 遍历当前节点 $u$ 的所有邻居节点 $v$，如果当前路径的花费时间加上边 $(u, v)$ 的时间 $t$ 不超过 $\textit{maxTime}$，那么我们可以选择继续访问节点 $v$；
+    - 如果节点 $v$ 已经被访问过，那么我们直接递归调用 $\textit{dfs}(v, \textit{cost} + t, \textit{value})$；
+    - 如果节点 $v$ 没有被访问过，我们标记节点 $v$ 为已访问，然后递归调用 $\textit{dfs}(v, \textit{cost} + t, \textit{value} + \textit{values}[v])$，最后恢复节点 $v$ 的访问状态。
 
 在主函数中，我们调用 $\textit{dfs}(0, 0, \textit{values}[0])$，并返回答案 $\textit{ans}$ 即可。
 

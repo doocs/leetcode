@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3748.Count%20Stable%20Subarrays/README_EN.md
 rating: 2209
 source: Weekly Contest 476 Q4
+tags:
+    - Array
+    - Binary Search
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

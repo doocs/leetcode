@@ -84,8 +84,8 @@ First, we sort the array $nums$ and find the position $m$ of the median. The ini
 
 Next, we discuss in two cases:
 
--   If $nums[m] > k$, then all elements to the right of $m$ are greater than or equal to $k$. We only need to reduce the elements greater than $k$ on the left of $m$ to $k$.
--   If $nums[m] \le k$, then all elements to the left of $m$ are less than or equal to $k$. We only need to increase the elements less than $k$ on the right of $m$ to $k$.
+- If $nums[m] > k$, then all elements to the right of $m$ are greater than or equal to $k$. We only need to reduce the elements greater than $k$ on the left of $m$ to $k$.
+- If $nums[m] \le k$, then all elements to the left of $m$ are less than or equal to $k$. We only need to increase the elements less than $k$ on the right of $m$ to $k$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $nums$.
 

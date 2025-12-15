@@ -88,7 +88,7 @@ The time complexity is $O(n)$, where $n$ is the length of the array $target$. Th
 
 Similar problems:
 
--   [3229. Minimum Operations to Make Array Equal to Target](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)
+- [3229. Minimum Operations to Make Array Equal to Target](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3229.Minimum%20Operations%20to%20Make%20Array%20Equal%20to%20Target/README_EN.md)
 
 <!-- tabs:start -->
 

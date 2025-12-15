@@ -68,7 +68,7 @@ The time complexity is $O(M^{\frac{1}{4}} \times \log M)$, and the space complex
 
 Similar problems:
 
--   [2967. Minimum Cost to Make Array Equalindromic](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
+- [2967. Minimum Cost to Make Array Equalindromic](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2967.Minimum%20Cost%20to%20Make%20Array%20Equalindromic/README_EN.md)
 
 <!-- tabs:start -->
 

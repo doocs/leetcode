@@ -87,8 +87,8 @@ tags:
 
 According to the problem description, to maximize the number of target nodes for node $i$, we must connect node $i$ to one of the nodes $j$ in the second tree. Therefore, the number of target nodes for node $i$ can be divided into two parts:
 
--   In the first tree, the number of nodes reachable from node $i$ within a depth of $k$.
--   In the second tree, the maximum number of nodes reachable from any node $j$ within a depth of $k - 1$.
+- In the first tree, the number of nodes reachable from node $i$ within a depth of $k$.
+- In the second tree, the maximum number of nodes reachable from any node $j$ within a depth of $k - 1$.
 
 Thus, we can first calculate the number of nodes reachable within a depth of $k - 1$ for each node in the second tree. Then, we enumerate each node $i$ in the first tree, calculate the sum of the two parts mentioned above, and take the maximum value.
 

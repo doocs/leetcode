@@ -33,8 +33,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2025.%20%E5%8F%A4%
 
 **提示：**
 
--   `1 <= k <= 5`
--   `1 <= n <= 26*k`
+- `1 <= k <= 5`
+- `1 <= n <= 26*k`
 
 <!-- description:end -->
 

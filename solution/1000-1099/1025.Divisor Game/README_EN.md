@@ -66,11 +66,11 @@ tags:
 
 ### Solution 1: Mathematical Induction
 
--   When $n=1$, the first player loses.
--   When $n=2$, the first player takes $1$, leaving $1$, the second player loses, the first player wins.
--   When $n=3$, the first player takes $1$, leaving $2$, the second player wins, the first player loses.
--   When $n=4$, the first player takes $1$, leaving $3$, the second player loses, the first player wins.
--   ...
+- When $n=1$, the first player loses.
+- When $n=2$, the first player takes $1$, leaving $1$, the second player loses, the first player wins.
+- When $n=3$, the first player takes $1$, leaving $2$, the second player wins, the first player loses.
+- When $n=4$, the first player takes $1$, leaving $3$, the second player loses, the first player wins.
+- ...
 
 We conjecture that when $n$ is odd, the first player loses; when $n$ is even, the first player wins.
 

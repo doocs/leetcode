@@ -87,16 +87,16 @@ If both rows and columns are palindromic, then for any $i \in [0, m / 2)$ and $j
 
 Next, we discuss the parity of $m$ and $n$:
 
--   If both $m$ and $n$ are even, we directly return the answer.
--   If both $m$ and $n$ are odd, the center cell must be $0$ because the number of $1$s must be divisible by $4$.
--   If $m$ is odd and $n$ is even, we need to consider the middle row.
--   If $m$ is even and $n$ is odd, we need to consider the middle column.
+- If both $m$ and $n$ are even, we directly return the answer.
+- If both $m$ and $n$ are odd, the center cell must be $0$ because the number of $1$s must be divisible by $4$.
+- If $m$ is odd and $n$ is even, we need to consider the middle row.
+- If $m$ is even and $n$ is odd, we need to consider the middle column.
 
 For the latter two cases, we need to count the number of differing pairs of cells $\text{diff}$ in the middle row or column, and the number of cells that are the same and equal to $1$ $\text{cnt1}$. Then we discuss the following cases:
 
--   If $\text{cnt1} \bmod 4 = 0$, we only need to change the $\text{diff}$ cells to $0$, and the number of operations is $\text{diff                }$.
--   Otherwise, if $\text{cnt1} = 2$, if $\text{diff} \gt 0$, we can change one of the cells to $1$ to make $\text{cnt1} = 4$, and then change the remaining $\text{diff} - 1$ cells to $0$. The total number of operations is $\text{diff}$.
--   Otherwise, if $\text{diff} = 0$, we change the $2$ cells to $0$ to make $\text{cnt1} \bmod 4 = 0$, and the number of operations is $2$.
+- If $\text{cnt1} \bmod 4 = 0$, we only need to change the $\text{diff}$ cells to $0$, and the number of operations is $\text{diff                }$.
+- Otherwise, if $\text{cnt1} = 2$, if $\text{diff} \gt 0$, we can change one of the cells to $1$ to make $\text{cnt1} = 4$, and then change the remaining $\text{diff} - 1$ cells to $0$. The total number of operations is $\text{diff}$.
+- Otherwise, if $\text{diff} = 0$, we change the $2$ cells to $0$ to make $\text{cnt1} \bmod 4 = 0$, and the number of operations is $2$.
 
 We add the number of operations to the answer and finally return the answer.
 

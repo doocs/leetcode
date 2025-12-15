@@ -66,9 +66,9 @@ $$
 
 对于本题，我们设计一个函数 $f(x)$，表示数组 `nums` 中，最大值不超过 $x$ 的子数组个数。那么答案为 $f(right) - f(left-1)$。函数 $f(x)$ 的执行逻辑如下：
 
--   用变量 $cnt$ 记录最大值不超过 $x$ 的子数组的个数，用 $t$ 记录当前子数组的长度。
--   遍历数组 `nums`，对于每个元素 $nums[i]$，如果 $nums[i] \leq x$，则当前子数组的长度加一，即 $t=t+1$，否则当前子数组的长度重置为 0，即 $t=0$。然后将当前子数组的长度加到 $cnt$ 中，即 $cnt = cnt + t$。
--   遍历结束，将 $cnt$ 返回即可。
+- 用变量 $cnt$ 记录最大值不超过 $x$ 的子数组的个数，用 $t$ 记录当前子数组的长度。
+- 遍历数组 `nums`，对于每个元素 $nums[i]$，如果 $nums[i] \leq x$，则当前子数组的长度加一，即 $t=t+1$，否则当前子数组的长度重置为 0，即 $t=0$。然后将当前子数组的长度加到 $cnt$ 中，即 $cnt = cnt + t$。
+- 遍历结束，将 $cnt$ 返回即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
 
@@ -162,7 +162,7 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 
 相似题目：
 
--   [907. 子数组的最小值之和](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
+- [907. 子数组的最小值之和](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0907.Sum%20of%20Subarray%20Minimums/README.md)
 
 <!-- tabs:start -->
 

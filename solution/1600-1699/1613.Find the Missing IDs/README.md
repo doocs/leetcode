@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1613. 找到遗失的 ID 🔒](https://leetcode.cn/problems/find-the-missing-ids)
+# [1613. 找到遗失的ID 🔒](https://leetcode.cn/problems/find-the-missing-ids)
 
 [English Version](/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README_EN.md)
 

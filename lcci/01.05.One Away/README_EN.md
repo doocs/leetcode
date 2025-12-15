@@ -56,9 +56,9 @@ Let the lengths of the strings $\textit{first}$ and $\textit{second}$ be $m$ and
 
 Next, we discuss the following cases:
 
--   When $m - n \gt 1$, $\textit{first}$ and $\textit{second}$ cannot be made equal with one edit, so return `false`;
--   When $m = n$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if there is exactly one different character;
--   When $m - n = 1$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if $\textit{second}$ is obtained by deleting one character from $\textit{first}$. We can use two pointers to achieve this.
+- When $m - n \gt 1$, $\textit{first}$ and $\textit{second}$ cannot be made equal with one edit, so return `false`;
+- When $m = n$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if there is exactly one different character;
+- When $m - n = 1$, $\textit{first}$ and $\textit{second}$ can be made equal with one edit only if $\textit{second}$ is obtained by deleting one character from $\textit{first}$. We can use two pointers to achieve this.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 

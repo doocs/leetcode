@@ -84,7 +84,7 @@ The time complexity is $O(n + C \times M)$, and the space complexity is $O(M)$. 
 
 Similar problems:
 
--   [1994. The Number of Good Subsets](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
+- [1994. The Number of Good Subsets](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1994.The%20Number%20of%20Good%20Subsets/README_EN.md)
 
 <!-- tabs:start -->
 

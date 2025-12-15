@@ -70,8 +70,8 @@ tags:
 
 我们可以枚举四元组中的 $j$ 和 $k$，那么问题转化为，对于当前的 $j$ 和 $k$：
 
--   统计有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$；
--   统计有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
+- 统计有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$；
+- 统计有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
 
 我们可以使用两个二维数组 $f$ 和 $g$ 分别记录这两个信息。其中 $f[j][k]$ 表示有多少个 $l$ 满足 $l \gt k$ 且 $nums[l] \gt nums[j]$，而 $g[j][k]$ 表示有多少个 $i$ 满足 $i \lt j$ 且 $nums[i] \lt nums[k]$。
 

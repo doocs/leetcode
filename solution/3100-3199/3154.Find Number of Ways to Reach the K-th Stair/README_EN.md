@@ -119,10 +119,10 @@ We design a function `dfs(i, j, jump)`, which represents the number of ways to r
 
 The calculation process of the function `dfs(i, j, jump)` is as follows:
 
--   If $i > k + 1$, since we cannot go down twice in a row, we cannot reach the $k$th step again, so return $0$;
--   If $i = k$, it means that we have reached the $k$th step. The answer is initialized to $1$, and then continue to calculate;
--   If $i > 0$ and $j = 0$, it means that we can go down, recursively calculate `dfs(i - 1, 1, jump)`;
--   Recursively calculate `dfs(i + 2^{jump}, 0, jump + 1)`, and add it to the answer.
+- If $i > k + 1$, since we cannot go down twice in a row, we cannot reach the $k$th step again, so return $0$;
+- If $i = k$, it means that we have reached the $k$th step. The answer is initialized to $1$, and then continue to calculate;
+- If $i > 0$ and $j = 0$, it means that we can go down, recursively calculate `dfs(i - 1, 1, jump)`;
+- Recursively calculate `dfs(i + 2^{jump}, 0, jump + 1)`, and add it to the answer.
 
 To avoid repeated calculations, we use memoization search to save the calculated states.
 

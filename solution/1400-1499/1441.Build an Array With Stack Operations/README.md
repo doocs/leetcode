@@ -101,9 +101,9 @@ tags:
 
 接下来，我们遍历数组 $\textit{target}$ 中的每个数字 $x$：
 
--   如果 $\textit{cur} < x$，我们将 $\textit{Push}$ 和 $\textit{Pop}$ 依次加入答案，直到 $\textit{cur} = x$；
--   然后我们将 $\textit{Push}$ 加入答案，表示读取数字 $x$；
--   接着，我们将 $\textit{cur}$ 加一，继续处理下一个数字。
+- 如果 $\textit{cur} < x$，我们将 $\textit{Push}$ 和 $\textit{Pop}$ 依次加入答案，直到 $\textit{cur} = x$；
+- 然后我们将 $\textit{Push}$ 加入答案，表示读取数字 $x$；
+- 接着，我们将 $\textit{cur}$ 加一，继续处理下一个数字。
 
 遍历结束后，返回答案数组即可。
 

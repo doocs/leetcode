@@ -84,7 +84,7 @@ $$
 
 相似题目：
 
--   [322. 零钱兑换](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0322.Coin%20Change/README.md)
+- [322. 零钱兑换](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0322.Coin%20Change/README.md)
 
 <!-- tabs:start -->
 

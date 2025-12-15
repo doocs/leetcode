@@ -68,9 +68,9 @@ We use a variable $ans$ to record the current length of the array, and a variabl
 
 We start traversing from the second element of the array. Let the current element be $x$:
 
--   If $x = 0$, then the product of the entire array is $0 \le k$, so the minimum length of the answer array is $1$, and we can return directly.
--   If $x \times y \le k$, then we can merge $x$ and $y$, that is, $y = x \times y$.
--   If $x \times y \gt k$, then we cannot merge $x$ and $y$, so we need to treat $x$ as a separate element, that is, $ans = ans + 1$, and $y = x$.
+- If $x = 0$, then the product of the entire array is $0 \le k$, so the minimum length of the answer array is $1$, and we can return directly.
+- If $x \times y \le k$, then we can merge $x$ and $y$, that is, $y = x \times y$.
+- If $x \times y \gt k$, then we cannot merge $x$ and $y$, so we need to treat $x$ as a separate element, that is, $ans = ans + 1$, and $y = x$.
 
 The final answer is $ans$.
 

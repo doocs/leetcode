@@ -188,10 +188,10 @@ function findLatestTime(s: string): string {
 
 We can judge each digit of $s$ one by one. If it is "?", we determine the value of this digit based on the characters before and after it. Specifically, we have the following rules:
 
--   If $s[0]$ is "?", then the value of $s[0]$ should be "1" or "0", depending on the value of $s[1]$. If $s[1]$ is "?" or $s[1]$ is less than "2", then the value of $s[0]$ should be "1", otherwise the value of $s[0]$ should be "0".
--   If $s[1]$ is "?", then the value of $s[1]$ should be "1" or "9", depending on the value of $s[0]$. If $s[0]$ is "1", then the value of $s[1]$ should be "1", otherwise the value of $s[1]$ should be "9".
--   If $s[3]$ is "?", then the value of $s[3]$ should be "5".
--   If $s[4]$ is "?", then the value of $s[4]$ should be "9".
+- If $s[0]$ is "?", then the value of $s[0]$ should be "1" or "0", depending on the value of $s[1]$. If $s[1]$ is "?" or $s[1]$ is less than "2", then the value of $s[0]$ should be "1", otherwise the value of $s[0]$ should be "0".
+- If $s[1]$ is "?", then the value of $s[1]$ should be "1" or "9", depending on the value of $s[0]$. If $s[0]$ is "1", then the value of $s[1]$ should be "1", otherwise the value of $s[1]$ should be "9".
+- If $s[3]$ is "?", then the value of $s[3]$ should be "5".
+- If $s[4]$ is "?", then the value of $s[4]$ should be "9".
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

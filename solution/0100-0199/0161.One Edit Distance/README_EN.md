@@ -66,8 +66,8 @@ If $m-n > 1$, return false directly;
 
 Otherwise, iterate through $s$ and $t$, if $s[i]$ is not equal to $t[i]$:
 
--   If $m \neq n$, compare $s[i+1:]$ with $t[i:]$, return true if they are equal, otherwise return false;
--   If $m = n$, compare $s[i:]$ with $t[i:]$, return true if they are equal, otherwise return false.
+- If $m \neq n$, compare $s[i+1:]$ with $t[i:]$, return true if they are equal, otherwise return false;
+- If $m = n$, compare $s[i:]$ with $t[i:]$, return true if they are equal, otherwise return false.
 
 If the iteration ends, it means that all the characters of $s$ and $t$ that have been iterated are equal, at this time it needs to satisfy $m=n+1$.
 

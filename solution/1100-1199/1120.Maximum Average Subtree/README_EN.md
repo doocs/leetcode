@@ -68,9 +68,9 @@ Therefore, we design a function `dfs(root)` that represents the sum and count of
 
 The recursive process of the function `dfs(root)` is as follows:
 
--   If `root` is null, return `[0, 0]`;
--   Otherwise, calculate the sum and count of nodes in the left subtree of `root`, denoted as `[ls, ln]`; calculate the sum and count of nodes in the right subtree of `root`, denoted as `[rs, rn]`. The sum of nodes in the subtree rooted at `root` is `root.val + ls + rs`, and the count of nodes is `1 + ln + rn`. Calculate the average, compare it with the current maximum, and update the maximum if necessary;
--   Return `[root.val + ls + rs, 1 + ln + rn]`.
+- If `root` is null, return `[0, 0]`;
+- Otherwise, calculate the sum and count of nodes in the left subtree of `root`, denoted as `[ls, ln]`; calculate the sum and count of nodes in the right subtree of `root`, denoted as `[rs, rn]`. The sum of nodes in the subtree rooted at `root` is `root.val + ls + rs`, and the count of nodes is `1 + ln + rn`. Calculate the average, compare it with the current maximum, and update the maximum if necessary;
+- Return `[root.val + ls + rs, 1 + ln + rn]`.
 
 Finally, return the maximum value.
 

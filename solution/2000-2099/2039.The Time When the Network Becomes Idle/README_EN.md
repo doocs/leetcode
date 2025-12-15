@@ -50,20 +50,20 @@ At (the beginning of) second 0,
 
 At second 1,
 
--   Message 1A arrives at the master server. Master server processes message 1A instantly and sends a reply 1A back.
--   Server 1 has not received any reply. 1 second (1 &lt; patience[1] = 2) elapsed since this server has sent the message, therefore it does not resend the message.
--   Server 2 has not received any reply. 1 second (1 == patience[2] = 1) elapsed since this server has sent the message, therefore it resends the message (denoted 2B).
+- Message 1A arrives at the master server. Master server processes message 1A instantly and sends a reply 1A back.
+- Server 1 has not received any reply. 1 second (1 &lt; patience[1] = 2) elapsed since this server has sent the message, therefore it does not resend the message.
+- Server 2 has not received any reply. 1 second (1 == patience[2] = 1) elapsed since this server has sent the message, therefore it resends the message (denoted 2B).
 
 At second 2,
 
--   The reply 1A arrives at server 1. No more resending will occur from server 1.
--   Message 2A arrives at the master server. Master server processes message 2A instantly and sends a reply 2A back.
--   Server 2 resends the message (denoted 2C).
-    ...
-    At second 4,
--   The reply 2A arrives at server 2. No more resending will occur from server 2.
-    ...
-    At second 7, reply 2D arrives at server 2.
+- The reply 1A arrives at server 1. No more resending will occur from server 1.
+- Message 2A arrives at the master server. Master server processes message 2A instantly and sends a reply 2A back.
+- Server 2 resends the message (denoted 2C).
+  ...
+  At second 4,
+- The reply 2A arrives at server 2. No more resending will occur from server 2.
+  ...
+  At second 7, reply 2D arrives at server 2.
 
 Starting from the beginning of the second 8, there are no messages passing between servers or arriving at servers.
 This is the time when the network becomes idle.

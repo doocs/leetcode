@@ -94,9 +94,9 @@ tags:
 
 函数 $dfs(root)$ 的执行逻辑如下：
 
--   如果 $root$ 为空，返回空字符串；
--   如果 $root$ 是叶子节点，返回 $root.val$；
--   否则，返回 $dfs(root.left) + dfs(root.right)$。
+- 如果 $root$ 为空，返回空字符串；
+- 如果 $root$ 是叶子节点，返回 $root.val$；
+- 否则，返回 $dfs(root.left) + dfs(root.right)$。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的个数。
 

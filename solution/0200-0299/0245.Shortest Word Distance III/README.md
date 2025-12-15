@@ -58,8 +58,8 @@ tags:
 
 我们首先判断 $\textit{word1}$ 和 $\textit{word2}$ 是否相等：
 
--   如果相等，遍历数组 $\textit{wordsDict}$，找到两个 $\textit{word1}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
--   如果不相等，遍历数组 $\textit{wordsDict}$，找到 $\textit{word1}$ 和 $\textit{word2}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
+- 如果相等，遍历数组 $\textit{wordsDict}$，找到两个 $\textit{word1}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
+- 如果不相等，遍历数组 $\textit{wordsDict}$，找到 $\textit{word1}$ 和 $\textit{word2}$ 的下标 $i$ 和 $j$，求 $i-j$ 的最小值。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{wordsDict}$ 的长度。空间复杂度 $O(1)$。
 

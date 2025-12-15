@@ -228,8 +228,8 @@ Similar to Solution 1, we first use a hash table to record all elements in the a
 
 The calculation process of the function $\textit{dfs}(x)$ is as follows:
 
--   If $x$ is not in the hash table, return $0$.
--   Otherwise, return $1 + \textit{dfs}(x^2)$.
+- If $x$ is not in the hash table, return $0$.
+- Otherwise, return $1 + \textit{dfs}(x^2)$.
 
 During the process, we can use memoization, i.e., use a hash table to record the value of the function $\textit{dfs}(x)$ to avoid redundant calculations.
 

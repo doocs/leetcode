@@ -105,10 +105,10 @@ First, we sort the workers by efficiency in descending order, so the worker with
 
 Next, we use four priority queues to simulate the state of the workers:
 
--   `wait_in_left`: Max-heap, storing the indices of workers currently waiting on the left bank;
--   `wait_in_right`: Max-heap, storing the indices of workers currently waiting on the right bank;
--   `work_in_left`: Min-heap, storing the time when workers currently working on the left bank finish placing boxes and the indices of the workers;
--   `work_in_right`: Min-heap, storing the time when workers currently working on the right bank finish picking up boxes and the indices of the workers.
+- `wait_in_left`: Max-heap, storing the indices of workers currently waiting on the left bank;
+- `wait_in_right`: Max-heap, storing the indices of workers currently waiting on the right bank;
+- `work_in_left`: Min-heap, storing the time when workers currently working on the left bank finish placing boxes and the indices of the workers;
+- `work_in_right`: Min-heap, storing the time when workers currently working on the right bank finish picking up boxes and the indices of the workers.
 
 Initially, all workers are on the left bank, so `wait_in_left` stores the indices of all workers. We use the variable `cur` to record the current time.
 

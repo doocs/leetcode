@@ -91,8 +91,8 @@ Initially, add all $\textit{initialBoxes}$ to $\textit{has}$. If an initial box 
 
 Then perform BFS, taking boxes out of $\textit{q}$ one by one:
 
--   Obtain the keys in the box $\textit{keys[box]}$ and add any boxes that can be unlocked to the queue;
--   Collect other boxes contained in the box $\textit{containedBoxes[box]}$. If a contained box is open and has not been processed, process it immediately;
+- Obtain the keys in the box $\textit{keys[box]}$ and add any boxes that can be unlocked to the queue;
+- Collect other boxes contained in the box $\textit{containedBoxes[box]}$. If a contained box is open and has not been processed, process it immediately;
 
 Each box is processed at most once, and candies are accumulated once. Finally, return the total number of candies $\textit{ans}$.
 

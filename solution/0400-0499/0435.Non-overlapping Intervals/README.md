@@ -71,8 +71,8 @@ tags:
 
 然后遍历区间，对于每一个区间：
 
--   若当前区间的左边界大于等于 $\textit{pre}$，说明该区间无需移除，直接更新 $\textit{pre}$ 为当前区间的右边界，然后将 $\textit{ans}$ 减一；
--   否则，说明该区间需要移除，不需要更新 $\textit{pre}$ 和 $\textit{ans}$。
+- 若当前区间的左边界大于等于 $\textit{pre}$，说明该区间无需移除，直接更新 $\textit{pre}$ 为当前区间的右边界，然后将 $\textit{ans}$ 减一；
+- 否则，说明该区间需要移除，不需要更新 $\textit{pre}$ 和 $\textit{ans}$。
 
 最后返回 $\textit{ans}$ 即可。
 

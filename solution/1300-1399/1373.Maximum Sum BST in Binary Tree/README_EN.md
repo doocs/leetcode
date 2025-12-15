@@ -79,17 +79,17 @@ tags:
 
 To determine whether a tree is a binary search tree, it needs to meet the following four conditions:
 
--   The left subtree is a binary search tree;
--   The right subtree is a binary search tree;
--   The maximum value of the left subtree is less than the value of the root node;
--   The minimum value of the right subtree is greater than the value of the root node.
+- The left subtree is a binary search tree;
+- The right subtree is a binary search tree;
+- The maximum value of the left subtree is less than the value of the root node;
+- The minimum value of the right subtree is greater than the value of the root node.
 
 Therefore, we design a function $dfs(root)$, the return value of the function is a quadruple $(bst, mi, mx, s)$, where:
 
--   The number $bst$ indicates whether the tree with $root$ as the root is a binary search tree. If it is a binary search tree, then $bst = 1$; otherwise $bst = 0$;
--   The number $mi$ represents the minimum value of the tree with $root$ as the root;
--   The number $mx$ represents the maximum value of the tree with $root$ as the root;
--   The number $s$ represents the sum of all nodes of the tree with $root$ as the root.
+- The number $bst$ indicates whether the tree with $root$ as the root is a binary search tree. If it is a binary search tree, then $bst = 1$; otherwise $bst = 0$;
+- The number $mi$ represents the minimum value of the tree with $root$ as the root;
+- The number $mx$ represents the maximum value of the tree with $root$ as the root;
+- The number $s$ represents the sum of all nodes of the tree with $root$ as the root.
 
 The execution logic of the function $dfs(root)$ is as follows:
 

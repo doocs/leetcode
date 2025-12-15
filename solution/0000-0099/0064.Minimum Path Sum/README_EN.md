@@ -60,9 +60,9 @@ We define $f[i][j]$ to represent the minimum path sum from the top left corner t
 
 Consider $f[i][j]$:
 
--   If $j = 0$, then $f[i][j] = f[i - 1][j] + grid[i][j]$;
--   If $i = 0$, then $f[i][j] = f[i][j - 1] + grid[i][j]$;
--   If $i > 0$ and $j > 0$, then $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + grid[i][j]$.
+- If $j = 0$, then $f[i][j] = f[i - 1][j] + grid[i][j]$;
+- If $i = 0$, then $f[i][j] = f[i][j - 1] + grid[i][j]$;
+- If $i > 0$ and $j > 0$, then $f[i][j] = \min(f[i - 1][j], f[i][j - 1]) + grid[i][j]$.
 
 Finally, return $f[m - 1][n - 1]$.
 

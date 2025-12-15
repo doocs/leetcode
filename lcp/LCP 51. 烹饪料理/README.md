@@ -20,7 +20,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%
 
 **注意：**
 
--   每种料理只能制作一次。
+- 每种料理只能制作一次。
 
 **示例 1：**
 
@@ -44,12 +44,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%
 
 **提示：**
 
--   `materials.length == 5`
--   `1 <= cookbooks.length == attribute.length <= 8`
--   `cookbooks[i].length == 5`
--   `attribute[i].length == 2`
--   `0 <= materials[i], cookbooks[i][j], attribute[i][j] <= 20`
--   `1 <= limit <= 100`
+- `materials.length == 5`
+- `1 <= cookbooks.length == attribute.length <= 8`
+- `cookbooks[i].length == 5`
+- `attribute[i].length == 2`
+- `0 <= materials[i], cookbooks[i][j], attribute[i][j] <= 20`
+- `1 <= limit <= 100`
 
 <!-- description:end -->
 

@@ -96,9 +96,9 @@ As a result, all remaining even-numbered `'?'` will be concentrated in one half.
 
 Let's consider the case where there are two remaining `'?'` and the difference is $x$:
 
--   If $x \lt 9$, Alice will definitely win because she can replace one of the `'?'` with $9$, making the sums of the two halves different.
--   If $x \gt 9$, Alice will definitely win because she can replace one of the `'?'` with $0$, making the sums of the two halves different.
--   If $x = 9$, Bob will definitely win. Suppose Alice replaces a digit with $a$, then Bob can replace the other `'?'` with $9 - a$, making the sums of the two halves equal.
+- If $x \lt 9$, Alice will definitely win because she can replace one of the `'?'` with $9$, making the sums of the two halves different.
+- If $x \gt 9$, Alice will definitely win because she can replace one of the `'?'` with $0$, making the sums of the two halves different.
+- If $x = 9$, Bob will definitely win. Suppose Alice replaces a digit with $a$, then Bob can replace the other `'?'` with $9 - a$, making the sums of the two halves equal.
 
 Therefore, if the difference between the sums of the two halves is $d = \frac{9 \times \textit{cnt}}{2}$, where $\textit{cnt}$ is the number of remaining `'?'`, Bob will definitely win; otherwise, Alice will definitely win.
 

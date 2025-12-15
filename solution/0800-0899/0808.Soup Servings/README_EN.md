@@ -88,10 +88,10 @@ When $i \leq 0$ and $j \leq 0$, it means both soups are finished, and we should 
 
 Next, for each operation, we have four choices:
 
--   Take $4$ units from soup $A$ and $0$ units from soup $B$;
--   Take $3$ units from soup $A$ and $1$ unit from soup $B$;
--   Take $2$ units from soup $A$ and $2$ units from soup $B$;
--   Take $1$ unit from soup $A$ and $3$ units from soup $B$.
+- Take $4$ units from soup $A$ and $0$ units from soup $B$;
+- Take $3$ units from soup $A$ and $1$ unit from soup $B$;
+- Take $2$ units from soup $A$ and $2$ units from soup $B$;
+- Take $1$ unit from soup $A$ and $3$ units from soup $B$.
 
 Each choice has a probability of $0.25$, so we can derive:
 

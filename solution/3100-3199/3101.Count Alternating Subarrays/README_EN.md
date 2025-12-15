@@ -72,8 +72,8 @@ Specifically, we define a variable $s$ to represent the number of subarrays that
 
 Next, we start to traverse the array from the second element. For each position $i$, we update the value of $s$ based on the relationship between $nums[i]$ and $nums[i-1]$:
 
--   If $nums[i] \neq nums[i-1]$, the value of $s$ increases by $1$, that is, $s = s + 1$;
--   If $nums[i] = nums[i-1]$, the value of $s$ is reset to $1$, that is, $s = 1$.
+- If $nums[i] \neq nums[i-1]$, the value of $s$ increases by $1$, that is, $s = s + 1$;
+- If $nums[i] = nums[i-1]$, the value of $s$ is reset to $1$, that is, $s = 1$.
 
 Then, we add the value of $s$ to the answer and continue to traverse the next position of the array until the entire array is traversed.
 

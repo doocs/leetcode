@@ -255,9 +255,9 @@ public class Solution {
 
 We can traverse the interval list `intervals`, let the current interval be `interval`, and there are three situations for each interval:
 
--   The current interval is on the right side of the new interval, that is, $newInterval[1] < interval[0]$. At this time, if the new interval has not been added, then add the new interval to the answer, and then add the current interval to the answer.
--   The current interval is on the left side of the new interval, that is, $interval[1] < newInterval[0]$. At this time, add the current interval to the answer.
--   Otherwise, it means that the current interval and the new interval intersect. We take the minimum of the left endpoint of the current interval and the left endpoint of the new interval, and the maximum of the right endpoint of the current interval and the right endpoint of the new interval, as the left and right endpoints of the new interval, and then continue to traverse the interval list.
+- The current interval is on the right side of the new interval, that is, $newInterval[1] < interval[0]$. At this time, if the new interval has not been added, then add the new interval to the answer, and then add the current interval to the answer.
+- The current interval is on the left side of the new interval, that is, $interval[1] < newInterval[0]$. At this time, add the current interval to the answer.
+- Otherwise, it means that the current interval and the new interval intersect. We take the minimum of the left endpoint of the current interval and the left endpoint of the new interval, and the maximum of the right endpoint of the current interval and the right endpoint of the new interval, as the left and right endpoints of the new interval, and then continue to traverse the interval list.
 
 After the traversal, if the new interval has not been added, then add the new interval to the answer.
 

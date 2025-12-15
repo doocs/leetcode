@@ -72,8 +72,8 @@ We design a function $dfs(root)$, which returns the height of the tree with $roo
 
 The execution logic of the function $dfs(root)$ is as follows:
 
--   If $root$ is null, then return $0$.
--   Otherwise, we recursively call $dfs(root.left)$ and $dfs(root.right)$, and check whether the return values of $dfs(root.left)$ and $dfs(root.right)$ are $-1$. If not, we check whether $abs(dfs(root.left) - dfs(root.right)) \leq 1$ holds. If it holds, then return $max(dfs(root.left), dfs(root.right)) + 1$, otherwise return $-1$.
+- If $root$ is null, then return $0$.
+- Otherwise, we recursively call $dfs(root.left)$ and $dfs(root.right)$, and check whether the return values of $dfs(root.left)$ and $dfs(root.right)$ are $-1$. If not, we check whether $abs(dfs(root.left) - dfs(root.right)) \leq 1$ holds. If it holds, then return $max(dfs(root.left), dfs(root.right)) + 1$, otherwise return $-1$.
 
 In the main function, we only need to call $dfs(root)$, and check whether its return value is $-1$. If not, return `true`, otherwise return `false`.
 

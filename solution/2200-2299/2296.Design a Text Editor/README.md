@@ -104,10 +104,10 @@ textEditor.cursorRight(6); // 返回 "practi"
 
 我们可以使用两个栈 $\textit{left}$ 和 $\textit{right}$，其中栈 $\textit{left}$ 存储光标左边的字符，另一个栈 $\textit{right}$ 存储光标右边的字符。
 
--   当调用 $\text{addText}$ 方法时，我们将 $\text{text}$ 中的字符依次入栈 $\text{left}$。时间复杂度 $O(|\text{text}|)$。
--   当调用 $\text{deleteText}$ 方法时，我们将 $\text{left}$ 中的字符出栈最多 $k$ 次。时间复杂度 $O(k)$。
--   当调用 $\text{cursorLeft}$ 方法时，我们将 $\text{left}$ 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 $\text{right}$，最后返回 $\text{left}$ 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
--   当调用 $\text{cursorRight}$ 方法时，我们将 $\text{right}$ 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 $\text{left}$，最后返回 $\text{left}$ 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
+- 当调用 $\text{addText}$ 方法时，我们将 $\text{text}$ 中的字符依次入栈 $\text{left}$。时间复杂度 $O(|\text{text}|)$。
+- 当调用 $\text{deleteText}$ 方法时，我们将 $\text{left}$ 中的字符出栈最多 $k$ 次。时间复杂度 $O(k)$。
+- 当调用 $\text{cursorLeft}$ 方法时，我们将 $\text{left}$ 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 $\text{right}$，最后返回 $\text{left}$ 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
+- 当调用 $\text{cursorRight}$ 方法时，我们将 $\text{right}$ 中的字符出栈最多 $k$ 次，然后将出栈的字符依次入栈 $\text{left}$，最后返回 $\text{left}$ 栈最多 $10$ 个字符。时间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 

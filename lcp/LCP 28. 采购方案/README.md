@@ -37,8 +37,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2028.%20%E9%87%87%
 
 **提示：**
 
--   `2 <= nums.length <= 10^5`
--   `1 <= nums[i], target <= 10^5`
+- `2 <= nums.length <= 10^5`
+- `1 <= nums[i], target <= 10^5`
 
 <!-- description:end -->
 

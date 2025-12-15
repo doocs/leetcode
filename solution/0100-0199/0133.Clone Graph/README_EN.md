@@ -94,10 +94,10 @@ We use a hash table $\textit{g}$ to record the correspondence between each node 
 
 We define the function $\text{dfs}(node)$, which returns the copy of the $\textit{node}$. The process of $\text{dfs}(node)$ is as follows:
 
--   If $\textit{node}$ is $\text{null}$, then the return value of $\text{dfs}(node)$ is $\text{null}$.
--   If $\textit{node}$ is in $\textit{g}$, then the return value of $\text{dfs}(node)$ is $\textit{g}[node]$.
--   Otherwise, we create a new node $\textit{cloned}$ and set the value of $\textit{g}[node]$ to $\textit{cloned}$. Then, we traverse all the neighbor nodes $\textit{nxt}$ of $\textit{node}$ and add $\text{dfs}(nxt)$ to the neighbor list of $\textit{cloned}$.
--   Finally, return $\textit{cloned}$.
+- If $\textit{node}$ is $\text{null}$, then the return value of $\text{dfs}(node)$ is $\text{null}$.
+- If $\textit{node}$ is in $\textit{g}$, then the return value of $\text{dfs}(node)$ is $\textit{g}[node]$.
+- Otherwise, we create a new node $\textit{cloned}$ and set the value of $\textit{g}[node]$ to $\textit{cloned}$. Then, we traverse all the neighbor nodes $\textit{nxt}$ of $\textit{node}$ and add $\text{dfs}(nxt)$ to the neighbor list of $\textit{cloned}$.
+- Finally, return $\textit{cloned}$.
 
 In the main function, we return $\text{dfs}(node)$.
 

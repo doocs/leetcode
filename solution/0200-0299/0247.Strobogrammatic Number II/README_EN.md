@@ -61,7 +61,7 @@ The time complexity is $O(2^{n+2})$.
 
 Similar problems:
 
--   [248. Strobogrammatic Number III 🔒](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md)
+- [248. Strobogrammatic Number III 🔒](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md)
 
 <!-- tabs:start -->
 

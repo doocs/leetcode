@@ -157,10 +157,10 @@ Each row contains a DNA sequence represented as a string of characters (A, T, G,
 
 We can use `LIKE` and `REGEXP` for pattern matching, where:
 
--   LIKE `'ATG%'` checks if it starts with ATG
--   REGEXP `'TAA$|TAG$|TGA$'` checks if it ends with TAA, TAG, or TGA ($ indicates the end of the string)
--   LIKE `'%ATAT%'` checks if it contains ATAT
--   REGEXP `'GGG+'` checks if it contains at least 3 consecutive Gs
+- LIKE `'ATG%'` checks if it starts with ATG
+- REGEXP `'TAA$|TAG$|TGA$'` checks if it ends with TAA, TAG, or TGA ($ indicates the end of the string)
+- LIKE `'%ATAT%'` checks if it contains ATAT
+- REGEXP `'GGG+'` checks if it contains at least 3 consecutive Gs
 
 <!-- tabs:start -->
 

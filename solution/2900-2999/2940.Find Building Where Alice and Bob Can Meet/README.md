@@ -92,7 +92,7 @@ tags:
 
 相似题目：
 
--   [2736. 最大和查询](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
+- [2736. 最大和查询](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2736.Maximum%20Sum%20Queries/README.md)
 
 <!-- tabs:start -->
 

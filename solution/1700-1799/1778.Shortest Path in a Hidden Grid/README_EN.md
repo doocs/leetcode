@@ -116,7 +116,7 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 Similar problems:
 
--   [1810. Minimum Path Cost in a Hidden Grid](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)
+- [1810. Minimum Path Cost in a Hidden Grid](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1810.Minimum%20Path%20Cost%20in%20a%20Hidden%20Grid/README_EN.md)
 
 <!-- tabs:start -->
 

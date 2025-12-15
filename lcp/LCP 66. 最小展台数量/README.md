@@ -18,7 +18,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2066.%20%E6%9C%80%
 
 **注意：**
 
--   同一展台在不同天中可以重复使用。
+- 同一展台在不同天中可以重复使用。
 
 **示例 1：**
 
@@ -40,8 +40,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2066.%20%E6%9C%80%
 
 **提示：**
 
--   `1 <= demand.length,demand[i].length <= 100`
--   `demand[i][j]` 仅为小写字母
+- `1 <= demand.length,demand[i].length <= 100`
+- `demand[i][j]` 仅为小写字母
 
 <!-- description:end -->
 

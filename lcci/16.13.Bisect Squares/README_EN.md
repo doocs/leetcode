@@ -51,8 +51,8 @@ If $x_1 = x_2$, then the line is perpendicular to the $x$-axis, and we only need
 
 Otherwise, we can calculate the slope $k$ and the intercept $b$ of the line passing through the two centers, and then divide into two cases based on the absolute value of the slope:
 
--   When $|k| \gt 1$, the line passing through the two centers intersects with the top and bottom edges of the two squares. We calculate the maximum and minimum values of the vertical coordinates of the top and bottom edges, and then calculate the corresponding horizontal coordinate using the equation of the line, which is the intersection point of the two squares.
--   When $|k| \le 1$, the line passing through the two centers intersects with the left and right edges of the two squares. We calculate the maximum and minimum values of the horizontal coordinates of the left and right edges, and then calculate the corresponding vertical coordinate using the equation of the line, which is the intersection point of the two squares.
+- When $|k| \gt 1$, the line passing through the two centers intersects with the top and bottom edges of the two squares. We calculate the maximum and minimum values of the vertical coordinates of the top and bottom edges, and then calculate the corresponding horizontal coordinate using the equation of the line, which is the intersection point of the two squares.
+- When $|k| \le 1$, the line passing through the two centers intersects with the left and right edges of the two squares. We calculate the maximum and minimum values of the horizontal coordinates of the left and right edges, and then calculate the corresponding vertical coordinate using the equation of the line, which is the intersection point of the two squares.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

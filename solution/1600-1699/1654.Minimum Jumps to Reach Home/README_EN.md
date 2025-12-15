@@ -88,8 +88,8 @@ In summary, we can set the right boundary to $6000$.
 
 Next, we use BFS to search for the shortest path. We use a queue, initially adding the position and jumping direction of the flea as the state to the queue. Each time we take a state from the queue, if the position of this state is equal to $x$, then we have found a path from the initial state to the target state, and we can return the current number of steps. Otherwise, we add the next state of the current state to the queue. There are two cases for the next state:
 
--   Jump forward, the jumping direction is $1$;
--   When the current jumping direction is $1$, jump backward, the jumping direction is $0$.
+- Jump forward, the jumping direction is $1$;
+- When the current jumping direction is $1$, jump backward, the jumping direction is $0$.
 
 Note that we need to judge whether the next state is legal, that is, the position of the next state does not exceed the right boundary, is not in the forbidden position, and has not been visited.
 

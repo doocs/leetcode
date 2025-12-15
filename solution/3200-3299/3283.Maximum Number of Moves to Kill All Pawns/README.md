@@ -116,9 +116,9 @@ tags:
 
 函数 $\text{dfs}$ 的具体实现如下：
 
--   如果 $\textit{state} = 0$，表示没有兵了，返回 $0$；
--   如果 $\textit{k} = 1$，表示当前是 Alice 的回合，我们需要找到一个兵，使得吃掉这个兵后的移动次数最大，即 $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$；
--   如果 $\textit{k} = 0$，表示当前是 Bob 的回合，我们需要找到一个兵，使得吃掉这个兵后的移动次数最小，即 $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$。
+- 如果 $\textit{state} = 0$，表示没有兵了，返回 $0$；
+- 如果 $\textit{k} = 1$，表示当前是 Alice 的回合，我们需要找到一个兵，使得吃掉这个兵后的移动次数最大，即 $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$；
+- 如果 $\textit{k} = 0$，表示当前是 Bob 的回合，我们需要找到一个兵，使得吃掉这个兵后的移动次数最小，即 $\text{dfs}(i, \textit{state} \oplus 2^i, \textit{k} \oplus 1) + \textit{dist}[\textit{last}][x][y]$。
 
 为了避免重复计算，我们使用记忆化搜索，即使用哈希表记录已经计算过的状态。
 

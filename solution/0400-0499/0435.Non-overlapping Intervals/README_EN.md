@@ -69,8 +69,8 @@ We first sort the intervals in ascending order by their right boundary. We use a
 
 Then we iterate through the intervals. For each interval:
 
--   If the left boundary of the current interval is greater than or equal to $\textit{pre}$, it means that this interval does not need to be removed. We directly update $\textit{pre}$ to the right boundary of the current interval and decrement $\textit{ans}$ by one;
--   Otherwise, it means that this interval needs to be removed, and we do not need to update $\textit{pre}$ and $\textit{ans}$.
+- If the left boundary of the current interval is greater than or equal to $\textit{pre}$, it means that this interval does not need to be removed. We directly update $\textit{pre}$ to the right boundary of the current interval and decrement $\textit{ans}$ by one;
+- Otherwise, it means that this interval needs to be removed, and we do not need to update $\textit{pre}$ and $\textit{ans}$.
 
 Finally, we return $\textit{ans}$.
 

@@ -85,8 +85,8 @@ The resulting string is &quot;[[][]]&quot;.
 
 We use a variable $x$ to record the current number of unmatched left brackets. We traverse the string $s$, for each character $c$:
 
--   If $c$ is a left bracket, then we increment $x$ by one;
--   If $c$ is a right bracket, then we need to check whether $x$ is greater than zero. If it is, we match the current right bracket with the nearest unmatched left bracket on the left, i.e., decrement $x$ by one.
+- If $c$ is a left bracket, then we increment $x$ by one;
+- If $c$ is a right bracket, then we need to check whether $x$ is greater than zero. If it is, we match the current right bracket with the nearest unmatched left bracket on the left, i.e., decrement $x$ by one.
 
 After the traversal, we will definitely get a string of the form `"]]]...[[[..."`. We then greedily swap the brackets at both ends each time, which can eliminate $2$ unmatched left brackets at a time. Therefore, the total number of swaps needed is $\left\lfloor \frac{x + 1}{2} \right\rfloor$.
 

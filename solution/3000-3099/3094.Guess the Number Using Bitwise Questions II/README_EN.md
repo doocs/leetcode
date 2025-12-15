@@ -52,8 +52,8 @@ tags:
 
 Based on the problem description, we observe that:
 
--   If we call the `commonBits` function twice with the same number, the value of $n$ will not change.
--   If we call `commonBits(1 << i)`, the $i$-th bit of $n$ will be flipped, i.e., if the $i$-th bit of $n$ is $1$, it will become $0$ after the call, and vice versa.
+- If we call the `commonBits` function twice with the same number, the value of $n$ will not change.
+- If we call `commonBits(1 << i)`, the $i$-th bit of $n$ will be flipped, i.e., if the $i$-th bit of $n$ is $1$, it will become $0$ after the call, and vice versa.
 
 Therefore, for each bit $i$, we can call `commonBits(1 << i)` twice, denoted as `count1` and `count2` respectively. If `count1 > count2`, it means the $i$-th bit of $n$ is $1$, otherwise it is $0$.
 

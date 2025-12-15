@@ -102,8 +102,8 @@ tags:
 
 函数 $\textit{dfs}(\textit{mask})$ 的计算方式如下：
 
--   如果 $\textit{mask} = 0$，表示所有怪物都已经被击败，返回 $0$；
--   否则，我们枚举每个怪物 $i$，如果第 $i$ 个怪物还活着，那么我们可以选择击败第 $i$ 个怪物，然后递归计算 $\textit{dfs}(\textit{mask} \oplus 2^i)$，并更新答案为 $\textit{ans} = \min(\textit{ans}, \textit{dfs}(\textit{mask} \oplus 2^i) + \lceil \frac{x}{\textit{gain}} \rceil)$，其中 $x$ 为第 $i$ 个怪物的力量，而 $\textit{gain} = 1 + (n - \textit{mask}.\textit{bitCount}())$，表示当前每天可以获得的法力值。
+- 如果 $\textit{mask} = 0$，表示所有怪物都已经被击败，返回 $0$；
+- 否则，我们枚举每个怪物 $i$，如果第 $i$ 个怪物还活着，那么我们可以选择击败第 $i$ 个怪物，然后递归计算 $\textit{dfs}(\textit{mask} \oplus 2^i)$，并更新答案为 $\textit{ans} = \min(\textit{ans}, \textit{dfs}(\textit{mask} \oplus 2^i) + \lceil \frac{x}{\textit{gain}} \rceil)$，其中 $x$ 为第 $i$ 个怪物的力量，而 $\textit{gain} = 1 + (n - \textit{mask}.\textit{bitCount}())$，表示当前每天可以获得的法力值。
 
 最后，我们返回 $\textit{dfs}(2^n - 1)$。
 

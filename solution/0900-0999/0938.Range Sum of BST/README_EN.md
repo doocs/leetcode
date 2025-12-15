@@ -60,11 +60,11 @@ We design a function $dfs(root)$, which represents the sum of the values of all 
 
 The execution logic of the function $dfs(root)$ is as follows:
 
--   If $root$ is null, return $0$.
--   If the value $x$ of $root$ is within the range $[low, high]$, then the initial answer of the function $dfs(root)$ is $x$, otherwise it is $0$.
--   If $x > low$, it means that there may be nodes in the left subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.left)$ and add the result to the answer.
--   If $x < high$, it means that there may be nodes in the right subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.right)$ and add the result to the answer.
--   Finally, return the answer.
+- If $root$ is null, return $0$.
+- If the value $x$ of $root$ is within the range $[low, high]$, then the initial answer of the function $dfs(root)$ is $x$, otherwise it is $0$.
+- If $x > low$, it means that there may be nodes in the left subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.left)$ and add the result to the answer.
+- If $x < high$, it means that there may be nodes in the right subtree of $root$ with values within the range $[low, high]$, so we need to recursively call $dfs(root.right)$ and add the result to the answer.
+- Finally, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary search tree.
 

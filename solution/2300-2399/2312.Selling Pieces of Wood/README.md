@@ -94,8 +94,8 @@ tags:
 
 函数 $dfs(h, w)$ 的执行过程如下：
 
--   如果 $(h, w)$ 已经被计算过了，直接返回答案。
--   否则，我们先初始化答案为 $d[h][w]$，然后枚举切割的位置，分别计算切割后的两块木块能得到的最多钱数，取最大值即可。
+- 如果 $(h, w)$ 已经被计算过了，直接返回答案。
+- 否则，我们先初始化答案为 $d[h][w]$，然后枚举切割的位置，分别计算切割后的两块木块能得到的最多钱数，取最大值即可。
 
 时间复杂度 $(m \times n \times (m + n) + p)$，空间复杂度 $O(m \times n)$。其中 $p$ 表示价格数组的长度，而 $m$ 和 $n$ 分别表示木块的高和宽。
 
@@ -269,7 +269,7 @@ function sellingWood(m: number, n: number, prices: number[][]): number {
 
 相似题目：
 
--   [1444. 切披萨的方案数](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md)
+- [1444. 切披萨的方案数](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/README.md)
 
 <!-- tabs:start -->
 

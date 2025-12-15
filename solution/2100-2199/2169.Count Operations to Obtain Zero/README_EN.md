@@ -71,9 +71,9 @@ So the total number of operations required is 1.
 
 We can directly simulate this process by repeatedly performing the following operations:
 
--   If $\textit{num1} \ge \textit{num2}$, then $\textit{num1} = \textit{num1} - \textit{num2}$;
--   Otherwise, $\textit{num2} = \textit{num2} - \textit{num1}$.
--   Each time an operation is performed, increment the operation count by one.
+- If $\textit{num1} \ge \textit{num2}$, then $\textit{num1} = \textit{num1} - \textit{num2}$;
+- Otherwise, $\textit{num2} = \textit{num2} - \textit{num1}$.
+- Each time an operation is performed, increment the operation count by one.
 
 When either $\textit{num1}$ or $\textit{num2}$ becomes $0$, stop the loop and return the operation count.
 

@@ -69,11 +69,11 @@ We design a function $dfs(i)$, which represents whether there is a valid partiti
 
 The execution process of the function $dfs(i)$ is as follows:
 
--   If $i \ge n$, return $true$.
--   If the elements at index $i$ and $i+1$ are equal, we can choose to make $i$ and $i+1$ a subarray, and recursively call $dfs(i+2)$.
--   If the elements at index $i$, $i+1$ and $i+2$ are equal, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $dfs(i+3)$.
--   If the elements at index $i$, $i+1$ and $i+2$ increase by $1$ in turn, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $dfs(i+3)$.
--   If none of the above conditions are met, return $false$, otherwise return $true$.
+- If $i \ge n$, return $true$.
+- If the elements at index $i$ and $i+1$ are equal, we can choose to make $i$ and $i+1$ a subarray, and recursively call $dfs(i+2)$.
+- If the elements at index $i$, $i+1$ and $i+2$ are equal, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $dfs(i+3)$.
+- If the elements at index $i$, $i+1$ and $i+2$ increase by $1$ in turn, we can choose to make $i$, $i+1$ and $i+2$ a subarray, and recursively call $dfs(i+3)$.
+- If none of the above conditions are met, return $false$, otherwise return $true$.
 
 That is:
 

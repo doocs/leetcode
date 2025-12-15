@@ -59,10 +59,10 @@ There are two types of tiles: `2 x 1` and `L` shapes, and both types of tiles ca
 
 We define $f[i][j]$ to represent the number of ways to tile the first $2 \times i$ board, where $j$ represents the state of the last column. The last column has 4 states:
 
--   The last column is fully covered, denoted as $0$
--   The last column has only the top square covered, denoted as $1$
--   The last column has only the bottom square covered, denoted as $2$
--   The last column is not covered, denoted as $3$
+- The last column is fully covered, denoted as $0$
+- The last column has only the top square covered, denoted as $1$
+- The last column has only the bottom square covered, denoted as $2$
+- The last column is not covered, denoted as $3$
 
 The answer is $f[n][0]$. Initially, $f[0][0] = 1$ and the rest $f[0][j] = 0$.
 

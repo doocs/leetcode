@@ -79,14 +79,14 @@ tags:
 
 然后我们定义以下三个变量，其中：
 
--   变量 $ans$ 表示最终答案，即最少水龙头数目；
--   变量 $mx$ 表示当前能覆盖的最远右端点；
--   变量 $pre$ 表示上一个水龙头覆盖的最远右端点。
+- 变量 $ans$ 表示最终答案，即最少水龙头数目；
+- 变量 $mx$ 表示当前能覆盖的最远右端点；
+- 变量 $pre$ 表示上一个水龙头覆盖的最远右端点。
 
 我们在 $[0,...n-1]$ 的范围内遍历所有位置，对于当前位置 $i$，我们用 $last[i]$ 更新 $mx$，即 $mx = \max(mx, last[i])$。
 
--   如果 $mx \leq i$，说明无法覆盖下一个位置，返回 $-1$。
--   如果 $pre = i$，说明需要使用一个新的子区间，因此我们将 $ans$ 加 $1$，并且更新 $pre = mx$。
+- 如果 $mx \leq i$，说明无法覆盖下一个位置，返回 $-1$。
+- 如果 $pre = i$，说明需要使用一个新的子区间，因此我们将 $ans$ 加 $1$，并且更新 $pre = mx$。
 
 遍历结束后，返回 $ans$ 即可。
 
@@ -94,9 +94,9 @@ tags:
 
 相似题目：
 
--   [45. 跳跃游戏 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README.md)
--   [55. 跳跃游戏](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README.md)
--   [1024. 视频拼接](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1024.Video%20Stitching/README.md)
+- [45. 跳跃游戏 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README.md)
+- [55. 跳跃游戏](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README.md)
+- [1024. 视频拼接](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1024.Video%20Stitching/README.md)
 
 <!-- tabs:start -->
 

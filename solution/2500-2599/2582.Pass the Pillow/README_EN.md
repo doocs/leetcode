@@ -182,8 +182,8 @@ We notice that there are $n - 1$ passes in each round. Therefore, we can divide 
 
 Then we judge the current round $k$:
 
--   If $k$ is odd, then the current direction of the pillow is from the end of the queue to the front, so the pillow will be passed to the person with the number $n - mod$.
--   If $k$ is even, then the current direction of the pillow is from the front of the queue to the back, so the pillow will be passed to the person with the number $mod + 1$.
+- If $k$ is odd, then the current direction of the pillow is from the end of the queue to the front, so the pillow will be passed to the person with the number $n - mod$.
+- If $k$ is even, then the current direction of the pillow is from the front of the queue to the back, so the pillow will be passed to the person with the number $mod + 1$.
 
 The time complexity is $O(1)$ and the space complexity is $O(1)$.
 

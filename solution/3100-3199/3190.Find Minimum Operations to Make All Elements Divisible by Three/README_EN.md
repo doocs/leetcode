@@ -68,8 +68,8 @@ tags:
 
 We directly iterate through the array $\textit{nums}$. For each element $x$, if $x \bmod 3 \neq 0$, there are two cases:
 
--   If $x \bmod 3 = 1$, we can decrease $x$ by $1$ to make it $x - 1$, which is divisible by $3$.
--   If $x \bmod 3 = 2$, we can increase $x$ by $1$ to make it $x + 1$, which is divisible by $3$.
+- If $x \bmod 3 = 1$, we can decrease $x$ by $1$ to make it $x - 1$, which is divisible by $3$.
+- If $x \bmod 3 = 2$, we can increase $x$ by $1$ to make it $x + 1$, which is divisible by $3$.
 
 Therefore, we only need to count the number of elements in the array that are not divisible by $3$ to get the minimum number of operations.
 

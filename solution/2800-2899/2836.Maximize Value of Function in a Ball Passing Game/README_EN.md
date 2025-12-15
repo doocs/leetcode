@@ -155,7 +155,7 @@ The time complexity is $O(n \times \log k)$, and the space complexity is $O(n \t
 
 Similar problems:
 
--   [1483. Kth Ancestor of a Tree Node](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md)
+- [1483. Kth Ancestor of a Tree Node](https://github.com/doocs/leetcode/blob/main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -39,8 +39,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2077.%20%E7%AC%A6%
 
 **提示：**
 
--   `1 <= runes.length <= 10^4`
--   `0 <= runes[i] <= 10^4`
+- `1 <= runes.length <= 10^4`
+- `0 <= runes[i] <= 10^4`
 
 <!-- description:end -->
 

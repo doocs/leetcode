@@ -75,7 +75,7 @@ The time complexity is $O(n \log n)$, where $n$ is the length of the string. The
 
 Related problems:
 
--   [767. Reorganize String](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0767.Reorganize%20String/README.md)
+- [767. Reorganize String](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0767.Reorganize%20String/README.md)
 
 <!-- tabs:start -->
 

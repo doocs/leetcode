@@ -74,10 +74,10 @@ We design a function $dfs(i, j)$, which represents whether the string $s$ starti
 
 The execution process of the function $dfs(i, j)$ is as follows:
 
--   If $i \geq \textit{len}(s)$, then $dfs(i, j)$ is true only when $j \geq \textit{len}(p)$ or $p[j] = '*'$ and $dfs(i, j + 1)$ is true.
--   If $j \geq \textit{len}(p)$, then $dfs(i, j)$ is false.
--   If $p[j] = '*'$, then $dfs(i, j)$ is true if and only if $dfs(i + 1, j)$ or $dfs(i + 1, j + 1)$ or $dfs(i, j + 1)$ is true.
--   Otherwise, $dfs(i, j)$ is true if and only if $p[j] = '?'$ or $s[i] = p[j]$ and $dfs(i + 1, j + 1)$ is true.
+- If $i \geq \textit{len}(s)$, then $dfs(i, j)$ is true only when $j \geq \textit{len}(p)$ or $p[j] = '*'$ and $dfs(i, j + 1)$ is true.
+- If $j \geq \textit{len}(p)$, then $dfs(i, j)$ is false.
+- If $p[j] = '*'$, then $dfs(i, j)$ is true if and only if $dfs(i + 1, j)$ or $dfs(i + 1, j + 1)$ or $dfs(i, j + 1)$ is true.
+- Otherwise, $dfs(i, j)$ is true if and only if $p[j] = '?'$ or $s[i] = p[j]$ and $dfs(i + 1, j + 1)$ is true.
 
 To avoid repeated calculations, we use the method of memoization search and store the result of $dfs(i, j)$ in a hash table.
 
@@ -292,8 +292,8 @@ Define $f[i][j]$ to represent whether the first $i$ characters of string $s$ mat
 
 Next, we consider the case of $i \in [1, m]$ and $j \in [1, n]$:
 
--   If $p[j-1] = '*'$, then $f[i][j] = f[i-1][j] \lor f[i][j-1] \lor f[i-1][j-1]$.
--   Otherwise, $f[i][j] = (p[j-1] = '?' \lor s[i-1] = p[j-1]) \land f[i-1][j-1]$.
+- If $p[j-1] = '*'$, then $f[i][j] = f[i-1][j] \lor f[i][j-1] \lor f[i-1][j-1]$.
+- Otherwise, $f[i][j] = (p[j-1] = '?' \lor s[i-1] = p[j-1]) \land f[i-1][j-1]$.
 
 The final answer is $f[m][n]$.
 

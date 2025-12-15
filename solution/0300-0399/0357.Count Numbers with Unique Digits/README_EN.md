@@ -65,9 +65,9 @@ Here, we use memoized search to implement Digit DP. We search from the starting 
 
 Based on the problem information, we design a function $\textit{dfs}(i, \textit{mask}, \textit{lead})$, where:
 
--   The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
--   The digit $\textit{mask}$ represents the current state of the number, i.e., the $j$-th bit of $\textit{mask}$ being $1$ indicates that the digit $j$ has been used.
--   The boolean $\textit{lead}$ indicates whether the current number only contains leading $0$s.
+- The digit $i$ represents the current position being searched, starting from the highest digit, i.e., $i = 0$ represents the highest digit.
+- The digit $\textit{mask}$ represents the current state of the number, i.e., the $j$-th bit of $\textit{mask}$ being $1$ indicates that the digit $j$ has been used.
+- The boolean $\textit{lead}$ indicates whether the current number only contains leading $0$s.
 
 The function executes as follows:
 
@@ -75,9 +75,9 @@ If $i$ exceeds the length of the number $n$, i.e., $i < 0$, it means the search 
 
 Otherwise, we enumerate the digits $j$ from $0$ to $9$ for the position $i$. For each $j$:
 
--   If the $j$-th bit of $\textit{mask}$ is $1$, it means the digit $j$ has been used, so we skip it.
--   If $\textit{lead}$ is true and $j = 0$, it means the current number only contains leading $0$s. When we recurse to the next level, $\textit{lead}$ remains true.
--   Otherwise, we recurse to the next level, update the $j$-th bit of $\textit{mask}$ to $1$, and set $\textit{lead}$ to false.
+- If the $j$-th bit of $\textit{mask}$ is $1$, it means the digit $j$ has been used, so we skip it.
+- If $\textit{lead}$ is true and $j = 0$, it means the current number only contains leading $0$s. When we recurse to the next level, $\textit{lead}$ remains true.
+- Otherwise, we recurse to the next level, update the $j$-th bit of $\textit{mask}$ to $1$, and set $\textit{lead}$ to false.
 
 Finally, we sum all the results from the recursive calls to the next level, which is the answer.
 
@@ -87,12 +87,12 @@ The time complexity is $O(n \times 2^D \times D)$, and the space complexity is $
 
 Similar Problems:
 
--   [233. Number of Digit One](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
--   [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
--   [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
--   [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
--   [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
--   [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
+- [233. Number of Digit One](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md)
+- [600. Non-negative Integers without Consecutive Ones](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
+- [788. Rotated Digits](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README_EN.md)
+- [902. Numbers At Most N Given Digit Set](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
+- [1012. Numbers with Repeated Digits](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
+- [2376. Count Special Integers](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README_EN.md)
 
 <!-- tabs:start -->
 

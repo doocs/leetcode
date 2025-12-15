@@ -17,15 +17,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2081.%20%E4%B8%8E%
 探险队需要从一段不断变化的谜题数组中找到最终的密码，初始的谜题为长度为 `n` 的数组 `arr`（下标从 0 开始），数组中的数字代表了 `k` 位二进制数。
 破解谜题的过程中，需要使用 `与非（NAND）` 运算方式，`operations[i] = [type,x,y]` 表示第 `i` 次进行的谜题操作信息：
 
--   若 `type = 0`，表示修改操作，将谜题数组中下标 `x` 的数字变化为 `y`；
--   若 `type = 1`，表示运算操作，将数字 `y` 进行 `x*n` 次「与非」操作，第 `i` 次与非操作为 `y = y NAND arr[i%n]`；
+- 若 `type = 0`，表示修改操作，将谜题数组中下标 `x` 的数字变化为 `y`；
+- 若 `type = 1`，表示运算操作，将数字 `y` 进行 `x*n` 次「与非」操作，第 `i` 次与非操作为 `y = y NAND arr[i%n]`；
     > 运算操作结果即：`y NAND arr[0%n] NAND arr[1%n] NAND arr[2%n] ... NAND arr[(x*n-1)%n]`
 
 最后，将所有运算操作的结果按顺序逐一进行 `异或（XOR）`运算，从而得到最终解开封印的密码。请返回最终解开封印的密码。
 
 **注意:**
 
--   「与非」（NAND）的操作为：先进行 `与` 操作，后进行 `非` 操作。
+- 「与非」（NAND）的操作为：先进行 `与` 操作，后进行 `非` 操作。
     > 例如：两个三位二进制数`2`和`3`，其与非结果为 `NOT ((010) AND (011)) = (101) = 5`
 
 **示例 1：**
@@ -61,12 +61,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2081.%20%E4%B8%8E%
 
 **提示:**
 
--   `1 <= arr.length, operations.length <= 10^4`
--   `1 <= k <= 30`
--   `0 <= arr[i] < 2^k`
--   若 `type = 0`，`0 <= x < arr.length` 且 `0 <= y < 2^k`
--   若 `type = 1`，`1 <= x < 10^9` 且 `0 <= y < 2^k`
--   保证存在 `type = 1` 的操作
+- `1 <= arr.length, operations.length <= 10^4`
+- `1 <= k <= 30`
+- `0 <= arr[i] < 2^k`
+- 若 `type = 0`，`0 <= x < arr.length` 且 `0 <= y < 2^k`
+- 若 `type = 1`，`1 <= x < 10^9` 且 `0 <= y < 2^k`
+- 保证存在 `type = 1` 的操作
 
 <!-- description:end -->
 

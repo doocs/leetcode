@@ -77,7 +77,7 @@ tags:
 
 相似题目：
 
--   [247. 中心对称数 II](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
+- [247. 中心对称数 II](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README.md)
 
 <!-- tabs:start -->
 

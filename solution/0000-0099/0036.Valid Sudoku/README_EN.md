@@ -86,9 +86,9 @@ tags:
 
 The valid sudoku satisfies the following three conditions:
 
--   The digits are not repeated in each row;
--   The digits are not repeated in each column;
--   The digits are not repeated in each $3 \times 3$ box.
+- The digits are not repeated in each row;
+- The digits are not repeated in each column;
+- The digits are not repeated in each $3 \times 3$ box.
 
 Traverse the sudoku, for each digit, check whether the row, column and $3 \times 3$ box it is in have appeared the digit. If it is, return `false`. If the traversal is over, return `true`.
 

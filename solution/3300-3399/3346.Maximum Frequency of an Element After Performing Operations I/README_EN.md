@@ -91,16 +91,16 @@ The problem can be transformed into merging all elements in the interval $[x-k, 
 
 We use a dictionary $d$ to record the difference array. For each element $x$, we perform the following operations on the difference array:
 
--   Add $1$ at position $x-k$, indicating that a new interval starts from this position.
--   Subtract $1$ at position $x+k+1$, indicating that an interval ends from this position.
--   Add $0$ at position $x$, ensuring that position $x$ exists in the difference array for subsequent calculations.
+- Add $1$ at position $x-k$, indicating that a new interval starts from this position.
+- Subtract $1$ at position $x+k+1$, indicating that an interval ends from this position.
+- Add $0$ at position $x$, ensuring that position $x$ exists in the difference array for subsequent calculations.
 
 At the same time, we need to record the number of occurrences of each element in the original array, using a dictionary $cnt$ to implement this.
 
 Next, we perform prefix sum calculation on the difference array to get how many intervals cover each position. For each position $x$, we calculate the number of intervals covering it as $s$. Then we discuss by cases:
 
--   If $x$ appears in the original array, operations on $x$ itself are meaningless. Therefore, there are $s - cnt[x]$ other elements that can be changed to $x$ through operations, but at most $\textit{numOperations}$ operations can be performed. So the maximum frequency at this position is $\textit{cnt}[x] + \min(s - \textit{cnt}[x], \textit{numOperations})$.
--   If $x$ does not appear in the original array, then at most $\textit{numOperations}$ operations can be performed to change other elements to $x$. Therefore, the maximum frequency at this position is $\min(s, \textit{numOperations})$.
+- If $x$ appears in the original array, operations on $x$ itself are meaningless. Therefore, there are $s - cnt[x]$ other elements that can be changed to $x$ through operations, but at most $\textit{numOperations}$ operations can be performed. So the maximum frequency at this position is $\textit{cnt}[x] + \min(s - \textit{cnt}[x], \textit{numOperations})$.
+- If $x$ does not appear in the original array, then at most $\textit{numOperations}$ operations can be performed to change other elements to $x$. Therefore, the maximum frequency at this position is $\min(s, \textit{numOperations})$.
 
 Combining the above two cases, we can uniformly express it as $\min(s, \textit{cnt}[x] + \textit{numOperations})$.
 

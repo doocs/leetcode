@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README.md
 rating: 1546
 source: 第 479 场周赛 Q2
+tags:
+    - 数组
+    - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

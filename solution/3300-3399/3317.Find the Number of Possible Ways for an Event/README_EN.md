@@ -95,8 +95,8 @@ We define $f[i][j]$ to represent the number of ways to arrange the first $i$ per
 
 For $f[i][j]$, where $1 \leq i \leq n$ and $1 \leq j \leq x$, we consider the $i$-th performer:
 
--   If the performer is assigned to a program that already has performers, there are $j$ choices, i.e., $f[i - 1][j] \times j$;
--   If the performer is assigned to a program that has no performers, there are $x - (j - 1)$ choices, i.e., $f[i - 1][j - 1] \times (x - (j - 1))$.
+- If the performer is assigned to a program that already has performers, there are $j$ choices, i.e., $f[i - 1][j] \times j$;
+- If the performer is assigned to a program that has no performers, there are $x - (j - 1)$ choices, i.e., $f[i - 1][j - 1] \times (x - (j - 1))$.
 
 So the state transition equation is:
 

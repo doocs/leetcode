@@ -73,9 +73,9 @@ Initially, if $\textit{nums}[0] > 0$, then $f[0] = 1$, otherwise $f[0] = 0$; if 
 
 Next, we iterate through the array $\textit{nums}$ starting from $i = 1$. For each $i$, we have the following cases:
 
--   If $\textit{nums}[i] > 0$, then $f[i]$ can be transferred from $f[i - 1]$, i.e., $f[i] = f[i - 1] + 1$, and the value of $g[i]$ depends on whether $g[i - 1]$ is $0$. If $g[i - 1] = 0$, then $g[i] = 0$, otherwise $g[i] = g[i - 1] + 1$;
--   If $\textit{nums}[i] < 0$, then the value of $f[i]$ depends on whether $g[i - 1]$ is $0$. If $g[i - 1] = 0$, then $f[i] = 0$, otherwise $f[i] = g[i - 1] + 1$, and $g[i]$ can be transferred from $f[i - 1]$, i.e., $g[i] = f[i - 1] + 1$.
--   Then, we update the answer $ans = \max(ans, f[i])$.
+- If $\textit{nums}[i] > 0$, then $f[i]$ can be transferred from $f[i - 1]$, i.e., $f[i] = f[i - 1] + 1$, and the value of $g[i]$ depends on whether $g[i - 1]$ is $0$. If $g[i - 1] = 0$, then $g[i] = 0$, otherwise $g[i] = g[i - 1] + 1$;
+- If $\textit{nums}[i] < 0$, then the value of $f[i]$ depends on whether $g[i - 1]$ is $0$. If $g[i - 1] = 0$, then $f[i] = 0$, otherwise $f[i] = g[i - 1] + 1$, and $g[i]$ can be transferred from $f[i - 1]$, i.e., $g[i] = f[i - 1] + 1$.
+- Then, we update the answer $ans = \max(ans, f[i])$.
 
 After the iteration, we return the answer $ans$.
 

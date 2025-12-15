@@ -86,11 +86,11 @@ Firstly, we clarify that each starting position corresponds to a window of lengt
 
 Next, we define the following data structures or variables:
 
--   In-degree array $indeg$, where $indeg[i]$ represents how many characters in the $i$-th window are different from the characters in the stamp. Initially, $indeg[i]=m$. If $indeg[i]=0$, it means that all characters in the $i$-th window are the same as those in the stamp, and we can place the stamp in the $i$-th window.
--   Adjacency list $g$, where $g[i]$ represents the set of all windows with different characters from the stamp on the $i$-th position of the target string $target$.
--   Queue $q$, used to store the numbers of all windows with an in-degree of $0$.
--   Array $vis$, used to mark whether each position of the target string $target$ has been covered.
--   Array $ans$, used to store the answer.
+- In-degree array $indeg$, where $indeg[i]$ represents how many characters in the $i$-th window are different from the characters in the stamp. Initially, $indeg[i]=m$. If $indeg[i]=0$, it means that all characters in the $i$-th window are the same as those in the stamp, and we can place the stamp in the $i$-th window.
+- Adjacency list $g$, where $g[i]$ represents the set of all windows with different characters from the stamp on the $i$-th position of the target string $target$.
+- Queue $q$, used to store the numbers of all windows with an in-degree of $0$.
+- Array $vis$, used to mark whether each position of the target string $target$ has been covered.
+- Array $ans$, used to store the answer.
 
 Then, we perform topological sorting. In each step of the topological sorting, we take out the window number $i$ at the head of the queue, and put $i$ into the answer array $ans$. Then, we enumerate each position $j$ in the stamp. If the $j$-th position in the $i$-th window has not been covered, we cover it and reduce the in-degree of all windows in the $indeg$ array that are the same as the $j$-th position in the $i$-th window by $1$. If the in-degree of a window becomes $0$, we put it into the queue $q$ for processing next time.
 

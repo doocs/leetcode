@@ -65,7 +65,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= edges.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>edges.length == 2</code></li>
+	<li><code>edges[i].length == 2</code></li>
 	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub>&nbsp;&lt;= n - 1</code></li>
 	<li><code>0 &lt;= source &lt;= n - 1</code></li>
 	<li><code>0 &lt;= destination &lt;= n - 1</code></li>
@@ -82,17 +82,17 @@ tags:
 
 我们用一个状态数组 $\textit{state}$ 来记录每个节点的状态，其中：
 
--   状态 0 表示该节点未被访问过；
--   状态 1 表示该节点正在被访问；
--   状态 2 表示该节点已经被访问过且可以通向终点。
+- 状态 0 表示该节点未被访问过；
+- 状态 1 表示该节点正在被访问；
+- 状态 2 表示该节点已经被访问过且可以通向终点。
 
 我们首先将图构建为邻接表的形式，然后从起点出发进行深度优先搜索（DFS）。在 DFS 过程中：
 
--   如果当前节点的状态为 1，说明我们遇到了一个环，直接返回 $\text{false}$；
--   如果当前节点的状态为 2，说明该节点已经被访问过且可以通向终点，直接返回 $\text{true}$；
--   如果当前节点没有出边，则检查该节点是否为终点，如果是则返回 $\text{true}$，否则返回 $\text{false}$；
--   否则，将当前节点的状态设为 1，递归访问所有相邻节点；
--   如果所有相邻节点都能通向终点，则将当前节点的状态设为 2 并返回 $\text{true}$，否则返回 $\text{false}$。
+- 如果当前节点的状态为 1，说明我们遇到了一个环，直接返回 $\text{false}$；
+- 如果当前节点的状态为 2，说明该节点已经被访问过且可以通向终点，直接返回 $\text{true}$；
+- 如果当前节点没有出边，则检查该节点是否为终点，如果是则返回 $\text{true}$，否则返回 $\text{false}$；
+- 否则，将当前节点的状态设为 1，递归访问所有相邻节点；
+- 如果所有相邻节点都能通向终点，则将当前节点的状态设为 2 并返回 $\text{true}$，否则返回 $\text{false}$。
 
 答案为 $\text{dfs}(\text{source})$ 的结果。
 

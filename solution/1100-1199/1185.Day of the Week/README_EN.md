@@ -71,13 +71,13 @@ $$
 
 Where:
 
--   `w`: Day of the week (starting from Sunday)
--   `c`: First two digits of the year
--   `y`: Last two digits of the year
--   `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
--   `d`: Day
--   `⌊⌋`: Floor function (round down)
--   `mod`: Modulo operation
+- `w`: Day of the week (starting from Sunday)
+- `c`: First two digits of the year
+- `y`: Last two digits of the year
+- `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
+- `d`: Day
+- `⌊⌋`: Floor function (round down)
+- `mod`: Modulo operation
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

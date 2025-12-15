@@ -69,8 +69,8 @@ Explanation: The two patches can be [2, 4].
 
 Let's assume that the number $x$ is the smallest positive integer that cannot be represented. Then all the numbers in $[1,..x-1]$ can be represented. In order to represent the number $x$, we need to add a number that is less than or equal to $x$:
 
--   If the added number equals $x$, since all numbers in $[1,..x-1]$ can be represented, after adding $x$, all numbers in the range $[1,..2x-1]$ can be represented, and the smallest positive integer that cannot be represented becomes $2x$.
--   If the added number is less than $x$, let's assume it's $x'$, since all numbers in $[1,..x-1]$ can be represented, after adding $x'$, all numbers in the range $[1,..x+x'-1]$ can be represented, and the smallest positive integer that cannot be represented becomes $x+x' \lt 2x$.
+- If the added number equals $x$, since all numbers in $[1,..x-1]$ can be represented, after adding $x$, all numbers in the range $[1,..2x-1]$ can be represented, and the smallest positive integer that cannot be represented becomes $2x$.
+- If the added number is less than $x$, let's assume it's $x'$, since all numbers in $[1,..x-1]$ can be represented, after adding $x'$, all numbers in the range $[1,..x+x'-1]$ can be represented, and the smallest positive integer that cannot be represented becomes $x+x' \lt 2x$.
 
 Therefore, we should greedily add the number $x$ to cover a larger range.
 
@@ -78,9 +78,9 @@ We use a variable $x$ to record the current smallest positive integer that canno
 
 We perform the following operations in a loop:
 
--   If $i$ is within the range of the array and $nums[i] \le x$, it means that the current number can be covered, so we add the value of $nums[i]$ to $x$, and increment $i$ by $1$.
--   Otherwise, it means that $x$ is not covered, so we need to supplement a number $x$ in the array, and then update $x$ to $2x$.
--   Repeat the above operations until the value of $x$ is greater than $n$.
+- If $i$ is within the range of the array and $nums[i] \le x$, it means that the current number can be covered, so we add the value of $nums[i]$ to $x$, and increment $i$ by $1$.
+- Otherwise, it means that $x$ is not covered, so we need to supplement a number $x$ in the array, and then update $x$ to $2x$.
+- Repeat the above operations until the value of $x$ is greater than $n$.
 
 The final answer is the number of supplemented numbers.
 

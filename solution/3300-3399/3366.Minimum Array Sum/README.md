@@ -93,10 +93,10 @@ tags:
 
 考虑 $f[i][j][k]$ 如何进行状态转移，我们可以枚举第 $i$ 个数 $x$，然后考虑 $x$ 的取值对 $f[i][j][k]$ 的影响：
 
--   如果 $x$ 不使用操作 1 和操作 2，那么 $f[i][j][k] = f[i-1][j][k] + x$；
--   如果 $j \gt 0$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k] + \lceil \frac{x+1}{2} \rceil)$；
--   如果 $k \gt 0$ 并且 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j][k-1] + (x - d))$；
--   如果 $j \gt 0$ 并且 $k \gt 0$，那么可以同时使用操作 1 和操作 2。如果先使用操作 1，那么 $x$ 变为 $\lceil \frac{x+1}{2} \rceil$，如果 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x+1}{2} \rceil - d)$；如果先使用操作 2，那么 $x$ 变为 $x - d$，如果 $x \geq d$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x-d+1}{2} \rceil)$。
+- 如果 $x$ 不使用操作 1 和操作 2，那么 $f[i][j][k] = f[i-1][j][k] + x$；
+- 如果 $j \gt 0$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k] + \lceil \frac{x+1}{2} \rceil)$；
+- 如果 $k \gt 0$ 并且 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j][k-1] + (x - d))$；
+- 如果 $j \gt 0$ 并且 $k \gt 0$，那么可以同时使用操作 1 和操作 2。如果先使用操作 1，那么 $x$ 变为 $\lceil \frac{x+1}{2} \rceil$，如果 $x \geq d$，那么可以使用操作 2，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x+1}{2} \rceil - d)$；如果先使用操作 2，那么 $x$ 变为 $x - d$，如果 $x \geq d$，那么可以使用操作 1，此时 $f[i][j][k] = \min(f[i][j][k], f[i-1][j-1][k-1] + \lceil \frac{x-d+1}{2} \rceil)$。
 
 最终答案为 $\min_{j=0}^{op1} \min_{k=0}^{op2} f[n][j][k]$，如果为 $+\infty$，则输出 $-1$。
 

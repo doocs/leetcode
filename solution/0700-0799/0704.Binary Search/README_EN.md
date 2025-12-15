@@ -60,8 +60,8 @@ We define the left boundary $l=0$ and the right boundary $r=n-1$ for binary sear
 
 In each iteration, we calculate the middle position $\textit{mid}=(l+r)/2$, then compare the size of $\textit{nums}[\textit{mid}]$ and $\textit{target}$.
 
--   If $\textit{nums}[\textit{mid}] \geq \textit{target}$, it means $\textit{target}$ is in the left half, so we move the right boundary $r$ to $\textit{mid}$;
--   Otherwise, it means $\textit{target}$ is in the right half, so we move the left boundary $l$ to $\textit{mid}+1$.
+- If $\textit{nums}[\textit{mid}] \geq \textit{target}$, it means $\textit{target}$ is in the left half, so we move the right boundary $r$ to $\textit{mid}$;
+- Otherwise, it means $\textit{target}$ is in the right half, so we move the left boundary $l$ to $\textit{mid}+1$.
 
 The loop ends when $l<r$, at this point $\textit{nums}[l]$ is the target value we are looking for. If $\textit{nums}[l]=\textit{target}$, return $l$; otherwise, return $-1$.
 

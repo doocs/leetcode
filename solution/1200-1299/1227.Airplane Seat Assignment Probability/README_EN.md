@@ -67,12 +67,12 @@ When $n=2$, there are 2 seats, each seat has a probability of 0.5 to be chosen b
 
 When $n>2$, how to calculate the value of $f(n)$? Consider the seat chosen by the first passenger, there are three cases.
 
--   The first passenger has a probability of $\frac{1}{n}$ to choose the first seat, then all passengers can sit in their own seats, so the probability of the $n$th passenger sitting in their own seat is 1.0.
+- The first passenger has a probability of $\frac{1}{n}$ to choose the first seat, then all passengers can sit in their own seats, so the probability of the $n$th passenger sitting in their own seat is 1.0.
 
--   The first passenger has a probability of $\frac{1}{n}$ to choose the $n$th seat, then the second to the $(n-1)$th passengers can sit in their own seats, the $n$th passenger can only sit in the first seat, so the probability of the $n$th passenger sitting in their own seat is 0.0.
+- The first passenger has a probability of $\frac{1}{n}$ to choose the $n$th seat, then the second to the $(n-1)$th passengers can sit in their own seats, the $n$th passenger can only sit in the first seat, so the probability of the $n$th passenger sitting in their own seat is 0.0.
 
--   The first passenger has a probability of $\frac{n-2}{n}$ to choose the remaining seats, each seat has a probability of $\frac{1}{n}$ to be chosen.
-    Suppose the first passenger chooses the $i$th seat, where $2 \le i \le n-1$, then the second to the $(i-1)$th passengers can sit in their own seats, the seats of the $i$th to the $n$th passengers are uncertain, the $i$th passenger will randomly choose from the remaining $n-(i-1)=n-i+1$ seats (including the first seat and the $(i+1)$th to the $n$th seats). Since the number of remaining passengers and seats is $n-i+1$, and 1 passenger will randomly choose a seat, the problem size is reduced from $n$ to $n-i+1$.
+- The first passenger has a probability of $\frac{n-2}{n}$ to choose the remaining seats, each seat has a probability of $\frac{1}{n}$ to be chosen.
+  Suppose the first passenger chooses the $i$th seat, where $2 \le i \le n-1$, then the second to the $(i-1)$th passengers can sit in their own seats, the seats of the $i$th to the $n$th passengers are uncertain, the $i$th passenger will randomly choose from the remaining $n-(i-1)=n-i+1$ seats (including the first seat and the $(i+1)$th to the $n$th seats). Since the number of remaining passengers and seats is $n-i+1$, and 1 passenger will randomly choose a seat, the problem size is reduced from $n$ to $n-i+1$.
 
 Combining the above three cases, we can get the recursive formula of $f(n)$:
 

@@ -159,6 +159,44 @@ function maximumHappinessSum(happiness: number[], k: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_happiness_sum(mut happiness: Vec<i32>, k: i32) -> i64 {
+        happiness.sort_unstable_by(|a, b| b.cmp(a));
+
+        let mut ans: i64 = 0;
+        for i in 0..(k as usize) {
+            let x = happiness[i] as i64 - i as i64;
+            if x > 0 {
+                ans += x;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public long MaximumHappinessSum(int[] happiness, int k) {
+        Array.Sort(happiness, (a, b) => b.CompareTo(a));
+        long ans = 0;
+        for (int i = 0; i < k; i++) {
+            int x = happiness[i] - i;
+            if (x <= 0) {
+                break;
+            }
+            ans += x;
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

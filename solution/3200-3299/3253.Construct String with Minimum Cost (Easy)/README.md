@@ -82,8 +82,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 
 函数 $\textit{dfs}(i)$ 的计算过程如下：
 
--   如果 $i \geq \textit{len}(\textit{target})$，表示已经构造完整个字符串，返回 $0$。
--   否则，我们从 $\textit{trie}$ 的根节点开始，遍历 $\textit{target}[i]$ 开始的所有后缀，找到最小花费，即 $\textit{trie}$ 中的 $\textit{cost}$ 变量，加上 $\textit{dfs}(j+1)$ 的结果，其中 $j$ 是 $\textit{target}[i]$ 开始的后缀的结束位置。
+- 如果 $i \geq \textit{len}(\textit{target})$，表示已经构造完整个字符串，返回 $0$。
+- 否则，我们从 $\textit{trie}$ 的根节点开始，遍历 $\textit{target}[i]$ 开始的所有后缀，找到最小花费，即 $\textit{trie}$ 中的 $\textit{cost}$ 变量，加上 $\textit{dfs}(j+1)$ 的结果，其中 $j$ 是 $\textit{target}[i]$ 开始的后缀的结束位置。
 
 最后，如果 $\textit{dfs}(0) < \textit{inf}$，返回 $\textit{dfs}(0)$，否则返回 $-1$。
 

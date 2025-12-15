@@ -79,9 +79,9 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 The date functions we use include:
 
--   `DATE_FORMAT(date, format)`: Formats a date as a string
--   `DAYOFWEEK(date)`: Returns the day of the week for a date, where 1 represents Sunday, 2 represents Monday, and so on
--   `DAYOFMONTH(date)`: Returns the day of the month for a date
+- `DATE_FORMAT(date, format)`: Formats a date as a string
+- `DAYOFWEEK(date)`: Returns the day of the week for a date, where 1 represents Sunday, 2 represents Monday, and so on
+- `DAYOFMONTH(date)`: Returns the day of the month for a date
 
 First, we use the `DATE_FORMAT` function to format the date in the form of `YYYYMM`, then filter out the records of November 2023 that fall on a Friday. Next, we group the records by `purchase_date` and calculate the total consumption amount for each Friday.
 

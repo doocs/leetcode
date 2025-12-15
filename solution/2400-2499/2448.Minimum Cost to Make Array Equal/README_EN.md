@@ -271,8 +271,8 @@ The time complexity is $O(n\times \log n)$, where $n$ is the length of the array
 
 Similar problems:
 
--   [296. Best Meeting Point](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
--   [462. Minimum Moves to Equal Array Elements II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
+- [296. Best Meeting Point](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
+- [462. Minimum Moves to Equal Array Elements II](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README_EN.md)
 
 <!-- tabs:start -->
 

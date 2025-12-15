@@ -62,8 +62,8 @@ We define $f[i][j]$ to represent the number of paths from the top left corner to
 
 Consider $f[i][j]$:
 
--   If $i > 0$, then $f[i][j]$ can be reached by taking one step from $f[i - 1][j]$, so $f[i][j] = f[i][j] + f[i - 1][j]$;
--   If $j > 0$, then $f[i][j]$ can be reached by taking one step from $f[i][j - 1]$, so $f[i][j] = f[i][j] + f[i][j - 1]$.
+- If $i > 0$, then $f[i][j]$ can be reached by taking one step from $f[i - 1][j]$, so $f[i][j] = f[i][j] + f[i - 1][j]$;
+- If $j > 0$, then $f[i][j]$ can be reached by taking one step from $f[i][j - 1]$, so $f[i][j] = f[i][j] + f[i][j - 1]$.
 
 Therefore, we have the following state transition equation:
 

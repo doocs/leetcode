@@ -93,15 +93,15 @@ tags:
 
 先对会议按照开始时间排序，然后遍历会议，对于每个会议：
 
--   若有使用中的会议室小于当前等于会议的开始时间，将其加入到空闲会议室队列 `idle` 中；
--   若当前有空闲会议室，那么在空闲队列 `idle` 中取出权重最小的会议室，将其加入使用中的队列 `busy` 中；
--   若当前没有空闲会议室，那么在使用队列 `busy` 中找出最早结束时间且下标最小的会议室，重新加入使用中的队列 `busy` 中。
+- 若有使用中的会议室小于当前等于会议的开始时间，将其加入到空闲会议室队列 `idle` 中；
+- 若当前有空闲会议室，那么在空闲队列 `idle` 中取出权重最小的会议室，将其加入使用中的队列 `busy` 中；
+- 若当前没有空闲会议室，那么在使用队列 `busy` 中找出最早结束时间且下标最小的会议室，重新加入使用中的队列 `busy` 中。
 
 时间复杂度 $O(m \times \log m)$，其中 $m$ 为会议数量。
 
 相似题目：
 
--   [1882. 使用服务器处理任务](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
+- [1882. 使用服务器处理任务](https://github.com/doocs/leetcode/blob/main/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)
 
 <!-- tabs:start -->
 

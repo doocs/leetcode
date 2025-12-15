@@ -67,8 +67,8 @@ We define $f[i][j]$ as the number of schemes where the first $i$ characters of s
 
 When $i > 0$, we consider the calculation of $f[i][j]$:
 
--   When $s[i-1] \ne t[j-1]$, we cannot select $s[i-1]$, so $f[i][j]=f[i-1][j]$;
--   Otherwise, we can select $s[i-1]$, so $f[i][j]=f[i-1][j-1]$.
+- When $s[i-1] \ne t[j-1]$, we cannot select $s[i-1]$, so $f[i][j]=f[i-1][j]$;
+- Otherwise, we can select $s[i-1]$, so $f[i][j]=f[i-1][j-1]$.
 
 Therefore, we have the following state transition equation:
 

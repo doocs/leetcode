@@ -3,7 +3,7 @@ function maximumLength(nums: number[]): number {
     for (const x of nums) {
         cnt.set(x, (cnt.get(x) ?? 0) + 1);
     }
-    let ans = cnt.has(1) ? cnt.get(1)! - (cnt.get(1)! % 2 ^ 1) : 0;
+    let ans = cnt.has(1) ? cnt.get(1)! - ((cnt.get(1)! % 2) ^ 1) : 0;
     cnt.delete(1);
     for (let [x, _] of cnt) {
         let t = 0;

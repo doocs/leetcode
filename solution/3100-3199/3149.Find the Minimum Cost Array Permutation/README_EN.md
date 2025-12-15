@@ -80,8 +80,8 @@ We design a function $\textit{dfs}(\textit{mask}, \textit{pre})$, which represen
 
 The calculation process of the function $\textit{dfs}(\textit{mask}, \textit{pre})$ is as follows:
 
--   If the number of $1$s in the binary representation of $\textit{mask}$ is $n$, that is, $\textit{mask} = 2^n - 1$, it means that all numbers have been selected, then return $|\textit{pre} - \textit{nums}[0]|$;
--   Otherwise, we enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, then we can add the number $\textit{cur}$ to the permutation. At this time, the score of the permutation is $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$. We need to take the minimum score among all $\textit{cur}$.
+- If the number of $1$s in the binary representation of $\textit{mask}$ is $n$, that is, $\textit{mask} = 2^n - 1$, it means that all numbers have been selected, then return $|\textit{pre} - \textit{nums}[0]|$;
+- Otherwise, we enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, then we can add the number $\textit{cur}$ to the permutation. At this time, the score of the permutation is $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$. We need to take the minimum score among all $\textit{cur}$.
 
 Finally, we use a function $\textit{g}(\textit{mask}, \textit{pre})$ to construct the permutation that gets the minimum score. We first add the number $\textit{pre}$ to the permutation, and then enumerate the next selected number $\textit{cur}$. If the number $\textit{cur}$ has not been selected yet, and it satisfies that the value of $|\textit{pre} - \textit{nums}[\textit{cur}]| + \textit{dfs}(\textit{mask} \, | \, 1 << \textit{cur}, \textit{cur})$ is equal to $\textit{dfs}(\textit{mask}, \textit{pre})$, then we can add the number $\textit{cur}$ to the permutation.
 

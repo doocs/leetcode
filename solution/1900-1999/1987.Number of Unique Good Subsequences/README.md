@@ -77,8 +77,8 @@ tags:
 
 对于一个二进制字符串，我们可以从左到右遍历每一位，假设当前位为 $c$，那么：
 
--   如果 $c = 0$，那么我们可以在 $f$ 和 $g$ 个不同的好子序列拼上 $c$，因此更新 $g = (g + f) \bmod (10^9 + 7)$；
--   如果 $c = 1$，那么我们可以在 $f$ 和 $g$ 个不同的好子序列拼上 $c$，同时还可以单独拼上 $c$，因此更新 $f = (f + g + 1) \bmod (10^9 + 7)$。
+- 如果 $c = 0$，那么我们可以在 $f$ 和 $g$ 个不同的好子序列拼上 $c$，因此更新 $g = (g + f) \bmod (10^9 + 7)$；
+- 如果 $c = 1$，那么我们可以在 $f$ 和 $g$ 个不同的好子序列拼上 $c$，同时还可以单独拼上 $c$，因此更新 $f = (f + g + 1) \bmod (10^9 + 7)$。
 
 如果字符串包含 $0$，那么最终答案为 $f + g + 1$，否则答案为 $f + g$。
 
@@ -86,7 +86,7 @@ tags:
 
 相似题目：
 
--   [940. 不同的子序列 II](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
+- [940. 不同的子序列 II](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0940.Distinct%20Subsequences%20II/README.md)
 
 <!-- tabs:start -->
 

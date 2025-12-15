@@ -87,8 +87,8 @@ strs 的列已经是按字典序排列了，所以我们不需要删除任何东
 
 对于每一列 $j$，我们遍历所有相邻的字符串对 $(\textit{strs}[i], \textit{strs}[i + 1])$：
 
--   如果 $\textit{st}[i]$ 为假且 $\textit{strs}[i][j] > \textit{strs}[i + 1][j]$，说明当前列必须删除，我们将答案加一并跳过该列的处理；
--   否则，如果 $\textit{st}[i]$ 为假且 $\textit{strs}[i][j] < \textit{strs}[i + 1][j]$，说明当前列确定了这两个字符串的大小关系，我们将 $\textit{st}[i]$ 设为真。
+- 如果 $\textit{st}[i]$ 为假且 $\textit{strs}[i][j] > \textit{strs}[i + 1][j]$，说明当前列必须删除，我们将答案加一并跳过该列的处理；
+- 否则，如果 $\textit{st}[i]$ 为假且 $\textit{strs}[i][j] < \textit{strs}[i + 1][j]$，说明当前列确定了这两个字符串的大小关系，我们将 $\textit{st}[i]$ 设为真。
 
 遍历完所有列后，答案即为需要删除的列数。
 

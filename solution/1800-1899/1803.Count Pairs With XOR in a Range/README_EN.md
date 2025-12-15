@@ -106,8 +106,8 @@ Moreover, for array XOR counting problems, we can usually use a "0-1 Trie" to so
 
 The definition of the Trie node is as follows:
 
--   `children[0]` and `children[1]` represent the left and right child nodes of the current node, respectively;
--   `cnt` represents the number of numbers ending with the current node.
+- `children[0]` and `children[1]` represent the left and right child nodes of the current node, respectively;
+- `cnt` represents the number of numbers ending with the current node.
 
 In the Trie, we also define the following two functions:
 

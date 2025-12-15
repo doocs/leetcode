@@ -76,8 +76,8 @@ Each node in the trie contains two parts:
 
 We start from the root of the trie and insert the string. For the child node corresponding to the current character, there are two cases:
 
--   The child node exists. Move along the pointer to the child node and continue processing the next character.
--   The child node does not exist. Create a new child node, record it in the corresponding position of the `children` array, then move along the pointer to the child node and continue searching for the next character.
+- The child node exists. Move along the pointer to the child node and continue processing the next character.
+- The child node does not exist. Create a new child node, record it in the corresponding position of the `children` array, then move along the pointer to the child node and continue searching for the next character.
 
 Repeat the above steps until the last character of the string is processed, then mark the current node as the end of the string.
 
@@ -85,8 +85,8 @@ Repeat the above steps until the last character of the string is processed, then
 
 We start from the root of the trie and search for the prefix. For the child node corresponding to the current character, there are two cases:
 
--   The child node exists. Move along the pointer to the child node and continue searching for the next character.
--   The child node does not exist. This means the trie does not contain the prefix, so return a null pointer.
+- The child node exists. Move along the pointer to the child node and continue searching for the next character.
+- The child node does not exist. This means the trie does not contain the prefix, so return a null pointer.
 
 Repeat the above steps until a null pointer is returned or the last character of the prefix is searched.
 

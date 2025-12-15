@@ -1,16 +1,18 @@
 class Solution {
     public int bestClosingTime(String customers) {
         int n = customers.length();
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (customers.charAt(i) == 'Y' ? 1 : 0);
+        int ans = 0, cost = 0;
+        for (int i = 0; i < n; i++) {
+            if (customers.charAt(i) == 'Y') {
+                cost++;
+            }
         }
-        int ans = 0, cost = 1 << 30;
-        for (int j = 0; j <= n; ++j) {
-            int t = j - s[j] + s[n] - s[j];
-            if (cost > t) {
+        int mn = cost;
+        for (int j = 1; j <= n; j++) {
+            cost += customers.charAt(j - 1) == 'N' ? 1 : -1;
+            if (cost < mn) {
                 ans = j;
-                cost = t;
+                mn = cost;
             }
         }
         return ans;

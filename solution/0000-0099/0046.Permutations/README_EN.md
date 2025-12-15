@@ -53,7 +53,7 @@ The time complexity is $O(n \times n!)$, where $n$ is the length of the array. T
 
 Similar problems:
 
--   [47. Permutations II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0047.Permutations%20II/README_EN.md)
+- [47. Permutations II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0047.Permutations%20II/README_EN.md)
 
 <!-- tabs:start -->
 

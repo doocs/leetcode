@@ -208,7 +208,7 @@ class Solution {
 
 相似题目：
 
--   [149. 直线上最多的点数](https://github.com/doocs/leetcode/blob/main/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
+- [149. 直线上最多的点数](https://github.com/doocs/leetcode/blob/main/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
 
 <!-- tabs:start -->
 

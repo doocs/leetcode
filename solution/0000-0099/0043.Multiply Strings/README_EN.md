@@ -51,8 +51,8 @@ Assume the lengths of $num1$ and $num2$ are $m$ and $n$ respectively, then the l
 
 The proof is as follows:
 
--   If $num1$ and $num2$ both take the minimum value, then their product is ${10}^{m - 1} \times {10}^{n - 1} = {10}^{m + n - 2}$, with a length of $m + n - 1$.
--   If $num1$ and $num2$ both take the maximum value, then their product is $({10}^m - 1) \times ({10}^n - 1) = {10}^{m + n} - {10}^m - {10}^n + 1$, with a length of $m + n$.
+- If $num1$ and $num2$ both take the minimum value, then their product is ${10}^{m - 1} \times {10}^{n - 1} = {10}^{m + n - 2}$, with a length of $m + n - 1$.
+- If $num1$ and $num2$ both take the maximum value, then their product is $({10}^m - 1) \times ({10}^n - 1) = {10}^{m + n} - {10}^m - {10}^n + 1$, with a length of $m + n$.
 
 Therefore, we can apply for an array of length $m + n$ to store each digit of the product.
 

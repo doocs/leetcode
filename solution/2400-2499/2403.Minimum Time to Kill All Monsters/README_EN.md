@@ -96,8 +96,8 @@ We design a function $\textit{dfs}(\textit{mask})$ to represent the minimum numb
 
 The calculation of the function $\textit{dfs}(\textit{mask})$ is as follows:
 
--   If $\textit{mask} = 0$, it means all monsters have been defeated, return $0$;
--   Otherwise, we enumerate each monster $i$. If the $i$-th monster is still alive, we can choose to defeat the $i$-th monster, then recursively calculate $\textit{dfs}(\textit{mask} \oplus 2^i)$, and update the answer to $\textit{ans} = \min(\textit{ans}, \textit{dfs}(\textit{mask} \oplus 2^i) + \lceil \frac{x}{\textit{gain}} \rceil)$, where $x$ is the strength of the $i$-th monster, and $\textit{gain} = 1 + (n - \textit{mask}.\textit{bit\_count}())$ represents the current daily mana gain.
+- If $\textit{mask} = 0$, it means all monsters have been defeated, return $0$;
+- Otherwise, we enumerate each monster $i$. If the $i$-th monster is still alive, we can choose to defeat the $i$-th monster, then recursively calculate $\textit{dfs}(\textit{mask} \oplus 2^i)$, and update the answer to $\textit{ans} = \min(\textit{ans}, \textit{dfs}(\textit{mask} \oplus 2^i) + \lceil \frac{x}{\textit{gain}} \rceil)$, where $x$ is the strength of the $i$-th monster, and $\textit{gain} = 1 + (n - \textit{mask}.\textit{bit\_count}())$ represents the current daily mana gain.
 
 Finally, we return $\textit{dfs}(2^n - 1)$.
 

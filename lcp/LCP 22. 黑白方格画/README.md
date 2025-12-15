@@ -47,8 +47,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%
 
 **限制：**
 
--   `1 <= n <= 6`
--   `0 <= k <= n * n`
+- `1 <= n <= 6`
+- `0 <= k <= n * n`
 
 <!-- description:end -->
 

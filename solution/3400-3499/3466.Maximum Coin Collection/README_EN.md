@@ -137,10 +137,10 @@ We design a function $\textit{dfs}(i, j, k)$, which represents the maximum numbe
 
 The function $\textit{dfs}(i, j, k)$ is calculated as follows:
 
--   If $i \geq n$, it means Mario has reached the end, return 0;
--   If no lane change is made, Mario can drive 1 mile, then exit, or continue driving, taking the maximum of the two, i.e., $\max(x, \textit{dfs}(i + 1, j, k) + x)$;
--   If a lane change is possible, there are two choices: drive 1 mile and then change lanes, or change lanes directly, taking the maximum of these two cases, i.e., $\max(\textit{dfs}(i + 1, j \oplus 1, k - 1) + x, \textit{dfs}(i, j \oplus 1, k - 1))$.
--   Where $x$ represents the number of coins at the current position.
+- If $i \geq n$, it means Mario has reached the end, return 0;
+- If no lane change is made, Mario can drive 1 mile, then exit, or continue driving, taking the maximum of the two, i.e., $\max(x, \textit{dfs}(i + 1, j, k) + x)$;
+- If a lane change is possible, there are two choices: drive 1 mile and then change lanes, or change lanes directly, taking the maximum of these two cases, i.e., $\max(\textit{dfs}(i + 1, j \oplus 1, k - 1) + x, \textit{dfs}(i, j \oplus 1, k - 1))$.
+- Where $x$ represents the number of coins at the current position.
 
 To avoid repeated calculations, we use memoized search to store the results that have already been computed.
 

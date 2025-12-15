@@ -210,7 +210,7 @@ public class Solution {
 
 相似题目：
 
--   [面试题 16.14. 最佳直线](https://github.com/doocs/leetcode/blob/main/lcci/16.14.Best%20Line/README.md)
+- [面试题 16.14. 最佳直线](https://github.com/doocs/leetcode/blob/main/lcci/16.14.Best%20Line/README.md)
 
 <!-- tabs:start -->
 

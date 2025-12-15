@@ -107,9 +107,9 @@ tags:
 
 We calculate the distance $a$ between the 1st person and the 3rd person, and the distance $b$ between the 2nd person and the 3rd person.
 
--   If $a = b$, it means both people arrive at the same time, return $0$;
--   If $a \lt b$, it means the 1st person will arrive first, return $1$;
--   Otherwise, it means the 2nd person will arrive first, return $2$.
+- If $a = b$, it means both people arrive at the same time, return $0$;
+- If $a \lt b$, it means the 1st person will arrive first, return $1$;
+- Otherwise, it means the 2nd person will arrive first, return $2$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

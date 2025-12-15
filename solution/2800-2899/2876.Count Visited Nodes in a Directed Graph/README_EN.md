@@ -75,8 +75,8 @@ We can use an array $ans$ to record the answer for each node, and an array $vis$
 
 For each node $i$, if it has not been visited yet, we start traversing from node $i$. There are two cases:
 
--   If we encounter a node that has been visited before during the traversal, then we must have first entered the cycle and then walked around the cycle. For nodes outside the cycle, their answer is the length of the cycle plus the distance from the node to the cycle; for nodes inside the cycle, their answer is the length of the cycle.
--   If we encounter a node that has been visited before during the traversal, then for each visited node, its answer is the distance from the current node to this node plus the answer of this node.
+- If we encounter a node that has been visited before during the traversal, then we must have first entered the cycle and then walked around the cycle. For nodes outside the cycle, their answer is the length of the cycle plus the distance from the node to the cycle; for nodes inside the cycle, their answer is the length of the cycle.
+- If we encounter a node that has been visited before during the traversal, then for each visited node, its answer is the distance from the current node to this node plus the answer of this node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array edges.
 

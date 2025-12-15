@@ -69,9 +69,9 @@ tags:
 
 函数 $dfs(i, j, x)$ 的计算过程如下：
 
--   如果 $i >= j$，则 $dfs(i, j, x) = 0$；
--   如果 $s[i] = s[j]$，且 $s[i] \neq x$，那么 $dfs(i, j, x) = dfs(i + 1, j - 1, s[i]) + 2$；
--   如果 $s[i] \neq s[j]$，那么 $dfs(i, j, x) = max(dfs(i + 1, j, x), dfs(i, j - 1, x))$。
+- 如果 $i >= j$，则 $dfs(i, j, x) = 0$；
+- 如果 $s[i] = s[j]$，且 $s[i] \neq x$，那么 $dfs(i, j, x) = dfs(i + 1, j - 1, s[i]) + 2$；
+- 如果 $s[i] \neq s[j]$，那么 $dfs(i, j, x) = max(dfs(i + 1, j, x), dfs(i, j - 1, x))$。
 
 过程中，我们可以使用记忆化搜索的方式，避免重复计算。
 

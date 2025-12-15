@@ -269,11 +269,11 @@ We can use two priority queues (min-max heap) to maintain the elements in the cu
 
 We design a class `MedianFinder` to maintain the elements in the current window. This class includes the following methods:
 
--   `add_num(num)`: Add `num` to the current window.
--   `find()`: Return the beauty value of the current window.
--   `remove_num(num)`: Remove `num` from the current window.
--   `prune(pq)`: If the top element of the heap is in the delayed deletion dictionary `delayed`, pop it from the top of the heap and subtract one from its delayed deletion count. If the delayed deletion count of the element is zero, delete it from the delayed deletion dictionary.
--   `rebalance()`: Balance the size of the two priority queues.
+- `add_num(num)`: Add `num` to the current window.
+- `find()`: Return the beauty value of the current window.
+- `remove_num(num)`: Remove `num` from the current window.
+- `prune(pq)`: If the top element of the heap is in the delayed deletion dictionary `delayed`, pop it from the top of the heap and subtract one from its delayed deletion count. If the delayed deletion count of the element is zero, delete it from the delayed deletion dictionary.
+- `rebalance()`: Balance the size of the two priority queues.
 
 In the `add_num(num)` method, we first consider adding `num` to the smaller queue. If the count is greater than $x$ or `num` is less than or equal to the top element of the smaller queue, add `num` to the smaller queue; otherwise, add `num` to the larger queue. Then we call the `rebalance()` method to ensure that the number of elements in the smaller queue does not exceed $x$.
 
@@ -289,7 +289,7 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 
 Similar problems:
 
--   [480. Sliding Window Median](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
+- [480. Sliding Window Median](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
 <!-- tabs:start -->
 

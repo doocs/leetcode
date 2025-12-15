@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3759.Count%20Elements%20With%20at%20Least%20K%20Greater%20Values/README.md
 rating: 1372
 source: 第 478 场周赛 Q1
+tags:
+    - 数组
+    - 二分查找
+    - 分治
+    - 快速选择
+    - 排序
 ---
 
 <!-- problem:start -->

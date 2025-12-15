@@ -75,10 +75,10 @@ We can design a function $dfs(root, s)$, which represents the sum of all path nu
 
 The calculation of the function $dfs(root, s)$ is as follows:
 
--   If the current node $root$ is null, return $0$.
--   Otherwise, add the value of the current node to $s$, i.e., $s = s \times 10 + root.val$.
--   If the current node is a leaf node, return $s$.
--   Otherwise, return $dfs(root.left, s) + dfs(root.right, s)$.
+- If the current node $root$ is null, return $0$.
+- Otherwise, add the value of the current node to $s$, i.e., $s = s \times 10 + root.val$.
+- If the current node is a leaf node, return $s$.
+- Otherwise, return $dfs(root.left, s) + dfs(root.right, s)$.
 
 The time complexity is $O(n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of nodes in the binary tree.
 

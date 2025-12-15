@@ -4,6 +4,12 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README_EN.md
 rating: 2519
 source: Weekly Contest 477 Q4
+tags:
+    - Bit Manipulation
+    - Array
+    - Math
+    - Dynamic Programming
+    - Combinatorics
 ---
 
 <!-- problem:start -->

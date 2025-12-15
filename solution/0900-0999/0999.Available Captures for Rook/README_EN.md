@@ -83,8 +83,8 @@ tags:
 
 We first traverse the board to find the position of the rook $(i, j)$. Then, starting from $(i, j)$, we traverse in four directions: up, down, left, and right.
 
--   If it is not the boundary and not a bishop, continue moving forward.
--   If it is a pawn, increment the answer by one and stop traversing in that direction.
+- If it is not the boundary and not a bishop, continue moving forward.
+- If it is a pawn, increment the answer by one and stop traversing in that direction.
 
 After traversing in all four directions, we get the answer.
 

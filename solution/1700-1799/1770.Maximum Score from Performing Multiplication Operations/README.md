@@ -80,8 +80,8 @@ tags:
 
 函数 $dfs(i, j)$ 的计算过程如下：
 
--   如果 $i \geq m$ 或者 $j \geq m$，或者 $i + j \geq m$，说明已经没有元素可以选择了，返回 $0$。
--   否则，我们可以选择 `nums` 数组头部第 $i$ 个元素，那么能够获取的最大分数为 $nums[i] \times multipliers[i + j] + dfs(i + 1, j)$；或者我们可以选择 `nums` 数组尾部第 $j$ 个元素，那么能够获取的最大分数为 $nums[n - j - 1] \times multipliers[i + j] + dfs(i, j + 1)$。我们取两者的最大值作为 $dfs(i, j)$ 的返回值。
+- 如果 $i \geq m$ 或者 $j \geq m$，或者 $i + j \geq m$，说明已经没有元素可以选择了，返回 $0$。
+- 否则，我们可以选择 `nums` 数组头部第 $i$ 个元素，那么能够获取的最大分数为 $nums[i] \times multipliers[i + j] + dfs(i + 1, j)$；或者我们可以选择 `nums` 数组尾部第 $j$ 个元素，那么能够获取的最大分数为 $nums[n - j - 1] \times multipliers[i + j] + dfs(i, j + 1)$。我们取两者的最大值作为 $dfs(i, j)$ 的返回值。
 
 我们可以使用记忆化搜索来实现上述递归过程，其中 `f` 数组用于存储函数 $dfs(i, j)$ 的返回值，防止重复计算。
 

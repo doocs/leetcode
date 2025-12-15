@@ -116,8 +116,8 @@ Ultimately, we can join tables `S` and `U` to calculate the `max_overlapping_shi
 
 Similar Problems:
 
--   [3156. Employee Task Duration and Concurrent Tasks 🔒](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)
--   [3262. Find Overlapping Shifts 🔒](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md)
+- [3156. Employee Task Duration and Concurrent Tasks 🔒](https://github.com/doocs/leetcode/blob/main/solution/3100-3199/3156.Employee%20Task%20Duration%20and%20Concurrent%20Tasks/README_EN.md)
+- [3262. Find Overlapping Shifts 🔒](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3262.Find%20Overlapping%20Shifts/README_EN.md)
 
 <!-- tabs:start -->
 

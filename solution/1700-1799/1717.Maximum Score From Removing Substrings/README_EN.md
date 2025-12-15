@@ -86,9 +86,9 @@ Therefore, we can use two variables $\textit{cnt1}$ and $\textit{cnt2}$ to recor
 
 For the current character $c$ being traversed:
 
--   If $c$ is "a", since we want to remove "ab" first, we don't eliminate this character at this time, only increment $\textit{cnt1}$;
--   If $c$ is "b", if $\textit{cnt1} > 0$ at this time, we can eliminate one "ab" and add $x$ points; otherwise, we can only increment $\textit{cnt2}$;
--   If $c$ is another character, then for this substring, we have $\textit{cnt2}$ "b"s and $\textit{cnt1}$ "a"s left. We can eliminate $\min(\textit{cnt1}, \textit{cnt2})$ "ba"s and add several $y$ points.
+- If $c$ is "a", since we want to remove "ab" first, we don't eliminate this character at this time, only increment $\textit{cnt1}$;
+- If $c$ is "b", if $\textit{cnt1} > 0$ at this time, we can eliminate one "ab" and add $x$ points; otherwise, we can only increment $\textit{cnt2}$;
+- If $c$ is another character, then for this substring, we have $\textit{cnt2}$ "b"s and $\textit{cnt1}$ "a"s left. We can eliminate $\min(\textit{cnt1}, \textit{cnt2})$ "ba"s and add several $y$ points.
 
 After traversal, we need to handle the remaining "ba"s and add several $y$ points.
 

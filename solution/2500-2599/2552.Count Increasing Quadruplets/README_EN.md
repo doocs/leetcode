@@ -70,8 +70,8 @@ There are no other quadruplets, so we return 2.
 
 We can enumerate $j$ and $k$ in the quadruplet, then the problem is transformed into, for the current $j$ and $k$:
 
--   Count how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$;
--   Count how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
+- Count how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$;
+- Count how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
 
 We can use two two-dimensional arrays $f$ and $g$ to record these two pieces of information. Where $f[j][k]$ represents how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$, and $g[j][k]$ represents how many $i$ satisfy $i < j$ and $nums[i] < nums[k]$.
 

@@ -104,7 +104,7 @@ tags:
 
 相似题目：
 
--   [1535. 找到数组中的赢家](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
+- [1535. 找到数组中的赢家](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)
 
 <!-- tabs:start -->
 

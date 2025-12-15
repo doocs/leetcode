@@ -103,8 +103,8 @@ Then, we define a function $dfs(i)$ to represent the minimum cost of converting 
 
 The calculation process of the function $dfs(i)$ is as follows:
 
--   If $i \geq |source|$, no conversion is needed, return $0$.
--   Otherwise, if $source[i] = target[i]$, we can skip directly and recursively calculate $dfs(i + 1)$. We can also enumerate the index $j$ in the range $[i, |source|)$, if $source[i..j]$ and $target[i..j]$ are both in the trie, and their corresponding integer identifiers $x$ and $y$ are both greater than or equal to $0$, then we can add $dfs(j + 1)$ and $g[x][y]$ to get the cost of one conversion scheme, and we take the minimum value among all schemes.
+- If $i \geq |source|$, no conversion is needed, return $0$.
+- Otherwise, if $source[i] = target[i]$, we can skip directly and recursively calculate $dfs(i + 1)$. We can also enumerate the index $j$ in the range $[i, |source|)$, if $source[i..j]$ and $target[i..j]$ are both in the trie, and their corresponding integer identifiers $x$ and $y$ are both greater than or equal to $0$, then we can add $dfs(j + 1)$ and $g[x][y]$ to get the cost of one conversion scheme, and we take the minimum value among all schemes.
 
 In summary, we can get:
 

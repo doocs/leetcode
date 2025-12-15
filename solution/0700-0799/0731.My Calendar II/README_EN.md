@@ -295,10 +295,10 @@ MyCalendarTwo.prototype.book = function (startTime, endTime) {
 
 A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\textit{width})$. To update the value of an element, only $\log(\textit{width})$ intervals need to be updated, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, a **lazy mark** is used to ensure efficiency.
 
--   Each node of the segment tree represents an interval;
--   The segment tree has a unique root node representing the entire statistical range, such as $[1, N]$;
--   Each leaf node of the segment tree represents a unit interval of length 1, $[x, x]$;
--   For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$ and its right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
+- Each node of the segment tree represents an interval;
+- The segment tree has a unique root node representing the entire statistical range, such as $[1, N]$;
+- Each leaf node of the segment tree represents a unit interval of length 1, $[x, x]$;
+- For each internal node $[l, r]$, its left child is $[l, \textit{mid}]$ and its right child is $[\textit{mid} + 1, r]$, where $\textit{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
 
 For this problem, the segment tree nodes maintain the following information:
 

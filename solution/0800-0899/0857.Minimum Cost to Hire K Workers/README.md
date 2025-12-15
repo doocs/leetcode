@@ -77,7 +77,7 @@ tags:
 
 相似题目：
 
--   [1383. 最大的团队表现值](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
+- [1383. 最大的团队表现值](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1383.Maximum%20Performance%20of%20a%20Team/README.md)
 
 <!-- tabs:start -->
 

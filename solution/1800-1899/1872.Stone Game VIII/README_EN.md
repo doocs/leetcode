@@ -132,8 +132,8 @@ Next, we design a function $dfs(i)$, which means that we currently take stones f
 
 The execution process of the function $dfs(i)$ is as follows:
 
--   If $i \geq n - 1$, it means that we can only take all the stones at present, so we return $s[n - 1]$.
--   Otherwise, we can choose to take all the stones from $stones[i + 1:]$, and the score difference obtained is $dfs(i + 1)$; we can also choose to take the stones $stones[:i]$, and the score difference obtained is $s[i] - dfs(i + 1)$. We take the maximum of the two situations, which is the maximum score difference that the current player can get.
+- If $i \geq n - 1$, it means that we can only take all the stones at present, so we return $s[n - 1]$.
+- Otherwise, we can choose to take all the stones from $stones[i + 1:]$, and the score difference obtained is $dfs(i + 1)$; we can also choose to take the stones $stones[:i]$, and the score difference obtained is $s[i] - dfs(i + 1)$. We take the maximum of the two situations, which is the maximum score difference that the current player can get.
 
 Finally, we can get the score difference between Alice and Bob as $dfs(1)$, that is, Alice must start the game by taking stones from $stones[1:]$.
 

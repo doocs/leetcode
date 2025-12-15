@@ -1,18 +1,18 @@
-func bestClosingTime(customers string) (ans int) {
-	n := len(customers)
-	s := make([]int, n+1)
-	for i, c := range customers {
-		s[i+1] = s[i]
-		if c == 'Y' {
-			s[i+1]++
+func bestClosingTime(customers string) int {
+	ans := 0
+	cost := strings.Count(customers, "Y")
+	mn := cost
+	for j := 1; j <= len(customers); j++ {
+		c := customers[j-1]
+		if c == 'N' {
+			cost++
+		} else {
+			cost--
+		}
+		if cost < mn {
+			ans = j
+			mn = cost
 		}
 	}
-	cost := 1 << 30
-	for j := 0; j <= n; j++ {
-		t := j - s[j] + s[n] - s[j]
-		if cost > t {
-			ans, cost = j, t
-		}
-	}
-	return
+	return ans
 }

@@ -39,8 +39,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2029.%20%E4%B9%90%
 
 **提示：**
 
--   `1 <= num <= 10^9`
--   `0 <= Xpos, Ypos < num`
+- `1 <= num <= 10^9`
+- `0 <= Xpos, Ypos < num`
 
 <!-- description:end -->
 

@@ -33,8 +33,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2044.%20%E5%BC%80%
 
 **提示：**
 
--   `1 <= 节点个数 <= 1000`
--   `1 <= Node.val <= 1000`
+- `1 <= 节点个数 <= 1000`
+- `1 <= Node.val <= 1000`
 
 <!-- description:end -->
 

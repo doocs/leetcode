@@ -35,9 +35,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2003.%20%E4%B8%BB%
 
 **提示：**
 
--   `1 <= grid.length <= 500`
--   `1 <= grid[i].length <= 500`
--   `grid[i][j]` 仅可能是 `"0"～"5"`
+- `1 <= grid.length <= 500`
+- `1 <= grid[i].length <= 500`
+- `grid[i][j]` 仅可能是 `"0"～"5"`
 
 <!-- description:end -->
 

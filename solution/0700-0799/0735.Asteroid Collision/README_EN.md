@@ -76,8 +76,8 @@ tags:
 
 We traverse each asteroid $x$ from left to right. Since each asteroid may collide with multiple asteroids before it, we consider using a stack to store.
 
--   For the current asteroid, if $x>0$, it will definitely not collide with the previous asteroid, and we can directly push $x$ into the stack.
--   Otherwise, if the stack is not empty and the top element of the stack is greater than $0$, and the top element of the stack is less than $-x$, then the top element of the stack corresponds to the asteroid will explode, we loop to the top element of the stack Pop out until the condition is not satisfied. At this time, if the top element of the stack is equal to $-x$, then the two asteroids will explode, and we only need to pop the top element of the stack; if the stack is empty, or the top element of the stack is less than $0$, then the current asteroid will not collide, we will push $x$ into the stack.
+- For the current asteroid, if $x>0$, it will definitely not collide with the previous asteroid, and we can directly push $x$ into the stack.
+- Otherwise, if the stack is not empty and the top element of the stack is greater than $0$, and the top element of the stack is less than $-x$, then the top element of the stack corresponds to the asteroid will explode, we loop to the top element of the stack Pop out until the condition is not satisfied. At this time, if the top element of the stack is equal to $-x$, then the two asteroids will explode, and we only need to pop the top element of the stack; if the stack is empty, or the top element of the stack is less than $0$, then the current asteroid will not collide, we will push $x$ into the stack.
 
 Finally, we return the elements in the stack as the answer.
 

@@ -4,6 +4,12 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3757.Number%20of%20Effective%20Subsequences/README.md
 rating: 2519
 source: 第 477 场周赛 Q4
+tags:
+    - 位运算
+    - 数组
+    - 数学
+    - 动态规划
+    - 组合数学
 ---
 
 <!-- problem:start -->

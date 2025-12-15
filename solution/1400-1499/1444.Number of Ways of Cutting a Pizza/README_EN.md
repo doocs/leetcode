@@ -82,8 +82,8 @@ Here, $pizza[i-1][j-1]$ represents the character at the $i$-th row and $j$-th co
 
 Next, we design a function $dfs(i, j, k)$, which represents the number of ways to cut the rectangle $(i, j, m-1, n-1)$ with $k$ cuts to get $k+1$ pieces of pizza. Here, $(i, j)$ and $(m-1, n-1)$ are the coordinates of the top-left and bottom-right corners of the rectangle, respectively. The calculation method of the function $dfs(i, j, k)$ is as follows:
 
--   If $k = 0$, it means no more cuts can be made. We need to check if there are any apples in the rectangle. If there are apples, return $1$; otherwise, return $0$.
--   If $k \gt 0$, we need to enumerate the position of the last cut. If the last cut is horizontal, we need to enumerate the cutting position $x$, where $i \lt x \lt m$. If $s[x][n] - s[i][n] - s[x][j] + s[i][j] \gt 0$, it means there are apples in the upper piece of pizza, and we add the value of $dfs(x, j, k-1)$ to the answer. If the last cut is vertical, we need to enumerate the cutting position $y$, where $j \lt y \lt n$. If $s[m][y] - s[i][y] - s[m][j] + s[i][j] \gt 0$, it means there are apples in the left piece of pizza, and we add the value of $dfs(i, y, k-1)$ to the answer.
+- If $k = 0$, it means no more cuts can be made. We need to check if there are any apples in the rectangle. If there are apples, return $1$; otherwise, return $0$.
+- If $k \gt 0$, we need to enumerate the position of the last cut. If the last cut is horizontal, we need to enumerate the cutting position $x$, where $i \lt x \lt m$. If $s[x][n] - s[i][n] - s[x][j] + s[i][j] \gt 0$, it means there are apples in the upper piece of pizza, and we add the value of $dfs(x, j, k-1)$ to the answer. If the last cut is vertical, we need to enumerate the cutting position $y$, where $j \lt y \lt n$. If $s[m][y] - s[i][y] - s[m][j] + s[i][j] \gt 0$, it means there are apples in the left piece of pizza, and we add the value of $dfs(i, y, k-1)$ to the answer.
 
 The final answer is the value of $dfs(0, 0, k-1)$.
 
@@ -93,7 +93,7 @@ The time complexity is $O(m \times n \times k \times (m + n))$, and the space co
 
 Similar problems:
 
--   [2312. Selling Pieces of Wood](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)
+- [2312. Selling Pieces of Wood](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2312.Selling%20Pieces%20of%20Wood/README_EN.md)
 
 <!-- tabs:start -->
 

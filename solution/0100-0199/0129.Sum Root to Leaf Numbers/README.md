@@ -80,10 +80,10 @@ tags:
 
 函数 $dfs(root, s)$ 的计算如下：
 
--   如果当前节点 $root$ 为空，则返回 $0$。
--   否则，将当前节点的值加到 $s$ 中，即 $s = s \times 10 + root.val$。
--   如果当前节点是叶子节点，则返回 $s$。
--   否则，返回 $dfs(root.left, s) + dfs(root.right, s)$。
+- 如果当前节点 $root$ 为空，则返回 $0$。
+- 否则，将当前节点的值加到 $s$ 中，即 $s = s \times 10 + root.val$。
+- 如果当前节点是叶子节点，则返回 $s$。
+- 否则，返回 $dfs(root.left, s) + dfs(root.right, s)$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点数。
 

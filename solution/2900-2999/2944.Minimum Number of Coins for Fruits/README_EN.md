@@ -113,8 +113,8 @@ We define a function $\textit{dfs}(i)$ to represent the minimum number of coins 
 
 The execution logic of the function $\textit{dfs}(i)$ is as follows:
 
--   If $i \times 2 \geq n$, it means that buying the $(i - 1)$-th fruit is sufficient, and the remaining fruits can be obtained for free, so return $\textit{prices}[i - 1]$.
--   Otherwise, we can buy fruit $i$, and then choose a fruit $j$ to start buying from the next $i + 1$ to $2i + 1$ fruits. Thus, $\textit{dfs}(i) = \textit{prices}[i - 1] + \min_{i + 1 \le j \le 2i + 1} \textit{dfs}(j)$.
+- If $i \times 2 \geq n$, it means that buying the $(i - 1)$-th fruit is sufficient, and the remaining fruits can be obtained for free, so return $\textit{prices}[i - 1]$.
+- Otherwise, we can buy fruit $i$, and then choose a fruit $j$ to start buying from the next $i + 1$ to $2i + 1$ fruits. Thus, $\textit{dfs}(i) = \textit{prices}[i - 1] + \min_{i + 1 \le j \le 2i + 1} \textit{dfs}(j)$.
 
 To avoid redundant calculations, we use memoization to store the results that have already been computed. When encountering the same situation again, we directly return the result.
 

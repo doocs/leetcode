@@ -92,8 +92,8 @@ First, we initialize an array $ans$ with length $m$ to store the answers, initia
 
 Next, we iterate through the array $queries$. For each query, we first obtain the current query time $t$ and index $i$. We then take $t$ modulo $2n$ and compare $t$ with $n$:
 
--   If $t < n$, then the number of array elements at time $t$ is $n - t$, and the array elements are the result of the original array elements shifted left by $t$ positions. Therefore, if $i < n - t$, the answer is $nums[i + t]$;
--   If $t > n$, then the number of array elements at time $t$ is $t - n$, and the array elements are the first $t - n$ elements of the original array. Therefore, if $i < t - n$, the answer is $nums[i]$.
+- If $t < n$, then the number of array elements at time $t$ is $n - t$, and the array elements are the result of the original array elements shifted left by $t$ positions. Therefore, if $i < n - t$, the answer is $nums[i + t]$;
+- If $t > n$, then the number of array elements at time $t$ is $t - n$, and the array elements are the first $t - n$ elements of the original array. Therefore, if $i < t - n$, the answer is $nums[i]$.
 
 Finally, return the array $ans$.
 

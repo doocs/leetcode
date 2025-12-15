@@ -61,13 +61,13 @@ We design a recursive function $\textit{dfs(node, s)}$, where $\textit{node}$ re
 
 The recursive process of $\textit{dfs(node, s)}$ is as follows:
 
--   If the current node $\textit{node}$ is null, return $0$.
--   Calculate the prefix sum $s$ along the path from the root to the current node.
--   Use $\textit{cnt}[s - \textit{targetSum}]$ to represent the number of paths ending at the current node with a sum equal to $\textit{targetSum}$. Here, $\textit{cnt}[s - \textit{targetSum}]$ is the count of prefix sums equal to $s - \textit{targetSum}$ in $\textit{cnt}$.
--   Increment the count of the prefix sum $s$ by $1$, i.e., $\textit{cnt}[s] = \textit{cnt}[s] + 1$.
--   Recursively traverse the left and right child nodes of the current node by calling $\textit{dfs(node.left, s)}$ and $\textit{dfs(node.right, s)}$, and add their return values.
--   After the return value is calculated, decrement the count of the prefix sum $s$ by $1$, i.e., $\textit{cnt}[s] = \textit{cnt}[s] - 1$.
--   Finally, return the result.
+- If the current node $\textit{node}$ is null, return $0$.
+- Calculate the prefix sum $s$ along the path from the root to the current node.
+- Use $\textit{cnt}[s - \textit{targetSum}]$ to represent the number of paths ending at the current node with a sum equal to $\textit{targetSum}$. Here, $\textit{cnt}[s - \textit{targetSum}]$ is the count of prefix sums equal to $s - \textit{targetSum}$ in $\textit{cnt}$.
+- Increment the count of the prefix sum $s$ by $1$, i.e., $\textit{cnt}[s] = \textit{cnt}[s] + 1$.
+- Recursively traverse the left and right child nodes of the current node by calling $\textit{dfs(node.left, s)}$ and $\textit{dfs(node.right, s)}$, and add their return values.
+- After the return value is calculated, decrement the count of the prefix sum $s$ by $1$, i.e., $\textit{cnt}[s] = \textit{cnt}[s] - 1$.
+- Finally, return the result.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 

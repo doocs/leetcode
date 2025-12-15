@@ -33,9 +33,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2034.%20%E4%BA%8C%
 
 **提示：**
 
--   `1 <= k <= 10`
--   `1 <= val <= 10000`
--   `1 <= 结点数量 <= 10000`
+- `1 <= k <= 10`
+- `1 <= val <= 10000`
+- `1 <= 结点数量 <= 10000`
 
 <!-- description:end -->
 

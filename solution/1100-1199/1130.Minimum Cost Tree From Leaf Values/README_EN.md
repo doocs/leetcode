@@ -74,8 +74,8 @@ We design a function $dfs(i, j)$, which represents the minimum possible sum of a
 
 The calculation process of the function $dfs(i, j)$ is as follows:
 
--   If $i = j$, it means that there is only one element in the array $arr[i..j]$, and there are no non-leaf nodes, so $dfs(i, j) = 0$.
--   Otherwise, we enumerate $k \in [i, j - 1]$, divide the array $arr$ into two sub-arrays $arr[i..k]$ and $arr[k + 1..j]$. For each $k$, we recursively calculate $dfs(i, k)$ and $dfs(k + 1, j)$. Here, $dfs(i, k)$ represents the minimum possible sum of all non-leaf node values in the index range $[i, k]$ of the array $arr$, and $dfs(k + 1, j)$ represents the minimum possible sum of all non-leaf node values in the index range $[k + 1, j]$ of the array $arr$. So $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$.
+- If $i = j$, it means that there is only one element in the array $arr[i..j]$, and there are no non-leaf nodes, so $dfs(i, j) = 0$.
+- Otherwise, we enumerate $k \in [i, j - 1]$, divide the array $arr$ into two sub-arrays $arr[i..k]$ and $arr[k + 1..j]$. For each $k$, we recursively calculate $dfs(i, k)$ and $dfs(k + 1, j)$. Here, $dfs(i, k)$ represents the minimum possible sum of all non-leaf node values in the index range $[i, k]$ of the array $arr$, and $dfs(k + 1, j)$ represents the minimum possible sum of all non-leaf node values in the index range $[k + 1, j]$ of the array $arr$. So $dfs(i, j) = \min_{i \leq k < j} \{dfs(i, k) + dfs(k + 1, j) + \max_{i \leq t \leq k} \{arr[t]\} \max_{k < t \leq j} \{arr[t]\}\}$.
 
 In summary, we can get:
 

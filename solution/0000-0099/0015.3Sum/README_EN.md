@@ -80,9 +80,9 @@ If $nums[i] \gt 0$, it means that the element currently enumerated is greater th
 
 Otherwise, we let the left pointer $j = i + 1$, and the right pointer $k = n - 1$. When $j \lt k$, the loop is executed, and the sum of three numbers $x = nums[i] + nums[j] + nums[k]$ is calculated and compared with $0$:
 
--   If $x \lt 0$, it means that $nums[j]$ is too small, we need to move $j$ to the right.
--   If $x \gt 0$, it means that $nums[k]$ is too large, we need to move $k$ to the left.
--   Otherwise, it means that we have found a valid triplet, add it to the answer, move $j$ to the right, move $k$ to the left, and skip all duplicate elements to continue looking for the next valid triplet.
+- If $x \lt 0$, it means that $nums[j]$ is too small, we need to move $j$ to the right.
+- If $x \gt 0$, it means that $nums[k]$ is too large, we need to move $k$ to the left.
+- Otherwise, it means that we have found a valid triplet, add it to the answer, move $j$ to the right, move $k$ to the left, and skip all duplicate elements to continue looking for the next valid triplet.
 
 After the enumeration is over, we can get the answer to the triplet.
 

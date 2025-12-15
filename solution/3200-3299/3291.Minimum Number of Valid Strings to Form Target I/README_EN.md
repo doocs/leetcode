@@ -102,8 +102,8 @@ We design a function $\textit{dfs}(i)$, which represents the minimum number of s
 
 The function $\textit{dfs}(i)$ is calculated as follows:
 
--   If $i \geq n$, it means the string $\textit{target}$ has been completely traversed, so we return $0$;
--   Otherwise, we can find valid strings in the trie that start with $\textit{target}[i]$, and then recursively calculate $\textit{dfs}(i + \text{len}(w))$, where $w$ is the valid string found. We take the minimum of these values and add $1$ as the return value of $\textit{dfs}(i)$.
+- If $i \geq n$, it means the string $\textit{target}$ has been completely traversed, so we return $0$;
+- Otherwise, we can find valid strings in the trie that start with $\textit{target}[i]$, and then recursively calculate $\textit{dfs}(i + \text{len}(w))$, where $w$ is the valid string found. We take the minimum of these values and add $1$ as the return value of $\textit{dfs}(i)$.
 
 To avoid redundant calculations, we use memoization.
 

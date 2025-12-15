@@ -74,9 +74,9 @@ We can use indices $i$ and $j$ to record the index of the first minimum value an
 
 Next, we need to consider the number of swaps.
 
--   If $i = j$, it means the array $\textit{nums}$ is already a valid array, and no swaps are needed. Return $0$.
--   If $i < j$, it means the minimum value in the array $\textit{nums}$ is to the left of the maximum value. The number of swaps needed is $i + n - 1 - j$, where $n$ is the length of the array $\textit{nums}$.
--   If $i > j$, it means the minimum value in the array $\textit{nums}$ is to the right of the maximum value. The number of swaps needed is $i + n - 1 - j - 1$.
+- If $i = j$, it means the array $\textit{nums}$ is already a valid array, and no swaps are needed. Return $0$.
+- If $i < j$, it means the minimum value in the array $\textit{nums}$ is to the left of the maximum value. The number of swaps needed is $i + n - 1 - j$, where $n$ is the length of the array $\textit{nums}$.
+- If $i > j$, it means the minimum value in the array $\textit{nums}$ is to the right of the maximum value. The number of swaps needed is $i + n - 1 - j - 1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
 

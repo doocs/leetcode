@@ -4,6 +4,11 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README.md
 rating: 1288
 source: 第 170 场双周赛 Q1
+tags:
+    - 位运算
+    - 数学
+    - 双指针
+    - 字符串
 ---
 
 <!-- problem:start -->

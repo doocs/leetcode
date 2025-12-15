@@ -80,9 +80,9 @@ If $i > j$, we do not need to perform any operation, and return $0$.
 
 Otherwise, we consider the two endpoints of the interval $[i, j]$:
 
--   If we perform the first operation on endpoint $i$, since the cost $x$ is fixed, the optimal choice is to reverse $idx[i]$ and $idx[j]$, and then recursively calculate $dfs(i + 1, j - 1)$, with a total cost of $dfs(i + 1, j - 1) + x$.
--   If we perform the second operation on endpoint $i$, we need to reverse all the characters in $[idx[i]..idx[i + 1]]$, and then recursively calculate $dfs(i + 2, j)$, with a total cost of $dfs(i + 2, j) + idx[i + 1] - idx[i]$.
--   If we perform the second operation on endpoint $j$, we need to reverse all the characters in $[idx[j - 1]..idx[j]]$, and then recursively calculate $dfs(i, j - 2)$, with a total cost of $dfs(i, j - 2) + idx[j] - idx[j - 1]$.
+- If we perform the first operation on endpoint $i$, since the cost $x$ is fixed, the optimal choice is to reverse $idx[i]$ and $idx[j]$, and then recursively calculate $dfs(i + 1, j - 1)$, with a total cost of $dfs(i + 1, j - 1) + x$.
+- If we perform the second operation on endpoint $i$, we need to reverse all the characters in $[idx[i]..idx[i + 1]]$, and then recursively calculate $dfs(i + 2, j)$, with a total cost of $dfs(i + 2, j) + idx[i + 1] - idx[i]$.
+- If we perform the second operation on endpoint $j$, we need to reverse all the characters in $[idx[j - 1]..idx[j]]$, and then recursively calculate $dfs(i, j - 2)$, with a total cost of $dfs(i, j - 2) + idx[j] - idx[j - 1]$.
 
 We take the minimum value of the above three operations as the value of $dfs(i, j)$.
 

@@ -80,8 +80,8 @@ Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but
 
 We design a function `dfs(root)` that returns a tuple `(l, d)`, where `l` is the deepest common ancestor of node `root`, and `d` is the depth of node `root`. The execution logic of the function `dfs(root)` is as follows:
 
--   If `root` is null, return the tuple `(None, 0)`;
--   Otherwise, we recursively call `dfs(root.left)` and `dfs(root.right)`, obtaining tuples `(l, d1)` and `(r, d2)`. If `d1 > d2`, the deepest common ancestor of `root` is `l`, and the depth is `d1 + 1`; if `d1 < d2`, the deepest common ancestor of `root` is `r`, and the depth is `d2 + 1`; if `d1 = d2`, the deepest common ancestor of `root` is `root`, and the depth is `d1 + 1`.
+- If `root` is null, return the tuple `(None, 0)`;
+- Otherwise, we recursively call `dfs(root.left)` and `dfs(root.right)`, obtaining tuples `(l, d1)` and `(r, d2)`. If `d1 > d2`, the deepest common ancestor of `root` is `l`, and the depth is `d1 + 1`; if `d1 < d2`, the deepest common ancestor of `root` is `r`, and the depth is `d2 + 1`; if `d1 = d2`, the deepest common ancestor of `root` is `root`, and the depth is `d1 + 1`.
 
 In the main function, we call `dfs(root)` and return the first element of its return value to get the deepest common ancestor node.
 

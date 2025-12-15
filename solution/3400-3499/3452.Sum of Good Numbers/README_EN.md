@@ -66,9 +66,9 @@ tags:
 
 We can traverse the array $\textit{nums}$ and check each element $\textit{nums}[i]$ to see if it meets the conditions:
 
--   If $i \ge k$ and $\textit{nums}[i] \le \textit{nums}[i - k]$, then $\textit{nums}[i]$ is not a good number.
--   If $i + k < \textit{len}(\textit{nums})$ and $\textit{nums}[i] \le \textit{nums}[i + k]$, then $\textit{nums}[i]$ is not a good number.
--   Otherwise, $\textit{nums}[i]$ is a good number, and we add it to the answer.
+- If $i \ge k$ and $\textit{nums}[i] \le \textit{nums}[i - k]$, then $\textit{nums}[i]$ is not a good number.
+- If $i + k < \textit{len}(\textit{nums})$ and $\textit{nums}[i] \le \textit{nums}[i + k]$, then $\textit{nums}[i]$ is not a good number.
+- Otherwise, $\textit{nums}[i]$ is a good number, and we add it to the answer.
 
 After traversing, we return the answer.
 

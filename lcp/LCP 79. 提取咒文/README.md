@@ -20,8 +20,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%
 
 **注意：**
 
--   提取装置可对同一位置的字母重复提取，每次提取一个
--   提取字母时，需按词语顺序依次提取
+- 提取装置可对同一位置的字母重复提取，每次提取一个
+- 提取字母时，需按词语顺序依次提取
 
 **示例 1：**
 
@@ -42,9 +42,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%
 
 **提示：**
 
--   `0 < matrix.length, matrix[i].length <= 100`
--   `0 < mantra.length <= 100`
--   `matrix 和 mantra` 仅由小写字母组成
+- `0 < matrix.length, matrix[i].length <= 100`
+- `0 < mantra.length <= 100`
+- `matrix 和 mantra` 仅由小写字母组成
 
 <!-- description:end -->
 

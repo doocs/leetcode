@@ -90,10 +90,10 @@ Next, we design a function $dfs(i, j)$, which represents whether we can get $z$ 
 
 The execution process of the function $dfs(i, j)$ is as follows:
 
--   If $(i, j)$ has been visited, return $false$.
--   If $i = z$ or $j = z$ or $i + j = z$, return $true$.
--   If we can get $z$ liters of water by filling $jug1$ or $jug2$, or emptying $jug1$ or $jug2$, return $true$.
--   If we can get $z$ liters of water by pouring water from $jug1$ into $jug2$, or pouring water from $jug2$ into $jug1$, return $true$.
+- If $(i, j)$ has been visited, return $false$.
+- If $i = z$ or $j = z$ or $i + j = z$, return $true$.
+- If we can get $z$ liters of water by filling $jug1$ or $jug2$, or emptying $jug1$ or $jug2$, return $true$.
+- If we can get $z$ liters of water by pouring water from $jug1$ into $jug2$, or pouring water from $jug2$ into $jug1$, return $true$.
 
 The answer is $dfs(0, 0)$.
 

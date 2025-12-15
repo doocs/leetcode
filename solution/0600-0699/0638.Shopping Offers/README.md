@@ -81,9 +81,9 @@ tags:
 
 函数 $\textit{dfs}(cur)$ 的计算方法如下：
 
--   我们首先计算当前购物清单 $\textit{cur}$ 不使用大礼包时的花费，记为 $\textit{ans}$。
--   然后，我们遍历每一个大礼包 $\textit{offer}$，如果当前购物清单 $\textit{cur}$ 能够使用大礼包 $\textit{offer}$，即 $\textit{cur}$ 中每种物品的数量都不小于大礼包 $\textit{offer}$ 中的数量，那么我们可以尝试使用这个大礼包。我们将 $\textit{cur}$ 中每种物品的数量减去大礼包 $\textit{offer}$ 中的数量，得到一个新的购物清单 $\textit{nxt}$，然后递归计算 $\textit{nxt}$ 的最少花费，并加上大礼包的价格 $\textit{offer}[n]$，更新 $\textit{ans}$，即 $\textit{ans} = \min(\textit{ans}, \textit{offer}[n] + \textit{dfs}(\textit{nxt}))$。
--   最后，返回 $\textit{ans}$。
+- 我们首先计算当前购物清单 $\textit{cur}$ 不使用大礼包时的花费，记为 $\textit{ans}$。
+- 然后，我们遍历每一个大礼包 $\textit{offer}$，如果当前购物清单 $\textit{cur}$ 能够使用大礼包 $\textit{offer}$，即 $\textit{cur}$ 中每种物品的数量都不小于大礼包 $\textit{offer}$ 中的数量，那么我们可以尝试使用这个大礼包。我们将 $\textit{cur}$ 中每种物品的数量减去大礼包 $\textit{offer}$ 中的数量，得到一个新的购物清单 $\textit{nxt}$，然后递归计算 $\textit{nxt}$ 的最少花费，并加上大礼包的价格 $\textit{offer}[n]$，更新 $\textit{ans}$，即 $\textit{ans} = \min(\textit{ans}, \textit{offer}[n] + \textit{dfs}(\textit{nxt}))$。
+- 最后，返回 $\textit{ans}$。
 
 为了避免重复计算，我们使用一个哈希表 $\textit{f}$ 记录每一个状态 $\textit{cur}$ 对应的最少花费。
 

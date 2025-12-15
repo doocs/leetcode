@@ -134,10 +134,10 @@ Then we simulate the occurrence of events, using the `online_t` array to record 
 
 We traverse the event list and handle each event based on its type:
 
--   If it is an ONLINE event, we update the `online_t` array.
--   If it is an ALL event, we increment `lazy` by one.
--   If it is a HERE event, we traverse the `online_t` array. If a user's next online time is less than or equal to the current time, we increment that user's mention count by one.
--   If it is a MESSAGE event, we increment the mention count of the mentioned user by one.
+- If it is an ONLINE event, we update the `online_t` array.
+- If it is an ALL event, we increment `lazy` by one.
+- If it is a HERE event, we traverse the `online_t` array. If a user's next online time is less than or equal to the current time, we increment that user's mention count by one.
+- If it is a MESSAGE event, we increment the mention count of the mentioned user by one.
 
 Finally, if `lazy` is greater than 0, we add `lazy` to the mention count of all users.
 

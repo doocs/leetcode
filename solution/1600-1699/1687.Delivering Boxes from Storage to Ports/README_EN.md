@@ -106,8 +106,8 @@ The boxes need to be transported in the order of the array. Each time, the truck
 
 Therefore, we can enumerate the index $j$ of the last box transported in the last trip. Then $f[i]$ can be transferred from $f[j]$. During the transfer, we need to consider the following issues:
 
--   When transferring from $f[j]$, the number of boxes on the truck cannot exceed $maxBoxes$
--   When transferring from $f[j]$, the total weight of the boxes on the truck cannot exceed $maxWeight$
+- When transferring from $f[j]$, the number of boxes on the truck cannot exceed $maxBoxes$
+- When transferring from $f[j]$, the total weight of the boxes on the truck cannot exceed $maxWeight$
 
 The state transition equation is:
 

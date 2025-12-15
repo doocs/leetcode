@@ -56,8 +56,8 @@ tags:
 
 We classify all possible states for each row. According to the principle of symmetry, when a row only has $3$ elements, all legal states are classified as: $010$ type, $012$ type.
 
--   When the state is $010$ type: The possible states for the next row are: $101$, $102$, $121$, $201$, $202$. These $5$ states can be summarized as $3$ $010$ types and $2$ $012$ types.
--   When the state is $012$ type: The possible states for the next row are: $101$, $120$, $121$, $201$. These $4$ states can be summarized as $2$ $010$ types and $2$ $012$ types.
+- When the state is $010$ type: The possible states for the next row are: $101$, $102$, $121$, $201$, $202$. These $5$ states can be summarized as $3$ $010$ types and $2$ $012$ types.
+- When the state is $012$ type: The possible states for the next row are: $101$, $120$, $121$, $201$. These $4$ states can be summarized as $2$ $010$ types and $2$ $012$ types.
 
 In summary, we can get: $newf0 = 3 \times f0 + 2 \times f1$, $newf1 = 2 \times f0 + 2 \times f1$.
 

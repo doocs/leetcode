@@ -83,7 +83,7 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 Similar problems:
 
--   [1368. Minimum Cost to Make at Least One Valid Path in a Grid](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md)
+- [1368. Minimum Cost to Make at Least One Valid Path in a Grid](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/README_EN.md)
 
 <!-- tabs:start -->
 

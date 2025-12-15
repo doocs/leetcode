@@ -62,8 +62,8 @@ tags:
 
 我们先对数组 $\textit{nums}$ 进行排序，接下来分两种情况讨论：
 
--   如果 $\textit{nums}$ 中全是非负数或者全是非正数，那么答案即为最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$；
--   如果 $\textit{nums}$ 中既有正数也有负数，那么答案可能是两个最小负数和一个最大整数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[0] \times \textit{nums}[1]$；也可能是最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$。
+- 如果 $\textit{nums}$ 中全是非负数或者全是非正数，那么答案即为最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$；
+- 如果 $\textit{nums}$ 中既有正数也有负数，那么答案可能是两个最小负数和一个最大整数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[0] \times \textit{nums}[1]$；也可能是最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$。
 
 最后返回两种情况的最大值即可。
 

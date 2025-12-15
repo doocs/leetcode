@@ -74,9 +74,9 @@ The class teacher selects all the students to form the group.
 
 Assume that $k$ students are selected, then the following conditions hold:
 
--   If $nums[i] = k$, then there is no grouping method;
--   If $nums[i] > k$, then student $i$ is not selected;
--   If $nums[i] < k$, then student $i$ is selected.
+- If $nums[i] = k$, then there is no grouping method;
+- If $nums[i] > k$, then student $i$ is not selected;
+- If $nums[i] < k$, then student $i$ is selected.
 
 Therefore, the selected students must be the first $k$ elements in the sorted $nums$ array.
 

@@ -92,16 +92,16 @@ Let's denote $x$ as the smaller value between $\textit{nums}[i]$ and $\textit{nu
 
 For each pair of numbers, we have the following scenarios:
 
--   If no change is needed, then $y - x = s$.
--   If one change is made, then $s \le \max(y, k - x)$, where the maximum value is achieved by changing $x$ to $0$, or changing $y$ to $k$.
--   If two changes are made, then $s > \max(y, k - x)$.
+- If no change is needed, then $y - x = s$.
+- If one change is made, then $s \le \max(y, k - x)$, where the maximum value is achieved by changing $x$ to $0$, or changing $y$ to $k$.
+- If two changes are made, then $s > \max(y, k - x)$.
 
 That is:
 
--   In the range $[0, y-x-1]$, $1$ change is needed.
--   At $[y-x]$, no change is needed.
--   In the range $[y-x+1, \max(y, k-x)]$, $1$ change is needed.
--   In the range $[\max(y, k-x)+1, k]$, $2$ changes are needed.
+- In the range $[0, y-x-1]$, $1$ change is needed.
+- At $[y-x]$, no change is needed.
+- In the range $[y-x+1, \max(y, k-x)]$, $1$ change is needed.
+- In the range $[\max(y, k-x)+1, k]$, $2$ changes are needed.
 
 We enumerate each pair of numbers and use a difference array to update the number of changes needed in different ranges for each pair.
 
@@ -111,7 +111,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 Similar problems:
 
--   [1674. Minimum Moves to Make Array Complementary](https://github.com/doocs/leetcode/tree/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README_EN.md)
+- [1674. Minimum Moves to Make Array Complementary](https://github.com/doocs/leetcode/tree/main/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README_EN.md)
 
 <!-- tabs:start -->
 

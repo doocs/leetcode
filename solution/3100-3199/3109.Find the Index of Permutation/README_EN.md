@@ -79,9 +79,9 @@ According to the problem requirements, we need to find out how many permutations
 
 We consider how to calculate the number of permutations that are lexicographically smaller than the given permutation. There are two situations:
 
--   The first element of the permutation is less than $perm[0]$, there are $(perm[0] - 1) \times (n-1)!$ permutations.
--   The first element of the permutation is equal to $perm[0]$, we need to continue to consider the second element, and so on.
--   The sum of all situations is the answer.
+- The first element of the permutation is less than $perm[0]$, there are $(perm[0] - 1) \times (n-1)!$ permutations.
+- The first element of the permutation is equal to $perm[0]$, we need to continue to consider the second element, and so on.
+- The sum of all situations is the answer.
 
 We can use a binary indexed tree to maintain the number of elements that are smaller than the current element in the traversed elements. For the $i$-th element of the given permutation, the number of remaining elements that are smaller than it is $perm[i] - 1 - tree.query(perm[i])$, and the number of permutation types is $(perm[i] - 1 - tree.query(perm[i])) \times (n-i-1)!$, which is added to the answer. Then we update the binary indexed tree and add the current element to the binary indexed tree. Continue to traverse the next element until all elements are traversed.
 

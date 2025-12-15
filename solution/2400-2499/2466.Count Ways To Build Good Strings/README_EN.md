@@ -71,8 +71,8 @@ We design a function $dfs(i)$ to represent the number of good strings constructe
 
 The computation process of the function $dfs(i)$ is as follows:
 
--   If $i > high$, return $0$;
--   If $low \leq i \leq high$, increment the answer by $1$, then after $i$, we can add either `zero` number of $0$s or `one` number of $1$s. Therefore, the answer is incremented by $dfs(i + zero) + dfs(i + one)$.
+- If $i > high$, return $0$;
+- If $low \leq i \leq high$, increment the answer by $1$, then after $i$, we can add either `zero` number of $0$s or `one` number of $1$s. Therefore, the answer is incremented by $dfs(i + zero) + dfs(i + one)$.
 
 During the process, we need to take the modulus of the answer, and we can use memoization search to reduce redundant computations.
 

@@ -66,8 +66,8 @@ We define $f[i][j]$ as the number of ways to select some numbers from the first 
 
 For each positive integer $i$, we can choose to either include it or not:
 
--   Not include it: the number of ways is $f[i-1][j]$;
--   Include it: the number of ways is $f[i-1][j-i^x]$ (provided that $j \geq i^x$).
+- Not include it: the number of ways is $f[i-1][j]$;
+- Include it: the number of ways is $f[i-1][j-i^x]$ (provided that $j \geq i^x$).
 
 Therefore, the state transition equation is:
 

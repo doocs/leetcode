@@ -81,7 +81,7 @@ tags:
 
 相似题目：
 
--   [2839. 判断通过操作能否让字符串相等 I](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README.md)
+- [2839. 判断通过操作能否让字符串相等 I](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2839.Check%20if%20Strings%20Can%20be%20Made%20Equal%20With%20Operations%20I/README.md)
 
 <!-- tabs:start -->
 

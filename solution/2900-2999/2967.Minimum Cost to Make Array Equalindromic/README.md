@@ -92,7 +92,7 @@ tags:
 
 相似题目：
 
--   [906. 超级回文数](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README.md)
+- [906. 超级回文数](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0906.Super%20Palindromes/README.md)
 
 <!-- tabs:start -->
 

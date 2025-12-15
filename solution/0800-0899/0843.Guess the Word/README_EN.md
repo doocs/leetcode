@@ -47,7 +47,7 @@ tags:
 <strong>Input:</strong> secret = &quot;acckzz&quot;, words = [&quot;acckzz&quot;,&quot;ccbazz&quot;,&quot;eiowzz&quot;,&quot;abcczz&quot;], allowedGuesses = 10
 <strong>Output:</strong> You guessed the secret word correctly.
 <strong>Explanation:</strong>
-master.guess(&quot;aaaaaa&quot;) returns -1, because &quot;aaaaaa&quot; is not in wordlist.
+master.guess(&quot;aaaaaa&quot;) returns -1, because &quot;aaaaaa&quot; is not in words.
 master.guess(&quot;acckzz&quot;) returns 6, because &quot;acckzz&quot; is secret and has all 6 matches.
 master.guess(&quot;ccbazz&quot;) returns 3, because &quot;ccbazz&quot; has 3 matches.
 master.guess(&quot;eiowzz&quot;) returns 2, because &quot;eiowzz&quot; has 2 matches.
@@ -70,7 +70,7 @@ We made 5 calls to master.guess, and one of them was the secret, so we pass the 
 	<li><code>1 &lt;= words.length &lt;= 100</code></li>
 	<li><code>words[i].length == 6</code></li>
 	<li><code>words[i]</code> consist of lowercase English letters.</li>
-	<li>All the strings of <code>wordlist</code> are <strong>unique</strong>.</li>
+	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 	<li><code>secret</code> exists in <code>words</code>.</li>
 	<li><code>10 &lt;= allowedGuesses &lt;= 30</code></li>
 </ul>

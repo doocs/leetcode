@@ -75,9 +75,9 @@ tags:
 
 接下来，我们考虑 $k$ 的取值情况：
 
--   当 $k = 1$ 时，答案为 $mxSub$。
--   当 $k \ge 2$ 时，如果最大子数组横跨两个 $arr$，那么答案为 $mxPre + mxSuf$，其中 $mxSuf = s - miPre$。
--   当 $k \ge 2$ 且 $s > 0$ 时，如果最大子数组横跨三个 $arr$，那么答案为 $(k - 2) \times s + mxPre + mxSuf$。
+- 当 $k = 1$ 时，答案为 $mxSub$。
+- 当 $k \ge 2$ 时，如果最大子数组横跨两个 $arr$，那么答案为 $mxPre + mxSuf$，其中 $mxSuf = s - miPre$。
+- 当 $k \ge 2$ 且 $s > 0$ 时，如果最大子数组横跨三个 $arr$，那么答案为 $(k - 2) \times s + mxPre + mxSuf$。
 
 最后，我们返回答案对 $10^9 + 7$ 取模的结果。
 

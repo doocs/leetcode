@@ -92,8 +92,8 @@ tags:
 
 否则，我们计算得到当前数位的上界 $up$，然后在 $[0,..up]$ 范围内枚举当前数位的数字 $i$：
 
--   如果 $i=0$ 且 $lead$ 为真，说明当前数字只包含前导零，我们递归计算 $dfs(pos + 1, mod, diff, 1, limit\ and\ i=up)$ 的值并累加到答案中；
--   否则，我们根据 $i$ 的奇偶性更新 $diff$ 的值，然后递归计算 $dfs(pos + 1, (mod \times 10 + i) \bmod k, diff, 0, limit\ and\ i=up)$ 的值并累加到答案中。
+- 如果 $i=0$ 且 $lead$ 为真，说明当前数字只包含前导零，我们递归计算 $dfs(pos + 1, mod, diff, 1, limit\ and\ i=up)$ 的值并累加到答案中；
+- 否则，我们根据 $i$ 的奇偶性更新 $diff$ 的值，然后递归计算 $dfs(pos + 1, (mod \times 10 + i) \bmod k, diff, 0, limit\ and\ i=up)$ 的值并累加到答案中。
 
 最终我们返回答案。
 
@@ -103,7 +103,7 @@ tags:
 
 相似题目：
 
--   [2719. 统计整数数目](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README.md)
+- [2719. 统计整数数目](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README.md)
 
 <!-- tabs:start -->
 

@@ -76,7 +76,7 @@ tags:
 
 相似题目：
 
--   [2801. 统计范围内的步进数字数目](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
+- [2801. 统计范围内的步进数字数目](https://github.com/doocs/leetcode/blob/main/solution/2800-2899/2801.Count%20Stepping%20Numbers%20in%20Range/README.md)
 
 <!-- tabs:start -->
 

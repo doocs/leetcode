@@ -53,9 +53,9 @@ tags:
 0 到 0 的距离是 0。
 1 到 1 的距离是 0。
 2 到 2 的距离是 0。
-3 到 1 的距离是 1。
-4 到 1 的距离是 2。
-5 到 1 的距离是 2。
+3 到 0 的距离是 1。
+4 到 0 的距离是 2。
+5 到 0 的距离是 2。
 6 到 2 的距离是 1。
 7 到 2 的距离是 2。
 8 到 2 的距离是 2。
@@ -98,7 +98,7 @@ tags:
 
 相似题目：
 
--   [2603. 收集树中金币](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
+- [2603. 收集树中金币](https://github.com/doocs/leetcode/blob/main/solution/2600-2699/2603.Collect%20Coins%20in%20a%20Tree/README.md)
 
 <!-- tabs:start -->
 

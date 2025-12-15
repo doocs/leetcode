@@ -170,8 +170,8 @@ We notice that there are $n - 1$ passes in each round. Therefore, we can take $k
 
 Next, we judge the current round number $k$:
 
--   If $k$ is odd, then the current passing direction is from the end of the queue to the head, so it will be passed to the person with the number $n - mod - 1$.
--   If $k$ is even, then the current passing direction is from the head of the queue to the end, so it will be passed to the person with the number $mod$.
+- If $k$ is odd, then the current passing direction is from the end of the queue to the head, so it will be passed to the person with the number $n - mod - 1$.
+- If $k$ is even, then the current passing direction is from the head of the queue to the end, so it will be passed to the person with the number $mod$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

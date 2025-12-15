@@ -76,9 +76,9 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 
 We use three semaphores $z$, $e$, and $o$ to control the execution order of the three threads, where $z$ is initially set to $1$, and $e$ and $o$ are set to $0$.
 
--   Semaphore $z$ controls the execution of the `zero` function. When the value of semaphore $z$ is $1$, the `zero` function can be executed. After execution, the value of semaphore $z$ is set to $0$, and the value of semaphore $e$ or $o$ is set to $1$, depending on whether the `even` function or the `odd` function needs to be executed next.
--   Semaphore $e$ controls the execution of the `even` function. When the value of semaphore $e$ is $1$, the `even` function can be executed. After execution, the value of semaphore $z$ is set to $1$, and the value of semaphore $e$ is set to $0$.
--   Semaphore $o$ controls the execution of the `odd` function. When the value of semaphore $o$ is $1$, the `odd` function can be executed. After execution, the value of semaphore $z$ is set to $1$, and the value of semaphore $o$ is set to $0$.
+- Semaphore $z$ controls the execution of the `zero` function. When the value of semaphore $z$ is $1$, the `zero` function can be executed. After execution, the value of semaphore $z$ is set to $0$, and the value of semaphore $e$ or $o$ is set to $1$, depending on whether the `even` function or the `odd` function needs to be executed next.
+- Semaphore $e$ controls the execution of the `even` function. When the value of semaphore $e$ is $1$, the `even` function can be executed. After execution, the value of semaphore $z$ is set to $1$, and the value of semaphore $e$ is set to $0$.
+- Semaphore $o$ controls the execution of the `odd` function. When the value of semaphore $o$ is $1$, the `odd` function can be executed. After execution, the value of semaphore $z$ is set to $1$, and the value of semaphore $o$ is set to $0$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$.
 

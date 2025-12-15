@@ -40,9 +40,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate
 
 每次在二分查找的过程中，我们会得到当前的中点 $mid=(l+r)/2$。
 
--   如果 $nums[mid] \gt nums[r]$，说明 $[l,mid]$ 是有序的，此时如果 $nums[l] \le target \le nums[mid]$，说明 $target$ 位于 $[l,mid]$，否则 $target$ 位于 $[mid+1,r]$。
--   如果 $nums[mid] \lt nums[r]$，说明 $[mid+1,r]$ 是有序的，此时如果 $nums[mid] \lt target \le nums[r]$，说明 $target$ 位于 $[mid+1,r]$，否则 $target$ 位于 $[l,mid]$。
--   如果 $nums[mid] = nums[r]$，说明元素 $nums[mid]$ 和 $nums[r]$ 相等，此时无法判断 $target$ 位于哪个区间，我们只能将 $r$ 减少 $1$。
+- 如果 $nums[mid] \gt nums[r]$，说明 $[l,mid]$ 是有序的，此时如果 $nums[l] \le target \le nums[mid]$，说明 $target$ 位于 $[l,mid]$，否则 $target$ 位于 $[mid+1,r]$。
+- 如果 $nums[mid] \lt nums[r]$，说明 $[mid+1,r]$ 是有序的，此时如果 $nums[mid] \lt target \le nums[r]$，说明 $target$ 位于 $[mid+1,r]$，否则 $target$ 位于 $[l,mid]$。
+- 如果 $nums[mid] = nums[r]$，说明元素 $nums[mid]$ 和 $nums[r]$ 相等，此时无法判断 $target$ 位于哪个区间，我们只能将 $r$ 减少 $1$。
 
 二分查找结束后，如果 $nums[l] = target$，则说明数组中存在目标值 $target$，否则说明不存在。
 
@@ -52,7 +52,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate
 
 相似题目：
 
--   [81. 搜索旋转排序数组 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
+- [81. 搜索旋转排序数组 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
 

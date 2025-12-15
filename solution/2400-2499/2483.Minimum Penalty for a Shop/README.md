@@ -83,13 +83,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：前缀和 + 枚举
+### 方法一：枚举
 
-我们先算出前 $i$ 小时有多少顾客到达，记录在前缀和数组 $s$ 中。
+如果商店在第 $0$ 小时关门，那么代价为 $\textit{customers}$ 中字符 `'Y'` 的数量，我们初始化答案变量 $\textit{ans}$ 为 $0$，代价变量 $\textit{cost}$ 为 $\textit{customers}$ 中字符 `'Y'` 的数量。
 
-然后枚举商店关门的时间 $j$，计算代价，取代价最小且时间最早的关门时间即可。
+接下来，我们枚举商店在第 $j$ 小时关门（$1 \leq j \leq n$）。如果 $\textit{customers}[j - 1]$ 为 `'N'`，说明在开门期间没有顾客到达，代价增加 $1$；否则说明在关门期间有顾客到达，代价减少 $1$。如果当前代价 $\textit{cost}$ 小于最小代价 $\textit{mn}$，我们将答案变量 $\textit{ans}$ 更新为 $j$，并将最小代价 $\textit{mn}$ 更新为当前代价 $\textit{cost}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $customers$ 的长度。
+遍历结束后，返回答案变量 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{customers}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -98,15 +100,12 @@ tags:
 ```python
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
-        n = len(customers)
-        s = [0] * (n + 1)
-        for i, c in enumerate(customers):
-            s[i + 1] = s[i] + int(c == 'Y')
-        ans, cost = 0, inf
-        for j in range(n + 1):
-            t = j - s[j] + s[-1] - s[j]
-            if cost > t:
-                ans, cost = j, t
+        ans = 0
+        mn = cost = customers.count("Y")
+        for j, c in enumerate(customers, 1):
+            cost += 1 if c == "N" else -1
+            if cost < mn:
+                ans, mn = j, cost
         return ans
 ```
 
@@ -116,16 +115,18 @@ class Solution:
 class Solution {
     public int bestClosingTime(String customers) {
         int n = customers.length();
-        int[] s = new int[n + 1];
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (customers.charAt(i) == 'Y' ? 1 : 0);
+        int ans = 0, cost = 0;
+        for (int i = 0; i < n; i++) {
+            if (customers.charAt(i) == 'Y') {
+                cost++;
+            }
         }
-        int ans = 0, cost = 1 << 30;
-        for (int j = 0; j <= n; ++j) {
-            int t = j - s[j] + s[n] - s[j];
-            if (cost > t) {
+        int mn = cost;
+        for (int j = 1; j <= n; j++) {
+            cost += customers.charAt(j - 1) == 'N' ? 1 : -1;
+            if (cost < mn) {
                 ans = j;
-                cost = t;
+                mn = cost;
             }
         }
         return ans;
@@ -139,17 +140,19 @@ class Solution {
 class Solution {
 public:
     int bestClosingTime(string customers) {
-        int n = customers.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (customers[i] == 'Y');
+        int ans = 0;
+        int cost = 0;
+        for (char c : customers) {
+            if (c == 'Y') {
+                cost++;
+            }
         }
-        int ans = 0, cost = 1 << 30;
-        for (int j = 0; j <= n; ++j) {
-            int t = j - s[j] + s[n] - s[j];
-            if (cost > t) {
+        int mn = cost;
+        for (int j = 1; j <= customers.size(); ++j) {
+            cost += customers[j - 1] == 'N' ? 1 : -1;
+            if (cost < mn) {
                 ans = j;
-                cost = t;
+                mn = cost;
             }
         }
         return ans;
@@ -160,23 +163,48 @@ public:
 #### Go
 
 ```go
-func bestClosingTime(customers string) (ans int) {
-	n := len(customers)
-	s := make([]int, n+1)
-	for i, c := range customers {
-		s[i+1] = s[i]
-		if c == 'Y' {
-			s[i+1]++
+func bestClosingTime(customers string) int {
+	ans := 0
+	cost := strings.Count(customers, "Y")
+	mn := cost
+	for j := 1; j <= len(customers); j++ {
+		c := customers[j-1]
+		if c == 'N' {
+			cost++
+		} else {
+			cost--
+		}
+		if cost < mn {
+			ans = j
+			mn = cost
 		}
 	}
-	cost := 1 << 30
-	for j := 0; j <= n; j++ {
-		t := j - s[j] + s[n] - s[j]
-		if cost > t {
-			ans, cost = j, t
-		}
-	}
-	return
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function bestClosingTime(customers: string): number {
+    let ans = 0;
+    let cost = 0;
+    for (const ch of customers) {
+        if (ch === 'Y') {
+            cost++;
+        }
+    }
+    let mn = cost;
+
+    for (let j = 1; j <= customers.length; j++) {
+        const c = customers[j - 1];
+        cost += c === 'N' ? 1 : -1;
+        if (cost < mn) {
+            mn = cost;
+            ans = j;
+        }
+    }
+    return ans;
 }
 ```
 
@@ -184,27 +212,26 @@ func bestClosingTime(customers string) (ans int) {
 
 ```rust
 impl Solution {
-    #[allow(dead_code)]
     pub fn best_closing_time(customers: String) -> i32 {
-        let n = customers.len();
-        let mut penalty = i32::MAX;
-        let mut ret = -1;
-        let mut prefix_sum = vec![0; n + 1];
+        let bytes = customers.as_bytes();
 
-        // Initialize the vector
-        for (i, c) in customers.chars().enumerate() {
-            prefix_sum[i + 1] = prefix_sum[i] + (if c == 'Y' { 1 } else { 0 });
-        }
+        let mut cost: i32 = bytes.iter().filter(|&&c| c == b'Y').count() as i32;
+        let mut mn = cost;
+        let mut ans: i32 = 0;
 
-        // Calculate the answer
-        for i in 0..=n {
-            if penalty > ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32) {
-                penalty = ((prefix_sum[n] - prefix_sum[i]) as i32) + ((i - prefix_sum[i]) as i32);
-                ret = i as i32;
+        for j in 1..=bytes.len() {
+            let c = bytes[j - 1];
+            if c == b'N' {
+                cost += 1;
+            } else {
+                cost -= 1;
+            }
+            if cost < mn {
+                mn = cost;
+                ans = j as i32;
             }
         }
-
-        ret
+        ans
     }
 }
 ```

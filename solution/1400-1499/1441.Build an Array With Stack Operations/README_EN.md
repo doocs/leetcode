@@ -99,9 +99,9 @@ We define a variable $\textit{cur}$ to represent the current number to be read, 
 
 Next, we iterate through each number $x$ in the array $\textit{target}$:
 
--   If $\textit{cur} < x$, we add $\textit{Push}$ and $\textit{Pop}$ to the answer alternately until $\textit{cur} = x$;
--   Then we add $\textit{Push}$ to the answer, representing reading the number $x$;
--   After that, we increment $\textit{cur}$ and continue to process the next number.
+- If $\textit{cur} < x$, we add $\textit{Push}$ and $\textit{Pop}$ to the answer alternately until $\textit{cur} = x$;
+- Then we add $\textit{Push}$ to the answer, representing reading the number $x$;
+- After that, we increment $\textit{cur}$ and continue to process the next number.
 
 After the iteration, we return the answer array.
 

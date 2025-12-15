@@ -48,9 +48,9 @@ We define the left boundary of the binary search as $l=0$ and the right boundary
 
 In each binary search process, we get the current midpoint $mid=(l+r)/2$.
 
--   If $nums[mid] > nums[r]$, it means that $[l,mid]$ is ordered. If $nums[l] \leq target \leq nums[mid]$, it means that $target$ is in $[l,mid]$, otherwise $target$ is in $[mid+1,r]$.
--   If $nums[mid] < nums[r]$, it means that $[mid+1,r]$ is ordered. If $nums[mid] < target \leq nums[r]$, it means that $target$ is in $[mid+1,r]$, otherwise $target$ is in $[l,mid]$.
--   If $nums[mid] = nums[r]$, it means that the elements $nums[mid]$ and $nums[r]$ are equal. At this time, we cannot determine which interval $target$ is in, we can only decrease $r$ by $1$.
+- If $nums[mid] > nums[r]$, it means that $[l,mid]$ is ordered. If $nums[l] \leq target \leq nums[mid]$, it means that $target$ is in $[l,mid]$, otherwise $target$ is in $[mid+1,r]$.
+- If $nums[mid] < nums[r]$, it means that $[mid+1,r]$ is ordered. If $nums[mid] < target \leq nums[r]$, it means that $target$ is in $[mid+1,r]$, otherwise $target$ is in $[l,mid]$.
+- If $nums[mid] = nums[r]$, it means that the elements $nums[mid]$ and $nums[r]$ are equal. At this time, we cannot determine which interval $target$ is in, we can only decrease $r$ by $1$.
 
 After the binary search ends, if $nums[l] = target$, it means that the target value $target$ exists in the array, otherwise it does not exist.
 
@@ -60,7 +60,7 @@ The time complexity is approximately $O(\log n)$, and the space complexity is $O
 
 Similar problems:
 
--   [81. Search in Rotated Sorted Array II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
+- [81. Search in Rotated Sorted Array II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
 

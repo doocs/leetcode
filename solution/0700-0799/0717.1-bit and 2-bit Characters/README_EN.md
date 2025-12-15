@@ -62,8 +62,8 @@ So the last character is not one-bit character.
 
 We can directly traverse the first $n-1$ elements of the array $\textit{bits}$, and each time decide how many elements to skip based on the value of the current element:
 
--   If the current element is $0$, skip $1$ element (representing a one-bit character);
--   If the current element is $1$, skip $2$ elements (representing a two-bit character).
+- If the current element is $0$, skip $1$ element (representing a one-bit character);
+- If the current element is $1$, skip $2$ elements (representing a two-bit character).
 
 When the traversal ends, if the current index equals $n-1$, it means the last character is a one-bit character, and we return $\text{true}$; otherwise, return $\text{false}$.
 

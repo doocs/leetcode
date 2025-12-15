@@ -253,7 +253,7 @@ $$
 
 相似题目：
 
--   [1312. 让字符串成为回文串的最少插入次数](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
+- [1312. 让字符串成为回文串的最少插入次数](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
 
 <!-- tabs:start -->
 

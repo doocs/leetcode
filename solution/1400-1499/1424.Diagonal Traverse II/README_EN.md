@@ -57,9 +57,9 @@ tags:
 
 We observe that:
 
--   The value of $i + j$ is the same for each diagonal;
--   The value of $i + j$ for the next diagonal is greater than that of the previous diagonal;
--   Within the same diagonal, the value of $i + j$ is the same, and the value of $j$ increases from small to large.
+- The value of $i + j$ is the same for each diagonal;
+- The value of $i + j$ for the next diagonal is greater than that of the previous diagonal;
+- Within the same diagonal, the value of $i + j$ is the same, and the value of $j$ increases from small to large.
 
 Therefore, we store all numbers in the form of $(i, j, \textit{nums}[i][j])$ into $\textit{arr}$, and then sort according to the first two items. Finally, return the array composed of the values at index 2 of all elements in $\textit{arr}$.
 

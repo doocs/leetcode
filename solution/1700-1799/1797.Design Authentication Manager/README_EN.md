@@ -79,9 +79,9 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 
 We can simply maintain a hash table $d$, where the key is `tokenId` and the value is the expiration time.
 
--   During the `generate` operation, we store `tokenId` as the key and `currentTime + timeToLive` as the value in the hash table $d$.
--   During the `renew` operation, if `tokenId` is not in the hash table $d$, or `currentTime >= d[tokenId]`, we ignore this operation; otherwise, we update `d[tokenId]` to `currentTime + timeToLive`.
--   During the `countUnexpiredTokens` operation, we traverse the hash table $d$ and count the number of unexpired `tokenId`.
+- During the `generate` operation, we store `tokenId` as the key and `currentTime + timeToLive` as the value in the hash table $d$.
+- During the `renew` operation, if `tokenId` is not in the hash table $d$, or `currentTime >= d[tokenId]`, we ignore this operation; otherwise, we update `d[tokenId]` to `currentTime + timeToLive`.
+- During the `countUnexpiredTokens` operation, we traverse the hash table $d$ and count the number of unexpired `tokenId`.
 
 In terms of time complexity, both `generate` and `renew` operations have a time complexity of $O(1)$, and the `countUnexpiredTokens` operation has a time complexity of $O(n)$, where $n$ is the number of key-value pairs in the hash table $d$.
 

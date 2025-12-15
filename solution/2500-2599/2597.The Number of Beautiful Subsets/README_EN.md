@@ -71,8 +71,8 @@ We use a hash table or array $\textit{cnt}$ to record the currently selected num
 
 For each number $x$ in the array $\textit{nums}$, we have two choices:
 
--   Do not select $x$, and directly recurse to the next number;
--   Select $x$, and check if $x + k$ and $x - k$ have already appeared in $\textit{cnt}$. If neither has appeared, we can select $x$. In this case, we increment the count of $x$ by one, recurse to the next number, and then decrement the count of $x$ by one.
+- Do not select $x$, and directly recurse to the next number;
+- Select $x$, and check if $x + k$ and $x - k$ have already appeared in $\textit{cnt}$. If neither has appeared, we can select $x$. In this case, we increment the count of $x$ by one, recurse to the next number, and then decrement the count of $x$ by one.
 
 Finally, we return $\textit{ans}$.
 

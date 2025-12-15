@@ -66,9 +66,9 @@ We can use the idea of prefix sum, maintaining a variable $s$, which represents 
 
 Next, we traverse the `hours` array, for each index $i$:
 
--   If $hours[i] > 8$, we increment $s$ by $1$, otherwise we decrement $s$ by $1$.
--   If $s > 0$, it means that the segment from index $0$ to the current index $i$ is a "well-performing time period", we update the result $ans = i + 1$. Otherwise, if $s - 1$ is in the hash table $pos$, let $j = pos[s - 1]$, it means that the segment from index $j + 1$ to the current index $i$ is a "well-performing time period", we update the result $ans = \max(ans, i - j)$.
--   Then, if $s$ is not in the hash table $pos$, we record $pos[s] = i$.
+- If $hours[i] > 8$, we increment $s$ by $1$, otherwise we decrement $s$ by $1$.
+- If $s > 0$, it means that the segment from index $0$ to the current index $i$ is a "well-performing time period", we update the result $ans = i + 1$. Otherwise, if $s - 1$ is in the hash table $pos$, let $j = pos[s - 1]$, it means that the segment from index $j + 1$ to the current index $i$ is a "well-performing time period", we update the result $ans = \max(ans, i - j)$.
+- Then, if $s$ is not in the hash table $pos$, we record $pos[s] = i$.
 
 After the traversal, return the answer.
 

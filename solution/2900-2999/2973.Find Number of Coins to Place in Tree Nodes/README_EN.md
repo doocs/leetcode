@@ -87,8 +87,8 @@ tags:
 
 According to the problem description, there are two situations for the number of coins placed at each node $a$:
 
--   If the number of nodes in the subtree corresponding to node $a$ is less than $3$, then place $1$ coin;
--   If the number of nodes in the subtree corresponding to node $a$ is greater than or equal to $3$, then we need to take out $3$ different nodes from the subtree, calculate the maximum value of their cost product, and then place the corresponding number of coins at node $a$. If the maximum product is negative, place $0$ coins.
+- If the number of nodes in the subtree corresponding to node $a$ is less than $3$, then place $1$ coin;
+- If the number of nodes in the subtree corresponding to node $a$ is greater than or equal to $3$, then we need to take out $3$ different nodes from the subtree, calculate the maximum value of their cost product, and then place the corresponding number of coins at node $a$. If the maximum product is negative, place $0$ coins.
 
 The first situation is relatively simple, we just need to count the number of nodes in the subtree of each node during the traversal.
 
@@ -102,8 +102,8 @@ In the function $dfs(a, fa)$, we add the cost $cost[a]$ of node $a$ to the array
 
 Then, we sort the array $res$, and then calculate the number of coins placed at node $a$ based on the length $m$ of the array $res$, and update $ans[a]$:
 
--   If $m \ge 3$, then the number of coins placed at node $a$ is $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$, otherwise the number of coins placed at node $a$ is $1$;
--   If $m > 5$, then we only need to keep the first $2$ elements and the last $3$ elements of the array $res$.
+- If $m \ge 3$, then the number of coins placed at node $a$ is $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$, otherwise the number of coins placed at node $a$ is $1$;
+- If $m > 5$, then we only need to keep the first $2$ elements and the last $3$ elements of the array $res$.
 
 Finally, we call the function $dfs(0, -1)$, and return the answer array $ans$.
 

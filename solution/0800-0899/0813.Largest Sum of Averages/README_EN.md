@@ -66,9 +66,9 @@ Next, we design a function $\textit{dfs}(i, k)$, which represents the maximum su
 
 The execution logic of the function $\textit{dfs}(i, k)$ is as follows:
 
--   When $i = n$, it means we have traversed to the end of the array, and we return $0$.
--   When $k = 1$, it means there is only one group left, and we return the average value from index $i$ to the end of the array.
--   Otherwise, we enumerate the starting position $j$ of the next group in the interval $[i + 1, n)$, calculate the average value from $i$ to $j - 1$ as $\frac{s[j] - s[i]}{j - i}$, add the result of $\textit{dfs}(j, k - 1)$, and take the maximum value of all results.
+- When $i = n$, it means we have traversed to the end of the array, and we return $0$.
+- When $k = 1$, it means there is only one group left, and we return the average value from index $i$ to the end of the array.
+- Otherwise, we enumerate the starting position $j$ of the next group in the interval $[i + 1, n)$, calculate the average value from $i$ to $j - 1$ as $\frac{s[j] - s[i]}{j - i}$, add the result of $\textit{dfs}(j, k - 1)$, and take the maximum value of all results.
 
 The time complexity is $O(n^2 \times k)$, and the space complexity is $O(n \times k)$. Here, $n$ represents the length of the array $\textit{nums}$.
 

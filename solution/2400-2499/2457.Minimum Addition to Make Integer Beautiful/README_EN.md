@@ -71,8 +71,8 @@ We define a function $f(x)$ to represent the sum of the digits of an integer $x$
 
 If the sum of the digits of $y = n+x$ is greater than $target$, we can loop through the following operations to reduce the sum of the digits of $y$ to less than or equal to $target$:
 
--   Find the lowest non-zero digit of $y$, reduce it to $0$, and add $1$ to the digit one place higher;
--   Update $x$ and continue the above operation until the sum of the digits of $n+x$ is less than or equal to $target$.
+- Find the lowest non-zero digit of $y$, reduce it to $0$, and add $1$ to the digit one place higher;
+- Update $x$ and continue the above operation until the sum of the digits of $n+x$ is less than or equal to $target$.
 
 After the loop ends, return $x$.
 

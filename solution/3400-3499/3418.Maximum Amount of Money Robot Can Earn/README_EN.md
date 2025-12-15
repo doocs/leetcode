@@ -95,9 +95,9 @@ tags:
 
 We design a function $\textit{dfs}(i, j, k)$, which represents the maximum amount of coins the robot can collect starting from $(i, j)$ with $k$ conversion opportunities left. The robot can only move right or down, so the value of $\textit{dfs}(i, j, k)$ depends only on $\textit{dfs}(i + 1, j, k)$ and $\textit{dfs}(i, j + 1, k)$.
 
--   If $i \geq m$ or $j \geq n$, it means the robot has moved out of the grid, so we return a very small value.
--   If $i = m - 1$ and $j = n - 1$, it means the robot has reached the bottom-right corner of the grid. If $k > 0$, the robot can choose to convert the bandit at the current position, so we return $\max(0, \textit{coins}[i][j])$. If $k = 0$, the robot cannot convert the bandit at the current position, so we return $\textit{coins}[i][j]$.
--   If $\textit{coins}[i][j] < 0$, it means there is a bandit at the current position. If $k > 0$, the robot can choose to convert the bandit at the current position, so we return $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$. If $k = 0$, the robot cannot convert the bandit at the current position, so we return $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$.
+- If $i \geq m$ or $j \geq n$, it means the robot has moved out of the grid, so we return a very small value.
+- If $i = m - 1$ and $j = n - 1$, it means the robot has reached the bottom-right corner of the grid. If $k > 0$, the robot can choose to convert the bandit at the current position, so we return $\max(0, \textit{coins}[i][j])$. If $k = 0$, the robot cannot convert the bandit at the current position, so we return $\textit{coins}[i][j]$.
+- If $\textit{coins}[i][j] < 0$, it means there is a bandit at the current position. If $k > 0$, the robot can choose to convert the bandit at the current position, so we return $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$. If $k = 0$, the robot cannot convert the bandit at the current position, so we return $\textit{coins}[i][j] + \max(\textit{dfs}(i + 1, j, k), \textit{dfs}(i, j + 1, k))$.
 
 Based on the above analysis, we can write the code for memoized search.
 

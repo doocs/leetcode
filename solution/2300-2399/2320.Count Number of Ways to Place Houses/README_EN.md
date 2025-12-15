@@ -67,8 +67,8 @@ We define $f[i]$ to represent the number of ways to place houses on the first $i
 
 When placing the $(i+1)$-th plot, there are two cases:
 
--   If the $(i+1)$-th plot has a house, then the $i$-th plot must not have a house, so the number of ways is $f[i] = g[i-1]$;
--   If the $(i+1)$-th plot does not have a house, then the $i$-th plot can either have a house or not, so the number of ways is $g[i] = f[i-1] + g[i-1]$.
+- If the $(i+1)$-th plot has a house, then the $i$-th plot must not have a house, so the number of ways is $f[i] = g[i-1]$;
+- If the $(i+1)$-th plot does not have a house, then the $i$-th plot can either have a house or not, so the number of ways is $g[i] = f[i-1] + g[i-1]$.
 
 Finally, we square $f[n-1] + g[n-1]$ modulo to get the answer.
 

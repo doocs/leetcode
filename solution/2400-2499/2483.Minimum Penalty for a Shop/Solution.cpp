@@ -1,17 +1,19 @@
 class Solution {
 public:
     int bestClosingTime(string customers) {
-        int n = customers.size();
-        vector<int> s(n + 1);
-        for (int i = 0; i < n; ++i) {
-            s[i + 1] = s[i] + (customers[i] == 'Y');
+        int ans = 0;
+        int cost = 0;
+        for (char c : customers) {
+            if (c == 'Y') {
+                cost++;
+            }
         }
-        int ans = 0, cost = 1 << 30;
-        for (int j = 0; j <= n; ++j) {
-            int t = j - s[j] + s[n] - s[j];
-            if (cost > t) {
+        int mn = cost;
+        for (int j = 1; j <= customers.size(); ++j) {
+            cost += customers[j - 1] == 'N' ? 1 : -1;
+            if (cost < mn) {
                 ans = j;
-                cost = t;
+                mn = cost;
             }
         }
         return ans;

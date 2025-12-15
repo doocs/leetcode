@@ -56,8 +56,8 @@ tags:
 
 We design a function $dfs(i)$, which represents starting the search from the $i$th element of the array for all subsets. The execution logic of the function $dfs(i)$ is as follows:
 
--   If $i = n$, it means the current search has ended. Add the current subset $t$ to the answer array $ans$, and then return.
--   Otherwise, we can choose not to select the current element and directly execute $dfs(i + 1)$; or we can choose the current element, i.e., add the current element $nums[i]$ to the subset $t$, and then execute $dfs(i + 1)$. Note that we need to remove $nums[i]$ from the subset $t$ after executing $dfs(i + 1)$ (backtracking).
+- If $i = n$, it means the current search has ended. Add the current subset $t$ to the answer array $ans$, and then return.
+- Otherwise, we can choose not to select the current element and directly execute $dfs(i + 1)$; or we can choose the current element, i.e., add the current element $nums[i]$ to the subset $t$, and then execute $dfs(i + 1)$. Note that we need to remove $nums[i]$ from the subset $t$ after executing $dfs(i + 1)$ (backtracking).
 
 In the main function, we call $dfs(0)$, i.e., start searching all subsets from the first element of the array. Finally, return the answer array $ans$.
 

@@ -22,8 +22,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%
 
 **注意：**
 
--   大小写不同的营地视为不同的营地；
--   营地的名称长度均大于 `0`。
+- 大小写不同的营地视为不同的营地；
+- 营地的名称长度均大于 `0`。
 
 **示例 1：**
 
@@ -65,9 +65,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%
 
 **提示：**
 
--   `1 <= expeditions.length <= 1000`
--   `0 <= expeditions[i].length <= 1000`
--   探险记录中只包含大小写字母和子串"->"
+- `1 <= expeditions.length <= 1000`
+- `0 <= expeditions[i].length <= 1000`
+- 探险记录中只包含大小写字母和子串"->"
 
 <!-- description:end -->
 

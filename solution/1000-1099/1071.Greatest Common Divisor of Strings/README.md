@@ -25,26 +25,39 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p>&nbsp;</p>
 
-<pre>
-<strong>输入：</strong>str1 = "ABCABC", str2 = "ABC"
-<strong>输出：</strong>"ABC"
-</pre>
+<p><strong class="example">示例 1：</strong></p>
 
-<p><strong>示例 2：</strong></p>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>str1 = "ABCABC", str2 = "ABC"</span></p>
 
-<pre>
-<strong>输入：</strong>str1 = "ABABAB", str2 = "ABAB"
-<strong>输出：</strong>"AB"
-</pre>
+<p><span class="example-io"><b>输出：</b>"ABC"</span></p>
+</div>
 
-<p><strong>示例 3：</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>str1 = "LEET", str2 = "CODE"
-<strong>输出：</strong>""
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>str1 = "ABABAB", str2 = "ABAB"</span></p>
+
+<p><span class="example-io"><b>输出：</b>"AB"</span></p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>str1 = "LEET", str2 = "CODE"</span></p>
+
+<p><span class="example-io"><b>输出：</b>""</span></p>
+</div>
+
+<p><strong class="example">示例 4：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>str1 = "AAAAAB", str2 = "AAA"</span></p>
+
+<p><span class="example-io"><b>输出：</b>""</span></p>
+</div>
 
 <p>&nbsp;</p>
 

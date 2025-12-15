@@ -86,22 +86,22 @@ tags:
 
 We want to find a substring $\textit{subs}$ of string $s$ that satisfies the following conditions:
 
--   The length of $\textit{subs}$ is at least $k$.
--   The number of occurrences of character $a$ in $\textit{subs}$ is odd.
--   The number of occurrences of character $b$ in $\textit{subs}$ is even.
--   Maximize the frequency difference $f_a - f_b$, where $f_a$ and $f_b$ are the number of occurrences of $a$ and $b$ in $\textit{subs}$, respectively.
+- The length of $\textit{subs}$ is at least $k$.
+- The number of occurrences of character $a$ in $\textit{subs}$ is odd.
+- The number of occurrences of character $b$ in $\textit{subs}$ is even.
+- Maximize the frequency difference $f_a - f_b$, where $f_a$ and $f_b$ are the number of occurrences of $a$ and $b$ in $\textit{subs}$, respectively.
 
 The characters in $s$ are from '0' to '4', so there are 5 possible characters. We can enumerate all different character pairs $(a, b)$, for a total of at most $5 \times 4 = 20$ combinations. We define:
 
--   Character $a$ is the target character with odd frequency.
--   Character $b$ is the target character with even frequency.
+- Character $a$ is the target character with odd frequency.
+- Character $b$ is the target character with even frequency.
 
 We use a sliding window to maintain the left and right boundaries of the substring, with variables:
 
--   $l$ denotes the position before the left boundary, so the window is $[l+1, r]$;
--   $r$ is the right boundary, traversing the entire string;
--   $\textit{curA}$ and $\textit{curB}$ denote the number of occurrences of $a$ and $b$ in the current window;
--   $\textit{preA}$ and $\textit{preB}$ denote the cumulative occurrences of $a$ and $b$ before the left boundary $l$.
+- $l$ denotes the position before the left boundary, so the window is $[l+1, r]$;
+- $r$ is the right boundary, traversing the entire string;
+- $\textit{curA}$ and $\textit{curB}$ denote the number of occurrences of $a$ and $b$ in the current window;
+- $\textit{preA}$ and $\textit{preB}$ denote the cumulative occurrences of $a$ and $b$ before the left boundary $l$.
 
 We use a 2D array $t[2][2]$ to record the minimum value of $\textit{preA} - \textit{preB}$ for each possible parity combination of the window's left end, where $t[i][j]$ means $\textit{preA} \bmod 2 = i$ and $\textit{preB} \bmod 2 = j$.
 

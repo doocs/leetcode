@@ -66,13 +66,13 @@ We design a recursive function $dfs(node, s)$, where the current node being trav
 
 The recursive process of the function $dfs(node, s)$ is as follows:
 
--   If the current node $node$ is null, return $0$.
--   Calculate the prefix sum $s$ on the path from the root node to the current node.
--   Use $cnt[s - sum]$ to represent the number of paths with the path sum equal to $sum$ and the path ends at the current node, where $cnt[s - sum]$ is the count of the prefix sum equal to $s - sum$ in $cnt$.
--   Add the count of the prefix sum $s$ by $1$, i.e., $cnt[s] = cnt[s] + 1$.
--   Recursively traverse the left and right child nodes of the current node, i.e., call the functions $dfs(node.left, s)$ and $dfs(node.right, s)$, and add their return values.
--   After the return value is calculated, subtract the count of the prefix sum $s$ of the current node by $1$, i.e., execute $cnt[s] = cnt[s] - 1$.
--   Finally, return the answer.
+- If the current node $node$ is null, return $0$.
+- Calculate the prefix sum $s$ on the path from the root node to the current node.
+- Use $cnt[s - sum]$ to represent the number of paths with the path sum equal to $sum$ and the path ends at the current node, where $cnt[s - sum]$ is the count of the prefix sum equal to $s - sum$ in $cnt$.
+- Add the count of the prefix sum $s$ by $1$, i.e., $cnt[s] = cnt[s] + 1$.
+- Recursively traverse the left and right child nodes of the current node, i.e., call the functions $dfs(node.left, s)$ and $dfs(node.right, s)$, and add their return values.
+- After the return value is calculated, subtract the count of the prefix sum $s$ of the current node by $1$, i.e., execute $cnt[s] = cnt[s] - 1$.
+- Finally, return the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 

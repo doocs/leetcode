@@ -73,8 +73,8 @@ The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$.
 
 Similar problems:
 
--   [296. Best Meeting Point](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
--   [2448. Minimum Cost to Make Array Equal](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)
+- [296. Best Meeting Point](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)
+- [2448. Minimum Cost to Make Array Equal](https://github.com/doocs/leetcode/blob/main/solution/2400-2499/2448.Minimum%20Cost%20to%20Make%20Array%20Equal/README_EN.md)
 
 <!-- tabs:start -->
 

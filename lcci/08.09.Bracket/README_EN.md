@@ -50,10 +50,10 @@ The range of $n$ in the problem is $[1, 8]$, so we can directly solve this probl
 
 We design a function `dfs(l, r, t)`, where $l$ and $r$ represent the number of left and right parentheses respectively, and $t$ represents the current parentheses sequence. Then we can get the following recursive structure:
 
--   If $l > n$ or $r > n$ or $l < r$, then the current parentheses combination $t$ is illegal, return directly;
--   If $l = n$ and $r = n$, then the current parentheses combination $t$ is legal, add it to the answer array `ans`, and return directly;
--   We can choose to add a left parenthesis, and recursively execute `dfs(l + 1, r, t + "(")`;
--   We can also choose to add a right parenthesis, and recursively execute `dfs(l, r + 1, t + ")")`.
+- If $l > n$ or $r > n$ or $l < r$, then the current parentheses combination $t$ is illegal, return directly;
+- If $l = n$ and $r = n$, then the current parentheses combination $t$ is legal, add it to the answer array `ans`, and return directly;
+- We can choose to add a left parenthesis, and recursively execute `dfs(l + 1, r, t + "(")`;
+- We can also choose to add a right parenthesis, and recursively execute `dfs(l, r + 1, t + ")")`.
 
 The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is $O(n)$.
 

@@ -104,10 +104,10 @@ tags:
 
 First, we sort the array. Then, we can classify the results based on the properties of a triangle.
 
--   If the sum of the two smaller numbers is less than or equal to the largest number, it cannot form a triangle. Return "Invalid".
--   If the three numbers are equal, it is an equilateral triangle. Return "Equilateral".
--   If two numbers are equal, it is an isosceles triangle. Return "Isosceles".
--   If none of the above conditions are met, it is a scalene triangle. Return "Scalene".
+- If the sum of the two smaller numbers is less than or equal to the largest number, it cannot form a triangle. Return "Invalid".
+- If the three numbers are equal, it is an equilateral triangle. Return "Equilateral".
+- If two numbers are equal, it is an isosceles triangle. Return "Isosceles".
+- If none of the above conditions are met, it is a scalene triangle. Return "Scalene".
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

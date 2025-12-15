@@ -63,8 +63,8 @@ Both arrays have an equal sum of 12. It can be shown that it is the minimum sum 
 
 We consider the case where we treat all $0$s in the array as $1$s, and calculate the sum of the two arrays separately, denoted as $s_1$ and $s_2$. Without loss of generality, we assume that $s_1 \le s_2$.
 
--   If $s_1 = s_2$, then the answer is $s_1$.
--   If $s_1 \lt s_2$, then there must exist a $0$ in $nums1$ to make the sum of the two arrays equal. In this case, the answer is $s_2$. Otherwise, it means that it is impossible to make the sum of the two arrays equal, and we return $-1$.
+- If $s_1 = s_2$, then the answer is $s_1$.
+- If $s_1 \lt s_2$, then there must exist a $0$ in $nums1$ to make the sum of the two arrays equal. In this case, the answer is $s_2$. Otherwise, it means that it is impossible to make the sum of the two arrays equal, and we return $-1$.
 
 The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the arrays $nums1$ and $nums2$, respectively. The space complexity is $O(1)$.
 

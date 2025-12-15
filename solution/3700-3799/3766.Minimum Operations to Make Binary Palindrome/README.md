@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3766.Minimum%20Operations%20to%20Make%20Binary%20Palindrome/README.md
 rating: 1656
 source: 第 171 场双周赛 Q2
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 二分查找
 ---
 
 <!-- problem:start -->

@@ -88,7 +88,7 @@ tags:
 
 相似题目：
 
--   [2567. 修改两个元素的最小分数](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)
+- [2567. 修改两个元素的最小分数](https://github.com/doocs/leetcode/blob/main/solution/2500-2599/2567.Minimum%20Score%20by%20Changing%20Two%20Elements/README.md)
 
 <!-- tabs:start -->
 

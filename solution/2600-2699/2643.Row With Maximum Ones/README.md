@@ -73,8 +73,8 @@ tags:
 
 然后遍历矩阵的每一行，对于每一行：
 
--   计算该行 $1$ 的数量 $\textit{cnt}$（由于矩阵中只包含 $0$ 和 $1$，我们可以直接对该行求和）；
--   如果 $\textit{ans}[1] < \textit{cnt}$，则更新 $\textit{ans} = [i, \textit{cnt}]$。
+- 计算该行 $1$ 的数量 $\textit{cnt}$（由于矩阵中只包含 $0$ 和 $1$，我们可以直接对该行求和）；
+- 如果 $\textit{ans}[1] < \textit{cnt}$，则更新 $\textit{ans} = [i, \textit{cnt}]$。
 
 遍历结束后，返回 $\textit{ans}$。
 

@@ -80,7 +80,7 @@ The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the 
 
 Similar problems:
 
--   [399. Evaluate Division](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
+- [399. Evaluate Division](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0399.Evaluate%20Division/README_EN.md)
 
 <!-- tabs:start -->
 

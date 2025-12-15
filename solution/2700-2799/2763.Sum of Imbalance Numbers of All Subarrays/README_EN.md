@@ -81,9 +81,9 @@ We can first enumerate the left endpoint $i$ of the subarray. For each $i$, we e
 
 For each number $nums[j]$, we find the first element $nums[k]$ in the ordered list that is greater than or equal to $nums[j]$, and the last element $nums[h]$ that is less than $nums[j]$:
 
--   If $nums[k]$ exists, and the difference between $nums[k]$ and $nums[j]$ is more than $1$, the unbalanced number increases by $1$;
--   If $nums[h]$ exists, and the difference between $nums[j]$ and $nums[h]$ is more than $1$, the unbalanced number increases by $1$;
--   If both $nums[k]$ and $nums[h]$ exist, then inserting the element $nums[j]$ between $nums[h]$ and $nums[k]$ will reduce the unbalanced number by $1$.
+- If $nums[k]$ exists, and the difference between $nums[k]$ and $nums[j]$ is more than $1$, the unbalanced number increases by $1$;
+- If $nums[h]$ exists, and the difference between $nums[j]$ and $nums[h]$ is more than $1$, the unbalanced number increases by $1$;
+- If both $nums[k]$ and $nums[h]$ exist, then inserting the element $nums[j]$ between $nums[h]$ and $nums[k]$ will reduce the unbalanced number by $1$.
 
 Then, we add the unbalanced number of the current subarray to the answer, and continue the iteration until we finish iterating over all subarrays.
 

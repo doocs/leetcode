@@ -99,7 +99,7 @@ $$
 
 相似题目：
 
--   [2940. 找到 Alice 和 Bob 可以相遇的建筑](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
+- [2940. 找到 Alice 和 Bob 可以相遇的建筑](https://github.com/doocs/leetcode/blob/main/solution/2900-2999/2940.Find%20Building%20Where%20Alice%20and%20Bob%20Can%20Meet/README.md)
 
 <!-- tabs:start -->
 

@@ -95,8 +95,8 @@ Next, we design a function $\textit{dfs}(i)$, which represents the minimum cost 
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
 
--   If the sum of the lengths of the words from the $i$-th word to the last word plus the number of spaces between the words is less than or equal to $k$, then these words can be placed on the last line, and the cost is $0$.
--   Otherwise, we enumerate the position $j$ of the next word to start splitting, such that the sum of the lengths of the words from the $i$-th word to the $(j-1)$-th word plus the number of spaces between the words is less than or equal to $k$. Then $\textit{dfs}(j)$ represents the minimum cost of splitting the sentence starting from the $j$-th word, and $(k - m)^2$ represents the cost of placing the words from the $i$-th word to the $(j-1)$-th word on one line, where $m$ represents the sum of the lengths of the words from the $i$-th word to the $(j-1)$-th word plus the number of spaces between the words. We enumerate all $j$ and take the minimum value.
+- If the sum of the lengths of the words from the $i$-th word to the last word plus the number of spaces between the words is less than or equal to $k$, then these words can be placed on the last line, and the cost is $0$.
+- Otherwise, we enumerate the position $j$ of the next word to start splitting, such that the sum of the lengths of the words from the $i$-th word to the $(j-1)$-th word plus the number of spaces between the words is less than or equal to $k$. Then $\textit{dfs}(j)$ represents the minimum cost of splitting the sentence starting from the $j$-th word, and $(k - m)^2$ represents the cost of placing the words from the $i$-th word to the $(j-1)$-th word on one line, where $m$ represents the sum of the lengths of the words from the $i$-th word to the $(j-1)$-th word plus the number of spaces between the words. We enumerate all $j$ and take the minimum value.
 
 The answer is $\textit{dfs}(0)$.
 

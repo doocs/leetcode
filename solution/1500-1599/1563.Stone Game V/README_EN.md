@@ -76,8 +76,8 @@ Next, we design a function $\textit{dfs}(i, j)$, which represents the maximum sc
 
 The calculation process of the function $\textit{dfs}(i, j)$ is as follows:
 
--   If $i \geq j$, it means there is only one stone left, and Alice cannot split it, so return $0$.
--   Otherwise, we enumerate the split point $k$, i.e., $i \leq k < j$, splitting the stones in the subarray $\textit{stoneValue}$ within the index range $[i, j]$ into two parts: $[i, k]$ and $[k + 1, j]$. We calculate $a$ and $b$, which represent the total sum of the stones in the two parts, respectively. Then we calculate $\textit{dfs}(i, k)$ and $\textit{dfs}(k + 1, j)$, and update the answer.
+- If $i \geq j$, it means there is only one stone left, and Alice cannot split it, so return $0$.
+- Otherwise, we enumerate the split point $k$, i.e., $i \leq k < j$, splitting the stones in the subarray $\textit{stoneValue}$ within the index range $[i, j]$ into two parts: $[i, k]$ and $[k + 1, j]$. We calculate $a$ and $b$, which represent the total sum of the stones in the two parts, respectively. Then we calculate $\textit{dfs}(i, k)$ and $\textit{dfs}(k + 1, j)$, and update the answer.
 
 Note that if $a < b$ and $\textit{ans} \geq a \times 2$, this enumeration can be skipped; if $a > b$ and $\textit{ans} \geq b \times 2$, all subsequent enumerations can be skipped, and the loop can be exited directly.
 

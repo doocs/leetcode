@@ -19,7 +19,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2074.%20%E6%9C%80%
 
 **注意：**
 
--   力场范围的边缘同样被力场覆盖。
+- 力场范围的边缘同样被力场覆盖。
 
 **示例 1：**
 
@@ -43,10 +43,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2074.%20%E6%9C%80%
 
 **提示：**
 
--   `1 <= forceField.length <= 100`
--   `forceField[i].length == 3`
--   `0 <= forceField[i][0], forceField[i][1] <= 10^9`
--   `1 <= forceField[i][2] <= 10^9`
+- `1 <= forceField.length <= 100`
+- `forceField[i].length == 3`
+- `0 <= forceField[i][0], forceField[i][1] <= 10^9`
+- `1 <= forceField[i][2] <= 10^9`
 
 <!-- description:end -->
 

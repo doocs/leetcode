@@ -169,9 +169,9 @@ We use a stack to maintain the current state of the string. Each element in the 
 
 Traverse each character in the string:
 
--   If the stack is not empty and the character of the top element matches the current character, increment the count of the top element.
--   Otherwise, push the current character with count 1 as a new element onto the stack.
--   If the current character is `')'`, and there are at least two elements in the stack, and the count of the top element equals $k$, and the count of the previous element is greater than or equal to $k$, then pop the top element and subtract $k$ from the count of the previous element. If the count of the previous element becomes 0, pop it as well.
+- If the stack is not empty and the character of the top element matches the current character, increment the count of the top element.
+- Otherwise, push the current character with count 1 as a new element onto the stack.
+- If the current character is `')'`, and there are at least two elements in the stack, and the count of the top element equals $k$, and the count of the previous element is greater than or equal to $k$, then pop the top element and subtract $k$ from the count of the previous element. If the count of the previous element becomes 0, pop it as well.
 
 After traversal, the remaining elements in the stack represent the final state of the string. We concatenate these elements in order to get the result string.
 

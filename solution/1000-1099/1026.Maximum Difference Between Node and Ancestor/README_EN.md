@@ -66,9 +66,9 @@ Therefore, we design a function $dfs(root, mi, mx)$, where the current node bein
 
 The logic of the function $dfs(root, mi, mx)$ is as follows:
 
--   If $root$ is null, return directly.
--   Otherwise, we update $ans = max(ans, |mi - root.val|, |mx - root.val|)$.
--   Then update $mi = min(mi, root.val)$, $mx = max(mx, root.val)$, and recursively search the left and right subtrees.
+- If $root$ is null, return directly.
+- Otherwise, we update $ans = max(ans, |mi - root.val|, |mx - root.val|)$.
+- Then update $mi = min(mi, root.val)$, $mx = max(mx, root.val)$, and recursively search the left and right subtrees.
 
 In the main function, we call $dfs(root, root.val, root.val)$, and finally return $ans$.
 

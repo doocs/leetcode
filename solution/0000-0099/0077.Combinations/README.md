@@ -63,9 +63,9 @@ tags:
 
 函数 $dfs(i)$ 的执行逻辑如下：
 
--   如果当前搜索路径 $t$ 的长度等于 $k$，则将当前搜索路径加入答案，然后返回。
--   如果 $i \gt n$，则说明搜索已经结束，返回。
--   否则，我们可以选择将数字 $i$ 加入搜索路径 $t$，然后继续搜索，即执行 $dfs(i + 1)$，然后将数字 $i$ 从搜索路径 $t$ 中移除；或者不将数字 $i$ 加入搜索路径 $t$，直接执行 $dfs(i + 1)$。
+- 如果当前搜索路径 $t$ 的长度等于 $k$，则将当前搜索路径加入答案，然后返回。
+- 如果 $i \gt n$，则说明搜索已经结束，返回。
+- 否则，我们可以选择将数字 $i$ 加入搜索路径 $t$，然后继续搜索，即执行 $dfs(i + 1)$，然后将数字 $i$ 从搜索路径 $t$ 中移除；或者不将数字 $i$ 加入搜索路径 $t$，直接执行 $dfs(i + 1)$。
 
 以上做法实际上是枚举当前数字选或者不选，然后递归地搜索下一个数字。我们也可以枚举下一个要选择的数字 $j$，其中 $i \leq j \leq n$，如果下一个要选择的数字是 $j$，那么我们将数字 $j$ 加入搜索路径 $t$，然后继续搜索，即执行 $dfs(j + 1)$，接着将数字 $j$ 从搜索路径 $t$ 中移除。
 
@@ -75,9 +75,9 @@ tags:
 
 相似题目：
 
--   [39. 组合总和](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README.md)
--   [40. 组合总和 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
--   [216. 组合总和 III](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0216.Combination%20Sum%20III/README.md)
+- [39. 组合总和](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README.md)
+- [40. 组合总和 II](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
+- [216. 组合总和 III](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0216.Combination%20Sum%20III/README.md)
 
 <!-- tabs:start -->
 

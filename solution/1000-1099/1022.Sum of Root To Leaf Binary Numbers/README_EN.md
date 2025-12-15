@@ -66,8 +66,8 @@ We design a recursive function `dfs(root, t)`, which takes two parameters: the c
 
 The logic of the recursive function is as follows:
 
--   If the current node `root` is null, then return `0`. Otherwise, calculate the binary number `t` corresponding to the current node, i.e., `t = t << 1 | root.val`.
--   If the current node is a leaf node, then return `t`. Otherwise, return the sum of `dfs(root.left, t)` and `dfs(root.right, t)`.
+- If the current node `root` is null, then return `0`. Otherwise, calculate the binary number `t` corresponding to the current node, i.e., `t = t << 1 | root.val`.
+- If the current node is a leaf node, then return `t`. Otherwise, return the sum of `dfs(root.left, t)` and `dfs(root.right, t)`.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.
 

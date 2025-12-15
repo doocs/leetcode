@@ -116,10 +116,10 @@ We can use a stack to simulate this process.
 
 Traverse $\textit{operations}$, for each operation:
 
--   If it is `+`, add the top two elements of the stack and push the result onto the stack;
--   If it is `D`, multiply the top element of the stack by 2 and push the result onto the stack;
--   If it is `C`, pop the top element of the stack;
--   If it is a number, push the number onto the stack.
+- If it is `+`, add the top two elements of the stack and push the result onto the stack;
+- If it is `D`, multiply the top element of the stack by 2 and push the result onto the stack;
+- If it is `C`, pop the top element of the stack;
+- If it is a number, push the number onto the stack.
 
 Finally, sum all the elements in the stack to get the answer.
 

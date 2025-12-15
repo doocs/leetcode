@@ -104,7 +104,7 @@ $$
 
 相似题目：
 
--   [1131. 绝对值表达式的最大值](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md)
+- [1131. 绝对值表达式的最大值](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md)
 
 <!-- tabs:start -->
 

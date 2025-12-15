@@ -88,10 +88,10 @@ tags:
 
 函数 $dfs(i, k)$ 的计算过程如下：
 
--   如果 $k \lt |locations[i] - locations[finish]|$，那么返回 $0$。
--   如果 $i = finish$，那么答案路径数初始时为 $1$，否则为 $0$。
--   然后，我们遍历所有城市 $j$，如果 $j \ne i$，那么我们可以从城市 $i$ 移动到城市 $j$，此时剩余汽油量为 $k - |locations[i] - locations[j]|$，那么我们可以将答案路径数加上 $dfs(j, k - |locations[i] - locations[j]|)$。
--   最后，我们返回答案路径数。
+- 如果 $k \lt |locations[i] - locations[finish]|$，那么返回 $0$。
+- 如果 $i = finish$，那么答案路径数初始时为 $1$，否则为 $0$。
+- 然后，我们遍历所有城市 $j$，如果 $j \ne i$，那么我们可以从城市 $i$ 移动到城市 $j$，此时剩余汽油量为 $k - |locations[i] - locations[j]|$，那么我们可以将答案路径数加上 $dfs(j, k - |locations[i] - locations[j]|)$。
+- 最后，我们返回答案路径数。
 
 为了避免重复计算，我们可以使用记忆化搜索。
 

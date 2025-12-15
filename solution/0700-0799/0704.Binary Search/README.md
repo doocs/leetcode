@@ -60,8 +60,8 @@ tags:
 
 每一次循环，我们计算中间位置 $\textit{mid}=(l+r)/2$，然后比较 $\textit{nums}[\textit{mid}]$ 和 $\textit{target}$ 的大小。
 
--   如果 $\textit{nums}[\textit{mid}] \geq \textit{target}$，说明 $\textit{target}$ 在左半部分，我们将右边界 $r$ 移动到 $\textit{mid}$；
--   否则，说明 $\textit{target}$ 在右半部分，我们将左边界 $l$ 移动到 $\textit{mid}+1$。
+- 如果 $\textit{nums}[\textit{mid}] \geq \textit{target}$，说明 $\textit{target}$ 在左半部分，我们将右边界 $r$ 移动到 $\textit{mid}$；
+- 否则，说明 $\textit{target}$ 在右半部分，我们将左边界 $l$ 移动到 $\textit{mid}+1$。
 
 循环结束的条件是 $l<r$，此时 $\textit{nums}[l]$ 就是我们要找的目标值，如果 $\textit{nums}[l]=\textit{target}$，返回 $l$，否则返回 $-1$。
 

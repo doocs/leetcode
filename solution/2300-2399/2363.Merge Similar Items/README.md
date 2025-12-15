@@ -41,7 +41,7 @@ tags:
 <b>输出：</b>[[1,6],[3,9],[4,5]]
 <b>解释：</b>
 value = 1 的物品在 items1 中 weight = 1 ，在 items2 中 weight = 5 ，总重量为 1 + 5 = 6 。
-value = 3 的物品再 items1 中 weight = 8 ，在 items2 中 weight = 1 ，总重量为 8 + 1 = 9 。
+value = 3 的物品在 items1 中 weight = 8 ，在 items2 中 weight = 1 ，总重量为 8 + 1 = 9 。
 value = 4 的物品在 items1 中 weight = 5 ，总重量为 5 。
 所以，我们返回 [[1,6],[3,9],[4,5]] 。
 </pre>

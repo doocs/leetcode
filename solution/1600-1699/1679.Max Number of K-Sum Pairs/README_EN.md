@@ -66,10 +66,10 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 
 We sort $nums$. Then $l$ and $r$ point to the first and last elements of $nums$ respectively, and we compare the sum $s$ of the two integers with $k$.
 
--   If $s = k$, it means that we have found two integers whose sum is $k$. We increment the answer and then move $l$ and $r$ towards the middle;
--   If $s > k$, then we move the $r$ pointer to the left;
--   If $s < k$, then we move the $l$ pointer to the right;
--   We continue the loop until $l \geq r$.
+- If $s = k$, it means that we have found two integers whose sum is $k$. We increment the answer and then move $l$ and $r$ towards the middle;
+- If $s > k$, then we move the $r$ pointer to the left;
+- If $s < k$, then we move the $l$ pointer to the right;
+- We continue the loop until $l \geq r$.
 
 After the loop ends, we return the answer.
 

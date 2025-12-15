@@ -91,12 +91,12 @@ Supplement:
 
 The original problem requires that the same number appears at most $2$ times. We can extend it to keep at most $k$ identical numbers.
 
--   Since the same number can be kept at most $k$ times, we can directly keep the first $k$ elements of the original array;
--   For the later numbers, the premise of being able to keep them is: the current number $x$ compares with the $k$th element from the end of the previously kept numbers. If they are different, keep it, otherwise skip it.
+- Since the same number can be kept at most $k$ times, we can directly keep the first $k$ elements of the original array;
+- For the later numbers, the premise of being able to keep them is: the current number $x$ compares with the $k$th element from the end of the previously kept numbers. If they are different, keep it, otherwise skip it.
 
 Similar problems:
 
--   [26. Remove Duplicates from Sorted Array](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
+- [26. Remove Duplicates from Sorted Array](https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
 
 <!-- tabs:start -->
 

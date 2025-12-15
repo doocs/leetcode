@@ -85,10 +85,10 @@ We design a function $dfs(i, k)$, which represents the number of paths from city
 
 The process of calculating the function $dfs(i, k)$ is as follows:
 
--   If $k \lt |locations[i] - locations[finish]|$, then return $0$.
--   If $i = finish$, then the number of paths is $1$ at the beginning, otherwise it is $0$.
--   Then, we traverse all cities $j$. If $j \ne i$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |locations[i] - locations[j]|$. Then we can add the number of paths to the answer $dfs(j, k - |locations[i] - locations[j]|)$.
--   Finally, we return the number of paths to the answer.
+- If $k \lt |locations[i] - locations[finish]|$, then return $0$.
+- If $i = finish$, then the number of paths is $1$ at the beginning, otherwise it is $0$.
+- Then, we traverse all cities $j$. If $j \ne i$, then we can move from city $i$ to city $j$, and the remaining fuel is $k - |locations[i] - locations[j]|$. Then we can add the number of paths to the answer $dfs(j, k - |locations[i] - locations[j]|)$.
+- Finally, we return the number of paths to the answer.
 
 To avoid repeated calculations, we can use memoization.
 

@@ -61,9 +61,9 @@ tags:
 
 函数 $\textit{dfs}(i)$ 的执行过程如下：
 
--   如果 $i \ge \textit{len}(\textit{nums})$，表示所有房屋都被考虑过了，直接返回 $0$；
--   否则，考虑偷窃第 $i$ 间房屋，那么 $\textit{dfs}(i) = \textit{nums}[i] + \textit{dfs}(i+2)$；不偷窃第 $i$ 间房屋，那么 $\textit{dfs}(i) = \textit{dfs}(i+1)$。
--   返回 $\max(\textit{nums}[i] + \textit{dfs}(i+2), \textit{dfs}(i+1))$。
+- 如果 $i \ge \textit{len}(\textit{nums})$，表示所有房屋都被考虑过了，直接返回 $0$；
+- 否则，考虑偷窃第 $i$ 间房屋，那么 $\textit{dfs}(i) = \textit{nums}[i] + \textit{dfs}(i+2)$；不偷窃第 $i$ 间房屋，那么 $\textit{dfs}(i) = \textit{dfs}(i+1)$。
+- 返回 $\max(\textit{nums}[i] + \textit{dfs}(i+2), \textit{dfs}(i+1))$。
 
 为了避免重复计算，我们使用记忆化搜索的方法，将 $\textit{dfs}(i)$ 的结果保存在一个数组或哈希表中，每次计算前先查询是否已经计算过，如果计算过直接返回结果。
 
@@ -228,8 +228,8 @@ function rob(nums) {
 
 考虑 $i \gt 1$ 的情况，第 $i$ 间房屋有两个选项：
 
--   不偷窃第 $i$ 间房屋，偷窃总金额为 $f[i-1]$；
--   偷窃第 $i$ 间房屋，偷窃总金额为 $f[i-2]+nums[i-1]$；
+- 不偷窃第 $i$ 间房屋，偷窃总金额为 $f[i-1]$；
+- 偷窃第 $i$ 间房屋，偷窃总金额为 $f[i-2]+nums[i-1]$；
 
 因此，我们可以得到状态转移方程：
 

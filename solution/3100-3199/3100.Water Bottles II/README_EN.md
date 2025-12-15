@@ -67,8 +67,8 @@ tags:
 
 We can drink all the full water bottles at the beginning, so initially the amount of water we drink is $\textit{numBottles}$. Then, we repeatedly perform the following operations:
 
--   If we currently have $\textit{numExchange}$ empty bottles, we can exchange them for one full bottle. After the exchange, the value of $\textit{numExchange}$ increases by $1$. Then, we drink this bottle, increasing the total amount of water drunk by $1$, and the number of empty bottles increases by $1$.
--   If we do not have $\textit{numExchange}$ empty bottles, we cannot exchange for more water and should stop.
+- If we currently have $\textit{numExchange}$ empty bottles, we can exchange them for one full bottle. After the exchange, the value of $\textit{numExchange}$ increases by $1$. Then, we drink this bottle, increasing the total amount of water drunk by $1$, and the number of empty bottles increases by $1$.
+- If we do not have $\textit{numExchange}$ empty bottles, we cannot exchange for more water and should stop.
 
 We repeat the above process until we can no longer exchange bottles. The total amount of water drunk is the answer.
 

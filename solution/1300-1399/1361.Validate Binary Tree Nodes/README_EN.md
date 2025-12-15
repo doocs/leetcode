@@ -70,9 +70,9 @@ tags:
 
 We can traverse each node $i$ and its corresponding left and right children $l$, $r$, using an array $vis$ to record whether the node has a parent:
 
--   If the child node already has a parent, it means there are multiple fathers, which does not meet the condition, so we return `false` directly.
--   If the child node and the parent node are already in the same connected component, it means a cycle will be formed, which does not meet the condition, so we return `false` directly.
--   Otherwise, we perform a union operation, set the corresponding position of the $vis$ array to `true`, and decrease the number of connected components by $1$.
+- If the child node already has a parent, it means there are multiple fathers, which does not meet the condition, so we return `false` directly.
+- If the child node and the parent node are already in the same connected component, it means a cycle will be formed, which does not meet the condition, so we return `false` directly.
+- Otherwise, we perform a union operation, set the corresponding position of the $vis$ array to `true`, and decrease the number of connected components by $1$.
 
 After the traversal, we check whether the number of connected components in the union-find set is $1$. If it is, we return `true`, otherwise, we return `false`.
 

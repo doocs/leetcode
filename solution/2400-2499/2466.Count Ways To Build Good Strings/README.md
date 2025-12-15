@@ -71,8 +71,8 @@ tags:
 
 函数 $dfs(i)$ 的计算过程如下：
 
--   如果 $i \gt high$，返回 $0$；
--   如果 $ low \leq i \leq high$，答案累加 $1$，然后 $i$ 之后既可以添加 `zero` 个 $0$，也可以添加 `one` 个 $1$，因此答案累加上 $dfs(i + zero) + dfs(i + one)$。
+- 如果 $i \gt high$，返回 $0$；
+- 如果 $ low \leq i \leq high$，答案累加 $1$，然后 $i$ 之后既可以添加 `zero` 个 $0$，也可以添加 `one` 个 $1$，因此答案累加上 $dfs(i + zero) + dfs(i + one)$。
 
 过程中，我们需要对答案取模，并且可以使用记忆化搜索减少重复计算。
 

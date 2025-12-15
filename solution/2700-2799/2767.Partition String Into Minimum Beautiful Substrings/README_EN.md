@@ -86,9 +86,9 @@ Next, we design a function $dfs(i)$, which indicates the minimum number of cuts 
 
 The calculation method of function $dfs(i)$ is as follows:
 
--   If $i \geq n$, it means that all the characters have been processed, and the answer is $0$;
--   If $s[i] = 0$, it means that the current string contains leading $0$, which does not conform to the definition of a beautiful string, so the answer is infinite;
--   Otherwise, we enumerate the end position $j$ of the substring from $i$, and use $x$ to represent the decimal value of the substring $s[i..j]$. If $x$ is in the hash table $ss$, then we can take $s[i..j]$ as a beautiful substring, and the answer is $1 + dfs(j + 1)$. We need to enumerate all possible $j$ and take the minimum value of all answers.
+- If $i \geq n$, it means that all the characters have been processed, and the answer is $0$;
+- If $s[i] = 0$, it means that the current string contains leading $0$, which does not conform to the definition of a beautiful string, so the answer is infinite;
+- Otherwise, we enumerate the end position $j$ of the substring from $i$, and use $x$ to represent the decimal value of the substring $s[i..j]$. If $x$ is in the hash table $ss$, then we can take $s[i..j]$ as a beautiful substring, and the answer is $1 + dfs(j + 1)$. We need to enumerate all possible $j$ and take the minimum value of all answers.
 
 In order to avoid repeated calculation, we can use the method of memory search.
 

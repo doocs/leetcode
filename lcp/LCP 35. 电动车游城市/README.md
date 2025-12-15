@@ -39,14 +39,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2035.%20%E7%94%B5%
 
 **提示：**
 
--   `1 <= paths.length <= 200`
--   `paths[i].length == 3`
--   `2 <= charge.length == n <= 100`
--   `0 <= path[i][0],path[i][1],start,end < n`
--   `1 <= cnt <= 100`
--   `1 <= path[i][2] <= cnt`
--   `1 <= charge[i] <= 100`
--   题目保证所有城市相互可以到达
+- `1 <= paths.length <= 200`
+- `paths[i].length == 3`
+- `2 <= charge.length == n <= 100`
+- `0 <= path[i][0],path[i][1],start,end < n`
+- `1 <= cnt <= 100`
+- `1 <= path[i][2] <= cnt`
+- `1 <= charge[i] <= 100`
+- 题目保证所有城市相互可以到达
 
 <!-- description:end -->
 

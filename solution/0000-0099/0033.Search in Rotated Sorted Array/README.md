@@ -71,12 +71,12 @@ tags:
 
 因此，我们可以根据有序的那一部分，判断 $target$ 是否在这一部分中：
 
--   若 $[0,.. mid]$ 范围内的元素构成有序数组：
-    -   若满足 $nums[0] \leq target \leq nums[mid]$，那么我们搜索范围可以缩小为 $[left,.. mid]$；
-    -   否则，在 $[mid + 1,.. right]$ 中查找；
--   若 $[mid + 1, n - 1]$ 范围内的元素构成有序数组：
-    -   若满足 $nums[mid] \lt target \leq nums[n - 1]$，那么我们搜索范围可以缩小为 $[mid + 1,.. right]$；
-    -   否则，在 $[left,.. mid]$ 中查找。
+- 若 $[0,.. mid]$ 范围内的元素构成有序数组：
+    - 若满足 $nums[0] \leq target \leq nums[mid]$，那么我们搜索范围可以缩小为 $[left,.. mid]$；
+    - 否则，在 $[mid + 1,.. right]$ 中查找；
+- 若 $[mid + 1, n - 1]$ 范围内的元素构成有序数组：
+    - 若满足 $nums[mid] \lt target \leq nums[n - 1]$，那么我们搜索范围可以缩小为 $[mid + 1,.. right]$；
+    - 否则，在 $[left,.. mid]$ 中查找。
 
 二分查找终止条件是 $left \geq right$，若结束后发现 $nums[left]$ 与 $target$ 不等，说明数组中不存在值为 $target$ 的元素，返回 $-1$，否则返回下标 $left$。
 

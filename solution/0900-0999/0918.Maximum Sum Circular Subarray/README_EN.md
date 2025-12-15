@@ -70,24 +70,24 @@ tags:
 
 The maximum sum of a circular subarray can be divided into two cases:
 
--   Case 1: The subarray with the maximum sum does not include the circular part, which is the ordinary maximum subarray sum;
--   Case 2: The subarray with the maximum sum includes the circular part, which can be transformed into: the total sum of the array minus the minimum subarray sum.
+- Case 1: The subarray with the maximum sum does not include the circular part, which is the ordinary maximum subarray sum;
+- Case 2: The subarray with the maximum sum includes the circular part, which can be transformed into: the total sum of the array minus the minimum subarray sum.
 
 Therefore, we maintain the following variables:
 
--   The minimum prefix sum $pmi$, initially $0$;
--   The maximum prefix sum $pmx$, initially $-\infty$;
--   The prefix sum $s$, initially $0$;
--   The minimum subarray sum $smi$, initially $\infty$;
--   The answer $ans$, initially $-\infty$.
+- The minimum prefix sum $pmi$, initially $0$;
+- The maximum prefix sum $pmx$, initially $-\infty$;
+- The prefix sum $s$, initially $0$;
+- The minimum subarray sum $smi$, initially $\infty$;
+- The answer $ans$, initially $-\infty$.
 
 Next, we only need to traverse the array $nums$. For the current element $x$ we are traversing, we perform the following update operations:
 
--   Update the prefix sum $s = s + x$;
--   Update the answer $ans = \max(ans, s - pmi)$, which is the answer for Case 1 (the prefix sum $s$ minus the minimum prefix sum $pmi$ can give the maximum subarray sum);
--   Update $smi = \min(smi, s - pmx)$, which is the minimum subarray sum for Case 2;
--   Update $pmi = \min(pmi, s)$, which is the minimum prefix sum;
--   Update $pmx = \max(pmx, s)$, which is the maximum prefix sum.
+- Update the prefix sum $s = s + x$;
+- Update the answer $ans = \max(ans, s - pmi)$, which is the answer for Case 1 (the prefix sum $s$ minus the minimum prefix sum $pmi$ can give the maximum subarray sum);
+- Update $smi = \min(smi, s - pmx)$, which is the minimum subarray sum for Case 2;
+- Update $pmi = \min(pmi, s)$, which is the minimum prefix sum;
+- Update $pmx = \max(pmx, s)$, which is the maximum prefix sum.
 
 After the traversal, we return the maximum value of $ans$ and $s - smi$ as the answer.
 

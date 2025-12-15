@@ -106,8 +106,8 @@ Therefore, we define a function $\textit{dfs}(i, j)$, which represents starting 
 
 The execution process of the function $dfs(i, j)$ is as follows:
 
--   If $i \geq \textit{len}(nums)$, it means the array has been fully traversed, return $0$;
--   Otherwise, the $i$-th number can remain unflipped, in which case the answer is $nums[i] + \textit{dfs}(i + 1, 1)$; if $j = 1$, it means the $i$-th number can be flipped, in which case the answer is $\max(\textit{dfs}(i + 1, 0) - nums[i])$. We take the maximum of the two.
+- If $i \geq \textit{len}(nums)$, it means the array has been fully traversed, return $0$;
+- Otherwise, the $i$-th number can remain unflipped, in which case the answer is $nums[i] + \textit{dfs}(i + 1, 1)$; if $j = 1$, it means the $i$-th number can be flipped, in which case the answer is $\max(\textit{dfs}(i + 1, 0) - nums[i])$. We take the maximum of the two.
 
 To avoid repeated calculations, we can use memoization to save the results that have already been computed.
 
@@ -254,8 +254,8 @@ Define $f$ and $g$ as two states, where $f$ represents the maximum value when th
 
 Traverse the array $nums$, for the $i$-th number, we can update the values of $f$ and $g$ based on their states:
 
--   If the current number is not flipped, then the value of $f$ is $\max(f, g) + x$, indicating that if the current number is not flipped, the previous number can be flipped or not flipped;
--   If the current number is flipped, then the value of $g$ is $f - x$, indicating that if the current number is flipped, the previous number cannot be flipped.
+- If the current number is not flipped, then the value of $f$ is $\max(f, g) + x$, indicating that if the current number is not flipped, the previous number can be flipped or not flipped;
+- If the current number is flipped, then the value of $g$ is $f - x$, indicating that if the current number is flipped, the previous number cannot be flipped.
 
 The final answer is $\max(f, g)$.
 

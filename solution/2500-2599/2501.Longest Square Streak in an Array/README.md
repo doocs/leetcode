@@ -228,8 +228,8 @@ var longestSquareStreak = function (nums) {
 
 函数 $\textit{dfs}(x)$ 的计算过程如下：
 
--   如果 $x$ 不在哈希表中，则返回 $0$。
--   否则，返回 $1 + \textit{dfs}(x^2)$。
+- 如果 $x$ 不在哈希表中，则返回 $0$。
+- 否则，返回 $1 + \textit{dfs}(x^2)$。
 
 过程中我们可以使用记忆化搜索，即使用哈希表记录函数 $\textit{dfs}(x)$ 的值，避免重复计算。
 

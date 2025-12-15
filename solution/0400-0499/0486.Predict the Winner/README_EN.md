@@ -67,8 +67,8 @@ We design a function $\textit{dfs}(i, j)$, which represents the maximum differen
 
 The function $\textit{dfs}(i, j)$ is calculated as follows:
 
--   If $i > j$, it means there are no numbers left, so the current player cannot take any points, and the difference is $0$, i.e., $\textit{dfs}(i, j) = 0$.
--   Otherwise, the current player has two choices. If they choose the $i$-th number, the difference in scores between the current player and the other player is $\textit{nums}[i] - \textit{dfs}(i + 1, j)$. If they choose the $j$-th number, the difference in scores between the current player and the other player is $\textit{nums}[j] - \textit{dfs}(i, j - 1)$. The current player will choose the option with the larger difference, so $\textit{dfs}(i, j) = \max(\textit{nums}[i] - \textit{dfs}(i + 1, j), \textit{nums}[j] - \textit{dfs}(i, j - 1))$.
+- If $i > j$, it means there are no numbers left, so the current player cannot take any points, and the difference is $0$, i.e., $\textit{dfs}(i, j) = 0$.
+- Otherwise, the current player has two choices. If they choose the $i$-th number, the difference in scores between the current player and the other player is $\textit{nums}[i] - \textit{dfs}(i + 1, j)$. If they choose the $j$-th number, the difference in scores between the current player and the other player is $\textit{nums}[j] - \textit{dfs}(i, j - 1)$. The current player will choose the option with the larger difference, so $\textit{dfs}(i, j) = \max(\textit{nums}[i] - \textit{dfs}(i + 1, j), \textit{nums}[j] - \textit{dfs}(i, j - 1))$.
 
 Finally, we only need to check if $\textit{dfs}(0, n - 1) \geq 0$.
 
@@ -222,8 +222,8 @@ Initially, $f[i][i] = \textit{nums}[i]$, because with only one number, the curre
 
 Consider $f[i][j]$ where $i < j$, there are two cases:
 
--   If the current player takes $\textit{nums}[i]$, the remaining numbers are $\textit{nums}[i + 1..j]$, and it is the other player's turn. So, $f[i][j] = \textit{nums}[i] - f[i + 1][j]$.
--   If the current player takes $\textit{nums}[j]$, the remaining numbers are $\textit{nums}[i..j - 1]$, and it is the other player's turn. So, $f[i][j] = \textit{nums}[j] - f[i][j - 1]$.
+- If the current player takes $\textit{nums}[i]$, the remaining numbers are $\textit{nums}[i + 1..j]$, and it is the other player's turn. So, $f[i][j] = \textit{nums}[i] - f[i + 1][j]$.
+- If the current player takes $\textit{nums}[j]$, the remaining numbers are $\textit{nums}[i..j - 1]$, and it is the other player's turn. So, $f[i][j] = \textit{nums}[j] - f[i][j - 1]$.
 
 Therefore, the state transition equation is $f[i][j] = \max(\textit{nums}[i] - f[i + 1][j], \textit{nums}[j] - f[i][j - 1])$.
 
@@ -233,7 +233,7 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 
 Similar problem:
 
--   [877. Stone Game](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0877.Stone%20Game/README_EN.md)
+- [877. Stone Game](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0877.Stone%20Game/README_EN.md)
 
 <!-- tabs:start -->
 

@@ -228,8 +228,8 @@ We can also use depth-first search to enumerate all subsets, and then calculate 
 
 We design a function $dfs(i, s)$, where $i$ represents the current search to the $i$th element of the array $nums$, and $s$ represents the XOR sum of the current subset. Initially, $i=0$, $s=0$. During the search, we have two choices each time:
 
--   Add the $i$th element of $nums$ to the current subset, i.e., $dfs(i+1, s \oplus nums[i])$;
--   Do not add the $i$th element of $nums$ to the current subset, i.e., $dfs(i+1, s)$.
+- Add the $i$th element of $nums$ to the current subset, i.e., $dfs(i+1, s \oplus nums[i])$;
+- Do not add the $i$th element of $nums$ to the current subset, i.e., $dfs(i+1, s)$.
 
 When we have searched all elements of the array $nums$, i.e., $i=n$, the XOR sum of the current subset is $s$, and we can add it to the answer.
 

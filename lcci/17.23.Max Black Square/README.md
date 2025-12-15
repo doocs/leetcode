@@ -78,7 +78,7 @@ $$
 
 相似题目：
 
--   [1139. 最大的以 1 为边界的正方形](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1139.Largest%201-Bordered%20Square/README.md)
+- [1139. 最大的以 1 为边界的正方形](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1139.Largest%201-Bordered%20Square/README.md)
 
 <!-- tabs:start -->
 

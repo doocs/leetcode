@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3752.Lexicographically%20Smallest%20Negated%20Permutation%20that%20Sums%20to%20Target/README.md
 rating: 1827
 source: 第 170 场双周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 双指针
+    - 排序
 ---
 
 <!-- problem:start -->

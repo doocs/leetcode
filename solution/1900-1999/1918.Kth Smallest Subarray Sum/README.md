@@ -85,9 +85,9 @@ tags:
 
 函数 $f(s)$ 的计算方法如下：
 
--   初始化双指针 $j$ 和 $i$，分别指向当前窗口的左右边界，初始时 $j = i = 0$。初始化窗口内元素的和 $t = 0$。
--   用变量 $\textit{cnt}$ 记录子数组和小于等于 $s$ 的个数，初始时 $\textit{cnt} = 0$。
--   遍历数组 $\textit{nums}$，每次遍历到一个元素 $\textit{nums}[i]$，我们将其加入窗口，即 $t = t + \textit{nums}[i]$。如果此时 $t \gt s$，我们需要不断地将窗口的左边界右移，直到 $t \le s$ 为止，即不断地执行 $t -= \textit{nums}[j]$，并且 $j = j + 1$。接下来我们更新 $\textit{cnt}$，即 $\textit{cnt} = \textit{cnt} + i - j + 1$。继续遍历下一个元素，直到遍历完整个数组。
+- 初始化双指针 $j$ 和 $i$，分别指向当前窗口的左右边界，初始时 $j = i = 0$。初始化窗口内元素的和 $t = 0$。
+- 用变量 $\textit{cnt}$ 记录子数组和小于等于 $s$ 的个数，初始时 $\textit{cnt} = 0$。
+- 遍历数组 $\textit{nums}$，每次遍历到一个元素 $\textit{nums}[i]$，我们将其加入窗口，即 $t = t + \textit{nums}[i]$。如果此时 $t \gt s$，我们需要不断地将窗口的左边界右移，直到 $t \le s$ 为止，即不断地执行 $t -= \textit{nums}[j]$，并且 $j = j + 1$。接下来我们更新 $\textit{cnt}$，即 $\textit{cnt} = \textit{cnt} + i - j + 1$。继续遍历下一个元素，直到遍历完整个数组。
 
 最后将 $cnt$ 作为函数 $f(s)$ 的返回值。
 

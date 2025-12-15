@@ -68,10 +68,10 @@ tags:
 
 当条件不成立时，根据此时 tx 和 ty 判断是否可以从起点转换到终点。
 
--   如果 `tx == sx && ty == sy`，说明此时已经到达起点状态，返回 true；
--   如果 `tx == sx`，若 `ty > sy && (ty - sy) % tx == 0`，返回 true，否则返回 false；
--   如果 `ty == sy`，若 `tx > sx && (tx - sx) % ty == 0`，返回 true，否则返回 false；
--   如果 `tx ≠ sx && ty ≠ sy`，则不可以从起点转换到终点。
+- 如果 `tx == sx && ty == sy`，说明此时已经到达起点状态，返回 true；
+- 如果 `tx == sx`，若 `ty > sy && (ty - sy) % tx == 0`，返回 true，否则返回 false；
+- 如果 `ty == sy`，若 `tx > sx && (tx - sx) % ty == 0`，返回 true，否则返回 false；
+- 如果 `tx ≠ sx && ty ≠ sy`，则不可以从起点转换到终点。
 
 <!-- tabs:start -->
 

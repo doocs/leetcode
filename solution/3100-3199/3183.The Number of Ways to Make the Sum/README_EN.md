@@ -218,9 +218,9 @@ function numberOfWays(n: number): number {
 
 We can start by preprocessing the number of ways to make up every amount from $1$ to $10^5$, and then return the corresponding number of ways based on the value of $n$:
 
--   If $n < 4$, directly return $f[n]$;
--   If $4 \leq n < 8$, return $f[n] + f[n - 4]$;
--   If $n \geq 8$, return $f[n] + f[n - 4] + f[n - 8]$.
+- If $n < 4$, directly return $f[n]$;
+- If $4 \leq n < 8$, return $f[n] + f[n - 4]$;
+- If $n \geq 8$, return $f[n] + f[n - 4] + f[n - 8]$.
 
 Note the modulus operation for the answer.
 

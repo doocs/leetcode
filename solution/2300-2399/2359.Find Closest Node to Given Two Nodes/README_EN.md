@@ -73,7 +73,7 @@ The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the n
 
 Related problems:
 
--   [2203. Minimum Weighted Subgraph With the Required Paths](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README_EN.md)
+- [2203. Minimum Weighted Subgraph With the Required Paths](https://github.com/doocs/leetcode/blob/main/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README_EN.md)
 
 <!-- tabs:start -->
 

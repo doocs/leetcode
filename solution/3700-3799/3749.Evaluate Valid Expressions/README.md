@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README.md
+tags:
+    - 栈
+    - 哈希表
+    - 数学
+    - 字符串
+    - 分治
 ---
 
 <!-- problem:start -->
@@ -14,13 +20,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3749.Ev
 
 <!-- description:start -->
 
-<p>给定一个字符串&nbsp;<code>expression</code> 表示以简化形式嵌套的数学表达式。</p>
+<p>给你一个字符串&nbsp;<code>expression</code> 表示以简化形式嵌套的数学表达式。</p>
 
-<p>一个 <strong>合法</strong>&nbsp;表达式要么是一个整数&nbsp;<strong>字面量</strong>，要么符合&nbsp;<code>op(a,b)</code>&nbsp;格式，其中：</p>
+<p><strong>有效</strong> 表达式要么是一个整数&nbsp;<strong>字面量</strong>，要么符合&nbsp;<code>op(a,b)</code>&nbsp;格式，其中：</p>
 
 <ul>
 	<li><code>op</code>&nbsp;是&nbsp;<code>"add"</code>，<code>"sub"</code>，<code>"mul"</code>，<code>"div"</code>&nbsp;中的一个。</li>
-	<li><code>a</code> 和&nbsp;<code>b</code>&nbsp;都是合法表达式。</li>
+	<li><code>a</code> 和&nbsp;<code>b</code>&nbsp;都是有效表达式。</li>
 </ul>
 
 <p><strong>运算符</strong> 定义如下：</p>
@@ -85,7 +91,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3749.Ev
 
 <ul>
 	<li><code>1 &lt;= expression.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>expression</code> 是有效的，由数字、逗号、括号、减号 <code>'-'</code> 和小写字符串&nbsp;<code>"add"</code>，<code>"sub"</code>，<code>"mul"</code>，<code>"div"</code>&nbsp;组成。</li>
+	<li>有效表达式 <code>expression</code>&nbsp;由数字、逗号、括号、减号 <code>'-'</code> 和小写字符串&nbsp;<code>"add"</code>，<code>"sub"</code>，<code>"mul"</code>，<code>"div"</code>&nbsp;组成。</li>
 	<li>所有中间结果都位于长整型的范围内。</li>
 	<li>所有除法运算结果都是整数值。</li>
 </ul>

@@ -67,9 +67,9 @@ We can consider whether each wall is painted by a paid painter or a free painter
 
 The calculation process of function $dfs(i, j)$ is as follows:
 
--   If $n - i \le j$, it means that there are no more walls than the free painter's working time, so the remaining walls are painted by the free painter, and the cost is $0$;
--   If $i \ge n$, return $+\infty$;
--   Otherwise, if the $i$th wall is painted by a paid painter, the cost is $cost[i]$, then $dfs(i, j) = dfs(i + 1, j + time[i]) + cost[i]$; if the $i$th wall is painted by a free painter, the cost is $0$, then $dfs(i, j) = dfs(i + 1, j - 1)$.
+- If $n - i \le j$, it means that there are no more walls than the free painter's working time, so the remaining walls are painted by the free painter, and the cost is $0$;
+- If $i \ge n$, return $+\infty$;
+- Otherwise, if the $i$th wall is painted by a paid painter, the cost is $cost[i]$, then $dfs(i, j) = dfs(i + 1, j + time[i]) + cost[i]$; if the $i$th wall is painted by a free painter, the cost is $0$, then $dfs(i, j) = dfs(i + 1, j - 1)$.
 
 Note that the parameter $j$ may be less than $0$. Therefore, in the actual coding process, except for the $Python$ language, we add an offset $n$ to $j$ so that the range of $j$ is $[0, 2n]$.
 

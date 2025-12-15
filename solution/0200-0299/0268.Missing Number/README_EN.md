@@ -101,8 +101,8 @@ tags:
 
 The XOR operation has the following properties:
 
--   Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
--   Any number XOR itself is 0, i.e., $x \oplus x = 0$;
+- Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
+- Any number XOR itself is 0, i.e., $x \oplus x = 0$;
 
 Therefore, we can traverse the array, perform XOR operation between each element and the numbers $[0,..n]$, and the final result will be the missing number.
 

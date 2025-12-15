@@ -49,7 +49,12 @@ empId 是 Employee 表中 empId 的外键(reference 列)。
 
 <p>&nbsp;</p>
 
-<p>编写解决方案，报告每个奖金 <strong>少于</strong> <code>1000</code> 的员工的姓名和奖金数额。</p>
+<p>编写一个解决方案来报告满足以下任一条件的每个员工的姓名和奖金金额：</p>
+
+<ul>
+	<li>奖金 <strong>少于</strong>&nbsp;<code>1000</code>&nbsp;的员工。</li>
+	<li>没有任何奖金的员工。</li>
+</ul>
 
 <p>以 <strong>任意顺序</strong> 返回结果表。</p>
 

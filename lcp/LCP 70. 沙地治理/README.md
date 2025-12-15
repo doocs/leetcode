@@ -17,11 +17,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%
 
 初始情况下，区域中的所有位置都为沙地，你需要指定一些子区域种植沙柳树成为绿地，以达到转化整片区域为绿地的最终目的，规则如下：
 
--   若两个子区域共用一条边，则视为相邻；
+- 若两个子区域共用一条边，则视为相邻；
     > 如下图所示，(1,1)和(2,2)相邻，(3,2)和(3,3)相邻；(2,2)和(3,3)不相邻，因为它们没有共用边。
--   若至少有两片绿地与同一片沙地相邻，则这片沙地也会转化为绿地
--   转化为绿地的区域会影响其相邻的沙地
-    ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692397-VlvErS-image.png)
+- 若至少有两片绿地与同一片沙地相邻，则这片沙地也会转化为绿地
+- 转化为绿地的区域会影响其相邻的沙地
+  ![image.png](https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2070.%20%E6%B2%99%E5%9C%B0%E6%B2%BB%E7%90%86/images/1662692397-VlvErS-image.png)
 
 现要将一片边长为 `size`  的沙地全部转化为绿地，请找到任意一种初始指定 **最少** 数量子区域种植沙柳的方案，并返回所有初始种植沙柳树的绿地坐标。
 
@@ -46,7 +46,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2070.%20%E6%B2%99%
 
 **提示：**
 
--   `1 <= size <= 1000`
+- `1 <= size <= 1000`
 
 <!-- description:end -->
 

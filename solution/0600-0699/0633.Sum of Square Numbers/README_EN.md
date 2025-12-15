@@ -207,8 +207,8 @@ More formally, if $p_i$ is a prime of the form $4k + 3$, then for each such $p_i
 
 For example:
 
--   The number $13$ is a prime and $13 \equiv 1 \pmod{4}$, so it can be expressed as the sum of two squares, i.e., $13 = 2^2 + 3^2$.
--   The number $21$ can be decomposed into $3 \times 7$, where both $3$ and $7$ are prime factors of the form $4k + 3$ and their exponents are $1$ (odd), so $21$ cannot be expressed as the sum of two squares.
+- The number $13$ is a prime and $13 \equiv 1 \pmod{4}$, so it can be expressed as the sum of two squares, i.e., $13 = 2^2 + 3^2$.
+- The number $21$ can be decomposed into $3 \times 7$, where both $3$ and $7$ are prime factors of the form $4k + 3$ and their exponents are $1$ (odd), so $21$ cannot be expressed as the sum of two squares.
 
 In summary, this theorem is very important in number theory for determining whether a number can be expressed as the sum of two squares.
 

@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README_EN.md
 rating: 1363
 source: Weekly Contest 479 Q1
+tags:
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -79,8 +79,8 @@ We design a function $\textit{dfs}(\textit{root})$ that returns the smallest sub
 
 The execution process of the function $\textit{dfs}(\textit{root})$ is as follows:
 
--   If $\textit{root}$ is null, return $\text{null}$ and $0$.
--   Otherwise, recursively calculate the smallest subtree and depth of the left and right subtrees of $\textit{root}$, denoted as $l$ and $l_d$, and $r$ and $r_d$, respectively. If $l_d > r_d$, then the smallest subtree containing all the deepest nodes in the subtree rooted at the left child of $\textit{root}$ is $l$, with a depth of $l_d + 1$. If $l_d < r_d$, then the smallest subtree containing all the deepest nodes in the subtree rooted at the right child of $\textit{root}$ is $r$, with a depth of $r_d + 1$. If $l_d = r_d$, then $\textit{root}$ is the smallest subtree containing all the deepest nodes, with a depth of $l_d + 1$.
+- If $\textit{root}$ is null, return $\text{null}$ and $0$.
+- Otherwise, recursively calculate the smallest subtree and depth of the left and right subtrees of $\textit{root}$, denoted as $l$ and $l_d$, and $r$ and $r_d$, respectively. If $l_d > r_d$, then the smallest subtree containing all the deepest nodes in the subtree rooted at the left child of $\textit{root}$ is $l$, with a depth of $l_d + 1$. If $l_d < r_d$, then the smallest subtree containing all the deepest nodes in the subtree rooted at the right child of $\textit{root}$ is $r$, with a depth of $r_d + 1$. If $l_d = r_d$, then $\textit{root}$ is the smallest subtree containing all the deepest nodes, with a depth of $l_d + 1$.
 
 Finally, return the first element of the result of $\textit{dfs}(\textit{root})$.
 

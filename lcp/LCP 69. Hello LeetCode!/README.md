@@ -18,9 +18,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20Le
 
 你可以从这些单词中取出一些卡片，但每次拿取卡片都需要消耗游戏代币，规则如下：
 
--   从一个单词中取一个字母所需要的代币数量，为该字母左边和右边字母数量之积
+- 从一个单词中取一个字母所需要的代币数量，为该字母左边和右边字母数量之积
 
--   可以从一个单词中多次取字母，每个字母仅可被取一次
+- 可以从一个单词中多次取字母，每个字母仅可被取一次
 
 > 例如：从 `example` 中取出字母 `a`，需要消耗代币 `2*4=8`，字母取出后单词变为 `exmple`；
 > 再从中取出字母 `m`，需要消耗代币 `2*3=6`，字母取出后单词变为 `exple`；
@@ -29,8 +29,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20Le
 
 **注意：**
 
--   取出字母的顺序没有要求
--   取出的所有字母恰好可以拼成 `helloleetcode`
+- 取出字母的顺序没有要求
+- 取出的所有字母恰好可以拼成 `helloleetcode`
 
 **示例 1：**
 
@@ -53,11 +53,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2069.%20Hello%20Le
 
 **提示：**
 
--   `n == words.length`
--   `m == words[i].length`
--   `1 <= n <= 24`
--   `1 <= m <= 8`
--   `words[i][j]` 仅为小写字母
+- `n == words.length`
+- `m == words[i].length`
+- `1 <= n <= 24`
+- `1 <= m <= 8`
+- `words[i][j]` 仅为小写字母
 
 <!-- description:end -->
 

@@ -61,10 +61,10 @@ We design a function $dfs(i, j, k)$ to represent the maximum profit that can be 
 
 The execution logic of the function $dfs(i, j, k)$ is as follows:
 
--   If $i$ is greater than or equal to $n$, return $0$ directly.
--   The i-th day can choose not to do anything, then $dfs(i, j, k) = dfs(i + 1, j, k)$.
--   If $k > 0$, the i-th day can choose to sell the stock, then $dfs(i, j, k) = \max(dfs(i + 1, j - 1, 0) + prices[i], dfs(i + 1, j, k))$.
--   Otherwise, if $j > 0$, the i-th day can choose to buy the stock, then $dfs(i, j, k) = \max(dfs(i + 1, j - 1, 1) - prices[i], dfs(i + 1, j, k))$.
+- If $i$ is greater than or equal to $n$, return $0$ directly.
+- The i-th day can choose not to do anything, then $dfs(i, j, k) = dfs(i + 1, j, k)$.
+- If $k > 0$, the i-th day can choose to sell the stock, then $dfs(i, j, k) = \max(dfs(i + 1, j - 1, 0) + prices[i], dfs(i + 1, j, k))$.
+- Otherwise, if $j > 0$, the i-th day can choose to buy the stock, then $dfs(i, j, k) = \max(dfs(i + 1, j - 1, 1) - prices[i], dfs(i + 1, j, k))$.
 
 The value of $dfs(i, j, k)$ is the maximum value of the above three cases.
 
@@ -269,8 +269,8 @@ When $i = 0$, the stock price is $prices[0]$. For any $j$ \in [1, k]$, we have $
 
 When $i > 0$:
 
--   If the i-th day does not hold the stock, it may be that the stock was held on the i-1-th day and sold on the i-th day, or the stock was not held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][0] = \max(f[i - 1][j][1] + prices[i], f[i - 1][j][0])$.
--   If the i-th day holds the stock, it may be that the stock was not held on the i-1-th day and bought on the i-th day, or the stock was held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][1] = max(f[i - 1][j - 1][0] - prices[i], f[i - 1][j][1])$.
+- If the i-th day does not hold the stock, it may be that the stock was held on the i-1-th day and sold on the i-th day, or the stock was not held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][0] = \max(f[i - 1][j][1] + prices[i], f[i - 1][j][0])$.
+- If the i-th day holds the stock, it may be that the stock was not held on the i-1-th day and bought on the i-th day, or the stock was held on the i-1-th day and no operation was performed on the i-th day. Therefore, $f[i][j][1] = max(f[i - 1][j - 1][0] - prices[i], f[i - 1][j][1])$.
 
 Therefore, when $i > 0$, we can get the state transition equation:
 

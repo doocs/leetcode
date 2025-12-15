@@ -268,11 +268,11 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 
 我们设计一个类 `MedianFinder`，用于维护当前窗口中的元素。该类包含以下方法：
 
--   `add_num(num)`：将 `num` 加入当前窗口中。
--   `find()`：返回当前窗口的美丽值。
--   `remove_num(num)`：将 `num` 从当前窗口中移除。
--   `prune(pq)`：如果堆顶元素在延迟删除字典 `delayed` 中，则将其从堆顶弹出，并从该元素的延迟删除次数中减一。如果该元素的延迟删除次数为零，则将其从延迟删除字典中删除。
--   `rebalance()`：平衡两个优先队列的大小。
+- `add_num(num)`：将 `num` 加入当前窗口中。
+- `find()`：返回当前窗口的美丽值。
+- `remove_num(num)`：将 `num` 从当前窗口中移除。
+- `prune(pq)`：如果堆顶元素在延迟删除字典 `delayed` 中，则将其从堆顶弹出，并从该元素的延迟删除次数中减一。如果该元素的延迟删除次数为零，则将其从延迟删除字典中删除。
+- `rebalance()`：平衡两个优先队列的大小。
 
 在 `add_num(num)` 方法中，我们先考虑将 `num` 加入较小的队列中，如果数量大于 $x$ 或者 `num` 小于等于较小的队列的堆顶元素，则将 `num` 加入较小的队列中；否则，将 `num` 加入较大的队列中。然后我们调用 `rebalance()` 方法，使得较小的队列中的元素数量不超过 $x$。
 
@@ -288,7 +288,7 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 
 相似题目：
 
--   [480. 滑动窗口中位数](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
+- [480. 滑动窗口中位数](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
 <!-- tabs:start -->
 

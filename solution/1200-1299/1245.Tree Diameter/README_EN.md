@@ -69,7 +69,7 @@ Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the numb
 
 Similar problems:
 
--   [1522. Diameter of N-Ary Tree 🔒](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)
+- [1522. Diameter of N-Ary Tree 🔒](https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)
 
 <!-- tabs:start -->
 

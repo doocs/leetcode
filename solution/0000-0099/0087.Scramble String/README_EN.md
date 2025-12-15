@@ -84,8 +84,8 @@ We design a function $dfs(i, j, k)$, which means whether the substring starting 
 
 The calculation method of function $dfs(i, j, k)$ is as follows:
 
--   If $k=1$, then we only need to judge whether $s_1[i]$ and $s_2[j]$ are equal. If they are equal, return `true`, otherwise return `false`;
--   If $k \gt 1$, we enumerate the length of the split part $h$, then there are two cases: if the two substrings of the split are not swapped, then it is $dfs(i, j, h) \land dfs(i+h, j+h, k-h)$; if the two substrings of the split are swapped, then it is $dfs(i, j+k-h, h) \land dfs(i+h, j, k-h)$. If one of the two cases is true, then $dfs(i, j, k)$ is true, return `true`, otherwise return `false`.
+- If $k=1$, then we only need to judge whether $s_1[i]$ and $s_2[j]$ are equal. If they are equal, return `true`, otherwise return `false`;
+- If $k \gt 1$, we enumerate the length of the split part $h$, then there are two cases: if the two substrings of the split are not swapped, then it is $dfs(i, j, h) \land dfs(i+h, j+h, k-h)$; if the two substrings of the split are swapped, then it is $dfs(i, j+k-h, h) \land dfs(i+h, j, k-h)$. If one of the two cases is true, then $dfs(i, j, k)$ is true, return `true`, otherwise return `false`.
 
 Finally, we return $dfs(0, 0, n)$.
 

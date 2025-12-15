@@ -94,10 +94,10 @@ We can use prefix sum arrays to track position changes after each move. Specific
 
 Initialize $f[0] = 0$ and $g[0] = 0$, representing the initial position at $(0, 0)$. Then, we iterate through the string $s$, and for each character:
 
--   If the character is 'U', then $g[i] = g[i-1] + 1$.
--   If the character is 'D', then $g[i] = g[i-1] - 1$.
--   If the character is 'L', then $f[i] = f[i-1] - 1$.
--   If the character is 'R', then $f[i] = f[i-1] + 1$.
+- If the character is 'U', then $g[i] = g[i-1] + 1$.
+- If the character is 'D', then $g[i] = g[i-1] - 1$.
+- If the character is 'L', then $f[i] = f[i-1] - 1$.
+- If the character is 'R', then $f[i] = f[i-1] + 1$.
 
 Next, we use a hash set to store the distinct final coordinates. For each possible substring removal position $i$ (from $k$ to $n$), we calculate the final coordinates $(a, b)$ after removing the substring, where $a = f[n] - (f[i] - f[i-k])$ and $b = g[n] - (g[i] - g[i-k])$. Add the coordinates $(a, b)$ to the hash set.
 

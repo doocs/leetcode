@@ -70,10 +70,10 @@ myCalendarThree.book(25, 55); // return 3
 
 A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\text{width})$. To update the value of an element, we only need to update $\log(\text{width})$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we use **lazy propagation** to ensure efficiency.
 
--   Each node of the segment tree represents an interval.
--   The segment tree has a unique root node representing the entire range, such as $[1, N]$.
--   Each leaf node of the segment tree represents a unit interval of length $1$, $[x, x]$.
--   For each internal node $[l, r]$, its left child is $[l, \text{mid}]$ and its right child is $[\text{mid} + 1, r]$, where $\text{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
+- Each node of the segment tree represents an interval.
+- The segment tree has a unique root node representing the entire range, such as $[1, N]$.
+- Each leaf node of the segment tree represents a unit interval of length $1$, $[x, x]$.
+- For each internal node $[l, r]$, its left child is $[l, \text{mid}]$ and its right child is $[\text{mid} + 1, r]$, where $\text{mid} = \lfloor(l + r) / 2\rfloor$ (i.e., floor division).
 
 For this problem, the segment tree nodes maintain the following information:
 

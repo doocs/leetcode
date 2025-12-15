@@ -108,7 +108,7 @@ Candidates table:
 
 相似题目：
 
--   [2010. 职员招聘人数 🔒 II](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2010.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company%20II/README.md)
+- [2010. 职员招聘人数 🔒 II](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2010.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company%20II/README.md)
 
 <!-- tabs:start -->
 

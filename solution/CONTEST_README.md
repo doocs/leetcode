@@ -38,7 +38,7 @@ comments: true
 - [3769. 二进制反射排序](/solution/3700-3799/3769.Sort%20Integers%20by%20Binary%20Reflection/README.md)
 - [3770. 可表示为连续质数和的最大质数](/solution/3700-3799/3770.Largest%20Prime%20from%20Consecutive%20Prime%20Sum/README.md)
 - [3771. 探索地牢的得分](/solution/3700-3799/3771.Total%20Score%20of%20Dungeon%20Runs/README.md)
-- [3772. 子图的最大得分](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README.md)
+- [3772. 树中子图的最大得分](/solution/3700-3799/3772.Maximum%20Subgraph%20Score%20in%20a%20Tree/README.md)
 
 #### 第 171 场双周赛(2025-12-06 22:30, 90 分钟) 参赛人数 1403
 

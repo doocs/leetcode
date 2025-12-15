@@ -60,9 +60,9 @@ We design a function $\textit{dfs}(i)$, which represents the maximum amount of m
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
 
--   If $i \ge \textit{len}(\textit{nums})$, it means all houses have been considered, and we directly return $0$;
--   Otherwise, consider stealing from the $i$-th house, then $\textit{dfs}(i) = \textit{nums}[i] + \textit{dfs}(i+2)$; if not stealing from the $i$-th house, then $\textit{dfs}(i) = \textit{dfs}(i+1)$.
--   Return $\max(\textit{nums}[i] + \textit{dfs}(i+2), \textit{dfs}(i+1))$.
+- If $i \ge \textit{len}(\textit{nums})$, it means all houses have been considered, and we directly return $0$;
+- Otherwise, consider stealing from the $i$-th house, then $\textit{dfs}(i) = \textit{nums}[i] + \textit{dfs}(i+2)$; if not stealing from the $i$-th house, then $\textit{dfs}(i) = \textit{dfs}(i+1)$.
+- Return $\max(\textit{nums}[i] + \textit{dfs}(i+2), \textit{dfs}(i+1))$.
 
 To avoid repeated calculations, we use memoization search. The result of $\textit{dfs}(i)$ is saved in an array or hash table. Before each calculation, we first check if it has been calculated. If so, we directly return the result.
 
@@ -227,8 +227,8 @@ We define $f[i]$ as the maximum total amount that can be robbed from the first $
 
 Consider the case where $i \gt 1$, the $i$th house has two options:
 
--   Do not rob the $i$th house, the total amount of robbery is $f[i-1]$;
--   Rob the $i$th house, the total amount of robbery is $f[i-2]+nums[i-1]$;
+- Do not rob the $i$th house, the total amount of robbery is $f[i-1]$;
+- Rob the $i$th house, the total amount of robbery is $f[i-2]+nums[i-1]$;
 
 Therefore, we can get the state transition equation:
 

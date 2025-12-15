@@ -70,10 +70,10 @@ As all the sides are of different lengths, it will form a scalene triangle.
 
 First, we sort the array, and then we can classify and discuss according to the definition of a triangle.
 
--   If the sum of the smallest two numbers is less than or equal to the largest number, then it cannot form a triangle, return "none".
--   If the smallest number is equal to the largest number, then it is an equilateral triangle, return "equilateral".
--   If the smallest number is equal to the middle number or the middle number is equal to the largest number, then it is an isosceles triangle, return "isosceles".
--   Otherwise, return "scalene".
+- If the sum of the smallest two numbers is less than or equal to the largest number, then it cannot form a triangle, return "none".
+- If the smallest number is equal to the largest number, then it is an equilateral triangle, return "equilateral".
+- If the smallest number is equal to the middle number or the middle number is equal to the largest number, then it is an isosceles triangle, return "isosceles".
+- Otherwise, return "scalene".
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 

@@ -158,10 +158,10 @@ sample_id 是这张表的唯一主键。
 
 我们可以利用 `LIKE` 和 `REGEXP` 来进行模式匹配，其中：
 
--   LIKE `'ATG%'` 检测是否以 ATG 开头
--   REGEXP `'TAA$|TAG$|TGA$'` 检测是否以 TAA、TAG 或 TGA 结尾（$ 表示字符串结尾）
--   LIKE `'%ATAT%'` 检测是否包含 ATAT
--   REGEXP `'GGG+'` 检测是否包含至少 3 个 G
+- LIKE `'ATG%'` 检测是否以 ATG 开头
+- REGEXP `'TAA$|TAG$|TGA$'` 检测是否以 TAA、TAG 或 TGA 结尾（$ 表示字符串结尾）
+- LIKE `'%ATAT%'` 检测是否包含 ATAT
+- REGEXP `'GGG+'` 检测是否包含至少 3 个 G
 
 <!-- tabs:start -->
 

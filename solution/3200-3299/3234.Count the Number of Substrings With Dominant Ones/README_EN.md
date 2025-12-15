@@ -7,7 +7,6 @@ source: Weekly Contest 408 Q3
 tags:
     - String
     - Enumeration
-    - Sliding Window
 ---
 
 <!-- problem:start -->

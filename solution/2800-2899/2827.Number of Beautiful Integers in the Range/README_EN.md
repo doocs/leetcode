@@ -90,8 +90,8 @@ If $pos$ exceeds the length of $num$, it means that we have processed all the di
 
 Otherwise, we calculate the upper limit $up$ of the current digit, and then enumerate the digit $i$ in the range $[0,..up]$:
 
--   If $i=0$ and $lead$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $dfs(pos + 1, mod, diff, 1, limit\ and\ i=up)$ and add it to the answer.
--   Otherwise, we update the value of $diff$ according to the parity of $i$, and then recursively calculate the value of $dfs(pos + 1, (mod \times 10 + i) \bmod k, diff, 0, limit\ and\ i=up)$ and add it to the answer.
+- If $i=0$ and $lead$ is true, it means that the current number only contains leading zeros. We recursively calculate the value of $dfs(pos + 1, mod, diff, 1, limit\ and\ i=up)$ and add it to the answer.
+- Otherwise, we update the value of $diff$ according to the parity of $i$, and then recursively calculate the value of $dfs(pos + 1, (mod \times 10 + i) \bmod k, diff, 0, limit\ and\ i=up)$ and add it to the answer.
 
 Finally, we return the answer.
 
@@ -101,7 +101,7 @@ The time complexity is $O((\log M)^2 \times k \times |\Sigma|)$, and the space c
 
 Similar problems:
 
--   [2719. Count of Integers](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
+- [2719. Count of Integers](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2719.Count%20of%20Integers/README_EN.md)
 
 <!-- tabs:start -->
 

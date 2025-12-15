@@ -71,9 +71,9 @@ $$
 
 我们根据题目信息，设计一个函数 $\textit{dfs}(i, \textit{mask}, \textit{lead})$，其中：
 
--   数字 $i$ 表示当前搜索到的位置，我们从高位开始搜索，即 $i = 0$ 表示最高位。
--   数字 $\textit{mask}$ 表示当前数字的状态，即 $\textit{mask}$ 的第 $j$ 位为 $1$ 表示数字 $j$ 已经被使用过。
--   布尔值 $\textit{lead}$ 表示当前是否只包含前导 $0$。
+- 数字 $i$ 表示当前搜索到的位置，我们从高位开始搜索，即 $i = 0$ 表示最高位。
+- 数字 $\textit{mask}$ 表示当前数字的状态，即 $\textit{mask}$ 的第 $j$ 位为 $1$ 表示数字 $j$ 已经被使用过。
+- 布尔值 $\textit{lead}$ 表示当前是否只包含前导 $0$。
 
 函数的执行过程如下：
 
@@ -81,9 +81,9 @@ $$
 
 否则，我们从 $0$ 到 $9$ 枚举位置 $i$ 的数字 $j$，对于每一个 $j$：
 
--   如果 $\textit{mask}$ 的第 $j$ 位为 $1$，说明数字 $j$ 已经被使用过，直接跳过。
--   如果 $\textit{lead}$ 为真且 $j = 0$，说明当前数字只包含前导 $0$，递归到下一层时，此时 $\textit{lead}$ 仍为真。
--   否则，我们递归到下一层，更新 $\textit{mask}$ 的第 $j$ 位为 $1$，并将 $\textit{lead}$ 更新为假。
+- 如果 $\textit{mask}$ 的第 $j$ 位为 $1$，说明数字 $j$ 已经被使用过，直接跳过。
+- 如果 $\textit{lead}$ 为真且 $j = 0$，说明当前数字只包含前导 $0$，递归到下一层时，此时 $\textit{lead}$ 仍为真。
+- 否则，我们递归到下一层，更新 $\textit{mask}$ 的第 $j$ 位为 $1$，并将 $\textit{lead}$ 更新为假。
 
 最后，我们将所有递归到下一层的结果累加，即为答案。
 
@@ -95,12 +95,12 @@ $$
 
 相似题目：
 
--   [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
--   [600. 不含连续 1 的非负整数](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
--   [788. 旋转数字](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README.md)
--   [902. 最大为 N 的数字组合](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
--   [1012. 至少有 1 位重复的数字](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
--   [2376. 统计特殊整数](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
+- [233. 数字 1 的个数](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
+- [600. 不含连续 1 的非负整数](https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
+- [788. 旋转数字](https://github.com/doocs/leetcode/blob/main/solution/0700-0799/0788.Rotated%20Digits/README.md)
+- [902. 最大为 N 的数字组合](https://github.com/doocs/leetcode/blob/main/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
+- [1012. 至少有 1 位重复的数字](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README.md)
+- [2376. 统计特殊整数](https://github.com/doocs/leetcode/blob/main/solution/2300-2399/2376.Count%20Special%20Integers/README.md)
 
 <!-- tabs:start -->
 

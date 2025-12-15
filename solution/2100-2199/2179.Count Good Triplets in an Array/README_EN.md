@@ -355,10 +355,10 @@ We can also use a segment tree to solve this problem. A segment tree is a data s
 
 The segment tree divides the entire interval into multiple non-overlapping subintervals, with the number of subintervals not exceeding `log(width)`. To update the value of an element, we only need to update `log(width)` intervals, all of which are contained within a larger interval that includes the element.
 
--   Each node of the segment tree represents an interval.
--   The segment tree has a unique root node, representing the entire range, such as `[1, N]`.
--   Each leaf node of the segment tree represents a unit interval `[x, x]`.
--   For each internal node `[l, r]`, its left child represents `[l, mid]`, and its right child represents `[mid + 1, r]`, where `mid = ⌊(l + r) / 2⌋` (floor division).
+- Each node of the segment tree represents an interval.
+- The segment tree has a unique root node, representing the entire range, such as `[1, N]`.
+- Each leaf node of the segment tree represents a unit interval `[x, x]`.
+- For each internal node `[l, r]`, its left child represents `[l, mid]`, and its right child represents `[mid + 1, r]`, where `mid = ⌊(l + r) / 2⌋` (floor division).
 
 The time complexity is $O(n \log n)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(n)$.
 

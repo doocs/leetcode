@@ -95,9 +95,9 @@ tags:
 
 The problem is essentially about merging adjacent free time intervals into a longer free interval. There are $n + 1$ free intervals in total:
 
--   The first free interval is from the start of the event to the start of the first meeting;
--   The middle $n - 1$ free intervals are between each pair of adjacent meetings;
--   The last free interval is from the end of the last meeting to the end of the event.
+- The first free interval is from the start of the event to the start of the first meeting;
+- The middle $n - 1$ free intervals are between each pair of adjacent meetings;
+- The last free interval is from the end of the last meeting to the end of the event.
 
 At most $k$ meetings can be rescheduled, which is equivalent to merging up to $k + 1$ free intervals. We need to find the maximum length among all possible merged $k + 1$ free intervals.
 

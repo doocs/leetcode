@@ -34,11 +34,11 @@ tags:
 - The second street lamp lights up the area from [max(0, 2 - 1), min(n - 1, 2 + 1)] = [1, 3] (inclusive).
 - The third street lamp lights up the area from [max(0, 3 - 2), min(n - 1, 3 + 2)] = [1, 4] (inclusive).
 
--   Position 0 is covered by the first street lamp. It is covered by 1 street lamp which is greater than requirement[0].
--   Position 1 is covered by the first, second, and third street lamps. It is covered by 3 street lamps which is greater than requirement[1].
--   Position 2 is covered by the second and third street lamps. It is covered by 2 street lamps which is greater than requirement[2].
--   Position 3 is covered by the second and third street lamps. It is covered by 2 street lamps which is less than requirement[3].
--   Position 4 is covered by the third street lamp. It is covered by 1 street lamp which is equal to requirement[4].
+- Position 0 is covered by the first street lamp. It is covered by 1 street lamp which is greater than requirement[0].
+- Position 1 is covered by the first, second, and third street lamps. It is covered by 3 street lamps which is greater than requirement[1].
+- Position 2 is covered by the second and third street lamps. It is covered by 2 street lamps which is greater than requirement[2].
+- Position 3 is covered by the second and third street lamps. It is covered by 2 street lamps which is less than requirement[3].
+- Position 4 is covered by the third street lamp. It is covered by 1 street lamp which is equal to requirement[4].
 
 Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 

@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3765.Complete%20Prime%20Number/README.md
 rating: 1378
 source: 第 171 场双周赛 Q1
+tags:
+    - 数学
+    - 枚举
+    - 数论
 ---
 
 <!-- problem:start -->

@@ -122,8 +122,8 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 
 我们用两个哈希表来存储数据，其中：
 
--   `ts`：存储乘客的 id 和乘客的进站时间和进站站点。其中键为乘客的 id，值为元组 `(t, stationName)`。
--   `d`：存储乘客的进站站点和出站站点，以及乘客的行程时间和行程次数。其中键为元组 `(startStation, endStation)`，值为元组 `(totalTime, count)`。
+- `ts`：存储乘客的 id 和乘客的进站时间和进站站点。其中键为乘客的 id，值为元组 `(t, stationName)`。
+- `d`：存储乘客的进站站点和出站站点，以及乘客的行程时间和行程次数。其中键为元组 `(startStation, endStation)`，值为元组 `(totalTime, count)`。
 
 当乘客进站时，我们将乘客的 id 和进站时间和进站站点存入 `ts` 中，即 `ts[id] = (t, stationName)`。
 

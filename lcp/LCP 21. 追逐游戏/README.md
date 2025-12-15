@@ -15,9 +15,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2021.%20%E8%BF%BD%
 
 小力和小扣只能沿景点间的小路移动。小力的目标是在最快时间内追到小扣，小扣的目标是尽可能延后被小力追到的时间。游戏开始前，两人分别站在两个不同的景点 `startA` 和 `startB`。每一回合，小力先行动，小扣观察到小力的行动后再行动。小力和小扣在每回合可选择以下行动之一：
 
--   移动至相邻景点
+- 移动至相邻景点
 
--   留在原地
+- 留在原地
 
 如果小力追到小扣（即两人于某一时刻出现在同一位置），则游戏结束。若小力可以追到小扣，请返回最少需要多少回合；若小力无法追到小扣，请返回 -1。
 
@@ -65,13 +65,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2021.%20%E8%BF%BD%
 
 **提示：**
 
--   `edges` 的长度等于图中节点个数
+- `edges` 的长度等于图中节点个数
 
--   `3 <= edges.length <= 10^5`
+- `3 <= edges.length <= 10^5`
 
--   `1 <= edges[i][0], edges[i][1] <= edges.length 且 edges[i][0] != edges[i][1]`
+- `1 <= edges[i][0], edges[i][1] <= edges.length 且 edges[i][0] != edges[i][1]`
 
--   `1 <= startA, startB <= edges.length 且 startA != startB`
+- `1 <= startA, startB <= edges.length 且 startA != startB`
 
 <!-- description:end -->
 

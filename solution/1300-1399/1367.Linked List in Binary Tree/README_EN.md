@@ -74,10 +74,10 @@ tags:
 
 We design a recursive function $dfs(head, root)$, which indicates whether the linked list $head$ corresponds to a subpath on the path starting with $root$ in the binary tree. The logic of the function $dfs(head, root)$ is as follows:
 
--   If the linked list $head$ is empty, it means that the linked list has been traversed, return `true`;
--   If the binary tree $root$ is empty, it means that the binary tree has been traversed, but the linked list has not been traversed yet, return `false`;
--   If the value of the binary tree $root$ is not equal to the value of the linked list $head$, return `false`;
--   Otherwise, return $dfs(head.next, root.left)$ or $dfs(head.next, root.right)$.
+- If the linked list $head$ is empty, it means that the linked list has been traversed, return `true`;
+- If the binary tree $root$ is empty, it means that the binary tree has been traversed, but the linked list has not been traversed yet, return `false`;
+- If the value of the binary tree $root$ is not equal to the value of the linked list $head$, return `false`;
+- Otherwise, return $dfs(head.next, root.left)$ or $dfs(head.next, root.right)$.
 
 In the main function, we call $dfs(head, root)$ for each node of the binary tree. As long as one returns `true`, it means that the linked list is a subpath of the binary tree, return `true`; if all nodes return `false`, it means that the linked list is not a subpath of the binary tree, return `false`.
 

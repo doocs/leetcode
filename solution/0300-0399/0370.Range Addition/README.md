@@ -25,13 +25,15 @@ tags:
 
 <p><strong>示例:</strong></p>
 
-<pre><strong>输入: </strong>length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]]
+<pre>
+<strong>输入: </strong>length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]]
 <strong>输出: </strong>[-2,0,3,5,3]
 </pre>
 
 <p><strong>解释:</strong></p>
 
-<pre>初始状态:
+<pre>
+初始状态:
 [0,0,0,0,0]
 
 进行了操作 [1,3,2] 后的状态:
@@ -43,6 +45,17 @@ tags:
 进行了操作 [0,2,-2] 后的状态:
 [-2,0,3,5,3]
 </pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= updates.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= startIdx<sub>i</sub> &lt;= endIdx<sub>i</sub> &lt; length</code></li>
+	<li><code>-1000 &lt;= inc<sub>i</sub> &lt;= 1000</code></li>
+</ul>
 
 <!-- description:end -->
 

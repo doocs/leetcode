@@ -80,17 +80,17 @@ Let's denote $x$ as the smaller value between $\textit{nums}[i]$ and $\textit{nu
 
 For each pair of numbers, we have the following scenarios:
 
--   If no replacement is needed, then $x + y = s$.
--   If one replacement is made, then $x + 1 \le s \le y + \textit{limit}$.
--   If two replacements are made, then $2 \le s \le x$ or $y + \textit{limit} + 1 \le s \le 2 \times \textit{limit}$.
+- If no replacement is needed, then $x + y = s$.
+- If one replacement is made, then $x + 1 \le s \le y + \textit{limit}$.
+- If two replacements are made, then $2 \le s \le x$ or $y + \textit{limit} + 1 \le s \le 2 \times \textit{limit}$.
 
 That is:
 
--   In the range $[2,..x]$, $2$ replacements are needed.
--   In the range $[x+1,..x+y-1]$, $1$ replacement is needed.
--   At $[x+y]$, no replacement is needed.
--   In the range $[x+y+1,..y + \textit{limit}]$, $1$ replacement is needed.
--   In the range $[y + \textit{limit} + 1,..2 \times \textit{limit}]$, $2$ replacements are needed.
+- In the range $[2,..x]$, $2$ replacements are needed.
+- In the range $[x+1,..x+y-1]$, $1$ replacement is needed.
+- At $[x+y]$, no replacement is needed.
+- In the range $[x+y+1,..y + \textit{limit}]$, $1$ replacement is needed.
+- In the range $[y + \textit{limit} + 1,..2 \times \textit{limit}]$, $2$ replacements are needed.
 
 We enumerate each pair of numbers and use a difference array to update the number of replacements needed in different ranges for each pair.
 
@@ -100,7 +100,7 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 
 Similar problems:
 
--   [3224. Minimum Array Changes to Make Differences Equal](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README_EN.md)
+- [3224. Minimum Array Changes to Make Differences Equal](https://github.com/doocs/leetcode/blob/main/solution/3200-3299/3224.Minimum%20Array%20Changes%20to%20Make%20Differences%20Equal/README_EN.md)
 
 <!-- tabs:start -->
 

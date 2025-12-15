@@ -69,10 +69,10 @@ First, we preprocess all the edges, categorizing all the edges by color and stor
 
 Next, we define the following data structures or variables:
 
--   Queue $q$: used to store the currently searched node and the color of the current edge;
--   Set $vis$: used to store the nodes that have been searched and the color of the current edge;
--   Variable $d$: used to represent the current search level, i.e., the distance from the currently searched node to the starting point;
--   Array $ans$: used to store the shortest distance from each node to the starting point. Initially, we initialize all elements in the $ans$ array to $-1$, indicating that the distance from all nodes to the starting point is unknown.
+- Queue $q$: used to store the currently searched node and the color of the current edge;
+- Set $vis$: used to store the nodes that have been searched and the color of the current edge;
+- Variable $d$: used to represent the current search level, i.e., the distance from the currently searched node to the starting point;
+- Array $ans$: used to store the shortest distance from each node to the starting point. Initially, we initialize all elements in the $ans$ array to $-1$, indicating that the distance from all nodes to the starting point is unknown.
 
 We first enqueue the starting point $0$ and the color of the starting edge $0$ or $1$, indicating that we start from the starting point and the current edge is red or blue.
 

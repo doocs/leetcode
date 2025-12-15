@@ -83,8 +83,8 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
 
--   If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
--   If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
+- If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.
+- If $cnt$ equals $mx$ and $div$ is less than $ans$, then update $ans = div$.
 
 Finally, return $ans$.
 

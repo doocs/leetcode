@@ -64,8 +64,8 @@ We design a function $dfs(i, j, k)$, which means that we start from the $i$-th j
 
 The execution process of function $dfs(i, j, k)$ is as follows:
 
--   If $i = n$, it means that all the jobs have been considered. If $k \geq minProfit$, the number of schemes is $1$, otherwise the number of schemes is $0$;
--   If $i < n$, we can choose not to choose the $i$-th job, then the number of schemes is $dfs(i + 1, j, k)$; if $j + group[i] \leq n$, we can also choose the $i$-th job, then the number of schemes is $dfs(i + 1, j + group[i], \min(k + profit[i], minProfit))$. Here we limit the profit upper limit to $minProfit$, because the profit exceeding $minProfit$ has no effect on our answer.
+- If $i = n$, it means that all the jobs have been considered. If $k \geq minProfit$, the number of schemes is $1$, otherwise the number of schemes is $0$;
+- If $i < n$, we can choose not to choose the $i$-th job, then the number of schemes is $dfs(i + 1, j, k)$; if $j + group[i] \leq n$, we can also choose the $i$-th job, then the number of schemes is $dfs(i + 1, j + group[i], \min(k + profit[i], minProfit))$. Here we limit the profit upper limit to $minProfit$, because the profit exceeding $minProfit$ has no effect on our answer.
 
 Finally, return $dfs(0, 0, 0)$.
 

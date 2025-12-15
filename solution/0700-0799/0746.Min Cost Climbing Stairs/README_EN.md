@@ -69,9 +69,9 @@ We design a function $\textit{dfs}(i)$, which represents the minimum cost requir
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
 
--   If $i \ge \textit{len(cost)}$, it means the current position has exceeded the top of the stairs, and there is no need to climb further, so return $0$;
--   Otherwise, we can choose to climb $1$ step with a cost of $\textit{cost}[i]$, then recursively call $\textit{dfs}(i + 1)$; or we can choose to climb $2$ steps with a cost of $\textit{cost}[i]$, then recursively call $\textit{dfs}(i + 2)$;
--   Return the minimum cost between these two options.
+- If $i \ge \textit{len(cost)}$, it means the current position has exceeded the top of the stairs, and there is no need to climb further, so return $0$;
+- Otherwise, we can choose to climb $1$ step with a cost of $\textit{cost}[i]$, then recursively call $\textit{dfs}(i + 1)$; or we can choose to climb $2$ steps with a cost of $\textit{cost}[i]$, then recursively call $\textit{dfs}(i + 2)$;
+- Return the minimum cost between these two options.
 
 To avoid repeated calculations, we use memoization search, saving the results that have already been calculated in an array or hash table.
 

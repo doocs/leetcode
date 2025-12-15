@@ -73,8 +73,8 @@ In this way, we can calculate the sum of the array. If the sum is less than or e
 
 To facilitate the calculation of the sum of the elements on the left and right sides of the array, we define a function $sum(x, cnt)$, which represents the sum of an array with $cnt$ elements and a maximum value of $x$. The function $sum(x, cnt)$ can be divided into two cases:
 
--   If $x \geq cnt$, then the sum of the array is $\frac{(x + x - cnt + 1) \times cnt}{2}$
--   If $x \lt cnt$, then the sum of the array is $\frac{(x + 1) \times x}{2} + cnt - x$
+- If $x \geq cnt$, then the sum of the array is $\frac{(x + x - cnt + 1) \times cnt}{2}$
+- If $x \lt cnt$, then the sum of the array is $\frac{(x + 1) \times x}{2} + cnt - x$
 
 Next, define the left boundary of the binary search as $left = 1$, the right boundary as $right = maxSum$, and then binary search for the value $mid$ of $nums[index]$. If $sum(mid - 1, index) + sum(mid, n - index) \leq maxSum$, then the current $mid$ is valid, we can update $left$ to $mid$, otherwise we update $right$ to $mid - 1$.
 
