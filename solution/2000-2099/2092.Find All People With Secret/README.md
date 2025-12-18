@@ -89,7 +89,21 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：BFS
+### 方法一：模拟 + 图遍历
+
+本题的核心思路是通过模拟会议的传播过程来找出所有最终会知道秘密的人。我们可以将每次会议视为一个无向图的边，其中每个参与者是图中的一个节点，会议的时间是节点之间连接的边的“时间戳”。在每个时间点，我们遍历所有会议，利用广度优先搜索（BFS）来模拟秘密的传播。
+
+创建一个布尔数组 $\textit{vis}$ 来记录每个人是否知道秘密。初始时，$\textit{vis}[0] = \text{true}$ 和 $\textit{vis}[\textit{firstPerson}] = \text{true}$，表示0号和 $\textit{firstPerson}$ 已经知道秘密。
+
+我们首先按照每个会议的时间进行排序，以确保每次遍历时能够按照正确的顺序处理会议。
+
+接下来，处理每一组相同时间的会议。对于每一组相同时间的会议（即 $\textit{meetings}[i][2] = \textit{meetings}[i+1][2]$），我们将它们视为同一时刻发生的事件。对于每个会议，记录参与者的关系，并将这些参与者加入一个集合中。
+
+然后，我们利用 BFS 来传播秘密。对于当前时间点的所有参与者，如果其中有任何人已经知道秘密，我们将通过 BFS 遍历该参与者的相邻节点（即会议中的其他参与者），将他们标记为知道秘密。这个过程会继续传播，直到所有在这次会议中能够知道秘密的人都被更新。
+
+当所有会议处理完毕后，遍历 $\textit{vis}$ 数组，将所有知道秘密的人的编号加入结果列表并返回。
+
+时间复杂度 $(m \times \log m + n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是会议数量和专家数量。
 
 <!-- tabs:start -->
 
@@ -137,8 +151,9 @@ class Solution {
         Arrays.sort(meetings, Comparator.comparingInt(a -> a[2]));
         for (int i = 0; i < m;) {
             int j = i;
-            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j)
-                ;
+            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2];) {
+                ++j;
+            }
             Map<Integer, List<Integer>> g = new HashMap<>();
             Set<Integer> s = new HashSet<>();
             for (int k = i; k <= j; ++k) {
@@ -156,7 +171,7 @@ class Solution {
             }
             while (!q.isEmpty()) {
                 int u = q.poll();
-                for (int v : g.getOrDefault(u, Collections.emptyList())) {
+                for (int v : g.getOrDefault(u, List.of())) {
                     if (!vis[v]) {
                         vis[v] = true;
                         q.offer(v);
@@ -189,8 +204,9 @@ public:
         });
         for (int i = 0, m = meetings.size(); i < m;) {
             int j = i;
-            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j)
-                ;
+            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2];) {
+                ++j;
+            }
             unordered_map<int, vector<int>> g;
             unordered_set<int> s;
             for (int k = i; k <= j; ++k) {
@@ -201,9 +217,11 @@ public:
                 s.insert(y);
             }
             queue<int> q;
-            for (int u : s)
-                if (vis[u])
+            for (int u : s) {
+                if (vis[u]) {
                     q.push(u);
+                }
+            }
             while (!q.empty()) {
                 int u = q.front();
                 q.pop();
@@ -217,9 +235,11 @@ public:
             i = j + 1;
         }
         vector<int> ans;
-        for (int i = 0; i < n; ++i)
-            if (vis[i])
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
                 ans.push_back(i);
+            }
+        }
         return ans;
     }
 };
@@ -278,48 +298,57 @@ func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 
 ```ts
 function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {
-    let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
-    parent[firstPerson] = 0;
+    const vis: boolean[] = Array(n).fill(false);
+    vis[0] = true;
+    vis[firstPerson] = true;
 
-    function findParent(index: number): number {
-        if (parent[index] != index) parent[index] = findParent(parent[index]);
-        return parent[index];
-    }
+    meetings.sort((x, y) => x[2] - y[2]);
 
-    let map = new Map<number, Array<Array<number>>>();
-    for (let meeting of meetings) {
-        const time = meeting[2];
-        let members: Array<Array<number>> = map.get(time) || new Array();
-        members.push(meeting);
-        map.set(time, members);
-    }
-    const times = [...map.keys()].sort((a, b) => a - b);
-    for (let time of times) {
-        // round 1
-        for (let meeting of map.get(time)) {
-            let [a, b] = meeting;
-            if (!parent[findParent(a)] || !parent[findParent(b)]) {
-                parent[findParent(a)] = 0;
-                parent[findParent(b)] = 0;
-            }
-            parent[findParent(a)] = parent[findParent(b)];
+    for (let i = 0, m = meetings.length; i < m; ) {
+        let j = i;
+        while (j + 1 < m && meetings[j + 1][2] === meetings[i][2]) {
+            ++j;
         }
-        // round 2
-        for (let meeting of map.get(time)) {
-            let [a, b] = meeting;
-            if (!parent[findParent(a)] || !parent[findParent(b)]) {
-                parent[findParent(a)] = 0;
-                parent[findParent(b)] = 0;
-            } else {
-                parent[a] = a;
-                parent[b] = b;
+
+        const g = new Map<number, number[]>();
+        const s = new Set<number>();
+
+        for (let k = i; k <= j; ++k) {
+            const x = meetings[k][0];
+            const y = meetings[k][1];
+
+            if (!g.has(x)) g.set(x, []);
+            if (!g.has(y)) g.set(y, []);
+
+            g.get(x)!.push(y);
+            g.get(y)!.push(x);
+
+            s.add(x);
+            s.add(y);
+        }
+
+        const q: number[] = [];
+        for (const u of s) {
+            if (vis[u]) {
+                q.push(u);
             }
         }
+
+        for (const u of q) {
+            for (const v of g.get(u)!) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    q.push(v);
+                }
+            }
+        }
+
+        i = j + 1;
     }
 
-    let ans = new Array<number>();
-    for (let i = 0; i <= n; i++) {
-        if (!parent[findParent(i)]) {
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
             ans.push(i);
         }
     }
