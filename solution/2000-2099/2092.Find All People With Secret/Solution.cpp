@@ -8,8 +8,9 @@ public:
         });
         for (int i = 0, m = meetings.size(); i < m;) {
             int j = i;
-            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j)
-                ;
+            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2];) {
+                ++j;
+            }
             unordered_map<int, vector<int>> g;
             unordered_set<int> s;
             for (int k = i; k <= j; ++k) {
@@ -20,9 +21,11 @@ public:
                 s.insert(y);
             }
             queue<int> q;
-            for (int u : s)
-                if (vis[u])
+            for (int u : s) {
+                if (vis[u]) {
                     q.push(u);
+                }
+            }
             while (!q.empty()) {
                 int u = q.front();
                 q.pop();
@@ -36,9 +39,11 @@ public:
             i = j + 1;
         }
         vector<int> ans;
-        for (int i = 0; i < n; ++i)
-            if (vis[i])
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
                 ans.push_back(i);
+            }
+        }
         return ans;
     }
 };

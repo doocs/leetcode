@@ -1,46 +1,55 @@
 function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {
-    let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
-    parent[firstPerson] = 0;
+    const vis: boolean[] = Array(n).fill(false);
+    vis[0] = true;
+    vis[firstPerson] = true;
 
-    function findParent(index: number): number {
-        if (parent[index] != index) parent[index] = findParent(parent[index]);
-        return parent[index];
-    }
+    meetings.sort((x, y) => x[2] - y[2]);
 
-    let map = new Map<number, Array<Array<number>>>();
-    for (let meeting of meetings) {
-        const time = meeting[2];
-        let members: Array<Array<number>> = map.get(time) || new Array();
-        members.push(meeting);
-        map.set(time, members);
-    }
-    const times = [...map.keys()].sort((a, b) => a - b);
-    for (let time of times) {
-        // round 1
-        for (let meeting of map.get(time)) {
-            let [a, b] = meeting;
-            if (!parent[findParent(a)] || !parent[findParent(b)]) {
-                parent[findParent(a)] = 0;
-                parent[findParent(b)] = 0;
-            }
-            parent[findParent(a)] = parent[findParent(b)];
+    for (let i = 0, m = meetings.length; i < m; ) {
+        let j = i;
+        while (j + 1 < m && meetings[j + 1][2] === meetings[i][2]) {
+            ++j;
         }
-        // round 2
-        for (let meeting of map.get(time)) {
-            let [a, b] = meeting;
-            if (!parent[findParent(a)] || !parent[findParent(b)]) {
-                parent[findParent(a)] = 0;
-                parent[findParent(b)] = 0;
-            } else {
-                parent[a] = a;
-                parent[b] = b;
+
+        const g = new Map<number, number[]>();
+        const s = new Set<number>();
+
+        for (let k = i; k <= j; ++k) {
+            const x = meetings[k][0];
+            const y = meetings[k][1];
+
+            if (!g.has(x)) g.set(x, []);
+            if (!g.has(y)) g.set(y, []);
+
+            g.get(x)!.push(y);
+            g.get(y)!.push(x);
+
+            s.add(x);
+            s.add(y);
+        }
+
+        const q: number[] = [];
+        for (const u of s) {
+            if (vis[u]) {
+                q.push(u);
             }
         }
+
+        for (const u of q) {
+            for (const v of g.get(u)!) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    q.push(v);
+                }
+            }
+        }
+
+        i = j + 1;
     }
 
-    let ans = new Array<number>();
-    for (let i = 0; i <= n; i++) {
-        if (!parent[findParent(i)]) {
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
             ans.push(i);
         }
     }

@@ -88,7 +88,21 @@ Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation + Graph Traversal
+
+The core idea of this problem is to find all people who eventually know the secret by simulating the propagation process through meetings. We can treat each meeting as an edge in an undirected graph, where each participant is a node in the graph, and the meeting time is the "timestamp" of the edge connecting the nodes. At each time point, we traverse all meetings and use Breadth-First Search (BFS) to simulate the propagation of the secret.
+
+We create a boolean array $\textit{vis}$ to record whether each person knows the secret. Initially, $\textit{vis}[0] = \text{true}$ and $\textit{vis}[\textit{firstPerson}] = \text{true}$, indicating that person 0 and $\textit{firstPerson}$ already know the secret.
+
+We first sort the meetings by time to ensure that we process meetings in the correct order during each traversal.
+
+Next, we process each group of meetings at the same time. For each group of meetings at the same time (i.e., $\textit{meetings}[i][2] = \textit{meetings}[i+1][2]$), we treat them as events occurring at the same moment. For each meeting, we record the relationships between participants and add these participants to a set.
+
+Then, we use BFS to propagate the secret. For all participants at the current time point, if any of them already know the secret, we will traverse the adjacent nodes of that participant (i.e., other participants in the meeting) through BFS and mark them as knowing the secret. This process continues to propagate until all people who can know the secret at this meeting are updated.
+
+When all meetings are processed, we traverse the $\textit{vis}$ array, add the IDs of all people who know the secret to the result list, and return it.
+
+The time complexity is $O(m \times \log m + n)$, and the space complexity is $O(n)$, where $m$ and $n$ are the number of meetings and the number of experts, respectively.
 
 <!-- tabs:start -->
 
@@ -136,8 +150,9 @@ class Solution {
         Arrays.sort(meetings, Comparator.comparingInt(a -> a[2]));
         for (int i = 0; i < m;) {
             int j = i;
-            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j)
-                ;
+            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2];) {
+                ++j;
+            }
             Map<Integer, List<Integer>> g = new HashMap<>();
             Set<Integer> s = new HashSet<>();
             for (int k = i; k <= j; ++k) {
@@ -155,7 +170,7 @@ class Solution {
             }
             while (!q.isEmpty()) {
                 int u = q.poll();
-                for (int v : g.getOrDefault(u, Collections.emptyList())) {
+                for (int v : g.getOrDefault(u, List.of())) {
                     if (!vis[v]) {
                         vis[v] = true;
                         q.offer(v);
@@ -188,8 +203,9 @@ public:
         });
         for (int i = 0, m = meetings.size(); i < m;) {
             int j = i;
-            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2]; ++j)
-                ;
+            for (; j + 1 < m && meetings[j + 1][2] == meetings[i][2];) {
+                ++j;
+            }
             unordered_map<int, vector<int>> g;
             unordered_set<int> s;
             for (int k = i; k <= j; ++k) {
@@ -200,9 +216,11 @@ public:
                 s.insert(y);
             }
             queue<int> q;
-            for (int u : s)
-                if (vis[u])
+            for (int u : s) {
+                if (vis[u]) {
                     q.push(u);
+                }
+            }
             while (!q.empty()) {
                 int u = q.front();
                 q.pop();
@@ -216,9 +234,11 @@ public:
             i = j + 1;
         }
         vector<int> ans;
-        for (int i = 0; i < n; ++i)
-            if (vis[i])
+        for (int i = 0; i < n; ++i) {
+            if (vis[i]) {
                 ans.push_back(i);
+            }
+        }
         return ans;
     }
 };
@@ -277,48 +297,57 @@ func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 
 ```ts
 function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {
-    let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
-    parent[firstPerson] = 0;
+    const vis: boolean[] = Array(n).fill(false);
+    vis[0] = true;
+    vis[firstPerson] = true;
 
-    function findParent(index: number): number {
-        if (parent[index] != index) parent[index] = findParent(parent[index]);
-        return parent[index];
-    }
+    meetings.sort((x, y) => x[2] - y[2]);
 
-    let map = new Map<number, Array<Array<number>>>();
-    for (let meeting of meetings) {
-        const time = meeting[2];
-        let members: Array<Array<number>> = map.get(time) || new Array();
-        members.push(meeting);
-        map.set(time, members);
-    }
-    const times = [...map.keys()].sort((a, b) => a - b);
-    for (let time of times) {
-        // round 1
-        for (let meeting of map.get(time)) {
-            let [a, b] = meeting;
-            if (!parent[findParent(a)] || !parent[findParent(b)]) {
-                parent[findParent(a)] = 0;
-                parent[findParent(b)] = 0;
-            }
-            parent[findParent(a)] = parent[findParent(b)];
+    for (let i = 0, m = meetings.length; i < m; ) {
+        let j = i;
+        while (j + 1 < m && meetings[j + 1][2] === meetings[i][2]) {
+            ++j;
         }
-        // round 2
-        for (let meeting of map.get(time)) {
-            let [a, b] = meeting;
-            if (!parent[findParent(a)] || !parent[findParent(b)]) {
-                parent[findParent(a)] = 0;
-                parent[findParent(b)] = 0;
-            } else {
-                parent[a] = a;
-                parent[b] = b;
+
+        const g = new Map<number, number[]>();
+        const s = new Set<number>();
+
+        for (let k = i; k <= j; ++k) {
+            const x = meetings[k][0];
+            const y = meetings[k][1];
+
+            if (!g.has(x)) g.set(x, []);
+            if (!g.has(y)) g.set(y, []);
+
+            g.get(x)!.push(y);
+            g.get(y)!.push(x);
+
+            s.add(x);
+            s.add(y);
+        }
+
+        const q: number[] = [];
+        for (const u of s) {
+            if (vis[u]) {
+                q.push(u);
             }
         }
+
+        for (const u of q) {
+            for (const v of g.get(u)!) {
+                if (!vis[v]) {
+                    vis[v] = true;
+                    q.push(v);
+                }
+            }
+        }
+
+        i = j + 1;
     }
 
-    let ans = new Array<number>();
-    for (let i = 0; i <= n; i++) {
-        if (!parent[findParent(i)]) {
+    const ans: number[] = [];
+    for (let i = 0; i < n; ++i) {
+        if (vis[i]) {
             ans.push(i);
         }
     }
