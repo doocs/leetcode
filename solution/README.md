@@ -3789,6 +3789,14 @@
 |  3776  |  [使循环数组余额非负的最少移动次数](/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README.md)  |    |  中等  |  第 480 场周赛  |
 |  3777  |  [使子字符串变交替的最少删除次数](/solution/3700-3799/3777.Minimum%20Deletions%20to%20Make%20Alternating%20Substring/README.md)  |    |  困难  |  第 480 场周赛  |
 |  3778  |  [排除一个最大权重边的最小距离](/solution/3700-3799/3778.Minimum%20Distance%20Excluding%20One%20Maximum%20Weighted%20Edge/README.md)  |    |  中等  |  🔒  |
+|  3779  |  [得到互不相同元素的最少操作次数](/solution/3700-3799/3779.Minimum%20Number%20of%20Operations%20to%20Have%20Distinct%20Elements/README.md)  |    |  中等  |  第 172 场双周赛  |
+|  3780  |  [能被 3 整除的三元组最大和](/solution/3700-3799/3780.Maximum%20Sum%20of%20Three%20Numbers%20Divisible%20by%20Three/README.md)  |    |  中等  |  第 172 场双周赛  |
+|  3781  |  [二进制交换后的最大分数](/solution/3700-3799/3781.Maximum%20Score%20After%20Binary%20Swaps/README.md)  |    |  中等  |  第 172 场双周赛  |
+|  3782  |  [交替删除操作后最后剩下的整数](/solution/3700-3799/3782.Last%20Remaining%20Integer%20After%20Alternating%20Deletion%20Operations/README.md)  |    |  困难  |  第 172 场双周赛  |
+|  3783  |  [整数的镜像距离](/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README.md)  |    |  简单  |  第 481 场周赛  |
+|  3784  |  [使所有字符相等的最小删除代价](/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)  |    |  中等  |  第 481 场周赛  |
+|  3785  |  [避免禁用值的最小交换次数](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README.md)  |    |  困难  |  第 481 场周赛  |
+|  3786  |  [树组的交互代价总和](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README.md)  |    |  困难  |  第 481 场周赛  |
 
 ## 版权
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README.md
+rating: 1739
+source: 第 480 场周赛 Q3
 ---
 
 <!-- problem:start -->
