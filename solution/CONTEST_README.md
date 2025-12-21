@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 481 场周赛(2025-12-21 10:30, 90 分钟) 参赛人数 1748
+
+- [3783. 整数的镜像距离](/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README.md)
+- [3784. 使所有字符相等的最小删除代价](/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)
+- [3785. 避免禁用值的最小交换次数](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README.md)
+- [3786. 树组的交互代价总和](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README.md)
+
+#### 第 172 场双周赛(2025-12-20 22:30, 90 分钟) 参赛人数 1560
+
+- [3779. 得到互不相同元素的最少操作次数](/solution/3700-3799/3779.Minimum%20Number%20of%20Operations%20to%20Have%20Distinct%20Elements/README.md)
+- [3780. 能被 3 整除的三元组最大和](/solution/3700-3799/3780.Maximum%20Sum%20of%20Three%20Numbers%20Divisible%20by%20Three/README.md)
+- [3781. 二进制交换后的最大分数](/solution/3700-3799/3781.Maximum%20Score%20After%20Binary%20Swaps/README.md)
+- [3782. 交替删除操作后最后剩下的整数](/solution/3700-3799/3782.Last%20Remaining%20Integer%20After%20Alternating%20Deletion%20Operations/README.md)
+
 #### 第 480 场周赛(2025-12-14 10:30, 90 分钟) 参赛人数 1772
 
 - [3774. 最大和最小 K 个元素的绝对差](/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README.md)

@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 481
+
+- [3783. Mirror Distance of an Integer](/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README_EN.md)
+- [3784. Minimum Deletion Cost to Make All Characters Equal](/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)
+- [3785. Minimum Swaps to Avoid Forbidden Values](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README_EN.md)
+- [3786. Total Sum of Interaction Cost in Tree Groups](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README_EN.md)
+
+#### Biweekly Contest 172
+
+- [3779. Minimum Number of Operations to Have Distinct Elements](/solution/3700-3799/3779.Minimum%20Number%20of%20Operations%20to%20Have%20Distinct%20Elements/README_EN.md)
+- [3780. Maximum Sum of Three Numbers Divisible by Three](/solution/3700-3799/3780.Maximum%20Sum%20of%20Three%20Numbers%20Divisible%20by%20Three/README_EN.md)
+- [3781. Maximum Score After Binary Swaps](/solution/3700-3799/3781.Maximum%20Score%20After%20Binary%20Swaps/README_EN.md)
+- [3782. Last Remaining Integer After Alternating Deletion Operations](/solution/3700-3799/3782.Last%20Remaining%20Integer%20After%20Alternating%20Deletion%20Operations/README_EN.md)
+
 #### Weekly Contest 480
 
 - [3774. Absolute Difference Between Maximum and Minimum K Elements](/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README_EN.md)

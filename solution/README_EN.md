@@ -3787,6 +3787,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3776  |  [Minimum Moves to Balance Circular Array](/solution/3700-3799/3776.Minimum%20Moves%20to%20Balance%20Circular%20Array/README_EN.md)  |    |  Medium  |  Weekly Contest 480  |
 |  3777  |  [Minimum Deletions to Make Alternating Substring](/solution/3700-3799/3777.Minimum%20Deletions%20to%20Make%20Alternating%20Substring/README_EN.md)  |    |  Hard  |  Weekly Contest 480  |
 |  3778  |  [Minimum Distance Excluding One Maximum Weighted Edge](/solution/3700-3799/3778.Minimum%20Distance%20Excluding%20One%20Maximum%20Weighted%20Edge/README_EN.md)  |    |  Medium  |  🔒  |
+|  3779  |  [Minimum Number of Operations to Have Distinct Elements](/solution/3700-3799/3779.Minimum%20Number%20of%20Operations%20to%20Have%20Distinct%20Elements/README_EN.md)  |    |  Medium  |  Biweekly Contest 172  |
+|  3780  |  [Maximum Sum of Three Numbers Divisible by Three](/solution/3700-3799/3780.Maximum%20Sum%20of%20Three%20Numbers%20Divisible%20by%20Three/README_EN.md)  |    |  Medium  |  Biweekly Contest 172  |
+|  3781  |  [Maximum Score After Binary Swaps](/solution/3700-3799/3781.Maximum%20Score%20After%20Binary%20Swaps/README_EN.md)  |    |  Medium  |  Biweekly Contest 172  |
+|  3782  |  [Last Remaining Integer After Alternating Deletion Operations](/solution/3700-3799/3782.Last%20Remaining%20Integer%20After%20Alternating%20Deletion%20Operations/README_EN.md)  |    |  Hard  |  Biweekly Contest 172  |
+|  3783  |  [Mirror Distance of an Integer](/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README_EN.md)  |    |  Easy  |  Weekly Contest 481  |
+|  3784  |  [Minimum Deletion Cost to Make All Characters Equal](/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 481  |
+|  3785  |  [Minimum Swaps to Avoid Forbidden Values](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README_EN.md)  |    |  Hard  |  Weekly Contest 481  |
+|  3786  |  [Total Sum of Interaction Cost in Tree Groups](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README_EN.md)  |    |  Hard  |  Weekly Contest 481  |
 
 ## Copyright
 
