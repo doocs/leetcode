@@ -76,11 +76,11 @@ tags:
 
 ### 方法一：记忆化搜索
 
-定义哈希表 $d$ 存放允许的三角形图案，其中键为两个字符，值为对应的字符列表，表示两个字符可以组成一个三角形图案，三角形图案的顶部为值列表的每一项。
+我们定义一个哈希表 $d$ 来存储允许的三角形图案，其中键为两个字符，值为对应的字符列表，表示两个字符可以组成一个三角形图案，三角形图案的顶部为值列表的每一项。
 
 从最底层开始，对于每一层的每两个相邻的字符，如果它们可以组成一个三角形图案，那么就将三角形图案的顶部字符加入到下一层的对应位置的字符列表中，然后对下一层进行递归处理。
 
-时间复杂度 $O(C^N)$。其中 $C$ 是字符集的大小，而 $N$ 是 `bottom` 字符串的长度。
+当递归到只有一个字符时，说明已经成功构建到金字塔顶部，返回 $\textit{true}$。如果在某一层的某两个相邻字符无法组成三角形图案，则返回 $\textit{false}$。
 
 <!-- tabs:start -->
 
@@ -90,7 +90,7 @@ tags:
 class Solution:
     def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
         @cache
-        def dfs(s):
+        def dfs(s: str) -> bool:
             if len(s) == 1:
                 return True
             t = []
@@ -99,7 +99,7 @@ class Solution:
                 if not cs:
                     return False
                 t.append(cs)
-            return any(dfs(''.join(nxt)) for nxt in product(*t))
+            return any(dfs("".join(nxt)) for nxt in product(*t))
 
         d = defaultdict(list)
         for a, b, c in allowed:
@@ -111,18 +111,18 @@ class Solution:
 
 ```java
 class Solution {
-    private int[][] f = new int[7][7];
-    private Map<String, Boolean> dp = new HashMap<>();
+    private final int[][] d = new int[7][7];
+    private final Map<String, Boolean> f = new HashMap<>();
 
     public boolean pyramidTransition(String bottom, List<String> allowed) {
         for (String s : allowed) {
             int a = s.charAt(0) - 'A', b = s.charAt(1) - 'A';
-            f[a][b] |= 1 << (s.charAt(2) - 'A');
+            d[a][b] |= 1 << (s.charAt(2) - 'A');
         }
         return dfs(bottom, new StringBuilder());
     }
 
-    boolean dfs(String s, StringBuilder t) {
+    private boolean dfs(String s, StringBuilder t) {
         if (s.length() == 1) {
             return true;
         }
@@ -130,22 +130,23 @@ class Solution {
             return dfs(t.toString(), new StringBuilder());
         }
         String k = s + "." + t.toString();
-        if (dp.containsKey(k)) {
-            return dp.get(k);
+        Boolean res = f.get(k);
+        if (res != null) {
+            return res;
         }
         int a = s.charAt(t.length()) - 'A', b = s.charAt(t.length() + 1) - 'A';
-        int cs = f[a][b];
+        int cs = d[a][b];
         for (int i = 0; i < 7; ++i) {
             if (((cs >> i) & 1) == 1) {
                 t.append((char) ('A' + i));
                 if (dfs(s, t)) {
-                    dp.put(k, true);
+                    f.put(k, true);
                     return true;
                 }
-                t.deleteCharAt(t.length() - 1);
+                t.setLength(t.length() - 1);
             }
         }
-        dp.put(k, false);
+        f.put(k, false);
         return false;
     }
 }
@@ -156,14 +157,14 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int f[7][7];
-    unordered_map<string, bool> dp;
+    int d[7][7];
+    unordered_map<string, bool> f;
 
     bool pyramidTransition(string bottom, vector<string>& allowed) {
-        memset(f, 0, sizeof f);
+        memset(d, 0, sizeof(d));
         for (auto& s : allowed) {
             int a = s[0] - 'A', b = s[1] - 'A';
-            f[a][b] |= 1 << (s[2] - 'A');
+            d[a][b] |= 1 << (s[2] - 'A');
         }
         return dfs(bottom, "");
     }
@@ -176,20 +177,20 @@ public:
             return dfs(t, "");
         }
         string k = s + "." + t;
-        if (dp.count(k)) {
-            return dp[k];
+        if (f.contains(k)) {
+            return f[k];
         }
         int a = s[t.size()] - 'A', b = s[t.size() + 1] - 'A';
-        int cs = f[a][b];
+        int cs = d[a][b];
         for (int i = 0; i < 7; ++i) {
-            if ((cs >> i) & 1) {
+            if (cs >> i & 1) {
                 if (dfs(s, t + (char) (i + 'A'))) {
-                    dp[k] = true;
+                    f[k] = true;
                     return true;
                 }
             }
         }
-        dp[k] = false;
+        f[k] = false;
         return false;
     }
 };
@@ -199,15 +200,20 @@ public:
 
 ```go
 func pyramidTransition(bottom string, allowed []string) bool {
-	f := make([][]int, 7)
-	for i := range f {
-		f[i] = make([]int, 7)
+	d := make([][]int, 7)
+	for i := 0; i < 7; i++ {
+		d[i] = make([]int, 7)
 	}
+
 	for _, s := range allowed {
-		a, b := s[0]-'A', s[1]-'A'
-		f[a][b] |= 1 << (s[2] - 'A')
+		a := int(s[0] - 'A')
+		b := int(s[1] - 'A')
+		c := int(s[2] - 'A')
+		d[a][b] |= 1 << c
 	}
-	dp := map[string]bool{}
+
+	f := make(map[string]bool)
+
 	var dfs func(s string, t []byte) bool
 	dfs = func(s string, t []byte) bool {
 		if len(s) == 1 {
@@ -216,26 +222,140 @@ func pyramidTransition(bottom string, allowed []string) bool {
 		if len(t)+1 == len(s) {
 			return dfs(string(t), []byte{})
 		}
-		k := s + "." + string(t)
-		if v, ok := dp[k]; ok {
+
+		key := s + "." + string(t)
+		if v, ok := f[key]; ok {
 			return v
 		}
-		a, b := s[len(t)]-'A', s[len(t)+1]-'A'
-		cs := f[a][b]
-		for i := 0; i < 7; i++ {
-			if ((cs >> i) & 1) == 1 {
-				t = append(t, byte('A'+i))
+
+		i := len(t)
+		a := int(s[i] - 'A')
+		b := int(s[i+1] - 'A')
+		cs := d[a][b]
+
+		for c := 0; c < 7; c++ {
+			if (cs>>c)&1 == 1 {
+				t = append(t, byte('A'+c))
 				if dfs(s, t) {
-					dp[k] = true
+					f[key] = true
 					return true
 				}
 				t = t[:len(t)-1]
 			}
 		}
-		dp[k] = false
+
+		f[key] = false
 		return false
 	}
+
 	return dfs(bottom, []byte{})
+}
+```
+
+#### TypeScript
+
+```ts
+function pyramidTransition(bottom: string, allowed: string[]): boolean {
+    const d: number[][] = Array.from({ length: 7 }, () => Array(7).fill(0));
+    for (const s of allowed) {
+        const a = s.charCodeAt(0) - 65;
+        const b = s.charCodeAt(1) - 65;
+        const c = s.charCodeAt(2) - 65;
+        d[a][b] |= 1 << c;
+    }
+
+    const f = new Map<string, boolean>();
+
+    const dfs = (s: string, t: string[]): boolean => {
+        if (s.length === 1) return true;
+        if (t.length + 1 === s.length) {
+            return dfs(t.join(''), []);
+        }
+
+        const key = s + '.' + t.join('');
+        if (f.has(key)) return f.get(key)!;
+
+        const i = t.length;
+        const a = s.charCodeAt(i) - 65;
+        const b = s.charCodeAt(i + 1) - 65;
+        let cs = d[a][b];
+
+        for (let c = 0; c < 7; c++) {
+            if ((cs >> c) & 1) {
+                t.push(String.fromCharCode(65 + c));
+                if (dfs(s, t)) {
+                    f.set(key, true);
+                    return true;
+                }
+                t.pop();
+            }
+        }
+
+        f.set(key, false);
+        return false;
+    };
+
+    return dfs(bottom, []);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn pyramid_transition(bottom: String, allowed: Vec<String>) -> bool {
+        let mut d = vec![vec![0; 7]; 7];
+        for s in allowed {
+            let a = (s.as_bytes()[0] - b'A') as usize;
+            let b = (s.as_bytes()[1] - b'A') as usize;
+            let c = (s.as_bytes()[2] - b'A') as usize;
+            d[a][b] |= 1 << c;
+        }
+
+        let mut f = HashMap::<String, bool>::new();
+
+        fn dfs(s: &str, t: &mut Vec<u8>, d: &Vec<Vec<i32>>, f: &mut HashMap<String, bool>) -> bool {
+            if s.len() == 1 {
+                return true;
+            }
+
+            if t.len() + 1 == s.len() {
+                let next = String::from_utf8_lossy(t).to_string();
+                let mut nt = Vec::new();
+                return dfs(&next, &mut nt, d, f);
+            }
+
+            let key = format!("{}.{}", s, String::from_utf8_lossy(t));
+            if let Some(&res) = f.get(&key) {
+                return res;
+            }
+
+            let i = t.len();
+            let a = (s.as_bytes()[i] - b'A') as usize;
+            let b = (s.as_bytes()[i + 1] - b'A') as usize;
+            let mut cs = d[a][b];
+
+            for c in 0..7 {
+                if (cs >> c) & 1 == 1 {
+                    t.push(b'A' + c as u8);
+                    if dfs(s, t, d, f) {
+                        f.insert(key.clone(), true);
+                        t.pop();
+                        return true;
+                    }
+                    t.pop();
+                }
+            }
+
+            f.insert(key, false);
+            false
+        }
+
+        let mut t = Vec::new();
+        dfs(&bottom, &mut t, &d, &mut f)
+    }
 }
 ```
 

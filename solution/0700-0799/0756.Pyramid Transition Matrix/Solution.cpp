@@ -1,13 +1,13 @@
 class Solution {
 public:
-    int f[7][7];
-    unordered_map<string, bool> dp;
+    int d[7][7];
+    unordered_map<string, bool> f;
 
     bool pyramidTransition(string bottom, vector<string>& allowed) {
-        memset(f, 0, sizeof f);
+        memset(d, 0, sizeof(d));
         for (auto& s : allowed) {
             int a = s[0] - 'A', b = s[1] - 'A';
-            f[a][b] |= 1 << (s[2] - 'A');
+            d[a][b] |= 1 << (s[2] - 'A');
         }
         return dfs(bottom, "");
     }
@@ -20,20 +20,20 @@ public:
             return dfs(t, "");
         }
         string k = s + "." + t;
-        if (dp.count(k)) {
-            return dp[k];
+        if (f.contains(k)) {
+            return f[k];
         }
         int a = s[t.size()] - 'A', b = s[t.size() + 1] - 'A';
-        int cs = f[a][b];
+        int cs = d[a][b];
         for (int i = 0; i < 7; ++i) {
-            if ((cs >> i) & 1) {
+            if (cs >> i & 1) {
                 if (dfs(s, t + (char) (i + 'A'))) {
-                    dp[k] = true;
+                    f[k] = true;
                     return true;
                 }
             }
         }
-        dp[k] = false;
+        f[k] = false;
         return false;
     }
 };
