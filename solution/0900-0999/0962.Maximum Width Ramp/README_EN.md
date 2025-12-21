@@ -54,7 +54,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Monotonic stack
+### Solution 1: Monotonic Stack
+
+According to the problem, we can find that the subsequence formed by all possible $\textit{nums}[i]$ must be monotonically decreasing. Why is that? Let's prove it by contradiction.
+
+Suppose there exist $i_1<i_2$ and $\textit{nums}[i_1]\leq\textit{nums}[i_2]$, then actually $\textit{nums}[i_2]$ cannot be a candidate value, because $\textit{nums}[i_1]$ is more to the left and would be a better value. Therefore, the subsequence formed by $\textit{nums}[i]$ must be monotonically decreasing, and $i$ must start from 0.
+
+We use a monotonically decreasing stack $\textit{stk}$ (from bottom to top) to store all possible $\textit{nums}[i]$. Then we traverse $j$ starting from the right boundary. If we encounter $\textit{nums}[\textit{stk.top()}]\leq\textit{nums}[j]$, it means a ramp is formed at this point. We cyclically pop the top elements from the stack and update $\textit{ans}$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ represents the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -193,48 +201,6 @@ function maxWidthRamp(nums) {
             ans = Math.max(ans, i - stk.pop());
         }
         if (stk.length === 0) break;
-    }
-
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Sorting
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function maxWidthRamp(nums: number[]): number {
-    const idx = nums.map((x, i) => [x, i]).sort(([a], [b]) => a - b);
-    let [ans, j] = [0, nums.length];
-
-    for (const [_, i] of idx) {
-        ans = Math.max(ans, i - j);
-        j = Math.min(j, i);
-    }
-
-    return ans;
-}
-```
-
-#### JavaScript
-
-```js
-function maxWidthRamp(nums) {
-    const idx = nums.map((x, i) => [x, i]).sort(([a], [b]) => a - b);
-    let [ans, j] = [0, nums.length];
-
-    for (const [_, i] of idx) {
-        ans = Math.max(ans, i - j);
-        j = Math.min(j, i);
     }
 
     return ans;

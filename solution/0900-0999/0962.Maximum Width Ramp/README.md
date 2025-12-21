@@ -60,13 +60,13 @@ tags:
 
 ### 方法一：单调栈
 
-根据题意，我们可以发现，所有可能的 $nums[i]$ 所构成的子序列一定是单调递减的。为什么呢？我们不妨用反证法证明一下。
+根据题意，我们可以发现，所有可能的 $\textit{nums}[i]$ 所构成的子序列一定是单调递减的。为什么呢？我们不妨用反证法证明一下。
 
-假设存在 $i_1<i_2$，并且 $nums[i_1]<=nums[i_2]$，那么实际上 $nums[i_2]$一定不可能是一个候选值，因为 $nums[i_1]$ 更靠左，会是一个更优的值。因此 $nums[i]$ 所构成的子序列一定单调递减，并且 $i$ 一定是从 0 开始。
+假设存在 $i_1<i_2$，并且 $\textit{nums}[i_1]\leq\textit{nums}[i_2]$，那么实际上 $\textit{nums}[i_2]$ 一定不可能是一个候选值，因为 $\textit{nums}[i_1]$ 更靠左，会是一个更优的值。因此 $\textit{nums}[i]$ 所构成的子序列一定单调递减，并且 $i$ 一定是从 0 开始。
 
-我们用一个从栈底到栈顶单调递减的栈 $stk$ 来存储所有可能的 $nums[i]$，然后我们从右边界开始遍历 $j$，若遇到 $nums[stk.top()]<=nums[j]$，说明此时构成一个坡，循环弹出栈顶元素，更新 ans。
+我们用一个从栈底到栈顶单调递减的栈 $\textit{stk}$ 来存储所有可能的 $\textit{nums}[i]$，然后我们从右边界开始遍历 $j$，若遇到 $\textit{nums}[\textit{stk.top()}]\leq\textit{nums}[j]$，说明此时构成一个坡，循环弹出栈顶元素，更新 $\textit{ans}$。
 
-时间复杂度 $O(n)$，其中 $n$ 表示 $nums$ 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 表示 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -205,48 +205,6 @@ function maxWidthRamp(nums) {
             ans = Math.max(ans, i - stk.pop());
         }
         if (stk.length === 0) break;
-    }
-
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：排序
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function maxWidthRamp(nums: number[]): number {
-    const idx = nums.map((x, i) => [x, i]).sort(([a], [b]) => a - b);
-    let [ans, j] = [0, nums.length];
-
-    for (const [_, i] of idx) {
-        ans = Math.max(ans, i - j);
-        j = Math.min(j, i);
-    }
-
-    return ans;
-}
-```
-
-#### JavaScript
-
-```js
-function maxWidthRamp(nums) {
-    const idx = nums.map((x, i) => [x, i]).sort(([a], [b]) => a - b);
-    let [ans, j] = [0, nums.length];
-
-    for (const [_, i] of idx) {
-        ans = Math.max(ans, i - j);
-        j = Math.min(j, i);
     }
 
     return ans;

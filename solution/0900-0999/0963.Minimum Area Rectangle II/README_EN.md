@@ -66,7 +66,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We use a hash table to store all the points, then enumerate three points $p_1 = (x_1, y_1)$, $p_2 = (x_2, y_2)$, $p_3 = (x_3, y_3)$, where $p_2$ and $p_3$ are the two endpoints of the diagonal of the rectangle. If the line formed by $p_1$ and $p_2$ and the line formed by $p_1$ and $p_3$ are perpendicular, and the fourth point $(x_4, y_4)=(x_2 - x_1 + x_3, y_2 - y_1 + y_3)$ exists in the hash table, then we have found a rectangle. At this point, we can calculate the area of the rectangle and update the answer.
+
+Finally, if a rectangle that satisfies the conditions is found, return the minimum area among them. Otherwise, return $0$.
+
+The time complexity is $O(n^3)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{points}$.
 
 <!-- tabs:start -->
 

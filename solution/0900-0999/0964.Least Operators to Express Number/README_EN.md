@@ -73,7 +73,22 @@ The expression contains 3 operations.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+We define a function $dfs(v)$, which represents the minimum number of operators needed to compose the number $v$ using $x$. Then the answer is $dfs(target)$.
+
+The execution logic of function $dfs(v)$ is as follows:
+
+If $x \geq v$, then we can obtain $v$ by adding $v$ instances of $x / x$, with the number of operators being $v \times 2 - 1$; or we can obtain $v$ by subtracting $(x - v)$ instances of $x / x$ from $x$, with the number of operators being $(x - v) \times 2$. We take the minimum of the two.
+
+Otherwise, we enumerate $x^k$ starting from $k=2$ to find the first $k$ where $x^k \geq v$:
+
+- If $x^k - v \geq v$ at this point, then we can only first obtain $x^{k-1}$, then recursively calculate $dfs(v - x^{k-1})$. The number of operators in this case is $k - 1 + dfs(v - x^{k-1})$;
+- If $x^k - v < v$ at this point, then we can obtain $v$ in the above manner, with the number of operators being $k - 1 + dfs(v - x^{k-1})$; or we can first obtain $x^k$, then recursively calculate $dfs(x^k - v)$, with the number of operators being $k + dfs(x^k - v)$. We take the minimum of the two.
+
+To avoid redundant calculations, we implement the $dfs$ function using memoization search.
+
+The time complexity is $O(\log_{x}{target})$ and the space complexity is $O(\log_{x}{target})$.
 
 <!-- tabs:start -->
 
