@@ -1,7 +1,7 @@
 class Solution:
     def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
         @cache
-        def dfs(s):
+        def dfs(s: str) -> bool:
             if len(s) == 1:
                 return True
             t = []
@@ -10,7 +10,7 @@ class Solution:
                 if not cs:
                     return False
                 t.append(cs)
-            return any(dfs(''.join(nxt)) for nxt in product(*t))
+            return any(dfs("".join(nxt)) for nxt in product(*t))
 
         d = defaultdict(list)
         for a, b, c in allowed:
