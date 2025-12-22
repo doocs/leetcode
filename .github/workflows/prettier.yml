@@ -13,7 +13,7 @@ jobs:
     # ---------------------------------------------------------
     # SAFETY CHECK:
     # Only run for PRs from the SAME repository.
-    # Fork PRs are skipped entirely to prevent RCE via npm install.
+    # Fork PRs are skipped entirely to prevent RCE via pnpm install.
     # ---------------------------------------------------------
     if: ${{ github.event.pull_request.head.repo.fork == false }}
     permissions:
@@ -30,15 +30,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.25.0
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
       - name: Run prettier
         run: |
           git config --global core.quotepath off
           changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" | grep -E '\.js$|\.ts$|\.php$|\.sql$|\.md$' || true)
           if [ -n "$changed_files" ]; then
             echo "Running prettier on the changed files"
-            echo "$changed_files" | xargs -d '\n' npx prettier --write
+            echo "$changed_files" | xargs -d '\n' pnpm exec prettier --write
           else
             echo "No matching files to run prettier on."
           fi
