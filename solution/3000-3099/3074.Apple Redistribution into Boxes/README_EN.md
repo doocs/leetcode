@@ -66,7 +66,7 @@ It is possible to distribute the apples as the total capacity is greater than or
 
 To minimize the number of boxes needed, we should prioritize using boxes with larger capacities. Therefore, we can sort the boxes in descending order of capacity, and then use the boxes one by one until all the apples are packed. We return the number of boxes used at this point.
 
-The time complexity is $O(m \times \log m + n)$ and the space complexity is $O(\log m)$, where $m$ and $n$ are the lengths of the arrays `capacity` and `apple` respectively.
+The time complexity is $O(m \times \log m + n)$ and the space complexity is $O(\log m)$, where $m$ and $n$ are the lengths of the arrays $\textit{capacity}$ and $\textit{apple}$ respectively.
 
 <!-- tabs:start -->
 
@@ -149,6 +149,28 @@ function minimumBoxes(apple: number[], capacity: number[]): number {
         s -= capacity[i - 1];
         if (s <= 0) {
             return i;
+        }
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_boxes(apple: Vec<i32>, mut capacity: Vec<i32>) -> i32 {
+        capacity.sort();
+
+        let mut s: i32 = apple.iter().sum();
+
+        let n = capacity.len();
+        let mut i = 1;
+        loop {
+            s -= capacity[n - i];
+            if s <= 0 {
+                return i as i32;
+            }
+            i += 1;
         }
     }
 }
