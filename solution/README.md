@@ -3797,6 +3797,7 @@
 |  3784  |  [使所有字符相等的最小删除代价](/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README.md)  |    |  中等  |  第 481 场周赛  |
 |  3785  |  [避免禁用值的最小交换次数](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README.md)  |    |  困难  |  第 481 场周赛  |
 |  3786  |  [树组的交互代价总和](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README.md)  |    |  困难  |  第 481 场周赛  |
+|  3787  |  [查找树的直径端点](/solution/3700-3799/3787.Find%20Diameter%20Endpoints%20of%20a%20Tree/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
