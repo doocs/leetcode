@@ -3795,6 +3795,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3784  |  [Minimum Deletion Cost to Make All Characters Equal](/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 481  |
 |  3785  |  [Minimum Swaps to Avoid Forbidden Values](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README_EN.md)  |    |  Hard  |  Weekly Contest 481  |
 |  3786  |  [Total Sum of Interaction Cost in Tree Groups](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README_EN.md)  |    |  Hard  |  Weekly Contest 481  |
+|  3787  |  [Find Diameter Endpoints of a Tree](/solution/3700-3799/3787.Find%20Diameter%20Endpoints%20of%20a%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
