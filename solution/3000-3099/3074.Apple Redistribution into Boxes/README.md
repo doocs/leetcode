@@ -68,7 +68,7 @@ tags:
 
 为了使得需要的箱子数量尽可能少，我们应该优先使用容量大的箱子。因此，我们可以对箱子按照容量从大到小排序，然后依次使用箱子，直到所有的苹果都被分装完，返回此时使用的箱子数量。
 
-时间复杂度 $O(m \times \log m + n)$，空间复杂度 $O(\log m)$。其中 $m$ 和 $n$ 分别是数组 `capacity` 和 `apple` 的长度。
+时间复杂度 $O(m \times \log m + n)$，空间复杂度 $O(\log m)$。其中 $m$ 和 $n$ 分别是数组 $\textit{capacity}$ 和 $\textit{apple}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -151,6 +151,28 @@ function minimumBoxes(apple: number[], capacity: number[]): number {
         s -= capacity[i - 1];
         if (s <= 0) {
             return i;
+        }
+    }
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_boxes(apple: Vec<i32>, mut capacity: Vec<i32>) -> i32 {
+        capacity.sort();
+
+        let mut s: i32 = apple.iter().sum();
+
+        let n = capacity.len();
+        let mut i = 1;
+        loop {
+            s -= capacity[n - i];
+            if s <= 0 {
+                return i as i32;
+            }
+            i += 1;
         }
     }
 }
