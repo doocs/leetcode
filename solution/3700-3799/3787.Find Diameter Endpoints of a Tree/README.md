@@ -167,7 +167,8 @@ class Solution {
             g[b].add(a);
         }
 
-        record BFSResult(int far, int[] dist) {}
+        record BFSResult(int far, int[] dist) {
+        }
 
         IntFunction<BFSResult> bfs = (int start) -> {
             int[] dist = new int[n];
