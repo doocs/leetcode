@@ -51,7 +51,7 @@ tags:
 - At time 3, both rooms are being used. The fourth meeting is delayed.
 - At time 5, the meeting in room 1 finishes. The third meeting starts in room 1 for the time period [5,10).
 - At time 10, the meetings in both rooms finish. The fourth meeting starts in room 0 for the time period [10,11).
-Both rooms 0 and 1 held 2 meetings, so we return 0. 
+Both rooms 0 and 1 held 2 meetings, so we return 0.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -67,7 +67,7 @@ Both rooms 0 and 1 held 2 meetings, so we return 0.
 - At time 5, the meeting in room 2 finishes. The fourth meeting starts in room 2 for the time period [5,10).
 - At time 6, all three rooms are being used. The fifth meeting is delayed.
 - At time 10, the meetings in rooms 1 and 2 finish. The fifth meeting starts in room 1 for the time period [10,12).
-Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1. 
+Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 </pre>
 
 <p>&nbsp;</p>
@@ -110,7 +110,7 @@ Similar problems:
 ```python
 class Solution:
     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
-        meetings.sort()
+        meetings.sort(key=lambda x: x[0])
         busy = []
         idle = list(range(n))
         heapify(idle)
@@ -118,17 +118,17 @@ class Solution:
         for s, e in meetings:
             while busy and busy[0][0] <= s:
                 heappush(idle, heappop(busy)[1])
+            i = 0
             if idle:
                 i = heappop(idle)
-                cnt[i] += 1
                 heappush(busy, (e, i))
             else:
-                a, i = heappop(busy)
-                cnt[i] += 1
-                heappush(busy, (a + e - s, i))
+                time_end, i = heappop(busy)
+                heappush(busy, (time_end + e - s, i))
+            cnt[i] += 1
         ans = 0
-        for i, v in enumerate(cnt):
-            if cnt[ans] < v:
+        for i in range(n):
+            if cnt[ans] < cnt[i]:
                 ans = i
         return ans
 ```
@@ -176,17 +176,17 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-using pii = pair<ll, int>;
-
 class Solution {
 public:
     int mostBooked(int n, vector<vector<int>>& meetings) {
-        priority_queue<int, vector<int>, greater<int>> idle;
-        priority_queue<pii, vector<pii>, greater<pii>> busy;
-        for (int i = 0; i < n; ++i) idle.push(i);
-        vector<int> cnt(n);
         sort(meetings.begin(), meetings.end());
+        using pli = pair<long long, int>;
+        priority_queue<pli, vector<pli>, greater<pli>> busy;
+        priority_queue<int, vector<int>, greater<int>> idle;
+        for (int i = 0; i < n; ++i) {
+            idle.push(i);
+        }
+        vector<int> cnt(n);
         for (auto& v : meetings) {
             int s = v[0], e = v[1];
             while (!busy.empty() && busy.top().first <= s) {
@@ -274,6 +274,51 @@ func (h hp2) Less(i, j int) bool {
 func (h hp2) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp2) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+#### TypeScript
+
+```ts
+function mostBooked(n: number, meetings: number[][]): number {
+    meetings.sort((a, b) => a[0] - b[0]);
+
+    const idle = new MinPriorityQueue<number>();
+    for (let i = 0; i < n; ++i) {
+        idle.enqueue(i);
+    }
+    const busy = new PriorityQueue<[number, number]>((a, b) => {
+        if (a[0] === b[0]) {
+            return a[1] - b[1];
+        }
+        return a[0] - b[0];
+    });
+    const cnt: number[] = new Array(n).fill(0);
+    for (const v of meetings) {
+        const s = v[0],
+            e = v[1];
+        while (!busy.isEmpty() && busy.front()[0] <= s) {
+            const i = busy.dequeue()[1];
+            idle.enqueue(i);
+        }
+        let i = 0;
+        if (!idle.isEmpty()) {
+            i = idle.dequeue();
+            busy.enqueue([e, i]);
+        } else {
+            const x = busy.dequeue();
+            i = x[1];
+            busy.enqueue([x[0] + e - s, i]);
+        }
+        ++cnt[i];
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (cnt[ans] < cnt[i]) {
+            ans = i;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
