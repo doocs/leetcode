@@ -51,7 +51,7 @@ tags:
 - 在时间 3 ，两个会议室都被占用，第四场会议延期举办。
 - 在时间 5 ，会议室 1 的会议结束。第三场会议在会议室 1 举办，时间周期为 [5,10) 。
 - 在时间 10 ，两个会议室的会议都结束。第四场会议在会议室 0 举办，时间周期为 [10,11) 。
-会议室 0 和会议室 1 都举办了 2 场会议，所以返回 0 。 
+会议室 0 和会议室 1 都举办了 2 场会议，所以返回 0 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -62,11 +62,11 @@ tags:
 - 在时间 1 ，所有三个会议室都未占用，第一场会议在会议室 0 举办。
 - 在时间 2 ，会议室 1 和 2 未占用，第二场会议在会议室 1 举办。
 - 在时间 3 ，只有会议室 2 未占用，第三场会议在会议室 2 举办。
-- 在时间 4 ，所有三个会议室都被占用，第四场会议延期举办。 
+- 在时间 4 ，所有三个会议室都被占用，第四场会议延期举办。
 - 在时间 5 ，会议室 2 的会议结束。第四场会议在会议室 2 举办，时间周期为 [5,10) 。
-- 在时间 6 ，所有三个会议室都被占用，第五场会议延期举办。 
-- 在时间 10 ，会议室 1 和 2 的会议结束。第五场会议在会议室 1 举办，时间周期为 [10,12) 。 
-会议室 1 和会议室 2 都举办了 2 场会议，所以返回 1 。 
+- 在时间 6 ，所有三个会议室都被占用，第五场会议延期举办。
+- 在时间 10 ，会议室 1 和 2 的会议结束。第五场会议在会议室 1 举办，时间周期为 [10,12) 。
+会议室 1 和会议室 2 都举办了 2 场会议，所以返回 1 。
 </pre>
 
 <p>&nbsp;</p>
@@ -176,17 +176,17 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-using pii = pair<ll, int>;
-
 class Solution {
 public:
     int mostBooked(int n, vector<vector<int>>& meetings) {
-        priority_queue<int, vector<int>, greater<int>> idle;
-        priority_queue<pii, vector<pii>, greater<pii>> busy;
-        for (int i = 0; i < n; ++i) idle.push(i);
-        vector<int> cnt(n);
         sort(meetings.begin(), meetings.end());
+        using pli = pair<long long, int>;
+        priority_queue<pli, vector<pli>, greater<pli>> busy;
+        priority_queue<int, vector<int>, greater<int>> idle;
+        for (int i = 0; i < n; ++i) {
+            idle.push(i);
+        }
+        vector<int> cnt(n);
         for (auto& v : meetings) {
             int s = v[0], e = v[1];
             while (!busy.empty() && busy.top().first <= s) {
@@ -274,6 +274,51 @@ func (h hp2) Less(i, j int) bool {
 func (h hp2) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 func (h *hp2) Push(v any)   { *h = append(*h, v.(pair)) }
 func (h *hp2) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
+```
+
+#### TypeScript
+
+```ts
+function mostBooked(n: number, meetings: number[][]): number {
+    meetings.sort((a, b) => a[0] - b[0]);
+
+    const idle = new MinPriorityQueue<number>();
+    for (let i = 0; i < n; ++i) {
+        idle.enqueue(i);
+    }
+    const busy = new PriorityQueue<[number, number]>((a, b) => {
+        if (a[0] === b[0]) {
+            return a[1] - b[1];
+        }
+        return a[0] - b[0];
+    });
+    const cnt: number[] = new Array(n).fill(0);
+    for (const v of meetings) {
+        const s = v[0],
+            e = v[1];
+        while (!busy.isEmpty() && busy.front()[0] <= s) {
+            const i = busy.dequeue()[1];
+            idle.enqueue(i);
+        }
+        let i = 0;
+        if (!idle.isEmpty()) {
+            i = idle.dequeue();
+            busy.enqueue([e, i]);
+        } else {
+            const x = busy.dequeue();
+            i = x[1];
+            busy.enqueue([x[0] + e - s, i]);
+        }
+        ++cnt[i];
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (cnt[ans] < cnt[i]) {
+            ans = i;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

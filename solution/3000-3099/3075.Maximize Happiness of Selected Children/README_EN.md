@@ -78,9 +78,9 @@ The sum of the happiness values of the selected children is 5.
 
 ### Solution 1: Greedy + Sorting
 
-To maximize the sum of happiness, we should prioritize choosing children with higher happiness values. Therefore, we can sort the children in descending order of happiness, and then select $k$ children in sequence. For the current $i$-th child, the happiness value that can be obtained is $\max(happiness[i] - i, 0)$. Finally, we return the sum of the happiness values of these $k$ children.
+To maximize the sum of happiness values, we should prioritize selecting children with higher happiness values. Therefore, we can sort the children in descending order by happiness value, and then select $k$ children in sequence. For the current $i$-th child, the happiness value obtained is $\max(\textit{happiness}[i] - i, 0)$. Finally, return the sum of happiness values of these $k$ children.
 
-The time complexity is $O(n \times \log n + k)$ and the space complexity is $O(\log n)$, where $n$ is the length of the `happiness` array.
+The time complexity is $O(n \times \log n + k)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{happiness}$.
 
 <!-- tabs:start -->
 

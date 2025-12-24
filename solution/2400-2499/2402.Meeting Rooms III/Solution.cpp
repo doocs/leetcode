@@ -1,14 +1,14 @@
-using ll = long long;
-using pii = pair<ll, int>;
-
 class Solution {
 public:
     int mostBooked(int n, vector<vector<int>>& meetings) {
-        priority_queue<int, vector<int>, greater<int>> idle;
-        priority_queue<pii, vector<pii>, greater<pii>> busy;
-        for (int i = 0; i < n; ++i) idle.push(i);
-        vector<int> cnt(n);
         sort(meetings.begin(), meetings.end());
+        using pli = pair<long long, int>;
+        priority_queue<pli, vector<pli>, greater<pli>> busy;
+        priority_queue<int, vector<int>, greater<int>> idle;
+        for (int i = 0; i < n; ++i) {
+            idle.push(i);
+        }
+        vector<int> cnt(n);
         for (auto& v : meetings) {
             int s = v[0], e = v[1];
             while (!busy.empty() && busy.top().first <= s) {
