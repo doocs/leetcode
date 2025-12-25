@@ -208,16 +208,15 @@ func (h *hp) Pop() any {
 
 ```ts
 class SeatManager {
-    private q: typeof MinPriorityQueue;
+    private q = new MinPriorityQueue<number>();
     constructor(n: number) {
-        this.q = new MinPriorityQueue();
         for (let i = 1; i <= n; i++) {
             this.q.enqueue(i);
         }
     }
 
     reserve(): number {
-        return this.q.dequeue().element;
+        return this.q.dequeue();
     }
 
     unreserve(seatNumber: number): void {
