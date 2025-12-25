@@ -43,7 +43,7 @@ tags:
 <pre>
 <strong>Input:</strong> customers = &quot;YYNY&quot;
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - Closing the shop at the 0<sup>th</sup> hour incurs in 1+1+0+1 = 3 penalty.
 - Closing the shop at the 1<sup>st</sup> hour incurs in 0+1+0+1 = 2 penalty.
 - Closing the shop at the 2<sup>nd</sup> hour incurs in 0+0+0+1 = 1 penalty.
@@ -230,6 +230,31 @@ impl Solution {
             }
         }
         ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int BestClosingTime(string customers) {
+        int n = customers.Length;
+        int ans = 0, cost = 0;
+        for (int i = 0; i < n; i++) {
+            if (customers[i] == 'Y') {
+                cost++;
+            }
+        }
+        int mn = cost;
+        for (int j = 1; j <= n; j++) {
+            cost += customers[j - 1] == 'N' ? 1 : -1;
+            if (cost < mn) {
+                ans = j;
+                mn = cost;
+            }
+        }
+        return ans;
     }
 }
 ```
