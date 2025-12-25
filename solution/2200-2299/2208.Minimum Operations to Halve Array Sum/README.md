@@ -188,18 +188,49 @@ func (h *hp) Pop() any {
 ```ts
 function halveArray(nums: number[]): number {
     let s: number = nums.reduce((a, b) => a + b) / 2;
-    const pq = new MaxPriorityQueue();
+    const pq = new MaxPriorityQueue<number>();
     for (const x of nums) {
-        pq.enqueue(x, x);
+        pq.enqueue(x);
     }
     let ans = 0;
     while (s > 0) {
-        const t = pq.dequeue().element / 2;
+        const t = pq.dequeue() / 2;
         s -= t;
         ++ans;
-        pq.enqueue(t, t);
+        pq.enqueue(t);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn halve_array(nums: Vec<i32>) -> i32 {
+        let mut pq: BinaryHeap<i64> = BinaryHeap::new();
+        let mut s: i64 = 0;
+
+        for x in nums {
+            let v = (x as i64) << 20;
+            s += v;
+            pq.push(v);
+        }
+
+        s /= 2;
+        let mut ans = 0;
+
+        while s > 0 {
+            let t = pq.pop().unwrap() / 2;
+            s -= t;
+            pq.push(t);
+            ans += 1;
+        }
+
+        ans
+    }
 }
 ```
 
