@@ -1,7 +1,7 @@
 function minimumEffortPath(heights: number[][]): number {
     const m = heights.length;
     const n = heights[0].length;
-    const pq = new PriorityQueue({ compare: (a, b) => a[0] - b[0] });
+    const pq = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
     pq.enqueue([0, 0, 0]);
     const dist = Array.from({ length: m }, () => Array.from({ length: n }, () => Infinity));
     dist[0][0] = 0;
