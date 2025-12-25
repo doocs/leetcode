@@ -1,5 +1,5 @@
 function magicTower(nums: number[]): number {
-    const q = new MinPriorityQueue();
+    const q = new MinPriorityQueue<number>();
     let [ans, blood, v] = [0, 1, 0];
     for (const x of nums) {
         if (x < 0) {
@@ -8,7 +8,7 @@ function magicTower(nums: number[]): number {
         blood += x;
         if (blood <= 0) {
             ++ans;
-            const t = q.dequeue().element;
+            const t = q.dequeue();
             blood -= t;
             v += t;
         }

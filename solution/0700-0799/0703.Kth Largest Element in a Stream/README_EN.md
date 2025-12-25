@@ -236,7 +236,7 @@ func (h *hp) Push(x interface{}) {
 ```ts
 class KthLargest {
     #k: number = 0;
-    #minQ = new MinPriorityQueue();
+    #minQ = new MinPriorityQueue<number>();
 
     constructor(k: number, nums: number[]) {
         this.#k = k;
@@ -250,7 +250,7 @@ class KthLargest {
         if (this.#minQ.size() > this.#k) {
             this.#minQ.dequeue();
         }
-        return this.#minQ.front().element;
+        return this.#minQ.front();
     }
 }
 
@@ -285,7 +285,7 @@ KthLargest.prototype.add = function (val) {
     if (this.minQ.size() > this.k) {
         this.minQ.dequeue();
     }
-    return this.minQ.front().element;
+    return this.minQ.front();
 };
 
 /**

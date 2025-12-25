@@ -232,12 +232,12 @@ func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; 
  */
 
 function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
-    const pq = new MinPriorityQueue({ priority: (node: ListNode) => node.val });
+    const pq = new PriorityQueue<ListNode>((a, b) => a.val - b.val);
     lists.filter(head => head).forEach(head => pq.enqueue(head));
     const dummy: ListNode = new ListNode();
     let cur: ListNode = dummy;
     while (!pq.isEmpty()) {
-        const node = pq.dequeue().element;
+        const node = pq.dequeue();
         cur.next = node;
         cur = cur.next;
         if (node.next) {
@@ -314,12 +314,12 @@ impl Solution {
  * @return {ListNode}
  */
 var mergeKLists = function (lists) {
-    const pq = new MinPriorityQueue({ priority: node => node.val });
+    const pq = new PriorityQueue((a, b) => a.val - b.val);
     lists.filter(head => head).forEach(head => pq.enqueue(head));
     const dummy = new ListNode();
     let cur = dummy;
     while (!pq.isEmpty()) {
-        const node = pq.dequeue().element;
+        const node = pq.dequeue();
         cur.next = node;
         cur = cur.next;
         if (node.next) {

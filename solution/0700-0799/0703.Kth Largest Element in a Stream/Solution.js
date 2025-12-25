@@ -19,7 +19,7 @@ KthLargest.prototype.add = function (val) {
     if (this.minQ.size() > this.k) {
         this.minQ.dequeue();
     }
-    return this.minQ.front().element;
+    return this.minQ.front();
 };
 
 /**
