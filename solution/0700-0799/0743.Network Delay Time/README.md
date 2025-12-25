@@ -423,10 +423,10 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
     }
     const dist: number[] = Array(n).fill(Infinity);
     dist[k - 1] = 0;
-    const pq = new MinPriorityQueue({ priority: v => v[0] });
+    const pq = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
     pq.enqueue([0, k - 1]);
     while (!pq.isEmpty()) {
-        const [d, u] = pq.dequeue().element;
+        const [d, u] = pq.dequeue();
         if (d > dist[u]) {
             continue;
         }
