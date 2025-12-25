@@ -209,9 +209,7 @@ function trapRainWater(heightMap: number[][]): number {
     const m = heightMap.length;
     const n = heightMap[0].length;
     const vis: boolean[][] = Array.from({ length: m }, () => new Array(n).fill(false));
-    const pq = new MinPriorityQueue<[number, number, number]>({
-        compare: (a, b) => a[0] - b[0],
-    });
+    const pq = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (i === 0 || i === m - 1 || j === 0 || j === n - 1) {
