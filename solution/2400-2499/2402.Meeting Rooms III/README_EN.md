@@ -87,17 +87,17 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 
 <!-- solution:start -->
 
-### Solution 1: Priority Queue (Min Heap)
+### Solution 1: Priority Queue (Min-Heap)
 
-We define two priority queues, representing idle meeting rooms and busy meeting rooms, respectively. Among them: the idle meeting rooms `idle` are sorted according to **index**; while the busy meeting rooms `busy` are sorted according to **end time, index**.
+We define two priority queues to represent idle meeting rooms and busy meeting rooms respectively. The idle meeting rooms $\textit{idle}$ are sorted by **index**; the busy meeting rooms $\textit{busy}$ are sorted by **end time and index**.
 
-First, sort the meetings by start time, then traverse the meetings. For each meeting:
+First, sort the meetings by start time, then iterate through the meetings. For each meeting:
 
-- If there is a busy meeting room that is less than or equal to the start time of the current meeting, add it to the idle meeting room queue `idle`.
-- If there are currently idle meeting rooms, take out the meeting room with the smallest weight from the idle queue `idle` and add it to the busy queue `busy`.
-- If there are currently no idle meeting rooms, find the meeting room with the earliest end time and smallest index in the busy queue `busy`, and re-add it to the busy queue `busy`.
+- If there are busy meeting rooms with end time less than or equal to the current meeting's start time, add them to the idle meeting rooms queue $\textit{idle}$;
+- If there are idle meeting rooms available, take the room with the smallest index from the idle queue $\textit{idle}$ and add it to the busy queue $\textit{busy}$;
+- If there are no idle meeting rooms, find the room with the earliest end time and smallest index from the busy queue $\textit{busy}$, and add it back to the busy queue $\textit{busy}$.
 
-The time complexity is $O(m \times \log m)$, where $m$ is the number of meetings.
+The time complexity is $O(m (\log m + \log n))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of meeting rooms and meetings respectively.
 
 Similar problems:
 
