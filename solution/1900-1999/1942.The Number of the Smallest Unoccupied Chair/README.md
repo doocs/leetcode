@@ -226,18 +226,18 @@ func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1];
 ```ts
 function smallestChair(times: number[][], targetFriend: number): number {
     const n = times.length;
-    const idle = new MinPriorityQueue();
-    const busy = new MinPriorityQueue({ priority: v => v[0] });
+    const idle = new MinPriorityQueue<number>();
+    const busy = new PriorityQueue((a, b) => a[0] - b[0]);
     for (let i = 0; i < n; ++i) {
         times[i].push(i);
         idle.enqueue(i);
     }
     times.sort((a, b) => a[0] - b[0]);
     for (const [arrival, leaving, i] of times) {
-        while (busy.size() > 0 && busy.front().element[0] <= arrival) {
-            idle.enqueue(busy.dequeue().element[1]);
+        while (busy.size() > 0 && busy.front()[0] <= arrival) {
+            idle.enqueue(busy.dequeue()[1]);
         }
-        const j = idle.dequeue().element;
+        const j = idle.dequeue();
         if (i === targetFriend) {
             return j;
         }
@@ -258,17 +258,17 @@ function smallestChair(times: number[][], targetFriend: number): number {
 var smallestChair = function (times, targetFriend) {
     const n = times.length;
     const idle = new MinPriorityQueue();
-    const busy = new MinPriorityQueue({ priority: v => v[0] });
+    const busy = new PriorityQueue((a, b) => a[0] - b[0]);
     for (let i = 0; i < n; ++i) {
         times[i].push(i);
         idle.enqueue(i);
     }
     times.sort((a, b) => a[0] - b[0]);
     for (const [arrival, leaving, i] of times) {
-        while (busy.size() > 0 && busy.front().element[0] <= arrival) {
-            idle.enqueue(busy.dequeue().element[1]);
+        while (busy.size() > 0 && busy.front()[0] <= arrival) {
+            idle.enqueue(busy.dequeue()[1]);
         }
-        const j = idle.dequeue().element;
+        const j = idle.dequeue();
         if (i === targetFriend) {
             return j;
         }

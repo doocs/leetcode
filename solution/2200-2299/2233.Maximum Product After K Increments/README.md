@@ -155,16 +155,16 @@ func (hp) Pop() (_ any) { return }
 
 ```ts
 function maximumProduct(nums: number[], k: number): number {
-    const pq = new MinPriorityQueue();
+    const pq = new MinPriorityQueue<number>();
     nums.forEach(x => pq.enqueue(x));
     while (k--) {
-        const x = pq.dequeue().element;
+        const x = pq.dequeue();
         pq.enqueue(x + 1);
     }
     let ans = 1;
     const mod = 10 ** 9 + 7;
     while (!pq.isEmpty()) {
-        ans = (ans * pq.dequeue().element) % mod;
+        ans = (ans * pq.dequeue()) % mod;
     }
     return ans;
 }
@@ -182,13 +182,13 @@ var maximumProduct = function (nums, k) {
     const pq = new MinPriorityQueue();
     nums.forEach(x => pq.enqueue(x));
     while (k--) {
-        const x = pq.dequeue().element;
+        const x = pq.dequeue();
         pq.enqueue(x + 1);
     }
     let ans = 1;
     const mod = 10 ** 9 + 7;
     while (!pq.isEmpty()) {
-        ans = (ans * pq.dequeue().element) % mod;
+        ans = (ans * pq.dequeue()) % mod;
     }
     return ans;
 };

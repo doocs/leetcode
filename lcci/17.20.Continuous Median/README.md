@@ -36,7 +36,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.20.Continuous%20Me
 <pre>addNum(1)
 addNum(2)
 findMedian() -&gt; 1.5
-addNum(3) 
+addNum(3)
 findMedian() -&gt; 2
 </pre>
 
@@ -203,24 +203,24 @@ func (h *hp) Pop() any {
 
 ```ts
 class MedianFinder {
-    #minQ = new MinPriorityQueue();
-    #maxQ = new MaxPriorityQueue();
+    #minQ = new MinPriorityQueue<number>();
+    #maxQ = new MaxPriorityQueue<number>();
 
     addNum(num: number): void {
         const [minQ, maxQ] = [this.#minQ, this.#maxQ];
         maxQ.enqueue(num);
-        minQ.enqueue(maxQ.dequeue().element);
+        minQ.enqueue(maxQ.dequeue());
         if (minQ.size() - maxQ.size() > 1) {
-            maxQ.enqueue(minQ.dequeue().element);
+            maxQ.enqueue(minQ.dequeue());
         }
     }
 
     findMedian(): number {
         const [minQ, maxQ] = [this.#minQ, this.#maxQ];
         if (minQ.size() === maxQ.size()) {
-            return (minQ.front().element + maxQ.front().element) / 2;
+            return (minQ.front() + maxQ.front()) / 2;
         }
-        return minQ.front().element;
+        return minQ.front();
     }
 }
 
@@ -286,9 +286,9 @@ var MedianFinder = function () {
  */
 MedianFinder.prototype.addNum = function (num) {
     this.maxQ.enqueue(num);
-    this.minQ.enqueue(this.maxQ.dequeue().element);
+    this.minQ.enqueue(this.maxQ.dequeue());
     if (this.minQ.size() - this.maxQ.size() > 1) {
-        this.maxQ.enqueue(this.minQ.dequeue().element);
+        this.maxQ.enqueue(this.minQ.dequeue());
     }
 };
 
@@ -297,9 +297,9 @@ MedianFinder.prototype.addNum = function (num) {
  */
 MedianFinder.prototype.findMedian = function () {
     if (this.minQ.size() === this.maxQ.size()) {
-        return (this.minQ.front().element + this.maxQ.front().element) / 2;
+        return (this.minQ.front() + this.maxQ.front()) / 2;
     }
-    return this.minQ.front().element;
+    return this.minQ.front();
 };
 
 /**
