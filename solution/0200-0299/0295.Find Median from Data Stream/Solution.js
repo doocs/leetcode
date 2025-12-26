@@ -9,9 +9,9 @@ var MedianFinder = function () {
  */
 MedianFinder.prototype.addNum = function (num) {
     this.maxQ.enqueue(num);
-    this.minQ.enqueue(this.maxQ.dequeue().element);
+    this.minQ.enqueue(this.maxQ.dequeue());
     if (this.minQ.size() - this.maxQ.size() > 1) {
-        this.maxQ.enqueue(this.minQ.dequeue().element);
+        this.maxQ.enqueue(this.minQ.dequeue());
     }
 };
 
@@ -20,9 +20,9 @@ MedianFinder.prototype.addNum = function (num) {
  */
 MedianFinder.prototype.findMedian = function () {
     if (this.minQ.size() === this.maxQ.size()) {
-        return (this.minQ.front().element + this.maxQ.front().element) / 2;
+        return (this.minQ.front() + this.maxQ.front()) / 2;
     }
-    return this.minQ.front().element;
+    return this.minQ.front();
 };
 
 /**

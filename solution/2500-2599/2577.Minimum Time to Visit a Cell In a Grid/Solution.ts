@@ -3,7 +3,7 @@ function minimumTime(grid: number[][]): number {
 
     const [m, n] = [grid.length, grid[0].length];
     const DIRS = [-1, 0, 1, 0, -1];
-    const q = new MinPriorityQueue({ priority: ([x]) => x });
+    const q = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
     const dist: number[][] = Array.from({ length: m }, () =>
         new Array(n).fill(Number.POSITIVE_INFINITY),
     );
@@ -11,7 +11,7 @@ function minimumTime(grid: number[][]): number {
     q.enqueue([0, 0, 0]);
 
     while (true) {
-        const [t, i, j] = q.dequeue().element;
+        const [t, i, j] = q.dequeue();
         if (i === m - 1 && j === n - 1) return t;
 
         for (let k = 0; k < 4; k++) {

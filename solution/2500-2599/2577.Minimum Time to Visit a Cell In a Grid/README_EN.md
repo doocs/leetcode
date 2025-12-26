@@ -72,7 +72,7 @@ The final time is 7. It can be shown that it is the minimum time possible.
 </ul>
 
 <p>&nbsp;</p>
-<style type="text/css">.spoilerbutton {display:block; border:dashed; padding: 0px 0px; margin:10px 0px; font-size:150%; font-weight: bold; color:#000000; background-color:cyan; outline:0; 
+<style type="text/css">.spoilerbutton {display:block; border:dashed; padding: 0px 0px; margin:10px 0px; font-size:150%; font-weight: bold; color:#000000; background-color:cyan; outline:0;
 }
 .spoiler {overflow:hidden;}
 .spoiler > div {-webkit-transition: all 0s ease;-moz-transition: margin 0s ease;-o-transition: all 0s ease;transition: margin 0s ease;}
@@ -268,7 +268,7 @@ function minimumTime(grid: number[][]): number {
 
     const [m, n] = [grid.length, grid[0].length];
     const DIRS = [-1, 0, 1, 0, -1];
-    const q = new MinPriorityQueue({ priority: ([x]) => x });
+    const q = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
     const dist: number[][] = Array.from({ length: m }, () =>
         new Array(n).fill(Number.POSITIVE_INFINITY),
     );
@@ -276,7 +276,7 @@ function minimumTime(grid: number[][]): number {
     q.enqueue([0, 0, 0]);
 
     while (true) {
-        const [t, i, j] = q.dequeue().element;
+        const [t, i, j] = q.dequeue();
         if (i === m - 1 && j === n - 1) return t;
 
         for (let k = 0; k < 4; k++) {
@@ -304,13 +304,13 @@ function minimumTime(grid) {
 
     const [m, n] = [grid.length, grid[0].length];
     const DIRS = [-1, 0, 1, 0, -1];
-    const q = new MinPriorityQueue({ priority: ([x]) => x });
+    const q = new PriorityQueue((a, b) => a[0] - b[0]);
     const dist = Array.from({ length: m }, () => new Array(n).fill(Number.POSITIVE_INFINITY));
     dist[0][0] = 0;
     q.enqueue([0, 0, 0]);
 
     while (true) {
-        const [t, i, j] = q.dequeue().element;
+        const [t, i, j] = q.dequeue();
         if (i === m - 1 && j === n - 1) return t;
 
         for (let k = 0; k < 4; k++) {

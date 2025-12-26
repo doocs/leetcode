@@ -171,7 +171,7 @@ func (h *hp) Pop() any {
 
 ```ts
 function makePrefSumNonNegative(nums: number[]): number {
-    const pq = new MinPriorityQueue();
+    const pq = new MinPriorityQueue<number>();
     let ans = 0;
     let s = 0;
     for (const x of nums) {
@@ -180,7 +180,7 @@ function makePrefSumNonNegative(nums: number[]): number {
             pq.enqueue(x);
         }
         while (s < 0) {
-            s -= pq.dequeue().element;
+            s -= pq.dequeue();
             ++ans;
         }
     }
