@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> gifts = [25,64,9,4,100], k = 4
 <strong>Output:</strong> 29
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 The gifts are taken in the following way:
 - In the first second, the last pile is chosen and 10 gifts are left behind.
 - Then the second pile is chosen and 8 gifts are left behind.
@@ -50,9 +50,9 @@ The final remaining gifts are [5,8,9,4,3], so the total number of gifts remainin
 <pre>
 <strong>Input:</strong> gifts = [1,1,1,1], k = 4
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> 
-In this case, regardless which pile you choose, you have to leave behind 1 gift in each pile. 
-That is, you can&#39;t take any pile with you. 
+<strong>Explanation:</strong>
+In this case, regardless which pile you choose, you have to leave behind 1 gift in each pile.
+That is, you can&#39;t take any pile with you.
 So, the total gifts remaining are 4.
 </pre>
 
@@ -158,16 +158,16 @@ func (hp) Push(any)             {}
 
 ```ts
 function pickGifts(gifts: number[], k: number): number {
-    const pq = new MaxPriorityQueue();
+    const pq = new MaxPriorityQueue<number>();
     gifts.forEach(v => pq.enqueue(v));
     while (k--) {
-        let v = pq.dequeue().element;
+        let v = pq.dequeue();
         v = Math.floor(Math.sqrt(v));
         pq.enqueue(v);
     }
     let ans = 0;
     while (!pq.isEmpty()) {
-        ans += pq.dequeue().element;
+        ans += pq.dequeue();
     }
     return ans;
 }

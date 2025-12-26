@@ -37,7 +37,7 @@ tags:
 <pre>
 <strong>输入：</strong>gifts = [25,64,9,4,100], k = 4
 <strong>输出：</strong>29
-<strong>解释：</strong> 
+<strong>解释：</strong>
 按下述方式取走礼物：
 - 在第一秒，选中最后一堆，剩下 10 个礼物。
 - 接着第二秒选中第二堆礼物，剩下 8 个礼物。
@@ -52,8 +52,8 @@ tags:
 <strong>输入：</strong>gifts = [1,1,1,1], k = 4
 <strong>输出：</strong>4
 <strong>解释：</strong>
-在本例中，不管选中哪一堆礼物，都必须剩下 1 个礼物。 
-也就是说，你无法获取任一堆中的礼物。 
+在本例中，不管选中哪一堆礼物，都必须剩下 1 个礼物。
+也就是说，你无法获取任一堆中的礼物。
 所以，剩下礼物的总数量是 4 。
 </pre>
 
@@ -160,16 +160,16 @@ func (hp) Push(any)             {}
 
 ```ts
 function pickGifts(gifts: number[], k: number): number {
-    const pq = new MaxPriorityQueue();
+    const pq = new MaxPriorityQueue<number>();
     gifts.forEach(v => pq.enqueue(v));
     while (k--) {
-        let v = pq.dequeue().element;
+        let v = pq.dequeue();
         v = Math.floor(Math.sqrt(v));
         pq.enqueue(v);
     }
     let ans = 0;
     while (!pq.isEmpty()) {
-        ans += pq.dequeue().element;
+        ans += pq.dequeue();
     }
     return ans;
 }
