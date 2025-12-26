@@ -1,22 +1,22 @@
 class MedianFinder {
-    #minQ = new MinPriorityQueue();
-    #maxQ = new MaxPriorityQueue();
+    #minQ = new MinPriorityQueue<number>();
+    #maxQ = new MaxPriorityQueue<number>();
 
     addNum(num: number): void {
         const [minQ, maxQ] = [this.#minQ, this.#maxQ];
         maxQ.enqueue(num);
-        minQ.enqueue(maxQ.dequeue().element);
+        minQ.enqueue(maxQ.dequeue());
         if (minQ.size() - maxQ.size() > 1) {
-            maxQ.enqueue(minQ.dequeue().element);
+            maxQ.enqueue(minQ.dequeue());
         }
     }
 
     findMedian(): number {
         const [minQ, maxQ] = [this.#minQ, this.#maxQ];
         if (minQ.size() === maxQ.size()) {
-            return (minQ.front().element + maxQ.front().element) / 2;
+            return (minQ.front() + maxQ.front()) / 2;
         }
-        return minQ.front().element;
+        return minQ.front();
     }
 }
 

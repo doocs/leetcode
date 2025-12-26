@@ -5,7 +5,7 @@ function maxProbability(
     start_node: number,
     end_node: number,
 ): number {
-    const pq = new MaxPriorityQueue({ priority: v => v[0] });
+    const pq = new PriorityQueue<number[]>((a, b) => b[0] - a[0]);
     const g: [number, number][][] = Array.from({ length: n }, () => []);
     for (let i = 0; i < edges.length; ++i) {
         const [a, b] = edges[i];
@@ -16,7 +16,7 @@ function maxProbability(
     dist[start_node] = 1;
     pq.enqueue([1, start_node]);
     while (!pq.isEmpty()) {
-        const [w, a] = pq.dequeue().element;
+        const [w, a] = pq.dequeue();
         if (dist[a] > w) {
             continue;
         }

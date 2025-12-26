@@ -32,7 +32,7 @@ tags:
 <pre>
 <strong>输入：</strong>nums = [[4,10,15,24,26], [0,9,12,20], [5,18,22,30]]
 <strong>输出：</strong>[20,24]
-<strong>解释：</strong> 
+<strong>解释：</strong>
 列表 1：[4, 10, 15, 24, 26]，24 在区间 [20,24] 中。
 列表 2：[0, 9, 12, 20]，20 在区间 [20,24] 中。
 列表 3：[5, 18, 22, 30]，22 在区间 [20,24] 中。
@@ -276,7 +276,7 @@ impl Solution {
 
 ```ts
 const smallestRange = (nums: number[][]): number[] => {
-    const pq = new MinPriorityQueue<[number, number, number]>({ priority: ([x]) => x });
+    const pq = new PriorityQueue<number[]>((a, b) => a[0] - b[0]);
     const n = nums.length;
     let [l, r, max] = [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
 
@@ -287,7 +287,7 @@ const smallestRange = (nums: number[][]): number[] => {
     }
 
     while (pq.size() === n) {
-        const [min, j, i] = pq.dequeue().element;
+        const [min, j, i] = pq.dequeue();
 
         if (max - min < r - l) {
             [l, r] = [min, max];
@@ -309,7 +309,7 @@ const smallestRange = (nums: number[][]): number[] => {
 
 ```js
 const smallestRange = nums => {
-    const pq = new MinPriorityQueue({ priority: ([x]) => x });
+    const pq = new PriorityQueue((a, b) => a[0] - b[0]);
     const n = nums.length;
     let [l, r, max] = [0, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
 
@@ -320,7 +320,7 @@ const smallestRange = nums => {
     }
 
     while (pq.size() === n) {
-        const [min, j, i] = pq.dequeue().element;
+        const [min, j, i] = pq.dequeue();
 
         if (max - min < r - l) {
             [l, r] = [min, max];

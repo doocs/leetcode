@@ -38,7 +38,7 @@ tags:
 <pre>
 <strong>Input:</strong> times = [[1,4],[2,3],[4,6]], targetFriend = 1
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - Friend 0 arrives at time 1 and sits on chair 0.
 - Friend 1 arrives at time 2 and sits on chair 1.
 - Friend 1 leaves at time 3 and chair 1 becomes empty.
@@ -52,7 +52,7 @@ Since friend 1 sat on chair 1, we return 1.
 <pre>
 <strong>Input:</strong> times = [[3,10],[1,5],[2,6]], targetFriend = 0
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - Friend 1 arrives at time 1 and sits on chair 0.
 - Friend 2 arrives at time 2 and sits on chair 1.
 - Friend 0 arrives at time 3 and sits on chair 2.
@@ -226,18 +226,18 @@ func (h *hp2) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1];
 ```ts
 function smallestChair(times: number[][], targetFriend: number): number {
     const n = times.length;
-    const idle = new MinPriorityQueue();
-    const busy = new MinPriorityQueue({ priority: v => v[0] });
+    const idle = new MinPriorityQueue<number>();
+    const busy = new PriorityQueue((a, b) => a[0] - b[0]);
     for (let i = 0; i < n; ++i) {
         times[i].push(i);
         idle.enqueue(i);
     }
     times.sort((a, b) => a[0] - b[0]);
     for (const [arrival, leaving, i] of times) {
-        while (busy.size() > 0 && busy.front().element[0] <= arrival) {
-            idle.enqueue(busy.dequeue().element[1]);
+        while (busy.size() > 0 && busy.front()[0] <= arrival) {
+            idle.enqueue(busy.dequeue()[1]);
         }
-        const j = idle.dequeue().element;
+        const j = idle.dequeue();
         if (i === targetFriend) {
             return j;
         }
@@ -258,17 +258,17 @@ function smallestChair(times: number[][], targetFriend: number): number {
 var smallestChair = function (times, targetFriend) {
     const n = times.length;
     const idle = new MinPriorityQueue();
-    const busy = new MinPriorityQueue({ priority: v => v[0] });
+    const busy = new PriorityQueue((a, b) => a[0] - b[0]);
     for (let i = 0; i < n; ++i) {
         times[i].push(i);
         idle.enqueue(i);
     }
     times.sort((a, b) => a[0] - b[0]);
     for (const [arrival, leaving, i] of times) {
-        while (busy.size() > 0 && busy.front().element[0] <= arrival) {
-            idle.enqueue(busy.dequeue().element[1]);
+        while (busy.size() > 0 && busy.front()[0] <= arrival) {
+            idle.enqueue(busy.dequeue()[1]);
         }
-        const j = idle.dequeue().element;
+        const j = idle.dequeue();
         if (i === targetFriend) {
             return j;
         }
