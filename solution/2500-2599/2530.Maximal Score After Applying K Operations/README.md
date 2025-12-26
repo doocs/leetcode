@@ -160,11 +160,11 @@ func (hp) Pop() (_ any)         { return }
 
 ```ts
 function maxKelements(nums: number[], k: number): number {
-    const pq = new MaxPriorityQueue();
+    const pq = new MaxPriorityQueue<number>();
     nums.forEach(num => pq.enqueue(num));
     let ans = 0;
     while (k > 0) {
-        const v = pq.dequeue()!.element;
+        const v = pq.dequeue();
         ans += v;
         pq.enqueue(Math.floor((v + 2) / 3));
         k--;
