@@ -72,11 +72,11 @@ tags:
 
 ### 方法一：数学 + 位运算
 
-题目中 $left$ 和 $right$ 的范围均在 $10^6$ 以内，而 $2^{20} = 1048576$，因此，二进制中 $1$ 的个数最多也就 $20$ 个，而 $20$ 以内的质数有 `[2, 3, 5, 7, 11, 13, 17, 19]`。
+题目中 $\textit{left}$ 和 $\textit{right}$ 的范围均在 $10^6$ 以内，而 $2^{20} = 1048576$，因此，二进制中 $1$ 的个数最多也就 $20$ 个，而 $20$ 以内的质数有 $[2, 3, 5, 7, 11, 13, 17, 19]$。
 
-我们枚举 $[left,.. right]$ 范围内的每个数，统计其二进制中 $1$ 的个数，然后判断该个数是否为质数，如果是，答案加一。
+我们枚举 $[\textit{left},.. \textit{right}]$ 范围内的每个数，统计其二进制中 $1$ 的个数，然后判断该个数是否为质数，如果是，答案加一。
 
-时间复杂度 $O(n\times \log m)$。其中 $n = right - left + 1$，而 $m$ 为 $[left,.. right]$ 范围内的最大数。
+时间复杂度 $O(n\times \log m)$。其中 $n = \textit{right} - \textit{left} + 1$，而 $m$ 为 $[\textit{left},.. \textit{right}]$ 范围内的最大数。
 
 <!-- tabs:start -->
 
@@ -115,7 +115,9 @@ public:
     int countPrimeSetBits(int left, int right) {
         unordered_set<int> primes{2, 3, 5, 7, 11, 13, 17, 19};
         int ans = 0;
-        for (int i = left; i <= right; ++i) ans += primes.count(__builtin_popcount(i));
+        for (int i = left; i <= right; ++i) {
+            ans += primes.count(__builtin_popcount(i));
+        }
         return ans;
     }
 };
@@ -133,6 +135,53 @@ func countPrimeSetBits(left int, right int) (ans int) {
 		ans += primes[bits.OnesCount(uint(i))]
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countPrimeSetBits(left: number, right: number): number {
+    const primes = new Set<number>([2, 3, 5, 7, 11, 13, 17, 19]);
+    let ans = 0;
+
+    for (let i = left; i <= right; i++) {
+        const bits = bitCount(i);
+        if (primes.has(bits)) {
+            ans++;
+        }
+    }
+
+    return ans;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_prime_set_bits(left: i32, right: i32) -> i32 {
+        let primes = [2, 3, 5, 7, 11, 13, 17, 19];
+        let mut ans = 0;
+
+        for i in left..=right {
+            let bits = i.count_ones() as i32;
+            if primes.contains(&bits) {
+                ans += 1;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
