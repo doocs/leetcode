@@ -237,7 +237,7 @@ function maxProfit(workers: number[], tasks: number[][]): number {
     const d = new Map();
     for (const [skill, profit] of tasks) {
         if (!d.has(skill)) {
-            d.set(skill, new MaxPriorityQueue());
+            d.set(skill, new MaxPriorityQueue<number>());
         }
         d.get(skill).enqueue(profit);
     }

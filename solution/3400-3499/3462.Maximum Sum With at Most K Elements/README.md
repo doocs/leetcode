@@ -222,7 +222,7 @@ func maxSum(grid [][]int, limits []int, k int) int64 {
 
 ```ts
 function maxSum(grid: number[][], limits: number[], k: number): number {
-    const pq = new MinPriorityQueue();
+    const pq = new MinPriorityQueue<number>();
     const n = grid.length;
     for (let i = 0; i < n; i++) {
         const nums = grid[i];
@@ -237,7 +237,7 @@ function maxSum(grid: number[][], limits: number[], k: number): number {
     }
     let ans = 0;
     while (!pq.isEmpty()) {
-        ans += pq.dequeue() as number;
+        ans += pq.dequeue();
     }
     return ans;
 }
