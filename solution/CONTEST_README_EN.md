@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 482
+
+- [3788. Maximum Score of a Split](/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README_EN.md)
+- [3789. Minimum Cost to Acquire Required Items](/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README_EN.md)
+- [3790. Smallest All-Ones Multiple](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README_EN.md)
+- [3791. Number of Balanced Integers in a Range](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README_EN.md)
+
 #### Weekly Contest 481
 
 - [3783. Mirror Distance of an Integer](/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README_EN.md)

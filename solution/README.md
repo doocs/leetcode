@@ -3798,6 +3798,10 @@
 |  3785  |  [避免禁用值的最小交换次数](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README.md)  |    |  困难  |  第 481 场周赛  |
 |  3786  |  [树组的交互代价总和](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README.md)  |    |  困难  |  第 481 场周赛  |
 |  3787  |  [查找树的直径端点](/solution/3700-3799/3787.Find%20Diameter%20Endpoints%20of%20a%20Tree/README.md)  |    |  中等  |  🔒  |
+|  3788  |  [分割的最大得分](/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README.md)  |    |  中等  |  第 482 场周赛  |
+|  3789  |  [采购的最小花费](/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README.md)  |    |  中等  |  第 482 场周赛  |
+|  3790  |  [最小全 1 倍数](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README.md)  |    |  中等  |  第 482 场周赛  |
+|  3791  |  [给定范围内平衡整数的数目](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README.md)  |    |  困难  |  第 482 场周赛  |
 
 ## 版权
 

@@ -43,7 +43,7 @@ tags:
 <pre>
 <strong>Input:</strong> customers = &quot;YYNY&quot;
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Closing the shop at the 0<sup>th</sup> hour incurs in 1+1+0+1 = 3 penalty.
 - Closing the shop at the 1<sup>st</sup> hour incurs in 0+1+0+1 = 2 penalty.
 - Closing the shop at the 2<sup>nd</sup> hour incurs in 0+0+0+1 = 1 penalty.

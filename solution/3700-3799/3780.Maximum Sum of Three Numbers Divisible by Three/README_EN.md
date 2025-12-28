@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3780.Maximum%20Sum%20of%20Three%20Numbers%20Divisible%20by%20Three/README_EN.md
+rating: 1584
+source: Biweekly Contest 172 Q2
 ---
 
 <!-- problem:start -->

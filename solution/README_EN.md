@@ -3796,6 +3796,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3785  |  [Minimum Swaps to Avoid Forbidden Values](/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README_EN.md)  |    |  Hard  |  Weekly Contest 481  |
 |  3786  |  [Total Sum of Interaction Cost in Tree Groups](/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README_EN.md)  |    |  Hard  |  Weekly Contest 481  |
 |  3787  |  [Find Diameter Endpoints of a Tree](/solution/3700-3799/3787.Find%20Diameter%20Endpoints%20of%20a%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
+|  3788  |  [Maximum Score of a Split](/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README_EN.md)  |    |  Medium  |  Weekly Contest 482  |
+|  3789  |  [Minimum Cost to Acquire Required Items](/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README_EN.md)  |    |  Medium  |  Weekly Contest 482  |
+|  3790  |  [Smallest All-Ones Multiple](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README_EN.md)  |    |  Medium  |  Weekly Contest 482  |
+|  3791  |  [Number of Balanced Integers in a Range](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 482  |
 
 ## Copyright
 

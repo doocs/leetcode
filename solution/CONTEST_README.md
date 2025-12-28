@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 482 场周赛(2025-12-28 10:30, 90 分钟) 参赛人数 1709
+
+- [3788. 分割的最大得分](/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README.md)
+- [3789. 采购的最小花费](/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README.md)
+- [3790. 最小全 1 倍数](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README.md)
+- [3791. 给定范围内平衡整数的数目](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README.md)
+
 #### 第 481 场周赛(2025-12-21 10:30, 90 分钟) 参赛人数 1748
 
 - [3783. 整数的镜像距离](/solution/3700-3799/3783.Mirror%20Distance%20of%20an%20Integer/README.md)

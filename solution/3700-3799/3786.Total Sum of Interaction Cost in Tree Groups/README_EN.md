@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3786.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups/README_EN.md
+rating: 2139
+source: Weekly Contest 481 Q4
 ---
 
 <!-- problem:start -->

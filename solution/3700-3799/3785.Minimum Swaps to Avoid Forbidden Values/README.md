@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3785.Minimum%20Swaps%20to%20Avoid%20Forbidden%20Values/README.md
+rating: 2051
+source: 第 481 场周赛 Q3
 ---
 
 <!-- problem:start -->
