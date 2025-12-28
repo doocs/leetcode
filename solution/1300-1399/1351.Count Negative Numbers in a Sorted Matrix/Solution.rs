@@ -1,20 +1,18 @@
 impl Solution {
     pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
         let n = grid[0].len();
-        grid.into_iter()
-            .map(|nums| {
-                let mut left = 0;
-                let mut right = n;
-                while left < right {
-                    let mid = left + (right - left) / 2;
-                    if nums[mid] >= 0 {
-                        left = mid + 1;
-                    } else {
-                        right = mid;
-                    }
-                }
-                (n - left) as i32
-            })
-            .sum()
+        let mut i: i32 = m as i32 - 1;
+        let mut j: usize = 0;
+        let mut ans: i32 = 0;
+        while i >= 0 && j < n {
+            if grid[i as usize][j] >= 0 {
+                j += 1;
+            } else {
+                ans += (n - j) as i32;
+                i -= 1;
+            }
+        }
+        ans
     }
 }
