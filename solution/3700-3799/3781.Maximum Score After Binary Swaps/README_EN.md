@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3781.Maximum%20Score%20After%20Binary%20Swaps/README_EN.md
+rating: 1823
+source: Biweekly Contest 172 Q3
 ---
 
 <!-- problem:start -->

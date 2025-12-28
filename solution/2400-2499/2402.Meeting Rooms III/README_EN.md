@@ -51,7 +51,7 @@ tags:
 - At time 3, both rooms are being used. The fourth meeting is delayed.
 - At time 5, the meeting in room 1 finishes. The third meeting starts in room 1 for the time period [5,10).
 - At time 10, the meetings in both rooms finish. The fourth meeting starts in room 0 for the time period [10,11).
-Both rooms 0 and 1 held 2 meetings, so we return 0.
+Both rooms 0 and 1 held 2 meetings, so we return 0. 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -67,7 +67,7 @@ Both rooms 0 and 1 held 2 meetings, so we return 0.
 - At time 5, the meeting in room 2 finishes. The fourth meeting starts in room 2 for the time period [5,10).
 - At time 6, all three rooms are being used. The fifth meeting is delayed.
 - At time 10, the meetings in rooms 1 and 2 finish. The fifth meeting starts in room 1 for the time period [10,12).
-Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
+Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1. 
 </pre>
 
 <p>&nbsp;</p>
