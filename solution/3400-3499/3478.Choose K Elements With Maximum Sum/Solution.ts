@@ -1,7 +1,7 @@
 function findMaxSum(nums1: number[], nums2: number[], k: number): number[] {
     const n = nums1.length;
     const arr = nums1.map((x, i) => [x, i]).sort((a, b) => a[0] - b[0]);
-    const pq = new MinPriorityQueue();
+    const pq = new MinPriorityQueue<number>();
     let [s, j] = [0, 0];
     const ans: number[] = Array(k).fill(0);
     for (let h = 0; h < n; ++h) {

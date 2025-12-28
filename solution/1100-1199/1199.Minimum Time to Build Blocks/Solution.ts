@@ -1,11 +1,11 @@
 function minBuildTime(blocks: number[], split: number): number {
-    const pq = new MinPriorityQueue();
+    const pq = new MinPriorityQueue<number>();
     for (const x of blocks) {
         pq.enqueue(x);
     }
     while (pq.size() > 1) {
-        pq.dequeue()!;
-        pq.enqueue(pq.dequeue()! + split);
+        pq.dequeue();
+        pq.enqueue(pq.dequeue() + split);
     }
-    return pq.dequeue()!;
+    return pq.dequeue();
 }
