@@ -3800,6 +3800,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3789  |  [Minimum Cost to Acquire Required Items](/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README_EN.md)  |    |  Medium  |  Weekly Contest 482  |
 |  3790  |  [Smallest All-Ones Multiple](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README_EN.md)  |    |  Medium  |  Weekly Contest 482  |
 |  3791  |  [Number of Balanced Integers in a Range](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 482  |
+|  3792  |  [Sum of Increasing Product Blocks](/solution/3700-3799/3792.Sum%20of%20Increasing%20Product%20Blocks/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
