@@ -64,9 +64,9 @@ In total, there is only one magic square inside the given grid.
 
 ### Solution 1: Enumeration
 
-We directly enumerate the top-left coordinates $(i, j)$ of each $3 \times 3$ sub-matrix, then check whether the sub-matrix satisfies the "magic square" condition. If it does, increment the answer by one. After enumeration, return the answer.
+We directly enumerate the top-left coordinates $(i, j)$ of each $3 \times 3$ submatrix, then check whether the submatrix satisfies the "magic square" property. If so, we increment the answer by one. After the enumeration, we return the answer.
 
-Time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. Space complexity is $O(1)$.
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -314,6 +314,74 @@ function numMagicSquaresInside(grid: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_magic_squares_inside(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut ans: i32 = 0;
+
+        let check = |i: usize, j: usize, grid: &Vec<Vec<i32>>| -> i32 {
+            if i + 3 > m || j + 3 > n {
+                return 0;
+            }
+
+            let mut cnt = vec![0; 16];
+            let mut row = vec![0; 3];
+            let mut col = vec![0; 3];
+            let mut a = 0;
+            let mut b = 0;
+
+            for x in i..i + 3 {
+                for y in j..j + 3 {
+                    let v = grid[x][y] as usize;
+                    if v < 1 || v > 9 {
+                        return 0;
+                    }
+                    cnt[v] += 1;
+                    if cnt[v] > 1 {
+                        return 0;
+                    }
+
+                    let vv = grid[x][y];
+                    row[x - i] += vv;
+                    col[y - j] += vv;
+
+                    if x - i == y - j {
+                        a += vv;
+                    }
+                    if x - i + y - j == 2 {
+                        b += vv;
+                    }
+                }
+            }
+
+            if a != b {
+                return 0;
+            }
+
+            for k in 0..3 {
+                if row[k] != a || col[k] != a {
+                    return 0;
+                }
+            }
+
+            1
+        };
+
+        for i in 0..m {
+            for j in 0..n {
+                ans += check(i, j, &grid);
+            }
+        }
+
+        ans
+    }
+}
+```
+
 #### JavaScript
 
 ```js
@@ -361,108 +429,6 @@ function numMagicSquaresInside(grid) {
         }
     }
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-export function numMagicSquaresInside(grid: number[][]): number {
-    const [m, n] = [grid.length, grid[0].length];
-    if (m < 3 || n < 3) return 0;
-
-    const check = (y: number, x: number) => {
-        const g = grid;
-        if (g[y + 1][x + 1] !== 5) return 0;
-
-        const cells = [
-            g[y][x],
-            g[y][x + 1],
-            g[y][x + 2],
-            g[y + 1][x + 2],
-            g[y + 2][x + 2],
-            g[y + 2][x + 1],
-            g[y + 2][x],
-            g[y + 1][x],
-        ];
-
-        const i = cells.indexOf(2);
-        if (i === -1) return 0;
-        cells.push(...cells.splice(0, i));
-
-        const circle = [2, 9, 4, 3, 8, 1, 6, 7];
-        const reverseCircle = [2, 7, 6, 1, 8, 3, 4, 9];
-
-        if (cells.every((x, i) => x === circle[i])) return 1;
-        if (cells.every((x, i) => x === reverseCircle[i])) return 1;
-
-        return 0;
-    };
-
-    let res = 0;
-    for (let i = 0; i < m - 2; i++) {
-        for (let j = 0; j < n - 2; j++) {
-            res += check(i, j);
-        }
-    }
-
-    return res;
-}
-```
-
-#### JavaScript
-
-```js
-function numMagicSquaresInside(grid) {
-    const [m, n] = [grid.length, grid[0].length];
-    if (m < 3 || n < 3) return 0;
-
-    const check = (y, x) => {
-        const g = grid;
-        if (g[y + 1][x + 1] !== 5) return false;
-
-        const cells = [
-            g[y][x],
-            g[y][x + 1],
-            g[y][x + 2],
-            g[y + 1][x + 2],
-            g[y + 2][x + 2],
-            g[y + 2][x + 1],
-            g[y + 2][x],
-            g[y + 1][x],
-        ];
-
-        const i = cells.indexOf(2);
-        if (i === -1) return false;
-        cells.push(...cells.splice(0, i));
-
-        const circle = [2, 9, 4, 3, 8, 1, 6, 7];
-        const reverseCircle = [2, 7, 6, 1, 8, 3, 4, 9];
-
-        if (cells.every((x, i) => x === circle[i])) return true;
-        if (cells.every((x, i) => x === reverseCircle[i])) return true;
-
-        return false;
-    };
-
-    let res = 0;
-    for (let i = 0; i < m - 2; i++) {
-        for (let j = 0; j < n - 2; j++) {
-            res += +check(i, j);
-        }
-    }
-
-    return res;
 }
 ```
 
