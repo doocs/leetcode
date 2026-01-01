@@ -46,7 +46,7 @@ tags:
 
 ### Solution 1: Simulation
 
-We use a variable $carry$ to record the current carry, and two pointers $i$ and $j$ to point to the end of $a$ and $b$ respectively, and add them bit by bit from the end to the beginning.
+We use a variable $\textit{carry}$ to record the current carry, and two pointers $i$ and $j$ to point to the end of $a$ and $b$ respectively, and add them bit by bit from the end to the beginning.
 
 The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of strings $a$ and $b$ respectively. The space complexity is $O(1)$.
 
@@ -57,7 +57,14 @@ The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of str
 ```python
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        return bin(int(a, 2) + int(b, 2))[2:]
+        ans = []
+        i, j, carry = len(a) - 1, len(b) - 1, 0
+        while i >= 0 or j >= 0 or carry:
+            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
+            carry, v = divmod(carry, 2)
+            ans.append(str(v))
+            i, j = i - 1, j - 1
+        return "".join(ans[::-1])
 ```
 
 #### Java
@@ -123,7 +130,16 @@ func addBinary(a string, b string) string {
 
 ```ts
 function addBinary(a: string, b: string): string {
-    return (BigInt('0b' + a) + BigInt('0b' + b)).toString(2);
+    let i = a.length - 1;
+    let j = b.length - 1;
+    const ans: number[] = [];
+    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
+        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
+        ans.push(carry % 2);
+        carry >>= 1;
+    }
+    return ans.reverse().join('');
 }
 ```
 
@@ -173,48 +189,6 @@ public class Solution {
         Array.Reverse(ans);
         return new string(ans);
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def addBinary(self, a: str, b: str) -> str:
-        ans = []
-        i, j, carry = len(a) - 1, len(b) - 1, 0
-        while i >= 0 or j >= 0 or carry:
-            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
-            carry, v = divmod(carry, 2)
-            ans.append(str(v))
-            i, j = i - 1, j - 1
-        return ''.join(ans[::-1])
-```
-
-#### TypeScript
-
-```ts
-function addBinary(a: string, b: string): string {
-    let i = a.length - 1;
-    let j = b.length - 1;
-    let ans: number[] = [];
-    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
-        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
-        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
-        ans.push(carry % 2);
-        carry >>= 1;
-    }
-    return ans.reverse().join('');
 }
 ```
 
