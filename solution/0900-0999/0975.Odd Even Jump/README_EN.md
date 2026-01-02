@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> arr = [10,13,12,14,15]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 From starting index i = 0, we can make our 1st jump to i = 2 (since arr[2] is the smallest among arr[1], arr[2], arr[3], arr[4] that is greater or equal to arr[0]), then we cannot jump any more.
 From starting index i = 1 and i = 2, we can make our 1st jump to i = 3, then we cannot jump any more.
 From starting index i = 3, we can make our 1st jump to i = 4, so we have reached the end.
@@ -55,7 +55,7 @@ jumps.
 <pre>
 <strong>Input:</strong> arr = [2,3,1,1,4]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 From starting index i = 0, we make jumps to i = 1, i = 2, i = 3:
 During our 1st jump (odd-numbered), we first jump to i = 1 because arr[1] is the smallest value in [arr[1], arr[2], arr[3], arr[4]] that is greater than or equal to arr[0].
 During our 2nd jump (even-numbered), we jump from i = 1 to i = 2 because arr[2] is the largest value in [arr[2], arr[3], arr[4]] that is less than or equal to arr[1]. arr[3] is also the largest value, but 2 is a smaller index, so we can only jump to i = 2 and not i = 3
@@ -92,7 +92,13 @@ number of jumps.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Ordered Set + Memoization Search
+
+We first use an ordered set to preprocess the positions that can be jumped to from each position, recorded in array $g$, where $g[i][1]$ and $g[i][0]$ represent the positions that can be jumped to when the current position is an odd jump or an even jump, respectively. If no position can be jumped to, then both $g[i][1]$ and $g[i][0]$ are $-1$.
+
+Then using memoization search, starting from each position with the current being an odd jump, we determine whether we can jump to the end of the array. If we can, then increment the result by one.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -243,6 +249,58 @@ func oddEvenJumps(arr []int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::BTreeMap;
+
+impl Solution {
+    pub fn odd_even_jumps(arr: Vec<i32>) -> i32 {
+        let n: usize = arr.len();
+        let mut f: Vec<Vec<Option<i32>>> = vec![vec![None; 2]; n];
+        let mut g: Vec<Vec<i32>> = vec![vec![-1; 2]; n];
+        let mut tm: BTreeMap<i32, usize> = BTreeMap::new();
+
+        for i in (0..n).rev() {
+            if let Some((_, &v)) = tm.range(arr[i]..).next() {
+                g[i][1] = v as i32;
+            }
+            if let Some((_, &v)) = tm.range(..=arr[i]).next_back() {
+                g[i][0] = v as i32;
+            }
+            tm.insert(arr[i], i);
+        }
+
+        fn dfs(
+            i: usize,
+            k: usize,
+            n: usize,
+            f: &mut Vec<Vec<Option<i32>>>,
+            g: &Vec<Vec<i32>>,
+        ) -> i32 {
+            if i == n - 1 {
+                return 1;
+            }
+            if g[i][k] == -1 {
+                return 0;
+            }
+            if let Some(v) = f[i][k] {
+                return v;
+            }
+            let res = dfs(g[i][k] as usize, k ^ 1, n, f, g);
+            f[i][k] = Some(res);
+            res
+        }
+
+        let mut ans: i32 = 0;
+        for i in 0..n {
+            ans += dfs(i, 1, n, &mut f, &g);
+        }
+        ans
+    }
 }
 ```
 
