@@ -108,7 +108,7 @@ Time complexity is $O(L \cdot 9^2)$ and space complexity is $O(1)$, where $L$ is
 class Solution:
 	def countNoZeroPairs(self, n: int) -> int:
 		digits = list(map(int, str(n)))[::-1]
-		digits.append(0)
+		digits.append(0)  # absorb final carry
 		L = len(digits)
 
 		# dp[carry][aliveA][aliveB]
@@ -124,19 +124,27 @@ class Solution:
 						ways = dp[carry][aliveA][aliveB]
 						if ways == 0:
 							continue
-						aDigits = range(1, 10) if aliveA else (0,)
-						bDigits = range(1, 10) if aliveB else (0,)
-						for da in aDigits:
-							for db in bDigits:
+
+						if aliveA:
+							A = [(d, 1) for d in range(1, 10)]
+							if pos > 0:
+								A.append((0, 0))  # end number here
+						else:
+							A = [(0, 0)]
+
+						if aliveB:
+							B = [(d, 1) for d in range(1, 10)]
+							if pos > 0:
+								B.append((0, 0))
+						else:
+							B = [(0, 0)]
+
+						for da, na in A:
+							for db, nb in B:
 								s = da + db + carry
 								if s % 10 != target:
 									continue
-								ncarry = s // 10
-								nextAs = (aliveA, 0) if aliveA else (0,)
-								nextBs = (aliveB, 0) if aliveB else (0,)
-								for na in nextAs:
-									for nb in nextBs:
-										ndp[ncarry][na][nb] += ways
+								ndp[s // 10][na][nb] += ways
 			dp = ndp
 
 		return dp[0][0][0]
@@ -169,24 +177,48 @@ class Solution {
 						if (ways == 0) {
 							continue;
 						}
-						int aStart = aliveA == 1 ? 1 : 0;
-						int aEnd = aliveA == 1 ? 9 : 0;
-						int bStart = aliveB == 1 ? 1 : 0;
-						int bEnd = aliveB == 1 ? 9 : 0;
-						for (int da = aStart; da <= aEnd; da++) {
-							for (int db = bStart; db <= bEnd; db++) {
+						int[] aDigits;
+						int[] aNext;
+						if (aliveA == 1) {
+							if (pos == 0) {
+								aDigits = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
+								aNext = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1};
+							} else {
+								aDigits = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+								aNext = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 0};
+							}
+						} else {
+							aDigits = new int[] {0};
+							aNext = new int[] {0};
+						}
+
+						int[] bDigits;
+						int[] bNext;
+						if (aliveB == 1) {
+							if (pos == 0) {
+								bDigits = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
+								bNext = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1};
+							} else {
+								bDigits = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+								bNext = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 0};
+							}
+						} else {
+							bDigits = new int[] {0};
+							bNext = new int[] {0};
+						}
+
+						for (int ai = 0; ai < aDigits.length; ai++) {
+							int da = aDigits[ai];
+							int na = aNext[ai];
+							for (int bi = 0; bi < bDigits.length; bi++) {
+								int db = bDigits[bi];
+								int nb = bNext[bi];
 								int s = da + db + carry;
 								if (s % 10 != target) {
 									continue;
 								}
 								int ncarry = s / 10;
-								int[] nextAs = aliveA == 1 ? new int[] {1, 0} : new int[] {0};
-								int[] nextBs = aliveB == 1 ? new int[] {1, 0} : new int[] {0};
-								for (int na : nextAs) {
-									for (int nb : nextBs) {
-										ndp[ncarry][na][nb] += ways;
-									}
-								}
+								ndp[ncarry][na][nb] += ways;
 							}
 						}
 					}
@@ -226,28 +258,56 @@ public:
 					for (int aliveB = 0; aliveB <= 1; aliveB++) {
 						long long ways = dp[carry][aliveA][aliveB];
 						if (!ways) continue;
-						int aStart = aliveA ? 1 : 0;
-						int aEnd = aliveA ? 9 : 0;
-						int bStart = aliveB ? 1 : 0;
-						int bEnd = aliveB ? 9 : 0;
-						for (int da = aStart; da <= aEnd; da++) {
-							for (int db = bStart; db <= bEnd; db++) {
+						int aDigits[10];
+						int aNext[10];
+						int aLen = 0;
+						if (aliveA) {
+							for (int d = 1; d <= 9; d++) {
+								aDigits[aLen] = d;
+								aNext[aLen] = 1;
+								aLen++;
+							}
+							if (pos > 0) {
+								aDigits[aLen] = 0;
+								aNext[aLen] = 0;
+								aLen++;
+							}
+						} else {
+							aDigits[0] = 0;
+							aNext[0] = 0;
+							aLen = 1;
+						}
+
+						int bDigits[10];
+						int bNext[10];
+						int bLen = 0;
+						if (aliveB) {
+							for (int d = 1; d <= 9; d++) {
+								bDigits[bLen] = d;
+								bNext[bLen] = 1;
+								bLen++;
+							}
+							if (pos > 0) {
+								bDigits[bLen] = 0;
+								bNext[bLen] = 0;
+								bLen++;
+							}
+						} else {
+							bDigits[0] = 0;
+							bNext[0] = 0;
+							bLen = 1;
+						}
+
+						for (int ia = 0; ia < aLen; ia++) {
+							int da = aDigits[ia];
+							int na = aNext[ia];
+							for (int ib = 0; ib < bLen; ib++) {
+								int db = bDigits[ib];
+								int nb = bNext[ib];
 								int sum = da + db + carry;
 								if (sum % 10 != target) continue;
 								int ncarry = sum / 10;
-								int nextAs[2] = {0, 0};
-								int nextBs[2] = {0, 0};
-								int naLen = aliveA ? 2 : 1;
-								int nbLen = aliveB ? 2 : 1;
-								nextAs[0] = aliveA;
-								nextAs[1] = 0;
-								nextBs[0] = aliveB;
-								nextBs[1] = 0;
-								for (int ia = 0; ia < naLen; ia++) {
-									for (int ib = 0; ib < nbLen; ib++) {
-										ndp[ncarry][nextAs[ia]][nextBs[ib]] += ways;
-									}
-								}
+								ndp[ncarry][na][nb] += ways;
 							}
 						}
 					}
@@ -255,6 +315,7 @@ public:
 			}
 			std::memcpy(dp, ndp, sizeof(dp));
 		}
+
 		return dp[0][0][0];
 	}
 };
@@ -290,34 +351,54 @@ func countNoZeroPairs(n int64) int64 {
 					if ways == 0 {
 						continue
 					}
-					aStart, aEnd := 0, 0
+					var A [10][2]int
+					aLen := 0
 					if aliveA == 1 {
-						aStart, aEnd = 1, 9
+						for d := 1; d <= 9; d++ {
+							A[aLen][0] = d
+							A[aLen][1] = 1
+							aLen++
+						}
+						if pos > 0 {
+							A[aLen][0] = 0
+							A[aLen][1] = 0
+							aLen++
+						}
+					} else {
+						A[0][0] = 0
+						A[0][1] = 0
+						aLen = 1
 					}
-					bStart, bEnd := 0, 0
+
+					var B [10][2]int
+					bLen := 0
 					if aliveB == 1 {
-						bStart, bEnd = 1, 9
+						for d := 1; d <= 9; d++ {
+							B[bLen][0] = d
+							B[bLen][1] = 1
+							bLen++
+						}
+						if pos > 0 {
+							B[bLen][0] = 0
+							B[bLen][1] = 0
+							bLen++
+						}
+					} else {
+						B[0][0] = 0
+						B[0][1] = 0
+						bLen = 1
 					}
-					nextAs := []int{0}
-					if aliveA == 1 {
-						nextAs = []int{1, 0}
-					}
-					nextBs := []int{0}
-					if aliveB == 1 {
-						nextBs = []int{1, 0}
-					}
-					for da := aStart; da <= aEnd; da++ {
-						for db := bStart; db <= bEnd; db++ {
+
+					for ai := 0; ai < aLen; ai++ {
+						da, na := A[ai][0], A[ai][1]
+						for bi := 0; bi < bLen; bi++ {
+							db, nb := B[bi][0], B[bi][1]
 							sum := da + db + carry
 							if sum%10 != target {
 								continue
 							}
 							ncarry := sum / 10
-							for _, na := range nextAs {
-								for _, nb := range nextBs {
-									ndp[ncarry][na][nb] += ways
-								}
-							}
+							ndp[ncarry][na][nb] += ways
 						}
 					}
 				}
