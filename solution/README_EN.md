@@ -3801,6 +3801,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3790  |  [Smallest All-Ones Multiple](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README_EN.md)  |    |  Medium  |  Weekly Contest 482  |
 |  3791  |  [Number of Balanced Integers in a Range](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 482  |
 |  3792  |  [Sum of Increasing Product Blocks](/solution/3700-3799/3792.Sum%20of%20Increasing%20Product%20Blocks/README_EN.md)  |    |  Medium  |  🔒  |
+|  3793  |  [Find Users with High Token Usage](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README_EN.md)  |    |  Easy  |    |
 
 ## Copyright
 
