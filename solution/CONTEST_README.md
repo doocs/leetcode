@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 173 场双周赛(2026-01-03 22:30, 90 分钟) 参赛人数 1126
+
+- [3794. 反转字符串前缀](/solution/3700-3799/3794.Reverse%20String%20Prefix/README.md)
+- [3795. 不同元素和至少为 K 的最短子数组长度](/solution/3700-3799/3795.Minimum%20Subarray%20Length%20With%20Distinct%20Sum%20At%20Least%20K/README.md)
+- [3796. 找到带限制序列的最大值](/solution/3700-3799/3796.Find%20Maximum%20Value%20in%20a%20Constrained%20Sequence/README.md)
+- [3797. 统计在矩形格子里移动的路径数目](/solution/3700-3799/3797.Count%20Routes%20to%20Climb%20a%20Rectangular%20Grid/README.md)
+
 #### 第 482 场周赛(2025-12-28 10:30, 90 分钟) 参赛人数 1709
 
 - [3788. 分割的最大得分](/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README.md)

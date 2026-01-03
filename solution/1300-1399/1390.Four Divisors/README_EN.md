@@ -27,7 +27,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [21,4,7]
 <strong>Output:</strong> 32
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 21 has 4 divisors: 1, 3, 7, 21
 4 has 3 divisors: 1, 2, 4
 7 has 2 divisors: 1, 7
@@ -197,11 +197,38 @@ function sumFourDivisors(nums: number[]): number {
         }
         return cnt === 4 ? s : 0;
     };
-    let ans = 0;
-    for (const x of nums) {
-        ans += f(x);
+    return nums.reduce((acc, x) => acc + f(x), 0);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_four_divisors(nums: Vec<i32>) -> i32 {
+        let f = |x: i32| -> i32 {
+            let mut cnt = 2;
+            let mut s = x + 1;
+            let mut i = 2;
+            while i <= x / i {
+                if x % i == 0 {
+                    cnt += 1;
+                    s += i;
+                    if i * i != x {
+                        cnt += 1;
+                        s += x / i;
+                    }
+                }
+                i += 1;
+            }
+            if cnt == 4 { s } else { 0 }
+        };
+        let mut ans = 0;
+        for x in nums {
+            ans += f(x);
+        }
+        ans
     }
-    return ans;
 }
 ```
 

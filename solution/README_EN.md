@@ -3802,6 +3802,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3791  |  [Number of Balanced Integers in a Range](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 482  |
 |  3792  |  [Sum of Increasing Product Blocks](/solution/3700-3799/3792.Sum%20of%20Increasing%20Product%20Blocks/README_EN.md)  |    |  Medium  |  🔒  |
 |  3793  |  [Find Users with High Token Usage](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README_EN.md)  |    |  Easy  |    |
+|  3794  |  [Reverse String Prefix](/solution/3700-3799/3794.Reverse%20String%20Prefix/README_EN.md)  |    |  Easy  |  Biweekly Contest 173  |
+|  3795  |  [Minimum Subarray Length With Distinct Sum At Least K](/solution/3700-3799/3795.Minimum%20Subarray%20Length%20With%20Distinct%20Sum%20At%20Least%20K/README_EN.md)  |    |  Medium  |  Biweekly Contest 173  |
+|  3796  |  [Find Maximum Value in a Constrained Sequence](/solution/3700-3799/3796.Find%20Maximum%20Value%20in%20a%20Constrained%20Sequence/README_EN.md)  |    |  Medium  |  Biweekly Contest 173  |
+|  3797  |  [Count Routes to Climb a Rectangular Grid](/solution/3700-3799/3797.Count%20Routes%20to%20Climb%20a%20Rectangular%20Grid/README_EN.md)  |    |  Hard  |  Biweekly Contest 173  |
 
 ## Copyright
 
