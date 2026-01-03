@@ -3803,6 +3803,7 @@
 |  3790  |  [最小全 1 倍数](/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README.md)  |    |  中等  |  第 482 场周赛  |
 |  3791  |  [给定范围内平衡整数的数目](/solution/3700-3799/3791.Number%20of%20Balanced%20Integers%20in%20a%20Range/README.md)  |    |  困难  |  第 482 场周赛  |
 |  3792  |  [递增乘积块之和](/solution/3700-3799/3792.Sum%20of%20Increasing%20Product%20Blocks/README.md)  |    |  中等  |  🔒  |
+|  3793  |  [Find Users with High Token Usage](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md)  |    |  简单  |    |
 
 ## 版权
 

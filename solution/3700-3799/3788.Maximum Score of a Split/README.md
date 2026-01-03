@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README.md
+rating: 1306
+source: 第 482 场周赛 Q1
 ---
 
 <!-- problem:start -->

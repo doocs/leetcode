@@ -41,7 +41,7 @@ tags:
 <pre>
 <strong>Input:</strong> arr = [10,13,12,14,15]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 From starting index i = 0, we can make our 1st jump to i = 2 (since arr[2] is the smallest among arr[1], arr[2], arr[3], arr[4] that is greater or equal to arr[0]), then we cannot jump any more.
 From starting index i = 1 and i = 2, we can make our 1st jump to i = 3, then we cannot jump any more.
 From starting index i = 3, we can make our 1st jump to i = 4, so we have reached the end.
@@ -55,7 +55,7 @@ jumps.
 <pre>
 <strong>Input:</strong> arr = [2,3,1,1,4]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 From starting index i = 0, we make jumps to i = 1, i = 2, i = 3:
 During our 1st jump (odd-numbered), we first jump to i = 1 because arr[1] is the smallest value in [arr[1], arr[2], arr[3], arr[4]] that is greater than or equal to arr[0].
 During our 2nd jump (even-numbered), we jump from i = 1 to i = 2 because arr[2] is the largest value in [arr[2], arr[3], arr[4]] that is less than or equal to arr[1]. arr[3] is also the largest value, but 2 is a smaller index, so we can only jump to i = 2 and not i = 3
