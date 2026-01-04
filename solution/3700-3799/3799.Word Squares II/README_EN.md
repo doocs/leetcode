@@ -103,25 +103,178 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3799.Wo
 #### Python3
 
 ```python
-
+class Solution:
+    def wordSquares(self, words: List[str]) -> List[List[str]]:
+        words.sort()
+        n = len(words)
+        ans = []
+        for i in range(n):
+            top = words[i]
+            for j in range(n):
+                if j != i:
+                    left = words[j]
+                    for k in range(n):
+                        if k != j and k != i:
+                            right = words[k]
+                            for h in range(n):
+                                if h != k and h != j and h != i:
+                                    bottom = words[h]
+                                    if (
+                                        top[0] == left[0]
+                                        and top[3] == right[0]
+                                        and bottom[0] == left[3]
+                                        and bottom[3] == right[3]
+                                    ):
+                                        ans.append([top, left, right, bottom])
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<List<String>> wordSquares(String[] words) {
+        Arrays.sort(words);
+        int n = words.length;
+        List<List<String>> ans = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            String top = words[i];
+            for (int j = 0; j < n; j++) {
+                if (j != i) {
+                    String left = words[j];
+                    for (int k = 0; k < n; k++) {
+                        if (k != j && k != i) {
+                            String right = words[k];
+                            for (int h = 0; h < n; h++) {
+                                if (h != k && h != j && h != i) {
+                                    String bottom = words[h];
+                                    if (top.charAt(0) == left.charAt(0)
+                                        && top.charAt(3) == right.charAt(0)
+                                        && bottom.charAt(0) == left.charAt(3)
+                                        && bottom.charAt(3) == right.charAt(3)) {
+                                        ans.add(List.of(top, left, right, bottom));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<vector<string>> wordSquares(vector<string>& words) {
+        ranges::sort(words);
+        int n = words.size();
+        vector<vector<string>> ans;
 
+        for (int i = 0; i < n; i++) {
+            string top = words[i];
+            for (int j = 0; j < n; j++) {
+                if (j != i) {
+                    string left = words[j];
+                    for (int k = 0; k < n; k++) {
+                        if (k != j && k != i) {
+                            string right = words[k];
+                            for (int h = 0; h < n; h++) {
+                                if (h != k && h != j && h != i) {
+                                    string bottom = words[h];
+                                    if (top[0] == left[0] && top[3] == right[0] && bottom[0] == left[3] && bottom[3] == right[3]) {
+                                        ans.push_back({top, left, right, bottom});
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func wordSquares(words []string) [][]string {
+	sort.Strings(words)
+	n := len(words)
+	ans := [][]string{}
 
+	for i := 0; i < n; i++ {
+		top := words[i]
+		for j := 0; j < n; j++ {
+			if j != i {
+				left := words[j]
+				for k := 0; k < n; k++ {
+					if k != j && k != i {
+						right := words[k]
+						for h := 0; h < n; h++ {
+							if h != k && h != j && h != i {
+								bottom := words[h]
+								if top[0] == left[0] &&
+									top[3] == right[0] &&
+									bottom[0] == left[3] &&
+									bottom[3] == right[3] {
+									ans = append(ans, []string{top, left, right, bottom})
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function wordSquares(words: string[]): string[][] {
+    words.sort();
+    const n = words.length;
+    const ans: string[][] = [];
+
+    for (let i = 0; i < n; i++) {
+        const top = words[i];
+        for (let j = 0; j < n; j++) {
+            if (j !== i) {
+                const left = words[j];
+                for (let k = 0; k < n; k++) {
+                    if (k !== j && k !== i) {
+                        const right = words[k];
+                        for (let h = 0; h < n; h++) {
+                            if (h !== k && h !== j && h !== i) {
+                                const bottom = words[h];
+                                if (
+                                    top[0] === left[0] &&
+                                    top[3] === right[0] &&
+                                    bottom[0] === left[3] &&
+                                    bottom[3] === right[3]
+                                ) {
+                                    ans.push([top, left, right, bottom]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

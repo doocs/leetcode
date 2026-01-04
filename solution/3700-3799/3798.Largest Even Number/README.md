@@ -80,25 +80,53 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3798.La
 #### Python3
 
 ```python
-
+class Solution:
+    def largestEven(self, s: str) -> str:
+        return s.rstrip("1")
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String largestEven(String s) {
+        int i = s.length();
+        while (i > 0 && s.charAt(i - 1) == '1') {
+            i--;
+        }
+        return s.substring(0, i);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string largestEven(string s) {
+        while (!s.empty() && s.back() == '1') {
+            s.pop_back();
+        }
+        return s;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func largestEven(s string) string {
+	return strings.TrimRight(s, "1")
+}
+```
 
+#### TypeScript
+
+```ts
+function largestEven(s: string): string {
+    return s.replace(/1+$/, '');
+}
 ```
 
 <!-- tabs:end -->

@@ -98,25 +98,137 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3800.Mi
 #### Python3
 
 ```python
-
+class Solution:
+    def minimumCost(
+        self, s: str, t: str, flipCost: int, swapCost: int, crossCost: int
+    ) -> int:
+        diff = [0] * 2
+        for c1, c2 in zip(s, t):
+            if c1 != c2:
+                diff[int(c1)] += 1
+        ans = (diff[0] + diff[1]) * flipCost
+        mx = max(diff)
+        mn = min(diff)
+        ans = min(ans, mn * swapCost + (mx - mn) * flipCost)
+        avg = (mx + mn) // 2
+        ans = min(
+            ans,
+            (avg - mn) * crossCost + avg * swapCost + (mx + mn - avg * 2) * flipCost,
+        )
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long minimumCost(String s, String t, int flipCost, int swapCost, int crossCost) {
+        long[] diff = new long[2];
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            char c1 = s.charAt(i), c2 = t.charAt(i);
+            if (c1 != c2) {
+                diff[c1 - '0']++;
+            }
+        }
 
+        long ans = (diff[0] + diff[1]) * flipCost;
+
+        long mx = Math.max(diff[0], diff[1]);
+        long mn = Math.min(diff[0], diff[1]);
+        ans = Math.min(ans, mn * swapCost + (mx - mn) * flipCost);
+
+        long avg = (mx + mn) / 2;
+        ans = Math.min(
+            ans, (avg - mn) * crossCost + avg * swapCost + (mx + mn - avg * 2) * flipCost);
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minimumCost(string s, string t, int flipCost, int swapCost, int crossCost) {
+        long long diff[2] = {0, 0};
+        int n = s.size();
+        for (int i = 0; i < n; i++) {
+            if (s[i] != t[i]) {
+                diff[s[i] - '0']++;
+            }
+        }
 
+        long long ans = (diff[0] + diff[1]) * flipCost;
+
+        long long mx = max(diff[0], diff[1]);
+        long long mn = min(diff[0], diff[1]);
+        ans = min(ans, mn * 1LL * swapCost + (mx - mn) * flipCost);
+
+        long long avg = (mx + mn) / 2;
+        ans = min(ans, (avg - mn) * crossCost + avg * swapCost + (mx + mn - avg * 2) * flipCost);
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minimumCost(s string, t string, flipCost int, swapCost int, crossCost int) int64 {
+	var diff [2]int64
+	n := len(s)
+	for i := 0; i < n; i++ {
+		if s[i] != t[i] {
+			diff[s[i]-'0']++
+		}
+	}
 
+	ans := (diff[0] + diff[1]) * int64(flipCost)
+
+	mx := max(diff[0], diff[1])
+	mn := min(diff[0], diff[1])
+	ans = min(ans, mn*int64(swapCost)+(mx-mn)*int64(flipCost))
+
+	avg := (mx + mn) / 2
+	ans = min(ans, (avg-mn)*int64(crossCost)+avg*int64(swapCost)+(mx+mn-avg*2)*int64(flipCost))
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumCost(
+    s: string,
+    t: string,
+    flipCost: number,
+    swapCost: number,
+    crossCost: number,
+): number {
+    const diff: number[] = [0, 0];
+    const n = s.length;
+
+    for (let i = 0; i < n; i++) {
+        if (s[i] !== t[i]) {
+            diff[s.charCodeAt(i) - 48]++;
+        }
+    }
+
+    let ans = (diff[0] + diff[1]) * flipCost;
+
+    const mx = Math.max(diff[0], diff[1]);
+    const mn = Math.min(diff[0], diff[1]);
+    ans = Math.min(ans, mn * swapCost + (mx - mn) * flipCost);
+
+    const avg = (mx + mn) >> 1;
+    ans = Math.min(ans, (avg - mn) * crossCost + avg * swapCost + (mx + mn - avg * 2) * flipCost);
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
