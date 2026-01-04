@@ -3806,6 +3806,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3795  |  [Minimum Subarray Length With Distinct Sum At Least K](/solution/3700-3799/3795.Minimum%20Subarray%20Length%20With%20Distinct%20Sum%20At%20Least%20K/README_EN.md)  |    |  Medium  |  Biweekly Contest 173  |
 |  3796  |  [Find Maximum Value in a Constrained Sequence](/solution/3700-3799/3796.Find%20Maximum%20Value%20in%20a%20Constrained%20Sequence/README_EN.md)  |    |  Medium  |  Biweekly Contest 173  |
 |  3797  |  [Count Routes to Climb a Rectangular Grid](/solution/3700-3799/3797.Count%20Routes%20to%20Climb%20a%20Rectangular%20Grid/README_EN.md)  |    |  Hard  |  Biweekly Contest 173  |
+|  3798  |  [Largest Even Number](/solution/3700-3799/3798.Largest%20Even%20Number/README_EN.md)  |    |  Easy  |  Weekly Contest 483  |
+|  3799  |  [Word Squares II](/solution/3700-3799/3799.Word%20Squares%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 483  |
+|  3800  |  [Minimum Cost to Make Two Binary Strings Equal](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 483  |
+|  3801  |  [Minimum Cost to Merge Sorted Lists](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README_EN.md)  |    |  Hard  |  Weekly Contest 483  |
 
 ## Copyright
 

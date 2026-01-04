@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 483 场周赛(2026-01-04 10:30, 90 分钟) 参赛人数 1373
+
+- [3798. 最大的偶数](/solution/3700-3799/3798.Largest%20Even%20Number/README.md)
+- [3799. 单词方块 II](/solution/3700-3799/3799.Word%20Squares%20II/README.md)
+- [3800. 使二进制字符串相等的最小成本](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README.md)
+- [3801. 合并有序列表的最小成本](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README.md)
+
 #### 第 173 场双周赛(2026-01-03 22:30, 90 分钟) 参赛人数 1126
 
 - [3794. 反转字符串前缀](/solution/3700-3799/3794.Reverse%20String%20Prefix/README.md)

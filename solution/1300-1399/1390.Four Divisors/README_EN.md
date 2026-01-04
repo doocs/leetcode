@@ -27,7 +27,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [21,4,7]
 <strong>Output:</strong> 32
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 21 has 4 divisors: 1, 3, 7, 21
 4 has 3 divisors: 1, 2, 4
 7 has 2 divisors: 1, 7

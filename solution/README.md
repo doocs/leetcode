@@ -3808,6 +3808,10 @@
 |  3795  |  [不同元素和至少为 K 的最短子数组长度](/solution/3700-3799/3795.Minimum%20Subarray%20Length%20With%20Distinct%20Sum%20At%20Least%20K/README.md)  |    |  中等  |  第 173 场双周赛  |
 |  3796  |  [找到带限制序列的最大值](/solution/3700-3799/3796.Find%20Maximum%20Value%20in%20a%20Constrained%20Sequence/README.md)  |    |  中等  |  第 173 场双周赛  |
 |  3797  |  [统计在矩形格子里移动的路径数目](/solution/3700-3799/3797.Count%20Routes%20to%20Climb%20a%20Rectangular%20Grid/README.md)  |    |  困难  |  第 173 场双周赛  |
+|  3798  |  [最大的偶数](/solution/3700-3799/3798.Largest%20Even%20Number/README.md)  |    |  简单  |  第 483 场周赛  |
+|  3799  |  [单词方块 II](/solution/3700-3799/3799.Word%20Squares%20II/README.md)  |    |  中等  |  第 483 场周赛  |
+|  3800  |  [使二进制字符串相等的最小成本](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README.md)  |    |  中等  |  第 483 场周赛  |
+|  3801  |  [合并有序列表的最小成本](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README.md)  |    |  困难  |  第 483 场周赛  |
 
 ## 版权
 
