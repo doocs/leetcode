@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 483
+
+- [3798. Largest Even Number](/solution/3700-3799/3798.Largest%20Even%20Number/README_EN.md)
+- [3799. Word Squares II](/solution/3700-3799/3799.Word%20Squares%20II/README_EN.md)
+- [3800. Minimum Cost to Make Two Binary Strings Equal](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README_EN.md)
+- [3801. Minimum Cost to Merge Sorted Lists](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README_EN.md)
+
 #### Biweekly Contest 173
 
 - [3794. Reverse String Prefix](/solution/3700-3799/3794.Reverse%20String%20Prefix/README_EN.md)
