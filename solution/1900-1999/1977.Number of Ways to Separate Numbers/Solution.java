@@ -1,7 +1,6 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numberOfCombinations(String num) {
+        final int mod = (int) 1e9 + 7;
         int n = num.length();
         int[][] lcp = new int[n + 1][n + 1];
         for (int i = n - 1; i >= 0; --i) {
@@ -27,7 +26,7 @@ class Solution {
                         v = dp[i - j][Math.min(j - 1, i - j)];
                     }
                 }
-                dp[i][j] = (dp[i][j - 1] + v) % MOD;
+                dp[i][j] = (dp[i][j - 1] + v) % mod;
             }
         }
         return dp[n][n];

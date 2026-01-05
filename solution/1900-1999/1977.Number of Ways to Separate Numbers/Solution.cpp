@@ -1,8 +1,7 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int numberOfCombinations(string num) {
+        const int mod = 1e9 + 7;
         int n = num.size();
         vector<vector<int>> lcp(n + 1, vector<int>(n + 1));
         for (int i = n - 1; i >= 0; --i) {
