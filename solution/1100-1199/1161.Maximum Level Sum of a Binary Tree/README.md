@@ -177,10 +177,17 @@ public:
                 root = q.front();
                 q.pop();
                 s += root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
-            if (mx < s) mx = s, ans = i;
+            if (mx < s) {
+                mx = s;
+                ans = i;
+            }
         }
         return ans;
     }
@@ -244,26 +251,91 @@ func maxLevelSum(root *TreeNode) int {
  */
 
 function maxLevelSum(root: TreeNode | null): number {
-    const queue = [root];
-    let res = 1;
-    let max = -Infinity;
-    let h = 1;
-    while (queue.length !== 0) {
-        const n = queue.length;
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            const { val, left, right } = queue.shift();
-            sum += val;
-            left && queue.push(left);
-            right && queue.push(right);
+    let q = [root];
+    let i = 0;
+    let mx = -Infinity;
+    let ans = 0;
+    while (q.length) {
+        ++i;
+        const nq = [];
+        let s = 0;
+        for (const { val, left, right } of q) {
+            s += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
-        if (sum > max) {
-            max = sum;
-            res = h;
+        if (mx < s) {
+            mx = s;
+            ans = i;
         }
-        h++;
+        q = nq;
     }
-    return res;
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn max_level_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut q = VecDeque::new();
+        if let Some(r) = root {
+            q.push_back(r);
+        }
+
+        let mut i = 0;
+        let mut mx = i32::MIN;
+        let mut ans = 0;
+
+        while !q.is_empty() {
+            i += 1;
+            let mut s = 0;
+            let sz = q.len();
+
+            for _ in 0..sz {
+                let node = q.pop_front().unwrap();
+                let node = node.borrow();
+
+                s += node.val;
+
+                if let Some(left) = node.left.clone() {
+                    q.push_back(left);
+                }
+                if let Some(right) = node.right.clone() {
+                    q.push_back(right);
+                }
+            }
+
+            if s > mx {
+                mx = s;
+                ans = i;
+            }
+        }
+
+        ans
+    }
 }
 ```
 
