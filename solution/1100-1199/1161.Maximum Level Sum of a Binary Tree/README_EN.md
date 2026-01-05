@@ -61,9 +61,11 @@ So we return the level with the maximum sum which is level 2.
 
 ### Solution 1: BFS
 
-We can use BFS to traverse the tree level by level, calculate the sum of nodes at each level, and find the level with the maximum sum. If there are multiple levels with the maximum sum, return the smallest level.
+We use BFS to traverse level by level, calculating the sum of nodes at each level, and find the level with the maximum sum. If there are multiple levels with the maximum sum, return the smallest level number.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
+Specifically, we use a queue $q$ to store the nodes of the current level. During each traversal, we record the sum of nodes at the current level as $s$, then add all child nodes of the current level to the queue to prepare for the next level. We use variable $mx$ to record the current maximum sum, and variable $ans$ to record the corresponding level number. After calculating the sum of each level, if $s$ is greater than $mx$, we update $mx$ and $ans$. Finally, we return $ans$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
