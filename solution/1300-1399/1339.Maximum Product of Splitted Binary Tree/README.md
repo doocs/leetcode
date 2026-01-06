@@ -75,9 +75,9 @@ tags:
 
 我们可以用两次 DFS 来解决这个问题。
 
-第一次，我们用一个 $sum(root)$ 函数递归求出整棵树所有节点的和，记为 $s$。
+第一次，我们用一个 $\text{sum}(\text{root})$ 函数递归求出整棵树所有节点的和，记为 $s$。
 
-第二次，我们用一个 $dfs(root)$ 函数递归遍历每个节点，求出以当前节点为根的子树的节点和 $t$，那么当前节点与其父节点分裂后两棵子树的节点和分别为 $t$ 和 $s - t$，它们的乘积为 $t \times (s - t)$，我们遍历所有节点，求出乘积的最大值，即为答案。
+第二次，我们用一个 $\text{dfs}(\text{root})$ 函数递归遍历每个节点，求出以当前节点为根的子树的节点和 $t$，那么当前节点与其父节点分裂后两棵子树的节点和分别为 $t$ 和 $s - t$，它们的乘积为 $t \times (s - t)$，我们遍历所有节点，求出乘积的最大值，即为答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
@@ -185,7 +185,7 @@ public:
         ll ans = 0;
         const int mod = 1e9 + 7;
 
-        function<ll(TreeNode*)> sum = [&](TreeNode* root) -> ll {
+        auto sum = [&](this auto&& sum, TreeNode* root) -> ll {
             if (!root) {
                 return 0;
             }
@@ -194,7 +194,7 @@ public:
 
         ll s = sum(root);
 
-        function<ll(TreeNode*)> dfs = [&](TreeNode* root) -> ll {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> ll {
             if (!root) {
                 return 0;
             }
@@ -288,6 +288,63 @@ function maxProduct(root: TreeNode | null): number {
     };
     dfs(root);
     return ans % mod;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution {
+    pub fn max_product(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let mut ans: i64 = 0;
+        let s = Self::sum(&root);
+        Self::dfs(&root, s, &mut ans);
+        (ans % MOD) as i32
+    }
+
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, s: i64, ans: &mut i64) -> i64 {
+        if root.is_none() {
+            return 0;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        let t = node.val as i64
+            + Self::dfs(&node.left, s, ans)
+            + Self::dfs(&node.right, s, ans);
+        if t < s {
+            *ans = (*ans).max(t * (s - t));
+        }
+        t
+    }
+
+    fn sum(root: &Option<Rc<RefCell<TreeNode>>>) -> i64 {
+        if root.is_none() {
+            return 0;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        node.val as i64 + Self::sum(&node.left) + Self::sum(&node.right)
+    }
 }
 ```
 

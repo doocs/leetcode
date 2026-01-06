@@ -16,7 +16,7 @@ public:
         ll ans = 0;
         const int mod = 1e9 + 7;
 
-        function<ll(TreeNode*)> sum = [&](TreeNode* root) -> ll {
+        auto sum = [&](this auto&& sum, TreeNode* root) -> ll {
             if (!root) {
                 return 0;
             }
@@ -25,7 +25,7 @@ public:
 
         ll s = sum(root);
 
-        function<ll(TreeNode*)> dfs = [&](TreeNode* root) -> ll {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> ll {
             if (!root) {
                 return 0;
             }
