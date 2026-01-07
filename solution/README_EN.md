@@ -3810,6 +3810,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3799  |  [Word Squares II](/solution/3700-3799/3799.Word%20Squares%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 483  |
 |  3800  |  [Minimum Cost to Make Two Binary Strings Equal](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 483  |
 |  3801  |  [Minimum Cost to Merge Sorted Lists](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README_EN.md)  |    |  Hard  |  Weekly Contest 483  |
+|  3802  |  [Number of Ways to Paint Sheets](/solution/3800-3899/3802.Number%20of%20Ways%20to%20Paint%20Sheets/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

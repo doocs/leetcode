@@ -3812,6 +3812,7 @@
 |  3799  |  [单词方块 II](/solution/3700-3799/3799.Word%20Squares%20II/README.md)  |    |  中等  |  第 483 场周赛  |
 |  3800  |  [使二进制字符串相等的最小成本](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README.md)  |    |  中等  |  第 483 场周赛  |
 |  3801  |  [合并有序列表的最小成本](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README.md)  |    |  困难  |  第 483 场周赛  |
+|  3802  |  [给纸张涂色的方式数量](/solution/3800-3899/3802.Number%20of%20Ways%20to%20Paint%20Sheets/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
