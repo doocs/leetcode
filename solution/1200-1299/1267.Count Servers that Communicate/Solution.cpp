@@ -5,10 +5,8 @@ public:
         vector<int> row(m), col(n);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j]) {
-                    ++row[i];
-                    ++col[j];
-                }
+                row[i] += grid[i][j];
+                col[j] += grid[i][j];
             }
         }
         int ans = 0;

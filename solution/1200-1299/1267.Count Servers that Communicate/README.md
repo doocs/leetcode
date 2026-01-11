@@ -95,9 +95,8 @@ class Solution:
         col = [0] * n
         for i in range(m):
             for j in range(n):
-                if grid[i][j]:
-                    row[i] += 1
-                    col[j] += 1
+                row[i] += grid[i][j]
+                col[j] += grid[i][j]
         return sum(
             grid[i][j] and (row[i] > 1 or col[j] > 1)
             for i in range(m)
@@ -115,10 +114,8 @@ class Solution {
         int[] col = new int[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == 1) {
-                    row[i]++;
-                    col[j]++;
-                }
+                row[i] += grid[i][j];
+                col[j] += grid[i][j];
             }
         }
         int ans = 0;
@@ -144,10 +141,8 @@ public:
         vector<int> row(m), col(n);
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid[i][j]) {
-                    ++row[i];
-                    ++col[j];
-                }
+                row[i] += grid[i][j];
+                col[j] += grid[i][j];
             }
         }
         int ans = 0;
@@ -169,10 +164,8 @@ func countServers(grid [][]int) (ans int) {
 	row, col := make([]int, m), make([]int, n)
 	for i := range grid {
 		for j, x := range grid[i] {
-			if x == 1 {
-				row[i]++
-				col[j]++
-			}
+			row[i] += x
+			col[j] += x
 		}
 	}
 	for i := range grid {
@@ -196,10 +189,8 @@ function countServers(grid: number[][]): number {
     const col = new Array(n).fill(0);
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            if (grid[i][j] === 1) {
-                row[i]++;
-                col[j]++;
-            }
+            row[i] += grid[i][j];
+            col[j] += grid[i][j];
         }
     }
     let ans = 0;
@@ -211,6 +202,34 @@ function countServers(grid: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_servers(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut row = vec![0; m];
+        let mut col = vec![0; n];
+        for i in 0..m {
+            for j in 0..n {
+                row[i] += grid[i][j];
+                col[j] += grid[i][j];
+            }
+        }
+        let mut ans = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if grid[i][j] == 1 && (row[i] > 1 || col[j] > 1) {
+                    ans += 1;
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
