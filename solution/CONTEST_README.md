@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 484 场周赛(2026-01-11 10:30, 90 分钟) 参赛人数 1550
+
+- [3803. 统计残差前缀](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README.md)
+- [3804. 中心子数组的数量](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README.md)
+- [3805. 统计凯撒加密对数目](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README.md)
+- [3806. 增加操作后最大按位与的结果](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README.md)
+
 #### 第 483 场周赛(2026-01-04 10:30, 90 分钟) 参赛人数 1373
 
 - [3798. 最大的偶数](/solution/3700-3799/3798.Largest%20Even%20Number/README.md)

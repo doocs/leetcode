@@ -3811,6 +3811,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3800  |  [Minimum Cost to Make Two Binary Strings Equal](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README_EN.md)  |    |  Medium  |  Weekly Contest 483  |
 |  3801  |  [Minimum Cost to Merge Sorted Lists](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README_EN.md)  |    |  Hard  |  Weekly Contest 483  |
 |  3802  |  [Number of Ways to Paint Sheets](/solution/3800-3899/3802.Number%20of%20Ways%20to%20Paint%20Sheets/README_EN.md)  |    |  Hard  |  🔒  |
+|  3803  |  [Count Residue Prefixes](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README_EN.md)  |    |  Easy  |  Weekly Contest 484  |
+|  3804  |  [Number of Centered Subarrays](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 484  |
+|  3805  |  [Count Caesar Cipher Pairs](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 484  |
+|  3806  |  [Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 484  |
 
 ## Copyright
 

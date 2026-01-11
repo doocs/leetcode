@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3797.Count%20Routes%20to%20Climb%20a%20Rectangular%20Grid/README.md
+rating: 2375
+source: 第 173 场双周赛 Q4
 ---
 
 <!-- problem:start -->

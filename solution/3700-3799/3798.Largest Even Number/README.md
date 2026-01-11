@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3798.Largest%20Even%20Number/README.md
+rating: 1365
+source: 第 483 场周赛 Q1
 ---
 
 <!-- problem:start -->

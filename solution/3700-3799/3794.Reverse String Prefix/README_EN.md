@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3794.Reverse%20String%20Prefix/README_EN.md
+rating: 1229
+source: Biweekly Contest 173 Q1
 ---
 
 <!-- problem:start -->

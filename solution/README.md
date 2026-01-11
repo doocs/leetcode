@@ -3813,6 +3813,10 @@
 |  3800  |  [使二进制字符串相等的最小成本](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README.md)  |    |  中等  |  第 483 场周赛  |
 |  3801  |  [合并有序列表的最小成本](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README.md)  |    |  困难  |  第 483 场周赛  |
 |  3802  |  [给纸张涂色的方式数量](/solution/3800-3899/3802.Number%20of%20Ways%20to%20Paint%20Sheets/README.md)  |    |  困难  |  🔒  |
+|  3803  |  [统计残差前缀](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README.md)  |    |  简单  |  第 484 场周赛  |
+|  3804  |  [中心子数组的数量](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README.md)  |    |  中等  |  第 484 场周赛  |
+|  3805  |  [统计凯撒加密对数目](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README.md)  |    |  中等  |  第 484 场周赛  |
+|  3806  |  [增加操作后最大按位与的结果](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README.md)  |    |  困难  |  第 484 场周赛  |
 
 ## 版权
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3799.Word%20Squares%20II/README.md
+rating: 1606
+source: 第 483 场周赛 Q2
 ---
 
 <!-- problem:start -->

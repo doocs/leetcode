@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3796.Find%20Maximum%20Value%20in%20a%20Constrained%20Sequence/README_EN.md
+rating: 1832
+source: Biweekly Contest 173 Q3
 ---
 
 <!-- problem:start -->
