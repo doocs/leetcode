@@ -69,7 +69,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3804.Nu
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + 枚举
+
+我们枚举所有子数组的起始下标 $i$，然后从下标 $i$ 开始枚举子数组的结束下标 $j$，计算子数组 $nums[i \ldots j]$ 的元素之和 $s$，并将子数组中的所有元素加入哈希表 $\textit{st}$ 中。每次枚举结束后，判断 $s$ 是否在哈希表 $\textit{st}$ 中出现过，如果出现过，则说明子数组 $nums[i \ldots j]$ 是一个中心子数组，答案加 $1$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 

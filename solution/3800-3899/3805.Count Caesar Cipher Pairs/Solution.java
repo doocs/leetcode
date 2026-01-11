@@ -6,7 +6,7 @@ class Solution {
             char[] t = s.toCharArray();
             int k = 'z' - t[0];
             for (int i = 1; i < t.length; i++) {
-                t[i] = (char)('a' + (t[i] - 'a' + k) % 26);
+                t[i] = (char) ('a' + (t[i] - 'a' + k) % 26);
             }
             t[0] = 'z';
             cnt.merge(new String(t), 1, Integer::sum);

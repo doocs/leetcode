@@ -89,32 +89,172 @@ A <strong>subset</strong> of an array is a selection of elements of the array.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy Bit Construction + Bit Manipulation
+
+We enumerate each bit from the highest bit, attempting to include that bit in the final bitwise AND result. For the currently attempted bitwise AND result $\textit{target}$, we calculate the minimum number of operations required to increase each element in the array to at least $\textit{target}$.
+
+Specifically, we find the position $j - 1$ where $\textit{target}$ has the first bit set to $1$ from high to low, while the current element has the corresponding bit set to $0$. Then we only need to increase the current element to the value of $\textit{target}$ in the lower $j$ bits. The required number of operations is $(\textit{target} \& 2^{j} - 1) - (\textit{nums}[i] \& 2^{j} - 1)$. We store the required number of operations for all elements in the array $\textit{cost}$, sort it, and take the sum of the first $m$ elements. If it does not exceed $k$, it means we can include this bit in the final bitwise AND result.
+
+The time complexity is $O(n \times \log n \times \log M)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumAND(self, nums: List[int], k: int, m: int) -> int:
+        mx = (max(nums) + k).bit_length()
+        ans = 0
+        cost = [0] * len(nums)
+        for bit in range(mx - 1, -1, -1):
+            target = ans | (1 << bit)
+            for i, x in enumerate(nums):
+                j = (target & ~x).bit_length()
+                mask = (1 << j) - 1
+                cost[i] = (target & mask) - (x & mask)
+            cost.sort()
+            if sum(cost[:m]) <= k:
+                ans = target
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maximumAND(int[] nums, int k, int m) {
+        int max = 0;
+        for (int x : nums) {
+            max = Math.max(max, x);
+        }
+        max += k;
 
+        int mx = 32 - Integer.numberOfLeadingZeros(max);
+        int n = nums.length;
+
+        int ans = 0;
+        int[] cost = new int[n];
+
+        for (int bit = mx - 1; bit >= 0; bit--) {
+            int target = ans | (1 << bit);
+            for (int i = 0; i < n; i++) {
+                int x = nums[i];
+                int diff = target & ~x;
+                int j = diff == 0 ? 0 : 32 - Integer.numberOfLeadingZeros(diff);
+                int mask = (1 << j) - 1;
+                cost[i] = (target & mask) - (x & mask);
+            }
+            Arrays.sort(cost);
+            long sum = 0;
+            for (int i = 0; i < m; i++) {
+                sum += cost[i];
+            }
+            if (sum <= k) {
+                ans = target;
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maximumAND(const vector<int>& nums, int k, int m) {
+        int max_val = ranges::max(nums) + k;
+        int mx = max_val > 0 ? 32 - __builtin_clz(max_val) : 0;
 
+        int ans = 0;
+        vector<int> cost(nums.size());
+
+        for (int bit = mx - 1; bit >= 0; bit--) {
+            int target = ans | (1 << bit);
+            for (size_t i = 0; i < nums.size(); i++) {
+                int x = nums[i];
+                int diff = target & ~x;
+                int j = diff == 0 ? 0 : 32 - __builtin_clz(diff);
+                long long mask = (1L << j) - 1;
+                cost[i] = (target & mask) - (x & mask);
+            }
+
+            ranges::sort(cost);
+            long long sum = accumulate(cost.begin(), cost.begin() + m, 0LL);
+            if (sum <= k) {
+                ans = target;
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumAND(nums []int, k int, m int) int {
+	mx := bits.Len(uint(slices.Max(nums) + k))
 
+	ans := 0
+	cost := make([]int, len(nums))
+
+	for bit := mx - 1; bit >= 0; bit-- {
+		target := ans | (1 << bit)
+		for i, x := range nums {
+			j := bits.Len(uint(target & ^x))
+			mask := (1 << j) - 1
+			cost[i] = (target & mask) - (x & mask)
+		}
+		sort.Ints(cost)
+		sum := 0
+		for i := 0; i < m; i++ {
+			sum += cost[i]
+		}
+		if sum <= k {
+			ans = target
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumAND(nums: number[], k: number, m: number): number {
+    const mx = 32 - Math.clz32(Math.max(...nums) + k);
+
+    let ans = 0;
+    const n = nums.length;
+    const cost = new Array(n);
+
+    for (let bit = mx - 1; bit >= 0; bit--) {
+        let target = ans | (1 << bit);
+        for (let i = 0; i < n; i++) {
+            const x = nums[i];
+            const diff = target & ~x;
+            const j = diff === 0 ? 0 : 32 - Math.clz32(diff);
+            const mask = (1 << j) - 1;
+            cost[i] = (target & mask) - (x & mask);
+        }
+        cost.sort((a, b) => a - b);
+        let sum = 0;
+        for (let i = 0; i < m; i++) {
+            sum += cost[i];
+        }
+        if (sum <= k) {
+            ans = target;
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
