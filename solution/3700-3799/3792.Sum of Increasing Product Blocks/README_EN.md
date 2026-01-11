@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3792.Sum%20of%20Increasing%20Product%20Blocks/README_EN.md
+tags:
+    - Math
+    - Simulation
 ---
 
 <!-- problem:start -->

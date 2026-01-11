@@ -330,7 +330,7 @@
 | 3705 | [寻找黄金时段客户](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)                                                                      |          | 中等 |      |
 | 3716 | [寻找流失风险客户](/solution/3700-3799/3716.Find%20Churn%20Risk%20Customers/README.md)                                                                       |          | 中等 |      |
 | 3764 | [最常见的课程组合](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README.md)                                                                        |          | 困难 |      |
-| 3793 | [Find Users with High Token Usage](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md)                                            |          | 简单 |      |
+| 3793 | [查找高词元使用量的用户](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md)                                                      |          | 简单 |      |
 
 ## 版权
 

@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3788.Maximum%20Score%20of%20a%20Split/README_EN.md
 rating: 1306
 source: Weekly Contest 482 Q1
+tags:
+    - Array
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

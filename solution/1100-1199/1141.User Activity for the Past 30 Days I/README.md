@@ -27,7 +27,7 @@ tags:
 | activity_date | date    |
 | activity_type | enum    |
 +---------------+---------+
-该表没有包含重复数据。
+该表可能包含重复数据。
 activity_type 列是 ENUM(category) 类型， 从 ('open_session'， 'end_session'， 'scroll_down'， 'send_message') 取值。
 该表记录社交媒体网站的用户活动。
 注意，每个会话只属于一个用户。

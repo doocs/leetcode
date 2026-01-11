@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3787.Find%20Diameter%20Endpoints%20of%20a%20Tree/README_EN.md
+tags:
+    - Tree
+    - Breadth-First Search
+    - Graph
 ---
 
 <!-- problem:start -->

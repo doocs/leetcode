@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README.md
 rating: 1840
 source: 第 483 场周赛 Q3
+tags:
+    - 贪心
+    - 字符串
 ---
 
 <!-- problem:start -->

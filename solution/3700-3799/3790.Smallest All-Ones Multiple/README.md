@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3790.Smallest%20All-Ones%20Multiple/README.md
 rating: 1593
 source: 第 482 场周赛 Q3
+tags:
+    - 哈希表
+    - 数学
 ---
 
 <!-- problem:start -->

@@ -7,6 +7,7 @@ source: Weekly Contest 406 Q3
 tags:
     - Greedy
     - Array
+    - Two Pointers
     - Dynamic Programming
     - Sorting
 ---

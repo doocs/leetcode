@@ -55,7 +55,7 @@ Each row contains information about a product including its name and category.
 	<li><strong>Fall</strong>: September, October, November</li>
 </ul>
 
-<p>The <strong>popularity</strong> of a <strong>category</strong> is determined by the <strong>total quantity sold</strong> in that <strong>season</strong>. If there is a <strong>tie</strong>, select the category with the highest <strong>total revenue</strong> (<code>quantity &times; price</code>).</p>
+<p>The <strong>popularity</strong> of a <strong>category</strong> is determined by the <strong>total quantity sold</strong> in that <strong>season</strong>. If there is a <strong>tie</strong>, select the category with the highest <strong>total revenue</strong> (<code>quantity &times; price</code>). If there is still a tie, return the lexicographically smaller category.</p>
 
 <p>Return <em>the result table ordered by season in <strong>ascending</strong> order</em>.</p>
 

@@ -55,7 +55,7 @@ product_id 是这张表的唯一主键。
 	<li><strong>秋季</strong>：九月，十月，十一月</li>
 </ul>
 
-<p>一个 <strong>分类</strong>&nbsp;的 <b>受欢迎度</b>&nbsp;由某个 <strong>季节</strong>&nbsp;的 <strong>总销售量</strong>&nbsp;决定。如果有并列，选择总收入最高的类别 (<code>quantity × price</code>)。</p>
+<p>一个 <strong>分类</strong>&nbsp;的 <b>受欢迎度</b>&nbsp;由某个 <strong>季节</strong>&nbsp;的 <strong>总销售量</strong>&nbsp;决定。如果有并列，选择总收入最高的类别 (<code>quantity × price</code>)。如果依然并列，返回字典序更小的分类。</p>
 
 <p>返回结果表以季节 <strong>升序</strong>&nbsp;排序。</p>
 

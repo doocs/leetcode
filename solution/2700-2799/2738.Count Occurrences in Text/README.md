@@ -45,7 +45,7 @@ file_name 为该表的主键（具有唯一值的列）。
 <b>输入：</b>
 Files 表:
 +------------+----------------------------------------------------------------------------------+
-| file_name  | contenet                                                                         | 
+| file_name  | content                                                                         | 
 +------------+----------------------------------------------------------------------------------+
 | draft1.txt | The stock exchange predicts a bull market which would make many investors happy. | 
 | draft2.txt | The stock exchange predicts a bull market which would make many investors happy, |

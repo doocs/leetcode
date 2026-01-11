@@ -2887,7 +2887,7 @@ comments: true
 - [1629. 按键持续时间最长的键](/solution/1600-1699/1629.Slowest%20Key/README.md)
 - [1630. 等差子数组](/solution/1600-1699/1630.Arithmetic%20Subarrays/README.md)
 - [1631. 最小体力消耗路径](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md)
-- [1632. 矩阵转换后的秩](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
+- [1632. 矩阵转换后的排名](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
 
 #### 第 211 场周赛(2020-10-18 10:30, 90 分钟) 参赛人数 4034
 

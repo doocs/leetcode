@@ -7,7 +7,7 @@ source: Weekly Contest 352 Q4
 tags:
     - Array
     - Hash Table
-    - Ordered Set
+    - Enumeration
 ---
 
 <!-- problem:start -->
