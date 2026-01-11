@@ -30,77 +30,53 @@ tags:
 	<li><code>CDATA_CONTENT</code>&nbsp;可以包含<strong>任意字符</strong>。cdata 的功能是阻止验证器解析<code>CDATA_CONTENT</code>，所以即使其中有一些字符可以被解析为标签（无论合法还是不合法），也应该将它们视为<strong>常规字符</strong>。</li>
 </ol>
 
-<p><strong>合法代码的例子:</strong></p>
+<p>&nbsp;</p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> &quot;&lt;DIV&gt;This is the first line &lt;![CDATA[&lt;div&gt;]]&gt;&lt;/DIV&gt;&quot;
-
-<strong>输出:</strong> True
-
-<strong>解释:</strong> 
-
-代码被包含在了闭合的标签内： &lt;DIV&gt; 和 &lt;/DIV&gt; 。
-
-TAG_NAME 是合法的，TAG_CONTENT 包含了一些字符和 cdata 。 
-
-即使 CDATA_CONTENT 含有不匹配的起始标签和不合法的 TAG_NAME，它应该被视为普通的文本，而不是标签。
-
-所以 TAG_CONTENT 是合法的，因此代码是合法的。最终返回True。
-
-
-<strong>输入:</strong> &quot;&lt;DIV&gt;&gt;&gt;  ![cdata[]] &lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&gt;]&lt;/DIV&gt;&quot;
-
-<strong>输出:</strong> True
-
-<strong>解释:</strong>
-
-我们首先将代码分割为： start_tag|tag_content|end_tag 。
-
-start_tag -&gt; <strong>&quot;&lt;DIV&gt;&quot;</strong>
-
-end_tag -&gt; <strong>&quot;&lt;/DIV&gt;&quot;</strong>
-
-tag_content 也可被分割为： text1|cdata|text2 。
-
-text1 -&gt; <strong>&quot;&gt;&gt;  ![cdata[]] &quot;</strong>
-
-cdata -&gt; <strong>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;&quot;</strong> ，其中 CDATA_CONTENT 为 <strong>&quot;&lt;div&gt;]&gt;&quot;</strong>
-
-text2 -&gt; <strong>&quot;]]&gt;&gt;]&quot;</strong>
-
-
-start_tag <strong>不</strong>是 <strong>&quot;&lt;DIV&gt;&gt;&gt;&quot;</strong> 的原因参照规则 6 。
-cdata <strong>不</strong>是 <strong>&quot;&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&quot;</strong> 的原因参照规则 7 。
+<b>输入：</b>code = "&lt;DIV&gt;This is the first line &lt;![CDATA[&lt;div&gt;]]&gt;&lt;/DIV&gt;"
+<b>输出：</b>true
+<b>解释：</b>
+代码被闭合的标签包围：&lt;DIV&gt; 和 &lt;/DIV&gt;。
+TAG_NAME 是合法的，TAG_CONTENT 只包含一些字母和 cdata。
+尽管 CDATA_CONTENT 有一个非法 TAG_NAME 的未匹配开始标签，它可以被认为是普通文本，不被解析为一个标签。
+所以 TAG_CONTENT 是合法的，并且代码是合法的。因此返回 true。
 </pre>
 
-<p><strong>不合法代码的例子:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <pre>
-<strong>输入:</strong> &quot;&lt;A&gt;  &lt;B&gt; &lt;/A&gt;   &lt;/B&gt;&quot;
-<strong>输出:</strong> False
-<strong>解释:</strong> 不合法。如果 &quot;&lt;A&gt;&quot; 是闭合的，那么 &quot;&lt;B&gt;&quot; 一定是不匹配的，反之亦然。
-
-<strong>输入:</strong> &quot;&lt;DIV&gt;  div tag is not closed  &lt;DIV&gt;&quot;
-<strong>输出:</strong> False
-
-<strong>输入:</strong> &quot;&lt;DIV&gt;  unmatched &lt;  &lt;/DIV&gt;&quot;
-<strong>输出:</strong> False
-
-<strong>输入:</strong> &quot;&lt;DIV&gt; closed tags with invalid tag name  &lt;b&gt;123&lt;/b&gt; &lt;/DIV&gt;&quot;
-<strong>输出:</strong> False
-
-<strong>输入:</strong> &quot;&lt;DIV&gt; unmatched tags with invalid tag name  &lt;/1234567890&gt; and &lt;CDATA[[]]&gt;  &lt;/DIV&gt;&quot;
-<strong>输出:</strong> False
-
-<strong>输入:</strong> &quot;&lt;DIV&gt;  unmatched start tag &lt;B&gt;  and unmatched end tag &lt;/C&gt;  &lt;/DIV&gt;&quot;
-<strong>输出:</strong> False
+<b>输入：</b>code = "&lt;DIV&gt;&gt;&gt;  ![cdata[]] &lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;&gt;]&lt;/DIV&gt;"
+<b>输出：</b>true
+<strong>解释：</strong>
+我们首先将代码分割为：start_tag|tag_content|end_tag。
+start_tag -&gt; <b>"&lt;DIV&gt;"</b>
+end_tag -&gt; <b>"&lt;/DIV&gt;"</b>
+tag_content 也可以被分割为：text1|cdata|text2。
+text1 -&gt; <b>"&gt;&gt;  ![cdata[]] "</b>
+cdata -&gt; <b>"&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;"</b>，其中 CDATA_CONTENT 是 <b>"&lt;div&gt;]&gt;"</b>
+text2 -&gt; <b>"]]&gt;&gt;]"</b>
+start_tag 不是 <b>"&lt;DIV&gt;&gt;&gt;"</b> 的原因是规则 6。
+cdata 不是 <b>"&lt;![CDATA[&lt;div&gt;]&gt;]]&gt;]]&gt;"</b> 的原因是规则 7。
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<ol>
-	<li>为简明起见，你可以假设输入的代码（包括提到的<strong>任意字符</strong>）只包含<code>数字</code>, <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="background-color:#f9f2f4; font-size:12.6px">字母</span></font>, <code>&#39;&lt;&#39;</code>,<code>&#39;&gt;&#39;</code>,<code>&#39;/&#39;</code>,<code>&#39;!&#39;</code>,<code>&#39;[&#39;</code>,<code>&#39;]&#39;</code>和<code>&#39; &#39;</code>。</li>
-</ol>
+<pre>
+<b>输入：</b>code = "&lt;A&gt;  &lt;B&gt; &lt;/A&gt;   &lt;/B&gt;"
+<b>输出：</b>false
+<b>解释：</b>不平衡。如果 "&lt;A&gt;" 是闭合的，那么 "&lt;B&gt;" 一定没有匹配，反之亦然。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= code.length &lt;= 500</code></li>
+	<li><code>code</code>&nbsp;只包含英文字母，数字，<code>'&lt;'</code>，<code>'&gt;'</code>，<code>'/'</code>，<code>'!'</code>，<code>'['</code>，<code>']'</code>，<code>'.'</code>&nbsp;和&nbsp;<code>' '</code>。</li>
+</ul>
 
 <!-- description:end -->
 

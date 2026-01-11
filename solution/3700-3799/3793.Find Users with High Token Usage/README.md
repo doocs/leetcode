@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3793. Find Users with High Token Usage](https://leetcode.cn/problems/find-users-with-high-token-usage)
+# [3793. 查找高词元使用量的用户](https://leetcode.cn/problems/find-users-with-high-token-usage)
 
 [English Version](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>prompts</code></p>
+<p>表：<code>prompts</code></p>
 
 <pre>
 +-------------+---------+
@@ -26,30 +26,31 @@ tags:
 | prompt      | varchar |
 | tokens      | int     |
 +-------------+---------+
-(user_id, prompt) is the primary key (unique value) for this table.
-Each row represents a prompt submitted by a user to an AI system along with the number of tokens consumed.
+(user_id, prompt) 是这张表的主键（值互不相同）。
+每一行表示一个用户提交给 AI 系统的提示词以及所消耗的词元数量。
 </pre>
 
-<p>Write a solution to analyze <strong>AI prompt usage patterns</strong> based on the following requirements:</p>
+<p>根据下列要求编写一个解决方案来分析 <strong>AI 提示词的使用模式</strong>：</p>
 
 <ul>
-	<li>For each user, calculate the <strong>total number of prompts</strong> they have submitted.</li>
-	<li>For each user, calculate the <strong>average tokens used per prompt </strong>(Rounded to <code>2</code> decimal places).</li>
-	<li>Only include users who have submitted <strong>at least </strong><code>3</code><strong> prompts</strong>.</li>
-	<li>Only include users who have submitted <strong>at least one prompt</strong> with <code>tokens</code> <strong>greater than</strong> their own average token usage.</li>
+	<li>对每一个用户，计算他们提交的 <strong>提示词的总数</strong>。</li>
+	<li>对每个用户，计算 <strong>每个提示词所使用的平均词元数</strong>（舍入到&nbsp;<code>2</code> 位小数）。</li>
+	<li>仅包含&nbsp;<strong>至少提交了 <code>3</code> 个提示词</strong> 的用户。</li>
+	<li>仅包含那些 <strong>至少提交过一个提示词</strong> 且其中的 <code>tokens</code> 数量 <strong>超过</strong> 自己平均词元使用量的用户。</li>
 </ul>
 
-<p>Return <em>the result table ordered by <strong>average tokens</strong> in <strong>descending</strong> order, and then by <code>user_id</code> in <strong>ascending</strong> order.</em></p>
+<p>返回结果表按 <strong>平均词元数 降序</strong>&nbsp;排序，然后按<em>&nbsp;</em><code>user_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>prompts table:</p>
+<p>prompts 表：</p>
 
 <pre class="example-io">
 +---------+--------------------------+--------+
@@ -67,7 +68,7 @@ Each row represents a prompt submitted by a user to an AI system along with the 
 +---------+--------------------------+--------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+---------------+------------+
@@ -78,36 +79,36 @@ Each row represents a prompt submitted by a user to an AI system along with the 
 +---------+---------------+------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>User 1</strong>:
+	<li><strong>用户 1：</strong>
 
     <ul>
-    	<li>Total prompts = 3</li>
-    	<li>Average tokens = (120 + 80 + 200) / 3 = 133.33</li>
-    	<li>Has a prompt with 200 tokens, which is greater than the average</li>
-    	<li>Included in the result</li>
+    	<li>总提示词数 = 3</li>
+    	<li>平均词元数 = (120 + 80 + 200) / 3 = 133.33</li>
+    	<li>有一个提示词为 200 个词元，这超过了平均值</li>
+    	<li>包含在结果中</li>
     </ul>
     </li>
-    <li><strong>User 2</strong>:
+    <li><strong>用户 2</strong>:
     <ul>
-    	<li>Total prompts = 2 (less than the required minimum)</li>
-    	<li>Excluded from the result</li>
+    	<li>总提示词数&nbsp;= 2（少于所需的最小值）</li>
+    	<li>从结果中排除</li>
     </ul>
     </li>
-    <li><strong>User 3</strong>:
+    <li><strong>用户 3</strong>:
     <ul>
-    	<li>Total prompts = 4</li>
-    	<li>Average tokens = (300 + 250 + 180 + 220) / 4 = 237.5</li>
-    	<li>Has prompts with 300 and 250 tokens, both greater than the average</li>
-    	<li>Included in the result</li>
+    	<li>总提示词数 = 4</li>
+    	<li>平均词元数 = (300 + 250 + 180 + 220) / 4 = 237.5</li>
+    	<li>有包含 300 和 250 个词元的提示词，都大于平均数</li>
+    	<li>包含在结果中</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The Results table is ordered by avg_tokens in descending order, then by user_id in ascending order</p>
+<p>结果表按 avg_tokens 降序排序，然后按 user_id 升序排序。</p>
 </div>
 
 <!-- description:end -->

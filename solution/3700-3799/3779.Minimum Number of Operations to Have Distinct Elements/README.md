@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3779.Minimum%20Number%20of%20Operations%20to%20Have%20Distinct%20Elements/README.md
 rating: 1444
 source: 第 172 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
 ---
 
 <!-- problem:start -->

@@ -23,7 +23,7 @@ tags:
 
 <p>给你一个二叉树的根节点&nbsp;<code>root</code>。设根节点位于二叉树的第 <code>1</code> 层，而根节点的子节点位于第 <code>2</code> 层，依此类推。</p>
 
-<p>请返回层内元素之和 <strong>最大</strong> 的那几层（可能只有一层）的层号，并返回其中&nbsp;<strong>最小</strong> 的那个。</p>
+<p>返回总和 <strong>最大</strong> 的那一层的层号 <code>x</code>。如果有多层的总和一样大，返回其中 <strong>最小</strong> 的层号 <code>x</code>。</p>
 
 <p>&nbsp;</p>
 

@@ -4,6 +4,12 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README.md
 rating: 2398
 source: 第 483 场周赛 Q4
+tags:
+    - 位运算
+    - 数组
+    - 双指针
+    - 二分查找
+    - 动态规划
 ---
 
 <!-- problem:start -->
@@ -122,7 +128,7 @@ source: 第 483 场周赛 Q4
 	<li><code>1 &lt;= lists[i].length &lt;= 500</code></li>
 	<li><code>-10<sup>9</sup> &lt;= lists[i][j] &lt;= 10<sup>9</sup></code></li>
 	<li><code>lists[i]</code> 按照非递减顺序排序。</li>
-	<li><code>lists[i]</code> 的元素总和不超过 2000。</li>
+	<li><code>lists[i].length</code> 的总和不超过 2000。</li>
 </ul>
 
 <!-- description:end -->

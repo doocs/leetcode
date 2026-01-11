@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3775.Reverse%20Words%20With%20Same%20Vowel%20Count/README.md
 rating: 1391
 source: 第 480 场周赛 Q2
+tags:
+    - 双指针
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3789.Minimum%20Cost%20to%20Acquire%20Required%20Items/README_EN.md
 rating: 1579
 source: Weekly Contest 482 Q2
+tags:
+    - Greedy
+    - Math
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3784.Minimum%20Deletion%20Cost%20to%20Make%20All%20Characters%20Equal/README.md
 rating: 1387
 source: 第 481 场周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 枚举
 ---
 
 <!-- problem:start -->
