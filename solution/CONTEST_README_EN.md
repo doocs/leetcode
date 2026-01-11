@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 484
+
+- [3803. Count Residue Prefixes](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README_EN.md)
+- [3804. Number of Centered Subarrays](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README_EN.md)
+- [3805. Count Caesar Cipher Pairs](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md)
+- [3806. Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)
+
 #### Weekly Contest 483
 
 - [3798. Largest Even Number](/solution/3700-3799/3798.Largest%20Even%20Number/README_EN.md)
