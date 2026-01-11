@@ -44,8 +44,8 @@ tags:
 <pre>
 <strong>Input:</strong> points = [[1,1],[3,4],[-1,0]]
 <strong>Output:</strong> 7
-<strong>Explanation: </strong>One optimal path is <strong>[1,1]</strong> -&gt; [2,2] -&gt; [3,3] -&gt; <strong>[3,4] </strong>-&gt; [2,3] -&gt; [1,2] -&gt; [0,1] -&gt; <strong>[-1,0]</strong>   
-Time from [1,1] to [3,4] = 3 seconds 
+<strong>Explanation: </strong>One optimal path is <strong>[1,1]</strong> -&gt; [2,2] -&gt; [3,3] -&gt; <strong>[3,4] </strong>-&gt; [2,3] -&gt; [1,2] -&gt; [0,1] -&gt; <strong>[-1,0]</strong>
+Time from [1,1] to [3,4] = 3 seconds
 Time from [3,4] to [-1,0] = 4 seconds
 Total time = 7 seconds</pre>
 
@@ -74,11 +74,11 @@ Total time = 7 seconds</pre>
 
 ### Solution 1: Simulation
 
-For two points $p1=(x_1, y_1)$ and $p2=(x_2, y_2)$, the distances moved in the x-axis and y-axis are $dx = |x_1 - x_2|$ and $dy = |y_1 - y_2|$ respectively.
+For two points $p_1=(x_1, y_1)$ and $p_2=(x_2, y_2)$, the distances moved in the horizontal and vertical directions are $d_x = |x_1 - x_2|$ and $d_y = |y_1 - y_2|$ respectively.
 
-If $dx \ge dy$, move along the diagonal for $dy$ steps, then move horizontally for $dx - dy$ steps. If $dx < dy$, move along the diagonal for $dx$ steps, then move vertically for $dy - dx$ steps. Therefore, the minimum distance between the two points is $max(dx, dy)$.
+If $d_x \ge d_y$, we move diagonally for $d_y$ steps, then move horizontally for $d_x - d_y$ steps; if $d_x < d_y$, we move diagonally for $d_x$ steps, then move vertically for $d_y - d_x$ steps. Therefore, the shortest distance between two points is $\max(d_x, d_y)$.
 
-We can iterate through all pairs of points, calculate the minimum distance between each pair of points, and then sum them up.
+We can iterate through all pairs of points, calculate the shortest distance between each pair, and sum them up.
 
 The time complexity is $O(n)$, where $n$ is the number of points. The space complexity is $O(1)$.
 
@@ -153,8 +153,8 @@ func abs(x int) int {
 function minTimeToVisitAllPoints(points: number[][]): number {
     let ans = 0;
     for (let i = 1; i < points.length; i++) {
-        let dx = Math.abs(points[i][0] - points[i - 1][0]),
-            dy = Math.abs(points[i][1] - points[i - 1][1]);
+        const dx = Math.abs(points[i][0] - points[i - 1][0]);
+        const dy = Math.abs(points[i][1] - points[i - 1][1]);
         ans += Math.max(dx, dy);
     }
     return ans;
@@ -166,12 +166,11 @@ function minTimeToVisitAllPoints(points: number[][]): number {
 ```rust
 impl Solution {
     pub fn min_time_to_visit_all_points(points: Vec<Vec<i32>>) -> i32 {
-        let n = points.len();
         let mut ans = 0;
-        for i in 1..n {
-            let x = (points[i - 1][0] - points[i][0]).abs();
-            let y = (points[i - 1][1] - points[i][1]).abs();
-            ans += x.max(y);
+        for i in 1..points.len() {
+            let dx = (points[i][0] - points[i - 1][0]).abs();
+            let dy = (points[i][1] - points[i - 1][1]).abs();
+            ans += dx.max(dy);
         }
         ans
     }
@@ -181,14 +180,14 @@ impl Solution {
 #### C
 
 ```c
-#define max(a, b) (((a) > (b)) ? (a) : (b))
+#define max(a, b) ((a) > (b) ? (a) : (b))
 
 int minTimeToVisitAllPoints(int** points, int pointsSize, int* pointsColSize) {
     int ans = 0;
-    for (int i = 1; i < pointsSize; i++) {
-        int x = abs(points[i - 1][0] - points[i][0]);
-        int y = abs(points[i - 1][1] - points[i][1]);
-        ans += max(x, y);
+    for (int i = 1; i < pointsSize; ++i) {
+        int dx = abs(points[i][0] - points[i - 1][0]);
+        int dy = abs(points[i][1] - points[i - 1][1]);
+        ans += max(dx, dy);
     }
     return ans;
 }
