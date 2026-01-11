@@ -67,7 +67,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3804.Nu
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Enumeration
+
+We enumerate all starting indices $i$ of subarrays, then starting from index $i$, we enumerate the ending index $j$ of the subarray, calculate the sum $s$ of elements in the subarray $nums[i \ldots j]$, and add all elements in the subarray to the hash table $\textit{st}$. After each enumeration, we check if $s$ appears in the hash table $\textit{st}$. If it does, it means the subarray $nums[i \ldots j]$ is a centered subarray, and we increment the answer by $1$.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
 
 <!-- tabs:start -->
 

@@ -84,7 +84,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3805.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: String Transformation + Counting
+
+We can transform each string into a unified form. Specifically, we convert the first character of the string to `'z'`, and then transform the other characters in the string with the same offset. This way, all similar strings will be transformed into the same form. We use a hash table $\textit{cnt}$ to record the number of occurrences of each transformed string.
+
+Finally, we iterate through the hash table, calculate the combination number $\frac{v(v-1)}{2}$ for each string's occurrence count $v$, and add it to the answer.
+
+The time complexity is $O(n \times m)$ and the space complexity is $O(n \times m)$, where $n$ is the length of the string array and $m$ is the length of the strings.
 
 <!-- tabs:start -->
 
