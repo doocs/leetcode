@@ -3,7 +3,7 @@ site_url: https://leetcode.doocs.org/en
 site_description: LeetCode solutions in any programming language
 site_dir: site/en
 docs_dir: docs-en
-copyright: Copyright &copy; 2025 <a href="https://github.com/doocs">Doocs</a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+copyright: Copyright &copy; 2026 <a href="https://github.com/doocs">Doocs</a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 theme:
   favicon: favicon.ico
   language: en
