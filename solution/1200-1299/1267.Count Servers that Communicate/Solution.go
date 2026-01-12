@@ -3,10 +3,8 @@ func countServers(grid [][]int) (ans int) {
 	row, col := make([]int, m), make([]int, n)
 	for i := range grid {
 		for j, x := range grid[i] {
-			if x == 1 {
-				row[i]++
-				col[j]++
-			}
+			row[i] += x
+			col[j] += x
 		}
 	}
 	for i := range grid {
