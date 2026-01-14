@@ -44,8 +44,8 @@ tags:
 <pre>
 <strong>Input:</strong> points = [[1,1],[3,4],[-1,0]]
 <strong>Output:</strong> 7
-<strong>Explanation: </strong>One optimal path is <strong>[1,1]</strong> -&gt; [2,2] -&gt; [3,3] -&gt; <strong>[3,4] </strong>-&gt; [2,3] -&gt; [1,2] -&gt; [0,1] -&gt; <strong>[-1,0]</strong>
-Time from [1,1] to [3,4] = 3 seconds
+<strong>Explanation: </strong>One optimal path is <strong>[1,1]</strong> -&gt; [2,2] -&gt; [3,3] -&gt; <strong>[3,4] </strong>-&gt; [2,3] -&gt; [1,2] -&gt; [0,1] -&gt; <strong>[-1,0]</strong>   
+Time from [1,1] to [3,4] = 3 seconds 
 Time from [3,4] to [-1,0] = 4 seconds
 Total time = 7 seconds</pre>
 

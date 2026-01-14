@@ -3817,6 +3817,7 @@
 |  3804  |  [中心子数组的数量](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README.md)  |    |  中等  |  第 484 场周赛  |
 |  3805  |  [统计凯撒加密对数目](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README.md)  |    |  中等  |  第 484 场周赛  |
 |  3806  |  [增加操作后最大按位与的结果](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README.md)  |    |  困难  |  第 484 场周赛  |
+|  3807  |  [修复边以遍历图的最小成本](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
