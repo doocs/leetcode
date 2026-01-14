@@ -45,8 +45,8 @@ tags:
 <pre>
 <strong>输入：</strong>points = [[1,1],[3,4],[-1,0]]
 <strong>输出：</strong>7
-<strong>解释：</strong>一条最佳的访问路径是： <strong>[1,1]</strong> -> [2,2] -> [3,3] -> <strong>[3,4] </strong>-> [2,3] -> [1,2] -> [0,1] -> <strong>[-1,0]</strong>
-从 [1,1] 到 [3,4] 需要 3 秒
+<strong>解释：</strong>一条最佳的访问路径是： <strong>[1,1]</strong> -> [2,2] -> [3,3] -> <strong>[3,4] </strong>-> [2,3] -> [1,2] -> [0,1] -> <strong>[-1,0]</strong>   
+从 [1,1] 到 [3,4] 需要 3 秒 
 从 [3,4] 到 [-1,0] 需要 4 秒
 一共需要 7 秒</pre>
 
