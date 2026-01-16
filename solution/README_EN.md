@@ -3816,6 +3816,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3805  |  [Count Caesar Cipher Pairs](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 484  |
 |  3806  |  [Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 484  |
 |  3807  |  [Minimum Cost to Repair Edges to Traverse a Graph](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md)  |    |  Medium  |  🔒  |
+|  3808  |  [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)  |    |  Medium  |    |
 
 ## Copyright
 
