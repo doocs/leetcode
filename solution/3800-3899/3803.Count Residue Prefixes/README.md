@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3803.Count%20Residue%20Prefixes/README.md
+rating: 1248
+source: 第 484 场周赛 Q1
 ---
 
 <!-- problem:start -->

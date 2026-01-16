@@ -329,6 +329,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 | 3716 | [Find Churn Risk Customers](/solution/3700-3799/3716.Find%20Churn%20Risk%20Customers/README_EN.md)                                                                                           |            | Medium     |        |
 | 3764 | [Most Common Course Pairs](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README_EN.md)                                                                                             |            | Hard       |        |
 | 3793 | [Find Users with High Token Usage](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README_EN.md)                                                                         |            | Easy       |        |
+| 3808 | [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)                                                                           |            | Medium     |        |
 
 ## Copyright
 
