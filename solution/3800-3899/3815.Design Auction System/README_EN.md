@@ -67,26 +67,177 @@ auctionSystem.getHighestBidder(3); // return -1 as no bids exist for item 3</div
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Ordered Set
+
+We define two hash tables. `items` is used to store all bid information for each item, where `items[itemId]` stores an ordered set. Each element in the set is a tuple `(bidAmount, userId)`, representing a user's bid amount for that item. Since we need to quickly retrieve the user with the highest bid, this ordered set needs to be sorted by bid amount in ascending order. If bid amounts are identical, they are sorted by user ID in ascending order. The other hash table `users` is used to store the bid information of each user for each item, where `users[userId][itemId]` stores the user's bid amount for that item.
+
+For the `addBid(userId, itemId, bidAmount)` operation, we first check if the user has already placed a bid on the item. If they have, we call the `removeBid(userId, itemId)` method to remove the original bid; then we add the new bid information to `users` and `items`.
+
+For the `updateBid(userId, itemId, newAmount)` operation, we first retrieve the user's original bid amount for the item from `users`, then remove the corresponding tuple `(oldAmount, userId)` from `items`, add the new bid information to `items`, and update the bid amount in `users`.
+
+For the `removeBid(userId, itemId)` operation, we first retrieve the user's original bid amount for the item from `users`, then remove the corresponding tuple `(oldAmount, userId)` from `items`, and finally delete the user's bid information for that item from `users`.
+
+For the `getHighestBidder(itemId)` operation, we first check if `items[itemId]` is empty. If it is, we return -1; otherwise, we return the user ID of the last element in the ordered set, which corresponds to the highest bidder.
+
+In terms of time complexity, each operation takes $O(\log m)$ time, where $m$ is the number of bids for the current item. The space complexity is $O(n)$, where $n$ is the total number of bids.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class AuctionSystem:
 
+    def __init__(self):
+        self.items = defaultdict(SortedList)
+        self.users = {}
+
+    def addBid(self, userId: int, itemId: int, bidAmount: int) -> None:
+        if userId not in self.users:
+            self.users[userId] = {}
+        if itemId in self.users[userId]:
+            self.removeBid(userId, itemId)
+        self.users[userId][itemId] = bidAmount
+        self.items[itemId].add((bidAmount, userId))
+
+    def updateBid(self, userId: int, itemId: int, newAmount: int) -> None:
+        oldAmount = self.users[userId][itemId]
+        self.items[itemId].remove((oldAmount, userId))
+        self.items[itemId].add((newAmount, userId))
+        self.users[userId][itemId] = newAmount
+
+    def removeBid(self, userId: int, itemId: int) -> None:
+        oldAmount = self.users[userId][itemId]
+        self.items[itemId].remove((oldAmount, userId))
+        self.users[userId].pop(itemId)
+
+    def getHighestBidder(self, itemId: int) -> int:
+        ls = self.items[itemId]
+        return -1 if not ls else ls[-1][1]
+
+
+# Your AuctionSystem object will be instantiated and called as such:
+# obj = AuctionSystem()
+# obj.addBid(userId,itemId,bidAmount)
+# obj.updateBid(userId,itemId,newAmount)
+# obj.removeBid(userId,itemId)
+# param_4 = obj.getHighestBidder(itemId)
 ```
 
 #### Java
 
 ```java
+class AuctionSystem {
+    private final Map<Integer, TreeSet<int[]>> items = new HashMap<>();
+    private final Map<Integer, Map<Integer, Integer>> users = new HashMap<>();
 
+    public AuctionSystem() {
+    }
+
+    public void addBid(int userId, int itemId, int bidAmount) {
+        users.computeIfAbsent(userId, k -> new HashMap<>());
+
+        if (users.get(userId).containsKey(itemId)) {
+            removeBid(userId, itemId);
+        }
+
+        users.get(userId).put(itemId, bidAmount);
+
+        items.computeIfAbsent(itemId, k -> new TreeSet<>(
+            (a, b) -> a[0] != b[0] ? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1])
+        ));
+
+        items.get(itemId).add(new int[]{bidAmount, userId});
+    }
+
+    public void updateBid(int userId, int itemId, int newAmount) {
+        int oldAmount = users.get(userId).get(itemId);
+        TreeSet<int[]> set = items.get(itemId);
+
+        set.remove(new int[]{oldAmount, userId});
+        set.add(new int[]{newAmount, userId});
+
+        users.get(userId).put(itemId, newAmount);
+    }
+
+    public void removeBid(int userId, int itemId) {
+        int oldAmount = users.get(userId).get(itemId);
+        TreeSet<int[]> set = items.get(itemId);
+
+        set.remove(new int[]{oldAmount, userId});
+        users.get(userId).remove(itemId);
+    }
+
+    public int getHighestBidder(int itemId) {
+        TreeSet<int[]> set = items.get(itemId);
+        if (set == null || set.isEmpty()) {
+            return -1;
+        }
+        return set.last()[1];
+    }
+}
+
+/**
+ * Your AuctionSystem object will be instantiated and called as such:
+ * AuctionSystem obj = new AuctionSystem();
+ * obj.addBid(userId,itemId,bidAmount);
+ * obj.updateBid(userId,itemId,newAmount);
+ * obj.removeBid(userId,itemId);
+ * int param_4 = obj.getHighestBidder(itemId);
+ */
 ```
 
 #### C++
 
 ```cpp
+class AuctionSystem {
+    unordered_map<int, set<pair<int, int>>> items;
+    unordered_map<int, unordered_map<int, int>> users;
 
+public:
+    AuctionSystem() {
+    }
+
+    void addBid(int userId, int itemId, int bidAmount) {
+        if (users[userId].count(itemId)) {
+            removeBid(userId, itemId);
+        }
+        users[userId][itemId] = bidAmount;
+        items[itemId].insert({bidAmount, userId});
+    }
+
+    void updateBid(int userId, int itemId, int newAmount) {
+        int oldAmount = users[userId][itemId];
+        auto& s = items[itemId];
+        s.erase({oldAmount, userId});
+        s.insert({newAmount, userId});
+        users[userId][itemId] = newAmount;
+    }
+
+    void removeBid(int userId, int itemId) {
+        int oldAmount = users[userId][itemId];
+        auto& s = items[itemId];
+        s.erase({oldAmount, userId});
+        users[userId].erase(itemId);
+    }
+
+    int getHighestBidder(int itemId) {
+        auto it = items.find(itemId);
+        if (it == items.end() || it->second.empty()) {
+            return -1;
+        }
+        return it->second.rbegin()->second;
+    }
+};
+
+/**
+ * Your AuctionSystem object will be instantiated and called as such:
+ * AuctionSystem* obj = new AuctionSystem();
+ * obj->addBid(userId,itemId,bidAmount);
+ * obj->updateBid(userId,itemId,newAmount);
+ * obj->removeBid(userId,itemId);
+ * int param_4 = obj->getHighestBidder(itemId);
+ */
 ```
 
 #### Go
