@@ -67,7 +67,19 @@ auctionSystem.getHighestBidder(3); // return -1 as no bids exist for item 3</div
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + Ordered Set
+
+We define two hash tables. `items` is used to store all bid information for each item, where `items[itemId]` stores an ordered set. Each element in the set is a tuple `(bidAmount, userId)`, representing a user's bid amount for that item. Since we need to quickly retrieve the user with the highest bid, this ordered set needs to be sorted by bid amount in ascending order. If bid amounts are identical, they are sorted by user ID in ascending order. The other hash table `users` is used to store the bid information of each user for each item, where `users[userId][itemId]` stores the user's bid amount for that item.
+
+For the `addBid(userId, itemId, bidAmount)` operation, we first check if the user has already placed a bid on the item. If they have, we call the `removeBid(userId, itemId)` method to remove the original bid; then we add the new bid information to `users` and `items`.
+
+For the `updateBid(userId, itemId, newAmount)` operation, we first retrieve the user's original bid amount for the item from `users`, then remove the corresponding tuple `(oldAmount, userId)` from `items`, add the new bid information to `items`, and update the bid amount in `users`.
+
+For the `removeBid(userId, itemId)` operation, we first retrieve the user's original bid amount for the item from `users`, then remove the corresponding tuple `(oldAmount, userId)` from `items`, and finally delete the user's bid information for that item from `users`.
+
+For the `getHighestBidder(itemId)` operation, we first check if `items[itemId]` is empty. If it is, we return -1; otherwise, we return the user ID of the last element in the ordered set, which corresponds to the highest bidder.
+
+In terms of time complexity, each operation takes $O(\log m)$ time, where $m$ is the number of bids for the current item. The space complexity is $O(n)$, where $n$ is the total number of bids.
 
 <!-- tabs:start -->
 

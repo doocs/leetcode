@@ -73,7 +73,19 @@ auctionSystem.getHighestBidder(3); // 返回 -1，因为商品 3 没有任何出
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + 有序集合
+
+我们定义两个哈希表，其中 $\textit{items}$ 用于存储每个商品的所有出价信息，即 $\textit{items}[\textit{itemId}]$ 存储一个有序集合，集合中的每个元素为一个二元组 $(\textit{bidAmount}, \textit{userId})$，表示某个用户对该商品的出价金额。由于我们需要快速获取出价最高的用户，因此该有序集合需要按照出价金额从小到大排序，如果出价金额相同，则按照用户 ID 从小到大排序；另一个哈希表 $\textit{users}$ 用于存储每个用户对各个商品的出价信息，即 $\textit{users}[\textit{userId}][\textit{itemId}]$ 存储该用户对该商品的出价金额。
+
+对于 `addBid(userId, itemId, bidAmount)` 操作，我们首先检查该用户是否已经对该商品出过价，如果是，则调用 `removeBid(userId, itemId)` 方法移除原有出价；然后将新的出价信息添加到 $\textit{users}$ 和 $\textit{items}$ 中。
+
+对于 `updateBid(userId, itemId, newAmount)` 操作，我们首先从 $\textit{users}$ 中获取该用户对该商品的原有出价金额，然后在 $\textit{items}$ 中移除对应的二元组 $(\textit{oldAmount}, \textit{userId})$，再将新的出价信息添加到 $\textit{items}$ 中，并更新 $\textit{users}$ 中的出价金额。
+
+对于 `removeBid(userId, itemId)` 操作，我们首先从 $\textit{users}$ 中获取该用户对该商品的原有出价金额，然后在 $\textit{items}$ 中移除对应的二元组 $(\textit{oldAmount}, \textit{userId})$，最后从 $\textit{users}$ 中删除该用户对该商品的出价信息。
+
+对于 `getHighestBidder(itemId)` 操作，我们首先检查 $\textit{items}[\textit{itemId}]$ 是否为空，如果为空则返回 -1；否则返回该有序集合中最后一个元素的用户 ID，即出价最高的用户。
+
+时间复杂度方面，每次操作的时间复杂度均为 $O(\log m)$，其中 $m$ 为当前商品的出价数量。空间复杂度为 $O(n)$，其中 $n$ 为所有出价的总数量。
 
 <!-- tabs:start -->
 
