@@ -3823,6 +3823,10 @@
 |  3810  |  [变成目标数组的最少操作次数](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README.md)  |    |  中等  |  第 174 场双周赛  |
 |  3811  |  [交替按位异或分割的数目](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README.md)  |    |  中等  |  第 174 场双周赛  |
 |  3812  |  [翻转树上最少边](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md)  |    |  困难  |  第 174 场双周赛  |
+|  3813  |  [元音辅音得分](/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md)  |    |  简单  |  第 485 场周赛  |
+|  3814  |  [预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)  |    |  中等  |  第 485 场周赛  |
+|  3815  |  [设计拍卖系统](/solution/3800-3899/3815.Design%20Auction%20System/README.md)  |    |  中等  |  第 485 场周赛  |
+|  3816  |  [删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)  |    |  困难  |  第 485 场周赛  |
 
 ## 版权
 
