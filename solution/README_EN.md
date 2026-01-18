@@ -3821,6 +3821,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3810  |  [Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
 |  3811  |  [Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
 |  3812  |  [Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 174  |
+|  3813  |  [Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 485  |
+|  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
+|  3815  |  [Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
+|  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |    |  Hard  |  Weekly Contest 485  |
 
 ## Copyright
 
