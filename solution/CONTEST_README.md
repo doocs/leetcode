@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 174 场双周赛(2026-01-17 22:30, 90 分钟) 参赛人数 1109
+
+- [3809. 最好可到达的塔](/solution/3800-3899/3809.Best%20Reachable%20Tower/README.md)
+- [3810. 变成目标数组的最少操作次数](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README.md)
+- [3811. 交替按位异或分割的数目](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README.md)
+- [3812. 翻转树上最少边](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md)
+
 #### 第 484 场周赛(2026-01-11 10:30, 90 分钟) 参赛人数 1550
 
 - [3803. 统计残差前缀](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README.md)

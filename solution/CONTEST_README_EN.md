@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 174
+
+- [3809. Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)
+- [3810. Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)
+- [3811. Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)
+- [3812. Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)
+
 #### Weekly Contest 484
 
 - [3803. Count Residue Prefixes](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README_EN.md)

@@ -3819,6 +3819,10 @@
 |  3806  |  [增加操作后最大按位与的结果](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README.md)  |    |  困难  |  第 484 场周赛  |
 |  3807  |  [修复边以遍历图的最小成本](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README.md)  |    |  中等  |  🔒  |
 |  3808  |  [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README.md)  |    |  中等  |    |
+|  3809  |  [最好可到达的塔](/solution/3800-3899/3809.Best%20Reachable%20Tower/README.md)  |    |  中等  |  第 174 场双周赛  |
+|  3810  |  [变成目标数组的最少操作次数](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README.md)  |    |  中等  |  第 174 场双周赛  |
+|  3811  |  [交替按位异或分割的数目](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README.md)  |    |  中等  |  第 174 场双周赛  |
+|  3812  |  [翻转树上最少边](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md)  |    |  困难  |  第 174 场双周赛  |
 
 ## 版权
 

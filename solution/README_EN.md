@@ -3817,6 +3817,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3806  |  [Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 484  |
 |  3807  |  [Minimum Cost to Repair Edges to Traverse a Graph](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md)  |    |  Medium  |  🔒  |
 |  3808  |  [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)  |    |  Medium  |    |
+|  3809  |  [Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
+|  3810  |  [Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
+|  3811  |  [Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
+|  3812  |  [Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 174  |
 
 ## Copyright
 
