@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 485
+
+- [3813. Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)
+- [3814. Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)
+- [3815. Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)
+- [3816. Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)
+
 #### Biweekly Contest 174
 
 - [3809. Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)

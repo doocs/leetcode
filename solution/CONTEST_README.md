@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 485 场周赛(2026-01-18 10:30, 90 分钟) 参赛人数 1495
+
+- [3813. 元音辅音得分](/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md)
+- [3814. 预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)
+- [3815. 设计拍卖系统](/solution/3800-3899/3815.Design%20Auction%20System/README.md)
+- [3816. 删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)
+
 #### 第 174 场双周赛(2026-01-17 22:30, 90 分钟) 参赛人数 1109
 
 - [3809. 最好可到达的塔](/solution/3800-3899/3809.Best%20Reachable%20Tower/README.md)
