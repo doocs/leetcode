@@ -70,32 +70,144 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3816.Le
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：单调栈
+
+我们可以使用一个栈 $\textit{stk}$ 来存储结果字符串的字符，同时使用一个哈希表 $\textit{cnt}$ 来记录每个字符在字符串 $s$ 中出现的次数。
+
+首先，我们初始化 $\textit{cnt}$，统计字符串 $s$ 中每个字符的出现次数。然后，我们遍历字符串 $s$ 中的每个字符 $c$：
+
+- 如果栈不为空，且栈顶字符大于 $c$，且栈顶字符在字符串 $s$ 中还会出现，我们就将栈顶字符弹出，并将其在 $\textit{cnt}$ 中的计数减一。
+- 将字符 $c$ 压入栈中。
+
+最后，末尾的栈中，如果有重复的字符，我们继续弹出栈顶字符，直到栈顶字符在 $\textit{cnt}$ 中的计数为 1。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def lexSmallestAfterDeletion(self, s: str) -> str:
+        cnt = Counter(s)
+        stk = []
+        for c in s:
+            while stk and stk[-1] > c and cnt[stk[-1]] > 1:
+                cnt[stk.pop()] -= 1
+            stk.append(c)
+        while stk and cnt[stk[-1]] > 1:
+            cnt[stk.pop()] -= 1
+        return "".join(stk)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String lexSmallestAfterDeletion(String s) {
+        int[] cnt = new int[26];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        StringBuilder stk = new StringBuilder();
+        for (int i = 0; i < n; ++i) {
+            char c = s.charAt(i);
+            while (stk.length() > 0 && stk.charAt(stk.length() - 1) > c
+                && cnt[stk.charAt(stk.length() - 1) - 'a'] > 1) {
+                --cnt[stk.charAt(stk.length() - 1) - 'a'];
+                stk.setLength(stk.length() - 1);
+            }
+            stk.append(c);
+        }
+        while (cnt[stk.charAt(stk.length() - 1) - 'a'] > 1) {
+            --cnt[stk.charAt(stk.length() - 1) - 'a'];
+            stk.setLength(stk.length() - 1);
+        }
+        return stk.toString();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string lexSmallestAfterDeletion(string s) {
+        int cnt[26]{};
+        for (char c : s) {
+            ++cnt[c - 'a'];
+        }
+        string stk;
+        for (char c : s) {
+            while (stk.size() && stk.back() > c && cnt[stk.back() - 'a'] > 1) {
+                --cnt[stk.back() - 'a'];
+                stk.pop_back();
+            }
+            stk.push_back(c);
+        }
+        while (cnt[stk.back() - 'a'] > 1) {
+            --cnt[stk.back() - 'a'];
+            stk.pop_back();
+        }
+        return stk;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func lexSmallestAfterDeletion(s string) string {
+	cnt := [26]int{}
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	stk := []byte{}
+	for _, c := range s {
+		for len(stk) > 0 && stk[len(stk)-1] > byte(c) && cnt[stk[len(stk)-1]-'a'] > 1 {
+			cnt[stk[len(stk)-1]-'a']--
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, byte(c))
+	}
+	for cnt[stk[len(stk)-1]-'a'] > 1 {
+		cnt[stk[len(stk)-1]-'a']--
+		stk = stk[:len(stk)-1]
+	}
+	return string(stk)
+}
+```
 
+#### TypeScript
+
+```ts
+function lexSmallestAfterDeletion(s: string): string {
+    const cnt: number[] = new Array(26).fill(0);
+    const n = s.length;
+    const a = 'a'.charCodeAt(0);
+    for (let i = 0; i < n; ++i) {
+        ++cnt[s.charCodeAt(i) - a];
+    }
+    const stk: string[] = [];
+    for (let i = 0; i < n; ++i) {
+        const c = s[i];
+        while (
+            stk.length > 0 &&
+            stk[stk.length - 1] > c &&
+            cnt[stk[stk.length - 1].charCodeAt(0) - a] > 1
+        ) {
+            --cnt[stk.pop()!.charCodeAt(0) - a];
+        }
+        stk.push(c);
+    }
+    while (cnt[stk[stk.length - 1].charCodeAt(0) - a] > 1) {
+        --cnt[stk.pop()!.charCodeAt(0) - a];
+    }
+    return stk.join('');
+}
 ```
 
 <!-- tabs:end -->
