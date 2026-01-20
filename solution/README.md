@@ -3827,6 +3827,7 @@
 |  3814  |  [预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)  |    |  中等  |  第 485 场周赛  |
 |  3815  |  [设计拍卖系统](/solution/3800-3899/3815.Design%20Auction%20System/README.md)  |    |  中等  |  第 485 场周赛  |
 |  3816  |  [删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)  |    |  困难  |  第 485 场周赛  |
+|  3817  |  [Good Indices in a Digit String](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

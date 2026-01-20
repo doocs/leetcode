@@ -3825,6 +3825,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
 |  3815  |  [Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
 |  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |    |  Hard  |  Weekly Contest 485  |
+|  3817  |  [Good Indices in a Digit String](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
