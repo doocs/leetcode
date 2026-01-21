@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README.md
 rating: 1624
 source: 第 484 场周赛 Q3
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->

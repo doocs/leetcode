@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md
+tags:
+    - Breadth-First Search
+    - Graph
+    - Binary Search
 ---
 
 <!-- problem:start -->

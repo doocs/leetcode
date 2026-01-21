@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md
 rating: 2259
 source: Weekly Contest 484 Q4
+tags:
+    - Greedy
+    - Bit Manipulation
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

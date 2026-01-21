@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README.md
+tags:
+    - 广度优先搜索
+    - 图
+    - 二分查找
 ---
 
 <!-- problem:start -->
@@ -16,7 +20,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3807.Mi
 
 <p>给定一个下标从 0 到&nbsp;<code>n - 1</code>&nbsp;的&nbsp;<code>n</code> 个节点的&nbsp;<strong>无向图</strong>。该图由 <code>m</code> 条边组成，用一个二维整数数组 <code>edges</code> 表示，其中&nbsp;<code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]</code>&nbsp;表示节点&nbsp;<code>u<sub>i</sub></code> 和&nbsp;<code>v<sub>i</sub></code>&nbsp;之间有一条修复成本为&nbsp;<code>w<sub>i</sub></code>&nbsp;的边。</p>
 
-<p>同时给定一个整数&nbsp;<code>k</code>。一开始，<strong>所有</strong>&nbsp;边都是被损环的。</p>
+<p>同时给定一个整数&nbsp;<code>k</code>。一开始，<strong>所有</strong>&nbsp;边都是被损坏的。</p>
 
 <p>你可以选择一个非负整数&nbsp;<code>money</code>并修复所有修复成本 <strong>小于或等于</strong>&nbsp;<code>money</code> 的边。其他所有边保持损坏状态，无法使用。</p>
 
