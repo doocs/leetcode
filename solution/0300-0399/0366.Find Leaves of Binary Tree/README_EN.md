@@ -145,22 +145,24 @@ class Solution {
  */
 class Solution {
 public:
+    TreeNode* removeLeaf(TreeNode* root,vector<int>&temp){
+        if(root==NULL) return NULL;
+        if(root->left==NULL && root->right==NULL){
+            temp.push_back(root->val);
+            return NULL; // remove the leaf Node
+        }
+        root->left = removeLeaf(root->left,temp);
+        root->right = removeLeaf(root->right,temp);
+        return root; // return updated tree;
+    }
+
     vector<vector<int>> findLeaves(TreeNode* root) {
-        vector<vector<int>> ans;
-        function<int(TreeNode*)> dfs = [&](TreeNode* root) {
-            if (!root) {
-                return 0;
-            }
-            int l = dfs(root->left);
-            int r = dfs(root->right);
-            int h = max(l, r);
-            if (ans.size() == h) {
-                ans.push_back({});
-            }
-            ans[h].push_back(root->val);
-            return h + 1;
-        };
-        dfs(root);
+       vector<vector<int>>ans;
+        while(root!=NULL){
+            vector<int>temp;
+            root = removeLeaf(root,temp); // updated root
+            ans.push_back(temp);
+        }
         return ans;
     }
 };
