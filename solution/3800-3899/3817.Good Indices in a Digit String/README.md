@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3817.Go
 
 <!-- problem:start -->
 
-# [3817. Good Indices in a Digit String 🔒](https://leetcode.cn/problems/good-indices-in-a-digit-string)
+# [3817. 数字字符串中的好索引 🔒](https://leetcode.cn/problems/good-indices-in-a-digit-string)
 
 [English Version](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README_EN.md)
 
@@ -14,71 +14,73 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3817.Go
 
 <!-- description:start -->
 
-<p>You are given a string <code>s</code> consisting of digits.</p>
+<p>给定一个由数字组成的字符串&nbsp;<code>s</code>。</p>
 
-<p>An index <code>i</code> is called <strong>good</strong> if there exists a <span data-keyword="substring-nonempty">substring</span> of <code>s</code> that ends at index <code>i</code> and is equal to the decimal representation of <code>i</code>.</p>
+<p>如果存在一个 <span data-keyword="substring-nonempty">子串</span>，它以索引 <code>i</code> 结尾并且等于 <code>i</code> 的十进制表示，则称索引 <code>i</code> 为好索引。</p>
 
-<p>Return an integer array of all good indices in <strong>increasing order</strong>.</p>
+<p>返回一个包含所有好索引的整数数组，并按 <strong>升序排列</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;0234567890112&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "0234567890112"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[0,11,12]</span></p>
+<p><span class="example-io"><b>输出：</b>[0,11,12]</span></p>
 
-<p><strong>Explanation:​​​​​​​</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
 	<li>
-	<p>At index 0, the decimal representation of the index is <code>&quot;0&quot;</code>. The substring <code>s[0]</code> is <code>&quot;0&quot;</code>, which matches, so index <code>0</code> is good.</p>
+	<p>在索引 0 处，索引的十进制表示为 <code>"0"</code>。子串 <code>s[0]</code> 是 <code>"0"</code>，匹配成功，所以索引 <code>0</code> 是好的。</p>
 	</li>
 	<li>
-	<p>At index 11, the decimal representation is <code>&quot;11&quot;</code>. The substring <code>s[10..11]</code> is <code>&quot;11&quot;</code>, which matches, so index <code>11</code> is good.</p>
+	<p>在索引 11 处，索引的十进制表示是&nbsp;<code>"11"</code>。子串&nbsp;<code>s[10..11]</code>&nbsp;是&nbsp;<code>"11"</code>，匹配成功，所以索引&nbsp;<code>11</code>&nbsp;是好的。</p>
 	</li>
 	<li>
-	<p>At index 12, the decimal representation is <code>&quot;12&quot;</code>. The substring <code>s[11..12]</code> is <code>&quot;12&quot;</code>, which matches, so index <code>12</code> is good.</p>
+	<p>在索引 12&nbsp;处，索引的十进制表示是 <code>"12"</code>。子串&nbsp;<code>s[11..12]</code>&nbsp;是&nbsp;<code>"12"</code>，匹配成功，所以索引&nbsp;<code>12</code>&nbsp;是好的。</p>
 	</li>
 </ul>
 
-<p>No other index has a substring ending at it that equals its decimal representation. Therefore, the answer is <code>[0, 11, 12]</code>.</p>
+<p>没有其他索引在其结束处有一个子串等于其十进制表示。因此，答案是&nbsp;<code>[0, 11, 12]</code>。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;01234&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "01234"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[0,1,2,3,4]</span></p>
+<p><span class="example-io"><b>输出：</b>[0,1,2,3,4]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>For every index <code>i</code> from 0 to 4, the decimal representation of <code>i</code> is a single digit, and the substring <code>s[i]</code> matches that digit.</p>
+<p>对于 0 到 4 的每个索引&nbsp;<code>i</code>，<code>i</code>&nbsp;的十进制表示都是单个数字，并且子串&nbsp;<code>s[i]</code>&nbsp;匹配这个数字。</p>
 
-<p>Therefore, a valid substring ending at each index exists, making all indices good.</p>
+<p>因此，每个索引都存在一个有效的子字符串，使得所有索引都是好的。</p>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;12345&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "12345"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[]</span></p>
+<p><span class="example-io"><b>输出：</b>[]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>No index has a substring ending at it that matches its decimal representation.</p>
+<p>没有索引的子字符串以它结尾并与它的十进制表示匹配。</p>
 
-<p>Therefore, there are no good indices and the result is an empty array.</p>
+<p>因此，没有好索引，结果是一个空数组。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> only consists of digits from <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>.</li>
+	<li><code>s</code>&nbsp;只包含&nbsp;<code>'0'</code> 到&nbsp;<code>'9'</code>&nbsp;的数字。</li>
 </ul>
 
 <!-- description:end -->

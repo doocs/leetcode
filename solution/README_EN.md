@@ -3811,11 +3811,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3800  |  [Minimum Cost to Make Two Binary Strings Equal](/solution/3800-3899/3800.Minimum%20Cost%20to%20Make%20Two%20Binary%20Strings%20Equal/README_EN.md)  |  `Greedy`,`String`  |  Medium  |  Weekly Contest 483  |
 |  3801  |  [Minimum Cost to Merge Sorted Lists](/solution/3800-3899/3801.Minimum%20Cost%20to%20Merge%20Sorted%20Lists/README_EN.md)  |  `Bit Manipulation`,`Array`,`Two Pointers`,`Binary Search`,`Dynamic Programming`  |  Hard  |  Weekly Contest 483  |
 |  3802  |  [Number of Ways to Paint Sheets](/solution/3800-3899/3802.Number%20of%20Ways%20to%20Paint%20Sheets/README_EN.md)  |    |  Hard  |  🔒  |
-|  3803  |  [Count Residue Prefixes](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README_EN.md)  |    |  Easy  |  Weekly Contest 484  |
-|  3804  |  [Number of Centered Subarrays](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README_EN.md)  |    |  Medium  |  Weekly Contest 484  |
-|  3805  |  [Count Caesar Cipher Pairs](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md)  |    |  Medium  |  Weekly Contest 484  |
-|  3806  |  [Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)  |    |  Hard  |  Weekly Contest 484  |
-|  3807  |  [Minimum Cost to Repair Edges to Traverse a Graph](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md)  |    |  Medium  |  🔒  |
+|  3803  |  [Count Residue Prefixes](/solution/3800-3899/3803.Count%20Residue%20Prefixes/README_EN.md)  |  `Hash Table`,`String`  |  Easy  |  Weekly Contest 484  |
+|  3804  |  [Number of Centered Subarrays](/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`  |  Medium  |  Weekly Contest 484  |
+|  3805  |  [Count Caesar Cipher Pairs](/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`String`,`Counting`  |  Medium  |  Weekly Contest 484  |
+|  3806  |  [Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`,`Sorting`  |  Hard  |  Weekly Contest 484  |
+|  3807  |  [Minimum Cost to Repair Edges to Traverse a Graph](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Binary Search`  |  Medium  |  🔒  |
 |  3808  |  [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)  |    |  Medium  |    |
 |  3809  |  [Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
 |  3810  |  [Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |

@@ -4,6 +4,12 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3805.Count%20Caesar%20Cipher%20Pairs/README_EN.md
 rating: 1624
 source: Weekly Contest 484 Q3
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - String
+    - Counting
 ---
 
 <!-- problem:start -->

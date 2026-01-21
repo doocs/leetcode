@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3804.Number%20of%20Centered%20Subarrays/README_EN.md
 rating: 1393
 source: Weekly Contest 484 Q2
+tags:
+    - Array
+    - Hash Table
+    - Enumeration
 ---
 
 <!-- problem:start -->

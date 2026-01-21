@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3808. Find Emotionally Consistent Users](https://leetcode.cn/problems/find-emotionally-consistent-users)
+# [3808. 寻找情绪一致的用户](https://leetcode.cn/problems/find-emotionally-consistent-users)
 
 [English Version](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)
 
@@ -16,7 +16,7 @@ tags:
 
 <!-- description:start -->
 
-<p>Table: <code>reactions</code></p>
+<p>表：<code>reactions</code></p>
 
 <pre>
 +--------------+---------+
@@ -26,35 +26,36 @@ tags:
 | content_id   | int     |
 | reaction     | varchar |
 +--------------+---------+
-(user_id, content_id) is the primary key (unique value) for this table.
-Each row represents a reaction given by a user to a piece of content.
+(user_id, content_id) 是这张表的主键（值互不相同）。
+每一行代表用户对某条内容的反应。
 </pre>
 
-<p>Write a solution to identify <strong>emotionally consistent users</strong> based on the following requirements:</p>
+<p>根据以下要求编写一个解决方案，以识别 <strong>情绪一致的用户</strong>：</p>
 
 <ul>
-	<li>For each user, count the total number of reactions they have given.</li>
-	<li>Only include users who have reacted to <strong>at least </strong><code>5</code><strong> different content items</strong>.</li>
-	<li>A user is considered <strong>emotionally consistent</strong> if <strong>at least </strong><code>60%</code> of their reactions are of the <strong>same type</strong>.</li>
+	<li>为每个用户统计他们发送的总反应次数。</li>
+	<li>仅包含 <strong>至少对 </strong><code>5</code><strong> 个不同内容项</strong> 作出反应的用户。</li>
+	<li>如果用户 <strong>至少</strong> <code>60%</code> 的反应属于 <strong>同一种类型</strong>，则认为其 <strong>情绪一致</strong>。</li>
 </ul>
 
-<p>Return <em>the result table ordered by</em> <code>reaction_ratio</code> <em>in <strong>descending</strong> order and then by</em> <code>user_id</code> <em>in <strong>ascending</strong> order</em>.</p>
+<p>返回结果表按&nbsp;<code>reaction_ratio</code> <strong>降序</strong>&nbsp;排序，然后按&nbsp;<code>user_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
-<p><strong>Note:</strong></p>
+<p><strong>注意：</strong></p>
 
 <ul>
-	<li><code>reaction_ratio</code>&nbsp;should be rounded to <code>2</code> decimal places</li>
+	<li><code>reaction_ratio</code>&nbsp;应该舍入到&nbsp;<code>2</code>&nbsp;位小数</li>
 </ul>
 
-<p>The result format is in the following example.</p>
+<p>结果格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example:</strong></p>
+
+<p><strong class="example">示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>reactions table:</p>
+<p>reactions 表：</p>
 
 <pre class="example-io">
 +---------+------------+----------+
@@ -78,7 +79,7 @@ Each row represents a reaction given by a user to a piece of content.
 +---------+------------+----------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +---------+-------------------+----------------+
@@ -89,38 +90,38 @@ Each row represents a reaction given by a user to a piece of content.
 +---------+-------------------+----------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li><strong>User 1</strong>:
+	<li><strong>用户 1：</strong>
 
     <ul>
-    	<li>Total reactions = 5</li>
-    	<li>like&nbsp;appears 4 times</li>
+    	<li>总反应数&nbsp;= 5</li>
+    	<li>'like' 出现了 4 次</li>
     	<li>reaction_ratio = 4 / 5 = 0.80</li>
-    	<li>Meets the 60% consistency requirement</li>
+    	<li>满足 60% 一致的要求</li>
     </ul>
     </li>
-    <li><strong>User 2</strong>:
+    <li><strong>用户 2：</strong>
     <ul>
-    	<li>Total reactions = 5</li>
-    	<li>Most frequent reaction appears only 2 times</li>
+    	<li>总反应数 = 5</li>
+    	<li>出现最多的反应只出现了 2 次</li>
     	<li>reaction_ratio = 2 / 5 = 0.40</li>
-    	<li>Does not meet the consistency requirement</li>
+    	<li>不满足一致的要求</li>
     </ul>
     </li>
-    <li><strong>User 3</strong>:
+    <li><strong>用户 3：</strong>
     <ul>
-    	<li>Total reactions = 5</li>
-    	<li>&#39;love&#39; appears 5 times</li>
+    	<li>总反应数 = 5</li>
+    	<li>'love' 出现了 5 次</li>
     	<li>reaction_ratio = 5 / 5 = 1.00</li>
-    	<li>Meets the consistency requirement</li>
+    	<li>满足一致的要求</li>
     </ul>
     </li>
 
 </ul>
 
-<p>The Results table is ordered by reaction_ratio in descending order, then by user_id in ascending order.</p>
+<p>结果表按 reaction_ratio 降序排序，然后按 user_id 升序排序。</p>
 </div>
 
 <!-- description:end -->
