@@ -140,10 +140,10 @@ extra:
       link: mailto:contact@yanglibin.info
   alternate:
     - name: English
-      link: /leetcode/en/
+      link: /en/
       lang: en
     - name: 中文
-      link: /leetcode/
+      link: /
       lang: zh
   analytics:
     provider: google
