@@ -6,6 +6,7 @@
 *.iml
 __pycache__
 /node_modules
+package-lock.json
 /solution/__pycache__
 /solution/.env
 .cache
