@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3809.Best%20Reachable%20Tower/README.md
+rating: 1358
+source: 第 174 场双周赛 Q1
 ---
 
 <!-- problem:start -->

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 486
+
+- [3818. Minimum Prefix Removal to Make Array Strictly Increasing](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md)
+- [3819. Rotate Non Negative Elements](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README_EN.md)
+- [3820. Pythagorean Distance Nodes in a Tree](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README_EN.md)
+- [3821. Find Nth Smallest Integer With K One Bits](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md)
+
 #### Weekly Contest 485
 
 - [3813. Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)
