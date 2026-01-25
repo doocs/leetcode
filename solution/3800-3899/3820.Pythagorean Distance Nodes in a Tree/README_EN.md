@@ -117,32 +117,271 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3820.Py
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS + Enumeration
+
+We first construct an adjacency list $g$ based on the edges given in the problem, where $g[u]$ stores all nodes adjacent to node $u$.
+
+Next, we define a function $\text{bfs}(i)$ to calculate the distances from node $i$ to all other nodes. We use a queue to implement Breadth-First Search (BFS) and maintain a distance array $\text{dist}$, where $\text{dist}[j]$ represents the distance from node $i$ to node $j$. Initially, $\text{dist}[i] = 0$, and the distances to all other nodes are set to infinity. During the BFS process, we continuously update the distance array until all reachable nodes have been traversed.
+
+We call $\text{bfs}(x)$, $\text{bfs}(y)$, and $\text{bfs}(z)$ to calculate the distances from nodes $x$, $y$, and $z$ to all other nodes, obtaining three distance arrays $d_1$, $d_2$, and $d_3$ respectively.
+
+Finally, we iterate through all nodes $u$. For each node, we retrieve its distances to $x$, $y$, and $z$ as $a = d_1[u]$, $b = d_2[u]$, and $c = d_3[u]$. We sort these three distances and check if they satisfy the Pythagorean theorem condition: $a^2 + b^2 = c^2$. If the condition is met, we increment the answer count.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def specialNodes(
+        self, n: int, edges: List[List[int]], x: int, y: int, z: int
+    ) -> int:
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
 
+        def bfs(i: int) -> List[int]:
+            q = deque([i])
+            dist = [inf] * n
+            dist[i] = 0
+            while q:
+                for _ in range(len(q)):
+                    u = q.popleft()
+                    for v in g[u]:
+                        if dist[v] > dist[u] + 1:
+                            dist[v] = dist[u] + 1
+                            q.append(v)
+            return dist
+
+        d1 = bfs(x)
+        d2 = bfs(y)
+        d3 = bfs(z)
+        ans = 0
+        for a, b, c in zip(d1, d2, d3):
+            s = a + b + c
+            a, c = min(a, b, c), max(a, b, c)
+            b = s - a - c
+            if a * a + b * b == c * c:
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer>[] g;
+    private int n;
+    private final int inf = Integer.MAX_VALUE / 2;
 
+    public int specialNodes(int n, int[][] edges, int x, int y, int z) {
+        this.n = n;
+        g = new ArrayList[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int u = e[0], v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+
+        int[] d1 = bfs(x);
+        int[] d2 = bfs(y);
+        int[] d3 = bfs(z);
+
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            long[] a = new long[] {d1[i], d2[i], d3[i]};
+            Arrays.sort(a);
+            if (a[0] * a[0] + a[1] * a[1] == a[2] * a[2]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    private int[] bfs(int i) {
+        int[] dist = new int[n];
+        Arrays.fill(dist, inf);
+        Deque<Integer> q = new ArrayDeque<>();
+        dist[i] = 0;
+        q.add(i);
+        while (!q.isEmpty()) {
+            for (int k = q.size(); k > 0; --k) {
+                int u = q.poll();
+                for (int v : g[u]) {
+                    if (dist[v] > dist[u] + 1) {
+                        dist[v] = dist[u] + 1;
+                        q.add(v);
+                    }
+                }
+            }
+        }
+        return dist;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+private:
+    vector<vector<int>> g;
+    int n;
+    const int inf = INT_MAX / 2;
 
+    vector<int> bfs(int i) {
+        vector<int> dist(n, inf);
+        queue<int> q;
+        dist[i] = 0;
+        q.push(i);
+        while (!q.empty()) {
+            for (int k = q.size(); k > 0; --k) {
+                int u = q.front();
+                q.pop();
+                for (int v : g[u]) {
+                    if (dist[v] > dist[u] + 1) {
+                        dist[v] = dist[u] + 1;
+                        q.push(v);
+                    }
+                }
+            }
+        }
+        return dist;
+    }
+
+public:
+    int specialNodes(int n, vector<vector<int>>& edges, int x, int y, int z) {
+        this->n = n;
+        g.assign(n, {});
+        for (auto& e : edges) {
+            int u = e[0], v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+
+        vector<int> d1 = bfs(x);
+        vector<int> d2 = bfs(y);
+        vector<int> d3 = bfs(z);
+
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            array<long long, 3> a = {
+                (long long) d1[i],
+                (long long) d2[i],
+                (long long) d3[i]};
+            sort(a.begin(), a.end());
+            if (a[0] * a[0] + a[1] * a[1] == a[2] * a[2]) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func specialNodes(n int, edges [][]int, x int, y int, z int) int {
+	g := make([][]int, n)
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
 
+	const inf = int(1e9)
+
+	bfs := func(i int) []int {
+		dist := make([]int, n)
+		for k := 0; k < n; k++ {
+			dist[k] = inf
+		}
+		q := make([]int, 0)
+		dist[i] = 0
+		q = append(q, i)
+		for len(q) > 0 {
+			sz := len(q)
+			for ; sz > 0; sz-- {
+				u := q[0]
+				q = q[1:]
+				for _, v := range g[u] {
+					if dist[v] > dist[u]+1 {
+						dist[v] = dist[u] + 1
+						q = append(q, v)
+					}
+				}
+			}
+		}
+		return dist
+	}
+
+	d1 := bfs(x)
+	d2 := bfs(y)
+	d3 := bfs(z)
+
+	ans := 0
+	for i := 0; i < n; i++ {
+		a := []int{d1[i], d2[i], d3[i]}
+		sort.Ints(a)
+		x0, x1, x2 := int64(a[0]), int64(a[1]), int64(a[2])
+		if x0*x0+x1*x1 == x2*x2 {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function specialNodes(n: number, edges: number[][], x: number, y: number, z: number): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+
+    const inf = 1e9;
+
+    const bfs = (i: number): number[] => {
+        const dist = Array(n).fill(inf);
+        let q: number[] = [i];
+        dist[i] = 0;
+        while (q.length) {
+            const nq = [];
+            for (const u of q) {
+                for (const v of g[u]) {
+                    if (dist[v] > dist[u] + 1) {
+                        dist[v] = dist[u] + 1;
+                        nq.push(v);
+                    }
+                }
+            }
+            q = nq;
+        }
+        return dist;
+    };
+
+    const d1 = bfs(x);
+    const d2 = bfs(y);
+    const d3 = bfs(z);
+
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        const a = [d1[i], d2[i], d3[i]];
+        a.sort((p, q) => p - q);
+        if (a[0] * a[0] + a[1] * a[1] === a[2] * a[2]) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
