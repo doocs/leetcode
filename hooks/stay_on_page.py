@@ -1,34 +1,34 @@
 import re
+from bs4 import BeautifulSoup
 
 
 def on_post_page(output, page, config):
-    """
-    <ul class="md-select__list">
+    try:
+        if not output:
+            return output
 
-          <li class="md-select__item">
-            <a href="/en/" hreflang="en" class="md-select__link">
-              English
-            </a>
-          </li>
+        soup = BeautifulSoup(output, "html.parser")
 
-          <li class="md-select__item">
-            <a href="/" hreflang="zh" class="md-select__link">
-              中文
-            </a>
-          </li>
+        url = page.abs_url
+        if not url:
+            return output
 
-      </ul>
-    """
+        cn_url = url.replace("/en/", "/")
+        en_url = "/en" + cn_url
+        support_en_lang = not cn_url.startswith("/lcof") and not cn_url.startswith("/lcof2")
 
-    url = page.abs_url
-    cn_url = url.replace("/en/", "/")
-    en_url = "/en" + cn_url
-    support_en_lang = not cn_url.startswith("/lcof") and not cn_url.startswith("/lcof2")
-    patterns = {
-        "zh": r'(<a\s+[^>]*href=["\'])[^"\']*(["\'][^>]*hreflang=["\']zh["\'][^>]*>)',
-        "en": r'(<a\s+[^>]*href=["\'])[^"\']*(["\'][^>]*hreflang=["\']en["\'][^>]*>)',
-    }
-    output = re.sub(patterns["zh"], r"\1" + cn_url + r"\2", output)
-    if support_en_lang:
-        output = re.sub(patterns["en"], r"\1" + en_url + r"\2", output)
-    return output
+        # Update Chinese link
+        zh_link = soup.find("a", attrs={"hreflang": "zh"})
+        if zh_link:
+            zh_link["href"] = cn_url
+
+        # Update English link
+        if support_en_lang:
+            en_link = soup.find("a", attrs={"hreflang": "en"})
+            if en_link:
+                en_link["href"] = en_url
+
+        return str(soup)
+    except Exception as e:
+        print(f"Error in stay_on_page hook: {e}")
+        return output
