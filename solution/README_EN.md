@@ -3826,6 +3826,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3815  |  [Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
 |  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |    |  Hard  |  Weekly Contest 485  |
 |  3817  |  [Good Indices in a Digit String](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README_EN.md)  |    |  Medium  |  🔒  |
+|  3818  |  [Minimum Prefix Removal to Make Array Strictly Increasing](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
+|  3819  |  [Rotate Non Negative Elements](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
+|  3820  |  [Pythagorean Distance Nodes in a Tree](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
+|  3821  |  [Find Nth Smallest Integer With K One Bits](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md)  |    |  Hard  |  Weekly Contest 486  |
 
 ## Copyright
 

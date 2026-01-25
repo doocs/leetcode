@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 486 场周赛(2026-01-25 10:30, 90 分钟) 参赛人数 1500
+
+- [3818. 移除前缀使数组严格递增](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README.md)
+- [3819. 非负元素轮替](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README.md)
+- [3820. 树上的勾股距离节点](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README.md)
+- [3821. 二进制中恰好K个1的第N小整数](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README.md)
+
 #### 第 485 场周赛(2026-01-18 10:30, 90 分钟) 参赛人数 1495
 
 - [3813. 元音辅音得分](/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md)

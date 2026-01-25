@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md
+rating: 1492
+source: Biweekly Contest 174 Q2
 ---
 
 <!-- problem:start -->

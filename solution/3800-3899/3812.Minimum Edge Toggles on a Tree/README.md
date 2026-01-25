@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md
+rating: 2178
+source: 第 174 场双周赛 Q4
 ---
 
 <!-- problem:start -->

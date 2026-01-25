@@ -3828,6 +3828,10 @@
 |  3815  |  [设计拍卖系统](/solution/3800-3899/3815.Design%20Auction%20System/README.md)  |    |  中等  |  第 485 场周赛  |
 |  3816  |  [删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)  |    |  困难  |  第 485 场周赛  |
 |  3817  |  [数字字符串中的好索引](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README.md)  |    |  中等  |  🔒  |
+|  3818  |  [移除前缀使数组严格递增](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README.md)  |    |  中等  |  第 486 场周赛  |
+|  3819  |  [非负元素轮替](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README.md)  |    |  中等  |  第 486 场周赛  |
+|  3820  |  [树上的勾股距离节点](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README.md)  |    |  中等  |  第 486 场周赛  |
+|  3821  |  [二进制中恰好K个1的第N小整数](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README.md)  |    |  困难  |  第 486 场周赛  |
 
 ## 版权
 

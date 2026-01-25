@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README.md
+rating: 1492
+source: 第 174 场双周赛 Q2
 ---
 
 <!-- problem:start -->

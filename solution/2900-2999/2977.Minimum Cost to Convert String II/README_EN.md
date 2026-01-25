@@ -47,7 +47,7 @@ tags:
 - Change substring source[2..2] from &quot;c&quot; to &quot;e&quot; at a cost of 1.
 - Change substring source[2..2] from &quot;e&quot; to &quot;b&quot; at a cost of 2.
 - Change substring source[3..3] from &quot;d&quot; to &quot;e&quot; at a cost of 20.
-The total cost incurred is 5 + 1 + 2 + 20 = 28.
+The total cost incurred is 5 + 1 + 2 + 20 = 28. 
 It can be shown that this is the minimum possible cost.
 </pre>
 
