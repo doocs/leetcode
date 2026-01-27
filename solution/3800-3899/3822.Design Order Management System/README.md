@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3822.De
 
 <!-- problem:start -->
 
-# [3822. Design Order Management System 🔒](https://leetcode.cn/problems/design-order-management-system)
+# [3822. 设计订单管理系统 🔒](https://leetcode.cn/problems/design-order-management-system)
 
 [English Version](/solution/3800-3899/3822.Design%20Order%20Management%20System/README_EN.md)
 
@@ -14,58 +14,60 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3822.De
 
 <!-- description:start -->
 
-<p>You are asked to design a simple order management system for a trading platform.</p>
+<p>请设计一个简单的交易平台订单管理系统。</p>
 
-<p>Each order is associated with an <code>orderId</code>, an <code>orderType</code> (<code>&quot;buy&quot;</code> or <code>&quot;sell&quot;</code>), and a <code>price</code>.</p>
+<p>每个订单都有一个关联的&nbsp;<code>orderId</code>，一个&nbsp;<code>orderType</code>（<code>"buy"</code> 或&nbsp;<code>"sell"</code>）和一个&nbsp;<code>price</code>。</p>
 
-<p>An order is considered <strong>active</strong> unless it is canceled.</p>
+<p>订单除非被取消，否则被视为 <strong>有效</strong>。</p>
 
-<p>Implement the <code>OrderManagementSystem</code> class:</p>
+<p>实现&nbsp;<code>OrderManagementSystem</code> 类：</p>
 
 <ul>
-	<li><code>OrderManagementSystem()</code>: Initializes the order management system.</li>
-	<li><code>void addOrder(int orderId, string orderType, int price)</code>: Adds a new <strong>active</strong> order with the given attributes. It is <strong>guaranteed</strong> that <code>orderId</code> is unique.</li>
-	<li><code>void modifyOrder(int orderId, int newPrice)</code>: Modifies the <strong>price</strong> of an existing order. It is <strong>guaranteed</strong> that the order exists and is <em>active</em>.</li>
-	<li><code>void cancelOrder(int orderId)</code>: Cancels an existing order. It is <strong>guaranteed</strong> that the order exists and is <em>active</em>.</li>
-	<li><code>vector&lt;int&gt; getOrdersAtPrice(string orderType, int price)</code>: Returns the <code>orderId</code>s of all <strong>active</strong> orders that match the given <code>orderType</code> and <code>price</code>. If no such orders exist, return an empty list.</li>
+	<li><code>OrderManagementSystem()</code>：初始化订单管理系统。</li>
+	<li><code>void addOrder(int orderId, string orderType, int price)</code>：添加一个具有给定属性的新 <strong>有效</strong> 订单。<strong>保证</strong>&nbsp;<code>orderId</code>&nbsp;互不相同。</li>
+	<li><code>void modifyOrder(int orderId, int newPrice)</code>：修改现有订单的 <strong>价格</strong>。<strong>保证</strong> 该订单存在且处于活动状态。</li>
+	<li><code>void cancelOrder(int orderId)</code>：取消一个现有的订单。<strong>保证</strong> 该订单存在且处于活动状态。</li>
+	<li><code>vector&lt;int&gt; getOrdersAtPrice(string orderType, int price)</code>：返回所有匹配给定&nbsp;<code>orderType</code>&nbsp;和&nbsp;<code>price</code> 的 <strong>有效</strong> 订单的 <code>orderId</code>。如果不存在此类订单，则返回空列表。</li>
 </ul>
 
-<p><strong>Note:</strong> The order of returned <code>orderId</code>s does not matter.</p>
+<p><b>注意：</b>可以按任意顺序返回&nbsp;<code>orderId</code>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong><br />
-<span class="example-io">[&quot;OrderManagementSystem&quot;, &quot;addOrder&quot;, &quot;addOrder&quot;, &quot;addOrder&quot;, &quot;getOrdersAtPrice&quot;, &quot;modifyOrder&quot;, &quot;modifyOrder&quot;, &quot;getOrdersAtPrice&quot;, &quot;cancelOrder&quot;, &quot;cancelOrder&quot;, &quot;getOrdersAtPrice&quot;]<br />
-[[], [1, &quot;buy&quot;, 1], [2, &quot;buy&quot;, 1], [3, &quot;sell&quot;, 2], [&quot;buy&quot;, 1], [1, 3], [2, 1], [&quot;buy&quot;, 1], [3], [2], [&quot;buy&quot;, 1]]</span></p>
+<p><strong>输入：</strong><br />
+<span class="example-io">["OrderManagementSystem", "addOrder", "addOrder", "addOrder", "getOrdersAtPrice", "modifyOrder", "modifyOrder", "getOrdersAtPrice", "cancelOrder", "cancelOrder", "getOrdersAtPrice"]<br />
+[[], [1, "buy", 1], [2, "buy", 1], [3, "sell", 2], ["buy", 1], [1, 3], [2, 1], ["buy", 1], [3], [2], ["buy", 1]]</span></p>
 
-<p><strong>Output:</strong><br />
+<p><strong>输出：</strong><br />
 <span class="example-io">[null, null, null, null, [2, 1], null, null, [2], null, null, []] </span></p>
 
-<p><strong>Explanation</strong></p>
+<p><strong>解释：</strong></p>
 OrderManagementSystem orderManagementSystem = new OrderManagementSystem();<br />
-orderManagementSystem.addOrder(1, &quot;buy&quot;, 1); // A buy order with ID 1 is added at price 1.<br />
-orderManagementSystem.addOrder(2, &quot;buy&quot;, 1); // A buy order with ID 2 is added at price 1.<br />
-orderManagementSystem.addOrder(3, &quot;sell&quot;, 2); // A sell order with ID 3 is added at price 2.<br />
-orderManagementSystem.getOrdersAtPrice(&quot;buy&quot;, 1); // Both buy orders (IDs 1 and 2) are active at price 1, so the result is <code>[2, 1]</code>.<br />
-orderManagementSystem.modifyOrder(1, 3); // Order 1 is updated: its price becomes 3.<br />
-orderManagementSystem.modifyOrder(2, 1); // Order 2 is updated, but its price remains 1.<br />
-orderManagementSystem.getOrdersAtPrice(&quot;buy&quot;, 1); // Only order 2 is still an active buy order at price 1, so the result is <code>[2]</code>.<br />
-orderManagementSystem.cancelOrder(3); // The sell order with ID 3 is canceled and removed from active orders.<br />
-orderManagementSystem.cancelOrder(2); // The buy order with ID 2 is canceled and removed from active orders.<br />
-orderManagementSystem.getOrdersAtPrice(&quot;buy&quot;, 1); // There are no active buy orders left at price 1, so the result is <code>[]</code>.</div>
+orderManagementSystem.addOrder(1, "buy", 1); // 一个 ID 为 1 的买入订单以价格 1 添加。<br />
+orderManagementSystem.addOrder(2, "buy", 1); // 一个 ID 为 2 的买入订单以价格 1 添加。<br />
+orderManagementSystem.addOrder(3, "sell", 2); // 一个 ID 为 3 的买入订单以价格 2 添加。<br />
+orderManagementSystem.getOrdersAtPrice("buy", 1); // 两个买入订单（ID 1 和 2）在价格 1 是有效的，所以结果是&nbsp;<code>[2, 1]</code>。<br />
+orderManagementSystem.modifyOrder(1, 3); // 更新订单 1：价格变为 3。<br />
+orderManagementSystem.modifyOrder(2, 1); // 更新订单 2，但价格依然是 1。<br />
+orderManagementSystem.getOrdersAtPrice("buy", 1); // 在价格 1 只有订单 2 还有效，所以结果是&nbsp;<code>[2]</code>。<br />
+orderManagementSystem.cancelOrder(3); // ID为 3 的卖出订单已被取消并从有效订单中移除。<br />
+orderManagementSystem.cancelOrder(2); // ID为 2 的卖出订单已被取消并从有效订单中移除。<br />
+orderManagementSystem.getOrdersAtPrice("buy", 1); // 在价格 1 没有剩余的有效订单，所以结果是&nbsp;<code>[]</code>。</div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= orderId &lt;= 2000</code></li>
-	<li><code>orderId</code> is <strong>unique</strong> across all orders.</li>
-	<li><code>orderType</code> is either <code>&quot;buy&quot;</code> or <code>&quot;sell&quot;</code>.</li>
+	<li><code>orderId</code>&nbsp;在所有订单中是 <strong>互不相同</strong>&nbsp;的。</li>
+	<li><code>orderType</code> 是&nbsp;<code>"buy"</code> 或&nbsp;<code>"sell"</code>。</li>
 	<li><code>1 &lt;= price &lt;= 10<sup>9</sup></code></li>
-	<li>The total number of calls to <code>addOrder</code>, <code>modifyOrder</code>, <code>cancelOrder</code>, and <code>getOrdersAtPrice</code> does not exceed <font face="monospace">2000</font>.</li>
-	<li>For <code>modifyOrder</code> and <code>cancelOrder</code>, the specified <code>orderId</code> is <strong>guaranteed</strong> to exist and be <em>active</em>.</li>
+	<li>调用 <code>addOrder</code>，<code>modifyOrder</code>，<code>cancelOrder</code>&nbsp;和&nbsp;<code>getOrdersAtPrice</code>&nbsp;的总次数不超过 2000。</li>
+	<li>对于&nbsp;<code>modifyOrder</code> 或&nbsp;<code>cancelOrder</code>，指定的 <code>orderId</code> <strong>保证</strong> 存在且有效。</li>
 </ul>
 
 <!-- description:end -->
@@ -400,6 +402,78 @@ class OrderManagementSystem {
  * obj.modifyOrder(orderId,newPrice)
  * obj.cancelOrder(orderId)
  * var param_4 = obj.getOrdersAtPrice(orderType,price)
+ */
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+struct OrderManagementSystem {
+    orders: HashMap<i32, (String, i32)>,
+    t: HashMap<(String, i32), Vec<i32>>,
+}
+
+impl OrderManagementSystem {
+
+    fn new() -> Self {
+        Self {
+            orders: HashMap::new(),
+            t: HashMap::new(),
+        }
+    }
+
+    fn add_order(&mut self, order_id: i32, order_type: String, price: i32) {
+        self.orders.insert(order_id, (order_type.clone(), price));
+        self.t
+            .entry((order_type, price))
+            .or_insert_with(Vec::new)
+            .push(order_id);
+    }
+
+    fn modify_order(&mut self, order_id: i32, new_price: i32) {
+        if let Some((order_type, old_price)) = self.orders.get(&order_id).cloned() {
+            self.orders.insert(order_id, (order_type.clone(), new_price));
+
+            if let Some(v) = self.t.get_mut(&(order_type.clone(), old_price)) {
+                if let Some(pos) = v.iter().position(|&x| x == order_id) {
+                    v.remove(pos);
+                }
+            }
+
+            self.t
+                .entry((order_type, new_price))
+                .or_insert_with(Vec::new)
+                .push(order_id);
+        }
+    }
+
+    fn cancel_order(&mut self, order_id: i32) {
+        if let Some((order_type, price)) = self.orders.remove(&order_id) {
+            if let Some(v) = self.t.get_mut(&(order_type, price)) {
+                if let Some(pos) = v.iter().position(|&x| x == order_id) {
+                    v.remove(pos);
+                }
+            }
+        }
+    }
+
+    fn get_orders_at_price(&self, order_type: String, price: i32) -> Vec<i32> {
+        self.t
+            .get(&(order_type, price))
+            .cloned()
+            .unwrap_or_default()
+    }
+}
+
+/**
+ * Your OrderManagementSystem object will be instantiated and called as such:
+ * let obj = OrderManagementSystem::new();
+ * obj.add_order(orderId, orderType, price);
+ * obj.modify_order(orderId, newPrice);
+ * obj.cancel_order(orderId);
+ * let ret_4: Vec<i32> = obj.get_orders_at_price(orderType, price);
  */
 ```
 
