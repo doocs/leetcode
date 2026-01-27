@@ -3824,7 +3824,7 @@
 |  3811  |  [交替按位异或分割的数目](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README.md)  |    |  中等  |  第 174 场双周赛  |
 |  3812  |  [翻转树上最少边](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md)  |    |  困难  |  第 174 场双周赛  |
 |  3813  |  [元音辅音得分](/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md)  |    |  简单  |  第 485 场周赛  |
-|  3814  |  [预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)  |    |  中等  |  第 485 场周赛  |
+|  3814  |  [预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)  |  `二分查找`,`前缀和`  |  中等  |  第 485 场周赛  |
 |  3815  |  [设计拍卖系统](/solution/3800-3899/3815.Design%20Auction%20System/README.md)  |    |  中等  |  第 485 场周赛  |
 |  3816  |  [删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)  |    |  困难  |  第 485 场周赛  |
 |  3817  |  [数字字符串中的好索引](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README.md)  |    |  中等  |  🔒  |
@@ -3832,6 +3832,7 @@
 |  3819  |  [非负元素轮替](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README.md)  |    |  中等  |  第 486 场周赛  |
 |  3820  |  [树上的勾股距离节点](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README.md)  |    |  中等  |  第 486 场周赛  |
 |  3821  |  [二进制中恰好K个1的第N小整数](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README.md)  |    |  困难  |  第 486 场周赛  |
+|  3822  |  [Design Order Management System](/solution/3800-3899/3822.Design%20Order%20Management%20System/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md
 rating: 1796
 source: Weekly Contest 485 Q2
+tags:
+    - Binary Search
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

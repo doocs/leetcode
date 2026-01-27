@@ -3822,7 +3822,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3811  |  [Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
 |  3812  |  [Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 174  |
 |  3813  |  [Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 485  |
-|  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
+|  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |  `Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 485  |
 |  3815  |  [Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
 |  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |    |  Hard  |  Weekly Contest 485  |
 |  3817  |  [Good Indices in a Digit String](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README_EN.md)  |    |  Medium  |  🔒  |
@@ -3830,6 +3830,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3819  |  [Rotate Non Negative Elements](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
 |  3820  |  [Pythagorean Distance Nodes in a Tree](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
 |  3821  |  [Find Nth Smallest Integer With K One Bits](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md)  |    |  Hard  |  Weekly Contest 486  |
+|  3822  |  [Design Order Management System](/solution/3800-3899/3822.Design%20Order%20Management%20System/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

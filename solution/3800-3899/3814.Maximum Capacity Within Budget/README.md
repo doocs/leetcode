@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md
 rating: 1796
 source: 第 485 场周赛 Q2
+tags:
+    - 二分查找
+    - 前缀和
 ---
 
 <!-- problem:start -->
