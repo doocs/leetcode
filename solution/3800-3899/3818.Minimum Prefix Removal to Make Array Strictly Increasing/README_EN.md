@@ -18,11 +18,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3818.Mi
 
 <p>You need to remove <strong>exactly</strong> one prefix (possibly empty) from nums.</p>
 
-<p>Return an integer denoting the <strong>minimum</strong> length of the removed prefix such that the remaining array is <strong>strictly increasing</strong>.</p>
-
-<p>A <strong>prefix</strong> of an array is a subarray that starts from the beginning of the array and extends to any point within it.</p>
-
-<p>An array is said to be <strong>strictly increasing</strong> if each element is strictly greater than its previous one (if exists).</p>
+<p>Return an integer denoting the <strong>minimum</strong> length of the removed <span data-keyword="array-prefix">prefix</span> such that the remaining array is <strong><span data-keyword="strictly-increasing-array">strictly increasing</span></strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
