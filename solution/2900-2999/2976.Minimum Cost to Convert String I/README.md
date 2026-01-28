@@ -53,8 +53,8 @@ tags:
 <strong>输入：</strong>source = "aaaa", target = "bbbb", original = ["a","c"], changed = ["c","b"], cost = [1,2]
 <strong>输出：</strong>12
 <strong>解释：</strong>要将字符 'a' 更改为 'b'：
-- 将字符 'a' 更改为 'c'，成本为 1 
-- 将字符 'c' 更改为 'b'，成本为 2 
+- 将字符 'a' 更改为 'c'，成本为 1
+- 将字符 'c' 更改为 'b'，成本为 2
 产生的总成本是 1 + 2 = 3。
 将所有 'a' 更改为 'b'，产生的总成本是 3 * 4 = 12 。
 </pre>
@@ -307,6 +307,58 @@ function minimumCost(
         ans += g[x][y];
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_cost(
+        source: String,
+        target: String,
+        original: Vec<char>,
+        changed: Vec<char>,
+        cost: Vec<i32>,
+    ) -> i64 {
+        let inf: i64 = i64::MAX / 4;
+        let mut g = vec![vec![inf; 26]; 26];
+
+        for i in 0..26 {
+            g[i][i] = 0;
+        }
+
+        for i in 0..original.len() {
+            let x = (original[i] as u8 - b'a') as usize;
+            let y = (changed[i] as u8 - b'a') as usize;
+            g[x][y] = g[x][y].min(cost[i] as i64);
+        }
+
+        for k in 0..26 {
+            for i in 0..26 {
+                for j in 0..26 {
+                    let v = g[i][k] + g[k][j];
+                    if v < g[i][j] {
+                        g[i][j] = v;
+                    }
+                }
+            }
+        }
+
+        let mut ans: i64 = 0;
+        for (a, b) in source.bytes().zip(target.bytes()) {
+            if a != b {
+                let x = (a - b'a') as usize;
+                let y = (b - b'a') as usize;
+                if g[x][y] >= inf {
+                    return -1;
+                }
+                ans += g[x][y];
+            }
+        }
+
+        ans
+    }
 }
 ```
 
