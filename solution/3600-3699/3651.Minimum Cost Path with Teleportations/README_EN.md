@@ -135,7 +135,41 @@ source: Biweekly Contest 163 Q4
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[t][i][j]$ as the minimum cost to reach cell $(i, j)$ using exactly $t$ teleportations. Initially, $f[0][0][0] = 0$, and all other states are infinity.
+
+First, we need to initialize $f[0][i][j]$. Without using teleportation, we can only reach cell $(i, j)$ by moving right or down.
+
+If $i > 0$, we can move from the cell above $(i-1, j)$, updating the state as:
+
+$$f[0][i][j] = \min(f[0][i][j], f[0][i-1][j] + grid[i][j])$$
+
+If $j > 0$, we can move from the cell to the left $(i, j-1)$, updating the state as:
+
+$$f[0][i][j] = \min(f[0][i][j], f[0][i][j-1] + grid[i][j])$$
+
+To handle teleportation, we need to group the cells in the grid by their values. We use a hash map $g$, where the key is the cell value and the value is a list of coordinates of cells with that value.
+
+For each teleportation count $t$ from $1$ to $k$, we process each group in descending order of cell values. For each cell $(i, j)$ in a group, we first update a global minimum $mn$, representing the minimum cost to reach these cells using $t-1$ teleportations:
+
+$$mn = \min(mn, f[t-1][i][j])$$
+
+Then, we update the state of all cells in the group to $mn$, representing the minimum cost to reach these cells via teleportation.
+
+Next, we traverse the entire grid again to update $f[t][i][j]$, considering moves from the top or left cells:
+
+If $i > 0$, then:
+
+$$f[t][i][j] = \min(f[t][i][j], f[t][i-1][j] + grid[i][j])$$
+
+If $j > 0$, then:
+
+$$f[t][i][j] = \min(f[t][i][j], f[t][i][j-1] + grid[i][j])$$
+
+Finally, our answer is $\min(f[t][m-1][n-1])$, where $t$ ranges from $0$ to $k$.
+
+The time complexity is $O((k + \log mn) \times mn)$, and the space complexity is $O(k \times mn)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively, and $k$ is the maximum allowed number of teleportations.
 
 <!-- tabs:start -->
 
@@ -452,6 +486,74 @@ function minCost(grid: number[][], k: number): number {
         ans = Math.min(ans, f[t][m - 1][n - 1]);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_cost(grid: Vec<Vec<i32>>, k: i32) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let k = k as usize;
+        let inf: i32 = i32::MAX / 2;
+
+        let mut f = vec![vec![vec![inf; n]; m]; k + 1];
+
+        f[0][0][0] = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if i > 0 {
+                    f[0][i][j] = f[0][i][j].min(f[0][i - 1][j] + grid[i][j]);
+                }
+                if j > 0 {
+                    f[0][i][j] = f[0][i][j].min(f[0][i][j - 1] + grid[i][j]);
+                }
+            }
+        }
+
+        let mut g: HashMap<i32, Vec<(usize, usize)>> = HashMap::new();
+        for i in 0..m {
+            for j in 0..n {
+                g.entry(grid[i][j]).or_default().push((i, j));
+            }
+        }
+
+        let mut keys: Vec<i32> = g.keys().cloned().collect();
+        keys.sort_by(|a, b| b.cmp(a));
+
+        for t in 1..=k {
+            let mut mn = inf;
+            for &key in &keys {
+                let pos = &g[&key];
+                for &(i, j) in pos {
+                    mn = mn.min(f[t - 1][i][j]);
+                }
+                for &(i, j) in pos {
+                    f[t][i][j] = mn;
+                }
+            }
+            for i in 0..m {
+                for j in 0..n {
+                    if i > 0 {
+                        f[t][i][j] = f[t][i][j].min(f[t][i - 1][j] + grid[i][j]);
+                    }
+                    if j > 0 {
+                        f[t][i][j] = f[t][i][j].min(f[t][i][j - 1] + grid[i][j]);
+                    }
+                }
+            }
+        }
+
+        let mut ans = inf;
+        for t in 0..=k {
+            ans = ans.min(f[t][m - 1][n - 1]);
+        }
+        ans
+    }
 }
 ```
 
