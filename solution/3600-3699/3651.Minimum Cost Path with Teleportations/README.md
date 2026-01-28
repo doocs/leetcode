@@ -138,7 +138,41 @@ source: 第 163 场双周赛 Q4
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义 $f[t][i][j]$ 表示使用了 $t$ 次传送到达单元格 $(i, j)$ 的最小成本，初始时 $f[0][0][0] = 0$，其余状态均为无穷大。
+
+接下来，我们需要初始化 $f[0][i][j]$，在没有使用传送的情况下，我们只能通过向右或向下移动到达单元格 $(i, j)$。
+
+如果 $i > 0$，则可以从上方单元格 $(i-1, j)$ 移动过来，更新状态为：
+
+$$f[0][i][j] = \min(f[0][i][j], f[0][i-1][j] + grid[i][j])$$
+
+如果 $j > 0$，则可以从左侧单元格 $(i, j-1)$ 移动过来，更新状态为：
+
+$$f[0][i][j] = \min(f[0][i][j], f[0][i][j-1] + grid[i][j])$$
+
+为了处理传送操作，我们需要将网格中的单元格按其值进行分组。我们使用一个哈希表 $g$，其中键为单元格的值，值为具有该值的单元格坐标列表。
+
+对于每次传送 $t$ 从 $1$ 到 $k$，我们按照单元格值从大到小的顺序处理每个组。对于每个组中的单元格 $(i, j)$，我们首先更新一个全局最小值 $mn$，它表示在使用 $t-1$ 次传送时到达这些单元格的最小成本：
+
+$$mn = \min(mn, f[t-1][i][j])$$
+
+然后，我们将组中所有单元格的状态更新为 $mn$，表示通过传送到达这些单元格的最小成本。
+
+接下来，我们再次遍历整个网格，更新 $f[t][i][j]$，考虑从上方或左侧单元格移动过来的情况：
+
+如果 $i > 0$，则：
+
+$$f[t][i][j] = \min(f[t][i][j], f[t][i-1][j] + grid[i][j])$$
+
+如果 $j > 0$，则：
+
+$$f[t][i][j] = \min(f[t][i][j], f[t][i][j-1] + grid[i][j])$$
+
+最终，我们的答案是 $\min(f[t][m-1][n-1])$，其中 $t$ 从 $0$ 到 $k$。
+
+时间复杂度 $O((k + \log mn) \times mn)$，空间复杂度 $O(k \times mn)$。其中 $m$ 和 $n$ 分别是网格的行数和列数，而 $k$ 是允许的最大传送次数。
 
 <!-- tabs:start -->
 
@@ -455,6 +489,74 @@ function minCost(grid: number[][], k: number): number {
         ans = Math.min(ans, f[t][m - 1][n - 1]);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_cost(grid: Vec<Vec<i32>>, k: i32) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let k = k as usize;
+        let inf: i32 = i32::MAX / 2;
+
+        let mut f = vec![vec![vec![inf; n]; m]; k + 1];
+
+        f[0][0][0] = 0;
+        for i in 0..m {
+            for j in 0..n {
+                if i > 0 {
+                    f[0][i][j] = f[0][i][j].min(f[0][i - 1][j] + grid[i][j]);
+                }
+                if j > 0 {
+                    f[0][i][j] = f[0][i][j].min(f[0][i][j - 1] + grid[i][j]);
+                }
+            }
+        }
+
+        let mut g: HashMap<i32, Vec<(usize, usize)>> = HashMap::new();
+        for i in 0..m {
+            for j in 0..n {
+                g.entry(grid[i][j]).or_default().push((i, j));
+            }
+        }
+
+        let mut keys: Vec<i32> = g.keys().cloned().collect();
+        keys.sort_by(|a, b| b.cmp(a));
+
+        for t in 1..=k {
+            let mut mn = inf;
+            for &key in &keys {
+                let pos = &g[&key];
+                for &(i, j) in pos {
+                    mn = mn.min(f[t - 1][i][j]);
+                }
+                for &(i, j) in pos {
+                    f[t][i][j] = mn;
+                }
+            }
+            for i in 0..m {
+                for j in 0..n {
+                    if i > 0 {
+                        f[t][i][j] = f[t][i][j].min(f[t][i - 1][j] + grid[i][j]);
+                    }
+                    if j > 0 {
+                        f[t][i][j] = f[t][i][j].min(f[t][i][j - 1] + grid[i][j]);
+                    }
+                }
+            }
+        }
+
+        let mut ans = inf;
+        for t in 0..=k {
+            ans = ans.min(f[t][m - 1][n - 1]);
+        }
+        ans
+    }
 }
 ```
 
