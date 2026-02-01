@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 487 场周赛(2026-02-01 10:30, 90 分钟) 参赛人数 1442
+
+- [3827. 统计单比特整数](/solution/3800-3899/3827.Count%20Monobit%20Integers/README.md)
+- [3828. 删除子数组后的最终元素](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README.md)
+- [3829. 设计共享出行系统](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README.md)
+- [3830. 移除至多一个元素后的最长交替子数组](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README.md)
+
+#### 第 175 场双周赛(2026-01-31 22:30, 90 分钟) 参赛人数 1097
+
+- [3823. 反转一个字符串里的字母后反转特殊字符](/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README.md)
+- [3824. 减小数组使其满足条件的最小 K 值](/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README.md)
+- [3825. 按位与结果非零的最长上升子序列](/solution/3800-3899/3825.Longest%20Strictly%20Increasing%20Subsequence%20With%20Non-Zero%20Bitwise%20AND/README.md)
+- [3826. 最小分割分数](/solution/3800-3899/3826.Minimum%20Partition%20Score/README.md)
+
 #### 第 486 场周赛(2026-01-25 10:30, 90 分钟) 参赛人数 1500
 
 - [3818. 移除前缀使数组严格递增](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README.md)

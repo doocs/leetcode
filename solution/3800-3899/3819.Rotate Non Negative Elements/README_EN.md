@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README_EN.md
+rating: 1381
+source: Weekly Contest 486 Q2
 ---
 
 <!-- problem:start -->
