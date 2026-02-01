@@ -87,7 +87,20 @@ rideSharingSystem.matchDriverWithRider(); // 返回 [-1, -1]</div>
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：有序集合 + 哈希表
+
+我们使用两个有序集合 $\textit{riders}$ 和 $\textit{drivers}$ 分别存储等待的乘客和空闲的司机。其中，每个元素为一个二元组 $(t, \textit{id})$，表示该乘客/司机的 ID 以及其加入系统的时间戳 $t$。时间戳 $t$ 用于区分先后顺序，初始时 $t = 0$，每次添加乘客或司机时，$t$ 自增 $1$。
+
+此外，我们使用哈希表 $\textit{d}$ 存储每个乘客的 ID 和其时间戳的映射关系，方便在取消乘客请求时进行查找。
+
+具体地：
+
+- 在添加乘客时，我们将 $(t, \textit{riderId})$ 添加到 $\textit{riders}$ 中，并将 $\textit{d}[\textit{riderId}] = t$，然后将 $t$ 自增 $1$。
+- 在添加司机时，我们将 $(t, \textit{driverId})$ 添加到 $\textit{drivers}$ 中，然后将 $t$ 自增 $1$。
+- 在匹配司机和乘客时，如果 $\textit{riders}$ 或 $\textit{drivers}$ 为空，则返回 $[-1, -1]$。否则，我们分别取出 $\textit{riders}$ 和 $\textit{drivers}$ 中时间戳最小的元素 $(t_r, \textit{riderId})$ 和 $(t_d, \textit{driverId})$，将它们从各自的集合中移除，并返回 $[\textit{driverId}, \textit{riderId}]$。
+- 在取消乘客请求时，我们通过 $\textit{d}$ 查找该乘客的时间戳 $t$，然后将 $(t, \textit{riderId})$ 从 $\textit{riders}$ 中移除。
+
+时间复杂度为每次操作 $O(\log n)$，其中 $n$ 是当前乘客或司机的数量。空间复杂度为 $O(n)$。
 
 <!-- tabs:start -->
 

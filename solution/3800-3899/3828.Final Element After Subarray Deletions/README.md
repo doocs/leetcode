@@ -75,7 +75,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3828.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+由于 Alice 先手，Alice 可以选择移除除第一个元素和最后一个元素之外的所有元素，那么答案至少为 $\max(nums[0], nums[n - 1])$。
+
+而对于 $n = 1,2,..n-2$ 的情况，即便 Alice 想要保留这中间的某个元素，Bob 也可以选择移除它，因此答案至多为 $\max(nums[0], nums[n - 1])$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

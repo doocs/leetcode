@@ -94,7 +94,17 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3830.Lo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix-Suffix Decomposition + Enumeration
+
+We use two arrays $l_1$ and $l_2$ to represent the length of the longest alternating subarray ending at position $i$ with the last comparison being "<" and ">", respectively. Similarly, we use $r_1$ and $r_2$ to represent the length of the longest alternating subarray starting at position $i$ with the first comparison being "<" and ">", respectively.
+
+We can compute $l_1$ and $l_2$ through a single left-to-right traversal, and then compute $r_1$ and $r_2$ through a single right-to-left traversal.
+
+Next, we initialize the answer as $\max(\max(l_1), \max(l_2))$, which represents the length of the longest alternating subarray without removing any elements.
+
+Then, we enumerate the position $i$ of the element to be removed. If after removing position $i$, positions $i-1$ and $i+1$ can still form an alternating relationship, we can add $l_1[i-1]$ and $r_1[i+1]$ (or $l_2[i-1]$ and $r_2[i+1]$) together to update the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

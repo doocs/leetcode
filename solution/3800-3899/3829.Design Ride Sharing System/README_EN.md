@@ -85,7 +85,20 @@ rideSharingSystem.matchDriverWithRider(); // returns [-1, -1]</div>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorted Set + Hash Table
+
+We use two sorted sets $\textit{riders}$ and $\textit{drivers}$ to store waiting riders and available drivers respectively. Each element is a tuple $(t, \textit{id})$, representing the ID of the rider/driver and their timestamp $t$ when they joined the system. The timestamp $t$ is used to distinguish the order of arrival. Initially, $t = 0$, and each time a rider or driver is added, $t$ is incremented by $1$.
+
+Additionally, we use a hash table $\textit{d}$ to store the mapping between each rider's ID and their timestamp, which facilitates lookup when canceling a rider's request.
+
+Specifically:
+
+- When adding a rider, we add $(t, \textit{riderId})$ to $\textit{riders}$, set $\textit{d}[\textit{riderId}] = t$, and then increment $t$ by $1$.
+- When adding a driver, we add $(t, \textit{driverId})$ to $\textit{drivers}$ and then increment $t$ by $1$.
+- When matching a driver with a rider, if either $\textit{riders}$ or $\textit{drivers}$ is empty, we return $[-1, -1]$. Otherwise, we remove the elements with the smallest timestamps from both $\textit{riders}$ and $\textit{drivers}$, namely $(t_r, \textit{riderId})$ and $(t_d, \textit{driverId})$, and return $[\textit{driverId}, \textit{riderId}]$.
+- When canceling a rider's request, we look up the rider's timestamp $t$ through $\textit{d}$, and then remove $(t, \textit{riderId})$ from $\textit{riders}$.
+
+The time complexity is $O(\log n)$ per operation, where $n$ is the current number of riders or drivers. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 

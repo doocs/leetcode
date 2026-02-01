@@ -66,7 +66,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3827.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+根据题目描述，单比特整数，要么是 $0$，要么其二进制表示中所有位都是 $1$。
+
+因此，我们首先将 $0$ 计入答案中，然后从 $1$ 开始，依次生成二进制表示中所有位都是 $1$ 的整数，直到该整数大于 $n$ 为止。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -79,7 +85,7 @@ class Solution:
         i = 1
         while x <= n:
             ans += 1
-            x += (1 << i)
+            x += 1 << i
             i += 1
         return ans
 ```
