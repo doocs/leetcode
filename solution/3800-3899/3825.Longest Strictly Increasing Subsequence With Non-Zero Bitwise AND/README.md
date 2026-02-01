@@ -74,32 +74,149 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3825.Lo
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 最长递增子序列
+
+按位与结果非零意味着子序列中的所有数字在某一位上均为 $1$。我们可以枚举该位，然后在所有在该位上为 $1$ 的数字中寻找最长严格递增子序列，取所有枚举的最大值即为答案。
+
+时间复杂度 $O(\log M \times n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 和 $M$ 分别为数组长度和数组中的最大值。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def longestSubsequence(self, nums: List[int]) -> int:
+        def lis(arr: List[int]) -> int:
+            g = []
+            for x in arr:
+                j = bisect_left(g, x)
+                if j == len(g):
+                    g.append(x)
+                else:
+                    g[j] = x
+            return len(g)
 
+        ans = 0
+        m = max(nums).bit_length()
+        for i in range(m):
+            arr = [x for x in nums if x >> i & 1]
+            ans = max(ans, lis(arr))
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int longestSubsequence(int[] nums) {
+        int ans = 0;
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, x);
+        }
+        int m = 32 - Integer.numberOfLeadingZeros(mx);
+        for (int i = 0; i < m; i++) {
+            List<Integer> arr = new ArrayList<>();
+            for (int x : nums) {
+                if (((x >> i) & 1) == 1) {
+                    arr.add(x);
+                }
+            }
+            ans = Math.max(ans, lis(arr));
+        }
+        return ans;
+    }
 
+    private int lis(List<Integer> arr) {
+        List<Integer> g = new ArrayList<>();
+        for (int x : arr) {
+            int l = 0, r = g.size();
+            while (l < r) {
+                int mid = (l + r) >>> 1;
+                if (g.get(mid) >= x) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            if (l == g.size()) {
+                g.add(x);
+            } else {
+                g.set(l, x);
+            }
+        }
+        return g.size();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int longestSubsequence(vector<int>& nums) {
+        auto lis = [&](const vector<int>& arr) {
+            vector<int> g;
+            for (int x : arr) {
+                auto it = lower_bound(g.begin(), g.end(), x);
+                if (it == g.end()) {
+                    g.push_back(x);
+                } else {
+                    *it = x;
+                }
+            }
+            return (int) g.size();
+        };
 
+        int ans = 0;
+        int mx = ranges::max(nums);
+        int m = mx == 0 ? 0 : 32 - __builtin_clz(mx);
+
+        for (int i = 0; i < m; ++i) {
+            vector<int> arr;
+            ranges::copy_if(nums, back_inserter(arr), [&](int x) {
+                return (x >> i) & 1;
+            });
+            ans = max(ans, lis(arr));
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestSubsequence(nums []int) int {
+	ans := 0
+	m := bits.Len(uint(slices.Max(nums)))
+	for i := 0; i < m; i++ {
+		arr := make([]int, 0)
+		for _, x := range nums {
+			if (x>>i)&1 == 1 {
+				arr = append(arr, x)
+			}
+		}
+		ans = max(ans, lis(arr))
+	}
+	return ans
+}
 
+func lis(arr []int) int {
+	g := make([]int, 0)
+	for _, x := range arr {
+		j := sort.SearchInts(g, x)
+		if j == len(g) {
+			g = append(g, x)
+		} else {
+			g[j] = x
+		}
+	}
+	return len(g)
+}
 ```
 
 <!-- tabs:end -->
