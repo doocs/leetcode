@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README.md
+rating: 1381
+source: 第 486 场周赛 Q2
 ---
 
 <!-- problem:start -->

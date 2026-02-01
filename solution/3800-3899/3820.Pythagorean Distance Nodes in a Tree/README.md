@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README.md
+rating: 1725
+source: 第 486 场周赛 Q3
 ---
 
 <!-- problem:start -->

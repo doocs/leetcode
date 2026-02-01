@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 487
+
+- [3827. Count Monobit Integers](/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md)
+- [3828. Final Element After Subarray Deletions](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README_EN.md)
+- [3829. Design Ride Sharing System](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README_EN.md)
+- [3830. Longest Alternating Subarray After Removing At Most One Element](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md)
+
+#### Biweekly Contest 175
+
+- [3823. Reverse Letters Then Special Characters in a String](/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README_EN.md)
+- [3824. Minimum K to Reduce Array Within Limit](/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README_EN.md)
+- [3825. Longest Strictly Increasing Subsequence With Non-Zero Bitwise AND](/solution/3800-3899/3825.Longest%20Strictly%20Increasing%20Subsequence%20With%20Non-Zero%20Bitwise%20AND/README_EN.md)
+- [3826. Minimum Partition Score](/solution/3800-3899/3826.Minimum%20Partition%20Score/README_EN.md)
+
 #### Weekly Contest 486
 
 - [3818. Minimum Prefix Removal to Make Array Strictly Increasing](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md)
