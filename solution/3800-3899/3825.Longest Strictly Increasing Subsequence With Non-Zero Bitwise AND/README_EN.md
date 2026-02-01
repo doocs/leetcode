@@ -72,32 +72,149 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3825.Lo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Longest Increasing Subsequence
+
+A non-zero bitwise AND result means that all numbers in the subsequence have a $1$ at a certain bit position. We can enumerate that bit position, then find the longest strictly increasing subsequence among all numbers that have a $1$ at that bit position, and take the maximum value across all enumerations as the answer.
+
+The time complexity is $O(\log M \times n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def longestSubsequence(self, nums: List[int]) -> int:
+        def lis(arr: List[int]) -> int:
+            g = []
+            for x in arr:
+                j = bisect_left(g, x)
+                if j == len(g):
+                    g.append(x)
+                else:
+                    g[j] = x
+            return len(g)
 
+        ans = 0
+        m = max(nums).bit_length()
+        for i in range(m):
+            arr = [x for x in nums if x >> i & 1]
+            ans = max(ans, lis(arr))
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int longestSubsequence(int[] nums) {
+        int ans = 0;
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, x);
+        }
+        int m = 32 - Integer.numberOfLeadingZeros(mx);
+        for (int i = 0; i < m; i++) {
+            List<Integer> arr = new ArrayList<>();
+            for (int x : nums) {
+                if (((x >> i) & 1) == 1) {
+                    arr.add(x);
+                }
+            }
+            ans = Math.max(ans, lis(arr));
+        }
+        return ans;
+    }
 
+    private int lis(List<Integer> arr) {
+        List<Integer> g = new ArrayList<>();
+        for (int x : arr) {
+            int l = 0, r = g.size();
+            while (l < r) {
+                int mid = (l + r) >>> 1;
+                if (g.get(mid) >= x) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            if (l == g.size()) {
+                g.add(x);
+            } else {
+                g.set(l, x);
+            }
+        }
+        return g.size();
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int longestSubsequence(vector<int>& nums) {
+        auto lis = [&](const vector<int>& arr) {
+            vector<int> g;
+            for (int x : arr) {
+                auto it = lower_bound(g.begin(), g.end(), x);
+                if (it == g.end()) {
+                    g.push_back(x);
+                } else {
+                    *it = x;
+                }
+            }
+            return (int) g.size();
+        };
 
+        int ans = 0;
+        int mx = ranges::max(nums);
+        int m = mx == 0 ? 0 : 32 - __builtin_clz(mx);
+
+        for (int i = 0; i < m; ++i) {
+            vector<int> arr;
+            ranges::copy_if(nums, back_inserter(arr), [&](int x) {
+                return (x >> i) & 1;
+            });
+            ans = max(ans, lis(arr));
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestSubsequence(nums []int) int {
+	ans := 0
+	m := bits.Len(uint(slices.Max(nums)))
+	for i := 0; i < m; i++ {
+		arr := make([]int, 0)
+		for _, x := range nums {
+			if (x>>i)&1 == 1 {
+				arr = append(arr, x)
+			}
+		}
+		ans = max(ans, lis(arr))
+	}
+	return ans
+}
 
+func lis(arr []int) int {
+	g := make([]int, 0)
+	for _, x := range arr {
+		j := sort.SearchInts(g, x)
+		if j == len(g) {
+			g = append(g, x)
+		} else {
+			g[j] = x
+		}
+	}
+	return len(g)
+}
 ```
 
 <!-- tabs:end -->
