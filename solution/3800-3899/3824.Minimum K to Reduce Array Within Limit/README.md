@@ -72,7 +72,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3824.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找
+
+我们注意到，当 $k$ 增大时，越容易满足条件，这存在着单调性，因此我们可以使用二分查找来寻找最小的 $k$。
+
+我们定义二分查找的左边界 $l = 1$，右边界 $r = 10^5$。在每次二分查找中，我们计算中间值 $mid = \lfloor (l + r) / 2 \rfloor$，并判断当 $k = mid$ 时，是否满足条件 $\text{nonPositive}(\text{nums}, k) \leq k^2$。如果满足条件，我们将右边界更新为 $r = mid$，否则将左边界更新为 $l = mid + 1$。当二分查找结束时，左边界 $l$ 即为所求的最小 $k$。
+
+时间复杂度 $O(n \log M)$，其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和最大范围。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

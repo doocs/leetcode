@@ -91,7 +91,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3823.Re
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We first store the letters and special characters from string $s$ into two separate lists $a$ and $b$ respectively. Then we traverse the string $s$. If the current position is a letter, we pop the last letter from list $a$ and place it back at that position; otherwise, we pop the last special character from list $b$ and place it back at that position.
+
+After the traversal is complete, we obtain the result string.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
