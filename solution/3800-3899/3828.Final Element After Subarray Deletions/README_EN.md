@@ -73,7 +73,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3828.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+Since Alice goes first, Alice can choose to remove all elements except the first and last elements, so the answer is at least $\max(nums[0], nums[n - 1])$.
+
+For the cases of elements at indices $1, 2, ..., n-2$ (the middle elements), even if Alice wants to keep any of these middle elements, Bob can choose to remove it, so the answer is at most $\max(nums[0], nums[n - 1])$.
+
+Therefore, the answer is exactly $\max(nums[0], nums[n - 1])$.
+
+The time complexity is $O(1)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
