@@ -141,23 +141,26 @@ class Solution {
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
-        int five = 0, ten = 10;
+        int five = 0, ten = 0;
+
         for (int v : bills) {
             if (v == 5) {
-                ++five;
-            } else if (v == 10) {
-                ++ten;
-                --five;
-            } else {
-                if (ten) {
-                    --ten;
-                    --five;
-                } else {
+                five++;
+            } 
+            else if (v == 10) {
+                if (five == 0) return false;
+                five--;
+                ten++;
+            } 
+            else { // v == 20
+                if (ten > 0 && five > 0) {
+                    ten--;
+                    five--;
+                } else if (five >= 3) {
                     five -= 3;
+                } else {
+                    return false;
                 }
-            }
-            if (five < 0) {
-                return false;
             }
         }
         return true;
