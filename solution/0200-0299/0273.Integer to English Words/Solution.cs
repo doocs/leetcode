@@ -1,88 +1,56 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
-    private string[] bases = { "Thousand", "Million", "Billion" };
+    private readonly string[] lt20 = {
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+        "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+        "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+    };
+
+    private readonly string[] tens = {
+        "", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
+        "Sixty", "Seventy", "Eighty", "Ninety"
+    };
+
+    private readonly string[] thousands = { "Billion", "Million", "Thousand", "" };
+
     public string NumberToWords(int num) {
-        if (num == 0)
-        {
+        if (num == 0) {
             return "Zero";
         }
-        var baseIndex = -1;
-        var parts = new List<string>();
-        while (num > 0)
-        {
-            var part = NumberToWordsInternal(num % 1000);
-            if (part.Length > 0 && baseIndex >= 0)
-            {
-                part = JoinParts(part, bases[baseIndex]);
+
+        string res = "";
+        for (int i = 1000000000, j = 0; i > 0; i /= 1000, ++j) {
+            int cur = num / i;
+            if (cur == 0) {
+                continue;
             }
-            parts.Add(part);
-            baseIndex++;
-            num /= 1000;
-        }
-        parts.Reverse();
-        return JoinParts(parts);
-    }
-
-    private string JoinParts(IEnumerable<string> parts)
-    {
-        return string.Join(" ", parts.Where(p => p.Length > 0));
-    }
-
-    private string JoinParts(params string[] parts)
-    {
-        return JoinParts((IEnumerable<string>)parts);
-    }
-
-    private string NumberToWordsInternal(int num)
-    {
-        switch(num)
-        {
-            case 0: return "";
-            case 1: return "One";
-            case 2: return "Two";
-            case 3: return "Three";
-            case 4: return "Four";
-            case 5: return "Five";
-            case 6: return "Six";
-            case 7: return "Seven";
-            case 8: return "Eight";
-            case 9: return "Nine";
-            case 10: return "Ten";
-            case 11: return "Eleven";
-            case 12: return "Twelve";
-            case 13: return "Thirteen";
-            case 14: return "Fourteen";
-            case 15: return "Fifteen";
-            case 16: return "Sixteen";
-            case 17: return "Seventeen";
-            case 18: return "Eighteen";
-            case 19: return "Nineteen";
-        }
-
-        if (num < 100)
-        {
-            string part1;
-            switch (num/10)
-            {
-                case 2: part1 = "Twenty"; break;
-                case 3: part1 = "Thirty"; break;
-                case 4: part1 = "Forty"; break;
-                case 5: part1 = "Fifty"; break;
-                case 6: part1 = "Sixty"; break;
-                case 7: part1 = "Seventy"; break;
-                case 8: part1 = "Eighty"; break;
-                case 9: default: part1 = "Ninety"; break;
+            if (res.Length > 0) {
+                res += " ";
             }
-            var part2 = NumberToWordsInternal(num % 10);
-            return JoinParts(part1, part2);
+            res += Transfer(cur);
+            if (thousands[j].Length > 0) {
+                res += " " + thousands[j];
+            }
+            num %= i;
         }
+        return res;
+    }
 
-        {
-            var part1 = NumberToWordsInternal(num / 100);
-            var part2 = NumberToWordsInternal(num % 100);
-            return JoinParts(part1, "Hundred", part2);
+    private string Transfer(int num) {
+        if (num == 0) {
+            return "";
         }
+        if (num < 20) {
+            return lt20[num];
+        }
+        if (num < 100) {
+            if (num % 10 == 0) {
+                return tens[num / 10];
+            }
+            return tens[num / 10] + " " + Transfer(num % 10);
+        }
+        if (num % 100 == 0) {
+            return lt20[num / 100] + " Hundred";
+        }
+        return lt20[num / 100] + " Hundred " + Transfer(num % 100);
     }
 }

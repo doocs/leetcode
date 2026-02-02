@@ -92,15 +92,15 @@ tags:
 
 ### Solution 1: Sorting
 
-The problem essentially asks us to find the length of the longest consecutive increasing subsequence in the array, and then add 1 to it.
+The problem essentially asks us to find the length of the longest consecutive increasing subsequence in the array, and then add $1$.
 
-We define a function $f(nums)$, which represents the length of the longest consecutive increasing subsequence in the array $nums$.
+We define a function $f(\textit{nums})$ to represent the length of the longest consecutive increasing subsequence in the array $\textit{nums}$.
 
-For the array $nums$, we first sort it, then traverse the array. If the current element $nums[i]$ equals the previous element $nums[i - 1]$ plus 1, it means that the current element can be added to the consecutive increasing subsequence. Otherwise, it means that the current element cannot be added to the consecutive increasing subsequence, and we need to start calculating the length of the consecutive increasing subsequence again. Finally, we return the length of the consecutive increasing subsequence plus 1.
+For the array $\textit{nums}$, we first sort it, then iterate through the array. If the current element $\textit{nums}[i]$ equals the previous element $\textit{nums}[i - 1]$ plus $1$, it means the current element can be added to the consecutive increasing subsequence. Otherwise, the current element cannot be added to the consecutive increasing subsequence, and we need to restart counting the length of the consecutive increasing subsequence. Finally, we return the length of the consecutive increasing subsequence plus $1$.
 
-After finding the length of the longest consecutive increasing subsequence in $hBars$ and $vBars$, we take the minimum of the two as the side length of the square, and then calculate the area of the square.
+After finding the lengths of the longest consecutive increasing subsequences in $\textit{hBars}$ and $\textit{vBars}$, we take the minimum of the two as the side length of the square, and then calculate the area of the square.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $hBars$ or $vBars$.
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{hBars}$ or $\textit{vBars}$.
 
 <!-- tabs:start -->
 

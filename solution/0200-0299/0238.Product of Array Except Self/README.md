@@ -9,7 +9,7 @@ tags:
 
 <!-- problem:start -->
 
-# [238. 除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self)
+# [238. 除了自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self)
 
 [English Version](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md)
 
@@ -17,7 +17,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个整数数组&nbsp;<code>nums</code>，返回 数组&nbsp;<code>answer</code>&nbsp;，其中&nbsp;<code>answer[i]</code>&nbsp;等于&nbsp;<code>nums</code>&nbsp;中除&nbsp;<code>nums[i]</code>&nbsp;之外其余各元素的乘积&nbsp;。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>，返回 数组&nbsp;<code>answer</code>&nbsp;，其中&nbsp;<code>answer[i]</code>&nbsp;等于&nbsp;<code>nums</code>&nbsp;中除了&nbsp;<code>nums[i]</code>&nbsp;之外其余各元素的乘积&nbsp;。</p>
 
 <p>题目数据 <strong>保证</strong> 数组&nbsp;<code>nums</code>之中任意元素的全部前缀元素和后缀的乘积都在&nbsp; <strong>32 位</strong> 整数范围内。</p>
 

@@ -41,7 +41,7 @@ tags:
 <strong>输入：</strong>bottom = "BCD", allowed = ["BCC","CDE","CEA","FFF"]
 <strong>输出：</strong>true
 <strong>解释：</strong>允许的三角形图案显示在右边。
-从最底层(第 3 层)开始，我们可以在第 2 层构建“CE”，然后在第 1 层构建“E”。
+从最底层(第 3 层)开始，我们可以在第 2 层构建“CE”，然后在第 1 层构建“A”。
 金字塔中有三种三角形图案，分别是 “BCC”、“CDE” 和 “CEA”。都是允许的。
 </pre>
 

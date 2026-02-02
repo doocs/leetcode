@@ -7,7 +7,9 @@ source: Weekly Contest 272 Q3
 tags:
     - Array
     - Math
+    - Two Pointers
     - Dynamic Programming
+    - Sliding Window
 ---
 
 <!-- problem:start -->

@@ -56,7 +56,29 @@ If instead we turned both strings into &quot;lee&quot; or &quot;eet&quot;, we wo
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i][j]$ as the minimum sum of ASCII values of deleted characters required to make the first $i$ characters of $s_1$ equal to the first $j$ characters of $s_2$. The answer is $f[m][n]$.
+
+If $s_1[i-1] = s_2[j-1]$, then $f[i][j] = f[i-1][j-1]$. Otherwise, we can delete either $s_1[i-1]$ or $s_2[j-1]$ to minimize $f[i][j]$. Therefore, the state transition equation is as follows:
+
+$$
+f[i][j]=
+\begin{cases}
+f[i-1][j-1], & s_1[i-1] = s_2[j-1] \\
+min(f[i-1][j] + s_1[i-1], f[i][j-1] + s_2[j-1]), & s_1[i-1] \neq s_2[j-1]
+\end{cases}
+$$
+
+The initial state is $f[0][j] = f[0][j-1] + s_2[j-1]$, $f[i][0] = f[i-1][0] + s_1[i-1]$.
+
+Finally, return $f[m][n]$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $s_1$ and $s_2$ respectively.
+
+Similar problems:
+
+- [1143. Longest Common Subsequence](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -193,6 +215,43 @@ function minimumDeleteSum(s1: string, s2: string): number {
         }
     }
     return f[m][n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_delete_sum(s1: String, s2: String) -> i32 {
+        let m: usize = s1.len();
+        let n: usize = s2.len();
+        let b1 = s1.as_bytes();
+        let b2 = s2.as_bytes();
+
+        let mut f: Vec<Vec<i32>> = vec![vec![0; n + 1]; m + 1];
+
+        for i in 1..=m {
+            f[i][0] = f[i - 1][0] + b1[i - 1] as i32;
+        }
+        for j in 1..=n {
+            f[0][j] = f[0][j - 1] + b2[j - 1] as i32;
+        }
+
+        for i in 1..=m {
+            for j in 1..=n {
+                if b1[i - 1] == b2[j - 1] {
+                    f[i][j] = f[i - 1][j - 1];
+                } else {
+                    f[i][j] = std::cmp::min(
+                        f[i - 1][j] + b1[i - 1] as i32,
+                        f[i][j - 1] + b2[j - 1] as i32,
+                    );
+                }
+            }
+        }
+
+        f[m][n]
+    }
 }
 ```
 

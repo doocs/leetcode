@@ -160,7 +160,7 @@ tags:
 
 我们可以模拟每一单位的水滴下落的过程，每次下落时，我们首先尝试向左移动，如果可以移动到更低的高度，则移动到最低的高度处；如果不能移动到更低的高度，则尝试向右移动，如果可以移动到更低的高度，则移动到最低的高度处；如果不能移动到更低的高度，则在当前位置上升。
 
-时间复杂度 $O(v \times n)，空间复杂度 O(1)$。其中 $v$ 和 $n$ 分别是水滴的数量和高度数组的长度。
+时间复杂度 $O(v \times n)，其中 $v$ 和 $n$ 分别是水滴的数量和高度数组的长度。空间复杂度 O(1)$。
 
 <!-- tabs:start -->
 
@@ -268,6 +268,34 @@ func pourWater(heights []int, volume int, k int) []int {
 		}
 	}
 	return heights
+}
+```
+
+#### TypeScript
+
+```ts
+function pourWater(heights: number[], volume: number, k: number): number[] {
+    while (volume-- > 0) {
+        let find = false;
+        for (let d = -1; d < 2 && !find; d += 2) {
+            let i = k,
+                j = k;
+            while (i + d >= 0 && i + d < heights.length && heights[i + d] <= heights[i]) {
+                if (heights[i + d] < heights[i]) {
+                    j = i + d;
+                }
+                i += d;
+            }
+            if (j !== k) {
+                find = true;
+                ++heights[j];
+            }
+        }
+        if (!find) {
+            ++heights[k];
+        }
+    }
+    return heights;
 }
 ```
 

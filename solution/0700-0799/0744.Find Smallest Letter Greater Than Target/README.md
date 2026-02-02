@@ -64,11 +64,11 @@ tags:
 
 ### 方法一：二分查找
 
-由于 $\textit{letters}$ 是按照非递减顺序排序的，所以我们可以使用二分查找来找到大于 `target` 的最小字符。
+由于 $\textit{letters}$ 是按照非递减顺序排序的，所以我们可以使用二分查找来找到大于 $\textit{target}$ 的最小字符。
 
 我们定义二分查找的左边界 $l = 0$，右边界 $r = n$。对于每一次二分查找，我们计算中间位置 $mid = (l + r) / 2$，如果 $letters[mid] > \textit{target}$，则说明我们需要在左半部分继续查找，即 $r = mid$；否则我们需要在右半部分继续查找，即 $l = mid + 1$。
 
-最后我们返回 $letters[l \mod n]$ 即可。
+最后我们返回 $letters[l \bmod n]$ 即可。
 
 时间复杂度 $O(\log n)$，其中 $n$ 是 $\textit{letters}$ 的长度。空间复杂度 $O(1)$。
 
@@ -120,16 +120,8 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
-    let [l, r] = [0, letters.length];
-    while (l < r) {
-        const mid = (l + r) >> 1;
-        if (letters[mid] > target) {
-            r = mid;
-        } else {
-            l = mid + 1;
-        }
-    }
-    return letters[l % letters.length];
+    const idx = _.sortedIndex(letters, target + '\0');
+    return letters[idx % letters.length];
 }
 ```
 

@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个二叉搜索树的根节点 <code>root</code> ，和一个整数 <code>k</code> ，请你设计一个算法查找其中第&nbsp;<code>k</code><strong>&nbsp;</strong>小的元素（从 1 开始计数）。</p>
+<p>给定一个二叉搜索树的根节点 <code>root</code> ，和一个整数 <code>k</code> ，请你设计一个算法查找其中第&nbsp;<code>k</code><strong>&nbsp;</strong>小的元素（<code>k</code> 从 1 开始计数）。</p>
 
 <p>&nbsp;</p>
 

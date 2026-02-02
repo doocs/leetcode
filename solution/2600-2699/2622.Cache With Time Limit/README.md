@@ -34,7 +34,7 @@ tags:
 <strong>输入：</strong> 
 actions = ["TimeLimitedCache", "set", "get", "count", "get"]
 values = [[], [1, 42, 100], [1], [], [1]]
-timeDeays = [0, 0, 50, 50, 150]
+timeDelays = [0, 0, 50, 50, 150]
 <strong>输出：</strong> [null, false, 42, 1, -1]
 <strong>解释：</strong>
 在 t=0 时，缓存被构造。

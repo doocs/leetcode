@@ -56,7 +56,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: 2D Prefix Sum + Binary Search
+
+We can precompute a 2D prefix sum array $s$, where $s[i + 1][j + 1]$ represents the sum of elements in the matrix $mat$ from $(0, 0)$ to $(i, j)$. With this, we can calculate the sum of elements in any square region in $O(1)$ time.
+
+Next, we can use binary search to find the maximum side length. We enumerate the side length $k$ of the square, and then iterate through all possible top-left positions $(i, j)$ of the square. We can calculate the sum of elements $v$ for the square. If $v \leq threshold$, it indicates that there exists a square region with side length $k$ whose sum is less than or equal to the threshold; otherwise, no such square exists for the current $k$.
+
+The time complexity is $O(m \times n \times \log \min(m, n))$, and the space complexity is $O(m \times n)$.
 
 <!-- tabs:start -->
 
@@ -243,6 +249,44 @@ function maxSideLength(mat: number[][], threshold: number): number {
         }
     }
     return l;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_side_length(mat: Vec<Vec<i32>>, threshold: i32) -> i32 {
+        let m = mat.len();
+        let n = mat[0].len();
+        let mut s = vec![vec![0; n + 1]; m + 1];
+        for i in 1..=m {
+            for j in 1..=n {
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + mat[i - 1][j - 1];
+            }
+        }
+        let check = |k: usize| -> bool {
+            for i in 0..=m - k {
+                for j in 0..=n - k {
+                    if s[i + k][j + k] - s[i][j + k] - s[i + k][j] + s[i][j] <= threshold {
+                        return true;
+                    }
+                }
+            }
+            false
+        };
+        let mut l = 0usize;
+        let mut r = m.min(n);
+        while l < r {
+            let mid = (l + r + 1) >> 1;
+            if check(mid) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        l as i32
+    }
 }
 ```
 

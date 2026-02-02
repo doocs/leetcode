@@ -25,7 +25,7 @@ tags:
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> <code>temperatures</code> = [73,74,75,71,69,72,76,73]
+<strong>输入:</strong> temperatures = [73,74,75,71,69,72,76,73]
 <strong>输出:</strong>&nbsp;[1,1,4,2,1,1,0,0]
 </pre>
 

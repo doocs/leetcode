@@ -32,11 +32,12 @@ tags:
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;abc&quot;,&quot;deq&quot;,&quot;mee&quot;,&quot;aqq&quot;,&quot;dkd&quot;,&quot;ccc&quot;], pattern = &quot;abb&quot;
-<strong>输出：</strong>[&quot;mee&quot;,&quot;aqq&quot;]
+<pre>
+<strong>输入：</strong>words = ["abc","deq","mee","aqq","dkd","ccc"], pattern = "abb"
+<strong>输出：</strong>["mee","aqq"]
 <strong>解释：
-</strong>&quot;mee&quot; 与模式匹配，因为存在排列 {a -&gt; m, b -&gt; e, ...}。
-&quot;ccc&quot; 与模式不匹配，因为 {a -&gt; c, b -&gt; c, ...} 不是排列。
+</strong>"mee" 与模式匹配，因为存在排列 {a -&gt; m, b -&gt; e, ...}。
+"ccc" 与模式不匹配，因为 {a -&gt; c, b -&gt; c, ...} 不是排列。
 因为 a 和 b 映射到同一个字母。</pre>
 
 <p>&nbsp;</p>
@@ -44,8 +45,10 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
+	<li><code>1 &lt;= pattern.length &lt;= 20</code></li>
 	<li><code>1 &lt;= words.length &lt;= 50</code></li>
-	<li><code>1 &lt;= pattern.length = words[i].length&nbsp;&lt;= 20</code></li>
+	<li><code>words[i].length == pattern.length</code></li>
+	<li><code>pattern</code> 和&nbsp;<code>words[i]</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
 <!-- description:end -->

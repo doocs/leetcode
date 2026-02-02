@@ -1,75 +1,47 @@
 impl Solution {
-    #[allow(dead_code)]
     pub fn maximal_rectangle(matrix: Vec<Vec<char>>) -> i32 {
         let n = matrix[0].len();
         let mut heights = vec![0; n];
-        let mut ret = -1;
+        let mut ans = 0;
 
-        for row in &matrix {
-            Self::array_builder(row, &mut heights);
-            ret = std::cmp::max(ret, Self::largest_rectangle_area(heights.clone()));
-        }
-
-        ret
-    }
-
-    /// Helper function, build the heights array according to the input
-    #[allow(dead_code)]
-    fn array_builder(input: &Vec<char>, heights: &mut Vec<i32>) {
-        for (i, &c) in input.iter().enumerate() {
-            heights[i] += match c {
-                '1' => 1,
-                '0' => {
-                    heights[i] = 0;
-                    0
+        for row in matrix {
+            for j in 0..n {
+                if row[j] == '1' {
+                    heights[j] += 1;
+                } else {
+                    heights[j] = 0;
                 }
-                _ => panic!("This is impossible"),
-            };
+            }
+            ans = ans.max(Self::largest_rectangle_area(&heights));
         }
+
+        ans
     }
 
-    /// Helper function, see: https://leetcode.com/problems/largest-rectangle-in-histogram/ for details
-    #[allow(dead_code)]
-    fn largest_rectangle_area(heights: Vec<i32>) -> i32 {
+    fn largest_rectangle_area(heights: &Vec<i32>) -> i32 {
+        let mut res = 0;
         let n = heights.len();
-        let mut left = vec![-1; n];
-        let mut right = vec![-1; n];
-        let mut stack: Vec<(usize, i32)> = Vec::new();
-        let mut ret = -1;
+        let mut stk: Vec<usize> = Vec::new();
+        let mut left = vec![0; n];
+        let mut right = vec![n; n];
 
-        // Build left vector
-        for (i, h) in heights.iter().enumerate() {
-            while !stack.is_empty() && stack.last().unwrap().1 >= *h {
-                stack.pop();
+        for i in 0..n {
+            while let Some(&top) = stk.last() {
+                if heights[top] >= heights[i] {
+                    right[top] = i;
+                    stk.pop();
+                } else {
+                    break;
+                }
             }
-            if stack.is_empty() {
-                left[i] = -1;
-            } else {
-                left[i] = stack.last().unwrap().0 as i32;
-            }
-            stack.push((i, *h));
+            left[i] = if stk.is_empty() { -1 } else { stk[stk.len() - 1] as i32 };
+            stk.push(i);
         }
 
-        stack.clear();
-
-        // Build right vector
-        for (i, h) in heights.iter().enumerate().rev() {
-            while !stack.is_empty() && stack.last().unwrap().1 >= *h {
-                stack.pop();
-            }
-            if stack.is_empty() {
-                right[i] = n as i32;
-            } else {
-                right[i] = stack.last().unwrap().0 as i32;
-            }
-            stack.push((i, *h));
+        for i in 0..n {
+            res = res.max(heights[i] * (right[i] as i32 - left[i] - 1));
         }
 
-        // Calculate the max area
-        for (i, h) in heights.iter().enumerate() {
-            ret = std::cmp::max(ret, (right[i] - left[i] - 1) * *h);
-        }
-
-        ret
+        res
     }
 }

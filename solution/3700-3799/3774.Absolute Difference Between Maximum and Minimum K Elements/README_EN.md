@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3774.Absolute%20Difference%20Between%20Maximum%20and%20Minimum%20K%20Elements/README_EN.md
 rating: 1206
 source: Weekly Contest 480 Q1
+tags:
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

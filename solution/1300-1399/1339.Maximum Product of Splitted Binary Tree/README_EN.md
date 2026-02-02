@@ -57,7 +57,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Two DFS
+
+We can solve this problem with two DFS traversals.
+
+In the first traversal, we use a $\text{sum}(\text{root})$ function to recursively calculate the sum of all nodes in the entire tree, denoted as $s$.
+
+In the second traversal, we use a $\text{dfs}(\text{root})$ function to recursively traverse each node and calculate the sum of nodes in the subtree rooted at the current node, denoted as $t$. After splitting at the current node and its parent, the sums of the two subtrees are $t$ and $s - t$ respectively, and their product is $t \times (s - t)$. We traverse all nodes to find the maximum product, which is the answer.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
 
 <!-- tabs:start -->
 
@@ -163,7 +171,7 @@ public:
         ll ans = 0;
         const int mod = 1e9 + 7;
 
-        function<ll(TreeNode*)> sum = [&](TreeNode* root) -> ll {
+        auto sum = [&](this auto&& sum, TreeNode* root) -> ll {
             if (!root) {
                 return 0;
             }
@@ -172,7 +180,7 @@ public:
 
         ll s = sum(root);
 
-        function<ll(TreeNode*)> dfs = [&](TreeNode* root) -> ll {
+        auto dfs = [&](this auto&& dfs, TreeNode* root) -> ll {
             if (!root) {
                 return 0;
             }
@@ -266,6 +274,63 @@ function maxProduct(root: TreeNode | null): number {
     };
     dfs(root);
     return ans % mod;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution {
+    pub fn max_product(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let mut ans: i64 = 0;
+        let s = Self::sum(&root);
+        Self::dfs(&root, s, &mut ans);
+        (ans % MOD) as i32
+    }
+
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, s: i64, ans: &mut i64) -> i64 {
+        if root.is_none() {
+            return 0;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        let t = node.val as i64
+            + Self::dfs(&node.left, s, ans)
+            + Self::dfs(&node.right, s, ans);
+        if t < s {
+            *ans = (*ans).max(t * (s - t));
+        }
+        t
+    }
+
+    fn sum(root: &Option<Rc<RefCell<TreeNode>>>) -> i64 {
+        if root.is_none() {
+            return 0;
+        }
+        let node = root.as_ref().unwrap().borrow();
+        node.val as i64 + Self::sum(&node.left) + Self::sum(&node.right)
+    }
 }
 ```
 

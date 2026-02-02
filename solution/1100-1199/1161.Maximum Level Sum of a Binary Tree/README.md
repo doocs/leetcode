@@ -23,7 +23,7 @@ tags:
 
 <p>给你一个二叉树的根节点&nbsp;<code>root</code>。设根节点位于二叉树的第 <code>1</code> 层，而根节点的子节点位于第 <code>2</code> 层，依此类推。</p>
 
-<p>请返回层内元素之和 <strong>最大</strong> 的那几层（可能只有一层）的层号，并返回其中&nbsp;<strong>最小</strong> 的那个。</p>
+<p>返回总和 <strong>最大</strong> 的那一层的层号 <code>x</code>。如果有多层的总和一样大，返回其中 <strong>最小</strong> 的层号 <code>x</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -66,6 +66,8 @@ tags:
 ### 方法一：BFS
 
 BFS 层次遍历，求每一层的节点和，找出节点和最大的层，若有多个层的节点和最大，则返回最小的层。
+
+具体地，我们使用一个队列 $q$ 来存储当前层的节点。每次遍历时，我们记录当前层的节点和 $s$，然后将当前层的所有节点的子节点加入队列中，准备遍历下一层。我们使用变量 $mx$ 来记录当前最大的节点和，使用变量 $ans$ 来记录对应的层号。每次计算完一层的节点和后，如果 $s$ 大于 $mx$，则更新 $mx$ 和 $ans$。最后返回 $ans$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
 
@@ -177,10 +179,17 @@ public:
                 root = q.front();
                 q.pop();
                 s += root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
-            if (mx < s) mx = s, ans = i;
+            if (mx < s) {
+                mx = s;
+                ans = i;
+            }
         }
         return ans;
     }
@@ -244,26 +253,91 @@ func maxLevelSum(root *TreeNode) int {
  */
 
 function maxLevelSum(root: TreeNode | null): number {
-    const queue = [root];
-    let res = 1;
-    let max = -Infinity;
-    let h = 1;
-    while (queue.length !== 0) {
-        const n = queue.length;
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            const { val, left, right } = queue.shift();
-            sum += val;
-            left && queue.push(left);
-            right && queue.push(right);
+    let q = [root];
+    let i = 0;
+    let mx = -Infinity;
+    let ans = 0;
+    while (q.length) {
+        ++i;
+        const nq = [];
+        let s = 0;
+        for (const { val, left, right } of q) {
+            s += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
-        if (sum > max) {
-            max = sum;
-            res = h;
+        if (mx < s) {
+            mx = s;
+            ans = i;
         }
-        h++;
+        q = nq;
     }
-    return res;
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+use std::collections::VecDeque;
+impl Solution {
+    pub fn max_level_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut q = VecDeque::new();
+        if let Some(r) = root {
+            q.push_back(r);
+        }
+
+        let mut i = 0;
+        let mut mx = i32::MIN;
+        let mut ans = 0;
+
+        while !q.is_empty() {
+            i += 1;
+            let mut s = 0;
+            let sz = q.len();
+
+            for _ in 0..sz {
+                let node = q.pop_front().unwrap();
+                let node = node.borrow();
+
+                s += node.val;
+
+                if let Some(left) = node.left.clone() {
+                    q.push_back(left);
+                }
+                if let Some(right) = node.right.clone() {
+                    q.push_back(right);
+                }
+            }
+
+            if s > mx {
+                mx = s;
+                ans = i;
+            }
+        }
+
+        ans
+    }
 }
 ```
 

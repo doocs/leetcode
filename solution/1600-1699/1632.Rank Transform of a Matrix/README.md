@@ -15,7 +15,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1632. 矩阵转换后的秩](https://leetcode.cn/problems/rank-transform-of-a-matrix)
+# [1632. 矩阵转换后的排名](https://leetcode.cn/problems/rank-transform-of-a-matrix)
 
 [English Version](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md)
 
@@ -23,12 +23,12 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个&nbsp;<code>m x n</code>&nbsp;的矩阵 <code>matrix</code>&nbsp;，请你返回一个新的矩阵<em>&nbsp;</em><code>answer</code>&nbsp;，其中<em>&nbsp;</em><code>answer[row][col]</code>&nbsp;是&nbsp;<code>matrix[row][col]</code>&nbsp;的秩。</p>
+<p>给你一个&nbsp;<code>m x n</code>&nbsp;的矩阵 <code>matrix</code>&nbsp;，请你返回一个新的矩阵<em>&nbsp;</em><code>answer</code>&nbsp;，其中<em>&nbsp;</em><code>answer[row][col]</code>&nbsp;是&nbsp;<code>matrix[row][col]</code>&nbsp;的排名。</p>
 
-<p>每个元素的&nbsp;<b>秩</b>&nbsp;是一个整数，表示这个元素相对于其他元素的大小关系，它按照如下规则计算：</p>
+<p>每个元素的&nbsp;<b>排名</b>&nbsp;是一个整数，表示这个元素相对于其他元素的大小关系，它按照如下规则计算：</p>
 
 <ul>
-	<li>秩是从 1 开始的一个整数。</li>
+	<li>排名是从 1 开始的一个整数。</li>
 	<li>如果两个元素&nbsp;<code>p</code> 和&nbsp;<code>q</code>&nbsp;在 <strong>同一行</strong>&nbsp;或者 <strong>同一列</strong>&nbsp;，那么：
 	<ul>
 		<li>如果&nbsp;<code>p &lt; q</code> ，那么&nbsp;<code>rank(p) &lt; rank(q)</code></li>
@@ -36,7 +36,7 @@ tags:
 		<li>如果&nbsp;<code>p &gt; q</code>&nbsp;，那么&nbsp;<code>rank(p) &gt; rank(q)</code></li>
 	</ul>
 	</li>
-	<li><b>秩</b>&nbsp;需要越 <strong>小</strong>&nbsp;越好。</li>
+	<li><b>排名</b>&nbsp;需要越 <strong>小</strong>&nbsp;越好。</li>
 </ul>
 
 <p>题目保证按照上面规则&nbsp;<code>answer</code>&nbsp;数组是唯一的。</p>
@@ -49,10 +49,10 @@ tags:
 <b>输入：</b>matrix = [[1,2],[3,4]]
 <b>输出：</b>[[1,2],[2,3]]
 <strong>解释：</strong>
-matrix[0][0] 的秩为 1 ，因为它是所在行和列的最小整数。
-matrix[0][1] 的秩为 2 ，因为 matrix[0][1] &gt; matrix[0][0] 且 matrix[0][0] 的秩为 1 。
-matrix[1][0] 的秩为 2 ，因为 matrix[1][0] &gt; matrix[0][0] 且 matrix[0][0] 的秩为 1 。
-matrix[1][1] 的秩为 3 ，因为 matrix[1][1] &gt; matrix[0][1]， matrix[1][1] &gt; matrix[1][0] 且 matrix[0][1] 和 matrix[1][0] 的秩都为 2 。
+matrix[0][0] 的排名为 1 ，因为它是所在行和列的最小整数。
+matrix[0][1] 的排名为 2 ，因为 matrix[0][1] &gt; matrix[0][0] 且 matrix[0][0] 的排名为 1 。
+matrix[1][0] 的排名为 2 ，因为 matrix[1][0] &gt; matrix[0][0] 且 matrix[0][0] 的排名为 1 。
+matrix[1][1] 的排名为 3 ，因为 matrix[1][1] &gt; matrix[0][1]， matrix[1][1] &gt; matrix[1][0] 且 matrix[0][1] 和 matrix[1][0] 的排名都为 2 。
 </pre>
 
 <p><strong>示例 2：</strong></p>

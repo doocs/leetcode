@@ -23,10 +23,17 @@ public:
                 root = q.front();
                 q.pop();
                 s += root->val;
-                if (root->left) q.push(root->left);
-                if (root->right) q.push(root->right);
+                if (root->left) {
+                    q.push(root->left);
+                }
+                if (root->right) {
+                    q.push(root->right);
+                }
             }
-            if (mx < s) mx = s, ans = i;
+            if (mx < s) {
+                mx = s;
+                ans = i;
+            }
         }
         return ans;
     }

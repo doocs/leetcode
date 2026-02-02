@@ -5,10 +5,8 @@ function countServers(grid: number[][]): number {
     const col = new Array(n).fill(0);
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
-            if (grid[i][j] === 1) {
-                row[i]++;
-                col[j]++;
-            }
+            row[i] += grid[i][j];
+            col[j] += grid[i][j];
         }
     }
     let ans = 0;

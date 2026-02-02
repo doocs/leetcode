@@ -7,7 +7,7 @@ source: 第 352 场周赛 Q4
 tags:
     - 数组
     - 哈希表
-    - 有序集合
+    - 枚举
 ---
 
 <!-- problem:start -->

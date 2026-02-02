@@ -14,9 +14,5 @@ function sumFourDivisors(nums: number[]): number {
         }
         return cnt === 4 ? s : 0;
     };
-    let ans = 0;
-    for (const x of nums) {
-        ans += f(x);
-    }
-    return ans;
+    return nums.reduce((acc, x) => acc + f(x), 0);
 }

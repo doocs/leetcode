@@ -57,7 +57,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 500</code></li>
-	<li><code>-1000 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
+	<li><code>-1000 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
 <p>&nbsp;</p>

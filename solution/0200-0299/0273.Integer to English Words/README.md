@@ -131,237 +131,6 @@ class Solution:
 
 ```java
 class Solution {
-    private static Map<Integer, String> map;
-
-    static {
-        map = new HashMap<>();
-        map.put(1, "One");
-        map.put(2, "Two");
-        map.put(3, "Three");
-        map.put(4, "Four");
-        map.put(5, "Five");
-        map.put(6, "Six");
-        map.put(7, "Seven");
-        map.put(8, "Eight");
-        map.put(9, "Nine");
-        map.put(10, "Ten");
-        map.put(11, "Eleven");
-        map.put(12, "Twelve");
-        map.put(13, "Thirteen");
-        map.put(14, "Fourteen");
-        map.put(15, "Fifteen");
-        map.put(16, "Sixteen");
-        map.put(17, "Seventeen");
-        map.put(18, "Eighteen");
-        map.put(19, "Nineteen");
-        map.put(20, "Twenty");
-        map.put(30, "Thirty");
-        map.put(40, "Forty");
-        map.put(50, "Fifty");
-        map.put(60, "Sixty");
-        map.put(70, "Seventy");
-        map.put(80, "Eighty");
-        map.put(90, "Ninety");
-        map.put(100, "Hundred");
-        map.put(1000, "Thousand");
-        map.put(1000000, "Million");
-        map.put(1000000000, "Billion");
-    }
-
-    public String numberToWords(int num) {
-        if (num == 0) {
-            return "Zero";
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 1000000000; i >= 1000; i /= 1000) {
-            if (num >= i) {
-                sb.append(get3Digits(num / i)).append(' ').append(map.get(i));
-                num %= i;
-            }
-        }
-        if (num > 0) {
-            sb.append(get3Digits(num));
-        }
-        return sb.substring(1);
-    }
-
-    private String get3Digits(int num) {
-        StringBuilder sb = new StringBuilder();
-        if (num >= 100) {
-            sb.append(' ').append(map.get(num / 100)).append(' ').append(map.get(100));
-            num %= 100;
-        }
-        if (num > 0) {
-            if (num < 20 || num % 10 == 0) {
-                sb.append(' ').append(map.get(num));
-            } else {
-                sb.append(' ').append(map.get(num / 10 * 10)).append(' ').append(map.get(num % 10));
-            }
-        }
-        return sb.toString();
-    }
-}
-```
-
-#### C#
-
-```cs
-using System.Collections.Generic;
-using System.Linq;
-
-public class Solution {
-    private string[] bases = { "Thousand", "Million", "Billion" };
-    public string NumberToWords(int num) {
-        if (num == 0)
-        {
-            return "Zero";
-        }
-        var baseIndex = -1;
-        var parts = new List<string>();
-        while (num > 0)
-        {
-            var part = NumberToWordsInternal(num % 1000);
-            if (part.Length > 0 && baseIndex >= 0)
-            {
-                part = JoinParts(part, bases[baseIndex]);
-            }
-            parts.Add(part);
-            baseIndex++;
-            num /= 1000;
-        }
-        parts.Reverse();
-        return JoinParts(parts);
-    }
-
-    private string JoinParts(IEnumerable<string> parts)
-    {
-        return string.Join(" ", parts.Where(p => p.Length > 0));
-    }
-
-    private string JoinParts(params string[] parts)
-    {
-        return JoinParts((IEnumerable<string>)parts);
-    }
-
-    private string NumberToWordsInternal(int num)
-    {
-        switch(num)
-        {
-            case 0: return "";
-            case 1: return "One";
-            case 2: return "Two";
-            case 3: return "Three";
-            case 4: return "Four";
-            case 5: return "Five";
-            case 6: return "Six";
-            case 7: return "Seven";
-            case 8: return "Eight";
-            case 9: return "Nine";
-            case 10: return "Ten";
-            case 11: return "Eleven";
-            case 12: return "Twelve";
-            case 13: return "Thirteen";
-            case 14: return "Fourteen";
-            case 15: return "Fifteen";
-            case 16: return "Sixteen";
-            case 17: return "Seventeen";
-            case 18: return "Eighteen";
-            case 19: return "Nineteen";
-        }
-
-        if (num < 100)
-        {
-            string part1;
-            switch (num/10)
-            {
-                case 2: part1 = "Twenty"; break;
-                case 3: part1 = "Thirty"; break;
-                case 4: part1 = "Forty"; break;
-                case 5: part1 = "Fifty"; break;
-                case 6: part1 = "Sixty"; break;
-                case 7: part1 = "Seventy"; break;
-                case 8: part1 = "Eighty"; break;
-                case 9: default: part1 = "Ninety"; break;
-            }
-            var part2 = NumberToWordsInternal(num % 10);
-            return JoinParts(part1, part2);
-        }
-
-        {
-            var part1 = NumberToWordsInternal(num / 100);
-            var part2 = NumberToWordsInternal(num % 100);
-            return JoinParts(part1, "Hundred", part2);
-        }
-    }
-}
-```
-
-#### TypeScript
-
-```ts
-function numberToWords(num: number): string {
-    if (num === 0) return 'Zero';
-
-    // prettier-ignore
-    const f = (x: number): string => {
-    const dict1 = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen',]
-    const dict2 = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety',]
-    let ans = ''
-
-    if (x <= 19) ans = dict1[x] ?? ''
-    else if (x < 100) ans = `${dict2[Math.floor(x / 10)]} ${f(x % 10)}`
-    else if (x < 10 ** 3) ans = `${dict1[Math.floor(x / 100)]} Hundred ${f(x % 100)}`
-    else if (x < 10 ** 6) ans = `${f(Math.floor(x / 10 ** 3))} Thousand ${f(x % 10 ** 3)}`
-    else if (x < 10 ** 9) ans = `${f(Math.floor(x / 10 ** 6))} Million ${f(x % 10 ** 6)}`
-    else ans = `${f(Math.floor(x / 10 ** 9))} Billion ${f(x % 10 ** 9)}`
-
-    return ans.trim()
-  }
-
-    return f(num);
-}
-```
-
-#### JavaScript
-
-```js
-function numberToWords(num) {
-    if (num === 0) return 'Zero';
-
-    // prettier-ignore
-    const f = (x) => {
-    const dict1 = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen',]
-    const dict2 = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety',]
-    let ans = ''
-
-    if (x <= 19) ans = dict1[x] ?? ''
-    else if (x < 100) ans = `${dict2[Math.floor(x / 10)]} ${f(x % 10)}`
-    else if (x < 10 ** 3) ans = `${dict1[Math.floor(x / 100)]} Hundred ${f(x % 100)}`
-    else if (x < 10 ** 6) ans = `${f(Math.floor(x / 10 ** 3))} Thousand ${f(x % 10 ** 3)}`
-    else if (x < 10 ** 9) ans = `${f(Math.floor(x / 10 ** 6))} Million ${f(x % 10 ** 6)}`
-    else ans = `${f(Math.floor(x / 10 ** 9))} Billion ${f(x % 10 ** 9)}`
-
-    return ans.trim()
-  }
-
-    return f(num);
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
     private String[] lt20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
         "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
         "Seventeen", "Eighteen", "Nineteen"};
@@ -395,6 +164,358 @@ class Solution {
             return tens[num / 10] + " " + transfer(num % 10);
         }
         return lt20[num / 100] + " Hundred " + transfer(num % 100);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> lt20 = {
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+        "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+        "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+
+    vector<string> tens = {
+        "", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
+        "Sixty", "Seventy", "Eighty", "Ninety"};
+
+    vector<string> thousands = {"Billion", "Million", "Thousand", ""};
+
+    string numberToWords(int num) {
+        if (num == 0) {
+            return "Zero";
+        }
+        string res;
+        for (int i = 1000000000, j = 0; i > 0; i /= 1000, ++j) {
+            int cur = num / i;
+            if (cur == 0) {
+                continue;
+            }
+            if (!res.empty()) {
+                res += ' ';
+            }
+            res += transfer(cur);
+            if (!thousands[j].empty()) {
+                res += ' ';
+                res += thousands[j];
+            }
+            num %= i;
+        }
+        return res;
+    }
+
+private:
+    string transfer(int num) {
+        if (num == 0) {
+            return "";
+        }
+        if (num < 20) {
+            return lt20[num];
+        }
+        if (num < 100) {
+            if (num % 10 == 0) {
+                return tens[num / 10];
+            }
+            return tens[num / 10] + " " + transfer(num % 10);
+        }
+        if (num % 100 == 0) {
+            return lt20[num / 100] + " Hundred";
+        }
+        return lt20[num / 100] + " Hundred " + transfer(num % 100);
+    }
+};
+```
+
+#### Go
+
+```go
+func numberToWords(num int) string {
+	if num == 0 {
+		return "Zero"
+	}
+
+	lt20 := []string{
+		"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+		"Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+		"Sixteen", "Seventeen", "Eighteen", "Nineteen",
+	}
+	tens := []string{
+		"", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
+		"Sixty", "Seventy", "Eighty", "Ninety",
+	}
+	thousands := []string{"Billion", "Million", "Thousand", ""}
+
+	var transfer func(int) string
+	transfer = func(num int) string {
+		if num == 0 {
+			return ""
+		}
+		if num < 20 {
+			return lt20[num]
+		}
+		if num < 100 {
+			if num%10 == 0 {
+				return tens[num/10]
+			}
+			return tens[num/10] + " " + transfer(num%10)
+		}
+		if num%100 == 0 {
+			return lt20[num/100] + " Hundred"
+		}
+		return lt20[num/100] + " Hundred " + transfer(num%100)
+	}
+
+	res := ""
+	for i, j := 1000000000, 0; i > 0; i, j = i/1000, j+1 {
+		cur := num / i
+		if cur == 0 {
+			continue
+		}
+		if res != "" {
+			res += " "
+		}
+		res += transfer(cur)
+		if thousands[j] != "" {
+			res += " " + thousands[j]
+		}
+		num %= i
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function numberToWords(num: number): string {
+    if (num === 0) {
+        return 'Zero';
+    }
+
+    const lt20 = [
+        '',
+        'One',
+        'Two',
+        'Three',
+        'Four',
+        'Five',
+        'Six',
+        'Seven',
+        'Eight',
+        'Nine',
+        'Ten',
+        'Eleven',
+        'Twelve',
+        'Thirteen',
+        'Fourteen',
+        'Fifteen',
+        'Sixteen',
+        'Seventeen',
+        'Eighteen',
+        'Nineteen',
+    ];
+
+    const tens = [
+        '',
+        'Ten',
+        'Twenty',
+        'Thirty',
+        'Forty',
+        'Fifty',
+        'Sixty',
+        'Seventy',
+        'Eighty',
+        'Ninety',
+    ];
+
+    const thousands = ['Billion', 'Million', 'Thousand', ''];
+
+    const transfer = (n: number): string => {
+        if (n === 0) {
+            return '';
+        }
+        if (n < 20) {
+            return lt20[n];
+        }
+        if (n < 100) {
+            if (n % 10 === 0) {
+                return tens[Math.floor(n / 10)];
+            }
+            return tens[Math.floor(n / 10)] + ' ' + transfer(n % 10);
+        }
+        if (n % 100 === 0) {
+            return lt20[Math.floor(n / 100)] + ' Hundred';
+        }
+        return lt20[Math.floor(n / 100)] + ' Hundred ' + transfer(n % 100);
+    };
+
+    let res = '';
+    for (let i = 1_000_000_000, j = 0; i > 0; i = Math.floor(i / 1000), ++j) {
+        const cur = Math.floor(num / i);
+        if (cur === 0) {
+            continue;
+        }
+        if (res !== '') {
+            res += ' ';
+        }
+        res += transfer(cur);
+        if (thousands[j] !== '') {
+            res += ' ' + thousands[j];
+        }
+        num %= i;
+    }
+    return res;
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} num
+ * @return {string}
+ */
+var numberToWords = function (num) {
+    if (num === 0) {
+        return 'Zero';
+    }
+
+    const lt20 = [
+        '',
+        'One',
+        'Two',
+        'Three',
+        'Four',
+        'Five',
+        'Six',
+        'Seven',
+        'Eight',
+        'Nine',
+        'Ten',
+        'Eleven',
+        'Twelve',
+        'Thirteen',
+        'Fourteen',
+        'Fifteen',
+        'Sixteen',
+        'Seventeen',
+        'Eighteen',
+        'Nineteen',
+    ];
+
+    const tens = [
+        '',
+        'Ten',
+        'Twenty',
+        'Thirty',
+        'Forty',
+        'Fifty',
+        'Sixty',
+        'Seventy',
+        'Eighty',
+        'Ninety',
+    ];
+
+    const thousands = ['Billion', 'Million', 'Thousand', ''];
+
+    const transfer = n => {
+        if (n === 0) {
+            return '';
+        }
+        if (n < 20) {
+            return lt20[n];
+        }
+        if (n < 100) {
+            if (n % 10 === 0) {
+                return tens[Math.floor(n / 10)];
+            }
+            return tens[Math.floor(n / 10)] + ' ' + transfer(n % 10);
+        }
+        if (n % 100 === 0) {
+            return lt20[Math.floor(n / 100)] + ' Hundred';
+        }
+        return lt20[Math.floor(n / 100)] + ' Hundred ' + transfer(n % 100);
+    };
+
+    let res = '';
+    for (let i = 1_000_000_000, j = 0; i > 0; i = Math.floor(i / 1000), ++j) {
+        const cur = Math.floor(num / i);
+        if (cur === 0) {
+            continue;
+        }
+        if (res !== '') {
+            res += ' ';
+        }
+        res += transfer(cur);
+        if (thousands[j] !== '') {
+            res += ' ' + thousands[j];
+        }
+        num %= i;
+    }
+    return res;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private readonly string[] lt20 = {
+        "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+        "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+        "Sixteen", "Seventeen", "Eighteen", "Nineteen"
+    };
+
+    private readonly string[] tens = {
+        "", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
+        "Sixty", "Seventy", "Eighty", "Ninety"
+    };
+
+    private readonly string[] thousands = { "Billion", "Million", "Thousand", "" };
+
+    public string NumberToWords(int num) {
+        if (num == 0) {
+            return "Zero";
+        }
+
+        string res = "";
+        for (int i = 1000000000, j = 0; i > 0; i /= 1000, ++j) {
+            int cur = num / i;
+            if (cur == 0) {
+                continue;
+            }
+            if (res.Length > 0) {
+                res += " ";
+            }
+            res += Transfer(cur);
+            if (thousands[j].Length > 0) {
+                res += " " + thousands[j];
+            }
+            num %= i;
+        }
+        return res;
+    }
+
+    private string Transfer(int num) {
+        if (num == 0) {
+            return "";
+        }
+        if (num < 20) {
+            return lt20[num];
+        }
+        if (num < 100) {
+            if (num % 10 == 0) {
+                return tens[num / 10];
+            }
+            return tens[num / 10] + " " + Transfer(num % 10);
+        }
+        if (num % 100 == 0) {
+            return lt20[num / 100] + " Hundred";
+        }
+        return lt20[num / 100] + " Hundred " + Transfer(num % 100);
     }
 }
 ```

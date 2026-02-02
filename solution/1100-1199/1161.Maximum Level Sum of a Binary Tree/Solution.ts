@@ -13,24 +13,24 @@
  */
 
 function maxLevelSum(root: TreeNode | null): number {
-    const queue = [root];
-    let res = 1;
-    let max = -Infinity;
-    let h = 1;
-    while (queue.length !== 0) {
-        const n = queue.length;
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            const { val, left, right } = queue.shift();
-            sum += val;
-            left && queue.push(left);
-            right && queue.push(right);
+    let q = [root];
+    let i = 0;
+    let mx = -Infinity;
+    let ans = 0;
+    while (q.length) {
+        ++i;
+        const nq = [];
+        let s = 0;
+        for (const { val, left, right } of q) {
+            s += val;
+            left && nq.push(left);
+            right && nq.push(right);
         }
-        if (sum > max) {
-            max = sum;
-            res = h;
+        if (mx < s) {
+            mx = s;
+            ans = i;
         }
-        h++;
+        q = nq;
     }
-    return res;
+    return ans;
 }
