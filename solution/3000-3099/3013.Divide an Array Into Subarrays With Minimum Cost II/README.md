@@ -1008,7 +1008,6 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 #### Rust
 
-
 ```rust
 use std::collections::BTreeMap;
 

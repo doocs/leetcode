@@ -3839,6 +3839,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3828  |  [Final Element After Subarray Deletions](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README_EN.md)  |    |  Medium  |  Weekly Contest 487  |
 |  3829  |  [Design Ride Sharing System](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 487  |
 |  3830  |  [Longest Alternating Subarray After Removing At Most One Element](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md)  |    |  Hard  |  Weekly Contest 487  |
+|  3831  |  [Median of a Binary Search Tree Level](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

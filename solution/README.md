@@ -3841,6 +3841,7 @@
 |  3828  |  [删除子数组后的最终元素](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README.md)  |    |  中等  |  第 487 场周赛  |
 |  3829  |  [设计共享出行系统](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README.md)  |    |  中等  |  第 487 场周赛  |
 |  3830  |  [移除至多一个元素后的最长交替子数组](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README.md)  |    |  困难  |  第 487 场周赛  |
+|  3831  |  [Median of a Binary Search Tree Level](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
