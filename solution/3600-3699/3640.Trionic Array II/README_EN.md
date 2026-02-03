@@ -85,32 +85,343 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Grouped Loop
+
+We can traverse the array to find all possible maximal trionic subarrays, calculate their sums, and update the maximum value.
+
+We define a pointer $i$, initially $i = 0$, representing the current position pointing to the first element of the array. We move $i$ to the right until we find the first element that does not satisfy strict increase, i.e., $nums[i-1] \geq nums[i]$. If at this point $i = l + 1$, it means this segment has only one element and cannot form an increasing sequence, so we continue to the next iteration.
+
+Next, we define pointer $p$, representing the end position of the current increasing segment. Then we find the second strictly decreasing part. If this segment has only one element, or reaches the end of the array, or encounters equal elements, we continue to the next iteration.
+
+Then we define pointer $q$, representing the end position of the current decreasing segment. Next, we find the third strictly increasing part. At this point, we have found a maximal trionic subarray. The maximum sum of this trionic subarray consists of the following parts:
+
+- The sum of elements in the index range $[p-2,..,q+1]$
+- The sum of the maximum increasing subarray extending left from $p-3$, or 0 if it doesn't exist
+- The sum of the maximum increasing subarray extending right from $q+2$, or 0 if it doesn't exist.
+
+After calculating the sum of this trionic subarray, we update the answer. Then we move pointer $i$ to position $q$, because the increasing part of the third segment can serve as the first increasing segment of the next iteration.
+
+After the traversal is complete, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, using only constant-level extra space.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxSumTrionic(self, nums: List[int]) -> int:
+        n = len(nums)
+        i = 0
+        ans = -inf
+        while i < n:
+            l = i
+            i += 1
+            while i < n and nums[i - 1] < nums[i]:
+                i += 1
+            if i == l + 1:
+                continue
 
+            p = i - 1
+            s = nums[p - 1] + nums[p]
+            while i < n and nums[i - 1] > nums[i]:
+                s += nums[i]
+                i += 1
+            if i == p + 1 or i == n or nums[i - 1] == nums[i]:
+                continue
+
+            q = i - 1
+            s += nums[i]
+            i += 1
+            mx = t = 0
+            while i < n and nums[i - 1] < nums[i]:
+                t += nums[i]
+                i += 1
+                mx = max(mx, t)
+            s += mx
+
+            mx = t = 0
+            for j in range(p - 2, l - 1, -1):
+                t += nums[j]
+                mx = max(mx, t)
+            s += mx
+
+            ans = max(ans, s)
+            i = q
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long maxSumTrionic(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+        long ans = Long.MIN_VALUE;
+        while (i < n) {
+            int l = i;
+            i += 1;
+            while (i < n && nums[i - 1] < nums[i]) {
+                i += 1;
+            }
+            if (i == l + 1) {
+                continue;
+            }
 
+            int p = i - 1;
+            long s = nums[p - 1] + nums[p];
+            while (i < n && nums[i - 1] > nums[i]) {
+                s += nums[i];
+                i += 1;
+            }
+            if (i == p + 1 || i == n || nums[i - 1] == nums[i]) {
+                continue;
+            }
+
+            int q = i - 1;
+            s += nums[i];
+            i += 1;
+            long mx = 0, t = 0;
+            while (i < n && nums[i - 1] < nums[i]) {
+                t += nums[i];
+                i += 1;
+                mx = Math.max(mx, t);
+            }
+            s += mx;
+
+            mx = 0;
+            t = 0;
+            for (int j = p - 2; j >= l; j--) {
+                t += nums[j];
+                mx = Math.max(mx, t);
+            }
+            s += mx;
+
+            ans = Math.max(ans, s);
+            i = q;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maxSumTrionic(vector<int>& nums) {
+        int n = nums.size();
+        int i = 0;
+        long long ans = LLONG_MIN;
+        while (i < n) {
+            int l = i;
+            i += 1;
+            while (i < n && nums[i - 1] < nums[i]) {
+                i += 1;
+            }
+            if (i == l + 1) {
+                continue;
+            }
 
+            int p = i - 1;
+            long long s = nums[p - 1] + nums[p];
+            while (i < n && nums[i - 1] > nums[i]) {
+                s += nums[i];
+                i += 1;
+            }
+            if (i == p + 1 || i == n || nums[i - 1] == nums[i]) {
+                continue;
+            }
+
+            int q = i - 1;
+            s += nums[i];
+            i += 1;
+            long long mx = 0, t = 0;
+            while (i < n && nums[i - 1] < nums[i]) {
+                t += nums[i];
+                i += 1;
+                mx = max(mx, t);
+            }
+            s += mx;
+
+            mx = 0, t = 0;
+            for (int j = p - 2; j >= l; j--) {
+                t += nums[j];
+                mx = max(mx, t);
+            }
+            s += mx;
+
+            ans = max(ans, s);
+            i = q;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxSumTrionic(nums []int) int64 {
+	n := len(nums)
+	i := 0
+	ans := int64(math.MinInt64)
+	for i < n {
+		l := i
+		for i++; i < n && nums[i-1] < nums[i]; {
+			i++
+		}
+		if i == l+1 {
+			continue
+		}
 
+		p := i - 1
+		s := int64(nums[p-1]) + int64(nums[p])
+		for i < n && nums[i-1] > nums[i] {
+			s += int64(nums[i])
+			i++
+		}
+		if i == p+1 || i == n || nums[i-1] == nums[i] {
+			continue
+		}
+
+		q := i - 1
+		s += int64(nums[i])
+		i++
+		var mx, t int64
+		for i < n && nums[i-1] < nums[i] {
+			t += int64(nums[i])
+			i++
+			mx = max(mx, t)
+		}
+		s += mx
+
+		mx, t = 0, 0
+		for j := p - 2; j >= l; j-- {
+			t += int64(nums[j])
+			mx = max(mx, t)
+		}
+		s += mx
+
+		ans = max(ans, s)
+		i = q
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxSumTrionic(nums: number[]): number {
+    const n = nums.length;
+    let i = 0;
+    let ans = -Infinity;
+
+    while (i < n) {
+        const l = i;
+        i += 1;
+
+        while (i < n && nums[i - 1] < nums[i]) i += 1;
+        if (i === l + 1) continue;
+
+        const p = i - 1;
+        let s = nums[p - 1] + nums[p];
+
+        while (i < n && nums[i - 1] > nums[i]) {
+            s += nums[i];
+            i += 1;
+        }
+        if (i === p + 1 || i === n || nums[i - 1] === nums[i]) continue;
+
+        const q = i - 1;
+        s += nums[i];
+        i += 1;
+
+        let mx = 0,
+            t = 0;
+        while (i < n && nums[i - 1] < nums[i]) {
+            t += nums[i];
+            i += 1;
+            mx = Math.max(mx, t);
+        }
+        s += mx;
+
+        mx = 0;
+        t = 0;
+        for (let j = p - 2; j >= l; j--) {
+            t += nums[j];
+            mx = Math.max(mx, t);
+        }
+        s += mx;
+
+        ans = Math.max(ans, s);
+        i = q;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_sum_trionic(nums: Vec<i32>) -> i64 {
+        let n = nums.len();
+        let mut i = 0;
+        let mut ans = i64::MIN;
+        while i < n {
+            let l = i;
+            i += 1;
+            while i < n && nums[i - 1] < nums[i] {
+                i += 1;
+            }
+            if i == l + 1 {
+                continue;
+            }
+
+            let p = i - 1;
+            let mut s = nums[p - 1] as i64 + nums[p] as i64;
+            while i < n && nums[i - 1] > nums[i] {
+                s += nums[i] as i64;
+                i += 1;
+            }
+            if i == p + 1 || i == n || nums[i - 1] == nums[i] {
+                continue;
+            }
+
+            let q = i - 1;
+            s += nums[i] as i64;
+            i += 1;
+            let mut mx = 0i64;
+            let mut t = 0i64;
+            while i < n && nums[i - 1] < nums[i] {
+                t += nums[i] as i64;
+                i += 1;
+                mx = mx.max(t);
+            }
+            s += mx;
+
+            mx = 0;
+            t = 0;
+            let mut j = p as isize - 2;
+            while j >= l as isize {
+                t += nums[j as usize] as i64;
+                mx = mx.max(t);
+                j -= 1;
+            }
+            s += mx;
+
+            ans = ans.max(s);
+            i = q;
+        }
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
