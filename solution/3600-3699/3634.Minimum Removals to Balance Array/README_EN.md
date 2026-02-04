@@ -197,4 +197,92 @@ function minRemoval(nums: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Sorting + Two Pointers
+
+We first sort the array, then use two pointers to maintain a sliding window. The left pointer $l$ enumerates each element $\textit{nums}[l]$ from left to right as the minimum value of the balanced array. The right pointer $r$ keeps moving right until $\textit{nums}[r]$ is greater than $\textit{nums}[l] \times k$. At this point, the length of the balanced array is $r - l$, and the number of elements to be removed is $n - (r - l)$. We record the minimum number of removals as the answer.
+
+The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minRemoval(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = n = len(nums)
+        r = 0
+        for l in range(n):
+            while r < n and nums[r] <= nums[l] * k:
+                r += 1
+            ans = min(ans, n - (r - l))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minRemoval(int[] nums, int k) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int ans = n;
+        int r = 0;
+        for (int l = 0; l < n; l++) {
+            while (r < n && nums[r] <= (long) nums[l] * k) {
+                r++;
+            }
+            ans = Math.min(ans, n - (r - l));
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minRemoval(vector<int>& nums, int k) {
+        ranges::sort(nums);
+        int n = nums.size();
+        int ans = n;
+        int r = 0;
+        for (int l = 0; l < n; l++) {
+            while (r < n && nums[r] <= (long long) nums[l] * k) {
+                r++;
+            }
+            ans = min(ans, n - (r - l));
+        }
+        return ans;
+    }
+};
+```
+
+#### TypeScript
+
+```ts
+function minRemoval(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let ans = n;
+    let r = 0;
+    for (let l = 0; l < n; l++) {
+        while (r < n && nums[r] <= nums[l] * k) {
+            r++;
+        }
+        ans = Math.min(ans, n - (r - l));
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
