@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md
 rating: 2005
 source: Biweekly Contest 174 Q3
+tags:
+    - Bit Manipulation
+    - Array
+    - Hash Table
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

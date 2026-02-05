@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3826.Minimum%20Partition%20Score/README.md
+tags:
+    - 队列
+    - 数组
+    - 分治
+    - 动态规划
+    - 前缀和
+    - 单调队列
 ---
 
 <!-- problem:start -->

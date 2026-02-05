@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README.md
+tags:
+    - 脑筋急转弯
+    - 数组
+    - 数学
+    - 博弈
 ---
 
 <!-- problem:start -->

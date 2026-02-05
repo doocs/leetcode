@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md
+tags:
+    - Bit Manipulation
+    - Enumeration
 ---
 
 <!-- problem:start -->

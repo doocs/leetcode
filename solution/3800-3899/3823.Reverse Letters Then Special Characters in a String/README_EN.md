@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README_EN.md
+tags:
+    - Two Pointers
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

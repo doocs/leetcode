@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README.md
+tags:
+    - 设计
+    - 队列
+    - 哈希表
+    - 数据流
 ---
 
 <!-- problem:start -->

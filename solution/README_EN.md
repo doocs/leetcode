@@ -3818,28 +3818,29 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3807  |  [Minimum Cost to Repair Edges to Traverse a Graph](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Binary Search`  |  Medium  |  🔒  |
 |  3808  |  [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)  |    |  Medium  |    |
 |  3809  |  [Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
-|  3810  |  [Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
-|  3811  |  [Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
+|  3810  |  [Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Medium  |  Biweekly Contest 174  |
+|  3811  |  [Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 174  |
 |  3812  |  [Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 174  |
 |  3813  |  [Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 485  |
 |  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |  `Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 485  |
 |  3815  |  [Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
-|  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |    |  Hard  |  Weekly Contest 485  |
+|  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |  `Stack`,`Greedy`,`Hash Table`,`String`,`Monotonic Stack`  |  Hard  |  Weekly Contest 485  |
 |  3817  |  [Good Indices in a Digit String](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README_EN.md)  |    |  Medium  |  🔒  |
-|  3818  |  [Minimum Prefix Removal to Make Array Strictly Increasing](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
+|  3818  |  [Minimum Prefix Removal to Make Array Strictly Increasing](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md)  |  `Array`  |  Medium  |  Weekly Contest 486  |
 |  3819  |  [Rotate Non Negative Elements](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
-|  3820  |  [Pythagorean Distance Nodes in a Tree](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 486  |
-|  3821  |  [Find Nth Smallest Integer With K One Bits](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md)  |    |  Hard  |  Weekly Contest 486  |
-|  3822  |  [Design Order Management System](/solution/3800-3899/3822.Design%20Order%20Management%20System/README_EN.md)  |    |  Medium  |  🔒  |
-|  3823  |  [Reverse Letters Then Special Characters in a String](/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README_EN.md)  |    |  Easy  |  Biweekly Contest 175  |
-|  3824  |  [Minimum K to Reduce Array Within Limit](/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README_EN.md)  |    |  Medium  |  Biweekly Contest 175  |
+|  3820  |  [Pythagorean Distance Nodes in a Tree](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README_EN.md)  |  `Tree`,`Breadth-First Search`  |  Medium  |  Weekly Contest 486  |
+|  3821  |  [Find Nth Smallest Integer With K One Bits](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md)  |  `Bit Manipulation`,`Math`,`Combinatorics`  |  Hard  |  Weekly Contest 486  |
+|  3822  |  [Design Order Management System](/solution/3800-3899/3822.Design%20Order%20Management%20System/README_EN.md)  |  `Design`,`Hash Table`  |  Medium  |  🔒  |
+|  3823  |  [Reverse Letters Then Special Characters in a String](/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README_EN.md)  |  `Two Pointers`,`String`,`Simulation`  |  Easy  |  Biweekly Contest 175  |
+|  3824  |  [Minimum K to Reduce Array Within Limit](/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |  Biweekly Contest 175  |
 |  3825  |  [Longest Strictly Increasing Subsequence With Non-Zero Bitwise AND](/solution/3800-3899/3825.Longest%20Strictly%20Increasing%20Subsequence%20With%20Non-Zero%20Bitwise%20AND/README_EN.md)  |    |  Medium  |  Biweekly Contest 175  |
-|  3826  |  [Minimum Partition Score](/solution/3800-3899/3826.Minimum%20Partition%20Score/README_EN.md)  |    |  Hard  |  Biweekly Contest 175  |
-|  3827  |  [Count Monobit Integers](/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md)  |    |  Easy  |  Weekly Contest 487  |
-|  3828  |  [Final Element After Subarray Deletions](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README_EN.md)  |    |  Medium  |  Weekly Contest 487  |
-|  3829  |  [Design Ride Sharing System](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 487  |
-|  3830  |  [Longest Alternating Subarray After Removing At Most One Element](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md)  |    |  Hard  |  Weekly Contest 487  |
-|  3831  |  [Median of a Binary Search Tree Level](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README_EN.md)  |    |  Medium  |  🔒  |
+|  3826  |  [Minimum Partition Score](/solution/3800-3899/3826.Minimum%20Partition%20Score/README_EN.md)  |  `Queue`,`Array`,`Divide and Conquer`,`Dynamic Programming`,`Prefix Sum`,`Monotonic Queue`  |  Hard  |  Biweekly Contest 175  |
+|  3827  |  [Count Monobit Integers](/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md)  |  `Bit Manipulation`,`Enumeration`  |  Easy  |  Weekly Contest 487  |
+|  3828  |  [Final Element After Subarray Deletions](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README_EN.md)  |  `Brainteaser`,`Array`,`Math`,`Game Theory`  |  Medium  |  Weekly Contest 487  |
+|  3829  |  [Design Ride Sharing System](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README_EN.md)  |  `Design`,`Queue`,`Hash Table`,`Data Stream`  |  Medium  |  Weekly Contest 487  |
+|  3830  |  [Longest Alternating Subarray After Removing At Most One Element](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md)  |  `Array`,`Dynamic Programming`,`Enumeration`  |  Hard  |  Weekly Contest 487  |
+|  3831  |  [Median of a Binary Search Tree Level](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Medium  |  🔒  |
+|  3832  |  [Find Users with Persistent Behavior Patterns](/solution/3800-3899/3832.Find%20Users%20with%20Persistent%20Behavior%20Patterns/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

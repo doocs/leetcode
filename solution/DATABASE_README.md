@@ -332,6 +332,7 @@
 | 3764 | [最常见的课程组合](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README.md)                                                                        |          | 困难 |      |
 | 3793 | [查找高词元使用量的用户](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md)                                                      |          | 简单 |      |
 | 3808 | [寻找情绪一致的用户](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README.md)                                                             |          | 中等 |      |
+| 3832 | [Find Users with Persistent Behavior Patterns](/solution/3800-3899/3832.Find%20Users%20with%20Persistent%20Behavior%20Patterns/README.md)                    |          | 困难 |      |
 
 ## 版权
 

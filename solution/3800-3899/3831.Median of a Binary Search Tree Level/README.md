@@ -2,11 +2,17 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 广度优先搜索
+    - 二叉搜索树
+    - 二叉树
 ---
 
 <!-- problem:start -->
 
-# [3831. Median of a Binary Search Tree Level 🔒](https://leetcode.cn/problems/median-of-a-binary-search-tree-level)
+# [3831. 二叉搜索树某一层的中位数 🔒](https://leetcode.cn/problems/median-of-a-binary-search-tree-level)
 
 [English Version](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README_EN.md)
 
@@ -14,62 +20,64 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3831.Me
 
 <!-- description:start -->
 
-<p>You are given the <code>root</code> of a <strong>Binary Search Tree (BST)</strong> and an integer <code>level</code>.</p>
+<p>给定一棵 <strong>二叉搜索树（BST）</strong>的根结点&nbsp;<code>root</code>&nbsp;和一个整数&nbsp;<code>level</code>。</p>
 
-<p>The root node is at level 0. Each level represents the distance from the root.</p>
+<p>根节点位于第 0 层。每一层代表与根节点的距离。</p>
 
-<p>Return the <strong>median value</strong> of all node values present at the given <code>level</code>. If the level does not exist or contains no nodes, return -1.</p>
+<p>返回给定&nbsp;<code>level</code>&nbsp;中所有节点值的中位数。如果该层不存在或没有节点，则返回 -1。</p>
 
-<p>The <strong>median</strong> is defined as the middle element after sorting the values at that level in <strong>non-decreasing</strong> order. If the number of values at that level is even, return the <strong>upper</strong> median (the larger of the two middle elements after sorting).</p>
+<p><strong>中位数</strong> 定义为将该层的值按 <strong>非降序</strong> 排序后中间的元素。如果该层的值的数量为偶数，则返回 <b>向上</b>&nbsp;中位数（排序后两个中间元素中较大的那个）。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/images/screenshot-2026-01-27-at-20801pm.png" style="width: 180px; height: 182px;" /></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">root = [4,null,5,null,7], level = 2</span></p>
+<p><span class="example-io"><b>输入：</b>root = [4,null,5,null,7], level = 2</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">7</span></p>
+<p><span class="example-io"><b>输出：</b>7</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><b>解释：</b></p>
 
-<p>The nodes at <code>level = 2</code> are <code>[7]</code>. The median value is 7.</p>
+<p>位于&nbsp;<code>level = 2</code>&nbsp;的节点是&nbsp;<code>[7]</code>。中位数是 7。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/images/screenshot-2026-01-27-at-20926pm.png" style="width: 200px; height: 169px;" /></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">root = [6,3,8], level = 1</span></p>
+<p><span class="example-io"><b>输入：</b>root = [6,3,8], level = 1</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">8</span></p>
+<p><span class="example-io"><b>输出：</b>8</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>The nodes at <code>level = 1</code> are <code>[3, 8]</code>. There are two possible median values, so the larger one 8 is the answer.</p>
+<p>位于&nbsp;<code>level = 1</code>&nbsp;的节点是&nbsp;<code>[3, 8]</code>。有两个可能的中位数，因此较大的那个 8 是答案。</p>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<p><strong class="example">​​​​​​​​​​​​​​</strong><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/images/screenshot-2026-01-27-at-21001pm.png" style="width: 150px; height: 193px;" /></p>
+<p><strong class="example">​​​​​​​</strong><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/images/screenshot-2026-01-27-at-21001pm.png" style="width: 150px; height: 193px;" /></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">root = [2,1], level = 2</span></p>
+<p><span class="example-io"><b>输入：</b>root = [2,1], level = 2</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">-1</span></p>
+<p><span class="example-io"><b>输出：</b>-1</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><b>解释：</b></p>
 
-<p>There is no node present at <code>level = 2</code>​​​​​​​, so the answer is -1.</p>
+<p>在&nbsp;<code>level = 2</code>​​​​​​​ 没有节点，所以答案是 -1。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 2 * 10<sup>5</sup>]</code>.</li>
+	<li>树中节点的数量在 <code>[1, 2 * 10<sup>5</sup>]</code>&nbsp;范围内。</li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 	<li><code>0 &lt;= level &lt;= 2 * 10<sup>​​​​​​​5</sup></code></li>
 </ul>
