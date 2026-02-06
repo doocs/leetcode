@@ -126,7 +126,7 @@ class Solution {
 class Solution {
 public:
     bool lemonadeChange(vector<int>& bills) {
-        int five = 0, ten = 10;
+        int five = 0, ten = 0;
         for (int v : bills) {
             if (v == 5) {
                 ++five;
