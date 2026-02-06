@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README_EN.md
+rating: 1531
+source: Biweekly Contest 175 Q2
 tags:
     - Array
     - Binary Search

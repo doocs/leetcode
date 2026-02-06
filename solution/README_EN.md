@@ -3817,12 +3817,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3806  |  [Maximum Bitwise AND After Increment Operations](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`Array`,`Sorting`  |  Hard  |  Weekly Contest 484  |
 |  3807  |  [Minimum Cost to Repair Edges to Traverse a Graph](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README_EN.md)  |  `Breadth-First Search`,`Graph`,`Binary Search`  |  Medium  |  🔒  |
 |  3808  |  [Find Emotionally Consistent Users](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README_EN.md)  |    |  Medium  |    |
-|  3809  |  [Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)  |    |  Medium  |  Biweekly Contest 174  |
+|  3809  |  [Best Reachable Tower](/solution/3800-3899/3809.Best%20Reachable%20Tower/README_EN.md)  |  `Array`  |  Medium  |  Biweekly Contest 174  |
 |  3810  |  [Minimum Operations to Reach Target Array](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`  |  Medium  |  Biweekly Contest 174  |
 |  3811  |  [Number of Alternating XOR Partitions](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README_EN.md)  |  `Bit Manipulation`,`Array`,`Hash Table`,`Dynamic Programming`  |  Medium  |  Biweekly Contest 174  |
-|  3812  |  [Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 174  |
-|  3813  |  [Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 485  |
-|  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |  `Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 485  |
+|  3812  |  [Minimum Edge Toggles on a Tree](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Graph`,`Topological Sort`,`Sorting`  |  Hard  |  Biweekly Contest 174  |
+|  3813  |  [Vowel-Consonant Score](/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md)  |  `String`,`Simulation`  |  Easy  |  Weekly Contest 485  |
+|  3814  |  [Maximum Capacity Within Budget](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README_EN.md)  |  `Array`,`Two Pointers`,`Binary Search`,`Sorting`  |  Medium  |  Weekly Contest 485  |
 |  3815  |  [Design Auction System](/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md)  |    |  Medium  |  Weekly Contest 485  |
 |  3816  |  [Lexicographically Smallest String After Deleting Duplicate Characters](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README_EN.md)  |  `Stack`,`Greedy`,`Hash Table`,`String`,`Monotonic Stack`  |  Hard  |  Weekly Contest 485  |
 |  3817  |  [Good Indices in a Digit String](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README_EN.md)  |    |  Medium  |  🔒  |

@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3826.Minimum%20Partition%20Score/README_EN.md
+rating: 2345
+source: Biweekly Contest 175 Q4
 tags:
     - Queue
     - Array

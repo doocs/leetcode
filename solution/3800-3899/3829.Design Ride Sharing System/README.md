@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README.md
+rating: 1593
+source: 第 487 场周赛 Q3
 tags:
     - 设计
     - 队列

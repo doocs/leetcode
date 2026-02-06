@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3827.Count%20Monobit%20Integers/README.md
+rating: 1190
+source: 第 487 场周赛 Q1
 tags:
     - 位运算
     - 枚举

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README.md
+rating: 1250
+source: 第 175 场双周赛 Q1
 tags:
     - 双指针
     - 字符串

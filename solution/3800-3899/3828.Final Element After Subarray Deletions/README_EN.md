@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README_EN.md
+rating: 1591
+source: Weekly Contest 487 Q2
 tags:
     - Brainteaser
     - Array

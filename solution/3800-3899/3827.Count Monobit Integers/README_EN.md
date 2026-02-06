@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md
+rating: 1190
+source: Weekly Contest 487 Q1
 tags:
     - Bit Manipulation
     - Enumeration

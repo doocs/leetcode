@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md
+rating: 2162
+source: Weekly Contest 487 Q4
 tags:
     - Array
     - Dynamic Programming

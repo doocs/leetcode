@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README.md
+rating: 1591
+source: 第 487 场周赛 Q2
 tags:
     - 脑筋急转弯
     - 数组

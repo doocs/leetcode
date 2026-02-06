@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3813.Vowel-Consonant%20Score/README_EN.md
 rating: 1216
 source: Weekly Contest 485 Q1
+tags:
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

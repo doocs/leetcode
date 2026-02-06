@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README.md
+rating: 1531
+source: 第 175 场双周赛 Q2
 tags:
     - 数组
     - 二分查找

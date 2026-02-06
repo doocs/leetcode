@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README_EN.md
+rating: 1593
+source: Weekly Contest 487 Q3
 tags:
     - Design
     - Queue
