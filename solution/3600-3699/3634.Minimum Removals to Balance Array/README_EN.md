@@ -193,6 +193,27 @@ function minRemoval(nums: number[], k: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_removal(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let mut cnt = 0;
+        let n = nums.len();
+        for i in 0..n {
+            let mut j = n;
+            let target = nums[i] as i64 * k as i64;
+            if target <= nums[n - 1] as i64 {
+                j = nums.partition_point(|&x| x as i64 <= target);
+            }
+            cnt = cnt.max(j - i);
+        }
+        (n - cnt) as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -203,7 +224,7 @@ function minRemoval(nums: number[], k: number): number {
 
 We first sort the array, then use two pointers to maintain a sliding window. The left pointer $l$ enumerates each element $\textit{nums}[l]$ from left to right as the minimum value of the balanced array. The right pointer $r$ keeps moving right until $\textit{nums}[r]$ is greater than $\textit{nums}[l] \times k$. At this point, the length of the balanced array is $r - l$, and the number of elements to be removed is $n - (r - l)$. We record the minimum number of removals as the answer.
 
-The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -263,6 +284,24 @@ public:
 };
 ```
 
+#### Go
+
+```go
+func minRemoval(nums []int, k int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	ans := n
+	r := 0
+	for l := 0; l < n; l++ {
+		for r < n && nums[r] <= nums[l]*k {
+			r++
+		}
+		ans = min(ans, n-(r-l))
+	}
+	return ans
+}
+```
+
 #### TypeScript
 
 ```ts
@@ -278,6 +317,27 @@ function minRemoval(nums: number[], k: number): number {
         ans = Math.min(ans, n - (r - l));
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_removal(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let mut ans = n;
+        let mut r = 0;
+        let k = k as i64;
+        for l in 0..n {
+            while r < n && nums[r] as i64 <= nums[l] as i64 * k {
+                r += 1;
+            }
+            ans = ans.min(n - (r - l));
+        }
+        ans as i32
+    }
 }
 ```
 
