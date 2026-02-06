@@ -229,122 +229,6 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is 
 ```python
 class Solution:
     def minimumDeletions(self, s: str) -> int:
-        ans = b = 0
-        for c in s:
-            if c == 'b':
-                b += 1
-            else:
-                ans = min(ans + 1, b)
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minimumDeletions(String s) {
-        int n = s.length();
-        int ans = 0, b = 0;
-        for (int i = 0; i < n; ++i) {
-            if (s.charAt(i) == 'b') {
-                ++b;
-            } else {
-                ans = Math.min(ans + 1, b);
-            }
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int minimumDeletions(string s) {
-        int ans = 0, b = 0;
-        for (char& c : s) {
-            if (c == 'b') {
-                ++b;
-            } else {
-                ans = min(ans + 1, b);
-            }
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func minimumDeletions(s string) int {
-	ans, b := 0, 0
-	for _, c := range s {
-		if c == 'b' {
-			b++
-		} else {
-			ans = min(ans+1, b)
-		}
-	}
-	return ans
-}
-```
-
-#### TypeScript
-
-```ts
-function minimumDeletions(s: string): number {
-    let [ans, b] = [0, 0];
-
-    for (const ch of s) {
-        if (ch === 'b') {
-            ++b;
-        } else {
-            ans = Math.min(ans + 1, b);
-        }
-    }
-    return ans;
-}
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {string} s
- * @return {number}
- */
-var minimumDeletions = function (s) {
-    let [ans, b] = [0, 0];
-
-    for (const ch of s) {
-        if (ch === 'b') {
-            ++b;
-        } else {
-            ans = Math.min(ans + 1, b);
-        }
-    }
-    return ans;
-};
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3: Two-Variable Method
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minimumDeletions(self, s: str) -> int:
         lb, ra = 0, s.count('a')
         ans = len(s)
         for c in s:
@@ -420,14 +304,19 @@ func minimumDeletions(s string) int {
 
 ```ts
 function minimumDeletions(s: string): number {
-    let ra = [...s].reduce((acc, x) => (x === 'a' ? acc + 1 : acc), 0);
-    let lb = 0;
-
-    let ans = s.length;
-    for (const ch of s) {
-        if (ch === 'a') ra--;
+    let lb = 0,
+        ra = 0;
+    let n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === 'a') {
+            ++ra;
+        }
+    }
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ra -= s[i] === 'a' ? 1 : 0;
         ans = Math.min(ans, lb + ra);
-        if (ch === 'b') lb++;
+        lb += s[i] === 'b' ? 1 : 0;
     }
     return ans;
 }
@@ -441,66 +330,21 @@ function minimumDeletions(s: string): number {
  * @return {number}
  */
 var minimumDeletions = function (s) {
-    let ra = [...s].reduce((acc, x) => (x === 'a' ? acc + 1 : acc), 0);
-    let lb = 0;
-
-    let ans = s.length;
-    for (const ch of s) {
-        if (ch === 'a') ra--;
+    let lb = 0,
+        ra = 0;
+    let n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === 'a') {
+            ++ra;
+        }
+    }
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ra -= s[i] === 'a' ? 1 : 0;
         ans = Math.min(ans, lb + ra);
-        if (ch === 'b') lb++;
+        lb += s[i] === 'b' ? 1 : 0;
     }
     return ans;
-};
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 4: Stack
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function minimumDeletions(s: string): number {
-    const stk: string[] = [];
-    let res = 0;
-
-    for (const ch of s) {
-        if (stk.at(-1) === 'b' && ch === 'a') {
-            stk.pop();
-            res++;
-        } else stk.push(ch);
-    }
-
-    return res;
-}
-```
-
-#### JavaScript
-
-```js
-/**
- * @param {string} s
- * @return {number}
- */
-var minimumDeletions = function (s) {
-    const stk = [];
-    let res = 0;
-
-    for (const ch of s) {
-        if (stk.at(-1) === 'b' && ch === 'a') {
-            stk.pop();
-            res++;
-        } else stk.push(ch);
-    }
-
-    return res;
 };
 ```
 

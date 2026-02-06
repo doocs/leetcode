@@ -1,13 +1,12 @@
 class Solution {
 public:
     int minimumDeletions(string s) {
-        int ans = 0, b = 0;
+        int lb = 0, ra = count(s.begin(), s.end(), 'a');
+        int ans = ra;
         for (char& c : s) {
-            if (c == 'b') {
-                ++b;
-            } else {
-                ans = min(ans + 1, b);
-            }
+            ra -= c == 'a';
+            ans = min(ans, lb + ra);
+            lb += c == 'b';
         }
         return ans;
     }

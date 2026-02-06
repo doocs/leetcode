@@ -3,14 +3,19 @@
  * @return {number}
  */
 var minimumDeletions = function (s) {
-    let [ans, b] = [0, 0];
-
-    for (const ch of s) {
-        if (ch === 'b') {
-            ++b;
-        } else {
-            ans = Math.min(ans + 1, b);
+    let lb = 0,
+        ra = 0;
+    let n = s.length;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] === 'a') {
+            ++ra;
         }
+    }
+    let ans = n;
+    for (let i = 0; i < n; ++i) {
+        ra -= s[i] === 'a' ? 1 : 0;
+        ans = Math.min(ans, lb + ra);
+        lb += s[i] === 'b' ? 1 : 0;
     }
     return ans;
 };

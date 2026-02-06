@@ -1,9 +1,9 @@
 class Solution:
     def minimumDeletions(self, s: str) -> int:
-        ans = b = 0
+        lb, ra = 0, s.count('a')
+        ans = len(s)
         for c in s:
-            if c == 'b':
-                b += 1
-            else:
-                ans = min(ans + 1, b)
+            ra -= c == 'a'
+            ans = min(ans, lb + ra)
+            lb += c == 'b'
         return ans
