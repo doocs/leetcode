@@ -80,15 +80,15 @@ def modify_code_block(content):
             break
         j = content.find(end)
         codes = content[i + len(start) : j].strip()
-        res = re.findall(r"```(.*?)\n(.*?)\n```", codes, re.S)
+        # 同时提取标题和代码块
+        res = re.findall(r"####\s+(.*?)\n\n```(.*?)\n(.*?)\n```", codes, re.S)
         result = []
         if res:
-            for lang, code in res:
-                name = mapping.get(lang)
+            for title, lang, code in res:
                 code = code or ""
                 # 需要将 code 缩进 4 个空格
                 code = code.replace("\n", "\n    ")
-                code_snippet = f'=== "{name}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
+                code_snippet = f'=== "{title}"\n\n    ```{lang} linenums="1"\n    {code}\n    ```\n'
                 result.append(code_snippet)
         content = content[:i] + "\n".join(result) + content[j + len(end) :]
     return content
