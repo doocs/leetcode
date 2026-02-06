@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3814.Ma
 rating: 1796
 source: 第 485 场周赛 Q2
 tags:
+    - 数组
+    - 双指针
     - 二分查找
-    - 前缀和
+    - 排序
 ---
 
 <!-- problem:start -->

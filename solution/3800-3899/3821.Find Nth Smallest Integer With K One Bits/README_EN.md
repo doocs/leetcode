@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README_EN.md
 rating: 2069
 source: Weekly Contest 486 Q4
+tags:
+    - Bit Manipulation
+    - Math
+    - Combinatorics
 ---
 
 <!-- problem:start -->

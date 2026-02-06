@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3814.Ma
 rating: 1796
 source: Weekly Contest 485 Q2
 tags:
+    - Array
+    - Two Pointers
     - Binary Search
-    - Prefix Sum
+    - Sorting
 ---
 
 <!-- problem:start -->

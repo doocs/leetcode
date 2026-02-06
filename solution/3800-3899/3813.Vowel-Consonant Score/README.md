@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md
 rating: 1216
 source: 第 485 场周赛 Q1
+tags:
+    - 字符串
+    - 模拟
 ---
 
 <!-- problem:start -->

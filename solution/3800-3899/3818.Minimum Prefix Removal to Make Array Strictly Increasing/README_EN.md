@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README_EN.md
 rating: 1206
 source: Weekly Contest 486 Q1
+tags:
+    - Array
 ---
 
 <!-- problem:start -->

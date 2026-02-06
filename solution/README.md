@@ -3819,28 +3819,30 @@
 |  3806  |  [增加操作后最大按位与的结果](/solution/3800-3899/3806.Maximum%20Bitwise%20AND%20After%20Increment%20Operations/README.md)  |  `贪心`,`位运算`,`数组`,`排序`  |  困难  |  第 484 场周赛  |
 |  3807  |  [修复边以遍历图的最小成本](/solution/3800-3899/3807.Minimum%20Cost%20to%20Repair%20Edges%20to%20Traverse%20a%20Graph/README.md)  |  `广度优先搜索`,`图`,`二分查找`  |  中等  |  🔒  |
 |  3808  |  [寻找情绪一致的用户](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README.md)  |    |  中等  |    |
-|  3809  |  [最好可到达的塔](/solution/3800-3899/3809.Best%20Reachable%20Tower/README.md)  |    |  中等  |  第 174 场双周赛  |
-|  3810  |  [变成目标数组的最少操作次数](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README.md)  |    |  中等  |  第 174 场双周赛  |
-|  3811  |  [交替按位异或分割的数目](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README.md)  |    |  中等  |  第 174 场双周赛  |
-|  3812  |  [翻转树上最少边](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md)  |    |  困难  |  第 174 场双周赛  |
-|  3813  |  [元音辅音得分](/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md)  |    |  简单  |  第 485 场周赛  |
-|  3814  |  [预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)  |  `二分查找`,`前缀和`  |  中等  |  第 485 场周赛  |
+|  3809  |  [最好可到达的塔](/solution/3800-3899/3809.Best%20Reachable%20Tower/README.md)  |  `数组`  |  中等  |  第 174 场双周赛  |
+|  3810  |  [变成目标数组的最少操作次数](/solution/3800-3899/3810.Minimum%20Operations%20to%20Reach%20Target%20Array/README.md)  |  `贪心`,`数组`,`哈希表`  |  中等  |  第 174 场双周赛  |
+|  3811  |  [交替按位异或分割的数目](/solution/3800-3899/3811.Number%20of%20Alternating%20XOR%20Partitions/README.md)  |  `位运算`,`数组`,`哈希表`,`动态规划`  |  中等  |  第 174 场双周赛  |
+|  3812  |  [翻转树上最少边](/solution/3800-3899/3812.Minimum%20Edge%20Toggles%20on%20a%20Tree/README.md)  |  `树`,`深度优先搜索`,`图`,`拓扑排序`,`排序`  |  困难  |  第 174 场双周赛  |
+|  3813  |  [元音辅音得分](/solution/3800-3899/3813.Vowel-Consonant%20Score/README.md)  |  `字符串`,`模拟`  |  简单  |  第 485 场周赛  |
+|  3814  |  [预算下的最大总容量](/solution/3800-3899/3814.Maximum%20Capacity%20Within%20Budget/README.md)  |  `数组`,`双指针`,`二分查找`,`排序`  |  中等  |  第 485 场周赛  |
 |  3815  |  [设计拍卖系统](/solution/3800-3899/3815.Design%20Auction%20System/README.md)  |    |  中等  |  第 485 场周赛  |
-|  3816  |  [删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)  |    |  困难  |  第 485 场周赛  |
+|  3816  |  [删除重复字符后的字典序最小字符串](/solution/3800-3899/3816.Lexicographically%20Smallest%20String%20After%20Deleting%20Duplicate%20Characters/README.md)  |  `栈`,`贪心`,`哈希表`,`字符串`,`单调栈`  |  困难  |  第 485 场周赛  |
 |  3817  |  [数字字符串中的好索引](/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README.md)  |    |  中等  |  🔒  |
-|  3818  |  [移除前缀使数组严格递增](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README.md)  |    |  中等  |  第 486 场周赛  |
+|  3818  |  [移除前缀使数组严格递增](/solution/3800-3899/3818.Minimum%20Prefix%20Removal%20to%20Make%20Array%20Strictly%20Increasing/README.md)  |  `数组`  |  中等  |  第 486 场周赛  |
 |  3819  |  [非负元素轮替](/solution/3800-3899/3819.Rotate%20Non%20Negative%20Elements/README.md)  |    |  中等  |  第 486 场周赛  |
-|  3820  |  [树上的勾股距离节点](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README.md)  |    |  中等  |  第 486 场周赛  |
-|  3821  |  [二进制中恰好K个1的第N小整数](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README.md)  |    |  困难  |  第 486 场周赛  |
-|  3822  |  [设计订单管理系统](/solution/3800-3899/3822.Design%20Order%20Management%20System/README.md)  |    |  中等  |  🔒  |
-|  3823  |  [反转一个字符串里的字母后反转特殊字符](/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README.md)  |    |  简单  |  第 175 场双周赛  |
-|  3824  |  [减小数组使其满足条件的最小 K 值](/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README.md)  |    |  中等  |  第 175 场双周赛  |
+|  3820  |  [树上的勾股距离节点](/solution/3800-3899/3820.Pythagorean%20Distance%20Nodes%20in%20a%20Tree/README.md)  |  `树`,`广度优先搜索`  |  中等  |  第 486 场周赛  |
+|  3821  |  [二进制中恰好K个1的第N小整数](/solution/3800-3899/3821.Find%20Nth%20Smallest%20Integer%20With%20K%20One%20Bits/README.md)  |  `位运算`,`数学`,`组合数学`  |  困难  |  第 486 场周赛  |
+|  3822  |  [设计订单管理系统](/solution/3800-3899/3822.Design%20Order%20Management%20System/README.md)  |  `设计`,`哈希表`  |  中等  |  🔒  |
+|  3823  |  [反转一个字符串里的字母后反转特殊字符](/solution/3800-3899/3823.Reverse%20Letters%20Then%20Special%20Characters%20in%20a%20String/README.md)  |  `双指针`,`字符串`,`模拟`  |  简单  |  第 175 场双周赛  |
+|  3824  |  [减小数组使其满足条件的最小 K 值](/solution/3800-3899/3824.Minimum%20K%20to%20Reduce%20Array%20Within%20Limit/README.md)  |  `数组`,`二分查找`  |  中等  |  第 175 场双周赛  |
 |  3825  |  [按位与结果非零的最长上升子序列](/solution/3800-3899/3825.Longest%20Strictly%20Increasing%20Subsequence%20With%20Non-Zero%20Bitwise%20AND/README.md)  |    |  中等  |  第 175 场双周赛  |
-|  3826  |  [最小分割分数](/solution/3800-3899/3826.Minimum%20Partition%20Score/README.md)  |    |  困难  |  第 175 场双周赛  |
-|  3827  |  [统计单比特整数](/solution/3800-3899/3827.Count%20Monobit%20Integers/README.md)  |    |  简单  |  第 487 场周赛  |
-|  3828  |  [删除子数组后的最终元素](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README.md)  |    |  中等  |  第 487 场周赛  |
-|  3829  |  [设计共享出行系统](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README.md)  |    |  中等  |  第 487 场周赛  |
-|  3830  |  [移除至多一个元素后的最长交替子数组](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README.md)  |    |  困难  |  第 487 场周赛  |
+|  3826  |  [最小分割分数](/solution/3800-3899/3826.Minimum%20Partition%20Score/README.md)  |  `队列`,`数组`,`分治`,`动态规划`,`前缀和`,`单调队列`  |  困难  |  第 175 场双周赛  |
+|  3827  |  [统计单比特整数](/solution/3800-3899/3827.Count%20Monobit%20Integers/README.md)  |  `位运算`,`枚举`  |  简单  |  第 487 场周赛  |
+|  3828  |  [删除子数组后的最终元素](/solution/3800-3899/3828.Final%20Element%20After%20Subarray%20Deletions/README.md)  |  `脑筋急转弯`,`数组`,`数学`,`博弈`  |  中等  |  第 487 场周赛  |
+|  3829  |  [设计共享出行系统](/solution/3800-3899/3829.Design%20Ride%20Sharing%20System/README.md)  |  `设计`,`队列`,`哈希表`,`数据流`  |  中等  |  第 487 场周赛  |
+|  3830  |  [移除至多一个元素后的最长交替子数组](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README.md)  |  `数组`,`动态规划`,`枚举`  |  困难  |  第 487 场周赛  |
+|  3831  |  [二叉搜索树某一层的中位数](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`二叉搜索树`,`二叉树`  |  中等  |  🔒  |
+|  3832  |  [查找具有持续行为模式的用户](/solution/3800-3899/3832.Find%20Users%20with%20Persistent%20Behavior%20Patterns/README.md)  |    |  困难  |    |
 
 ## 版权
 

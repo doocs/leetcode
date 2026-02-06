@@ -195,6 +195,154 @@ function minRemoval(nums: number[], k: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_removal(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let mut cnt = 0;
+        let n = nums.len();
+        for i in 0..n {
+            let mut j = n;
+            let target = nums[i] as i64 * k as i64;
+            if target <= nums[n - 1] as i64 {
+                j = nums.partition_point(|&x| x as i64 <= target);
+            }
+            cnt = cnt.max(j - i);
+        }
+        (n - cnt) as i32
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：排序 + 双指针
+
+我们首先对数组进行排序，然后我们使用双指针来维护一个滑动窗口，左指针 $l$ 从左到右枚举每个元素 $\textit{nums}[l]$ 作为平衡数组的最小值，右指针 $r$ 不断向右移动，直到 $\textit{nums}[r]$ 大于 $\textit{nums}[l] \times k$，此时平衡数组的长度为 $r - l$，需要移除的元素数量为 $n - (r - l)$，我们记录下最小的移除数量作为答案。
+
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minRemoval(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = n = len(nums)
+        r = 0
+        for l in range(n):
+            while r < n and nums[r] <= nums[l] * k:
+                r += 1
+            ans = min(ans, n - (r - l))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minRemoval(int[] nums, int k) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int ans = n;
+        int r = 0;
+        for (int l = 0; l < n; l++) {
+            while (r < n && nums[r] <= (long) nums[l] * k) {
+                r++;
+            }
+            ans = Math.min(ans, n - (r - l));
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minRemoval(vector<int>& nums, int k) {
+        ranges::sort(nums);
+        int n = nums.size();
+        int ans = n;
+        int r = 0;
+        for (int l = 0; l < n; l++) {
+            while (r < n && nums[r] <= (long long) nums[l] * k) {
+                r++;
+            }
+            ans = min(ans, n - (r - l));
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minRemoval(nums []int, k int) int {
+	sort.Ints(nums)
+	n := len(nums)
+	ans := n
+	r := 0
+	for l := 0; l < n; l++ {
+		for r < n && nums[r] <= nums[l]*k {
+			r++
+		}
+		ans = min(ans, n-(r-l))
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minRemoval(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    const n = nums.length;
+    let ans = n;
+    let r = 0;
+    for (let l = 0; l < n; l++) {
+        while (r < n && nums[r] <= nums[l] * k) {
+            r++;
+        }
+        ans = Math.min(ans, n - (r - l));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_removal(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort();
+        let n = nums.len();
+        let mut ans = n;
+        let mut r = 0;
+        let k = k as i64;
+        for l in 0..n {
+            while r < n && nums[r] as i64 <= nums[l] as i64 * k {
+                r += 1;
+            }
+            ans = ans.min(n - (r - l));
+        }
+        ans as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

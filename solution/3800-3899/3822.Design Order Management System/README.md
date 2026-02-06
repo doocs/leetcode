@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3822.Design%20Order%20Management%20System/README.md
+tags:
+    - 设计
+    - 哈希表
 ---
 
 <!-- problem:start -->
@@ -25,8 +28,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3822.De
 <ul>
 	<li><code>OrderManagementSystem()</code>：初始化订单管理系统。</li>
 	<li><code>void addOrder(int orderId, string orderType, int price)</code>：添加一个具有给定属性的新 <strong>有效</strong> 订单。<strong>保证</strong>&nbsp;<code>orderId</code>&nbsp;互不相同。</li>
-	<li><code>void modifyOrder(int orderId, int newPrice)</code>：修改现有订单的 <strong>价格</strong>。<strong>保证</strong> 该订单存在且处于活动状态。</li>
-	<li><code>void cancelOrder(int orderId)</code>：取消一个现有的订单。<strong>保证</strong> 该订单存在且处于活动状态。</li>
+	<li><code>void modifyOrder(int orderId, int newPrice)</code>：修改现有订单的 <strong>价格</strong>。<strong>保证</strong> 该订单存在且有效。</li>
+	<li><code>void cancelOrder(int orderId)</code>：取消一个现有的订单。<strong>保证</strong> 该订单存在且有效。</li>
 	<li><code>vector&lt;int&gt; getOrdersAtPrice(string orderType, int price)</code>：返回所有匹配给定&nbsp;<code>orderType</code>&nbsp;和&nbsp;<code>price</code> 的 <strong>有效</strong> 订单的 <code>orderId</code>。如果不存在此类订单，则返回空列表。</li>
 </ul>
 
