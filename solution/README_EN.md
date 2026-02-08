@@ -3841,6 +3841,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3830  |  [Longest Alternating Subarray After Removing At Most One Element](/solution/3800-3899/3830.Longest%20Alternating%20Subarray%20After%20Removing%20At%20Most%20One%20Element/README_EN.md)  |  `Array`,`Dynamic Programming`,`Enumeration`  |  Hard  |  Weekly Contest 487  |
 |  3831  |  [Median of a Binary Search Tree Level](/solution/3800-3899/3831.Median%20of%20a%20Binary%20Search%20Tree%20Level/README_EN.md)  |  `Tree`,`Depth-First Search`,`Breadth-First Search`,`Binary Search Tree`,`Binary Tree`  |  Medium  |  🔒  |
 |  3832  |  [Find Users with Persistent Behavior Patterns](/solution/3800-3899/3832.Find%20Users%20with%20Persistent%20Behavior%20Patterns/README_EN.md)  |    |  Hard  |    |
+|  3833  |  [Count Dominant Indices](/solution/3800-3899/3833.Count%20Dominant%20Indices/README_EN.md)  |    |  Easy  |  Weekly Contest 488  |
+|  3834  |  [Merge Adjacent Equal Elements](/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 488  |
+|  3835  |  [Count Subarrays With Cost Less Than or Equal to K](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 488  |
+|  3836  |  [Maximum Score Using Exactly K Pairs](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README_EN.md)  |    |  Hard  |  Weekly Contest 488  |
 
 ## Copyright
 

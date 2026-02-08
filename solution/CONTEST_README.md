@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 488 场周赛(2026-02-08 10:30, 90 分钟) 参赛人数 1478
+
+- [3833. 统计主导元素下标数](/solution/3800-3899/3833.Count%20Dominant%20Indices/README.md)
+- [3834. 合并相邻且相等的元素](/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README.md)
+- [3835. 开销小于等于 K 的子数组数目](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README.md)
+- [3836. 恰好 K 个下标对的最大得分](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README.md)
+
 #### 第 487 场周赛(2026-02-01 10:30, 90 分钟) 参赛人数 1442
 
 - [3827. 统计单比特整数](/solution/3800-3899/3827.Count%20Monobit%20Integers/README.md)

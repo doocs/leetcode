@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 488
+
+- [3833. Count Dominant Indices](/solution/3800-3899/3833.Count%20Dominant%20Indices/README_EN.md)
+- [3834. Merge Adjacent Equal Elements](/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README_EN.md)
+- [3835. Count Subarrays With Cost Less Than or Equal to K](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
+- [3836. Maximum Score Using Exactly K Pairs](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README_EN.md)
+
 #### Weekly Contest 487
 
 - [3827. Count Monobit Integers](/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md)
