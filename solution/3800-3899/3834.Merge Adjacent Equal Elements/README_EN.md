@@ -84,32 +84,104 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3834.Me
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Stack
+
+We can use a stack to simulate the process of merging adjacent equal elements.
+
+Define a stack $\textit{stk}$ to store the current processed array elements. Traverse each element $x$ of the input array $\textit{nums}$ and push it onto the stack. Then check if the top two elements of the stack are equal. If they are equal, pop them and push their sum back onto the stack. Repeat this process until the top two elements of the stack are no longer equal. Finally, the elements in the stack are the final merged array.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(n)$, which is used to store the elements in the stack.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def mergeAdjacent(self, nums: List[int]) -> List[int]:
+        stk = []
+        for x in nums:
+            stk.append(x)
+            while len(stk) > 1 and stk[-1] == stk[-2]:
+                stk.append(stk.pop() + stk.pop())
+        return stk
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<Long> mergeAdjacent(int[] nums) {
+        List<Long> stk = new ArrayList<>();
+        for (int x : nums) {
+            stk.add((long) x);
+            while (stk.size() > 1 && stk.get(stk.size() - 1).equals(stk.get(stk.size() - 2))) {
+                long a = stk.remove(stk.size() - 1);
+                long b = stk.remove(stk.size() - 1);
+                stk.add(a + b);
+            }
+        }
+        return stk;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<long long> mergeAdjacent(vector<int>& nums) {
+        vector<long long> stk;
+        for (int x : nums) {
+            stk.push_back(x);
+            while (stk.size() > 1 && stk.back() == stk[stk.size() - 2]) {
+                long long a = stk.back();
+                stk.pop_back();
+                long long b = stk.back();
+                stk.pop_back();
+                stk.push_back(a + b);
+            }
+        }
+        return stk;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func mergeAdjacent(nums []int) []int64 {
+	stk := []int64{}
+	for _, x := range nums {
+		stk = append(stk, int64(x))
+		for len(stk) > 1 && stk[len(stk)-1] == stk[len(stk)-2] {
+			a := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			b := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			stk = append(stk, a+b)
+		}
+	}
+	return stk
+}
+```
 
+#### TypeScript
+
+```ts
+function mergeAdjacent(nums: number[]): number[] {
+    const stk: number[] = [];
+    for (const x of nums) {
+        stk.push(x);
+        while (stk.length > 1 && stk.at(-1)! === stk.at(-2)!) {
+            const a = stk.pop()!;
+            const b = stk.pop()!;
+            stk.push(a + b);
+        }
+    }
+    return stk;
+}
 ```
 
 <!-- tabs:end -->

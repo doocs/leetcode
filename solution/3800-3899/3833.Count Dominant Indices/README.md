@@ -73,32 +73,100 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3833.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：逆序遍历
+
+我们可以从后向前遍历数组，维护一个后缀和 $\text{suf}$，表示当前元素右侧所有元素的和。对于每个元素，判断其是否大于右侧元素的平均值 $\frac{\text{suf}}{n - i - 1}$，如果是，则将答案加一。最后返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\text{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def dominantIndices(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        suf = nums[-1]
+        for i in range(n - 2, -1, -1):
+            if nums[i] > suf / (n - i - 1):
+                ans += 1
+            suf += nums[i]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int dominantIndices(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        int suf = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] * (n - i - 1) > suf) {
+                ans++;
+            }
+            suf += nums[i];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int dominantIndices(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        int suf = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] * (n - i - 1) > suf) {
+                ans++;
+            }
+            suf += nums[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func dominantIndices(nums []int) int {
+	n := len(nums)
+	ans := 0
+	suf := nums[n-1]
+	for i := n - 2; i >= 0; i-- {
+		if nums[i]*(n-i-1) > suf {
+			ans++
+		}
+		suf += nums[i]
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function dominantIndices(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    let suf = nums[n - 1];
+    for (let i = n - 2; i >= 0; --i) {
+        if (nums[i] * (n - i - 1) > suf) {
+            ans++;
+        }
+        suf += nums[i];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

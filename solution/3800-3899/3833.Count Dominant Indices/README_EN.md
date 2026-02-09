@@ -71,32 +71,100 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3833.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Reverse Traversal
+
+We can traverse the array from back to front, maintaining a suffix sum $\text{suf}$, which represents the sum of all elements to the right of the current element. For each element, we check if it is greater than the average value of the elements to its right $\frac{\text{suf}}{n - i - 1}$. If so, we increment the answer by one. Finally, we return the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def dominantIndices(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = 0
+        suf = nums[-1]
+        for i in range(n - 2, -1, -1):
+            if nums[i] > suf / (n - i - 1):
+                ans += 1
+            suf += nums[i]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int dominantIndices(int[] nums) {
+        int n = nums.length;
+        int ans = 0;
+        int suf = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] * (n - i - 1) > suf) {
+                ans++;
+            }
+            suf += nums[i];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int dominantIndices(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        int suf = nums[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            if (nums[i] * (n - i - 1) > suf) {
+                ans++;
+            }
+            suf += nums[i];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func dominantIndices(nums []int) int {
+	n := len(nums)
+	ans := 0
+	suf := nums[n-1]
+	for i := n - 2; i >= 0; i-- {
+		if nums[i]*(n-i-1) > suf {
+			ans++
+		}
+		suf += nums[i]
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function dominantIndices(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+    let suf = nums[n - 1];
+    for (let i = n - 2; i >= 0; --i) {
+        if (nums[i] * (n - i - 1) > suf) {
+            ans++;
+        }
+        suf += nums[i];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
