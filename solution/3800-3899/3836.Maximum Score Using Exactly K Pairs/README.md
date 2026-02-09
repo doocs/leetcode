@@ -106,32 +106,187 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3836.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们记数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度分别为 $n$ 和 $m$，记题目中的 $k$ 为 $K$。
+
+我们定义一个三维数组 $f$，其中 $f[i][j][k]$ 表示在 $\textit{nums1}$ 的前 $i$ 个元素和 $\textit{nums2}$ 的前 $j$ 个元素中选择恰好 $k$ 对下标对的最大得分。初始时 $f[0][0][0] = 0$，其他 $f[i][j][k]$ 的值为负无穷。
+
+我们可以通过以下状态转移方程来计算 $f[i][j][k]$：
+
+$$
+f[i][j][k] = \max\begin{cases}
+f[i-1][j][k], \\
+f[i][j-1][k], \\
+f[i-1][j-1][k-1] + nums1[i-1] * nums2[j-1]
+\end{cases}
+$$
+
+其中第一种情况表示不选择 $\textit{nums1}$ 的第 $i$ 个元素，第二种情况表示不选择 $\textit{nums2}$ 的第 $j$ 个元素，第三种情况表示选择 $\textit{nums1}$ 的第 $i$ 个元素和 $\textit{nums2}$ 的第 $j$ 个元素作为一对下标对。
+
+最终我们需要返回 $f[n][m][K]$。
+
+时间复杂度 $O(m \times n \times K)$，空间复杂度 $O(m \times n \times K)$。其中 $n$ 和 $m$ 分别是数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度，而 $K$ 是题目中的 $k$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxScore(self, nums1: List[int], nums2: List[int], K: int) -> int:
+        n, m = len(nums1), len(nums2)
+        f = [[[-inf] * (K + 1) for _ in range(m + 1)] for _ in range(n + 1)]
+        f[0][0][0] = 0
+        for i in range(n + 1):
+            for j in range(m + 1):
+                for k in range(K + 1):
+                    if i > 0:
+                        f[i][j][k] = max(f[i][j][k], f[i - 1][j][k])
+                    if j > 0:
+                        f[i][j][k] = max(f[i][j][k], f[i][j - 1][k])
+                    if i > 0 and j > 0 and k > 0:
+                        f[i][j][k] = max(f[i][j][k], f[i - 1][j - 1][k - 1] + nums1[i - 1] * nums2[j - 1])
+        return f[n][m][K]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long maxScore(int[] nums1, int[] nums2, int K) {
+        int n = nums1.length, m = nums2.length;
+        long NEG = Long.MIN_VALUE / 4;
+        long[][][] f = new long[n + 1][m + 1][K + 1];
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                Arrays.fill(f[i][j], NEG);
+            }
+        }
+        f[0][0][0] = 0;
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                for (int k = 0; k <= K; k++) {
+                    if (i > 0) {
+                        f[i][j][k] = Math.max(f[i][j][k], f[i - 1][j][k]);
+                    }
+                    if (j > 0) {
+                        f[i][j][k] = Math.max(f[i][j][k], f[i][j - 1][k]);
+                    }
+                    if (i > 0 && j > 0 && k > 0) {
+                        f[i][j][k] = Math.max(f[i][j][k],
+                            f[i - 1][j - 1][k - 1] + (long) nums1[i - 1] * nums2[j - 1]);
+                    }
+                }
+            }
+        }
+        return f[n][m][K];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long maxScore(vector<int>& nums1, vector<int>& nums2, int K) {
+        int n = nums1.size(), m = nums2.size();
+        long long NEG = LLONG_MIN / 4;
+        vector f(n + 1, vector(m + 1, vector<long long>(K + 1, NEG)));
+        f[0][0][0] = 0;
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= m; j++) {
+                for (int k = 0; k <= K; k++) {
+                    if (i > 0) {
+                        f[i][j][k] = max(f[i][j][k], f[i - 1][j][k]);
+                    }
+                    if (j > 0) {
+                        f[i][j][k] = max(f[i][j][k], f[i][j - 1][k]);
+                    }
+                    if (i > 0 && j > 0 && k > 0) {
+                        f[i][j][k] = max(
+                            f[i][j][k],
+                            f[i - 1][j - 1][k - 1] + 1LL * nums1[i - 1] * nums2[j - 1]);
+                    }
+                }
+            }
+        }
+        return f[n][m][K];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxScore(nums1 []int, nums2 []int, K int) int64 {
+	n, m := len(nums1), len(nums2)
+	NEG := int64(math.MinInt64 / 4)
+	f := make([][][]int64, n+1)
+	for i := 0; i <= n; i++ {
+		f[i] = make([][]int64, m+1)
+		for j := 0; j <= m; j++ {
+			f[i][j] = make([]int64, K+1)
+			for k := 0; k <= K; k++ {
+				f[i][j][k] = NEG
+			}
+		}
+	}
+	f[0][0][0] = 0
+	for i := 0; i <= n; i++ {
+		for j := 0; j <= m; j++ {
+			for k := 0; k <= K; k++ {
+				if i > 0 {
+					f[i][j][k] = max(f[i][j][k], f[i-1][j][k])
+				}
+				if j > 0 {
+					f[i][j][k] = max(f[i][j][k], f[i][j-1][k])
+				}
+				if i > 0 && j > 0 && k > 0 {
+					f[i][j][k] = max(
+						f[i][j][k],
+						f[i-1][j-1][k-1]+int64(nums1[i-1])*int64(nums2[j-1]),
+					)
+				}
+			}
+		}
+	}
+	return f[n][m][K]
+}
+```
 
+#### TypeScript
+
+```ts
+function maxScore(nums1: number[], nums2: number[], K: number): number {
+    const n = nums1.length,
+        m = nums2.length;
+    const NEG = -1e18;
+    const f = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: m + 1 }, () => Array(K + 1).fill(NEG)),
+    );
+    f[0][0][0] = 0;
+    for (let i = 0; i <= n; i++) {
+        for (let j = 0; j <= m; j++) {
+            for (let k = 0; k <= K; k++) {
+                if (i > 0) {
+                    f[i][j][k] = Math.max(f[i][j][k], f[i - 1][j][k]);
+                }
+                if (j > 0) {
+                    f[i][j][k] = Math.max(f[i][j][k], f[i][j - 1][k]);
+                }
+                if (i > 0 && j > 0 && k > 0) {
+                    f[i][j][k] = Math.max(
+                        f[i][j][k],
+                        f[i - 1][j - 1][k - 1] + nums1[i - 1] * nums2[j - 1],
+                    );
+                }
+            }
+        }
+    }
+    return f[n][m][K];
+}
 ```
 
 <!-- tabs:end -->

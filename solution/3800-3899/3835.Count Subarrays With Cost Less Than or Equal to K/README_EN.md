@@ -89,32 +89,191 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3835.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Deque + Enumeration + Two Pointers
+
+We notice that if a subarray $\text{nums}[l..r]$ has a cost less than or equal to $k$, then for any $l' \geq l$ and $r' \leq r$, the subarray $\text{nums}[l'..r']$ also has a cost less than or equal to $k$. Therefore, we can enumerate the right endpoint $r$, use two pointers to maintain the minimum left endpoint $l$ that satisfies the condition, then the number of subarrays ending at $r$ that satisfy the condition is $r - l + 1$, which we accumulate to the answer.
+
+We can use two deques to maintain the maximum and minimum values in the current window respectively.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\text{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countSubarrays(self, nums: List[int], k: int) -> int:
+        ans = 0
+        q1 = deque()
+        q2 = deque()
+        l = 0
+        for r, x in enumerate(nums):
+            while q1 and nums[q1[-1]] <= x:
+                q1.pop()
+            while q2 and nums[q2[-1]] >= x:
+                q2.pop()
+            q1.append(r)
+            q2.append(r)
+            while l < r and (nums[q1[0]] - nums[q2[0]]) * (r - l + 1) > k:
+                l += 1
+                if q1[0] < l:
+                    q1.popleft()
+                if q2[0] < l:
+                    q2.popleft()
+            ans += r - l + 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long countSubarrays(int[] nums, long k) {
+        long ans = 0;
+        Deque<Integer> q1 = new ArrayDeque<>();
+        Deque<Integer> q2 = new ArrayDeque<>();
+        int l = 0;
 
+        for (int r = 0; r < nums.length; r++) {
+            int x = nums[r];
+
+            while (!q1.isEmpty() && nums[q1.peekLast()] <= x) {
+                q1.pollLast();
+            }
+            while (!q2.isEmpty() && nums[q2.peekLast()] >= x) {
+                q2.pollLast();
+            }
+            q1.addLast(r);
+            q2.addLast(r);
+
+            while (
+                l < r && (long) (nums[q1.peekFirst()] - nums[q2.peekFirst()]) * (r - l + 1) > k) {
+                l++;
+                if (q1.peekFirst() < l) {
+                    q1.pollFirst();
+                }
+                if (q2.peekFirst() < l) {
+                    q2.pollFirst();
+                }
+            }
+
+            ans += r - l + 1;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, long long k) {
+        long long ans = 0;
+        deque<int> q1, q2;
+        int l = 0;
 
+        for (int r = 0; r < nums.size(); r++) {
+            int x = nums[r];
+
+            while (!q1.empty() && nums[q1.back()] <= x) {
+                q1.pop_back();
+            }
+            while (!q2.empty() && nums[q2.back()] >= x) {
+                q2.pop_back();
+            }
+            q1.push_back(r);
+            q2.push_back(r);
+
+            while (l < r && (long long) (nums[q1.front()] - nums[q2.front()]) * (r - l + 1) > k) {
+                l++;
+                if (q1.front() < l) {
+                    q1.pop_front();
+                }
+                if (q2.front() < l) {
+                    q2.pop_front();
+                }
+            }
+
+            ans += r - l + 1;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSubarrays(nums []int, k int64) int64 {
+	var ans int64 = 0
+	q1 := make([]int, 0)
+	q2 := make([]int, 0)
+	l := 0
 
+	for r, x := range nums {
+		for len(q1) > 0 && nums[q1[len(q1)-1]] <= x {
+			q1 = q1[:len(q1)-1]
+		}
+		for len(q2) > 0 && nums[q2[len(q2)-1]] >= x {
+			q2 = q2[:len(q2)-1]
+		}
+		q1 = append(q1, r)
+		q2 = append(q2, r)
+
+		for l < r &&
+			int64(nums[q1[0]]-nums[q2[0]])*int64(r-l+1) > k {
+			l++
+			if q1[0] < l {
+				q1 = q1[1:]
+			}
+			if q2[0] < l {
+				q2 = q2[1:]
+			}
+		}
+		ans += int64(r - l + 1)
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubarrays(nums: number[], k: number): number {
+    let ans = 0;
+    const q1: number[] = [];
+    const q2: number[] = [];
+    let h1 = 0,
+        t1 = 0;
+    let h2 = 0,
+        t2 = 0;
+    let l = 0;
+    for (let r = 0; r < nums.length; r++) {
+        const x = nums[r];
+        while (h1 < t1 && nums[q1[t1 - 1]] <= x) {
+            t1--;
+        }
+        while (h2 < t2 && nums[q2[t2 - 1]] >= x) {
+            t2--;
+        }
+        q1[t1++] = r;
+        q2[t2++] = r;
+        while (l < r && (nums[q1[h1]] - nums[q2[h2]]) * (r - l + 1) > k) {
+            l++;
+            if (q1[h1] < l) {
+                h1++;
+            }
+            if (q2[h2] < l) {
+                h2++;
+            }
+        }
+        ans += r - l + 1;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
