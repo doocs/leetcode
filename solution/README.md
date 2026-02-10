@@ -3847,6 +3847,7 @@
 |  3834  |  [合并相邻且相等的元素](/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README.md)  |    |  中等  |  第 488 场周赛  |
 |  3835  |  [开销小于等于 K 的子数组数目](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README.md)  |    |  中等  |  第 488 场周赛  |
 |  3836  |  [恰好 K 个下标对的最大得分](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README.md)  |    |  困难  |  第 488 场周赛  |
+|  3837  |  [Delayed Count of Equal Elements](/solution/3800-3899/3837.Delayed%20Count%20of%20Equal%20Elements/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

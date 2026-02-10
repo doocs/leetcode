@@ -3845,6 +3845,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3834  |  [Merge Adjacent Equal Elements](/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 488  |
 |  3835  |  [Count Subarrays With Cost Less Than or Equal to K](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 488  |
 |  3836  |  [Maximum Score Using Exactly K Pairs](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README_EN.md)  |    |  Hard  |  Weekly Contest 488  |
+|  3837  |  [Delayed Count of Equal Elements](/solution/3800-3899/3837.Delayed%20Count%20of%20Equal%20Elements/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
