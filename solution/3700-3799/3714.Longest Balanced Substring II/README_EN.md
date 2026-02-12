@@ -77,7 +77,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration + Prefix Sum + Hash Table
+
+The answer is divided into the following three cases:
+
+1. Balanced substring with only one character, such as `"aaa"`.
+2. Balanced substring with two characters, such as `"aabb"`.
+3. Balanced substring with three characters, such as `"abc"`.
+
+We define three functions $\text{calc1}(s)$, $\text{calc2}(s, a, b)$, and $\text{calc3}(s)$ to calculate the longest balanced substring length for the above three cases respectively, and finally return the maximum of the three.
+
+For $\text{calc1}(s)$, we only need to traverse the string $s$, count the length of each consecutive character, and take the maximum value.
+
+For $\text{calc2}(s, a, b)$, we can use prefix sum and hash table to calculate the longest balanced substring length. Specifically, we maintain a variable $d$ to represent the number of character $a$ minus the number of character $b$ in the current substring, and use a hash table to record the first occurrence position of each $d$ value. When we encounter the same $d$ value again, it means that the number of character $a$ and character $b$ in the substring from the last occurrence position to the current position are equal, i.e., the substring is balanced, and we update the answer.
+
+For $\text{calc3}(s)$, we also use prefix sum and hash table to calculate the longest balanced substring length. We define an array $\textit{cnt}$ to record the counts of characters $a$, $b$, and $c$, and use a hash table to record the first occurrence position of each $(\textit{cnt}[a] - \textit{cnt}[b], \textit{cnt}[b] - \textit{cnt}[c])$ value. When we encounter the same value again, it means that the counts of characters $a$, $b$, and $c$ in the substring from the last occurrence position to the current position are equal, i.e., the substring is balanced, and we update the answer.
+
+Finally, we calculate the values of $\text{calc1}(s)$, $\text{calc2}(s, 'a', 'b')$, $\text{calc2}(s, 'b', 'c')$, $\text{calc2}(s, 'a', 'c')$, and $\text{calc3}(s)$ respectively, and return their maximum value.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 
@@ -459,6 +477,105 @@ function calc3(s: string): number {
 
 function key(x: number, y: number): string {
     return x + '#' + y;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn longest_balanced(s: String) -> i32 {
+        let x = Self::calc1(&s);
+        let y = Self::calc2(&s, 'a', 'b')
+            .max(Self::calc2(&s, 'b', 'c'))
+            .max(Self::calc2(&s, 'a', 'c'));
+        let z = Self::calc3(&s);
+        x.max(y).max(z)
+    }
+
+    fn calc1(s: &str) -> i32 {
+        let bytes = s.as_bytes();
+        let mut res = 0i32;
+        let mut i = 0usize;
+        let n = bytes.len();
+
+        while i < n {
+            let mut j = i + 1;
+            while j < n && bytes[j] == bytes[i] {
+                j += 1;
+            }
+            res = res.max((j - i) as i32);
+            i = j;
+        }
+        res
+    }
+
+    fn calc2(s: &str, a: char, b: char) -> i32 {
+        let bytes = s.as_bytes();
+        let a = a as u8;
+        let b = b as u8;
+
+        let mut res = 0i32;
+        let mut i = 0usize;
+        let n = bytes.len();
+
+        while i < n {
+            while i < n && bytes[i] != a && bytes[i] != b {
+                i += 1;
+            }
+
+            let mut pos: HashMap<i32, i32> = HashMap::new();
+            pos.insert(0, i as i32 - 1);
+
+            let mut d = 0i32;
+            while i < n && (bytes[i] == a || bytes[i] == b) {
+                if bytes[i] == a {
+                    d += 1;
+                } else {
+                    d -= 1;
+                }
+
+                if let Some(&pre) = pos.get(&d) {
+                    res = res.max(i as i32 - pre);
+                } else {
+                    pos.insert(d, i as i32);
+                }
+                i += 1;
+            }
+        }
+
+        res
+    }
+
+    fn f(x: i32, y: i32) -> i64 {
+        (((x + 100000) as i64) << 20) | ((y + 100000) as i64)
+    }
+
+    fn calc3(s: &str) -> i32 {
+        let mut pos: HashMap<i64, i32> = HashMap::new();
+        pos.insert(Self::f(0, 0), -1);
+
+        let mut cnt = [0i32; 3];
+        let mut res = 0i32;
+
+        for (i, c) in s.bytes().enumerate() {
+            cnt[(c - b'a') as usize] += 1;
+
+            let x = cnt[0] - cnt[1];
+            let y = cnt[1] - cnt[2];
+            let k = Self::f(x, y);
+
+            if let Some(&pre) = pos.get(&k) {
+                res = res.max(i as i32 - pre);
+            } else {
+                pos.insert(k, i as i32);
+            }
+        }
+
+        res
+    }
 }
 ```
 
