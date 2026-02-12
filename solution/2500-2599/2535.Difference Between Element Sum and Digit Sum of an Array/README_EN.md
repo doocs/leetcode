@@ -36,7 +36,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [1,15,6,3]
 <strong>Output:</strong> 9
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 The element sum of nums is 1 + 15 + 6 + 3 = 25.
 The digit sum of nums is 1 + 1 + 5 + 6 + 3 = 16.
 The absolute difference between the element sum and digit sum is |25 - 16| = 9.
@@ -67,7 +67,8 @@ The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 
 <!-- solution:start -->
 
-Solution 1: Simulation
+### Solution 1: Simulation
+
 We traverse the array $\textit{nums}$, calculate the sum of the elements $x$ and the sum of the digits $y$, and finally return $|x - y|$. Since $x$ is always greater than or equal to $y$, we can directly return $x - y$.
 
 The time complexity is $O(n \times \log_{10} M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value of the elements in the array, respectively. The space complexity is $O(1)$.

@@ -69,13 +69,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数学 + 位运算
+### Solution 1: Math + Bit Manipulation
 
-题目中 $\textit{left}$ 和 $\textit{right}$ 的范围均在 $10^6$ 以内，而 $2^{20} = 1048576$，因此，二进制中 $1$ 的个数最多也就 $20$ 个，而 $20$ 以内的质数有 $[2, 3, 5, 7, 11, 13, 17, 19]$。
+In the problem, both $\textit{left}$ and $\textit{right}$ are within the range of $10^6$, and since $2^{20} = 1048576$, the number of $1$s in binary representation can be at most $20$. The prime numbers within $20$ are $[2, 3, 5, 7, 11, 13, 17, 19]$.
 
-我们枚举 $[\textit{left},.. \textit{right}]$ 范围内的每个数，统计其二进制中 $1$ 的个数，然后判断该个数是否为质数，如果是，答案加一。
+We enumerate each number in the range $[\textit{left},.. \textit{right}]$, count the number of $1$s in its binary representation, and then check if this count is a prime number. If it is, we increment the answer by one.
 
-时间复杂度 $O(n\times \log m)$。其中 $n = \textit{right} - \textit{left} + 1$，而 $m$ 为 $[\textit{left},.. \textit{right}]$ 范围内的最大数。
+The time complexity is $O(n\times \log m)$, where $n = \textit{right} - \textit{left} + 1$ and $m$ is the maximum number in the range $[\textit{left},.. \textit{right}]$.
 
 <!-- tabs:start -->
 
