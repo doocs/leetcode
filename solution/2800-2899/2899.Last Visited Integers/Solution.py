@@ -1,14 +1,18 @@
 class Solution:
-    def lastVisitedIntegers(self, words: List[str]) -> List[int]:
-        nums = []
+    def lastVisitedIntegers(self, nums: List[int]) -> List[int]:
+        seen = []
         ans = []
         k = 0
-        for w in words:
-            if w == "prev":
+        
+        for num in nums:
+            if num == -1:
                 k += 1
-                i = len(nums) - k
-                ans.append(-1 if i < 0 else nums[i])
+                if k <= len(seen):
+                    ans.append(seen[-k])
+                else:
+                    ans.append(-1)
             else:
+                seen.append(num)
                 k = 0
-                nums.append(int(w))
+                
         return ans
