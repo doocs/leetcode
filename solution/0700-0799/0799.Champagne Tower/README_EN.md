@@ -80,7 +80,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We directly simulate the process of pouring champagne.
+
+Define a 2D array $f$, where $f[i][j]$ represents the amount of champagne in the $j$-th glass of the $i$-th layer. Initially, $f[0][0] = poured$.
+
+For each layer, if the amount of champagne in the current glass $f[i][j]$ is greater than $1$, the champagne will flow to two glasses in the next layer. The amount flowing in is $\frac{f[i][j]-1}{2}$, which is the amount of champagne in the current glass minus $1$ and then divided by $2$. Then the amount of champagne in the current glass is updated to $1$.
+
+After the simulation ends, return $f[query\_row][query\_glass]$.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$, where $n$ is the number of layers, i.e., $\text{query\_row}$.
 
 <!-- tabs:start -->
 
@@ -170,18 +180,19 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 
 ```ts
 function champagneTower(poured: number, query_row: number, query_glass: number): number {
-    let row = [poured];
-    for (let i = 1; i <= query_row; i++) {
-        const nextRow = new Array(i + 1).fill(0);
-        for (let j = 0; j < i; j++) {
-            if (row[j] > 1) {
-                nextRow[j] += (row[j] - 1) / 2;
-                nextRow[j + 1] += (row[j] - 1) / 2;
+    const f: number[][] = Array.from({ length: 101 }, () => Array(101).fill(0));
+    f[0][0] = poured;
+    for (let i = 0; i <= query_row; ++i) {
+        for (let j = 0; j <= i; ++j) {
+            if (f[i][j] > 1) {
+                const half = (f[i][j] - 1) / 2.0;
+                f[i][j] = 1;
+                f[i + 1][j] += half;
+                f[i + 1][j + 1] += half;
             }
         }
-        row = nextRow;
     }
-    return Math.min(1, row[query_glass]);
+    return f[query_row][query_glass];
 }
 ```
 
@@ -190,20 +201,19 @@ function champagneTower(poured: number, query_row: number, query_glass: number):
 ```rust
 impl Solution {
     pub fn champagne_tower(poured: i32, query_row: i32, query_glass: i32) -> f64 {
-        let query_row = query_row as usize;
-        let query_glass = query_glass as usize;
-        let mut row = vec![poured as f64];
-        for i in 1..=query_row {
-            let mut next_row = vec![0f64; i + 1];
-            for j in 0..i {
-                if row[j] > 1f64 {
-                    next_row[j] += (row[j] - 1f64) / 2f64;
-                    next_row[j + 1] += (row[j] - 1f64) / 2f64;
+        let mut f = vec![vec![0.0; 101]; 101];
+        f[0][0] = poured as f64;
+        for i in 0..=query_row as usize {
+            for j in 0..=i {
+                if f[i][j] > 1.0 {
+                    let half = (f[i][j] - 1.0) / 2.0;
+                    f[i][j] = 1.0;
+                    f[i + 1][j] += half;
+                    f[i + 1][j + 1] += half;
                 }
             }
-            row = next_row;
         }
-        (1f64).min(row[query_glass])
+        f[query_row as usize][query_glass as usize]
     }
 }
 ```
@@ -214,7 +224,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Simulation (Space Optimization)
+
+Since the amount of champagne in each layer only depends on the amount in the previous layer, we can use a rolling array approach to optimize space complexity, converting the 2D array to a 1D array.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of layers, i.e., $\text{query\_row}$.
 
 <!-- tabs:start -->
 
@@ -298,6 +312,48 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 		f = g
 	}
 	return math.Min(1, f[query_glass])
+}
+```
+
+#### TypeScript
+
+```ts
+function champagneTower(poured: number, query_row: number, query_glass: number): number {
+    let f: number[] = [poured];
+    for (let i = 1; i <= query_row; ++i) {
+        const g: number[] = new Array(i + 1).fill(0);
+        for (let j = 0; j < i; ++j) {
+            if (f[j] > 1) {
+                const half = (f[j] - 1) / 2.0;
+                g[j] += half;
+                g[j + 1] += half;
+            }
+        }
+        f = g;
+    }
+    return Math.min(1, f[query_glass]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn champagne_tower(poured: i32, query_row: i32, query_glass: i32) -> f64 {
+        let mut f = vec![poured as f64];
+        for i in 1..=query_row {
+            let mut g = vec![0.0; (i + 1) as usize];
+            for j in 0..i as usize {
+                if f[j] > 1.0 {
+                    let half = (f[j] - 1.0) / 2.0;
+                    g[j] += half;
+                    g[j + 1] += half;
+                }
+            }
+            f = g;
+        }
+        f[query_glass as usize].min(1.0)
+    }
 }
 ```
 

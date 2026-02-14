@@ -1,14 +1,15 @@
 function champagneTower(poured: number, query_row: number, query_glass: number): number {
-    let row = [poured];
-    for (let i = 1; i <= query_row; i++) {
-        const nextRow = new Array(i + 1).fill(0);
-        for (let j = 0; j < i; j++) {
-            if (row[j] > 1) {
-                nextRow[j] += (row[j] - 1) / 2;
-                nextRow[j + 1] += (row[j] - 1) / 2;
+    const f: number[][] = Array.from({ length: 101 }, () => Array(101).fill(0));
+    f[0][0] = poured;
+    for (let i = 0; i <= query_row; ++i) {
+        for (let j = 0; j <= i; ++j) {
+            if (f[i][j] > 1) {
+                const half = (f[i][j] - 1) / 2.0;
+                f[i][j] = 1;
+                f[i + 1][j] += half;
+                f[i + 1][j + 1] += half;
             }
         }
-        row = nextRow;
     }
-    return Math.min(1, row[query_glass]);
+    return f[query_row][query_glass];
 }

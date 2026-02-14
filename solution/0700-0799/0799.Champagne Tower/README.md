@@ -74,9 +74,7 @@ tags:
 
 模拟结束，返回 $f[query\_row][query\_glass]$ 即可。
 
-由于每一层的香槟量只与上一层的香槟量有关，因此我们可以用滚动数组的方式优化空间复杂度，将二维数组优化为一维数组。
-
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为层数，即 $query\_row$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 为层数，即 $\text{query\_row}$。
 
 <!-- tabs:start -->
 
@@ -166,18 +164,19 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 
 ```ts
 function champagneTower(poured: number, query_row: number, query_glass: number): number {
-    let row = [poured];
-    for (let i = 1; i <= query_row; i++) {
-        const nextRow = new Array(i + 1).fill(0);
-        for (let j = 0; j < i; j++) {
-            if (row[j] > 1) {
-                nextRow[j] += (row[j] - 1) / 2;
-                nextRow[j + 1] += (row[j] - 1) / 2;
+    const f: number[][] = Array.from({ length: 101 }, () => Array(101).fill(0));
+    f[0][0] = poured;
+    for (let i = 0; i <= query_row; ++i) {
+        for (let j = 0; j <= i; ++j) {
+            if (f[i][j] > 1) {
+                const half = (f[i][j] - 1) / 2.0;
+                f[i][j] = 1;
+                f[i + 1][j] += half;
+                f[i + 1][j + 1] += half;
             }
         }
-        row = nextRow;
     }
-    return Math.min(1, row[query_glass]);
+    return f[query_row][query_glass];
 }
 ```
 
@@ -186,20 +185,19 @@ function champagneTower(poured: number, query_row: number, query_glass: number):
 ```rust
 impl Solution {
     pub fn champagne_tower(poured: i32, query_row: i32, query_glass: i32) -> f64 {
-        let query_row = query_row as usize;
-        let query_glass = query_glass as usize;
-        let mut row = vec![poured as f64];
-        for i in 1..=query_row {
-            let mut next_row = vec![0f64; i + 1];
-            for j in 0..i {
-                if row[j] > 1f64 {
-                    next_row[j] += (row[j] - 1f64) / 2f64;
-                    next_row[j + 1] += (row[j] - 1f64) / 2f64;
+        let mut f = vec![vec![0.0; 101]; 101];
+        f[0][0] = poured as f64;
+        for i in 0..=query_row as usize {
+            for j in 0..=i {
+                if f[i][j] > 1.0 {
+                    let half = (f[i][j] - 1.0) / 2.0;
+                    f[i][j] = 1.0;
+                    f[i + 1][j] += half;
+                    f[i + 1][j + 1] += half;
                 }
             }
-            row = next_row;
         }
-        (1f64).min(row[query_glass])
+        f[query_row as usize][query_glass as usize]
     }
 }
 ```
@@ -210,7 +208,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：模拟（空间优化）
+
+由于每一层的香槟量只与上一层的香槟量有关，因此我们可以用滚动数组的方式优化空间复杂度，将二维数组优化为一维数组。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为层数，即 $\text{query\_row}$。
 
 <!-- tabs:start -->
 
@@ -294,6 +296,48 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 		f = g
 	}
 	return math.Min(1, f[query_glass])
+}
+```
+
+#### TypeScript
+
+```ts
+function champagneTower(poured: number, query_row: number, query_glass: number): number {
+    let f: number[] = [poured];
+    for (let i = 1; i <= query_row; ++i) {
+        const g: number[] = new Array(i + 1).fill(0);
+        for (let j = 0; j < i; ++j) {
+            if (f[j] > 1) {
+                const half = (f[j] - 1) / 2.0;
+                g[j] += half;
+                g[j + 1] += half;
+            }
+        }
+        f = g;
+    }
+    return Math.min(1, f[query_glass]);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn champagne_tower(poured: i32, query_row: i32, query_glass: i32) -> f64 {
+        let mut f = vec![poured as f64];
+        for i in 1..=query_row {
+            let mut g = vec![0.0; (i + 1) as usize];
+            for j in 0..i as usize {
+                if f[j] > 1.0 {
+                    let half = (f[j] - 1.0) / 2.0;
+                    g[j] += half;
+                    g[j + 1] += half;
+                }
+            }
+            f = g;
+        }
+        f[query_glass as usize].min(1.0)
+    }
 }
 ```
 
