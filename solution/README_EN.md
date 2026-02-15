@@ -3846,6 +3846,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3835  |  [Count Subarrays With Cost Less Than or Equal to K](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)  |    |  Medium  |  Weekly Contest 488  |
 |  3836  |  [Maximum Score Using Exactly K Pairs](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README_EN.md)  |    |  Hard  |  Weekly Contest 488  |
 |  3837  |  [Delayed Count of Equal Elements](/solution/3800-3899/3837.Delayed%20Count%20of%20Equal%20Elements/README_EN.md)  |    |  Medium  |  🔒  |
+|  3838  |  [Weighted Word Mapping](/solution/3800-3899/3838.Weighted%20Word%20Mapping/README_EN.md)  |    |  Easy  |  Biweekly Contest 176  |
+|  3839  |  [Number of Prefix Connected Groups](/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README_EN.md)  |    |  Medium  |  Biweekly Contest 176  |
+|  3840  |  [House Robber V](/solution/3800-3899/3840.House%20Robber%20V/README_EN.md)  |    |  Medium  |  Biweekly Contest 176  |
+|  3841  |  [Palindromic Path Queries in a Tree](/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 176  |
+|  3842  |  [Toggle Light Bulbs](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md)  |    |  Easy  |  Weekly Contest 489  |
+|  3843  |  [First Element with Unique Frequency](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README_EN.md)  |    |  Medium  |  Weekly Contest 489  |
+|  3844  |  [Longest Almost-Palindromic Substring](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README_EN.md)  |    |  Medium  |  Weekly Contest 489  |
+|  3845  |  [Maximum Subarray XOR with Bounded Range](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 489  |
 
 ## Copyright
 

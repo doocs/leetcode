@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README.md
+rating: 1428
+source: 第 488 场周赛 Q2
 ---
 
 <!-- problem:start -->

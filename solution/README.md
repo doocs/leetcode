@@ -3848,6 +3848,14 @@
 |  3835  |  [开销小于等于 K 的子数组数目](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README.md)  |    |  中等  |  第 488 场周赛  |
 |  3836  |  [恰好 K 个下标对的最大得分](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README.md)  |    |  困难  |  第 488 场周赛  |
 |  3837  |  [Delayed Count of Equal Elements](/solution/3800-3899/3837.Delayed%20Count%20of%20Equal%20Elements/README.md)  |    |  中等  |  🔒  |
+|  3838  |  [带权单词映射](/solution/3800-3899/3838.Weighted%20Word%20Mapping/README.md)  |    |  简单  |  第 176 场双周赛  |
+|  3839  |  [前缀连接组的数目](/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README.md)  |    |  中等  |  第 176 场双周赛  |
+|  3840  |  [打家劫舍 V](/solution/3800-3899/3840.House%20Robber%20V/README.md)  |    |  中等  |  第 176 场双周赛  |
+|  3841  |  [查询树上回文路径](/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README.md)  |    |  困难  |  第 176 场双周赛  |
+|  3842  |  [切换灯泡开关](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README.md)  |    |  简单  |  第 489 场周赛  |
+|  3843  |  [频率唯一的第一个元素](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README.md)  |    |  中等  |  第 489 场周赛  |
+|  3844  |  [最长的准回文子字符串](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README.md)  |    |  中等  |  第 489 场周赛  |
+|  3845  |  [最大子数组异或值](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README.md)  |    |  困难  |  第 489 场周赛  |
 
 ## 版权
 

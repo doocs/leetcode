@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 489
+
+- [3842. Toggle Light Bulbs](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md)
+- [3843. First Element with Unique Frequency](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README_EN.md)
+- [3844. Longest Almost-Palindromic Substring](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README_EN.md)
+- [3845. Maximum Subarray XOR with Bounded Range](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README_EN.md)
+
+#### Biweekly Contest 176
+
+- [3838. Weighted Word Mapping](/solution/3800-3899/3838.Weighted%20Word%20Mapping/README_EN.md)
+- [3839. Number of Prefix Connected Groups](/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README_EN.md)
+- [3840. House Robber V](/solution/3800-3899/3840.House%20Robber%20V/README_EN.md)
+- [3841. Palindromic Path Queries in a Tree](/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README_EN.md)
+
 #### Weekly Contest 488
 
 - [3833. Count Dominant Indices](/solution/3800-3899/3833.Count%20Dominant%20Indices/README_EN.md)
