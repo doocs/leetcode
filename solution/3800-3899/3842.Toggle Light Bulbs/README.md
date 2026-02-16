@@ -78,32 +78,100 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3842.To
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们用一个长度为 $101$ 的数组 $\textit{st}$ 来记录每个灯泡的状态，初始时所有元素为 $0$，表示所有灯泡均为关闭状态。对于数组 $\textit{bulbs}$ 中的每一个元素 $\textit{bulbs}[i]$，我们将 $\textit{st}[\textit{bulbs}[i]]$ 的值取反（即 $0$ 变为 $1$，$1$ 变为 $0$）。最后，我们遍历 $\textit{st}$ 数组，将值为 $1$ 的索引加入结果列表中，并返回结果。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{bulbs}$ 的长度。空间复杂度 $O(M)$，其中 $M$ 是灯泡的最大编号。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def toggleLightBulbs(self, bulbs: list[int]) -> list[int]:
+        st = [0] * 101
+        for x in bulbs:
+            st[x] ^= 1
+        return [i for i, x in enumerate(st) if x]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<Integer> toggleLightBulbs(List<Integer> bulbs) {
+        int[] st = new int[101];
+        for (int x : bulbs) {
+            st[x] ^= 1;
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < st.length; ++i) {
+            if (st[i] == 1) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> toggleLightBulbs(vector<int>& bulbs) {
+        vector<int> st(101, 0);
+        for (int x : bulbs) {
+            st[x] ^= 1;
+        }
+        vector<int> ans;
+        for (int i = 0; i < 101; ++i) {
+            if (st[i]) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func toggleLightBulbs(bulbs []int) []int {
+	st := make([]int, 101)
+	for _, x := range bulbs {
+		st[x] ^= 1
+	}
+	ans := make([]int, 0)
+	for i := 0; i < 101; i++ {
+		if st[i] == 1 {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function toggleLightBulbs(bulbs: number[]): number[] {
+    const st: number[] = new Array(101).fill(0);
+    for (const x of bulbs) {
+        st[x] ^= 1;
+    }
+    const ans: number[] = [];
+    for (let i = 0; i < 101; i++) {
+        if (st[i] === 1) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

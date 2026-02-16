@@ -76,32 +76,100 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3842.To
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use an array $\textit{st}$ of length $101$ to record the state of each light bulb. Initially, all elements are $0$, indicating that all light bulbs are in the off state. For each element $\textit{bulbs}[i]$ in the array $\textit{bulbs}$, we toggle the value of $\textit{st}[\textit{bulbs}[i]]$ (i.e., $0$ becomes $1$, and $1$ becomes $0$). Finally, we traverse the $\textit{st}$ array, add the indices with a value of $1$ to the result list, and return the result.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{bulbs}$. The space complexity is $O(M)$, where $M$ is the maximum bulb number.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def toggleLightBulbs(self, bulbs: list[int]) -> list[int]:
+        st = [0] * 101
+        for x in bulbs:
+            st[x] ^= 1
+        return [i for i, x in enumerate(st) if x]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<Integer> toggleLightBulbs(List<Integer> bulbs) {
+        int[] st = new int[101];
+        for (int x : bulbs) {
+            st[x] ^= 1;
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < st.length; ++i) {
+            if (st[i] == 1) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> toggleLightBulbs(vector<int>& bulbs) {
+        vector<int> st(101, 0);
+        for (int x : bulbs) {
+            st[x] ^= 1;
+        }
+        vector<int> ans;
+        for (int i = 0; i < 101; ++i) {
+            if (st[i]) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func toggleLightBulbs(bulbs []int) []int {
+	st := make([]int, 101)
+	for _, x := range bulbs {
+		st[x] ^= 1
+	}
+	ans := make([]int, 0)
+	for i := 0; i < 101; i++ {
+		if st[i] == 1 {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function toggleLightBulbs(bulbs: number[]): number[] {
+    const st: number[] = new Array(101).fill(0);
+    for (const x of bulbs) {
+        st[x] ^= 1;
+    }
+    const ans: number[] = [];
+    for (let i = 0; i < 101; i++) {
+        if (st[i] === 1) {
+            ans.push(i);
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
