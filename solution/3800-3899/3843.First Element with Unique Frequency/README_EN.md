@@ -83,32 +83,123 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3843.Fi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We use a hash table $\textit{cnt}$ to count the occurrences of each element, and then use another hash table $\textit{freq}$ to count the frequency of each occurrence count. Finally, we traverse the array $\textit{nums}$ again. For each element $x$, if the value of $\textit{freq}[\textit{cnt}[x]]$ is 1, it means the occurrence frequency of $x$ is unique, and we return $x$. If no such element is found after traversing, return -1.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def firstUniqueFreq(self, nums: List[int]) -> int:
+        cnt = Counter(nums)
+        freq = Counter(cnt.values())
+        for x in nums:
+            if freq[cnt[x]] == 1:
+                return x
+        return -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int firstUniqueFreq(int[] nums) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : nums) {
+            cnt.merge(x, 1, Integer::sum);
+        }
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int v : cnt.values()) {
+            freq.merge(v, 1, Integer::sum);
+        }
+        for (int x : nums) {
+            if (freq.get(cnt.get(x)) == 1) {
+                return x;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int firstUniqueFreq(vector<int>& nums) {
+        unordered_map<int, int> cnt;
+        for (int x : nums) {
+            ++cnt[x];
+        }
 
+        unordered_map<int, int> freq;
+        for (auto& [_, v] : cnt) {
+            ++freq[v];
+        }
+
+        for (int x : nums) {
+            if (freq[cnt[x]] == 1) {
+                return x;
+            }
+        }
+
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func firstUniqueFreq(nums []int) int {
+	cnt := make(map[int]int)
+	for _, x := range nums {
+		cnt[x]++
+	}
 
+	freq := make(map[int]int)
+	for _, v := range cnt {
+		freq[v]++
+	}
+
+	for _, x := range nums {
+		if freq[cnt[x]] == 1 {
+			return x
+		}
+	}
+
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function firstUniqueFreq(nums: number[]): number {
+    const cnt = new Map<number, number>();
+    for (const x of nums) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    const freq = new Map<number, number>();
+    for (const v of cnt.values()) {
+        freq.set(v, (freq.get(v) ?? 0) + 1);
+    }
+
+    for (const x of nums) {
+        if (freq.get(cnt.get(x)!) === 1) {
+            return x;
+        }
+    }
+
+    return -1;
+}
 ```
 
 <!-- tabs:end -->

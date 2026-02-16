@@ -96,11 +96,11 @@ tags:
 
 ### 方法一：位运算
 
-我们可以从低位到高位，逐个取出 `n` 的每一位，然后将其放到 `ans` 的对应位置上。
+我们可以从低位到高位，逐个取出 $n$ 的每一位，然后将其放到 $\textit{ans}$ 的对应位置上。
 
-比如，对于第 $i$ 位，我们可以通过 `(n & 1) << (31 - i)` 来取出 `n` 的第 $i$ 位，并将其放到 `ans` 的第 $31 - i$ 位上，然后将 `n` 右移一位。
+比如，对于第 $i$ 位，我们可以通过 $(n \& 1) \ll (31 - i)$ 来取出 $n$ 的第 $i$ 位，并将其放到 $\textit{ans}$ 的第 $31 - i$ 位上，然后将 $n$ 右移一位。
 
-时间复杂度 $(\log n)$，空间复杂度 $O(1)$。
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -157,6 +157,19 @@ func reverseBits(n uint32) (ans uint32) {
 		n >>= 1
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function reverseBits(n: number): number {
+    let ans = 0;
+    for (let i = 0; i < 32 && n; ++i) {
+        ans |= (n & 1) << (31 - i);
+        n >>= 1;
+    }
+    return ans >>> 0;
 }
 ```
 
