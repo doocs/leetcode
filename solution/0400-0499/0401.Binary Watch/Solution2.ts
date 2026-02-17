@@ -1,11 +1,12 @@
 function readBinaryWatch(turnedOn: number): string[] {
     const ans: string[] = [];
 
-    for (let i = 0; i < 12; ++i) {
-        for (let j = 0; j < 60; ++j) {
-            if (bitCount(i) + bitCount(j) === turnedOn) {
-                ans.push(`${i}:${j.toString().padStart(2, '0')}`);
-            }
+    for (let i = 0; i < (1 << 10); ++i) {
+        const h = i >> 6;
+        const m = i & 0b111111;
+
+        if (h < 12 && m < 60 && bitCount(i) === turnedOn) {
+            ans.push(`${h}:${m < 10 ? "0" : ""}${m}`);
         }
     }
 

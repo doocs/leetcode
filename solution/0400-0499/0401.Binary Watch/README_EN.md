@@ -60,7 +60,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Combinations
+
+The problem can be converted to finding all possible combinations of $i \in [0, 12)$ and $j \in [0, 60)$.
+
+A valid combination must satisfy the condition that the number of 1s in the binary representation of $i$ plus the number of 1s in the binary representation of $j$ equals $\textit{turnedOn}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -134,35 +140,26 @@ func readBinaryWatch(turnedOn int) []string {
 
 ```ts
 function readBinaryWatch(turnedOn: number): string[] {
-    if (turnedOn === 0) {
-        return ['0:00'];
-    }
-    const n = 10;
-    const res = [];
-    const bitArr = new Array(10).fill(false);
-    const createTime = () => {
-        return [
-            bitArr.slice(0, 4).reduce((p, v) => (p << 1) | Number(v), 0),
-            bitArr.slice(4).reduce((p, v) => (p << 1) | Number(v), 0),
-        ];
-    };
-    const helper = (i: number, count: number) => {
-        if (i + count > n || count === 0) {
-            return;
-        }
-        bitArr[i] = true;
-        if (count === 1) {
-            const [h, m] = createTime();
-            if (h < 12 && m < 60) {
-                res.push(`${h}:${m < 10 ? '0' + m : m}`);
+    const ans: string[] = [];
+
+    for (let i = 0; i < 12; ++i) {
+        for (let j = 0; j < 60; ++j) {
+            if (bitCount(i) + bitCount(j) === turnedOn) {
+                ans.push(`${i}:${j.toString().padStart(2, '0')}`);
             }
         }
-        helper(i + 1, count - 1);
-        bitArr[i] = false;
-        helper(i + 1, count);
-    };
-    helper(0, turnedOn);
-    return res;
+    }
+
+    return ans;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -170,49 +167,18 @@ function readBinaryWatch(turnedOn: number): string[] {
 
 ```rust
 impl Solution {
-    fn create_time(bit_arr: &[bool; 10]) -> (i32, i32) {
-        let mut h = 0;
-        let mut m = 0;
-        for i in 0..4 {
-            h <<= 1;
-            h |= if bit_arr[i] { 1 } else { 0 };
-        }
-        for i in 4..10 {
-            m <<= 1;
-            m |= if bit_arr[i] { 1 } else { 0 };
-        }
+    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
 
-        (h, m)
-    }
-
-    fn helper(res: &mut Vec<String>, bit_arr: &mut [bool; 10], i: usize, count: usize) {
-        if i + count > 10 || count == 0 {
-            return;
-        }
-        bit_arr[i] = true;
-        if count == 1 {
-            let (h, m) = Self::create_time(bit_arr);
-            if h < 12 && m < 60 {
-                if m < 10 {
-                    res.push(format!("{}:0{}", h, m));
-                } else {
-                    res.push(format!("{}:{}", h, m));
+        for i in 0u32..12 {
+            for j in 0u32..60 {
+                if (i.count_ones() + j.count_ones()) as i32 == turned_on {
+                    ans.push(format!("{}:{:02}", i, j));
                 }
             }
         }
-        Self::helper(res, bit_arr, i + 1, count - 1);
-        bit_arr[i] = false;
-        Self::helper(res, bit_arr, i + 1, count);
-    }
 
-    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
-        if turned_on == 0 {
-            return vec![String::from("0:00")];
-        }
-        let mut res = vec![];
-        let mut bit_arr = [false; 10];
-        Self::helper(&mut res, &mut bit_arr, 0, turned_on as usize);
-        res
+        ans
     }
 }
 ```
@@ -223,7 +189,11 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Binary Enumeration
+
+We can use $10$ binary bits to represent the watch, where the first $4$ bits represent hours and the last $6$ bits represent minutes. Enumerate each number in $[0, 2^{10})$, check if the number of 1s in its binary representation equals $\textit{turnedOn}$, and if so, convert it to time format and add it to the answer.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -287,6 +257,55 @@ func readBinaryWatch(turnedOn int) []string {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function readBinaryWatch(turnedOn: number): string[] {
+    const ans: string[] = [];
+
+    for (let i = 0; i < (1 << 10); ++i) {
+        const h = i >> 6;
+        const m = i & 0b111111;
+
+        if (h < 12 && m < 60 && bitCount(i) === turnedOn) {
+            ans.push(`${h}:${m < 10 ? "0" : ""}${m}`);
+        }
+    }
+
+    return ans;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
+
+        for i in 0u32..(1 << 10) {
+            let h = i >> 6;
+            let m = i & 0b111111;
+
+            if h < 12 && m < 60 && i.count_ones() as i32 == turned_on {
+                ans.push(format!("{}:{:02}", h, m));
+            }
+        }
+
+        ans
+    }
 }
 ```
 

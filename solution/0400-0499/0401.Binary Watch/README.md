@@ -71,9 +71,11 @@ tags:
 
 ### 方法一：枚举组合
 
-题目可转换为求 i(`i∈[0,12)`) 和 j(`j∈[0,60)`) 所有可能的组合。
+题目可以转换为求 $i \in [0, 12)$ 和 $j \in [0, 60)$ 的所有可能组合。
 
-合法组合需要满足的条件是：i 的二进制形式中 1 的个数加上 j 的二进制形式中 1 的个数，结果等于 turnedOn。
+合法组合需要满足的条件是 $i$ 的二进制形式中 1 的个数加上 $j$ 的二进制形式中 1 的个数，结果等于 $\textit{turnedOn}$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -147,35 +149,26 @@ func readBinaryWatch(turnedOn int) []string {
 
 ```ts
 function readBinaryWatch(turnedOn: number): string[] {
-    if (turnedOn === 0) {
-        return ['0:00'];
-    }
-    const n = 10;
-    const res = [];
-    const bitArr = new Array(10).fill(false);
-    const createTime = () => {
-        return [
-            bitArr.slice(0, 4).reduce((p, v) => (p << 1) | Number(v), 0),
-            bitArr.slice(4).reduce((p, v) => (p << 1) | Number(v), 0),
-        ];
-    };
-    const helper = (i: number, count: number) => {
-        if (i + count > n || count === 0) {
-            return;
-        }
-        bitArr[i] = true;
-        if (count === 1) {
-            const [h, m] = createTime();
-            if (h < 12 && m < 60) {
-                res.push(`${h}:${m < 10 ? '0' + m : m}`);
+    const ans: string[] = [];
+
+    for (let i = 0; i < 12; ++i) {
+        for (let j = 0; j < 60; ++j) {
+            if (bitCount(i) + bitCount(j) === turnedOn) {
+                ans.push(`${i}:${j.toString().padStart(2, '0')}`);
             }
         }
-        helper(i + 1, count - 1);
-        bitArr[i] = false;
-        helper(i + 1, count);
-    };
-    helper(0, turnedOn);
-    return res;
+    }
+
+    return ans;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -183,49 +176,18 @@ function readBinaryWatch(turnedOn: number): string[] {
 
 ```rust
 impl Solution {
-    fn create_time(bit_arr: &[bool; 10]) -> (i32, i32) {
-        let mut h = 0;
-        let mut m = 0;
-        for i in 0..4 {
-            h <<= 1;
-            h |= if bit_arr[i] { 1 } else { 0 };
-        }
-        for i in 4..10 {
-            m <<= 1;
-            m |= if bit_arr[i] { 1 } else { 0 };
-        }
+    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
 
-        (h, m)
-    }
-
-    fn helper(res: &mut Vec<String>, bit_arr: &mut [bool; 10], i: usize, count: usize) {
-        if i + count > 10 || count == 0 {
-            return;
-        }
-        bit_arr[i] = true;
-        if count == 1 {
-            let (h, m) = Self::create_time(bit_arr);
-            if h < 12 && m < 60 {
-                if m < 10 {
-                    res.push(format!("{}:0{}", h, m));
-                } else {
-                    res.push(format!("{}:{}", h, m));
+        for i in 0u32..12 {
+            for j in 0u32..60 {
+                if (i.count_ones() + j.count_ones()) as i32 == turned_on {
+                    ans.push(format!("{}:{:02}", i, j));
                 }
             }
         }
-        Self::helper(res, bit_arr, i + 1, count - 1);
-        bit_arr[i] = false;
-        Self::helper(res, bit_arr, i + 1, count);
-    }
 
-    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
-        if turned_on == 0 {
-            return vec![String::from("0:00")];
-        }
-        let mut res = vec![];
-        let mut bit_arr = [false; 10];
-        Self::helper(&mut res, &mut bit_arr, 0, turned_on as usize);
-        res
+        ans
     }
 }
 ```
@@ -238,7 +200,9 @@ impl Solution {
 
 ### 方法二：二进制枚举
 
-利用 10 个二进制位表示手表，其中前 4 位代表小时，后 6 位代表分钟。枚举 `[0, 1 << 10)` 的所有数，找出合法的数。
+我们可以利用 $10$ 个二进制位表示手表，其中前 $4$ 位代表小时，后 $6$ 位代表分钟。枚举 $[0, 2^{10})$ 中的每个数，判断其二进制表示中 1 的个数是否等于 $\textit{turnedOn}$，如果是，则将其转换为时间格式加入答案中。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -302,6 +266,55 @@ func readBinaryWatch(turnedOn int) []string {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function readBinaryWatch(turnedOn: number): string[] {
+    const ans: string[] = [];
+
+    for (let i = 0; i < (1 << 10); ++i) {
+        const h = i >> 6;
+        const m = i & 0b111111;
+
+        if (h < 12 && m < 60 && bitCount(i) === turnedOn) {
+            ans.push(`${h}:${m < 10 ? "0" : ""}${m}`);
+        }
+    }
+
+    return ans;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn read_binary_watch(turned_on: i32) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
+
+        for i in 0u32..(1 << 10) {
+            let h = i >> 6;
+            let m = i & 0b111111;
+
+            if h < 12 && m < 60 && i.count_ones() as i32 == turned_on {
+                ans.push(format!("{}:{:02}", h, m));
+            }
+        }
+
+        ans
+    }
 }
 ```
 
