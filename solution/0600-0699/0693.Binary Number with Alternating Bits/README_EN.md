@@ -54,7 +54,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We cyclically right-shift $n$ until it becomes $0$, checking whether the binary bits of $n$ appear alternately. If during the loop we find that $0$ and $1$ do not appear alternately, we directly return $\textit{false}$. Otherwise, when the loop ends, we return $\textit{true}$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -127,21 +131,41 @@ func hasAlternatingBits(n int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function hasAlternatingBits(n: number): boolean {
+    let prev = -1;
+
+    while (n !== 0) {
+        const curr = n & 1;
+        if (prev === curr) {
+            return false;
+        }
+        prev = curr;
+        n >>= 1;
+    }
+
+    return true;
+}
+```
+
 #### Rust
 
 ```rust
 impl Solution {
     pub fn has_alternating_bits(mut n: i32) -> bool {
-        let u = n & 3;
-        if u != 1 && u != 2 {
-            return false;
-        }
+        let mut prev: i32 = -1;
+
         while n != 0 {
-            if (n & 3) != u {
+            let curr = n & 1;
+            if prev == curr {
                 return false;
             }
-            n >>= 2;
+            prev = curr;
+            n >>= 1;
         }
+
         true
     }
 }
@@ -153,7 +177,13 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bit Manipulation
+
+Assuming $\text{01}$ appears alternately, we can convert all trailing bits to $\text{1}$ through misaligned XOR. Adding $\text{1}$ gives us a power of $2$, which is a number $n$ (where $n$ has only one bit that is $\text{1}$). Then, using $\text{n} \& (\text{n} + 1)$ can eliminate the last $\text{1}$ bit.
+
+At this point, check if it equals $\text{0}$. If so, the assumption holds, and it is an alternating $\text{01}$ sequence.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -198,13 +228,22 @@ func hasAlternatingBits(n int) bool {
 }
 ```
 
+#### TypeScript
+
+```ts
+function hasAlternatingBits(n: number): boolean {
+    n ^= (n >> 1);
+    return (n & (n + 1)) === 0;
+}
+```
+
 #### Rust
 
 ```rust
 impl Solution {
     pub fn has_alternating_bits(n: i32) -> bool {
-        let t = n ^ (n >> 1);
-        (t & (t + 1)) == 0
+        let mut x = n ^ (n >> 1);
+        (x & (x + 1)) == 0
     }
 }
 ```
