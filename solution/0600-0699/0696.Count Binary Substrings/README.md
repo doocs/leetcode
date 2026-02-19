@@ -54,7 +54,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：遍历计数
+
+我们可以遍历字符串 $s$，用一个变量 $\textit{pre}$ 记录上一个连续字符的数量，另一个变量 $\textit{cur}$ 记录当前连续字符的数量。那么以当前字符结尾的满足条件的子串数量为 $\min(\textit{pre}, \textit{cur})$。我们将 $\min(\textit{pre}, \textit{cur})$ 累加到答案中，并将 $\textit{cur}$ 的值赋给 $\textit{pre}$，继续遍历字符串 $s$ 直到结束。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -63,18 +67,17 @@ tags:
 ```python
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
-        i, n = 0, len(s)
-        t = []
+        n = len(s)
+        ans = i = 0
+        pre = 0
         while i < n:
-            cnt = 1
-            while i + 1 < n and s[i + 1] == s[i]:
-                cnt += 1
-                i += 1
-            t.append(cnt)
-            i += 1
-        ans = 0
-        for i in range(1, len(t)):
-            ans += min(t[i - 1], t[i])
+            j = i + 1
+            while j < n and s[j] == s[i]:
+                j += 1
+            cur = j - i
+            ans += min(pre, cur)
+            pre = cur
+            i = j
         return ans
 ```
 
@@ -83,20 +86,19 @@ class Solution:
 ```java
 class Solution {
     public int countBinarySubstrings(String s) {
-        int i = 0, n = s.length();
-        List<Integer> t = new ArrayList<>();
-        while (i < n) {
-            int cnt = 1;
-            while (i + 1 < n && s.charAt(i + 1) == s.charAt(i)) {
-                ++i;
-                ++cnt;
-            }
-            t.add(cnt);
-            ++i;
-        }
+        int n = s.length();
         int ans = 0;
-        for (i = 1; i < t.size(); ++i) {
-            ans += Math.min(t.get(i - 1), t.get(i));
+        int i = 0;
+        int pre = 0;
+        while (i < n) {
+            int j = i + 1;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                j++;
+            }
+            int cur = j - i;
+            ans += Math.min(pre, cur);
+            pre = cur;
+            i = j;
         }
         return ans;
     }
@@ -109,19 +111,20 @@ class Solution {
 class Solution {
 public:
     int countBinarySubstrings(string s) {
-        int i = 0, n = s.size();
-        vector<int> t;
-        while (i < n) {
-            int cnt = 1;
-            while (i + 1 < n && s[i + 1] == s[i]) {
-                ++cnt;
-                ++i;
-            }
-            t.push_back(cnt);
-            ++i;
-        }
+        int n = s.size();
         int ans = 0;
-        for (i = 1; i < t.size(); ++i) ans += min(t[i - 1], t[i]);
+        int i = 0;
+        int pre = 0;
+        while (i < n) {
+            int j = i + 1;
+            while (j < n && s[j] == s[i]) {
+                ++j;
+            }
+            int cur = j - i;
+            ans += min(pre, cur);
+            pre = cur;
+            i = j;
+        }
         return ans;
     }
 };
@@ -130,23 +133,73 @@ public:
 #### Go
 
 ```go
-func countBinarySubstrings(s string) int {
-	i, n := 0, len(s)
-	var t []int
+func countBinarySubstrings(s string) (ans int) {
+	n := len(s)
+	i := 0
+	pre := 0
 	for i < n {
-		cnt := 1
-		for i+1 < n && s[i+1] == s[i] {
-			i++
-			cnt++
+		j := i + 1
+		for j < n && s[j] == s[i] {
+			j++
 		}
-		t = append(t, cnt)
-		i++
+		cur := j - i
+		ans += min(pre, cur)
+		pre = cur
+		i = j
 	}
-	ans := 0
-	for i := 1; i < len(t); i++ {
-		ans += min(t[i-1], t[i])
-	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countBinarySubstrings(s: string): number {
+    const n = s.length;
+    let ans = 0;
+    let i = 0;
+    let pre = 0;
+
+    while (i < n) {
+        let j = i + 1;
+        while (j < n && s[j] === s[i]) {
+            j++;
+        }
+        const cur = j - i;
+        ans += Math.min(pre, cur);
+        pre = cur;
+        i = j;
+    }
+
+    return ans;
+};
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_binary_substrings(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let n: usize = bytes.len();
+
+        let mut ans: i32 = 0;
+        let mut i: usize = 0;
+        let mut pre: i32 = 0;
+
+        while i < n {
+            let mut j: usize = i + 1;
+            while j < n && bytes[j] == bytes[i] {
+                j += 1;
+            }
+            let cur: i32 = (j - i) as i32;
+            ans += pre.min(cur);
+            pre = cur;
+            i = j;
+        }
+
+        ans
+    }
 }
 ```
 
