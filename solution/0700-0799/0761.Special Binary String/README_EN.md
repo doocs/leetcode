@@ -62,7 +62,15 @@ This is the lexicographically largest string possible after some number of swaps
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion + Sorting
+
+We can treat the special binary sequence as "valid parentheses", where $1$ represents an opening parenthesis and $0$ represents a closing parenthesis. For example, "11011000" can be viewed as "(()(()))".
+
+Swapping two consecutive non-empty special substrings is equivalent to swapping two adjacent valid parentheses. We can use recursion to solve this problem.
+
+We treat each "valid parenthesis" in string $s$ as a part, process it recursively, and finally sort them to get the final answer.
+
+The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -116,7 +124,9 @@ class Solution {
 class Solution {
 public:
     string makeLargestSpecial(string s) {
-        if (s == "") return s;
+        if (s == "") {
+            return s;
+        }
         vector<string> ans;
         int cnt = 0;
         for (int i = 0, j = 0; i < s.size(); ++i) {
@@ -154,6 +164,31 @@ func makeLargestSpecial(s string) string {
 	}
 	sort.Sort(sort.Reverse(ans))
 	return strings.Join(ans, "")
+}
+```
+
+#### TypeScript
+
+```ts
+function makeLargestSpecial(s: string): string {
+    if (s.length === 0) {
+        return '';
+    }
+
+    const ans: string[] = [];
+    let cnt = 0;
+
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        cnt += s[i] === '1' ? 1 : -1;
+        if (cnt === 0) {
+            const t = '1' + makeLargestSpecial(s.substring(j + 1, i)) + '0';
+            ans.push(t);
+            j = i + 1;
+        }
+    }
+
+    ans.sort((a, b) => b.localeCompare(a));
+    return ans.join('');
 }
 ```
 

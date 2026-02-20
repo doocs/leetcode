@@ -53,13 +53,13 @@ tags:
 
 ### 方法一：递归 + 排序
 
-我们可以把特殊的二进制序列看作“有效的括号”，$1$ 代表左括号，$0$ 代表右括号。例如，"11011000" 可以看作："(()(()))"。
+我们可以把特殊的二进制序列看作“有效的括号”，其中 $1$ 代表左括号，而 $0$ 代表右括号。例如，"11011000" 可以看作："(()(()))"。
 
 交换两个连续非空的特殊子串，相当于交换两个相邻的有效括号，我们可以使用递归来解决这个问题。
 
 我们将字符串 $s$ 中的每个“有效的括号”都看作一部分，递归处理，最后进行排序，得到最终答案。
 
-时间复杂度 $O(n^2)$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -113,7 +113,9 @@ class Solution {
 class Solution {
 public:
     string makeLargestSpecial(string s) {
-        if (s == "") return s;
+        if (s == "") {
+            return s;
+        }
         vector<string> ans;
         int cnt = 0;
         for (int i = 0, j = 0; i < s.size(); ++i) {
@@ -151,6 +153,31 @@ func makeLargestSpecial(s string) string {
 	}
 	sort.Sort(sort.Reverse(ans))
 	return strings.Join(ans, "")
+}
+```
+
+#### TypeScript
+
+```ts
+function makeLargestSpecial(s: string): string {
+    if (s.length === 0) {
+        return '';
+    }
+
+    const ans: string[] = [];
+    let cnt = 0;
+
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        cnt += s[i] === '1' ? 1 : -1;
+        if (cnt === 0) {
+            const t = '1' + makeLargestSpecial(s.substring(j + 1, i)) + '0';
+            ans.push(t);
+            j = i + 1;
+        }
+    }
+
+    ans.sort((a, b) => b.localeCompare(a));
+    return ans.join('');
 }
 ```
 

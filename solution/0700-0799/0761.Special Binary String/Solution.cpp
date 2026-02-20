@@ -1,7 +1,9 @@
 class Solution {
 public:
     string makeLargestSpecial(string s) {
-        if (s == "") return s;
+        if (s == "") {
+            return s;
+        }
         vector<string> ans;
         int cnt = 0;
         for (int i = 0, j = 0; i < s.size(); ++i) {
