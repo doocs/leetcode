@@ -3856,6 +3856,7 @@
 |  3843  |  [频率唯一的第一个元素](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README.md)  |    |  中等  |  第 489 场周赛  |
 |  3844  |  [最长的准回文子字符串](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README.md)  |    |  中等  |  第 489 场周赛  |
 |  3845  |  [最大子数组异或值](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README.md)  |    |  困难  |  第 489 场周赛  |
+|  3846  |  [Total Distance to Type a String Using One Finger](/solution/3800-3899/3846.Total%20Distance%20to%20Type%20a%20String%20Using%20One%20Finger/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

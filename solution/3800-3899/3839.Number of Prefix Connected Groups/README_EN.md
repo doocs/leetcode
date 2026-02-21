@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README_EN.md
+rating: 1401
+source: Biweekly Contest 176 Q2
 ---
 
 <!-- problem:start -->

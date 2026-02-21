@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README.md
+rating: 2384
+source: 第 176 场双周赛 Q4
 ---
 
 <!-- problem:start -->

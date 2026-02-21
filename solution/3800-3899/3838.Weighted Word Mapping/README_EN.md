@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3838.Weighted%20Word%20Mapping/README_EN.md
+rating: 1240
+source: Biweekly Contest 176 Q1
 ---
 
 <!-- problem:start -->
@@ -84,15 +86,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3838.We
 
 <!-- description:end -->
 
+## Solutions
+
+<!-- solution:start -->
+
 ### Solution 1: Simulation
 
 We iterate through each word $w$ in $\textit{words}$, calculate its weight $s$, which is the sum of the weights of all characters in the word. Then we calculate $s$ modulo 26, map the result to a lowercase English letter, and finally concatenate all the mapped characters and return.
 
 The time complexity is $O(L)$, where $L$ is the sum of the lengths of all words in $\textit{words}$. The space complexity is $O(W)$, where $W$ is the length of $\textit{words}$.
-
-<!-- solution:start -->
-
-### Solution 1
 
 <!-- tabs:start -->
 

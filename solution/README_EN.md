@@ -3854,6 +3854,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3843  |  [First Element with Unique Frequency](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README_EN.md)  |    |  Medium  |  Weekly Contest 489  |
 |  3844  |  [Longest Almost-Palindromic Substring](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README_EN.md)  |    |  Medium  |  Weekly Contest 489  |
 |  3845  |  [Maximum Subarray XOR with Bounded Range](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 489  |
+|  3846  |  [Total Distance to Type a String Using One Finger](/solution/3800-3899/3846.Total%20Distance%20to%20Type%20a%20String%20Using%20One%20Finger/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

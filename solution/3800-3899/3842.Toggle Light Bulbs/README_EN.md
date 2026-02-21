@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md
+rating: 1160
+source: Weekly Contest 489 Q1
 ---
 
 <!-- problem:start -->

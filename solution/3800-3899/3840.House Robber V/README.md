@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3840.House%20Robber%20V/README.md
+rating: 1618
+source: 第 176 场双周赛 Q3
 ---
 
 <!-- problem:start -->

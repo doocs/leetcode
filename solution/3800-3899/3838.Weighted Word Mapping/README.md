@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3838.Weighted%20Word%20Mapping/README.md
+rating: 1240
+source: 第 176 场双周赛 Q1
 ---
 
 <!-- problem:start -->

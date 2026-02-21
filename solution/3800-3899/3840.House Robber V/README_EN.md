@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3840.House%20Robber%20V/README_EN.md
+rating: 1618
+source: Biweekly Contest 176 Q3
 ---
 
 <!-- problem:start -->

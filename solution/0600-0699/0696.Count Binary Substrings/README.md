@@ -172,7 +172,7 @@ function countBinarySubstrings(s: string): number {
     }
 
     return ans;
-};
+}
 ```
 
 #### Rust

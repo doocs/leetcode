@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README_EN.md
+rating: 2384
+source: Biweekly Contest 176 Q4
 ---
 
 <!-- problem:start -->
