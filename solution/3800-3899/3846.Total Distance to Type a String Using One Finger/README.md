@@ -112,7 +112,11 @@ There is a special keyboard where keys are arranged in a rectangular grid as fol
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们定义一个哈希表 $\textit{pos}$，用来存储每个字符在键盘上的位置。对于字符串 $s$ 中的每个字符，我们计算从上一个字符到当前字符的距离，并将其累加到答案中。最后返回答案即可。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是字符集，这里是 26 个小写英文字母。
 
 <!-- tabs:start -->
 
@@ -149,7 +153,7 @@ class Solution {
         String[] keys = {"qwertyuiop", "asdfghjkl", "zxcvbnm"};
         for (int i = 0; i < keys.length; i++) {
             for (int j = 0; j < keys[i].length(); j++) {
-                pos.put(keys[i].charAt(j), new int[]{i, j});
+                pos.put(keys[i].charAt(j), new int[] {i, j});
             }
         }
     }

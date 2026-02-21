@@ -98,32 +98,200 @@ source: 第 489 场周赛 Q3
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举回文串的中间位置
+
+不妨记字符串 $s$ 的长度为 $n$。
+
+我们定义一个函数 $f(l, r)$，表示计算以 $l$ 和 $r$ 开始向字符串的两边扩展，并且删除一个字符的情况下，能得到的最长准回文子串的长度。
+
+在函数 $f(l, r)$ 中，我们首先向两边扩展，直到不满足 $l \geq 0$ 以及 $r \lt n$ 和 $s[l] = s[r]$。此时，我们可以选择跳过 $l$ 或者跳过 $r$。如果跳过 $l$，那么我们就相当于从 $(l - 1, r)$ 继续向两边扩展；如果跳过 $r$，那么我们就相当于从 $(l, r + 1)$ 继续向两边扩展。我们分别计算这两种情况能得到的最长准回文子串的长度，并取其中的最大值。注意，最长准回文子串的长度不能超过 $n$。
+
+最后，我们枚举回文串的中间位置 $i$，分别计算以 $(i, i)$ 和 $(i, i + 1)$ 开始向两边扩展，并且删除一个字符的情况下，能得到的最长准回文子串的长度，并取其中的最大值。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def almostPalindromic(self, s: str) -> int:
+        def f(l: int, r: int) -> int:
+            while l >= 0 and r < n and s[l] == s[r]:
+                l -= 1
+                r += 1
+            l1, r1 = l - 1, r
+            l2, r2 = l, r + 1
+            while l1 >= 0 and r1 < n and s[l1] == s[r1]:
+                l1 -= 1
+                r1 += 1
+            while l2 >= 0 and r2 < n and s[l2] == s[r2]:
+                l2 -= 1
+                r2 += 1
+            return min(n, max(r1 - l1 - 1, r2 - l2 - 1))
 
+        n = len(s)
+        ans = 0
+        for i in range(n):
+            a = f(i, i)
+            b = f(i, i + 1)
+            ans = max(ans, a, b)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int n;
+    private char[] s;
 
+    public int almostPalindromic(String s) {
+        n = s.length();
+        this.s = s.toCharArray();
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, f(i, i));
+            ans = Math.max(ans, f(i, i + 1));
+        }
+        return ans;
+    }
+
+    private int f(int l, int r) {
+        while (l >= 0 && r < n && s[l] == s[r]) {
+            l--;
+            r++;
+        }
+
+        int l1 = l - 1, r1 = r;
+        int l2 = l, r2 = r + 1;
+
+        while (l1 >= 0 && r1 < n && s[l1] == s[r1]) {
+            l1--;
+            r1++;
+        }
+        while (l2 >= 0 && r2 < n && s[l2] == s[r2]) {
+            l2--;
+            r2++;
+        }
+
+        return Math.min(n, Math.max(r1 - l1 - 1, r2 - l2 - 1));
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int almostPalindromic(string s) {
+        int n = s.size();
 
+        auto f = [&](int l, int r) {
+            while (l >= 0 && r < n && s[l] == s[r]) {
+                --l;
+                ++r;
+            }
+
+            int l1 = l - 1, r1 = r;
+            int l2 = l, r2 = r + 1;
+
+            while (l1 >= 0 && r1 < n && s[l1] == s[r1]) {
+                --l1;
+                ++r1;
+            }
+            while (l2 >= 0 && r2 < n && s[l2] == s[r2]) {
+                --l2;
+                ++r2;
+            }
+
+            return min(n, max(r1 - l1 - 1, r2 - l2 - 1));
+        };
+
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            ans = max(ans, f(i, i));
+            ans = max(ans, f(i, i + 1));
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func almostPalindromic(s string) int {
+	n := len(s)
 
+	f := func(l, r int) int {
+		for l >= 0 && r < n && s[l] == s[r] {
+			l--
+			r++
+		}
+
+		l1, r1 := l-1, r
+		l2, r2 := l, r+1
+
+		for l1 >= 0 && r1 < n && s[l1] == s[r1] {
+			l1--
+			r1++
+		}
+		for l2 >= 0 && r2 < n && s[l2] == s[r2] {
+			l2--
+			r2++
+		}
+		return min(n, max(r1-l1-1, r2-l2-1))
+	}
+
+	ans := 0
+	for i := 0; i < n; i++ {
+		ans = max(ans, f(i, i), f(i, i+1))
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function almostPalindromic(s: string): number {
+    const n = s.length;
+
+    const f = (l: number, r: number): number => {
+        while (l >= 0 && r < n && s[l] === s[r]) {
+            l--;
+            r++;
+        }
+
+        let l1 = l - 1,
+            r1 = r;
+        let l2 = l,
+            r2 = r + 1;
+
+        while (l1 >= 0 && r1 < n && s[l1] === s[r1]) {
+            l1--;
+            r1++;
+        }
+        while (l2 >= 0 && r2 < n && s[l2] === s[r2]) {
+            l2--;
+            r2++;
+        }
+
+        return Math.min(n, Math.max(r1 - l1 - 1, r2 - l2 - 1));
+    };
+
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans = Math.max(ans, f(i, i));
+        ans = Math.max(ans, f(i, i + 1));
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
