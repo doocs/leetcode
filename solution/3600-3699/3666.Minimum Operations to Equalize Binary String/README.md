@@ -93,32 +93,259 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：BFS + 有序集合
+
+我们记字符串 $s$ 的长度为 $n$，记当前字符串中 '0' 的数量为 $\textit{cur}$，每一次操作，我们选择其中 $k$ 个下标进行翻转，其中有 $x$ 个下标从 '0' 翻转为 '1'，有 $k-x$ 个下标从 '1' 翻转为 '0'，则翻转后字符串中 '0' 的数量为 $\textit{cur} + k - 2x$。
+
+而 $x$ 的取值需要满足以下条件：
+
+1. 最多取 $\min(\textit{cur}, k)$ 个 '0'，因为我们不能翻转超过 $\textit{cur}$ 个 '0'，那么 $0 \leq x \leq \min(\textit{cur}, k)$。
+2. 最多取 $n - \textit{cur}$ 个 '1'，因为我们不能翻转超过 $n - \textit{cur}$ 个 '1'，那么 $k - x \leq n - \textit{cur}$，即 $x \geq k - n + \textit{cur}$。
+
+因此 $x$ 的取值范围为 $[\max(k - n + \textit{cur}, 0), \min(\textit{cur}, k)]$，翻转后字符串中 '0' 的数量的取值范围为 $[\textit{cur} + k - 2 \cdot \min(\textit{cur}, k), \textit{cur} + k - 2 \cdot \max(k - n + \textit{cur}, 0)]$。
+
+我们注意到，翻转后字符串中 '0' 的数量的奇偶性与翻转前字符串中 '0' 的数量的奇偶性相同。因此，我们可以使用两个有序集合分别存储 '0' 的数量为偶数和奇数的状态。
+
+我们使用 BFS 来搜索状态转移图，初始状态为字符串中 '0' 的数量，目标状态为 0。每次从队列中取出一个状态 $\textit{cur}$，计算翻转后字符串中 '0' 的数量的取值范围 $[l, r]$，在有序集合中找到所有在 $[l, r]$ 范围内的状态，并将它们加入队列，同时从有序集合中删除它们。
+
+如果我们在 BFS 过程中访问到了状态 0，则返回当前的操作次数；如果 BFS 结束后仍未访问到状态 0，则返回 -1。
+
+时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $O(n)$ 是 BFS 过程中可能访问的状态数量，而 $O(\log n)$ 是在有序集合中插入和删除元素的时间复杂度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, s: str, k: int) -> int:
+        n = len(s)
+        ts = [SortedSet() for _ in range(2)]
+        for i in range(n + 1):
+            ts[i % 2].add(i)
+        cnt0 = s.count('0')
+        ts[cnt0 % 2].remove(cnt0)
+        q = deque([cnt0])
+        ans = 0
+        while q:
+            for _ in range(len(q)):
+                cur = q.popleft()
+                if cur == 0:
+                    return ans
+                l = cur + k - 2 * min(cur, k)
+                r = cur + k - 2 * max(k - n + cur, 0)
+                t = ts[l % 2]
+                j = t.bisect_left(l)
+                while j < len(t) and t[j] <= r:
+                    q.append(t[j])
+                    t.remove(t[j])
+            ans += 1
+        return -1
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minOperations(String s, int k) {
+        int n = s.length();
 
+        TreeSet<Integer>[] ts = new TreeSet[2];
+        Arrays.setAll(ts, i -> new TreeSet<>());
+
+        for (int i = 0; i <= n; i++) {
+            ts[i % 2].add(i);
+        }
+
+        int cnt0 = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                cnt0++;
+            }
+        }
+
+        ts[cnt0 % 2].remove(cnt0);
+
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(cnt0);
+
+        int ans = 0;
+        while (!q.isEmpty()) {
+            for (int size = q.size(); size > 0; --size) {
+                int cur = q.poll();
+                if (cur == 0) {
+                    return ans;
+                }
+
+                int l = cur + k - 2 * Math.min(cur, k);
+                int r = cur + k - 2 * Math.max(k - n + cur, 0);
+
+                TreeSet<Integer> t = ts[l % 2];
+
+                Integer next = t.ceiling(l);
+                while (next != null && next <= r) {
+                    q.offer(next);
+                    t.remove(next);
+                    next = t.ceiling(l);
+                }
+            }
+            ans++;
+        }
+
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minOperations(string s, int k) {
+        int n = s.size();
 
+        set<int> ts[2];
+        for (int i = 0; i <= n; i++) {
+            ts[i % 2].insert(i);
+        }
+
+        int cnt0 = count(s.begin(), s.end(), '0');
+        ts[cnt0 % 2].erase(cnt0);
+
+        queue<int> q;
+        q.push(cnt0);
+
+        int ans = 0;
+
+        while (!q.empty()) {
+            for (int size = q.size(); size > 0; --size) {
+                int cur = q.front();
+                q.pop();
+                if (cur == 0) {
+                    return ans;
+                }
+
+                int l = cur + k - 2 * min(cur, k);
+                int r = cur + k - 2 * max(k - n + cur, 0);
+
+                auto& t = ts[l % 2];
+                auto it = t.lower_bound(l);
+
+                while (it != t.end() && *it <= r) {
+                    q.push(*it);
+                    it = t.erase(it);
+                }
+            }
+            ans++;
+        }
+
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(s string, k int) int {
+	n := len(s)
 
+	ts := [2]*redblacktree.Tree{
+		redblacktree.NewWithIntComparator(),
+		redblacktree.NewWithIntComparator(),
+	}
+
+	for i := 0; i <= n; i++ {
+		ts[i%2].Put(i, struct{}{})
+	}
+
+	cnt0 := strings.Count(s, "0")
+	ts[cnt0%2].Remove(cnt0)
+
+	q := []int{cnt0}
+	ans := 0
+
+	for len(q) > 0 {
+		nq := []int{}
+
+		for _, cur := range q {
+			if cur == 0 {
+				return ans
+			}
+
+			l := cur + k - 2*min(cur, k)
+			r := cur + k - 2*max(k-n+cur, 0)
+			t := ts[l%2]
+
+			node, found := t.Ceiling(l)
+			for found && node.Key.(int) <= r {
+				val := node.Key.(int)
+				nq = append(nq, val)
+				t.Remove(val)
+				node, found = t.Ceiling(l)
+			}
+		}
+
+		q = nq
+		ans++
+	}
+
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+import { AvlTree } from '@datastructures-js/binary-search-tree';
+
+function minOperations(s: string, k: number): number {
+    const n: number = s.length;
+
+    const ts = [new AvlTree<number>(), new AvlTree<number>()];
+
+    for (let i = 0; i <= n; i++) {
+        ts[i % 2].insert(i);
+    }
+
+    let cnt0 = 0;
+    for (const c of s) {
+        if (c === '0') cnt0++;
+    }
+
+    ts[cnt0 % 2].remove(cnt0);
+
+    let q: number[] = [cnt0];
+    let ans = 0;
+
+    while (q.length > 0) {
+        const nq: number[] = [];
+
+        for (const cur of q) {
+            if (cur === 0) {
+                return ans;
+            }
+
+            const l = cur + k - 2 * Math.min(cur, k);
+            const r = cur + k - 2 * Math.max(k - n + cur, 0);
+
+            const t = ts[l % 2];
+            let node = t.upperBound(l, true);
+            while (node && node.getValue() <= r) {
+                const val = node.getValue();
+                nq.push(val);
+                t.remove(val);
+                node = t.upperBound(l, false);
+            }
+        }
+
+        q = nq;
+        ans++;
+    }
+
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
