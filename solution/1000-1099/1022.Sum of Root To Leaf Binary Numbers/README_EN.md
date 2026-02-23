@@ -62,14 +62,14 @@ tags:
 
 ### Solution 1: Recursion
 
-We design a recursive function `dfs(root, t)`, which takes two parameters: the current node `root` and the binary number corresponding to the parent node `t`. The return value of the function is the sum of the binary numbers represented by the path from the current node to the leaf node. The answer is `dfs(root, 0)`.
+We design a recursive function $\text{dfs}(root, t)$, which takes two parameters: the current node $root$ and the binary number $t$ corresponding to the parent node of the current node. The return value of the function is the sum of binary numbers represented by paths from the current node to leaf nodes. The answer is $\textrm{dfs}(root, 0)$.
 
 The logic of the recursive function is as follows:
 
-- If the current node `root` is null, then return `0`. Otherwise, calculate the binary number `t` corresponding to the current node, i.e., `t = t << 1 | root.val`.
-- If the current node is a leaf node, then return `t`. Otherwise, return the sum of `dfs(root.left, t)` and `dfs(root.right, t)`.
+- If the current node $root$ is null, return $0$; otherwise, calculate the binary number $t$ corresponding to the current node, i.e., $t = t \ll 1 | root.val$.
+- If the current node is a leaf node, return $t$; otherwise, return the sum of $\textrm{dfs}(root.left, t)$ and $\textrm{dfs}(root.right, t)$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.
 
 <!-- tabs:start -->
 
@@ -83,14 +83,14 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sumRootToLeaf(self, root: TreeNode) -> int:
-        def dfs(root, t):
+    def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode], x: int) -> int:
             if root is None:
                 return 0
-            t = (t << 1) | root.val
-            if root.left is None and root.right is None:
-                return t
-            return dfs(root.left, t) + dfs(root.right, t)
+            x = x << 1 | root.val
+            if root.left == root.right:
+                return x
+            return dfs(root.left, x) + dfs(root.right, x)
 
         return dfs(root, 0)
 ```
@@ -118,15 +118,15 @@ class Solution {
         return dfs(root, 0);
     }
 
-    private int dfs(TreeNode root, int t) {
+    private int dfs(TreeNode root, int x) {
         if (root == null) {
             return 0;
         }
-        t = (t << 1) | root.val;
-        if (root.left == null && root.right == null) {
-            return t;
+        x = x << 1 | root.val;
+        if (root.left == root.right) {
+            return x;
         }
-        return dfs(root.left, t) + dfs(root.right, t);
+        return dfs(root.left, x) + dfs(root.right, x);
     }
 }
 ```
@@ -148,14 +148,17 @@ class Solution {
 class Solution {
 public:
     int sumRootToLeaf(TreeNode* root) {
+        auto dfs = [&](this auto&& dfs, TreeNode* root, int x) -> int {
+            if (!root) {
+                return 0;
+            }
+            x = x << 1 | root->val;
+            if (root->left == root->right) {
+                return x;
+            }
+            return dfs(root->left, x) + dfs(root->right, x);
+        };
         return dfs(root, 0);
-    }
-
-    int dfs(TreeNode* root, int t) {
-        if (!root) return 0;
-        t = (t << 1) | root->val;
-        if (!root->left && !root->right) return t;
-        return dfs(root->left, t) + dfs(root->right, t);
     }
 };
 ```
@@ -172,18 +175,17 @@ public:
  * }
  */
 func sumRootToLeaf(root *TreeNode) int {
-	var dfs func(root *TreeNode, t int) int
-	dfs = func(root *TreeNode, t int) int {
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, x int) int {
 		if root == nil {
 			return 0
 		}
-		t = (t << 1) | root.Val
-		if root.Left == nil && root.Right == nil {
-			return t
+		x = x<<1 | root.Val
+		if root.Left == root.Right {
+			return x
 		}
-		return dfs(root.Left, t) + dfs(root.Right, t)
+		return dfs(root.Left, x) + dfs(root.Right, x)
 	}
-
 	return dfs(root, 0)
 }
 ```
@@ -206,17 +208,20 @@ func sumRootToLeaf(root *TreeNode) int {
  */
 
 function sumRootToLeaf(root: TreeNode | null): number {
-    const dfs = (root: TreeNode | null, num: number) => {
-        if (root == null) {
+    const dfs = (node: TreeNode | null, x: number): number => {
+        if (node === null) {
             return 0;
         }
-        const { val, left, right } = root;
-        num = (num << 1) | val;
-        if (left == null && right == null) {
-            return num;
+
+        x = (x << 1) | node.val;
+
+        if (node.left === null && node.right === null) {
+            return x;
         }
-        return dfs(left, num) + dfs(right, num);
+
+        return dfs(node.left, x) + dfs(node.right, x);
     };
+
     return dfs(root, 0);
 }
 ```
@@ -242,23 +247,27 @@ function sumRootToLeaf(root: TreeNode | null): number {
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
-impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut num: i32) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        num = (num << 1) | root.val;
-        if root.left.is_none() && root.right.is_none() {
-            return num;
-        }
-        Self::dfs(&root.left, num) + Self::dfs(&root.right, num)
-    }
+use std::cell::RefCell;
 
+impl Solution {
     pub fn sum_root_to_leaf(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        Self::dfs(&root, 0)
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, x: i32) -> i32 {
+            if let Some(n) = node {
+                let n_ref = n.borrow();
+                let x = (x << 1) | n_ref.val;
+
+                if n_ref.left.is_none() && n_ref.right.is_none() {
+                    return x;
+                }
+
+                dfs(n_ref.left.clone(), x) + dfs(n_ref.right.clone(), x)
+            } else {
+                0
+            }
+        }
+
+        dfs(root, 0)
     }
 }
 ```

@@ -5,13 +5,13 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def sumRootToLeaf(self, root: TreeNode) -> int:
-        def dfs(root, t):
+    def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
+        def dfs(root: Optional[TreeNode], x: int) -> int:
             if root is None:
                 return 0
-            t = (t << 1) | root.val
-            if root.left is None and root.right is None:
-                return t
-            return dfs(root.left, t) + dfs(root.right, t)
-
+            x = x << 1 | root.val
+            if root.left == root.right:
+                return x
+            return dfs(root.left, x) + dfs(root.right, x)
+        
         return dfs(root, 0)
