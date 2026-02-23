@@ -3855,6 +3855,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3844  |  [Longest Almost-Palindromic Substring](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README_EN.md)  |    |  Medium  |  Weekly Contest 489  |
 |  3845  |  [Maximum Subarray XOR with Bounded Range](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README_EN.md)  |    |  Hard  |  Weekly Contest 489  |
 |  3846  |  [Total Distance to Type a String Using One Finger](/solution/3800-3899/3846.Total%20Distance%20to%20Type%20a%20String%20Using%20One%20Finger/README_EN.md)  |    |  Medium  |  🔒  |
+|  3847  |  [Find the Score Difference in a Game](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README_EN.md)  |    |  Medium  |  Weekly Contest 490  |
+|  3848  |  [Check Digitorial Permutation](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README_EN.md)  |    |  Medium  |  Weekly Contest 490  |
+|  3849  |  [Maximum Bitwise XOR After Rearrangement](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md)  |    |  Medium  |  Weekly Contest 490  |
+|  3850  |  [Count Sequences to K](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 490  |
 
 ## Copyright
 

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 490
+
+- [3847. Find the Score Difference in a Game](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README_EN.md)
+- [3848. Check Digitorial Permutation](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README_EN.md)
+- [3849. Maximum Bitwise XOR After Rearrangement](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md)
+- [3850. Count Sequences to K](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md)
+
 #### Weekly Contest 489
 
 - [3842. Toggle Light Bulbs](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md)

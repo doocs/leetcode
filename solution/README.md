@@ -3857,6 +3857,10 @@
 |  3844  |  [最长的准回文子字符串](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README.md)  |    |  中等  |  第 489 场周赛  |
 |  3845  |  [最大子数组异或值](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README.md)  |    |  困难  |  第 489 场周赛  |
 |  3846  |  [Total Distance to Type a String Using One Finger](/solution/3800-3899/3846.Total%20Distance%20to%20Type%20a%20String%20Using%20One%20Finger/README.md)  |    |  中等  |  🔒  |
+|  3847  |  [计算比赛分数差](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README.md)  |    |  中等  |  第 490 场周赛  |
+|  3848  |  [阶数数字排列](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README.md)  |    |  中等  |  第 490 场周赛  |
+|  3849  |  [重新排列后的最大按位异或值](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README.md)  |    |  中等  |  第 490 场周赛  |
+|  3850  |  [统计结果等于 K 的序列数目](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README.md)  |    |  困难  |  第 490 场周赛  |
 
 ## 版权
 

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 490 场周赛(2026-02-22 10:30, 90 分钟) 参赛人数 1025
+
+- [3847. 计算比赛分数差](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README.md)
+- [3848. 阶数数字排列](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README.md)
+- [3849. 重新排列后的最大按位异或值](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README.md)
+- [3850. 统计结果等于 K 的序列数目](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README.md)
+
 #### 第 489 场周赛(2026-02-15 10:30, 90 分钟) 参赛人数 1112
 
 - [3842. 切换灯泡开关](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README.md)
