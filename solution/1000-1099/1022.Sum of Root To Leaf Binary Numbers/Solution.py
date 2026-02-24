@@ -13,5 +13,5 @@ class Solution:
             if root.left == root.right:
                 return x
             return dfs(root.left, x) + dfs(root.right, x)
-        
+
         return dfs(root, 0)

@@ -3861,6 +3861,7 @@
 |  3848  |  [阶数数字排列](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README.md)  |    |  中等  |  第 490 场周赛  |
 |  3849  |  [重新排列后的最大按位异或值](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README.md)  |    |  中等  |  第 490 场周赛  |
 |  3850  |  [统计结果等于 K 的序列数目](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README.md)  |    |  困难  |  第 490 场周赛  |
+|  3851  |  [Maximum Requests Without Violating the Limit](/solution/3800-3899/3851.Maximum%20Requests%20Without%20Violating%20the%20Limit/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

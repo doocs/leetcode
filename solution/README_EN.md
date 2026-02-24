@@ -3859,6 +3859,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3848  |  [Check Digitorial Permutation](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README_EN.md)  |    |  Medium  |  Weekly Contest 490  |
 |  3849  |  [Maximum Bitwise XOR After Rearrangement](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md)  |    |  Medium  |  Weekly Contest 490  |
 |  3850  |  [Count Sequences to K](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 490  |
+|  3851  |  [Maximum Requests Without Violating the Limit](/solution/3800-3899/3851.Maximum%20Requests%20Without%20Violating%20the%20Limit/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
