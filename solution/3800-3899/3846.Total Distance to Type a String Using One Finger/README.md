@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3846.To
 
 <!-- problem:start -->
 
-# [3846. Total Distance to Type a String Using One Finger 🔒](https://leetcode.cn/problems/total-distance-to-type-a-string-using-one-finger)
+# [3846. 使用单指输入字符串的总距离 🔒](https://leetcode.cn/problems/total-distance-to-type-a-string-using-one-finger)
 
 [English Version](/solution/3800-3899/3846.Total%20Distance%20to%20Type%20a%20String%20Using%20One%20Finger/README_EN.md)
 
@@ -14,7 +14,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3846.To
 
 <!-- description:start -->
 
-There is a special keyboard where keys are arranged in a rectangular grid as follows.
+有一个特殊的键盘，其按键排列成如下矩形网格。
 
 <table style="border: 1px solid black;">
 	<tbody>
@@ -57,53 +57,55 @@ There is a special keyboard where keys are arranged in a rectangular grid as fol
 	</tbody>
 </table>
 
-<p>You are given a string <code>s</code> that consists of lowercase English letters only. Return an integer denoting the total <strong>distance</strong> to type <code>s</code> using only one finger. Your finger starts on the key <code>&#39;a&#39;</code>.</p>
+<p>给定一个只包含小写英文字母的字符串&nbsp;<code>s</code>。返回一个整数，表示使用仅一个手指输入字符串 <code>s</code> 的总距离。手指初始位置在字母键 <code>'a'</code> 上。</p>
 
-<p>The <strong>distance</strong> between two keys at <code>(r1, c1)</code> and <code>(r2, c2)</code> is <code>|r1 - r2| + |c1 - c2|</code>.</p>
+<p>两个位于&nbsp;<code>(r1, c1)</code> 和&nbsp;<code>(r2, c2)</code>&nbsp;的按键距离是&nbsp;<code>|r1 - r2| + |c1 - c2|</code>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;hello&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "hello"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">17</span></p>
+<p><span class="example-io"><b>输出：</b>17</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Your finger starts at <code>&#39;a&#39;</code>, which is at <code>(1, 0)</code>.</li>
-	<li>Move to <code>&#39;h&#39;</code>, which is at <code>(1, 5)</code>. The distance is <code>|1 - 1| + |0 - 5| = 5</code>.</li>
-	<li>Move to <code>&#39;e&#39;</code>, which is at <code>(0, 2)</code>. The distance is <code>|1 - 0| + |5 - 2| = 4</code>.</li>
-	<li>Move to <code>&#39;l&#39;</code>, which is at <code>(1, 8)</code>. The distance is <code>|0 - 1| + |2 - 8| = 7</code>.</li>
-	<li>Move to <code>&#39;l&#39;</code>, which is at <code>(1, 8)</code>. The distance is <code>|1 - 1| + |8 - 8| = 0</code>.</li>
-	<li>Move to <code>&#39;o&#39;</code>, which is at <code>(0, 8)</code>. The distance is <code>|1 - 0| + |8 - 8| = 1</code>.</li>
-	<li>Total distance is <code>5 + 4 + 7 + 0 + 1 = 17</code>.</li>
+	<li>你的手指从&nbsp;<code>'a'</code>&nbsp;开始，位于&nbsp;<code>(1, 0)</code>。</li>
+	<li>移动到&nbsp;<code>'h'</code>，位于&nbsp;<code>(1, 5)</code>。距离是&nbsp;<code>|1 - 1| + |0 - 5| = 5</code>。</li>
+	<li>移动到 <code>'e'</code>，位于&nbsp;<code>(0, 2)</code>。距离是&nbsp;<code>|1 - 0| + |5 - 2| = 4</code>。</li>
+	<li>移动到 <code>'l'</code>，位于&nbsp;<code>(1, 8)</code>。距离是&nbsp;<code>|0 - 1| + |2 - 8| = 7</code>。</li>
+	<li>移动到 <code>'l'</code>，位于&nbsp;<code>(1, 8)</code>。距离是&nbsp;<code>|1 - 1| + |8 - 8| = 0</code>。</li>
+	<li>移动到 <code>'o'</code>，位于&nbsp;<code>(0, 8)</code>。距离是&nbsp;<code>|1 - 0| + |8 - 8| = 1</code>。</li>
+	<li>总距离是&nbsp;<code>5 + 4 + 7 + 0 + 1 = 17</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">s = &quot;a&quot;</span></p>
+<p><span class="example-io"><b>输入：</b>s = "a"</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+<p><span class="example-io"><b>输出：</b>0</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>Your finger starts at <code>&#39;a&#39;</code>, which is at <code>(1, 0)</code>.</li>
-	<li>Move to <code>&#39;a&#39;</code>, which is at <code>(1, 0)</code>. The distance is <code>|1 - 1| + |0 - 0| = 0</code>.</li>
-	<li>Total distance is 0.</li>
+	<li>你的手指从&nbsp;<code>'a'</code>&nbsp;开始，位于&nbsp;<code>(1, 0)</code>。</li>
+	<li>移动到&nbsp;<code>'a'</code>，位于&nbsp;<code>(1, 0)</code>。距离是&nbsp;<code>|1 - 1| + |0 - 0| = 0</code>。</li>
+	<li>总距离为 0。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
-	<li><code>s</code> consists of lowercase English letters only.</li>
+	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
 <!-- description:end -->

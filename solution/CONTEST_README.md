@@ -35,7 +35,7 @@ comments: true
 
 #### 第 489 场周赛(2026-02-15 10:30, 90 分钟) 参赛人数 1112
 
-- [3842. 切换灯泡开关](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README.md)
+- [3842. 切换打开灯泡](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README.md)
 - [3843. 频率唯一的第一个元素](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README.md)
 - [3844. 最长的准回文子字符串](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README.md)
 - [3845. 最大子数组异或值](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README.md)

@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3851.Ma
 
 <!-- problem:start -->
 
-# [3851. Maximum Requests Without Violating the Limit 🔒](https://leetcode.cn/problems/maximum-requests-without-violating-the-limit)
+# [3851. 不违反限制的最大请求数 🔒](https://leetcode.cn/problems/maximum-requests-without-violating-the-limit)
 
 [English Version](/solution/3800-3899/3851.Maximum%20Requests%20Without%20Violating%20the%20Limit/README_EN.md)
 
@@ -14,68 +14,70 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3851.Ma
 
 <!-- description:start -->
 
-<p>You are given a 2D integer array <code>requests</code>, where <code>requests[i] = [user<sub>i</sub>, time<sub>i</sub>]</code> indicates that <code>user<sub>i</sub></code> made a request at <code>time<sub>i</sub></code>.</p>
+<p>给定一个二维整数数组&nbsp;<code>requests</code>，其中&nbsp;<code>requests[i] = [user<sub>i</sub>, time<sub>i</sub>]</code>&nbsp;表示&nbsp;<code>user<sub>i</sub></code>&nbsp;在 <code>time<sub>i</sub></code>&nbsp;进行了一次请求。</p>
 
-<p>You are also given two integers <code>k</code> and <code>window</code>.</p>
+<p>同时给定两个整数&nbsp;<code>k</code> 和&nbsp;<code>window</code>。</p>
 
-<p>A user violates the limit if there exists an integer <code>t</code> such that the user makes strictly more than <code>k</code> requests in the inclusive interval <code>[t, t + window]</code>.</p>
+<p>如果存在一个整数 <code>t</code>，使得用户在闭区间 <code>[t, t + window]</code> 内的请求次数严格大于&nbsp;<code>k</code>，则用户违反了限制。</p>
 
-<p>You may drop any number of requests.</p>
+<p>可以发送任意数量的请求。</p>
 
-<p>Return an integer denoting the <strong>maximum</strong>​​​​​​​ number of requests that can <strong>remain</strong> such that no user violates the limit.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">requests = [[1,1],[2,1],[1,7],[2,8]], k = 1, window = 4</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong>​​​​​​​</p>
-
-<ul>
-	<li>For user 1, the request times are <code>[1, 7]</code>. The difference between them is 6, which is greater than <code>window = 4</code>.</li>
-	<li>For user 2, the request times are <code>[1, 8]</code>. The difference is 7, which is also greater than <code>window = 4</code>.</li>
-	<li>No user makes more than <code>k = 1</code> request within any inclusive interval of length <code>window</code>. Therefore, all 4 requests can remain.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">requests = [[1,2],[1,5],[1,2],[1,6]], k = 2, window = 5</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
-
-<p><strong>Explanation:</strong>​​​​​​​</p>
-
-<ul>
-	<li>For user 1, the request times are <code>[2, 2, 5, 6]</code>. The inclusive interval <code>[2, 7]</code> of length <code>window = 5</code> contains all 4 requests.</li>
-	<li>Since 4 is strictly greater than <code>k = 2</code>, at least 2 requests must be removed.</li>
-	<li>After removing any 2 requests, every inclusive interval of length <code>window</code> contains at most <code>k = 2</code> requests.</li>
-	<li>Therefore, the maximum number of requests that can remain is 2.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">requests = [[1,1],[2,5],[1,2],[3,9]], k = 1, window = 1</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>For user 1, the request times are <code>[1, 2]</code>. The difference is 1, which is equal to <code>window = 1</code>.</li>
-	<li>The inclusive interval <code>[1, 2]</code> contains both requests, so the count is 2, which exceeds <code>k = 1</code>. One request must be removed.</li>
-	<li>Users 2 and 3 each have only one request and do not violate the limit. Therefore, the maximum number of requests that can remain is 3.</li>
-</ul>
-</div>
+<p>返回一个整数，表示没有用户违反限制的可 <strong>保留</strong> 的&nbsp;<strong>最大</strong> 请求数。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>requests = [[1,1],[2,1],[1,7],[2,8]], k = 1, window = 4</span></p>
+
+<p><span class="example-io"><b>输出：</b>4</span></p>
+
+<p><b>解释：</b></p>
+
+<ul>
+	<li>对于用户 1，请求时间是&nbsp;<code>[1, 7]</code>。它们的差是 6，这大于 <code>window = 4</code>。</li>
+	<li>对于用户 2，请求时间是&nbsp;<code>[1, 8]</code>。它们的差是 7，这同样大于&nbsp;<code>window = 4</code>。</li>
+	<li>任何&nbsp;<code>window</code> 长度的闭区间内，用户发出的请求数不超过 <code>k = 1</code>，因此所有 4 个请求都可以保留。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>requests = [[1,2],[1,5],[1,2],[1,6]], k = 2, window = 5</span></p>
+
+<p><span class="example-io"><b>输出：</b>2</span></p>
+
+<p><b>解释：</b></p>
+
+<ul>
+	<li>对于用户 1，请求时间是&nbsp;<code>[2, 2, 5, 6]</code>。长度为&nbsp;<code>window = 5</code>&nbsp;的闭区间&nbsp;<code>[2, 7]</code>&nbsp;包含所有 4 个请求。</li>
+	<li>由于 4 严格大于&nbsp;<code>k = 2</code>，必须至少移除 2 个请求。</li>
+	<li>在移除任意 2 个请求后，长度为&nbsp;<code>window</code> 的每个闭区间包含最多 <code>k = 2</code>&nbsp;个请求。</li>
+	<li>因此，最多可以保留的请求数是 2。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>requests = [[1,1],[2,5],[1,2],[3,9]], k = 1, window = 1</span></p>
+
+<p><span class="example-io"><b>输出：</b>3</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>对于用户 1，请求时间是&nbsp;<code>[1, 2]</code>。差值为 1，这等于&nbsp;<code>window = 1</code>。</li>
+	<li>闭区间&nbsp;<code>[1, 2]</code>&nbsp;同时包含这两个请求，所以计数为 2，超过了&nbsp;<code>k = 1</code>。必须移除一个请求。</li>
+	<li>用户 2 和用户 3 各自只有一条请求，且均未超出限制。因此，最多可以保留的请求数是 3。</li>
+</ul>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= requests.length &lt;= 10<sup>5</sup></code></li>

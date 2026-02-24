@@ -111,9 +111,7 @@ public:
 ```go
 func minPartitions(n string) (ans int) {
 	for _, c := range n {
-		if t := int(c - '0'); ans < t {
-			ans = t
-		}
+		ans = max(ans, int(c-'0'))
 	}
 	return
 }
@@ -123,7 +121,7 @@ func minPartitions(n string) (ans int) {
 
 ```ts
 function minPartitions(n: string): number {
-    return Math.max(...n.split('').map(d => parseInt(d)));
+    return Math.max(...n.split('').map(Number));
 }
 ```
 
@@ -132,11 +130,7 @@ function minPartitions(n: string): number {
 ```rust
 impl Solution {
     pub fn min_partitions(n: String) -> i32 {
-        let mut ans = 0;
-        for c in n.as_bytes() {
-            ans = ans.max((c - b'0') as i32);
-        }
-        ans
+        n.as_bytes().iter().fold(0, |ans, &c| ans.max((c - b'0') as i32))
     }
 }
 ```

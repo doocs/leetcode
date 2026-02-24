@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> stones = [5,3,1,4,2]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - Alice removes 2 and gets 5 + 3 + 1 + 4 = 13 points. Alice = 13, Bob = 0, stones = [5,3,1,4].
 - Bob removes 5 and gets 3 + 1 + 4 = 8 points. Alice = 13, Bob = 8, stones = [3,1,4].
 - Alice removes 3 and gets 1 + 4 = 5 points. Alice = 18, Bob = 8, stones = [1,4].
@@ -139,14 +139,12 @@ class Solution {
 public:
     int stoneGameVII(vector<int>& stones) {
         int n = stones.size();
-        int f[n][n];
-        memset(f, 0, sizeof f);
-        int s[n + 1];
-        s[0] = 0;
+        vector<vector<int>> f(n, vector<int>(n));
+        vector<int> s(n + 1);
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + stones[i];
         }
-        function<int(int, int)> dfs = [&](int i, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i > j) {
                 return 0;
             }
@@ -285,13 +283,11 @@ class Solution {
 public:
     int stoneGameVII(vector<int>& stones) {
         int n = stones.size();
-        int s[n + 1];
-        memset(s, 0, sizeof(s));
+        vector<int> s(n + 1);
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + stones[i];
         }
-        int f[n][n];
-        memset(f, 0, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n));
         for (int i = n - 2; i >= 0; --i) {
             for (int j = i + 1; j < n; ++j) {
                 int a = s[j + 1] - s[i + 1] - f[i + 1][j];

@@ -8,7 +8,7 @@ source: 第 489 场周赛 Q1
 
 <!-- problem:start -->
 
-# [3842. 切换灯泡开关](https://leetcode.cn/problems/toggle-light-bulbs)
+# [3842. 切换打开灯泡](https://leetcode.cn/problems/toggle-light-bulbs)
 
 [English Version](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md)
 
