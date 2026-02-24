@@ -120,12 +120,12 @@ class Solution {
 class Solution {
 public:
     vector<int> sortByBits(vector<int>& arr) {
-        for (int& v : arr) {
-            v += __builtin_popcount(v) * 100000;
+        for (int& x : arr) {
+            x += __builtin_popcount(x) * 100000;
         }
-        sort(arr.begin(), arr.end());
-        for (int& v : arr) {
-            v %= 100000;
+        ranges::sort(arr);
+        for (int& x : arr) {
+            x %= 100000;
         }
         return arr;
     }
@@ -151,15 +151,28 @@ func sortByBits(arr []int) []int {
 
 ```ts
 function sortByBits(arr: number[]): number[] {
-    const countOnes = (n: number) => {
-        let res = 0;
-        while (n) {
-            n &= n - 1;
-            res++;
-        }
-        return res;
-    };
-    return arr.sort((a, b) => countOnes(a) - countOnes(b) || a - b);
+    const n = arr.length;
+
+    for (let i = 0; i < n; ++i) {
+        arr[i] += bitCount(arr[i]) * 100000;
+    }
+
+    arr.sort((a, b) => a - b);
+
+    for (let i = 0; i < n; ++i) {
+        arr[i] %= 100000;
+    }
+
+    return arr;
+}
+
+function bitCount(i: number): number {
+    i = i - ((i >>> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >>> 2) & 0x33333333);
+    i = (i + (i >>> 4)) & 0x0f0f0f0f;
+    i = i + (i >>> 8);
+    i = i + (i >>> 16);
+    return i & 0x3f;
 }
 ```
 
@@ -168,13 +181,18 @@ function sortByBits(arr: number[]): number[] {
 ```rust
 impl Solution {
     pub fn sort_by_bits(mut arr: Vec<i32>) -> Vec<i32> {
-        arr.sort_by(|a, b| {
-            let res = a.count_ones().cmp(&b.count_ones());
-            if res == std::cmp::Ordering::Equal {
-                return a.cmp(&b);
-            }
-            res
-        });
+        let n = arr.len();
+
+        for i in 0..n {
+            arr[i] += arr[i].count_ones() as i32 * 100000;
+        }
+
+        arr.sort();
+
+        for i in 0..n {
+            arr[i] %= 100000;
+        }
+
         arr
     }
 }
@@ -183,91 +201,46 @@ impl Solution {
 #### C
 
 ```c
+static int bitCount(int x) {
+    int cnt = 0;
+    while (x) {
+        x &= (x - 1);
+        ++cnt;
+    }
+    return cnt;
+}
+
+static int cmp(const void* a, const void* b) {
+    int x = *(const int*) a;
+    int y = *(const int*) b;
+
+    int cx = bitCount(x);
+    int cy = bitCount(y);
+
+    if (cx != cy) {
+        return cx - cy;
+    }
+    return x - y;
+}
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int countOnes(int n) {
-    int res = 0;
-    while (n) {
-        n &= n - 1;
-        res++;
-    }
-    return res;
-}
-
-int cmp(const void* _a, const void* _b) {
-    int a = *(int*) _a;
-    int b = *(int*) _b;
-    int res = countOnes(a) - countOnes(b);
-    if (res == 0) {
-        return a - b;
-    }
-    return res;
-}
-
 int* sortByBits(int* arr, int arrSize, int* returnSize) {
-    qsort(arr, arrSize, sizeof(int), cmp);
     *returnSize = arrSize;
-    return arr;
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-    public int[] sortByBits(int[] arr) {
-        int n = arr.length;
-        Integer[] t = new Integer[n];
-        for (int i = 0; i < n; ++i) {
-            t[i] = arr[i];
-        }
-        Arrays.sort(t, (a, b) -> {
-            int x = Integer.bitCount(a), y = Integer.bitCount(b);
-            return x == y ? a - b : x - y;
-        });
-        for (int i = 0; i < n; ++i) {
-            arr[i] = t[i];
-        }
-        return arr;
+    int* res = (int*) malloc(sizeof(int) * arrSize);
+    if (!res) {
+        return NULL;
     }
-}
-```
 
-#### C++
-
-```cpp
-class Solution {
-public:
-    vector<int> sortByBits(vector<int>& arr) {
-        sort(arr.begin(), arr.end(), [&](auto& a, auto& b) -> bool {
-            int x = __builtin_popcount(a), y = __builtin_popcount(b);
-            return x < y || (x == y && a < b);
-        });
-        return arr;
+    for (int i = 0; i < arrSize; ++i) {
+        res[i] = arr[i];
     }
-};
-```
 
-#### Go
+    qsort(res, arrSize, sizeof(int), cmp);
 
-```go
-func sortByBits(arr []int) []int {
-	sort.Slice(arr, func(i, j int) bool {
-		a, b := bits.OnesCount(uint(arr[i])), bits.OnesCount(uint(arr[j]))
-		return a < b || (a == b && arr[i] < arr[j])
-	})
-	return arr
+    return res;
 }
 ```
 
