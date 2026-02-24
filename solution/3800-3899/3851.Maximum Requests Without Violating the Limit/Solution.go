@@ -1,28 +1,23 @@
-func maxRequests(requests [][]int, k int, window int) (ans int) {
+func maxRequests(requests [][]int, k int, window int) int {
 	g := make(map[int][]int)
 	for _, r := range requests {
 		u, t := r[0], r[1]
 		g[u] = append(g[u], t)
 	}
+	ans := len(requests)
 	for _, ts := range g {
 		sort.Ints(ts)
-
 		kept := make([]int, 0)
-		head := 0
-		deletions := 0
-
 		for _, t := range ts {
-			for head < len(kept) && t-kept[head] > window {
-				head++
+			for len(kept) > 0 && t-kept[0] > window {
+				kept = kept[1:]
 			}
-			kept = append(kept, t)
-			if len(kept)-head > k {
-				kept = kept[:len(kept)-1]
-				deletions++
+			if len(kept) < k {
+				kept = append(kept, t)
+			} else {
+				ans--
 			}
 		}
-
-		ans += len(ts) - deletions
 	}
-	return
+	return ans
 }

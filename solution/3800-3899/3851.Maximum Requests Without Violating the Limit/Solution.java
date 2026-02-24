@@ -6,25 +6,22 @@ class Solution {
             g.computeIfAbsent(u, x -> new ArrayList<>()).add(t);
         }
 
-        int ans = 0;
+        int ans = requests.length;
         ArrayDeque<Integer> kept = new ArrayDeque<>();
 
         for (List<Integer> ts : g.values()) {
             Collections.sort(ts);
             kept.clear();
-            int deletions = 0;
-
             for (int t : ts) {
                 while (!kept.isEmpty() && t - kept.peekFirst() > window) {
                     kept.pollFirst();
                 }
-                kept.addLast(t);
-                if (kept.size() > k) {
-                    kept.pollLast();
-                    deletions++;
+                if (kept.size() < k) {
+                    kept.addLast(t);
+                } else {
+                    --ans;
                 }
             }
-            ans += ts.size() - deletions;
         }
         return ans;
     }

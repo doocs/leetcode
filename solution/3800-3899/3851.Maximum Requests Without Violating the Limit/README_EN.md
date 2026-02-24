@@ -94,7 +94,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3851.Ma
 
 We can group the requests by user and store them in a hash table $g$, where $g[u]$ is the list of request times for user $u$. For each user, we need to remove some requests from the request time list so that within any interval of length $window$, the number of remaining requests does not exceed $k$.
 
-For the request time list $g[u]$ of user $u$, we first sort it. Then, we use a deque $kept$ to maintain the currently kept request times. We iterate through each request time $t$ in the request time list. For each request time, we need to remove all request times from $kept$ whose difference from $t$ is greater than $window$. Then, we add $t$ to $kept$. If at this point the number of requests in $kept$ exceeds $k$, we need to remove the last request time from $kept$ and increase the count of deleted requests. Finally, we subtract the number of deleted requests from the total number of requests for user $u$ and add it to the answer.
+We initialize the answer $\textit{ans}$ to the total number of requests.
+
+For the request time list $g[u]$ of user $u$, we first sort it. Then, we use a deque $kept$ to maintain the currently kept request times. We iterate through each request time $t$ in the request time list. For each request time, we need to remove all request times from $kept$ whose difference from $t$ is greater than $window$. Then, if the number of remaining requests in $kept$ is less than $k$, we add $t$ to $kept$; otherwise, we need to remove $t$ and decrement the answer by 1.
+
+Finally, return the answer $\textit{ans}$.
 
 The time complexity is $O(n \log n)$ and the space complexity is $O(n)$, where $n$ is the number of requests. Each request is visited once, sorting takes $O(n \log n)$ time, and the operations on the hash table and deque take $O(n)$ time.
 
@@ -108,19 +112,17 @@ class Solution:
         g = defaultdict(list)
         for u, t in requests:
             g[u].append(t)
-        ans = 0
+        ans = len(requests)
         for ts in g.values():
             ts.sort()
             kept = deque()
-            deletions = 0
             for t in ts:
                 while kept and t - kept[0] > window:
                     kept.popleft()
-                kept.append(t)
-                if len(kept) > k:
-                    kept.pop()
-                    deletions += 1
-            ans += len(ts) - deletions
+                if len(kept) < k:
+                    kept.append(t)
+                else:
+                    ans -= 1
         return ans
 ```
 
@@ -135,25 +137,22 @@ class Solution {
             g.computeIfAbsent(u, x -> new ArrayList<>()).add(t);
         }
 
-        int ans = 0;
+        int ans = requests.length;
         ArrayDeque<Integer> kept = new ArrayDeque<>();
 
         for (List<Integer> ts : g.values()) {
             Collections.sort(ts);
             kept.clear();
-            int deletions = 0;
-
             for (int t : ts) {
                 while (!kept.isEmpty() && t - kept.peekFirst() > window) {
                     kept.pollFirst();
                 }
-                kept.addLast(t);
-                if (kept.size() > k) {
-                    kept.pollLast();
-                    deletions++;
+                if (kept.size() < k) {
+                    kept.addLast(t);
+                } else {
+                    --ans;
                 }
             }
-            ans += ts.size() - deletions;
         }
         return ans;
     }
@@ -167,31 +166,26 @@ class Solution {
 public:
     int maxRequests(vector<vector<int>>& requests, int k, int window) {
         unordered_map<int, vector<int>> g;
-        g.reserve(requests.size() * 2);
-
         for (auto& r : requests) {
             g[r[0]].push_back(r[1]);
         }
 
-        int ans = 0;
-        deque<int> kept;
-
+        int ans = requests.size();
         for (auto& [_, ts] : g) {
             sort(ts.begin(), ts.end());
-            kept.clear();
+            queue<int> kept;
             int deletions = 0;
 
             for (int t : ts) {
                 while (!kept.empty() && t - kept.front() > window) {
-                    kept.pop_front();
+                    kept.pop();
                 }
-                kept.push_back(t);
-                if (kept.size() > k) {
-                    kept.pop_back();
-                    deletions++;
+                if (kept.size() < k) {
+                    kept.push(t);
+                } else {
+                    ans--;
                 }
             }
-            ans += ts.size() - deletions;
         }
         return ans;
     }
@@ -201,33 +195,28 @@ public:
 #### Go
 
 ```go
-func maxRequests(requests [][]int, k int, window int) (ans int) {
+func maxRequests(requests [][]int, k int, window int) int {
 	g := make(map[int][]int)
 	for _, r := range requests {
 		u, t := r[0], r[1]
 		g[u] = append(g[u], t)
 	}
+	ans := len(requests)
 	for _, ts := range g {
 		sort.Ints(ts)
-
 		kept := make([]int, 0)
-		head := 0
-		deletions := 0
-
 		for _, t := range ts {
-			for head < len(kept) && t-kept[head] > window {
-				head++
+			for len(kept) > 0 && t-kept[0] > window {
+				kept = kept[1:]
 			}
-			kept = append(kept, t)
-			if len(kept)-head > k {
-				kept = kept[:len(kept)-1]
-				deletions++
+			if len(kept) < k {
+				kept = append(kept, t)
+			} else {
+				ans--
 			}
 		}
-
-		ans += len(ts) - deletions
 	}
-	return
+	return ans
 }
 ```
 
@@ -240,29 +229,66 @@ function maxRequests(requests: number[][], k: number, window: number): number {
         if (!g.has(u)) g.set(u, []);
         g.get(u)!.push(t);
     }
-
-    let ans = 0;
-
+    let ans = requests.length;
     for (const ts of g.values()) {
         ts.sort((a, b) => a - b);
-
         const kept: number[] = [];
         let head = 0;
-        let deletions = 0;
-
         for (const t of ts) {
-            while (head < kept.length && t - kept[head] > window) head++;
-            kept.push(t);
-            if (kept.length - head > k) {
-                kept.pop();
-                deletions++;
+            while (head < kept.length && t - kept[head] > window) {
+                head++;
+            }
+            if (kept.length - head < k) {
+                kept.push(t);
+            } else {
+                --ans;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashMap, VecDeque};
+
+impl Solution {
+    pub fn max_requests(requests: Vec<Vec<i32>>, k: i32, window: i32) -> i32 {
+        let mut g: HashMap<i32, Vec<i32>> = HashMap::new();
+        for r in &requests {
+            let u: i32 = r[0];
+            let t: i32 = r[1];
+            g.entry(u).or_insert_with(Vec::new).push(t);
+        }
+
+        let mut ans: i32 = requests.len() as i32;
+        let mut kept: VecDeque<i32> = VecDeque::new();
+
+        for ts in g.values_mut() {
+            ts.sort();
+            kept.clear();
+
+            for &t in ts.iter() {
+                while let Some(&front) = kept.front() {
+                    if t - front > window {
+                        kept.pop_front();
+                    } else {
+                        break;
+                    }
+                }
+
+                if kept.len() < k as usize {
+                    kept.push_back(t);
+                } else {
+                    ans -= 1;
+                }
             }
         }
 
-        ans += ts.length - deletions;
+        ans
     }
-
-    return ans;
 }
 ```
 
