@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README_EN.md
 rating: 1428
 source: Weekly Contest 488 Q2
+tags:
+    - Stack
+    - Array
+    - Simulation
 ---
 
 <!-- problem:start -->

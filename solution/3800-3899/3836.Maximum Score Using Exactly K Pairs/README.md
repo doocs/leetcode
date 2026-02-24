@@ -4,6 +4,9 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README.md
 rating: 1987
 source: 第 488 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

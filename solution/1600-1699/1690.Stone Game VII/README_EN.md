@@ -35,7 +35,7 @@ tags:
 <pre>
 <strong>Input:</strong> stones = [5,3,1,4,2]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 - Alice removes 2 and gets 5 + 3 + 1 + 4 = 13 points. Alice = 13, Bob = 0, stones = [5,3,1,4].
 - Bob removes 5 and gets 3 + 1 + 4 = 8 points. Alice = 13, Bob = 8, stones = [3,1,4].
 - Alice removes 3 and gets 1 + 4 = 5 points. Alice = 18, Bob = 8, stones = [1,4].

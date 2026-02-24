@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README_EN.md
 rating: 1347
 source: Weekly Contest 489 Q2
+tags:
+    - Array
+    - Hash Table
+    - Counting
 ---
 
 <!-- problem:start -->

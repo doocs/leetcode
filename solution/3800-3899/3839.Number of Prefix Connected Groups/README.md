@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README.md
 rating: 1401
 source: 第 176 场双周赛 Q2
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->

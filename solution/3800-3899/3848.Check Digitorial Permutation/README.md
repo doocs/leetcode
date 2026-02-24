@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README.md
+tags:
+    - 数学
+    - 计数
 ---
 
 <!-- problem:start -->

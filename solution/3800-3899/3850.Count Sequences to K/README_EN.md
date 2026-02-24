@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md
+tags:
+    - Memoization
+    - Array
+    - Math
+    - Dynamic Programming
+    - Number Theory
 ---
 
 <!-- problem:start -->

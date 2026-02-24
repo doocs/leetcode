@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README_EN.md
 rating: 1989
 source: Weekly Contest 489 Q3
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

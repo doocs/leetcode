@@ -4,6 +4,11 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README.md
 rating: 1160
 source: 第 489 场周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 排序
+    - 模拟
 ---
 
 <!-- problem:start -->

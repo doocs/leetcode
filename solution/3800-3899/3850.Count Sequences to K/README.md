@@ -2,6 +2,12 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3850.Count%20Sequences%20to%20K/README.md
+tags:
+    - 记忆化
+    - 数组
+    - 数学
+    - 动态规划
+    - 数论
 ---
 
 <!-- problem:start -->

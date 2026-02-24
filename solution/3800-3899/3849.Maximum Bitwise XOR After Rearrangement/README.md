@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README.md
+tags:
+    - 贪心
+    - 位运算
+    - 字符串
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README_EN.md
+tags:
+    - Array
+    - Simulation
 ---
 
 <!-- problem:start -->

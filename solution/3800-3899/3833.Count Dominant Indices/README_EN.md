@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3833.Count%20Dominant%20Indices/README_EN.md
 rating: 1171
 source: Weekly Contest 488 Q1
+tags:
+    - Array
+    - Enumeration
 ---
 
 <!-- problem:start -->

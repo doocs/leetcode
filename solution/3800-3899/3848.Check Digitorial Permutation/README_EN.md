@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README_EN.md
+tags:
+    - Math
+    - Counting
 ---
 
 <!-- problem:start -->
