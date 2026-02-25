@@ -3,16 +3,11 @@ class Solution:
         seen = []
         ans = []
         k = 0
-        
-        for num in nums:
-            if num == -1:
+        for x in nums:
+            if x == -1:
                 k += 1
-                if k <= len(seen):
-                    ans.append(seen[-k])
-                else:
-                    ans.append(-1)
+                ans.append(-1 if k > len(seen) else seen[-k])
             else:
-                seen.append(num)
                 k = 0
-                
+                seen.append(x)
         return ans
