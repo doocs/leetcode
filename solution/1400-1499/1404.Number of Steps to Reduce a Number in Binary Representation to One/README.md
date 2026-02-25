@@ -44,9 +44,9 @@ tags:
 Step 1) 13 是奇数，加 1 得到 14&nbsp;
 Step 2) 14 是偶数，除 2 得到 7
 Step 3) 7  是奇数，加 1 得到 8
-Step 4) 8  是偶数，除 2 得到 4&nbsp; 
+Step 4) 8  是偶数，除 2 得到 4&nbsp;
 Step 5) 4  是偶数，除 2 得到 2&nbsp;
-Step 6) 2  是偶数，除 2 得到 1&nbsp; 
+Step 6) 2  是偶数，除 2 得到 1&nbsp;
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -55,7 +55,7 @@ Step 6) 2  是偶数，除 2 得到 1&nbsp;
 <strong>输入：</strong>s = "10"
 <strong>输出：</strong>1
 <strong>解释：</strong>"10" 表示十进制数 2 。
-Step 1) 2 是偶数，除 2 得到 1 
+Step 1) 2 是偶数，除 2 得到 1
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -81,9 +81,17 @@ Step 1) 2 是偶数，除 2 得到 1
 
 <!-- solution:start -->
 
-### 方法一：模拟操作
+### 方法一：模拟
 
-我们模拟操作 $1$ 和 $2$，同时用 carry 记录进位。
+我们模拟操作 $1$ 和 $2$，同时维护一个进位 $\textit{carry}$ 来表示当前是否有进位，初始时 $\textit{carry} = \text{false}$。
+
+我们从字符串 $s$ 的末尾开始向前遍历：
+
+- 如果 $\textit{carry}$ 为 $\text{true}$，则当前位 $c$ 需要加 $1$，如果 $c$ 是 $0$，则加 $1$ 后变为 $1$，同时 $\textit{carry}$ 变为 $\text{false}$；如果 $c$ 是 $1$，则加 $1$ 后变为 $0$，同时 $\textit{carry}$ 保持为 $\text{true}$。
+- 如果 $c$ 是 $1$，则需要执行操作 $1$，即加 $1$，同时 $\textit{carry}$ 变为 $\text{true}$。
+- 此时 $c$ 是 $0$，则需要执行操作 $2$，即除以 $2$。
+
+当遍历结束后，如果 $\textit{carry}$ 仍然为 $\text{true}$，则需要再执行一次操作 $1$。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
@@ -198,6 +206,79 @@ func numSteps(s string) int {
 		ans++
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function numSteps(s: string): number {
+    let ans = 0;
+    let carry = false;
+
+    for (let i = s.length - 1; i > 0; i--) {
+        let c = s[i];
+
+        if (carry) {
+            if (c === '0') {
+                c = '1';
+                carry = false;
+            } else {
+                c = '0';
+            }
+        }
+
+        if (c === '1') {
+            ans++;
+            carry = true;
+        }
+
+        ans++;
+    }
+
+    if (carry) {
+        ans++;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_steps(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let mut ans: i32 = 0;
+        let mut carry = false;
+
+        for i in (1..bytes.len()).rev() {
+            let mut c = bytes[i];
+
+            if carry {
+                if c == b'0' {
+                    c = b'1';
+                    carry = false;
+                } else {
+                    c = b'0';
+                }
+            }
+
+            if c == b'1' {
+                ans += 1;
+                carry = true;
+            }
+
+            ans += 1;
+        }
+
+        if carry {
+            ans += 1;
+        }
+
+        ans
+    }
 }
 ```
 

@@ -43,9 +43,9 @@ tags:
 Step 1) 13 is odd, add 1 and obtain 14.&nbsp;
 Step 2) 14 is even, divide by 2 and obtain 7.
 Step 3) 7 is odd, add 1 and obtain 8.
-Step 4) 8 is even, divide by 2 and obtain 4.&nbsp; 
+Step 4) 8 is even, divide by 2 and obtain 4.&nbsp;
 Step 5) 4 is even, divide by 2 and obtain 2.&nbsp;
-Step 6) 2 is even, divide by 2 and obtain 1.&nbsp; 
+Step 6) 2 is even, divide by 2 and obtain 1.&nbsp;
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -54,7 +54,7 @@ Step 6) 2 is even, divide by 2 and obtain 1.&nbsp;
 <strong>Input:</strong> s = &quot;10&quot;
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> &quot;10&quot; corresponds to number 2 in their decimal representation.
-Step 1) 2 is even, divide by 2 and obtain 1.&nbsp; 
+Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -81,7 +81,15 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 
 ### Solution 1: Simulation
 
-We simulate operations $1$ and $2$, while using `carry` to record the carry-over.
+We simulate operations $1$ and $2$, while maintaining a carry $\textit{carry}$ to indicate whether there is a current carry. Initially, $\textit{carry} = \text{false}$.
+
+We traverse the string $s$ from the end toward the beginning:
+
+- If $\textit{carry}$ is $\text{true}$, the current bit $c$ needs to be incremented by $1$. If $c$ is $0$, it becomes $1$ after adding $1$, and $\textit{carry}$ becomes $\text{false}$; if $c$ is $1$, it becomes $0$ after adding $1$, and $\textit{carry}$ remains $\text{true}$.
+- If $c$ is $1$, we need to perform operation $1$, i.e., add $1$, and $\textit{carry}$ becomes $\text{true}$.
+- At this point $c$ is $0$, so we need to perform operation $2$, i.e., divide by $2$.
+
+After the traversal, if $\textit{carry}$ is still $\text{true}$, we need to perform operation $1$ one more time.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
@@ -196,6 +204,79 @@ func numSteps(s string) int {
 		ans++
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function numSteps(s: string): number {
+    let ans = 0;
+    let carry = false;
+
+    for (let i = s.length - 1; i > 0; i--) {
+        let c = s[i];
+
+        if (carry) {
+            if (c === '0') {
+                c = '1';
+                carry = false;
+            } else {
+                c = '0';
+            }
+        }
+
+        if (c === '1') {
+            ans++;
+            carry = true;
+        }
+
+        ans++;
+    }
+
+    if (carry) {
+        ans++;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_steps(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let mut ans: i32 = 0;
+        let mut carry = false;
+
+        for i in (1..bytes.len()).rev() {
+            let mut c = bytes[i];
+
+            if carry {
+                if c == b'0' {
+                    c = b'1';
+                    carry = false;
+                } else {
+                    c = b'0';
+                }
+            }
+
+            if c == b'1' {
+                ans += 1;
+                carry = true;
+            }
+
+            ans += 1;
+        }
+
+        if carry {
+            ans += 1;
+        }
+
+        ans
+    }
 }
 ```
 
