@@ -64,7 +64,7 @@ tags:
 
 ### 方法一：位运算
 
-观察数字的连接规律，我们可以发现，当连接到第 $i$ 个数时，实际上是将前 $i-1$ 个数连接而成的结果 $ans$ 往左移动一定的位数，然后再加上 $i$ 这个数，移动的位数 $shift$ 是 $i$ 中二进制的位数。由于 $i$ 在不断加 $1$，移动的位数要么与上一次移动的位数保持不变，要么加一。当 $i$ 为 $2$ 的幂次方的时候，也即是说 $i$ 的二进制数中只有一位是 $1$ 时，移动的位数相比于上次加 $1$。
+观察数字的连接规律，我们可以发现，当连接到第 $i$ 个数时，实际上是将前 $i-1$ 个数连接而成的结果 $ans$ 往左移动一定的位数，然后再加上 $i$ 这个数，移动的位数是 $i$ 中二进制的位数。
 
 时间复杂度 $O(n)$，其中 $n$ 为给定的整数。空间复杂度 $O(1)$。
 
@@ -104,7 +104,7 @@ class Solution {
 public:
     int concatenatedBinary(int n) {
         const int mod = 1e9 + 7;
-        long ans = 0;
+        long long ans = 0;
         for (int i = 1; i <= n; ++i) {
             ans = (ans << (32 - __builtin_clz(i)) | i) % mod;
         }
@@ -129,16 +129,28 @@ func concatenatedBinary(n int) (ans int) {
 
 ```ts
 function concatenatedBinary(n: number): number {
-    const mod = BigInt(10 ** 9 + 7);
-    let ans = 0n;
-    let shift = 0n;
-    for (let i = 1n; i <= n; ++i) {
-        if ((i & (i - 1n)) == 0n) {
-            ++shift;
-        }
-        ans = ((ans << shift) | i) % mod;
+    const mod = 1_000_000_007;
+    let ans = 0;
+    for (let i = 1; i <= n; i++) {
+        ans = ((ans * (1 << (32 - Math.clz32(i)))) % mod + i) % mod;
     }
-    return Number(ans);
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn concatenated_binary(n: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+        let mut ans: i64 = 0;
+        for i in 1..=n as i64 {
+            let bit_length: u32 = 64 - i.leading_zeros() as u32;
+            ans = ((ans << bit_length) | i) % mod_;
+        }
+        ans as i32
+    }
 }
 ```
 
@@ -148,7 +160,11 @@ function concatenatedBinary(n: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：位运算（优化）
+
+在方法一中，我们每次都需要计算 $i$ 的二进制位数，这样会增加一些额外的计算。我们可以通过一个变量 $\textit{shift}$ 来记录当前需要移动的位数，当 $i$ 是 $2$ 的幂时，$\textit{shift}$ 需要增加 $1$。
+
+时间复杂度 $O(n)$，其中 $n$ 为给定的整数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -218,6 +234,42 @@ func concatenatedBinary(n int) (ans int) {
 		ans = (ans<<shift | i) % mod
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function concatenatedBinary(n: number): number {
+    const mod = 1_000_000_007;
+    let ans = 0;
+    let shift = 0;
+    for (let i = 1; i <= n; i++) {
+        if ((i & (i - 1)) === 0) {
+            shift++;
+        }
+        ans = ((ans * (1 << shift)) % mod + i) % mod;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn concatenated_binary(n: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+        let mut ans: i64 = 0;
+        let mut shift: u32 = 0;
+        for i in 1..=n as i64 {
+            if (i & (i - 1)) == 0 {
+                shift += 1;
+            }
+            ans = ((ans << shift) | i) % mod_;
+        }
+        ans as i32
+    }
 }
 ```
 

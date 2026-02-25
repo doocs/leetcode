@@ -28,7 +28,7 @@ tags:
 <pre>
 <strong>Input:</strong> n = 1
 <strong>Output:</strong> 1
-<strong>Explanation: </strong>&quot;1&quot; in binary corresponds to the decimal value 1. 
+<strong>Explanation: </strong>&quot;1&quot; in binary corresponds to the decimal value 1.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -65,7 +65,7 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 
 ### Solution 1: Bit Manipulation
 
-By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted, $shift$, is the number of binary digits in $i$. Since $i$ is continuously incremented by $1$, the number of bits shifted either remains the same as the last shift or increases by one. When $i$ is a power of $2$, that is, when there is only one bit in the binary number of $i$ that is $1$, the number of bits shifted increases by $1$ compared to the last time.
+By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted is the number of binary digits in $i$.
 
 The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
 
@@ -105,7 +105,7 @@ class Solution {
 public:
     int concatenatedBinary(int n) {
         const int mod = 1e9 + 7;
-        long ans = 0;
+        long long ans = 0;
         for (int i = 1; i <= n; ++i) {
             ans = (ans << (32 - __builtin_clz(i)) | i) % mod;
         }
@@ -130,16 +130,28 @@ func concatenatedBinary(n int) (ans int) {
 
 ```ts
 function concatenatedBinary(n: number): number {
-    const mod = BigInt(10 ** 9 + 7);
-    let ans = 0n;
-    let shift = 0n;
-    for (let i = 1n; i <= n; ++i) {
-        if ((i & (i - 1n)) == 0n) {
-            ++shift;
-        }
-        ans = ((ans << shift) | i) % mod;
+    const mod = 1_000_000_007;
+    let ans = 0;
+    for (let i = 1; i <= n; i++) {
+        ans = ((ans * (1 << (32 - Math.clz32(i)))) % mod + i) % mod;
     }
-    return Number(ans);
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn concatenated_binary(n: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+        let mut ans: i64 = 0;
+        for i in 1..=n as i64 {
+            let bit_length: u32 = 64 - i.leading_zeros() as u32;
+            ans = ((ans << bit_length) | i) % mod_;
+        }
+        ans as i32
+    }
 }
 ```
 
@@ -149,7 +161,11 @@ function concatenatedBinary(n: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bit Manipulation (Optimization)
+
+In Solution 1, we need to calculate the number of binary digits of $i$ each time, which adds some extra computation. We can use a variable $\textit{shift}$ to record the current number of bits to shift. When $i$ is a power of $2$, $\textit{shift}$ needs to be incremented by $1$.
+
+The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -219,6 +235,42 @@ func concatenatedBinary(n int) (ans int) {
 		ans = (ans<<shift | i) % mod
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function concatenatedBinary(n: number): number {
+    const mod = 1_000_000_007;
+    let ans = 0;
+    let shift = 0;
+    for (let i = 1; i <= n; i++) {
+        if ((i & (i - 1)) === 0) {
+            shift++;
+        }
+        ans = ((ans * (1 << shift)) % mod + i) % mod;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn concatenated_binary(n: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+        let mut ans: i64 = 0;
+        let mut shift: u32 = 0;
+        for i in 1..=n as i64 {
+            if (i & (i - 1)) == 0 {
+                shift += 1;
+            }
+            ans = ((ans << shift) | i) % mod_;
+        }
+        ans as i32
+    }
 }
 ```
 
