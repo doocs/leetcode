@@ -1,16 +1,18 @@
 class Solution {
-    public List<Integer> lastVisitedIntegers(List<String> words) {
-        List<Integer> nums = new ArrayList<>();
+    public List<Integer> lastVisitedIntegers(int[] nums) {
+        List<Integer> seen = new ArrayList<>();
         List<Integer> ans = new ArrayList<>();
         int k = 0;
-        for (var w : words) {
-            if ("prev".equals(w)) {
-                ++k;
-                int i = nums.size() - k;
-                ans.add(i < 0 ? -1 : nums.get(i));
+        for (int x : nums) {
+            if (x == -1) {
+                if (++k > seen.size()) {
+                    ans.add(-1);
+                } else {
+                    ans.add(seen.get(seen.size() - k));
+                }
             } else {
                 k = 0;
-                nums.add(Integer.valueOf(w));
+                seen.add(x);
             }
         }
         return ans;

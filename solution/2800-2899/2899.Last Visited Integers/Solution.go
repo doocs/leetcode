@@ -1,20 +1,21 @@
-func lastVisitedIntegers(words []string) (ans []int) {
-	nums := []int{}
+func lastVisitedIntegers(nums []int) []int {
+	seen := []int{}
+	ans := []int{}
 	k := 0
-	for _, w := range words {
-		if w == "prev" {
+
+	for _, x := range nums {
+		if x == -1 {
 			k++
-			i := len(nums) - k
-			if i < 0 {
+			if k > len(seen) {
 				ans = append(ans, -1)
 			} else {
-				ans = append(ans, nums[i])
+				ans = append(ans, seen[len(seen)-k])
 			}
 		} else {
 			k = 0
-			x, _ := strconv.Atoi(w)
-			nums = append(nums, x)
+			seen = append(seen, x)
 		}
 	}
-	return
+
+	return ans
 }

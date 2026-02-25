@@ -1,16 +1,20 @@
-function lastVisitedIntegers(words: string[]): number[] {
-    const nums: number[] = [];
+function lastVisitedIntegers(nums: number[]): number[] {
+    const seen: number[] = [];
     const ans: number[] = [];
     let k = 0;
-    for (const w of words) {
-        if (w === 'prev') {
-            ++k;
-            const i = nums.length - k;
-            ans.push(i < 0 ? -1 : nums[i]);
+
+    for (const x of nums) {
+        if (x === -1) {
+            if (++k > seen.length) {
+                ans.push(-1);
+            } else {
+                ans.push(seen.at(-k)!);
+            }
         } else {
             k = 0;
-            nums.push(+w);
+            seen.push(x);
         }
     }
+
     return ans;
 }
