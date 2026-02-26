@@ -89,32 +89,147 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define two variables $f$ and $g$, where $f$ represents the maximum amount when the current house is not robbed, and $g$ represents the maximum amount when the current house is robbed. Initially, $f = 0$ and $g = nums[0]$. The answer is $\max(f, g)$.
+
+Next, we traverse starting from the second house:
+
+- If the current house has the same color as the previous house, then $f$ is updated to $\max(f, g)$, and $g$ is updated to $f + nums[i]$.
+- If the current house has a different color from the previous house, then $f$ is updated to $\max(f, g)$, and $g$ is updated to $\max(f, g) + nums[i]$.
+
+Finally, return $\max(f, g)$.
+
+The time complexity is $O(n)$, where $n$ is the number of houses. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def rob(self, nums: List[int], colors: List[int]) -> int:
+        n = len(nums)
+        f, g = 0, nums[0]
+        for i in range(1, n):
+            if colors[i - 1] == colors[i]:
+                f, g = max(f, g), f + nums[i]
+            else:
+                f, g = max(f, g), max(f, g) + nums[i]
+        return max(f, g)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long rob(int[] nums, int[] colors) {
+        int n = nums.length;
+        long f = 0, g = nums[0];
+        for (int i = 1; i < n; i++) {
+            if (colors[i - 1] == colors[i]) {
+                long gg = f + nums[i];
+                f = Math.max(f, g);
+                g = gg;
+            } else {
+                long gg = Math.max(f, g) + nums[i];
+                f = Math.max(f, g);
+                g = gg;
+            }
+        }
+        return Math.max(f, g);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long rob(vector<int>& nums, vector<int>& colors) {
+        int n = nums.size();
+        long long f = 0, g = nums[0];
+        for (int i = 1; i < n; i++) {
+            if (colors[i - 1] == colors[i]) {
+                long long gg = f + nums[i];
+                f = max(f, g);
+                g = gg;
+            } else {
+                long long gg = max(f, g) + nums[i];
+                f = max(f, g);
+                g = gg;
+            }
+        }
+        return max(f, g);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func rob(nums []int, colors []int) int64 {
+	n := len(nums)
+	var f int64 = 0
+	var g int64 = int64(nums[0])
 
+	for i := 1; i < n; i++ {
+		if colors[i-1] == colors[i] {
+			f, g = max(f, g), f+int64(nums[i])
+		} else {
+			f, g = max(f, g), max(f, g)+int64(nums[i])
+		}
+	}
+
+	return max(f, g)
+}
+```
+
+#### TypeScript
+
+```ts
+function rob(nums: number[], colors: number[]): number {
+    const n = nums.length;
+    let f = 0;
+    let g = nums[0];
+
+    for (let i = 1; i < n; i++) {
+        if (colors[i - 1] === colors[i]) {
+            [f, g] = [Math.max(f, g), f + nums[i]];
+        } else {
+            [f, g] = [Math.max(f, g), Math.max(f, g) + nums[i]];
+        }
+    }
+
+    return Math.max(f, g);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn rob(nums: Vec<i32>, colors: Vec<i32>) -> i64 {
+        let n = nums.len();
+        let mut f: i64 = 0;
+        let mut g: i64 = nums[0] as i64;
+
+        for i in 1..n {
+            if colors[i - 1] == colors[i] {
+                let gg = f + nums[i] as i64;
+                f = f.max(g);
+                g = gg;
+            } else {
+                let gg = f.max(g) + nums[i] as i64;
+                f = f.max(g);
+                g = gg;
+            }
+        }
+
+        f.max(g)
+    }
+}
 ```
 
 <!-- tabs:end -->
