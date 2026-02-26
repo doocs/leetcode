@@ -67,13 +67,13 @@ tags:
 
 ### Solution 1: Counting + Enumeration
 
-Since the number of occurrences of '1' in a binary string of length $n$ can be $0, 1, 2, \cdots, n$ (there are $n + 1$ possibilities), we can certainly find a new binary string that has a different number of '1's from every string in `nums`.
+Since the number of `'1'`s in a binary string of length $n$ can be $0, 1, 2, \cdots, n$ (a total of $n + 1$ possibilities), we can always find a new binary string whose count of `'1'`s differs from every string in $\textit{nums}$.
 
-We can use an integer $mask$ to record the occurrence of '1' in all strings, i.e., the $i$-th bit of $mask$ is $1$ indicates that there is a string of length $n$ in which '1' appears $i$ times, otherwise it does not exist.
+We use an integer $\textit{mask}$ to record the counts of `'1'`s across all strings, where the $i$-th bit of $\textit{mask}$ being $1$ indicates that a binary string of length $n$ with exactly $i$ occurrences of `'1'` exists in $\textit{nums}$, and $0$ otherwise.
 
-Then we start to enumerate the number of times '1' appears in a binary string of length $n$ from $0$. If the $i$-th bit of $mask$ is $0$, it means that there is no string of length $n$ in which '1' appears $i$ times. We can return this string as the answer.
+We then enumerate $i$ starting from $0$, representing the count of `'1'`s in a binary string of length $n$. If the $i$-th bit of $\textit{mask}$ is $0$, it means no binary string of length $n$ with exactly $i$ occurrences of `'1'` exists, and we can return that string as the answer.
 
-The time complexity is $O(L)$, where $L$ is the total length of the strings in `nums`. The space complexity is $O(1)$.
+The time complexity is $O(L)$, where $L$ is the total length of all strings in $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -85,10 +85,9 @@ class Solution:
         mask = 0
         for x in nums:
             mask |= 1 << x.count("1")
-        n = len(nums)
-        for i in range(n + 1):
+        for i in count(0):
             if mask >> i & 1 ^ 1:
-                return "1" * i + "0" * (n - i)
+                return "1" * i + "0" * (len(nums) - i)
 ```
 
 #### Java
@@ -168,6 +167,27 @@ function findDifferentBinaryString(nums: string[]): string {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {string[]} nums
+ * @return {string}
+ */
+var findDifferentBinaryString = function (nums) {
+    let mask = 0;
+    for (let x of nums) {
+        const cnt = x.split('').filter(c => c === '1').length;
+        mask |= 1 << cnt;
+    }
+    for (let i = 0; ; ++i) {
+        if (((mask >> i) & 1) === 0) {
+            return '1'.repeat(i) + '0'.repeat(nums.length - i);
+        }
+    }
+};
+```
+
 #### C#
 
 ```cs
@@ -193,77 +213,114 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Construction
+
+We can construct a binary string $\textit{ans}$ of length $n$, where the $i$-th bit of $\textit{ans}$ differs from the $i$-th bit of $\textit{nums}[i]$. Since all strings in $\textit{nums}$ are distinct, $\textit{ans}$ will not appear in $\textit{nums}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the strings in $\textit{nums}$. Ignoring the space used by the answer string, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findDifferentBinaryString(self, nums: List[str]) -> str:
+        ans = [None] * len(nums)
+        for i, s in enumerate(nums):
+            ans[i] = "1" if s[i] == "0" else "0"
+        return "".join(ans)
+```
+
+#### Java
+
+```java
+class Solution {
+    public String findDifferentBinaryString(String[] nums) {
+        int n = nums.length;
+        char[] ans = new char[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i].charAt(i) == '0' ? '1' : '0';
+        }
+        return new String(ans);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string findDifferentBinaryString(vector<string>& nums) {
+        int n = nums.size();
+        string ans(n, '0');
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i][i] == '0' ? '1' : '0';
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func findDifferentBinaryString(nums []string) string {
+	ans := make([]byte, len(nums))
+	for i, s := range nums {
+		if s[i] == '0' {
+			ans[i] = '1'
+		} else {
+			ans[i] = '0'
+		}
+	}
+	return string(ans)
+}
+```
 
 #### TypeScript
 
 ```ts
 function findDifferentBinaryString(nums: string[]): string {
-    const set = new Set(nums.map(x => Number.parseInt(x, 2)));
-    let res = 0;
-
-    while (set.has(res)) {
-        res++;
+    const n = nums.length;
+    const ans: string[] = new Array(n);
+    for (let i = 0; i < n; i++) {
+        ans[i] = nums[i][i] === '0' ? '1' : '0';
     }
-
-    return res.toString(2).padStart(nums[0].length, '0');
+    return ans.join('');
 }
 ```
 
 #### JavaScript
 
 ```js
-function findDifferentBinaryString(nums) {
-    const set = new Set(nums.map(x => Number.parseInt(x, 2)));
-    let res = 0;
-
-    while (set.has(res)) {
-        res++;
+/**
+ * @param {string[]} nums
+ * @return {string}
+ */
+var findDifferentBinaryString = function (nums) {
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; i++) {
+        ans[i] = nums[i][i] === '0' ? '1' : '0';
     }
-
-    return res.toString(2).padStart(nums[0].length, '0');
-}
+    return ans.join('');
+};
 ```
 
-<!-- solution:end -->
+#### C#
 
-<!-- tabs:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function findDifferentBinaryString(nums: string[]): string {
-    const res: string[] = [];
-
-    for (let i = 0; i < nums.length; i++) {
-        const x = nums[i][i];
-        res.push(x === '0' ? '1' : '0');
+```cs
+public class Solution {
+    public string FindDifferentBinaryString(string[] nums) {
+        int n = nums.Length;
+        char[] ans = new char[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i][i] == '0' ? '1' : '0';
+        }
+        return new string(ans);
     }
-
-    return res.join('');
-}
-```
-
-#### JavaScript
-
-```js
-function findDifferentBinaryString(nums) {
-    const res = [];
-
-    for (let i = 0; i < nums.length; i++) {
-        const x = nums[i][i];
-        res.push(x === '0' ? '1' : '0');
-    }
-
-    return res.join('');
 }
 ```
 
