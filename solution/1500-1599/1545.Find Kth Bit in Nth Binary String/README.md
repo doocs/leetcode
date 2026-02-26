@@ -211,27 +211,55 @@ function findKthBit(n: number, k: number): string {
 }
 ```
 
-<!-- tabs:end -->
+#### Rust
 
-<!-- solution:end -->
+```rust
+impl Solution {
+    pub fn find_kth_bit(n: i32, k: i32) -> char {
+        fn dfs(n: i32, k: i32) -> i32 {
+            if k == 1 {
+                return 0;
+            }
+            if (k & (k - 1)) == 0 {
+                return 1;
+            }
+            let m: i32 = 1 << n;
+            if k * 2 < m - 1 {
+                dfs(n - 1, k)
+            } else {
+                dfs(n - 1, m - k) ^ 1
+            }
+        }
 
-<!-- solution:start -->
-
-### 方法二：位运算
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-const findKthBit = (n: number, k: number): string =>
-    String((((k / (k & -k)) >> 1) & 1) ^ (k & 1) ^ 1);
+        if dfs(n, k) == 0 { '0' } else { '1' }
+    }
+}
 ```
 
 #### JavaScript
 
 ```js
-const findKthBit = (n, k) => String((((k / (k & -k)) >> 1) & 1) ^ (k & 1) ^ 1);
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {character}
+ */
+var findKthBit = function (n, k) {
+    const dfs = function (n, k) {
+        if (k === 1) {
+            return 0;
+        }
+        if ((k & (k - 1)) === 0) {
+            return 1;
+        }
+        const m = 1 << n;
+        if (k * 2 < m - 1) {
+            return dfs(n - 1, k);
+        }
+        return dfs(n - 1, m - k) ^ 1;
+    };
+    return dfs(n, k).toString();
+};
 ```
 
 <!-- tabs:end -->

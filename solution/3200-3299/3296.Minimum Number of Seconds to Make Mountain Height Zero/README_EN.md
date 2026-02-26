@@ -128,7 +128,7 @@ We can sum up all the $h'$ values for the workers to get the total reduced heigh
 
 Next, we determine the left boundary of the binary search $l = 1$. Since there is at least one worker, and each worker's working time does not exceed $10^6$, to reduce the mountain height to $0$, it takes at least $(1 + \textit{mountainHeight}) \cdot \textit{mountainHeight} / 2 \cdot \textit{workerTimes}[i] \leq 10^{16}$ seconds. Therefore, we can set the right boundary of the binary search to $r = 10^{16}$. Then, we continuously halve the interval $[l, r]$ until $l = r$. At this point, $l$ is the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the number of workers, and $M$ is the right boundary of the binary search, which is $10^{16}$ in this problem.
+The time complexity is $O(n \times \log M)$, where $n$ is the number of workers, and $M$ is the right boundary of the binary search, which is $10^{16}$ in this problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
