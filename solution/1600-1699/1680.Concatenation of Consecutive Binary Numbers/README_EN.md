@@ -155,6 +155,39 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var concatenatedBinary = function (n) {
+    const mod = 1_000_000_007;
+    let ans = 0;
+    for (let i = 1; i <= n; i++) {
+        ans = (((ans * (1 << (32 - Math.clz32(i)))) % mod) + i) % mod;
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int ConcatenatedBinary(int n) {
+        const int mod = 1000000007;
+        long ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            int bitLength = 32 - System.Numerics.BitOperations.LeadingZeroCount((uint)i);
+            ans = ((ans << bitLength) | i) % mod;
+        }
+        return (int)ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -270,6 +303,46 @@ impl Solution {
             ans = ((ans << shift) | i) % mod_;
         }
         ans as i32
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var concatenatedBinary = function (n) {
+    const mod = 1_000_000_007;
+    let ans = 0;
+    let shift = 0;
+    for (let i = 1; i <= n; i++) {
+        if ((i & (i - 1)) === 0) {
+            shift++;
+        }
+        ans = (((ans * (1 << shift)) % mod) + i) % mod;
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int ConcatenatedBinary(int n) {
+        const int mod = 1000000007;
+        long ans = 0;
+        int shift = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((i & (i - 1)) == 0) {
+                ++shift;
+            }
+            ans = ((ans << shift) | i) % mod;
+        }
+        return (int)ans;
     }
 }
 ```
