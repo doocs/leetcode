@@ -132,32 +132,59 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3857.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math
+
+To minimize the total cost, we first split $n$ into $1$ and $n-1$, with a cost of $1 \cdot (n-1) = n-1$. Next, we split $n-1$ into $1$ and $n-2$, with a cost of $1 \cdot (n-2) = n-2$.
+
+We continue this process until we split $2$ into $1$ and $1$, with a cost of $1 \cdot 1 = 1$. Therefore, the total cost is $(n-1) + (n-2) + \ldots + 2 + 1 = \frac{n(n-1)}{2}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCost(self, n: int) -> int:
+        return n * (n - 1) // 2
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minCost(int n) {
+        return n * (n - 1) / 2;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minCost(int n) {
+        return n * (n - 1) / 2;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(n int) int {
+	return n * (n - 1) / 2
+}
+```
 
+#### TypeScript
+
+```ts
+function minCost(n: number): number {
+    return (n * (n - 1)) >> 1;
+}
 ```
 
 <!-- tabs:end -->

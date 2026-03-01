@@ -91,25 +91,162 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3858.Mi
 #### Python3
 
 ```python
-
+class Solution:
+    def minimumOR(self, grid: List[List[int]]) -> int:
+        mx = max(map(max, grid))
+        m = mx.bit_length()
+        ans = 0
+        for i in range(m - 1, -1, -1):
+            mask = ans | ((1 << i) - 1)
+            for row in grid:
+                found = False
+                for x in row:
+                    if (x | mask) == mask:
+                        found = True
+                        break
+                if not found:
+                    ans |= 1 << i
+                    break
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minimumOR(int[][] grid) {
+        int mx = 0;
+        for (int[] row : grid) {
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+        }
 
+        int m = 32 - Integer.numberOfLeadingZeros(mx);
+        int ans = 0;
+
+        for (int i = m - 1; i >= 0; i--) {
+            int mask = ans | ((1 << i) - 1);
+            for (int[] row : grid) {
+                boolean found = false;
+                for (int x : row) {
+                    if ((x | mask) == mask) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    ans |= 1 << i;
+                    break;
+                }
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minimumOR(vector<vector<int>>& grid) {
+        int mx = 0;
+        for (auto& row : grid) {
+            mx = max(mx, ranges::max(row));
+        }
 
+        int m = 32 - __builtin_clz(mx);
+        int ans = 0;
+
+        for (int i = m - 1; i >= 0; i--) {
+            int mask = ans | ((1 << i) - 1);
+            for (auto& row : grid) {
+                bool found = false;
+                for (int x : row) {
+                    if ((x | mask) == mask) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    ans |= 1 << i;
+                    break;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minimumOR(grid [][]int) int {
+	mx := 0
+	for _, row := range grid {
+		mx = max(mx, slices.Max(row))
+	}
 
+	m := bits.Len(uint(mx))
+	ans := 0
+
+	for i := m - 1; i >= 0; i-- {
+		mask := ans | ((1 << i) - 1)
+		for _, row := range grid {
+			found := false
+			for _, x := range row {
+				if (x | mask) == mask {
+					found = true
+					break
+				}
+			}
+			if !found {
+				ans |= 1 << i
+				break
+			}
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumOR(grid: number[][]): number {
+    let mx = 0;
+    for (const row of grid) {
+        mx = Math.max(mx, Math.max(...row));
+    }
+
+    const m = mx === 0 ? 0 : 32 - Math.clz32(mx);
+    let ans = 0;
+
+    for (let i = m - 1; i >= 0; i--) {
+        const mask = ans | ((1 << i) - 1);
+        for (const row of grid) {
+            let found = false;
+            for (const x of row) {
+                if ((x | mask) === mask) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                ans |= 1 << i;
+                break;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
