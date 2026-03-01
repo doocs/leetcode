@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README.md
+rating: 1420
+source: 第 490 场周赛 Q2
 tags:
     - 数学
     - 计数

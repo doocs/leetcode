@@ -3860,6 +3860,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3849  |  [Maximum Bitwise XOR After Rearrangement](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md)  |  `Greedy`,`Bit Manipulation`,`String`  |  Medium  |  Weekly Contest 490  |
 |  3850  |  [Count Sequences to K](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md)  |  `Memoization`,`Array`,`Math`,`Dynamic Programming`,`Number Theory`  |  Hard  |  Weekly Contest 490  |
 |  3851  |  [Maximum Requests Without Violating the Limit](/solution/3800-3899/3851.Maximum%20Requests%20Without%20Violating%20the%20Limit/README_EN.md)  |  `Greedy`,`Array`,`Hash Table`,`Sorting`,`Sliding Window`  |  Medium  |  🔒  |
+|  3852  |  [Smallest Pair With Different Frequencies](/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README_EN.md)  |    |  Easy  |  Biweekly Contest 177  |
+|  3853  |  [Merge Close Characters](/solution/3800-3899/3853.Merge%20Close%20Characters/README_EN.md)  |    |  Medium  |  Biweekly Contest 177  |
+|  3854  |  [Minimum Operations to Make Array Parity Alternating](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README_EN.md)  |    |  Medium  |  Biweekly Contest 177  |
+|  3855  |  [Sum of K-Digit Numbers in a Range](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Biweekly Contest 177  |
+|  3856  |  [Trim Trailing Vowels](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md)  |    |  Easy  |  Weekly Contest 491  |
+|  3857  |  [Minimum Cost to Split into Ones](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
+|  3858  |  [Minimum Bitwise OR From Grid](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
+|  3859  |  [Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 491  |
 
 ## Copyright
 

@@ -43,9 +43,9 @@ tags:
 Step 1) 13 is odd, add 1 and obtain 14.&nbsp;
 Step 2) 14 is even, divide by 2 and obtain 7.
 Step 3) 7 is odd, add 1 and obtain 8.
-Step 4) 8 is even, divide by 2 and obtain 4.&nbsp;
+Step 4) 8 is even, divide by 2 and obtain 4.&nbsp; 
 Step 5) 4 is even, divide by 2 and obtain 2.&nbsp;
-Step 6) 2 is even, divide by 2 and obtain 1.&nbsp;
+Step 6) 2 is even, divide by 2 and obtain 1.&nbsp; 
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -54,7 +54,7 @@ Step 6) 2 is even, divide by 2 and obtain 1.&nbsp;
 <strong>Input:</strong> s = &quot;10&quot;
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> &quot;10&quot; corresponds to number 2 in their decimal representation.
-Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
+Step 1) 2 is even, divide by 2 and obtain 1.&nbsp; 
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

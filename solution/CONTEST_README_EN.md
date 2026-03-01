@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 491
+
+- [3856. Trim Trailing Vowels](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md)
+- [3857. Minimum Cost to Split into Ones](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md)
+- [3858. Minimum Bitwise OR From Grid](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md)
+- [3859. Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)
+
+#### Biweekly Contest 177
+
+- [3852. Smallest Pair With Different Frequencies](/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README_EN.md)
+- [3853. Merge Close Characters](/solution/3800-3899/3853.Merge%20Close%20Characters/README_EN.md)
+- [3854. Minimum Operations to Make Array Parity Alternating](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README_EN.md)
+- [3855. Sum of K-Digit Numbers in a Range](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README_EN.md)
+
 #### Weekly Contest 490
 
 - [3847. Find the Score Difference in a Game](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README_EN.md)

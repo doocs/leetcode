@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README.md
+rating: 1223
+source: 第 490 场周赛 Q1
 tags:
     - 数组
     - 模拟

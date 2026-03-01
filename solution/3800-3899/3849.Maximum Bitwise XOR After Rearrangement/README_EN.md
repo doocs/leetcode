@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md
+rating: 1556
+source: Weekly Contest 490 Q3
 tags:
     - Greedy
     - Bit Manipulation

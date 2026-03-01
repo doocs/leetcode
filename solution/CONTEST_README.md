@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 491 场周赛(2026-03-01 10:30, 90 分钟) 参赛人数 1256
+
+- [3856. 移除尾部元音字母](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README.md)
+- [3857. 拆分到 1 的最小总代价](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README.md)
+- [3858. 按位或的最小值](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README.md)
+- [3859. 统计包含 K 个不同整数的子数组](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README.md)
+
+#### 第 177 场双周赛(2026-02-28 22:30, 90 分钟) 参赛人数 1021
+
+- [3852. 不同频率的最小数对](/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README.md)
+- [3853. 合并靠近字符](/solution/3800-3899/3853.Merge%20Close%20Characters/README.md)
+- [3854. 使数组奇偶交替的最少操作](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README.md)
+- [3855. 给定范围内 K 位数字之和](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README.md)
+
 #### 第 490 场周赛(2026-02-22 10:30, 90 分钟) 参赛人数 1025
 
 - [3847. 计算比赛分数差](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README.md)

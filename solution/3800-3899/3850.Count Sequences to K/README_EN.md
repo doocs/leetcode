@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md
+rating: 1964
+source: Weekly Contest 490 Q4
 tags:
     - Memoization
     - Array

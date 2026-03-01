@@ -6,7 +6,7 @@ function concatenatedBinary(n: number): number {
         if ((i & (i - 1)) === 0) {
             shift++;
         }
-        ans = ((ans * (1 << shift)) % mod + i) % mod;
+        ans = (((ans * (1 << shift)) % mod) + i) % mod;
     }
     return ans;
 }

@@ -44,9 +44,9 @@ tags:
 Step 1) 13 是奇数，加 1 得到 14&nbsp;
 Step 2) 14 是偶数，除 2 得到 7
 Step 3) 7  是奇数，加 1 得到 8
-Step 4) 8  是偶数，除 2 得到 4&nbsp;
+Step 4) 8  是偶数，除 2 得到 4&nbsp; 
 Step 5) 4  是偶数，除 2 得到 2&nbsp;
-Step 6) 2  是偶数，除 2 得到 1&nbsp;
+Step 6) 2  是偶数，除 2 得到 1&nbsp; 
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -55,7 +55,7 @@ Step 6) 2  是偶数，除 2 得到 1&nbsp;
 <strong>输入：</strong>s = "10"
 <strong>输出：</strong>1
 <strong>解释：</strong>"10" 表示十进制数 2 。
-Step 1) 2 是偶数，除 2 得到 1
+Step 1) 2 是偶数，除 2 得到 1 
 </pre>
 
 <p><strong>示例 3：</strong></p>

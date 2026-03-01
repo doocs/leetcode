@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3850.Count%20Sequences%20to%20K/README.md
+rating: 1964
+source: 第 490 场周赛 Q4
 tags:
     - 记忆化
     - 数组
