@@ -135,32 +135,59 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3857.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：数学
+
+要使得代价最小，我们首先要将 $n$ 拆分成 $1$ 和 $n-1$，代价为 $1 \cdot (n-1) = n-1$。接下来，我们将 $n-1$ 拆分成 $1$ 和 $n-2$，代价为 $1 \cdot (n-2) = n-2$。
+
+继续这个过程，直到我们将 $2$ 拆分成 $1$ 和 $1$，代价为 $1 \cdot 1 = 1$。因此，总代价为 $(n-1) + (n-2) + \ldots + 2 + 1 = \frac{n(n-1)}{2}$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minCost(self, n: int) -> int:
+        return n * (n - 1) // 2
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minCost(int n) {
+        return n * (n - 1) / 2;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minCost(int n) {
+        return n * (n - 1) / 2;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(n int) int {
+	return n * (n - 1) / 2
+}
+```
 
+#### TypeScript
+
+```ts
+function minCost(n: number): number {
+    return (n * (n - 1)) >> 1;
+}
 ```
 
 <!-- tabs:end -->

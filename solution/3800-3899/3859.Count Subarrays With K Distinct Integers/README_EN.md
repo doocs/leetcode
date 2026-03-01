@@ -128,25 +128,188 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3859.Co
 #### Python3
 
 ```python
+class Solution:
+    def countSubarrays(self, nums: list[int], k: int, m: int) -> int:
+        def f(lim: int) -> int:
+            cnt = Counter()
+            t = 0
+            ans = l = 0
+            for x in nums:
+                cnt[x] += 1
+                if cnt[x] == m:
+                    t += 1
+                while len(cnt) >= lim and t >= k:
+                    y = nums[l]
+                    cnt[y] -= 1
+                    if cnt[y] == m - 1:
+                        t -= 1
+                    if cnt[y] == 0:
+                        cnt.pop(y)
+                    l += 1
+                ans += l
+            return ans
 
+        return f(k) - f(k + 1)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] nums;
+    private int k;
+    private int m;
 
+    public long countSubarrays(int[] nums, int k, int m) {
+        this.nums = nums;
+        this.k = k;
+        this.m = m;
+        return f(k) - f(k + 1);
+    }
+
+    private long f(int lim) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        long ans = 0;
+        int l = 0;
+        int t = 0;
+
+        for (int x : nums) {
+            if (cnt.merge(x, 1, Integer::sum) == m) {
+                t++;
+            }
+
+            while (cnt.size() >= lim && t >= k) {
+                int y = nums[l++];
+                int cur = cnt.merge(y, -1, Integer::sum);
+                if (cur == m - 1) {
+                    --t;
+                }
+                if (cur == 0) {
+                    cnt.remove(y);
+                }
+            }
+
+            ans += l;
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long countSubarrays(vector<int>& nums, int k, int m) {
+        auto f = [&](int lim) -> long long {
+            unordered_map<int, int> cnt;
+            long long ans = 0;
+            int l = 0;
+            int t = 0;
 
+            for (int x : nums) {
+                if (++cnt[x] == m) {
+                    ++t;
+                }
+
+                while (cnt.size() >= lim && t >= k) {
+                    int y = nums[l++];
+                    if (--cnt[y] == m - 1) {
+                        --t;
+                    }
+                    if (cnt[y] == 0) {
+                        cnt.erase(y);
+                    }
+                }
+
+                ans += l;
+            }
+
+            return ans;
+        };
+
+        return f(k) - f(k + 1);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSubarrays(nums []int, k int, m int) int64 {
+	f := func(lim int) int64 {
+		cnt := make(map[int]int)
+		var ans int64
+		l := 0
+		t := 0
 
+		for _, x := range nums {
+			cnt[x]++
+			if cnt[x] == m {
+				t++
+			}
+
+			for len(cnt) >= lim && t >= k {
+				y := nums[l]
+				l++
+				cnt[y]--
+				if cnt[y] == m-1 {
+					t--
+				}
+				if cnt[y] == 0 {
+					delete(cnt, y)
+				}
+			}
+
+			ans += int64(l)
+		}
+
+		return ans
+	}
+
+	return f(k) - f(k+1)
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubarrays(nums: number[], k: number, m: number): number {
+    const f = (lim: number): number => {
+        const cnt = new Map<number, number>();
+        let ans = 0;
+        let l = 0;
+        let t = 0;
+
+        for (const x of nums) {
+            cnt.set(x, (cnt.get(x) ?? 0) + 1);
+            if (cnt.get(x) === m) {
+                t++;
+            }
+
+            while (cnt.size >= lim && t >= k) {
+                const y = nums[l++];
+                cnt.set(y, cnt.get(y)! - 1);
+
+                if (cnt.get(y) === m - 1) {
+                    t--;
+                }
+
+                if (cnt.get(y) === 0) {
+                    cnt.delete(y);
+                }
+            }
+
+            ans += l;
+        }
+
+        return ans;
+    };
+
+    return f(k) - f(k + 1);
+}
 ```
 
 <!-- tabs:end -->
