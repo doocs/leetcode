@@ -3868,6 +3868,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3857  |  [Minimum Cost to Split into Ones](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
 |  3858  |  [Minimum Bitwise OR From Grid](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
 |  3859  |  [Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 491  |
+|  3860  |  [Unique Email Groups](/solution/3800-3899/3860.Unique%20Email%20Groups/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

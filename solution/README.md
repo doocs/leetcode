@@ -3870,6 +3870,7 @@
 |  3857  |  [拆分到 1 的最小总代价](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README.md)  |    |  中等  |  第 491 场周赛  |
 |  3858  |  [按位或的最小值](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README.md)  |    |  中等  |  第 491 场周赛  |
 |  3859  |  [统计包含 K 个不同整数的子数组](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README.md)  |    |  困难  |  第 491 场周赛  |
+|  3860  |  [Unique Email Groups](/solution/3800-3899/3860.Unique%20Email%20Groups/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
