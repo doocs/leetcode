@@ -63,7 +63,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+According to the problem, if the number of operations needed to obtain the alternating string `01010101...` is $\textit{cnt}$, then the number of operations needed to obtain the alternating string `10101010...` is $n - \textit{cnt}$.
+
+Therefore, we only need to traverse the string $s$ once, count the value of $\textit{cnt}$, and the answer is $\min(\textit{cnt}, n - \textit{cnt})$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -121,12 +127,14 @@ func minOperations(s string) int {
 
 ```ts
 function minOperations(s: string): number {
+    let cnt = 0;
     const n = s.length;
-    let count = 0;
-    for (let i = 0; i < n; i++) {
-        count += s[i] !== '01'[i & 1] ? 1 : 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== "01"[i & 1]) {
+            ++cnt;
+        }
     }
-    return Math.min(count, n - count);
+    return Math.min(cnt, n - cnt);
 }
 ```
 
@@ -135,14 +143,17 @@ function minOperations(s: string): number {
 ```rust
 impl Solution {
     pub fn min_operations(s: String) -> i32 {
-        let n = s.len();
-        let s = s.as_bytes();
-        let cs = [b'0', b'1'];
-        let mut count = 0;
-        for i in 0..n {
-            count += if s[i] != cs[i & 1] { 1 } else { 0 };
+        let mut cnt: i32 = 0;
+        let n: i32 = s.len() as i32;
+        let bytes = s.as_bytes();
+
+        for i in 0..n as usize {
+            if bytes[i] != b"01"[i & 1] {
+                cnt += 1;
+            }
         }
-        count.min(n - count) as i32
+
+        cnt.min(n - cnt)
     }
 }
 ```
@@ -150,15 +161,15 @@ impl Solution {
 #### C
 
 ```c
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
 int minOperations(char* s) {
+    int cnt = 0;
     int n = strlen(s);
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        count += s[i] != ('0' + (i & 1)) ? 0 : 1;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] != "01"[i & 1]) {
+            ++cnt;
+        }
     }
-    return min(count, n - count);
+    return cnt < (n - cnt) ? cnt : (n - cnt);
 }
 ```
 

@@ -64,11 +64,11 @@ tags:
 
 ### 方法一：一次遍历
 
-根据题意，如果得到交替字符串 `01010101...` 所需要的操作数为 $cnt$，那么得到交替字符串 `10101010...` 所需要的操作数为 $n - cnt$。
+根据题意，如果得到交替字符串 `01010101...` 所需要的操作数为 $\textit{cnt}$，那么得到交替字符串 `10101010...` 所需要的操作数为 $n - \textit{cnt}$。
 
-因此，我们只需要遍历一次字符串 $s$，统计出 $cnt$ 的值，那么答案即为 $\min(cnt, n - cnt)$。
+因此，我们只需要遍历一次字符串 $s$，统计出 $\textit{cnt}$ 的值，那么答案即为 $\min(\textit{cnt}, n - \textit{cnt})$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为字符串 $s$ 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -126,12 +126,14 @@ func minOperations(s string) int {
 
 ```ts
 function minOperations(s: string): number {
+    let cnt = 0;
     const n = s.length;
-    let count = 0;
-    for (let i = 0; i < n; i++) {
-        count += s[i] !== '01'[i & 1] ? 1 : 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== "01"[i & 1]) {
+            ++cnt;
+        }
     }
-    return Math.min(count, n - count);
+    return Math.min(cnt, n - cnt);
 }
 ```
 
@@ -140,14 +142,17 @@ function minOperations(s: string): number {
 ```rust
 impl Solution {
     pub fn min_operations(s: String) -> i32 {
-        let n = s.len();
-        let s = s.as_bytes();
-        let cs = [b'0', b'1'];
-        let mut count = 0;
-        for i in 0..n {
-            count += if s[i] != cs[i & 1] { 1 } else { 0 };
+        let mut cnt: i32 = 0;
+        let n: i32 = s.len() as i32;
+        let bytes = s.as_bytes();
+
+        for i in 0..n as usize {
+            if bytes[i] != b"01"[i & 1] {
+                cnt += 1;
+            }
         }
-        count.min(n - count) as i32
+
+        cnt.min(n - cnt)
     }
 }
 ```
@@ -155,15 +160,15 @@ impl Solution {
 #### C
 
 ```c
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
 int minOperations(char* s) {
+    int cnt = 0;
     int n = strlen(s);
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        count += s[i] != ('0' + (i & 1)) ? 0 : 1;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] != "01"[i & 1]) {
+            ++cnt;
+        }
     }
-    return min(count, n - count);
+    return cnt < (n - cnt) ? cnt : (n - cnt);
 }
 ```
 
