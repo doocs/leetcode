@@ -1,8 +1,10 @@
 function minOperations(s: string): number {
+    let cnt = 0;
     const n = s.length;
-    let count = 0;
-    for (let i = 0; i < n; i++) {
-        count += s[i] !== '01'[i & 1] ? 1 : 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== "01"[i & 1]) {
+            ++cnt;
+        }
     }
-    return Math.min(count, n - count);
+    return Math.min(cnt, n - cnt);
 }
