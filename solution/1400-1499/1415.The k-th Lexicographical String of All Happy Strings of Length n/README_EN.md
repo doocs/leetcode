@@ -465,9 +465,9 @@ func getHappyString(n int, k int) string {
 ```ts
 function getHappyString(n: number, k: number): string {
     if (k > 3 * (1 << (n - 1))) {
-        return "";
+        return '';
     }
-    const cs = "abc";
+    const cs = 'abc';
     const ans: string[] = [];
     for (let i = 0; i < n; i++) {
         const remain = 1 << (n - i - 1);
@@ -482,7 +482,7 @@ function getHappyString(n: number, k: number): string {
             k -= remain;
         }
     }
-    return ans.join("");
+    return ans.join('');
 }
 ```
 
@@ -579,4 +579,3 @@ public class Solution {
 <!-- solution:end -->
 
 <!-- problem:end -->
-
