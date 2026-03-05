@@ -337,4 +337,245 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Mathematics
+
+We can directly calculate what the $k$-th happy string is, without generating all happy strings.
+
+Starting from the first happy string of length $n$, we can determine what each character position should be.
+
+For a happy string of length $n$, the first character has $3$ choices, the second character has $2$ choices (cannot be the same as the first), the third character also has $2$ choices (cannot be the same as the second), and so on, until the $n$-th character also has $2$ choices (cannot be the same as the $(n-1)$-th). Therefore, the total number of happy strings of length $n$ is $3 \times 2^{n-1}$.
+
+If $k$ is greater than the total number of happy strings of length $n$, we return an empty string directly.
+
+Otherwise, we start from the first character and determine each character's position one by one. For the $i$-th character, we enumerate the character set $\{a, b, c\}$. If the last character of the current string is not equal to $c$, we calculate the number of remaining happy strings. If $k$ is less than or equal to that count, we append character $c$ to the current string and move on to the next position; otherwise, we subtract that count from $k$ and continue enumerating the next character.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def getHappyString(self, n: int, k: int) -> str:
+        if k > 3 * (1 << (n - 1)):
+            return ""
+        cs = "abc"
+        ans = []
+        for i in range(n):
+            remain = 1 << (n - i - 1)
+            for c in cs:
+                if ans and ans[-1] == c:
+                    continue
+                if k <= remain:
+                    ans.append(c)
+                    break
+                k -= remain
+        return "".join(ans)
+```
+
+#### Java
+
+```java
+class Solution {
+    public String getHappyString(int n, int k) {
+        if (k > 3 * (1 << (n - 1))) {
+            return "";
+        }
+        String cs = "abc";
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            int remain = 1 << (n - i - 1);
+            for (char c : cs.toCharArray()) {
+                if (ans.length() > 0 && ans.charAt(ans.length() - 1) == c) {
+                    continue;
+                }
+                if (k <= remain) {
+                    ans.append(c);
+                    break;
+                }
+                k -= remain;
+            }
+        }
+        return ans.toString();
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string getHappyString(int n, int k) {
+        if (k > 3 * (1 << (n - 1))) {
+            return "";
+        }
+        string cs = "abc";
+        string ans;
+        for (int i = 0; i < n; ++i) {
+            int remain = 1 << (n - i - 1);
+            for (char c : cs) {
+                if (!ans.empty() && ans.back() == c) {
+                    continue;
+                }
+                if (k <= remain) {
+                    ans.push_back(c);
+                    break;
+                }
+                k -= remain;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func getHappyString(n int, k int) string {
+	if k > 3*(1<<(n-1)) {
+		return ""
+	}
+	cs := "abc"
+	ans := make([]byte, 0, n)
+	for i := 0; i < n; i++ {
+		remain := 1 << (n - i - 1)
+		for j := 0; j < len(cs); j++ {
+			c := cs[j]
+			if len(ans) > 0 && ans[len(ans)-1] == c {
+				continue
+			}
+			if k <= remain {
+				ans = append(ans, c)
+				break
+			}
+			k -= remain
+		}
+	}
+	return string(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function getHappyString(n: number, k: number): string {
+    if (k > 3 * (1 << (n - 1))) {
+        return '';
+    }
+    const cs = 'abc';
+    const ans: string[] = [];
+    for (let i = 0; i < n; i++) {
+        const remain = 1 << (n - i - 1);
+        for (const c of cs) {
+            if (ans.at(-1) === c) {
+                continue;
+            }
+            if (k <= remain) {
+                ans.push(c);
+                break;
+            }
+            k -= remain;
+        }
+    }
+    return ans.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn get_happy_string(n: i32, mut k: i32) -> String {
+        if k > 3 * (1 << (n - 1)) {
+            return String::new();
+        }
+        let cs = ['a', 'b', 'c'];
+        let mut ans: Vec<char> = Vec::with_capacity(n as usize);
+        for i in 0..n {
+            let remain = 1 << (n - i - 1);
+            for &c in &cs {
+                if !ans.is_empty() && *ans.last().unwrap() == c {
+                    continue;
+                }
+                if k <= remain {
+                    ans.push(c);
+                    break;
+                }
+                k -= remain;
+            }
+        }
+        ans.into_iter().collect()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number} k
+ * @return {string}
+ */
+var getHappyString = function (n, k) {
+    if (k > 3 * (1 << (n - 1))) {
+        return '';
+    }
+    const cs = 'abc';
+    const ans = [];
+    for (let i = 0; i < n; i++) {
+        const remain = 1 << (n - i - 1);
+        for (let j = 0; j < cs.length; j++) {
+            const c = cs[j];
+            if (ans.at(-1) === c) {
+                continue;
+            }
+            if (k <= remain) {
+                ans.push(c);
+                break;
+            }
+            k -= remain;
+        }
+    }
+    return ans.join('');
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string GetHappyString(int n, int k) {
+        if (k > 3 * (1 << (n - 1))) {
+            return "";
+        }
+        string cs = "abc";
+        var ans = new System.Text.StringBuilder();
+        for (int i = 0; i < n; i++) {
+            int remain = 1 << (n - i - 1);
+            foreach (char c in cs) {
+                if (ans.Length > 0 && ans[ans.Length - 1] == c) {
+                    continue;
+                }
+                if (k <= remain) {
+                    ans.Append(c);
+                    break;
+                }
+                k -= remain;
+            }
+        }
+        return ans.ToString();
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
