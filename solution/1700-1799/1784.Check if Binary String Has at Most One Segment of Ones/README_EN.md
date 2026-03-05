@@ -50,15 +50,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: No '1' After '0'
+### Solution 1: Brain Teaser
 
-Notice that the string $s$ does not contain leading zeros, which means $s$ starts with '1'.
+Since the string $s$ has no leading zeros, $s$ starts with `'1'`.
 
-If the string $s$ contains the substring "01", then $s$ must be a string like "1...01...", in which case $s$ has at least two consecutive '1' segments, which does not satisfy the problem condition, so we return `false`.
+If the string $s$ contains the substring `"01"`, then $s$ is of the form `"1...01..."`, which means $s$ has at least two separate segments of consecutive `'1'`s, violating the condition — return $\textit{false}$.
 
-If the string $s$ does not contain the substring "01", then $s$ can only be a string like "1..1000...", in which case $s$ has only one consecutive '1' segment, which satisfies the problem condition, so we return `true`.
+If the string $s$ does not contain the substring `"01"`, then $s$ can only be of the form `"1..1000..."`, which means $s$ has exactly one segment of consecutive `'1'`s, satisfying the condition — return $\textit{true}$.
 
-Therefore, we only need to judge whether the string $s$ contains the substring "01".
+Therefore, we only need to check whether the string $s$ contains the substring `"01"`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
@@ -105,14 +105,7 @@ func checkOnesSegment(s string) bool {
 
 ```ts
 function checkOnesSegment(s: string): boolean {
-    let pre = s[0];
-    for (const c of s) {
-        if (pre !== c && c === '1') {
-            return false;
-        }
-        pre = c;
-    }
-    return true;
+    return !s.includes('01');
 }
 ```
 
@@ -126,22 +119,16 @@ impl Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### JavaScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function checkOnesSegment(s: string): boolean {
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var checkOnesSegment = function (s) {
     return !s.includes('01');
-}
+};
 ```
 
 <!-- tabs:end -->
