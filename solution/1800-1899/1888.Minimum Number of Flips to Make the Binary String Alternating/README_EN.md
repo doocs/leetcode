@@ -75,7 +75,19 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sliding Window
+
+We notice that operation $1$ effectively turns the string into a cycle, and operation $2$ makes a substring of length $n$ within the cycle into an alternating binary string.
+
+Therefore, we only need to enumerate each substring of length $n$, calculate the cost to make it an alternating binary string, and take the minimum.
+
+We can pre-calculate the number of differences between string $s$ and the two types of alternating binary strings, denoted as $\textit{cnt}$. The cost to make $s$ into the first type of alternating binary string is $\textit{cnt}$, and the cost to make $s$ into the second type is $n - \textit{cnt}$. We initialize $\textit{ans} = \min(\textit{cnt}, n - \textit{cnt})$.
+
+Next, we enumerate each substring of length $n$ and update the value of $\textit{cnt}$. For each position $i$, we subtract the difference of $s[i]$ from the first type of alternating binary string, and add the difference of $s[i]$ to the second type. We update $\textit{ans} = \min(\textit{ans}, \textit{cnt}, n - \textit{cnt})$.
+
+Finally, return $\textit{ans}$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -201,6 +213,101 @@ function minFlips(s: string): number {
         ans = Math.min(ans, cnt, n - cnt);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_flips(s: String) -> i32 {
+        let n: usize = s.len();
+        let bytes = s.as_bytes();
+        let target = b"01";
+        let mut cnt: i32 = 0;
+
+        for i in 0..n {
+            if bytes[i] != target[i & 1] {
+                cnt += 1;
+            }
+        }
+
+        let mut ans = cnt.min(n as i32 - cnt);
+
+        for i in 0..n {
+            if bytes[i] != target[i & 1] {
+                cnt -= 1;
+            }
+            if bytes[i] != target[(i + n) & 1] {
+                cnt += 1;
+            }
+            ans = ans.min(cnt).min(n as i32 - cnt);
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minFlips = function (s) {
+    const n = s.length;
+    const target = '01';
+    let cnt = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== target[i & 1]) {
+            ++cnt;
+        }
+    }
+    let ans = Math.min(cnt, n - cnt);
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== target[i & 1]) {
+            --cnt;
+        }
+        if (s[i] !== target[(i + n) & 1]) {
+            ++cnt;
+        }
+        ans = Math.min(ans, cnt, n - cnt);
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinFlips(string s) {
+        int n = s.Length;
+        string target = "01";
+        int cnt = 0;
+
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != target[i & 1]) {
+                ++cnt;
+            }
+        }
+
+        int ans = Math.Min(cnt, n - cnt);
+
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != target[i & 1]) {
+                --cnt;
+            }
+            if (s[i] != target[(i + n) & 1]) {
+                ++cnt;
+            }
+            ans = Math.Min(ans, Math.Min(cnt, n - cnt));
+        }
+
+        return ans;
+    }
 }
 ```
 

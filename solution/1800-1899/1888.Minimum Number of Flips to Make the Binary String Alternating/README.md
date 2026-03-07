@@ -80,6 +80,12 @@ tags:
 
 因此，我们只需要枚举每个长度为 $n$ 的子串，计算将其变成交替二进制串的代价，取最小值即可。
 
+我们可以预先计算出字符串 $s$ 与两种交替二进制串的差异数量，记为 $\textit{cnt}$，则将 $s$ 变成第一种交替二进制串的代价为 $\textit{cnt}$，将 $s$ 变成第二种交替二进制串的代价为 $n - \textit{cnt}$。我们初始化 $\textit{ans} = \min(\textit{cnt}, n - \textit{cnt})$。
+
+接下来，我们枚举每个长度为 $n$ 的子串，更新 $\textit{cnt}$ 的值。对于每个位置 $i$，我们将 $s[i]$ 从第一种交替二进制串的差异数量中减去，并将 $s[i]$ 加入到第二种交替二进制串的差异数量中。更新 $\textit{ans} = \min(\textit{ans}, \textit{cnt}, n - \textit{cnt})$。
+
+最后返回 $\textit{ans}$ 即可。
+
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
@@ -206,6 +212,101 @@ function minFlips(s: string): number {
         ans = Math.min(ans, cnt, n - cnt);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_flips(s: String) -> i32 {
+        let n: usize = s.len();
+        let bytes = s.as_bytes();
+        let target = b"01";
+        let mut cnt: i32 = 0;
+
+        for i in 0..n {
+            if bytes[i] != target[i & 1] {
+                cnt += 1;
+            }
+        }
+
+        let mut ans = cnt.min(n as i32 - cnt);
+
+        for i in 0..n {
+            if bytes[i] != target[i & 1] {
+                cnt -= 1;
+            }
+            if bytes[i] != target[(i + n) & 1] {
+                cnt += 1;
+            }
+            ans = ans.min(cnt).min(n as i32 - cnt);
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minFlips = function (s) {
+    const n = s.length;
+    const target = '01';
+    let cnt = 0;
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== target[i & 1]) {
+            ++cnt;
+        }
+    }
+    let ans = Math.min(cnt, n - cnt);
+    for (let i = 0; i < n; ++i) {
+        if (s[i] !== target[i & 1]) {
+            --cnt;
+        }
+        if (s[i] !== target[(i + n) & 1]) {
+            ++cnt;
+        }
+        ans = Math.min(ans, cnt, n - cnt);
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinFlips(string s) {
+        int n = s.Length;
+        string target = "01";
+        int cnt = 0;
+
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != target[i & 1]) {
+                ++cnt;
+            }
+        }
+
+        int ans = Math.Min(cnt, n - cnt);
+
+        for (int i = 0; i < n; ++i) {
+            if (s[i] != target[i & 1]) {
+                --cnt;
+            }
+            if (s[i] != target[(i + n) & 1]) {
+                ++cnt;
+            }
+            ans = Math.Min(ans, Math.Min(cnt, n - cnt));
+        }
+
+        return ans;
+    }
 }
 ```
 
