@@ -89,19 +89,19 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $dfs(i, j, k)$ 表示还剩下 $i$ 个 $0$ 和 $j$ 个 $1$ 且接下来待填的数字是 $k$ 的情况下，满足题目条件的稳定二进制数组的个数。那么答案就是 $dfs(zero, one, 0) + dfs(zero, one, 1)$。
+我们设计一个函数 $\textit{dfs}(i, j, k)$ 表示还剩下 $i$ 个 $0$ 和 $j$ 个 $1$ 且接下来待填的数字是 $k$ 的情况下，满足题目条件的稳定二进制数组的个数。那么答案就是 $\textit{dfs}(\textit{zero}, \textit{one}, 0) + \textit{dfs}(\textit{zero}, \textit{one}, 1)$。
 
-函数 $dfs(i, j, k)$ 的计算过程如下：
+函数 $\textit{dfs}(i, j, k)$ 的计算过程如下：
 
 - 如果 $i \lt 0$ 或 $j \lt 0$，返回 $0$。
 - 如果 $i = 0$，那么当 $k = 1$ 且 $j \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
 - 如果 $j = 0$，那么当 $k = 0$ 且 $i \leq \textit{limit}$ 时返回 $1$，否则返回 $0$。
-- 如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $dfs(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $dfs(i - \textit{limit} - 1, j, 1)$。
-- 如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $dfs(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $dfs(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $dfs(i, j - \textit{limit} - 1, 0)$。
+- 如果 $k = 0$，我们考虑前一个数字是 $0$ 的情况 $\textit{dfs}(i - 1, j, 0)$ 和前一个数字是 $1$ 的情况 $\textit{dfs}(i - 1, j, 1)$，如果前一个数是 $0$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $0$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $1$ 的情况，所以我们要减去这种情况，即 $\textit{dfs}(i - \textit{limit} - 1, j, 1)$。
+- 如果 $k = 1$，我们考虑前一个数字是 $0$ 的情况 $\textit{dfs}(i, j - 1, 0)$ 和前一个数字是 $1$ 的情况 $\textit{dfs}(i, j - 1, 1)$，如果前一个数是 $1$，那么有可能使得子数组中有超过 $\textit{limit}$ 个 $1$，即不允许出现倒数第 $\textit{limit} + 1$ 个数是 $0$ 的情况，所以我们要减去这种情况，即 $\textit{dfs}(i, j - \textit{limit} - 1, 0)$。
 
 为了避免重复计算，我们使用记忆化搜索的方法。
 
-时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。
+时间复杂度 $O(\textit{zero} \times \textit{one})$，空间复杂度 $O(\textit{zero} \times \textit{one})$。
 
 <!-- tabs:start -->
 
@@ -287,6 +287,65 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+
+        fn dfs(
+            i: i32,
+            j: i32,
+            k: usize,
+            limit: i32,
+            f: &mut Vec<Vec<[i64; 2]>>,
+        ) -> i64 {
+            if i < 0 || j < 0 {
+                return 0;
+            }
+
+            if i == 0 {
+                return if k == 1 && j <= limit { 1 } else { 0 };
+            }
+
+            if j == 0 {
+                return if k == 0 && i <= limit { 1 } else { 0 };
+            }
+
+            let (iu, ju) = (i as usize, j as usize);
+
+            if f[iu][ju][k] != -1 {
+                return f[iu][ju][k];
+            }
+
+            let res = if k == 0 {
+                (
+                    dfs(i - 1, j, 0, limit, f)
+                    + dfs(i - 1, j, 1, limit, f)
+                    - dfs(i - limit - 1, j, 1, limit, f)
+                    + MOD
+                ) % MOD
+            } else {
+                (
+                    dfs(i, j - 1, 0, limit, f)
+                    + dfs(i, j - 1, 1, limit, f)
+                    - dfs(i, j - limit - 1, 0, limit, f)
+                    + MOD
+                ) % MOD
+            };
+
+            f[iu][ju][k] = res;
+            res
+        }
+
+        let mut f = vec![vec![[-1_i64; 2]; (one + 1) as usize]; (zero + 1) as usize];
+
+        ((dfs(zero, one, 0, limit, &mut f) + dfs(zero, one, 1, limit, &mut f)) % MOD) as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -306,7 +365,7 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$。
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$。
 
-时间复杂度 $O(zero \times one)$，空间复杂度 $O(zero \times one)$。
+时间复杂度 $O(\textit{zero} \times \textit{one})$，空间复杂度 $O(\textit{zero} \times \textit{one})$。
 
 <!-- tabs:start -->
 
@@ -442,6 +501,42 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
     }
 
     return (f[zero][one][0] + f[zero][one][1]) % mod;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+
+        let zero = zero as usize;
+        let one = one as usize;
+        let limit = limit as usize;
+
+        let mut f = vec![vec![[0_i64; 2]; one + 1]; zero + 1];
+
+        for i in 1..=zero.min(limit) {
+            f[i][0][0] = 1;
+        }
+
+        for j in 1..=one.min(limit) {
+            f[0][j][1] = 1;
+        }
+
+        for i in 1..=zero {
+            for j in 1..=one {
+                let x = if i > limit { f[i - limit - 1][j][1] } else { 0 };
+                let y = if j > limit { f[i][j - limit - 1][0] } else { 0 };
+
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod_) % mod_;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod_) % mod_;
+            }
+        }
+
+        ((f[zero][one][0] + f[zero][one][1]) % mod_) as i32
+    }
 }
 ```
 
