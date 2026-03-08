@@ -22,7 +22,7 @@ source: Biweekly Contest 177 Q1
 
 <ul>
 	<li><code>x &lt; y</code></li>
-	<li><code>x</code> and <code>y</code> have different frequencies in <code>nums</code>.</li>
+	<li><code>x</code> and <code>y</code> have different <span data-keyword="frequency-array">frequencies</span> in <code>nums</code>.</li>
 </ul>
 
 <p>Among all such pairs:</p>
@@ -33,8 +33,6 @@ source: Biweekly Contest 177 Q1
 </ul>
 
 <p>Return an integer array <code>[x, y]</code>. If no valid pair exists, return <code>[-1, -1]</code>.</p>
-
-<p>The <strong>frequency</strong> of a value <code>x</code> is the number of times it occurs in the array.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

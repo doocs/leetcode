@@ -97,32 +97,124 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3862.Fi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们先计算出数组中所有元素的总和 $s$，然后，我们从右向左枚举每个下标 $i$，在枚举过程中，我们维护一个变量 $p$ 来记录下标 $i$ 右侧所有元素的乘积。当枚举到下标 $i$ 时，我们先将 $s$ 减去 $nums[i]$，然后判断 $s$ 是否等于 $p$，如果相等，则返回下标 $i$。最后，我们将 $p$ 乘以 $nums[i]$，如果 $p$ 大于或等于 $s$，则说明后续的乘积只会越来越大，不可能再找到平衡下标了，因此我们可以提前结束枚举。
+
+枚举结束后，如果没有找到平衡下标，则返回 -1。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def smallestBalancedIndex(self, nums: list[int]) -> int:
+        s = sum(nums)
+        p = 1
+        for i in range(len(nums) - 1, -1, -1):
+            s -= nums[i]
+            if s == p:
+                return i
+            p *= nums[i]
+            if p >= s:
+                break
+        return -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int smallestBalancedIndex(int[] nums) {
+        long s = 0, p = 1;
+        for (int x : nums) {
+            s += x;
+        }
+        for (int i = nums.length - 1; i >= 0; --i) {
+            s -= nums[i];
+            if (s == p) {
+                return i;
+            }
+            p *= nums[i];
+            if (p >= s) {
+                break;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int smallestBalancedIndex(vector<int>& nums) {
+        long long s = 0, p = 1;
+        for (int x : nums) {
+            s += x;
+        }
+        for (int i = nums.size() - 1; i >= 0; --i) {
+            s -= nums[i];
+            if (s == p) {
+                return i;
+            }
+            p *= nums[i];
+            if (p >= s) {
+                break;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func smallestBalancedIndex(nums []int) int {
+	s, p := 0, 1
+	for _, x := range nums {
+		s += x
+	}
+	for i := len(nums) - 1; i >= 0; i-- {
+		s -= nums[i]
+		if s == p {
+			return i
+		}
+		p *= nums[i]
+		if p >= s {
+			break
+		}
+	}
+	return -1
+}
+```
 
+#### TypeScript
+
+```ts
+function smallestBalancedIndex(nums: number[]): number {
+    let s = 0;
+    for (const x of nums) {
+        s += x;
+    }
+    for (let i = nums.length - 1, p = 1; i >= 0; --i) {
+        s -= nums[i];
+        if (s === p) {
+            return i;
+        }
+        p *= nums[i];
+        if (p >= s) {
+            break;
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->

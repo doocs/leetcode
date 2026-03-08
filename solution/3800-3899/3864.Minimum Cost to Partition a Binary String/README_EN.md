@@ -93,32 +93,166 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3864.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
+
+We define a function $\text{dfs}(l, r)$ that represents the minimum cost for the interval $[l, r)$ of string $s$. We can use the prefix sum array $\text{pre}$ to calculate the number of sensitive elements $x$ in the interval $[l, r)$, thereby computing the cost without splitting.
+
+The calculation process of function $\text{dfs}(l, r)$ is as follows:
+
+1. Calculate the number of sensitive elements $x$ in the interval $[l, r)$.
+2. Calculate the cost without splitting: if $x > 0$, the cost is $(r - l) \cdot x \cdot \text{encCost}$; if $x = 0$, the cost is $\text{flatCost}$.
+3. If the interval length is even, we can try to split it into two consecutive segments of equal length, and calculate the cost after splitting as $\text{dfs}(l, m) + \text{dfs}(m, r)$, where $m = \frac{l + r}{2}$. Finally, return the smaller of the two values.
+
+The answer is $\text{dfs}(0, n)$, where $n$ is the length of string $s$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minCost(self, s: str, encCost: int, flatCost: int) -> int:
+        def dfs(l: int, r: int) -> int:
+            x = pre[r] - pre[l]
+            res = (r - l) * x * encCost if x else flatCost
+            if (r - l) % 2 == 0:
+                m = (l + r) // 2
+                res = min(res, dfs(l, m) + dfs(m, r))
+            return res
 
+        n = len(s)
+        pre = [0] * (n + 1)
+        for i, c in enumerate(s, 1):
+            pre[i] = pre[i - 1] + int(c)
+        return dfs(0, n)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] pre;
+    private int encCost;
+    private int flatCost;
 
+    public long minCost(String s, int encCost, int flatCost) {
+        int n = s.length();
+        this.encCost = encCost;
+        this.flatCost = flatCost;
+
+        pre = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            pre[i] = pre[i - 1] + (s.charAt(i - 1) - '0');
+        }
+
+        return dfs(0, n);
+    }
+
+    private long dfs(int l, int r) {
+        int x = pre[r] - pre[l];
+        long res = x != 0 ? (long) (r - l) * x * encCost : flatCost;
+
+        if ((r - l) % 2 == 0) {
+            int m = (l + r) >> 1;
+            res = Math.min(res, dfs(l, m) + dfs(m, r));
+        }
+
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minCost(string s, int encCost, int flatCost) {
+        int n = s.size();
+        vector<int> pre(n + 1);
 
+        for (int i = 1; i <= n; ++i) {
+            pre[i] = pre[i - 1] + (s[i - 1] - '0');
+        }
+
+        auto dfs = [&](this auto&& dfs, int l, int r) -> long long {
+            int x = pre[r] - pre[l];
+            long long res = x ? 1LL * (r - l) * x * encCost : flatCost;
+
+            if ((r - l) % 2 == 0) {
+                int m = (l + r) >> 1;
+                res = min(res, dfs(l, m) + dfs(m, r));
+            }
+
+            return res;
+        };
+
+        return dfs(0, n);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(s string, encCost int, flatCost int) int64 {
+	n := len(s)
+	pre := make([]int, n+1)
 
+	for i := 1; i <= n; i++ {
+		pre[i] = pre[i-1] + int(s[i-1]-'0')
+	}
+
+	var dfs func(int, int) int64
+	dfs = func(l, r int) int64 {
+		x := pre[r] - pre[l]
+
+		var res int64
+		if x != 0 {
+			res = int64(r-l) * int64(x) * int64(encCost)
+		} else {
+			res = int64(flatCost)
+		}
+
+		if (r-l)%2 == 0 {
+			m := (l + r) / 2
+			res = min(res, dfs(l, m)+dfs(m, r))
+		}
+
+		return res
+	}
+
+	return dfs(0, n)
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(s: string, encCost: number, flatCost: number): number {
+    const n = s.length;
+    const pre: number[] = new Array(n + 1).fill(0);
+
+    for (let i = 1; i <= n; i++) {
+        pre[i] = pre[i - 1] + Number(s[i - 1]);
+    }
+
+    const dfs = (l: number, r: number): number => {
+        const x = pre[r] - pre[l];
+        let res = x ? (r - l) * x * encCost : flatCost;
+
+        if ((r - l) % 2 === 0) {
+            const m = (l + r) >> 1;
+            res = Math.min(res, dfs(l, m) + dfs(m, r));
+        }
+
+        return res;
+    };
+
+    return dfs(0, n);
+}
 ```
 
 <!-- tabs:end -->
