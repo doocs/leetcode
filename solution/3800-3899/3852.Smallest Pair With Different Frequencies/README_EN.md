@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README_EN.md
+rating: 1287
+source: Biweekly Contest 177 Q1
 ---
 
 <!-- problem:start -->

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 492 场周赛(2026-03-08 10:30, 90 分钟) 参赛人数 2065
+
+- [3861. 容量最小的箱子](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README.md)
+- [3862. 找出最小平衡下标](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README.md)
+- [3863. 将一个字符串排序的最小操作次数](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README.md)
+- [3864. 划分二进制字符串的最小费用](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README.md)
+
 #### 第 491 场周赛(2026-03-01 10:30, 90 分钟) 参赛人数 1256
 
 - [3856. 移除尾部元音字母](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README.md)

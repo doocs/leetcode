@@ -3869,6 +3869,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3858  |  [Minimum Bitwise OR From Grid](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
 |  3859  |  [Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 491  |
 |  3860  |  [Unique Email Groups](/solution/3800-3899/3860.Unique%20Email%20Groups/README_EN.md)  |    |  Medium  |  🔒  |
+|  3861  |  [Minimum Capacity Box](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md)  |    |  Easy  |  Weekly Contest 492  |
+|  3862  |  [Find the Smallest Balanced Index](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md)  |    |  Medium  |  Weekly Contest 492  |
+|  3863  |  [Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 492  |
+|  3864  |  [Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)  |    |  Hard  |  Weekly Contest 492  |
 
 ## Copyright
 

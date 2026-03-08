@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md
+rating: 1322
+source: Weekly Contest 491 Q2
 ---
 
 <!-- problem:start -->

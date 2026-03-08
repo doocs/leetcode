@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md
+rating: 2302
+source: Weekly Contest 491 Q4
 ---
 
 <!-- problem:start -->

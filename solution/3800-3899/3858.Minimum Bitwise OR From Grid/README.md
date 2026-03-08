@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README.md
+rating: 1947
+source: 第 491 场周赛 Q3
 ---
 
 <!-- problem:start -->

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 492
+
+- [3861. Minimum Capacity Box](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md)
+- [3862. Find the Smallest Balanced Index](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md)
+- [3863. Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)
+- [3864. Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)
+
 #### Weekly Contest 491
 
 - [3856. Trim Trailing Vowels](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md)
