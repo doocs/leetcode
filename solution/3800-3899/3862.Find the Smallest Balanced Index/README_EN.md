@@ -93,32 +93,124 @@ Therefore, no balanced index exists and the answer is -1.</div>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $nums[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $nums[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early.
+
+If no balanced index is found after the enumeration, we return -1.
+
+The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def smallestBalancedIndex(self, nums: list[int]) -> int:
+        s = sum(nums)
+        p = 1
+        for i in range(len(nums) - 1, -1, -1):
+            s -= nums[i]
+            if s == p:
+                return i
+            p *= nums[i]
+            if p >= s:
+                break
+        return -1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int smallestBalancedIndex(int[] nums) {
+        long s = 0, p = 1;
+        for (int x : nums) {
+            s += x;
+        }
+        for (int i = nums.length - 1; i >= 0; --i) {
+            s -= nums[i];
+            if (s == p) {
+                return i;
+            }
+            p *= nums[i];
+            if (p >= s) {
+                break;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int smallestBalancedIndex(vector<int>& nums) {
+        long long s = 0, p = 1;
+        for (int x : nums) {
+            s += x;
+        }
+        for (int i = nums.size() - 1; i >= 0; --i) {
+            s -= nums[i];
+            if (s == p) {
+                return i;
+            }
+            p *= nums[i];
+            if (p >= s) {
+                break;
+            }
+        }
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func smallestBalancedIndex(nums []int) int {
+	s, p := 0, 1
+	for _, x := range nums {
+		s += x
+	}
+	for i := len(nums) - 1; i >= 0; i-- {
+		s -= nums[i]
+		if s == p {
+			return i
+		}
+		p *= nums[i]
+		if p >= s {
+			break
+		}
+	}
+	return -1
+}
+```
 
+#### TypeScript
+
+```ts
+function smallestBalancedIndex(nums: number[]): number {
+    let s = 0;
+    for (const x of nums) {
+        s += x;
+    }
+    for (let i = nums.length - 1, p = 1; i >= 0; --i) {
+        s -= nums[i];
+        if (s === p) {
+            return i;
+        }
+        p *= nums[i];
+        if (p >= s) {
+            break;
+        }
+    }
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
