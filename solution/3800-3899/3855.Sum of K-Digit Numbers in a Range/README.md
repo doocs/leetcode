@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README.md
+rating: 2085
+source: 第 177 场双周赛 Q4
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3853.Merge%20Close%20Characters/README.md
+rating: 1471
+source: 第 177 场双周赛 Q2
 ---
 
 <!-- problem:start -->

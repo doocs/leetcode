@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md
+rating: 1947
+source: Weekly Contest 491 Q3
 ---
 
 <!-- problem:start -->

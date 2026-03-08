@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README.md
+rating: 2095
+source: 第 177 场双周赛 Q3
 ---
 
 <!-- problem:start -->

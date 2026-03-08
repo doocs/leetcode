@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README.md
+rating: 1139
+source: 第 491 场周赛 Q1
 ---
 
 <!-- problem:start -->
