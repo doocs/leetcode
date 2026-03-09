@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Un
 
 <!-- problem:start -->
 
-# [3860. 不同邮件组 🔒](https://leetcode.cn/problems/unique-email-groups)
+# [3860. Unique Email Groups 🔒](https://leetcode.cn/problems/unique-email-groups)
 
 [English Version](/solution/3800-3899/3860.Unique%20Email%20Groups/README_EN.md)
 
@@ -14,52 +14,51 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Un
 
 <!-- description:start -->
 
-<p>给定一个字符串数组&nbsp;<code>emails</code>，其中每个字符串是一个有效的邮件地址。</p>
+<p>You are given an array of strings <code>emails</code>, where each string is a valid email address.</p>
 
-<p>如果两个邮件地址的 <strong>规范化</strong> 本地名称和 <strong>规范化</strong> 域名名称 <strong>都相同</strong>，则属于同一组。</p>
+<p>Two email addresses belong to the same group if <strong>both</strong> their <strong>normalized</strong> local names and <strong>normalized</strong> domain names are <strong>identical</strong>.</p>
 
-<p>规范化规则如下：</p>
+<p>The normalization rules are as follows:</p>
 
 <ul>
-	<li>本地名称是 <code>'@'</code> 符号 <strong>之前</strong> 的部分。
+	<li>The local name is the part <strong>before</strong> the <code>&#39;@&#39;</code> symbol.
 
     <ul>
-    	<li>忽略所有点&nbsp;<code>'.'</code>。</li>
-    	<li>忽略第一个 <code>'+'</code> 之后的所有内容，如果存在的话。</li>
-    	<li>转换为小写。</li>
+    	<li>Ignore all dots <code>&#39;.&#39;</code>.</li>
+    	<li>Ignore everything after the first <code>&#39;+&#39;</code>, if present.</li>
+    	<li>Convert to lowercase.</li>
     </ul>
     </li>
-    <li>域名是 <code>'@'</code> 符号 <strong>后面</strong> 的部分。
+    <li>The domain name is the part <strong>after</strong> the <code>&#39;@&#39;</code> symbol.
     <ul>
-    	<li>转换为小写。</li>
+    	<li>Convert to lowercase.</li>
     </ul>
     </li>
 
 </ul>
 
-<p>返回一个整数，表示规范化后的 <strong>不同</strong> 电子邮件组的数量。</p>
+<p>Return an integer denoting the number of <strong>unique</strong> email groups after normalization.</p>
 
 <p>&nbsp;</p>
-
-<p><strong class="example">示例 1：</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>emails = ["test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"]</span></p>
+<p><strong>Input:</strong> <span class="example-io">emails = [&quot;test.email+alex@leetcode.com&quot;, &quot;test.e.mail+bob.cathy@leetcode.com&quot;, &quot;testemail+david@lee.tcode.com&quot;]</span></p>
 
-<p><span class="example-io"><b>输出：</b>2</span></p>
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
 
-<p><strong>示例：</strong></p>
+<p><strong>Explanation:</strong></p>
 </div>
 
 <table style="border: 1px solid black;">
 	<thead>
 		<tr>
-			<th style="border: 1px solid black;">邮件地址</th>
-			<th style="border: 1px solid black;">本地名称</th>
-			<th style="border: 1px solid black;">规范化本地名称</th>
-			<th style="border: 1px solid black;">域名</th>
-			<th style="border: 1px solid black;">规范化域名</th>
-			<th style="border: 1px solid black;">最终邮件地址</th>
+			<th style="border: 1px solid black;">Email</th>
+			<th style="border: 1px solid black;">Local</th>
+			<th style="border: 1px solid black;">Normalized Local</th>
+			<th style="border: 1px solid black;">Domain</th>
+			<th style="border: 1px solid black;">Normalized Domain</th>
+			<th style="border: 1px solid black;">Final Email</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -90,26 +89,26 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Un
 	</tbody>
 </table>
 
-<p>不同的邮件地址是 [<code>"testemail@leetcode.com"</code>, <code>"testemail@lee.tcode.com"</code>]。因此，答案是 2。</p>
+<p>Unique emails are [<code>&quot;testemail@leetcode.com&quot;</code>, <code>&quot;testemail@lee.tcode.com&quot;</code>]. Thus, the answer is 2.</p>
 
-<p><strong class="example">示例 2：</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>emails = ["A@B.com", "a@b.com", "ab+xy@b.com", "a.b@b.com"]</span></p>
+<p><strong>Input:</strong> <span class="example-io">emails = [&quot;A@B.com&quot;, &quot;a@b.com&quot;, &quot;ab+xy@b.com&quot;, &quot;a.b@b.com&quot;]</span></p>
 
-<p><span class="example-io"><b>输出：</b>2</span></p>
+<p><strong>Output:</strong> <span class="example-io">2</span></p>
 
-<p><strong>示例：</strong></p>
+<p><strong>Explanation:</strong></p>
 
 <table style="border: 1px solid black;">
 	<thead>
 		<tr>
-			<th style="border: 1px solid black;">邮件地址</th>
-			<th style="border: 1px solid black;">本地名称</th>
-			<th style="border: 1px solid black;">规范化本地名称</th>
-			<th style="border: 1px solid black;">域名</th>
-			<th style="border: 1px solid black;">规范化域名</th>
-			<th style="border: 1px solid black;">最终邮件地址</th>
+			<th style="border: 1px solid black;">Email</th>
+			<th style="border: 1px solid black;">Local</th>
+			<th style="border: 1px solid black;">Normalized Local</th>
+			<th style="border: 1px solid black;">Domain</th>
+			<th style="border: 1px solid black;">Normalized Domain</th>
+			<th style="border: 1px solid black;">Final Email</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -148,27 +147,27 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Un
 	</tbody>
 </table>
 
-<p>不同的邮件地址是&nbsp;[<code>"a@b.com"</code>, <code>"ab@b.com"</code>]。因此，答案是 2。</p>
+<p>Unique emails are [<code>&quot;a@b.com&quot;</code>, <code>&quot;ab@b.com&quot;</code>]. Thus, the answer is 2.</p>
 </div>
 
-<p><strong class="example">示例 3：</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>emails = ["a.b+c.d+e@DoMain.com", "ab+xyz@domain.com", "ab@domain.com"]</span></p>
+<p><strong>Input:</strong> <span class="example-io">emails = [&quot;a.b+c.d+e@DoMain.com&quot;, &quot;ab+xyz@domain.com&quot;, &quot;ab@domain.com&quot;]</span></p>
 
-<p><span class="example-io"><b>输出：</b>1</span></p>
+<p><strong>Output:</strong> <span class="example-io">1</span></p>
 
-<p><strong>解释：</strong></p>
+<p><strong>Explanation:</strong></p>
 
 <table style="border: 1px solid black;">
 	<thead>
 		<tr>
-			<th style="border: 1px solid black;">邮件地址</th>
-			<th style="border: 1px solid black;">本地名称</th>
-			<th style="border: 1px solid black;">规范化本地名称</th>
-			<th style="border: 1px solid black;">域名</th>
-			<th style="border: 1px solid black;">规范化域名</th>
-			<th style="border: 1px solid black;">最终邮件地址</th>
+			<th style="border: 1px solid black;">Email</th>
+			<th style="border: 1px solid black;">Local</th>
+			<th style="border: 1px solid black;">Normalized Local</th>
+			<th style="border: 1px solid black;">Domain</th>
+			<th style="border: 1px solid black;">Normalized Domain</th>
+			<th style="border: 1px solid black;">Final Email</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -199,20 +198,19 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Un
 	</tbody>
 </table>
 
-<p>所有邮件地址规范化为&nbsp;<code>"ab@domain.com"</code>。因此，答案是 1。</p>
+<p>All emails normalize to <code>&quot;ab@domain.com&quot;</code>. Thus, the answer is 1.</p>
 </div>
 
 <p>&nbsp;</p>
-
-<p><strong>提示：</strong></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= emails.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= emails[i].length &lt;= 100</code></li>
-	<li><code>emails[i]</code>&nbsp;包含大小写英文字母，数字，以及字符&nbsp;<code>'.'</code>，<code>'+'</code>&nbsp;和&nbsp;<code>'@'</code>。</li>
-	<li>每个&nbsp;<code>emails[i]</code>&nbsp;包含 <strong>恰好</strong>&nbsp;一个&nbsp;<code>'@'</code> 字符。</li>
-	<li>所有本地名称和域名都不为空；本地名不能以&nbsp;<code>'+'</code> 开头。</li>
-	<li>域名以 <code>".com"</code> 后缀结尾，并且在 <code>".com"</code> 之前至少包含一个字符。</li>
+	<li><code>emails[i]</code> consists of lowercase and uppercase English letters, digits, and the characters <code>&#39;.&#39;</code>, <code>&#39;+&#39;</code>, and <code>&#39;@&#39;</code>.</li>
+	<li>Each <code>emails[i]</code> contains <strong>exactly</strong> one <code>&#39;@&#39;</code> character.</li>
+	<li>All local and domain names are non-empty; local names do not start with <code>&#39;+&#39;</code>.</li>
+	<li>Domain names end with the <code>&quot;.com&quot;</code> suffix and contain at least one character before <code>&quot;.com&quot;</code>.</li>
 </ul>
 
 <!-- description:end -->

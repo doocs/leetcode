@@ -24,9 +24,9 @@ tags:
 
 <p>同时给定两个整数&nbsp;<code>k</code> 和&nbsp;<code>window</code>。</p>
 
-<p>如果存在一个整数 <code>t</code>，使得某个用户在闭区间 <code>[t, t + window]</code> 内的请求次数严格大于&nbsp;<code>k</code>，则用户违反了限制。</p>
+<p>如果存在一个整数 <code>t</code>，使得用户在闭区间 <code>[t, t + window]</code> 内的请求次数严格大于&nbsp;<code>k</code>，则用户违反了限制。</p>
 
-<p>可以丢弃任意数量的请求。</p>
+<p>可以发送任意数量的请求。</p>
 
 <p>返回一个整数，表示没有用户违反限制的可 <strong>保留</strong> 的&nbsp;<strong>最大</strong> 请求数。</p>
 

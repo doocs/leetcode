@@ -3875,6 +3875,7 @@
 |  3862  |  [找出最小平衡下标](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README.md)  |    |  中等  |  第 492 场周赛  |
 |  3863  |  [将一个字符串排序的最小操作次数](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README.md)  |    |  中等  |  第 492 场周赛  |
 |  3864  |  [划分二进制字符串的最小费用](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README.md)  |    |  困难  |  第 492 场周赛  |
+|  3865  |  [Reverse K Subarrays](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
