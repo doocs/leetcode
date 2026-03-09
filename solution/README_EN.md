@@ -3873,6 +3873,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3862  |  [Find the Smallest Balanced Index](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md)  |    |  Medium  |  Weekly Contest 492  |
 |  3863  |  [Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 492  |
 |  3864  |  [Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)  |    |  Hard  |  Weekly Contest 492  |
+|  3865  |  [Reverse K Subarrays](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
