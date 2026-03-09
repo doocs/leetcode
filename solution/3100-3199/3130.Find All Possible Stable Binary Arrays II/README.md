@@ -252,6 +252,65 @@ func numberOfStableArrays(zero int, one int, limit int) int {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+
+        fn dfs(
+            i: i32,
+            j: i32,
+            k: usize,
+            limit: i32,
+            f: &mut Vec<Vec<[i64; 2]>>,
+        ) -> i64 {
+            if i < 0 || j < 0 {
+                return 0;
+            }
+
+            if i == 0 {
+                return if k == 1 && j <= limit { 1 } else { 0 };
+            }
+
+            if j == 0 {
+                return if k == 0 && i <= limit { 1 } else { 0 };
+            }
+
+            let (iu, ju) = (i as usize, j as usize);
+
+            if f[iu][ju][k] != -1 {
+                return f[iu][ju][k];
+            }
+
+            let res = if k == 0 {
+                (
+                    dfs(i - 1, j, 0, limit, f)
+                    + dfs(i - 1, j, 1, limit, f)
+                    - dfs(i - limit - 1, j, 1, limit, f)
+                    + MOD
+                ) % MOD
+            } else {
+                (
+                    dfs(i, j - 1, 0, limit, f)
+                    + dfs(i, j - 1, 1, limit, f)
+                    - dfs(i, j - limit - 1, 0, limit, f)
+                    + MOD
+                ) % MOD
+            };
+
+            f[iu][ju][k] = res;
+            res
+        }
+
+        let mut f = vec![vec![[-1_i64; 2]; (one + 1) as usize]; (zero + 1) as usize];
+
+        ((dfs(zero, one, 0, limit, &mut f) + dfs(zero, one, 1, limit, &mut f)) % MOD) as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -407,6 +466,42 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
     }
 
     return (f[zero][one][0] + f[zero][one][1]) % mod;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+
+        let zero = zero as usize;
+        let one = one as usize;
+        let limit = limit as usize;
+
+        let mut f = vec![vec![[0_i64; 2]; one + 1]; zero + 1];
+
+        for i in 1..=zero.min(limit) {
+            f[i][0][0] = 1;
+        }
+
+        for j in 1..=one.min(limit) {
+            f[0][j][1] = 1;
+        }
+
+        for i in 1..=zero {
+            for j in 1..=one {
+                let x = if i > limit { f[i - limit - 1][j][1] } else { 0 };
+                let y = if j > limit { f[i][j - limit - 1][0] } else { 0 };
+
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod_) % mod_;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod_) % mod_;
+            }
+        }
+
+        ((f[zero][one][0] + f[zero][one][1]) % mod_) as i32
+    }
 }
 ```
 
