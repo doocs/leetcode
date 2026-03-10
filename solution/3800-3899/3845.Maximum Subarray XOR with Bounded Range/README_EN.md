@@ -193,8 +193,6 @@ class Solution {
         return result;
     }
 }
-
-
 ```
 
 #### C++
