@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md
+tags:
+    - String
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README.md
+tags:
+    - 数组
+    - 前缀和
 ---
 
 <!-- problem:start -->

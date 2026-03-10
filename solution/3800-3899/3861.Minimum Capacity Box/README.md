@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3861.Minimum%20Capacity%20Box/README.md
+tags:
+    - 数组
 ---
 
 <!-- problem:start -->
