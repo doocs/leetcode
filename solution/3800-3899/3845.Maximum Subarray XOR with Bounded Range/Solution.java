@@ -30,8 +30,7 @@ class Solution {
             int currentBit = (value >> bit) & 1;
             int oppositeBit = 1 - currentBit;
 
-            if (current.children[oppositeBit] != null &&
-                current.children[oppositeBit].count > 0) {
+            if (current.children[oppositeBit] != null && current.children[oppositeBit].count > 0) {
                 maxXor |= (1 << bit);
                 current = current.children[oppositeBit];
             } else {
@@ -63,14 +62,12 @@ class Solution {
         for (int right = 0; right < length; right++) {
 
             // Maintain decreasing deque for maximum
-            while (!maxDeque.isEmpty() &&
-                   nums[maxDeque.peekLast()] <= nums[right]) {
+            while (!maxDeque.isEmpty() && nums[maxDeque.peekLast()] <= nums[right]) {
                 maxDeque.pollLast();
             }
 
             // Maintain increasing deque for minimum
-            while (!minDeque.isEmpty() &&
-                   nums[minDeque.peekLast()] >= nums[right]) {
+            while (!minDeque.isEmpty() && nums[minDeque.peekLast()] >= nums[right]) {
                 minDeque.pollLast();
             }
 
@@ -78,8 +75,7 @@ class Solution {
             minDeque.addLast(right);
 
             // Shrink window if max - min exceeds limit
-            while (nums[maxDeque.peekFirst()] -
-                   nums[minDeque.peekFirst()] > limit) {
+            while (nums[maxDeque.peekFirst()] - nums[minDeque.peekFirst()] > limit) {
 
                 if (maxDeque.peekFirst() == left) {
                     maxDeque.pollFirst();
