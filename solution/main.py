@@ -55,34 +55,67 @@ class Spider:
             time.sleep(2)
             return self.get_all_questions(retry - 1) if retry > 0 else []
 
-    def get_all_questions_v2(self, retry: int = 3, limit: int = 10000) -> List:
+    def get_all_questions_v2(self, retry: int = 3, limit: int = 100) -> List:
         headers = {
             "Cookie": self.cookie_en,
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0",
             "Content-Type": "application/json",
         }
-        form = {
-            "query": "\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\n  problemsetQuestionList: questionList(\n    categorySlug: $categorySlug\n    limit: $limit\n    skip: $skip\n    filters: $filters\n  ) {\n    total: totalNum\n    questions: data {\n      acRate\n      difficulty\n      freqBar\n      frontendQuestionId: questionFrontendId\n      isFavor\n      paidOnly: isPaidOnly\n      status\n      title\n      titleSlug\n      topicTags {\n        name\n        id\n        slug\n      }\n      hasSolution\n      hasVideoSolution\n    }\n  }\n}\n    ",
-            "variables": {
-                "categorySlug": "all-code-essentials",
-                "skip": 0,
-                "limit": limit,
-                "filters": {"orderBy": "FRONTEND_ID", "sortOrder": "DESCENDING"},
-            },
-            "operationName": "problemsetQuestionList",
-        }
-        try:
-            resp = requests.post(
-                "https://leetcode.com/graphql",
-                headers=headers,
-                data=json.dumps(form),
-                timeout=20,
-            )
-            return resp.json()["data"]["problemsetQuestionList"]["questions"]
-        except Exception as e:
-            print("get_all_questions_v2", e)
-            time.sleep(2)
-            return self.get_all_questions_v2(retry - 1, limit) if retry > 0 else []
+        page_size = max(1, min(limit, 100))
+        skip = 0
+        total = None
+        questions = []
+        page_index = 0
+
+        while total is None or skip < total:
+            form = {
+                "query": "\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\n  problemsetQuestionList: questionList(\n    categorySlug: $categorySlug\n    limit: $limit\n    skip: $skip\n    filters: $filters\n  ) {\n    total: totalNum\n    questions: data {\n      acRate\n      difficulty\n      freqBar\n      frontendQuestionId: questionFrontendId\n      isFavor\n      paidOnly: isPaidOnly\n      status\n      title\n      titleSlug\n      topicTags {\n        name\n        id\n        slug\n      }\n      hasSolution\n      hasVideoSolution\n    }\n  }\n}\n    ",
+                "variables": {
+                    "categorySlug": "all-code-essentials",
+                    "skip": skip,
+                    "limit": page_size,
+                    "filters": {"orderBy": "FRONTEND_ID", "sortOrder": "DESCENDING"},
+                },
+                "operationName": "problemsetQuestionList",
+            }
+
+            ok = False
+            for _ in range(max(0, retry) + 1):
+                try:
+                    resp = requests.post(
+                        "https://leetcode.com/graphql",
+                        headers=headers,
+                        data=json.dumps(form),
+                        timeout=20,
+                    )
+                    page = resp.json()["data"]["problemsetQuestionList"]
+                    page_questions = page.get("questions") or []
+                    total = page.get("total") if total is None else total
+                    questions.extend(page_questions)
+                    skip += len(page_questions)
+                    page_index += 1
+                    total_pages = (
+                        (int(total) + page_size - 1) // page_size
+                        if isinstance(total, int) and total > 0
+                        else "?"
+                    )
+                    print(
+                        f"get_all_questions_v2 progress: page {page_index}/{total_pages}, "
+                        f"fetched {len(page_questions)}, accumulated {len(questions)}/{total or '?'}"
+                    )
+                    ok = True
+                    break
+                except Exception as e:
+                    print("get_all_questions_v2", e)
+                    time.sleep(2)
+
+            if not ok:
+                break
+
+            if not page_questions:
+                break
+
+        return questions
 
     def get_question_detail_en(self, question_title_slug: str, retry: int = 3) -> dict:
         headers = {
@@ -115,7 +148,7 @@ class Spider:
                     "User-Agent": user_agent,
                     "Connection": "keep-alive",
                     "Content-Type": "application/json",
-                    "Referer": "https://leetcode.com/problems/" + slug,
+                    "Referer": "https://leetcode.com/problems/" + question_title_slug,
                     "cookie": self.cookie_en,
                 }
                 resp = requests.post(
