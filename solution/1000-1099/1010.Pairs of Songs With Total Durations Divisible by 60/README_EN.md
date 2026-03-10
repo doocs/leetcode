@@ -58,105 +58,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math + Counting
 
-<!-- tabs:start -->
+If the sum of a pair $(a, b)$ is divisible by $60$, i.e., $(a + b) \bmod 60 = 0$, then $(a \bmod 60 + b \bmod 60) \bmod 60 = 0$. Let $x = a \bmod 60$ and $y = b \bmod 60$, then $(x + y) \bmod 60 = 0$, which means $y = (60 - x) \bmod 60$.
 
-#### Python3
+Therefore, we can iterate over the song list and use an array $cnt$ of length $60$ to record the number of occurrences of each remainder $x$. For the current $x$, if there exists a remainder $y = (60 - x) \bmod 60$ in array $cnt$, we add $cnt[y]$ to the answer. Then we increment the count of $x$ in array $cnt$ by $1$. We continue iterating until the entire song list has been traversed.
 
-```python
-class Solution:
-    def numPairsDivisibleBy60(self, time: List[int]) -> int:
-        cnt = Counter(t % 60 for t in time)
-        ans = sum(cnt[x] * cnt[60 - x] for x in range(1, 30))
-        ans += cnt[0] * (cnt[0] - 1) // 2
-        ans += cnt[30] * (cnt[30] - 1) // 2
-        return ans
-```
+After the iteration, we get the number of song pairs that satisfy the condition.
 
-#### Java
-
-```java
-class Solution {
-    public int numPairsDivisibleBy60(int[] time) {
-        int[] cnt = new int[60];
-        for (int t : time) {
-            ++cnt[t % 60];
-        }
-        int ans = 0;
-        for (int x = 1; x < 30; ++x) {
-            ans += cnt[x] * cnt[60 - x];
-        }
-        ans += (long) cnt[0] * (cnt[0] - 1) / 2;
-        ans += (long) cnt[30] * (cnt[30] - 1) / 2;
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int numPairsDivisibleBy60(vector<int>& time) {
-        int cnt[60]{};
-        for (int& t : time) {
-            ++cnt[t % 60];
-        }
-        int ans = 0;
-        for (int x = 1; x < 30; ++x) {
-            ans += cnt[x] * cnt[60 - x];
-        }
-        ans += 1LL * cnt[0] * (cnt[0] - 1) / 2;
-        ans += 1LL * cnt[30] * (cnt[30] - 1) / 2;
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func numPairsDivisibleBy60(time []int) (ans int) {
-	cnt := [60]int{}
-	for _, t := range time {
-		cnt[t%60]++
-	}
-	for x := 1; x < 30; x++ {
-		ans += cnt[x] * cnt[60-x]
-	}
-	ans += cnt[0] * (cnt[0] - 1) / 2
-	ans += cnt[30] * (cnt[30] - 1) / 2
-	return
-}
-```
-
-#### TypeScript
-
-```ts
-function numPairsDivisibleBy60(time: number[]): number {
-    const cnt: number[] = new Array(60).fill(0);
-    for (const t of time) {
-        ++cnt[t % 60];
-    }
-    let ans = 0;
-    for (let x = 1; x < 30; ++x) {
-        ans += cnt[x] * cnt[60 - x];
-    }
-    ans += (cnt[0] * (cnt[0] - 1)) / 2;
-    ans += (cnt[30] * (cnt[30] - 1)) / 2;
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
+The time complexity is $O(n)$ and the space complexity is $O(C)$, where $n$ is the length of the song list and $C$ is the number of possible remainders, here $C = 60$.
 
 <!-- tabs:start -->
 
@@ -240,6 +150,24 @@ function numPairsDivisibleBy60(time: number[]): number {
         ++cnt[x];
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_pairs_divisible_by60(time: Vec<i32>) -> i32 {
+        let mut cnt = [0i32; 60];
+        let mut ans: i32 = 0;
+        for mut x in time {
+            x %= 60;
+            let y = (60 - x) % 60;
+            ans += cnt[y as usize];
+            cnt[x as usize] += 1;
+        }
+        ans
+    }
 }
 ```
 

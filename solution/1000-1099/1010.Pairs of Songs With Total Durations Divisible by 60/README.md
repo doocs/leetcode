@@ -77,104 +77,6 @@ tags:
 ```python
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
-        cnt = Counter(t % 60 for t in time)
-        ans = sum(cnt[x] * cnt[60 - x] for x in range(1, 30))
-        ans += cnt[0] * (cnt[0] - 1) // 2
-        ans += cnt[30] * (cnt[30] - 1) // 2
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public int numPairsDivisibleBy60(int[] time) {
-        int[] cnt = new int[60];
-        for (int t : time) {
-            ++cnt[t % 60];
-        }
-        int ans = 0;
-        for (int x = 1; x < 30; ++x) {
-            ans += cnt[x] * cnt[60 - x];
-        }
-        ans += (long) cnt[0] * (cnt[0] - 1) / 2;
-        ans += (long) cnt[30] * (cnt[30] - 1) / 2;
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int numPairsDivisibleBy60(vector<int>& time) {
-        int cnt[60]{};
-        for (int& t : time) {
-            ++cnt[t % 60];
-        }
-        int ans = 0;
-        for (int x = 1; x < 30; ++x) {
-            ans += cnt[x] * cnt[60 - x];
-        }
-        ans += 1LL * cnt[0] * (cnt[0] - 1) / 2;
-        ans += 1LL * cnt[30] * (cnt[30] - 1) / 2;
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func numPairsDivisibleBy60(time []int) (ans int) {
-	cnt := [60]int{}
-	for _, t := range time {
-		cnt[t%60]++
-	}
-	for x := 1; x < 30; x++ {
-		ans += cnt[x] * cnt[60-x]
-	}
-	ans += cnt[0] * (cnt[0] - 1) / 2
-	ans += cnt[30] * (cnt[30] - 1) / 2
-	return
-}
-```
-
-#### TypeScript
-
-```ts
-function numPairsDivisibleBy60(time: number[]): number {
-    const cnt: number[] = new Array(60).fill(0);
-    for (const t of time) {
-        ++cnt[t % 60];
-    }
-    let ans = 0;
-    for (let x = 1; x < 30; ++x) {
-        ans += cnt[x] * cnt[60 - x];
-    }
-    ans += (cnt[0] * (cnt[0] - 1)) / 2;
-    ans += (cnt[30] * (cnt[30] - 1)) / 2;
-    return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def numPairsDivisibleBy60(self, time: List[int]) -> int:
         cnt = Counter()
         ans = 0
         for x in time:
@@ -250,6 +152,24 @@ function numPairsDivisibleBy60(time: number[]): number {
         ++cnt[x];
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn num_pairs_divisible_by60(time: Vec<i32>) -> i32 {
+        let mut cnt = [0i32; 60];
+        let mut ans: i32 = 0;
+        for mut x in time {
+            x %= 60;
+            let y = (60 - x) % 60;
+            ans += cnt[y as usize];
+            cnt[x as usize] += 1;
+        }
+        ans
+    }
 }
 ```
 
