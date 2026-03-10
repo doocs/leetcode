@@ -1,36 +1,23 @@
 function largestSubmatrix(matrix: number[][]): number {
-    for (let column = 0; column < matrix[0].length; column++) {
-        for (let row = 0; row < matrix.length; row++) {
-            let tempRow = row;
-            let count = 0;
+    const m: number = matrix.length;
+    const n: number = matrix[0].length;
 
-            while (tempRow < matrix.length && matrix[tempRow][column] === 1) {
-                count++;
-                tempRow++;
-            }
-
-            while (count !== 0) {
-                matrix[row][column] = count;
-                count--;
-                row++;
+    for (let i: number = 1; i < m; ++i) {
+        for (let j: number = 0; j < n; ++j) {
+            if (matrix[i][j] !== 0) {
+                matrix[i][j] = matrix[i - 1][j] + 1;
             }
         }
     }
 
-    for (let row = 0; row < matrix.length; row++) {
-        matrix[row].sort((a, b) => a - b);
-    }
+    let ans: number = 0;
 
-    let maxSubmatrixArea = 0;
-
-    for (let row = 0; row < matrix.length; row++) {
-        for (let col = matrix[row].length - 1; col >= 0; col--) {
-            maxSubmatrixArea = Math.max(
-                maxSubmatrixArea,
-                matrix[row][col] * (matrix[row].length - col),
-            );
+    for (const row of matrix) {
+        row.sort((a, b) => b - a);
+        for (let j: number = 0; j < n; ++j) {
+            ans = Math.max(ans, (j + 1) * row[j]);
         }
     }
 
-    return maxSubmatrixArea;
+    return ans;
 }
