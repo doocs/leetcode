@@ -65,6 +65,7 @@ class Spider:
         skip = 0
         total = None
         questions = []
+        page_index = 0
 
         while total is None or skip < total:
             form = {
@@ -92,6 +93,16 @@ class Spider:
                     total = page.get("total") if total is None else total
                     questions.extend(page_questions)
                     skip += len(page_questions)
+                    page_index += 1
+                    total_pages = (
+                        (int(total) + page_size - 1) // page_size
+                        if isinstance(total, int) and total > 0
+                        else "?"
+                    )
+                    print(
+                        f"get_all_questions_v2 progress: page {page_index}/{total_pages}, "
+                        f"fetched {len(page_questions)}, accumulated {len(questions)}/{total or '?'}"
+                    )
                     ok = True
                     break
                 except Exception as e:
@@ -137,7 +148,7 @@ class Spider:
                     "User-Agent": user_agent,
                     "Connection": "keep-alive",
                     "Content-Type": "application/json",
-                    "Referer": "https://leetcode.com/problems/" + slug,
+                    "Referer": "https://leetcode.com/problems/" + question_title_slug,
                     "cookie": self.cookie_en,
                 }
                 resp = requests.post(
