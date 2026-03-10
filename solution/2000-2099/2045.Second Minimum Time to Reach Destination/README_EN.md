@@ -61,8 +61,8 @@ The red path shows the path to get the second minimum time.
 - 3 -&gt; 4: 3 minutes, time elapsed=6
 - Wait at 4 for 4 minutes, time elapsed=10
 - 4 -&gt; 5: 3 minutes, time elapsed=13
-  Hence the second minimum time is 13 minutes.
-  </pre>
+Hence the second minimum time is 13 minutes.
+    </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/images/eg2.png" style="width: 225px; height: 50px;" />

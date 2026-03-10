@@ -3864,15 +3864,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3853  |  [Merge Close Characters](/solution/3800-3899/3853.Merge%20Close%20Characters/README_EN.md)  |    |  Medium  |  Biweekly Contest 177  |
 |  3854  |  [Minimum Operations to Make Array Parity Alternating](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README_EN.md)  |    |  Medium  |  Biweekly Contest 177  |
 |  3855  |  [Sum of K-Digit Numbers in a Range](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Biweekly Contest 177  |
-|  3856  |  [Trim Trailing Vowels](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md)  |    |  Easy  |  Weekly Contest 491  |
-|  3857  |  [Minimum Cost to Split into Ones](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
+|  3856  |  [Trim Trailing Vowels](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md)  |  `String`  |  Easy  |  Weekly Contest 491  |
+|  3857  |  [Minimum Cost to Split into Ones](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Medium  |  Weekly Contest 491  |
 |  3858  |  [Minimum Bitwise OR From Grid](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md)  |    |  Medium  |  Weekly Contest 491  |
-|  3859  |  [Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 491  |
-|  3860  |  [Unique Email Groups](/solution/3800-3899/3860.Unique%20Email%20Groups/README_EN.md)  |    |  Medium  |  🔒  |
-|  3861  |  [Minimum Capacity Box](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md)  |    |  Easy  |  Weekly Contest 492  |
-|  3862  |  [Find the Smallest Balanced Index](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md)  |    |  Medium  |  Weekly Contest 492  |
-|  3863  |  [Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)  |    |  Medium  |  Weekly Contest 492  |
-|  3864  |  [Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)  |    |  Hard  |  Weekly Contest 492  |
+|  3859  |  [Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Sliding Window`  |  Hard  |  Weekly Contest 491  |
+|  3860  |  [Unique Email Groups](/solution/3800-3899/3860.Unique%20Email%20Groups/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Medium  |  🔒  |
+|  3861  |  [Minimum Capacity Box](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 492  |
+|  3862  |  [Find the Smallest Balanced Index](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md)  |  `Array`,`Prefix Sum`  |  Medium  |  Weekly Contest 492  |
+|  3863  |  [Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)  |  `String`  |  Medium  |  Weekly Contest 492  |
+|  3864  |  [Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)  |  `String`,`Divide and Conquer`,`Prefix Sum`  |  Hard  |  Weekly Contest 492  |
 |  3865  |  [Reverse K Subarrays](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright

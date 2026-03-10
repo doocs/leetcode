@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README.md
 rating: 2302
 source: 第 491 场周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 计数
+    - 滑动窗口
 ---
 
 <!-- problem:start -->

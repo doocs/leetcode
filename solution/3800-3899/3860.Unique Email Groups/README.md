@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3860.Unique%20Email%20Groups/README.md
+tags:
+    - 数组
+    - 哈希表
+    - 字符串
 ---
 
 <!-- problem:start -->

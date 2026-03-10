@@ -3866,16 +3866,16 @@
 |  3853  |  [合并靠近字符](/solution/3800-3899/3853.Merge%20Close%20Characters/README.md)  |    |  中等  |  第 177 场双周赛  |
 |  3854  |  [使数组奇偶交替的最少操作](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README.md)  |    |  中等  |  第 177 场双周赛  |
 |  3855  |  [给定范围内 K 位数字之和](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README.md)  |    |  困难  |  第 177 场双周赛  |
-|  3856  |  [移除尾部元音字母](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README.md)  |    |  简单  |  第 491 场周赛  |
-|  3857  |  [拆分到 1 的最小总代价](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README.md)  |    |  中等  |  第 491 场周赛  |
+|  3856  |  [移除尾部元音字母](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README.md)  |  `字符串`  |  简单  |  第 491 场周赛  |
+|  3857  |  [拆分到 1 的最小总代价](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README.md)  |  `数学`,`动态规划`  |  中等  |  第 491 场周赛  |
 |  3858  |  [按位或的最小值](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README.md)  |    |  中等  |  第 491 场周赛  |
-|  3859  |  [统计包含 K 个不同整数的子数组](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README.md)  |    |  困难  |  第 491 场周赛  |
-|  3860  |  [不同邮件组](/solution/3800-3899/3860.Unique%20Email%20Groups/README.md)  |    |  中等  |  🔒  |
-|  3861  |  [容量最小的箱子](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README.md)  |    |  简单  |  第 492 场周赛  |
-|  3862  |  [找出最小平衡下标](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README.md)  |    |  中等  |  第 492 场周赛  |
-|  3863  |  [将一个字符串排序的最小操作次数](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README.md)  |    |  中等  |  第 492 场周赛  |
-|  3864  |  [划分二进制字符串的最小费用](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README.md)  |    |  困难  |  第 492 场周赛  |
-|  3865  |  [Reverse K Subarrays](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README.md)  |    |  中等  |  🔒  |
+|  3859  |  [统计包含 K 个不同整数的子数组](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README.md)  |  `数组`,`哈希表`,`计数`,`滑动窗口`  |  困难  |  第 491 场周赛  |
+|  3860  |  [不同邮件组](/solution/3800-3899/3860.Unique%20Email%20Groups/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |  🔒  |
+|  3861  |  [容量最小的箱子](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README.md)  |  `数组`  |  简单  |  第 492 场周赛  |
+|  3862  |  [找出最小平衡下标](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README.md)  |  `数组`,`前缀和`  |  中等  |  第 492 场周赛  |
+|  3863  |  [将一个字符串排序的最小操作次数](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README.md)  |  `字符串`  |  中等  |  第 492 场周赛  |
+|  3864  |  [划分二进制字符串的最小费用](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README.md)  |  `字符串`,`分治`,`前缀和`  |  困难  |  第 492 场周赛  |
+|  3865  |  [反转 K 个子数组](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
