@@ -23,7 +23,7 @@ tags:
 <div>
 <ul>
 	<li><code>nums.length == 2 * n</code>.</li>
-	<li><code>nums</code> 包含 <code>n + 1</code> 个 <strong>不同的</strong> 元素</li>
+	<li><code>nums</code> 包含 <code>n + 1</code> 个 <strong>不同的</strong> 元素，其中 <code>n</code> 个值在数组中出现 <strong>恰好一次</strong>。</li>
 	<li><code>nums</code> 中恰有一个元素重复 <code>n</code> 次</li>
 </ul>
 

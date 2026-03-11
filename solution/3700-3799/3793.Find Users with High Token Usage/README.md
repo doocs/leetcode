@@ -8,7 +8,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3793. 查找高词元使用量的用户](https://leetcode.cn/problems/find-users-with-high-token-usage)
+# [3793. 查找高 tokens 使用量的用户](https://leetcode.cn/problems/find-users-with-high-token-usage)
 
 [English Version](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README_EN.md)
 
@@ -27,19 +27,19 @@ tags:
 | tokens      | int     |
 +-------------+---------+
 (user_id, prompt) 是这张表的主键（值互不相同）。
-每一行表示一个用户提交给 AI 系统的提示词以及所消耗的词元数量。
+每一行表示一个用户提交给 AI 系统的提示词以及所消耗的 token 数量。
 </pre>
 
 <p>根据下列要求编写一个解决方案来分析 <strong>AI 提示词的使用模式</strong>：</p>
 
 <ul>
 	<li>对每一个用户，计算他们提交的 <strong>提示词的总数</strong>。</li>
-	<li>对每个用户，计算 <strong>每个提示词所使用的平均词元数</strong>（舍入到&nbsp;<code>2</code> 位小数）。</li>
+	<li>对每个用户，计算 <strong>每个提示词所使用的平均 token 数</strong>（舍入到&nbsp;<code>2</code> 位小数）。</li>
 	<li>仅包含&nbsp;<strong>至少提交了 <code>3</code> 个提示词</strong> 的用户。</li>
-	<li>仅包含那些 <strong>至少提交过一个提示词</strong> 且其中的 <code>tokens</code> 数量 <strong>超过</strong> 自己平均词元使用量的用户。</li>
+	<li>仅包含那些 <strong>至少提交过一个提示词</strong> 且该提示词的 <code>tokens</code> 数量 <strong>超过</strong> 自己平均 token 使用量的用户。</li>
 </ul>
 
-<p>返回结果表按 <strong>平均词元数 降序</strong>&nbsp;排序，然后按<em>&nbsp;</em><code>user_id</code> <strong>升序</strong>&nbsp;排序。</p>
+<p>返回结果表按 <strong>平均 token 数 降序</strong>&nbsp;排序，然后按<em>&nbsp;</em><code>user_id</code> <strong>升序</strong>&nbsp;排序。</p>
 
 <p>结果格式如下所示。</p>
 
@@ -86,8 +86,8 @@ tags:
 
     <ul>
     	<li>总提示词数 = 3</li>
-    	<li>平均词元数 = (120 + 80 + 200) / 3 = 133.33</li>
-    	<li>有一个提示词为 200 个词元，这超过了平均值</li>
+    	<li>平均 token 数 = (120 + 80 + 200) / 3 = 133.33</li>
+    	<li>有一个提示词为 200 个 token，这超过了平均值</li>
     	<li>包含在结果中</li>
     </ul>
     </li>
@@ -100,8 +100,8 @@ tags:
     <li><strong>用户 3</strong>:
     <ul>
     	<li>总提示词数 = 4</li>
-    	<li>平均词元数 = (300 + 250 + 180 + 220) / 4 = 237.5</li>
-    	<li>有包含 300 和 250 个词元的提示词，都大于平均数</li>
+    	<li>平均 token 数 = (300 + 250 + 180 + 220) / 4 = 237.5</li>
+    	<li>有包含 300 和 250 个 token 的提示词，都大于平均数</li>
     	<li>包含在结果中</li>
     </ul>
     </li>

@@ -26,7 +26,7 @@ tags:
 <pre>
 <strong>Input:</strong> s = &quot;1001&quot;
 <strong>Output:</strong> false
-<strong>Explanation: </strong>The ones do not form a contiguous segment.
+<strong>Explanation: </strong>The string has two segments of size 1.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

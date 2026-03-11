@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2876.Co
 rating: 2209
 source: Weekly Contest 365 Q4
 tags:
+    - Depth-First Search
     - Graph
+    - Topological Sort
     - Memoization
     - Dynamic Programming
 ---

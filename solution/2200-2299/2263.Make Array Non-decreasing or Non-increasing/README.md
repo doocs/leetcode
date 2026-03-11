@@ -4,7 +4,9 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README.md
 tags:
     - 贪心
+    - 数组
     - 动态规划
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
@@ -24,7 +26,7 @@ tags:
 	<li>将 <code>nums[i]</code> 的值变为 <code>nums[i] + 1</code> <strong>或</strong> <code>nums[i] - 1</code></li>
 </ul>
 
-<p>返回将数组 <code>nums</code> 变为 <strong>非递增</strong> 或<strong> 非递减 </strong>所需的 <strong>最小</strong> 操作次数。</p>
+<p>返回将数组 <code>nums</code> 变为 <strong>非递减</strong>&nbsp;或<strong> 非递增&nbsp;</strong>所需的 <strong>最小</strong> 操作次数。</p>
 
 <p>&nbsp;</p>
 

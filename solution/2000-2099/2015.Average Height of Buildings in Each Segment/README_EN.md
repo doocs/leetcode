@@ -3,8 +3,8 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README_EN.md
 tags:
-    - Greedy
     - Array
+    - Prefix Sum
     - Sorting
     - Heap (Priority Queue)
 ---

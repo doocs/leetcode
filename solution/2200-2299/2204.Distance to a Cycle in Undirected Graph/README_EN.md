@@ -5,8 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2204.Di
 tags:
     - Depth-First Search
     - Breadth-First Search
-    - Union Find
     - Graph
+    - Topological Sort
 ---
 
 <!-- problem:start -->

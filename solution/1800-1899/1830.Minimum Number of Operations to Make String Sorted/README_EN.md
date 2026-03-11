@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1830.Mi
 rating: 2620
 source: Biweekly Contest 50 Q4
 tags:
+    - Hash Table
     - Math
     - String
     - Combinatorics
+    - Counting
 ---
 
 <!-- problem:start -->

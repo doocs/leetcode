@@ -7,6 +7,9 @@ source: Biweekly Contest 43 Q4
 tags:
     - Tree
     - Graph
+    - Array
+    - Hash Table
+    - Simulation
 ---
 
 <!-- problem:start -->

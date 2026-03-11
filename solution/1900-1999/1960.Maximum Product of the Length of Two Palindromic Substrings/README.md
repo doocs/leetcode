@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1960.Ma
 rating: 2690
 source: 第 58 场双周赛 Q4
 tags:
+    - 双指针
     - 字符串
     - 哈希函数
     - 滚动哈希

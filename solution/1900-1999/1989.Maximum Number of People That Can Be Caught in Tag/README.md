@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1989.Ma
 tags:
     - 贪心
     - 数组
+    - 双指针
 ---
 
 <!-- problem:start -->

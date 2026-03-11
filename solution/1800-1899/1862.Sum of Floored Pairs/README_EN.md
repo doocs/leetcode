@@ -8,6 +8,8 @@ tags:
     - Array
     - Math
     - Binary Search
+    - Counting
+    - Enumeration
     - Prefix Sum
 ---
 

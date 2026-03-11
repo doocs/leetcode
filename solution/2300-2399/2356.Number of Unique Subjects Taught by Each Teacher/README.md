@@ -27,7 +27,7 @@ tags:
 | dept_id     | int  |
 +-------------+------+
 在 SQL 中，(subject_id, dept_id) 是该表的主键。
-该表中的每一行都表示带有 teacher_id 的教师在系 dept_id 中教授科目 subject_id。
+该表中的每一行都表示，该教师(teacher_id)在该系(dept_id)里教授的课程(subject_id)。
 </pre>
 
 <p>&nbsp;</p>

@@ -8,6 +8,8 @@ tags:
     - Depth-First Search
     - Graph
     - Topological Sort
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

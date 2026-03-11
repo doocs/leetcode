@@ -6,7 +6,6 @@ rating: 2381
 source: Biweekly Contest 91 Q4
 tags:
     - String
-    - Binary Search
     - Enumeration
 ---
 

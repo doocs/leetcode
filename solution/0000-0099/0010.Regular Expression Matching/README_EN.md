@@ -25,7 +25,7 @@ tags:
 	<li><code>&#39;*&#39;</code> Matches zero or more of the preceding element.</li>
 </ul>
 
-<p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
+<p>Return a boolean indicating whether the matching covers the entire input string (not partial).</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

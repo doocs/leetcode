@@ -7,6 +7,7 @@ source: Biweekly Contest 23 Q1
 tags:
     - Hash Table
     - Math
+    - Counting
 ---
 
 <!-- problem:start -->

@@ -47,7 +47,7 @@ tags:
 <strong>解释：</strong>句子中的单词是 ["leetcode", "exercises", "sound", "delightful"] 。
 - leetcod<strong><em>e</em></strong> 的最后一个字符和 <strong><em>e</em></strong>xercises 的第一个字符相等。
 - exercise<em><strong>s</strong></em> 的最后一个字符和 <em><strong>s</strong></em>ound 的第一个字符相等。
-- <em><strong>s</strong></em>ound 的最后一个字符和 delightfu<em><strong>l</strong></em> 的第一个字符相等。
+- soun<em><strong>d</strong></em> 的最后一个字符和 <em><strong>d</strong></em>elightful 的第一个字符相等。
 - delightfu<em><strong>l</strong></em> 的最后一个字符和 <em><strong>l</strong></em>eetcode 的第一个字符相等。
 这个句子是回环句。</pre>
 

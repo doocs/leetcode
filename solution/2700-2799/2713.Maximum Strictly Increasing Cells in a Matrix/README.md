@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2713.Ma
 rating: 2387
 source: 第 347 场周赛 Q4
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 数组
     - 哈希表
     - 二分查找

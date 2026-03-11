@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3459.Le
 rating: 2530
 source: 第 437 场周赛 Q4
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 数组
     - 动态规划
     - 矩阵

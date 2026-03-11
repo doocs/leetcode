@@ -43,7 +43,7 @@ tags:
 
 <pre>
 <strong>输入:</strong> 
-Courses table:
+Courses 表:
 +---------+----------+
 | student | class    |
 +---------+----------+

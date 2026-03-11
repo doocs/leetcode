@@ -24,7 +24,7 @@ tags:
 
 <p>返回分割后最小的和的最大值。</p>
 
-<p><strong>子数组</strong> 是数组中连续的部份。</p>
+<p><strong>子数组</strong> 是数组中连续的部分。</p>
 
 <p>&nbsp;</p>
 

@@ -5,10 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2846.Mi
 rating: 2507
 source: 第 361 场周赛 Q4
 tags:
+    - 位运算
     - 树
-    - 图
+    - 深度优先搜索
     - 数组
-    - 强连通分量
+    - 动态规划
 ---
 
 <!-- problem:start -->

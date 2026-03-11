@@ -7,9 +7,8 @@ source: Weekly Contest 355 Q4
 tags:
     - Bit Manipulation
     - Tree
-    - Depth-First Search
+    - Hash Table
     - Dynamic Programming
-    - Bitmask
 ---
 
 <!-- problem:start -->

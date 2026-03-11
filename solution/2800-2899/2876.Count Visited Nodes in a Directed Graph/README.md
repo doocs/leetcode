@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2876.Co
 rating: 2209
 source: 第 365 场周赛 Q4
 tags:
+    - 深度优先搜索
     - 图
-    - 记忆化搜索
+    - 拓扑排序
+    - 记忆化
     - 动态规划
 ---
 

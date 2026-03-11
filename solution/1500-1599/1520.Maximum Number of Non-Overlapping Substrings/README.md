@@ -6,7 +6,9 @@ rating: 2362
 source: 第 198 场周赛 Q3
 tags:
     - 贪心
+    - 哈希表
     - 字符串
+    - 排序
 ---
 
 <!-- problem:start -->

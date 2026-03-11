@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3553.Mi
 rating: 2410
 source: Weekly Contest 450 Q4
 tags:
+    - Bit Manipulation
     - Tree
     - Depth-First Search
     - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

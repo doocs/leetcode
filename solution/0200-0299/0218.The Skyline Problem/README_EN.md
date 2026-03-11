@@ -9,7 +9,7 @@ tags:
     - Divide and Conquer
     - Ordered Set
     - Sorting
-    - Line Sweep
+    - Sweep Line
     - Heap (Priority Queue)
 ---
 

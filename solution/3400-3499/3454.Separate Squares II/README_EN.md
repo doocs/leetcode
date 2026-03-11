@@ -8,7 +8,7 @@ tags:
     - Segment Tree
     - Array
     - Binary Search
-    - Line Sweep
+    - Sweep Line
 ---
 
 <!-- problem:start -->

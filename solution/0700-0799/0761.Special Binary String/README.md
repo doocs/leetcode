@@ -3,13 +3,14 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0761.Special%20Binary%20String/README.md
 tags:
-    - 递归
     - 字符串
+    - 分治
+    - 排序
 ---
 
 <!-- problem:start -->
 
-# [761. 特殊的二进制序列](https://leetcode.cn/problems/special-binary-string)
+# [761. 特殊的二进制字符串](https://leetcode.cn/problems/special-binary-string)
 
 [English Version](/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md)
 
@@ -17,33 +18,47 @@ tags:
 
 <!-- description:start -->
 
-<p>特殊的二进制序列是具有以下两个性质的二进制序列：</p>
+<p><strong>特殊的二进制字符串</strong> 是具有以下两个性质的二进制序列：</p>
 
 <ul>
-	<li>0 的数量与 1 的数量相等。</li>
-	<li>二进制序列的每一个前缀码中 1 的数量要大于等于 0 的数量。</li>
+	<li><code>0</code> 的数量与 <code>1</code> 的数量相等。</li>
+	<li>二进制序列的每一个前缀码中 <code>1</code> 的数量要大于等于 <code>0</code> 的数量。</li>
 </ul>
 
-<p>给定一个特殊的二进制序列&nbsp;<code>S</code>，以字符串形式表示。定义一个<em>操作 </em>为首先选择&nbsp;<code>S</code>&nbsp;的两个连续且非空的特殊的子串，然后将它们交换。（两个子串为连续的当且仅当第一个子串的最后一个字符恰好为第二个子串的第一个字符的前一个字符。)</p>
+<p>给定一个特殊的二进制字符串&nbsp;<code>s</code>。</p>
 
-<p>在任意次数的操作之后，交换后的字符串按照字典序排列的最大的结果是什么？</p>
+<p>一次移动操作包括选择字符串 <code>s</code> 中的两个连续的、非空的、特殊子串，并交换它们。两个字符串是连续的，如果第一个字符串的最后一个字符与第二个字符串的第一个字符的索引相差正好为 1。</p>
+
+<p>返回在字符串上应用任意次操作后可能得到的字典序最大的字符串。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> S = &quot;11011000&quot;
-<strong>输出:</strong> &quot;11100100&quot;
+<strong>输入:</strong> S = "11011000"
+<strong>输出:</strong> "11100100"
 <strong>解释:</strong>
-将子串 &quot;10&quot; （在S[1]出现） 和 &quot;1100&quot; （在S[3]出现）进行交换。
+将子串 "10" （在 s[1] 出现） 和 "1100" （在 s[3] 出现）进行交换。
 这是在进行若干次操作后按字典序排列最大的结果。
 </pre>
 
-<p><strong>说明:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
-<ol>
-	<li><code>S</code>&nbsp;的长度不超过&nbsp;<code>50</code>。</li>
-	<li><code>S</code>&nbsp;保证为一个满足上述定义的<em>特殊 </em>的二进制序列。</li>
-</ol>
+<pre>
+<b>输入：</b>s = "10"
+<b>输出：</b>"10"
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 50</code></li>
+	<li><code>s[i]</code>&nbsp;为&nbsp;<code>'0'</code> 或&nbsp;<code>'1'</code>。</li>
+	<li><code>s</code>&nbsp;是一个特殊的二进制字符串。</li>
+</ul>
 
 <!-- description:end -->
 

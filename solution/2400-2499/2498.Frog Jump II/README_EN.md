@@ -36,7 +36,7 @@ tags:
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2498.Frog%20Jump%20II/images/example-1.png" style="width: 600px; height: 219px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2498.Frog%20Jump%20II/images/2498_ex0.png" style="width: 500px; height: 190px;" />
 <pre>
 <strong>Input:</strong> stones = [0,2,5,6,7]
 <strong>Output:</strong> 5
@@ -46,7 +46,7 @@ Since it is not possible to achieve a cost of less than 5, we return it.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2498.Frog%20Jump%20II/images/example-2.png" style="width: 500px; height: 171px;" />
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2498.Frog%20Jump%20II/images/2498_ex1.png" style="width: 500px; height: 190px;" />
 <pre>
 <strong>Input:</strong> stones = [0,3,9]
 <strong>Output:</strong> 9

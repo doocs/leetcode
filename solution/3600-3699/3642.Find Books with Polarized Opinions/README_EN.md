@@ -1,6 +1,6 @@
 ---
 comments: true
-difficulty: Easy
+difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README_EN.md
 tags:
     - Database
@@ -58,7 +58,8 @@ Each row represents a reading session where someone read a portion of a book. se
 	<li><strong>Only include</strong> books where <code>polarization score &ge; 0.6</code> (at least <code>60%</code> extreme ratings)</li>
 </ul>
 
-<p>Return <em>the result table ordered by polarization score in <strong>descending</strong> order, then by title in <strong>descending</strong> order</em>.</p>
+<p>Return <em>the result table ordered by polarization score in <strong>descending</strong> order, then by title in <strong>descending</strong> order</em>.<br />
+The <em>polarization score</em> should be rounded to 2 decimal places.</p>
 
 <p>The result format is in the following example.</p>
 

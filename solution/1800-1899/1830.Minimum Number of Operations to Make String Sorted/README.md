@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1830.Mi
 rating: 2620
 source: 第 50 场双周赛 Q4
 tags:
+    - 哈希表
     - 数学
     - 字符串
     - 组合数学
+    - 计数
 ---
 
 <!-- problem:start -->

@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1387.So
 rating: 1506
 source: 第 22 场双周赛 Q3
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 动态规划
     - 排序
 ---

@@ -7,6 +7,8 @@ source: Weekly Contest 278 Q4
 tags:
     - Bit Manipulation
     - Union Find
+    - Array
+    - Hash Table
     - String
 ---
 

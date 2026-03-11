@@ -5,8 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3104.Fi
 tags:
     - 哈希表
     - 字符串
-    - 二分查找
-    - 前缀和
+    - 排序
 ---
 
 <!-- problem:start -->

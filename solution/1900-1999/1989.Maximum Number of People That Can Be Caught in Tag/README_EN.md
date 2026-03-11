@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1989.Ma
 tags:
     - Greedy
     - Array
+    - Two Pointers
 ---
 
 <!-- problem:start -->

@@ -92,7 +92,7 @@ tags:
 
 <ul>
 	<li>Prefix <code>[0]</code> has 0 inversions.</li>
-	<li>Prefix <code>[0, 1]</code> has an inversion <code>(0, 1)</code>.</li>
+	<li>Prefix <code>[0, 1]</code> has no inversions.</li>
 </ul>
 </div>
 
