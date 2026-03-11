@@ -3,8 +3,9 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md
 tags:
-    - Recursion
     - String
+    - Divide and Conquer
+    - Sorting
 ---
 
 <!-- problem:start -->

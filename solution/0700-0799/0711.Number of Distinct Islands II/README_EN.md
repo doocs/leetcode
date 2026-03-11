@@ -6,7 +6,10 @@ tags:
     - Depth-First Search
     - Breadth-First Search
     - Union Find
+    - Array
     - Hash Table
+    - Matrix
+    - Sorting
     - Hash Function
 ---
 

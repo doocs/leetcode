@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定两个字符串 <code>order</code> 和 <code>s</code> 。<code>order</code> 的所有字母都是 <strong>唯一</strong> 的，并且以前按照一些自定义的顺序排序。</p>
+<p>给定两个字符串 <code>order</code> 和 <code>s</code> 。<code>order</code> 的所有字母都是 <strong>唯一</strong> 的，并且预先按照一些自定义的顺序排序。</p>
 
 <p>对 <code>s</code> 的字符进行置换，使其与排序的&nbsp;<code>order</code>&nbsp;相匹配。更具体地说，如果在&nbsp;<code>order</code>&nbsp;中的字符 <code>x</code> 出现字符 <code>y</code> 之前，那么在排列后的字符串中， <code>x</code>&nbsp;也应该出现在 <code>y</code> 之前。</p>
 
@@ -26,24 +26,29 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入:</strong> order = "cba", s = "abcd"
-<strong>输出:</strong> "cbad"
-<strong>解释:</strong> 
-"a"、"b"、"c"是按顺序出现的，所以"a"、"b"、"c"的顺序应该是"c"、"b"、"a"。
-因为"d"不是按顺序出现的，所以它可以在返回的字符串中的任何位置。"dcba"、"cdba"、"cbda"也是有效的输出。</pre>
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io"> order = "cba", s = "abcd" </span></p>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>输出：</strong> <span class="example-io"> "cbad" </span></p>
 
-<pre>
-<strong>输入:</strong> order = "cbafg", s = "abcd"
-<strong>输出:</strong> "cbad"
-解释：字符 "b"、"c" 和 "a" 规定了 s 中字符的顺序。s 中的字符 "d" 没有在 order 中出现，所以它的位置是弹性的。
+<p><strong>解释：</strong> <code>"a"</code>，<code>"b"</code>，<code>"c"</code>&nbsp;在&nbsp;<code>order</code>&nbsp;中出现，所以&nbsp;<code>"a"</code>，<code>"b"</code>，<code>"c"</code>&nbsp;的顺序应该是&nbsp;<code>"c"</code>，<code>"b"</code>，和&nbsp;<code>"a"</code>。</p>
 
-按照出现的顺序，s 中的 "b"、"c"、"a" 应排列为"b"、"c"、"a"。"d" 可以放在任何位置，因为它没有按顺序排列。输出 "bcad" 遵循这一规则。其他排序如 "dbca" 或 "bcda" 也是有效的，只要维持 "b"、"c"、"a" 的顺序。
-</pre>
+<p>由于&nbsp;<code>"d"</code>&nbsp;没有在&nbsp;<code>order</code>&nbsp;中出现，它可以在返回字符串的任意位置。<code>"dcba"</code>，<code>"cdba"</code>，<code>"cbda"</code>&nbsp;也是合法的输出。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><strong>输入：</strong> <span class="example-io"> order = "bcafg", s = "abcd" </span></p>
+
+<p><strong>输出：</strong> <span class="example-io"> "bcad" </span></p>
+
+<p><strong>解释：</strong><code>order</code><strong>&nbsp;</strong>中的字符 <code>"b"</code>、<code>"c"</code> 和 <code>"a"</code> 决定了 <code>s</code> 中字符的顺序。<code>s</code> 中的字符 <code>"d"</code>&nbsp;没有出现在&nbsp;<code>order</code> 中，因此其位置是可变的。</p>
+
+<p>按照&nbsp;<code>order</code>&nbsp;中的出现顺序，<code>"b"</code>、<code>"c"</code> 和 <code>"a"</code> 应该按 <code>"b"</code>、<code>"c"</code>、<code>"a"</code> 的顺序排列。<code>"d"</code> 可以放在任何位置，因为它不受顺序限制。输出 <code>"bcad"</code> 正确遵循了这一规则。其他排列如 <code>"dbca"</code> 或 <code>"bcda"</code> 也是合法的，只要 <code>"b"</code>、<code>"c"</code>、<code>"a"</code> 的顺序保持不变。</p>
+</div>
 
 <p>&nbsp;</p>
 

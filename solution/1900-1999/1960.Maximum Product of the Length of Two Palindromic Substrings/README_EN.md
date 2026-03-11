@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1960.Ma
 rating: 2690
 source: Biweekly Contest 58 Q4
 tags:
+    - Two Pointers
     - String
     - Hash Function
     - Rolling Hash

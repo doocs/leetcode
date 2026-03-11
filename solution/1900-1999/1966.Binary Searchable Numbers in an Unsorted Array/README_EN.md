@@ -3,8 +3,10 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README_EN.md
 tags:
+    - Stack
     - Array
     - Binary Search
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

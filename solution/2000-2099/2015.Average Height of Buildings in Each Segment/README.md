@@ -3,8 +3,8 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README.md
 tags:
-    - 贪心
     - 数组
+    - 前缀和
     - 排序
     - 堆（优先队列）
 ---

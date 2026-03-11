@@ -25,7 +25,7 @@ tags:
 <p>A value <code>arr[i]</code> is said to be stronger than a value <code>arr[j]</code> if <code>|arr[i] - m| &gt; |arr[j] - m|</code> where <code>m</code> is the <strong>centre</strong> of the array.<br />
 If <code>|arr[i] - m| == |arr[j] - m|</code>, then <code>arr[i]</code> is said to be stronger than <code>arr[j]</code> if <code>arr[i] &gt; arr[j]</code>.</p>
 
-<p>Return <em>a list of the strongest <code>k</code></em> values in the array. return the answer <strong>in any arbitrary order</strong>.</p>
+<p>Return <em>a list of the strongest <code>k</code></em> values in the array. Return the answer <strong>in any arbitrary order</strong>.</p>
 
 <p>The <strong>centre</strong> is the middle value in an ordered integer list. More formally, if the length of the list is n, the centre is the element in position <code>((n - 1) / 2)</code> in the sorted list <strong>(0-indexed)</strong>.</p>
 

@@ -3,9 +3,13 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1724.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths%20II/README.md
 tags:
+    - 深度优先搜索
     - 并查集
     - 图
+    - 设计
     - 最小生成树
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2850.Mi
 rating: 2001
 source: Weekly Contest 362 Q3
 tags:
-    - Breadth-First Search
+    - Bit Manipulation
     - Array
     - Dynamic Programming
+    - Backtracking
+    - Bitmask
     - Matrix
 ---
 

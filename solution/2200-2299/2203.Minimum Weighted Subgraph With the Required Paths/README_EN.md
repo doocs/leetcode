@@ -7,6 +7,7 @@ source: Weekly Contest 284 Q4
 tags:
     - Graph
     - Shortest Path
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

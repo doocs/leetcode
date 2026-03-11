@@ -4,6 +4,7 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3037.Find%20Pattern%20in%20Infinite%20Stream%20II/README.md
 tags:
     - 数组
+    - 交互
     - 字符串匹配
     - 滑动窗口
     - 哈希函数

@@ -6,7 +6,7 @@ rating: 2146
 source: 第 246 场周赛 Q4
 tags:
     - 数组
-    - 哈希表
+    - 前缀和
 ---
 
 <!-- problem:start -->

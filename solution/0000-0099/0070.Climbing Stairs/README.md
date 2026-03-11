@@ -3,7 +3,7 @@ comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0070.Climbing%20Stairs/README.md
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 动态规划
 ---

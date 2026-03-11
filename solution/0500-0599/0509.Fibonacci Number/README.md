@@ -4,7 +4,7 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0509.Fibonacci%20Number/README.md
 tags:
     - 递归
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 动态规划
 ---

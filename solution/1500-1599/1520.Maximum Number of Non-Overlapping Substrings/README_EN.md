@@ -6,7 +6,9 @@ rating: 2362
 source: Weekly Contest 198 Q3
 tags:
     - Greedy
+    - Hash Table
     - String
+    - Sorting
 ---
 
 <!-- problem:start -->

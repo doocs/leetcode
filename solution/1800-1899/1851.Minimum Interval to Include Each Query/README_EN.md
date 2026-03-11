@@ -8,7 +8,7 @@ tags:
     - Array
     - Binary Search
     - Sorting
-    - Line Sweep
+    - Sweep Line
     - Heap (Priority Queue)
 ---
 

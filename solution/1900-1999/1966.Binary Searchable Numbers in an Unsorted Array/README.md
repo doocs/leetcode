@@ -3,13 +3,15 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README.md
 tags:
+    - 栈
     - 数组
     - 二分查找
+    - 单调栈
 ---
 
 <!-- problem:start -->
 
-# [1966. 未排序数组中的可被二分搜索的数 🔒](https://leetcode.cn/problems/binary-searchable-numbers-in-an-unsorted-array)
+# [1966. 未排序数组中的可被二分查找的数 🔒](https://leetcode.cn/problems/binary-searchable-numbers-in-an-unsorted-array)
 
 [English Version](/solution/1900-1999/1966.Binary%20Searchable%20Numbers%20in%20an%20Unsorted%20Array/README_EN.md)
 
@@ -17,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>有一个 <strong>类似</strong> <a href="https://leetcode.com/explore/learn/card/binary-search/" target="_blank">二分搜索</a>的方法。 这个方法有两个入参: <code>sequence</code> 是一个整数数组， <code>target</code> 是一个整数。 这个方法可以判断 <code>target</code> 是否存在 <code>sequence</code>中。</p>
+<p>有一个 <strong>类似</strong> <a href="https://leetcode.com/explore/learn/card/binary-search/" target="_blank">二分查找</a>&nbsp;的方法。 这个方法有两个入参: <code>sequence</code> 是一个整数数组， <code>target</code> 是一个整数。 这个方法可以判断 <code>target</code> 是否存在 <code>sequence</code>中。</p>
 
 <p>该方法的伪代码如下：</p>
 

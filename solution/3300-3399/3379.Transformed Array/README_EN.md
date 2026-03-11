@@ -23,8 +23,8 @@ tags:
 For each index <code>i</code> (where <code>0 &lt;= i &lt; nums.length</code>), perform the following <strong>independent</strong> actions:
 
 <ul>
-	<li>If <code>nums[i] &gt; 0</code>: Start at index <code>i</code> and move <code>nums[i]</code> steps to the <strong>right</strong> in the circular array. Set <code>result[i]</code> to the value of the index where you land.</li>
-	<li>If <code>nums[i] &lt; 0</code>: Start at index <code>i</code> and move <code>abs(nums[i])</code> steps to the <strong>left</strong> in the circular array. Set <code>result[i]</code> to the value of the index where you land.</li>
+	<li>If <code>nums[i] &gt; 0</code>: Start at index <code>i</code> and move <code>nums[i]</code> steps to the <strong>right</strong> in the circular array. Set <code>result[i]</code> to the value at the index where you land.</li>
+	<li>If <code>nums[i] &lt; 0</code>: Start at index <code>i</code> and move <code>abs(nums[i])</code> steps to the <strong>left</strong> in the circular array. Set <code>result[i]</code> to the value at&nbsp;the index where you land.</li>
 	<li>If <code>nums[i] == 0</code>: Set <code>result[i]</code> to <code>nums[i]</code>.</li>
 </ul>
 

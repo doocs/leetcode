@@ -7,7 +7,7 @@ source: Biweekly Contest 39 Q3
 tags:
     - Breadth-First Search
     - Array
-    - Dynamic Programming
+    - Hash Table
 ---
 
 <!-- problem:start -->

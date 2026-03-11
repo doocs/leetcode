@@ -7,7 +7,9 @@ source: Weekly Contest 231 Q4
 tags:
     - Bit Manipulation
     - Array
+    - Hash Table
     - Dynamic Programming
+    - Counting
 ---
 
 <!-- problem:start -->

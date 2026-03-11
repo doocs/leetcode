@@ -7,6 +7,7 @@ source: Biweekly Contest 58 Q3
 tags:
     - Array
     - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

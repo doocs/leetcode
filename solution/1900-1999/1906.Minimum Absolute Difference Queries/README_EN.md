@@ -6,7 +6,7 @@ rating: 2146
 source: Weekly Contest 246 Q4
 tags:
     - Array
-    - Hash Table
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

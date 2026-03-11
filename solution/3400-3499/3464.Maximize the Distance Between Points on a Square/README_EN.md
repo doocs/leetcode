@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3464.Ma
 rating: 2805
 source: Weekly Contest 438 Q4
 tags:
-    - Greedy
+    - Geometry
     - Array
+    - Math
     - Binary Search
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -5,7 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2014.Lo
 rating: 2558
 source: Weekly Contest 259 Q4
 tags:
-    - Greedy
+    - Hash Table
+    - Two Pointers
     - String
     - Backtracking
     - Counting

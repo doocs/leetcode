@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1137.N-
 rating: 1142
 source: 第 147 场周赛 Q1
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 动态规划
 ---

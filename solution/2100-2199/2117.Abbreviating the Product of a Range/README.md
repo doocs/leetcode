@@ -6,6 +6,7 @@ rating: 2476
 source: 第 68 场双周赛 Q4
 tags:
     - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

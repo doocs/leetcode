@@ -47,7 +47,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p><strong class="example"><img alt="示例 1 图示" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/images/example1.png" style="width: 229px; height: 228px;" /></strong></p>
+<p><strong class="example"><img alt="Example 1 diagram" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/images/3380_ex0.png" style="width: 250px; height: 250px;" /></strong></p>
 
 <p>我们可以用这 4 个点作为顶点构成一个矩形，并且矩形内部或边界上没有其他点。因此，最大面积为 4 。</p>
 </div>
@@ -61,7 +61,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p><strong class="example"><img alt="示例 2 图示" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/images/example2.png" style="width: 229px; height: 228px;" /></strong></p>
+<p><strong class="example"><img alt="Example 2 diagram" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/images/3380_ex1.png" style="width: 230px; height: 230px;" /></strong></p>
 
 <p>唯一一组可能构成矩形的点为 <code>[1,1], [1,3], [3,1]</code> 和 <code>[3,3]</code>，但点 <code>[2,2]</code> 总是位于矩形内部。因此，返回 -1 。</p>
 </div>
@@ -75,7 +75,7 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p><strong class="example"><img alt="示例 3 图示" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/images/example3.png" style="width: 229px; height: 228px;" /></strong></p>
+<p><strong class="example"><img alt="Example 3 diagram" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3300-3399/3380.Maximum%20Area%20Rectangle%20With%20Point%20Constraints%20I/images/3380_ex2.png" style="width: 230px; height: 230px;" /></strong></p>
 
 <p>点 <code>[1,3], [1,2], [3,2], [3,3]</code>&nbsp;可以构成面积最大的矩形，面积为 2。此外，点 <code>[1,1], [1,2], [3,1], [3,2]</code> 也可以构成一个符合题目要求的矩形，面积相同。</p>
 </div>

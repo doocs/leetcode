@@ -4,7 +4,7 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README.md
 tags:
     - 递归
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 字符串
     - 动态规划

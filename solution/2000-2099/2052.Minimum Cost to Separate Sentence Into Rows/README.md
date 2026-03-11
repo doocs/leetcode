@@ -3,7 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2052.Minimum%20Cost%20to%20Separate%20Sentence%20Into%20Rows/README.md
 tags:
-    - 数组
+    - 字符串
     - 动态规划
 ---
 

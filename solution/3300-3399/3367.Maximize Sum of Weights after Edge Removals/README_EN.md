@@ -8,6 +8,7 @@ tags:
     - Tree
     - Depth-First Search
     - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

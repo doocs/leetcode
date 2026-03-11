@@ -6,7 +6,7 @@ tags:
     - Segment Tree
     - Array
     - Ordered Set
-    - Line Sweep
+    - Sweep Line
 ---
 
 <!-- problem:start -->

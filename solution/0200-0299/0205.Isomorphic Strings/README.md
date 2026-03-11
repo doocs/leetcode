@@ -25,24 +25,42 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>s = <code>"egg"</code>, t = <code>"add"</code>
-<strong>输出：</strong>true
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "egg", t = "add"</span></p>
 
-<p><strong>示例 2：</strong></p>
+<p><span class="example-io"><b>输出：</b>true</span></p>
 
-<pre>
-<strong>输入：</strong>s = <code>"foo"</code>, t = <code>"bar"</code>
-<strong>输出：</strong>false</pre>
+<p><strong>解释：</strong></p>
 
-<p><strong>示例 3：</strong></p>
+<p>字符串 <code>s</code> 和 <code>t</code> 可以通过以下方式变得相同：</p>
 
-<pre>
-<strong>输入：</strong>s = <code>"paper"</code>, t = <code>"title"</code>
-<strong>输出：</strong>true</pre>
+<ul>
+	<li>将&nbsp;<code>'e'</code>&nbsp;映射为&nbsp;<code>'a'</code>。</li>
+	<li>将&nbsp;<code>'g'</code> 映射为&nbsp;<code>'d'</code>。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "f11", t = "b23"</span></p>
+
+<p><span class="example-io"><b>输出：</b>false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>字符串 <code>s</code> 和 <code>t</code> 无法变得相同，因为 <code>'1'</code> 需要同时映射到 <code>'2'</code> 和 <code>'3'</code>。</p>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>s = "paper", t = "title"</span></p>
+
+<p><span class="example-io"><b>输出：</b>true</span></p>
+</div>
 
 <p>&nbsp;</p>
 

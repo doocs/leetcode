@@ -21,7 +21,7 @@ tags:
 
 <p>给你一个下标从 <strong>1</strong> 开始、长度为 <code>n</code> 的整数数组 <code>nums</code> 。</p>
 
-<p>对 <code>nums</code> 中的元素 <code>nums[i]</code> 而言，如果 <code>n</code> 能够被 <code>i</code> 整除，即 <code>n % i == 0</code> ，则认为 <code>num[i]</code> 是一个 <strong>特殊元素</strong> 。</p>
+<p>对 <code>nums</code> 中的元素 <code>nums[i]</code> 而言，如果 <code>n</code>&nbsp;能够被 <code>i</code> 整除，即 <code>n % i == 0</code> ，则认为 <code>nums[i]</code> 是一个 <strong>特殊元素</strong> 。</p>
 
 <p>返回 <code>nums</code> 中所有 <strong>特殊元素</strong> 的 <strong>平方和</strong> 。</p>
 
