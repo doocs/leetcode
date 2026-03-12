@@ -184,7 +184,7 @@ public:
                         nums.push_back(grid[x][y]);
                     }
                 }
-                sort(nums.begin(), nums.end());
+                ranges::sort(nums);
                 int d = INT_MAX;
                 for (int t = 1; t < nums.size(); ++t) {
                     if (nums[t] != nums[t - 1]) {
@@ -268,6 +268,78 @@ function minAbsDiff(grid: number[][], k: number): number[][] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_abs_diff(grid: Vec<Vec<i32>>, k: i32) -> Vec<Vec<i32>> {
+        let m = grid.len();
+        let n = grid[0].len();
+        let k = k as usize;
+
+        let mut ans = vec![vec![0; n - k + 1]; m - k + 1];
+
+        for i in 0..=m - k {
+            for j in 0..=n - k {
+                let mut nums = Vec::with_capacity(k * k);
+                for x in i..i + k {
+                    for y in j..j + k {
+                        nums.push(grid[x][y]);
+                    }
+                }
+
+                nums.sort_unstable();
+
+                let mut d = i32::MAX;
+                for t in 1..nums.len() {
+                    if nums[t] != nums[t - 1] {
+                        d = d.min((nums[t] - nums[t - 1]).abs());
+                    }
+                }
+
+                ans[i][j] = if d == i32::MAX { 0 } else { d };
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### Rust
+
+```rust
+public class Solution {
+    public int[][] MinAbsDiff(int[][] grid, int k) {
+        int m = grid.Length, n = grid[0].Length;
+        int[][] ans = new int[m - k + 1][];
+        for (int i = 0; i <= m - k; ++i) {
+            ans[i] = new int[n - k + 1];
+            for (int j = 0; j <= n - k; ++j) {
+                List<int> nums = new List<int>(k * k);
+                for (int x = i; x < i + k; ++x) {
+                    for (int y = j; y < j + k; ++y) {
+                        nums.Add(grid[x][y]);
+                    }
+                }
+
+                nums.Sort();
+
+                int d = int.MaxValue;
+                for (int t = 1; t < nums.Count; ++t) {
+                    if (nums[t] != nums[t - 1]) {
+                        d = Math.Min(d, Math.Abs(nums[t] - nums[t - 1]));
+                    }
+                }
+
+                ans[i][j] = d == int.MaxValue ? 0 : d;
+            }
+        }
+        return ans;
+    }
 }
 ```
 

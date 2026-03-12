@@ -11,7 +11,7 @@ public:
                         nums.push_back(grid[x][y]);
                     }
                 }
-                sort(nums.begin(), nums.end());
+                ranges::sort(nums);
                 int d = INT_MAX;
                 for (int t = 1; t < nums.size(); ++t) {
                     if (nums[t] != nums[t - 1]) {
