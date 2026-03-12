@@ -20,7 +20,7 @@ on:
       - lcci/**
       - basic/**
 
-concurrency: 
+concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
   cancel-in-progress: true
 
@@ -30,6 +30,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: jpetrucciani/black-check@24.2.0
+    - uses: jpetrucciani/black-check@master
       with:
         black_flags: '-S'
