@@ -108,32 +108,506 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Search + Union-Find
+
+According to the problem description, the stability of a spanning tree is determined by the minimum strength edge in it. If a stability $x$ is feasible, then for any $y < x$, stability $y$ is also feasible. Therefore, we can use binary search to find the maximum stability.
+
+We first add all required edges into the Union-Find and record the minimum strength $mn$ among them. If there is a cycle among the required edges, return $-1$ directly. Then we add all edges into the Union-Find; if the final number of connected components is greater than $1$, it means not all nodes can be connected, and we return $-1$.
+
+Next, we perform binary search in the range $[1, mn]$. We define a function $\text{check}(lim)$ to check whether there exists a spanning tree with stability at least $lim$. In the $\text{check}$ function, we first add all edges with strength no less than $lim$ into the Union-Find. Then we try to use the upgrade count to connect the remaining edges, with the condition that the edge strength is at least $lim/2$ (since upgrading doubles the strength). If the final number of connected components in the Union-Find is $1$, a spanning tree satisfying the condition exists.
+
+The time complexity is $O((m \times \alpha(n) + n) \times \log M)$, and the space complexity is $O(n)$. Here, $m$ is the number of edges, $n$ is the number of nodes, and $M$ is the maximum edge strength.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.size = [1] * n
+        self.cnt = n
 
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+    def union(self, a, b):
+        pa, pb = self.find(a), self.find(b)
+        if pa == pb:
+            return False
+        if self.size[pa] > self.size[pb]:
+            self.p[pb] = pa
+            self.size[pa] += self.size[pb]
+        else:
+            self.p[pa] = pb
+            self.size[pb] += self.size[pa]
+        self.cnt -= 1
+        return True
+
+
+class Solution:
+    def maxStability(self, n: int, edges: List[List[int]], k: int) -> int:
+        def check(lim: int) -> bool:
+            uf = UnionFind(n)
+            for u, v, s, _ in edges:
+                if s >= lim:
+                    uf.union(u, v)
+            rem = k
+            for u, v, s, _ in edges:
+                if s * 2 >= lim and rem > 0:
+                    if uf.union(u, v):
+                        rem -= 1
+            return uf.cnt == 1
+
+        uf = UnionFind(n)
+        mn = 10**6
+        for u, v, s, must in edges:
+            if must:
+                mn = min(mn, s)
+                if not uf.union(u, v):
+                    return -1
+        for u, v, _, _ in edges:
+            uf.union(u, v)
+        if uf.cnt > 1:
+            return -1
+        l, r = 1, mn
+        while l < r:
+            mid = (l + r + 1) >> 1
+            if check(mid):
+                l = mid
+            else:
+                r = mid - 1
+        return l
 ```
 
 #### Java
 
 ```java
+class UnionFind {
+    int[] p, size;
+    int cnt;
 
+    UnionFind(int n) {
+        p = new int[n];
+        size = new int[n];
+        cnt = n;
+        for (int i = 0; i < n; i++) {
+            p[i] = i;
+            size[i] = 1;
+        }
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    boolean union(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) return false;
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        cnt--;
+        return true;
+    }
+}
+
+class Solution {
+
+    int n;
+    int[][] edges;
+    int k;
+
+    private boolean check(int lim) {
+        UnionFind uf = new UnionFind(n);
+
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], s = e[2];
+            if (s >= lim) {
+                uf.union(u, v);
+            }
+        }
+
+        int rem = k;
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], s = e[2];
+            if (s * 2 >= lim && rem > 0) {
+                if (uf.union(u, v)) {
+                    rem--;
+                }
+            }
+        }
+
+        return uf.cnt == 1;
+    }
+
+    public int maxStability(int n, int[][] edges, int k) {
+        this.n = n;
+        this.edges = edges;
+        this.k = k;
+
+        UnionFind uf = new UnionFind(n);
+        int mn = (int)1e6;
+
+        for (int[] e : edges) {
+            int u = e[0], v = e[1], s = e[2], must = e[3];
+            if (must == 1) {
+                mn = Math.min(mn, s);
+                if (!uf.union(u, v)) {
+                    return -1;
+                }
+            }
+        }
+
+        for (int[] e : edges) {
+            uf.union(e[0], e[1]);
+        }
+
+        if (uf.cnt > 1) {
+            return -1;
+        }
+
+        int l = 1, r = mn;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+
+        return l;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class UnionFind {
+public:
+    vector<int> p, size;
+    int cnt;
 
+    UnionFind(int n) {
+        p.resize(n);
+        size.assign(n, 1);
+        cnt = n;
+        for (int i = 0; i < n; i++) p[i] = i;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+
+    bool unite(int a, int b) {
+        int pa = find(a), pb = find(b);
+        if (pa == pb) return false;
+        if (size[pa] > size[pb]) {
+            p[pb] = pa;
+            size[pa] += size[pb];
+        } else {
+            p[pa] = pb;
+            size[pb] += size[pa];
+        }
+        cnt--;
+        return true;
+    }
+};
+
+class Solution {
+public:
+    int n, k;
+    vector<vector<int>> edges;
+
+    bool check(int lim) {
+        UnionFind uf(n);
+
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], s = e[2];
+            if (s >= lim) {
+                uf.unite(u, v);
+            }
+        }
+
+        int rem = k;
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], s = e[2];
+            if (s * 2 >= lim && rem > 0) {
+                if (uf.unite(u, v)) {
+                    rem--;
+                }
+            }
+        }
+
+        return uf.cnt == 1;
+    }
+
+    int maxStability(int n, vector<vector<int>>& edges, int k) {
+        this->n = n;
+        this->edges = edges;
+        this->k = k;
+
+        UnionFind uf(n);
+        int mn = 1e6;
+
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], s = e[2], must = e[3];
+            if (must) {
+                mn = min(mn, s);
+                if (!uf.unite(u, v)) {
+                    return -1;
+                }
+            }
+        }
+
+        for (auto& e : edges) {
+            uf.unite(e[0], e[1]);
+        }
+
+        if (uf.cnt > 1) {
+            return -1;
+        }
+
+        int l = 1, r = mn;
+        while (l < r) {
+            int mid = (l + r + 1) >> 1;
+            if (check(mid)) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+
+        return l;
+    }
+};
 ```
 
 #### Go
 
 ```go
+type UnionFind struct {
+	p    []int
+	size []int
+	cnt  int
+}
 
+func NewUnionFind(n int) *UnionFind {
+	p := make([]int, n)
+	size := make([]int, n)
+	for i := range p {
+		p[i] = i
+		size[i] = 1
+	}
+	return &UnionFind{p, size, n}
+}
+
+func (uf *UnionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *UnionFind) union(a, b int) bool {
+	pa, pb := uf.find(a), uf.find(b)
+	if pa == pb {
+		return false
+	}
+	if uf.size[pa] > uf.size[pb] {
+		uf.p[pb] = pa
+		uf.size[pa] += uf.size[pb]
+	} else {
+		uf.p[pa] = pb
+		uf.size[pb] += uf.size[pa]
+	}
+	uf.cnt--
+	return true
+}
+
+var (
+	N int
+	E [][]int
+	K int
+)
+
+func check(lim int) bool {
+	uf := NewUnionFind(N)
+
+	for _, e := range E {
+		u, v, s := e[0], e[1], e[2]
+		if s >= lim {
+			uf.union(u, v)
+		}
+	}
+
+	rem := K
+	for _, e := range E {
+		u, v, s := e[0], e[1], e[2]
+		if s*2 >= lim && rem > 0 {
+			if uf.union(u, v) {
+				rem--
+			}
+		}
+	}
+
+	return uf.cnt == 1
+}
+
+func maxStability(n int, edges [][]int, k int) int {
+	N = n
+	E = edges
+	K = k
+
+	uf := NewUnionFind(n)
+	mn := int(1e6)
+
+	for _, e := range edges {
+		u, v, s, must := e[0], e[1], e[2], e[3]
+		if must == 1 {
+			if s < mn {
+				mn = s
+			}
+			if !uf.union(u, v) {
+				return -1
+			}
+		}
+	}
+
+	for _, e := range edges {
+		uf.union(e[0], e[1])
+	}
+
+	if uf.cnt > 1 {
+		return -1
+	}
+
+	l, r := 1, mn
+	for l < r {
+		mid := (l + r + 1) >> 1
+		if check(mid) {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+
+	return l
+}
+```
+
+#### TypeScript
+
+```ts
+class UnionFind {
+    p: number[];
+    size: number[];
+    cnt: number;
+
+    constructor(n: number) {
+        this.p = Array.from({ length: n }, (_, i) => i);
+        this.size = new Array(n).fill(1);
+        this.cnt = n;
+    }
+
+    find(x: number): number {
+        if (this.p[x] !== x) {
+            this.p[x] = this.find(this.p[x]);
+        }
+        return this.p[x];
+    }
+
+    union(a: number, b: number): boolean {
+        const pa = this.find(a);
+        const pb = this.find(b);
+        if (pa === pb) return false;
+
+        if (this.size[pa] > this.size[pb]) {
+            this.p[pb] = pa;
+            this.size[pa] += this.size[pb];
+        } else {
+            this.p[pa] = pb;
+            this.size[pb] += this.size[pa];
+        }
+
+        this.cnt--;
+        return true;
+    }
+}
+
+let N: number;
+let E: number[][];
+let K: number;
+
+function check(lim: number): boolean {
+    const uf = new UnionFind(N);
+
+    for (const [u, v, s] of E) {
+        if (s >= lim) {
+            uf.union(u, v);
+        }
+    }
+
+    let rem = K;
+    for (const [u, v, s] of E) {
+        if (s * 2 >= lim && rem > 0) {
+            if (uf.union(u, v)) {
+                rem--;
+            }
+        }
+    }
+
+    return uf.cnt === 1;
+}
+
+function maxStability(n: number, edges: number[][], k: number): number {
+    N = n;
+    E = edges;
+    K = k;
+
+    const uf = new UnionFind(n);
+    let mn = 1e6;
+
+    for (const [u, v, s, must] of edges) {
+        if (must) {
+            mn = Math.min(mn, s);
+            if (!uf.union(u, v)) return -1;
+        }
+    }
+
+    for (const [u, v] of edges) {
+        uf.union(u, v);
+    }
+
+    if (uf.cnt > 1) return -1;
+
+    let l = 1,
+        r = mn;
+
+    while (l < r) {
+        const mid = (l + r + 1) >> 1;
+        if (check(mid)) {
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+
+    return l;
+}
 ```
 
 <!-- tabs:end -->
