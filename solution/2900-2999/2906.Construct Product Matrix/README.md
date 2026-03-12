@@ -243,6 +243,68 @@ impl Solution {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number[][]}
+ */
+var constructProductMatrix = function (grid) {
+    const mod = 12345;
+    const [n, m] = [grid.length, grid[0].length];
+    const p = Array.from({ length: n }, () => Array.from({ length: m }, () => 0));
+    let suf = 1;
+    for (let i = n - 1; ~i; --i) {
+        for (let j = m - 1; ~j; --j) {
+            p[i][j] = suf;
+            suf = (suf * grid[i][j]) % mod;
+        }
+    }
+    let pre = 1;
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < m; ++j) {
+            p[i][j] = (p[i][j] * pre) % mod;
+            pre = (pre * grid[i][j]) % mod;
+        }
+    }
+    return p;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[][] ConstructProductMatrix(int[][] grid) {
+        const int mod = 12345;
+        int n = grid.Length, m = grid[0].Length;
+        int[][] p = new int[n][];
+        for (int i = 0; i < n; ++i) {
+            p[i] = new int[m];
+        }
+
+        long suf = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = m - 1; j >= 0; --j) {
+                p[i][j] = (int)suf;
+                suf = suf * grid[i][j] % mod;
+            }
+        }
+
+        long pre = 1;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                p[i][j] = (int)(p[i][j] * pre % mod);
+                pre = pre * grid[i][j] % mod;
+            }
+        }
+
+        return p;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
