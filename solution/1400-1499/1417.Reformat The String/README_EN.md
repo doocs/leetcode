@@ -63,7 +63,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We classify all characters in string $s$ into two categories: "digits" and "letters", and put them into arrays $a$ and $b$ respectively.
+
+Compare the lengths of $a$ and $b$. If the length of $a$ is less than $b$, swap $a$ and $b$. Then check the difference in lengths; if it exceeds $1$, return an empty string.
+
+Next, iterate through both arrays simultaneously, appending characters from $a$ and $b$ alternately to the answer. After the iteration, if $a$ is longer than $b$, append the last character of $a$ to the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -185,6 +193,80 @@ func reformat(s string) string {
 		ans.WriteByte(a[len(a)-1])
 	}
 	return ans.String()
+}
+```
+
+#### TypeScript
+
+```ts
+function reformat(s: string): string {
+    let a: string[] = [];
+    let b: string[] = [];
+
+    for (const c of s) {
+        if (c >= 'a' && c <= 'z') a.push(c);
+        else if (c >= '0' && c <= '9') b.push(c);
+    }
+
+    if (Math.abs(a.length - b.length) > 1) {
+        return '';
+    }
+
+    if (a.length < b.length) {
+        [a, b] = [b, a];
+    }
+
+    const ans: string[] = [];
+
+    for (let i = 0; i < b.length; i++) {
+        ans.push(a[i] + b[i]);
+    }
+
+    if (a.length > b.length) {
+        ans.push(a[a.length - 1]);
+    }
+
+    return ans.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn reformat(s: String) -> String {
+        let mut a: Vec<char> = Vec::new();
+        let mut b: Vec<char> = Vec::new();
+
+        for c in s.chars() {
+            if c.is_ascii_lowercase() {
+                a.push(c);
+            } else if c.is_ascii_digit() {
+                b.push(c);
+            }
+        }
+
+        if (a.len() as i32 - b.len() as i32).abs() > 1 {
+            return String::new();
+        }
+
+        if a.len() < b.len() {
+            std::mem::swap(&mut a, &mut b);
+        }
+
+        let mut ans = String::new();
+
+        for i in 0..b.len() {
+            ans.push(a[i]);
+            ans.push(b[i]);
+        }
+
+        if a.len() > b.len() {
+            ans.push(a[a.len() - 1]);
+        }
+
+        ans
+    }
 }
 ```
 

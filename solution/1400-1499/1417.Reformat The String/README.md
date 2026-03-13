@@ -207,6 +207,80 @@ func reformat(s string) string {
 }
 ```
 
+#### TypeScript
+
+```ts
+function reformat(s: string): string {
+    let a: string[] = [];
+    let b: string[] = [];
+
+    for (const c of s) {
+        if (c >= 'a' && c <= 'z') a.push(c);
+        else if (c >= '0' && c <= '9') b.push(c);
+    }
+
+    if (Math.abs(a.length - b.length) > 1) {
+        return '';
+    }
+
+    if (a.length < b.length) {
+        [a, b] = [b, a];
+    }
+
+    const ans: string[] = [];
+
+    for (let i = 0; i < b.length; i++) {
+        ans.push(a[i] + b[i]);
+    }
+
+    if (a.length > b.length) {
+        ans.push(a[a.length - 1]);
+    }
+
+    return ans.join('');
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn reformat(s: String) -> String {
+        let mut a: Vec<char> = Vec::new();
+        let mut b: Vec<char> = Vec::new();
+
+        for c in s.chars() {
+            if c.is_ascii_lowercase() {
+                a.push(c);
+            } else if c.is_ascii_digit() {
+                b.push(c);
+            }
+        }
+
+        if (a.len() as i32 - b.len() as i32).abs() > 1 {
+            return String::new();
+        }
+
+        if a.len() < b.len() {
+            std::mem::swap(&mut a, &mut b);
+        }
+
+        let mut ans = String::new();
+
+        for i in 0..b.len() {
+            ans.push(a[i]);
+            ans.push(b[i]);
+        }
+
+        if a.len() > b.len() {
+            ans.push(a[a.len() - 1]);
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
