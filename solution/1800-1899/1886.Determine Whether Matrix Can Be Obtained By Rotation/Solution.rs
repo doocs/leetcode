@@ -1,23 +1,28 @@
 impl Solution {
     pub fn find_rotation(mat: Vec<Vec<i32>>, target: Vec<Vec<i32>>) -> bool {
         let n = mat.len();
-        let mut is_equal = [true; 4];
+        let mut ok: i32 = 0b1111;
+
         for i in 0..n {
             for j in 0..n {
-                if is_equal[0] && mat[i][j] != target[i][j] {
-                    is_equal[0] = false;
+                if mat[i][j] != target[i][j] {
+                    ok &= !0b0001;
                 }
-                if is_equal[1] && mat[i][j] != target[j][n - 1 - i] {
-                    is_equal[1] = false;
+                if mat[j][n - 1 - i] != target[i][j] {
+                    ok &= !0b0010;
                 }
-                if is_equal[2] && mat[i][j] != target[n - 1 - i][n - 1 - j] {
-                    is_equal[2] = false;
+                if mat[n - 1 - i][n - 1 - j] != target[i][j] {
+                    ok &= !0b0100;
                 }
-                if is_equal[3] && mat[i][j] != target[n - 1 - j][i] {
-                    is_equal[3] = false;
+                if mat[n - 1 - j][i] != target[i][j] {
+                    ok &= !0b1000;
+                }
+                if ok == 0 {
+                    return false;
                 }
             }
         }
-        is_equal.into_iter().any(|&v| v)
+
+        ok != 0
     }
 }

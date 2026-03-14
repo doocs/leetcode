@@ -1,37 +1,26 @@
 class Solution {
     public boolean findRotation(int[][] mat, int[][] target) {
-        int times = 4;
-        while (times-- > 0) {
-            if (equals(mat, target)) {
-                return true;
-            }
-            rotate(mat);
-        }
-        return false;
-    }
-
-    private void rotate(int[][] matrix) {
-        int n = matrix.length;
-        for (int i = 0; i < n / 2; ++i) {
-            for (int j = i; j < n - 1 - i; ++j) {
-                int t = matrix[i][j];
-                matrix[i][j] = matrix[n - j - 1][i];
-                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
-                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
-                matrix[j][n - i - 1] = t;
-            }
-        }
-    }
-
-    private boolean equals(int[][] nums1, int[][] nums2) {
-        int n = nums1.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (nums1[i][j] != nums2[i][j]) {
+        int n = mat.length;
+        int ok = 0b1111;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] != target[i][j]) {
+                    ok &= ~0b0001;
+                }
+                if (mat[j][n - 1 - i] != target[i][j]) {
+                    ok &= ~0b0010;
+                }
+                if (mat[n - 1 - i][n - 1 - j] != target[i][j]) {
+                    ok &= ~0b0100;
+                }
+                if (mat[n - 1 - j][i] != target[i][j]) {
+                    ok &= ~0b1000;
+                }
+                if (ok == 0) {
                     return false;
                 }
             }
         }
-        return true;
+        return ok != 0;
     }
 }
