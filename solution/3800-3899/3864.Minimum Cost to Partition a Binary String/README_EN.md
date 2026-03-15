@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md
+rating: 2032
+source: Weekly Contest 492 Q4
 tags:
     - String
     - Divide and Conquer

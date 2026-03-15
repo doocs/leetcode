@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README.md
+rating: 1697
+source: 第 492 场周赛 Q2
 tags:
     - 数组
     - 前缀和
