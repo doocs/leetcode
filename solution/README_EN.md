@@ -3874,6 +3874,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3863  |  [Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)  |  `String`  |  Medium  |  Weekly Contest 492  |
 |  3864  |  [Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)  |  `String`,`Divide and Conquer`,`Prefix Sum`  |  Hard  |  Weekly Contest 492  |
 |  3865  |  [Reverse K Subarrays](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README_EN.md)  |    |  Medium  |  🔒  |
+|  3866  |  [First Unique Even Element](/solution/3800-3899/3866.First%20Unique%20Even%20Element/README_EN.md)  |    |  Easy  |  Biweekly Contest 178  |
+|  3867  |  [Sum of GCD of Formed Pairs](/solution/3800-3899/3867.Sum%20of%20GCD%20of%20Formed%20Pairs/README_EN.md)  |    |  Medium  |  Biweekly Contest 178  |
+|  3868  |  [Minimum Cost to Equalize Arrays Using Swaps](/solution/3800-3899/3868.Minimum%20Cost%20to%20Equalize%20Arrays%20Using%20Swaps/README_EN.md)  |    |  Medium  |  Biweekly Contest 178  |
+|  3869  |  [Count Fancy Numbers in a Range](/solution/3800-3899/3869.Count%20Fancy%20Numbers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Biweekly Contest 178  |
+|  3870  |  [Count Commas in Range](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README_EN.md)  |    |  Easy  |  Weekly Contest 493  |
+|  3871  |  [Count Commas in Range II](/solution/3800-3899/3871.Count%20Commas%20in%20Range%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 493  |
+|  3872  |  [Longest Arithmetic Sequence After Changing At Most One Element](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README_EN.md)  |    |  Medium  |  Weekly Contest 493  |
+|  3873  |  [Maximum Points Activated with One Addition](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README_EN.md)  |    |  Hard  |  Weekly Contest 493  |
 
 ## Copyright
 

@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 493
+
+- [3870. Count Commas in Range](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README_EN.md)
+- [3871. Count Commas in Range II](/solution/3800-3899/3871.Count%20Commas%20in%20Range%20II/README_EN.md)
+- [3872. Longest Arithmetic Sequence After Changing At Most One Element](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README_EN.md)
+- [3873. Maximum Points Activated with One Addition](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README_EN.md)
+
+#### Biweekly Contest 178
+
+- [3866. First Unique Even Element](/solution/3800-3899/3866.First%20Unique%20Even%20Element/README_EN.md)
+- [3867. Sum of GCD of Formed Pairs](/solution/3800-3899/3867.Sum%20of%20GCD%20of%20Formed%20Pairs/README_EN.md)
+- [3868. Minimum Cost to Equalize Arrays Using Swaps](/solution/3800-3899/3868.Minimum%20Cost%20to%20Equalize%20Arrays%20Using%20Swaps/README_EN.md)
+- [3869. Count Fancy Numbers in a Range](/solution/3800-3899/3869.Count%20Fancy%20Numbers%20in%20a%20Range/README_EN.md)
+
 #### Weekly Contest 492
 
 - [3861. Minimum Capacity Box](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md)

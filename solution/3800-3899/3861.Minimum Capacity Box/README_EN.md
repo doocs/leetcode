@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md
+rating: 1154
+source: Weekly Contest 492 Q1
 tags:
     - Array
 ---

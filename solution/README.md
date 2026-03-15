@@ -3876,6 +3876,14 @@
 |  3863  |  [将一个字符串排序的最小操作次数](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README.md)  |  `字符串`  |  中等  |  第 492 场周赛  |
 |  3864  |  [划分二进制字符串的最小费用](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README.md)  |  `字符串`,`分治`,`前缀和`  |  困难  |  第 492 场周赛  |
 |  3865  |  [反转 K 个子数组](/solution/3800-3899/3865.Reverse%20K%20Subarrays/README.md)  |    |  中等  |  🔒  |
+|  3866  |  [找到第一个唯一偶数](/solution/3800-3899/3866.First%20Unique%20Even%20Element/README.md)  |    |  简单  |  第 178 场双周赛  |
+|  3867  |  [数对的最大公约数之和](/solution/3800-3899/3867.Sum%20of%20GCD%20of%20Formed%20Pairs/README.md)  |    |  中等  |  第 178 场双周赛  |
+|  3868  |  [通过交换使数组相等的最小花费](/solution/3800-3899/3868.Minimum%20Cost%20to%20Equalize%20Arrays%20Using%20Swaps/README.md)  |    |  中等  |  第 178 场双周赛  |
+|  3869  |  [统计区间内奇妙数的数目](/solution/3800-3899/3869.Count%20Fancy%20Numbers%20in%20a%20Range/README.md)  |    |  困难  |  第 178 场双周赛  |
+|  3870  |  [统计范围内的逗号](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README.md)  |    |  简单  |  第 493 场周赛  |
+|  3871  |  [统计范围内的逗号 II](/solution/3800-3899/3871.Count%20Commas%20in%20Range%20II/README.md)  |    |  中等  |  第 493 场周赛  |
+|  3872  |  [替换最多一个元素后的最长等差子数组](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README.md)  |    |  中等  |  第 493 场周赛  |
+|  3873  |  [添加一个点后可激活的最大点数](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README.md)  |    |  困难  |  第 493 场周赛  |
 
 ## 版权
 

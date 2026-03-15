@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md
+rating: 1697
+source: Weekly Contest 492 Q2
 tags:
     - Array
     - Prefix Sum
