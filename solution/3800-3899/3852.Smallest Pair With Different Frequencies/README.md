@@ -4,6 +4,10 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README.md
 rating: 1287
 source: 第 177 场双周赛 Q1
+tags:
+    - 数组
+    - 哈希表
+    - 计数
 ---
 
 <!-- problem:start -->
