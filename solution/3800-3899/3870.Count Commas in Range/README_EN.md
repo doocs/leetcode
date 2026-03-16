@@ -63,7 +63,15 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3870.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+Numbers from 1 to 999 contain no commas, so when $n$ is less than or equal to 999, the answer is 0.
+
+Since the range of $n$ is $[1, 10^5]$, when $n$ is greater than or equal to 1000, each number contains exactly one comma, so the answer is $n - 999$.
+
+Therefore, the answer is $\max(0, n - 999)$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -78,19 +86,38 @@ class Solution:
 #### Java
 
 ```java
-
+class Solution {
+    public int countCommas(int n) {
+        return Math.max(0, n - 999);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countCommas(int n) {
+        return max(0, n - 999);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countCommas(n int) int {
+	return max(0, n-999)
+}
+```
 
+#### TypeScript
+
+```ts
+function countCommas(n: number): number {
+    return Math.max(0, n - 999)
+};
 ```
 
 <!-- tabs:end -->
