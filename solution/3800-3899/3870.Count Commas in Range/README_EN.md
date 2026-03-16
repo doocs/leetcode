@@ -116,8 +116,8 @@ func countCommas(n int) int {
 
 ```ts
 function countCommas(n: number): number {
-    return Math.max(0, n - 999)
-};
+    return Math.max(0, n - 999);
+}
 ```
 
 <!-- tabs:end -->

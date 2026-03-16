@@ -3862,10 +3862,10 @@
 |  3849  |  [重新排列后的最大按位异或值](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README.md)  |  `贪心`,`位运算`,`字符串`  |  中等  |  第 490 场周赛  |
 |  3850  |  [统计结果等于 K 的序列数目](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README.md)  |  `记忆化`,`数组`,`数学`,`动态规划`,`数论`  |  困难  |  第 490 场周赛  |
 |  3851  |  [不违反限制的最大请求数](/solution/3800-3899/3851.Maximum%20Requests%20Without%20Violating%20the%20Limit/README.md)  |  `贪心`,`数组`,`哈希表`,`排序`,`滑动窗口`  |  中等  |  🔒  |
-|  3852  |  [不同频率的最小数对](/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README.md)  |    |  简单  |  第 177 场双周赛  |
-|  3853  |  [合并靠近字符](/solution/3800-3899/3853.Merge%20Close%20Characters/README.md)  |    |  中等  |  第 177 场双周赛  |
-|  3854  |  [使数组奇偶交替的最少操作](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README.md)  |    |  中等  |  第 177 场双周赛  |
-|  3855  |  [给定范围内 K 位数字之和](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README.md)  |    |  困难  |  第 177 场双周赛  |
+|  3852  |  [不同频率的最小数对](/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README.md)  |  `数组`,`哈希表`,`计数`  |  简单  |  第 177 场双周赛  |
+|  3853  |  [合并靠近字符](/solution/3800-3899/3853.Merge%20Close%20Characters/README.md)  |  `哈希表`,`字符串`  |  中等  |  第 177 场双周赛  |
+|  3854  |  [使数组奇偶交替的最少操作](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README.md)  |  `贪心`,`数组`  |  中等  |  第 177 场双周赛  |
+|  3855  |  [给定范围内 K 位数字之和](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README.md)  |  `数学`,`分治`,`组合数学`,`数论`  |  困难  |  第 177 场双周赛  |
 |  3856  |  [移除尾部元音字母](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README.md)  |  `字符串`  |  简单  |  第 491 场周赛  |
 |  3857  |  [拆分到 1 的最小总代价](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README.md)  |  `数学`,`动态规划`  |  中等  |  第 491 场周赛  |
 |  3858  |  [按位或的最小值](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README.md)  |    |  中等  |  第 491 场周赛  |
