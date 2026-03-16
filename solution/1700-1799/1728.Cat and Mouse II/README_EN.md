@@ -99,7 +99,31 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Topological Sorting
+
+According to the problem description, the state of the game is determined by the mouse's position, the cat's position, and whose turn it is. The following states can be determined directly:
+
+- When the cat and the mouse are at the same position, the cat wins — this is a winning state for the cat and a losing state for the mouse.
+- When the cat reaches the food first, the cat wins — this is a winning state for the cat and a losing state for the mouse.
+- When the mouse reaches the food first, the mouse wins — this is a winning state for the mouse and a losing state for the cat.
+
+To determine the result of the initial state, we need to traverse all states starting from the boundary states. Each state contains the mouse's position, the cat's position, and whose turn it is. From the current state, we can derive all possible previous states: the mover in the previous state is the opposite of the current mover, and the mover's position in the previous state differs from that in the current state.
+
+We use the tuple $(m, c, t)$ to represent the current state, and $(pm, pc, pt)$ to represent a possible previous state. All possible previous states are:
+
+- If the current mover is the mouse, then the previous mover was the cat, the mouse's position in the previous state equals the current mouse position, and the cat's position in the previous state is any neighbor of the current cat position.
+- If the current mover is the cat, then the previous mover was the mouse, the cat's position in the previous state equals the current cat position, and the mouse's position in the previous state is any neighbor of the current mouse position.
+
+Initially, except for the boundary states, the results of all other states are unknown. Starting from the boundary states, for each state we derive all possible previous states and update their results according to the following logic:
+
+1. If the previous mover is the same as the current winner, then the previous mover can reach the current state and win — directly update the previous state to the current winner.
+2. If the previous mover is different from the current winner, and all states reachable by the previous mover are losing states for the previous mover, then we update the previous state to the current winner.
+
+For the second update rule, we need to record the degree of each state. Initially, the degree of a state represents the number of nodes the mover of that state can move to, i.e., the number of neighbors of the node where the mover is located. If the mover is the cat and the cat's node is adjacent to the hole, the degree of that state should be decremented by $1$.
+
+When all states have been updated, the result of the initial state is the final answer.
+
+The time complexity is $O(m^2 \times n^2 \times (m + n))$ and the space complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 <!-- tabs:start -->
 
@@ -553,6 +577,283 @@ func getPrevStates(gMouse, gCat [][]int, m, c, t int, ans [][][]int) [][]int {
 		}
 	}
 	return pre
+}
+```
+
+#### TypeScript
+
+```ts
+function canMouseWin(grid: string[], catJump: number, mouseJump: number): boolean {
+    const m = grid.length
+    const n = grid[0].length
+
+    let catStart = 0
+    let mouseStart = 0
+    let food = 0
+
+    const dirs = [-1, 0, 1, 0, -1]
+
+    const gMouse: number[][] = Array.from({ length: m * n }, () => [])
+    const gCat: number[][] = Array.from({ length: m * n }, () => [])
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const c = grid[i][j]
+
+            if (c === '#') continue
+
+            const v = i * n + j
+
+            if (c === 'C') catStart = v
+            else if (c === 'M') mouseStart = v
+            else if (c === 'F') food = v
+
+            for (let d = 0; d < 4; d++) {
+                const a = dirs[d]
+                const b = dirs[d + 1]
+
+                for (let k = 0; k <= mouseJump; k++) {
+                    const x = i + k * a
+                    const y = j + k * b
+
+                    if (!(0 <= x && x < m && 0 <= y && y < n && grid[x][y] !== '#')) break
+
+                    gMouse[v].push(x * n + y)
+                }
+
+                for (let k = 0; k <= catJump; k++) {
+                    const x = i + k * a
+                    const y = j + k * b
+
+                    if (!(0 <= x && x < m && 0 <= y && y < n && grid[x][y] !== '#')) break
+
+                    gCat[v].push(x * n + y)
+                }
+            }
+        }
+    }
+
+    function getPrevStates(m: number, c: number, t: number, ans: number[][][]): number[][] {
+        const pt = t ^ 1
+        const pre: number[][] = []
+
+        if (pt === 1) {
+            for (const pc of gCat[c]) {
+                if (ans[m][pc][1] === 0) pre.push([m, pc, pt])
+            }
+        } else {
+            for (const pm of gMouse[m]) {
+                if (ans[pm][c][0] === 0) pre.push([pm, c, pt])
+            }
+        }
+
+        return pre
+    }
+
+    function calc(): number {
+        const N = m * n
+
+        const degree: number[][][] = Array.from({ length: N }, () =>
+            Array.from({ length: N }, () => [0, 0])
+        )
+
+        const ans: number[][][] = Array.from({ length: N }, () =>
+            Array.from({ length: N }, () => [0, 0])
+        )
+
+        for (let i = 0; i < N; i++) {
+            for (let j = 0; j < N; j++) {
+                degree[i][j][0] = gMouse[i].length
+                degree[i][j][1] = gCat[j].length
+            }
+        }
+
+        const q: number[][] = []
+
+        for (let i = 0; i < N; i++) {
+            ans[food][i][1] = 1
+            ans[i][food][0] = 2
+            ans[i][i][1] = 2
+            ans[i][i][0] = 2
+
+            q.push([food, i, 1])
+            q.push([i, food, 0])
+            q.push([i, i, 0])
+            q.push([i, i, 1])
+        }
+
+        while (q.length) {
+            const [mPos, cPos, t] = q.shift()!
+            const currentAns = ans[mPos][cPos][t]
+
+            for (const [pm, pc, pt] of getPrevStates(mPos, cPos, t, ans)) {
+                if (pt === currentAns - 1) {
+                    ans[pm][pc][pt] = currentAns
+                    q.push([pm, pc, pt])
+                } else {
+                    degree[pm][pc][pt]--
+                    if (degree[pm][pc][pt] === 0) {
+                        ans[pm][pc][pt] = currentAns
+                        q.push([pm, pc, pt])
+                    }
+                }
+            }
+        }
+
+        return ans[mouseStart][catStart][0]
+    }
+
+    return calc() === 1
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_mouse_win(grid: Vec<String>, cat_jump: i32, mouse_jump: i32) -> bool {
+        let m = grid.len();
+        let n = grid[0].len();
+
+        let grid: Vec<Vec<char>> = grid.iter().map(|s| s.chars().collect()).collect();
+
+        let mut cat_start = 0usize;
+        let mut mouse_start = 0usize;
+        let mut food = 0usize;
+
+        let dirs = [-1, 0, 1, 0, -1];
+
+        let mut g_mouse = vec![Vec::<usize>::new(); m * n];
+        let mut g_cat = vec![Vec::<usize>::new(); m * n];
+
+        for i in 0..m {
+            for j in 0..n {
+                let c = grid[i][j];
+                if c == '#' {
+                    continue;
+                }
+
+                let v = i * n + j;
+
+                if c == 'C' {
+                    cat_start = v;
+                } else if c == 'M' {
+                    mouse_start = v;
+                } else if c == 'F' {
+                    food = v;
+                }
+
+                for d in 0..4 {
+                    let a = dirs[d];
+                    let b = dirs[d + 1];
+
+                    for k in 0..=mouse_jump {
+                        let x = i as i32 + k * a;
+                        let y = j as i32 + k * b;
+
+                        if !(x >= 0
+                            && x < m as i32
+                            && y >= 0
+                            && y < n as i32
+                            && grid[x as usize][y as usize] != '#')
+                        {
+                            break;
+                        }
+
+                        g_mouse[v].push((x as usize) * n + y as usize);
+                    }
+
+                    for k in 0..=cat_jump {
+                        let x = i as i32 + k * a;
+                        let y = j as i32 + k * b;
+
+                        if !(x >= 0
+                            && x < m as i32
+                            && y >= 0
+                            && y < n as i32
+                            && grid[x as usize][y as usize] != '#')
+                        {
+                            break;
+                        }
+
+                        g_cat[v].push((x as usize) * n + y as usize);
+                    }
+                }
+            }
+        }
+
+        use std::collections::VecDeque;
+
+        let n2 = m * n;
+
+        let mut degree = vec![vec![vec![0i32; 2]; n2]; n2];
+        let mut ans = vec![vec![vec![0i32; 2]; n2]; n2];
+
+        for i in 0..n2 {
+            for j in 0..n2 {
+                degree[i][j][0] = g_mouse[i].len() as i32;
+                degree[i][j][1] = g_cat[j].len() as i32;
+            }
+        }
+
+        let mut q = VecDeque::new();
+
+        for i in 0..n2 {
+            ans[food][i][1] = 1;
+            ans[i][food][0] = 2;
+            ans[i][i][1] = 2;
+            ans[i][i][0] = 2;
+
+            q.push_back((food, i, 1));
+            q.push_back((i, food, 0));
+            q.push_back((i, i, 0));
+            q.push_back((i, i, 1));
+        }
+
+        while let Some((m_pos, c_pos, t)) = q.pop_front() {
+            let current_ans = ans[m_pos][c_pos][t];
+
+            let pt = t ^ 1;
+
+            if pt == 1 {
+                for &pc in &g_cat[c_pos] {
+                    if ans[m_pos][pc][1] != 0 {
+                        continue;
+                    }
+
+                    if pt as i32 == current_ans - 1 {
+                        ans[m_pos][pc][1] = current_ans;
+                        q.push_back((m_pos, pc, 1));
+                    } else {
+                        degree[m_pos][pc][1] -= 1;
+                        if degree[m_pos][pc][1] == 0 {
+                            ans[m_pos][pc][1] = current_ans;
+                            q.push_back((m_pos, pc, 1));
+                        }
+                    }
+                }
+            } else {
+                for &pm in &g_mouse[m_pos] {
+                    if ans[pm][c_pos][0] != 0 {
+                        continue;
+                    }
+
+                    if pt as i32 == current_ans - 1 {
+                        ans[pm][c_pos][0] = current_ans;
+                        q.push_back((pm, c_pos, 0));
+                    } else {
+                        degree[pm][c_pos][0] -= 1;
+                        if degree[pm][c_pos][0] == 0 {
+                            ans[pm][c_pos][0] = current_ans;
+                            q.push_back((pm, c_pos, 0));
+                        }
+                    }
+                }
+            }
+        }
+
+        ans[mouse_start][cat_start][0] == 1
+    }
 }
 ```
 
