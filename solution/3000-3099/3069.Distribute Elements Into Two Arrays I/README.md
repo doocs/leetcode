@@ -74,13 +74,13 @@ tags:
 
 ### 方法一：模拟
 
-我们创建两个数组 `arr1` 和 `arr2`，分别存放 `nums` 中的元素，初始时 `arr1` 中只有 `nums[0]`，`arr2` 中只有 `nums[1]`。
+我们创建两个数组 $\textit{arr1}$ 和 $\textit{arr2}$，分别存放数组 $\textit{nums}$ 中的元素，初始时 $\textit{arr1}$ 中只有 $\textit{nums[0]}$，$\textit{arr2}$ 中只有 $\textit{nums[1]}$。
 
-然后遍历 `nums` 下标从 $2$ 开始的元素，如果 `arr1` 的最后一个元素大于 `arr2` 的最后一个元素，就将当前元素追加到 `arr1`，否则追加到 `arr2`。
+然后遍历 $\textit{nums}$ 下标从 $2$ 开始的元素，如果 $\textit{arr1}$ 的最后一个元素大于 $\textit{arr2}$ 的最后一个元素，就将当前元素追加到 $\textit{arr1}$，否则追加到 $\textit{arr2}$。
 
-最后将 `arr2` 中的元素追加到 `arr1` 中，返回 `arr1`。
+最后将 $\textit{arr2}$ 中的元素追加到 $\textit{arr1}$ 中，返回 $\textit{arr1}$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -178,6 +178,50 @@ function resultArray(nums: number[]): number[] {
         }
     }
     return arr1.concat(arr2);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn result_array(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut arr1 = vec![nums[0]];
+        let mut arr2 = vec![nums[1]];
+        for k in 2..n {
+            if arr1[arr1.len() - 1] > arr2[arr2.len() - 1] {
+                arr1.push(nums[k]);
+            } else {
+                arr2.push(nums[k]);
+            }
+        }
+        arr1.extend(arr2);
+        arr1
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] ResultArray(int[] nums) {
+        int n = nums.Length;
+        var arr1 = new List<int> { nums[0] };
+        var arr2 = new List<int> { nums[1] };
+
+        for (int k = 2; k < n; ++k) {
+            if (arr1[arr1.Count - 1] > arr2[arr2.Count - 1]) {
+                arr1.Add(nums[k]);
+            } else {
+                arr2.Add(nums[k]);
+            }
+        }
+
+        arr1.AddRange(arr2);
+        return arr1.ToArray();
+    }
 }
 ```
 
