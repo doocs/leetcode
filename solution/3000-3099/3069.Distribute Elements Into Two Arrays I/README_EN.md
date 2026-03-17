@@ -72,13 +72,13 @@ Hence, the array result formed by concatenation is [5,3,4,8].
 
 ### Solution 1: Simulation
 
-We create two arrays `arr1` and `arr2`, which store the elements in `nums`. Initially, `arr1` only contains `nums[0]`, and `arr2` only contains `nums[1]`.
+We create two arrays $\textit{arr1}$ and $\textit{arr2}$ to store the elements of $\textit{nums}$. Initially, $\textit{arr1}$ contains only $\textit{nums[0]}$, and $\textit{arr2}$ contains only $\textit{nums[1]}$.
 
-Then we traverse the elements of `nums` starting from index 2. If the last element of `arr1` is greater than the last element of `arr2`, we append the current element to `arr1`, otherwise we append it to `arr2`.
+Then we iterate over the elements of $\textit{nums}$ starting from index $2$. If the last element of $\textit{arr1}$ is greater than the last element of $\textit{arr2}$, we append the current element to $\textit{arr1}$; otherwise, we append it to $\textit{arr2}$.
 
-Finally, we append the elements in `arr2` to `arr1` and return `arr1`.
+Finally, we append the elements of $\textit{arr2}$ to $\textit{arr1}$ and return $\textit{arr1}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -176,6 +176,50 @@ function resultArray(nums: number[]): number[] {
         }
     }
     return arr1.concat(arr2);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn result_array(nums: Vec<i32>) -> Vec<i32> {
+        let n = nums.len();
+        let mut arr1 = vec![nums[0]];
+        let mut arr2 = vec![nums[1]];
+        for k in 2..n {
+            if arr1[arr1.len() - 1] > arr2[arr2.len() - 1] {
+                arr1.push(nums[k]);
+            } else {
+                arr2.push(nums[k]);
+            }
+        }
+        arr1.extend(arr2);
+        arr1
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] ResultArray(int[] nums) {
+        int n = nums.Length;
+        var arr1 = new List<int> { nums[0] };
+        var arr2 = new List<int> { nums[1] };
+
+        for (int k = 2; k < n; ++k) {
+            if (arr1[arr1.Count - 1] > arr2[arr2.Count - 1]) {
+                arr1.Add(nums[k]);
+            } else {
+                arr2.Add(nums[k]);
+            }
+        }
+
+        arr1.AddRange(arr2);
+        return arr1.ToArray();
+    }
 }
 ```
 

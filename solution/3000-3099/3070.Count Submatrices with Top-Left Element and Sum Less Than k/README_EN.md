@@ -169,6 +169,45 @@ function countSubmatrices(grid: number[][], k: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_submatrices(grid: Vec<Vec<i32>>, k: i32) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut s = vec![vec![0; n + 1]; m + 1];
+        let mut ans = 0;
+        for i in 1..=m {
+            for j in 1..=n {
+                s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + grid[i - 1][j - 1];
+                if s[i][j] <= k { ans += 1; }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int CountSubmatrices(int[][] grid, int k) {
+        int m = grid.Length, n = grid[0].Length;
+        int[,] s = new int[m + 1, n + 1];
+        int ans = 0;
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                s[i, j] = s[i - 1, j] + s[i, j - 1] - s[i - 1, j - 1] + grid[i - 1][j - 1];
+                if (s[i, j] <= k) ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
