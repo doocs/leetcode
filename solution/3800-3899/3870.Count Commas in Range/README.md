@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3870.Count%20Commas%20in%20Range/README.md
+tags:
+    - 数学
 ---
 
 <!-- problem:start -->
