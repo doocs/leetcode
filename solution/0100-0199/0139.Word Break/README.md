@@ -4,7 +4,7 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0139.Word%20Break/README.md
 tags:
     - 字典树
-    - 记忆化搜索
+    - 记忆化
     - 数组
     - 哈希表
     - 字符串

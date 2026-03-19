@@ -3,7 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README.md
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 动态规划
 ---

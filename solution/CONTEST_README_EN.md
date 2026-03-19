@@ -29,6 +29,69 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 493
+
+- [3870. Count Commas in Range](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README_EN.md)
+- [3871. Count Commas in Range II](/solution/3800-3899/3871.Count%20Commas%20in%20Range%20II/README_EN.md)
+- [3872. Longest Arithmetic Sequence After Changing At Most One Element](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README_EN.md)
+- [3873. Maximum Points Activated with One Addition](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README_EN.md)
+
+#### Biweekly Contest 178
+
+- [3866. First Unique Even Element](/solution/3800-3899/3866.First%20Unique%20Even%20Element/README_EN.md)
+- [3867. Sum of GCD of Formed Pairs](/solution/3800-3899/3867.Sum%20of%20GCD%20of%20Formed%20Pairs/README_EN.md)
+- [3868. Minimum Cost to Equalize Arrays Using Swaps](/solution/3800-3899/3868.Minimum%20Cost%20to%20Equalize%20Arrays%20Using%20Swaps/README_EN.md)
+- [3869. Count Fancy Numbers in a Range](/solution/3800-3899/3869.Count%20Fancy%20Numbers%20in%20a%20Range/README_EN.md)
+
+#### Weekly Contest 492
+
+- [3861. Minimum Capacity Box](/solution/3800-3899/3861.Minimum%20Capacity%20Box/README_EN.md)
+- [3862. Find the Smallest Balanced Index](/solution/3800-3899/3862.Find%20the%20Smallest%20Balanced%20Index/README_EN.md)
+- [3863. Minimum Operations to Sort a String](/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README_EN.md)
+- [3864. Minimum Cost to Partition a Binary String](/solution/3800-3899/3864.Minimum%20Cost%20to%20Partition%20a%20Binary%20String/README_EN.md)
+
+#### Weekly Contest 491
+
+- [3856. Trim Trailing Vowels](/solution/3800-3899/3856.Trim%20Trailing%20Vowels/README_EN.md)
+- [3857. Minimum Cost to Split into Ones](/solution/3800-3899/3857.Minimum%20Cost%20to%20Split%20into%20Ones/README_EN.md)
+- [3858. Minimum Bitwise OR From Grid](/solution/3800-3899/3858.Minimum%20Bitwise%20OR%20From%20Grid/README_EN.md)
+- [3859. Count Subarrays With K Distinct Integers](/solution/3800-3899/3859.Count%20Subarrays%20With%20K%20Distinct%20Integers/README_EN.md)
+
+#### Biweekly Contest 177
+
+- [3852. Smallest Pair With Different Frequencies](/solution/3800-3899/3852.Smallest%20Pair%20With%20Different%20Frequencies/README_EN.md)
+- [3853. Merge Close Characters](/solution/3800-3899/3853.Merge%20Close%20Characters/README_EN.md)
+- [3854. Minimum Operations to Make Array Parity Alternating](/solution/3800-3899/3854.Minimum%20Operations%20to%20Make%20Array%20Parity%20Alternating/README_EN.md)
+- [3855. Sum of K-Digit Numbers in a Range](/solution/3800-3899/3855.Sum%20of%20K-Digit%20Numbers%20in%20a%20Range/README_EN.md)
+
+#### Weekly Contest 490
+
+- [3847. Find the Score Difference in a Game](/solution/3800-3899/3847.Find%20the%20Score%20Difference%20in%20a%20Game/README_EN.md)
+- [3848. Check Digitorial Permutation](/solution/3800-3899/3848.Check%20Digitorial%20Permutation/README_EN.md)
+- [3849. Maximum Bitwise XOR After Rearrangement](/solution/3800-3899/3849.Maximum%20Bitwise%20XOR%20After%20Rearrangement/README_EN.md)
+- [3850. Count Sequences to K](/solution/3800-3899/3850.Count%20Sequences%20to%20K/README_EN.md)
+
+#### Weekly Contest 489
+
+- [3842. Toggle Light Bulbs](/solution/3800-3899/3842.Toggle%20Light%20Bulbs/README_EN.md)
+- [3843. First Element with Unique Frequency](/solution/3800-3899/3843.First%20Element%20with%20Unique%20Frequency/README_EN.md)
+- [3844. Longest Almost-Palindromic Substring](/solution/3800-3899/3844.Longest%20Almost-Palindromic%20Substring/README_EN.md)
+- [3845. Maximum Subarray XOR with Bounded Range](/solution/3800-3899/3845.Maximum%20Subarray%20XOR%20with%20Bounded%20Range/README_EN.md)
+
+#### Biweekly Contest 176
+
+- [3838. Weighted Word Mapping](/solution/3800-3899/3838.Weighted%20Word%20Mapping/README_EN.md)
+- [3839. Number of Prefix Connected Groups](/solution/3800-3899/3839.Number%20of%20Prefix%20Connected%20Groups/README_EN.md)
+- [3840. House Robber V](/solution/3800-3899/3840.House%20Robber%20V/README_EN.md)
+- [3841. Palindromic Path Queries in a Tree](/solution/3800-3899/3841.Palindromic%20Path%20Queries%20in%20a%20Tree/README_EN.md)
+
+#### Weekly Contest 488
+
+- [3833. Count Dominant Indices](/solution/3800-3899/3833.Count%20Dominant%20Indices/README_EN.md)
+- [3834. Merge Adjacent Equal Elements](/solution/3800-3899/3834.Merge%20Adjacent%20Equal%20Elements/README_EN.md)
+- [3835. Count Subarrays With Cost Less Than or Equal to K](/solution/3800-3899/3835.Count%20Subarrays%20With%20Cost%20Less%20Than%20or%20Equal%20to%20K/README_EN.md)
+- [3836. Maximum Score Using Exactly K Pairs](/solution/3800-3899/3836.Maximum%20Score%20Using%20Exactly%20K%20Pairs/README_EN.md)
+
 #### Weekly Contest 487
 
 - [3827. Count Monobit Integers](/solution/3800-3899/3827.Count%20Monobit%20Integers/README_EN.md)

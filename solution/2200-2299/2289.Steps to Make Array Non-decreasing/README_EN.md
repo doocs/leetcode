@@ -8,7 +8,9 @@ tags:
     - Stack
     - Array
     - Linked List
+    - Dynamic Programming
     - Monotonic Stack
+    - Simulation
 ---
 
 <!-- problem:start -->

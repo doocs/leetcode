@@ -5,9 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0805.Sp
 tags:
     - 位运算
     - 数组
+    - 哈希表
     - 数学
     - 动态规划
-    - 状态压缩
+    - 位掩码
 ---
 
 <!-- problem:start -->

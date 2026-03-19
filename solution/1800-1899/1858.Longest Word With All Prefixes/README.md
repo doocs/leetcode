@@ -68,13 +68,13 @@ tags:
 
 ### 方法一：前缀树
 
-我们定义一棵前缀树，前缀树每个节点有两个属性，一个是长度为 $26$ 的子节点数组 `children`，另一个是是否为单词结尾的标记 `isEnd`。
+我们定义一个前缀树，前缀树每个节点有两个属性，一个是长度为 $26$ 的子节点数组 $\textit{children}$，另一个是是否为单词结尾的标记 $\textit{isEnd}$。
 
-我们遍历 `words`，对于每个单词 `w`，我们从根节点开始遍历，如果当前节点的子节点数组中没有 `w` 的第一个字符，我们就创建一个新的节点，然后继续遍历 `w` 的下一个字符，直到遍历完 `w`，我们将当前节点的 `isEnd` 标记为 `true`。
+我们遍历 $\textit{words}$，对于每个单词 $w$，我们从根节点开始遍历，如果当前节点的子节点数组中没有 $w$ 的第一个字符，我们就创建一个新的节点，然后继续遍历 $w$ 的下一个字符，直到遍历完 $w$，我们将当前节点的 $\textit{isEnd}$ 标记为 $\texttt{true}$。
 
-接下来我们遍历 `words`，对于每个单词 `w`，我们从根节点开始遍历，如果当前节点的子节点数组的 `isEnd` 字段为 `false`，说明 `w` 的某个前缀不在 `words` 中，我们返回 `false`。否则继续遍历 `w` 的下一个字符，直到遍历完 `w`，我们返回 `true`。
+接下来我们遍历 $\textit{words}$，对于每个单词 $w$，我们从根节点开始遍历，如果当前节点的子节点数组的 $\textit{isEnd}$ 字段为 $\texttt{false}$，说明 $w$ 的某个前缀不在 $\textit{words}$ 中，我们返回 $\texttt{false}$。否则继续遍历 $w$ 的下一个字符，直到遍历完 $w$，我们返回 $\texttt{true}$。
 
-时间复杂度 $O(\sum_{w \in words} |w|)$，空间复杂度 $O(\sum_{w \in words} |w|)$。
+时间复杂度 $O(\sum_{w \in \textit{words}} |w|)$，空间复杂度 $O(\sum_{w \in \textit{words}} |w|)$。其中 $|w|$ 是单词 $w$ 的长度。
 
 <!-- tabs:start -->
 
@@ -381,6 +381,60 @@ impl Solution {
         ans
     }
 }
+```
+
+#### JavaScript
+
+```js
+class Trie {
+    constructor() {
+        this.children = new Array(26).fill(null);
+        this.isEnd = false;
+    }
+
+    insert(w) {
+        let node = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.isEnd = true;
+    }
+
+    search(w) {
+        let node = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            node = node.children[idx];
+            if (!node || !node.isEnd) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
+var longestWord = function (words) {
+    const trie = new Trie();
+    for (const w of words) {
+        trie.insert(w);
+    }
+
+    let ans = '';
+    for (const w of words) {
+        if ((w.length > ans.length || (w.length === ans.length && w < ans)) && trie.search(w)) {
+            ans = w;
+        }
+    }
+    return ans;
+};
 ```
 
 #### C#

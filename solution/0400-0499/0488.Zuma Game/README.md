@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0488.Zu
 tags:
     - 栈
     - 广度优先搜索
-    - 记忆化搜索
+    - 记忆化
     - 字符串
     - 动态规划
 ---

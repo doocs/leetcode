@@ -5,8 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3104.Fi
 tags:
     - Hash Table
     - String
-    - Binary Search
-    - Prefix Sum
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -7,6 +7,7 @@ source: 第 58 场双周赛 Q3
 tags:
     - 数组
     - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->

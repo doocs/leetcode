@@ -5,14 +5,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3553.Mi
 rating: 2410
 source: 第 450 场周赛 Q4
 tags:
+    - 位运算
     - 树
     - 深度优先搜索
     - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->
 
-# [3553. 包含给定路径的最小带权子树 II](https://leetcode.cn/problems/minimum-weighted-subgraph-with-the-required-paths-ii)
+# [3553. 包含要求路径的最小带权子图 II](https://leetcode.cn/problems/minimum-weighted-subgraph-with-the-required-paths-ii)
 
 [English Version](/solution/3500-3599/3553.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths%20II/README_EN.md)
 

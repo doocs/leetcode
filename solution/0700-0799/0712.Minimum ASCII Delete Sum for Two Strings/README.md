@@ -47,7 +47,7 @@ tags:
 <p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= s1.length, s2.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= s1.length, s2.length &lt;= 1000</code></li>
 	<li><code>s1</code>&nbsp;和&nbsp;<code>s2</code>&nbsp;由小写英文字母组成</li>
 </ul>
 

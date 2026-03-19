@@ -93,9 +93,9 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
-We can extract each bit of `n` from the least significant bit to the most significant bit, and then place it in the corresponding position of `ans`.
+We can extract each bit of $n$ from the lowest bit to the highest bit, and then place it at the corresponding position of $\textit{ans}$.
 
-For example, for the $i$-th bit, we can use `(n & 1) << (31 - i)` to extract the $i$-th bit of `n` and place it on the $31 - i$-th bit of `ans`, then right shift `n` by one bit.
+For example, for the $i$-th bit, we can extract the $i$-th bit of $n$ and place it at the $(31 - i)$-th bit of $\textit{ans}$ by $(n \& 1) \ll (31 - i)$, and then right shift $n$ by one bit.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 
@@ -154,6 +154,19 @@ func reverseBits(n uint32) (ans uint32) {
 		n >>= 1
 	}
 	return
+}
+```
+
+#### TypeScript
+
+```ts
+function reverseBits(n: number): number {
+    let ans = 0;
+    for (let i = 0; i < 32 && n; ++i) {
+        ans |= (n & 1) << (31 - i);
+        n >>= 1;
+    }
+    return ans >>> 0;
 }
 ```
 

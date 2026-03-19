@@ -5,7 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2014.Lo
 rating: 2558
 source: 第 259 场周赛 Q4
 tags:
-    - 贪心
+    - 哈希表
+    - 双指针
     - 字符串
     - 回溯
     - 计数

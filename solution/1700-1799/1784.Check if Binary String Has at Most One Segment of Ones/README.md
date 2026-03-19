@@ -54,13 +54,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：0 后面不能有 1
+### 方法一：脑筋急转弯
 
 注意到字符串 $s$ 不含前导零，说明 $s$ 以 '1' 开头。
 
-若字符串 $s$ 存在 "01" 串，那么 $s$ 就是形如 "1...01..." 的字符串，此时 $s$ 出现了至少两个连续的 '1' 片段，不满足题意，返回 `false`。
+若字符串 $s$ 存在 "01" 串，那么 $s$ 就是形如 "1...01..." 的字符串，此时 $s$ 出现了至少两个连续的 '1' 片段，不满足题意，返回 $\textit{false}$。
 
-若字符串 $s$ 不存在 "01" 串，那么 $s$ 只能是形如 "1..1000..." 的字符串，此时 $s$ 只有一个连续的 '1' 片段，满足题意，返回 `true`。
+若字符串 $s$ 不存在 "01" 串，那么 $s$ 只能是形如 "1..1000..." 的字符串，此时 $s$ 只有一个连续的 '1' 片段，满足题意，返回 $\textit{true}$。
 
 因此，只需要判断字符串 $s$ 是否存在 "01" 串即可。
 
@@ -109,14 +109,7 @@ func checkOnesSegment(s string) bool {
 
 ```ts
 function checkOnesSegment(s: string): boolean {
-    let pre = s[0];
-    for (const c of s) {
-        if (pre !== c && c === '1') {
-            return false;
-        }
-        pre = c;
-    }
-    return true;
+    return !s.includes('01');
 }
 ```
 
@@ -130,22 +123,16 @@ impl Solution {
 }
 ```
 
-<!-- tabs:end -->
+#### JavaScript
 
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function checkOnesSegment(s: string): boolean {
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var checkOnesSegment = function (s) {
     return !s.includes('01');
-}
+};
 ```
 
 <!-- tabs:end -->

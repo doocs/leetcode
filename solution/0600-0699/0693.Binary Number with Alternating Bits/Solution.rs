@@ -1,15 +1,16 @@
 impl Solution {
     pub fn has_alternating_bits(mut n: i32) -> bool {
-        let u = n & 3;
-        if u != 1 && u != 2 {
-            return false;
-        }
+        let mut prev: i32 = -1;
+
         while n != 0 {
-            if (n & 3) != u {
+            let curr = n & 1;
+            if prev == curr {
                 return false;
             }
-            n >>= 2;
+            prev = curr;
+            n >>= 1;
         }
+
         true
     }
 }

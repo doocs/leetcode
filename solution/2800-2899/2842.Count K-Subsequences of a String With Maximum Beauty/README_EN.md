@@ -10,6 +10,7 @@ tags:
     - Math
     - String
     - Combinatorics
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -128,7 +128,7 @@ We can sum up all the $h'$ values for the workers to get the total reduced heigh
 
 Next, we determine the left boundary of the binary search $l = 1$. Since there is at least one worker, and each worker's working time does not exceed $10^6$, to reduce the mountain height to $0$, it takes at least $(1 + \textit{mountainHeight}) \cdot \textit{mountainHeight} / 2 \cdot \textit{workerTimes}[i] \leq 10^{16}$ seconds. Therefore, we can set the right boundary of the binary search to $r = 10^{16}$. Then, we continuously halve the interval $[l, r]$ until $l = r$. At this point, $l$ is the answer.
 
-The time complexity is $O(n \times \log M)$, where $n$ is the number of workers, and $M$ is the right boundary of the binary search, which is $10^{16}$ in this problem.
+The time complexity is $O(n \times \log M)$, where $n$ is the number of workers, and $M$ is the right boundary of the binary search, which is $10^{16}$ in this problem. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -245,6 +245,108 @@ function minNumberOfSeconds(mountainHeight: number, workerTimes: number[]): numb
     }
 
     return Number(l);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_number_of_seconds(mountain_height: i32, worker_times: Vec<i32>) -> i64 {
+        let mut l: i64 = 1;
+        let mut r: i64 = 10_i64.pow(16);
+
+        let check = |t: i64| -> bool {
+            let mut h: i64 = 0;
+            for &wt in &worker_times {
+                let wt = wt as f64;
+                let t_f = t as f64;
+                let val = ((t_f * 2.0 / wt + 0.25).sqrt() - 0.5).floor() as i64;
+                h += val;
+                if h >= mountain_height as i64 {
+                    return true;
+                }
+            }
+            h >= mountain_height as i64
+        };
+
+        while l < r {
+            let mid = (l + r) >> 1;
+            if check(mid) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        l
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} mountainHeight
+ * @param {number[]} workerTimes
+ * @return {number}
+ */
+var minNumberOfSeconds = function (mountainHeight, workerTimes) {
+    const check = t => {
+        let h = 0n;
+        for (const wt of workerTimes) {
+            h += BigInt(Math.floor(Math.sqrt((Number(t) * 2.0) / wt + 0.25) - 0.5));
+        }
+        return h >= BigInt(mountainHeight);
+    };
+
+    let l = 1n;
+    let r = 10000000000000000n;
+
+    while (l < r) {
+        const mid = (l + r) >> 1n;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1n;
+        }
+    }
+
+    return Number(l);
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public long MinNumberOfSeconds(int mountainHeight, int[] workerTimes) {
+        long l = 1, r = (long)1e16;
+
+        bool Check(long t) {
+            long h = 0;
+            foreach (int wt in workerTimes) {
+                long val = (long)(Math.Sqrt(t * 2.0 / wt + 0.25) - 0.5);
+                h += val;
+                if (h >= mountainHeight) {
+                    return true;
+                }
+            }
+            return h >= mountainHeight;
+        }
+
+        while (l < r) {
+            long mid = (l + r) >> 1;
+            if (Check(mid)) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        return l;
+    }
 }
 ```
 

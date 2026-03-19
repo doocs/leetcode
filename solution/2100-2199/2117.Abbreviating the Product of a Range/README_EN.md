@@ -6,6 +6,7 @@ rating: 2476
 source: Biweekly Contest 68 Q4
 tags:
     - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

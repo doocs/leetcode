@@ -9,7 +9,7 @@ tags:
     - Hash Table
     - Math
     - Sorting
-    - Line Sweep
+    - Sweep Line
 ---
 
 <!-- problem:start -->

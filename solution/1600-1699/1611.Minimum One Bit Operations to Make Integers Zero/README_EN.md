@@ -6,7 +6,9 @@ rating: 2345
 source: Weekly Contest 209 Q4
 tags:
     - Bit Manipulation
+    - Recursion
     - Memoization
+    - Math
     - Dynamic Programming
 ---
 

@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2850.Mi
 rating: 2001
 source: 第 362 场周赛 Q3
 tags:
-    - 广度优先搜索
+    - 位运算
     - 数组
     - 动态规划
+    - 回溯
+    - 位掩码
     - 矩阵
 ---
 

@@ -324,13 +324,13 @@
 | 3611 | [查找超预订员工](/solution/3600-3699/3611.Find%20Overbooked%20Employees/README.md)                                                                           | `数据库` | 中等 |      |
 | 3617 | [查找具有螺旋学习模式的学生](/solution/3600-3699/3617.Find%20Students%20with%20Study%20Spiral%20Pattern/README.md)                                           |          | 困难 |      |
 | 3626 | [查找库存不平衡的店铺](/solution/3600-3699/3626.Find%20Stores%20with%20Inventory%20Imbalance/README.md)                                                      |          | 中等 |      |
-| 3642 | [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)                                                    |          | 简单 |      |
+| 3642 | [查找有两极分化观点的书籍](/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md)                                                    |          | 中等 |      |
 | 3657 | [寻找忠实客户](/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md)                                                                                  |          | 中等 |      |
 | 3673 | [查找僵尸会话](/solution/3600-3699/3673.Find%20Zombie%20Sessions/README.md)                                                                                  |          | 困难 |      |
 | 3705 | [寻找黄金时段客户](/solution/3700-3799/3705.Find%20Golden%20Hour%20Customers/README.md)                                                                      |          | 中等 |      |
 | 3716 | [寻找流失风险客户](/solution/3700-3799/3716.Find%20Churn%20Risk%20Customers/README.md)                                                                       |          | 中等 |      |
 | 3764 | [最常见的课程组合](/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README.md)                                                                        |          | 困难 |      |
-| 3793 | [查找高词元使用量的用户](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md)                                                      |          | 简单 |      |
+| 3793 | [查找高 tokens 使用量的用户](/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md)                                                  |          | 简单 |      |
 | 3808 | [寻找情绪一致的用户](/solution/3800-3899/3808.Find%20Emotionally%20Consistent%20Users/README.md)                                                             |          | 中等 |      |
 | 3832 | [查找具有持续行为模式的用户](/solution/3800-3899/3832.Find%20Users%20with%20Persistent%20Behavior%20Patterns/README.md)                                      |          | 困难 |      |
 

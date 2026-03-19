@@ -1,12 +1,8 @@
 function concatenatedBinary(n: number): number {
-    const mod = BigInt(10 ** 9 + 7);
-    let ans = 0n;
-    let shift = 0n;
-    for (let i = 1n; i <= n; ++i) {
-        if ((i & (i - 1n)) == 0n) {
-            ++shift;
-        }
-        ans = ((ans << shift) | i) % mod;
+    const mod = 1_000_000_007;
+    let ans = 0;
+    for (let i = 1; i <= n; i++) {
+        ans = (((ans * (1 << (32 - Math.clz32(i)))) % mod) + i) % mod;
     }
-    return Number(ans);
+    return ans;
 }

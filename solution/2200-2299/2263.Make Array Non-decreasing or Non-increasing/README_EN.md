@@ -4,7 +4,9 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2263.Make%20Array%20Non-decreasing%20or%20Non-increasing/README_EN.md
 tags:
     - Greedy
+    - Array
     - Dynamic Programming
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

@@ -10,6 +10,7 @@ tags:
     - Math
     - Dynamic Programming
     - Bitmask
+    - Number Theory
 ---
 
 <!-- problem:start -->

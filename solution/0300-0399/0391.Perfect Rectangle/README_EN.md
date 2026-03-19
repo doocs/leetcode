@@ -7,7 +7,7 @@ tags:
     - Array
     - Hash Table
     - Math
-    - Line Sweep
+    - Sweep Line
 ---
 
 <!-- problem:start -->

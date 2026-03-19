@@ -4,6 +4,7 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README_EN.md
 tags:
     - Array
+    - Interactive
     - String Matching
     - Sliding Window
     - Hash Function

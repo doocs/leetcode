@@ -68,13 +68,13 @@ tags:
 
 ### 方法一：计数 + 枚举
 
-由于 `'1'` 在长度为 $n$ 的二进制字符串中出现的次数可以为 $0, 1, 2, \cdots, n$（共有 $n + 1$ 种可能），因此我们一定可以找出一个新的二进制字符串，满足 `'1'` 在字符串中出现次数与 `nums` 中每个字符串不同。
+由于 `'1'` 在长度为 $n$ 的二进制字符串中出现的次数可以为 $0, 1, 2, \cdots, n$（共有 $n + 1$ 种可能），因此我们一定可以找出一个新的二进制字符串，满足 `'1'` 在字符串中出现次数与 $\textit{nums}$ 中每个字符串不同。
 
-我们可以用一个整数 $mask$ 记录所有字符串中 `'1'` 出现次数的情况，即 $mask$ 的第 $i$ 位为 $1$ 表示长度为 $n$ 的二进制字符串中 `'1'` 出现次数为 $i$ 的字符串存在，否则不存在。
+我们可以用一个整数 $\textit{mask}$ 记录所有字符串中 `'1'` 出现次数的情况，即 $\textit{mask}$ 的第 $i$ 位为 $1$ 表示长度为 $n$ 的二进制字符串中 `'1'` 出现次数为 $i$ 的字符串存在，否则不存在。
 
-然后我们从 $0$ 开始枚举长度为 $n$ 的二进制字符串中 `'1'` 出现的次数 $i$，如果 $mask$ 的第 $i$ 位为 $0$，则说明长度为 $n$ 的二进制字符串中 `'1'` 出现次数为 $i$ 的字符串不存在，我们可以将这个字符串作为答案返回。
+然后我们从 $0$ 开始枚举长度为 $n$ 的二进制字符串中 `'1'` 出现的次数 $i$，如果 $\textit{mask}$ 的第 $i$ 位为 $0$，则说明长度为 $n$ 的二进制字符串中 `'1'` 出现次数为 $i$ 的字符串不存在，我们可以将这个字符串作为答案返回。
 
-时间复杂度 $O(L)$，其中 $L$ 为 `nums` 中字符串的总长度。空间复杂度 $O(1)$。
+时间复杂度 $O(L)$，其中 $L$ 为 $\textit{nums}$ 中字符串的总长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -86,10 +86,9 @@ class Solution:
         mask = 0
         for x in nums:
             mask |= 1 << x.count("1")
-        n = len(nums)
-        for i in range(n + 1):
+        for i in count(0):
             if mask >> i & 1 ^ 1:
-                return "1" * i + "0" * (n - i)
+                return "1" * i + "0" * (len(nums) - i)
 ```
 
 #### Java
@@ -169,6 +168,27 @@ function findDifferentBinaryString(nums: string[]): string {
 }
 ```
 
+#### JavaScript
+
+```js
+/**
+ * @param {string[]} nums
+ * @return {string}
+ */
+var findDifferentBinaryString = function (nums) {
+    let mask = 0;
+    for (let x of nums) {
+        const cnt = x.split('').filter(c => c === '1').length;
+        mask |= 1 << cnt;
+    }
+    for (let i = 0; ; ++i) {
+        if (((mask >> i) & 1) === 0) {
+            return '1'.repeat(i) + '0'.repeat(nums.length - i);
+        }
+    }
+};
+```
+
 #### C#
 
 ```cs
@@ -194,77 +214,114 @@ public class Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：构造
+
+我们可以构造一个长度为 $n$ 的二进制字符串 $\textit{ans}$，其中 $\textit{ans}$ 的第 $i$ 位与 $\textit{nums}[i]$ 的第 $i$ 位不同。由于 $\textit{nums}$ 中的字符串互不相同，因此 $\textit{ans}$ 不会出现在 $\textit{nums}$ 中。
+
+时间复杂度 $O(n)$，其中 $n$ 是 $\textit{nums}$ 中字符串的长度。忽略答案字符串的空间复杂度，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findDifferentBinaryString(self, nums: List[str]) -> str:
+        ans = [None] * len(nums)
+        for i, s in enumerate(nums):
+            ans[i] = "1" if s[i] == "0" else "0"
+        return "".join(ans)
+```
+
+#### Java
+
+```java
+class Solution {
+    public String findDifferentBinaryString(String[] nums) {
+        int n = nums.length;
+        char[] ans = new char[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i].charAt(i) == '0' ? '1' : '0';
+        }
+        return new String(ans);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string findDifferentBinaryString(vector<string>& nums) {
+        int n = nums.size();
+        string ans(n, '0');
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i][i] == '0' ? '1' : '0';
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func findDifferentBinaryString(nums []string) string {
+	ans := make([]byte, len(nums))
+	for i, s := range nums {
+		if s[i] == '0' {
+			ans[i] = '1'
+		} else {
+			ans[i] = '0'
+		}
+	}
+	return string(ans)
+}
+```
 
 #### TypeScript
 
 ```ts
 function findDifferentBinaryString(nums: string[]): string {
-    const set = new Set(nums.map(x => Number.parseInt(x, 2)));
-    let res = 0;
-
-    while (set.has(res)) {
-        res++;
+    const n = nums.length;
+    const ans: string[] = new Array(n);
+    for (let i = 0; i < n; i++) {
+        ans[i] = nums[i][i] === '0' ? '1' : '0';
     }
-
-    return res.toString(2).padStart(nums[0].length, '0');
+    return ans.join('');
 }
 ```
 
 #### JavaScript
 
 ```js
-function findDifferentBinaryString(nums) {
-    const set = new Set(nums.map(x => Number.parseInt(x, 2)));
-    let res = 0;
-
-    while (set.has(res)) {
-        res++;
+/**
+ * @param {string[]} nums
+ * @return {string}
+ */
+var findDifferentBinaryString = function (nums) {
+    const n = nums.length;
+    const ans = new Array(n);
+    for (let i = 0; i < n; i++) {
+        ans[i] = nums[i][i] === '0' ? '1' : '0';
     }
-
-    return res.toString(2).padStart(nums[0].length, '0');
-}
+    return ans.join('');
+};
 ```
 
-<!-- solution:end -->
+#### C#
 
-<!-- tabs:end -->
-
-<!-- solution:start -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function findDifferentBinaryString(nums: string[]): string {
-    const res: string[] = [];
-
-    for (let i = 0; i < nums.length; i++) {
-        const x = nums[i][i];
-        res.push(x === '0' ? '1' : '0');
+```cs
+public class Solution {
+    public string FindDifferentBinaryString(string[] nums) {
+        int n = nums.Length;
+        char[] ans = new char[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = nums[i][i] == '0' ? '1' : '0';
+        }
+        return new string(ans);
     }
-
-    return res.join('');
-}
-```
-
-#### JavaScript
-
-```js
-function findDifferentBinaryString(nums) {
-    const res = [];
-
-    for (let i = 0; i < nums.length; i++) {
-        const x = nums[i][i];
-        res.push(x === '0' ? '1' : '0');
-    }
-
-    return res.join('');
 }
 ```
 

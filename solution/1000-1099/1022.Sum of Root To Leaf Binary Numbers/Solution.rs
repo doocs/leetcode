@@ -16,22 +16,26 @@
 //     }
 //   }
 // }
-use std::cell::RefCell;
 use std::rc::Rc;
-impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut num: i32) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-        let root = root.as_ref().unwrap().borrow();
-        num = (num << 1) | root.val;
-        if root.left.is_none() && root.right.is_none() {
-            return num;
-        }
-        Self::dfs(&root.left, num) + Self::dfs(&root.right, num)
-    }
+use std::cell::RefCell;
 
+impl Solution {
     pub fn sum_root_to_leaf(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        Self::dfs(&root, 0)
+        fn dfs(node: Option<Rc<RefCell<TreeNode>>>, x: i32) -> i32 {
+            if let Some(n) = node {
+                let n_ref = n.borrow();
+                let x = (x << 1) | n_ref.val;
+
+                if n_ref.left.is_none() && n_ref.right.is_none() {
+                    return x;
+                }
+
+                dfs(n_ref.left.clone(), x) + dfs(n_ref.right.clone(), x)
+            } else {
+                0
+            }
+        }
+
+        dfs(root, 0)
     }
 }

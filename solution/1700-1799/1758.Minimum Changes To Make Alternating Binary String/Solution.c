@@ -1,10 +1,10 @@
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-
 int minOperations(char* s) {
+    int cnt = 0;
     int n = strlen(s);
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        count += s[i] != ('0' + (i & 1)) ? 0 : 1;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] != "01"[i & 1]) {
+            ++cnt;
+        }
     }
-    return min(count, n - count);
+    return cnt < (n - cnt) ? cnt : (n - cnt);
 }

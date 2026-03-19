@@ -70,15 +70,15 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 ### Solution 1: Preprocessing + Sorting
 
-Since the matrix is rearranged by columns according to the problem, we can first preprocess each column of the matrix.
+Since the matrix can be rearranged by columns, we can preprocess each column of the matrix first.
 
-For each element with a value of $1$, we update its value to the maximum consecutive number of $1$s above it, that is, $matrix[i][j] = matrix[i-1][j] + 1$.
+For each element with value $1$, we update its value to the maximum number of consecutive $1$s above it (including itself), i.e., $\text{matrix}[i][j] = \text{matrix}[i-1][j] + 1$.
 
-Next, we can sort each row of the updated matrix. Then traverse each row, calculate the area of the largest sub-matrix full of $1$s with this row as the bottom edge. The specific calculation logic is as follows:
+Next, we sort each row of the updated matrix. Then we traverse each row and compute the maximum area of an all-$1$ submatrix with that row as the bottom edge. The detailed calculation is as follows:
 
-For a row of the matrix, we denote the value of the $k$-th largest element as $val_k$, where $k \geq 1$, then there are at least $k$ elements in this row that are not less than $val_k$, forming a sub-matrix full of $1$s with an area of $val_k \times k$. Traverse each element of this row from large to small, take the maximum value of $val_k \times k$, and update the answer.
+For a given row, let the $k$-th largest element be $\text{val}_k$, where $k \geq 1$. Then there are at least $k$ elements in that row no less than $\text{val}_k$, forming an all-$1$ submatrix with area $\text{val}_k \times k$. We iterate through the elements of the row from largest to smallest, take the maximum value of $\text{val}_k \times k$, and update the answer.
 
-The time complexity is $O(m \times n \times \log n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+The time complexity is $O(m \times n \times \log n)$ and the space complexity is $O(\log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
 <!-- tabs:start -->
 
@@ -178,40 +178,88 @@ func largestSubmatrix(matrix [][]int) int {
 
 ```ts
 function largestSubmatrix(matrix: number[][]): number {
-    for (let column = 0; column < matrix[0].length; column++) {
-        for (let row = 0; row < matrix.length; row++) {
-            let tempRow = row;
-            let count = 0;
+    const m: number = matrix.length;
+    const n: number = matrix[0].length;
 
-            while (tempRow < matrix.length && matrix[tempRow][column] === 1) {
-                count++;
-                tempRow++;
-            }
-
-            while (count !== 0) {
-                matrix[row][column] = count;
-                count--;
-                row++;
+    for (let i: number = 1; i < m; ++i) {
+        for (let j: number = 0; j < n; ++j) {
+            if (matrix[i][j] !== 0) {
+                matrix[i][j] = matrix[i - 1][j] + 1;
             }
         }
     }
 
-    for (let row = 0; row < matrix.length; row++) {
-        matrix[row].sort((a, b) => a - b);
-    }
+    let ans: number = 0;
 
-    let maxSubmatrixArea = 0;
-
-    for (let row = 0; row < matrix.length; row++) {
-        for (let col = matrix[row].length - 1; col >= 0; col--) {
-            maxSubmatrixArea = Math.max(
-                maxSubmatrixArea,
-                matrix[row][col] * (matrix[row].length - col),
-            );
+    for (const row of matrix) {
+        row.sort((a, b) => b - a);
+        for (let j: number = 0; j < n; ++j) {
+            ans = Math.max(ans, (j + 1) * row[j]);
         }
     }
 
-    return maxSubmatrixArea;
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn largest_submatrix(mut matrix: Vec<Vec<i32>>) -> i32 {
+        let m: usize = matrix.len();
+        let n: usize = matrix[0].len();
+
+        for i in 1..m {
+            for j in 0..n {
+                if matrix[i][j] != 0 {
+                    matrix[i][j] = matrix[i - 1][j] + 1;
+                }
+            }
+        }
+
+        let mut ans: i32 = 0;
+
+        for row in matrix.iter_mut() {
+            row.sort_unstable_by(|a, b| b.cmp(a));
+            for j in 0..n {
+                ans = ans.max((j as i32 + 1) * row[j]);
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int LargestSubmatrix(int[][] matrix) {
+        int m = matrix.Length;
+        int n = matrix[0].Length;
+
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j] != 0) {
+                    matrix[i][j] = matrix[i - 1][j] + 1;
+                }
+            }
+        }
+
+        int ans = 0;
+
+        foreach (var row in matrix) {
+            Array.Sort(row);
+            Array.Reverse(row);
+            for (int j = 0; j < n; ++j) {
+                ans = Math.Max(ans, (j + 1) * row[j]);
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

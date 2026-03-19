@@ -1,19 +1,23 @@
 class Solution {
 public:
-    vector<int> lastVisitedIntegers(vector<string>& words) {
-        vector<int> nums;
+    vector<int> lastVisitedIntegers(vector<int>& nums) {
+        vector<int> seen;
         vector<int> ans;
         int k = 0;
-        for (auto& w : words) {
-            if (w == "prev") {
-                ++k;
-                int i = nums.size() - k;
-                ans.push_back(i < 0 ? -1 : nums[i]);
+
+        for (int x : nums) {
+            if (x == -1) {
+                if (++k > seen.size()) {
+                    ans.push_back(-1);
+                } else {
+                    ans.push_back(seen[seen.size() - k]);
+                }
             } else {
                 k = 0;
-                nums.push_back(stoi(w));
+                seen.push_back(x);
             }
         }
+
         return ans;
     }
 };

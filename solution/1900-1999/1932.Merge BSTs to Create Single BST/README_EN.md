@@ -7,8 +7,9 @@ source: Weekly Contest 249 Q4
 tags:
     - Tree
     - Depth-First Search
+    - Binary Search Tree
+    - Array
     - Hash Table
-    - Binary Search
     - Binary Tree
 ---
 

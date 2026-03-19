@@ -10,6 +10,7 @@ tags:
     - Array
     - Linked List
     - Data Stream
+    - Doubly-Linked List
 ---
 
 <!-- problem:start -->

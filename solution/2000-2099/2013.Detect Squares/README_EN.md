@@ -9,6 +9,7 @@ tags:
     - Array
     - Hash Table
     - Counting
+    - Data Stream
 ---
 
 <!-- problem:start -->

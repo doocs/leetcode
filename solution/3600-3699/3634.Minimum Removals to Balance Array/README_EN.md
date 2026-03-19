@@ -6,6 +6,7 @@ rating: 1453
 source: Biweekly Contest 162 Q2
 tags:
     - Array
+    - Binary Search
     - Sorting
     - Sliding Window
 ---

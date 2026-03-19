@@ -23,10 +23,10 @@ tags:
 
 <ul>
 	<li>
-	<p><code>sumOdd</code>: the sum of the first <code>n</code> odd numbers.</p>
+	<p><code>sumOdd</code>: the sum of the smallest&nbsp;<code>n</code>&nbsp;positive odd numbers.</p>
 	</li>
 	<li>
-	<p><code>sumEven</code>: the sum of the first <code>n</code> even numbers.</p>
+	<p><code>sumEven</code>: the sum of the smallest&nbsp;<code>n</code>&nbsp;positive even numbers.</p>
 	</li>
 </ul>
 

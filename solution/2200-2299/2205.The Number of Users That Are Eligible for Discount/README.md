@@ -32,7 +32,7 @@ tags:
 
 <p>&nbsp;</p>
 
-<p>如果用户在时间间隔 <code>[startDate, endDate]</code> 内购买了至少 <code>minAmount</code> 金额的商品，则有资格获得折扣。若要将日期转换为时间，两个日期都应该被视为一天的&nbsp;<strong>开始</strong> (即 <code>endDate = 2022-03-05</code>&nbsp;应该被视为时间 <code>2022-03-05 00:00:00</code>)。</p>
+<p>如果用户在时间间隔 <code>[startDate, endDate]</code> 内进行过一次购买了至少 <code>minAmount</code> 金额的商品，则有资格获得折扣。若要将日期转换为时间，两个日期都应该被视为一天的&nbsp;<strong>开始</strong> (即 <code>endDate = 2022-03-05</code>&nbsp;应该被视为时间 <code>2022-03-05 00:00:00</code>)。</p>
 
 <p>编写一个 SQL 来查询有资格享受折扣的用户数量。</p>
 

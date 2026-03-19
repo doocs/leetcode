@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3671.Su
 rating: 2647
 source: Weekly Contest 465 Q4
 tags:
-    - Tree
+    - Binary Indexed Tree
     - Array
     - Math
     - Number Theory

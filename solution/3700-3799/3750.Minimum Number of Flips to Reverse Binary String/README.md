@@ -13,7 +13,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3750. 最少反转次数得到翻转二进制字符串](https://leetcode.cn/problems/minimum-number-of-flips-to-reverse-binary-string)
+# [3750. 最少翻转次数得到反转二进制字符串](https://leetcode.cn/problems/minimum-number-of-flips-to-reverse-binary-string)
 
 [English Version](/solution/3700-3799/3750.Minimum%20Number%20of%20Flips%20to%20Reverse%20Binary%20String/README_EN.md)
 

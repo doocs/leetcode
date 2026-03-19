@@ -54,7 +54,11 @@ Also, &quot;00110011&quot; is not a valid substring because all the 0&#39;s (and
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Iteration and Counting
+
+We can iterate through the string $s$, using a variable $\textit{pre}$ to record the count of the previous consecutive characters, and another variable $\textit{cur}$ to record the count of the current consecutive characters. The number of valid substrings ending with the current character is $\min(\textit{pre}, \textit{cur})$. We accumulate $\min(\textit{pre}, \textit{cur})$ to the answer, assign the value of $\textit{cur}$ to $\textit{pre}$, and continue iterating through string $s$ until the end.
+
+The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -63,18 +67,17 @@ Also, &quot;00110011&quot; is not a valid substring because all the 0&#39;s (and
 ```python
 class Solution:
     def countBinarySubstrings(self, s: str) -> int:
-        i, n = 0, len(s)
-        t = []
+        n = len(s)
+        ans = i = 0
+        pre = 0
         while i < n:
-            cnt = 1
-            while i + 1 < n and s[i + 1] == s[i]:
-                cnt += 1
-                i += 1
-            t.append(cnt)
-            i += 1
-        ans = 0
-        for i in range(1, len(t)):
-            ans += min(t[i - 1], t[i])
+            j = i + 1
+            while j < n and s[j] == s[i]:
+                j += 1
+            cur = j - i
+            ans += min(pre, cur)
+            pre = cur
+            i = j
         return ans
 ```
 
@@ -83,20 +86,19 @@ class Solution:
 ```java
 class Solution {
     public int countBinarySubstrings(String s) {
-        int i = 0, n = s.length();
-        List<Integer> t = new ArrayList<>();
-        while (i < n) {
-            int cnt = 1;
-            while (i + 1 < n && s.charAt(i + 1) == s.charAt(i)) {
-                ++i;
-                ++cnt;
-            }
-            t.add(cnt);
-            ++i;
-        }
+        int n = s.length();
         int ans = 0;
-        for (i = 1; i < t.size(); ++i) {
-            ans += Math.min(t.get(i - 1), t.get(i));
+        int i = 0;
+        int pre = 0;
+        while (i < n) {
+            int j = i + 1;
+            while (j < n && s.charAt(j) == s.charAt(i)) {
+                j++;
+            }
+            int cur = j - i;
+            ans += Math.min(pre, cur);
+            pre = cur;
+            i = j;
         }
         return ans;
     }
@@ -109,19 +111,20 @@ class Solution {
 class Solution {
 public:
     int countBinarySubstrings(string s) {
-        int i = 0, n = s.size();
-        vector<int> t;
-        while (i < n) {
-            int cnt = 1;
-            while (i + 1 < n && s[i + 1] == s[i]) {
-                ++cnt;
-                ++i;
-            }
-            t.push_back(cnt);
-            ++i;
-        }
+        int n = s.size();
         int ans = 0;
-        for (i = 1; i < t.size(); ++i) ans += min(t[i - 1], t[i]);
+        int i = 0;
+        int pre = 0;
+        while (i < n) {
+            int j = i + 1;
+            while (j < n && s[j] == s[i]) {
+                ++j;
+            }
+            int cur = j - i;
+            ans += min(pre, cur);
+            pre = cur;
+            i = j;
+        }
         return ans;
     }
 };
@@ -130,23 +133,73 @@ public:
 #### Go
 
 ```go
-func countBinarySubstrings(s string) int {
-	i, n := 0, len(s)
-	var t []int
+func countBinarySubstrings(s string) (ans int) {
+	n := len(s)
+	i := 0
+	pre := 0
 	for i < n {
-		cnt := 1
-		for i+1 < n && s[i+1] == s[i] {
-			i++
-			cnt++
+		j := i + 1
+		for j < n && s[j] == s[i] {
+			j++
 		}
-		t = append(t, cnt)
-		i++
+		cur := j - i
+		ans += min(pre, cur)
+		pre = cur
+		i = j
 	}
-	ans := 0
-	for i := 1; i < len(t); i++ {
-		ans += min(t[i-1], t[i])
-	}
-	return ans
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countBinarySubstrings(s: string): number {
+    const n = s.length;
+    let ans = 0;
+    let i = 0;
+    let pre = 0;
+
+    while (i < n) {
+        let j = i + 1;
+        while (j < n && s[j] === s[i]) {
+            j++;
+        }
+        const cur = j - i;
+        ans += Math.min(pre, cur);
+        pre = cur;
+        i = j;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_binary_substrings(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let n: usize = bytes.len();
+
+        let mut ans: i32 = 0;
+        let mut i: usize = 0;
+        let mut pre: i32 = 0;
+
+        while i < n {
+            let mut j: usize = i + 1;
+            while j < n && bytes[j] == bytes[i] {
+                j += 1;
+            }
+            let cur: i32 = (j - i) as i32;
+            ans += pre.min(cur);
+            pre = cur;
+            i = j;
+        }
+
+        ans
+    }
 }
 ```
 

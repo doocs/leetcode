@@ -1,10 +1,15 @@
 func minimumDeletions(s string) int {
-	ans, b := 0, 0
+	lb, ra := 0, strings.Count(s, "a")
+	ans := ra
 	for _, c := range s {
+		if c == 'a' {
+			ra--
+		}
+		if t := lb + ra; ans > t {
+			ans = t
+		}
 		if c == 'b' {
-			b++
-		} else {
-			ans = min(ans+1, b)
+			lb++
 		}
 	}
 	return ans

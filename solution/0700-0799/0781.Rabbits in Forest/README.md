@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>森林中有未知数量的兔子。提问其中若干只兔子<strong> "还有多少只兔子与你（指被提问的兔子）颜色相同?"</strong> ，将答案收集到一个整数数组 <code>answers</code> 中，其中 <code>answers[i]</code> 是第 <code>i</code> 只兔子的回答。</p>
+<p>森林中有未知数量的兔子。提问其中若干只兔子<strong> "还有多少只其它兔子与你（指被提问的兔子）颜色相同?"</strong> ，将答案收集到一个整数数组 <code>answers</code> 中，其中 <code>answers[i]</code> 是第 <code>i</code> 只兔子的回答。</p>
 
 <p>给你数组 <code>answers</code> ，返回森林中兔子的最少数量。</p>
 

@@ -40,7 +40,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>chars = ["a","a","b","b","c","c","c"]
-<strong>输出：</strong>返回 6 ，输入数组的前 6 个字符应该是：["a","2","b","2","c","3"]
+<strong>输出：</strong>6
 <strong>解释：</strong>"aa" 被 "a2" 替代。"bb" 被 "b2" 替代。"ccc" 被 "c3" 替代。
 </pre>
 
@@ -48,7 +48,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>chars = ["a"]
-<strong>输出：</strong>返回 1 ，输入数组的前 1 个字符应该是：["a"]
+<strong>输出：</strong>1
 <strong>解释：</strong>唯一的组是“a”，它保持未压缩，因为它是一个字符。
 </pre>
 
@@ -56,7 +56,7 @@ tags:
 
 <pre>
 <strong>输入：</strong>chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
-<strong>输出：</strong>返回 4 ，输入数组的前 4 个字符应该是：["a","b","1","2"]。
+<strong>输出：</strong>4
 <strong>解释：</strong>由于字符 "a" 不重复，所以不会被压缩。"bbbbbbbbbbbb" 被 “b12” 替代。
 </pre>
 

@@ -25,7 +25,7 @@ tags:
 <ul>
 	<li><strong>连接：</strong>一个单元格与水平或垂直方向上相邻的单元格连接。</li>
 	<li><strong>区域：连接所有&nbsp;</strong><code>'O'</code>&nbsp;的单元格来形成一个区域。</li>
-	<li><strong>围绕：</strong>如果您可以用&nbsp;<code>'X'</code>&nbsp;单元格 <strong>连接这个区域</strong>，并且区域中没有任何单元格位于&nbsp;<code>board</code> 边缘，则该区域被 <code>'X'</code>&nbsp;单元格围绕。</li>
+	<li><strong>围绕：</strong>如果一个区域中的所有 <code>'O'</code> 单元格都不在棋盘的边缘，则该区域被包围。这样的区域 <strong>完全</strong> 被 <code>'X'</code> 单元格包围。</li>
 </ul>
 
 <p>通过 <strong>原地</strong>&nbsp;将输入矩阵中的所有 <code>'O'</code>&nbsp;替换为 <code>'X'</code> 来 <strong>捕获被围绕的区域</strong>。你不需要返回任何值。</p>

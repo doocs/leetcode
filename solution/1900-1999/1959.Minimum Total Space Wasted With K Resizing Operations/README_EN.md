@@ -7,6 +7,7 @@ source: Biweekly Contest 58 Q3
 tags:
     - Array
     - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->
@@ -73,7 +74,8 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 
 <!-- solution:start -->
 
-Solution 1: Dynamic Programming
+### Solution 1: Dynamic Programming
+
 The problem is equivalent to dividing the array $\textit{nums}$ into $k + 1$ segments. The wasted space for each segment is the maximum value of that segment multiplied by the length of the segment minus the sum of the elements in that segment. By summing the wasted space of each segment, we get the total wasted space. By adding 1 to $k$, we are effectively dividing the array into $k$ segments.
 
 Therefore, we define an array $\textit{g}[i][j]$ to represent the wasted space for the segment $\textit{nums}[i..j]$, which is the maximum value of $\textit{nums}[i..j]$ multiplied by the length of $\textit{nums}[i..j]$ minus the sum of the elements in $\textit{nums}[i..j]$. We iterate over $i$ in the range $[0, n)$ and $j$ in the range $[i, n)$, using a variable $s$ to maintain the sum of the elements in $\textit{nums}[i..j]$ and a variable $\textit{mx}$ to maintain the maximum value of $\textit{nums}[i..j]$. Then we can get:

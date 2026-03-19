@@ -7,11 +7,12 @@ source: 第 284 场周赛 Q4
 tags:
     - 图
     - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
 
-# [2203. 得到要求路径的最小带权子图](https://leetcode.cn/problems/minimum-weighted-subgraph-with-the-required-paths)
+# [2203. 包含要求路径的最小带权子图](https://leetcode.cn/problems/minimum-weighted-subgraph-with-the-required-paths)
 
 [English Version](/solution/2200-2299/2203.Minimum%20Weighted%20Subgraph%20With%20the%20Required%20Paths/README_EN.md)
 

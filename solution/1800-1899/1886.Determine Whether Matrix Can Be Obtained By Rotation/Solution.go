@@ -1,30 +1,26 @@
 func findRotation(mat [][]int, target [][]int) bool {
-	n := len(mat)
-	for k := 0; k < 4; k++ {
-		g := make([][]int, n)
-		for i := range g {
-			g[i] = make([]int, n)
-		}
-		for i := 0; i < n; i++ {
-			for j := 0; j < n; j++ {
-				g[i][j] = mat[j][n-i-1]
-			}
-		}
-		if equals(g, target) {
-			return true
-		}
-		mat = g
-	}
-	return false
-}
+    n := len(mat)
+    ok := 0b1111
 
-func equals(a, b [][]int) bool {
-	for i, row := range a {
-		for j, v := range row {
-			if v != b[i][j] {
-				return false
-			}
-		}
-	}
-	return true
+    for i := 0; i < n; i++ {
+        for j := 0; j < n; j++ {
+            if mat[i][j] != target[i][j] {
+                ok &= ^0b0001
+            }
+            if mat[j][n-1-i] != target[i][j] {
+                ok &= ^0b0010
+            }
+            if mat[n-1-i][n-1-j] != target[i][j] {
+                ok &= ^0b0100
+            }
+            if mat[n-1-j][i] != target[i][j] {
+                ok &= ^0b1000
+            }
+            if ok == 0 {
+                return false
+            }
+        }
+    }
+
+    return ok != 0
 }

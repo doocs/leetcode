@@ -7,17 +7,16 @@
  * }
  */
 func sumRootToLeaf(root *TreeNode) int {
-	var dfs func(root *TreeNode, t int) int
-	dfs = func(root *TreeNode, t int) int {
+	var dfs func(*TreeNode, int) int
+	dfs = func(root *TreeNode, x int) int {
 		if root == nil {
 			return 0
 		}
-		t = (t << 1) | root.Val
-		if root.Left == nil && root.Right == nil {
-			return t
+		x = x<<1 | root.Val
+		if root.Left == root.Right {
+			return x
 		}
-		return dfs(root.Left, t) + dfs(root.Right, t)
+		return dfs(root.Left, x) + dfs(root.Right, x)
 	}
-
 	return dfs(root, 0)
 }

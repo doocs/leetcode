@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0397.In
 tags:
     - 贪心
     - 位运算
-    - 记忆化搜索
+    - 记忆化
     - 动态规划
 ---
 

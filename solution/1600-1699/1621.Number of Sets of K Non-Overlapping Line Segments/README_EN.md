@@ -8,6 +8,7 @@ tags:
     - Math
     - Dynamic Programming
     - Combinatorics
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

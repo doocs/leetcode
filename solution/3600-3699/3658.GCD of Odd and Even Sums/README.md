@@ -23,10 +23,10 @@ tags:
 
 <ul>
 	<li>
-	<p><code>sumOdd</code>：前 <code>n</code> 个奇数的总和。</p>
+	<p><code>sumOdd</code>：最小的&nbsp;<code>n</code> 个正奇数的总和。</p>
 	</li>
 	<li>
-	<p><code>sumEven</code>：前 <code>n</code> 个偶数的总和。</p>
+	<p><code>sumEven</code>：最小的&nbsp;<code>n</code> 个正偶数的总和。</p>
 	</li>
 </ul>
 

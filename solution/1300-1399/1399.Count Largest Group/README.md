@@ -7,6 +7,7 @@ source: 第 23 场双周赛 Q1
 tags:
     - 哈希表
     - 数学
+    - 计数
 ---
 
 <!-- problem:start -->

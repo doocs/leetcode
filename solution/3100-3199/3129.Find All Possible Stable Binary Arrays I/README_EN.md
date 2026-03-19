@@ -85,16 +85,21 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memoization Search
+### Solution 1: Memoized Search
 
-We design a function $dfs(i, j, k)$ to represent the number of stable binary arrays that satisfy the problem conditions when there are $i$ $0$s and $j$ $1$s left, and the next number to be filled is $k$. The answer is $dfs(zero, one, 0) + dfs(zero, one, 1)$.
+We define a function $\textit{dfs}(i, j, k)$ to represent the number of stable binary arrays that satisfy the problem conditions when there are $i$ zeros and $j$ ones remaining to place, and the next digit to fill is $k$. Then the answer is $\textit{dfs}(\textit{zero}, \textit{one}, 0) + \textit{dfs}(\textit{zero}, \textit{one}, 1)$.
 
-The calculation process of the function $dfs(i, j, k)$ is as follows:
+The computation process of $\textit{dfs}(i, j, k)$ is as follows:
 
-- If $i < 0$ or $j < 0$, return $0$.
-- If $i = 0$, return $1$ when $k = 1$ and $j \leq \textit{limit}$, otherwise return $0$.
-- If $j = 0$, return $1$ when $k = 0$ and $i \leq \textit{limit}$, otherwise return $0$.
-- If $k = 0$, we consider the case where the previous number is $0$, $dfs(i - 1, j, 0)$, and the case where the previous number is $1$, $dfs(i - 1, j, 1)$. If the previous number is $0$, it may cause more than $\textit{limit}$ $0$s in the subarray, i.e., the situation where the $\textit{limit} + 1$
+- If $i \lt 0$ or $j \lt 0$, return $0$.
+- If $i = 0$, then return $1$ when $k = 1$ and $j \leq \textit{limit}$; otherwise return $0$.
+- If $j = 0$, then return $1$ when $k = 0$ and $i \leq \textit{limit}$; otherwise return $0$.
+- If $k = 0$, we consider the case where the previous digit is $0$, i.e., $\textit{dfs}(i - 1, j, 0)$, and the case where the previous digit is $1$, i.e., $\textit{dfs}(i - 1, j, 1)$. If the previous digit is $0$, there may be more than $\textit{limit}$ zeros in a subarray, which means the case where the $(\textit{limit} + 1)$-th digit from the end is $1$ is invalid, so we subtract this case: $\textit{dfs}(i - \textit{limit} - 1, j, 1)$.
+- If $k = 1$, we consider the case where the previous digit is $0$, i.e., $\textit{dfs}(i, j - 1, 0)$, and the case where the previous digit is $1$, i.e., $\textit{dfs}(i, j - 1, 1)$. If the previous digit is $1$, there may be more than $\textit{limit}$ ones in a subarray, which means the case where the $(\textit{limit} + 1)$-th digit from the end is $0$ is invalid, so we subtract this case: $\textit{dfs}(i, j - \textit{limit} - 1, 0)$.
+
+To avoid repeated computation, we use memoized search.
+
+The time complexity is $O(\textit{zero} \times \textit{one})$, and the space complexity is $O(\textit{zero} \times \textit{one})$.
 
 <!-- tabs:start -->
 
@@ -278,6 +283,65 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+
+        fn dfs(
+            i: i32,
+            j: i32,
+            k: usize,
+            limit: i32,
+            f: &mut Vec<Vec<[i64; 2]>>,
+        ) -> i64 {
+            if i < 0 || j < 0 {
+                return 0;
+            }
+
+            if i == 0 {
+                return if k == 1 && j <= limit { 1 } else { 0 };
+            }
+
+            if j == 0 {
+                return if k == 0 && i <= limit { 1 } else { 0 };
+            }
+
+            let (iu, ju) = (i as usize, j as usize);
+
+            if f[iu][ju][k] != -1 {
+                return f[iu][ju][k];
+            }
+
+            let res = if k == 0 {
+                (
+                    dfs(i - 1, j, 0, limit, f)
+                    + dfs(i - 1, j, 1, limit, f)
+                    - dfs(i - limit - 1, j, 1, limit, f)
+                    + MOD
+                ) % MOD
+            } else {
+                (
+                    dfs(i, j - 1, 0, limit, f)
+                    + dfs(i, j - 1, 1, limit, f)
+                    - dfs(i, j - limit - 1, 0, limit, f)
+                    + MOD
+                ) % MOD
+            };
+
+            f[iu][ju][k] = res;
+            res
+        }
+
+        let mut f = vec![vec![[-1_i64; 2]; (one + 1) as usize]; (zero + 1) as usize];
+
+        ((dfs(zero, one, 0, limit, &mut f) + dfs(zero, one, 1, limit, &mut f)) % MOD) as i32
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -286,18 +350,18 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
 
 ### Solution 2: Dynamic Programming
 
-We can also convert the memoization search of Solution 1 into dynamic programming.
+We can also convert the memoized search in Solution 1 into dynamic programming.
 
-We define $f[i][j][k]$ as the number of stable binary arrays using $i$ $0$s and $j$ $1$s, and the last number is $k$. So the answer is $f[zero][one][0] + f[zero][one][1]$.
+We define $f[i][j][k]$ as the number of stable binary arrays that use $i$ zeros and $j$ ones, with the last digit being $k$. Then the answer is $f[zero][one][0] + f[zero][one][1]$.
 
 Initially, we have $f[i][0][0] = 1$, where $1 \leq i \leq \min(\textit{limit}, \textit{zero})$; and $f[0][j][1] = 1$, where $1 \leq j \leq \min(\textit{limit}, \textit{one})$.
 
-The state transition equation is as follows:
+The state transition equations are as follows:
 
 - $f[i][j][0] = f[i - 1][j][0] + f[i - 1][j][1] - f[i - \textit{limit} - 1][j][1]$.
 - $f[i][j][1] = f[i][j - 1][0] + f[i][j - 1][1] - f[i][j - \textit{limit} - 1][0]$.
 
-The time complexity is $O(zero \times one)$, and the space complexity is $O(zero \times one)$.
+The time complexity is $O(\textit{zero} \times \textit{one})$, and the space complexity is $O(\textit{zero} \times \textit{one})$.
 
 <!-- tabs:start -->
 
@@ -433,6 +497,42 @@ function numberOfStableArrays(zero: number, one: number, limit: number): number 
     }
 
     return (f[zero][one][0] + f[zero][one][1]) % mod;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
+        let mod_: i64 = 1_000_000_007;
+
+        let zero = zero as usize;
+        let one = one as usize;
+        let limit = limit as usize;
+
+        let mut f = vec![vec![[0_i64; 2]; one + 1]; zero + 1];
+
+        for i in 1..=zero.min(limit) {
+            f[i][0][0] = 1;
+        }
+
+        for j in 1..=one.min(limit) {
+            f[0][j][1] = 1;
+        }
+
+        for i in 1..=zero {
+            for j in 1..=one {
+                let x = if i > limit { f[i - limit - 1][j][1] } else { 0 };
+                let y = if j > limit { f[i][j - limit - 1][0] } else { 0 };
+
+                f[i][j][0] = (f[i - 1][j][0] + f[i - 1][j][1] - x + mod_) % mod_;
+                f[i][j][1] = (f[i][j - 1][0] + f[i][j - 1][1] - y + mod_) % mod_;
+            }
+        }
+
+        ((f[zero][one][0] + f[zero][one][1]) % mod_) as i32
+    }
 }
 ```
 

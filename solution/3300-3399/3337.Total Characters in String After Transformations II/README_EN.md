@@ -120,7 +120,8 @@ tags:
 
 <!-- solution:start -->
 
-Solution 1: Fast Matrix Exponentiation to Accelerate Recurrence
+### Solution 1: Fast Matrix Exponentiation to Accelerate Recurrence
+
 We define $f[i][j]$ as the number of times the $j$-th letter appears in the alphabet after $i$ transformations. Initially, $f[0][j]$ corresponds to the frequency of the $j$-th letter in the input string $s$.
 
 Since the frequency of each letter after a transformation affects the next transformation, and the total number of transformations $t$ can be large, we can accelerate this recurrence process using fast matrix exponentiation.

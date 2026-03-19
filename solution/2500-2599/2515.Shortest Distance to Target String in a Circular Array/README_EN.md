@@ -49,8 +49,8 @@ The shortest distance to reach &quot;hello&quot; is 1.
 <strong>Input:</strong> words = [&quot;a&quot;,&quot;b&quot;,&quot;leetcode&quot;], target = &quot;leetcode&quot;, startIndex = 0
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> We start from index 0 and can reach &quot;leetcode&quot; by
-- moving 2 units to the right to reach index 3.
-- moving 1 unit to the left to reach index 3.
+- moving 2 units to the right to reach index 2.
+- moving 1 unit to the left to reach index 2.
 The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 
 <p><strong class="example">Example 3:</strong></p>

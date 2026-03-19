@@ -5,9 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3464.Ma
 rating: 2805
 source: 第 438 场周赛 Q4
 tags:
-    - 贪心
+    - 几何
     - 数组
+    - 数学
     - 二分查找
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -7,6 +7,9 @@ source: 第 43 场双周赛 Q4
 tags:
     - 树
     - 图
+    - 数组
+    - 哈希表
+    - 模拟
 ---
 
 <!-- problem:start -->

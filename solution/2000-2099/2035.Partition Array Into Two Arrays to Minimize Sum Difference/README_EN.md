@@ -12,6 +12,7 @@ tags:
     - Dynamic Programming
     - Bitmask
     - Ordered Set
+    - Sorting
 ---
 
 <!-- problem:start -->

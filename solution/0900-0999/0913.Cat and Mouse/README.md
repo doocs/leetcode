@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0913.Ca
 tags:
     - 图
     - 拓扑排序
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 动态规划
     - 博弈

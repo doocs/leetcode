@@ -6,8 +6,10 @@ rating: 2486
 source: Weekly Contest 247 Q4
 tags:
     - Tree
+    - Depth-First Search
     - Graph
     - Topological Sort
+    - Array
     - Math
     - Dynamic Programming
     - Combinatorics

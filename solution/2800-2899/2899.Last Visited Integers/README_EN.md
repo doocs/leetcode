@@ -94,9 +94,16 @@ tags:
 
 ### Solution 1: Simulation
 
-We can directly simulate according to the problem statement. In the implementation, we use an array $nums$ to store the traversed integers, and an integer $k$ to record the current number of consecutive $prev$ strings. If the current string is $prev$, we take out the $|nums| - k-th$ integer from $nums$. If it does not exist, we return $-1$.
+We directly simulate according to the problem description.
 
-The time complexity is $O(n)$, where $n$ is the length of the array $words$. The space complexity is $O(n)$.
+Define an array $\textit{seen}$ to store the positive integers we have encountered, and an array $\textit{ans}$ to store the answer. We also need a variable $k$ to record the number of consecutive $-1$s.
+
+We traverse the array $\textit{nums}$:
+
+- If the current element $x = -1$, we increment $k$ by 1. If $k$ is greater than the length of $\textit{seen}$, we append $-1$ to $\textit{ans}$; otherwise, we append the $k$-th element from the end of $\textit{seen}$ to $\textit{ans}$.
+- If the current element $x$ is a positive integer, we reset $k$ to 0 and append $x$ to the end of $\textit{seen}$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -104,18 +111,17 @@ The time complexity is $O(n)$, where $n$ is the length of the array $words$. The
 
 ```python
 class Solution:
-    def lastVisitedIntegers(self, words: List[str]) -> List[int]:
-        nums = []
+    def lastVisitedIntegers(self, nums: List[int]) -> List[int]:
+        seen = []
         ans = []
         k = 0
-        for w in words:
-            if w == "prev":
+        for x in nums:
+            if x == -1:
                 k += 1
-                i = len(nums) - k
-                ans.append(-1 if i < 0 else nums[i])
+                ans.append(-1 if k > len(seen) else seen[-k])
             else:
                 k = 0
-                nums.append(int(w))
+                seen.append(x)
         return ans
 ```
 
@@ -123,18 +129,20 @@ class Solution:
 
 ```java
 class Solution {
-    public List<Integer> lastVisitedIntegers(List<String> words) {
-        List<Integer> nums = new ArrayList<>();
+    public List<Integer> lastVisitedIntegers(int[] nums) {
+        List<Integer> seen = new ArrayList<>();
         List<Integer> ans = new ArrayList<>();
         int k = 0;
-        for (var w : words) {
-            if ("prev".equals(w)) {
-                ++k;
-                int i = nums.size() - k;
-                ans.add(i < 0 ? -1 : nums.get(i));
+        for (int x : nums) {
+            if (x == -1) {
+                if (++k > seen.size()) {
+                    ans.add(-1);
+                } else {
+                    ans.add(seen.get(seen.size() - k));
+                }
             } else {
                 k = 0;
-                nums.add(Integer.valueOf(w));
+                seen.add(x);
             }
         }
         return ans;
@@ -147,20 +155,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> lastVisitedIntegers(vector<string>& words) {
-        vector<int> nums;
+    vector<int> lastVisitedIntegers(vector<int>& nums) {
+        vector<int> seen;
         vector<int> ans;
         int k = 0;
-        for (auto& w : words) {
-            if (w == "prev") {
-                ++k;
-                int i = nums.size() - k;
-                ans.push_back(i < 0 ? -1 : nums[i]);
+
+        for (int x : nums) {
+            if (x == -1) {
+                if (++k > seen.size()) {
+                    ans.push_back(-1);
+                } else {
+                    ans.push_back(seen[seen.size() - k]);
+                }
             } else {
                 k = 0;
-                nums.push_back(stoi(w));
+                seen.push_back(x);
             }
         }
+
         return ans;
     }
 };
@@ -169,45 +181,50 @@ public:
 #### Go
 
 ```go
-func lastVisitedIntegers(words []string) (ans []int) {
-	nums := []int{}
+func lastVisitedIntegers(nums []int) []int {
+	seen := []int{}
+	ans := []int{}
 	k := 0
-	for _, w := range words {
-		if w == "prev" {
+
+	for _, x := range nums {
+		if x == -1 {
 			k++
-			i := len(nums) - k
-			if i < 0 {
+			if k > len(seen) {
 				ans = append(ans, -1)
 			} else {
-				ans = append(ans, nums[i])
+				ans = append(ans, seen[len(seen)-k])
 			}
 		} else {
 			k = 0
-			x, _ := strconv.Atoi(w)
-			nums = append(nums, x)
+			seen = append(seen, x)
 		}
 	}
-	return
+
+	return ans
 }
 ```
 
 #### TypeScript
 
 ```ts
-function lastVisitedIntegers(words: string[]): number[] {
-    const nums: number[] = [];
+function lastVisitedIntegers(nums: number[]): number[] {
+    const seen: number[] = [];
     const ans: number[] = [];
     let k = 0;
-    for (const w of words) {
-        if (w === 'prev') {
-            ++k;
-            const i = nums.length - k;
-            ans.push(i < 0 ? -1 : nums[i]);
+
+    for (const x of nums) {
+        if (x === -1) {
+            if (++k > seen.length) {
+                ans.push(-1);
+            } else {
+                ans.push(seen.at(-k)!);
+            }
         } else {
             k = 0;
-            nums.push(+w);
+            seen.push(x);
         }
     }
+
     return ans;
 }
 ```
@@ -216,19 +233,22 @@ function lastVisitedIntegers(words: string[]): number[] {
 
 ```rust
 impl Solution {
-    pub fn last_visited_integers(words: Vec<String>) -> Vec<i32> {
-        let mut nums: Vec<i32> = Vec::new();
+    pub fn last_visited_integers(nums: Vec<i32>) -> Vec<i32> {
+        let mut seen: Vec<i32> = Vec::new();
         let mut ans: Vec<i32> = Vec::new();
-        let mut k = 0;
+        let mut k: i32 = 0;
 
-        for w in words {
-            if w == "prev" {
+        for x in nums {
+            if x == -1 {
                 k += 1;
-                let i = (nums.len() as i32) - k;
-                ans.push(if i < 0 { -1 } else { nums[i as usize] });
+                if k as usize > seen.len() {
+                    ans.push(-1);
+                } else {
+                    ans.push(seen[seen.len() - k as usize]);
+                }
             } else {
                 k = 0;
-                nums.push(w.parse::<i32>().unwrap());
+                seen.push(x);
             }
         }
 

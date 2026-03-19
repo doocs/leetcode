@@ -3,7 +3,6 @@ class Solution:
         mask = 0
         for x in nums:
             mask |= 1 << x.count("1")
-        n = len(nums)
-        for i in range(n + 1):
+        for i in count(0):
             if mask >> i & 1 ^ 1:
-                return "1" * i + "0" * (n - i)
+                return "1" * i + "0" * (len(nums) - i)

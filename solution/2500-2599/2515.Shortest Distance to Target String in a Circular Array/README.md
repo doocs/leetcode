@@ -33,7 +33,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>words = ["hello","i","am","leetcode","hello"], target = "hello", startIndex = 1
+<pre>
+<strong>输入：</strong>words = ["hello","i","am","leetcode","hello"], target = "hello", startIndex = 1
 <strong>输出：</strong>1
 <strong>解释：</strong>从下标 1 开始，可以经由以下步骤到达 "hello" ：
 - 向右移动 3 个单位，到达下标 4 。
@@ -45,16 +46,18 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>words = ["a","b","leetcode"], target = "leetcode", startIndex = 0
+<pre>
+<strong>输入：</strong>words = ["a","b","leetcode"], target = "leetcode", startIndex = 0
 <strong>输出：</strong>1
 <strong>解释：</strong>从下标 0 开始，可以经由以下步骤到达 "leetcode" ：
-- 向右移动 2 个单位，到达下标 3 。
-- 向左移动 1 个单位，到达下标 3 。
+- 向右移动 2 个单位，到达下标 2 。
+- 向左移动 1 个单位，到达下标 2 。
 到达 "leetcode" 的最短距离是 1 。</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>words = ["i","eat","leetcode"], target = "ate", startIndex = 0
+<pre>
+<strong>输入：</strong>words = ["i","eat","leetcode"], target = "ate", startIndex = 0
 <strong>输出：</strong>-1
 <strong>解释：</strong>因为 words 中不存在字符串 "ate" ，所以返回 -1 。
 </pre>

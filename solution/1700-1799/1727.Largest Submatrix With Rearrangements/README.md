@@ -84,13 +84,13 @@ tags:
 
 由于题目中矩阵是按列进行重排，因此，我们可以先对矩阵的每一列进行预处理。
 
-对于每个值为 $1$ 的元素，我们更新其值为该元素向上的最大连续的 $1$ 的个数，即 $matrix[i][j]=matrix[i-1][j]+1$。
+对于每个值为 $1$ 的元素，我们更新其值为该元素向上的最大连续的 $1$ 的个数，即 $\text{matrix}[i][j]=\text{matrix}[i-1][j]+1$。
 
 接下来，我们可以对更新后的矩阵的每一行进行排序。然后遍历每一行，计算以该行作为底边的最大全 $1$ 子矩阵的面积。具体计算逻辑如下：
 
-对于矩阵的某一行，我们记第 $k$ 大元素的值为 $val_k$，其中 $k \geq 1$，那么该行至少有 $k$ 个元素不小于 $val_k$，组成的全 $1$ 子矩阵面积为 $val_k \times k$。从大到小遍历矩阵该行的每个元素，取 $val_k \times k$ 的最大值，更新答案。
+对于矩阵的某一行，我们记第 $k$ 大元素的值为 $\text{val}_k$，其中 $k \geq 1$，那么该行至少有 $k$ 个元素不小于 $\text{val}_k$，组成的全 $1$ 子矩阵面积为 $\text{val}_k \times k$。从大到小遍历矩阵该行的每个元素，取 $\text{val}_k \times k$ 的最大值，更新答案。
 
-时间复杂度 $O(m \times n \times \log n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+时间复杂度 $O(m \times n \times \log n)$，空间复杂度 $O(\log n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -190,40 +190,88 @@ func largestSubmatrix(matrix [][]int) int {
 
 ```ts
 function largestSubmatrix(matrix: number[][]): number {
-    for (let column = 0; column < matrix[0].length; column++) {
-        for (let row = 0; row < matrix.length; row++) {
-            let tempRow = row;
-            let count = 0;
+    const m: number = matrix.length;
+    const n: number = matrix[0].length;
 
-            while (tempRow < matrix.length && matrix[tempRow][column] === 1) {
-                count++;
-                tempRow++;
-            }
-
-            while (count !== 0) {
-                matrix[row][column] = count;
-                count--;
-                row++;
+    for (let i: number = 1; i < m; ++i) {
+        for (let j: number = 0; j < n; ++j) {
+            if (matrix[i][j] !== 0) {
+                matrix[i][j] = matrix[i - 1][j] + 1;
             }
         }
     }
 
-    for (let row = 0; row < matrix.length; row++) {
-        matrix[row].sort((a, b) => a - b);
-    }
+    let ans: number = 0;
 
-    let maxSubmatrixArea = 0;
-
-    for (let row = 0; row < matrix.length; row++) {
-        for (let col = matrix[row].length - 1; col >= 0; col--) {
-            maxSubmatrixArea = Math.max(
-                maxSubmatrixArea,
-                matrix[row][col] * (matrix[row].length - col),
-            );
+    for (const row of matrix) {
+        row.sort((a, b) => b - a);
+        for (let j: number = 0; j < n; ++j) {
+            ans = Math.max(ans, (j + 1) * row[j]);
         }
     }
 
-    return maxSubmatrixArea;
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn largest_submatrix(mut matrix: Vec<Vec<i32>>) -> i32 {
+        let m: usize = matrix.len();
+        let n: usize = matrix[0].len();
+
+        for i in 1..m {
+            for j in 0..n {
+                if matrix[i][j] != 0 {
+                    matrix[i][j] = matrix[i - 1][j] + 1;
+                }
+            }
+        }
+
+        let mut ans: i32 = 0;
+
+        for row in matrix.iter_mut() {
+            row.sort_unstable_by(|a, b| b.cmp(a));
+            for j in 0..n {
+                ans = ans.max((j as i32 + 1) * row[j]);
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int LargestSubmatrix(int[][] matrix) {
+        int m = matrix.Length;
+        int n = matrix[0].Length;
+
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j] != 0) {
+                    matrix[i][j] = matrix[i - 1][j] + 1;
+                }
+            }
+        }
+
+        int ans = 0;
+
+        foreach (var row in matrix) {
+            Array.Sort(row);
+            Array.Reverse(row);
+            for (int j = 0; j < n; ++j) {
+                ans = Math.Max(ans, (j + 1) * row[j]);
+            }
+        }
+
+        return ans;
+    }
 }
 ```
 

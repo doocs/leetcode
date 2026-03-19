@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1553.Mi
 rating: 2048
 source: 第 202 场周赛 Q4
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 动态规划
 ---
 

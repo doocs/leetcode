@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2272.Su
 rating: 2515
 source: Biweekly Contest 78 Q4
 tags:
-    - Array
+    - Hash Table
+    - String
     - Dynamic Programming
+    - Enumeration
 ---
 
 <!-- problem:start -->

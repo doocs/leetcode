@@ -29,7 +29,7 @@ tags:
 <pre>
 <strong>Input:</strong> mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]], threshold = 4
 <strong>Output:</strong> 2
-<strong>Explanation:</strong> The maximum side length of square with sum less than 4 is 2 as shown.
+<strong>Explanation:</strong> The maximum side length of square with sum less than or equal to 4 is 2 as shown.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

@@ -70,13 +70,13 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 
 ### Solution 1: Trie
 
-We define a trie, each node of the trie has two attributes, one is a `children` array of length $26$, and the other is a `isEnd` flag indicating whether it is the end of a word.
+We define a Trie where each node has two attributes: a child node array $\textit{children}$ of length $26$, and a flag $\textit{isEnd}$ indicating whether the node marks the end of a word.
 
-We traverse `words`, for each word `w`, we start traversing from the root node. If the current node's `children` array does not contain the first character of `w`, we create a new node, then continue to traverse the next character of `w`, until we finish traversing `w`, we mark the `isEnd` of the current node as `true`.
+We iterate over $\textit{words}$, and for each word $w$, we traverse from the root node. If the child node array of the current node does not contain the first character of $w$, we create a new node, then continue traversing the next character of $w$. After traversing all characters of $w$, we set the $\textit{isEnd}$ flag of the current node to $\texttt{true}$.
 
-Next, we traverse `words`, for each word `w`, we start traversing from the root node. If the `isEnd` field of the current node's `children` array is `false`, it means that some prefix of `w` is not in `words`, we return `false`. Otherwise, we continue to traverse the next character of `w`, until we finish traversing `w`, we return `true`.
+Next, we iterate over $\textit{words}$ again, and for each word $w$, we traverse from the root node. If the $\textit{isEnd}$ field of a node in the child node array is $\texttt{false}$, it means some prefix of $w$ is not in $\textit{words}$, and we return $\texttt{false}$. Otherwise, we continue traversing the next character of $w$, and after traversing all characters, we return $\texttt{true}$.
 
-The time complexity is $O(\sum_{w \in words} |w|)$, and the space complexity is $O(\sum_{w \in words} |w|)$.
+The time complexity is $O(\sum_{w \in \textit{words}} |w|)$, and the space complexity is $O(\sum_{w \in \textit{words}} |w|)$, where $|w|$ is the length of word $w$.
 
 <!-- tabs:start -->
 
@@ -383,6 +383,60 @@ impl Solution {
         ans
     }
 }
+```
+
+#### JavaScript
+
+```js
+class Trie {
+    constructor() {
+        this.children = new Array(26).fill(null);
+        this.isEnd = false;
+    }
+
+    insert(w) {
+        let node = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
+            }
+            node = node.children[idx];
+        }
+        node.isEnd = true;
+    }
+
+    search(w) {
+        let node = this;
+        for (const c of w) {
+            const idx = c.charCodeAt(0) - 'a'.charCodeAt(0);
+            node = node.children[idx];
+            if (!node || !node.isEnd) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
+var longestWord = function (words) {
+    const trie = new Trie();
+    for (const w of words) {
+        trie.insert(w);
+    }
+
+    let ans = '';
+    for (const w of words) {
+        if ((w.length > ans.length || (w.length === ans.length && w < ans)) && trie.search(w)) {
+            ans = w;
+        }
+    }
+    return ans;
+};
 ```
 
 #### C#

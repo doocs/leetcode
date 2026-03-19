@@ -3,7 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0294.Flip%20Game%20II/README.md
 tags:
-    - 记忆化搜索
+    - 记忆化
     - 数学
     - 动态规划
     - 回溯

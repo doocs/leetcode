@@ -1,27 +1,41 @@
+static int bitCount(int x) {
+    int cnt = 0;
+    while (x) {
+        x &= (x - 1);
+        ++cnt;
+    }
+    return cnt;
+}
+
+static int cmp(const void* a, const void* b) {
+    int x = *(const int*) a;
+    int y = *(const int*) b;
+
+    int cx = bitCount(x);
+    int cy = bitCount(y);
+
+    if (cx != cy) {
+        return cx - cy;
+    }
+    return x - y;
+}
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int countOnes(int n) {
-    int res = 0;
-    while (n) {
-        n &= n - 1;
-        res++;
-    }
-    return res;
-}
-
-int cmp(const void* _a, const void* _b) {
-    int a = *(int*) _a;
-    int b = *(int*) _b;
-    int res = countOnes(a) - countOnes(b);
-    if (res == 0) {
-        return a - b;
-    }
-    return res;
-}
-
 int* sortByBits(int* arr, int arrSize, int* returnSize) {
-    qsort(arr, arrSize, sizeof(int), cmp);
     *returnSize = arrSize;
-    return arr;
+
+    int* res = (int*) malloc(sizeof(int) * arrSize);
+    if (!res) {
+        return NULL;
+    }
+
+    for (int i = 0; i < arrSize; ++i) {
+        res[i] = arr[i];
+    }
+
+    qsort(res, arrSize, sizeof(int), cmp);
+
+    return res;
 }

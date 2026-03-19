@@ -8,6 +8,7 @@ tags:
     - Array
     - Math
     - Combinatorics
+    - Number Theory
     - Simulation
 ---
 

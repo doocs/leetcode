@@ -18,14 +18,14 @@ class Solution {
         return dfs(root, 0);
     }
 
-    private int dfs(TreeNode root, int t) {
+    private int dfs(TreeNode root, int x) {
         if (root == null) {
             return 0;
         }
-        t = (t << 1) | root.val;
-        if (root.left == null && root.right == null) {
-            return t;
+        x = x << 1 | root.val;
+        if (root.left == root.right) {
+            return x;
         }
-        return dfs(root.left, t) + dfs(root.right, t);
+        return dfs(root.left, x) + dfs(root.right, x);
     }
 }

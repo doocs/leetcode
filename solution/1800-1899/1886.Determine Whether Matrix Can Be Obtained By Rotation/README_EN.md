@@ -62,7 +62,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: In-Place Comparison
+
+We observe the rotation pattern of the matrix and find that for an element $\text{mat}[i][j]$, after rotating 90 degrees it appears at position $\text{mat}[j][n-1-i]$, after rotating 180 degrees it appears at position $\text{mat}[n-1-i][n-1-j]$, and after rotating 270 degrees it appears at position $\text{mat}[n-1-j][i]$.
+
+Therefore, we can use an integer $\textit{ok}$ to record the current rotation state, initialized to $0b1111$, indicating that all four rotation states are possible. For each element in the matrix, we compare whether its position under different rotation states matches the corresponding element in the target matrix. If they are not equal, we remove that rotation state from $\textit{ok}$. Finally, if $\textit{ok}$ is not zero, it means at least one rotation state can make the matrix consistent with the target matrix, and we return $\textit{true}$; otherwise, we return $\textit{false}$.
+
+The time complexity is $O(n^2)$, where $n$ is the size of the matrix. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -71,21 +77,21 @@ tags:
 ```python
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
-        def rotate(matrix):
-            n = len(matrix)
-            for i in range(n // 2):
-                for j in range(i, n - 1 - i):
-                    t = matrix[i][j]
-                    matrix[i][j] = matrix[n - j - 1][i]
-                    matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]
-                    matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]
-                    matrix[j][n - i - 1] = t
-
-        for _ in range(4):
-            if mat == target:
-                return True
-            rotate(mat)
-        return False
+        n = len(mat)
+        ok = 0b1111
+        for i in range(n):
+            for j in range(n):
+                if mat[i][j] != target[i][j]:
+                    ok &= ~0b0001
+                if mat[j][n - 1 - i] != target[i][j]:
+                    ok &= ~0b0010
+                if mat[n - 1 - i][n - 1 - j] != target[i][j]:
+                    ok &= ~0b0100
+                if mat[n - 1 - j][i] != target[i][j]:
+                    ok &= ~0b1000
+                if ok == 0:
+                    return False
+        return ok != 0
 ```
 
 #### Java
@@ -93,39 +99,28 @@ class Solution:
 ```java
 class Solution {
     public boolean findRotation(int[][] mat, int[][] target) {
-        int times = 4;
-        while (times-- > 0) {
-            if (equals(mat, target)) {
-                return true;
-            }
-            rotate(mat);
-        }
-        return false;
-    }
-
-    private void rotate(int[][] matrix) {
-        int n = matrix.length;
-        for (int i = 0; i < n / 2; ++i) {
-            for (int j = i; j < n - 1 - i; ++j) {
-                int t = matrix[i][j];
-                matrix[i][j] = matrix[n - j - 1][i];
-                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
-                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
-                matrix[j][n - i - 1] = t;
-            }
-        }
-    }
-
-    private boolean equals(int[][] nums1, int[][] nums2) {
-        int n = nums1.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (nums1[i][j] != nums2[i][j]) {
+        int n = mat.length;
+        int ok = 0b1111;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] != target[i][j]) {
+                    ok &= ~0b0001;
+                }
+                if (mat[j][n - 1 - i] != target[i][j]) {
+                    ok &= ~0b0010;
+                }
+                if (mat[n - 1 - i][n - 1 - j] != target[i][j]) {
+                    ok &= ~0b0100;
+                }
+                if (mat[n - 1 - j][i] != target[i][j]) {
+                    ok &= ~0b1000;
+                }
+                if (ok == 0) {
                     return false;
                 }
             }
         }
-        return true;
+        return ok != 0;
     }
 }
 ```
@@ -137,15 +132,27 @@ class Solution {
 public:
     bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
         int n = mat.size();
-        for (int k = 0; k < 4; ++k) {
-            vector<vector<int>> g(n, vector<int>(n));
-            for (int i = 0; i < n; ++i)
-                for (int j = 0; j < n; ++j)
-                    g[i][j] = mat[j][n - i - 1];
-            if (g == target) return true;
-            mat = g;
+        int ok = 0b1111;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (mat[i][j] != target[i][j]) {
+                    ok &= ~0b0001;
+                }
+                if (mat[j][n - 1 - i] != target[i][j]) {
+                    ok &= ~0b0010;
+                }
+                if (mat[n - 1 - i][n - 1 - j] != target[i][j]) {
+                    ok &= ~0b0100;
+                }
+                if (mat[n - 1 - j][i] != target[i][j]) {
+                    ok &= ~0b1000;
+                }
+                if (ok == 0) {
+                    return false;
+                }
+            }
         }
-        return false;
+        return ok != 0;
     }
 };
 ```
@@ -154,34 +161,30 @@ public:
 
 ```go
 func findRotation(mat [][]int, target [][]int) bool {
-	n := len(mat)
-	for k := 0; k < 4; k++ {
-		g := make([][]int, n)
-		for i := range g {
-			g[i] = make([]int, n)
-		}
-		for i := 0; i < n; i++ {
-			for j := 0; j < n; j++ {
-				g[i][j] = mat[j][n-i-1]
-			}
-		}
-		if equals(g, target) {
-			return true
-		}
-		mat = g
-	}
-	return false
-}
+    n := len(mat)
+    ok := 0b1111
 
-func equals(a, b [][]int) bool {
-	for i, row := range a {
-		for j, v := range row {
-			if v != b[i][j] {
-				return false
-			}
-		}
-	}
-	return true
+    for i := 0; i < n; i++ {
+        for j := 0; j < n; j++ {
+            if mat[i][j] != target[i][j] {
+                ok &= ^0b0001
+            }
+            if mat[j][n-1-i] != target[i][j] {
+                ok &= ^0b0010
+            }
+            if mat[n-1-i][n-1-j] != target[i][j] {
+                ok &= ^0b0100
+            }
+            if mat[n-1-j][i] != target[i][j] {
+                ok &= ^0b1000
+            }
+            if ok == 0 {
+                return false
+            }
+        }
+    }
+
+    return ok != 0
 }
 ```
 
@@ -189,44 +192,30 @@ func equals(a, b [][]int) bool {
 
 ```ts
 function findRotation(mat: number[][], target: number[][]): boolean {
-    for (let k = 0; k < 4; k++) {
-        rotate(mat);
-        if (isEqual(mat, target)) {
-            return true;
-        }
-    }
-    return false;
-}
+    const n = mat.length;
+    let ok = 0b1111;
 
-function isEqual(A: number[][], B: number[][]) {
-    const n = A.length;
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-            if (A[i][j] !== B[i][j]) {
+            if (mat[i][j] !== target[i][j]) {
+                ok &= ~0b0001;
+            }
+            if (mat[j][n - 1 - i] !== target[i][j]) {
+                ok &= ~0b0010;
+            }
+            if (mat[n - 1 - i][n - 1 - j] !== target[i][j]) {
+                ok &= ~0b0100;
+            }
+            if (mat[n - 1 - j][i] !== target[i][j]) {
+                ok &= ~0b1000;
+            }
+            if (ok === 0) {
                 return false;
             }
         }
     }
-    return true;
-}
 
-function rotate(matrix: number[][]): void {
-    const n = matrix.length;
-    for (let i = 0; i < n >> 1; i++) {
-        for (let j = 0; j < (n + 1) >> 1; j++) {
-            [
-                matrix[i][j],
-                matrix[n - 1 - j][i],
-                matrix[n - 1 - i][n - 1 - j],
-                matrix[j][n - 1 - i],
-            ] = [
-                matrix[n - 1 - j][i],
-                matrix[n - 1 - i][n - 1 - j],
-                matrix[j][n - 1 - i],
-                matrix[i][j],
-            ];
-        }
-    }
+    return ok !== 0;
 }
 ```
 
@@ -236,81 +225,29 @@ function rotate(matrix: number[][]): void {
 impl Solution {
     pub fn find_rotation(mat: Vec<Vec<i32>>, target: Vec<Vec<i32>>) -> bool {
         let n = mat.len();
-        let mut is_equal = [true; 4];
+        let mut ok: i32 = 0b1111;
+
         for i in 0..n {
             for j in 0..n {
-                if is_equal[0] && mat[i][j] != target[i][j] {
-                    is_equal[0] = false;
+                if mat[i][j] != target[i][j] {
+                    ok &= !0b0001;
                 }
-                if is_equal[1] && mat[i][j] != target[j][n - 1 - i] {
-                    is_equal[1] = false;
+                if mat[j][n - 1 - i] != target[i][j] {
+                    ok &= !0b0010;
                 }
-                if is_equal[2] && mat[i][j] != target[n - 1 - i][n - 1 - j] {
-                    is_equal[2] = false;
+                if mat[n - 1 - i][n - 1 - j] != target[i][j] {
+                    ok &= !0b0100;
                 }
-                if is_equal[3] && mat[i][j] != target[n - 1 - j][i] {
-                    is_equal[3] = false;
+                if mat[n - 1 - j][i] != target[i][j] {
+                    ok &= !0b1000;
                 }
-            }
-        }
-        is_equal.into_iter().any(|&v| v)
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
-        for _ in range(4):
-            mat = [list(col) for col in zip(*mat[::-1])]
-            if mat == target:
-                return True
-        return False
-```
-
-#### Java
-
-```java
-class Solution {
-    public boolean findRotation(int[][] mat, int[][] target) {
-        int n = mat.length;
-        for (int k = 0; k < 4; ++k) {
-            int[][] g = new int[n][n];
-            for (int i = 0; i < n; ++i) {
-                for (int j = 0; j < n; ++j) {
-                    g[i][j] = mat[j][n - i - 1];
-                }
-            }
-            if (equals(g, target)) {
-                return true;
-            }
-            mat = g;
-        }
-        return false;
-    }
-
-    private boolean equals(int[][] a, int[][] b) {
-        int n = a.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (a[i][j] != b[i][j]) {
+                if ok == 0 {
                     return false;
                 }
             }
         }
-        return true;
+
+        ok != 0
     }
 }
 ```

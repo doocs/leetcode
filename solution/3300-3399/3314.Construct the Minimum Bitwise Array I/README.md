@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个长度为 <code>n</code>&nbsp;的<span data-keyword="prime">质数</span>数组&nbsp;<code>nums</code>&nbsp;。你的任务是返回一个长度为 <code>n</code>&nbsp;的数组 <code>ans</code>&nbsp;，对于每个下标 <code>i</code>&nbsp;，以下<strong>&nbsp;条件</strong>&nbsp;均成立：</p>
+<p>给你一个长度为 <code>n</code>&nbsp;的 <span data-keyword="prime-number">质数</span> 数组&nbsp;<code>nums</code>&nbsp;。你的任务是返回一个长度为 <code>n</code>&nbsp;的数组 <code>ans</code>&nbsp;，对于每个下标 <code>i</code>&nbsp;，以下<strong>&nbsp;条件</strong>&nbsp;均成立：</p>
 
 <ul>
 	<li><code>ans[i] OR (ans[i] + 1) == nums[i]</code></li>

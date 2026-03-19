@@ -93,7 +93,7 @@ tags:
 
 <ul>
 	<li>前缀&nbsp;<code>[0]</code>&nbsp;的逆序对数目为 0 。</li>
-	<li>前缀&nbsp;<code>[0, 1]</code>&nbsp;的逆序对为&nbsp;<code>(0, 1)</code>&nbsp;。</li>
+	<li>前缀&nbsp;<code>[0, 1]</code>&nbsp;没有逆序对。</li>
 </ul>
 </div>
 

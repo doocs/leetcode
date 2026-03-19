@@ -82,9 +82,16 @@ tags:
 
 ### 方法一：模拟
 
-我们直接根据题意模拟即可。在实现上，我们使用一个数组 $nums$ 来存储遍历过的整数，使用一个整数 $k$ 来记录当前连续的 $prev$ 字符串数目。如果当前字符串是 $prev$，那么我们就从 $nums$ 中取出第 $|nums| - k$ 个整数，如果不存在，那么就返回 $-1$。
+我们直接根据题意模拟即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $words$ 的长度。
+定义一个数组 $\textit{seen}$ 来存储我们看到的正整数，定义一个数组 $\textit{ans}$ 来存储答案。我们还需要一个变量 $k$ 来记录连续出现的 $-1$ 的数量。
+
+我们遍历数组 $\textit{nums}$：
+
+- 如果当前元素 $x = -1$，我们将 $k$ 加 1。如果 $k$ 大于 $\textit{seen}$ 的长度，我们在 $\textit{ans}$ 中添加 $-1$；否则，我们在 $\textit{ans}$ 中添加 $\textit{seen}$ 的倒数第 $k$ 个元素。
+- 如果当前元素 $x$ 是一个正整数，我们将 $k$ 重置为 0，并将 $x$ 添加到 $\textit{seen}$ 的末尾。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -92,18 +99,17 @@ tags:
 
 ```python
 class Solution:
-    def lastVisitedIntegers(self, words: List[str]) -> List[int]:
-        nums = []
+    def lastVisitedIntegers(self, nums: List[int]) -> List[int]:
+        seen = []
         ans = []
         k = 0
-        for w in words:
-            if w == "prev":
+        for x in nums:
+            if x == -1:
                 k += 1
-                i = len(nums) - k
-                ans.append(-1 if i < 0 else nums[i])
+                ans.append(-1 if k > len(seen) else seen[-k])
             else:
                 k = 0
-                nums.append(int(w))
+                seen.append(x)
         return ans
 ```
 
@@ -111,18 +117,20 @@ class Solution:
 
 ```java
 class Solution {
-    public List<Integer> lastVisitedIntegers(List<String> words) {
-        List<Integer> nums = new ArrayList<>();
+    public List<Integer> lastVisitedIntegers(int[] nums) {
+        List<Integer> seen = new ArrayList<>();
         List<Integer> ans = new ArrayList<>();
         int k = 0;
-        for (var w : words) {
-            if ("prev".equals(w)) {
-                ++k;
-                int i = nums.size() - k;
-                ans.add(i < 0 ? -1 : nums.get(i));
+        for (int x : nums) {
+            if (x == -1) {
+                if (++k > seen.size()) {
+                    ans.add(-1);
+                } else {
+                    ans.add(seen.get(seen.size() - k));
+                }
             } else {
                 k = 0;
-                nums.add(Integer.valueOf(w));
+                seen.add(x);
             }
         }
         return ans;
@@ -135,20 +143,24 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> lastVisitedIntegers(vector<string>& words) {
-        vector<int> nums;
+    vector<int> lastVisitedIntegers(vector<int>& nums) {
+        vector<int> seen;
         vector<int> ans;
         int k = 0;
-        for (auto& w : words) {
-            if (w == "prev") {
-                ++k;
-                int i = nums.size() - k;
-                ans.push_back(i < 0 ? -1 : nums[i]);
+
+        for (int x : nums) {
+            if (x == -1) {
+                if (++k > seen.size()) {
+                    ans.push_back(-1);
+                } else {
+                    ans.push_back(seen[seen.size() - k]);
+                }
             } else {
                 k = 0;
-                nums.push_back(stoi(w));
+                seen.push_back(x);
             }
         }
+
         return ans;
     }
 };
@@ -157,45 +169,50 @@ public:
 #### Go
 
 ```go
-func lastVisitedIntegers(words []string) (ans []int) {
-	nums := []int{}
+func lastVisitedIntegers(nums []int) []int {
+	seen := []int{}
+	ans := []int{}
 	k := 0
-	for _, w := range words {
-		if w == "prev" {
+
+	for _, x := range nums {
+		if x == -1 {
 			k++
-			i := len(nums) - k
-			if i < 0 {
+			if k > len(seen) {
 				ans = append(ans, -1)
 			} else {
-				ans = append(ans, nums[i])
+				ans = append(ans, seen[len(seen)-k])
 			}
 		} else {
 			k = 0
-			x, _ := strconv.Atoi(w)
-			nums = append(nums, x)
+			seen = append(seen, x)
 		}
 	}
-	return
+
+	return ans
 }
 ```
 
 #### TypeScript
 
 ```ts
-function lastVisitedIntegers(words: string[]): number[] {
-    const nums: number[] = [];
+function lastVisitedIntegers(nums: number[]): number[] {
+    const seen: number[] = [];
     const ans: number[] = [];
     let k = 0;
-    for (const w of words) {
-        if (w === 'prev') {
-            ++k;
-            const i = nums.length - k;
-            ans.push(i < 0 ? -1 : nums[i]);
+
+    for (const x of nums) {
+        if (x === -1) {
+            if (++k > seen.length) {
+                ans.push(-1);
+            } else {
+                ans.push(seen.at(-k)!);
+            }
         } else {
             k = 0;
-            nums.push(+w);
+            seen.push(x);
         }
     }
+
     return ans;
 }
 ```
@@ -204,19 +221,22 @@ function lastVisitedIntegers(words: string[]): number[] {
 
 ```rust
 impl Solution {
-    pub fn last_visited_integers(words: Vec<String>) -> Vec<i32> {
-        let mut nums: Vec<i32> = Vec::new();
+    pub fn last_visited_integers(nums: Vec<i32>) -> Vec<i32> {
+        let mut seen: Vec<i32> = Vec::new();
         let mut ans: Vec<i32> = Vec::new();
-        let mut k = 0;
+        let mut k: i32 = 0;
 
-        for w in words {
-            if w == "prev" {
+        for x in nums {
+            if x == -1 {
                 k += 1;
-                let i = (nums.len() as i32) - k;
-                ans.push(if i < 0 { -1 } else { nums[i as usize] });
+                if k as usize > seen.len() {
+                    ans.push(-1);
+                } else {
+                    ans.push(seen[seen.len() - k as usize]);
+                }
             } else {
                 k = 0;
-                nums.push(w.parse::<i32>().unwrap());
+                seen.push(x);
             }
         }
 

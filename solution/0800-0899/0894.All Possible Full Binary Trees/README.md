@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0894.Al
 tags:
     - 树
     - 递归
-    - 记忆化搜索
+    - 记忆化
     - 动态规划
     - 二叉树
 ---

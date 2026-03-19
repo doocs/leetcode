@@ -5,7 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0332.Re
 tags:
     - 深度优先搜索
     - 图
+    - 数组
+    - 字符串
+    - 排序
     - 欧拉回路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

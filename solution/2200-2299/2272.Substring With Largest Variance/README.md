@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2272.Su
 rating: 2515
 source: 第 78 场双周赛 Q4
 tags:
-    - 数组
+    - 哈希表
+    - 字符串
     - 动态规划
+    - 枚举
 ---
 
 <!-- problem:start -->

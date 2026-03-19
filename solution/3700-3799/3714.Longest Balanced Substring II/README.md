@@ -82,7 +82,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举 + 前缀和 + 哈希表
+
+答案分为以下三种情况：
+
+1. 平衡子串中只有一种字符，例如 `"aaa"`。
+2. 平衡子串中有两种字符，例如 `"aabb"`。
+3. 平衡子串中有三种字符，例如 `"abc"`。
+
+我们分别定义三个函数 $\text{calc1}(s)$, $\text{calc2}(s, a, b)$ 和 $\text{calc3}(s)$ 来计算上述三种情况的最长平衡子串长度，最后返回三者的最大值。
+
+对于 $\text{calc1}(s)$，我们只需要遍历字符串 $s$，统计每个连续字符的长度，取最大值即可。
+
+对于 $\text{calc2}(s, a, b)$，我们可以使用前缀和和哈希表来计算最长的平衡子串长度。具体来说，我们维护一个变量 $d$ 来表示当前子串中字符 $a$ 的数量减去字符 $b$ 的数量，并使用一个哈希表来记录每个 $d$ 值第一次出现的位置。当我们再次遇到相同的 $d$ 值时，说明从上一次出现的位置到当前位置的子串中字符 $a$ 和字符 $b$ 的数量相等，即该子串是平衡的，我们更新答案。
+
+对于 $\text{calc3}(s)$，我们同样使用前缀和和哈希表来计算最长的平衡子串长度。我们定义一个数组 $\textit{cnt}$ 来记录字符 $a$, $b$ 和 $c$ 的数量，并使用一个哈希表来记录每个 $(\textit{cnt}[a] - \textit{cnt}[b], \textit{cnt}[b] - \textit{cnt}[c])$ 值第一次出现的位置。当我们再次遇到相同的值时，说明从上一次出现的位置到当前位置的子串中字符 $a$， $b$ 和 $c$ 的数量相等，即该子串是平衡的，我们更新答案。
+
+最后，我们分别计算 $\text{calc1}(s)$, $\text{calc2}(s, 'a', 'b')$, $\text{calc2}(s, 'b', 'c')$, $\text{calc2}(s, 'a', 'c')$ 和 $\text{calc3}(s)$ 的值，返回它们的最大值即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -464,6 +482,105 @@ function calc3(s: string): number {
 
 function key(x: number, y: number): string {
     return x + '#' + y;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn longest_balanced(s: String) -> i32 {
+        let x = Self::calc1(&s);
+        let y = Self::calc2(&s, 'a', 'b')
+            .max(Self::calc2(&s, 'b', 'c'))
+            .max(Self::calc2(&s, 'a', 'c'));
+        let z = Self::calc3(&s);
+        x.max(y).max(z)
+    }
+
+    fn calc1(s: &str) -> i32 {
+        let bytes = s.as_bytes();
+        let mut res = 0i32;
+        let mut i = 0usize;
+        let n = bytes.len();
+
+        while i < n {
+            let mut j = i + 1;
+            while j < n && bytes[j] == bytes[i] {
+                j += 1;
+            }
+            res = res.max((j - i) as i32);
+            i = j;
+        }
+        res
+    }
+
+    fn calc2(s: &str, a: char, b: char) -> i32 {
+        let bytes = s.as_bytes();
+        let a = a as u8;
+        let b = b as u8;
+
+        let mut res = 0i32;
+        let mut i = 0usize;
+        let n = bytes.len();
+
+        while i < n {
+            while i < n && bytes[i] != a && bytes[i] != b {
+                i += 1;
+            }
+
+            let mut pos: HashMap<i32, i32> = HashMap::new();
+            pos.insert(0, i as i32 - 1);
+
+            let mut d = 0i32;
+            while i < n && (bytes[i] == a || bytes[i] == b) {
+                if bytes[i] == a {
+                    d += 1;
+                } else {
+                    d -= 1;
+                }
+
+                if let Some(&pre) = pos.get(&d) {
+                    res = res.max(i as i32 - pre);
+                } else {
+                    pos.insert(d, i as i32);
+                }
+                i += 1;
+            }
+        }
+
+        res
+    }
+
+    fn f(x: i32, y: i32) -> i64 {
+        (((x + 100000) as i64) << 20) | ((y + 100000) as i64)
+    }
+
+    fn calc3(s: &str) -> i32 {
+        let mut pos: HashMap<i64, i32> = HashMap::new();
+        pos.insert(Self::f(0, 0), -1);
+
+        let mut cnt = [0i32; 3];
+        let mut res = 0i32;
+
+        for (i, c) in s.bytes().enumerate() {
+            cnt[(c - b'a') as usize] += 1;
+
+            let x = cnt[0] - cnt[1];
+            let y = cnt[1] - cnt[2];
+            let k = Self::f(x, y);
+
+            if let Some(&pre) = pos.get(&k) {
+                res = res.max(i as i32 - pre);
+            } else {
+                pos.insert(k, i as i32);
+            }
+        }
+
+        res
+    }
 }
 ```
 

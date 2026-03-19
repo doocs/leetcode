@@ -5,8 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2204.Di
 tags:
     - 深度优先搜索
     - 广度优先搜索
-    - 并查集
     - 图
+    - 拓扑排序
 ---
 
 <!-- problem:start -->

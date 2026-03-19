@@ -17,7 +17,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个字符数组 <code>letters</code>，该数组按<strong>非递减顺序</strong>排序，以及一个字符 <code>target</code>。<code>letters</code>&nbsp;里<strong>至少有两个不同</strong>的字符。</p>
+<p>给你一个字符数组 <code>letters</code>，该数组按&nbsp;<strong>非递减顺序&nbsp;</strong>排序，以及一个字符 <code>target</code>。<code>letters</code>&nbsp;里<strong>至少有两个不同</strong>的字符。</p>
 
 <p>返回&nbsp;<code>letters</code>&nbsp;中大于 <code>target</code> 的最小的字符。如果不存在这样的字符，则返回&nbsp;<code>letters</code> 的第一个字符。</p>
 
@@ -26,7 +26,7 @@ tags:
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入: </strong>letters = ['c', 'f', 'j']，target = 'a'
+<strong>输入: </strong>letters = ['c', 'f', 'j'], target = 'a'
 <strong>输出:</strong> 'c'
 <strong>解释：</strong>letters 中字典上比 'a' 大的最小字符是 'c'。</pre>
 

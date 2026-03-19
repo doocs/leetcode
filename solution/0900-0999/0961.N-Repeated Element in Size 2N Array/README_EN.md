@@ -21,7 +21,7 @@ tags:
 
 <ul>
 	<li><code>nums.length == 2 * n</code>.</li>
-	<li><code>nums</code> contains <code>n + 1</code> <strong>unique</strong> elements.</li>
+	<li><code>nums</code> contains <code>n + 1</code> <strong>unique</strong> values, <code>n</code> of which occur <strong>exactly once</strong> in the array.</li>
 	<li>Exactly one element of <code>nums</code> is repeated <code>n</code> times.</li>
 </ul>
 

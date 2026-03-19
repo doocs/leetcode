@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3671.Su
 rating: 2647
 source: 第 465 场周赛 Q4
 tags:
-    - 树
+    - 树状数组
     - 数组
     - 数学
     - 数论

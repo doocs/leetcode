@@ -2,14 +2,12 @@ class Solution {
 public:
     int stoneGameVII(vector<int>& stones) {
         int n = stones.size();
-        int f[n][n];
-        memset(f, 0, sizeof f);
-        int s[n + 1];
-        s[0] = 0;
+        vector<vector<int>> f(n, vector<int>(n));
+        vector<int> s(n + 1);
         for (int i = 0; i < n; ++i) {
             s[i + 1] = s[i] + stones[i];
         }
-        function<int(int, int)> dfs = [&](int i, int j) {
+        auto dfs = [&](this auto&& dfs, int i, int j) -> int {
             if (i > j) {
                 return 0;
             }

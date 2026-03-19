@@ -54,7 +54,7 @@ It can be shown that there is no possible way to divide nums into 4 subarrays at
 <pre>
 <strong>Input:</strong> nums = [10,8,18,9], k = 3, dist = 1
 <strong>Output:</strong> 36
-<strong>Explanation:</strong> The best possible way to divide nums into 4 subarrays is: [10], [8], and [18,9]. This choice is valid because i<sub>k-1</sub> - i<sub>1</sub> is 2 - 1 = 1 which is equal to dist.The total cost is nums[0] + nums[1] + nums[2] which is 10 + 8 + 18 = 36.
+<strong>Explanation:</strong> The best possible way to divide nums into 3 subarrays is: [10], [8], and [18,9]. This choice is valid because i<sub>k-1</sub> - i<sub>1</sub> is 2 - 1 = 1 which is equal to dist.The total cost is nums[0] + nums[1] + nums[2] which is 10 + 8 + 18 = 36.
 The division [10], [8,18], and [9] is not valid, because the difference between i<sub>k-1</sub> and i<sub>1</sub> is 3 - 1 = 2, which is greater than dist.
 It can be shown that there is no possible way to divide nums into 3 subarrays at a cost lower than 36.
 </pre>

@@ -1,6 +1,6 @@
 ---
 comments: true
-difficulty: 简单
+difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3642.Find%20Books%20with%20Polarized%20Opinions/README.md
 tags:
     - 数据库
@@ -59,6 +59,8 @@ session_id 是这张表的唯一主键。
 </ul>
 
 <p>返回结果表按极化得分 <strong>降序</strong> 排序，然后按标题 <strong>降序</strong> 排序。</p>
+
+<p>极化得分应舍入到 2 位小数。</p>
 
 <p>返回格式如下所示。</p>
 

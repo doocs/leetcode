@@ -3,9 +3,13 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1724.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths%20II/README_EN.md
 tags:
+    - Depth-First Search
     - Union Find
     - Graph
+    - Design
     - Minimum Spanning Tree
+    - Sorting
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->
