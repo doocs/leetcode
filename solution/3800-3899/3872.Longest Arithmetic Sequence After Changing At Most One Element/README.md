@@ -75,32 +75,300 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：前后缀分解 + 枚举
+
+我们先计算出数组中相邻元素的差值，记为数组 $d$，其中 $d[i] = nums[i] - nums[i - 1]$。
+
+接下来，我们定义两个数组 $f$ 和 $g$，其中 $f[i]$ 表示以第 $i$ 个元素结尾的最长等差子数组的长度，而 $g[i]$ 表示以第 $i$ 个元素开头的最长等差子数组的长度。初始时 $f[0] = 1$，$g[n - 1] = 1$，其他元素初始化为 $2$。
+
+我们可以通过一次遍历来计算出 $f$ 和 $g$ 的值：
+
+- 对于 $f$，如果 $d[i] == d[i - 1]$，则 $f[i] = f[i - 1] + 1$。
+- 对于 $g$，如果 $d[i + 1] == d[i + 2]$，则 $g[i] = g[i + 1] + 1$。
+
+然后，我们初始化答案为 $3$，因为可以通过替换一个元素来形成一个长度为 $3$ 的等差子数组。接下来，我们枚举每个元素，尝试将其替换为一个合适的值来形成更长的等差子数组：
+
+- 对于每个元素 $i$，我们可以直接使用 $f[i]$ 或 $g[i]$ 来更新答案。
+- 如果 $i > 0$，我们可以将 $nums[i]$ 替换为 $nums[i - 1] + d[i - 1]$ 来延长以 $i - 1$ 结尾的等差子数组，更新答案为 $f[i - 1] + 1$。
+- 如果 $i + 1 < n$，我们可以将 $nums[i]$ 替换为 $nums[i + 1] - d[i + 1]$ 来延长以 $i + 1$ 开头的等差子数组，更新答案为 $g[i + 1] + 1$。
+- 如果 $0 < i < n - 1$，我们可以将 $nums[i]$ 替换为 $nums[i - 1] + \frac{nums[i + 1] - nums[i - 1]}{2}$ 来尝试连接 $f[i - 1]$ 和 $g[i + 1]$，如果这个值是整数且与 $d[i - 1]$ 和 $d[i + 1]$ 匹配，则更新答案为 $3 + (f[i - 1] - 1) + (g[i + 1] - 1)$。
+
+最后返回答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def longestArithmetic(self, nums: List[int]) -> int:
+        n = len(nums)
+        d = [0] * n
+        for i in range(1, n):
+            d[i] = nums[i] - nums[i - 1]
 
+        f = [2] * n
+        g = [2] * n
+        f[0] = g[n - 1] = 1
+        for i in range(2, n):
+            if d[i] == d[i - 1]:
+                f[i] = f[i - 1] + 1
+        for i in range(n - 3, -1, -1):
+            if d[i + 1] == d[i + 2]:
+                g[i] = g[i + 1] + 1
+
+        ans = 3
+        for i in range(n):
+            ans = max(ans, f[i], g[i])
+            if i > 0:
+                ans = max(ans, f[i - 1] + 1)
+            if i + 1 < n:
+                ans = max(ans, g[i + 1] + 1)
+            if 0 < i < n - 1:
+                diff = nums[i + 1] - nums[i -1]
+                if diff % 2 == 0:
+                    diff //= 2
+                    k = 3
+                    if i > 1 and diff == d[i - 1]:
+                        k += f[i - 1] - 1
+                    if i < n - 2 and diff == d[i + 2]:
+                        k += g[i + 1] - 1
+                    ans = max(ans, k)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int longestArithmetic(int[] nums) {
+        int n = nums.length;
+        int[] d = new int[n];
+        for (int i = 1; i < n; i++) {
+            d[i] = nums[i] - nums[i - 1];
+        }
 
+        int[] f = new int[n];
+        int[] g = new int[n];
+        Arrays.fill(f, 2);
+        Arrays.fill(g, 2);
+        f[0] = 1;
+        g[n - 1] = 1;
+
+        for (int i = 2; i < n; i++) {
+            if (d[i] == d[i - 1]) {
+                f[i] = f[i - 1] + 1;
+            }
+        }
+
+        for (int i = n - 3; i >= 0; i--) {
+            if (d[i + 1] == d[i + 2]) {
+                g[i] = g[i + 1] + 1;
+            }
+        }
+
+        int ans = 3;
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, Math.max(f[i], g[i]));
+            if (i > 0) {
+                ans = Math.max(ans, f[i - 1] + 1);
+            }
+            if (i + 1 < n) {
+                ans = Math.max(ans, g[i + 1] + 1);
+            }
+            if (i > 0 && i < n - 1) {
+                int diff = nums[i + 1] - nums[i - 1];
+                if (diff % 2 == 0) {
+                    diff /= 2;
+                    int k = 3;
+                    if (i > 1 && diff == d[i - 1]) {
+                        k += f[i - 1] - 1;
+                    }
+                    if (i < n - 2 && diff == d[i + 2]) {
+                        k += g[i + 1] - 1;
+                    }
+                    ans = Math.max(ans, k);
+                }
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int longestArithmetic(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> d(n);
+        for (int i = 1; i < n; i++) {
+            d[i] = nums[i] - nums[i - 1];
+        }
 
+        vector<int> f(n, 2), g(n, 2);
+        f[0] = 1;
+        g[n - 1] = 1;
+
+        for (int i = 2; i < n; i++) {
+            if (d[i] == d[i - 1]) {
+                f[i] = f[i - 1] + 1;
+            }
+        }
+
+        for (int i = n - 3; i >= 0; i--) {
+            if (d[i + 1] == d[i + 2]) {
+                g[i] = g[i + 1] + 1;
+            }
+        }
+
+        int ans = 3;
+        for (int i = 0; i < n; i++) {
+            ans = max(ans, max(f[i], g[i]));
+            if (i > 0) {
+                ans = max(ans, f[i - 1] + 1);
+            }
+            if (i + 1 < n) {
+                ans = max(ans, g[i + 1] + 1);
+            }
+            if (i > 0 && i < n - 1) {
+                int diff = nums[i + 1] - nums[i - 1];
+                if (diff % 2 == 0) {
+                    diff /= 2;
+                    int k = 3;
+                    if (i > 1 && diff == d[i - 1]) {
+                        k += f[i - 1] - 1;
+                    }
+                    if (i < n - 2 && diff == d[i + 2]) {
+                        k += g[i + 1] - 1;
+                    }
+                    ans = max(ans, k);
+                }
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func longestArithmetic(nums []int) int {
+	n := len(nums)
+	d := make([]int, n)
+	for i := 1; i < n; i++ {
+		d[i] = nums[i] - nums[i-1]
+	}
 
+	f := make([]int, n)
+	g := make([]int, n)
+	for i := range f {
+		f[i], g[i] = 2, 2
+	}
+	f[0], g[n-1] = 1, 1
+
+	for i := 2; i < n; i++ {
+		if d[i] == d[i-1] {
+			f[i] = f[i-1] + 1
+		}
+	}
+
+	for i := n - 3; i >= 0; i-- {
+		if d[i+1] == d[i+2] {
+			g[i] = g[i+1] + 1
+		}
+	}
+
+	ans := 3
+	for i := 0; i < n; i++ {
+		ans = max(ans, f[i], g[i])
+
+		if i > 0 {
+			ans = max(ans, f[i-1]+1)
+		}
+		if i+1 < n {
+			ans = max(ans, g[i+1]+1)
+		}
+
+		if i > 0 && i < n-1 {
+			diff := nums[i+1] - nums[i-1]
+			if diff%2 == 0 {
+				diff /= 2
+				k := 3
+				if i > 1 && diff == d[i-1] {
+					k += f[i-1] - 1
+				}
+				if i < n-2 && diff == d[i+2] {
+					k += g[i+1] - 1
+				}
+				ans = max(ans, k)
+			}
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function longestArithmetic(nums: number[]): number {
+    const n = nums.length;
+    const d = new Array(n).fill(0);
+
+    for (let i = 1; i < n; i++) {
+        d[i] = nums[i] - nums[i - 1];
+    }
+
+    const f = new Array(n).fill(2);
+    const g = new Array(n).fill(2);
+    f[0] = 1;
+    g[n - 1] = 1;
+
+    for (let i = 2; i < n; i++) {
+        if (d[i] === d[i - 1]) {
+            f[i] = f[i - 1] + 1;
+        }
+    }
+
+    for (let i = n - 3; i >= 0; i--) {
+        if (d[i + 1] === d[i + 2]) {
+            g[i] = g[i + 1] + 1;
+        }
+    }
+
+    let ans = 3;
+    for (let i = 0; i < n; i++) {
+        ans = Math.max(ans, f[i], g[i]);
+        if (i > 0) {
+            ans = Math.max(ans, f[i - 1] + 1);
+        }
+        if (i + 1 < n) {
+            ans = Math.max(ans, g[i + 1] + 1);
+        }
+        if (i > 0 && i < n - 1) {
+            let diff = nums[i + 1] - nums[i - 1];
+            if (diff % 2 === 0) {
+                diff = Math.floor(diff / 2);
+                let k = 3;
+                if (i > 1 && diff === d[i - 1]) {
+                    k += f[i - 1] - 1;
+                }
+                if (i < n - 2 && diff === d[i + 2]) {
+                    k += g[i + 1] - 1;
+                }
+                ans = Math.max(ans, k);
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
