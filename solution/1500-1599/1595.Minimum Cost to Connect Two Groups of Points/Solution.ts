@@ -2,9 +2,7 @@ function connectTwoGroups(cost: number[][]): number {
     const m = cost.length;
     const n = cost[0].length;
     const inf = 1 << 30;
-    const f: number[][] = Array(m + 1)
-        .fill(0)
-        .map(() => Array(1 << n).fill(inf));
+    const f = Array.from({ length: m + 1 }, () => Array(1 << n).fill(inf));
     f[0][0] = 0;
     for (let i = 1; i <= m; ++i) {
         for (let j = 0; j < 1 << n; ++j) {
