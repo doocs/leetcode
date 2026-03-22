@@ -91,32 +91,111 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3876.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+如果 $\textit{nums1}$ 中的所有元素全是奇数或者全是偶数，那么我们可以直接将 $\textit{nums2}$ 设为 $\textit{nums1}$，满足条件。
+
+如果 $\textit{nums1}$ 中既有奇数又有偶数，我们需要找到一个最小的奇数 $mn$，并检查 $\textit{nums1}$ 中是否存在一个偶数 $x$，使得 $x < mn$。如果存在这样的偶数，那么我们无法构造出满足条件的 $\textit{nums2}$，返回 $\text{false}$；否则返回 $\text{true}$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums1}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def uniformArray(self, nums1: list[int]) -> bool:
+        mn = inf
+        for x in nums1:
+            if x % 2:
+                mn = min(mn, x)
+        for x in nums1:
+            if x % 2 == 0 and mn != inf and x < mn:
+                return False
+        return True
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean uniformArray(int[] nums1) {
+        final int inf = Integer.MAX_VALUE;
+        int mn = inf;
+        for (int x : nums1) {
+            if (x % 2 == 1) {
+                mn = Math.min(mn, x);
+            }
+        }
+        for (int x : nums1) {
+            if (x % 2 == 0 && mn != inf && x < mn) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool uniformArray(vector<int>& nums1) {
+        int mn = INT_MAX;
+        for (int x : nums1) {
+            if (x % 2 == 1) {
+                mn = min(mn, x);
+            }
+        }
+        for (int x : nums1) {
+            if (x % 2 == 0 && mn != INT_MAX && x < mn) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func uniformArray(nums1 []int) bool {
+	mn := int(^uint(0) >> 1)
+	for _, x := range nums1 {
+		if x%2 == 1 && x < mn {
+			mn = x
+		}
+	}
+	for _, x := range nums1 {
+		if x%2 == 0 && mn != int(^uint(0)>>1) && x < mn {
+			return false
+		}
+	}
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function uniformArray(nums1: number[]): boolean {
+    let mn = Number.MAX_SAFE_INTEGER;
+    for (const x of nums1) {
+        if (x % 2 === 1) {
+            mn = Math.min(mn, x);
+        }
+    }
+    for (const x of nums1) {
+        if (x % 2 === 0 && mn !== Number.MAX_SAFE_INTEGER && x < mn) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
 
 <!-- tabs:end -->
