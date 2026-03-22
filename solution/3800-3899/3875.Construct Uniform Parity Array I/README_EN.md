@@ -75,32 +75,61 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3875.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+If all elements in $\textit{nums1}$ are either all odd or all even, we can directly set $\textit{nums2}$ equal to $\textit{nums1}$, which satisfies the condition.
+
+If $\textit{nums1}$ contains both odd and even numbers, we can set each element of $\textit{nums2}$ to the current element of $\textit{nums1}$ minus some element in $\textit{nums1}$ with different parity. Since odd minus even and even minus odd both yield an odd number, all elements of $\textit{nums2}$ will be odd, satisfying the condition.
+
+Therefore, regardless of whether the elements in $\textit{nums1}$ are all odd, all even, or a mix of both, we can always construct a valid $\textit{nums2}$. Thus the answer is always $\text{true}$.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def uniformArray(self, nums1: list[int]) -> bool:
+        return True
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean uniformArray(int[] nums1) {
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool uniformArray(vector<int>& nums1) {
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func uniformArray(nums1 []int) bool {
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function uniformArray(nums1: number[]): boolean {
+    return true;
+}
 ```
 
 <!-- tabs:end -->

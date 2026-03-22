@@ -77,32 +77,61 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3875.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：脑筋急转弯
+
+如果 $\textit{nums1}$ 中的所有元素全是奇数或者全是偶数，那么我们可以直接将 $\textit{nums2}$ 设为 $\textit{nums1}$，满足条件。
+
+如果 $\textit{nums1}$ 中既有奇数又有偶数，那么我们可以将 $\textit{nums2}$ 中的每个元素都设为 $\textit{nums1}$ 的当前元素减去 $\textit{nums1}$ 中的一个与当前元素奇偶性不同的元素。由于奇数减偶数和偶数减奇数的结果都是奇数，因此 $\textit{nums2}$ 中的所有元素都是奇数，满足条件。
+
+因此，无论 $\textit{nums1}$ 中的元素是全奇数、全偶数，还是既有奇数又有偶数，我们都可以构造出满足条件的 $\textit{nums2}$。所以答案始终是 $\text{true}$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def uniformArray(self, nums1: list[int]) -> bool:
+        return True
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean uniformArray(int[] nums1) {
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool uniformArray(vector<int>& nums1) {
+        return true;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func uniformArray(nums1 []int) bool {
+	return true
+}
+```
 
+#### TypeScript
+
+```ts
+function uniformArray(nums1: number[]): boolean {
+    return true;
+}
 ```
 
 <!-- tabs:end -->

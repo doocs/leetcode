@@ -86,25 +86,156 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3877.Mi
 #### Python3
 
 ```python
-
+class Solution:
+    def minRemovals(self, nums: List[int], target: int) -> int:
+        m = max(nums).bit_length()
+        if (1 << m) <= target:
+            return -1
+        n = len(nums)
+        f = [[-inf] * (1 << m) for _ in range(n + 1)]
+        f[0][0] = 0
+        for i, x in enumerate(nums, 1):
+            for j in range(1 << m):
+                f[i][j] = max(f[i - 1][j], f[i - 1][j ^ x] + 1)
+        if f[n][target] < 0:
+            return -1
+        return n - f[n][target]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minRemovals(int[] nums, int target) {
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, x);
+        }
+        int m = 32 - Integer.numberOfLeadingZeros(mx);
+        if ((1 << m) <= target) {
+            return -1;
+        }
 
+        int n = nums.length;
+        int[][] f = new int[n + 1][1 << m];
+        for (int i = 0; i <= n; i++) {
+            Arrays.fill(f[i], Integer.MIN_VALUE);
+        }
+        f[0][0] = 0;
+
+        for (int i = 1; i <= n; i++) {
+            int x = nums[i - 1];
+            for (int j = 0; j < (1 << m); j++) {
+                f[i][j] = Math.max(f[i - 1][j], f[i - 1][j ^ x] + 1);
+            }
+        }
+
+        if (f[n][target] < 0) {
+            return -1;
+        }
+        return n - f[n][target];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minRemovals(vector<int>& nums, int target) {
+        int mx = ranges::max(nums);
+        int m = 0;
+        while ((1 << m) <= mx) {
+            ++m;
+        }
+        if ((1 << m) <= target) {
+            return -1;
+        }
 
+        int n = nums.size();
+        vector<vector<int>> f(n + 1, vector<int>(1 << m, INT_MIN));
+        f[0][0] = 0;
+
+        for (int i = 1; i <= n; i++) {
+            int x = nums[i - 1];
+            for (int j = 0; j < (1 << m); j++) {
+                f[i][j] = max(f[i - 1][j], f[i - 1][j ^ x] + 1);
+            }
+        }
+
+        if (f[n][target] < 0) {
+            return -1;
+        }
+        return n - f[n][target];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minRemovals(nums []int, target int) int {
+	m := bits.Len(uint(slices.Max(nums)))
+	if (1 << m) <= target {
+		return -1
+	}
 
+	n := len(nums)
+	f := make([][]int, n+1)
+	for i := range f {
+		f[i] = make([]int, 1<<m)
+		for j := range f[i] {
+			f[i][j] = math.MinInt
+		}
+	}
+	f[0][0] = 0
+
+	for i := 1; i <= n; i++ {
+		x := nums[i-1]
+		for j := 0; j < (1 << m); j++ {
+			f[i][j] = max(f[i-1][j], f[i-1][j^x]+1)
+		}
+	}
+
+	if f[n][target] < 0 {
+		return -1
+	}
+	return n - f[n][target]
+}
+```
+
+#### TypeScript
+
+```ts
+function minRemovals(nums: number[], target: number): number {
+    let mx = Math.max(...nums);
+
+    let m = 0;
+    while (1 << m <= mx) {
+        m++;
+    }
+    if (1 << m <= target) {
+        return -1;
+    }
+
+    const n = nums.length;
+    const f = Array.from({ length: n + 1 }, () => Array(1 << m).fill(-Infinity));
+
+    f[0][0] = 0;
+
+    for (let i = 1; i <= n; i++) {
+        const x = nums[i - 1];
+        for (let j = 0; j < 1 << m; j++) {
+            f[i][j] = Math.max(f[i - 1][j], f[i - 1][j ^ x] + 1);
+        }
+    }
+
+    if (f[n][target] < 0) {
+        return -1;
+    }
+    return n - f[n][target];
+}
 ```
 
 <!-- tabs:end -->
