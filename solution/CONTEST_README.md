@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 494 场周赛(2026-03-22 10:30, 90 分钟) 参赛人数 2464
+
+- [3875. 构造奇偶一致的数组 I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README.md)
+- [3876. 构造奇偶一致的数组 II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README.md)
+- [3877. 达到目标异或值的最少删除次数](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md)
+- [3878. 统计好子数组](/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md)
+
 #### 第 493 场周赛(2026-03-15 10:30, 90 分钟) 参赛人数 2146
 
 - [3870. 统计范围内的逗号](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README.md)

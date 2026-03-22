@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3868.Minimum%20Cost%20to%20Equalize%20Arrays%20Using%20Swaps/README.md
+rating: 1578
+source: 第 178 场双周赛 Q3
 tags:
     - 贪心
     - 数组
