@@ -107,32 +107,427 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Digit DP
+
+We first define a function $\text{check}(s)$ to determine whether an integer $s$ is a good number. For $s < 100$, we only need to check whether $s$ is a multiple of 11; if so, $s$ is not a good number. For $s \geq 100$, we need to check whether the digits of $s$ form a strictly monotonic sequence, i.e., strictly increasing or strictly decreasing. Since the range of digit sums is small, when the digit sum exceeds $100$, we only need to check the relationship between the tens digit and the units digit of the digit sum.
+
+Next, we use digit DP to count the number of fancy numbers in the interval $[l, r]$. We define a recursive function $\text{dfs}(pos, s, prev, st, lim)$, where:
+
+- Integer $pos$ represents the current digit position being processed, from high to low.
+- Integer $s$ represents the current digit sum.
+- Integer $prev$ represents the value of the previous digit.
+- Integer $st$ represents the state of the current digit sequence, where state $0$ means there is at most one digit so far, state $1$ means strictly increasing, state $2$ means strictly decreasing, and state $3$ means not strictly monotonic.
+- Boolean $lim$ indicates whether the current digit is constrained by the upper bound.
+
+In the recursive function, if $pos$ exceeds the length of the number, we have finished processing a number. If the state $st$ is not equal to $3$, the number is a good number and we return $1$; otherwise, we call $\text{check}(s)$ to determine whether the digit sum is a good number, returning $1$ if it is, and $0$ otherwise.
+
+During the recursion, we enumerate the range of the current digit: if $lim$ is true, the range is $[0, \text{num}[pos]]$; otherwise, it is $[0, 9]$. For each value, we update the state $st$ and recursively call $\text{dfs}$ to process the next digit.
+
+Finally, we compute the count of fancy numbers in $[0, r]$ and $[0, l-1]$ separately, and the answer is their difference.
+
+The time complexity is $O(D^3 \times \log^2 r)$ and the space complexity is $O(D^2 \times \log^2 r)$, where $D = 10$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def countFancy(self, l: int, r: int) -> int:
+        def check(s: int) -> bool:
+            if s < 100:
+                return s % 11 != 0
+            return 1 < s // 10 % 10 < s % 10
 
+        @cache
+        def dfs(pos: int, s: int, prev: int, st: int, lim: bool) -> int:
+            if pos >= len(num):
+                if st != 3:
+                    return 1
+                return int(check(s))
+            up = int(num[pos]) if lim else 9
+            res = 0
+            for i in range(up + 1):
+                nxt_st = st
+                if st == 0:
+                    if prev == 0:
+                        nxt_st = 0
+                    elif i > prev:
+                        nxt_st = 1
+                    elif i < prev:
+                        nxt_st = 2
+                    else:
+                        nxt_st = 3
+                elif st == 1:
+                    if i > prev:
+                        nxt_st = 1
+                    else:
+                        nxt_st = 3
+                elif st == 2:
+                    if i < prev:
+                        nxt_st = 2
+                    else:
+                        nxt_st = 3
+                else:
+                    nxt_st = 3
+                res += dfs(pos + 1, s + i, i, nxt_st, lim and i == up)
+            return res
+
+        num = str(l - 1)
+        a = dfs(0, 0, 0, 0, True)
+        dfs.cache_clear()
+        num = str(r)
+        b = dfs(0, 0, 0, 0, True)
+        return b - a
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private String num;
+    private Long[][][][] f;
 
+    public long countFancy(long l, long r) {
+        num = String.valueOf(l - 1);
+        init();
+        long a = dfs(0, 0, 0, 0, true);
+
+        num = String.valueOf(r);
+        init();
+        long b = dfs(0, 0, 0, 0, true);
+
+        return b - a;
+    }
+
+    private void init() {
+        int n = num.length();
+        f = new Long[n][9 * n + 1][10][4];
+    }
+
+    private boolean check(int s) {
+        if (s < 100) {
+            return s % 11 != 0;
+        }
+        int mid = (s / 10) % 10;
+        int last = s % 10;
+        return mid > 1 && mid < last;
+    }
+
+    private long dfs(int pos, int s, int prev, int st, boolean lim) {
+        if (pos >= num.length()) {
+            if (st != 3) {
+                return 1;
+            }
+            return check(s) ? 1 : 0;
+        }
+
+        if (!lim && f[pos][s][prev][st] != null) {
+            return f[pos][s][prev][st];
+        }
+
+        int up = lim ? num.charAt(pos) - '0' : 9;
+        long res = 0;
+
+        for (int i = 0; i <= up; i++) {
+            int nxtSt = st;
+
+            if (st == 0) {
+                if (prev == 0) {
+                    nxtSt = 0;
+                } else if (i > prev) {
+                    nxtSt = 1;
+                } else if (i < prev) {
+                    nxtSt = 2;
+                } else {
+                    nxtSt = 3;
+                }
+            } else if (st == 1) {
+                if (i > prev) {
+                    nxtSt = 1;
+                } else {
+                    nxtSt = 3;
+                }
+            } else if (st == 2) {
+                if (i < prev) {
+                    nxtSt = 2;
+                } else {
+                    nxtSt = 3;
+                }
+            } else {
+                nxtSt = 3;
+            }
+
+            res += dfs(pos + 1, s + i, i, nxtSt, lim && i == up);
+        }
+
+        if (!lim) {
+            f[pos][s][prev][st] = res;
+        }
+
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long countFancy(long long l, long long r) {
+        auto check = [&](int s) -> bool {
+            if (s < 100) {
+                return s % 11 != 0;
+            }
+            int mid = (s / 10) % 10;
+            int last = s % 10;
+            return mid > 1 && mid < last;
+        };
 
+        string num = to_string(l - 1);
+        int n = num.size();
+        vector f(n, vector(9 * n + 1, vector(10, vector<long long>(4, -1))));
+
+        auto dfs = [&](this auto&& dfs, int pos, int s, int prev, int st, bool lim) -> long long {
+            if (pos >= n) {
+                if (st != 3) return 1;
+                return check(s) ? 1LL : 0LL;
+            }
+
+            if (!lim && f[pos][s][prev][st] != -1) {
+                return f[pos][s][prev][st];
+            }
+
+            int up = lim ? num[pos] - '0' : 9;
+            long long res = 0;
+
+            for (int i = 0; i <= up; i++) {
+                int nxtSt = st;
+
+                if (st == 0) {
+                    if (prev == 0)
+                        nxtSt = 0;
+                    else if (i > prev)
+                        nxtSt = 1;
+                    else if (i < prev)
+                        nxtSt = 2;
+                    else
+                        nxtSt = 3;
+                } else if (st == 1) {
+                    if (i > prev)
+                        nxtSt = 1;
+                    else
+                        nxtSt = 3;
+                } else if (st == 2) {
+                    if (i < prev)
+                        nxtSt = 2;
+                    else
+                        nxtSt = 3;
+                } else {
+                    nxtSt = 3;
+                }
+
+                res += dfs(pos + 1, s + i, i, nxtSt, lim && i == up);
+            }
+
+            if (!lim) {
+                f[pos][s][prev][st] = res;
+            }
+
+            return res;
+        };
+
+        long long a = dfs(0, 0, 0, 0, true);
+
+        num = to_string(r);
+        n = num.size();
+        f.assign(n, vector(9 * n + 1, vector(10, vector<long long>(4, -1))));
+
+        long long b = dfs(0, 0, 0, 0, true);
+
+        return b - a;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countFancy(l int64, r int64) int64 {
+	check := func(s int) bool {
+		if s < 100 {
+			return s%11 != 0
+		}
+		mid := (s / 10) % 10
+		last := s % 10
+		return mid > 1 && mid < last
+	}
 
+	var num string
+	var n int
+	var f [][][][]int64
+
+	var dfs func(pos, s, prev, st int, lim bool) int64
+	dfs = func(pos, s, prev, st int, lim bool) int64 {
+		if pos >= n {
+			if st != 3 {
+				return 1
+			}
+			if check(s) {
+				return 1
+			}
+			return 0
+		}
+
+		if !lim && f[pos][s][prev][st] != -1 {
+			return f[pos][s][prev][st]
+		}
+
+		up := 9
+		if lim {
+			up = int(num[pos] - '0')
+		}
+
+		var res int64 = 0
+
+		for i := 0; i <= up; i++ {
+			nxtSt := st
+
+			if st == 0 {
+				if prev == 0 {
+					nxtSt = 0
+				} else if i > prev {
+					nxtSt = 1
+				} else if i < prev {
+					nxtSt = 2
+				} else {
+					nxtSt = 3
+				}
+			} else if st == 1 {
+				if i > prev {
+					nxtSt = 1
+				} else {
+					nxtSt = 3
+				}
+			} else if st == 2 {
+				if i < prev {
+					nxtSt = 2
+				} else {
+					nxtSt = 3
+				}
+			} else {
+				nxtSt = 3
+			}
+
+			res += dfs(pos+1, s+i, i, nxtSt, lim && i == up)
+		}
+
+		if !lim {
+			f[pos][s][prev][st] = res
+		}
+
+		return res
+	}
+
+	calc := func(x int64) int64 {
+		num = strconv.FormatInt(x, 10)
+		n = len(num)
+
+		f = make([][][][]int64, n)
+		for i := 0; i < n; i++ {
+			f[i] = make([][][]int64, 9*n+1)
+			for j := 0; j <= 9*n; j++ {
+				f[i][j] = make([][]int64, 10)
+				for k := 0; k < 10; k++ {
+					f[i][j][k] = make([]int64, 4)
+					for t := 0; t < 4; t++ {
+						f[i][j][k][t] = -1
+					}
+				}
+			}
+		}
+
+		return dfs(0, 0, 0, 0, true)
+	}
+
+	return calc(r) - calc(l-1)
+}
+```
+
+#### TypeScript
+
+```ts
+function countFancy(l: number, r: number): number {
+    const check = (s: number): boolean => {
+        if (s < 100) {
+            return s % 11 !== 0;
+        }
+        const mid = Math.floor(s / 10) % 10;
+        const last = s % 10;
+        return mid > 1 && mid < last;
+    };
+
+    let num: string;
+    let n: number;
+    let f: number[][][][];
+
+    const dfs = (pos: number, s: number, prev: number, st: number, lim: boolean): number => {
+        if (pos >= n) {
+            if (st !== 3) return 1;
+            return check(s) ? 1 : 0;
+        }
+
+        if (!lim && f[pos][s][prev][st] !== -1) {
+            return f[pos][s][prev][st];
+        }
+
+        const up = lim ? Number(num[pos]) : 9;
+        let res = 0;
+
+        for (let i = 0; i <= up; i++) {
+            let nxtSt = st;
+
+            if (st === 0) {
+                if (prev === 0) nxtSt = 0;
+                else if (i > prev) nxtSt = 1;
+                else if (i < prev) nxtSt = 2;
+                else nxtSt = 3;
+            } else if (st === 1) {
+                if (i > prev) nxtSt = 1;
+                else nxtSt = 3;
+            } else if (st === 2) {
+                if (i < prev) nxtSt = 2;
+                else nxtSt = 3;
+            } else {
+                nxtSt = 3;
+            }
+
+            res += dfs(pos + 1, s + i, i, nxtSt, lim && i === up);
+        }
+
+        if (!lim) {
+            f[pos][s][prev][st] = res;
+        }
+
+        return res;
+    };
+
+    const calc = (x: number): number => {
+        num = x.toString();
+        n = num.length;
+
+        f = Array.from({ length: n }, () =>
+            Array.from({ length: 9 * n + 1 }, () =>
+                Array.from({ length: 10 }, () => Array(4).fill(-1)),
+            ),
+        );
+
+        return dfs(0, 0, 0, 0, true);
+    };
+
+    return calc(r) - calc(l - 1);
+}
 ```
 
 <!-- tabs:end -->
