@@ -3885,6 +3885,10 @@
 |  3872  |  [替换最多一个元素后的最长等差子数组](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README.md)  |  `数组`,`枚举`  |  中等  |  第 493 场周赛  |
 |  3873  |  [添加一个点后可激活的最大点数](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README.md)  |  `并查集`,`数组`,`哈希表`  |  困难  |  第 493 场周赛  |
 |  3874  |  [Valid Subarrays With Exactly One Peak](/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README.md)  |    |  中等  |  🔒  |
+|  3875  |  [构造奇偶一致的数组 I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README.md)  |    |  简单  |  第 494 场周赛  |
+|  3876  |  [构造奇偶一致的数组 II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README.md)  |    |  中等  |  第 494 场周赛  |
+|  3877  |  [达到目标异或值的最少删除次数](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md)  |    |  中等  |  第 494 场周赛  |
+|  3878  |  [统计好子数组](/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md)  |    |  困难  |  第 494 场周赛  |
 
 ## 版权
 

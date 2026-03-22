@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3867.Sum%20of%20GCD%20of%20Formed%20Pairs/README.md
+rating: 1406
+source: 第 178 场双周赛 Q2
 tags:
     - 数组
     - 数学

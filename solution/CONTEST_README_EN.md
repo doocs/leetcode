@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 494
+
+- [3875. Construct Uniform Parity Array I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md)
+- [3876. Construct Uniform Parity Array II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README_EN.md)
+- [3877. Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)
+- [3878. Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)
+
 #### Weekly Contest 493
 
 - [3870. Count Commas in Range](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README_EN.md)
