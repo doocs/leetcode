@@ -79,7 +79,21 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3877.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define a 2D array $f$, where $f[i][j]$ represents the maximum number of elements we can select from the first $i$ elements such that their XOR sum equals $j$. Initially, $f[0][0] = 0$ and all other $f[0][j]$ are negative infinity.
+
+For each element $nums[i - 1]$, we can choose not to use it, in which case $f[i][j]$ equals $f[i - 1][j]$; or we can choose to use it, in which case $f[i][j]$ equals $f[i - 1][j \oplus nums[i - 1]] + 1$. Thus, the transition equation is:
+
+$$
+\begin{aligned}
+f[i][j] = \max(f[i - 1][j], f[i - 1][j \oplus nums[i - 1]] + 1)
+\end{aligned}
+$$
+
+Finally, if $f[n][target]$ is less than $0$, it means the target XOR value cannot be achieved, and we return $-1$; otherwise, we return $n - f[n][target]$, which is the number of elements that need to be removed.
+
+The time complexity is $O(n \times 2^m)$ and the space complexity is $O(n \times 2^m)$, where $n$ is the length of the array and $m$ is the number of binary bits of the maximum element in the array.
 
 <!-- tabs:start -->
 
