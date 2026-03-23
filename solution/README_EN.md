@@ -3887,6 +3887,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3876  |  [Construct Uniform Parity Array II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 494  |
 |  3877  |  [Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 494  |
 |  3878  |  [Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 494  |
+|  3879  |  [Maximum Distinct Path Sum in a Binary Tree](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
