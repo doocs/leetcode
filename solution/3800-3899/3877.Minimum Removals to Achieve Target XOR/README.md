@@ -81,7 +81,21 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3877.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+我们定义一个二维数组 $f$，其中 $f[i][j]$ 表示从前 $i$ 个元素中选择一些元素，使得它们的异或和为 $j$ 的最大选择数量。初始时 $f[0][0] = 0$，其他 $f[0][j]$ 都为负无穷。
+
+对于每个元素 $nums[i - 1]$，我们可以选择不使用它，那么 $f[i][j]$ 就等于 $f[i - 1][j]$；或者选择使用它，那么 $f[i][j]$ 就等于 $f[i - 1][j \oplus nums[i - 1]] + 1$。因此，我们有转移方程：
+
+$$
+\begin{aligned}
+f[i][j] = \max(f[i - 1][j], f[i - 1][j \oplus nums[i - 1]] + 1)
+\end{aligned}
+$$
+
+最后，如果 $f[n][target]$ 小于 0，说明无法达到目标异或值，返回 -1；否则返回 $n - f[n][target]$，即需要移除的元素数量。
+
+时间复杂度 $O(n \times 2^m)$，空间复杂度 $O(n \times 2^m)$，其中 $n$ 是数组长度，而 $m$ 是数组中最大元素的二进制位数。
 
 <!-- tabs:start -->
 
