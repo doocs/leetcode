@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3879.Ma
 
 <!-- problem:start -->
 
-# [3879. Maximum Distinct Path Sum in a Binary Tree 🔒](https://leetcode.cn/problems/maximum-distinct-path-sum-in-a-binary-tree)
+# [3879. 二叉树中的最大不同路径和 🔒](https://leetcode.cn/problems/maximum-distinct-path-sum-in-a-binary-tree)
 
 [English Version](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md)
 
@@ -14,75 +14,77 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3879.Ma
 
 <!-- description:start -->
 
-<p>You are given the <code>root</code> of a <strong>binary tree</strong>, where each node contains an integer value.</p>
+<p>给定一棵 <strong>二叉树</strong>&nbsp;的&nbsp;<code>root</code>，其中每个节点包含一个整数值。</p>
 
-<p>A <strong>valid path</strong> in the tree is a sequence of <strong>connected</strong> nodes such that:</p>
+<p>树中的 <strong>有效</strong> 路径是指一系列 <strong>相连</strong> 的节点，使得：</p>
 
 <ul>
-	<li>The path can start and end at <strong>any node</strong> in the tree.</li>
-	<li>The path does <strong>not</strong> need to pass through the root.</li>
-	<li>All node values along the path are <strong>distinct</strong>.</li>
+	<li>路径可以在树中的 <strong>任意节点</strong> 开始和结束。</li>
+	<li>路径 <strong>不</strong> 需要经过根节点。</li>
+	<li>路径上的所有节点值都是 <strong>不同</strong> 的。</li>
 </ul>
 
-<p>Return an integer denoting the <strong>maximum</strong> possible sum of node values among all valid paths.</p>
+<p>返回一个整数，表示所有有效路径中节点值的 <strong>最大</strong> 可能总和。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/images/screenshot-2026-01-29-at-12940am.png" style="width: 200px; height: 175px;" /></p>
 
-<p><strong>Input:</strong> <span class="example-io">root = [2,2,1]</span></p>
+<p><span class="example-io"><b>输入：</b>root = [2,2,1]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
+<p><span class="example-io"><b>输出：</b>3</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>The path <code>2 &rarr; 2</code> is invalid because the value 2 is not distinct.</li>
-	<li>The maximum-sum valid path is <code>2 &rarr; 1</code>, with a sum = <code>2 + 1 = 3</code>.</li>
+	<li>路径&nbsp;<code>2 → 2</code>&nbsp;是无效的，因为值 2 不唯一。</li>
+	<li>最大和的有效路径是 <code>2 → 1</code>，其和&nbsp;= <code>2 + 1 = 3</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/images/screenshot-2026-01-29-at-15149am.png" style="width: 200px; height: 204px;" /></p>
 
-<p><strong>Input:</strong> <span class="example-io">root = [1,-2,5,null,null,3,5]</span></p>
+<p><span class="example-io"><b>输入：</b>root = [1,-2,5,null,null,3,5]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">9</span></p>
+<p><strong>输出：</strong><span class="example-io">9</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>The path <code>3 &rarr; 5 &rarr; 5</code> is invalid due to duplicate value 5.</li>
-	<li>The maximum-sum valid path is <code>1 &rarr; 5 &rarr; 3</code>, with a sum = <code>1 + 5 + 3 = 9</code>.</li>
+	<li>路径&nbsp;<code>3 → 5 → 5</code>&nbsp;是无效的，因为值 5 不唯一。</li>
+	<li>最大和的有效路径是 <code>1 → 5 → 3</code>，其和 =&nbsp;<code>1 + 5 + 3 = 9</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/images/screenshot-2026-01-29-at-15555am.png" style="width: 180px; height: 217px;" />​​​​​​​</p>
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/images/screenshot-2026-01-29-at-15555am.png" style="width: 180px; height: 217px;" /></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">root = [4,6,6,null,null,null,9]</span></p>
+<p><span class="example-io"><b>输入：</b>root = [4,6,6,null,null,null,9]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">19</span></p>
+<p><span class="example-io"><b>输出：</b>19</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>The path <code>6 &rarr; 4 &rarr; 6 &rarr; 9</code> is invalid because the value 6 appears more than once.</li>
-	<li>The maximum-sum valid path is <code>4 &rarr; 6 &rarr; 9</code>, with a sum = <code>4 + 6 + 9 = 19</code>.</li>
+	<li>路径&nbsp;<code>6 → 4 → 6 → 9</code>&nbsp;是无效的，因为值 6 出现了多次。</li>
+	<li>最大和的有效路径是&nbsp;<code>4 → 6 → 9</code>，其和 =&nbsp;<code>4 + 6 + 9 = 19</code>。</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+	<li>树中的节点数范围为 <code>[1, 1000]</code>。</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000​​​​​​​</code></li>
 </ul>
 

@@ -3889,7 +3889,7 @@
 |  3876  |  [构造奇偶一致的数组 II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README.md)  |    |  中等  |  第 494 场周赛  |
 |  3877  |  [达到目标异或值的最少删除次数](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md)  |    |  中等  |  第 494 场周赛  |
 |  3878  |  [统计好子数组](/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md)  |    |  困难  |  第 494 场周赛  |
-|  3879  |  [Maximum Distinct Path Sum in a Binary Tree](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README.md)  |    |  中等  |  🔒  |
+|  3879  |  [二叉树中的最大不同路径和](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
