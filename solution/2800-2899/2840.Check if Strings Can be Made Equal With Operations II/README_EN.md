@@ -157,7 +157,7 @@ function checkStrings(s1: string, s2: string): boolean {
         ++cnt[i & 1][s1.charCodeAt(i) - 97];
         --cnt[i & 1][s2.charCodeAt(i) - 97];
     }
-    return cnt.every((arr) => arr.every((x) => x === 0));
+    return cnt.every(arr => arr.every(x => x === 0));
 }
 ```
 
