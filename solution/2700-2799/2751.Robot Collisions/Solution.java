@@ -1,44 +1,42 @@
 class Solution {
     public List<Integer> survivedRobotsHealths(int[] positions, int[] healths, String directions) {
         int n = positions.length;
-        Integer[] indices = new Integer[n];
-        for (int i = 0; i < n; i++) {
-            indices[i] = i;
-        }
+        Integer[] idx = new Integer[n];
+        Arrays.setAll(idx, i -> i);
+        Arrays.sort(idx, (a, b) -> positions[a] - positions[b]);
 
-        Arrays.sort(indices, (i, j) -> Integer.compare(positions[i], positions[j]));
+        Deque<Integer> stk = new ArrayDeque<>();
 
-        Stack<Integer> stack = new Stack<>();
+        for (int i : idx) {
+            if (directions.charAt(i) == 'R') {
+                stk.push(i);
+                continue;
+            }
 
-        for (int currentIndex : indices) {
-            if (directions.charAt(currentIndex) == 'R') {
-                stack.push(currentIndex);
-            } else {
-                while (!stack.isEmpty() && healths[currentIndex] > 0) {
-                    int topIndex = stack.pop();
+            while (!stk.isEmpty() && healths[i] > 0) {
+                int j = stk.peek();
 
-                    if (healths[topIndex] > healths[currentIndex]) {
-                        healths[topIndex] -= 1;
-                        healths[currentIndex] = 0;
-                        stack.push(topIndex);
-                    } else if (healths[topIndex] < healths[currentIndex]) {
-                        healths[currentIndex] -= 1;
-                        healths[topIndex] = 0;
-                    } else {
-                        healths[currentIndex] = 0;
-                        healths[topIndex] = 0;
-                    }
+                if (healths[j] > healths[i]) {
+                    healths[j]--;
+                    healths[i] = 0;
+                } else if (healths[j] < healths[i]) {
+                    healths[i]--;
+                    healths[j] = 0;
+                    stk.pop();
+                } else {
+                    healths[i] = healths[j] = 0;
+                    stk.pop();
+                    break;
                 }
             }
         }
 
-        List<Integer> result = new ArrayList<>();
-        for (int health : healths) {
-            if (health > 0) {
-                result.add(health);
+        List<Integer> ans = new ArrayList<>();
+        for (int h : healths) {
+            if (h > 0) {
+                ans.add(h);
             }
         }
-
-        return result;
+        return ans;
     }
 }
