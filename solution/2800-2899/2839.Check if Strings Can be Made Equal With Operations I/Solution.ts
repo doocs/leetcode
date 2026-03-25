@@ -4,10 +4,5 @@ function canBeEqual(s1: string, s2: string): boolean {
         ++cnt[i & 1][s1.charCodeAt(i) - 97];
         --cnt[i & 1][s2.charCodeAt(i) - 97];
     }
-    for (let i = 0; i < 26; ++i) {
-        if (cnt[0][i] || cnt[1][i]) {
-            return false;
-        }
-    }
-    return true;
+    return cnt.every(arr => arr.every(x => x === 0));
 }
