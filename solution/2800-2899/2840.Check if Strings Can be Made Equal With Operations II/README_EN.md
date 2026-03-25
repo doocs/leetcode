@@ -84,7 +84,7 @@ Similar problems:
 ```python
 class Solution:
     def checkStrings(self, s1: str, s2: str) -> bool:
-        return sorted(s1[::2]) == sorted(s2[::2]) and sorted(s1[1::2]) == sorted(
+        return Counter(s1[::2]) == Counter(s2[::2]) and Counter(s1[1::2]) == Counter(
             s2[1::2]
         )
 ```
@@ -157,12 +157,28 @@ function checkStrings(s1: string, s2: string): boolean {
         ++cnt[i & 1][s1.charCodeAt(i) - 97];
         --cnt[i & 1][s2.charCodeAt(i) - 97];
     }
-    for (let i = 0; i < 26; ++i) {
-        if (cnt[0][i] || cnt[1][i]) {
-            return false;
+    return cnt.every((arr) => arr.every((x) => x === 0));
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn check_strings(s1: String, s2: String) -> bool {
+        let mut cnt: [[i32; 26]; 2] = [[0; 26]; 2];
+        let n = s1.len();
+        let s1 = s1.as_bytes();
+        let s2 = s2.as_bytes();
+
+        for i in 0..n {
+            let idx = (i & 1) as usize;
+            cnt[idx][(s1[i] - b'a') as usize] += 1;
+            cnt[idx][(s2[i] - b'a') as usize] -= 1;
         }
+
+        cnt.iter().all(|row| row.iter().all(|&x| x == 0))
     }
-    return true;
 }
 ```
 
