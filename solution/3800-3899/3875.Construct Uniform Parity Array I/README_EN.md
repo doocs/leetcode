@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md
+tags:
+    - Array
+    - Math
 ---
 
 <!-- problem:start -->
