@@ -3882,12 +3882,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3871  |  [Count Commas in Range II](/solution/3800-3899/3871.Count%20Commas%20in%20Range%20II/README_EN.md)  |  `Math`  |  Medium  |  Weekly Contest 493  |
 |  3872  |  [Longest Arithmetic Sequence After Changing At Most One Element](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README_EN.md)  |  `Array`,`Enumeration`  |  Medium  |  Weekly Contest 493  |
 |  3873  |  [Maximum Points Activated with One Addition](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README_EN.md)  |  `Union Find`,`Array`,`Hash Table`  |  Hard  |  Weekly Contest 493  |
-|  3874  |  [Valid Subarrays With Exactly One Peak](/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README_EN.md)  |    |  Medium  |  🔒  |
-|  3875  |  [Construct Uniform Parity Array I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 494  |
-|  3876  |  [Construct Uniform Parity Array II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 494  |
-|  3877  |  [Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)  |    |  Medium  |  Weekly Contest 494  |
-|  3878  |  [Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)  |    |  Hard  |  Weekly Contest 494  |
-|  3879  |  [Maximum Distinct Path Sum in a Binary Tree](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
+|  3874  |  [Valid Subarrays With Exactly One Peak](/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README_EN.md)  |  `Array`,`Math`  |  Medium  |  🔒  |
+|  3875  |  [Construct Uniform Parity Array I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md)  |  `Array`,`Math`  |  Easy  |  Weekly Contest 494  |
+|  3876  |  [Construct Uniform Parity Array II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README_EN.md)  |  `Array`,`Math`  |  Medium  |  Weekly Contest 494  |
+|  3877  |  [Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 494  |
+|  3878  |  [Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)  |  `Stack`,`Bit Manipulation`,`Array`,`Monotonic Stack`  |  Hard  |  Weekly Contest 494  |
+|  3879  |  [Maximum Distinct Path Sum in a Binary Tree](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Hash Table`,`Binary Tree`  |  Medium  |  🔒  |
 
 ## Copyright
 

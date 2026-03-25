@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md
+tags:
+    - Stack
+    - Bit Manipulation
+    - Array
+    - Monotonic Stack
 ---
 
 <!-- problem:start -->

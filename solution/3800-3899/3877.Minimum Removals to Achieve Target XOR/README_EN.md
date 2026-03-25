@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

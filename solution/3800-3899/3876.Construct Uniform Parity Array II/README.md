@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README.md
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

@@ -2,11 +2,14 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README.md
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
 
-# [3874. Valid Subarrays With Exactly One Peak 🔒](https://leetcode.cn/problems/valid-subarrays-with-exactly-one-peak)
+# [3874. 具有恰好一个峰值的有效子数组 🔒](https://leetcode.cn/problems/valid-subarrays-with-exactly-one-peak)
 
 [English Version](/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README_EN.md)
 
@@ -14,74 +17,77 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3874.Va
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>.</p>
+<p>给定一个长度为&nbsp;<code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>k</code>。</p>
 
-<p>An index <code>i</code> is a <strong>peak</strong> if:</p>
+<p>下标&nbsp;<code>i</code> 是 <strong>峰值</strong> 的条件为：</p>
 
 <ul>
 	<li><code>0 &lt; i &lt; n - 1</code></li>
-	<li><code>nums[i] &gt; nums[i - 1]</code> and <code>nums[i] &gt; nums[i + 1]</code></li>
+	<li><code>nums[i] &gt; nums[i - 1]</code> 且&nbsp;<code>nums[i] &gt; nums[i + 1]</code></li>
 </ul>
 
-<p>A subarray <code>[l, r]</code> is <strong>valid</strong> if:</p>
+<p>一个子数组&nbsp;<code>[l, r]</code>&nbsp;是 <strong>有效 </strong>的条件是：</p>
 
 <ul>
-	<li>It contains <strong>exactly one</strong> peak at index <code>i</code> from <code>nums</code></li>
-	<li><code>i - l &lt;= k</code> and <code>r - i &lt;= k</code></li>
+	<li>它 <strong>恰好有一个</strong>&nbsp;<code>nums</code>&nbsp;中下标&nbsp;<code>i</code> 处的峰值</li>
+	<li><code>i - l &lt;= k</code> 且&nbsp;<code>r - i &lt;= k</code></li>
 </ul>
 
-<p>Return an integer denoting the number of <strong>valid subarrays</strong> in <code>nums</code>.</p>
-A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of elements within an array.
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [1,3,2], k = 1</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>Index <code>i = 1</code> is a peak because <code>nums[1] = 3</code> is greater than <code>nums[0] = 1</code> and <code>nums[2] = 2</code>.</li>
-	<li>Any valid subarray must include index 1, and the distance from the peak to both ends of the subarray must not exceed <code>k = 1</code>.</li>
-	<li>The valid subarrays are <code>[3]</code>, <code>[1, 3]</code>, <code>[3, 2]</code>, and <code>[1, 3, 2]</code>, so the answer is 4.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [7,8,9], k = 2</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>There is no index <code>i</code> such that <code>nums[i]</code> is greater than both <code>nums[i - 1]</code> and <code>nums[i + 1]</code>.</li>
-	<li>Therefore, the array contains no peak. Thus, the number of valid subarrays is 0.</li>
-</ul>
-</div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [4,3,5,1], k = 2</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">6</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<ul>
-	<li>Index <code>i = 2</code> is a peak because <code>nums[2] = 5</code> is greater than <code>nums[1] = 3</code> and <code>nums[3] = 1</code>.</li>
-	<li>Any valid subarray must contain this peak, and the distance from the peak to both ends of the subarray must not exceed <code>k = 2</code>.</li>
-	<li>The valid subarrays are <code>[5]</code>, <code>[3, 5]</code>, <code>[5, 1]</code>, <code>[3, 5, 1]</code>, <code>[4, 3, 5]</code>, and <code>[4, 3, 5, 1]</code>, so the answer is 6.</li>
-</ul>
-</div>
+<p>返回一个整数，表示 <code>nums</code> 中 <strong>有效子数组</strong> 的数量。</p>
+<strong>子数组</strong> 是数组中的连续 <strong>非空</strong> 元素序列。
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [1,3,2], k = 1</span></p>
+
+<p><span class="example-io"><b>输出：</b>4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>下标 <code>i = 1</code>&nbsp;是一个峰值，因为 <code>nums[1] = 3</code> 大于 <code>nums[0] = 1</code> 和 <code>nums[2] = 2</code>。</li>
+	<li>任何有效的子数组必须包含下标&nbsp;1，且子数组两端到峰值的距离不得超过 <code>k = 1</code>。</li>
+	<li>有效的子数组是&nbsp;<code>[3]</code>，<code>[1, 3]</code>，<code>[3, 2]</code>&nbsp;和&nbsp;<code>[1, 3, 2]</code>，所以答案是 4。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [7,8,9], k = 2</span></p>
+
+<p><span class="example-io"><b>输出：</b>0</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>没有下标&nbsp;<code>i</code> 使得&nbsp;<code>nums[i]</code>&nbsp;同时比&nbsp;<code>nums[i - 1]</code> 和&nbsp;<code>nums[i + 1]</code>&nbsp;更大。</li>
+	<li>因此，该数组中没有峰值。所以，有效子数组的数量为 0。</li>
+</ul>
+</div>
+
+<p><strong class="example">示例 3：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>nums = [4,3,5,1], k = 2</span></p>
+
+<p><span class="example-io"><b>输出：</b>6</span></p>
+
+<p><strong>解释：</strong></p>
+
+<ul>
+	<li>下标 <code>i = 2</code>&nbsp;是一个峰值，因为 <code>nums[2] = 5</code> 大于 <code>nums[1] = 3</code>&nbsp;和 <code>nums[3] = 1</code>。</li>
+	<li>任何有效的子数组都必须包含这个峰值，并且峰值到子数组两端的距离不得超过 <code>k = 2</code>。</li>
+	<li>合法子数组是&nbsp;<code>[5]</code>，<code>[3, 5]</code>，<code>[5, 1]</code>，<code>[3, 5, 1]</code>，<code>[4, 3, 5]</code>&nbsp;和&nbsp;<code>[4, 3, 5, 1]</code>，所以答案是 6。</li>
+</ul>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= n == nums.length &lt;= 10<sup>5</sup></code></li>

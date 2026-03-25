@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md
+tags:
+    - 栈
+    - 位运算
+    - 数组
+    - 单调栈
 ---
 
 <!-- problem:start -->
