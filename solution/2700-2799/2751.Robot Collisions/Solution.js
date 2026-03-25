@@ -5,36 +5,34 @@
  * @return {number[]}
  */
 var survivedRobotsHealths = function (positions, healths, directions) {
-    const idx = Array.from({ length: positions.length }, (_, i) => i);
+    const n = positions.length;
+    const idx = Array.from({ length: n }, (_, i) => i).sort((a, b) => positions[a] - positions[b]);
+
     const stk = [];
 
-    idx.sort((a, b) => positions[a] - positions[b]);
+    for (const i of idx) {
+        if (directions[i] === 'R') {
+            stk.push(i);
+            continue;
+        }
 
-    for (let iRight of idx) {
-        while (stk.length) {
-            const iLeft = stk.at(-1);
-            const havePair = directions[iLeft] === 'R' && directions[iRight] === 'L';
-            if (!havePair) break;
+        while (stk.length && healths[i] > 0) {
+            const j = stk[stk.length - 1];
 
-            if (healths[iLeft] === healths[iRight]) {
-                healths[iLeft] = healths[iRight] = iRight = -1;
-                stk.pop();
-                break;
-            }
-
-            if (healths[iLeft] < healths[iRight]) {
-                healths[iLeft] = -1;
-                healths[iRight]--;
+            if (healths[j] > healths[i]) {
+                healths[j]--;
+                healths[i] = 0;
+            } else if (healths[j] < healths[i]) {
+                healths[i]--;
+                healths[j] = 0;
                 stk.pop();
             } else {
-                healths[iRight] = iRight = -1;
-                healths[iLeft]--;
+                healths[i] = healths[j] = 0;
+                stk.pop();
                 break;
             }
         }
-
-        if (iRight !== -1) stk.push(iRight);
     }
 
-    return healths.filter(i => ~i);
+    return healths.filter(h => h > 0);
 };
