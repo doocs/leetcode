@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> piles = [5,3,4,5]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 Alice starts first, and can only take the first 5 or the last 5.
 Say she takes the first 5, so that the row becomes [3, 4, 5].
 If Bob takes 3, then the board is [4, 5], and Alice takes 5 to win with 10 points.
@@ -64,7 +64,20 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
+
+We design a function $dfs(i, j)$ that represents the maximum difference in the number of stones between the current player and the other player when considering piles from the $i$-th to the $j$-th. The answer is then $dfs(0, n - 1) \gt 0$.
+
+The function $dfs(i, j)$ is computed as follows:
+
+- If $i \gt j$, there are no stones left, so the current player cannot take any stones and the difference is $0$, i.e., $dfs(i, j) = 0$.
+- Otherwise, the current player has two choices: if they take the $i$-th pile, the difference between the current player and the other player is $piles[i] - dfs(i + 1, j)$; if they take the $j$-th pile, the difference is $piles[j] - dfs(i, j - 1)$. The current player will choose the option with the larger difference, so $dfs(i, j) = \max(piles[i] - dfs(i + 1, j), piles[j] - dfs(i, j - 1))$.
+
+Finally, we only need to check whether $dfs(0, n - 1) \gt 0$.
+
+To avoid redundant computation, we can use memoization: we use an array $f$ to record all values of $dfs(i, j)$, so that when the function is called again, we can directly retrieve the answer from $f$ without recomputing.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
 
 <!-- tabs:start -->
 
@@ -173,13 +186,60 @@ function stoneGame(piles: number[]): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn stone_game(piles: Vec<i32>) -> bool {
+        let n = piles.len();
+        let mut f = vec![vec![0; n]; n];
+
+        fn dfs(i: usize, j: usize, piles: &Vec<i32>, f: &mut Vec<Vec<i32>>) -> i32 {
+            if i == j {
+                return piles[i]
+            }
+            if f[i][j] != 0 {
+                return f[i][j];
+            }
+
+            let res = (piles[i] - dfs(i + 1, j, piles, f))
+                .max(piles[j] - dfs(i, j - 1, piles, f));
+
+            f[i][j] = res;
+            res
+        }
+
+        dfs(0, n - 1, &piles, &mut f) > 0
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+We can also use dynamic programming. Define $f[i][j]$ as the maximum difference in the number of stones the current player can obtain over the other player from piles $piles[i..j]$. The final answer is then $f[0][n - 1] \gt 0$.
+
+Initially, $f[i][i] = piles[i]$, because with only one pile, the current player can only take that pile, and the difference is $piles[i]$.
+
+For $f[i][j]$ where $i \lt j$, there are two cases:
+
+- If the current player takes pile $piles[i]$, the remaining piles are $piles[i + 1..j]$, and it becomes the other player's turn, so $f[i][j] = piles[i] - f[i + 1][j]$.
+- If the current player takes pile $piles[j]$, the remaining piles are $piles[i..j - 1]$, and it becomes the other player's turn, so $f[i][j] = piles[j] - f[i][j - 1]$.
+
+Therefore, the final state transition equation is $f[i][j] = \max(piles[i] - f[i + 1][j], piles[j] - f[i][j - 1])$.
+
+Finally, we only need to check whether $f[0][n - 1] \gt 0$.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of stone piles.
+
+Similar problems:
+
+- [486. Predict the Winner](https://github.com/doocs/leetcode/blob/main/solution/0400-0499/0486.Predict%20the%20Winner/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -274,6 +334,30 @@ function stoneGame(piles: number[]): boolean {
         }
     }
     return f[0][n - 1] > 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn stone_game(piles: Vec<i32>) -> bool {
+        let n = piles.len();
+        let mut f = vec![vec![0; n]; n];
+
+        for i in 0..n {
+            f[i][i] = piles[i];
+        }
+
+        for i in (0..n - 1).rev() {
+            for j in i + 1..n {
+                f[i][j] = (piles[i] - f[i + 1][j])
+                    .max(piles[j] - f[i][j - 1]);
+            }
+        }
+
+        f[0][n - 1] > 0
+    }
 }
 ```
 
