@@ -121,23 +121,23 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Hash table + simulation
+### Solution 1: Hash Table + Simulation
 
-We define a direction array $dirs=[0, 1, 0, -1, 0]$ of length $5$, where adjacent elements in the array represent a direction. That is, $(dirs[0], dirs[1])$ represents north, and $(dirs[1], dirs[2])$ represents east, and so on.
+We define a direction array $dirs = [0, 1, 0, -1, 0]$ of length $5$, where each pair of adjacent elements represents a direction. That is, $(dirs[0], dirs[1])$ represents north, $(dirs[1], dirs[2])$ represents east, and so on.
 
-We use a hash table $s$ to store the coordinates of all obstacles, so that we can determine in $O(1)$ time whether the next step will encounter an obstacle.
+We use a hash table $s$ to store the coordinates of all obstacles, so we can determine in $O(1)$ time whether the next step will encounter an obstacle.
 
-We use two variables $x$ and $y$ to represent the current coordinates of the robot, initially $x = y = 0$. The variable $k$ represents the current direction of the robot, and the answer variable $ans$ represents the maximum Euclidean distance squared of the robot from the origin.
+Additionally, we use two variables $x$ and $y$ to represent the robot's current coordinates, initially $x = y = 0$. The variable $k$ represents the robot's current direction, and the answer variable $ans$ represents the maximum squared Euclidean distance from the origin.
 
-Next, we traverse each element $c$ in the array $commands$:
+Next, we iterate over each element $c$ in the array $commands$:
 
-- If $c = -2$, it means that the robot turns left by $90$ degrees, that is, $k = (k + 3) \bmod 4$;
-- If $c = -1$, it means that the robot turns right by $90$ degrees, that is, $k = (k + 1) \bmod 4$;
-- Otherwise, it means that the robot moves forward by $c$ units of length. We combine the robot's current direction $k$ with the direction array $dirs$, and we can get the increment of the robot on the $x$ axis and the $y$ axis. We add the increment of $c$ units of length to $x$ and $y$ respectively, and judge whether the new coordinates $(x, y)$ after each move are in the coordinates of obstacles. If not, update the answer $ans$, otherwise stop simulating and perform the simulation of the next instruction.
+- If $c = -2$, the robot turns left $90$ degrees, i.e., $k = (k + 3) \bmod 4$;
+- If $c = -1$, the robot turns right $90$ degrees, i.e., $k = (k + 1) \bmod 4$;
+- Otherwise, the robot moves forward $c$ units. We combine the robot's current direction $k$ with the direction array $dirs$ to obtain the increments along the $x$-axis and $y$-axis. We accumulate the increments step by step onto $x$ and $y$, and check whether each new coordinate $(nx, ny)$ is in the obstacle set. If not, we update the answer $ans$; otherwise, we stop the simulation and proceed to the next command.
 
-Finally return the answer $ans$.
+Finally, return the answer $ans$.
 
-Time complexity is $O(C \times n + m)$, space complexity is $O(m)$. Where $C$ represents the maximum number of steps that can be moved each time, and $n$ and $m$ respectively represent the lengths of arrays $commands$ and arrays $obstacles$.
+The time complexity is $O(C \times n + m)$ and the space complexity is $O(m)$, where $C$ is the maximum number of steps per move, and $n$ and $m$ are the lengths of the arrays $commands$ and $obstacles$, respectively.
 
 <!-- tabs:start -->
 
@@ -297,6 +297,51 @@ function robotSim(commands: number[], obstacles: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn robot_sim(commands: Vec<i32>, obstacles: Vec<Vec<i32>>) -> i32 {
+        let dirs: [i32; 5] = [0, 1, 0, -1, 0];
+        let mut s: HashSet<(i32, i32)> = HashSet::new();
+
+        for o in obstacles {
+            s.insert((o[0], o[1]));
+        }
+
+        let mut ans: i32 = 0;
+        let mut k: i32 = 0;
+        let mut x: i32 = 0;
+        let mut y: i32 = 0;
+
+        for c in commands {
+            if c == -2 {
+                k = (k + 3) % 4;
+            } else if c == -1 {
+                k = (k + 1) % 4;
+            } else {
+                for _ in 0..c {
+                    let nx: i32 = x + dirs[k as usize];
+                    let ny: i32 = y + dirs[k as usize + 1];
+
+                    if s.contains(&(nx, ny)) {
+                        break;
+                    }
+
+                    x = nx;
+                    y = ny;
+                    ans = ans.max(x * x + y * y);
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 

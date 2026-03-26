@@ -52,7 +52,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Fast and Slow Pointers
+
+We define two pointers $\textit{fast}$ and $\textit{slow}$, both initially pointing to the head of the linked list.
+
+The fast pointer $\textit{fast}$ moves two steps at a time, while the slow pointer $\textit{slow}$ moves one step at a time. When the fast pointer reaches the end of the linked list, the node pointed to by the slow pointer is the middle node.
+
+The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
