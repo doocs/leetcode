@@ -74,7 +74,17 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们遍历矩阵的每个元素，判断其在循环移位后的位置是否与原位置的元素相同。
+
+对于奇数行，我们将元素向右移动 $k$ 个位置，因此元素 $(i, j)$ 在循环移位后的位置为 $(i, (j + k) \bmod n)$，其中 $n$ 是矩阵的列数。
+
+对于偶数行，我们将元素向左移动 $k$ 个位置，因此元素 $(i, j)$ 在循环移位后的位置为 $(i, (j - k + n) \bmod n)$。
+
+如果在遍历过程中发现有任何一个元素在循环移位后的位置与原位置的元素不同，则返回 $\text{false}$。如果遍历完成后所有元素都相同，则返回 $\text{true}$。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是矩阵的行数和列数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -176,6 +186,30 @@ function areSimilar(mat: number[][], k: number): boolean {
         }
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn are_similar(mat: Vec<Vec<i32>>, k: i32) -> bool {
+        let m = mat.len();
+        let n = mat[0].len();
+        let k = (k as usize) % n;
+
+        for i in 0..m {
+            for j in 0..n {
+                if i % 2 == 1 && mat[i][j] != mat[i][(j + k) % n] {
+                    return false;
+                }
+                if i % 2 == 0 && mat[i][j] != mat[i][(j + n - k) % n] {
+                    return false;
+                }
+            }
+        }
+        true
+    }
 }
 ```
 
