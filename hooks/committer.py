@@ -1,23 +1,31 @@
 """
-hooks/committer.py – 使用源码文件 git 时间增量缓存（时间戳版）
-支持 URL 编码字符（Two%20Sum → Two Sum）
+hooks/committer.py - Bulk mtime index + parallel API prefetch
+
+Optimizations:
+1. on_pre_build: single git log pass builds {file -> last_mtime} index,
+   replacing the original per-page subprocess spawn (3000+ pages -> 1 call).
+2. on_files: scan all docs frontmatter to extract edit_url,
+   parallel-prefetch GitHub API for all cache misses before page processing.
+3. on_page_context: pure cache lookup, near-zero overhead.
 """
 
 import fnmatch
 import json
 import os
+import re
 import random
-import shlex
 import subprocess
+import threading
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import requests
 
 
-# ───────────────────────── 日志 ───────────────────────── #
+# --- Logging ---
 def _now() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -26,20 +34,17 @@ def _log(msg: str, level: str = "INFO"):
     print(f"{_now()}  [{level}] {msg}")
 
 
-# ───────────────────────── 时间工具 ───────────────────────── #
 def _ts(dt: datetime) -> int:
-    """datetime → Unix 时间戳（秒，UTC）"""
     return int(dt.timestamp())
 
 
-# ───────────────────────── 其他工具函数 ───────────────────────── #
+# --- Helpers ---
 def _exclude(src_path: str, globs: List[str]) -> bool:
     for g in globs:
         if fnmatch.fnmatchcase(src_path, g):
             return True
-        if os.sep != "/":
-            if fnmatch.fnmatchcase(src_path.replace(os.sep, "/"), g):
-                return True
+        if os.sep != "/" and fnmatch.fnmatchcase(src_path.replace(os.sep, "/"), g):
+            return True
     return False
 
 
@@ -51,61 +56,38 @@ def _get_header() -> Dict[str, str]:
     return {}
 
 
-def _file_git_datetime(repo_path: str) -> datetime:
-    """
-    返回文件最后一次 git 提交时间（UTC）。
-    执行前后都打印完整命令与结果，便于排查。
-    """
-    cmd = ["git", "log", "-1", "--format=%ct", "--", repo_path]
-    cmd_str = " ".join(shlex.quote(c) for c in cmd)
-    _log(f"_file_git_datetime: run → {cmd_str}")
-
+def _extract_edit_url(md_path: str) -> Optional[str]:
+    """Extract edit_url from YAML frontmatter (reads first 2 KB only)."""
     try:
-        result = subprocess.run(
-            cmd,
-            text=True,
-            capture_output=True,
-            check=False,
-        )
-
-        if result.returncode == 0 and result.stdout.strip():
-            ts = result.stdout.strip()
-            _log(f"_file_git_datetime: success stdout='{ts}'")
-            return datetime.fromtimestamp(int(ts), tz=timezone.utc)
-
-        _log(
-            f"_file_git_datetime: git log failed "
-            f"(code={result.returncode}) "
-            f"stdout='{result.stdout.strip()}' "
-            f"stderr='{result.stderr.strip()}'",
-            "WARN",
-        )
-
-    except Exception as e:
-        _log(f"_file_git_datetime: exception {e}", "ERROR")
-
-    # 兜底：返回当前时间 → 强制刷新
-    return datetime.now(tz=timezone.utc)
+        with open(md_path, encoding="utf-8", errors="ignore") as fh:
+            content = fh.read(2048)
+        m = re.match(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
+        if m:
+            for line in m.group(1).splitlines():
+                if line.startswith("edit_url:"):
+                    return line.split(":", 1)[1].strip()
+    except Exception:
+        pass
+    return None
 
 
-# ───────────────────────── 主插件 ───────────────────────── #
+# --- Main plugin ---
 class CommitterPlugin:
     def __init__(self):
         self.cache_path = Path(".git-committers-cache.json")
         self.cache_path.parent.mkdir(parents=True, exist_ok=True)
-
         self.page_authors: Dict[str, Dict] = {}
-        self.last_request_status = 0
+        self._mtime_index: Dict[str, int] = {}
+        self._auth_failed = threading.Event()
 
-    # ── MkDocs 事件 ── #
-    def on_pre_build(self, _cfg):
+    def on_pre_build(self, cfg):
+        # 1. Load existing cache
         if self.cache_path.exists():
             try:
                 raw = json.loads(self.cache_path.read_text())["page_authors"]
-                # 过滤旧式错误键；并对 retrieved 做向下兼容
                 for k, v in list(raw.items()):
                     if k.startswith("https://"):
-                        continue  # 丢弃早期错误的 “全 URL” 键
+                        continue
                     rt = v.get("retrieved")
                     if isinstance(rt, str):
                         try:
@@ -113,17 +95,67 @@ class CommitterPlugin:
                         except Exception:
                             raw[k].pop("retrieved", None)
                 self.page_authors = raw
-                _log(f"Loaded committer cache from {self.cache_path}")
+                _log(f"Loaded committer cache: {len(self.page_authors)} entries")
             except Exception as e:
-                _log(f"Failed to read cache, ignore: {e}", "WARN")
+                _log(f"Cache read error (ignored): {e}", "WARN")
 
-    def on_post_build(self, _cfg):
+        # 2. Build mtime index in a single git log pass
+        self._mtime_index = self._build_mtime_index()
+
+    def on_files(self, files, config):
+        """Identify cache misses and pre-fetch GitHub API results in parallel."""
+        docs_dir = config.get("docs_dir", "docs")
+        misses: List[tuple] = []
+
+        for f in files:
+            if not f.src_path.endswith(".md"):
+                continue
+            md_path = os.path.join(docs_dir, f.src_path)
+            edit_url = _extract_edit_url(md_path)
+            if not edit_url:
+                continue
+            repo_path = self._repo_path_from_edit_url(edit_url)
+            git_mtime = self._mtime_index.get(repo_path, 0)
+            cached = self.page_authors.get(repo_path)
+            cached_time = cached.get("retrieved") if cached else None
+            if not (cached and cached_time and git_mtime <= cached_time):
+                misses.append((repo_path, self._api_url_from_repo_path(repo_path)))
+
+        if misses:
+            _log(f"Pre-fetching {len(misses)} cache misses in parallel (workers=8)...")
+            results: Dict[str, List] = {}
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                future_to_path = {
+                    pool.submit(self._fetch_authors_from_api, api_url): repo_path
+                    for repo_path, api_url in misses
+                }
+                done = 0
+                for fut in as_completed(future_to_path):
+                    repo_path = future_to_path[fut]
+                    try:
+                        authors = fut.result()
+                        if authors is not None:
+                            results[repo_path] = authors
+                    except Exception as e:
+                        _log(f"Pre-fetch failed [{repo_path}]: {e}", "WARN")
+                    done += 1
+                    if done % 100 == 0:
+                        _log(f"  Pre-fetch progress: {done}/{len(misses)}")
+
+            now_ts = _ts(datetime.now(tz=timezone.utc))
+            for repo_path, authors in results.items():
+                self.page_authors[repo_path] = {"authors": authors, "retrieved": now_ts}
+            _log(f"Pre-fetch complete: {len(results)}/{len(misses)} updated.")
+
+        return files
+
+    def on_post_build(self, cfg):
         out = {
             "cache_date": _ts(datetime.now(tz=timezone.utc)),
             "page_authors": self.page_authors,
         }
         self.cache_path.write_text(json.dumps(out, ensure_ascii=False, indent=2))
-        _log(f"Saved committer cache to {self.cache_path}")
+        _log(f"Saved committer cache: {len(self.page_authors)} entries -> {self.cache_path}")
 
         _log("========= Committer Summary =========")
         for k, v in sorted(self.page_authors.items()):
@@ -133,63 +165,82 @@ class CommitterPlugin:
             _log(f"[SUMMARY] {k}  |  retrieved: {rt}")
         _log("=====================================")
 
-    def on_page_context(self, context, page, _cfg, _nav):
+    def on_page_context(self, context, page, cfg, nav):
         if not page.edit_url or _exclude(page.file.src_path, []):
             return context
 
         repo_path = self._repo_path_from_edit_url(page.edit_url)
-        api_url = self._api_url_from_repo_path(repo_path)
-        authors = self._get_authors_with_cache(api_url, repo_path)
+        git_mtime = self._mtime_index.get(repo_path, 0)
+        cached = self.page_authors.get(repo_path)
+        cached_time = cached.get("retrieved") if cached else None
+
+        if cached and cached_time and git_mtime <= cached_time:
+            authors = cached["authors"]
+        else:
+            # Fallback: should not be reached after on_files pre-fetch
+            _log(f"[FALLBACK FETCH] {repo_path}", "WARN")
+            api_url = self._api_url_from_repo_path(repo_path)
+            authors = self._fetch_authors_from_api(api_url) or []
+            self.page_authors[repo_path] = {
+                "authors": authors,
+                "retrieved": _ts(datetime.now(tz=timezone.utc)),
+            }
 
         context["committers"] = authors
         context["committers_source"] = "github" if authors else "cache"
         return context
 
-    # ── 内部方法 ── #
-    @staticmethod
-    def _repo_path_from_edit_url(edit_url: str) -> str:
+    # --- Internal ---
+
+    def _build_mtime_index(self) -> Dict[str, int]:
         """
-        把 GitHub edit URL 转成 repo 内部相对路径。
-        例：
-        https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README.md
-        → solution/0000-0099/0001.Two Sum/README.md
+        Run git log once and build {file_path -> last_commit_ts} dict.
+        Format: each commit starts with "COMMIT <ts>", followed by changed files.
+        Since git log outputs newest-first, the first occurrence of each file
+        is its most recent commit timestamp.
         """
-        raw_path = edit_url.split("/edit/main/")[-1]
-        return urllib.parse.unquote(raw_path)
+        _log("Building mtime index via single git log pass...")
+        try:
+            result = subprocess.run(
+                [
+                    "git", "log",
+                    "--format=COMMIT %ct",
+                    "--name-only",
+                    "--no-merges",
+                    "--diff-filter=ACMR",
+                ],
+                text=True,
+                capture_output=True,
+                check=False,
+                timeout=120,
+            )
+            index: Dict[str, int] = {}
+            current_ts = 0
+            for line in result.stdout.splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                if line.startswith("COMMIT "):
+                    current_ts = int(line[7:])
+                elif current_ts and line not in index:
+                    index[line] = current_ts
+            _log(f"Mtime index ready: {len(index)} files indexed.")
+            return index
+        except Exception as e:
+            _log(f"Mtime index build failed: {e}", "ERROR")
+            return {}
 
-    @staticmethod
-    def _api_url_from_repo_path(repo_path: str) -> str:
-        quoted = urllib.parse.quote(repo_path)
-        return (
-            "https://api.github.com/repos/doocs/leetcode/commits"
-            f"?path={quoted}&sha=main&per_page=100"
-        )
-
-    def _get_authors_with_cache(self, api_url: str, repo_path: str) -> List[Dict]:
-        git_mtime = _ts(_file_git_datetime(repo_path))  # int
-
-        cached = self.page_authors.get(repo_path)
-        cached_time = cached.get("retrieved") if cached else None
-
-        if cached and cached_time and git_mtime <= cached_time:
-            _log(f"[CACHE HIT] {repo_path}  git:{git_mtime}  cache:{cached_time}")
-            return cached["authors"]
-
-        _log(f"[CACHE MISS] {repo_path}  git:{git_mtime}  cache:{cached_time}")
-
-        if self.last_request_status in (401, 403):
-            _log("Skip API request due to previous 401/403", "WARN")
-            return cached["authors"] if cached else []
-
+    def _fetch_authors_from_api(self, api_url: str) -> Optional[List[Dict]]:
+        """Fetch commit authors from GitHub API. Returns None on auth error."""
+        if self._auth_failed.is_set():
+            return None
         authors: List[Dict] = []
-        for attempt in range(5):
+        for attempt in range(3):
             try:
                 r = requests.get(api_url, headers=_get_header(), timeout=10)
             except Exception as e:
-                _log(f"Request error ({attempt+1}/5): {e}", "ERROR")
+                _log(f"Request error (attempt {attempt + 1}/3): {e}", "ERROR")
                 continue
-
-            self.last_request_status = r.status_code
             if r.status_code == 200:
                 for commit in r.json():
                     author = commit.get("author") or {}
@@ -203,27 +254,39 @@ class CommitterPlugin:
                                 "avatar": author.get("avatar_url"),
                             }
                         )
-                break
+                return authors
             elif r.status_code in (401, 403):
-                _log(f"GitHub API limit ({r.status_code}); stop further requests", "ERROR")
-                return cached["authors"] if cached else []
+                _log(f"GitHub API auth error {r.status_code}; halting further calls", "ERROR")
+                self._auth_failed.set()
+                return None
             else:
-                _log(f"Unexpected status {r.status_code}; retrying…", "ERROR")
-
-        self.page_authors[repo_path] = {
-            "authors": authors,
-            "retrieved": _ts(datetime.now(tz=timezone.utc)),  # int
-        }
-        _log(f"[CACHE UPDATE] {repo_path}  new authors: {len(authors)}")
+                _log(f"Unexpected status {r.status_code}; retrying...", "WARN")
         return authors
 
+    @staticmethod
+    def _repo_path_from_edit_url(edit_url: str) -> str:
+        raw = edit_url.split("/edit/main/")[-1]
+        return urllib.parse.unquote(raw)
 
-# ───────────────────────── MkDocs 适配 ───────────────────────── #
+    @staticmethod
+    def _api_url_from_repo_path(repo_path: str) -> str:
+        quoted = urllib.parse.quote(repo_path)
+        return (
+            "https://api.github.com/repos/doocs/leetcode/commits"
+            f"?path={quoted}&sha=main&per_page=100"
+        )
+
+
+# --- MkDocs hook entry points ---
 _plugin = CommitterPlugin()
 
 
 def on_pre_build(config):
     _plugin.on_pre_build(config)
+
+
+def on_files(files, config):
+    return _plugin.on_files(files, config)
 
 
 def on_post_build(config):
