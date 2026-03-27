@@ -295,29 +295,29 @@ function findErrorNums(nums: number[]): number[] {
 #### Rust
 
 ```rust
+use std::collections::HashMap;
+
 impl Solution {
     pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
-        let mut xs = 0;
-        for (i, x) in nums.iter().enumerate() {
-            xs ^= ((i + 1) as i32) ^ x;
+        let n = nums.len() as i32;
+        let mut cnt: HashMap<i32, i32> = HashMap::new();
+
+        for &x in &nums {
+            *cnt.entry(x).or_insert(0) += 1;
         }
-        let mut a = 0;
-        let lb = xs & -xs;
-        for (i, x) in nums.iter().enumerate() {
-            if (((i + 1) as i32) & lb) != 0 {
-                a ^= (i + 1) as i32;
-            }
-            if (*x & lb) != 0 {
-                a ^= *x;
-            }
-        }
-        let b = xs ^ a;
-        for x in nums.iter() {
-            if *x == a {
-                return vec![a, b];
+
+        let mut ans = vec![0; 2];
+
+        for x in 1..=n {
+            let c = *cnt.get(&x).unwrap_or(&0);
+            if c == 2 {
+                ans[0] = x;
+            } else if c == 0 {
+                ans[1] = x;
             }
         }
-        vec![b, a]
+
+        ans
     }
 }
 ```
@@ -474,6 +474,36 @@ function findErrorNums(nums: number[]): number[] {
     }
     const b = xs ^ a;
     return nums.includes(a) ? [a, b] : [b, a];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_error_nums(nums: Vec<i32>) -> Vec<i32> {
+        let mut xs = 0;
+        for (i, x) in nums.iter().enumerate() {
+            xs ^= ((i + 1) as i32) ^ x;
+        }
+        let mut a = 0;
+        let lb = xs & -xs;
+        for (i, x) in nums.iter().enumerate() {
+            if (((i + 1) as i32) & lb) != 0 {
+                a ^= (i + 1) as i32;
+            }
+            if (*x & lb) != 0 {
+                a ^= *x;
+            }
+        }
+        let b = xs ^ a;
+        for x in nums.iter() {
+            if *x == a {
+                return vec![a, b];
+            }
+        }
+        vec![b, a]
+    }
 }
 ```
 

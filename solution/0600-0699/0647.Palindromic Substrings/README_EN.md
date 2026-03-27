@@ -55,7 +55,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Expand Around Center
+
+We can enumerate the center position of each palindrome and expand outward to count the number of palindromic substrings. For a string of length $n$, there are $2n-1$ possible center positions (covering both odd-length and even-length palindromes). For each center, we expand outward until the palindrome condition is no longer satisfied, and count the number of palindromic substrings.
+
+The time complexity is $O(n^2)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -159,7 +163,11 @@ var countSubstrings = function (s) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Manacher's Algorithm
+
+In Manacher's algorithm, $p[i] - 1$ represents the maximum palindrome length centered at position $i$, and the number of palindromic substrings centered at position $i$ is $\left \lceil \frac{p[i]-1}{2} \right \rceil$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of string $s$.
 
 <!-- tabs:start -->
 
@@ -211,6 +219,130 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        string t = "^#";
+        for (char c : s) {
+            t += c;
+            t += '#';
+        }
+        t += "$";
+
+        int n = t.size();
+        vector<int> p(n, 0);
+        int pos = 0, maxRight = 0;
+        int ans = 0;
+
+        for (int i = 1; i < n - 1; ++i) {
+            if (maxRight > i) {
+                p[i] = min(maxRight - i, p[2 * pos - i]);
+            } else {
+                p[i] = 1;
+            }
+
+            while (t[i - p[i]] == t[i + p[i]]) {
+                ++p[i];
+            }
+
+            if (i + p[i] > maxRight) {
+                maxRight = i + p[i];
+                pos = i;
+            }
+
+            ans += p[i] / 2;
+        }
+
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countSubstrings(s string) int {
+	t := "^#"
+	for _, c := range s {
+		t += string(c)
+		t += "#"
+	}
+	t += "$"
+
+	n := len(t)
+	p := make([]int, n)
+	pos, maxRight := 0, 0
+	ans := 0
+
+	for i := 1; i < n-1; i++ {
+		if maxRight > i {
+			mirror := 2*pos - i
+			if p[mirror] < maxRight-i {
+				p[i] = p[mirror]
+			} else {
+				p[i] = maxRight - i
+			}
+		} else {
+			p[i] = 1
+		}
+
+		for t[i-p[i]] == t[i+p[i]] {
+			p[i]++
+		}
+
+		if i+p[i] > maxRight {
+			maxRight = i + p[i]
+			pos = i
+		}
+
+		ans += p[i] / 2
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubstrings(s: string): number {
+    let t = "^#";
+    for (const c of s) {
+        t += c + "#";
+    }
+    t += "$";
+
+    const n = t.length;
+    const p: number[] = new Array(n).fill(0);
+    let pos = 0, maxRight = 0;
+    let ans = 0;
+
+    for (let i = 1; i < n - 1; i++) {
+        if (maxRight > i) {
+            p[i] = Math.min(maxRight - i, p[2 * pos - i]);
+        } else {
+            p[i] = 1;
+        }
+
+        while (t[i - p[i]] === t[i + p[i]]) {
+            p[i]++;
+        }
+
+        if (i + p[i] > maxRight) {
+            maxRight = i + p[i];
+            pos = i;
+        }
+
+        ans += Math.floor(p[i] / 2);
+    }
+
+    return ans;
 }
 ```
 
