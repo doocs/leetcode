@@ -177,7 +177,7 @@ function leftRightDifference(nums: number[]): number[] {
         l += x;
     }
     return ans;
-};
+}
 ```
 
 #### Rust
@@ -206,7 +206,7 @@ impl Solution {
  */
 int* leftRightDifference(int* nums, int numsSize, int* returnSize) {
     *returnSize = numsSize;
-    int* ans = (int*)malloc(sizeof(int) * numsSize);
+    int* ans = (int*) malloc(sizeof(int) * numsSize);
 
     int l = 0, r = 0;
     for (int i = 0; i < numsSize; ++i) {
