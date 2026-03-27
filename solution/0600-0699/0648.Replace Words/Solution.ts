@@ -1,41 +1,48 @@
 class Trie {
-    #children: Record<string, Trie> = {};
-    #ref = -1;
+    children: Array<Trie | null>;
+    isEnd: boolean;
 
-    insert(w: string, i: number) {
-        let node: Trie = this;
-        for (const c of w) {
-            node.#children[c] ??= new Trie();
-            node = node.#children[c];
-        }
-        node.#ref = i;
+    constructor() {
+        this.children = new Array(26).fill(null);
+        this.isEnd = false;
     }
 
-    search(w: string): number {
+    insert(w: string): void {
         let node: Trie = this;
         for (const c of w) {
-            if (!node.#children[c]) {
-                return -1;
+            const idx = c.charCodeAt(0) - 97;
+            if (!node.children[idx]) {
+                node.children[idx] = new Trie();
             }
-            node = node.#children[c];
-            if (node.#ref !== -1) {
-                return node.#ref;
+            node = node.children[idx]!;
+        }
+        node.isEnd = true;
+    }
+
+    search(w: string): string {
+        let node: Trie = this;
+        for (let i = 0; i < w.length; i++) {
+            const idx = w.charCodeAt(i) - 97;
+            if (!node.children[idx]) {
+                return w;
+            }
+            node = node.children[idx]!;
+            if (node.isEnd) {
+                return w.slice(0, i + 1);
             }
         }
-        return -1;
+        return w;
     }
 }
 
 function replaceWords(dictionary: string[], sentence: string): string {
     const trie = new Trie();
-    for (let i = 0; i < dictionary.length; i++) {
-        trie.insert(dictionary[i], i);
+    for (const w of dictionary) {
+        trie.insert(w);
     }
+
     return sentence
-        .split(' ')
-        .map(w => {
-            const idx = trie.search(w);
-            return idx !== -1 ? dictionary[idx] : w;
-        })
-        .join(' ');
+        .split(" ")
+        .map(w => trie.search(w))
+        .join(" ");
 }

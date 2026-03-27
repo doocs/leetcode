@@ -1,36 +1,32 @@
 class Trie:
     def __init__(self):
-        self.children: List[Trie | None] = [None] * 26
-        self.ref: int = -1
+        self.children = [None] * 26
+        self.is_end = False
 
-    def insert(self, w: str, i: int):
+    def insert(self, w: str) -> None:
         node = self
         for c in w:
             idx = ord(c) - ord("a")
             if node.children[idx] is None:
                 node.children[idx] = Trie()
             node = node.children[idx]
-        node.ref = i
+        node.is_end = True
 
-    def search(self, w: str) -> int:
+    def search(self, w: str) -> str:
         node = self
-        for c in w:
+        for i, c in enumerate(w, 1):
             idx = ord(c) - ord("a")
             if node.children[idx] is None:
-                return -1
+                return w
             node = node.children[idx]
-            if node.ref != -1:
-                return node.ref
-        return -1
+            if node.is_end:
+                return w[:i]
+        return w
 
 
 class Solution:
     def replaceWords(self, dictionary: List[str], sentence: str) -> str:
         trie = Trie()
-        for i, w in enumerate(dictionary):
-            trie.insert(w, i)
-        ans = []
-        for w in sentence.split():
-            idx = trie.search(w)
-            ans.append(dictionary[idx] if idx != -1 else w)
-        return " ".join(ans)
+        for w in dictionary:
+            trie.insert(w)
+        return " ".join(trie.search(w) for w in sentence.split())

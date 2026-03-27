@@ -1,52 +1,44 @@
 type Trie struct {
 	children [26]*Trie
-	ref      int
+	isEnd    bool
 }
 
-func newTrie() *Trie {
-	return &Trie{ref: -1}
-}
-
-func (this *Trie) insert(w string, i int) {
-	node := this
+func (t *Trie) insert(w string) {
+	node := t
 	for _, c := range w {
 		idx := c - 'a'
 		if node.children[idx] == nil {
-			node.children[idx] = newTrie()
+			node.children[idx] = &Trie{}
 		}
 		node = node.children[idx]
 	}
-	node.ref = i
+	node.isEnd = true
 }
 
-func (this *Trie) search(w string) int {
-	node := this
-	for _, c := range w {
+func (t *Trie) search(w string) string {
+	node := t
+	for i, c := range w {
 		idx := c - 'a'
 		if node.children[idx] == nil {
-			return -1
+			return w
 		}
 		node = node.children[idx]
-		if node.ref != -1 {
-			return node.ref
+		if node.isEnd {
+			return w[:i+1]
 		}
 	}
-	return -1
+	return w
 }
 
 func replaceWords(dictionary []string, sentence string) string {
-	trie := newTrie()
-	for i, w := range dictionary {
-		trie.insert(w, i)
+	trie := &Trie{}
+	for _, w := range dictionary {
+		trie.insert(w)
 	}
-	ans := strings.Builder{}
-	for _, w := range strings.Split(sentence, " ") {
-		if idx := trie.search(w); idx != -1 {
-			ans.WriteString(dictionary[idx])
-		} else {
-			ans.WriteString(w)
-		}
-		ans.WriteByte(' ')
+
+	words := strings.Split(sentence, " ")
+	for i, w := range words {
+		words[i] = trie.search(w)
 	}
-	return ans.String()[:ans.Len()-1]
+	return strings.Join(words, " ")
 }
