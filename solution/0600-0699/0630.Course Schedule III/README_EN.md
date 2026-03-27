@@ -31,11 +31,11 @@ tags:
 <pre>
 <strong>Input:</strong> courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]
 <strong>Output:</strong> 3
-Explanation: 
+Explanation:
 There are totally 4 courses, but you can take 3 courses at most:
 First, take the 1<sup>st</sup> course, it costs 100 days so you will finish it on the 100<sup>th</sup> day, and ready to take the next course on the 101<sup>st</sup> day.
-Second, take the 3<sup>rd</sup> course, it costs 1000 days so you will finish it on the 1100<sup>th</sup> day, and ready to take the next course on the 1101<sup>st</sup> day. 
-Third, take the 2<sup>nd</sup> course, it costs 200 days so you will finish it on the 1300<sup>th</sup> day. 
+Second, take the 3<sup>rd</sup> course, it costs 1000 days so you will finish it on the 1100<sup>th</sup> day, and ready to take the next course on the 1101<sup>st</sup> day.
+Third, take the 2<sup>nd</sup> course, it costs 200 days so you will finish it on the 1300<sup>th</sup> day.
 The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3300<sup>th</sup> day, which exceeds the closed date.
 </pre>
 
@@ -67,7 +67,15 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Priority Queue (Max-Heap)
+
+We can sort the courses in ascending order by their end time, and each time select the course with the earliest deadline to take.
+
+If the total time $s$ of the selected courses exceeds the end time $last$ of the current course, we remove the course with the longest duration from the previously selected courses, until the constraint of the current course's end time is satisfied. Here we use a priority queue (max-heap) $pq$ to maintain the durations of the currently selected courses, and each time we pop the course with the longest duration from the priority queue to remove it.
+
+Finally, the number of elements in the priority queue is the maximum number of courses we can take.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of courses.
 
 <!-- tabs:start -->
 

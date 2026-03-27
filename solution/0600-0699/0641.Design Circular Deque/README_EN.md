@@ -73,7 +73,27 @@ myCircularDeque.getFront();     // return 4
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Array
+
+We can use an array to implement the circular deque. We maintain a pointer $\textit{front}$ pointing to the front of the queue, a variable $\textit{size}$ representing the number of elements in the queue, and a variable $\textit{capacity}$ representing the queue's capacity. We use an array $\textit{q}$ to store the elements.
+
+When $\textit{insertFront}$ is called, we first check if the queue is full; if so, return $\text{false}$. Otherwise, we move $\textit{front}$ one position forward (using modular arithmetic for circular wrapping), insert the new element at $\textit{front}$, and increment $\textit{size}$ by 1.
+
+When $\textit{insertLast}$ is called, we first check if the queue is full; if so, return $\text{false}$. Otherwise, we compute the insertion position (using $\textit{front}$ and $\textit{size}$), insert the new element there, and increment $\textit{size}$ by 1.
+
+When $\textit{deleteFront}$ is called, we first check if the queue is empty; if so, return $\text{false}$. Otherwise, we move $\textit{front}$ one position backward (using modular arithmetic for circular wrapping) and decrement $\textit{size}$ by 1.
+
+When $\textit{deleteLast}$ is called, we first check if the queue is empty; if so, return $\text{false}$. Otherwise, we decrement $\textit{size}$ by 1.
+
+When $\textit{getFront}$ is called, we first check if the queue is empty; if so, return $-1$. Otherwise, we return $\textit{q}[\textit{front}]$.
+
+When $\textit{getRear}$ is called, we first check if the queue is empty; if so, return $-1$. Otherwise, we compute the position of the rear element (using $\textit{front}$ and $\textit{size}$) and return the element at that position.
+
+When $\textit{isEmpty}$ is called, we check whether $\textit{size}$ equals $0$.
+
+When $\textit{isFull}$ is called, we check whether $\textit{size}$ equals $\textit{capacity}$.
+
+All operations above have a time complexity of $O(1)$ and a space complexity of $O(k)$, where $k$ is the capacity of the deque.
 
 <!-- tabs:start -->
 

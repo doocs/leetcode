@@ -60,7 +60,18 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Mathematics
+
+We split the $equation$ by the equal sign `"="` into left and right expressions, and compute the coefficient of `"x"` (denoted $x_i$) and the constant value (denoted $y_i$) for each side.
+
+The equation is then transformed into: $x_1 \times x + y_1 = x_2 \times x + y_2$.
+
+- When $x_1 = x_2$: if $y_1 \neq y_2$, there is no solution; if $y_1 = y_2$, there are infinite solutions.
+- When $x_1 \neq x_2$: there is a unique solution $x = \frac{y_2 - y_1}{x_1 - x_2}$.
+
+Similar problems:
+
+- [592. Fraction Addition and Subtraction](https://github.com/doocs/leetcode/blob/main/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md)
 
 <!-- tabs:start -->
 

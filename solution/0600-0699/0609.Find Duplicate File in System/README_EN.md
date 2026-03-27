@@ -73,7 +73,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+We create a hash table $d$, where the key is the file content and the value is a list of file paths with the same content.
+
+Next, we iterate over $\textit{paths}$. For each path, we split it into the directory path and file information. For each file entry, we extract the file name and file content, and append the file path to the corresponding list in hash table $d$.
+
+Finally, we return all values in hash table $d$ that have more than one file path.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{paths}$.
 
 <!-- tabs:start -->
 
