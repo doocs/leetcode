@@ -58,7 +58,9 @@ tags:
 
 ### 方法一：从中心向两侧扩展回文串
 
-时间复杂度 $O(n^2)$，其中 $n$ 是字符串 `s` 的长度。
+我们可以枚举回文串的中心位置，然后向两侧扩展，统计回文串的数量。对于长度为 $n$ 的字符串，回文串的中心位置共有 $2n-1$ 个（包括奇数长度和偶数长度的回文串）。对于每个中心位置，我们向两侧扩展，直到不满足回文串的条件为止，统计回文串的数量。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -166,7 +168,7 @@ var countSubstrings = function (s) {
 
 在 Manacher 算法的计算过程中，用 $p[i]-1$ 表示以第 $i$ 位为中心的最大回文长度，以第 $i$ 位为中心的回文串数量为 $\left \lceil \frac{p[i]-1}{2}  \right \rceil$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 `s` 的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
@@ -218,6 +220,130 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countSubstrings(string s) {
+        string t = "^#";
+        for (char c : s) {
+            t += c;
+            t += '#';
+        }
+        t += "$";
+
+        int n = t.size();
+        vector<int> p(n, 0);
+        int pos = 0, maxRight = 0;
+        int ans = 0;
+
+        for (int i = 1; i < n - 1; ++i) {
+            if (maxRight > i) {
+                p[i] = min(maxRight - i, p[2 * pos - i]);
+            } else {
+                p[i] = 1;
+            }
+
+            while (t[i - p[i]] == t[i + p[i]]) {
+                ++p[i];
+            }
+
+            if (i + p[i] > maxRight) {
+                maxRight = i + p[i];
+                pos = i;
+            }
+
+            ans += p[i] / 2;
+        }
+
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countSubstrings(s string) int {
+	t := "^#"
+	for _, c := range s {
+		t += string(c)
+		t += "#"
+	}
+	t += "$"
+
+	n := len(t)
+	p := make([]int, n)
+	pos, maxRight := 0, 0
+	ans := 0
+
+	for i := 1; i < n-1; i++ {
+		if maxRight > i {
+			mirror := 2*pos - i
+			if p[mirror] < maxRight-i {
+				p[i] = p[mirror]
+			} else {
+				p[i] = maxRight - i
+			}
+		} else {
+			p[i] = 1
+		}
+
+		for t[i-p[i]] == t[i+p[i]] {
+			p[i]++
+		}
+
+		if i+p[i] > maxRight {
+			maxRight = i + p[i]
+			pos = i
+		}
+
+		ans += p[i] / 2
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubstrings(s: string): number {
+    let t = "^#";
+    for (const c of s) {
+        t += c + "#";
+    }
+    t += "$";
+
+    const n = t.length;
+    const p: number[] = new Array(n).fill(0);
+    let pos = 0, maxRight = 0;
+    let ans = 0;
+
+    for (let i = 1; i < n - 1; i++) {
+        if (maxRight > i) {
+            p[i] = Math.min(maxRight - i, p[2 * pos - i]);
+        } else {
+            p[i] = 1;
+        }
+
+        while (t[i - p[i]] === t[i + p[i]]) {
+            p[i]++;
+        }
+
+        if (i + p[i] > maxRight) {
+            maxRight = i + p[i];
+            pos = i;
+        }
+
+        ans += Math.floor(p[i] / 2);
+    }
+
+    return ans;
 }
 ```
 
