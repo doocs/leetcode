@@ -67,13 +67,13 @@ tags:
 
 ### 方法一：前缀和
 
-我们定义变量 $left$ 表示数组 `nums` 中下标 $i$ 左侧元素之和，变量 $right$ 表示数组 `nums` 中下标 $i$ 右侧元素之和。初始时 $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$。
+我们定义变量 $l$ 表示数组 $\textit{nums}$ 中下标 $i$ 左侧元素之和，变量 $r$ 表示数组 $\textit{nums}$ 中下标 $i$ 右侧元素之和。初始时 $l = 0$, $r = \sum_{i = 0}^{n - 1} \textit{nums}[i]$。
 
-遍历数组 `nums`，对于当前遍历到的数字 $x$，我们更新 $right = right - x$，此时 $left$ 和 $right$ 分别表示数组 `nums` 中下标 $i$ 左侧元素之和和右侧元素之和。我们将 $left$ 和 $right$ 的差的绝对值加入答案数组 `ans` 中，然后更新 $left = left + x$。
+遍历数组 $\textit{nums}$，对于当前遍历到的数字 $x$，我们更新 $r = r - x$，此时 $l$ 和 $r$ 分别表示数组 $\textit{nums}$ 中下标 $i$ 左侧元素之和和右侧元素之和。我们将 $l$ 和 $r$ 的差的绝对值加入答案数组 $\textit{ans}$ 中，然后更新 $l = l + x$。
 
-遍历完成后，返回答案数组 `ans` 即可。
+遍历结束，返回答案数组 $\textit{ans}$ 即可。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$，不考虑返回值的空间。
 
 相似题目：
 
@@ -86,13 +86,13 @@ tags:
 
 ```python
 class Solution:
-    def leftRigthDifference(self, nums: List[int]) -> List[int]:
-        left, right = 0, sum(nums)
+    def leftRightDifference(self, nums: List[int]) -> List[int]:
+        l, r = 0, sum(nums)
         ans = []
         for x in nums:
-            right -= x
-            ans.append(abs(left - right))
-            left += x
+            r -= x
+            ans.append(abs(l - r))
+            l += x
         return ans
 ```
 
@@ -100,14 +100,17 @@ class Solution:
 
 ```java
 class Solution {
-    public int[] leftRigthDifference(int[] nums) {
-        int left = 0, right = Arrays.stream(nums).sum();
+    public int[] leftRightDifference(int[] nums) {
+        int l = 0, r = 0;
+        for (int x : nums) {
+            r += x;
+        }
         int n = nums.length;
         int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            right -= nums[i];
-            ans[i] = Math.abs(left - right);
-            left += nums[i];
+            r -= nums[i];
+            ans[i] = Math.abs(l - r);
+            l += nums[i];
         }
         return ans;
     }
@@ -119,13 +122,17 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> leftRigthDifference(vector<int>& nums) {
-        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
-        vector<int> ans;
-        for (int& x : nums) {
-            right -= x;
-            ans.push_back(abs(left - right));
-            left += x;
+    vector<int> leftRightDifference(vector<int>& nums) {
+        int l = 0, r = 0;
+        for (int x : nums) {
+            r += x;
+        }
+        int n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            r -= nums[i];
+            ans[i] = abs(l - r);
+            l += nums[i];
         }
         return ans;
     }
@@ -135,17 +142,19 @@ public:
 #### Go
 
 ```go
-func leftRigthDifference(nums []int) (ans []int) {
-	var left, right int
+func leftRightDifference(nums []int) []int {
+	l, r := 0, 0
 	for _, x := range nums {
-		right += x
+		r += x
 	}
-	for _, x := range nums {
-		right -= x
-		ans = append(ans, abs(left-right))
-		left += x
+	n := len(nums)
+	ans := make([]int, n)
+	for i, x := range nums {
+		r -= x
+		ans[i] = abs(l - r)
+		l += x
 	}
-	return
+	return ans
 }
 
 func abs(x int) int {
@@ -159,34 +168,32 @@ func abs(x int) int {
 #### TypeScript
 
 ```ts
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+function leftRightDifference(nums: number[]): number[] {
+    let [l, r] = [0, nums.reduce((a, b) => a + b, 0)];
     const ans: number[] = [];
     for (const x of nums) {
-        right -= x;
-        ans.push(Math.abs(left - right));
-        left += x;
+        r -= x;
+        ans.push(Math.abs(l - r));
+        l += x;
     }
     return ans;
-}
+};
 ```
 
 #### Rust
 
 ```rust
 impl Solution {
-    pub fn left_rigth_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut left = 0;
-        let mut right = nums.iter().sum::<i32>();
-        nums.iter()
-            .map(|v| {
-                right -= v;
-                let res = (left - right).abs();
-                left += v;
-                res
-            })
-            .collect()
+    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
+        let mut l = 0;
+        let mut r: i32 = nums.iter().sum();
+        let mut ans = Vec::with_capacity(nums.len());
+        for x in nums {
+            r -= x;
+            ans.push((l - r).abs());
+            l += x;
+        }
+        ans
     }
 }
 ```
@@ -197,101 +204,22 @@ impl Solution {
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
-    int left = 0;
-    int right = 0;
-    for (int i = 0; i < numsSize; i++) {
-        right += nums[i];
-    }
-    int* ans = malloc(sizeof(int) * numsSize);
-    for (int i = 0; i < numsSize; i++) {
-        right -= nums[i];
-        ans[i] = abs(left - right);
-        left += nums[i];
-    }
+int* leftRightDifference(int* nums, int numsSize, int* returnSize) {
     *returnSize = numsSize;
+    int* ans = (int*)malloc(sizeof(int) * numsSize);
+
+    int l = 0, r = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        r += nums[i];
+    }
+
+    for (int i = 0; i < numsSize; ++i) {
+        r -= nums[i];
+        ans[i] = abs(l - r);
+        l += nums[i];
+    }
+
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0;
-    let right = nums.reduce((r, v) => r + v);
-    return nums.map(v => {
-        right -= v;
-        const res = Math.abs(left - right);
-        left += v;
-        return res;
-    });
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans = vec![];
-
-        for i in 0..nums.len() {
-            let mut left = 0;
-            for j in 0..i {
-                left += nums[j];
-            }
-
-            let mut right = 0;
-            for k in i + 1..nums.len() {
-                right += nums[k];
-            }
-
-            ans.push((left - right).abs());
-        }
-
-        ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut left = 0;
-        let mut right: i32 = nums.iter().sum();
-        let mut ans = vec![];
-
-        for &x in &nums {
-            right -= x;
-            ans.push((left - right).abs());
-            left += x;
-        }
-
-        ans
-    }
 }
 ```
 

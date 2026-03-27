@@ -65,13 +65,13 @@ The array answer is [|0 - 0|] = [0].
 
 ### Solution 1: Prefix Sum
 
-We define a variable $left$ to represent the sum of the elements to the left of index $i$ in the array `nums`, and a variable $right$ to represent the sum of the elements to the right of index $i$ in the array `nums`. Initially, $left = 0$, $right = \sum_{i = 0}^{n - 1} nums[i]$.
+We define a variable $l$ to represent the sum of elements to the left of index $i$ in the array $\textit{nums}$, and a variable $r$ to represent the sum of elements to the right of index $i$ in the array $\textit{nums}$. Initially, $l = 0$, $r = \sum_{i = 0}^{n - 1} \textit{nums}[i]$.
 
-We iterate over the array `nums`. For the current number $x$ we are iterating over, we update $right = right - x$. At this point, $left$ and $right$ represent the sum of the elements to the left and right of index $i$ in the array `nums`, respectively. We add the absolute difference between $left$ and $right$ to the answer array `ans`, and then update $left = left + x$.
+We traverse the array $\textit{nums}$. For the current number $x$, we update $r = r - x$. At this point, $l$ and $r$ represent the sum of elements to the left and right of index $i$ in the array $\textit{nums}$, respectively. We add the absolute difference of $l$ and $r$ to the answer array $\textit{ans}$, then update $l = l + x$.
 
-After the iteration is complete, we return the answer array `ans`.
+After the traversal, we return the answer array $\textit{ans}$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array `nums`.
+The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$, not counting the space for the return value.
 
 Similar problems:
 
@@ -84,13 +84,13 @@ Similar problems:
 
 ```python
 class Solution:
-    def leftRigthDifference(self, nums: List[int]) -> List[int]:
-        left, right = 0, sum(nums)
+    def leftRightDifference(self, nums: List[int]) -> List[int]:
+        l, r = 0, sum(nums)
         ans = []
         for x in nums:
-            right -= x
-            ans.append(abs(left - right))
-            left += x
+            r -= x
+            ans.append(abs(l - r))
+            l += x
         return ans
 ```
 
@@ -98,14 +98,17 @@ class Solution:
 
 ```java
 class Solution {
-    public int[] leftRigthDifference(int[] nums) {
-        int left = 0, right = Arrays.stream(nums).sum();
+    public int[] leftRightDifference(int[] nums) {
+        int l = 0, r = 0;
+        for (int x : nums) {
+            r += x;
+        }
         int n = nums.length;
         int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            right -= nums[i];
-            ans[i] = Math.abs(left - right);
-            left += nums[i];
+            r -= nums[i];
+            ans[i] = Math.abs(l - r);
+            l += nums[i];
         }
         return ans;
     }
@@ -117,13 +120,17 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> leftRigthDifference(vector<int>& nums) {
-        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
-        vector<int> ans;
-        for (int& x : nums) {
-            right -= x;
-            ans.push_back(abs(left - right));
-            left += x;
+    vector<int> leftRightDifference(vector<int>& nums) {
+        int l = 0, r = 0;
+        for (int x : nums) {
+            r += x;
+        }
+        int n = nums.size();
+        vector<int> ans(n);
+        for (int i = 0; i < n; ++i) {
+            r -= nums[i];
+            ans[i] = abs(l - r);
+            l += nums[i];
         }
         return ans;
     }
@@ -133,17 +140,19 @@ public:
 #### Go
 
 ```go
-func leftRigthDifference(nums []int) (ans []int) {
-	var left, right int
+func leftRightDifference(nums []int) []int {
+	l, r := 0, 0
 	for _, x := range nums {
-		right += x
+		r += x
 	}
-	for _, x := range nums {
-		right -= x
-		ans = append(ans, abs(left-right))
-		left += x
+	n := len(nums)
+	ans := make([]int, n)
+	for i, x := range nums {
+		r -= x
+		ans[i] = abs(l - r)
+		l += x
 	}
-	return
+	return ans
 }
 
 func abs(x int) int {
@@ -157,14 +166,13 @@ func abs(x int) int {
 #### TypeScript
 
 ```ts
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+function leftRightDifference(nums: number[]): number[] {
+    let [l, r] = [0, nums.reduce((a, b) => a + b, 0)];
     const ans: number[] = [];
     for (const x of nums) {
-        right -= x;
-        ans.push(Math.abs(left - right));
-        left += x;
+        r -= x;
+        ans.push(Math.abs(l - r));
+        l += x;
     }
     return ans;
 }
@@ -174,17 +182,16 @@ function leftRigthDifference(nums: number[]): number[] {
 
 ```rust
 impl Solution {
-    pub fn left_rigth_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut left = 0;
-        let mut right = nums.iter().sum::<i32>();
-        nums.iter()
-            .map(|v| {
-                right -= v;
-                let res = (left - right).abs();
-                left += v;
-                res
-            })
-            .collect()
+    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
+        let mut l = 0;
+        let mut r: i32 = nums.iter().sum();
+        let mut ans = Vec::with_capacity(nums.len());
+        for x in nums {
+            r -= x;
+            ans.push((l - r).abs());
+            l += x;
+        }
+        ans
     }
 }
 ```
@@ -195,101 +202,22 @@ impl Solution {
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-int* leftRigthDifference(int* nums, int numsSize, int* returnSize) {
-    int left = 0;
-    int right = 0;
-    for (int i = 0; i < numsSize; i++) {
-        right += nums[i];
-    }
-    int* ans = malloc(sizeof(int) * numsSize);
-    for (int i = 0; i < numsSize; i++) {
-        right -= nums[i];
-        ans[i] = abs(left - right);
-        left += nums[i];
-    }
+int* leftRightDifference(int* nums, int numsSize, int* returnSize) {
     *returnSize = numsSize;
+    int* ans = (int*)malloc(sizeof(int) * numsSize);
+
+    int l = 0, r = 0;
+    for (int i = 0; i < numsSize; ++i) {
+        r += nums[i];
+    }
+
+    for (int i = 0; i < numsSize; ++i) {
+        r -= nums[i];
+        ans[i] = abs(l - r);
+        l += nums[i];
+    }
+
     return ans;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0;
-    let right = nums.reduce((r, v) => r + v);
-    return nums.map(v => {
-        right -= v;
-        const res = Math.abs(left - right);
-        left += v;
-        return res;
-    });
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut ans = vec![];
-
-        for i in 0..nums.len() {
-            let mut left = 0;
-            for j in 0..i {
-                left += nums[j];
-            }
-
-            let mut right = 0;
-            for k in i + 1..nums.len() {
-                right += nums[k];
-            }
-
-            ans.push((left - right).abs());
-        }
-
-        ans
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut left = 0;
-        let mut right: i32 = nums.iter().sum();
-        let mut ans = vec![];
-
-        for &x in &nums {
-            right -= x;
-            ans.push((left - right).abs());
-            left += x;
-        }
-
-        ans
-    }
 }
 ```
 
