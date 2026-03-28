@@ -1,11 +1,10 @@
-function leftRigthDifference(nums: number[]): number[] {
-    let left = 0,
-        right = nums.reduce((a, b) => a + b);
+function leftRightDifference(nums: number[]): number[] {
+    let [l, r] = [0, nums.reduce((a, b) => a + b, 0)];
     const ans: number[] = [];
     for (const x of nums) {
-        right -= x;
-        ans.push(Math.abs(left - right));
-        left += x;
+        r -= x;
+        ans.push(Math.abs(l - r));
+        l += x;
     }
     return ans;
-}
+};
