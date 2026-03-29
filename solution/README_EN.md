@@ -3888,6 +3888,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3877  |  [Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 494  |
 |  3878  |  [Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)  |  `Stack`,`Bit Manipulation`,`Array`,`Monotonic Stack`  |  Hard  |  Weekly Contest 494  |
 |  3879  |  [Maximum Distinct Path Sum in a Binary Tree](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Hash Table`,`Binary Tree`  |  Medium  |  🔒  |
+|  3880  |  [Minimum Absolute Difference Between Two Values](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README_EN.md)  |    |  Easy  |  Biweekly Contest 179  |
+|  3881  |  [Direction Assignments with Exactly K Visible People](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README_EN.md)  |    |  Medium  |  Biweekly Contest 179  |
+|  3882  |  [Minimum XOR Path in a Grid](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 179  |
+|  3883  |  [Count Non Decreasing Arrays With Given Digit Sums](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README_EN.md)  |    |  Hard  |  Biweekly Contest 179  |
 
 ## Copyright
 

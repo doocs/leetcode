@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README.md
+rating: 1199
+source: 第 494 场周赛 Q1
 tags:
     - 数组
     - 数学

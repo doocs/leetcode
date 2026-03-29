@@ -312,15 +312,16 @@ func countSubstrings(s string) int {
 
 ```ts
 function countSubstrings(s: string): number {
-    let t = "^#";
+    let t = '^#';
     for (const c of s) {
-        t += c + "#";
+        t += c + '#';
     }
-    t += "$";
+    t += '$';
 
     const n = t.length;
     const p: number[] = new Array(n).fill(0);
-    let pos = 0, maxRight = 0;
+    let pos = 0,
+        maxRight = 0;
     let ans = 0;
 
     for (let i = 1; i < n - 1; i++) {
