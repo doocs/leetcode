@@ -98,32 +98,239 @@ A person at index <code>pos</code> sees others as follows:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Combinatorics + Enumeration
+
+There are $\textit{pos}$ people to the left of position $\textit{pos}$, and $n - \textit{pos} - 1$ people to the right.
+
+We enumerate the number of visible people on the left, $a$, so the number of visible people on the right is $b = k - a$. If both $a$ and $b$ are valid, the answer increases by $2 \cdot \binom{\textit{pos}}{a} \cdot \binom{n - \textit{pos} - 1}{b}$. The factor of $2$ comes from the fact that the person at index $\textit{pos}$ can face either 'L' or 'R'.
+
+For the binomial coefficient $\binom{n}{k}$, we can precompute factorials and modular inverses for fast calculation.
+
+The time complexity is $O(n)$, where $n$ is the input integer $n$. The space complexity is $O(n)$ for storing factorials and modular inverses.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+N = 100001
+MOD = 10**9 + 7
+f = [1] * N
+g = [1] * N
+for i in range(1, N):
+    f[i] = f[i - 1] * i % MOD
+    g[i] = pow(f[i], MOD - 2, MOD)
 
+
+def comb(n, k):
+    return f[n] * g[k] * g[n - k] % MOD
+
+
+class Solution:
+    def countVisiblePeople(self, n: int, pos: int, k: int) -> int:
+        l, r = pos, n - pos - 1
+        ans = 0
+        for a in range(min(k, l) + 1):
+            b = k - a
+            if b <= r:
+                ans += 2 * comb(l, a) * comb(r, b)
+                ans %= MOD
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int N = 100001;
+    private static final int MOD = (int) 1e9 + 7;
+    private static final long[] F = new long[N];
+    private static final long[] G = new long[N];
 
+    static {
+        F[0] = 1;
+        G[0] = 1;
+        for (int i = 1; i < N; ++i) {
+            F[i] = F[i - 1] * i % MOD;
+            G[i] = qmi(F[i], MOD - 2, MOD);
+        }
+    }
+
+    public static long qmi(long a, long k, long p) {
+        long res = 1;
+        while (k != 0) {
+            if ((k & 1) == 1) {
+                res = res * a % p;
+            }
+            k >>= 1;
+            a = a * a % p;
+        }
+        return res;
+    }
+
+    public static long comb(int n, int k) {
+        return (F[n] * G[k] % MOD) * G[n - k] % MOD;
+    }
+
+    public int countVisiblePeople(int n, int pos, int k) {
+        int l = pos, r = n - pos - 1;
+        long ans = 0;
+
+        for (int a = 0; a <= Math.min(k, l); ++a) {
+            int b = k - a;
+            if (b <= r) {
+                ans = (ans + 2 * comb(l, a) % MOD * comb(r, b) % MOD) % MOD;
+            }
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+int N = 100001;
+int MOD = 1e9 + 7;
+long long f[100001];
+long long g[100001];
 
+long long qmi(long long a, long long k, long long p) {
+    long long res = 1;
+    while (k != 0) {
+        if ((k & 1) == 1) {
+            res = res * a % p;
+        }
+        k >>= 1;
+        a = a * a % p;
+    }
+    return res;
+}
+
+int init = []() {
+    f[0] = 1;
+    g[0] = 1;
+    for (int i = 1; i < N; ++i) {
+        f[i] = f[i - 1] * i % MOD;
+        g[i] = qmi(f[i], MOD - 2, MOD);
+    }
+    return 0;
+}();
+
+long long comb(int n, int k) {
+    return f[n] * g[k] % MOD * g[n - k] % MOD;
+}
+
+class Solution {
+public:
+    int countVisiblePeople(int n, int pos, int k) {
+        int l = pos, r = n - pos - 1;
+        long long ans = 0;
+
+        for (int a = 0; a <= min(k, l); ++a) {
+            int b = k - a;
+            if (b <= r) {
+                ans = (ans + 2 * comb(l, a) % MOD * comb(r, b) % MOD) % MOD;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+package main
 
+const N = 100001
+const MOD = 1e9 + 7
+
+var f = make([]int, N)
+var g = make([]int, N)
+
+func qmi(a, k, p int) int {
+	res := 1
+	for k != 0 {
+		if k&1 == 1 {
+			res = res * a % p
+		}
+		k >>= 1
+		a = a * a % p
+	}
+	return res
+}
+
+func init() {
+	f[0], g[0] = 1, 1
+	for i := 1; i < N; i++ {
+		f[i] = f[i-1] * i % MOD
+		g[i] = qmi(f[i], MOD-2, MOD)
+	}
+}
+
+func comb(n, k int) int {
+	return f[n] * g[k] % MOD * g[n-k] % MOD
+}
+
+func countVisiblePeople(n int, pos int, k int) int {
+	l, r := pos, n-pos-1
+	ans := 0
+
+	for a := 0; a <= min(k, l); a++ {
+		b := k - a
+		if b <= r {
+			ans = (ans + 2*comb(l, a)%MOD*comb(r, b)%MOD) % MOD
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+const N = 100001;
+const MOD = 1000000007n;
+
+const f: bigint[] = Array(N).fill(0n);
+const g: bigint[] = Array(N).fill(0n);
+
+function qmi(a: bigint, k: bigint, p: bigint): bigint {
+    let res = 1n;
+    while (k > 0n) {
+        if (k & 1n) res = (res * a) % p;
+        k >>= 1n;
+        a = (a * a) % p;
+    }
+    return res;
+}
+
+f[0] = 1n;
+g[0] = 1n;
+for (let i = 1; i < N; i++) {
+    f[i] = (f[i - 1] * BigInt(i)) % MOD;
+    g[i] = qmi(f[i], MOD - 2n, MOD);
+}
+
+function comb(n: number, k: number): bigint {
+    return (((f[n] * g[k]) % MOD) * g[n - k]) % MOD;
+}
+
+function countVisiblePeople(n: number, pos: number, k: number): number {
+    const l = pos,
+        r = n - pos - 1;
+    let ans = 0n;
+
+    for (let a = 0; a <= Math.min(k, l); a++) {
+        const b = k - a;
+        if (b <= r) {
+            ans = (ans + ((((2n * comb(l, a)) % MOD) * comb(r, b)) % MOD)) % MOD;
+        }
+    }
+
+    return Number(ans);
+}
 ```
 
 <!-- tabs:end -->
