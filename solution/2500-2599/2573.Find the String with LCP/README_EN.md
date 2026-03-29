@@ -47,7 +47,7 @@ tags:
 <pre>
 <strong>Input:</strong> lcp = [[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,1]]
 <strong>Output:</strong> &quot;aaaa&quot;
-<strong>Explanation:</strong> lcp corresponds to any 4 letter string with a single distinct letter. The lexicographically smallest of them is &quot;aaaa&quot;.
+<strong>Explanation:</strong> lcp corresponds to any 4 letter string with a single distinct letter. The lexicographically smallest of them is &quot;aaaa&quot;. 
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>

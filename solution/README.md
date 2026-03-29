@@ -3890,6 +3890,10 @@
 |  3877  |  [达到目标异或值的最少删除次数](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md)  |  `位运算`,`数组`,`动态规划`  |  中等  |  第 494 场周赛  |
 |  3878  |  [统计好子数组](/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md)  |  `栈`,`位运算`,`数组`,`单调栈`  |  困难  |  第 494 场周赛  |
 |  3879  |  [二叉树中的最大不同路径和](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`哈希表`,`二叉树`  |  中等  |  🔒  |
+|  3880  |  [两个值之间的最小绝对差值](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README.md)  |    |  简单  |  第 179 场双周赛  |
+|  3881  |  [恰好看到 K 个人的方向选择](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README.md)  |    |  中等  |  第 179 场双周赛  |
+|  3882  |  [网格图中最小异或路径](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README.md)  |    |  中等  |  第 179 场双周赛  |
+|  3883  |  [统计满足数位和数组的非递减数组数目](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README.md)  |    |  困难  |  第 179 场双周赛  |
 
 ## 版权
 

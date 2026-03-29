@@ -42,7 +42,7 @@ function replaceWords(dictionary: string[], sentence: string): string {
     }
 
     return sentence
-        .split(" ")
+        .split(' ')
         .map(w => trie.search(w))
-        .join(" ");
+        .join(' ');
 }

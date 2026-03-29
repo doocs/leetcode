@@ -7,4 +7,4 @@ function leftRightDifference(nums: number[]): number[] {
         l += x;
     }
     return ans;
-};
+}

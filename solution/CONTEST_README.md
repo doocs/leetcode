@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 179 场双周赛(2026-03-28 22:30, 90 分钟) 参赛人数 1258
+
+- [3880. 两个值之间的最小绝对差值](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README.md)
+- [3881. 恰好看到 K 个人的方向选择](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README.md)
+- [3882. 网格图中最小异或路径](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README.md)
+- [3883. 统计满足数位和数组的非递减数组数目](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README.md)
+
 #### 第 494 场周赛(2026-03-22 10:30, 90 分钟) 参赛人数 2464
 
 - [3875. 构造奇偶一致的数组 I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README.md)

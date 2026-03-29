@@ -48,7 +48,7 @@ tags:
 <pre>
 <strong>输入：</strong>lcp = [[4,3,2,1],[3,3,2,1],[2,2,2,1],[1,1,1,1]]
 <strong>输出：</strong>"aaaa"
-<strong>解释：</strong>lcp 对应只有一个不同字母的任意 4 字母字符串，字典序最小的是 "aaaa" 。
+<strong>解释：</strong>lcp 对应只有一个不同字母的任意 4 字母字符串，字典序最小的是 "aaaa" 。 
 </pre>
 
 <p><strong>示例 3：</strong></p>

@@ -51,7 +51,7 @@ tags:
 <strong>Explanation:</strong> There are 2 beautiful substrings in the given string.
 - Substring &quot;b<u>aeyh</u>&quot;, vowels = 2 ([&quot;a&quot;,e&quot;]), consonants = 2 ([&quot;y&quot;,&quot;h&quot;]).
 You can see that string &quot;aeyh&quot; is beautiful as vowels == consonants and vowels * consonants % k == 0.
-- Substring &quot;<u>baey</u>h&quot;, vowels = 2 ([&quot;a&quot;,e&quot;]), consonants = 2 ([&quot;b&quot;,&quot;y&quot;]).
+- Substring &quot;<u>baey</u>h&quot;, vowels = 2 ([&quot;a&quot;,e&quot;]), consonants = 2 ([&quot;b&quot;,&quot;y&quot;]). 
 You can see that string &quot;baey&quot; is beautiful as vowels == consonants and vowels * consonants % k == 0.
 It can be shown that there are only 2 beautiful substrings in the given string.
 </pre>
@@ -62,7 +62,7 @@ It can be shown that there are only 2 beautiful substrings in the given string.
 <strong>Input:</strong> s = &quot;abba&quot;, k = 1
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> There are 3 beautiful substrings in the given string.
-- Substring &quot;<u>ab</u>ba&quot;, vowels = 1 ([&quot;a&quot;]), consonants = 1 ([&quot;b&quot;]).
+- Substring &quot;<u>ab</u>ba&quot;, vowels = 1 ([&quot;a&quot;]), consonants = 1 ([&quot;b&quot;]). 
 - Substring &quot;ab<u>ba</u>&quot;, vowels = 1 ([&quot;a&quot;]), consonants = 1 ([&quot;b&quot;]).
 - Substring &quot;<u>abba</u>&quot;, vowels = 2 ([&quot;a&quot;,&quot;a&quot;]), consonants = 2 ([&quot;b&quot;,&quot;b&quot;]).
 It can be shown that there are only 3 beautiful substrings in the given string.

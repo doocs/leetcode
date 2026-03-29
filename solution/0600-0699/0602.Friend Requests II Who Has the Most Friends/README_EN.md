@@ -42,7 +42,7 @@ This table contains the ID of the user who sent the request, the ID of the user 
 <p><strong class="example">Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong>
+<strong>Input:</strong> 
 RequestAccepted table:
 +--------------+-------------+-------------+
 | requester_id | accepter_id | accept_date |
@@ -52,13 +52,13 @@ RequestAccepted table:
 | 2            | 3           | 2016/06/08  |
 | 3            | 4           | 2016/06/09  |
 +--------------+-------------+-------------+
-<strong>Output:</strong>
+<strong>Output:</strong> 
 +----+-----+
 | id | num |
 +----+-----+
 | 3  | 3   |
 +----+-----+
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 The person with id 3 is a friend of people 1, 2, and 4, so he has three friends in total, which is the most number than any others.
 </pre>
 
