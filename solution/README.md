@@ -3898,6 +3898,7 @@
 |  3885  |  [设计事件管理器](/solution/3800-3899/3885.Design%20Event%20Manager/README.md)  |    |  中等  |  第 495 场周赛  |
 |  3886  |  [可排序整数求和](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README.md)  |    |  困难  |  第 495 场周赛  |
 |  3887  |  [增量偶权环查询](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README.md)  |    |  困难  |  第 495 场周赛  |
+|  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
