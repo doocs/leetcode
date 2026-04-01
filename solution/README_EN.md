@@ -3896,6 +3896,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3885  |  [Design Event Manager](/solution/3800-3899/3885.Design%20Event%20Manager/README_EN.md)  |    |  Medium  |  Weekly Contest 495  |
 |  3886  |  [Sum of Sortable Integers](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 495  |
 |  3887  |  [Incremental Even-Weighted Cycle Queries](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 495  |
+|  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

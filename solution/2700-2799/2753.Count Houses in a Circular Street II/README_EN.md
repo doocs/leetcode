@@ -36,7 +36,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2753.Co
 <pre>
 <strong>Input:</strong> street = [1,1,1,1], k = 10
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> There are 4 houses, and all their doors are open.
+<strong>Explanation:</strong> There are 4 houses, and all their doors are open. 
 The number of houses is less than k, which is 10.</pre>
 
 <p><strong class="example">Example 2:</strong></p>
