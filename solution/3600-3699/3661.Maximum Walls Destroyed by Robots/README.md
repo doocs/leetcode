@@ -158,7 +158,9 @@ class Solution:
             ans = max(ans, dfs(i - 1, 1) + r - l)
             return ans
 
-        return dfs(n - 1, 1)
+        ans = dfs(n - 1, 1)
+        dfs.cache_clear()
+        return ans
 ```
 
 #### Java
