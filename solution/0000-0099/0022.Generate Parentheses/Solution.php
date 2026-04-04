@@ -1,23 +1,28 @@
 class Solution {
 
-/**
- * @param Integer $n
- * @return String[]
- */
-function generateParenthesis($n) {
-    $ans = [];
+    private $ans = [];
+    private $n = 0;
 
-    $dfs = function($l, $r, $t) use ($n, &$ans, &$dfs) {
-        if ($l > $n || $r > $n || $l < $r) return;
-        if ($l == $n && $r == $n) {
-            $ans[] = $t;
+    /**
+     * @param Integer $n
+     * @return String[]
+     */
+    function generateParenthesis($n) {
+        $this->n = $n;
+        $this->ans = [];
+        $this->dfs(0, 0, "");
+        return $this->ans;
+    }
+
+    private function dfs($l, $r, $t) {
+        if ($l > $this->n || $r > $this->n || $l < $r) {
             return;
         }
-        $dfs($l + 1, $r, $t . "(");
-        $dfs($l, $r + 1, $t . ")");
-    };
-
-    $dfs(0, 0, "");
-    return $ans;
-}
+        if ($l == $this->n && $r == $this->n) {
+            $this->ans[] = $t;
+            return;
+        }
+        $this->dfs($l + 1, $r, $t . "(");
+        $this->dfs($l, $r + 1, $t . ")");
+    }
 }
