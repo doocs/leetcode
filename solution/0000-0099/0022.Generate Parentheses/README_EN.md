@@ -61,17 +61,17 @@ The time complexity is $O(2^{n\times 2} \times n)$, and the space complexity is 
 ```python
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        def dfs(l, r, t):
+        def dfs(l: int, r: int, t: str):
             if l > n or r > n or l < r:
                 return
             if l == n and r == n:
                 ans.append(t)
                 return
-            dfs(l + 1, r, t + '(')
-            dfs(l, r + 1, t + ')')
+            dfs(l + 1, r, t + "(")
+            dfs(l, r + 1, t + ")")
 
         ans = []
-        dfs(0, 0, '')
+        dfs(0, 0, "")
         return ans
 ```
 
@@ -109,8 +109,10 @@ class Solution {
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
-        function<void(int, int, string)> dfs = [&](int l, int r, string t) {
-            if (l > n || r > n || l < r) return;
+        auto dfs = [&](this auto&& dfs, int l, int r, string t) -> void {
+            if (l > n || r > n || l < r) {
+                return;
+            }
             if (l == n && r == n) {
                 ans.push_back(t);
                 return;
@@ -149,7 +151,7 @@ func generateParenthesis(n int) (ans []string) {
 
 ```ts
 function generateParenthesis(n: number): string[] {
-    function dfs(l, r, t) {
+    const dfs = (l: number, r: number, t: string) => {
         if (l > n || r > n || l < r) {
             return;
         }
@@ -159,8 +161,8 @@ function generateParenthesis(n: number): string[] {
         }
         dfs(l + 1, r, t + '(');
         dfs(l, r + 1, t + ')');
-    }
-    let ans = [];
+    };
+    const ans: string[] = [];
     dfs(0, 0, '');
     return ans;
 }
@@ -170,27 +172,23 @@ function generateParenthesis(n: number): string[] {
 
 ```rust
 impl Solution {
-    fn dfs(left: i32, right: i32, s: &mut String, res: &mut Vec<String>) {
-        if left == 0 && right == 0 {
-            res.push(s.clone());
-            return;
-        }
-        if left > 0 {
-            s.push('(');
-            Self::dfs(left - 1, right, s, res);
-            s.pop();
-        }
-        if right > left {
-            s.push(')');
-            Self::dfs(left, right - 1, s, res);
-            s.pop();
-        }
-    }
-
     pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut res = Vec::new();
-        Self::dfs(n, n, &mut String::new(), &mut res);
-        res
+        let mut ans = Vec::new();
+
+        fn dfs(ans: &mut Vec<String>, l: i32, r: i32, t: String, n: i32) {
+            if l > n || r > n || l < r {
+                return;
+            }
+            if l == n && r == n {
+                ans.push(t);
+                return;
+            }
+            dfs(ans, l + 1, r, format!("{}(", t), n);
+            dfs(ans, l, r + 1, format!("{})", t), n);
+        }
+
+        dfs(&mut ans, 0, 0, String::new(), n);
+        ans
     }
 }
 ```
@@ -203,7 +201,7 @@ impl Solution {
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-    function dfs(l, r, t) {
+    const dfs = (l, r, t) => {
         if (l > n || r > n || l < r) {
             return;
         }
@@ -213,8 +211,8 @@ var generateParenthesis = function (n) {
         }
         dfs(l + 1, r, t + '(');
         dfs(l, r + 1, t + ')');
-    }
-    let ans = [];
+    };
+    const ans = [];
     dfs(0, 0, '');
     return ans;
 };
@@ -251,70 +249,31 @@ public class Solution {
 
 ```php
 class Solution {
+    private $ans = [];
+    private $n = 0;
+
     /**
      * @param Integer $n
      * @return String[]
      */
     function generateParenthesis($n) {
-        $ans = [];
-
-        $dfs = function ($l, $r, $t) use ($n, &$ans, &$dfs) {
-            if ($l > $n || $r > $n || $l < $r) {
-                return;
-            }
-            if ($l == $n && $r == $n) {
-                $ans[] = $t;
-                return;
-            }
-            $dfs($l + 1, $r, $t . '(');
-            $dfs($l, $r + 1, $t . ')');
-        };
-
-        $dfs(0, 0, '');
-        return $ans;
+        $this->n = $n;
+        $this->ans = [];
+        $this->dfs(0, 0, '');
+        return $this->ans;
     }
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2: Recursion
-
-<!-- tabs:start -->
-
-#### TypeScript
-
-```ts
-function generateParenthesis(n: number): string[] {
-    if (n === 1) return ['()'];
-
-    return [
-        ...new Set(
-            generateParenthesis(n - 1).flatMap(s =>
-                Array.from(s, (_, i) => s.slice(0, i) + '()' + s.slice(i)),
-            ),
-        ),
-    ];
-}
-```
-
-#### JavaScript
-
-```js
-function generateParenthesis(n) {
-    if (n === 1) return ['()'];
-
-    return [
-        ...new Set(
-            generateParenthesis(n - 1).flatMap(s =>
-                Array.from(s, (_, i) => s.slice(0, i) + '()' + s.slice(i)),
-            ),
-        ),
-    ];
+    private function dfs($l, $r, $t) {
+        if ($l > $this->n || $r > $this->n || $l < $r) {
+            return;
+        }
+        if ($l == $this->n && $r == $this->n) {
+            $this->ans[] = $t;
+            return;
+        }
+        $this->dfs($l + 1, $r, $t . '(');
+        $this->dfs($l, $r + 1, $t . ')');
+    }
 }
 ```
 
