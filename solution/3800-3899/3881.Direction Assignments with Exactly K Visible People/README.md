@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README.md
+rating: 1760
+source: 第 179 场双周赛 Q2
 ---
 
 <!-- problem:start -->

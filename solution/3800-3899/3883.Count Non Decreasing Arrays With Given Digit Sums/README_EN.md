@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README_EN.md
+rating: 2172
+source: Biweekly Contest 179 Q4
 ---
 
 <!-- problem:start -->

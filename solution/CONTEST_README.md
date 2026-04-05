@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 496 场周赛(2026-04-05 10:30, 90 分钟) 参赛人数 1441
+
+- [3889. 镜像频次距离](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md)
+- [3890. 可由多种立方和构造的整数](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md)
+- [3891. 最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)
+- [3892. 产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)
+
 #### 第 495 场周赛(2026-03-29 10:30, 90 分钟) 参赛人数 1856
 
 - [3884. 双端字符匹配](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README.md)

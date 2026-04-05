@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README_EN.md
+rating: 1257
+source: Biweekly Contest 179 Q1
 ---
 
 <!-- problem:start -->

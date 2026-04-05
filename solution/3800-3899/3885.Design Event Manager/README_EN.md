@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3885.Design%20Event%20Manager/README_EN.md
+rating: 1548
+source: Weekly Contest 495 Q2
 ---
 
 <!-- problem:start -->

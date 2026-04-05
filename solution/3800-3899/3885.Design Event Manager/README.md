@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3885.Design%20Event%20Manager/README.md
+rating: 1548
+source: 第 495 场周赛 Q2
 ---
 
 <!-- problem:start -->
