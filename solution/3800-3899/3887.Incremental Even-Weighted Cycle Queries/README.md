@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README.md
+rating: 2128
+source: 第 495 场周赛 Q4
 ---
 
 <!-- problem:start -->

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 496
+
+- [3889. Mirror Frequency Distance](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md)
+- [3890. Integers With Multiple Sum of Two Cubes](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README_EN.md)
+- [3891. Minimum Increase to Maximize Special Indices](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md)
+- [3892. Minimum Operations to Achieve At Least K Peaks](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md)
+
 #### Weekly Contest 495
 
 - [3884. First Matching Character From Both Ends](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README_EN.md)

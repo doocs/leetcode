@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README.md
+rating: 2172
+source: 第 179 场双周赛 Q4
 ---
 
 <!-- problem:start -->

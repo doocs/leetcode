@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README_EN.md
+rating: 2128
+source: Weekly Contest 495 Q4
 ---
 
 <!-- problem:start -->

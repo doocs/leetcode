@@ -3899,6 +3899,10 @@
 |  3886  |  [可排序整数求和](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README.md)  |    |  困难  |  第 495 场周赛  |
 |  3887  |  [增量偶权环查询](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README.md)  |    |  困难  |  第 495 场周赛  |
 |  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README.md)  |    |  困难  |  🔒  |
+|  3889  |  [镜像频次距离](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md)  |    |  中等  |  第 496 场周赛  |
+|  3890  |  [可由多种立方和构造的整数](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md)  |    |  中等  |  第 496 场周赛  |
+|  3891  |  [最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)  |    |  中等  |  第 496 场周赛  |
+|  3892  |  [产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)  |    |  困难  |  第 496 场周赛  |
 
 ## 版权
 
