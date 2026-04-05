@@ -72,32 +72,196 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3890.In
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Preprocessing + Binary Search
+
+We observe that when $a$ or $b$ is greater than $1000$, the expression $a^3 + b^3 > 10^9$. Therefore, we only need to enumerate $1 \leq a \leq b \leq 1000$ and count the occurrences of each integer $x = a^3 + b^3$. Finally, we filter out the integers that appear more than once and sort them in ascending order to obtain all good integers.
+
+We preprocess all good integers and store them in an array $\textit{GOOD}$. For each query, we use binary search to find the index $idx$ of the first integer in $\textit{GOOD}$ that is greater than $n$, then return the first $idx$ integers in $\textit{GOOD}$.
+
+The time complexity is $O(m^2 + k \log k)$, where $m = 1000$ is the enumeration range and $k$ is the number of good integers. The space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+LIMIT = 10**9
 
+cnt = defaultdict(int)
+cubes = [i**3 for i in range(1001)]
+
+for a in range(1, 1001):
+    for b in range(a, 1001):
+        x = cubes[a] + cubes[b]
+        if x > LIMIT:
+            break
+        cnt[x] += 1
+
+GOOD = sorted(x for x, v in cnt.items() if v > 1)
+
+
+class Solution:
+    def findGoodIntegers(self, n: int) -> list[int]:
+        idx = bisect_right(GOOD, n)
+        return GOOD[:idx]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int LIMIT = (int) 1e9;
+    private static final List<Integer> GOOD = new ArrayList<>();
 
+    static {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int[] cubes = new int[1001];
+        for (int i = 0; i <= 1000; i++) {
+            cubes[i] = i * i * i;
+        }
+        for (int a = 1; a <= 1000; a++) {
+            for (int b = a; b <= 1000; b++) {
+                int x = cubes[a] + cubes[b];
+                if (x > LIMIT) {
+                    break;
+                }
+                cnt.merge(x, 1, Integer::sum);
+            }
+        }
+        for (Map.Entry<Integer, Integer> e : cnt.entrySet()) {
+            if (e.getValue() > 1) {
+                GOOD.add(e.getKey());
+            }
+        }
+
+        Collections.sort(GOOD);
+    }
+
+    public List<Integer> findGoodIntegers(int n) {
+        int idx = Collections.binarySearch(GOOD, n + 1);
+        if (idx < 0) {
+            idx = -idx - 1;
+        }
+        return GOOD.subList(0, idx);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+vector<int> GOOD;
 
+auto init = [] {
+    const int LIMIT = 1e9;
+
+    unordered_map<int, int> cnt;
+    vector<int> cubes(1001);
+
+    for (int i = 0; i <= 1000; ++i) {
+        cubes[i] = i * i * i;
+    }
+
+    for (int a = 1; a <= 1000; ++a) {
+        for (int b = a; b <= 1000; ++b) {
+            int x = cubes[a] + cubes[b];
+            if (x > LIMIT) break;
+            cnt[x]++;
+        }
+    }
+
+    for (auto& [x, v] : cnt) {
+        if (v > 1) {
+            GOOD.push_back(x);
+        }
+    }
+
+    sort(GOOD.begin(), GOOD.end());
+
+    return 0;
+}();
+
+class Solution {
+public:
+    vector<int> findGoodIntegers(int n) {
+        int idx = upper_bound(GOOD.begin(), GOOD.end(), n) - GOOD.begin();
+        return vector<int>(GOOD.begin(), GOOD.begin() + idx);
+    }
+};
 ```
 
 #### Go
 
 ```go
+var GOOD []int
 
+func init() {
+	const LIMIT = 1e9
+
+	cnt := make(map[int]int)
+	cubes := make([]int, 1001)
+
+	for i := 0; i <= 1000; i++ {
+		cubes[i] = i * i * i
+	}
+
+	for a := 1; a <= 1000; a++ {
+		for b := a; b <= 1000; b++ {
+			x := cubes[a] + cubes[b]
+			if x > LIMIT {
+				break
+			}
+			cnt[x]++
+		}
+	}
+
+	for x, v := range cnt {
+		if v > 1 {
+			GOOD = append(GOOD, x)
+		}
+	}
+
+	sort.Ints(GOOD)
+}
+
+func findGoodIntegers(n int) []int {
+	idx := sort.Search(len(GOOD), func(i int) bool {
+		return GOOD[i] > n
+	})
+	return GOOD[:idx]
+}
+```
+
+#### TypeScript
+
+```ts
+const LIMIT = 1e9;
+
+const GOOD: number[] = (() => {
+    const cnt = new Map<number, number>();
+    const cubes: number[] = Array.from({ length: 1001 }, (_, i) => i * i * i);
+
+    for (let a = 1; a <= 1000; a++) {
+        for (let b = a; b <= 1000; b++) {
+            const x = cubes[a] + cubes[b];
+            if (x > LIMIT) break;
+            cnt.set(x, (cnt.get(x) ?? 0) + 1);
+        }
+    }
+
+    const res: number[] = [];
+    for (const [x, v] of cnt.entries()) {
+        if (v > 1) res.push(x);
+    }
+
+    res.sort((a, b) => a - b);
+    return res;
+})();
+
+function findGoodIntegers(n: number): number[] {
+    const idx = _.sortedLastIndex(GOOD, n);
+    return GOOD.slice(0, idx);
+}
 ```
 
 <!-- tabs:end -->
