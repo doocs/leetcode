@@ -94,32 +94,175 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3891.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoized Search
+
+We observe that if the array length is odd, then increasing all elements at odd indices so that each is $1$ greater than both adjacent elements yields the maximum possible number of special indices. If the array length is even, then among indices in the range $[1, n - 2]$, we skip exactly one index, and for the remaining indices, increase every other element so that each is $1$ greater than both adjacent elements; this also yields the maximum possible number of special indices.
+
+Therefore, we design a function $\text{dfs}(i, j)$, which represents the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ remaining skips. For each index $i$, we can either increase it so that it is $1$ greater than both neighbors, or skip it. We use memoized search to avoid repeated computation.
+
+The implementation of $\text{dfs}(i, j)$ is as follows:
+
+- If $i \geq n - 1$, return $0$.
+- Compute the number of operations required to increase $nums[i]$ so that it is $1$ greater than both adjacent elements, denoted as $cost$.
+- Compute the total cost for choosing to increase $nums[i]$: $cost + \text{dfs}(i + 2, j)$.
+- If $j > 0$, compute the total cost for choosing to skip $nums[i]$: $\text{dfs}(i + 1, 0)$, and update $ans$ to the smaller of the two.
+
+Finally, return $\text{dfs}(1, (n \bmod 2) \oplus 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minIncrease(self, nums: List[int]) -> int:
+        @cache
+        def dfs(i: int, j: int) -> int:
+            if i >= len(nums) - 1:
+                return 0
+            cost = max(0, max(nums[i - 1], nums[i + 1]) + 1 - nums[i])
+            ans = cost + dfs(i + 2, j)
+            if j:
+                ans = min(ans, dfs(i + 1, 0))
+            return ans
 
+        return dfs(1, len(nums) & 1 ^ 1)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private Long[][] f;
+    private int[] nums;
+    private int n;
 
+    public long minIncrease(int[] nums) {
+        n = nums.length;
+        this.nums = nums;
+        f = new Long[n][2];
+        return dfs(1, n & 1 ^ 1);
+    }
+
+    private long dfs(int i, int j) {
+        if (i >= n - 1) {
+            return 0;
+        }
+        if (f[i][j] != null) {
+            return f[i][j];
+        }
+        int cost = Math.max(0, Math.max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+        long ans = cost + dfs(i + 2, j);
+        if (j > 0) {
+            ans = Math.min(ans, dfs(i + 1, 0));
+        }
+        return f[i][j] = ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+private:
+    vector<vector<long long>> f;
+    vector<int> nums;
+    int n;
 
+public:
+    long long minIncrease(vector<int>& nums) {
+        this->nums = nums;
+        n = nums.size();
+        f.assign(n, vector<long long>(2, -1));
+        return dfs(1, (n & 1) ^ 1);
+    }
+
+    long long dfs(int i, int j) {
+        if (i >= n - 1) {
+            return 0;
+        }
+        if (f[i][j] != -1) {
+            return f[i][j];
+        }
+        int cost = max(0, max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+        long long ans = cost + dfs(i + 2, j);
+        if (j > 0) {
+            ans = min(ans, dfs(i + 1, 0));
+        }
+        return f[i][j] = ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minIncrease(nums []int) int64 {
+	n := len(nums)
 
+	f := make([][]int64, n)
+	for i := range f {
+		f[i] = []int64{-1, -1}
+	}
+
+	var dfs func(i, j int) int64
+	dfs = func(i, j int) int64 {
+		if i >= n-1 {
+			return 0
+		}
+		if f[i][j] != -1 {
+			return f[i][j]
+		}
+
+		cost := max(0, max(nums[i-1], nums[i+1])+1-nums[i])
+		ans := int64(cost) + dfs(i+2, j)
+
+		if j > 0 {
+			if t := dfs(i+1, 0); t < ans {
+				ans = t
+			}
+		}
+
+		f[i][j] = ans
+		return ans
+	}
+
+	return dfs(1, (n&1)^1)
+}
+```
+
+#### TypeScript
+
+```ts
+function minIncrease(nums: number[]): number {
+    const n = nums.length;
+
+    const f: number[][] = Array.from({ length: n }, () => Array(2).fill(-1));
+
+    const dfs = (i: number, j: number): number => {
+        if (i >= n - 1) {
+            return 0;
+        }
+        if (f[i][j] !== -1) {
+            return f[i][j];
+        }
+
+        const cost = Math.max(0, Math.max(nums[i - 1], nums[i + 1]) + 1 - nums[i]);
+        let ans = cost + dfs(i + 2, j);
+
+        if (j > 0) {
+            ans = Math.min(ans, dfs(i + 1, 0));
+        }
+
+        f[i][j] = ans;
+        return ans;
+    };
+
+    return dfs(1, (n & 1) ^ 1);
+}
 ```
 
 <!-- tabs:end -->
