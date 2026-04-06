@@ -94,22 +94,22 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3891.Mi
 
 <!-- solution:start -->
 
-### 方法一：记忆化搜索
+### Solution 1: Memoized Search
 
-我们注意到，如果数组长度为奇数，那么将所有奇数下标的元素增加到比相邻元素都大 1 就可以得到最大数量的特殊下标；如果数组长度为偶数，那么将下标范围为 $[1, n - 2]$ 中的下标，跳过其中一个，剩余的元素，按隔一个元素选择一个的方式增加到比相邻元素都大 1 就可以得到最大数量的特殊下标。
+We observe that if the array length is odd, then increasing all elements at odd indices so that each is $1$ greater than both adjacent elements yields the maximum possible number of special indices. If the array length is even, then among indices in the range $[1, n - 2]$, we skip exactly one index, and for the remaining indices, increase every other element so that each is $1$ greater than both adjacent elements; this also yields the maximum possible number of special indices.
 
-因此，我们设计一个函数 $\text{dfs}(i, j)$，表示从下标 $i$ 开始，跳过 $j$ 个元素，得到的最大数量的特殊下标所需的最少操作数。对于每个下标 $i$，我们可以选择将其增加到比相邻元素都大 1，或者跳过它。我们使用记忆化搜索来避免重复计算。
+Therefore, we design a function $\text{dfs}(i, j)$, which represents the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ remaining skips. For each index $i$, we can either increase it so that it is $1$ greater than both neighbors, or skip it. We use memoized search to avoid repeated computation.
 
-函数 $\text{dfs}(i, j)$ 的实现如下：
+The implementation of $\text{dfs}(i, j)$ is as follows:
 
-- 如果 $i \geq n - 1$，返回 0。
-- 计算将 $nums[i]$ 增加到比相邻元素都大 1 所需的操作数，记为 $cost$。
-- 计算选择将 $nums[i]$ 增加到比相邻元素都大 1 的总操作数 $cost + \text{dfs}(i + 2, j)$。
-- 如果 $j > 0$，计算选择跳过 $nums[i]$ 的总操作数 $\text{dfs}(i + 1, 0)$，并更新 $ans$ 为两者的较小值。
+- If $i \geq n - 1$, return $0$.
+- Compute the number of operations required to increase $nums[i]$ so that it is $1$ greater than both adjacent elements, denoted as $cost$.
+- Compute the total cost for choosing to increase $nums[i]$: $cost + \text{dfs}(i + 2, j)$.
+- If $j > 0$, compute the total cost for choosing to skip $nums[i]$: $\text{dfs}(i + 1, 0)$, and update $ans$ to the smaller of the two.
 
-最后，返回 $\text{dfs}(1, (n \& 1) \oplus 1)$ 即可。
+Finally, return $\text{dfs}(1, (n \bmod 2) \oplus 1)$.
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
