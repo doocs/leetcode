@@ -109,7 +109,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3891.Mi
 - 计算选择将 $nums[i]$ 增加到比相邻元素都大 1 的总操作数 $cost + \text{dfs}(i + 2, j)$。
 - 如果 $j > 0$，计算选择跳过 $nums[i]$ 的总操作数 $\text{dfs}(i + 1, 0)$，并更新 $ans$ 为两者的较小值。
 
-最后，返回 $\text{dfs}(1, (n \& 1) \oplus 1)$ 即可。
+最后，返回 $\mathrm{dfs}(1, (n \bmod 2) \oplus 1)$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
