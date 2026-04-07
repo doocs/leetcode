@@ -81,76 +81,332 @@ robot.getDir(); // return &quot;West&quot;
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+Let $mx = width - 1$ and $my = height - 1$. The robot's trajectory forms the boundary of a rectangle with $(0, 0)$ as the bottom-left corner and $(mx, my)$ as the top-right corner. We can divide the robot's trajectory into four segments:
+
+1. From $(0, 0)$ moving along the positive $x$-axis to $(mx, 0)$, where the robot faces "East".
+2. From $(mx, 0)$ moving along the positive $y$-axis to $(mx, my)$, where the robot faces "North".
+3. From $(mx, my)$ moving along the negative $x$-axis to $(0, my)$, where the robot faces "West".
+4. From $(0, my)$ moving along the negative $y$-axis to $(0, 0)$, where the robot faces "South".
+
+Therefore, the robot's trajectory can be viewed as a cycle of length $p = 2 \cdot mx + 2 \cdot my$. For each call to `step(num)`, we add `num` to the robot's current position and take the result modulo $p$ to get the robot's new position. Based on the new position, we can determine the robot's direction and coordinates.
+
+Note that if the robot has never moved, its direction should be "East". If the robot has moved and its position is $(0, 0)$, then its direction should be "South".
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Robot:
 
+    def __init__(self, width: int, height: int):
+        self.mx = width - 1
+        self.my = height - 1
+        self.p = 2 * self.mx + 2 * self.my
+        self.cur = 0
+        self.moved = False
+
+    def step(self, num: int) -> None:
+        self.moved = True
+        self.cur = (self.cur + num) % self.p
+
+    def getPos(self) -> List[int]:
+        d = self.cur
+        mx, my = self.mx, self.my
+        if 0 <= d <= mx:
+            return [d, 0]
+        if mx < d <= mx + my:
+            return [mx, d - mx]
+        if mx + my < d <= 2 * mx + my:
+            return [mx - (d - (mx + my)), my]
+        return [0, my - (d - (2 * mx + my))]
+
+    def getDir(self) -> str:
+        d = self.cur
+        mx, my = self.mx, self.my
+        if not self.moved:
+            return "East"
+        if 1 <= d <= mx:
+            return "East"
+        elif mx < d <= mx + my:
+            return "North"
+        elif mx + my < d <= 2 * mx + my:
+            return "West"
+        return "South"
+
+
+# Your Robot object will be instantiated and called as such:
+# obj = Robot(width, height)
+# obj.step(num)
+# param_2 = obj.getPos()
+# param_3 = obj.getDir()
 ```
 
 #### Java
 
 ```java
+class Robot {
 
+    private int mx, my, p, cur;
+    private boolean moved;
+
+    public Robot(int width, int height) {
+        this.mx = width - 1;
+        this.my = height - 1;
+        this.p = 2 * this.mx + 2 * this.my;
+        this.cur = 0;
+        this.moved = false;
+    }
+
+    public void step(int num) {
+        this.moved = true;
+        this.cur = (this.cur + num) % this.p;
+    }
+
+    public int[] getPos() {
+        int d = this.cur;
+        int mx = this.mx, my = this.my;
+
+        if (0 <= d && d <= mx) {
+            return new int[] {d, 0};
+        }
+        if (mx < d && d <= mx + my) {
+            return new int[] {mx, d - mx};
+        }
+        if (mx + my < d && d <= 2 * mx + my) {
+            return new int[] {mx - (d - (mx + my)), my};
+        }
+        return new int[] {0, my - (d - (2 * mx + my))};
+    }
+
+    public String getDir() {
+        int d = this.cur;
+        int mx = this.mx, my = this.my;
+
+        if (!this.moved) {
+            return "East";
+        }
+        if (1 <= d && d <= mx) {
+            return "East";
+        } else if (mx < d && d <= mx + my) {
+            return "North";
+        } else if (mx + my < d && d <= 2 * mx + my) {
+            return "West";
+        }
+        return "South";
+    }
+}
+
+/**
+ * Your Robot object will be instantiated and called as such:
+ * Robot obj = new Robot(width, height);
+ * obj.step(num);
+ * int[] param_2 = obj.getPos();
+ * String param_3 = obj.getDir();
+ */
 ```
 
 #### C++
 
 ```cpp
-#pragma GCC optimize("Ofast,unroll-loops,inline")
-#include <vector>
-#include <string>
-
-static const int speedup = []() {
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
-    return 0;
-}();
-
 class Robot {
-    int w, h, p, curr;
-    bool moved;
-    // Используем массив строк, чтобы обращаться по индексу (0-3) без if-else
-    const std::string dirs[4] = {"East", "North", "West", "South"};
-
 public:
-    Robot(int width, int height) : w(width), h(height), curr(0), moved(false) {
-        p = (w + h - 2) << 1;
+    int mx, my, p, cur;
+    bool moved;
+
+    Robot(int width, int height) {
+        mx = width - 1;
+        my = height - 1;
+        p = 2 * mx + 2 * my;
+        cur = 0;
+        moved = false;
     }
-    
-    inline void step(int num) {
+
+    void step(int num) {
         moved = true;
-        curr = (curr + num) % p;
+        cur = (cur + num) % p;
     }
-    
-    inline std::vector<int> getPos() {
-        if (curr < w) return {curr, 0};
-        if (curr < w + h - 1) return {w - 1, curr - w + 1};
-        if (curr < (w << 1) + h - 2) return { (w << 1) + h - 3 - curr, h - 1};
-        return {0, p - curr};
+
+    vector<int> getPos() {
+        int d = cur;
+        int mx = this->mx, my = this->my;
+
+        if (0 <= d && d <= mx) {
+            return {d, 0};
+        }
+        if (mx < d && d <= mx + my) {
+            return {mx, d - mx};
+        }
+        if (mx + my < d && d <= 2 * mx + my) {
+            return {mx - (d - (mx + my)), my};
+        }
+        return {0, my - (d - (2 * mx + my))};
     }
-    
-    inline std::string getDir() {
-        if (!moved) return dirs[0];
-        if (curr == 0) return dirs[3]; // Робот вернулся в начало — всегда South
-        
-        // Математическое определение направления без тяжелых веток
-        if (curr < w) return dirs[0];
-        if (curr < w + h - 1) return dirs[1];
-        if (curr < (w << 1) + h - 2) return dirs[2];
-        return dirs[3];
+
+    string getDir() {
+        int d = cur;
+        int mx = this->mx, my = this->my;
+
+        if (!moved) {
+            return "East";
+        }
+        if (1 <= d && d <= mx) {
+            return "East";
+        } else if (mx < d && d <= mx + my) {
+            return "North";
+        } else if (mx + my < d && d <= 2 * mx + my) {
+            return "West";
+        }
+        return "South";
     }
 };
 
+/**
+ * Your Robot object will be instantiated and called as such:
+ * Robot* obj = new Robot(width, height);
+ * obj->step(num);
+ * vector<int> param_2 = obj->getPos();
+ * string param_3 = obj->getDir();
+ */
 ```
 
 #### Go
 
 ```go
+type Robot struct {
+	mx, my, p, cur int
+	moved          bool
+}
 
+func Constructor(width int, height int) Robot {
+	mx := width - 1
+	my := height - 1
+	return Robot{
+		mx:    mx,
+		my:    my,
+		p:     2*mx + 2*my,
+		cur:   0,
+		moved: false,
+	}
+}
+
+func (this *Robot) Step(num int) {
+	this.moved = true
+	this.cur = (this.cur + num) % this.p
+}
+
+func (this *Robot) GetPos() []int {
+	d := this.cur
+	mx, my := this.mx, this.my
+
+	if 0 <= d && d <= mx {
+		return []int{d, 0}
+	}
+	if mx < d && d <= mx+my {
+		return []int{mx, d - mx}
+	}
+	if mx+my < d && d <= 2*mx+my {
+		return []int{mx - (d - (mx + my)), my}
+	}
+	return []int{0, my - (d - (2*mx + my))}
+}
+
+func (this *Robot) GetDir() string {
+	d := this.cur
+	mx, my := this.mx, this.my
+
+	if !this.moved {
+		return "East"
+	}
+	if 1 <= d && d <= mx {
+		return "East"
+	} else if mx < d && d <= mx+my {
+		return "North"
+	} else if mx+my < d && d <= 2*mx+my {
+		return "West"
+	}
+	return "South"
+}
+
+/**
+ * Your Robot object will be instantiated and called as such:
+ * obj := Constructor(width, height);
+ * obj.Step(num);
+ * param_2 := obj.GetPos();
+ * param_3 := obj.GetDir();
+ */
+```
+
+#### TypeScript
+
+```ts
+class Robot {
+    private mx: number;
+    private my: number;
+    private p: number;
+    private cur: number;
+    private moved: boolean;
+
+    constructor(width: number, height: number) {
+        this.mx = width - 1;
+        this.my = height - 1;
+        this.p = 2 * this.mx + 2 * this.my;
+        this.cur = 0;
+        this.moved = false;
+    }
+
+    step(num: number): void {
+        this.moved = true;
+        this.cur = (this.cur + num) % this.p;
+    }
+
+    getPos(): number[] {
+        const d = this.cur;
+        const mx = this.mx,
+            my = this.my;
+
+        if (0 <= d && d <= mx) {
+            return [d, 0];
+        }
+        if (mx < d && d <= mx + my) {
+            return [mx, d - mx];
+        }
+        if (mx + my < d && d <= 2 * mx + my) {
+            return [mx - (d - (mx + my)), my];
+        }
+        return [0, my - (d - (2 * mx + my))];
+    }
+
+    getDir(): string {
+        const d = this.cur;
+        const mx = this.mx,
+            my = this.my;
+
+        if (!this.moved) {
+            return 'East';
+        }
+        if (1 <= d && d <= mx) {
+            return 'East';
+        } else if (mx < d && d <= mx + my) {
+            return 'North';
+        } else if (mx + my < d && d <= 2 * mx + my) {
+            return 'West';
+        }
+        return 'South';
+    }
+}
+
+/**
+ * Your Robot object will be instantiated and called as such:
+ * var obj = new Robot(width, height)
+ * obj.step(num)
+ * var param_2 = obj.getPos()
+ * var param_3 = obj.getDir()
+ */
 ```
 
 <!-- tabs:end -->
