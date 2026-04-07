@@ -76,7 +76,15 @@ We cannot obtain a lexicographically smaller array by applying any more operatio
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting
+
+According to the problem description, the sorted array $\textit{nums}$ can be partitioned into several subarrays such that the difference between adjacent elements in each subarray does not exceed $\textit{limit}$.
+
+The lexicographically smallest array obtainable through swapping is thus the one where the elements within each subarray are sorted and placed back into their original positions in order.
+
+We first pair each element in $\textit{nums}$ with its index to form an array of tuples, then sort by element value. We then traverse the sorted tuple array, identify the range of each subarray, sort the elements within each subarray by their original indices, and fill them back into the corresponding positions to obtain the final result.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
@@ -204,6 +212,40 @@ function lexicographicallySmallestArray(nums: number[], limit: number): number[]
         i = j;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn lexicographically_smallest_array(nums: Vec<i32>, limit: i32) -> Vec<i32> {
+        let n = nums.len();
+        let mut idx: Vec<usize> = (0..n).collect();
+
+        idx.sort_by_key(|&i| nums[i]);
+
+        let mut ans = vec![0; n];
+
+        let mut i = 0;
+        while i < n {
+            let mut j = i + 1;
+            while j < n && nums[idx[j]] - nums[idx[j - 1]] <= limit {
+                j += 1;
+            }
+
+            let mut t = idx[i..j].to_vec();
+            t.sort();
+
+            for k in i..j {
+                ans[t[k - i]] = nums[idx[k]];
+            }
+
+            i = j;
+        }
+
+        ans
+    }
 }
 ```
 

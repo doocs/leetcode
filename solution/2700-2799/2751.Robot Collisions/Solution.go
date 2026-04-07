@@ -1,45 +1,45 @@
 func survivedRobotsHealths(positions []int, healths []int, directions string) []int {
 	n := len(positions)
-	indices := make([]int, n)
-	for i := range indices {
-		indices[i] = i
+	idx := make([]int, n)
+	for i := range idx {
+		idx[i] = i
 	}
 
-	sort.Slice(indices, func(i, j int) bool {
-		return positions[indices[i]] < positions[indices[j]]
+	sort.Slice(idx, func(i, j int) bool {
+		return positions[idx[i]] < positions[idx[j]]
 	})
 
-	stack := []int{}
+	stk := []int{}
 
-	for _, currentIndex := range indices {
-		if directions[currentIndex] == 'R' {
-			stack = append(stack, currentIndex)
-		} else {
-			for len(stack) > 0 && healths[currentIndex] > 0 {
-				topIndex := stack[len(stack)-1]
-				stack = stack[:len(stack)-1]
+	for _, i := range idx {
+		if directions[i] == 'R' {
+			stk = append(stk, i)
+			continue
+		}
 
-				if healths[topIndex] > healths[currentIndex] {
-					healths[topIndex] -= 1
-					healths[currentIndex] = 0
-					stack = append(stack, topIndex)
-				} else if healths[topIndex] < healths[currentIndex] {
-					healths[currentIndex] -= 1
-					healths[topIndex] = 0
-				} else {
-					healths[currentIndex] = 0
-					healths[topIndex] = 0
-				}
+		for len(stk) > 0 && healths[i] > 0 {
+			j := stk[len(stk)-1]
+
+			if healths[j] > healths[i] {
+				healths[j]--
+				healths[i] = 0
+			} else if healths[j] < healths[i] {
+				healths[i]--
+				healths[j] = 0
+				stk = stk[:len(stk)-1]
+			} else {
+				healths[i], healths[j] = 0, 0
+				stk = stk[:len(stk)-1]
+				break
 			}
 		}
 	}
 
-	result := []int{}
-	for _, health := range healths {
-		if health > 0 {
-			result = append(result, health)
+	ans := []int{}
+	for _, h := range healths {
+		if h > 0 {
+			ans = append(ans, h)
 		}
 	}
-
-	return result
+	return ans
 }

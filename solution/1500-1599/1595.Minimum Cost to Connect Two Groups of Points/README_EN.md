@@ -78,7 +78,28 @@ Note that there are multiple points connected to point 2 in the first group and 
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bitmask Dynamic Programming
+
+Let $m$ and $n$ denote the number of points in the first group and the second group, respectively.
+
+Since $1 \leq n \leq m \leq 12$, we can use an integer to represent the state of points in the second group — specifically, a binary integer of length $n$, where bit $k$ being $1$ means the $k$-th point in the second group is connected to some point in the first group, and $0$ means it is not.
+
+Next, we define $f[i][j]$ as the minimum cost when the first $i$ points in the first group are all connected, and the state of points in the second group is $j$. Initially, $f[0][0] = 0$ and all other values are positive infinity. The answer is $f[m][2^n - 1]$.
+
+Consider $f[i][j]$ where $i \geq 1$. We enumerate each point $k$ in the second group. If point $k$ is connected to the $i$-th point in the first group, we discuss the following two cases:
+
+- If point $k$ is only connected to the $i$-th point in the first group, then $f[i][j]$ can be transitioned from $f[i][j \oplus 2^k]$ or $f[i - 1][j \oplus 2^k]$, where $\oplus$ denotes the XOR operation;
+- If point $k$ is connected to the $i$-th point in the first group as well as other points, then $f[i][j]$ can be transitioned from $f[i - 1][j]$.
+
+In both cases, we take the minimum transition value:
+
+$$
+f[i][j] = \min_{k \in \{0, 1, \cdots, n - 1\}} \{f[i][j \oplus 2^k], f[i - 1][j \oplus 2^k], f[i - 1][j]\} + cost[i - 1][k]
+$$
+
+Finally, we return $f[m][2^n - 1]$.
+
+The time complexity is $O(m \times n \times 2^n)$ and the space complexity is $O(m \times 2^n)$, where $m$ and $n$ are the number of points in the first group and the second group, respectively.
 
 <!-- tabs:start -->
 
@@ -193,9 +214,7 @@ function connectTwoGroups(cost: number[][]): number {
     const m = cost.length;
     const n = cost[0].length;
     const inf = 1 << 30;
-    const f: number[][] = Array(m + 1)
-        .fill(0)
-        .map(() => Array(1 << n).fill(inf));
+    const f = Array.from({ length: m + 1 }, () => Array(1 << n).fill(inf));
     f[0][0] = 0;
     for (let i = 1; i <= m; ++i) {
         for (let j = 0; j < 1 << n; ++j) {
@@ -213,13 +232,45 @@ function connectTwoGroups(cost: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn connect_two_groups(cost: Vec<Vec<i32>>) -> i32 {
+        let m = cost.len();
+        let n = cost[0].len();
+        let inf = 1 << 30;
+
+        let mut f = vec![vec![inf; 1 << n]; m + 1];
+        f[0][0] = 0;
+
+        for i in 1..=m {
+            for j in 0..(1 << n) {
+                for k in 0..n {
+                    if (j >> k) & 1 == 1 {
+                        let c = cost[i - 1][k];
+                        f[i][j] = f[i][j].min(f[i][j ^ (1 << k)] + c);
+                        f[i][j] = f[i][j].min(f[i - 1][j] + c);
+                        f[i][j] = f[i][j].min(f[i - 1][j ^ (1 << k)] + c);
+                    }
+                }
+            }
+        }
+
+        f[m][(1 << n) - 1]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bitmask Dynamic Programming (Space Optimization)
+
+We notice that the transition of $f[i][j]$ only depends on $f[i - 1][\cdot]$ and $f[i][\cdot]$, so we can use a rolling array to optimize the space complexity down to $O(2^n)$.
 
 <!-- tabs:start -->
 
@@ -359,6 +410,40 @@ function connectTwoGroups(cost: number[][]): number {
         f.splice(0, f.length, ...g);
     }
     return f[(1 << n) - 1];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn connect_two_groups(cost: Vec<Vec<i32>>) -> i32 {
+        let m = cost.len();
+        let n = cost[0].len();
+        let inf = 1 << 30;
+
+        let mut f = vec![inf; 1 << n];
+        f[0] = 0;
+
+        let mut g = f.clone();
+
+        for i in 1..=m {
+            for j in 0..(1 << n) {
+                g[j] = inf;
+                for k in 0..n {
+                    if (j >> k) & 1 == 1 {
+                        let c = cost[i - 1][k];
+                        g[j] = g[j].min(g[j ^ (1 << k)] + c);
+                        g[j] = g[j].min(f[j] + c);
+                        g[j] = g[j].min(f[j ^ (1 << k)] + c);
+                    }
+                }
+            }
+            f.clone_from_slice(&g);
+        }
+
+        f[(1 << n) - 1]
+    }
 }
 ```
 

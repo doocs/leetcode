@@ -3884,7 +3884,25 @@
 |  3871  |  [统计范围内的逗号 II](/solution/3800-3899/3871.Count%20Commas%20in%20Range%20II/README.md)  |  `数学`  |  中等  |  第 493 场周赛  |
 |  3872  |  [替换最多一个元素后的最长等差子数组](/solution/3800-3899/3872.Longest%20Arithmetic%20Sequence%20After%20Changing%20At%20Most%20One%20Element/README.md)  |  `数组`,`枚举`  |  中等  |  第 493 场周赛  |
 |  3873  |  [添加一个点后可激活的最大点数](/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README.md)  |  `并查集`,`数组`,`哈希表`  |  困难  |  第 493 场周赛  |
-|  3874  |  [Valid Subarrays With Exactly One Peak](/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README.md)  |    |  中等  |  🔒  |
+|  3874  |  [具有恰好一个峰值的有效子数组](/solution/3800-3899/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak/README.md)  |  `数组`,`数学`  |  中等  |  🔒  |
+|  3875  |  [构造奇偶一致的数组 I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README.md)  |  `数组`,`数学`  |  简单  |  第 494 场周赛  |
+|  3876  |  [构造奇偶一致的数组 II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README.md)  |  `数组`,`数学`  |  中等  |  第 494 场周赛  |
+|  3877  |  [达到目标异或值的最少删除次数](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md)  |  `位运算`,`数组`,`动态规划`  |  中等  |  第 494 场周赛  |
+|  3878  |  [统计好子数组](/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md)  |  `栈`,`位运算`,`数组`,`单调栈`  |  困难  |  第 494 场周赛  |
+|  3879  |  [二叉树中的最大不同路径和](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`哈希表`,`二叉树`  |  中等  |  🔒  |
+|  3880  |  [两个值之间的最小绝对差值](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README.md)  |    |  简单  |  第 179 场双周赛  |
+|  3881  |  [恰好看到 K 个人的方向选择](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README.md)  |    |  中等  |  第 179 场双周赛  |
+|  3882  |  [网格图中最小异或路径](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README.md)  |    |  中等  |  第 179 场双周赛  |
+|  3883  |  [统计满足数位和数组的非递减数组数目](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README.md)  |    |  困难  |  第 179 场双周赛  |
+|  3884  |  [双端字符匹配](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README.md)  |    |  简单  |  第 495 场周赛  |
+|  3885  |  [设计事件管理器](/solution/3800-3899/3885.Design%20Event%20Manager/README.md)  |    |  中等  |  第 495 场周赛  |
+|  3886  |  [可排序整数求和](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README.md)  |    |  困难  |  第 495 场周赛  |
+|  3887  |  [增量偶权环查询](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README.md)  |    |  困难  |  第 495 场周赛  |
+|  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README.md)  |    |  困难  |  🔒  |
+|  3889  |  [镜像频次距离](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md)  |    |  中等  |  第 496 场周赛  |
+|  3890  |  [可由多种立方和构造的整数](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md)  |    |  中等  |  第 496 场周赛  |
+|  3891  |  [最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)  |    |  中等  |  第 496 场周赛  |
+|  3892  |  [产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)  |    |  困难  |  第 496 场周赛  |
 
 ## 版权
 

@@ -93,7 +93,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们在 $[0, n)$ 范围内枚举子字符串的起始位置 $i$，在 $[i, n)$ 范围内枚举子字符串的结束位置 $j$，统计子字符串 $s[i \dots j]$ 中元音字母和辅音字母的数量，判断其是否为美丽字符串，如果是，则将答案加 $1$。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -213,6 +217,37 @@ function beautifulSubstrings(s: string, k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn beautiful_substrings(s: String, k: i32) -> i32 {
+        let n = s.len();
+        let s = s.as_bytes();
+
+        let mut vs = [0; 26];
+        for &c in b"aeiou" {
+            vs[(c - b'a') as usize] = 1;
+        }
+
+        let mut ans = 0;
+
+        for i in 0..n {
+            let mut vowels = 0;
+            for j in i..n {
+                vowels += vs[(s[j] - b'a') as usize];
+                let consonants = (j - i + 1) as i32 - vowels;
+                if vowels == consonants && (vowels * consonants) % k == 0 {
+                    ans += 1;
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 

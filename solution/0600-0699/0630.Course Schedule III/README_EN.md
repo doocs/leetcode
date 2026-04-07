@@ -67,7 +67,15 @@ The 4<sup>th</sup> course cannot be taken now, since you will finish it on the 3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Priority Queue (Max-Heap)
+
+We can sort the courses in ascending order by their end time, and each time select the course with the earliest deadline to take.
+
+If the total time $s$ of the selected courses exceeds the end time $last$ of the current course, we remove the course with the longest duration from the previously selected courses, until the constraint of the current course's end time is satisfied. Here we use a priority queue (max-heap) $pq$ to maintain the durations of the currently selected courses, and each time we pop the course with the longest duration from the priority queue to remove it.
+
+Finally, the number of elements in the priority queue is the maximum number of courses we can take.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of courses.
 
 <!-- tabs:start -->
 

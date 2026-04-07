@@ -81,32 +81,153 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：滑动窗口
+
+我们用一个哈希表 $\textit{cnt}$ 来记录当前窗口中每个元素的出现次数，以及一个变量 $\textit{s}$ 来记录当前窗口中不同元素的和。我们使用两个指针 $l$ 和 $r$ 来表示当前窗口的左右边界，初始时都指向数组的开头。初始化一个变量 $\textit{ans}$ 来记录满足条件的窗口的最小长度，初始值为 $n + 1$，其中 $n$ 是数组的长度。
+
+我们不断移动右指针 $r$，将新的元素加入窗口，并更新 $\textit{cnt}$ 和 $\textit{s}$。当 $\textit{s}$ 大于或等于 $k$ 时，我们尝试移动左指针 $l$ 来缩小窗口，同时更新 $\textit{cnt}$ 和 $\textit{s}$，直到 $\textit{s}$ 小于 $k$。在这个过程中，我们记录满足条件的窗口的最小长度。
+
+最后，如果 $\textit{ans} \gt n$，说明没有满足条件的窗口，返回 $-1$；否则返回 $\textit{ans}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minLength(self, nums: List[int], k: int) -> int:
+        cnt = defaultdict(int)
+        n = len(nums)
+        ans = n + 1
+        s = l = 0
+        for r, x in enumerate(nums):
+            cnt[x] += 1
+            if cnt[x] == 1:
+                s += x
+            while s >= k:
+                ans = min(ans, r - l + 1)
+                cnt[nums[l]] -= 1
+                if cnt[nums[l]] == 0:
+                    s -= nums[l]
+                l += 1
+        return -1 if ans > n else ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minLength(int[] nums, int k) {
+        int n = nums.length;
+        int ans = n + 1;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int l = 0;
+        long s = 0;
+        for (int r = 0; r < n; ++r) {
+            if (cnt.merge(nums[r], 1, Integer::sum) == 1) {
+                s += nums[r];
+            }
+            while (s >= k) {
+                ans = Math.min(ans, r - l + 1);
+                if (cnt.merge(nums[l], -1, Integer::sum) == 0) {
+                    s -= nums[l];
+                }
+                ++l;
+            }
+        }
+        return ans > n ? -1 : ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minLength(vector<int>& nums, int k) {
+        int n = nums.size();
+        int ans = n + 1;
+        unordered_map<int, int> cnt;
+        int l = 0;
+        long long s = 0;
+        for (int r = 0; r < n; ++r) {
+            int x = nums[r];
+            if (++cnt[x] == 1) {
+                s += x;
+            }
+            while (s >= k) {
+                ans = min(ans, r - l + 1);
+                int y = nums[l];
+                if (--cnt[y] == 0) {
+                    s -= y;
+                }
+                ++l;
+            }
+        }
+        return ans > n ? -1 : ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minLength(nums []int, k int) int {
+	n := len(nums)
+	ans := n + 1
+	cnt := map[int]int{}
+	l := 0
+	var s int64 = 0
+	for r := 0; r < n; r++ {
+		cnt[nums[r]]++
+		if cnt[nums[r]] == 1 {
+			s += int64(nums[r])
+		}
+		for s >= int64(k) {
+			if r-l+1 < ans {
+				ans = r - l + 1
+			}
+			if cnt[nums[l]]--; cnt[nums[l]] == 0 {
+				s -= int64(nums[l])
+			}
+			l++
+		}
+	}
+	if ans > n {
+		return -1
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minLength(nums: number[], k: number): number {
+    const n = nums.length;
+    let ans = n + 1;
+    const cnt = new Map<number, number>();
+    let l = 0;
+    let s = 0;
+    for (let r = 0; r < n; ++r) {
+        cnt.set(nums[r], (cnt.get(nums[r]) ?? 0) + 1);
+        if (cnt.get(nums[r]) === 1) {
+            s += nums[r];
+        }
+        while (s >= k) {
+            ans = Math.min(ans, r - l + 1);
+            cnt.set(nums[l], (cnt.get(nums[l]) ?? 0) - 1);
+            if (cnt.get(nums[l]) === 0) {
+                s -= nums[l];
+            }
+            ++l;
+        }
+    }
+    return ans > n ? -1 : ans;
+}
 ```
 
 <!-- tabs:end -->

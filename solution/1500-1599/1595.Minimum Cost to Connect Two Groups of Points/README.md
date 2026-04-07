@@ -103,8 +103,6 @@ $$
 
 时间复杂度 $O(m \times n \times 2^n)$，空间复杂度 $O(m \times 2^n)$。其中 $m$ 和 $n$ 分别是第一组和第二组中的点数。
 
-我们注意到 $f[i][j]$ 的转移只与 $f[i - 1][\cdot]$ 以及 $f[i][\cdot]$ 有关，因此我们可以使用滚动数组优化空间复杂度，将空间复杂度优化到 $O(2^n)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -218,9 +216,7 @@ function connectTwoGroups(cost: number[][]): number {
     const m = cost.length;
     const n = cost[0].length;
     const inf = 1 << 30;
-    const f: number[][] = Array(m + 1)
-        .fill(0)
-        .map(() => Array(1 << n).fill(inf));
+    const f = Array.from({ length: m + 1 }, () => Array(1 << n).fill(inf));
     f[0][0] = 0;
     for (let i = 1; i <= m; ++i) {
         for (let j = 0; j < 1 << n; ++j) {
@@ -238,13 +234,45 @@ function connectTwoGroups(cost: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn connect_two_groups(cost: Vec<Vec<i32>>) -> i32 {
+        let m = cost.len();
+        let n = cost[0].len();
+        let inf = 1 << 30;
+
+        let mut f = vec![vec![inf; 1 << n]; m + 1];
+        f[0][0] = 0;
+
+        for i in 1..=m {
+            for j in 0..(1 << n) {
+                for k in 0..n {
+                    if (j >> k) & 1 == 1 {
+                        let c = cost[i - 1][k];
+                        f[i][j] = f[i][j].min(f[i][j ^ (1 << k)] + c);
+                        f[i][j] = f[i][j].min(f[i - 1][j] + c);
+                        f[i][j] = f[i][j].min(f[i - 1][j ^ (1 << k)] + c);
+                    }
+                }
+            }
+        }
+
+        f[m][(1 << n) - 1]
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：状态压缩 + 动态规划（空间优化）
+
+我们注意到 $f[i][j]$ 的转移只与 $f[i - 1][\cdot]$ 以及 $f[i][\cdot]$ 有关，因此我们可以使用滚动数组优化空间复杂度，将空间复杂度优化到 $O(2^n)$。
 
 <!-- tabs:start -->
 
@@ -384,6 +412,40 @@ function connectTwoGroups(cost: number[][]): number {
         f.splice(0, f.length, ...g);
     }
     return f[(1 << n) - 1];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn connect_two_groups(cost: Vec<Vec<i32>>) -> i32 {
+        let m = cost.len();
+        let n = cost[0].len();
+        let inf = 1 << 30;
+
+        let mut f = vec![inf; 1 << n];
+        f[0] = 0;
+
+        let mut g = f.clone();
+
+        for i in 1..=m {
+            for j in 0..(1 << n) {
+                g[j] = inf;
+                for k in 0..n {
+                    if (j >> k) & 1 == 1 {
+                        let c = cost[i - 1][k];
+                        g[j] = g[j].min(g[j ^ (1 << k)] + c);
+                        g[j] = g[j].min(f[j] + c);
+                        g[j] = g[j].min(f[j ^ (1 << k)] + c);
+                    }
+                }
+            }
+            f.clone_from_slice(&g);
+        }
+
+        f[(1 << n) - 1]
+    }
 }
 ```
 

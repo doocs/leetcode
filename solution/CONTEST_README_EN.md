@@ -29,6 +29,34 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 496
+
+- [3889. Mirror Frequency Distance](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md)
+- [3890. Integers With Multiple Sum of Two Cubes](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README_EN.md)
+- [3891. Minimum Increase to Maximize Special Indices](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md)
+- [3892. Minimum Operations to Achieve At Least K Peaks](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md)
+
+#### Weekly Contest 495
+
+- [3884. First Matching Character From Both Ends](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README_EN.md)
+- [3885. Design Event Manager](/solution/3800-3899/3885.Design%20Event%20Manager/README_EN.md)
+- [3886. Sum of Sortable Integers](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README_EN.md)
+- [3887. Incremental Even-Weighted Cycle Queries](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README_EN.md)
+
+#### Biweekly Contest 179
+
+- [3880. Minimum Absolute Difference Between Two Values](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README_EN.md)
+- [3881. Direction Assignments with Exactly K Visible People](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README_EN.md)
+- [3882. Minimum XOR Path in a Grid](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README_EN.md)
+- [3883. Count Non Decreasing Arrays With Given Digit Sums](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README_EN.md)
+
+#### Weekly Contest 494
+
+- [3875. Construct Uniform Parity Array I](/solution/3800-3899/3875.Construct%20Uniform%20Parity%20Array%20I/README_EN.md)
+- [3876. Construct Uniform Parity Array II](/solution/3800-3899/3876.Construct%20Uniform%20Parity%20Array%20II/README_EN.md)
+- [3877. Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)
+- [3878. Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)
+
 #### Weekly Contest 493
 
 - [3870. Count Commas in Range](/solution/3800-3899/3870.Count%20Commas%20in%20Range/README_EN.md)

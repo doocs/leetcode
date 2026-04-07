@@ -72,7 +72,11 @@ tags:
 
 ### 方法一：动态规划
 
-时间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
+我们定义一个三维数组 $f$，其中 $f[i][j][0]$ 和 $f[i][j][1]$ 分别表示从左上角 $(0, 0)$ 出发到达位置 $(i, j)$ 的路径中积的最小值和最大值。对于每个位置 $(i, j)$，我们可以从上方 $(i - 1, j)$ 或左方 $(i, j - 1)$ 转移过来，因此我们需要考虑这两条路径的积的最小值和最大值与当前单元格的值相乘后的结果。
+
+最后，我们需要返回 $f[m - 1][n - 1][1]$ 对 $10^9 + 7$ 取余的结果，如果 $f[m - 1][n - 1][1]$ 小于 $0$，则返回 $-1$。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
@@ -82,22 +86,32 @@ tags:
 class Solution:
     def maxProductPath(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
+        f = [[[0, 0] for _ in range(n)] for _ in range(m)]
+
+        for i in range(m):
+            for j in range(n):
+                x = grid[i][j]
+                if i == 0 and j == 0:
+                    f[i][j][0] = x
+                    f[i][j][1] = x
+                    continue
+
+                mn, mx = inf, -inf
+
+                if i > 0:
+                    a, b = f[i - 1][j]
+                    mn = min(mn, a * x, b * x)
+                    mx = max(mx, a * x, b * x)
+
+                if j > 0:
+                    a, b = f[i][j - 1]
+                    mn = min(mn, a * x, b * x)
+                    mx = max(mx, a * x, b * x)
+
+                f[i][j][0], f[i][j][1] = mn, mx
+
+        ans = f[m - 1][n - 1][1]
         mod = 10**9 + 7
-        dp = [[[grid[0][0]] * 2 for _ in range(n)] for _ in range(m)]
-        for i in range(1, m):
-            dp[i][0] = [dp[i - 1][0][0] * grid[i][0]] * 2
-        for j in range(1, n):
-            dp[0][j] = [dp[0][j - 1][0] * grid[0][j]] * 2
-        for i in range(1, m):
-            for j in range(1, n):
-                v = grid[i][j]
-                if v >= 0:
-                    dp[i][j][0] = min(dp[i - 1][j][0], dp[i][j - 1][0]) * v
-                    dp[i][j][1] = max(dp[i - 1][j][1], dp[i][j - 1][1]) * v
-                else:
-                    dp[i][j][0] = max(dp[i - 1][j][1], dp[i][j - 1][1]) * v
-                    dp[i][j][1] = min(dp[i - 1][j][0], dp[i][j - 1][0]) * v
-        ans = dp[-1][-1][1]
         return -1 if ans < 0 else ans % mod
 ```
 
@@ -105,36 +119,42 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int maxProductPath(int[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
-        long[][][] dp = new long[m][n][2];
-        dp[0][0][0] = grid[0][0];
-        dp[0][0][1] = grid[0][0];
-        for (int i = 1; i < m; ++i) {
-            dp[i][0][0] = dp[i - 1][0][0] * grid[i][0];
-            dp[i][0][1] = dp[i - 1][0][1] * grid[i][0];
-        }
-        for (int j = 1; j < n; ++j) {
-            dp[0][j][0] = dp[0][j - 1][0] * grid[0][j];
-            dp[0][j][1] = dp[0][j - 1][1] * grid[0][j];
-        }
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
-                int v = grid[i][j];
-                if (v >= 0) {
-                    dp[i][j][0] = Math.min(dp[i - 1][j][0], dp[i][j - 1][0]) * v;
-                    dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i][j - 1][1]) * v;
-                } else {
-                    dp[i][j][0] = Math.max(dp[i - 1][j][1], dp[i][j - 1][1]) * v;
-                    dp[i][j][1] = Math.min(dp[i - 1][j][0], dp[i][j - 1][0]) * v;
+        int m = grid.length, n = grid[0].length;
+        long[][][] f = new long[m][n][2];
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                long x = grid[i][j];
+
+                if (i == 0 && j == 0) {
+                    f[i][j][0] = x;
+                    f[i][j][1] = x;
+                    continue;
                 }
+
+                long mn = Long.MAX_VALUE, mx = Long.MIN_VALUE;
+
+                if (i > 0) {
+                    long a = f[i - 1][j][0], b = f[i - 1][j][1];
+                    mn = Math.min(mn, Math.min(a * x, b * x));
+                    mx = Math.max(mx, Math.max(a * x, b * x));
+                }
+
+                if (j > 0) {
+                    long a = f[i][j - 1][0], b = f[i][j - 1][1];
+                    mn = Math.min(mn, Math.min(a * x, b * x));
+                    mx = Math.max(mx, Math.max(a * x, b * x));
+                }
+
+                f[i][j][0] = mn;
+                f[i][j][1] = mx;
             }
         }
-        long ans = dp[m - 1][n - 1][1];
-        return ans < 0 ? -1 : (int) (ans % MOD);
+
+        long ans = f[m - 1][n - 1][1];
+        int mod = (int) 1e9 + 7;
+        return ans < 0 ? -1 : (int) (ans % mod);
     }
 }
 ```
@@ -142,37 +162,41 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-const int mod = 1e9 + 7;
-
 class Solution {
 public:
     int maxProductPath(vector<vector<int>>& grid) {
-        int m = grid.size();
-        int n = grid[0].size();
-        vector<vector<vector<ll>>> dp(m, vector<vector<ll>>(n, vector<ll>(2, grid[0][0])));
-        for (int i = 1; i < m; ++i) {
-            dp[i][0][0] = dp[i - 1][0][0] * grid[i][0];
-            dp[i][0][1] = dp[i - 1][0][1] * grid[i][0];
-        }
-        for (int j = 1; j < n; ++j) {
-            dp[0][j][0] = dp[0][j - 1][0] * grid[0][j];
-            dp[0][j][1] = dp[0][j - 1][1] * grid[0][j];
-        }
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
-                int v = grid[i][j];
-                if (v >= 0) {
-                    dp[i][j][0] = min(dp[i - 1][j][0], dp[i][j - 1][0]) * v;
-                    dp[i][j][1] = max(dp[i - 1][j][1], dp[i][j - 1][1]) * v;
-                } else {
-                    dp[i][j][0] = max(dp[i - 1][j][1], dp[i][j - 1][1]) * v;
-                    dp[i][j][1] = min(dp[i - 1][j][0], dp[i][j - 1][0]) * v;
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<array<long long, 2>>> f(m, vector<array<long long, 2>>(n));
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                long long x = grid[i][j];
+                if (i == 0 && j == 0) {
+                    f[i][j] = {x, x};
+                    continue;
                 }
+
+                long long mn = LLONG_MAX, mx = LLONG_MIN;
+
+                if (i > 0) {
+                    auto [a, b] = f[i - 1][j];
+                    mn = min(mn, min(a * x, b * x));
+                    mx = max(mx, max(a * x, b * x));
+                }
+
+                if (j > 0) {
+                    auto [a, b] = f[i][j - 1];
+                    mn = min(mn, min(a * x, b * x));
+                    mx = max(mx, max(a * x, b * x));
+                }
+
+                f[i][j] = {mn, mx};
             }
         }
-        ll ans = dp[m - 1][n - 1][1];
-        return ans < 0 ? -1 : (int) (ans % mod);
+
+        long long ans = f[m - 1][n - 1][1];
+        const int mod = 1e9 + 7;
+        return ans < 0 ? -1 : ans % mod;
     }
 };
 ```
@@ -182,40 +206,133 @@ public:
 ```go
 func maxProductPath(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	dp := make([][][]int, m)
-	for i := range dp {
-		dp[i] = make([][]int, n)
-		for j := range dp[i] {
-			dp[i][j] = make([]int, 2)
-		}
+	f := make([][][2]int64, m)
+	for i := range f {
+		f[i] = make([][2]int64, n)
 	}
-	dp[0][0] = []int{grid[0][0], grid[0][0]}
-	for i := 1; i < m; i++ {
-		dp[i][0][0] = dp[i-1][0][0] * grid[i][0]
-		dp[i][0][1] = dp[i-1][0][1] * grid[i][0]
-	}
-	for j := 1; j < n; j++ {
-		dp[0][j][0] = dp[0][j-1][0] * grid[0][j]
-		dp[0][j][1] = dp[0][j-1][1] * grid[0][j]
-	}
-	for i := 1; i < m; i++ {
-		for j := 1; j < n; j++ {
-			v := grid[i][j]
-			if v >= 0 {
-				dp[i][j][0] = min(dp[i-1][j][0], dp[i][j-1][0]) * v
-				dp[i][j][1] = max(dp[i-1][j][1], dp[i][j-1][1]) * v
-			} else {
-				dp[i][j][0] = max(dp[i-1][j][1], dp[i][j-1][1]) * v
-				dp[i][j][1] = min(dp[i-1][j][0], dp[i][j-1][0]) * v
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			x := int64(grid[i][j])
+			if i == 0 && j == 0 {
+				f[i][j] = [2]int64{x, x}
+				continue
 			}
+
+			mn, mx := int64(1<<63-1), int64(-1<<63)
+
+			if i > 0 {
+				a, b := f[i-1][j][0], f[i-1][j][1]
+				mn = min(mn, min(a*x, b*x))
+				mx = max(mx, max(a*x, b*x))
+			}
+
+			if j > 0 {
+				a, b := f[i][j-1][0], f[i][j-1][1]
+				mn = min(mn, min(a*x, b*x))
+				mx = max(mx, max(a*x, b*x))
+			}
+
+			f[i][j] = [2]int64{mn, mx}
 		}
 	}
-	ans := dp[m-1][n-1][1]
+
+	ans := f[m-1][n-1][1]
+	mod := int64(1e9 + 7)
 	if ans < 0 {
 		return -1
 	}
-	var mod int = 1e9 + 7
-	return ans % mod
+	return int(ans % mod)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxProductPath(grid: number[][]): number {
+    const m = grid.length,
+        n = grid[0].length;
+    const f = Array.from({ length: m }, () => Array.from({ length: n }, () => [0, 0]));
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            const x = grid[i][j];
+
+            if (i === 0 && j === 0) {
+                f[i][j] = [x, x];
+                continue;
+            }
+
+            let mn = Infinity,
+                mx = -Infinity;
+
+            if (i > 0) {
+                const [a, b] = f[i - 1][j];
+                mn = Math.min(mn, a * x, b * x);
+                mx = Math.max(mx, a * x, b * x);
+            }
+
+            if (j > 0) {
+                const [a, b] = f[i][j - 1];
+                mn = Math.min(mn, a * x, b * x);
+                mx = Math.max(mx, a * x, b * x);
+            }
+
+            f[i][j] = [mn, mx];
+        }
+    }
+
+    const ans = f[m - 1][n - 1][1];
+    const mod = 1e9 + 7;
+    return ans < 0 ? -1 : ans % mod;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_product_path(grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut f = vec![vec![[0i64; 2]; n]; m];
+
+        for i in 0..m {
+            for j in 0..n {
+                let x = grid[i][j] as i64;
+
+                if i == 0 && j == 0 {
+                    f[i][j] = [x, x];
+                    continue;
+                }
+
+                let mut mn = i64::MAX;
+                let mut mx = i64::MIN;
+
+                if i > 0 {
+                    let [a, b] = f[i - 1][j];
+                    mn = mn.min(a * x).min(b * x);
+                    mx = mx.max(a * x).max(b * x);
+                }
+
+                if j > 0 {
+                    let [a, b] = f[i][j - 1];
+                    mn = mn.min(a * x).min(b * x);
+                    mx = mx.max(a * x).max(b * x);
+                }
+
+                f[i][j] = [mn, mx];
+            }
+        }
+
+        let ans = f[m - 1][n - 1][1];
+        let mod_val = 1_000_000_007i64;
+        if ans < 0 {
+            -1
+        } else {
+            (ans % mod_val) as i32
+        }
+    }
 }
 ```
 

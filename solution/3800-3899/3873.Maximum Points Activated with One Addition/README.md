@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3873.Maximum%20Points%20Activated%20with%20One%20Addition/README.md
+rating: 2198
+source: 第 493 场周赛 Q4
 tags:
     - 并查集
     - 数组

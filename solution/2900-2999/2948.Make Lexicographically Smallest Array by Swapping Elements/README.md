@@ -78,7 +78,15 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：排序
+
+根据题目描述，排序后的数组 $\textit{nums}$ 可以划分成若干个子数组，使得每个子数组中的相邻元素之差不超过 $\textit{limit}$。
+
+那么，可以通过交换得到的字典序最小的数组就是将每个子数组中的元素排序后，依次填入原数组所在位置得到的数组。
+
+我们首先将数组 $\textit{nums}$ 中的元素和它们的下标组成一个二元组数组，并按照元素的值进行排序。然后，我们遍历排序后的二元组数组，找到每个子数组的范围，并将子数组中的元素按照下标进行排序后，填入原数组所在位置得到最终的结果。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -206,6 +214,40 @@ function lexicographicallySmallestArray(nums: number[], limit: number): number[]
         i = j;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn lexicographically_smallest_array(nums: Vec<i32>, limit: i32) -> Vec<i32> {
+        let n = nums.len();
+        let mut idx: Vec<usize> = (0..n).collect();
+
+        idx.sort_by_key(|&i| nums[i]);
+
+        let mut ans = vec![0; n];
+
+        let mut i = 0;
+        while i < n {
+            let mut j = i + 1;
+            while j < n && nums[idx[j]] - nums[idx[j - 1]] <= limit {
+                j += 1;
+            }
+
+            let mut t = idx[i..j].to_vec();
+            t.sort();
+
+            for k in i..j {
+                ans[t[k - i]] = nums[idx[k]];
+            }
+
+            i = j;
+        }
+
+        ans
+    }
 }
 ```
 

@@ -288,6 +288,139 @@ function robotSim(commands: number[], obstacles: number[][]): number {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn robot_sim(commands: Vec<i32>, obstacles: Vec<Vec<i32>>) -> i32 {
+        let dirs: [i32; 5] = [0, 1, 0, -1, 0];
+        let mut s: HashSet<(i32, i32)> = HashSet::new();
+
+        for o in obstacles {
+            s.insert((o[0], o[1]));
+        }
+
+        let mut ans: i32 = 0;
+        let mut k: i32 = 0;
+        let mut x: i32 = 0;
+        let mut y: i32 = 0;
+
+        for c in commands {
+            if c == -2 {
+                k = (k + 3) % 4;
+            } else if c == -1 {
+                k = (k + 1) % 4;
+            } else {
+                for _ in 0..c {
+                    let nx: i32 = x + dirs[k as usize];
+                    let ny: i32 = y + dirs[k as usize + 1];
+
+                    if s.contains(&(nx, ny)) {
+                        break;
+                    }
+
+                    x = nx;
+                    y = ny;
+                    ans = ans.max(x * x + y * y);
+                }
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} commands
+ * @param {number[][]} obstacles
+ * @return {number}
+ */
+var robotSim = function (commands, obstacles) {
+    const dirs = [0, 1, 0, -1, 0];
+    const s = new Set();
+
+    const f = (x, y) => x * 60010 + y;
+
+    for (const [x, y] of obstacles) {
+        s.add(f(x, y));
+    }
+
+    let x = 0,
+        y = 0,
+        k = 0;
+    let ans = 0;
+
+    for (let c of commands) {
+        if (c === -2) {
+            k = (k + 3) % 4;
+        } else if (c === -1) {
+            k = (k + 1) % 4;
+        } else {
+            while (c-- > 0) {
+                const nx = x + dirs[k];
+                const ny = y + dirs[k + 1];
+                if (s.has(f(nx, ny))) {
+                    break;
+                }
+                x = nx;
+                y = ny;
+                ans = Math.max(ans, x * x + y * y);
+            }
+        }
+    }
+
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int RobotSim(int[] commands, int[][] obstacles) {
+        int[] dirs = {0, 1, 0, -1, 0};
+        HashSet<int> s = new HashSet<int>();
+
+        int F(int x, int y) => x * 60010 + y;
+
+        foreach (var o in obstacles) {
+            s.Add(F(o[0], o[1]));
+        }
+
+        int x = 0, y = 0, k = 0;
+        int ans = 0;
+
+        foreach (int c0 in commands) {
+            int c = c0;
+            if (c == -2) {
+                k = (k + 3) % 4;
+            } else if (c == -1) {
+                k = (k + 1) % 4;
+            } else {
+                while (c-- > 0) {
+                    int nx = x + dirs[k];
+                    int ny = y + dirs[k + 1];
+                    if (s.Contains(F(nx, ny))) {
+                        break;
+                    }
+                    x = nx;
+                    y = ny;
+                    ans = Math.Max(ans, x * x + y * y);
+                }
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

@@ -91,7 +91,11 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We enumerate the starting position $i$ of the substring in the range $[0, n)$, and the ending position $j$ in the range $[i, n)$, count the number of vowels and consonants in the substring $s[i \dots j]$, and check whether it is a beautiful substring. If so, we increment the answer by $1$.
+
+The time complexity is $O(n^2)$, where $n$ is the length of the string. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -211,6 +215,37 @@ function beautifulSubstrings(s: string, k: number): number {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn beautiful_substrings(s: String, k: i32) -> i32 {
+        let n = s.len();
+        let s = s.as_bytes();
+
+        let mut vs = [0; 26];
+        for &c in b"aeiou" {
+            vs[(c - b'a') as usize] = 1;
+        }
+
+        let mut ans = 0;
+
+        for i in 0..n {
+            let mut vowels = 0;
+            for j in i..n {
+                vowels += vs[(s[j] - b'a') as usize];
+                let consonants = (j - i + 1) as i32 - vowels;
+                if vowels == consonants && (vowels * consonants) % k == 0 {
+                    ans += 1;
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 

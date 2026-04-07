@@ -77,16 +77,25 @@ circularDeque.getFront();				// 返回 4
 
 ### 方法一：数组
 
-利用循环数组，实现循环双端队列。
+我们可以使用一个数组来实现循环双端队列。我们维护一个指向队头的指针 $\textit{front}$ 和一个表示队列中元素个数的变量 $\textit{size}$，以及一个表示队列容量的变量 $\textit{capacity}$。我们使用一个数组 $\textit{q}$ 来存储队列中的元素。
 
-基本元素有：
+调用 $\textit{insertFront}$ 时，首先检查队列是否已满，如果已满则返回 $\text{false}$。如果队列不为空，则将 $\textit{front}$ 向前移动一个位置（使用模运算实现循环），然后将新元素插入到 $\textit{front}$ 位置，并将 $\textit{size}$ 加 1。
 
-- front：队头元素的下标
-- size：队列中元素的个数
-- capacity：队列的容量
-- q：循环数组，存储队列中的元素
+调用 $\textit{insertLast}$ 时，首先检查队列是否已满，如果已满则返回 $\text{false}$。如果队列不为空，则计算新元素应该插入的位置（使用 $\textit{front}$ 和 $\textit{size}$ 计算），将新元素插入到该位置，并将 $\textit{size}$ 加 1。
 
-时间复杂度 $O(1)$，空间复杂度 $O(k)$。其中 $k$ 是队列的容量。
+调用 $\textit{deleteFront}$ 时，首先检查队列是否为空，如果为空则返回 $\text{false}$。如果队列不为空，则将 $\textit{front}$ 向后移动一个位置（使用模运算实现循环），并将 $\textit{size}$ 减 1。
+
+调用 $\textit{deleteLast}$ 时，首先检查队列是否为空，如果为空则返回 $\text{false}$。如果队列不为空，则将 $\textit{size}$ 减 1。
+
+调用 $\textit{getFront}$ 时，首先检查队列是否为空，如果为空则返回 $-1$。如果队列不为空，则返回 $\textit{q}[\textit{front}]$。
+
+调用 $\textit{getRear}$ 时，首先检查队列是否为空，如果为空则返回 $-1$。如果队列不为空，则计算队尾元素的位置（使用 $\textit{front}$ 和 $\textit{size}$ 计算），并返回该位置的元素。
+
+调用 $\textit{isEmpty}$ 时，检查 $\textit{size}$ 是否为 $0$。
+
+调用 $\textit{isFull}$ 时，检查 $\textit{size}$ 是否等于 $\textit{capacity}$。
+
+以上操作的时间复杂度均为 $O(1)$，空间复杂度为 $O(k)$，其中 $k$ 是队列的容量。
 
 <!-- tabs:start -->
 

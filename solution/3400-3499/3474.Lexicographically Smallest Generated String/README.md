@@ -122,32 +122,266 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+不妨记字符串 $str1$ 为 $s$，字符串 $str2$ 为 $t$。
+
+我们可以用一个长度为 $n + m - 1$ 的字符串 $ans$ 来存储生成的字符串，初始时将 $ans$ 的每个字符都设置为 $'a'$。我们还需要一个长度为 $n + m - 1$ 的布尔数组 $fixed$ 来记录 $ans$ 中哪些位置已经被固定了。
+
+首先，我们遍历字符串 $s$，对于每个下标 $i$，如果 $s[i]$ 是 'T'，则我们需要将 $ans$ 中从下标 $i$ 开始的长度为 $m$ 的子字符串设置为 $t$。在设置过程中，如果发现某个位置已经被固定了，并且与 $t$ 中对应位置的字符不相同，那么说明无法生成满足条件的字符串，我们直接返回空字符串。
+
+接下来，我们再次遍历字符串 $s$，对于每个下标 $i$，如果 $s[i]$ 是 'F'，则我们需要检查 $ans$ 中从下标 $i$ 开始的长度为 $m$ 的子字符串是否与 $t$ 相同。如果相同，那么我们需要在这个子字符串中找到一个位置，将其字符修改为 'b'（因为 'b' 在字典序上比 'a' 大），以保证这个子字符串不等于 $t$。如果无法找到这样的一个位置，那么说明无法生成满足条件的字符串，我们直接返回空字符串。
+
+最后，我们将 $ans$ 中的字符连接成一个字符串并返回。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n + m)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def generateString(self, s: str, t: str) -> str:
+        n, m = len(s), len(t)
+        ans = ["a"] * (n + m - 1)
+        fixed = [False] * (n + m - 1)
 
+        for i, b in enumerate(s):
+            if b != "T":
+                continue
+            for j, c in enumerate(t):
+                k = i + j
+                if fixed[k] and ans[k] != c:
+                    return ""
+                ans[k] = c
+                fixed[k] = True
+
+        for i, b in enumerate(s):
+            if b != "F":
+                continue
+            if "".join(ans[i : i + m]) != t:
+                continue
+            for j in range(i + m - 1, i - 1, -1):
+                if not fixed[j]:
+                    ans[j] = "b"
+                    break
+            else:
+                return ""
+
+        return "".join(ans)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String generateString(String s, String t) {
+        int n = s.length(), m = t.length();
+        char[] ans = new char[n + m - 1];
+        boolean[] fixed = new boolean[n + m - 1];
 
+        Arrays.fill(ans, 'a');
+
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) != 'T') {
+                continue;
+            }
+            for (int j = 0; j < m; j++) {
+                int k = i + j;
+                if (fixed[k] && ans[k] != t.charAt(j)) {
+                    return "";
+                }
+                ans[k] = t.charAt(j);
+                fixed[k] = true;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) != 'F') {
+                continue;
+            }
+
+            boolean same = true;
+            for (int j = 0; j < m; j++) {
+                if (ans[i + j] != t.charAt(j)) {
+                    same = false;
+                    break;
+                }
+            }
+            if (!same) {
+                continue;
+            }
+
+            boolean ok = false;
+            for (int j = i + m - 1; j >= i; j--) {
+                if (!fixed[j]) {
+                    ans[j] = 'b';
+                    ok = true;
+                    break;
+                }
+            }
+            if (!ok) {
+                return "";
+            }
+        }
+
+        return new String(ans);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    string generateString(string s, string t) {
+        int n = s.size(), m = t.size();
+        string ans(n + m - 1, 'a');
+        vector<bool> fixed(n + m - 1, false);
 
+        for (int i = 0; i < n; i++) {
+            if (s[i] != 'T') continue;
+            for (int j = 0; j < m; j++) {
+                int k = i + j;
+                if (fixed[k] && ans[k] != t[j]) return "";
+                ans[k] = t[j];
+                fixed[k] = true;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (s[i] != 'F') continue;
+
+            bool same = true;
+            for (int j = 0; j < m; j++) {
+                if (ans[i + j] != t[j]) {
+                    same = false;
+                    break;
+                }
+            }
+            if (!same) continue;
+
+            bool ok = false;
+            for (int j = i + m - 1; j >= i; j--) {
+                if (!fixed[j]) {
+                    ans[j] = 'b';
+                    ok = true;
+                    break;
+                }
+            }
+            if (!ok) return "";
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func generateString(s string, t string) string {
+	n, m := len(s), len(t)
+	ans := make([]byte, n+m-1)
+	fixed := make([]bool, n+m-1)
 
+	for i := range ans {
+		ans[i] = 'a'
+	}
+
+	for i, b := range s {
+		if b != 'T' {
+			continue
+		}
+		for j, c := range t {
+			k := i + j
+			if fixed[k] && ans[k] != byte(c) {
+				return ""
+			}
+			ans[k] = byte(c)
+			fixed[k] = true
+		}
+	}
+
+	for i, b := range s {
+		if b != 'F' {
+			continue
+		}
+
+		same := true
+		for j := 0; j < m; j++ {
+			if ans[i+j] != t[j] {
+				same = false
+				break
+			}
+		}
+		if !same {
+			continue
+		}
+
+		ok := false
+		for j := i + m - 1; j >= i; j-- {
+			if !fixed[j] {
+				ans[j] = 'b'
+				ok = true
+				break
+			}
+		}
+		if !ok {
+			return ""
+		}
+	}
+
+	return string(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function generateString(s: string, t: string): string {
+    const n = s.length,
+        m = t.length;
+    const ans: string[] = new Array(n + m - 1).fill('a');
+    const fixed: boolean[] = new Array(n + m - 1).fill(false);
+
+    for (let i = 0; i < n; i++) {
+        if (s[i] !== 'T') continue;
+        for (let j = 0; j < m; j++) {
+            const k = i + j;
+            if (fixed[k] && ans[k] !== t[j]) return '';
+            ans[k] = t[j];
+            fixed[k] = true;
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (s[i] !== 'F') continue;
+
+        let same = true;
+        for (let j = 0; j < m; j++) {
+            if (ans[i + j] !== t[j]) {
+                same = false;
+                break;
+            }
+        }
+        if (!same) continue;
+
+        let ok = false;
+        for (let j = i + m - 1; j >= i; j--) {
+            if (!fixed[j]) {
+                ans[j] = 'b';
+                ok = true;
+                break;
+            }
+        }
+        if (!ok) return '';
+    }
+
+    return ans.join('');
+}
 ```
 
 <!-- tabs:end -->

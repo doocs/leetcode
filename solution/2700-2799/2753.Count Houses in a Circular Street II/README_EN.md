@@ -64,7 +64,17 @@ The number of houses is equal to k, which is 5.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brain Teaser
+
+We notice that there is at least one door open in the problem. We can first find one of the open doors.
+
+Then, we skip this open door and move to the right. Each time we move, we increment a counter by one. If we encounter an open door, we close it. The answer is the value of the counter the last time we encounter an open door.
+
+The time complexity is $O(k)$, and the space complexity is $O(1)$.
+
+Related problem:
+
+- [2728. Count Houses in a Circular Street](https://github.com/doocs/leetcode/blob/main/solution/2700-2799/2728.Count%20Houses%20in%20a%20Circular%20Street/README_EN.md)
 
 <!-- tabs:start -->
 

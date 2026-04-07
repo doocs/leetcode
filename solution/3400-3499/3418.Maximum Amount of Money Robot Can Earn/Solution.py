@@ -12,4 +12,6 @@ class Solution:
             return ans
 
         m, n = len(coins), len(coins[0])
-        return dfs(0, 0, 2)
+        ans = dfs(0, 0, 2)
+        dfs.cache_clear()
+        return ans

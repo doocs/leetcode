@@ -1,14 +1,16 @@
-func leftRigthDifference(nums []int) (ans []int) {
-	var left, right int
+func leftRightDifference(nums []int) []int {
+	l, r := 0, 0
 	for _, x := range nums {
-		right += x
+		r += x
 	}
-	for _, x := range nums {
-		right -= x
-		ans = append(ans, abs(left-right))
-		left += x
+	n := len(nums)
+	ans := make([]int, n)
+	for i, x := range nums {
+		r -= x
+		ans[i] = abs(l - r)
+		l += x
 	}
-	return
+	return ans
 }
 
 func abs(x int) int {

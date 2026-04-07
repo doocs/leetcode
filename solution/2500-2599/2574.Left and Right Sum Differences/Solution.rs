@@ -1,14 +1,13 @@
 impl Solution {
-    pub fn left_rigth_difference(nums: Vec<i32>) -> Vec<i32> {
-        let mut left = 0;
-        let mut right = nums.iter().sum::<i32>();
-        nums.iter()
-            .map(|v| {
-                right -= v;
-                let res = (left - right).abs();
-                left += v;
-                res
-            })
-            .collect()
+    pub fn left_right_difference(nums: Vec<i32>) -> Vec<i32> {
+        let mut l = 0;
+        let mut r: i32 = nums.iter().sum();
+        let mut ans = Vec::with_capacity(nums.len());
+        for x in nums {
+            r -= x;
+            ans.push((l - r).abs());
+            l += x;
+        }
+        ans
     }
 }

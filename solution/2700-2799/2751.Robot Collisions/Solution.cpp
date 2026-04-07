@@ -2,44 +2,45 @@ class Solution {
 public:
     vector<int> survivedRobotsHealths(vector<int>& positions, vector<int>& healths, string directions) {
         int n = positions.size();
-        vector<int> indices(n);
+        vector<int> idx(n);
+        iota(idx.begin(), idx.end(), 0);
 
-        iota(indices.begin(), indices.end(), 0);
-        stack<int> st;
+        sort(idx.begin(), idx.end(), [&](int a, int b) {
+            return positions[a] < positions[b];
+        });
 
-        auto lambda = [&](int i, int j) { return positions[i] < positions[j]; };
+        vector<int> stk;
 
-        sort(begin(indices), end(indices), lambda);
+        for (int i : idx) {
+            if (directions[i] == 'R') {
+                stk.push_back(i);
+                continue;
+            }
 
-        vector<int> result;
-        for (int currentIndex : indices) {
-            if (directions[currentIndex] == 'R') {
-                st.push(currentIndex);
-            } else {
-                while (!st.empty() && healths[currentIndex] > 0) {
-                    int topIndex = st.top();
-                    st.pop();
+            while (!stk.empty() && healths[i] > 0) {
+                int j = stk.back();
 
-                    if (healths[topIndex] > healths[currentIndex]) {
-                        healths[topIndex] -= 1;
-                        healths[currentIndex] = 0;
-                        st.push(topIndex);
-                    } else if (healths[topIndex] < healths[currentIndex]) {
-                        healths[currentIndex] -= 1;
-                        healths[topIndex] = 0;
-                    } else {
-                        healths[currentIndex] = 0;
-                        healths[topIndex] = 0;
-                    }
+                if (healths[j] > healths[i]) {
+                    healths[j]--;
+                    healths[i] = 0;
+                } else if (healths[j] < healths[i]) {
+                    healths[i]--;
+                    healths[j] = 0;
+                    stk.pop_back();
+                } else {
+                    healths[i] = healths[j] = 0;
+                    stk.pop_back();
+                    break;
                 }
             }
         }
 
-        for (int i = 0; i < n; ++i) {
-            if (healths[i] > 0) {
-                result.push_back(healths[i]);
+        vector<int> ans;
+        for (int h : healths) {
+            if (h > 0) {
+                ans.push_back(h);
             }
         }
-        return result;
+        return ans;
     }
 };

@@ -68,7 +68,7 @@ We notice that if Koko can eat all the bananas at a speed of $k$ within $h$ hour
 
 We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \max(\textit{piles})$. For each binary search, we take the middle value $mid = \frac{l + r}{2}$, and then calculate the time $s$ required to eat bananas at a speed of $mid$. If $s \leq h$, it means that the speed of $mid$ can meet the condition, and we update the right boundary $r$ to $mid$; otherwise, we update the left boundary $l$ to $mid + 1$. Finally, when $l = r$, we find the smallest $k$ that satisfies the condition.
 
-The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and maximum value of the array `piles` respectively. The space complexity is $O(1)$.
+The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length and maximum value of the array $\textit{piles}$ respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

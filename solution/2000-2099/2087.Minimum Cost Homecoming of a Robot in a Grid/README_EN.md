@@ -72,7 +72,17 @@ The total cost is 3 + 2 + 6 + 7 = 18</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+Let's assume the robot's initial position is $(x_0, y_0)$ and the home position is $(x_1, y_1)$.
+
+If $x_0 < x_1$, the robot needs to move down, passing through rows $[x_0 + 1, x_1]$, with a total cost of $\sum_{i = x_0 + 1}^{x_1} rowCosts[i]$. If $x_0 > x_1$, the robot needs to move up, passing through rows $[x_1, x_0 - 1]$, with a total cost of $\sum_{i = x_1}^{x_0 - 1} rowCosts[i]$. If $x_0 = x_1$, the robot doesn't need to move vertically, and the total cost is $0$.
+
+Similarly, if $y_0 < y_1$, the robot needs to move right, passing through columns $[y_0 + 1, y_1]$, with a total cost of $\sum_{j = y_0 + 1}^{y_1} colCosts[j]$. If $y_0 > y_1$, the robot needs to move left, passing through columns $[y_1, y_0 - 1]$, with a total cost of $\sum_{j = y_1}^{y_0 - 1} colCosts[j]$. If $y_0 = y_1$, the robot doesn't need to move horizontally, and the total cost is $0$.
+
+The answer is the sum of the vertical movement cost and the horizontal movement cost.
+
+The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of $rowCosts$ and $colCosts$, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -87,18 +97,11 @@ class Solution:
         rowCosts: List[int],
         colCosts: List[int],
     ) -> int:
-        i, j = startPos
-        x, y = homePos
-        ans = 0
-        if i < x:
-            ans += sum(rowCosts[i + 1 : x + 1])
-        else:
-            ans += sum(rowCosts[x:i])
-        if j < y:
-            ans += sum(colCosts[j + 1 : y + 1])
-        else:
-            ans += sum(colCosts[y:j])
-        return ans
+        x0, y0 = startPos
+        x1, y1 = homePos
+        dx = sum(rowCosts[x0 + 1 : x1 + 1]) if x0 < x1 else sum(rowCosts[x1:x0])
+        dy = sum(colCosts[y0 + 1 : y1 + 1]) if y0 < y1 else sum(colCosts[y1:y0])
+        return dx + dy
 ```
 
 #### Java
@@ -106,28 +109,19 @@ class Solution:
 ```java
 class Solution {
     public int minCost(int[] startPos, int[] homePos, int[] rowCosts, int[] colCosts) {
-        int i = startPos[0], j = startPos[1];
-        int x = homePos[0], y = homePos[1];
-        int ans = 0;
-        if (i < x) {
-            for (int k = i + 1; k <= x; ++k) {
-                ans += rowCosts[k];
-            }
-        } else {
-            for (int k = x; k < i; ++k) {
-                ans += rowCosts[k];
-            }
+        int x0 = startPos[0], y0 = startPos[1];
+        int x1 = homePos[0], y1 = homePos[1];
+        int dx = x0 < x1 ? calc(rowCosts, x0 + 1, x1) : calc(rowCosts, x1, x0 - 1);
+        int dy = y0 < y1 ? calc(colCosts, y0 + 1, y1) : calc(colCosts, y1, y0 - 1);
+        return dx + dy;
+    }
+
+    private int calc(int[] nums, int i, int j) {
+        int res = 0;
+        for (int k = i; k <= j; ++k) {
+            res += nums[k];
         }
-        if (j < y) {
-            for (int k = j + 1; k <= y; ++k) {
-                ans += colCosts[k];
-            }
-        } else {
-            for (int k = y; k < j; ++k) {
-                ans += colCosts[k];
-            }
-        }
-        return ans;
+        return res;
     }
 }
 ```
@@ -138,20 +132,18 @@ class Solution {
 class Solution {
 public:
     int minCost(vector<int>& startPos, vector<int>& homePos, vector<int>& rowCosts, vector<int>& colCosts) {
-        int i = startPos[0], j = startPos[1];
-        int x = homePos[0], y = homePos[1];
-        int ans = 0;
-        if (i < x) {
-            ans += accumulate(rowCosts.begin() + i + 1, rowCosts.begin() + x + 1, 0);
-        } else {
-            ans += accumulate(rowCosts.begin() + x, rowCosts.begin() + i, 0);
-        }
-        if (j < y) {
-            ans += accumulate(colCosts.begin() + j + 1, colCosts.begin() + y + 1, 0);
-        } else {
-            ans += accumulate(colCosts.begin() + y, colCosts.begin() + j, 0);
-        }
-        return ans;
+        auto calc = [](vector<int>& nums, int i, int j) {
+            int res = 0;
+            for (int k = i; k <= j; ++k) {
+                res += nums[k];
+            }
+            return res;
+        };
+        int x0 = startPos[0], y0 = startPos[1];
+        int x1 = homePos[0], y1 = homePos[1];
+        int dx = x0 < x1 ? calc(rowCosts, x0 + 1, x1) : calc(rowCosts, x1, x0 - 1);
+        int dy = y0 < y1 ? calc(colCosts, y0 + 1, y1) : calc(colCosts, y1, y0 - 1);
+        return dx + dy;
     }
 };
 ```
@@ -159,27 +151,97 @@ public:
 #### Go
 
 ```go
-func minCost(startPos []int, homePos []int, rowCosts []int, colCosts []int) (ans int) {
-	i, j := startPos[0], startPos[1]
-	x, y := homePos[0], homePos[1]
-	if i < x {
-		ans += sum(rowCosts, i+1, x+1)
-	} else {
-		ans += sum(rowCosts, x, i)
+func minCost(startPos []int, homePos []int, rowCosts []int, colCosts []int) int {
+	x0, y0 := startPos[0], startPos[1]
+	x1, y1 := homePos[0], homePos[1]
+	calc := func(nums []int, i int, j int) int {
+		res := 0
+		for k := i; k <= j; k++ {
+			res += nums[k]
+		}
+		return res
 	}
-	if j < y {
-		ans += sum(colCosts, j+1, y+1)
+	dx := 0
+	if x0 < x1 {
+		dx = calc(rowCosts, x0+1, x1)
 	} else {
-		ans += sum(colCosts, y, j)
+		dx = calc(rowCosts, x1, x0-1)
 	}
-	return
+	dy := 0
+	if y0 < y1 {
+		dy = calc(colCosts, y0+1, y1)
+	} else {
+		dy = calc(colCosts, y1, y0-1)
+	}
+	return dx + dy
 }
+```
 
-func sum(nums []int, i, j int) (s int) {
-	for k := i; k < j; k++ {
-		s += nums[k]
-	}
-	return
+#### TypeScript
+
+```ts
+function minCost(
+    startPos: number[],
+    homePos: number[],
+    rowCosts: number[],
+    colCosts: number[],
+): number {
+    const calc = (nums: number[], i: number, j: number): number => {
+        let res = 0;
+        for (let k = i; k <= j; ++k) {
+            res += nums[k];
+        }
+        return res;
+    };
+
+    const [x0, y0] = startPos;
+    const [x1, y1] = homePos;
+
+    const dx = x0 < x1 ? calc(rowCosts, x0 + 1, x1) : calc(rowCosts, x1, x0 - 1);
+
+    const dy = y0 < y1 ? calc(colCosts, y0 + 1, y1) : calc(colCosts, y1, y0 - 1);
+
+    return dx + dy;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_cost(
+        start_pos: Vec<i32>,
+        home_pos: Vec<i32>,
+        row_costs: Vec<i32>,
+        col_costs: Vec<i32>,
+    ) -> i32 {
+        let calc = |nums: &Vec<i32>, i: i32, j: i32| -> i32 {
+            let mut res = 0;
+            for k in i..=j {
+                res += nums[k as usize];
+            }
+            res
+        };
+
+        let x0 = start_pos[0];
+        let y0 = start_pos[1];
+        let x1 = home_pos[0];
+        let y1 = home_pos[1];
+
+        let dx = if x0 < x1 {
+            calc(&row_costs, x0 + 1, x1)
+        } else {
+            calc(&row_costs, x1, x0 - 1)
+        };
+
+        let dy = if y0 < y1 {
+            calc(&col_costs, y0 + 1, y1)
+        } else {
+            calc(&col_costs, y1, y0 - 1)
+        };
+
+        dx + dy
+    }
 }
 ```
 

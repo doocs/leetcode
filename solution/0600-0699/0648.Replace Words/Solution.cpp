@@ -1,57 +1,50 @@
 class Trie {
-private:
-    Trie* children[26];
-    int ref;
-
 public:
-    Trie()
-        : ref(-1) {
-        memset(children, 0, sizeof(children));
-    }
+    Trie* children[26]{};
+    bool isEnd = false;
 
-    void insert(const string& w, int i) {
+    void insert(const string& w) {
         Trie* node = this;
-        for (auto& c : w) {
+        for (char c : w) {
             int idx = c - 'a';
             if (!node->children[idx]) {
                 node->children[idx] = new Trie();
             }
             node = node->children[idx];
         }
-        node->ref = i;
+        node->isEnd = true;
     }
 
-    int search(const string& w) {
+    string search(const string& w) {
         Trie* node = this;
-        for (auto& c : w) {
-            int idx = c - 'a';
+        for (int i = 0; i < w.size(); ++i) {
+            int idx = w[i] - 'a';
             if (!node->children[idx]) {
-                return -1;
+                return w;
             }
             node = node->children[idx];
-            if (node->ref != -1) {
-                return node->ref;
+            if (node->isEnd) {
+                return w.substr(0, i + 1);
             }
         }
-        return -1;
+        return w;
     }
 };
 
 class Solution {
 public:
     string replaceWords(vector<string>& dictionary, string sentence) {
-        Trie* trie = new Trie();
-        for (int i = 0; i < dictionary.size(); ++i) {
-            trie->insert(dictionary[i], i);
+        Trie trie;
+        for (auto& w : dictionary) {
+            trie.insert(w);
         }
+
         stringstream ss(sentence);
-        string w;
-        string ans;
-        while (ss >> w) {
-            int idx = trie->search(w);
-            ans += (idx == -1 ? w : dictionary[idx]) + " ";
+        string word, res;
+        while (ss >> word) {
+            if (!res.empty()) res += " ";
+            res += trie.search(word);
         }
-        ans.pop_back();
-        return ans;
+        return res;
     }
 };

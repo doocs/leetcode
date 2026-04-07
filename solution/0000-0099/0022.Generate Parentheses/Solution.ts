@@ -1,5 +1,5 @@
 function generateParenthesis(n: number): string[] {
-    function dfs(l, r, t) {
+    const dfs = (l: number, r: number, t: string) => {
         if (l > n || r > n || l < r) {
             return;
         }
@@ -9,8 +9,8 @@ function generateParenthesis(n: number): string[] {
         }
         dfs(l + 1, r, t + '(');
         dfs(l, r + 1, t + ')');
-    }
-    let ans = [];
+    };
+    const ans: string[] = [];
     dfs(0, 0, '');
     return ans;
 }

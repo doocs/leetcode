@@ -94,7 +94,17 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We iterate over each element of the matrix and check whether its position after the cyclic shift is the same as the element at the original position.
+
+For odd-indexed rows, we shift elements to the right by $k$ positions, so element $(i, j)$ moves to position $(i, (j + k) \bmod n)$ after the cyclic shift, where $n$ is the number of columns.
+
+For even-indexed rows, we shift elements to the left by $k$ positions, so element $(i, j)$ moves to position $(i, (j - k + n) \bmod n)$ after the cyclic shift.
+
+If at any point during the traversal we find that an element's position after the cyclic shift differs from the original, we return $\text{false}$. If all elements remain the same after the full traversal, we return $\text{true}$.
+
+The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -196,6 +206,30 @@ function areSimilar(mat: number[][], k: number): boolean {
         }
     }
     return true;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn are_similar(mat: Vec<Vec<i32>>, k: i32) -> bool {
+        let m = mat.len();
+        let n = mat[0].len();
+        let k = (k as usize) % n;
+
+        for i in 0..m {
+            for j in 0..n {
+                if i % 2 == 1 && mat[i][j] != mat[i][(j + k) % n] {
+                    return false;
+                }
+                if i % 2 == 0 && mat[i][j] != mat[i][(j + n - k) % n] {
+                    return false;
+                }
+            }
+        }
+        true
+    }
 }
 ```
 
