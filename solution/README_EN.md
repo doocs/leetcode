@@ -3901,6 +3901,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3890  |  [Integers With Multiple Sum of Two Cubes](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README_EN.md)  |    |  Medium  |  Weekly Contest 496  |
 |  3891  |  [Minimum Increase to Maximize Special Indices](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md)  |    |  Medium  |  Weekly Contest 496  |
 |  3892  |  [Minimum Operations to Achieve At Least K Peaks](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md)  |    |  Hard  |  Weekly Contest 496  |
+|  3893  |  [Maximum Team Size with Overlapping Intervals](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
