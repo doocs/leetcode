@@ -3903,6 +3903,7 @@
 |  3890  |  [可由多种立方和构造的整数](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md)  |    |  中等  |  第 496 场周赛  |
 |  3891  |  [最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)  |    |  中等  |  第 496 场周赛  |
 |  3892  |  [产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)  |    |  困难  |  第 496 场周赛  |
+|  3893  |  [Maximum Team Size with Overlapping Intervals](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
