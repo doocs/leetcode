@@ -97,7 +97,64 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def xorAfterQueries(self, nums: List[int], queries: List[List[int]]) -> int:
+        from collections import defaultdict
+        
+        MOD = 10**9 + 7
+        n = len(nums)
+        
+        # bravexuneth stores intermediate multiplier state
+        bravexuneth = defaultdict(lambda: defaultdict(int))
+        # bravexuneth[k][pos] = multiplier to apply at pos, propagate to pos+k
+        
+        for l, r, k, v in queries:
+            # First position in [l,r] with step k is l itself
+            bravexuneth[k][l] = bravexuneth[k].get(l, 1) * v % MOD
+            # Cancel at r + k (first position BEYOND range)
+            cancel_pos = r - (r - l) % k + k  # last valid + k
+            if cancel_pos < n:
+                inv_v = pow(v, MOD - 2, MOD)
+                bravexuneth[k][cancel_pos] = bravexuneth[k].get(cancel_pos, 1) * inv_v % MOD
+        
+        # For each k, sweep positions that are multiples of k apart
+        # Accumulate running multiplier per (k, start_mod)
+        # running[k][pos] carries forward to pos+k
+        
+        # Merge all per-k running multipliers into a single array
+        total_mul = [1] * n
+        
+        for k, pos_map in bravexuneth.items():
+            running = {}  # start_residue -> current multiplier
+            # Collect all positions for this k, sorted
+            positions = sorted(pos_map.keys())
+            # We need to sweep each residue class mod k separately
+            # Group by residue
+            by_residue = defaultdict(list)
+            for pos in positions:
+                by_residue[pos % k].append(pos)
+            
+            for residue, pos_list in by_residue.items():
+                cur = 1
+                prev_pos = None
+                for pos in pos_list:
+                    if pos < n:
+                        # Apply cur to all positions from prev_pos to pos (step k)
+                        # But we need per-element: use another pass
+                        pass
+                # Re-sweep this residue class fully
+                cur = 1
+                ptr = 0
+                for i in range(residue, n, k):
+                    if ptr < len(pos_list) and pos_list[ptr] == i:
+                        cur = cur * pos_map[pos_list[ptr]] % MOD
+                        ptr += 1
+                    total_mul[i] = total_mul[i] * cur % MOD
+        
+        result = 0
+        for i in range(n):
+            result ^= nums[i] * total_mul[i] % MOD
+        return result
 ```
 
 #### Java
