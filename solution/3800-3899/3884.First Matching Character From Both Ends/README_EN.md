@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README_EN.md
 rating: 1161
 source: Weekly Contest 495 Q1
+tags:
+    - Two Pointers
+    - String
 ---
 
 <!-- problem:start -->

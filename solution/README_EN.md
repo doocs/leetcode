@@ -3888,19 +3888,19 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3877  |  [Minimum Removals to Achieve Target XOR](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 494  |
 |  3878  |  [Count Good Subarrays](/solution/3800-3899/3878.Count%20Good%20Subarrays/README_EN.md)  |  `Stack`,`Bit Manipulation`,`Array`,`Monotonic Stack`  |  Hard  |  Weekly Contest 494  |
 |  3879  |  [Maximum Distinct Path Sum in a Binary Tree](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Hash Table`,`Binary Tree`  |  Medium  |  🔒  |
-|  3880  |  [Minimum Absolute Difference Between Two Values](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README_EN.md)  |    |  Easy  |  Biweekly Contest 179  |
-|  3881  |  [Direction Assignments with Exactly K Visible People](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README_EN.md)  |    |  Medium  |  Biweekly Contest 179  |
-|  3882  |  [Minimum XOR Path in a Grid](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 179  |
-|  3883  |  [Count Non Decreasing Arrays With Given Digit Sums](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README_EN.md)  |    |  Hard  |  Biweekly Contest 179  |
-|  3884  |  [First Matching Character From Both Ends](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README_EN.md)  |    |  Easy  |  Weekly Contest 495  |
-|  3885  |  [Design Event Manager](/solution/3800-3899/3885.Design%20Event%20Manager/README_EN.md)  |    |  Medium  |  Weekly Contest 495  |
+|  3880  |  [Minimum Absolute Difference Between Two Values](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README_EN.md)  |  `Array`,`Enumeration`  |  Easy  |  Biweekly Contest 179  |
+|  3881  |  [Direction Assignments with Exactly K Visible People](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README_EN.md)  |  `Math`,`Combinatorics`  |  Medium  |  Biweekly Contest 179  |
+|  3882  |  [Minimum XOR Path in a Grid](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Matrix`  |  Medium  |  Biweekly Contest 179  |
+|  3883  |  [Count Non Decreasing Arrays With Given Digit Sums](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README_EN.md)  |  `Array`,`Dynamic Programming`,`Prefix Sum`  |  Hard  |  Biweekly Contest 179  |
+|  3884  |  [First Matching Character From Both Ends](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |  Weekly Contest 495  |
+|  3885  |  [Design Event Manager](/solution/3800-3899/3885.Design%20Event%20Manager/README_EN.md)  |  `Design`,`Array`,`Hash Table`,`Ordered Set`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 495  |
 |  3886  |  [Sum of Sortable Integers](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README_EN.md)  |    |  Hard  |  Weekly Contest 495  |
 |  3887  |  [Incremental Even-Weighted Cycle Queries](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 495  |
-|  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README_EN.md)  |    |  Hard  |  🔒  |
-|  3889  |  [Mirror Frequency Distance](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md)  |    |  Medium  |  Weekly Contest 496  |
-|  3890  |  [Integers With Multiple Sum of Two Cubes](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README_EN.md)  |    |  Medium  |  Weekly Contest 496  |
-|  3891  |  [Minimum Increase to Maximize Special Indices](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md)  |    |  Medium  |  Weekly Contest 496  |
-|  3892  |  [Minimum Operations to Achieve At Least K Peaks](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md)  |    |  Hard  |  Weekly Contest 496  |
+|  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README_EN.md)  |  `Array`,`Math`,`Matrix`,`Prefix Sum`  |  Hard  |  🔒  |
+|  3889  |  [Mirror Frequency Distance](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md)  |  `Hash Table`,`String`,`Counting`  |  Medium  |  Weekly Contest 496  |
+|  3890  |  [Integers With Multiple Sum of Two Cubes](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README_EN.md)  |  `Hash Table`,`Counting`,`Enumeration`,`Sorting`  |  Medium  |  Weekly Contest 496  |
+|  3891  |  [Minimum Increase to Maximize Special Indices](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 496  |
+|  3892  |  [Minimum Operations to Achieve At Least K Peaks](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 496  |
 |  3893  |  [Maximum Team Size with Overlapping Intervals](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright

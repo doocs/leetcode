@@ -2,11 +2,16 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README.md
+tags:
+    - 数组
+    - 数学
+    - 矩阵
+    - 前缀和
 ---
 
 <!-- problem:start -->
 
-# [3888. Minimum Operations to Make All Grid Elements Equal 🔒](https://leetcode.cn/problems/minimum-operations-to-make-all-grid-elements-equal)
+# [3888. 使所有网格元素相等的最小操作次数 🔒](https://leetcode.cn/problems/minimum-operations-to-make-all-grid-elements-equal)
 
 [English Version](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README_EN.md)
 
@@ -14,59 +19,62 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3888.Mi
 
 <!-- description:start -->
 
-<p>You are given a 2D integer array <code>grid</code> of size <code>m &times; n</code>, and an integer <code>k</code>.</p>
+<p>给定一个大小为&nbsp;<code>m × n</code>&nbsp;的 2 维整数数组&nbsp;<code>grid</code>，和一个整数&nbsp;<code>k</code>。</p>
 
-<p>In one operation, you can:</p>
-
-<ul>
-	<li>Select any <code>k x k</code> <strong>submatrix</strong> of <code>grid</code>, and</li>
-	<li>Increment <strong>all elements</strong> inside that <strong>submatrix</strong> by 1.</li>
-</ul>
-
-<p>Return the <strong>minimum</strong> number of operations required to make all elements in the grid <strong>equal</strong>. If it is not possible, return -1.</p>
-A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that forms by choosing all cells <code>matrix[x][y]</code> where <code>x1 &lt;= x &lt;= x2</code> and <code>y1 &lt;= y &lt;= y2</code>.
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">grid = [[3,3,5],[3,3,5]], k = 2</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">2</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p data-end="266" data-start="150">Choose the left <code>2 x 2</code> submatrix (covering the first two columns) and apply the operation twice.</p>
+<p>在一次操作中，你可以：</p>
 
 <ul>
-	<li>After 1 operation: <code>[[4, 4, 5], [4, 4, 5]]</code></li>
-	<li>After 2 operations: <code>[[5, 5, 5], [5, 5, 5]]</code></li>
+	<li>选择&nbsp;<code>grid</code>&nbsp;任意&nbsp;<code>k x k</code>&nbsp;的<strong>&nbsp;子矩阵</strong>，并且</li>
+	<li>将该子矩阵中的所有元素加 1。</li>
 </ul>
 
-<p>All elements become equal to 5. Thus, the minimum number of operations is 2.</p>
-</div>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">grid = [[1,2],[2,3]], k = 1</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">4</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>Since <code>k = 1</code>, each operation increments a single cell <code>grid[i][j]</code> by 1. To make all elements equal, the final value must be 3.</p>
-
-<ul>
-	<li>Increase <code>grid[0][0] = 1</code> to 3, requiring 2 operations.</li>
-	<li>Increase <code>grid[0][1] = 2</code> to 3, requiring 1 operation.</li>
-	<li>Increase <code>grid[1][0] = 2</code> to 3, requiring 1 operation.</li>
-</ul>
-
-<p>Thus, the minimum number of operations is <code>2 + 1 + 1 + 0 = 4</code>.</p>
-</div>
+<p>返回使网格中所有元素相等所需的最少操作次数。如果不可能，请返回 -1。</p>
+一个子矩阵 <code>(x1, y1, x2, y2)</code> 是由所有满足 <code>x1 &lt;= x &lt;= x2</code> 且&nbsp;<code>y1 &lt;= y &lt;= y2</code> 的矩阵元素 <code>matrix[x][y]</code> 组成的矩阵。
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>grid = [[3,3,5],[3,3,5]], k = 2</span></p>
+
+<p><span class="example-io"><b>输出：</b>2</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p data-end="266" data-start="150">选择左边的 <code>2 x 2</code> 子矩阵（覆盖前两列）并应用该操作两次。</p>
+
+<ul>
+	<li>在 1 次操作后：<code>[[4, 4, 5], [4, 4, 5]]</code></li>
+	<li>在 2 次操作后：<code>[[5, 5, 5], [5, 5, 5]]</code></li>
+</ul>
+
+<p>所有元素都变为 5。因此，所需的最小操作次数是 2。</p>
+</div>
+
+<p><strong class="example">示例 2：</strong></p>
+
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>grid = [[1,2],[2,3]], k = 1</span></p>
+
+<p><span class="example-io"><b>输出：</b>4</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>由于&nbsp;<code>k = 1</code>，每次操作将单个单元格 <code>grid[i][j]</code> 的值加1。要使所有元素相等，最终值必须为 3。</p>
+
+<ul>
+	<li>增加&nbsp;<code>grid[0][0] = 1</code>&nbsp;到 3，需要 2&nbsp;次操作。</li>
+	<li>增加 <code>grid[0][1] = 2</code> 到 3，需要 1 次操作。</li>
+	<li>增加 <code>grid[1][0] = 2</code> 到 3，需要 1 次操作。</li>
+</ul>
+
+<p>因此，所需的最小操作次数是&nbsp;<code>2 + 1 + 1 + 0 = 4</code>。</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= m == grid.length &lt;= 1000</code></li>
