@@ -3890,20 +3890,20 @@
 |  3877  |  [达到目标异或值的最少删除次数](/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md)  |  `位运算`,`数组`,`动态规划`  |  中等  |  第 494 场周赛  |
 |  3878  |  [统计好子数组](/solution/3800-3899/3878.Count%20Good%20Subarrays/README.md)  |  `栈`,`位运算`,`数组`,`单调栈`  |  困难  |  第 494 场周赛  |
 |  3879  |  [二叉树中的最大不同路径和](/solution/3800-3899/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree/README.md)  |  `树`,`深度优先搜索`,`哈希表`,`二叉树`  |  中等  |  🔒  |
-|  3880  |  [两个值之间的最小绝对差值](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README.md)  |    |  简单  |  第 179 场双周赛  |
-|  3881  |  [恰好看到 K 个人的方向选择](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README.md)  |    |  中等  |  第 179 场双周赛  |
-|  3882  |  [网格图中最小异或路径](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README.md)  |    |  中等  |  第 179 场双周赛  |
-|  3883  |  [统计满足数位和数组的非递减数组数目](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README.md)  |    |  困难  |  第 179 场双周赛  |
-|  3884  |  [双端字符匹配](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README.md)  |    |  简单  |  第 495 场周赛  |
-|  3885  |  [设计事件管理器](/solution/3800-3899/3885.Design%20Event%20Manager/README.md)  |    |  中等  |  第 495 场周赛  |
+|  3880  |  [两个值之间的最小绝对差值](/solution/3800-3899/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values/README.md)  |  `数组`,`枚举`  |  简单  |  第 179 场双周赛  |
+|  3881  |  [恰好看到 K 个人的方向选择](/solution/3800-3899/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People/README.md)  |  `数学`,`组合数学`  |  中等  |  第 179 场双周赛  |
+|  3882  |  [网格图中最小异或路径](/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README.md)  |  `位运算`,`数组`,`动态规划`,`矩阵`  |  中等  |  第 179 场双周赛  |
+|  3883  |  [统计满足数位和数组的非递减数组数目](/solution/3800-3899/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums/README.md)  |  `数组`,`动态规划`,`前缀和`  |  困难  |  第 179 场双周赛  |
+|  3884  |  [双端字符匹配](/solution/3800-3899/3884.First%20Matching%20Character%20From%20Both%20Ends/README.md)  |  `双指针`,`字符串`  |  简单  |  第 495 场周赛  |
+|  3885  |  [设计事件管理器](/solution/3800-3899/3885.Design%20Event%20Manager/README.md)  |  `设计`,`数组`,`哈希表`,`有序集合`,`堆（优先队列）`  |  中等  |  第 495 场周赛  |
 |  3886  |  [可排序整数求和](/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README.md)  |    |  困难  |  第 495 场周赛  |
 |  3887  |  [增量偶权环查询](/solution/3800-3899/3887.Incremental%20Even-Weighted%20Cycle%20Queries/README.md)  |    |  困难  |  第 495 场周赛  |
-|  3888  |  [Minimum Operations to Make All Grid Elements Equal](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README.md)  |    |  困难  |  🔒  |
-|  3889  |  [镜像频次距离](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md)  |    |  中等  |  第 496 场周赛  |
-|  3890  |  [可由多种立方和构造的整数](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md)  |    |  中等  |  第 496 场周赛  |
-|  3891  |  [最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)  |    |  中等  |  第 496 场周赛  |
-|  3892  |  [产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)  |    |  困难  |  第 496 场周赛  |
-|  3893  |  [Maximum Team Size with Overlapping Intervals](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README.md)  |    |  中等  |  🔒  |
+|  3888  |  [使所有网格元素相等的最小操作次数](/solution/3800-3899/3888.Minimum%20Operations%20to%20Make%20All%20Grid%20Elements%20Equal/README.md)  |  `数组`,`数学`,`矩阵`,`前缀和`  |  困难  |  🔒  |
+|  3889  |  [镜像频次距离](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md)  |  `哈希表`,`字符串`,`计数`  |  中等  |  第 496 场周赛  |
+|  3890  |  [可由多种立方和构造的整数](/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md)  |  `哈希表`,`计数`,`枚举`,`排序`  |  中等  |  第 496 场周赛  |
+|  3891  |  [最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)  |  `贪心`,`数组`,`动态规划`,`前缀和`  |  中等  |  第 496 场周赛  |
+|  3892  |  [产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)  |  `数组`,`动态规划`  |  困难  |  第 496 场周赛  |
+|  3893  |  [最大重叠区间团队规模](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

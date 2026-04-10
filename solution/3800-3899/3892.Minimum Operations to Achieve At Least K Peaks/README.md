@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md
+tags:
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md
+tags:
+    - 哈希表
+    - 字符串
+    - 计数
 ---
 
 <!-- problem:start -->

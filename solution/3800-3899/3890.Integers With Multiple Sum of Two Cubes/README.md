@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3890.Integers%20With%20Multiple%20Sum%20of%20Two%20Cubes/README.md
+tags:
+    - 哈希表
+    - 计数
+    - 枚举
+    - 排序
 ---
 
 <!-- problem:start -->

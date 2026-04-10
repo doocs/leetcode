@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md
+tags:
+    - Hash Table
+    - String
+    - Counting
 ---
 
 <!-- problem:start -->

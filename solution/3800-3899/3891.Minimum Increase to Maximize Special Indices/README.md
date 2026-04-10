@@ -2,6 +2,11 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md
+tags:
+    - 贪心
+    - 数组
+    - 动态规划
+    - 前缀和
 ---
 
 <!-- problem:start -->
