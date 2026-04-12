@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md
+rating: 1952
+source: Weekly Contest 496 Q3
 tags:
     - Greedy
     - Array

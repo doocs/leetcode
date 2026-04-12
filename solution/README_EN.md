@@ -3902,6 +3902,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3891  |  [Minimum Increase to Maximize Special Indices](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`,`Prefix Sum`  |  Medium  |  Weekly Contest 496  |
 |  3892  |  [Minimum Operations to Achieve At Least K Peaks](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |  Weekly Contest 496  |
 |  3893  |  [Maximum Team Size with Overlapping Intervals](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README_EN.md)  |    |  Medium  |  🔒  |
+|  3894  |  [Traffic Signal Color](/solution/3800-3899/3894.Traffic%20Signal%20Color/README_EN.md)  |    |  Easy  |  Biweekly Contest 180  |
+|  3895  |  [Count Digit Appearances](/solution/3800-3899/3895.Count%20Digit%20Appearances/README_EN.md)  |    |  Medium  |  Biweekly Contest 180  |
+|  3896  |  [Minimum Operations to Transform Array into Alternating Prime](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README_EN.md)  |    |  Medium  |  Biweekly Contest 180  |
+|  3897  |  [Maximum Value of Concatenated Binary Segments](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README_EN.md)  |    |  Hard  |  Biweekly Contest 180  |
 
 ## Copyright
 

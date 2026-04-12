@@ -3904,6 +3904,10 @@
 |  3891  |  [最大化特殊下标数目的最少增加次数](/solution/3800-3899/3891.Minimum%20Increase%20to%20Maximize%20Special%20Indices/README.md)  |  `贪心`,`数组`,`动态规划`,`前缀和`  |  中等  |  第 496 场周赛  |
 |  3892  |  [产生至少 K 个峰值的最少操作次数](/solution/3800-3899/3892.Minimum%20Operations%20to%20Achieve%20At%20Least%20K%20Peaks/README.md)  |  `数组`,`动态规划`  |  困难  |  第 496 场周赛  |
 |  3893  |  [最大重叠区间团队规模](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README.md)  |    |  中等  |  🔒  |
+|  3894  |  [交通信号灯的颜色](/solution/3800-3899/3894.Traffic%20Signal%20Color/README.md)  |    |  简单  |  第 180 场双周赛  |
+|  3895  |  [统计数字出现总次数](/solution/3800-3899/3895.Count%20Digit%20Appearances/README.md)  |    |  中等  |  第 180 场双周赛  |
+|  3896  |  [将数组转变为交替素数数组的最少操作次数](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md)  |    |  中等  |  第 180 场双周赛  |
+|  3897  |  [连接二进制片段得到的最大值](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README.md)  |    |  困难  |  第 180 场双周赛  |
 
 ## 版权
 

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 180
+
+- [3894. Traffic Signal Color](/solution/3800-3899/3894.Traffic%20Signal%20Color/README_EN.md)
+- [3895. Count Digit Appearances](/solution/3800-3899/3895.Count%20Digit%20Appearances/README_EN.md)
+- [3896. Minimum Operations to Transform Array into Alternating Prime](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README_EN.md)
+- [3897. Maximum Value of Concatenated Binary Segments](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README_EN.md)
+
 #### Weekly Contest 496
 
 - [3889. Mirror Frequency Distance](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md)
