@@ -222,6 +222,90 @@ func (h *hp) Push(v any)        { *h = append(*h, v.(pair)) }
 func (h *hp) Pop() any          { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; return v }
 ```
 
+#### TypeScript
+
+```ts
+function minInterval(intervals: number[][], queries: number[]): number[] {
+    const n = intervals.length;
+    const m = queries.length;
+
+    intervals.sort((a, b) => a[0] - b[0]);
+    const qs = queries.map((x, i) => [x, i] as [number, number]).sort((a, b) => a[0] - b[0]);
+
+    const ans = Array<number>(m).fill(-1);
+    const pq = new PriorityQueue<[number, number]>((a, b) =>
+        a[0] === b[0] ? a[1] - b[1] : a[0] - b[0],
+    );
+
+    let i = 0;
+    for (const [x, idx] of qs) {
+        while (i < n && intervals[i][0] <= x) {
+            const [l, r] = intervals[i];
+            pq.enqueue([r - l + 1, r]);
+            i++;
+        }
+
+        while (pq.size() > 0 && pq.front()![1] < x) {
+            pq.dequeue();
+        }
+
+        if (pq.size() > 0) {
+            ans[idx] = pq.front()![0];
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
+impl Solution {
+    pub fn min_interval(intervals: Vec<Vec<i32>>, queries: Vec<i32>) -> Vec<i32> {
+        let mut intervals = intervals;
+        intervals.sort_by_key(|v| v[0]);
+
+        let mut sorted_queries: Vec<(i32, usize)> = queries
+            .into_iter()
+            .enumerate()
+            .map(|(i, x)| (x, i))
+            .collect();
+        sorted_queries.sort_by_key(|&(x, _)| x);
+
+        let mut ans = vec![-1; sorted_queries.len()];
+        let mut heap: BinaryHeap<Reverse<(i32, i32)>> = BinaryHeap::new();
+        let mut i = 0usize;
+
+        for (x, idx) in sorted_queries {
+            while i < intervals.len() && intervals[i][0] <= x {
+                let l = intervals[i][0];
+                let r = intervals[i][1];
+                heap.push(Reverse((r - l + 1, r)));
+                i += 1;
+            }
+
+            while let Some(&Reverse((_, r))) = heap.peek() {
+                if r < x {
+                    heap.pop();
+                } else {
+                    break;
+                }
+            }
+
+            if let Some(&Reverse((len, _))) = heap.peek() {
+                ans[idx] = len;
+            }
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
