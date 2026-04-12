@@ -3906,6 +3906,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3895  |  [Count Digit Appearances](/solution/3800-3899/3895.Count%20Digit%20Appearances/README_EN.md)  |    |  Medium  |  Biweekly Contest 180  |
 |  3896  |  [Minimum Operations to Transform Array into Alternating Prime](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README_EN.md)  |    |  Medium  |  Biweekly Contest 180  |
 |  3897  |  [Maximum Value of Concatenated Binary Segments](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README_EN.md)  |    |  Hard  |  Biweekly Contest 180  |
+|  3898  |  [Find the Degree of Each Vertex](/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README_EN.md)  |    |  Easy  |  Weekly Contest 497  |
+|  3899  |  [Angles of a Triangle](/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README_EN.md)  |    |  Medium  |  Weekly Contest 497  |
+|  3900  |  [Longest Balanced Substring After One Swap](/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README_EN.md)  |    |  Medium  |  Weekly Contest 497  |
+|  3901  |  [Good Subsequence Queries](/solution/3900-3999/3901.Good%20Subsequence%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 497  |
 
 ## Copyright
 
