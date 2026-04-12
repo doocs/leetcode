@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md
+rating: 1312
+source: 第 496 场周赛 Q1
 tags:
     - 哈希表
     - 字符串
