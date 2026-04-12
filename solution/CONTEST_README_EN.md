@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 497
+
+- [3898. Find the Degree of Each Vertex](/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README_EN.md)
+- [3899. Angles of a Triangle](/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README_EN.md)
+- [3900. Longest Balanced Substring After One Swap](/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README_EN.md)
+- [3901. Good Subsequence Queries](/solution/3900-3999/3901.Good%20Subsequence%20Queries/README_EN.md)
+
 #### Biweekly Contest 180
 
 - [3894. Traffic Signal Color](/solution/3800-3899/3894.Traffic%20Signal%20Color/README_EN.md)
