@@ -8,7 +8,6 @@ tags:
     - Bit Manipulation
     - Graph
     - Array
-    - Dynamic Programming
     - Bitmask
     - Shortest Path
     - Heap (Priority Queue)

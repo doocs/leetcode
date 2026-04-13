@@ -6,7 +6,9 @@ rating: 2872
 source: 第 255 场周赛 Q4
 tags:
     - 数组
-    - 分治
+    - 哈希表
+    - 计数
+    - 排序
 ---
 
 <!-- problem:start -->

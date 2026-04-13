@@ -25,7 +25,7 @@ tags:
 
 <p>返回修改后的数组中的最大的子数组之和。注意，子数组长度可以是 <code>0</code>，在这种情况下它的总和也是 <code>0</code>。</p>
 
-<p>由于&nbsp;<strong>结果可能会很大</strong>，需要返回的<meta charset="UTF-8" />&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;的&nbsp;<strong>模</strong>&nbsp;。</p>
+<p>由于&nbsp;<strong>结果可能会很大</strong>，需要返回结果对&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code>&nbsp;取&nbsp;<strong>模</strong>。</p>
 
 <p>&nbsp;</p>
 

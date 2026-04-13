@@ -7,6 +7,7 @@ tags:
     - Array
     - Hash Table
     - String
+    - Hash Function
 ---
 
 <!-- problem:start -->

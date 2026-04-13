@@ -21,11 +21,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个二进制矩阵 <code>matrix</code> ，它的大小为 <code>m x n</code> ，你可以将 <code>matrix</code> 中的 <strong>列</strong> 按任意顺序重新排列。</p>
+<p>给你一个二进制矩阵&nbsp;<code>matrix</code>&nbsp;，它的大小为&nbsp;<code>m x n</code>&nbsp;，你可以将 <code>matrix</code>&nbsp;中的 <strong>列</strong>&nbsp;按任意顺序重新排列。</p>
 
-<p>请你返回最优方案下将 <code>matrix</code> 重新排列后，全是 <code>1</code> 的子矩阵面积。</p>
+<p>请你返回最优方案下将 <code>matrix</code>&nbsp;重新排列后，全是 <code>1</code>&nbsp;的最大子矩阵面积。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -63,15 +63,15 @@ tags:
 <b>输出：</b>0
 <b>解释：</b>由于矩阵中没有 1 ，没有任何全 1 的子矩阵，所以面积为 0 。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
-	<li><code>1 <= m * n <= 10<sup>5</sup></code></li>
-	<li><code>matrix[i][j]</code> 要么是 <code>0</code> ，要么是 <code>1</code> 。</li>
+	<li><code>1 &lt;= m * n &lt;= 10<sup>5</sup></code></li>
+	<li><code>matrix[i][j]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;，要么是&nbsp;<code>1</code> 。</li>
 </ul>
 
 <!-- description:end -->

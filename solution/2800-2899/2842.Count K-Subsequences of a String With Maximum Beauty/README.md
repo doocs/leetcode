@@ -64,11 +64,11 @@ tags:
 <b>输出：</b>4
 <b>解释：</b><span style="white-space: normal">s 中我们有 f('a') = 1 ，f('b') = 1 和 f('c') = 2 。</span>
 s 的 k 子序列为：
-<em><strong>bc</strong></em>ca ，美丽值为 f('b') + f('c') = 3
-<em><strong>b</strong></em>c<em><strong>c</strong></em>a ，美丽值为 f('b') + f('c') = 3
-<em><strong>b</strong></em>cc<em><strong>a</strong></em> ，美丽值为 f('b') + f('a') = 2
-b<em><strong>c</strong></em>c<em><strong>a</strong></em><strong> </strong>，美丽值为 f('c') + f('a') = 3
-bc<em><strong>ca</strong></em> ，美丽值为 f('c') + f('a') = 3
+<u><strong>bc</strong></u>ca ，美丽值为 f('b') + f('c') = 3
+<u><strong>b</strong></u>c<u><strong>c</strong></u>a ，美丽值为 f('b') + f('c') = 3
+<u><strong>b</strong></u>cc<u><strong>a</strong></u> ，美丽值为 f('b') + f('a') = 2
+b<u><strong>c</strong></u>c<u><strong>a</strong></u><strong> </strong>，美丽值为 f('c') + f('a') = 3
+bc<u><strong>ca</strong></u> ，美丽值为 f('c') + f('a') = 3
 总共有 4 个 k 子序列美丽值为最大值 3 。
 所以答案为 4 。
 </pre>
@@ -80,8 +80,8 @@ bc<em><strong>ca</strong></em> ，美丽值为 f('c') + f('a') = 3
 <b>输出：</b>2
 <b>解释：</b><span style="white-space: normal">s 中我们有 f('a') = 1 ，f('b') = 2&nbsp;，f('c') = 1&nbsp;和</span> f('d') = 1 。
 s 的 k 子序列为：
-<em><strong>ab</strong></em>b<em><strong>cd</strong></em> ，美丽值为 f('a') + f('b') + f('c') + f('d') = 5
-<span style="white-space: normal;"><b><i>a</i></b></span>b<em><strong>bcd</strong></em> ，美丽值为 f('a') + f('b') + f('c') + f('d') = 5 
+<u><strong>ab</strong></u>b<u><strong>cd</strong></u> ，美丽值为 f('a') + f('b') + f('c') + f('d') = 5
+<u><span style="white-space: normal;"><b>a</b></span></u>b<u><strong>bcd</strong></u> ，美丽值为 f('a') + f('b') + f('c') + f('d') = 5 
 总共有 2 个 k 子序列美丽值为最大值 5 。
 所以答案为 2 。
 </pre>

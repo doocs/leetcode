@@ -7,6 +7,8 @@ tags:
     - Segment Tree
     - Array
     - Binary Search
+    - Divide and Conquer
+    - Merge Sort
 ---
 
 <!-- problem:start -->
