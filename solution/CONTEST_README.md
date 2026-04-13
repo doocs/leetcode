@@ -37,7 +37,7 @@ comments: true
 
 - [3894. 交通信号灯的颜色](/solution/3800-3899/3894.Traffic%20Signal%20Color/README.md)
 - [3895. 统计数字出现总次数](/solution/3800-3899/3895.Count%20Digit%20Appearances/README.md)
-- [3896. 将数组转变为交替素数数组的最少操作次数](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md)
+- [3896. 将数组转换为交替质数数组的最少操作次数](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md)
 - [3897. 连接二进制片段得到的最大值](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README.md)
 
 #### 第 496 场周赛(2026-04-05 10:30, 90 分钟) 参赛人数 1441
