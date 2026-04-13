@@ -5,7 +5,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3579.Mi
 rating: 2492
 source: 第 453 场周赛 Q4
 tags:
-    - 贪心
     - 字符串
     - 动态规划
 ---

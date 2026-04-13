@@ -7,6 +7,7 @@ source: Biweekly Contest 144 Q3
 tags:
     - Greedy
     - Array
+    - Two Pointers
     - Prefix Sum
     - Sorting
     - Heap (Priority Queue)

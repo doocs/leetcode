@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3292.Mi
 rating: 2661
 source: Weekly Contest 415 Q4
 tags:
+    - Greedy
     - Segment Tree
     - Array
     - String

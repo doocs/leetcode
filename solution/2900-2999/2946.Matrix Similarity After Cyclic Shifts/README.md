@@ -21,41 +21,63 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个<strong>下标从 0 开始</strong>且大小为 <code>m x n</code> 的整数矩阵 <code>mat</code> 和一个整数 <code>k</code> 。请你将矩阵中的<strong> 奇数</strong> 行循环 <strong>右</strong> 移 <code>k</code> 次，<strong>偶数</strong> 行循环 <strong>左</strong> 移 <code>k</code> 次。</p>
+<p>给你一个<strong>下标从 0 开始</strong>且大小为 <code>m x n</code> 的整数矩阵 <code>mat</code> 和一个整数 <code>k</code> 。矩阵行的下标是从 0 开始的。</p>
 
-<p>如果初始矩阵和最终矩阵完全相同，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+<p>进行下面操作&nbsp;<code>k</code> 次：</p>
+
+<ul>
+	<li><strong>偶数行</strong>（0, 2, 4, ...）循环向左移动。</li>
+</ul>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/images/lshift.jpg" style="width: 283px; height: 90px;" /></p>
+
+<ul>
+	<li><strong>奇数行</strong>（1, 3, 5, ...）循环向右移动。</li>
+</ul>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/images/rshift-stlone.jpg" style="width: 283px; height: 90px;" /></p>
+
+<p>如果经过 <code>k</code> 步后的最终修改矩阵与原始矩阵相同，则返回 <code>true</code>，否则返回 <code>false</code>。</p>
 
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
 
-<pre>
-<strong>输入：</strong>mat = [[1,2,1,2],[5,5,5,5],[6,3,6,3]], k = 2
-<strong>输出：</strong>true
-<strong>解释：</strong>
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/images/similarmatrix.png" style="width: 500px; height: 117px;" />
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>mat = [[1,2,3],[4,5,6],[7,8,9]], k = 4</span></p>
 
-初始矩阵如图一所示。
-图二表示对奇数行右移一次且对偶数行左移一次后的矩阵状态。
-图三是经过两次循环移位后的最终矩阵状态，与初始矩阵相同。
-因此，返回 true 。
-</pre>
+<p><span class="example-io"><b>输出：</b>false</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>在每一步中，行 0 和行 2（偶数下标）进行左移，行 1（奇数下标）进行右移。</p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/images/t1-2.jpg" style="width: 857px; height: 150px;" /></p>
+</div>
 
 <p><strong class="example">示例 2：</strong></p>
 
-<pre>
-<strong>输入：</strong>mat = [[2,2],[2,2]], k = 3
-<strong>输出：</strong>true
-<strong>解释：</strong>由于矩阵中的所有值都相等，即使进行循环移位，矩阵仍然保持不变。因此，返回 true 。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>mat = [[1,2,1,2],[5,5,5,5],[6,3,6,3]], k = 2</span></p>
+
+<p><span class="example-io"><b>输出：</b>true</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2900-2999/2946.Matrix%20Similarity%20After%20Cyclic%20Shifts/images/t1-3.jpg" style="width: 632px; height: 150px;" /></p>
+</div>
 
 <p><strong class="example">示例 3：</strong></p>
 
-<pre>
-<strong>输入：</strong>mat = [[1,2]], k = 1
-<strong>输出：</strong>false
-<strong>解释：</strong>循环移位一次后，mat = [[2,1]]，与初始矩阵不相等。因此，返回 false 。
-</pre>
+<div class="example-block">
+<p><span class="example-io"><b>输入：</b>mat = [[2,2],[2,2]], k = 3</span></p>
+
+<p><span class="example-io"><b>输出：</b>true</span></p>
+
+<p><strong>解释：</strong></p>
+
+<p>矩阵中的所有值都相等，即使进行循环移位，矩阵也会保持不变。</p>
+</div>
 
 <p>&nbsp;</p>
 

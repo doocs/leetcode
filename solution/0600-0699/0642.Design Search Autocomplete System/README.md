@@ -60,10 +60,10 @@ tags:
 
 <strong>解释</strong>
 AutocompleteSystem obj = new AutocompleteSystem(["i love you", "island", "iroman", "i love leetcode"], [5, 3, 2, 2]);
-obj.input("i"); // return ["i love you", "island", "i love leetcode"]. There are four sentences that have prefix "i". Among them, "ironman" and "i love leetcode" have same hot degree. Since ' ' has ASCII code 32 and 'r' has ASCII code 114, "i love leetcode" should be in front of "ironman". Also we only need to output top 3 hot sentences, so "ironman" will be ignored.
-obj.input(" "); // return ["i love you", "i love leetcode"]. There are only two sentences that have prefix "i ".
-obj.input("a"); // return []. There are no sentences that have prefix "i a".
-obj.input("#"); // return []. The user finished the input, the sentence "i a" should be saved as a historical sentence in system. And the following input will be counted as a new search.
+obj.input("i"); // 返回 ["i love you", "island", "i love leetcode"]。有四个句子以"i"开头。其中，"ironman"和"i love leetcode"的热度相同。由于空格的 ASCII 码是 32，而 r 的 ASCII 码是 114，所以“i love leetcode”应排在“ironman”前面。同时我们只需要输出前三句热门句子，因此“ironman”会被忽略。
+obj.input(" "); // 返回 ["i love you", "i love leetcode"]。只有两个句子以“i ”为前缀。
+obj.input("a"); // 返回 []。没有以“i a”为前缀的句子。
+obj.input("#"); // 返回 []。用户完成输入，句子 "i a" 应该被保存为系统中的历史句子。接下来的输入将被视为新的搜索。
 </pre>
 
 <p>&nbsp;</p>
