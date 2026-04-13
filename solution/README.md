@@ -3906,7 +3906,7 @@
 |  3893  |  [最大重叠区间团队规模](/solution/3800-3899/3893.Maximum%20Team%20Size%20with%20Overlapping%20Intervals/README.md)  |    |  中等  |  🔒  |
 |  3894  |  [交通信号灯的颜色](/solution/3800-3899/3894.Traffic%20Signal%20Color/README.md)  |    |  简单  |  第 180 场双周赛  |
 |  3895  |  [统计数字出现总次数](/solution/3800-3899/3895.Count%20Digit%20Appearances/README.md)  |    |  中等  |  第 180 场双周赛  |
-|  3896  |  [将数组转变为交替素数数组的最少操作次数](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md)  |    |  中等  |  第 180 场双周赛  |
+|  3896  |  [将数组转换为交替质数数组的最少操作次数](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md)  |    |  中等  |  第 180 场双周赛  |
 |  3897  |  [连接二进制片段得到的最大值](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README.md)  |    |  困难  |  第 180 场双周赛  |
 |  3898  |  [统计每个顶点的度](/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README.md)  |    |  简单  |  第 497 场周赛  |
 |  3899  |  [三角形的内角度数](/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README.md)  |    |  中等  |  第 497 场周赛  |
