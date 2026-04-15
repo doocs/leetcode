@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3902.Zi
 
 <!-- problem:start -->
 
-# [3902. Zigzag Level Sum of Binary Tree 🔒](https://leetcode.cn/problems/zigzag-level-sum-of-binary-tree)
+# [3902. 二叉树的 Z 字形层级和 🔒](https://leetcode.cn/problems/zigzag-level-sum-of-binary-tree)
 
 [English Version](/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/README_EN.md)
 
@@ -14,70 +14,72 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3902.Zi
 
 <!-- description:start -->
 
-<p>You are given the <code>root</code> of a <strong>binary tree</strong>.</p>
+<p>给定一棵 <strong>二叉树</strong> 的根节点&nbsp;<code>root</code>。</p>
 
-<p>Traverse the tree level by level using a zigzag pattern:</p>
-
-<ul>
-	<li>At <strong>odd</strong>-numbered levels (1-indexed), traverse nodes from <strong>left to right</strong>.</li>
-	<li>At <strong>even</strong>-numbered levels, traverse nodes from <strong>right to left</strong>.</li>
-</ul>
-
-<p>While traversing a level in the specified direction, process nodes in order and <strong>stop</strong> immediately before the first node that violates the condition:</p>
+<p>按 Z 字形模式逐层遍历树：</p>
 
 <ul>
-	<li>At <strong>odd</strong> levels: the node does not have a <strong>left</strong> child.</li>
-	<li>At <strong>even</strong> levels: the node does not have a <strong>right</strong> child.</li>
+	<li>在 <strong>奇数</strong> 层（下标从 1 开始）中，<strong>从左到右</strong> 遍历节点。</li>
+	<li>在 <strong>偶数</strong> 层，<strong>从右到左</strong> 遍历节点。</li>
 </ul>
 
-<p>Only the nodes processed before this stopping condition contribute to the level sum.</p>
+<p>在指定方向遍历某一层时，按顺序处理节点，并立即在第一个违反条件的节点前 <strong>停止</strong>：</p>
 
-<p>Return an integer array <code>ans</code> where <code>ans[i]</code> is the <strong>sum</strong> of the node values that are processed at level <code>i + 1</code>.</p>
+<ul>
+	<li>在 <strong>奇数</strong> 层：该节点没有 <strong>左</strong> 子节点。</li>
+	<li>在 <strong>偶数</strong> 层：该节点没有 <strong>右</strong> 子节点。</li>
+</ul>
+
+<p>只有在此停止条件之前的节点对层级和有贡献。</p>
+
+<p>返回一个整数数组 <code>ans</code>，其中 <code>ans[i]</code> 是在第 <code>i + 1</code> 层处理的节点值之 <strong>和</strong>。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><b>示例 1：</b></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">root = [5,2,8,1,null,9,6]</span></p>
+<p><span class="example-io"><b>输入：</b>root = [5,2,8,1,null,9,6]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[5,8,0]</span></p>
+<p><span class="example-io"><b>输出：</b>[5,8,0]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/images/screenshot-2026-04-13-at-22054am.png" style="height: 240px; width: 300px;" />​​​​​​​</p>
 
 <ul>
-	<li>At level 1, nodes are processed left to right. Node 5 is included, thus <code>ans[0] = 5</code>.</li>
-	<li>At level 2, nodes are processed right to left. Node 8 is included, but node 2 lacks a right child, so processing stops, thus <code>ans[1] = 8</code>.</li>
-	<li>At level 3, nodes are processed left to right. The first node 1 lacks a left child, so no nodes are included, and <code>ans[2] = 0</code>.</li>
-	<li>Thus, <code>ans = [5, 8, 0]</code>.</li>
+	<li>在第 1 层，从左往右处理节点。节点 5 被包含，因此&nbsp;<code>ans[0] = 5</code>。</li>
+	<li>在第 2&nbsp;层，从右往左处理节点。节点 8 被包含，但节点 2 缺少一个右儿子，所以处理中断，因此&nbsp;<code>ans[1] = 8</code>。</li>
+	<li>在第 3&nbsp;层，从左往右处理节点。第一个节点 1 缺少一个左儿子，因此没有节点被包含，因此&nbsp;<code>ans[2] = 0</code>。</li>
+	<li>因此，<code>ans = [5, 8, 0]</code>。</li>
 </ul>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">root = [1,2,3,4,5,null,7]</span></p>
+<p><span class="example-io"><b>输入：</b>root = [1,2,3,4,5,null,7]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[1,5,0]</span></p>
+<p><span class="example-io"><b>输出：</b>[1,5,0]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><b>解释：</b></p>
 
 <p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/images/screenshot-2026-04-13-at-22232am.png" style="height: 254px; width: 300px;" /></p>
 
 <ul>
-	<li>At level 1, nodes are processed left to right. Node 1 is included, thus <code>ans[0] = 1</code>.</li>
-	<li>At level 2, nodes are processed right to left. Nodes 3 and 2 are included since both have right children, thus <code>ans[1] = 3 + 2 = 5</code>.</li>
-	<li>At level 3, nodes are processed left to right. The first node 4 lacks a left child, so no nodes are included, and <code>ans[2] = 0</code>.</li>
-	<li>Thus, <code>ans = [1, 5, 0]</code>.</li>
+	<li>在第 1 层，从左往右处理节点。节点 1 被包含，因此&nbsp;<code>ans[0] = 1</code>。</li>
+	<li>在第 2 层，从右往左处理节点。节点 3 和 2 被包含，因为它们都有右儿子，因此&nbsp;<code>ans[1] = 3 + 2 = 5</code>。</li>
+	<li>在第 3 层，从左到右进行处理节点。第一个节点 4 没有左子节点，因此不包含任何节点，因此&nbsp;<code>ans[2] = 0</code>。</li>
+	<li>因此，<code>ans = [1, 5, 0]</code>.</li>
 </ul>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+	<li>树中的节点数范围为 <code>[1, 10<sup>5</sup>]</code>。</li>
 	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
