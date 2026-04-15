@@ -1,10 +1,9 @@
 class Solution {
-    public int closetTarget(String[] words, String target, int startIndex) {
+    public int closestTarget(String[] words, String target, int startIndex) {
         int n = words.length;
         int ans = n;
-        for (int i = 0; i < n; ++i) {
-            String w = words[i];
-            if (w.equals(target)) {
+        for (int i = 0; i < n; i++) {
+            if (words[i].equals(target)) {
                 int t = Math.abs(i - startIndex);
                 ans = Math.min(ans, Math.min(t, n - t));
             }
