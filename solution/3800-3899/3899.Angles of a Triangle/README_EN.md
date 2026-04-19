@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README_EN.md
+rating: 1407
+source: Weekly Contest 497 Q2
 ---
 
 <!-- problem:start -->

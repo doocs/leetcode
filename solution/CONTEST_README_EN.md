@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 498
+
+- [3903. Smallest Stable Index I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md)
+- [3904. Smallest Stable Index II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README_EN.md)
+- [3905. Multi Source Flood Fill](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)
+- [3906. Count Good Integers on a Grid Path](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md)
+
 #### Weekly Contest 497
 
 - [3898. Find the Degree of Each Vertex](/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README_EN.md)

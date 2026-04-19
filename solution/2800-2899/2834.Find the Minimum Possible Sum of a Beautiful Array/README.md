@@ -50,9 +50,9 @@ tags:
 <strong>输入：</strong>n = 3, target = 3
 <strong>输出：</strong>8
 <strong>解释：</strong>
-nums = [1,3,4] 是美丽数组。
-- nums 的长度为 n = 3 。
-- nums 由两两互不相同的正整数组成。
+nums = [1,3,4] 是美丽数组。 
+- nums 的长度为 n = 3 。 
+- nums 由两两互不相同的正整数组成。 
 - 不存在两个不同下标 i 和 j ，使得 nums[i] + nums[j] == 3 。
 可以证明 8 是符合条件的美丽数组所可能具备的最小和。</pre>
 

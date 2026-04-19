@@ -3913,6 +3913,10 @@
 |  3900  |  [一次交换后的最长平衡子串](/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README.md)  |    |  中等  |  第 497 场周赛  |
 |  3901  |  [好子序列查询](/solution/3900-3999/3901.Good%20Subsequence%20Queries/README.md)  |    |  困难  |  第 497 场周赛  |
 |  3902  |  [二叉树的 Z 字形层级和](/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/README.md)  |    |  中等  |  🔒  |
+|  3903  |  [最小稳定下标 I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README.md)  |    |  简单  |  第 498 场周赛  |
+|  3904  |  [最小稳定下标 II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README.md)  |    |  中等  |  第 498 场周赛  |
+|  3905  |  [多源洪水灌溉](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README.md)  |    |  中等  |  第 498 场周赛  |
+|  3906  |  [统计网格路径中好整数的数目](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README.md)  |    |  困难  |  第 498 场周赛  |
 
 ## 版权
 

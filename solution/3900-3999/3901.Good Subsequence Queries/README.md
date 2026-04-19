@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3901.Good%20Subsequence%20Queries/README.md
+rating: 2544
+source: 第 497 场周赛 Q4
 ---
 
 <!-- problem:start -->
