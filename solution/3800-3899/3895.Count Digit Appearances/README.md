@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3895.Count%20Digit%20Appearances/README.md
+rating: 1269
+source: 第 180 场双周赛 Q2
 ---
 
 <!-- problem:start -->

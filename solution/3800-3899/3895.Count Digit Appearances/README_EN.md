@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3895.Count%20Digit%20Appearances/README_EN.md
+rating: 1269
+source: Biweekly Contest 180 Q2
 ---
 
 <!-- problem:start -->

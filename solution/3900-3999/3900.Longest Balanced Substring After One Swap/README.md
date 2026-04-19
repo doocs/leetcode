@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README.md
+rating: 2134
+source: 第 497 场周赛 Q3
 ---
 
 <!-- problem:start -->

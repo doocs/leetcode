@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3894.Traffic%20Signal%20Color/README.md
+rating: 1222
+source: 第 180 场双周赛 Q1
 ---
 
 <!-- problem:start -->
