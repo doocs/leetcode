@@ -72,87 +72,13 @@ House 0 has color 0, and house 1 has color 1. The distance between them is abs(0
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
 
-<!-- tabs:start -->
+We can observe that if the first and last houses have different colors, the maximum distance is $n - 1$.
 
-#### Python3
+If the first and last houses have the same color, we can scan from the left to find the first house with a different color (let its index be $i$), and scan from the right to find the first house with a different color (let its index be $j$). The maximum distance is then $\max(n - i - 1, j)$.
 
-```python
-class Solution:
-    def maxDistance(self, colors: List[int]) -> int:
-        ans, n = 0, len(colors)
-        for i in range(n):
-            for j in range(i + 1, n):
-                if colors[i] != colors[j]:
-                    ans = max(ans, abs(i - j))
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public int maxDistance(int[] colors) {
-        int ans = 0, n = colors.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (colors[i] != colors[j]) {
-                    ans = Math.max(ans, Math.abs(i - j));
-                }
-            }
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int maxDistance(vector<int>& colors) {
-        int ans = 0, n = colors.size();
-        for (int i = 0; i < n; ++i)
-            for (int j = i + 1; j < n; ++j)
-                if (colors[i] != colors[j])
-                    ans = max(ans, abs(i - j));
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func maxDistance(colors []int) int {
-	ans, n := 0, len(colors)
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			if colors[i] != colors[j] {
-				ans = max(ans, abs(i-j))
-			}
-		}
-	}
-	return ans
-}
-
-func abs(x int) int {
-	if x >= 0 {
-		return x
-	}
-	return -x
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
+The time complexity is $O(n)$, where $n$ is the number of houses. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -181,11 +107,13 @@ class Solution {
         if (colors[0] != colors[n - 1]) {
             return n - 1;
         }
-        int i = 0, j = n - 1;
-        while (colors[++i] == colors[0])
-            ;
-        while (colors[--j] == colors[0])
-            ;
+        int i = 1, j = n - 2;
+        while (colors[i] == colors[0]) {
+            ++i;
+        }
+        while (colors[j] == colors[0]) {
+            --j;
+        }
         return Math.max(n - i - 1, j);
     }
 }
@@ -198,12 +126,16 @@ class Solution {
 public:
     int maxDistance(vector<int>& colors) {
         int n = colors.size();
-        if (colors[0] != colors[n - 1]) return n - 1;
-        int i = 0, j = n;
-        while (colors[++i] == colors[0])
-            ;
-        while (colors[--j] == colors[0])
-            ;
+        if (colors[0] != colors[n - 1]) {
+            return n - 1;
+        }
+        int i = 1, j = n - 2;
+        while (colors[i] == colors[0]) {
+            ++i;
+        }
+        while (colors[j] == colors[0]) {
+            --j;
+        }
         return max(n - i - 1, j);
     }
 };
@@ -225,6 +157,47 @@ func maxDistance(colors []int) int {
 		j--
 	}
 	return max(n-i-1, j)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDistance(colors: number[]): number {
+    const n = colors.length;
+    if (colors[0] !== colors[n - 1]) {
+        return n - 1;
+    }
+    let [i, j] = [1, n - 2];
+    while (colors[i] === colors[0]) {
+        i++;
+    }
+    while (colors[j] === colors[0]) {
+        j--;
+    }
+    return Math.max(n - i - 1, j);
+};
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_distance(colors: Vec<i32>) -> i32 {
+        let n = colors.len();
+        if colors[0] != colors[n - 1] {
+            return (n - 1) as i32;
+        }
+        let mut i = 1;
+        while colors[i] == colors[0] {
+            i += 1;
+        }
+        let mut j = n - 2;
+        while colors[j] == colors[0] {
+            j -= 1;
+        }
+        std::cmp::max((n - i - 1) as i32, j as i32)
+    }
 }
 ```
 
