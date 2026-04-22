@@ -3915,6 +3915,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3904  |  [Smallest Stable Index II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 498  |
 |  3905  |  [Multi Source Flood Fill](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)  |    |  Medium  |  Weekly Contest 498  |
 |  3906  |  [Count Good Integers on a Grid Path](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md)  |    |  Hard  |  Weekly Contest 498  |
+|  3907  |  [Count Smaller Elements With Opposite Parity](/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

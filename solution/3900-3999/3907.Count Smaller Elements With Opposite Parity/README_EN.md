@@ -1,0 +1,297 @@
+---
+comments: true
+difficulty: Medium
+edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README_EN.md
+---
+
+<!-- problem:start -->
+
+# [3907. Count Smaller Elements With Opposite Parity 🔒](https://leetcode.com/problems/count-smaller-elements-with-opposite-parity)
+
+[中文文档](/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README.md)
+
+## Description
+
+<!-- description:start -->
+
+<p>You are given an integer array <code>nums</code> of length <code>n</code>.</p>
+
+<p>The <strong>score</strong> of an index <code>i</code> is defined as the number of indices <code>j</code> such that:</p>
+
+<ul>
+	<li><code>i &lt; j &lt; n</code></li>
+	<li><code>nums[j] &lt; nums[i]</code></li>
+	<li><code>nums[i]</code> and <code>nums[j]</code> have different parity (one is even and the other is odd).</li>
+</ul>
+
+<p>Return an integer array <code>answer</code> of length <code>n</code>, where <code>answer[i]</code> is the score of index <code>i</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [5,2,4,1,3]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[2,1,2,0,0]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<ul>
+	<li>For <code>i = 0</code>, the elements <code>nums[1] = 2</code> and <code>nums[2] = 4</code> are smaller and have different parity.</li>
+	<li>For <code>i = 1</code>, the element <code>nums[3] = 1</code> is smaller and has different parity.</li>
+	<li>For <code>i = 2</code>, the elements <code>nums[3] = 1</code> and <code>nums[4] = 3</code> are smaller and have different parity.</li>
+	<li>No valid elements exist for the remaining indices.</li>
+</ul>
+
+<p>Thus, the <code>answer = [2, 1, 2, 0, 0]</code>.</p>
+</div>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [4,4,1]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[1,1,0]</span></p>
+
+<p><strong>Explanation:</strong>​​​​​​​</p>
+
+<p>For <code>i = 0</code> and <code>i = 1</code>, the element <code>nums[2] = 1</code> is smaller and has different parity. Thus, the <code>answer = [1, 1, 0]</code>.</p>
+</div>
+
+<p><strong class="example">Example 3:</strong></p>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">nums = [7]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[0]</span></p>
+
+<p><strong>Explanation:</strong></p>
+
+<p>No elements exist to the right of index 0, so its score is 0. Thus, the <code>answer = [0]</code>.</p>
+</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code>​​​​​​​</li>
+</ul>
+
+<!-- description:end -->
+
+## Solutions
+
+<!-- solution:start -->
+
+### Solution 1: Ordered List or Binary Indexed Tree
+
+We can use two ordered lists (or Binary Indexed Trees) to separately maintain even and odd elements. For each element, we query the number of smaller elements in the other list, and then add the current element to its corresponding list.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countSmallerOppositeParity(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        ans = [0] * n
+        sl = [SortedList(), SortedList()]
+        for i in range(n - 1, -1, -1):
+            ans[i] = sl[nums[i] & 1 ^ 1].bisect_left(nums[i])
+            sl[nums[i] & 1].add(nums[i])
+        return ans
+```
+
+#### Java
+
+```java
+class BinaryIndexedTree {
+    int n;
+    int[] c;
+
+    BinaryIndexedTree(int n) {
+        this.n = n;
+        this.c = new int[n + 1];
+    }
+
+    void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= x & -x;
+        }
+        return s;
+    }
+}
+
+class Solution {
+    public int[] countSmallerOppositeParity(int[] nums) {
+        int n = nums.length;
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
+        int m = 0;
+        for (int i = 0; i < n; i++) {
+            if (i == 0 || sorted[i] != sorted[i - 1]) {
+                sorted[m++] = sorted[i];
+            }
+        }
+        BinaryIndexedTree[] bit = {new BinaryIndexedTree(m), new BinaryIndexedTree(m)};
+        int[] ans = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            int x = Arrays.binarySearch(sorted, 0, m, nums[i]) + 1;
+            ans[i] = bit[nums[i] & 1 ^ 1].query(x - 1);
+            bit[nums[i] & 1].update(x, 1);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+struct BIT {
+    int n;
+    vector<int> c;
+    BIT(int n)
+        : n(n)
+        , c(n + 1, 0) {}
+    void update(int x, int delta) {
+        for (; x <= n; x += x & -x) c[x] += delta;
+    }
+    int query(int x) {
+        int s = 0;
+        for (; x > 0; x -= x & -x) s += c[x];
+        return s;
+    }
+};
+
+class Solution {
+public:
+    vector<int> countSmallerOppositeParity(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> sorted = nums;
+        sort(sorted.begin(), sorted.end());
+        sorted.erase(unique(sorted.begin(), sorted.end()), sorted.end());
+
+        int m = sorted.size();
+        BIT* bits[2] = {new BIT(m), new BIT(m)};
+        vector<int> ans(n);
+
+        for (int i = n - 1; i >= 0; --i) {
+            int x = lower_bound(sorted.begin(), sorted.end(), nums[i]) - sorted.begin() + 1;
+            ans[i] = bits[nums[i] & 1 ^ 1]->query(x - 1);
+            bits[nums[i] & 1]->update(x, 1);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+type BIT struct {
+	n int
+	c []int
+}
+
+func newBIT(n int) *BIT {
+	return &BIT{n: n, c: make([]int, n+1)}
+}
+
+func (b *BIT) update(x, delta int) {
+	for ; x <= b.n; x += x & -x {
+		b.c[x] += delta
+	}
+}
+
+func (b *BIT) query(x int) int {
+	s := 0
+	for ; x > 0; x -= x & -x {
+		s += b.c[x]
+	}
+	return s
+}
+
+func countSmallerOppositeParity(nums []int) []int {
+	n := len(nums)
+	sorted := make([]int, n)
+	copy(sorted, nums)
+	sort.Ints(sorted)
+
+	m := 0
+	if n > 0 {
+		m = 1
+		for i := 1; i < n; i++ {
+			if sorted[i] != sorted[i-1] {
+				sorted[m] = sorted[i]
+				m++
+			}
+		}
+		sorted = sorted[:m]
+	}
+
+	bits := []*BIT{newBIT(m), newBIT(m)}
+	ans := make([]int, n)
+
+	for i := n - 1; i >= 0; i-- {
+		x := sort.SearchInts(sorted, nums[i]) + 1
+		ans[i] = bits[nums[i]&1^1].query(x - 1)
+		bits[nums[i]&1].update(x, 1)
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+class BIT {
+    private c: Int32Array;
+    constructor(private n: number) {
+        this.c = new Int32Array(n + 1);
+    }
+    update(x: number, delta: number) {
+        for (; x <= this.n; x += x & -x) this.c[x] += delta;
+    }
+    query(x: number): number {
+        let s = 0;
+        for (; x > 0; x -= x & -x) s += this.c[x];
+        return s;
+    }
+}
+
+function countSmallerOppositeParity(nums: number[]): number[] {
+    const n = nums.length;
+    const sorted = _.sortedUniq(_.sortBy(nums));
+    const m = sorted.length;
+
+    const bits = [new BIT(m), new BIT(m)];
+    const ans = new Array(n);
+
+    for (let i = n - 1; i >= 0; i--) {
+        const rank = _.sortedIndex(sorted, nums[i]) + 1;
+        ans[i] = bits[(nums[i] & 1) ^ 1].query(rank - 1);
+        bits[nums[i] & 1].update(rank, 1);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

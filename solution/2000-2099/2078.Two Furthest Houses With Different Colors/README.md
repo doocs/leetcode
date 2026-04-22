@@ -182,7 +182,7 @@ function maxDistance(colors: number[]): number {
         j--;
     }
     return Math.max(n - i - 1, j);
-};
+}
 ```
 
 #### Rust
