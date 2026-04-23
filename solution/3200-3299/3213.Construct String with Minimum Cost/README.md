@@ -348,6 +348,146 @@ func minimumCost(target string, words []string, costs []int) int {
 }
 ```
 
+#### TypeScript
+
+```ts
+class Hashing {
+    private p: bigint[];
+    private h: bigint[];
+    private mod: bigint;
+
+    constructor(word: string, base: number, mod: number) {
+        const n = word.length;
+        this.mod = BigInt(mod);
+        const b = BigInt(base);
+        this.p = new Array(n + 1);
+        this.h = new Array(n + 1);
+        this.p[0] = 1n;
+        this.h[0] = 0n;
+        for (let i = 1; i <= n; i++) {
+            this.p[i] = (this.p[i - 1] * b) % this.mod;
+            this.h[i] = (this.h[i - 1] * b + BigInt(word.charCodeAt(i - 1))) % this.mod;
+        }
+    }
+
+    public query(l: number, r: number): number {
+        const res = (this.h[r] - this.h[l - 1] * this.p[r - l + 1] % this.mod + this.mod) % this.mod;
+        return Number(res);
+    }
+}
+
+function minimumCost(target: string, words: string[], costs: number[]): number {
+    const base = 13331;
+    const mod = 998244353;
+    const inf = 1e9;
+    const n = target.length;
+    const hashing = new Hashing(target, base, mod);
+    const f = new Array(n + 1).fill(inf);
+    f[0] = 0;
+
+    const ss = Array.from(new Set(words.map(w => w.length))).sort((a, b) => a - b);
+    const d = new Map<number, number>();
+
+    for (let i = 0; i < words.length; i++) {
+        let x = 0n;
+        const b = BigInt(base);
+        const m = BigInt(mod);
+        const word = words[i];
+        for (let j = 0; j < word.length; j++) {
+            x = (x * b + BigInt(word.charCodeAt(j))) % m;
+        }
+        const hashVal = Number(x);
+        d.set(hashVal, Math.min(d.get(hashVal) ?? inf, costs[i]));
+    }
+
+    for (let i = 1; i <= n; i++) {
+        for (const j of ss) {
+            if (j > i) break;
+            const x = hashing.query(i - j + 1, i);
+            if (d.has(x)) {
+                f[i] = Math.min(f[i], f[i - j] + d.get(x)!);
+            }
+        }
+    }
+
+    return f[n] >= inf ? -1 : f[n];
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::{HashMap, BTreeSet};
+use std::cmp::min;
+
+struct Hashing {
+    p: Vec<i64>,
+    h: Vec<i64>,
+    mod_val: i64,
+}
+
+impl Hashing {
+    fn new(word: &str, base: i64, mod_val: i64) -> Self {
+        let n = word.len();
+        let mut p = vec![0; n + 1];
+        let mut h = vec![0; n + 1];
+        p[0] = 1;
+        let chars: Vec<u8> = word.bytes().collect();
+        for i in 1..=n {
+            p[i] = p[i - 1] * base % mod_val;
+            h[i] = (h[i - 1] * base + chars[i - 1] as i64) % mod_val;
+        }
+        Hashing { p, h, mod_val }
+    }
+
+    fn query(&self, l: usize, r: usize) -> i64 {
+        (self.h[r] - self.h[l - 1] * self.p[r - l + 1] % self.mod_val + self.mod_val) % self.mod_val
+    }
+}
+
+impl Solution {
+    pub fn minimum_cost(target: String, words: Vec<String>, costs: Vec<i32>) -> i32 {
+        let base = 13331i64;
+        let mod_val = 998244353i64;
+        let inf = i32::MAX / 2;
+        let n = target.len();
+        let hashing = Hashing::new(&target, base, mod_val);
+
+        let mut f = vec![inf; n + 1];
+        f[0] = 0;
+
+        let mut ss = BTreeSet::new();
+        for w in &words {
+            ss.insert(w.len());
+        }
+
+        let mut d = HashMap::new();
+        for i in 0..words.len() {
+            let mut x = 0i64;
+            for c in words[i].bytes() {
+                x = (x * base + c as i64) % mod_val;
+            }
+            let entry = d.entry(x).or_insert(inf);
+            *entry = min(*entry, costs[i]);
+        }
+
+        for i in 1..=n {
+            for &j in &ss {
+                if j > i {
+                    break;
+                }
+                let x = hashing.query(i - j + 1, i);
+                if let Some(&cost) = d.get(&x) {
+                    f[i] = min(f[i], f[i - j] + cost);
+                }
+            }
+        }
+
+        if f[n] >= inf { -1 } else { f[n] }
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
