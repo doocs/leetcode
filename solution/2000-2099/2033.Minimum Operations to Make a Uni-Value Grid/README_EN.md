@@ -33,7 +33,7 @@ tags:
 <pre>
 <strong>Input:</strong> grid = [[2,4],[6,8]], x = 2
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> We can make every element equal to 4 by doing the following: 
+<strong>Explanation:</strong> We can make every element equal to 4 by doing the following:
 - Add x to 2 once.
 - Subtract x from 6 once.
 - Subtract x from 8 twice.
@@ -190,38 +190,59 @@ func abs(x int) int {
 
 ```ts
 function minOperations(grid: number[][], x: number): number {
-    const arr = grid.flat(2);
-    arr.sort((a, b) => a - b);
-    const median = arr[Math.floor(arr.length / 2)];
+    const nums = grid.flat(2);
+    const mod = nums[0] % x;
 
-    let res = 0;
-    for (const val of arr) {
-        const c = Math.abs(val - median) / x;
-        if (c !== (c | 0)) return -1;
-        res += c;
+    if (nums.some(num => num % x !== mod)) {
+        return -1;
     }
 
-    return res;
+    nums.sort((a, b) => a - b);
+    const mid = nums[Math.floor(nums.length / 2)];
+    return nums.reduce((ans, num) => ans + Math.abs(num - mid) / x, 0);
+};
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_operations(grid: Vec<Vec<i32>>, x: i32) -> i32 {
+        let mut nums: Vec<i32> = grid.into_iter().flatten().collect();
+        let mod_val = nums[0] % x;
+
+        if nums.iter().any(|&num| num % x != mod_val) {
+            return -1;
+        }
+
+        nums.sort_unstable();
+
+        let mid = nums[nums.len() / 2];
+        nums.iter().fold(0, |acc, &num| acc + (num - mid).abs() / x)
+    }
 }
 ```
 
 #### JavaScript
 
 ```js
-function minOperations(grid, x) {
-    const arr = grid.flat(2);
-    arr.sort((a, b) => a - b);
-    const median = arr[Math.floor(arr.length / 2)];
+/**
+ * @param {number[][]} grid
+ * @param {number} x
+ * @return {number}
+ */
+var minOperations = function (grid, x) {
+    const nums = grid.flat(2);
+    const mod = nums[0] % x;
 
-    let res = 0;
-    for (const val of arr) {
-        const c = Math.abs(val - median) / x;
-        if (c !== (c | 0)) return -1;
-        res += c;
+    if (nums.some(num => num % x !== mod)) {
+        return -1;
     }
 
-    return res;
-}
+    nums.sort((a, b) => a - b);
+    const mid = nums[Math.floor(nums.length / 2)];
+    return nums.reduce((ans, num) => ans + Math.abs(num - mid) / x, 0);
+};
 ```
 
 <!-- tabs:end -->
