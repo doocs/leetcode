@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/README_EN.md
+tags:
+    - Tree
+    - Breadth-First Search
+    - Binary Tree
 ---
 
 <!-- problem:start -->

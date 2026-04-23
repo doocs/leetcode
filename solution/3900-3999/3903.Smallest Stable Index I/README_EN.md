@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md
+tags:
+    - Array
 ---
 
 <!-- problem:start -->

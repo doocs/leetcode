@@ -3910,11 +3910,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3899  |  [Angles of a Triangle](/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README_EN.md)  |    |  Medium  |  Weekly Contest 497  |
 |  3900  |  [Longest Balanced Substring After One Swap](/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README_EN.md)  |    |  Medium  |  Weekly Contest 497  |
 |  3901  |  [Good Subsequence Queries](/solution/3900-3999/3901.Good%20Subsequence%20Queries/README_EN.md)  |    |  Hard  |  Weekly Contest 497  |
-|  3902  |  [Zigzag Level Sum of Binary Tree](/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
-|  3903  |  [Smallest Stable Index I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 498  |
-|  3904  |  [Smallest Stable Index II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 498  |
-|  3905  |  [Multi Source Flood Fill](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)  |    |  Medium  |  Weekly Contest 498  |
-|  3906  |  [Count Good Integers on a Grid Path](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md)  |    |  Hard  |  Weekly Contest 498  |
+|  3902  |  [Zigzag Level Sum of Binary Tree](/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/README_EN.md)  |  `Tree`,`Breadth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
+|  3903  |  [Smallest Stable Index I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md)  |  `Array`  |  Easy  |  Weekly Contest 498  |
+|  3904  |  [Smallest Stable Index II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README_EN.md)  |  `Array`  |  Medium  |  Weekly Contest 498  |
+|  3905  |  [Multi Source Flood Fill](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`  |  Medium  |  Weekly Contest 498  |
+|  3906  |  [Count Good Integers on a Grid Path](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md)  |  `Dynamic Programming`  |  Hard  |  Weekly Contest 498  |
 |  3907  |  [Count Smaller Elements With Opposite Parity](/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright

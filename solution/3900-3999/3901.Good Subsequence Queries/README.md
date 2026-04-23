@@ -30,7 +30,7 @@ source: 第 497 场周赛 Q4
 
 <p>在每次查询更新后，判断当前数组中是否存在<strong>&nbsp;任意一个好子序列</strong>。</p>
 
-<p>返回一个整数，表示在多少次查询之后，数组中存在&nbsp;<strong>好子序列</strong>。</p>
+<p>返回一个整数，表示使得数组中存在&nbsp;<strong>好子序列</strong>&nbsp;的查询&nbsp;<strong>次数</strong>。</p>
 
 <p><strong>子序列</strong>&nbsp;是指通过删除原序列中的某些元素或不删除任何元素，并且不改变剩余元素相对顺序后得到的序列。</p>
 
