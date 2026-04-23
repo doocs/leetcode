@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3907.Co
 
 <!-- problem:start -->
 
-# [3907. Count Smaller Elements With Opposite Parity 🔒](https://leetcode.cn/problems/count-smaller-elements-with-opposite-parity)
+# [3907. 统计具有相反奇偶性的较小元素 🔒](https://leetcode.cn/problems/count-smaller-elements-with-opposite-parity)
 
 [English Version](/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README_EN.md)
 
@@ -14,68 +14,70 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3907.Co
 
 <!-- description:start -->
 
-<p>You are given an integer array <code>nums</code> of length <code>n</code>.</p>
+<p>给定一个长度为 <code>n</code> 的整数数组&nbsp;<code>nums</code>。</p>
 
-<p>The <strong>score</strong> of an index <code>i</code> is defined as the number of indices <code>j</code> such that:</p>
+<p>下标 <code>i</code> 的得分定义为满足以下条件的索引 <code>j</code> 的数量：</p>
 
 <ul>
 	<li><code>i &lt; j &lt; n</code></li>
 	<li><code>nums[j] &lt; nums[i]</code></li>
-	<li><code>nums[i]</code> and <code>nums[j]</code> have different parity (one is even and the other is odd).</li>
+	<li><code>nums[i]</code> 和&nbsp;<code>nums[j]</code>&nbsp;有不同的奇偶性（一个是偶数，另一个是奇数）。</li>
 </ul>
 
-<p>Return an integer array <code>answer</code> of length <code>n</code>, where <code>answer[i]</code> is the score of index <code>i</code>.</p>
+<p>返回一个长度为 <code>n</code> 的整数数组&nbsp;<code>answer</code>，其中&nbsp;<code>answer[i]</code>&nbsp;是下标&nbsp;<code>i</code>&nbsp;的得分。</p>
 
 <p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+
+<p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [5,2,4,1,3]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [5,2,4,1,3]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[2,1,2,0,0]</span></p>
+<p><span class="example-io"><b>输出：</b>[2,1,2,0,0]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-	<li>For <code>i = 0</code>, the elements <code>nums[1] = 2</code> and <code>nums[2] = 4</code> are smaller and have different parity.</li>
-	<li>For <code>i = 1</code>, the element <code>nums[3] = 1</code> is smaller and has different parity.</li>
-	<li>For <code>i = 2</code>, the elements <code>nums[3] = 1</code> and <code>nums[4] = 3</code> are smaller and have different parity.</li>
-	<li>No valid elements exist for the remaining indices.</li>
+	<li>对于&nbsp;<code>i = 0</code>，元素&nbsp;<code>nums[1] = 2</code> 和&nbsp;<code>nums[2] = 4</code>&nbsp;更小且奇偶性不同。</li>
+	<li>对于 <code>i = 1</code>，元素 <code>nums[3] = 1</code>&nbsp;更小且奇偶性不同。</li>
+	<li>对于 <code>i = 2</code>，元素 <code>nums[3] = 1</code> 和&nbsp;<code>nums[4] = 3</code> 更小且奇偶性不同。</li>
+	<li>剩余下标无有效元素。</li>
 </ul>
 
-<p>Thus, the <code>answer = [2, 1, 2, 0, 0]</code>.</p>
+<p>因此，<code>answer = [2, 1, 2, 0, 0]</code>。</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+<p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [4,4,1]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [4,4,1]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[1,1,0]</span></p>
+<p><span class="example-io"><b>输出：</b>[1,1,0]</span></p>
 
-<p><strong>Explanation:</strong>​​​​​​​</p>
+<p><strong>解释：</strong></p>
 
-<p>For <code>i = 0</code> and <code>i = 1</code>, the element <code>nums[2] = 1</code> is smaller and has different parity. Thus, the <code>answer = [1, 1, 0]</code>.</p>
+<p>对于&nbsp;<code>i = 0</code> 和&nbsp;<code>i = 1</code>，元素&nbsp;<code>nums[2] = 1</code>&nbsp;更小且奇偶性不同。因此，<code>answer = [1, 1, 0]</code>。</p>
 </div>
 
-<p><strong class="example">Example 3:</strong></p>
+<p><strong class="example">示例 3：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">nums = [7]</span></p>
+<p><span class="example-io"><b>输入：</b>nums = [7]</span></p>
 
-<p><strong>Output:</strong> <span class="example-io">[0]</span></p>
+<p><span class="example-io"><b>输出：</b>[0]</span></p>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
-<p>No elements exist to the right of index 0, so its score is 0. Thus, the <code>answer = [0]</code>.</p>
+<p>没有元素在下标 0 右侧，因此其得分为 0。因此，<code>answer = [0]</code>。</p>
 </div>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code>​​​​​​​</li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 <!-- description:end -->

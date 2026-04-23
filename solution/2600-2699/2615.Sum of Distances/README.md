@@ -32,10 +32,10 @@ tags:
 <strong>输入：</strong>nums = [1,3,1,1,2]
 <strong>输出：</strong>[5,0,3,4,0]
 <strong>解释：</strong>
-i = 0 ，nums[0] == nums[2] 且 nums[0] == nums[3] 。因此，arr[0] = |0 - 2| + |0 - 3| = 5 。
+i = 0 ，nums[0] == nums[2] 且 nums[0] == nums[3] 。因此，arr[0] = |0 - 2| + |0 - 3| = 5 。 
 i = 1 ，arr[1] = 0 因为不存在值等于 3 的其他下标。
 i = 2 ，nums[2] == nums[0] 且 nums[2] == nums[3] 。因此，arr[2] = |2 - 0| + |2 - 3| = 3 。
-i = 3 ，nums[3] == nums[0] 且 nums[3] == nums[2] 。因此，arr[3] = |3 - 0| + |3 - 2| = 4 。
+i = 3 ，nums[3] == nums[0] 且 nums[3] == nums[2] 。因此，arr[3] = |3 - 0| + |3 - 2| = 4 。 
 i = 4 ，arr[4] = 0 因为不存在值等于 2 的其他下标。
 </pre>
 
@@ -213,7 +213,7 @@ function distance(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 #### Rust

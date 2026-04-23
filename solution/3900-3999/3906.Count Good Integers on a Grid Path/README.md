@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README.md
+tags:
+    - 动态规划
 ---
 
 <!-- problem:start -->

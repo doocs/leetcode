@@ -24,4 +24,4 @@ function distance(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}

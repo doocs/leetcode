@@ -2,11 +2,15 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 矩阵
 ---
 
 <!-- problem:start -->
 
-# [3905. 多源洪水灌溉](https://leetcode.cn/problems/multi-source-flood-fill)
+# [3905. 多源图像渲染](https://leetcode.cn/problems/multi-source-flood-fill)
 
 [English Version](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)
 

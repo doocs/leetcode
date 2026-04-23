@@ -371,7 +371,8 @@ class Hashing {
     }
 
     public query(l: number, r: number): number {
-        const res = (this.h[r] - this.h[l - 1] * this.p[r - l + 1] % this.mod + this.mod) % this.mod;
+        const res =
+            (this.h[r] - ((this.h[l - 1] * this.p[r - l + 1]) % this.mod) + this.mod) % this.mod;
         return Number(res);
     }
 }

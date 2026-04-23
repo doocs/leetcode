@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README.md
+tags:
+    - 数组
 ---
 
 <!-- problem:start -->

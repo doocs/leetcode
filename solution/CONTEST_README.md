@@ -30,7 +30,7 @@ comments: true
 
 - [3903. 最小稳定下标 I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README.md)
 - [3904. 最小稳定下标 II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README.md)
-- [3905. 多源洪水灌溉](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README.md)
+- [3905. 多源图像渲染](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README.md)
 - [3906. 统计网格路径中好整数的数目](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README.md)
 
 #### 第 497 场周赛(2026-04-12 10:30, 90 分钟) 参赛人数 1506
