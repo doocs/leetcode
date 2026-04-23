@@ -174,38 +174,168 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
 #### Rust
 
 ```rust
-use std::collections::HashSet;
 impl Solution {
     pub fn two_out_of_three(nums1: Vec<i32>, nums2: Vec<i32>, nums3: Vec<i32>) -> Vec<i32> {
-        let mut count = vec![0; 101];
-        nums1
-            .into_iter()
-            .collect::<HashSet<i32>>()
-            .iter()
-            .for_each(|&v| {
-                count[v as usize] += 1;
-            });
-        nums2
-            .into_iter()
-            .collect::<HashSet<i32>>()
-            .iter()
-            .for_each(|&v| {
-                count[v as usize] += 1;
-            });
-        nums3
-            .into_iter()
-            .collect::<HashSet<i32>>()
-            .iter()
-            .for_each(|&v| {
-                count[v as usize] += 1;
-            });
+        let get = |nums: Vec<i32>| -> [i32; 101] {
+            let mut s = [0; 101];
+            for v in nums {
+                s[v as usize] = 1;
+            }
+            s
+        };
+
+        let s1 = get(nums1);
+        let s2 = get(nums2);
+        let s3 = get(nums3);
         let mut ans = Vec::new();
-        count.iter().enumerate().for_each(|(i, v)| {
-            if *v >= 2 {
+
+        for i in 1..=100 {
+            if s1[i] + s2[i] + s3[i] > 1 {
                 ans.push(i as i32);
             }
-        });
+        }
         ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Hash Table + Bit Manipulation
+
+We can use a hash table `mask` to record which arrays each number appears in. For each array, we add its elements to the hash table and set the corresponding bit to `1`. For example, if it is the first array, set the corresponding bit to `1`; if it is the second array, set it to `2`; if it is the third array, set it to `4`.
+
+Finally, we iterate through each number in the hash table and check if its corresponding value has at least two bits set to `1` in binary. If so, add that number to the answer array.
+
+The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$, where $n_1, n_2, n_3$ are the lengths of the arrays `nums1`, `nums2`, and `nums3`, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def twoOutOfThree(
+        self, nums1: List[int], nums2: List[int], nums3: List[int]
+    ) -> List[int]:
+        mask = defaultdict(int)
+        for i, nums in enumerate((nums1, nums2, nums3)):
+            for x in nums:
+                mask[x] |= 1 << i
+        return [x for x, v in mask.items() if v & (v - 1)]
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        Map<Integer, Integer> mask = new HashMap<>();
+        int[][] nums = {nums1, nums2, nums3};
+        for (int i = 0; i < 3; i++) {
+            for (int x : nums[i]) {
+                mask.merge(x, 1 << i, (oldVal, newVal) -> oldVal | newVal);
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (var e : mask.entrySet()) {
+            if ((e.getValue() & (e.getValue() - 1)) != 0) {
+                ans.add(e.getKey());
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+        unordered_map<int, int> mask;
+        vector<vector<int>*> all = {&nums1, &nums2, &nums3};
+
+        for (int i = 0; i < 3; ++i) {
+            for (int x : *all[i]) {
+                mask[x] |= (1 << i);
+            }
+        }
+
+        vector<int> ans;
+        for (auto& [x, m] : mask) {
+            if (m & (m - 1)) {
+                ans.push_back(x);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) (ans []int) {
+	mask := make(map[int]int)
+	for i, nums := range [][]int{nums1, nums2, nums3} {
+		for _, x := range nums {
+			mask[x] |= 1 << i
+		}
+	}
+	for x, m := range mask {
+		if m&(m-1) != 0 {
+			ans = append(ans, x)
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): number[] {
+    const mask = new Map<number, number>();
+    const all = [nums1, nums2, nums3];
+
+    all.forEach((nums, i) => {
+        for (const x of nums) {
+            mask.set(x, (mask.get(x) || 0) | (1 << i));
+        }
+    });
+
+    return Array.from(mask.entries())
+        .filter(([_, m]) => (m & (m - 1)) !== 0)
+        .map(([x, _]) => x);
+};
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn two_out_of_three(nums1: Vec<i32>, nums2: Vec<i32>, nums3: Vec<i32>) -> Vec<i32> {
+        let mut mask = HashMap::new();
+        let all = vec![nums1, nums2, nums3];
+
+        for (i, nums) in all.into_iter().enumerate() {
+            for x in nums {
+                *mask.entry(x).or_insert(0) |= 1 << i;
+            }
+        }
+
+        mask.into_iter()
+            .filter(|&(_, m)| m & (m - 1) != 0)
+            .map(|(x, _)| x)
+            .collect()
     }
 }
 ```
