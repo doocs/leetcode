@@ -3922,6 +3922,10 @@
 |  3909  |  [比较双调部分的和](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README.md)  |    |  中等  |  第 181 场双周赛  |
 |  3910  |  [统计节点和为偶数的连通子图](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README.md)  |    |  困难  |  第 181 场双周赛  |
 |  3911  |  [移除子数组元素后第 K 小偶数](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README.md)  |    |  困难  |  第 181 场双周赛  |
+|  3912  |  [数组中的有效元素](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README.md)  |    |  简单  |  第 499 场周赛  |
+|  3913  |  [按频率对元音排序](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README.md)  |    |  中等  |  第 499 场周赛  |
+|  3914  |  [使数组非递减需要的最小累计值](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)  |    |  中等  |  第 499 场周赛  |
+|  3915  |  [距离至少为 K 的交替子序列的最大和](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README.md)  |    |  困难  |  第 499 场周赛  |
 
 ## 版权
 
