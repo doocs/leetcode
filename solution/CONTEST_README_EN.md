@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 181
+
+- [3908. Valid Digit Number](/solution/3900-3999/3908.Valid%20Digit%20Number/README_EN.md)
+- [3909. Compare Sums of Bitonic Parts](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README_EN.md)
+- [3910. Count Connected Subgraphs with Even Node Sum](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README_EN.md)
+- [3911. K-th Smallest Remaining Even Integer in Subarray Queries](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README_EN.md)
+
 #### Weekly Contest 498
 
 - [3903. Smallest Stable Index I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md)

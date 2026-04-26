@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md
+rating: 2160
+source: Weekly Contest 498 Q4
 tags:
     - Dynamic Programming
 ---
