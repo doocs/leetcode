@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 499 场周赛(2026-04-26 10:30, 90 分钟) 参赛人数 1597
+
+- [3912. 数组中的有效元素](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README.md)
+- [3913. 按频率对元音排序](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README.md)
+- [3914. 使数组非递减需要的最小累计值](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)
+- [3915. 距离至少为 K 的交替子序列的最大和](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README.md)
+
 #### 第 181 场双周赛(2026-04-25 22:30, 90 分钟) 参赛人数 1079
 
 - [3908. 有效数字](/solution/3900-3999/3908.Valid%20Digit%20Number/README.md)

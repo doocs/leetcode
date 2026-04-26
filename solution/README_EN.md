@@ -3920,6 +3920,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3909  |  [Compare Sums of Bitonic Parts](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README_EN.md)  |    |  Medium  |  Biweekly Contest 181  |
 |  3910  |  [Count Connected Subgraphs with Even Node Sum](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README_EN.md)  |    |  Hard  |  Biweekly Contest 181  |
 |  3911  |  [K-th Smallest Remaining Even Integer in Subarray Queries](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README_EN.md)  |    |  Hard  |  Biweekly Contest 181  |
+|  3912  |  [Valid Elements in an Array](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 499  |
+|  3913  |  [Sort Vowels by Frequency](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README_EN.md)  |    |  Medium  |  Weekly Contest 499  |
+|  3914  |  [Minimum Operations to Make Array Non Decreasing](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 499  |
+|  3915  |  [Maximum Sum of Alternating Subsequence With Distance at Least K](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 499  |
 
 ## Copyright
 
