@@ -11,4 +11,4 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
     return Array.from(mask.entries())
         .filter(([_, m]) => (m & (m - 1)) !== 0)
         .map(([x, _]) => x);
-};
+}

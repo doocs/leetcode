@@ -167,7 +167,9 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
         return s;
     };
 
-    const s1 = get(nums1), s2 = get(nums2), s3 = get(nums3);
+    const s1 = get(nums1),
+        s2 = get(nums2),
+        s3 = get(nums3);
     const ans: number[] = [];
 
     for (let i = 1; i <= 100; i++) {
@@ -176,7 +178,7 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
         }
     }
     return ans;
-};
+}
 ```
 
 #### Rust
@@ -321,7 +323,7 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
     return Array.from(mask.entries())
         .filter(([_, m]) => (m & (m - 1)) !== 0)
         .map(([x, _]) => x);
-};
+}
 ```
 
 #### Rust

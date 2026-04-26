@@ -9,4 +9,4 @@ function minOperations(grid: number[][], x: number): number {
     nums.sort((a, b) => a - b);
     const mid = nums[Math.floor(nums.length / 2)];
     return nums.reduce((ans, num) => ans + Math.abs(num - mid) / x, 0);
-};
+}

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README.md
+rating: 1671
+source: 第 498 场周赛 Q3
 tags:
     - 广度优先搜索
     - 数组

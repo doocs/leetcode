@@ -3916,6 +3916,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3905  |  [Multi Source Flood Fill](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`  |  Medium  |  Weekly Contest 498  |
 |  3906  |  [Count Good Integers on a Grid Path](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md)  |  `Dynamic Programming`  |  Hard  |  Weekly Contest 498  |
 |  3907  |  [Count Smaller Elements With Opposite Parity](/solution/3900-3999/3907.Count%20Smaller%20Elements%20With%20Opposite%20Parity/README_EN.md)  |    |  Medium  |  🔒  |
+|  3908  |  [Valid Digit Number](/solution/3900-3999/3908.Valid%20Digit%20Number/README_EN.md)  |    |  Easy  |  Biweekly Contest 181  |
+|  3909  |  [Compare Sums of Bitonic Parts](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README_EN.md)  |    |  Medium  |  Biweekly Contest 181  |
+|  3910  |  [Count Connected Subgraphs with Even Node Sum](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README_EN.md)  |    |  Hard  |  Biweekly Contest 181  |
+|  3911  |  [K-th Smallest Remaining Even Integer in Subarray Queries](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README_EN.md)  |    |  Hard  |  Biweekly Contest 181  |
 
 ## Copyright
 
