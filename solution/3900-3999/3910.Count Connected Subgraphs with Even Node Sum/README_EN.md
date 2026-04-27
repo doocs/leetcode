@@ -144,32 +144,226 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3910.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bitmask Enumeration + DFS
+
+Notice that the number of nodes in the problem does not exceed $13$, so we can enumerate all non-empty subsets $s$ of nodes. For each subset, we calculate the total sum of node values and check whether its induced subgraph is connected.
+
+Specifically, we can use an integer $sub$ to represent the subset $s$, where the $i$-th bit of $sub$ is $1$ if node $i$ is in the subset, and $0$ otherwise. For each subset, we first compute the sum of its node values. If the sum is odd, we skip this subset; otherwise, we use DFS to check whether the induced subgraph is connected. We can use an integer $vis$ to represent the visited nodes: initially, the $i$-th bit of $vis$ is $1$ if node $i$ is not in the subset, and $0$ if node $i$ is in the subset. We start DFS from any node in subset $s$, visit all its adjacent nodes, and mark visited nodes in $vis$ as $1$. Finally, if all bits in $vis$ are $1$, it means the induced subgraph of subset $s$ is connected, so we increment the answer by $1$.
+
+The time complexity is $O(2^n \times (n + m))$ and the space complexity is $O(n + m)$, where $n$ and $m$ are the number of nodes and edges, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def evenSumSubgraphs(self, nums: list[int], edges: list[list[int]]) -> int:
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        m = (1 << n) - 1
+        ans = 0
+        for sub in range(1, m + 1):
+            s = sum(x for i, x in enumerate(nums) if sub >> i & 1)
+            if s % 2:
+                continue
+            vis = m ^ sub
 
+            def dfs(u: int) -> None:
+                nonlocal vis
+                vis |= 1 << u
+                for v in g[u]:
+                    if (vis >> v & 1) == 0:
+                        dfs(v)
+
+            dfs(sub.bit_length() - 1)
+            if vis == m:
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int vis;
+    private int m;
+    private List<Integer>[] g;
 
+    public int evenSumSubgraphs(int[] nums, int[][] edges) {
+        int n = nums.length;
+        g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+            g[e[1]].add(e[0]);
+        }
+        m = (1 << n) - 1;
+        int ans = 0;
+        for (int sub = 1; sub <= m; sub++) {
+            int s = 0;
+            for (int i = 0; i < n; i++) {
+                if (((sub >> i) & 1) == 1) {
+                    s += nums[i];
+                }
+            }
+            if (s % 2 != 0) {
+                continue;
+            }
+            vis = m ^ sub;
+            dfs(Integer.numberOfTrailingZeros(sub));
+            if (vis == m) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(int u) {
+        vis |= 1 << u;
+        for (int v : g[u]) {
+            if (((vis >> v) & 1) == 0) {
+                dfs(v);
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int evenSumSubgraphs(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+            g[e[1]].push_back(e[0]);
+        }
+        int m = (1 << n) - 1;
+        int ans = 0;
+        int vis;
 
+        auto dfs = [&](this auto dfs, int u) -> void {
+            vis |= 1 << u;
+            for (int v : g[u]) {
+                if (((vis >> v) & 1) == 0) {
+                    dfs(v);
+                }
+            }
+        };
+
+        for (int sub = 1; sub <= m; sub++) {
+            int s = 0;
+            for (int i = 0; i < n; i++) {
+                if ((sub >> i) & 1) {
+                    s += nums[i];
+                }
+            }
+            if (s % 2 != 0) {
+                continue;
+            }
+            vis = m ^ sub;
+            dfs(31 - __builtin_clz(sub));
+            if (vis == m) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func evenSumSubgraphs(nums []int, edges [][]int) int {
+	n := len(nums)
+	g := make([][]int, n)
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], e[1])
+		g[e[1]] = append(g[e[1]], e[0])
+	}
+	m := (1 << n) - 1
+	ans := 0
+	var vis int
 
+	var dfs func(int)
+	dfs = func(u int) {
+		vis |= 1 << u
+		for _, v := range g[u] {
+			if (vis >> v & 1) == 0 {
+				dfs(v)
+			}
+		}
+	}
+
+	for sub := 1; sub <= m; sub++ {
+		s := 0
+		for i := 0; i < n; i++ {
+			if sub>>i&1 == 1 {
+				s += nums[i]
+			}
+		}
+		if s%2 != 0 {
+			continue
+		}
+		vis = m ^ sub
+		dfs(bits.Len(uint(sub)) - 1)
+		if vis == m {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function evenSumSubgraphs(nums: number[], edges: number[][]): number {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+    const m = (1 << n) - 1;
+    let ans = 0;
+    let vis = 0;
+
+    const dfs = (u: number): void => {
+        vis |= 1 << u;
+        for (const v of g[u]) {
+            if (((vis >> v) & 1) === 0) {
+                dfs(v);
+            }
+        }
+    };
+
+    for (let sub = 1; sub <= m; sub++) {
+        let s = 0;
+        for (let i = 0; i < n; i++) {
+            if ((sub >> i) & 1) {
+                s += nums[i];
+            }
+        }
+        if (s % 2 !== 0) {
+            continue;
+        }
+        vis = m ^ sub;
+        dfs(sub.toString(2).length - 1);
+        if (vis === m) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
