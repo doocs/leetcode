@@ -95,9 +95,9 @@ tags:
 
 我们先对机器人和工厂进行升序排列。然后定义函数 $dfs(i, j)$ 表示从第 $i$ 个机器人开始，第 $j$ 个工厂开始维修的最小总移动距离。
 
-对于 $dfs(i, j)$，如果第 $j$ 个工厂不维修机器人，那么 $dfs(i, j)=dfs(i, j+1)$。如果第 $j$ 个工厂维修机器人，我们可以枚举第 $j$ 个工厂维修的机器人的数量，找出最小的总移动距离。即 $dfs(i, j) = min(dfs(i + k + 1, j + 1) + \sum_{t = 0}^{k} |robot[i + t] - factory[j][0|)$。
+对于 $dfs(i, j)$，如果第 $j$ 个工厂不维修机器人，那么 $dfs(i, j)=dfs(i, j+1)$。如果第 $j$ 个工厂维修机器人，我们可以枚举第 $j$ 个工厂维修的机器人的数量，找出最小的总移动距离。即 $dfs(i, j) = \min(dfs(i + k + 1, j + 1) + \sum_{t = 0}^{k} |robot[i + t] - factory[j][0|)$。
 
-时间复杂度 $O(m^2\times n)$，空间复杂度 $O(m\times n)$。其中 $m$ 和 $n$ 分别为机器人数量和工厂数量。
+时间复杂度 $O(m^2 \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为机器人数量和工厂数量。
 
 <!-- tabs:start -->
 
@@ -132,7 +132,7 @@ class Solution:
 
 ```java
 class Solution {
-    private long[][] f;
+    private Long[][] f;
     private List<Integer> robot;
     private int[][] factory;
 
@@ -141,7 +141,7 @@ class Solution {
         Arrays.sort(factory, (a, b) -> a[0] - b[0]);
         this.robot = robot;
         this.factory = factory;
-        f = new long[robot.size()][factory.length];
+        f = new Long[robot.size()][factory.length];
         return dfs(0, 0);
     }
 
@@ -152,7 +152,7 @@ class Solution {
         if (j == factory.length) {
             return Long.MAX_VALUE / 1000;
         }
-        if (f[i][j] != 0) {
+        if (f[i][j] != null) {
             return f[i][j];
         }
         long ans = dfs(i, j + 1);
@@ -173,22 +173,30 @@ class Solution {
 #### C++
 
 ```cpp
-using ll = long long;
-
 class Solution {
 public:
     long long minimumTotalDistance(vector<int>& robot, vector<vector<int>>& factory) {
-        sort(robot.begin(), robot.end());
-        sort(factory.begin(), factory.end());
-        vector<vector<ll>> f(robot.size(), vector<ll>(factory.size()));
-        function<ll(int i, int j)> dfs = [&](int i, int j) -> ll {
-            if (i == robot.size()) return 0;
-            if (j == factory.size()) return 1e15;
-            if (f[i][j]) return f[i][j];
+        ranges::sort(robot);
+        ranges::sort(factory);
+        using ll = long long;
+        vector<vector<ll>> f(robot.size(), vector<ll>(factory.size(), -1));
+
+        auto dfs = [&](this auto&& dfs, int i, int j) -> ll {
+            if (i == robot.size()) {
+                return 0;
+            }
+            if (j == factory.size()) {
+                return 1e15;
+            }
+            if (f[i][j] != -1) {
+                return f[i][j];
+            }
             ll ans = dfs(i, j + 1);
             ll t = 0;
             for (int k = 0; k < factory[j][1]; ++k) {
-                if (i + k >= robot.size()) break;
+                if (i + k >= robot.size()) {
+                    break;
+                }
                 t += abs(robot[i + k] - factory[j][0]);
                 ans = min(ans, t + dfs(i + k + 1, j + 1));
             }
@@ -209,6 +217,9 @@ func minimumTotalDistance(robot []int, factory [][]int) int64 {
 	f := make([][]int, len(robot))
 	for i := range f {
 		f[i] = make([]int, len(factory))
+		for j := range f[i] {
+			f[i][j] = -1
+		}
 	}
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
@@ -218,7 +229,7 @@ func minimumTotalDistance(robot []int, factory [][]int) int64 {
 		if j == len(factory) {
 			return 1e15
 		}
-		if f[i][j] != 0 {
+		if f[i][j] != -1 {
 			return f[i][j]
 		}
 		ans := dfs(i, j+1)
@@ -241,6 +252,39 @@ func abs(x int) int {
 		return -x
 	}
 	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumTotalDistance(robot: number[], factory: number[][]): number {
+    robot.sort((a, b) => a - b);
+    factory.sort((a, b) => a[0] - b[0]);
+
+    const n = robot.length;
+    const m = factory.length;
+    const f: number[][] = Array.from({ length: n }, () => Array(m).fill(-1));
+
+    const dfs = (i: number, j: number): number => {
+        if (i === n) return 0;
+        if (j === m) return 1e15;
+        if (f[i][j] !== -1) return f[i][j];
+
+        let ans = dfs(i, j + 1);
+        let totalDist = 0;
+        const [pos, capacity] = factory[j];
+
+        for (let k = 0; k < capacity; k++) {
+            if (i + k >= n) break;
+            totalDist += Math.abs(robot[i + k] - pos);
+            ans = Math.min(ans, totalDist + dfs(i + k + 1, j + 1));
+        }
+
+        return (f[i][j] = ans);
+    };
+
+    return dfs(0, 0);
 }
 ```
 

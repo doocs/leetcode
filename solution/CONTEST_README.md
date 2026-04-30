@@ -26,6 +26,41 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 499 场周赛(2026-04-26 10:30, 90 分钟) 参赛人数 1597
+
+- [3912. 数组中的有效元素](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README.md)
+- [3913. 按频率对元音排序](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README.md)
+- [3914. 使数组非递减需要的最小累计值](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)
+- [3915. 距离至少为 K 的交替子序列的最大和](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README.md)
+
+#### 第 181 场双周赛(2026-04-25 22:30, 90 分钟) 参赛人数 1079
+
+- [3908. 有效数字](/solution/3900-3999/3908.Valid%20Digit%20Number/README.md)
+- [3909. 比较双调部分的和](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README.md)
+- [3910. 统计节点和为偶数的连通子图](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README.md)
+- [3911. 移除子数组元素后第 K 小偶数](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README.md)
+
+#### 第 498 场周赛(2026-04-19 10:30, 90 分钟) 参赛人数 1666
+
+- [3903. 最小稳定下标 I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README.md)
+- [3904. 最小稳定下标 II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README.md)
+- [3905. 多源图像渲染](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README.md)
+- [3906. 统计网格路径中好整数的数目](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README.md)
+
+#### 第 497 场周赛(2026-04-12 10:30, 90 分钟) 参赛人数 1506
+
+- [3898. 统计每个顶点的度](/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README.md)
+- [3899. 三角形的内角度数](/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README.md)
+- [3900. 一次交换后的最长平衡子串](/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README.md)
+- [3901. 好子序列查询](/solution/3900-3999/3901.Good%20Subsequence%20Queries/README.md)
+
+#### 第 180 场双周赛(2026-04-11 22:30, 90 分钟) 参赛人数 1098
+
+- [3894. 交通信号灯的颜色](/solution/3800-3899/3894.Traffic%20Signal%20Color/README.md)
+- [3895. 统计数字出现总次数](/solution/3800-3899/3895.Count%20Digit%20Appearances/README.md)
+- [3896. 将数组转换为交替质数数组的最少操作次数](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md)
+- [3897. 连接二进制片段得到的最大值](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README.md)
+
 #### 第 496 场周赛(2026-04-05 10:30, 90 分钟) 参赛人数 1441
 
 - [3889. 镜像频次距离](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README.md)

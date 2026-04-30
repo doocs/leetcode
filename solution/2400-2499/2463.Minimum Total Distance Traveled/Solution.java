@@ -1,5 +1,5 @@
 class Solution {
-    private long[][] f;
+    private Long[][] f;
     private List<Integer> robot;
     private int[][] factory;
 
@@ -8,7 +8,7 @@ class Solution {
         Arrays.sort(factory, (a, b) -> a[0] - b[0]);
         this.robot = robot;
         this.factory = factory;
-        f = new long[robot.size()][factory.length];
+        f = new Long[robot.size()][factory.length];
         return dfs(0, 0);
     }
 
@@ -19,7 +19,7 @@ class Solution {
         if (j == factory.length) {
             return Long.MAX_VALUE / 1000;
         }
-        if (f[i][j] != 0) {
+        if (f[i][j] != null) {
             return f[i][j];
         }
         long ans = dfs(i, j + 1);

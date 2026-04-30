@@ -75,8 +75,8 @@ tags:
 			<td style="border: 1px solid black;">[0, 2]</td>
 			<td style="border: 1px solid black;">[1, 4, 7]</td>
 			<td style="border: 1px solid black;">是</td>
-			<td style="border: 1px solid black;"><code>nums[0] + k = 1 + 3 = 4 = nums[1]<br />
-			nums[2] - k = 7 - 3 = 4 = nums[1]</code></td>
+			<td style="border: 1px solid black;"><code>nums[0] + k = 1 + 3 = 4 = nums[1]</code><br />
+			<code>nums[2] - k = 7 - 3 = 4 = nums[1]</code></td>
 			<td style="border: 1px solid black;">[4, 4, 4]</td>
 			<td style="border: 1px solid black;">2</td>
 		</tr>

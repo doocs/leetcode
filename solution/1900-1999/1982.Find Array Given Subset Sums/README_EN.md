@@ -6,7 +6,9 @@ rating: 2872
 source: Weekly Contest 255 Q4
 tags:
     - Array
-    - Divide and Conquer
+    - Hash Table
+    - Counting
+    - Sorting
 ---
 
 <!-- problem:start -->

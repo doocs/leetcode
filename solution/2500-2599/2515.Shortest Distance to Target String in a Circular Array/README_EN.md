@@ -77,7 +77,11 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Traversal
+
+We traverse the array $\textit{words}$$,$ find the words equal to $\textit{target}$, and compute their distance $t$ from $\textit{startIndex}$. The shortest distance in this case is $\min(t, n - t)$, so we only need to keep updating the minimum value.
+
+The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -85,7 +89,7 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 
 ```python
 class Solution:
-    def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:
+    def closestTarget(self, words: List[str], target: str, startIndex: int) -> int:
         n = len(words)
         ans = n
         for i, w in enumerate(words):
@@ -99,12 +103,11 @@ class Solution:
 
 ```java
 class Solution {
-    public int closetTarget(String[] words, String target, int startIndex) {
+    public int closestTarget(String[] words, String target, int startIndex) {
         int n = words.length;
         int ans = n;
-        for (int i = 0; i < n; ++i) {
-            String w = words[i];
-            if (w.equals(target)) {
+        for (int i = 0; i < n; i++) {
+            if (words[i].equals(target)) {
                 int t = Math.abs(i - startIndex);
                 ans = Math.min(ans, Math.min(t, n - t));
             }
@@ -119,14 +122,13 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int closetTarget(vector<string>& words, string target, int startIndex) {
+    int closestTarget(vector<string>& words, string target, int startIndex) {
         int n = words.size();
         int ans = n;
-        for (int i = 0; i < n; ++i) {
-            auto w = words[i];
-            if (w == target) {
+        for (int i = 0; i < n; i++) {
+            if (words[i] == target) {
                 int t = abs(i - startIndex);
-                ans = min(ans, min(t, n - t));
+                ans = min({ans, t, n - t});
             }
         }
         return ans == n ? -1 : ans;
@@ -137,13 +139,16 @@ public:
 #### Go
 
 ```go
-func closetTarget(words []string, target string, startIndex int) int {
+func closestTarget(words []string, target string, startIndex int) int {
 	n := len(words)
 	ans := n
 	for i, w := range words {
 		if w == target {
-			t := abs(i - startIndex)
-			ans = min(ans, min(t, n-t))
+			t := i - startIndex
+			if t < 0 {
+				t = -t
+			}
+			ans = min(ans, t, n-t)
 		}
 	}
 	if ans == n {
@@ -151,26 +156,21 @@ func closetTarget(words []string, target string, startIndex int) int {
 	}
 	return ans
 }
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
 ```
 
 #### TypeScript
 
 ```ts
-function closetTarget(words: string[], target: string, startIndex: number): number {
+function closestTarget(words: string[], target: string, startIndex: number): number {
     const n = words.length;
-    for (let i = 0; i <= n >> 1; i++) {
-        if (words[(startIndex - i + n) % n] === target || words[(startIndex + i) % n] === target) {
-            return i;
+    let ans = n;
+    for (let i = 0; i < n; i++) {
+        if (words[i] === target) {
+            const t = Math.abs(i - startIndex);
+            ans = Math.min(ans, t, n - t);
         }
     }
-    return -1;
+    return ans === n ? -1 : ans;
 }
 ```
 
@@ -178,16 +178,16 @@ function closetTarget(words: string[], target: string, startIndex: number): numb
 
 ```rust
 impl Solution {
-    pub fn closet_target(words: Vec<String>, target: String, start_index: i32) -> i32 {
-        let start_index = start_index as usize;
-        let n = words.len();
-        for i in 0..=n >> 1 {
-            if words[(start_index - i + n) % n] == target || words[(start_index + i) % n] == target
-            {
-                return i as i32;
+    pub fn closest_target(words: Vec<String>, target: String, start_index: i32) -> i32 {
+        let n = words.len() as i32;
+        let mut ans = n;
+        for (i, w) in words.iter().enumerate() {
+            if w == &target {
+                let t = (i as i32 - start_index).abs();
+                ans = ans.min(t.min(n - t));
             }
         }
-        -1
+        if ans == n { -1 } else { ans }
     }
 }
 ```
@@ -195,48 +195,21 @@ impl Solution {
 #### C
 
 ```c
-int closetTarget(char** words, int wordsSize, char* target, int startIndex) {
-    for (int i = 0; i <= wordsSize >> 1; i++) {
-        if (strcmp(words[(startIndex - i + wordsSize) % wordsSize], target) == 0 || strcmp(words[(startIndex + i) % wordsSize], target) == 0) {
-            return i;
+#define min(a, b) ((a) < (b) ? (a) : (b))
+
+int closestTarget(char** words, int wordsSize, char* target, int startIndex) {
+    int n = wordsSize;
+    int ans = n;
+
+    for (int i = 0; i < n; i++) {
+        if (strcmp(words[i], target) == 0) {
+            int t = abs(i - startIndex);
+            int dist = min(t, n - t);
+            ans = min(ans, dist);
         }
     }
-    return -1;
-}
-```
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-use std::cmp::min;
-
-impl Solution {
-    pub fn closet_target(words: Vec<String>, target: String, start_index: i32) -> i32 {
-        let mut ans = words.len();
-
-        for (i, w) in words.iter().enumerate() {
-            if *w == target {
-                let t = ((i as i32) - start_index).abs();
-                ans = min(ans, min(t as usize, words.len() - (t as usize)));
-            }
-        }
-
-        if ans == words.len() {
-            return -1;
-        }
-
-        ans as i32
-    }
+    return ans == n ? -1 : ans;
 }
 ```
 

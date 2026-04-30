@@ -3,6 +3,7 @@ comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md
 tags:
+    - Two Pointers
     - String
     - Dynamic Programming
 ---

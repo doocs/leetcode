@@ -1,5 +1,5 @@
 class Solution:
-    def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:
+    def closestTarget(self, words: List[str], target: str, startIndex: int) -> int:
         n = len(words)
         ans = n
         for i, w in enumerate(words):

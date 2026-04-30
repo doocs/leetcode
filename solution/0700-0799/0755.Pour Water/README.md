@@ -17,20 +17,21 @@ tags:
 
 <!-- description:start -->
 
-<p>给出一个地形高度图， <code>heights[i]</code> 表示该索引处的高度。每个索引的宽度为 1。在 <code>V</code> 个单位的水落在索引 <code>K</code> 处以后，每个索引位置有多少水？</p>
+<p>给定一个地形高度图，用一个整数数组 <code>heights</code> 表示，其中 <code>heights[i]</code> 表示索引 <code>i</code> 处的地形高度。每个位置的宽度为 <code>1</code>。同时给定两个整数 <code>volume</code> 和 <code>k</code>，表示有 <code>volume</code> 单位的水将落在索引 <code>k</code> 处。</p>
 
-<p>水最先会在索引 <code>K</code> 处下降并且落在该索引位置的最高地形或水面之上。然后按如下方式流动：</p>
+<p>水首先落在索引 <code>k</code> 处，并停留在该位置当前的最高高度（地形或已有水）之上。然后，它会按照以下规则流动：</p>
 
 <ul>
-	<li>如果液滴最终可以通过向左流动而下降，则向左流动。</li>
-	<li>否则，如果液滴最终可以通过向右流动而下降，则向右流动。</li>
-	<li>否则，在当前的位置上升。</li>
-	<li>这里，“最终下降” 的意思是液滴如果按此方向移动的话，最终可以下降到一个较低的水平。而且，“水平”的意思是当前列的地形的高度加上水的高度。</li>
+	<li>如果水滴向左移动最终会下降，则向左移动。</li>
+	<li>否则，如果水滴向右移动最终会下降，则向右移动。</li>
+	<li>否则，停留在当前位置并堆积。</li>
 </ul>
 
-<p>我们可以假定在数组两侧的边界外有无限高的地形。而且，不能有部分水在多于 1 个的网格块上均匀分布 - 每个单位的水必须要位于一个块中。</p>
+<p>这里，“<strong>最终会下降</strong>”指的是水滴如果沿该方向移动，最终会到达一个更低的高度位置。这里的“高度”是指地形高度加上该位置已有的水量。</p>
 
-<p> </p>
+<p>可以假设数组两侧边界之外是无限高的地形。此外，每一单位水必须完全位于某一个格子中，不会被均匀分散到多个格子。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -42,7 +43,7 @@ tags:
 #       #
 ##  # ###
 #########
- 0123456    <- 索引
+ 0123456    &lt;- 索引
 
 第一个水滴降落在索引 K = 3 上：
 
@@ -140,14 +141,14 @@ tags:
 <strong>输出：</strong>[4,4,4]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>注：</strong></p>
 
 <ol>
-	<li><code>heights</code> 的长度为 <code>[1, 100]</code> ，并且每个数的范围为<code>[0, 99]</code>。</li>
-	<li><code>V</code> 的范围 <code>[0, 2000]</code>。</li>
-	<li><code>K</code> 的范围 <code>[0, heights.length - 1]</code>。</li>
+	<li><code>heights</code> 的长度为&nbsp;<code>[1, 100]</code>&nbsp;，并且每个数的范围为<code>[0, 99]</code>。</li>
+	<li><code>V</code> 的范围&nbsp;<code>[0, 2000]</code>。</li>
+	<li><code>K</code>&nbsp;的范围&nbsp;<code>[0, heights.length - 1]</code>。</li>
 </ol>
 
 <!-- description:end -->

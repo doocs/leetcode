@@ -4,6 +4,9 @@ func minimumTotalDistance(robot []int, factory [][]int) int64 {
 	f := make([][]int, len(robot))
 	for i := range f {
 		f[i] = make([]int, len(factory))
+		for j := range f[i] {
+			f[i][j] = -1
+		}
 	}
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
@@ -13,7 +16,7 @@ func minimumTotalDistance(robot []int, factory [][]int) int64 {
 		if j == len(factory) {
 			return 1e15
 		}
-		if f[i][j] != 0 {
+		if f[i][j] != -1 {
 			return f[i][j]
 		}
 		ans := dfs(i, j+1)

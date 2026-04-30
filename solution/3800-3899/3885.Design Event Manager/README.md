@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3885.Design%20Event%20Manager/README.md
 rating: 1548
 source: 第 495 场周赛 Q2
+tags:
+    - 设计
+    - 数组
+    - 哈希表
+    - 有序集合
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

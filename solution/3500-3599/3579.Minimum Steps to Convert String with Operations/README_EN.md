@@ -5,7 +5,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3579.Mi
 rating: 2492
 source: Weekly Contest 453 Q4
 tags:
-    - Greedy
     - String
     - Dynamic Programming
 ---

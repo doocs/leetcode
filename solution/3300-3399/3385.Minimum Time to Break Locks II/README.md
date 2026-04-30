@@ -3,7 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3385.Minimum%20Time%20to%20Break%20Locks%20II/README.md
 tags:
-    - 深度优先搜索
+    - 广度优先搜索
     - 图
     - 数组
 ---
@@ -176,7 +176,6 @@ tags:
 	<li><code>n == strength.length</code></li>
 	<li><code>1 &lt;= n &lt;= 80</code></li>
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>6</sup></code></li>
-	<li><code>n == strength.length</code></li>
 </ul>
 
 <!-- description:end -->

@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3882.Minimum%20XOR%20Path%20in%20a%20Grid/README.md
 rating: 1770
 source: 第 179 场双周赛 Q3
+tags:
+    - 位运算
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

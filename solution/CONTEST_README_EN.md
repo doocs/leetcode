@@ -29,6 +29,41 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 499
+
+- [3912. Valid Elements in an Array](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README_EN.md)
+- [3913. Sort Vowels by Frequency](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README_EN.md)
+- [3914. Minimum Operations to Make Array Non Decreasing](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)
+- [3915. Maximum Sum of Alternating Subsequence With Distance at Least K](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README_EN.md)
+
+#### Biweekly Contest 181
+
+- [3908. Valid Digit Number](/solution/3900-3999/3908.Valid%20Digit%20Number/README_EN.md)
+- [3909. Compare Sums of Bitonic Parts](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README_EN.md)
+- [3910. Count Connected Subgraphs with Even Node Sum](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README_EN.md)
+- [3911. K-th Smallest Remaining Even Integer in Subarray Queries](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README_EN.md)
+
+#### Weekly Contest 498
+
+- [3903. Smallest Stable Index I](/solution/3900-3999/3903.Smallest%20Stable%20Index%20I/README_EN.md)
+- [3904. Smallest Stable Index II](/solution/3900-3999/3904.Smallest%20Stable%20Index%20II/README_EN.md)
+- [3905. Multi Source Flood Fill](/solution/3900-3999/3905.Multi%20Source%20Flood%20Fill/README_EN.md)
+- [3906. Count Good Integers on a Grid Path](/solution/3900-3999/3906.Count%20Good%20Integers%20on%20a%20Grid%20Path/README_EN.md)
+
+#### Weekly Contest 497
+
+- [3898. Find the Degree of Each Vertex](/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README_EN.md)
+- [3899. Angles of a Triangle](/solution/3800-3899/3899.Angles%20of%20a%20Triangle/README_EN.md)
+- [3900. Longest Balanced Substring After One Swap](/solution/3900-3999/3900.Longest%20Balanced%20Substring%20After%20One%20Swap/README_EN.md)
+- [3901. Good Subsequence Queries](/solution/3900-3999/3901.Good%20Subsequence%20Queries/README_EN.md)
+
+#### Biweekly Contest 180
+
+- [3894. Traffic Signal Color](/solution/3800-3899/3894.Traffic%20Signal%20Color/README_EN.md)
+- [3895. Count Digit Appearances](/solution/3800-3899/3895.Count%20Digit%20Appearances/README_EN.md)
+- [3896. Minimum Operations to Transform Array into Alternating Prime](/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README_EN.md)
+- [3897. Maximum Value of Concatenated Binary Segments](/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README_EN.md)
+
 #### Weekly Contest 496
 
 - [3889. Mirror Frequency Distance](/solution/3800-3899/3889.Mirror%20Frequency%20Distance/README_EN.md)
