@@ -100,25 +100,146 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3919.Mi
 #### Python3
 
 ```python
-
+class Solution:
+    def minCost(self, nums: list[int], queries: list[list[int]]) -> list[int]:
+        n = len(nums)
+        s1 = [0] * n
+        s2 = [0] * n
+        for i in range(1, n):
+            c1 = (
+                nums[i] - nums[i - 1]
+                if i > 1 and nums[i - 1] - nums[i - 2] <= nums[i] - nums[i - 1]
+                else 1
+            )
+            c2 = (
+                nums[i] - nums[i - 1]
+                if i < n - 1 and nums[i] - nums[i - 1] > nums[i + 1] - nums[i]
+                else 1
+            )
+            s1[i] = s1[i - 1] + c1
+            s2[i] = s2[i - 1] + c2
+        m = len(queries)
+        ans = [0] * m
+        for i, (l, r) in enumerate(queries):
+            ans[i] = s1[r] - s1[l] if l < r else s2[l] - s2[r]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] minCost(int[] nums, int[][] queries) {
+        int n = nums.length;
+        int[] s1 = new int[n];
+        int[] s2 = new int[n];
+        for (int i = 1; i < n; i++) {
+            int c1 = (i > 1 && nums[i - 1] - nums[i - 2] <= nums[i] - nums[i - 1])
+                ? nums[i] - nums[i - 1]
+                : 1;
+            int c2 = (i < n - 1 && nums[i] - nums[i - 1] > nums[i + 1] - nums[i])
+                ? nums[i] - nums[i - 1]
+                : 1;
+            s1[i] = s1[i - 1] + c1;
+            s2[i] = s2[i - 1] + c2;
+        }
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; i++) {
+            int l = queries[i][0];
+            int r = queries[i][1];
+            ans[i] = (l < r) ? s1[r] - s1[l] : s2[l] - s2[r];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> minCost(vector<int>& nums, vector<vector<int>>& queries) {
+        int n = nums.size();
+        vector<int> s1(n, 0);
+        vector<int> s2(n, 0);
+        for (int i = 1; i < n; i++) {
+            int c1 = (i > 1 && nums[i - 1] - nums[i - 2] <= nums[i] - nums[i - 1]) ? nums[i] - nums[i - 1] : 1;
+            int c2 = (i < n - 1 && nums[i] - nums[i - 1] > nums[i + 1] - nums[i]) ? nums[i] - nums[i - 1] : 1;
+            s1[i] = s1[i - 1] + c1;
+            s2[i] = s2[i - 1] + c2;
+        }
+        int m = queries.size();
+        vector<int> ans(m);
+        for (int i = 0; i < m; i++) {
+            int l = queries[i][0];
+            int r = queries[i][1];
+            ans[i] = (l < r) ? s1[r] - s1[l] : s2[l] - s2[r];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minCost(nums []int, queries [][]int) []int {
+	n := len(nums)
+	s1 := make([]int, n)
+	s2 := make([]int, n)
+	for i := 1; i < n; i++ {
+		c1 := 1
+		if i > 1 && nums[i-1]-nums[i-2] <= nums[i]-nums[i-1] {
+			c1 = nums[i] - nums[i-1]
+		}
+		c2 := 1
+		if i < n-1 && nums[i]-nums[i-1] > nums[i+1]-nums[i] {
+			c2 = nums[i] - nums[i-1]
+		}
+		s1[i] = s1[i-1] + c1
+		s2[i] = s2[i-1] + c2
+	}
+	m := len(queries)
+	ans := make([]int, m)
+	for i := 0; i < m; i++ {
+		l := queries[i][0]
+		r := queries[i][1]
+		if l < r {
+			ans[i] = s1[r] - s1[l]
+		} else {
+			ans[i] = s2[l] - s2[r]
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function minCost(nums: number[], queries: number[][]): number[] {
+    const n = nums.length;
+    const s1: number[] = new Array(n).fill(0);
+    const s2: number[] = new Array(n).fill(0);
+    for (let i = 1; i < n; i++) {
+        const c1 =
+            i > 1 && nums[i - 1] - nums[i - 2] <= nums[i] - nums[i - 1] ? nums[i] - nums[i - 1] : 1;
+        const c2 =
+            i < n - 1 && nums[i] - nums[i - 1] > nums[i + 1] - nums[i] ? nums[i] - nums[i - 1] : 1;
+        s1[i] = s1[i - 1] + c1;
+        s2[i] = s2[i - 1] + c2;
+    }
+    const m = queries.length;
+    const ans: number[] = new Array(m);
+    for (let i = 0; i < m; i++) {
+        const l = queries[i][0];
+        const r = queries[i][1];
+        ans[i] = l < r ? s1[r] - s1[l] : s2[l] - s2[r];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
