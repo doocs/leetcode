@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README.md
+rating: 2155
+source: 第 181 场双周赛 Q4
 ---
 
 <!-- problem:start -->

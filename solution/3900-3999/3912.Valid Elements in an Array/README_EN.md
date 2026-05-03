@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README_EN.md
+rating: 1273
+source: Weekly Contest 499 Q1
 ---
 
 <!-- problem:start -->

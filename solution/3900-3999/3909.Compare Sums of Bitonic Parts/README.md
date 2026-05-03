@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README.md
+rating: 1408
+source: 第 181 场双周赛 Q2
 ---
 
 <!-- problem:start -->

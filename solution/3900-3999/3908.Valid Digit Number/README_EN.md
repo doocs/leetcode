@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3908.Valid%20Digit%20Number/README_EN.md
+rating: 1319
+source: Biweekly Contest 181 Q1
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md
+rating: 1662
+source: 第 499 场周赛 Q3
 ---
 
 <!-- problem:start -->

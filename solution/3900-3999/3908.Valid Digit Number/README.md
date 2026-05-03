@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3908.Valid%20Digit%20Number/README.md
+rating: 1319
+source: 第 181 场双周赛 Q1
 ---
 
 <!-- problem:start -->

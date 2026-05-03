@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README_EN.md
+rating: 1859
+source: Biweekly Contest 181 Q3
 ---
 
 <!-- problem:start -->

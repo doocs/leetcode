@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README_EN.md
+rating: 2288
+source: Weekly Contest 499 Q4
 ---
 
 <!-- problem:start -->
