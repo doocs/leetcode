@@ -3926,6 +3926,11 @@
 |  3913  |  [按频率对元音排序](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README.md)  |    |  中等  |  第 499 场周赛  |
 |  3914  |  [使数组非递减需要的最小累计值](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)  |    |  中等  |  第 499 场周赛  |
 |  3915  |  [距离至少为 K 的交替子序列的最大和](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README.md)  |    |  困难  |  第 499 场周赛  |
+|  3916  |  [Number of ZigZag Arrays III](/solution/3900-3999/3916.Number%20of%20ZigZag%20Arrays%20III/README.md)  |    |  困难  |  🔒  |
+|  3917  |  [统计下标的相反奇偶性得分](/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README.md)  |    |  简单  |    |
+|  3918  |  [区间内的质数和](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README.md)  |    |  中等  |    |
+|  3919  |  [在下标间移动的最小代价](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README.md)  |    |  中等  |    |
+|  3920  |  [删除元素后最大固定点数目](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README.md)  |    |  困难  |    |
 
 ## 版权
 

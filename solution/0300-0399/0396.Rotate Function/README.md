@@ -141,9 +141,7 @@ func maxRotateFunction(nums []int) int {
 	ans := f
 	for i := 1; i < n; i++ {
 		f = f + s - n*nums[n-i]
-		if ans < f {
-			ans = f
-		}
+		ans = max(ans, f)
 	}
 	return ans
 }

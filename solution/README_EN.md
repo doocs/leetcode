@@ -3924,6 +3924,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3913  |  [Sort Vowels by Frequency](/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README_EN.md)  |    |  Medium  |  Weekly Contest 499  |
 |  3914  |  [Minimum Operations to Make Array Non Decreasing](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README_EN.md)  |    |  Medium  |  Weekly Contest 499  |
 |  3915  |  [Maximum Sum of Alternating Subsequence With Distance at Least K](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README_EN.md)  |    |  Hard  |  Weekly Contest 499  |
+|  3916  |  [Number of ZigZag Arrays III](/solution/3900-3999/3916.Number%20of%20ZigZag%20Arrays%20III/README_EN.md)  |    |  Hard  |  🔒  |
+|  3917  |  [Count Indices With Opposite Parity](/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README_EN.md)  |    |  Easy  |    |
+|  3918  |  [Sum of Primes Between Number and Its Reverse](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README_EN.md)  |    |  Medium  |    |
+|  3919  |  [Minimum Cost to Move Between Indices](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README_EN.md)  |    |  Medium  |    |
+|  3920  |  [Maximize Fixed Points After Deletions](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
