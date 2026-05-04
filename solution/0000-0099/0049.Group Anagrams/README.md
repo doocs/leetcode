@@ -180,17 +180,14 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
-        let mut map = HashMap::new();
+        let mut d = HashMap::new();
         for s in strs {
-            let key = {
-                let mut arr = s.chars().collect::<Vec<char>>();
-                arr.sort();
-                arr.iter().collect::<String>()
-            };
-            let val = map.entry(key).or_insert(vec![]);
-            val.push(s);
+            let mut t: Vec<char> = s.chars().collect();
+            t.sort_unstable();
+            let k: String = t.into_iter().collect();
+            d.entry(k).or_insert_with(Vec::new).push(s);
         }
-        map.into_iter().map(|(_, v)| v).collect()
+        d.into_values().collect()
     }
 }
 ```
@@ -198,59 +195,19 @@ impl Solution {
 #### C#
 
 ```cs
-using System.Collections.Generic;
-
-public class Comparer : IEqualityComparer<string>
-{
-    public bool Equals(string left, string right)
-    {
-        if (left.Length != right.Length) return false;
-
-        var leftCount = new int[26];
-        foreach (var ch in left)
-        {
-            ++leftCount[ch - 'a'];
-        }
-
-        var rightCount = new int[26];
-        foreach (var ch in right)
-        {
-            var index = ch - 'a';
-            if (++rightCount[index] > leftCount[index]) return false;
-        }
-
-        return true;
-    }
-
-    public int GetHashCode(string obj)
-    {
-        var hashCode = 0;
-        for (int i = 0; i < obj.Length; ++i)
-        {
-            hashCode ^= 1 << (obj[i] - 'a');
-        }
-        return hashCode;
-    }
-}
-
 public class Solution {
     public IList<IList<string>> GroupAnagrams(string[] strs) {
-        var dict = new Dictionary<string, List<string>>(new Comparer());
-        foreach (var str in strs)
-        {
-            List<string> list;
-            if (!dict.TryGetValue(str, out list))
-            {
-                list = new List<string>();
-                dict.Add(str, list);
+        var d = new Dictionary<string, List<string>>();
+        foreach (string s in strs) {
+            char[] t = s.ToCharArray();
+            Array.Sort(t);
+            string k = new string(t);
+            if (!d.ContainsKey(k)) {
+                d[k] = new List<string>();
             }
-            list.Add(str);
+            d[k].Add(s);
         }
-        foreach (var list in dict.Values)
-        {
-            list.Sort();
-        }
-        return new List<IList<string>>(dict.Values);
+        return new List<IList<string>>(d.Values);
     }
 }
 ```
@@ -357,12 +314,61 @@ func groupAnagrams(strs []string) (ans [][]string) {
 
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
-    const map = new Map<string, string[]>();
-    for (const str of strs) {
-        const k = str.split('').sort().join('');
-        map.set(k, (map.get(k) ?? []).concat([str]));
+    const d = new Map<string, string[]>();
+    for (const s of strs) {
+        const cnt = new Array(26).fill(0);
+        for (const c of s) {
+            cnt[c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+        }
+        const key = cnt.join(',');
+        if (!d.has(key)) {
+            d.set(key, []);
+        }
+        d.get(key)!.push(s);
     }
-    return [...map.values()];
+    return Array.from(d.values());
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn group_anagrams(strs: Vec<String>) -> Vec<Vec<String>> {
+        let mut d = HashMap::new();
+        for s in strs {
+            let mut cnt = [0; 26];
+            for c in s.chars() {
+                cnt[(c as usize) - ('a' as usize)] += 1;
+            }
+            d.entry(cnt).or_insert_with(Vec::new).push(s);
+        }
+        d.into_values().collect()
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
+        var d = new Dictionary<string, List<string>>();
+        foreach (string s in strs) {
+            int[] cnt = new int[26];
+            foreach (char c in s) {
+                cnt[c - 'a']++;
+            }
+            string key = string.Join(",", cnt);
+            if (!d.ContainsKey(key)) {
+                d[key] = new List<string>();
+            }
+            d[key].Add(s);
+        }
+        return new List<IList<string>>(d.Values);
+    }
 }
 ```
 

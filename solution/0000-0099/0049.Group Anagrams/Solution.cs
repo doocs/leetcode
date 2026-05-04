@@ -1,55 +1,15 @@
-using System.Collections.Generic;
-
-public class Comparer : IEqualityComparer<string>
-{
-    public bool Equals(string left, string right)
-    {
-        if (left.Length != right.Length) return false;
-
-        var leftCount = new int[26];
-        foreach (var ch in left)
-        {
-            ++leftCount[ch - 'a'];
-        }
-
-        var rightCount = new int[26];
-        foreach (var ch in right)
-        {
-            var index = ch - 'a';
-            if (++rightCount[index] > leftCount[index]) return false;
-        }
-
-        return true;
-    }
-
-    public int GetHashCode(string obj)
-    {
-        var hashCode = 0;
-        for (int i = 0; i < obj.Length; ++i)
-        {
-            hashCode ^= 1 << (obj[i] - 'a');
-        }
-        return hashCode;
-    }
-}
-
 public class Solution {
     public IList<IList<string>> GroupAnagrams(string[] strs) {
-        var dict = new Dictionary<string, List<string>>(new Comparer());
-        foreach (var str in strs)
-        {
-            List<string> list;
-            if (!dict.TryGetValue(str, out list))
-            {
-                list = new List<string>();
-                dict.Add(str, list);
+        var d = new Dictionary<string, List<string>>();
+        foreach (string s in strs) {
+            char[] t = s.ToCharArray();
+            Array.Sort(t);
+            string k = new string(t);
+            if (!d.ContainsKey(k)) {
+                d[k] = new List<string>();
             }
-            list.Add(str);
+            d[k].Add(s);
         }
-        foreach (var list in dict.Values)
-        {
-            list.Sort();
-        }
-        return new List<IList<string>>(dict.Values);
+        return new List<IList<string>>(d.Values);
     }
 }
