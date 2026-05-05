@@ -61,7 +61,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+According to the problem description, we concatenate $n$, $2 \times n$, and $3 \times n$ into a string $s$, and then check whether $s$ contains each digit from $1$ to $9$ exactly once and does not contain any $0$.
+
+The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given integer.
 
 <!-- tabs:start -->
 
@@ -146,57 +150,6 @@ impl Solution {
         }
 
         cnt[0] == 0 && s.len() == 9
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-use std::collections::HashMap;
-
-impl Solution {
-    pub fn is_fascinating(mut n: i32) -> bool {
-        let mut i = n * 2;
-        let mut j = n * 3;
-
-        let mut hash = HashMap::new();
-
-        while n != 0 {
-            let cnt = hash.entry(n % 10).or_insert(0);
-            *cnt += 1;
-            n /= 10;
-        }
-
-        while i != 0 {
-            let cnt = hash.entry(i % 10).or_insert(0);
-            *cnt += 1;
-            i /= 10;
-        }
-
-        while j != 0 {
-            let cnt = hash.entry(j % 10).or_insert(0);
-            *cnt += 1;
-            j /= 10;
-        }
-
-        for k in 1..=9 {
-            if !hash.contains_key(&k) || hash[&k] > 1 {
-                return false;
-            }
-        }
-
-        !hash.contains_key(&0)
     }
 }
 ```
