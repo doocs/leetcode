@@ -1,12 +1,12 @@
-func rotateTheBox(box [][]byte) [][]byte {
-	m, n := len(box), len(box[0])
+func rotateTheBox(boxGrid [][]byte) [][]byte {
+	m, n := len(boxGrid), len(boxGrid[0])
 	ans := make([][]byte, n)
 	for i := range ans {
 		ans[i] = make([]byte, m)
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			ans[j][m-i-1] = box[i][j]
+			ans[j][m-i-1] = boxGrid[i][j]
 		}
 	}
 	for j := 0; j < m; j++ {
