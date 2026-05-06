@@ -93,9 +93,11 @@ tags:
 
 ### Solution 1: Queue Simulation
 
-First, we rotate the matrix 90 degrees clockwise, then simulate the falling process of the stones in each column.
+We first rotate the matrix 90 degrees clockwise, then simulate the falling process of stones in each column.
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+Specifically, we use a queue $q$ to store the row indices of empty positions in the current column. When traversing each column, we scan from bottom to top. If we encounter a stone, we drop it to the first empty position in $q$, remove that empty position from $q$, and add the current position's row index to $q$ since it becomes empty. If we encounter an obstacle, we clear $q$ because stones cannot pass through obstacles. If we encounter an empty position, we add its row index to $q$.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix respectively.
 
 <!-- tabs:start -->
 
@@ -103,22 +105,22 @@ The time complexity is $O(m \times n)$, and the space complexity is $O(m \times 
 
 ```python
 class Solution:
-    def rotateTheBox(self, box: List[List[str]]) -> List[List[str]]:
-        m, n = len(box), len(box[0])
+    def rotateTheBox(self, boxGrid: List[List[str]]) -> List[List[str]]:
+        m, n = len(boxGrid), len(boxGrid[0])
         ans = [[None] * m for _ in range(n)]
         for i in range(m):
             for j in range(n):
-                ans[j][m - i - 1] = box[i][j]
+                ans[j][m - i - 1] = boxGrid[i][j]
         for j in range(m):
             q = deque()
             for i in range(n - 1, -1, -1):
-                if ans[i][j] == '*':
+                if ans[i][j] == "*":
                     q.clear()
-                elif ans[i][j] == '.':
+                elif ans[i][j] == ".":
                     q.append(i)
                 elif q:
-                    ans[q.popleft()][j] = '#'
-                    ans[i][j] = '.'
+                    ans[q.popleft()][j] = "#"
+                    ans[i][j] = "."
                     q.append(i)
         return ans
 ```
@@ -127,12 +129,12 @@ class Solution:
 
 ```java
 class Solution {
-    public char[][] rotateTheBox(char[][] box) {
-        int m = box.length, n = box[0].length;
+    public char[][] rotateTheBox(char[][] boxGrid) {
+        int m = boxGrid.length, n = boxGrid[0].length;
         char[][] ans = new char[n][m];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans[j][m - i - 1] = box[i][j];
+                ans[j][m - i - 1] = boxGrid[i][j];
             }
         }
         for (int j = 0; j < m; ++j) {
@@ -159,12 +161,12 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<vector<char>> rotateTheBox(vector<vector<char>>& box) {
-        int m = box.size(), n = box[0].size();
+    vector<vector<char>> rotateTheBox(vector<vector<char>>& boxGrid) {
+        int m = boxGrid.size(), n = boxGrid[0].size();
         vector<vector<char>> ans(n, vector<char>(m));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans[j][m - i - 1] = box[i][j];
+                ans[j][m - i - 1] = boxGrid[i][j];
             }
         }
         for (int j = 0; j < m; ++j) {
@@ -191,15 +193,15 @@ public:
 #### Go
 
 ```go
-func rotateTheBox(box [][]byte) [][]byte {
-	m, n := len(box), len(box[0])
+func rotateTheBox(boxGrid [][]byte) [][]byte {
+	m, n := len(boxGrid), len(boxGrid[0])
 	ans := make([][]byte, n)
 	for i := range ans {
 		ans[i] = make([]byte, m)
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			ans[j][m-i-1] = box[i][j]
+			ans[j][m-i-1] = boxGrid[i][j]
 		}
 	}
 	for j := 0; j < m; j++ {
@@ -218,6 +220,78 @@ func rotateTheBox(box [][]byte) [][]byte {
 		}
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function rotateTheBox(boxGrid: string[][]): string[][] {
+    const m = boxGrid.length;
+    const n = boxGrid[0].length;
+    const ans: string[][] = Array.from({ length: n }, () => Array(m));
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans[j][m - i - 1] = boxGrid[i][j];
+        }
+    }
+
+    for (let j = 0; j < m; j++) {
+        const q: number[] = [];
+        for (let i = n - 1; i >= 0; i--) {
+            if (ans[i][j] === '*') {
+                q.length = 0;
+            } else if (ans[i][j] === '.') {
+                q.push(i);
+            } else if (q.length > 0) {
+                const t = q.shift()!;
+                ans[t][j] = '#';
+                ans[i][j] = '.';
+                q.push(i);
+            }
+        }
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn rotate_the_box(box_grid: Vec<Vec<char>>) -> Vec<Vec<char>> {
+        let m: usize = box_grid.len();
+        let n: usize = box_grid[0].len();
+        let mut ans: Vec<Vec<char>> = vec![vec![' '; m]; n];
+
+        for i in 0..m {
+            for j in 0..n {
+                ans[j][m - i - 1] = box_grid[i][j];
+            }
+        }
+
+        for j in 0..m {
+            let mut q: VecDeque<usize> = VecDeque::new();
+            for i in (0..n).rev() {
+                if ans[i][j] == '*' {
+                    q.clear();
+                } else if ans[i][j] == '.' {
+                    q.push_back(i);
+                } else if !q.is_empty() {
+                    let t = q.pop_front().unwrap();
+                    ans[t][j] = '#';
+                    ans[i][j] = '.';
+                    q.push_back(i);
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 

@@ -1,10 +1,10 @@
 class Solution {
-    public char[][] rotateTheBox(char[][] box) {
-        int m = box.length, n = box[0].length;
+    public char[][] rotateTheBox(char[][] boxGrid) {
+        int m = boxGrid.length, n = boxGrid[0].length;
         char[][] ans = new char[n][m];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans[j][m - i - 1] = box[i][j];
+                ans[j][m - i - 1] = boxGrid[i][j];
             }
         }
         for (int j = 0; j < m; ++j) {

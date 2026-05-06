@@ -1,11 +1,11 @@
 class Solution {
 public:
-    vector<vector<char>> rotateTheBox(vector<vector<char>>& box) {
-        int m = box.size(), n = box[0].size();
+    vector<vector<char>> rotateTheBox(vector<vector<char>>& boxGrid) {
+        int m = boxGrid.size(), n = boxGrid[0].size();
         vector<vector<char>> ans(n, vector<char>(m));
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans[j][m - i - 1] = box[i][j];
+                ans[j][m - i - 1] = boxGrid[i][j];
             }
         }
         for (int j = 0; j < m; ++j) {
