@@ -39,7 +39,7 @@ tags:
 <strong>Input:</strong> nums = [1,3,6,4,1,2], target = 2
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> To go from index 0 to index n - 1 with the maximum number of jumps, you can perform the following jumping sequence:
-- Jump from index 0 to index 1. 
+- Jump from index 0 to index 1.
 - Jump from index 1 to index 3.
 - Jump from index 3 to index 5.
 It can be proven that there is no other jumping sequence that goes from 0 to n - 1 with more than 3 jumps. Hence, the answer is 3. </pre>
@@ -62,7 +62,7 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 <pre>
 <strong>Input:</strong> nums = [1,3,6,4,1,2], target = 0
 <strong>Output:</strong> -1
-<strong>Explanation:</strong> It can be proven that there is no jumping sequence that goes from 0 to n - 1. Hence, the answer is -1. 
+<strong>Explanation:</strong> It can be proven that there is no jumping sequence that goes from 0 to n - 1. Hence, the answer is -1.
 </pre>
 
 <p>&nbsp;</p>
@@ -162,7 +162,7 @@ public:
         int n = nums.size();
         int f[n];
         memset(f, -1, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (i == n - 1) {
                 return 0;
             }
@@ -246,6 +246,36 @@ function maximumJumps(nums: number[], target: number): number {
     };
     const ans = dfs(0);
     return ans < 0 ? -1 : ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_jumps(nums: Vec<i32>, target: i32) -> i32 {
+        let n = nums.len();
+        let mut f = vec![-1; n];
+
+        fn dfs(i: usize, nums: &Vec<i32>, target: i32, f: &mut Vec<i32>) -> i32 {
+            if i == nums.len() - 1 {
+                return 0;
+            }
+            if f[i] != -1 {
+                return f[i];
+            }
+            f[i] = -(1 << 30);
+            for j in i + 1..nums.len() {
+                if (nums[i] - nums[j]).abs() <= target {
+                    f[i] = f[i].max(1 + dfs(j, nums, target, f));
+                }
+            }
+            f[i]
+        }
+
+        let ans = dfs(0, &nums, target, &mut f);
+        if ans < 0 { -1 } else { ans }
+    }
 }
 ```
 
