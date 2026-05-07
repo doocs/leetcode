@@ -39,9 +39,9 @@ tags:
 <pre><strong>输入：</strong>nums = [1,3,6,4,1,2], target = 2
 <strong>输出：</strong>3
 <strong>解释：</strong>要想以最大跳跃次数从下标 0 到下标 n - 1 ，可以按下述跳跃序列执行操作：
-- 从下标 0 跳跃到下标 1 。 
-- 从下标 1 跳跃到下标 3 。 
-- 从下标 3 跳跃到下标 5 。 
+- 从下标 0 跳跃到下标 1 。
+- 从下标 1 跳跃到下标 3 。
+- 从下标 3 跳跃到下标 5 。
 可以证明，从 0 到 n - 1 的所有方案中，不存在比 3 步更长的跳跃序列。因此，答案是 3 。 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -49,18 +49,18 @@ tags:
 <pre><strong>输入：</strong>nums = [1,3,6,4,1,2], target = 3
 <strong>输出：</strong>5
 <strong>解释：</strong>要想以最大跳跃次数从下标 0 到下标 n - 1 ，可以按下述跳跃序列执行操作：
-- 从下标 0 跳跃到下标 1 。 
-- 从下标 1 跳跃到下标 2 。 
-- 从下标 2 跳跃到下标 3 。 
-- 从下标 3 跳跃到下标 4 。 
-- 从下标 4 跳跃到下标 5 。 
+- 从下标 0 跳跃到下标 1 。
+- 从下标 1 跳跃到下标 2 。
+- 从下标 2 跳跃到下标 3 。
+- 从下标 3 跳跃到下标 4 。
+- 从下标 4 跳跃到下标 5 。
 可以证明，从 0 到 n - 1 的所有方案中，不存在比 5 步更长的跳跃序列。因此，答案是 5 。 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre><strong>输入：</strong>nums = [1,3,6,4,1,2], target = 0
 <strong>输出：</strong>-1
-<strong>解释：</strong>可以证明不存在从 0 到 n - 1 的跳跃序列。因此，答案是 -1 。 
+<strong>解释：</strong>可以证明不存在从 0 到 n - 1 的跳跃序列。因此，答案是 -1 。
 </pre>
 
 <p>&nbsp;</p>
@@ -161,7 +161,7 @@ public:
         int n = nums.size();
         int f[n];
         memset(f, -1, sizeof(f));
-        function<int(int)> dfs = [&](int i) {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (i == n - 1) {
                 return 0;
             }
@@ -245,6 +245,36 @@ function maximumJumps(nums: number[], target: number): number {
     };
     const ans = dfs(0);
     return ans < 0 ? -1 : ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_jumps(nums: Vec<i32>, target: i32) -> i32 {
+        let n = nums.len();
+        let mut f = vec![-1; n];
+
+        fn dfs(i: usize, nums: &Vec<i32>, target: i32, f: &mut Vec<i32>) -> i32 {
+            if i == nums.len() - 1 {
+                return 0;
+            }
+            if f[i] != -1 {
+                return f[i];
+            }
+            f[i] = -(1 << 30);
+            for j in i + 1..nums.len() {
+                if (nums[i] - nums[j]).abs() <= target {
+                    f[i] = f[i].max(1 + dfs(j, nums, target, f));
+                }
+            }
+            f[i]
+        }
+
+        let ans = dfs(0, &nums, target, &mut f);
+        if ans < 0 { -1 } else { ans }
+    }
 }
 ```
 
