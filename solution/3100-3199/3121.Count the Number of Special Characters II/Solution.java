@@ -11,7 +11,9 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < 26; ++i) {
-            if (last['a' + i] > 0 && first['A' + i] > 0 && last['a' + i] < first['A' + i]) {
+            int a = 'a' + i;
+            int b = 'A' + i;
+            if (last[a] > 0 && last[a] < first[b]) {
                 ++ans;
             }
         }

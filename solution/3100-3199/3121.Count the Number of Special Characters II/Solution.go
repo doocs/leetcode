@@ -8,7 +8,7 @@ func numberOfSpecialChars(word string) (ans int) {
 		last[c] = i + 1
 	}
 	for i := 0; i < 26; i++ {
-		if last['a'+i] > 0 && first['A'+i] > 0 && last['a'+i] < first['A'+i] {
+		if last['a'+i] > 0 && last['a'+i] < first['A'+i] {
 			ans++
 		}
 	}

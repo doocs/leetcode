@@ -10,11 +10,9 @@ function numberOfSpecialChars(word: string): number {
     }
     let ans: number = 0;
     for (let i = 0; i < 26; ++i) {
-        if (
-            last['a'.charCodeAt(0) + i] &&
-            first['A'.charCodeAt(0) + i] &&
-            last['a'.charCodeAt(0) + i] < first['A'.charCodeAt(0) + i]
-        ) {
+        const a = 'a'.charCodeAt(0) + i;
+        const b = 'A'.charCodeAt(0) + i;
+        if (last[a] && last[a] < first[b]) {
             ++ans;
         }
     }
