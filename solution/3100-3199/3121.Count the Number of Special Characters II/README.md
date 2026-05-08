@@ -120,7 +120,9 @@ class Solution {
         }
         int ans = 0;
         for (int i = 0; i < 26; ++i) {
-            if (last['a' + i] > 0 && first['A' + i] > 0 && last['a' + i] < first['A' + i]) {
+            int a = 'a' + i;
+            int b = 'A' + i;
+            if (last[a] > 0 && last[a] < first[b]) {
                 ++ans;
             }
         }
@@ -146,7 +148,7 @@ public:
         }
         int ans = 0;
         for (int i = 0; i < 26; ++i) {
-            if (last['a' + i] && first['A' + i] && last['a' + i] < first['A' + i]) {
+            if (last['a' + i] && last['a' + i] < first['A' + i]) {
                 ++ans;
             }
         }
@@ -168,7 +170,7 @@ func numberOfSpecialChars(word string) (ans int) {
 		last[c] = i + 1
 	}
 	for i := 0; i < 26; i++ {
-		if last['a'+i] > 0 && first['A'+i] > 0 && last['a'+i] < first['A'+i] {
+		if last['a'+i] > 0 && last['a'+i] < first['A'+i] {
 			ans++
 		}
 	}
@@ -191,15 +193,41 @@ function numberOfSpecialChars(word: string): number {
     }
     let ans: number = 0;
     for (let i = 0; i < 26; ++i) {
-        if (
-            last['a'.charCodeAt(0) + i] &&
-            first['A'.charCodeAt(0) + i] &&
-            last['a'.charCodeAt(0) + i] < first['A'.charCodeAt(0) + i]
-        ) {
+        const a = 'a'.charCodeAt(0) + i;
+        const b = 'A'.charCodeAt(0) + i;
+        if (last[a] && last[a] < first[b]) {
             ++ans;
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_special_chars(word: String) -> i32 {
+        let mut first = [0; 128];
+        let mut last = [0; 128];
+        for (i, ch) in word.chars().enumerate() {
+            let j = ch as u8 as usize;
+            let pos = (i + 1) as i32;
+            if first[j] == 0 {
+                first[j] = pos;
+            }
+            last[j] = pos;
+        }
+        let mut ans = 0;
+        for i in 0..26 {
+            let a = (b'a' + i) as usize;
+            let b = (b'A' + i) as usize;
+            if last[a] > 0 && last[a] < first[b] {
+                ans += 1;
+            }
+        }
+        ans
+    }
 }
 ```
 

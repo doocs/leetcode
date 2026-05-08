@@ -12,7 +12,7 @@ public:
         }
         int ans = 0;
         for (int i = 0; i < 26; ++i) {
-            if (last['a' + i] && first['A' + i] && last['a' + i] < first['A' + i]) {
+            if (last['a' + i] && last['a' + i] < first['A' + i]) {
                 ++ans;
             }
         }
