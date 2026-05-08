@@ -1,21 +1,21 @@
 class Solution {
     public long minOperations(int[] nums1, int[] nums2, int k) {
-        long ans = 0, x = 0;
+        long a = 0, b = 0;
         for (int i = 0; i < nums1.length; ++i) {
-            int a = nums1[i], b = nums2[i];
-            if (k == 0) {
-                if (a != b) {
-                    return -1;
-                }
+            int x = nums1[i], y = nums2[i];
+            if (x == y) {
                 continue;
             }
-            if ((a - b) % k != 0) {
+            if (k == 0 || (x - y) % k != 0) {
                 return -1;
             }
-            int y = (a - b) / k;
-            ans += Math.abs(y);
-            x += y;
+            int t = (x - y) / k;
+            if (t < 0) {
+                a += -t;
+            } else {
+                b += t;
+            }
         }
-        return x == 0 ? ans / 2 : -1;
+        return a == b ? a : -1;
     }
 }

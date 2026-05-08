@@ -67,13 +67,13 @@ One can prove that it is impossible to make arrays equal in fewer operations.</p
 
 ### Solution 1: Single Pass
 
-We use a variable $x$ to record the difference in the number of additions and subtractions, and a variable $ans$ to record the number of operations.
+We use two variables $a$ and $b$ to record the number of times elements in $\textit{nums1}$ are increased by $k$ and decreased by $k$, respectively.
 
-We traverse the array, and for each position $i$, if $k=0$ and $a_i \neq b_i$, then it is impossible to make the two arrays equal, so we return $-1$. Otherwise, if $k \neq 0$, then $a_i - b_i$ must be a multiple of $k$, otherwise it is impossible to make the two arrays equal, so we return $-1$. Next, we update $x$ and $ans$.
+We iterate over both arrays. If the two elements at the current position are equal, we continue. Otherwise, if $k$ equals $0$ or the difference between the two elements is not divisible by $k$, we return $-1$. Otherwise, we compute $t = (x - y) / k$. If $t < 0$, we add $-t$ to $a$; otherwise, we add $t$ to $b$.
 
-Finally, if $x \neq 0$, then it is impossible to make the two arrays equal, so we return $-1$. Otherwise, we return $\frac{ans}{2}$.
+Finally, if $a$ equals $b$, we return $a$; otherwise, we return $-1$.
 
-The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, where $n$ is the length of the two arrays. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -82,18 +82,18 @@ The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is 
 ```python
 class Solution:
     def minOperations(self, nums1: List[int], nums2: List[int], k: int) -> int:
-        ans = x = 0
-        for a, b in zip(nums1, nums2):
-            if k == 0:
-                if a != b:
-                    return -1
+        a = b = 0
+        for x, y in zip(nums1, nums2):
+            if x == y:
                 continue
-            if (a - b) % k:
+            if k == 0 or (x - y) % k:
                 return -1
-            y = (a - b) // k
-            ans += abs(y)
-            x += y
-        return -1 if x else ans // 2
+            t = (x - y) // k
+            if t < 0:
+                a += -t
+            else:
+                b += t
+        return a if a == b else -1
 ```
 
 #### Java
@@ -101,23 +101,23 @@ class Solution:
 ```java
 class Solution {
     public long minOperations(int[] nums1, int[] nums2, int k) {
-        long ans = 0, x = 0;
+        long a = 0, b = 0;
         for (int i = 0; i < nums1.length; ++i) {
-            int a = nums1[i], b = nums2[i];
-            if (k == 0) {
-                if (a != b) {
-                    return -1;
-                }
+            int x = nums1[i], y = nums2[i];
+            if (x == y) {
                 continue;
             }
-            if ((a - b) % k != 0) {
+            if (k == 0 || (x - y) % k != 0) {
                 return -1;
             }
-            int y = (a - b) / k;
-            ans += Math.abs(y);
-            x += y;
+            int t = (x - y) / k;
+            if (t < 0) {
+                a += -t;
+            } else {
+                b += t;
+            }
         }
-        return x == 0 ? ans / 2 : -1;
+        return a == b ? a : -1;
     }
 }
 ```
@@ -128,23 +128,23 @@ class Solution {
 class Solution {
 public:
     long long minOperations(vector<int>& nums1, vector<int>& nums2, int k) {
-        long long ans = 0, x = 0;
+        long long a = 0, b = 0;
         for (int i = 0; i < nums1.size(); ++i) {
-            int a = nums1[i], b = nums2[i];
-            if (k == 0) {
-                if (a != b) {
-                    return -1;
-                }
+            int x = nums1[i], y = nums2[i];
+            if (x == y) {
                 continue;
             }
-            if ((a - b) % k != 0) {
+            if (k == 0 || (x - y) % k != 0) {
                 return -1;
             }
-            int y = (a - b) / k;
-            ans += abs(y);
-            x += y;
+            int t = (x - y) / k;
+            if (t < 0) {
+                a += -t;
+            } else {
+                b += t;
+            }
         }
-        return x == 0 ? ans / 2 : -1;
+        return a == b ? a : -1;
     }
 };
 ```
@@ -153,33 +153,26 @@ public:
 
 ```go
 func minOperations(nums1 []int, nums2 []int, k int) int64 {
-	ans, x := 0, 0
-	for i, a := range nums1 {
-		b := nums2[i]
-		if k == 0 {
-			if a != b {
-				return -1
-			}
+	var a, b int64
+	for i, x := range nums1 {
+		y := nums2[i]
+		if x == y {
 			continue
 		}
-		if (a-b)%k != 0 {
+		if k == 0 || (x-y)%k != 0 {
 			return -1
 		}
-		y := (a - b) / k
-		ans += abs(y)
-		x += y
+		t := (x - y) / k
+		if t < 0 {
+			a += int64(-t)
+		} else {
+			b += int64(t)
+		}
 	}
-	if x != 0 {
-		return -1
+	if a == b {
+		return a
 	}
-	return int64(ans / 2)
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
+	return -1
 }
 ```
 
@@ -187,24 +180,23 @@ func abs(x int) int {
 
 ```ts
 function minOperations(nums1: number[], nums2: number[], k: number): number {
-    const n = nums1.length;
-    if (k === 0) {
-        return nums1.every((v, i) => v === nums2[i]) ? 0 : -1;
-    }
-    let sum1 = 0;
-    let sum2 = 0;
-    for (let i = 0; i < n; i++) {
-        const diff = nums1[i] - nums2[i];
-        sum1 += diff;
-        if (diff % k !== 0) {
+    let [a, b] = [0, 0];
+    for (let i = 0; i < nums1.length; ++i) {
+        const [x, y] = [nums1[i], nums2[i]];
+        if (x === y) {
+            continue;
+        }
+        if (k === 0 || (x - y) % k !== 0) {
             return -1;
         }
-        sum2 += Math.abs(diff);
+        const t = (x - y) / k;
+        if (t < 0) {
+            a += -t;
+        } else {
+            b += t;
+        }
     }
-    if (sum1 !== 0) {
-        return -1;
-    }
-    return sum2 / (k * 2);
+    return a === b ? a : -1;
 }
 ```
 
@@ -213,29 +205,27 @@ function minOperations(nums1: number[], nums2: number[], k: number): number {
 ```rust
 impl Solution {
     pub fn min_operations(nums1: Vec<i32>, nums2: Vec<i32>, k: i32) -> i64 {
-        let k = k as i64;
-        let n = nums1.len();
-        if k == 0 {
-            return if nums1.iter().enumerate().all(|(i, &v)| v == nums2[i]) {
-                0
-            } else {
-                -1
-            };
-        }
-        let mut sum1 = 0;
-        let mut sum2 = 0;
-        for i in 0..n {
-            let diff = (nums1[i] - nums2[i]) as i64;
-            sum1 += diff;
-            if diff % k != 0 {
+        let mut a: i64 = 0;
+        let mut b: i64 = 0;
+        for (&x, &y) in nums1.iter().zip(nums2.iter()) {
+            if x == y {
+                continue;
+            }
+            if k == 0 || (x - y) % k != 0 {
                 return -1;
             }
-            sum2 += diff.abs();
+            let t = (x - y) / k;
+            if t < 0 {
+                a += (-t) as i64;
+            } else {
+                b += t as i64;
+            }
         }
-        if sum1 != 0 {
-            return -1;
+        if a == b {
+            a
+        } else {
+            -1
         }
-        sum2 / (k * 2)
     }
 }
 ```
@@ -244,28 +234,23 @@ impl Solution {
 
 ```c
 long long minOperations(int* nums1, int nums1Size, int* nums2, int nums2Size, int k) {
-    if (k == 0) {
-        for (int i = 0; i < nums1Size; i++) {
-            if (nums1[i] != nums2[i]) {
-                return -1;
-            }
+    long long a = 0, b = 0;
+    for (int i = 0; i < nums1Size; ++i) {
+        int x = nums1[i], y = nums2[i];
+        if (x == y) {
+            continue;
         }
-        return 0;
-    }
-    long long sum1 = 0;
-    long long sum2 = 0;
-    for (int i = 0; i < nums1Size; i++) {
-        long long diff = nums1[i] - nums2[i];
-        sum1 += diff;
-        if (diff % k != 0) {
+        if (k == 0 || (x - y) % k != 0) {
             return -1;
         }
-        sum2 += llabs(diff);
+        int t = (x - y) / k;
+        if (t < 0) {
+            a += -t;
+        } else {
+            b += t;
+        }
     }
-    if (sum1 != 0) {
-        return -1;
-    }
-    return sum2 / (k * 2);
+    return a == b ? a : -1;
 }
 ```
 
