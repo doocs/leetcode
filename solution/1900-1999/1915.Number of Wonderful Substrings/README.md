@@ -108,13 +108,13 @@ tags:
 ```python
 class Solution:
     def wonderfulSubstrings(self, word: str) -> int:
-        cnt = Counter({0: 1})
+        cnt = defaultdict(int)
+        cnt[0] = 1
         ans = st = 0
         for c in word:
             st ^= 1 << (ord(c) - ord("a"))
             ans += cnt[st]
-            for i in range(10):
-                ans += cnt[st ^ (1 << i)]
+            ans += sum(cnt[st ^ (1 << i)] for i in range(10))
             cnt[st] += 1
         return ans
 ```
@@ -198,6 +198,28 @@ function wonderfulSubstrings(word: string): number {
         cnt[st]++;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn wonderful_substrings(word: String) -> i64 {
+        let mut cnt = [0i64; 1 << 10];
+        cnt[0] = 1;
+        let mut ans: i64 = 0;
+        let mut st: usize = 0;
+        for c in word.chars() {
+            st ^= 1 << (c as usize - 'a' as usize);
+            ans += cnt[st];
+            for i in 0..10 {
+                ans += cnt[st ^ (1 << i)];
+            }
+            cnt[st] += 1;
+        }
+        ans
+    }
 }
 ```
 
