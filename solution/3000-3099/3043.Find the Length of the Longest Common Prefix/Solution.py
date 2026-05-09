@@ -5,11 +5,11 @@ class Solution:
             while x:
                 s.add(x)
                 x //= 10
-        ans = 0
+        mx = 0
         for x in arr2:
             while x:
                 if x in s:
-                    ans = max(ans, len(str(x)))
+                    mx = max(mx, x)
                     break
                 x //= 10
-        return ans
+        return len(str(mx)) if mx else 0
