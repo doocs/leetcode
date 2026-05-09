@@ -119,7 +119,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix XOR + Counting
+
+Since the string contains only $10$ lowercase letters, we can use a $10$-bit integer to represent the parity of each letter count in the current prefix. The $i$-th bit is $1$ if the $i$-th letter appears an odd number of times, and $0$ if it appears an even number of times.
+
+We iterate through each character in the string. Use a variable $st$ to maintain the current prefix XOR state, and an array $cnt$ to record how many times each prefix state has appeared. Initially, $st = 0$ and $cnt[0] = 1$.
+
+For each character, update the prefix XOR state. If the current state has appeared $cnt[st]$ times, it means there are $cnt[st]$ substrings in which all letter counts are even, so we add $cnt[st]$ to the answer. In addition, for $0 \le i < 10$, toggling the $i$-th bit of $st$ (i.e., $st \oplus (1 << i)$) represents substrings where exactly one letter has an odd count, so we add $cnt[st \oplus (1 << i)]$ to the answer. Finally, increment the occurrence count of $st$ by $1$, and continue.
+
+The time complexity is $O(n \times \Sigma)$, and the space complexity is $O(2^{\Sigma})$, where $\Sigma = 10$ and $n$ is the length of the string.
+
+Similar problems:
+
+- [1371. 每个元音包含偶数次的最长子字符串](https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -128,13 +140,13 @@ tags:
 ```python
 class Solution:
     def wonderfulSubstrings(self, word: str) -> int:
-        cnt = Counter({0: 1})
+        cnt = defaultdict(int)
+        cnt[0] = 1
         ans = st = 0
         for c in word:
             st ^= 1 << (ord(c) - ord("a"))
             ans += cnt[st]
-            for i in range(10):
-                ans += cnt[st ^ (1 << i)]
+            ans += sum(cnt[st ^ (1 << i)] for i in range(10))
             cnt[st] += 1
         return ans
 ```
@@ -218,6 +230,28 @@ function wonderfulSubstrings(word: string): number {
         cnt[st]++;
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn wonderful_substrings(word: String) -> i64 {
+        let mut cnt = [0i64; 1 << 10];
+        cnt[0] = 1;
+        let mut ans: i64 = 0;
+        let mut st: usize = 0;
+        for c in word.chars() {
+            st ^= 1 << (c as usize - 'a' as usize);
+            ans += cnt[st];
+            for i in 0..10 {
+                ans += cnt[st ^ (1 << i)];
+            }
+            cnt[st] += 1;
+        }
+        ans
+    }
 }
 ```
 
