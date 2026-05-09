@@ -6,15 +6,15 @@ class Solution {
                 s.add(x);
             }
         }
-        int ans = 0;
+        int mx = 0;
         for (int x : arr2) {
             for (; x > 0; x /= 10) {
                 if (s.contains(x)) {
-                    ans = Math.max(ans, String.valueOf(x).length());
+                    mx = Math.max(mx, x);
                     break;
                 }
             }
         }
-        return ans;
+        return mx > 0 ? String.valueOf(mx).length() : 0;
     }
 }

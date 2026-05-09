@@ -87,14 +87,14 @@ class Solution:
             while x:
                 s.add(x)
                 x //= 10
-        ans = 0
+        mx = 0
         for x in arr2:
             while x:
                 if x in s:
-                    ans = max(ans, len(str(x)))
+                    mx = max(mx, x)
                     break
                 x //= 10
-        return ans
+        return len(str(mx)) if mx else 0
 ```
 
 #### Java
@@ -108,16 +108,16 @@ class Solution {
                 s.add(x);
             }
         }
-        int ans = 0;
+        int mx = 0;
         for (int x : arr2) {
             for (; x > 0; x /= 10) {
                 if (s.contains(x)) {
-                    ans = Math.max(ans, String.valueOf(x).length());
+                    mx = Math.max(mx, x);
                     break;
                 }
             }
         }
-        return ans;
+        return mx > 0 ? String.valueOf(mx).length() : 0;
     }
 }
 ```
@@ -134,16 +134,16 @@ public:
                 s.insert(x);
             }
         }
-        int ans = 0;
+        int mx = 0;
         for (int x : arr2) {
             for (; x; x /= 10) {
                 if (s.count(x)) {
-                    ans = max(ans, (int) log10(x) + 1);
+                    mx = max(mx, x);
                     break;
                 }
             }
         }
-        return ans;
+        return mx > 0 ? (int) log10(mx) + 1 : 0;
     }
 };
 ```
@@ -151,22 +151,26 @@ public:
 #### Go
 
 ```go
-func longestCommonPrefix(arr1 []int, arr2 []int) (ans int) {
+func longestCommonPrefix(arr1 []int, arr2 []int) int {
 	s := map[int]bool{}
 	for _, x := range arr1 {
 		for ; x > 0; x /= 10 {
 			s[x] = true
 		}
 	}
+	mx := 0
 	for _, x := range arr2 {
 		for ; x > 0; x /= 10 {
 			if s[x] {
-				ans = max(ans, int(math.Log10(float64(x)))+1)
+				mx = max(mx, x)
 				break
 			}
 		}
 	}
-	return
+	if mx > 0 {
+		return len(strconv.Itoa(mx))
+	}
+	return 0
 }
 ```
 
@@ -180,15 +184,49 @@ function longestCommonPrefix(arr1: number[], arr2: number[]): number {
             s.add(x);
         }
     }
-    let ans: number = 0;
+    let mx: number = 0;
     for (let x of arr2) {
         for (; x; x = Math.floor(x / 10)) {
             if (s.has(x)) {
-                ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
+                mx = Math.max(mx, x);
+                break;
             }
         }
     }
-    return ans;
+    return mx > 0 ? Math.floor(Math.log10(mx)) + 1 : 0;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_common_prefix(arr1: Vec<i32>, arr2: Vec<i32>) -> i32 {
+        let mut s = std::collections::HashSet::new();
+        for x in arr1 {
+            let mut y = x;
+            while y > 0 {
+                s.insert(y);
+                y /= 10;
+            }
+        }
+        let mut mx = 0;
+        for x in arr2 {
+            let mut y = x;
+            while y > 0 {
+                if s.contains(&y) {
+                    mx = mx.max(y);
+                    break;
+                }
+                y /= 10;
+            }
+        }
+        if mx > 0 {
+            (mx as f64).log10().floor() as i32 + 1
+        } else {
+            0
+        }
+    }
 }
 ```
 
@@ -207,15 +245,16 @@ var longestCommonPrefix = function (arr1, arr2) {
             s.add(x);
         }
     }
-    let ans = 0;
+    let mx = 0;
     for (let x of arr2) {
         for (; x; x = Math.floor(x / 10)) {
             if (s.has(x)) {
-                ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
+                mx = Math.max(mx, x);
+                break;
             }
         }
     }
-    return ans;
+    return mx > 0 ? Math.floor(Math.log10(mx)) + 1 : 0;
 };
 ```
 

@@ -10,13 +10,14 @@ var longestCommonPrefix = function (arr1, arr2) {
             s.add(x);
         }
     }
-    let ans = 0;
+    let mx = 0;
     for (let x of arr2) {
         for (; x; x = Math.floor(x / 10)) {
             if (s.has(x)) {
-                ans = Math.max(ans, Math.floor(Math.log10(x)) + 1);
+                mx = Math.max(mx, x);
+                break;
             }
         }
     }
-    return ans;
+    return mx > 0 ? Math.floor(Math.log10(mx)) + 1 : 0;
 };

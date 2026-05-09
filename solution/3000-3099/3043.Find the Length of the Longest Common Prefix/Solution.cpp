@@ -7,15 +7,15 @@ public:
                 s.insert(x);
             }
         }
-        int ans = 0;
+        int mx = 0;
         for (int x : arr2) {
             for (; x; x /= 10) {
                 if (s.count(x)) {
-                    ans = max(ans, (int) log10(x) + 1);
+                    mx = max(mx, x);
                     break;
                 }
             }
         }
-        return ans;
+        return mx > 0 ? (int) log10(mx) + 1 : 0;
     }
 };
