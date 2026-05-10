@@ -3931,6 +3931,10 @@
 |  3918  |  [区间内的质数和](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README.md)  |    |  中等  |    |
 |  3919  |  [在下标间移动的最小代价](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README.md)  |    |  中等  |    |
 |  3920  |  [删除元素后最大固定点数目](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README.md)  |    |  困难  |    |
+|  3921  |  [分数验证器](/solution/3900-3999/3921.Score%20Validator/README.md)  |    |  简单  |  第 182 场双周赛  |
+|  3922  |  [使二进制字符串连贯的最少翻转次数](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README.md)  |    |  中等  |  第 182 场双周赛  |
+|  3923  |  [得到目标点的最少代数](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README.md)  |    |  中等  |  第 182 场双周赛  |
+|  3924  |  [有限重边的最小阈值路径](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README.md)  |    |  困难  |  第 182 场双周赛  |
 
 ## 版权
 

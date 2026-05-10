@@ -39,7 +39,7 @@ tags:
 <strong>Input:</strong> nums = [1,3,6,4,1,2], target = 2
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> To go from index 0 to index n - 1 with the maximum number of jumps, you can perform the following jumping sequence:
-- Jump from index 0 to index 1.
+- Jump from index 0 to index 1. 
 - Jump from index 1 to index 3.
 - Jump from index 3 to index 5.
 It can be proven that there is no other jumping sequence that goes from 0 to n - 1 with more than 3 jumps. Hence, the answer is 3. </pre>
@@ -62,7 +62,7 @@ It can be proven that there is no other jumping sequence that goes from 0 to n -
 <pre>
 <strong>Input:</strong> nums = [1,3,6,4,1,2], target = 0
 <strong>Output:</strong> -1
-<strong>Explanation:</strong> It can be proven that there is no jumping sequence that goes from 0 to n - 1. Hence, the answer is -1.
+<strong>Explanation:</strong> It can be proven that there is no jumping sequence that goes from 0 to n - 1. Hence, the answer is -1. 
 </pre>
 
 <p>&nbsp;</p>

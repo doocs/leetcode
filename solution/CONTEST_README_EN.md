@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 182
+
+- [3921. Score Validator](/solution/3900-3999/3921.Score%20Validator/README_EN.md)
+- [3922. Minimum Flips to Make Binary String Coherent](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README_EN.md)
+- [3923. Minimum Generations to Target Point](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README_EN.md)
+- [3924. Minimum Threshold Path With Limited Heavy Edges](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README_EN.md)
+
 #### Weekly Contest 499
 
 - [3912. Valid Elements in an Array](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README_EN.md)
