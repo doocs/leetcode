@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README_EN.md
+rating: 1198
+source: Weekly Contest 500 Q1
 ---
 
 <!-- problem:start -->

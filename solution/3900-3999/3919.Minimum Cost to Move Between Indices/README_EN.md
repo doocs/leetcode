@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README_EN.md
+rating: 1776
+source: Weekly Contest 500 Q3
 ---
 
 <!-- problem:start -->

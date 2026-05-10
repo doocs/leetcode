@@ -3929,6 +3929,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3918  |  [Sum of Primes Between Number and Its Reverse](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README_EN.md)  |    |  Medium  |    |
 |  3919  |  [Minimum Cost to Move Between Indices](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README_EN.md)  |    |  Medium  |    |
 |  3920  |  [Maximize Fixed Points After Deletions](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README_EN.md)  |    |  Hard  |    |
+|  3921  |  [Score Validator](/solution/3900-3999/3921.Score%20Validator/README_EN.md)  |    |  Easy  |  Biweekly Contest 182  |
+|  3922  |  [Minimum Flips to Make Binary String Coherent](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README_EN.md)  |    |  Medium  |  Biweekly Contest 182  |
+|  3923  |  [Minimum Generations to Target Point](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README_EN.md)  |    |  Medium  |  Biweekly Contest 182  |
+|  3924  |  [Minimum Threshold Path With Limited Heavy Edges](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README_EN.md)  |    |  Hard  |  Biweekly Contest 182  |
 
 ## Copyright
 

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 182 场双周赛(2026-05-09 22:30, 90 分钟) 参赛人数 950
+
+- [3921. 分数验证器](/solution/3900-3999/3921.Score%20Validator/README.md)
+- [3922. 使二进制字符串连贯的最少翻转次数](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README.md)
+- [3923. 得到目标点的最少代数](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README.md)
+- [3924. 有限重边的最小阈值路径](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README.md)
+
 #### 第 499 场周赛(2026-04-26 10:30, 90 分钟) 参赛人数 1597
 
 - [3912. 数组中的有效元素](/solution/3900-3999/3912.Valid%20Elements%20in%20an%20Array/README.md)
