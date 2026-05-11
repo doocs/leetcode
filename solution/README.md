@@ -3935,6 +3935,10 @@
 |  3922  |  [使二进制字符串连贯的最少翻转次数](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README.md)  |    |  中等  |  第 182 场双周赛  |
 |  3923  |  [得到目标点的最少代数](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README.md)  |    |  中等  |  第 182 场双周赛  |
 |  3924  |  [有限重边的最小阈值路径](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README.md)  |    |  困难  |  第 182 场双周赛  |
+|  3925  |  [连接逆序数组](/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README.md)  |    |  简单  |    |
+|  3926  |  [有效单词计数](/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README.md)  |    |  中等  |    |
+|  3927  |  [可整除替换后的数组最小元素和](/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README.md)  |    |  中等  |    |
+|  3928  |  [购买苹果的最低成本 II](/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README.md)  |    |  困难  |    |
 
 ## 版权
 

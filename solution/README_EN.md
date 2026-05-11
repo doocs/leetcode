@@ -3933,6 +3933,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3922  |  [Minimum Flips to Make Binary String Coherent](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README_EN.md)  |    |  Medium  |  Biweekly Contest 182  |
 |  3923  |  [Minimum Generations to Target Point](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README_EN.md)  |    |  Medium  |  Biweekly Contest 182  |
 |  3924  |  [Minimum Threshold Path With Limited Heavy Edges](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README_EN.md)  |    |  Hard  |  Biweekly Contest 182  |
+|  3925  |  [Concatenate Array With Reverse](/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README_EN.md)  |    |  Easy  |    |
+|  3926  |  [Count Valid Word Occurrences](/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README_EN.md)  |    |  Medium  |    |
+|  3927  |  [Minimize Array Sum Using Divisible Replacements](/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README_EN.md)  |    |  Medium  |    |
+|  3928  |  [Minimum Cost to Buy Apples II](/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 
