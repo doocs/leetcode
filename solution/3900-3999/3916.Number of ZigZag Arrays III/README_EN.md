@@ -79,7 +79,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3916.Nu
 ## Solutions
 
 <!-- solution:start -->
-
+Traverse nums from right to left, maintaining the count of odd and even numbers that have been traversed. Based on the parity of nums[i], query the count of even or odd numbers to its right.
 ### Solution 1
 
 <!-- tabs:start -->
@@ -87,25 +87,69 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3916.Nu
 #### Python3
 
 ```python
-
+class Solution:
+    def countOppositeParity(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        ans = [0] * n
+        cnt = [0] * 2
+        for i in range(n - 1, -1, -1):
+            x = nums[i] % 2 
+            ans[i] = cnt[1 - x] 
+            cnt[x] += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] countOppositeParity(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int[] cnt = new int[2];
+        for (int i = n - 1; i >= 0; i--) {
+            int x = nums[i] & 1;
+            ans[i] = cnt[x ^ 1]; 
+            cnt[x]++;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countOppositeParity(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        int cnt[2]{};
+        for (int i = n - 1; i >= 0; i--) {
+            int x = nums[i] & 1;
+            ans[i] = cnt[x ^ 1];
+            cnt[x]++;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func countOppositeParity(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	cnt := [2]int{}
+	for i := n - 1; i >= 0; i-- {
+		x := nums[i] & 1 
+		ans[i] = cnt[x^1]
+		cnt[x]++
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->

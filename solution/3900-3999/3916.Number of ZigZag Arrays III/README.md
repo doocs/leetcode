@@ -79,6 +79,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3916.Nu
 ## 解法
 
 <!-- solution:start -->
+从右到左遍历 nums，维护遍历过的奇数个数和偶数个数。根据 nums[i] 的奇偶性，查询其右侧的偶数个数或奇数个数。
 
 ### 方法一
 
@@ -87,25 +88,69 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3916.Nu
 #### Python3
 
 ```python
-
+class Solution:
+    def countOppositeParity(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        ans = [0] * n
+        cnt = [0] * 2
+        for i in range(n - 1, -1, -1):
+            x = nums[i] % 2  # x 的奇偶性
+            ans[i] = cnt[1 - x]  # 查询右侧奇偶性不等于 x 的元素个数 
+            cnt[x] += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] countOppositeParity(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int[] cnt = new int[2];
+        for (int i = n - 1; i >= 0; i--) {
+            int x = nums[i] & 1; // x 的奇偶性
+            ans[i] = cnt[x ^ 1]; // 查询右侧奇偶性不等于 x（即 x^1）的元素个数
+            cnt[x]++;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countOppositeParity(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n);
+        int cnt[2]{};
+        for (int i = n - 1; i >= 0; i--) {
+            int x = nums[i] & 1; // x 的奇偶性
+            ans[i] = cnt[x ^ 1]; // 查询右侧奇偶性不等于 x（即 x^1）的元素个数 
+            cnt[x]++;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func countOppositeParity(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, n)
+	cnt := [2]int{}
+	for i := n - 1; i >= 0; i-- {
+		x := nums[i] & 1  // x 的奇偶性
+		ans[i] = cnt[x^1] // 查询右侧奇偶性不等于 x（即 x^1）的元素个数 
+		cnt[x]++
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->
