@@ -831,3 +831,108 @@ class TreeMultiSet<T = number> {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
+### Solution 2: Double Stacks
+We maintain two decreasing monotonic stacks:
+
+```stackOne```: stores elements that have not yet encountered any greater element to their right.
+
+```stackTwo```: stores elements that have encountered exactly one greater element to their right.
+
+Algorithm:
+
+As we iterate through the array ```nums```, for current element $nums[k]$, have these steps:
+
+1. While ```stackTwo``` is not empty and its top element is less than $nums[k]$,
+these top elements have found their second next greater element.
+Pop them and record $nums[k]$ as the answer for their respective indices.
+
+2. While ```stackOne``` is not empty and its top element is less than $nums[k]$,
+these top elements have found their first next greater element.
+Pop them to move them to a temporary list/vector called ```transporter```.
+
+3. Pop all elements from the back of ```transporter``` and push them onto ```stackTwo```.
+These elements will naturally maintain the decreasing order in ```stackTwo```.
+
+4. Push current element $nums[k]$ into ```stackOne``` for future comparisons.
+
+Our time complexity is $O(n)$, where $n$ is the length of the array nums.
+
+This is because each element is pushed and popped across two stacks for at most 4 times in total.
+
+Space complexity is $O(n)$, as all elements must be stored across two stacks.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def secondGreaterElement(self, nums: list[int]) -> list[int]:
+        second_next_greater = [-1] * len(nums)
+
+        stack_1: list[tuple[int, int]] = []  # Decreasing monotonic stacks: (num, idx).
+        stack_2: list[tuple[int, int]] = []
+
+        transporter: list[tuple[int, int]] = []  # Transport tuples from stack 1 to stack 2.
+
+        for idx, num in enumerate(nums):
+            while stack_2 and stack_2[-1][0] < num:
+                _, past_idx = stack_2.pop(-1)
+                second_next_greater[past_idx] = num
+
+            while stack_1 and stack_1[-1][0] < num:
+                transporter.append(stack_1.pop(-1))
+
+            while transporter:
+                stack_2.append(transporter.pop(-1))  # Ensure decreasing monotonicity.
+            stack_1.append((num, idx))
+
+        return second_next_greater
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> secondGreaterElement(vector<int>& nums) {
+        vector<int> secondNextGreater(nums.size(), -1);
+
+        // Decreasing monotonic stacks: {num, idx}.
+        stack<pair<int, int>> stackOne, stackTwo;
+
+        vector<pair<int, int>> transporter; // Format: {num, idx}.
+        
+        for (int idx = 0; idx < nums.size(); idx++) {
+            int num = nums[idx];
+
+            while (!stackTwo.empty() && stackTwo.top().first < num) {
+                int past_idx = stackTwo.top().second;
+                secondNextGreater[past_idx] = num;
+                stackTwo.pop();
+            }
+
+            while (!stackOne.empty() && stackOne.top().first < num) {
+                transporter.push_back(stackOne.top());  // Keep decreasing monotonicity.
+                stackOne.pop();
+            }
+
+            while (!transporter.empty()) {
+                stackTwo.push(transporter.back());
+                transporter.pop_back();
+            }            
+            
+            stackOne.push({num, idx});
+        }
+        
+        return secondNextGreater;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->
