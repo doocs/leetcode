@@ -164,32 +164,220 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：双Deque分管最大值和最小值
+本题要的总值$S = MaxSum_i + MinSum_i$：
+
+I. $MaxSum_i = \Sigma_{j = max(0, i - k + 1)}^i max(nums[j: i + 1])$
+
+索引$i$作结尾的所有合法子数组 各自最大值和 我们拿```subarrays_max_sum```表示$MaxSum_i$
+
+II. $MinSum_i = \Sigma_{j = max(0, i - k + 1)}^i min(nums[j: i + 1])$
+
+索引$i$作结尾的所有合法子数组 各自最小值和 我们拿```subarrays_min_sum```表示$MinSum_i$
+
+同时我们储备两个Deque：```max_stack```和```min_stack```
+
+来分管索引$i$作子数组结尾时 所有长度不超过$k$的子数组 各自的最大值和最小值是谁
+
+虽然数据结构是双端队列 但命名和本质还是叫栈
+
+因为Push和Pop绝大多数都发生在右侧 左边仅是为了控制边界
+
+两个队列内所有元素 都是长度为三的列表 列表内由左到右代表了
+
+__索引、数值、该数在当前窗口内作为子数组最大值/最小值的次数__
+
+#### Step 1. 边界管制
+迭代过程轮到$nums[i]$时 我们都要计算
+
+由索引$i$作为结尾的所有合法子数组的最大值和最小值之和
+
+因此首先检查 __$max(0, i - k + 1)$__ 是否大于零
+
+大于零 说明子数组$nums[i - k:i]$会因$nums[i]$进入而长度超标$k$
+
+于是$nums[i - k:i]$这个子数组贡献的最大值和最小值就要被剔除掉了
+
+$nums[i - k:i]$的最大值和最小值 就在```max_stack```和```min_stack```的栈头了
+
+于是我们把```max_stack```和```min_stack```栈头元素的贡献各扣一
+
+要是扣完后发现栈头元素的索引 < $max(0, i - k + 1)$
+
+代表栈头元素那数值已经掉出窗口 就能弹掉栈头方便计数和管理效率
+
+#### Step 2. 比较单调栈顶
+只要```max_stack```不为空 且```max_stack```栈顶数值 $\leq nums[i]$ (1)
+
+说明索引$i$作为结尾的所有合法子数组 最大值就完全不可能是```max_stack```栈顶数值了
+
+此时$nums[i]$就要把```max_stack```栈顶元素贡献的最大值次数接手过来 拿给$nums[i]$用
+
+若栈顶元素数值叫做```prev_num``` 贡献的最大值次数叫做```prev_shares```
+
+会对```subarrays_max_sum```产生$(nums[i] - \text{prev_num}) * \text{prev_shares}$的净增量
+
+同时我们还有$nums[i]$单独成立的子数组 ```subarrays_max_sum```得再添加$nums[i]$
+
+把弹栈操作好 ```subarrays_max_sum```更新完
+
+就轮到$nums[i]$带著自己的索引$i$ 和负责的最大值次数入```max_stack```了
+
+```min_stack```的操作和```max_stack```的操作完全一样
+
+只是比较条件(1)要反过来 改成```min_stack```栈顶数值 $\geq nums[i]$ (2)
+
+每次迭代$nums[i]$到尾声时 再把```subarrays_max_sum```和```subarrays_min_sum```
+
+一起加到总和```subarrays_max_min_sum```上
+
+最后要回传的便是这个```subarrays_max_min_sum```
+
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。
+
+这是由于每个元素最多被压入和弹出两个栈合计四次。
+
+空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minMaxSubarraySum(self, nums: list[int], k: int) -> int:
+        subarrays_max_min_sum = 0
 
-```
+        max_stack: deque[list[int]] = deque([])  # Format: [idx, num, shares].
+        subarrays_max_sum = 0
 
-#### Java
+        min_stack: deque[list[int]] = deque([])  # Format: [idx, num, shares].
+        subarrays_min_sum = 0
 
-```java
+        for end_idx, num in enumerate(nums):
+            start_idx = max(0, end_idx - k + 1)
 
+            # Window start idx slides by 1: must update stacks' info.
+            if start_idx > 0:
+                max_stack[0][2] -= 1  # Decrement stack's front num shares.
+                subarrays_max_sum -= max_stack[0][1]
+
+                if max_stack[0][0] < start_idx:  # Front num out of window.
+                    max_stack.popleft()
+
+                min_stack[0][2] -= 1  # Decrement stack's front num shares.
+                subarrays_min_sum -= min_stack[0][1]
+
+                if min_stack[0][0] < start_idx:  # Front num out of window.
+                    min_stack.popleft()
+
+            max_shares = 1  # Base case.
+            subarrays_max_sum += num
+
+            while max_stack and max_stack[-1][1] <= num:
+                _, prev_num, prev_shares = max_stack.pop()
+
+                max_shares += prev_shares  # Max shares transition.
+
+                # Reflect transition in max sum.
+                subarrays_max_sum += (num - prev_num) * prev_shares
+
+            max_stack.append([end_idx, num, max_shares])
+
+            min_shares = 1  # Base case.
+            subarrays_min_sum += num
+
+            while min_stack and min_stack[-1][1] >= num:
+                _, prev_num, prev_shares = min_stack.pop()
+
+                min_shares += prev_shares  # Min shares transition.
+
+                # Reflect transition in min sum.
+                subarrays_min_sum += (num - prev_num) * prev_shares
+
+            min_stack.append([end_idx, num, min_shares])
+
+            subarrays_max_min_sum += subarrays_max_sum + subarrays_min_sum
+
+        return subarrays_max_min_sum
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minMaxSubarraySum(vector<int>& nums, int k) {
+        long long totalMaxMinSum = 0;
+        long long windowMaxSum = 0, windowMinSum = 0;
 
-```
+        // Format: {idx, num, shares}. Use long long to prevent overflow.
+        deque<tuple<int, int, long long>> maxStack, minStack;
 
-#### Go
+        for (int endIdx = 0; endIdx < nums.size(); endIdx++)
+        {
+            int startIdx = max(0, endIdx - k + 1);
 
-```go
+            // Window start idx slides by 1: must update stacks' info.
+            if (startIdx > 0)
+            {
+                get<2>(maxStack.front())--; // Decrement stack's front num shares.
+                windowMaxSum -= get<1>(maxStack.front());
 
+                // Front num out of window.
+                if (get<0>(maxStack.front()) < startIdx)
+                    maxStack.pop_front();
+
+                get<2>(minStack.front())--; // Decrement stack's front num shares.
+                windowMinSum -= get<1>(minStack.front());
+
+                // Front num out of window.
+                if (get<0>(minStack.front()) < startIdx)
+                    minStack.pop_front();
+            }
+
+            long long num = nums[endIdx];
+
+            long long maxShares = 1; // Base case.
+            windowMaxSum += num;
+
+            while (!maxStack.empty() && get<1>(maxStack.back()) <= num)
+            {
+                int prevNum = get<1>(maxStack.back());
+                long long prevShares = get<2>(maxStack.back());
+                maxStack.pop_back();
+
+                maxShares += prevShares; // Max shares transition.
+
+                // Reflect transition in max sum.
+                windowMaxSum += (num - prevNum) * prevShares;
+            }
+
+            maxStack.push_back({endIdx, num, maxShares});
+
+            long long minShares = 1; // Base case.
+            windowMinSum += num;
+
+            while (!minStack.empty() && get<1>(minStack.back()) >= num)
+            {
+                int prevNum = get<1>(minStack.back());
+                long long prevShares = get<2>(minStack.back());
+                minStack.pop_back();
+
+                minShares += prevShares; // Min shares transition.
+
+                // Reflect transition in min sum.
+                windowMinSum += (num - prevNum) * prevShares;
+            }
+
+            minStack.push_back({endIdx, num, minShares});
+
+            totalMaxMinSum += windowMaxSum + windowMinSum;
+        }
+
+        return totalMaxMinSum;
+    }
+};
 ```
 
 #### JavaScript
