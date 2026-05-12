@@ -1,4 +1,3 @@
-
 class Solution:
     def minMaxSubarraySum(self, nums: list[int], k: int) -> int:
         subarrays_max_min_sum = 0
