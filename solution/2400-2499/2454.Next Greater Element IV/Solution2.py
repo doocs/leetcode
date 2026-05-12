@@ -1,4 +1,3 @@
-
 class Solution:
     def secondGreaterElement(self, nums: list[int]) -> list[int]:
         second_next_greater = [-1] * len(nums)
@@ -6,7 +5,8 @@ class Solution:
         stack_1: list[tuple[int, int]] = []  # Decreasing monotonic stacks: (num, idx).
         stack_2: list[tuple[int, int]] = []
 
-        transporter: list[tuple[int, int]] = []  # Transport tuples from stack 1 to stack 2.
+        # Transport tuples from stack 1 to stack 2.
+        transporter: list[tuple[int, int]] = []
 
         for idx, num in enumerate(nums):
             while stack_2 and stack_2[-1][0] < num:

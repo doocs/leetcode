@@ -7,7 +7,7 @@ public:
         stack<pair<int, int>> stackOne, stackTwo;
 
         vector<pair<int, int>> transporter; // Format: {num, idx}.
-        
+
         for (int idx = 0; idx < nums.size(); idx++) {
             int num = nums[idx];
 
@@ -18,18 +18,18 @@ public:
             }
 
             while (!stackOne.empty() && stackOne.top().first < num) {
-                transporter.push_back(stackOne.top());  // Keep decreasing monotonicity.
+                transporter.push_back(stackOne.top()); // Keep decreasing monotonicity.
                 stackOne.pop();
             }
 
             while (!transporter.empty()) {
                 stackTwo.push(transporter.back());
                 transporter.pop_back();
-            }            
-            
+            }
+
             stackOne.push({num, idx});
         }
-        
+
         return secondNextGreater;
     }
 };
