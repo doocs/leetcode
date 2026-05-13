@@ -99,11 +99,37 @@ source: Weekly Contest 499 Q4
 ## Solutions
 
 <!-- solution:start -->
-Let f(i,0) denote the maximum subsequence sum ending at i and whose last step is a valley (indicating an increase in the next step), and let f(i,1) denote the maximum subsequence sum ending at i and whose last step is a peak (indicating a decrease in the next step).
-During the transfer, it is necessary to transfer from a position j that satisfies j ≤ i − k:
-f(i,0): Transferred from f(j,1), requiring nums[j] > nums[i], i.e., querying the maximum f(∗,1) value on the right side of nums[i] in the value domain. f(i,1): Transferred from f(j,0), requiring nums[j] < nums[i], i.e., querying the maximum f(∗,0) value on the left side of nums[i] in the value domain. Dynamic prefix/suffix maximum values can be quickly maintained using a tree-like array. Since only positions where j ≤ i−k can participate in the transfer, we can use a pointer to control which elements have been added to the tree-like array so far. Complexity: O(nlogn).
 
-### Solution 1
+### Solution 1: Dynamic Programming + Binary Indexed Tree
+
+**State Definition**
+
+Let $f[i][0]$ denote the maximum sum of a valid subsequence ending at index $i$ where the last element is a **valley** (the next element must be larger to maintain alternation), and $f[i][1]$ denote the maximum sum where the last element is a **peak** (the next element must be smaller).
+
+**Transitions**
+
+When transitioning, we enumerate a predecessor index $j$ satisfying $j \leq i - k$:
+
+- State $f[i][0]$ (valley): transitions from $f[j][1]$, requiring $\text{nums}[j] > \text{nums}[i]$, i.e., query the maximum $f[\cdot][1]$ over the value range $(\text{nums}[i],\ +\infty)$:
+
+$$f[i][0] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text{nums}[j] > \text{nums}[i]}} f[j][1]\right)$$
+
+- State $f[i][1]$ (peak): transitions from $f[j][0]$, requiring $\text{nums}[j] < \text{nums}[i]$, i.e., query the maximum $f[\cdot][0]$ over the value range $[1,\ \text{nums}[i]-1]$:
+
+$$f[i][1] = \text{nums}[i] + \max\!\left(0,\ \max_{\substack{j \leq i-k \\ \text{nums}[j] < \text{nums}[i]}} f[j][0]\right)$$
+
+The final answer is $\max_{0 \leq i < n}\max(f[i][0],\ f[i][1])$.
+
+**Optimization**
+
+The transitions involve dynamic prefix/suffix maximum queries over a value domain, which can be maintained efficiently with two **Binary Indexed Trees (BITs)**:
+
+- BIT $\text{bit}_0$: indexed by value, maintains the prefix maximum of $f[\cdot][0]$, used to query cases where $\text{nums}[j] < \text{nums}[i]$.
+- BIT $\text{bit}_1$: indexed by $M + 1 - \text{val}$ (reversed, where $M = \max(\text{nums})$ ), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\text{nums}[j] > \text{nums}[i]$.
+
+To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we insert the state of index $i - k$ into the BITs using a sliding pointer.
+
+The time complexity is $O(n \log M)$ and the space complexity is $O(M)$, where $n$ is the length of the array and $M = \max(\text{nums})$.
 
 <!-- tabs:start -->
 
