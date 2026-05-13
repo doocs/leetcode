@@ -51,7 +51,8 @@ class SegmentTree {
         } else if (rangeStart > mid) {
             return getMax(rangeStart, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd);
         } else {
-            return Math.max(getMax(rangeStart, mid, treeIndex * 2 + 1, treeStart, mid), getMax(mid + 1, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd));
+            return Math.max(getMax(rangeStart, mid, treeIndex * 2 + 1, treeStart, mid),
+                getMax(mid + 1, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd));
         }
     }
 
