@@ -78,32 +78,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3925.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们创建一个长度为 $2 \times n$ 的数组 $\textit{ans}$，前 $n$ 个元素与 $\textit{nums}$ 相同，后 $n$ 个元素为 $\textit{nums}$ 的逆序。
+
+具体而言，对于 $0 \leq i \leq n - 1$，我们将 $\textit{ans}[i]$ 赋值为 $\textit{nums}[i]$，将 $\textit{ans}[i + n]$ 赋值为 $\textit{nums}[n - i - 1]$。
+
+最后返回数组 $\textit{ans}$ 即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def concatWithReverse(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        ans = [0] * (2 * n)
+        for i, x in enumerate(nums):
+            ans[i] = x
+            ans[i + n] = nums[n - i - 1]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] concatWithReverse(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[2 * n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[n - i - 1];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> concatWithReverse(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(2 * n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[n - i - 1];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func concatWithReverse(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, 2*n)
+	for i, x := range nums {
+		ans[i] = x
+		ans[i+n] = nums[n-i-1]
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function concatWithReverse(nums: number[]): number[] {
+    const n = nums.length;
+    const ans: number[] = new Array(2 * n);
+    for (let i = 0; i < n; ++i) {
+        ans[i] = nums[i];
+        ans[i + n] = nums[n - i - 1];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
