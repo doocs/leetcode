@@ -76,32 +76,90 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3925.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We create an array $\textit{ans}$ of length $2 \times n$. The first $n$ elements are the same as $\textit{nums}$, and the next $n$ elements are $\textit{nums}$ in reverse order.
+
+Specifically, for $0 \leq i \leq n - 1$, we set $\textit{ans}[i] = \textit{nums}[i]$ and $\textit{ans}[i + n] = \textit{nums}[n - i - 1]$.
+
+Finally, return the array $\textit{ans}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def concatWithReverse(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        ans = [0] * (2 * n)
+        for i, x in enumerate(nums):
+            ans[i] = x
+            ans[i + n] = nums[n - i - 1]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] concatWithReverse(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[2 * n];
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[n - i - 1];
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> concatWithReverse(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(2 * n);
+        for (int i = 0; i < n; ++i) {
+            ans[i] = nums[i];
+            ans[i + n] = nums[n - i - 1];
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func concatWithReverse(nums []int) []int {
+	n := len(nums)
+	ans := make([]int, 2*n)
+	for i, x := range nums {
+		ans[i] = x
+		ans[i+n] = nums[n-i-1]
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function concatWithReverse(nums: number[]): number[] {
+    const n = nums.length;
+    const ans: number[] = new Array(2 * n);
+    for (let i = 0; i < n; ++i) {
+        ans[i] = nums[i];
+        ans[i + n] = nums[n - i - 1];
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
