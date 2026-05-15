@@ -76,15 +76,13 @@ tags:
 
 ### 方法一：二分查找
 
-初始，判断数组首尾元素的大小关系，若 `nums[0] <= nums[n - 1]` 条件成立，则说明当前数组已经是递增数组，最小值一定是数组第一个元素，提前返回 `nums[0]`。
+我们可以使用二分查找来解决这个问题。
 
-否则，进行二分判断。若 `nums[0] <= nums[mid]`，说明 `[left, mid]` 范围内的元素构成递增数组，最小值一定在 `mid` 的右侧，否则说明 `[mid + 1, right]` 范围内的元素构成递增数组，最小值一定在 `mid` 的左侧。
+首先，我们定义两个指针 $l$ 和 $r$，分别指向数组的起始位置和结束位置。然后，我们进入一个循环，直到 $l$ 小于 $r$。
 
----
+在每次循环中，我们计算中间位置 $mid$，并比较 $nums[mid]$ 和 $nums[n-1]$ 的值。如果 $nums[mid]$ 大于 $nums[n-1]$，说明最小值在 $mid$ 的右侧，因此我们将 $l$ 更新为 $mid + 1$。否则，最小值在 $mid$ 的左侧或 $mid$ 本身，因此我们将 $r$ 更新为 $mid$。当循环结束时，指针 $l$ 将指向最小值的位置，我们返回 $nums[l]$ 即可。
 
-除了 `nums[0]`，也可以以 `nums[right]` 作为参照物，若 `nums[mid] < nums[right]` 成立，则最小值存在于 `[left, mid]` 范围当中，否则存在于 `[mid + 1, right]`。
-
-时间复杂度：$O(logN)$
+时间复杂度 $O(\log n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -93,16 +91,14 @@ tags:
 ```python
 class Solution:
     def findMin(self, nums: List[int]) -> int:
-        if nums[0] <= nums[-1]:
-            return nums[0]
-        left, right = 0, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if nums[0] <= nums[mid]:
-                left = mid + 1
+        l, r = 0, len(nums) - 1
+        while l < r:
+            mid = (l + r) >> 1
+            if nums[mid] > nums[-1]:
+                l = mid + 1
             else:
-                right = mid
-        return nums[left]
+                r = mid
+        return nums[l]
 ```
 
 #### Java
@@ -110,20 +106,16 @@ class Solution:
 ```java
 class Solution {
     public int findMin(int[] nums) {
-        int n = nums.length;
-        if (nums[0] <= nums[n - 1]) {
-            return nums[0];
-        }
-        int left = 0, right = n - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (nums[0] <= nums[mid]) {
-                left = mid + 1;
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > nums[nums.length - 1]) {
+                l = mid + 1;
             } else {
-                right = mid;
+                r = mid;
             }
         }
-        return nums[left];
+        return nums[l];
     }
 }
 ```
@@ -134,17 +126,16 @@ class Solution {
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int n = nums.size();
-        if (nums[0] <= nums[n - 1]) return nums[0];
-        int left = 0, right = n - 1;
-        while (left < right) {
-            int mid = (left + right) >> 1;
-            if (nums[0] <= nums[mid])
-                left = mid + 1;
-            else
-                right = mid;
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (nums[mid] > nums.back()) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
         }
-        return nums[left];
+        return nums[l];
     }
 };
 ```
@@ -153,20 +144,16 @@ public:
 
 ```go
 func findMin(nums []int) int {
-	n := len(nums)
-	if nums[0] <= nums[n-1] {
-		return nums[0]
-	}
-	left, right := 0, n-1
-	for left < right {
-		mid := (left + right) >> 1
-		if nums[0] <= nums[mid] {
-			left = mid + 1
+	l, r := 0, len(nums)-1
+	for l < r {
+		mid := (l + r) >> 1
+		if nums[mid] > nums[len(nums)-1] {
+			l = mid + 1
 		} else {
-			right = mid
+			r = mid
 		}
 	}
-	return nums[left]
+	return nums[l]
 }
 ```
 
@@ -174,17 +161,17 @@ func findMin(nums []int) int {
 
 ```ts
 function findMin(nums: number[]): number {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >>> 1;
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
+    let l = 0,
+        r = nums.length - 1;
+    while (l < r) {
+        let mid = (l + r) >> 1;
+        if (nums[mid] > nums[nums.length - 1]) {
+            l = mid + 1;
         } else {
-            right = mid;
+            r = mid;
         }
     }
-    return nums[left];
+    return nums[l];
 }
 ```
 
@@ -193,17 +180,16 @@ function findMin(nums: number[]): number {
 ```rust
 impl Solution {
     pub fn find_min(nums: Vec<i32>) -> i32 {
-        let mut left = 0;
-        let mut right = nums.len() - 1;
-        while left < right {
-            let mid = left + (right - left) / 2;
-            if nums[mid] > nums[right] {
-                left = mid + 1;
+        let (mut l, mut r) = (0, nums.len() - 1);
+        while l < r {
+            let mid = (l + r) >> 1;
+            if nums[mid] > nums[nums.len() - 1] {
+                l = mid + 1;
             } else {
-                right = mid;
+                r = mid;
             }
         }
-        nums[left]
+        nums[l]
     }
 }
 ```
@@ -218,11 +204,13 @@ impl Solution {
 var findMin = function (nums) {
     let l = 0,
         r = nums.length - 1;
-    if (nums[l] < nums[r]) return nums[0];
     while (l < r) {
-        const m = (l + r) >> 1;
-        if (nums[m] > nums[r]) l = m + 1;
-        else r = m;
+        let mid = (l + r) >> 1;
+        if (nums[mid] > nums[nums.length - 1]) {
+            l = mid + 1;
+        } else {
+            r = mid;
+        }
     }
     return nums[l];
 };
