@@ -102,32 +102,181 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3926.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+我们首先将 $\textit{chunks}$ 中的所有字符串拼接起来，得到字符串 $s$。
+
+由于单词的第一个字母必须是小写英文字母，因此我们可以从左到右扫描字符串 $s$，当遇到一个小写英文字母时，继续向右扫描，如果遇到一个空格或者一个不合法的连字符，则说明我们找到了一个单词。我们将这个单词加入哈希表中，并统计它出现的次数。最后，我们遍历 $\textit{queries}$ 中的每个字符串，查询哈希表中对应的单词出现的次数，并将结果加入答案数组中。
+
+时间复杂度 $O(n + m)$，其中 $n$ 是 $\textit{chunks}$ 中所有字符串的总长度，而 $m$ 是 $\textit{queries}$ 中所有字符串的总长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countWordOccurrences(self, chunks: list[str], queries: list[str]) -> list[int]:
+        s = "".join(chunks)
+        n = len(s)
+        cnt = defaultdict(int)
+        i = 0
+        while i < n:
+            if s[i] in " -":
+                i += 1
+                continue
+            j = i
+            while (
+                j < n
+                and s[j] != " "
+                and (s[j] != "-" or (j + 1 < n and s[j + 1] not in " -"))
+            ):
+                j += 1
+            cnt[s[i:j]] += 1
+            i = j
+        return [cnt[q] for q in queries]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] countWordOccurrences(String[] chunks, String[] queries) {
+        StringBuilder sb = new StringBuilder();
+        for (String chunk : chunks) {
+            sb.append(chunk);
+        }
+        String s = sb.toString();
+        int n = s.length();
+        Map<String, Integer> cnt = new HashMap<>();
+        int i = 0;
+        while (i < n) {
+            char c = s.charAt(i);
+            if (c == ' ' || c == '-') {
+                i++;
+                continue;
+            }
+            int j = i;
+            while (j < n) {
+                char cj = s.charAt(j);
+                if (cj == ' ') {
+                    break;
+                }
+                if (cj == '-') {
+                    if (j + 1 < n) {
+                        char cnext = s.charAt(j + 1);
+                        if (cnext == ' ' || cnext == '-') {
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                j++;
+            }
+            String word = s.substring(i, j);
+            cnt.put(word, cnt.getOrDefault(word, 0) + 1);
+            i = j;
+        }
+        int[] ans = new int[queries.length];
+        for (int k = 0; k < queries.length; k++) {
+            ans[k] = cnt.getOrDefault(queries[k], 0);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> countWordOccurrences(vector<string>& chunks, vector<string>& queries) {
+        string s = "";
+        for (const string& chunk : chunks) {
+            s += chunk;
+        }
+        int n = s.length();
+        unordered_map<string, int> cnt;
+        int i = 0;
+        while (i < n) {
+            if (s[i] == ' ' || s[i] == '-') {
+                i++;
+                continue;
+            }
+            int j = i;
+            while (j < n && s[j] != ' ' && (s[j] != '-' || (j + 1 < n && s[j + 1] != ' ' && s[j + 1] != '-'))) {
+                j++;
+            }
+            cnt[s.substr(i, j - i)]++;
+            i = j;
+        }
+        vector<int> ans;
+        ans.reserve(queries.size());
+        for (const string& q : queries) {
+            ans.push_back(cnt[q]);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countWordOccurrences(chunks []string, queries []string) []int {
+	s := strings.Join(chunks, "")
+	n := len(s)
+	cnt := make(map[string]int)
+	i := 0
+	for i < n {
+		if s[i] == ' ' || s[i] == '-' {
+			i++
+			continue
+		}
+		j := i
+		for j < n && s[j] != ' ' && (s[j] != '-' || (j+1 < n && s[j+1] != ' ' && s[j+1] != '-')) {
+			j++
+		}
+		cnt[s[i:j]]++
+		i = j
+	}
+	ans := make([]int, len(queries))
+	for k, q := range queries {
+		ans[k] = cnt[q]
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countWordOccurrences(chunks: string[], queries: string[]): number[] {
+    const s = chunks.join('');
+    const n = s.length;
+    const cnt = new Map<string, number>();
+    let i = 0;
+    while (i < n) {
+        if (s[i] === ' ' || s[i] === '-') {
+            i++;
+            continue;
+        }
+        let j = i;
+        while (
+            j < n &&
+            s[j] !== ' ' &&
+            (s[j] !== '-' || (j + 1 < n && s[j + 1] !== ' ' && s[j + 1] !== '-'))
+        ) {
+            j++;
+        }
+        const word = s.substring(i, j);
+        cnt.set(word, (cnt.get(word) || 0) + 1);
+        i = j;
+    }
+    return queries.map(q => cnt.get(q) || 0);
+}
 ```
 
 <!-- tabs:end -->
