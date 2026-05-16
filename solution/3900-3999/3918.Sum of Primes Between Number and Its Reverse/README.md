@@ -8,7 +8,7 @@ source: 第 500 场周赛 Q2
 
 <!-- problem:start -->
 
-# [3918. 区间内的质数和](https://leetcode.cn/problems/sum-of-primes-between-number-and-its-reverse)
+# [3918. 数与其逆序数之间的质数和](https://leetcode.cn/problems/sum-of-primes-between-number-and-its-reverse)
 
 [English Version](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README_EN.md)
 
@@ -21,9 +21,7 @@ source: 第 500 场周赛 Q2
 
 <p>令 <code>r</code> 为将 <code>n</code> 的数字反转后得到的整数。</p>
 
-<p>返回从 <code>min(n, r)</code> 到 <code>max(n, r)</code>（包含两端）之间所有质数的<strong>总和</strong>。</p>
-
-<p><strong>质数</strong>是指大于 1，且只有 1 和它本身两个因数的自然数。</p>
+<p>返回从 <code>min(n, r)</code> 到 <code>max(n, r)</code>（包含两端）之间所有 <span data-keyword="prime-number">质数</span> 的&nbsp;<strong>总和</strong>。</p>
 
 <p>&nbsp;</p>
 

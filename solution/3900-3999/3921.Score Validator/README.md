@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3921.Score%20Validator/README.md
+rating: 1262
+source: 第 182 场双周赛 Q1
 ---
 
 <!-- problem:start -->

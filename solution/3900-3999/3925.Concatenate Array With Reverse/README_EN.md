@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README_EN.md
+rating: 1176
+source: Weekly Contest 501 Q1
 ---
 
 <!-- problem:start -->

@@ -6,6 +6,7 @@ rating: 1351
 source: 第 498 场周赛 Q2
 tags:
     - 数组
+    - 前缀和
 ---
 
 <!-- problem:start -->

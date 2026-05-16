@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README.md
+rating: 2079
+source: 第 182 场双周赛 Q4
 ---
 
 <!-- problem:start -->

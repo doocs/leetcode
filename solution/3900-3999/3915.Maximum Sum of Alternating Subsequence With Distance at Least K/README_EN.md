@@ -341,25 +341,25 @@ func maxAlternatingSum(nums []int, k int) (ans int64) {
 	sorted = slices.Compact(sorted)
 
 	n := len(nums)
-	fInc := make([]int64, n) 
-	fDec := make([]int64, n) 
+	fInc := make([]int64, n)
+	fDec := make([]int64, n)
 
 	m := len(sorted)
-	inc := make(fenwick, m+1) 
-	dec := make(fenwick, m+1) 
+	inc := make(fenwick, m+1)
+	dec := make(fenwick, m+1)
 
 	for i, x := range nums {
 		if i >= k {
 			j := nums[i-k]
-			inc.update(m-j, fInc[i-k]) 
+			inc.update(m-j, fInc[i-k])
 			dec.update(j+1, fDec[i-k])
 		}
 
 		j := sort.SearchInts(sorted, x)
-		nums[i] = j 
+		nums[i] = j
 
-		fInc[i] = dec.preMax(j) + int64(x) 
-		fDec[i] = inc.preMax(m-1-j) + int64(x) 
+		fInc[i] = dec.preMax(j) + int64(x)
+		fDec[i] = inc.preMax(m-1-j) + int64(x)
 		ans = max(ans, fInc[i], fDec[i])
 	}
 

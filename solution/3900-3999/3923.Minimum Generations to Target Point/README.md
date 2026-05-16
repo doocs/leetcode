@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README.md
+rating: 1883
+source: 第 182 场双周赛 Q3
 ---
 
 <!-- problem:start -->
