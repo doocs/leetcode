@@ -874,7 +874,8 @@ class Solution:
         stack_1: list[tuple[int, int]] = []  # Decreasing monotonic stacks: (num, idx).
         stack_2: list[tuple[int, int]] = []
 
-        transporter: list[tuple[int, int]] = []  # Transport tuples from stack 1 to stack 2.
+        # Transport tuples from stack 1 to stack 2.
+        transporter: list[tuple[int, int]] = []
 
         for idx, num in enumerate(nums):
             while stack_2 and stack_2[-1][0] < num:
@@ -903,29 +904,29 @@ public:
         stack<pair<int, int>> stackOne, stackTwo;
 
         vector<pair<int, int>> transporter; // Format: {num, idx}.
-        
+
         for (int idx = 0; idx < nums.size(); idx++) {
             int num = nums[idx];
 
             while (!stackTwo.empty() && stackTwo.top().first < num) {
-                int past_idx = stackTwo.top().second;
-                secondNextGreater[past_idx] = num;
+                int pastIdx = stackTwo.top().second;
+                secondNextGreater[pastIdx] = num;
                 stackTwo.pop();
             }
 
             while (!stackOne.empty() && stackOne.top().first < num) {
-                transporter.push_back(stackOne.top());  // Keep decreasing monotonicity.
+                transporter.push_back(stackOne.top()); // Keep decreasing monotonicity.
                 stackOne.pop();
             }
 
             while (!transporter.empty()) {
                 stackTwo.push(transporter.back());
                 transporter.pop_back();
-            }            
-            
+            }
+
             stackOne.push({num, idx});
         }
-        
+
         return secondNextGreater;
     }
 };
