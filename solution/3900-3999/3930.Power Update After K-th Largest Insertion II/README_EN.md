@@ -143,32 +143,85 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3930.Po
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorted List
+
+We use a sorted list $\textit{sl}$ to maintain the current array $nums$. For each query, we insert $val_i$ into $\textit{sl}$, then find the $k_i$-th largest element $x$ in $\textit{sl}$. Using fast exponentiation, we update $p$ to $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
+
+The time complexity is $O((n + m) \log (n + m))$, and the space complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{nums}$ and $\textit{queries}$, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
-```
-
-#### Java
-
-```java
-
+class Solution:
+    def powerUpdate(
+        self, nums: list[int], p: int, queries: list[list[int]]
+    ) -> list[int]:
+        ans = []
+        sl = SortedList(nums)
+        mod = 10**9 + 7
+        for val, k in queries:
+            sl.add(val)
+            p = pow(p, sl[-k], mod)
+            ans.append(p)
+        return ans
 ```
 
 #### C++
 
 ```cpp
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#include <vector>
 
-```
+using namespace std;
+using namespace __gnu_pbds;
 
-#### Go
+template <typename T>
+using ordered_multiset = tree<pair<T, int>, null_type, less<pair<T, int>>,
+    rb_tree_tag, tree_order_statistics_node_update>;
 
-```go
+class Solution {
+public:
+    vector<int> powerUpdate(vector<int>& nums, int p, vector<vector<int>>& queries) {
+        vector<int> ans;
+        ordered_multiset<int> sl;
+        const int mod = 1e9 + 7;
 
+        for (int i = 0; i < nums.size(); i++) {
+            sl.insert({nums[i], i});
+        }
+
+        int next_id = nums.size();
+
+        auto mod_pow = [&](long long base, long long exp) -> long long {
+            long long result = 1;
+            base %= mod;
+            while (exp > 0) {
+                if (exp & 1) result = (result * base) % mod;
+                base = (base * base) % mod;
+                exp >>= 1;
+            }
+            return result;
+        };
+
+        for (const auto& query : queries) {
+            int val = query[0];
+            int k = query[1];
+
+            sl.insert({val, next_id++});
+
+            auto it = sl.find_by_order(sl.size() - k);
+            int kth_largest = it->first;
+
+            p = mod_pow(p, kth_largest);
+            ans.push_back(p);
+        }
+
+        return ans;
+    }
+};
 ```
 
 <!-- tabs:end -->
