@@ -42,7 +42,7 @@ comments: true
 
 #### 第 181 场双周赛(2026-04-25 22:30, 90 分钟) 参赛人数 1079
 
-- [3908. 有效数字](/solution/3900-3999/3908.Valid%20Digit%20Number/README.md)
+- [3908. 有效数字整数](/solution/3900-3999/3908.Valid%20Digit%20Number/README.md)
 - [3909. 比较双调部分的和](/solution/3900-3999/3909.Compare%20Sums%20of%20Bitonic%20Parts/README.md)
 - [3910. 统计节点和为偶数的连通子图](/solution/3900-3999/3910.Count%20Connected%20Subgraphs%20with%20Even%20Node%20Sum/README.md)
 - [3911. 移除子数组元素后第 K 小偶数](/solution/3900-3999/3911.K-th%20Smallest%20Remaining%20Even%20Integer%20in%20Subarray%20Queries/README.md)

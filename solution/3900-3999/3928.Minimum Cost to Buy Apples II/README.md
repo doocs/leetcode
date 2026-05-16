@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README.md
+rating: 2186
+source: 第 501 场周赛 Q4
 ---
 
 <!-- problem:start -->

@@ -8,7 +8,7 @@ source: 第 181 场双周赛 Q1
 
 <!-- problem:start -->
 
-# [3908. 有效数字](https://leetcode.cn/problems/valid-digit-number)
+# [3908. 有效数字整数](https://leetcode.cn/problems/valid-digit-number)
 
 [English Version](/solution/3900-3999/3908.Valid%20Digit%20Number/README_EN.md)
 

@@ -52,7 +52,7 @@ tags:
 <pre>
 <strong>Input:</strong> nums = [11,13,15,17]
 <strong>Output:</strong> 11
-<strong>Explanation:</strong> The original array was [11,13,15,17] and it was rotated 4 times.
+<strong>Explanation:</strong> The original array was [11,13,15,17] and it was rotated 4 times. 
 </pre>
 
 <p>&nbsp;</p>
