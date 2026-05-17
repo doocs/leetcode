@@ -253,6 +253,7 @@ subarrays_max_sum
 $$
 (nums[i] - \text{prev_num}) \times \text{prev_shares}
 $$
+
 的净增量。
 
 随后，再加上当前元素自身形成的新子数组贡献。
