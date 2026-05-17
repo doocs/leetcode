@@ -251,7 +251,7 @@ subarrays_max_sum
 产生：
 
 $$
-(nums[i] - \text{prev_num}) \times \text{prev_shares}
+(nums[i] - prev\_num) \times prev\_shares
 $$
 
 的净增量。
