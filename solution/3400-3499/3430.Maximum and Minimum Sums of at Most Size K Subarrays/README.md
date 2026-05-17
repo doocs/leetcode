@@ -164,80 +164,137 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：双Deque分管最大值和最小值
-本题要的总值$S = MaxSum_i + MinSum_i$：
+### 方法一：双 Deque 维护窗口最大值与最小值
+本题要求计算所有长度不超过 $k$ 的子数组中：
+* 子数组最大值之和
+* 子数组最小值之和
 
-I. $MaxSum_i = \Sigma_{j = max(0, i - k + 1)}^i max(nums[j: i + 1])$
+并返回两者之和。
 
-索引$i$作结尾的所有合法子数组 各自最大值和 我们拿```subarrays_max_sum```表示$MaxSum_i$
+我们定义：
 
-II. $MinSum_i = \Sigma_{j = max(0, i - k + 1)}^i min(nums[j: i + 1])$
+$$
+MaxSum_i = \sum_{j = \max(0, i - k + 1)}^i \max(nums[j:i + 1])
+$$
 
-索引$i$作结尾的所有合法子数组 各自最小值和 我们拿```subarrays_min_sum```表示$MinSum_i$
+表示所有以索引 $i$ 结尾的合法子数组，它们各自最大值的总和。
 
-同时我们储备两个Deque：```max_stack```和```min_stack```
+同理：
 
-来分管索引$i$作子数组结尾时 所有长度不超过$k$的子数组 各自的最大值和最小值是谁
+$$
+MinSum_i = \sum_{j = \max(0, i - k + 1)}^i \min(nums[j:i + 1])
+$$
 
-虽然数据结构是双端队列 但命名和本质还是叫栈
+表示所有以索引 $i$ 结尾的合法子数组，它们各自最小值的总和。
 
-因为Push和Pop绝大多数都发生在右侧 左边仅是为了控制边界
+接下来，我们维护两个单调队列：
+* `max_stack`：维护当前窗口内所有子数组可能的最大值。
+* `min_stack`：维护当前窗口内所有子数组可能的最小值。
 
-两个队列内所有元素 都是长度为三的列表 列表内由左到右代表了
+虽然底层数据结构为 `deque`，但由于绝大多数操作都发生在右侧，因此其本质仍然是单调栈。
 
-__索引、数值、该数在当前窗口内作为子数组最大值/最小值的次数__
+队列中的每个元素格式为：
+```text
+(index, value, shares)
+```
 
-#### Step 1. 边界管制
-迭代过程轮到$nums[i]$时 我们都要计算
+其中：
+* `index`：元素索引
+* `value`：元素值
+* `shares`：该元素在当前窗口内，作为子数组最大值 / 最小值的贡献次数
 
-由索引$i$作为结尾的所有合法子数组的最大值和最小值之和
+---
+#### Step 1. 边界管理
+当遍历到当前元素 `nums[i]` 时，我们首先需要确保窗口长度不超过 $k$。
 
-因此首先检查 __$max(0, i - k + 1)$__ 是否大于零
+窗口左边界为：
+$$
+\max(0, i - k + 1)
+$$
 
-大于零 说明子数组$nums[i - k:i]$会因$nums[i]$进入而长度超标$k$
+若某元素索引已经小于该边界，说明其已经离开窗口，不再属于任何合法子数组。
 
-于是$nums[i - k:i]$这个子数组贡献的最大值和最小值就要被剔除掉了
+因此：
+* `max_stack` 栈头元素若已越界，则弹出
+* `min_stack` 栈头元素若已越界，则弹出
 
-$nums[i - k:i]$的最大值和最小值 就在```max_stack```和```min_stack```的栈头了
+同时，需要从：
+* `subarrays_max_sum`
+* `subarrays_min_sum`
 
-于是我们把```max_stack```和```min_stack```栈头元素的贡献各扣一
+中扣除这些元素对应的贡献。
 
-要是扣完后发现栈头元素的索引 < $max(0, i - k + 1)$
+---
+#### Step 2. 更新单调栈
+对于当前元素 `nums[i]`：
 
-代表栈头元素那数值已经掉出窗口 就能弹掉栈头方便计数和管理效率
+若 `max_stack` 栈尾元素的值小于等于 `nums[i]`：
 
-#### Step 2. 比较单调栈顶
-只要```max_stack```不为空 且```max_stack```栈顶数值 $\leq nums[i]$ (1)
+说明这些元素已经不可能继续成为后续子数组的最大值。
 
-说明索引$i$作为结尾的所有合法子数组 最大值就完全不可能是```max_stack```栈顶数值了
+因此：
+1. 持续弹出这些元素
+2. 将它们的贡献次数 `shares` 转移给 `nums[i]`
+3. 更新 `subarrays_max_sum`
 
-此时$nums[i]$就要把```max_stack```栈顶元素贡献的最大值次数接手过来 拿给$nums[i]$用
+若弹出的元素为：
+```text
+(prev_idx, prev_num, prev_shares)
+```
 
-若栈顶元素数值叫做```prev_num``` 贡献的最大值次数叫做```prev_shares```
+则会对：
+```text
+subarrays_max_sum
+```
 
-会对```subarrays_max_sum```产生$(nums[i] - \text{prev_num}) * \text{prev_shares}$的净增量
+产生：
+$$
+(nums[i] - \text{prev_num}) \times \text{prev_shares}
+$$
+的净增量。
 
-同时我们还有$nums[i]$单独成立的子数组 ```subarrays_max_sum```得再添加$nums[i]$
+随后，再加上当前元素自身形成的新子数组贡献。
 
-把弹栈操作好 ```subarrays_max_sum```更新完
+最后，将：
+```text
+(i, nums[i], shares)
+```
+压入 `max_stack`。
 
-就轮到$nums[i]$带著自己的索引$i$ 和负责的最大值次数入```max_stack```了
+---
+`min_stack` 的操作方式完全相同。区别仅在于：
+* `max_stack` 维护单调递减性质
+* `min_stack` 维护单调递增性质
 
-```min_stack```的操作和```max_stack```的操作完全一样
+因此比较条件需要反转：
+```text
+max_stack: top_value <= nums[i]
+min_stack: top_value >= nums[i]
+```
 
-只是比较条件(1)要反过来 改成```min_stack```栈顶数值 $\geq nums[i]$ (2)
+---
+#### Step 3. 累加答案
+当索引 $i$ 处理完成后：
 
-每次迭代$nums[i]$到尾声时 再把```subarrays_max_sum```和```subarrays_min_sum```
+* `subarrays_max_sum`
+  表示所有以 $i$ 结尾的合法子数组最大值总和
+* `subarrays_min_sum`
+  表示所有以 $i$ 结尾的合法子数组最小值总和
 
-一起加到总和```subarrays_max_min_sum```上
+因此我们将两者加入最终答案：
+```text
+subarrays_max_min_sum
+```
+最终返回该结果即可。
 
-最后要回传的便是这个```subarrays_max_min_sum```
+---
+时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。
 
-时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。
+这是因为：
+* 每个元素至多进入并离开 `max_stack` 各一次
+* 每个元素至多进入并离开 `min_stack` 各一次
 
-这是由于每个元素最多被压入和弹出两个栈合计四次。
-
-空间复杂度 $O(n)$。
+因此每个元素总操作次数不超过四次，整体时间复杂度为严格线性时间复杂度。
 
 <!-- tabs:start -->
 
@@ -314,13 +371,11 @@ public:
         // Format: {idx, num, shares}. Use long long to prevent overflow.
         deque<tuple<int, int, long long>> maxStack, minStack;
 
-        for (int endIdx = 0; endIdx < nums.size(); endIdx++)
-        {
+        for (int endIdx = 0; endIdx < nums.size(); endIdx++) {
             int startIdx = max(0, endIdx - k + 1);
 
             // Window start idx slides by 1: must update stacks' info.
-            if (startIdx > 0)
-            {
+            if (startIdx > 0) {
                 get<2>(maxStack.front())--; // Decrement stack's front num shares.
                 windowMaxSum -= get<1>(maxStack.front());
 
@@ -341,8 +396,7 @@ public:
             long long maxShares = 1; // Base case.
             windowMaxSum += num;
 
-            while (!maxStack.empty() && get<1>(maxStack.back()) <= num)
-            {
+            while (!maxStack.empty() && get<1>(maxStack.back()) <= num) {
                 int prevNum = get<1>(maxStack.back());
                 long long prevShares = get<2>(maxStack.back());
                 maxStack.pop_back();
@@ -358,8 +412,7 @@ public:
             long long minShares = 1; // Base case.
             windowMinSum += num;
 
-            while (!minStack.empty() && get<1>(minStack.back()) >= num)
-            {
+            while (!minStack.empty() && get<1>(minStack.back()) >= num) {
                 int prevNum = get<1>(minStack.back());
                 long long prevShares = get<2>(minStack.back());
                 minStack.pop_back();
