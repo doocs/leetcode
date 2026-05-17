@@ -208,6 +208,7 @@ $$
 当遍历到当前元素 `nums[i]` 时，我们首先需要确保窗口长度不超过 $k$。
 
 窗口左边界为：
+
 $$
 \max(0, i - k + 1)
 $$
@@ -248,6 +249,7 @@ subarrays_max_sum
 ```
 
 产生：
+
 $$
 (nums[i] - \text{prev_num}) \times \text{prev_shares}
 $$
