@@ -20,6 +20,10 @@ impl Solution {
         }
 
         let ans = dfs(0, &nums, target, &mut f);
-        if ans < 0 { -1 } else { ans }
+        if ans < 0 {
+            -1
+        } else {
+            ans
+        }
     }
 }

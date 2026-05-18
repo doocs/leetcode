@@ -2,7 +2,7 @@ impl Solution {
     pub fn survived_robots_healths(
         positions: Vec<i32>,
         mut healths: Vec<i32>,
-        directions: String
+        directions: String,
     ) -> Vec<i32> {
         let n = positions.len();
         let mut idx: Vec<usize> = (0..n).collect();

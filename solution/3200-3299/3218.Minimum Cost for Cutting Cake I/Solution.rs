@@ -1,5 +1,10 @@
 impl Solution {
-    pub fn minimum_cost(m: i32, n: i32, mut horizontal_cut: Vec<i32>, mut vertical_cut: Vec<i32>) -> i32 {
+    pub fn minimum_cost(
+        m: i32,
+        n: i32,
+        mut horizontal_cut: Vec<i32>,
+        mut vertical_cut: Vec<i32>,
+    ) -> i32 {
         horizontal_cut.sort();
         vertical_cut.sort();
         let (mut i, mut j) = ((m - 2) as isize, (n - 2) as isize);

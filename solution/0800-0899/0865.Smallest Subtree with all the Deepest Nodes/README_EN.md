@@ -289,9 +289,7 @@ impl Solution {
     pub fn subtree_with_all_deepest(
         root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        fn dfs(
-            root: Option<Rc<RefCell<TreeNode>>>,
-        ) -> (Option<Rc<RefCell<TreeNode>>>, i32) {
+        fn dfs(root: Option<Rc<RefCell<TreeNode>>>) -> (Option<Rc<RefCell<TreeNode>>>, i32) {
             if let Some(node) = root {
                 let left = node.borrow().left.clone();
                 let right = node.borrow().right.clone();

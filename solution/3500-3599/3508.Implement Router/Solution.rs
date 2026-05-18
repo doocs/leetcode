@@ -1,4 +1,4 @@
-use std::collections::{HashSet, HashMap, VecDeque};
+use std::collections::{HashMap, HashSet, VecDeque};
 
 struct Router {
     lim: usize,

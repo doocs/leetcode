@@ -26,17 +26,14 @@ impl Solution {
             if c0 == 'O' {
                 let uid: usize = s.parse().unwrap();
                 online_t[uid] = cur + 60;
-
             } else if s.as_bytes()[0] as char == 'A' {
                 lazy += 1;
-
             } else if s.as_bytes()[0] as char == 'H' {
                 for i in 0..n {
                     if online_t[i] <= cur {
                         ans[i] += 1;
                     }
                 }
-
             } else {
                 for a in s.split(' ') {
                     let uid: usize = a[2..].parse().unwrap();

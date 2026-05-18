@@ -10,15 +10,13 @@ impl Solution {
             if s.is_empty() {
                 return false;
             }
-            s.chars()
-                .all(|c| c.is_ascii_alphanumeric() || c == '_')
+            s.chars().all(|c| c.is_ascii_alphanumeric() || c == '_')
         }
 
-        let bs: HashSet<&str> =
-            ["electronics", "grocery", "pharmacy", "restaurant"]
-                .iter()
-                .copied()
-                .collect();
+        let bs: HashSet<&str> = ["electronics", "grocery", "pharmacy", "restaurant"]
+            .iter()
+            .copied()
+            .collect();
 
         let mut idx: Vec<usize> = Vec::new();
         for i in 0..code.len() {

@@ -337,7 +337,11 @@ impl Solution {
                     break;
                 }
             }
-            left[i] = if stk.is_empty() { -1 } else { stk[stk.len() - 1] as i32 };
+            left[i] = if stk.is_empty() {
+                -1
+            } else {
+                stk[stk.len() - 1] as i32
+            };
             stk.push(i);
         }
 

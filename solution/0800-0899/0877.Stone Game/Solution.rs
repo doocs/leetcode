@@ -5,14 +5,13 @@ impl Solution {
 
         fn dfs(i: usize, j: usize, piles: &Vec<i32>, f: &mut Vec<Vec<i32>>) -> i32 {
             if i == j {
-                return piles[i]
+                return piles[i];
             }
             if f[i][j] != 0 {
                 return f[i][j];
             }
 
-            let res = (piles[i] - dfs(i + 1, j, piles, f))
-                .max(piles[j] - dfs(i, j - 1, piles, f));
+            let res = (piles[i] - dfs(i + 1, j, piles, f)).max(piles[j] - dfs(i, j - 1, piles, f));
 
             f[i][j] = res;
             res

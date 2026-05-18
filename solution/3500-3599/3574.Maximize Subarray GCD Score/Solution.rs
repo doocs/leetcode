@@ -31,6 +31,10 @@ impl Solution {
     }
 
     fn gcd(a: i32, b: i32) -> i32 {
-        if b == 0 { a } else { Self::gcd(b, a % b) }
+        if b == 0 {
+            a
+        } else {
+            Self::gcd(b, a % b)
+        }
     }
 }
