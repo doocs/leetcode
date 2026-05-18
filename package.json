@@ -15,7 +15,7 @@
   },
   "lint-staged": {
     "*.{js,ts,php,sql,md}": "prettier --write",
-    "*.py": "scripts/black.cmd -S",
+    "*.py": "py -m black -S",
     "*.rs": "rustfmt"
   },
   "packageManager": "pnpm@10.25.0"
