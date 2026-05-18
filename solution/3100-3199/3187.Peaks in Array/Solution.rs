@@ -7,7 +7,10 @@ impl Solution {
 
         impl BinaryIndexedTree {
             fn new(n: usize) -> Self {
-                Self { n, c: vec![0; n + 1] }
+                Self {
+                    n,
+                    c: vec![0; n + 1],
+                }
             }
 
             fn update(&mut self, mut x: usize, delta: i32) {

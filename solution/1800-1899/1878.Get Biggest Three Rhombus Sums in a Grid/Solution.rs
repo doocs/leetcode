@@ -19,10 +19,7 @@ impl Solution {
 
         for i in 1..=m {
             for j in 1..=n {
-                let l = (i - 1)
-                    .min(m - i)
-                    .min(j - 1)
-                    .min(n - j);
+                let l = (i - 1).min(m - i).min(j - 1).min(n - j);
 
                 ss.insert(grid[i - 1][j - 1]);
 
@@ -32,9 +29,7 @@ impl Solution {
                     let c = s2[i][j - k] - s2[i - k][j];
                     let d = s2[i + k][j] - s2[i][j + k];
 
-                    let v = a + b + c + d
-                        - grid[i + k - 1][j - 1]
-                        + grid[i - k - 1][j - 1];
+                    let v = a + b + c + d - grid[i + k - 1][j - 1] + grid[i - k - 1][j - 1];
 
                     ss.insert(v);
                 }

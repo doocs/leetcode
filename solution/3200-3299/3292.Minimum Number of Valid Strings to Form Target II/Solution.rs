@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use std::cmp::max;
+use std::collections::HashSet;
 
 struct Hashing {
     p: Vec<i64>,

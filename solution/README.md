@@ -3927,20 +3927,24 @@
 |  3914  |  [使数组非递减需要的最小累计值](/solution/3900-3999/3914.Minimum%20Operations%20to%20Make%20Array%20Non%20Decreasing/README.md)  |    |  中等  |  第 499 场周赛  |
 |  3915  |  [距离至少为 K 的交替子序列的最大和](/solution/3900-3999/3915.Maximum%20Sum%20of%20Alternating%20Subsequence%20With%20Distance%20at%20Least%20K/README.md)  |    |  困难  |  第 499 场周赛  |
 |  3916  |  [锯齿形数组的总数 III](/solution/3900-3999/3916.Number%20of%20ZigZag%20Arrays%20III/README.md)  |    |  困难  |  🔒  |
-|  3917  |  [统计下标的相反奇偶性得分](/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README.md)  |    |  简单  |    |
-|  3918  |  [数与其逆序数之间的质数和](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README.md)  |    |  中等  |    |
-|  3919  |  [在下标间移动的最小代价](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README.md)  |    |  中等  |    |
-|  3920  |  [删除元素后最大固定点数目](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README.md)  |    |  困难  |    |
+|  3917  |  [统计下标的相反奇偶性得分](/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README.md)  |    |  简单  |  第 500 场周赛  |
+|  3918  |  [数与其逆序数之间的质数和](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README.md)  |    |  中等  |  第 500 场周赛  |
+|  3919  |  [在下标间移动的最小代价](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README.md)  |    |  中等  |  第 500 场周赛  |
+|  3920  |  [删除元素后最大固定点数目](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README.md)  |    |  困难  |  第 500 场周赛  |
 |  3921  |  [分数验证器](/solution/3900-3999/3921.Score%20Validator/README.md)  |    |  简单  |  第 182 场双周赛  |
 |  3922  |  [使二进制字符串连贯的最少翻转次数](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README.md)  |    |  中等  |  第 182 场双周赛  |
 |  3923  |  [得到目标点的最少代数](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README.md)  |    |  中等  |  第 182 场双周赛  |
 |  3924  |  [有限重边的最小阈值路径](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README.md)  |    |  困难  |  第 182 场双周赛  |
-|  3925  |  [连接逆序数组](/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README.md)  |    |  简单  |    |
-|  3926  |  [有效单词计数](/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README.md)  |    |  中等  |    |
-|  3927  |  [可整除替换后的数组最小元素和](/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README.md)  |    |  中等  |    |
-|  3928  |  [购买苹果的最低成本 II](/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README.md)  |    |  困难  |    |
+|  3925  |  [连接逆序数组](/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README.md)  |    |  简单  |  第 501 场周赛  |
+|  3926  |  [有效单词计数](/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README.md)  |    |  中等  |  第 501 场周赛  |
+|  3927  |  [可整除替换后的数组最小元素和](/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README.md)  |    |  中等  |  第 501 场周赛  |
+|  3928  |  [购买苹果的最低成本 II](/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README.md)  |    |  困难  |  第 501 场周赛  |
 |  3929  |  [最小分割分数 II](/solution/3900-3999/3929.Minimum%20Partition%20Score%20II/README.md)  |    |  困难  |  🔒  |
 |  3930  |  [插入后第 K 大更新的幂 II](/solution/3900-3999/3930.Power%20Update%20After%20K-th%20Largest%20Insertion%20II/README.md)  |    |  困难  |  🔒  |
+|  3931  |  [检查相邻数字差](/solution/3900-3999/3931.Check%20Adjacent%20Digit%20Differences/README.md)  |    |  简单  |  第 502 场周赛  |
+|  3932  |  [统计区间内的完全 K 次幂数量](/solution/3900-3999/3932.Count%20K-th%20Roots%20in%20a%20Range/README.md)  |    |  中等  |  第 502 场周赛  |
+|  3933  |  [矩阵中的局部最大值 II](/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README.md)  |    |  中等  |  第 502 场周赛  |
+|  3934  |  [最短唯一子数组](/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README.md)  |    |  困难  |  第 502 场周赛  |
 
 ## 版权
 

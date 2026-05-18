@@ -16,8 +16,8 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 impl Solution {
     pub fn max_product(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
@@ -33,9 +33,7 @@ impl Solution {
             return 0;
         }
         let node = root.as_ref().unwrap().borrow();
-        let t = node.val as i64
-            + Self::dfs(&node.left, s, ans)
-            + Self::dfs(&node.right, s, ans);
+        let t = node.val as i64 + Self::dfs(&node.left, s, ans) + Self::dfs(&node.right, s, ans);
         if t < s {
             *ans = (*ans).max(t * (s - t));
         }

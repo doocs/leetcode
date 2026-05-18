@@ -19,8 +19,8 @@ sub_folders = [
 ]
 cn_graph_url = "https://leetcode.cn/graphql"
 difficulty = dict(Easy="简单", Medium="中等", Hard="困难")
-weekly_range = range(83, 500)
-biweekly_range = range(1, 300)
+weekly_range = range(83, 1000)
+biweekly_range = range(1, 500)
 WEEKLY_URL = "https://leetcode.cn/contest/api/info/weekly-contest-{}/"
 BIWEEKLY_URL = "https://leetcode.cn/contest/api/info/biweekly-contest-{}/"
 WEEKLY_SLUG = "weekly-contest-{}"
@@ -490,7 +490,7 @@ def run():
         except:
             slug = q["titleSlug"]
             qid = int(q["frontendQuestionId"])
-        if slug in question_details and qid < 3900:
+        if slug in question_details:
             continue
         detail = spider.get_question_detail(
             slug, retry=4

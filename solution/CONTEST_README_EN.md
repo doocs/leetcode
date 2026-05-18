@@ -29,12 +29,33 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 502
+
+- [3931. Check Adjacent Digit Differences](/solution/3900-3999/3931.Check%20Adjacent%20Digit%20Differences/README_EN.md)
+- [3932. Count K-th Roots in a Range](/solution/3900-3999/3932.Count%20K-th%20Roots%20in%20a%20Range/README_EN.md)
+- [3933. Largest Local Values in a Matrix II](/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README_EN.md)
+- [3934. Smallest Unique Subarray](/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README_EN.md)
+
+#### Weekly Contest 501
+
+- [3925. Concatenate Array With Reverse](/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README_EN.md)
+- [3926. Count Valid Word Occurrences](/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README_EN.md)
+- [3927. Minimize Array Sum Using Divisible Replacements](/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README_EN.md)
+- [3928. Minimum Cost to Buy Apples II](/solution/3900-3999/3928.Minimum%20Cost%20to%20Buy%20Apples%20II/README_EN.md)
+
 #### Biweekly Contest 182
 
 - [3921. Score Validator](/solution/3900-3999/3921.Score%20Validator/README_EN.md)
 - [3922. Minimum Flips to Make Binary String Coherent](/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README_EN.md)
 - [3923. Minimum Generations to Target Point](/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README_EN.md)
 - [3924. Minimum Threshold Path With Limited Heavy Edges](/solution/3900-3999/3924.Minimum%20Threshold%20Path%20With%20Limited%20Heavy%20Edges/README_EN.md)
+
+#### Weekly Contest 500
+
+- [3917. Count Indices With Opposite Parity](/solution/3900-3999/3917.Count%20Indices%20With%20Opposite%20Parity/README_EN.md)
+- [3918. Sum of Primes Between Number and Its Reverse](/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README_EN.md)
+- [3919. Minimum Cost to Move Between Indices](/solution/3900-3999/3919.Minimum%20Cost%20to%20Move%20Between%20Indices/README_EN.md)
+- [3920. Maximize Fixed Points After Deletions](/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README_EN.md)
 
 #### Weekly Contest 499
 

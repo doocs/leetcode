@@ -1,5 +1,10 @@
 impl Solution {
-    pub fn max_k_divisible_components(n: i32, edges: Vec<Vec<i32>>, values: Vec<i32>, k: i32) -> i32 {
+    pub fn max_k_divisible_components(
+        n: i32,
+        edges: Vec<Vec<i32>>,
+        values: Vec<i32>,
+        k: i32,
+    ) -> i32 {
         let n = n as usize;
         let mut g = vec![vec![]; n];
         for e in edges {
@@ -11,7 +16,14 @@ impl Solution {
 
         let mut ans = 0;
 
-        fn dfs(i: usize, fa: i32, g: &Vec<Vec<usize>>, values: &Vec<i32>, k: i32, ans: &mut i32) -> i64 {
+        fn dfs(
+            i: usize,
+            fa: i32,
+            g: &Vec<Vec<usize>>,
+            values: &Vec<i32>,
+            k: i32,
+            ans: &mut i32,
+        ) -> i64 {
             let mut s = values[i] as i64;
             for &j in &g[i] {
                 if j as i32 != fa {

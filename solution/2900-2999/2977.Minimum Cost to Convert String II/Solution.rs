@@ -120,6 +120,10 @@ impl Solution {
         }
 
         let ans = dfs(0, &s, &t, &root, &g, &mut f, inf);
-        if ans >= inf { -1 } else { ans }
+        if ans >= inf {
+            -1
+        } else {
+            ans
+        }
     }
 }

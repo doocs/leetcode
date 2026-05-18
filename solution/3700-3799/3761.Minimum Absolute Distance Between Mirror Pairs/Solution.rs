@@ -22,6 +22,10 @@ impl Solution {
             pos.insert(reverse(v), i as i32);
         }
 
-        if ans > n as i32 { -1 } else { ans }
+        if ans > n as i32 {
+            -1
+        } else {
+            ans
+        }
     }
 }

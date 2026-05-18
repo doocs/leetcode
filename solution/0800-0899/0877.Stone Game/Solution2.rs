@@ -9,8 +9,7 @@ impl Solution {
 
         for i in (0..n - 1).rev() {
             for j in i + 1..n {
-                f[i][j] = (piles[i] - f[i + 1][j])
-                    .max(piles[j] - f[i][j - 1]);
+                f[i][j] = (piles[i] - f[i + 1][j]).max(piles[j] - f[i][j - 1]);
             }
         }
 

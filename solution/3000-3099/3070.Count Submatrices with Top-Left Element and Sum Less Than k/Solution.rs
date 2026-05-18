@@ -7,7 +7,9 @@ impl Solution {
         for i in 1..=m {
             for j in 1..=n {
                 s[i][j] = s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1] + grid[i - 1][j - 1];
-                if s[i][j] <= k { ans += 1; }
+                if s[i][j] <= k {
+                    ans += 1;
+                }
             }
         }
         ans

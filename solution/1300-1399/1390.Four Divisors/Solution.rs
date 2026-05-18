@@ -15,7 +15,11 @@ impl Solution {
                 }
                 i += 1;
             }
-            if cnt == 4 { s } else { 0 }
+            if cnt == 4 {
+                s
+            } else {
+                0
+            }
         };
         let mut ans = 0;
         for x in nums {
