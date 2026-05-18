@@ -74,7 +74,7 @@ First, we check if $k$ equals 1. If it does, the count of perfect 1st powers in 
 
 Otherwise, we enumerate integers $x$, compute $y = x^k$. If $y$ exceeds $r$, we stop enumeration. If $y$ is within the range $[l, r]$, we increment the answer by 1.
 
-The time complexity is $O(\log r)$, and the space complexity is $O(1)$.
+The time complexity is $O(r^{1/k} \cdot k)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

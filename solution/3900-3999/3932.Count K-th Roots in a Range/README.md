@@ -82,7 +82,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3932.Co
 
 否则，我们枚举整数 $x$，计算 $y = x^k$，如果 $y$ 大于 $r$，则停止枚举；如果 $y$ 在区间 $[l, r]$ 内，则将答案加 1。
 
-时间复杂度 $O(\log r)$，空间复杂度 $O(1)$。
+时间复杂度 $O(r^{1/k} \cdot k)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
