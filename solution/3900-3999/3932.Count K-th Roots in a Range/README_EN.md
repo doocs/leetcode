@@ -68,32 +68,144 @@ Hence, the answer is 3.</div>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+First, we check if $k$ equals 1. If it does, the count of perfect 1st powers in the range is the count of integers in the range, which is $r - l + 1$.
+
+Otherwise, we enumerate integers $x$, compute $y = x^k$. If $y$ exceeds $r$, we stop enumeration. If $y$ is within the range $[l, r]$, we increment the answer by 1.
+
+The time complexity is $O(r^{1/k} \cdot k)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countKthRoots(self, l: int, r: int, k: int) -> int:
+        if k == 1:
+            return r - l + 1
+        ans = 0
+        for x in count():
+            y = x**k
+            if y > r:
+                break
+            if l <= y <= r:
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countKthRoots(int l, int r, int k) {
+        if (k == 1) {
+            return r - l + 1;
+        }
+        int ans = 0;
+        for (int x = 0;; x++) {
+            long y = 1;
+            for (int i = 0; i < k; i++) {
+                y *= x;
+                if (y > r) {
+                    break;
+                }
+            }
+            if (y > r) {
+                break;
+            }
+            if (l <= y && y <= r) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countKthRoots(int l, int r, int k) {
+        if (k == 1) {
+            return r - l + 1;
+        }
+        int ans = 0;
+        for (int x = 0;; x++) {
+            long long y = 1;
+            for (int i = 0; i < k; i++) {
+                y *= x;
+                if (y > r) {
+                    break;
+                }
+            }
+            if (y > r) {
+                break;
+            }
+            if (l <= y && y <= r) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countKthRoots(l int, r int, k int) int {
+	if k == 1 {
+		return r - l + 1
+	}
+	ans := 0
+	for x := 0; ; x++ {
+		y := 1
+		for i := 0; i < k; i++ {
+			y *= x
+			if y > r {
+				break
+			}
+		}
+		if y > r {
+			break
+		}
+		if l <= y && y <= r {
+			ans++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countKthRoots(l: number, r: number, k: number): number {
+    if (k === 1) {
+        return r - l + 1;
+    }
+    let ans = 0;
+    for (let x = 0; ; x++) {
+        let y = 1;
+        for (let i = 0; i < k; i++) {
+            y *= x;
+            if (y > r) {
+                break;
+            }
+        }
+        if (y > r) {
+            break;
+        }
+        if (l <= y && y <= r) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
