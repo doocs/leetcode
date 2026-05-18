@@ -581,8 +581,7 @@ impl Hashing {
     }
 
     fn query(&self, l: usize, r: usize) -> u64 {
-        let mut res =
-            self.h[r + 1] + self.modv - (self.h[l] * self.p[r - l + 1] % self.modv);
+        let mut res = self.h[r + 1] + self.modv - (self.h[l] * self.p[r - l + 1] % self.modv);
         res %= self.modv;
         res
     }
