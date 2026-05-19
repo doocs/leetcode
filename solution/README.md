@@ -3945,6 +3945,7 @@
 |  3932  |  [统计区间内的完全 K 次幂数量](/solution/3900-3999/3932.Count%20K-th%20Roots%20in%20a%20Range/README.md)  |    |  中等  |  第 502 场周赛  |
 |  3933  |  [矩阵中的局部最大值 II](/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README.md)  |    |  中等  |  第 502 场周赛  |
 |  3934  |  [最短唯一子数组](/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README.md)  |    |  困难  |  第 502 场周赛  |
+|  3935  |  [插入后第 K 大更新的幂 I](/solution/3900-3999/3935.Power%20Update%20After%20K-th%20Largest%20Insertion%20I/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
