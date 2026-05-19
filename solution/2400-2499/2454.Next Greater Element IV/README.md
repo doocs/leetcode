@@ -832,10 +832,10 @@ class TreeMultiSet<T = number> {
 
 <!-- solution:end -->
 
-<!-- problem:end -->
+<!-- solution:start -->
 
+### 方法二：双单调栈
 
-## 方法二：双单调栈
 我们可以维护两个单调递减栈来解决此问题。栈中存储元素的二元组 `(value, index)`：
 
 * 一号栈 `stackOne`：存储尚未找到第一个更大元素的元素。
@@ -860,7 +860,6 @@ class TreeMultiSet<T = number> {
 * 被弹出二号栈一次
 
 因此，每个元素在两个栈中的操作次数总计不超过四次，整体时间复杂度为严格线性时间复杂度。
-
 
 <!-- tabs:start -->
 
