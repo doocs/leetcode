@@ -3943,6 +3943,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3932  |  [Count K-th Roots in a Range](/solution/3900-3999/3932.Count%20K-th%20Roots%20in%20a%20Range/README_EN.md)  |    |  Medium  |  Weekly Contest 502  |
 |  3933  |  [Largest Local Values in a Matrix II](/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 502  |
 |  3934  |  [Smallest Unique Subarray](/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README_EN.md)  |    |  Hard  |  Weekly Contest 502  |
+|  3935  |  [Power Update After K-th Largest Insertion I](/solution/3900-3999/3935.Power%20Update%20After%20K-th%20Largest%20Insertion%20I/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
