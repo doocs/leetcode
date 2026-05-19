@@ -830,31 +830,30 @@ class TreeMultiSet<T = number> {
 
 <!-- solution:end -->
 
-<!-- problem:end -->
-
 ### Solution 2: Double Stacks
+
 We maintain two decreasing monotonic stacks:
 
-```stackOne```: stores elements that have not yet encountered any greater element to their right.
+`stackOne`: stores elements that have not yet encountered any greater element to their right.
 
-```stackTwo```: stores elements that have encountered exactly one greater element to their right.
+`stackTwo`: stores elements that have encountered exactly one greater element to their right.
 
 Algorithm:
 
-As we iterate through the array ```nums```, for current element $nums[k]$, have these steps:
+As we iterate through the array `nums`, for current element $nums[k]$, have these steps:
 
-1. While ```stackTwo``` is not empty and its top element is less than $nums[k]$,
+1. While `stackTwo` is not empty and its top element is less than $nums[k]$,
 these top elements have found their second next greater element.
 Pop them and record $nums[k]$ as the answer for their respective indices.
 
-2. While ```stackOne``` is not empty and its top element is less than $nums[k]$,
+2. While `stackOne` is not empty and its top element is less than $nums[k]$,
 these top elements have found their first next greater element.
-Pop them to move them to a temporary list/vector called ```transporter```.
+Pop them to move them to a temporary list/vector called `transporter`.
 
-3. Pop all elements from the back of ```transporter``` and push them onto ```stackTwo```.
-These elements will naturally maintain the decreasing order in ```stackTwo```.
+3. Pop all elements from the back of `transporter` and push them onto `stackTwo`.
+These elements will naturally maintain the decreasing order in `stackTwo`.
 
-4. Push current element $nums[k]$ into ```stackOne``` for future comparisons.
+4. Push current element $nums[k]$ into `stackOne` for future comparisons.
 
 Our time complexity is $O(n)$, where $n$ is the length of the array nums.
 
