@@ -832,4 +832,107 @@ class TreeMultiSet<T = number> {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：双单调栈
+
+我们可以维护两个单调递减栈来解决此问题。栈中存储元素的二元组 `(value, index)`：
+
+* 一号栈 `stackOne`：存储尚未找到第一个更大元素的元素。
+* 二号栈 `stackTwo`：存储已经找到第一个更大元素、但尚未找到第二个更大元素的元素。
+
+接下来，我们从左到右遍历数组 `nums`。对于当前元素 `nums[i]`：
+
+1. 若二号栈的栈顶元素小于 `nums[i]`，说明 `nums[i]` 即为该元素的第二个更大元素。我们持续弹出所有满足条件的元素，并更新答案数组。
+
+2. 若一号栈的栈顶元素小于 `nums[i]`，说明 `nums[i]` 即为这些元素的第一个更大元素。我们将这些元素依次弹出，并暂存至辅助数组 `transporter` 中。
+
+3. 随后，我们将 `transporter` 中的元素从尾部依次弹出，并压入二号栈。这样可以保持二号栈的单调递减性质。
+
+4. 最后，将当前元素 `(nums[i], i)` 压入一号栈，继续处理后续元素。
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。
+
+其中，每个元素至多：
+* 被压入一号栈一次
+* 被弹出一号栈一次
+* 被压入二号栈一次
+* 被弹出二号栈一次
+
+因此，每个元素在两个栈中的操作次数总计不超过四次，整体时间复杂度为严格线性时间复杂度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def secondGreaterElement(self, nums: list[int]) -> list[int]:
+        second_next_greater = [-1] * len(nums)
+
+        stack_1: list[tuple[int, int]] = []  # Decreasing monotonic stacks: (num, idx).
+        stack_2: list[tuple[int, int]] = []
+
+        # Transport tuples from stack 1 to stack 2.
+        transporter: list[tuple[int, int]] = []
+
+        for idx, num in enumerate(nums):
+            while stack_2 and stack_2[-1][0] < num:
+                _, past_idx = stack_2.pop(-1)
+                second_next_greater[past_idx] = num
+
+            while stack_1 and stack_1[-1][0] < num:
+                transporter.append(stack_1.pop(-1))
+
+            while transporter:
+                stack_2.append(transporter.pop(-1))  # Ensure decreasing monotonicity.
+            stack_1.append((num, idx))
+
+        return second_next_greater
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> secondGreaterElement(vector<int>& nums) {
+        vector<int> secondNextGreater(nums.size(), -1);
+
+        // Decreasing monotonic stacks: {num, idx}.
+        stack<pair<int, int>> stackOne, stackTwo;
+
+        vector<pair<int, int>> transporter; // Format: {num, idx}.
+
+        for (int idx = 0; idx < nums.size(); idx++) {
+            int num = nums[idx];
+
+            while (!stackTwo.empty() && stackTwo.top().first < num) {
+                int pastIdx = stackTwo.top().second;
+                secondNextGreater[pastIdx] = num;
+                stackTwo.pop();
+            }
+
+            while (!stackOne.empty() && stackOne.top().first < num) {
+                transporter.push_back(stackOne.top()); // Keep decreasing monotonicity.
+                stackOne.pop();
+            }
+
+            while (!transporter.empty()) {
+                stackTwo.push(transporter.back());
+                transporter.pop_back();
+            }
+
+            stackOne.push({num, idx});
+        }
+
+        return secondNextGreater;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
