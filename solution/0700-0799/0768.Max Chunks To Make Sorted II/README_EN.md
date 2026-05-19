@@ -201,4 +201,154 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Prefix Maximums + Suffix Minimums
+We would like to partition the array of length $n$ into several chunks such that
+after sorting each chunk individually, the entire array remains sorted.
+
+Consider two adjacent chunks:
+
+* left chunk: `left_chunk`
+* right chunk: `right_chunk`
+
+If the following condition holds:
+
+`max(left_chunk)` <= `min(right_chunk)`
+
+it means:
+* every element in the left chunk is less than or equal to every element in the right chunk
+* therefore, after sorting both chunks independently, they can still be concatenated into a globally sorted array
+
+Thus, for every index $i$ satisfying:
+
+$$
+1 \le i < n
+$$
+
+we check whether:
+
+$$
+\max(arr[:i]) \le \min(arr[i:])
+$$
+
+holds.
+
+If true, then index $i$ can serve as a valid partition point.
+
+---
+
+To efficiently evaluate the above condition, we preprocess:
+
+* `prefix_maxs[j]`
+
+which represents:
+
+$$
+\max(arr[:j + 1])
+$$
+
+i.e. the prefix maximum.
+
+* `suffix_min[j]`
+
+which represents:
+
+$$
+\min(arr[j:])
+$$
+
+i.e. the suffix minimum.
+
+Next:
+
+1. Traverse the array from left to right to compute all prefix maximums
+2. Traverse the array from right to left to compute all suffix minimums
+3. For each index $i$, check whether:
+
+`prefix_maxs[i - 1]` <= `suffix_min[i]`
+
+holds.
+
+If true, then:
+
+* every element on the left side is less than or equal to every element on the right side
+* therefore, the array can be partitioned at index $i$
+
+Finally, count all valid partition points.
+
+Note that:
+
+Even if the array is strictly decreasing, the entire array itself can still be treated as one valid chunk.
+
+Therefore, our final answer is equal to all valid partition points + $1$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of $\textit{arr}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: list[int]) -> int:
+        prefix_maxs = []  # Max of each arr[:i + 1] where 0 <= i < len(arr).
+
+        for num in arr:
+            if not prefix_maxs:
+                prefix_maxs.append(num)
+                continue
+
+            prefix_maxs.append(max(num, prefix_maxs[-1]))
+
+        max_chunks = 1  # Base case.
+        suffix_min = arr[-1]  # Min of arr[i:] where 0 <= i < len(arr).
+
+        for idx in range(len(arr) - 1, 0, -1):
+            if arr[idx] < suffix_min:
+                suffix_min = arr[idx]
+
+            if prefix_maxs[idx - 1] <= suffix_min:
+                max_chunks += 1
+
+        return max_chunks
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        vector<int> prefixMaxs; // Max of each arr[:i + 1]. 0 <= i < arr.size().
+
+        for (const auto& num : arr) {
+            if (prefixMaxs.empty()) {
+                prefixMaxs.push_back(num);
+                continue;
+            }
+
+            prefixMaxs.push_back(max(prefixMaxs.back(), num));
+        }
+
+        int maxChunks = 1; // Base case.
+        int suffixMin = arr.back(); // Min of arr[i:]. 0 <= i < arr.size().
+
+        for (int idx = arr.size() - 1; idx >= 1; idx--) {
+            if (arr[idx] < suffixMin)
+                suffixMin = arr[idx];
+
+            if (prefixMaxs[idx - 1] <= suffixMin)
+                maxChunks++;
+        }
+
+        return maxChunks;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
