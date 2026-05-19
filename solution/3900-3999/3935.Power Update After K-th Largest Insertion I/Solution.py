@@ -3,11 +3,7 @@ class Solution:
         self, nums: list[int], p: int, queries: list[list[int]]
     ) -> list[int]:
         l = SortedList()
-        r = SortedList()
-        for x in nums:
-            r.add(x)
-            if len(r) > queries[0][0]:
-                l.add(r.pop(0))
+        r = SortedList(nums)
         ans = []
         mod = 10**9 + 7
         for val, k in queries:

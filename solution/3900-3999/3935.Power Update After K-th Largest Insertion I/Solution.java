@@ -32,21 +32,10 @@ class Solution {
         TreeMap<Integer, Integer> l = new TreeMap<>();
         TreeMap<Integer, Integer> r = new TreeMap<>();
 
-        int sz1 = 0, sz2 = 0;
+        int sz1 = 0, sz2 = nums.length;
 
         for (int x : nums) {
             add(r, x);
-            ++sz2;
-
-            if (sz2 > queries[0][1]) {
-                int v = r.firstKey();
-
-                remove(r, v);
-                --sz2;
-
-                add(l, v);
-                ++sz1;
-            }
         }
 
         int mod = 1_000_000_007;

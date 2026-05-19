@@ -164,11 +164,7 @@ class Solution:
         self, nums: list[int], p: int, queries: list[list[int]]
     ) -> list[int]:
         l = SortedList()
-        r = SortedList()
-        for x in nums:
-            r.add(x)
-            if len(r) > queries[0][0]:
-                l.add(r.pop(0))
+        r = SortedList(nums)
         ans = []
         mod = 10**9 + 7
         for val, k in queries:
@@ -221,21 +217,10 @@ class Solution {
         TreeMap<Integer, Integer> l = new TreeMap<>();
         TreeMap<Integer, Integer> r = new TreeMap<>();
 
-        int sz1 = 0, sz2 = 0;
+        int sz1 = 0, sz2 = nums.length;
 
         for (int x : nums) {
             add(r, x);
-            ++sz2;
-
-            if (sz2 > queries[0][1]) {
-                int v = r.firstKey();
-
-                remove(r, v);
-                --sz2;
-
-                add(l, v);
-                ++sz1;
-            }
         }
 
         int mod = 1_000_000_007;
@@ -324,21 +309,10 @@ public:
     vector<int> powerUpdate(vector<int>& nums, int p, vector<vector<int>>& queries) {
         map<int, int> l, r;
 
-        int sz1 = 0, sz2 = 0;
+        int sz1 = 0, sz2 = nums.size();
 
         for (int x : nums) {
             add(r, x);
-            ++sz2;
-
-            if (sz2 > queries[0][1]) {
-                int v = r.begin()->first;
-
-                remove(r, v);
-                --sz2;
-
-                add(l, v);
-                ++sz1;
-            }
         }
 
         const int mod = 1e9 + 7;
@@ -409,21 +383,10 @@ func powerUpdate(nums []int, p int, queries [][]int) []int {
 		}
 	}
 
-	sz1, sz2 := 0, 0
+	sz1, sz2 := 0, len(nums)
 
 	for _, x := range nums {
 		merge(r, x, 1)
-		sz2++
-
-		if sz2 > queries[0][1] {
-			node := r.Left()
-
-			merge(r, node.Key, -1)
-			sz2--
-
-			merge(l, node.Key, 1)
-			sz1++
-		}
 	}
 
 	const mod int = 1e9 + 7

@@ -30,21 +30,10 @@ public:
     vector<int> powerUpdate(vector<int>& nums, int p, vector<vector<int>>& queries) {
         map<int, int> l, r;
 
-        int sz1 = 0, sz2 = 0;
+        int sz1 = 0, sz2 = nums.size();
 
         for (int x : nums) {
             add(r, x);
-            ++sz2;
-
-            if (sz2 > queries[0][1]) {
-                int v = r.begin()->first;
-
-                remove(r, v);
-                --sz2;
-
-                add(l, v);
-                ++sz1;
-            }
         }
 
         const int mod = 1e9 + 7;

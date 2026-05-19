@@ -12,21 +12,10 @@ func powerUpdate(nums []int, p int, queries [][]int) []int {
 		}
 	}
 
-	sz1, sz2 := 0, 0
+	sz1, sz2 := 0, len(nums)
 
 	for _, x := range nums {
 		merge(r, x, 1)
-		sz2++
-
-		if sz2 > queries[0][1] {
-			node := r.Left()
-
-			merge(r, node.Key, -1)
-			sz2--
-
-			merge(l, node.Key, 1)
-			sz1++
-		}
 	}
 
 	const mod int = 1e9 + 7
