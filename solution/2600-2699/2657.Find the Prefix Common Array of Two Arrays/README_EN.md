@@ -174,6 +174,27 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_the_prefix_common_array(a: Vec<i32>, b: Vec<i32>) -> Vec<i32> {
+        let n = a.len();
+        let mut ans = vec![0; n];
+        let mut cnt1 = vec![0; n + 1];
+        let mut cnt2 = vec![0; n + 1];
+        for i in 0..n {
+            cnt1[a[i] as usize] += 1;
+            cnt2[b[i] as usize] += 1;
+            for j in 1..=n {
+                ans[i] += std::cmp::min(cnt1[j], cnt2[j]);
+            }
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -296,6 +317,27 @@ function findThePrefixCommonArray(A: number[], B: number[]): number[] {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_the_prefix_common_array(a: Vec<i32>, b: Vec<i32>) -> Vec<i32> {
+        let n = a.len();
+        let mut ans = vec![0; n];
+        let mut vis = vec![1; n + 1];
+        let mut s = 0;
+        for i in 0..n {
+            vis[a[i] as usize] ^= 1;
+            s += vis[a[i] as usize];
+            vis[b[i] as usize] ^= 1;
+            s += vis[b[i] as usize];
+            ans[i] = s;
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -400,6 +442,23 @@ function bitCount64(i: bigint): number {
     i = i + (i >> 16n);
     i = i + (i >> 32n);
     return Number(i & 0x7fn);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_the_prefix_common_array(a: Vec<i32>, b: Vec<i32>) -> Vec<i32> {
+        let mut ans = Vec::with_capacity(a.len());
+        let (mut x, mut y): (u64, u64) = (0, 0);
+        for (&a_val, &b_val) in a.iter().zip(b.iter()) {
+            x |= 1 << a_val;
+            y |= 1 << b_val;
+            ans.push((x & y).count_ones() as i32);
+        }
+        ans
+    }
 }
 ```
 
