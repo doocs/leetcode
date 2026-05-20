@@ -204,6 +204,7 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Prefix Maximums + Suffix Minimums
+
 We would like to partition the array of length $n$ into several chunks such that
 after sorting each chunk individually, the entire array remains sorted.
 
