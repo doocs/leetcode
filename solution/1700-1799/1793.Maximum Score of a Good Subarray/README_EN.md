@@ -267,4 +267,111 @@ function maximumScore(nums: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Pointers
+
+We can initialize two pointers at the core index `k` and expand outward to the left and right.
+By maintaining the minimum value within current window, we can find maximum score in strict linear time.
+
+**Algorithm Steps:**
+
+1. Initialize left pointer `i = k`, right pointer `j = k`, and window minimum value `min_num = nums[k]`. Set initial maximum score `max_score = nums[k]`.
+
+2. Expand pointers while `i > 0` or `j < len(nums) - 1`:
+   - **Direction**: If left boundary can't expand (`i == 0`), move right pointer `j++`. If right boundary can't expand (`j == len(nums) - 1`), move left pointer `i--`.
+   - If both sides are expandable, compare `nums[i - 1]` and `nums[j + 1]`, and expand towards the side with a larger value (i.e., if `nums[i - 1] >= nums[j + 1]`, decrement `i`; otherwise, increment `j`).
+
+3. **Update State**: after each pointer movement, update current window minimum value: `min_num = min(min_num, nums[i] or nums[j])`.
+
+4. **Calculate Score**: length of the current good subarray is `j + 1 - i`, and its score is `score = min_num * (j + 1 - i)`. Update global maximum score: `max_score = max(max_score, score)`.
+
+5. Return `max_score` once the for loop terminates.
+
+**Complexity Analysis:**
+- **Time Complexity**: $O(n)$, where $n$ is length of array `nums`. Each element is scanned at most once.
+- **Space Complexity**: $O(1)$, as it only requires a constant amount of extra space for two pointers, window minimum value and global maximum score.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumScore(self, nums: list[int], k: int) -> int:
+        max_score = nums[k]  # Base case.
+        min_num = nums[k]
+
+        left_idx, right_idx = k, k
+
+        while 0 < left_idx or right_idx < len(nums) - 1:
+            if left_idx == 0:  # Can only go right.
+                right_idx += 1
+                min_num = min(min_num, nums[right_idx])
+
+            elif right_idx == len(nums) - 1:  # Can only go left.
+                left_idx -= 1
+                min_num = min(min_num, nums[left_idx])
+
+            else:  # Can go bidirectional.
+                if nums[left_idx - 1] >= nums[right_idx + 1]:
+                    left_idx -= 1
+                    min_num = min(min_num, nums[left_idx])
+
+                else:
+                    right_idx += 1
+                    min_num = min(min_num, nums[right_idx])
+
+            score = min_num * (right_idx + 1 - left_idx)
+            max_score = max(max_score, score)
+
+        return max_score
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumScore(vector<int>& nums, int k) {
+        int maxScore = nums[k], minNum = nums[k]; // Base case.
+
+        int leftIdx = k, rightIdx = k;
+
+        while (0 < leftIdx || rightIdx < nums.size() - 1) {
+            if (leftIdx == 0) { // Can only go right.
+                rightIdx++;
+                minNum = min(minNum, nums[rightIdx]);
+            }
+
+            else if (rightIdx == nums.size() - 1) { // Can only go left.
+                leftIdx--;
+                minNum = min(minNum, nums[leftIdx]);
+            }
+
+            else { // Can go bidirectional.
+                if (nums[leftIdx - 1] >= nums[rightIdx + 1]) {
+                    leftIdx--;
+                    minNum = min(minNum, nums[leftIdx]);
+                }
+
+                else {
+                    rightIdx++;
+                    minNum = min(minNum, nums[rightIdx]);
+                }
+            }
+
+            int score = minNum * (rightIdx + 1 - leftIdx);
+            maxScore = max(maxScore, score);
+        }
+
+        return maxScore;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

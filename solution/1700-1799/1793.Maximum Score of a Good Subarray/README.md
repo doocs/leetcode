@@ -267,4 +267,111 @@ function maximumScore(nums: number[], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：双指针
+
+我们可从核心索引 `k` 出发，利用双指针向左右两侧交替扩展，
+动态维护当前窗口内的最小值，从而求解最大得分。
+
+**算法步骤：**
+
+1. 初始化左指针 `i = k`，右指针 `j = k`，当前窗口内最小值 `min_num = nums[k]`，同时将初始得分 `max_score` 设为 `nums[k]`。
+
+2. 当 `i > 0` 或 `j < len(nums) - 1` 时，执行双指针扩展：
+   - **方向**：若左边界无法扩展（`i == 0`），只能向右移动 `j`；若右边界无法扩展（`j == len(nums) - 1`），只能向左移动 `i`。
+   - 若两侧均可扩展，为使窗口内最小值下降得尽可能慢，我们比较 `nums[i - 1]` 和 `nums[j + 1]`，优先将指针向边界值较大的一侧扩展（即若 `nums[i - 1] >= nums[j + 1]`，则 `i--`；否则 `j++`）。
+
+3. **动态更新状态**：在每次指针移动后，新纳入窗口的元素值更新 `min_num = min(min_num, nums[i] 或 nums[j])`。
+
+4. **计算得分**：当前子数组长度 `j + 1 - i`，其得分为 `score = min_num * (j + 1 - i)`，更新 `max_score = max(max_score, score)`。
+
+5. 循环结束后，`max_score` 即为答案。
+
+**复杂度：**
+- **时间复杂度** $O(n)$，其中 $n$ 为数组 `nums` 的长度。每个元素最多被扫描一次，属于严格的线性时间复杂度。
+- **空间复杂度** $O(1)$，仅需常数级别的额外空间来维护双指针、局部最小值和全局最大得分。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumScore(self, nums: list[int], k: int) -> int:
+        max_score = nums[k]  # Base case.
+        min_num = nums[k]
+
+        left_idx, right_idx = k, k
+
+        while 0 < left_idx or right_idx < len(nums) - 1:
+            if left_idx == 0:  # Can only go right.
+                right_idx += 1
+                min_num = min(min_num, nums[right_idx])
+
+            elif right_idx == len(nums) - 1:  # Can only go left.
+                left_idx -= 1
+                min_num = min(min_num, nums[left_idx])
+
+            else:  # Can go bidirectional.
+                if nums[left_idx - 1] >= nums[right_idx + 1]:
+                    left_idx -= 1
+                    min_num = min(min_num, nums[left_idx])
+
+                else:
+                    right_idx += 1
+                    min_num = min(min_num, nums[right_idx])
+
+            score = min_num * (right_idx + 1 - left_idx)
+            max_score = max(max_score, score)
+
+        return max_score
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maximumScore(vector<int>& nums, int k) {
+        int maxScore = nums[k], minNum = nums[k]; // Base case.
+
+        int leftIdx = k, rightIdx = k;
+
+        while (0 < leftIdx || rightIdx < nums.size() - 1) {
+            if (leftIdx == 0) { // Can only go right.
+                rightIdx++;
+                minNum = min(minNum, nums[rightIdx]);
+            }
+
+            else if (rightIdx == nums.size() - 1) { // Can only go left.
+                leftIdx--;
+                minNum = min(minNum, nums[leftIdx]);
+            }
+
+            else { // Can go bidirectional.
+                if (nums[leftIdx - 1] >= nums[rightIdx + 1]) {
+                    leftIdx--;
+                    minNum = min(minNum, nums[leftIdx]);
+                }
+
+                else {
+                    rightIdx++;
+                    minNum = min(minNum, nums[rightIdx]);
+                }
+            }
+
+            int score = minNum * (rightIdx + 1 - leftIdx);
+            maxScore = max(maxScore, score);
+        }
+
+        return maxScore;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
