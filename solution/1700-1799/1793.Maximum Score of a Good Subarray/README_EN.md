@@ -270,6 +270,7 @@ function maximumScore(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
 We can initialize two pointers at the core index `k` and expand outward to the left and right.
 By maintaining the minimum value within current window, we can find maximum score in strict linear time.
 
