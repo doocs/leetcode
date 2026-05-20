@@ -173,10 +173,6 @@
 - [找到最小生成树里的关键边和伪关键边](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README.md) - `最小生成树`、`Kruskal 算法`、`并查集`
 - [判断二分图](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README.md) - `染色法判定二分图`、`并查集`
 
-<!-- 待补充
-### 7. 数学知识
- -->
-
 ## 加入我们
 
 刷编程题的最大好处就是可以锻炼解决问题的思维能力。相信我，「如何去思考」​ 本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。

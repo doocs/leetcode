@@ -168,10 +168,6 @@ https://leetcode.doocs.org/en
 - [Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](/solution/1400-1499/1489.Find%20Critical%20and%20Pseudo-Critical%20Edges%20in%20Minimum%20Spanning%20Tree/README_EN.md) - `Minimum Spanning Tree`, `Kruskal's algorithm`, `Union find`
 - [Is Graph Bipartite?](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md) - `Graph coloring`, `Union find`
 
-<!--
-### 7. Mathematical Knowledge
- -->
-
 ## Contributions
 
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
