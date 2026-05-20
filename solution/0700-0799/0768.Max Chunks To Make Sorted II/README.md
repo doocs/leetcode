@@ -202,4 +202,148 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：前缀最大值 + 后缀最小值
+
+我们希望将原始长度为 $n$ 的数组划分为若干个区间，使得每个区间分别排序后，整体数组仍然有序。
+
+考虑相邻两个区间：
+
+* 左侧区间 `left_chunk`
+* 右侧区间 `right_chunk`
+
+若满足：
+
+`max(left_chunk)` <= `min(right_chunk)`
+
+则说明：
+* 左侧区间中的任意元素都不会大于右侧区间中的任意元素
+* 因此两个区间分别排序后，可以直接拼接成一个有序数组
+
+于是，对于每个满足：
+
+$$
+1 \le i < n
+$$
+
+的索引 $i$，我们检查：
+
+$$
+\max(arr[:i]) \le \min(arr[i:])
+$$
+
+是否成立。
+
+若成立，则说明索引 $i$ 可以作为一个合法分割点。
+
+---
+
+为了快速计算上述条件，我们预处理：
+
+* `prefix_maxs[j]`表示：
+
+$$
+\max(arr[:j + 1])
+$$
+
+即前缀最大值。
+
+* `suffix_min[j]`表示：
+
+$$
+\min(arr[j:])
+$$
+
+即后缀最小值。
+
+接下来：
+
+1. 从左到右遍历数组，计算所有前缀最大值
+2. 从右到左遍历数组，计算所有后缀最小值
+3. 对于每个索引 $i$，若：
+
+`prefix_maxs[i - 1]` <= `suffix_min[i]`
+
+成立，则说明：
+
+* 左侧所有元素均不大于右侧所有元素
+* 因此可以在索引 $i$ 处分割数组
+
+最终统计所有合法分割点数量即可。
+
+注意：
+
+即使数组严格递减，整个数组本身仍然可以视为一个合法区间。
+
+因此数组能分成的最多块数为 所有合法分割点数量 + $1$。
+
+时间复杂度为 $O(n)$，空间复杂度为 $O(n)$，其中 $n$ 表示 $\textit{arr}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxChunksToSorted(self, arr: list[int]) -> int:
+        prefix_maxs = []  # Max of each arr[:i + 1] where 0 <= i < len(arr).
+
+        for num in arr:
+            if not prefix_maxs:
+                prefix_maxs.append(num)
+                continue
+
+            prefix_maxs.append(max(num, prefix_maxs[-1]))
+
+        max_chunks = 1  # Base case.
+        suffix_min = arr[-1]  # Min of arr[i:] where 0 <= i < len(arr).
+
+        for idx in range(len(arr) - 1, 0, -1):
+            if arr[idx] < suffix_min:
+                suffix_min = arr[idx]
+
+            if prefix_maxs[idx - 1] <= suffix_min:
+                max_chunks += 1
+
+        return max_chunks
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        vector<int> prefixMaxs; // Max of each arr[:i + 1]. 0 <= i < arr.size().
+
+        for (const auto& num : arr) {
+            if (prefixMaxs.empty()) {
+                prefixMaxs.push_back(num);
+                continue;
+            }
+
+            prefixMaxs.push_back(max(prefixMaxs.back(), num));
+        }
+
+        int maxChunks = 1; // Base case.
+        int suffixMin = arr.back(); // Min of arr[i:]. 0 <= i < arr.size().
+
+        for (int idx = arr.size() - 1; idx >= 1; idx--) {
+            if (arr[idx] < suffixMin)
+                suffixMin = arr[idx];
+
+            if (prefixMaxs[idx - 1] <= suffixMin)
+                maxChunks++;
+        }
+
+        return maxChunks;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
