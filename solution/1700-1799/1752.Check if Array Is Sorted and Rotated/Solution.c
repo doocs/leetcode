@@ -1,9 +1,9 @@
 bool check(int* nums, int numsSize) {
-    int count = 0;
+    int cnt = 0;
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] > nums[(i + 1) % numsSize]) {
-            count++;
+            cnt++;
         }
     }
-    return count <= 1;
+    return cnt <= 1;
 }

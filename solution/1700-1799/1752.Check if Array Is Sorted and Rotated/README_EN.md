@@ -65,7 +65,13 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Single Pass
+
+To satisfy the problem's requirement, there can be at most one element in array $\textit{nums}$ whose value is greater than the next element, i.e., $nums[i] \gt nums[i + 1]$. If there are more than one such elements, then array $\textit{nums}$ cannot be obtained by rotation.
+
+Note that the next element after the last element of array $\textit{nums}$ is the first element of array $\textit{nums}$.
+
+The time complexity is $O(n)$, where $n$ is the length of array $\textit{nums}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -74,7 +80,7 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make nums.
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        return sum(nums[i - 1] > v for i, v in enumerate(nums)) <= 1
+        return sum(nums[i - 1] > x for i, x in enumerate(nums)) <= 1
 ```
 
 #### Java
@@ -113,8 +119,8 @@ public:
 ```go
 func check(nums []int) bool {
 	cnt := 0
-	for i, v := range nums {
-		if v > nums[(i+1)%len(nums)] {
+	for i, x := range nums {
+		if x > nums[(i+1)%len(nums)] {
 			cnt++
 		}
 	}
@@ -127,7 +133,7 @@ func check(nums []int) bool {
 ```ts
 function check(nums: number[]): boolean {
     const n = nums.length;
-    return nums.reduce((r, v, i) => r + (v > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
+    return nums.reduce((cnt, x, i) => cnt + (x > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
 }
 ```
 
@@ -137,13 +143,10 @@ function check(nums: number[]): boolean {
 impl Solution {
     pub fn check(nums: Vec<i32>) -> bool {
         let n = nums.len();
-        let mut count = 0;
-        for i in 0..n {
-            if nums[i] > nums[(i + 1) % n] {
-                count += 1;
-            }
-        }
-        count <= 1
+        let cnt = nums.iter().enumerate().fold(0, |cnt, (i, &x)| {
+            cnt + if x > nums[(i + 1) % n] { 1 } else { 0 }
+        });
+        cnt <= 1
     }
 }
 ```
@@ -152,13 +155,13 @@ impl Solution {
 
 ```c
 bool check(int* nums, int numsSize) {
-    int count = 0;
+    int cnt = 0;
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] > nums[(i + 1) % numsSize]) {
-            count++;
+            cnt++;
         }
     }
-    return count <= 1;
+    return cnt <= 1;
 }
 ```
 
