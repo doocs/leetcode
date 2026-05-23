@@ -71,11 +71,11 @@ tags:
 
 ### 方法一：一次遍历
 
-要满足题目要求，那么数组 `nums` 中最多只能存在一个元素，其值大于下一个元素，即 $nums[i] \gt nums[i + 1]$。如果存在多个这样的元素，那么数组 `nums` 无法通过轮转得到。
+要满足题目要求，那么数组 $\textit{nums}$ 中最多只能存在一个元素，其值大于下一个元素，即 $nums[i] \gt nums[i + 1]$。如果存在多个这样的元素，那么数组 $\textit{nums}$ 无法通过轮转得到。
 
-注意，数组 `nums` 最后一个元素的下一个元素是数组 `nums` 的第一个元素。
+注意，数组 $\textit{nums}$ 最后一个元素的下一个元素是数组 $\textit{nums}$ 的第一个元素。
 
-时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 `nums` 的长度。
+时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -84,7 +84,7 @@ tags:
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        return sum(nums[i - 1] > v for i, v in enumerate(nums)) <= 1
+        return sum(nums[i - 1] > x for i, x in enumerate(nums)) <= 1
 ```
 
 #### Java
@@ -123,8 +123,8 @@ public:
 ```go
 func check(nums []int) bool {
 	cnt := 0
-	for i, v := range nums {
-		if v > nums[(i+1)%len(nums)] {
+	for i, x := range nums {
+		if x > nums[(i+1)%len(nums)] {
 			cnt++
 		}
 	}
@@ -137,7 +137,7 @@ func check(nums []int) bool {
 ```ts
 function check(nums: number[]): boolean {
     const n = nums.length;
-    return nums.reduce((r, v, i) => r + (v > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
+    return nums.reduce((cnt, x, i) => cnt + (x > nums[(i + 1) % n] ? 1 : 0), 0) <= 1;
 }
 ```
 
@@ -147,13 +147,10 @@ function check(nums: number[]): boolean {
 impl Solution {
     pub fn check(nums: Vec<i32>) -> bool {
         let n = nums.len();
-        let mut count = 0;
-        for i in 0..n {
-            if nums[i] > nums[(i + 1) % n] {
-                count += 1;
-            }
-        }
-        count <= 1
+        let cnt = nums.iter().enumerate().fold(0, |cnt, (i, &x)| {
+            cnt + if x > nums[(i + 1) % n] { 1 } else { 0 }
+        });
+        cnt <= 1
     }
 }
 ```
@@ -162,13 +159,13 @@ impl Solution {
 
 ```c
 bool check(int* nums, int numsSize) {
-    int count = 0;
+    int cnt = 0;
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] > nums[(i + 1) % numsSize]) {
-            count++;
+            cnt++;
         }
     }
-    return count <= 1;
+    return cnt <= 1;
 }
 ```
 
