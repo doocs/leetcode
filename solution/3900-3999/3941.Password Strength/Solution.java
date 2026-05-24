@@ -1,8 +1,6 @@
 class Solution {
     public int passwordStrength(String password) {
-        var st = password.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.toSet());
+        var st = password.chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
 
         int ans = 0;
 
