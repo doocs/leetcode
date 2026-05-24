@@ -82,32 +82,173 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3937.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举偶数下标的目标值 $x$ 和奇数下标的目标值 $y$，其中 $0 \leq x, y < k$ 且 $x \neq y$。对于每个元素，我们计算将其变为目标值所需的操作次数，并累加得到总操作次数。最后返回所有枚举结果中的最小值。
+
+时间复杂度 $O(n \times k^2)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: list[int], k: int) -> int:
+        for i, v in enumerate(nums):
+            nums[i] = v % k
+        ans = inf
+        for x in range(k):
+            for y in range(k):
+                if x != y:
+                    cnt = 0
+                    for i, v in enumerate(nums):
+                        target = x if i % 2 == 0 else y
+                        diff = abs(target - v)
+                        cnt += min(diff, k - diff)
+                    ans = min(ans, cnt)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            nums[i] %= k;
+        }
 
+        int ans = Integer.MAX_VALUE;
+
+        for (int x = 0; x < k; ++x) {
+            for (int y = 0; y < k; ++y) {
+                if (x != y) {
+                    int cnt = 0;
+
+                    for (int i = 0; i < n; ++i) {
+                        int target = (i & 1) == 0 ? x : y;
+                        int diff = Math.abs(target - nums[i]);
+                        cnt += Math.min(diff, k - diff);
+                    }
+
+                    ans = Math.min(ans, cnt);
+                }
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int k) {
+        int n = nums.size();
 
+        for (int& v : nums) {
+            v %= k;
+        }
+
+        int ans = INT_MAX;
+
+        for (int x = 0; x < k; ++x) {
+            for (int y = 0; y < k; ++y) {
+                if (x != y) {
+                    int cnt = 0;
+
+                    for (int i = 0; i < n; ++i) {
+                        int target = (i & 1) ? y : x;
+                        int diff = abs(target - nums[i]);
+                        cnt += min(diff, k - diff);
+                    }
+
+                    ans = min(ans, cnt);
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int, k int) int {
+	for i, v := range nums {
+		nums[i] = v % k
+	}
 
+	ans := int(^uint(0) >> 1)
+
+	for x := 0; x < k; x++ {
+		for y := 0; y < k; y++ {
+			if x != y {
+				cnt := 0
+
+				for i, v := range nums {
+					target := x
+					if i&1 == 1 {
+						target = y
+					}
+
+					diff := abs(target - v)
+					cnt += min(diff, k-diff)
+				}
+
+				ans = min(ans, cnt)
+			}
+		}
+	}
+
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minOperations(nums: number[], k: number): number {
+    const n = nums.length;
+
+    for (let i = 0; i < n; ++i) {
+        nums[i] %= k;
+    }
+
+    let ans = Infinity;
+
+    for (let x = 0; x < k; ++x) {
+        for (let y = 0; y < k; ++y) {
+            if (x !== y) {
+                let cnt = 0;
+
+                for (let i = 0; i < n; ++i) {
+                    const target = (i & 1) === 0 ? x : y;
+                    const diff = Math.abs(target - nums[i]);
+                    cnt += Math.min(diff, k - diff);
+                }
+
+                ans = Math.min(ans, cnt);
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
