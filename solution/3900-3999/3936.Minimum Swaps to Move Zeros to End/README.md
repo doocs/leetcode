@@ -86,32 +86,149 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3936.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：双指针
+
+我们用两个指针 $i$ 和 $j$ 分别指向数组的开头和结尾。每次我们将 $i$ 向右移动直到找到一个 0，将 $j$ 向左移动直到找到一个非 0 的数。如果 $i < j$，我们就交换这两个数，并将答案加 1。重复这个过程直到 $i \geq j$。
+
+时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minimumSwaps(self, nums: list[int]) -> int:
+        ans = 0
+        n = len(nums)
+        i, j = 0, n - 1
+        while i < j:
+            while i < n and nums[i] != 0:
+                i += 1
+            while j and nums[j] == 0:
+                j -= 1
+            if i >= j:
+                break
+            ans += 1
+            i += 1
+            j -= 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minimumSwaps(int[] nums) {
+        int ans = 0;
+        int n = nums.length;
+        for (int i = 0, j = n - 1; i < j; ++i, --j) {
+            while (i < n && nums[i] != 0) {
+                ++i;
+            }
 
+            while (j > 0 && nums[j] == 0) {
+                --j;
+            }
+
+            if (i >= j) {
+                break;
+            }
+
+            ++ans;
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minimumSwaps(vector<int>& nums) {
+        int ans = 0;
+        int n = nums.size();
+        for (int i = 0, j = n - 1; i < j; ++i, --j) {
+            while (i < n && nums[i] != 0) {
+                ++i;
+            }
 
+            while (j > 0 && nums[j] == 0) {
+                --j;
+            }
+
+            if (i >= j) {
+                break;
+            }
+
+            ++ans;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minimumSwaps(nums []int) int {
+	ans := 0
+	n := len(nums)
 
+	for i, j := 0, n-1; i < j; i, j = i+1, j-1 {
+		for i < n && nums[i] != 0 {
+			i++
+		}
+
+		for j > 0 && nums[j] == 0 {
+			j--
+		}
+
+		if i >= j {
+			break
+		}
+
+		ans++
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumSwaps(nums: number[]): number {
+    let ans = 0;
+    const n = nums.length;
+
+    let i = 0;
+    let j = n - 1;
+
+    while (i < j) {
+        while (i < n && nums[i] !== 0) {
+            ++i;
+        }
+
+        while (j > 0 && nums[j] === 0) {
+            --j;
+        }
+
+        if (i >= j) {
+            break;
+        }
+
+        ++ans;
+        ++i;
+        --j;
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
