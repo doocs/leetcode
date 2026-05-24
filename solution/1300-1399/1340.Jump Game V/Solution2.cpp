@@ -20,6 +20,6 @@ public:
                 f[i] = max(f[i], 1 + f[j]);
             }
         }
-        return *max_element(f.begin(), f.end());
+        return ranges::max(f);
     }
 };

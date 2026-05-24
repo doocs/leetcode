@@ -90,11 +90,11 @@ tags:
 
 ### 方法一：记忆化搜索
 
-我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始跳跃能够访问的最大下标数。我们可以枚举 $i$ 的所有合法的跳跃目标 $j$，即 $i - d \leq j \leq i + d$，并且 $arr[i] \gt arr[j]$。对于每个合法的 $j$，我们可以递归地计算 $dfs(j)$，并取其中的最大值。最终的答案即为所有 $i$ 的 $dfs(i)$ 的最大值。
+我们设计一个函数 $\text{dfs}(i)$，表示从下标 $i$ 开始跳跃能够访问的最大下标数。我们可以枚举 $i$ 的所有合法的跳跃目标 $j$，即 $i - d \leq j \leq i + d$，并且 $\text{arr}[i] > \text{arr}[j]$。对于每个合法的 $j$，我们可以递归地计算 $\text{dfs}(j)$，并取其中的最大值。最终的答案即为所有 $i$ 的 $\text{dfs}(i)$ 的最大值。
 
-我们可以使用记忆化搜索来优化这个过程，即使用一个数组 $f$ 记录每个下标的 $dfs$ 值，避免重复计算。
+我们可以使用记忆化搜索来优化这个过程，即使用一个数组 $f$ 记录每个下标的 $\text{dfs}$ 值，避免重复计算。
 
-时间复杂度 $O(n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $arr$ 的长度。
+时间复杂度 $O(n \times d)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\text{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -172,7 +172,7 @@ public:
         int n = arr.size();
         int f[n];
         memset(f, 0, sizeof(f));
-        function<int(int)> dfs = [&](int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (f[i]) {
                 return f[i];
             }
@@ -234,6 +234,81 @@ func maxJumps(arr []int, d int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```typescript
+function maxJumps(arr: number[], d: number): number {
+    const n = arr.length;
+    const f: number[] = new Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (f[i] !== 0) {
+            return f[i];
+        }
+        let ans = 1;
+        for (let j = i - 1; j >= 0; j--) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            ans = Math.max(ans, 1 + dfs(j));
+        }
+        for (let j = i + 1; j < n; j++) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            ans = Math.max(ans, 1 + dfs(j));
+        }
+        f[i] = ans;
+        return ans;
+    };
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans = Math.max(ans, dfs(i));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_jumps(arr: Vec<i32>, d: i32) -> i32 {
+        fn dfs(i: usize, n: usize, d: usize, arr: &[i32], f: &mut Vec<i32>) -> i32 {
+            if f[i] != 0 {
+                return f[i];
+            }
+            let mut ans = 1;
+            let mut j = (i as isize) - 1;
+            while j >= 0 {
+                if i - (j as usize) > d || arr[j as usize] >= arr[i] {
+                    break;
+                }
+                ans = ans.max(1 + dfs(j as usize, n, d, arr, f));
+                j -= 1;
+            }
+            j = (i as isize) + 1;
+            while (j as usize) < n {
+                if j as usize - i > d || arr[j as usize] >= arr[i] {
+                    break;
+                }
+                ans = ans.max(1 + dfs(j as usize, n, d, arr, f));
+                j += 1;
+            }
+            f[i] = ans;
+            ans
+        }
+        let n = arr.len();
+        let d = d as usize;
+        let mut f = vec![0; n];
+        let mut ans = 0;
+        for i in 0..n {
+            ans = ans.max(dfs(i, n, d, &arr, &mut f));
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
@@ -241,6 +316,8 @@ func maxJumps(arr []int, d int) (ans int) {
 <!-- solution:start -->
 
 ### 方法二：排序 + 动态规划
+
+我们可以将数组 $\text{arr}$ 中的每个元素 $x$ 与其下标 $i$ 组成一个元组 $(x, i)$，并将这些元组按照 $x$ 从小到大排序。
 
 我们可以将数组 $arr$ 中的每个元素 $x$ 与其下标 $i$ 组成一个元组 $(x, i)$，并将这些元组按照 $x$ 从小到大排序。
 
@@ -330,7 +407,7 @@ public:
                 f[i] = max(f[i], 1 + f[j]);
             }
         }
-        return *max_element(f.begin(), f.end());
+        return ranges::max(f);
     }
 };
 ```
@@ -362,6 +439,74 @@ func maxJumps(arr []int, d int) int {
 		}
 	}
 	return slices.Max(f)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxJumps(arr: number[], d: number): number {
+    const n = arr.length;
+    const f: number[] = new Array(n).fill(1);
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((a, b) => arr[a] - arr[b]);
+    for (const i of idx) {
+        for (let j = i - 1; j >= 0; j--) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+        for (let j = i + 1; j < n; j++) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_jumps(arr: Vec<i32>, d: i32) -> i32 {
+        let n = arr.len();
+        let d = d as usize;
+
+        let mut idx: Vec<usize> = (0..n).collect();
+        idx.sort_by_key(|&i| arr[i]);
+
+        let mut f = vec![1; n];
+
+        for &i in &idx {
+            let mut j = i as i32 - 1;
+            while j >= 0 {
+                let k = j as usize;
+
+                if i - k > d || arr[k] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[k]);
+                j -= 1;
+            }
+
+            let mut j = i + 1;
+            while j < n {
+                if j - i > d || arr[j] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[j]);
+                j += 1;
+            }
+        }
+
+        *f.iter().max().unwrap()
+    }
 }
 ```
 

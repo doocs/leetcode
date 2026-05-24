@@ -3946,6 +3946,10 @@
 |  3933  |  [矩阵中的局部最大值 II](/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README.md)  |    |  中等  |  第 502 场周赛  |
 |  3934  |  [最短唯一子数组](/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README.md)  |    |  困难  |  第 502 场周赛  |
 |  3935  |  [插入后第 K 大更新的幂 I](/solution/3900-3999/3935.Power%20Update%20After%20K-th%20Largest%20Insertion%20I/README.md)  |    |  中等  |  🔒  |
+|  3936  |  [将 0 移到末尾的最少交换次数](/solution/3900-3999/3936.Minimum%20Swaps%20to%20Move%20Zeros%20to%20End/README.md)  |    |  简单  |  第 183 场双周赛  |
+|  3937  |  [使数组变为模交替数组的最少操作次数 I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README.md)  |    |  中等  |  第 183 场双周赛  |
+|  3938  |  [矩阵中最大共享路径和](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README.md)  |    |  中等  |  第 183 场双周赛  |
+|  3939  |  [统计有根树中不相邻子集的数目](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README.md)  |    |  困难  |  第 183 场双周赛  |
 
 ## 版权
 

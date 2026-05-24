@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3931.Check%20Adjacent%20Digit%20Differences/README.md
+rating: 1165
+source: 第 502 场周赛 Q1
 ---
 
 <!-- problem:start -->

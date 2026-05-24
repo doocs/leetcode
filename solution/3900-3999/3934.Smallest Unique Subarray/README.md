@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README.md
+rating: 2162
+source: 第 502 场周赛 Q4
 ---
 
 <!-- problem:start -->

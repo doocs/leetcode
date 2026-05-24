@@ -4,7 +4,7 @@ public:
         int n = arr.size();
         int f[n];
         memset(f, 0, sizeof(f));
-        function<int(int)> dfs = [&](int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (f[i]) {
                 return f[i];
             }
