@@ -3948,6 +3948,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3937  |  [Minimum Operations to Make Array Modulo Alternating I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 183  |
 |  3938  |  [Maximum Path Intersection Sum in a Grid](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 183  |
 |  3939  |  [Count Non Adjacent Subsets in a Rooted Tree](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 183  |
+|  3940  |  [Limit Occurrences in Sorted Array](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 503  |
+|  3941  |  [Password Strength](/solution/3900-3999/3941.Password%20Strength/README_EN.md)  |    |  Medium  |  Weekly Contest 503  |
+|  3942  |  [Minimum Operations to Sort a Permutation](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md)  |    |  Medium  |  Weekly Contest 503  |
+|  3943  |  [Number of Pairs After Increment](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README_EN.md)  |    |  Hard  |  Weekly Contest 503  |
 
 ## Copyright
 

@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 503
+
+- [3940. Limit Occurrences in Sorted Array](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md)
+- [3941. Password Strength](/solution/3900-3999/3941.Password%20Strength/README_EN.md)
+- [3942. Minimum Operations to Sort a Permutation](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md)
+- [3943. Number of Pairs After Increment](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README_EN.md)
+
 #### Biweekly Contest 183
 
 - [3936. Minimum Swaps to Move Zeros to End](/solution/3900-3999/3936.Minimum%20Swaps%20to%20Move%20Zeros%20to%20End/README_EN.md)
