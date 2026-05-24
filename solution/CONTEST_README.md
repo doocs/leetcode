@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 503 场周赛(2026-05-24 10:30, 90 分钟) 参赛人数 1276
+
+- [3940. 限制有序数组中的元素出现次数](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README.md)
+- [3941. 密码强度](/solution/3900-3999/3941.Password%20Strength/README.md)
+- [3942. 排序排列的最少操作数](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README.md)
+- [3943. 递增后的数对数量](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README.md)
+
 #### 第 183 场双周赛(2026-05-23 22:30, 90 分钟) 参赛人数 943
 
 - [3936. 将 0 移到末尾的最少交换次数](/solution/3900-3999/3936.Minimum%20Swaps%20to%20Move%20Zeros%20to%20End/README.md)

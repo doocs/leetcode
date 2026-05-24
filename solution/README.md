@@ -3950,6 +3950,10 @@
 |  3937  |  [使数组变为模交替数组的最少操作次数 I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README.md)  |    |  中等  |  第 183 场双周赛  |
 |  3938  |  [矩阵中最大共享路径和](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README.md)  |    |  中等  |  第 183 场双周赛  |
 |  3939  |  [统计有根树中不相邻子集的数目](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README.md)  |    |  困难  |  第 183 场双周赛  |
+|  3940  |  [限制有序数组中的元素出现次数](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README.md)  |    |  简单  |  第 503 场周赛  |
+|  3941  |  [密码强度](/solution/3900-3999/3941.Password%20Strength/README.md)  |    |  中等  |  第 503 场周赛  |
+|  3942  |  [排序排列的最少操作数](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README.md)  |    |  中等  |  第 503 场周赛  |
+|  3943  |  [递增后的数对数量](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README.md)  |    |  困难  |  第 503 场周赛  |
 
 ## 版权
 
