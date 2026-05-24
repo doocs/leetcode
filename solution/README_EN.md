@@ -3944,6 +3944,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3933  |  [Largest Local Values in a Matrix II](/solution/3900-3999/3933.Largest%20Local%20Values%20in%20a%20Matrix%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 502  |
 |  3934  |  [Smallest Unique Subarray](/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README_EN.md)  |    |  Hard  |  Weekly Contest 502  |
 |  3935  |  [Power Update After K-th Largest Insertion I](/solution/3900-3999/3935.Power%20Update%20After%20K-th%20Largest%20Insertion%20I/README_EN.md)  |    |  Medium  |  🔒  |
+|  3936  |  [Minimum Swaps to Move Zeros to End](/solution/3900-3999/3936.Minimum%20Swaps%20to%20Move%20Zeros%20to%20End/README_EN.md)  |    |  Easy  |  Biweekly Contest 183  |
+|  3937  |  [Minimum Operations to Make Array Modulo Alternating I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 183  |
+|  3938  |  [Maximum Path Intersection Sum in a Grid](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 183  |
+|  3939  |  [Count Non Adjacent Subsets in a Rooted Tree](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 183  |
 
 ## Copyright
 

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 183 场双周赛(2026-05-23 22:30, 90 分钟) 参赛人数 943
+
+- [3936. 将 0 移到末尾的最少交换次数](/solution/3900-3999/3936.Minimum%20Swaps%20to%20Move%20Zeros%20to%20End/README.md)
+- [3937. 使数组变为模交替数组的最少操作次数 I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README.md)
+- [3938. 矩阵中最大共享路径和](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README.md)
+- [3939. 统计有根树中不相邻子集的数目](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README.md)
+
 #### 第 502 场周赛(2026-05-17 10:30, 90 分钟) 参赛人数 1388
 
 - [3931. 检查相邻数字差](/solution/3900-3999/3931.Check%20Adjacent%20Digit%20Differences/README.md)

@@ -75,7 +75,13 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoized Search
+
+We design a function $\text{dfs}(i)$ to represent the maximum number of indices that can be visited starting from index $i$. We enumerate all valid jump targets $j$ for $i$, where $i - d \leq j \leq i + d$ and $\text{arr}[i] > \text{arr}[j]$. For each valid $j$, we recursively compute $\text{dfs}(j)$ and take the maximum among them. The final answer is the maximum value of $\text{dfs}(i)$ over all indices $i$.
+
+We can use memoized search to optimize this process, that is, use an array $f$ to record the value of $\text{dfs}$ for each index and avoid repeated computation.
+
+The time complexity is $O(n \times d)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\text{arr}$.
 
 <!-- tabs:start -->
 
@@ -153,7 +159,7 @@ public:
         int n = arr.size();
         int f[n];
         memset(f, 0, sizeof(f));
-        function<int(int)> dfs = [&](int i) -> int {
+        auto dfs = [&](this auto&& dfs, int i) -> int {
             if (f[i]) {
                 return f[i];
             }
@@ -215,13 +221,98 @@ func maxJumps(arr []int, d int) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function maxJumps(arr: number[], d: number): number {
+    const n = arr.length;
+    const f: number[] = new Array(n).fill(0);
+    const dfs = (i: number): number => {
+        if (f[i] !== 0) {
+            return f[i];
+        }
+        let ans = 1;
+        for (let j = i - 1; j >= 0; j--) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            ans = Math.max(ans, 1 + dfs(j));
+        }
+        for (let j = i + 1; j < n; j++) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            ans = Math.max(ans, 1 + dfs(j));
+        }
+        f[i] = ans;
+        return ans;
+    };
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans = Math.max(ans, dfs(i));
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_jumps(arr: Vec<i32>, d: i32) -> i32 {
+        fn dfs(i: usize, n: usize, d: usize, arr: &[i32], f: &mut Vec<i32>) -> i32 {
+            if f[i] != 0 {
+                return f[i];
+            }
+            let mut ans = 1;
+            let mut j = (i as isize) - 1;
+            while j >= 0 {
+                if i - (j as usize) > d || arr[j as usize] >= arr[i] {
+                    break;
+                }
+                ans = ans.max(1 + dfs(j as usize, n, d, arr, f));
+                j -= 1;
+            }
+            j = (i as isize) + 1;
+            while (j as usize) < n {
+                if j as usize - i > d || arr[j as usize] >= arr[i] {
+                    break;
+                }
+                ans = ans.max(1 + dfs(j as usize, n, d, arr, f));
+                j += 1;
+            }
+            f[i] = ans;
+            ans
+        }
+        let n = arr.len();
+        let d = d as usize;
+        let mut f = vec![0; n];
+        let mut ans = 0;
+        for i in 0..n {
+            ans = ans.max(dfs(i, n, d, &arr, &mut f));
+        }
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Sorting + Dynamic Programming
+
+We can pair each element $x$ in the array $\text{arr}$ with its index $i$ to form a tuple $(x, i)$, and sort these tuples in ascending order by $x$.
+
+Next, define $f[i]$ to be the maximum number of indices that can be visited starting from index $i$. Initially, $f[i] = 1$, meaning each index can be visited alone as a single jump.
+
+We enumerate $i$ in the order of the tuples $(x, i)$, and enumerate all valid jump targets $j$ for $i$, namely $i - d \leq j \leq i + d$, with $\text{arr}[i] > \text{arr}[j]$. For each valid $j$, we can update $f[i]$, namely $f[i] = \max(f[i], 1 + f[j])$.
+
+The final answer is $\max_{0 \leq i < n} f[i]$.
+
+The time complexity is $O(n \log n + n \times d)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\text{arr}$.
 
 <!-- tabs:start -->
 
@@ -301,7 +392,7 @@ public:
                 f[i] = max(f[i], 1 + f[j]);
             }
         }
-        return *max_element(f.begin(), f.end());
+        return ranges::max(f);
     }
 };
 ```
@@ -333,6 +424,74 @@ func maxJumps(arr []int, d int) int {
 		}
 	}
 	return slices.Max(f)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxJumps(arr: number[], d: number): number {
+    const n = arr.length;
+    const f: number[] = new Array(n).fill(1);
+    const idx: number[] = Array.from({ length: n }, (_, i) => i);
+    idx.sort((a, b) => arr[a] - arr[b]);
+    for (const i of idx) {
+        for (let j = i - 1; j >= 0; j--) {
+            if (i - j > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+        for (let j = i + 1; j < n; j++) {
+            if (j - i > d || arr[j] >= arr[i]) {
+                break;
+            }
+            f[i] = Math.max(f[i], 1 + f[j]);
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_jumps(arr: Vec<i32>, d: i32) -> i32 {
+        let n = arr.len();
+        let d = d as usize;
+
+        let mut idx: Vec<usize> = (0..n).collect();
+        idx.sort_by_key(|&i| arr[i]);
+
+        let mut f = vec![1; n];
+
+        for &i in &idx {
+            let mut j = i as i32 - 1;
+            while j >= 0 {
+                let k = j as usize;
+
+                if i - k > d || arr[k] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[k]);
+                j -= 1;
+            }
+
+            let mut j = i + 1;
+            while j < n {
+                if j - i > d || arr[j] >= arr[i] {
+                    break;
+                }
+
+                f[i] = f[i].max(1 + f[j]);
+                j += 1;
+            }
+        }
+
+        *f.iter().max().unwrap()
+    }
 }
 ```
 

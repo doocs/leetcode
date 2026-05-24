@@ -279,8 +279,8 @@ By maintaining the minimum value within current window, we can find maximum scor
 1. Initialize left pointer `i = k`, right pointer `j = k`, and window minimum value `min_num = nums[k]`. Set initial maximum score `max_score = nums[k]`.
 
 2. Expand pointers while `i > 0` or `j < len(nums) - 1`:
-   - **Direction**: If left boundary can't expand (`i == 0`), move right pointer `j++`. If right boundary can't expand (`j == len(nums) - 1`), move left pointer `i--`.
-   - If both sides are expandable, compare `nums[i - 1]` and `nums[j + 1]`, and expand towards the side with a larger value (i.e., if `nums[i - 1] >= nums[j + 1]`, decrement `i`; otherwise, increment `j`).
+    - **Direction**: If left boundary can't expand (`i == 0`), move right pointer `j++`. If right boundary can't expand (`j == len(nums) - 1`), move left pointer `i--`.
+    - If both sides are expandable, compare `nums[i - 1]` and `nums[j + 1]`, and expand towards the side with a larger value (i.e., if `nums[i - 1] >= nums[j + 1]`, decrement `i`; otherwise, increment `j`).
 
 3. **Update State**: after each pointer movement, update current window minimum value: `min_num = min(min_num, nums[i] or nums[j])`.
 
@@ -289,6 +289,7 @@ By maintaining the minimum value within current window, we can find maximum scor
 5. Return `max_score` once the for loop terminates.
 
 **Complexity Analysis:**
+
 - **Time Complexity**: $O(n)$, where $n$ is length of array `nums`. Each element is scanned at most once.
 - **Space Complexity**: $O(1)$, as it only requires a constant amount of extra space for two pointers, window minimum value and global maximum score.
 

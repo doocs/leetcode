@@ -210,16 +210,17 @@ after sorting each chunk individually, the entire array remains sorted.
 
 Consider two adjacent chunks:
 
-* left chunk: `left_chunk`
-* right chunk: `right_chunk`
+- left chunk: `left_chunk`
+- right chunk: `right_chunk`
 
 If the following condition holds:
 
 `max(left_chunk)` <= `min(right_chunk)`
 
 it means:
-* every element in the left chunk is less than or equal to every element in the right chunk
-* therefore, after sorting both chunks independently, they can still be concatenated into a globally sorted array
+
+- every element in the left chunk is less than or equal to every element in the right chunk
+- therefore, after sorting both chunks independently, they can still be concatenated into a globally sorted array
 
 Thus, for every index $i$ satisfying:
 
@@ -241,7 +242,7 @@ If true, then index $i$ can serve as a valid partition point.
 
 To efficiently evaluate the above condition, we preprocess:
 
-* `prefix_maxs[j]`
+- `prefix_maxs[j]`
 
 which represents:
 
@@ -251,7 +252,7 @@ $$
 
 i.e. the prefix maximum.
 
-* `suffix_min[j]`
+- `suffix_min[j]`
 
 which represents:
 
@@ -273,8 +274,8 @@ holds.
 
 If true, then:
 
-* every element on the left side is less than or equal to every element on the right side
-* therefore, the array can be partitioned at index $i$
+- every element on the left side is less than or equal to every element on the right side
+- therefore, the array can be partitioned at index $i$
 
 Finally, count all valid partition points.
 
