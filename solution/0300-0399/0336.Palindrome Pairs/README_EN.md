@@ -99,50 +99,58 @@ class Solution:
 #### Java
 
 ```java
-class Solution {
-    private static final int BASE = 131;
-    private static final long[] MUL = new long[310];
-    private static final int MOD = (int) 1e9 + 7;
-    static {
-        MUL[0] = 1;
-        for (int i = 1; i < MUL.length; ++i) {
-            MUL[i] = (MUL[i - 1] * BASE) % MOD;
-        }
-    }
-    public List<List<Integer>> palindromePairs(String[] words) {
-        int n = words.length;
-        long[] prefix = new long[n];
-        long[] suffix = new long[n];
-        for (int i = 0; i < n; ++i) {
-            String word = words[i];
-            int m = word.length();
-            for (int j = 0; j < m; ++j) {
-                int t = word.charAt(j) - 'a' + 1;
-                int s = word.charAt(m - j - 1) - 'a' + 1;
-                prefix[i] = (prefix[i] * BASE) % MOD + t;
-                suffix[i] = (suffix[i] * BASE) % MOD + s;
-            }
-        }
-        List<List<Integer>> ans = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (check(i, j, words[j].length(), words[i].length(), prefix, suffix)) {
-                    ans.add(Arrays.asList(i, j));
-                }
-                if (check(j, i, words[i].length(), words[j].length(), prefix, suffix)) {
-                    ans.add(Arrays.asList(j, i));
-                }
-            }
-        }
-        return ans;
-    }
+import java.util.*;
 
-    private boolean check(int i, int j, int n, int m, long[] prefix, long[] suffix) {
-        long t = ((prefix[i] * MUL[n]) % MOD + prefix[j]) % MOD;
-        long s = ((suffix[j] * MUL[m]) % MOD + suffix[i]) % MOD;
-        return t == s;
+class Solution {
+    public List<List<Integer>> palindromePairs(String[] words) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (words == null || words.length < 2) return result;
+        
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < words.length; i++) {
+            map.put(words[i], i);
+        }
+        
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            
+            for (int j = 0; j <= word.length(); j++) {
+                String str1 = word.substring(0, j);
+                String str2 = word.substring(j);
+                
+                if (isPalindrome(str1)) {
+                    String reverseStr2 = new StringBuilder(str2).reverse().toString();
+                    if (map.containsKey(reverseStr2) && map.get(reverseStr2) != i) {
+                        result.add(Arrays.asList(map.get(reverseStr2), i));
+                    }
+                }
+                
+                if (isPalindrome(str2) && j < word.length()) {
+                    String reverseStr1 = new StringBuilder(str1).reverse().toString();
+                    if (map.containsKey(reverseStr1) && map.get(reverseStr1) != i) {
+                        result.add(Arrays.asList(i, map.get(reverseStr1)));
+                    }
+                }
+            }
+        }
+        
+        return result;
+    }
+    
+    private boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 }
+
 ```
 
 #### Go
