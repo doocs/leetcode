@@ -123,11 +123,9 @@ class Solution {
 public:
     bool canReach(string s, int minJump, int maxJump) {
         int n = s.size();
-        int pre[n + 1];
-        memset(pre, 0, sizeof(pre));
+        vector<int> pre(n + 1);
         pre[1] = 1;
-        bool f[n];
-        memset(f, 0, sizeof(f));
+        vector<bool> f(n);
         f[0] = true;
         for (int i = 1; i < n; ++i) {
             if (s[i] == '0') {
@@ -182,6 +180,38 @@ function canReach(s: string, minJump: number, maxJump: number): boolean {
         pre[i + 1] = pre[i] + (f[i] ? 1 : 0);
     }
     return f[n - 1];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn can_reach(s: String, min_jump: i32, max_jump: i32) -> bool {
+        let s = s.as_bytes();
+        let n = s.len();
+        let min_jump = min_jump as usize;
+        let max_jump = max_jump as usize;
+
+        let mut pre = vec![0; n + 1];
+        pre[1] = 1;
+
+        let mut f = vec![false; n];
+        f[0] = true;
+
+        for i in 1..n {
+            if s[i] == b'0' {
+                let l = i.saturating_sub(max_jump);
+                if i >= min_jump {
+                    let r = i - min_jump;
+                    f[i] = l <= r && pre[r + 1] - pre[l] > 0;
+                }
+            }
+            pre[i + 1] = pre[i] + if f[i] { 1 } else { 0 };
+        }
+
+        f[n - 1]
+    }
 }
 ```
 
