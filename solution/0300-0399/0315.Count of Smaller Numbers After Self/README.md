@@ -608,6 +608,153 @@ func merge(arr []Pair, low, mid, high int) {
 
 ### 方法三：归并排序
 
+在归并排序的合并阶段，当左侧元素 $\textit{left}[i] \leq$ 右侧元素 $\textit{right}[j]$ 时，
+
+说明右侧恰好有 $j$ 个元素比 $\textit{left}[i]$ 小，因此将 $j$ 累加到左侧元素的计数中。
+
+当右侧元素全部清空，其体现右侧所有元素均小于剩余左侧元素，累加右侧数组长度到每个剩余左侧元素的计数即可。
+
+__注意__：C++做超大数组的归并排序时，有内存爆炸风险，需使用 __缓存数组__ 避免Memory Limit Exceeded。
+
+#### 复杂度：
+
+- 时间复杂度：$O(n \log n)$，归并排序的标准时间复杂度。
+- 空间复杂度：$O(n)$，递归栈的标准空间复杂度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countSmaller(self, nums: list[int]) -> list[int]:
+        self.right_smaller_counts = [0] * len(nums)
+
+        nums_indices = [(num, idx) for idx, num in enumerate(nums)]
+        self.merge_sort(nums_indices)
+
+        return self.right_smaller_counts
+
+    def combine_arrays(
+        self,
+        left_nums_indices: list[tuple[int, int]],
+        right_nums_indices: list[tuple[int, int]],
+    ) -> list[tuple[int, int]]:
+        merged_nums_indices: list[tuple[int, int]] = []
+        left_idx, right_idx = 0, 0
+
+        while left_idx < len(left_nums_indices) and right_idx < len(right_nums_indices):
+            if left_nums_indices[left_idx][0] <= right_nums_indices[right_idx][0]:
+                # Iterated left side element finalizes its right smaller count.
+                left_num_idx = left_nums_indices[left_idx][1]
+                self.right_smaller_counts[left_num_idx] += right_idx
+
+                merged_nums_indices.append(left_nums_indices[left_idx])
+                left_idx += 1
+                continue
+
+            merged_nums_indices.append(right_nums_indices[right_idx])
+            right_idx += 1
+
+        while left_idx < len(left_nums_indices):
+            # Iterated left side element finalizes its right smaller count.
+            left_num_idx = left_nums_indices[left_idx][1]
+            self.right_smaller_counts[left_num_idx] += len(right_nums_indices)
+
+            merged_nums_indices.append(left_nums_indices[left_idx])
+            left_idx += 1
+
+        while right_idx < len(right_nums_indices):
+            merged_nums_indices.append(right_nums_indices[right_idx])
+            right_idx += 1
+
+        return merged_nums_indices
+
+    def merge_sort(self, nums_indices: list[tuple[int, int]]) -> list[tuple[int, int]]:
+        if len(nums_indices) == 1:
+            return nums_indices  # Single element.
+
+        split_idx = len(nums_indices) // 2
+
+        left_nums_indices = self.merge_sort(nums_indices[:split_idx])
+        right_nums_indices = self.merge_sort(nums_indices[split_idx:])
+
+        return self.combine_arrays(left_nums_indices, right_nums_indices)
+```
+
+
+#### C++
+
+```cpp
+class Solution {
+private:
+    vector<int> rightSmallerCounts;
+    vector<pair<int, int>> buffer;
+
+    void combineArrays(
+        vector<pair<int, int>>& numsIndices, int leftBound, int splitIdx, int rightBound) {
+        // Left side array = numsIndices[leftBound: splitIdx].
+        // Right side array = numsIndices[splitIdx: rightBound + 1].
+        int leftIdx = leftBound, rightIdx = splitIdx;
+        int bufferIdx = leftBound;
+
+        while (leftIdx < splitIdx && rightIdx <= rightBound) {
+            if (numsIndices[leftIdx].first <= numsIndices[rightIdx].first) {
+                // Iterated left side element finalizes its right smaller count.
+                int leftNumIdx = numsIndices[leftIdx].second;
+                rightSmallerCounts[leftNumIdx] += rightIdx - splitIdx;
+
+                buffer[bufferIdx++] = numsIndices[leftIdx++];
+            }
+
+            else
+                buffer[bufferIdx++] = numsIndices[rightIdx++];
+        }
+
+        while (leftIdx < splitIdx) {
+            // Iterated left side element finalizes its right smaller count.
+            int leftNumIdx = numsIndices[leftIdx].second;
+            rightSmallerCounts[leftNumIdx] += rightIdx - splitIdx;
+
+            buffer[bufferIdx++] = numsIndices[leftIdx++];
+        }
+
+        while (rightIdx <= rightBound)
+            buffer[bufferIdx++] = numsIndices[rightIdx++];
+
+        for (int idx = leftBound; idx <= rightBound; idx++)
+            numsIndices[idx] = buffer[idx]; // Put buffer data back to original array.
+    }
+
+    void mergeSort(vector<pair<int, int>>& numsIndices, int leftBound, int rightBound) {
+        if (leftBound == rightBound) return; // Single element.
+
+        // Plus 1: ensure splitIdx > leftBound.
+        int splitIdx = (leftBound + rightBound + 1) / 2;
+
+        mergeSort(numsIndices, leftBound, splitIdx - 1);
+        mergeSort(numsIndices, splitIdx, rightBound);
+
+        combineArrays(numsIndices, leftBound, splitIdx, rightBound);
+    }
+
+public:
+    vector<int> countSmaller(vector<int>& nums) {
+        buffer.resize(nums.size()); // Against memory explosions.
+
+        vector<pair<int, int>> numsIndices(nums.size());
+        for (int idx = 0; idx < nums.size(); idx++)
+            numsIndices[idx] = {nums[idx], idx};
+
+        rightSmallerCounts.assign(nums.size(), 0);
+        mergeSort(numsIndices, 0, nums.size() - 1);
+        return rightSmallerCounts;
+    }
+};
+```
+
+<!-- tabs:end -->
+
 <!-- solution:end -->
 
 <!-- problem:end -->
