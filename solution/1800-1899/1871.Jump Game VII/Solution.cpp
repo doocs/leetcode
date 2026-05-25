@@ -2,11 +2,9 @@ class Solution {
 public:
     bool canReach(string s, int minJump, int maxJump) {
         int n = s.size();
-        int pre[n + 1];
-        memset(pre, 0, sizeof(pre));
+        vector<int> pre(n + 1);
         pre[1] = 1;
-        bool f[n];
-        memset(f, 0, sizeof(f));
+        vector<bool> f(n);
         f[0] = true;
         for (int i = 1; i < n; ++i) {
             if (s[i] == '0') {
