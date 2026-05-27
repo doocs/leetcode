@@ -406,4 +406,138 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：排序 + 单调栈 + 二分查找
+
+首先，将所有查询按 $x$ 阈值降序排好，把全部数对按 $\textit{nums1}[i]$ 降序处理。
+迭代处理到第 $j$ 个查询时，将任何满足 $\textit{nums1}[i] \geq x_j$ 的数对加入单调栈。
+
+单调栈的数对排序规则是：按 $\textit{nums2}[i]$ 升序、$\textit{nums1}[i] + \textit{nums2}[i]$ 降序。
+
+如此保证栈中每个数对的 $\textit{nums2}[i]$ 更大时， $\textit{nums1}[i] + \textit{nums2}[i]$ 却更小，隔绝无效候选数对。
+
+对于每个查询 $query_j$，靠二分查找在栈中找到第一个 $\textit{nums2}[i] \geq y_j$ 的数对，其对应的 $\textit{nums1}[i] + \textit{nums2}[i]$ 即为答案。
+
+#### 复杂度解析
+
+$n$ 是数组 $nums1$ 的长度，$m$ 是数组 $queries$ 的长度。
+- 时间复杂度：$O((n + m) \times \log n + m \times \log m)$。
+- 空间复杂度：$O(n + m)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumSumQueries(
+        self, nums1: list[int], nums2: list[int], queries: list[list[int]]
+    ) -> list[int]:
+        max_values = [-1] * len(queries)
+
+        queries = [(query[0], query[1], idx) for idx, query in enumerate(queries)]
+        # Process queries by descending x threshold and y threshold.
+        queries.sort(key=lambda x: (-x[0], -x[1]))
+
+        tuples: list[tuple[int, int]] = []  # Format: (num 1, num 2).
+        for num_1, num_2 in zip(nums1, nums2):
+            tuples.append((num_1, num_2))
+
+        # Process queries by descending num 1 and num 2.
+        # Sort by ascending num 1 and num 2 to pop from the back.
+        tuples.sort(key=lambda x: (x[0], x[1]))
+
+        stack: list[tuple[int, int]] = []  # Format: (num 2, sum).
+
+        for query_1, query_2, query_idx in queries:
+            while tuples and tuples[-1][0] >= query_1:  # Tuple's num 1 >= x threshold.
+                num_1, num_2 = tuples.pop(-1)
+                nums_sum = num_1 + num_2
+
+                while stack and stack[-1][0] < num_2 and stack[-1][1] <= nums_sum:
+                    stack.pop(-1)  # Stack top isn't better than popped tuple.
+
+                insertion_idx = bisect_left(stack, (num_2, nums_sum))
+
+                if insertion_idx == len(stack):
+                    stack.insert(insertion_idx, (num_2, nums_sum))
+
+                elif stack[insertion_idx][1] < nums_sum:
+                    stack.insert(insertion_idx, (num_2, nums_sum))
+
+            search_idx = bisect_left(stack, (query_2, 0))
+            if search_idx < len(stack):
+                max_values[query_idx] = stack[search_idx][1]
+
+        return max_values
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> maximumSumQueries(vector<int>& nums1, vector<int>& nums2, vector<vector<int>>& queries) {
+        vector<int> maxValues(queries.size(), -1);
+
+        vector<vector<int>> queriesIndices;
+        for (int idx = 0; idx < queries.size(); idx++)
+            queriesIndices.push_back({queries[idx][0], queries[idx][1], idx});
+
+        // Process queries by descending x threshold and y threshold.
+        // Sort ascendingly and later pop from the back.
+        sort(queriesIndices.begin(), queriesIndices.end());
+
+        vector<pair<int, int>> numsPairs; // Format: {num 1, num 2}.
+        for (int idx = 0; idx < nums2.size(); idx++)
+            numsPairs.push_back({nums1[idx], nums2[idx]});
+
+        // Process queries by descending num 1 and num 2.
+        // Sort by ascending num 1 and num 2 to pop from the back.
+        sort(numsPairs.begin(), numsPairs.end());
+
+        deque<pair<int, int>> stack; // Format: {num 2, sum}.
+
+        while (!queriesIndices.empty()) {
+            int queryOne = queriesIndices.back()[0];
+            int queryTwo = queriesIndices.back()[1];
+            int queryIdx = queriesIndices.back()[2];
+            queriesIndices.pop_back();
+
+            // Pair's num 1 >= x threshold.
+            while (!numsPairs.empty() && numsPairs.back().first >= queryOne) {
+                auto [numOne, numTwo] = numsPairs.back();
+                numsPairs.pop_back();
+                int numsSum = numOne + numTwo;
+
+                while (!stack.empty() and stack.back().first < numTwo and stack.back().second <= numsSum)
+                    stack.pop_back(); // Stack top isn't better than popped pair.
+
+                pair<int, int> targetPair = {numTwo, numsSum};
+                int insertion_idx = lower_bound(stack.begin(), stack.end(), targetPair) - stack.begin();
+
+                if (insertion_idx == stack.size())
+                    stack.insert(stack.begin() + insertion_idx, targetPair);
+
+                else if (stack[insertion_idx].second < numsSum)
+                    stack.insert(stack.begin() + insertion_idx, targetPair);
+            }
+
+            pair<int, int> queryNumTwoPair = {queryTwo, 0};
+
+            int search_idx = lower_bound(stack.begin(), stack.end(), queryNumTwoPair) - stack.begin();
+            if (search_idx < stack.size())
+                maxValues[queryIdx] = stack[search_idx].second;
+        }
+
+        return maxValues;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
