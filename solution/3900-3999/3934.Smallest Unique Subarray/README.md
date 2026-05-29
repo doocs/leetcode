@@ -105,31 +105,85 @@ source: 第 502 场周赛 Q4
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：滚动哈希 + 二分查找
+
+在 $\textit{mid_len} = \frac{\textit{min_len} + \textit{max_len}}{2}$ 下，对于每个候选子数组长度 $\textit{mid_len}$，
+
+用滚动哈希遍历所有长度为 $\textit{mid_len}$ 的子数组，记录每个哈希值出现的次数。
+
+若存在某个哈希值恰好出现一次，则说明该长度存在唯一子数组，能因此尝试把 $\textit{max_len}$ 缩小到 $\textit{mid_len} - 1$；
+
+否则说明该长度不存在唯一子数组，必须让 $\textit{min_len}$ 上升到 $\textit{mid_len} + 1$。
+
+这是因为一旦长度为 $l$ 的子数组做到了唯一性，长度 $> l$ 的子数组也必然有唯一性。
+
+如此操作的时间复杂度是 $O(n \log n)$，空间复杂度是 $O(n)$，其中 $n$ 为数组长度。
+
+原因是做了 $O(\log n)$ 次的二分查找，每次滚动哈希需要 $O(n)$ 的时间。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def smallestUniqueSubarray(self, nums: list[int]) -> int:
+        self.nums = nums
 
+        self.base = 19
+        self.modulo = 10**9 + 7
+        self.powers = [1] * (len(nums) + 1)
+
+        self.hash_values: dict[int, int] = dict()
+
+        min_possible_len = len(nums)  # Base case.
+
+        min_len, max_len = 1, len(nums)  # For binary search usage.
+
+        while min_len <= max_len:
+            mid_len = (min_len + max_len) // 2
+
+            if self._check_uniqueness(mid_len):
+                if mid_len < min_possible_len:
+                    min_possible_len = mid_len
+                max_len = mid_len - 1
+
+            else:
+                min_len = mid_len + 1
+
+        return min_possible_len
+
+    def _check_uniqueness(self, subarray_len: int) -> bool:
+        # Only need to reset leftmost power to 1 before usage.
+        self.powers[0] = 1  # Because powers are calculated by bottom-up.
+
+        for idx in range(1, len(self.nums) + 1):
+            self.powers[idx] = (self.powers[idx - 1] * self.base) % self.modulo
+
+        current_hash = 0
+        for idx in range(subarray_len):
+            current_hash *= self.base
+            current_hash += self.nums[idx]
+            current_hash %= self.modulo
+
+        self.hash_values.clear()  # Clear before usage.
+        self.hash_values[current_hash] = 1
+
+        for idx in range(1, len(self.nums) - subarray_len + 1):
+            # Window shifts: deduct leftmost num's share from hash value.
+            current_hash -= self.powers[subarray_len - 1] * self.nums[idx - 1]
+
+            # Integrate newly added num's share into hash value.
+            current_hash *= self.base
+            current_hash += self.nums[idx + subarray_len - 1]
+            current_hash %= self.modulo
+
+            if current_hash not in self.hash_values.keys():
+                self.hash_values.update({current_hash: 0})
+            self.hash_values[current_hash] += 1
+
+        return True if 1 in self.hash_values.values() else False
 ```
-
-#### Java
-
-```java
-
-```
-
-#### C++
-
-```cpp
-
-```
-
-#### Go
-
-```go
 
 ```
 
