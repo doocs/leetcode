@@ -182,9 +182,7 @@ class Solution:
                 self.hash_values.update({current_hash: 0})
             self.hash_values[current_hash] += 1
 
-        return True if 1 in self.hash_values.values() else False
-```
-
+        return 1 in self.hash_values.values()
 ```
 
 <!-- tabs:end -->
