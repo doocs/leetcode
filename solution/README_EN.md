@@ -3952,6 +3952,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3941  |  [Password Strength](/solution/3900-3999/3941.Password%20Strength/README_EN.md)  |    |  Medium  |  Weekly Contest 503  |
 |  3942  |  [Minimum Operations to Sort a Permutation](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md)  |    |  Medium  |  Weekly Contest 503  |
 |  3943  |  [Number of Pairs After Increment](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README_EN.md)  |    |  Hard  |  Weekly Contest 503  |
+|  3944  |  [Minimum Operations to Make Array Modulo Alternating II](/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3945  |  [Digit Frequency Score](/solution/3900-3999/3945.Digit%20Frequency%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 504  |
+|  3946  |  [Maximum Number of Items From Sale I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
+|  3947  |  [Maximum Number of Items From Sale II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
+|  3948  |  [Lexicographically Maximum MEX Array](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 504  |
 
 ## Copyright
 

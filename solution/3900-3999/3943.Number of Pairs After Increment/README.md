@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README.md
+rating: 2409
+source: 第 503 场周赛 Q4
 ---
 
 <!-- problem:start -->

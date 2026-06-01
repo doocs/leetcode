@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 504
+
+- [3945. Digit Frequency Score](/solution/3900-3999/3945.Digit%20Frequency%20Score/README_EN.md)
+- [3946. Maximum Number of Items From Sale I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md)
+- [3947. Maximum Number of Items From Sale II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README_EN.md)
+- [3948. Lexicographically Maximum MEX Array](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md)
+
 #### Weekly Contest 503
 
 - [3940. Limit Occurrences in Sorted Array](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md)

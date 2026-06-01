@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md
+rating: 1854
+source: Weekly Contest 503 Q3
 ---
 
 <!-- problem:start -->
