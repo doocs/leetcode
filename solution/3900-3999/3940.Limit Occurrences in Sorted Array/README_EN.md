@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md
+rating: 1201
+source: Weekly Contest 503 Q1
 ---
 
 <!-- problem:start -->

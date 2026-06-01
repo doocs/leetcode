@@ -614,7 +614,7 @@ func merge(arr []Pair, low, mid, high int) {
 
 当右侧元素全部清空，其体现右侧所有元素均小于剩余左侧元素，累加右侧数组长度到每个剩余左侧元素的计数即可。
 
-__注意__：C++做超大数组的归并排序时，有内存爆炸风险，需使用 __缓存数组__ 避免Memory Limit Exceeded。
+**注意**：C++做超大数组的归并排序时，有内存爆炸风险，需使用 **缓存数组** 避免Memory Limit Exceeded。
 
 #### 复杂度：
 
@@ -681,7 +681,6 @@ class Solution:
 
         return self.combine_arrays(left_nums_indices, right_nums_indices)
 ```
-
 
 #### C++
 

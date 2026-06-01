@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 504 场周赛(2026-05-31 10:30, 90 分钟) 参赛人数 1317
+
+- [3945. 计算数字频率得分](/solution/3900-3999/3945.Digit%20Frequency%20Score/README.md)
+- [3946. 购买最多物品数目 I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README.md)
+- [3947. 购买最多物品数目 II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README.md)
+- [3948. 字典序最大的 MEX 数组](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README.md)
+
 #### 第 503 场周赛(2026-05-24 10:30, 90 分钟) 参赛人数 1276
 
 - [3940. 限制有序数组中的元素出现次数](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README.md)

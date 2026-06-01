@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3941.Password%20Strength/README.md
+rating: 1284
+source: 第 503 场周赛 Q2
 ---
 
 <!-- problem:start -->

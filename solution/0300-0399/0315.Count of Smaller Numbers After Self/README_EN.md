@@ -663,7 +663,6 @@ class Solution:
         return self.combine_arrays(left_nums_indices, right_nums_indices)
 ```
 
-
 #### C++
 
 ```cpp
