@@ -7,7 +7,7 @@ public:
         for (const auto& item : items) {
             int factor = item[0];
             int price = item[1];
-            
+
             mn = min(mn, price);
 
             int cnt = 0;

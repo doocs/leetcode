@@ -6,9 +6,9 @@ class Solution {
         for (int[] item : items) {
             int factor = item[0];
             int price = item[1];
-            
+
             mn = Math.min(mn, price);
-            
+
             int cnt = 0;
             for (int[] jItem : items) {
                 if (jItem[0] % factor == 0) {
