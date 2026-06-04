@@ -101,32 +101,87 @@ There is at least one subarray of length 2 that is unique, so the smallest uniqu
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Rolling Hash + Binary Search
+
+At $\textit{mid_len} = \frac{\textit{min_len} + \textit{max_len}}{2}$, for each candidate
+subarray length $\textit{mid_len}$, we slide a rolling hash window along all subarrays
+of such a length, recording how many times each hash value shows up.
+
+If any hash value appears exactly once, a unique subarray of length $\textit{mid_len}$ is found.
+We can thereby try to shrink $\textit{max_len}$ to $\textit{mid_len} - 1$.
+
+Otherwise, it means that no unique subarray of that length exists, so we must raise
+$\textit{min_len}$ to $\textit{mid_len} + 1$.
+
+This approach works because once a unique subarray exists at length $l$,
+any subarray with length $> l$ is also guaranteed to exist.
+
+Time complexity is $O(n \log n)$ and space complexity is $O(n)$, where $n$ is original array length.
+
+We have a total of $O(\log n)$ binary searches, each costing $O(n)$ rolling hash time.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def smallestUniqueSubarray(self, nums: list[int]) -> int:
+        self.nums = nums
 
-```
+        self.base = 19
+        self.modulo = 10**9 + 7
+        self.powers = [1] * (len(nums) + 1)
 
-#### Java
+        self.hash_values: dict[int, int] = dict()
 
-```java
+        min_possible_len = len(nums)  # Base case.
 
-```
+        min_len, max_len = 1, len(nums)  # For binary search usage.
 
-#### C++
+        while min_len <= max_len:
+            mid_len = (min_len + max_len) // 2
 
-```cpp
+            if self._check_uniqueness(mid_len):
+                if mid_len < min_possible_len:
+                    min_possible_len = mid_len
+                max_len = mid_len - 1
 
-```
+            else:
+                min_len = mid_len + 1
 
-#### Go
+        return min_possible_len
 
-```go
+    def _check_uniqueness(self, subarray_len: int) -> bool:
+        # Only need to reset leftmost power to 1 before usage.
+        self.powers[0] = 1  # Because powers are calculated by bottom-up.
 
+        for idx in range(1, len(self.nums) + 1):
+            self.powers[idx] = (self.powers[idx - 1] * self.base) % self.modulo
+
+        current_hash = 0
+        for idx in range(subarray_len):
+            current_hash *= self.base
+            current_hash += self.nums[idx]
+            current_hash %= self.modulo
+
+        self.hash_values.clear()  # Clear before usage.
+        self.hash_values[current_hash] = 1
+
+        for idx in range(1, len(self.nums) - subarray_len + 1):
+            # Window shifts: deduct leftmost num's share from hash value.
+            current_hash -= self.powers[subarray_len - 1] * self.nums[idx - 1]
+
+            # Integrate newly added num's share into hash value.
+            current_hash *= self.base
+            current_hash += self.nums[idx + subarray_len - 1]
+            current_hash %= self.modulo
+
+            if current_hash not in self.hash_values.keys():
+                self.hash_values.update({current_hash: 0})
+            self.hash_values[current_hash] += 1
+
+        return 1 in self.hash_values.values()
 ```
 
 <!-- tabs:end -->
