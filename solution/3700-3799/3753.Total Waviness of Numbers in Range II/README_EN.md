@@ -111,6 +111,104 @@ Return the total sum of waviness for all numbers in the range <code>[num1, num2]
 #### Java
 
 ```java
+class Solution {
+
+    private char[] s;
+    private Pair[][][][] memo;
+
+    static class Pair {
+        long cnt;
+        long wav;
+
+        Pair(long cnt, long wav) {
+            this.cnt = cnt;
+            this.wav = wav;
+        }
+    }
+
+    public long totalWaviness(long num1, long num2) {
+        return calc(num2) - calc(num1 - 1);
+    }
+
+    private long calc(long x) {
+        if (x <= 0) return 0;
+
+        s = Long.toString(x).toCharArray();
+
+        int n = s.length;
+        memo = new Pair[n][11][11][2];
+
+        return dfs(0, true, false, 10, 10).wav;
+    }
+
+    private Pair dfs(int pos,
+                     boolean tight,
+                     boolean started,
+                     int prev2,
+                     int prev1) {
+
+        if (pos == s.length) {
+            return new Pair(started ? 1 : 0, 0);
+        }
+
+        if (!tight) {
+            Pair cached = memo[pos][prev2][prev1][started ? 1 : 0];
+            if (cached != null) return cached;
+        }
+
+        int limit = tight ? s[pos] - '0' : 9;
+
+        long totalCnt = 0;
+        long totalWav = 0;
+
+        for (int d = 0; d <= limit; d++) {
+
+            boolean nt = tight && (d == (s[pos] - '0'));
+
+            if (!started && d == 0) {
+
+                Pair nxt = dfs(pos + 1, nt, false, 10, 10);
+
+                totalCnt += nxt.cnt;
+                totalWav += nxt.wav;
+            }
+            else if (!started) {
+
+                Pair nxt = dfs(pos + 1, nt, true, 10, d);
+
+                totalCnt += nxt.cnt;
+                totalWav += nxt.wav;
+            }
+            else if (prev2 == 10) {
+
+                Pair nxt = dfs(pos + 1, nt, true, prev1, d);
+
+                totalCnt += nxt.cnt;
+                totalWav += nxt.wav;
+            }
+            else {
+
+                int add =
+                    ((prev1 > prev2 && prev1 > d) ||
+                     (prev1 < prev2 && prev1 < d))
+                    ? 1 : 0;
+
+                Pair nxt = dfs(pos + 1, nt, true, prev1, d);
+
+                totalCnt += nxt.cnt;
+                totalWav += nxt.wav + nxt.cnt * add;
+            }
+        }
+
+        Pair ans = new Pair(totalCnt, totalWav);
+
+        if (!tight) {
+            memo[pos][prev2][prev1][started ? 1 : 0] = ans;
+        }
+
+        return ans;
+    }
+}
 
 ```
 
