@@ -3959,6 +3959,7 @@
 |  3946  |  [购买最多物品数目 I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README.md)  |    |  中等  |  第 504 场周赛  |
 |  3947  |  [购买最多物品数目 II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README.md)  |    |  中等  |  第 504 场周赛  |
 |  3948  |  [字典序最大的 MEX 数组](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README.md)  |    |  困难  |  第 504 场周赛  |
+|  3949  |  [子树反转和 II](/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  困难  |  🔒  |
 
 ## 版权
 

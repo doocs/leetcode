@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README.md
+rating: 1728
+source: 第 504 场周赛 Q2
 ---
 
 <!-- problem:start -->

@@ -3957,6 +3957,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3946  |  [Maximum Number of Items From Sale I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
 |  3947  |  [Maximum Number of Items From Sale II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
 |  3948  |  [Lexicographically Maximum MEX Array](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 504  |
+|  3949  |  [Subtree Inversion Sum II](/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  🔒  |
 
 ## Copyright
 

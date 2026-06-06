@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3945.Digit%20Frequency%20Score/README.md
+rating: 1201
+source: 第 504 场周赛 Q1
 ---
 
 <!-- problem:start -->
