@@ -3962,6 +3962,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3951  |  [Minimum Energy to Maintain Brightness](/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README_EN.md)  |    |  Medium  |  Biweekly Contest 184  |
 |  3952  |  [Maximum Total Value of Covered Indices](/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README_EN.md)  |    |  Medium  |  Biweekly Contest 184  |
 |  3953  |  [Maximum Score with Co-Prime Element](/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README_EN.md)  |    |  Hard  |  Biweekly Contest 184  |
+|  3954  |  [Sum of Compatible Numbers in Range I](/solution/3900-3999/3954.Sum%20of%20Compatible%20Numbers%20in%20Range%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 505  |
+|  3955  |  [Valid Binary Strings With Cost Limit](/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README_EN.md)  |    |  Medium  |  Weekly Contest 505  |
+|  3956  |  [Maximum Sum of M Non-Overlapping Subarrays I](/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 505  |
+|  3957  |  [Maximum Sum of M Non-Overlapping Subarrays II](/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 505  |
 
 ## Copyright
 

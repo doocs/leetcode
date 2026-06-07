@@ -93,32 +93,146 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3951.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Interval Merge
+
+A single bulb can illuminate at most 3 positions. To ensure the total brightness is at least $\textit{brightness}$, the number of bulbs required to be turned on is $\lceil \frac{\textit{brightness}}{3} \rceil$. In programming, this is commonly written in integer division form as `(brightness + 2) / 3`.
+
+This problem can be solved through the following steps:
+
+1. **Merge Overlapping Intervals**: Merge all intervals that intersect with each other to obtain a set of mutually disjoint continuous intervals.
+2. **Calculate Length Contribution**: For each merged interval $[start, end]$, the number of integer points (i.e., positions) it covers is $m = end - start + 1$. Since every position within the interval must satisfy the minimum brightness, the total energy required for this interval is:
+   $$\text{Energy} = \lceil \frac{\textit{brightness}}{3} \rceil \times m$$
+3. **Accumulate and Sum**: Accumulate the energy of all disjoint intervals to get the final answer $\textit{ans}$.
+
+The time complexity is $O(n \log n)$, and the space complexity is $O(n)$, where $n$ is the number of intervals.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minEnergy(self, n: int, brightness: int, intervals: list[list[int]]) -> int:
+        intervals.sort()
+        merged = [intervals[0]]
+        for x in intervals[1:]:
+            if merged[-1][1] < x[0]:
+                merged.append(x)
+            else:
+                merged[-1][1] = max(merged[-1][1], x[1])
+        ans = 0
+        for start, end in merged:
+            m = end - start + 1
+            ans += (brightness + 2) // 3 * m
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long minEnergy(int n, int brightness, int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        List<int[]> merged = new ArrayList<>();
+        merged.add(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            int[] x = intervals[i];
+            int[] last = merged.get(merged.size() - 1);
+            if (last[1] < x[0]) {
+                merged.add(x);
+            } else {
+                last[1] = Math.max(last[1], x[1]);
+            }
+        }
+        long ans = 0;
+        for (int[] interval : merged) {
+            int start = interval[0];
+            int end = interval[1];
+            int m = end - start + 1;
+            ans += (brightness + 2L) / 3 * m;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long minEnergy(int n, int brightness, vector<vector<int>>& intervals) {
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> merged = {intervals[0]};
+        for (int i = 1; i < intervals.size(); ++i) {
+            auto& x = intervals[i];
+            if (merged.back()[1] < x[0]) {
+                merged.push_back(x);
+            } else {
+                merged.back()[1] = max(merged.back()[1], x[1]);
+            }
+        }
+        long long ans = 0;
+        for (const auto& interval : merged) {
+            int start = interval[0];
+            int end = interval[1];
+            int m = end - start + 1;
+            ans += (brightness + 2LL) / 3 * m;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minEnergy(n int, brightness int, intervals [][]int) int64 {
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	merged := [][]int{intervals[0]}
+	for _, x := range intervals[1:] {
+		if merged[len(merged)-1][1] < x[0] {
+			merged = append(merged, x)
+		} else {
+			if x[1] > merged[len(merged)-1][1] {
+				merged[len(merged)-1][1] = x[1]
+			}
+		}
+	}
+	ans := 0
+	for _, interval := range merged {
+		start := interval[0]
+		end := interval[1]
+		m := end - start + 1
+		ans += (brightness + 2) / 3 * m
+	}
+	return int64(ans)
+}
+```
 
+#### TypeScript
+
+```ts
+function minEnergy(n: number, brightness: number, intervals: number[][]): number {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const merged: number[][] = [intervals[0]];
+    for (let i = 1; i < intervals.length; i++) {
+        const x = intervals[i];
+        if (merged[merged.length - 1][1] < x[0]) {
+            merged.push(x);
+        } else {
+            merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], x[1]);
+        }
+    }
+    let ans = 0;
+    for (const [start, end] of merged) {
+        const m = end - start + 1;
+        ans += Math.ceil(brightness / 3) * m;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
