@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md
+rating: 2122
+source: Weekly Contest 504 Q4
 ---
 
 <!-- problem:start -->
