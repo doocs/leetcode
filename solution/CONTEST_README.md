@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 184 场双周赛(2026-06-06 22:30, 90 分钟) 参赛人数 870
+
+- [3950. 恰好一对连续置位](/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README.md)
+- [3951. 维持亮度的最小总能量](/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README.md)
+- [3952. 下标覆盖处的最大总和](/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README.md)
+- [3953. 互质元素的最大得分](/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README.md)
+
 #### 第 504 场周赛(2026-05-31 10:30, 90 分钟) 参赛人数 1317
 
 - [3945. 计算数字频率得分](/solution/3900-3999/3945.Digit%20Frequency%20Score/README.md)

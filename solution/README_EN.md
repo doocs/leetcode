@@ -3958,6 +3958,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3947  |  [Maximum Number of Items From Sale II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
 |  3948  |  [Lexicographically Maximum MEX Array](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 504  |
 |  3949  |  [Subtree Inversion Sum II](/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  🔒  |
+|  3950  |  [Exactly One Consecutive Set Bits Pair](/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README_EN.md)  |    |  Easy  |  Biweekly Contest 184  |
+|  3951  |  [Minimum Energy to Maintain Brightness](/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README_EN.md)  |    |  Medium  |  Biweekly Contest 184  |
+|  3952  |  [Maximum Total Value of Covered Indices](/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README_EN.md)  |    |  Medium  |  Biweekly Contest 184  |
+|  3953  |  [Maximum Score with Co-Prime Element](/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README_EN.md)  |    |  Hard  |  Biweekly Contest 184  |
 
 ## Copyright
 

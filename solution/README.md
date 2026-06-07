@@ -3960,6 +3960,10 @@
 |  3947  |  [购买最多物品数目 II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README.md)  |    |  中等  |  第 504 场周赛  |
 |  3948  |  [字典序最大的 MEX 数组](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README.md)  |    |  困难  |  第 504 场周赛  |
 |  3949  |  [子树反转和 II](/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  困难  |  🔒  |
+|  3950  |  [恰好一对连续置位](/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README.md)  |    |  简单  |  第 184 场双周赛  |
+|  3951  |  [维持亮度的最小总能量](/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README.md)  |    |  中等  |  第 184 场双周赛  |
+|  3952  |  [下标覆盖处的最大总和](/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README.md)  |    |  中等  |  第 184 场双周赛  |
+|  3953  |  [互质元素的最大得分](/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README.md)  |    |  困难  |  第 184 场双周赛  |
 
 ## 版权
 
