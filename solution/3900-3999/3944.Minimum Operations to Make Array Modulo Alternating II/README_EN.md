@@ -2,6 +2,9 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README_EN.md
+tags:
+    - Array
+    - Enumeration
 ---
 
 <!-- problem:start -->

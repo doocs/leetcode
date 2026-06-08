@@ -3948,15 +3948,15 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3937  |  [Minimum Operations to Make Array Modulo Alternating I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 183  |
 |  3938  |  [Maximum Path Intersection Sum in a Grid](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README_EN.md)  |    |  Medium  |  Biweekly Contest 183  |
 |  3939  |  [Count Non Adjacent Subsets in a Rooted Tree](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README_EN.md)  |    |  Hard  |  Biweekly Contest 183  |
-|  3940  |  [Limit Occurrences in Sorted Array](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md)  |    |  Easy  |  Weekly Contest 503  |
-|  3941  |  [Password Strength](/solution/3900-3999/3941.Password%20Strength/README_EN.md)  |    |  Medium  |  Weekly Contest 503  |
-|  3942  |  [Minimum Operations to Sort a Permutation](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md)  |    |  Medium  |  Weekly Contest 503  |
-|  3943  |  [Number of Pairs After Increment](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README_EN.md)  |    |  Hard  |  Weekly Contest 503  |
-|  3944  |  [Minimum Operations to Make Array Modulo Alternating II](/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  3945  |  [Digit Frequency Score](/solution/3900-3999/3945.Digit%20Frequency%20Score/README_EN.md)  |    |  Easy  |  Weekly Contest 504  |
-|  3946  |  [Maximum Number of Items From Sale I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
-|  3947  |  [Maximum Number of Items From Sale II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 504  |
-|  3948  |  [Lexicographically Maximum MEX Array](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 504  |
+|  3940  |  [Limit Occurrences in Sorted Array](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README_EN.md)  |  `Array`,`Two Pointers`  |  Easy  |  Weekly Contest 503  |
+|  3941  |  [Password Strength](/solution/3900-3999/3941.Password%20Strength/README_EN.md)  |  `Hash Table`,`String`  |  Medium  |  Weekly Contest 503  |
+|  3942  |  [Minimum Operations to Sort a Permutation](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README_EN.md)  |  `Array`  |  Medium  |  Weekly Contest 503  |
+|  3943  |  [Number of Pairs After Increment](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README_EN.md)  |  `Array`,`Hash Table`,`Divide and Conquer`,`Counting`  |  Hard  |  Weekly Contest 503  |
+|  3944  |  [Minimum Operations to Make Array Modulo Alternating II](/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README_EN.md)  |  `Array`,`Enumeration`  |  Hard  |  🔒  |
+|  3945  |  [Digit Frequency Score](/solution/3900-3999/3945.Digit%20Frequency%20Score/README_EN.md)  |  `Hash Table`,`Math`  |  Easy  |  Weekly Contest 504  |
+|  3946  |  [Maximum Number of Items From Sale I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md)  |  `Greedy`,`Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 504  |
+|  3947  |  [Maximum Number of Items From Sale II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 504  |
+|  3948  |  [Lexicographically Maximum MEX Array](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README_EN.md)  |  `Greedy`,`Queue`,`Array`,`Hash Table`  |  Hard  |  Weekly Contest 504  |
 |  3949  |  [Subtree Inversion Sum II](/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Dynamic Programming`  |  Hard  |  🔒  |
 |  3950  |  [Exactly One Consecutive Set Bits Pair](/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README_EN.md)  |    |  Easy  |  Biweekly Contest 184  |
 |  3951  |  [Minimum Energy to Maintain Brightness](/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README_EN.md)  |    |  Medium  |  Biweekly Contest 184  |

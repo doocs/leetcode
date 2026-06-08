@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3945.Digit%20Frequency%20Score/README_EN.md
 rating: 1201
 source: Weekly Contest 504 Q1
+tags:
+    - Hash Table
+    - Math
 ---
 
 <!-- problem:start -->

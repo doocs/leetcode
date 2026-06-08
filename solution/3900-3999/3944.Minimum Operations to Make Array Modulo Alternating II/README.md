@@ -2,6 +2,9 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README.md
+tags:
+    - 数组
+    - 枚举
 ---
 
 <!-- problem:start -->

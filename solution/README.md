@@ -3950,15 +3950,15 @@
 |  3937  |  [使数组变为模交替数组的最少操作次数 I](/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README.md)  |    |  中等  |  第 183 场双周赛  |
 |  3938  |  [矩阵中最大共享路径和](/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README.md)  |    |  中等  |  第 183 场双周赛  |
 |  3939  |  [统计有根树中不相邻子集的数目](/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README.md)  |    |  困难  |  第 183 场双周赛  |
-|  3940  |  [限制有序数组中的元素出现次数](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README.md)  |    |  简单  |  第 503 场周赛  |
-|  3941  |  [密码强度](/solution/3900-3999/3941.Password%20Strength/README.md)  |    |  中等  |  第 503 场周赛  |
-|  3942  |  [排序排列的最少操作数](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README.md)  |    |  中等  |  第 503 场周赛  |
-|  3943  |  [递增后的数对数量](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README.md)  |    |  困难  |  第 503 场周赛  |
-|  3944  |  [使数组变为模交替数组的最少操作次数 II](/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README.md)  |    |  困难  |  🔒  |
-|  3945  |  [计算数字频率得分](/solution/3900-3999/3945.Digit%20Frequency%20Score/README.md)  |    |  简单  |  第 504 场周赛  |
-|  3946  |  [购买最多物品数目 I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README.md)  |    |  中等  |  第 504 场周赛  |
-|  3947  |  [购买最多物品数目 II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README.md)  |    |  中等  |  第 504 场周赛  |
-|  3948  |  [字典序最大的 MEX 数组](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README.md)  |    |  困难  |  第 504 场周赛  |
+|  3940  |  [限制有序数组中的元素出现次数](/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README.md)  |  `数组`,`双指针`  |  简单  |  第 503 场周赛  |
+|  3941  |  [密码强度](/solution/3900-3999/3941.Password%20Strength/README.md)  |  `哈希表`,`字符串`  |  中等  |  第 503 场周赛  |
+|  3942  |  [排序排列的最少操作数](/solution/3900-3999/3942.Minimum%20Operations%20to%20Sort%20a%20Permutation/README.md)  |  `数组`  |  中等  |  第 503 场周赛  |
+|  3943  |  [递增后的数对数量](/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README.md)  |  `数组`,`哈希表`,`分治`,`计数`  |  困难  |  第 503 场周赛  |
+|  3944  |  [使数组变为模交替数组的最少操作次数 II](/solution/3900-3999/3944.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20II/README.md)  |  `数组`,`枚举`  |  困难  |  🔒  |
+|  3945  |  [计算数字频率得分](/solution/3900-3999/3945.Digit%20Frequency%20Score/README.md)  |  `哈希表`,`数学`  |  简单  |  第 504 场周赛  |
+|  3946  |  [购买最多物品数目 I](/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README.md)  |  `贪心`,`数组`,`动态规划`  |  中等  |  第 504 场周赛  |
+|  3947  |  [购买最多物品数目 II](/solution/3900-3999/3947.Maximum%20Number%20of%20Items%20From%20Sale%20II/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  中等  |  第 504 场周赛  |
+|  3948  |  [字典序最大的 MEX 数组](/solution/3900-3999/3948.Lexicographically%20Maximum%20MEX%20Array/README.md)  |  `贪心`,`队列`,`数组`,`哈希表`  |  困难  |  第 504 场周赛  |
 |  3949  |  [子树反转和 II](/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README.md)  |  `树`,`深度优先搜索`,`数组`,`动态规划`  |  困难  |  🔒  |
 |  3950  |  [恰好一对连续置位](/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README.md)  |    |  简单  |  第 184 场双周赛  |
 |  3951  |  [维持亮度的最小总能量](/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README.md)  |    |  中等  |  第 184 场双周赛  |
