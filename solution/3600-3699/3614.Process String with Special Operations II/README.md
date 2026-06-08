@@ -213,32 +213,215 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：倒推
+
+我们首先计算出处理过的结果字符串 $\textit{result}$ 的长度 $m$，如果 $k \geq m$，说明 $k$ 超出了结果字符串的下标，返回 '.'。
+
+否则，我们倒序遍历字符串 $s$，分情况讨论：
+
+1. 如果 $s[i]$ 是 '\*'，我们将 $m$ 增加 $1$。
+1. 如果 $s[i]$ 是 '#'，我们将 $m$ 除以 $2$，此时如果 $k \geq m$，我们应该将 $k$ 减去 $m$。
+1. 如果 $s[i]$ 是 '%'，我们将 $k$ 置为 $m - 1 - k$。
+1. 否则，说明 $s[i]$ 是字母，我们将 $m$ 减去 $1$，如果 $k = m$，此时我们就找到了第 $k$ 个字符，返回 $s[i]$。
+
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def processStr(self, s: str, k: int) -> str:
+        m = 0
+        for c in s:
+            if c == "*":
+                m = max(0, m - 1)
+            elif c == "#":
+                m <<= 1
+            elif c != "%":
+                m += 1
+        if k >= m:
+            return "."
+        for c in reversed(s):
+            if c == "*":
+                m += 1
+            elif c == "#":
+                m //= 2
+                if k >= m:
+                    k -= m
+            elif c == "%":
+                k = m - 1 - k
+            else:
+                m -= 1
+                if k == m:
+                    return c
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public char processStr(String s, long k) {
+        long m = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '*') {
+                m = Math.max(0, m - 1);
+            } else if (c == '#') {
+                m <<= 1;
+            } else if (c != '%') {
+                m += 1;
+            }
+        }
+        if (k >= m) {
+            return '.';
+        }
+        for (int i = s.length() - 1;; i--) {
+            char c = s.charAt(i);
+            if (c == '*') {
+                m += 1;
+            } else if (c == '#') {
+                m /= 2;
+                if (k >= m) {
+                    k -= m;
+                }
+            } else if (c == '%') {
+                k = m - 1 - k;
+            } else {
+                m -= 1;
+                if (k == m) {
+                    return c;
+                }
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    char processStr(string s, long long k) {
+        long long m = 0;
+        for (char c : s) {
+            if (c == '*') {
+                m = max(0LL, m - 1);
+            } else if (c == '#') {
+                m <<= 1;
+            } else if (c != '%') {
+                m += 1;
+            }
+        }
+        if (k >= m) {
+            return '.';
+        }
+        for (int i = s.length() - 1;; i--) {
+            char c = s[i];
+            if (c == '*') {
+                m += 1;
+            } else if (c == '#') {
+                m /= 2;
+                if (k >= m) {
+                    k -= m;
+                }
+            } else if (c == '%') {
+                k = m - 1 - k;
+            } else {
+                m -= 1;
+                if (k == m) {
+                    return c;
+                }
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func processStr(s string, k int64) byte {
+	var m int64 = 0
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if c == '*' {
+			if m-1 > 0 {
+				m = m - 1
+			} else {
+				m = 0
+			}
+		} else if c == '#' {
+			m <<= 1
+		} else if c != '%' {
+			m += 1
+		}
+	}
+	if k >= m {
+		return '.'
+	}
+	for i := len(s) - 1; ; i-- {
+		c := s[i]
+		if c == '*' {
+			m += 1
+		} else if c == '#' {
+			m /= 2
+			if k >= m {
+				k -= m
+			}
+		} else if c == '%' {
+			k = m - 1 - k
+		} else {
+			m -= 1
+			if k == m {
+				return c
+			}
+		}
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function processStr(s: string, k: number): string {
+    let m = 0n;
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+        if (c === '*') {
+            const sub = m - 1n;
+            m = sub > 0n ? sub : 0n;
+        } else if (c === '#') {
+            m <<= 1n;
+        } else if (c !== '%') {
+            m += 1n;
+        }
+    }
+    if (BigInt(k) >= m) {
+        return '.';
+    }
+    let bigK = BigInt(k);
+    for (let i = s.length - 1; ; i--) {
+        const c = s[i];
+        if (c === '*') {
+            m += 1n;
+        } else if (c === '#') {
+            m /= 2n;
+            if (bigK >= m) {
+                bigK -= m;
+            }
+        } else if (c === '%') {
+            bigK = m - 1n - bigK;
+        } else {
+            m -= 1n;
+            if (bigK === m) {
+                return c;
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->
