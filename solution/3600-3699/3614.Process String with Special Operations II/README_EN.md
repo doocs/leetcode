@@ -210,32 +210,215 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Reverse Tracking
+
+We first calculate the length $m$ of the processed result string $\textit{result}$. If $k \geq m$, it indicates that $k$ exceeds the valid indices of the result string, so we return '.'.
+
+Otherwise, we traverse the string $s$ in reverse order and handle each character based on the following cases:
+
+1. If $s[i]$ is '\*', we increase $m$ by $1$.
+2. If $s[i]$ is '#', we divide $m$ by $2$. At this point, if $k \geq m$, we subtract $m$ from $k$.
+3. If $s[i]$ is '%', we update $k$ to $m - 1 - k$.
+4. Otherwise, $s[i]$ is a letter. We decrease $m$ by $1$. If $k = m$, it means we have found the $k$-th character, so we return $s[i]$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def processStr(self, s: str, k: int) -> str:
+        m = 0
+        for c in s:
+            if c == "*":
+                m = max(0, m - 1)
+            elif c == "#":
+                m <<= 1
+            elif c != "%":
+                m += 1
+        if k >= m:
+            return "."
+        for c in reversed(s):
+            if c == "*":
+                m += 1
+            elif c == "#":
+                m //= 2
+                if k >= m:
+                    k -= m
+            elif c == "%":
+                k = m - 1 - k
+            else:
+                m -= 1
+                if k == m:
+                    return c
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public char processStr(String s, long k) {
+        long m = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '*') {
+                m = Math.max(0, m - 1);
+            } else if (c == '#') {
+                m <<= 1;
+            } else if (c != '%') {
+                m += 1;
+            }
+        }
+        if (k >= m) {
+            return '.';
+        }
+        for (int i = s.length() - 1;; i--) {
+            char c = s.charAt(i);
+            if (c == '*') {
+                m += 1;
+            } else if (c == '#') {
+                m /= 2;
+                if (k >= m) {
+                    k -= m;
+                }
+            } else if (c == '%') {
+                k = m - 1 - k;
+            } else {
+                m -= 1;
+                if (k == m) {
+                    return c;
+                }
+            }
+        }
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    char processStr(string s, long long k) {
+        long long m = 0;
+        for (char c : s) {
+            if (c == '*') {
+                m = max(0LL, m - 1);
+            } else if (c == '#') {
+                m <<= 1;
+            } else if (c != '%') {
+                m += 1;
+            }
+        }
+        if (k >= m) {
+            return '.';
+        }
+        for (int i = s.length() - 1;; i--) {
+            char c = s[i];
+            if (c == '*') {
+                m += 1;
+            } else if (c == '#') {
+                m /= 2;
+                if (k >= m) {
+                    k -= m;
+                }
+            } else if (c == '%') {
+                k = m - 1 - k;
+            } else {
+                m -= 1;
+                if (k == m) {
+                    return c;
+                }
+            }
+        }
+    }
+};
 ```
 
 #### Go
 
 ```go
+func processStr(s string, k int64) byte {
+	var m int64 = 0
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if c == '*' {
+			if m-1 > 0 {
+				m = m - 1
+			} else {
+				m = 0
+			}
+		} else if c == '#' {
+			m <<= 1
+		} else if c != '%' {
+			m += 1
+		}
+	}
+	if k >= m {
+		return '.'
+	}
+	for i := len(s) - 1; ; i-- {
+		c := s[i]
+		if c == '*' {
+			m += 1
+		} else if c == '#' {
+			m /= 2
+			if k >= m {
+				k -= m
+			}
+		} else if c == '%' {
+			k = m - 1 - k
+		} else {
+			m -= 1
+			if k == m {
+				return c
+			}
+		}
+	}
+}
+```
 
+#### TypeScript
+
+```ts
+function processStr(s: string, k: number): string {
+    let m = 0n;
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+        if (c === '*') {
+            const sub = m - 1n;
+            m = sub > 0n ? sub : 0n;
+        } else if (c === '#') {
+            m <<= 1n;
+        } else if (c !== '%') {
+            m += 1n;
+        }
+    }
+    if (BigInt(k) >= m) {
+        return '.';
+    }
+    let bigK = BigInt(k);
+    for (let i = s.length - 1; ; i--) {
+        const c = s[i];
+        if (c === '*') {
+            m += 1n;
+        } else if (c === '#') {
+            m /= 2n;
+            if (bigK >= m) {
+                bigK -= m;
+            }
+        } else if (c === '%') {
+            bigK = m - 1n - bigK;
+        } else {
+            m -= 1n;
+            if (bigK === m) {
+                return c;
+            }
+        }
+    }
+}
 ```
 
 <!-- tabs:end -->

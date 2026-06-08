@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3946.Maximum%20Number%20of%20Items%20From%20Sale%20I/README_EN.md
 rating: 1728
 source: Weekly Contest 504 Q2
+tags:
+    - Greedy
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

@@ -88,7 +88,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3955.Va
 
 - 每个 `1` 的位置 $i$（从 $0$ 开始）累加的总和不超过 $k$，即
 
-
 $$
 \sum_{i \mid s_i = 1} i \le k
 $$

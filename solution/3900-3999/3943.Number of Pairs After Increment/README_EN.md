@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3943.Number%20of%20Pairs%20After%20Increment/README_EN.md
 rating: 2409
 source: Weekly Contest 503 Q4
+tags:
+    - Array
+    - Hash Table
+    - Divide and Conquer
+    - Counting
 ---
 
 <!-- problem:start -->

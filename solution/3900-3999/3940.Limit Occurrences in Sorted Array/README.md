@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3940.Limit%20Occurrences%20in%20Sorted%20Array/README.md
 rating: 1201
 source: 第 503 场周赛 Q1
+tags:
+    - 数组
+    - 双指针
 ---
 
 <!-- problem:start -->
