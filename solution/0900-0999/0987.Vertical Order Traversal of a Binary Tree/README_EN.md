@@ -306,4 +306,169 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2：BFS + Sorting
+
+We perform a breadth-first search (BFS) on the tree.
+
+Since our final answer must be returned from leftmost column to rightmost column, we maintain:
+- `leftmostCol`: smallest column index currently stored.
+- `rightmostCol`: largest column index currently stored.
+
+We also use a deque `columnsValues`, where each element represents
+a column and stores all node values belonging to that column.
+
+When a newly visited node belongs to a column outside the current range:
+
+- If its column index $<$ `leftmostCol`, we put a new column container at the front of deque.
+- If its column index $>$ `rightmostCol`, we append a new column container to the back of deque.
+
+- For any column index `col`, its corresponding position in `columnsValues` can be computed as:
+- 
+$$
+col - `leftmostCol`
+$$
+
+This allows us to locate target column in constant time.
+
+After BFS finishes, each column contains all node values belonging to that column.
+
+Since BFS already visits nodes level by level, we only need to sort values within each column
+in ascending order to satisfy ordering requirements of the problem.
+
+Finally, we output all columns from left to right.
+
+#### Complexity Analysis
+
+Assume binary tree contains $n$ nodes.
+
+- Time Complexity: $O(n \log n)$
+  
+  BFS visits every node exactly once, which takes $O(n)$ time. Sorting values is $O(n \log n)$ time in worst case.
+  Therefore, overall time complexity is $O(n \log n)$.
+
+- Space Complexity: $O(n)$
+
+  BFS queue, deque structure, and result container may collectively store all nodes, resulting in $O(n)$ space.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> list[list[int]]:
+        # Format: (tree node, row, column).
+        queue: deque[tuple[TreeNode, int, int]] = deque([(root, 0, 0)])
+
+        # Deque append left speeds up indexing.
+        # Each tuple format: (row, value).
+        columns_values: deque[list[tuple[int, int]]] = deque([[]])
+
+        leftmost_col, rightmost_col = 0, 0
+
+        while queue:
+            node, row, column = queue.popleft()
+
+            if column < leftmost_col:
+                leftmost_col = column
+                columns_values.appendleft([])
+
+            if column > rightmost_col:
+                rightmost_col = column
+                columns_values.append([])
+
+            columns_values[column - leftmost_col].append((row, node.val))
+
+            if node.left:
+                queue.append((node.left, row + 1, column - 1))
+            if node.right:
+                queue.append((node.right, row + 1, column + 1))
+
+        vertical_traversal: list[list[int]] = []
+
+        for column_values in columns_values:
+            vertical_traversal.append([])
+
+            column_values.sort()
+            for _, value in column_values:
+                vertical_traversal[-1].append(value)
+
+        return vertical_traversal
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> verticalTraversal(TreeNode* root) {
+        // Each tuple format: {tree node, row, column}.
+        deque<tuple<TreeNode*, int, int>> queue = {{root, 0, 0}};
+
+        // Each tuple format: {row, value}.
+        deque<vector<tuple<int, int>>> columnsValues = {{}};
+
+        int leftmostCol = 0, rightmostCol = 0;
+
+        while (!queue.empty()) {
+            auto [node, row, column] = queue.front();
+            queue.pop_front();
+
+            if (column < leftmostCol) {
+                leftmostCol = column;
+                columnsValues.push_front({});
+            }
+
+            if (column > rightmostCol) {
+                rightmostCol = column;
+                columnsValues.push_back({});
+            }
+
+            columnsValues[column - leftmostCol].push_back({row, node->val});
+
+            if (node->left != nullptr)
+                queue.push_back({node->left, row + 1, column - 1});
+
+            if (node->right != nullptr)
+                queue.push_back({node->right, row + 1, column + 1});
+        }
+
+        vector<vector<int>> verticalTraversal = {};
+
+        for (auto columnValues : columnsValues) { // Need to sort so no const.
+            verticalTraversal.push_back({});
+
+            sort(columnValues.begin(), columnValues.end());
+            for (const auto& [row, value] : columnValues)
+                verticalTraversal.back().push_back(value);
+        }
+
+        return verticalTraversal;
+    }
+};
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
