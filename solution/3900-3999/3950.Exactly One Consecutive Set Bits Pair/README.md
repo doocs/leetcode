@@ -24,7 +24,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3950.Ex
 <p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><strong>输入：</strong> <span class="example-io">nums = 6</span></p>
+<p><strong>输入：</strong> <span class="example-io">n = 6</span></p>
 
 <p><strong>输出：</strong> <span class="example-io">true</span></p>
 
@@ -39,7 +39,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3950.Ex
 <p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><strong>输入：</strong> <span class="example-io">nums = 5</span></p>
+<p><strong>输入：</strong> <span class="example-io">n = 5</span></p>
 
 <p><strong>输出：</strong> <span class="example-io">false</span></p>
 

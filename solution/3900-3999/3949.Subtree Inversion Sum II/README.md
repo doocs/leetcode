@@ -51,7 +51,7 @@ tags:
 
 </ul>
 
-<p data-end="1358" data-start="1249">返回应用&nbsp;<strong>反转操作&nbsp;</strong>后树上节点值的&nbsp;<strong>最大</strong>可能&nbsp;<strong>总和&nbsp;</strong>。</p>
+<p data-end="1358" data-start="1249">返回应用&nbsp;<strong>反转操作&nbsp;</strong>后树上节点值的&nbsp;<strong>最大&nbsp;</strong>可能&nbsp;<strong>总和&nbsp;</strong>。</p>
 
 <p>&nbsp;</p>
 

@@ -6,7 +6,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3956.Ma
 
 <!-- problem:start -->
 
-# [3956. 非重叠子数组最大和 I](https://leetcode.cn/problems/maximum-sum-of-m-non-overlapping-subarrays-i)
+# [3956. M 个非重叠子数组最大和 I](https://leetcode.cn/problems/maximum-sum-of-m-non-overlapping-subarrays-i)
 
 [English Version](/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README_EN.md)
 
