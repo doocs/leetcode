@@ -49,9 +49,7 @@ class SparseTableRMQ {
 function maxTotalValue(nums: number[], k: number): number {
     const n = nums.length;
     const st = new SparseTableRMQ(nums);
-    const pq = new MaxPriorityQueue<[number, number, number]>({
-        compare: (a, b) => b[0] - a[0],
-    });
+    const pq = new PriorityQueue<[number, number, number]>((a, b) => b[0] - a[0]);
 
     for (let l = 0; l < n; l++) {
         const val = st.queryMax(l, n - 1) - st.queryMin(l, n - 1);
