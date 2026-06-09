@@ -30,8 +30,8 @@ comments: true
 
 - [3954. 区间内的兼容数字之和 I](/solution/3900-3999/3954.Sum%20of%20Compatible%20Numbers%20in%20Range%20I/README.md)
 - [3955. 成本限制的有效二进制字符串](/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README.md)
-- [3956. 非重叠子数组最大和 I](/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README.md)
-- [3957. 非重叠子数组最大和 II](/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README.md)
+- [3956. M 个非重叠子数组最大和 I](/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README.md)
+- [3957. M 个非重叠子数组最大和 II](/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README.md)
 
 #### 第 184 场双周赛(2026-06-06 22:30, 90 分钟) 参赛人数 870
 
