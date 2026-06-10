@@ -3968,6 +3968,7 @@
 |  3955  |  [成本限制的有效二进制字符串](/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README.md)  |    |  中等  |  第 505 场周赛  |
 |  3956  |  [M 个非重叠子数组最大和 I](/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README.md)  |    |  困难  |  第 505 场周赛  |
 |  3957  |  [M 个非重叠子数组最大和 II](/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README.md)  |    |  困难  |  第 505 场周赛  |
+|  3958  |  [Minimum Cost to Split into Ones II](/solution/3900-3999/3958.Minimum%20Cost%20to%20Split%20into%20Ones%20II/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
