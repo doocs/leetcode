@@ -85,32 +85,209 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS + Mathematics
+
+First, we build an adjacency list $g$ from the edges, where $g[u]$ contains all neighbors of node $u$.
+
+Next, we use a function $\textit{dfs}$ to compute the depth $d$ of the tree. The answer is the number of ways to choose an odd number of elements from $d$. According to a well-known combinatorial identity, the number of ways to choose an odd number of elements from a set of size $d$ is $2^{d-1}$. Therefore, we can compute the answer using fast exponentiation.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def assignEdgeWeights(self, edges: List[List[int]]) -> int:
+        def dfs(i: int, fa: int = 0) -> int:
+            res = 0
+            for j in g[i]:
+                if j != fa:
+                    res = max(res, dfs(j, i) + 1)
+            return res
 
+        n = len(edges) + 1
+        g = [[] for _ in range(n + 1)]
+        for u, v in edges:
+            g[u].append(v)
+            g[v].append(u)
+        d = dfs(1)
+        return pow(2, d - 1, 10**9 + 7)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private List<Integer>[] g;
 
+    public int assignEdgeWeights(int[][] edges) {
+        int n = edges.length + 1;
+        g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
+
+        for (var e : edges) {
+            int u = e[0];
+            int v = e[1];
+            g[u].add(v);
+            g[v].add(u);
+        }
+
+        return (int) pow(2, dfs(1, 0) - 1, 1_000_000_007);
+    }
+
+    private int dfs(int i, int fa) {
+        int res = 0;
+        for (int j : g[i]) {
+            if (j != fa) {
+                res = Math.max(res, dfs(j, i) + 1);
+            }
+        }
+        return res;
+    }
+
+    private long pow(long a, int n, int mod) {
+        long res = 1;
+        while (n > 0) {
+            if ((n & 1) != 0) {
+                res = res * a % mod;
+            }
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int assignEdgeWeights(vector<vector<int>>& edges) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n + 1);
 
+        for (auto& e : edges) {
+            int u = e[0];
+            int v = e[1];
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+
+        auto dfs = [&](this auto&& dfs, int i, int fa) -> int {
+            int res = 0;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    res = max(res, dfs(j, i) + 1);
+                }
+            }
+            return res;
+        };
+
+        return pow(2, dfs(1, 0) - 1, 1000000007);
+    }
+
+private:
+    long long pow(long long a, int n, int mod) {
+        long long res = 1;
+        while (n > 0) {
+            if (n & 1) {
+                res = res * a % mod;
+            }
+            a = a * a % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func assignEdgeWeights(edges [][]int) int {
+	const mod = 1_000_000_007
 
+	n := len(edges) + 1
+	g := make([][]int, n+1)
+
+	for _, e := range edges {
+		u, v := e[0], e[1]
+		g[u] = append(g[u], v)
+		g[v] = append(g[v], u)
+	}
+
+	var dfs func(int, int) int
+	dfs = func(i, fa int) int {
+		res := 0
+		for _, j := range g[i] {
+			if j != fa {
+				res = max(res, dfs(j, i)+1)
+			}
+		}
+		return res
+	}
+
+	return pow(2, dfs(1, 0)-1, mod)
+}
+
+func pow(a, n, mod int) int {
+	res := 1
+	for n > 0 {
+		if n&1 > 0 {
+			res = res * a % mod
+		}
+		a = a * a % mod
+		n >>= 1
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function assignEdgeWeights(edges: number[][]): number {
+    const mod = 1_000_000_007;
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n + 1 }, () => []);
+
+    for (const [u, v] of edges) {
+        g[u].push(v);
+        g[v].push(u);
+    }
+
+    const dfs = (i: number, fa: number): number => {
+        let res = 0;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                res = Math.max(res, dfs(j, i) + 1);
+            }
+        }
+        return res;
+    };
+
+    const pow = (a: number, n: number, mod: number): number => {
+        let res = 1n;
+        let x = BigInt(a);
+        const m = BigInt(mod);
+
+        while (n > 0) {
+            if (n & 1) {
+                res = (res * x) % m;
+            }
+            x = (x * x) % m;
+            n >>= 1;
+        }
+
+        return Number(res);
+    };
+
+    return pow(2, dfs(1, 0) - 1, mod);
+}
 ```
 
 <!-- tabs:end -->
