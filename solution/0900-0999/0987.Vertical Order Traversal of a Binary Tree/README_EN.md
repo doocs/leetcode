@@ -313,6 +313,7 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 We perform a breadth-first search (BFS) on the tree.
 
 Since our final answer must be returned from leftmost column to rightmost column, we maintain:
+
 - `leftmostCol`: smallest column index currently stored.
 - `rightmostCol`: largest column index currently stored.
 
@@ -325,10 +326,9 @@ When a newly visited node belongs to a column outside the current range:
 - If its column index $>$ `rightmostCol`, we append a new column container to the back of deque.
 
 - For any column index `col`, its corresponding position in `columnsValues` can be computed as:
-- 
-$$
-col - `leftmostCol`
-$$
+- $$
+  col - `leftmostCol`
+  $$
 
 This allows us to locate target column in constant time.
 
@@ -344,13 +344,13 @@ Finally, we output all columns from left to right.
 Assume binary tree contains $n$ nodes.
 
 - Time Complexity: $O(n \log n)$
-  
-  BFS visits every node exactly once, which takes $O(n)$ time. Sorting values is $O(n \log n)$ time in worst case.
-  Therefore, overall time complexity is $O(n \log n)$.
+
+    BFS visits every node exactly once, which takes $O(n)$ time. Sorting values is $O(n \log n)$ time in worst case.
+    Therefore, overall time complexity is $O(n \log n)$.
 
 - Space Complexity: $O(n)$
 
-  BFS queue, deque structure, and result container may collectively store all nodes, resulting in $O(n)$ space.
+    BFS queue, deque structure, and result container may collectively store all nodes, resulting in $O(n)$ space.
 
 <!-- tabs:start -->
 

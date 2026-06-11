@@ -3966,6 +3966,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3955  |  [Valid Binary Strings With Cost Limit](/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README_EN.md)  |    |  Medium  |  Weekly Contest 505  |
 |  3956  |  [Maximum Sum of M Non-Overlapping Subarrays I](/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 505  |
 |  3957  |  [Maximum Sum of M Non-Overlapping Subarrays II](/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 505  |
+|  3958  |  [Minimum Cost to Split into Ones II](/solution/3900-3999/3958.Minimum%20Cost%20to%20Split%20into%20Ones%20II/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 
