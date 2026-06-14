@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3936.Minimum%20Swaps%20to%20Move%20Zeros%20to%20End/README_EN.md
 rating: 1346
 source: Biweekly Contest 183 Q1
+tags:
+    - Array
+    - Two Pointers
 ---
 
 <!-- problem:start -->

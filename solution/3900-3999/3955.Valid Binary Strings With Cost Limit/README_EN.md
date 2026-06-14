@@ -2,6 +2,13 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README_EN.md
+rating: 1429
+source: Weekly Contest 505 Q2
+tags:
+    - Bit Manipulation
+    - String
+    - Backtracking
+    - Enumeration
 ---
 
 <!-- problem:start -->

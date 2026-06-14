@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3929.Minimum%20Partition%20Score%20II/README_EN.md
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

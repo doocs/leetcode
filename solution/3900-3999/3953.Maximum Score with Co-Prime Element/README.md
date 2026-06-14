@@ -2,6 +2,15 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README.md
+rating: 2390
+source: 第 184 场双周赛 Q4
+tags:
+    - 数组
+    - 哈希表
+    - 数学
+    - 组合数学
+    - 枚举
+    - 数论
 ---
 
 <!-- problem:start -->

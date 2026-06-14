@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3930.Power%20Update%20After%20K-th%20Largest%20Insertion%20II/README_EN.md
+tags:
+    - Segment Tree
+    - Array
+    - Hash Table
+    - Math
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3938.Maximum%20Path%20Intersection%20Sum%20in%20a%20Grid/README_EN.md
 rating: 2251
 source: Biweekly Contest 183 Q3
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

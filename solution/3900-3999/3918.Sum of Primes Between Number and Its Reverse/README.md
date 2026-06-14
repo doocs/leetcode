@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3918.Sum%20of%20Primes%20Between%20Number%20and%20Its%20Reverse/README.md
 rating: 1301
 source: 第 500 场周赛 Q2
+tags:
+    - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

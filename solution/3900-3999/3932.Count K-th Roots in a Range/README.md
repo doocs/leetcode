@@ -4,6 +4,9 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3932.Count%20K-th%20Roots%20in%20a%20Range/README.md
 rating: 1548
 source: 第 502 场周赛 Q2
+tags:
+    - 数学
+    - 二分查找
 ---
 
 <!-- problem:start -->

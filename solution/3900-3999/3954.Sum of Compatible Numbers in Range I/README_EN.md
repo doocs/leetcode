@@ -2,6 +2,12 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3954.Sum%20of%20Compatible%20Numbers%20in%20Range%20I/README_EN.md
+rating: 1210
+source: Weekly Contest 505 Q1
+tags:
+    - Bit Manipulation
+    - Dynamic Programming
+    - Enumeration
 ---
 
 <!-- problem:start -->

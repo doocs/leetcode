@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3935.Power%20Update%20After%20K-th%20Largest%20Insertion%20I/README.md
+tags:
+    - 线段树
+    - 数组
+    - 哈希表
+    - 数学
+    - 排序
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->
@@ -16,7 +23,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3935.Po
 
 <p>给定一个整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>p</code>。</p>
 
-<p>同时给定一个二维整数数组&nbsp;<code>queries</code>，其中每个&nbsp;<code>queries[i] = [val<sub>i</sub>, k<sub>i</sub>]</code>&nbsp;并且 <strong>连续</strong> 的&nbsp;<code>k<sub>i</sub></code>&nbsp;个值之间的差总是 <strong>小于</strong> 10。</p>
+<p>同时给定一个二维整数数组&nbsp;<code>queries</code>，其中每个&nbsp;<code>queries[i] = [val<sub>i</sub>, k<sub>i</sub>]</code>&nbsp;并且 <strong>相邻</strong> 的两个&nbsp;<code>k<sub>i</sub></code>&nbsp;之间的差总是 <strong>小于</strong> 10。</p>
 
 <p>对于每次查询：</p>
 

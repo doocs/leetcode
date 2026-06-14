@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3925.Concatenate%20Array%20With%20Reverse/README.md
 rating: 1176
 source: 第 501 场周赛 Q1
+tags:
+    - 数组
+    - 模拟
 ---
 
 <!-- problem:start -->
