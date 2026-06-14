@@ -2,6 +2,11 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3951.Minimum%20Energy%20to%20Maintain%20Brightness/README_EN.md
+rating: 1529
+source: Biweekly Contest 184 Q2
+tags:
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

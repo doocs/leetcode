@@ -2,6 +2,10 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README_EN.md
+rating: 1270
+source: Biweekly Contest 184 Q1
+tags:
+    - Bit Manipulation
 ---
 
 <!-- problem:start -->

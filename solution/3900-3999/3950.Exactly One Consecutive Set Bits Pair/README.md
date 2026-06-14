@@ -2,6 +2,10 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3950.Exactly%20One%20Consecutive%20Set%20Bits%20Pair/README.md
+rating: 1270
+source: 第 184 场双周赛 Q1
+tags:
+    - 位运算
 ---
 
 <!-- problem:start -->

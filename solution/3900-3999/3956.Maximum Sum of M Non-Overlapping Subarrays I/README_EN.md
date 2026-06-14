@@ -2,6 +2,16 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3956.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20I/README_EN.md
+rating: 2060
+source: Weekly Contest 505 Q3
+tags:
+    - Queue
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Prefix Sum
+    - Sliding Window
+    - Monotonic Queue
 ---
 
 <!-- problem:start -->

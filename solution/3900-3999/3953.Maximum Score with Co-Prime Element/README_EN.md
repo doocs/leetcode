@@ -2,6 +2,15 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3953.Maximum%20Score%20with%20Co-Prime%20Element/README_EN.md
+rating: 2390
+source: Biweekly Contest 184 Q4
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Combinatorics
+    - Enumeration
+    - Number Theory
 ---
 
 <!-- problem:start -->

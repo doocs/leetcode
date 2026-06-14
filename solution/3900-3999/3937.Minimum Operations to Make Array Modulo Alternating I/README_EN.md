@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3937.Minimum%20Operations%20to%20Make%20Array%20Modulo%20Alternating%20I/README_EN.md
 rating: 1626
 source: Biweekly Contest 183 Q2
+tags:
+    - Array
+    - Enumeration
 ---
 
 <!-- problem:start -->

@@ -126,7 +126,7 @@ tags:
 	<li><code>2 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>edges[i].length == 2</code></li>
 	<li><code>0 &lt;= edges[i][0], edges[i][1] &lt; n</code></li>
-	<li><code>-5 * 10<sup>4</sup> &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>-4 * 10<sup>4</sup> &lt;= nums[i] &lt;= 4 * 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= k &lt;= 50</code></li>
 	<li>It is guaranteed that <code>edges</code> forms a tree.</li>
 </ul>

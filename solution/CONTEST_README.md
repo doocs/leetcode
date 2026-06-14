@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 506 场周赛(2026-06-14 10:30, 90 分钟) 参赛人数 1108
+
+- [3959. 判定好整数](/solution/3900-3999/3959.Check%20Good%20Integer/README.md)
+- [3960. 频率平衡子数组](/solution/3900-3999/3960.Frequency%20Balance%20Subarray/README.md)
+- [3961. 设备评分的最大和](/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README.md)
+- [3962. 至多 K 次交换后最大子数组和](/solution/3900-3999/3962.Maximum%20Subarray%20Sum%20After%20at%20Most%20K%20Swaps/README.md)
+
 #### 第 505 场周赛(2026-06-07 10:30, 90 分钟) 参赛人数 1186
 
 - [3954. 区间内的兼容数字之和 I](/solution/3900-3999/3954.Sum%20of%20Compatible%20Numbers%20in%20Range%20I/README.md)
