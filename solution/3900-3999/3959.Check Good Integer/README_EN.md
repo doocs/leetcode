@@ -70,32 +70,81 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3959.Ch
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We use a variable $s$ to record the result of the square sum minus the digit sum of $n$. If $s$ is greater than or equal to 50, we return $\textit{true}$; otherwise, we return $\textit{false}$.
+
+The time complexity is $O(\log n)$, where $\log n$ is the number of digits in $n$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def checkGoodInteger(self, n: int) -> bool:
+        s = 0
+        while n:
+            n, x = divmod(n, 10)
+            s += x * (x - 1)
+        return s >= 50
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean checkGoodInteger(int n) {
+        int s = 0;
+        for (; n > 0; n /= 10) {
+            int x = n % 10;
+            s += x * (x - 1);
+        }
+        return s >= 50;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool checkGoodInteger(int n) {
+        int s = 0;
+        for (; n > 0; n /= 10) {
+            int x = n % 10;
+            s += x * (x - 1);
+        }
+        return s >= 50;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func checkGoodInteger(n int) bool {
+    s := 0
+    for ; n > 0; n /= 10 {
+        x := n % 10
+        s += x * (x - 1)
+    }
+    return s >= 50
+}
+```
 
+#### TypeScript
+
+```ts
+function checkGoodInteger(n: number): boolean {
+    let s: number = 0;
+    for (; n; n = Math.floor(n / 10)) {
+        const x = n % 10;
+        s += x * (x - 1);
+    }
+    return s >= 50;
+}
 ```
 
 <!-- tabs:end -->

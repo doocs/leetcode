@@ -72,32 +72,81 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3959.Ch
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们用一个变量 $s$ 来记录 $n$ 的各位数字的平方和减去各位数字之和的结果，如果 $s$ 大于等于 50，则返回 $\textit{true}$，否则返回 $\textit{false}$。
+
+时间复杂度 $O(\log n)$，其中 $\log n$ 是数字 $n$ 的位数。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def checkGoodInteger(self, n: int) -> bool:
+        s = 0
+        while n:
+            n, x = divmod(n, 10)
+            s += x * (x - 1)
+        return s >= 50
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean checkGoodInteger(int n) {
+        int s = 0;
+        for (; n > 0; n /= 10) {
+            int x = n % 10;
+            s += x * (x - 1);
+        }
+        return s >= 50;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool checkGoodInteger(int n) {
+        int s = 0;
+        for (; n > 0; n /= 10) {
+            int x = n % 10;
+            s += x * (x - 1);
+        }
+        return s >= 50;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func checkGoodInteger(n int) bool {
+    s := 0
+    for ; n > 0; n /= 10 {
+        x := n % 10
+        s += x * (x - 1)
+    }
+    return s >= 50
+}
+```
 
+#### TypeScript
+
+```ts
+function checkGoodInteger(n: number): boolean {
+    let s: number = 0;
+    for (; n; n = Math.floor(n / 10)) {
+        const x = n % 10;
+        s += x * (x - 1);
+    }
+    return s >= 50;
+}
 ```
 
 <!-- tabs:end -->
