@@ -4,6 +4,13 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3934.Smallest%20Unique%20Subarray/README_EN.md
 rating: 2162
 source: Weekly Contest 502 Q4
+tags:
+    - Array
+    - Hash Table
+    - Binary Search
+    - Suffix Array
+    - Hash Function
+    - Rolling Hash
 ---
 
 <!-- problem:start -->

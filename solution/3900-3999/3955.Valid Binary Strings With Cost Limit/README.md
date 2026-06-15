@@ -2,6 +2,13 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3955.Valid%20Binary%20Strings%20With%20Cost%20Limit/README.md
+rating: 1429
+source: 第 505 场周赛 Q2
+tags:
+    - 位运算
+    - 字符串
+    - 回溯
+    - 枚举
 ---
 
 <!-- problem:start -->

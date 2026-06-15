@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 506
+
+- [3959. Check Good Integer](/solution/3900-3999/3959.Check%20Good%20Integer/README_EN.md)
+- [3960. Frequency Balance Subarray](/solution/3900-3999/3960.Frequency%20Balance%20Subarray/README_EN.md)
+- [3961. Maximize Sum of Device Ratings](/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README_EN.md)
+- [3962. Maximum Subarray Sum After at Most K Swaps](/solution/3900-3999/3962.Maximum%20Subarray%20Sum%20After%20at%20Most%20K%20Swaps/README_EN.md)
+
 #### Weekly Contest 505
 
 - [3954. Sum of Compatible Numbers in Range I](/solution/3900-3999/3954.Sum%20of%20Compatible%20Numbers%20in%20Range%20I/README_EN.md)

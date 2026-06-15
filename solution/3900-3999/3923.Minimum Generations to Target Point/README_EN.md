@@ -4,6 +4,10 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3923.Minimum%20Generations%20to%20Target%20Point/README_EN.md
 rating: 1883
 source: Biweekly Contest 182 Q3
+tags:
+    - Array
+    - Hash Table
+    - Simulation
 ---
 
 <!-- problem:start -->

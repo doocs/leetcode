@@ -4,6 +4,12 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README_EN.md
 rating: 1651
 source: Weekly Contest 501 Q3
+tags:
+    - Greedy
+    - Array
+    - Hash Table
+    - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

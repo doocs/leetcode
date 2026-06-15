@@ -2,6 +2,13 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README_EN.md
+rating: 1762
+source: Biweekly Contest 184 Q3
+tags:
+    - Greedy
+    - Array
+    - String
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,16 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3957.Maximum%20Sum%20of%20M%20Non-Overlapping%20Subarrays%20II/README.md
+rating: 2611
+source: 第 505 场周赛 Q4
+tags:
+    - 队列
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 前缀和
+    - 滑动窗口
+    - 单调队列
 ---
 
 <!-- problem:start -->

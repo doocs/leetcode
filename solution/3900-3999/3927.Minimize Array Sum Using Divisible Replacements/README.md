@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3927.Minimize%20Array%20Sum%20Using%20Divisible%20Replacements/README.md
 rating: 1651
 source: 第 501 场周赛 Q3
+tags:
+    - 贪心
+    - 数组
+    - 哈希表
+    - 数学
+    - 数论
 ---
 
 <!-- problem:start -->

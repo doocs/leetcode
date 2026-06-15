@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3939.Count%20Non%20Adjacent%20Subsets%20in%20a%20Rooted%20Tree/README_EN.md
 rating: 2354
 source: Biweekly Contest 183 Q4
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

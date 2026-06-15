@@ -4,6 +4,8 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3922.Minimum%20Flips%20to%20Make%20Binary%20String%20Coherent/README_EN.md
 rating: 1759
 source: Biweekly Contest 182 Q2
+tags:
+    - String
 ---
 
 <!-- problem:start -->
@@ -22,7 +24,7 @@ source: Biweekly Contest 182 Q2
 
 <p>In one operation, you can <strong>flip</strong> any character in <code>s</code> (<code>&#39;0&#39;</code> to <code>&#39;1&#39;</code> or <code>&#39;1&#39;</code> to <code>&#39;0&#39;</code>).</p>
 
-<p>Return an integer denoting the <strong>minimum</strong> number of modifications required to make <code>s</code> coherent.</p>
+<p>Return an integer denoting the <strong>minimum</strong> number of operations required to make <code>s</code> coherent.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
