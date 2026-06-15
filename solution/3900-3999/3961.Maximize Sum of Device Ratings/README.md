@@ -110,32 +110,157 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3961.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+如果往一个设备加单元，只会使得该设备的评分变小或不变。因此，如果 $n = 1$，直接返回所有设备的评分之和。
+
+否则，我们把每个设备的单元按从小到大排序，每个设备选出最小的单元，集中放到某个设备中，评分为 $\textit{mn}$。如果集中放到设备 $i$ 中，那么设备 $i$ 的评分会从次小值 $\textit{mn2}$ 变为 $\textit{mn}$，因此总评分会减少 $\textit{mn2} - \textit{mn}$。为了使得总评分最大，我们应该选择使得减少的评分最小的设备，即 $\textit{mn2}$ 最小的设备。
+
+时间复杂度 $O(m \times n)$，其中 $m$ 和 $n$ 分别是设备的数量和每个设备的单元数量。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxRatings(self, units: List[List[int]]) -> int:
+        n = len(units[0])
+        if n == 1:
+            return sum(x[0] for x in units)
 
+        ans = 0
+        mn = mn2 = inf
+        for x in units:
+            x.sort()
+            ans += x[1]
+            mn2 = min(mn2, x[1])
+            mn = min(mn, x[0])
+        ans -= mn2 - mn
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long maxRatings(int[][] units) {
+        int n = units[0].length;
+        if (n == 1) {
+            long ans = 0;
+            for (int[] x : units) {
+                ans += x[0];
+            }
+            return ans;
+        }
 
+        long ans = 0;
+        int mn = Integer.MAX_VALUE;
+        int mn2 = Integer.MAX_VALUE;
+
+        for (int[] x : units) {
+            Arrays.sort(x);
+            ans += x[1];
+            mn2 = Math.min(mn2, x[1]);
+            mn = Math.min(mn, x[0]);
+        }
+
+        ans -= (mn2 - mn);
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maxRatings(vector<vector<int>>& units) {
+        int n = units[0].size();
+        if (n == 1) {
+            long long ans = 0;
+            for (auto& x : units) {
+                ans += x[0];
+            }
+            return ans;
+        }
 
+        long long ans = 0;
+        int mn = INT_MAX;
+        int mn2 = INT_MAX;
+
+        for (auto& x : units) {
+            sort(x.begin(), x.end());
+            ans += x[1];
+            mn2 = min(mn2, x[1]);
+            mn = min(mn, x[0]);
+        }
+
+        return ans - (mn2 - mn);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxRatings(units [][]int) int64 {
+	n := len(units[0])
+	if n == 1 {
+		var ans int64
+		for _, x := range units {
+			ans += int64(x[0])
+		}
+		return ans
+	}
 
+	var ans int64
+	mn, mn2 := int(^uint(0)>>1), int(^uint(0)>>1)
+
+	for _, x := range units {
+		sort.Ints(x)
+		ans += int64(x[1])
+		if x[1] < mn2 {
+			mn2 = x[1]
+		}
+		if x[0] < mn {
+			mn = x[0]
+		}
+	}
+
+	return ans - int64(mn2-mn)
+}
+```
+
+#### TypeScript
+
+```ts
+function maxRatings(units: number[][]): number {
+    const n = units[0].length;
+
+    if (n === 1) {
+        let ans = 0;
+        for (const x of units) {
+            ans += x[0];
+        }
+        return ans;
+    }
+
+    let ans = 0;
+    let mn = Infinity;
+    let mn2 = Infinity;
+
+    for (const x of units) {
+        x.sort((a, b) => a - b);
+        ans += x[1];
+        mn2 = Math.min(mn2, x[1]);
+        mn = Math.min(mn, x[0]);
+    }
+
+    return ans - (mn2 - mn);
+}
 ```
 
 <!-- tabs:end -->
