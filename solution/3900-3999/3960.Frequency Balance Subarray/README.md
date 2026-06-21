@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3960.Frequency%20Balance%20Subarray/README.md
+rating: 1737
+source: 第 506 场周赛 Q2
 ---
 
 <!-- problem:start -->

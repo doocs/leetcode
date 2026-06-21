@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README_EN.md
+rating: 1879
+source: Weekly Contest 506 Q3
 ---
 
 <!-- problem:start -->
