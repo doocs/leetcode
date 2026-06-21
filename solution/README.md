@@ -3973,6 +3973,16 @@
 |  3960  |  [频率平衡子数组](/solution/3900-3999/3960.Frequency%20Balance%20Subarray/README.md)  |    |  中等  |  第 506 场周赛  |
 |  3961  |  [设备评分的最大和](/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README.md)  |    |  中等  |  第 506 场周赛  |
 |  3962  |  [至多 K 次交换后最大子数组和](/solution/3900-3999/3962.Maximum%20Subarray%20Sum%20After%20at%20Most%20K%20Swaps/README.md)  |    |  困难  |  第 506 场周赛  |
+|  3963  |  [构造恰好一条路径的网格](/solution/3900-3999/3963.Create%20Grid%20With%20Exactly%20One%20Path/README.md)  |    |  简单  |  第 185 场双周赛  |
+|  3964  |  [照亮道路的最少灯泡数](/solution/3900-3999/3964.Minimum%20Lights%20to%20Illuminate%20a%20Road/README.md)  |    |  中等  |  第 185 场双周赛  |
+|  3965  |  [任务完成时间 I](/solution/3900-3999/3965.Finish%20Time%20of%20Tasks%20I/README.md)  |    |  中等  |  第 185 场双周赛  |
+|  3966  |  [统计范围内的好整数](/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README.md)  |    |  困难  |  第 185 场双周赛  |
+|  3967  |  [Finish Time of Tasks II](/solution/3900-3999/3967.Finish%20Time%20of%20Tasks%20II/README.md)  |    |  困难  |  🔒  |
+|  3968  |  [移动后的最大曼哈顿距离](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README.md)  |    |  中等  |  第 507 场周赛  |
+|  3969  |  [求和后首尾数字相同的有效子数组 I](/solution/3900-3999/3969.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20I/README.md)  |    |  中等  |  第 507 场周赛  |
+|  3970  |  [最多 K 个连续相同字符的最短路径](/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README.md)  |    |  中等  |  第 507 场周赛  |
+|  3971  |  [最大总价值](/solution/3900-3999/3971.Maximum%20Total%20Value/README.md)  |    |  困难  |  第 507 场周赛  |
+|  3972  |  [Valid Subarrays With Matching Sum Digits II](/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

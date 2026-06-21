@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README.md
+rating: 1879
+source: 第 506 场周赛 Q3
 ---
 
 <!-- problem:start -->
