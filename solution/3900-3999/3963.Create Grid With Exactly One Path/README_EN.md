@@ -92,32 +92,117 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3963.Cr
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Construction
+
+We construct the grid as follows:
+
+- First, construct a grid filled entirely with `#`.
+- Set all elements in the first row to `.`.
+- Set all elements in the last column to `.`.
+- Return the constructed grid.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns in the grid, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def createGrid(self, m: int, n: int) -> list[str]:
+        g = [["#"] * n for _ in range(m)]
+        g[0] = ["."] * n
+        for i in range(m):
+            g[i][-1] = "."
+        return ["".join(row) for row in g]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String[] createGrid(int m, int n) {
+        char[][] g = new char[m][n];
+        for (int i = 0; i < m; i++) {
+            Arrays.fill(g[i], '#');
+        }
 
+        Arrays.fill(g[0], '.');
+
+        for (int i = 0; i < m; i++) {
+            g[i][n - 1] = '.';
+        }
+
+        String[] ans = new String[m];
+        for (int i = 0; i < m; i++) {
+            ans[i] = new String(g[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<string> createGrid(int m, int n) {
+        vector<string> g(m, string(n, '#'));
 
+        g[0] = string(n, '.');
+
+        for (int i = 0; i < m; i++) {
+            g[i][n - 1] = '.';
+        }
+
+        return g;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func createGrid(m int, n int) []string {
+    g := make([][]byte, m)
+    for i := range g {
+        g[i] = make([]byte, n)
+        for j := range g[i] {
+            g[i][j] = '#'
+        }
+    }
 
+    for j := 0; j < n; j++ {
+        g[0][j] = '.'
+    }
+
+    for i := 0; i < m; i++ {
+        g[i][n-1] = '.'
+    }
+
+    ans := make([]string, m)
+    for i := range g {
+        ans[i] = string(g[i])
+    }
+    return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function createGrid(m: number, n: number): string[] {
+    const g: string[][] = Array.from({ length: m }, () => Array(n).fill('#'));
+
+    g[0].fill('.');
+
+    for (let i = 0; i < m; i++) {
+        g[i][n - 1] = '.';
+    }
+
+    return g.map(row => row.join(''));
+}
 ```
 
 <!-- tabs:end -->
