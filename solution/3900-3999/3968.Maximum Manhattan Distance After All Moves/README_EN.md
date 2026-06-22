@@ -84,32 +84,134 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3968.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+We can use a variable $x$ to record the vertical distance, a variable $y$ to record the horizontal distance, and a variable $z$ to record the number of replaceable moves.
+
+Then the final Manhattan distance is $|x| + |y| + z$.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $\textit{moves}$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxDistance(self, moves: str) -> int:
+        x = y = z = 0
+        for c in moves:
+            if c == "U":
+                x -= 1
+            elif c == "D":
+                x += 1
+            elif c == "L":
+                y -= 1
+            elif c == "R":
+                y += 1
+            else:
+                z += 1
+        return abs(x) + abs(y) + z
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxDistance(String moves) {
+        int x = 0, y = 0, z = 0;
+        for (char c : moves.toCharArray()) {
+            if (c == 'U') {
+                x -= 1;
+            } else if (c == 'D') {
+                x += 1;
+            } else if (c == 'L') {
+                y -= 1;
+            } else if (c == 'R') {
+                y += 1;
+            } else {
+                z += 1;
+            }
+        }
+        return Math.abs(x) + Math.abs(y) + z;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxDistance(string moves) {
+        int x = 0, y = 0, z = 0;
+        for (char c : moves) {
+            if (c == 'U') {
+                x -= 1;
+            } else if (c == 'D') {
+                x += 1;
+            } else if (c == 'L') {
+                y -= 1;
+            } else if (c == 'R') {
+                y += 1;
+            } else {
+                z += 1;
+            }
+        }
+        return abs(x) + abs(y) + z;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxDistance(moves string) int {
+    x, y, z := 0, 0, 0
+    for _, c := range moves {
+        if c == 'U' {
+            x -= 1
+        } else if c == 'D' {
+            x += 1
+        } else if c == 'L' {
+            y -= 1
+        } else if c == 'R' {
+            y += 1
+        } else {
+            z += 1
+        }
+    }
+    return abs(x) + abs(y) + z
+}
 
+func abs(x int) int {
+    if x < 0 {
+        return -x
+    }
+    return x
+}
+```
+
+#### TypeScript
+
+```ts
+function maxDistance(moves: string): number {
+    let [x, y, z] = [0, 0, 0];
+    for (const c of moves) {
+        if (c === 'U') {
+            x -= 1;
+        } else if (c === 'D') {
+            x += 1;
+        } else if (c === 'L') {
+            y -= 1;
+        } else if (c === 'R') {
+            y += 1;
+        } else {
+            z += 1;
+        }
+    }
+    return Math.abs(x) + Math.abs(y) + z;
+}
 ```
 
 <!-- tabs:end -->
