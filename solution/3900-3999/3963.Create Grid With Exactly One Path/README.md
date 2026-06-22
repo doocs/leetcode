@@ -94,32 +94,117 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3963.Cr
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：构造
+
+我们按照如下方式构造网格：
+
+- 先构造一个全为 `#` 的网格。
+- 将第一行的所有元素都设置为 `.`。
+- 将最后一列的所有元素都设置为 `.`。
+- 返回构造好的网格。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是网格的行数和列数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def createGrid(self, m: int, n: int) -> list[str]:
+        g = [["#"] * n for _ in range(m)]
+        g[0] = ["."] * n
+        for i in range(m):
+            g[i][-1] = "."
+        return ["".join(row) for row in g]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String[] createGrid(int m, int n) {
+        char[][] g = new char[m][n];
+        for (int i = 0; i < m; i++) {
+            Arrays.fill(g[i], '#');
+        }
 
+        Arrays.fill(g[0], '.');
+
+        for (int i = 0; i < m; i++) {
+            g[i][n - 1] = '.';
+        }
+
+        String[] ans = new String[m];
+        for (int i = 0; i < m; i++) {
+            ans[i] = new String(g[i]);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<string> createGrid(int m, int n) {
+        vector<string> g(m, string(n, '#'));
 
+        g[0] = string(n, '.');
+
+        for (int i = 0; i < m; i++) {
+            g[i][n - 1] = '.';
+        }
+
+        return g;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func createGrid(m int, n int) []string {
+    g := make([][]byte, m)
+    for i := range g {
+        g[i] = make([]byte, n)
+        for j := range g[i] {
+            g[i][j] = '#'
+        }
+    }
 
+    for j := 0; j < n; j++ {
+        g[0][j] = '.'
+    }
+
+    for i := 0; i < m; i++ {
+        g[i][n-1] = '.'
+    }
+
+    ans := make([]string, m)
+    for i := range g {
+        ans[i] = string(g[i])
+    }
+    return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function createGrid(m: number, n: number): string[] {
+    const g: string[][] = Array.from({ length: m }, () => Array(n).fill('#'));
+
+    g[0].fill('.');
+
+    for (let i = 0; i < m; i++) {
+        g[i][n - 1] = '.';
+    }
+
+    return g.map(row => row.join(''));
+}
 ```
 
 <!-- tabs:end -->
