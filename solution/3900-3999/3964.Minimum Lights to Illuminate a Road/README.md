@@ -81,32 +81,191 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3964.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：差分数组 + 前缀和
+
+我们注意到，对于每个位置 $i$，如果 $lights[i] = v$，其中 $v > 0$，则位置 $i$ 被照亮，且照亮范围为 $[i - v, i + v]$。我们可以利用差分数组来维护每个位置的照亮范围。
+
+我们定义一个长度为 $n$ 的数组 $d$，对于每个位置 $i$，如果 $lights[i] = v$，其中 $v > 0$，则将 $d[i - v]$ 加 $1$，将 $d[i + v + 1]$ 减 $1$。
+
+然后，我们对 $d$ 进行前缀和运算，得到每个位置的照亮范围。
+
+最后，我们遍历 $d$，找出每段连续的 $0$ 的长度，如果长度为 $k$，则需要安装 $\lceil \frac{k + 2}{3} \rceil$ 个灯泡，累加答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为路灯数量。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minLights(self, lights: list[int]) -> int:
+        n = len(lights)
+        d = [0] * n
+        for i, v in enumerate(lights):
+            if v > 0:
+                l = max(0, i - v)
+                r = min(n - 1, i + v)
+                d[l] += 1
+                if r + 1 < n:
+                    d[r + 1] -= 1
+        s = cnt = 0
+        ans = 0
+        for x in d:
+            s += x
+            if s == 0:
+                cnt += 1
+            else:
+                ans += (cnt + 2) // 3
+                cnt = 0
+        ans += (cnt + 2) // 3
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minLights(int[] lights) {
+        int n = lights.length;
+        int[] d = new int[n];
 
+        for (int i = 0; i < n; i++) {
+            int v = lights[i];
+            if (v > 0) {
+                int l = Math.max(0, i - v);
+                int r = Math.min(n - 1, i + v);
+                d[l]++;
+                if (r + 1 < n) {
+                    d[r + 1]--;
+                }
+            }
+        }
+
+        int s = 0, cnt = 0, ans = 0;
+        for (int x : d) {
+            s += x;
+            if (s == 0) {
+                cnt++;
+            } else {
+                ans += (cnt + 2) / 3;
+                cnt = 0;
+            }
+        }
+
+        ans += (cnt + 2) / 3;
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minLights(vector<int>& lights) {
+        int n = lights.size();
+        vector<int> d(n);
 
+        for (int i = 0; i < n; ++i) {
+            int v = lights[i];
+            if (v > 0) {
+                int l = max(0, i - v);
+                int r = min(n - 1, i + v);
+                ++d[l];
+                if (r + 1 < n) {
+                    --d[r + 1];
+                }
+            }
+        }
+
+        int s = 0, cnt = 0, ans = 0;
+        for (int x : d) {
+            s += x;
+            if (s == 0) {
+                ++cnt;
+            } else {
+                ans += (cnt + 2) / 3;
+                cnt = 0;
+            }
+        }
+
+        ans += (cnt + 2) / 3;
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minLights(lights []int) int {
+	n := len(lights)
+	d := make([]int, n)
 
+	for i, v := range lights {
+		if v > 0 {
+			l := max(0, i-v)
+			r := min(n-1, i+v)
+			d[l]++
+			if r+1 < n {
+				d[r+1]--
+			}
+		}
+	}
+
+	s, cnt, ans := 0, 0, 0
+	for _, x := range d {
+		s += x
+		if s == 0 {
+			cnt++
+		} else {
+			ans += (cnt + 2) / 3
+			cnt = 0
+		}
+	}
+
+	ans += (cnt + 2) / 3
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minLights(lights: number[]): number {
+    const n = lights.length;
+    const d: number[] = Array(n).fill(0);
+
+    for (let i = 0; i < n; i++) {
+        const v = lights[i];
+        if (v > 0) {
+            const l = Math.max(0, i - v);
+            const r = Math.min(n - 1, i + v);
+            d[l]++;
+            if (r + 1 < n) {
+                d[r + 1]--;
+            }
+        }
+    }
+
+    let s = 0,
+        cnt = 0,
+        ans = 0;
+    for (const x of d) {
+        s += x;
+        if (s === 0) {
+            cnt++;
+        } else {
+            ans += Math.floor((cnt + 2) / 3);
+            cnt = 0;
+        }
+    }
+
+    ans += Math.floor((cnt + 2) / 3);
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
