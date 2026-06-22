@@ -81,32 +81,118 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3969.Va
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举
+
+我们可以枚举数组的左端点 $l$，对于每个 $l$，我们在 $[l, n)$ 的范围内枚举子数组的右端点 $r$，并统计 $nums[l..r]$ 的和，如果满足条件，则答案加一。
+
+时间复杂度 $O(n^2)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countValidSubarrays(self, nums: list[int], x: int) -> int:
+        n = len(nums)
+        ans = 0
+        for l in range(n):
+            s = 0
+            for r in range(l, n):
+                s += nums[r]
+                if s % 10 == x and int(str(s)[0]) == x:
+                    ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countValidSubarrays(int[] nums, int x) {
+        int n = nums.length;
+        int ans = 0;
 
+        for (int l = 0; l < n; l++) {
+            long s = 0;
+            for (int r = l; r < n; r++) {
+                s += nums[r];
+                if (s % 10 == x && Long.toString(s).charAt(0) - '0' == x) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countValidSubarrays(vector<int>& nums, int x) {
+        int n = nums.size();
+        int ans = 0;
 
+        for (int l = 0; l < n; ++l) {
+            long long s = 0;
+            for (int r = l; r < n; ++r) {
+                s += nums[r];
+                if (s % 10 == x && to_string(s)[0] - '0' == x) {
+                    ++ans;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countValidSubarrays(nums []int, x int) (ans int) {
+    n := len(nums)
 
+	for l := 0; l < n; l++ {
+		var s int64
+		for r := l; r < n; r++ {
+			s += int64(nums[r])
+			if s%10 == int64(x) && int(strconv.FormatInt(s, 10)[0]-'0') == x {
+				ans++
+			}
+		}
+	}
+
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countValidSubarrays(nums: number[], x: number): number {
+    const n = nums.length;
+    let ans = 0;
+
+    for (let l = 0; l < n; l++) {
+        let s = 0;
+
+        for (let r = l; r < n; r++) {
+            s += nums[r];
+
+            if (s % 10 === x && Number(s.toString()[0]) === x) {
+                ans++;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
