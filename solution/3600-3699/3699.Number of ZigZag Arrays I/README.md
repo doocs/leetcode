@@ -96,7 +96,45 @@ source: 第 469 场周赛 Q3
 #### Python3
 
 ```python
+class Solution:
+    MOD = 10**9 + 7
 
+    def zigZagArrays(self, n: int, l: int, r: int) -> int:
+        m = r - l + 1
+
+        # Length = 2 DP
+        up = [0] * (m + 1)
+        down = [0] * (m + 1)
+
+        for v in range(1, m + 1):
+            up[v] = v - 1          # previous value < v
+            down[v] = m - v        # previous value > v
+
+        # Build lengths 3..n
+        for _ in range(3, n + 1):
+            new_up = [0] * (m + 1)
+            new_down = [0] * (m + 1)
+
+            # Prefix sums of down
+            pref = 0
+            for v in range(1, m + 1):
+                new_up[v] = pref
+                pref = (pref + down[v]) % self.MOD
+
+            # Suffix sums of up
+            suff = 0
+            for v in range(m, 0, -1):
+                new_down[v] = suff
+                suff = (suff + up[v]) % self.MOD
+
+            up = new_up
+            down = new_down
+
+        ans = 0
+        for v in range(1, m + 1):
+            ans = (ans + up[v] + down[v]) % self.MOD
+
+        return ans
 ```
 
 #### Java
@@ -108,7 +146,58 @@ source: 第 469 场周赛 Q3
 #### C++
 
 ```cpp
+class Solution {
+public:
+    static constexpr long long MOD = 1000000007LL;
 
+    int zigZagArrays(int n, int l, int r) {
+        int m = r - l + 1;
+
+        vector<long long> up(m + 1), down(m + 1);
+
+        // Length = 2
+        for (int v = 1; v <= m; v++) {
+            up[v] = v - 1;
+            down[v] = m - v;
+        }
+
+        for (int len = 3; len <= n; len++) {
+            vector<long long> newUp(m + 1), newDown(m + 1);
+
+            // prefix sums of down
+            long long pref = 0;
+            for (int v = 1; v <= m; v++) {
+                newUp[v] = pref;
+                pref = (pref + down[v]) % MOD;
+            }
+
+            // suffix sums of up
+            long long suff = 0;
+            for (int v = m; v >= 1; v--) {
+                newDown[v] = suff;
+                suff = (suff + up[v]) % MOD;
+            }
+
+            up.swap(newUp);
+            down.swap(newDown);
+        }
+
+        long long ans = 0;
+
+        if (n == 2) {
+            for (int v = 1; v <= m; v++) {
+                ans = (ans + up[v] + down[v]) % MOD;
+            }
+            return (int)ans;
+        }
+
+        for (int v = 1; v <= m; v++) {
+            ans = (ans + up[v] + down[v]) % MOD;
+        }
+
+        return (int)ans;
+    }
+};
 ```
 
 #### Go
