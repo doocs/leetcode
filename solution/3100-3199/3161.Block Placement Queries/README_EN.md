@@ -89,7 +89,91 @@ tags:
 #### Python3
 
 ```python
+from bisect import bisect_left, bisect_right
+from sortedcontainers import SortedList
 
+class SegTree:
+    def __init__(self, n):
+        self.n = n
+        self.seg = [0] * (4 * (n + 1))
+
+    def update(self, idx, val, node=1, l=0, r=50000):
+        if l == r:
+            self.seg[node] = val
+            return
+
+        mid = (l + r) // 2
+
+        if idx <= mid:
+            self.update(idx, val, node * 2, l, mid)
+        else:
+            self.update(idx, val, node * 2 + 1, mid + 1, r)
+
+        self.seg[node] = max(self.seg[node * 2], self.seg[node * 2 + 1])
+
+    def query(self, ql, qr, node=1, l=0, r=50000):
+        if ql > r or qr < l:
+            return 0
+
+        if ql <= l and r <= qr:
+            return self.seg[node]
+
+        mid = (l + r) // 2
+
+        return max(
+            self.query(ql, qr, node * 2, l, mid),
+            self.query(ql, qr, node * 2 + 1, mid + 1, r),
+        )
+
+
+class Solution:
+    def getResults(self, queries):
+        MX = 50000
+
+        obstacles = SortedList([0, MX])
+
+        for q in queries:
+            if q[0] == 1:
+                obstacles.add(q[1])
+
+        seg = SegTree(MX)
+
+        prev = obstacles[0]
+        for cur in obstacles[1:]:
+            seg.update(cur, cur - prev)
+            prev = cur
+
+        ans = []
+
+        for q in reversed(queries):
+
+            if q[0] == 2:
+                x, sz = q[1], q[2]
+
+                idx = obstacles.bisect_right(x) - 1
+                pre = obstacles[idx]
+
+                best = max(
+                    seg.query(0, pre),
+                    x - pre
+                )
+
+                ans.append(best >= sz)
+
+            else:
+                p = q[1]
+
+                idx = obstacles.bisect_left(p)
+
+                left = obstacles[idx - 1]
+                right = obstacles[idx + 1]
+
+                seg.update(p, 0)
+                seg.update(right, right - left)
+
+                obstacles.remove(p)
+
+        return ans[::-1]
 ```
 
 #### Java
