@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 507
+
+- [3968. Maximum Manhattan Distance After All Moves](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README_EN.md)
+- [3969. Valid Subarrays With Matching Sum Digits I](/solution/3900-3999/3969.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20I/README_EN.md)
+- [3970. Shortest Path With At Most K Consecutive Identical Characters](/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README_EN.md)
+- [3971. Maximum Total Value](/solution/3900-3999/3971.Maximum%20Total%20Value/README_EN.md)
+
+#### Biweekly Contest 185
+
+- [3963. Create Grid With Exactly One Path](/solution/3900-3999/3963.Create%20Grid%20With%20Exactly%20One%20Path/README_EN.md)
+- [3964. Minimum Lights to Illuminate a Road](/solution/3900-3999/3964.Minimum%20Lights%20to%20Illuminate%20a%20Road/README_EN.md)
+- [3965. Finish Time of Tasks I](/solution/3900-3999/3965.Finish%20Time%20of%20Tasks%20I/README_EN.md)
+- [3966. Count Good Integers in a Range](/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README_EN.md)
+
 #### Weekly Contest 506
 
 - [3959. Check Good Integer](/solution/3900-3999/3959.Check%20Good%20Integer/README_EN.md)

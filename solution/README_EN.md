@@ -3971,6 +3971,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3960  |  [Frequency Balance Subarray](/solution/3900-3999/3960.Frequency%20Balance%20Subarray/README_EN.md)  |    |  Medium  |  Weekly Contest 506  |
 |  3961  |  [Maximize Sum of Device Ratings](/solution/3900-3999/3961.Maximize%20Sum%20of%20Device%20Ratings/README_EN.md)  |    |  Medium  |  Weekly Contest 506  |
 |  3962  |  [Maximum Subarray Sum After at Most K Swaps](/solution/3900-3999/3962.Maximum%20Subarray%20Sum%20After%20at%20Most%20K%20Swaps/README_EN.md)  |    |  Hard  |  Weekly Contest 506  |
+|  3963  |  [Create Grid With Exactly One Path](/solution/3900-3999/3963.Create%20Grid%20With%20Exactly%20One%20Path/README_EN.md)  |    |  Easy  |  Biweekly Contest 185  |
+|  3964  |  [Minimum Lights to Illuminate a Road](/solution/3900-3999/3964.Minimum%20Lights%20to%20Illuminate%20a%20Road/README_EN.md)  |    |  Medium  |  Biweekly Contest 185  |
+|  3965  |  [Finish Time of Tasks I](/solution/3900-3999/3965.Finish%20Time%20of%20Tasks%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 185  |
+|  3966  |  [Count Good Integers in a Range](/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Biweekly Contest 185  |
+|  3967  |  [Finish Time of Tasks II](/solution/3900-3999/3967.Finish%20Time%20of%20Tasks%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3968  |  [Maximum Manhattan Distance After All Moves](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README_EN.md)  |    |  Medium  |  Weekly Contest 507  |
+|  3969  |  [Valid Subarrays With Matching Sum Digits I](/solution/3900-3999/3969.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 507  |
+|  3970  |  [Shortest Path With At Most K Consecutive Identical Characters](/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README_EN.md)  |    |  Medium  |  Weekly Contest 507  |
+|  3971  |  [Maximum Total Value](/solution/3900-3999/3971.Maximum%20Total%20Value/README_EN.md)  |    |  Hard  |  Weekly Contest 507  |
+|  3972  |  [Valid Subarrays With Matching Sum Digits II](/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
