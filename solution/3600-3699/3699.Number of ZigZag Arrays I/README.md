@@ -102,7 +102,63 @@ source: 第 469 场周赛 Q3
 #### Java
 
 ```java
+class Solution {
+    private static final long MOD = 1_000_000_007L;
 
+    public int zigZagArrays(int n, int l, int r) {
+        int m = r - l + 1;
+
+        long[] up = new long[m + 1];
+        long[] down = new long[m + 1];
+
+        // Length = 2
+        for (int v = 1; v <= m; v++) {
+            up[v] = v - 1;
+            down[v] = m - v;
+        }
+
+        // Build lengths 3..n
+        for (int len = 3; len <= n; len++) {
+            long[] newUp = new long[m + 1];
+            long[] newDown = new long[m + 1];
+
+            long[] prefDown = new long[m + 1];
+            long[] prefUp = new long[m + 1];
+
+            for (int v = 1; v <= m; v++) {
+                prefDown[v] = (prefDown[v - 1] + down[v]) % MOD;
+                prefUp[v] = (prefUp[v - 1] + up[v]) % MOD;
+            }
+
+            long totalUp = prefUp[m];
+
+            for (int v = 1; v <= m; v++) {
+                // sum_{u < v} down[u]
+                newUp[v] = prefDown[v - 1];
+
+                // sum_{u > v} up[u]
+                newDown[v] = (totalUp - prefUp[v] + MOD) % MOD;
+            }
+
+            up = newUp;
+            down = newDown;
+        }
+
+        long ans = 0;
+
+        if (n == 2) {
+            for (int v = 1; v <= m; v++) {
+                ans = (ans + up[v] + down[v]) % MOD;
+            }
+        } else {
+            for (int v = 1; v <= m; v++) {
+                ans = (ans + up[v] + down[v]) % MOD;
+            }
+        }
+
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
