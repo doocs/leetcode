@@ -1,11 +1,12 @@
 func countMajoritySubarrays(nums []int, target int) (ans int) {
 	n := len(nums)
 	for i := range nums {
-		cnt := map[int]int{}
+		cnt := 0
 		for j := i; j < n; j++ {
-			k := j - i + 1
-			cnt[nums[j]]++
-			if cnt[target] > k/2 {
+			if nums[j] == target {
+				cnt++
+			}
+			if k := j - i + 1; cnt*2 > k {
 				ans++
 			}
 		}

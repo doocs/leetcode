@@ -99,11 +99,11 @@ tags:
 
 ### 方法一：枚举
 
-我们可以枚举所有的子数组，用一个哈希表记录子数组中每个元素出现的次数，然后判断目标元素是否为该子数组的主要元素。
+我们可以枚举所有子数组，并维护一个计数器 $\textit{cnt}$ 来记录子数组中 $\textit{target}$ 出现的次数，然后判断 $\textit{target}$ 是否为该子数组的主要元素。
 
-具体地，我们在 $[0, n-1]$ 范围内枚举子数组的起始位置 $i$，然后在 $[i, n-1]$ 范围内枚举子数组的结束位置 $j$。对于每一个子数组 $nums[i..j]$，我们更新哈希表 $\textit{cnt}$。 如果 $\textit{cnt}[\textit{target}] > \frac{(j-i+1)}{2}$，则将答案加 $1$。
+具体地，我们枚举子数组的起始位置 $i$，范围为 $[0, n-1]$，然后枚举子数组的结束位置 $j$，范围为 $[i, n-1]$。对于每个子数组 $nums[i..j]$，我们更新计数器 $\textit{cnt}$。如果 $\textit{cnt} \times 2 > j - i + 1$，说明 $\textit{target}$ 是该子数组的主要元素，我们将答案加 $1$。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$，其中 $n$ 是数组的长度。
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$，其中 $n$ 是数组的长度。
 
 <!-- tabs:start -->
 
@@ -115,11 +115,10 @@ class Solution:
         n = len(nums)
         ans = 0
         for i in range(n):
-            cnt = Counter()
+            cnt = 0
             for j in range(i, n):
-                k = j - i + 1
-                cnt[nums[j]] += 1
-                if cnt[target] > k // 2:
+                cnt += int(nums[j] == target)
+                if cnt * 2 > j - i + 1:
                     ans += 1
         return ans
 ```
@@ -131,16 +130,14 @@ class Solution {
     public int countMajoritySubarrays(int[] nums, int target) {
         int n = nums.length;
         int ans = 0;
-        Map<Integer, Integer> cnt = new HashMap<>(n);
         for (int i = 0; i < n; ++i) {
+            int cnt = 0;
             for (int j = i; j < n; ++j) {
-                int k = j - i + 1;
-                cnt.merge(nums[j], 1, Integer::sum);
-                if (cnt.getOrDefault(target, 0) > k / 2) {
+                cnt += nums[j] == target ? 1 : 0;
+                if (cnt * 2 > j - i + 1) {
                     ++ans;
                 }
             }
-            cnt.clear();
         }
         return ans;
     }
@@ -156,11 +153,10 @@ public:
         int n = nums.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            unordered_map<int, int> cnt;
+            int cnt = 0;
             for (int j = i; j < n; ++j) {
-                int k = j - i + 1;
-                cnt[nums[j]]++;
-                if (cnt[target] > k / 2) {
+                cnt += nums[j] == target;
+                if (cnt * 2 > j - i + 1) {
                     ++ans;
                 }
             }
@@ -176,11 +172,12 @@ public:
 func countMajoritySubarrays(nums []int, target int) (ans int) {
 	n := len(nums)
 	for i := range nums {
-		cnt := map[int]int{}
+		cnt := 0
 		for j := i; j < n; j++ {
-			k := j - i + 1
-			cnt[nums[j]]++
-			if cnt[target] > k/2 {
+			if nums[j] == target {
+				cnt++
+			}
+			if k := j - i + 1; cnt*2 > k {
 				ans++
 			}
 		}
@@ -196,16 +193,42 @@ function countMajoritySubarrays(nums: number[], target: number): number {
     const n = nums.length;
     let ans = 0;
     for (let i = 0; i < n; ++i) {
-        const cnt: Record<number, number> = {};
+        let cnt: number = 0;
         for (let j = i; j < n; ++j) {
             const k = j - i + 1;
-            cnt[nums[j]] = (cnt[nums[j]] || 0) + 1;
-            if ((cnt[target] || 0) > k >> 1) {
+            cnt += nums[j] == target ? 1 : 0;
+            if (cnt * 2 > k) {
                 ++ans;
             }
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_majority_subarrays(nums: Vec<i32>, target: i32) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+
+        for i in 0..n {
+            let mut cnt = 0;
+            for j in i..n {
+                let k = (j - i + 1) as i32;
+                if nums[j] == target {
+                    cnt += 1;
+                }
+                if cnt * 2 > k {
+                    ans += 1;
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 
