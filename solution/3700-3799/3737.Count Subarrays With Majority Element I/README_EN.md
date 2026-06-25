@@ -94,11 +94,11 @@ tags:
 
 ### Solution 1: Enumeration
 
-We can enumerate all subarrays and use a hash table to record the occurrence count of each element in the subarray, then determine whether the target element is the majority element of that subarray.
+We can enumerate all subarrays and maintain a counter $\textit{cnt}$ to record the number of times $\textit{target}$ appears in the subarray, then determine whether $\textit{target}$ is the majority element of that subarray.
 
-Specifically, we enumerate the starting position $i$ of the subarray in the range $[0, n-1]$, then enumerate the ending position $j$ in the range $[i, n-1]$. For each subarray $nums[i..j]$, we update the hash table $\textit{cnt}$. If $\textit{cnt}[\textit{target}] > \frac{(j-i+1)}{2}$, we increment the answer by $1$.
+Specifically, we enumerate the starting position $i$ of the subarray in the range $[0, n-1]$, then enumerate the ending position $j$ in the range $[i, n-1]$. For each subarray $nums[i..j]$, we update the counter $\textit{cnt}$. If $\textit{cnt} \times 2 > j - i + 1$, it means $\textit{target}$ is the majority element of this subarray, and we increment the answer by $1$.
 
-The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -110,11 +110,10 @@ class Solution:
         n = len(nums)
         ans = 0
         for i in range(n):
-            cnt = Counter()
+            cnt = 0
             for j in range(i, n):
-                k = j - i + 1
-                cnt[nums[j]] += 1
-                if cnt[target] > k // 2:
+                cnt += int(nums[j] == target)
+                if cnt * 2 > j - i + 1:
                     ans += 1
         return ans
 ```
@@ -126,16 +125,14 @@ class Solution {
     public int countMajoritySubarrays(int[] nums, int target) {
         int n = nums.length;
         int ans = 0;
-        Map<Integer, Integer> cnt = new HashMap<>(n);
         for (int i = 0; i < n; ++i) {
+            int cnt = 0;
             for (int j = i; j < n; ++j) {
-                int k = j - i + 1;
-                cnt.merge(nums[j], 1, Integer::sum);
-                if (cnt.getOrDefault(target, 0) > k / 2) {
+                cnt += nums[j] == target ? 1 : 0;
+                if (cnt * 2 > j - i + 1) {
                     ++ans;
                 }
             }
-            cnt.clear();
         }
         return ans;
     }
@@ -151,11 +148,10 @@ public:
         int n = nums.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            unordered_map<int, int> cnt;
+            int cnt = 0;
             for (int j = i; j < n; ++j) {
-                int k = j - i + 1;
-                cnt[nums[j]]++;
-                if (cnt[target] > k / 2) {
+                cnt += nums[j] == target;
+                if (cnt * 2 > j - i + 1) {
                     ++ans;
                 }
             }
@@ -171,11 +167,12 @@ public:
 func countMajoritySubarrays(nums []int, target int) (ans int) {
 	n := len(nums)
 	for i := range nums {
-		cnt := map[int]int{}
+		cnt := 0
 		for j := i; j < n; j++ {
-			k := j - i + 1
-			cnt[nums[j]]++
-			if cnt[target] > k/2 {
+			if nums[j] == target {
+				cnt++
+			}
+			if k := j - i + 1; cnt*2 > k {
 				ans++
 			}
 		}
@@ -191,16 +188,42 @@ function countMajoritySubarrays(nums: number[], target: number): number {
     const n = nums.length;
     let ans = 0;
     for (let i = 0; i < n; ++i) {
-        const cnt: Record<number, number> = {};
+        let cnt: number = 0;
         for (let j = i; j < n; ++j) {
             const k = j - i + 1;
-            cnt[nums[j]] = (cnt[nums[j]] || 0) + 1;
-            if ((cnt[target] || 0) > k >> 1) {
+            cnt += nums[j] == target ? 1 : 0;
+            if (cnt * 2 > k) {
                 ++ans;
             }
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn count_majority_subarrays(nums: Vec<i32>, target: i32) -> i32 {
+        let n = nums.len();
+        let mut ans = 0;
+
+        for i in 0..n {
+            let mut cnt = 0;
+            for j in i..n {
+                let k = (j - i + 1) as i32;
+                if nums[j] == target {
+                    cnt += 1;
+                }
+                if cnt * 2 > k {
+                    ans += 1;
+                }
+            }
+        }
+
+        ans
+    }
 }
 ```
 

@@ -3,10 +3,9 @@ class Solution:
         n = len(nums)
         ans = 0
         for i in range(n):
-            cnt = Counter()
+            cnt = 0
             for j in range(i, n):
-                k = j - i + 1
-                cnt[nums[j]] += 1
-                if cnt[target] > k // 2:
+                cnt += int(nums[j] == target)
+                if cnt * 2 > j - i + 1:
                     ans += 1
         return ans
