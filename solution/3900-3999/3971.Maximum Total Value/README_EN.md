@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3971.Maximum%20Total%20Value/README_EN.md
+rating: 2194
+source: Weekly Contest 507 Q4
 ---
 
 <!-- problem:start -->

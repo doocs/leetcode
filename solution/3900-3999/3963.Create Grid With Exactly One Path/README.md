@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3963.Create%20Grid%20With%20Exactly%20One%20Path/README.md
+rating: 1310
+source: 第 185 场双周赛 Q1
 ---
 
 <!-- problem:start -->

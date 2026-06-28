@@ -3983,6 +3983,11 @@
 |  3970  |  [最多 K 个连续相同字符的最短路径](/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README.md)  |    |  中等  |  第 507 场周赛  |
 |  3971  |  [最大总价值](/solution/3900-3999/3971.Maximum%20Total%20Value/README.md)  |    |  困难  |  第 507 场周赛  |
 |  3972  |  [Valid Subarrays With Matching Sum Digits II](/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README.md)  |    |  困难  |  🔒  |
+|  3973  |  [通往最近公共祖先的不同门径](/solution/3900-3999/3973.Distinct%20Gate%20Paths%20to%20LCA/README.md)  |    |  困难  |  🔒  |
+|  3974  |  [K 个元素的最大总和](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README.md)  |    |  中等  |  第 508 场周赛  |
+|  3975  |  [筛选忙碌区间](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README.md)  |    |  中等  |  第 508 场周赛  |
+|  3976  |  [乘以系数后最大子数组和](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README.md)  |    |  中等  |  第 508 场周赛  |
+|  3977  |  [有限电量到达目标节点的最少时间](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README.md)  |    |  困难  |  第 508 场周赛  |
 
 ## 版权
 

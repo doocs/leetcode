@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 508
+
+- [3974. Maximum Total Sum of K Selected Elements](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README_EN.md)
+- [3975. Filter Occupied Intervals](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README_EN.md)
+- [3976. Maximum Subarray Sum After Multiplier](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README_EN.md)
+- [3977. Minimum Time to Reach Target With Limited Power](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README_EN.md)
+
 #### Weekly Contest 507
 
 - [3968. Maximum Manhattan Distance After All Moves](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README_EN.md)

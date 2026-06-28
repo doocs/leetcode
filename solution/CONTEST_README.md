@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 508 场周赛(2026-06-28 10:30, 90 分钟) 参赛人数 950
+
+- [3974. K 个元素的最大总和](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README.md)
+- [3975. 筛选忙碌区间](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README.md)
+- [3976. 乘以系数后最大子数组和](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README.md)
+- [3977. 有限电量到达目标节点的最少时间](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README.md)
+
 #### 第 507 场周赛(2026-06-21 10:30, 90 分钟) 参赛人数 939
 
 - [3968. 移动后的最大曼哈顿距离](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README.md)
