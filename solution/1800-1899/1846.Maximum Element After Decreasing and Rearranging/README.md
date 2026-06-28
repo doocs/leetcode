@@ -91,9 +91,9 @@ arr 中最大元素为 3 。
 
 接下来，我们从第二个元素开始遍历数组，如果当前元素与前一个元素的差值大于 $1$，我们就贪心地将当前元素减小为前一个元素加 $1$。
 
-最后，我们返回数组中的最大元素。
+最后，我们返回数组中最后一个元素的值。
 
-时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -105,9 +105,8 @@ class Solution:
         arr.sort()
         arr[0] = 1
         for i in range(1, len(arr)):
-            d = max(0, arr[i] - arr[i - 1] - 1)
-            arr[i] -= d
-        return max(arr)
+            arr[i] = min(arr[i], arr[i - 1] + 1)
+        return arr[-1]
 ```
 
 #### Java
@@ -115,15 +114,14 @@ class Solution:
 ```java
 class Solution {
     public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
+        int n = arr.length;
         Arrays.sort(arr);
         arr[0] = 1;
         int ans = 1;
-        for (int i = 1; i < arr.length; ++i) {
-            int d = Math.max(0, arr[i] - arr[i - 1] - 1);
-            arr[i] -= d;
-            ans = Math.max(ans, arr[i]);
+        for (int i = 1; i < n; ++i) {
+            arr[i] = Math.min(arr[i], arr[i - 1] + 1);
         }
-        return ans;
+        return arr[n - 1];
     }
 }
 ```
@@ -134,15 +132,14 @@ class Solution {
 class Solution {
 public:
     int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) {
-        sort(arr.begin(), arr.end());
+        ranges::sort(arr);
+        int n = arr.size();
         arr[0] = 1;
-        int ans = 1;
-        for (int i = 1; i < arr.size(); ++i) {
-            int d = max(0, arr[i] - arr[i - 1] - 1);
-            arr[i] -= d;
-            ans = max(ans, arr[i]);
+        for (int i = 1; i < n; ++i) {
+            arr[i] = min(arr[i], arr[i - 1] + 1);
         }
-        return ans;
+
+        return arr[n - 1];
     }
 };
 ```
@@ -151,15 +148,14 @@ public:
 
 ```go
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
-	sort.Ints(arr)
-	ans := 1
-	arr[0] = 1
-	for i := 1; i < len(arr); i++ {
-		d := max(0, arr[i]-arr[i-1]-1)
-		arr[i] -= d
-		ans = max(ans, arr[i])
-	}
-	return ans
+    slices.Sort(arr)
+
+    arr[0] = 1
+    for i := 1; i < len(arr); i++ {
+        arr[i] = min(arr[i], arr[i-1]+1)
+    }
+
+    return arr[len(arr)-1]
 }
 ```
 
@@ -168,14 +164,31 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 ```ts
 function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
     arr.sort((a, b) => a - b);
+
     arr[0] = 1;
-    let ans = 1;
-    for (let i = 1; i < arr.length; ++i) {
-        const d = Math.max(0, arr[i] - arr[i - 1] - 1);
-        arr[i] -= d;
-        ans = Math.max(ans, arr[i]);
+    for (let i = 1; i < arr.length; i++) {
+        arr[i] = Math.min(arr[i], arr[i - 1] + 1);
     }
-    return ans;
+
+    return arr.at(-1)!;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_element_after_decrementing_and_rearranging(mut arr: Vec<i32>) -> i32 {
+        arr.sort_unstable();
+
+        arr[0] = 1;
+
+        for i in 1..arr.len() {
+            arr[i] = arr[i].min(arr[i - 1] + 1);
+        }
+
+        *arr.last().unwrap()
+    }
 }
 ```
 

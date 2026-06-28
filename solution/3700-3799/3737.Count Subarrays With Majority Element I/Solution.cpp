@@ -4,11 +4,10 @@ public:
         int n = nums.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {
-            unordered_map<int, int> cnt;
+            int cnt = 0;
             for (int j = i; j < n; ++j) {
-                int k = j - i + 1;
-                cnt[nums[j]]++;
-                if (cnt[target] > k / 2) {
+                cnt += nums[j] == target;
+                if (cnt * 2 > j - i + 1) {
                     ++ans;
                 }
             }

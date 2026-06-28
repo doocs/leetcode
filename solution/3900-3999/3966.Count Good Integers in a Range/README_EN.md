@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README_EN.md
+rating: 2006
+source: Biweekly Contest 185 Q4
 ---
 
 <!-- problem:start -->

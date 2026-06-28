@@ -87,11 +87,11 @@ The largest element in <code>arr is 3.</code>
 
 First, we sort the array and then set the first element of the array to $1$.
 
-Next, we start traversing the array from the second element. If the difference between the current element and the previous one is more than $1$, we greedily reduce the current element to the previous element plus $1$.
+Next, we start traversing the array from the second element. If the current element is greater than the previous element plus $1$, we greedily reduce the current element to the previous element plus $1$.
 
-Finally, we return the maximum element in the array.
+Finally, we return the last element of the array.
 
-The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
+The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -103,9 +103,8 @@ class Solution:
         arr.sort()
         arr[0] = 1
         for i in range(1, len(arr)):
-            d = max(0, arr[i] - arr[i - 1] - 1)
-            arr[i] -= d
-        return max(arr)
+            arr[i] = min(arr[i], arr[i - 1] + 1)
+        return arr[-1]
 ```
 
 #### Java
@@ -113,15 +112,14 @@ class Solution:
 ```java
 class Solution {
     public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
+        int n = arr.length;
         Arrays.sort(arr);
         arr[0] = 1;
         int ans = 1;
-        for (int i = 1; i < arr.length; ++i) {
-            int d = Math.max(0, arr[i] - arr[i - 1] - 1);
-            arr[i] -= d;
-            ans = Math.max(ans, arr[i]);
+        for (int i = 1; i < n; ++i) {
+            arr[i] = Math.min(arr[i], arr[i - 1] + 1);
         }
-        return ans;
+        return arr[n - 1];
     }
 }
 ```
@@ -132,15 +130,14 @@ class Solution {
 class Solution {
 public:
     int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) {
-        sort(arr.begin(), arr.end());
+        ranges::sort(arr);
+        int n = arr.size();
         arr[0] = 1;
-        int ans = 1;
-        for (int i = 1; i < arr.size(); ++i) {
-            int d = max(0, arr[i] - arr[i - 1] - 1);
-            arr[i] -= d;
-            ans = max(ans, arr[i]);
+        for (int i = 1; i < n; ++i) {
+            arr[i] = min(arr[i], arr[i - 1] + 1);
         }
-        return ans;
+
+        return arr[n - 1];
     }
 };
 ```
@@ -149,15 +146,14 @@ public:
 
 ```go
 func maximumElementAfterDecrementingAndRearranging(arr []int) int {
-	sort.Ints(arr)
-	ans := 1
-	arr[0] = 1
-	for i := 1; i < len(arr); i++ {
-		d := max(0, arr[i]-arr[i-1]-1)
-		arr[i] -= d
-		ans = max(ans, arr[i])
-	}
-	return ans
+    slices.Sort(arr)
+
+    arr[0] = 1
+    for i := 1; i < len(arr); i++ {
+        arr[i] = min(arr[i], arr[i-1]+1)
+    }
+
+    return arr[len(arr)-1]
 }
 ```
 
@@ -166,14 +162,31 @@ func maximumElementAfterDecrementingAndRearranging(arr []int) int {
 ```ts
 function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
     arr.sort((a, b) => a - b);
+
     arr[0] = 1;
-    let ans = 1;
-    for (let i = 1; i < arr.length; ++i) {
-        const d = Math.max(0, arr[i] - arr[i - 1] - 1);
-        arr[i] -= d;
-        ans = Math.max(ans, arr[i]);
+    for (let i = 1; i < arr.length; i++) {
+        arr[i] = Math.min(arr[i], arr[i - 1] + 1);
     }
-    return ans;
+
+    return arr.at(-1)!;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_element_after_decrementing_and_rearranging(mut arr: Vec<i32>) -> i32 {
+        arr.sort_unstable();
+
+        arr[0] = 1;
+
+        for i in 1..arr.len() {
+            arr[i] = arr[i].min(arr[i - 1] + 1);
+        }
+
+        *arr.last().unwrap()
+    }
 }
 ```
 
