@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3964.Minimum%20Lights%20to%20Illuminate%20a%20Road/README_EN.md
+rating: 1572
+source: Biweekly Contest 185 Q2
 ---
 
 <!-- problem:start -->
