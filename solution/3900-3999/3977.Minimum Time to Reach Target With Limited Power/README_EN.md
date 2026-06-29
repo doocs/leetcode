@@ -114,32 +114,308 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3977.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dijkstra
+
+This is a shortest path problem, but the state must track the remaining power in addition to the current node.
+
+We define $\textit{dist}[u][p]$ as the minimum time required to reach node $u$ with $p$ units of remaining power. Initially, $\textit{dist}[\textit{source}][\textit{power}] = 0$, and all other states are set to infinity.
+
+We use Dijkstra's algorithm with a priority queue storing triples $(d, p, u)$, representing the current minimum time, the remaining power, and the current node. To maximize the remaining power when the time is the same, we store the remaining power as a negative value when pushing into the queue, so the priority queue prefers states with more remaining power during comparison.
+
+When popping $(d, p, u)$:
+
+- If $u = \textit{target}$, return $[d, p]$ directly;
+- If $d > \textit{dist}[u][p]$ or $p < \textit{cost}[u]$, skip this state;
+- Otherwise, forward the signal from node $u$, decreasing the remaining power by $\textit{cost}[u]$, then traverse all outgoing edges $(v, t)$ and try to update $\textit{dist}[v][p - \textit{cost}[u]] = \min(\textit{dist}[v][p - \textit{cost}[u]], d + t)$.
+
+If the priority queue becomes empty before reaching the target node, return $[-1, -1]$.
+
+The time complexity is $O((n + m) \times \textit{power} \times \log (n \times \textit{power}))$, and the space complexity is $O(n \times \textit{power})$. Here, $n$ and $m$ are the number of nodes and edges, and $\textit{power}$ is the initial power.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minTimeMaxPower(
+        self,
+        n: int,
+        edges: List[List[int]],
+        power: int,
+        cost: List[int],
+        source: int,
+        target: int,
+    ) -> List[int]:
+        g = [[] for _ in range(n)]
+        for u, v, t in edges:
+            g[u].append((v, t))
+        dist = [[inf] * (power + 1) for _ in range(n)]
+        dist[source][power] = 0
+        pq = [(0, -power, source)]
+        while pq:
+            d, p, u = heappop(pq)
+            p = -p
+            if u == target:
+                return [d, p]
+            if d > dist[u][p] or p < cost[u]:
+                continue
+            p -= cost[u]
+            for v, t in g[u]:
+                nd = d + t
+                if nd < dist[v][p]:
+                    dist[v][p] = nd
+                    heappush(pq, (nd, -p, v))
+        return [-1, -1]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long[] minTimeMaxPower(
+        int n, int[][] edges, int power, int[] cost, int source, int target) {
+        long inf = Long.MAX_VALUE / 4;
 
+        List<int[]>[] g = new ArrayList[n];
+        for (int i = 0; i < n; i++) g[i] = new ArrayList<>();
+
+        for (int[] e : edges) {
+            g[e[0]].add(new int[] {e[1], e[2]});
+        }
+
+        long[][] dist = new long[n][power + 1];
+        for (int i = 0; i < n; i++) Arrays.fill(dist[i], inf);
+
+        PriorityQueue<long[]> pq = new PriorityQueue<>((a, b) -> {
+            if (a[0] != b[0]) return Long.compare(a[0], b[0]);
+            return Long.compare(a[1], b[1]);
+        });
+
+        dist[source][power] = 0;
+        pq.offer(new long[] {0, -power, source});
+
+        while (!pq.isEmpty()) {
+            long[] cur = pq.poll();
+            long d = cur[0];
+            int p = (int) -cur[1];
+            int u = (int) cur[2];
+
+            if (u == target) return new long[] {d, p};
+            if (d > dist[u][p] || p < cost[u]) continue;
+
+            p -= cost[u];
+
+            for (int[] e : g[u]) {
+                int v = e[0];
+                int t = e[1];
+
+                long nd = d + t;
+
+                if (nd < dist[v][p]) {
+                    dist[v][p] = nd;
+                    pq.offer(new long[] {nd, -p, v});
+                }
+            }
+        }
+
+        return new long[] {-1, -1};
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<long long> minTimeMaxPower(
+        int n,
+        vector<vector<int>>& edges,
+        int power,
+        vector<int>& cost,
+        int source,
+        int target) {
+        using ll = long long;
+        const ll inf = LLONG_MAX / 4;
 
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : edges) {
+            g[e[0]].push_back({e[1], e[2]});
+        }
+
+        vector<vector<ll>> dist(n, vector<ll>(power + 1, inf));
+
+        using T = tuple<ll, int, int>;
+        priority_queue<T, vector<T>, greater<T>> pq;
+
+        dist[source][power] = 0;
+        pq.push({0, -power, source});
+
+        while (!pq.empty()) {
+            auto [d, negp, u] = pq.top();
+            pq.pop();
+
+            int p = -negp;
+
+            if (u == target) return {d, p};
+            if (d > dist[u][p] || p < cost[u]) continue;
+
+            p -= cost[u];
+
+            for (auto& [v, t] : g[u]) {
+                ll nd = d + t;
+
+                if (nd < dist[v][p]) {
+                    dist[v][p] = nd;
+                    pq.push({nd, -p, v});
+                }
+            }
+        }
+
+        return {-1, -1};
+    }
+};
 ```
 
 #### Go
 
 ```go
+type State struct {
+	d int64
+	p int
+	u int
+}
 
+type PQ []State
+
+func (h PQ) Len() int { return len(h) }
+func (h PQ) Less(i, j int) bool {
+	if h[i].d != h[j].d {
+		return h[i].d < h[j].d
+	}
+	return h[i].p < h[j].p
+}
+func (h PQ) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+
+func (h *PQ) Push(x interface{}) { *h = append(*h, x.(State)) }
+func (h *PQ) Pop() interface{} {
+	old := *h
+	x := old[len(old)-1]
+	*h = old[:len(old)-1]
+	return x
+}
+
+func minTimeMaxPower(
+	n int,
+	edges [][]int,
+	power int,
+	cost []int,
+	source int,
+	target int,
+) []int64 {
+
+	inf := int64(1 << 62)
+
+	g := make([][][]int, n)
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], []int{e[1], e[2]})
+	}
+
+	dist := make([][]int64, n)
+	for i := range dist {
+		dist[i] = make([]int64, power+1)
+		for j := range dist[i] {
+			dist[i][j] = inf
+		}
+	}
+
+	pq := &PQ{}
+	heap.Push(pq, State{0, -power, source})
+
+	dist[source][power] = 0
+
+	for pq.Len() > 0 {
+		cur := heap.Pop(pq).(State)
+		d := cur.d
+		p := -cur.p
+		u := cur.u
+
+		if u == target {
+			return []int64{d, int64(p)}
+		}
+
+		if d > dist[u][p] || p < cost[u] {
+			continue
+		}
+
+		p -= cost[u]
+
+		for _, e := range g[u] {
+			v, t := e[0], e[1]
+			nd := d + int64(t)
+
+			if nd < dist[v][p] {
+				dist[v][p] = nd
+				heap.Push(pq, State{nd, -p, v})
+			}
+		}
+	}
+
+	return []int64{-1, -1}
+}
+```
+
+#### TypeScript
+
+```ts
+function minTimeMaxPower(
+    n: number,
+    edges: number[][],
+    power: number,
+    cost: number[],
+    source: number,
+    target: number,
+): number[] {
+    const inf = 1e18;
+
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+
+    for (const [u, v, t] of edges) {
+        g[u].push([v, t]);
+    }
+
+    const dist: number[][] = Array.from({ length: n }, () => Array(power + 1).fill(inf));
+
+    const pq = new PriorityQueue<number[]>((a, b) => {
+        if (a[0] !== b[0]) return a[0] - b[0];
+        return a[1] - b[1];
+    });
+
+    dist[source][power] = 0;
+    pq.enqueue([0, -power, source]);
+
+    while (!pq.isEmpty()) {
+        const [d, negp, u] = pq.dequeue();
+        let p = -negp;
+
+        if (u === target) return [d, p];
+        if (d > dist[u][p] || p < cost[u]) continue;
+
+        p -= cost[u];
+
+        for (const [v, t] of g[u]) {
+            const nd = d + t;
+
+            if (nd < dist[v][p]) {
+                dist[v][p] = nd;
+                pq.enqueue([nd, -p, v]);
+            }
+        }
+    }
+
+    return [-1, -1];
+}
 ```
 
 <!-- tabs:end -->
