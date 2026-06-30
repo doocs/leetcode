@@ -142,34 +142,194 @@ source: 第 185 场双周赛 Q3
 
 ### 方法一
 
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def finishTime(
+        self,
+        n: int,
+        edges: list[list[int]],
+        b: list[int]
+    ) -> int:
+        parent = [-1] * n
+        for u, v in edges:
+            parent[v] = u
+        minimum = [0] * n
+        maximum = [None] * n
+        for u in range(n - 1, -1, -1):
+            current_max = maximum[u]
+            if current_max is not None:
+                b[u] += (current_max << 1) - minimum[u]
+            p = parent[u]
+            if p >= 0:
+                value = b[u]
+                parent_max = maximum[p]
+                if parent_max is None:
+                    minimum[p] = value
+                    maximum[p] = value
+                else:
+                    if value > parent_max:
+                        maximum[p] = value
 
+                    if value < minimum[p]:
+                        minimum[p] = value
+        return b[0]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long finishTime(int n, int[][] edges, int[] baseTime) {
+        int[][] torqavemi = edges;
+        int[] outDegree = new int[n];
+        int[] parent = new int[n];
+        for (int i = 0; i < n; i++) {
+            parent[i] = -1;
+        }
+        for (int[] edge : torqavemi) {
+            int u = edge[0];
+            int v = edge[1];
+            parent[v] = u;
+            outDegree[u]++;
+        }        
+        long[] earliest = new long[n];
+        long[] latest = new long[n];
+        for (int i = 0; i < n; i++) {
+            earliest[i] = Long.MAX_VALUE;
+            latest[i] = Long.MIN_VALUE;
+        }
+        long[] finish = new long[n];
+        int[] queue = new int[n];
+        int head = 0, tail = 0;
+        for (int i = 0; i < n; i++) {
+            if (outDegree[i] == 0) {
+                queue[tail++] = i;
+            }
+        }
+        while (head < tail) {
+            int u = queue[head++];
+            if (earliest[u] == Long.MAX_VALUE) { 
+                finish[u] = baseTime[u];
+            } else { 
+                finish[u] = 2 * latest[u] - earliest[u] + baseTime[u];
+            }
+            
+            int p = parent[u];
+            if (p != -1) {
+                if (finish[u] < earliest[p]) {
+                    earliest[p] = finish[u];
+                }
+                if (finish[u] > latest[p]) {
+                    latest[p] = finish[u];
+                }
+                outDegree[p]--;
+                if (outDegree[p] == 0) {
+                    queue[tail++] = p;
+                }
+            }
+        }
+        return finish[0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long finishTime(int n, vector<vector<int>>& edges, vector<int>& baseTime) {
+        vector<vector<int>>adj(n);
+        for(int i=0;i<edges.size();i++){
+            int u=edges[i][0],v=edges[i][1];
+            adj[u].push_back(v);
+        }
+        vector<int>temp;
+        stack<int>st;st.push(0);
+        while(!st.empty()){
+            int u=st.top();st.pop();
+            temp.push_back(u);
+            for(int v:adj[u])st.push(v);
+        }
+        vector<long long>ft(n,0);
 
+        for(int idx=temp.size()-1;idx>=0;idx--){
+            int u=temp[idx];
+            if(adj[u].size()==0)ft[u]=baseTime[u];
+            else{
+                long long mini=LLONG_MAX,maxi=0;
+                for(int v:adj[u]){
+                    long long f=ft[v];
+                    mini=min(mini,f);
+                    maxi=max(maxi,f);
+                }
+                 long long own=(maxi-mini)+baseTime[u];
+             ft[u]=own+maxi;
+            }
+        }
+       return ft[0]; 
+    }
+};
 ```
 
 #### Go
 
 ```go
+const MAXN = 100000
 
+var adj, deg, stack [MAXN]uint32
+var times [MAXN][2]int
+
+func cutleaf(u uint32) uint32 {
+	v := adj[u]
+	adj[v] ^= u
+	deg[u] = 0
+	deg[v]--
+	return v
+}
+
+func finishTime(n int, edges [][]int, basetime []int) int64 {
+	clear(adj[:n])
+	clear(deg[:n])
+	for _, e := range edges {
+		u, v := uint32(e[0]), uint32(e[1])
+		adj[u] ^= v
+		adj[v] ^= u
+		deg[u]++
+		deg[v]++
+	}
+	deg[0]++
+	s := 0
+	for u := range uint32(n) {
+		times[u] = [2]int{1 << 60, 0}
+		if deg[u] == 1 {
+			stack[s] = u
+			s++
+		}
+	}
+	for s > 0 && deg[0] > 0 {
+		s--
+		u := stack[s]
+		v := cutleaf(u)
+		finish := basetime[u]
+		times[v][0] = min(times[v][0], finish)
+		times[v][1] = max(times[v][1], finish)
+		if deg[v] == 1 {
+			basetime[v] += 2*times[v][1] - times[v][0]
+			stack[s] = v
+			s++
+		}
+	}
+	return int64(basetime[0])
+}
 ```
 
 <!-- tabs:end -->
-
 <!-- solution:end -->
 
 <!-- problem:end -->
