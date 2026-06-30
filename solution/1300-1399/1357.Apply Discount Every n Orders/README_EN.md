@@ -87,9 +87,17 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  7<sup>th
 
 ### Solution 1: Hash Table + Simulation
 
-Use a hash table $d$ to store the product ID and price, then traverse the product ID and quantity, calculate the total price, and then calculate the price after discount based on the discount.
+We use a hash table $d$ to store the product ID and unit price, mapping each entry in `products` to the corresponding price in `prices` during initialization.
 
-The time complexity of initialization is $O(n)$, where $n$ is the number of products. The time complexity of the `getBill` function is $O(m)$, where $m$ is the number of products purchased. The space complexity is $O(n)$.
+We also maintain a customer counter $i$, initialized to $0$.
+
+For each `getBill` call:
+
+1. Increment the counter and take modulo: $i = (i + 1) \bmod n$, indicating which customer is checking out;
+2. Traverse the purchased product IDs and quantities, calculating the total bill $x = \sum_j d[\textit{product}[j]] \times \textit{amount}[j]$;
+3. If $i = 0$, the current customer is the $n$-th customer and the entire bill receives a discount; return $x - \dfrac{\textit{discount} \times x}{100}$. Otherwise, return $x$ directly.
+
+The time complexity of initialization is $O(n)$, where $n$ is the number of product types. Each `getBill` call takes $O(m)$ time, where $m$ is the number of product types in the current purchase. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
@@ -97,20 +105,19 @@ The time complexity of initialization is $O(n)$, where $n$ is the number of prod
 
 ```python
 class Cashier:
+
     def __init__(self, n: int, discount: int, products: List[int], prices: List[int]):
         self.i = 0
         self.n = n
         self.discount = discount
-        self.d = {product: price for product, price in zip(products, prices)}
+        self.d = {a: b for a, b in zip(products, prices)}
 
     def getBill(self, product: List[int], amount: List[int]) -> float:
-        self.i += 1
-        discount = self.discount if self.i % self.n == 0 else 0
-        ans = 0
-        for p, a in zip(product, amount):
-            x = self.d[p] * a
-            ans += x - (discount * x) / 100
-        return ans
+        self.i = (self.i + 1) % self.n
+        x = sum(self.d[a] * b for a, b in zip(product, amount))
+        if self.i == 0:
+            return x - (self.discount * x) / 100
+        return x
 
 
 # Your Cashier object will be instantiated and called as such:
@@ -125,25 +132,28 @@ class Cashier {
     private int i;
     private int n;
     private int discount;
-    private Map<Integer, Integer> d = new HashMap<>();
+    private Map<Integer, Integer> d;
 
     public Cashier(int n, int discount, int[] products, int[] prices) {
+        this.i = 0;
         this.n = n;
         this.discount = discount;
-        for (int j = 0; j < products.length; ++j) {
-            d.put(products[j], prices[j]);
+        this.d = new HashMap<>();
+        for (int j = 0; j < products.length; j++) {
+            this.d.put(products[j], prices[j]);
         }
     }
 
     public double getBill(int[] product, int[] amount) {
-        int dis = (++i) % n == 0 ? discount : 0;
-        double ans = 0;
-        for (int j = 0; j < product.length; ++j) {
-            int p = product[j], a = amount[j];
-            int x = d.get(p) * a;
-            ans += x - (dis * x) / 100.0;
+        this.i = (this.i + 1) % this.n;
+        double x = 0;
+        for (int j = 0; j < product.length; j++) {
+            x += this.d.get(product[j]) * amount[j];
         }
-        return ans;
+        if (this.i == 0) {
+            return x - (this.discount * x) / 100.0;
+        }
+        return x;
     }
 }
 
@@ -159,29 +169,31 @@ class Cashier {
 ```cpp
 class Cashier {
 public:
+    int i;
+    int n;
+    int discount;
+    unordered_map<int, int> d;
+
     Cashier(int n, int discount, vector<int>& products, vector<int>& prices) {
+        this->i = 0;
         this->n = n;
         this->discount = discount;
-        for (int j = 0; j < products.size(); ++j) {
+        for (int j = 0; j < products.size(); j++) {
             d[products[j]] = prices[j];
         }
     }
 
     double getBill(vector<int> product, vector<int> amount) {
-        int dis = (++i) % n == 0 ? discount : 0;
-        double ans = 0;
-        for (int j = 0; j < product.size(); ++j) {
-            int x = d[product[j]] * amount[j];
-            ans += x - (dis * x) / 100.0;
+        i = (i + 1) % n;
+        double x = 0;
+        for (int j = 0; j < product.size(); j++) {
+            x += d[product[j]] * amount[j];
         }
-        return ans;
+        if (i == 0) {
+            return x - (discount * x) / 100.0;
+        }
+        return x;
     }
-
-private:
-    int i = 0;
-    int n;
-    int discount;
-    unordered_map<int, int> d;
 };
 
 /**
@@ -202,24 +214,23 @@ type Cashier struct {
 }
 
 func Constructor(n int, discount int, products []int, prices []int) Cashier {
-	d := map[int]int{}
-	for i, product := range products {
-		d[product] = prices[i]
+	d := make(map[int]int)
+	for i := 0; i < len(products); i++ {
+		d[products[i]] = prices[i]
 	}
-	return Cashier{0, n, discount, d}
+	return Cashier{i: 0, n: n, discount: discount, d: d}
 }
 
-func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
-	this.i++
-	dis := 0
-	if this.i%this.n == 0 {
-		dis = this.discount
+func (this *Cashier) GetBill(product []int, amount []int) float64 {
+	this.i = (this.i + 1) % this.n
+	x := 0
+	for i := 0; i < len(product); i++ {
+		x += this.d[product[i]] * amount[i]
 	}
-	for j, p := range product {
-		x := float64(this.d[p] * amount[j])
-		ans += x - (float64(dis)*x)/100.0
+	if this.i == 0 {
+		return float64(x) - float64(this.discount)*float64(x)/100.0
 	}
-	return
+	return float64(x)
 }
 
 /**
@@ -227,6 +238,94 @@ func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
  * obj := Constructor(n, discount, products, prices);
  * param_1 := obj.GetBill(product,amount);
  */
+```
+
+#### TypeScript
+
+```ts
+class Cashier {
+    i: number;
+    n: number;
+    discount: number;
+    d: Map<number, number>;
+
+    constructor(n: number, discount: number, products: number[], prices: number[]) {
+        this.i = 0;
+        this.n = n;
+        this.discount = discount;
+        this.d = new Map();
+        for (let j = 0; j < products.length; j++) {
+            this.d.set(products[j], prices[j]);
+        }
+    }
+
+    getBill(product: number[], amount: number[]): number {
+        this.i = (this.i + 1) % this.n;
+        let x = 0;
+        for (let j = 0; j < product.length; j++) {
+            x += (this.d.get(product[j]) || 0) * amount[j];
+        }
+        if (this.i === 0) {
+            return x - (this.discount * x) / 100;
+        }
+        return x;
+    }
+}
+
+/**
+ * Your Cashier object will be instantiated and called as such:
+ * var obj = new Cashier(n, discount, products, prices)
+ * var param_1 = obj.getBill(product,amount)
+ */
+```
+
+#### Rust
+
+```rust
+use std::cell::Cell;
+use std::collections::HashMap;
+
+struct Cashier {
+    i: Cell<i32>,
+    n: i32,
+    discount: i32,
+    d: HashMap<i32, i32>,
+}
+
+impl Cashier {
+    fn new(n: i32, discount: i32, products: Vec<i32>, prices: Vec<i32>) -> Self {
+        let mut d = HashMap::new();
+        for i in 0..products.len() {
+            d.insert(products[i], prices[i]);
+        }
+        Cashier {
+            i: Cell::new(0),
+            n,
+            discount,
+            d,
+        }
+    }
+
+    fn get_bill(&self, product: Vec<i32>, amount: Vec<i32>) -> f64 {
+        let mut x = 0i64;
+        let mut i = self.i.get();
+        i = (i + 1) % self.n;
+        self.i.set(i);
+
+        for j in 0..product.len() {
+            x += (self.d[&product[j]] as i64) * (amount[j] as i64);
+        }
+
+        if i == 0 {
+            return x as f64 - (self.discount as f64) * (x as f64) / 100.0;
+        }
+        x as f64
+    }
+}
+
+// Your Cashier object will be instantiated and called as such:
+// let obj = Cashier::new(n, discount, products, prices);
+// let ret_1: f64 = obj.get_bill(product, amount);
 ```
 
 <!-- tabs:end -->
