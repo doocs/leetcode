@@ -4,6 +4,11 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README_EN.md
 rating: 1999
 source: Weekly Contest 495 Q3
+tags:
+    - Array
+    - Math
+    - Enumeration
+    - Sorting
 ---
 
 <!-- problem:start -->

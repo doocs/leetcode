@@ -3,7 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1188.Design%20Bounded%20Blocking%20Queue/README_EN.md
 tags:
-    - Concurrency
+    - 多线程
 ---
 
 <!-- problem:start -->

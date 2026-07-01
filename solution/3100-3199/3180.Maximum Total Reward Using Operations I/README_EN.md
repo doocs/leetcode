@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3180.Ma
 rating: 1848
 source: Weekly Contest 401 Q3
 tags:
+    - Bit Manipulation
     - Array
     - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

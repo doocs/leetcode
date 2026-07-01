@@ -23,7 +23,7 @@ tags:
 
 <p>You may assume that you have an infinite number of each kind of coin.</p>
 
-<p>The answer is <strong>guaranteed</strong> to fit into a signed <strong>32-bit</strong> integer.</p>
+<p>The <strong>final</strong> answer is <strong>guaranteed</strong> to fit into a signed <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

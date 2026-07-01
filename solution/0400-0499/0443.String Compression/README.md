@@ -41,7 +41,8 @@ tags:
 <pre>
 <strong>输入：</strong>chars = ["a","a","b","b","c","c","c"]
 <strong>输出：</strong>6
-<strong>解释：</strong>"aa" 被 "a2" 替代。"bb" 被 "b2" 替代。"ccc" 被 "c3" 替代。
+<strong>解释：</strong>分组是 "aa"、"bb" 和 "ccc"，压缩为 "a2b2c3"。
+在原地修改输入数组之后，chars 的前 6 个字符应为 ["a","2","b","2","c","3"]。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -49,15 +50,16 @@ tags:
 <pre>
 <strong>输入：</strong>chars = ["a"]
 <strong>输出：</strong>1
-<strong>解释：</strong>唯一的组是“a”，它保持未压缩，因为它是一个字符。
-</pre>
+<strong>解释：</strong>唯一的组是 "a"，因为它是一个单独的字符，所以保持不变。
+在原地修改输入数组后，chars 的第一个字符应为 ["a"]。</pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
 <strong>输入：</strong>chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
 <strong>输出：</strong>4
-<strong>解释：</strong>由于字符 "a" 不重复，所以不会被压缩。"bbbbbbbbbbbb" 被 “b12” 替代。
+<strong>解释：</strong>分组是 "a" 和 "bbbbbbbbbbbb"，压缩为"ab12"。
+在对输入数组进行原地修改后，chars 的前 4 个字符应为 ["a","b","1","2"]。
 </pre>
 
 <p>&nbsp;</p>

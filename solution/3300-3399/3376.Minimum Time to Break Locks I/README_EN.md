@@ -171,7 +171,7 @@ tags:
 <ul>
 	<li><code>n == strength.length</code></li>
 	<li><code>1 &lt;= n &lt;= 8</code></li>
-	<li><code>1 &lt;= K &lt;= 10</code></li>
+	<li><code>1 &lt;= k &lt;= 10</code></li>
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 

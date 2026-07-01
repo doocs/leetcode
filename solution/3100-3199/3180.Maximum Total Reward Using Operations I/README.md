@@ -5,8 +5,10 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3180.Ma
 rating: 1848
 source: 第 401 场周赛 Q3
 tags:
+    - 位运算
     - 数组
     - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->

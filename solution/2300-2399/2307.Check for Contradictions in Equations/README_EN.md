@@ -7,6 +7,7 @@ tags:
     - Union Find
     - Graph
     - Array
+    - String
 ---
 
 <!-- problem:start -->

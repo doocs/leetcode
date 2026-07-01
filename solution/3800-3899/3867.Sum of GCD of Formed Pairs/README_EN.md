@@ -9,6 +9,7 @@ tags:
     - Math
     - Two Pointers
     - Number Theory
+    - Sorting
     - Simulation
 ---
 

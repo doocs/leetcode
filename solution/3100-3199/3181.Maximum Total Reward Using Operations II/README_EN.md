@@ -8,6 +8,7 @@ tags:
     - Bit Manipulation
     - Array
     - Dynamic Programming
+    - Sorting
 ---
 
 <!-- problem:start -->

@@ -3,7 +3,7 @@ comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1117.Building%20H2O/README_EN.md
 tags:
-    - Concurrency
+    - 多线程
 ---
 
 <!-- problem:start -->

@@ -9,6 +9,7 @@ tags:
     - Hash Table
     - String
     - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

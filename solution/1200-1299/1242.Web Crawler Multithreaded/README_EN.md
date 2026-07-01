@@ -5,7 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1242.We
 tags:
     - Depth-First Search
     - Breadth-First Search
-    - Concurrency
+    - 多线程
 ---
 
 <!-- problem:start -->

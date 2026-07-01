@@ -9,6 +9,7 @@ tags:
     - Segment Tree
     - Array
     - Binary Search
+    - Ordered Set
 ---
 
 <!-- problem:start -->

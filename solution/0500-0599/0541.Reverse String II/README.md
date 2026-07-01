@@ -17,7 +17,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个字符串 <code>s</code> 和一个整数 <code>k</code>，从字符串开头算起，每计数至 <code>2k</code> 个字符，就反转这 <code>2k</code> 字符中的前 <code>k</code> 个字符。</p>
+<p>给定一个字符串 <code>s</code> 和一个整数 <code>k</code>，从字符串开头算起，每计数至 <code>2k</code> 个字符，就反转这 <code>2k</code> 字符中的前 <code>k</code> 个字符，再重新计数。</p>
 
 <ul>
 	<li>如果剩余字符少于 <code>k</code> 个，则将剩余字符全部反转。</li>

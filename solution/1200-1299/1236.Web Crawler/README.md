@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个网址&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同&nbsp;<strong>主机名&nbsp;</strong>的全部链接。</p>
+<p>给定一个网址&nbsp;<code>startUrl</code> 和一个接口&nbsp;<code>HtmlParser</code>&nbsp;，请你实现一个网络爬虫，以实现爬取同&nbsp;<code>startUrl</code>&nbsp;拥有相同 <strong>域名&nbsp;</strong>的全部链接。</p>
 
 <p>该爬虫得到的全部网址可以&nbsp;<strong>任何顺序&nbsp;</strong>返回结果。</p>
 
@@ -88,7 +88,7 @@ urls = [
 edges = [[0,2],[2,1],[3,2],[3,1],[3,0]]
 startUrl = "http://news.google.com"
 <strong>输出：</strong>["http://news.google.com"]
-<strong>解释：</strong>startUrl 链接到所有其他不共享相同主机名的页面。</pre>
+<strong>解释：</strong>startUrl 链接到所有其他不共享相同域名的页面。</pre>
 
 <p>&nbsp;</p>
 
@@ -98,8 +98,8 @@ startUrl = "http://news.google.com"
 	<li><code>1 &lt;= urls.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= urls[i].length &lt;= 300</code></li>
 	<li><code>startUrl</code>&nbsp;为&nbsp;<code>urls</code>&nbsp;中的一个。</li>
-	<li>主机名的长为1到63个字符（包括点），只能包含从‘a’到‘z’的ASCII字母、‘0’到‘9’的数字以及连字符即减号（‘-’）。</li>
-	<li>主机名不会以连字符即减号（‘-’）开头或结尾。</li>
+	<li>域名的长为1到63个字符（包括点），只能包含从‘a’到‘z’的ASCII字母、‘0’到‘9’的数字以及连字符即减号（‘-’）。</li>
+	<li>域名不会以连字符即减号（‘-’）开头或结尾。</li>
 	<li>关于域名有效性的约束可参考:&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames">https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames</a></li>
 	<li>你可以假定url库中不包含重复项。</li>
 </ul>

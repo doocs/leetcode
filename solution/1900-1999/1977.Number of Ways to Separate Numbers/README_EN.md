@@ -7,7 +7,7 @@ source: Biweekly Contest 59 Q4
 tags:
     - String
     - Dynamic Programming
-    - Suffix Array
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

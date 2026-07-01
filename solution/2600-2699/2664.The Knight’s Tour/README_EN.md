@@ -47,10 +47,10 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m,&nbsp;n &lt;= 5</code></li>
+	<li><code>1 &lt;= m, n &lt;= 5</code></li>
 	<li><code>0 &lt;= r &lt;= m - 1</code></li>
 	<li><code>0 &lt;= c &lt;= n - 1</code></li>
-	<li>The inputs will be generated such that there exists at least one&nbsp;possible order of movements with the given condition</li>
+	<li>The inputs will be generated such that there exists <strong>at least</strong> one possible order of movements with the given condition</li>
 </ul>
 
 <!-- description:end -->

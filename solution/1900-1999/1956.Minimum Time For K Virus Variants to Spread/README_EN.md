@@ -8,6 +8,8 @@ tags:
     - Math
     - Binary Search
     - Enumeration
+    - Ordered Set
+    - Sliding Window
 ---
 
 <!-- problem:start -->

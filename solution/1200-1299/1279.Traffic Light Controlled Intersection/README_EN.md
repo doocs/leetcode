@@ -3,7 +3,7 @@ comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README_EN.md
 tags:
-    - Concurrency
+    - 多线程
 ---
 
 <!-- problem:start -->
