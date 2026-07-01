@@ -7,7 +7,10 @@ source: Biweekly Contest 147 Q4
 tags:
     - Segment Tree
     - Array
+    - Hash Table
+    - Divide and Conquer
     - Dynamic Programming
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

@@ -56,6 +56,10 @@ i = 4 ，arr[4] = 0 因为不存在值等于 2 的其他下标。
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与 <a href="https://leetcode.cn/problems/intervals-between-identical-elements/">2121. 相同元素的间隔之和</a>&nbsp;相同。</p>
+
 <!-- description:end -->
 
 ## 解法

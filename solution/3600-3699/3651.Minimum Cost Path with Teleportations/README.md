@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3651.Minimum%20Cost%20Path%20with%20Teleportations/README.md
 rating: 2411
 source: 第 163 场双周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

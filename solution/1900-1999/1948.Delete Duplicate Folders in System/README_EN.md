@@ -5,10 +5,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1948.De
 rating: 2533
 source: Weekly Contest 251 Q4
 tags:
+    - Depth-First Search
     - Trie
     - Array
     - Hash Table
     - String
+    - Sorting
     - Hash Function
 ---
 

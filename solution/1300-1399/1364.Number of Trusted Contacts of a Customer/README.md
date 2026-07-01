@@ -38,7 +38,7 @@ customer_id 是这张表具有唯一值的列。
 +---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
-| user_id       | id      |
+| user_id       | int     |
 | contact_name  | varchar |
 | contact_email | varchar |
 +---------------+---------+

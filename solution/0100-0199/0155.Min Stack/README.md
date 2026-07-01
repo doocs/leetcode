@@ -23,7 +23,7 @@ tags:
 
 <ul>
 	<li><code>MinStack()</code> 初始化堆栈对象。</li>
-	<li><code>void push(int val)</code> 将元素val推入堆栈。</li>
+	<li><code>void push(int value)</code> 将元素 <code>value</code> 推入堆栈。</li>
 	<li><code>void pop()</code> 删除堆栈顶部的元素。</li>
 	<li><code>int top()</code> 获取堆栈顶部的元素。</li>
 	<li><code>int getMin()</code> 获取堆栈中的最小元素。</li>

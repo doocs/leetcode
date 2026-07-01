@@ -25,9 +25,19 @@ tags:
 
 <p>如上图所示，电影院的观影厅中有 <code>n</code>&nbsp;行座位，行编号从 1&nbsp;到 <code>n</code>&nbsp;，且每一行内总共有 10 个座位，列编号从 1 到 10 。</p>
 
-<p>给你数组&nbsp;<code>reservedSeats</code>&nbsp;，包含所有已经被预约了的座位。比如说，<code>reservedSeats[i]=[3,8]</code>&nbsp;，它表示第&nbsp;<strong>3</strong>&nbsp;行第&nbsp;<strong>8</strong>&nbsp;个座位被预约了。</p>
+<p>给定一个二维数组&nbsp;<code>reservedSeats</code>&nbsp;，其中&nbsp;<code>reservedSeats[i] = [row<sub>i</sub>, seat<sub>i</sub>]</code> 表示第&nbsp;<code>row<sub>i</sub></code> 行的座位&nbsp;<code>seat<sub>i</sub></code> 已经被预定。</p>
 
-<p>请你返回&nbsp;<strong>最多能安排多少个 4 人家庭</strong>&nbsp;。4 人家庭要占据&nbsp;<strong>同一行内连续&nbsp;</strong>的 4 个座位。隔着过道的座位（比方说 [3,3] 和 [3,4]）不是连续的座位，但是如果你可以将 4 人家庭拆成过道两边各坐 2 人，这样子是允许的。</p>
+<p>四人小组必须被安排在同一排的四个座位上。该小组可以坐在以下座位块之一：</p>
+
+<ul>
+	<li>座位 <code>2, 3, 4, 5</code></li>
+	<li>座位 <code>4, 5, 6, 7</code></li>
+	<li>座位 <code>6, 7, 8, 9</code></li>
+</ul>
+
+<p>只有当该块中的所有座位都 <strong>没有</strong> 被预订时，才能使用该块。每个座位 <strong>最多</strong> 只能分配给一个小组。</p>
+
+<p>返回一个整数，表示可以分配的 <strong>最大</strong> 四人小组数量。</p>
 
 <p>&nbsp;</p>
 
@@ -60,11 +70,11 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10^9</code></li>
-	<li><code>1 &lt;=&nbsp;reservedSeats.length &lt;= min(10*n, 10^4)</code></li>
-	<li><code>reservedSeats[i].length == 2</code></li>
-	<li><code>1&nbsp;&lt;=&nbsp;reservedSeats[i][0] &lt;= n</code></li>
-	<li><code>1 &lt;=&nbsp;reservedSeats[i][1] &lt;= 10</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;=&nbsp;reservedSeats.length &lt;= min(10 * n, 10<sup>4</sup>)</code></li>
+	<li><code>reservedSeats[i]&nbsp;== [row<sub>i</sub>, seat<sub>i</sub>]</code></li>
+	<li><code>1&nbsp;&lt;=&nbsp;row<sub>i</sub> &lt;= n</code></li>
+	<li><code>1 &lt;=&nbsp;seat<sub>i</sub> &lt;= 10</code></li>
 	<li>所有&nbsp;<code>reservedSeats[i]</code> 都是互不相同的。</li>
 </ul>
 

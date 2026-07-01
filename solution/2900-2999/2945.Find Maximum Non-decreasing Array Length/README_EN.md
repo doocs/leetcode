@@ -10,6 +10,7 @@ tags:
     - Array
     - Binary Search
     - Dynamic Programming
+    - Prefix Sum
     - Monotonic Queue
     - Monotonic Stack
 ---

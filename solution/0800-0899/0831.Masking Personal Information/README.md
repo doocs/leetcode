@@ -18,7 +18,7 @@ tags:
 
 <p>给你一条个人信息字符串 <code>s</code> ，可能表示一个 <strong>邮箱地址</strong> ，也可能表示一串 <strong>电话号码</strong> 。返回按如下规则 <strong>隐藏</strong> 个人信息后的结果：</p>
 
-<p><em><strong>电子邮件地址：</strong></em></p>
+<p><u><strong>电子邮件地址：</strong></u></p>
 
 <p>一个电子邮件地址由以下部分组成：</p>
 
@@ -35,7 +35,7 @@ tags:
 	<li><strong>名字</strong> 中间的字母（即，除第一个和最后一个字母外）必须用 5 个 <code>"*****"</code> 替换。</li>
 </ul>
 
-<p><em><strong>电话号码：</strong></em></p>
+<p><u><strong>电话号码：</strong></u></p>
 
 <p>一个电话号码应当按下述格式组成：</p>
 

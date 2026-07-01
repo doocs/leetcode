@@ -1025,7 +1025,7 @@ comments: true
 - [3274. 检查棋盘方格颜色是否相同](/solution/3200-3299/3274.Check%20if%20Two%20Chessboard%20Squares%20Have%20the%20Same%20Color/README.md)
 - [3275. 第 K 近障碍物查询](/solution/3200-3299/3275.K-th%20Nearest%20Obstacle%20Queries/README.md)
 - [3276. 选择矩阵中单元格的最大得分](/solution/3200-3299/3276.Select%20Cells%20in%20Grid%20With%20Maximum%20Score/README.md)
-- [3277. 查询子数组最大异或值](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md)
+- [3277. 查询子数组最大异或分数](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README.md)
 
 #### 第 138 场双周赛(2024-08-31 22:30, 90 分钟) 参赛人数 2029
 
@@ -1260,7 +1260,7 @@ comments: true
 
 #### 第 127 场双周赛(2024-03-30 22:30, 90 分钟) 参赛人数 2951
 
-- [3095. 或值至少 K 的最短子数组 I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)
+- [3095. 或值至少为 K 的最短子数组 I](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README.md)
 - [3096. 得到更多分数的最少关卡数目](/solution/3000-3099/3096.Minimum%20Levels%20to%20Gain%20More%20Points/README.md)
 - [3097. 或值至少为 K 的最短子数组 II](/solution/3000-3099/3097.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20II/README.md)
 - [3098. 求出所有子序列的能量和](/solution/3000-3099/3098.Find%20the%20Sum%20of%20Subsequence%20Powers/README.md)

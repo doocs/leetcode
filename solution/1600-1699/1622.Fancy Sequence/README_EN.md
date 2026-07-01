@@ -8,6 +8,7 @@ tags:
     - Design
     - Segment Tree
     - Math
+    - Number Theory
 ---
 
 <!-- problem:start -->

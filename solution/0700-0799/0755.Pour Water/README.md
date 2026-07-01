@@ -34,95 +34,21 @@ tags:
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour11-grid.jpg" style="width: 450px; height: 303px;" />
 <pre>
 <strong>输入：</strong>heights = [2,1,1,2,1,2,2], V = 4, K = 3
 <strong>输出：</strong>[2,2,2,3,2,2,2]
 <strong>解释：</strong>
-#       #
-#       #
-##  # ###
-#########
- 0123456    &lt;- 索引
-
-第一个水滴降落在索引 K = 3 上：
-
-#       #
-#   w   #
-##  # ###
-#########
- 0123456    
-
-当向左或向右移动时，水可以移动到相同或更低的高度。When moving left or right, the water can only move to the same level or a lower level.
-（从水平上看，意思是该列的地形高度加上水的高度）
-由于向左移动可以最终下落，因此向左移动。
-（一个水滴 “下落” 的意思是可以相比之前可以进入更低的高度）
-
-#       #
-#       #
-## w# ###
-#########
- 0123456    
-
-由于向左移动不会使其降落，所以停在该位置上。下一个水滴下落：
-
-#       #
-#   w   #
-## w# ###
-#########
- 0123456  
-
-
-由于新水滴向左移动可以最终下落，因此向左移动。
-注意水滴仍然是优先选择向左移动，
-尽管可以向右移动（而且向右移动可以下落更快）
-
-
-#       #
-#  w    #
-## w# ###
-#########
- 0123456  
-
-#       #
-#       #
-##ww# ###
-#########
- 0123456  
-
-经过刚才的阶段后，第三个水滴下落。
-由于向左移动不会最终下落，因此尝试向右移动。
-由于向右移动可以最终下落，因此向右移动。
-
-
-#       #
-#   w   #
-##ww# ###
-#########
- 0123456  
-
-#       #
-#       #
-##ww#w###
-#########
- 0123456  
-
-最终，第四个水滴下落。
-由于向左移动不会最终下落，因此尝试向右移动。
-由于向右移动不会最终下落，因此停在当前位置：
-
-#       #
-#   w   #
-##ww#w###
-#########
- 0123456  
-
-最终的答案为 [2,2,2,3,2,2,2]:
-
-    #    
- ####### 
- ####### 
- 0123456 
+第一个水滴降落在索引 K = 3 上。当向左或向右移动时，水可以移动到相同或更低的高度。（从水平上看，意思是该列的地形高度加上水的高度）
+由于向左移动可以最终下落，因此向左移动。（一个水滴 “下落” 的意思是可以相比之前可以进入更低的高度）
+由于向左移动不会使其降落，所以停在该位置上。
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour12-grid.jpg" style="width: 400px; height: 269px;" />
+下一个水滴降落在索引 K = 3 上。由于新水滴向左移动可以最终下落，因此向左移动。注意水滴仍然是优先选择向左移动，尽管可以向右移动（而且向右移动可以下落更快）
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour13-grid.jpg" style="width: 400px; height: 269px;" />
+经过刚才的阶段后，第三个水滴下落。由于向左移动不会最终下落，因此尝试向右移动。由于向右移动可以最终下落，因此向右移动。
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour14-grid.jpg" style="width: 400px; height: 269px;" />
+最终，第四个水滴下落。由于向左移动不会最终下落，因此尝试向右移动。由于向右移动不会最终下落，因此停在当前位置：
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour15-grid.jpg" style="width: 400px; height: 269px;" />
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -143,13 +69,14 @@ tags:
 
 <p>&nbsp;</p>
 
-<p><strong>注：</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>heights</code> 的长度为&nbsp;<code>[1, 100]</code>&nbsp;，并且每个数的范围为<code>[0, 99]</code>。</li>
-	<li><code>V</code> 的范围&nbsp;<code>[0, 2000]</code>。</li>
-	<li><code>K</code>&nbsp;的范围&nbsp;<code>[0, heights.length - 1]</code>。</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= heights.length &lt;= 100</code></li>
+	<li><code>0 &lt;= heights[i] &lt;= 99</code></li>
+	<li><code>0 &lt;= volume &lt;= 2000</code></li>
+	<li><code>0 &lt;= k &lt; heights.length</code></li>
+</ul>
 
 <!-- description:end -->
 

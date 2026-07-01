@@ -11,7 +11,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3277. 查询子数组最大异或值](https://leetcode.cn/problems/maximum-xor-score-subarray-queries)
+# [3277. 查询子数组最大异或分数](https://leetcode.cn/problems/maximum-xor-score-subarray-queries)
 
 [English Version](/solution/3200-3299/3277.Maximum%20XOR%20Score%20Subarray%20Queries/README_EN.md)
 
@@ -21,9 +21,9 @@ tags:
 
 <p>给你一个由 <code>n</code> 个整数组成的数组 <code>nums</code>，以及一个大小为 <code>q</code> 的二维整数数组 <code>queries</code>，其中 <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code>。</p>
 
-<p>对于每一个查询，你需要找出 <code>nums[l<sub>i</sub>..r<sub>i</sub>]</code> 中任意 <span data-keyword="subarray">子数组</span> 的 <strong>最大异或值</strong>。</p>
+<p>对于每一个查询，你需要找出 <code>nums[l<sub>i</sub>..r<sub>i</sub>]</code> 中任意 <span data-keyword="subarray">子数组</span> 的 <strong>最大异或分数</strong>。</p>
 
-<p><strong>数组的异或值 </strong>需要对数组 <code>a</code> 反复执行以下操作，直到只剩一个元素，剩下的那个元素就是 <strong>异或值</strong>：</p>
+<p><strong>数组的异或分数&nbsp;</strong>需要对数组 <code>a</code> 反复执行以下操作，直到只剩一个元素，剩下的那个元素就是 <strong>异或分数</strong>：</p>
 
 <ul>
 	<li><span class="text-only" data-eleid="9" style="white-space: pre;">对于除最后一个下标以外的所有下标</span> <code>i</code>，同时将 <code>a[i]</code> 替换为 <code>a[i] XOR a[i + 1]</code> 。</li>
@@ -43,11 +43,11 @@ tags:
 
 <p><strong>解释：</strong></p>
 
-<p>在第一个查询中，<code>nums[0..2]</code> 的子数组分别是 <code>[2]</code>, <code>[8]</code>, <code>[4]</code>, <code>[2, 8]</code>, <code>[8, 4]</code>, 和 <code>[2, 8, 4]</code>，它们的异或值分别为 2, 8, 4, 10, 12, 和 6。查询的答案是 12，所有异或值中的最大值。</p>
+<p>在第一个查询中，<code>nums[0..2]</code> 的子数组分别是 <code>[2]</code>, <code>[8]</code>, <code>[4]</code>, <code>[2, 8]</code>, <code>[8, 4]</code>, 和 <code>[2, 8, 4]</code>，它们的异或分数分别为 2, 8, 4, 10, 12, 和 6。查询的答案是 12，所有异或分数中的最大值。</p>
 
-<p>在第二个查询中，<code>nums[1..4]</code> 的子数组中最大的异或值是子数组 <code>nums[1..4]</code> 的异或值，为 60。</p>
+<p>在第二个查询中，<code>nums[1..4]</code> 的子数组中最大的异或分数是子数组 <code>nums[1..4]</code> 的异或分数，为 60。</p>
 
-<p>在第三个查询中，<code>nums[0..5]</code> 的子数组中最大的异或值是子数组 <code>nums[1..4]</code> 的异或值，为 60。</p>
+<p>在第三个查询中，<code>nums[0..5]</code> 的子数组中最大的异或分数是子数组 <code>nums[1..4]</code> 的异或分数，为 60。</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -64,8 +64,8 @@ tags:
 		<tr>
 			<th>下标</th>
 			<th>nums[l<sub>i</sub>..r<sub>i</sub>]</th>
-			<th>最大异或值子数组</th>
-			<th>子数组最大异或值</th>
+			<th>最大异或分数子数组</th>
+			<th>子数组最大异或分数</th>
 		</tr>
 	</thead>
 	<tbody>
