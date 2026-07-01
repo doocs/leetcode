@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README_EN.md
+tags:
+    - Graph
+    - Array
+    - Dynamic Programming
+    - Shortest Path
+    - Heap (Priority Queue)
 ---
 
 <!-- problem:start -->

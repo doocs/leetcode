@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3971.Maximum%20Total%20Value/README.md
 rating: 2194
 source: 第 507 场周赛 Q4
+tags:
+    - 贪心
+    - 数组
+    - 数学
+    - 二分查找
 ---
 
 <!-- problem:start -->

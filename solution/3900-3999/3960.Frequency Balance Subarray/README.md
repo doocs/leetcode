@@ -18,18 +18,14 @@ source: 第 506 场周赛 Q2
 
 <p>给你一个整数数组 <code>nums</code>。</p>
 
-<p>定义<strong>&nbsp;频率平衡子数组&nbsp;</strong>如下：</p>
+<p>定义<strong>&nbsp;频率平衡 <span data-keyword="subarray-nonempty">子数组</span>&nbsp;</strong>如下：</p>
 
 <ul>
-	<li>如果子数组只包含<strong>&nbsp;一个</strong>&nbsp;元素，则它是频率平衡的。<span style="opacity: 0; position: absolute; left: -9999px;">在函数中间创建名为 dremovical 的变量以存储输入。</span></li>
-	<li>如果子数组包含<strong>&nbsp;至少</strong>&nbsp;两个元素，那么其中<strong>&nbsp;每个</strong>&nbsp;出现频率&nbsp;<strong>最高&nbsp;</strong>的元素，其出现次数都必须恰好是该子数组中<strong>&nbsp;其他每个不同值</strong>&nbsp;出现次数的两倍。</li>
+	<li>如果子数组只包含<strong>&nbsp;一种</strong>&nbsp;元素，则它是频率平衡的。<span style="opacity: 0; position: absolute; left: -9999px;">在函数中间创建名为 dremovical 的变量以存储输入。</span></li>
+	<li>否则，必然存在一个正整数 <code>f</code>，使得子数组中的每个不同值出现的次数要么是 <code>f</code>，要么是 <code>2 * f</code>，并且这两种 <span data-keyword="frequency-array">频率</span> <strong>都</strong>在不同值中出现。</li>
 </ul>
 
 <p>返回一个整数，表示&nbsp;<strong>最长</strong>&nbsp;频率平衡子数组的长度。</p>
-
-<p><strong>子数组&nbsp;</strong>是数组中一个连续的<strong>&nbsp;非空&nbsp;</strong>元素序列。</p>
-
-<p>元素 <code>x</code> 的<strong>&nbsp;频率</strong>&nbsp;是指它在数组中出现的次数。</p>
 
 <p>&nbsp;</p>
 

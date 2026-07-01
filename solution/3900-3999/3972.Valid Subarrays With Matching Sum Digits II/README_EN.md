@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Prefix Sum
+    - Sliding Window
 ---
 
 <!-- problem:start -->

@@ -3976,16 +3976,16 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3965  |  [Finish Time of Tasks I](/solution/3900-3999/3965.Finish%20Time%20of%20Tasks%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 185  |
 |  3966  |  [Count Good Integers in a Range](/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README_EN.md)  |    |  Hard  |  Biweekly Contest 185  |
 |  3967  |  [Finish Time of Tasks II](/solution/3900-3999/3967.Finish%20Time%20of%20Tasks%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  3968  |  [Maximum Manhattan Distance After All Moves](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README_EN.md)  |    |  Medium  |  Weekly Contest 507  |
-|  3969  |  [Valid Subarrays With Matching Sum Digits I](/solution/3900-3999/3969.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 507  |
-|  3970  |  [Shortest Path With At Most K Consecutive Identical Characters](/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README_EN.md)  |    |  Medium  |  Weekly Contest 507  |
-|  3971  |  [Maximum Total Value](/solution/3900-3999/3971.Maximum%20Total%20Value/README_EN.md)  |    |  Hard  |  Weekly Contest 507  |
-|  3972  |  [Valid Subarrays With Matching Sum Digits II](/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  3973  |  [Distinct Gate Paths to LCA](/solution/3900-3999/3973.Distinct%20Gate%20Paths%20to%20LCA/README_EN.md)  |    |  Hard  |  🔒  |
-|  3974  |  [Maximum Total Sum of K Selected Elements](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 508  |
-|  3975  |  [Filter Occupied Intervals](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README_EN.md)  |    |  Medium  |  Weekly Contest 508  |
-|  3976  |  [Maximum Subarray Sum After Multiplier](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README_EN.md)  |    |  Medium  |  Weekly Contest 508  |
-|  3977  |  [Minimum Time to Reach Target With Limited Power](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README_EN.md)  |    |  Hard  |  Weekly Contest 508  |
+|  3968  |  [Maximum Manhattan Distance After All Moves](/solution/3900-3999/3968.Maximum%20Manhattan%20Distance%20After%20All%20Moves/README_EN.md)  |  `Math`,`String`,`Counting`  |  Medium  |  Weekly Contest 507  |
+|  3969  |  [Valid Subarrays With Matching Sum Digits I](/solution/3900-3999/3969.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20I/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Prefix Sum`,`Sliding Window`  |  Medium  |  Weekly Contest 507  |
+|  3970  |  [Shortest Path With At Most K Consecutive Identical Characters](/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README_EN.md)  |  `Graph`,`String`,`Shortest Path`,`Heap (Priority Queue)`  |  Medium  |  Weekly Contest 507  |
+|  3971  |  [Maximum Total Value](/solution/3900-3999/3971.Maximum%20Total%20Value/README_EN.md)  |  `Greedy`,`Array`,`Math`,`Binary Search`  |  Hard  |  Weekly Contest 507  |
+|  3972  |  [Valid Subarrays With Matching Sum Digits II](/solution/3900-3999/3972.Valid%20Subarrays%20With%20Matching%20Sum%20Digits%20II/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`,`Sliding Window`  |  Hard  |  🔒  |
+|  3973  |  [Distinct Gate Paths to LCA](/solution/3900-3999/3973.Distinct%20Gate%20Paths%20to%20LCA/README_EN.md)  |  `Bit Manipulation`,`Tree`,`Depth-First Search`,`Array`,`Math`,`Dynamic Programming`  |  Hard  |  🔒  |
+|  3974  |  [Maximum Total Sum of K Selected Elements](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |  Weekly Contest 508  |
+|  3975  |  [Filter Occupied Intervals](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  Weekly Contest 508  |
+|  3976  |  [Maximum Subarray Sum After Multiplier](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 508  |
+|  3977  |  [Minimum Time to Reach Target With Limited Power](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README_EN.md)  |  `Graph`,`Array`,`Dynamic Programming`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 508  |
 
 ## Copyright
 

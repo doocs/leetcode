@@ -2,6 +2,13 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3973.Distinct%20Gate%20Paths%20to%20LCA/README.md
+tags:
+    - 位运算
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->
