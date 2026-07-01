@@ -20,7 +20,7 @@ tags:
 
 <p>给你一个整数 <code>n</code> 。</p>
 
-<p>如果其二进制表示中 <strong>恰好 </strong>仅包含 <strong>一对</strong> <strong>连续的置位</strong> ，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+<p>如果其二进制表示中 <strong>恰好 </strong>仅包含 <strong>一对</strong> <strong>相邻的置位</strong> ，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 整数中的 <strong>置位</strong> 是指其 <strong>二进制</strong> 表示中的 <code>1</code> 。
 
 <p>&nbsp;</p>
@@ -36,7 +36,7 @@ tags:
 
 <ul>
 	<li>6 的二进制表示为 <code>110</code> 。</li>
-	<li>恰好存在一对连续的置位（<code>"11"</code>）。因此，答案为 <code>true</code> 。</li>
+	<li>恰好存在一对相邻的置位（<code>"11"</code>）。因此，答案为 <code>true</code> 。</li>
 </ul>
 </div>
 
@@ -51,7 +51,7 @@ tags:
 
 <ul>
 	<li>5 的二进制表示为 <code>101</code> 。</li>
-	<li>不存在连续的置位。因此，答案为 <code>false</code> 。</li>
+	<li>不存在相邻的置位。因此，答案为 <code>false</code> 。</li>
 </ul>
 </div>
 

@@ -2,6 +2,13 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3973.Distinct%20Gate%20Paths%20to%20LCA/README_EN.md
+tags:
+    - Bit Manipulation
+    - Tree
+    - Depth-First Search
+    - Array
+    - Math
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

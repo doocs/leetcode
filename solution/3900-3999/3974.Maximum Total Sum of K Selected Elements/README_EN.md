@@ -2,6 +2,10 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README_EN.md
+tags:
+    - Greedy
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->
