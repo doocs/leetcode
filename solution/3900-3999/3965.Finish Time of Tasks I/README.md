@@ -140,32 +140,184 @@ source: 第 185 场双周赛 Q3
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+首先根据边列表 $\textit{edges}$ 建树，用邻接表 $g$ 存储每个节点的子节点。
+
+接着从根节点 $0$ 开始 DFS。定义函数 $\textit{dfs}(i)$ 返回任务 $i$ 的完成时间：
+
+- 若 $i$ 是叶子节点，直接返回 $\textit{baseTime}[i]$；
+- 否则，递归计算所有子节点的完成时间，记最早完成时间为 $\textit{earliest}$，最晚完成时间为 $\textit{latest}$；
+- 当前任务的自身耗时为 $\textit{ownDuration} = (\textit{latest} - \textit{earliest}) + \textit{baseTime}[i]$；
+- 任务 $i$ 的完成时间为 $\textit{latest} + \textit{ownDuration}$。
+
+答案为 $\textit{dfs}(0)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+        def dfs(i: int) -> int:
+            if not g[i]:
+                return baseTime[i]
+            earliest, latest = inf, -inf
+            for j in g[i]:
+                a = dfs(j)
+                earliest = min(earliest, a)
+                latest = max(latest, a)
+            own_duration = (latest - earliest) + baseTime[i]
+            return latest + own_duration
 
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+        return dfs(0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    List<Integer>[] g;
+    int[] baseTime;
 
+    long dfs(int i) {
+        if (g[i].isEmpty()) {
+            return baseTime[i];
+        }
+
+        long earliest = Long.MAX_VALUE / 4;
+        long latest = Long.MIN_VALUE / 4;
+
+        for (int j : g[i]) {
+            long a = dfs(j);
+            earliest = Math.min(earliest, a);
+            latest = Math.max(latest, a);
+        }
+
+        long ownDuration = (latest - earliest) + baseTime[i];
+        return latest + ownDuration;
+    }
+
+    public long finishTime(int n, int[][] edges, int[] baseTime) {
+        this.baseTime = baseTime;
+        g = new ArrayList[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+        }
+
+        return dfs(0);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long finishTime(int n, vector<vector<int>>& edges, vector<int>& baseTime) {
+        vector<vector<int>> g(n);
 
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+        }
+
+        auto dfs = [&](this auto&& dfs, int i) -> long long {
+            if (g[i].empty()) {
+                return baseTime[i];
+            }
+
+            long long earliest = LLONG_MAX / 4;
+            long long latest = -LLONG_MAX / 4;
+
+            for (int j : g[i]) {
+                long long a = dfs(j);
+                earliest = min(earliest, a);
+                latest = max(latest, a);
+            }
+
+            long long own_duration = (latest - earliest) + baseTime[i];
+            return latest + own_duration;
+        };
+
+        return dfs(0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func finishTime(n int, edges [][]int, baseTime []int) int64 {
+	g := make([][]int, n)
 
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], e[1])
+	}
+
+	var dfs func(int) int64
+
+	dfs = func(i int) int64 {
+		if len(g[i]) == 0 {
+			return int64(baseTime[i])
+		}
+
+		var INF int64 = 1 << 62
+		var earliest int64 = INF
+		var latest int64 = -INF
+
+		for _, j := range g[i] {
+			a := dfs(j)
+            earliest = min(earliest, a)
+            latest = max(latest, a)
+		}
+
+		ownDuration := (latest - earliest) + int64(baseTime[i])
+		return latest + ownDuration
+	}
+
+	return dfs(0)
+}
+```
+
+#### TypeScript
+
+```ts
+function finishTime(n: number, edges: number[][], baseTime: number[]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [u, v] of edges) {
+        g[u].push(v);
+    }
+
+    const dfs = (i: number): number => {
+        if (g[i].length === 0) {
+            return baseTime[i];
+        }
+
+        let earliest = Number.MAX_SAFE_INTEGER;
+        let latest = -Number.MAX_SAFE_INTEGER;
+
+        for (const j of g[i]) {
+            const a = dfs(j);
+            earliest = Math.min(earliest, a);
+            latest = Math.max(latest, a);
+        }
+
+        const ownDuration = latest - earliest + baseTime[i];
+        return latest + ownDuration;
+    };
+
+    return dfs(0);
+}
 ```
 
 <!-- tabs:end -->
