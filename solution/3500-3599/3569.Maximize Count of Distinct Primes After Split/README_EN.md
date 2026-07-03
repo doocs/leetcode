@@ -7,8 +7,10 @@ source: Weekly Contest 452 Q4
 tags:
     - Segment Tree
     - Array
+    - Hash Table
     - Math
     - Number Theory
+    - Ordered Set
 ---
 
 <!-- problem:start -->

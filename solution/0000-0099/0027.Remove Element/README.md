@@ -40,7 +40,7 @@ int k = removeElement(nums, val); // 调用你的实现
 
 assert k == expectedNums.length;
 sort(nums, 0, k); // 排序 nums 的前 k 个元素
-for (int i = 0; i &lt; actualLength; i++) {
+for (int i = 0; i &lt; k; i++) {
     assert nums[i] == expectedNums[i];
 }</pre>
 

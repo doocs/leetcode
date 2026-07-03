@@ -132,6 +132,193 @@ func numberOfSubstrings(s string) (ans int) {
 }
 ```
 
+#### TypeScript
+
+```ts
+function numberOfSubstrings(s: string): number {
+    const d: number[] = [-1, -1, -1];
+    let ans = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        const c = s.charCodeAt(i) - 97;
+        d[c] = i;
+
+        ans += Math.min(d[0], Math.min(d[1], d[2])) + 1;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_substrings(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let mut d = [-1i32; 3];
+        let mut ans: i32 = 0;
+
+        for i in 0..bytes.len() {
+            let c = (bytes[i] - b'a') as usize;
+            d[c] = i as i32;
+
+            let mn = d[0].min(d[1]).min(d[2]);
+            ans += mn + 1;
+        }
+
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Sliding Window
+
+We can solve this using a sliding window. Maintain a window $[l, r]$ and an array $\textit{cnt}$ recording the frequency of each character in the window.
+
+Traverse the string and keep moving the right boundary $r$ to include $s[r]$. If the window contains at least one $a$, $b$, and $c$, keep moving the left boundary $l$ to the right until the window no longer contains all three characters.
+
+At this point, all substrings ending at $r$ that contain $a$, $b$, and $c$ can start at indices $0, 1, \ldots, l - 1$, giving $l$ valid substrings in total. Add this count to the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        ans = l = 0
+        cnt = Counter()
+        for r, c in enumerate(s):
+            cnt[c] += 1
+            while cnt['a'] and cnt['b'] and cnt['c']:
+                cnt[s[l]] -= 1
+                l += 1
+            ans += l
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int numberOfSubstrings(String s) {
+        int ans = 0, l = 0;
+        int[] cnt = new int[3];
+        for (int r = 0; r < s.length(); r++) {
+            char c = s.charAt(r);
+            cnt[c - 'a']++;
+            while (cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0) {
+                cnt[s.charAt(l) - 'a']--;
+                l++;
+            }
+            ans += l;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        int ans = 0, l = 0;
+        int cnt[3] = {0, 0, 0};
+        for (int r = 0; r < (int) s.size(); r++) {
+            cnt[s[r] - 'a']++;
+            while (cnt[0] && cnt[1] && cnt[2]) {
+                cnt[s[l] - 'a']--;
+                l++;
+            }
+            ans += l;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func numberOfSubstrings(s string) int {
+	ans, l := 0, 0
+	cnt := [3]int{}
+
+	for r := 0; r < len(s); r++ {
+		cnt[s[r]-'a']++
+
+		for cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0 {
+			cnt[s[l]-'a']--
+			l++
+		}
+
+		ans += l
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function numberOfSubstrings(s: string): number {
+    let ans = 0,
+        l = 0;
+    const cnt = [0, 0, 0];
+
+    for (let r = 0; r < s.length; r++) {
+        cnt[s.charCodeAt(r) - 97]++;
+
+        while (cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0) {
+            cnt[s.charCodeAt(l) - 97]--;
+            l++;
+        }
+
+        ans += l;
+    }
+
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_substrings(s: String) -> i32 {
+        let bytes = s.as_bytes();
+        let mut ans = 0;
+        let mut l = 0;
+        let mut cnt = [0; 3];
+
+        for r in 0..bytes.len() {
+            cnt[(bytes[r] - b'a') as usize] += 1;
+
+            while cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0 {
+                cnt[(bytes[l] - b'a') as usize] -= 1;
+                l += 1;
+            }
+
+            ans += l as i32;
+        }
+
+        ans
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

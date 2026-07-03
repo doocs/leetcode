@@ -20,7 +20,7 @@
 | 2625 | [扁平化嵌套数组](/solution/2600-2699/2625.Flatten%20Deeply%20Nested%20Array/README.md)                                                                |      | 中等 |      |
 | 2626 | [数组归约运算](/solution/2600-2699/2626.Array%20Reduce%20Transformation/README.md)                                                                    |      | 简单 |      |
 | 2627 | [函数防抖](/solution/2600-2699/2627.Debounce/README.md)                                                                                               |      | 中等 |      |
-| 2628 | [完全相等的 JSON 字符串](/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md)                                                                      |      | 中等 | 🔒   |
+| 2628 | [完全相等的 JSON 对象](/solution/2600-2699/2628.JSON%20Deep%20Equal/README.md)                                                                        |      | 中等 | 🔒   |
 | 2629 | [复合函数](/solution/2600-2699/2629.Function%20Composition/README.md)                                                                                 |      | 简单 |      |
 | 2630 | [记忆函数 II](/solution/2600-2699/2630.Memoize%20II/README.md)                                                                                        |      | 困难 |      |
 | 2631 | [分组](/solution/2600-2699/2631.Group%20By/README.md)                                                                                                 |      | 中等 |      |

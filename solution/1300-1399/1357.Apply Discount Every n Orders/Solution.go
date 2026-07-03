@@ -6,24 +6,23 @@ type Cashier struct {
 }
 
 func Constructor(n int, discount int, products []int, prices []int) Cashier {
-	d := map[int]int{}
-	for i, product := range products {
-		d[product] = prices[i]
+	d := make(map[int]int)
+	for i := 0; i < len(products); i++ {
+		d[products[i]] = prices[i]
 	}
-	return Cashier{0, n, discount, d}
+	return Cashier{i: 0, n: n, discount: discount, d: d}
 }
 
-func (this *Cashier) GetBill(product []int, amount []int) (ans float64) {
-	this.i++
-	dis := 0
-	if this.i%this.n == 0 {
-		dis = this.discount
+func (this *Cashier) GetBill(product []int, amount []int) float64 {
+	this.i = (this.i + 1) % this.n
+	x := 0
+	for i := 0; i < len(product); i++ {
+		x += this.d[product[i]] * amount[i]
 	}
-	for j, p := range product {
-		x := float64(this.d[p] * amount[j])
-		ans += x - (float64(dis)*x)/100.0
+	if this.i == 0 {
+		return float64(x) - float64(this.discount)*float64(x)/100.0
 	}
-	return
+	return float64(x)
 }
 
 /**

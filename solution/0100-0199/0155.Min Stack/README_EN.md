@@ -23,7 +23,7 @@ tags:
 
 <ul>
 	<li><code>MinStack()</code> initializes the stack object.</li>
-	<li><code>void push(int val)</code> pushes the element <code>val</code> onto the stack.</li>
+	<li><code>void push(int value)</code> pushes the element <code>value</code> onto the stack.</li>
 	<li><code>void pop()</code> removes the element on the top of the stack.</li>
 	<li><code>int top()</code> gets the top element of the stack.</li>
 	<li><code>int getMin()</code> retrieves the minimum element in the stack.</li>

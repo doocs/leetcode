@@ -24,8 +24,8 @@ tags:
 <p>本题我们会将数字旋转 <code>180°</code> 来生成一个新的数字。</p>
 
 <ul>
-	<li>当 <code>0、1、6、8、9</code> 旋转 <code>180°</code> 以后，我们得到的新数字分别为&nbsp;0、1、9、8、6。</li>
-	<li>当&nbsp;<code>2、3、4、5、7</code> 旋转 <code>180°</code> 后，是 <strong>无法</strong> 得到任何数字的。</li>
+	<li>当 <code>0</code>, <code>1</code>, <code>6</code>, <code>8</code>,&nbsp;<code>9</code> 旋转 <code>180°</code> 以后，我们得到的新数字分别为&nbsp;<code>0</code>, <code>1</code>, <code>9</code>, <code>8</code>,&nbsp;<code>6</code>。</li>
+	<li>当&nbsp;<code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>7</code> 旋转 <code>180°</code> 后，是 <strong>无法</strong> 得到任何数字的。</li>
 </ul>
 
 <p>请注意，在旋转一个数字之后，我们可以忽略前导零。</p>
@@ -34,7 +34,7 @@ tags:
 	<li>例如，在旋转 <code>8000</code> 之后，我们有 <code>0008</code> ，它被认为只是 <code>8</code> 。</li>
 </ul>
 
-<p>给出正整数&nbsp;<code>n</code>，请你返回&nbsp;&nbsp;<em><code>[1, n]</code>&nbsp;范围内的 <strong>易混淆数</strong> 的数量&nbsp;</em>。</p>
+<p>给出正整数&nbsp;<code>n</code>，请你返回&nbsp;&nbsp;<code>[1, n]</code><em>&nbsp;范围内的 <strong>易混淆数</strong> 的数量&nbsp;</em>。</p>
 
 <p>&nbsp;</p>
 

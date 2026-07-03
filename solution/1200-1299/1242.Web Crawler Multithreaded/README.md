@@ -10,7 +10,7 @@ tags:
 
 <!-- problem:start -->
 
-# [1242. 多线程网页爬虫 🔒](https://leetcode.cn/problems/web-crawler-multithreaded)
+# [1242. 多线程网络爬虫 🔒](https://leetcode.cn/problems/web-crawler-multithreaded)
 
 [English Version](/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README_EN.md)
 
@@ -18,7 +18,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给你一个初始地址&nbsp;<code>startUrl</code>&nbsp;和一个 HTML 解析器接口&nbsp;<code>HtmlParser</code>，请你实现一个&nbsp;<strong>多线程的网页爬虫</strong>，用于获取与&nbsp;<code>startUrl</code>&nbsp;有&nbsp;<strong>相同主机名&nbsp;</strong>的所有链接。&nbsp;</p>
+<p>给你一个初始地址&nbsp;<code>startUrl</code>&nbsp;和一个 HTML 解析器接口&nbsp;<code>HtmlParser</code>，请你实现一个&nbsp;<strong>多线程的网页爬虫</strong>，用于获取与&nbsp;<code>startUrl</code>&nbsp;有&nbsp;<strong>相同域名&nbsp;</strong>的所有链接。&nbsp;</p>
 
 <p>以&nbsp;<strong>任意&nbsp;</strong>顺序返回爬虫获取的路径。</p>
 
@@ -28,12 +28,12 @@ tags:
 	<li>从&nbsp;<code>startUrl</code>&nbsp;开始</li>
 	<li>调用&nbsp;<code>HtmlParser.getUrls(url)</code> 从指定网页路径获得的所有路径。</li>
 	<li>不要抓取相同的链接两次。</li>
-	<li>仅浏览与&nbsp;<code>startUrl</code>&nbsp;<strong>相同主机名&nbsp;</strong>的链接。</li>
+	<li>仅浏览与&nbsp;<code>startUrl</code>&nbsp;<strong>相同域名&nbsp;</strong>的链接。</li>
 </ul>
 
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/16e463265c7086cb?w=975&amp;h=266&amp;f=png&amp;s=24624" /><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/urlhostname.png" style="height:164px; width:600px" /></p>
 
-<p>如上图所示，主机名是&nbsp;<code>example.org</code>&nbsp;。简单起见，你可以假设所有链接都采用&nbsp;<strong>http 协议</strong>，并且没有指定&nbsp;<strong>端口号</strong>。举个例子，链接&nbsp;<code>http://leetcode.com/problems</code> 和链接&nbsp;<code>http://leetcode.com/contest</code> 属于同一个&nbsp;<strong>主机名</strong>， 而&nbsp;<code>http://example.org/test</code>&nbsp;与&nbsp;<code>http://example.com/abc</code> 并不属于同一个&nbsp;<strong>主机名</strong>。</p>
+<p>如上图所示，域名是&nbsp;<code>example.org</code>&nbsp;。简单起见，你可以假设所有链接都采用&nbsp;<strong>http 协议</strong>，并且没有指定&nbsp;<strong>端口号</strong>。举个例子，链接&nbsp;<code>http://leetcode.com/problems</code> 和链接&nbsp;<code>http://leetcode.com/contest</code> 属于同一个&nbsp;<strong>域名</strong>， 而&nbsp;<code>http://example.org/test</code>&nbsp;与&nbsp;<code>http://example.com/abc</code> 并不属于同一个&nbsp;<strong>域名</strong>。</p>
 
 <p><code>HtmlParser</code> 的接口定义如下：</p>
 
@@ -67,19 +67,19 @@ interface HtmlParser {
 <pre>
 <strong>输入：
 </strong>urls = [
-&nbsp; &quot;http://news.yahoo.com&quot;,
-&nbsp; &quot;http://news.yahoo.com/news&quot;,
-&nbsp; &quot;http://news.yahoo.com/news/topics/&quot;,
-&nbsp; &quot;http://news.google.com&quot;,
-&nbsp; &quot;http://news.yahoo.com/us&quot;
+&nbsp; "http://news.yahoo.com",
+&nbsp; "http://news.yahoo.com/news",
+&nbsp; "http://news.yahoo.com/news/topics/",
+&nbsp; "http://news.google.com",
+&nbsp; "http://news.yahoo.com/us"
 ]
 edges = [[2,0],[2,1],[3,2],[3,1],[0,4]]
-startUrl = &quot;http://news.yahoo.com/news/topics/&quot;
+startUrl = "http://news.yahoo.com/news/topics/"
 <strong>输出：</strong>[
-&nbsp; &quot;http://news.yahoo.com&quot;,
-&nbsp; &quot;http://news.yahoo.com/news&quot;,
-&nbsp; &quot;http://news.yahoo.com/news/topics/&quot;,
-&nbsp; &quot;http://news.yahoo.com/us&quot;
+&nbsp; "http://news.yahoo.com",
+&nbsp; "http://news.yahoo.com/news",
+&nbsp; "http://news.yahoo.com/news/topics/",
+&nbsp; "http://news.yahoo.com/us"
 ]
 </pre>
 
@@ -90,15 +90,15 @@ startUrl = &quot;http://news.yahoo.com/news/topics/&quot;
 <pre>
 <strong>输入：</strong>
 urls = [
-&nbsp; &quot;http://news.yahoo.com&quot;,
-&nbsp; &quot;http://news.yahoo.com/news&quot;,
-&nbsp; &quot;http://news.yahoo.com/news/topics/&quot;,
-&nbsp; &quot;http://news.google.com&quot;
+&nbsp; "http://news.yahoo.com",
+&nbsp; "http://news.yahoo.com/news",
+&nbsp; "http://news.yahoo.com/news/topics/",
+&nbsp; "http://news.google.com"
 ]
 edges = [[0,2],[2,1],[3,2],[3,1],[3,0]]
-startUrl = &quot;http://news.google.com&quot;
-<strong>输出：</strong>[&quot;http://news.google.com&quot;]
-<strong>解释：</strong>startUrl 链接与其他页面不共享一个主机名。</pre>
+startUrl = "http://news.google.com"
+<strong>输出：</strong>["http://news.google.com"]
+<strong>解释：</strong>startUrl 链接与其他页面不共享一个域名。</pre>
 
 <p>&nbsp;</p>
 
@@ -108,8 +108,8 @@ startUrl = &quot;http://news.google.com&quot;
 	<li><code>1 &lt;= urls.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= urls[i].length &lt;= 300</code></li>
 	<li><code>startUrl</code>&nbsp;是&nbsp;<code>urls</code>&nbsp;中的一个。</li>
-	<li>主机名的长度必须为 1 到 63 个字符（包括点 <code>.</code> 在内），只能包含从 &ldquo;a&rdquo; 到 &ldquo;z&rdquo; 的 ASCII 字母和 &ldquo;0&rdquo; 到 &ldquo;9&rdquo; 的数字，以及中划线 &ldquo;-&rdquo;。</li>
-	<li>主机名开头和结尾不能是中划线 &ldquo;-&rdquo;。</li>
+	<li>域名的长度必须为 1 到 63 个字符（包括点 <code>.</code> 在内），只能包含从 “a” 到 “z” 的 ASCII 字母和 “0” 到 “9” 的数字，以及中划线 “-”。</li>
+	<li>域名开头和结尾不能是中划线 “-”。</li>
 	<li>参考资料：<a href="https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames">https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames</a></li>
 	<li>你可以假设路径都是不重复的。</li>
 </ul>

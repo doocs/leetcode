@@ -17,9 +17,13 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个会议时间安排的数组 <code>intervals</code> ，每个会议时间都会包括开始和结束的时间 <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> ，请你判断一个人是否能够参加这里面的全部会议。</p>
+<p>给定一个会议时间安排的数组 <code>intervals</code> ，其中&nbsp;<code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>。</p>
 
-<p> </p>
+<p>一个人可以参加所有会议，只要没有两个会议的时间段重叠。在时间 <code>t</code> 结束的会议和在时间 <code>t</code> 开始的会议不重叠。</p>
+
+<p>如果一个人能够参加这里面的全部会议，返回 <code>true</code>，否则返回 <code>false</code>。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -35,14 +39,14 @@ tags:
 <strong>输出</strong>：true
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= intervals.length <= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>intervals[i].length == 2</code></li>
-	<li><code>0 <= start<sub>i</sub> < end<sub>i</sub> <= 10<sup>6</sup></code></li>
+	<li><code>0 &lt;= start<sub>i</sub> &lt;&nbsp;end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 <!-- description:end -->

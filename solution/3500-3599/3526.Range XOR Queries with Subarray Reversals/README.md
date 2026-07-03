@@ -4,13 +4,14 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3526.Range%20XOR%20Queries%20with%20Subarray%20Reversals/README.md
 tags:
     - 树
+    - 二叉搜索树
     - 数组
     - 二叉树
 ---
 
 <!-- problem:start -->
 
-# [3526. 范围异或查询与子数组反转 🔒](https://leetcode.cn/problems/range-xor-queries-with-subarray-reversals)
+# [3526. 带子数组反转的区间异或查询 🔒](https://leetcode.cn/problems/range-xor-queries-with-subarray-reversals)
 
 [English Version](/solution/3500-3599/3526.Range%20XOR%20Queries%20with%20Subarray%20Reversals/README_EN.md)
 

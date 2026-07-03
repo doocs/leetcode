@@ -28,7 +28,7 @@ tags:
 	<li>如果 <code>moves[i] = 'R'</code> 或 <code>moves[i] = '_'</code> ，可以选择向右移动一个单位距离</li>
 </ul>
 
-<p>移动 <code>n</code> 次之后，请你找出可以到达的距离原点 <strong>最远</strong> 的点，并返回 <strong>从原点到这一点的距离</strong> 。</p>
+<p>返回在移动 <code>n</code> 次之后，可以到达的距离原点 <strong>最远</strong> 的点 <strong>到原点的距离</strong>。</p>
 
 <p>&nbsp;</p>
 

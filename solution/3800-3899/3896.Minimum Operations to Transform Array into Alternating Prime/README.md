@@ -4,6 +4,13 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3896.Minimum%20Operations%20to%20Transform%20Array%20into%20Alternating%20Prime/README.md
 rating: 1435
 source: 第 180 场双周赛 Q3
+tags:
+    - 数组
+    - 数学
+    - 双指针
+    - 二分查找
+    - 数论
+    - 排序
 ---
 
 <!-- problem:start -->

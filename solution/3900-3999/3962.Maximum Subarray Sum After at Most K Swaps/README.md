@@ -22,9 +22,7 @@ source: 第 506 场周赛 Q4
 
 <p>在一次交换操作中，你可以选择任意两个下标 <code>i</code> 和 <code>j</code> 并交换 <code>nums[i]</code> 和 <code>nums[j]</code>。</p>
 
-<p>返回一个整数，表示在执行交换后 <strong>可能的最大子数组和</strong>。</p>
-
-<p><strong>子数组</strong> 是数组中一段连续的元素序列。</p>
+<p>返回一个整数，表示在执行交换后 <strong>可能的最大 <span data-keyword="subarray-nonempty">子数组</span> 和</strong>。</p>
 
 <p>&nbsp;</p>
 

@@ -23,7 +23,7 @@ tags:
 <p>An email address is:</p>
 
 <ul>
-	<li>A <strong>name</strong> consisting of uppercase and lowercase English letters, followed by</li>
+	<li>A <strong>name</strong> consisting of <strong>at least</strong> two uppercase and lowercase English letters, followed by</li>
 	<li>The <code>&#39;@&#39;</code> symbol, followed by</li>
 	<li>The <strong>domain</strong> consisting of uppercase and lowercase English letters with a dot <code>&#39;.&#39;</code> somewhere in the middle (not the first or last character).</li>
 </ul>

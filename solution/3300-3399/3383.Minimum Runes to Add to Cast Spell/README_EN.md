@@ -5,7 +5,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3383.Mi
 tags:
     - Depth-First Search
     - Breadth-First Search
-    - Union Find
     - Graph
     - Topological Sort
     - Array

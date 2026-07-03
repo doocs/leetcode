@@ -21,11 +21,11 @@ tags:
 
 <p>请你计算并返回可以凑成总金额的硬币组合数。如果任何硬币组合都无法凑出总金额，返回 <code>0</code> 。</p>
 
-<p>假设每一种面额的硬币有无限个。 </p>
+<p>假设每一种面额的硬币有无限个。&nbsp;</p>
 
-<p>题目数据保证结果符合 32 位带符号整数。</p>
+<p>题目数据 <strong>保证</strong> <b>最终</b>&nbsp;结果符合 <strong>32 位&nbsp;</strong>带符号整数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <ul>
 </ul>
@@ -57,15 +57,15 @@ tags:
 <strong>输出：</strong>1
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= coins.length <= 300</code></li>
-	<li><code>1 <= coins[i] <= 5000</code></li>
+	<li><code>1 &lt;= coins.length &lt;= 300</code></li>
+	<li><code>1 &lt;= coins[i] &lt;= 5000</code></li>
 	<li><code>coins</code> 中的所有值 <strong>互不相同</strong></li>
-	<li><code>0 <= amount <= 5000</code></li>
+	<li><code>0 &lt;= amount &lt;= 5000</code></li>
 </ul>
 
 <!-- description:end -->

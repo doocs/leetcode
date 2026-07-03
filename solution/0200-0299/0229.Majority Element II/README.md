@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个大小为&nbsp;<em>n&nbsp;</em>的整数数组，找出其中所有出现超过&nbsp;<code>⌊ n/3 ⌋</code>&nbsp;次的元素。</p>
+<p>给定一个大小为&nbsp;<em>n&nbsp;</em>的整数数组，找出其中所有出现超过&nbsp;<code>⌊n / 3⌋</code>&nbsp;次的元素。</p>
 
 <p>&nbsp;</p>
 

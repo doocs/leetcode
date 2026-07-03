@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3291.Mi
 rating: 2081
 source: 第 415 场周赛 Q3
 tags:
+    - 贪心
     - 字典树
     - 线段树
     - 数组

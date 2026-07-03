@@ -42,7 +42,7 @@ item_id 是这张表中有不同值的列。
 	<li>如果&nbsp;<strong>not_prime</strong>&nbsp;分类的数量是&nbsp;<code>0</code>，你应当对这部分分类 <strong>输出</strong>&nbsp;<code>0</code>&nbsp;。</li>
 </ul>
 
-<p>返回结果表，以商品数 <strong>升序</strong> 排序。</p>
+<p>返回结果表，以商品数 <strong>降序</strong>&nbsp;排序。</p>
 
 <p>结果格式如下所示。</p>
 

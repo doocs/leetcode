@@ -32,7 +32,8 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>arr = [2,1,3,1,2,3,3]
+<pre>
+<strong>输入：</strong>arr = [2,1,3,1,2,3,3]
 <strong>输出：</strong>[4,2,7,2,4,4,5]
 <strong>解释：</strong>
 - 下标 0 ：另一个 2 在下标 4 ，|0 - 4| = 4
@@ -46,7 +47,8 @@ tags:
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>arr = [10,5,10,10]
+<pre>
+<strong>输入：</strong>arr = [10,5,10,10]
 <strong>输出：</strong>[5,0,3,4]
 <strong>解释：</strong>
 - 下标 0 ：另两个 10 在下标 2 和 3 ，|0 - 2| + |0 - 3| = 5
@@ -64,6 +66,10 @@ tags:
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与&nbsp;<a href="https://leetcode.cn/problems/sum-of-distances/">2615. 等值距离和</a>&nbsp;相同。</p>
 
 <!-- description:end -->
 

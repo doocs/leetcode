@@ -29,10 +29,10 @@ tags:
 
 <ul>
 	<li>一开始剑的能量为 0 。</li>
-	<li>剑的能量增加因子&nbsp;<code><font face="monospace">X</font></code>&nbsp;一开始的值为 1 。</li>
-	<li>每分钟，剑的能量都会增加当前的&nbsp;<code>X</code>&nbsp;值。</li>
+	<li>剑的能量增加因子&nbsp;<code><font face="monospace">x</font></code>&nbsp;一开始的值为 1 。</li>
+	<li>每分钟，剑的能量都会增加当前的&nbsp;<code>x</code>&nbsp;值。</li>
 	<li>打开第 <code>i</code>&nbsp;把锁，剑的能量需要到达 <strong>至少</strong>&nbsp;<code>strength[i]</code>&nbsp;。</li>
-	<li>打开一把锁以后，剑的能量会变回 0 ，<code>X</code>&nbsp;的值会增加一个给定的值 <code>K</code>&nbsp;。</li>
+	<li>打开一把锁以后，剑的能量会变回 0 ，<code>x</code>&nbsp;的值会增加一个给定的值 <code>k</code>&nbsp;。</li>
 </ul>
 
 <p>你的任务是打开所有 <code>n</code>&nbsp;把锁并逃出地窖，请你求出需要的 <strong>最少</strong>&nbsp;分钟数。</p>
@@ -44,7 +44,7 @@ tags:
 <p><strong class="example">示例 1：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>strength = [3,4,1], K = 1</span></p>
+<p><span class="example-io"><b>输入：</b>strength = [3,4,1], k = 1</span></p>
 
 <p><span class="example-io"><b>输出：</b>4</span></p>
 
@@ -55,9 +55,9 @@ tags:
 		<tr>
 			<th style="border: 1px solid black;">时间</th>
 			<th style="border: 1px solid black;">能量</th>
-			<th style="border: 1px solid black;">X</th>
+			<th style="border: 1px solid black;">x</th>
 			<th style="border: 1px solid black;">操作</th>
-			<th style="border: 1px solid black;">更新后的 X</th>
+			<th style="border: 1px solid black;">更新后的 x</th>
 		</tr>
 		<tr>
 			<td style="border: 1px solid black;">0</td>
@@ -103,7 +103,7 @@ tags:
 <p><strong class="example">示例 2：</strong></p>
 
 <div class="example-block">
-<p><span class="example-io"><b>输入：</b>strength = [2,5,4], K = 2</span></p>
+<p><span class="example-io"><b>输入：</b>strength = [2,5,4], k = 2</span></p>
 
 <p><span class="example-io"><b>输出：</b>5</span></p>
 
@@ -114,9 +114,9 @@ tags:
 		<tr>
 			<th style="border: 1px solid black;">时间</th>
 			<th style="border: 1px solid black;">能量</th>
-			<th style="border: 1px solid black;">X</th>
+			<th style="border: 1px solid black;">x</th>
 			<th style="border: 1px solid black;">操作</th>
-			<th style="border: 1px solid black;">更新后的 X</th>
+			<th style="border: 1px solid black;">更新后的 x</th>
 		</tr>
 		<tr>
 			<td style="border: 1px solid black;">0</td>
@@ -173,7 +173,7 @@ tags:
 <ul>
 	<li><code>n == strength.length</code></li>
 	<li><code>1 &lt;= n &lt;= 8</code></li>
-	<li><code>1 &lt;= K &lt;= 10</code></li>
+	<li><code>1 &lt;= k &lt;= 10</code></li>
 	<li><code>1 &lt;= strength[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 

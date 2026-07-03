@@ -19,7 +19,7 @@ tags:
 
 <!-- description:start -->
 
-<p>给出二叉<strong> 搜索 </strong>树的根节点，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），使每个节点 <code>node</code>&nbsp;的新值等于原树中大于或等于&nbsp;<code>node.val</code>&nbsp;的值之和。</p>
+<p>给出二叉<strong> 搜索 </strong>树的根节点 <code>root</code>，该树的节点值各不相同，请你将其转换为累加树（Greater Sum Tree），将其转换为一个更大的树，使得原始二叉搜索树中的每个节点值都变为原本值加上原本二叉搜索树中所有比该节点值大的节点值的总和。</p>
 
 <p>提醒一下，二叉搜索树满足下列约束条件：</p>
 
@@ -35,27 +35,31 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/images/tree.png" style="height: 364px; width: 534px;"></strong></p>
+<p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/images/tree.png" style="height: 364px; width: 534px;" /></strong></p>
 
-<pre><strong>输入：</strong>[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
+<pre>
+<strong>输入：</strong>[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
 <strong>输出：</strong>[30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>root = [0,null,1]
+<pre>
+<strong>输入：</strong>root = [0,null,1]
 <strong>输出：</strong>[1,null,1]
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>root = [1,0,2]
+<pre>
+<strong>输入：</strong>root = [1,0,2]
 <strong>输出：</strong>[3,3,2]
 </pre>
 
 <p><strong>示例 4：</strong></p>
 
-<pre><strong>输入：</strong>root = [3,2,4,1]
+<pre>
+<strong>输入：</strong>root = [3,2,4,1]
 <strong>输出：</strong>[7,9,4,10]
 </pre>
 

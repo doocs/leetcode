@@ -2,6 +2,9 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README.md
+tags:
+    - 数组
+    - 排序
 ---
 
 <!-- problem:start -->

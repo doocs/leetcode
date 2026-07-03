@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Pa
 rating: 2779
 source: 第 378 场周赛 Q4
 tags:
+    - 数组
     - 哈希表
     - 字符串
     - 前缀和

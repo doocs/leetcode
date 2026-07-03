@@ -4,6 +4,10 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3894.Traffic%20Signal%20Color/README_EN.md
 rating: 1222
 source: Biweekly Contest 180 Q1
+tags:
+    - Math
+    - String
+    - Simulation
 ---
 
 <!-- problem:start -->

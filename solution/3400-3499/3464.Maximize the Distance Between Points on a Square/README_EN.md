@@ -81,7 +81,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= side &lt;= 10<sup>9</sup></code></li>
 	<li><code>4 &lt;= points.length &lt;= min(4 * side, 15 * 10<sup>3</sup>)</code></li>
-	<li><code>points[i] == [xi, yi]</code></li>
+	<li><code>points[i] == [x<sub>i</sub>, y<sub>i</sub>]</code></li>
 	<li>The input is generated such that:
 	<ul>
 		<li><code>points[i]</code> lies on the boundary of the square.</li>

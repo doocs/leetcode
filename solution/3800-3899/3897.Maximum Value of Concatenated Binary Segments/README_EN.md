@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README_EN.md
 rating: 1998
 source: Biweekly Contest 180 Q4
+tags:
+    - Greedy
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

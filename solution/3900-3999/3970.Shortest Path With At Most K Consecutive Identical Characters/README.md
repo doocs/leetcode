@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3970.Shortest%20Path%20With%20At%20Most%20K%20Consecutive%20Identical%20Characters/README.md
 rating: 1840
 source: 第 507 场周赛 Q3
+tags:
+    - 图
+    - 字符串
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

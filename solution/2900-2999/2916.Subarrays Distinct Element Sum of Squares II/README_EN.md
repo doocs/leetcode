@@ -8,7 +8,7 @@ tags:
     - Binary Indexed Tree
     - Segment Tree
     - Array
-    - Dynamic Programming
+    - Hash Table
 ---
 
 <!-- problem:start -->

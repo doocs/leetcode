@@ -44,8 +44,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= n &lt;= 2000</code></li>
 	<li><code>1 &lt;= edges.length &lt;= 5000</code></li>
-	<li><code>edges[i].length == 2</code></li>
-	<li><code>0 &lt;= a<sub>i</sub> &lt;= b<sub>i</sub> &lt; n</code></li>
+	<li><code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code></li>
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>There are no repeated edges.</li>
 </ul>

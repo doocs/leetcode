@@ -217,4 +217,229 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：入度统计 + BFS
+
+我们可以先统计每个节点的入度，即有多少个父节点指向它。若不存在入度为 $0$ 的节点，说明图中存在环，直接返回 `false`；否则，该节点即为根节点。
+
+接下来，从根节点出发进行广度优先搜索。遍历过程中，若某个子节点已被访问过，说明该节点有多个父节点或图中存在环，直接返回 `false`。
+
+遍历结束后，判断访问过的节点数是否等于 $n$，若是则说明所有节点构成且仅构成一棵有效的二叉树，返回 `true`，否则返回 `false`。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def validateBinaryTreeNodes(
+        self, n: int, leftChild: List[int], rightChild: List[int]
+    ) -> bool:
+        indeg = [0] * n
+        for c in chain(leftChild, rightChild):
+            if c != -1:
+                indeg[c] += 1
+        root = next((i for i, x in enumerate(indeg) if x == 0), -1)
+        if root == -1:
+            return False
+        q = deque([root])
+        vis = {root}
+        while q:
+            i = q.popleft()
+            for j in (leftChild[i], rightChild[i]):
+                if j != -1:
+                    if j in vis:
+                        return False
+                    vis.add(j)
+                    q.append(j)
+        return len(vis) == n
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
+        int[] indeg = new int[n];
+        for (int c : leftChild) {
+            if (c != -1) {
+                indeg[c]++;
+            }
+        }
+        for (int c : rightChild) {
+            if (c != -1) {
+                indeg[c]++;
+            }
+        }
+
+        int root = -1;
+        for (int i = 0; i < n; i++) {
+            if (indeg[i] == 0) {
+                root = i;
+                break;
+            }
+        }
+        if (root == -1) {
+            return false;
+        }
+
+        Deque<Integer> q = new ArrayDeque<>();
+        q.add(root);
+        Set<Integer> vis = new HashSet<>();
+        vis.add(root);
+
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            int j = leftChild[i];
+            if (j != -1) {
+                if (vis.contains(j)) {
+                    return false;
+                }
+                vis.add(j);
+                q.add(j);
+            }
+
+            j = rightChild[i];
+            if (j != -1) {
+                if (vis.contains(j)) {
+                    return false;
+                }
+                vis.add(j);
+                q.add(j);
+            }
+        }
+
+        return vis.size() == n;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
+        vector<int> indeg(n, 0);
+        for (int c : leftChild) {
+            if (c != -1) {
+                indeg[c]++;
+            }
+        }
+        for (int c : rightChild) {
+            if (c != -1) {
+                indeg[c]++;
+            }
+        }
+
+        int root = -1;
+        for (int i = 0; i < n; i++) {
+            if (indeg[i] == 0) {
+                root = i;
+                break;
+            }
+        }
+        if (root == -1) {
+            return false;
+        }
+
+        queue<int> q;
+        unordered_set<int> vis;
+
+        q.push(root);
+        vis.insert(root);
+
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+
+            int j = leftChild[i];
+            if (j != -1) {
+                if (vis.count(j)) {
+                    return false;
+                }
+                vis.insert(j);
+                q.push(j);
+            }
+
+            j = rightChild[i];
+            if (j != -1) {
+                if (vis.count(j)) {
+                    return false;
+                }
+                vis.insert(j);
+                q.push(j);
+            }
+        }
+
+        return vis.size() == n;
+    }
+};
+```
+
+#### Go
+
+```go
+func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
+	indeg := make([]int, n)
+
+	for _, c := range leftChild {
+		if c != -1 {
+			indeg[c]++
+		}
+	}
+	for _, c := range rightChild {
+		if c != -1 {
+			indeg[c]++
+		}
+	}
+
+	root := -1
+	for i, x := range indeg {
+		if x == 0 {
+			root = i
+			break
+		}
+	}
+	if root == -1 {
+		return false
+	}
+
+	q := []int{root}
+	vis := map[int]bool{root: true}
+
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+
+		j := leftChild[i]
+		if j != -1 {
+			if vis[j] {
+				return false
+			}
+			vis[j] = true
+			q = append(q, j)
+		}
+
+		j = rightChild[i]
+		if j != -1 {
+			if vis[j] {
+				return false
+			}
+			vis[j] = true
+			q = append(q, j)
+		}
+	}
+
+	return len(vis) == n
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

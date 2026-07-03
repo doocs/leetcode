@@ -12,7 +12,7 @@ tags:
 
 <!-- problem:start -->
 
-# [3095. 或值至少 K 的最短子数组 I](https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-i)
+# [3095. 或值至少为 K 的最短子数组 I](https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-i)
 
 [English Version](/solution/3000-3099/3095.Shortest%20Subarray%20With%20OR%20at%20Least%20K%20I/README_EN.md)
 

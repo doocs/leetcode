@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3841.Pa
 rating: 2384
 source: Biweekly Contest 176 Q4
 tags:
+    - Bit Manipulation
     - Tree
+    - Depth-First Search
     - Segment Tree
     - Array
     - String

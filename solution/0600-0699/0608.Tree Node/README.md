@@ -37,7 +37,7 @@ id 是该表中具有唯一值的列。
 <ul>
 	<li><strong>"Leaf"</strong>：节点是叶子节点。</li>
 	<li><strong>"Root"</strong>：节点是树的根节点。</li>
-	<li><strong>"lnner"</strong>：节点既不是叶子节点也不是根节点。</li>
+	<li><strong>"Inner"</strong>：节点既不是叶子节点也不是根节点。</li>
 </ul>
 
 <p>编写一个解决方案来报告树中每个节点的类型。</p>

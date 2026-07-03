@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3897.Maximum%20Value%20of%20Concatenated%20Binary%20Segments/README.md
 rating: 1998
 source: 第 180 场双周赛 Q4
+tags:
+    - 贪心
+    - 数组
+    - 排序
 ---
 
 <!-- problem:start -->

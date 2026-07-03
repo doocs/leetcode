@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3841.Pa
 rating: 2384
 source: 第 176 场双周赛 Q4
 tags:
+    - 位运算
     - 树
+    - 深度优先搜索
     - 线段树
     - 数组
     - 字符串

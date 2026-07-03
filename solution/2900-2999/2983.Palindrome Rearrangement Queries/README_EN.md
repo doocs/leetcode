@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2983.Pa
 rating: 2779
 source: Weekly Contest 378 Q4
 tags:
+    - Array
     - Hash Table
     - String
     - Prefix Sum

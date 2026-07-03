@@ -9,6 +9,7 @@ tags:
     - Array
     - Math
     - Binary Search
+    - Sorting
 ---
 
 <!-- problem:start -->

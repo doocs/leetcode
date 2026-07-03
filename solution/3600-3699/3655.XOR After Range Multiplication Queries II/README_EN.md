@@ -7,6 +7,7 @@ source: Weekly Contest 463 Q4
 tags:
     - Array
     - Divide and Conquer
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

@@ -5,10 +5,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1948.De
 rating: 2533
 source: 第 251 场周赛 Q4
 tags:
+    - 深度优先搜索
     - 字典树
     - 数组
     - 哈希表
     - 字符串
+    - 排序
     - 哈希函数
 ---
 

@@ -33,7 +33,7 @@ session_type 是 (Viewer, Streamer) 的一个 ENUM (category) 类型。
 这张表包含 user id, session start, session end, session id 和 session 类型。
 </pre>
 
-<p>编写一个解决方案，以查找 <strong>至少有一个相同</strong> 类型的 <strong>连续会话</strong>（无论是“<strong>Viewer</strong>”还是“<strong>Streamer</strong>”）的 <strong>用户</strong>，会话 <strong>之间</strong> 的 <strong>最大</strong> 间隔为 <code>12</code> 小时。</p>
+<p>编写一个解决方案，以查找 <strong>至少有一个相同</strong> 类型的 <strong>连续会话</strong>（无论是“<strong>Viewer</strong>”还是“<strong>Streamer</strong>”）的 <strong>用户</strong>，且会话 <strong>之间</strong> 的 <strong>最大</strong> 间隔为 <code>12</code> 小时。</p>
 
 <p>返回结果表，以<em>&nbsp;</em><code>user_id</code><em>&nbsp;<strong>升序</strong> 排序。</em></p>
 

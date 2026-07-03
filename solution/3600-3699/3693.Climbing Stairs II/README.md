@@ -51,17 +51,17 @@ source: 第 166 场双周赛 Q2
 	<tbody>
 		<tr>
 			<td style="border: 1px solid black;">0 → 1</td>
-			<td style="border: 1px solid black;"><code>costs[1] + (1 - 0)<sup>2</sup> = 1 + 1</code></td>
+			<td style="border: 1px solid black;"><code>costs[0] + (1 - 0)<sup>2</sup> = 1 + 1</code></td>
 			<td style="border: 1px solid black;">2</td>
 		</tr>
 		<tr>
 			<td style="border: 1px solid black;">1 → 2</td>
-			<td style="border: 1px solid black;"><code>costs[2] + (2 - 1)<sup>2</sup> = 2 + 1</code></td>
+			<td style="border: 1px solid black;"><code>costs[1] + (2 - 1)<sup>2</sup> = 2 + 1</code></td>
 			<td style="border: 1px solid black;">3</td>
 		</tr>
 		<tr>
 			<td style="border: 1px solid black;">2 → 4</td>
-			<td style="border: 1px solid black;"><code>costs[4] + (4 - 2)<sup>2</sup> = 4 + 4</code></td>
+			<td style="border: 1px solid black;"><code>costs[3] + (4 - 2)<sup>2</sup> = 4 + 4</code></td>
 			<td style="border: 1px solid black;">8</td>
 		</tr>
 	</tbody>

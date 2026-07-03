@@ -7,6 +7,7 @@ source: Weekly Contest 463 Q2
 tags:
     - Array
     - Divide and Conquer
+    - Prefix Sum
     - Simulation
 ---
 

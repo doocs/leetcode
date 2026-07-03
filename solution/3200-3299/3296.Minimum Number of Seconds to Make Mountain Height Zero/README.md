@@ -29,15 +29,13 @@ tags:
 <p>工人们需要 <strong>同时 </strong>进行工作以 <strong>降低 </strong>山的高度。对于工人 <code>i</code> :</p>
 
 <ul>
-	<li>山的高度降低 <code>x</code>，需要花费 <code>workerTimes[i] + workerTimes[i] * 2 + ... + workerTimes[i] * x</code> 秒。例如：
-
-    <ul>
-    	<li>山的高度降低 1，需要 <code>workerTimes[i]</code> 秒。</li>
-    	<li>山的高度降低 2，需要 <code>workerTimes[i] + workerTimes[i] * 2</code> 秒，依此类推。</li>
-    </ul>
-    </li>
-
+	<li>山的高度降低 1，需要 <code>workerTimes[i]</code> 秒。</li>
+	<li>山的高度降低 2，需要 <code>workerTimes[i] * 2</code> 秒。</li>
+	<li>...</li>
+	<li>山的高度降低 <code>x</code>，需要 <code>workerTimes[i] * x</code> 秒。</li>
 </ul>
+
+<p>工人 <code>i</code> 所花费的总时间是所有 <code>x</code> 单位所需时间的总和。由于所有工人同时操作，所需的总时间是任何工人花费的 <strong>最大</strong> 时间。</p>
 
 <p>返回一个整数，表示工人们使山的高度降低到 0 所需的 <strong>最少</strong> 秒数。</p>
 

@@ -253,6 +253,91 @@ function findSafeWalk(grid: number[][], health: number): boolean {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn find_safe_walk(grid: Vec<Vec<i32>>, health: i32) -> bool {
+        let m = grid.len();
+        let n = grid[0].len();
+        let inf: i32 = i32::MAX / 2;
+
+        let mut dist = vec![vec![inf; n]; m];
+        dist[0][0] = grid[0][0];
+
+        let mut q = std::collections::VecDeque::new();
+        q.push_back((0usize, 0usize));
+
+        let dirs = [(-1i32, 0i32), (1, 0), (0, -1), (0, 1)];
+
+        while let Some((x, y)) = q.pop_front() {
+            for (dx, dy) in dirs {
+                let nx = x as i32 + dx;
+                let ny = y as i32 + dy;
+
+                if nx >= 0 && nx < m as i32 && ny >= 0 && ny < n as i32 {
+                    let nx = nx as usize;
+                    let ny = ny as usize;
+
+                    let new_cost = dist[x][y] + grid[nx][ny];
+                    if new_cost < dist[nx][ny] {
+                        dist[nx][ny] = new_cost;
+                        q.push_back((nx, ny));
+                    }
+                }
+            }
+        }
+
+        dist[m - 1][n - 1] < health
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public bool FindSafeWalk(IList<IList<int>> grid, int health) {
+        int m = grid.Count;
+        int n = grid[0].Count;
+        int inf = int.MaxValue / 2;
+
+        int[,] dist = new int[m, n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dist[i, j] = inf;
+            }
+        }
+
+        dist[0, 0] = grid[0][0];
+
+        var q = new Queue<(int x, int y)>();
+        q.Enqueue((0, 0));
+
+        int[] dirs = new int[] { -1, 0, 1, 0, -1 };
+
+        while (q.Count > 0) {
+            var (x, y) = q.Dequeue();
+
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dirs[i];
+                int ny = y + dirs[i + 1];
+
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                    int newCost = dist[x, y] + grid[nx][ny];
+                    if (newCost < dist[nx, ny]) {
+                        dist[nx, ny] = newCost;
+                        q.Enqueue((nx, ny));
+                    }
+                }
+            }
+        }
+
+        return dist[m - 1, n - 1] < health;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

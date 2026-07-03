@@ -40,7 +40,8 @@ tags:
 <pre>
 <strong>Input:</strong> chars = [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;c&quot;,&quot;c&quot;,&quot;c&quot;]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> The groups are &quot;aa&quot;, &quot;bb&quot;, and &quot;ccc&quot;. This compresses to &quot;a2b2c3&quot;.
+<strong>Explanation:</strong> The groups are <code>&quot;aa&quot;</code>, <code>&quot;bb&quot;</code>, and <code>&quot;ccc&quot;</code>. This compresses to <code>&quot;a2b2c3&quot;</code>.
+After modifying the input array in-place, the first 6 characters of <code>chars</code> should be <code>[&quot;a&quot;,&quot;2&quot;,&quot;b&quot;,&quot;2&quot;,&quot;c&quot;,&quot;3&quot;]</code>.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
@@ -48,7 +49,8 @@ tags:
 <pre>
 <strong>Input:</strong> chars = [&quot;a&quot;]
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> The only group is &quot;a&quot;, which remains uncompressed since it&#39;s a single character.
+<strong>Explanation:</strong> The only group is <code>&quot;a&quot;</code>, which remains uncompressed since it is a single character.
+After modifying the input array in-place, the first character of <code>chars</code> should be <code>[&quot;a&quot;]</code>.
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
@@ -56,7 +58,9 @@ tags:
 <pre>
 <strong>Input:</strong> chars = [&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;,&quot;b&quot;]
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> The groups are &quot;a&quot; and &quot;bbbbbbbbbbbb&quot;. This compresses to &quot;ab12&quot;.</pre>
+<strong>Explanation:</strong> The groups are <code>&quot;a&quot;</code> and <code>&quot;bbbbbbbbbbbb&quot;</code>. This compresses to <code>&quot;ab12&quot;</code>.
+After modifying the input array in-place, the first 4 characters of <code>chars</code> should be <code>[&quot;a&quot;,&quot;b&quot;,&quot;1&quot;,&quot;2&quot;]</code>.
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

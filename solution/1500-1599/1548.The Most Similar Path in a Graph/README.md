@@ -4,6 +4,8 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1548.The%20Most%20Similar%20Path%20in%20a%20Graph/README.md
 tags:
     - 图
+    - 数组
+    - 字符串
     - 动态规划
 ---
 

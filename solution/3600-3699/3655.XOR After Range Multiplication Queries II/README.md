@@ -7,6 +7,7 @@ source: 第 463 场周赛 Q4
 tags:
     - 数组
     - 分治
+    - 前缀和
 ---
 
 <!-- problem:start -->

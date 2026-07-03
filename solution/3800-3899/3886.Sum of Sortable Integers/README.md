@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3886.Sum%20of%20Sortable%20Integers/README.md
 rating: 1999
 source: 第 495 场周赛 Q3
+tags:
+    - 数组
+    - 数学
+    - 枚举
+    - 排序
 ---
 
 <!-- problem:start -->

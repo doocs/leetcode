@@ -49,7 +49,7 @@ source: 第 506 场周赛 Q3
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>选择设备 <code>i = <code>0</code></code> 并将 <code>units[0][0] = 1</code> 转移到设备 <code>i = 1</code>。</li>
+	<li>选择设备 <code>i = 0</code> 并将 <code>units[0][0] = 1</code> 转移到设备 <code>i = 1</code>。</li>
 	<li>转移后，评分为：
 	<ul>
 		<li>设备 <code>0 = [3]</code>：<code>rating[0] = 3</code></li>

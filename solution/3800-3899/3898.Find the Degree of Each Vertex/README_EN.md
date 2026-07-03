@@ -4,6 +4,10 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3898.Find%20the%20Degree%20of%20Each%20Vertex/README_EN.md
 rating: 1202
 source: Weekly Contest 497 Q1
+tags:
+    - Graph
+    - Array
+    - Matrix
 ---
 
 <!-- problem:start -->
