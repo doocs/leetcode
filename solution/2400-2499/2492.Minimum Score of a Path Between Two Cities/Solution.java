@@ -9,8 +9,8 @@ class Solution {
 
         for (int[] e : roads) {
             int a = e[0], b = e[1], w = e[2];
-            g[a].add(new int[]{b, w});
-            g[b].add(new int[]{a, w});
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
         }
 
         ans = Integer.MAX_VALUE;
