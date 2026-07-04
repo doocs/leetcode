@@ -1,26 +1,29 @@
 class Solution {
     public int minScore(int n, int[][] roads) {
-        List<int[]>[] g = new List[n];
-        boolean[] vis = new boolean[n];
+        List<int[]>[] g = new ArrayList[n + 1];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].add(new int[] {b, d});
-            g[b].add(new int[] {a, d});
+
+        for (int[] e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
         }
+
+        boolean[] vis = new boolean[n + 1];
         Deque<Integer> q = new ArrayDeque<>();
-        q.offer(0);
-        vis[0] = true;
-        int ans = 1 << 30;
+        q.offer(1);
+        vis[1] = true;
+        int ans = Integer.MAX_VALUE;
+
         while (!q.isEmpty()) {
             for (int k = q.size(); k > 0; --k) {
-                int i = q.pollFirst();
-                for (var nxt : g[i]) {
-                    int j = nxt[0], d = nxt[1];
-                    ans = Math.min(ans, d);
-                    if (!vis[j]) {
-                        vis[j] = true;
-                        q.offer(j);
+                int a = q.pollFirst();
+                for (int[] nb : g[a]) {
+                    int b = nb[0], w = nb[1];
+                    ans = Math.min(ans, w);
+                    if (!vis[b]) {
+                        vis[b] = true;
+                        q.offer(b);
                     }
                 }
             }

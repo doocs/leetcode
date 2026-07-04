@@ -1,3 +1,5 @@
+use std::collections::VecDeque;
+
 impl Solution {
     pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
         let n = n as usize;
@@ -13,19 +15,22 @@ impl Solution {
 
         let mut vis = vec![false; n + 1];
         let mut ans = i32::MAX;
+        let mut q = VecDeque::new();
+        q.push_back(1);
+        vis[1] = true;
 
-        fn dfs(a: usize, g: &Vec<Vec<(usize, i32)>>, vis: &mut Vec<bool>, ans: &mut i32) {
-            vis[a] = true;
-
-            for &(b, w) in &g[a] {
-                *ans = (*ans).min(w);
-                if !vis[b] {
-                    dfs(b, g, vis, ans);
+        while !q.is_empty() {
+            for _ in 0..q.len() {
+                let a = q.pop_front().unwrap();
+                for &(b, w) in &g[a] {
+                    ans = ans.min(w);
+                    if !vis[b] {
+                        vis[b] = true;
+                        q.push_back(b);
+                    }
                 }
             }
         }
-
-        dfs(1, &g, &mut vis, &mut ans);
         ans
     }
 }

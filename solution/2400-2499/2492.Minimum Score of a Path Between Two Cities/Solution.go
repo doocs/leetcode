@@ -1,24 +1,26 @@
 func minScore(n int, roads [][]int) int {
-	type pair struct{ i, v int }
-	g := make([][]pair, n)
+	g := make([][][2]int, n+1)
 	for _, e := range roads {
-		a, b, d := e[0]-1, e[1]-1, e[2]
-		g[a] = append(g[a], pair{b, d})
-		g[b] = append(g[b], pair{a, d})
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], [2]int{b, w})
+		g[b] = append(g[b], [2]int{a, w})
 	}
-	vis := make([]bool, n)
-	ans := 1 << 30
+
+	vis := make([]bool, n+1)
+	ans := int(1e9)
+
 	var dfs func(int)
-	dfs = func(i int) {
-		for _, nxt := range g[i] {
-			j, d := nxt.i, nxt.v
-			ans = min(ans, d)
-			if !vis[j] {
-				vis[j] = true
-				dfs(j)
+	dfs = func(a int) {
+		vis[a] = true
+		for _, nb := range g[a] {
+			b, w := nb[0], nb[1]
+			ans = min(ans, w)
+			if !vis[b] {
+				dfs(b)
 			}
 		}
 	}
-	dfs(0)
+
+	dfs(1)
 	return ans
 }
