@@ -7,20 +7,21 @@ function minScore(n: number, roads: number[][]): number {
 
     const vis = new Array(n + 1).fill(false);
     let ans = Infinity;
-    const q: number[] = [1];
+    let q: number[] = [1];
     vis[1] = true;
 
     while (q.length > 0) {
-        for (let k = q.length; k > 0; --k) {
-            const a = q.shift()!;
+        const nq: number[] = [];
+        for (const a of q) {
             for (const [b, w] of g[a]) {
                 ans = Math.min(ans, w);
                 if (!vis[b]) {
                     vis[b] = true;
-                    q.push(b);
+                    nq.push(b);
                 }
             }
         }
+        q = nq;
     }
     return ans;
 }
