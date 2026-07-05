@@ -144,20 +144,15 @@ int *assignEdgeWeights(int **edges, int edgesSize, int *edgesColSize,
     int *stack;
     int top;
     int *ans;
-
     for (i = 0; i < edgesSize; i++) {
         deg[edges[i][0]]++;
         deg[edges[i][1]]++;
     }
-
     head = malloc((n + 2) * sizeof(int));
     head[0] = 0;
-    for (i = 1; i <= n + 1; i++)
-        head[i] = head[i - 1] + deg[i - 1];
-
+    for (i = 1; i <= n + 1; i++) head[i] = head[i - 1] + deg[i - 1];
     adj = malloc((adjSize = head[n + 1]) * sizeof(int));
-    for (i = 0; i <= n; i++)
-        deg[i] = head[i];
+    for (i = 0; i <= n; i++) deg[i] = head[i];
     for (i = 0; i < edgesSize; i++) {
         u = edges[i][0];
         v = edges[i][1];
@@ -165,18 +160,13 @@ int *assignEdgeWeights(int **edges, int edgesSize, int *edgesColSize,
         adj[deg[v]++] = u;
     }
     free(deg);
-
     depth = calloc(n + 2, sizeof(int));
     depth[0] = -1;
     depth[1] = 0;
-
     up = calloc(LOG * (n + 1), sizeof(int));
-
     pow2 = malloc((n + 1) * sizeof(int));
     pow2[0] = 1;
-    for (i = 1; i <= n; i++)
-        pow2[i] = (pow2[i - 1] << 1) % MOD;
-
+    for (i = 1; i <= n; i++) pow2[i] = (pow2[i - 1] << 1) % MOD;
     stack = malloc(n * sizeof(int));
     stack[top = 0] = 1;
     top++;
@@ -194,12 +184,10 @@ int *assignEdgeWeights(int **edges, int edgesSize, int *edgesColSize,
     free(stack);
     free(head);
     free(adj);
-
     for (k = 1; k < LOG; k++)
         for (v = 1; v <= n; v++)
             if ((tmp = UP(k - 1, v)) != 0)
                 UP(k, v) = UP(k - 1, tmp);
-
     ans = malloc(queriesSize * sizeof(int));
     for (i = 0; i < queriesSize; i++) {
         u = queries[i][0];
