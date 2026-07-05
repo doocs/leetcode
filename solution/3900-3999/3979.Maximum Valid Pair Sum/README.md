@@ -83,32 +83,88 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3979.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：滑动窗口
+
+对于有效对 $(i, j)$，要求 $j - i \geq k$，即 $i \leq j - k$。我们枚举右端点 $j$，从 $k$ 开始，此时左端点 $i$ 的最大值为 $j - k$。维护 $[0, j - k]$ 区间内 $\textit{nums}[i]$ 的最大值 $x$，则当前最大和为 $x + \textit{nums}[j]$，更新答案即可。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxValidPairSum(self, nums: list[int], k: int) -> int:
+        ans = x = 0
+        for j in range(k, len(nums)):
+            y = nums[j]
+            x = max(x, nums[j - k])
+            ans = max(ans, x + y)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxValidPairSum(int[] nums, int k) {
+        int ans = 0;
+        int x = 0;
+        for (int j = k; j < nums.length; ++j) {
+            int y = nums[j];
+            x = Math.max(x, nums[j - k]);
+            ans = Math.max(ans, x + y);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxValidPairSum(vector<int>& nums, int k) {
+        int ans = 0;
+        int x = 0;
+        for (int j = k; j < nums.size(); ++j) {
+            int y = nums[j];
+            x = max(x, nums[j - k]);
+            ans = max(ans, x + y);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxValidPairSum(nums []int, k int) int {
+	var ans, x int
+	for j := k; j < len(nums); j++ {
+		y := nums[j]
+		x = max(x, nums[j-k])
+		ans = max(ans, x+y)
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxValidPairSum(nums: number[], k: number): number {
+    let [ans, x] = [0, 0];
+    for (let j = k; j < nums.length; ++j) {
+        const y = nums[j];
+        x = Math.max(x, nums[j - k]);
+        ans = Math.max(ans, x + y);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

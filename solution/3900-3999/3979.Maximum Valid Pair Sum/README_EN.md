@@ -80,32 +80,88 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3979.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sliding Window
+
+For a valid pair $(i, j)$, we require $j - i \geq k$, i.e., $i \leq j - k$. We enumerate the right endpoint $j$ starting from $k$. For each $j$, the maximum left endpoint is $j - k$. We maintain the maximum value $x$ of $\textit{nums}[i]$ in the range $[0, j - k]$, and update the answer with $x + \textit{nums}[j]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxValidPairSum(self, nums: list[int], k: int) -> int:
+        ans = x = 0
+        for j in range(k, len(nums)):
+            y = nums[j]
+            x = max(x, nums[j - k])
+            ans = max(ans, x + y)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int maxValidPairSum(int[] nums, int k) {
+        int ans = 0;
+        int x = 0;
+        for (int j = k; j < nums.length; ++j) {
+            int y = nums[j];
+            x = Math.max(x, nums[j - k]);
+            ans = Math.max(ans, x + y);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int maxValidPairSum(vector<int>& nums, int k) {
+        int ans = 0;
+        int x = 0;
+        for (int j = k; j < nums.size(); ++j) {
+            int y = nums[j];
+            x = max(x, nums[j - k]);
+            ans = max(ans, x + y);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxValidPairSum(nums []int, k int) int {
+	var ans, x int
+	for j := k; j < len(nums); j++ {
+		y := nums[j]
+		x = max(x, nums[j-k])
+		ans = max(ans, x+y)
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function maxValidPairSum(nums: number[], k: number): number {
+    let [ans, x] = [0, 0];
+    for (let j = k; j < nums.length; ++j) {
+        const y = nums[j];
+        x = Math.max(x, nums[j - k]);
+        ans = Math.max(ans, x + y);
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

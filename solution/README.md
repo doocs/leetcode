@@ -3992,6 +3992,10 @@
 |  3979  |  [最大有效数对和](/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README.md)  |    |  中等  |  第 186 场双周赛  |
 |  3980  |  [变换二进制字符串的最少操作次数](/solution/3900-3999/3980.Minimum%20Operations%20to%20Transform%20Binary%20String/README.md)  |    |  中等  |  第 186 场双周赛  |
 |  3981  |  [统计从两个字符串形成目标字符串的不同方案数](/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README.md)  |    |  困难  |  第 186 场双周赛  |
+|  3982  |  [最大数字范围的整数之和](/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README.md)  |    |  简单  |  第 509 场周赛  |
+|  3983  |  [一次替换后的子序列](/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README.md)  |    |  中等  |  第 509 场周赛  |
+|  3984  |  [可整除游戏](/solution/3900-3999/3984.Divisible%20Game/README.md)  |    |  中等  |  第 509 场周赛  |
+|  3985  |  [回文子数组求和](/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README.md)  |    |  困难  |  第 509 场周赛  |
 
 ## 版权
 

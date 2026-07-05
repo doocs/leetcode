@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 509 场周赛(2026-07-05 10:30, 90 分钟) 参赛人数 941
+
+- [3982. 最大数字范围的整数之和](/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README.md)
+- [3983. 一次替换后的子序列](/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README.md)
+- [3984. 可整除游戏](/solution/3900-3999/3984.Divisible%20Game/README.md)
+- [3985. 回文子数组求和](/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README.md)
+
 #### 第 186 场双周赛(2026-07-04 22:30, 90 分钟) 参赛人数 684
 
 - [3978. 唯一中间元素](/solution/3900-3999/3978.Unique%20Middle%20Element/README.md)

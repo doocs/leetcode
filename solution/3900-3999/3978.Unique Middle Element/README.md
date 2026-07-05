@@ -64,32 +64,82 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3978.Un
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+我们取出数组中间下标的元素，统计其在数组中出现的次数，若为 $1$ 则返回 $\textit{true}$，否则返回 $\textit{false}$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isMiddleElementUnique(self, nums: list[int]) -> bool:
+        return nums.count(nums[len(nums) // 2]) == 1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isMiddleElementUnique(int[] nums) {
+        int cnt = 0;
+        for (int x : nums) {
+            if (x == nums[nums.length / 2]) {
+                ++cnt;
+            }
+        }
+        return cnt == 1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isMiddleElementUnique(vector<int>& nums) {
+        int n = nums.size();
+        int cnt = 0;
+        for (int x : nums) {
+            if (x == nums[n / 2]) {
+                ++cnt;
+            }
+        }
+        return cnt == 1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isMiddleElementUnique(nums []int) bool {
+	cnt := 0
+	for _, x := range nums {
+		if x == nums[len(nums)/2] {
+			cnt++
+		}
+	}
+	return cnt == 1
+}
+```
 
+#### TypeScript
+
+```ts
+function isMiddleElementUnique(nums: number[]): boolean {
+    let cnt: number = 0;
+    for (const x of nums) {
+        if (x === nums[nums.length >> 1]) {
+            ++cnt;
+        }
+    }
+    return cnt === 1;
+}
 ```
 
 <!-- tabs:end -->

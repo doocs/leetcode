@@ -3990,6 +3990,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3979  |  [Maximum Valid Pair Sum](/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README_EN.md)  |    |  Medium  |  Biweekly Contest 186  |
 |  3980  |  [Minimum Operations to Transform Binary String](/solution/3900-3999/3980.Minimum%20Operations%20to%20Transform%20Binary%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 186  |
 |  3981  |  [Count Distinct Ways to Form Target from Two Strings](/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README_EN.md)  |    |  Hard  |  Biweekly Contest 186  |
+|  3982  |  [Sum of Integers with Maximum Digit Range](/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README_EN.md)  |    |  Easy  |  Weekly Contest 509  |
+|  3983  |  [Subsequence After One Replacement](/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README_EN.md)  |    |  Medium  |  Weekly Contest 509  |
+|  3984  |  [Divisible Game](/solution/3900-3999/3984.Divisible%20Game/README_EN.md)  |    |  Medium  |  Weekly Contest 509  |
+|  3985  |  [Palindromic Subarray Sum](/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README_EN.md)  |    |  Hard  |  Weekly Contest 509  |
 
 ## Copyright
 

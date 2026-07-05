@@ -62,32 +62,82 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3978.Un
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+We take the element at the middle index of the array and count how many times it appears. If the count is $1$, return $\textit{true}$; otherwise return $\textit{false}$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def isMiddleElementUnique(self, nums: list[int]) -> bool:
+        return nums.count(nums[len(nums) // 2]) == 1
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean isMiddleElementUnique(int[] nums) {
+        int cnt = 0;
+        for (int x : nums) {
+            if (x == nums[nums.length / 2]) {
+                ++cnt;
+            }
+        }
+        return cnt == 1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool isMiddleElementUnique(vector<int>& nums) {
+        int n = nums.size();
+        int cnt = 0;
+        for (int x : nums) {
+            if (x == nums[n / 2]) {
+                ++cnt;
+            }
+        }
+        return cnt == 1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func isMiddleElementUnique(nums []int) bool {
+	cnt := 0
+	for _, x := range nums {
+		if x == nums[len(nums)/2] {
+			cnt++
+		}
+	}
+	return cnt == 1
+}
+```
 
+#### TypeScript
+
+```ts
+function isMiddleElementUnique(nums: number[]): boolean {
+    let cnt: number = 0;
+    for (const x of nums) {
+        if (x === nums[nums.length >> 1]) {
+            ++cnt;
+        }
+    }
+    return cnt === 1;
+}
 ```
 
 <!-- tabs:end -->
