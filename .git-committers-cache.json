@@ -1,5 +1,5 @@
 {
-  "cache_date": 1783223899,
+  "cache_date": 1783253531,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137156,7 +137156,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783214600
+      "retrieved": 1783244079
     },
     "solution/3900-3999/3980.Minimum Operations to Transform Binary String/README.md": {
       "authors": [
@@ -137178,7 +137178,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783214600
+      "retrieved": 1783244079
     },
     "solution/3900-3999/3978.Unique Middle Element/README_EN.md": {
       "authors": [
@@ -137189,7 +137189,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783219438
+      "retrieved": 1783249106
     },
     "solution/3900-3999/3979.Maximum Valid Pair Sum/README_EN.md": {
       "authors": [
@@ -137200,7 +137200,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783219438
+      "retrieved": 1783249106
     },
     "solution/3900-3999/3981.Count Distinct Ways to Form Target from Two Strings/README_EN.md": {
       "authors": [
@@ -137223,6 +137223,94 @@
         }
       ],
       "retrieved": 1783219438
+    },
+    "solution/3900-3999/3982.Sum of Integers with Maximum Digit Range/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783244079
+    },
+    "solution/3900-3999/3983.Subsequence After One Replacement/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783244079
+    },
+    "solution/3900-3999/3985.Palindromic Subarray Sum/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783244079
+    },
+    "solution/3900-3999/3984.Divisible Game/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783244079
+    },
+    "solution/3900-3999/3985.Palindromic Subarray Sum/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783249106
+    },
+    "solution/3900-3999/3982.Sum of Integers with Maximum Digit Range/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783249106
+    },
+    "solution/3900-3999/3984.Divisible Game/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783249106
+    },
+    "solution/3900-3999/3983.Subsequence After One Replacement/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783249106
     }
   }
 }
