@@ -1,5 +1,5 @@
 {
-  "cache_date": 1783138060,
+  "cache_date": 1783223899,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137024,7 +137024,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782882103
+      "retrieved": 1783214600
     },
     "solution/3900-3999/3975.Filter Occupied Intervals/README.md": {
       "authors": [
@@ -137035,7 +137035,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782882103
+      "retrieved": 1783214600
     },
     "solution/3900-3999/3977.Minimum Time to Reach Target With Limited Power/README.md": {
       "authors": [
@@ -137046,7 +137046,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782882103
+      "retrieved": 1783214600
     },
     "solution/3900-3999/3976.Maximum Subarray Sum After Multiplier/README.md": {
       "authors": [
@@ -137057,7 +137057,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782882103
+      "retrieved": 1783214600
     },
     "solution/3900-3999/3973.Distinct Gate Paths to LCA/README_EN.md": {
       "authors": [
@@ -137079,7 +137079,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782887094
+      "retrieved": 1783219438
     },
     "solution/3900-3999/3975.Filter Occupied Intervals/README_EN.md": {
       "authors": [
@@ -137090,7 +137090,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782887094
+      "retrieved": 1783219438
     },
     "solution/3900-3999/3976.Maximum Subarray Sum After Multiplier/README_EN.md": {
       "authors": [
@@ -137101,7 +137101,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782887094
+      "retrieved": 1783219438
     },
     "solution/3900-3999/3977.Minimum Time to Reach Target With Limited Power/README_EN.md": {
       "authors": [
@@ -137112,7 +137112,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782887094
+      "retrieved": 1783219438
     },
     "solution/3900-3999/3967.Finish Time of Tasks II/README.md": {
       "authors": [
@@ -137135,6 +137135,94 @@
         }
       ],
       "retrieved": 1782887094
+    },
+    "solution/3900-3999/3981.Count Distinct Ways to Form Target from Two Strings/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783214600
+    },
+    "solution/3900-3999/3979.Maximum Valid Pair Sum/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783214600
+    },
+    "solution/3900-3999/3980.Minimum Operations to Transform Binary String/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783214600
+    },
+    "solution/3900-3999/3978.Unique Middle Element/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783214600
+    },
+    "solution/3900-3999/3978.Unique Middle Element/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783219438
+    },
+    "solution/3900-3999/3979.Maximum Valid Pair Sum/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783219438
+    },
+    "solution/3900-3999/3981.Count Distinct Ways to Form Target from Two Strings/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783219438
+    },
+    "solution/3900-3999/3980.Minimum Operations to Transform Binary String/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783219438
     }
   }
 }
