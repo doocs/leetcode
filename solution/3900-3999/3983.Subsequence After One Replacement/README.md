@@ -70,32 +70,157 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3983.Su
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：双指针
+
+题目等价于：在将 $s$ 作为 $t$ 的子序列进行贪心匹配时，是否最多允许 $s$ 中有一个字符不匹配（因为该字符可以被替换成任意字母）。
+
+我们用两个指针 $i_0$、$i_1$ 扫描 $s$，同时用指针 $j$ 扫描 $t$：
+
+- $i_0$ 表示在不使用替换的前提下，当前已经匹配到的 $s$ 中的位置；
+- $i_1$ 表示在最多使用一次替换的前提下，当前已经匹配到的 $s$ 中的位置。
+
+对于 $t$ 中的每个字符 $t[j]$：
+
+1. 若 $s[i_1] = t[j]$，则将 $i_1$ 右移一位；
+2. 令 $i_1 = \max(i_1, i_0 + 1)$，保证替换位置始终不早于 $i_0$，也就是为那一次替换预留一个字符位置；
+3. 若 $s[i_0] = t[j]$，则将 $i_0$ 右移一位；
+4. 将 $j$ 右移一位。
+
+遍历结束后，若 $i_1 = |s|$，说明在最多替换一个字符的情况下，$s$ 的全部字符都能按顺序匹配到 $t$ 中，返回 `true`；否则返回 `false`。
+
+时间复杂度 $O(|s| + |t|)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def canMakeSubsequence(self, s: str, t: str) -> bool:
+        m, n = len(s), len(t)
+        i0 = i1 = j = 0
 
+        while i1 < m and j < n:
+            if s[i1] == t[j]:
+                i1 += 1
+            i1 = max(i1, i0 + 1)
+
+            if s[i0] == t[j]:
+                i0 += 1
+
+            j += 1
+
+        return i1 == m
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public boolean canMakeSubsequence(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i0 = 0, i1 = 0, j = 0;
 
+        while (i1 < m && j < n) {
+            if (s.charAt(i1) == t.charAt(j)) {
+                i1++;
+            }
+
+            i1 = Math.max(i1, i0 + 1);
+
+            if (s.charAt(i0) == t.charAt(j)) {
+                i0++;
+            }
+
+            j++;
+        }
+
+        return i1 == m;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    bool canMakeSubsequence(string s, string t) {
+        int m = s.size(), n = t.size();
+        int i0 = 0, i1 = 0, j = 0;
 
+        while (i1 < m && j < n) {
+            if (s[i1] == t[j]) {
+                i1++;
+            }
+
+            i1 = max(i1, i0 + 1);
+
+            if (s[i0] == t[j]) {
+                i0++;
+            }
+
+            j++;
+        }
+
+        return i1 == m;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func canMakeSubsequence(s string, t string) bool {
+	m, n := len(s), len(t)
+	i0, i1, j := 0, 0, 0
 
+	for i1 < m && j < n {
+		if s[i1] == t[j] {
+			i1++
+		}
+
+		if i1 < i0+1 {
+			i1 = i0 + 1
+		}
+
+		if s[i0] == t[j] {
+			i0++
+		}
+
+		j++
+	}
+
+	return i1 == m
+}
+```
+
+#### TypeScript
+
+```ts
+function canMakeSubsequence(s: string, t: string): boolean {
+    const m = s.length,
+        n = t.length;
+    let i0 = 0,
+        i1 = 0,
+        j = 0;
+
+    while (i1 < m && j < n) {
+        if (s[i1] === t[j]) {
+            i1++;
+        }
+
+        i1 = Math.max(i1, i0 + 1);
+
+        if (s[i0] === t[j]) {
+            i0++;
+        }
+
+        j++;
+    }
+
+    return i1 === m;
+}
 ```
 
 <!-- tabs:end -->
