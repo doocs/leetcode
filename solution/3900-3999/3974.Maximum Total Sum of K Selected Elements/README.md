@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README.md
+rating: 1262
+source: 第 508 场周赛 Q1
 tags:
     - 贪心
     - 数组

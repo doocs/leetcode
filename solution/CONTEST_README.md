@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 186 场双周赛(2026-07-04 22:30, 90 分钟) 参赛人数 684
+
+- [3978. 唯一中间元素](/solution/3900-3999/3978.Unique%20Middle%20Element/README.md)
+- [3979. 最大有效数对和](/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README.md)
+- [3980. 变换二进制字符串的最少操作次数](/solution/3900-3999/3980.Minimum%20Operations%20to%20Transform%20Binary%20String/README.md)
+- [3981. 统计从两个字符串形成目标字符串的不同方案数](/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README.md)
+
 #### 第 508 场周赛(2026-06-28 10:30, 90 分钟) 参赛人数 950
 
 - [3974. K 个元素的最大总和](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README.md)

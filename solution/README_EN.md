@@ -3986,6 +3986,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3975  |  [Filter Occupied Intervals](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  Weekly Contest 508  |
 |  3976  |  [Maximum Subarray Sum After Multiplier](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  Weekly Contest 508  |
 |  3977  |  [Minimum Time to Reach Target With Limited Power](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README_EN.md)  |  `Graph`,`Array`,`Dynamic Programming`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 508  |
+|  3978  |  [Unique Middle Element](/solution/3900-3999/3978.Unique%20Middle%20Element/README_EN.md)  |    |  Easy  |  Biweekly Contest 186  |
+|  3979  |  [Maximum Valid Pair Sum](/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README_EN.md)  |    |  Medium  |  Biweekly Contest 186  |
+|  3980  |  [Minimum Operations to Transform Binary String](/solution/3900-3999/3980.Minimum%20Operations%20to%20Transform%20Binary%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 186  |
+|  3981  |  [Count Distinct Ways to Form Target from Two Strings](/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README_EN.md)  |    |  Hard  |  Biweekly Contest 186  |
 
 ## Copyright
 

@@ -3988,6 +3988,10 @@
 |  3975  |  [筛选忙碌区间](/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README.md)  |  `数组`,`排序`  |  中等  |  第 508 场周赛  |
 |  3976  |  [乘以系数后最大子数组和](/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README.md)  |  `数组`,`动态规划`  |  中等  |  第 508 场周赛  |
 |  3977  |  [有限电量到达目标节点的最少时间](/solution/3900-3999/3977.Minimum%20Time%20to%20Reach%20Target%20With%20Limited%20Power/README.md)  |  `图`,`数组`,`动态规划`,`最短路`,`堆（优先队列）`  |  困难  |  第 508 场周赛  |
+|  3978  |  [唯一中间元素](/solution/3900-3999/3978.Unique%20Middle%20Element/README.md)  |    |  简单  |  第 186 场双周赛  |
+|  3979  |  [最大有效数对和](/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README.md)  |    |  中等  |  第 186 场双周赛  |
+|  3980  |  [变换二进制字符串的最少操作次数](/solution/3900-3999/3980.Minimum%20Operations%20to%20Transform%20Binary%20String/README.md)  |    |  中等  |  第 186 场双周赛  |
+|  3981  |  [统计从两个字符串形成目标字符串的不同方案数](/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README.md)  |    |  困难  |  第 186 场双周赛  |
 
 ## 版权
 
