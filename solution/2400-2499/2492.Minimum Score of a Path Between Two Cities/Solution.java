@@ -1,28 +1,32 @@
 class Solution {
-    private List<int[]>[] g;
+    private int ans;
     private boolean[] vis;
-    private int ans = 1 << 30;
+    private List<int[]>[] g;
 
     public int minScore(int n, int[][] roads) {
-        g = new List[n];
-        vis = new boolean[n];
+        g = new ArrayList[n + 1];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].add(new int[] {b, d});
-            g[b].add(new int[] {a, d});
+
+        for (int[] e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
         }
-        dfs(0);
+
+        ans = Integer.MAX_VALUE;
+        vis = new boolean[n + 1];
+
+        dfs(1);
         return ans;
     }
 
-    private void dfs(int i) {
-        for (var nxt : g[i]) {
-            int j = nxt[0], d = nxt[1];
-            ans = Math.min(ans, d);
-            if (!vis[j]) {
-                vis[j] = true;
-                dfs(j);
+    private void dfs(int a) {
+        vis[a] = true;
+        for (int[] nb : g[a]) {
+            int b = nb[0], w = nb[1];
+            ans = Math.min(ans, w);
+            if (!vis[b]) {
+                dfs(b);
             }
         }
     }

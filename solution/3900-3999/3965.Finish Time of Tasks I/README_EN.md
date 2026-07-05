@@ -137,32 +137,184 @@ source: Biweekly Contest 185 Q3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+First, build the tree from the edge list $\textit{edges}$ and store each node's children in an adjacency list $g$.
+
+Then perform DFS starting from the root node $0$. Define a function $\textit{dfs}(i)$ that returns the finish time of task $i$:
+
+- If $i$ is a leaf node, return $\textit{baseTime}[i]$ directly;
+- Otherwise, recursively compute the finish times of all children, and let $\textit{earliest}$ and $\textit{latest}$ be the minimum and maximum among them;
+- The own duration of the current task is $\textit{ownDuration} = (\textit{latest} - \textit{earliest}) + \textit{baseTime}[i]$;
+- The finish time of task $i$ is $\textit{latest} + \textit{ownDuration}$.
+
+The answer is $\textit{dfs}(0)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def finishTime(self, n: int, edges: List[List[int]], baseTime: List[int]) -> int:
+        def dfs(i: int) -> int:
+            if not g[i]:
+                return baseTime[i]
+            earliest, latest = inf, -inf
+            for j in g[i]:
+                a = dfs(j)
+                earliest = min(earliest, a)
+                latest = max(latest, a)
+            own_duration = (latest - earliest) + baseTime[i]
+            return latest + own_duration
 
+        g = [[] for _ in range(n)]
+        for u, v in edges:
+            g[u].append(v)
+        return dfs(0)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    List<Integer>[] g;
+    int[] baseTime;
 
+    long dfs(int i) {
+        if (g[i].isEmpty()) {
+            return baseTime[i];
+        }
+
+        long earliest = Long.MAX_VALUE / 4;
+        long latest = Long.MIN_VALUE / 4;
+
+        for (int j : g[i]) {
+            long a = dfs(j);
+            earliest = Math.min(earliest, a);
+            latest = Math.max(latest, a);
+        }
+
+        long ownDuration = (latest - earliest) + baseTime[i];
+        return latest + ownDuration;
+    }
+
+    public long finishTime(int n, int[][] edges, int[] baseTime) {
+        this.baseTime = baseTime;
+        g = new ArrayList[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+        }
+
+        return dfs(0);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long finishTime(int n, vector<vector<int>>& edges, vector<int>& baseTime) {
+        vector<vector<int>> g(n);
 
+        for (auto& e : edges) {
+            g[e[0]].push_back(e[1]);
+        }
+
+        auto dfs = [&](this auto&& dfs, int i) -> long long {
+            if (g[i].empty()) {
+                return baseTime[i];
+            }
+
+            long long earliest = LLONG_MAX / 4;
+            long long latest = -LLONG_MAX / 4;
+
+            for (int j : g[i]) {
+                long long a = dfs(j);
+                earliest = min(earliest, a);
+                latest = max(latest, a);
+            }
+
+            long long own_duration = (latest - earliest) + baseTime[i];
+            return latest + own_duration;
+        };
+
+        return dfs(0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func finishTime(n int, edges [][]int, baseTime []int) int64 {
+	g := make([][]int, n)
 
+	for _, e := range edges {
+		g[e[0]] = append(g[e[0]], e[1])
+	}
+
+	var dfs func(int) int64
+
+	dfs = func(i int) int64 {
+		if len(g[i]) == 0 {
+			return int64(baseTime[i])
+		}
+
+		var INF int64 = 1 << 62
+		var earliest int64 = INF
+		var latest int64 = -INF
+
+		for _, j := range g[i] {
+			a := dfs(j)
+            earliest = min(earliest, a)
+            latest = max(latest, a)
+		}
+
+		ownDuration := (latest - earliest) + int64(baseTime[i])
+		return latest + ownDuration
+	}
+
+	return dfs(0)
+}
+```
+
+#### TypeScript
+
+```ts
+function finishTime(n: number, edges: number[][], baseTime: number[]): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [u, v] of edges) {
+        g[u].push(v);
+    }
+
+    const dfs = (i: number): number => {
+        if (g[i].length === 0) {
+            return baseTime[i];
+        }
+
+        let earliest = Number.MAX_SAFE_INTEGER;
+        let latest = -Number.MAX_SAFE_INTEGER;
+
+        for (const j of g[i]) {
+            const a = dfs(j);
+            earliest = Math.min(earliest, a);
+            latest = Math.max(latest, a);
+        }
+
+        const ownDuration = latest - earliest + baseTime[i];
+        return latest + ownDuration;
+    };
+
+    return dfs(0);
+}
 ```
 
 <!-- tabs:end -->

@@ -81,9 +81,11 @@ tags:
 
 ### 方法一：DFS
 
-根据题目描述，每条边可以经过多次，并且保证节点 $1$ 和节点 $n$ 在同一个连通块中。因此，题目实际上求的是节点 $1$ 所在的连通块的最小边。我们可以用 DFS，从节点 $1$ 开始搜索所有的边，找到最小的边即可。
+根据题目描述，每条边可以经过多次，并且保证节点 $1$ 和节点 $n$ 在同一个连通块中。因此，题目实际上求的是节点 $1$ 所在连通块中的最小边权。
 
-时间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+我们首先根据 $\textit{roads}$ 构建无向图 $g$，然后从节点 $1$ 开始 DFS。在遍历连通块的过程中，对每条经过的边用 $\textit{ans} = \min(\textit{ans}, w)$ 更新答案。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
 
@@ -92,20 +94,20 @@ tags:
 ```python
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
-        def dfs(i):
+        def dfs(a: int):
+            vis[a] = True
             nonlocal ans
-            for j, d in g[i]:
-                ans = min(ans, d)
-                if not vis[j]:
-                    vis[j] = True
-                    dfs(j)
+            for b, w in g[a]:
+                ans = min(ans, w)
+                if not vis[b]:
+                    dfs(b)
 
-        g = defaultdict(list)
-        for a, b, d in roads:
-            g[a].append((b, d))
-            g[b].append((a, d))
-        vis = [False] * (n + 1)
+        g = [[] for _ in range(n + 1)]
+        for a, b, w in roads:
+            g[a].append((b, w))
+            g[b].append((a, w))
         ans = inf
+        vis = [False] * (n + 1)
         dfs(1)
         return ans
 ```
@@ -114,30 +116,34 @@ class Solution:
 
 ```java
 class Solution {
-    private List<int[]>[] g;
+    private int ans;
     private boolean[] vis;
-    private int ans = 1 << 30;
+    private List<int[]>[] g;
 
     public int minScore(int n, int[][] roads) {
-        g = new List[n];
-        vis = new boolean[n];
+        g = new ArrayList[n + 1];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].add(new int[] {b, d});
-            g[b].add(new int[] {a, d});
+
+        for (int[] e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[]{b, w});
+            g[b].add(new int[]{a, w});
         }
-        dfs(0);
+
+        ans = Integer.MAX_VALUE;
+        vis = new boolean[n + 1];
+
+        dfs(1);
         return ans;
     }
 
-    private void dfs(int i) {
-        for (var nxt : g[i]) {
-            int j = nxt[0], d = nxt[1];
-            ans = Math.min(ans, d);
-            if (!vis[j]) {
-                vis[j] = true;
-                dfs(j);
+    private void dfs(int a) {
+        vis[a] = true;
+        for (int[] nb : g[a]) {
+            int b = nb[0], w = nb[1];
+            ans = Math.min(ans, w);
+            if (!vis[b]) {
+                dfs(b);
             }
         }
     }
@@ -150,25 +156,27 @@ class Solution {
 class Solution {
 public:
     int minScore(int n, vector<vector<int>>& roads) {
-        vector<vector<pair<int, int>>> g(n);
-        bool vis[n];
-        memset(vis, 0, sizeof vis);
-        for (auto& e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].emplace_back(b, d);
-            g[b].emplace_back(a, d);
+        vector<vector<pair<int,int>>> g(n + 1);
+        for (auto &e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].push_back({b, w});
+            g[b].push_back({a, w});
         }
+
+        vector<bool> vis(n + 1, false);
         int ans = INT_MAX;
-        function<void(int)> dfs = [&](int i) {
-            for (auto [j, d] : g[i]) {
-                ans = min(ans, d);
-                if (!vis[j]) {
-                    vis[j] = true;
-                    dfs(j);
+
+        auto dfs = [&](this auto&& dfs, int a) -> void {
+            vis[a] = true;
+            for (auto &[b, w] : g[a]) {
+                ans = min(ans, w);
+                if (!vis[b]) {
+                    dfs(b);
                 }
             }
         };
-        dfs(0);
+
+        dfs(1);
         return ans;
     }
 };
@@ -178,27 +186,29 @@ public:
 
 ```go
 func minScore(n int, roads [][]int) int {
-	type pair struct{ i, v int }
-	g := make([][]pair, n)
+	g := make([][][2]int, n+1)
 	for _, e := range roads {
-		a, b, d := e[0]-1, e[1]-1, e[2]
-		g[a] = append(g[a], pair{b, d})
-		g[b] = append(g[b], pair{a, d})
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], [2]int{b, w})
+		g[b] = append(g[b], [2]int{a, w})
 	}
-	vis := make([]bool, n)
-	ans := 1 << 30
+
+	vis := make([]bool, n+1)
+	ans := int(1e9)
+
 	var dfs func(int)
-	dfs = func(i int) {
-		for _, nxt := range g[i] {
-			j, d := nxt.i, nxt.v
-			ans = min(ans, d)
-			if !vis[j] {
-				vis[j] = true
-				dfs(j)
+	dfs = func(a int) {
+		vis[a] = true
+		for _, nb := range g[a] {
+			b, w := nb[0], nb[1]
+			ans = min(ans, w)
+			if !vis[b] {
+				dfs(b)
 			}
 		}
 	}
-	dfs(0)
+
+	dfs(1)
 	return ans
 }
 ```
@@ -207,23 +217,25 @@ func minScore(n int, roads [][]int) int {
 
 ```ts
 function minScore(n: number, roads: number[][]): number {
-    const vis = new Array(n + 1).fill(false);
-    const g = Array.from({ length: n + 1 }, () => []);
-    for (const [a, b, v] of roads) {
-        g[a].push([b, v]);
-        g[b].push([a, v]);
+    const g: [number, number][][] = Array.from({ length: n + 1 }, () => []);
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
     }
+
+    const vis = new Array(n + 1).fill(false);
     let ans = Infinity;
-    const dfs = (i: number) => {
-        if (vis[i]) {
-            return;
-        }
-        vis[i] = true;
-        for (const [j, v] of g[i]) {
-            ans = Math.min(ans, v);
-            dfs(j);
+
+    const dfs = (a: number): void => {
+        vis[a] = true;
+        for (const [b, w] of g[a]) {
+            ans = Math.min(ans, w);
+            if (!vis[b]) {
+                dfs(b);
+            }
         }
     };
+
     dfs(1);
     return ans;
 }
@@ -233,29 +245,39 @@ function minScore(n: number, roads: number[][]): number {
 
 ```rust
 impl Solution {
-    fn dfs(i: usize, mut ans: i32, g: &Vec<Vec<(usize, i32)>>, vis: &mut Vec<bool>) -> i32 {
-        if vis[i] {
-            return ans;
-        }
-        vis[i] = true;
-        for (j, v) in g[i].iter() {
-            ans = ans.min(*v.min(&Self::dfs(*j, ans, g, vis)));
-        }
-        ans
-    }
-
     pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
         let n = n as usize;
-        let mut vis = vec![false; n + 1];
-        let mut g = vec![Vec::new(); n + 1];
-        for road in roads.iter() {
-            let a = road[0] as usize;
-            let b = road[1] as usize;
-            let v = road[2];
-            g[a].push((b, v));
-            g[b].push((a, v));
+        let mut g: Vec<Vec<(usize, i32)>> = vec![vec![]; n + 1];
+
+        for e in roads {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            let w = e[2];
+            g[a].push((b, w));
+            g[b].push((a, w));
         }
-        Self::dfs(1, i32::MAX, &g, &mut vis)
+
+        let mut vis = vec![false; n + 1];
+        let mut ans = i32::MAX;
+
+        fn dfs(
+            a: usize,
+            g: &Vec<Vec<(usize, i32)>>,
+            vis: &mut Vec<bool>,
+            ans: &mut i32,
+        ) {
+            vis[a] = true;
+
+            for &(b, w) in &g[a] {
+                *ans = (*ans).min(w);
+                if !vis[b] {
+                    dfs(b, g, vis, ans);
+                }
+            }
+        }
+
+        dfs(1, &g, &mut vis, &mut ans);
+        ans
     }
 }
 ```
@@ -263,26 +285,31 @@ impl Solution {
 #### JavaScript
 
 ```js
+/**
+ * @param {number} n
+ * @param {number[][]} roads
+ * @return {number}
+ */
 var minScore = function (n, roads) {
-    // 构建点到点的映射表
-    const graph = Array.from({ length: n + 1 }, () => new Map());
-    for (let [u, v, w] of roads) {
-        graph[u].set(v, w);
-        graph[v].set(u, w);
+    const g = Array.from({ length: n + 1 }, () => []);
+
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
     }
 
-    // DFS
-    const vis = new Array(n).fill(false);
+    const vis = new Array(n + 1).fill(false);
     let ans = Infinity;
-    var dfs = function (u) {
-        vis[u] = true;
-        for (const [v, w] of graph[u]) {
+
+    const dfs = a => {
+        vis[a] = true;
+        for (const [b, w] of g[a]) {
             ans = Math.min(ans, w);
-            if (!vis[v]) dfs(v);
+            if (!vis[b]) dfs(b);
         }
     };
-    dfs(1);
 
+    dfs(1);
     return ans;
 };
 ```
@@ -295,9 +322,9 @@ var minScore = function (n, roads) {
 
 ### 方法二：BFS
 
-我们也可以用 BFS 来求解。
+我们也可以用 BFS 来求解。将节点 $1$ 加入队列，逐层扩展与节点 $1$ 连通的子图，每次访问边时用 $\textit{ans} = \min(\textit{ans}, w)$ 更新答案。
 
-时间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别是节点数和边数。
 
 <!-- tabs:start -->
 
@@ -306,22 +333,22 @@ var minScore = function (n, roads) {
 ```python
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
-        g = defaultdict(list)
-        for a, b, d in roads:
-            g[a].append((b, d))
-            g[b].append((a, d))
+        g = [[] for _ in range(n + 1)]
+        for a, b, w in roads:
+            g[a].append((b, w))
+            g[b].append((a, w))
         vis = [False] * (n + 1)
         vis[1] = True
         ans = inf
         q = deque([1])
         while q:
             for _ in range(len(q)):
-                i = q.popleft()
-                for j, d in g[i]:
-                    ans = min(ans, d)
-                    if not vis[j]:
-                        vis[j] = True
-                        q.append(j)
+                a = q.popleft()
+                for b, w in g[a]:
+                    ans = min(ans, w)
+                    if not vis[b]:
+                        vis[b] = True
+                        q.append(b)
         return ans
 ```
 
@@ -330,27 +357,30 @@ class Solution:
 ```java
 class Solution {
     public int minScore(int n, int[][] roads) {
-        List<int[]>[] g = new List[n];
-        boolean[] vis = new boolean[n];
+        List<int[]>[] g = new ArrayList[n + 1];
         Arrays.setAll(g, k -> new ArrayList<>());
-        for (var e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].add(new int[] {b, d});
-            g[b].add(new int[] {a, d});
+
+        for (int[] e : roads) {
+            int a = e[0], b = e[1], w = e[2];
+            g[a].add(new int[] {b, w});
+            g[b].add(new int[] {a, w});
         }
+
+        boolean[] vis = new boolean[n + 1];
         Deque<Integer> q = new ArrayDeque<>();
-        q.offer(0);
-        vis[0] = true;
-        int ans = 1 << 30;
+        q.offer(1);
+        vis[1] = true;
+        int ans = Integer.MAX_VALUE;
+
         while (!q.isEmpty()) {
             for (int k = q.size(); k > 0; --k) {
-                int i = q.pollFirst();
-                for (var nxt : g[i]) {
-                    int j = nxt[0], d = nxt[1];
-                    ans = Math.min(ans, d);
-                    if (!vis[j]) {
-                        vis[j] = true;
-                        q.offer(j);
+                int a = q.pollFirst();
+                for (int[] nb : g[a]) {
+                    int b = nb[0], w = nb[1];
+                    ans = Math.min(ans, w);
+                    if (!vis[b]) {
+                        vis[b] = true;
+                        q.offer(b);
                     }
                 }
             }
@@ -366,26 +396,27 @@ class Solution {
 class Solution {
 public:
     int minScore(int n, vector<vector<int>>& roads) {
-        vector<vector<pair<int, int>>> g(n);
-        bool vis[n];
-        memset(vis, 0, sizeof vis);
+        vector<vector<pair<int, int>>> g(n + 1);
         for (auto& e : roads) {
-            int a = e[0] - 1, b = e[1] - 1, d = e[2];
-            g[a].emplace_back(b, d);
-            g[b].emplace_back(a, d);
+            int a = e[0], b = e[1], w = e[2];
+            g[a].push_back({b, w});
+            g[b].push_back({a, w});
         }
+
+        vector<bool> vis(n + 1, false);
         int ans = INT_MAX;
-        queue<int> q{{0}};
-        vis[0] = true;
+        queue<int> q{{1}};
+        vis[1] = true;
+
         while (!q.empty()) {
             for (int k = q.size(); k; --k) {
-                int i = q.front();
+                int a = q.front();
                 q.pop();
-                for (auto [j, d] : g[i]) {
-                    ans = min(ans, d);
-                    if (!vis[j]) {
-                        vis[j] = true;
-                        q.push(j);
+                for (auto [b, w] : g[a]) {
+                    ans = min(ans, w);
+                    if (!vis[b]) {
+                        vis[b] = true;
+                        q.push(b);
                     }
                 }
             }
@@ -399,33 +430,145 @@ public:
 
 ```go
 func minScore(n int, roads [][]int) int {
-	type pair struct{ i, v int }
-	g := make([][]pair, n)
+	g := make([][][2]int, n+1)
 	for _, e := range roads {
-		a, b, d := e[0]-1, e[1]-1, e[2]
-		g[a] = append(g[a], pair{b, d})
-		g[b] = append(g[b], pair{a, d})
+		a, b, w := e[0], e[1], e[2]
+		g[a] = append(g[a], [2]int{b, w})
+		g[b] = append(g[b], [2]int{a, w})
 	}
-	vis := make([]bool, n)
-	ans := 1 << 30
-	q := []int{0}
-	vis[0] = true
+
+	vis := make([]bool, n+1)
+	ans := int(1e9)
+	q := []int{1}
+	vis[1] = true
+
 	for len(q) > 0 {
 		for k := len(q); k > 0; k-- {
-			i := q[0]
+			a := q[0]
 			q = q[1:]
-			for _, nxt := range g[i] {
-				j, d := nxt.i, nxt.v
-				ans = min(ans, d)
-				if !vis[j] {
-					vis[j] = true
-					q = append(q, j)
+			for _, nb := range g[a] {
+				b, w := nb[0], nb[1]
+				ans = min(ans, w)
+				if !vis[b] {
+					vis[b] = true
+					q = append(q, b)
 				}
 			}
 		}
 	}
 	return ans
 }
+```
+
+#### TypeScript
+
+```ts
+function minScore(n: number, roads: number[][]): number {
+    const g: [number, number][][] = Array.from({ length: n + 1 }, () => []);
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+
+    const vis = new Array(n + 1).fill(false);
+    let ans = Infinity;
+    let q: number[] = [1];
+    vis[1] = true;
+
+    while (q.length > 0) {
+        const nq: number[] = [];
+        for (const a of q) {
+            for (const [b, w] of g[a]) {
+                ans = Math.min(ans, w);
+                if (!vis[b]) {
+                    vis[b] = true;
+                    nq.push(b);
+                }
+            }
+        }
+        q = nq;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn min_score(n: i32, roads: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
+        let mut g: Vec<Vec<(usize, i32)>> = vec![vec![]; n + 1];
+
+        for e in roads {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            let w = e[2];
+            g[a].push((b, w));
+            g[b].push((a, w));
+        }
+
+        let mut vis = vec![false; n + 1];
+        let mut ans = i32::MAX;
+        let mut q = VecDeque::new();
+        q.push_back(1);
+        vis[1] = true;
+
+        while !q.is_empty() {
+            for _ in 0..q.len() {
+                let a = q.pop_front().unwrap();
+                for &(b, w) in &g[a] {
+                    ans = ans.min(w);
+                    if !vis[b] {
+                        vis[b] = true;
+                        q.push_back(b);
+                    }
+                }
+            }
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} roads
+ * @return {number}
+ */
+var minScore = function (n, roads) {
+    const g = Array.from({ length: n + 1 }, () => []);
+
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
+    }
+
+    const vis = new Array(n + 1).fill(false);
+    let ans = Infinity;
+    let q = [1];
+    vis[1] = true;
+
+    while (q.length > 0) {
+        const nq = [];
+        for (const a of q) {
+            for (const [b, w] of g[a]) {
+                ans = Math.min(ans, w);
+                if (!vis[b]) {
+                    vis[b] = true;
+                    nq.push(b);
+                }
+            }
+        }
+        q = nq;
+    }
+    return ans;
+};
 ```
 
 <!-- tabs:end -->

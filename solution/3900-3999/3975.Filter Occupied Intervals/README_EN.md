@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README_EN.md
+rating: 1533
+source: Weekly Contest 508 Q2
 tags:
     - Array
     - Sorting

@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 509
+
+- [3982. Sum of Integers with Maximum Digit Range](/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README_EN.md)
+- [3983. Subsequence After One Replacement](/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README_EN.md)
+- [3984. Divisible Game](/solution/3900-3999/3984.Divisible%20Game/README_EN.md)
+- [3985. Palindromic Subarray Sum](/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README_EN.md)
+
+#### Biweekly Contest 186
+
+- [3978. Unique Middle Element](/solution/3900-3999/3978.Unique%20Middle%20Element/README_EN.md)
+- [3979. Maximum Valid Pair Sum](/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README_EN.md)
+- [3980. Minimum Operations to Transform Binary String](/solution/3900-3999/3980.Minimum%20Operations%20to%20Transform%20Binary%20String/README_EN.md)
+- [3981. Count Distinct Ways to Form Target from Two Strings](/solution/3900-3999/3981.Count%20Distinct%20Ways%20to%20Form%20Target%20from%20Two%20Strings/README_EN.md)
+
 #### Weekly Contest 508
 
 - [3974. Maximum Total Sum of K Selected Elements](/solution/3900-3999/3974.Maximum%20Total%20Sum%20of%20K%20Selected%20Elements/README_EN.md)

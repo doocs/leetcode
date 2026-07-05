@@ -1,18 +1,18 @@
 class Solution:
     def minScore(self, n: int, roads: List[List[int]]) -> int:
-        def dfs(i):
+        def dfs(a: int):
+            vis[a] = True
             nonlocal ans
-            for j, d in g[i]:
-                ans = min(ans, d)
-                if not vis[j]:
-                    vis[j] = True
-                    dfs(j)
+            for b, w in g[a]:
+                ans = min(ans, w)
+                if not vis[b]:
+                    dfs(b)
 
-        g = defaultdict(list)
-        for a, b, d in roads:
-            g[a].append((b, d))
-            g[b].append((a, d))
-        vis = [False] * (n + 1)
+        g = [[] for _ in range(n + 1)]
+        for a, b, w in roads:
+            g[a].append((b, w))
+            g[b].append((a, w))
         ans = inf
+        vis = [False] * (n + 1)
         dfs(1)
         return ans

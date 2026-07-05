@@ -1,22 +1,27 @@
+/**
+ * @param {number} n
+ * @param {number[][]} roads
+ * @return {number}
+ */
 var minScore = function (n, roads) {
-    // 构建点到点的映射表
-    const graph = Array.from({ length: n + 1 }, () => new Map());
-    for (let [u, v, w] of roads) {
-        graph[u].set(v, w);
-        graph[v].set(u, w);
+    const g = Array.from({ length: n + 1 }, () => []);
+
+    for (const [a, b, w] of roads) {
+        g[a].push([b, w]);
+        g[b].push([a, w]);
     }
 
-    // DFS
-    const vis = new Array(n).fill(false);
+    const vis = new Array(n + 1).fill(false);
     let ans = Infinity;
-    var dfs = function (u) {
-        vis[u] = true;
-        for (const [v, w] of graph[u]) {
+
+    const dfs = a => {
+        vis[a] = true;
+        for (const [b, w] of g[a]) {
             ans = Math.min(ans, w);
-            if (!vis[v]) dfs(v);
+            if (!vis[b]) dfs(b);
         }
     };
-    dfs(1);
 
+    dfs(1);
     return ans;
 };
