@@ -3,10 +3,9 @@ class Solution:
         p = 1
         x = s = 0
         while n:
-            v = n % 10
-            s += v
+            n, v = divmod(n, 10)
             if v:
+                s += v
                 x += p * v
                 p *= 10
-            n //= 10
         return x * s

@@ -4,8 +4,8 @@ func sumAndMultiply(n int) int64 {
 	s := 0
 	for n > 0 {
 		v := n % 10
-		s += v
 		if v != 0 {
+			s += v
 			x += p * v
 			p *= 10
 		}
