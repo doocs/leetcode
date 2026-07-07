@@ -102,7 +102,6 @@ source: 第 469 场周赛 Q4
 #### Java
 
 ```java
-
 class Solution {
     private static final long MOD = 1_000_000_007L;
 
@@ -198,7 +197,6 @@ class Solution {
         return res;
     }
 }
-
 ```
 
 #### C++
