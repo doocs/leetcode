@@ -1,5 +1,5 @@
 {
-  "cache_date": 1783353489,
+  "cache_date": 1783395470,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -127748,13 +127748,19 @@
     "solution/3500-3599/3559.Number of Ways to Assign Edge Weights II/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1761916451
+      "retrieved": 1783384368
     },
     "solution/3500-3599/3556.Sum of Largest Prime Substrings/README_EN.md": {
       "authors": [
@@ -127792,13 +127798,19 @@
     "solution/3500-3599/3559.Number of Ways to Assign Edge Weights II/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1761917311
+      "retrieved": 1783390250
     },
     "solution/3500-3599/3560.Find Minimum Log Transportation Cost/README.md": {
       "authors": [
@@ -130842,16 +130854,11 @@
     "solution/3600-3699/3699.Number of ZigZag Arrays I/README.md": {
       "authors": [
         {
-          "login": "yanglbme",
-          "name": "yanglbme",
-          "url": "https://github.com/yanglbme",
-          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
-        }
-      ],
-      "retrieved": 1759710088
-    },
-    "solution/3700-3799/3700.Number of ZigZag Arrays II/README.md": {
-      "authors": [
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
         {
           "login": "yanglbme",
           "name": "yanglbme",
@@ -130859,7 +130866,24 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1759710089
+      "retrieved": 1783384368
+    },
+    "solution/3700-3799/3700.Number of ZigZag Arrays II/README.md": {
+      "authors": [
+        {
+          "login": "Sovagya-mallick",
+          "name": "Sovagya-mallick",
+          "url": "https://github.com/Sovagya-mallick",
+          "avatar": "https://avatars.githubusercontent.com/u/163491392?v=4"
+        },
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783384368
     },
     "solution/3600-3699/3692.Majority Frequency Characters/README_EN.md": {
       "authors": [
@@ -130941,16 +130965,11 @@
     "solution/3600-3699/3699.Number of ZigZag Arrays I/README_EN.md": {
       "authors": [
         {
-          "login": "yanglbme",
-          "name": "yanglbme",
-          "url": "https://github.com/yanglbme",
-          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
-        }
-      ],
-      "retrieved": 1759676102
-    },
-    "solution/3700-3799/3700.Number of ZigZag Arrays II/README_EN.md": {
-      "authors": [
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
         {
           "login": "yanglbme",
           "name": "yanglbme",
@@ -130958,7 +130977,24 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1759676103
+      "retrieved": 1783390250
+    },
+    "solution/3700-3799/3700.Number of ZigZag Arrays II/README_EN.md": {
+      "authors": [
+        {
+          "login": "Sovagya-mallick",
+          "name": "Sovagya-mallick",
+          "url": "https://github.com/Sovagya-mallick",
+          "avatar": "https://avatars.githubusercontent.com/u/163491392?v=4"
+        },
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1783390250
     },
     "solution/3700-3799/3701.Compute Alternating Sum/README.md": {
       "authors": [
@@ -132181,7 +132217,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1765810575
+      "retrieved": 1783384368
     },
     "solution/3700-3799/3755.Find Maximum Balanced XOR Subarray Length/README.md": {
       "authors": [
@@ -132192,7 +132228,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1765810576
+      "retrieved": 1783384368
     },
     "solution/3700-3799/3756.Concatenate Non-Zero Digits and Multiply by Sum II/README.md": {
       "authors": [
@@ -132236,7 +132272,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1765812883
+      "retrieved": 1783390250
     },
     "solution/3700-3799/3755.Find Maximum Balanced XOR Subarray Length/README_EN.md": {
       "authors": [
@@ -132247,7 +132283,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1765812884
+      "retrieved": 1783390250
     },
     "solution/3700-3799/3756.Concatenate Non-Zero Digits and Multiply by Sum II/README_EN.md": {
       "authors": [
