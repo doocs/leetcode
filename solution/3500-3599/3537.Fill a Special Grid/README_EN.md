@@ -106,32 +106,181 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursive Divide and Conquer
+
+A special grid requires that in each quadrant, numbers satisfy: top-right < bottom-right < bottom-left < top-left, and each quadrant is also a special grid. We can construct it recursively: for a subgrid of size $k$, fill the four quadrants in order "top-right → bottom-right → bottom-left → top-left", ensuring smaller numbers are placed in the top-right quadrant first and larger numbers in the top-left quadrant last.
+
+We start from the top-right corner $(0, m - 1)$ of the entire grid, where $m = 2^n$, with side length $m$. When $k = 1$, we fill the cell with the current value and increment; otherwise, we split into four quadrants and recurse.
+
+The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$, where $n$ is the input parameter.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def specialGrid(self, n: int) -> List[List[int]]:
+        def dfs(x: int, y: int, k: int):
+            if k == 1:
+                nonlocal val
+                ans[x][y] = val
+                val += 1
+                return
 
+            dfs(x, y, k // 2)
+            dfs(x + k // 2, y, k // 2)
+            dfs(x + k // 2, y - k // 2, k // 2)
+            dfs(x, y - k // 2, k // 2)
+
+        m = 1 << n
+        ans = [[0] * m for _ in range(m)]
+        val = 0
+        dfs(0, m - 1, m)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[][] ans;
+    private int val;
 
+    public int[][] specialGrid(int n) {
+        int m = 1 << n;
+        ans = new int[m][m];
+        dfs(0, m - 1, m);
+        return ans;
+    }
+
+    private void dfs(int x, int y, int k) {
+        if (k == 1) {
+            ans[x][y] = val++;
+            return;
+        }
+
+        int h = k / 2;
+        dfs(x, y, h);
+        dfs(x + h, y, h);
+        dfs(x + h, y - h, h);
+        dfs(x, y - h, h);
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<vector<int>> specialGrid(int n) {
+        int m = 1 << n;
+        vector<vector<int>> ans(m, vector<int>(m));
+        int val = 0;
 
+        auto dfs = [&](this auto&& dfs, int x, int y, int k) -> void {
+            if (k == 1) {
+                ans[x][y] = val++;
+                return;
+            }
+
+            int h = k / 2;
+            dfs(x, y, h);
+            dfs(x + h, y, h);
+            dfs(x + h, y - h, h);
+            dfs(x, y - h, h);
+        };
+
+        dfs(0, m - 1, m);
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func specialGrid(n int) [][]int {
+	m := 1 << n
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, m)
+	}
+	val := 0
 
+	var dfs func(int, int, int)
+	dfs = func(x, y, k int) {
+		if k == 1 {
+			ans[x][y] = val
+			val++
+			return
+		}
+
+		h := k / 2
+		dfs(x, y, h)
+		dfs(x+h, y, h)
+		dfs(x+h, y-h, h)
+		dfs(x, y-h, h)
+	}
+
+	dfs(0, m-1, m)
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function specialGrid(n: number): number[][] {
+    const m = 1 << n;
+    const ans = Array.from({ length: m }, () => Array(m).fill(0));
+    let val = 0;
+
+    const dfs = (x: number, y: number, k: number): void => {
+        if (k === 1) {
+            ans[x][y] = val++;
+            return;
+        }
+
+        const h = k >> 1;
+        dfs(x, y, h);
+        dfs(x + h, y, h);
+        dfs(x + h, y - h, h);
+        dfs(x, y - h, h);
+    };
+
+    dfs(0, m - 1, m);
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn special_grid(n: i32) -> Vec<Vec<i32>> {
+        fn dfs(x: usize, y: usize, k: usize, ans: &mut Vec<Vec<i32>>, val: &mut i32) {
+            if k == 1 {
+                ans[x][y] = *val;
+                *val += 1;
+                return;
+            }
+
+            let h = k / 2;
+            dfs(x, y, h, ans, val);
+            dfs(x + h, y, h, ans, val);
+            dfs(x + h, y - h, h, ans, val);
+            dfs(x, y - h, h, ans, val);
+        }
+
+        let m = 1usize << n;
+        let mut ans = vec![vec![0; m]; m];
+        let mut val = 0;
+        dfs(0, m - 1, m, &mut ans, &mut val);
+        ans
+    }
+}
 ```
 
 <!-- tabs:end -->
