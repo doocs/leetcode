@@ -1,5 +1,5 @@
 {
-  "cache_date": 1783575739,
+  "cache_date": 1783869687,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -6618,6 +6618,12 @@
     "solution/1300-1399/1331.Rank Transform of an Array/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "rain84",
           "name": "rain84",
           "url": "https://github.com/rain84",
@@ -6630,7 +6636,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745668938
+      "retrieved": 1783860171
     },
     "solution/1300-1399/1332.Remove Palindromic Subsequences/README.md": {
       "authors": [
@@ -73787,6 +73793,12 @@
     "solution/1300-1399/1331.Rank Transform of an Array/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "rain84",
           "name": "rain84",
           "url": "https://github.com/rain84",
@@ -73799,7 +73811,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670520
+      "retrieved": 1783865193
     },
     "solution/1300-1399/1332.Remove Palindromic Subsequences/README_EN.md": {
       "authors": [
@@ -127292,7 +127304,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749372944
+      "retrieved": 1783860171
     },
     "solution/3500-3599/3538.Merge Operations for Minimum Travel Time/README.md": {
       "authors": [
@@ -127336,7 +127348,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1749373732
+      "retrieved": 1783865193
     },
     "solution/3500-3599/3538.Merge Operations for Minimum Travel Time/README_EN.md": {
       "authors": [
