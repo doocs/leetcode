@@ -139,32 +139,215 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum
+
+We preprocess three prefix arrays:
+
+- `sumD[i]` is the sum of digits in the first $i$ characters of the string;
+- `cntN0[i]` is the count of non-zero digits in the first $i$ characters;
+- `p[i]` is the number formed by concatenating all non-zero digits in the first $i$ characters, modulo $10^9 + 7$.
+
+For a query $[l, r]$, the number of non-zero digits in the substring is $n_0 = cntN0[r + 1] - cntN0[l]$, and the digit sum is $sd = sumD[r + 1] - sumD[l]$. Since $p[r + 1] = p[l] \cdot 10^{n_0} + x$, we have $x = p[r + 1] - p[l] \cdot 10^{n_0}$, and the answer is $x \cdot sd$.
+
+We precompute powers of $10$ and answer each query in $O(1)$.
+
+The time complexity is $O(n + q)$ and the space complexity is $O(n)$, where $n$ is the string length and $q$ is the number of queries.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+mx = 10**5 + 1
+mod = 10**9 + 7
+pow10 = [1] * mx
+for i in range(1, mx):
+    pow10[i] = pow10[i - 1] * 10 % mod
 
+
+class Solution:
+    def sumAndMultiply(self, s: str, queries: List[List[int]]) -> List[int]:
+        n = len(s)
+        sum_d = [0] * (n + 1)
+        cnt_n0 = [0] * (n + 1)
+        p = [0] * (n + 1)
+        for i, d in enumerate(map(int, s), 1):
+            sum_d[i] = sum_d[i - 1] + d
+            cnt_n0[i] = cnt_n0[i - 1] + int(d > 0)
+            p[i] = (p[i - 1] * 10 + d) % mod if d else p[i - 1]
+
+        ans = []
+        for l, r in queries:
+            n0 = cnt_n0[r + 1] - cnt_n0[l]
+            sd = sum_d[r + 1] - sum_d[l]
+            x = p[r + 1] - p[l] * pow10[n0] % mod
+            ans.append(x * sd % mod)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int MX = 100001;
+    private static final int MOD = 1_000_000_007;
+    private static final long[] POW10 = new long[MX];
 
+    static {
+        POW10[0] = 1;
+        for (int i = 1; i < MX; i++) {
+            POW10[i] = POW10[i - 1] * 10 % MOD;
+        }
+    }
+
+    public int[] sumAndMultiply(String s, int[][] queries) {
+        int n = s.length();
+        int[] sumD = new int[n + 1];
+        int[] cntN0 = new int[n + 1];
+        long[] p = new long[n + 1];
+
+        for (int i = 1; i <= n; i++) {
+            int d = s.charAt(i - 1) - '0';
+            sumD[i] = sumD[i - 1] + d;
+            cntN0[i] = cntN0[i - 1] + (d > 0 ? 1 : 0);
+            p[i] = d > 0 ? (p[i - 1] * 10 + d) % MOD : p[i - 1];
+        }
+
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            int l = queries[i][0], r = queries[i][1];
+            int n0 = cntN0[r + 1] - cntN0[l];
+            int sd = sumD[r + 1] - sumD[l];
+            long x = (p[r + 1] - p[l] * POW10[n0] % MOD + MOD) % MOD;
+            ans[i] = (int) (x * sd % MOD);
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> sumAndMultiply(string s, vector<vector<int>>& queries) {
+        static const int MX = 100001;
+        static const int MOD = 1000000007;
+        static vector<long long> pow10 = [] {
+            vector<long long> p(MX);
+            p[0] = 1;
+            for (int i = 1; i < MX; i++) {
+                p[i] = p[i - 1] * 10 % MOD;
+            }
+            return p;
+        }();
 
+        int n = s.size();
+        vector<int> sumD(n + 1), cntN0(n + 1);
+        vector<long long> p(n + 1);
+
+        for (int i = 1; i <= n; i++) {
+            int d = s[i - 1] - '0';
+            sumD[i] = sumD[i - 1] + d;
+            cntN0[i] = cntN0[i - 1] + (d > 0);
+            p[i] = d ? (p[i - 1] * 10 + d) % MOD : p[i - 1];
+        }
+
+        vector<int> ans;
+        ans.reserve(queries.size());
+        for (auto& q : queries) {
+            int l = q[0], r = q[1];
+            int n0 = cntN0[r + 1] - cntN0[l];
+            int sd = sumD[r + 1] - sumD[l];
+            long long x = (p[r + 1] - p[l] * pow10[n0] % MOD + MOD) % MOD;
+            ans.push_back(x * sd % MOD);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+const (
+	mx        = 100001
+	mod int64 = 1000000007
+)
 
+var pow10 = func() []int64 {
+	p := make([]int64, mx)
+	p[0] = 1
+	for i := 1; i < mx; i++ {
+		p[i] = p[i-1] * 10 % mod
+	}
+	return p
+}()
+
+func sumAndMultiply(s string, queries [][]int) []int {
+	n := len(s)
+	sumD := make([]int, n+1)
+	cntN0 := make([]int, n+1)
+	p := make([]int64, n+1)
+
+	for i := 1; i <= n; i++ {
+		d := int64(s[i-1] - '0')
+		sumD[i] = sumD[i-1] + int(d)
+		cntN0[i] = cntN0[i-1]
+		if d > 0 {
+			cntN0[i]++
+			p[i] = (p[i-1]*10 + d) % mod
+		} else {
+			p[i] = p[i-1]
+		}
+	}
+
+	ans := make([]int, len(queries))
+	for i, q := range queries {
+		l, r := q[0], q[1]
+		n0 := cntN0[r+1] - cntN0[l]
+		sd := int64(sumD[r+1] - sumD[l])
+		x := (p[r+1] - p[l]*pow10[n0]%mod + mod) % mod
+		ans[i] = int(x * sd % mod)
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+const MX = 100001;
+const MOD = 1000000007n;
+
+const pow10: bigint[] = Array(MX).fill(1n);
+for (let i = 1; i < MX; i++) {
+    pow10[i] = (pow10[i - 1] * 10n) % MOD;
+}
+
+function sumAndMultiply(s: string, queries: number[][]): number[] {
+    const n = s.length;
+    const sumD = Array<number>(n + 1).fill(0);
+    const cntN0 = Array<number>(n + 1).fill(0);
+    const p: bigint[] = Array(n + 1).fill(0n);
+
+    for (let i = 1; i <= n; i++) {
+        const d = s.charCodeAt(i - 1) - 48;
+        sumD[i] = sumD[i - 1] + d;
+        cntN0[i] = cntN0[i - 1] + (d > 0 ? 1 : 0);
+        p[i] = d > 0 ? (p[i - 1] * 10n + BigInt(d)) % MOD : p[i - 1];
+    }
+
+    const ans: number[] = [];
+    for (const [l, r] of queries) {
+        const n0 = cntN0[r + 1] - cntN0[l];
+        const sd = BigInt(sumD[r + 1] - sumD[l]);
+        const x = (p[r + 1] - ((p[l] * pow10[n0]) % MOD) + MOD) % MOD;
+        ans.push(Number((x * sd) % MOD));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

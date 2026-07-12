@@ -198,6 +198,93 @@ function maxBalancedSubarray(nums: number[]): number {
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn max_balanced_subarray(nums: Vec<i32>) -> i32 {
+        let mut d = HashMap::new();
+        let mut ans = 0;
+        let mut a = 0;
+        let mut b = nums.len() as i32;
+
+        d.insert(b as i64, -1);
+
+        for (i, &num) in nums.iter().enumerate() {
+            a ^= num;
+            b += if num % 2 == 0 { 1 } else { -1 };
+
+            let key = ((a as i64) << 32) | b as i64;
+            if let Some(&idx) = d.get(&key) {
+                ans = ans.max(i as i32 - idx);
+            } else {
+                d.insert(key, i as i32);
+            }
+        }
+
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxBalancedSubarray = function (nums) {
+    const d = new Map();
+    let ans = 0;
+    let a = 0;
+    let b = nums.length;
+    d.set(BigInt(b), -1);
+    for (let i = 0; i < nums.length; ++i) {
+        a ^= nums[i];
+        b += nums[i] % 2 === 0 ? 1 : -1;
+        const key = (BigInt(a) << 32n) | BigInt(b);
+        if (d.has(key)) {
+            ans = Math.max(ans, i - d.get(key));
+        } else {
+            d.set(key, i);
+        }
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MaxBalancedSubarray(int[] nums) {
+        var d = new Dictionary<long, int>();
+        int ans = 0;
+        int a = 0;
+        int b = nums.Length;
+
+        d[(long)b] = -1;
+
+        for (int i = 0; i < nums.Length; i++) {
+            a ^= nums[i];
+            b += nums[i] % 2 == 0 ? 1 : -1;
+
+            long key = ((long)a << 32) | (uint)b;
+            if (d.ContainsKey(key)) {
+                ans = Math.Max(ans, i - d[key]);
+            } else {
+                d[key] = i;
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->

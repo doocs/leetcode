@@ -1,4 +1,8 @@
-function sumAndMultiply(n: number): number {
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var sumAndMultiply = function (n) {
     let p = 1;
     let x = 0;
     let s = 0;
@@ -14,4 +18,4 @@ function sumAndMultiply(n: number): number {
     }
 
     return x * s;
-}
+};

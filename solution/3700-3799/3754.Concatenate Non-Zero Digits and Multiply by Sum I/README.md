@@ -89,12 +89,11 @@ class Solution:
         p = 1
         x = s = 0
         while n:
-            v = n % 10
-            s += v
+            n, v = divmod(n, 10)
             if v:
+                s += v
                 x += p * v
                 p *= 10
-            n //= 10
         return x * s
 ```
 
@@ -107,8 +106,8 @@ class Solution {
         int x = 0, s = 0;
         for (; n > 0; n /= 10) {
             int v = n % 10;
-            s += v;
             if (v != 0) {
+                s += v;
                 x += p * v;
                 p *= 10;
             }
@@ -128,8 +127,8 @@ public:
         int x = 0, s = 0;
         for (; n > 0; n /= 10) {
             int v = n % 10;
-            s += v;
             if (v != 0) {
+                s += v;
                 x += p * v;
                 p *= 10;
             }
@@ -148,8 +147,8 @@ func sumAndMultiply(n int) int64 {
 	s := 0
 	for n > 0 {
 		v := n % 10
-		s += v
 		if v != 0 {
+			s += v
 			x += p * v
 			p *= 10
 		}
@@ -169,8 +168,8 @@ function sumAndMultiply(n: number): number {
 
     while (n > 0) {
         const v = n % 10;
-        s += v;
         if (v !== 0) {
+            s += v;
             x += p * v;
             p *= 10;
         }
@@ -179,6 +178,79 @@ function sumAndMultiply(n: number): number {
 
     return x * s;
 }
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn sum_and_multiply(mut n: i32) -> i64 {
+        let mut p = 1;
+        let mut x = 0;
+        let mut s = 0;
+
+        while n > 0 {
+            let v = n % 10;
+            if v != 0 {
+                s += v;
+                x += p * v;
+                p *= 10;
+            }
+            n /= 10;
+        }
+
+        x as i64 * s as i64
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public long SumAndMultiply(int n) {
+        int p = 1;
+        int x = 0, s = 0;
+
+        while (n > 0) {
+            int v = n % 10;
+            if (v != 0) {
+                s += v;
+                x += p * v;
+                p *= 10;
+            }
+            n /= 10;
+        }
+
+        return 1L * x * s;
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var sumAndMultiply = function (n) {
+    let p = 1;
+    let x = 0;
+    let s = 0;
+
+    while (n > 0) {
+        const v = n % 10;
+        if (v !== 0) {
+            s += v;
+            x += p * v;
+            p *= 10;
+        }
+        n = Math.floor(n / 10);
+    }
+
+    return x * s;
+};
 ```
 
 <!-- tabs:end -->
