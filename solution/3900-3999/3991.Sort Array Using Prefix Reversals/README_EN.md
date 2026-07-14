@@ -83,32 +83,288 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3991.So
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+Since $n \le 8$, the number of permutations is at most $8! = 40320$, so we can use BFS to find the minimum number of operations.
+
+Treat the current array as a state, and the target state is $[0, 1, \ldots, n - 1]$. If the initial state is already the target, return $0$. Otherwise, start BFS from the initial state: each time take a state from the queue, enumerate every prefix length $x$ in $\textit{pre}$, and reverse the first $x$ elements to obtain a new state. If the new state equals the target, return the current number of steps; otherwise, if it has not been visited, enqueue it. If the search finishes without reaching the target, return $-1$.
+
+For convenience of deduplication, encode each permutation as an integer in base $8$ (every element lies in $[0, 7]$).
+
+The time complexity is $O(n! \cdot m \cdot n)$, and the space complexity is $O(n! \cdot n)$. Here, $n$ is the length of the array, and $m$ is the length of $\textit{pre}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def sortArray(self, nums: List[int], pre: List[int]) -> int:
+        n = len(nums)
+        target = tuple(range(n))
+        start = tuple(nums)
 
+        if start == target:
+            return 0
+
+        vis = {start}
+        q = deque([(start, 0)])
+
+        while q:
+            state, dist = q.popleft()
+            nd = dist + 1
+            for x in pre:
+                nxt = state[:x][::-1] + state[x:]
+                if nxt == target:
+                    return nd
+                if nxt not in vis:
+                    vis.add(nxt)
+                    q.append((nxt, nd))
+        return -1
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int sortArray(int[] nums, int[] pre) {
+        int n = nums.length;
 
+        int target = 0;
+        for (int i = 0; i < n; i++) {
+            target = target * 8 + i;
+        }
+
+        int start = 0;
+        for (int x : nums) {
+            start = start * 8 + x;
+        }
+
+        if (start == target) {
+            return 0;
+        }
+
+        Set<Integer> vis = new HashSet<>();
+        vis.add(start);
+
+        Deque<int[]> q = new ArrayDeque<>();
+        Deque<Integer> dist = new ArrayDeque<>();
+        q.offer(nums.clone());
+        dist.offer(0);
+
+        while (!q.isEmpty()) {
+            int[] state = q.poll();
+            int d = dist.poll();
+            int nd = d + 1;
+
+            for (int x : pre) {
+                int[] nxt = state.clone();
+
+                int l = 0, r = x - 1;
+                while (l < r) {
+                    int t = nxt[l];
+                    nxt[l] = nxt[r];
+                    nxt[r] = t;
+                    l++;
+                    r--;
+                }
+
+                int key = 0;
+                for (int v : nxt) {
+                    key = key * 8 + v;
+                }
+
+                if (key == target) {
+                    return nd;
+                }
+
+                if (vis.add(key)) {
+                    q.offer(nxt);
+                    dist.offer(nd);
+                }
+            }
+        }
+
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int sortArray(vector<int>& nums, vector<int>& pre) {
+        int n = nums.size();
 
+        int target = 0;
+        for (int i = 0; i < n; i++) {
+            target = target * 8 + i;
+        }
+
+        int start = 0;
+        for (int x : nums) {
+            start = start * 8 + x;
+        }
+
+        if (start == target) {
+            return 0;
+        }
+
+        unordered_set<int> vis;
+        vis.insert(start);
+
+        queue<pair<vector<int>, int>> q;
+        q.emplace(nums, 0);
+
+        while (!q.empty()) {
+            auto [state, dist] = q.front();
+            q.pop();
+
+            int nd = dist + 1;
+
+            for (int x : pre) {
+                vector<int> nxt = state;
+                reverse(nxt.begin(), nxt.begin() + x);
+
+                int key = 0;
+                for (int v : nxt) {
+                    key = key * 8 + v;
+                }
+
+                if (key == target) {
+                    return nd;
+                }
+
+                if (vis.insert(key).second) {
+                    q.emplace(move(nxt), nd);
+                }
+            }
+        }
+
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sortArray(nums []int, pre []int) int {
+	n := len(nums)
 
+	target := 0
+	for i := 0; i < n; i++ {
+		target = target*8 + i
+	}
+
+	start := 0
+	for _, x := range nums {
+		start = start*8 + x
+	}
+
+	if start == target {
+		return 0
+	}
+
+	vis := map[int]bool{start: true}
+
+	type pair struct {
+		state []int
+		dist  int
+	}
+	q := []pair{{append([]int(nil), nums...), 0}}
+
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+
+		state := p.state
+		dist := p.dist
+		nd := dist + 1
+
+		for _, x := range pre {
+			nxt := append([]int(nil), state...)
+
+			for l, r := 0, x-1; l < r; l, r = l+1, r-1 {
+				nxt[l], nxt[r] = nxt[r], nxt[l]
+			}
+
+			key := 0
+			for _, v := range nxt {
+				key = key*8 + v
+			}
+
+			if key == target {
+				return nd
+			}
+
+			if !vis[key] {
+				vis[key] = true
+				q = append(q, pair{nxt, nd})
+			}
+		}
+	}
+
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function sortArray(nums: number[], pre: number[]): number {
+    const n = nums.length;
+
+    let target = 0;
+    for (let i = 0; i < n; i++) {
+        target = target * 8 + i;
+    }
+
+    let start = 0;
+    for (const x of nums) {
+        start = start * 8 + x;
+    }
+
+    if (start === target) {
+        return 0;
+    }
+
+    const vis = new Set<number>();
+    vis.add(start);
+
+    const q: [number[], number][] = [[nums.slice(), 0]];
+
+    while (q.length) {
+        const [state, dist] = q.shift()!;
+        const nd = dist + 1;
+
+        for (const x of pre) {
+            const nxt = state.slice();
+
+            for (let l = 0, r = x - 1; l < r; l++, r--) {
+                [nxt[l], nxt[r]] = [nxt[r], nxt[l]];
+            }
+
+            let key = 0;
+            for (const v of nxt) {
+                key = key * 8 + v;
+            }
+
+            if (key === target) {
+                return nd;
+            }
+
+            if (!vis.has(key)) {
+                vis.add(key);
+                q.push([nxt, nd]);
+            }
+        }
+    }
+
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
