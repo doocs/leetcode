@@ -132,6 +132,7 @@ source: 第 185 场双周赛 Q3
 	<li>输入保证 <code>edges</code> 表示一棵有效的树。</li>
 	<li><code>baseTime.length == n</code></li>
 	<li><code>1 &lt;= baseTime[i] &lt;= 10<sup>5</sup></code></li>
+	<li>每个任务的完成时间保证小于&nbsp;<code>2<sup>53</sup></code>。</li>
 </ul>
 
 <!-- description:end -->

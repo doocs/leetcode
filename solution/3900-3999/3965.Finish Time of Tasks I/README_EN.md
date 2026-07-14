@@ -129,6 +129,7 @@ source: Biweekly Contest 185 Q3
 	<li>The input is generated such that <code>edges</code> represents a valid tree.</li>
 	<li><code>baseTime.length == n</code></li>
 	<li><code>1 &lt;= baseTime[i] &lt;= 10<sup>5</sup></code>​​​​​​​</li>
+	<li>The finish time of every task is guaranteed to be less than <code>2<sup>53</sup></code>.</li>
 </ul>
 
 <!-- description:end -->
