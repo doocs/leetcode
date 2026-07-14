@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3978.Unique%20Middle%20Element/README_EN.md
+rating: 1180
+source: Biweekly Contest 186 Q1
 ---
 
 <!-- problem:start -->

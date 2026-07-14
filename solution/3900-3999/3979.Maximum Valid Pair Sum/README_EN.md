@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3979.Maximum%20Valid%20Pair%20Sum/README_EN.md
+rating: 1328
+source: Biweekly Contest 186 Q2
 ---
 
 <!-- problem:start -->

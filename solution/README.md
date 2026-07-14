@@ -3996,6 +3996,12 @@
 |  3983  |  [一次替换后的子序列](/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README.md)  |    |  中等  |  第 509 场周赛  |
 |  3984  |  [可整除游戏](/solution/3900-3999/3984.Divisible%20Game/README.md)  |    |  中等  |  第 509 场周赛  |
 |  3985  |  [回文子数组求和](/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README.md)  |    |  困难  |  第 509 场周赛  |
+|  3986  |  [统计起止时间经过的秒数](/solution/3900-3999/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times/README.md)  |    |  简单  |  第 510 场周赛  |
+|  3987  |  [处理所有元素的成本](/solution/3900-3999/3987.Minimum%20Total%20Cost%20to%20Process%20All%20Elements/README.md)  |    |  中等  |  第 510 场周赛  |
+|  3988  |  [创建一个恰好有 K 条路径的网格图 I](/solution/3900-3999/3988.Create%20Grid%20With%20Exactly%20K%20Paths%20I/README.md)  |    |  中等  |  第 510 场周赛  |
+|  3989  |  [网格中保持一致的最大列数](/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README.md)  |    |  困难  |  第 510 场周赛  |
+|  3990  |  [Create Grid With Exactly K Paths II](/solution/3900-3999/3990.Create%20Grid%20With%20Exactly%20K%20Paths%20II/README.md)  |    |  困难  |  🔒  |
+|  3991  |  [Sort Array Using Prefix Reversals](/solution/3900-3999/3991.Sort%20Array%20Using%20Prefix%20Reversals/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

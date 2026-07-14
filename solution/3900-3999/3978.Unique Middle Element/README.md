@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3978.Unique%20Middle%20Element/README.md
+rating: 1180
+source: 第 186 场双周赛 Q1
 ---
 
 <!-- problem:start -->

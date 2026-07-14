@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3984.Divisible%20Game/README.md
+rating: 1944
+source: 第 509 场周赛 Q3
 ---
 
 <!-- problem:start -->

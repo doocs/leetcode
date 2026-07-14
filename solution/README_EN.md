@@ -3994,6 +3994,12 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3983  |  [Subsequence After One Replacement](/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README_EN.md)  |    |  Medium  |  Weekly Contest 509  |
 |  3984  |  [Divisible Game](/solution/3900-3999/3984.Divisible%20Game/README_EN.md)  |    |  Medium  |  Weekly Contest 509  |
 |  3985  |  [Palindromic Subarray Sum](/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README_EN.md)  |    |  Hard  |  Weekly Contest 509  |
+|  3986  |  [Number of Elapsed Seconds Between Two Times](/solution/3900-3999/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times/README_EN.md)  |    |  Easy  |  Weekly Contest 510  |
+|  3987  |  [Minimum Total Cost to Process All Elements](/solution/3900-3999/3987.Minimum%20Total%20Cost%20to%20Process%20All%20Elements/README_EN.md)  |    |  Medium  |  Weekly Contest 510  |
+|  3988  |  [Create Grid With Exactly K Paths I](/solution/3900-3999/3988.Create%20Grid%20With%20Exactly%20K%20Paths%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 510  |
+|  3989  |  [Maximum Consistent Columns in a Grid](/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README_EN.md)  |    |  Hard  |  Weekly Contest 510  |
+|  3990  |  [Create Grid With Exactly K Paths II](/solution/3900-3999/3990.Create%20Grid%20With%20Exactly%20K%20Paths%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  3991  |  [Sort Array Using Prefix Reversals](/solution/3900-3999/3991.Sort%20Array%20Using%20Prefix%20Reversals/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

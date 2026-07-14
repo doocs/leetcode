@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README.md
+rating: 1754
+source: 第 509 场周赛 Q2
 ---
 
 <!-- problem:start -->

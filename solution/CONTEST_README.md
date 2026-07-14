@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 510 场周赛(2026-07-12 10:30, 90 分钟) 参赛人数 1014
+
+- [3986. 统计起止时间经过的秒数](/solution/3900-3999/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times/README.md)
+- [3987. 处理所有元素的成本](/solution/3900-3999/3987.Minimum%20Total%20Cost%20to%20Process%20All%20Elements/README.md)
+- [3988. 创建一个恰好有 K 条路径的网格图 I](/solution/3900-3999/3988.Create%20Grid%20With%20Exactly%20K%20Paths%20I/README.md)
+- [3989. 网格中保持一致的最大列数](/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README.md)
+
 #### 第 509 场周赛(2026-07-05 10:30, 90 分钟) 参赛人数 941
 
 - [3982. 最大数字范围的整数之和](/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README.md)

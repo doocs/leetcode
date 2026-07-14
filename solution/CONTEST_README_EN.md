@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 510
+
+- [3986. Number of Elapsed Seconds Between Two Times](/solution/3900-3999/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times/README_EN.md)
+- [3987. Minimum Total Cost to Process All Elements](/solution/3900-3999/3987.Minimum%20Total%20Cost%20to%20Process%20All%20Elements/README_EN.md)
+- [3988. Create Grid With Exactly K Paths I](/solution/3900-3999/3988.Create%20Grid%20With%20Exactly%20K%20Paths%20I/README_EN.md)
+- [3989. Maximum Consistent Columns in a Grid](/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README_EN.md)
+
 #### Weekly Contest 509
 
 - [3982. Sum of Integers with Maximum Digit Range](/solution/3900-3999/3982.Sum%20of%20Integers%20with%20Maximum%20Digit%20Range/README_EN.md)
