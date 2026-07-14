@@ -135,6 +135,26 @@ function gcdOfOddEvenSums(n: number): number {
 }
 ```
 
+#### Rust
+
+```rust
+impl Solution {
+    pub fn gcd_of_odd_even_sums(n: i32) -> i32 {
+        n
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int GcdOfOddEvenSums(int n) {
+        return n;
+    }
+}
+```
+
 <!-- tabs:end -->
 
 <!-- solution:end -->
