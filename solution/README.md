@@ -4002,6 +4002,14 @@
 |  3989  |  [网格中保持一致的最大列数](/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README.md)  |    |  困难  |  第 510 场周赛  |
 |  3990  |  [创建一个恰好有 K 条路径的网格图 II](/solution/3900-3999/3990.Create%20Grid%20With%20Exactly%20K%20Paths%20II/README.md)  |    |  困难  |  🔒  |
 |  3991  |  [使用前缀反转对数组进行排序](/solution/3900-3999/3991.Sort%20Array%20Using%20Prefix%20Reversals/README.md)  |    |  中等  |  🔒  |
+|  3992  |  [重新排列字符串以避免字符对](/solution/3900-3999/3992.Rearrange%20String%20to%20Avoid%20Character%20Pair/README.md)  |    |  简单  |  第 187 场双周赛  |
+|  3993  |  [交替数列的最大元素](/solution/3900-3999/3993.Maximum%20Value%20of%20an%20Alternating%20Sequence/README.md)  |    |  中等  |  第 187 场双周赛  |
+|  3994  |  [划分数组的最少相邻交换次数](/solution/3900-3999/3994.Minimum%20Adjacent%20Swaps%20to%20Partition%20Array/README.md)  |    |  中等  |  第 187 场双周赛  |
+|  3995  |  [转换字符串的最小成本 III](/solution/3900-3999/3995.Minimum%20Cost%20to%20Convert%20String%20III/README.md)  |    |  困难  |  第 187 场双周赛  |
+|  3996  |  [偶数次骑士移动](/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README.md)  |    |  简单  |  第 511 场周赛  |
+|  3997  |  [统计二叉树中支配节点的数量](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README.md)  |    |  中等  |  第 511 场周赛  |
+|  3998  |  [使用子序列排序转换二进制字符串](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README.md)  |    |  中等  |  第 511 场周赛  |
+|  3999  |  [字符串变换后的最少分组数](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README.md)  |    |  困难  |  第 511 场周赛  |
 
 ## 版权
 

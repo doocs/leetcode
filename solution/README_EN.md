@@ -4000,6 +4000,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3989  |  [Maximum Consistent Columns in a Grid](/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README_EN.md)  |    |  Hard  |  Weekly Contest 510  |
 |  3990  |  [Create Grid With Exactly K Paths II](/solution/3900-3999/3990.Create%20Grid%20With%20Exactly%20K%20Paths%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  3991  |  [Sort Array Using Prefix Reversals](/solution/3900-3999/3991.Sort%20Array%20Using%20Prefix%20Reversals/README_EN.md)  |    |  Medium  |  🔒  |
+|  3992  |  [Rearrange String to Avoid Character Pair](/solution/3900-3999/3992.Rearrange%20String%20to%20Avoid%20Character%20Pair/README_EN.md)  |    |  Easy  |  Biweekly Contest 187  |
+|  3993  |  [Maximum Value of an Alternating Sequence](/solution/3900-3999/3993.Maximum%20Value%20of%20an%20Alternating%20Sequence/README_EN.md)  |    |  Medium  |  Biweekly Contest 187  |
+|  3994  |  [Minimum Adjacent Swaps to Partition Array](/solution/3900-3999/3994.Minimum%20Adjacent%20Swaps%20to%20Partition%20Array/README_EN.md)  |    |  Medium  |  Biweekly Contest 187  |
+|  3995  |  [Minimum Cost to Convert String III](/solution/3900-3999/3995.Minimum%20Cost%20to%20Convert%20String%20III/README_EN.md)  |    |  Hard  |  Biweekly Contest 187  |
+|  3996  |  [Even Number of Knight Moves](/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README_EN.md)  |    |  Easy  |  Weekly Contest 511  |
+|  3997  |  [Count Dominant Nodes in a Binary Tree](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 511  |
+|  3998  |  [Transform Binary String Using Subsequence Sort](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README_EN.md)  |    |  Medium  |  Weekly Contest 511  |
+|  3999  |  [Minimum Number of String Groups Through Transformations](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README_EN.md)  |    |  Hard  |  Weekly Contest 511  |
 
 ## Copyright
 

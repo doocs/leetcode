@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 511 场周赛(2026-07-19 10:30, 90 分钟) 参赛人数 1002
+
+- [3996. 偶数次骑士移动](/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README.md)
+- [3997. 统计二叉树中支配节点的数量](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README.md)
+- [3998. 使用子序列排序转换二进制字符串](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README.md)
+- [3999. 字符串变换后的最少分组数](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README.md)
+
+#### 第 187 场双周赛(2026-07-18 22:30, 90 分钟) 参赛人数 753
+
+- [3992. 重新排列字符串以避免字符对](/solution/3900-3999/3992.Rearrange%20String%20to%20Avoid%20Character%20Pair/README.md)
+- [3993. 交替数列的最大元素](/solution/3900-3999/3993.Maximum%20Value%20of%20an%20Alternating%20Sequence/README.md)
+- [3994. 划分数组的最少相邻交换次数](/solution/3900-3999/3994.Minimum%20Adjacent%20Swaps%20to%20Partition%20Array/README.md)
+- [3995. 转换字符串的最小成本 III](/solution/3900-3999/3995.Minimum%20Cost%20to%20Convert%20String%20III/README.md)
+
 #### 第 510 场周赛(2026-07-12 10:30, 90 分钟) 参赛人数 1014
 
 - [3986. 统计起止时间经过的秒数](/solution/3900-3999/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times/README.md)
