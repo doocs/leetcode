@@ -88,32 +88,78 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：位运算
+
+由于 $\textit{nums}$ 是 $[1, n]$ 的排列，可取的元素集合固定为 $\{1, 2, \ldots, n\}$。下标满足 $i \le j \le k$，同一下标可重复选取，因此三元组的异或值等价于从该集合中（可重复）选取三个数做异或。
+
+当 $n \le 2$ 时，直接枚举即可：答案分别为 $1$（$n = 1$）和 $2$（$n = 2$），即答案等于 $n$。
+
+当 $n \ge 3$ 时，可以证明：所有可能的异或结果恰好填满区间 $[0, 2^{k} - 1]$，其中 $2^{k}$ 是严格大于 $n$ 的最小 $2$ 的幂。该值也等于 $2^{\lfloor \log_2 n \rfloor + 1}$，在实现中可用各语言求整数位宽的函数得到：
+
+$$
+\textit{ans} = 1 \ll \textit{bitLength}(n)
+$$
+
+例如 $n = 3$ 时 $\textit{bitLength}(3) = 2$，答案为 $4$；与示例中 $\{0, 1, 2, 3\}$ 一致。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def uniqueXorTriplets(self, nums: List[int]) -> int:
+        n = len(nums)
+        return n if n <= 2 else 1 << n.bit_length()
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int uniqueXorTriplets(int[] nums) {
+        int n = nums.length;
+        return n <= 2 ? n : 1 << (32 - Integer.numberOfLeadingZeros(n));
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int uniqueXorTriplets(vector<int>& nums) {
+        size_t n = nums.size();
+        return n <= 2 ? n : 1 << bit_width(n);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func uniqueXorTriplets(nums []int) int {
+	n := len(nums)
+	if n <= 2 {
+		return n
+	}
+	return 1 << bits.Len(uint(n))
+}
+```
 
+#### TypeScript
+
+```ts
+function uniqueXorTriplets(nums: number[]): number {
+    const n = nums.length;
+    if (n <= 2) {
+        return n;
+    }
+    return 1 << (32 - Math.clz32(n));
+}
 ```
 
 <!-- tabs:end -->
