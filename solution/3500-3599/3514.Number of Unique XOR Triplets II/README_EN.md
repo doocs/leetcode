@@ -75,32 +75,159 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+With indices satisfying $i \le j \le k$, the same index may be chosen more than once, and XOR is commutative. Therefore, the answer equals the number of distinct XOR values obtainable by picking any three elements from the array (with replacement).
+
+Let $M = \max(\textit{nums})$. The XOR of any two non-negative integers at most $M$ is less than $2M$, so a boolean array of length $2M$ can be used for marking.
+
+First enumerate all pairs $(a, b)$ and mark $a \oplus b$ in array $\textit{st}$. Then enumerate every appeared pairwise XOR value $\textit{ab}$ and each third element $c$, and mark $\textit{ab} \oplus c$ in array $s$. Finally count the number of non-zero entries in $s$.
+
+The time complexity is $O(n^2 + M \cdot n)$, and the space complexity is $O(M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def uniqueXorTriplets(self, nums: List[int]) -> int:
+        mx = max(nums) << 1
+        st = [False] * mx
+        for a in nums:
+            for b in nums:
+                st[a ^ b] = True
+        s = [0] * mx
+        for ab in range(mx):
+            if st[ab]:
+                for c in nums:
+                    s[ab ^ c] = 1
+        return sum(s)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int uniqueXorTriplets(int[] nums) {
+        int mx = 0;
+        for (int x : nums) {
+            mx = Math.max(mx, x);
+        }
+        mx <<= 1;
 
+        boolean[] st = new boolean[mx];
+        for (int a : nums) {
+            for (int b : nums) {
+                st[a ^ b] = true;
+            }
+        }
+
+        int[] s = new int[mx];
+        for (int ab = 0; ab < mx; ab++) {
+            if (st[ab]) {
+                for (int c : nums) {
+                    s[ab ^ c] = 1;
+                }
+            }
+        }
+
+        int ans = 0;
+        for (int v : s) {
+            ans += v;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int uniqueXorTriplets(vector<int>& nums) {
+        int mx = ranges::max(nums) << 1;
 
+        vector<bool> st(mx, false);
+        for (int a : nums) {
+            for (int b : nums) {
+                st[a ^ b] = true;
+            }
+        }
+
+        vector<int> s(mx, 0);
+        for (int ab = 0; ab < mx; ab++) {
+            if (st[ab]) {
+                for (int c : nums) {
+                    s[ab ^ c] = 1;
+                }
+            }
+        }
+
+        return accumulate(s.begin(), s.end(), 0);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func uniqueXorTriplets(nums []int) int {
+	mx := slices.Max(nums) << 1
 
+	st := make([]bool, mx)
+	for _, a := range nums {
+		for _, b := range nums {
+			st[a^b] = true
+		}
+	}
+
+	s := make([]int, mx)
+	for ab := 0; ab < mx; ab++ {
+		if st[ab] {
+			for _, c := range nums {
+				s[ab^c] = 1
+			}
+		}
+	}
+
+	ans := 0
+	for _, v := range s {
+		ans += v
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function uniqueXorTriplets(nums: number[]): number {
+    const mx = Math.max(...nums) << 1;
+
+    const st = new Array<boolean>(mx).fill(false);
+    for (const a of nums) {
+        for (const b of nums) {
+            st[a ^ b] = true;
+        }
+    }
+
+    const s = new Array<number>(mx).fill(0);
+    for (let ab = 0; ab < mx; ab++) {
+        if (st[ab]) {
+            for (const c of nums) {
+                s[ab ^ c] = 1;
+            }
+        }
+    }
+
+    let ans = 0;
+    for (const v of s) {
+        ans += v;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
