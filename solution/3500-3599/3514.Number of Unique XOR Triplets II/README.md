@@ -97,7 +97,44 @@ tags:
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int uniqueXorTriplets(vector<int>& nums) {
+        const int SIZE = 2048; // since nums[i] <= 1500 < 2048, all XORs fit in 11 bits
+        
+        vector<bool> present(SIZE, false);
+        for (int v : nums) present[v] = true;
+        
+        vector<int> distinct;
+        for (int v = 0; v < SIZE; v++) {
+            if (present[v]) distinct.push_back(v);
+        }
+        
+        // Step 1: compute all possible pairwise XORs (a ^ b)
+        vector<bool> pairXor(SIZE, false);
+        for (int a : distinct) {
+            for (int b : distinct) {
+                pairXor[a ^ b] = true;
+            }
+        }
+        
+        // Step 2: compute all possible triple XORs (s ^ c) where s is from pairXor set
+        vector<bool> tripleXor(SIZE, false);
+        for (int s = 0; s < SIZE; s++) {
+            if (!pairXor[s]) continue;
+            for (int c : distinct) {
+                tripleXor[s ^ c] = true;
+            }
+        }
+        
+        int count = 0;
+        for (int i = 0; i < SIZE; i++) {
+            if (tripleXor[i]) count++;
+        }
+        
+        return count;
+    }
+};
 ```
 
 #### Go
