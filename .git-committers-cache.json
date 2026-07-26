@@ -1,5 +1,5 @@
 {
-  "cache_date": 1784998922,
+  "cache_date": 1785075851,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137501,7 +137501,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3994.Minimum Adjacent Swaps to Partition Array/README.md": {
       "authors": [
@@ -137512,7 +137512,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3993.Maximum Value of an Alternating Sequence/README.md": {
       "authors": [
@@ -137523,7 +137523,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3992.Rearrange String to Avoid Character Pair/README.md": {
       "authors": [
@@ -137534,7 +137534,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3996.Even Number of Knight Moves/README.md": {
       "authors": [
@@ -137545,7 +137545,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3997.Count Dominant Nodes in a Binary Tree/README.md": {
       "authors": [
@@ -137556,7 +137556,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3999.Minimum Number of String Groups Through Transformations/README.md": {
       "authors": [
@@ -137567,7 +137567,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3998.Transform Binary String Using Subsequence Sort/README.md": {
       "authors": [
@@ -137578,7 +137578,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784468988
+      "retrieved": 1785064407
     },
     "solution/3900-3999/3992.Rearrange String to Avoid Character Pair/README_EN.md": {
       "authors": [
@@ -137589,7 +137589,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3994.Minimum Adjacent Swaps to Partition Array/README_EN.md": {
       "authors": [
@@ -137600,7 +137600,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3993.Maximum Value of an Alternating Sequence/README_EN.md": {
       "authors": [
@@ -137611,7 +137611,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3995.Minimum Cost to Convert String III/README_EN.md": {
       "authors": [
@@ -137622,7 +137622,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3997.Count Dominant Nodes in a Binary Tree/README_EN.md": {
       "authors": [
@@ -137633,7 +137633,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3996.Even Number of Knight Moves/README_EN.md": {
       "authors": [
@@ -137644,7 +137644,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3999.Minimum Number of String Groups Through Transformations/README_EN.md": {
       "authors": [
@@ -137655,7 +137655,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
     },
     "solution/3900-3999/3998.Transform Binary String Using Subsequence Sort/README_EN.md": {
       "authors": [
@@ -137666,7 +137666,95 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784474943
+      "retrieved": 1785070452
+    },
+    "solution/4000-4099/4002.Count Valid Sequences/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785064407
+    },
+    "solution/4000-4099/4001.Aggregate Two Time Series/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785064407
+    },
+    "solution/4000-4099/4000.Largest Integer With Given Digit Sum/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785064407
+    },
+    "solution/4000-4099/4003.Minimum Cost Path with Alternating Directions III/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785064407
+    },
+    "solution/4000-4099/4002.Count Valid Sequences/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785070452
+    },
+    "solution/4000-4099/4000.Largest Integer With Given Digit Sum/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785070452
+    },
+    "solution/4000-4099/4001.Aggregate Two Time Series/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785070452
+    },
+    "solution/4000-4099/4003.Minimum Cost Path with Alternating Directions III/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785070452
     }
   }
 }
