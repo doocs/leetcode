@@ -4010,6 +4010,10 @@
 |  3997  |  [统计二叉树中支配节点的数量](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README.md)  |    |  中等  |  第 511 场周赛  |
 |  3998  |  [使用子序列排序转换二进制字符串](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README.md)  |    |  中等  |  第 511 场周赛  |
 |  3999  |  [字符串变换后的最少分组数](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README.md)  |    |  困难  |  第 511 场周赛  |
+|  4000  |  [给定数位和的最大整数](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README.md)  |    |  简单  |  第 512 场周赛  |
+|  4001  |  [聚合两个时间序列](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README.md)  |    |  中等  |  第 512 场周赛  |
+|  4002  |  [统计有效序列数目](/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md)  |    |  中等  |  第 512 场周赛  |
+|  4003  |  [交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)  |    |  困难  |  第 512 场周赛  |
 
 ## 版权
 

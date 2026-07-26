@@ -4008,6 +4008,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3997  |  [Count Dominant Nodes in a Binary Tree](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 511  |
 |  3998  |  [Transform Binary String Using Subsequence Sort](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README_EN.md)  |    |  Medium  |  Weekly Contest 511  |
 |  3999  |  [Minimum Number of String Groups Through Transformations](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README_EN.md)  |    |  Hard  |  Weekly Contest 511  |
+|  4000  |  [Largest Integer With Given Digit Sum](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 512  |
+|  4001  |  [Aggregate Two Time Series](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README_EN.md)  |    |  Medium  |  Weekly Contest 512  |
+|  4002  |  [Count Valid Sequences](/solution/4000-4099/4002.Count%20Valid%20Sequences/README_EN.md)  |    |  Medium  |  Weekly Contest 512  |
+|  4003  |  [Minimum Cost Path with Alternating Directions III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 512  |
 
 ## Copyright
 

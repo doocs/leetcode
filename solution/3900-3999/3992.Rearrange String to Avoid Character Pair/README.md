@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3992.Rearrange%20String%20to%20Avoid%20Character%20Pair/README.md
+rating: 1251
+source: 第 187 场双周赛 Q1
 ---
 
 <!-- problem:start -->

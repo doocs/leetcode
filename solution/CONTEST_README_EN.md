@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 512
+
+- [4000. Largest Integer With Given Digit Sum](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README_EN.md)
+- [4001. Aggregate Two Time Series](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README_EN.md)
+- [4002. Count Valid Sequences](/solution/4000-4099/4002.Count%20Valid%20Sequences/README_EN.md)
+- [4003. Minimum Cost Path with Alternating Directions III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md)
+
 #### Weekly Contest 511
 
 - [3996. Even Number of Knight Moves](/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README_EN.md)
