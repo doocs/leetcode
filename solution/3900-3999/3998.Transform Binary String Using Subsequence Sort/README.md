@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README.md
+rating: 1862
+source: 第 511 场周赛 Q3
 ---
 
 <!-- problem:start -->

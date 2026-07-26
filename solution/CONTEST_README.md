@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 512 场周赛(2026-07-26 10:30, 90 分钟) 参赛人数 1166
+
+- [4000. 给定数位和的最大整数](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README.md)
+- [4001. 聚合两个时间序列](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README.md)
+- [4002. 统计有效序列数目](/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md)
+- [4003. 交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)
+
 #### 第 511 场周赛(2026-07-19 10:30, 90 分钟) 参赛人数 1002
 
 - [3996. 偶数次骑士移动](/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README.md)

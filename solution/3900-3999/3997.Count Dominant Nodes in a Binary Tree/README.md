@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README.md
+rating: 1426
+source: 第 511 场周赛 Q2
 ---
 
 <!-- problem:start -->

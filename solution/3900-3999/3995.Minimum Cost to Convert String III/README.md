@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3995.Minimum%20Cost%20to%20Convert%20String%20III/README.md
+rating: 2100
+source: 第 187 场双周赛 Q4
 ---
 
 <!-- problem:start -->
