@@ -122,32 +122,299 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4003.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：Dijkstra
+
+进入格子 $(i, j)$ 的代价为 $(i+1)(j+1)$。行动编号从 $1$ 起：奇数行动应向右或向下，偶数行动应向左或向上；也可在原地等待。不遵循奇偶性规则的移动需额外支付当前格的 $\textit{penalty}$，等待同样支付 $\textit{penalty}$。每次行动后奇偶性翻转。
+
+用状态 $(i, j, k)$ 表示位于 $(i, j)$、下一次行动奇偶性为 $k$（$k = 1$ 表示奇数行动，$k = 0$ 表示偶数行动）时的最小代价。起点为 $(0, 0, 1)$，初始代价为 $1$。
+
+从当前状态可：
+
+- **等待**：代价增加 $\textit{penalty}[i][j]$，奇偶性翻转；
+- **移动**：枚举四个方向，代价增加目标格入口费用；若方向与当前奇偶性不符，再加 $\textit{penalty}[i][j]$，到达新格后奇偶性翻转。
+
+对状态图跑 Dijkstra，首次弹出终点 $(m-1, n-1)$ 即为答案。
+
+时间复杂度 $O(mn \log (mn))$，空间复杂度 $O(mn)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minCost(self, m: int, n: int, penalty: List[List[int]]) -> int:
+        dist = [[[inf] * 2 for _ in range(n)] for _ in range(m)]
+        dist[0][0][1] = 1
+        pq = [(1, 0, 0, 1)]
+        dirs = ((-1, 0), (0, 1), (0, -1), (1, 0))
+        while pq:
+            d, i, j, k = heappop(pq)
+            if i == m - 1 and j == n - 1:
+                return d
+            if d > dist[i][j][k]:
+                continue
 
+            p = penalty[i][j]
+            nd = d + p
+            if nd < dist[i][j][k ^ 1]:
+                dist[i][j][k ^ 1] = nd
+                heappush(pq, (nd, i, j, k ^ 1))
+
+            for idx, (dx, dy) in enumerate(dirs):
+                x, y = i + dx, j + dy
+                if 0 <= x < m and 0 <= y < n:
+                    nd = d + (x + 1) * (y + 1) + (idx & 1 ^ k) * p
+                    if nd < dist[x][y][k ^ 1]:
+                        dist[x][y][k ^ 1] = nd
+                        heappush(pq, (nd, x, y, k ^ 1))
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long minCost(int m, int n, int[][] penalty) {
+        long[][][] dist = new long[m][n][2];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                Arrays.fill(dist[i][j], Long.MAX_VALUE);
+            }
+        }
+        dist[0][0][1] = 1;
 
+        PriorityQueue<long[]> pq = new PriorityQueue<>((a, b) -> Long.compare(a[0], b[0]));
+        pq.offer(new long[] {1, 0, 0, 1});
+
+        int[][] dirs = {{-1, 0}, {0, 1}, {0, -1}, {1, 0}};
+
+        while (!pq.isEmpty()) {
+            long[] cur = pq.poll();
+            long d = cur[0];
+            int i = (int) cur[1];
+            int j = (int) cur[2];
+            int k = (int) cur[3];
+
+            if (i == m - 1 && j == n - 1) {
+                return d;
+            }
+            if (d > dist[i][j][k]) {
+                continue;
+            }
+
+            int p = penalty[i][j];
+
+            long nd = d + p;
+            if (nd < dist[i][j][k ^ 1]) {
+                dist[i][j][k ^ 1] = nd;
+                pq.offer(new long[] {nd, i, j, k ^ 1});
+            }
+
+            for (int idx = 0; idx < 4; idx++) {
+                int x = i + dirs[idx][0];
+                int y = j + dirs[idx][1];
+                if (0 <= x && x < m && 0 <= y && y < n) {
+                    nd = d + (long) (x + 1) * (y + 1) + ((idx & 1) ^ k) * (long) p;
+                    if (nd < dist[x][y][k ^ 1]) {
+                        dist[x][y][k ^ 1] = nd;
+                        pq.offer(new long[] {nd, x, y, k ^ 1});
+                    }
+                }
+            }
+        }
+
+        return -1;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minCost(int m, int n, vector<vector<int>>& penalty) {
+        vector<vector<array<long long, 2>>> dist(
+            m, vector<array<long long, 2>>(n, {LLONG_MAX, LLONG_MAX}));
+        dist[0][0][1] = 1;
 
+        priority_queue<
+            array<long long, 4>,
+            vector<array<long long, 4>>,
+            greater<>>
+            pq;
+        pq.push({1, 0, 0, 1});
+
+        int dirs[4][2] = {{-1, 0}, {0, 1}, {0, -1}, {1, 0}};
+
+        while (!pq.empty()) {
+            auto [d, i, j, k] = pq.top();
+            pq.pop();
+
+            if (i == m - 1 && j == n - 1) {
+                return d;
+            }
+            if (d > dist[i][j][k]) {
+                continue;
+            }
+
+            int p = penalty[i][j];
+
+            long long nd = d + p;
+            if (nd < dist[i][j][k ^ 1]) {
+                dist[i][j][k ^ 1] = nd;
+                pq.push({nd, i, j, k ^ 1});
+            }
+
+            for (int idx = 0; idx < 4; idx++) {
+                int x = i + dirs[idx][0];
+                int y = j + dirs[idx][1];
+                if (0 <= x && x < m && 0 <= y && y < n) {
+                    nd = d + 1LL * (x + 1) * (y + 1) + (((idx & 1) ^ k) ? p : 0);
+                    if (nd < dist[x][y][k ^ 1]) {
+                        dist[x][y][k ^ 1] = nd;
+                        pq.push({nd, (long long) x, (long long) y, (long long) (k ^ 1)});
+                    }
+                }
+            }
+        }
+
+        return -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+const inf int64 = 1 << 60
 
+type tuple struct {
+	d    int64
+	i, j int
+	k    int
+}
+
+type hp []tuple
+
+func (h hp) Len() int           { return len(h) }
+func (h hp) Less(i, j int) bool { return h[i].d < h[j].d }
+func (h hp) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+
+func (h *hp) Push(x any) {
+	*h = append(*h, x.(tuple))
+}
+
+func (h *hp) Pop() any {
+	a := *h
+	v := a[len(a)-1]
+	*h = a[:len(a)-1]
+	return v
+}
+
+func minCost(m int, n int, penalty [][]int) int64 {
+	dist := make([][][]int64, m)
+	for i := range dist {
+		dist[i] = make([][]int64, n)
+		for j := range dist[i] {
+			dist[i][j] = []int64{inf, inf}
+		}
+	}
+	dist[0][0][1] = 1
+
+	pq := hp{{1, 0, 0, 1}}
+	heap.Init(&pq)
+
+	dirs := [][2]int{{-1, 0}, {0, 1}, {0, -1}, {1, 0}}
+
+	for pq.Len() > 0 {
+		cur := heap.Pop(&pq).(tuple)
+		d, i, j, k := cur.d, cur.i, cur.j, cur.k
+
+		if i == m-1 && j == n-1 {
+			return d
+		}
+		if d > dist[i][j][k] {
+			continue
+		}
+
+		p := penalty[i][j]
+
+		nd := d + int64(p)
+		if nd < dist[i][j][k^1] {
+			dist[i][j][k^1] = nd
+			heap.Push(&pq, tuple{nd, i, j, k ^ 1})
+		}
+
+		for idx, dir := range dirs {
+			x, y := i+dir[0], j+dir[1]
+			if 0 <= x && x < m && 0 <= y && y < n {
+				nd = d + int64((x+1)*(y+1)+((idx&1)^k)*p)
+				if nd < dist[x][y][k^1] {
+					dist[x][y][k^1] = nd
+					heap.Push(&pq, tuple{nd, x, y, k ^ 1})
+				}
+			}
+		}
+	}
+
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function minCost(m: number, n: number, penalty: number[][]): number {
+    const dist = Array.from({ length: m }, () =>
+        Array.from({ length: n }, () => [Infinity, Infinity]),
+    );
+    dist[0][0][1] = 1;
+
+    const pq = new MinPriorityQueue<number[]>(x => x[0]);
+    pq.enqueue([1, 0, 0, 1]);
+
+    const dirs = [
+        [-1, 0],
+        [0, 1],
+        [0, -1],
+        [1, 0],
+    ];
+
+    while (!pq.isEmpty()) {
+        const [d, i, j, k] = pq.dequeue();
+
+        if (i === m - 1 && j === n - 1) {
+            return d;
+        }
+        if (d > dist[i][j][k]) {
+            continue;
+        }
+
+        const p = penalty[i][j];
+
+        let nd = d + p;
+        if (nd < dist[i][j][k ^ 1]) {
+            dist[i][j][k ^ 1] = nd;
+            pq.enqueue([nd, i, j, k ^ 1]);
+        }
+
+        for (let idx = 0; idx < 4; idx++) {
+            const [dx, dy] = dirs[idx];
+            const x = i + dx;
+            const y = j + dy;
+            if (0 <= x && x < m && 0 <= y && y < n) {
+                nd = d + (x + 1) * (y + 1) + ((idx & 1) ^ k) * p;
+                if (nd < dist[x][y][k ^ 1]) {
+                    dist[x][y][k ^ 1] = nd;
+                    pq.enqueue([nd, x, y, k ^ 1]);
+                }
+            }
+        }
+    }
+
+    return -1;
+}
 ```
 
 <!-- tabs:end -->
