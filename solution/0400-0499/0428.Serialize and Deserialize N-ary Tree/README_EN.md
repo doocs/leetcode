@@ -75,13 +75,74 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Use BFS
+We start with the root of the tree and form a queue to store the nodes. We pop nodes from the queue to check the children of the node and push the children into the queue. This is done until the queue is empty (i.e., all nodes are traversed).
 
+**Serialize:**
+* We start with the root node and add it to a queue
+* We keep on popping nodes from the queue, check its children, and add children into the queue. As we go through each node, we add its value into the serialized string. If a node has no children, we just add "n" to the string.
+* This is repeated until the queue is empty and all nodes are traversed.
+
+**Deserialize:**
+* Start by creating the root node from the first element from the serialized string and add it into a queue.
+* Next, go through each child of the node, create a node for each child and add it to the node's children.
+* Each child node is also added to the queue to be checked for its children.
+* This is repeated until the serialized string is completely traversed.
+
+We first create a queue and push the root into the queue. While the queue is not empty, we pop a node from the queue and push the children of the current node into the queue. Here we also add the important information related to the node like its value and the count of children to the result array.
+
+While deserializing, we start by popping nodes from the data and creating nodes for them. We keep popping as many nodes as the children count for the current node and add them to the node's children and the queue.
+
+We repeat this process until all nodes are processed
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Node(object):
+    def __init__(self, val=0, children=0):
+        self.val = val
+        self.children = children
+
+class Codec:
+    def serialize(self, root):
+        if root is None:
+            return []
+
+        queue = [root]
+        result = [root.val]  # add root value
+
+        while queue:
+            node = queue.pop(0)
+            if node is None:
+                continue
+
+            for child in node.children:
+                queue.append(child)
+            result.append(len(node.children))  # add count of children
+            result.extend([child.val for child in node.children])  # add children values
+
+        return result
+
+    def deserialize(self, data):
+        if not data:
+            return None
+
+        root = Node(data[0])  # get root from first index
+        data = data[1:]  # remove root from data
+        queue = [root]
+
+        while queue:
+            node = queue.pop(0)
+            if node is None:
+                continue
+
+            for _ in range(data.pop(0)):  # check children count
+                child = Node(data.pop(0))  # get child value
+                node.children.append(child)
+                queue.append(child)
+
+        return root
 
 ```
 
