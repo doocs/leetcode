@@ -4012,6 +4012,8 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4001  |  [Aggregate Two Time Series](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README_EN.md)  |    |  Medium  |  Weekly Contest 512  |
 |  4002  |  [Count Valid Sequences](/solution/4000-4099/4002.Count%20Valid%20Sequences/README_EN.md)  |    |  Medium  |  Weekly Contest 512  |
 |  4003  |  [Minimum Cost Path with Alternating Directions III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 512  |
+|  4004  |  [Minimum Moves to Balance Circular Array II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
