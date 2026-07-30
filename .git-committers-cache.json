@@ -1,5 +1,5 @@
 {
-  "cache_date": 1785253842,
+  "cache_date": 1785390363,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137755,6 +137755,50 @@
         }
       ],
       "retrieved": 1785159415
+    },
+    "solution/4000-4099/4005.Minimum Operations to Make Array Equal III/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785381001
+    },
+    "solution/4000-4099/4004.Minimum Moves to Balance Circular Array II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785381001
+    },
+    "solution/4000-4099/4004.Minimum Moves to Balance Circular Array II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785385948
+    },
+    "solution/4000-4099/4005.Minimum Operations to Make Array Equal III/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1785385948
     }
   }
 }
