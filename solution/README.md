@@ -4014,6 +4014,8 @@
 |  4001  |  [聚合两个时间序列](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README.md)  |    |  中等  |  第 512 场周赛  |
 |  4002  |  [统计有效序列数目](/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md)  |    |  中等  |  第 512 场周赛  |
 |  4003  |  [交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)  |    |  困难  |  第 512 场周赛  |
+|  4004  |  [使循环数组余额非负的最少移动次数 II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README.md)  |    |  困难  |  🔒  |
+|  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
