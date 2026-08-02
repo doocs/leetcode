@@ -98,32 +98,254 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4012.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Prefix Sum + Binary Search
+
+We first precompute the prefix sum array $s$ of task times, where $s[i]$ represents the total time required for the first $i$ tasks.
+
+Then we use a variable $i$ to record the index of the task currently being processed, and a variable $\textit{cur}$ to record how much time has already been spent on that task. We simulate each shift in order:
+
+- If the current shift time $\textit{shifts}[j]$ is less than the time needed to finish the current task $\textit{tasks}[i] - \textit{cur}$, the shift can only make partial progress on the current task. We update $\textit{cur} \gets \textit{cur} + \textit{shifts}[j]$, and the number of unfinished tasks is $m - i$;
+- Otherwise, the current task is finished, and the remaining time is $t = \textit{shifts}[j] - (\textit{tasks}[i] - \textit{cur})$. If $t \ge s[m] - s[i + 1]$, all tasks can be completed, so the next shift restarts from task $0$, i.e., $i \gets 0$, $\textit{cur} \gets 0$, and the number of unfinished tasks is $0$. Otherwise, we binary search in the range $[i + 1, m]$ for the largest index $l$ such that $s[l] - s[i + 1] \le t$, meaning the shift ends while processing task $l$ with $\textit{cur} = t - (s[l] - s[i + 1])$ time already spent on it, and the number of unfinished tasks is $m - l$.
+
+The time complexity is $O((m + n) \times \log m)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the arrays $\textit{tasks}$ and $\textit{shifts}$, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countTasks(self, tasks: List[int], shifts: List[int]) -> List[int]:
+        m, n = len(tasks), len(shifts)
+        s = list(accumulate(tasks, initial=0))
+        ans = [0] * n
+        i = cur = 0
+        for j in range(n):
+            if shifts[j] < tasks[i] - cur:
+                cur += shifts[j]
+                ans[j] = m - i
+            else:
+                t = shifts[j] - (tasks[i] - cur)
+                if t >= s[-1] - s[i + 1]:
+                    i = cur = 0
+                else:
+                    l, r = i + 1, m
+                    while l < r:
+                        mid = (l + r) >> 1
+                        if t < s[mid + 1] - s[i + 1]:
+                            r = mid
+                        else:
+                            l = mid + 1
+                    cur = t - (s[l] - s[i + 1])
+                    i = l
+                    ans[j] = m - i
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int[] countTasks(int[] tasks, int[] shifts) {
+        int m = tasks.length;
+        int n = shifts.length;
 
+        long[] s = new long[m + 1];
+        for (int i = 0; i < m; i++) {
+            s[i + 1] = s[i] + tasks[i];
+        }
+
+        int[] ans = new int[n];
+
+        int i = 0;
+        long cur = 0;
+
+        for (int j = 0; j < n; j++) {
+            if (shifts[j] < tasks[i] - cur) {
+                cur += shifts[j];
+                ans[j] = m - i;
+            } else {
+                long t = shifts[j] - (tasks[i] - cur);
+
+                if (t >= s[m] - s[i + 1]) {
+                    i = 0;
+                    cur = 0;
+                } else {
+                    int l = i + 1, r = m;
+
+                    while (l < r) {
+                        int mid = (l + r) >> 1;
+                        if (t < s[mid + 1] - s[i + 1]) {
+                            r = mid;
+                        } else {
+                            l = mid + 1;
+                        }
+                    }
+
+                    cur = t - (s[l] - s[i + 1]);
+                    i = l;
+                    ans[j] = m - i;
+                }
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> countTasks(vector<int>& tasks, vector<int>& shifts) {
+        int m = tasks.size();
+        int n = shifts.size();
 
+        vector<long long> s(m + 1);
+        for (int i = 0; i < m; i++) {
+            s[i + 1] = s[i] + tasks[i];
+        }
+
+        vector<int> ans(n);
+
+        int i = 0;
+        long long cur = 0;
+
+        for (int j = 0; j < n; j++) {
+            if (shifts[j] < tasks[i] - cur) {
+                cur += shifts[j];
+                ans[j] = m - i;
+            } else {
+                long long t = shifts[j] - (tasks[i] - cur);
+
+                if (t >= s[m] - s[i + 1]) {
+                    i = 0;
+                    cur = 0;
+                } else {
+                    int l = i + 1, r = m;
+
+                    while (l < r) {
+                        int mid = (l + r) >> 1;
+                        if (t < s[mid + 1] - s[i + 1]) {
+                            r = mid;
+                        } else {
+                            l = mid + 1;
+                        }
+                    }
+
+                    cur = t - (s[l] - s[i + 1]);
+                    i = l;
+                    ans[j] = m - i;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countTasks(tasks []int, shifts []int) []int {
+	m := len(tasks)
+	n := len(shifts)
 
+	s := make([]int64, m+1)
+	for i := 0; i < m; i++ {
+		s[i+1] = s[i] + int64(tasks[i])
+	}
+
+	ans := make([]int, n)
+
+	i := 0
+	var cur int64 = 0
+
+	for j := 0; j < n; j++ {
+		if int64(shifts[j]) < int64(tasks[i])-cur {
+			cur += int64(shifts[j])
+			ans[j] = m - i
+		} else {
+			t := int64(shifts[j]) - (int64(tasks[i]) - cur)
+
+			if t >= s[m]-s[i+1] {
+				i = 0
+				cur = 0
+			} else {
+				l, r := i+1, m
+
+				for l < r {
+					mid := (l + r) >> 1
+					if t < s[mid+1]-s[i+1] {
+						r = mid
+					} else {
+						l = mid + 1
+					}
+				}
+
+				cur = t - (s[l] - s[i+1])
+				i = l
+				ans[j] = m - i
+			}
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countTasks(tasks: number[], shifts: number[]): number[] {
+    const m = tasks.length;
+    const n = shifts.length;
+
+    const s = new Array<number>(m + 1).fill(0);
+    for (let i = 0; i < m; i++) {
+        s[i + 1] = s[i] + tasks[i];
+    }
+
+    const ans = new Array<number>(n).fill(0);
+
+    let i = 0;
+    let cur = 0;
+
+    for (let j = 0; j < n; j++) {
+        if (shifts[j] < tasks[i] - cur) {
+            cur += shifts[j];
+            ans[j] = m - i;
+        } else {
+            const t = shifts[j] - (tasks[i] - cur);
+
+            if (t >= s[m] - s[i + 1]) {
+                i = 0;
+                cur = 0;
+            } else {
+                let l = i + 1;
+                let r = m;
+
+                while (l < r) {
+                    const mid = (l + r) >> 1;
+                    if (t < s[mid + 1] - s[i + 1]) {
+                        r = mid;
+                    } else {
+                        l = mid + 1;
+                    }
+                }
+
+                cur = t - (s[l] - s[i + 1]);
+                i = l;
+                ans[j] = m - i;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

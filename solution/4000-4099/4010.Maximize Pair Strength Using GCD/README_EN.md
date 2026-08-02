@@ -72,32 +72,134 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4010.Ma
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+We directly enumerate all pairs $(i, j)$ where $i < j$, calculate the strength of each pair $\frac{\textit{nums}[i] \times \textit{nums}[j]}{\gcd(\textit{nums}[i], \textit{nums}[j])^2}$, and take the maximum.
+
+The greatest common divisor $\gcd$ can be computed using the Euclidean algorithm.
+
+The time complexity is $O(n^2 \times \log M)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxPairStrength(self, nums: list[int]) -> int:
+        n = len(nums)
+        ans = 0
+        for i in range(n):
+            for j in range(i + 1, n):
+                x = nums[i] * nums[j] // gcd(nums[i], nums[j]) ** 2
+                ans = max(ans, x)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long maxPairStrength(int[] nums) {
+        int n = nums.length;
+        long ans = 0;
 
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                long g = gcd(nums[i], nums[j]);
+                long x = (long) nums[i] * nums[j] / (g * g);
+                ans = Math.max(ans, x);
+            }
+        }
+
+        return ans;
+    }
+
+    private long gcd(long a, long b) {
+        while (b != 0) {
+            long t = a % b;
+            a = b;
+            b = t;
+        }
+        return a;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long maxPairStrength(vector<int>& nums) {
+        int n = nums.size();
+        long long ans = 0;
 
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                long long g = gcd(nums[i], nums[j]);
+                long long x = 1LL * nums[i] * nums[j] / (g * g);
+                ans = max(ans, x);
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxPairStrength(nums []int) int64 {
+	n := len(nums)
+	var ans int64 = 0
 
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			g := gcd(int64(nums[i]), int64(nums[j]))
+			x := int64(nums[i]) * int64(nums[j]) / (g * g)
+			ans = max(ans, x)
+		}
+	}
+
+	return ans
+}
+
+func gcd(a, b int64) int64 {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
+}
+```
+
+#### TypeScript
+
+```ts
+function maxPairStrength(nums: number[]): number {
+    const n = nums.length;
+    let ans = 0;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            const g = gcd(nums[i], nums[j]);
+            const x = Math.floor((nums[i] * nums[j]) / (g * g));
+            ans = Math.max(ans, x);
+        }
+    }
+
+    return ans;
+}
+
+function gcd(a: number, b: number): number {
+    while (b !== 0) {
+        const t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;
+}
 ```
 
 <!-- tabs:end -->

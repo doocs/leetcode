@@ -189,32 +189,132 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4011.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：枚举子数组
+
+我们枚举子数组的左端点 $i$，然后向右扩展右端点 $j$，同时维护子数组中奇数的个数 $y$，那么偶数的个数为 $x = j - i + 1 - y$。
+
+如果 $y > 0$ 且 $\frac{x}{y} \le \frac{a}{b}$，那么该子数组是有效子数组。为了避免浮点数运算带来的精度问题，我们可以将条件转化为等价的整数比较 $x \times b \le y \times a$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(1)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countRatioSubarrays(self, nums: list[int], a: int, b: int) -> int:
+        ans = 0
+        n = len(nums)
+        for i in range(n):
+            y = 0
+            for j in range(i, n):
+                y += nums[j] % 2
+                x = j - i + 1 - y
+                if y and (x / y) <= (a / b):
+                    ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countRatioSubarrays(int[] nums, int a, int b) {
+        int n = nums.length;
+        long ans = 0;
 
+        for (int i = 0; i < n; i++) {
+            int y = 0;
+
+            for (int j = i; j < n; j++) {
+                y += nums[j] % 2;
+                int x = j - i + 1 - y;
+
+                if (y > 0 && (long) x * b <= (long) y * a) {
+                    ans++;
+                }
+            }
+        }
+
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countRatioSubarrays(vector<int>& nums, int a, int b) {
+        int n = nums.size();
+        long long ans = 0;
 
+        for (int i = 0; i < n; i++) {
+            int y = 0;
+
+            for (int j = i; j < n; j++) {
+                y += nums[j] % 2;
+                int x = j - i + 1 - y;
+
+                if (y > 0 && 1LL * x * b <= 1LL * y * a) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countRatioSubarrays(nums []int, a int, b int) int {
+	n := len(nums)
+	var ans int64 = 0
 
+	for i := 0; i < n; i++ {
+		y := 0
+
+		for j := i; j < n; j++ {
+			y += nums[j] % 2
+			x := j - i + 1 - y
+
+			if y > 0 && int64(x)*int64(b) <= int64(y)*int64(a) {
+				ans++
+			}
+		}
+	}
+
+	return int(ans)
+}
+```
+
+#### TypeScript
+
+```ts
+function countRatioSubarrays(nums: number[], a: number, b: number): number {
+    const n = nums.length;
+    let ans = 0;
+
+    for (let i = 0; i < n; i++) {
+        let y = 0;
+
+        for (let j = i; j < n; j++) {
+            y += nums[j] % 2;
+            const x = j - i + 1 - y;
+
+            if (y > 0 && x * b <= y * a) {
+                ans++;
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
