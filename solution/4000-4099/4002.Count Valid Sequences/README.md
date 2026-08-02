@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md
+rating: 1912
+source: 第 512 场周赛 Q3
 ---
 
 <!-- problem:start -->

@@ -29,6 +29,20 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 513
+
+- [4010. Maximize Pair Strength Using GCD](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md)
+- [4011. Count Subarrays With Even Odd Ratio I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README_EN.md)
+- [4012. Count of Unfinished Tasks After Each Shift](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README_EN.md)
+- [4013. Count Subarrays With Even Odd Ratio II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README_EN.md)
+
+#### Biweekly Contest 188
+
+- [4006. Count Valid Prefixes](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README_EN.md)
+- [4007. Widest Possible Fence](/solution/4000-4099/4007.Widest%20Possible%20Fence/README_EN.md)
+- [4008. Minimum Initial Strength to Defeat All Monsters](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README_EN.md)
+- [4009. Minimum Possible Maximum Waiting Time](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README_EN.md)
+
 #### Weekly Contest 512
 
 - [4000. Largest Integer With Given Digit Sum](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README_EN.md)
