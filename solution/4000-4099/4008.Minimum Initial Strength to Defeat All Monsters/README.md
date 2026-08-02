@@ -94,32 +94,214 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4008.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：差分数组 + 二分查找
+
+每个加成都是对下标区间 $[l, r]$ 的整体加法，因此我们先用差分数组 $d$ 处理所有加成。这样，与第 $i$ 个怪物战斗时的 $\textit{bonus}$ 就是差分数组的前缀和 $\sum_{j=0}^{i} d[j]$。
+
+接下来二分初始强度 $v$。对于给定的 $v$，我们从左到右模拟战斗过程：维护当前加成 $\textit{bonus}$（即差分数组的前缀和），如果 $v + \textit{bonus} < \textit{monsters}[i]$，则无法击败该怪物，$v$ 不可行；否则击败该怪物，将 $v$ 减去 $\textit{monsters}[i]$，若变为负数则置为 $0$。若所有怪物都能被击败，则 $v$ 可行。
+
+初始强度越大越容易击败所有怪物，即可行性关于 $v$ 具有单调性，因此可以二分查找最小的可行初始强度。二分上界取 $10^{15}$ 即可（所有怪物强度之和不超过 $5 \times 10^4 \times 10^9 = 5 \times 10^{13}$）。
+
+时间复杂度 $O((n + m) \times \log M)$，空间复杂度 $O(n)$。其中 $n$ 为怪物数量，$m$ 为加成数量，而 $M = 10^{15}$ 为二分上界。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minInitialStrength(self, monsters: list[int], boosts: list[list[int]]) -> int:
+        def check(v: int) -> bool:
+            bonus = 0
+            for a, b in zip(monsters, d):
+                bonus += b
+                if v + bonus < a:
+                    return False
+                v -= a
+                v = max(v, 0)
+            return True
 
+        n = len(monsters)
+        d = [0] * (n + 1)
+        for l, r, v in boosts:
+            d[l] += v
+            d[r + 1] -= v
+
+        l, r = 0, 10**15
+        while l < r:
+            mid = (l + r) >> 1
+            if check(mid):
+                r = mid
+            else:
+                l = mid + 1
+        return l
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private int[] monsters;
+    private long[] d;
 
+    public long minInitialStrength(int[] monsters, int[][] boosts) {
+        this.monsters = monsters;
+        int n = monsters.length;
+        d = new long[n + 1];
+        for (int[] b : boosts) {
+            d[b[0]] += b[2];
+            d[b[1] + 1] -= b[2];
+        }
+
+        long left = 0, right = (long) 1e15;
+        while (left < right) {
+            long mid = (left + right) >>> 1;
+            if (check(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(long v) {
+        long bonus = 0;
+        for (int i = 0; i < monsters.length; i++) {
+            bonus += d[i];
+            if (v + bonus < monsters[i]) {
+                return false;
+            }
+            v -= monsters[i];
+            if (v < 0) {
+                v = 0;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long minInitialStrength(vector<int>& monsters, vector<vector<int>>& boosts) {
+        int n = monsters.size();
+        vector<long long> d(n + 1);
+        for (auto& b : boosts) {
+            d[b[0]] += b[2];
+            d[b[1] + 1] -= b[2];
+        }
 
+        auto check = [&](long long v) -> bool {
+            long long bonus = 0;
+            for (int i = 0; i < n; i++) {
+                bonus += d[i];
+                if (v + bonus < monsters[i]) {
+                    return false;
+                }
+                v -= monsters[i];
+                if (v < 0) {
+                    v = 0;
+                }
+            }
+            return true;
+        };
+
+        long long left = 0, right = 1000000000000000LL;
+        while (left < right) {
+            long long mid = (left + right) / 2;
+            if (check(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minInitialStrength(monsters []int, boosts [][]int) int64 {
+	n := len(monsters)
+	d := make([]int64, n+1)
+	for _, b := range boosts {
+		d[b[0]] += int64(b[2])
+		d[b[1]+1] -= int64(b[2])
+	}
 
+	check := func(v int64) bool {
+		var bonus int64
+		for i, a := range monsters {
+			bonus += d[i]
+			if v+bonus < int64(a) {
+				return false
+			}
+			v -= int64(a)
+			if v < 0 {
+				v = 0
+			}
+		}
+		return true
+	}
+
+	var left, right int64 = 0, 1000000000000000
+	for left < right {
+		mid := (left + right) / 2
+		if check(mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+```
+
+#### TypeScript
+
+```ts
+function minInitialStrength(monsters: number[], boosts: number[][]): number {
+    const n = monsters.length;
+    const d = new Array<number>(n + 1).fill(0);
+
+    for (const [l, r, v] of boosts) {
+        d[l] += v;
+        d[r + 1] -= v;
+    }
+
+    const check = (v: number): boolean => {
+        let bonus = 0;
+        for (let i = 0; i < n; i++) {
+            bonus += d[i];
+            if (v + bonus < monsters[i]) {
+                return false;
+            }
+            v -= monsters[i];
+            if (v < 0) {
+                v = 0;
+            }
+        }
+        return true;
+    };
+
+    let left = 0;
+    let right = 1e15;
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
 ```
 
 <!-- tabs:end -->

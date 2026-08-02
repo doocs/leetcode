@@ -69,32 +69,96 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4006.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Counting
+
+A string can be rearranged into an alternating string if and only if the counts of `'0'` and `'1'` in it differ by at most $1$.
+
+Therefore, we traverse the string $s$ and maintain a variable $t$ equal to the number of `'1'`s minus the number of `'0'`s in the current prefix (increment by one on `'1'`, decrement by one on `'0'`). If $|t| \leq 1$, the current prefix is valid, and we add one to the answer.
+
+The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countValidPrefixes(self, s: str) -> int:
+        ans = t = 0
+        for c in s:
+            t += 1 if c == '1' else -1
+            ans += 1 if abs(t) <= 1 else 0
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countValidPrefixes(String s) {
+        int ans = 0, t = 0;
+        for (char c : s.toCharArray()) {
+            t += c == '1' ? 1 : -1;
+            if (Math.abs(t) <= 1) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countValidPrefixes(string s) {
+        int ans = 0, t = 0;
+        for (char c : s) {
+            t += c == '1' ? 1 : -1;
+            if (abs(t) <= 1) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countValidPrefixes(s string) int {
+	ans, t := 0, 0
+	for _, c := range s {
+		if c == '1' {
+			t++
+		} else {
+			t--
+		}
+		if t >= -1 && t <= 1 {
+			ans++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countValidPrefixes(s: string): number {
+    let ans = 0;
+    let t = 0;
+    for (const c of s) {
+        t += c === '1' ? 1 : -1;
+        if (Math.abs(t) <= 1) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
