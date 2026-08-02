@@ -76,32 +76,192 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4007.Wi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数 + 枚举
+
+我们先用哈希表 $\textit{cnt}$ 统计每种高度木板的数量。
+
+对于目标高度 $h$，能够得到的高度为 $h$ 的木板数量由三部分组成：
+
+- 直接使用高度为 $h$ 的木板，共 $\textit{cnt}[h]$ 块；
+- 若 $h$ 为偶数，两块高度为 $h/2$ 的木板可以组合成一块，共 $\lfloor \textit{cnt}[h/2] / 2 \rfloor$ 块；
+- 对于满足 $x + y = h$ 且 $x < y$ 的每对高度，可以组合出 $\min(\textit{cnt}[x], \textit{cnt}[y])$ 块。
+
+对于固定的 $h$，这三部分以及不同的 $(x, h - x)$ 高度对所涉及的原始木板互不重叠，因此可以直接相加。
+
+我们枚举 $\textit{cnt}$ 中的每种高度 $x$，把贡献累加到哈希表 $t$ 中：
+
+- $t[x] \mathrel{+}= \textit{cnt}[x]$，表示直接使用高度为 $x$ 的木板；
+- $t[2x] \mathrel{+}= \lfloor \textit{cnt}[x] / 2 \rfloor$，表示两块高度为 $x$ 的木板两两组合；
+- 对于每种高度 $y > x$，$t[x + y] \mathrel{+}= \min(\textit{cnt}[x], \textit{cnt}[y])$，表示高度 $x$ 与高度 $y$ 的木板组合。
+
+答案即为 $t$ 中的最大值。
+
+时间复杂度 $O(n + m^2)$，空间复杂度 $O(m)$。其中 $n$ 为木板数量，$m$ 为不同高度的数量，$m \leq n$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maximumWidth(self, planks: list[int]) -> int:
+        cnt = Counter(planks)
+        ans = 0
+        t = defaultdict(int)
+        for x, v1 in cnt.items():
+            t[x] += v1
+            t[x * 2] += v1 // 2
+            for y, v2 in cnt.items():
+                if y > x:
+                    t[x + y] += min(v1, v2)
+        return max(t.values())
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maximumWidth(int[] planks) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int x : planks) {
+            cnt.merge(x, 1, Integer::sum);
+        }
 
+        Map<Integer, Integer> t = new HashMap<>();
+        int ans = 0;
+
+        for (var e1 : cnt.entrySet()) {
+            int x = e1.getKey();
+            int v1 = e1.getValue();
+
+            t.merge(x, v1, Integer::sum);
+            ans = Math.max(ans, t.get(x));
+
+            t.merge(x * 2, v1 / 2, Integer::sum);
+            ans = Math.max(ans, t.get(x * 2));
+
+            for (var e2 : cnt.entrySet()) {
+                int y = e2.getKey();
+                int v2 = e2.getValue();
+                if (y > x) {
+                    int key = x + y;
+                    t.merge(key, Math.min(v1, v2), Integer::sum);
+                    ans = Math.max(ans, t.get(key));
+                }
+            }
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maximumWidth(vector<int>& planks) {
+        unordered_map<int, int> cnt;
+        for (int x : planks) {
+            cnt[x]++;
+        }
 
+        unordered_map<int, int> t;
+        int ans = 0;
+
+        for (auto& [x, v1] : cnt) {
+            t[x] += v1;
+            ans = max(ans, t[x]);
+
+            t[x * 2] += v1 / 2;
+            ans = max(ans, t[x * 2]);
+
+            for (auto& [y, v2] : cnt) {
+                if (y > x) {
+                    t[x + y] += min(v1, v2);
+                    ans = max(ans, t[x + y]);
+                }
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maximumWidth(planks []int) int {
+	cnt := make(map[int]int)
+	for _, x := range planks {
+		cnt[x]++
+	}
 
+	t := make(map[int]int)
+	ans := 0
+
+	for x, v1 := range cnt {
+		t[x] += v1
+		if t[x] > ans {
+			ans = t[x]
+		}
+
+		t[x*2] += v1 / 2
+		if t[x*2] > ans {
+			ans = t[x*2]
+		}
+
+		for y, v2 := range cnt {
+			if y > x {
+				key := x + y
+				if v1 < v2 {
+					t[key] += v1
+				} else {
+					t[key] += v2
+				}
+				if t[key] > ans {
+					ans = t[key]
+				}
+			}
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumWidth(planks: number[]): number {
+    const cnt = new Map<number, number>();
+    for (const x of planks) {
+        cnt.set(x, (cnt.get(x) ?? 0) + 1);
+    }
+
+    const t = new Map<number, number>();
+    let ans = 0;
+
+    for (const [x, v1] of cnt) {
+        t.set(x, (t.get(x) ?? 0) + v1);
+        ans = Math.max(ans, t.get(x)!);
+
+        t.set(x * 2, (t.get(x * 2) ?? 0) + Math.floor(v1 / 2));
+        ans = Math.max(ans, t.get(x * 2)!);
+
+        for (const [y, v2] of cnt) {
+            if (y > x) {
+                const key = x + y;
+                t.set(key, (t.get(key) ?? 0) + Math.min(v1, v2));
+                ans = Math.max(ans, t.get(key)!);
+            }
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -77,32 +77,96 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4006.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：计数
+
+一个字符串能够重新排列成交替字符串，当且仅当其中 `'0'` 和 `'1'` 的数量之差不超过 $1$。
+
+因此，我们遍历字符串 $s$，用一个变量 $t$ 维护当前前缀中 `'1'` 的个数减去 `'0'` 的个数（遇到 `'1'` 时加一，遇到 `'0'` 时减一）。如果 $|t| \leq 1$，说明当前前缀是有效的，答案加一。
+
+时间复杂度 $O(n)$，其中 $n$ 为字符串 $s$ 的长度。空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countValidPrefixes(self, s: str) -> int:
+        ans = t = 0
+        for c in s:
+            t += 1 if c == '1' else -1
+            ans += 1 if abs(t) <= 1 else 0
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countValidPrefixes(String s) {
+        int ans = 0, t = 0;
+        for (char c : s.toCharArray()) {
+            t += c == '1' ? 1 : -1;
+            if (Math.abs(t) <= 1) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countValidPrefixes(string s) {
+        int ans = 0, t = 0;
+        for (char c : s) {
+            t += c == '1' ? 1 : -1;
+            if (abs(t) <= 1) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countValidPrefixes(s string) int {
+	ans, t := 0, 0
+	for _, c := range s {
+		if c == '1' {
+			t++
+		} else {
+			t--
+		}
+		if t >= -1 && t <= 1 {
+			ans++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countValidPrefixes(s: string): number {
+    let ans = 0;
+    let t = 0;
+    for (const c of s) {
+        t += c === '1' ? 1 : -1;
+        if (Math.abs(t) <= 1) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
