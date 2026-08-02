@@ -26,6 +26,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 513 场周赛(2026-08-02 10:30, 90 分钟) 参赛人数 1002
+
+- [4010. 数对的最大强度](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README.md)
+- [4011. 按奇偶比统计子数组 I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README.md)
+- [4012. 统计每个班次结束后的未完成任务数](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md)
+- [4013. 按奇偶比统计子数组 II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README.md)
+
+#### 第 188 场双周赛(2026-08-01 22:30, 90 分钟) 参赛人数 716
+
+- [4006. 统计有效前缀数目](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README.md)
+- [4007. 栅栏的最宽宽度](/solution/4000-4099/4007.Widest%20Possible%20Fence/README.md)
+- [4008. 击败所有怪物的最小初始强度](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README.md)
+- [4009. 最小化最大可能等待时间](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README.md)
+
 #### 第 512 场周赛(2026-07-26 10:30, 90 分钟) 参赛人数 1166
 
 - [4000. 给定数位和的最大整数](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README.md)

@@ -4014,6 +4014,14 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4003  |  [Minimum Cost Path with Alternating Directions III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 512  |
 |  4004  |  [Minimum Moves to Balance Circular Array II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README_EN.md)  |    |  Hard  |  🔒  |
+|  4006  |  [Count Valid Prefixes](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README_EN.md)  |    |  Easy  |  Biweekly Contest 188  |
+|  4007  |  [Widest Possible Fence](/solution/4000-4099/4007.Widest%20Possible%20Fence/README_EN.md)  |    |  Medium  |  Biweekly Contest 188  |
+|  4008  |  [Minimum Initial Strength to Defeat All Monsters](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README_EN.md)  |    |  Medium  |  Biweekly Contest 188  |
+|  4009  |  [Minimum Possible Maximum Waiting Time](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README_EN.md)  |    |  Hard  |  Biweekly Contest 188  |
+|  4010  |  [Maximize Pair Strength Using GCD](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md)  |    |  Easy  |  Weekly Contest 513  |
+|  4011  |  [Count Subarrays With Even Odd Ratio I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 513  |
+|  4012  |  [Count of Unfinished Tasks After Each Shift](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README_EN.md)  |    |  Medium  |  Weekly Contest 513  |
+|  4013  |  [Count Subarrays With Even Odd Ratio II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 513  |
 
 ## Copyright
 

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README.md
+rating: 1199
+source: 第 512 场周赛 Q1
 ---
 
 <!-- problem:start -->

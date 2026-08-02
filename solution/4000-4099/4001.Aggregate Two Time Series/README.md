@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README.md
+rating: 1506
+source: 第 512 场周赛 Q2
 ---
 
 <!-- problem:start -->

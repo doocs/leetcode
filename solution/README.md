@@ -4016,6 +4016,14 @@
 |  4003  |  [交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)  |    |  困难  |  第 512 场周赛  |
 |  4004  |  [使循环数组余额非负的最少移动次数 II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README.md)  |    |  困难  |  🔒  |
 |  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README.md)  |    |  困难  |  🔒  |
+|  4006  |  [统计有效前缀数目](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README.md)  |    |  简单  |  第 188 场双周赛  |
+|  4007  |  [栅栏的最宽宽度](/solution/4000-4099/4007.Widest%20Possible%20Fence/README.md)  |    |  中等  |  第 188 场双周赛  |
+|  4008  |  [击败所有怪物的最小初始强度](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README.md)  |    |  中等  |  第 188 场双周赛  |
+|  4009  |  [最小化最大可能等待时间](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README.md)  |    |  困难  |  第 188 场双周赛  |
+|  4010  |  [数对的最大强度](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README.md)  |    |  简单  |  第 513 场周赛  |
+|  4011  |  [按奇偶比统计子数组 I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README.md)  |    |  中等  |  第 513 场周赛  |
+|  4012  |  [统计每个班次结束后的未完成任务数](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md)  |    |  中等  |  第 513 场周赛  |
+|  4013  |  [按奇偶比统计子数组 II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README.md)  |    |  困难  |  第 513 场周赛  |
 
 ## 版权
 
