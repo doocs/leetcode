@@ -2,26 +2,33 @@ class Solution {
 public:
     string stoneGameIII(vector<int>& stoneValue) {
         int n = stoneValue.size();
-        int f[n];
-        memset(f, 0x3f, sizeof(f));
-        function<int(int)> dfs = [&](int i) -> int {
+        vector<int> f(n, INT_MIN);
+
+        auto dfs = [&](auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }
-            if (f[i] != 0x3f3f3f3f) {
+
+            if (f[i] != INT_MIN) {
                 return f[i];
             }
-            int ans = -(1 << 30), s = 0;
-            for (int j = 0; j < 3 && i + j < n; ++j) {
-                s += stoneValue[i + j];
-                ans = max(ans, s - dfs(i + j + 1));
+
+            int ans = INT_MIN;
+            int s = 0;
+
+            for (int j = i; j < i + 3 && j < n; j++) {
+                s += stoneValue[j];
+                ans = max(ans, s - dfs(dfs, j + 1));
             }
+
             return f[i] = ans;
         };
-        int ans = dfs(0);
-        if (ans == 0) {
+
+        int res = dfs(dfs, 0);
+
+        if (res == 0) {
             return "Tie";
         }
-        return ans > 0 ? "Alice" : "Bob";
+        return res > 0 ? "Alice" : "Bob";
     }
 };

@@ -2,18 +2,18 @@ class Solution:
     def stoneGameIII(self, stoneValue: List[int]) -> str:
         @cache
         def dfs(i: int) -> int:
-            if i >= n:
+            if i >= len(stoneValue):
                 return 0
-            ans, s = -inf, 0
-            for j in range(3):
-                if i + j >= n:
+            ans = -inf
+            s = 0
+            for j in range(i, i + 3):
+                if j >= len(stoneValue):
                     break
-                s += stoneValue[i + j]
-                ans = max(ans, s - dfs(i + j + 1))
+                s += stoneValue[j]
+                ans = max(ans, s - dfs(j + 1))
             return ans
 
-        n = len(stoneValue)
-        ans = dfs(0)
-        if ans == 0:
+        res = dfs(0)
+        if res == 0:
             return 'Tie'
-        return 'Alice' if ans > 0 else 'Bob'
+        return 'Alice' if res > 0 else 'Bob'
