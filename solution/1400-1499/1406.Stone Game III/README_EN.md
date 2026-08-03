@@ -82,10 +82,10 @@ We design a function $dfs(i)$, which represents the maximum score difference tha
 The execution logic of the function $dfs(i)$ is as follows:
 
 - If $i \geq n$, it means that there are no stones to take now, so we can directly return $0$;
-- Otherwise, we enumerate that the current player takes the first $j+1$ piles of stones, where $j \in \{0, 1, 2\}$. Then the score difference that the other player can get in the next round is $dfs(i + j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
+- Otherwise, we enumerate the index $j$ of the last pile taken by the current player, where $i \le j < \min(i + 3, n)$, i.e., the current player takes all the piles in the index range $[i, j]$ and gets a score of $\sum_{k=i}^{j} \textit{stoneValue}[k]$. Then the score difference that the other player can get in the next round is $dfs(j + 1)$, so the score difference that the current player can get is $\sum_{k=i}^{j} \textit{stoneValue}[k] - dfs(j + 1)$. We want to maximize the score difference of the current player, so we can use the $\max$ function to get the maximum score difference, that is:
 
 $$
-dfs(i) = \max_{j \in \{0, 1, 2\}} \left\{\sum_{k=i}^{i+j} stoneValue[k] - dfs(i + j + 1)\right\}
+dfs(i) = \max_{i \le j < \min(i+3, n)} \left\{\sum_{k=i}^{j} \textit{stoneValue}[k] - dfs(j + 1)\right\}
 $$
 
 To prevent repeated calculations, we can use memoization search.
@@ -101,21 +101,21 @@ class Solution:
     def stoneGameIII(self, stoneValue: List[int]) -> str:
         @cache
         def dfs(i: int) -> int:
-            if i >= n:
+            if i >= len(stoneValue):
                 return 0
-            ans, s = -inf, 0
-            for j in range(3):
-                if i + j >= n:
+            ans = -inf
+            s = 0
+            for j in range(i, i + 3):
+                if j >= len(stoneValue):
                     break
-                s += stoneValue[i + j]
-                ans = max(ans, s - dfs(i + j + 1))
+                s += stoneValue[j]
+                ans = max(ans, s - dfs(j + 1))
             return ans
 
-        n = len(stoneValue)
-        ans = dfs(0)
-        if ans == 0:
+        res = dfs(0)
+        if res == 0:
             return 'Tie'
-        return 'Alice' if ans > 0 else 'Bob'
+        return 'Alice' if res > 0 else 'Bob'
 ```
 
 #### Java
@@ -127,29 +127,35 @@ class Solution {
     private int n;
 
     public String stoneGameIII(int[] stoneValue) {
-        n = stoneValue.length;
-        f = new Integer[n];
         this.stoneValue = stoneValue;
-        int ans = dfs(0);
-        if (ans == 0) {
+        this.n = stoneValue.length;
+        this.f = new Integer[n];
+
+        int res = dfs(0);
+
+        if (res == 0) {
             return "Tie";
         }
-        return ans > 0 ? "Alice" : "Bob";
+        return res > 0 ? "Alice" : "Bob";
     }
 
     private int dfs(int i) {
         if (i >= n) {
             return 0;
         }
+
         if (f[i] != null) {
             return f[i];
         }
-        int ans = -(1 << 30);
+
+        int ans = Integer.MIN_VALUE;
         int s = 0;
-        for (int j = 0; j < 3 && i + j < n; ++j) {
-            s += stoneValue[i + j];
-            ans = Math.max(ans, s - dfs(i + j + 1));
+
+        for (int j = i; j < i + 3 && j < n; j++) {
+            s += stoneValue[j];
+            ans = Math.max(ans, s - dfs(j + 1));
         }
+
         return f[i] = ans;
     }
 }
@@ -162,27 +168,34 @@ class Solution {
 public:
     string stoneGameIII(vector<int>& stoneValue) {
         int n = stoneValue.size();
-        int f[n];
-        memset(f, 0x3f, sizeof(f));
-        function<int(int)> dfs = [&](int i) -> int {
+        vector<int> f(n, INT_MIN);
+
+        auto dfs = [&](auto&& dfs, int i) -> int {
             if (i >= n) {
                 return 0;
             }
-            if (f[i] != 0x3f3f3f3f) {
+
+            if (f[i] != INT_MIN) {
                 return f[i];
             }
-            int ans = -(1 << 30), s = 0;
-            for (int j = 0; j < 3 && i + j < n; ++j) {
-                s += stoneValue[i + j];
-                ans = max(ans, s - dfs(i + j + 1));
+
+            int ans = INT_MIN;
+            int s = 0;
+
+            for (int j = i; j < i + 3 && j < n; j++) {
+                s += stoneValue[j];
+                ans = max(ans, s - dfs(dfs, j + 1));
             }
+
             return f[i] = ans;
         };
-        int ans = dfs(0);
-        if (ans == 0) {
+
+        int res = dfs(dfs, 0);
+
+        if (res == 0) {
             return "Tie";
         }
-        return ans > 0 ? "Alice" : "Bob";
+        return res > 0 ? "Alice" : "Bob";
     }
 };
 ```
@@ -193,31 +206,39 @@ public:
 func stoneGameIII(stoneValue []int) string {
 	n := len(stoneValue)
 	f := make([]int, n)
-	const inf = 1 << 30
+
 	for i := range f {
-		f[i] = inf
+		f[i] = -1 << 30
 	}
+
 	var dfs func(int) int
 	dfs = func(i int) int {
 		if i >= n {
 			return 0
 		}
-		if f[i] != inf {
+
+		if f[i] != -1<<30 {
 			return f[i]
 		}
-		ans, s := -(1 << 30), 0
-		for j := 0; j < 3 && i+j < n; j++ {
-			s += stoneValue[i+j]
-			ans = max(ans, s-dfs(i+j+1))
+
+		ans := -1 << 30
+		s := 0
+
+		for j := i; j < i+3 && j < n; j++ {
+			s += stoneValue[j]
+			ans = max(ans, s-dfs(j+1))
 		}
+
 		f[i] = ans
 		return ans
 	}
-	ans := dfs(0)
-	if ans == 0 {
+
+	res := dfs(0)
+
+	if res == 0 {
 		return "Tie"
 	}
-	if ans > 0 {
+	if res > 0 {
 		return "Alice"
 	}
 	return "Bob"
@@ -229,28 +250,77 @@ func stoneGameIII(stoneValue []int) string {
 ```ts
 function stoneGameIII(stoneValue: number[]): string {
     const n = stoneValue.length;
-    const inf = 1 << 30;
-    const f: number[] = new Array(n).fill(inf);
+    const f = new Array<number>(n).fill(Number.MIN_SAFE_INTEGER);
+
     const dfs = (i: number): number => {
         if (i >= n) {
             return 0;
         }
-        if (f[i] !== inf) {
+
+        if (f[i] !== Number.MIN_SAFE_INTEGER) {
             return f[i];
         }
-        let ans = -inf;
+
+        let ans = Number.MIN_SAFE_INTEGER;
         let s = 0;
-        for (let j = 0; j < 3 && i + j < n; ++j) {
-            s += stoneValue[i + j];
-            ans = Math.max(ans, s - dfs(i + j + 1));
+
+        for (let j = i; j < i + 3 && j < n; j++) {
+            s += stoneValue[j];
+            ans = Math.max(ans, s - dfs(j + 1));
         }
-        return (f[i] = ans);
+
+        f[i] = ans;
+        return ans;
     };
-    const ans = dfs(0);
-    if (ans === 0) {
+
+    const res = dfs(0);
+
+    if (res === 0) {
         return 'Tie';
     }
-    return ans > 0 ? 'Alice' : 'Bob';
+    return res > 0 ? 'Alice' : 'Bob';
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn stone_game_iii(stone_value: Vec<i32>) -> String {
+        let n = stone_value.len();
+        let mut f = vec![None; n];
+
+        fn dfs(i: usize, stone_value: &Vec<i32>, f: &mut Vec<Option<i32>>) -> i32 {
+            if i >= stone_value.len() {
+                return 0;
+            }
+
+            if let Some(v) = f[i] {
+                return v;
+            }
+
+            let mut ans = i32::MIN;
+            let mut s = 0;
+
+            for j in i..(i + 3).min(stone_value.len()) {
+                s += stone_value[j];
+                ans = ans.max(s - dfs(j + 1, stone_value, f));
+            }
+
+            f[i] = Some(ans);
+            ans
+        }
+
+        let res = dfs(0, &stone_value, &mut f);
+
+        if res == 0 {
+            "Tie".to_string()
+        } else if res > 0 {
+            "Alice".to_string()
+        } else {
+            "Bob".to_string()
+        }
+    }
 }
 ```
 
