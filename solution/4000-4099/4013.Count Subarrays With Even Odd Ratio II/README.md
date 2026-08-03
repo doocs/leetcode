@@ -191,9 +191,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4013.Co
 
 ### 方法一：前缀和 + 树状数组
 
-对于一个子数组，设其中偶数元素的个数为 $x$，奇数元素的个数为 $y$。题目要求 $y > 0$ 且 $\frac{x}{y} \le \frac{a}{b}$。由于 $b > 0$，$y > 0$，该不等式等价于 $a \cdot y - b \cdot x \ge 0$。
+对于一个子数组，设其中偶数元素的个数为 $x$，奇数元素的个数为 $y$。题目要求 $y > 0$ 且 $\frac{x}{y} \le \frac{a}{b}$。由于 $b > 0$, $y > 0$，该不等式等价于 $a \cdot y - b \cdot x \ge 0$。
 
-而当 $y = 0$ 时，由于子数组非空，必然有 $x > 0$，此时 $a \cdot y - b \cdot x = -b \cdot x < 0$，上述不等式不成立。因此，题目中的两个条件可以合并为一个：$a \cdot y - b \cdot x \ge 0$。
+而当 $y = 0$ 时，由于子数组非空，必然有 $x > 0$，此时 $a \cdot y - b \cdot x = -b \cdot x < 0$，上述不等式不成立。因此，题目中的两个条件可以合并为 $a \cdot y - b \cdot x \ge 0$。
 
 我们把 $\textit{nums}$ 中的奇数视作 $a$，偶数视作 $-b$，得到数组 $\textit{arr}$，那么原问题等价于：统计 $\textit{arr}$ 中有多少个元素和 $\ge 0$ 的非空连续子数组。
 
