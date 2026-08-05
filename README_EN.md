@@ -17,6 +17,17 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
 
 [中文文档](/README.md)
 
+## Sponsor
+
+<table>
+<tr>
+<td width="180"><a href="https://apinebula.ai/ref/lMbidCQZ"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/sponsor-apinebula.png" alt="APINEBULA" width="150"></a></td>
+<td>Thanks to APINEBULA for sponsoring this project! APINEBULA, an enterprise-grade AI aggregation platform under Galaxy Video Bureau, leverages extensive platform resources to provide developers, teams, and enterprises with stable, cost-effective access to large language model APIs. The platform integrates leading, full-powered models like Claude, GPT, and Gemini, allowing you to connect to the world's top AI models through a single API, with prices starting as low as 10% of the original cost. Designed for AI programming, Agent development, and business system integration, APINEBULA supports enterprise-grade high concurrency, formal contracts, corporate bank transfers, and invoicing services. Register via <a href="https://apinebula.ai/ref/lMbidCQZ">this link</a> and enter the "leetcode" promo code when topping up to get 10% off!</td>
+</tr>
+</table>
+
+> Want to appear here? If you are interested in sponsoring this project, feel free to reach out via WeChat: **YLB0109** (please note "Sponsorship").
+
 ## Site
 
 https://leetcode.doocs.org/en

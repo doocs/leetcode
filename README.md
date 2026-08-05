@@ -17,6 +17,17 @@
 
 [English Version](/README_EN.md)
 
+## 赞助商
+
+<table>
+<tr>
+<td width="180"><a href="https://apinebula.ai/ref/lMbidCQZ"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/sponsor-apinebula.png" alt="APINEBULA" width="150"></a></td>
+<td>感谢 APINEBULA 赞助本项目！APINEBULA 是银河录像局旗下的企业级 AI 聚合平台，背靠大平台资源，面向开发者、团队与企业用户提供稳定、高性价比的大模型 API 接入服务。平台聚合 Claude、GPT、Gemini 等主流满血模型，一个接口，接入全球顶尖 AI 大模型，各大模型价格低至 1 折起，支持企业级高并发、正式合同、对公打款与开票服务，适合 AI 编程、Agent 开发、业务系统集成等多种场景！使用<a href="https://apinebula.ai/ref/lMbidCQZ">此链接</a>注册并在充值时填写 "leetcode" 优惠码可享九折优惠！</td>
+</tr>
+</table>
+
+> 想出现在这里？如有赞助意向，欢迎添加微信 **YLB0109**（备注「赞助」）联系洽谈。
+
 ## 站点
 
 <https://leetcode.doocs.org>
