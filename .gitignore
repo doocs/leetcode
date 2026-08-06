@@ -3,6 +3,7 @@
 .vscode
 .temp
 .vitepress
+.vs/
 *.iml
 __pycache__
 /node_modules
