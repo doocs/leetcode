@@ -107,32 +107,215 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Two Pointers
+
+We first use two pointers to preprocess a suffix array $\textit{suf}$ from right to left, where $\textit{suf}[i]$ represents the smallest starting index in $\textit{word2}$ such that $\textit{word2}[\textit{suf}[i]:]$ is a subsequence of $\textit{word1}[i:]$. Specifically, we use a pointer $j$ pointing to the frontmost unmatched character in $\textit{word2}$, initially $j = n - 1$, and set $\textit{suf}[m] = n$. Starting from $i = m - 1$, we traverse $\textit{word1}$ from right to left. If $j \ge 0$ and $\textit{word1}[i] = \textit{word2}[j]$, it means $\textit{word2}[j]$ can be matched, so we decrement $j$ by one, and then set $\textit{suf}[i] = j + 1$.
+
+Next, we traverse $\textit{word1}$ from left to right, using a pointer $j$ to denote the index of the character in $\textit{word2}$ that we currently need to match (initially $j = 0$), and a variable $\textit{changed}$ to record whether we have already modified a character. For each character $c$ at index $i$:
+
+- If $c = \textit{word2}[j]$, choosing index $i$ is always no worse (the smaller the index, the smaller the lexicographical order of the sequence), so we directly add $i$ to the answer and increment $j$ by one;
+- Otherwise, if we have not modified a character yet and $\textit{suf}[i+1] \le j + 1$, it means we can modify $\textit{word1}[i]$ to $\textit{word2}[j]$, and the remaining part $\textit{word2}[j+1:]$ can still be matched within $\textit{word1}[i+1:]$. In this case, we choose index $i$ and set $\textit{changed}$ to true.
+
+When $j = n$, we have matched all of $\textit{word2}$ and can return the answer. If the traversal ends without completing the match, we return an empty array.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(m)$, where $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, respectively.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def validSequence(self, word1: str, word2: str) -> List[int]:
+        m, n = len(word1), len(word2)
+        suf = [0] * (m + 1)
+        suf[m] = n
+        j = n - 1
+        for i in range(m - 1, -1, -1):
+            if j >= 0 and word1[i] == word2[j]:
+                j -= 1
+            suf[i] = j + 1
 
+        ans = []
+        changed = False
+        j = 0
+        for i, c in enumerate(word1):
+            if c == word2[j] or (not changed and suf[i + 1] <= j + 1):
+                if c != word2[j]:
+                    changed = True
+                ans.append(i)
+                j += 1
+                if j == n:
+                    return ans
+        return []
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int[] validSequence(String word1, String word2) {
+        int m = word1.length(), n = word2.length();
 
+        int[] suf = new int[m + 1];
+        suf[m] = n;
+
+        int j = n - 1;
+        for (int i = m - 1; i >= 0; i--) {
+            if (j >= 0 && word1.charAt(i) == word2.charAt(j)) {
+                j--;
+            }
+            suf[i] = j + 1;
+        }
+
+        int[] ans = new int[n];
+        int size = 0;
+        boolean changed = false;
+        j = 0;
+
+        for (int i = 0; i < m; i++) {
+            char c = word1.charAt(i);
+            if (c == word2.charAt(j) || (!changed && suf[i + 1] <= j + 1)) {
+                if (c != word2.charAt(j)) {
+                    changed = true;
+                }
+                ans[size++] = i;
+                j++;
+                if (j == n) {
+                    return ans;
+                }
+            }
+        }
+
+        return new int[0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> validSequence(string word1, string word2) {
+        int m = word1.size(), n = word2.size();
 
+        vector<int> suf(m + 1);
+        suf[m] = n;
+
+        int j = n - 1;
+        for (int i = m - 1; i >= 0; i--) {
+            if (j >= 0 && word1[i] == word2[j]) {
+                j--;
+            }
+            suf[i] = j + 1;
+        }
+
+        vector<int> ans;
+        bool changed = false;
+        j = 0;
+
+        for (int i = 0; i < m; i++) {
+            char c = word1[i];
+            if (c == word2[j] || (!changed && suf[i + 1] <= j + 1)) {
+                if (c != word2[j]) {
+                    changed = true;
+                }
+                ans.push_back(i);
+                j++;
+
+                if (j == n) {
+                    return ans;
+                }
+            }
+        }
+
+        return {};
+    }
+};
 ```
 
 #### Go
 
 ```go
+func validSequence(word1 string, word2 string) []int {
+	m, n := len(word1), len(word2)
 
+	suf := make([]int, m+1)
+	suf[m] = n
+
+	j := n - 1
+	for i := m - 1; i >= 0; i-- {
+		if j >= 0 && word1[i] == word2[j] {
+			j--
+		}
+		suf[i] = j + 1
+	}
+
+	ans := make([]int, 0, n)
+	changed := false
+	j = 0
+
+	for i := 0; i < m; i++ {
+		c := word1[i]
+		if c == word2[j] || (!changed && suf[i+1] <= j+1) {
+			if c != word2[j] {
+				changed = true
+			}
+			ans = append(ans, i)
+			j++
+
+			if j == n {
+				return ans
+			}
+		}
+	}
+
+	return []int{}
+}
+```
+
+#### TypeScript
+
+```ts
+function validSequence(word1: string, word2: string): number[] {
+    const m = word1.length;
+    const n = word2.length;
+
+    const suf = new Array<number>(m + 1).fill(0);
+    suf[m] = n;
+
+    let j = n - 1;
+    for (let i = m - 1; i >= 0; i--) {
+        if (j >= 0 && word1[i] === word2[j]) {
+            j--;
+        }
+        suf[i] = j + 1;
+    }
+
+    const ans: number[] = [];
+    let changed = false;
+    j = 0;
+
+    for (let i = 0; i < m; i++) {
+        const c = word1[i];
+
+        if (c === word2[j] || (!changed && suf[i + 1] <= j + 1)) {
+            if (c !== word2[j]) {
+                changed = true;
+            }
+
+            ans.push(i);
+            j++;
+
+            if (j === n) {
+                return ans;
+            }
+        }
+    }
+
+    return [];
+}
 ```
 
 <!-- tabs:end -->
