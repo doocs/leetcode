@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 514
+
+- [4014. Minimum Total Price After Applying Discounts](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README_EN.md)
+- [4015. Weighted Sum of a Tree](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md)
+- [4016. Maximum Area of Two Non-Overlapping Square Submatrices](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md)
+- [4017. Peaks in Array II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)
+
 #### Weekly Contest 513
 
 - [4010. Maximize Pair Strength Using GCD](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md)
