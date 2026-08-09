@@ -164,32 +164,222 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4015.We
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：BFS
+
+节点 $i$ 的权重为 $\textit{nums}[i] \times (h - d_i + 1)$，其中 $d_i$ 是节点 $i$ 的深度，$h$ 是树的高度。因此所有节点的权重之和为：
+
+$$\sum_{i=0}^{n-1} \textit{nums}[i] \times (h - d_i + 1) = h \times \sum_{i=0}^{n-1} \textit{nums}[i] + \sum_{i=0}^{n-1} \textit{nums}[i] \times (1 - d_i)$$
+
+我们可以用 BFS 按层遍历整棵树。遍历过程中维护当前层数 $d$（根节点为第 $1$ 层），并累加每个节点的 $\textit{nums}[i] \times (1 - d)$。遍历结束后，$d$ 即为树的高度 $h$，再加上 $h \times \sum \textit{nums}[i]$ 即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点个数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def weightedSum(self, parent: list[int], nums: list[int]) -> int:
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append(i)
+        ans = 0
+        q = [0]
+        d = 0
+        while q:
+            d += 1
+            nq = []
+            for i in q:
+                ans += nums[i] * (1 - d)
+                nq.extend(g[i])
+            q = nq
+        ans += d * sum(nums)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public long weightedSum(int[] parent, int[] nums) {
+        int n = nums.length;
 
+        List<Integer>[] g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+
+        for (int i = 1; i < n; i++) {
+            g[parent[i]].add(i);
+        }
+
+        long ans = 0;
+
+        List<Integer> q = new ArrayList<>();
+        q.add(0);
+
+        int d = 0;
+
+        while (!q.isEmpty()) {
+            d++;
+
+            List<Integer> nq = new ArrayList<>();
+
+            for (int i : q) {
+                ans += (long) nums[i] * (1 - d);
+                nq.addAll(g[i]);
+            }
+
+            q = nq;
+        }
+
+        long sum = 0;
+        for (int x : nums) {
+            sum += x;
+        }
+
+        ans += (long) d * sum;
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long weightedSum(vector<int>& parent, vector<int>& nums) {
+        int n = nums.size();
 
+        vector<vector<int>> g(n);
+
+        for (int i = 1; i < n; i++) {
+            g[parent[i]].push_back(i);
+        }
+
+        long long ans = 0;
+
+        vector<int> q = {0};
+
+        int d = 0;
+
+        while (!q.empty()) {
+            d++;
+
+            vector<int> nq;
+
+            for (int i : q) {
+                ans += 1LL * nums[i] * (1 - d);
+                for (int son : g[i]) {
+                    nq.push_back(son);
+                }
+            }
+
+            q = move(nq);
+        }
+
+        long long sum = 0;
+        for (int x : nums) {
+            sum += x;
+        }
+
+        ans += 1LL * d * sum;
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func weightedSum(parent []int, nums []int) int64 {
+	n := len(nums)
 
+	g := make([][]int, n)
+
+	for i := 1; i < n; i++ {
+		g[parent[i]] = append(g[parent[i]], i)
+	}
+
+	var ans int64
+
+	q := []int{0}
+
+	d := 0
+
+	for len(q) > 0 {
+		d++
+
+		nq := make([]int, 0)
+
+		for _, i := range q {
+			ans += int64(nums[i]) * int64(1-d)
+
+			for _, son := range g[i] {
+				nq = append(nq, son)
+			}
+		}
+
+		q = nq
+	}
+
+	var sum int64
+	for _, x := range nums {
+		sum += int64(x)
+	}
+
+	ans += int64(d) * sum
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function weightedSum(parent: number[], nums: number[]): number {
+    const n = nums.length;
+
+    const g: number[][] = Array.from({ length: n }, () => []);
+
+    for (let i = 1; i < n; i++) {
+        g[parent[i]].push(i);
+    }
+
+    let ans = 0;
+
+    let q: number[] = [0];
+
+    let d = 0;
+
+    while (q.length > 0) {
+        d++;
+
+        const nq: number[] = [];
+
+        for (const i of q) {
+            ans += nums[i] * (1 - d);
+
+            for (const son of g[i]) {
+                nq.push(son);
+            }
+        }
+
+        q = nq;
+    }
+
+    let sum = 0;
+    for (const x of nums) {
+        sum += x;
+    }
+
+    ans += d * sum;
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

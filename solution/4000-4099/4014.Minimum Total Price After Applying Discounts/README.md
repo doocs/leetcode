@@ -101,32 +101,146 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4014.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 排序
+
+为了最小化总价，我们需要最大化折扣节省的总金额。若把折扣 $d$ 应用于价格为 $p$ 的商品，节省的金额为 $p \times d / 100$。根据排序不等式，把较大的折扣用在价格较高的商品上，可以使节省的总金额最大。
+
+因此，我们将 $\textit{prices}$ 和 $\textit{discounts}$ 都按升序排序，然后用双指针从两个数组的末尾开始，依次把当前最大的折扣应用到当前最贵的商品上，并累加折后价格。当折扣用完后，剩余的商品按原价累加即可。
+
+时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(\log n + \log m)$。其中 $n$ 和 $m$ 分别是数组 $\textit{prices}$ 和 $\textit{discounts}$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minPrice(self, prices: list[int], discounts: list[int]) -> float:
+        prices.sort()
+        discounts.sort()
+        i, j = len(prices) - 1, len(discounts) - 1
+        ans = 0
+        while i >= 0 and j >= 0:
+            ans += prices[i] * (100 - discounts[j]) / 100
+            i -= 1
+            j -= 1
+        while i >= 0:
+            ans += prices[i]
+            i -= 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public double minPrice(int[] prices, int[] discounts) {
+        Arrays.sort(prices);
+        Arrays.sort(discounts);
 
+        int i = prices.length - 1;
+        int j = discounts.length - 1;
+
+        double ans = 0;
+
+        while (i >= 0 && j >= 0) {
+            ans += prices[i] * (100 - discounts[j]) / 100.0;
+            i--;
+            j--;
+        }
+
+        while (i >= 0) {
+            ans += prices[i];
+            i--;
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    double minPrice(vector<int>& prices, vector<int>& discounts) {
+        sort(prices.begin(), prices.end());
+        sort(discounts.begin(), discounts.end());
 
+        int i = prices.size() - 1;
+        int j = discounts.size() - 1;
+
+        double ans = 0;
+
+        while (i >= 0 && j >= 0) {
+            ans += prices[i] * (100 - discounts[j]) / 100.0;
+            i--;
+            j--;
+        }
+
+        while (i >= 0) {
+            ans += prices[i];
+            i--;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minPrice(prices []int, discounts []int) float64 {
+	sort.Ints(prices)
+	sort.Ints(discounts)
 
+	i := len(prices) - 1
+	j := len(discounts) - 1
+
+	var ans float64
+
+	for i >= 0 && j >= 0 {
+		ans += float64(prices[i]) * float64(100-discounts[j]) / 100.0
+		i--
+		j--
+	}
+
+	for i >= 0 {
+		ans += float64(prices[i])
+		i--
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minPrice(prices: number[], discounts: number[]): number {
+    prices.sort((a, b) => a - b);
+    discounts.sort((a, b) => a - b);
+
+    let i = prices.length - 1;
+    let j = discounts.length - 1;
+
+    let ans = 0;
+
+    while (i >= 0 && j >= 0) {
+        ans += (prices[i] * (100 - discounts[j])) / 100;
+        i--;
+        j--;
+    }
+
+    while (i >= 0) {
+        ans += prices[i];
+        i--;
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
