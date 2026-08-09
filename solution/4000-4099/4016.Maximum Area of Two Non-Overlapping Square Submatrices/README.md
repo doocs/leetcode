@@ -109,32 +109,340 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4016.Ma
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划 + 枚举分割线
+
+两个不重叠的轴对齐矩形，一定可以被一条水平线或一条垂直线分开（它们的行区间或列区间必然不相交）。因此我们只需要分别考虑“一个正方形完全在某条水平分割线之上、另一个在其下”以及“一个完全在某条垂直分割线之左、另一个在其右”的情况，后者可以通过将矩阵转置后复用前者的逻辑来处理。
+
+对于水平分割的情况，我们设计函数 $\textit{calc}(\textit{mat})$：
+
+- 从下到上做动态规划，令 $f[i][j]$ 表示以 $(i, j)$ 为左上角的全 $1$ 正方形的最大边长。若 $\textit{mat}[i][j] = 1$，则 $f[i][j] = \min(f[i+1][j], f[i][j+1], f[i+1][j+1]) + 1$。用 $g[i]$ 记录第 $i$ 行的最大边长，再计算后缀最大值 $\textit{suf}[i] = \max(\textit{suf}[i+1], g[i])$，表示行区间 $[i, m)$ 内全 $1$ 正方形的最大边长。
+- 从上到下做动态规划，令 $f[i][j]$ 表示以 $(i-1, j-1)$ 为右下角的全 $1$ 正方形的最大边长。若 $\textit{mat}[i-1][j-1] = 1$，则 $f[i][j] = \min(f[i-1][j], f[i][j-1], f[i-1][j-1]) + 1$。同样用 $g[i]$ 计算前缀最大值 $\textit{pre}[i] = \max(\textit{pre}[i-1], g[i])$，表示行区间 $[0, i)$ 内全 $1$ 正方形的最大边长。
+- 枚举每一对相邻行之间的分割线 $i \in [1, m)$，分割线上方全 $1$ 正方形的最大边长为 $\textit{pre}[i]$，下方为 $\textit{suf}[i]$。由于两个正方形的边长必须相等，可行边长为 $t = \min(\textit{pre}[i], \textit{suf}[i])$，用 $t^2$ 更新答案。
+
+最后返回 $\max(\textit{calc}(\textit{mat}), \textit{calc}(\textit{mat}^\top))$ 即可。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵的行数和列数。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def maxArea(self, mat: list[list[int]]) -> int:
+        def calc(mat: list[list[int]]) -> int:
+            m, n = len(mat), len(mat[0])
 
+            f = [[0] * (n + 1) for _ in range(m + 1)]
+            g = [0] * (m + 1)
+            suf = [0] * (m + 1)
+            for i in range(m - 1, 0, -1):
+                for j in range(n - 1, -1, -1):
+                    if mat[i][j]:
+                        f[i][j] = min(f[i + 1][j], f[i][j + 1], f[i + 1][j + 1]) + 1
+                        g[i] = max(g[i], f[i][j])
+                suf[i] = max(suf[i + 1], g[i])
+
+            f = [[0] * (n + 1) for _ in range(m + 1)]
+            g = [0] * (m + 1)
+            pre = [0] * (m + 1)
+            for i in range(1, m + 1):
+                for j in range(1, n + 1):
+                    if mat[i - 1][j - 1]:
+                        f[i][j] = min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1
+                        g[i] = max(g[i], f[i][j])
+
+                pre[i] = max(pre[i - 1], g[i])
+
+            ans = 0
+            for i in range(1, m):
+                t = min(pre[i], suf[i])
+                ans = max(ans, t * t)
+            return ans
+
+        def transpose(mat: list[list[int]]) -> list[list[int]]:
+            m, n = len(mat), len(mat[0])
+            ans = [[0] * m for _ in range(n)]
+            for i in range(m):
+                for j in range(n):
+                    ans[j][i] = mat[i][j]
+            return ans
+
+        return max(calc(mat), calc(transpose(mat)))
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int maxArea(int[][] mat) {
+        return Math.max(calc(mat), calc(transpose(mat)));
+    }
 
+    private int calc(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+
+        int[][] f = new int[m + 1][n + 1];
+        int[] g = new int[m + 1];
+        int[] suf = new int[m + 1];
+
+        for (int i = m - 1; i > 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (mat[i][j] != 0) {
+                    f[i][j] = Math.min(Math.min(f[i + 1][j], f[i][j + 1]), f[i + 1][j + 1]) + 1;
+                    g[i] = Math.max(g[i], f[i][j]);
+                }
+            }
+            suf[i] = Math.max(suf[i + 1], g[i]);
+        }
+
+        f = new int[m + 1][n + 1];
+        g = new int[m + 1];
+        int[] pre = new int[m + 1];
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (mat[i - 1][j - 1] != 0) {
+                    f[i][j] = Math.min(Math.min(f[i - 1][j], f[i][j - 1]), f[i - 1][j - 1]) + 1;
+                    g[i] = Math.max(g[i], f[i][j]);
+                }
+            }
+            pre[i] = Math.max(pre[i - 1], g[i]);
+        }
+
+        int ans = 0;
+        for (int i = 1; i < m; i++) {
+            int t = Math.min(pre[i], suf[i]);
+            ans = Math.max(ans, t * t);
+        }
+        return ans;
+    }
+
+    private int[][] transpose(int[][] mat) {
+        int m = mat.length, n = mat[0].length;
+        int[][] ans = new int[n][m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                ans[j][i] = mat[i][j];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int maxArea(vector<vector<int>>& mat) {
+        return max(calc(mat), calc(transpose(mat)));
+    }
 
+private:
+    int calc(const vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+
+        vector<vector<int>> f(m + 1, vector<int>(n + 1));
+        vector<int> g(m + 1), suf(m + 1);
+
+        for (int i = m - 1; i > 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                if (mat[i][j]) {
+                    f[i][j] = min({f[i + 1][j],
+                                  f[i][j + 1],
+                                  f[i + 1][j + 1]})
+                        + 1;
+                    g[i] = max(g[i], f[i][j]);
+                }
+            }
+            suf[i] = max(suf[i + 1], g[i]);
+        }
+
+        f.assign(m + 1, vector<int>(n + 1));
+        g.assign(m + 1, 0);
+        vector<int> pre(m + 1);
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (mat[i - 1][j - 1]) {
+                    f[i][j] = min({f[i - 1][j],
+                                  f[i][j - 1],
+                                  f[i - 1][j - 1]})
+                        + 1;
+                    g[i] = max(g[i], f[i][j]);
+                }
+            }
+            pre[i] = max(pre[i - 1], g[i]);
+        }
+
+        int ans = 0;
+        for (int i = 1; i < m; i++) {
+            int t = min(pre[i], suf[i]);
+            ans = max(ans, t * t);
+        }
+
+        return ans;
+    }
+
+    vector<vector<int>> transpose(const vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+
+        vector<vector<int>> ans(n, vector<int>(m));
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                ans[j][i] = mat[i][j];
+            }
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxArea(mat [][]int) int {
+	return max(calc(mat), calc(transpose(mat)))
+}
 
+func calc(mat [][]int) int {
+	m, n := len(mat), len(mat[0])
+
+	f := make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	g := make([]int, m+1)
+	suf := make([]int, m+1)
+
+	for i := m - 1; i > 0; i-- {
+		for j := n - 1; j >= 0; j-- {
+			if mat[i][j] != 0 {
+				f[i][j] = min(
+					f[i+1][j],
+					f[i][j+1],
+					f[i+1][j+1],
+				) + 1
+				if f[i][j] > g[i] {
+					g[i] = f[i][j]
+				}
+			}
+		}
+		suf[i] = max(suf[i+1], g[i])
+	}
+
+	f = make([][]int, m+1)
+	for i := range f {
+		f[i] = make([]int, n+1)
+	}
+	g = make([]int, m+1)
+	pre := make([]int, m+1)
+
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if mat[i-1][j-1] != 0 {
+				f[i][j] = min(
+					f[i-1][j],
+					f[i][j-1],
+					f[i-1][j-1],
+				) + 1
+				if f[i][j] > g[i] {
+					g[i] = f[i][j]
+				}
+			}
+		}
+		pre[i] = max(pre[i-1], g[i])
+	}
+
+	ans := 0
+	for i := 1; i < m; i++ {
+		t := min(pre[i], suf[i])
+		if t*t > ans {
+			ans = t * t
+		}
+	}
+	return ans
+}
+
+func transpose(mat [][]int) [][]int {
+	m, n := len(mat), len(mat[0])
+	ans := make([][]int, n)
+	for i := range ans {
+		ans[i] = make([]int, m)
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			ans[j][i] = mat[i][j]
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxArea(mat: number[][]): number {
+    return Math.max(calc(mat), calc(transpose(mat)));
+}
+
+function calc(mat: number[][]): number {
+    const m = mat.length;
+    const n = mat[0].length;
+
+    let f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    let g = Array(m + 1).fill(0);
+    let suf = Array(m + 1).fill(0);
+
+    for (let i = m - 1; i > 0; i--) {
+        for (let j = n - 1; j >= 0; j--) {
+            if (mat[i][j]) {
+                f[i][j] = Math.min(f[i + 1][j], f[i][j + 1], f[i + 1][j + 1]) + 1;
+                g[i] = Math.max(g[i], f[i][j]);
+            }
+        }
+        suf[i] = Math.max(suf[i + 1], g[i]);
+    }
+
+    f = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    g = Array(m + 1).fill(0);
+    const pre = Array(m + 1).fill(0);
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (mat[i - 1][j - 1]) {
+                f[i][j] = Math.min(f[i - 1][j], f[i][j - 1], f[i - 1][j - 1]) + 1;
+                g[i] = Math.max(g[i], f[i][j]);
+            }
+        }
+        pre[i] = Math.max(pre[i - 1], g[i]);
+    }
+
+    let ans = 0;
+    for (let i = 1; i < m; i++) {
+        const t = Math.min(pre[i], suf[i]);
+        ans = Math.max(ans, t * t);
+    }
+    return ans;
+}
+
+function transpose(mat: number[][]): number[][] {
+    const m = mat.length;
+    const n = mat[0].length;
+
+    const ans = Array.from({ length: n }, () => Array(m).fill(0));
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            ans[j][i] = mat[i][j];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
