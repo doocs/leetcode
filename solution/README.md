@@ -4024,6 +4024,10 @@
 |  4011  |  [按奇偶比统计子数组 I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README.md)  |    |  中等  |  第 513 场周赛  |
 |  4012  |  [统计每个班次结束后的未完成任务数](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md)  |    |  中等  |  第 513 场周赛  |
 |  4013  |  [按奇偶比统计子数组 II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README.md)  |    |  困难  |  第 513 场周赛  |
+|  4014  |  [应用折扣后的最低总价](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README.md)  |    |  中等  |  第 514 场周赛  |
+|  4015  |  [树的加权和](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README.md)  |    |  中等  |  第 514 场周赛  |
+|  4016  |  [两个不重叠子正方形的最大面积](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README.md)  |    |  中等  |  第 514 场周赛  |
+|  4017  |  [数组中的峰值 II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md)  |    |  困难  |  第 514 场周赛  |
 
 ## 版权
 

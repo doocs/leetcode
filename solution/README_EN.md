@@ -4022,6 +4022,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4011  |  [Count Subarrays With Even Odd Ratio I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 513  |
 |  4012  |  [Count of Unfinished Tasks After Each Shift](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README_EN.md)  |    |  Medium  |  Weekly Contest 513  |
 |  4013  |  [Count Subarrays With Even Odd Ratio II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 513  |
+|  4014  |  [Minimum Total Price After Applying Discounts](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
+|  4015  |  [Weighted Sum of a Tree](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
+|  4016  |  [Maximum Area of Two Non-Overlapping Square Submatrices](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
+|  4017  |  [Peaks in Array II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 514  |
 
 ## Copyright
 

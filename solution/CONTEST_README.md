@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 514 场周赛(2026-08-09 10:30, 90 分钟) 参赛人数 1018
+
+- [4014. 应用折扣后的最低总价](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README.md)
+- [4015. 树的加权和](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README.md)
+- [4016. 两个不重叠子正方形的最大面积](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README.md)
+- [4017. 数组中的峰值 II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md)
+
 #### 第 513 场周赛(2026-08-02 10:30, 90 分钟) 参赛人数 1002
 
 - [4010. 数对的最大强度](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README.md)
