@@ -101,19 +101,16 @@ tags:
 #### Python3
 
 ```python
+@cache
+def dfs(i: int) -> bool:
+    if i <= 0:
+        return False
+    k = isqrt(i)
+    return any(not dfs(i - j * j) for j in range(1, k + 1))
+
+
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
-        @cache
-        def dfs(i: int) -> bool:
-            if i == 0:
-                return False
-            j = 1
-            while j * j <= i:
-                if not dfs(i - j * j):
-                    return True
-                j += 1
-            return False
-
         return dfs(n)
 ```
 
@@ -135,7 +132,8 @@ class Solution {
         if (f[i] != null) {
             return f[i];
         }
-        for (int j = 1; j <= i / j; ++j) {
+        int k = (int) Math.sqrt(i);
+        for (int j = 1; j <= k; j++) {
             if (!dfs(i - j * j)) {
                 return f[i] = true;
             }
@@ -151,24 +149,26 @@ class Solution {
 class Solution {
 public:
     bool winnerSquareGame(int n) {
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        function<bool(int)> dfs = [&](int i) -> bool {
+        vector<int> f(n + 1, -1);
+
+        auto dfs = [&](this auto&& dfs, int i) -> bool {
             if (i <= 0) {
                 return false;
             }
-            if (f[i] != 0) {
-                return f[i] == 1;
+            if (f[i] != -1) {
+                return f[i];
             }
-            for (int j = 1; j <= i / j; ++j) {
+
+            int k = sqrt(i);
+            for (int j = 1; j <= k; j++) {
                 if (!dfs(i - j * j)) {
-                    f[i] = 1;
-                    return true;
+                    return f[i] = true;
                 }
             }
-            f[i] = -1;
-            return false;
+
+            return f[i] = false;
         };
+
         return dfs(n);
     }
 };
@@ -178,7 +178,8 @@ public:
 
 ```go
 func winnerSquareGame(n int) bool {
-	f := make([]int, n+1)
+	f := make([]int8, n+1)
+
 	var dfs func(int) bool
 	dfs = func(i int) bool {
 		if i <= 0 {
@@ -187,7 +188,8 @@ func winnerSquareGame(n int) bool {
 		if f[i] != 0 {
 			return f[i] == 1
 		}
-		for j := 1; j <= i/j; j++ {
+		k := int(math.Sqrt(float64(i)))
+		for j := 1; j <= k; j++ {
 			if !dfs(i - j*j) {
 				f[i] = 1
 				return true
@@ -196,6 +198,7 @@ func winnerSquareGame(n int) bool {
 		f[i] = -1
 		return false
 	}
+
 	return dfs(n)
 }
 ```
@@ -204,24 +207,63 @@ func winnerSquareGame(n int) bool {
 
 ```ts
 function winnerSquareGame(n: number): boolean {
-    const f: number[] = new Array(n + 1).fill(0);
+    const f = new Array<number>(n + 1).fill(-1);
+
     const dfs = (i: number): boolean => {
         if (i <= 0) {
             return false;
         }
-        if (f[i] !== 0) {
+        if (f[i] !== -1) {
             return f[i] === 1;
         }
-        for (let j = 1; j * j <= i; ++j) {
+
+        const k = Math.floor(Math.sqrt(i));
+        for (let j = 1; j <= k; j++) {
             if (!dfs(i - j * j)) {
                 f[i] = 1;
                 return true;
             }
         }
-        f[i] = -1;
+
+        f[i] = 0;
         return false;
     };
+
     return dfs(n);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn winner_square_game(n: i32) -> bool {
+        let mut f = vec![-1; (n + 1) as usize];
+
+        fn dfs(i: i32, f: &mut Vec<i8>) -> bool {
+            if i <= 0 {
+                return false;
+            }
+
+            let idx = i as usize;
+            if f[idx] != -1 {
+                return f[idx] == 1;
+            }
+
+            let k = (i as f64).sqrt() as i32;
+            for j in 1..=k {
+                if !dfs(i - j * j, f) {
+                    f[idx] = 1;
+                    return true;
+                }
+            }
+
+            f[idx] = 0;
+            false
+        }
+
+        dfs(n, &mut f)
+    }
 }
 ```
 
@@ -340,6 +382,30 @@ function winnerSquareGame(n: number): boolean {
         }
     }
     return f[n];
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn winner_square_game(n: i32) -> bool {
+        let n = n as usize;
+        let mut f = vec![false; n + 1];
+
+        for i in 1..=n {
+            let mut j = 1;
+            while j <= i / j {
+                if !f[i - j * j] {
+                    f[i] = true;
+                    break;
+                }
+                j += 1;
+            }
+        }
+
+        f[n]
+    }
 }
 ```
 

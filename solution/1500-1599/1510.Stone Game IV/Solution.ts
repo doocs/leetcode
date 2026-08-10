@@ -1,20 +1,25 @@
 function winnerSquareGame(n: number): boolean {
-    const f: number[] = new Array(n + 1).fill(0);
+    const f = new Array<number>(n + 1).fill(-1);
+
     const dfs = (i: number): boolean => {
         if (i <= 0) {
             return false;
         }
-        if (f[i] !== 0) {
+        if (f[i] !== -1) {
             return f[i] === 1;
         }
-        for (let j = 1; j * j <= i; ++j) {
+
+        const k = Math.floor(Math.sqrt(i));
+        for (let j = 1; j <= k; j++) {
             if (!dfs(i - j * j)) {
                 f[i] = 1;
                 return true;
             }
         }
-        f[i] = -1;
+
+        f[i] = 0;
         return false;
     };
+
     return dfs(n);
 }
