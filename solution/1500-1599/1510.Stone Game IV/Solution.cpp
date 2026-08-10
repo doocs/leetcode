@@ -1,24 +1,26 @@
 class Solution {
 public:
     bool winnerSquareGame(int n) {
-        int f[n + 1];
-        memset(f, 0, sizeof(f));
-        function<bool(int)> dfs = [&](int i) -> bool {
+        vector<int> f(n + 1, -1);
+
+        auto dfs = [&](this auto&& dfs, int i) -> bool {
             if (i <= 0) {
                 return false;
             }
-            if (f[i] != 0) {
-                return f[i] == 1;
+            if (f[i] != -1) {
+                return f[i];
             }
-            for (int j = 1; j <= i / j; ++j) {
+
+            int k = sqrt(i);
+            for (int j = 1; j <= k; j++) {
                 if (!dfs(i - j * j)) {
-                    f[i] = 1;
-                    return true;
+                    return f[i] = true;
                 }
             }
-            f[i] = -1;
-            return false;
+
+            return f[i] = false;
         };
+
         return dfs(n);
     }
 };

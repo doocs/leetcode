@@ -1,5 +1,6 @@
 func winnerSquareGame(n int) bool {
-	f := make([]int, n+1)
+	f := make([]int8, n+1)
+
 	var dfs func(int) bool
 	dfs = func(i int) bool {
 		if i <= 0 {
@@ -8,7 +9,8 @@ func winnerSquareGame(n int) bool {
 		if f[i] != 0 {
 			return f[i] == 1
 		}
-		for j := 1; j <= i/j; j++ {
+		k := int(math.Sqrt(float64(i)))
+		for j := 1; j <= k; j++ {
 			if !dfs(i - j*j) {
 				f[i] = 1
 				return true
@@ -17,5 +19,6 @@ func winnerSquareGame(n int) bool {
 		f[i] = -1
 		return false
 	}
+
 	return dfs(n)
 }

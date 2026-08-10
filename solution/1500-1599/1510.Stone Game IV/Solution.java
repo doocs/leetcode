@@ -13,7 +13,8 @@ class Solution {
         if (f[i] != null) {
             return f[i];
         }
-        for (int j = 1; j <= i / j; ++j) {
+        int k = (int) Math.sqrt(i);
+        for (int j = 1; j <= k; j++) {
             if (!dfs(i - j * j)) {
                 return f[i] = true;
             }
