@@ -70,7 +70,7 @@ tags:
 <!-- tabs:start -->
 
 ### cpp
-'''cpp
+```cpp
 class Solution {
 public:
     bool winnerSquareGame(int n) {
