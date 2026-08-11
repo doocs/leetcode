@@ -57,11 +57,13 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Simulation + Hash Table
+### Solution 1: Simulation
 
-First, we calculate the longest prefix sum $s$ of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer. Here, we can use a hash table to quickly determine whether an integer is in the array $nums$.
+First, we calculate the sum $s$ of the longest sequential prefix of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer.
 
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
+Since $nums[i] \leq 50$ in this problem, we can use an array of length $51$ (or a hash table) to record the integers that appear in the array, so as to quickly determine whether an integer is in the array $nums$.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $nums$, and $M$ is the upper bound of the array elements, which is $51$ in this problem.
 
 <!-- tabs:start -->
 
@@ -70,14 +72,15 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def missingInteger(self, nums: List[int]) -> int:
-        s, j = nums[0], 1
-        while j < len(nums) and nums[j] == nums[j - 1] + 1:
-            s += nums[j]
-            j += 1
-        vis = set(nums)
-        for x in count(s):
-            if x not in vis:
-                return x
+        s = nums[0]
+        for x, y in pairwise(nums):
+            if x + 1 != y:
+                break
+            s += y
+        st = set(nums)
+        while s in st:
+            s += 1
+        return s
 ```
 
 #### Java
@@ -89,15 +92,15 @@ class Solution {
         for (int j = 1; j < nums.length && nums[j] == nums[j - 1] + 1; ++j) {
             s += nums[j];
         }
-        boolean[] vis = new boolean[51];
+        final int m = 51;
+        boolean[] st = new boolean[m];
         for (int x : nums) {
-            vis[x] = true;
+            st[x] = true;
         }
-        for (int x = s;; ++x) {
-            if (x >= vis.length || !vis[x]) {
-                return x;
-            }
+        while (s < m && st[s]) {
+            ++s;
         }
+        return s;
     }
 }
 ```
@@ -112,15 +115,17 @@ public:
         for (int j = 1; j < nums.size() && nums[j] == nums[j - 1] + 1; ++j) {
             s += nums[j];
         }
-        bitset<51> vis;
+
+        const int m = 51;
+        bool st[m] = {};
         for (int x : nums) {
-            vis[x] = 1;
+            st[x] = true;
         }
-        for (int x = s;; ++x) {
-            if (x >= 51 || !vis[x]) {
-                return x;
-            }
+
+        while (s < m && st[s]) {
+            ++s;
         }
+        return s;
     }
 };
 ```
@@ -133,15 +138,17 @@ func missingInteger(nums []int) int {
 	for j := 1; j < len(nums) && nums[j] == nums[j-1]+1; j++ {
 		s += nums[j]
 	}
-	vis := [51]bool{}
+
+	const m = 51
+	st := make([]bool, m)
 	for _, x := range nums {
-		vis[x] = true
+		st[x] = true
 	}
-	for x := s; ; x++ {
-		if x >= len(vis) || !vis[x] {
-			return x
-		}
+
+	for s < m && st[s] {
+		s++
 	}
+	return s
 }
 ```
 
@@ -153,11 +160,46 @@ function missingInteger(nums: number[]): number {
     for (let j = 1; j < nums.length && nums[j] === nums[j - 1] + 1; ++j) {
         s += nums[j];
     }
-    const vis: Set<number> = new Set(nums);
-    for (let x = s; ; ++x) {
-        if (!vis.has(x)) {
-            return x;
+
+    const m = 51;
+    const st = new Array<boolean>(m).fill(false);
+    for (const x of nums) {
+        st[x] = true;
+    }
+
+    while (s < m && st[s]) {
+        ++s;
+    }
+    return s;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn missing_integer(nums: Vec<i32>) -> i32 {
+        let mut s = nums[0];
+
+        for j in 1..nums.len() {
+            if nums[j] != nums[j - 1] + 1 {
+                break;
+            }
+            s += nums[j];
         }
+
+        const M: usize = 51;
+        let mut st = [false; M];
+
+        for &x in &nums {
+            st[x as usize] = true;
+        }
+
+        while s < M as i32 && st[s as usize] {
+            s += 1;
+        }
+
+        s
     }
 }
 ```

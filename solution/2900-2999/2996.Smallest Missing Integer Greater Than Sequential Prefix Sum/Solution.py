@@ -1,10 +1,11 @@
 class Solution:
     def missingInteger(self, nums: List[int]) -> int:
-        s, j = nums[0], 1
-        while j < len(nums) and nums[j] == nums[j - 1] + 1:
-            s += nums[j]
-            j += 1
-        vis = set(nums)
-        for x in count(s):
-            if x not in vis:
-                return x
+        s = nums[0]
+        for x, y in pairwise(nums):
+            if x + 1 != y:
+                break
+            s += y
+        st = set(nums)
+        while s in st:
+            s += 1
+        return s

@@ -4,14 +4,14 @@ class Solution {
         for (int j = 1; j < nums.length && nums[j] == nums[j - 1] + 1; ++j) {
             s += nums[j];
         }
-        boolean[] vis = new boolean[51];
+        final int m = 51;
+        boolean[] st = new boolean[m];
         for (int x : nums) {
-            vis[x] = true;
+            st[x] = true;
         }
-        for (int x = s;; ++x) {
-            if (x >= vis.length || !vis[x]) {
-                return x;
-            }
+        while (s < m && st[s]) {
+            ++s;
         }
+        return s;
     }
 }
