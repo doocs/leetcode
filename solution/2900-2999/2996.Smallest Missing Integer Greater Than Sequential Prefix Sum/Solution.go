@@ -3,13 +3,15 @@ func missingInteger(nums []int) int {
 	for j := 1; j < len(nums) && nums[j] == nums[j-1]+1; j++ {
 		s += nums[j]
 	}
-	vis := [51]bool{}
+
+	const m = 51
+	st := make([]bool, m)
 	for _, x := range nums {
-		vis[x] = true
+		st[x] = true
 	}
-	for x := s; ; x++ {
-		if x >= len(vis) || !vis[x] {
-			return x
-		}
+
+	for s < m && st[s] {
+		s++
 	}
+	return s
 }

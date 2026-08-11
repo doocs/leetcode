@@ -5,14 +5,16 @@ public:
         for (int j = 1; j < nums.size() && nums[j] == nums[j - 1] + 1; ++j) {
             s += nums[j];
         }
-        bitset<51> vis;
+
+        const int m = 51;
+        bool st[m] = {};
         for (int x : nums) {
-            vis[x] = 1;
+            st[x] = true;
         }
-        for (int x = s;; ++x) {
-            if (x >= 51 || !vis[x]) {
-                return x;
-            }
+
+        while (s < m && st[s]) {
+            ++s;
         }
+        return s;
     }
 };

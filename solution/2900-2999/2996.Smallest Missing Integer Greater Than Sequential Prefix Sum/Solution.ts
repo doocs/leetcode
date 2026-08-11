@@ -3,10 +3,15 @@ function missingInteger(nums: number[]): number {
     for (let j = 1; j < nums.length && nums[j] === nums[j - 1] + 1; ++j) {
         s += nums[j];
     }
-    const vis: Set<number> = new Set(nums);
-    for (let x = s; ; ++x) {
-        if (!vis.has(x)) {
-            return x;
-        }
+
+    const m = 51;
+    const st = new Array<boolean>(m).fill(false);
+    for (const x of nums) {
+        st[x] = true;
     }
+
+    while (s < m && st[s]) {
+        ++s;
+    }
+    return s;
 }

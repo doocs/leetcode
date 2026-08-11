@@ -59,11 +59,13 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：模拟 + 哈希表
+### 方法一：模拟
 
-我们先求出数组 $nums$ 的最长顺序前缀和 $s$，然后从 $s$ 开始枚举整数 $x$，如果 $x$ 不在数组 $nums$ 中，那么 $x$ 就是答案。这里我们可以用哈希表来快速判断一个整数是否在数组 $nums$ 中。
+我们先求出数组 $nums$ 的最长顺序前缀和 $s$，然后从 $s$ 开始枚举整数 $x$，如果 $x$ 不在数组 $nums$ 中，那么 $x$ 就是答案。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
+由于题目中 $nums[i] \leq 50$，我们可以用一个长度为 $51$ 的数组（或者哈希表）来记录数组中出现过的整数，从而快速判断一个整数是否在数组 $nums$ 中。
+
+时间复杂度 $O(n + M)$，空间复杂度 $O(M)$。其中 $n$ 是数组 $nums$ 的长度，而 $M$ 是数组元素的上限，本题中 $M = 51$。
 
 <!-- tabs:start -->
 
@@ -72,14 +74,15 @@ tags:
 ```python
 class Solution:
     def missingInteger(self, nums: List[int]) -> int:
-        s, j = nums[0], 1
-        while j < len(nums) and nums[j] == nums[j - 1] + 1:
-            s += nums[j]
-            j += 1
-        vis = set(nums)
-        for x in count(s):
-            if x not in vis:
-                return x
+        s = nums[0]
+        for x, y in pairwise(nums):
+            if x + 1 != y:
+                break
+            s += y
+        st = set(nums)
+        while s in st:
+            s += 1
+        return s
 ```
 
 #### Java
@@ -91,15 +94,15 @@ class Solution {
         for (int j = 1; j < nums.length && nums[j] == nums[j - 1] + 1; ++j) {
             s += nums[j];
         }
-        boolean[] vis = new boolean[51];
+        final int m = 51;
+        boolean[] st = new boolean[m];
         for (int x : nums) {
-            vis[x] = true;
+            st[x] = true;
         }
-        for (int x = s;; ++x) {
-            if (x >= vis.length || !vis[x]) {
-                return x;
-            }
+        while (s < m && st[s]) {
+            ++s;
         }
+        return s;
     }
 }
 ```
@@ -114,15 +117,17 @@ public:
         for (int j = 1; j < nums.size() && nums[j] == nums[j - 1] + 1; ++j) {
             s += nums[j];
         }
-        bitset<51> vis;
+
+        const int m = 51;
+        bool st[m] = {};
         for (int x : nums) {
-            vis[x] = 1;
+            st[x] = true;
         }
-        for (int x = s;; ++x) {
-            if (x >= 51 || !vis[x]) {
-                return x;
-            }
+
+        while (s < m && st[s]) {
+            ++s;
         }
+        return s;
     }
 };
 ```
@@ -135,15 +140,17 @@ func missingInteger(nums []int) int {
 	for j := 1; j < len(nums) && nums[j] == nums[j-1]+1; j++ {
 		s += nums[j]
 	}
-	vis := [51]bool{}
+
+	const m = 51
+	st := make([]bool, m)
 	for _, x := range nums {
-		vis[x] = true
+		st[x] = true
 	}
-	for x := s; ; x++ {
-		if x >= len(vis) || !vis[x] {
-			return x
-		}
+
+	for s < m && st[s] {
+		s++
 	}
+	return s
 }
 ```
 
@@ -155,11 +162,46 @@ function missingInteger(nums: number[]): number {
     for (let j = 1; j < nums.length && nums[j] === nums[j - 1] + 1; ++j) {
         s += nums[j];
     }
-    const vis: Set<number> = new Set(nums);
-    for (let x = s; ; ++x) {
-        if (!vis.has(x)) {
-            return x;
+
+    const m = 51;
+    const st = new Array<boolean>(m).fill(false);
+    for (const x of nums) {
+        st[x] = true;
+    }
+
+    while (s < m && st[s]) {
+        ++s;
+    }
+    return s;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn missing_integer(nums: Vec<i32>) -> i32 {
+        let mut s = nums[0];
+
+        for j in 1..nums.len() {
+            if nums[j] != nums[j - 1] + 1 {
+                break;
+            }
+            s += nums[j];
         }
+
+        const M: usize = 51;
+        let mut st = [false; M];
+
+        for &x in &nums {
+            st[x as usize] = true;
+        }
+
+        while s < M as i32 && st[s as usize] {
+            s += 1;
+        }
+
+        s
     }
 }
 ```
