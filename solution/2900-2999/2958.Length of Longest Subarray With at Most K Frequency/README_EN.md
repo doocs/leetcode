@@ -75,9 +75,9 @@ It can be shown that there are no good subarrays with length more than 4.
 
 ### Solution 1: Two Pointers
 
-We can use two pointers $j$ and $i$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
+We can use two pointers $l$ and $r$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
 
-Next, we iterate over each element $x$ in the array $nums$. For each element $x$, we increment the occurrence count of $x$, then check if the current subarray meets the requirements. If the current subarray does not meet the requirements, we move the pointer $j$ one step to the right, and decrement the occurrence count of $nums[j]$, until the current subarray meets the requirements. Then we update the answer $ans = \max(ans, i - j + 1)$. Continue the iteration until $i$ reaches the end of the array.
+Next, we iterate over each element $x$ in the array $nums$. For each element $x$, we increment the occurrence count of $x$, then check if the current subarray meets the requirements. If the current subarray does not meet the requirements, we move the pointer $l$ one step to the right, and decrement the occurrence count of $nums[l]$, until the current subarray meets the requirements. Then we update the answer $ans = \max(ans, r - l + 1)$. Continue the iteration until $r$ reaches the end of the array.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
 
@@ -88,14 +88,14 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 ```python
 class Solution:
     def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        ans = l = 0
         cnt = defaultdict(int)
-        ans = j = 0
-        for i, x in enumerate(nums):
+        for r, x in enumerate(nums):
             cnt[x] += 1
             while cnt[x] > k:
-                cnt[nums[j]] -= 1
-                j += 1
-            ans = max(ans, i - j + 1)
+                cnt[nums[l]] -= 1
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 
@@ -104,14 +104,14 @@ class Solution:
 ```java
 class Solution {
     public int maxSubarrayLength(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
         int ans = 0;
-        for (int i = 0, j = 0; i < nums.length; ++i) {
-            cnt.merge(nums[i], 1, Integer::sum);
-            while (cnt.get(nums[i]) > k) {
-                cnt.merge(nums[j++], -1, Integer::sum);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int l = 0, r = 0; r < nums.length; ++r) {
+            cnt.merge(nums[r], 1, Integer::sum);
+            while (cnt.get(nums[r]) > k) {
+                cnt.merge(nums[l++], -1, Integer::sum);
             }
-            ans = Math.max(ans, i - j + 1);
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }
@@ -124,14 +124,14 @@ class Solution {
 class Solution {
 public:
     int maxSubarrayLength(vector<int>& nums, int k) {
-        unordered_map<int, int> cnt;
         int ans = 0;
-        for (int i = 0, j = 0; i < nums.size(); ++i) {
-            ++cnt[nums[i]];
-            while (cnt[nums[i]] > k) {
-                --cnt[nums[j++]];
+        unordered_map<int, int> cnt;
+        for (int l = 0, r = 0; r < nums.size(); ++r) {
+            ++cnt[nums[r]];
+            while (cnt[nums[r]] > k) {
+                --cnt[nums[l++]];
             }
-            ans = max(ans, i - j + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }
@@ -142,13 +142,14 @@ public:
 
 ```go
 func maxSubarrayLength(nums []int, k int) (ans int) {
-	cnt := map[int]int{}
-	for i, j, n := 0, 0, len(nums); i < n; i++ {
-		cnt[nums[i]]++
-		for ; cnt[nums[i]] > k; j++ {
-			cnt[nums[j]]--
+	cnt := make(map[int]int)
+	for l, r := 0, 0; r < len(nums); r++ {
+		cnt[nums[r]]++
+		for cnt[nums[r]] > k {
+			cnt[nums[l]]--
+			l++
 		}
-		ans = max(ans, i-j+1)
+		ans = max(ans, r-l+1)
 	}
 	return
 }
@@ -158,16 +159,42 @@ func maxSubarrayLength(nums []int, k int) (ans int) {
 
 ```ts
 function maxSubarrayLength(nums: number[], k: number): number {
-    const cnt: Map<number, number> = new Map();
     let ans = 0;
-    for (let i = 0, j = 0; i < nums.length; ++i) {
-        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
-        for (; cnt.get(nums[i])! > k; ++j) {
-            cnt.set(nums[j], cnt.get(nums[j])! - 1);
+    const cnt = new Map<number, number>();
+    for (let l = 0, r = 0; r < nums.length; ++r) {
+        cnt.set(nums[r], (cnt.get(nums[r]) ?? 0) + 1);
+        while (cnt.get(nums[r])! > k) {
+            cnt.set(nums[l], cnt.get(nums[l])! - 1);
+            ++l;
         }
-        ans = Math.max(ans, i - j + 1);
+        ans = Math.max(ans, r - l + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_subarray_length(nums: Vec<i32>, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut cnt = std::collections::HashMap::new();
+
+        let mut l = 0;
+        for r in 0..nums.len() {
+            *cnt.entry(nums[r]).or_insert(0) += 1;
+
+            while cnt[&nums[r]] > k {
+                *cnt.get_mut(&nums[l]).unwrap() -= 1;
+                l += 1;
+            }
+
+            ans = ans.max((r - l + 1) as i32);
+        }
+
+        ans
+    }
 }
 ```
 
