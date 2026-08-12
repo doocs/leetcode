@@ -1,11 +1,12 @@
 func maxSubarrayLength(nums []int, k int) (ans int) {
-	cnt := map[int]int{}
-	for i, j, n := 0, 0, len(nums); i < n; i++ {
-		cnt[nums[i]]++
-		for ; cnt[nums[i]] > k; j++ {
-			cnt[nums[j]]--
+	cnt := make(map[int]int)
+	for l, r := 0, 0; r < len(nums); r++ {
+		cnt[nums[r]]++
+		for cnt[nums[r]] > k {
+			cnt[nums[l]]--
+			l++
 		}
-		ans = max(ans, i-j+1)
+		ans = max(ans, r-l+1)
 	}
 	return
 }

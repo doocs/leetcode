@@ -77,9 +77,9 @@ tags:
 
 ### 方法一：双指针
 
-我们可以用两个指针 $j$ 和 $i$ 分别表示子数组的左右端点，初始时两个指针都指向数组的第一个元素。
+我们可以用两个指针 $l$ 和 $r$ 分别表示子数组的左右端点，初始时两个指针都指向数组的第一个元素。
 
-接下来，我们遍历数组 $nums$ 中的每个元素 $x$，对于每个元素 $x$，我们将 $x$ 的出现次数加一，然后判断当前子数组是否满足要求。如果当前子数组不满足要求，我们就将指针 $j$ 右移一位，并将 $nums[j]$ 的出现次数减一，直到当前子数组满足要求为止。然后我们更新答案 $ans = \max(ans, i - j + 1)$。继续遍历，直到 $i$ 到达数组的末尾。
+接下来，我们遍历数组 $nums$ 中的每个元素 $x$，对于每个元素 $x$，我们将 $x$ 的出现次数加一，然后判断当前子数组是否满足要求。如果当前子数组不满足要求，我们就将指针 $l$ 右移一位，并将 $nums[l]$ 的出现次数减一，直到当前子数组满足要求为止。然后我们更新答案 $ans = \max(ans, r - l + 1)$。继续遍历，直到 $r$ 到达数组的末尾。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。
 
@@ -90,14 +90,14 @@ tags:
 ```python
 class Solution:
     def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        ans = l = 0
         cnt = defaultdict(int)
-        ans = j = 0
-        for i, x in enumerate(nums):
+        for r, x in enumerate(nums):
             cnt[x] += 1
             while cnt[x] > k:
-                cnt[nums[j]] -= 1
-                j += 1
-            ans = max(ans, i - j + 1)
+                cnt[nums[l]] -= 1
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 
@@ -106,14 +106,14 @@ class Solution:
 ```java
 class Solution {
     public int maxSubarrayLength(int[] nums, int k) {
-        Map<Integer, Integer> cnt = new HashMap<>();
         int ans = 0;
-        for (int i = 0, j = 0; i < nums.length; ++i) {
-            cnt.merge(nums[i], 1, Integer::sum);
-            while (cnt.get(nums[i]) > k) {
-                cnt.merge(nums[j++], -1, Integer::sum);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int l = 0, r = 0; r < nums.length; ++r) {
+            cnt.merge(nums[r], 1, Integer::sum);
+            while (cnt.get(nums[r]) > k) {
+                cnt.merge(nums[l++], -1, Integer::sum);
             }
-            ans = Math.max(ans, i - j + 1);
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }
@@ -126,14 +126,14 @@ class Solution {
 class Solution {
 public:
     int maxSubarrayLength(vector<int>& nums, int k) {
-        unordered_map<int, int> cnt;
         int ans = 0;
-        for (int i = 0, j = 0; i < nums.size(); ++i) {
-            ++cnt[nums[i]];
-            while (cnt[nums[i]] > k) {
-                --cnt[nums[j++]];
+        unordered_map<int, int> cnt;
+        for (int l = 0, r = 0; r < nums.size(); ++r) {
+            ++cnt[nums[r]];
+            while (cnt[nums[r]] > k) {
+                --cnt[nums[l++]];
             }
-            ans = max(ans, i - j + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }
@@ -144,13 +144,14 @@ public:
 
 ```go
 func maxSubarrayLength(nums []int, k int) (ans int) {
-	cnt := map[int]int{}
-	for i, j, n := 0, 0, len(nums); i < n; i++ {
-		cnt[nums[i]]++
-		for ; cnt[nums[i]] > k; j++ {
-			cnt[nums[j]]--
+	cnt := make(map[int]int)
+	for l, r := 0, 0; r < len(nums); r++ {
+		cnt[nums[r]]++
+		for cnt[nums[r]] > k {
+			cnt[nums[l]]--
+			l++
 		}
-		ans = max(ans, i-j+1)
+		ans = max(ans, r-l+1)
 	}
 	return
 }
@@ -160,16 +161,42 @@ func maxSubarrayLength(nums []int, k int) (ans int) {
 
 ```ts
 function maxSubarrayLength(nums: number[], k: number): number {
-    const cnt: Map<number, number> = new Map();
     let ans = 0;
-    for (let i = 0, j = 0; i < nums.length; ++i) {
-        cnt.set(nums[i], (cnt.get(nums[i]) ?? 0) + 1);
-        for (; cnt.get(nums[i])! > k; ++j) {
-            cnt.set(nums[j], cnt.get(nums[j])! - 1);
+    const cnt = new Map<number, number>();
+    for (let l = 0, r = 0; r < nums.length; ++r) {
+        cnt.set(nums[r], (cnt.get(nums[r]) ?? 0) + 1);
+        while (cnt.get(nums[r])! > k) {
+            cnt.set(nums[l], cnt.get(nums[l])! - 1);
+            ++l;
         }
-        ans = Math.max(ans, i - j + 1);
+        ans = Math.max(ans, r - l + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_subarray_length(nums: Vec<i32>, k: i32) -> i32 {
+        let mut ans = 0;
+        let mut cnt = std::collections::HashMap::new();
+
+        let mut l = 0;
+        for r in 0..nums.len() {
+            *cnt.entry(nums[r]).or_insert(0) += 1;
+
+            while cnt[&nums[r]] > k {
+                *cnt.get_mut(&nums[l]).unwrap() -= 1;
+                l += 1;
+            }
+
+            ans = ans.max((r - l + 1) as i32);
+        }
+
+        ans
+    }
 }
 ```
 
