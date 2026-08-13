@@ -4028,6 +4028,7 @@
 |  4015  |  [树的加权和](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README.md)  |    |  中等  |  第 514 场周赛  |
 |  4016  |  [两个不重叠子正方形的最大面积](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README.md)  |    |  中等  |  第 514 场周赛  |
 |  4017  |  [数组中的峰值 II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md)  |    |  困难  |  第 514 场周赛  |
+|  4018  |  [树组的交互代价总和 II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
