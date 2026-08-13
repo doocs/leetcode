@@ -4026,6 +4026,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4015  |  [Weighted Sum of a Tree](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
 |  4016  |  [Maximum Area of Two Non-Overlapping Square Submatrices](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
 |  4017  |  [Peaks in Array II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 514  |
+|  4018  |  [Total Sum of Interaction Cost in Tree Groups II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 
