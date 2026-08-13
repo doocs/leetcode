@@ -1,5 +1,5 @@
 {
-  "cache_date": 1786592766,
+  "cache_date": 1786627230,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -138063,6 +138063,28 @@
         }
       ],
       "retrieved": 1786291731
+    },
+    "solution/4000-4099/4018.Total Sum of Interaction Cost in Tree Groups II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786619623
+    },
+    "solution/4000-4099/4018.Total Sum of Interaction Cost in Tree Groups II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786623597
     }
   }
 }
