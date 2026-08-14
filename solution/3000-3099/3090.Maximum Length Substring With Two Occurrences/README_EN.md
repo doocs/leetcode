@@ -59,9 +59,9 @@ The following substring has a length of 2 and contains at most two occurrences o
 
 ### Solution 1: Two Pointers
 
-We use two pointers $i$ and $j$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
+We use two pointers $l$ and $r$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
 
-In each iteration, we add the character $c$ at the pointer $j$ into the window, then check if $cnt[c]$ is greater than $2$. If it is, we move the pointer $i$ to the right until $cnt[c]$ is less than or equal to $2$. At this point, we update the answer $ans = \max(ans, j - i + 1)$.
+In each iteration, we add the character $c$ at the pointer $r$ into the window, then check if $cnt[c]$ is greater than $2$. If it is, we move the pointer $l$ to the right until $cnt[c]$ is less than or equal to $2$. At this point, we update the answer $ans = \max(ans, r - l + 1)$.
 
 Finally, we return the answer $ans$.
 
@@ -74,14 +74,14 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. The sp
 ```python
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        cnt = Counter()
-        ans = i = 0
-        for j, c in enumerate(s):
+        ans = l = 0
+        cnt = defaultdict(int)
+        for r, c in enumerate(s):
             cnt[c] += 1
             while cnt[c] > 2:
-                cnt[s[i]] -= 1
-                i += 1
-            ans = max(ans, j - i + 1)
+                cnt[s[l]] -= 1
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 
@@ -90,15 +90,15 @@ class Solution:
 ```java
 class Solution {
     public int maximumLengthSubstring(String s) {
-        int[] cnt = new int[26];
         int ans = 0;
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            int idx = s.charAt(j) - 'a';
+        int[] cnt = new int[26];
+        for (int l = 0, r = 0; r < s.length(); ++r) {
+            int idx = s.charAt(r) - 'a';
             ++cnt[idx];
             while (cnt[idx] > 2) {
-                --cnt[s.charAt(i++) - 'a'];
+                --cnt[s.charAt(l++) - 'a'];
             }
-            ans = Math.max(ans, j - i + 1);
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }
@@ -111,15 +111,15 @@ class Solution {
 class Solution {
 public:
     int maximumLengthSubstring(string s) {
-        int cnt[26]{};
         int ans = 0;
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            int idx = s[j] - 'a';
+        int cnt[26]{};
+        for (int l = 0, r = 0; r < s.size(); ++r) {
+            int idx = s[r] - 'a';
             ++cnt[idx];
             while (cnt[idx] > 2) {
-                --cnt[s[i++] - 'a'];
+                --cnt[s[l++] - 'a'];
             }
-            ans = max(ans, j - i + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }
@@ -130,16 +130,16 @@ public:
 
 ```go
 func maximumLengthSubstring(s string) (ans int) {
+	l := 0
 	cnt := [26]int{}
-	i := 0
-	for j, c := range s {
-		idx := c - 'a'
+	for r, c := range s {
+		idx := int(c - 'a')
 		cnt[idx]++
 		for cnt[idx] > 2 {
-			cnt[s[i]-'a']--
-			i++
+			cnt[s[l]-'a']--
+			l++
 		}
-		ans = max(ans, j-i+1)
+		ans = max(ans, r-l+1)
 	}
 	return
 }
@@ -151,15 +151,42 @@ func maximumLengthSubstring(s string) (ans int) {
 function maximumLengthSubstring(s: string): number {
     let ans = 0;
     const cnt: number[] = Array(26).fill(0);
-    for (let i = 0, j = 0; j < s.length; ++j) {
-        const idx = s[j].charCodeAt(0) - 'a'.charCodeAt(0);
+    for (let l = 0, r = 0; r < s.length; ++r) {
+        const idx = s[r].charCodeAt(0) - 97;
         ++cnt[idx];
         while (cnt[idx] > 2) {
-            --cnt[s[i++].charCodeAt(0) - 'a'.charCodeAt(0)];
+            --cnt[s[l++].charCodeAt(0) - 97];
         }
-        ans = Math.max(ans, j - i + 1);
+        ans = Math.max(ans, r - l + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_length_substring(s: String) -> i32 {
+        let mut cnt = [0; 26];
+        let mut ans = 0;
+        let mut l = 0;
+        let s = s.as_bytes();
+
+        for (r, &c) in s.iter().enumerate() {
+            let i = (c - b'a') as usize;
+            cnt[i] += 1;
+
+            while cnt[i] > 2 {
+                cnt[(s[l] - b'a') as usize] -= 1;
+                l += 1;
+            }
+
+            ans = ans.max((r - l + 1) as i32);
+        }
+
+        ans
+    }
 }
 ```
 

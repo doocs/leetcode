@@ -66,9 +66,9 @@ tags:
 
 ### 方法一：双指针
 
-我们用两个指针 $i$ 和 $j$ 来维护一个滑动窗口，用一个数组 $cnt$ 来记录窗口中每个字符的出现次数。
+我们用两个指针 $l$ 和 $r$ 来维护一个滑动窗口，用一个数组 $cnt$ 来记录窗口中每个字符的出现次数。
 
-每一次，我们将指针 $j$ 对应的字符 $c$ 加入窗口，然后判断 $cnt[c]$ 是否大于 $2$，如果大于 $2$，则将指针 $i$ 循环右移，直到 $cnt[c]$ 小于等于 $2$。此时，我们更新答案 $ans = \max(ans, j - i + 1)$。
+每一次，我们将指针 $r$ 对应的字符 $c$ 加入窗口，然后判断 $cnt[c]$ 是否大于 $2$，如果大于 $2$，则将指针 $l$ 循环右移，直到 $cnt[c]$ 小于等于 $2$。此时，我们更新答案 $ans = \max(ans, r - l + 1)$。
 
 最终，我们返回答案 $ans$。
 
@@ -81,14 +81,14 @@ tags:
 ```python
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        cnt = Counter()
-        ans = i = 0
-        for j, c in enumerate(s):
+        ans = l = 0
+        cnt = defaultdict(int)
+        for r, c in enumerate(s):
             cnt[c] += 1
             while cnt[c] > 2:
-                cnt[s[i]] -= 1
-                i += 1
-            ans = max(ans, j - i + 1)
+                cnt[s[l]] -= 1
+                l += 1
+            ans = max(ans, r - l + 1)
         return ans
 ```
 
@@ -97,15 +97,15 @@ class Solution:
 ```java
 class Solution {
     public int maximumLengthSubstring(String s) {
-        int[] cnt = new int[26];
         int ans = 0;
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            int idx = s.charAt(j) - 'a';
+        int[] cnt = new int[26];
+        for (int l = 0, r = 0; r < s.length(); ++r) {
+            int idx = s.charAt(r) - 'a';
             ++cnt[idx];
             while (cnt[idx] > 2) {
-                --cnt[s.charAt(i++) - 'a'];
+                --cnt[s.charAt(l++) - 'a'];
             }
-            ans = Math.max(ans, j - i + 1);
+            ans = Math.max(ans, r - l + 1);
         }
         return ans;
     }
@@ -118,15 +118,15 @@ class Solution {
 class Solution {
 public:
     int maximumLengthSubstring(string s) {
-        int cnt[26]{};
         int ans = 0;
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            int idx = s[j] - 'a';
+        int cnt[26]{};
+        for (int l = 0, r = 0; r < s.size(); ++r) {
+            int idx = s[r] - 'a';
             ++cnt[idx];
             while (cnt[idx] > 2) {
-                --cnt[s[i++] - 'a'];
+                --cnt[s[l++] - 'a'];
             }
-            ans = max(ans, j - i + 1);
+            ans = max(ans, r - l + 1);
         }
         return ans;
     }
@@ -137,16 +137,16 @@ public:
 
 ```go
 func maximumLengthSubstring(s string) (ans int) {
+	l := 0
 	cnt := [26]int{}
-	i := 0
-	for j, c := range s {
-		idx := c - 'a'
+	for r, c := range s {
+		idx := int(c - 'a')
 		cnt[idx]++
 		for cnt[idx] > 2 {
-			cnt[s[i]-'a']--
-			i++
+			cnt[s[l]-'a']--
+			l++
 		}
-		ans = max(ans, j-i+1)
+		ans = max(ans, r-l+1)
 	}
 	return
 }
@@ -158,15 +158,42 @@ func maximumLengthSubstring(s string) (ans int) {
 function maximumLengthSubstring(s: string): number {
     let ans = 0;
     const cnt: number[] = Array(26).fill(0);
-    for (let i = 0, j = 0; j < s.length; ++j) {
-        const idx = s[j].charCodeAt(0) - 'a'.charCodeAt(0);
+    for (let l = 0, r = 0; r < s.length; ++r) {
+        const idx = s[r].charCodeAt(0) - 97;
         ++cnt[idx];
         while (cnt[idx] > 2) {
-            --cnt[s[i++].charCodeAt(0) - 'a'.charCodeAt(0)];
+            --cnt[s[l++].charCodeAt(0) - 97];
         }
-        ans = Math.max(ans, j - i + 1);
+        ans = Math.max(ans, r - l + 1);
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn maximum_length_substring(s: String) -> i32 {
+        let mut cnt = [0; 26];
+        let mut ans = 0;
+        let mut l = 0;
+        let s = s.as_bytes();
+
+        for (r, &c) in s.iter().enumerate() {
+            let i = (c - b'a') as usize;
+            cnt[i] += 1;
+
+            while cnt[i] > 2 {
+                cnt[(s[l] - b'a') as usize] -= 1;
+                l += 1;
+            }
+
+            ans = ans.max((r - l + 1) as i32);
+        }
+
+        ans
+    }
 }
 ```
 
