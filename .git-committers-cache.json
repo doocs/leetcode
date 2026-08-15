@@ -1,5 +1,5 @@
 {
-  "cache_date": 1786685585,
+  "cache_date": 1786792256,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137809,7 +137809,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785671723
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4008.Minimum Initial Strength to Defeat All Monsters/README.md": {
       "authors": [
@@ -137820,7 +137820,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785671723
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4006.Count Valid Prefixes/README.md": {
       "authors": [
@@ -137831,7 +137831,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785671723
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4009.Minimum Possible Maximum Waiting Time/README.md": {
       "authors": [
@@ -137842,7 +137842,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785671723
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4011.Count Subarrays With Even Odd Ratio I/README.md": {
       "authors": [
@@ -137853,7 +137853,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785671723
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4012.Count of Unfinished Tasks After Each Shift/README.md": {
       "authors": [
@@ -137864,7 +137864,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785846332
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4013.Count Subarrays With Even Odd Ratio II/README.md": {
       "authors": [
@@ -137875,7 +137875,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785846332
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4010.Maximize Pair Strength Using GCD/README.md": {
       "authors": [
@@ -137886,7 +137886,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785671723
+      "retrieved": 1786784559
     },
     "solution/4000-4099/4006.Count Valid Prefixes/README_EN.md": {
       "authors": [
@@ -137897,7 +137897,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785675804
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4007.Widest Possible Fence/README_EN.md": {
       "authors": [
@@ -137908,7 +137908,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785675804
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4008.Minimum Initial Strength to Defeat All Monsters/README_EN.md": {
       "authors": [
@@ -137919,7 +137919,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785675804
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4009.Minimum Possible Maximum Waiting Time/README_EN.md": {
       "authors": [
@@ -137930,7 +137930,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785675804
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4010.Maximize Pair Strength Using GCD/README_EN.md": {
       "authors": [
@@ -137941,7 +137941,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785675804
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4013.Count Subarrays With Even Odd Ratio II/README_EN.md": {
       "authors": [
@@ -137952,7 +137952,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785851405
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4012.Count of Unfinished Tasks After Each Shift/README_EN.md": {
       "authors": [
@@ -137963,7 +137963,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785851405
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4011.Count Subarrays With Even Odd Ratio I/README_EN.md": {
       "authors": [
@@ -137974,7 +137974,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1785675804
+      "retrieved": 1786788630
     },
     "solution/4000-4099/4016.Maximum Area of Two Non-Overlapping Square Submatrices/README.md": {
       "authors": [
@@ -138085,6 +138085,28 @@
         }
       ],
       "retrieved": 1786623597
+    },
+    "solution/4000-4099/4019.Merge Close Characters II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786784559
+    },
+    "solution/4000-4099/4019.Merge Close Characters II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786788630
     }
   }
 }
