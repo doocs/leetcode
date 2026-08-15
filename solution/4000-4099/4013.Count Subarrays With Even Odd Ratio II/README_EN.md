@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README_EN.md
+rating: 2155
+source: Weekly Contest 513 Q4
 ---
 
 <!-- problem:start -->

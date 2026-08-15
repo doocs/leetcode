@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md
+rating: 1735
+source: 第 513 场周赛 Q3
 ---
 
 <!-- problem:start -->
