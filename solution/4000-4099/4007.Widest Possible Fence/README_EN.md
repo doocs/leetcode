@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4007.Widest%20Possible%20Fence/README_EN.md
+rating: 1908
+source: Biweekly Contest 188 Q2
 ---
 
 <!-- problem:start -->

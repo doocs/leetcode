@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4007.Widest%20Possible%20Fence/README.md
+rating: 1908
+source: 第 188 场双周赛 Q2
 ---
 
 <!-- problem:start -->

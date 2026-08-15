@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md
+rating: 1216
+source: Weekly Contest 513 Q1
 ---
 
 <!-- problem:start -->

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4006.Count%20Valid%20Prefixes/README.md
+rating: 1242
+source: 第 188 场双周赛 Q1
 ---
 
 <!-- problem:start -->
