@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 515
+
+- [4024. Nearest Available Drone](/solution/4000-4099/4024.Nearest%20Available%20Drone/README_EN.md)
+- [4025. Minimize the Maximum Waiting Time at Synchronized Traffic Lights](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README_EN.md)
+- [4026. Maximum Gap Between Stations](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README_EN.md)
+- [4027. Elevator Requests III](/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md)
+
 #### Biweekly Contest 189
 
 - [4020. Elevator Requests I](/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md)

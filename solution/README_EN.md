@@ -4032,6 +4032,11 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4021  |  [Minimum Operations to Make a Rotated Palindrome I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
 |  4022  |  [K-th Digit in Infinite String](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
 |  4023  |  [Elevator Requests II](/solution/4000-4099/4023.Elevator%20Requests%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 189  |
+|  4024  |  [Nearest Available Drone](/solution/4000-4099/4024.Nearest%20Available%20Drone/README_EN.md)  |    |  Easy  |  Weekly Contest 515  |
+|  4025  |  [Minimize the Maximum Waiting Time at Synchronized Traffic Lights](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README_EN.md)  |    |  Medium  |  Weekly Contest 515  |
+|  4026  |  [Maximum Gap Between Stations](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README_EN.md)  |    |  Medium  |  Weekly Contest 515  |
+|  4027  |  [Elevator Requests III](/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 515  |
+|  4029  |  [Minimum Operations to Make a Rotated Palindrome II](/solution/4000-4099/4029.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

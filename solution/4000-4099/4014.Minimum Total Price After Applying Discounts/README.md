@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README.md
+rating: 1192
+source: 第 514 场周赛 Q1
 ---
 
 <!-- problem:start -->

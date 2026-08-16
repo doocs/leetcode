@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md
+rating: 2515
+source: Weekly Contest 514 Q4
 ---
 
 <!-- problem:start -->

@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 515 场周赛(2026-08-16 10:30, 90 分钟) 参赛人数 1057
+
+- [4024. 最近的可用无人机](/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md)
+- [4025. 交通灯的最大等待时间](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README.md)
+- [4026. 工位的最大间隔](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README.md)
+- [4027. 电梯请求 III](/solution/4000-4099/4027.Elevator%20Requests%20III/README.md)
+
 #### 第 189 场双周赛(2026-08-15 22:30, 90 分钟) 参赛人数 761
 
 - [4020. 电梯请求 I](/solution/4000-4099/4020.Elevator%20Requests%20I/README.md)
