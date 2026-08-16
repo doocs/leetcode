@@ -4034,6 +4034,11 @@
 |  4021  |  [得到旋转回文字符串的最少操作次数 I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README.md)  |    |  中等  |  第 189 场双周赛  |
 |  4022  |  [无限字符串里第 K 个数字](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README.md)  |    |  中等  |  第 189 场双周赛  |
 |  4023  |  [电梯请求 II](/solution/4000-4099/4023.Elevator%20Requests%20II/README.md)  |    |  困难  |  第 189 场双周赛  |
+|  4024  |  [最近的可用无人机](/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md)  |    |  简单  |  第 515 场周赛  |
+|  4025  |  [交通灯的最大等待时间](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README.md)  |    |  中等  |  第 515 场周赛  |
+|  4026  |  [工位的最大间隔](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README.md)  |    |  中等  |  第 515 场周赛  |
+|  4027  |  [电梯请求 III](/solution/4000-4099/4027.Elevator%20Requests%20III/README.md)  |    |  困难  |  第 515 场周赛  |
+|  4029  |  [Minimum Operations to Make a Rotated Palindrome II](/solution/4000-4099/4029.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
