@@ -1,5 +1,5 @@
 {
-  "cache_date": 1786882669,
+  "cache_date": 1786895338,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137985,7 +137985,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786285636
+      "retrieved": 1786883755
     },
     "solution/4000-4099/4017.Peaks in Array II/README.md": {
       "authors": [
@@ -137996,7 +137996,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786285636
+      "retrieved": 1786883755
     },
     "solution/4000-4099/4015.Weighted Sum of a Tree/README.md": {
       "authors": [
@@ -138007,7 +138007,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786285636
+      "retrieved": 1786883755
     },
     "solution/4000-4099/4014.Minimum Total Price After Applying Discounts/README.md": {
       "authors": [
@@ -138018,7 +138018,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786285636
+      "retrieved": 1786883755
     },
     "solution/4000-4099/4017.Peaks in Array II/README_EN.md": {
       "authors": [
@@ -138029,7 +138029,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786291731
+      "retrieved": 1786889841
     },
     "solution/4000-4099/4016.Maximum Area of Two Non-Overlapping Square Submatrices/README_EN.md": {
       "authors": [
@@ -138040,7 +138040,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786291731
+      "retrieved": 1786889841
     },
     "solution/4000-4099/4014.Minimum Total Price After Applying Discounts/README_EN.md": {
       "authors": [
@@ -138051,7 +138051,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786291731
+      "retrieved": 1786889841
     },
     "solution/4000-4099/4015.Weighted Sum of a Tree/README_EN.md": {
       "authors": [
@@ -138062,7 +138062,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786291731
+      "retrieved": 1786889841
     },
     "solution/4000-4099/4018.Total Sum of Interaction Cost in Tree Groups II/README.md": {
       "authors": [
@@ -138195,6 +138195,116 @@
         }
       ],
       "retrieved": 1786877248
+    },
+    "solution/4000-4099/4024.Nearest Available Drone/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786883755
+    },
+    "solution/4000-4099/4026.Maximum Gap Between Stations/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786883755
+    },
+    "solution/4000-4099/4025.Minimize the Maximum Waiting Time at Synchronized Traffic Lights/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786883755
+    },
+    "solution/4000-4099/4027.Elevator Requests III/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786883755
+    },
+    "solution/4000-4099/4029.Minimum Operations to Make a Rotated Palindrome II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786883755
+    },
+    "solution/4000-4099/4027.Elevator Requests III/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786889841
+    },
+    "solution/4000-4099/4024.Nearest Available Drone/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786889841
+    },
+    "solution/4000-4099/4025.Minimize the Maximum Waiting Time at Synchronized Traffic Lights/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786889841
+    },
+    "solution/4000-4099/4026.Maximum Gap Between Stations/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786889841
+    },
+    "solution/4000-4099/4029.Minimum Operations to Make a Rotated Palindrome II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1786889841
     }
   }
 }
