@@ -4030,6 +4030,10 @@
 |  4017  |  [数组中的峰值 II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md)  |    |  困难  |  第 514 场周赛  |
 |  4018  |  [树组的交互代价总和 II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README.md)  |    |  困难  |  🔒  |
 |  4019  |  [合并靠近字符 II](/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README.md)  |    |  中等  |  🔒  |
+|  4020  |  [电梯请求 I](/solution/4000-4099/4020.Elevator%20Requests%20I/README.md)  |    |  简单  |  第 189 场双周赛  |
+|  4021  |  [得到旋转回文字符串的最少操作次数 I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README.md)  |    |  中等  |  第 189 场双周赛  |
+|  4022  |  [无限字符串里第 K 个数字](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README.md)  |    |  中等  |  第 189 场双周赛  |
+|  4023  |  [电梯请求 II](/solution/4000-4099/4023.Elevator%20Requests%20II/README.md)  |    |  困难  |  第 189 场双周赛  |
 
 ## 版权
 

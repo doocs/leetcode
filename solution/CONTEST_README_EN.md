@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 189
+
+- [4020. Elevator Requests I](/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md)
+- [4021. Minimum Operations to Make a Rotated Palindrome I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README_EN.md)
+- [4022. K-th Digit in Infinite String](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md)
+- [4023. Elevator Requests II](/solution/4000-4099/4023.Elevator%20Requests%20II/README_EN.md)
+
 #### Weekly Contest 514
 
 - [4014. Minimum Total Price After Applying Discounts](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README_EN.md)

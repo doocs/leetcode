@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 189 场双周赛(2026-08-15 22:30, 90 分钟) 参赛人数 761
+
+- [4020. 电梯请求 I](/solution/4000-4099/4020.Elevator%20Requests%20I/README.md)
+- [4021. 得到旋转回文字符串的最少操作次数 I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README.md)
+- [4022. 无限字符串里第 K 个数字](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README.md)
+- [4023. 电梯请求 II](/solution/4000-4099/4023.Elevator%20Requests%20II/README.md)
+
 #### 第 514 场周赛(2026-08-09 10:30, 90 分钟) 参赛人数 1018
 
 - [4014. 应用折扣后的最低总价](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README.md)
