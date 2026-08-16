@@ -364,3 +364,9 @@ impl Solution {
 <!-- solution:end -->
 
 <!-- problem:end -->
+
+
+'''
+there is also another way and that is just return True and it would be submitted fine, as both the players are playing optimally, so always Alice would won as having the advantage to pick the first pile.
+so return True and you get it 100%.
+
