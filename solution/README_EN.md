@@ -4028,6 +4028,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4017  |  [Peaks in Array II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 514  |
 |  4018  |  [Total Sum of Interaction Cost in Tree Groups II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  4019  |  [Merge Close Characters II](/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README_EN.md)  |    |  Medium  |  🔒  |
+|  4020  |  [Elevator Requests I](/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 189  |
+|  4021  |  [Minimum Operations to Make a Rotated Palindrome I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
+|  4022  |  [K-th Digit in Infinite String](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
+|  4023  |  [Elevator Requests II](/solution/4000-4099/4023.Elevator%20Requests%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 189  |
 
 ## Copyright
 
