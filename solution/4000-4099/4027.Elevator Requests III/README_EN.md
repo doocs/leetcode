@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md
+tags:
+    - Bit Manipulation
+    - Array
+    - Dynamic Programming
+    - Bitmask
+    - Sorting
 ---
 
 <!-- problem:start -->

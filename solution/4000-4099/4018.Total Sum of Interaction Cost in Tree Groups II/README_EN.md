@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Sorting
 ---
 
 <!-- problem:start -->

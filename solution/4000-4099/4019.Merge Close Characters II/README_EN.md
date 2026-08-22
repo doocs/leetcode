@@ -2,6 +2,9 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README_EN.md
+tags:
+    - Hash Table
+    - String
 ---
 
 <!-- problem:start -->

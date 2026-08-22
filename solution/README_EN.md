@@ -4008,35 +4008,36 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  3997  |  [Count Dominant Nodes in a Binary Tree](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 511  |
 |  3998  |  [Transform Binary String Using Subsequence Sort](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README_EN.md)  |    |  Medium  |  Weekly Contest 511  |
 |  3999  |  [Minimum Number of String Groups Through Transformations](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README_EN.md)  |    |  Hard  |  Weekly Contest 511  |
-|  4000  |  [Largest Integer With Given Digit Sum](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README_EN.md)  |    |  Easy  |  Weekly Contest 512  |
-|  4001  |  [Aggregate Two Time Series](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README_EN.md)  |    |  Medium  |  Weekly Contest 512  |
-|  4002  |  [Count Valid Sequences](/solution/4000-4099/4002.Count%20Valid%20Sequences/README_EN.md)  |    |  Medium  |  Weekly Contest 512  |
-|  4003  |  [Minimum Cost Path with Alternating Directions III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 512  |
-|  4004  |  [Minimum Moves to Balance Circular Array II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README_EN.md)  |    |  Hard  |  🔒  |
-|  4006  |  [Count Valid Prefixes](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README_EN.md)  |    |  Easy  |  Biweekly Contest 188  |
-|  4007  |  [Widest Possible Fence](/solution/4000-4099/4007.Widest%20Possible%20Fence/README_EN.md)  |    |  Medium  |  Biweekly Contest 188  |
-|  4008  |  [Minimum Initial Strength to Defeat All Monsters](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README_EN.md)  |    |  Medium  |  Biweekly Contest 188  |
-|  4009  |  [Minimum Possible Maximum Waiting Time](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README_EN.md)  |    |  Hard  |  Biweekly Contest 188  |
-|  4010  |  [Maximize Pair Strength Using GCD](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md)  |    |  Easy  |  Weekly Contest 513  |
-|  4011  |  [Count Subarrays With Even Odd Ratio I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 513  |
-|  4012  |  [Count of Unfinished Tasks After Each Shift](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README_EN.md)  |    |  Medium  |  Weekly Contest 513  |
-|  4013  |  [Count Subarrays With Even Odd Ratio II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 513  |
+|  4000  |  [Largest Integer With Given Digit Sum](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README_EN.md)  |  `Greedy`,`Math`  |  Easy  |  Weekly Contest 512  |
+|  4001  |  [Aggregate Two Time Series](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |  Weekly Contest 512  |
+|  4002  |  [Count Valid Sequences](/solution/4000-4099/4002.Count%20Valid%20Sequences/README_EN.md)  |  `Math`,`Combinatorics`  |  Medium  |  Weekly Contest 512  |
+|  4003  |  [Minimum Cost Path with Alternating Directions III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README_EN.md)  |  `Graph`,`Array`,`Matrix`,`Shortest Path`,`Heap (Priority Queue)`  |  Hard  |  Weekly Contest 512  |
+|  4004  |  [Minimum Moves to Balance Circular Array II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README_EN.md)  |  `Graph`,`Array`,`Math`,`最小费用流`  |  Hard  |  🔒  |
+|  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README_EN.md)  |  `Array`,`Hash Table`,`Math`,`Counting`,`Number Theory`  |  Hard  |  🔒  |
+|  4006  |  [Count Valid Prefixes](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README_EN.md)  |  `String`,`Counting`  |  Easy  |  Biweekly Contest 188  |
+|  4007  |  [Widest Possible Fence](/solution/4000-4099/4007.Widest%20Possible%20Fence/README_EN.md)  |  `Array`,`Hash Table`,`Counting`,`Enumeration`  |  Medium  |  Biweekly Contest 188  |
+|  4008  |  [Minimum Initial Strength to Defeat All Monsters](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README_EN.md)  |  `Greedy`,`Array`,`Binary Search`,`Prefix Sum`  |  Medium  |  Biweekly Contest 188  |
+|  4009  |  [Minimum Possible Maximum Waiting Time](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README_EN.md)  |  `Memoization`,`Array`,`Dynamic Programming`  |  Hard  |  Biweekly Contest 188  |
+|  4010  |  [Maximize Pair Strength Using GCD](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md)  |  `Array`,`Math`,`Enumeration`,`Number Theory`  |  Easy  |  Weekly Contest 513  |
+|  4011  |  [Count Subarrays With Even Odd Ratio I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Divide and Conquer`,`Prefix Sum`,`Merge Sort`  |  Medium  |  Weekly Contest 513  |
+|  4012  |  [Count of Unfinished Tasks After Each Shift](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README_EN.md)  |  `Array`,`Binary Search`,`Prefix Sum`  |  Medium  |  Weekly Contest 513  |
+|  4013  |  [Count Subarrays With Even Odd Ratio II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README_EN.md)  |  `Binary Indexed Tree`,`Segment Tree`,`Array`,`Divide and Conquer`,`Prefix Sum`,`Merge Sort`  |  Hard  |  Weekly Contest 513  |
 |  4014  |  [Minimum Total Price After Applying Discounts](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
-|  4015  |  [Weighted Sum of a Tree](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
-|  4016  |  [Maximum Area of Two Non-Overlapping Square Submatrices](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md)  |    |  Medium  |  Weekly Contest 514  |
-|  4017  |  [Peaks in Array II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 514  |
-|  4018  |  [Total Sum of Interaction Cost in Tree Groups II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README_EN.md)  |    |  Hard  |  🔒  |
-|  4019  |  [Merge Close Characters II](/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README_EN.md)  |    |  Medium  |  🔒  |
-|  4020  |  [Elevator Requests I](/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md)  |    |  Easy  |  Biweekly Contest 189  |
-|  4021  |  [Minimum Operations to Make a Rotated Palindrome I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
-|  4022  |  [K-th Digit in Infinite String](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md)  |    |  Medium  |  Biweekly Contest 189  |
-|  4023  |  [Elevator Requests II](/solution/4000-4099/4023.Elevator%20Requests%20II/README_EN.md)  |    |  Hard  |  Biweekly Contest 189  |
-|  4024  |  [Nearest Available Drone](/solution/4000-4099/4024.Nearest%20Available%20Drone/README_EN.md)  |    |  Easy  |  Weekly Contest 515  |
-|  4025  |  [Minimize the Maximum Waiting Time at Synchronized Traffic Lights](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README_EN.md)  |    |  Medium  |  Weekly Contest 515  |
-|  4026  |  [Maximum Gap Between Stations](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README_EN.md)  |    |  Medium  |  Weekly Contest 515  |
-|  4027  |  [Elevator Requests III](/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md)  |    |  Hard  |  Weekly Contest 515  |
-|  4029  |  [Minimum Operations to Make a Rotated Palindrome II](/solution/4000-4099/4029.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  4015  |  [Weighted Sum of a Tree](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`  |  Medium  |  Weekly Contest 514  |
+|  4016  |  [Maximum Area of Two Non-Overlapping Square Submatrices](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md)  |  `Array`,`Binary Search`,`Dynamic Programming`,`Matrix`  |  Medium  |  Weekly Contest 514  |
+|  4017  |  [Peaks in Array II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README_EN.md)  |  `Segment Tree`,`Array`,`Divide and Conquer`  |  Hard  |  Weekly Contest 514  |
+|  4018  |  [Total Sum of Interaction Cost in Tree Groups II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README_EN.md)  |  `Tree`,`Depth-First Search`,`Array`,`Sorting`  |  Hard  |  🔒  |
+|  4019  |  [Merge Close Characters II](/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README_EN.md)  |  `Hash Table`,`String`  |  Medium  |  🔒  |
+|  4020  |  [Elevator Requests I](/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md)  |  `Array`,`Simulation`  |  Easy  |  Biweekly Contest 189  |
+|  4021  |  [Minimum Operations to Make a Rotated Palindrome I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README_EN.md)  |  `Math`,`String`,`Enumeration`  |  Medium  |  Biweekly Contest 189  |
+|  4022  |  [K-th Digit in Infinite String](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md)  |  `Math`,`Binary Search`  |  Medium  |  Biweekly Contest 189  |
+|  4023  |  [Elevator Requests II](/solution/4000-4099/4023.Elevator%20Requests%20II/README_EN.md)  |  `Array`,`Dynamic Programming`,`Sorting`  |  Hard  |  Biweekly Contest 189  |
+|  4024  |  [Nearest Available Drone](/solution/4000-4099/4024.Nearest%20Available%20Drone/README_EN.md)  |  `Array`,`Enumeration`  |  Easy  |  Weekly Contest 515  |
+|  4025  |  [Minimize the Maximum Waiting Time at Synchronized Traffic Lights](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |  Weekly Contest 515  |
+|  4026  |  [Maximum Gap Between Stations](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README_EN.md)  |  `Greedy`,`Two Pointers`,`String`  |  Medium  |  Weekly Contest 515  |
+|  4027  |  [Elevator Requests III](/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Bitmask`,`Sorting`  |  Hard  |  Weekly Contest 515  |
+|  4028  |  [Minimum Operations to Make a Rotated Palindrome II](/solution/4000-4099/4028.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README_EN.md)  |  `Math`,`String`  |  Hard  |  🔒  |
+|  4029  |  [Elevator Requests IV](/solution/4000-4099/4029.Elevator%20Requests%20IV/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

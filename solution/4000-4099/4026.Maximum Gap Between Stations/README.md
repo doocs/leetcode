@@ -2,6 +2,10 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README.md
+tags:
+    - 贪心
+    - 双指针
+    - 字符串
 ---
 
 <!-- problem:start -->

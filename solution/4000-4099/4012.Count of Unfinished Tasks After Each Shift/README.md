@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md
 rating: 1735
 source: 第 513 场周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
 ---
 
 <!-- problem:start -->
@@ -28,7 +32,7 @@ source: 第 513 场周赛 Q3
 
 <ul>
 	<li><strong>延续处理：</strong>如果一个任务在当前班次内没有完成，则下一班次会从该任务的<strong>&nbsp;相同进度位置&nbsp;</strong>继续处理。</li>
-	<li><strong>重新开始：</strong>如果一个班次内完成了所有任务，则该班次会<strong>&nbsp;立即结束&nbsp;</strong>。该班次剩余的时间会被<strong>&nbsp;丢弃</strong>，下一班次会重新从第 0 个任务开始。</li>
+	<li><strong>重新开始：</strong>如果一个班次内完成了所有任务，则该班次会结束<strong>&nbsp;</strong>。该班次剩余的时间会被<strong>&nbsp;丢弃</strong>，下一班次会重新从第 0 个任务开始。</li>
 </ul>
 
 <p>如果一个任务尚未被完全完成，则认为该任务是&nbsp;<strong>未完成&nbsp;</strong>的。这包括当前正在执行中的任务。</p>

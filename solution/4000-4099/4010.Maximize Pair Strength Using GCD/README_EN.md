@@ -4,6 +4,11 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README_EN.md
 rating: 1216
 source: Weekly Contest 513 Q1
+tags:
+    - Array
+    - Math
+    - Enumeration
+    - Number Theory
 ---
 
 <!-- problem:start -->
@@ -18,11 +23,10 @@ source: Weekly Contest 513 Q1
 
 <p>You are given an integer array <code>nums</code>.</p>
 
-<p>Choose <strong>exactly one</strong> pair of <strong>distinct</strong> indices <code>i</code> and <code>j</code>. The <strong>strength</strong> of the pair is defined as <code>(nums[i] * nums[j]) / gcd(nums[i], nums[j])<sup>2</sup></code>.</p>
+<p>Choose exactly one pair of distinct indices <code>i</code> and <code>j</code>. The strength of the pair is defined as <code>(nums[i] * nums[j]) / <span data-keyword="gcd-function">gcd(nums[i], nums[j])</span><sup>2</sup></code>.</p>
 
-<p>Return the <strong>maximum</strong> strength over all possible pairs.</p>
+<p>Return the maximum strength over all possible pairs.</p>
 
-<p>The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</strong> of <code>a</code> and <code>b</code>.</p>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

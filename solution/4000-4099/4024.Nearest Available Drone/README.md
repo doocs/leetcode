@@ -2,6 +2,9 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md
+tags:
+    - 数组
+    - 枚举
 ---
 
 <!-- problem:start -->

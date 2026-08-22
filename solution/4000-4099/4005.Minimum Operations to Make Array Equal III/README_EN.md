@@ -2,6 +2,12 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README_EN.md
+tags:
+    - Array
+    - Hash Table
+    - Math
+    - Counting
+    - Number Theory
 ---
 
 <!-- problem:start -->

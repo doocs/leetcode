@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md
 rating: 2515
 source: 第 514 场周赛 Q4
+tags:
+    - 线段树
+    - 数组
+    - 分治
 ---
 
 <!-- problem:start -->

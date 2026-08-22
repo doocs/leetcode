@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README.md
+tags:
+    - 图
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->
