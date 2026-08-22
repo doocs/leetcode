@@ -4,6 +4,10 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README.md
 rating: 1534
 source: 第 514 场周赛 Q2
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
 ---
 
 <!-- problem:start -->

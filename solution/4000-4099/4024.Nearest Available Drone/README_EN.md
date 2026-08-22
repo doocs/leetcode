@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4024.Nearest%20Available%20Drone/README_EN.md
+tags:
+    - Array
+    - Enumeration
 ---
 
 <!-- problem:start -->

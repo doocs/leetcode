@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README.md
 rating: 2498
 source: 第 188 场双周赛 Q4
+tags:
+    - 记忆化
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->
@@ -27,9 +31,8 @@ source: 第 188 场双周赛 Q4
 
 <ul>
 	<li>每个加油机一次 <strong>最多</strong> 只能服务一辆车。</li>
-	<li>车辆可以在被允许时 <strong>或之后的</strong> 任意时间开始加油。</li>
 	<li>只有当加油机空闲且剩余燃料 <strong>至少</strong> 为 <code>demand[i]</code> 时，车辆才能在该加油机开始加油。</li>
-	<li>如果有多个空闲的加油机可以服务当前车辆，你可以选择其中的 <strong>任意</strong> 一个。</li>
+	<li>汽车等待所选加油机空闲后 <strong>立即</strong> 开始加油。它不能切换加油机或在所选加油机空闲后故意等待。</li>
 	<li>给一辆车加油需要 <code>demand[i]</code> 秒，并将该加油机的剩余燃料减少 <code>demand[i]</code>。</li>
 	<li>一旦开始，加油过程不能被中断。</li>
 	<li>当两个加油机都空闲时，如果没有任何一个加油机的剩余燃料 <strong>至少</strong> 为 <code>demand[i]</code>，则过程终止，且无法再服务更多车辆。</li>
@@ -65,7 +68,7 @@ source: 第 188 场双周赛 Q4
 			<td>0</td>
 			<td>0</td>
 			<td>0</td>
-			<td>1</td>
+			<td>0</td>
 			<td>(16, 13)</td>
 			<td>0</td>
 		</tr>
@@ -73,32 +76,44 @@ source: 第 188 场双周赛 Q4
 			<td>1</td>
 			<td>0</td>
 			<td>0</td>
-			<td>0</td>
-			<td>(16, 7)</td>
+			<td>1</td>
+			<td>(10, 13)</td>
 			<td>0</td>
 		</tr>
 		<tr>
 			<td>2</td>
 			<td>0</td>
 			<td>6</td>
-			<td>1</td>
-			<td>(8, 7)</td>
+			<td>0</td>
+			<td>(10, 5)</td>
 			<td>6</td>
 		</tr>
 		<tr>
 			<td>3</td>
 			<td>6</td>
-			<td>8</td>
+			<td>10</td>
 			<td>0</td>
-			<td>(8, 3)</td>
-			<td>2</td>
+			<td>(6, 5)</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>10</td>
+			<td>10</td>
+			<td>1</td>
+			<td>(0, 5)</td>
+			<td>0</td>
 		</tr>
 	</tbody>
 </table>
 
-<p>车辆 4 在时间 8 被允许，但当两个加油机都空闲时，它们的剩余燃料为 (2, 3)，这小于 <code>demand[4] = 5</code>。</p>
+<p>&nbsp;</p>
 
-<p>因此，过程终止。被服务车辆中的最大等待时间为 6。</p>
+<p>因此，所有 5 辆车都得到了服务，最大等待时间为 6。</p>
+
+<p>为了服务所有 5 辆车，加油机 0 必须服务&nbsp;<code>demand</code>&nbsp;为 6、4 和 6 的车辆，而加油机 1 必须服务&nbsp;<code>demand</code> 为 8 和 5 的车辆。因此，车辆 2 必须等到时间 6 才能让加油机 0 空闲，所以任何服务所有 5 辆车的分配方案，其最大等待时间都不可能小于 6。</p>
+
+<p>&nbsp;</p>
 </div>
 
 <p><strong class="example">示例 2：</strong></p>

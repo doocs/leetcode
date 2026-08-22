@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4002.Count%20Valid%20Sequences/README_EN.md
 rating: 1912
 source: Weekly Contest 512 Q3
+tags:
+    - Math
+    - Combinatorics
 ---
 
 <!-- problem:start -->

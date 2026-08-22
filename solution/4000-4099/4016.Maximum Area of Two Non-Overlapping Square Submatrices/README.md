@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README.md
 rating: 1958
 source: 第 514 场周赛 Q3
+tags:
+    - 数组
+    - 二分查找
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

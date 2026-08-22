@@ -2,6 +2,10 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4023.Elevator%20Requests%20II/README.md
+tags:
+    - 数组
+    - 动态规划
+    - 排序
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,11 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README_EN.md
 rating: 1958
 source: Weekly Contest 514 Q3
+tags:
+    - Array
+    - Binary Search
+    - Dynamic Programming
+    - Matrix
 ---
 
 <!-- problem:start -->

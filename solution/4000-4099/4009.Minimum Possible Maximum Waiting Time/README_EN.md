@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README_EN.md
 rating: 2498
 source: Biweekly Contest 188 Q4
+tags:
+    - Memoization
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->
@@ -26,12 +30,11 @@ source: Biweekly Contest 188 Q4
 
 <ul>
 	<li>Each dispenser can serve <strong>at most</strong> one car at a time.</li>
-	<li>A car may start refueling at any time <strong>at or after</strong> it becomes allowed.</li>
-	<li>A car can start on a dispenser only if the dispenser is free and has<strong> at least</strong> <code>demand[i]</code> fuel remaining.</li>
-	<li>If multiple free dispensers can serve the current car, you may choose <strong>any</strong> of them.</li>
-	<li>Refueling a car takes <code>demand[i]</code> seconds and reduces the remaining fuel in that dispenser by <code>demand[i]</code>.</li>
+	<li>When a car becomes allowed, you must choose a dispenser with <strong>at least</strong> <code>demand[i]</code> fuel remaining. If both dispensers have enough fuel remaining, you may choose <strong>either</strong> of them, regardless of when they become free.</li>
+	<li>The car waits until the chosen dispenser becomes free and starts refueling <strong>immediately</strong>. It cannot switch dispensers or intentionally wait after the chosen dispenser becomes free.</li>
+	<li>When a car starts refueling, the remaining fuel in the chosen dispenser decreases by <code>demand[i]</code>, and the dispenser remains occupied for <code>demand[i]</code> seconds.</li>
 	<li>Once started, refueling cannot be interrupted.</li>
-	<li>When both dispensers are free, if neither has <strong>at least</strong> <code>demand[i]</code> fuel remaining, the process terminates and no further cars can be served.</li>
+	<li>If neither dispenser has at least <code>demand[i]</code> fuel remaining when car <code>i</code> becomes allowed, the process terminates and no further cars can be served.</li>
 </ul>
 
 <p>The <strong>waiting time</strong> of a car is the time between when it becomes allowed to start refueling and when it actually starts.</p>
@@ -48,6 +51,8 @@ source: Biweekly Contest 188 Q4
 
 <p><strong>Explanation:</strong></p>
 
+<p>The following assignment serves all five cars:</p>
+
 <table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" style="border-collapse:collapse; text-align:center;">
 	<tbody>
 		<tr>
@@ -63,7 +68,7 @@ source: Biweekly Contest 188 Q4
 			<td>0</td>
 			<td>0</td>
 			<td>0</td>
-			<td>1</td>
+			<td>0</td>
 			<td>(16, 13)</td>
 			<td>0</td>
 		</tr>
@@ -71,32 +76,40 @@ source: Biweekly Contest 188 Q4
 			<td>1</td>
 			<td>0</td>
 			<td>0</td>
-			<td>0</td>
-			<td>(16, 7)</td>
+			<td>1</td>
+			<td>(10, 13)</td>
 			<td>0</td>
 		</tr>
 		<tr>
 			<td>2</td>
 			<td>0</td>
 			<td>6</td>
-			<td>1</td>
-			<td>(8, 7)</td>
+			<td>0</td>
+			<td>(10, 5)</td>
 			<td>6</td>
 		</tr>
 		<tr>
 			<td>3</td>
 			<td>6</td>
-			<td>8</td>
+			<td>10</td>
 			<td>0</td>
-			<td>(8, 3)</td>
-			<td>2</td>
+			<td>(6, 5)</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>10</td>
+			<td>10</td>
+			<td>1</td>
+			<td>(0, 5)</td>
+			<td>0</td>
 		</tr>
 	</tbody>
 </table>
 
-<p>Car 4 becomes allowed at time 8, but when both dispensers are free, their remaining fuel is (2, 3), which is less than <code>demand[4] = 5</code>.</p>
+<p>Thus, all five cars are served, and the maximum waiting time is 6.</p>
 
-<p>Therefore, the process terminates. The maximum waiting time among served cars is 6.</p>
+<p>To serve all five cars, dispenser 0 must serve the cars with demands 6, 4, and 6, while dispenser 1 must serve the cars with demands 8 and 5. Therefore, car 2 must wait until time 6 for dispenser 0 to become free, so no assignment serving all five cars can have a maximum waiting time less than 6.</p>
 </div>
 
 <p><strong class="example">Example 2:</strong></p>

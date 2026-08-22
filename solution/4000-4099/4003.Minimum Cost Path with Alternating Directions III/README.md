@@ -4,6 +4,12 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md
 rating: 2122
 source: 第 512 场周赛 Q4
+tags:
+    - 图
+    - 数组
+    - 矩阵
+    - 最短路
+    - 堆（优先队列）
 ---
 
 <!-- problem:start -->

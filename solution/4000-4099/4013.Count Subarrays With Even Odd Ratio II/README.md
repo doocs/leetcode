@@ -4,6 +4,13 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README.md
 rating: 2155
 source: 第 513 场周赛 Q4
+tags:
+    - 树状数组
+    - 线段树
+    - 数组
+    - 分治
+    - 前缀和
+    - 归并排序
 ---
 
 <!-- problem:start -->

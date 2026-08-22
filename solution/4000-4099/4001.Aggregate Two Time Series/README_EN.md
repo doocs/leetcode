@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README_EN.md
 rating: 1506
 source: Weekly Contest 512 Q2
+tags:
+    - Array
+    - Two Pointers
 ---
 
 <!-- problem:start -->

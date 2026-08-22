@@ -4010,35 +4010,36 @@
 |  3997  |  [统计二叉树中支配节点的数量](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README.md)  |    |  中等  |  第 511 场周赛  |
 |  3998  |  [使用子序列排序转换二进制字符串](/solution/3900-3999/3998.Transform%20Binary%20String%20Using%20Subsequence%20Sort/README.md)  |    |  中等  |  第 511 场周赛  |
 |  3999  |  [字符串变换后的最少分组数](/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README.md)  |    |  困难  |  第 511 场周赛  |
-|  4000  |  [给定数位和的最大整数](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README.md)  |    |  简单  |  第 512 场周赛  |
-|  4001  |  [聚合两个时间序列](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README.md)  |    |  中等  |  第 512 场周赛  |
-|  4002  |  [统计有效序列数目](/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md)  |    |  中等  |  第 512 场周赛  |
-|  4003  |  [交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)  |    |  困难  |  第 512 场周赛  |
-|  4004  |  [使循环数组余额非负的最少移动次数 II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README.md)  |    |  困难  |  🔒  |
-|  4005  |  [Minimum Operations to Make Array Equal III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README.md)  |    |  困难  |  🔒  |
-|  4006  |  [统计有效前缀数目](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README.md)  |    |  简单  |  第 188 场双周赛  |
-|  4007  |  [栅栏的最宽宽度](/solution/4000-4099/4007.Widest%20Possible%20Fence/README.md)  |    |  中等  |  第 188 场双周赛  |
-|  4008  |  [击败所有怪物的最小初始强度](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README.md)  |    |  中等  |  第 188 场双周赛  |
-|  4009  |  [最小化最大可能等待时间](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README.md)  |    |  困难  |  第 188 场双周赛  |
-|  4010  |  [数对的最大强度](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README.md)  |    |  简单  |  第 513 场周赛  |
-|  4011  |  [按奇偶比统计子数组 I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README.md)  |    |  中等  |  第 513 场周赛  |
-|  4012  |  [统计每个班次结束后的未完成任务数](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md)  |    |  中等  |  第 513 场周赛  |
-|  4013  |  [按奇偶比统计子数组 II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README.md)  |    |  困难  |  第 513 场周赛  |
+|  4000  |  [给定数位和的最大整数](/solution/4000-4099/4000.Largest%20Integer%20With%20Given%20Digit%20Sum/README.md)  |  `贪心`,`数学`  |  简单  |  第 512 场周赛  |
+|  4001  |  [聚合两个时间序列](/solution/4000-4099/4001.Aggregate%20Two%20Time%20Series/README.md)  |  `数组`,`双指针`  |  中等  |  第 512 场周赛  |
+|  4002  |  [统计有效序列数目](/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md)  |  `数学`,`组合数学`  |  中等  |  第 512 场周赛  |
+|  4003  |  [交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)  |  `图`,`数组`,`矩阵`,`最短路`,`堆（优先队列）`  |  困难  |  第 512 场周赛  |
+|  4004  |  [使循环数组余额非负的最少移动次数 II](/solution/4000-4099/4004.Minimum%20Moves%20to%20Balance%20Circular%20Array%20II/README.md)  |  `图`,`数组`,`数学`  |  困难  |  🔒  |
+|  4005  |  [使数组中所有元素相等的最小操作数 III](/solution/4000-4099/4005.Minimum%20Operations%20to%20Make%20Array%20Equal%20III/README.md)  |  `数组`,`哈希表`,`数学`,`计数`,`数论`  |  困难  |  🔒  |
+|  4006  |  [统计有效前缀数目](/solution/4000-4099/4006.Count%20Valid%20Prefixes/README.md)  |  `字符串`,`计数`  |  简单  |  第 188 场双周赛  |
+|  4007  |  [栅栏的最宽宽度](/solution/4000-4099/4007.Widest%20Possible%20Fence/README.md)  |  `数组`,`哈希表`,`计数`,`枚举`  |  中等  |  第 188 场双周赛  |
+|  4008  |  [击败所有怪物的最小初始强度](/solution/4000-4099/4008.Minimum%20Initial%20Strength%20to%20Defeat%20All%20Monsters/README.md)  |  `贪心`,`数组`,`二分查找`,`前缀和`  |  中等  |  第 188 场双周赛  |
+|  4009  |  [最小化最大可能等待时间](/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README.md)  |  `记忆化`,`数组`,`动态规划`  |  困难  |  第 188 场双周赛  |
+|  4010  |  [数对的最大强度](/solution/4000-4099/4010.Maximize%20Pair%20Strength%20Using%20GCD/README.md)  |  `数组`,`数学`,`枚举`,`数论`  |  简单  |  第 513 场周赛  |
+|  4011  |  [按奇偶比统计子数组 I](/solution/4000-4099/4011.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20I/README.md)  |  `树状数组`,`线段树`,`数组`,`分治`,`前缀和`,`归并排序`  |  中等  |  第 513 场周赛  |
+|  4012  |  [统计每个班次结束后的未完成任务数](/solution/4000-4099/4012.Count%20of%20Unfinished%20Tasks%20After%20Each%20Shift/README.md)  |  `数组`,`二分查找`,`前缀和`  |  中等  |  第 513 场周赛  |
+|  4013  |  [按奇偶比统计子数组 II](/solution/4000-4099/4013.Count%20Subarrays%20With%20Even%20Odd%20Ratio%20II/README.md)  |  `树状数组`,`线段树`,`数组`,`分治`,`前缀和`,`归并排序`  |  困难  |  第 513 场周赛  |
 |  4014  |  [应用折扣后的最低总价](/solution/4000-4099/4014.Minimum%20Total%20Price%20After%20Applying%20Discounts/README.md)  |    |  中等  |  第 514 场周赛  |
-|  4015  |  [树的加权和](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README.md)  |    |  中等  |  第 514 场周赛  |
-|  4016  |  [两个不重叠子正方形的最大面积](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README.md)  |    |  中等  |  第 514 场周赛  |
-|  4017  |  [数组中的峰值 II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md)  |    |  困难  |  第 514 场周赛  |
-|  4018  |  [树组的交互代价总和 II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README.md)  |    |  困难  |  🔒  |
-|  4019  |  [合并靠近字符 II](/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README.md)  |    |  中等  |  🔒  |
-|  4020  |  [电梯请求 I](/solution/4000-4099/4020.Elevator%20Requests%20I/README.md)  |    |  简单  |  第 189 场双周赛  |
-|  4021  |  [得到旋转回文字符串的最少操作次数 I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README.md)  |    |  中等  |  第 189 场双周赛  |
-|  4022  |  [无限字符串里第 K 个数字](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README.md)  |    |  中等  |  第 189 场双周赛  |
-|  4023  |  [电梯请求 II](/solution/4000-4099/4023.Elevator%20Requests%20II/README.md)  |    |  困难  |  第 189 场双周赛  |
-|  4024  |  [最近的可用无人机](/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md)  |    |  简单  |  第 515 场周赛  |
-|  4025  |  [交通灯的最大等待时间](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README.md)  |    |  中等  |  第 515 场周赛  |
-|  4026  |  [工位的最大间隔](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README.md)  |    |  中等  |  第 515 场周赛  |
-|  4027  |  [电梯请求 III](/solution/4000-4099/4027.Elevator%20Requests%20III/README.md)  |    |  困难  |  第 515 场周赛  |
-|  4029  |  [Minimum Operations to Make a Rotated Palindrome II](/solution/4000-4099/4029.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README.md)  |    |  困难  |  🔒  |
+|  4015  |  [树的加权和](/solution/4000-4099/4015.Weighted%20Sum%20of%20a%20Tree/README.md)  |  `树`,`深度优先搜索`,`数组`  |  中等  |  第 514 场周赛  |
+|  4016  |  [两个不重叠子正方形的最大面积](/solution/4000-4099/4016.Maximum%20Area%20of%20Two%20Non-Overlapping%20Square%20Submatrices/README.md)  |  `数组`,`二分查找`,`动态规划`,`矩阵`  |  中等  |  第 514 场周赛  |
+|  4017  |  [数组中的峰值 II](/solution/4000-4099/4017.Peaks%20in%20Array%20II/README.md)  |  `线段树`,`数组`,`分治`  |  困难  |  第 514 场周赛  |
+|  4018  |  [树组的交互代价总和 II](/solution/4000-4099/4018.Total%20Sum%20of%20Interaction%20Cost%20in%20Tree%20Groups%20II/README.md)  |  `树`,`深度优先搜索`,`数组`,`排序`  |  困难  |  🔒  |
+|  4019  |  [合并靠近字符 II](/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README.md)  |  `哈希表`,`字符串`  |  中等  |  🔒  |
+|  4020  |  [电梯请求 I](/solution/4000-4099/4020.Elevator%20Requests%20I/README.md)  |  `数组`,`模拟`  |  简单  |  第 189 场双周赛  |
+|  4021  |  [得到旋转回文字符串的最少操作次数 I](/solution/4000-4099/4021.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20I/README.md)  |  `数学`,`字符串`,`枚举`  |  中等  |  第 189 场双周赛  |
+|  4022  |  [无限字符串里第 K 个数字](/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README.md)  |  `数学`,`二分查找`  |  中等  |  第 189 场双周赛  |
+|  4023  |  [电梯请求 II](/solution/4000-4099/4023.Elevator%20Requests%20II/README.md)  |  `数组`,`动态规划`,`排序`  |  困难  |  第 189 场双周赛  |
+|  4024  |  [最近的可用无人机](/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md)  |  `数组`,`枚举`  |  简单  |  第 515 场周赛  |
+|  4025  |  [交通灯的最大等待时间](/solution/4000-4099/4025.Minimize%20the%20Maximum%20Waiting%20Time%20at%20Synchronized%20Traffic%20Lights/README.md)  |  `贪心`,`数组`  |  中等  |  第 515 场周赛  |
+|  4026  |  [工位的最大间隔](/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README.md)  |  `贪心`,`双指针`,`字符串`  |  中等  |  第 515 场周赛  |
+|  4027  |  [电梯请求 III](/solution/4000-4099/4027.Elevator%20Requests%20III/README.md)  |  `位运算`,`数组`,`动态规划`,`位掩码`,`排序`  |  困难  |  第 515 场周赛  |
+|  4028  |  [得到旋转回文字符串的最少操作次数 II](/solution/4000-4099/4028.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README.md)  |  `数学`,`字符串`  |  困难  |  🔒  |
+|  4029  |  [电梯请求 IV](/solution/4000-4099/4029.Elevator%20Requests%20IV/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 

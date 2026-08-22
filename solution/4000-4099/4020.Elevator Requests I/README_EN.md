@@ -2,6 +2,9 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md
+tags:
+    - Array
+    - Simulation
 ---
 
 <!-- problem:start -->
@@ -18,7 +21,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4020.El
 
 <p>You are also given an integer array <code>requests</code>, where <code>requests</code> represents the sequence of floor requests.</p>
 
-<p>An elevator starts at floor 0, and follows these rules:</p>
+<p>An elevator starts at floor 0 and follows these rules:</p>
 
 <ul>
 	<li>The elevator moves one floor per second.</li>
@@ -27,7 +30,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4020.El
 	<li>After serving a request, the elevator immediately starts moving toward the next request.</li>
 </ul>
 
-<p>Return the <strong>total time</strong> (in seconds) required to serve all requests.</p>
+<p>Return the <strong>total time</strong> in seconds required to serve all requests.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
