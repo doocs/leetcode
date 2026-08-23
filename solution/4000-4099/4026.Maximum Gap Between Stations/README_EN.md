@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4026.Maximum%20Gap%20Between%20Stations/README_EN.md
+rating: 1675
+source: Weekly Contest 515 Q3
 tags:
     - Greedy
     - Two Pointers

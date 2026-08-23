@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4023.Elevator%20Requests%20II/README_EN.md
+rating: 2279
+source: Biweekly Contest 189 Q4
 tags:
     - Array
     - Dynamic Programming

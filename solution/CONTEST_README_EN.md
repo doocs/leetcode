@@ -29,6 +29,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 516
+
+- [4030. Check ASCII Palindromic](/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README_EN.md)
+- [4031. Find All Numbers Disappeared in an Array II](/solution/4000-4099/4031.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20II/README_EN.md)
+- [4032. Longest Subarray With at Most K Distinct Prime Factors](/solution/4000-4099/4032.Longest%20Subarray%20With%20at%20Most%20K%20Distinct%20Prime%20Factors/README_EN.md)
+- [4033. Valid K-Unique Subarrays I](/solution/4000-4099/4033.Valid%20K-Unique%20Subarrays%20I/README_EN.md)
+
 #### Weekly Contest 515
 
 - [4024. Nearest Available Drone](/solution/4000-4099/4024.Nearest%20Available%20Drone/README_EN.md)

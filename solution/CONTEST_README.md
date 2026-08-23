@@ -26,6 +26,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 516 场周赛(2026-08-23 10:30, 90 分钟) 参赛人数 943
+
+- [4030. 判断 ASCII 值回文](/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README.md)
+- [4031. 找到所有数组中消失的数字 II](/solution/4000-4099/4031.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20II/README.md)
+- [4032. 至多 K 个不同质因数集合的最长子数组](/solution/4000-4099/4032.Longest%20Subarray%20With%20at%20Most%20K%20Distinct%20Prime%20Factors/README.md)
+- [4033. 有效 K 个不同元素子数组 I](/solution/4000-4099/4033.Valid%20K-Unique%20Subarrays%20I/README.md)
+
 #### 第 515 场周赛(2026-08-16 10:30, 90 分钟) 参赛人数 1057
 
 - [4024. 最近的可用无人机](/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md)
