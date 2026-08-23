@@ -2,6 +2,8 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4024.Nearest%20Available%20Drone/README.md
+rating: 1184
+source: 第 515 场周赛 Q1
 tags:
     - 数组
     - 枚举

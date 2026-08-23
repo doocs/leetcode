@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4020.Elevator%20Requests%20I/README_EN.md
+rating: 1187
+source: Biweekly Contest 189 Q1
 tags:
     - Array
     - Simulation

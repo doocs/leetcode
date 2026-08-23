@@ -4038,6 +4038,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4027  |  [Elevator Requests III](/solution/4000-4099/4027.Elevator%20Requests%20III/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Bitmask`,`Sorting`  |  Hard  |  Weekly Contest 515  |
 |  4028  |  [Minimum Operations to Make a Rotated Palindrome II](/solution/4000-4099/4028.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README_EN.md)  |  `Math`,`String`  |  Hard  |  🔒  |
 |  4029  |  [Elevator Requests IV](/solution/4000-4099/4029.Elevator%20Requests%20IV/README_EN.md)  |    |  Hard  |  🔒  |
+|  4030  |  [Check ASCII Palindromic](/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README_EN.md)  |  `String`,`Simulation`  |  Easy  |  Weekly Contest 516  |
+|  4031  |  [Find All Numbers Disappeared in an Array II](/solution/4000-4099/4031.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20II/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |  Weekly Contest 516  |
+|  4032  |  [Longest Subarray With at Most K Distinct Prime Factors](/solution/4000-4099/4032.Longest%20Subarray%20With%20at%20Most%20K%20Distinct%20Prime%20Factors/README_EN.md)  |    |  Medium  |  Weekly Contest 516  |
+|  4033  |  [Valid K-Unique Subarrays I](/solution/4000-4099/4033.Valid%20K-Unique%20Subarrays%20I/README_EN.md)  |    |  Hard  |  Weekly Contest 516  |
 
 ## Copyright
 

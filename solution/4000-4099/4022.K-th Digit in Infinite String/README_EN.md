@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README_EN.md
+rating: 1914
+source: Biweekly Contest 189 Q3
 tags:
     - Math
     - Binary Search
