@@ -1,5 +1,5 @@
 {
-  "cache_date": 1787804429,
+  "cache_date": 1787899891,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -41616,13 +41616,19 @@
     "solution/3300-3399/3302.Find the Lexicographically Smallest Valid Sequence/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786202890
+      "retrieved": 1787888272
     },
     "solution/3300-3399/3303.Find the Occurrence of First Almost Equal Substring/README.md": {
       "authors": [
@@ -42053,13 +42059,19 @@
     "solution/3300-3399/3336.Find the Number of Subsequences With Equal GCD/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784004886
+      "retrieved": 1787888272
     },
     "solution/3300-3399/3337.Total Characters in String After Transformations II/README.md": {
       "authors": [
@@ -42208,6 +42220,12 @@
     "solution/3300-3399/3348.Smallest Divisible Digit Product II/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -42220,7 +42238,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/35846184?v=4"
         }
       ],
-      "retrieved": 1745669784
+      "retrieved": 1787888272
     },
     "solution/3300-3399/3349.Adjacent Increasing Subarrays Detection I/README.md": {
       "authors": [
@@ -44303,13 +44321,19 @@
     "solution/3400-3499/3499.Maximize Active Section with Trade I/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974846
+      "retrieved": 1787888272
     },
     "solution/0000-0099/0035.Search Insert Position/README.md": {
       "authors": [
@@ -44383,13 +44407,19 @@
     "solution/3500-3599/3501.Maximize Active Section with Trade II/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782907879
+      "retrieved": 1787888272
     },
     "solution/3500-3599/3502.Minimum Cost to Reach Every Position/README.md": {
       "authors": [
@@ -44532,13 +44562,19 @@
     "solution/3500-3599/3513.Number of Unique XOR Triplets I/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784810979
+      "retrieved": 1787888272
     },
     "solution/3500-3599/3514.Number of Unique XOR Triplets II/README.md": {
       "authors": [
@@ -44587,13 +44623,19 @@
     "solution/3500-3599/3518.Smallest Palindromic Rearrangement II/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745974854
+      "retrieved": 1787888272
     },
     "solution/3500-3599/3519.Count Numbers with Non-Decreasing Digits/README.md": {
       "authors": [
@@ -108743,13 +108785,19 @@
     "solution/3300-3399/3302.Find the Lexicographically Smallest Valid Sequence/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1786208967
+      "retrieved": 1787894371
     },
     "solution/3300-3399/3303.Find the Occurrence of First Almost Equal Substring/README_EN.md": {
       "authors": [
@@ -109180,13 +109228,19 @@
     "solution/3300-3399/3336.Find the Number of Subsequences With Equal GCD/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784010967
+      "retrieved": 1787894371
     },
     "solution/3300-3399/3337.Total Characters in String After Transformations II/README_EN.md": {
       "authors": [
@@ -109335,6 +109389,12 @@
     "solution/3300-3399/3348.Smallest Divisible Digit Product II/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -109347,7 +109407,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/35846184?v=4"
         }
       ],
-      "retrieved": 1745671336
+      "retrieved": 1787894371
     },
     "solution/3300-3399/3349.Adjacent Increasing Subarrays Detection I/README_EN.md": {
       "authors": [
@@ -111406,13 +111466,19 @@
     "solution/3400-3499/3499.Maximize Active Section with Trade I/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975659
+      "retrieved": 1787894371
     },
     "solution/0000-0099/0035.Search Insert Position/README_EN.md": {
       "authors": [
@@ -111486,13 +111552,19 @@
     "solution/3500-3599/3501.Maximize Active Section with Trade II/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975660
+      "retrieved": 1787894371
     },
     "solution/3500-3599/3502.Minimum Cost to Reach Every Position/README_EN.md": {
       "authors": [
@@ -111635,13 +111707,19 @@
     "solution/3500-3599/3513.Number of Unique XOR Triplets I/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1784817054
+      "retrieved": 1787894371
     },
     "solution/3500-3599/3514.Number of Unique XOR Triplets II/README_EN.md": {
       "authors": [
@@ -111690,13 +111768,19 @@
     "solution/3500-3599/3518.Smallest Palindromic Rearrangement II/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745975666
+      "retrieved": 1787894371
     },
     "solution/3500-3599/3519.Count Numbers with Non-Decreasing Digits/README_EN.md": {
       "authors": [
@@ -131397,13 +131481,19 @@
     "solution/3700-3799/3720.Lexicographically Smallest Permutation Greater Than Target/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1761839174
+      "retrieved": 1787888272
     },
     "solution/3700-3799/3721.Longest Balanced Subarray II/README.md": {
       "authors": [
@@ -131463,13 +131553,19 @@
     "solution/3700-3799/3720.Lexicographically Smallest Permutation Greater Than Target/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1761840046
+      "retrieved": 1787894371
     },
     "solution/3700-3799/3721.Longest Balanced Subarray II/README_EN.md": {
       "authors": [
