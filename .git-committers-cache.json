@@ -1,5 +1,5 @@
 {
-  "cache_date": 1787899891,
+  "cache_date": 1787929520,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -131812,13 +131812,19 @@
     "solution/3700-3799/3734.Lexicographically Smallest Palindromic Permutation Greater Than Target/README.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782907879
+      "retrieved": 1787917698
     },
     "solution/3700-3799/3735.Lexicographically Smallest String After Reverse II/README.md": {
       "authors": [
@@ -131867,13 +131873,19 @@
     "solution/3700-3799/3734.Lexicographically Smallest Palindromic Permutation Greater Than Target/README_EN.md": {
       "authors": [
         {
+          "login": "vremyavnikuda",
+          "name": "vremyavnikuda",
+          "url": "https://github.com/vremyavnikuda",
+          "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1763423987
+      "retrieved": 1787923939
     },
     "solution/3700-3799/3735.Lexicographically Smallest String After Reverse II/README_EN.md": {
       "authors": [
