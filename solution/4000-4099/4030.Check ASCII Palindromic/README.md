@@ -2,10 +2,6 @@
 comments: true
 difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README.md
-source: 第 516 场周赛 Q1
-tags:
-    - 字符串
-    - 模拟
 ---
 
 <!-- problem:start -->

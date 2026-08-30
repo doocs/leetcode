@@ -2,10 +2,6 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4031.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20II/README_EN.md
-source: Weekly Contest 516 Q2
-tags:
-    - Array
-    - Sorting
 ---
 
 <!-- problem:start -->

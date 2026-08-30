@@ -4040,10 +4040,18 @@
 |  4027  |  [电梯请求 III](/solution/4000-4099/4027.Elevator%20Requests%20III/README.md)  |  `位运算`,`数组`,`动态规划`,`位掩码`,`排序`  |  困难  |  第 515 场周赛  |
 |  4028  |  [得到旋转回文字符串的最少操作次数 II](/solution/4000-4099/4028.Minimum%20Operations%20to%20Make%20a%20Rotated%20Palindrome%20II/README.md)  |  `数学`,`字符串`  |  困难  |  🔒  |
 |  4029  |  [电梯请求 IV](/solution/4000-4099/4029.Elevator%20Requests%20IV/README.md)  |    |  困难  |  🔒  |
-|  4030  |  [判断 ASCII 值回文](/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README.md)  |  `字符串`,`模拟`  |  简单  |  第 516 场周赛  |
-|  4031  |  [找到所有数组中消失的数字 II](/solution/4000-4099/4031.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20II/README.md)  |  `数组`,`排序`  |  中等  |  第 516 场周赛  |
+|  4030  |  [判断 ASCII 值回文](/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README.md)  |    |  简单  |  第 516 场周赛  |
+|  4031  |  [找到所有数组中消失的数字 II](/solution/4000-4099/4031.Find%20All%20Numbers%20Disappeared%20in%20an%20Array%20II/README.md)  |    |  中等  |  第 516 场周赛  |
 |  4032  |  [至多 K 个不同质因数集合的最长子数组](/solution/4000-4099/4032.Longest%20Subarray%20With%20at%20Most%20K%20Distinct%20Prime%20Factors/README.md)  |    |  中等  |  第 516 场周赛  |
 |  4033  |  [有效 K 个不同元素子数组 I](/solution/4000-4099/4033.Valid%20K-Unique%20Subarrays%20I/README.md)  |    |  困难  |  第 516 场周赛  |
+|  4034  |  [象到达目标格子的最少移动步数](/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/README.md)  |    |  中等  |  第 190 场双周赛  |
+|  4035  |  [最多有效分割位置 I](/solution/4000-4099/4035.Maximum%20Valid%20Split%20Positions%20I/README.md)  |    |  中等  |  第 190 场双周赛  |
+|  4036  |  [字符对转换后字典序最大的字符串](/solution/4000-4099/4036.Lexicographically%20Largest%20String%20After%20Pair%20Transformations/README.md)  |    |  中等  |  第 190 场双周赛  |
+|  4037  |  [最多有效分割位置 II](/solution/4000-4099/4037.Maximum%20Valid%20Split%20Positions%20II/README.md)  |    |  困难  |  第 190 场双周赛  |
+|  4038  |  [统计特殊整数个数](/solution/4000-4099/4038.Count%20Integers%20Appearing%20in%20a%20Single%20Block/README.md)  |    |  简单  |  第 517 场周赛  |
+|  4039  |  [解码值之和](/solution/4000-4099/4039.Sum%20of%20Decoded%20Numbers/README.md)  |    |  中等  |  第 517 场周赛  |
+|  4040  |  [构造子集和的最少操作次数 I](/solution/4000-4099/4040.Minimum%20Operations%20to%20Form%20Subset%20Sum%20I/README.md)  |    |  中等  |  第 517 场周赛  |
+|  4041  |  [构造子集和的最少操作次数 II](/solution/4000-4099/4041.Minimum%20Operations%20to%20Form%20Subset%20Sum%20II/README.md)  |    |  困难  |  第 517 场周赛  |
 
 ## 版权
 
