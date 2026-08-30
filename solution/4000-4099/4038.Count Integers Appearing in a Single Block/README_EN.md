@@ -70,32 +70,96 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4038.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Count the Blocks of Each Integer
+
+Call each maximal run of consecutive equal elements a **block**. An integer $x$ is special if and only if it forms exactly one block.
+
+So we traverse the array, and whenever $i = 0$ or $\textit{nums}[i] \neq \textit{nums}[i - 1]$, position $i$ starts a new block, and we increment $\textit{cnt}[\textit{nums}[i]]$. After the traversal, the answer is the number of integers whose count in $\textit{cnt}$ is exactly $1$.
+
+The time complexity is $O(n + M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M = 100$ is the maximum value in the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countSpecialIntegers(self, nums: List[int]) -> int:
+        cnt = Counter(x for i, x in enumerate(nums) if i == 0 or x != nums[i - 1])
+        return sum(v == 1 for v in cnt.values())
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int countSpecialIntegers(int[] nums) {
+        int[] cnt = new int[101];
+        for (int i = 0; i < nums.length; ++i) {
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                ++cnt[nums[i]];
+            }
+        }
+        int ans = 0;
+        for (int c : cnt) {
+            if (c == 1) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int countSpecialIntegers(vector<int>& nums) {
+        int cnt[101]{};
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                ++cnt[nums[i]];
+            }
+        }
+        return count(begin(cnt), end(cnt), 1);
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSpecialIntegers(nums []int) int {
+	cnt := [101]int{}
+	for i, x := range nums {
+		if i == 0 || x != nums[i-1] {
+			cnt[x]++
+		}
+	}
+	ans := 0
+	for _, c := range cnt {
+		if c == 1 {
+			ans++
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function countSpecialIntegers(nums: number[]): number {
+    const cnt: number[] = Array(101).fill(0);
+    for (let i = 0; i < nums.length; ++i) {
+        if (i === 0 || nums[i] !== nums[i - 1]) {
+            ++cnt[nums[i]];
+        }
+    }
+    return cnt.filter(c => c === 1).length;
+}
 ```
 
 <!-- tabs:end -->
