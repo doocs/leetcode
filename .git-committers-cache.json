@@ -1,5 +1,5 @@
 {
-  "cache_date": 1787929520,
+  "cache_date": 1788104276,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -138467,7 +138467,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787489623
+      "retrieved": 1788094747
     },
     "solution/4000-4099/4030.Check ASCII Palindromic/README.md": {
       "authors": [
@@ -138478,7 +138478,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787489623
+      "retrieved": 1788094747
     },
     "solution/4000-4099/4032.Longest Subarray With at Most K Distinct Prime Factors/README.md": {
       "authors": [
@@ -138511,7 +138511,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787495759
+      "retrieved": 1788099782
     },
     "solution/4000-4099/4032.Longest Subarray With at Most K Distinct Prime Factors/README_EN.md": {
       "authors": [
@@ -138533,7 +138533,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787495759
+      "retrieved": 1788099782
     },
     "solution/4000-4099/4033.Valid K-Unique Subarrays I/README_EN.md": {
       "authors": [
@@ -138545,6 +138545,182 @@
         }
       ],
       "retrieved": 1787495759
+    },
+    "solution/4000-4099/4034.Minimum Bishop Moves to Reach Target/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4035.Maximum Valid Split Positions I/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4038.Count Integers Appearing in a Single Block/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4037.Maximum Valid Split Positions II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4036.Lexicographically Largest String After Pair Transformations/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4039.Sum of Decoded Numbers/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4040.Minimum Operations to Form Subset Sum I/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4041.Minimum Operations to Form Subset Sum II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788094747
+    },
+    "solution/4000-4099/4034.Minimum Bishop Moves to Reach Target/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4038.Count Integers Appearing in a Single Block/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4035.Maximum Valid Split Positions I/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4039.Sum of Decoded Numbers/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4037.Maximum Valid Split Positions II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4036.Lexicographically Largest String After Pair Transformations/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4041.Minimum Operations to Form Subset Sum II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
+    },
+    "solution/4000-4099/4040.Minimum Operations to Form Subset Sum I/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1788099782
     }
   }
 }
