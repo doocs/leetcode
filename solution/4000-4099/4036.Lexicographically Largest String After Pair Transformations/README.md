@@ -84,32 +84,115 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4036.Le
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心 + 二进制拆分
+
+由于两个相邻且相同的字母可以合并成字母表中的下一个字母，因此字母 $\texttt{'a'} + j$ 等价于 $2^j$ 个 $\texttt{'a'}$。也就是说，由 $x$ 个 $\texttt{'a'}$ 出发能够得到的字符串，恰好是那些字母权值之和等于 $x$ 的字符串。
+
+要使字典序最大，我们贪心地优先使用权值大的字母。字母表中最大的字母是 $\texttt{'z'}$，权值为 $2^{25}$，因此从 $j = 25$ 开始倒序枚举，每次取出 $t = \left\lfloor x / 2^j \right\rfloor$ 个字母 $\texttt{'a'} + j$ 追加到答案末尾，并令 $x \leftarrow x \bmod 2^j$。
+
+注意到当 $j \lt 25$ 时必有 $t \in \{0, 1\}$，所以答案中只有 $\texttt{'z'}$ 可能连续出现，而 $\texttt{"zz"}$ 无法继续合并，因此得到的字符串是合法且字典序最大的。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组 $\textit{nums}$ 中的最大值。这里不计入答案数组的空间消耗。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def largestString(self, nums: List[int]) -> List[str]:
+        ans = []
+        for x in nums:
+            s = []
+            for j in range(25, -1, -1):
+                t = x >> j
+                s.append(chr(ord('a') + j) * t)
+                x &= (1 << j) - 1
+            ans.append(''.join(s))
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public String[] largestString(int[] nums) {
+        int n = nums.length;
+        String[] ans = new String[n];
+        for (int k = 0; k < n; ++k) {
+            int x = nums[k];
+            StringBuilder s = new StringBuilder();
+            for (int j = 25; j >= 0; --j) {
+                for (int t = x >> j; t > 0; --t) {
+                    s.append((char) ('a' + j));
+                }
+                x &= (1 << j) - 1;
+            }
+            ans[k] = s.toString();
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> largestString(vector<int>& nums) {
+        vector<string> ans;
+        ans.reserve(nums.size());
+        for (int x : nums) {
+            string s;
+            for (int j = 25; j >= 0; --j) {
+                for (int t = x >> j; t > 0; --t) {
+                    s.push_back('a' + j);
+                }
+                x &= (1 << j) - 1;
+            }
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func largestString(nums []int) []string {
+	ans := make([]string, 0, len(nums))
+	for _, x := range nums {
+		s := []byte{}
+		for j := 25; j >= 0; j-- {
+			for t := x >> j; t > 0; t-- {
+				s = append(s, byte('a'+j))
+			}
+			x &= (1 << j) - 1
+		}
+		ans = append(ans, string(s))
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function largestString(nums: number[]): string[] {
+    const ans: string[] = [];
+    for (let x of nums) {
+        const s: string[] = [];
+        for (let j = 25; j >= 0; --j) {
+            const t = x >> j;
+            s.push(String.fromCharCode(97 + j).repeat(t));
+            x &= (1 << j) - 1;
+        }
+        ans.push(s.join(''));
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
