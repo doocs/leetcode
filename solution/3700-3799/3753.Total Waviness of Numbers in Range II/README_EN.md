@@ -98,108 +98,346 @@ Return the total sum of waviness for all numbers in the range <code>[num1, num2]
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Digit DP
+
+We need the total waviness of all numbers in $[num1, num2]$. Convert the range query to $calc(num2) - calc(num1 - 1)$, where $calc(x)$ is the total waviness in $[1, x]$.
+
+Use digit DP from the most significant digit. Let $dfs(pos, prev2, prev1, started, limit)$ be the number of valid numbers and their total waviness when we are filling position $pos$, the previous two digits are $prev2$ and $prev1$ (use $10$ if a digit is not yet filled), $started$ indicates whether a non-leading zero has been placed, and $limit$ indicates whether we are still bounded by the upper limit.
+
+Enumerate the current digit $d$. If at least two digits have been placed and $prev1$ is strictly greater (or smaller) than both $prev2$ and $d$, then $prev1$ is a peak (or valley) and contributes $1$ to waviness, multiplied by the number of ways to fill the remaining digits.
+
+The time complexity is $O(\log x)$, and the space complexity is $O(\log x)$, where $x$ is the upper bound.
+
+Similar problems:
+
+- [3751. Total Waviness of Numbers in Range I](https://github.com/doocs/leetcode/blob/main/solution/3700-3799/3751.Total%20Waviness%20of%20Numbers%20in%20Range%20I/README_EN.md)
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def totalWaviness(self, num1: int, num2: int) -> int:
+        def calc(x: int) -> int:
+            if x < 0:
+                return 0
+            s = str(x)
 
+            @cache
+            def dfs(
+                pos: int, prev2: int, prev1: int, started: int, limit: bool
+            ) -> tuple:
+                if pos == len(s):
+                    return (started, 0)
+                up = int(s[pos]) if limit else 9
+                cnt = wav = 0
+                for d in range(up + 1):
+                    nlimit = limit and d == up
+                    add = 0
+                    if started == 0:
+                        if d == 0:
+                            ns, np2, np1 = 0, 10, 10
+                        else:
+                            ns, np2, np1 = 1, 10, d
+                    else:
+                        ns, np2, np1 = 1, prev1, d
+                        if prev2 != 10 and (
+                            (prev1 > prev2 and prev1 > d)
+                            or (prev1 < prev2 and prev1 < d)
+                        ):
+                            add = 1
+                    c, w = dfs(pos + 1, np2, np1, ns, nlimit)
+                    cnt += c
+                    wav += w + c * add
+                return cnt, wav
+
+            return dfs(0, 10, 10, 0, True)[1]
+
+        return calc(num2) - calc(num1 - 1)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private char[] cs;
+    private long[][][][] cnt;
+    private long[][][][] wav;
 
+    public long totalWaviness(long num1, long num2) {
+        return calc(num2) - calc(num1 - 1);
+    }
+
+    private long calc(long x) {
+        if (x < 0) {
+            return 0;
+        }
+        cs = Long.toString(x).toCharArray();
+        int n = cs.length;
+        cnt = new long[n][11][11][2];
+        wav = new long[n][11][11][2];
+        for (int i = 0; i < n; ++i) {
+            for (int a = 0; a < 11; ++a) {
+                for (int b = 0; b < 11; ++b) {
+                    Arrays.fill(cnt[i][a][b], -1);
+                    Arrays.fill(wav[i][a][b], -1);
+                }
+            }
+        }
+        return dfs(0, 10, 10, 0, true)[1];
+    }
+
+    private long[] dfs(int pos, int prev2, int prev1, int started, boolean limit) {
+        if (pos == cs.length) {
+            return new long[] {started, 0};
+        }
+        if (!limit && cnt[pos][prev2][prev1][started] != -1) {
+            return new long[] {cnt[pos][prev2][prev1][started], wav[pos][prev2][prev1][started]};
+        }
+        int up = limit ? cs[pos] - '0' : 9;
+        long c = 0, w = 0;
+        for (int d = 0; d <= up; ++d) {
+            boolean nlimit = limit && d == up;
+            int ns, np2, np1, add = 0;
+            if (started == 0) {
+                if (d == 0) {
+                    ns = 0;
+                    np2 = 10;
+                    np1 = 10;
+                } else {
+                    ns = 1;
+                    np2 = 10;
+                    np1 = d;
+                }
+            } else {
+                ns = 1;
+                np2 = prev1;
+                np1 = d;
+                if (prev2 != 10 && ((prev1 > prev2 && prev1 > d) || (prev1 < prev2 && prev1 < d))) {
+                    add = 1;
+                }
+            }
+            long[] t = dfs(pos + 1, np2, np1, ns, nlimit);
+            c += t[0];
+            w += t[1] + t[0] * add;
+        }
+        if (!limit) {
+            cnt[pos][prev2][prev1][started] = c;
+            wav[pos][prev2][prev1][started] = w;
+        }
+        return new long[] {c, w};
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    long long totalWaviness(long long num1, long long num2) {
+        return calc(num2) - calc(num1 - 1);
+    }
 
+private:
+    string s;
+    long long fCnt[20][11][11][2];
+    long long fWav[20][11][11][2];
+    bool vis[20][11][11][2];
+
+    long long calc(long long x) {
+        if (x < 0) {
+            return 0;
+        }
+        s = to_string(x);
+        memset(vis, 0, sizeof(vis));
+        return dfs(0, 10, 10, 0, true).second;
+    }
+
+    pair<long long, long long> dfs(int pos, int prev2, int prev1, int started, bool limit) {
+        if (pos == s.size()) {
+            return {started, 0};
+        }
+        if (!limit && vis[pos][prev2][prev1][started]) {
+            return {fCnt[pos][prev2][prev1][started], fWav[pos][prev2][prev1][started]};
+        }
+        int up = limit ? s[pos] - '0' : 9;
+        long long c = 0, w = 0;
+        for (int d = 0; d <= up; ++d) {
+            bool nlimit = limit && d == up;
+            int ns, np2, np1, add = 0;
+            if (started == 0) {
+                if (d == 0) {
+                    ns = 0;
+                    np2 = 10;
+                    np1 = 10;
+                } else {
+                    ns = 1;
+                    np2 = 10;
+                    np1 = d;
+                }
+            } else {
+                ns = 1;
+                np2 = prev1;
+                np1 = d;
+                if (prev2 != 10 && ((prev1 > prev2 && prev1 > d) || (prev1 < prev2 && prev1 < d))) {
+                    add = 1;
+                }
+            }
+            auto [tc, tw] = dfs(pos + 1, np2, np1, ns, nlimit);
+            c += tc;
+            w += tw + tc * add;
+        }
+        if (!limit) {
+            vis[pos][prev2][prev1][started] = true;
+            fCnt[pos][prev2][prev1][started] = c;
+            fWav[pos][prev2][prev1][started] = w;
+        }
+        return {c, w};
+    }
+};
 ```
 
 #### Go
 
 ```go
+import "strconv"
 
+func totalWaviness(num1 int64, num2 int64) int64 {
+	return calc(num2) - calc(num1-1)
+}
+
+func calc(x int64) int64 {
+	if x < 0 {
+		return 0
+	}
+	s := strconv.FormatInt(x, 10)
+	n := len(s)
+	var fCnt, fWav [20][11][11][2]int64
+	var vis [20][11][11][2]bool
+	var dfs func(pos, prev2, prev1, started int, limit bool) (int64, int64)
+	dfs = func(pos, prev2, prev1, started int, limit bool) (int64, int64) {
+		if pos == n {
+			return int64(started), 0
+		}
+		if !limit && vis[pos][prev2][prev1][started] {
+			return fCnt[pos][prev2][prev1][started], fWav[pos][prev2][prev1][started]
+		}
+		up := 9
+		if limit {
+			up = int(s[pos] - '0')
+		}
+		var c, w int64
+		for d := 0; d <= up; d++ {
+			nlimit := limit && d == up
+			ns, np2, np1, add := started, prev1, d, 0
+			if started == 0 {
+				if d == 0 {
+					ns, np2, np1 = 0, 10, 10
+				} else {
+					ns, np2, np1 = 1, 10, d
+				}
+			} else if prev2 != 10 && ((prev1 > prev2 && prev1 > d) || (prev1 < prev2 && prev1 < d)) {
+				add = 1
+			}
+			tc, tw := dfs(pos+1, np2, np1, ns, nlimit)
+			c += tc
+			w += tw + tc*int64(add)
+		}
+		if !limit {
+			vis[pos][prev2][prev1][started] = true
+			fCnt[pos][prev2][prev1][started] = c
+			fWav[pos][prev2][prev1][started] = w
+		}
+		return c, w
+	}
+	_, wav := dfs(0, 10, 10, 0, true)
+	return wav
+}
 ```
 
 #### C
 
 ```c
 static int len, digits[20];
-static long long memoCnt[20][11][11][2];
-static long long memoSum[20][11][11][2];
+static long long fCnt[20][11][11][2];
+static long long fWav[20][11][11][2];
 static char vis[20][11][11][2];
-static long long cnt, sum;
+static long long cnt, wav;
 
-static void dfs(int pos, int pp, int pr, int st, int ti) {
+static void dfs(int pos, int prev2, int prev1, int started, int limit) {
     if (pos == len) {
-        cnt = 1;
-        sum = 0;
+        cnt = started;
+        wav = 0;
         return;
     }
-    if (!ti && vis[pos][pp][pr][st]) {
-        cnt = memoCnt[pos][pp][pr][st];
-        sum = memoSum[pos][pp][pr][st];
+    if (!limit && vis[pos][prev2][prev1][started]) {
+        cnt = fCnt[pos][prev2][prev1][started];
+        wav = fWav[pos][prev2][prev1][started];
         return;
     }
-    int h = ti ? digits[pos] : 9;
-    long long c = 0, s = 0;
-    for (int d = 0; d <= h; d++) {
-        int ns = st || d;
-        long long a = 0;
-        int npp, np;
-        if (!ns) {
-            npp = 10;
-            np = 10;
-        } else if (!st) {
-            npp = 10;
-            np = d;
+    int up = limit ? digits[pos] : 9;
+    long long c = 0, w = 0;
+    for (int d = 0; d <= up; ++d) {
+        int nlimit = limit && d == up;
+        int ns, np2, np1, add = 0;
+        if (started == 0) {
+            if (d == 0) {
+                ns = 0;
+                np2 = 10;
+                np1 = 10;
+            } else {
+                ns = 1;
+                np2 = 10;
+                np1 = d;
+            }
         } else {
-            if (pp != 10 && pr != 10 && ((pr > pp && pr > d) || (pr < pp && pr < d)))
-                a = 1;
-            npp = pr;
-            np = d;
+            ns = 1;
+            np2 = prev1;
+            np1 = d;
+            if (prev2 != 10 && ((prev1 > prev2 && prev1 > d) || (prev1 < prev2 && prev1 < d))) {
+                add = 1;
+            }
         }
-        dfs(pos + 1, npp, np, ns, ti && d == h);
+        dfs(pos + 1, np2, np1, ns, nlimit);
         c += cnt;
-        s += sum + a * cnt;
+        w += wav + add * cnt;
     }
-    if (!ti) {
-        vis[pos][pp][pr][st] = 1;
-        memoCnt[pos][pp][pr][st] = c;
-        memoSum[pos][pp][pr][st] = s;
+    if (!limit) {
+        vis[pos][prev2][prev1][started] = 1;
+        fCnt[pos][prev2][prev1][started] = c;
+        fWav[pos][prev2][prev1][started] = w;
     }
     cnt = c;
-    sum = s;
+    wav = w;
 }
 
-static long long calc(long long N) {
-    if (N < 0) return 0;
+static long long calc(long long x) {
+    if (x < 0) {
+        return 0;
+    }
     len = 0;
-    long long x = N;
-    if (!x) {
+    if (x == 0) {
         digits[len++] = 0;
     } else {
-        char buf[20];
+        int buf[20];
         int l = 0;
         while (x) {
             buf[l++] = x % 10;
             x /= 10;
         }
-        for (int i = l - 1; i >= 0; i--)
+        for (int i = l - 1; i >= 0; --i) {
             digits[len++] = buf[i];
+        }
     }
     memset(vis, 0, sizeof(vis));
     dfs(0, 10, 10, 0, 1);
-    return sum;
+    return wav;
 }
 
-long long totalWaviness(long long a, long long b) {
-    return calc(b) - calc(a - 1);
+long long totalWaviness(long long num1, long long num2) {
+    return calc(num2) - calc(num1 - 1);
 }
 ```
 
