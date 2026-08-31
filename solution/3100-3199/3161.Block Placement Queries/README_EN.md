@@ -83,32 +83,274 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Binary Indexed Tree + Ordered Set
+
+Obstacles are only inserted, so we can process the queries offline in reverse and turn "insert an obstacle" into "delete an obstacle". After a deletion the adjacent gap only grows, and a Fenwick tree can maintain prefix maxima.
+
+Put all obstacles into an ordered set, and add sentinels $0$ and $m+1$, where $m$ is the maximum coordinate. For every pair of neighboring obstacles $x_1, x_2$, update index $x_2$ in the Fenwick tree with the gap $x_2 - x_1$.
+
+Then scan the queries from back to front:
+
+- Type $2$: find the last obstacle $pre \le x$. The block can be placed if the maximum gap in $[0, pre]$ or the tail gap $(pre, x]$ is at least $sz$.
+- Type $1$: delete obstacle $x$, and update the gap at its successor $nxt$ to $nxt - pre$.
+
+The time complexity is $O(q \times \log m)$, and the space complexity is $O(m)$, where $q$ is the number of queries and $m$ is the maximum coordinate.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n: int):
+        self.n = n
+        self.c = [0] * (n + 1)
 
+    def update(self, x: int, v: int):
+        while x <= self.n:
+            self.c[x] = max(self.c[x], v)
+            x += x & -x
+
+    def query(self, x: int) -> int:
+        mx = 0
+        while x:
+            mx = max(mx, self.c[x])
+            x -= x & -x
+        return mx
+
+
+class Solution:
+    def getResults(self, queries: List[List[int]]) -> List[bool]:
+        m = max(q[1] for q in queries)
+        sl = SortedList([0, m + 1])
+        for q in queries:
+            if q[0] == 1:
+                sl.add(q[1])
+        tree = BinaryIndexedTree(m + 1)
+        for x1, x2 in pairwise(sl):
+            tree.update(x2, x2 - x1)
+        ans = []
+        for q in reversed(queries):
+            x = q[1]
+            if q[0] == 1:
+                i = sl.index(x)
+                tree.update(sl[i + 1], sl[i + 1] - sl[i - 1])
+                sl.remove(x)
+            else:
+                i = sl.bisect_right(x)
+                pre = sl[i - 1]
+                ans.append(tree.query(pre) >= q[2] or x - pre >= q[2])
+        return ans[::-1]
 ```
 
 #### Java
 
 ```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
 
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int v) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    public int query(int x) {
+        int mx = 0;
+        while (x > 0) {
+            mx = Math.max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+}
+
+class Solution {
+    public List<Boolean> getResults(int[][] queries) {
+        int m = 0;
+        for (int[] q : queries) {
+            m = Math.max(m, q[1]);
+        }
+        TreeSet<Integer> ts = new TreeSet<>();
+        ts.add(0);
+        ts.add(m + 1);
+        for (int[] q : queries) {
+            if (q[0] == 1) {
+                ts.add(q[1]);
+            }
+        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m + 1);
+        int pre = 0;
+        for (int x : ts) {
+            if (x > 0) {
+                tree.update(x, x - pre);
+            }
+            pre = x;
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for (int i = queries.length - 1; i >= 0; --i) {
+            int[] q = queries[i];
+            int x = q[1];
+            if (q[0] == 1) {
+                int nxt = ts.higher(x);
+                tree.update(nxt, nxt - ts.lower(x));
+                ts.remove(x);
+            } else {
+                int p = ts.floor(x);
+                ans.add(tree.query(p) >= q[2] || x - p >= q[2]);
+            }
+        }
+        Collections.reverse(ans);
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class BinaryIndexedTree {
+private:
+    int n;
+    vector<int> c;
 
+public:
+    BinaryIndexedTree(int n) {
+        this->n = n;
+        c.resize(n + 1);
+    }
+
+    void update(int x, int v) {
+        while (x <= n) {
+            c[x] = max(c[x], v);
+            x += x & -x;
+        }
+    }
+
+    int query(int x) {
+        int mx = 0;
+        while (x > 0) {
+            mx = max(mx, c[x]);
+            x -= x & -x;
+        }
+        return mx;
+    }
+};
+
+class Solution {
+public:
+    vector<bool> getResults(vector<vector<int>>& queries) {
+        int m = 0;
+        for (auto& q : queries) {
+            m = max(m, q[1]);
+        }
+        set<int> ts{0, m + 1};
+        for (auto& q : queries) {
+            if (q[0] == 1) {
+                ts.insert(q[1]);
+            }
+        }
+        BinaryIndexedTree tree(m + 1);
+        int pre = 0;
+        for (int x : ts) {
+            if (x) {
+                tree.update(x, x - pre);
+            }
+            pre = x;
+        }
+        vector<bool> ans;
+        for (int i = queries.size() - 1; i >= 0; --i) {
+            int x = queries[i][1];
+            if (queries[i][0] == 1) {
+                auto it = ts.find(x);
+                tree.update(*next(it), *next(it) - *prev(it));
+                ts.erase(it);
+            } else {
+                auto it = prev(ts.upper_bound(x));
+                ans.push_back(tree.query(*it) >= queries[i][2] || x - *it >= queries[i][2]);
+            }
+        }
+        ranges::reverse(ans);
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func getResults(queries [][]int) []bool {
+	m := 0
+	for _, q := range queries {
+		m = max(m, q[1])
+	}
+	st := redblacktree.New[int, struct{}]()
+	st.Put(0, struct{}{})
+	st.Put(m+1, struct{}{})
+	for _, q := range queries {
+		if q[0] == 1 {
+			st.Put(q[1], struct{}{})
+		}
+	}
+	tree := newBinaryIndexedTree(m + 1)
+	it := st.Iterator()
+	it.Next()
+	pre := it.Key()
+	for it.Next() {
+		x := it.Key()
+		tree.update(x, x-pre)
+		pre = x
+	}
+	ans := []bool{}
+	for i := len(queries) - 1; i >= 0; i-- {
+		q := queries[i]
+		x := q[1]
+		if q[0] == 1 {
+			nxt, _ := st.Ceiling(x + 1)
+			p, _ := st.Floor(x - 1)
+			st.Remove(x)
+			tree.update(nxt.Key, nxt.Key-p.Key)
+		} else {
+			node, _ := st.Floor(x)
+			p := node.Key
+			ans = append(ans, tree.query(p) >= q[2] || x-p >= q[2])
+		}
+	}
+	slices.Reverse(ans)
+	return ans
+}
 
+type binaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *binaryIndexedTree {
+	return &binaryIndexedTree{n: n, c: make([]int, n+1)}
+}
+
+func (t *binaryIndexedTree) update(x, v int) {
+	for x <= t.n {
+		t.c[x] = max(t.c[x], v)
+		x += x & -x
+	}
+}
+
+func (t *binaryIndexedTree) query(x int) int {
+	mx := 0
+	for x > 0 {
+		mx = max(mx, t.c[x])
+		x -= x & -x
+	}
+	return mx
+}
 ```
 
 <!-- tabs:end -->
