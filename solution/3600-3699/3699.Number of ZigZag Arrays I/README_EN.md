@@ -166,9 +166,9 @@ public:
     int zigZagArrays(int n, int l, int r) {
         const int mod = 1e9 + 7;
         int m = r - l + 1;
-        vector<int> up(m, 1), down(m, 1);
+        vector<long long> up(m, 1), down(m, 1);
         for (int k = 1; k < n; ++k) {
-            vector<int> pre(m + 1), suf(m + 1);
+            vector<long long> pre(m + 1), suf(m + 1);
             for (int i = 0; i < m; ++i) {
                 pre[i + 1] = (pre[i] + down[i]) % mod;
             }
@@ -180,7 +180,7 @@ public:
                 down[i] = suf[i + 1];
             }
         }
-        int ans = 0;
+        long long ans = 0;
         for (int i = 0; i < m; ++i) {
             ans = (ans + up[i] + down[i]) % mod;
         }
@@ -192,17 +192,17 @@ public:
 #### Go
 
 ```go
-func zigZagArrays(n int, l int, r int) (ans int) {
-	const mod = int(1e9 + 7)
+func zigZagArrays(n int, l int, r int) int {
+	const mod = int64(1e9 + 7)
 	m := r - l + 1
-	up := make([]int, m)
-	down := make([]int, m)
+	up := make([]int64, m)
+	down := make([]int64, m)
 	for i := range up {
 		up[i], down[i] = 1, 1
 	}
 	for k := 1; k < n; k++ {
-		pre := make([]int, m+1)
-		suf := make([]int, m+1)
+		pre := make([]int64, m+1)
+		suf := make([]int64, m+1)
 		for i := 0; i < m; i++ {
 			pre[i+1] = (pre[i] + down[i]) % mod
 		}
@@ -214,10 +214,11 @@ func zigZagArrays(n int, l int, r int) (ans int) {
 			down[i] = suf[i+1]
 		}
 	}
+	var ans int64
 	for i := 0; i < m; i++ {
 		ans = (ans + up[i] + down[i]) % mod
 	}
-	return
+	return int(ans)
 }
 ```
 
@@ -227,12 +228,12 @@ func zigZagArrays(n int, l int, r int) (ans int) {
 int zigZagArrays(int n, int l, int r) {
     int mod = 1e9 + 7;
     int m = r - l + 1;
-    int up[m], down[m];
+    long long up[m], down[m];
     for (int i = 0; i < m; ++i) {
         up[i] = down[i] = 1;
     }
     for (int k = 1; k < n; ++k) {
-        int pre[m + 1], suf[m + 1];
+        long long pre[m + 1], suf[m + 1];
         memset(pre, 0, sizeof(pre));
         memset(suf, 0, sizeof(suf));
         for (int i = 0; i < m; ++i) {
@@ -246,7 +247,7 @@ int zigZagArrays(int n, int l, int r) {
             down[i] = suf[i + 1];
         }
     }
-    int ans = 0;
+    long long ans = 0;
     for (int i = 0; i < m; ++i) {
         ans = (ans + up[i] + down[i]) % mod;
     }

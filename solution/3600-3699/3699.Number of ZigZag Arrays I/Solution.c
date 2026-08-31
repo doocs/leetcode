@@ -1,12 +1,12 @@
 int zigZagArrays(int n, int l, int r) {
     int mod = 1e9 + 7;
     int m = r - l + 1;
-    int up[m], down[m];
+    long long up[m], down[m];
     for (int i = 0; i < m; ++i) {
         up[i] = down[i] = 1;
     }
     for (int k = 1; k < n; ++k) {
-        int pre[m + 1], suf[m + 1];
+        long long pre[m + 1], suf[m + 1];
         memset(pre, 0, sizeof(pre));
         memset(suf, 0, sizeof(suf));
         for (int i = 0; i < m; ++i) {
@@ -20,7 +20,7 @@ int zigZagArrays(int n, int l, int r) {
             down[i] = suf[i + 1];
         }
     }
-    int ans = 0;
+    long long ans = 0;
     for (int i = 0; i < m; ++i) {
         ans = (ans + up[i] + down[i]) % mod;
     }

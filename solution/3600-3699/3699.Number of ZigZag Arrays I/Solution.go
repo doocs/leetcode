@@ -1,14 +1,14 @@
-func zigZagArrays(n int, l int, r int) (ans int) {
-	const mod = int(1e9 + 7)
+func zigZagArrays(n int, l int, r int) int {
+	const mod = int64(1e9 + 7)
 	m := r - l + 1
-	up := make([]int, m)
-	down := make([]int, m)
+	up := make([]int64, m)
+	down := make([]int64, m)
 	for i := range up {
 		up[i], down[i] = 1, 1
 	}
 	for k := 1; k < n; k++ {
-		pre := make([]int, m+1)
-		suf := make([]int, m+1)
+		pre := make([]int64, m+1)
+		suf := make([]int64, m+1)
 		for i := 0; i < m; i++ {
 			pre[i+1] = (pre[i] + down[i]) % mod
 		}
@@ -20,8 +20,9 @@ func zigZagArrays(n int, l int, r int) (ans int) {
 			down[i] = suf[i+1]
 		}
 	}
+	var ans int64
 	for i := 0; i < m; i++ {
 		ans = (ans + up[i] + down[i]) % mod
 	}
-	return
+	return int(ans)
 }
