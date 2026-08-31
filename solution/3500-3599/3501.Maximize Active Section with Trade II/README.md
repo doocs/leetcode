@@ -166,7 +166,23 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：ST 表
+
+一次合法操作的本质是：选中两段被 `'1'` 隔开的连续 `'0'`，先把中间的 `'1'` 变成 `'0'`，再把合并后的 `'0'` 段变成 `'1'`。净收益等于这两段 `'0'` 的长度之和，原有 `'1'` 的数量不变。因此每个查询的答案等于整串中 `'1'` 的个数，再加上该查询范围内一次操作能得到的最大收益。
+
+查询 $[l, r]$ 只允许在 $s[l..r]$ 上操作，并且把子串看成 $t = \texttt{'1'} + s[l..r] + \texttt{'1'}$。因此：
+
+- 完全落在区间内部的相邻 `'0'` 段对都可以作为候选，收益为两段长度之和；
+- 若 $s[l]$ 或 $s[r]$ 落在某段 `'0'` 中间，则该段落在查询范围内的后缀 / 前缀也可以参与配对。
+
+预处理时，将所有 `'0'` 段记录为 $(\textit{start}, \textit{len})$，并对相邻两段长度之和建立 ST 表。对每个查询：
+
+1. 用 ST 表查询完全落在区间内部的相邻段对的最大和；
+2. 再考虑左边界残段与下一段、右边界残段与上一段，以及左右残段恰好夹着一段 `'1'` 的情况。
+
+取上述收益的最大值加到全局 `'1'` 的个数上即可。若无法操作，收益为 $0$。
+
+时间复杂度 $O(n \log n + q)$，空间复杂度 $O(n \log n)$。其中 $n$ 是字符串长度，$q$ 是查询个数。
 
 <!-- tabs:start -->
 
@@ -185,7 +201,75 @@ tags:
 #### C++
 
 ```cpp
+class Solution {
+public:
+    vector<int> maxActiveSectionsAfterTrade(string s, vector<vector<int>>& queries) {
+        int n = s.size();
+        int active = count(s.begin(), s.end(), '1');
+        if (s.find('0') == string::npos) {
+            return vector<int>(queries.size(), active);
+        }
 
+        vector<pair<int, int>> zeros;
+        vector<int> idx(n);
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == '0') {
+                if (i && s[i - 1] == '0') {
+                    ++zeros.back().second;
+                } else {
+                    zeros.emplace_back(i, 1);
+                }
+            }
+            idx[i] = (int) zeros.size() - 1;
+        }
+
+        int m = (int) zeros.size() - 1;
+        int K = m ? 32 - __builtin_clz(m) : 0;
+        vector<vector<int>> st(max(K, 1), vector<int>(max(m, 0)));
+        for (int i = 0; i < m; ++i) {
+            st[0][i] = zeros[i].second + zeros[i + 1].second;
+        }
+        for (int k = 1; k < K; ++k) {
+            for (int i = 0; i + (1 << k) <= m; ++i) {
+                st[k][i] = max(st[k - 1][i], st[k - 1][i + (1 << (k - 1))]);
+            }
+        }
+
+        auto query = [&](int l, int r) {
+            if (l > r || m <= 0) {
+                return 0;
+            }
+            int k = 31 - __builtin_clz(r - l + 1);
+            return max(st[k][l], st[k][r - (1 << k) + 1]);
+        };
+
+        vector<int> ans;
+        ans.reserve(queries.size());
+        for (auto& q : queries) {
+            int L = q[0], R = q[1];
+            int iL = idx[L], iR = idx[R];
+            int cntL = iL < 0 ? -1 : zeros[iL].second - (L - zeros[iL].first);
+            int cntR = iR < 0 ? -1 : R - zeros[iR].first + 1;
+            int start = iL + 1;
+            int end = iR - (s[R] == '0');
+            int best = active;
+            if (start < end) {
+                best = max(best, active + query(start, end - 1));
+            }
+            if (s[L] == '0' && s[R] == '0' && iL + 1 == iR) {
+                best = max(best, active + cntL + cntR);
+            }
+            if (s[L] == '0' && iL + 1 < iR + (s[R] == '1')) {
+                best = max(best, active + cntL + zeros[iL + 1].second);
+            }
+            if (s[R] == '0' && iL < iR - 1) {
+                best = max(best, active + cntR + zeros[iR - 1].second);
+            }
+            ans.push_back(best);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
