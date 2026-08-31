@@ -102,32 +102,173 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4039.Su
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation + Fast Power
+
+We decode each element exactly as the statement describes. For each element $v$ in $\textit{nums}$, its width is $w = v \bmod 10$, and the number left after dropping the last digit is $d = \lfloor v / 10 \rfloor$. Converting $d$ to its decimal string $s$, the value $x$ is the integer formed by the first $w$ characters of $s$, and $y$ is the integer formed by the remaining characters.
+
+Since $y$ can be as large as $10^9$, multiplying repeatedly would be too slow, so we use fast power to compute $x^y \bmod (10^9 + 7)$ in $O(\log y)$ time, then accumulate the decoded values modulo $10^9 + 7$.
+
+The time complexity is $O(n \times \log M)$, and the space complexity is $O(\log M)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value in the array.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def sumDecoded(self, nums: List[int]) -> int:
+        mod = 10**9 + 7
+        ans = 0
+        for v in nums:
+            d, w = divmod(v, 10)
+            s = str(d)
+            x = int(s[:w])
+            y = int(s[w:])
+            ans = (ans + pow(x, y, mod)) % mod
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int sumDecoded(long[] nums) {
+        final long mod = 1000000007L;
+        long ans = 0;
 
+        for (long v : nums) {
+            long d = v / 10;
+            int w = (int) (v % 10);
+
+            String s = Long.toString(d);
+            long x = Long.parseLong(s.substring(0, w));
+            long y = Long.parseLong(s.substring(w));
+
+            ans = (ans + pow(x, y, mod)) % mod;
+        }
+
+        return (int) ans;
+    }
+
+    private long pow(long x, long y, long mod) {
+        long res = 1;
+        while (y > 0) {
+            if ((y & 1) != 0) {
+                res = res * x % mod;
+            }
+            x = x * x % mod;
+            y >>= 1;
+        }
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int sumDecoded(vector<long long>& nums) {
+        const long long mod = 1000000007;
+        long long ans = 0;
 
+        for (long long v : nums) {
+            long long d = v / 10;
+            int w = v % 10;
+
+            string s = to_string(d);
+            long long x = stoll(s.substr(0, w));
+            long long y = stoll(s.substr(w));
+
+            ans = (ans + qpow(x, y, mod)) % mod;
+        }
+
+        return ans;
+    }
+
+private:
+    long long qpow(long long x, long long y, long long mod) {
+        long long res = 1;
+        while (y) {
+            if (y & 1) {
+                res = res * x % mod;
+            }
+            x = x * x % mod;
+            y >>= 1;
+        }
+        return res;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sumDecoded(nums []int64) int {
+	const mod int64 = 1000000007
+	var ans int64
 
+	for _, v := range nums {
+		d, w := v/10, int(v%10)
+		s := strconv.FormatInt(d, 10)
+
+		x, _ := strconv.ParseInt(s[:w], 10, 64)
+		y, _ := strconv.ParseInt(s[w:], 10, 64)
+
+		ans = (ans + pow(x, y, mod)) % mod
+	}
+
+	return int(ans)
+}
+
+func pow(x, y, mod int64) int64 {
+	res := int64(1)
+	for y > 0 {
+		if y&1 != 0 {
+			res = res * x % mod
+		}
+		x = x * x % mod
+		y >>= 1
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function sumDecoded(nums: number[]): number {
+    const mod = 1000000007n;
+    let ans = 0n;
+
+    for (const v of nums) {
+        const d = Math.floor(v / 10);
+        const w = v % 10;
+
+        const s = String(d);
+        const x = BigInt(s.slice(0, w));
+        const y = BigInt(s.slice(w));
+
+        ans = (ans + pow(x, y, mod)) % mod;
+    }
+
+    return Number(ans);
+}
+
+function pow(x: bigint, y: bigint, mod: bigint): bigint {
+    let res = 1n;
+
+    while (y > 0n) {
+        if (y & 1n) {
+            res = (res * x) % mod;
+        }
+        x = (x * x) % mod;
+        y >>= 1n;
+    }
+
+    return res;
+}
 ```
 
 <!-- tabs:end -->
