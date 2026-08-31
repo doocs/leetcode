@@ -86,32 +86,185 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4040.Mi
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: 0-1 Knapsack
+
+Applying $a$ multiplications followed by $b$ divisions to an element gives $\lfloor x \times 2^a / 2^b \rfloor$, which is exactly $x \times 2^{a-b}$ or $\lfloor x / 2^{b-a} \rfloor$. The same value is reachable with only $|a - b|$ operations instead of $a + b$, so mixing the two directions is never worthwhile. Therefore each element has only two families of reachable values: $x \times 2^i$ or $\lfloor x / 2^i \rfloor$, each costing $i$ operations, while an element left out of the subset costs nothing.
+
+This turns the problem into a 0-1 knapsack: every element contributes at most one (value, cost) pair, and we want the minimum cost to fill a capacity of exactly $\textit{sum}$.
+
+We define $f[w]$ as the minimum number of operations needed for a subset to sum to exactly $w$, with $f[0] = 0$ and all other entries set to $+\infty$. For each element $x$, we iterate the capacity $w$ from large to small, enumerate every value $y$ that $x$ can become together with its cost $i$, and update $f[w]$ with $f[w - y] + i$ whenever $y \leq w$. If $f[\textit{sum}]$ is still $+\infty$ at the end, no valid sequence of operations exists and we return $-1$; otherwise we return $f[\textit{sum}]$.
+
+The time complexity is $O(n \times S \times \log S)$, and the space complexity is $O(S)$. Here, $n$ is the length of the array $\textit{nums}$, and $S$ is the given $\textit{sum}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int], sum: int) -> int:
+        f = [0] + [inf] * sum
+        for x in nums:
+            for w in range(sum, -1, -1):
+                i, y = 0, x
+                while y <= w:
+                    f[w] = min(f[w], f[w - y] + i)
+                    i += 1
+                    y <<= 1
+                i, y = 1, x >> 1
+                while y > 0:
+                    if y <= w:
+                        f[w] = min(f[w], f[w - y] + i)
+                    i += 1
+                    y >>= 1
+        return -1 if f[sum] == inf else f[sum]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minOperations(int[] nums, int sum) {
+        int inf = Integer.MAX_VALUE / 2;
+        int[] f = new int[sum + 1];
+        Arrays.fill(f, inf);
+        f[0] = 0;
 
+        for (int x : nums) {
+            for (int w = sum; w >= 0; --w) {
+                int i = 0, y = x;
+                while (y <= w) {
+                    f[w] = Math.min(f[w], f[w - y] + i);
+                    ++i;
+                    y <<= 1;
+                }
+
+                i = 1;
+                y = x >> 1;
+                while (y > 0) {
+                    if (y <= w) {
+                        f[w] = Math.min(f[w], f[w - y] + i);
+                    }
+                    ++i;
+                    y >>= 1;
+                }
+            }
+        }
+
+        return f[sum] == inf ? -1 : f[sum];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int sum) {
+        const int inf = 1e9;
+        vector<int> f(sum + 1, inf);
+        f[0] = 0;
 
+        for (int x : nums) {
+            for (int w = sum; w >= 0; --w) {
+                int i = 0, y = x;
+                while (y <= w) {
+                    f[w] = min(f[w], f[w - y] + i);
+                    ++i;
+                    y <<= 1;
+                }
+
+                i = 1;
+                y = x >> 1;
+                while (y > 0) {
+                    if (y <= w) {
+                        f[w] = min(f[w], f[w - y] + i);
+                    }
+                    ++i;
+                    y >>= 1;
+                }
+            }
+        }
+
+        return f[sum] == inf ? -1 : f[sum];
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int, sum int) int {
+	const inf = int(1e9)
 
+	f := make([]int, sum+1)
+	for i := range f {
+		f[i] = inf
+	}
+	f[0] = 0
+
+	for _, x := range nums {
+		for w := sum; w >= 0; w-- {
+			i, y := 0, x
+			for y <= w {
+				f[w] = min(f[w], f[w-y]+i)
+				i++
+				y <<= 1
+			}
+
+			i, y = 1, x>>1
+			for y > 0 {
+				if y <= w {
+					f[w] = min(f[w], f[w-y]+i)
+				}
+				i++
+				y >>= 1
+			}
+		}
+	}
+
+	if f[sum] == inf {
+		return -1
+	}
+	return f[sum]
+}
+```
+
+#### TypeScript
+
+```ts
+function minOperations(nums: number[], sum: number): number {
+    const inf = 1e9;
+    const f = Array(sum + 1).fill(inf);
+    f[0] = 0;
+
+    for (const x of nums) {
+        for (let w = sum; w >= 0; --w) {
+            let i = 0;
+            let y = x;
+
+            while (y <= w) {
+                f[w] = Math.min(f[w], f[w - y] + i);
+                ++i;
+                y *= 2;
+            }
+
+            i = 1;
+            y = Math.floor(x / 2);
+
+            while (y > 0) {
+                if (y <= w) {
+                    f[w] = Math.min(f[w], f[w - y] + i);
+                }
+                ++i;
+                y = Math.floor(y / 2);
+            }
+        }
+    }
+
+    return f[sum] === inf ? -1 : f[sum];
+}
 ```
 
 <!-- tabs:end -->
