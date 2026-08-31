@@ -310,7 +310,7 @@ function longestPrefix(s: string): string {
     const n = s.length;
     const next: number[] = Array(n).fill(0);
     next[0] = -1;
-    for (let i = 2, j = 0; i < n; ) {
+    for (let i = 2, j = 0; i < n;) {
         if (s[i - 1] === s[j]) {
             next[i++] = ++j;
         } else if (j > 0) {
