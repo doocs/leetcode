@@ -9,6 +9,7 @@ tags:
     - Math
     - Dynamic Programming
     - Game Theory
+    - Impartial Game
 ---
 
 <!-- problem:start -->

@@ -89,7 +89,7 @@ comments: true
 - [4002. 统计有效序列数目](/solution/4000-4099/4002.Count%20Valid%20Sequences/README.md)
 - [4003. 交替方向的最小路径代价 III](/solution/4000-4099/4003.Minimum%20Cost%20Path%20with%20Alternating%20Directions%20III/README.md)
 
-#### 第 511 场周赛(2026-07-19 10:30, 90 分钟) 参赛人数 1002
+#### 第 511 场周赛(2026-07-19 10:30, 90 分钟) 参赛人数 1039
 
 - [3996. 偶数次骑士移动](/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README.md)
 - [3997. 统计二叉树中支配节点的数量](/solution/3900-3999/3997.Count%20Dominant%20Nodes%20in%20a%20Binary%20Tree/README.md)
@@ -4293,7 +4293,7 @@ comments: true
 
 - [0888. 公平的糖果交换](/solution/0800-0899/0888.Fair%20Candy%20Swap/README.md)
 - [0890. 查找和替换模式](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README.md)
-- [0889. 根据前序和后序遍历构造二叉树](/solution/0800-0899/0889.Construct%20Binary%20Tree%20from%20Preorder%20and%20Postorder%20Traversal/README.md)
+- [0889. 从前序与后序遍历序列构造二叉树](/solution/0800-0899/0889.Construct%20Binary%20Tree%20from%20Preorder%20and%20Postorder%20Traversal/README.md)
 - [0891. 子序列宽度之和](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md)
 
 #### 第 97 场周赛(2018-08-12 09:30, 90 分钟) 参赛人数 635

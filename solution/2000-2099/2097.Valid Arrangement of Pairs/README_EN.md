@@ -8,7 +8,9 @@ tags:
     - Depth-First Search
     - Graph
     - Array
+    - Eulerian Path
     - Eulerian Circuit
+    - Semi-Eulerian Graph
 ---
 
 <!-- problem:start -->

@@ -8,6 +8,7 @@ tags:
     - Array
     - Dynamic Programming
     - Prefix Sum
+    - Li Chao Tree
 ---
 
 <!-- problem:start -->

@@ -8,6 +8,7 @@ tags:
     - Depth-First Search
     - Breadth-First Search
     - Graph
+    - Graph Coloring
 ---
 
 <!-- problem:start -->

@@ -8,6 +8,7 @@ tags:
     - Divide and Conquer
     - Counting
     - Sorting
+    - Boyer-Moore Voting
 ---
 
 <!-- problem:start -->

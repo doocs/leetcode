@@ -20,7 +20,7 @@ tags:
 
 <p>You are given the <code>head</code> of a linked list containing unique integer values and an integer array <code>nums</code> that is a subset of the linked list values.</p>
 
-<p>Return <em>the number of connected components in </em><code>nums</code><em> where two values are connected if they appear <strong>consecutively</strong> in the linked list</em>.</p>
+<p>Return the number of <strong>connected</strong> <strong>components</strong> in <code>nums</code>. A connected component is a non-empty, maximal sequence of <strong>consecutive</strong> nodes in the linked list such that every node&#39;s value belongs to nums.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

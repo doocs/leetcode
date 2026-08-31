@@ -8,6 +8,7 @@ tags:
     - Binary Indexed Tree
     - Array
     - Simulation
+    - Sqrt Decomposition
 ---
 
 <!-- problem:start -->

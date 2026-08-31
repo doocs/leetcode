@@ -7,6 +7,7 @@ source: Weekly Contest 150 Q4
 tags:
     - Two Pointers
     - String
+    - Lyndon Factorization
 ---
 
 <!-- problem:start -->

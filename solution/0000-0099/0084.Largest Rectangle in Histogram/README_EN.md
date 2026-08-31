@@ -6,6 +6,7 @@ tags:
     - Stack
     - Array
     - Monotonic Stack
+    - Range Query
 ---
 
 <!-- problem:start -->

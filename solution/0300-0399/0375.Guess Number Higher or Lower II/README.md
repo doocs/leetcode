@@ -3,6 +3,7 @@ comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README.md
 tags:
+    - 极小化极大
     - 数学
     - 动态规划
     - 博弈

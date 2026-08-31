@@ -1,6 +1,6 @@
 ---
 comments: true
-difficulty: Easy
+difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/README_EN.md
 tags:
     - Bit Manipulation

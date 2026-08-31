@@ -8,7 +8,10 @@ tags:
     - Linked List
     - Divide and Conquer
     - Doubly-Linked List
+    - Splay Tree
+    - Treap
     - Simulation
+    - Sqrt Decomposition
 ---
 
 <!-- problem:start -->

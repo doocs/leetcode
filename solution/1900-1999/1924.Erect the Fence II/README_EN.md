@@ -6,6 +6,7 @@ tags:
     - Geometry
     - Array
     - Math
+    - Smallest Enclosing Circle
 ---
 
 <!-- problem:start -->

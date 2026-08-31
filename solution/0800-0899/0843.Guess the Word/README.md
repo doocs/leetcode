@@ -3,6 +3,7 @@ comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0843.Guess%20the%20Word/README.md
 tags:
+    - 极小化极大
     - 数组
     - 数学
     - 字符串

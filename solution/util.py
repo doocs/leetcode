@@ -56,6 +56,146 @@ category_readme_en = load_template("category_readme_template_en")
 
 category_dict = {"Database": "数据库"}
 
+_CJK_RE = re.compile(r"[\u4e00-\u9fff]")
+
+# leetcode.cn may put Chinese in topicTags.name for CN-only / CN-origin tags.
+TAG_CN_TO_EN = {
+    "数据库": "Database",
+    "多线程": "Concurrency",
+    "树形 DP": "Tree DP",
+    "最大公约数": "Greatest Common Divisor",
+    "欧几里得算法": "Euclidean Algorithm",
+    "有向无环图": "Directed Acyclic Graph",
+    "背包问题": "Knapsack",
+    "Dijkstra 算法": "Dijkstra",
+    "括号序列": "Parentheses",
+    "质因数分解": "Prime Factorization",
+    "最长上升子序列": "Longest Increasing Subsequence",
+    "零和博弈": "Zero-Sum Game",
+    "扩展 KMP": "Extended KMP",
+    "筛法": "Sieve",
+    "最近公共祖先": "Lowest Common Ancestor",
+    "KMP 算法": "KMP",
+    "素性测试": "Primality Test",
+    "二分图": "Bipartite Graph",
+    "费马小定理": "Fermat's Little Theorem",
+    "0-1 背包": "0-1 Knapsack",
+    "多边形": "Polygon",
+    "快速排序": "Quick Sort",
+    "双向搜索": "Bidirectional Search",
+    "素数筛法": "Sieve of Eratosthenes",
+    "最小公倍数": "Least Common Multiple",
+    "网络流": "Network Flow",
+    "Boyer–Moore 算法": "Boyer–Moore",
+    "Floyd 判圈算法": "Floyd Cycle Detection",
+    "树堆": "Treap",
+    "最长公共子序列": "Longest Common Subsequence",
+    "图的匹配": "Graph Matching",
+    "抽屉原理": "Pigeonhole Principle",
+    "完全背包": "Unbounded Knapsack",
+    "无偏博弈": "Impartial Game",
+    "A* 搜索": "A* Search",
+    "图的着色": "Graph Coloring",
+    "Kosaraju 算法": "Kosaraju",
+    "Tarjan 强连通分量算法": "Tarjan",
+    "SSP 算法": "SSP",
+    "冒泡排序": "Bubble Sort",
+    "摩尔投票算法": "Boyer-Moore Voting",
+    "Nim 游戏": "Nim Game",
+    "AC 自动机": "Aho-Corasick",
+    "中途相遇": "Meet in the Middle",
+    "匈牙利算法": "Hungarian Algorithm",
+    "最小费用流": "Min-Cost Flow",
+    "Manacher 算法": "Manacher",
+    "X 算法": "Algorithm X",
+    "线性代数": "Linear Algebra",
+    "欧拉路径": "Eulerian Path",
+    "容斥原理": "Inclusion-Exclusion",
+    "Kruskal 算法": "Kruskal",
+    "Prim 算法": "Prim",
+    "Boruvka 算法": "Borůvka",
+    "Edmonds–Karp 算法": "Edmonds–Karp",
+    "Dinic 算法": "Dinic",
+    "MPM 算法": "MPM",
+    "Push-Relabel 算法": "Push-Relabel",
+    "区间最值查询": "Range Query",
+    "半欧拉图": "Semi-Eulerian Graph",
+    "扩展欧几里得算法": "Extended Euclidean Algorithm",
+    "裴蜀定理": "Bézout's Identity",
+    "Floyd 算法": "Floyd–Warshall",
+    "Bellman–Ford 算法": "Bellman–Ford",
+    "平面最近点对": "Closest Pair of Points",
+    "三分查找": "Ternary Search",
+    "哈密顿通路": "Hamiltonian Path",
+    "最大流": "Max Flow",
+    "最大匹配": "Maximum Matching",
+    "完美匹配": "Perfect Matching",
+    "混合背包": "Mixed Knapsack",
+    "多重背包": "Bounded Knapsack",
+    "锦标赛排序": "Tournament Sort",
+    "牛顿迭代法": "Newton's Method",
+    "欧拉函数": "Euler's Totient Function",
+    "欧拉定理": "Euler's Theorem",
+    "凸包": "Convex Hull",
+    "欧拉图": "Eulerian Graph",
+    "Tim 排序": "Timsort",
+    "最小表示法": "Smallest Representation",
+    "平面图": "Planar Graph",
+    "三角剖分": "Triangulation",
+    "可持久化数据结构": "Persistent Data Structure",
+    "Lyndon 分解": "Lyndon Factorization",
+    "桥": "Bridge",
+    "最小割": "Min Cut",
+    "割点": "Articulation Point",
+    "最小圆覆盖": "Smallest Enclosing Circle",
+    "k 短路": "k-Shortest Paths",
+}
+
+
+def contains_cjk(text: str) -> bool:
+    return bool(text and _CJK_RE.search(text))
+
+
+def localize_tag_en(tag: str):
+    """Map a CN-origin tag to English, or None if it should be dropped."""
+    if not tag:
+        return None
+    if not contains_cjk(tag):
+        return tag
+    return TAG_CN_TO_EN.get(tag)
+
+
+def split_topic_tags(topic_tags: List[dict]) -> Tuple[List[str], List[str]]:
+    """Split leetcode.cn topicTags into English / Chinese lists."""
+    tags_en, tags_cn = [], []
+    seen_en, seen_cn = set(), set()
+    for tag in topic_tags or []:
+        name = (tag.get("name") or "").strip()
+        translated = (tag.get("translatedName") or "").strip()
+
+        cn = ""
+        if contains_cjk(translated):
+            cn = translated
+        elif contains_cjk(name):
+            cn = name
+        elif translated:
+            cn = translated
+        if cn and cn not in seen_cn:
+            seen_cn.add(cn)
+            tags_cn.append(cn)
+
+        en = ""
+        if name and not contains_cjk(name):
+            en = name
+        elif name in TAG_CN_TO_EN:
+            en = TAG_CN_TO_EN[name]
+        elif translated and not contains_cjk(translated):
+            en = translated
+        if en and en not in seen_en:
+            seen_en.add(en)
+            tags_en.append(en)
+    return tags_en, tags_cn
+
 
 def load_cookies() -> Tuple[str, str]:
     cookie_cn, cookie_en = "", ""
@@ -243,7 +383,7 @@ def generate_question_readme(result):
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
             "source": source,
         }
-        if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
+        if not item["tags_en"] or metadata["tags"] == ["Algorithms"]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")

@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0625.Mi
 tags:
     - Greedy
     - Math
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

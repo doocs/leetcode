@@ -7,8 +7,11 @@ source: Biweekly Contest 7 Q4
 tags:
     - Union Find
     - Graph
+    - Kruskal
     - Minimum Spanning Tree
+    - Prim
     - Heap (Priority Queue)
+    - Borůvka
 ---
 
 <!-- problem:start -->

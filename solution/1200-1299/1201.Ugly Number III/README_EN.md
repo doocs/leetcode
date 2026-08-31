@@ -8,7 +8,11 @@ tags:
     - Math
     - Binary Search
     - Combinatorics
+    - Greatest Common Divisor
     - Number Theory
+    - Inclusion-Exclusion
+    - Euclidean Algorithm
+    - Least Common Multiple
 ---
 
 <!-- problem:start -->

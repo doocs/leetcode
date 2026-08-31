@@ -6,6 +6,9 @@ rating: 1722
 source: Biweekly Contest 9 Q2
 tags:
     - Breadth-First Search
+    - Bidirectional Search
+    - A* Search
+    - Heuristic Search
 ---
 
 <!-- problem:start -->

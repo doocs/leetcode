@@ -7,6 +7,7 @@ source: Weekly Contest 190 Q4
 tags:
     - Array
     - Dynamic Programming
+    - Longest Common Subsequence
 ---
 
 <!-- problem:start -->

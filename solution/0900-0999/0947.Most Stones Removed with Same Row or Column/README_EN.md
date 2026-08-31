@@ -7,6 +7,7 @@ tags:
     - Union Find
     - Graph
     - Hash Table
+    - Bipartite Graph
 ---
 
 <!-- problem:start -->

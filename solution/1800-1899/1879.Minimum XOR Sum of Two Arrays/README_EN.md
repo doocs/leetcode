@@ -9,6 +9,9 @@ tags:
     - Array
     - Dynamic Programming
     - Bitmask
+    - Hungarian Algorithm
+    - Bipartite Graph
+    - SSP
 ---
 
 <!-- problem:start -->

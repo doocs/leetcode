@@ -4,6 +4,9 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3959.Check%20Good%20Integer/README_EN.md
 rating: 1182
 source: Weekly Contest 506 Q1
+tags:
+    - Math
+    - Simulation
 ---
 
 <!-- problem:start -->

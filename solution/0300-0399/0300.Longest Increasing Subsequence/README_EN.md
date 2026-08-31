@@ -6,6 +6,7 @@ tags:
     - Array
     - Binary Search
     - Dynamic Programming
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

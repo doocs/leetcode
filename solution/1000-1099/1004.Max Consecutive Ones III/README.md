@@ -47,7 +47,7 @@ tags:
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>nums[i]</code>&nbsp;不是&nbsp;<code>0</code>&nbsp;就是&nbsp;<code>1</code></li>
+	<li><code>nums[i]</code>&nbsp;不是&nbsp;0&nbsp;就是&nbsp;1</li>
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 

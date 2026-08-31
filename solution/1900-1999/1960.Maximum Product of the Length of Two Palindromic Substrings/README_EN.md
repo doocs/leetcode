@@ -7,8 +7,10 @@ source: Biweekly Contest 58 Q4
 tags:
     - Two Pointers
     - String
+    - Manacher
     - Hash Function
     - Rolling Hash
+    - Palindromic Tre
 ---
 
 <!-- problem:start -->

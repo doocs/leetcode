@@ -7,6 +7,8 @@ tags:
     - Hash Table
     - Backtracking
     - Matrix
+    - Algorithm X
+    - Dancing Links
 ---
 
 <!-- problem:start -->

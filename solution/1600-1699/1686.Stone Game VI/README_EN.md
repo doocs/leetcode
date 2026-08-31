@@ -6,11 +6,13 @@ rating: 2000
 source: Biweekly Contest 41 Q3
 tags:
     - Greedy
+    - Minimax
     - Array
     - Math
     - Game Theory
     - Sorting
     - Heap (Priority Queue)
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

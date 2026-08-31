@@ -7,6 +7,8 @@ tags:
     - Hash Table
     - Two Pointers
     - Binary Tree
+    - Lowest Common Ancestor
+    - Binary Lifting
 ---
 
 <!-- problem:start -->

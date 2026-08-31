@@ -9,6 +9,9 @@ tags:
     - Dynamic Programming
     - Backtracking
     - Matrix
+    - Bidirectional Search
+    - A* Search
+    - Heuristic Search
 ---
 
 <!-- problem:start -->

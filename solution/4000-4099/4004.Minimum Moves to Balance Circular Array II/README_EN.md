@@ -6,7 +6,7 @@ tags:
     - Graph
     - Array
     - Math
-    - 最小费用流
+    - Min-Cost Flow
 ---
 
 <!-- problem:start -->

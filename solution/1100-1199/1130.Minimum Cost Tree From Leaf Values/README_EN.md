@@ -9,6 +9,7 @@ tags:
     - Greedy
     - Array
     - Dynamic Programming
+    - Cartesian Tree
     - Monotonic Stack
 ---
 

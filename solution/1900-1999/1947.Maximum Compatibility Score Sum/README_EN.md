@@ -10,6 +10,13 @@ tags:
     - Dynamic Programming
     - Backtracking
     - Bitmask
+    - Hungarian Algorithm
+    - Bipartite Graph
+    - Graph Matching
+    - Min-Cost Flow
+    - SSP
+    - Perfect Matching
+    - Network Flow
 ---
 
 <!-- problem:start -->

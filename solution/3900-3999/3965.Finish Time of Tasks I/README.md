@@ -4,6 +4,11 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3965.Finish%20Time%20of%20Tasks%20I/README.md
 rating: 1698
 source: 第 185 场双周赛 Q3
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

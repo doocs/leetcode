@@ -6,6 +6,7 @@ tags:
     - Breadth-First Search
     - Hash Table
     - String
+    - Bidirectional Search
 ---
 
 <!-- problem:start -->

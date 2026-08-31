@@ -7,6 +7,7 @@ tags:
     - Hash Table
     - Counting
     - Sorting
+    - Boyer-Moore Voting
 ---
 
 <!-- problem:start -->

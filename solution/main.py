@@ -252,10 +252,7 @@ class Spider:
         path_en = f"/solution/{sub_folders[no]}/{frontend_question_id}.{quote(question_title_en)}/README_EN.md"
 
         print(f"{frontend_question_id}. {question_title_en}")
-        topic_tags = question_detail.get("topicTags")
-        for tag in topic_tags:
-            if tag["name"] == "数据库":
-                tag["name"] = "Database"
+        tags_en, tags_cn = split_topic_tags(question_detail.get("topicTags"))
 
         item = {
             "sub_folder": sub_folders[no],
@@ -278,9 +275,8 @@ class Spider:
             "content_cn": question_detail.get("translatedContent")
             or question_detail.get("content")
             or "",
-            "tags_en": [e["name"] for e in topic_tags if e["name"]] or [],
-            "tags_cn": [e["translatedName"] for e in topic_tags if e["translatedName"]]
-            or [],
+            "tags_en": tags_en,
+            "tags_cn": tags_cn,
             "difficulty_en": question_detail.get("difficulty"),
             "difficulty_cn": difficulty.get(question_detail.get("difficulty")),
             "code_snippets": question_detail.get("codeSnippets") or [],

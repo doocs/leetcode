@@ -8,6 +8,7 @@ tags:
     - Array
     - Dynamic Programming
     - Matrix
+    - Parentheses
 ---
 
 <!-- problem:start -->

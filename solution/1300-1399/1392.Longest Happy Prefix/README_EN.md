@@ -9,6 +9,8 @@ tags:
     - String Matching
     - Hash Function
     - Rolling Hash
+    - KMP
+    - Extended KMP
 ---
 
 <!-- problem:start -->
@@ -21,7 +23,7 @@ tags:
 
 <!-- description:start -->
 
-<p>A string is called a <strong>happy prefix</strong> if is a <strong>non-empty</strong> prefix which is also a suffix (excluding itself).</p>
+<p>A string is called a <strong>happy prefix</strong> if it is a <strong>non-empty</strong> prefix which is also a suffix (excluding itself).</p>
 
 <p>Given a string <code>s</code>, return <em>the <strong>longest happy prefix</strong> of</em> <code>s</code>. Return an empty string <code>&quot;&quot;</code> if no such prefix exists.</p>
 

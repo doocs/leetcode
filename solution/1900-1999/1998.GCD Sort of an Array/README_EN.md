@@ -8,8 +8,11 @@ tags:
     - Union Find
     - Array
     - Math
+    - Greatest Common Divisor
     - Number Theory
     - Sorting
+    - Prime Factorization
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

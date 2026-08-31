@@ -2,6 +2,11 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3967.Finish%20Time%20of%20Tasks%20II/README_EN.md
+tags:
+    - Tree
+    - Depth-First Search
+    - Array
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->

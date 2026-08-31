@@ -6,6 +6,8 @@ tags:
     - Array
     - Dynamic Programming
     - Backtracking
+    - Knapsack
+    - 0-1 Knapsack
 ---
 
 <!-- problem:start -->

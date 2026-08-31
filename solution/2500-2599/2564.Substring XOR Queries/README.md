@@ -38,7 +38,7 @@ tags:
 <pre>
 <b>输入：</b>s = "101101", queries = [[0,5],[1,2]]
 <b>输出：</b>[[0,2],[2,3]]
-<b>解释：</b>第一个查询，端点为 <code>[0,2]</code> 的子字符串为 <strong>"101"</strong> ，对应十进制数字 <strong><code>5 ，且</code></strong> <strong><code>5 ^ 0 = 5</code></strong>&nbsp;，所以第一个查询的答案为 <code>[0,2]。第二个查询中，</code>端点为 <code>[2,3] 的子字符串为 </code><strong>"11" ，对应十进制数字</strong> <strong>3</strong>&nbsp;，且 <strong>3<code> ^ 1 = 2</code></strong><code>&nbsp;。所以第二个查询的答案为</code> <code>[2,3]</code> 。
+<b>解释：</b>第一个查询，端点为 <code>[0,2]</code> 的子字符串为 <strong>"101"</strong>，对应十进制数字 <strong><code>5</code></strong><code>，且</code> <strong><code>5 ^ 0 = 5</code></strong>，所以第一个查询的答案为 <code>[0,2]。第二个查询中，</code>端点为 <code>[2,3] 的子字符串为 </code><strong>"11"</strong>，对应十进制数字 <strong>3</strong>，且 <strong>3<code> ^ 1 = 2</code></strong><code>。所以第二个查询的答案为</code> <code>[2,3]</code>。
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -46,7 +46,7 @@ tags:
 <pre>
 <b>输入：</b>s = "0101", queries = [[12,8]]
 <b>输出：</b>[[-1,-1]]
-<b>解释：</b>这个例子中，没有符合查询的答案，所以返回 <code>[-1,-1] 。</code>
+<b>解释：</b>这个例子中，没有符合查询的答案，所以返回 <code>[-1,-1]。</code>
 </pre>
 
 <p><strong>示例 3：</strong></p>
@@ -54,7 +54,7 @@ tags:
 <pre>
 <b>输入：</b>s = "1", queries = [[4,5]]
 <b>输出：</b>[[0,0]]
-<b>解释：</b>这个例子中，端点为 <code>[0,0]</code> 的子字符串对应的十进制值为 <strong><code>1</code></strong><code>&nbsp;，且</code> <strong><code>1 ^ 4 = 5</code></strong><code>&nbsp;。所以答案为</code> <code>[0,0] 。</code>
+<b>解释：</b>这个例子中，端点为 <code>[0,0]</code> 的子字符串对应的十进制值为 <strong><code>1</code></strong><code>，且</code> <strong><code>1 ^ 4 = 5</code></strong><code>。所以答案为</code> <code>[0,0]。</code>
 </pre>
 
 <p>&nbsp;</p>

@@ -20,9 +20,11 @@ tags:
 
 <!-- description:start -->
 
-<p>给你两个整数 <code>n</code> 和 <code>k</code>，将数字 <code>n</code> 恰好分割成 <code>k</code> 个正整数，使得这些整数的&nbsp;<strong>乘积&nbsp;</strong>等于 <code>n</code>。</p>
+<p>给你两个整数 <code>n</code> 和 <code>k</code>。</p>
 
-<p>返回一个分割方案，使得这些数字中&nbsp;<strong>最大值&nbsp;</strong>和&nbsp;<strong>最小值&nbsp;</strong>之间的&nbsp;<strong>差值&nbsp;</strong>最小化。结果可以以&nbsp;<strong>任意顺序</strong>&nbsp;返回。</p>
+<p>将数字 <code>n</code> <strong>恰好</strong> 分割成 <code>k</code> 个正整数，使得这些整数的&nbsp;<strong>乘积&nbsp;等于</strong> <code>n</code>。</p>
+
+<p>返回 <strong>任一</strong> 分割方案，使得这些数字中&nbsp;<strong>最大值&nbsp;</strong>和&nbsp;<strong>最小值&nbsp;</strong>之间的差值<strong>&nbsp;最小化</strong>。结果可以以任意顺序返回。</p>
 
 <p>&nbsp;</p>
 

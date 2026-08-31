@@ -6,6 +6,8 @@ tags:
     - Array
     - String
     - Dynamic Programming
+    - Knapsack
+    - 0-1 Knapsack
 ---
 
 <!-- problem:start -->

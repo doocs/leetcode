@@ -11,6 +11,7 @@ tags:
     - Array
     - Binary Search
     - Matrix
+    - Dijkstra
     - Heap (Priority Queue)
 ---
 

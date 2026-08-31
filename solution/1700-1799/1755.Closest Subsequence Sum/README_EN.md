@@ -11,6 +11,7 @@ tags:
     - Dynamic Programming
     - Bitmask
     - Sorting
+    - Meet in the Middle
 ---
 
 <!-- problem:start -->

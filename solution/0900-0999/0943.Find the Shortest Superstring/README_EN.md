@@ -8,6 +8,7 @@ tags:
     - String
     - Dynamic Programming
     - Bitmask
+    - Hamiltonian Path
 ---
 
 <!-- problem:start -->

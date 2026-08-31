@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3995.Minimum%20Cost%20to%20Convert%20String%20III/README_EN.md
 rating: 2100
 source: Biweekly Contest 187 Q4
+tags:
+    - Array
+    - String
+    - Dynamic Programming
 ---
 
 <!-- problem:start -->
@@ -97,7 +101,7 @@ source: Biweekly Contest 187 Q4
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= source.length, target.length &lt;= 5000</code></li>
+	<li><code>1 &lt;= source.length == target.length &lt;= 5000</code></li>
 	<li><code>source</code> and <code>target</code> consist of lowercase English letters.</li>
 	<li><code>1 &lt;= rules.length == costs.length &lt;= 200</code></li>
 	<li><code>rules[i] = [pattern<sub>i</sub>, replacement<sub>i</sub>]</code></li>

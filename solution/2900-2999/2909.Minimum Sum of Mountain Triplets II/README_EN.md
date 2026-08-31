@@ -6,6 +6,7 @@ rating: 1478
 source: Weekly Contest 368 Q2
 tags:
     - Array
+    - Prefix Sum
 ---
 
 <!-- problem:start -->

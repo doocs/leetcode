@@ -7,6 +7,7 @@ source: Weekly Contest 129 Q2
 tags:
     - Hash Table
     - Math
+    - Pigeonhole Principle
 ---
 
 <!-- problem:start -->

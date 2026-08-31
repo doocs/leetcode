@@ -7,7 +7,9 @@ source: Biweekly Contest 26 Q2
 tags:
     - Math
     - String
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

@@ -48,7 +48,7 @@ pass_to 是接收传球队员的 player_id。
 <p>编写一个解决方案以找到比赛中 <strong>每个队伍</strong> 的 <strong>最长连续成功传球</strong>。规则如下：</p>
 
 <ul>
-	<li>成功连击的定义为连续传球，其中：
+	<li>成功连击的定义为同一支球队的连续传球，即：
 	<ul>
 		<li><code>pass_from</code> 和&nbsp;<code>pass_to</code>&nbsp;表示的队员来自同一队伍</li>
 	</ul>

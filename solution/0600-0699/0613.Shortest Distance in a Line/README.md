@@ -32,6 +32,8 @@ tags:
 
 <p>找到 <code>Point</code> 表中任意两点之间的最短距离。</p>
 
+<p>保证 <code>Point</code> 表中 <strong>至少</strong> 包含两行数据。</p>
+
 <p>返回结果格式如下例所示。</p>
 
 <p>&nbsp;</p>

@@ -9,6 +9,7 @@ tags:
     - Queue
     - Data Stream
     - Ordered Set
+    - Treap
     - Heap (Priority Queue)
 ---
 

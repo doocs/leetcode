@@ -8,6 +8,7 @@ tags:
     - Segment Tree
     - Array
     - Divide and Conquer
+    - Sqrt Decomposition
 ---
 
 <!-- problem:start -->

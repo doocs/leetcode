@@ -4,6 +4,7 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README_EN.md
 tags:
     - Database
+    - Closest Pair of Points
 ---
 
 <!-- problem:start -->

@@ -9,6 +9,7 @@ tags:
     - Hash Table
     - Math
     - Number Theory
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

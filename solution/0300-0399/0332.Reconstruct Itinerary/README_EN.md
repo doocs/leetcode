@@ -8,8 +8,10 @@ tags:
     - Array
     - String
     - Sorting
+    - Eulerian Path
     - Eulerian Circuit
     - Heap (Priority Queue)
+    - Semi-Eulerian Graph
 ---
 
 <!-- problem:start -->

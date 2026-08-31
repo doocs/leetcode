@@ -8,6 +8,7 @@ tags:
     - Binary Search Tree
     - Dynamic Programming
     - Binary Tree
+    - Tree DP
 ---
 
 <!-- problem:start -->

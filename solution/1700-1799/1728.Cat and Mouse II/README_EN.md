@@ -8,11 +8,13 @@ tags:
     - Graph
     - Topological Sort
     - Memoization
+    - Minimax
     - Array
     - Math
     - Dynamic Programming
     - Game Theory
     - Matrix
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

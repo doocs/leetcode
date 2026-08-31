@@ -8,6 +8,7 @@ tags:
     - Dynamic Programming
     - Binary Tree
     - Game Theory
+    - 'Sprague–Grundy '
 ---
 
 <!-- problem:start -->

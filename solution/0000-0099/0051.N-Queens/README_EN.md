@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0051.N-
 tags:
     - Array
     - Backtracking
+    - Algorithm X
 ---
 
 <!-- problem:start -->

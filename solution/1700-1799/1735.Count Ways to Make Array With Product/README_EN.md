@@ -10,6 +10,8 @@ tags:
     - Dynamic Programming
     - Combinatorics
     - Number Theory
+    - Prime Factorization
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

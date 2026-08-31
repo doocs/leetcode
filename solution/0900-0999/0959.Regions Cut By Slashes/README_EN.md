@@ -9,6 +9,7 @@ tags:
     - Array
     - Hash Table
     - Matrix
+    - Planar Graph
 ---
 
 <!-- problem:start -->

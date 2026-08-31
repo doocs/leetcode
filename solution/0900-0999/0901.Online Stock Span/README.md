@@ -19,52 +19,51 @@ tags:
 
 <!-- description:start -->
 
-<p>设计一个算法收集某些股票的每日报价，并返回该股票当日价格的 <strong>跨度</strong> 。</p>
+<p>设计一种算法，收集某支股票的每日价格报价，并返回该股票当前日期的 <strong>价格跨度</strong>。</p>
 
-<p>当日股票价格的 <strong>跨度</strong> 被定义为股票价格小于或等于今天价格的最大连续日数（从今天开始往回数，包括今天）。</p>
+<p>股票在某一天的&nbsp;<strong>价格跨度&nbsp;</strong>是指：从当天开始向前，连续的股票价格小于或等于当天价格的最大天数。</p>
 
 <ul>
-	<li>
-	<p>例如，如果未来 7 天股票的价格是 <code>[100,80,60,70,60,75,85]</code>，那么股票跨度将是 <code>[1,1,1,2,1,4,6]</code> 。</p>
-	</li>
+	<li>例如，如果股票过去四天的价格为 <code>[7,2,1,2]</code>，今天的价格为 <code>2</code>，那么今天的价格跨度为 <code>3</code>，因为从今天开始向前，有连续 3 天的股票价格小于或等于 2。</li>
+	<li>同样，如果股票过去四天的价格为 <code>[7,34,1,2]</code>，今天的价格为 <code>8</code>，那么今天的价格跨度为 <code>3</code>，因为从今天开始向前，有连续 3 天的股票价格小于或等于 8。</li>
 </ul>
 
 <p>实现 <code>StockSpanner</code> 类：</p>
 
 <ul>
-	<li><code>StockSpanner()</code> 初始化类对象。</li>
-	<li><code>int next(int price)</code> 给出今天的股价 <code>price</code> ，返回该股票当日价格的 <strong>跨度</strong> 。</li>
+	<li><code>StockSpanner()</code> 初始化该类的对象。</li>
+	<li><code>int next(int price)</code> 给定今天的股票价格 <code>price</code>，返回今天股票价格的 <strong>价格跨度</strong>。</li>
 </ul>
 
 <p>&nbsp;</p>
 
-<p><strong class="example">示例：</strong></p>
+<p><strong class="example">示例 1：</strong></p>
 
 <pre>
-<strong>输入</strong>：
+<strong>输入</strong>
 ["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]
 [[], [100], [80], [60], [70], [60], [75], [85]]
-<strong>输出</strong>：
+<strong>输出</strong>
 [null, 1, 1, 1, 2, 1, 4, 6]
 
-<strong>解释：</strong>
+<strong>解释</strong>
 StockSpanner stockSpanner = new StockSpanner();
 stockSpanner.next(100); // 返回 1
 stockSpanner.next(80);  // 返回 1
 stockSpanner.next(60);  // 返回 1
 stockSpanner.next(70);  // 返回 2
 stockSpanner.next(60);  // 返回 1
-stockSpanner.next(75);  // 返回 4 ，因为截至今天的最后 4 个股价 (包括今天的股价 75) 都小于或等于今天的股价。
+stockSpanner.next(75);  // 返回 4，因为包含今天在内的最后 4 天的价格都小于或等于今天的价格 75。
 stockSpanner.next(85);  // 返回 6
 </pre>
 
-&nbsp;
+<p>&nbsp;</p>
 
-<p><strong>提示：</strong></p>
+<p><strong>约束条件：</strong></p>
 
 <ul>
 	<li><code>1 &lt;= price &lt;= 10<sup>5</sup></code></li>
-	<li>最多调用 <code>next</code> 方法 <code>10<sup>4</sup></code> 次</li>
+	<li>最多会调用 <code>10<sup>4</sup></code> 次 <code>next</code>。</li>
 </ul>
 
 <!-- description:end -->

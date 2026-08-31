@@ -9,6 +9,8 @@ tags:
     - Depth-First Search
     - String
     - Binary Tree
+    - Lowest Common Ancestor
+    - Binary Lifting
 ---
 
 <!-- problem:start -->

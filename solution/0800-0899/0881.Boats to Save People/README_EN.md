@@ -7,6 +7,7 @@ tags:
     - Array
     - Two Pointers
     - Sorting
+    - Timsort
 ---
 
 <!-- problem:start -->

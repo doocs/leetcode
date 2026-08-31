@@ -44,7 +44,7 @@ tags:
 	<li>如果结果字符串&nbsp;<code>dfsStr</code>&nbsp;是一个 <span data-keyword="palindrome-string">回文串</span>&nbsp;，<code>answer[i]</code>&nbsp;为&nbsp;<code>true</code>&nbsp;，否则&nbsp;<code>answer[i]</code>&nbsp;为&nbsp;<code>false</code>&nbsp;。</li>
 </ul>
 
-<p>请你返回字符串&nbsp;<code>answer</code>&nbsp;。</p>
+<p>请你返回数组&nbsp;<code>answer</code>&nbsp;。</p>
 
 <p>&nbsp;</p>
 

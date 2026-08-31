@@ -10,6 +10,9 @@ tags:
     - Math
     - Dynamic Programming
     - Number Theory
+    - Primality Test
+    - Sieve
+    - Sieve of Eratosthenes
 ---
 
 <!-- problem:start -->

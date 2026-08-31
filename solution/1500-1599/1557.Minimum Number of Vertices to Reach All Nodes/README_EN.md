@@ -6,6 +6,7 @@ rating: 1512
 source: Biweekly Contest 33 Q2
 tags:
     - Graph
+    - Directed Acyclic Graph
 ---
 
 <!-- problem:start -->

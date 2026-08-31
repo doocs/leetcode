@@ -8,6 +8,7 @@ tags:
     - Array
     - Divide and Conquer
     - Binary Tree
+    - Cartesian Tree
     - Monotonic Stack
 ---
 

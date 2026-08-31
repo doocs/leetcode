@@ -10,6 +10,8 @@ tags:
     - Array
     - String
     - Shortest Path
+    - Floyd–Warshall
+    - Bellman–Ford
 ---
 
 <!-- problem:start -->

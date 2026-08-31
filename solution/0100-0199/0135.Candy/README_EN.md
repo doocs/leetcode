@@ -17,16 +17,18 @@ tags:
 
 <!-- description:start -->
 
-<p>There are <code>n</code> children standing in a line. Each child is assigned a rating value given in the integer array <code>ratings</code>.</p>
+<p>There are <code>n</code> children standing in a line.</p>
+
+<p>Each child is assigned a rating value given in the integer array <code>ratings</code>.</p>
 
 <p>You are giving candies to these children subjected to the following requirements:</p>
 
 <ul>
-	<li>Each child must have at least one candy.</li>
-	<li>Children with a higher rating get more candies than their neighbors.</li>
+	<li>Each child must have <strong>at least</strong> one candy.</li>
+	<li>Children with a <strong>higher</strong> rating get more candies than their neighbors.</li>
 </ul>
 
-<p>Return <em>the minimum number of candies you need to have to distribute the candies to the children</em>.</p>
+<p>Return the <strong>minimum</strong> number of candies you need to have to distribute the candies to the children.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -50,9 +52,8 @@ The third child gets 1 candy because it satisfies the above two conditions.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == ratings.length</code></li>
-	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= n == ratings.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= ratings[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
 <!-- description:end -->

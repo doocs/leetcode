@@ -7,9 +7,12 @@ source: Weekly Contest 194 Q4
 tags:
     - Union Find
     - Graph
+    - Kruskal
     - Minimum Spanning Tree
+    - Prim
     - Sorting
     - Strongly Connected Component
+    - Borůvka
 ---
 
 <!-- problem:start -->

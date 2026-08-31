@@ -7,6 +7,7 @@ tags:
     - Bucket Sort
     - Radix Sort
     - Sorting
+    - Pigeonhole Principle
 ---
 
 <!-- problem:start -->

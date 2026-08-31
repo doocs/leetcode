@@ -7,7 +7,9 @@ source: Weekly Contest 313 Q1
 tags:
     - Math
     - Enumeration
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

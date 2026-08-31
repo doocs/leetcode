@@ -7,6 +7,8 @@ source: Weekly Contest 135 Q3
 tags:
     - Array
     - Dynamic Programming
+    - Polygon
+    - Triangulation
 ---
 
 <!-- problem:start -->

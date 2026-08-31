@@ -8,6 +8,9 @@ tags:
     - Graph
     - Dynamic Programming
     - Shortest Path
+    - Dijkstra
+    - Floyd–Warshall
+    - Bellman–Ford
 ---
 
 <!-- problem:start -->

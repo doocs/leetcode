@@ -9,6 +9,9 @@ tags:
     - Math
     - Dynamic Programming
     - Game Theory
+    - Nim Game
+    - 'Sprague–Grundy '
+    - Impartial Game
 ---
 
 <!-- problem:start -->

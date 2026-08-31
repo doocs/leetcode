@@ -31,7 +31,7 @@ tags:
 	<li>The CPU can finish a task then start a new one instantly.</li>
 </ul>
 
-<p>Return <em>the order in which the CPU will process the tasks.</em></p>
+<p>Return the order in which the CPU will process the tasks.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -67,11 +67,11 @@ tags:
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p><strong>Constraints:</strong>​​​​​​​</p>
 
 <ul>
-	<li><code>tasks.length == n</code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= tasks.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>tasks[i] = [enqueueTime<sub>i</sub>, processingTime<sub>i</sub>]</code></li>
 	<li><code>1 &lt;= enqueueTime<sub>i</sub>, processingTime<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 

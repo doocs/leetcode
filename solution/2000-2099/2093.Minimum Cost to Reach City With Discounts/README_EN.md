@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2093.Mi
 tags:
     - Graph
     - Shortest Path
+    - Dijkstra
     - Heap (Priority Queue)
 ---
 

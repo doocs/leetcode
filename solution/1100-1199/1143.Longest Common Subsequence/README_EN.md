@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1143.Lo
 tags:
     - String
     - Dynamic Programming
+    - Longest Common Subsequence
 ---
 
 <!-- problem:start -->

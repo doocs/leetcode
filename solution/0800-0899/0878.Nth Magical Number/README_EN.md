@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0878.Nt
 tags:
     - Math
     - Binary Search
+    - Inclusion-Exclusion
+    - Least Common Multiple
 ---
 
 <!-- problem:start -->

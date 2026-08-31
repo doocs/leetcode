@@ -7,6 +7,8 @@ tags:
     - Breadth-First Search
     - Union Find
     - Graph
+    - Graph Coloring
+    - Bipartite Graph
 ---
 
 <!-- problem:start -->

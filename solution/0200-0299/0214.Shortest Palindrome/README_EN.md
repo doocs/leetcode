@@ -5,8 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0214.Sh
 tags:
     - String
     - String Matching
+    - Manacher
     - Hash Function
     - Rolling Hash
+    - KMP
+    - Extended KMP
 ---
 
 <!-- problem:start -->

@@ -7,7 +7,9 @@ source: Weekly Contest 255 Q1
 tags:
     - Array
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

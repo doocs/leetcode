@@ -7,6 +7,8 @@ source: Weekly Contest 181 Q2
 tags:
     - Array
     - Math
+    - Sieve
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

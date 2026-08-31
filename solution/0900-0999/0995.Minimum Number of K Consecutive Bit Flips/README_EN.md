@@ -8,6 +8,7 @@ tags:
     - Array
     - Prefix Sum
     - Sliding Window
+    - Brute-Force Search
 ---
 
 <!-- problem:start -->

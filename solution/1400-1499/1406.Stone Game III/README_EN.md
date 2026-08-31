@@ -5,10 +5,12 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1406.St
 rating: 2026
 source: Weekly Contest 183 Q4
 tags:
+    - Minimax
     - Array
     - Math
     - Dynamic Programming
     - Game Theory
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

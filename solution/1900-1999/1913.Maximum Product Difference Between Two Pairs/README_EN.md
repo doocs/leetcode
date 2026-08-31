@@ -7,6 +7,7 @@ source: Weekly Contest 247 Q1
 tags:
     - Array
     - Sorting
+    - Quick Sort
 ---
 
 <!-- problem:start -->

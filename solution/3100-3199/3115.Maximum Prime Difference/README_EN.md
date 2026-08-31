@@ -8,6 +8,7 @@ tags:
     - Array
     - Math
     - Number Theory
+    - Primality Test
 ---
 
 <!-- problem:start -->

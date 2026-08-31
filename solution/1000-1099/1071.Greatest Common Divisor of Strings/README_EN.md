@@ -7,6 +7,8 @@ source: Weekly Contest 139 Q1
 tags:
     - Math
     - String
+    - Greatest Common Divisor
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

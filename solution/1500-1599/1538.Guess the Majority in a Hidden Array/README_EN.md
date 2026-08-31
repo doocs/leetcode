@@ -6,6 +6,7 @@ tags:
     - Array
     - Math
     - Interactive
+    - Boyer-Moore Voting
 ---
 
 <!-- problem:start -->

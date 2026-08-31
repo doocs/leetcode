@@ -10,7 +10,10 @@ tags:
     - String
     - Matrix
     - Shortest Path
+    - Dijkstra
     - Heap (Priority Queue)
+    - A* Search
+    - Heuristic Search
 ---
 
 <!-- problem:start -->

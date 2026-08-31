@@ -7,6 +7,7 @@ tags:
     - Hash Table
     - Math
     - Prefix Sum
+    - Pigeonhole Principle
 ---
 
 <!-- problem:start -->

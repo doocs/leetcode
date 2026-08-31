@@ -38,7 +38,7 @@ tags:
 
 <p>此外，你还有一个 <strong>二维数组</strong> <code>queries</code>，其中 <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> 表示子字符串 <code>s[l<sub>i</sub>...r<sub>i</sub>]</code>。</p>
 
-<p>对于每个查询，确定在对子字符串 <code>s[l<sub>i</sub>...r<sub>i</sub>]</code> 进行最优交换后，字符串 <code>s</code> 中 <strong>可能的最大</strong> 活跃区段数。</p>
+<p>对于每个查询，确定在对子字符串 <code>s[l<sub>i</sub>...r<sub>i</sub>]</code> 进行最优操作后，字符串 <code>s</code> 中 <strong>可能的最大</strong> 活跃区段数。</p>
 
 <p>返回一个数组 <code>answer</code>，其中 <code>answer[i]</code> 是&nbsp;<code>queries[i]</code> 的结果。</p>
 

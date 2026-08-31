@@ -15,6 +15,7 @@ tags:
     - Dynamic Programming
     - Binary Tree
     - Combinatorics
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

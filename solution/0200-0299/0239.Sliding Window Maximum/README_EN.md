@@ -8,6 +8,7 @@ tags:
     - Sliding Window
     - Monotonic Queue
     - Heap (Priority Queue)
+    - Range Query
 ---
 
 <!-- problem:start -->

@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1522.Di
 tags:
     - Tree
     - Depth-First Search
+    - Tree DP
 ---
 
 <!-- problem:start -->

@@ -10,6 +10,7 @@ tags:
     - String
     - Combinatorics
     - Counting
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

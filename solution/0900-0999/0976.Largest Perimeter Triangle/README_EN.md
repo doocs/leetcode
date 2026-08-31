@@ -6,7 +6,9 @@ tags:
     - Greedy
     - Array
     - Math
+    - Polygon
     - Sorting
+    - Quick Sort
 ---
 
 <!-- problem:start -->

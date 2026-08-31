@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0459.Re
 tags:
     - String
     - String Matching
+    - KMP
+    - Extended KMP
 ---
 
 <!-- problem:start -->

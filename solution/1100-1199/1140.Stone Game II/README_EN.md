@@ -5,11 +5,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.St
 rating: 2034
 source: Weekly Contest 147 Q4
 tags:
+    - Minimax
     - Array
     - Math
     - Dynamic Programming
     - Game Theory
     - Prefix Sum
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

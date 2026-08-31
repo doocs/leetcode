@@ -8,7 +8,9 @@ tags:
     - Stack
     - Array
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Least Common Multiple
 ---
 
 <!-- problem:start -->

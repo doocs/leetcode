@@ -10,6 +10,8 @@ tags:
     - Topological Sort
     - Array
     - Dynamic Programming
+    - Kosaraju
+    - Tarjan
 ---
 
 <!-- problem:start -->

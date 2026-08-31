@@ -6,6 +6,10 @@ tags:
     - Depth-First Search
     - Breadth-First Search
     - Math
+    - Greatest Common Divisor
+    - Euclidean Algorithm
+    - Extended Euclidean Algorithm
+    - Bézout's Identity
 ---
 
 <!-- problem:start -->

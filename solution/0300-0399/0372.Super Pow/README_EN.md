@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0372.Su
 tags:
     - Math
     - Divide and Conquer
+    - Euler's Totient Function
+    - Euler's Theorem
 ---
 
 <!-- problem:start -->

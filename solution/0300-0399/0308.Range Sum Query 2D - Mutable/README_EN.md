@@ -8,6 +8,7 @@ tags:
     - Segment Tree
     - Array
     - Matrix
+    - Sqrt Decomposition
 ---
 
 <!-- problem:start -->

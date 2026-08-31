@@ -10,6 +10,11 @@ tags:
     - Dynamic Programming
     - Bitmask
     - Matrix
+    - Bipartite Graph
+    - Graph Matching
+    - Min-Cost Flow
+    - SSP
+    - Network Flow
 ---
 
 <!-- problem:start -->

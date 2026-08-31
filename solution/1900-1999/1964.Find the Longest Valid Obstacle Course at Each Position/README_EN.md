@@ -8,6 +8,7 @@ tags:
     - Binary Indexed Tree
     - Array
     - Binary Search
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

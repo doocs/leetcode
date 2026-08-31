@@ -11,6 +11,8 @@ tags:
     - Suffix Array
     - Hash Function
     - Rolling Hash
+    - KMP
+    - Extended KMP
 ---
 
 <!-- problem:start -->

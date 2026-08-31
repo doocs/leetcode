@@ -8,6 +8,7 @@ tags:
     - Array
     - Binary Search
     - Sorting
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

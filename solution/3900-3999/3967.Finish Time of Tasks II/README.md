@@ -2,6 +2,11 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3967.Finish%20Time%20of%20Tasks%20II/README.md
+tags:
+    - 树
+    - 深度优先搜索
+    - 数组
+    - 动态规划
 ---
 
 <!-- problem:start -->

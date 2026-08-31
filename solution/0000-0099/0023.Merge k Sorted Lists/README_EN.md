@@ -7,6 +7,7 @@ tags:
     - Divide and Conquer
     - Heap (Priority Queue)
     - Merge Sort
+    - Tournament Sort
 ---
 
 <!-- problem:start -->

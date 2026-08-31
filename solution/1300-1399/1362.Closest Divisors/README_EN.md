@@ -6,6 +6,7 @@ rating: 1533
 source: Weekly Contest 177 Q3
 tags:
     - Math
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

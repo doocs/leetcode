@@ -7,8 +7,10 @@ source: Weekly Contest 145 Q1
 tags:
     - Array
     - Hash Table
+    - Bubble Sort
     - Counting Sort
     - Sorting
+    - Quick Sort
 ---
 
 <!-- problem:start -->

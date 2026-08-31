@@ -9,6 +9,8 @@ tags:
     - Dynamic Programming
     - Backtracking
     - Bitmask
+    - Knapsack
+    - Unbounded Knapsack
 ---
 
 <!-- problem:start -->

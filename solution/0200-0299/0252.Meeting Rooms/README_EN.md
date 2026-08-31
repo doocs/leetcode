@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0252.Me
 tags:
     - Array
     - Sorting
+    - Quick Sort
 ---
 
 <!-- problem:start -->

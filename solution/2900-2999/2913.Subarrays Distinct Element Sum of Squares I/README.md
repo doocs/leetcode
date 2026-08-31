@@ -30,8 +30,6 @@ tags:
 
 <p>请你返回 <code>nums</code>&nbsp;中所有子数组的 <strong>不同计数</strong>&nbsp;的 <strong>平方</strong>&nbsp;和。</p>
 
-<p>由于答案可能会很大，请你将它对&nbsp;<code>10<sup>9</sup> + 7</code>&nbsp;<strong>取余</strong>&nbsp;后返回。</p>
-
 <p>子数组指的是一个数组里面一段连续 <strong>非空</strong>&nbsp;的元素序列。</p>
 
 <p>&nbsp;</p>

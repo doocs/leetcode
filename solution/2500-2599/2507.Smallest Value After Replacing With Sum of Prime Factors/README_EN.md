@@ -7,7 +7,11 @@ source: Weekly Contest 324 Q2
 tags:
     - Math
     - Number Theory
+    - Primality Test
+    - Sieve
     - Simulation
+    - Sieve of Eratosthenes
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

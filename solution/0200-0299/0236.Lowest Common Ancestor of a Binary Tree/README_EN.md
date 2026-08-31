@@ -6,6 +6,8 @@ tags:
     - Tree
     - Depth-First Search
     - Binary Tree
+    - Lowest Common Ancestor
+    - Binary Lifting
 ---
 
 <!-- problem:start -->

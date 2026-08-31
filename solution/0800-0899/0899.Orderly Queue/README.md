@@ -49,7 +49,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k&nbsp;&lt;= S.length&nbsp;&lt;= 1000</code></li>
+	<li><code>1 &lt;= k&nbsp;&lt;= s.length&nbsp;&lt;= 1000</code></li>
 	<li><code>s</code>&nbsp;只由小写字母组成。</li>
 </ul>
 

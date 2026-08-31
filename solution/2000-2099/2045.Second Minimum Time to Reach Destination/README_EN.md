@@ -7,7 +7,9 @@ source: Weekly Contest 263 Q4
 tags:
     - Breadth-First Search
     - Graph
+    - k-Shortest Paths
     - Shortest Path
+    - Dijkstra
 ---
 
 <!-- problem:start -->
@@ -61,7 +63,7 @@ The red path shows the path to get the second minimum time.
 - 3 -&gt; 4: 3 minutes, time elapsed=6
 - Wait at 4 for 4 minutes, time elapsed=10
 - 4 -&gt; 5: 3 minutes, time elapsed=13
-Hence the second minimum time is 13 minutes.
+  Hence the second minimum time is 13 minutes.
   </pre>
 
 <p><strong class="example">Example 2:</strong></p>

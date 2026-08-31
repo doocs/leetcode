@@ -7,6 +7,8 @@ tags:
     - Depth-First Search
     - Hash Table
     - Binary Tree
+    - Lowest Common Ancestor
+    - Binary Lifting
 ---
 
 <!-- problem:start -->

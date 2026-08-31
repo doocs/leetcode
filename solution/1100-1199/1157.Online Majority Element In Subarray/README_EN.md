@@ -10,6 +10,8 @@ tags:
     - Segment Tree
     - Array
     - Binary Search
+    - Boyer-Moore Voting
+    - Sqrt Decomposition
 ---
 
 <!-- problem:start -->

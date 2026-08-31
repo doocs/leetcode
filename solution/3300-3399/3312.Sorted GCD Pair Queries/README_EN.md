@@ -11,8 +11,10 @@ tags:
     - Binary Search
     - Combinatorics
     - Counting
+    - Greatest Common Divisor
     - Number Theory
     - Prefix Sum
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

@@ -8,7 +8,9 @@ tags:
     - Array
     - Math
     - Dynamic Programming
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

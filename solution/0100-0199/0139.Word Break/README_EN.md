@@ -9,6 +9,7 @@ tags:
     - Hash Table
     - String
     - Dynamic Programming
+    - Brute-Force Search
 ---
 
 <!-- problem:start -->

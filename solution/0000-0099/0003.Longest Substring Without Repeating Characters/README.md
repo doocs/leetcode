@@ -52,7 +52,7 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code>&nbsp;由英文字母、数字、符号和空格组成</li>
 </ul>
 

@@ -8,7 +8,13 @@ tags:
     - Array
     - Hash Table
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Primality Test
+    - Sieve
+    - Sieve of Eratosthenes
+    - Prime Factorization
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

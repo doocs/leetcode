@@ -56,9 +56,9 @@ tags:
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
 	<li><code>s</code> 由整数和算符 <code>('+', '-', '*', '/')</code> 组成，中间由一些空格隔开</li>
-	<li><code>s</code> 表示一个 <strong>有效表达式</strong></li>
+	<li><code>s</code> 表示一个有效表达式</li>
 	<li>表达式中的所有整数都是非负整数，且在范围 <code>[0, 2<sup>31</sup> - 1]</code> 内</li>
-	<li>题目数据保证答案是一个 <strong>32-bit 整数</strong></li>
+	<li>题目数据 <strong>保证</strong> 答案是一个 <strong>32-bit 整数</strong></li>
 </ul>
 
 <!-- description:end -->

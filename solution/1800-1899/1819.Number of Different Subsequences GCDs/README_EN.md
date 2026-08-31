@@ -8,7 +8,9 @@ tags:
     - Array
     - Math
     - Counting
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

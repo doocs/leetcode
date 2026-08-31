@@ -2,6 +2,12 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3991.Sort%20Array%20Using%20Prefix%20Reversals/README.md
+tags:
+    - 广度优先搜索
+    - 数组
+    - 哈希表
+    - 双指针
+    - 哈希函数
 ---
 
 <!-- problem:start -->

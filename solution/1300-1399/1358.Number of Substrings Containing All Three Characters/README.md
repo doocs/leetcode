@@ -28,21 +28,24 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;abcabc&quot;
+<pre>
+<strong>输入：</strong>s = "abcabc"
 <strong>输出：</strong>10
-<strong>解释：</strong>包含 a，b 和 c 各至少一次的子字符串为<em> &quot;</em>abc<em>&quot;, &quot;</em>abca<em>&quot;, &quot;</em>abcab<em>&quot;, &quot;</em>abcabc<em>&quot;, &quot;</em>bca<em>&quot;, &quot;</em>bcab<em>&quot;, &quot;</em>bcabc<em>&quot;, &quot;</em>cab<em>&quot;, &quot;</em>cabc<em>&quot; </em>和<em> &quot;</em>abc<em>&quot; </em>(<strong>相同</strong><strong>字符串算多次</strong>)<em>。</em>
+<strong>解释：</strong>包含 a，b 和 c 各至少一次的子字符串为<em> "</em>abc<em>", "</em>abca<em>", "</em>abcab<em>", "</em>abcabc<em>", "</em>bca<em>", "</em>bcab<em>", "</em>bcabc<em>", "</em>cab<em>", "</em>cabc<em>" </em>和<em> "</em>abc<em>" </em>(<strong>相同</strong><strong>字符串算多次</strong>)<em>。</em>
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;aaacb&quot;
+<pre>
+<strong>输入：</strong>s = "aaacb"
 <strong>输出：</strong>3
-<strong>解释：</strong>包含 a，b 和 c 各至少一次的子字符串为<em> &quot;</em>aaacb<em>&quot;, &quot;</em>aacb<em>&quot; </em>和<em> &quot;</em>acb<em>&quot; 。</em>
+<strong>解释：</strong>包含 a，b 和 c 各至少一次的子字符串为<em> "</em>aaacb<em>", "</em>aacb<em>" </em>和<em> "</em>acb<em>" 。</em>
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>s = &quot;abc&quot;
+<pre>
+<strong>输入：</strong>s = "abc"
 <strong>输出：</strong>1
 </pre>
 
@@ -51,8 +54,8 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>3 &lt;= s.length &lt;= 5 x 10^4</code></li>
-	<li><code>s</code>&nbsp;只包含字符 a，b 和 c 。</li>
+	<li><code>3 &lt;= s.length &lt;= 5 x 10<sup>4</sup></code></li>
+	<li><code>s</code>&nbsp;只包含字符 <code>'a'</code>，<code>'b'</code> 和 <code>'c'</code> 。</li>
 </ul>
 
 <!-- description:end -->

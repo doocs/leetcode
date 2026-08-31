@@ -7,6 +7,7 @@ tags:
     - Array
     - Hash Table
     - Math
+    - Floyd Cycle Detection
 ---
 
 <!-- problem:start -->

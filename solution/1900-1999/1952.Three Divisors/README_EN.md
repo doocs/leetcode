@@ -8,6 +8,8 @@ tags:
     - Math
     - Enumeration
     - Number Theory
+    - Sieve
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

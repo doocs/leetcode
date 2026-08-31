@@ -5,6 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0956.Ta
 tags:
     - Array
     - Dynamic Programming
+    - Knapsack
+    - 0-1 Knapsack
+    - Meet in the Middle
 ---
 
 <!-- problem:start -->

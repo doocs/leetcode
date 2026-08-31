@@ -7,7 +7,11 @@ source: Weekly Contest 161 Q4
 tags:
     - Array
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
+    - Extended Euclidean Algorithm
+    - Bézout's Identity
 ---
 
 <!-- problem:start -->
