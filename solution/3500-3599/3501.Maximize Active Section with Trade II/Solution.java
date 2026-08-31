@@ -1,5 +1,5 @@
 class Solution {
-    public int[] maxActiveSectionsAfterTrade(String s, int[][] queries) {
+    public List<Integer> maxActiveSectionsAfterTrade(String s, int[][] queries) {
         int n = s.length();
         int active = 0;
         for (int i = 0; i < n; ++i) {
@@ -7,9 +7,11 @@ class Solution {
                 ++active;
             }
         }
+        List<Integer> ans = new ArrayList<>();
         if (s.indexOf('0') < 0) {
-            int[] ans = new int[queries.length];
-            Arrays.fill(ans, active);
+            for (int i = 0; i < queries.length; ++i) {
+                ans.add(active);
+            }
             return ans;
         }
 
@@ -40,9 +42,8 @@ class Solution {
             }
         }
 
-        int[] ans = new int[queries.length];
-        for (int t = 0; t < queries.length; ++t) {
-            int L = queries[t][0], R = queries[t][1];
+        for (int[] q : queries) {
+            int L = q[0], R = q[1];
             int iL = idx[L], iR = idx[R];
             int cntL = iL < 0 ? -1 : zeros[iL][1] - (L - zeros[iL][0]);
             int cntR = iR < 0 ? -1 : R - zeros[iR][0] + 1;
@@ -61,7 +62,7 @@ class Solution {
             if (s.charAt(R) == '0' && iL < iR - 1) {
                 best = Math.max(best, active + cntR + zeros[iR - 1][1]);
             }
-            ans[t] = best;
+            ans.add(best);
         }
         return ans;
     }
