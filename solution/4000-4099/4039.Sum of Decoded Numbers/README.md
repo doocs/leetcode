@@ -105,32 +105,173 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4039.Su
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟 + 快速幂
+
+我们直接按照题目描述对每个元素进行解码。对于 $\textit{nums}$ 中的每个元素 $v$，其宽度为 $w = v \bmod 10$，去掉末位后的数字为 $d = \lfloor v / 10 \rfloor$。将 $d$ 转成十进制字符串 $s$，那么 $x$ 为 $s$ 的前 $w$ 个字符对应的整数，而 $y$ 为剩余字符对应的整数。
+
+由于 $y$ 最大可以达到 $10^9$，直接连乘会超时，我们用快速幂在 $O(\log y)$ 的时间内求出 $x^y \bmod (10^9 + 7)$，再把每个元素的解码值累加取模即可。
+
+时间复杂度 $O(n \times \log M)$，空间复杂度 $O(\log M)$。其中 $n$ 是数组 $\textit{nums}$ 的长度，而 $M$ 是数组中元素的最大值。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def sumDecoded(self, nums: List[int]) -> int:
+        mod = 10**9 + 7
+        ans = 0
+        for v in nums:
+            d, w = divmod(v, 10)
+            s = str(d)
+            x = int(s[:w])
+            y = int(s[w:])
+            ans = (ans + pow(x, y, mod)) % mod
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int sumDecoded(long[] nums) {
+        final long mod = 1000000007L;
+        long ans = 0;
 
+        for (long v : nums) {
+            long d = v / 10;
+            int w = (int) (v % 10);
+
+            String s = Long.toString(d);
+            long x = Long.parseLong(s.substring(0, w));
+            long y = Long.parseLong(s.substring(w));
+
+            ans = (ans + pow(x, y, mod)) % mod;
+        }
+
+        return (int) ans;
+    }
+
+    private long pow(long x, long y, long mod) {
+        long res = 1;
+        while (y > 0) {
+            if ((y & 1) != 0) {
+                res = res * x % mod;
+            }
+            x = x * x % mod;
+            y >>= 1;
+        }
+        return res;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int sumDecoded(vector<long long>& nums) {
+        const long long mod = 1000000007;
+        long long ans = 0;
 
+        for (long long v : nums) {
+            long long d = v / 10;
+            int w = v % 10;
+
+            string s = to_string(d);
+            long long x = stoll(s.substr(0, w));
+            long long y = stoll(s.substr(w));
+
+            ans = (ans + qpow(x, y, mod)) % mod;
+        }
+
+        return ans;
+    }
+
+private:
+    long long qpow(long long x, long long y, long long mod) {
+        long long res = 1;
+        while (y) {
+            if (y & 1) {
+                res = res * x % mod;
+            }
+            x = x * x % mod;
+            y >>= 1;
+        }
+        return res;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func sumDecoded(nums []int64) int {
+	const mod int64 = 1000000007
+	var ans int64
 
+	for _, v := range nums {
+		d, w := v/10, int(v%10)
+		s := strconv.FormatInt(d, 10)
+
+		x, _ := strconv.ParseInt(s[:w], 10, 64)
+		y, _ := strconv.ParseInt(s[w:], 10, 64)
+
+		ans = (ans + pow(x, y, mod)) % mod
+	}
+
+	return int(ans)
+}
+
+func pow(x, y, mod int64) int64 {
+	res := int64(1)
+	for y > 0 {
+		if y&1 != 0 {
+			res = res * x % mod
+		}
+		x = x * x % mod
+		y >>= 1
+	}
+	return res
+}
+```
+
+#### TypeScript
+
+```ts
+function sumDecoded(nums: number[]): number {
+    const mod = 1000000007n;
+    let ans = 0n;
+
+    for (const v of nums) {
+        const d = Math.floor(v / 10);
+        const w = v % 10;
+
+        const s = String(d);
+        const x = BigInt(s.slice(0, w));
+        const y = BigInt(s.slice(w));
+
+        ans = (ans + pow(x, y, mod)) % mod;
+    }
+
+    return Number(ans);
+}
+
+function pow(x: bigint, y: bigint, mod: bigint): bigint {
+    let res = 1n;
+
+    while (y > 0n) {
+        if (y & 1n) {
+            res = (res * x) % mod;
+        }
+        x = (x * x) % mod;
+        y >>= 1n;
+    }
+
+    return res;
+}
 ```
 
 <!-- tabs:end -->
