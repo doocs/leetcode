@@ -86,61 +86,172 @@ source: Weekly Contest 469 Q3
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+Let $m = r - l + 1$ and map the range $[l, r]$ to $[0, m - 1]$.
+
+Let $up[i]$ be the number of arrays of the current length that end with $i$ whose last step is an increase, and $down[i]$ the number whose last step is a decrease. For length $1$ there is no direction, so initialize $up[i] = down[i] = 1$.
+
+Transitions:
+
+- If the array ends at $i$ with a decrease, the previous value must be greater than $i$ and the previous step must be an increase: $down'[i] = \sum_{j > i} up[j]$;
+- If the last step is an increase: $up'[i] = \sum_{j < i} down[j]$.
+
+Prefix and suffix sums make each transition $O(m)$. Repeat $n - 1$ times. The answer is the sum of all $up[i] + down[i]$.
+
+The time complexity is $O(n \times m)$, and the space complexity is $O(m)$, where $n$ is the array length and $m$ is the size of the value range.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def zigZagArrays(self, n: int, l: int, r: int) -> int:
+        mod = 10**9 + 7
+        m = r - l + 1
+        up = [1] * m
+        down = [1] * m
+        for _ in range(n - 1):
+            pre = [0] * (m + 1)
+            suf = [0] * (m + 1)
+            for i in range(m):
+                pre[i + 1] = (pre[i] + down[i]) % mod
+            for i in range(m - 1, -1, -1):
+                suf[i] = (suf[i + 1] + up[i]) % mod
+            up = pre[:m]
+            down = suf[1:]
+        return sum(up + down) % mod
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int zigZagArrays(int n, int l, int r) {
+        final int mod = (int) 1e9 + 7;
+        int m = r - l + 1;
+        long[] up = new long[m];
+        long[] down = new long[m];
+        Arrays.fill(up, 1);
+        Arrays.fill(down, 1);
+        for (int k = 1; k < n; ++k) {
+            long[] pre = new long[m + 1];
+            long[] suf = new long[m + 1];
+            for (int i = 0; i < m; ++i) {
+                pre[i + 1] = (pre[i] + down[i]) % mod;
+            }
+            for (int i = m - 1; i >= 0; --i) {
+                suf[i] = (suf[i + 1] + up[i]) % mod;
+            }
+            for (int i = 0; i < m; ++i) {
+                up[i] = pre[i];
+                down[i] = suf[i + 1];
+            }
+        }
+        long ans = 0;
+        for (int i = 0; i < m; ++i) {
+            ans = (ans + up[i] + down[i]) % mod;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int zigZagArrays(int n, int l, int r) {
+        const int mod = 1e9 + 7;
+        int m = r - l + 1;
+        vector<long long> up(m, 1), down(m, 1);
+        for (int k = 1; k < n; ++k) {
+            vector<long long> pre(m + 1), suf(m + 1);
+            for (int i = 0; i < m; ++i) {
+                pre[i + 1] = (pre[i] + down[i]) % mod;
+            }
+            for (int i = m - 1; i >= 0; --i) {
+                suf[i] = (suf[i + 1] + up[i]) % mod;
+            }
+            for (int i = 0; i < m; ++i) {
+                up[i] = pre[i];
+                down[i] = suf[i + 1];
+            }
+        }
+        long long ans = 0;
+        for (int i = 0; i < m; ++i) {
+            ans = (ans + up[i] + down[i]) % mod;
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func zigZagArrays(n int, l int, r int) int {
+	const mod = int64(1e9 + 7)
+	m := r - l + 1
+	up := make([]int64, m)
+	down := make([]int64, m)
+	for i := range up {
+		up[i], down[i] = 1, 1
+	}
+	for k := 1; k < n; k++ {
+		pre := make([]int64, m+1)
+		suf := make([]int64, m+1)
+		for i := 0; i < m; i++ {
+			pre[i+1] = (pre[i] + down[i]) % mod
+		}
+		for i := m - 1; i >= 0; i-- {
+			suf[i] = (suf[i+1] + up[i]) % mod
+		}
+		for i := 0; i < m; i++ {
+			up[i] = pre[i]
+			down[i] = suf[i+1]
+		}
+	}
+	var ans int64
+	for i := 0; i < m; i++ {
+		ans = (ans + up[i] + down[i]) % mod
+	}
+	return int(ans)
+}
 ```
 
 #### C
 
 ```c
-int zigZagArrays(int n, int low, int high) {
-    int range = high - low;
-    int mod = 1000000007, *dp, *ptr, *end, i = 1, goingUp = 1;
-    long long ans = 0;
-    if (range < 1 || !(dp = malloc(range * sizeof(int)))) return 0;
-    ptr = dp;
-    end = dp + range;
-    while (ptr < end) *ptr++ = 1;
-    ptr = dp + 1;
-    while (ptr < end) *ptr += ptr[-1], ptr++;
-    for (; i < n - 1; i++) {
-        if (goingUp) {
-            ptr = dp + range - 2;
-            while (ptr >= dp) *ptr += ptr[1], *ptr -= *ptr >= mod ? mod : 0, ptr--;
-        } else {
-            ptr = dp + 1;
-            while (ptr < end) *ptr += ptr[-1], *ptr -= *ptr >= mod ? mod : 0, ptr++;
-        }
-        goingUp ^= 1;
+int zigZagArrays(int n, int l, int r) {
+    int mod = 1e9 + 7;
+    int m = r - l + 1;
+    long long up[m], down[m];
+    for (int i = 0; i < m; ++i) {
+        up[i] = down[i] = 1;
     }
-    ptr = dp;
-    while (ptr < end) ans += *ptr++;
-    free(dp);
-    return (int) (ans * 2 % mod);
+    for (int k = 1; k < n; ++k) {
+        long long pre[m + 1], suf[m + 1];
+        memset(pre, 0, sizeof(pre));
+        memset(suf, 0, sizeof(suf));
+        for (int i = 0; i < m; ++i) {
+            pre[i + 1] = (pre[i] + down[i]) % mod;
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            suf[i] = (suf[i + 1] + up[i]) % mod;
+        }
+        for (int i = 0; i < m; ++i) {
+            up[i] = pre[i];
+            down[i] = suf[i + 1];
+        }
+    }
+    long long ans = 0;
+    for (int i = 0; i < m; ++i) {
+        ans = (ans + up[i] + down[i]) % mod;
+    }
+    return ans;
 }
 ```
 
