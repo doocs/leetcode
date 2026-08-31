@@ -1,5 +1,5 @@
 {
-  "cache_date": 1788169855,
+  "cache_date": 1788192966,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -39727,13 +39727,19 @@
     "solution/3100-3199/3161.Block Placement Queries/README.md": {
       "authors": [
         {
+          "login": "xmavericks",
+          "name": "xmavericks",
+          "url": "https://github.com/xmavericks",
+          "avatar": "https://avatars.githubusercontent.com/u/37140777?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782907879
+      "retrieved": 1788180950
     },
     "solution/3100-3199/3162.Find the Number of Good Pairs I/README.md": {
       "authors": [
@@ -44407,6 +44413,18 @@
     "solution/3500-3599/3501.Maximize Active Section with Trade II/README.md": {
       "authors": [
         {
+          "login": "VashishthaKM",
+          "name": "VashishthaKM",
+          "url": "https://github.com/VashishthaKM",
+          "avatar": "https://avatars.githubusercontent.com/u/83388782?v=4"
+        },
+        {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -44419,7 +44437,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/112577337?v=4"
         }
       ],
-      "retrieved": 1788158162
+      "retrieved": 1788180950
     },
     "solution/3500-3599/3502.Minimum Cost to Reach Every Position/README.md": {
       "authors": [
@@ -46247,6 +46265,12 @@
     "solution/0400-0499/0428.Serialize and Deserialize N-ary Tree/README.md": {
       "authors": [
         {
+          "login": "aja512",
+          "name": "aja512",
+          "url": "https://github.com/aja512",
+          "avatar": "https://avatars.githubusercontent.com/u/42480995?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -46259,7 +46283,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745669883
+      "retrieved": 1788180950
     },
     "solution/0400-0499/0429.N-ary Tree Level Order Traversal/README.md": {
       "authors": [
@@ -106926,13 +106950,19 @@
     "solution/3100-3199/3161.Block Placement Queries/README_EN.md": {
       "authors": [
         {
+          "login": "xmavericks",
+          "name": "xmavericks",
+          "url": "https://github.com/xmavericks",
+          "avatar": "https://avatars.githubusercontent.com/u/37140777?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1782913604
+      "retrieved": 1788187232
     },
     "solution/3100-3199/3162.Find the Number of Good Pairs I/README_EN.md": {
       "authors": [
@@ -111552,6 +111582,18 @@
     "solution/3500-3599/3501.Maximize Active Section with Trade II/README_EN.md": {
       "authors": [
         {
+          "login": "VashishthaKM",
+          "name": "VashishthaKM",
+          "url": "https://github.com/VashishthaKM",
+          "avatar": "https://avatars.githubusercontent.com/u/83388782?v=4"
+        },
+        {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -111564,7 +111606,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787894371
+      "retrieved": 1788187232
     },
     "solution/3500-3599/3502.Minimum Cost to Reach Every Position/README_EN.md": {
       "authors": [
@@ -113368,6 +113410,12 @@
     "solution/0400-0499/0428.Serialize and Deserialize N-ary Tree/README_EN.md": {
       "authors": [
         {
+          "login": "aja512",
+          "name": "aja512",
+          "url": "https://github.com/aja512",
+          "avatar": "https://avatars.githubusercontent.com/u/42480995?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -113380,7 +113428,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745671434
+      "retrieved": 1788187232
     },
     "solution/0400-0499/0429.N-ary Tree Level Order Traversal/README_EN.md": {
       "authors": [
@@ -127844,6 +127892,12 @@
     "solution/3500-3599/3559.Number of Ways to Assign Edge Weights II/README.md": {
       "authors": [
         {
+          "login": "manikantbindass",
+          "name": "manikantbindass",
+          "url": "https://github.com/manikantbindass",
+          "avatar": "https://avatars.githubusercontent.com/u/143385946?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -127856,7 +127910,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783384368
+      "retrieved": 1788180950
     },
     "solution/3500-3599/3556.Sum of Largest Prime Substrings/README_EN.md": {
       "authors": [
@@ -127894,6 +127948,12 @@
     "solution/3500-3599/3559.Number of Ways to Assign Edge Weights II/README_EN.md": {
       "authors": [
         {
+          "login": "manikantbindass",
+          "name": "manikantbindass",
+          "url": "https://github.com/manikantbindass",
+          "avatar": "https://avatars.githubusercontent.com/u/143385946?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -127906,7 +127966,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783390250
+      "retrieved": 1788187232
     },
     "solution/3500-3599/3560.Find Minimum Log Transportation Cost/README.md": {
       "authors": [
@@ -130950,6 +131010,12 @@
     "solution/3600-3699/3699.Number of ZigZag Arrays I/README.md": {
       "authors": [
         {
+          "login": "manikantbindass",
+          "name": "manikantbindass",
+          "url": "https://github.com/manikantbindass",
+          "avatar": "https://avatars.githubusercontent.com/u/143385946?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -130962,7 +131028,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783384368
+      "retrieved": 1788180950
     },
     "solution/3700-3799/3700.Number of ZigZag Arrays II/README.md": {
       "authors": [
@@ -131061,6 +131127,12 @@
     "solution/3600-3699/3699.Number of ZigZag Arrays I/README_EN.md": {
       "authors": [
         {
+          "login": "manikantbindass",
+          "name": "manikantbindass",
+          "url": "https://github.com/manikantbindass",
+          "avatar": "https://avatars.githubusercontent.com/u/143385946?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -131073,7 +131145,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1783390250
+      "retrieved": 1788187232
     },
     "solution/3700-3799/3700.Number of ZigZag Arrays II/README_EN.md": {
       "authors": [
@@ -132288,6 +132360,12 @@
     "solution/3700-3799/3753.Total Waviness of Numbers in Range II/README.md": {
       "authors": [
         {
+          "login": "pkk01",
+          "name": "pkk01",
+          "url": "https://github.com/pkk01",
+          "avatar": "https://avatars.githubusercontent.com/u/150714570?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -132300,7 +132378,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1781003765
+      "retrieved": 1788180950
     },
     "solution/3700-3799/3750.Minimum Number of Flips to Reverse Binary String/README_EN.md": {
       "authors": [
@@ -132338,6 +132416,12 @@
     "solution/3700-3799/3753.Total Waviness of Numbers in Range II/README_EN.md": {
       "authors": [
         {
+          "login": "pkk01",
+          "name": "pkk01",
+          "url": "https://github.com/pkk01",
+          "avatar": "https://avatars.githubusercontent.com/u/150714570?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -132350,7 +132434,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1781008849
+      "retrieved": 1788187232
     },
     "solution/3700-3799/3754.Concatenate Non-Zero Digits and Multiply by Sum I/README.md": {
       "authors": [
@@ -133356,13 +133440,19 @@
     "solution/3800-3899/3801.Minimum Cost to Merge Sorted Lists/README.md": {
       "authors": [
         {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1768130679
+      "retrieved": 1788180950
     },
     "solution/3700-3799/3798.Largest Even Number/README_EN.md": {
       "authors": [
@@ -133400,13 +133490,19 @@
     "solution/3800-3899/3801.Minimum Cost to Merge Sorted Lists/README_EN.md": {
       "authors": [
         {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1768132769
+      "retrieved": 1788187232
     },
     "solution/3800-3899/3802.Number of Ways to Paint Sheets/README.md": {
       "authors": [
