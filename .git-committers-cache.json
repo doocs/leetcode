@@ -1,5 +1,5 @@
 {
-  "cache_date": 1788104276,
+  "cache_date": 1788152933,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -131481,6 +131481,12 @@
     "solution/3700-3799/3720.Lexicographically Smallest Permutation Greater Than Target/README.md": {
       "authors": [
         {
+          "login": "csiplajay",
+          "name": "csiplajay",
+          "url": "https://github.com/csiplajay",
+          "avatar": "https://avatars.githubusercontent.com/u/181475132?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -131493,7 +131499,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787888272
+      "retrieved": 1788145154
     },
     "solution/3700-3799/3721.Longest Balanced Subarray II/README.md": {
       "authors": [
@@ -131553,6 +131559,12 @@
     "solution/3700-3799/3720.Lexicographically Smallest Permutation Greater Than Target/README_EN.md": {
       "authors": [
         {
+          "login": "csiplajay",
+          "name": "csiplajay",
+          "url": "https://github.com/csiplajay",
+          "avatar": "https://avatars.githubusercontent.com/u/181475132?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -131565,7 +131577,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787894371
+      "retrieved": 1788149261
     },
     "solution/3700-3799/3721.Longest Balanced Subarray II/README_EN.md": {
       "authors": [
@@ -131812,6 +131824,12 @@
     "solution/3700-3799/3734.Lexicographically Smallest Palindromic Permutation Greater Than Target/README.md": {
       "authors": [
         {
+          "login": "Niyaz05",
+          "name": "Niyaz05",
+          "url": "https://github.com/Niyaz05",
+          "avatar": "https://avatars.githubusercontent.com/u/150651015?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -131824,7 +131842,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787917698
+      "retrieved": 1788145154
     },
     "solution/3700-3799/3735.Lexicographically Smallest String After Reverse II/README.md": {
       "authors": [
@@ -131873,6 +131891,12 @@
     "solution/3700-3799/3734.Lexicographically Smallest Palindromic Permutation Greater Than Target/README_EN.md": {
       "authors": [
         {
+          "login": "Niyaz05",
+          "name": "Niyaz05",
+          "url": "https://github.com/Niyaz05",
+          "avatar": "https://avatars.githubusercontent.com/u/150651015?v=4"
+        },
+        {
           "login": "vremyavnikuda",
           "name": "vremyavnikuda",
           "url": "https://github.com/vremyavnikuda",
@@ -131885,7 +131909,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787923939
+      "retrieved": 1788149261
     },
     "solution/3700-3799/3735.Lexicographically Smallest String After Reverse II/README_EN.md": {
       "authors": [
@@ -138588,7 +138612,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788094747
+      "retrieved": 1788145154
     },
     "solution/4000-4099/4036.Lexicographically Largest String After Pair Transformations/README.md": {
       "authors": [
@@ -138610,7 +138634,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788094747
+      "retrieved": 1788145154
     },
     "solution/4000-4099/4040.Minimum Operations to Form Subset Sum I/README.md": {
       "authors": [
@@ -138621,7 +138645,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788094747
+      "retrieved": 1788145154
     },
     "solution/4000-4099/4041.Minimum Operations to Form Subset Sum II/README.md": {
       "authors": [
@@ -138632,7 +138656,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788094747
+      "retrieved": 1788145154
     },
     "solution/4000-4099/4034.Minimum Bishop Moves to Reach Target/README_EN.md": {
       "authors": [
@@ -138676,7 +138700,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788099782
+      "retrieved": 1788149261
     },
     "solution/4000-4099/4037.Maximum Valid Split Positions II/README_EN.md": {
       "authors": [
@@ -138687,7 +138711,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788099782
+      "retrieved": 1788149261
     },
     "solution/4000-4099/4036.Lexicographically Largest String After Pair Transformations/README_EN.md": {
       "authors": [
@@ -138709,7 +138733,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788099782
+      "retrieved": 1788149261
     },
     "solution/4000-4099/4040.Minimum Operations to Form Subset Sum I/README_EN.md": {
       "authors": [
@@ -138720,7 +138744,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788099782
+      "retrieved": 1788149261
     }
   }
 }
