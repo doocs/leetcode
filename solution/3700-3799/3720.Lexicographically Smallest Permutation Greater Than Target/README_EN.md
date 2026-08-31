@@ -88,14 +88,41 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy + Backtracking
+
+To be strictly greater than $\textit{target}$, the answer must look like this: it matches some prefix of $\textit{target}$ exactly, places a character greater than the corresponding character of $\textit{target}$ at the next position, and arranges the remaining characters in ascending order. The longer this common prefix is, the smaller the resulting permutation, so we want the common prefix to be as long as possible.
+
+We first count the occurrences of every character of $s$ in $\textit{cnt}$, then match $\textit{target}$ from left to right as far as we can: as long as the current character is still available we take it and append it to the answer, stopping once some character runs out. This yields the longest common prefix.
+
+Next we walk back from the end of that prefix, trying each position $i$ as the place where the answer diverges: we put the smallest still available character greater than $\textit{target}[i]$ at position $i$, and if that succeeds we append the remaining characters in ascending order and return. Otherwise we give $\textit{target}[i - 1]$ back to $\textit{cnt}$ and try an earlier position. Note that when $\textit{target}$ itself is a permutation of $s$, no character can be placed at position $n$, so we have to start backtracking from the last position because the answer must be strictly greater. If every position fails, no such permutation exists and we return an empty string.
+
+The time complexity is $O(n \times |\Sigma|)$, and the space complexity is $O(n + |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma| = 26$ is the size of the character set.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def lexGreaterPermutation(self, s: str, target: str) -> str:
+        cnt = Counter(s)
+        n = len(target)
+        ans = []
+        for c in target:
+            if cnt[c] == 0:
+                break
+            cnt[c] -= 1
+            ans.append(c)
+        for i in range(len(ans), -1, -1):
+            if i < n:
+                for c in ascii_lowercase:
+                    if c > target[i] and cnt[c] > 0:
+                        cnt[c] -= 1
+                        rest = ''.join(x * cnt[x] for x in ascii_lowercase)
+                        return ''.join(ans[:i]) + c + rest
+            if i > 0:
+                cnt[ans[i - 1]] += 1
+        return ''
 ```
 
 #### Java
