@@ -1,25 +1,28 @@
-int zigZagArrays(int n, int low, int high) {
-    int range = high - low;
-    int mod = 1000000007, *dp, *ptr, *end, i = 1, goingUp = 1;
-    long long ans = 0;
-    if (range < 1 || !(dp = malloc(range * sizeof(int)))) return 0;
-    ptr = dp;
-    end = dp + range;
-    while (ptr < end) *ptr++ = 1;
-    ptr = dp + 1;
-    while (ptr < end) *ptr += ptr[-1], ptr++;
-    for (; i < n - 1; i++) {
-        if (goingUp) {
-            ptr = dp + range - 2;
-            while (ptr >= dp) *ptr += ptr[1], *ptr -= *ptr >= mod ? mod : 0, ptr--;
-        } else {
-            ptr = dp + 1;
-            while (ptr < end) *ptr += ptr[-1], *ptr -= *ptr >= mod ? mod : 0, ptr++;
-        }
-        goingUp ^= 1;
+int zigZagArrays(int n, int l, int r) {
+    int mod = 1e9 + 7;
+    int m = r - l + 1;
+    int up[m], down[m];
+    for (int i = 0; i < m; ++i) {
+        up[i] = down[i] = 1;
     }
-    ptr = dp;
-    while (ptr < end) ans += *ptr++;
-    free(dp);
-    return (int) (ans * 2 % mod);
+    for (int k = 1; k < n; ++k) {
+        int pre[m + 1], suf[m + 1];
+        memset(pre, 0, sizeof(pre));
+        memset(suf, 0, sizeof(suf));
+        for (int i = 0; i < m; ++i) {
+            pre[i + 1] = (pre[i] + down[i]) % mod;
+        }
+        for (int i = m - 1; i >= 0; --i) {
+            suf[i] = (suf[i + 1] + up[i]) % mod;
+        }
+        for (int i = 0; i < m; ++i) {
+            up[i] = pre[i];
+            down[i] = suf[i + 1];
+        }
+    }
+    int ans = 0;
+    for (int i = 0; i < m; ++i) {
+        ans = (ans + up[i] + down[i]) % mod;
+    }
+    return ans;
 }
