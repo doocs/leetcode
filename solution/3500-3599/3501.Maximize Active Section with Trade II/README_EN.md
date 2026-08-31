@@ -165,6 +165,22 @@ tags:
 
 ### Solution 1: Sparse Table
 
+A valid trade picks two consecutive `'0'` runs separated by `'1'`s, flips the `'1'`s to `'0'`s, then flips the merged `'0'` run back to `'1'`s. The net gain is the sum of the two `'0'` run lengths, and the original number of `'1'`s stays the same. Thus the answer for each query is the total number of `'1'`s in $s$, plus the maximum gain obtainable inside that query range.
+
+Query $[l, r]$ may only operate on $s[l..r]$, treated as $t = \texttt{'1'} + s[l..r] + \texttt{'1'}$. Therefore:
+
+- Any pair of adjacent `'0'` runs completely inside the range is a candidate, with gain equal to the sum of their lengths;
+- If $s[l]$ or $s[r]$ lies in the middle of a `'0'` run, the suffix / prefix of that run inside the query range can also be paired.
+
+We record every `'0'` run as $(\textit{start}, \textit{len})$ and build a sparse table on the sums of adjacent runs. For each query:
+
+1. Query the sparse table for the maximum adjacent-run sum fully inside the range;
+2. Also consider the leftover left run with the next run, the leftover right run with the previous run, and the special case where the two leftovers enclose a single `'1'` run.
+
+Add the best gain to the global `'1'` count. If no trade is possible, the gain is $0$.
+
+Time complexity is $O(n \log n + q)$, and space complexity is $O(n \log n)$, where $n$ is the length of $s$ and $q$ is the number of queries.
+
 <!-- tabs:start -->
 
 #### Python3
