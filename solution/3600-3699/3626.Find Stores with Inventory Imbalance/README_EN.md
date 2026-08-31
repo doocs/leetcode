@@ -112,8 +112,8 @@ Each row represents the inventory of a specific product at a specific store.
 | store_id | store_name     | location    | most_exp_product | cheapest_product   | imbalance_ratio  |
 +----------+----------------+-------------+------------------+--------------------+------------------+
 | 3        | City Center    | Los Angeles | Tablet           | Stylus             | 40.00            |
-| 1        | Downtown Tech  | New York    | Laptop           | Mouse              | 10.00            |
 | 2        | Suburb Mall    | Chicago     | Phone            | Case               | 25.00            |
+| 1        | Downtown Tech  | New York    | Laptop           | Mouse              | 10.00            |
 +----------+----------------+-------------+------------------+--------------------+------------------+
 </pre>
 

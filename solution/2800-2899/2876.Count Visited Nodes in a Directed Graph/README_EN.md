@@ -10,6 +10,8 @@ tags:
     - Topological Sort
     - Memoization
     - Dynamic Programming
+    - Kosaraju
+    - Tarjan
 ---
 
 <!-- problem:start -->

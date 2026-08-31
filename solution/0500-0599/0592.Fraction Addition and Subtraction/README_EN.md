@@ -5,7 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0592.Fr
 tags:
     - Math
     - String
+    - Greatest Common Divisor
     - Simulation
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

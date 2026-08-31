@@ -7,6 +7,7 @@ tags:
     - Array
     - Hash Table
     - Two Pointers
+    - Linear Algebra
 ---
 
 <!-- problem:start -->

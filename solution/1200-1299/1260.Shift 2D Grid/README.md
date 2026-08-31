@@ -39,7 +39,7 @@ tags:
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1260.Shift%202D%20Grid/images/e1-1.png" style="height: 158px; width: 400px;" /></p>
 
 <pre>
-<code><strong>输入：</strong>grid</code> = [[1,2,3],[4,5,6],[7,8,9]], k = 1
+<strong>输入：</strong>grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1
 <strong>输出：</strong>[[9,1,2],[3,4,5],[6,7,8]]
 </pre>
 
@@ -48,14 +48,14 @@ tags:
 <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1260.Shift%202D%20Grid/images/e2-1.png" style="height: 166px; width: 400px;" /></p>
 
 <pre>
-<code><strong>输入：</strong>grid</code> = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
+<strong>输入：</strong>grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4
 <strong>输出：</strong>[[12,0,21,13],[3,8,1,9],[19,7,2,5],[4,6,11,10]]
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<code><strong>输入：</strong>grid</code> = [[1,2,3],[4,5,6],[7,8,9]], k = 9
+<strong>输入：</strong>grid = [[1,2,3],[4,5,6],[7,8,9]], k = 9
 <strong>输出：</strong>[[1,2,3],[4,5,6],[7,8,9]]
 </pre>
 

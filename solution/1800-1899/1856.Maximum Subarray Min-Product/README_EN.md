@@ -7,6 +7,7 @@ source: Weekly Contest 240 Q3
 tags:
     - Stack
     - Array
+    - Cartesian Tree
     - Prefix Sum
     - Monotonic Stack
 ---

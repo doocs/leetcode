@@ -25,14 +25,14 @@ tags:
 
 <p>The <strong>score</strong> of a path between two cities is defined as the <strong>minimum </strong>distance of a road in this path.</p>
 
-<p>Return <em>the <strong>minimum </strong>possible score of a path between cities </em><code>1</code><em> and </em><code>n</code>.</p>
+<p>Return the <strong>minimum </strong>possible score of a path between cities 1 and <code>n</code>.</p>
 
 <p><strong>Note</strong>:</p>
 
 <ul>
 	<li>A path is a sequence of roads between two cities.</li>
-	<li>It is allowed for a path to contain the same road <strong>multiple</strong> times, and you can visit cities <code>1</code> and <code>n</code> multiple times along the path.</li>
-	<li>The test cases are generated such that there is <strong>at least</strong> one path between <code>1</code> and <code>n</code>.</li>
+	<li>It is allowed for a path to contain the same road <strong>multiple</strong> times, and you can visit cities 1 and <code>n</code> multiple times along the path.</li>
+	<li>The test cases are generated such that there is <strong>at least</strong> one path between 1 and <code>n</code>.</li>
 </ul>
 
 <p>&nbsp;</p>

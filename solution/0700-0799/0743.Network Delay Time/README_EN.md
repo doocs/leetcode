@@ -7,6 +7,7 @@ tags:
     - Breadth-First Search
     - Graph
     - Shortest Path
+    - Dijkstra
     - Heap (Priority Queue)
 ---
 

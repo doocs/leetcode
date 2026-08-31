@@ -24,12 +24,12 @@ tags:
 
 <ol>
 	<li>一个 <strong>整数</strong> 后面跟着一个 <strong>可选指数</strong>。</li>
-	<li>一个 <strong>十进制数</strong> 后面跟着一个&nbsp;<strong>可选指数</strong>。</li>
+	<li>一个 <strong>小数</strong> 后面跟着一个&nbsp;<strong>可选指数</strong>。</li>
 </ol>
 
 <p>一个 <strong>整数</strong> 定义为一个&nbsp;<strong>可选符号</strong>&nbsp;<code>'-'</code>&nbsp;或&nbsp;<code>'+'</code>&nbsp;后面跟着 <strong>数字</strong>。</p>
 
-<p>一个 <strong>十进制数</strong>&nbsp;定义为一个&nbsp;<strong>可选符号&nbsp;</strong><code>'-'</code>&nbsp;或&nbsp;<code>'+'</code>&nbsp;后面跟着下述规则：</p>
+<p>一个 <strong>小数</strong>&nbsp;定义为一个&nbsp;<strong>可选符号&nbsp;</strong><code>'-'</code>&nbsp;或&nbsp;<code>'+'</code>&nbsp;后面跟着下述规则：</p>
 
 <ol>
 	<li><strong>数字&nbsp;</strong>后跟着一个 <strong>小数点&nbsp;<code>.</code></strong>。</li>

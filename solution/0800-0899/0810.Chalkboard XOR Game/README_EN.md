@@ -8,6 +8,8 @@ tags:
     - Array
     - Math
     - Game Theory
+    - Zero-Sum Game
+    - Impartial Game
 ---
 
 <!-- problem:start -->

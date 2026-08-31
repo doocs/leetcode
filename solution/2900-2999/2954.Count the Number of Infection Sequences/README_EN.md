@@ -8,6 +8,7 @@ tags:
     - Array
     - Math
     - Combinatorics
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

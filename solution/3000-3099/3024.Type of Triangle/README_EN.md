@@ -7,6 +7,7 @@ source: Biweekly Contest 123 Q1
 tags:
     - Array
     - Math
+    - Polygon
     - Sorting
 ---
 

@@ -7,6 +7,8 @@ tags:
     - Breadth-First Search
     - Graph
     - Topological Sort
+    - Kosaraju
+    - Tarjan
 ---
 
 <!-- problem:start -->

@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0069.Sq
 tags:
     - Math
     - Binary Search
+    - Newton's Method
 ---
 
 <!-- problem:start -->

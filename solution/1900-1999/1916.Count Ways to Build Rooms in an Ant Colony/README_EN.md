@@ -13,6 +13,8 @@ tags:
     - Math
     - Dynamic Programming
     - Combinatorics
+    - Tree DP
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

@@ -5,6 +5,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3183.Th
 tags:
     - Array
     - Dynamic Programming
+    - Knapsack
+    - Sieve
+    - Mixed Knapsack
 ---
 
 <!-- problem:start -->

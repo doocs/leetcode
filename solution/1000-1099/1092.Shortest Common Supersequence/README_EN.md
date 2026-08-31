@@ -7,6 +7,7 @@ source: Weekly Contest 141 Q4
 tags:
     - String
     - Dynamic Programming
+    - Longest Common Subsequence
 ---
 
 <!-- problem:start -->

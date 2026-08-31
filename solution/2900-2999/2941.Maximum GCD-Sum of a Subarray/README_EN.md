@@ -6,7 +6,9 @@ tags:
     - Array
     - Math
     - Binary Search
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

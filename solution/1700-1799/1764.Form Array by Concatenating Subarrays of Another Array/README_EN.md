@@ -9,6 +9,7 @@ tags:
     - Array
     - Two Pointers
     - String Matching
+    - KMP
 ---
 
 <!-- problem:start -->

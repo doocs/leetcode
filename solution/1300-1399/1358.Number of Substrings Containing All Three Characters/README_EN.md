@@ -52,8 +52,8 @@ tags:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>3 &lt;= s.length &lt;= 5 x 10^4</code></li>
-	<li><code>s</code>&nbsp;only consists of&nbsp;<em>a</em>, <em>b</em> or <em>c&nbsp;</em>characters.</li>
+	<li><code>3 &lt;= s.length &lt;= 5 x 10<sup>4</sup></code></li>
+	<li><code>s</code>&nbsp;only consists of <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code> or <code>&#39;c&#39;</code> characters.</li>
 </ul>
 
 <!-- description:end -->

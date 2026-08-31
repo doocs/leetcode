@@ -17,16 +17,18 @@ tags:
 
 <!-- description:start -->
 
-<p><code>n</code> 个孩子站成一排。给你一个整数数组 <code>ratings</code> 表示每个孩子的评分。</p>
+<p><code>n</code> 个孩子站成一排。</p>
+
+<p>给你一个整数数组 <code>ratings</code> 表示每个孩子的评分。</p>
 
 <p>你需要按照以下要求，给这些孩子分发糖果：</p>
 
 <ul>
-	<li>每个孩子至少分配到 <code>1</code> 个糖果。</li>
-	<li>相邻两个孩子中，评分更高的那个会获得更多的糖果。</li>
+	<li>每个孩子 <strong>至少</strong> 分配到 <code>1</code> 个糖果。</li>
+	<li>相邻两个孩子中，评分 <strong>更高</strong> 的那个会获得更多的糖果。</li>
 </ul>
 
-<p>请你给每个孩子分发糖果，计算并返回需要准备的 <strong>最少糖果数目</strong> 。</p>
+<p>请你给每个孩子分发糖果，计算并返回需要准备的 <strong>最少&nbsp;</strong>糖果数目。</p>
 
 <p>&nbsp;</p>
 
@@ -51,9 +53,8 @@ tags:
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>n == ratings.length</code></li>
-	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= n == ratings.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= ratings[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
 <!-- description:end -->

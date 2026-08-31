@@ -9,6 +9,7 @@ tags:
     - Binary Search
     - Divide and Conquer
     - Ordered Set
+    - Treap
     - Merge Sort
 ---
 

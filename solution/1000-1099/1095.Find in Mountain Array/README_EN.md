@@ -8,6 +8,7 @@ tags:
     - Array
     - Binary Search
     - Interactive
+    - Ternary Search
 ---
 
 <!-- problem:start -->

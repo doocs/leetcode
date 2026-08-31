@@ -9,6 +9,8 @@ tags:
     - Sliding Window
     - Hash Function
     - Rolling Hash
+    - Boyer–Moore
+    - Extended KMP
 ---
 
 <!-- problem:start -->

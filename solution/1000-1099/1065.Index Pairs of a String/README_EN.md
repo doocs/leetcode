@@ -9,6 +9,7 @@ tags:
     - Array
     - String
     - Sorting
+    - Aho-Corasick
 ---
 
 <!-- problem:start -->

@@ -7,8 +7,10 @@ tags:
     - Binary Search
     - Dynamic Programming
     - Suffix Array
+    - Suffix Tree
     - Hash Function
     - Rolling Hash
+    - Suffix Automato
 ---
 
 <!-- problem:start -->

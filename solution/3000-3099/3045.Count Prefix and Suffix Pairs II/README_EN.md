@@ -11,6 +11,7 @@ tags:
     - String Matching
     - Hash Function
     - Rolling Hash
+    - Extended KMP
 ---
 
 <!-- problem:start -->

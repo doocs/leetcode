@@ -8,9 +8,13 @@ tags:
     - String
     - Binary Search
     - Suffix Array
+    - Suffix Tree
     - Sliding Window
     - Hash Function
     - Rolling Hash
+    - Boyer–Moore
+    - Extended KMP
+    - Suffix Automato
 ---
 
 <!-- problem:start -->

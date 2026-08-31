@@ -26,13 +26,15 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输出：</strong>low = 100, high = 300
+<pre>
+<strong>输入：</strong>low = 100, high = 300
 <strong>输出：</strong>[123,234]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输出：</strong>low = 1000, high = 13000
+<pre>
+<strong>输入：</strong>low = 1000, high = 13000
 <strong>输出：</strong>[1234,2345,3456,4567,5678,6789,12345]
 </pre>
 

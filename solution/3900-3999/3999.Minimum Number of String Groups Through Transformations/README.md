@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3999.Minimum%20Number%20of%20String%20Groups%20Through%20Transformations/README.md
 rating: 2161
 source: 第 511 场周赛 Q4
+tags:
+    - 哈希表
+    - 双指针
+    - 字符串
 ---
 
 <!-- problem:start -->

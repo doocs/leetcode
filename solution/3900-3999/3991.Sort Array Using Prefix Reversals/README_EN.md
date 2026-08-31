@@ -2,6 +2,12 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3991.Sort%20Array%20Using%20Prefix%20Reversals/README_EN.md
+tags:
+    - Breadth-First Search
+    - Array
+    - Hash Table
+    - Two Pointers
+    - Hash Function
 ---
 
 <!-- problem:start -->

@@ -52,7 +52,7 @@ tags:
 	<li><code>1 &lt;= m,&nbsp;n &lt;= 5</code></li>
 	<li><code>0 &lt;= r &lt;= m - 1</code></li>
 	<li><code>0 &lt;= c &lt;= n - 1</code></li>
-	<li>输入的数据保证在给定条件下至少存在一种访问所有单元格的移动顺序。</li>
+	<li>输入的数据保证在给定条件下 <strong>至少</strong> 存在一种访问所有单元格的移动顺序。</li>
 </ul>
 
 <!-- description:end -->

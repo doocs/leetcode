@@ -8,6 +8,7 @@ tags:
     - Stack
     - Greedy
     - String
+    - Parentheses
 ---
 
 <!-- problem:start -->

@@ -4,6 +4,10 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README_EN.md
 rating: 2013
 source: Weekly Contest 510 Q4
+tags:
+    - Array
+    - Dynamic Programming
+    - Matrix
 ---
 
 <!-- problem:start -->

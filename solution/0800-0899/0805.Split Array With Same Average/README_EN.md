@@ -9,6 +9,7 @@ tags:
     - Math
     - Dynamic Programming
     - Bitmask
+    - Meet in the Middle
 ---
 
 <!-- problem:start -->

@@ -8,6 +8,7 @@ tags:
     - Graph
     - Array
     - Dynamic Programming
+    - Dijkstra
 ---
 
 <!-- problem:start -->

@@ -6,6 +6,7 @@ tags:
     - Two Pointers
     - String
     - Dynamic Programming
+    - Manacher
 ---
 
 <!-- problem:start -->

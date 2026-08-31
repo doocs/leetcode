@@ -5,6 +5,8 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0416.Pa
 tags:
     - Array
     - Dynamic Programming
+    - Knapsack
+    - 0-1 Knapsack
 ---
 
 <!-- problem:start -->

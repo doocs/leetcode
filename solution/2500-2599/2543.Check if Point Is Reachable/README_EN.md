@@ -6,7 +6,9 @@ rating: 2220
 source: Biweekly Contest 96 Q4
 tags:
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

@@ -24,7 +24,7 @@ tags:
 <p>重复执行以下操作，直到不存在靠近字符对：</p>
 
 <ul>
-	<li>在所有相邻字符对 <code>(i, j)</code> 中，选择 <code>i</code> 最小的那一对。如果存在多个具有相同 <code>i</code> 的相邻字符对，则选择 <code>j</code> 最小的那一对。</li>
+	<li>在所有靠近字符对 <code>(i, j)</code> 中，选择 <code>i</code> 最小的那一对。如果存在多个具有相同 <code>i</code> 的靠近字符对，则选择 <code>j</code> 最小的那一对。</li>
 	<li>将右侧字符合并到左侧字符中，即从 <code>s</code> 中删除 <code>s[j]</code>。字符 <code>s[i]</code> 保持不变，其余字符重新编号。</li>
 </ul>
 
@@ -42,9 +42,9 @@ tags:
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>下标为 0 和 3 的字符 <code>'a'</code> 是相邻的，因为 <code>3 - 0 = 3 &lt;= k</code>。</li>
+	<li>下标为 0 和 3 的字符 <code>'a'</code> 是靠近的，因为 <code>3 - 0 = 3 &lt;= k</code>。</li>
 	<li>删除右侧的 <code>'a'</code>，得到 <code>s = "abc"</code>。</li>
-	<li>不存在相邻字符对，因此不再进行合并。</li>
+	<li>不存在靠近字符对，因此不再进行合并。</li>
 </ul>
 </div>
 
@@ -58,9 +58,9 @@ tags:
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>下标为 0 和 1 的字符 <code>'a'</code> 是相邻的，因为 <code>1 - 0 = 1 &lt;= k</code>。</li>
+	<li>下标为 0 和 1 的字符 <code>'a'</code> 是靠近的，因为 <code>1 - 0 = 1 &lt;= k</code>。</li>
 	<li>删除右侧的 <code>'a'</code>，得到 <code>s = "abca"</code>。</li>
-	<li>剩余的两个 <code>'a'</code> 位于下标 0 和 3。由于 <code>3 - 0 = 3 &gt; k</code>，不存在相邻字符对。</li>
+	<li>剩余的两个 <code>'a'</code> 位于下标 0 和 3。由于 <code>3 - 0 = 3 &gt; k</code>，不存在靠近字符对。</li>
 </ul>
 </div>
 
@@ -74,11 +74,11 @@ tags:
 <p><strong>解释：</strong></p>
 
 <ul>
-	<li>下标为 0 和 1 的字符 <code>'y'</code> 是相邻的，因为 <code>1 - 0 = 1 &lt;= k</code>。这对字符的左侧下标是所有相邻字符对中最小的。</li>
+	<li>下标为 0 和 1 的字符 <code>'y'</code> 是靠近的，因为 <code>1 - 0 = 1 &lt;= k</code>。这对字符的左侧下标是所有靠近字符对中最小的。</li>
 	<li>删除右侧的 <code>'y'</code>，得到 <code>s = "ybyzybz"</code>。</li>
-	<li>此时下标为 0 和 2 的字符 <code>'y'</code> 是相邻的，因为 <code>2 - 0 = 2 &lt;= k</code>。</li>
+	<li>此时下标为 0 和 2 的字符 <code>'y'</code> 是靠近的，因为 <code>2 - 0 = 2 &lt;= k</code>。</li>
 	<li>删除右侧的 <code>'y'</code>，得到 <code>s = "ybzybz"</code>。</li>
-	<li>不存在相邻字符对，因此不再进行合并。</li>
+	<li>不存在靠近字符对，因此不再进行合并。</li>
 </ul>
 </div>
 

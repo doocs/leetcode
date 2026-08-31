@@ -9,6 +9,9 @@ tags:
     - Array
     - Dynamic Programming
     - Bitmask
+    - Bipartite Graph
+    - Graph Matching
+    - Perfect Matching
 ---
 
 <!-- problem:start -->

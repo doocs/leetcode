@@ -4,6 +4,8 @@ difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0780.Reaching%20Points/README_EN.md
 tags:
     - Math
+    - Greatest Common Divisor
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

@@ -9,6 +9,7 @@ tags:
     - Array
     - Two Pointers
     - Binary Search
+    - Cartesian Tree
     - Monotonic Stack
 ---
 

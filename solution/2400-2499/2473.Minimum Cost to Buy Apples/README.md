@@ -21,13 +21,11 @@ tags:
 
 <p>给你一个正整数&nbsp; <code>n</code>，表示从 <code>1</code> 到 <code>n</code> 的 <code>n</code> 个城市。还给你一个&nbsp;<strong>二维&nbsp;</strong>数组 <code>roads</code>，其中 <code>roads[i] = [a<sub>i</sub>, b<sub>i</sub>, cost<sub>i</sub>]</code> 表示在城市 <code>a<sub>i</sub></code> 和 <code>b<sub>i</sub></code> 之间有一条双向道路，其旅行成本等于 <code>cost<sub>i</sub></code>。</p>
 
-<p>&nbsp;</p>
-
 <p>你可以在&nbsp;<strong>任何&nbsp;</strong>城市买到苹果，但是有些城市买苹果的费用不同。给定数组 <code>appleCost</code> ，其中 <code>appleCost[i]</code>&nbsp;是从城市 <code>i</code> 购买一个苹果的成本。</p>
 
 <p>你从某个城市开始，穿越各种道路，最终从&nbsp;<strong>任何一个&nbsp;</strong>城市买&nbsp;<strong>一个&nbsp;</strong>苹果。在你买了那个苹果之后，你必须回到你&nbsp;<strong>开始的&nbsp;</strong>城市，但现在所有道路的成本将&nbsp;<strong>乘以&nbsp;</strong>一个给定的因子 <code>k</code>。</p>
 
-<p>给定整数 <code>k</code>，返回<em>一个大小为 <code>n</code> 的从 1 开始的数组 <code>answer</code>，其中 <code>answer[i]</code>&nbsp;是从城市 <code>i</code> 开始购买一个苹果的&nbsp;<strong>最小&nbsp;</strong>总成本。</em></p>
+<p>给定整数 <code>k</code>，返回一个大小为 <code>n</code> 的从 1 开始的数组 <code>answer</code>，其中 <code>answer[i]</code>&nbsp;是从城市 <code>i</code> 开始购买一个苹果的&nbsp;<strong>最小&nbsp;</strong>总成本。</p>
 
 <p>&nbsp;</p>
 

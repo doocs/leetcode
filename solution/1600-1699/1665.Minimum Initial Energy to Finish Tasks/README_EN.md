@@ -24,14 +24,14 @@ tags:
 
 <ul>
 	<li><code>actual<sub>i</sub></code> is the actual amount of energy you <strong>spend to finish</strong> the <code>i<sup>th</sup></code> task.</li>
-	<li><code>minimum<sub>i</sub></code> is the minimum amount of energy you <strong>require to begin</strong> the <code>i<sup>th</sup></code> task.</li>
+	<li><code>minimum<sub>i</sub></code> is the <strong>minimum</strong> amount of energy you <strong>require to begin</strong> the <code>i<sup>th</sup></code> task.</li>
 </ul>
 
-<p>For example, if the task is <code>[10, 12]</code> and your current energy is <code>11</code>, you cannot start this task. However, if your current energy is <code>13</code>, you can complete this task, and your energy will be <code>3</code> after finishing it.</p>
+<p>For example, if the task is <code>[10, 12]</code> and your current energy is 11, you cannot start this task. However, if your current energy is 13, you can complete this task, and your energy will be 3 after finishing it.</p>
 
 <p>You can finish the tasks in <strong>any order</strong> you like.</p>
 
-<p>Return <em>the <strong>minimum</strong> initial amount of energy you will need</em> <em>to finish all the tasks</em>.</p>
+<p>Return the <strong>minimum</strong> initial amount of energy you will need to finish all the tasks.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

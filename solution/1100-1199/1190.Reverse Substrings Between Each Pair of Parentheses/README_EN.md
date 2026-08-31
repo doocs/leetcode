@@ -7,6 +7,7 @@ source: Weekly Contest 154 Q2
 tags:
     - Stack
     - String
+    - Parentheses
 ---
 
 <!-- problem:start -->

@@ -8,6 +8,7 @@ tags:
     - Graph
     - Array
     - Shortest Path
+    - Dijkstra
     - Heap (Priority Queue)
 ---
 

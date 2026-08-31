@@ -7,6 +7,9 @@ tags:
     - Math
     - Enumeration
     - Number Theory
+    - Primality Test
+    - Sieve
+    - Sieve of Eratosthenes
 ---
 
 <!-- problem:start -->

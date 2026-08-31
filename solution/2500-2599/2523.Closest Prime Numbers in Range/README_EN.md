@@ -7,6 +7,9 @@ source: Weekly Contest 326 Q4
 tags:
     - Math
     - Number Theory
+    - Primality Test
+    - Sieve
+    - Sieve of Eratosthenes
 ---
 
 <!-- problem:start -->

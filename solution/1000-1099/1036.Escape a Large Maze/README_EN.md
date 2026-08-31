@@ -9,6 +9,7 @@ tags:
     - Breadth-First Search
     - Array
     - Hash Table
+    - Bidirectional Search
 ---
 
 <!-- problem:start -->

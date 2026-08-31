@@ -20,9 +20,11 @@ tags:
 
 <!-- description:start -->
 
-<p>Given two integers <code>n</code> and <code>k</code>, split the number <code>n</code> into exactly <code>k</code> positive integers such that the <strong>product</strong> of these integers is equal to <code>n</code>.</p>
+<p>You are given two integers <code>n</code> and <code>k</code>.</p>
 
-<p>Return <em>any</em> <em>one</em> split in which the <strong>maximum</strong> difference between any two numbers is <strong>minimized</strong>. You may return the result in <em>any order</em>.</p>
+<p>Split the number <code>n</code> into <strong>exactly</strong> <code>k</code> positive integers such that the <strong>product</strong> of these integers is <strong>equal</strong> to <code>n</code>.</p>
+
+<p>Return <strong>any one</strong> split in which the <strong>maximum</strong> difference between any two numbers is <strong>minimized</strong>. You may return the result in any order.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>

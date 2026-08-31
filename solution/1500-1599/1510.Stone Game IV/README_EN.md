@@ -5,9 +5,13 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1510.St
 rating: 1786
 source: Biweekly Contest 30 Q4
 tags:
+    - Minimax
     - Math
     - Dynamic Programming
     - Game Theory
+    - Nim Game
+    - 'Sprague–Grundy '
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

@@ -7,6 +7,8 @@ source: Biweekly Contest 126 Q4
 tags:
     - Array
     - Dynamic Programming
+    - Knapsack
+    - 0-1 Knapsack
 ---
 
 <!-- problem:start -->

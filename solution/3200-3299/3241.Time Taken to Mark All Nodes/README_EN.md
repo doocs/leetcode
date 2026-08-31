@@ -9,6 +9,7 @@ tags:
     - Depth-First Search
     - Graph
     - Dynamic Programming
+    - Tree DP
 ---
 
 <!-- problem:start -->

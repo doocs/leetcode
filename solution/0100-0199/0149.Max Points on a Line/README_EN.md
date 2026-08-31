@@ -7,6 +7,8 @@ tags:
     - Array
     - Hash Table
     - Math
+    - Greatest Common Divisor
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

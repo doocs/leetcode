@@ -6,7 +6,9 @@ tags:
     - Depth-First Search
     - Graph
     - String
+    - Eulerian Path
     - Eulerian Circuit
+    - Eulerian Graph
 ---
 
 <!-- problem:start -->

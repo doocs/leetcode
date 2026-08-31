@@ -6,6 +6,9 @@ rating: 1489
 source: Weekly Contest 152 Q1
 tags:
     - Math
+    - Primality Test
+    - Sieve
+    - Sieve of Eratosthenes
 ---
 
 <!-- problem:start -->

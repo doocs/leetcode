@@ -8,6 +8,8 @@ tags:
     - Math
     - Binary Search
     - Number Theory
+    - Inclusion-Exclusion
+    - Least Common Multiple
 ---
 
 <!-- problem:start -->

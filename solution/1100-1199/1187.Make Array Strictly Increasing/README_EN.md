@@ -9,6 +9,7 @@ tags:
     - Binary Search
     - Dynamic Programming
     - Sorting
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

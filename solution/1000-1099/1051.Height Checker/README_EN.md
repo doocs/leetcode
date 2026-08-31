@@ -6,6 +6,7 @@ rating: 1303
 source: Weekly Contest 138 Q1
 tags:
     - Array
+    - Bubble Sort
     - Counting Sort
     - Sorting
 ---

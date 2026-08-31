@@ -7,6 +7,7 @@ source: Weekly Contest 154 Q4
 tags:
     - Depth-First Search
     - Graph
+    - Bridge
     - Biconnected Component
 ---
 

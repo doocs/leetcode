@@ -6,6 +6,8 @@ tags:
     - Breadth-First Search
     - Array
     - Dynamic Programming
+    - Knapsack
+    - Unbounded Knapsack
 ---
 
 <!-- problem:start -->

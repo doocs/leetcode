@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1510.St
 rating: 1786
 source: 第 30 场双周赛 Q4
 tags:
+    - 极小化极大
     - 数学
     - 动态规划
     - 博弈

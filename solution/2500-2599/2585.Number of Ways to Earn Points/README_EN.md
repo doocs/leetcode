@@ -7,6 +7,8 @@ source: Weekly Contest 335 Q4
 tags:
     - Array
     - Dynamic Programming
+    - Knapsack
+    - Bounded Knapsack
 ---
 
 <!-- problem:start -->

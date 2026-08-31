@@ -11,7 +11,7 @@ tags:
 
 <!-- problem:start -->
 
-# [2408. 设计 SQL 🔒](https://leetcode.cn/problems/design-sql)
+# [2408. 设计 SQL](https://leetcode.cn/problems/design-sql)
 
 [English Version](/solution/2400-2499/2408.Design%20SQL/README_EN.md)
 

@@ -7,6 +7,7 @@ source: Biweekly Contest 140 Q4
 tags:
     - String
     - String Matching
+    - KMP
 ---
 
 <!-- problem:start -->

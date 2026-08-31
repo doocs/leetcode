@@ -8,6 +8,7 @@ tags:
     - Hash Table
     - String
     - String Matching
+    - Aho-Corasick
 ---
 
 <!-- problem:start -->

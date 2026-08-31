@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0334.In
 tags:
     - Greedy
     - Array
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

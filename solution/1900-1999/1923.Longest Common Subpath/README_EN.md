@@ -8,8 +8,10 @@ tags:
     - Array
     - Binary Search
     - Suffix Array
+    - Suffix Tree
     - Hash Function
     - Rolling Hash
+    - Suffix Automato
 ---
 
 <!-- problem:start -->

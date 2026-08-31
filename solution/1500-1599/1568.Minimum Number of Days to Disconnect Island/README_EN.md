@@ -9,6 +9,7 @@ tags:
     - Breadth-First Search
     - Array
     - Matrix
+    - Articulation Point
     - Strongly Connected Component
 ---
 

@@ -6,6 +6,9 @@ tags:
     - Two Pointers
     - String
     - String Matching
+    - KMP
+    - Boyer–Moore
+    - Extended KMP
 ---
 
 <!-- problem:start -->

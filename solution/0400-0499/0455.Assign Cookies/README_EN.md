@@ -7,6 +7,7 @@ tags:
     - Array
     - Two Pointers
     - Sorting
+    - Quick Sort
 ---
 
 <!-- problem:start -->

@@ -7,6 +7,7 @@ source: Weekly Contest 430 Q4
 tags:
     - Math
     - Combinatorics
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

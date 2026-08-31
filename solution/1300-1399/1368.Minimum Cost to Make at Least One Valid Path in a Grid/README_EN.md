@@ -10,7 +10,9 @@ tags:
     - Array
     - Matrix
     - Shortest Path
+    - Dijkstra
     - Heap (Priority Queue)
+    - 0-1 BFS
 ---
 
 <!-- problem:start -->

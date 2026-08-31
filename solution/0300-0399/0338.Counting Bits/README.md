@@ -19,10 +19,11 @@ tags:
 
 <p>给你一个整数 <code>n</code> ，对于&nbsp;<code>0 &lt;= i &lt;= n</code> 中的每个 <code>i</code> ，计算其二进制表示中 <strong><code>1</code> 的个数</strong> ，返回一个长度为 <code>n + 1</code> 的数组 <code>ans</code> 作为答案。</p>
 
+<p>不要使用内置函数来解决（例如，C++ 中的 <code>__builtin_popcount</code>）。</p>
+
 <p>&nbsp;</p>
 
 <div class="original__bRMd">
-<div>
 <p><strong>示例 1：</strong></p>
 
 <pre>
@@ -62,9 +63,7 @@ tags:
 
 <ul>
 	<li>很容易就能实现时间复杂度为 <code>O(n log n)</code> 的解决方案，你可以在线性时间复杂度 <code>O(n)</code> 内用一趟扫描解决此问题吗？</li>
-	<li>你能不使用任何内置函数解决此问题吗？（如，C++ 中的&nbsp;<code>__builtin_popcount</code> ）</li>
 </ul>
-</div>
 </div>
 
 <!-- description:end -->

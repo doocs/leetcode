@@ -6,6 +6,7 @@ tags:
     - Bit Manipulation
     - Array
     - Backtracking
+    - Hamiltonian Path
     - Matrix
 ---
 

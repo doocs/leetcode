@@ -7,9 +7,11 @@ source: Weekly Contest 302 Q4
 tags:
     - Array
     - Math
+    - Greatest Common Divisor
     - Number Theory
     - Sorting
     - Heap (Priority Queue)
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

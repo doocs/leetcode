@@ -9,7 +9,10 @@ tags:
     - Array
     - Hash Table
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
+    - Least Common Multiple
 ---
 
 <!-- problem:start -->

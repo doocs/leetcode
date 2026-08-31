@@ -7,6 +7,8 @@ tags:
     - Array
     - Two Pointers
     - Binary Search
+    - Floyd Cycle Detection
+    - Pigeonhole Principle
 ---
 
 <!-- problem:start -->

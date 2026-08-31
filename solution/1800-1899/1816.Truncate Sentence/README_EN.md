@@ -34,7 +34,7 @@ tags:
 <strong>Input:</strong> s = &quot;Hello how are you Contestant&quot;, k = 4
 <strong>Output:</strong> &quot;Hello how are you&quot;
 <strong>Explanation:</strong>
-The words in s are [&quot;Hello&quot;, &quot;how&quot; &quot;are&quot;, &quot;you&quot;, &quot;Contestant&quot;].
+The words in s are [&quot;Hello&quot;, &quot;how&quot;, &quot;are&quot;, &quot;you&quot;, &quot;Contestant&quot;].
 The first 4 words are [&quot;Hello&quot;, &quot;how&quot;, &quot;are&quot;, &quot;you&quot;].
 Hence, you should return &quot;Hello how are you&quot;.
 </pre>

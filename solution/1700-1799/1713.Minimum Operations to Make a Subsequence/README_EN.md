@@ -9,6 +9,7 @@ tags:
     - Array
     - Hash Table
     - Binary Search
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

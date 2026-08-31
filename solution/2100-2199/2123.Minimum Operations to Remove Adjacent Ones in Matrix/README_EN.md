@@ -7,6 +7,11 @@ tags:
     - Graph
     - Array
     - Matrix
+    - Edmonds–Karp
+    - Dinic
+    - MPM
+    - Push-Relabel
+    - Network Flow
 ---
 
 <!-- problem:start -->

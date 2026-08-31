@@ -6,6 +6,8 @@ tags:
     - Geometry
     - Array
     - Math
+    - Convex Hull
+    - Polygon
 ---
 
 <!-- problem:start -->

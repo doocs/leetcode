@@ -9,6 +9,7 @@ tags:
     - Topological Sort
     - Dynamic Programming
     - Shortest Path
+    - Dijkstra
     - Heap (Priority Queue)
 ---
 

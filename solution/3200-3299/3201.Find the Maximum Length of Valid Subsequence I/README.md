@@ -29,8 +29,6 @@ tags:
 
 <p>返回 <code>nums</code> 的 <strong>最长的有效子序列</strong> 的长度。</p>
 
-<p>一个&nbsp;<strong>子序列</strong>&nbsp;指的是从原数组中删除一些元素（也可以不删除任何元素），剩余元素保持原来顺序组成的新数组。</p>
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

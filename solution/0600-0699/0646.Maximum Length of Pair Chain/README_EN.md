@@ -7,6 +7,7 @@ tags:
     - Array
     - Dynamic Programming
     - Sorting
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

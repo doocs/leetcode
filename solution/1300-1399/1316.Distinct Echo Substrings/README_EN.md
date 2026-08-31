@@ -7,8 +7,11 @@ source: Biweekly Contest 17 Q4
 tags:
     - Trie
     - String
+    - Suffix Array
+    - Suffix Tree
     - Hash Function
     - Rolling Hash
+    - Suffix Automato
 ---
 
 <!-- problem:start -->

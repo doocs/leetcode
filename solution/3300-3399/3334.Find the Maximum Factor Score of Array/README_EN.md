@@ -8,6 +8,7 @@ tags:
     - Array
     - Math
     - Number Theory
+    - Least Common Multiple
 ---
 
 <!-- problem:start -->

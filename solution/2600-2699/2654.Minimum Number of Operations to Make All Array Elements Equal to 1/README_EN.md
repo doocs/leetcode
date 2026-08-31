@@ -7,7 +7,9 @@ source: Weekly Contest 342 Q4
 tags:
     - Array
     - Math
+    - Greatest Common Divisor
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

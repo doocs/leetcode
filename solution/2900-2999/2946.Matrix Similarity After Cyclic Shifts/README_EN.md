@@ -23,7 +23,7 @@ tags:
 
 <p>You are given an <code>m x n</code> integer matrix <code>mat</code> and an integer <code>k</code>. The matrix rows are 0-indexed.</p>
 
-<p>The following proccess happens <code>k</code> times:</p>
+<p>The following process happens <code>k</code> times:</p>
 
 <ul>
 	<li><strong>Even-indexed</strong> rows (0, 2, 4, ...) are cyclically shifted to the left.</li>

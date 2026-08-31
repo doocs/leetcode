@@ -38,28 +38,28 @@ tags:
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;SEND&quot;,&quot;MORE&quot;], result = &quot;MONEY&quot;
+<pre>
+<strong>输入：</strong>words = ["SEND","MORE"], result = "MONEY"
 <strong>输出：</strong>true
-<strong>解释：</strong>映射 &#39;S&#39;-&gt; 9, &#39;E&#39;-&gt;5, &#39;N&#39;-&gt;6, &#39;D&#39;-&gt;7, &#39;M&#39;-&gt;1, &#39;O&#39;-&gt;0, &#39;R&#39;-&gt;8, &#39;Y&#39;-&gt;&#39;2&#39;
-所以 &quot;SEND&quot; + &quot;MORE&quot; = &quot;MONEY&quot; ,  9567 + 1085 = 10652</pre>
+<strong>解释：</strong>映射 'S'-&gt; 9, 'E'-&gt;5, 'N'-&gt;6, 'D'-&gt;7, 'M'-&gt;1, 'O'-&gt;0, 'R'-&gt;8, 'Y'-&gt;'2'
+所以 "SEND" + "MORE" = "MONEY" ,  9567 + 1085 = 10652</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;SIX&quot;,&quot;SEVEN&quot;,&quot;SEVEN&quot;], result = &quot;TWENTY&quot;
+<pre>
+<strong>输入：</strong>words = ["SIX","SEVEN","SEVEN"], result = "TWENTY"
 <strong>输出：</strong>true
-<strong>解释：</strong>映射 &#39;S&#39;-&gt; 6, &#39;I&#39;-&gt;5, &#39;X&#39;-&gt;0, &#39;E&#39;-&gt;8, &#39;V&#39;-&gt;7, &#39;N&#39;-&gt;2, &#39;T&#39;-&gt;1, &#39;W&#39;-&gt;&#39;3&#39;, &#39;Y&#39;-&gt;4
-所以 &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENTY&quot; ,  650 + 68782 + 68782 = 138214</pre>
+<strong>解释：</strong>映射 'S'-&gt; 6, 'I'-&gt;5, 'X'-&gt;0, 'E'-&gt;8, 'V'-&gt;7, 'N'-&gt;2, 'T'-&gt;1, 'W'-&gt;'3', 'Y'-&gt;4
+所以 "SIX" + "SEVEN" + "SEVEN" = "TWENTY" ,  650 + 68782 + 68782 = 138214
+</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>words = [&quot;THIS&quot;,&quot;IS&quot;,&quot;TOO&quot;], result = &quot;FUNNY&quot;
-<strong>输出：</strong>true
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>words = [&quot;LEET&quot;,&quot;CODE&quot;], result = &quot;POINT&quot;
+<pre>
+<strong>输入：</strong>words = ["LEET","CODE"], result = "POINT"
 <strong>输出：</strong>false
+<strong>解释：</strong>不存在任何可能的映射满足该方程，因此我们返回 false。
+请注意，两个不同的字符不能映射到同一个数字。
 </pre>
 
 <p>&nbsp;</p>

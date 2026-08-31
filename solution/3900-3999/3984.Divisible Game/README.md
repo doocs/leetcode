@@ -4,6 +4,12 @@ difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3984.Divisible%20Game/README.md
 rating: 1944
 source: 第 509 场周赛 Q3
+tags:
+    - 数组
+    - 数学
+    - 动态规划
+    - 枚举
+    - 数论
 ---
 
 <!-- problem:start -->

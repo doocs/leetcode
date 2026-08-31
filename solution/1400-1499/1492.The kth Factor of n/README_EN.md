@@ -7,6 +7,7 @@ source: Biweekly Contest 29 Q2
 tags:
     - Math
     - Number Theory
+    - Prime Factorization
 ---
 
 <!-- problem:start -->

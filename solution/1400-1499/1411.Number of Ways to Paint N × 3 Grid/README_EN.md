@@ -6,6 +6,7 @@ rating: 1844
 source: Weekly Contest 184 Q4
 tags:
     - Dynamic Programming
+    - Graph Coloring
 ---
 
 <!-- problem:start -->

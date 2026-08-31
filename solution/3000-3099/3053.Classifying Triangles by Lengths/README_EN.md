@@ -4,6 +4,7 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3053.Classifying%20Triangles%20by%20Lengths/README_EN.md
 tags:
     - Database
+    - Polygon
 ---
 
 <!-- problem:start -->

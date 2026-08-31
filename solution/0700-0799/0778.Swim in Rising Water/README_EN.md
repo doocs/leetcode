@@ -6,9 +6,11 @@ tags:
     - Depth-First Search
     - Breadth-First Search
     - Union Find
+    - Minimax
     - Array
     - Binary Search
     - Matrix
+    - Dijkstra
     - Heap (Priority Queue)
 ---
 

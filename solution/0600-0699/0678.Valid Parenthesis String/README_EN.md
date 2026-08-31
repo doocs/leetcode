@@ -7,6 +7,7 @@ tags:
     - Greedy
     - String
     - Dynamic Programming
+    - Parentheses
 ---
 
 <!-- problem:start -->

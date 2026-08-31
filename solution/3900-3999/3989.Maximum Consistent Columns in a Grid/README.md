@@ -4,6 +4,10 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid/README.md
 rating: 2013
 source: 第 510 场周赛 Q4
+tags:
+    - 数组
+    - 动态规划
+    - 矩阵
 ---
 
 <!-- problem:start -->

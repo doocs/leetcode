@@ -4,6 +4,7 @@ difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README_EN.md
 tags:
     - Database
+    - Closest Pair of Points
 ---
 
 <!-- problem:start -->
@@ -31,6 +32,8 @@ Each row of this table indicates the position of a point on the X-axis.
 <p>&nbsp;</p>
 
 <p>Find the shortest distance between any two points from the <code>Point</code> table.</p>
+
+<p>It is guaranteed that the <code>Point</code> table contains <strong>at least </strong>two rows.</p>
 
 <p>The result format is in the following example.</p>
 

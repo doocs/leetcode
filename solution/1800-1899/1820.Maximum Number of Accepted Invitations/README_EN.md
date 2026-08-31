@@ -7,6 +7,15 @@ tags:
     - Graph
     - Array
     - Matrix
+    - Bipartite Graph
+    - Max Flow
+    - Graph Matching
+    - Maximum Matching
+    - Edmonds–Karp
+    - Dinic
+    - MPM
+    - Push-Relabel
+    - Network Flow
 ---
 
 <!-- problem:start -->

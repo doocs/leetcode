@@ -4,10 +4,13 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0294.Flip%20Game%20II/README_EN.md
 tags:
     - Memoization
+    - Minimax
     - Math
     - Dynamic Programming
     - Backtracking
     - Game Theory
+    - 'Sprague–Grundy '
+    - Impartial Game
 ---
 
 <!-- problem:start -->

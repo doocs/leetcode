@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0311.Sp
 tags:
     - Array
     - Hash Table
+    - Linear Algebra
     - Matrix
 ---
 

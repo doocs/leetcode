@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1140.St
 rating: 2034
 source: 第 147 场周赛 Q4
 tags:
+    - 极小化极大
     - 数组
     - 数学
     - 动态规划

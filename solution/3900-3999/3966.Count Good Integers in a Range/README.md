@@ -4,6 +4,9 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3966.Count%20Good%20Integers%20in%20a%20Range/README.md
 rating: 2006
 source: 第 185 场双周赛 Q4
+tags:
+    - 数学
+    - 动态规划
 ---
 
 <!-- problem:start -->

@@ -46,7 +46,7 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li><code>nums[i]</code> is either 0 or 1.</li>
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 

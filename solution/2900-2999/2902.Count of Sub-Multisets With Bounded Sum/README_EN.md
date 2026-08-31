@@ -8,7 +8,9 @@ tags:
     - Array
     - Hash Table
     - Dynamic Programming
+    - Knapsack
     - Sliding Window
+    - Bounded Knapsack
 ---
 
 <!-- problem:start -->

@@ -6,10 +6,13 @@ rating: 2277
 source: Weekly Contest 261 Q3
 tags:
     - Greedy
+    - Minimax
     - Array
     - Math
     - Counting
     - Game Theory
+    - Nim Game
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

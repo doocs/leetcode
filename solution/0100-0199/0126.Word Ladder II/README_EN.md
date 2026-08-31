@@ -7,6 +7,7 @@ tags:
     - Hash Table
     - String
     - Backtracking
+    - Bidirectional Search
 ---
 
 <!-- problem:start -->

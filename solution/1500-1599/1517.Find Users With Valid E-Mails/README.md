@@ -38,7 +38,7 @@ user_id 是该表的主键（具有唯一值的列）。
 
 <ol>
 	<li>&nbsp;<strong>前缀</strong> 名称是一个字符串，可以包含字母（大写或小写），数字，下划线 <code>'_'</code> ，点 <code>'.'</code> 和（或）破折号 <code>'-'</code> 。前缀名称 <strong>必须</strong> 以字母开头。</li>
-	<li><strong>域</strong> 为 <code>'@leetcode.com'</code> 。</li>
+	<li><strong>域</strong>&nbsp;必须是小写的&nbsp;<code>'@leetcode.com'</code>。</li>
 </ol>
 
 <p>以任何顺序返回结果表。</p>

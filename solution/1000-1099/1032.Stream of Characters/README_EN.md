@@ -10,6 +10,7 @@ tags:
     - Array
     - String
     - Data Stream
+    - Aho-Corasick
 ---
 
 <!-- problem:start -->

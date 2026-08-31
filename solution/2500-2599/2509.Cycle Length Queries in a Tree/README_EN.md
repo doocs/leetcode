@@ -8,6 +8,8 @@ tags:
     - Tree
     - Array
     - Binary Tree
+    - Lowest Common Ancestor
+    - Binary Lifting
 ---
 
 <!-- problem:start -->

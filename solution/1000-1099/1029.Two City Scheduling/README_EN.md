@@ -7,7 +7,9 @@ source: Weekly Contest 133 Q1
 tags:
     - Greedy
     - Array
+    - Hungarian Algorithm
     - Sorting
+    - SSP
 ---
 
 <!-- problem:start -->

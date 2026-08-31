@@ -12,6 +12,7 @@ tags:
     - Design
     - Binary Search
     - Dynamic Programming
+    - Binary Lifting
 ---
 
 <!-- problem:start -->

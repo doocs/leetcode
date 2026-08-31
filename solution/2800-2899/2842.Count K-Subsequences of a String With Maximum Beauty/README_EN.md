@@ -11,6 +11,7 @@ tags:
     - String
     - Combinatorics
     - Sorting
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

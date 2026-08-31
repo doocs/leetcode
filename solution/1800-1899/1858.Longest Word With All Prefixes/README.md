@@ -19,26 +19,28 @@ tags:
 
 <!-- description:start -->
 
-<p>给定一个字符串数组 <code>words</code>，找出 <code>words</code> 中<strong>所有的前缀</strong>都在 <code>words</code> 中的<strong>最长</strong>字符串。</p>
+<p>给定一个字符串数组&nbsp;<code>words</code>，找出&nbsp;<code>words</code>&nbsp;中<strong>所有的前缀</strong>都在&nbsp;<code>words</code>&nbsp;中的<strong>最长</strong>字符串。</p>
 
 <ul>
-	<li>例如，令 <code>words = ["a", "app", "ap"]</code>。字符串 <code>"app"</code> 含前缀 <code>"ap"</code> 和 <code>"a"</code> ，都在 <code>words</code> 中。</li>
+	<li>例如，令&nbsp;<code>words = ["a", "app", "ap"]</code>。字符串&nbsp;<code>"app"</code>&nbsp;含前缀&nbsp;<code>"ap"</code>&nbsp;和&nbsp;<code>"a"</code>&nbsp;，都在&nbsp;<code>words</code>&nbsp;中。</li>
 </ul>
 
-<p>返回符合上述要求的字符串。如果存在多个（符合条件的）相同长度的字符串，返回字典序中最小的字符串，如果这样的字符串不存在，返回<em> </em><code>""</code>。</p>
+<p>返回符合上述要求的字符串。如果存在多个（符合条件的）相同长度的字符串，返回字典序中最小的字符串，如果这样的字符串不存在，返回<em>&nbsp;</em><code>""</code>。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
-<pre><b>输入：</b> words = ["k","ki","kir","kira", "kiran"]
+<pre>
+<b>输入：</b> words = ["k","ki","kir","kira", "kiran"]
 <b>输出：</b> "kiran"
 <b>解释：</b> "kiran" 含前缀 "kira"、 "kir"、 "ki"、 和 "k"，这些前缀都出现在 words 中。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><b>输入：</b> words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
+<pre>
+<b>输入：</b> words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
 <b>输出： </b>"apple"
 <b>解释：</b> "apple" 和 "apply" 都在 words 中含有各自的所有前缀。
 然而，"apple" 在字典序中更小，所以我们返回之。
@@ -46,11 +48,12 @@ tags:
 
 <p><strong>示例 3:</strong></p>
 
-<pre><b>输入：</b> words = ["abc", "bc", "ab", "qwe"]
+<pre>
+<b>输入：</b> words = ["abc", "bc", "ab", "qwe"]
 <b>输出：</b> ""
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><b>提示：</b></p>
 
@@ -58,6 +61,7 @@ tags:
 	<li><code>1 &lt;= words.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= words[i].length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
+	<li><code>words[i]</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
 <!-- description:end -->

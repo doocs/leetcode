@@ -4,6 +4,11 @@ difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3985.Palindromic%20Subarray%20Sum/README.md
 rating: 2201
 source: 第 509 场周赛 Q4
+tags:
+    - 数组
+    - 二分查找
+    - 前缀和
+    - 哈希函数
 ---
 
 <!-- problem:start -->

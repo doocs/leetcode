@@ -8,7 +8,10 @@ tags:
     - Union Find
     - Graph
     - Array
+    - Kruskal
     - Minimum Spanning Tree
+    - Prim
+    - Borůvka
 ---
 
 <!-- problem:start -->

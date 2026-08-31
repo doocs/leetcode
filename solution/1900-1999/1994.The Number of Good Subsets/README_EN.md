@@ -13,6 +13,7 @@ tags:
     - Bitmask
     - Counting
     - Number Theory
+    - Sieve
 ---
 
 <!-- problem:start -->

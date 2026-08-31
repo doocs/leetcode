@@ -8,6 +8,7 @@ tags:
     - Math
     - Dynamic Programming
     - Number Theory
+    - Euclidean Algorithm
 ---
 
 <!-- problem:start -->

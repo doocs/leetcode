@@ -6,9 +6,11 @@ tags:
     - Graph
     - Topological Sort
     - Memoization
+    - Minimax
     - Math
     - Dynamic Programming
     - Game Theory
+    - Zero-Sum Game
 ---
 
 <!-- problem:start -->

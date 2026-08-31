@@ -27,6 +27,8 @@ tags:
 
 <p>给你一个整数 <code>target</code> ，如果 <code>target</code> 在矩阵中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
+<p>你必须编写一个时间复杂度为 <code>O(log(m * n))</code> 的解决方案。</p>
+
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
@@ -366,7 +368,7 @@ impl Solution {
 var searchMatrix = function (matrix, target) {
     const m = matrix.length,
         n = matrix[0].length;
-    for (let i = m - 1, j = 0; i >= 0 && j < n; ) {
+    for (let i = m - 1, j = 0; i >= 0 && j < n;) {
         if (matrix[i][j] == target) {
             return true;
         }

@@ -10,6 +10,7 @@ tags:
     - Quickselect
     - Sorting
     - Heap (Priority Queue)
+    - K-D Tree
 ---
 
 <!-- problem:start -->

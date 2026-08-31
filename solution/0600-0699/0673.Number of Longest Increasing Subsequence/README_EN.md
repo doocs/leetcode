@@ -7,6 +7,7 @@ tags:
     - Segment Tree
     - Array
     - Dynamic Programming
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->

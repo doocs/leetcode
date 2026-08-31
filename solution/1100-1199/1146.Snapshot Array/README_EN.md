@@ -9,6 +9,7 @@ tags:
     - Array
     - Hash Table
     - Binary Search
+    - Persistent Data Structure
 ---
 
 <!-- problem:start -->

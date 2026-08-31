@@ -9,6 +9,7 @@ tags:
     - Segment Tree
     - Math
     - Number Theory
+    - Fermat's Little Theorem
 ---
 
 <!-- problem:start -->

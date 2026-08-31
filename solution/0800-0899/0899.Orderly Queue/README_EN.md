@@ -6,6 +6,7 @@ tags:
     - Math
     - String
     - Sorting
+    - Smallest Representation
 ---
 
 <!-- problem:start -->

@@ -5,8 +5,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0214.Sh
 tags:
     - String
     - String Matching
+    - Manacher
     - Hash Function
     - Rolling Hash
+    - KMP
+    - Extended KMP
 ---
 
 <!-- problem:start -->
@@ -337,7 +340,7 @@ function shortestPalindrome(s: string): string {
     const n = t.length;
     const next: number[] = Array(n).fill(0);
     next[0] = -1;
-    for (let i = 2, j = 0; i < n; ) {
+    for (let i = 2, j = 0; i < n;) {
         if (t[i - 1] === t[j]) {
             next[i++] = ++j;
         } else if (j > 0) {

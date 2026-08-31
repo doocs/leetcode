@@ -6,6 +6,7 @@ tags:
     - Stack
     - String
     - Dynamic Programming
+    - Parentheses
 ---
 
 <!-- problem:start -->

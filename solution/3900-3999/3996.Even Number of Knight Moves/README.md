@@ -4,6 +4,9 @@ difficulty: 简单
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3996.Even%20Number%20of%20Knight%20Moves/README.md
 rating: 1260
 source: 第 511 场周赛 Q1
+tags:
+    - 数组
+    - 数学
 ---
 
 <!-- problem:start -->

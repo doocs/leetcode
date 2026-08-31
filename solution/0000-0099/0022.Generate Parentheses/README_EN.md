@@ -6,6 +6,7 @@ tags:
     - String
     - Dynamic Programming
     - Backtracking
+    - Parentheses
 ---
 
 <!-- problem:start -->

@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0640.So
 tags:
     - Math
     - String
+    - Linear Algebra
     - Simulation
 ---
 

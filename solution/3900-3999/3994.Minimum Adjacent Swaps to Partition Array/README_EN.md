@@ -4,6 +4,9 @@ difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3994.Minimum%20Adjacent%20Swaps%20to%20Partition%20Array/README_EN.md
 rating: 1704
 source: Biweekly Contest 187 Q3
+tags:
+    - Greedy
+    - Array
 ---
 
 <!-- problem:start -->

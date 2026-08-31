@@ -5,6 +5,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0762.Pr
 tags:
     - Bit Manipulation
     - Math
+    - Primality Test
 ---
 
 <!-- problem:start -->

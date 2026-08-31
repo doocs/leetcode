@@ -84,7 +84,7 @@ tags:
 <ul>
 	<li><code>1 &lt;= side &lt;= 10<sup>9</sup></code></li>
 	<li><code>4 &lt;= points.length &lt;= min(4 * side, 15 * 10<sup>3</sup>)</code></li>
-	<li><code>points[i] == [xi, yi]</code></li>
+	<li><code>points[i] == [x<sub>i</sub>, y<sub>i</sub>]</code></li>
 	<li>输入产生方式如下：
 	<ul>
 		<li><code>points[i]</code> 位于正方形的边界上。</li>

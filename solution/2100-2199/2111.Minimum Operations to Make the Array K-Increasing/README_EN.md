@@ -7,6 +7,7 @@ source: Weekly Contest 272 Q4
 tags:
     - Array
     - Binary Search
+    - Longest Increasing Subsequence
 ---
 
 <!-- problem:start -->
