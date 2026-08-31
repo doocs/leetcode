@@ -1,96 +1,84 @@
-#define MOD 1000000007
-#define LOG 17
-#define UP(k, v) up[(k) * (n + 1) + (v)]
-
-int* assignEdgeWeights(int** edges, int edgesSize, int* edgesColSize,
-    int** queries, int queriesSize, int* queriesColSize,
-    int* returnSize) {
+int* assignEdgeWeights(int** edges, int edgesSize, int* edgesColSize, int** queries,
+    int queriesSize, int* queriesColSize, int* returnSize) {
     int n = edgesSize + 1;
-    int adjSize, i, j, k, u, v, lca, dist, tmp;
-    int* deg = calloc(n + 1, sizeof(int));
-    int* head;
-    int* adj;
-    int* depth;
-    int* up;
-    int* pow2;
-    int* stack;
-    int top;
-    int* ans;
-    for (i = 0; i < edgesSize; i++) {
-        deg[edges[i][0]]++;
-        deg[edges[i][1]]++;
+    int m = 32 - __builtin_clz(n);
+    int* cnt = calloc(n + 1, sizeof(int));
+    for (int i = 0; i < edgesSize; ++i) {
+        ++cnt[edges[i][0]];
+        ++cnt[edges[i][1]];
     }
-    head = malloc((n + 2) * sizeof(int));
-    head[0] = 0;
-    for (i = 1; i <= n + 1; i++) head[i] = head[i - 1] + deg[i - 1];
-    adj = malloc((adjSize = head[n + 1]) * sizeof(int));
-    for (i = 0; i <= n; i++) deg[i] = head[i];
-    for (i = 0; i < edgesSize; i++) {
-        u = edges[i][0];
-        v = edges[i][1];
-        adj[deg[u]++] = v;
-        adj[deg[v]++] = u;
+    int** g = malloc((n + 1) * sizeof(int*));
+    for (int i = 1; i <= n; ++i) {
+        g[i] = malloc(cnt[i] * sizeof(int));
+        cnt[i] = 0;
     }
-    free(deg);
-    depth = calloc(n + 2, sizeof(int));
-    depth[0] = -1;
-    depth[1] = 0;
-    up = calloc(LOG * (n + 1), sizeof(int));
-    pow2 = malloc((n + 1) * sizeof(int));
-    pow2[0] = 1;
-    for (i = 1; i <= n; i++) pow2[i] = (pow2[i - 1] << 1) % MOD;
-    stack = malloc(n * sizeof(int));
-    stack[top = 0] = 1;
-    top++;
-    while (top) {
-        u = stack[--top];
-        for (j = head[u]; j < head[u + 1]; j++) {
-            v = adj[j];
-            if (v != UP(0, u)) {
-                UP(0, v) = u;
-                depth[v] = depth[u] + 1;
-                stack[top++] = v;
+    for (int i = 0; i < edgesSize; ++i) {
+        int u = edges[i][0], v = edges[i][1];
+        g[u][cnt[u]++] = v;
+        g[v][cnt[v]++] = u;
+    }
+    int* f = calloc((n + 1) * m, sizeof(int));
+    int* p = calloc(n + 1, sizeof(int));
+    int* depth = calloc(n + 1, sizeof(int));
+    int* que = malloc(n * sizeof(int));
+    int head = 0, tail = 0;
+    que[tail++] = 1;
+    while (head < tail) {
+        int i = que[head++];
+        f[i * m] = p[i];
+        for (int j = 1; j < m; ++j) {
+            f[i * m + j] = f[f[i * m + j - 1] * m + j - 1];
+        }
+        for (int k = 0; k < cnt[i]; ++k) {
+            int j = g[i][k];
+            if (j != p[i]) {
+                p[j] = i;
+                depth[j] = depth[i] + 1;
+                que[tail++] = j;
             }
         }
     }
-    free(stack);
-    free(head);
-    free(adj);
-    for (k = 1; k < LOG; k++)
-        for (v = 1; v <= n; v++)
-            if ((tmp = UP(k - 1, v)) != 0)
-                UP(k, v) = UP(k - 1, tmp);
-    ans = malloc(queriesSize * sizeof(int));
-    for (i = 0; i < queriesSize; i++) {
-        u = queries[i][0];
-        v = queries[i][1];
-        if (u == v) {
-            ans[i] = 0;
-            continue;
-        }
-        if (depth[u] < depth[v]) {
-            tmp = u;
-            u = v;
-            v = tmp;
-        }
-        for (k = LOG - 1; k >= 0; k--)
-            if (depth[UP(k, u)] >= depth[v])
-                u = UP(k, u);
-        if (u != v) {
-            for (k = LOG - 1; k >= 0; k--)
-                if (UP(k, u) != UP(k, v)) {
-                    u = UP(k, u);
-                    v = UP(k, v);
-                }
-            lca = UP(0, u);
-        } else {
-            lca = u;
-        }
-        dist = depth[queries[i][0]] + depth[queries[i][1]] - 2 * depth[lca];
-        ans[i] = pow2[dist - 1];
+    const int mod = 1e9 + 7;
+    int* pow2 = malloc(n * sizeof(int));
+    pow2[0] = 1;
+    for (int i = 1; i < n; ++i) {
+        pow2[i] = pow2[i - 1] * 2 % mod;
     }
+    int* ans = malloc(queriesSize * sizeof(int));
+    for (int t = 0; t < queriesSize; ++t) {
+        int u = queries[t][0], v = queries[t][1];
+        int x = u, y = v;
+        if (depth[x] < depth[y]) {
+            int tmp = x;
+            x = y;
+            y = tmp;
+        }
+        for (int j = m - 1; j >= 0; --j) {
+            if (depth[x] - depth[y] >= (1 << j)) {
+                x = f[x * m + j];
+            }
+        }
+        for (int j = m - 1; j >= 0; --j) {
+            if (f[x * m + j] != f[y * m + j]) {
+                x = f[x * m + j];
+                y = f[y * m + j];
+            }
+        }
+        if (x != y) {
+            x = p[x];
+        }
+        int d = depth[u] + depth[v] - 2 * depth[x];
+        ans[t] = d == 0 ? 0 : pow2[d - 1];
+    }
+    for (int i = 1; i <= n; ++i) {
+        free(g[i]);
+    }
+    free(g);
+    free(cnt);
+    free(f);
+    free(p);
     free(depth);
-    free(up);
+    free(que);
     free(pow2);
     *returnSize = queriesSize;
     return ans;
