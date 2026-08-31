@@ -97,32 +97,172 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4041.Mi
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：0-1 背包
+
+与上一题不同，本题的乘法和除法可以按任意顺序执行。注意到「先乘 2 再除以 2」是恒等操作，即 $\lfloor 2x / 2 \rfloor = x$，所以任何一次出现在除法之前的乘法都可以和它抵消，白白浪费两次操作。反复消去后，任意操作序列都能化归为「先除 $i$ 次，再乘 $j$ 次」，即元素 $x$ 能变成 $\lfloor x / 2^i \rfloor \times 2^j$，代价为 $i + j$。
+
+于是问题变成一个 0-1 背包：每个元素最多贡献一个「取值 - 代价」二元组，求恰好装满容量 $\textit{sum}$ 的最小代价。
+
+我们定义 $f[w]$ 表示子集和恰好为 $w$ 时所需的最少操作次数，初始时 $f[0] = 0$，其余为 $+\infty$。依次枚举每个元素 $x$，容量 $w$ 从大到小遍历，再枚举除法次数 $i$ 与乘法次数 $j$，得到取值 $y = \lfloor x / 2^i \rfloor \times 2^j$，若 $y \leq w$，则用 $f[w - y] + i + j$ 更新 $f[w]$。最后若 $f[\textit{sum}]$ 仍为 $+\infty$，说明无解，返回 $-1$，否则返回 $f[\textit{sum}]$。
+
+时间复杂度 $O(n \times S \times \log M \times \log S)$，空间复杂度 $O(S)$。其中 $n$ 和 $M$ 分别是数组 $\textit{nums}$ 的长度和最大值，而 $S$ 是给定的 $\textit{sum}$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def minOperations(self, nums: List[int], sum: int) -> int:
+        inf = 10**9
+        f = [0] + [inf] * sum
 
+        for x in nums:
+            for w in range(sum, -1, -1):
+                i, y = 0, x
+                while y <= w:
+                    f[w] = min(f[w], f[w - y] + i)
+                    i += 1
+                    y *= 2
+
+                i, y = 1, x // 2
+                while y > 0:
+                    j, z = 0, y
+                    while z <= w:
+                        f[w] = min(f[w], f[w - z] + i + j)
+                        j += 1
+                        z *= 2
+                    i += 1
+                    y //= 2
+
+        return -1 if f[sum] == inf else f[sum]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int minOperations(int[] nums, int sum) {
+        int inf = (int) 1e9;
+        int[] f = new int[sum + 1];
+        Arrays.fill(f, inf);
+        f[0] = 0;
 
+        for (int x : nums) {
+            for (int w = sum; w >= 0; --w) {
+                int i = 0, y = x;
+                while (y <= w) {
+                    f[w] = Math.min(f[w], f[w - y] + i);
+                    ++i;
+                    y *= 2;
+                }
+
+                i = 1;
+                y = x / 2;
+                while (y > 0) {
+                    int j = 0, z = y;
+                    while (z <= w) {
+                        f[w] = Math.min(f[w], f[w - z] + i + j);
+                        ++j;
+                        z *= 2;
+                    }
+                    ++i;
+                    y /= 2;
+                }
+            }
+        }
+
+        return f[sum] == inf ? -1 : f[sum];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums, int sum) {
+        const int inf = 1e9;
+        vector<int> f(sum + 1, inf);
+        f[0] = 0;
 
+        for (int x : nums) {
+            for (int w = sum; w >= 0; --w) {
+                for (int i = 0, y = x; y <= w; i++, y *= 2) {
+                    f[w] = min(f[w], f[w - y] + i);
+                }
+
+                for (int i = 1, y = x / 2; y > 0; i++, y /= 2) {
+                    for (int j = 0, z = y; z <= w; j++, z *= 2) {
+                        f[w] = min(f[w], f[w - z] + i + j);
+                    }
+                }
+            }
+        }
+
+        return f[sum] < inf ? f[sum] : -1;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minOperations(nums []int, sum int) int {
+	const inf = int(1e9)
 
+	f := make([]int, sum+1)
+	for i := range f {
+		f[i] = inf
+	}
+	f[0] = 0
+
+	for _, x := range nums {
+		for w := sum; w >= 0; w-- {
+			for i, y := 0, x; y <= w; i, y = i+1, y*2 {
+				f[w] = min(f[w], f[w-y]+i)
+			}
+
+			for i, y := 1, x/2; y > 0; i, y = i+1, y/2 {
+				for j, z := 0, y; z <= w; j, z = j+1, z*2 {
+					f[w] = min(f[w], f[w-z]+i+j)
+				}
+			}
+		}
+	}
+
+	if f[sum] == inf {
+		return -1
+	}
+	return f[sum]
+}
+```
+
+#### TypeScript
+
+```ts
+function minOperations(nums: number[], sum: number): number {
+    const inf = 1e9;
+    const f = Array(sum + 1).fill(inf);
+    f[0] = 0;
+
+    for (const x of nums) {
+        for (let w = sum; w >= 0; --w) {
+            for (let i = 0, y = x; y <= w; ++i, y *= 2) {
+                f[w] = Math.min(f[w], f[w - y] + i);
+            }
+
+            for (let i = 1, y = Math.floor(x / 2); y > 0; ++i, y = Math.floor(y / 2)) {
+                for (let j = 0, z = y; z <= w; ++j, z *= 2) {
+                    f[w] = Math.min(f[w], f[w - z] + i + j);
+                }
+            }
+        }
+    }
+
+    return f[sum] === inf ? -1 : f[sum];
+}
 ```
 
 <!-- tabs:end -->
