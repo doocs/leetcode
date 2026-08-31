@@ -17,11 +17,20 @@ If you are in the top 25% of the contest rating, you’ll get the “Knight” b
 
 | Level | Proportion | Badge    | Rating      |                                                                                                                         |
 | ----- | ---------- | -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3   | 5\%        | Guardian | &ge;2228.90 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2   | 20\%       | Knight   | &ge;1842.73 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3   | 5\%        | Guardian | &ge;2123.78 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2   | 20\%       | Knight   | &ge;1854.07 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1   | 75\%       | -        | -           | -                                                                                                                       |
 
 For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange on the ranking board. You'll also have the honor with you when you post/comment under discuss.
+
+The global ranking includes LCCN users, so the cutoffs below follow the Guardian / Knight contest badges actually shown on leetcode.com (not a raw 5% / 25% split of the mixed global list).
+
+| Badge    | Role        | Global Rank | Rating   | User                                                                 |
+| -------- | ----------- | ----------- | -------- | -------------------------------------------------------------------- |
+| Guardian | Gatekeeper  | 11714       | 2123.781 | [tdkkdt](https://leetcode.com/u/tdkkdt/)                             |
+| Guardian | Just below  | 11715       | 2123.780 | [ARUNMOZHICHELVAN](https://leetcode.com/u/ARUNMOZHICHELVAN/)         |
+| Knight   | Gatekeeper  | 53687       | 1854.066 | [yugg_007](https://leetcode.com/u/yugg_007/)                         |
+| Knight   | Just below  | 53688       | 1854.065 | [gsupe02](https://leetcode.com/u/gsupe02/)                           |
 
 ## Rating Predictor
 

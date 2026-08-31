@@ -14,11 +14,20 @@ comments: true
 
 | 段位 | 比例 | 段位名   | 国服分数线  | 勋章                                                                                                                    |
 | ---- | ---- | -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3  | 5%   | Guardian | &ge;2278.34 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2  | 20%  | Knight   | &ge;1889.36 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3  | 5%   | Guardian | &ge;2270.49 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2  | 20%  | Knight   | &ge;1888.66 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1  | 75%  | -        | -           | -                                                                                                                       |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
+
+当前分数线对应的守门员，以及最接近但未达到该分数线的用户如下（统计范围为竞赛积分 &ge;1600 的 42342 名用户）：
+
+| 段位     | 角色   | 全国排名 | 分数    | 用户                                                                   |
+| -------- | ------ | -------- | ------- | ---------------------------------------------------------------------- |
+| Guardian | 守门员 | 2117     | 2270.49 | [yuan-zhi-b](https://leetcode.cn/u/yuan-zhi-b/)                         |
+| Guardian | 差一线 | 2118     | 2270.39 | [biubiu0919](https://leetcode.cn/u/biubiu0919/)                         |
+| Knight   | 守门员 | 10585    | 1888.66 | [lin-jie-4](https://leetcode.cn/u/lin-jie-4/)                           |
+| Knight   | 差一线 | 10586    | 1888.65 | [xi-you-fu-su-4](https://leetcode.cn/u/xi-you-fu-su-4/)                 |
 
 ## 赛后估分网站
 
