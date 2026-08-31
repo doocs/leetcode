@@ -138,11 +138,20 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 | 段位 | 比例 | 段位名   | 国服分数线  | 勋章                                                                                                                    |
 | ---- | ---- | -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3  | 5%   | Guardian | &ge;2278.34 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2  | 20%  | Knight   | &ge;1889.36 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3  | 5%   | Guardian | &ge;2270.49 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2  | 20%  | Knight   | &ge;1888.66 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1  | 75%  | -        | -           | -                                                                                                                       |
 
 力扣竞赛 **全国排名前 10** 的用户，全站用户名展示为品牌橙色。
+
+当前分数线对应的守门员，以及最接近但未达到该分数线的用户如下（统计范围为竞赛积分 &ge;1600 的 42342 名用户）：
+
+| 段位     | 角色   | 全国排名 | 分数    | 用户                                                    |
+| -------- | ------ | -------- | ------- | ------------------------------------------------------- |
+| Guardian | 守门员 | 2117     | 2270.49 | [yuan-zhi-b](https://leetcode.cn/u/yuan-zhi-b/)         |
+| Guardian | 差一线 | 2118     | 2270.39 | [biubiu0919](https://leetcode.cn/u/biubiu0919/)         |
+| Knight   | 守门员 | 10585    | 1888.66 | [lin-jie-4](https://leetcode.cn/u/lin-jie-4/)           |
+| Knight   | 差一线 | 10586    | 1888.65 | [xi-you-fu-su-4](https://leetcode.cn/u/xi-you-fu-su-4/) |
 
 ## 赛后估分网站
 
@@ -175,11 +184,20 @@ If you are in the top 25% of the contest rating, you’ll get the “Knight” b
 
 | Level | Proportion | Badge    | Rating      |                                                                                                                         |
 | ----- | ---------- | -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| LV3   | 5\%        | Guardian | &ge;2228.90 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
-| LV2   | 20\%       | Knight   | &ge;1842.73 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
+| LV3   | 5\%        | Guardian | &ge;2123.78 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Guardian.gif" style="width: 80px;" /></p> |
+| LV2   | 20\%       | Knight   | &ge;1854.07 | <p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/Knight.gif" style="width: 80px;" /></p>   |
 | LV1   | 75\%       | -        | -           | -                                                                                                                       |
 
 For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange on the ranking board. You'll also have the honor with you when you post/comment under discuss.
+
+The global ranking includes LCCN users, so the cutoffs below follow the Guardian / Knight contest badges actually shown on leetcode.com (not a raw 5% / 25% split of the mixed global list).
+
+| Badge    | Role       | Global Rank | Rating   | User                                                         |
+| -------- | ---------- | ----------- | -------- | ------------------------------------------------------------ |
+| Guardian | Gatekeeper | 11714       | 2123.781 | [tdkkdt](https://leetcode.com/u/tdkkdt/)                     |
+| Guardian | Just below | 11715       | 2123.780 | [ARUNMOZHICHELVAN](https://leetcode.com/u/ARUNMOZHICHELVAN/) |
+| Knight   | Gatekeeper | 53687       | 1854.066 | [yugg_007](https://leetcode.com/u/yugg_007/)                 |
+| Knight   | Just below | 53688       | 1854.065 | [gsupe02](https://leetcode.com/u/gsupe02/)                   |
 
 ## Rating Predictor
 
