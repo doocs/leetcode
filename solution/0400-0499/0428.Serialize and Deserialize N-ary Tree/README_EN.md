@@ -75,32 +75,272 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Level Order Traversal
+
+We can serialize an N-ary tree with level order traversal. Start from the root, append its value, and enqueue it. Each time we dequeue a node, we append the values of all its children and enqueue them, then append a special character `#` to mark the end of that node's children. Finally we join the values with commas.
+
+During deserialization, we split the string by the delimiter. Create the root from the first value and enqueue it. For each dequeued node, keep reading the following values as its children until we meet `#`.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the N-ary tree.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+"""
+# Definition for a Node.
+class Node(object):
+    def __init__(self, val: Optional[int] = None, children: Optional[List['Node']] = None):
+        self.val = val
+        self.children = children
+"""
 
+
+class Codec:
+    def serialize(self, root: 'Node') -> str:
+        if root is None:
+            return ''
+        ans = [str(root.val)]
+        q = deque([root])
+        while q:
+            node = q.popleft()
+            for child in node.children or []:
+                ans.append(str(child.val))
+                q.append(child)
+            ans.append('#')
+        return ','.join(ans)
+
+    def deserialize(self, data: str) -> 'Node':
+        if not data:
+            return None
+        vals = data.split(',')
+        root = Node(int(vals[0]), [])
+        q = deque([root])
+        i = 1
+        while q:
+            node = q.popleft()
+            while vals[i] != '#':
+                child = Node(int(vals[i]), [])
+                node.children.append(child)
+                q.append(child)
+                i += 1
+            i += 1
+        return root
+
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.deserialize(codec.serialize(root))
 ```
 
 #### Java
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Codec {
+    public String serialize(Node root) {
+        if (root == null) {
+            return "";
+        }
+        List<String> ans = new ArrayList<>();
+        Deque<Node> q = new ArrayDeque<>();
+        ans.add(String.valueOf(root.val));
+        q.offer(root);
+        while (!q.isEmpty()) {
+            Node node = q.poll();
+            if (node.children != null) {
+                for (Node child : node.children) {
+                    ans.add(String.valueOf(child.val));
+                    q.offer(child);
+                }
+            }
+            ans.add("#");
+        }
+        return String.join(",", ans);
+    }
+
+    public Node deserialize(String data) {
+        if ("".equals(data)) {
+            return null;
+        }
+        String[] vals = data.split(",");
+        Node root = new Node(Integer.parseInt(vals[0]), new ArrayList<>());
+        Deque<Node> q = new ArrayDeque<>();
+        q.offer(root);
+        int i = 1;
+        while (!q.isEmpty()) {
+            Node node = q.poll();
+            while (!"#".equals(vals[i])) {
+                Node child = new Node(Integer.parseInt(vals[i++]), new ArrayList<>());
+                node.children.add(child);
+                q.offer(child);
+            }
+            ++i;
+        }
+        return root;
+    }
+}
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.deserialize(codec.serialize(root));
 ```
 
 #### C++
 
 ```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
 
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Codec {
+public:
+    string serialize(Node* root) {
+        if (!root) {
+            return "";
+        }
+        queue<Node*> q{{root}};
+        string ans = to_string(root->val);
+        while (!q.empty()) {
+            auto node = q.front();
+            q.pop();
+            for (auto child : node->children) {
+                ans += "," + to_string(child->val);
+                q.push(child);
+            }
+            ans += ",#";
+        }
+        return ans;
+    }
+
+    Node* deserialize(string data) {
+        if (data.empty()) {
+            return nullptr;
+        }
+        stringstream ss(data);
+        string t;
+        getline(ss, t, ',');
+        Node* root = new Node(stoi(t), {});
+        queue<Node*> q{{root}};
+        while (!q.empty()) {
+            auto node = q.front();
+            q.pop();
+            while (getline(ss, t, ',') && t != "#") {
+                Node* child = new Node(stoi(t), {});
+                node->children.push_back(child);
+                q.push(child);
+            }
+        }
+        return root;
+    }
+};
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec;
+// codec.deserialize(codec.serialize(root));
 ```
 
 #### Go
 
 ```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
 
+type Codec struct {
+}
+
+func Constructor() *Codec {
+	return &Codec{}
+}
+
+func (this *Codec) serialize(root *Node) string {
+	if root == nil {
+		return ""
+	}
+	ans := []string{strconv.Itoa(root.Val)}
+	q := []*Node{root}
+	for len(q) > 0 {
+		node := q[0]
+		q = q[1:]
+		for _, child := range node.Children {
+			ans = append(ans, strconv.Itoa(child.Val))
+			q = append(q, child)
+		}
+		ans = append(ans, "#")
+	}
+	return strings.Join(ans, ",")
+}
+
+func (this *Codec) deserialize(data string) *Node {
+	if data == "" {
+		return nil
+	}
+	vals := strings.Split(data, ",")
+	v, _ := strconv.Atoi(vals[0])
+	root := &Node{Val: v}
+	q := []*Node{root}
+	i := 1
+	for len(q) > 0 {
+		node := q[0]
+		q = q[1:]
+		for i < len(vals) && vals[i] != "#" {
+			v, _ = strconv.Atoi(vals[i])
+			child := &Node{Val: v}
+			node.Children = append(node.Children, child)
+			q = append(q, child)
+			i++
+		}
+		i++
+	}
+	return root
+}
+
+/**
+ * Your Codec object will be instantiated and called as such:
+ * obj := Constructor();
+ * data := obj.serialize(root);
+ * ans := obj.deserialize(data);
+ */
 ```
 
 <!-- tabs:end -->
