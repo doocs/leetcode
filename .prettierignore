@@ -7,12 +7,6 @@ node_modules/
 /solution/summary_en.md
 /solution/README.md
 /solution/README_EN.md
-/solution/readme_template.md
-/solution/readme_template_en.md
-/solution/problem_readme_template.md
-/solution/problem_readme_template_en.md
-/solution/bash_problem_readme_template.md
-/solution/bash_problem_readme_template_en.md
 /solution/0100-0199/0177.Nth Highest Salary/Solution.sql
 /solution/0100-0199/0178.Rank Scores/Solution2.sql
 /solution/0500-0599/0586.Customer Placing the Largest Number of Orders/Solution2.sql
