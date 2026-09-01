@@ -44,8 +44,8 @@ py -m black -S <file>
 # C/C++/Java
 pnpm exec clang-format -i --style=file <file>
 
-# Go
-gofmt -w <file>
+# Go (adds/removes the `package main` header used by Solution.go files)
+python run_format.py --gofmt <file>
 
 # Rust
 rustfmt <file>
@@ -69,6 +69,7 @@ GitHub Actions automatically run:
 
 - **clang-format** lint on C/C++/Java files
 - **Black** lint on Python files
+- **gofmt** lint on Go files
 - **Prettier** on JS/TS/PHP/SQL/Markdown files
 - **Deploy** workflow for the documentation site
 
