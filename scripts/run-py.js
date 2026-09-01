@@ -1,24 +1,40 @@
 #!/usr/bin/env node
 /**
- * Run a command with the first available Python launcher.
- * Windows prefers `py`; Unix prefers `python3`.
+ * Run a command with the first available Python 3 interpreter.
+ * Windows prefers `py -3`; Unix prefers `python3`.
  */
 const { spawnSync } = require('child_process');
 
 const extra = process.argv.slice(2);
 const candidates =
-    process.platform === 'win32' ? ['py', 'python', 'python3'] : ['python3', 'python', 'py'];
+    process.platform === 'win32'
+        ? [
+              ['py', ['-3']],
+              ['python', []],
+              ['python3', []],
+          ]
+        : [
+              ['python3', []],
+              ['python', []],
+              ['py', ['-3']],
+          ];
 
-for (const cmd of candidates) {
-    const result = spawnSync(cmd, extra, {
+const tried = [];
+for (const [cmd, prefix] of candidates) {
+    tried.push(prefix.length ? `${cmd} ${prefix.join(' ')}` : cmd);
+    const result = spawnSync(cmd, [...prefix, ...extra], {
         stdio: 'inherit',
         windowsHide: true,
     });
-    if (result.error && result.error.code === 'ENOENT') {
-        continue;
+    if (result.error) {
+        if (result.error.code === 'ENOENT') {
+            continue;
+        }
+        console.error(`${cmd}: ${result.error.message}`);
+        process.exit(1);
     }
     process.exit(result.status ?? 1);
 }
 
-console.error('No Python interpreter found (tried py, python, python3).');
+console.error(`No Python 3 interpreter found (tried ${tried.join(', ')}).`);
 process.exit(127);
