@@ -39,13 +39,13 @@ All code must be formatted before committing. The lint-staged hooks run automati
 pnpm exec prettier --write "**/*.{js,ts,php,sql,md}"
 
 # Python
-py -m black -S <file>
+node scripts/run-py.js -m black -S <file>
 
 # C/C++/Java
 pnpm exec clang-format -i --style=file <file>
 
 # Go (adds/removes the `package main` header used by Solution.go files)
-py run_format.py --gofmt <file>
+node scripts/run-py.js run_format.py --gofmt <file>
 
 # Rust
 rustfmt <file>
@@ -54,13 +54,14 @@ rustfmt <file>
 Or run the full formatting script:
 
 ```bash
-py run_format.py
+node scripts/run-py.js run_format.py
 ```
 
 ### Installation
 
 ```bash
-pnpm install        # Installs dev dependencies and triggers pip install for Python deps
+pnpm install              # Node/pnpm devDependencies (uses the committed lockfile)
+pnpm run setup:python     # Optional: black and the problem-sync spider
 ```
 
 ### CI/CD
@@ -70,6 +71,7 @@ GitHub Actions automatically run:
 - **clang-format** lint on C/C++/Java files
 - **Black** lint on Python files
 - **gofmt** lint on Go files
+- **rustfmt** lint on Rust files
 - **Prettier** on JS/TS/PHP/SQL/Markdown files
 - **Deploy** workflow for the documentation site
 

@@ -20,6 +20,5 @@ npm-debug.log*
 .claude/settings.local.json
 
 # pnpm
-pnpm-lock.yaml
 .pnpm-store/
 .pnpm-debug.log
