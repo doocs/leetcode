@@ -223,8 +223,8 @@ functions_to_replace = [
 ]
 
 
-def add_header(path: str, quiet: bool = False):
-    """Add header to php and go files"""
+def add_header(path: str, quiet: bool = False) -> bool:
+    """Add header to php and go files. Returns True if the file was rewritten."""
     if not quiet:
         print(f"[add header] path: {path}")
     with open(path, "r", encoding="utf-8") as f:
@@ -232,15 +232,18 @@ def add_header(path: str, quiet: bool = False):
     if path.endswith(".php"):
         content = "<?php\n" + content
     elif path.endswith(".go") and "sorting" not in path:
+        if content.startswith("package "):
+            return False
         content = "package main\n" + content
     elif path.endswith(".sql"):
         for func in functions_to_replace:
             pattern = r"\b{}\s*\(".format(func)
             content = re.sub(pattern, f"{func.upper()}(", content, flags=re.IGNORECASE)
     else:
-        return
+        return False
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
+    return True
 
 
 def remove_header(path: str, quiet: bool = False):
@@ -297,9 +300,10 @@ def format_inline_code(path: str):
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(block)
                 if suf == "go":
-                    add_header(file)
+                    added = add_header(file)
                     os.system(f'gofmt -w "{file}"')
-                    remove_header(file)
+                    if added:
+                        remove_header(file)
                 else:
                     os.system(f'npx clang-format -i --style=file "{file}"')
                 with open(file, "r", encoding="utf-8") as f:
@@ -390,8 +394,10 @@ def run():
     """Start formatting"""
     paths = find_all_paths()
 
+    headered = []
     for path in paths:
-        add_header(path)
+        if add_header(path):
+            headered.append(path)
         if any(path.endswith(suf) for suf in ["c", "cpp", "java"]):
             # format with clang-format
             os.system(f'npx clang-format -i --style=file "{path}"')
@@ -408,7 +414,7 @@ def run():
     else:
         format_rust_files_windows()
 
-    for path in paths:
+    for path in headered:
         remove_header(path)
     for path in paths:
         format_inline_code(path)
@@ -417,9 +423,10 @@ def run():
 def format_go_files(paths: List[str]) -> None:
     """gofmt staged Go files. Solution files omit `package main`; add it first."""
     for path in paths:
-        add_header(path, quiet=True)
+        added = add_header(path, quiet=True)
         subprocess.check_call(["gofmt", "-w", path])
-        remove_header(path, quiet=True)
+        if added:
+            remove_header(path, quiet=True)
 
 
 def _go_needs_package_header(path: str) -> bool:
