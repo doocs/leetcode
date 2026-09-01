@@ -4,14 +4,14 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@prettier/plugin-php": "^0.22.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@prettier/plugin-php": "^0.25.0",
     "clang-format": "^1.8.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.3.2",
-    "prettier-plugin-sql-cst": "^0.14.0"
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-sql-cst": "^0.22.1"
   },
   "lint-staged": {
     "*.{js,ts,php,sql,md}": "prettier --write",

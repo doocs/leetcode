@@ -16,7 +16,7 @@ jobs:
         id: check_team
         env:
           PR_OPENER: ${{ github.actor }}
-        uses: actions/github-script@v5
+        uses: actions/github-script@v9
         with:
             github-token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
             script: |
