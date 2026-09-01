@@ -11,6 +11,7 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
+      - requirements.txt
       - .github/workflows/black-lint.yml
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
+      - requirements.txt
       - .github/workflows/black-lint.yml
 
 concurrency:
@@ -33,6 +35,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
-      - uses: jpetrucciani/black-check@master
+      - uses: actions/setup-python@v6
         with:
-          black_flags: '-S'
+          python-version: '3.x'
+      - name: Install black
+        run: python -m pip install -r requirements.txt
+      - name: Check black
+        run: python -m black -S --check .

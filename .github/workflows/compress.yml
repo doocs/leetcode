@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v7
       - name: Compress Images
         id: calibre
-        uses: calibreapp/image-actions@main
+        uses: calibreapp/image-actions@9d037c06280028c110ff61c433ad4dc7d33c3c43 # v1.5.0
         with:
           githubToken: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
           # For non-Pull Requests, run in compressOnly mode and we'll PR after.

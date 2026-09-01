@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "postinstall": "pip install -r requirements.txt",
-    "prepare": "husky"
+    "prepare": "husky",
+    "setup:python": "node scripts/run-py.js -m pip install -r requirements.txt"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -15,9 +15,9 @@
   },
   "lint-staged": {
     "*.{js,ts,php,sql,md}": "prettier --write",
-    "*.py": "py -m black -S",
+    "*.py": "node scripts/run-py.js -m black -S",
     "*.{c,cpp,java}": "pnpm exec clang-format -i --style=file",
-    "*.go": "py run_format.py --gofmt",
+    "*.go": "node scripts/run-py.js run_format.py --gofmt",
     "*.rs": "rustfmt"
   },
   "packageManager": "pnpm@10.34.5"

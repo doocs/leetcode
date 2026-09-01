@@ -1,0 +1,46 @@
+name: rustfmt-linter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.rs'
+      - .github/workflows/rustfmt-lint.yml
+  pull_request:
+    paths:
+      - '**/*.rs'
+      - .github/workflows/rustfmt-lint.yml
+
+concurrency:
+  group: ${{ github.workflow }} - ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772 # stable
+        with:
+          toolchain: stable
+          components: rustfmt
+      - name: Check rustfmt
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.rs' || true)
+          else
+            before="${{ github.event.before }}"
+            if [ -z "$before" ] || [[ "$before" =~ ^0+$ ]]; then
+              echo "No previous commit; skip rustfmt."
+              exit 0
+            fi
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMR "$before" "${{ github.sha }}" -- '*.rs' || true)
+          fi
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No Rust files changed."
+            exit 0
+          fi
+          rustfmt --check --edition 2021 "${files[@]}"
