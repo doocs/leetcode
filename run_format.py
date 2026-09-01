@@ -489,7 +489,7 @@ if __name__ == "__main__":
     elif args[:1] == ["--check-gofmt"]:
         check_gofmt(args[1:])
     elif args:
-        print("usage: python run_format.py [--gofmt FILE ...] [--check-gofmt]")
+        print("usage: py run_format.py [--gofmt FILE ...] [--check-gofmt]")
         raise SystemExit(2)
     else:
         run()

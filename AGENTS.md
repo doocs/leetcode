@@ -45,7 +45,7 @@ py -m black -S <file>
 pnpm exec clang-format -i --style=file <file>
 
 # Go (adds/removes the `package main` header used by Solution.go files)
-python run_format.py --gofmt <file>
+py run_format.py --gofmt <file>
 
 # Rust
 rustfmt <file>
@@ -54,7 +54,7 @@ rustfmt <file>
 Or run the full formatting script:
 
 ```bash
-python run_format.py
+py run_format.py
 ```
 
 ### Installation
