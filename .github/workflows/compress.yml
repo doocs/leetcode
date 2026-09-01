@@ -34,7 +34,7 @@ jobs:
        github.event.pull_request.head.repo.full_name == github.repository)
     steps:
       - name: Checkout Branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Compress Images
         id: calibre
         uses: calibreapp/image-actions@main
@@ -47,7 +47,7 @@ jobs:
         if: |
           github.event_name != 'pull_request' &&
           steps.calibre.outputs.markdown != ''
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v8
         with:
           title: 'chore: auto compress images'
           branch-suffix: timestamp
