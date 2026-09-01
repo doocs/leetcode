@@ -3,6 +3,7 @@ from typing import List
 import os.path
 import platform
 import subprocess
+import sys
 import re
 import black
 
@@ -222,39 +223,46 @@ functions_to_replace = [
 ]
 
 
-def add_header(path: str):
-    """Add header to php and go files"""
-    print(f"[add header] path: {path}")
+def add_header(path: str, quiet: bool = False) -> bool:
+    """Add header to php and go files. Returns True if the file was rewritten."""
+    if not quiet:
+        print(f"[add header] path: {path}")
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
     if path.endswith(".php"):
         content = "<?php\n" + content
     elif path.endswith(".go") and "sorting" not in path:
+        if content.startswith("package "):
+            return False
         content = "package main\n" + content
     elif path.endswith(".sql"):
         for func in functions_to_replace:
             pattern = r"\b{}\s*\(".format(func)
             content = re.sub(pattern, f"{func.upper()}(", content, flags=re.IGNORECASE)
     else:
-        return
+        return False
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
+    return True
 
 
-def remove_header(path: str):
+def remove_header(path: str, quiet: bool = False):
     """Remove header from php and go files"""
-    print(f"[remove header] path: {path}")
+    if not quiet:
+        print(f"[remove header] path: {path}")
     with open(path, "r", encoding="utf-8") as f:
         content = f.read()
     if path.endswith(".php"):
         content = content.rstrip()
         content = content.replace("<?php\n", "")
     elif path.endswith(".go"):
-        content = content.rstrip()
         if "sorting" not in path:
-            content = content.replace("package main\n\n", "").replace(
-                "package main\n", ""
-            )
+            if content.startswith("package main\n\n"):
+                content = content[len("package main\n\n") :]
+            elif content.startswith("package main\n"):
+                content = content[len("package main\n") :]
+        if content and not content.endswith("\n"):
+            content += "\n"
     else:
         return
     with open(path, "w", encoding="utf-8") as f:
@@ -292,9 +300,10 @@ def format_inline_code(path: str):
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(block)
                 if suf == "go":
-                    add_header(file)
+                    added = add_header(file)
                     os.system(f'gofmt -w "{file}"')
-                    remove_header(file)
+                    if added:
+                        remove_header(file)
                 else:
                     os.system(f'npx clang-format -i --style=file "{file}"')
                 with open(file, "r", encoding="utf-8") as f:
@@ -385,8 +394,10 @@ def run():
     """Start formatting"""
     paths = find_all_paths()
 
+    headered = []
     for path in paths:
-        add_header(path)
+        if add_header(path):
+            headered.append(path)
         if any(path.endswith(suf) for suf in ["c", "cpp", "java"]):
             # format with clang-format
             os.system(f'npx clang-format -i --style=file "{path}"')
@@ -403,11 +414,89 @@ def run():
     else:
         format_rust_files_windows()
 
-    for path in paths:
+    for path in headered:
         remove_header(path)
     for path in paths:
         format_inline_code(path)
 
 
+def format_go_files(paths: List[str]) -> None:
+    """gofmt staged Go files. Solution files omit `package main`; add it first."""
+    for path in paths:
+        added = add_header(path, quiet=True)
+        subprocess.check_call(["gofmt", "-w", path])
+        if added:
+            remove_header(path, quiet=True)
+
+
+def _go_needs_package_header(path: str) -> bool:
+    return "sorting" not in path.replace("\\", "/")
+
+
+def _add_go_package(content: str, path: str) -> str:
+    if _go_needs_package_header(path) and not content.startswith("package "):
+        return "package main\n" + content
+    return content
+
+
+def _strip_go_package(content: str, path: str) -> str:
+    if _go_needs_package_header(path):
+        if content.startswith("package main\n\n"):
+            content = content[len("package main\n\n") :]
+        elif content.startswith("package main\n"):
+            content = content[len("package main\n") :]
+    if content and not content.endswith("\n"):
+        content += "\n"
+    return content
+
+
+def check_gofmt(paths: List[str] = None) -> None:
+    """Fail if any Go file differs from gofmt after the package-header roundtrip.
+
+    Copies files into a temp dir so the working tree is never rewritten.
+    """
+    import tempfile
+
+    if not paths:
+        paths = [p for p in find_all_paths() if p.endswith(".go")]
+    dirty: List[str] = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for path in paths:
+            rel = os.path.relpath(path)
+            dest = os.path.join(tmp, rel)
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            with open(path, "r", encoding="utf-8") as f:
+                original = f.read()
+            with open(dest, "w", encoding="utf-8", newline="\n") as f:
+                f.write(_add_go_package(original, path))
+            proc = subprocess.run(
+                ["gofmt", "-w", dest],
+                capture_output=True,
+                encoding="utf-8",
+                errors="replace",
+                check=False,
+            )
+            if proc.returncode != 0:
+                dirty.append(f"{rel}: {proc.stderr.strip() or 'gofmt failed'}")
+                continue
+            with open(dest, "r", encoding="utf-8") as f:
+                formatted = _strip_go_package(f.read(), path)
+            if formatted != original:
+                dirty.append(rel)
+    if dirty:
+        print("The following Go files are not gofmt-clean:")
+        print("\n".join(dirty))
+        raise SystemExit(1)
+
+
 if __name__ == "__main__":
-    run()
+    args = sys.argv[1:]
+    if args[:1] == ["--gofmt"]:
+        format_go_files(args[1:])
+    elif args[:1] == ["--check-gofmt"]:
+        check_gofmt(args[1:])
+    elif args:
+        print("usage: py run_format.py [--gofmt FILE ...] [--check-gofmt]")
+        raise SystemExit(2)
+    else:
+        run()

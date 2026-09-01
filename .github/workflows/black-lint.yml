@@ -2,6 +2,7 @@ name: black-linter
 
 on:
   push:
+    branches: [main]
     paths:
       - solution/**
       - lcs/**
@@ -10,6 +11,7 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
+      - .github/workflows/black-lint.yml
   pull_request:
     paths:
       - solution/**
@@ -19,6 +21,7 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
+      - .github/workflows/black-lint.yml
 
 concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
@@ -29,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v7
-    - uses: jpetrucciani/black-check@master
-      with:
-        black_flags: '-S'
+      - uses: actions/checkout@v7
+      - uses: jpetrucciani/black-check@master
+        with:
+          black_flags: '-S'
