@@ -157,14 +157,6 @@ class CommitterPlugin:
         self.cache_path.write_text(json.dumps(out, ensure_ascii=False, indent=2))
         _log(f"Saved committer cache: {len(self.page_authors)} entries -> {self.cache_path}")
 
-        _log("========= Committer Summary =========")
-        for k, v in sorted(self.page_authors.items()):
-            rt = v.get("retrieved", "N/A")
-            if isinstance(rt, int):
-                rt = datetime.fromtimestamp(rt, tz=timezone.utc).isoformat()
-            _log(f"[SUMMARY] {k}  |  retrieved: {rt}")
-        _log("=====================================")
-
     def on_page_context(self, context, page, cfg, nav):
         if not page.edit_url or _exclude(page.file.src_path, []):
             return context
