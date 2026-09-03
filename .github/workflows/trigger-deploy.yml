@@ -7,6 +7,10 @@ on:
     paths-ignore:
       - .git-committers-cache.json
 
+concurrency:
+  group: deploy-request
+  cancel-in-progress: true
+
 jobs:
   trigger:
     runs-on: ubuntu-latest
@@ -14,6 +18,8 @@ jobs:
       actions: write
       contents: read
     steps:
+      - name: Wait for a quiet period
+        run: sleep 90
       - name: Dispatch deploy workflow on main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
