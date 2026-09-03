@@ -112,6 +112,13 @@ jobs:
           path: ${{ matrix.site_path }}
           if-no-files-found: error
 
+      - name: Ensure committer cache exists
+        run: |
+          if [[ ! -f .git-committers-cache.json ]]; then
+            echo "committer cache missing after build; writing an empty stub."
+            printf '%s\n' '{"cache_date":0,"page_authors":{}}' > .git-committers-cache.json
+          fi
+
       - name: Upload ${{ matrix.lang }} committer cache
         uses: actions/upload-artifact@v7
         with:
