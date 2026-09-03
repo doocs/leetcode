@@ -97,8 +97,18 @@ jobs:
           fi
           rsync -a mkdocs/build_site.py ./
           rm -rf mkdocs
-          mv solution/CONTEST_README.md docs/contest.md
-          mv solution/CONTEST_README_EN.md docs-en/contest.md
+          if [ -f solution/CONTEST_README.md ]; then
+            mv solution/CONTEST_README.md docs/contest.md
+          else
+            echo "warning: solution/CONTEST_README.md missing; writing a stub."
+            printf '%s\n' '---' 'comments: true' '---' '' '# 力扣竞赛' '' '竞赛列表暂未包含在本次构建中。' > docs/contest.md
+          fi
+          if [ -f solution/CONTEST_README_EN.md ]; then
+            mv solution/CONTEST_README_EN.md docs-en/contest.md
+          else
+            echo "warning: solution/CONTEST_README_EN.md missing; writing a stub."
+            printf '%s\n' '---' 'comments: true' '---' '' '# LeetCode Contest' '' 'The contest list is not included in this build.' > docs-en/contest.md
+          fi
 
       - name: Set MKDOCS_API_KEYS
         run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
