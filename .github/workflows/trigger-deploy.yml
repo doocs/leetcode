@@ -7,6 +7,10 @@ on:
     paths-ignore:
       - .git-committers-cache.json
 
+concurrency:
+  group: deploy-request
+  cancel-in-progress: true
+
 jobs:
   trigger:
     runs-on: ubuntu-latest
@@ -14,7 +18,19 @@ jobs:
       actions: write
       contents: read
     steps:
-      - name: Dispatch deploy workflow on main
+      - name: Wait for a quiet period
+        run: sleep 90
+      - name: Dispatch deploy if this commit is still docs HEAD
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run deploy.yml --ref main --repo "${{ github.repository }}"
+          REPO: ${{ github.repository }}
+          REF_NAME: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          tip="$(gh api "repos/${REPO}/commits/${REF_NAME}" --jq .sha)"
+          if [ "$tip" != "$SHA" ]; then
+            echo "docs HEAD is ${tip}; this run is ${SHA}. Skip stale dispatch."
+            exit 0
+          fi
+          gh workflow run deploy.yml --ref main --repo "${REPO}"
