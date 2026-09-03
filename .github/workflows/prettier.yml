@@ -15,7 +15,7 @@ jobs:
     # Only run for PRs from the SAME repository.
     # Fork PRs are skipped entirely to prevent RCE via pnpm install.
     # ---------------------------------------------------------
-    if: ${{ github.event.pull_request.head.repo.fork == false }}
+    if: ${{ github.event.pull_request.head.repo.fork == false && github.event.pull_request.base.ref == 'main' }}
     permissions:
       contents: write
     runs-on: ubuntu-latest
