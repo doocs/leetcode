@@ -33,8 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      pages: write
-      id-token: write
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v7
@@ -75,7 +73,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Set mkdocs cache id
-        run: echo "cache_id=$(date --utc '+%V')" >> "$GITHUB_ENV"
+        run: echo "cache_id=$(date --utc '+%G-%V')" >> "$GITHUB_ENV"
 
       - name: Restore mkdocs-material cache
         uses: actions/cache@v5
