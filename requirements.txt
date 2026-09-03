@@ -1,4 +1,4 @@
 black==26.5.1
-PyYAML
-Requests
-urllib3
+PyYAML==6.0.3
+requests==2.34.2
+urllib3==2.7.0
