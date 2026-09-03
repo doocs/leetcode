@@ -1,34 +1,30 @@
 import re
-from bs4 import BeautifulSoup
+
+_HREFLANG_HREF = re.compile(
+    r'(?P<prefix><a\b(?=[^>]*\bhreflang="(?P<lang>zh|en)")[^>]*\bhref=")[^"]*(?P<suffix>")',
+    re.IGNORECASE,
+)
 
 
 def on_post_page(output, page, config):
+    if not output:
+        return output
+
+    rel = (page.url or "").lstrip("/")
+    cn_url = f"/{rel}" if rel else "/"
+    en_url = f"/en/{rel}" if rel else "/en/"
+    prefix = rel.split("/", 1)[0] if rel else ""
+    support_en = prefix not in ("lcof", "lcof2")
+
+    def repl(match):
+        lang = match.group("lang").lower()
+        if lang == "en" and not support_en:
+            return match.group(0)
+        href = en_url if lang == "en" else cn_url
+        return f"{match.group('prefix')}{href}{match.group('suffix')}"
+
     try:
-        if not output:
-            return output
-
-        soup = BeautifulSoup(output, "html.parser")
-
-        url = page.abs_url
-        if not url:
-            return output
-
-        cn_url = url.replace("/en/", "/")
-        en_url = "/en" + cn_url
-        support_en_lang = not cn_url.startswith("/lcof") and not cn_url.startswith("/lcof2")
-
-        # Update Chinese link
-        zh_link = soup.find("a", attrs={"hreflang": "zh"})
-        if zh_link:
-            zh_link["href"] = cn_url
-
-        # Update English link
-        if support_en_lang:
-            en_link = soup.find("a", attrs={"hreflang": "en"})
-            if en_link:
-                en_link["href"] = en_url
-
-        return str(soup)
+        return _HREFLANG_HREF.sub(repl, output)
     except Exception as e:
         print(f"Error in stay_on_page hook: {e}")
         return output

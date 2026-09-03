@@ -29,8 +29,9 @@ theme:
     # - navigation.instant
     # - navigation.instant.prefetch
     # - navigation.instant.progress
-    # - navigation.prune
-    - navigation.sections
+    - navigation.prune
+    # sections would mark each 100-problem range as is_section and skip prune
+    # - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top

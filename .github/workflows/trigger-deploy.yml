@@ -1,0 +1,20 @@
+name: trigger-deploy
+
+on:
+  push:
+    branches:
+      - docs
+    paths-ignore:
+      - .git-committers-cache.json
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Dispatch deploy workflow on main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main --repo "${{ github.repository }}"
