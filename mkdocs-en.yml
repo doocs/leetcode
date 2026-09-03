@@ -29,7 +29,7 @@ extra:
             Thanks for your feedback! Help us improve this page.
 
 
-# rewritten by main.py during site build
+# rewritten by build_site.py during site build
 nav:
   - Home: index.md
   - Focused Training: tags.md
