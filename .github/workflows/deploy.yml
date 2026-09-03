@@ -14,14 +14,6 @@ on:
       - lcci/**
       - basic/**
       - .github/workflows/deploy.yml
-      - main.py
-      - mkdocs.yml
-      - mkdocs-en.yml
-      - hooks/**
-      - overrides/**
-      - docs/**
-      - docs-en/**
-      - requirements.txt
 
 concurrency:
   group: deploy-site
@@ -47,13 +39,6 @@ jobs:
           path: mkdocs
           fetch-depth: 0
 
-      - name: Sync docs branch content
-        run: |
-          rsync -a --remove-source-files --exclude='.git' mkdocs/ ./
-          rm -rf mkdocs
-          mv solution/CONTEST_README.md docs/contest.md
-          mv solution/CONTEST_README_EN.md docs-en/contest.md
-
       - name: Configure Git Credentials
         run: |
           git config --global user.name github-actions[bot]
@@ -68,9 +53,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-docs-${{ hashFiles('mkdocs/requirements.txt') }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-pip-docs-
 
       - name: Set mkdocs cache id
         run: echo "cache_id=$(date --utc '+%G-%V')" >> "$GITHUB_ENV"
@@ -83,19 +68,49 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
-      - name: Install dependencies
+      - name: Install site dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
-          python3 -m pip install "mkdocs-material[imaging]"
+          python3 -m pip install -r mkdocs/requirements.txt
           sudo apt-get install -y pngquant
+
+      - name: Overlay docs site engine
+        run: |
+          set -euo pipefail
+          # Copy only the site engine. Do not overlay docs/requirements.txt,
+          # .github/, rating.json, or other docs-root files onto main.
+          items=(
+            docs
+            docs-en
+            hooks
+            overrides
+            mkdocs.yml
+            mkdocs-en.yml
+            .git-committers-cache.json
+          )
+          for item in "${items[@]}"; do
+            if [ -e "mkdocs/$item" ]; then
+              rsync -a "mkdocs/$item" ./
+            fi
+          done
+          if [ -f mkdocs/build_site.py ]; then
+            rsync -a mkdocs/build_site.py ./
+          elif [ -f mkdocs/main.py ]; then
+            rsync -a mkdocs/main.py ./build_site.py
+          else
+            echo "docs branch is missing build_site.py (and main.py)."
+            exit 1
+          fi
+          rm -rf mkdocs
+          mv solution/CONTEST_README.md docs/contest.md
+          mv solution/CONTEST_README_EN.md docs-en/contest.md
 
       - name: Set MKDOCS_API_KEYS
         run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
 
       - name: Build site
         run: |
-          python3 main.py
+          python3 build_site.py
           mkdocs build -f mkdocs.yml
           mkdocs build -f mkdocs-en.yml
 

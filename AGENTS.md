@@ -73,7 +73,7 @@ GitHub Actions automatically run:
 - **gofmt** lint on changed Go files
 - **rustfmt** lint on changed Rust files
 - **Prettier** on JS/TS/PHP/SQL/Markdown files (auto-format same-repo PRs; `--check` on all PRs)
-- **Deploy** workflow for the documentation site
+- **Deploy** overlays the `docs` branch site engine onto `main` content (whitelist only) and builds GitHub Pages
 
 ## Solution Patterns
 
