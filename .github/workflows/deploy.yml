@@ -32,6 +32,11 @@ jobs:
           path: mkdocs
           fetch-depth: 1
 
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
       - name: Overlay docs site engine
         run: |
           set -euo pipefail
