@@ -6,18 +6,11 @@ on:
     branches:
       - main
     paths:
-      - solution/**
-      - lcs/**
-      - lcp/**
-      - lcof2/**
-      - lcof/**
-      - lcci/**
-      - basic/**
       - .github/workflows/deploy.yml
 
 concurrency:
   group: deploy-site
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
