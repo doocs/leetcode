@@ -13,18 +13,31 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
+      - .github/workflows/deploy.yml
+      - main.py
+      - mkdocs.yml
+      - mkdocs-en.yml
+      - hooks/**
+      - overrides/**
+      - docs/**
+      - docs-en/**
+      - requirements.txt
 
 concurrency:
-  group: ${{ github.workflow }} - ${{ github.ref }}
+  group: deploy-site
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Checkout docs branch
@@ -59,6 +72,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+      - name: Set mkdocs cache id
+        run: echo "cache_id=$(date --utc '+%G-%V')" >> "$GITHUB_ENV"
+
       - name: Restore mkdocs-material cache
         uses: actions/cache@v5
         with:
@@ -87,7 +103,7 @@ jobs:
         run: echo "leetcode.doocs.org" > ./site/CNAME
 
       - name: Commit committer cache to docs branch
-        if: github.ref == 'refs/heads/main'
+        if: github.event_name != 'pull_request'
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
