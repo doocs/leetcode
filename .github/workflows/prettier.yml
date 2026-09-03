@@ -25,13 +25,13 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.head_ref }}
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Install pnpm
         uses: pnpm/action-setup@v6
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run prettier

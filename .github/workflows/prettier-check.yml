@@ -13,6 +13,7 @@ on:
       - package.json
       - pnpm-lock.yaml
       - .github/workflows/prettier-check.yml
+      - .github/scripts/fetch-diff-base.sh
 
 concurrency:
   group: ${{ github.workflow }} - ${{ github.ref }}
@@ -24,11 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+      - name: Fetch diff base
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: bash .github/scripts/fetch-diff-base.sh
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check prettier

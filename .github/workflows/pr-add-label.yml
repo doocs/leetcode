@@ -12,14 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'doocs/leetcode'
     steps:
-      - name: Check PR number
-        id: pr_number
-        run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
-
       - name: Run add-label Action
         uses: actionv/pr-label-action@907fc236390396b7a1198624d6b26241cfc25fa3 # master
         with:
           github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
-          pr_number: ${{ env.PR_NUMBER }}
+          pr_number: ${{ github.event.pull_request.number }}
           organize_name: "doocs"
           team_name: "leetcode-algorithm"

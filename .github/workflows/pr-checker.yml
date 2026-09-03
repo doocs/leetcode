@@ -4,7 +4,7 @@ on:
   pull_request_target:
     types: [opened]
 
-concurrency: 
+concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
   cancel-in-progress: true
 
@@ -33,7 +33,7 @@ jobs:
                 -   .{py} 采用 black
                 -   .{go} 采用 gofmt
                 -   .{rs} 采用 rustfmt
-                -   其它待完善
+                -   .{cs} 与仓库现有 Solution.cs 风格保持一致
 
                 ### 2. Git 提交信息
 
@@ -61,7 +61,7 @@ jobs:
                 -   .{py} use black
                 -   .{go} use gofmt
                 -   .{rs} use rustfmt
-                -   Others to be improved
+                -   .{cs} match the existing Solution.cs style
 
                 ### 2. Git Commit Message
 

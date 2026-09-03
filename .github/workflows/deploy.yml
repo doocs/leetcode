@@ -13,18 +13,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        include:
-          - lang: zh
-            config: mkdocs.yml
-            site_path: site
-          - lang: en
-            config: mkdocs-en.yml
-            site_path: site/en
     permissions:
       contents: read
       actions: write
@@ -33,38 +23,23 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Checkout docs branch
         uses: actions/checkout@v7
         with:
           ref: docs
           path: mkdocs
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: 3.x
-
-      - name: Restore pip cache
-        uses: actions/cache@v6
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-docs-${{ matrix.lang }}-${{ hashFiles('mkdocs/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-docs-${{ matrix.lang }}-
-            ${{ runner.os }}-pip-docs-
-
-      - name: Install site dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r mkdocs/requirements.txt
-          sudo apt-get install -y pngquant
+          fetch-depth: 1
 
       - name: Overlay docs site engine
         run: |
           set -euo pipefail
+          if [ ! -f mkdocs/requirements.txt ]; then
+            echo "docs branch is missing requirements.txt."
+            exit 1
+          fi
+          cp mkdocs/requirements.txt requirements-docs.txt
           items=(
             docs
             docs-en
@@ -97,13 +72,76 @@ jobs:
             echo "warning: solution/CONTEST_README_EN.md missing; writing a stub."
             printf '%s\n' '---' 'comments: true' '---' '' '# LeetCode Contest' '' 'The contest list is not included in this build.' > docs-en/contest.md
           fi
+          python3 build_site.py
+
+      - name: Upload prepared site sources
+        uses: actions/upload-artifact@v7
+        with:
+          name: prepared-site
+          include-hidden-files: true
+          if-no-files-found: error
+          path: |
+            docs
+            docs-en
+            hooks
+            overrides
+            mkdocs.yml
+            mkdocs-en.yml
+            build_site.py
+            requirements-docs.txt
+            .git-committers-cache.json
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - lang: zh
+            config: mkdocs.yml
+            site_path: site
+          - lang: en
+            config: mkdocs-en.yml
+            site_path: site/en
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download prepared site sources
+        uses: actions/download-artifact@v8
+        with:
+          name: prepared-site
+          path: .
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Restore pip cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-docs-${{ hashFiles('requirements-docs.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-docs-
+
+      - name: Install site dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements-docs.txt
 
       - name: Build ${{ matrix.lang }} site
         env:
           MKDOCS_API_KEYS: ${{ secrets.MKDOCS_API_KEYS }}
-        run: |
-          python3 build_site.py
-          mkdocs build -f ${{ matrix.config }}
+        run: mkdocs build -f ${{ matrix.config }}
 
       - name: Upload ${{ matrix.lang }} site
         uses: actions/upload-artifact@v7
