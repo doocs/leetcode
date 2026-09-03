@@ -1,0 +1,31 @@
+name: deploy-request
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - solution/**
+      - lcs/**
+      - lcp/**
+      - lcof2/**
+      - lcof/**
+      - lcci/**
+      - basic/**
+
+concurrency:
+  group: deploy-request
+  cancel-in-progress: true
+
+jobs:
+  request:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Wait for a quiet period
+        run: sleep 90
+      - name: Dispatch deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main --repo "${{ github.repository }}"
