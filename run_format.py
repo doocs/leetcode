@@ -1,7 +1,6 @@
 from typing import List
 
 import os.path
-import platform
 import subprocess
 import sys
 import re
@@ -301,11 +300,13 @@ def format_inline_code(path: str):
                     f.write(block)
                 if suf == "go":
                     added = add_header(file)
-                    os.system(f'gofmt -w "{file}"')
+                    subprocess.check_call(["gofmt", "-w", file])
                     if added:
                         remove_header(file)
                 else:
-                    os.system(f'npx clang-format -i --style=file "{file}"')
+                    subprocess.check_call(
+                        ["npx", "clang-format", "-i", "--style=file", file]
+                    )
                 with open(file, "r", encoding="utf-8") as f:
                     new_block = f.read()
                 if not new_block.endswith("\n"):
@@ -329,7 +330,7 @@ def format_inline_code(path: str):
                 file = f"{root}/tmp.rs"
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(block)
-                os.system(f'rustfmt "{file}"')
+                subprocess.check_call(["rustfmt", file])
                 with open(file, "r", encoding="utf-8") as f:
                     new_block = f.read()
                 if not new_block.endswith("\n"):
@@ -341,53 +342,10 @@ def format_inline_code(path: str):
         f.write(content)
 
 
-def format_rust_files_linux():
-    # The find command to locate and format all .rs files in Linux
-    find_command = 'find . -name "*.rs" -exec rustfmt {} \\;'
-
-    # Execute the command
-    process = subprocess.Popen(
-        find_command,
-        shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
-
-    # Get the output and errors
-    stdout, stderr = process.communicate()
-
-    if process.returncode == 0:
-        print("Rust files formatted successfully on Linux!")
-        print(stdout)
-    else:
-        print("Error formatting Rust files on Linux:")
-        print(stderr)
-
-
-def format_rust_files_windows():
-    # PowerShell command to format all .rs files recursively in Windows
-    ps_command = (
-        "Get-ChildItem -Recurse -Filter *.rs | ForEach-Object { rustfmt $_.FullName }"
-    )
-
-    # Execute the PowerShell command
-    process = subprocess.Popen(
-        ["powershell", "-Command", ps_command],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
-
-    # Get the output and errors
-    stdout, stderr = process.communicate()
-
-    if process.returncode == 0:
-        print("Rust files formatted successfully on Windows!")
-        print(stdout)
-    else:
-        print("Error formatting Rust files on Windows:")
-        print(stderr)
+def format_rust_files(paths: List[str]) -> None:
+    rs_files = [p for p in paths if p.endswith(".rs")]
+    for i in range(0, len(rs_files), 64):
+        subprocess.check_call(["rustfmt", *rs_files[i : i + 64]])
 
 
 def run():
@@ -399,20 +357,11 @@ def run():
         if add_header(path):
             headered.append(path)
         if any(path.endswith(suf) for suf in ["c", "cpp", "java"]):
-            # format with clang-format
-            os.system(f'npx clang-format -i --style=file "{path}"')
+            subprocess.check_call(["npx", "clang-format", "-i", "--style=file", path])
 
-    # format with prettier
-    os.system('npx prettier --write "**/*.{js,ts,php,sql,md}"')
-
-    # format with gofmt
-    os.system("gofmt -w .")
-
-    # format with rustfmt
-    if platform.system() == "Linux":
-        format_rust_files_linux()
-    else:
-        format_rust_files_windows()
+    subprocess.check_call(["npx", "prettier", "--write", "**/*.{js,ts,php,sql,md}"])
+    subprocess.check_call(["gofmt", "-w", "."])
+    format_rust_files(paths)
 
     for path in headered:
         remove_header(path)
