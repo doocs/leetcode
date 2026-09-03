@@ -1,3 +1,4 @@
+import os
 import subprocess
 import time
 from datetime import timezone, timedelta, datetime
@@ -419,11 +420,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def format_rust_files() -> None:
     skip = {"node_modules", "__pycache__", ".git"}
-    rs_files = [
-        str(path)
-        for path in ROOT.rglob("*.rs")
-        if path.is_file() and skip.isdisjoint(path.parts)
-    ]
+    rs_files = []
+    for dirpath, dirnames, filenames in os.walk(ROOT):
+        dirnames[:] = [name for name in dirnames if name not in skip]
+        for name in filenames:
+            if name.endswith(".rs"):
+                rs_files.append(os.path.join(dirpath, name))
     for i in range(0, len(rs_files), 64):
         subprocess.check_call(["rustfmt", *rs_files[i : i + 64]])
 
