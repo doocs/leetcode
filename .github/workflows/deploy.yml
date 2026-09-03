@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - docs
     paths:
       - solution/**
       - lcs/**
@@ -33,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v7
