@@ -4,37 +4,47 @@ on:
   push:
     branches: [main]
     paths:
-      - solution/**
-      - lcs/**
-      - lcp/**
-      - lcof2/**
-      - lcof/**
-      - lcci/**
-      - basic/**
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.java'
+      - .clang-format
       - .github/workflows/clang-format-lint.yml
   pull_request:
     paths:
-      - solution/**
-      - lcs/**
-      - lcp/**
-      - lcof2/**
-      - lcof/**
-      - lcci/**
-      - basic/**
+      - '**/*.c'
+      - '**/*.cpp'
+      - '**/*.java'
+      - .clang-format
       - .github/workflows/clang-format-lint.yml
 
 concurrency:
-  group: ${{github.workflow}} - ${{github.ref}}
+  group: ${{ github.workflow }} - ${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v7
-      - uses: DoozyX/clang-format-lint-action@v0.20
         with:
-          source: '.'
-          extensions: 'c,cpp,java'
-          clangFormatVersion: 16
+          fetch-depth: 0
+      - name: Install clang-format
+        run: python3 -m pip install clang-format==16.0.6
+      - name: Check clang-format
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.c' '*.cpp' '*.java' || true)
+          else
+            before="${{ github.event.before }}"
+            if [ -z "$before" ] || [[ "$before" =~ ^0+$ ]]; then
+              echo "No previous commit; skip clang-format."
+              exit 0
+            fi
+            mapfile -t files < <(git diff --name-only --diff-filter=ACMR "$before" "${{ github.sha }}" -- '*.c' '*.cpp' '*.java' || true)
+          fi
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No C/C++/Java files changed."
+            exit 0
+          fi
+          clang-format --dry-run --Werror --style=file "${files[@]}"

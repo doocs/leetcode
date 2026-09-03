@@ -68,11 +68,11 @@ pnpm run setup:python     # Optional: black and the problem-sync spider
 
 GitHub Actions automatically run:
 
-- **clang-format** lint on C/C++/Java files
-- **Black** lint on Python files
-- **gofmt** lint on Go files
-- **rustfmt** lint on Rust files
-- **Prettier** on JS/TS/PHP/SQL/Markdown files
+- **clang-format** lint on changed C/C++/Java files
+- **Black** lint on changed Python files
+- **gofmt** lint on changed Go files
+- **rustfmt** lint on changed Rust files
+- **Prettier** on JS/TS/PHP/SQL/Markdown files (auto-format same-repo PRs; `--check` on all PRs)
 - **Deploy** workflow for the documentation site
 
 ## Solution Patterns
