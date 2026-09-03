@@ -1,7 +1,8 @@
-import platform
+import os
 import subprocess
 import time
 from datetime import timezone, timedelta, datetime
+from pathlib import Path
 
 import requests
 import urllib3
@@ -414,54 +415,19 @@ def get_contests(fetch_new=True) -> List:
 
 ########################################################################################
 
-
-def format_rust_files_linux():
-    # The find command to locate and format all .rs files in Linux
-    find_command = 'find . -name "*.rs" -exec rustfmt {} \\;'
-
-    # Execute the command
-    process = subprocess.Popen(
-        find_command,
-        shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
-
-    # Get the output and errors
-    stdout, stderr = process.communicate()
-
-    if process.returncode == 0:
-        print("Rust files formatted successfully on Linux!")
-        print(stdout)
-    else:
-        print("Error formatting Rust files on Linux:")
-        print(stderr)
+ROOT = Path(__file__).resolve().parents[1]
 
 
-def format_rust_files_windows():
-    # PowerShell command to format all .rs files recursively in Windows
-    ps_command = (
-        "Get-ChildItem -Recurse -Filter *.rs | ForEach-Object { rustfmt $_.FullName }"
-    )
-
-    # Execute the PowerShell command
-    process = subprocess.Popen(
-        ["powershell", "-Command", ps_command],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
-
-    # Get the output and errors
-    stdout, stderr = process.communicate()
-
-    if process.returncode == 0:
-        print("Rust files formatted successfully on Windows!")
-        print(stdout)
-    else:
-        print("Error formatting Rust files on Windows:")
-        print(stderr)
+def format_rust_files() -> None:
+    skip = {"node_modules", "__pycache__", ".git"}
+    rs_files = []
+    for dirpath, dirnames, filenames in os.walk(ROOT):
+        dirnames[:] = [name for name in dirnames if name not in skip]
+        for name in filenames:
+            if name.endswith(".rs"):
+                rs_files.append(os.path.join(dirpath, name))
+    for i in range(0, len(rs_files), 64):
+        subprocess.check_call(["rustfmt", *rs_files[i : i + 64]])
 
 
 def run():
@@ -540,15 +506,11 @@ def run():
     generate_category_readme(ls, "JavaScript")
 
     refresh(ls)
-    # 格式化
-    os.system('cd .. && npx prettier --write "**/*.{md,js,ts,php,sql}"')
-
-    # 格式化 rust 代码
-    # 判断当前是 windows 还是 linux
-    if platform.system() == "Linux":
-        format_rust_files_linux()
-    elif platform.system() == "Windows":
-        format_rust_files_windows()
+    subprocess.check_call(
+        ["npx", "prettier", "--write", "**/*.{md,js,ts,php,sql}"],
+        cwd=ROOT,
+    )
+    format_rust_files()
 
 
 if __name__ == "__main__":

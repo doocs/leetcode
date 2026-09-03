@@ -110,10 +110,9 @@ jobs:
             printf '%s\n' '---' 'comments: true' '---' '' '# LeetCode Contest' '' 'The contest list is not included in this build.' > docs-en/contest.md
           fi
 
-      - name: Set MKDOCS_API_KEYS
-        run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
-
       - name: Build ${{ matrix.lang }} site
+        env:
+          MKDOCS_API_KEYS: ${{ secrets.MKDOCS_API_KEYS }}
         run: |
           python3 build_site.py
           mkdocs build -f ${{ matrix.config }}
