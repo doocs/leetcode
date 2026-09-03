@@ -164,7 +164,7 @@ extra:
             感谢您的反馈！请帮助我们改进此页面。
 
 
-# rewritten by main.py during site build
+# rewritten by build_site.py during site build
 nav:
   - 首页: index.md
   - 专项训练: tags.md
