@@ -56,18 +56,6 @@ jobs:
             ${{ runner.os }}-pip-docs-${{ matrix.lang }}-
             ${{ runner.os }}-pip-docs-
 
-      - name: Set mkdocs cache id
-        run: echo "cache_id=$(date --utc '+%G-%V')" >> "$GITHUB_ENV"
-
-      - name: Restore mkdocs-material cache
-        uses: actions/cache@v5
-        with:
-          path: .cache
-          key: mkdocs-material-${{ matrix.lang }}-${{ env.cache_id }}
-          restore-keys: |
-            mkdocs-material-${{ matrix.lang }}-
-            mkdocs-material-
-
       - name: Install site dependencies
         run: |
           python3 -m pip install --upgrade pip
@@ -118,18 +106,26 @@ jobs:
           mkdocs build -f ${{ matrix.config }}
 
       - name: Upload ${{ matrix.lang }} site
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: site-${{ matrix.lang }}
           path: ${{ matrix.site_path }}
           if-no-files-found: error
 
+      - name: Ensure committer cache exists
+        run: |
+          if [[ ! -f .git-committers-cache.json ]]; then
+            echo "committer cache missing after build; writing an empty stub."
+            printf '%s\n' '{"cache_date":0,"page_authors":{}}' > .git-committers-cache.json
+          fi
+
       - name: Upload ${{ matrix.lang }} committer cache
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: committer-cache-${{ matrix.lang }}
           path: .git-committers-cache.json
-          if-no-files-found: warn
+          include-hidden-files: true
+          if-no-files-found: error
 
   package:
     needs: build
@@ -139,13 +135,13 @@ jobs:
       actions: write
     steps:
       - name: Download Chinese site
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: site-zh
           path: site
 
       - name: Download English site
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: site-en
           path: site/en
@@ -156,7 +152,7 @@ jobs:
       - name: Download committer caches
         if: github.event_name != 'pull_request'
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: committer-cache-*
           path: caches
