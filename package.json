@@ -4,7 +4,7 @@
     "setup:python": "node scripts/run-py.js -m pip install -r requirements.txt"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
+    "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^19.8.1",
     "@prettier/plugin-php": "^0.25.0",
     "clang-format": "^1.8.0",
