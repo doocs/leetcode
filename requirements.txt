@@ -1,5 +1,5 @@
 black==25.1.0
-Requests==2.32.3
+Requests==2.34.2
 sortedcontainers==2.4.0
 urllib3==1.26.18
 mkdocs-material[imaging]==9.6.22
