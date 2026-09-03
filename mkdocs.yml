@@ -164,20 +164,7 @@ extra:
             感谢您的反馈！请帮助我们改进此页面。
 
 
+# rewritten by main.py during site build
 nav:
   - 首页: index.md
-  - LeetCode 全解:
-    - 1. 两数之和: lc/1.md
-    - 2. 两数相加: lc/2.md
-    - 11. 盛最多水的容器: lc/11.md
-  - 剑指 Offer:
-    - 3. 数组中重复的数字: lcof/3.md
-    - 4. 二维数组中的查找: lcof/4.md
-  - 剑指 Offer（专项突破）:
-    - 1. 整数除法: lcof2/1.md
-    - 2. 二进制加法: lcof2/2.md
-  - 程序员面试金典:
-    - 1.1. 判定字符是否唯一: lcci/1.1.md
-    - 1.2. 判定是否互为字符重排: lcci/1.2.md
   - 专项训练: tags.md
-  - 竞赛: contest.md
