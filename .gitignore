@@ -6,3 +6,15 @@ solution
 __pycache__
 .cache
 package-lock.json
+
+# Generated at build time from main (solution/lcof/...)
+docs/lc/
+docs/lcci/
+docs/lcof/
+docs/lcof2/
+docs/lcp/
+docs/lcs/
+docs/contest.md
+docs-en/lc/
+docs-en/lcci/
+docs-en/contest.md
