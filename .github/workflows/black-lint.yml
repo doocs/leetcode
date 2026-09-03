@@ -7,11 +7,13 @@ on:
       - '**/*.py'
       - requirements.txt
       - .github/workflows/black-lint.yml
+      - .github/scripts/fetch-diff-base.sh
   pull_request:
     paths:
       - '**/*.py'
       - requirements.txt
       - .github/workflows/black-lint.yml
+      - .github/scripts/fetch-diff-base.sh
 
 concurrency:
   group: ${{ github.workflow }} - ${{ github.ref }}
@@ -23,10 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+      - name: Fetch diff base
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          GIT_BEFORE: ${{ github.event.before }}
+        run: bash .github/scripts/fetch-diff-base.sh
       - uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version: '3.13'
       - name: Install black
         run: |
           set -euo pipefail

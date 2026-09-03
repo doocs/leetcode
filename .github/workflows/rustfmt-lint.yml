@@ -6,10 +6,12 @@ on:
     paths:
       - '**/*.rs'
       - .github/workflows/rustfmt-lint.yml
+      - .github/scripts/fetch-diff-base.sh
   pull_request:
     paths:
       - '**/*.rs'
       - .github/workflows/rustfmt-lint.yml
+      - .github/scripts/fetch-diff-base.sh
 
 concurrency:
   group: ${{ github.workflow }} - ${{ github.ref }}
@@ -21,7 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+      - name: Fetch diff base
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          GIT_BEFORE: ${{ github.event.before }}
+        run: bash .github/scripts/fetch-diff-base.sh
       - uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772 # stable
         with:
           toolchain: stable
