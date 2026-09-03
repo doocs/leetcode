@@ -4,7 +4,7 @@ on:
   pull_request_target:
     types: [opened, edited, reopened, synchronize]
 
-concurrency: 
+concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
   cancel-in-progress: true
 
@@ -33,17 +33,19 @@ jobs:
         with:
           node-version: 22
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run prettier
         run: |
+          set -euo pipefail
           git config --global core.quotepath off
-          changed_files=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" | grep -E '\.js$|\.ts$|\.php$|\.sql$|\.md$' || true)
-          if [ -n "$changed_files" ]; then
-            echo "Running prettier on the changed files"
-            echo "$changed_files" | xargs -d '\n' pnpm exec prettier --write
-          else
+          git fetch --depth=1 origin "${{ github.event.pull_request.base.sha }}"
+          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
+          if [ ${#files[@]} -eq 0 ]; then
             echo "No matching files to run prettier on."
+            exit 0
           fi
+          echo "Running prettier on the changed files"
+          pnpm exec prettier --write "${files[@]}"
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
