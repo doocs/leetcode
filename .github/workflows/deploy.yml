@@ -22,8 +22,18 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - lang: zh
+            config: mkdocs.yml
+            site_path: site
+          - lang: en
+            config: mkdocs-en.yml
+            site_path: site/en
     permissions:
-      contents: write
+      contents: read
       actions: write
     steps:
       - name: Checkout main branch
@@ -39,11 +49,6 @@ jobs:
           path: mkdocs
           fetch-depth: 0
 
-      - name: Configure Git Credentials
-        run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
-
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
@@ -53,8 +58,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-docs-${{ hashFiles('mkdocs/requirements.txt') }}
+          key: ${{ runner.os }}-pip-docs-${{ matrix.lang }}-${{ hashFiles('mkdocs/requirements.txt') }}
           restore-keys: |
+            ${{ runner.os }}-pip-docs-${{ matrix.lang }}-
             ${{ runner.os }}-pip-docs-
 
       - name: Set mkdocs cache id
@@ -64,8 +70,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .cache
-          key: mkdocs-material-${{ env.cache_id }}
+          key: mkdocs-material-${{ matrix.lang }}-${{ env.cache_id }}
           restore-keys: |
+            mkdocs-material-${{ matrix.lang }}-
             mkdocs-material-
 
       - name: Install site dependencies
@@ -77,8 +84,6 @@ jobs:
       - name: Overlay docs site engine
         run: |
           set -euo pipefail
-          # Copy only the site engine. Do not overlay docs/requirements.txt,
-          # .github/, rating.json, or other docs-root files onto main.
           items=(
             docs
             docs-en
@@ -93,14 +98,11 @@ jobs:
               rsync -a "mkdocs/$item" ./
             fi
           done
-          if [ -f mkdocs/build_site.py ]; then
-            rsync -a mkdocs/build_site.py ./
-          elif [ -f mkdocs/main.py ]; then
-            rsync -a mkdocs/main.py ./build_site.py
-          else
-            echo "docs branch is missing build_site.py (and main.py)."
+          if [ ! -f mkdocs/build_site.py ]; then
+            echo "docs branch is missing build_site.py."
             exit 1
           fi
+          rsync -a mkdocs/build_site.py ./
           rm -rf mkdocs
           mv solution/CONTEST_README.md docs/contest.md
           mv solution/CONTEST_README_EN.md docs-en/contest.md
@@ -108,36 +110,105 @@ jobs:
       - name: Set MKDOCS_API_KEYS
         run: echo "MKDOCS_API_KEYS=${{ secrets.MKDOCS_API_KEYS }}" >> $GITHUB_ENV
 
-      - name: Build site
+      - name: Build ${{ matrix.lang }} site
         run: |
           python3 build_site.py
-          mkdocs build -f mkdocs.yml
-          mkdocs build -f mkdocs-en.yml
+          mkdocs build -f ${{ matrix.config }}
+
+      - name: Upload ${{ matrix.lang }} site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-${{ matrix.lang }}
+          path: ${{ matrix.site_path }}
+          if-no-files-found: error
+
+      - name: Upload ${{ matrix.lang }} committer cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: committer-cache-${{ matrix.lang }}
+          path: .git-committers-cache.json
+          if-no-files-found: warn
+
+  package:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Download Chinese site
+        uses: actions/download-artifact@v4
+        with:
+          name: site-zh
+          path: site
+
+      - name: Download English site
+        uses: actions/download-artifact@v4
+        with:
+          name: site-en
+          path: site/en
 
       - name: Generate CNAME
         run: echo "leetcode.doocs.org" > ./site/CNAME
 
-      - name: Commit committer cache to docs branch
+      - name: Download committer caches
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          pattern: committer-cache-*
+          path: caches
+          merge-multiple: false
+
+      - name: Commit merged committer cache to docs branch
         if: github.event_name != 'pull_request'
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          CACHE_FILE=".git-committers-cache.json"
-          if [[ ! -f "$CACHE_FILE" ]]; then
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          authors = {}
+          cache_date = 0
+          for path in Path("caches").glob("**/.git-committers-cache.json"):
+              data = json.loads(path.read_text(encoding="utf-8"))
+              cache_date = max(cache_date, data.get("cache_date") or 0)
+              for key, val in data.get("page_authors", {}).items():
+                  prev = authors.get(key)
+                  if prev is None or (val.get("retrieved") or 0) >= (
+                      prev.get("retrieved") or 0
+                  ):
+                      authors[key] = val
+
+          if not authors:
+              print("no committer cache to merge")
+              raise SystemExit(0)
+
+          Path(".git-committers-cache.json").write_text(
+              json.dumps(
+                  {"cache_date": cache_date, "page_authors": authors},
+                  ensure_ascii=False,
+                  indent=2,
+              )
+              + "\n",
+              encoding="utf-8",
+          )
+          print(f"merged {len(authors)} committer entries")
+          PY
+
+          if [[ ! -f .git-committers-cache.json ]]; then
             echo "Cache file not found; skip commit."
             exit 0
           fi
 
-          echo "Cloning docs branch ..."
           git clone --depth 1 --branch docs "https://x-access-token:${GH_TOKEN}@github.com/${GH_REPO}.git" docs-cache
-          cp "$CACHE_FILE" docs-cache/
-
+          cp .git-committers-cache.json docs-cache/
           cd docs-cache
-
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
           git add .git-committers-cache.json
           git commit -m "chore: update committer cache [skip ci]" || echo "No changes to commit"
           git push origin docs
@@ -148,7 +219,7 @@ jobs:
           path: site
 
   deploy:
-    needs: build
+    needs: package
     runs-on: ubuntu-latest
     permissions:
       pages: write
