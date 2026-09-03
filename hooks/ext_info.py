@@ -2,7 +2,6 @@ import re
 
 from mkdocs import plugins
 
-
 # https://www.mkdocs.org/dev-guide/plugins/#events
 
 code_dict = {
@@ -69,6 +68,7 @@ def add_difficulty_info(markdown, page):
 
     return markdown
 
+
 def modify_code_block(content):
     # 修改代码块
     while True:
@@ -93,36 +93,48 @@ def modify_code_block(content):
         content = content[:i] + "\n".join(result) + content[j + len(end) :]
     return content
 
+
 def remove_version_switch(content):
     content = re.sub(r"\[中文文档]\((.*?)\)", "", content)
     content = re.sub(r"\[English Version]\((.*?)\)", "", content)
     return content
 
+
+_REPO_LC_LINK = re.compile(
+    r"\((/solution/\d{4}-\d{4}/(\d+)\.[^)]+/README(?:_EN)?\.md)\)"
+)
+_IMG_WITHOUT_SRC = re.compile(r"<img(?![^>]*\bsrc=)[^>]*/?>", re.IGNORECASE)
+
+
 def is_contest_page(page):
-    a = page.title == 'Contest' and page.url == 'contest/'
-    b = page.title == '竞赛专区' and page.url == 'contest/'
-    return a or b
+    url = page.url or ""
+    return url == "contest/" or url.endswith("contest/")
 
 
-def replace_contest_problem_link(content, page):
-    if not is_contest_page(page):
-        return content
-    res = re.findall(r"\[(.*?)\]\((.*?)\)", content)
-    for _, link in res:
-        try:
-            num = link.split("/")[-2].split(".")[0]
-            num = int(num)
-            content = content.replace(link, f"./lc/{num}.md")
-        except:
-            pass
-    return content
+def rewrite_repo_problem_links(content, page):
+    url = page.url or ""
+    if is_contest_page(page):
+        dest = "./lc/{num}.md"
+    elif url.startswith("lc/"):
+        dest = "{num}.md"
+    else:
+        dest = "../lc/{num}.md"
+
+    def repl(match):
+        return f"({dest.format(num=int(match.group(2)))})"
+
+    return _REPO_LC_LINK.sub(repl, content)
+
+
+def strip_images_without_src(content):
+    return _IMG_WITHOUT_SRC.sub("", content)
 
 
 @plugins.event_priority(90)
 def on_page_markdown(markdown, page, config, files):
     markdown = remove_version_switch(markdown)
-    markdown = replace_contest_problem_link(markdown, page)
+    markdown = rewrite_repo_problem_links(markdown, page)
+    markdown = strip_images_without_src(markdown)
     markdown = add_difficulty_info(markdown, page)
     markdown = modify_code_block(markdown)
     return markdown
-
