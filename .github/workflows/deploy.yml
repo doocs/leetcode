@@ -34,6 +34,7 @@ jobs:
             site_path: site/en
     permissions:
       contents: read
+      actions: write
     steps:
       - name: Checkout main branch
         uses: actions/checkout@v7
@@ -57,8 +58,9 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-docs-${{ hashFiles('mkdocs/requirements.txt') }}
+          key: ${{ runner.os }}-pip-docs-${{ matrix.lang }}-${{ hashFiles('mkdocs/requirements.txt') }}
           restore-keys: |
+            ${{ runner.os }}-pip-docs-${{ matrix.lang }}-
             ${{ runner.os }}-pip-docs-
 
       - name: Set mkdocs cache id
@@ -132,6 +134,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
     steps:
       - name: Download Chinese site
         uses: actions/download-artifact@v4
