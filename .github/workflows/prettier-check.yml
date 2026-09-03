@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 22
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check prettier
         run: |
           set -euo pipefail

@@ -28,7 +28,14 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install black
-        run: python -m pip install "$(grep '^black==' requirements.txt)"
+        run: |
+          set -euo pipefail
+          pin="$(grep '^black==' requirements.txt || true)"
+          if [ -z "$pin" ]; then
+            echo "requirements.txt must contain a black== version pin."
+            exit 1
+          fi
+          python -m pip install "$pin"
       - name: Check black
         run: |
           set -euo pipefail
