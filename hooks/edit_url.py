@@ -1,6 +1,5 @@
 from mkdocs import plugins
 
-
 # https://www.mkdocs.org/dev-guide/plugins/#events
 
 

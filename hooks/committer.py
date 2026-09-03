@@ -50,7 +50,9 @@ def _exclude(src_path: str, globs: List[str]) -> bool:
 
 def _get_header() -> Dict[str, str]:
     if "MKDOCS_API_KEYS" in os.environ:
-        keys = [k.strip() for k in os.environ["MKDOCS_API_KEYS"].split(",") if k.strip()]
+        keys = [
+            k.strip() for k in os.environ["MKDOCS_API_KEYS"].split(",") if k.strip()
+        ]
         if keys:
             return {"Authorization": "token " + random.choice(keys)}
     return {}
@@ -155,7 +157,9 @@ class CommitterPlugin:
             "page_authors": self.page_authors,
         }
         self.cache_path.write_text(json.dumps(out, ensure_ascii=False, indent=2))
-        _log(f"Saved committer cache: {len(self.page_authors)} entries -> {self.cache_path}")
+        _log(
+            f"Saved committer cache: {len(self.page_authors)} entries -> {self.cache_path}"
+        )
 
     def on_page_context(self, context, page, cfg, nav):
         if not page.edit_url or _exclude(page.file.src_path, []):
@@ -195,7 +199,8 @@ class CommitterPlugin:
         try:
             result = subprocess.run(
                 [
-                    "git", "log",
+                    "git",
+                    "log",
                     "--format=COMMIT %ct",
                     "--name-only",
                     "--no-merges",
@@ -248,7 +253,10 @@ class CommitterPlugin:
                         )
                 return authors
             elif r.status_code in (401, 403):
-                _log(f"GitHub API auth error {r.status_code}; halting further calls", "ERROR")
+                _log(
+                    f"GitHub API auth error {r.status_code}; halting further calls",
+                    "ERROR",
+                )
                 self._auth_failed.set()
                 return None
             else:
