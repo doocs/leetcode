@@ -9,7 +9,7 @@
     "@prettier/plugin-php": "^0.25.0",
     "clang-format": "^1.8.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
+    "lint-staged": "^17.4.1",
     "prettier": "^3.9.6",
     "prettier-plugin-sql-cst": "^0.22.1"
   },
