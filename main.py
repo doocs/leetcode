@@ -95,6 +95,7 @@ def write_range_indexes(
     out_dir = os.path.join(docs_root, target_dir)
     os.makedirs(out_dir, exist_ok=True)
     heading = "本段题目" if lang == "zh" else "Problems in this range"
+    colon = "：" if lang == "zh" else ": "
 
     for start, group in buckets.items():
         group.sort(key=lambda x: x.sort_key)
@@ -108,7 +109,7 @@ def write_range_indexes(
             "",
             f"# {label}",
             "",
-            f"{heading}：{len(group)}",
+            f"{heading}{colon}{len(group)}",
             "",
         ]
         for item in group:

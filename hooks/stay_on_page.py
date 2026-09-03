@@ -1,7 +1,7 @@
 import re
 
 _HREFLANG_HREF = re.compile(
-    r'(<a\b(?=[^>]*\bhreflang="(?P<lang>zh|en)")[^>]*\bhref=")[^"]*(")',
+    r'(?P<prefix><a\b(?=[^>]*\bhreflang="(?P<lang>zh|en)")[^>]*\bhref=")[^"]*(?P<suffix>")',
     re.IGNORECASE,
 )
 
@@ -18,10 +18,10 @@ def on_post_page(output, page, config):
 
     def repl(match):
         lang = match.group("lang").lower()
-        href = en_url if lang == "en" and support_en else cn_url
         if lang == "en" and not support_en:
             return match.group(0)
-        return f"{match.group(1)}{href}{match.group(3)}"
+        href = en_url if lang == "en" else cn_url
+        return f"{match.group('prefix')}{href}{match.group('suffix')}"
 
     try:
         return _HREFLANG_HREF.sub(repl, output)
