@@ -74,26 +74,64 @@
         <h2 class="lw-section__title">{% if zh %}题库{% else %}Collections{% endif %}</h2>
         <div class="lw-cards">
             <a class="lw-card" href="{{ root }}lc/0000-0099/">
-                <span class="lw-card__count">4000+</span>
-                <strong>LeetCode</strong>
-                <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
+                <span class="lw-card__cover lw-card__cover--lc">
+                    <img
+                        src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/doocs-leetcode.png"
+                        alt=""
+                        width="480"
+                        height="480"
+                    >
+                </span>
+                <span class="lw-card__body">
+                    <strong>LeetCode</strong>
+                    <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
+                    <span class="lw-card__count">{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</span>
+                </span>
             </a>
             {% if zh %}
             <a class="lw-card" href="{{ root }}lcof/3/">
-                <span class="lw-card__count">75</span>
-                <strong>剑指 Offer</strong>
-                <span>第 2 版，面试高频原题</span>
+                <span class="lw-card__cover">
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/lcof.png"
+                        alt="《剑指 Offer》第 2 版"
+                        width="228"
+                        height="297"
+                    >
+                </span>
+                <span class="lw-card__body">
+                    <strong>剑指 Offer</strong>
+                    <span>第 2 版，面试高频原题</span>
+                    <span class="lw-card__count">75 题</span>
+                </span>
             </a>
             <a class="lw-card" href="{{ root }}lcof2/1/">
-                <span class="lw-card__count">119</span>
-                <strong>剑指 Offer II</strong>
-                <span>专项突击版</span>
+                <span class="lw-card__cover">
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/lcof2.jpg"
+                        alt="《剑指 Offer》专项突击版"
+                        width="300"
+                        height="300"
+                    >
+                </span>
+                <span class="lw-card__body">
+                    <strong>剑指 Offer II</strong>
+                    <span>专项突击版</span>
+                    <span class="lw-card__count">119 题</span>
+                </span>
             </a>
             {% endif %}
             <a class="lw-card" href="{{ root }}lcci/1.1/">
-                <span class="lw-card__count">109</span>
-                <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
-                <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
+                <span class="lw-card__cover lw-card__cover--lcci">
+                    <span class="lw-card__seal">{% if zh %}典{% else %}VI{% endif %}</span>
+                    <span class="lw-card__cover-title">
+                        {% if zh %}程序员<br>面试金典{% else %}Cracking the<br>Coding Interview{% endif %}
+                    </span>
+                </span>
+                <span class="lw-card__body">
+                    <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
+                    <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
+                    <span class="lw-card__count">{% if zh %}109 题{% else %}109 problems{% endif %}</span>
+                </span>
             </a>
         </div>
         <ul class="lw-chips">
