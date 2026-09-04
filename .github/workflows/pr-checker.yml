@@ -2,14 +2,21 @@ name: pr-checker
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, reopened]
 
 concurrency:
   group: ${{github.workflow}} - ${{github.ref}}
   cancel-in-progress: true
 
+# Comments via the GitHub API only. Do not check out PR code here.
+# Fork PRs must still run so outside contributors see the guidelines.
+
+permissions:
+  issues: write
+
 jobs:
   build:
+    if: github.repository == 'doocs/leetcode'
     runs-on: ubuntu-latest
     steps:
       - name: Check Team Membership

@@ -5,6 +5,13 @@ on:
     - cron: "0 0/12 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   update-readme:
     name: Generate starcharts

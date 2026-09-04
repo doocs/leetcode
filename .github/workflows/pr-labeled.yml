@@ -4,13 +4,14 @@ on:
   pull_request_target:
     types: [labeled]
 
+# Comments via the GitHub API only. Do not check out PR code here.
+
 permissions:
-  contents: read
+  issues: write
 
 jobs:
   issue-labeled:
-    permissions:
-      issues: write
+    if: github.repository == 'doocs/leetcode'
     runs-on: ubuntu-latest
     steps:
       - name: supplement
