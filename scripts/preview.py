@@ -39,6 +39,15 @@ DOCS_ITEMS = (
     "requirements.txt",
     ".git-committers-cache.json",
 )
+REQUIRED_DOCS_ITEMS = (
+    "build_site.py",
+    "mkdocs.yml",
+    "mkdocs-en.yml",
+    "docs",
+    "docs-en",
+    "hooks",
+    "requirements.txt",
+)
 DEFAULT_LIMIT = 400
 
 
@@ -247,6 +256,13 @@ def extract_docs(dest: Path, ref: Optional[str] = None) -> None:
             tar.extractall(dest, filter="data")
         except TypeError:
             tar.extractall(dest)
+    missing = [item for item in REQUIRED_DOCS_ITEMS if not (dest / item).exists()]
+    if missing:
+        sys.exit(
+            f"docs ref {ref!r} is missing required site-engine files: "
+            + ", ".join(missing)
+            + "\nFetch the docs branch, e.g. git fetch origin docs:docs"
+        )
 
 
 def wipe_dir(path: Path) -> None:
@@ -280,24 +296,15 @@ def write_contest_stubs(dest: Path) -> None:
     docs_en = dest / "docs-en"
     docs.mkdir(parents=True, exist_ok=True)
     docs_en.mkdir(parents=True, exist_ok=True)
-    zh_src = REPO / "solution" / "CONTEST_README.md"
-    en_src = REPO / "solution" / "CONTEST_README_EN.md"
-    zh_dst = docs / "contest.md"
-    en_dst = docs_en / "contest.md"
-    if zh_src.is_file():
-        shutil.copy2(zh_src, zh_dst)
-    elif not zh_dst.is_file():
-        zh_dst.write_text(
-            "---\ncomments: true\n---\n\n# 力扣竞赛\n\n竞赛列表暂未包含在本次预览中。\n",
-            encoding="utf-8",
-        )
-    if en_src.is_file():
-        shutil.copy2(en_src, en_dst)
-    elif not en_dst.is_file():
-        en_dst.write_text(
-            "---\ncomments: true\n---\n\n# LeetCode Contest\n\nThe contest list is not included in this preview.\n",
-            encoding="utf-8",
-        )
+    (docs / "contest.md").write_text(
+        "---\ncomments: true\n---\n\n# 力扣竞赛\n\n" "竞赛列表未包含在本次预览中。\n",
+        encoding="utf-8",
+    )
+    (docs_en / "contest.md").write_text(
+        "---\ncomments: true\n---\n\n# LeetCode Contest\n\n"
+        "The contest list is not included in this preview.\n",
+        encoding="utf-8",
+    )
 
 
 def tune_mkdocs_yml(path: Path) -> None:
