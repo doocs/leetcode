@@ -118,7 +118,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.9rem;
-    margin: 1.2rem 0 1rem;
+    margin: 1.2rem 0 2.2rem;
 }
 
 a.mdx-tile,
@@ -173,12 +173,6 @@ a.mdx-tile:focus {
     color: var(--md-accent-fg-color);
     font-size: 0.75rem;
     font-weight: 700;
-}
-
-.mdx-langs {
-    margin: 0 0 2.2rem;
-    color: var(--md-default-fg-color--light);
-    font-size: 0.8rem;
 }
 
 .mdx-connect {
