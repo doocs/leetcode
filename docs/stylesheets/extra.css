@@ -36,229 +36,49 @@
     border-radius: .1rem;
 }
 
-/* Homepage — Material for MkDocs landing pattern */
-.mdx-container {
-    padding-top: 1.25rem;
-    background: var(--md-primary-fg-color);
-    color: var(--md-primary-bg-color);
-}
-
-.mdx-container .md-typeset {
-    color: var(--md-primary-bg-color);
-}
-
-.mdx-container .md-typeset h1 {
-    margin: 0 0 1rem;
-    color: currentColor;
-    font-weight: 700;
-}
-
-.mdx-container .md-typeset p {
-    max-width: 36rem;
-    margin-bottom: 1.4rem;
-    color: color-mix(in srgb, var(--md-primary-bg-color) 82%, transparent);
-}
-
+/* Homepage — sit on the same canvas as the rest of the wiki */
 .mdx-hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2.5rem;
-    padding: 2.4rem 0.2rem 3.2rem;
+    margin: 0 0 2.2rem;
 }
 
-.mdx-hero__content {
+.mdx-hero > div:first-child {
     max-width: 36rem;
 }
 
+.mdx-hero h1 {
+    margin: 0 0 0.8rem;
+    font-weight: 700;
+}
+
 .mdx-hero .md-button {
-    margin: 0.35rem 0.4rem 0 0;
-    color: inherit;
-    border-color: color-mix(in srgb, var(--md-primary-bg-color) 45%, transparent);
-}
-
-.mdx-hero .md-button--primary {
-    color: var(--md-primary-fg-color);
-    background-color: var(--md-primary-bg-color);
-    border-color: var(--md-primary-bg-color);
-}
-
-.mdx-hero .md-button:hover,
-.mdx-hero .md-button:focus {
-    color: var(--md-accent-bg-color);
-    background-color: var(--md-accent-fg-color);
-    border-color: var(--md-accent-fg-color);
+    margin: 0.2rem 0.4rem 0.2rem 0;
 }
 
 .mdx-hero__image img {
     display: block;
-    width: min(100%, 16rem);
+    width: min(100%, 11rem);
     height: auto;
 }
 
-.mdx-hero__wave {
-    display: block;
-    width: 100%;
-    height: 4.5rem;
-}
-
-.mdx-hero__wave path {
-    fill: var(--md-default-bg-color);
-}
-
-.mdx-body {
-    padding: 0.4rem 0 2.4rem;
-}
-
-.mdx-body > h2:first-child {
-    margin-top: 0;
-}
-
-.mdx-tiles {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 1.2rem 0 2.8rem;
-}
-
-a.mdx-tile,
-a.mdx-tile:visited {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid var(--md-default-fg-color--lightest);
-    border-radius: 0.3rem;
-    color: inherit;
-    text-decoration: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-a.mdx-tile:hover,
-a.mdx-tile:focus {
-    border-color: var(--md-accent-fg-color);
-    box-shadow: 0 0.75rem 1.8rem color-mix(in srgb, var(--md-accent-fg-color) 18%, transparent);
-    color: inherit;
-    text-decoration: none;
-}
-
-.mdx-tile__plate {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
-    min-height: 7.4rem;
-    padding: 1.25rem 1.35rem;
-    background: color-mix(in srgb, var(--md-accent-fg-color) 14%, var(--md-default-bg-color));
-}
-
-.mdx-tile__icon {
-    width: 2.35rem;
-    height: 2.35rem;
-    color: var(--md-accent-fg-color);
-}
-
-.mdx-tile__icon svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-}
-
-.mdx-tile__plate strong {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--md-accent-fg-color);
-}
-
-.mdx-tile__body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 1.15rem 1.35rem 1.35rem;
-}
-
-.mdx-tile h3 {
-    margin: 0 0 0.4rem;
-    font-weight: 700;
-}
-
-.mdx-tile p {
-    margin: 0;
-    color: var(--md-default-fg-color--light);
-}
-
-.mdx-tile--lead {
-    flex-direction: row;
-    grid-column: 1 / -1;
-    min-height: 13.5rem;
-}
-
-.mdx-tile--lead .mdx-tile__plate {
-    flex: 0 0 38%;
-    min-height: 100%;
-    align-items: flex-end;
-}
-
-.mdx-tile--lead .mdx-tile__plate strong {
-    font-size: 3rem;
-}
-
-.mdx-tile--lead .mdx-tile__icon {
-    width: 2.8rem;
-    height: 2.8rem;
-}
-
-.mdx-tile--lead .mdx-tile__body {
-    justify-content: center;
-    padding: 1.8rem 2rem;
-}
-
-.mdx-tile--lead h3 {
-    margin-bottom: 0.55rem;
-    font-size: 1.55em;
+.mdx-home .grid.cards {
+    margin: 1em 0 2.4rem;
 }
 
 .mdx-people {
-    margin: 0 0 2.6rem;
-    padding: 1.8rem 1.6rem 1.6rem;
-    border: 1px solid var(--md-default-fg-color--lightest);
-    border-radius: 0.35rem;
-    background: color-mix(in srgb, var(--md-accent-fg-color) 7%, var(--md-default-bg-color));
-}
-
-.mdx-people h2 {
-    margin-top: 0;
-}
-
-.mdx-people > p {
-    max-width: 38rem;
-    margin-bottom: 1.1rem;
-    color: var(--md-default-fg-color--light);
-}
-
-.mdx-people__wall {
     display: block;
-    margin: 0 0 1.2rem;
-    overflow: hidden;
-    border-radius: 0.25rem;
-}
-
-.mdx-people__wall img {
-    display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
-}
-
-.mdx-people .md-button {
-    margin: 0.2rem 0.4rem 0 0;
 }
 
 .mdx-connect {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
-    margin: 0.5rem 0 2rem;
+    margin: 2rem 0;
 }
 
 .mdx-qr {
@@ -272,38 +92,14 @@ a.mdx-tile:focus {
     .mdx-hero {
         flex-direction: column-reverse;
         align-items: flex-start;
-        padding-top: 1.2rem;
-        padding-bottom: 2rem;
+        gap: 1.2rem;
     }
 
     .mdx-hero__image img {
-        width: 8.5rem;
+        width: 6.5rem;
     }
 
-    .mdx-connect,
-    .mdx-tiles {
+    .mdx-connect {
         grid-template-columns: 1fr;
-    }
-
-    .mdx-tile--lead {
-        flex-direction: column;
-        min-height: 0;
-    }
-
-    .mdx-tile--lead .mdx-tile__plate {
-        flex-basis: auto;
-        min-height: 7.4rem;
-    }
-
-    .mdx-tile--lead .mdx-tile__plate strong {
-        font-size: 2rem;
-    }
-
-    .mdx-tile--lead .mdx-tile__body {
-        padding: 1.15rem 1.35rem 1.35rem;
-    }
-
-    .mdx-tile--lead h3 {
-        font-size: inherit;
     }
 }

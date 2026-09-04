@@ -6,13 +6,6 @@
 {% block tabs %}
 {{ super() }}
 <style>
-    .md-header {
-        position: initial;
-        box-shadow: none;
-    }
-    .md-main__inner {
-        margin-top: 0;
-    }
     @media screen and (min-width: 60em) {
         .md-sidebar--secondary {
             display: none;
@@ -24,19 +17,21 @@
         }
     }
 </style>
+{% endblock %}
 
-<section class="mdx-container">
-    <div class="md-grid md-typeset">
-        <div class="mdx-hero">
-            <div class="mdx-hero__content">
-                <h1>{% if zh %}多语言算法题解{% else %}Interview problems in the languages you write{% endif %}</h1>
-                <p>
-                    {% if zh %}
-                    收录 LeetCode、《剑指 Offer》、《程序员面试金典》全套题解，Java、Python、C++、Go 等十余种语言实现，持续更新。
-                    {% else %}
-                    Solutions for LeetCode, Coding Interviews, and Cracking the Coding Interview — maintained in many languages.
-                    {% endif %}
-                </p>
+{% block content %}
+<div class="mdx-home md-typeset">
+    <section class="mdx-hero">
+        <div>
+            <h1>{% if zh %}多语言算法题解{% else %}Interview problems in the languages you write{% endif %}</h1>
+            <p>
+                {% if zh %}
+                收录 LeetCode、《剑指 Offer》、《程序员面试金典》全套题解，Java、Python、C++、Go 等十余种语言实现，持续更新。
+                {% else %}
+                Solutions for LeetCode, Coding Interviews, and Cracking the Coding Interview — maintained in many languages.
+                {% endif %}
+            </p>
+            <p>
                 <a href="{{ root }}lc/1/" class="md-button md-button--primary">
                     {% if zh %}开始刷题{% else %}Start with Two Sum{% endif %}
                 </a>
@@ -44,96 +39,90 @@
                     {% if zh %}专项训练{% else %}Topic drill{% endif %}
                 </a>
                 <a href="{{ config.repo_url }}" class="md-button">GitHub</a>
-            </div>
-            <div class="mdx-hero__image" aria-hidden="true">
-                <img
-                    src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/doocs-leetcode.png"
-                    alt=""
-                    width="480"
-                    height="480"
-                    draggable="false"
-                >
-            </div>
+            </p>
         </div>
-    </div>
-    <svg class="mdx-hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 40c240 40 480-40 720-16s480 48 720 8v48H0z"/>
-    </svg>
-</section>
-{% endblock %}
-
-{% block content %}
-<div class="mdx-body md-typeset">
-    <h2 id="collections">{% if zh %}题库{% else %}Collections{% endif %}</h2>
-    <div class="mdx-tiles">
-        <a class="mdx-tile mdx-tile--lead" href="{{ root }}lc/0000-0099/">
-            <span class="mdx-tile__plate">
-                <span class="mdx-tile__icon">{% include ".icons/material/code-tags.svg" %}</span>
-                <strong>4000+</strong>
-            </span>
-            <span class="mdx-tile__body">
-                <h3>LeetCode</h3>
-                <p>{% if zh %}按题号分段，覆盖力扣全部题目，从「两数之和」开始。{% else %}Grouped by number range, starting at Two Sum.{% endif %}</p>
-            </span>
-        </a>
-        {% if zh %}
-        <a class="mdx-tile" href="{{ root }}lcof/3/">
-            <span class="mdx-tile__plate">
-                <span class="mdx-tile__icon">{% include ".icons/material/book-open-page-variant.svg" %}</span>
-                <strong>75</strong>
-            </span>
-            <span class="mdx-tile__body">
-                <h3>剑指 Offer</h3>
-                <p>第 2 版原题，对应面试高频考点。</p>
-            </span>
-        </a>
-        <a class="mdx-tile" href="{{ root }}lcof2/1/">
-            <span class="mdx-tile__plate">
-                <span class="mdx-tile__icon">{% include ".icons/material/book-education.svg" %}</span>
-                <strong>119</strong>
-            </span>
-            <span class="mdx-tile__body">
-                <h3>剑指 Offer II</h3>
-                <p>专项突击版，按题型系统练习。</p>
-            </span>
-        </a>
-        {% endif %}
-        <a class="mdx-tile" href="{{ root }}lcci/1.1/">
-            <span class="mdx-tile__plate">
-                <span class="mdx-tile__icon">{% include ".icons/material/school.svg" %}</span>
-                <strong>109</strong>
-            </span>
-            <span class="mdx-tile__body">
-                <h3>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</h3>
-                <p>{% if zh %}第 6 版精选题，对应 IT 名企面试。{% else %}6th Edition, curated interview problems.{% endif %}</p>
-            </span>
-        </a>
-    </div>
-
-    <section class="mdx-people" aria-labelledby="contributors">
-        <h2 id="contributors">{% if zh %}贡献者{% else %}Contributors{% endif %}</h2>
-        <p>
-            {% if zh %}
-            题解由社区写成。欢迎补充缺失实现，或校对英文说明。
-            {% else %}
-            Solutions are written in the open. Add a missing implementation or fix a write-up.
-            {% endif %}
-        </p>
-        <a class="mdx-people__wall" href="https://github.com/doocs/leetcode/graphs/contributors">
+        <div class="mdx-hero__image" aria-hidden="true">
             <img
+                src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/doocs-leetcode.png"
+                alt=""
+                width="320"
+                height="320"
+                draggable="false"
+            >
+        </div>
+    </section>
+
+    <h2 id="collections">{% if zh %}题库{% else %}Collections{% endif %}</h2>
+    <div class="grid cards">
+        <ul>
+            <li>
+                <p>
+                    <span class="twemoji">{% include ".icons/material/code-tags.svg" %}</span>
+                    <strong>LeetCode</strong>
+                </p>
+                <p>{% if zh %}按题号分段，覆盖力扣全部题目，从「两数之和」开始。{% else %}Grouped by number range, starting at Two Sum.{% endif %}</p>
+                <hr>
+                <p><a href="{{ root }}lc/0000-0099/">{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</a></p>
+            </li>
+            {% if zh %}
+            <li>
+                <p>
+                    <span class="twemoji">{% include ".icons/material/book-open-page-variant.svg" %}</span>
+                    <strong>剑指 Offer</strong>
+                </p>
+                <p>第 2 版原题，对应面试高频考点。</p>
+                <hr>
+                <p><a href="{{ root }}lcof/3/">75 题</a></p>
+            </li>
+            <li>
+                <p>
+                    <span class="twemoji">{% include ".icons/material/book-education.svg" %}</span>
+                    <strong>剑指 Offer II</strong>
+                </p>
+                <p>专项突击版，按题型系统练习。</p>
+                <hr>
+                <p><a href="{{ root }}lcof2/1/">119 题</a></p>
+            </li>
+            {% endif %}
+            <li>
+                <p>
+                    <span class="twemoji">{% include ".icons/material/school.svg" %}</span>
+                    <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
+                </p>
+                <p>{% if zh %}第 6 版精选题，对应 IT 名企面试。{% else %}6th Edition, curated interview problems.{% endif %}</p>
+                <hr>
+                <p><a href="{{ root }}lcci/1.1/">{% if zh %}109 题{% else %}109 problems{% endif %}</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <h2 id="contributors">{% if zh %}贡献者{% else %}Contributors{% endif %}</h2>
+    <p>
+        {% if zh %}
+        题解由社区写成。欢迎补充缺失实现，或校对英文说明。
+        {% else %}
+        Solutions are written in the open. Add a missing implementation or fix a write-up.
+        {% endif %}
+    </p>
+    <p>
+        <a href="https://github.com/doocs/leetcode/graphs/contributors">
+            <img
+                class="mdx-people"
                 src="https://contrib.rocks/image?repo=doocs/leetcode&max=42&columns=14"
                 alt="{% if zh %}贡献者{% else %}Contributors{% endif %}"
                 width="891"
                 height="192"
             >
         </a>
+    </p>
+    <p>
         <a href="https://github.com/doocs/leetcode/graphs/contributors" class="md-button">
             {% if zh %}查看全部贡献者{% else %}See all contributors{% endif %}
         </a>
         <a href="{{ config.repo_url }}/pulls" class="md-button md-button--primary">
             {% if zh %}补充题解{% else %}Contribute{% endif %}
         </a>
-    </section>
+    </p>
 
     <div class="mdx-connect">
         <div>
