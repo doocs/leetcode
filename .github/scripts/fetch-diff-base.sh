@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+# So later `git diff --name-only` prints UTF-8 paths instead of quoted octal.
+git config core.quotepath false
 if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
   git fetch --no-tags --depth=1 origin "${PR_BASE_SHA}"
   exit 0
