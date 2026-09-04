@@ -67,30 +67,46 @@
     <h2 id="collections">{% if zh %}题库{% else %}Collections{% endif %}</h2>
     <div class="mdx-tiles">
         <a class="mdx-tile" href="{{ root }}lc/0000-0099/">
-            <div class="mdx-tile__icon">{% include ".icons/material/code-tags.svg" %}</div>
-            <h3>LeetCode</h3>
-            <p>{% if zh %}按题号分段，覆盖力扣全部题目，从「两数之和」开始。{% else %}Grouped by number range, starting at Two Sum.{% endif %}</p>
-            <span>{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</span>
+            <span class="mdx-tile__plate">
+                <span class="mdx-tile__icon">{% include ".icons/material/code-tags.svg" %}</span>
+                <strong>4000+</strong>
+            </span>
+            <span class="mdx-tile__body">
+                <h3>LeetCode</h3>
+                <p>{% if zh %}按题号分段，覆盖力扣全部题目，从「两数之和」开始。{% else %}Grouped by number range, starting at Two Sum.{% endif %}</p>
+            </span>
         </a>
         {% if zh %}
         <a class="mdx-tile" href="{{ root }}lcof/3/">
-            <div class="mdx-tile__icon">{% include ".icons/material/book-open-page-variant.svg" %}</div>
-            <h3>剑指 Offer</h3>
-            <p>第 2 版原题，对应面试高频考点。</p>
-            <span>75 题</span>
+            <span class="mdx-tile__plate">
+                <span class="mdx-tile__icon">{% include ".icons/material/book-open-page-variant.svg" %}</span>
+                <strong>75</strong>
+            </span>
+            <span class="mdx-tile__body">
+                <h3>剑指 Offer</h3>
+                <p>第 2 版原题，对应面试高频考点。</p>
+            </span>
         </a>
         <a class="mdx-tile" href="{{ root }}lcof2/1/">
-            <div class="mdx-tile__icon">{% include ".icons/material/book-education.svg" %}</div>
-            <h3>剑指 Offer II</h3>
-            <p>专项突击版，按题型系统练习。</p>
-            <span>119 题</span>
+            <span class="mdx-tile__plate">
+                <span class="mdx-tile__icon">{% include ".icons/material/book-education.svg" %}</span>
+                <strong>119</strong>
+            </span>
+            <span class="mdx-tile__body">
+                <h3>剑指 Offer II</h3>
+                <p>专项突击版，按题型系统练习。</p>
+            </span>
         </a>
         {% endif %}
         <a class="mdx-tile" href="{{ root }}lcci/1.1/">
-            <div class="mdx-tile__icon">{% include ".icons/material/school.svg" %}</div>
-            <h3>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</h3>
-            <p>{% if zh %}第 6 版精选题，对应 IT 名企面试。{% else %}6th Edition, curated interview problems.{% endif %}</p>
-            <span>{% if zh %}109 题{% else %}109 problems{% endif %}</span>
+            <span class="mdx-tile__plate">
+                <span class="mdx-tile__icon">{% include ".icons/material/school.svg" %}</span>
+                <strong>109</strong>
+            </span>
+            <span class="mdx-tile__body">
+                <h3>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</h3>
+                <p>{% if zh %}第 6 版精选题，对应 IT 名企面试。{% else %}6th Edition, curated interview problems.{% endif %}</p>
+            </span>
         </a>
     </div>
 
