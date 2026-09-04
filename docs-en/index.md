@@ -1,103 +1,52 @@
 ---
+template: home.html
 comments: true
-# template: en/index.html
 hide:
-  - navigation
-  - toc
-  - feedback
+    - navigation
+    - toc
+    - feedback
 ---
-
-<h1 style="display:none;">LeetCode Wiki</h1>
-
-<p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/doocs-leetcode.png" alt="LeetCode-GitHub-Doocs"></a>
-</p>
-
-<p align="center">
-  <a href="https://doocs.org"><img src="https://img.shields.io/badge/organization-join%20us-4051B5?style=flat-square" alt="open-source-organization"></a>
-  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Python%20%7C%20Java%20%7C%20C++%20%7C%20Go%20%7C%20TypeScript%20%7C%20Rust%20%7C%20...-red?style=flat-square&color=4051B5" alt="languages"></a>
-  <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=4051B5&style=flat-square" alt="LICENSE"></a><br>
-  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=4051B5&logo=github&style=flat-square" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode?color=4051B5&logo=github&style=flat-square" alt="forks"></a>
-  <a href="https://opencollective.com/doocs-leetcode" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=4051B5&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
-</p>
-
-## Introduction
-
-Welcome to LeetCode Wiki!
-
-This project contains solutions for problems from LeetCode, "Coding Interviews (2nd Edition)", "Coding Interviews (Special Edition)", "Cracking the Coding Interview (6th Edition)", etc. All solutions are implemented in multiple programming languages, including but not limited to: Java, Python, C++, Go, TypeScript, Rust. We are working hard to update, welcome to Star 🌟 and follow [this project](https://github.com/doocs/leetcode) to get the latest updates.
 
 ## Stargazers over time
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
+  <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time"></a>
 </p>
 
-<a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" style="display: block" align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark" width="721" height="auto">
-    <img alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" height="auto">
-  </picture>
-</a>
+## Contributors
 
-## Our Top Contributors
-
-This project exists thanks to all the people who contribute.
+This project exists thanks to everyone who writes solutions.
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" /></a>
+  <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" alt="Contributors"></a>
 </p>
 
-## Contributions
+## Contribute
 
-We're looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
+Send a [PR](https://github.com/doocs/leetcode/pulls) if you want to help. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) for details. C# solutions are from [@kfstorm](https://github.com/kfstorm).
 
-1. Fork [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then clone it to your local machine.
-1. Checkout a new branch.
-1. Make some changes to your leetcode repository, then push the changes to your remote GitHub repository.
-1. Create a pull request with your changes!
-1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
-
-<div align="center">
-
-```mermaid
-graph TD;
-    A[LeetCode Repo <br> doocs/leetcode.git] -- 1.Fork --> B[Your GitHub Repo <br> yourusername/leetcode.git];
-    B -- 2.Git Clone --> C[Local Machine];
-    C -- 3.Create a New Branch & Make Changes --> D[Modify Code Locally];
-    D -- 4.Commit & Push to Your Repo --> B;
-    B -- 5.Create a Pull Request --> A;
-```
-
-</div>
-
-You can also directly click the button below to edit the code online with GitHub Codespaces, without the need for environment configuration, you can quickly submit a PR.
+1. Fork this repository and clone it locally
+2. Create a branch and add `Solution.xxx` plus the README snippets
+3. Open a pull request
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location=EastUs)
 
 ## Backers & Sponsors
 
-Thank you to all our backers and sponsors!
-
 <p align="center">
-  <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
+  <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890" alt="Backers"></a>
 </p>
 
 <p align="center">
-  <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
+  <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" alt="Sponsors"></a>
 </p>
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
-## Copyright
+## Contact
 
-The copyright of this project belongs to [Doocs](https://github.com/doocs) community. For commercial reprints, please contact [@yanglbme](mailto:contact@yanglibin.info) for authorization. For non-commercial reprints, please indicate the source.
-
-## Contact Us
-
-We welcome everyone to add @yanglbme's personal WeChat (WeChat ID: YLB0109), with the note "leetcode". In the future, we will create algorithm and technology related discussion groups, where we can learn and share experiences together, and make progress together.
+Add @yanglbme on WeChat (`YLB0109`) with the note **leetcode**.
 
 <p align="center">
-  <a href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="260px"></a>
+  <a href="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png"><img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme-en.png" width="220" alt="WeChat QR"></a>
 </p>

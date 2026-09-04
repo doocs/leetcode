@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% set zh = config.theme.language != "en" %}
+{% set root = "/" if zh else "/en/" %}
+
+{% block tabs %}
+{{ super() }}
+<style>
+    .md-header {
+        position: initial;
+    }
+    .md-main__inner {
+        margin-top: 0;
+    }
+    @media screen and (min-width: 60em) {
+        .md-sidebar--secondary {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 76.25em) {
+        .md-sidebar--primary {
+            display: none;
+        }
+    }
+</style>
+
+<section class="lw-hero">
+    <div class="md-grid">
+        <div class="lw-hero__grid">
+            <div class="lw-hero__copy">
+                <p class="lw-kicker">{% if zh %}Doocs 开源社区{% else %}Doocs open source{% endif %}</p>
+                <h1 class="lw-hero__title">
+                    {% if zh %}
+                    用你熟悉的语言<br>刷完面试题
+                    {% else %}
+                    Interview problems<br>in the languages you write
+                    {% endif %}
+                </h1>
+                <p class="lw-hero__lead">
+                    {% if zh %}
+                    LeetCode、《剑指 Offer》、《程序员面试金典》题解，多种编程语言实现，持续更新。
+                    {% else %}
+                    Solutions for LeetCode, Coding Interviews, and Cracking the Coding Interview — maintained in many languages.
+                    {% endif %}
+                </p>
+                <div class="lw-hero__cta">
+                    <a href="{{ root }}lc/1/" class="md-button md-button--primary">
+                        {% if zh %}开始刷题{% else %}Start with Two Sum{% endif %}
+                    </a>
+                    <a href="{{ root }}tags/" class="md-button">
+                        {% if zh %}专项训练{% else %}Topic drill{% endif %}
+                    </a>
+                    <a href="{{ config.repo_url }}" class="md-button">GitHub</a>
+                </div>
+                <ul class="lw-stats">
+                    <li><strong>4000+</strong><span>{% if zh %}LeetCode 题{% else %}LeetCode problems{% endif %}</span></li>
+                    <li><strong>15+</strong><span>{% if zh %}编程语言{% else %}languages{% endif %}</span></li>
+                    <li><strong>4</strong><span>{% if zh %}经典题库{% else %}classic books{% endif %}</span></li>
+                </ul>
+            </div>
+            <div class="lw-hero__mark" aria-hidden="true">
+                <img
+                    src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/doocs-leetcode.png"
+                    alt=""
+                    width="480"
+                    height="480"
+                    draggable="false"
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="lw-collections">
+    <div class="md-grid">
+        <p class="lw-kicker">{% if zh %}题库{% else %}Collections{% endif %}</p>
+        <div class="lw-cards">
+            <a class="lw-card" href="{{ root }}lc/0000-0099/">
+                <span class="lw-card__meta">4000+</span>
+                <strong>LeetCode</strong>
+                <span>{% if zh %}按题号分段，从 1. 两数之和开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
+            </a>
+            {% if zh %}
+            <a class="lw-card" href="{{ root }}lcof/3/">
+                <span class="lw-card__meta">75</span>
+                <strong>剑指 Offer</strong>
+                <span>第 2 版，面试高频原题</span>
+            </a>
+            <a class="lw-card" href="{{ root }}lcof2/1/">
+                <span class="lw-card__meta">119</span>
+                <strong>剑指 Offer II</strong>
+                <span>专项突击版</span>
+            </a>
+            {% endif %}
+            <a class="lw-card" href="{{ root }}lcci/1.1/">
+                <span class="lw-card__meta">109</span>
+                <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
+                <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
+            </a>
+        </div>
+        <p class="lw-langs">
+            Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift
+        </p>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="lw-body md-typeset">
+    {{ page.content }}
+</div>
+{% include "partials/comments.html" %}
+{% endblock %}
