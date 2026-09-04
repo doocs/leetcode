@@ -7,8 +7,6 @@ on:
 # Comments via the GitHub API only. Do not check out PR code here.
 
 permissions:
-  contents: read
-  pull-requests: write
   issues: write
 
 jobs:
