@@ -44,13 +44,13 @@
                     {% endif %}
                 </p>
                 <div class="lw-hero__cta">
-                    <a href="{{ root }}lc/1/" class="md-button md-button--primary">
+                    <a href="{{ root }}lc/1/" class="lw-btn lw-btn--primary">
                         {% if zh %}开始刷题{% else %}Start with Two Sum{% endif %}
                     </a>
-                    <a href="{{ root }}tags/" class="md-button">
+                    <a href="{{ root }}tags/" class="lw-btn">
                         {% if zh %}专项训练{% else %}Topic drill{% endif %}
                     </a>
-                    <a href="{{ config.repo_url }}" class="md-button">GitHub</a>
+                    <a href="{{ config.repo_url }}" class="lw-btn">GitHub</a>
                 </div>
                 <ul class="lw-stats">
                     <li><strong>4000+</strong><span>{% if zh %}LeetCode 题{% else %}LeetCode problems{% endif %}</span></li>
@@ -71,9 +71,10 @@
     </div>
 </section>
 
-<section class="lw-collections">
+<section class="lw-section">
     <div class="md-grid">
         <p class="lw-kicker">{% if zh %}题库{% else %}Collections{% endif %}</p>
+        <h2 class="lw-section__title">{% if zh %}从一套题库开始{% else %}Pick a collection{% endif %}</h2>
         <div class="lw-cards">
             <a class="lw-card" href="{{ root }}lc/0000-0099/">
                 <span class="lw-card__meta">4000+</span>
@@ -103,11 +104,104 @@
         </p>
     </div>
 </section>
+
+<section class="lw-section lw-section--muted">
+    <div class="md-grid">
+        <p class="lw-kicker">{% if zh %}参与{% else %}Contribute{% endif %}</p>
+        <h2 class="lw-section__title">{% if zh %}题解由社区写成{% else %}Solutions are written in the open{% endif %}</h2>
+        <p class="lw-section__lead">
+            {% if zh %}
+            补一题、改一处实现，或校对英文说明。C# 题解由 <a href="https://github.com/kfstorm">@kfstorm</a> 贡献。
+            {% else %}
+            Add a solution, improve an implementation, or fix the English write-up. C# solutions are from <a href="https://github.com/kfstorm">@kfstorm</a>.
+            {% endif %}
+        </p>
+        <ol class="lw-steps">
+            <li>
+                <strong>{% if zh %}派生仓库{% else %}Fork{% endif %}</strong>
+                <span>{% if zh %}Fork 到自己的 GitHub，再 clone 到本地。{% else %}Fork the repo, then clone it locally.{% endif %}</span>
+            </li>
+            <li>
+                <strong>{% if zh %}补上题解{% else %}Add a solution{% endif %}</strong>
+                <span>{% if zh %}按现有 <code>Solution.xxx</code> 和 README 模板写。{% else %}Follow the existing <code>Solution.xxx</code> and README template.{% endif %}</span>
+            </li>
+            <li>
+                <strong>{% if zh %}开 Pull Request{% else %}Open a PR{% endif %}</strong>
+                <span>{% if zh %}推到你的仓库后提交 PR，维护者会 review。{% else %}Push your branch and open a pull request.{% endif %}</span>
+            </li>
+        </ol>
+        <div class="lw-hero__cta">
+            <a href="{{ config.repo_url }}/pulls" class="lw-btn lw-btn--primary">
+                {% if zh %}提交 Pull Request{% else %}Open a pull request{% endif %}
+            </a>
+            <a
+                href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location={% if zh %}SoutheastAsia{% else %}EastUs{% endif %}"
+                class="lw-btn"
+            >
+                Codespaces
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="lw-section">
+    <div class="md-grid">
+        <p class="lw-kicker">{% if zh %}社区{% else %}Community{% endif %}</p>
+        <h2 class="lw-section__title">{% if zh %}谁在维护这本 Wiki{% else %}Who keeps this wiki going{% endif %}</h2>
+        <div class="lw-panel">
+            <a href="https://github.com/doocs/leetcode/stargazers">
+                <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="{% if zh %}Star 趋势{% else %}Stargazers over time{% endif %}">
+            </a>
+        </div>
+        <div class="lw-panel lw-panel--avatars">
+            <a href="https://github.com/doocs/leetcode/graphs/contributors">
+                <img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" alt="{% if zh %}贡献者{% else %}Contributors{% endif %}">
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="lw-section lw-section--muted">
+    <div class="md-grid">
+        <div class="lw-split">
+            <div>
+                <p class="lw-kicker">{% if zh %}支持{% else %}Support{% endif %}</p>
+                <h2 class="lw-section__title">{% if zh %}赞助让更新继续{% else %}Sponsorship keeps updates coming{% endif %}</h2>
+                <blockquote class="lw-quote">
+                    You help the developer community practice for interviews, and there is nothing better we could ask for.
+                    <cite>Alan Yessenbayev</cite>
+                </blockquote>
+                <div class="lw-hero__cta">
+                    <a href="https://opencollective.com/doocs-leetcode" class="lw-btn">Open Collective</a>
+                </div>
+            </div>
+            <div class="lw-contact">
+                <p class="lw-kicker">{% if zh %}交流{% else %}Contact{% endif %}</p>
+                <h2 class="lw-section__title">{% if zh %}加微信进群{% else %}WeChat group{% endif %}</h2>
+                <p class="lw-section__lead">
+                    {% if zh %}
+                    添加 @yanglbme，账号 <code>YLB0109</code>，备注 leetcode。
+                    {% else %}
+                    Add @yanglbme, WeChat ID <code>YLB0109</code>, note <em>leetcode</em>.
+                    {% endif %}
+                </p>
+                <img
+                    class="lw-qr"
+                    src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme{% if not zh %}-en{% endif %}.png"
+                    width="180"
+                    height="180"
+                    alt="WeChat QR"
+                >
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block content %}
-<div class="lw-body md-typeset">
-    {{ page.content }}
+<div class="lw-section lw-comments">
+    <div class="md-grid md-typeset">
+        {% include "partials/comments.html" %}
+    </div>
 </div>
-{% include "partials/comments.html" %}
 {% endblock %}
