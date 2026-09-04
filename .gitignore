@@ -12,6 +12,7 @@ npm-debug.log*
 /solution/__pycache__
 /solution/.env
 .cache
+.preview/
 !.cache/plugin/
 !.cache/plugin/git-committers/
 !.cache/plugin/git-committers/page-authors.json
