@@ -36,7 +36,7 @@ jobs:
           GIT_BEFORE: ${{ github.event.before }}
         run: bash .github/scripts/fetch-diff-base.sh
       - name: Install clang-format
-        run: python3 -m pip install clang-format==16.0.6
+        run: python3 -m pip install clang-format==15.0.7
       - name: Check clang-format
         run: |
           set -euo pipefail

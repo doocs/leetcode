@@ -4,11 +4,15 @@ on:
   pull_request_target:
     types: [opened, edited, reopened, synchronize]
 
+# Labels external PRs via the GitHub API only. Do not check out PR code here.
+# Fork PRs must still run; prettier.yml is the workflow that skips forks.
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   add-label:
-    permissions:
-      contents: read
-      pull-requests: write
     runs-on: ubuntu-latest
     if: github.repository == 'doocs/leetcode'
     steps:

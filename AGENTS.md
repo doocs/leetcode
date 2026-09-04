@@ -20,6 +20,15 @@ This is [doocs/leetcode](https://github.com/doocs/leetcode) — a large collecti
 - **`lcs/`** — LeetCode Contest (separate series)
 - **`basic/`** — Basic algorithm implementations (sorting algorithms like BubbleSort, QuickSort, etc.)
 
+## Branch model
+
+- **`main`** — problem sources, lint tooling, and deploy workflows.
+- **`docs`** — MkDocs site engine only (`build_site.py`, `mkdocs.yml`, `hooks/`, `overrides/`). Problem pages are generated at deploy time from `main`.
+
+Deploy checks out both branches, overlays a whitelist from `docs` onto `main`, runs `python3 build_site.py`, then builds zh/en in parallel. Content pushes on `main` go through `deploy-request.yml` (about 90s quiet period, then `gh workflow run deploy.yml`). Pushes to `docs` use `.github/workflows/trigger-deploy.yml` the same way. A started `deploy.yml` run is not cancelled.
+
+Dependabot updates npm, GitHub Actions, and pip on `main`, and pip on `docs`.
+
 ## Development Workflow
 
 ### Adding a New Solution
@@ -68,12 +77,12 @@ pnpm run setup:python     # Optional: black and the problem-sync spider
 
 GitHub Actions automatically run:
 
-- **clang-format** lint on changed C/C++/Java files
+- **clang-format** lint on changed C/C++/Java files (LLVM 15, same as the npm `clang-format` wrapper)
 - **Black** lint on changed Python files
 - **gofmt** lint on changed Go files
 - **rustfmt** lint on changed Rust files
-- **Prettier** on JS/TS/PHP/SQL/Markdown files (auto-format same-repo PRs; `--check` on all PRs)
-- **Deploy** overlays the `docs` branch site engine onto `main` content (whitelist only) and builds GitHub Pages. Content pushes wait ~90s and coalesce; a started site build is not cancelled.
+- **Prettier** on JS/TS/PHP/SQL/Markdown files (auto-format same-repo PRs to `main`; `--check` on all PRs)
+- **Deploy** as described under Branch model. Same-repo Prettier uses `pull_request_target` and skips forks so it never installs untrusted `package.json`.
 
 ## Solution Patterns
 
@@ -81,7 +90,7 @@ GitHub Actions automatically run:
 - Go solutions include `package main` header (added/removed by formatting script)
 - PHP solutions include `<?php` header (added/removed by formatting script)
 - SQL solutions uppercase built-in function names (handled by `run_format.py`)
-- C# solutions contributed by [@kfstorm](https://github.com/kfstorm)
+- C# solutions contributed by [@kfstorm](https://github.com/kfstorm); match existing brace style and do not add CSharpier
 
 ## Key Conventions
 
