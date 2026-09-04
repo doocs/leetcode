@@ -77,7 +77,7 @@ pnpm run setup:python     # Optional: black and the problem-sync spider
 
 GitHub Actions automatically run:
 
-- **clang-format** lint on changed C/C++/Java files (LLVM 15, same as the npm `clang-format` wrapper)
+- **clang-format** lint on changed C/C++/Java files
 - **Black** lint on changed Python files
 - **gofmt** lint on changed Go files
 - **rustfmt** lint on changed Rust files
