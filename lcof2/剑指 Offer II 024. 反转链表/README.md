@@ -180,7 +180,7 @@ func reverseList(head *ListNode) *ListNode {
  */
 var reverseList = function (head) {
     let pre = null;
-    for (let p = head; p; ) {
+    for (let p = head; p;) {
         let q = p.next;
         p.next = pre;
         pre = p;
@@ -207,8 +207,7 @@ var reverseList = function (head) {
 public class Solution {
     public ListNode ReverseList(ListNode head) {
         ListNode pre = null;
-        for (ListNode p = head; p != null;)
-        {
+        for (ListNode p = head; p != null;) {
             ListNode t = p.next;
             p.next = pre;
             pre = p;

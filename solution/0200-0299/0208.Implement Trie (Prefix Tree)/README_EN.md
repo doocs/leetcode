@@ -526,8 +526,7 @@ public class Trie {
 
     public void Insert(string word) {
         Trie node = this;
-        foreach (var c in word)
-        {
+        foreach (var c in word) {
             var idx = c - 'a';
             node.children[idx] ??= new Trie();
             node = node.children[idx];
@@ -547,11 +546,9 @@ public class Trie {
 
     private Trie SearchPrefix(string s) {
         Trie node = this;
-        foreach (var c in s)
-        {
+        foreach (var c in s) {
             var idx = c - 'a';
-            if (node.children[idx] == null)
-            {
+            if (node.children[idx] == null) {
                 return null;
             }
             node = node.children[idx];

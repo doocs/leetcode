@@ -302,7 +302,7 @@ impl Solution {
  * }
  */
 
-class Solution {
+public class Solution {
     public int LeftMostColumnWithOne(BinaryMatrix binaryMatrix) {
         var e = binaryMatrix.Dimensions();
         int m = e[0], n = e[1];

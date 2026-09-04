@@ -208,15 +208,10 @@ func calculate(s string) int {
 #### C#
 
 ```cs
-using System.Collections.Generic;
-using System.Linq;
-
-struct Element
-{
+struct Element {
     public char Op;
     public int Number;
-    public Element(char op, int number)
-    {
+    public Element(char op, int number) {
         Op = op;
         Number = number;
     }
@@ -228,46 +223,35 @@ public class Solution {
         var readingNumber = false;
         var number = 0;
         var op = '+';
-        foreach (var ch in ((IEnumerable<char>)s).Concat(Enumerable.Repeat('+', 1)))
-        {
-            if (ch >= '0' && ch <= '9')
-            {
-                if (!readingNumber)
-                {
+        foreach (var ch in ((IEnumerable<char>)s).Concat(Enumerable.Repeat('+', 1))) {
+            if (ch >= '0' && ch <= '9') {
+                if (!readingNumber) {
                     readingNumber = true;
                     number = 0;
                 }
                 number = (number * 10) + (ch - '0');
             }
-            else if (ch != ' ')
-            {
+            else if (ch != ' ') {
                 readingNumber = false;
-                if (op == '+' || op == '-')
-                {
-                    if (stack.Count == 2)
-                    {
+                if (op == '+' || op == '-') {
+                    if (stack.Count == 2) {
                         var prev = stack.Pop();
                         var first = stack.Pop();
-                        if (prev.Op == '+')
-                        {
+                        if (prev.Op == '+') {
                             stack.Push(new Element(first.Op, first.Number + prev.Number));
                         }
-                        else // '-'
-                        {
+                        else // '-' {
                             stack.Push(new Element(first.Op, first.Number - prev.Number));
                         }
                     }
                     stack.Push(new Element(op, number));
                 }
-                else
-                {
+                else {
                     var prev = stack.Pop();
-                    if (op == '*')
-                    {
+                    if (op == '*') {
                         stack.Push(new Element(prev.Op, prev.Number * number));
                     }
-                    else // '/'
-                    {
+                    else // '/' {
                         stack.Push(new Element(prev.Op, prev.Number / number));
                     }
                 }
@@ -275,16 +259,13 @@ public class Solution {
             }
         }
 
-        if (stack.Count == 2)
-        {
+        if (stack.Count == 2) {
             var second = stack.Pop();
             var first = stack.Pop();
-            if (second.Op == '+')
-            {
+            if (second.Op == '+') {
                 stack.Push(new Element(first.Op, first.Number + second.Number));
             }
-            else // '-'
-            {
+            else // '-' {
                 stack.Push(new Element(first.Op, first.Number - second.Number));
             }
         }

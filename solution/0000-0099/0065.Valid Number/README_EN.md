@@ -315,8 +315,6 @@ impl Solution {
 #### C#
 
 ```cs
-using System.Text.RegularExpressions;
-
 public class Solution {
     private readonly Regex _isNumber_Regex = new Regex(@"^\s*[+-]?(\d+(\.\d*)?|\.\d+)([Ee][+-]?\d+)?\s*$");
 

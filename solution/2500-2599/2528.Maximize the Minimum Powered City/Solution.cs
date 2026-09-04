@@ -1,5 +1,3 @@
-using System;
-
 public class Solution {
     private long[] s;
     private long[] d;

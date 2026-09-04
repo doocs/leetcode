@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class Solution {
     private int n;
     private int[][] g;

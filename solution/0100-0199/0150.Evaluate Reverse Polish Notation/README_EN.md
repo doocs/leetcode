@@ -263,15 +263,11 @@ impl Solution {
 #### C#
 
 ```cs
-using System.Collections.Generic;
-
 public class Solution {
     public int EvalRPN(string[] tokens) {
         var stack = new Stack<int>();
-        foreach (var token in tokens)
-        {
-            switch (token)
-            {
+        foreach (var token in tokens) {
+            switch (token) {
                 case "+":
                     stack.Push(stack.Pop() + stack.Pop());
                     break;
