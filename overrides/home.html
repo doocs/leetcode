@@ -66,7 +66,7 @@
 <div class="mdx-body md-typeset">
     <h2 id="collections">{% if zh %}题库{% else %}Collections{% endif %}</h2>
     <div class="mdx-tiles">
-        <a class="mdx-tile" href="{{ root }}lc/0000-0099/">
+        <a class="mdx-tile mdx-tile--lead" href="{{ root }}lc/0000-0099/">
             <span class="mdx-tile__plate">
                 <span class="mdx-tile__icon">{% include ".icons/material/code-tags.svg" %}</span>
                 <strong>4000+</strong>
@@ -109,6 +109,31 @@
             </span>
         </a>
     </div>
+
+    <section class="mdx-people" aria-labelledby="contributors">
+        <h2 id="contributors">{% if zh %}贡献者{% else %}Contributors{% endif %}</h2>
+        <p>
+            {% if zh %}
+            题解由社区写成。欢迎补充缺失实现，或校对英文说明。
+            {% else %}
+            Solutions are written in the open. Add a missing implementation or fix a write-up.
+            {% endif %}
+        </p>
+        <a class="mdx-people__wall" href="https://github.com/doocs/leetcode/graphs/contributors">
+            <img
+                src="https://contrib.rocks/image?repo=doocs/leetcode&max=42&columns=14"
+                alt="{% if zh %}贡献者{% else %}Contributors{% endif %}"
+                width="891"
+                height="192"
+            >
+        </a>
+        <a href="https://github.com/doocs/leetcode/graphs/contributors" class="md-button">
+            {% if zh %}查看全部贡献者{% else %}See all contributors{% endif %}
+        </a>
+        <a href="{{ config.repo_url }}/pulls" class="md-button md-button--primary">
+            {% if zh %}补充题解{% else %}Contribute{% endif %}
+        </a>
+    </section>
 
     <div class="mdx-connect">
         <div>
