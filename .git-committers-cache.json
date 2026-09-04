@@ -1,5 +1,5 @@
 {
-  "cache_date": 1788484062,
+  "cache_date": 1788490374,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -5451,7 +5451,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745668911
+      "retrieved": 1788489818
     },
     "solution/1200-1299/1270.All People Report to the Given Manager/README.md": {
       "authors": [
@@ -7632,7 +7632,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787133254
+      "retrieved": 1788489818
     },
     "solution/1300-1399/1387.Sort Integers by The Power Value/README.md": {
       "authors": [
@@ -7922,7 +7922,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1773206485
+      "retrieved": 1788489818
     },
     "solution/1400-1499/1400.Construct K Palindrome Strings/README.md": {
       "authors": [
@@ -8431,7 +8431,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745668980
+      "retrieved": 1788489818
     },
     "solution/1400-1499/1429.First Unique Number/README.md": {
       "authors": [
@@ -9474,7 +9474,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/8236389?v=4"
         }
       ],
-      "retrieved": 1765809218
+      "retrieved": 1788489818
     },
     "solution/1400-1499/1484.Group Sold Products By The Date/README.md": {
       "authors": [
@@ -9791,7 +9791,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745669012
+      "retrieved": 1788489818
     },
     "solution/1500-1599/1500.Design a File Sharing System/README.md": {
       "authors": [
@@ -12340,7 +12340,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1765809307
+      "retrieved": 1788489818
     },
     "solution/1600-1699/1631.Path With Minimum Effort/README.md": {
       "authors": [
@@ -12522,7 +12522,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669071
+      "retrieved": 1788489818
     },
     "solution/1600-1699/1640.Check Array Formation Through Concatenation/README.md": {
       "authors": [
@@ -15704,19 +15704,19 @@
     "solution/0100-0199/0179.Largest Number/README.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745669138
+      "retrieved": 1788489818
     },
     "solution/1700-1799/1790.Check if One String Swap Can Make Strings Equal/README.md": {
       "authors": [
@@ -19639,7 +19639,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1765237951
+      "retrieved": 1788489818
     },
     "solution/2000-2099/2000.Reverse Prefix of Word/README.md": {
       "authors": [
@@ -20164,7 +20164,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745669240
+      "retrieved": 1788489818
     },
     "solution/2000-2099/2030.Smallest K-Length Subsequence With Occurrences of a Letter/README.md": {
       "authors": [
@@ -20321,7 +20321,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669244
+      "retrieved": 1788489818
     },
     "solution/2000-2099/2040.Kth Smallest Product of Two Sorted Arrays/README.md": {
       "authors": [
@@ -21075,7 +21075,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1765809580
+      "retrieved": 1788489818
     },
     "solution/2000-2099/2080.Range Frequency Queries/README.md": {
       "authors": [
@@ -21623,7 +21623,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745669273
+      "retrieved": 1788489818
     },
     "solution/2100-2199/2110.Number of Smooth Descent Periods of a Stock/README.md": {
       "authors": [
@@ -23318,7 +23318,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669316
+      "retrieved": 1788489818
     },
     "solution/2200-2299/2210.Count Hills and Valleys in an Array/README.md": {
       "authors": [
@@ -24386,7 +24386,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788158162
+      "retrieved": 1788489818
     },
     "solution/2200-2299/2270.Number of Ways to Split Array/README.md": {
       "authors": [
@@ -24748,7 +24748,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1782907879
+      "retrieved": 1788489818
     },
     "solution/2200-2299/2290.Minimum Obstacle Removal to Reach Corner/README.md": {
       "authors": [
@@ -26990,7 +26990,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1773207957
+      "retrieved": 1788489818
     },
     "solution/2400-2499/2410.Maximum Matching of Players With Trainers/README.md": {
       "authors": [
@@ -29109,7 +29109,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1763422919
+      "retrieved": 1788489818
     },
     "solution/2500-2599/2529.Maximum Count of Positive Integer and Negative Integer/README.md": {
       "authors": [
@@ -33884,7 +33884,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/40162016?v=4"
         }
       ],
-      "retrieved": 1745669559
+      "retrieved": 1788489818
     },
     "solution/0200-0299/0280.Wiggle Sort/README.md": {
       "authors": [
@@ -34239,7 +34239,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/117748716?v=4"
         }
       ],
-      "retrieved": 1753573822
+      "retrieved": 1788489818
     },
     "solution/2800-2899/2820.Election Results/README.md": {
       "authors": [
@@ -42266,7 +42266,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745669785
+      "retrieved": 1788489818
     },
     "solution/3300-3399/3350.Adjacent Increasing Subarrays Detection II/README.md": {
       "authors": [
@@ -42387,7 +42387,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1776078034
+      "retrieved": 1788489818
     },
     "solution/3300-3399/3360.Stone Removal Game/README.md": {
       "authors": [
@@ -45239,7 +45239,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1782907879
+      "retrieved": 1788489818
     },
     "solution/0300-0399/0380.Insert Delete GetRandom O(1)/README.md": {
       "authors": [
@@ -51155,7 +51155,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/52870917?v=4"
         }
       ],
-      "retrieved": 1788158162
+      "retrieved": 1788489818
     },
     "solution/0600-0699/0650.2 Keys Keyboard/README.md": {
       "authors": [
@@ -54121,6 +54121,12 @@
     "solution/0000-0099/0008.String to Integer (atoi)/README.md": {
       "authors": [
         {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
           "login": "pranjal030404",
           "name": "pranjal030404",
           "url": "https://github.com/pranjal030404",
@@ -54131,12 +54137,6 @@
           "name": "gaganxsaini",
           "url": "https://github.com/gaganxsaini",
           "avatar": "https://avatars.githubusercontent.com/u/32135369?v=4"
-        },
-        {
-          "login": "yanglbme",
-          "name": "yanglbme",
-          "url": "https://github.com/yanglbme",
-          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         },
         {
           "login": "ZylalMinollari",
@@ -54151,7 +54151,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1750288618
+      "retrieved": 1788489818
     },
     "solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README.md": {
       "authors": [
@@ -54856,7 +54856,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/91381303?v=4"
         }
       ],
-      "retrieved": 1745670062
+      "retrieved": 1788489818
     },
     "solution/0800-0899/0840.Magic Squares In Grid/README.md": {
       "authors": [
@@ -56510,7 +56510,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670103
+      "retrieved": 1788489818
     },
     "solution/0900-0999/0934.Shortest Bridge/README.md": {
       "authors": [
@@ -58610,7 +58610,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745670147
+      "retrieved": 1788489818
     },
     "lcci/17.11.Find Closest/README.md": {
       "authors": [
@@ -72686,7 +72686,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/1200-1299/1270.All People Report to the Given Manager/README_EN.md": {
       "authors": [
@@ -74873,7 +74873,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1787139448
+      "retrieved": 1788489824
     },
     "solution/1300-1399/1387.Sort Integers by The Power Value/README_EN.md": {
       "authors": [
@@ -75163,7 +75163,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670549
+      "retrieved": 1788489824
     },
     "solution/1400-1499/1400.Construct K Palindrome Strings/README_EN.md": {
       "authors": [
@@ -75678,7 +75678,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670560
+      "retrieved": 1788489824
     },
     "solution/1400-1499/1429.First Unique Number/README_EN.md": {
       "authors": [
@@ -76733,7 +76733,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/8236389?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/1400-1499/1484.Group Sold Products By The Date/README_EN.md": {
       "authors": [
@@ -77050,7 +77050,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745670591
+      "retrieved": 1788489824
     },
     "solution/1500-1599/1500.Design a File Sharing System/README_EN.md": {
       "authors": [
@@ -79611,7 +79611,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/9548512?v=4"
         }
       ],
-      "retrieved": 1745670645
+      "retrieved": 1788489824
     },
     "solution/1600-1699/1631.Path With Minimum Effort/README_EN.md": {
       "authors": [
@@ -79799,7 +79799,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/1600-1699/1640.Check Array Formation Through Concatenation/README_EN.md": {
       "authors": [
@@ -83035,19 +83035,19 @@
     "solution/0100-0199/0179.Largest Number/README_EN.md": {
       "authors": [
         {
-          "login": "rain84",
-          "name": "rain84",
-          "url": "https://github.com/rain84",
-          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
-        },
-        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
+          "login": "rain84",
+          "name": "rain84",
+          "url": "https://github.com/rain84",
+          "avatar": "https://avatars.githubusercontent.com/u/1732547?v=4"
         }
       ],
-      "retrieved": 1745670711
+      "retrieved": 1788489824
     },
     "solution/1700-1799/1790.Check if One String Swap Can Make Strings Equal/README_EN.md": {
       "authors": [
@@ -87072,7 +87072,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1765240121
+      "retrieved": 1788489824
     },
     "solution/2000-2099/2000.Reverse Prefix of Word/README_EN.md": {
       "authors": [
@@ -87597,7 +87597,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745670810
+      "retrieved": 1788489824
     },
     "solution/2000-2099/2030.Smallest K-Length Subsequence With Occurrences of a Letter/README_EN.md": {
       "authors": [
@@ -87748,7 +87748,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/2000-2099/2040.Kth Smallest Product of Two Sorted Arrays/README_EN.md": {
       "authors": [
@@ -88496,7 +88496,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1765811947
+      "retrieved": 1788489824
     },
     "solution/2000-2099/2080.Range Frequency Queries/README_EN.md": {
       "authors": [
@@ -89044,7 +89044,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1745670843
+      "retrieved": 1788489824
     },
     "solution/2100-2199/2110.Number of Smooth Descent Periods of a Stock/README_EN.md": {
       "authors": [
@@ -90739,7 +90739,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745670884
+      "retrieved": 1788489824
     },
     "solution/2200-2299/2210.Count Hills and Valleys in an Array/README_EN.md": {
       "authors": [
@@ -91813,7 +91813,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/2200-2299/2270.Number of Ways to Split Array/README_EN.md": {
       "authors": [
@@ -92175,7 +92175,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/99040799?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/2200-2299/2290.Minimum Obstacle Removal to Reach Corner/README_EN.md": {
       "authors": [
@@ -94387,7 +94387,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/2400-2499/2410.Maximum Matching of Players With Trainers/README_EN.md": {
       "authors": [
@@ -96476,7 +96476,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/4357401?v=4"
         }
       ],
-      "retrieved": 1762660772
+      "retrieved": 1788489824
     },
     "solution/2500-2599/2529.Maximum Count of Positive Integer and Negative Integer/README_EN.md": {
       "authors": [
@@ -101215,7 +101215,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/40162016?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/0200-0299/0280.Wiggle Sort/README_EN.md": {
       "authors": [
@@ -101552,7 +101552,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1752366126
+      "retrieved": 1788489824
     },
     "solution/2800-2899/2820.Election Results/README_EN.md": {
       "authors": [
@@ -109459,7 +109459,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1745671337
+      "retrieved": 1788489824
     },
     "solution/3300-3399/3350.Adjacent Increasing Subarrays Detection II/README_EN.md": {
       "authors": [
@@ -109580,7 +109580,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1776083603
+      "retrieved": 1788489824
     },
     "solution/3300-3399/3360.Stone Removal Game/README_EN.md": {
       "authors": [
@@ -112402,7 +112402,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1782913604
+      "retrieved": 1788489824
     },
     "solution/0300-0399/0380.Insert Delete GetRandom O(1)/README_EN.md": {
       "authors": [
@@ -118246,7 +118246,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/52870917?v=4"
         }
       ],
-      "retrieved": 1765813058
+      "retrieved": 1788489824
     },
     "solution/0600-0699/0650.2 Keys Keyboard/README_EN.md": {
       "authors": [
@@ -121176,6 +121176,12 @@
     "solution/0000-0099/0008.String to Integer (atoi)/README_EN.md": {
       "authors": [
         {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
           "login": "pranjal030404",
           "name": "pranjal030404",
           "url": "https://github.com/pranjal030404",
@@ -121186,12 +121192,6 @@
           "name": "gaganxsaini",
           "url": "https://github.com/gaganxsaini",
           "avatar": "https://avatars.githubusercontent.com/u/32135369?v=4"
-        },
-        {
-          "login": "yanglbme",
-          "name": "yanglbme",
-          "url": "https://github.com/yanglbme",
-          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         },
         {
           "login": "ZylalMinollari",
@@ -121206,7 +121206,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/50797868?v=4"
         }
       ],
-      "retrieved": 1750289391
+      "retrieved": 1788489824
     },
     "solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README_EN.md": {
       "authors": [
@@ -121905,7 +121905,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/91381303?v=4"
         }
       ],
-      "retrieved": 1788164304
+      "retrieved": 1788489824
     },
     "solution/0800-0899/0840.Magic Squares In Grid/README_EN.md": {
       "authors": [
@@ -123547,7 +123547,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70502828?v=4"
         }
       ],
-      "retrieved": 1745671651
+      "retrieved": 1788489824
     },
     "solution/0900-0999/0934.Shortest Bridge/README_EN.md": {
       "authors": [
@@ -125635,7 +125635,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/22462923?v=4"
         }
       ],
-      "retrieved": 1745671694
+      "retrieved": 1788489824
     },
     "lcci/17.11.Find Closest/README_EN.md": {
       "authors": [
