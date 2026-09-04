@@ -10,10 +10,8 @@
         position: initial;
         box-shadow: none;
     }
-    .md-main,
     .md-main__inner {
         margin-top: 0;
-        background: var(--md-default-bg-color);
     }
     @media screen and (min-width: 60em) {
         .md-sidebar--secondary {
@@ -27,36 +25,27 @@
     }
 </style>
 
-<section class="lw-hero">
-    <div class="md-grid">
-        <div class="lw-hero__grid">
-            <div>
-                <h1 class="lw-hero__title">
-                    {% if zh %}多语言<br>算法题解{% else %}Interview problems<br>in the languages you write{% endif %}
-                </h1>
-                <p class="lw-hero__lead">
+<section class="mdx-container">
+    <div class="md-grid md-typeset">
+        <div class="mdx-hero">
+            <div class="mdx-hero__content">
+                <h1>{% if zh %}多语言算法题解{% else %}Interview problems in the languages you write{% endif %}</h1>
+                <p>
                     {% if zh %}
                     收录 LeetCode、《剑指 Offer》、《程序员面试金典》全套题解，Java、Python、C++、Go 等十余种语言实现，持续更新。
                     {% else %}
                     Solutions for LeetCode, Coding Interviews, and Cracking the Coding Interview — maintained in many languages.
                     {% endif %}
                 </p>
-                <div class="lw-hero__cta">
-                    <a href="{{ root }}lc/1/" class="lw-btn lw-btn--primary">
-                        {% if zh %}开始刷题{% else %}Start with Two Sum{% endif %}
-                    </a>
-                    <a href="{{ root }}tags/" class="lw-btn">
-                        {% if zh %}专项训练{% else %}Topic drill{% endif %}
-                    </a>
-                    <a href="{{ config.repo_url }}" class="lw-btn">GitHub</a>
-                </div>
-                <p class="lw-stats">
-                    <span><strong>4000+</strong> {% if zh %}道题目{% else %}problems{% endif %}</span>
-                    <span><strong>15+</strong> {% if zh %}种语言{% else %}languages{% endif %}</span>
-                    <span><strong>4</strong> {% if zh %}套题库{% else %}collections{% endif %}</span>
-                </p>
+                <a href="{{ root }}lc/1/" class="md-button md-button--primary">
+                    {% if zh %}开始刷题{% else %}Start with Two Sum{% endif %}
+                </a>
+                <a href="{{ root }}tags/" class="md-button">
+                    {% if zh %}专项训练{% else %}Topic drill{% endif %}
+                </a>
+                <a href="{{ config.repo_url }}" class="md-button">GitHub</a>
             </div>
-            <div class="lw-hero__mark" aria-hidden="true">
+            <div class="mdx-hero__image" aria-hidden="true">
                 <img
                     src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/doocs-leetcode.png"
                     alt=""
@@ -67,70 +56,78 @@
             </div>
         </div>
     </div>
+    <svg class="mdx-hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 40c240 40 480-40 720-16s480 48 720 8v48H0z"/>
+    </svg>
 </section>
+{% endblock %}
 
-<section class="lw-section">
-    <div class="md-grid">
-        <h2 class="lw-section__title">{% if zh %}题库{% else %}Collections{% endif %}</h2>
-        <div class="lw-cards">
-            <a class="lw-card" href="{{ root }}lc/0000-0099/">
-                <span class="lw-card__mark" aria-hidden="true">LC</span>
-                <span class="lw-card__body">
-                    <strong>LeetCode</strong>
-                    <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
-                    <em>{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</em>
-                </span>
+{% block content %}
+<div class="mdx-body md-typeset">
+    <h2 id="collections">{% if zh %}题库{% else %}Collections{% endif %}</h2>
+    <ul class="mdx-expect">
+        <li>
+            <a href="{{ root }}lc/0000-0099/">
+                <div class="mdx-expect__icon">{% include ".icons/material/code-tags.svg" %}</div>
+                <div>
+                    <h3>LeetCode</h3>
+                    <p>{% if zh %}按题号分段收录，从「1. 两数之和」开始。4000+ 题。{% else %}Grouped by number range, starting at Two Sum. 4000+ problems.{% endif %}</p>
+                </div>
             </a>
-            {% if zh %}
-            <a class="lw-card" href="{{ root }}lcof/3/">
-                <span class="lw-card__mark" aria-hidden="true">剑</span>
-                <span class="lw-card__body">
-                    <strong>剑指 Offer</strong>
-                    <span>第 2 版，面试高频原题</span>
-                    <em>75 题</em>
-                </span>
+        </li>
+        {% if zh %}
+        <li>
+            <a href="{{ root }}lcof/3/">
+                <div class="mdx-expect__icon">{% include ".icons/material/book-open-page-variant.svg" %}</div>
+                <div>
+                    <h3>剑指 Offer</h3>
+                    <p>第 2 版，面试高频原题。75 题。</p>
+                </div>
             </a>
-            <a class="lw-card" href="{{ root }}lcof2/1/">
-                <span class="lw-card__mark" aria-hidden="true">专</span>
-                <span class="lw-card__body">
-                    <strong>剑指 Offer II</strong>
-                    <span>专项突击版</span>
-                    <em>119 题</em>
-                </span>
+        </li>
+        <li>
+            <a href="{{ root }}lcof2/1/">
+                <div class="mdx-expect__icon">{% include ".icons/material/book-education.svg" %}</div>
+                <div>
+                    <h3>剑指 Offer II</h3>
+                    <p>专项突击版。119 题。</p>
+                </div>
             </a>
-            {% endif %}
-            <a class="lw-card" href="{{ root }}lcci/1.1/">
-                <span class="lw-card__mark" aria-hidden="true">{% if zh %}典{% else %}VI{% endif %}</span>
-                <span class="lw-card__body">
-                    <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
-                    <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
-                    <em>{% if zh %}109 题{% else %}109 problems{% endif %}</em>
-                </span>
+        </li>
+        {% endif %}
+        <li>
+            <a href="{{ root }}lcci/1.1/">
+                <div class="mdx-expect__icon">{% include ".icons/material/school.svg" %}</div>
+                <div>
+                    <h3>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</h3>
+                    <p>{% if zh %}第 6 版。109 题。{% else %}6th Edition. 109 problems.{% endif %}</p>
+                </div>
             </a>
-        </div>
-        <p class="lw-langs">
-            Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift
-        </p>
-    </div>
-</section>
+        </li>
+        <li>
+            <div class="mdx-expect__static">
+                <div class="mdx-expect__icon">{% include ".icons/material/translate.svg" %}</div>
+                <div>
+                    <h3>{% if zh %}十余种语言{% else %}Many languages{% endif %}</h3>
+                    <p>Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="{{ config.repo_url }}/pulls">
+                <div class="mdx-expect__icon">{% include ".icons/material/source-pull.svg" %}</div>
+                <div>
+                    <h3>{% if zh %}欢迎补充题解{% else %}Contribute{% endif %}</h3>
+                    <p>{% if zh %}按仓库模板撰写后发起 Pull Request。{% else %}Follow the repo template and open a pull request.{% endif %}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
 
-<section class="lw-section">
-    <div class="md-grid lw-footer">
+    <div class="mdx-connect">
         <div>
-            <h2 class="lw-section__title">{% if zh %}贡献{% else %}Contribute{% endif %}</h2>
-            <p class="lw-copy">
-                {% if zh %}
-                欢迎补充缺失题解、完善已有实现，或校对英文说明。按仓库模板撰写后发起
-                <a href="{{ config.repo_url }}/pulls">Pull Request</a>。
-                {% else %}
-                Add a solution or fix a write-up, then open a
-                <a href="{{ config.repo_url }}/pulls">pull request</a>.
-                {% endif %}
-            </p>
-        </div>
-        <div>
-            <h2 class="lw-section__title">{% if zh %}赞助{% else %}Sponsor{% endif %}</h2>
-            <p class="lw-copy">
+            <h2>{% if zh %}赞助{% else %}Sponsor{% endif %}</h2>
+            <p>
                 {% if zh %}
                 可通过 <a href="https://opencollective.com/doocs-leetcode">Open Collective</a> 赞助本项目。
                 {% else %}
@@ -139,8 +136,8 @@
             </p>
         </div>
         <div>
-            <h2 class="lw-section__title">{% if zh %}交流{% else %}Contact{% endif %}</h2>
-            <p class="lw-copy">
+            <h2>{% if zh %}交流{% else %}Contact{% endif %}</h2>
+            <p>
                 {% if zh %}
                 添加微信 yanglbme（<code>YLB0109</code>），备注 leetcode。
                 {% else %}
@@ -148,7 +145,7 @@
                 {% endif %}
             </p>
             <img
-                class="lw-qr"
+                class="mdx-qr"
                 src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme{% if not zh %}-en{% endif %}.png"
                 width="140"
                 height="140"
@@ -156,13 +153,7 @@
             >
         </div>
     </div>
-</section>
-{% endblock %}
 
-{% block content %}
-<div class="lw-section lw-comments">
-    <div class="md-grid md-typeset">
-        {% include "partials/comments.html" %}
-    </div>
+    {% include "partials/comments.html" %}
 </div>
 {% endblock %}
