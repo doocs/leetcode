@@ -1,5 +1,5 @@
 import re
-from posixpath import relpath
+from posixpath import dirname, relpath
 
 # Minify may strip quotes: <a href=/en/ hreflang=en>
 # Also rewrite <link rel=alternate href=/en/ hreflang=en>
@@ -43,12 +43,22 @@ def _abs_url(rel: str, *, en: bool) -> str:
 
 
 def _relative_href(from_abs: str, to_abs: str) -> str:
-    from_dir = from_abs if from_abs.endswith("/") else from_abs + "/"
-    to_dir = to_abs if to_abs.endswith("/") else to_abs + "/"
-    rel = relpath(to_dir, from_dir)
+    to_is_dir = to_abs.endswith("/")
+    if from_abs.endswith("/"):
+        start = from_abs.rstrip("/") or "/"
+    else:
+        start = dirname(from_abs) or "/"
+    target = to_abs.rstrip("/") if to_is_dir else to_abs
+    if target == "":
+        target = "/"
+    rel = relpath(target, start)
+    if to_is_dir:
+        if rel in (".", ""):
+            return "./"
+        return rel if rel.endswith("/") else f"{rel}/"
     if rel in (".", ""):
-        return "./"
-    return rel if rel.endswith("/") else f"{rel}/"
+        return to_abs.rsplit("/", 1)[-1] or "./"
+    return rel
 
 
 def on_post_page(output, page, config):
