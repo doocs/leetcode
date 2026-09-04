@@ -43,7 +43,7 @@
 }
 
 .lw-hero {
-    background: color-mix(in srgb, var(--md-primary-fg-color) 8%, var(--md-default-bg-color));
+    background: color-mix(in srgb, var(--md-accent-fg-color) 10%, var(--md-default-bg-color));
     border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 
@@ -61,19 +61,16 @@
 
 .lw-kicker {
     margin: 0 0 0.6rem;
-    color: var(--md-primary-fg-color);
+    color: var(--md-accent-fg-color);
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .lw-hero__title,
 .lw-section__title {
     margin: 0 0 0.8rem;
     font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: -0.03em;
+    line-height: 1.35;
     color: var(--md-default-fg-color);
 }
 
@@ -101,7 +98,8 @@
     margin-bottom: 1.8rem;
 }
 
-.lw-btn {
+a.lw-btn,
+a.lw-btn:visited {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -117,16 +115,28 @@
     text-decoration: none;
 }
 
-.lw-btn:hover {
-    border-color: var(--md-primary-fg-color);
-    color: var(--md-primary-fg-color);
+a.lw-btn:hover,
+a.lw-btn:focus {
+    border-color: var(--md-accent-fg-color);
+    background: color-mix(in srgb, var(--md-accent-fg-color) 12%, var(--md-default-bg-color));
+    color: var(--md-accent-fg-color);
+    text-decoration: none;
 }
 
-.lw-btn--primary,
-.lw-btn--primary:hover {
-    border-color: var(--md-primary-fg-color);
-    background: var(--md-primary-fg-color);
-    color: var(--md-primary-bg-color);
+a.lw-btn--primary,
+a.lw-btn--primary:visited,
+a.lw-btn--primary:hover,
+a.lw-btn--primary:focus {
+    border-color: var(--md-default-fg-color);
+    background: var(--md-default-fg-color);
+    color: var(--md-default-bg-color);
+}
+
+a.lw-btn--primary:hover,
+a.lw-btn--primary:focus {
+    border-color: var(--md-accent-fg-color);
+    background: var(--md-accent-fg-color);
+    color: #fff;
 }
 
 .lw-stats {
@@ -193,14 +203,14 @@
 }
 
 .lw-card:hover {
-    border-color: var(--md-primary-fg-color);
+    border-color: var(--md-accent-fg-color);
     transform: translateY(-2px);
 }
 
 .lw-card__meta {
     font-size: 0.78rem;
     font-weight: 700;
-    color: var(--md-primary-fg-color);
+    color: var(--md-accent-fg-color);
 }
 
 .lw-card strong,
@@ -231,8 +241,8 @@
     height: 1.5rem;
     margin-bottom: 0.15rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--md-primary-fg-color) 14%, transparent);
-    color: var(--md-primary-fg-color);
+    background: color-mix(in srgb, var(--md-accent-fg-color) 14%, transparent);
+    color: var(--md-accent-fg-color);
     font-size: 0.78rem;
     font-weight: 700;
     line-height: 1.5rem;
