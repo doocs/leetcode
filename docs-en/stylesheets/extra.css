@@ -175,47 +175,68 @@ a.lw-btn--primary:focus {
     filter: drop-shadow(0 1.2rem 2.4rem color-mix(in srgb, #000 28%, transparent));
 }
 
-.lw-list {
-    margin: 0.2rem 0 0.9rem;
-    padding: 0;
-    list-style: none;
-}
-
-.lw-list a {
+.lw-cards {
     display: grid;
-    grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr);
-    gap: 0.8rem 1.4rem;
-    align-items: baseline;
-    padding: 0.65rem 0;
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
-    color: inherit;
+    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+    gap: 0.85rem;
+    margin: 0.85rem 0 1.1rem;
+}
+
+a.lw-card,
+a.lw-card:visited {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-height: 8.8rem;
+    padding: 1.15rem 1.2rem 1.25rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.35rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
     text-decoration: none;
 }
 
-.lw-list li:first-child a {
-    border-top: 1px solid var(--md-default-fg-color--lightest);
+a.lw-card:hover,
+a.lw-card:focus {
+    border-color: var(--md-typeset-a-color);
+    box-shadow: 0 0 0 1px var(--md-typeset-a-color);
+    color: var(--md-default-fg-color);
+    text-decoration: none;
 }
 
-.lw-list a:hover,
-.lw-list a:focus {
+.lw-card__count {
     color: var(--md-typeset-a-color);
-    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
-.lw-list strong {
-    font-size: 0.8rem;
+.lw-card strong {
+    font-size: 1.05rem;
+    line-height: 1.35;
 }
 
-.lw-list span {
+.lw-card span:last-child {
+    margin-top: auto;
     color: var(--md-default-fg-color--light);
     font-size: 0.8rem;
     line-height: 1.6;
 }
 
-.lw-langs {
+.lw-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
     margin: 0;
-    font-size: 0.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.lw-chips li {
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.2rem;
     color: var(--md-default-fg-color--light);
+    font-size: 0.72rem;
 }
 
 .lw-qr {
@@ -248,8 +269,7 @@ a.lw-btn--primary:focus {
         filter: none;
     }
 
-    .lw-list a {
+    .lw-cards {
         grid-template-columns: 1fr;
-        gap: 0.2rem;
     }
 }

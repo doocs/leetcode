@@ -72,37 +72,43 @@
 <section class="lw-section">
     <div class="md-grid">
         <h2 class="lw-section__title">{% if zh %}题库{% else %}Collections{% endif %}</h2>
-        <ul class="lw-list">
-            <li>
-                <a href="{{ root }}lc/0000-0099/">
-                    <strong>LeetCode</strong>
-                    <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
-                </a>
-            </li>
+        <div class="lw-cards">
+            <a class="lw-card" href="{{ root }}lc/0000-0099/">
+                <span class="lw-card__count">4000+</span>
+                <strong>LeetCode</strong>
+                <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
+            </a>
             {% if zh %}
-            <li>
-                <a href="{{ root }}lcof/3/">
-                    <strong>剑指 Offer</strong>
-                    <span>第 2 版，面试高频原题</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ root }}lcof2/1/">
-                    <strong>剑指 Offer II</strong>
-                    <span>专项突击版</span>
-                </a>
-            </li>
+            <a class="lw-card" href="{{ root }}lcof/3/">
+                <span class="lw-card__count">75</span>
+                <strong>剑指 Offer</strong>
+                <span>第 2 版，面试高频原题</span>
+            </a>
+            <a class="lw-card" href="{{ root }}lcof2/1/">
+                <span class="lw-card__count">119</span>
+                <strong>剑指 Offer II</strong>
+                <span>专项突击版</span>
+            </a>
             {% endif %}
-            <li>
-                <a href="{{ root }}lcci/1.1/">
-                    <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
-                    <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
-                </a>
-            </li>
+            <a class="lw-card" href="{{ root }}lcci/1.1/">
+                <span class="lw-card__count">109</span>
+                <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
+                <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
+            </a>
+        </div>
+        <ul class="lw-chips">
+            <li>Python</li>
+            <li>Java</li>
+            <li>C++</li>
+            <li>Go</li>
+            <li>TypeScript</li>
+            <li>Rust</li>
+            <li>C#</li>
+            <li>PHP</li>
+            <li>JavaScript</li>
+            <li>Kotlin</li>
+            <li>Swift</li>
         </ul>
-        <p class="lw-langs">
-            Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift
-        </p>
     </div>
 </section>
 
