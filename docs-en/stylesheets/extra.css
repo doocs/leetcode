@@ -114,58 +114,71 @@
     margin-top: 0;
 }
 
-.mdx-expect {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem 1.6rem;
-    margin: 1.2rem 0 2.4rem;
-    padding: 0;
-    list-style: none;
-}
-
-.mdx-expect > li {
-    flex: 1 1 16rem;
-}
-
-.mdx-expect a,
-.mdx-expect__static {
-    display: flex;
+.mdx-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.9rem;
+    margin: 1.2rem 0 1rem;
+}
+
+a.mdx-tile,
+a.mdx-tile:visited {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 12.5rem;
+    padding: 1.5rem 1.45rem 1.35rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.2rem;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.mdx-tile:hover,
+a.mdx-tile:focus {
+    border-color: var(--md-accent-fg-color);
+    box-shadow: 0 0 0 1px var(--md-accent-fg-color);
     color: inherit;
     text-decoration: none;
 }
 
-.mdx-expect a:hover h3,
-.mdx-expect a:focus h3 {
+.mdx-tile__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-bottom: 1rem;
     color: var(--md-accent-fg-color);
 }
 
-.mdx-expect__icon {
-    flex: 0 0 2.4rem;
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0.45rem;
-    border-radius: 100%;
-    background: var(--md-accent-fg-color);
-    color: #fff;
-    fill: currentColor;
-}
-
-.mdx-expect__icon svg {
+.mdx-tile__icon svg {
     display: block;
     width: 100%;
     height: 100%;
     fill: currentColor;
 }
 
-.mdx-expect h3 {
-    margin: 0.1rem 0 0.35rem;
+.mdx-tile h3 {
+    margin: 0 0 0.45rem;
     font-weight: 700;
 }
 
-.mdx-expect p {
+.mdx-tile p {
     margin: 0;
+    flex: 1;
     color: var(--md-default-fg-color--light);
+}
+
+.mdx-tile span {
+    margin-top: 1.1rem;
+    color: var(--md-accent-fg-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.mdx-langs {
+    margin: 0 0 2.2rem;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.8rem;
 }
 
 .mdx-connect {
@@ -194,7 +207,8 @@
         width: 8.5rem;
     }
 
-    .mdx-connect {
+    .mdx-connect,
+    .mdx-tiles {
         grid-template-columns: 1fr;
     }
 }

@@ -65,64 +65,37 @@
 {% block content %}
 <div class="mdx-body md-typeset">
     <h2 id="collections">{% if zh %}题库{% else %}Collections{% endif %}</h2>
-    <ul class="mdx-expect">
-        <li>
-            <a href="{{ root }}lc/0000-0099/">
-                <div class="mdx-expect__icon">{% include ".icons/material/code-tags.svg" %}</div>
-                <div>
-                    <h3>LeetCode</h3>
-                    <p>{% if zh %}按题号分段收录，从「1. 两数之和」开始。4000+ 题。{% else %}Grouped by number range, starting at Two Sum. 4000+ problems.{% endif %}</p>
-                </div>
-            </a>
-        </li>
+    <div class="mdx-tiles">
+        <a class="mdx-tile" href="{{ root }}lc/0000-0099/">
+            <div class="mdx-tile__icon">{% include ".icons/material/code-tags.svg" %}</div>
+            <h3>LeetCode</h3>
+            <p>{% if zh %}按题号分段，覆盖力扣全部题目，从「两数之和」开始。{% else %}Grouped by number range, starting at Two Sum.{% endif %}</p>
+            <span>{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</span>
+        </a>
         {% if zh %}
-        <li>
-            <a href="{{ root }}lcof/3/">
-                <div class="mdx-expect__icon">{% include ".icons/material/book-open-page-variant.svg" %}</div>
-                <div>
-                    <h3>剑指 Offer</h3>
-                    <p>第 2 版，面试高频原题。75 题。</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ root }}lcof2/1/">
-                <div class="mdx-expect__icon">{% include ".icons/material/book-education.svg" %}</div>
-                <div>
-                    <h3>剑指 Offer II</h3>
-                    <p>专项突击版。119 题。</p>
-                </div>
-            </a>
-        </li>
+        <a class="mdx-tile" href="{{ root }}lcof/3/">
+            <div class="mdx-tile__icon">{% include ".icons/material/book-open-page-variant.svg" %}</div>
+            <h3>剑指 Offer</h3>
+            <p>第 2 版原题，对应面试高频考点。</p>
+            <span>75 题</span>
+        </a>
+        <a class="mdx-tile" href="{{ root }}lcof2/1/">
+            <div class="mdx-tile__icon">{% include ".icons/material/book-education.svg" %}</div>
+            <h3>剑指 Offer II</h3>
+            <p>专项突击版，按题型系统练习。</p>
+            <span>119 题</span>
+        </a>
         {% endif %}
-        <li>
-            <a href="{{ root }}lcci/1.1/">
-                <div class="mdx-expect__icon">{% include ".icons/material/school.svg" %}</div>
-                <div>
-                    <h3>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</h3>
-                    <p>{% if zh %}第 6 版。109 题。{% else %}6th Edition. 109 problems.{% endif %}</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <div class="mdx-expect__static">
-                <div class="mdx-expect__icon">{% include ".icons/material/translate.svg" %}</div>
-                <div>
-                    <h3>{% if zh %}十余种语言{% else %}Many languages{% endif %}</h3>
-                    <p>Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="{{ config.repo_url }}/pulls">
-                <div class="mdx-expect__icon">{% include ".icons/material/source-pull.svg" %}</div>
-                <div>
-                    <h3>{% if zh %}欢迎补充题解{% else %}Contribute{% endif %}</h3>
-                    <p>{% if zh %}按仓库模板撰写后发起 Pull Request。{% else %}Follow the repo template and open a pull request.{% endif %}</p>
-                </div>
-            </a>
-        </li>
-    </ul>
+        <a class="mdx-tile" href="{{ root }}lcci/1.1/">
+            <div class="mdx-tile__icon">{% include ".icons/material/school.svg" %}</div>
+            <h3>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</h3>
+            <p>{% if zh %}第 6 版精选题，对应 IT 名企面试。{% else %}6th Edition, curated interview problems.{% endif %}</p>
+            <span>{% if zh %}109 题{% else %}109 problems{% endif %}</span>
+        </a>
+    </div>
+    <p class="mdx-langs">
+        Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift
+    </p>
 
     <div class="mdx-connect">
         <div>
