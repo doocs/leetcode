@@ -146,6 +146,7 @@ jobs:
       - name: Build ${{ matrix.lang }} site
         env:
           MKDOCS_API_KEYS: ${{ secrets.MKDOCS_API_KEYS }}
+          NO_MKDOCS_2_WARNING: '1'
         run: mkdocs build -f ${{ matrix.config }}
 
       - name: Upload ${{ matrix.lang }} site
