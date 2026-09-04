@@ -1,10 +1,12 @@
 import re
+from posixpath import relpath
 
 # Minify may strip quotes: <a href=/en/ hreflang=en>
+# Also rewrite <link rel=alternate href=/en/ hreflang=en>
 _HREFLANG_HREF = re.compile(
     r"""
     (?P<prefix>
-        <a\b
+        <(?:a|link)\b
         (?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>zh|en)(?P=lq)(?=[\s>]))
         [^>]*\bhref=(?P<hq>["']?)
     )
@@ -22,20 +24,47 @@ def _page_rel(page) -> str:
     return url
 
 
+def _is_en_site(config) -> bool:
+    if isinstance(config, dict):
+        site_url = str(config.get("site_url") or "")
+        site_dir = str(config.get("site_dir") or "")
+    else:
+        site_url = str(getattr(config, "site_url", "") or "")
+        site_dir = str(getattr(config, "site_dir", "") or "")
+    site_url = site_url.rstrip("/")
+    site_dir = site_dir.replace("\\", "/").rstrip("/")
+    return site_url.endswith("/en") or site_dir.endswith("/en") or site_dir == "en"
+
+
+def _abs_url(rel: str, *, en: bool) -> str:
+    if en:
+        return f"/en/{rel}" if rel else "/en/"
+    return f"/{rel}" if rel else "/"
+
+
+def _relative_href(from_abs: str, to_abs: str) -> str:
+    from_dir = from_abs if from_abs.endswith("/") else from_abs + "/"
+    to_dir = to_abs if to_abs.endswith("/") else to_abs + "/"
+    rel = relpath(to_dir, from_dir)
+    if rel in (".", ""):
+        return "./"
+    return rel if rel.endswith("/") else f"{rel}/"
+
+
 def on_post_page(output, page, config):
     if not output:
         return output
 
     rel = _page_rel(page)
-    cn_url = f"/{rel}" if rel else "/"
-    en_url = f"/en/{rel}" if rel else "/en/"
+    here = _abs_url(rel, en=_is_en_site(config))
     prefix = rel.split("/", 1)[0] if rel else ""
     support_en = prefix not in ("lcof", "lcof2")
+    cn_url = _relative_href(here, _abs_url(rel, en=False))
+    en_target = _abs_url(rel, en=True) if support_en else _abs_url("", en=True)
+    en_url = _relative_href(here, en_target)
 
     def repl(match):
         lang = match.group("lang").lower()
-        if lang == "en" and not support_en:
-            return match.group(0)
         href = en_url if lang == "en" else cn_url
         return f"{match.group('prefix')}{href}{match.group('suffix')}"
 
