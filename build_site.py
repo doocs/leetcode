@@ -148,11 +148,18 @@ def load_only_dirs() -> Optional[Set[str]]:
     if not path:
         return None
     only: Set[str] = set()
-    with open(path, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#"):
-                only.add(os.path.normpath(line))
+    try:
+        with open(path, encoding="utf-8") as f:
+            lines = f.readlines()
+    except OSError as e:
+        raise SystemExit(
+            f"PREVIEW_ONLY_DIRS_FILE is set to {path!r} but the file "
+            f"could not be read: {e}"
+        ) from e
+    for line in lines:
+        line = line.strip()
+        if line and not line.startswith("#"):
+            only.add(os.path.normpath(line))
     return only
 
 
