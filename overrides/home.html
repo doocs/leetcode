@@ -74,100 +74,60 @@
         <h2 class="lw-section__title">{% if zh %}题库{% else %}Collections{% endif %}</h2>
         <div class="lw-cards">
             <a class="lw-card" href="{{ root }}lc/0000-0099/">
-                <span class="lw-card__cover lw-card__cover--lc">
-                    <img
-                        src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode@main/images/doocs-leetcode.png"
-                        alt=""
-                        width="480"
-                        height="480"
-                    >
-                </span>
+                <span class="lw-card__mark" aria-hidden="true">LC</span>
                 <span class="lw-card__body">
                     <strong>LeetCode</strong>
                     <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
-                    <span class="lw-card__count">{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</span>
+                    <em>{% if zh %}4000+ 题{% else %}4000+ problems{% endif %}</em>
                 </span>
             </a>
             {% if zh %}
             <a class="lw-card" href="{{ root }}lcof/3/">
-                <span class="lw-card__cover">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/lcof.png"
-                        alt="《剑指 Offer》第 2 版"
-                        width="228"
-                        height="297"
-                    >
-                </span>
+                <span class="lw-card__mark" aria-hidden="true">剑</span>
                 <span class="lw-card__body">
                     <strong>剑指 Offer</strong>
                     <span>第 2 版，面试高频原题</span>
-                    <span class="lw-card__count">75 题</span>
+                    <em>75 题</em>
                 </span>
             </a>
             <a class="lw-card" href="{{ root }}lcof2/1/">
-                <span class="lw-card__cover">
-                    <img
-                        src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/lcof2.jpg"
-                        alt="《剑指 Offer》专项突击版"
-                        width="300"
-                        height="300"
-                    >
-                </span>
+                <span class="lw-card__mark" aria-hidden="true">专</span>
                 <span class="lw-card__body">
                     <strong>剑指 Offer II</strong>
                     <span>专项突击版</span>
-                    <span class="lw-card__count">119 题</span>
+                    <em>119 题</em>
                 </span>
             </a>
             {% endif %}
             <a class="lw-card" href="{{ root }}lcci/1.1/">
-                <span class="lw-card__cover lw-card__cover--lcci">
-                    <span class="lw-card__seal">{% if zh %}典{% else %}VI{% endif %}</span>
-                    <span class="lw-card__cover-title">
-                        {% if zh %}程序员<br>面试金典{% else %}Cracking the<br>Coding Interview{% endif %}
-                    </span>
-                </span>
+                <span class="lw-card__mark" aria-hidden="true">{% if zh %}典{% else %}VI{% endif %}</span>
                 <span class="lw-card__body">
                     <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
                     <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
-                    <span class="lw-card__count">{% if zh %}109 题{% else %}109 problems{% endif %}</span>
+                    <em>{% if zh %}109 题{% else %}109 problems{% endif %}</em>
                 </span>
             </a>
         </div>
-        <ul class="lw-chips">
-            <li>Python</li>
-            <li>Java</li>
-            <li>C++</li>
-            <li>Go</li>
-            <li>TypeScript</li>
-            <li>Rust</li>
-            <li>C#</li>
-            <li>PHP</li>
-            <li>JavaScript</li>
-            <li>Kotlin</li>
-            <li>Swift</li>
-        </ul>
-    </div>
-</section>
-
-<section class="lw-section">
-    <div class="md-grid">
-        <h2 class="lw-section__title">{% if zh %}贡献{% else %}Contribute{% endif %}</h2>
-        <p class="lw-copy">
-            {% if zh %}
-            欢迎补充缺失题解、完善已有实现，或校对英文说明。按仓库中的 <code>Solution.xxx</code> 与 README 模板撰写后，发起
-            <a href="{{ config.repo_url }}/pulls">Pull Request</a>。
-            {% else %}
-            Add a missing solution, improve an implementation, or fix the English write-up. Follow the existing
-            <code>Solution.xxx</code> files and README template, then open a
-            <a href="{{ config.repo_url }}/pulls">pull request</a>.
-            {% endif %}
+        <p class="lw-langs">
+            Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift
         </p>
     </div>
 </section>
 
 <section class="lw-section">
     <div class="md-grid lw-footer">
+        <div>
+            <h2 class="lw-section__title">{% if zh %}贡献{% else %}Contribute{% endif %}</h2>
+            <p class="lw-copy">
+                {% if zh %}
+                欢迎补充缺失题解、完善已有实现，或校对英文说明。按仓库模板撰写后发起
+                <a href="{{ config.repo_url }}/pulls">Pull Request</a>。
+                {% else %}
+                Add a solution or fix a write-up, then open a
+                <a href="{{ config.repo_url }}/pulls">pull request</a>.
+                {% endif %}
+            </p>
+        </div>
         <div>
             <h2 class="lw-section__title">{% if zh %}赞助{% else %}Sponsor{% endif %}</h2>
             <p class="lw-copy">
@@ -182,9 +142,9 @@
             <h2 class="lw-section__title">{% if zh %}交流{% else %}Contact{% endif %}</h2>
             <p class="lw-copy">
                 {% if zh %}
-                添加微信 yanglbme（账号 <code>YLB0109</code>），备注 leetcode，通过后邀请加入算法交流群。
+                添加微信 yanglbme（<code>YLB0109</code>），备注 leetcode。
                 {% else %}
-                Add WeChat <code>YLB0109</code> (@yanglbme) with the note <em>leetcode</em>.
+                WeChat <code>YLB0109</code>, note <em>leetcode</em>.
                 {% endif %}
             </p>
             <img
