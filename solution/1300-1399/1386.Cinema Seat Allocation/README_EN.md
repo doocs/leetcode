@@ -256,9 +256,6 @@ impl Solution {
 #### C#
 
 ```cs
-using System;
-using System.Collections.Generic;
-
 public class Solution {
     public int MaxNumberOfFamilies(int n, int[][] reservedSeats) {
         Dictionary<int, int> d = new Dictionary<int, int>();

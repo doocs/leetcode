@@ -3,16 +3,12 @@ public class Solution {
         ListNode newHead = null;
         ListNode newTail = null;
         var current = head;
-        while (current != null)
-        {
-            if (current.val != val)
-            {
-                if (newHead == null)
-                {
+        while (current != null) {
+            if (current.val != val) {
+                if (newHead == null) {
                     newHead = newTail = current;
                 }
-                else
-                {
+                else {
                     newTail.next = current;
                     newTail = current;
                 }

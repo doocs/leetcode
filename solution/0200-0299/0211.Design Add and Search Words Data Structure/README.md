@@ -321,9 +321,6 @@ func (t *trie) insert(word string) {
 #### C#
 
 ```cs
-using System.Collections.Generic;
-using System.Linq;
-
 class TrieNode {
     public bool IsEnd { get; set; }
     public TrieNode[] Children { get; set; }
@@ -341,13 +338,11 @@ public class WordDictionary {
 
     public void AddWord(string word) {
         var node = root;
-        for (var i = 0; i < word.Length; ++i)
-        {
+        for (var i = 0; i < word.Length; ++i) {
             TrieNode nextNode;
             var index = word[i] - 'a';
             nextNode = node.Children[index];
-            if (nextNode == null)
-            {
+            if (nextNode == null) {
                 nextNode = new TrieNode();
                 node.Children[index] = nextNode;
             }
@@ -359,27 +354,20 @@ public class WordDictionary {
     public bool Search(string word) {
         var queue = new Queue<TrieNode>();
         queue.Enqueue(root);
-        for (var i = 0; i < word.Length; ++i)
-        {
+        for (var i = 0; i < word.Length; ++i) {
             var count = queue.Count;
-            while (count-- > 0)
-            {
+            while (count-- > 0) {
                 var node = queue.Dequeue();
-                if (word[i] == '.')
-                {
-                    foreach (var nextNode in node.Children)
-                    {
-                        if (nextNode != null)
-                        {
+                if (word[i] == '.') {
+                    foreach (var nextNode in node.Children) {
+                        if (nextNode != null) {
                             queue.Enqueue(nextNode);
                         }
                     }
                 }
-                else
-                {
+                else {
                     var nextNode = node.Children[word[i] - 'a'];
-                    if (nextNode != null)
-                    {
+                    if (nextNode != null) {
                         queue.Enqueue(nextNode);
                     }
                 }

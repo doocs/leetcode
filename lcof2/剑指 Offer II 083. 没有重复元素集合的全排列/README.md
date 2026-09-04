@@ -214,9 +214,6 @@ function dfs(u, n, nums, used, path, res) {
 #### C#
 
 ```cs
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
     public IList<IList<int>> Permute(int[] nums) {
         var results = new List<IList<int>>();
@@ -226,11 +223,9 @@ public class Solution {
         return results;
     }
 
-    private void Search(int[] nums, bool[] visited, IList<int> temp, IList<IList<int>> results)
-    {
+    private void Search(int[] nums, bool[] visited, IList<int> temp, IList<IList<int>> results) {
         int count = 0;
-        for (var i = 0; i < nums.Length; ++i)
-        {
+        for (var i = 0; i < nums.Length; ++i) {
             if (visited[i]) continue;
             ++count;
             temp.Add(nums[i]);
@@ -239,8 +234,7 @@ public class Solution {
             temp.RemoveAt(temp.Count - 1);
             visited[i] = false;
         }
-        if (count == 0 && temp.Any())
-        {
+        if (count == 0 && temp.Any()) {
             results.Add(new List<int>(temp));
         }
     }

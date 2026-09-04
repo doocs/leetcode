@@ -37,7 +37,6 @@ public class TreeAncestor {
     }
 }
 
-
 /**
  * Your TreeAncestor object will be instantiated and called as such:
  * TreeAncestor obj = new TreeAncestor(n, parent);

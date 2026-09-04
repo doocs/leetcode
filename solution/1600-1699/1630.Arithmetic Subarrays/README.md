@@ -269,7 +269,7 @@ impl Solution {
 #### C#
 
 ```cs
-class Solution {
+public class Solution {
     public bool Check(int[] arr) {
         Array.Sort(arr);
         int diff = arr[1] - arr[0];

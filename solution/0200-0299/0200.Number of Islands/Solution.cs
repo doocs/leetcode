@@ -12,8 +12,7 @@ public class Solution {
                 int y = j + dirs[k + 1];
                 if (x >= 0 && x < m &&
                     y >= 0 && y < n &&
-                    grid[x][y] == '1')
-                {
+                    grid[x][y] == '1') {
                     Dfs(x, y);
                 }
             }

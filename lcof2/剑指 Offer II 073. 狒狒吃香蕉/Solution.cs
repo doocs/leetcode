@@ -1,20 +1,16 @@
 public class Solution {
     public int MinEatingSpeed(int[] piles, int h) {
         int left = 1, right = piles.Max();
-        while (left < right)
-        {
+        while (left < right) {
             int mid = (left + right) >> 1;
             int s = 0;
-            foreach (int pile in piles)
-            {
+            foreach (int pile in piles) {
                 s += (pile + mid - 1) / mid;
             }
-            if (s <= h)
-            {
+            if (s <= h) {
                 right = mid;
             }
-            else
-            {
+            else {
                 left = mid + 1;
             }
         }

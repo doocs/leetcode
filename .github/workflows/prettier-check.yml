@@ -39,10 +39,10 @@ jobs:
       - name: Check prettier
         run: |
           set -euo pipefail
-          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
+          git config core.quotepath false
+          mapfile -t files < <(git -c core.quotepath=false diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No Prettier files changed."
             exit 0
           fi
-          git config --global core.quotepath off
           pnpm exec prettier --check "${files[@]}"
