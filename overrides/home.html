@@ -9,8 +9,10 @@
     .md-header {
         position: initial;
     }
+    .md-main,
     .md-main__inner {
         margin-top: 0;
+        background: var(--md-default-bg-color);
     }
     @media screen and (min-width: 60em) {
         .md-sidebar--secondary {
@@ -27,14 +29,9 @@
 <section class="lw-hero">
     <div class="md-grid">
         <div class="lw-hero__grid">
-            <div class="lw-hero__copy">
-                <p class="lw-kicker">{% if zh %}Doocs 开源社区{% else %}Doocs open source{% endif %}</p>
+            <div>
                 <h1 class="lw-hero__title">
-                    {% if zh %}
-                    多语言算法题解
-                    {% else %}
-                    Interview problems<br>in the languages you write
-                    {% endif %}
+                    {% if zh %}多语言算法题解{% else %}Interview problems<br>in the languages you write{% endif %}
                 </h1>
                 <p class="lw-hero__lead">
                     {% if zh %}
@@ -52,11 +49,11 @@
                     </a>
                     <a href="{{ config.repo_url }}" class="lw-btn">GitHub</a>
                 </div>
-                <ul class="lw-stats">
-                    <li><strong>4000+</strong><span>{% if zh %}道题目{% else %}LeetCode problems{% endif %}</span></li>
-                    <li><strong>15+</strong><span>{% if zh %}种语言{% else %}languages{% endif %}</span></li>
-                    <li><strong>4</strong><span>{% if zh %}套题库{% else %}classic books{% endif %}</span></li>
-                </ul>
+                <p class="lw-stats">
+                    <span><strong>4000+</strong> {% if zh %}道题目{% else %}problems{% endif %}</span>
+                    <span><strong>15+</strong> {% if zh %}种语言{% else %}languages{% endif %}</span>
+                    <span><strong>4</strong> {% if zh %}套题库{% else %}collections{% endif %}</span>
+                </p>
             </div>
             <div class="lw-hero__mark" aria-hidden="true">
                 <img
@@ -73,126 +70,86 @@
 
 <section class="lw-section">
     <div class="md-grid">
-        <p class="lw-kicker">{% if zh %}题库{% else %}Collections{% endif %}</p>
-        <h2 class="lw-section__title">{% if zh %}按题库刷题{% else %}Pick a collection{% endif %}</h2>
-        <div class="lw-cards">
-            <a class="lw-card" href="{{ root }}lc/0000-0099/">
-                <span class="lw-card__meta">4000+</span>
-                <strong>LeetCode</strong>
-                <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
-            </a>
+        <h2 class="lw-section__title">{% if zh %}题库{% else %}Collections{% endif %}</h2>
+        <ul class="lw-list">
+            <li>
+                <a href="{{ root }}lc/0000-0099/">
+                    <strong>LeetCode</strong>
+                    <span>{% if zh %}按题号分段收录，从「1. 两数之和」开始{% else %}Grouped by number range, starting at Two Sum{% endif %}</span>
+                </a>
+            </li>
             {% if zh %}
-            <a class="lw-card" href="{{ root }}lcof/3/">
-                <span class="lw-card__meta">75</span>
-                <strong>剑指 Offer</strong>
-                <span>第 2 版，面试高频原题</span>
-            </a>
-            <a class="lw-card" href="{{ root }}lcof2/1/">
-                <span class="lw-card__meta">119</span>
-                <strong>剑指 Offer II</strong>
-                <span>专项突击版</span>
-            </a>
+            <li>
+                <a href="{{ root }}lcof/3/">
+                    <strong>剑指 Offer</strong>
+                    <span>第 2 版，面试高频原题</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ root }}lcof2/1/">
+                    <strong>剑指 Offer II</strong>
+                    <span>专项突击版</span>
+                </a>
+            </li>
             {% endif %}
-            <a class="lw-card" href="{{ root }}lcci/1.1/">
-                <span class="lw-card__meta">109</span>
-                <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
-                <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
-            </a>
-        </div>
+            <li>
+                <a href="{{ root }}lcci/1.1/">
+                    <strong>{% if zh %}程序员面试金典{% else %}Cracking the Coding Interview{% endif %}</strong>
+                    <span>{% if zh %}第 6 版{% else %}6th Edition{% endif %}</span>
+                </a>
+            </li>
+        </ul>
         <p class="lw-langs">
             Python · Java · C++ · Go · TypeScript · Rust · C# · PHP · JavaScript · Kotlin · Swift
         </p>
     </div>
 </section>
 
-<section class="lw-section lw-section--muted">
+<section class="lw-section">
     <div class="md-grid">
-        <p class="lw-kicker">{% if zh %}贡献{% else %}Contribute{% endif %}</p>
-        <h2 class="lw-section__title">{% if zh %}欢迎补充题解{% else %}Solutions are written in the open{% endif %}</h2>
-        <p class="lw-section__lead">
+        <h2 class="lw-section__title">{% if zh %}贡献{% else %}Contribute{% endif %}</h2>
+        <p class="lw-hero__lead">
             {% if zh %}
-            可补充缺失题解、完善已有实现，或校对英文说明。C# 题解由 <a href="https://github.com/kfstorm">@kfstorm</a> 贡献。
+            欢迎补充缺失题解、完善已有实现，或校对英文说明。按仓库中的 <code>Solution.xxx</code> 与 README 模板撰写后，发起
+            <a href="{{ config.repo_url }}/pulls">Pull Request</a>。C# 题解由 <a href="https://github.com/kfstorm">@kfstorm</a> 贡献。
             {% else %}
-            Add a solution, improve an implementation, or fix the English write-up. C# solutions are from <a href="https://github.com/kfstorm">@kfstorm</a>.
+            Add a missing solution, improve an implementation, or fix the English write-up. Follow the existing
+            <code>Solution.xxx</code> files and README template, then open a
+            <a href="{{ config.repo_url }}/pulls">pull request</a>.
+            C# solutions are from <a href="https://github.com/kfstorm">@kfstorm</a>.
             {% endif %}
         </p>
-        <ol class="lw-steps">
-            <li>
-                <strong>{% if zh %}Fork 仓库{% else %}Fork{% endif %}</strong>
-                <span>{% if zh %}将本仓库 Fork 到自己的 GitHub，再克隆到本地。{% else %}Fork the repo, then clone it locally.{% endif %}</span>
-            </li>
-            <li>
-                <strong>{% if zh %}编写题解{% else %}Add a solution{% endif %}</strong>
-                <span>{% if zh %}按已有 <code>Solution.xxx</code> 文件和 README 模板撰写。{% else %}Follow the existing <code>Solution.xxx</code> and README template.{% endif %}</span>
-            </li>
-            <li>
-                <strong>{% if zh %}提交 Pull Request{% else %}Open a PR{% endif %}</strong>
-                <span>{% if zh %}推送到个人仓库后发起 Pull Request，维护者会尽快审阅。{% else %}Push your branch and open a pull request.{% endif %}</span>
-            </li>
-        </ol>
-        <div class="lw-hero__cta">
-            <a href="{{ config.repo_url }}/pulls" class="lw-btn lw-btn--primary">
-                {% if zh %}发起 Pull Request{% else %}Open a pull request{% endif %}
-            </a>
-            <a
-                href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=149001365&machine=basicLinux32gb&location={% if zh %}SoutheastAsia{% else %}EastUs{% endif %}"
-                class="lw-btn"
-            >
-                Codespaces
-            </a>
-        </div>
     </div>
 </section>
 
 <section class="lw-section">
-    <div class="md-grid">
-        <p class="lw-kicker">{% if zh %}社区{% else %}Community{% endif %}</p>
-        <h2 class="lw-section__title">{% if zh %}感谢各位贡献者{% else %}Who keeps this wiki going{% endif %}</h2>
-        <div class="lw-panel">
-            <a href="https://github.com/doocs/leetcode/stargazers">
-                <img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="{% if zh %}Star 增长趋势{% else %}Stargazers over time{% endif %}">
-            </a>
+    <div class="md-grid lw-footer">
+        <div>
+            <h2 class="lw-section__title">{% if zh %}赞助{% else %}Sponsor{% endif %}</h2>
+            <p class="lw-hero__lead">
+                {% if zh %}
+                可通过 <a href="https://opencollective.com/doocs-leetcode">Open Collective</a> 赞助本项目。
+                {% else %}
+                Support the project on <a href="https://opencollective.com/doocs-leetcode">Open Collective</a>.
+                {% endif %}
+            </p>
         </div>
-        <div class="lw-panel lw-panel--avatars">
-            <a href="https://github.com/doocs/leetcode/graphs/contributors">
-                <img src="https://contrib.rocks/image?repo=doocs/leetcode&max=500" alt="{% if zh %}贡献者{% else %}Contributors{% endif %}">
-            </a>
-        </div>
-    </div>
-</section>
-
-<section class="lw-section lw-section--muted">
-    <div class="md-grid">
-        <div class="lw-split">
-            <div>
-                <p class="lw-kicker">{% if zh %}赞助{% else %}Support{% endif %}</p>
-                <h2 class="lw-section__title">{% if zh %}感谢赞助者{% else %}Sponsorship keeps updates coming{% endif %}</h2>
-                <blockquote class="lw-quote">
-                    You help the developer community practice for interviews, and there is nothing better we could ask for.
-                    <cite>Alan Yessenbayev</cite>
-                </blockquote>
-                <div class="lw-hero__cta">
-                    <a href="https://opencollective.com/doocs-leetcode" class="lw-btn">Open Collective</a>
-                </div>
-            </div>
-            <div class="lw-contact">
-                <p class="lw-kicker">{% if zh %}交流{% else %}Contact{% endif %}</p>
-                <h2 class="lw-section__title">{% if zh %}微信交流群{% else %}WeChat group{% endif %}</h2>
-                <p class="lw-section__lead">
-                    {% if zh %}
-                    添加微信 yanglbme（账号 <code>YLB0109</code>），备注 leetcode，通过后邀请加入算法交流群。
-                    {% else %}
-                    Add @yanglbme, WeChat ID <code>YLB0109</code>, note <em>leetcode</em>.
-                    {% endif %}
-                </p>
-                <img
-                    class="lw-qr"
-                    src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme{% if not zh %}-en{% endif %}.png"
-                    width="180"
-                    height="180"
-                    alt="WeChat QR"
-                >
-            </div>
+        <div>
+            <h2 class="lw-section__title">{% if zh %}交流{% else %}Contact{% endif %}</h2>
+            <p class="lw-hero__lead">
+                {% if zh %}
+                添加微信 yanglbme（账号 <code>YLB0109</code>），备注 leetcode，通过后邀请加入算法交流群。
+                {% else %}
+                Add WeChat <code>YLB0109</code> (@yanglbme) with the note <em>leetcode</em>.
+                {% endif %}
+            </p>
+            <img
+                class="lw-qr"
+                src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/images/qrcode-for-yanglbme{% if not zh %}-en{% endif %}.png"
+                width="140"
+                height="140"
+                alt="WeChat QR"
+            >
         </div>
     </div>
 </section>
