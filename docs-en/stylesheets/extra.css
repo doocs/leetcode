@@ -36,18 +36,26 @@
     border-radius: .1rem;
 }
 
-/* Homepage: same surface as the rest of the docs site */
-.lw-hero,
-.lw-section {
-    padding: 1.6rem 1.2rem;
-    background: var(--md-default-bg-color);
+/* Homepage */
+.lw-hero {
+    padding: 4.2rem 1.2rem 3.6rem;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
 }
 
 .lw-section {
+    padding: 2rem 1.2rem;
+    background: var(--md-default-bg-color);
     border-top: 1px solid var(--md-default-fg-color--lightest);
 }
 
-.lw-hero__grid,
+.lw-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(10rem, 16rem);
+    gap: 2.5rem 3rem;
+    align-items: center;
+}
+
 .lw-footer {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr);
@@ -55,39 +63,49 @@
     align-items: start;
 }
 
-.lw-hero__title,
+.lw-hero__title {
+    margin: 0 0 1rem;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--md-primary-bg-color);
+}
+
 .lw-section__title {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.6rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.35;
     color: var(--md-default-fg-color);
 }
 
-.lw-hero__title {
-    font-size: 1.5rem;
-}
-
-.lw-section__title {
-    font-size: 1rem;
+.lw-hero__lead,
+.lw-copy {
+    max-width: 38rem;
+    margin: 0 0 1.4rem;
+    font-size: 0.95rem;
+    line-height: 1.75;
 }
 
 .lw-hero__lead {
-    max-width: 38rem;
-    margin: 0 0 1rem;
+    color: color-mix(in srgb, var(--md-primary-bg-color) 78%, transparent);
+}
+
+.lw-copy {
     font-size: 0.8rem;
     line-height: 1.7;
     color: var(--md-default-fg-color--light);
 }
 
-.lw-hero__lead a {
+.lw-copy a {
     color: var(--md-typeset-a-color);
 }
 
 .lw-hero__cta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.9rem;
+    gap: 0.7rem;
+    margin-bottom: 1.6rem;
 }
 
 a.lw-btn,
@@ -95,13 +113,13 @@ a.lw-btn:visited {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 2.2rem;
-    padding: 0.45rem 0.95rem;
-    border: 1px solid var(--md-default-fg-color--lighter);
+    min-height: 2.6rem;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--md-primary-bg-color) 40%, transparent);
     border-radius: 0.2rem;
-    background: var(--md-default-bg-color);
-    color: var(--md-default-fg-color);
-    font-size: 0.8rem;
+    background: transparent;
+    color: var(--md-primary-bg-color);
+    font-size: 0.9rem;
     font-weight: 600;
     line-height: 1;
     text-decoration: none;
@@ -109,9 +127,9 @@ a.lw-btn:visited {
 
 a.lw-btn:hover,
 a.lw-btn:focus {
-    border-color: var(--md-typeset-a-color);
-    color: var(--md-typeset-a-color);
-    background: var(--md-default-bg-color);
+    border-color: var(--md-primary-bg-color);
+    background: color-mix(in srgb, var(--md-primary-bg-color) 12%, transparent);
+    color: var(--md-primary-bg-color);
     text-decoration: none;
 }
 
@@ -119,31 +137,30 @@ a.lw-btn--primary,
 a.lw-btn--primary:visited,
 a.lw-btn--primary:hover,
 a.lw-btn--primary:focus {
-    border-color: var(--md-typeset-a-color);
-    background: var(--md-typeset-a-color);
-    color: #fff;
+    border-color: var(--md-primary-bg-color);
+    background: var(--md-primary-bg-color);
+    color: var(--md-primary-fg-color);
 }
 
 a.lw-btn--primary:hover,
 a.lw-btn--primary:focus {
-    filter: brightness(1.08);
-    color: #fff;
+    opacity: 0.9;
 }
 
 .lw-stats {
     margin: 0;
-    color: var(--md-default-fg-color--light);
-    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--md-primary-bg-color) 70%, transparent);
+    font-size: 0.8rem;
 }
 
 .lw-stats span + span::before {
     content: "·";
     margin: 0 0.55rem;
-    color: var(--md-default-fg-color--lighter);
+    opacity: 0.6;
 }
 
 .lw-stats strong {
-    color: var(--md-default-fg-color);
+    color: var(--md-primary-bg-color);
     font-weight: 700;
 }
 
@@ -153,8 +170,9 @@ a.lw-btn--primary:focus {
 
 .lw-hero__mark img {
     display: block;
-    width: 96px;
+    width: min(100%, 240px);
     height: auto;
+    filter: drop-shadow(0 1.2rem 2.4rem color-mix(in srgb, #000 28%, transparent));
 }
 
 .lw-list {
@@ -226,7 +244,8 @@ a.lw-btn--primary:focus {
     }
 
     .lw-hero__mark img {
-        width: 72px;
+        width: 120px;
+        filter: none;
     }
 
     .lw-list a {

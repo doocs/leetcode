@@ -8,6 +8,7 @@
 <style>
     .md-header {
         position: initial;
+        box-shadow: none;
     }
     .md-main,
     .md-main__inner {
@@ -31,7 +32,7 @@
         <div class="lw-hero__grid">
             <div>
                 <h1 class="lw-hero__title">
-                    {% if zh %}多语言算法题解{% else %}Interview problems<br>in the languages you write{% endif %}
+                    {% if zh %}多语言<br>算法题解{% else %}Interview problems<br>in the languages you write{% endif %}
                 </h1>
                 <p class="lw-hero__lead">
                     {% if zh %}
@@ -108,7 +109,7 @@
 <section class="lw-section">
     <div class="md-grid">
         <h2 class="lw-section__title">{% if zh %}贡献{% else %}Contribute{% endif %}</h2>
-        <p class="lw-hero__lead">
+        <p class="lw-copy">
             {% if zh %}
             欢迎补充缺失题解、完善已有实现，或校对英文说明。按仓库中的 <code>Solution.xxx</code> 与 README 模板撰写后，发起
             <a href="{{ config.repo_url }}/pulls">Pull Request</a>。
@@ -125,7 +126,7 @@
     <div class="md-grid lw-footer">
         <div>
             <h2 class="lw-section__title">{% if zh %}赞助{% else %}Sponsor{% endif %}</h2>
-            <p class="lw-hero__lead">
+            <p class="lw-copy">
                 {% if zh %}
                 可通过 <a href="https://opencollective.com/doocs-leetcode">Open Collective</a> 赞助本项目。
                 {% else %}
@@ -135,7 +136,7 @@
         </div>
         <div>
             <h2 class="lw-section__title">{% if zh %}交流{% else %}Contact{% endif %}</h2>
-            <p class="lw-hero__lead">
+            <p class="lw-copy">
                 {% if zh %}
                 添加微信 yanglbme（账号 <code>YLB0109</code>），备注 leetcode，通过后邀请加入算法交流群。
                 {% else %}
