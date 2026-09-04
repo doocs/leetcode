@@ -1,7 +1,8 @@
 {
   "scripts": {
     "prepare": "husky",
-    "setup:python": "node scripts/run-py.js -m pip install -r requirements.txt"
+    "setup:python": "node scripts/run-py.js -m pip install -r requirements.txt",
+    "preview": "node scripts/run-py.js scripts/preview.py"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
