@@ -30,7 +30,7 @@ public class Solution {
                         if (prev.Op == '+') {
                             stack.Push(new Element(first.Op, first.Number + prev.Number));
                         }
-                        else // '-' {
+                        else { // '-'
                             stack.Push(new Element(first.Op, first.Number - prev.Number));
                         }
                     }
@@ -41,7 +41,7 @@ public class Solution {
                     if (op == '*') {
                         stack.Push(new Element(prev.Op, prev.Number * number));
                     }
-                    else // '/' {
+                    else { // '/'
                         stack.Push(new Element(prev.Op, prev.Number / number));
                     }
                 }
@@ -55,7 +55,7 @@ public class Solution {
             if (second.Op == '+') {
                 stack.Push(new Element(first.Op, first.Number + second.Number));
             }
-            else // '-' {
+            else { // '-'
                 stack.Push(new Element(first.Op, first.Number - second.Number));
             }
         }
