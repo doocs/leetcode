@@ -305,7 +305,7 @@ def format_inline_code(path: str):
                         remove_header(file)
                 else:
                     subprocess.check_call(
-                        ["npx", "clang-format", "-i", "--style=file", file]
+                        [clang_format_bin(), "-i", "--style=file", file]
                     )
                 with open(file, "r", encoding="utf-8") as f:
                     new_block = f.read()
@@ -357,7 +357,7 @@ def run():
         if add_header(path):
             headered.append(path)
         if any(path.endswith(suf) for suf in ["c", "cpp", "java"]):
-            subprocess.check_call(["npx", "clang-format", "-i", "--style=file", path])
+            subprocess.check_call([clang_format_bin(), "-i", "--style=file", path])
 
     subprocess.check_call(["npx", "prettier", "--write", "**/*.{js,ts,php,sql,md}"])
     subprocess.check_call(["gofmt", "-w", "."])
@@ -367,6 +367,18 @@ def run():
         remove_header(path)
     for path in paths:
         format_inline_code(path)
+
+
+def clang_format_bin() -> str:
+    from clang_format import get_executable
+
+    return get_executable("clang-format")
+
+
+def format_clang_files(paths: List[str]) -> None:
+    cmd = clang_format_bin()
+    for path in paths:
+        subprocess.check_call([cmd, "-i", "--style=file", path])
 
 
 def format_go_files(paths: List[str]) -> None:
@@ -444,10 +456,12 @@ if __name__ == "__main__":
         format_go_files(args[1:])
     elif args[:1] == ["--check-gofmt"]:
         check_gofmt(args[1:])
+    elif args[:1] == ["--clang-format"]:
+        format_clang_files(args[1:])
     elif args:
         print(
             "usage: node scripts/run-py.js run_format.py "
-            "[--gofmt FILE ...] [--check-gofmt]"
+            "[--gofmt FILE ...] [--check-gofmt] [--clang-format FILE ...]"
         )
         raise SystemExit(2)
     else:

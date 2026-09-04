@@ -7,7 +7,6 @@
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
     "@prettier/plugin-php": "^0.25.0",
-    "clang-format": "^1.8.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
     "prettier": "^3.9.6",
@@ -16,7 +15,7 @@
   "lint-staged": {
     "*.{js,ts,php,sql,md}": "prettier --write",
     "*.py": "node scripts/run-py.js -m black -S",
-    "*.{c,cpp,java}": "pnpm exec clang-format -i --style=file",
+    "*.{c,cpp,java}": "node scripts/run-py.js run_format.py --clang-format",
     "*.go": "node scripts/run-py.js run_format.py --gofmt",
     "*.rs": "rustfmt"
   },

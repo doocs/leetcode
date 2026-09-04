@@ -41,8 +41,8 @@ pnpm exec prettier --write "**/*.{js,ts,php,sql,md}"
 # Python
 node scripts/run-py.js -m black -S <file>
 
-# C/C++/Java
-pnpm exec clang-format -i --style=file <file>
+# C/C++/Java (LLVM 23 via pip clang-format)
+node scripts/run-py.js run_format.py --clang-format <file>
 
 # Go (adds/removes the `package main` header used by Solution.go files)
 node scripts/run-py.js run_format.py --gofmt <file>
@@ -68,7 +68,7 @@ pnpm run setup:python     # Optional: black and the problem-sync spider
 
 GitHub Actions automatically run:
 
-- **clang-format** lint on changed C/C++/Java files
+- **clang-format** lint on changed C/C++/Java files (LLVM 23, same pip package as local)
 - **Black** lint on changed Python files
 - **gofmt** lint on changed Go files
 - **rustfmt** lint on changed Rust files
