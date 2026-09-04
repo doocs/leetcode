@@ -281,17 +281,30 @@ class CommitterPlugin:
 _plugin = CommitterPlugin()
 
 
+def _preview() -> bool:
+    return os.environ.get("MKDOCS_PREVIEW") == "1"
+
+
 def on_pre_build(config):
+    if _preview():
+        _log("preview mode: skip committer prefetch")
+        return
     _plugin.on_pre_build(config)
 
 
 def on_files(files, config):
+    if _preview():
+        return files
     return _plugin.on_files(files, config)
 
 
 def on_post_build(config):
+    if _preview():
+        return
     _plugin.on_post_build(config)
 
 
 def on_page_context(context, page, config, nav):
+    if _preview():
+        return context
     return _plugin.on_page_context(context, page, config, nav)

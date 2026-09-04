@@ -2,7 +2,7 @@
 
 import os
 from collections import defaultdict
-from typing import Dict, List, NamedTuple, Tuple
+from typing import Dict, List, NamedTuple, Optional, Set, Tuple
 
 
 class NavItem(NamedTuple):
@@ -143,14 +143,38 @@ def format_ranged_nav(items: List[NavItem], index_label: str, indent: int = 4) -
     return "\n".join(lines)
 
 
+def load_only_dirs() -> Optional[Set[str]]:
+    path = os.environ.get("PREVIEW_ONLY_DIRS_FILE")
+    if not path:
+        return None
+    only: Set[str] = set()
+    try:
+        with open(path, encoding="utf-8") as f:
+            lines = f.readlines()
+    except OSError as e:
+        raise SystemExit(
+            f"PREVIEW_ONLY_DIRS_FILE is set to {path!r} but the file "
+            f"could not be read: {e}"
+        ) from e
+    for line in lines:
+        line = line.strip()
+        if line and not line.startswith("#"):
+            only.add(os.path.normpath(line))
+    return only
+
+
 def collect_items() -> Tuple[Dict[str, List[NavItem]], Dict[str, List[NavItem]]]:
     nav_cn: Dict[str, List[NavItem]] = defaultdict(list)
     nav_en: Dict[str, List[NavItem]] = defaultdict(list)
+    only = load_only_dirs()
 
     for dir_name, (target_dir, depth) in dirs_mapping.items():
         if not os.path.isdir(dir_name):
             continue
         for path in sorted(get_paths(dir_name, depth)):
+            problem_dir = os.path.normpath(os.path.dirname(path))
+            if only is not None and problem_dir not in only:
+                continue
             with open(path, "r", encoding="utf-8") as f:
                 content = f.read()
             num, name = parse_heading(content, dir_name)
@@ -181,39 +205,34 @@ def main() -> None:
     write_range_indexes(nav_cn["solution"], "docs", "lc", "zh")
     write_range_indexes(nav_en["solution"], "docs-en", "lc", "en")
 
+    def section(title: str, body: str) -> str:
+        if not body.strip():
+            return ""
+        return f"  - {title}:\n{body}\n"
+
     lc = format_ranged_nav(nav_cn["solution"], "目录")
     lcci = format_flat_nav(nav_cn["lcci"])
     lcof = format_flat_nav(nav_cn["lcof"])
     lcof2 = format_flat_nav(nav_cn["lcof2"])
 
-    nav_sections = f"""
-nav:
-  - 首页: index.md
-  - LeetCode 全解:
-{lc}
-  - 剑指 Offer:
-{lcof}
-  - 剑指 Offer（专项突破）:
-{lcof2}
-  - 程序员面试金典:
-{lcci}
-  - 专项训练: tags.md
-  - 竞赛专区: contest.md
-"""
+    nav_sections = (
+        "nav:\n  - 首页: index.md\n"
+        + section("LeetCode 全解", lc)
+        + section("剑指 Offer", lcof)
+        + section("剑指 Offer（专项突破）", lcof2)
+        + section("程序员面试金典", lcci)
+        + "  - 专项训练: tags.md\n  - 竞赛专区: contest.md\n"
+    )
 
     lc_en = format_ranged_nav(nav_en["solution"], "Index")
     lcci_en = format_flat_nav(nav_en["lcci"])
 
-    en_nav_sections = f"""
-nav:
-  - Home: index.md
-  - LeetCode:
-{lc_en}
-  - Cracking the Coding Interview:
-{lcci_en}
-  - Focused Training: tags.md
-  - Contest: contest.md
-"""
+    en_nav_sections = (
+        "nav:\n  - Home: index.md\n"
+        + section("LeetCode", lc_en)
+        + section("Cracking the Coding Interview", lcci_en)
+        + "  - Focused Training: tags.md\n  - Contest: contest.md\n"
+    )
 
     with open("mkdocs.yml", "r", encoding="utf-8") as f:
         config = f.read()
