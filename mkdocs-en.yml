@@ -7,9 +7,7 @@ copyright: Copyright &copy; 2026 <a href="https://github.com/doocs">Doocs</a><br
 theme:
   favicon: favicon.ico
   language: en
-  font:
-    text: Roboto
-    code: Roboto Mono
+  font: false
 extra:
   analytics:
     provider: google
