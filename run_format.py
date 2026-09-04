@@ -353,11 +353,13 @@ def run():
     paths = find_all_paths()
 
     headered = []
+    clang_paths = []
     for path in paths:
         if add_header(path):
             headered.append(path)
         if any(path.endswith(suf) for suf in ["c", "cpp", "java"]):
-            subprocess.check_call([clang_format_bin(), "-i", "--style=file", path])
+            clang_paths.append(path)
+    format_clang_files(clang_paths)
 
     subprocess.check_call(["npx", "prettier", "--write", "**/*.{js,ts,php,sql,md}"])
     subprocess.check_call(["gofmt", "-w", "."])
@@ -369,16 +371,29 @@ def run():
         format_inline_code(path)
 
 
-def clang_format_bin() -> str:
-    from clang_format import get_executable
+_clang_format_exe = None
 
-    return get_executable("clang-format")
+
+def clang_format_bin() -> str:
+    global _clang_format_exe
+    if _clang_format_exe:
+        return _clang_format_exe
+    try:
+        from clang_format import get_executable
+    except ImportError as exc:
+        raise SystemExit(
+            "clang-format is not installed. Run: pnpm run setup:python"
+        ) from exc
+    _clang_format_exe = get_executable("clang-format")
+    return _clang_format_exe
 
 
 def format_clang_files(paths: List[str]) -> None:
+    if not paths:
+        return
     cmd = clang_format_bin()
-    for path in paths:
-        subprocess.check_call([cmd, "-i", "--style=file", path])
+    for i in range(0, len(paths), 64):
+        subprocess.check_call([cmd, "-i", "--style=file", *paths[i : i + 64]])
 
 
 def format_go_files(paths: List[str]) -> None:
