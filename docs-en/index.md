@@ -34,12 +34,14 @@ This project contains solutions for problems from LeetCode, "Coding Interviews (
   <a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/images/starcharts.svg" alt="Stargazers over time" /></a>
 </p>
 
-<a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" style="display: block" align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark" width="721" height="auto">
-    <img alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" height="auto">
-  </picture>
-</a>
+<p align="center">
+  <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark" width="721" height="auto">
+      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" height="auto">
+    </picture>
+  </a>
+</p>
 
 ## Our Top Contributors
 
