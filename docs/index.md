@@ -35,10 +35,11 @@ hide:
 </p>
 
 <p align="center">
-  <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank">
+  <!-- off-glb skips mkdocs-glightbox so it does not unwrap this <picture> -->
+  <a href="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map?repo_id=149001365&activity=stars" target="_blank" rel="noopener noreferrer">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark" width="721" height="auto">
-      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721" height="auto">
+      <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=dark">
+      <img class="off-glb" alt="Star Geographical Distribution of doocs/leetcode" src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?repo_id=149001365&activity=stars&image_size=auto&color_scheme=light" width="721">
     </picture>
   </a>
 </p>
