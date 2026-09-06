@@ -6,7 +6,6 @@ import subprocess
 import sys
 import re
 from pathlib import Path
-import black
 
 suffixes = ["md", "py", "java", "c", "cpp", "go", "php", "cs", "rs", "js", "ts", "sql"]
 
@@ -321,6 +320,7 @@ def format_inline_code(path: str):
                 content = content.replace(block, new_block)
                 os.remove(file)
             elif suf == "python":
+                black = _import_black()
                 new_block = black.format_str(
                     block, mode=black.FileMode(string_normalization=False)
                 )
@@ -423,7 +423,20 @@ def run():
         format_inline_code(path)
 
 
+_black_mod = None
 _clang_format_exe = None
+
+
+def _import_black():
+    global _black_mod
+    if _black_mod:
+        return _black_mod
+    try:
+        import black
+    except ImportError as exc:
+        raise SystemExit("black is not installed. Run: pnpm run setup:python") from exc
+    _black_mod = black
+    return _black_mod
 
 
 def clang_format_bin() -> str:
