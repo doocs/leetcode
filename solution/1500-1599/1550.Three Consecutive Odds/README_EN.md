@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there are three consecutive odd numbers in the array. Otherwise, return&nbsp;<code>false</code>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

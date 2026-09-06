@@ -288,7 +288,7 @@ function largestNumber(cost: number[], target: number): string {
         return '0';
     }
     const ans: number[] = [];
-    for (let i = 9, j = target; i; ) {
+    for (let i = 9, j = target; i;) {
         if (g[i][j] === j) {
             --i;
         } else {

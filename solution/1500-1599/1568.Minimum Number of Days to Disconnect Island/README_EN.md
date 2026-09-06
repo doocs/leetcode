@@ -40,7 +40,6 @@ tags:
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> We need at least 2 days to get a disconnected grid.
 Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
