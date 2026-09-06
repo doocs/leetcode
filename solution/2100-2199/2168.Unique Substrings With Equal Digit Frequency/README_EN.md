@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 Given a digit string <code>s</code>, return <em>the number of <strong>unique substrings </strong>of </em><code>s</code><em> where every digit appears the same number of times.</em>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

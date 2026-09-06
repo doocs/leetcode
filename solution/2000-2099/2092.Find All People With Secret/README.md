@@ -304,7 +304,7 @@ function findAllPeople(n: number, meetings: number[][], firstPerson: number): nu
 
     meetings.sort((x, y) => x[2] - y[2]);
 
-    for (let i = 0, m = meetings.length; i < m; ) {
+    for (let i = 0, m = meetings.length; i < m;) {
         let j = i;
         while (j + 1 < m && meetings[j + 1][2] === meetings[i][2]) {
             ++j;

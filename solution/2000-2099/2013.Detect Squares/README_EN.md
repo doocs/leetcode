@@ -61,7 +61,6 @@ detectSquares.add([11, 2]); // Adding duplicate points is allowed.
 detectSquares.count([11, 10]); // return 2. You can choose:
 // - The first, second, and third points
 // - The first, third, and fourth points
-
 </pre>
 
 <p>&nbsp;</p>

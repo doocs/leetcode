@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 给你一个由数字组成的字符串&nbsp;<code>s</code>，返回<em>&nbsp;</em><code>s</code><em>&nbsp;</em>中&nbsp;<strong>不同子字符串数量</strong>，其中的每一个数字出现的频率都相同<i>。</i>
-
 <p>&nbsp;</p>
 
 <p><strong>示例1:</strong></p>

@@ -67,7 +67,6 @@ At second 2,
 
 Starting from the beginning of the second 8, there are no messages passing between servers or arriving at servers.
 This is the time when the network becomes idle.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
