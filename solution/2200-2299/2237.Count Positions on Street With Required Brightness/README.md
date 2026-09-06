@@ -42,7 +42,6 @@ tags:
 - 位置 4 被第三个路灯覆盖。它被 1 盏路灯覆盖，等于 requirement[4]。
 
 位置 0、1、2、4 满足要求，因此返回4。
-
 </pre>
 
 <p><strong class="example">示例&nbsp;2:</strong></p>

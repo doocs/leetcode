@@ -153,7 +153,7 @@ func minMaxGame(nums []int) int {
 
 ```ts
 function minMaxGame(nums: number[]): number {
-    for (let n = nums.length; n > 1; ) {
+    for (let n = nums.length; n > 1;) {
         n >>= 1;
         for (let i = 0; i < n; ++i) {
             const a = nums[i << 1];

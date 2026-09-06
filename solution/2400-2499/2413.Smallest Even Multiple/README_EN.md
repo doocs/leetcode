@@ -20,7 +20,6 @@ tags:
 <!-- description:start -->
 
 Given a <strong>positive</strong> integer <code>n</code>, return <em>the smallest positive integer that is a multiple of <strong>both</strong> </em><code>2</code><em> and </em><code>n</code>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

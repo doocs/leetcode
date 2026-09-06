@@ -47,7 +47,6 @@ It can be shown that this is the maximum trailing zeros in the product of a corn
 
 The grid in the middle is not a cornered path as it has more than one turn.
 The grid on the right is not a cornered path as it requires a return to a previously visited cell.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

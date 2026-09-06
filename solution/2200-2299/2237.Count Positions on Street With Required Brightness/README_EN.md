@@ -41,7 +41,6 @@ tags:
 - Position 4 is covered by the third street lamp. It is covered by 1 street lamp which is equal to requirement[4].
 
 Positions 0, 1, 2, and 4 meet the requirement so we return 4.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>

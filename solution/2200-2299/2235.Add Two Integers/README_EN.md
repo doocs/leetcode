@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 Given two integers <code>num1</code> and <code>num2</code>, return <em>the <strong>sum</strong> of the two integers</em>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

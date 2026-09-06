@@ -20,7 +20,6 @@ tags:
 <!-- description:start -->
 
 给你一个正整数 <code>n</code> ，返回 <code>2</code><em> </em>和<em> </em><code>n</code> 的最小公倍数（正整数）。
-
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
