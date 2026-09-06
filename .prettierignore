@@ -1,5 +1,6 @@
 .idea/
 .github/
+.preview/
 node_modules/
 /solution/CONTEST_README.md
 /solution/CONTEST_README_EN.md

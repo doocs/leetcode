@@ -1,10 +1,36 @@
+import errno
 import json
 import os
 import re
+import time
 import requests
 import yaml
 from typing import Tuple, List
 from urllib.parse import quote, unquote
+
+# Windows maps a brief sharing violation (Defender / indexer / editor) to EINVAL.
+_TRANSIENT_WRITE_ERRNOS = {errno.EINVAL, errno.EACCES, errno.EPERM, errno.EBUSY}
+_TRANSIENT_WINERRORS = {5, 32, 33}  # ACCESS_DENIED, SHARING_VIOLATION, LOCK_VIOLATION
+
+
+def write_text(path: str, content: str, retries: int = 6) -> None:
+    """Write UTF-8 text, retrying Windows file locks."""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            with open(path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(content)
+            return
+        except OSError as e:
+            last_err = e
+            transient = (
+                e.errno in _TRANSIENT_WRITE_ERRNOS
+                or getattr(e, "winerror", None) in _TRANSIENT_WINERRORS
+            )
+            if not transient or attempt == retries - 1:
+                raise
+            time.sleep(0.05 * (attempt + 1))
+    raise last_err
 
 
 def load_template(template_name: str) -> str:
@@ -165,6 +191,37 @@ def localize_tag_en(tag: str):
     return TAG_CN_TO_EN.get(tag)
 
 
+def normalize_tags_en(tags: List[str]) -> List[str]:
+    """Drop or translate CJK entries so English tag lists stay English."""
+    out, seen = [], set()
+    for tag in tags or []:
+        en = localize_tag_en(tag)
+        if en and en not in seen:
+            seen.add(en)
+            out.append(en)
+    return out
+
+
+def format_tag_column(tags: List[str]) -> str:
+    col = ",".join(f"`{tag}`" for tag in tags or [])
+    return "" if (col == "None" or not col) else col
+
+
+def apply_stored_tag_locale(item: dict) -> bool:
+    """Keep tags_en / the EN table cell in English. Return True if changed."""
+    tags_en = normalize_tags_en(item.get("tags_en") or [])
+    changed = tags_en != (item.get("tags_en") or [])
+    if changed:
+        item["tags_en"] = tags_en
+    row = item.get("md_table_row_en")
+    if row and len(row) > 2:
+        col3 = format_tag_column(tags_en)
+        if row[2] != col3:
+            row[2] = col3
+            changed = True
+    return changed
+
+
 def split_topic_tags(topic_tags: List[dict]) -> Tuple[List[str], List[str]]:
     """Split leetcode.cn topicTags into English / Chinese lists."""
     tags_en, tags_cn = [], []
@@ -236,7 +293,10 @@ def load_result() -> List[dict]:
         return []
     with open(result_file, "r", encoding="utf-8") as f:
         res = f.read()
-        return json.loads(res)
+        items = json.loads(res)
+        for item in items:
+            apply_stored_tag_locale(item)
+        return items
 
 
 def load_contest_result() -> List[dict]:
@@ -375,15 +435,17 @@ def generate_question_readme(result):
         )
 
         cat = category.title() if category and category[0].islower() else category
+        tags_en = normalize_tags_en(item.get("tags_en") or [])
+        item["tags_en"] = tags_en
         metadata = {
-            "tags": item["tags_en"] or [cat],
+            "tags": tags_en or [cat],
             "difficulty": item["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
             "source": source,
         }
-        if not item["tags_en"] or metadata["tags"] == ["Algorithms"]:
+        if not tags_en or metadata["tags"] == ["Algorithms"]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")
@@ -561,17 +623,17 @@ def refresh(result):
         )
 
         cat = category.title() if category and category[0].islower() else category
+        tags_en = normalize_tags_en(question.get("tags_en") or [])
+        question["tags_en"] = tags_en
         metadata = {
-            "tags": question["tags_en"] or [cat],
+            "tags": tags_en or [cat],
             "difficulty": question["difficulty_en"],
             "rating": rating,
             "comments": True,
             "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
             "source": source,
         }
-        if (not question["tags_en"] and not [category]) or metadata["tags"] == [
-            "Algorithms"
-        ]:
+        if (not tags_en and not [category]) or metadata["tags"] == ["Algorithms"]:
             metadata.pop("tags")
         if not rating:
             metadata.pop("rating")
@@ -607,8 +669,11 @@ def refresh(result):
             cn_content = cn_content.replace(url, new_url)
 
         cn_content = cn_content.replace("leetcode-cn.com", "leetcode.cn")
-        with open(path_cn, "w", encoding="utf-8") as f1:
-            f1.write(cn_content)
+        try:
+            write_text(path_cn, cn_content)
+        except OSError as e:
+            print(f"Failed to write {path_cn}: {e}")
+            continue
 
         for url in pattern.findall(en_content) or []:
             image_name = (
@@ -621,8 +686,11 @@ def refresh(result):
             )
             en_content = en_content.replace(url, new_url)
 
-        with open(path_en, "w", encoding="utf-8") as f2:
-            f2.write(en_content)
+        try:
+            write_text(path_en, en_content)
+        except OSError as e:
+            print(f"Failed to write {path_en}: {e}")
+            continue
 
 
 def generate_contest_readme(result: List):

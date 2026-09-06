@@ -1,9 +1,11 @@
 from typing import List
 
 import os.path
+import shutil
 import subprocess
 import sys
 import re
+from pathlib import Path
 import black
 
 suffixes = ["md", "py", "java", "c", "cpp", "go", "php", "cs", "rs", "js", "ts", "sql"]
@@ -274,7 +276,12 @@ def find_all_paths() -> List[str]:
     for root, _, files in os.walk(os.getcwd()):
         for file in files:
             path = root + "/" + file
-            if "node_modules" in path or "__pycache__" in path or ".git" in path:
+            if (
+                "node_modules" in path
+                or "__pycache__" in path
+                or ".git" in path
+                or ".preview" in path.replace("\\", "/")
+            ):
                 continue
             if any(path.endswith(f".{suf}") for suf in suffixes):
                 paths.append(path)
@@ -330,7 +337,8 @@ def format_inline_code(path: str):
                 file = f"{root}/tmp.rs"
                 with open(file, "w", encoding="utf-8") as f:
                     f.write(block)
-                subprocess.check_call(["rustfmt", file])
+                rustfmt = shutil.which("rustfmt") or "rustfmt"
+                subprocess.check_call([rustfmt, "--edition", "2021", file])
                 with open(file, "r", encoding="utf-8") as f:
                     new_block = f.read()
                 if not new_block.endswith("\n"):
@@ -343,9 +351,53 @@ def format_inline_code(path: str):
 
 
 def format_rust_files(paths: List[str]) -> None:
+    rustfmt = shutil.which("rustfmt")
+    if not rustfmt:
+        print("rustfmt not found; skip Rust formatting")
+        return
     rs_files = [p for p in paths if p.endswith(".rs")]
+    failed = []
     for i in range(0, len(rs_files), 64):
-        subprocess.check_call(["rustfmt", *rs_files[i : i + 64]])
+        batch = rs_files[i : i + 64]
+        try:
+            subprocess.check_call([rustfmt, "--edition", "2021", *batch])
+        except subprocess.CalledProcessError:
+            for path in batch:
+                try:
+                    subprocess.check_call([rustfmt, "--edition", "2021", path])
+                except subprocess.CalledProcessError as exc:
+                    print(f"rustfmt failed: {path}: {exc}")
+                    failed.append(path)
+    if failed:
+        print("The following Rust files are not rustfmt-clean:")
+        print("\n".join(failed))
+        raise SystemExit(1)
+
+
+def run_prettier(root: Path = None) -> None:
+    """Run repo Prettier via node.exe so Windows can find the binary."""
+    root = root or Path(__file__).resolve().parent
+    prettier = root / "node_modules" / "prettier" / "bin" / "prettier.cjs"
+    node = shutil.which("node")
+    globs = ["**/*.md", "**/*.js", "**/*.ts", "**/*.php", "**/*.sql"]
+    extra = ["--write", "--log-level", "warn", "--no-error-on-unmatched-pattern"]
+    env = os.environ.copy()
+    opts = env.get("NODE_OPTIONS", "")
+    if "max-old-space-size" not in opts:
+        env["NODE_OPTIONS"] = f"{opts} --max-old-space-size=8192".strip()
+
+    if node and prettier.is_file():
+        cmd = [node, str(prettier), *extra, *globs]
+        shell = False
+    else:
+        npx = shutil.which("npx")
+        if not npx:
+            raise FileNotFoundError(
+                "prettier not found. Install Node.js and run `pnpm install`."
+            )
+        cmd = [npx, "prettier", *extra, *globs]
+        shell = os.name == "nt"
+    subprocess.check_call(cmd, cwd=root, env=env, shell=shell)
 
 
 def run():
@@ -361,7 +413,7 @@ def run():
             clang_paths.append(path)
     format_clang_files(clang_paths)
 
-    subprocess.check_call(["npx", "prettier", "--write", "**/*.{js,ts,php,sql,md}"])
+    run_prettier(Path(__file__).resolve().parent)
     subprocess.check_call(["gofmt", "-w", "."])
     format_rust_files(paths)
 

@@ -1,5 +1,7 @@
 import os
+import shutil
 import subprocess
+import sys
 import time
 from datetime import timezone, timedelta, datetime
 from pathlib import Path
@@ -254,6 +256,7 @@ class Spider:
 
         print(f"{frontend_question_id}. {question_title_en}")
         tags_en, tags_cn = split_topic_tags(question_detail.get("topicTags"))
+        tags_en = normalize_tags_en(tags_en)
 
         item = {
             "sub_folder": sub_folders[no],
@@ -289,14 +292,12 @@ class Spider:
             if item["title_cn"]
             else f'[{item["title_en"]}]({path_en})'
         )
-        col3_cn = ",".join([f"`{tag}`" for tag in item["tags_cn"]])
-        col3_cn = "" if (col3_cn == "None" or not col3_cn) else col3_cn
+        col3_cn = format_tag_column(item["tags_cn"])
         col4_cn = item["difficulty_cn"]
         col5_cn = "🔒" if item["paid_only_cn"] else ""
         col1_en = frontend_question_id
         col2_en = f'[{item["title_en"]}]({path_en})'
-        col3_en = ",".join([f"`{tag}`" for tag in item["tags_en"]])
-        col3_en = "" if (col3_en == "None" or not col3_en) else col3_en
+        col3_en = format_tag_column(item["tags_en"])
         col4_en = item["difficulty_en"]
         col5_en = "🔒" if item["paid_only"] else ""
 
@@ -418,16 +419,72 @@ def get_contests(fetch_new=True) -> List:
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def run_prettier() -> None:
+    """Run repo Prettier via node.exe so Windows can find the binary.
+
+    Prettier exit 2 is a tool error (parse failure, OOM, unmatched glob), not a
+    Python bug. After refresh() thousands of READMEs are dirty; the default log
+    prints every file and hides the real `[error]` line. Keep going so rustfmt
+    still runs.
+    """
+    prettier = ROOT / "node_modules" / "prettier" / "bin" / "prettier.cjs"
+    node = shutil.which("node")
+    # Split globs: brace expansion is flaky with some Windows glob matchers.
+    globs = ["**/*.md", "**/*.js", "**/*.ts", "**/*.php", "**/*.sql"]
+    extra = ["--write", "--log-level", "warn", "--no-error-on-unmatched-pattern"]
+    env = os.environ.copy()
+    opts = env.get("NODE_OPTIONS", "")
+    if "max-old-space-size" not in opts:
+        env["NODE_OPTIONS"] = f"{opts} --max-old-space-size=8192".strip()
+
+    if node and prettier.is_file():
+        cmd = [node, str(prettier), *extra, *globs]
+        shell = False
+    else:
+        npx = shutil.which("npx")
+        if not npx:
+            raise FileNotFoundError(
+                "prettier not found. Install Node.js and run `pnpm install`."
+            )
+        cmd = [npx, "prettier", *extra, *globs]
+        # npx is npx.cmd on Windows; CreateProcess cannot launch .cmd without a shell.
+        shell = os.name == "nt"
+
+    proc = subprocess.run(cmd, cwd=ROOT, env=env, shell=shell)
+    if proc.returncode != 0:
+        print(
+            f"prettier exited {proc.returncode}. "
+            "Look for `[error]` above (often one PHP/SQL/MD file, or Node OOM). "
+            "Continuing."
+        )
+
+
 def format_rust_files() -> None:
-    skip = {"node_modules", "__pycache__", ".git"}
+    skip = {"node_modules", "__pycache__", ".git", ".preview"}
     rs_files = []
+    rustfmt = shutil.which("rustfmt")
+    if not rustfmt:
+        print("rustfmt not found; skip Rust formatting")
+        return
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [name for name in dirnames if name not in skip]
         for name in filenames:
             if name.endswith(".rs"):
                 rs_files.append(os.path.join(dirpath, name))
+    failed = []
     for i in range(0, len(rs_files), 64):
-        subprocess.check_call(["rustfmt", *rs_files[i : i + 64]])
+        batch = rs_files[i : i + 64]
+        try:
+            subprocess.check_call([rustfmt, "--edition", "2021", *batch])
+        except subprocess.CalledProcessError:
+            for path in batch:
+                try:
+                    subprocess.check_call([rustfmt, "--edition", "2021", path])
+                except subprocess.CalledProcessError as exc:
+                    print(f"rustfmt failed: {path}: {exc}")
+                    failed.append(path)
+    if failed:
+        print(f"rustfmt skipped {len(failed)} file(s)")
 
 
 def run():
@@ -493,6 +550,8 @@ def run():
 
     # 保存题目到本地，生成题目列表以及题目详情文件
     ls = list(question_details.values())
+    for item in ls:
+        apply_stored_tag_locale(item)
     save_result(ls)
     ls = load_result()
     generate_readme(ls)
@@ -506,12 +565,17 @@ def run():
     generate_category_readme(ls, "JavaScript")
 
     refresh(ls)
-    subprocess.check_call(
-        ["npx", "prettier", "--write", "**/*.{md,js,ts,php,sql}"],
-        cwd=ROOT,
-    )
+    format_repo()
+
+
+def format_repo() -> None:
+    """Format generated files. Does not fetch questions or rewrite READMEs."""
+    run_prettier()
     format_rust_files()
 
 
 if __name__ == "__main__":
-    run()
+    if sys.argv[1:] == ["--format"]:
+        format_repo()
+    else:
+        run()
