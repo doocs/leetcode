@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 Given an integer <code>n</code>, return the <strong>maximum</strong> integer <code>x</code> such that <code>x &lt;= n</code>, and the bitwise <code>AND</code> of all the numbers in the range <code>[x, n]</code> is 0.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

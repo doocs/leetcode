@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, return <em>the count of numbers having&nbsp;<strong>unique</strong> digits in the range</em> <code>[a, b]</code> <em>(<strong>inclusive</strong>).</em>
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

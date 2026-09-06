@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 给你两个 <strong>正整数</strong> <code>a</code> 和 <code>b</code> ，返回 <strong>闭区间</strong> <code>[a, b]</code> 内各位数字都不同的数字个数。
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

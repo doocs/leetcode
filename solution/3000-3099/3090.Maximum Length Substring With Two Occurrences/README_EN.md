@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 Given a string <code>s</code>, return the <strong>maximum</strong> length of a <span data-keyword="substring">substring</span>&nbsp;such that it contains <em>at most two occurrences</em> of each character.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

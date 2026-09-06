@@ -192,7 +192,7 @@ func compressedString(word string) string {
 function compressedString(word: string): string {
     const ans: string[] = [];
     const n = word.length;
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && word[j] === word[i]) {
             ++j;
@@ -219,7 +219,7 @@ function compressedString(word: string): string {
 var compressedString = function (word) {
     const ans = [];
     const n = word.length;
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && word[j] === word[i]) {
             ++j;

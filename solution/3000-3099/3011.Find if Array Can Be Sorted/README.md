@@ -190,7 +190,7 @@ func canSortArray(nums []int) bool {
 function canSortArray(nums: number[]): boolean {
     let preMx = 0;
     const n = nums.length;
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         const cnt = bitCount(nums[i]);
         let j = i + 1;
         let [mi, mx] = [nums[i], nums[i]];
