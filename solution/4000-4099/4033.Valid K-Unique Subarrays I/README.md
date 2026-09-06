@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4033.Valid%20K-Unique%20Subarrays%20I/README.md
+rating: 2314
+source: 第 516 场周赛 Q4
 ---
 
 <!-- problem:start -->

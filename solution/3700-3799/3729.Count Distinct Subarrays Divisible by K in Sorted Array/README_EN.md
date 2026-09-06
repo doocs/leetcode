@@ -212,7 +212,7 @@ function numGoodSubarrays(nums: number[], k: number): number {
     }
 
     const n = nums.length;
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && nums[j] === nums[i]) ++j;
         const m = j - i;

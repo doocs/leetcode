@@ -2,6 +2,8 @@
 comments: true
 difficulty: Hard
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4033.Valid%20K-Unique%20Subarrays%20I/README_EN.md
+rating: 2314
+source: Weekly Contest 516 Q4
 ---
 
 <!-- problem:start -->

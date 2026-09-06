@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4034.Minimum%20Bishop%20Moves%20to%20Reach%20Target/README.md
+rating: 1244
+source: 第 190 场双周赛 Q1
 ---
 
 <!-- problem:start -->

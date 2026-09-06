@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4036.Lexicographically%20Largest%20String%20After%20Pair%20Transformations/README_EN.md
+rating: 1704
+source: Biweekly Contest 190 Q3
 ---
 
 <!-- problem:start -->

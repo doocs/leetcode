@@ -2,6 +2,8 @@
 comments: true
 difficulty: Easy
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4030.Check%20ASCII%20Palindromic/README_EN.md
+rating: 1165
+source: Weekly Contest 516 Q1
 ---
 
 <!-- problem:start -->

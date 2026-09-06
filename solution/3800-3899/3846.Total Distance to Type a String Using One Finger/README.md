@@ -18,7 +18,6 @@ tags:
 <!-- description:start -->
 
 有一个特殊的键盘，其按键排列成如下矩形网格。
-
 <table style="border: 1px solid black;">
 	<tbody>
 		<tr>

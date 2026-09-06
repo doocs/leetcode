@@ -2,6 +2,8 @@
 comments: true
 difficulty: 困难
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4037.Maximum%20Valid%20Split%20Positions%20II/README.md
+rating: 2372
+source: 第 190 场双周赛 Q4
 ---
 
 <!-- problem:start -->

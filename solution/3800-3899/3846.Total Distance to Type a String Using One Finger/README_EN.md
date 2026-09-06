@@ -18,7 +18,6 @@ tags:
 <!-- description:start -->
 
 There is a special keyboard where keys are arranged in a rectangular grid as follows.
-
 <table style="border: 1px solid black;">
 	<tbody>
 		<tr>

@@ -2,6 +2,8 @@
 comments: true
 difficulty: 中等
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4039.Sum%20of%20Decoded%20Numbers/README.md
+rating: 1463
+source: 第 517 场周赛 Q2
 ---
 
 <!-- problem:start -->

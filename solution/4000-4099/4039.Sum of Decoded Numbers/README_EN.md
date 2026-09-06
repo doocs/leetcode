@@ -2,6 +2,8 @@
 comments: true
 difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4039.Sum%20of%20Decoded%20Numbers/README_EN.md
+rating: 1463
+source: Weekly Contest 517 Q2
 ---
 
 <!-- problem:start -->
