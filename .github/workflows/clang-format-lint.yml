@@ -20,8 +20,7 @@ on:
       - .github/scripts/fetch-diff-base.sh
 
 concurrency:
-  # PR number, not github.ref: a merged PR's closed event resolves ref to main
-  # and would cancel the merge-commit push under cancel-in-progress.
+  # Prefer PR number: github.ref can be the base branch and collide with push.
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
