@@ -22,7 +22,6 @@ tags:
 <!-- description:start -->
 
 Given the <code>root</code> of a binary tree, return <em>the sum of values of its deepest leaves</em>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1302.Deepest%20Leaves%20Sum/images/1483_ex1.png" style="width: 273px; height: 265px;" />

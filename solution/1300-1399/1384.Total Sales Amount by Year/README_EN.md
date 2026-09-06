@@ -113,11 +113,7 @@ SELECT
     p.product_name,
     y.YEAR report_year,
     s.average_daily_sales * (
-        IF(
-            YEAR(s.period_end) > y.YEAR,
-            y.days_of_year,
-            DAYOFYEAR(s.period_end)
-        ) - IF(
+        IF(YEAR(s.period_end) > y.YEAR, y.days_of_year, DAYOFYEAR(s.period_end)) - IF(
             YEAR(s.period_start) < y.YEAR,
             1,
             DAYOFYEAR(s.period_start)
@@ -129,22 +125,18 @@ FROM
         SELECT
             '2018' YEAR,
             365 days_of_year
-        UNION
-        ALL
+        UNION ALL
         SELECT
             '2019' YEAR,
             365 days_of_year
-        UNION
-        ALL
+        UNION ALL
         SELECT
             '2020' YEAR,
             366 days_of_year
-    ) y ON YEAR(s.period_start) <= y.YEAR
-    AND YEAR(s.period_end) >= y.YEAR
+    ) y
+        ON YEAR(s.period_start) <= y.YEAR AND YEAR(s.period_end) >= y.YEAR
     INNER JOIN Product p ON p.product_id = s.product_id
-ORDER BY
-    s.product_id,
-    y.YEAR
+ORDER BY s.product_id, y.YEAR;
 ```
 
 <!-- tabs:end -->
