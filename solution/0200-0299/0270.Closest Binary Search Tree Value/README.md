@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 给你二叉搜索树的根节点 <code>root</code> 和一个目标值 <code>target</code> ，请在该二叉搜索树中找到最接近目标值 <code>target</code> 的数值。如果有多个答案，返回最小的那个。
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

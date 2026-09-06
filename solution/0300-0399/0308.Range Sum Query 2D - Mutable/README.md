@@ -49,9 +49,8 @@ tags:
 <strong>解释</strong>
 NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
 numMatrix.sumRegion(2, 1, 4, 3); // 返回 8 (即, 左侧红色矩形的和)
-numMatrix.update(3, 2, 2); // 矩阵从左图变为右图
+numMatrix.update(3, 2, 2);       // 矩阵从左图变为右图
 numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
-
 </pre>
 
 <p>&nbsp;</p>

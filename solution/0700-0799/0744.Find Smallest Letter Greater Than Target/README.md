@@ -158,7 +158,7 @@ class Solution {
         $l = 0;
         $r = count($letters);
         while ($l < $r) {
-            $mid = $l + $r >> 1;
+            $mid = ($l + $r) >> 1;
             if ($letters[$mid] > $target) {
                 $r = $mid;
             } else {

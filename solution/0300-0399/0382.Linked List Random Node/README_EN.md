@@ -46,7 +46,6 @@ solution.getRandom(); // return 2
 solution.getRandom(); // return 2
 solution.getRandom(); // return 3
 // getRandom() should return either 1, 2, or 3 randomly. Each element should have equal probability of returning.
-
 </pre>
 
 <p>&nbsp;</p>

@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 表：<code>Stadium</code>
-
 <pre>
 +---------------+---------+
 | Column Name   | Type    |

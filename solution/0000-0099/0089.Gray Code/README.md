@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 <strong>n 位格雷码序列</strong> 是一个由 <code>2<sup>n</sup></code> 个整数组成的序列，其中：
-
 <ul>
 	<li>每个整数都在范围 <code>[0, 2<sup>n</sup> - 1]</code> 内（含 <code>0</code> 和 <code>2<sup>n</sup> - 1</code>）</li>
 	<li>第一个整数是 <code>0</code></li>

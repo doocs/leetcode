@@ -166,7 +166,7 @@ impl Solution {
 var compressString = function (S) {
     const n = S.length;
     const t = [];
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && S.charAt(j) === S.charAt(i)) {
             ++j;

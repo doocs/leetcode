@@ -46,7 +46,6 @@ CBTInserter cBTInserter = new CBTInserter([1, 2]);
 cBTInserter.insert(3); // return 1
 cBTInserter.insert(4); // return 2
 cBTInserter.get_root(); // return [1, 2, 3, 4]
-
 </pre>
 
 <p>&nbsp;</p>

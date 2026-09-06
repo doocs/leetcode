@@ -254,7 +254,7 @@ func fullJustify(words []string, maxWidth int) (ans []string) {
 ```ts
 function fullJustify(words: string[], maxWidth: number): string[] {
     const ans: string[] = [];
-    for (let i = 0, n = words.length; i < n; ) {
+    for (let i = 0, n = words.length; i < n;) {
         const t: string[] = [words[i]];
         let cnt = words[i++].length;
         while (i < n && cnt + 1 + words[i].length <= maxWidth) {

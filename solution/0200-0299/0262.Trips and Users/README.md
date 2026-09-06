@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 表：<code>Trips</code>
-
 <div class="original__bRMd">
 <div>
 <pre>

@@ -212,7 +212,7 @@ class Solution {
         $l = 0;
         $r = count($nums);
         while ($l < $r) {
-            $mid = $l + $r >> 1;
+            $mid = ($l + $r) >> 1;
             if ($nums[$mid] >= $target) {
                 $r = $mid;
             } else {

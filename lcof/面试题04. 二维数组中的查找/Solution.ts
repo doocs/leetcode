@@ -4,7 +4,7 @@ function findNumberIn2DArray(matrix: number[][], target: number): boolean {
     }
     const m = matrix.length;
     const n = matrix[0].length;
-    for (let i = 0, j = n - 1; i < m && j >= 0; ) {
+    for (let i = 0, j = n - 1; i < m && j >= 0;) {
         if (matrix[i][j] == target) {
             return true;
         }

@@ -15,7 +15,7 @@ var copyRandomList = function (head) {
     if (!head) {
         return null;
     }
-    for (let cur = head; cur; ) {
+    for (let cur = head; cur;) {
         const node = new Node(cur.val, cur.next, null);
         cur.next = node;
         cur = node.next;
@@ -26,7 +26,7 @@ var copyRandomList = function (head) {
         }
     }
     const ans = head.next;
-    for (let cur = head; cur; ) {
+    for (let cur = head; cur;) {
         const nxt = cur.next;
         if (nxt) {
             cur.next = nxt.next;

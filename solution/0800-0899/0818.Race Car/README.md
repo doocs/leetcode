@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 你的赛车可以从位置 <code>0</code> 开始，并且速度为 <code>+1</code> ，在一条无限长的数轴上行驶。赛车也可以向负方向行驶。赛车可以按照由加速指令 <code>'A'</code> 和倒车指令 <code>'R'</code> 组成的指令序列自动行驶。
-
 <ul>
 	<li>当收到指令 <code>'A'</code> 时，赛车这样行驶：
 	<ul>

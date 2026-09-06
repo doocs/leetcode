@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 给你一个整数 <code>n</code> ，统计并返回各位数字都不同的数字 <code>x</code> 的个数，其中 <code>0 &lt;= x &lt; 10<sup>n</sup></code><sup>&nbsp;</sup>。
-
 <div class="original__bRMd">
 <div>
 <p>&nbsp;</p>

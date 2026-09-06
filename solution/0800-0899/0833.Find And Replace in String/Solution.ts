@@ -13,7 +13,7 @@ function findReplaceString(
         }
     }
     const ans: string[] = [];
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         if (d[i] >= 0) {
             ans.push(targets[d[i]]);
             i += sources[d[i]].length;

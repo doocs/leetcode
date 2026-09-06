@@ -57,7 +57,6 @@ snakeGame.move(&quot;R&quot;); // return 1, snake eats the first piece of food. 
 snakeGame.move(&quot;U&quot;); // return 1
 snakeGame.move(&quot;L&quot;); // return 2, snake eats the second food. No more food appears.
 snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides with border
-
 </pre>
 
 <p>&nbsp;</p>

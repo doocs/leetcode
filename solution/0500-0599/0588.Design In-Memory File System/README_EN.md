@@ -59,7 +59,6 @@ fileSystem.mkdir(&quot;/a/b/c&quot;);
 fileSystem.addContentToFile(&quot;/a/b/c/d&quot;, &quot;hello&quot;);
 fileSystem.ls(&quot;/&quot;); // return [&quot;a&quot;]
 fileSystem.readContentFromFile(&quot;/a/b/c/d&quot;); // return &quot;hello&quot;
-
 </pre>
 
 <p>&nbsp;</p>

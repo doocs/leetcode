@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 给你一个二叉树的根节点 <code>root</code> ，树中每个节点都存放有一个 <code>0</code> 到 <code>9</code> 之间的数字。
-
 <div class="original__bRMd">
 <div>
 <p>每条从根节点到叶节点的路径都代表一个数字：</p>

@@ -7,7 +7,7 @@
  */
 var spiralMatrixIII = function (rows, cols, rStart, cStart) {
     // prettier-ignore
-    const dir = [[1,0],[0,1],[-1,0],[0,-1]]
+    const dir = [[1,0],[0,1],[-1,0],[0,-1]];
     let [x, y, i, size] = [cStart, rStart, 0, 0];
     const ans = [[y, x]];
     const total = rows * cols;

@@ -164,7 +164,7 @@ function largeGroupPositions(s: string): number[][] {
     const n = s.length;
     const ans: number[][] = [];
 
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i;
         while (j < n && s[j] === s[i]) {
             ++j;

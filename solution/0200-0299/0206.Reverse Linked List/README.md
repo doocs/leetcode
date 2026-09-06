@@ -18,7 +18,6 @@ tags:
 <!-- description:start -->
 
 给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。
-
 <div class="original__bRMd">
 <div>
 <p> </p>
