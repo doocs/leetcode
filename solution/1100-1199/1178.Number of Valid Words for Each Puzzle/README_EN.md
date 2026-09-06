@@ -23,7 +23,6 @@ tags:
 <!-- description:start -->
 
 With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em> if both the following conditions are satisfied:
-
 <ul>
 	<li><code>word</code> contains the first letter of <code>puzzle</code>.</li>
 	<li>For each letter in <code>word</code>, that letter is in <code>puzzle</code>.
