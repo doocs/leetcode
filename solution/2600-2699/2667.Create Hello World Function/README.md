@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 请你编写一个名为 <code>createHelloWorld</code> 的函数。它应该返回一个新的函数，该函数总是返回 <code>"Hello World"</code>&nbsp;。
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

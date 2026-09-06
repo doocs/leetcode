@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 给定两个 promise 对象&nbsp;<code>promise1</code> 和 <code>promise2</code>，返回一个新的 promise。<code>promise1</code> 和 <code>promise2</code> 都会被解析为一个数字。返回的 Promise 应该解析为这两个数字的和。
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>

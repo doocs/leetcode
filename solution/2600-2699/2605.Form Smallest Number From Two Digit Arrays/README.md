@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 给你两个只包含 1 到 9 之间数字的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，每个数组中的元素 <strong>互不相同</strong>&nbsp;，请你返回 <strong>最小</strong> 的数字，两个数组都 <strong>至少</strong> 包含这个数字的某个数位。
-
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>

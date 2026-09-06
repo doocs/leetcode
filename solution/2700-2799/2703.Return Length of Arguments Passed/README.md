@@ -17,7 +17,6 @@ tags:
 <!-- description:start -->
 
 请你编写一个函数 <code>argumentsLength</code>，返回传递给该函数的参数数量。
-
 <p>&nbsp;</p>
 
 <p><strong class="example">示例 1：</strong></p>
