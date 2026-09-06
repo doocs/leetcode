@@ -70,7 +70,6 @@ lockingTree.lock(4, 5); // return true because node 4 is unlocked.
 lockingTree.upgrade(0, 1); // return true because node 0 is unlocked and has at least one locked descendant (node 4).
 // Node 0 will now be locked by user 1 and node 4 will now be unlocked.
 lockingTree.lock(0, 1); // return false because node 0 is already locked.
-
 </pre>
 
 <p>&nbsp;</p>

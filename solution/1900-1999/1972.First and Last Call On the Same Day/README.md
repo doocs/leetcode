@@ -80,44 +80,35 @@ Calls table:
 
 ```sql
 # Write your MySQL query statement below
-with s as (
-    select
-        *
-    from
-        Calls
-    union
-    all
-    select
-        recipient_id,
-        caller_id,
-        call_time
-    from
-        Calls
-),
-t as (
-    select
-        caller_id user_id,
-        FIRST_VALUE(recipient_id) over(
-            partition by DATE_FORMAT(call_time, '%Y-%m-%d'),
-            caller_id
-            order by
-                call_time asc
-        ) first,
-        FIRST_VALUE(recipient_id) over(
-            partition by DATE_FORMAT(call_time, '%Y-%m-%d'),
-            caller_id
-            order by
-                call_time desc
-        ) last
-    from
-        s
-)
-select
-    distinct user_id
-from
-    t
-where
-    first = last
+WITH
+    s AS (
+        SELECT
+            *
+        FROM Calls
+        UNION ALL
+        SELECT
+            recipient_id,
+            caller_id,
+            call_time
+        FROM Calls
+    ),
+    t AS (
+        SELECT
+            caller_id user_id,
+            FIRST_VALUE(recipient_id) OVER (
+                PARTITION BY DATE_FORMAT(call_time, '%Y-%m-%d'), caller_id
+                ORDER BY call_time ASC
+            ) first,
+            FIRST_VALUE(recipient_id) OVER (
+                PARTITION BY DATE_FORMAT(call_time, '%Y-%m-%d'), caller_id
+                ORDER BY call_time DESC
+            ) last
+        FROM s
+    )
+SELECT DISTINCT
+    user_id
+FROM t
+WHERE first = last;
 ```
 
 <!-- tabs:end -->

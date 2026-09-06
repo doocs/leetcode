@@ -176,7 +176,7 @@ func isDecomposable(s string) bool {
 function isDecomposable(s: string): boolean {
     const n = s.length;
     let cnt2 = 0;
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i;
         while (j < n && s[j] === s[i]) {
             ++j;
