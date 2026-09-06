@@ -20,7 +20,9 @@ on:
     - cron: '00 23 * * 0'
 
 concurrency:
-  group: ${{github.workflow}} - ${{github.ref}}
+  # PR number, not github.ref: a merged PR's closed event resolves ref to main
+  # and would cancel the merge-commit push under cancel-in-progress.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:

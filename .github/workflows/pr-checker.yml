@@ -5,7 +5,7 @@ on:
     types: [opened, reopened]
 
 concurrency:
-  group: ${{github.workflow}} - ${{github.ref}}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 # Comments via the GitHub API only. Do not check out PR code here.
