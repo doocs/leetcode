@@ -25,18 +25,25 @@ For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange
 
 The global ranking includes LCCN users, so the cutoffs below follow the Guardian / Knight contest badges actually shown on leetcode.com (not a raw 5% / 25% split of the mixed global list).
 
-| Badge    | Role        | Global Rank | Rating   | User                                                                 |
-| -------- | ----------- | ----------- | -------- | -------------------------------------------------------------------- |
-| Guardian | Gatekeeper  | 11714       | 2123.781 | [tdkkdt](https://leetcode.com/u/tdkkdt/)                             |
-| Guardian | Just below  | 11715       | 2123.780 | [ARUNMOZHICHELVAN](https://leetcode.com/u/ARUNMOZHICHELVAN/)         |
-| Knight   | Gatekeeper  | 53687       | 1854.066 | [yugg_007](https://leetcode.com/u/yugg_007/)                         |
-| Knight   | Just below  | 53688       | 1854.065 | [gsupe02](https://leetcode.com/u/gsupe02/)                           |
+| Badge    | Role       | Global Rank | Rating   | User                                                         |
+| -------- | ---------- | ----------- | -------- | ------------------------------------------------------------ |
+| Guardian | Gatekeeper | 11714       | 2123.781 | [tdkkdt](https://leetcode.com/u/tdkkdt/)                     |
+| Guardian | Just below | 11715       | 2123.780 | [ARUNMOZHICHELVAN](https://leetcode.com/u/ARUNMOZHICHELVAN/) |
+| Knight   | Gatekeeper | 53687       | 1854.066 | [yugg_007](https://leetcode.com/u/yugg_007/)                 |
+| Knight   | Just below | 53688       | 1854.065 | [gsupe02](https://leetcode.com/u/gsupe02/)                   |
 
 ## Rating Predictor
 
 If you want to estimate your score changes after the contest ends, you can visit the website [LeetCode Contest Rating Predictor](https://lccn.lbao.site/).
 
 ## Past Contests
+
+#### Weekly Contest 518
+
+- [4043. Count Rotations With Exactly K Equal Adjacent Pairs](/solution/4000-4099/4043.Count%20Rotations%20With%20Exactly%20K%20Equal%20Adjacent%20Pairs/README_EN.md)
+- [4044. Count Good Cyclic Rotations](/solution/4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README_EN.md)
+- [4045. Count Robot Groups](/solution/4000-4099/4045.Count%20Robot%20Groups/README_EN.md)
+- [4046. Minimum Cost Path With At Most K Turns](/solution/4000-4099/4046.Minimum%20Cost%20Path%20With%20At%20Most%20K%20Turns/README_EN.md)
 
 #### Weekly Contest 517
 

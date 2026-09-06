@@ -4052,6 +4052,11 @@
 |  4039  |  [解码值之和](/solution/4000-4099/4039.Sum%20of%20Decoded%20Numbers/README.md)  |    |  中等  |  第 517 场周赛  |
 |  4040  |  [构造子集和的最少操作次数 I](/solution/4000-4099/4040.Minimum%20Operations%20to%20Form%20Subset%20Sum%20I/README.md)  |    |  中等  |  第 517 场周赛  |
 |  4041  |  [构造子集和的最少操作次数 II](/solution/4000-4099/4041.Minimum%20Operations%20to%20Form%20Subset%20Sum%20II/README.md)  |    |  困难  |  第 517 场周赛  |
+|  4042  |  [有效 K 个不同元素子数组 II](/solution/4000-4099/4042.Valid%20K-Unique%20Subarrays%20II/README.md)  |    |  困难  |  🔒  |
+|  4043  |  [恰好有 K 对相等相邻字符的循环移位数量](/solution/4000-4099/4043.Count%20Rotations%20With%20Exactly%20K%20Equal%20Adjacent%20Pairs/README.md)  |    |  简单  |  第 518 场周赛  |
+|  4044  |  [统计好循环移位的数量](/solution/4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README.md)  |    |  中等  |  第 518 场周赛  |
+|  4045  |  [统计机器人组数](/solution/4000-4099/4045.Count%20Robot%20Groups/README.md)  |    |  中等  |  第 518 场周赛  |
+|  4046  |  [至多 K 次转向的最小路径代价](/solution/4000-4099/4046.Minimum%20Cost%20Path%20With%20At%20Most%20K%20Turns/README.md)  |    |  困难  |  第 518 场周赛  |
 
 ## 版权
 

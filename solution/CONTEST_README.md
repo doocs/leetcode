@@ -22,18 +22,25 @@ comments: true
 
 当前分数线对应的守门员，以及最接近但未达到该分数线的用户如下（统计范围为竞赛积分 &ge;1600 的 42342 名用户）：
 
-| 段位     | 角色   | 全国排名 | 分数    | 用户                                                                   |
-| -------- | ------ | -------- | ------- | ---------------------------------------------------------------------- |
-| Guardian | 守门员 | 2117     | 2270.49 | [yuan-zhi-b](https://leetcode.cn/u/yuan-zhi-b/)                         |
-| Guardian | 差一线 | 2118     | 2270.39 | [biubiu0919](https://leetcode.cn/u/biubiu0919/)                         |
-| Knight   | 守门员 | 10585    | 1888.66 | [lin-jie-4](https://leetcode.cn/u/lin-jie-4/)                           |
-| Knight   | 差一线 | 10586    | 1888.65 | [xi-you-fu-su-4](https://leetcode.cn/u/xi-you-fu-su-4/)                 |
+| 段位     | 角色   | 全国排名 | 分数    | 用户                                                    |
+| -------- | ------ | -------- | ------- | ------------------------------------------------------- |
+| Guardian | 守门员 | 2117     | 2270.49 | [yuan-zhi-b](https://leetcode.cn/u/yuan-zhi-b/)         |
+| Guardian | 差一线 | 2118     | 2270.39 | [biubiu0919](https://leetcode.cn/u/biubiu0919/)         |
+| Knight   | 守门员 | 10585    | 1888.66 | [lin-jie-4](https://leetcode.cn/u/lin-jie-4/)           |
+| Knight   | 差一线 | 10586    | 1888.65 | [xi-you-fu-su-4](https://leetcode.cn/u/xi-you-fu-su-4/) |
 
 ## 赛后估分网站
 
 如果你想在比赛结束后估算自己的积分变化，可以访问网站 [LeetCode Contest Rating Predictor](https://lccn.lbao.site/)。
 
 ## 往期竞赛
+
+#### 第 518 场周赛(2026-09-06 10:30, 90 分钟) 参赛人数 1105
+
+- [4043. 恰好有 K 对相等相邻字符的循环移位数量](/solution/4000-4099/4043.Count%20Rotations%20With%20Exactly%20K%20Equal%20Adjacent%20Pairs/README.md)
+- [4044. 统计好循环移位的数量](/solution/4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README.md)
+- [4045. 统计机器人组数](/solution/4000-4099/4045.Count%20Robot%20Groups/README.md)
+- [4046. 至多 K 次转向的最小路径代价](/solution/4000-4099/4046.Minimum%20Cost%20Path%20With%20At%20Most%20K%20Turns/README.md)
 
 #### 第 517 场周赛(2026-08-30 10:30, 90 分钟) 参赛人数 946
 
