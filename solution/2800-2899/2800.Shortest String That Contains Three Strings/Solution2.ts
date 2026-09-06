@@ -10,7 +10,7 @@ function minimumString(a: string, b: string, c: string): string {
         const n = p.length;
         const next: number[] = Array(n).fill(0);
         next[0] = -1;
-        for (let i = 2, j = 0; i < n; ) {
+        for (let i = 2, j = 0; i < n;) {
             if (p[i - 1] === p[j]) {
                 next[i++] = ++j;
             } else if (j) {

@@ -3,7 +3,7 @@ function lexicographicallySmallestArray(nums: number[], limit: number): number[]
     const idx: number[] = Array.from({ length: n }, (_, i) => i);
     idx.sort((i, j) => nums[i] - nums[j]);
     const ans: number[] = Array(n).fill(0);
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && nums[idx[j]] - nums[idx[j - 1]] <= limit) {
             j++;

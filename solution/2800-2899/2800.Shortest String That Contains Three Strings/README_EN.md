@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your task is to find a string that has the<strong> minimum</strong> length and contains all three strings as <strong>substrings</strong>.
-
 <p>If there are multiple such strings, return the<em> </em><strong>lexicographically<em> </em>smallest </strong>one.</p>
 
 <p>Return <em>a string denoting the answer to the problem.</em></p>
@@ -479,7 +478,7 @@ function minimumString(a: string, b: string, c: string): string {
         const n = p.length;
         const next: number[] = Array(n).fill(0);
         next[0] = -1;
-        for (let i = 2, j = 0; i < n; ) {
+        for (let i = 2, j = 0; i < n;) {
             if (p[i - 1] === p[j]) {
                 next[i++] = ++j;
             } else if (j) {

@@ -22,7 +22,6 @@ tags:
 <!-- description:start -->
 
 Given a <strong>0-indexed</strong> integer array <code>nums</code> of length <code>n</code> and an integer <code>target</code>, return <em>the number of pairs</em> <code>(i, j)</code> <em>where</em> <code>0 &lt;= i &lt; j &lt; n</code> <em>and</em> <code>nums[i] + nums[j] &lt; target</code>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

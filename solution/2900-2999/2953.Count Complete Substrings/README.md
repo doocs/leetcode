@@ -335,7 +335,7 @@ function countCompleteSubstrings(word: string, k: number): number {
 
     let n = word.length;
     let ans = 0;
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && Math.abs(word.charCodeAt(j) - word.charCodeAt(j - 1)) <= 2) {
             j++;

@@ -18,7 +18,6 @@ tags:
 <!-- description:start -->
 
 给定一个 <b>下标从 0 开始</b>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>d</code>，请返回满足 <code>i &lt; j &lt; k</code> 且 <code>(nums[i] + nums[j] + nums[k]) % d == 0</code> 的三元组 <code>(i, j, k)</code> 的数量。
-
 <p>&nbsp;</p>
 
 <p><b>示例 1:</b></p>

@@ -3,7 +3,7 @@ function maximumLength(s: string): number {
     let [l, r] = [0, n];
     const check = (x: number): boolean => {
         const cnt: number[] = Array(26).fill(0);
-        for (let i = 0; i < n; ) {
+        for (let i = 0; i < n;) {
             let j = i + 1;
             while (j < n && s[j] === s[i]) {
                 j++;

@@ -18,7 +18,6 @@ tags:
 <!-- description:start -->
 
 Given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>d</code>, return <em>the number of triplets</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>(nums[i] + nums[j] + nums[k]) % d == 0</code>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

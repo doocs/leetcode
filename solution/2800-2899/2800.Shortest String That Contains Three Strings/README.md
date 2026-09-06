@@ -21,7 +21,6 @@ tags:
 <!-- description:start -->
 
 给你三个字符串&nbsp;<code>a</code>&nbsp;，<code>b</code>&nbsp;和&nbsp;<code>c</code>&nbsp;， 你的任务是找到长度&nbsp;<strong>最短</strong>&nbsp;的字符串，且这三个字符串都是它的 <strong>子字符串</strong>&nbsp;。
-
 <p>如果有多个这样的字符串，请你返回 <strong>字典序最小</strong>&nbsp;的一个。</p>
 
 <p>请你返回满足题目要求的字符串。</p>
@@ -479,7 +478,7 @@ function minimumString(a: string, b: string, c: string): string {
         const n = p.length;
         const next: number[] = Array(n).fill(0);
         next[0] = -1;
-        for (let i = 2, j = 0; i < n; ) {
+        for (let i = 2, j = 0; i < n;) {
             if (p[i - 1] === p[j]) {
                 next[i++] = ++j;
             } else if (j) {
