@@ -33,63 +33,42 @@ tags:
 <p><strong>Notice</strong>&nbsp;that&nbsp;the <strong>distance</strong> between the two cities is the number of edges in the path between them.</p>
 
 <p>&nbsp;</p>
-
 <p><strong class="example">Example 1:</strong></p>
 
 <p><strong><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/images/p1.png" style="width: 161px; height: 181px;" /></strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 4, edges = [[1,2],[2,3],[2,4]]
-
 <strong>Output:</strong> [3,4,0]
-
 <strong>Explanation:
-
 </strong>The subtrees with subsets {1,2}, {2,3} and {2,4} have a max distance of 1.
-
 The subtrees with subsets {1,2,3}, {1,2,4}, {2,3,4} and {1,2,3,4} have a max distance of 2.
-
 No subtree has two nodes where the max distance between them is 3.
-
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 2, edges = [[1,2]]
-
 <strong>Output:</strong> [1]
-
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 3, edges = [[1,2],[2,3]]
-
 <strong>Output:</strong> [2,1]
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
-    <li><code>2 &lt;= n &lt;= 15</code></li>
-
-    <li><code>edges.length == n-1</code></li>
-
-    <li><code>edges[i].length == 2</code></li>
-
-    <li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
-
-    <li>All pairs <code>(u<sub>i</sub>, v<sub>i</sub>)</code> are distinct.</li>
-
+	<li><code>2 &lt;= n &lt;= 15</code></li>
+	<li><code>edges.length == n-1</code></li>
+	<li><code>edges[i].length == 2</code></li>
+	<li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
+	<li>All pairs <code>(u<sub>i</sub>, v<sub>i</sub>)</code> are distinct.</li>
 </ul>
 
 <!-- description:end -->

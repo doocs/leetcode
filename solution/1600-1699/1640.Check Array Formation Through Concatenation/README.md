@@ -233,7 +233,7 @@ var canFormArray = function (arr, pieces) {
     for (const p of pieces) {
         d.set(p[0], p);
     }
-    for (let i = 0; i < arr.length; ) {
+    for (let i = 0; i < arr.length;) {
         if (!d.has(arr[i])) {
             return false;
         }
