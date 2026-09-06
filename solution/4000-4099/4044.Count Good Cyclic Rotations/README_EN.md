@@ -140,32 +140,160 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4044.Co
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sliding Window
+
+Let $n$ be the length of the array and $m = n / 2$. First compute the sum $l$ of the first $m$ elements of the original array and the sum $r$ of the last $m$ elements. If $l > r$, increment the answer by $1$.
+
+Then start from the original array and cyclically shift it left by one position, $n - 1$ times in total. On the $i$-th shift ($i$ starts from $0$), the first half loses $\textit{nums}[i]$ and gains $\textit{nums}[(i + m) \bmod n]$, while the second half does the opposite. Update $l$ and $r$ in $O(1)$ time, and increment the answer whenever $l > r$.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countGoodRotations(self, nums: list[int]) -> int:
+        n = len(nums)
+        m = n // 2
+        l = sum(nums[:m])
+        r = sum(nums[m:])
+        ans = int(l > r)
+        for i in range(n - 1):
+            l -= nums[i]
+            r += nums[i]
+            l += nums[(i + m) % n]
+            r -= nums[(i + m) % n]
+            ans += int(l > r)
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countGoodRotations(int[] nums) {
+        int n = nums.length;
+        int m = n / 2;
 
+        long l = 0, r = 0;
+        for (int i = 0; i < m; i++) {
+            l += nums[i];
+        }
+        for (int i = m; i < n; i++) {
+            r += nums[i];
+        }
+
+        int ans = l > r ? 1 : 0;
+
+        for (int i = 0; i < n - 1; i++) {
+            l -= nums[i];
+            r += nums[i];
+            l += nums[(i + m) % n];
+            r -= nums[(i + m) % n];
+            ans += l > r ? 1 : 0;
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countGoodRotations(vector<int>& nums) {
+        int n = nums.size();
+        int m = n / 2;
 
+        long long l = 0, r = 0;
+        for (int i = 0; i < m; i++) {
+            l += nums[i];
+        }
+        for (int i = m; i < n; i++) {
+            r += nums[i];
+        }
+
+        int ans = l > r;
+
+        for (int i = 0; i < n - 1; i++) {
+            l -= nums[i];
+            r += nums[i];
+            l += nums[(i + m) % n];
+            r -= nums[(i + m) % n];
+            ans += l > r;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countGoodRotations(nums []int) int {
+	n := len(nums)
+	m := n / 2
 
+	var l, r int64
+	for i := 0; i < m; i++ {
+		l += int64(nums[i])
+	}
+	for i := m; i < n; i++ {
+		r += int64(nums[i])
+	}
+
+	ans := 0
+	if l > r {
+		ans++
+	}
+
+	for i := 0; i < n-1; i++ {
+		l -= int64(nums[i])
+		r += int64(nums[i])
+		l += int64(nums[(i+m)%n])
+		r -= int64(nums[(i+m)%n])
+		if l > r {
+			ans++
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countGoodRotations(nums: number[]): number {
+    const n = nums.length;
+    const m = Math.floor(n / 2);
+
+    let l = 0,
+        r = 0;
+    for (let i = 0; i < m; i++) {
+        l += nums[i];
+    }
+    for (let i = m; i < n; i++) {
+        r += nums[i];
+    }
+
+    let ans = l > r ? 1 : 0;
+
+    for (let i = 0; i < n - 1; i++) {
+        l -= nums[i];
+        r += nums[i];
+        l += nums[(i + m) % n];
+        r -= nums[(i + m) % n];
+        ans += l > r ? 1 : 0;
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

@@ -85,32 +85,144 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4043.Co
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：模拟
+
+记字符串长度为 $n$。我们先计算原串 $s$ 的得分 $\textit{score}$，即满足 $s[i] = s[i + 1]$（$0 \leq i < n - 1$）的下标数量。若 $\textit{score} = k$，则将答案加 $1$。
+
+接下来从原串出发，依次循环左移一位，共进行 $n - 1$ 次。第 $t$ 次左移（$t = 0, 1, \ldots, n - 2$）时，移到末尾的字符为 $s[t]$，得分仅有两处变化：
+
+- 失去原先首部的相邻对，即 $s[t]$ 与 $s[t + 1]$；
+- 新增尾部的相邻对，即 $s[t - 1]$ 与 $s[t]$。
+
+其中下标对 $n$ 取模。因此可以 $O(1)$ 更新 $\textit{score}$，并统计得分等于 $k$ 的循环移位数量。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 是字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+class Solution:
+    def countRotations(self, s: str, k: int) -> int:
+        n = len(s)
+        score = sum(a == b for a, b in pairwise(s))
+        ans = int(score == k)
 
+        for i in range(n, n * 2 - 1):
+            score += int(s[i % n] == s[(i - 1) % n])
+            score -= int(s[i % n] == s[(i + 1) % n])
+            ans += int(score == k)
+
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countRotations(String s, int k) {
+        int n = s.length();
+        int score = 0;
 
+        for (int i = 0; i < n - 1; i++) {
+            score += s.charAt(i) == s.charAt(i + 1) ? 1 : 0;
+        }
+
+        int ans = score == k ? 1 : 0;
+
+        for (int i = n; i < n * 2 - 1; i++) {
+            score += s.charAt(i % n) == s.charAt((i - 1) % n) ? 1 : 0;
+            score -= s.charAt(i % n) == s.charAt((i + 1) % n) ? 1 : 0;
+            ans += score == k ? 1 : 0;
+        }
+
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countRotations(string s, int k) {
+        int n = s.size();
+        int score = 0;
 
+        for (int i = 0; i < n - 1; i++) {
+            score += s[i] == s[i + 1];
+        }
+
+        int ans = score == k;
+
+        for (int i = n; i < n * 2 - 1; i++) {
+            score += s[i % n] == s[(i - 1) % n];
+            score -= s[i % n] == s[(i + 1) % n];
+            ans += score == k;
+        }
+
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countRotations(s string, k int) int {
+	n := len(s)
+	score := 0
 
+	for i := 0; i < n-1; i++ {
+		if s[i] == s[i+1] {
+			score++
+		}
+	}
+
+	ans := 0
+	if score == k {
+		ans++
+	}
+
+	for i := n; i < n*2-1; i++ {
+		if s[i%n] == s[(i-1)%n] {
+			score++
+		}
+		if s[i%n] == s[(i+1)%n] {
+			score--
+		}
+		if score == k {
+			ans++
+		}
+	}
+
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countRotations(s: string, k: number): number {
+    const n = s.length;
+    let score = 0;
+
+    for (let i = 0; i < n - 1; i++) {
+        score += s[i] === s[i + 1] ? 1 : 0;
+    }
+
+    let ans = score === k ? 1 : 0;
+
+    for (let i = n; i < n * 2 - 1; i++) {
+        score += s[i % n] === s[(i - 1) % n] ? 1 : 0;
+        score -= s[i % n] === s[(i + 1) % n] ? 1 : 0;
+        ans += score === k ? 1 : 0;
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
