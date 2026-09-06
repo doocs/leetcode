@@ -20,7 +20,6 @@ tags:
 <!-- description:start -->
 
 You are given an integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.
-
 <p>A <span data-keyword="subsequence-array">subsequence</span> <code>sub</code> of <code>nums</code> with length <code>x</code> is called <strong>valid</strong> if it satisfies:</p>
 
 <ul>

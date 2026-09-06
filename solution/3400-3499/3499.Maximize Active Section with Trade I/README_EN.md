@@ -243,7 +243,7 @@ function maxActiveSectionsAfterTrade(s: string): number {
     let [ans, mx] = [0, 0];
     let pre = Number.MIN_SAFE_INTEGER;
 
-    for (let i = 0; i < n; ) {
+    for (let i = 0; i < n;) {
         let j = i + 1;
         while (j < n && s[j] === s[i]) {
             j++;

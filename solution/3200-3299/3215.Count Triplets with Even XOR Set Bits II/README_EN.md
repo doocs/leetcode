@@ -18,7 +18,6 @@ tags:
 <!-- description:start -->
 
 Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, return the number of triplets <code>(a[i], b[j], c[k])</code>, such that the bitwise <code>XOR</code> between the elements of each triplet has an <strong>even</strong> number of <span data-keyword="set-bit">set bits</span>.
-
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 

@@ -173,7 +173,7 @@ func hasSpecialSubstring(s string, k int) bool {
 ```ts
 function hasSpecialSubstring(s: string, k: number): boolean {
     const n = s.length;
-    for (let l = 0; l < n; ) {
+    for (let l = 0; l < n;) {
         let r = l + 1;
         while (r < n && s[r] === s[l]) {
             r++;
