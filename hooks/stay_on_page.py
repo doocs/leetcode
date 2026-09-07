@@ -1,12 +1,11 @@
 import re
-from posixpath import dirname, relpath
 
 # Minify may strip quotes: <a href=/en/ hreflang=en>
 # Also rewrite <link rel=alternate href=/en/ hreflang=en>
 _HREFLANG_HREF = re.compile(
     r"""
     (?P<prefix>
-        <(?:a|link)\b
+        <(?P<tag>a|link)\b
         (?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>zh|en)(?P=lq)(?=[\s>]))
         [^>]*\bhref=(?P<hq>["']?)
     )
@@ -15,6 +14,7 @@ _HREFLANG_HREF = re.compile(
     """,
     re.IGNORECASE | re.VERBOSE,
 )
+_HEAD_END = re.compile(r"</head>", re.IGNORECASE)
 
 
 def _page_rel(page) -> str:
@@ -36,29 +36,46 @@ def _is_en_site(config) -> bool:
     return site_url.endswith("/en") or site_dir.endswith("/en") or site_dir == "en"
 
 
+def _site_origin(config) -> str:
+    if isinstance(config, dict):
+        site_url = str(config.get("site_url") or "")
+    else:
+        site_url = str(getattr(config, "site_url", "") or "")
+    site_url = site_url.rstrip("/")
+    if site_url.endswith("/en"):
+        site_url = site_url[:-3]
+    return site_url
+
+
 def _abs_url(rel: str, *, en: bool) -> str:
     if en:
         return f"/en/{rel}" if rel else "/en/"
     return f"/{rel}" if rel else "/"
 
 
-def _relative_href(from_abs: str, to_abs: str) -> str:
-    to_is_dir = to_abs.endswith("/")
-    if from_abs.endswith("/"):
-        start = from_abs.rstrip("/") or "/"
-    else:
-        start = dirname(from_abs) or "/"
-    target = to_abs.rstrip("/") if to_is_dir else to_abs
-    if target == "":
-        target = "/"
-    rel = relpath(target, start)
-    if to_is_dir:
-        if rel in (".", ""):
-            return "./"
-        return rel if rel.endswith("/") else f"{rel}/"
-    if rel in (".", ""):
-        return to_abs.rsplit("/", 1)[-1] or "./"
-    return rel
+def _hreflang_href(path: str, *, tag: str, origin: str) -> str:
+    # <link rel=alternate> must be absolute so Material/clients do not resolve
+    # sitemap.xml against the current page (mkdocs-material#6582, #7352).
+    # <a> stays root-absolute so the language switcher keeps the same page.
+    if tag.lower() == "link" and origin:
+        return origin + path
+    return path
+
+
+def _sitemap_href(config) -> str:
+    origin = _site_origin(config)
+    if not origin:
+        return "/en/sitemap.xml" if _is_en_site(config) else "/sitemap.xml"
+    if _is_en_site(config):
+        return f"{origin}/en/sitemap.xml"
+    return f"{origin}/sitemap.xml"
+
+
+def _inject_sitemap_link(output: str, href: str) -> str:
+    if re.search(r'rel=["\']?sitemap["\']?', output, re.IGNORECASE):
+        return output
+    link = f'<link rel="sitemap" type="application/xml" title="Sitemap" href="{href}">'
+    return _HEAD_END.sub(f"{link}</head>", output, count=1)
 
 
 def on_post_page(output, page, config):
@@ -66,20 +83,21 @@ def on_post_page(output, page, config):
         return output
 
     rel = _page_rel(page)
-    here = _abs_url(rel, en=_is_en_site(config))
     prefix = rel.split("/", 1)[0] if rel else ""
     support_en = prefix not in ("lcof", "lcof2")
-    cn_url = _relative_href(here, _abs_url(rel, en=False))
-    en_target = _abs_url(rel, en=True) if support_en else _abs_url("", en=True)
-    en_url = _relative_href(here, en_target)
+    origin = _site_origin(config)
+    cn_path = _abs_url(rel, en=False)
+    en_path = _abs_url(rel, en=True) if support_en else _abs_url("", en=True)
 
     def repl(match):
         lang = match.group("lang").lower()
-        href = en_url if lang == "en" else cn_url
+        path = en_path if lang == "en" else cn_path
+        href = _hreflang_href(path, tag=match.group("tag"), origin=origin)
         return f"{match.group('prefix')}{href}{match.group('suffix')}"
 
     try:
-        return _HREFLANG_HREF.sub(repl, output)
+        output = _HREFLANG_HREF.sub(repl, output)
+        return _inject_sitemap_link(output, _sitemap_href(config))
     except Exception as e:
         print(f"Error in stay_on_page hook: {e}")
         return output

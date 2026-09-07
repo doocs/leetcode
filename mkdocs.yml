@@ -94,7 +94,6 @@ hooks:
   - hooks/ext_info.py
   - hooks/tags.py
   - hooks/stay_on_page.py
-  - hooks/section_sitemaps.py
 
 markdown_extensions:
   - admonition
