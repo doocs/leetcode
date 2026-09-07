@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Doocs LeetCode AI",
+  "version": "1.0.0",
+  "description": "Optional transport plugin for leetcode.doocs.org Ask AI. Forwards OpenAI-compatible chat requests and avoids browser CORS.",
+  "permissions": [],
+  "host_permissions": [
+    "https://*/*",
+    "http://127.0.0.1:*/*",
+    "http://localhost:*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.doocs.org/*",
+        "https://doocs.gitee.io/*",
+        "http://127.0.0.1/*",
+        "http://localhost/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

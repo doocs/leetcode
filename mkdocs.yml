@@ -95,6 +95,7 @@ hooks:
   - hooks/tags.py
   - hooks/stay_on_page.py
   - hooks/conditional_mathjax.py
+  - hooks/ai_assistant.py
 
 markdown_extensions:
   - admonition
@@ -126,11 +127,16 @@ markdown_extensions:
 extra_javascript:
   - javascripts/mathjax.js
   - https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/ai-assistant.js
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/ai-assistant.css
 
 extra:
+  ai:
+    enabled: true
+    default_provider: deepseek
   generator: false
   social:
     - icon: fontawesome/brands/github

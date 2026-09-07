@@ -1,0 +1,219 @@
+.doocs-ai-toggle {
+    margin-left: 0.2rem;
+}
+
+.doocs-ai-toggle[data-open="true"] {
+    color: var(--md-accent-fg-color);
+}
+
+.doocs-ai-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    width: min(26rem, 100vw);
+    height: 100%;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.18);
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+}
+
+.doocs-ai-panel[data-open="true"] {
+    transform: translateX(0);
+}
+
+.doocs-ai-head,
+.doocs-ai-foot {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.doocs-ai-foot {
+    border-bottom: 0;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.doocs-ai-head h2 {
+    flex: 1;
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.doocs-ai-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--md-default-fg-color);
+    cursor: pointer;
+}
+
+.doocs-ai-icon:hover {
+    color: var(--md-accent-fg-color);
+}
+
+.doocs-ai-status {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.65rem;
+    color: var(--md-default-fg-color--light);
+    background: var(--md-code-bg-color, var(--md-default-fg-color--lightest));
+}
+
+.doocs-ai-status[data-ok="true"] {
+    color: var(--md-accent-fg-color);
+}
+
+.doocs-ai-body {
+    flex: 1;
+    overflow: auto;
+    padding: 0.8rem;
+}
+
+.doocs-ai-msg {
+    margin: 0 0 0.8rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0.4rem;
+    font-size: 0.72rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.doocs-ai-msg[data-role="user"] {
+    margin-left: 1.5rem;
+    background: var(--md-code-bg-color, var(--md-default-fg-color--lightest));
+}
+
+.doocs-ai-msg[data-role="assistant"] {
+    margin-right: 1.5rem;
+    background: var(--md-primary-fg-color--light, var(--md-default-fg-color--lightest));
+}
+
+.doocs-ai-msg pre {
+    margin: 0.4rem 0 0;
+    padding: 0.5rem;
+    overflow: auto;
+    font-size: 0.68rem;
+}
+
+.doocs-ai-starters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.doocs-ai-starters button,
+.doocs-ai-send,
+.doocs-ai-save {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--md-default-fg-color);
+    font-size: 0.65rem;
+    padding: 0.25rem 0.65rem;
+    cursor: pointer;
+}
+
+.doocs-ai-starters button:hover,
+.doocs-ai-send:hover,
+.doocs-ai-save:hover {
+    border-color: var(--md-accent-fg-color);
+    color: var(--md-accent-fg-color);
+}
+
+.doocs-ai-composer {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.doocs-ai-composer textarea,
+.doocs-ai-mine,
+.doocs-ai-settings input,
+.doocs-ai-settings select {
+    width: 100%;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.3rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font: inherit;
+    font-size: 0.7rem;
+    padding: 0.45rem 0.55rem;
+}
+
+.doocs-ai-composer textarea {
+    min-height: 3.4rem;
+    resize: vertical;
+}
+
+.doocs-ai-send {
+    align-self: flex-end;
+    border-radius: 0.3rem;
+    padding: 0.45rem 0.7rem;
+}
+
+.doocs-ai-settings {
+    display: none;
+    padding: 0.8rem;
+    overflow: auto;
+    font-size: 0.7rem;
+}
+
+.doocs-ai-settings[data-open="true"] {
+    display: block;
+}
+
+.doocs-ai-settings label {
+    display: block;
+    margin: 0.55rem 0 0.2rem;
+    color: var(--md-default-fg-color--light);
+}
+
+.doocs-ai-settings .doocs-ai-help {
+    margin: 0.7rem 0 0;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.65rem;
+    line-height: 1.5;
+}
+
+.doocs-ai-ask {
+    position: absolute;
+    z-index: 13;
+    display: none;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color, #fff);
+    font-size: 0.65rem;
+    cursor: pointer;
+}
+
+.doocs-ai-codebtn {
+    margin-left: 0.25rem;
+    border: 0;
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    font-size: 0.6rem;
+    cursor: pointer;
+}
+
+.doocs-ai-codebtn:hover {
+    color: var(--md-accent-fg-color);
+}
+
+@media screen and (max-width: 76.1875em) {
+    .doocs-ai-panel {
+        width: 100vw;
+    }
+}

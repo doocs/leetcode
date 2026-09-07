@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>1. 两数之和</title>
+  <link rel="stylesheet" href="../../docs/stylesheets/ai-assistant.css">
+  <style>
+    :root {
+      --md-default-fg-color: #111;
+      --md-default-bg-color: #fff;
+      --md-accent-fg-color: #4051b5;
+      --md-primary-fg-color: #4051b5;
+      --md-default-fg-color--light: #555;
+      --md-default-fg-color--lightest: #ddd;
+    }
+    body { font-family: sans-serif; margin: 0; }
+    .md-header__inner { display: flex; justify-content: flex-end; padding: 8px 16px; border-bottom: 1px solid #ddd; }
+    .md-content { padding: 16px 24px; max-width: 720px; }
+  </style>
+  <script type="application/json" id="doocs-ai-config">
+    {"lang":"zh","title":"1. 两数之和","url":"lc/1/","defaultProvider":"deepseek","providers":[{"id":"deepseek","name":"DeepSeek","base_url":"https://api.deepseek.com/v1","models":["deepseek-chat"]},{"id":"custom","name":"Custom","base_url":"","models":[]}],"plugin":true}
+  </script>
+</head>
+<body>
+  <header class="md-header"><div class="md-header__inner"></div></header>
+  <article class="md-content">
+    <div class="md-content__inner">
+      <h1>1. 两数之和</h1>
+      <p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值的那两个整数。</p>
+      <div class="tabbed-set">
+        <input type="radio" id="tab-py" name="lang" checked>
+        <label for="tab-py">Python3</label>
+        <div class="tabbed-content">
+          <div class="tabbed-block">
+            <div class="highlight">
+              <pre><code>class Solution:
+    def twoSum(self, nums, target):
+        d = {}
+        for i, x in enumerate(nums):
+            if target - x in d:
+                return [d[target - x], i]
+            d[x] = i
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <script src="../../docs/javascripts/ai-assistant.js"></script>
+</body>
+</html>
