@@ -1,13 +1,19 @@
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int distinctSubseqII(string s) {
-        vector<long> dp(26);
+        const int mod = 1e9 + 7;
+        int f[26]{};
         for (char& c : s) {
-            int i = c - 'a';
-            dp[i] = accumulate(dp.begin(), dp.end(), 1l) % mod;
+            int x = 1;
+            for (int v : f) {
+                x = (x + v) % mod;
+            }
+            f[c - 'a'] = x;
         }
-        return accumulate(dp.begin(), dp.end(), 0l) % mod;
+        int ans = 0;
+        for (int v : f) {
+            ans = (ans + v) % mod;
+        }
+        return ans;
     }
 };

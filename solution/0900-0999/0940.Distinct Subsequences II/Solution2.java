@@ -1,15 +1,14 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int distinctSubseqII(String s) {
-        int[] dp = new int[26];
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[26];
         int ans = 0;
         for (int i = 0; i < s.length(); ++i) {
             int j = s.charAt(i) - 'a';
-            int add = (ans - dp[j] + 1) % MOD;
-            ans = (ans + add) % MOD;
-            dp[j] = (dp[j] + add) % MOD;
+            int add = (ans + 1 + mod - f[j]) % mod;
+            ans = (ans + add) % mod;
+            f[j] = (f[j] + add) % mod;
         }
-        return (ans + MOD) % MOD;
+        return ans;
     }
 }

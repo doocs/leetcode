@@ -1,17 +1,16 @@
 func distinctSubseqII(s string) int {
 	const mod int = 1e9 + 7
-	sum := func(arr []int) int {
-		x := 0
-		for _, v := range arr {
+	f := [26]int{}
+	for _, c := range s {
+		x := 1
+		for _, v := range f {
 			x = (x + v) % mod
 		}
-		return x
+		f[c-'a'] = x
 	}
-
-	dp := make([]int, 26)
-	for _, c := range s {
-		c -= 'a'
-		dp[c] = sum(dp) + 1
+	ans := 0
+	for _, v := range f {
+		ans = (ans + v) % mod
 	}
-	return sum(dp)
+	return ans
 }
