@@ -1,18 +1,65 @@
 {% if page.meta.comments %}
 <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
 <!-- Load client.js only after data-lang / data-theme are set, so async
-     cannot initialize giscus with the HTML defaults. -->
+     cannot initialize giscus with the HTML defaults. Replay theme on
+     iframe load: lazy frames drop postMessage until the widget exists. -->
 <script>
     (function () {
-        var lang = document.documentElement.lang === "en" ? "en" : "zh-CN"
+        var mount = document.currentScript.parentNode
         var theme = "preferred_color_scheme"
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-            theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+        function currentTheme() {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                return palette.color.scheme === "slate" ? "dark" : "light"
+            }
+            return "preferred_color_scheme"
         }
 
+        function applyTheme(frame) {
+            if (!frame || !frame.contentWindow) {
+                return
+            }
+            frame.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: theme } } },
+                "https://giscus.app"
+            )
+        }
+
+        function bindFrame(frame) {
+            if (!frame || frame.getAttribute("data-theme-bound")) {
+                applyTheme(frame)
+                return
+            }
+            frame.setAttribute("data-theme-bound", "1")
+            frame.addEventListener("load", function () {
+                applyTheme(frame)
+            })
+            applyTheme(frame)
+        }
+
+        function watchFrame() {
+            var found = document.querySelector(".giscus-frame")
+            if (found) {
+                bindFrame(found)
+                return
+            }
+            if (!mount || !window.MutationObserver) {
+                return
+            }
+            var observer = new MutationObserver(function () {
+                var frame = document.querySelector(".giscus-frame")
+                if (frame) {
+                    observer.disconnect()
+                    bindFrame(frame)
+                }
+            })
+            observer.observe(mount, { childList: true, subtree: true })
+        }
+
+        theme = currentTheme()
+
         var giscus = document.createElement("script")
-        giscus.src = "https://giscus.app/client.js"
         giscus.async = true
         giscus.crossOrigin = "anonymous"
         var attrs = {
@@ -26,13 +73,15 @@
             "data-emit-metadata": "0",
             "data-input-position": "top",
             "data-theme": theme,
-            "data-lang": lang,
+            "data-lang": document.documentElement.lang === "en" ? "en" : "zh-CN",
             "data-loading": "lazy"
         }
         Object.keys(attrs).forEach(function (key) {
             giscus.setAttribute(key, attrs[key])
         })
-        document.currentScript.parentNode.insertBefore(giscus, document.currentScript)
+        giscus.src = "https://giscus.app/client.js"
+        mount.insertBefore(giscus, document.currentScript)
+        watchFrame()
 
         document.addEventListener("DOMContentLoaded", function () {
             var ref = document.querySelector("[data-md-component=palette]")
@@ -40,19 +89,9 @@
                 return
             }
             ref.addEventListener("change", function () {
-                var nextPalette = __md_get("__palette")
-                if (!nextPalette || typeof nextPalette.color !== "object") {
-                    return
-                }
-                var nextTheme = nextPalette.color.scheme === "slate" ? "dark" : "light"
-                giscus.setAttribute("data-theme", nextTheme)
-                var frame = document.querySelector(".giscus-frame")
-                if (frame && frame.contentWindow) {
-                    frame.contentWindow.postMessage(
-                        { giscus: { setConfig: { theme: nextTheme } } },
-                        "https://giscus.app"
-                    )
-                }
+                theme = currentTheme()
+                giscus.setAttribute("data-theme", theme)
+                bindFrame(document.querySelector(".giscus-frame"))
             })
         })
     })()
