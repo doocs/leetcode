@@ -13,6 +13,8 @@ npm-debug.log*
 /solution/.env
 .cache
 .preview/
+/site
+.wrangler/
 !.cache/plugin/
 !.cache/plugin/git-committers/
 !.cache/plugin/git-committers/page-authors.json
