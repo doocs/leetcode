@@ -122,49 +122,6 @@ class RelativeHrefTest(unittest.TestCase):
         self.assertEqual(sop._relative_href("/", "/en/"), "en/")
 
 
-class RewriteSitemapPathnameTest(unittest.TestCase):
-    def test_language_roots(self):
-        self.assertEqual(sop.rewrite_sitemap_pathname("/sitemap.xml"), "/sitemap.xml")
-        self.assertEqual(sop.rewrite_sitemap_pathname("/en/sitemap.xml"), "/en/sitemap.xml")
-
-    def test_problem_and_range_paths(self):
-        self.assertEqual(sop.rewrite_sitemap_pathname("/lc/100/sitemap.xml"), "/sitemap.xml")
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/en/lc/100/sitemap.xml"), "/en/sitemap.xml"
-        )
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/lc/0100-0199/sitemap.xml"), "/sitemap.xml"
-        )
-        self.assertEqual(sop.rewrite_sitemap_pathname("/lcof/3/sitemap.xml"), "/sitemap.xml")
-
-    def test_gitee_subdirectory(self):
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/leetcode/sitemap.xml"),
-            "/leetcode/sitemap.xml",
-        )
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/leetcode/en/sitemap.xml"),
-            "/leetcode/en/sitemap.xml",
-        )
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/leetcode/lc/100/sitemap.xml"),
-            "/leetcode/sitemap.xml",
-        )
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/leetcode/en/lc/100/sitemap.xml"),
-            "/leetcode/en/sitemap.xml",
-        )
-
-    def test_en_is_a_path_segment(self):
-        self.assertEqual(
-            sop.rewrite_sitemap_pathname("/english/sitemap.xml"),
-            "/english/sitemap.xml",
-        )
-
-    def test_non_sitemap_unchanged(self):
-        self.assertEqual(sop.rewrite_sitemap_pathname("/lc/100/"), "/lc/100/")
-
-
 class StayOnPageTest(unittest.TestCase):
     def _run(self, url: str, config: dict, html: str = HTML) -> str:
         return sop.on_post_page(html, SimpleNamespace(url=url), config)
@@ -182,6 +139,8 @@ class StayOnPageTest(unittest.TestCase):
         )
         self.assertEqual(_sitemap_hrefs(out), ["https://leetcode.doocs.org/sitemap.xml"])
         self.assertIn("XMLHttpRequest.prototype.open", out)
+        self.assertIn("data:application/xml", out)
+        self.assertIn("urlset", out)
         self.assertEqual(_page_sitemaps(out), [])
 
     def test_bilingual_en_page(self):
@@ -233,6 +192,7 @@ class StayOnPageTest(unittest.TestCase):
         self.assertEqual(_hrefs(out, "link")["x-default"], "https://leetcode.doocs.org/lc/100/")
         self.assertEqual(_sitemap_hrefs(out), ["https://leetcode.doocs.org/sitemap.xml"])
         self.assertIn("XMLHttpRequest.prototype.open", out)
+        self.assertIn("data:application/xml", out)
 
     def test_does_not_double_inject_sitemap(self):
         html = HTML.replace(

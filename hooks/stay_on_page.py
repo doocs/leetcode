@@ -8,8 +8,9 @@ from xml.etree import ElementTree as ET
 # <a hreflang> stays page-relative so Gitee /leetcode/ hosting works.
 # <link rel=alternate> is the current page pair for SEO. Material's
 # setupAlternate then requests sitemap.xml against that href
-# (mkdocs-material#6582, #7352); rewrite_sitemap_pathname maps those
-# requests back to the language-root sitemaps.
+# (mkdocs-material#6582, #7352). Language switching already uses
+# relative <a> tags, so the XHR patch stubs those fetches with an
+# empty urlset instead of downloading the 1.6MB language-root files.
 _HREFLANG_HREF = re.compile(
     r"""
     (?P<prefix>
@@ -30,55 +31,31 @@ _HEAD_END = re.compile(r"</head>", re.IGNORECASE)
 _SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 _XHTML_NS = "http://www.w3.org/1999/xhtml"
 _CN_ONLY = frozenset(("lcof", "lcof2"))
-_SERIES = frozenset(
-    ("lc", "lcof", "lcof2", "lcci", "lcp", "lcs", "contest", "tags")
+_EMPTY_SITEMAP = (
+    '<?xml version="1.0" encoding="UTF-8"?>'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>'
 )
 
-# Keep in sync with rewrite_sitemap_pathname().
+# Material stay-on-page already works via relative <a hreflang>. Stub every
+# sitemap.xml XHR so setupAlternate does not download /sitemap.xml.
 _XHR_PATCH = (
     "<script>"
     "!function(){"
-    "function rewrite(p){"
-    "if(!/sitemap\\.xml$/i.test(p))return p;"
-    "var parts=p.split('/').filter(function(s){return s&&!/^sitemap\\.xml$/i.test(s)});"
-    "var series={lc:1,lcof:1,lcof2:1,lcci:1,lcp:1,lcs:1,contest:1,tags:1};"
-    "var en=-1;"
-    "for(var i=0;i<parts.length;i++)if(parts[i].toLowerCase()==='en'){en=i;break}"
-    "if(en>=0)return'/'+parts.slice(0,en+1).join('/')+'/sitemap.xml';"
-    "if(parts[0]&&series[parts[0]])return'/sitemap.xml';"
-    "if(parts.length>=2&&series[parts[1]])return'/'+parts[0]+'/sitemap.xml';"
-    "if(parts.length===1)return'/'+parts[0]+'/sitemap.xml';"
-    "return'/sitemap.xml'"
-    "}"
+    f"var empty={_EMPTY_SITEMAP!r};"
     "var n=XMLHttpRequest.prototype.open;"
     "XMLHttpRequest.prototype.open=function(m,u){"
     "var a=arguments;"
     "try{"
-    "var x=new URL(String(u),location.href),r=rewrite(x.pathname);"
-    "if(r!==x.pathname){x.pathname=r;a=Array.prototype.slice.call(arguments);a[1]=x.href}"
+    "if(/sitemap\\.xml$/i.test(new URL(String(u),location.href).pathname)){"
+    "a=Array.prototype.slice.call(arguments);"
+    "a[1]='data:application/xml,'+encodeURIComponent(empty)"
+    "}"
     "}catch(e){}"
     "return n.apply(this,a)"
     "}"
     "}()"
     "</script>"
 )
-
-
-def rewrite_sitemap_pathname(pathname: str) -> str:
-    raw = pathname or ""
-    if not raw.lower().endswith("sitemap.xml"):
-        return pathname
-    parts = [p for p in raw.split("/") if p and p.lower() != "sitemap.xml"]
-    en_idx = next((i for i, p in enumerate(parts) if p.lower() == "en"), -1)
-    if en_idx >= 0:
-        return "/" + "/".join(parts[: en_idx + 1]) + "/sitemap.xml"
-    if parts and parts[0] in _SERIES:
-        return "/sitemap.xml"
-    if len(parts) >= 2 and parts[1] in _SERIES:
-        return f"/{parts[0]}/sitemap.xml"
-    if len(parts) == 1:
-        return f"/{parts[0]}/sitemap.xml"
-    return "/sitemap.xml"
 
 
 def _config_get(config, key: str, default=""):
