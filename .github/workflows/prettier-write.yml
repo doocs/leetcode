@@ -51,7 +51,14 @@ jobs:
           set -euo pipefail
           git config --global core.quotepath off
           git fetch --depth=1 origin "${{ github.event.pull_request.base.sha }}"
-          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
+          base="${{ github.event.pull_request.base.sha }}"
+          mapfile -t config_files < <(git diff --name-only --diff-filter=ACMR "$base" -- .prettierrc .prettierignore package.json pnpm-lock.yaml || true)
+          if [ ${#config_files[@]} -gt 0 ]; then
+            echo "Prettier config or dependencies changed; formatting all matching files."
+            pnpm exec prettier --write "**/*.{js,ts,php,sql,md}"
+            exit 0
+          fi
+          mapfile -t files < <(git diff --name-only --diff-filter=ACMR "$base" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No matching files to run prettier on."
             exit 0
