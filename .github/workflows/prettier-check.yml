@@ -9,6 +9,7 @@ on:
       - '**/*.php'
       - '**/*.sql'
       - '**/*.md'
+      - .prettierrc
       - .prettierignore
       - package.json
       - pnpm-lock.yaml
@@ -35,13 +36,21 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
+          cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check prettier
         run: |
           set -euo pipefail
           git config core.quotepath false
-          mapfile -t files < <(git -c core.quotepath=false diff --name-only --diff-filter=ACMR "${{ github.event.pull_request.base.sha }}" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
+          base="${{ github.event.pull_request.base.sha }}"
+          mapfile -t config_files < <(git -c core.quotepath=false diff --name-only --diff-filter=ACMR "$base" -- .prettierrc .prettierignore package.json pnpm-lock.yaml || true)
+          if [ ${#config_files[@]} -gt 0 ]; then
+            echo "Prettier config or dependencies changed; checking all matching files."
+            pnpm exec prettier --check "**/*.{js,ts,php,sql,md}"
+            exit 0
+          fi
+          mapfile -t files < <(git -c core.quotepath=false diff --name-only --diff-filter=ACMR "$base" -- '*.js' '*.ts' '*.php' '*.sql' '*.md' || true)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No Prettier files changed."
             exit 0

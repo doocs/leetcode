@@ -25,7 +25,7 @@ This is [doocs/leetcode](https://github.com/doocs/leetcode) — a large collecti
 - **`main`** — problem sources, lint tooling, and deploy workflows.
 - **`docs`** — MkDocs site engine only (`build_site.py`, `mkdocs.yml`, `hooks/`, `overrides/`). Problem pages are generated at deploy time from `main`.
 
-Deploy checks out both branches, overlays a whitelist from `docs` onto `main`, runs `python3 build_site.py`, then builds zh/en in parallel. Content pushes on `main` go through `deploy-request.yml` (about 90s quiet period, then `gh workflow run deploy.yml`). Pushes to `docs` use `.github/workflows/trigger-deploy.yml` the same way. A started `deploy.yml` run is not cancelled.
+Deploy checks out both branches, overlays a whitelist from `docs` onto `main`, runs `python3 build_site.py`, then builds zh/en in parallel. Content pushes on `main` (problem trees, `worker.js`, and `wrangler.jsonc`) go through `deploy-request.yml` (about 90s quiet period, then `gh workflow run deploy.yml`). Pushes to `docs` use `.github/workflows/trigger-deploy.yml` on the `docs` branch the same way. A started `deploy.yml` run is not cancelled.
 
 Dependabot updates npm, GitHub Actions, and pip on `main`, and pip on `docs`.
 
@@ -57,7 +57,7 @@ node scripts/run-py.js run_format.py --clang-format <file>
 node scripts/run-py.js run_format.py --gofmt <file>
 
 # Rust
-rustfmt <file>
+rustfmt --edition 2021 <file>
 ```
 
 Or run the full formatting script:

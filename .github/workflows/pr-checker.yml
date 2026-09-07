@@ -98,18 +98,18 @@ jobs:
                     if (isTeamMember) {
                         console.log(`The user ${PR_OPENER} is a member of the team. Terminating with the workflow.`);
                         return
-                    } else {
-                      console.log(`The user ${PR_OPENER} is not a member of the team. Proceeding the workflow.`);
-                      github.rest.issues.createComment({
-                        issue_number: context.issue.number,
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        body: comment
-                      })
                     }
+                    console.log(`The user ${PR_OPENER} is not a member of the team. Proceeding the workflow.`);
+                    await github.rest.issues.createComment({
+                      issue_number: context.issue.number,
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      body: comment
+                    })
                   } catch (error) {
                     console.log(PR_OPENER)
                     console.log(error)
+                    throw error
                   }
                   }
-                  checkTeamMembership();
+                  await checkTeamMembership();

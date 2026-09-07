@@ -271,17 +271,19 @@ def remove_header(path: str, quiet: bool = False):
 
 def find_all_paths() -> List[str]:
     """Find all paths of files with suffixes"""
+    skip_dirs = {
+        "node_modules",
+        "__pycache__",
+        ".git",
+        ".preview",
+        "site-artifacts",
+        "site",
+    }
     paths = []
-    for root, _, files in os.walk(os.getcwd()):
+    for root, dirs, files in os.walk(os.getcwd()):
+        dirs[:] = [d for d in dirs if d not in skip_dirs]
         for file in files:
             path = root + "/" + file
-            if (
-                "node_modules" in path
-                or "__pycache__" in path
-                or ".git" in path
-                or ".preview" in path.replace("\\", "/")
-            ):
-                continue
             if any(path.endswith(f".{suf}") for suf in suffixes):
                 paths.append(path)
     return paths
