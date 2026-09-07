@@ -351,7 +351,7 @@ jobs:
           set -euo pipefail
           for f in site/search/search_index.json site/en/search/search_index.json; do
             if [ -f "$f" ]; then
-              gzip -9 -c "$f" > "${f}.gz"
+              gzip -9n -c "$f" > "${f}.gz"
               rm -f "$f"
             fi
           done

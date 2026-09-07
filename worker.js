@@ -5,13 +5,15 @@ export default {
             const asset = await env.ASSETS.fetch(
                 new Request(new URL(`${url.pathname}.gz`, url.origin), request),
             );
-            if (asset.ok) {
+            if (asset.ok || asset.status === 304) {
                 const headers = new Headers(asset.headers);
                 headers.set('Content-Type', 'application/json; charset=utf-8');
-                headers.set('Content-Encoding', 'gzip');
                 headers.set('Cache-Control', 'public, max-age=3600');
+                if (asset.status !== 304) {
+                    headers.set('Content-Encoding', 'gzip');
+                }
                 return new Response(asset.body, {
-                    status: 200,
+                    status: asset.status,
                     headers,
                     encodeBody: 'manual',
                 });
