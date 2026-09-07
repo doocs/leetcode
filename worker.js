@@ -10,19 +10,17 @@ export default {
                     headers,
                 }),
             );
-            if (asset.status === 304) {
-                return new Response(null, {
-                    status: 304,
-                    headers: asset.headers,
-                });
-            }
-            if (asset.ok && asset.body) {
+            if (asset.status === 304 || asset.ok) {
                 const out = new Headers(asset.headers);
                 out.set('Content-Type', 'application/json; charset=utf-8');
                 out.set('Cache-Control', 'public, max-age=3600');
                 out.delete('Content-Encoding');
                 out.delete('Content-Length');
-                return new Response(asset.body.pipeThrough(new DecompressionStream('gzip')), {
+                const body =
+                    asset.status === 304 || request.method === 'HEAD' || !asset.body
+                        ? null
+                        : asset.body.pipeThrough(new DecompressionStream('gzip'));
+                return new Response(body, {
                     status: asset.status,
                     headers: out,
                 });
