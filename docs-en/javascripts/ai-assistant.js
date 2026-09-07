@@ -35,6 +35,10 @@
               pluginOn: "浏览器插件已连接",
               pluginOff: "未检测到插件，直连可能被 CORS 拦截",
               pluginHelp: "多数模型 API 不允许网页直连。请加载仓库 extensions/doocs-ai 插件，或把接口地址改成你自己的 OpenAI 兼容代理。",
+              hosted: "站点内置服务，无需配置",
+              hostedHelp: "默认走站点代理，不用填 Key。只有要换自己的模型时，才打开「使用自己的 Key」。",
+              hostedDown: "内置服务未启动。部署 workers/ai-proxy，或在设置里改用自己的 Key",
+              useOwn: "使用自己的 API Key",
               needKey: "先在设置里填 API Key",
               empty: "输入问题，或点上面的快捷提问",
               error: "请求失败",
@@ -62,6 +66,10 @@
               pluginOn: "Browser plugin connected",
               pluginOff: "No plugin detected; direct calls may be blocked by CORS",
               pluginHelp: "Most model APIs block browser CORS. Load extensions/doocs-ai, or point the base URL at your own OpenAI-compatible proxy.",
+              hosted: "Built-in service, no setup needed",
+              hostedHelp: "Requests go through the site proxy. Enable “Use my API key” only if you want your own model.",
+              hostedDown: "Built-in service is offline. Deploy workers/ai-proxy, or use your own key in Settings",
+              useOwn: "Use my API key",
               needKey: "Add an API key in Settings first",
               empty: "Ask a question, or use a starter prompt",
               error: "Request failed",
@@ -111,7 +119,23 @@
             model: raw.model || (found.models && found.models[0]) || "",
             apiKey: raw.apiKey || "",
             baseUrl: raw.baseUrl || found.base_url || "",
+            useOwnKey: !!raw.useOwnKey,
         };
+    }
+
+    function hostedEndpoint() {
+        if (CONFIG.endpoint) {
+            return CONFIG.endpoint;
+        }
+        var host = location.hostname;
+        if (host === "127.0.0.1" || host === "localhost") {
+            return "http://127.0.0.1:8787/chat";
+        }
+        return "";
+    }
+
+    function useHosted() {
+        return hostedEndpoint() && !loadSettings().useOwnKey;
     }
 
     function saveSettings(next) {
@@ -248,6 +272,11 @@
         if (!els.status) {
             return;
         }
+        if (useHosted()) {
+            els.status.dataset.ok = "true";
+            els.status.textContent = I18N.hosted;
+            return;
+        }
         els.status.dataset.ok = state.plugin ? "true" : "false";
         els.status.textContent = state.plugin ? I18N.pluginOn : I18N.pluginOff;
     }
@@ -368,7 +397,48 @@
         }
     }
 
+    async function hostedChat(userText, extras) {
+        var url = hostedEndpoint();
+        var options = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                lang: ZH ? "zh" : "en",
+                title: pageTitle(),
+                url: location.href,
+                langTab: activeLang(),
+                excerpt: pageExcerpt(),
+                code: activeCode(),
+                selection: extras.selection || "",
+                mine: extras.mine || "",
+                query: userText,
+            }),
+        };
+        var assembled = "";
+        try {
+            await directFetch(
+                url,
+                options,
+                function (delta) {
+                    assembled += delta;
+                    extras.onDelta(assembled);
+                },
+                extras.signal
+            );
+        } catch (err) {
+            var msg = String((err && err.message) || err);
+            if (/Failed to fetch|NetworkError|CORS/i.test(msg)) {
+                throw new Error(I18N.hostedDown);
+            }
+            throw err;
+        }
+        return assembled;
+    }
+
     async function chat(userText, extras) {
+        if (useHosted()) {
+            return hostedChat(userText, extras);
+        }
         var settings = loadSettings();
         if (!settings.apiKey && settings.provider !== "ollama") {
             throw new Error(I18N.needKey);
@@ -482,6 +552,9 @@
         fillModels(settings.provider, settings.model);
         els.apiKey.value = settings.apiKey;
         els.baseUrl.value = settings.baseUrl;
+        if (els.useOwn) {
+            els.useOwn.checked = !!settings.useOwnKey;
+        }
     }
 
     function fillModels(providerId, selected) {
@@ -513,7 +586,9 @@
             model: els.model.value,
             apiKey: els.apiKey.value.trim(),
             baseUrl: els.baseUrl.value.trim() || provider.base_url || "",
+            useOwnKey: !!(els.useOwn && els.useOwn.checked),
         });
+        setStatus();
     }
 
     async function submit(text, selection) {
@@ -601,6 +676,9 @@
             '<div class="doocs-ai-status"></div>' +
             '<div class="doocs-ai-body"></div>' +
             '<div class="doocs-ai-settings">' +
+            "<label><input type=\"checkbox\" data-field=\"own\"> " +
+            I18N.useOwn +
+            "</label>" +
             "<label>" +
             I18N.provider +
             '</label><select data-field="provider"></select>' +
@@ -665,6 +743,7 @@
         els.model = panel.querySelector('[data-field="model"]');
         els.baseUrl = panel.querySelector('[data-field="base"]');
         els.apiKey = panel.querySelector('[data-field="key"]');
+        els.useOwn = panel.querySelector('[data-field="own"]');
         els.input = panel.querySelector('[data-field="input"]');
         els.mine = panel.querySelector(".doocs-ai-mine");
         els.send = panel.querySelector('[data-act="send"]');
@@ -790,7 +869,11 @@
         if (els.settings) {
             var help = els.settings.querySelector(".doocs-ai-help");
             if (help) {
-                help.textContent = state.plugin ? I18N.pluginOn : I18N.pluginHelp;
+                help.textContent = useHosted()
+                    ? I18N.hostedHelp
+                    : state.plugin
+                      ? I18N.pluginOn
+                      : I18N.pluginHelp;
             }
         }
     }

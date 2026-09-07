@@ -179,6 +179,10 @@
     color: var(--md-default-fg-color--light);
 }
 
+.doocs-ai-settings label:has(input[type="checkbox"]) {
+    color: var(--md-default-fg-color);
+}
+
 .doocs-ai-settings .doocs-ai-help {
     margin: 0.7rem 0 0;
     color: var(--md-default-fg-color--light);

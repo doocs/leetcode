@@ -1,0 +1,10 @@
+{
+  "name": "doocs-leetcode-ai",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-07",
+  "vars": {
+    "AI_BASE_URL": "https://api.deepseek.com/v1",
+    "AI_MODEL": "deepseek-chat",
+    "RATE_LIMIT": "30"
+  }
+}

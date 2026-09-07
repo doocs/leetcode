@@ -1,4 +1,5 @@
 import json
+import os
 import re
 
 # Injects a page-scoped config blob. The widget itself is a static
@@ -84,10 +85,12 @@ def build_config(page, config) -> dict:
     providers = ai.get("providers") or DEFAULT_PROVIDERS
     title = getattr(page, "title", None) or ""
     url = (getattr(page, "url", None) or "").strip()
+    endpoint = str(ai.get("endpoint") or os.environ.get("DOOCS_AI_ENDPOINT") or "").strip()
     return {
         "lang": "en" if is_en_site(config) else "zh",
         "title": title,
         "url": url,
+        "endpoint": endpoint,
         "defaultProvider": ai.get("default_provider") or "deepseek",
         "providers": providers,
         "plugin": True,

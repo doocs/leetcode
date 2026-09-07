@@ -136,6 +136,8 @@ extra_css:
 extra:
   ai:
     enabled: true
+    # After deploying workers/ai-proxy, set this to the Worker /chat URL.
+    endpoint: ""
     default_provider: deepseek
   generator: false
   social:

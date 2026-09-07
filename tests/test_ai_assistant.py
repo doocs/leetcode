@@ -39,6 +39,7 @@ class AiAssistantHookTest(unittest.TestCase):
         self.assertEqual(payload["title"], "1. 两数之和")
         self.assertEqual(payload["url"], "lc/1/")
         self.assertEqual(payload["defaultProvider"], "deepseek")
+        self.assertEqual(payload["endpoint"], "")
         self.assertTrue(payload["providers"])
 
     def test_en_site_uses_en_lang(self):
@@ -91,6 +92,12 @@ class AiAssistantHookTest(unittest.TestCase):
         payload = ai.build_config(PAGE, config)
         self.assertEqual(payload["defaultProvider"], "custom")
         self.assertEqual(payload["providers"][0]["base_url"], "https://proxy.example/v1")
+
+    def test_endpoint_from_extra(self):
+        payload = ai.build_config(
+            PAGE, {"extra": {"ai": {"endpoint": "https://ai.example/chat"}}}
+        )
+        self.assertEqual(payload["endpoint"], "https://ai.example/chat")
 
 
 class AiAssistantAssetsTest(unittest.TestCase):
