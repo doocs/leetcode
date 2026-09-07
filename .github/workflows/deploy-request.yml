@@ -12,6 +12,8 @@ on:
       - lcof/**
       - lcci/**
       - basic/**
+      - worker.js
+      - wrangler.jsonc
 
 concurrency:
   group: deploy-request

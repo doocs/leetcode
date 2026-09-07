@@ -35,6 +35,8 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - name: Install black
         run: |
           set -euo pipefail

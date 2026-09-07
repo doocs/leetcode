@@ -18,7 +18,7 @@
     "*.py": "node scripts/run-py.js -m black -S",
     "*.{c,cpp,java}": "node scripts/run-py.js run_format.py --clang-format",
     "*.go": "node scripts/run-py.js run_format.py --gofmt",
-    "*.rs": "rustfmt"
+    "*.rs": "rustfmt --edition 2021"
   },
   "packageManager": "pnpm@11.25.0"
 }

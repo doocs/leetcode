@@ -3,6 +3,17 @@ name: prettier-write
 on:
   pull_request_target:
     types: [opened, edited, reopened, synchronize]
+    paths:
+      - '**/*.js'
+      - '**/*.ts'
+      - '**/*.php'
+      - '**/*.sql'
+      - '**/*.md'
+      - .prettierrc
+      - .prettierignore
+      - package.json
+      - pnpm-lock.yaml
+      - .github/workflows/prettier-write.yml
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -32,6 +43,7 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 24
+          cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run prettier

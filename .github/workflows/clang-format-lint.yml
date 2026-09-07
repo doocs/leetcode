@@ -8,6 +8,7 @@ on:
       - '**/*.cpp'
       - '**/*.java'
       - .clang-format
+      - requirements.txt
       - .github/workflows/clang-format-lint.yml
       - .github/scripts/fetch-diff-base.sh
   pull_request:
@@ -16,6 +17,7 @@ on:
       - '**/*.cpp'
       - '**/*.java'
       - .clang-format
+      - requirements.txt
       - .github/workflows/clang-format-lint.yml
       - .github/scripts/fetch-diff-base.sh
 
@@ -36,8 +38,20 @@ jobs:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
           GIT_BEFORE: ${{ github.event.before }}
         run: bash .github/scripts/fetch-diff-base.sh
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements.txt
       - name: Install clang-format
-        run: python3 -m pip install clang-format==23.1.0
+        run: |
+          set -euo pipefail
+          pin="$(grep '^clang-format==' requirements.txt || true)"
+          if [ -z "$pin" ]; then
+            echo "requirements.txt must contain a clang-format== version pin."
+            exit 1
+          fi
+          python -m pip install "$pin"
       - name: Check clang-format
         run: |
           set -euo pipefail
