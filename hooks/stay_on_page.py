@@ -2,11 +2,13 @@ import re
 from posixpath import dirname, relpath
 
 # Minify may strip quotes: <a href=/en/ hreflang=en>
-# Also rewrite <link rel=alternate href=/en/ hreflang=en>
+# <a hreflang> stays page-relative so Gitee /leetcode/ hosting works.
+# <link rel=alternate> stays on the language root so clients resolve
+# sitemap.xml to /sitemap.xml or /en/sitemap.xml (mkdocs-material#6582, #7352).
 _HREFLANG_HREF = re.compile(
     r"""
     (?P<prefix>
-        <(?:a|link)\b
+        <(?P<tag>a|link)\b
         (?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>zh|en)(?P=lq)(?=[\s>]))
         [^>]*\bhref=(?P<hq>["']?)
     )
@@ -15,6 +17,7 @@ _HREFLANG_HREF = re.compile(
     """,
     re.IGNORECASE | re.VERBOSE,
 )
+_HEAD_END = re.compile(r"</head>", re.IGNORECASE)
 
 
 def _page_rel(page) -> str:
@@ -34,6 +37,17 @@ def _is_en_site(config) -> bool:
     site_url = site_url.rstrip("/")
     site_dir = site_dir.replace("\\", "/").rstrip("/")
     return site_url.endswith("/en") or site_dir.endswith("/en") or site_dir == "en"
+
+
+def _site_origin(config) -> str:
+    if isinstance(config, dict):
+        site_url = str(config.get("site_url") or "")
+    else:
+        site_url = str(getattr(config, "site_url", "") or "")
+    site_url = site_url.rstrip("/")
+    if site_url.endswith("/en"):
+        site_url = site_url[:-3]
+    return site_url
 
 
 def _abs_url(rel: str, *, en: bool) -> str:
@@ -61,6 +75,33 @@ def _relative_href(from_abs: str, to_abs: str) -> str:
     return rel
 
 
+def _language_root(*, en: bool) -> str:
+    return "/en/" if en else "/"
+
+
+def _alternate_href(*, en: bool, origin: str) -> str:
+    root = _language_root(en=en)
+    if origin:
+        return origin + root
+    return root
+
+
+def _sitemap_href(config) -> str:
+    origin = _site_origin(config)
+    if not origin:
+        return "/en/sitemap.xml" if _is_en_site(config) else "/sitemap.xml"
+    if _is_en_site(config):
+        return f"{origin}/en/sitemap.xml"
+    return f"{origin}/sitemap.xml"
+
+
+def _inject_sitemap_link(output: str, href: str) -> str:
+    if re.search(r'rel=["\']?sitemap["\']?', output, re.IGNORECASE):
+        return output
+    link = f'<link rel="sitemap" type="application/xml" title="Sitemap" href="{href}">'
+    return _HEAD_END.sub(f"{link}</head>", output, count=1)
+
+
 def on_post_page(output, page, config):
     if not output:
         return output
@@ -69,17 +110,22 @@ def on_post_page(output, page, config):
     here = _abs_url(rel, en=_is_en_site(config))
     prefix = rel.split("/", 1)[0] if rel else ""
     support_en = prefix not in ("lcof", "lcof2")
-    cn_url = _relative_href(here, _abs_url(rel, en=False))
+    origin = _site_origin(config)
+    cn_a = _relative_href(here, _abs_url(rel, en=False))
     en_target = _abs_url(rel, en=True) if support_en else _abs_url("", en=True)
-    en_url = _relative_href(here, en_target)
+    en_a = _relative_href(here, en_target)
 
     def repl(match):
-        lang = match.group("lang").lower()
-        href = en_url if lang == "en" else cn_url
+        en = match.group("lang").lower() == "en"
+        if match.group("tag").lower() == "link":
+            href = _alternate_href(en=en, origin=origin)
+        else:
+            href = en_a if en else cn_a
         return f"{match.group('prefix')}{href}{match.group('suffix')}"
 
     try:
-        return _HREFLANG_HREF.sub(repl, output)
+        output = _HREFLANG_HREF.sub(repl, output)
+        return _inject_sitemap_link(output, _sitemap_href(config))
     except Exception as e:
         print(f"Error in stay_on_page hook: {e}")
         return output
