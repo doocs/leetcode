@@ -1,20 +1,18 @@
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int distinctSubseqII(String s) {
-        int[] dp = new int[26];
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[26];
         for (int i = 0; i < s.length(); ++i) {
-            int j = s.charAt(i) - 'a';
-            dp[j] = sum(dp) + 1;
+            int x = 1;
+            for (int v : f) {
+                x = (x + v) % mod;
+            }
+            f[s.charAt(i) - 'a'] = x;
         }
-        return sum(dp);
-    }
-
-    private int sum(int[] arr) {
-        int x = 0;
-        for (int v : arr) {
-            x = (x + v) % MOD;
+        int ans = 0;
+        for (int v : f) {
+            ans = (ans + v) % mod;
         }
-        return x;
+        return ans;
     }
 }

@@ -58,7 +58,15 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+We define $f[i]$ as the number of distinct subsequences ending with the $i$-th lowercase letter. Initially, all elements in $f$ are $0$.
+
+Traverse the string $s$. For the current character $c$, update $f[c]$ to $\sum_{i=0}^{25} f[i] + 1$. Here $\sum_{i=0}^{25} f[i]$ is the number of distinct subsequences obtained so far, and $+1$ means the character $c$ itself can also be a subsequence.
+
+Finally, the answer is $\sum_{i=0}^{25} f[i]$ modulo $10^9 + 7$.
+
+The time complexity is $O(n \times C)$, and the space complexity is $O(C)$, where $n$ is the length of $s$ and $C$ is the size of the character set. In this problem, $C = 26$.
 
 <!-- tabs:start -->
 
@@ -68,183 +76,31 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 class Solution:
     def distinctSubseqII(self, s: str) -> int:
         mod = 10**9 + 7
-        n = len(s)
-        dp = [[0] * 26 for _ in range(n + 1)]
-        for i, c in enumerate(s, 1):
-            k = ord(c) - ord('a')
-            for j in range(26):
-                if j == k:
-                    dp[i][j] = sum(dp[i - 1]) % mod + 1
-                else:
-                    dp[i][j] = dp[i - 1][j]
-        return sum(dp[-1]) % mod
-```
-
-#### Java
-
-```java
-class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
-    public int distinctSubseqII(String s) {
-        int[] dp = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            int j = s.charAt(i) - 'a';
-            dp[j] = sum(dp) + 1;
-        }
-        return sum(dp);
-    }
-
-    private int sum(int[] arr) {
-        int x = 0;
-        for (int v : arr) {
-            x = (x + v) % MOD;
-        }
-        return x;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    const int mod = 1e9 + 7;
-
-    int distinctSubseqII(string s) {
-        vector<long> dp(26);
-        for (char& c : s) {
-            int i = c - 'a';
-            dp[i] = accumulate(dp.begin(), dp.end(), 1l) % mod;
-        }
-        return accumulate(dp.begin(), dp.end(), 0l) % mod;
-    }
-};
-```
-
-#### Go
-
-```go
-func distinctSubseqII(s string) int {
-	const mod int = 1e9 + 7
-	sum := func(arr []int) int {
-		x := 0
-		for _, v := range arr {
-			x = (x + v) % mod
-		}
-		return x
-	}
-
-	dp := make([]int, 26)
-	for _, c := range s {
-		c -= 'a'
-		dp[c] = sum(dp) + 1
-	}
-	return sum(dp)
-}
-```
-
-#### TypeScript
-
-```ts
-function distinctSubseqII(s: string): number {
-    const mod = 1e9 + 7;
-    const dp = new Array(26).fill(0);
-    for (const c of s) {
-        dp[c.charCodeAt(0) - 'a'.charCodeAt(0)] = dp.reduce((r, v) => (r + v) % mod, 0) + 1;
-    }
-    return dp.reduce((r, v) => (r + v) % mod, 0);
-}
-```
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn distinct_subseq_ii(s: String) -> i32 {
-        const MOD: i32 = (1e9 as i32) + 7;
-        let mut dp = [0; 26];
-        for u in s.as_bytes() {
-            let i = (u - &b'a') as usize;
-            dp[i] = ({
-                let mut sum = 0;
-                dp.iter().for_each(|&v| {
-                    sum = (sum + v) % MOD;
-                });
-                sum
-            }) + 1;
-        }
-        let mut res = 0;
-        dp.iter().for_each(|&v| {
-            res = (res + v) % MOD;
-        });
-        res
-    }
-}
-```
-
-#### C
-
-```c
-int distinctSubseqII(char* s) {
-    int mod = 1e9 + 7;
-    int n = strlen(s);
-    int dp[26] = {0};
-    for (int i = 0; i < n; i++) {
-        int sum = 0;
-        for (int j = 0; j < 26; j++) {
-            sum = (sum + dp[j]) % mod;
-        }
-        dp[s[i] - 'a'] = sum + 1;
-    }
-    int res = 0;
-    for (int i = 0; i < 26; i++) {
-        res = (res + dp[i]) % mod;
-    }
-    return res;
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def distinctSubseqII(self, s: str) -> int:
-        mod = 10**9 + 7
-        dp = [0] * 26
+        f = [0] * 26
         for c in s:
-            i = ord(c) - ord('a')
-            dp[i] = sum(dp) % mod + 1
-        return sum(dp) % mod
+            f[ord(c) - ord("a")] = (sum(f) + 1) % mod
+        return sum(f) % mod
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int distinctSubseqII(String s) {
-        int[] dp = new int[26];
-        int ans = 0;
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[26];
         for (int i = 0; i < s.length(); ++i) {
-            int j = s.charAt(i) - 'a';
-            int add = (ans - dp[j] + 1) % MOD;
-            ans = (ans + add) % MOD;
-            dp[j] = (dp[j] + add) % MOD;
+            int x = 1;
+            for (int v : f) {
+                x = (x + v) % mod;
+            }
+            f[s.charAt(i) - 'a'] = x;
         }
-        return (ans + MOD) % MOD;
+        int ans = 0;
+        for (int v : f) {
+            ans = (ans + v) % mod;
+        }
+        return ans;
     }
 }
 ```
@@ -254,16 +110,19 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    const int mod = 1e9 + 7;
-
     int distinctSubseqII(string s) {
-        vector<long> dp(26);
-        long ans = 0;
+        const int mod = 1e9 + 7;
+        int f[26]{};
         for (char& c : s) {
-            int i = c - 'a';
-            long add = ans - dp[i] + 1;
-            ans = (ans + add + mod) % mod;
-            dp[i] = (dp[i] + add) % mod;
+            int x = 1;
+            for (int v : f) {
+                x = (x + v) % mod;
+            }
+            f[c - 'a'] = x;
+        }
+        int ans = 0;
+        for (int v : f) {
+            ans = (ans + v) % mod;
         }
         return ans;
     }
@@ -275,15 +134,72 @@ public:
 ```go
 func distinctSubseqII(s string) int {
 	const mod int = 1e9 + 7
-	dp := make([]int, 26)
-	ans := 0
+	f := [26]int{}
 	for _, c := range s {
-		c -= 'a'
-		add := ans - dp[c] + 1
-		ans = (ans + add) % mod
-		dp[c] = (dp[c] + add) % mod
+		x := 1
+		for _, v := range f {
+			x = (x + v) % mod
+		}
+		f[c-'a'] = x
 	}
-	return (ans + mod) % mod
+	ans := 0
+	for _, v := range f {
+		ans = (ans + v) % mod
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function distinctSubseqII(s: string): number {
+    const mod = 1e9 + 7;
+    const f: number[] = Array(26).fill(0);
+    for (const c of s) {
+        f[c.charCodeAt(0) - 97] = f.reduce((acc, v) => (acc + v) % mod, 1);
+    }
+    return f.reduce((acc, v) => (acc + v) % mod);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn distinct_subseq_ii(s: String) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let mut f = [0; 26];
+        for u in s.bytes() {
+            let mut x = 1;
+            for &v in &f {
+                x = (x + v) % MOD;
+            }
+            f[(u - b'a') as usize] = x;
+        }
+        f.iter().fold(0, |acc, &v| (acc + v) % MOD)
+    }
+}
+```
+
+#### C
+
+```c
+int distinctSubseqII(char* s) {
+    const int mod = 1e9 + 7;
+    int f[26] = {0};
+    for (int i = 0; s[i]; ++i) {
+        int x = 1;
+        for (int j = 0; j < 26; ++j) {
+            x = (x + f[j]) % mod;
+        }
+        f[s[i] - 'a'] = x;
+    }
+    int ans = 0;
+    for (int i = 0; i < 26; ++i) {
+        ans = (ans + f[i]) % mod;
+    }
+    return ans;
 }
 ```
 
@@ -293,7 +209,15 @@ func distinctSubseqII(s string) int {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 2: Optimized Dynamic Programming
+
+Based on Solution 1, we can maintain a variable $\textit{ans}$ as the sum of all elements in $f$. Each time we update $f[i]$, the number of newly added distinct subsequences is $\textit{ans} - f[i] + 1$. We then update both $\textit{ans}$ and $f[i]$ accordingly.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$.
+
+Similar problems:
+
+- [1987. Number of Unique Good Subsequences](https://github.com/doocs/leetcode/blob/main/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md)
 
 <!-- tabs:start -->
 
@@ -303,14 +227,123 @@ func distinctSubseqII(s string) int {
 class Solution:
     def distinctSubseqII(self, s: str) -> int:
         mod = 10**9 + 7
-        dp = [0] * 26
+        f = [0] * 26
         ans = 0
         for c in s:
-            i = ord(c) - ord('a')
-            add = ans - dp[i] + 1
+            i = ord(c) - ord("a")
+            add = (ans + 1 - f[i]) % mod
             ans = (ans + add) % mod
-            dp[i] += add
+            f[i] = (f[i] + add) % mod
         return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int distinctSubseqII(String s) {
+        final int mod = (int) 1e9 + 7;
+        int[] f = new int[26];
+        int ans = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            int j = s.charAt(i) - 'a';
+            int add = (ans + 1 + mod - f[j]) % mod;
+            ans = (ans + add) % mod;
+            f[j] = (f[j] + add) % mod;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int distinctSubseqII(string s) {
+        const int mod = 1e9 + 7;
+        int f[26]{};
+        int ans = 0;
+        for (char& c : s) {
+            int i = c - 'a';
+            int add = (ans + 1 + mod - f[i]) % mod;
+            ans = (ans + add) % mod;
+            f[i] = (f[i] + add) % mod;
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func distinctSubseqII(s string) int {
+	const mod int = 1e9 + 7
+	f := [26]int{}
+	ans := 0
+	for _, c := range s {
+		i := c - 'a'
+		add := (ans + 1 + mod - f[i]) % mod
+		ans = (ans + add) % mod
+		f[i] = (f[i] + add) % mod
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function distinctSubseqII(s: string): number {
+    const mod = 1e9 + 7;
+    const f: number[] = Array(26).fill(0);
+    let ans = 0;
+    for (const c of s) {
+        const i = c.charCodeAt(0) - 97;
+        const add = (ans + 1 + mod - f[i]) % mod;
+        ans = (ans + add) % mod;
+        f[i] = (f[i] + add) % mod;
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn distinct_subseq_ii(s: String) -> i32 {
+        const MOD: i32 = 1_000_000_007;
+        let mut f = [0; 26];
+        let mut ans = 0;
+        for u in s.bytes() {
+            let i = (u - b'a') as usize;
+            let add = (ans + 1 + MOD - f[i]) % MOD;
+            ans = (ans + add) % MOD;
+            f[i] = (f[i] + add) % MOD;
+        }
+        ans
+    }
+}
+```
+
+#### C
+
+```c
+int distinctSubseqII(char* s) {
+    const int mod = 1e9 + 7;
+    int f[26] = {0};
+    int ans = 0;
+    for (int i = 0; s[i]; ++i) {
+        int j = s[i] - 'a';
+        int add = (ans + 1LL + mod - f[j]) % mod;
+        ans = (ans + add) % mod;
+        f[j] = (f[j] + add) % mod;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
