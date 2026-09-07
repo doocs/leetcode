@@ -1,7 +1,10 @@
 import re
+from posixpath import dirname, relpath
 
 # Minify may strip quotes: <a href=/en/ hreflang=en>
-# Also rewrite <link rel=alternate href=/en/ hreflang=en>
+# <a hreflang> stays page-relative so Gitee /leetcode/ hosting works.
+# <link rel=alternate> stays on the language root so clients resolve
+# sitemap.xml to /sitemap.xml or /en/sitemap.xml (mkdocs-material#6582, #7352).
 _HREFLANG_HREF = re.compile(
     r"""
     (?P<prefix>
@@ -53,13 +56,34 @@ def _abs_url(rel: str, *, en: bool) -> str:
     return f"/{rel}" if rel else "/"
 
 
-def _hreflang_href(path: str, *, tag: str, origin: str) -> str:
-    # <link rel=alternate> must be absolute so Material/clients do not resolve
-    # sitemap.xml against the current page (mkdocs-material#6582, #7352).
-    # <a> stays root-absolute so the language switcher keeps the same page.
-    if tag.lower() == "link" and origin:
-        return origin + path
-    return path
+def _relative_href(from_abs: str, to_abs: str) -> str:
+    to_is_dir = to_abs.endswith("/")
+    if from_abs.endswith("/"):
+        start = from_abs.rstrip("/") or "/"
+    else:
+        start = dirname(from_abs) or "/"
+    target = to_abs.rstrip("/") if to_is_dir else to_abs
+    if target == "":
+        target = "/"
+    rel = relpath(target, start)
+    if to_is_dir:
+        if rel in (".", ""):
+            return "./"
+        return rel if rel.endswith("/") else f"{rel}/"
+    if rel in (".", ""):
+        return to_abs.rsplit("/", 1)[-1] or "./"
+    return rel
+
+
+def _language_root(*, en: bool) -> str:
+    return "/en/" if en else "/"
+
+
+def _alternate_href(*, en: bool, origin: str) -> str:
+    root = _language_root(en=en)
+    if origin:
+        return origin + root
+    return root
 
 
 def _sitemap_href(config) -> str:
@@ -83,16 +107,20 @@ def on_post_page(output, page, config):
         return output
 
     rel = _page_rel(page)
+    here = _abs_url(rel, en=_is_en_site(config))
     prefix = rel.split("/", 1)[0] if rel else ""
     support_en = prefix not in ("lcof", "lcof2")
     origin = _site_origin(config)
-    cn_path = _abs_url(rel, en=False)
-    en_path = _abs_url(rel, en=True) if support_en else _abs_url("", en=True)
+    cn_a = _relative_href(here, _abs_url(rel, en=False))
+    en_target = _abs_url(rel, en=True) if support_en else _abs_url("", en=True)
+    en_a = _relative_href(here, en_target)
 
     def repl(match):
-        lang = match.group("lang").lower()
-        path = en_path if lang == "en" else cn_path
-        href = _hreflang_href(path, tag=match.group("tag"), origin=origin)
+        en = match.group("lang").lower() == "en"
+        if match.group("tag").lower() == "link":
+            href = _alternate_href(en=en, origin=origin)
+        else:
+            href = en_a if en else cn_a
         return f"{match.group('prefix')}{href}{match.group('suffix')}"
 
     try:
