@@ -94,6 +94,7 @@ hooks:
   - hooks/ext_info.py
   - hooks/tags.py
   - hooks/stay_on_page.py
+  - hooks/conditional_mathjax.py
 
 markdown_extensions:
   - admonition

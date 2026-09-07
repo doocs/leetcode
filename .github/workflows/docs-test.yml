@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Run stay_on_page tests
-        run: python -m unittest tests.test_stay_on_page -v
+      - name: Run docs hook tests
+        run: python -m unittest tests.test_stay_on_page tests.test_conditional_mathjax -v
