@@ -1,5 +1,6 @@
 import re
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -29,11 +30,26 @@ MINIFIED = (
     "</body></html>"
 )
 
+SITEMAP = """<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://leetcode.doocs.org/lc/100/</loc><lastmod>2026-09-07</lastmod></url>
+<url><loc>https://leetcode.doocs.org/lcof/3/</loc></url>
+<url><loc>https://leetcode.doocs.org/</loc></url>
+</urlset>
+"""
+
+SITEMAP_EN = """<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://leetcode.doocs.org/en/lc/100/</loc></url>
+<url><loc>https://leetcode.doocs.org/en/</loc></url>
+</urlset>
+"""
+
 
 def _hrefs(html: str, tag: str) -> dict[str, str]:
     found = {}
     for m in re.finditer(
-        rf"""<{tag}\b(?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>zh|en)(?P=lq))"""
+        rf"""<{tag}\b(?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>zh|en|x-default)(?P=lq))"""
         rf"""[^>]*\bhref=(?P<hq>["']?)(?P<href>[^"'\s>]*)(?P=hq)""",
         html,
         re.IGNORECASE,
@@ -51,14 +67,38 @@ def _sitemap_hrefs(html: str) -> list[str]:
 
 
 def _page_sitemaps(html: str) -> list[str]:
+    hrefs = re.findall(
+        r"""<link\b[^>]*\bhref=["']?([^"'\s>]+)""",
+        html,
+        flags=re.IGNORECASE,
+    )
     return [
-        m
-        for m in re.findall(r"[^\"'\s>]*sitemap\.xml", html, flags=re.IGNORECASE)
-        if not re.fullmatch(
-            r"https://leetcode\.doocs\.org(?:/en)?/sitemap\.xml", m, flags=re.I
+        href
+        for href in hrefs
+        if "sitemap.xml" in href.lower()
+        and not re.fullmatch(
+            r"https://leetcode\.doocs\.org(?:/en)?/sitemap\.xml", href, flags=re.I
         )
-        and m not in ("/sitemap.xml", "/en/sitemap.xml")
+        and href not in ("/sitemap.xml", "/en/sitemap.xml")
     ]
+
+
+def _xhtml_hrefs(xml: str, loc: str) -> dict[str, str]:
+    found = {}
+    for m in re.finditer(
+        rf"<url>\s*<loc>{re.escape(loc)}</loc>(.*?)</url>",
+        xml,
+        flags=re.DOTALL,
+    ):
+        for link in re.finditer(
+            r'hreflang="([^"]+)"[^>]*href="([^"]+)"|href="([^"]+)"[^>]*hreflang="([^"]+)"',
+            m.group(1),
+        ):
+            if link.group(1):
+                found[link.group(1)] = link.group(2)
+            else:
+                found[link.group(4)] = link.group(3)
+    return found
 
 
 class RelativeHrefTest(unittest.TestCase):
@@ -82,6 +122,49 @@ class RelativeHrefTest(unittest.TestCase):
         self.assertEqual(sop._relative_href("/", "/en/"), "en/")
 
 
+class RewriteSitemapPathnameTest(unittest.TestCase):
+    def test_language_roots(self):
+        self.assertEqual(sop.rewrite_sitemap_pathname("/sitemap.xml"), "/sitemap.xml")
+        self.assertEqual(sop.rewrite_sitemap_pathname("/en/sitemap.xml"), "/en/sitemap.xml")
+
+    def test_problem_and_range_paths(self):
+        self.assertEqual(sop.rewrite_sitemap_pathname("/lc/100/sitemap.xml"), "/sitemap.xml")
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/en/lc/100/sitemap.xml"), "/en/sitemap.xml"
+        )
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/lc/0100-0199/sitemap.xml"), "/sitemap.xml"
+        )
+        self.assertEqual(sop.rewrite_sitemap_pathname("/lcof/3/sitemap.xml"), "/sitemap.xml")
+
+    def test_gitee_subdirectory(self):
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/leetcode/sitemap.xml"),
+            "/leetcode/sitemap.xml",
+        )
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/leetcode/en/sitemap.xml"),
+            "/leetcode/en/sitemap.xml",
+        )
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/leetcode/lc/100/sitemap.xml"),
+            "/leetcode/sitemap.xml",
+        )
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/leetcode/en/lc/100/sitemap.xml"),
+            "/leetcode/en/sitemap.xml",
+        )
+
+    def test_en_is_a_path_segment(self):
+        self.assertEqual(
+            sop.rewrite_sitemap_pathname("/english/sitemap.xml"),
+            "/english/sitemap.xml",
+        )
+
+    def test_non_sitemap_unchanged(self):
+        self.assertEqual(sop.rewrite_sitemap_pathname("/lc/100/"), "/lc/100/")
+
+
 class StayOnPageTest(unittest.TestCase):
     def _run(self, url: str, config: dict, html: str = HTML) -> str:
         return sop.on_post_page(html, SimpleNamespace(url=url), config)
@@ -92,11 +175,13 @@ class StayOnPageTest(unittest.TestCase):
         self.assertEqual(
             _hrefs(out, "link"),
             {
-                "zh": "https://leetcode.doocs.org/",
-                "en": "https://leetcode.doocs.org/en/",
+                "zh": "https://leetcode.doocs.org/lc/100/",
+                "en": "https://leetcode.doocs.org/en/lc/100/",
+                "x-default": "https://leetcode.doocs.org/lc/100/",
             },
         )
         self.assertEqual(_sitemap_hrefs(out), ["https://leetcode.doocs.org/sitemap.xml"])
+        self.assertIn("XMLHttpRequest.prototype.open", out)
         self.assertEqual(_page_sitemaps(out), [])
 
     def test_bilingual_en_page(self):
@@ -105,8 +190,9 @@ class StayOnPageTest(unittest.TestCase):
         self.assertEqual(
             _hrefs(out, "link"),
             {
-                "zh": "https://leetcode.doocs.org/",
-                "en": "https://leetcode.doocs.org/en/",
+                "zh": "https://leetcode.doocs.org/lc/100/",
+                "en": "https://leetcode.doocs.org/en/lc/100/",
+                "x-default": "https://leetcode.doocs.org/lc/100/",
             },
         )
         self.assertEqual(
@@ -114,31 +200,39 @@ class StayOnPageTest(unittest.TestCase):
         )
         self.assertEqual(_page_sitemaps(out), [])
 
-    def test_lcof_has_no_en_problem(self):
+    def test_lcof_has_no_en_alternate_link(self):
         out = self._run("lcof/3/", CN_CONFIG)
         self.assertEqual(_hrefs(out, "a"), {"zh": "./", "en": "../../en/"})
+        links = _hrefs(out, "link")
+        self.assertNotIn("en", links)
         self.assertEqual(
-            _hrefs(out, "link"),
+            links,
             {
-                "zh": "https://leetcode.doocs.org/",
-                "en": "https://leetcode.doocs.org/en/",
+                "zh": "https://leetcode.doocs.org/lcof/3/",
+                "x-default": "https://leetcode.doocs.org/lcof/3/",
             },
         )
         self.assertEqual(_sitemap_hrefs(out), ["https://leetcode.doocs.org/sitemap.xml"])
         self.assertEqual(_page_sitemaps(out), [])
-        self.assertNotIn("/lcof/3/sitemap.xml", out)
+        self.assertNotIn("/lcof/3/sitemap.xml", out.split("<script>")[0])
         self.assertNotIn("./sitemap.xml", out)
 
-    def test_lcof2_has_no_en_problem(self):
+    def test_lcof2_has_no_en_alternate_link(self):
         out = self._run("lcof2/76/", CN_CONFIG)
         self.assertEqual(_hrefs(out, "a")["en"], "../../en/")
-        self.assertEqual(_hrefs(out, "link")["en"], "https://leetcode.doocs.org/en/")
+        self.assertNotIn("en", _hrefs(out, "link"))
+        self.assertEqual(
+            _hrefs(out, "link")["x-default"],
+            "https://leetcode.doocs.org/lcof2/76/",
+        )
 
     def test_minified_html(self):
         out = self._run("lc/100/", CN_CONFIG, MINIFIED)
         self.assertEqual(_hrefs(out, "a")["en"], "../../en/lc/100/")
-        self.assertEqual(_hrefs(out, "link")["en"], "https://leetcode.doocs.org/en/")
+        self.assertEqual(_hrefs(out, "link")["en"], "https://leetcode.doocs.org/en/lc/100/")
+        self.assertEqual(_hrefs(out, "link")["x-default"], "https://leetcode.doocs.org/lc/100/")
         self.assertEqual(_sitemap_hrefs(out), ["https://leetcode.doocs.org/sitemap.xml"])
+        self.assertIn("XMLHttpRequest.prototype.open", out)
 
     def test_does_not_double_inject_sitemap(self):
         html = HTML.replace(
@@ -151,17 +245,142 @@ class StayOnPageTest(unittest.TestCase):
     def test_empty_output(self):
         self.assertEqual(sop.on_post_page("", SimpleNamespace(url="lc/100/"), CN_CONFIG), "")
 
-    def test_alternate_without_origin_stays_on_language_root(self):
+    def test_alternate_without_origin_uses_root_absolute_pages(self):
         out = self._run("lcof/3/", {"site_url": "", "site_dir": "site"})
-        self.assertEqual(_hrefs(out, "link"), {"zh": "/", "en": "/en/"})
+        self.assertEqual(
+            _hrefs(out, "link"),
+            {"zh": "/lcof/3/", "x-default": "/lcof/3/"},
+        )
+        self.assertNotIn("en", _hrefs(out, "link"))
         self.assertEqual(_sitemap_hrefs(out), ["/sitemap.xml"])
         self.assertEqual(_page_sitemaps(out), [])
 
-    def test_range_index_does_not_emit_page_sitemap(self):
+    def test_homepage_is_language_pair(self):
+        out = self._run("", CN_CONFIG)
+        self.assertEqual(_hrefs(out, "a"), {"zh": "./", "en": "en/"})
+        self.assertEqual(
+            _hrefs(out, "link"),
+            {
+                "zh": "https://leetcode.doocs.org/",
+                "en": "https://leetcode.doocs.org/en/",
+                "x-default": "https://leetcode.doocs.org/",
+            },
+        )
+
+    def test_missing_en_page_omits_en_alternate(self):
+        cfg = {**CN_CONFIG, "has_en": False}
+        out = self._run("lc/9999/", cfg)
+        self.assertEqual(_hrefs(out, "a")["en"], "../../en/")
+        self.assertNotIn("en", _hrefs(out, "link"))
+        self.assertEqual(
+            _hrefs(out, "link")["x-default"], "https://leetcode.doocs.org/lc/9999/"
+        )
+
+    def test_peer_docs_dir_controls_en_alternate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cn_docs = root / "docs"
+            en_docs = root / "docs-en"
+            (cn_docs / "lc").mkdir(parents=True)
+            (en_docs / "lc").mkdir(parents=True)
+            (cn_docs / "lc" / "100.md").write_text("cn", encoding="utf-8")
+            (en_docs / "lc" / "100.md").write_text("en", encoding="utf-8")
+            (cn_docs / "lc" / "9999.md").write_text("cn-only", encoding="utf-8")
+            present = self._run(
+                "lc/100/",
+                {**CN_CONFIG, "docs_dir": str(cn_docs)},
+            )
+            missing = self._run(
+                "lc/9999/",
+                {**CN_CONFIG, "docs_dir": str(cn_docs)},
+            )
+        self.assertEqual(
+            _hrefs(present, "link")["en"], "https://leetcode.doocs.org/en/lc/100/"
+        )
+        self.assertNotIn("en", _hrefs(missing, "link"))
+        self.assertEqual(_hrefs(missing, "a")["en"], "../../en/")
+
+    def test_range_index_is_bilingual_page_pair(self):
         out = self._run("lc/0100-0199/", CN_CONFIG)
-        self.assertEqual(_hrefs(out, "link")["zh"], "https://leetcode.doocs.org/")
-        self.assertNotIn("/lc/0100-0199/sitemap.xml", out)
+        self.assertEqual(
+            _hrefs(out, "link")["zh"], "https://leetcode.doocs.org/lc/0100-0199/"
+        )
+        self.assertEqual(
+            _hrefs(out, "link")["en"], "https://leetcode.doocs.org/en/lc/0100-0199/"
+        )
+        self.assertNotIn("/lc/0100-0199/sitemap.xml", out.split("<script>")[0])
         self.assertEqual(_page_sitemaps(out), [])
+
+
+class SitemapAnnotateTest(unittest.TestCase):
+    def test_bilingual_and_lcof_cn_sitemap(self):
+        xml = sop.annotate_sitemap(SITEMAP, "https://leetcode.doocs.org")
+        self.assertIn('xmlns:xhtml="http://www.w3.org/1999/xhtml"', xml)
+        self.assertEqual(
+            _xhtml_hrefs(xml, "https://leetcode.doocs.org/lc/100/"),
+            {
+                "zh": "https://leetcode.doocs.org/lc/100/",
+                "en": "https://leetcode.doocs.org/en/lc/100/",
+                "x-default": "https://leetcode.doocs.org/lc/100/",
+            },
+        )
+        lcof = _xhtml_hrefs(xml, "https://leetcode.doocs.org/lcof/3/")
+        self.assertNotIn("en", lcof)
+        self.assertEqual(
+            lcof,
+            {
+                "zh": "https://leetcode.doocs.org/lcof/3/",
+                "x-default": "https://leetcode.doocs.org/lcof/3/",
+            },
+        )
+        self.assertEqual(
+            _xhtml_hrefs(xml, "https://leetcode.doocs.org/")["en"],
+            "https://leetcode.doocs.org/en/",
+        )
+        self.assertIn("<lastmod>2026-09-07</lastmod>", xml)
+
+    def test_skips_en_when_page_missing(self):
+        xml = sop.annotate_sitemap(
+            SITEMAP,
+            "https://leetcode.doocs.org",
+            has_en=lambda rel: rel.strip("/") == "lc/100",
+        )
+        self.assertIn("https://leetcode.doocs.org/en/lc/100/", xml)
+        self.assertNotIn("https://leetcode.doocs.org/en/lcof/", xml)
+        home = _xhtml_hrefs(xml, "https://leetcode.doocs.org/")
+        self.assertNotIn("en", home)
+
+    def test_annotate_is_idempotent(self):
+        once = sop.annotate_sitemap(SITEMAP, "https://leetcode.doocs.org")
+        twice = sop.annotate_sitemap(once, "https://leetcode.doocs.org")
+        self.assertEqual(
+            _xhtml_hrefs(twice, "https://leetcode.doocs.org/lc/100/"),
+            _xhtml_hrefs(once, "https://leetcode.doocs.org/lc/100/"),
+        )
+        self.assertEqual(twice.count('hreflang="en"'), once.count('hreflang="en"'))
+
+    def test_en_sitemap_pairs_back_to_cn(self):
+        xml = sop.annotate_sitemap(SITEMAP_EN, "https://leetcode.doocs.org")
+        self.assertEqual(
+            _xhtml_hrefs(xml, "https://leetcode.doocs.org/en/lc/100/"),
+            {
+                "zh": "https://leetcode.doocs.org/lc/100/",
+                "en": "https://leetcode.doocs.org/en/lc/100/",
+                "x-default": "https://leetcode.doocs.org/lc/100/",
+            },
+        )
+
+    def test_on_post_build_writes_sitemap(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "sitemap.xml"
+            path.write_text(SITEMAP, encoding="utf-8")
+            sop.on_post_build(
+                {"site_url": "https://leetcode.doocs.org", "site_dir": tmp}
+            )
+            xml = path.read_text(encoding="utf-8")
+            self.assertIn('hreflang="en"', xml)
+            self.assertIn("https://leetcode.doocs.org/en/lc/100/", xml)
+            self.assertNotIn("https://leetcode.doocs.org/en/lcof/", xml)
 
 
 if __name__ == "__main__":
