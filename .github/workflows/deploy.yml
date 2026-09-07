@@ -317,3 +317,48 @@ jobs:
           chmod 700 "$ASKPASS"
           GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
             git push -f https://oauth2@gitee.com/Doocs/leetcode.git HEAD:pages
+
+  deploy-cloudflare:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            wrangler.jsonc
+            worker.js
+
+      - name: Download Chinese site
+        uses: actions/download-artifact@v8
+        with:
+          name: site-zh
+          path: site
+
+      - name: Download English site
+        uses: actions/download-artifact@v8
+        with:
+          name: site-en
+          path: site/en
+
+      - name: Compress search indexes over the 25 MiB asset limit
+        run: |
+          set -euo pipefail
+          for f in site/search/search_index.json site/en/search/search_index.json; do
+            if [ -f "$f" ]; then
+              gzip -9n -c "$f" > "${f}.gz"
+              rm -f "$f"
+            fi
+          done
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

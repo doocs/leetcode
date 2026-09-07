@@ -1,0 +1,15 @@
+{
+  "name": "leetcode",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-07",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./site",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": [
+      "/search/search_index.json",
+      "/en/search/search_index.json"
+    ]
+  }
+}
