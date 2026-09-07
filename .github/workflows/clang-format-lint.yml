@@ -1,4 +1,4 @@
-name: clang-format-linter
+name: clang-format-lint
 
 on:
   push:
@@ -25,7 +25,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

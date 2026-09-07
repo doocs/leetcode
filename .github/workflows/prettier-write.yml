@@ -1,4 +1,4 @@
-name: prettier
+name: prettier-write
 
 on:
   pull_request_target:
@@ -20,7 +20,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v7
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 24
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run prettier
         run: |

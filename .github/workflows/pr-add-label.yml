@@ -5,7 +5,7 @@ on:
     types: [opened, edited, reopened, synchronize]
 
 # Labels external PRs via the GitHub API only. Do not check out PR code here.
-# Fork PRs must still run; prettier.yml is the workflow that skips forks.
+# Fork PRs must still run; prettier-write.yml is the workflow that skips forks.
 
 permissions:
   contents: read
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'doocs/leetcode'
     steps:
-      - name: Run add-label Action
+      - name: Run add-label action
         uses: actionv/pr-label-action@907fc236390396b7a1198624d6b26241cfc25fa3 # master
         with:
           github_token: ${{ secrets.DOOCS_BOT_ACTION_TOKEN }}
