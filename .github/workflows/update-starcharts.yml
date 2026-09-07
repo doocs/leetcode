@@ -13,8 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  update-readme:
-    name: Generate starcharts
+  update:
     runs-on: ubuntu-latest
     if: github.repository == 'doocs/leetcode'
     steps:

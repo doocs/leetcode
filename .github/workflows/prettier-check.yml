@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 24
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check prettier
         run: |
