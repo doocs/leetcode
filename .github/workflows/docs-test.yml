@@ -1,0 +1,20 @@
+name: docs-test
+
+on:
+  pull_request:
+    branches:
+      - docs
+  push:
+    branches:
+      - docs
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run stay_on_page tests
+        run: python -m unittest tests.test_stay_on_page -v

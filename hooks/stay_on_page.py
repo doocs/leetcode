@@ -8,7 +8,7 @@ from xml.etree import ElementTree as ET
 # <a hreflang> stays page-relative so Gitee /leetcode/ hosting works.
 # <link rel=alternate> is the current page pair for SEO. Material's
 # setupAlternate then requests sitemap.xml against that href
-# (mkdocs-material#6582, #7352); a head XHR patch rewrites those
+# (mkdocs-material#6582, #7352); rewrite_sitemap_pathname maps those
 # requests back to the language-root sitemaps.
 _HREFLANG_HREF = re.compile(
     r"""
@@ -30,27 +30,32 @@ _HEAD_END = re.compile(r"</head>", re.IGNORECASE)
 _SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 _XHTML_NS = "http://www.w3.org/1999/xhtml"
 _CN_ONLY = frozenset(("lcof", "lcof2"))
+_SERIES = frozenset(
+    ("lc", "lcof", "lcof2", "lcci", "lcp", "lcs", "contest", "tags")
+)
 
-# Rewrites page-path sitemap.xml XHR to the language-root file.
+# Keep in sync with rewrite_sitemap_pathname().
 _XHR_PATCH = (
-    '<script>'
+    "<script>"
     "!function(){"
+    "function rewrite(p){"
+    "if(!/sitemap\\.xml$/i.test(p))return p;"
+    "var parts=p.split('/').filter(function(s){return s&&!/^sitemap\\.xml$/i.test(s)});"
+    "var series={lc:1,lcof:1,lcof2:1,lcci:1,lcp:1,lcs:1,contest:1,tags:1};"
+    "var en=-1;"
+    "for(var i=0;i<parts.length;i++)if(parts[i].toLowerCase()==='en'){en=i;break}"
+    "if(en>=0)return'/'+parts.slice(0,en+1).join('/')+'/sitemap.xml';"
+    "if(parts[0]&&series[parts[0]])return'/sitemap.xml';"
+    "if(parts.length>=2&&series[parts[1]])return'/'+parts[0]+'/sitemap.xml';"
+    "if(parts.length===1)return'/'+parts[0]+'/sitemap.xml';"
+    "return'/sitemap.xml'"
+    "}"
     "var n=XMLHttpRequest.prototype.open;"
     "XMLHttpRequest.prototype.open=function(m,u){"
     "var a=arguments;"
     "try{"
-    "var x=new URL(String(u),location.href),p=x.pathname;"
-    "if(/\\/sitemap\\.xml$/i.test(p)&&p!=='/sitemap.xml'&&p!=='/en/sitemap.xml'){"
-    "var i=p.indexOf('/en/');"
-    "if(i>=0)x.pathname=p.slice(0,i+4)+'sitemap.xml';"
-    "else{"
-    "var s=p.replace(/\\/sitemap\\.xml$/i,'').split('/').filter(Boolean),"
-    "g={lc:1,lcof:1,lcof2:1,lcci:1,lcp:1,lcs:1,contest:1,tags:1};"
-    "x.pathname=s[0]&&g[s[0]]?'/sitemap.xml':"
-    "s.length>=2&&g[s[1]]?'/'+s[0]+'/sitemap.xml':'/sitemap.xml'"
-    "}"
-    "a=Array.prototype.slice.call(arguments);a[1]=x.href"
-    "}"
+    "var x=new URL(String(u),location.href),r=rewrite(x.pathname);"
+    "if(r!==x.pathname){x.pathname=r;a=Array.prototype.slice.call(arguments);a[1]=x.href}"
     "}catch(e){}"
     "return n.apply(this,a)"
     "}"
@@ -58,8 +63,28 @@ _XHR_PATCH = (
     "</script>"
 )
 
-ET.register_namespace("", _SITEMAP_NS)
-ET.register_namespace("xhtml", _XHTML_NS)
+
+def rewrite_sitemap_pathname(pathname: str) -> str:
+    raw = pathname or ""
+    if not raw.lower().endswith("sitemap.xml"):
+        return pathname
+    parts = [p for p in raw.split("/") if p and p.lower() != "sitemap.xml"]
+    en_idx = next((i for i, p in enumerate(parts) if p.lower() == "en"), -1)
+    if en_idx >= 0:
+        return "/" + "/".join(parts[: en_idx + 1]) + "/sitemap.xml"
+    if parts and parts[0] in _SERIES:
+        return "/sitemap.xml"
+    if len(parts) >= 2 and parts[1] in _SERIES:
+        return f"/{parts[0]}/sitemap.xml"
+    if len(parts) == 1:
+        return f"/{parts[0]}/sitemap.xml"
+    return "/sitemap.xml"
+
+
+def _config_get(config, key: str, default=""):
+    if isinstance(config, dict):
+        return config.get(key, default)
+    return getattr(config, key, default)
 
 
 def _page_rel(page) -> str:
@@ -70,32 +95,49 @@ def _page_rel(page) -> str:
 
 
 def _is_en_site(config) -> bool:
-    if isinstance(config, dict):
-        site_url = str(config.get("site_url") or "")
-        site_dir = str(config.get("site_dir") or "")
-    else:
-        site_url = str(getattr(config, "site_url", "") or "")
-        site_dir = str(getattr(config, "site_dir", "") or "")
-    site_url = site_url.rstrip("/")
-    site_dir = site_dir.replace("\\", "/").rstrip("/")
+    site_url = str(_config_get(config, "site_url") or "").rstrip("/")
+    site_dir = str(_config_get(config, "site_dir") or "").replace("\\", "/").rstrip("/")
     return site_url.endswith("/en") or site_dir.endswith("/en") or site_dir == "en"
 
 
 def _site_origin(config) -> str:
-    if isinstance(config, dict):
-        site_url = str(config.get("site_url") or "")
-    else:
-        site_url = str(getattr(config, "site_url", "") or "")
-    site_url = site_url.rstrip("/")
+    site_url = str(_config_get(config, "site_url") or "").rstrip("/")
     if site_url.endswith("/en"):
         site_url = site_url[:-3]
     return site_url
 
 
 def _site_dir(config) -> str:
-    if isinstance(config, dict):
-        return str(config.get("site_dir") or "")
-    return str(getattr(config, "site_dir", "") or "")
+    return str(_config_get(config, "site_dir") or "")
+
+
+def _docs_dir(config) -> Path:
+    raw = str(_config_get(config, "docs_dir") or "")
+    return Path(raw) if raw else Path()
+
+
+def _peer_docs_dir(config):
+    docs = _docs_dir(config)
+    if not docs.name:
+        return None
+    if docs.name == "docs-en" or _is_en_site(config):
+        peer = docs.parent / "docs"
+    else:
+        peer = docs.parent / "docs-en"
+    try:
+        return peer if peer.is_dir() else None
+    except OSError:
+        return None
+
+
+def _markdown_exists(docs_dir: Path, rel: str) -> bool:
+    rel = (rel or "").strip("/")
+    paths = (
+        [docs_dir / "index.md"]
+        if not rel
+        else [docs_dir / f"{rel}.md", docs_dir / rel / "index.md"]
+    )
+    return any(p.is_file() for p in paths)
 
 
 def _abs_url(rel: str, *, en: bool) -> str:
@@ -123,9 +165,22 @@ def _relative_href(from_abs: str, to_abs: str) -> str:
     return rel
 
 
-def _support_en(rel: str) -> bool:
+def _prefix_supports_en(rel: str) -> bool:
     prefix = rel.split("/", 1)[0] if rel else ""
     return prefix not in _CN_ONLY
+
+
+def _has_en_page(rel: str, config) -> bool:
+    if not _prefix_supports_en(rel):
+        return False
+    if isinstance(config, dict) and "has_en" in config:
+        return bool(config["has_en"])
+    if _is_en_site(config):
+        return True
+    peer = _peer_docs_dir(config)
+    if peer is None:
+        return True
+    return _markdown_exists(peer, rel)
 
 
 def _page_href(rel: str, *, en: bool, origin: str) -> str:
@@ -133,10 +188,10 @@ def _page_href(rel: str, *, en: bool, origin: str) -> str:
     return origin + path if origin else path
 
 
-def _hreflang_pair(rel: str, origin: str) -> list[tuple[str, str]]:
+def _hreflang_pair(rel: str, origin: str, *, has_en: bool) -> list:
     cn = _page_href(rel, en=False, origin=origin)
     links = [("zh", cn), ("x-default", cn)]
-    if _support_en(rel):
+    if has_en:
         links.insert(1, ("en", _page_href(rel, en=True, origin=origin)))
     return links
 
@@ -150,7 +205,7 @@ def _sitemap_href(config) -> str:
     return f"{origin}/sitemap.xml"
 
 
-def _inject_head(output: str, snippets: list[str]) -> str:
+def _inject_head(output: str, snippets: list) -> str:
     extra = "".join(s for s in snippets if s)
     if not extra:
         return output
@@ -168,24 +223,29 @@ def _rel_from_loc(loc: str) -> str:
     return path
 
 
-def _annotate_sitemap_url(url_el, origin: str) -> None:
+def _annotate_sitemap_url(url_el, origin: str, has_en) -> None:
     loc_el = url_el.find(f"{{{_SITEMAP_NS}}}loc")
     if loc_el is None or not (loc_el.text or "").strip():
         return
     for child in list(url_el):
         if child.tag == f"{{{_XHTML_NS}}}link":
             url_el.remove(child)
-    for lang, href in _hreflang_pair(_rel_from_loc(loc_el.text), origin):
+    rel = _rel_from_loc(loc_el.text)
+    for lang, href in _hreflang_pair(rel, origin, has_en=has_en(rel)):
         el = ET.SubElement(url_el, f"{{{_XHTML_NS}}}link")
         el.set("rel", "alternate")
         el.set("hreflang", lang)
         el.set("href", href)
 
 
-def annotate_sitemap(xml_text: str, origin: str) -> str:
+def annotate_sitemap(xml_text: str, origin: str, has_en=None) -> str:
+    ET.register_namespace("", _SITEMAP_NS)
+    ET.register_namespace("xhtml", _XHTML_NS)
+    if has_en is None:
+        has_en = _prefix_supports_en
     root = ET.fromstring(xml_text)
     for url_el in root.findall(f"{{{_SITEMAP_NS}}}url"):
-        _annotate_sitemap_url(url_el, origin)
+        _annotate_sitemap_url(url_el, origin, has_en)
     return ET.tostring(root, encoding="utf-8", xml_declaration=True).decode("utf-8")
 
 
@@ -193,13 +253,14 @@ def on_post_build(config):
     sitemap = Path(_site_dir(config)) / "sitemap.xml"
     if not sitemap.is_file():
         return
-    try:
-        sitemap.write_text(
-            annotate_sitemap(sitemap.read_text(encoding="utf-8"), _site_origin(config)),
-            encoding="utf-8",
-        )
-    except Exception as e:
-        print(f"Error in stay_on_page sitemap annotate: {e}")
+    sitemap.write_text(
+        annotate_sitemap(
+            sitemap.read_text(encoding="utf-8"),
+            _site_origin(config),
+            has_en=lambda rel: _has_en_page(rel, config),
+        ),
+        encoding="utf-8",
+    )
 
 
 def on_post_page(output, page, config):
@@ -208,7 +269,7 @@ def on_post_page(output, page, config):
 
     rel = _page_rel(page)
     here = _abs_url(rel, en=_is_en_site(config))
-    support_en = _support_en(rel)
+    support_en = _has_en_page(rel, config)
     origin = _site_origin(config)
     cn_href = _page_href(rel, en=False, origin=origin)
     en_href = _page_href(rel, en=True, origin=origin)
