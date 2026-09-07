@@ -2,20 +2,27 @@ export default {
     async fetch(request, env) {
         const url = new URL(request.url);
         if (url.pathname.endsWith('/search/search_index.json')) {
+            const headers = new Headers(request.headers);
+            headers.delete('Accept-Encoding');
             const asset = await env.ASSETS.fetch(
-                new Request(new URL(`${url.pathname}.gz`, url.origin), request),
-            );
-            if (asset.ok || asset.status === 304) {
-                const headers = new Headers(asset.headers);
-                headers.set('Content-Type', 'application/json; charset=utf-8');
-                headers.set('Cache-Control', 'public, max-age=3600');
-                if (asset.status !== 304) {
-                    headers.set('Content-Encoding', 'gzip');
-                }
-                return new Response(asset.body, {
-                    status: asset.status,
+                new Request(new URL(`${url.pathname}.gz`, url.origin), {
+                    method: request.method,
                     headers,
-                    encodeBody: 'manual',
+                }),
+            );
+            if (asset.status === 304 || asset.ok) {
+                const out = new Headers(asset.headers);
+                out.set('Content-Type', 'application/json; charset=utf-8');
+                out.set('Cache-Control', 'public, max-age=3600');
+                out.delete('Content-Encoding');
+                out.delete('Content-Length');
+                const body =
+                    asset.status === 304 || request.method === 'HEAD' || !asset.body
+                        ? null
+                        : asset.body.pipeThrough(new DecompressionStream('gzip'));
+                return new Response(body, {
+                    status: asset.status,
+                    headers: out,
                 });
             }
         }
