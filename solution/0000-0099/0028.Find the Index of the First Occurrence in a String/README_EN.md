@@ -387,12 +387,4 @@ function strStr(haystack: string, needle: string): number {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### Solution 3: KMP String Matching Algorithm
-
-Assuming the length of the string `haystack` is $n$ and the length of the string `needle` is $m$, the time complexity is $O(n+m)$, and the space complexity is $O(m)$.
-
-<!-- solution:end -->
-
 <!-- problem:end -->
