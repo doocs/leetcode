@@ -267,7 +267,9 @@ function minOperations(s1: string, s2: string, x: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
+
+Keep a few linear states while scanning left to right.
 
 <!-- tabs:start -->
 

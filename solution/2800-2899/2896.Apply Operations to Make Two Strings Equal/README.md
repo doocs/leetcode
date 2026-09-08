@@ -269,7 +269,9 @@ function minOperations(s1: string, s2: string, x: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划
+
+从左到右维护若干线性状态，在一次遍历中得到最少操作次数。
 
 <!-- tabs:start -->
 
