@@ -386,12 +386,4 @@ function strStr(haystack: string, needle: string): number {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法三：KMP 字符串匹配算法
-
-假设字符串 `haystack` 长度为 $n$，字符串 `needle` 长度为 $m$，则时间复杂度为 $O(n+m)$，空间复杂度 $O(m)$。
-
-<!-- solution:end -->
-
 <!-- problem:end -->
