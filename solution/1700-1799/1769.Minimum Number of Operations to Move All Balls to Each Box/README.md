@@ -61,15 +61,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：预处理 + 枚举
+### 方法一：前缀和
 
 我们可以预处理出每个位置 $i$ 左边的小球移动到 $i$ 的操作数，记为 $left[i]$；每个位置 $i$ 右边的小球移动到 $i$ 的操作数，记为 $right[i]$。那么答案数组的第 $i$ 个元素就是 $left[i] + right[i]$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 `boxes` 的长度。
-
-我们还可以进一步优化空间复杂度，只用一个答案数组 $ans$ 以及若干个变量即可。
-
-时间复杂度 $O(n)$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
 
 <!-- tabs:start -->
 
@@ -268,7 +264,11 @@ int* minOperations(char* boxes, int* returnSize) {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：前缀和（空间优化）
+
+方法一中 $left[i]$ 和 $right[i]$ 只依赖前一个位置，因此可以去掉这两个数组，从左到右、再从右到左各扫一遍，把结果累加到答案数组 $ans$ 上。
+
+时间复杂度 $O(n)$，忽略答案数组的空间消耗，空间复杂度 $O(1)$。其中 $n$ 为 `boxes` 的长度。
 
 <!-- tabs:start -->
 
@@ -449,7 +449,11 @@ int* minOperations(char* boxes, int* returnSize) {
 
 <!-- solution:start -->
 
-### Solution 3
+### 方法三：枚举
+
+先收集所有小球的位置，再对每个盒子 $i$ 枚举每个小球 $j$，将 $|i - j|$ 累加到 $\textit{ans}[i]$。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(m)$。其中 $n$ 为 `boxes` 的长度，而 $m$ 为小球个数。
 
 <!-- tabs:start -->
 
