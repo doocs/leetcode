@@ -263,7 +263,13 @@ function minimumTime(nums1: number[], nums2: number[], x: number): number {
 
 <!-- tabs:end -->
 
-We notice that the state $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][j-1]$, so we can optimize the first dimension and reduce the space complexity to $O(n)$.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Optimized Dynamic Programming
+
+$f[i][j]$ only depends on $f[i-1][j]$ and $f[i-1][j-1]$, so we can drop the first dimension and enumerate $j$ from large to small, reducing the space complexity to $O(n)$.
 
 <!-- tabs:start -->
 
