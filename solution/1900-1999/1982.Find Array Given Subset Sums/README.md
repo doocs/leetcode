@@ -80,7 +80,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：有序集合
+
+把子集和平移到非负，用有序集合反复取出当前最小元素作为数组下一项。
 
 <!-- tabs:start -->
 
@@ -280,7 +282,9 @@ func recoverArray(n int, sums []int) []int {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：排序 + 计数
+
+排序后用相邻差还原下一个绝对值，再用计数把子集和拆成两半。
 
 <!-- tabs:start -->
 
