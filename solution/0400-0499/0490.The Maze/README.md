@@ -78,7 +78,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：DFS
+
+从起点沿四个方向滚到墙前，深度优先搜索所有能停下来的格子。
 
 <!-- tabs:start -->
 
@@ -228,7 +230,9 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：BFS
+
+同样沿四个方向滚动，用队列广搜到达终点的停靠点。
 
 <!-- tabs:start -->
 
