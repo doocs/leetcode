@@ -76,7 +76,9 @@ tags:
 
 ### 方法一：枚举
 
-从短串长度向下枚举前缀，检查它能否拼接出两个字符串。
+从较短串的长度开始向下枚举候选前缀 $t$，检查将 $t$ 重复拼接后能否分别得到 $\textit{str1}$ 和 $\textit{str2}$。第一个满足条件的 $t$ 即为最长公因子串。
+
+时间复杂度 $O((m + n) \times \min(m, n))$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个字符串的长度。
 
 <!-- tabs:start -->
 
@@ -96,6 +98,31 @@ class Solution:
             if check(t, str1) and check(t, str2):
                 return t
         return ''
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：数学
+
+若存在公因子串，则 $s_1+s_2=s_2+s_1$。此时最长公因子串的长度等于 $\gcd(|s_1|,|s_2|)$。
+
+时间复杂度 $O(m + n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为两个字符串的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+            return ''
+        n = gcd(len(str1), len(str2))
+        return str1[:n]
 ```
 
 #### Java
@@ -167,29 +194,6 @@ impl Solution {
         str1[..gcd(m, n)].to_string()
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二：数学
-
-若 $s_1+s_2=s_2+s_1$，则最大公因子串长度为 $\gcd(|s_1|,|s_2|)$。
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def gcdOfStrings(self, str1: str, str2: str) -> str:
-        if str1 + str2 != str2 + str1:
-            return ''
-        n = gcd(len(str1), len(str2))
-        return str1[:n]
 ```
 
 <!-- tabs:end -->
