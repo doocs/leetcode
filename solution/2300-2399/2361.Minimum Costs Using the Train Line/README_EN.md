@@ -212,7 +212,13 @@ function minimumCosts(regular: number[], express: number[], expressCost: number)
 
 <!-- tabs:end -->
 
-We notice that in the state transition equations of $f[i]$ and $g[i]$, we only need to use $f[i-1]$ and $g[i-1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i-1]$ and $g[i-1]$ respectively. This allows us to optimize the space complexity to $O(1)$.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Optimized Dynamic Programming
+
+$f[i]$ and $g[i]$ only depend on $f[i-1]$ and $g[i-1]$, so we can keep two rolling variables and reduce the extra space to $O(1)$.
 
 <!-- tabs:start -->
 
