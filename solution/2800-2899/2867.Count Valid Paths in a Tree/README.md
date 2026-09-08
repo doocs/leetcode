@@ -518,7 +518,11 @@ function countPaths(n: number, edges: number[][]): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：深度优先搜索
+
+建树后从根做深度优先搜索。每个子树返回「不含质数 / 含一个质数」的路径条数，在质数节点处把相邻子树的贡献累乘累加。
+
+时间复杂度 $O(n \log \log n)$，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 

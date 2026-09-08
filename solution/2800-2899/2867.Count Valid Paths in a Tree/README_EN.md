@@ -515,7 +515,11 @@ function countPaths(n: number, edges: number[][]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Depth-First Search
+
+Build the tree and DFS from the root. Each subtree returns the number of paths with zero or one prime, and a prime node multiplies contributions from adjacent subtrees.
+
+The time complexity is $O(n \log \log n)$ and the space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
