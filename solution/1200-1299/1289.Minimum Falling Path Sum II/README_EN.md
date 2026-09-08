@@ -68,7 +68,7 @@ $$
 f[i][j] = \min_{k \neq j} f[i - 1][k] + \textit{grid}[i - 1][j]
 $$
 
-The answer is the minimum value in $f[n]$.
+The answer is $\min_{0 \leq j < n} f[n][j]$. After rolling, only the last row remains, so this is the minimum of the 1D array $f$.
 
 $f[i][j]$ depends only on the previous row, so we keep two arrays $f$ and $g$ of length $n$.
 
