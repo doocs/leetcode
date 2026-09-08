@@ -71,7 +71,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划（完全背包）
+
+定义 $dp[j]$ 表示凑出金额 $j$ 所需的最少硬币数。每种硬币可以使用无限次，因此内层对金额正向枚举。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(n)$。其中 $m$ 和 $n$ 分别是硬币种数和总金额。
 
 <!-- tabs:start -->
 
@@ -94,21 +98,15 @@ class Solution:
 class Solution {
 
     public int coinChange(int[] coins, int amount) {
-        int m = coins.length;
-        int[][] dp = new int[m + 1][amount + 1];
-        for (int i = 0; i <= m; ++i) {
-            Arrays.fill(dp[i], amount + 1);
-        }
-        dp[0][0] = 0;
-        for (int i = 1; i <= m; ++i) {
-            int v = coins[i - 1];
-            for (int j = 0; j <= amount; ++j) {
-                for (int k = 0; k * v <= j; ++k) {
-                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - k * v] + k);
-                }
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] = Math.min(dp[j], dp[j - coin] + 1);
             }
         }
-        return dp[m][amount] > amount ? -1 : dp[m][amount];
+        return dp[amount] > amount ? -1 : dp[amount];
     }
 }
 ```
@@ -193,9 +191,11 @@ class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start-->
+<!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（二维）
+
+$dp[i][j]$ 表示使用前 $i$ 种硬币凑出金额 $j$ 的最少硬币数。完全背包在同一行向右转移。
 
 <!-- tabs:start -->
 
@@ -221,35 +221,6 @@ class Solution {
             }
         }
         return dp[m][amount] > amount ? -1 : dp[m][amount];
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start-->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Java
-
-```java
-class Solution {
-
-    public int coinChange(int[] coins, int amount) {
-        int[] dp = new int[amount + 1];
-        Arrays.fill(dp, amount + 1);
-        dp[0] = 0;
-        for (int coin : coins) {
-            for (int j = coin; j <= amount; j++) {
-                dp[j] = Math.min(dp[j], dp[j - coin] + 1);
-            }
-        }
-        return dp[amount] > amount ? -1 : dp[amount];
     }
 }
 ```
