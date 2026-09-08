@@ -115,7 +115,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：动态规划 + 单调队列优化
+### 方法一：动态规划
 
 我们定义 $f[i]$ 表示把前 $i$ 个箱子从仓库运送到相应码头的最少行程数，那么答案就是 $f[n]$。
 
@@ -136,14 +136,13 @@ $$
 
 简单举个例子，假设我们取出了 $1, 2, 3$ 这三个箱子，需要送往 $4, 4, 5$ 这三个码头，那么我们首先要从仓库到 $4$ 号码头，然后再从 $4$ 号码头到 $5$ 号码头，最后再从 $5$ 号码头回到仓库。可以发现，从仓库到码头，以及从码头到仓库，需要花费 $2$ 趟行程，而从码头到码头的行程数，取决于相邻两个码头是否相同，如果不相同，那么行程数会增加 $1$，否则不变。因此，我们可以通过前缀和，计算出码头之间的行程数，再加上首尾两趟行程，就能把 $[j+1,..i]$ 这些箱子送往对应的码头所需要的行程数计算出来。
 
-代码实现如下：
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是箱子的数量。本题数据规模达到 $10^5$，该做法会超出时间限制。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-# 33/39 个通过测试用例，超出时间限制
 class Solution:
     def boxDelivering(
         self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
@@ -164,7 +163,6 @@ class Solution:
 #### Java
 
 ```java
-// 35/39 个通过测试用例，超出时间限制
 class Solution {
     public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
         int n = boxes.length;
@@ -195,7 +193,6 @@ class Solution {
 #### C++
 
 ```cpp
-// 35/39 个通过测试用例，超出时间限制
 class Solution {
 public:
     int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
@@ -226,7 +223,6 @@ public:
 #### Go
 
 ```go
-// 35/39 个通过测试用例，超出时间限制
 func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
 	n := len(boxes)
 	ws := make([]int, n+1)
@@ -257,7 +253,13 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 
 <!-- tabs:end -->
 
-本题数据规模达到 $10^5$，而以上代码的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划 + 单调队列优化
+
+本题数据规模达到 $10^5$，方法一的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：
 
 $$
 f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
