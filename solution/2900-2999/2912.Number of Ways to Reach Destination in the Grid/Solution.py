@@ -3,13 +3,14 @@ class Solution:
         self, n: int, m: int, k: int, source: List[int], dest: List[int]
     ) -> int:
         mod = 10**9 + 7
-        a, b, c, d = 1, 0, 0, 0
+        f = [1, 0, 0, 0]
         for _ in range(k):
-            aa = ((n - 1) * b + (m - 1) * c) % mod
-            bb = (a + (n - 2) * b + (m - 1) * d) % mod
-            cc = (a + (m - 2) * c + (n - 1) * d) % mod
-            dd = (b + c + (n - 2) * d + (m - 2) * d) % mod
-            a, b, c, d = aa, bb, cc, dd
+            g = [0] * 4
+            g[0] = ((n - 1) * f[1] + (m - 1) * f[2]) % mod
+            g[1] = (f[0] + (n - 2) * f[1] + (m - 1) * f[3]) % mod
+            g[2] = (f[0] + (m - 2) * f[2] + (n - 1) * f[3]) % mod
+            g[3] = (f[1] + f[2] + (n - 2) * f[3] + (m - 2) * f[3]) % mod
+            f = g
         if source[0] == dest[0]:
-            return a if source[1] == dest[1] else c
-        return b if source[1] == dest[1] else d
+            return f[0] if source[1] == dest[1] else f[2]
+        return f[1] if source[1] == dest[1] else f[3]
