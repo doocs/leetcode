@@ -1,18 +1,32 @@
 class Solution {
 public:
     int longestStrChain(vector<string>& words) {
-        sort(words.begin(), words.end(), [&](string a, string b) { return a.size() < b.size(); });
-        int res = 0;
-        unordered_map<string, int> map;
-        for (auto word : words) {
-            int x = 1;
-            for (int i = 0; i < word.size(); ++i) {
-                string pre = word.substr(0, i) + word.substr(i + 1);
-                x = max(x, map[pre] + 1);
+        ranges::sort(words, [](const string& a, const string& b) { return a.size() < b.size(); });
+        int n = words.size();
+        int f[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            f[i] = 1;
+            for (int j = 0; j < i; ++j) {
+                if (check(words[j], words[i])) {
+                    f[i] = max(f[i], f[j] + 1);
+                }
             }
-            map[word] = x;
-            res = max(res, x);
+            ans = max(ans, f[i]);
         }
-        return res;
+        return ans;
+    }
+
+    bool check(const string& a, const string& b) {
+        if (a.size() + 1 != b.size()) {
+            return false;
+        }
+        int i = 0;
+        for (char c : b) {
+            if (i < a.size() && a[i] == c) {
+                ++i;
+            }
+        }
+        return i == a.size();
     }
 };
