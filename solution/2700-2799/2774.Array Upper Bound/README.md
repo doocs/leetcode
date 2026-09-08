@@ -63,7 +63,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：二分查找
+
+数组已升序，用二分找到第一个大于 $\textit{target}$ 的位置，再判断其前一个元素是否等于 $\textit{target}$。若相等则该下标即为最后一次出现的位置，否则返回 $-1$。
+
+时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
@@ -101,7 +105,11 @@ Array.prototype.upperBound = function (target: number) {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：线性扫描
+
+直接调用 `lastIndexOf` 从右向左扫描，返回目标值的最后一次下标；不存在则返回 $-1$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组长度。
 
 <!-- tabs:start -->
 
