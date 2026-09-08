@@ -12,7 +12,8 @@ class Solution:
                         continue
                     v = f[j][k]
                     g[j][k] = (g[j][k] + v) % mod
-                    g[gcd(x, j)][k] = (g[gcd(x, j)][k] + v) % mod
-                    g[j][gcd(x, k)] = (g[j][gcd(x, k)] + v) % mod
+                    gj, gk = gcd(j, x), gcd(k, x)
+                    g[gj][k] = (g[gj][k] + v) % mod
+                    g[j][gk] = (g[j][gk] + v) % mod
             f = g
         return (sum(f[i][i] for i in range(m + 1)) - 1) % mod
