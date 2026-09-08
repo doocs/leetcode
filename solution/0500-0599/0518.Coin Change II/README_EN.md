@@ -204,7 +204,13 @@ function change(amount: number, coins: number[]): number {
 
 <!-- tabs:end -->
 
-We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Optimized Dynamic Programming
+
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
 
 <!-- tabs:start -->
 

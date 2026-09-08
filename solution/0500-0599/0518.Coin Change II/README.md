@@ -207,7 +207,13 @@ function change(amount: number, coins: number[]): number {
 
 <!-- tabs:end -->
 
-我们注意到 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - x]$ 有关，因此我们可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划优化
+
+我们注意到 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - x]$ 有关，因此我们可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。时间复杂度仍为 $O(m \times n)$。
 
 <!-- tabs:start -->
 
