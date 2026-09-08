@@ -72,7 +72,7 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
 
 <!-- tabs:start -->
 
@@ -233,7 +233,9 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: DFS
+
+Start at a degree-1 endpoint and DFS the adjacency list.
 
 <!-- tabs:start -->
 

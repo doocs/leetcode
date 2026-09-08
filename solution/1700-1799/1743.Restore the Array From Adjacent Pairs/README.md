@@ -239,7 +239,9 @@ public class Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：DFS
+
+从度为 $1$ 的端点出发，沿邻接表深度优先遍历还原数组。
 
 <!-- tabs:start -->
 
