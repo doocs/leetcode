@@ -197,7 +197,7 @@ We can use the idea of counting sort. First, count the occurrence of each elemen
 
 The time complexity is $O(n + m)$, and the space complexity is $O(n)$. Where $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$ respectively.
 
-<!-- solution:start -->
+<!-- tabs:start -->
 
 #### Python3
 
