@@ -61,7 +61,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Prefix Sums + Enumeration
+### Solution 1: Prefix Sums
 
 Precompute $\textit{left}[i]$ as the cost of moving all balls on the left of $i$ to position $i$, and $\textit{right}[i]$ as the cost of moving all balls on the right of $i$ to position $i$. The answer at $i$ is $\textit{left}[i] + \textit{right}[i]$.
 
