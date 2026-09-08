@@ -197,7 +197,7 @@ class Solution {
 
 时间复杂度 $O(n + m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 $arr1$ 和 $arr2$ 的长度。
 
-<!-- solution:start -->
+<!-- tabs:start -->
 
 #### Python3
 
