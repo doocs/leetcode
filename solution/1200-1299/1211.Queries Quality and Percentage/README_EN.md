@@ -119,7 +119,7 @@ GROUP BY 1;
 
 ### Solution 2: Grouping and Aggregation (CASE Expression)
 
-The grouping is the same, but the poor-query rate is counted with a `CASE` expression. `WITH ROLLUP` adds a total row, which is then removed by `HAVING query_name IS NOT NULL`.
+The grouping is the same, and null query names are still dropped. `quality` uses `CAST` so the division is decimal, and the poor-query rate is counted with a `CASE` expression.
 
 <!-- tabs:start -->
 
@@ -128,22 +128,20 @@ The grouping is the same, but the poor-query rate is counted with a `CASE` expre
 ```sql
 # Write your MySQL query statement below
 SELECT
-    IFNULL(query_name, 'null') AS query_name,
+    query_name,
     ROUND(AVG(CAST(rating AS DECIMAL) / position), 2) AS quality,
     ROUND(
-        (
-            SUM(
-                CASE
-                    WHEN rating < 3 THEN 1
-                    ELSE 0
-                END
-            ) / NULLIF(COUNT(*), 0)
-        ) * 100,
+        SUM(
+            CASE
+                WHEN rating < 3 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*) * 100,
         2
     ) AS poor_query_percentage
 FROM Queries
-GROUP BY query_name WITH ROLLUP
-HAVING query_name IS NOT NULL;
+WHERE query_name IS NOT NULL
+GROUP BY query_name;
 ```
 
 <!-- tabs:end -->

@@ -120,7 +120,7 @@ GROUP BY 1;
 
 ### 方法二：分组统计（CASE 表达式）
 
-同样按 `query_name` 分组，但劣质查询占比改用 `CASE` 计数再除以总行数。`WITH ROLLUP` 会多出一行汇总，再用 `HAVING query_name IS NOT NULL` 去掉。
+同样按 `query_name` 分组并去掉空查询名。`quality` 用 `CAST` 做小数除法；劣质查询占比改用 `CASE` 计数再除以总行数。
 
 <!-- tabs:start -->
 
@@ -129,22 +129,20 @@ GROUP BY 1;
 ```sql
 # Write your MySQL query statement below
 SELECT
-    IFNULL(query_name, 'null') AS query_name,
+    query_name,
     ROUND(AVG(CAST(rating AS DECIMAL) / position), 2) AS quality,
     ROUND(
-        (
-            SUM(
-                CASE
-                    WHEN rating < 3 THEN 1
-                    ELSE 0
-                END
-            ) / NULLIF(COUNT(*), 0)
-        ) * 100,
+        SUM(
+            CASE
+                WHEN rating < 3 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*) * 100,
         2
     ) AS poor_query_percentage
 FROM Queries
-GROUP BY query_name WITH ROLLUP
-HAVING query_name IS NOT NULL;
+WHERE query_name IS NOT NULL
+GROUP BY query_name;
 ```
 
 <!-- tabs:end -->
