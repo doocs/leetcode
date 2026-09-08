@@ -599,11 +599,17 @@ function removeStones(stones: number[][]): number {
 
 <!-- tabs:end -->
 
-<!--- solution:end --->
+<!-- solution:end -->
 
 <!-- solution:start -->
 
-### Solution 3: DFS
+### 方法三：广度优先搜索
+
+将同行或同列的石头连边。每个连通分量最后只能留下一块石头，因此答案为石头总数减去连通分量个数。
+
+从每个尚未访问的石头出发做广度优先搜索，标记它所在的连通块。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是石头的数量。
 
 <!-- tabs:start -->
 
@@ -624,7 +630,7 @@ function removeStones(stones: number[][]): number {
         }
     }
 
-    const dfs = (i: number) => {
+    const bfs = (i: number) => {
         const seen = new Set<number>();
 
         let q = [i];
@@ -645,7 +651,7 @@ function removeStones(stones: number[][]): number {
     const set = new Set(Array.from({ length: n }, (_, i) => i));
     let ans = n;
     for (const i of set) {
-        dfs(i);
+        bfs(i);
         ans--;
     }
 
@@ -670,7 +676,7 @@ function removeStones(stones) {
         }
     }
 
-    const dfs = i => {
+    const bfs = i => {
         const seen = new Set();
 
         let q = [i];
@@ -691,7 +697,7 @@ function removeStones(stones) {
     const set = new Set(Array.from({ length: n }, (_, i) => i));
     let ans = n;
     for (const i of set) {
-        dfs(i);
+        bfs(i);
         ans--;
     }
 

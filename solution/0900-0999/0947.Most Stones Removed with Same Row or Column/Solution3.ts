@@ -12,7 +12,7 @@ function removeStones(stones: number[][]): number {
         }
     }
 
-    const dfs = (i: number) => {
+    const bfs = (i: number) => {
         const seen = new Set<number>();
 
         let q = [i];
@@ -33,7 +33,7 @@ function removeStones(stones: number[][]): number {
     const set = new Set(Array.from({ length: n }, (_, i) => i));
     let ans = n;
     for (const i of set) {
-        dfs(i);
+        bfs(i);
         ans--;
     }
 
