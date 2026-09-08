@@ -169,27 +169,27 @@ class Solution:
         fwt1 = FenwickTree(len(stl))
 
         n = len(nums)
-        dp = [[0, 0] for _ in range(n)]
+        f = [[0, 0] for _ in range(n)]
         res = nums[0]
         for i in range(n):
-            dp[i][0] = dp[i][1] = nums[i]
+            f[i][0] = f[i][1] = nums[i]
             if i >= k:
                 indx = rank[nums[i]]  # 找到nums[i]在stl中的索引
-                dp[i][1] = max(
-                    dp[i][1], fwt0.preSum(indx - 1) + nums[i]
+                f[i][1] = max(
+                    f[i][1], fwt0.preSum(indx - 1) + nums[i]
                 )  # indx-1即表示小于nums[i]的部分
-                dp[i][0] = max(
-                    dp[i][0], fwt1.preSum(len(stl) - indx) + nums[i]
+                f[i][0] = max(
+                    f[i][0], fwt1.preSum(len(stl) - indx) + nums[i]
                 )  # len(stl)-indx即表示在倒序列表中大于nums[i]的部分
 
             if i - k + 1 >= 0:
                 indx = rank[nums[i - k + 1]]
-                fwt0.update(indx, dp[i - k + 1][0])  # 在正序列表中更新i-k+1位置的值
+                fwt0.update(indx, f[i - k + 1][0])  # 在正序列表中更新i-k+1位置的值
                 fwt1.update(
-                    len(stl) - indx + 1, dp[i - k + 1][1]
+                    len(stl) - indx + 1, f[i - k + 1][1]
                 )  # 在倒序列表中更新i-k+1位置的值
 
-            res = max(res, dp[i][0], dp[i][1])  # 更新答案
+            res = max(res, f[i][0], f[i][1])  # 更新答案
 
         return res
 ```
@@ -202,19 +202,19 @@ class Solution {
         long maxSum = 0;
         int n = nums.length;
         int m = Arrays.stream(nums).max().getAsInt();
-        long[][] dp = new long[n][2];
+        long[][] f = new long[n][2];
         SegmentTree[] sts = new SegmentTree[2];
         for (int j = 0; j < 2; j++) {
             sts[j] = new SegmentTree(m + 1);
         }
         for (int i = 0; i < n; i++) {
             if (i >= k) {
-                sts[0].update(nums[i - k], dp[i - k][0]);
-                sts[1].update(nums[i - k], dp[i - k][1]);
+                sts[0].update(nums[i - k], f[i - k][0]);
+                sts[1].update(nums[i - k], f[i - k][1]);
             }
-            dp[i][0] = sts[1].getMax(0, nums[i] - 1) + nums[i];
-            dp[i][1] = sts[0].getMax(nums[i] + 1, m) + nums[i];
-            maxSum = Math.max(maxSum, Math.max(dp[i][0], dp[i][1]));
+            f[i][0] = sts[1].getMax(0, nums[i] - 1) + nums[i];
+            f[i][1] = sts[0].getMax(nums[i] + 1, m) + nums[i];
+            maxSum = Math.max(maxSum, Math.max(f[i][0], f[i][1]));
         }
         return maxSum;
     }
@@ -256,7 +256,7 @@ class SegmentTree {
 
     private void update(int rangeIndex, long value, int treeIndex, int start, int end) {
         if (start == end) {
-            tree[treeIndex] = value;
+            tree[treeIndex] = Math.max(tree[treeIndex], value);
             return;
         }
         int mid = start + (end - start) / 2;
