@@ -1,11 +1,19 @@
 class Solution:
     def maxStrength(self, nums: List[int]) -> int:
+        nums.sort()
         n = len(nums)
-        ans = -inf
-        for i in range(1, 1 << n):
-            t = 1
-            for j in range(n):
-                if i & (1 << j):
-                    t *= nums[j]
-            ans = max(ans, t)
+        if n == 1:
+            return nums[0]
+        if nums[1] == nums[-1] == 0:
+            return 0
+        ans, i = 1, 0
+        while i < n:
+            if nums[i] < 0 and i + 1 < n and nums[i + 1] < 0:
+                ans *= nums[i] * nums[i + 1]
+                i += 2
+            elif nums[i] <= 0:
+                i += 1
+            else:
+                ans *= nums[i]
+                i += 1
         return ans
