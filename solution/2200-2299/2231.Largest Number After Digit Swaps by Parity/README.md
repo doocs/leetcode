@@ -194,10 +194,4 @@ function largestInteger(num: number): number {
 
 <!-- solution:end -->
 
-<!-- solution:start -->
-
-### 方法二：分组 + 排序
-
-<!-- solution:end -->
-
 <!-- problem:end -->
