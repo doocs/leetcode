@@ -285,8 +285,6 @@ The final answer is $f[n - 1][k][0]$.
 
 The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ and $k$ are the length of the prices array and the value of $k$, respectively.
 
-We notice that the state $f[i][]$ only depends on the state $f[i - 1][]$, so we can optimize the first dimension of the space and reduce the space complexity to $O(k)$.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -419,7 +417,9 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming (Space Optimization)
+
+$f[i][j][k]$ depends only on the previous day, so a table of size $(k+1) \times 2$ is enough. The space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
