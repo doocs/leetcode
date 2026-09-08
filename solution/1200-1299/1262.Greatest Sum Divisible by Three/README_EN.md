@@ -80,8 +80,6 @@ The final answer is $f[n][0]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.
 
-Note that the value of $f[i][j]$ is only related to $f[i-1][j]$ and $f[i-1][(j-x \bmod 3 + 3)\bmod 3]$, so we can use a rolling array to optimize the space complexity, reducing the space complexity to $O(1)$.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -184,7 +182,9 @@ function maxSumDivThree(nums: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Rolling Array)
+
+$f[i][j]$ depends only on the previous row's three residues, so an array of length $3$ is enough. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
