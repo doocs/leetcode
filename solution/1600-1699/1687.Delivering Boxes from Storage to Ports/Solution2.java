@@ -11,13 +11,21 @@ class Solution {
             }
         }
         int[] f = new int[n + 1];
-        Arrays.fill(f, 1 << 30);
-        f[0] = 0;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
         for (int i = 1; i <= n; ++i) {
-            for (int j = Math.max(0, i - maxBoxes); j < i; ++j) {
-                if (ws[i] - ws[j] <= maxWeight) {
-                    f[i] = Math.min(f[i], f[j] + cs[i - 1] - cs[j] + 2);
+            while (!q.isEmpty()
+                && (i - q.peekFirst() > maxBoxes || ws[i] - ws[q.peekFirst()] > maxWeight)) {
+                q.pollFirst();
+            }
+            if (!q.isEmpty()) {
+                f[i] = cs[i - 1] + f[q.peekFirst()] - cs[q.peekFirst()] + 2;
+            }
+            if (i < n) {
+                while (!q.isEmpty() && f[q.peekLast()] - cs[q.peekLast()] >= f[i] - cs[i]) {
+                    q.pollLast();
                 }
+                q.offer(i);
             }
         }
         return f[n];

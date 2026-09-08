@@ -98,7 +98,7 @@ So the total number of trips is 2 + 2 + 2 = 6.
 
 <!-- solution:start -->
 
-### Solution 1: Dynamic Programming + Monotonic Queue Optimization
+### Solution 1: Dynamic Programming
 
 We define $f[i]$ as the minimum number of trips required to transport the first $i$ boxes from the warehouse to the corresponding docks, so the answer is $f[n]$.
 
@@ -119,10 +119,13 @@ Where $\sum_{k = j + 1}^i \textit{cost}(k)$ represents the number of trips requi
 
 For example, suppose we take out boxes $1, 2, 3$ and need to deliver them to docks $4, 4, 5$. We first go from the warehouse to dock $4$, then from dock $4$ to dock $5$, and finally from dock $5$ back to the warehouse. It can be seen that it takes $2$ trips to go from the warehouse to the dock and from the dock back to the warehouse. The number of trips from dock to dock depends on whether the two adjacent docks are the same. If they are not the same, the number of trips will increase by $1$, otherwise it remains the same. Therefore, we can calculate the number of trips between docks using prefix sums, and add two trips for the start and end, to calculate the number of trips required to deliver the boxes in $[j+1,..i]$ to their corresponding docks.
 
-The code implementation is as follows:
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the number of boxes. This approach exceeds the time limit under the given constraints.
+
+<!-- tabs:start -->
+
+#### Python3
 
 ```python
-# 33/39
 class Solution:
     def boxDelivering(
         self, boxes: List[List[int]], portsCount: int, maxBoxes: int, maxWeight: int
@@ -140,8 +143,9 @@ class Solution:
         return f[n]
 ```
 
+#### Java
+
 ```java
-// 35/39
 class Solution {
     public int boxDelivering(int[][] boxes, int portsCount, int maxBoxes, int maxWeight) {
         int n = boxes.length;
@@ -169,8 +173,9 @@ class Solution {
 }
 ```
 
+#### C++
+
 ```cpp
-// 35/39
 class Solution {
 public:
     int boxDelivering(vector<vector<int>>& boxes, int portsCount, int maxBoxes, int maxWeight) {
@@ -198,8 +203,9 @@ public:
 };
 ```
 
+#### Go
+
 ```go
-// 35/39
 func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) int {
 	n := len(boxes)
 	ws := make([]int, n+1)
@@ -228,7 +234,15 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 }
 ```
 
-The data scale of this problem reaches $10^5$, and the time complexity of the above code is $O(n^2)$, which will exceed the time limit. If we observe carefully:
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming + Monotonic Queue Optimization
+
+The data scale of this problem reaches $10^5$, and the time complexity of Solution 1 is $O(n^2)$, which exceeds the time limit. If we observe carefully:
 
 $$
 f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
