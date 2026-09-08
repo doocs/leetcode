@@ -78,7 +78,9 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Ordered Set
+
+Shift subset sums to be non-negative, then repeatedly take the smallest remaining sum as the next value.
 
 <!-- tabs:start -->
 
@@ -278,7 +280,9 @@ func recoverArray(n int, sums []int) []int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Sorting + Counting
+
+Recover the next absolute value from adjacent differences and split subset sums with a counter.
 
 <!-- tabs:start -->
 
