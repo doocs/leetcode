@@ -1,5 +1,5 @@
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
         x = gcd(*numsDivide)
-        nums.sort()
-        return next((i for i, v in enumerate(nums) if x % v == 0), -1)
+        y = min((v for v in nums if x % v == 0), default=0)
+        return sum(v < y for v in nums) if y else -1
