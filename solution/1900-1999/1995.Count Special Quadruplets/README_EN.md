@@ -70,7 +70,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force
+
+Enumerate $a < b < c < d$ with four nested loops.
 
 <!-- tabs:start -->
 
@@ -154,7 +156,9 @@ func countQuadruplets(nums []int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Hash Table
+
+Scan $c$ from the right and count values of $d$, then enumerate $a,b$.
 
 <!-- tabs:start -->
 
@@ -238,7 +242,9 @@ func countQuadruplets(nums []int) int {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Hash Table (Optimized)
+
+Enumerate $b$ while counting $nums[d]-nums[c]$.
 
 <!-- tabs:start -->
 
