@@ -176,7 +176,9 @@ function minimumNumbers(num: number, k: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Math + Enumeration (Units Digit)
+
+Enumerate at most $10$ numbers whose units digit is $k$.
 
 <!-- tabs:start -->
 
@@ -248,7 +250,9 @@ func minimumNumbers(num int, k int) int {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Memoization Search
+
+Memoize the fewest numbers with units digit $k$ that sum to $\textit{num}$.
 
 <!-- tabs:start -->
 

@@ -177,7 +177,9 @@ function minimumNumbers(num: number, k: number): number {
 
 <!-- solution:start -->
 
-### 方法二：记忆化搜索
+### 方法二：数学 + 枚举（个位）
+
+只需枚举个数 $n \le 10$，使 $n \times k$ 与 $\textit{num}$ 个位相同且不超过 $\textit{num}$。
 
 <!-- tabs:start -->
 
@@ -249,7 +251,9 @@ func minimumNumbers(num int, k int) int {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三：记忆化搜索
+
+枚举下一个个位为 $k$ 的数，记忆化搜索凑出 $\textit{num}$ 的最少个数。
 
 <!-- tabs:start -->
 
