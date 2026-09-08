@@ -54,7 +54,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming (Rolling Array)
+
+Let $f[i][j]$ be the minimum falling path sum that ends at row $i$, column $j$:
+
+$$
+f[i][j] = \textit{matrix}[i][j] + \min \left\{ \begin{aligned} & f[i - 1][j - 1], & j > 0 \\ & f[i - 1][j], & 0 \leq j < n \\ & f[i - 1][j + 1], & j + 1 < n \end{aligned} \right.
+$$
+
+The answer is $\min_{0 \leq j < n} f[n - 1][j]$.
+
+$f[i][j]$ depends only on the previous row, so we keep two arrays $f$ and $g$ of length $n$.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the side length of the matrix.
 
 <!-- tabs:start -->
 
