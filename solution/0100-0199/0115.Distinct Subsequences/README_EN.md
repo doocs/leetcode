@@ -85,8 +85,6 @@ The final answer is $f[m][n]$, where $m$ and $n$ are the lengths of strings $s$ 
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$.
 
-We notice that the calculation of $f[i][j]$ is only related to $f[i-1][..]$. Therefore, we can optimize the first dimension, reducing the space complexity to $O(n)$.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -237,7 +235,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Optimized Dynamic Programming
+
+$f[i][j]$ depends only on the previous row, so the first dimension can be dropped. Update $j$ from large to small so $f[j-1]$ is not overwritten. The space complexity becomes $O(n)$.
 
 <!-- tabs:start -->
 
