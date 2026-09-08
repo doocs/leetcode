@@ -251,7 +251,11 @@ int countPoints(char* rings) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Brute Force
+
+Enumerate rod numbers $0$ through $9$, and use string search to check whether that rod has appeared with blue, red, and green.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of $rings$.
 
 <!-- tabs:start -->
 
