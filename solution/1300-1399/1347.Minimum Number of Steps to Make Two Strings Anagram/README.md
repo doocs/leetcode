@@ -85,6 +85,8 @@ tags:
 
 时间复杂度 $O(m + n)$，空间复杂度 $O(|\Sigma|)$，其中 $m$ 和 $n$ 分别是字符串 $\textit{s}$ 和 $\textit{t}$ 的长度，而 $|\Sigma|$ 是字符集的大小，本题中字符集为小写字母，因此 $|\Sigma| = 26$。
 
+<!-- tabs:start -->
+
 #### Python3
 
 ```python
