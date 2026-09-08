@@ -276,7 +276,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bidirectional BFS
+
+Search knight jumps from both ends until the two sides meet.
 
 <!-- tabs:start -->
 
