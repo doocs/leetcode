@@ -100,7 +100,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Precompute + DP
+
+Precompute semi-palindrome costs, then partition with a 2D DP.
 
 <!-- tabs:start -->
 
@@ -319,7 +321,9 @@ function minimumChanges(s: string, k: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: DP (Space Optimized)
+
+Memoize the cost and roll the partition DP into one dimension.
 
 <!-- tabs:start -->
 

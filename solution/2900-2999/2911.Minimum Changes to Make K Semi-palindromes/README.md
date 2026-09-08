@@ -102,7 +102,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：预处理 + 动态规划
+
+先算每个子串变成半回文的代价，再用二维 $f[i][j]$ 划分成 $j$ 段。
 
 <!-- tabs:start -->
 
@@ -321,7 +323,9 @@ function minimumChanges(s: string, k: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+代价改为记忆化计算，划分 DP 滚动到一维。
 
 <!-- tabs:start -->
 
