@@ -64,9 +64,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2007.%20%E4%BC%A0%
 
 最终答案即为 $f[k][n-1]$。
 
-我们注意到 $f[i][b]$ 只与 $f[i-1][a]$ 有关，根据状态转移方程，我们可以使用滚动数组的方式，将空间复杂度优化到 $O(n)$。
-
-时间复杂度 $O(k \times m)$，空间复杂度 $O(n)$，其中 $m$ 为 $relation$ 的长度。
+时间复杂度 $O(k \times m)$，空间复杂度 $O(k \times n)$，其中 $m$ 为 $relation$ 的长度。
 
 <!-- tabs:start -->
 
@@ -180,7 +178,9 @@ class Solution {
 
 <!-- solution:start-->
 
-### 方法二
+### 方法二：动态规划（滚动数组）
+
+$f[i][j]$ 只与上一轮有关，用两个长度为 $n$ 的数组 $f$、$g$ 滚动即可，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
