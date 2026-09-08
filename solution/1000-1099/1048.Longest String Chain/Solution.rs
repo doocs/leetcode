@@ -1,31 +1,28 @@
-use std::collections::HashMap;
-
 impl Solution {
-    #[allow(dead_code)]
-    pub fn longest_str_chain(words: Vec<String>) -> i32 {
-        let mut words = words;
-        let mut ret = 0;
-        let mut map: HashMap<String, i32> = HashMap::new();
-
-        // Sort the words vector first
-        words.sort_by(|lhs, rhs| lhs.len().cmp(&rhs.len()));
-
-        // Begin the "dp" process
-        for w in words.iter() {
-            let n = w.len();
-            let mut x = 1;
-
-            for i in 0..n {
-                let s = w[..i].to_string() + &w[i + 1..];
-                let v = map.entry(s.clone()).or_default();
-                x = std::cmp::max(x, *v + 1);
+    pub fn longest_str_chain(mut words: Vec<String>) -> i32 {
+        fn check(a: &[u8], b: &[u8]) -> bool {
+            if a.len() + 1 != b.len() {
+                return false;
             }
-
-            map.insert(w.clone(), x);
-
-            ret = std::cmp::max(ret, x);
+            let mut i = 0;
+            for &c in b {
+                if i < a.len() && a[i] == c {
+                    i += 1;
+                }
+            }
+            i == a.len()
         }
 
-        ret
+        words.sort_unstable_by_key(|w| w.len());
+        let n = words.len();
+        let mut f = vec![1; n];
+        for i in 0..n {
+            for j in 0..i {
+                if check(words[j].as_bytes(), words[i].as_bytes()) {
+                    f[i] = f[i].max(f[j] + 1);
+                }
+            }
+        }
+        *f.iter().max().unwrap()
     }
 }

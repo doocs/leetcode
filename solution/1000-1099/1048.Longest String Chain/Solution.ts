@@ -1,15 +1,26 @@
 function longestStrChain(words: string[]): number {
-    words.sort((a, b) => a.length - b.length);
-    let ans = 0;
-    let hashTable = new Map();
-    for (let word of words) {
-        let c = 1;
-        for (let i = 0; i < word.length; i++) {
-            let pre = word.substring(0, i) + word.substring(i + 1);
-            c = Math.max(c, (hashTable.get(pre) || 0) + 1);
+    const check = (a: string, b: string): boolean => {
+        if (a.length + 1 !== b.length) {
+            return false;
         }
-        hashTable.set(word, c);
-        ans = Math.max(ans, c);
+        let i = 0;
+        for (const c of b) {
+            if (i < a.length && a[i] === c) {
+                ++i;
+            }
+        }
+        return i === a.length;
+    };
+
+    words.sort((a, b) => a.length - b.length);
+    const n = words.length;
+    const f: number[] = Array(n).fill(1);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (check(words[j], words[i])) {
+                f[i] = Math.max(f[i], f[j] + 1);
+            }
+        }
     }
-    return ans;
+    return Math.max(...f);
 }

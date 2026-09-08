@@ -76,7 +76,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+First, sort $\textit{words}$ by string length in ascending order. Define $f[i]$ as the length of the longest word chain ending with $\textit{words}[i]$. Initially, $f[i] = 1$.
+
+For each $i$, enumerate $j \in [0, i)$. If $\textit{words}[j]$ is a predecessor of $\textit{words}[i]$, update $f[i] = \max(f[i], f[j] + 1)$. Two strings form a predecessor pair if their lengths differ by $1$ and the shorter one can be obtained by deleting exactly one character from the longer one.
+
+The answer is $\max(f)$.
+
+The time complexity is $O(n^2 \times L)$ and the space complexity is $O(n)$, where $n$ is the length of the array and $L$ is the maximum length of a string.
 
 <!-- tabs:start -->
 
@@ -85,28 +93,23 @@ tags:
 ```python
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        def check(w1, w2):
-            if len(w2) - len(w1) != 1:
+        def check(a: str, b: str) -> bool:
+            if len(a) + 1 != len(b):
                 return False
-            i = j = cnt = 0
-            while i < len(w1) and j < len(w2):
-                if w1[i] != w2[j]:
-                    cnt += 1
-                else:
+            i = 0
+            for c in b:
+                if i < len(a) and a[i] == c:
                     i += 1
-                j += 1
-            return cnt < 2 and i == len(w1)
+            return i == len(a)
 
+        words.sort(key=len)
         n = len(words)
-        dp = [1] * (n + 1)
-        words.sort(key=lambda x: len(x))
-        res = 1
-        for i in range(1, n):
+        f = [1] * n
+        for i in range(n):
             for j in range(i):
                 if check(words[j], words[i]):
-                    dp[i] = max(dp[i], dp[j] + 1)
-            res = max(res, dp[i])
-        return res
+                    f[i] = max(f[i], f[j] + 1)
+        return max(f)
 ```
 
 #### Java
@@ -114,19 +117,33 @@ class Solution:
 ```java
 class Solution {
     public int longestStrChain(String[] words) {
-        Arrays.sort(words, Comparator.comparingInt(String::length));
-        int res = 0;
-        Map<String, Integer> map = new HashMap<>();
-        for (String word : words) {
-            int x = 1;
-            for (int i = 0; i < word.length(); ++i) {
-                String pre = word.substring(0, i) + word.substring(i + 1);
-                x = Math.max(x, map.getOrDefault(pre, 0) + 1);
+        Arrays.sort(words, (a, b) -> a.length() - b.length());
+        int n = words.length;
+        int[] f = new int[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            f[i] = 1;
+            for (int j = 0; j < i; ++j) {
+                if (check(words[j], words[i])) {
+                    f[i] = Math.max(f[i], f[j] + 1);
+                }
             }
-            map.put(word, x);
-            res = Math.max(res, x);
+            ans = Math.max(ans, f[i]);
         }
-        return res;
+        return ans;
+    }
+
+    private boolean check(String a, String b) {
+        if (a.length() + 1 != b.length()) {
+            return false;
+        }
+        int i = 0;
+        for (int j = 0; j < b.length(); ++j) {
+            if (i < a.length() && a.charAt(i) == b.charAt(j)) {
+                ++i;
+            }
+        }
+        return i == a.length();
     }
 }
 ```
@@ -137,19 +154,33 @@ class Solution {
 class Solution {
 public:
     int longestStrChain(vector<string>& words) {
-        sort(words.begin(), words.end(), [&](string a, string b) { return a.size() < b.size(); });
-        int res = 0;
-        unordered_map<string, int> map;
-        for (auto word : words) {
-            int x = 1;
-            for (int i = 0; i < word.size(); ++i) {
-                string pre = word.substr(0, i) + word.substr(i + 1);
-                x = max(x, map[pre] + 1);
+        ranges::sort(words, [](const string& a, const string& b) { return a.size() < b.size(); });
+        int n = words.size();
+        int f[n];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            f[i] = 1;
+            for (int j = 0; j < i; ++j) {
+                if (check(words[j], words[i])) {
+                    f[i] = max(f[i], f[j] + 1);
+                }
             }
-            map[word] = x;
-            res = max(res, x);
+            ans = max(ans, f[i]);
         }
-        return res;
+        return ans;
+    }
+
+    bool check(const string& a, const string& b) {
+        if (a.size() + 1 != b.size()) {
+            return false;
+        }
+        int i = 0;
+        for (char c : b) {
+            if (i < a.size() && a[i] == c) {
+                ++i;
+            }
+        }
+        return i == a.size();
     }
 };
 ```
@@ -159,18 +190,197 @@ public:
 ```go
 func longestStrChain(words []string) int {
 	sort.Slice(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
-	res := 0
-	mp := make(map[string]int)
-	for _, word := range words {
-		x := 1
-		for i := 0; i < len(word); i++ {
-			pre := word[0:i] + word[i+1:len(word)]
-			x = max(x, mp[pre]+1)
+	n := len(words)
+	f := make([]int, n)
+	ans := 0
+	for i := 0; i < n; i++ {
+		f[i] = 1
+		for j := 0; j < i; j++ {
+			if check(words[j], words[i]) {
+				f[i] = max(f[i], f[j]+1)
+			}
 		}
-		mp[word] = x
-		res = max(res, x)
+		ans = max(ans, f[i])
 	}
-	return res
+	return ans
+}
+
+func check(a, b string) bool {
+	if len(a)+1 != len(b) {
+		return false
+	}
+	i := 0
+	for j := range b {
+		if i < len(a) && a[i] == b[j] {
+			i++
+		}
+	}
+	return i == len(a)
+}
+```
+
+#### TypeScript
+
+```ts
+function longestStrChain(words: string[]): number {
+    const check = (a: string, b: string): boolean => {
+        if (a.length + 1 !== b.length) {
+            return false;
+        }
+        let i = 0;
+        for (const c of b) {
+            if (i < a.length && a[i] === c) {
+                ++i;
+            }
+        }
+        return i === a.length;
+    };
+
+    words.sort((a, b) => a.length - b.length);
+    const n = words.length;
+    const f: number[] = Array(n).fill(1);
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i; ++j) {
+            if (check(words[j], words[i])) {
+                f[i] = Math.max(f[i], f[j] + 1);
+            }
+        }
+    }
+    return Math.max(...f);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_str_chain(mut words: Vec<String>) -> i32 {
+        fn check(a: &[u8], b: &[u8]) -> bool {
+            if a.len() + 1 != b.len() {
+                return false;
+            }
+            let mut i = 0;
+            for &c in b {
+                if i < a.len() && a[i] == c {
+                    i += 1;
+                }
+            }
+            i == a.len()
+        }
+
+        words.sort_unstable_by_key(|w| w.len());
+        let n = words.len();
+        let mut f = vec![1; n];
+        for i in 0..n {
+            for j in 0..i {
+                if check(words[j].as_bytes(), words[i].as_bytes()) {
+                    f[i] = f[i].max(f[j] + 1);
+                }
+            }
+        }
+        *f.iter().max().unwrap()
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming + Hash Table
+
+Sort $\textit{words}$ by length as well. Use a hash table $f$ to record the longest word chain length ending at each word.
+
+For the current word $w$, enumerate each predecessor $p$ obtained by deleting one character. If $p$ is already in the hash table, update $f[w]$ with $f[p] + 1$.
+
+The answer is the maximum value among all $f[w]$.
+
+The time complexity is $O(n \times L^2)$ and the space complexity is $O(n \times L)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestStrChain(self, words: List[str]) -> int:
+        words.sort(key=len)
+        f = {}
+        ans = 0
+        for w in words:
+            x = 1
+            for i in range(len(w)):
+                pred = w[:i] + w[i + 1 :]
+                x = max(x, f.get(pred, 0) + 1)
+            f[w] = x
+            ans = max(ans, x)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int longestStrChain(String[] words) {
+        Arrays.sort(words, (a, b) -> a.length() - b.length());
+        Map<String, Integer> f = new HashMap<>();
+        int ans = 0;
+        for (String w : words) {
+            int x = 1;
+            for (int i = 0; i < w.length(); ++i) {
+                String pred = w.substring(0, i) + w.substring(i + 1);
+                x = Math.max(x, f.getOrDefault(pred, 0) + 1);
+            }
+            f.put(w, x);
+            ans = Math.max(ans, x);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int longestStrChain(vector<string>& words) {
+        ranges::sort(words, [](const string& a, const string& b) { return a.size() < b.size(); });
+        unordered_map<string, int> f;
+        int ans = 0;
+        for (auto& w : words) {
+            int x = 1;
+            for (int i = 0; i < w.size(); ++i) {
+                string pred = w.substr(0, i) + w.substr(i + 1);
+                x = max(x, f[pred] + 1);
+            }
+            f[w] = x;
+            ans = max(ans, x);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func longestStrChain(words []string) int {
+	sort.Slice(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
+	f := map[string]int{}
+	ans := 0
+	for _, w := range words {
+		x := 1
+		for i := range w {
+			pred := w[:i] + w[i+1:]
+			x = max(x, f[pred]+1)
+		}
+		f[w] = x
+		ans = max(ans, x)
+	}
+	return ans
 }
 ```
 
@@ -179,16 +389,16 @@ func longestStrChain(words []string) int {
 ```ts
 function longestStrChain(words: string[]): number {
     words.sort((a, b) => a.length - b.length);
+    const f = new Map<string, number>();
     let ans = 0;
-    let hashTable = new Map();
-    for (let word of words) {
-        let c = 1;
-        for (let i = 0; i < word.length; i++) {
-            let pre = word.substring(0, i) + word.substring(i + 1);
-            c = Math.max(c, (hashTable.get(pre) || 0) + 1);
+    for (const w of words) {
+        let x = 1;
+        for (let i = 0; i < w.length; ++i) {
+            const pred = w.slice(0, i) + w.slice(i + 1);
+            x = Math.max(x, (f.get(pred) || 0) + 1);
         }
-        hashTable.set(word, c);
-        ans = Math.max(ans, c);
+        f.set(w, x);
+        ans = Math.max(ans, x);
     }
     return ans;
 }
@@ -200,62 +410,22 @@ function longestStrChain(words: string[]): number {
 use std::collections::HashMap;
 
 impl Solution {
-    #[allow(dead_code)]
-    pub fn longest_str_chain(words: Vec<String>) -> i32 {
-        let mut words = words;
-        let mut ret = 0;
-        let mut map: HashMap<String, i32> = HashMap::new();
-
-        // Sort the words vector first
-        words.sort_by(|lhs, rhs| lhs.len().cmp(&rhs.len()));
-
-        // Begin the "dp" process
-        for w in words.iter() {
-            let n = w.len();
+    pub fn longest_str_chain(mut words: Vec<String>) -> i32 {
+        words.sort_unstable_by_key(|w| w.len());
+        let mut f = HashMap::new();
+        let mut ans = 0;
+        for w in words {
             let mut x = 1;
-
-            for i in 0..n {
-                let s = w[..i].to_string() + &w[i + 1..];
-                let v = map.entry(s.clone()).or_default();
-                x = std::cmp::max(x, *v + 1);
+            for i in 0..w.len() {
+                let pred = format!("{}{}", &w[..i], &w[i + 1..]);
+                x = x.max(f.get(&pred).copied().unwrap_or(0) + 1);
             }
-
-            map.insert(w.clone(), x);
-
-            ret = std::cmp::max(ret, x);
+            f.insert(w, x);
+            ans = ans.max(x);
         }
-
-        ret
+        ans
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
-        words.sort(key=lambda x: len(x))
-        res = 0
-        mp = {}
-        for word in words:
-            x = 1
-            for i in range(len(word)):
-                pre = word[:i] + word[i + 1 :]
-                x = max(x, mp.get(pre, 0) + 1)
-            mp[word] = x
-            res = max(res, x)
-        return res
 ```
 
 <!-- tabs:end -->
