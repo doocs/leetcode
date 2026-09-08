@@ -288,7 +288,11 @@ function numberCount(a: number, b: number): number {
 
 <!-- solution:start -->
 
-### 方法 2
+### 方法二：枚举
+
+由于 $1 \le a \le b \le 1000$，可以直接枚举区间 $[a, b]$ 中的每个整数，判断其各位数字是否互不相同。
+
+时间复杂度 $O((b - a + 1) \times \log b)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
