@@ -286,7 +286,11 @@ function numberCount(a: number, b: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Enumeration
+
+Since $1 \le a \le b \le 1000$, we can enumerate every integer in $[a, b]$ and check whether its digits are unique.
+
+The time complexity is $O((b - a + 1) \times \log b)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
