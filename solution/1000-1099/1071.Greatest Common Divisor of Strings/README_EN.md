@@ -72,7 +72,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+Try prefixes from the shorter length downward and check whether each can tile both strings.
 
 <!-- tabs:start -->
 
@@ -171,7 +173,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Math
+
+If $s_1+s_2=s_2+s_1$, the gcd string length is $\gcd(|s_1|,|s_2|)$.
 
 <!-- tabs:start -->
 
