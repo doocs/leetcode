@@ -214,7 +214,13 @@ function minimumCosts(regular: number[], express: number[], expressCost: number)
 
 <!-- tabs:end -->
 
-我们注意到 $f[i]$ 和 $g[i]$ 的状态转移方程中，我们只需要用到 $f[i-1]$ 和 $g[i-1]$，因此我们可以使用两个变量 $f$ 和 $g$ 分别记录 $f[i-1]$ 和 $g[i-1]$ 的值，这样可以将空间复杂度优化到 $O(1)$。
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划优化
+
+我们注意到 $f[i]$ 和 $g[i]$ 只依赖 $f[i-1]$ 和 $g[i-1]$，因此可以用两个变量滚动更新，将额外空间优化到 $O(1)$。
 
 <!-- tabs:start -->
 
