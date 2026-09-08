@@ -94,7 +94,7 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 ### Solution 1: Grouping and Aggregation
 
-We can group the query results by `query_name`, and then use the `AVG` and `ROUND` functions to calculate `quality` and `poor_query_percentage`.
+Group by `query_name`, compute `quality` with `AVG(rating / position)`, and compute the poor-query rate with `AVG(rating < 3)`. Round both values to two decimal places, and drop null query names with `WHERE query_name IS NOT NULL`.
 
 <!-- tabs:start -->
 
@@ -110,6 +110,18 @@ FROM Queries
 WHERE query_name IS NOT NULL
 GROUP BY 1;
 ```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Grouping and Aggregation (CASE Expression)
+
+The grouping is the same, but the poor-query rate is counted with a `CASE` expression. `WITH ROLLUP` adds a total row, which is then removed by `HAVING query_name IS NOT NULL`.
+
+<!-- tabs:start -->
 
 #### MySQL
 

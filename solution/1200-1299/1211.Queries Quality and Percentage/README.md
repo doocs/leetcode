@@ -95,7 +95,7 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 ### 方法一：分组统计
 
-我们将查询结果按照 `query_name` 进行分组，然后利用 `AVG` 和 `ROUND` 函数计算 `quality` 和 `poor_query_percentage`。
+按 `query_name` 分组，用 `AVG(rating / position)` 计算 `quality`，用 `AVG(rating < 3)` 计算劣质查询占比，再以 `ROUND` 保留两位小数。`WHERE query_name IS NOT NULL` 用来去掉空查询名。
 
 <!-- tabs:start -->
 
@@ -111,6 +111,18 @@ FROM Queries
 WHERE query_name IS NOT NULL
 GROUP BY 1;
 ```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：分组统计（CASE 表达式）
+
+同样按 `query_name` 分组，但劣质查询占比改用 `CASE` 计数再除以总行数。`WITH ROLLUP` 会多出一行汇总，再用 `HAVING query_name IS NOT NULL` 去掉。
+
+<!-- tabs:start -->
 
 #### MySQL
 
