@@ -3,19 +3,19 @@ class Solution {
         long maxSum = 0;
         int n = nums.length;
         int m = Arrays.stream(nums).max().getAsInt();
-        long[][] dp = new long[n][2];
+        long[][] f = new long[n][2];
         SegmentTree[] sts = new SegmentTree[2];
         for (int j = 0; j < 2; j++) {
             sts[j] = new SegmentTree(m + 1);
         }
         for (int i = 0; i < n; i++) {
             if (i >= k) {
-                sts[0].update(nums[i - k], dp[i - k][0]);
-                sts[1].update(nums[i - k], dp[i - k][1]);
+                sts[0].update(nums[i - k], f[i - k][0]);
+                sts[1].update(nums[i - k], f[i - k][1]);
             }
-            dp[i][0] = sts[1].getMax(0, nums[i] - 1) + nums[i];
-            dp[i][1] = sts[0].getMax(nums[i] + 1, m) + nums[i];
-            maxSum = Math.max(maxSum, Math.max(dp[i][0], dp[i][1]));
+            f[i][0] = sts[1].getMax(0, nums[i] - 1) + nums[i];
+            f[i][1] = sts[0].getMax(nums[i] + 1, m) + nums[i];
+            maxSum = Math.max(maxSum, Math.max(f[i][0], f[i][1]));
         }
         return maxSum;
     }
@@ -58,7 +58,7 @@ class SegmentTree {
 
     private void update(int rangeIndex, long value, int treeIndex, int start, int end) {
         if (start == end) {
-            tree[treeIndex] = value;
+            tree[treeIndex] = Math.max(tree[treeIndex], value);
             return;
         }
         int mid = start + (end - start) / 2;
