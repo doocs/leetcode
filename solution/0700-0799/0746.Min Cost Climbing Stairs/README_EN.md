@@ -227,7 +227,7 @@ function minCostClimbingStairs(cost) {
 }
 ```
 
-<!-- tab:end -->
+<!-- tabs:end -->
 
 <!-- solution:end -->
 
