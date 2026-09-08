@@ -58,9 +58,9 @@ tags:
 
 Scan from left to right to see how far the original array can go after zeros are duplicated. Pointer $i$ is the last source index that still fits, and $k$ is the virtual length after duplication: add $1$ for a nonzero value and $2$ for a zero. Stop when $k \ge n$.
 
-If the last kept value is a zero that would overflow ($k = n + 1$), write that single zero at $arr[n-1]$ and decrement both $i$ and $j$.
+Let $j = n - 1$ be the write index. If the last kept value is a zero that would overflow ($k = n + 1$), write that single zero at $arr[j]$ and decrement both $i$ and $j$.
 
-Then fill from right to left: pointer $j$ is the write position. Copy $arr[i]$ once if it is nonzero, or twice if it is zero.
+Then fill from right to left. Copy $arr[i]$ once into $arr[j]$ if it is nonzero, or twice if it is zero.
 
 The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of the array.
 
