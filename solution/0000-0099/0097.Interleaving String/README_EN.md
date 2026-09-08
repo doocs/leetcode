@@ -552,7 +552,13 @@ public class Solution {
 
 <!-- tabs:end -->
 
-We notice that the state $f[i][j]$ is only related to the states $f[i - 1][j]$, $f[i][j - 1]$, and $f[i - 1][j - 1]$. Therefore, we can use a rolling array to optimize the space complexity, reducing the original space complexity from $O(m \times n)$ to $O(n)$.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Rolling Array Optimization
+
+We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$. Therefore, we can use a rolling array to reduce the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
 
 <!-- tabs:start -->
 
