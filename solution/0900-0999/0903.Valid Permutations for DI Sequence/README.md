@@ -246,7 +246,13 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-我们可以用前缀和优化时间复杂度，使得时间复杂度降低到 $O(n^2)$。
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：前缀和优化
+
+我们可以用前缀和优化状态转移，将时间复杂度降低到 $O(n^2)$。空间复杂度仍为 $O(n^2)$。
 
 <!-- tabs:start -->
 
@@ -404,7 +410,13 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-另外，我们也可以用滚动数组优化空间复杂度，使得空间复杂度降低到 $O(n)$。
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：滚动数组优化
+
+在方法二的基础上，我们使用滚动数组将空间复杂度优化到 $O(n)$。时间复杂度仍为 $O(n^2)$。
 
 <!-- tabs:start -->
 

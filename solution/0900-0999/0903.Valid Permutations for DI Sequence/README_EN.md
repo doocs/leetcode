@@ -243,7 +243,13 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-We can optimize the time complexity to $O(n^2)$ using prefix sums.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Prefix Sum Optimization
+
+We can optimize the state transitions with prefix sums, reducing the time complexity to $O(n^2)$. The space complexity remains $O(n^2)$.
 
 <!-- tabs:start -->
 
@@ -401,7 +407,13 @@ function numPermsDISequence(s: string): number {
 
 <!-- tabs:end -->
 
-Additionally, we can optimize the space complexity to $O(n)$ using a rolling array.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Rolling Array Optimization
+
+Based on Solution 2, we use a rolling array to reduce the space complexity to $O(n)$. The time complexity remains $O(n^2)$.
 
 <!-- tabs:start -->
 
