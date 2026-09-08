@@ -71,7 +71,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dijkstra + Memoization
+
+Compute distances to node $n$, then memoize the number of restricted paths.
 
 <!-- tabs:start -->
 
@@ -302,7 +304,9 @@ func countRestrictedPaths(n int, edges [][]int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dijkstra + Dynamic Programming
+
+After distances to $n$ are known, iterate nodes by increasing distance and accumulate restricted paths.
 
 <!-- tabs:start -->
 
