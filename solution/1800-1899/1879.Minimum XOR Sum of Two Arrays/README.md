@@ -81,8 +81,6 @@ tags:
 
 时间复杂度 $O(n^2 \times 2^n)$，空间复杂度 $O(n \times 2^n)$。其中 $n$ 是数组的长度。
 
-我们注意到，状态 $f[i][j]$ 只与 $f[i-1][j\oplus 2^k]$ 有关，因此我们去掉第一维，将空间复杂度优化到 $O(2^n)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -325,7 +323,9 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三：状态压缩动态规划（空间优化）
+
+$f[i][j]$ 只与上一行有关，去掉第一维后用长度为 $2^n$ 的数组即可。
 
 <!-- tabs:start -->
 
