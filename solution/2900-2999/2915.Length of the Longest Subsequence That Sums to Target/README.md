@@ -81,8 +81,6 @@ $$
 
 时间复杂度 $O(n\times target)$，空间复杂度 $O(n\times target)$。其中 $n$ 为数组长度，而 $target$ 为目标值。
 
-我们注意到 $f[i][j]$ 的状态只与 $f[i-1][\cdot]$ 有关，因此我们可以优化掉第一维，将空间复杂度优化到 $O(target)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -206,7 +204,9 @@ function lengthOfLongestSubsequence(nums: number[], target: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划优化
+
+$f[i][j]$ 只与上一行 $f[i-1][\cdot]$ 有关，因此可以去掉第一维。每个数最多选一次，内层对 $j$ 从大到小更新，空间复杂度降为 $O(target)$。
 
 <!-- tabs:start -->
 

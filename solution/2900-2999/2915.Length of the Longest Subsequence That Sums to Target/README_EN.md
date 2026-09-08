@@ -81,8 +81,6 @@ The final answer is $f[n][target]$. If $f[n][target]\le0$, there is no subsequen
 
 The time complexity is $O(n\times target)$, and the space complexity is $O(n\times target)$. Here, $n$ is the length of the array, and $target$ is the target value.
 
-We notice that the state of $f[i][j]$ is only related to $f[i-1][\cdot]$, so we can optimize the first dimension and reduce the space complexity to $O(target)$.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -206,7 +204,9 @@ function lengthOfLongestSubsequence(nums: number[], target: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Optimized Dynamic Programming
+
+$f[i][j]$ depends only on the previous row $f[i-1][\cdot]$, so the first dimension can be dropped. Each number is used at most once, so $j$ is updated from large to small. The space complexity becomes $O(target)$.
 
 <!-- tabs:start -->
 
