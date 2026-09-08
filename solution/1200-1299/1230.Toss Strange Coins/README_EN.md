@@ -64,9 +64,7 @@ $$
 
 where $p$ represents the probability of the $i$-th coin facing up.
 
-We note that the state $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i - 1][j - 1]$, so we can optimize the two-dimensional space into one-dimensional space.
-
-The time complexity is $O(n \times target)$, and the space complexity is $O(target)$. Where $n$ is the number of coins.
+The time complexity is $O(n \times target)$, and the space complexity is $O(n \times target)$. Where $n$ is the number of coins.
 
 <!-- tabs:start -->
 
@@ -177,7 +175,9 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+$f[i][j]$ depends only on the previous row. Update $j$ from large to small so the space complexity becomes $O(target)$.
 
 <!-- tabs:start -->
 
