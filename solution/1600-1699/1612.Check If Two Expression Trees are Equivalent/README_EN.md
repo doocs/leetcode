@@ -71,7 +71,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
 
 <!-- tabs:start -->
 
@@ -230,7 +230,11 @@ var checkEquivalence = function (root1, root2) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Recursion (Coefficient Vector)
+
+Recursively compute a length-$26$ coefficient vector for each tree. A leaf increments the coefficient of its letter; `+` adds the two child vectors, and `-` adds the left vector minus the right vector. The trees are equivalent if and only if the vectors are equal. This also covers the follow-up subtraction operator.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
