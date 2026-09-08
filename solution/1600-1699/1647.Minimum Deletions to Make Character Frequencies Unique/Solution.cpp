@@ -4,11 +4,15 @@ public:
         vector<int> cnt(26);
         for (char& c : s) ++cnt[c - 'a'];
         sort(cnt.rbegin(), cnt.rend());
-        int ans = 0;
-        for (int i = 1; i < 26; ++i) {
-            while (cnt[i] >= cnt[i - 1] && cnt[i] > 0) {
-                --cnt[i];
-                ++ans;
+        int ans = 0, pre = 1 << 30;
+        for (int& v : cnt) {
+            if (pre == 0) {
+                ans += v;
+            } else if (v >= pre) {
+                ans += v - pre + 1;
+                --pre;
+            } else {
+                pre = v;
             }
         }
         return ans;

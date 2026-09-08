@@ -111,6 +111,111 @@ class Solution {
             ++cnt[s.charAt(i) - 'a'];
         }
         Arrays.sort(cnt);
+        int ans = 0, pre = 1 << 30;
+        for (int i = 25; i >= 0; --i) {
+            int v = cnt[i];
+            if (pre == 0) {
+                ans += v;
+            } else if (v >= pre) {
+                ans += v - pre + 1;
+                --pre;
+            } else {
+                pre = v;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minDeletions(string s) {
+        vector<int> cnt(26);
+        for (char& c : s) ++cnt[c - 'a'];
+        sort(cnt.rbegin(), cnt.rend());
+        int ans = 0, pre = 1 << 30;
+        for (int& v : cnt) {
+            if (pre == 0) {
+                ans += v;
+            } else if (v >= pre) {
+                ans += v - pre + 1;
+                --pre;
+            } else {
+                pre = v;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minDeletions(s string) (ans int) {
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
+	pre := 1 << 30
+	for _, v := range cnt {
+		if pre == 0 {
+			ans += v
+		} else if v >= pre {
+			ans += v - pre + 1
+			pre--
+		} else {
+			pre = v
+		}
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：贪心（相邻递减）
+
+同样先统计并倒序排序出现次数。从前往后看相邻频次，若当前频次不小于前一个，就逐次减 $1$，直到严格更小。
+
+时间复杂度 $O(n + |\Sigma| \times \log |\Sigma| + n)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        cnt = Counter(s)
+        vals = sorted(cnt.values(), reverse=True)
+        ans = 0
+        for i in range(1, len(vals)):
+            while vals[i] >= vals[i - 1] and vals[i] > 0:
+                vals[i] -= 1
+                ans += 1
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minDeletions(String s) {
+        int[] cnt = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            ++cnt[s.charAt(i) - 'a'];
+        }
+        Arrays.sort(cnt);
         int ans = 0;
         for (int i = 24; i >= 0; --i) {
             while (cnt[i] >= cnt[i + 1] && cnt[i] > 0) {
@@ -208,107 +313,6 @@ impl Solution {
 
         ans
     }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minDeletions(self, s: str) -> int:
-        cnt = Counter(s)
-        vals = sorted(cnt.values(), reverse=True)
-        ans = 0
-        for i in range(1, len(vals)):
-            while vals[i] >= vals[i - 1] and vals[i] > 0:
-                vals[i] -= 1
-                ans += 1
-        return ans
-```
-
-#### Java
-
-```java
-class Solution {
-    public int minDeletions(String s) {
-        int[] cnt = new int[26];
-        for (int i = 0; i < s.length(); ++i) {
-            ++cnt[s.charAt(i) - 'a'];
-        }
-        Arrays.sort(cnt);
-        int ans = 0, pre = 1 << 30;
-        for (int i = 25; i >= 0; --i) {
-            int v = cnt[i];
-            if (pre == 0) {
-                ans += v;
-            } else if (v >= pre) {
-                ans += v - pre + 1;
-                --pre;
-            } else {
-                pre = v;
-            }
-        }
-        return ans;
-    }
-}
-```
-
-#### C++
-
-```cpp
-class Solution {
-public:
-    int minDeletions(string s) {
-        vector<int> cnt(26);
-        for (char& c : s) ++cnt[c - 'a'];
-        sort(cnt.rbegin(), cnt.rend());
-        int ans = 0, pre = 1 << 30;
-        for (int& v : cnt) {
-            if (pre == 0) {
-                ans += v;
-            } else if (v >= pre) {
-                ans += v - pre + 1;
-                --pre;
-            } else {
-                pre = v;
-            }
-        }
-        return ans;
-    }
-};
-```
-
-#### Go
-
-```go
-func minDeletions(s string) (ans int) {
-	cnt := make([]int, 26)
-	for _, c := range s {
-		cnt[c-'a']++
-	}
-	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
-	pre := 1 << 30
-	for _, v := range cnt {
-		if pre == 0 {
-			ans += v
-		} else if v >= pre {
-			ans += v - pre + 1
-			pre--
-		} else {
-			pre = v
-		}
-	}
-	return
 }
 ```
 

@@ -4,15 +4,10 @@ func minDeletions(s string) (ans int) {
 		cnt[c-'a']++
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(cnt)))
-	pre := 1 << 30
-	for _, v := range cnt {
-		if pre == 0 {
-			ans += v
-		} else if v >= pre {
-			ans += v - pre + 1
-			pre--
-		} else {
-			pre = v
+	for i := 1; i < 26; i++ {
+		for cnt[i] >= cnt[i-1] && cnt[i] > 0 {
+			cnt[i]--
+			ans++
 		}
 	}
 	return
