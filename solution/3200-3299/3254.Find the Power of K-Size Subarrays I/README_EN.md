@@ -204,7 +204,13 @@ function resultsArray(nums: number[], k: number): number[] {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Two Pointers
+
+Let pointer $j$ be the start of the current consecutive increasing segment. Traverse the array from left to right: if $i > 0$ and $\textit{nums}[i] \neq \textit{nums}[i - 1] + 1$, update $j$ to $i$.
+
+When $i \ge k - 1$, the current window is $[i - k + 1,\ i]$. If $i - k + 1 < j$, the window is broken and the power is $-1$; otherwise the window is consecutive and increasing, so the power is the maximum value $\textit{nums}[i]$.
+
+The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
