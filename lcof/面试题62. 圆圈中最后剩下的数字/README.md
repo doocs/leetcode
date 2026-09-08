@@ -47,7 +47,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 <!-- solution:start -->
 
-### 方法一：数学 + 递归（迭代）
+### 方法一：数学 + 递归
 
 我们不妨设 $f(n, m)$ 表示从 $n$ 个数中每次删除第 $m$ 个，最后剩下的是第几个数字。
 
