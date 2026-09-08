@@ -339,7 +339,15 @@ var buildTree = function (preorder, inorder) {
 
 <!-- tabs:end -->
 
-If the node values given in the problem have duplicates, then we only need to record all the positions where each node value appears, and then recursively construct the tree.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Hash Table + Recursion (Duplicate Values)
+
+This problem guarantees that node values are unique. If duplicates are allowed, the hash table should store every index of each value, and we enumerate every possible root position in the current range to build all valid binary trees.
+
+The time complexity depends on the number of valid trees and is exponential in the worst case. The space complexity is $O(n)$.
 
 <!-- tabs:start -->
 
