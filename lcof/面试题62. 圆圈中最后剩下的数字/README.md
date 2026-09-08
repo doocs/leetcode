@@ -183,9 +183,11 @@ class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start-->
+<!-- solution:start -->
 
-### 方法二
+### 方法二：数学 + 迭代
+
+同一递推式自底向上计算。
 
 <!-- tabs:start -->
 
