@@ -58,7 +58,7 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Memoization Search
 
 <!-- tabs:start -->
 
@@ -173,7 +173,7 @@ func minSteps(n int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming
 
 <!-- tabs:start -->
 
@@ -304,7 +304,9 @@ var minSteps = function (n) {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Math
+
+Factorize $n$; each prime factor $i$ costs $i$ operations.
 
 <!-- tabs:start -->
 

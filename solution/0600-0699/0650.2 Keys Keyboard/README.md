@@ -325,7 +325,9 @@ var minSteps = function (n) {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三：数学
+
+将 $n$ 质因数分解，每个因子 $i$ 对应一次复制后连续粘贴 $i-1$ 次，贡献 $i$ 次操作。
 
 <!-- tabs:start -->
 
