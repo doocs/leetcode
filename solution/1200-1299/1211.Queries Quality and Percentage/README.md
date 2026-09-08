@@ -95,7 +95,7 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 ### 方法一：分组统计
 
-我们将查询结果按照 `query_name` 进行分组，然后利用 `AVG` 和 `ROUND` 函数计算 `quality` 和 `poor_query_percentage`。
+按 `query_name` 分组，用 `AVG(rating / position)` 计算 `quality`，用 `AVG(rating < 3)` 计算劣质查询占比，再以 `ROUND` 保留两位小数。`WHERE query_name IS NOT NULL` 用来去掉空查询名。
 
 <!-- tabs:start -->
 
@@ -112,27 +112,37 @@ WHERE query_name IS NOT NULL
 GROUP BY 1;
 ```
 
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：分组统计（CASE 表达式）
+
+同样按 `query_name` 分组并去掉空查询名。`quality` 用 `CAST` 做小数除法；劣质查询占比改用 `CASE` 计数再除以总行数。
+
+<!-- tabs:start -->
+
 #### MySQL
 
 ```sql
 # Write your MySQL query statement below
 SELECT
-    IFNULL(query_name, 'null') AS query_name,
+    query_name,
     ROUND(AVG(CAST(rating AS DECIMAL) / position), 2) AS quality,
     ROUND(
-        (
-            SUM(
-                CASE
-                    WHEN rating < 3 THEN 1
-                    ELSE 0
-                END
-            ) / NULLIF(COUNT(*), 0)
-        ) * 100,
+        SUM(
+            CASE
+                WHEN rating < 3 THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*) * 100,
         2
     ) AS poor_query_percentage
 FROM Queries
-GROUP BY query_name WITH ROLLUP
-HAVING query_name IS NOT NULL;
+WHERE query_name IS NOT NULL
+GROUP BY query_name;
 ```
 
 <!-- tabs:end -->
