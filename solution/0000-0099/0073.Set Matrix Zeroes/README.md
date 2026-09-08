@@ -66,15 +66,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Array Marking
+### 方法一：数组标记
 
-Let the number of rows and columns of the matrix be $m$ and $n$, respectively. We use an array $\textit{rows}$ of length $m$ and an array $\textit{cols}$ of length $n$ to record which rows and columns need to be set to zero.
+设矩阵的行数和列数分别为 $m$ 和 $n$。我们用长度为 $m$ 的数组 $\textit{row}$ 和长度为 $n$ 的数组 $\textit{col}$ 记录哪些行、列需要被置零。
 
-First, we traverse the matrix. When we find a zero element in the matrix, we set the corresponding row and column markers to $\text{true}$. That is, if $\textit{matrix}[i][j] = 0$, then $\textit{rows}[i] = \textit{cols}[j] = \text{true}$.
+先遍历矩阵，遇到零元素就把对应行、列标记为 $\text{true}$。即若 $\textit{matrix}[i][j] = 0$，则 $\textit{row}[i] = \textit{col}[j] = \text{true}$。
 
-Finally, we traverse the matrix again and use the markers in $\textit{rows}$ and $\textit{cols}$ to update the elements in the matrix. When we find that $\textit{rows}[i]$ or $\textit{cols}[j]$ is $\text{true}$, we set $\textit{matrix}[i][j]$ to zero.
+再遍历一遍矩阵，根据 $\textit{row}$ 和 $\textit{col}$ 的标记更新元素。若 $\textit{row}[i]$ 或 $\textit{col}[j]$ 为 $\text{true}$，就把 $\textit{matrix}[i][j]$ 置零。
 
-The time complexity is $O(m \times n)$, and the space complexity is $O(m + n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。
 
 <!-- tabs:start -->
 
