@@ -605,7 +605,13 @@ function removeStones(stones: number[][]): number {
 
 <!-- solution:start -->
 
-### Solution 3: DFS
+### Solution 3: Breadth-First Search
+
+Connect stones that share a row or a column. Each connected component can keep only one stone, so the answer is the number of stones minus the number of components.
+
+Start a BFS from every unvisited stone to mark its component.
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the number of stones.
 
 <!-- tabs:start -->
 
