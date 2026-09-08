@@ -264,7 +264,13 @@ function minimumTime(nums1: number[], nums2: number[], x: number): number {
 
 <!-- tabs:end -->
 
-我们注意到，状态 $f[i][j]$ 只与 $f[i-1][j]$ 和 $f[i-1][j-1]$ 有关，因此我们可以优化掉第一维，将空间复杂度降低到 $O(n)$。
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：动态规划优化
+
+我们注意到 $f[i][j]$ 只与 $f[i-1][j]$ 和 $f[i-1][j-1]$ 有关，因此可以去掉第一维并从大到小枚举 $j$，将空间复杂度降低到 $O(n)$。
 
 <!-- tabs:start -->
 
