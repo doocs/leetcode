@@ -77,8 +77,6 @@ Initially, we have $f[0][0] = 1$, and the final answer is $f[n][target]$.
 
 The time complexity is $O(n \times k \times target)$, and the space complexity is $O(n \times target)$.
 
-We notice that the state $f[i][j]$ only depends on $f[i-1][]$, so we can use a rolling array to optimize the space complexity to $O(target)$.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -208,7 +206,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Rolling Array)
+
+$f[i][j]$ depends only on the previous row, so two arrays $f$ and $g$ of length $target+1$ are enough. The space complexity becomes $O(target)$.
 
 <!-- tabs:start -->
 

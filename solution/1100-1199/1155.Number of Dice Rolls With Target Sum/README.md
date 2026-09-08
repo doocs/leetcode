@@ -80,8 +80,6 @@ $$
 
 时间复杂度 $O(n \times k \times target)$，空间复杂度 $O(n \times target)$。
 
-我们注意到，状态 $f[i][j]$ 只和 $f[i-1][]$ 有关，因此我们可以使用滚动数组的方式，将空间复杂度优化到 $O(target)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -211,7 +209,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（滚动数组）
+
+$f[i][j]$ 只与上一行有关，用两个一维数组 $f$、$g$ 滚动即可，空间复杂度降为 $O(target)$。
 
 <!-- tabs:start -->
 
