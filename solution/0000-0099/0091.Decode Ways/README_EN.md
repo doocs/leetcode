@@ -225,7 +225,13 @@ public class Solution {
 
 <!-- tabs:end -->
 
-We notice that the state $f[i]$ is only related to the states $f[i-1]$ and $f[i-2]$, and is irrelevant to other states. Therefore, we can use two variables to replace these two states, reducing the original space complexity from $O(n)$ to $O(1)$.
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Optimized Dynamic Programming
+
+We notice that the state $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. Therefore, we can use two variables to replace these states, reducing the space complexity from $O(n)$ to $O(1)$. The time complexity remains $O(n)$.
 
 <!-- tabs:start -->
 
