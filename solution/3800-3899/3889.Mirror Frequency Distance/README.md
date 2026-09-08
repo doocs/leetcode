@@ -202,15 +202,15 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Hash Table
+### 方法一：哈希表
 
-We first use a hash table $\textit{freq}$ to count the frequency of each character in string $s$.
+先用哈希表 $\textit{freq}$ 统计字符串 $s$ 中每个字符的出现次数。
 
-Then, we iterate over each key-value pair $(c, v)$ in $\textit{freq}$, where $c$ is the character and $v$ is the number of times character $c$ appears in string $s$. For each character $c$, we compute its mirror character $m$ and calculate $|freq(c) - freq(m)|$. To avoid counting mirror pairs twice, we use a hash set $\textit{vis}$ to track already-visited characters.
+再遍历 $\textit{freq}$ 中的每个键值对 $(c, v)$，其中 $c$ 是字符，$v$ 是它出现的次数。对每个字符 $c$，算出镜像字符 $m$，并计算 $|freq(c) - freq(m)|$。为避免同一镜像对被算两次，用哈希集合 $\textit{vis}$ 记录已经访问过的字符。
 
-Finally, we return the sum of absolute differences over all distinct mirror pairs.
+最后返回所有不同镜像对的绝对差之和。
 
-The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the set of distinct characters in string $s$.
+时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(|\Sigma|)$，其中 $\Sigma$ 是 $s$ 中不同字符的集合。
 
 <!-- tabs:start -->
 
