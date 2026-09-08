@@ -72,7 +72,29 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 
 <!-- solution:start -->
 
-### 方法一：模拟
+### 方法一：字符串分割
+
+将句子按空格拆成单词，再取前 $k$ 个单词拼接回去。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        return ' '.join(s.split()[:k])
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：模拟
 
 我们从前往后遍历字符串 $s$，对于当前遍历到的字符 $s[i]$，如果 $s[i]$ 是空格，那么 $k$ 自减 $1$，当 $k$ 为 $0$ 时，说明已经截取了 $k$ 个单词，截取字符串 $s[0..i)$ 返回即可。
 
@@ -87,7 +109,11 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 ```python
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
-        return ' '.join(s.split()[:k])
+        for i, c in enumerate(s):
+            k -= c == ' '
+            if k == 0:
+                return s[:i]
+        return s
 ```
 
 #### Java
@@ -166,28 +192,6 @@ var truncateSentence = function (s, k) {
     }
     return s;
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def truncateSentence(self, s: str, k: int) -> str:
-        for i, c in enumerate(s):
-            k -= c == ' '
-            if k == 0:
-                return s[:i]
-        return s
 ```
 
 <!-- tabs:end -->
