@@ -230,46 +230,4 @@ class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start-->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def addBinary(self, a: str, b: str) -> str:
-        ans = []
-        i, j, carry = len(a) - 1, len(b) - 1, 0
-        while i >= 0 or j >= 0 or carry:
-            carry += (0 if i < 0 else int(a[i])) + (0 if j < 0 else int(b[j]))
-            carry, v = divmod(carry, 2)
-            ans.append(str(v))
-            i, j = i - 1, j - 1
-        return ''.join(ans[::-1])
-```
-
-#### TypeScript
-
-```ts
-function addBinary(a: string, b: string): string {
-    let i = a.length - 1;
-    let j = b.length - 1;
-    let ans: number[] = [];
-    for (let carry = 0; i >= 0 || j >= 0 || carry; --i, --j) {
-        carry += (i >= 0 ? a[i] : '0').charCodeAt(0) - '0'.charCodeAt(0);
-        carry += (j >= 0 ? b[j] : '0').charCodeAt(0) - '0'.charCodeAt(0);
-        ans.push(carry % 2);
-        carry >>= 1;
-    }
-    return ans.reverse().join('');
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->
