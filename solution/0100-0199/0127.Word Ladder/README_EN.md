@@ -356,7 +356,9 @@ function ladderLength(beginWord: string, endWord: string, wordList: string[]): n
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bidirectional BFS
+
+Search from both ends until the two sides meet.
 
 <!-- tabs:start -->
 
