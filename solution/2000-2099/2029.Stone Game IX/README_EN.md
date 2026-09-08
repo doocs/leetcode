@@ -253,6 +253,14 @@ function stoneGameIX(stones) {
 
 ### Solution 2: Simulation
 
+As in Solution 1, count the residues of stone values modulo $3$. Alice's first move can only take a residue-$1$ or residue-$2$ stone.
+
+For each opening, both players follow the optimal residue sequence: starting with $1$ gives $1, 1, 2, 1, 2, \ldots$; starting with $2$ is symmetric. When the required residue runs out, Alice wins if the remaining residue-$0$ stones make the current turn count odd.
+
+Return $\text{true}$ if either opening lets Alice win.
+
+The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the length of $\textit{stones}$.
+
 <!-- tabs:start -->
 
 #### TypeScript
