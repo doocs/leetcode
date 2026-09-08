@@ -228,7 +228,7 @@ class Solution {
 }
 ```
 
-<!--- tabs:end -->
+<!-- tabs:end -->
 
 <!-- solution:end -->
 
