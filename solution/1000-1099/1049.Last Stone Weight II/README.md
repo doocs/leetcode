@@ -208,17 +208,21 @@ impl Solution {
  */
 var lastStoneWeightII = function (stones) {
     let s = 0;
-    for (let v of stones) {
+    for (const v of stones) {
         s += v;
     }
+    const m = stones.length;
     const n = s >> 1;
-    let dp = new Array(n + 1).fill(0);
-    for (let v of stones) {
-        for (let j = n; j >= v; --j) {
-            dp[j] = Math.max(dp[j], dp[j - v] + v);
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+    for (let i = 1; i <= m; ++i) {
+        for (let j = 0; j <= n; ++j) {
+            dp[i][j] = dp[i - 1][j];
+            if (stones[i - 1] <= j) {
+                dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - stones[i - 1]] + stones[i - 1]);
+            }
         }
     }
-    return s - dp[n] * 2;
+    return s - dp[m][n] * 2;
 };
 ```
 
@@ -228,7 +232,9 @@ var lastStoneWeightII = function (stones) {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划优化
+
+我们注意到 $dp[i][j]$ 只与上一行 $dp[i - 1][\cdot]$ 有关，因此可以去掉第一维，从大到小枚举容量，将空间复杂度优化到 $O(\textit{sum})$。
 
 <!-- tabs:start -->
 
@@ -302,6 +308,29 @@ func lastStoneWeightII(stones []int) int {
 	}
 	return s - dp[n]*2
 }
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} stones
+ * @return {number}
+ */
+var lastStoneWeightII = function (stones) {
+    let s = 0;
+    for (const v of stones) {
+        s += v;
+    }
+    const n = s >> 1;
+    const dp = Array(n + 1).fill(0);
+    for (const v of stones) {
+        for (let j = n; j >= v; --j) {
+            dp[j] = Math.max(dp[j], dp[j - v] + v);
+        }
+    }
+    return s - dp[n] * 2;
+};
 ```
 
 <!-- tabs:end -->
