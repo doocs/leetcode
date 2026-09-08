@@ -54,7 +54,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming (Complete Knapsack)
 
 <!-- tabs:start -->
 
@@ -195,7 +195,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Optimized Dynamic Programming
+
+$f[i][j]$ depends only on $f[i - 1][j]$ and $f[i][j - i^2]$, so the table can be rolled into a 1D array of space $O(n)$. The time complexity stays $O(m \times n)$.
 
 <!-- tabs:start -->
 

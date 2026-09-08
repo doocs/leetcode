@@ -80,8 +80,6 @@ $$
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 为 $sqrt(n)$ 的整数部分。
 
-注意到 $f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - i^2]$ 有关，因此我们可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。
-
 相似题目：
 
 - [322. 零钱兑换](https://github.com/doocs/leetcode/blob/main/solution/0300-0399/0322.Coin%20Change/README.md)
@@ -225,7 +223,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划优化
+
+$f[i][j]$ 只与 $f[i - 1][j]$ 和 $f[i][j - i^2]$ 有关，因此可以将二维数组优化为一维数组，空间复杂度降为 $O(n)$。时间复杂度仍为 $O(m \times n)$。
 
 <!-- tabs:start -->
 
