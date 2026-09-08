@@ -72,7 +72,7 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
 
 <!-- tabs:start -->
 
