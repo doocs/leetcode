@@ -60,21 +60,19 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 
 <!-- solution:start -->
 
-### Solution 1: Dynamic Programming
+### Solution 1: Dynamic Programming (Rolling Array)
 
-We define $f[i][j]$ to represent the minimum sum of the first $i$ rows, with the last number in the $j$-th column. The state transition equation is:
+Let $f[i][j]$ be the minimum path sum using the first $i$ rows and ending in column $j$:
 
 $$
-f[i][j] = \min_{k \neq j} f[i - 1][k] + grid[i - 1][j]
+f[i][j] = \min_{k \neq j} f[i - 1][k] + \textit{grid}[i - 1][j]
 $$
 
-where $k$ represents the column of the number in the $(i - 1)$-th row, and the number in the $i$-th row and $j$-th column is $grid[i - 1][j]$.
+The answer is $\min_{0 \leq j < n} f[n][j]$. After rolling, only the last row remains, so this is the minimum of the 1D array $f$.
 
-The final answer is the minimum value in $f[n]$.
+$f[i][j]$ depends only on the previous row, so we keep two arrays $f$ and $g$ of length $n$.
 
-The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the number of rows in the matrix.
-
-We note that the state $f[i][j]$ only depends on $f[i - 1][k]$, so we can use a rolling array to optimize the space complexity to $O(n)$.
+The time complexity is $O(n^3)$ and the space complexity is $O(n)$, where $n$ is the number of rows.
 
 <!-- tabs:start -->
 
