@@ -169,8 +169,4 @@ int* shuffle(int* nums, int numsSize, int n, int* returnSize) {
 
 <!-- solution:end -->
 
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
 <!-- problem:end -->
