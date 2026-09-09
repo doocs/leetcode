@@ -71,7 +71,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS
+
+Roll in four directions until hitting a wall, and DFS every stoppable cell from the start.
 
 <!-- tabs:start -->
 
@@ -221,7 +223,9 @@ func hasPath(maze [][]int, start []int, destination []int) bool {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: BFS
+
+Roll in four directions and BFS the stoppable cells until the destination is reached.
 
 <!-- tabs:start -->
 
