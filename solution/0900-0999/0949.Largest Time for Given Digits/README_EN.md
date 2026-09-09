@@ -56,7 +56,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumerate Hours and Minutes
+
+Enumerate valid hours $h \in [0,23]$ and minutes $m \in [0,59]$ from large to small, and use a count array to check whether the four digits match the input. The first hit is the latest valid time.
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -78,6 +82,37 @@ class Solution:
                 if cnt == t:
                     return f'{h:02}:{m:02}'
         return ''
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Brute Force (Permutations)
+
+Enumerate all permutations of the four digits, check whether they form a valid time, and keep the maximum.
+
+The time complexity is $O(4^3)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def largestTimeFromDigits(self, arr: List[int]) -> str:
+        ans = -1
+        for i in range(4):
+            for j in range(4):
+                for k in range(4):
+                    if i != j and i != k and j != k:
+                        h = arr[i] * 10 + arr[j]
+                        m = arr[k] * 10 + arr[6 - i - j - k]
+                        if h < 24 and m < 60:
+                            ans = max(ans, h * 60 + m)
+        return '' if ans < 0 else f'{ans // 60:02}:{ans % 60:02}'
 ```
 
 #### Java
@@ -154,33 +189,6 @@ func largestTimeFromDigits(arr []int) string {
 	}
 	return fmt.Sprintf("%02d:%02d", ans/60, ans%60)
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
-        ans = -1
-        for i in range(4):
-            for j in range(4):
-                for k in range(4):
-                    if i != j and i != k and j != k:
-                        h = arr[i] * 10 + arr[j]
-                        m = arr[k] * 10 + arr[6 - i - j - k]
-                        if h < 24 and m < 60:
-                            ans = max(ans, h * 60 + m)
-        return '' if ans < 0 else f'{ans // 60:02}:{ans % 60:02}'
 ```
 
 <!-- tabs:end -->

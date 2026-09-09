@@ -72,11 +72,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：暴力枚举
+### 方法一：枚举时分 + 计数验证
 
-我们可以枚举所有的 4 个数字的排列，然后判断每个排列是否满足题目要求，如果满足则更新答案。
+从大到小枚举合法时分 $h \in [0,23]$、$m \in [0,59]$，用计数数组判断四个数字是否恰好等于给定数组。第一个命中的就是最大合法时间。
 
-时间复杂度 $O(4^3)$，空间复杂度 $O(1)$。
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
@@ -98,6 +98,37 @@ class Solution:
                 if cnt == t:
                     return f'{h:02}:{m:02}'
         return ''
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：暴力枚举（全排列）
+
+枚举 4 个数字的排列，判断构成的时分是否合法，并取最大值。
+
+时间复杂度 $O(4^3)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def largestTimeFromDigits(self, arr: List[int]) -> str:
+        ans = -1
+        for i in range(4):
+            for j in range(4):
+                for k in range(4):
+                    if i != j and i != k and j != k:
+                        h = arr[i] * 10 + arr[j]
+                        m = arr[k] * 10 + arr[6 - i - j - k]
+                        if h < 24 and m < 60:
+                            ans = max(ans, h * 60 + m)
+        return '' if ans < 0 else f'{ans // 60:02}:{ans % 60:02}'
 ```
 
 #### Java
@@ -174,33 +205,6 @@ func largestTimeFromDigits(arr []int) string {
 	}
 	return fmt.Sprintf("%02d:%02d", ans/60, ans%60)
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def largestTimeFromDigits(self, arr: List[int]) -> str:
-        ans = -1
-        for i in range(4):
-            for j in range(4):
-                for k in range(4):
-                    if i != j and i != k and j != k:
-                        h = arr[i] * 10 + arr[j]
-                        m = arr[k] * 10 + arr[6 - i - j - k]
-                        if h < 24 and m < 60:
-                            ans = max(ans, h * 60 + m)
-        return '' if ans < 0 else f'{ans // 60:02}:{ans % 60:02}'
 ```
 
 <!-- tabs:end -->
