@@ -71,7 +71,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- tabs:start -->
 
@@ -160,7 +160,9 @@ function maxAlternatingSum(nums: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming (Space Optimization)
+
+$f[i]$ and $g[i]$ depend only on the previous index, so two variables are enough and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
