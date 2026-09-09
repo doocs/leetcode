@@ -5,16 +5,11 @@ class Solution {
             ++cnt[s.charAt(i) - 'a'];
         }
         Arrays.sort(cnt);
-        int ans = 0, pre = 1 << 30;
-        for (int i = 25; i >= 0; --i) {
-            int v = cnt[i];
-            if (pre == 0) {
-                ans += v;
-            } else if (v >= pre) {
-                ans += v - pre + 1;
-                --pre;
-            } else {
-                pre = v;
+        int ans = 0;
+        for (int i = 24; i >= 0; --i) {
+            while (cnt[i] >= cnt[i + 1] && cnt[i] > 0) {
+                --cnt[i];
+                ++ans;
             }
         }
         return ans;
