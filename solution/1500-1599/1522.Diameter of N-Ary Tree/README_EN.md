@@ -66,7 +66,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: DFS (Post-order Diameter)
+
+Traverse each node in post-order, record the two deepest child heights $m_1$ and $m_2$, and update the diameter with $m_1+m_2$. The height of a subtree is one plus the deepest child height.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -254,7 +258,11 @@ func diameter(root *Node) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Build Graph + Two DFS
+
+Convert the $N$-ary tree into an undirected graph. DFS from an arbitrary node to find the farthest node, then DFS again from that node. The farthest distance of the second search is the diameter of the tree.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
