@@ -86,7 +86,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：BFS
+
+从 $start$ 出发，对每个数做加减异或，广搜到达 $goal$ 的最少步数。
 
 <!-- tabs:start -->
 
@@ -263,7 +265,9 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：BFS（分层）
+
+同样广搜，按层扩展下一状态。
 
 <!-- tabs:start -->
 
@@ -413,7 +417,9 @@ func minimumOperations(nums []int, start int, goal int) int {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三：双向 BFS
+
+从 $start$ 和 $goal$ 两端同时扩展，相遇即得到最少操作次数。
 
 <!-- tabs:start -->
 

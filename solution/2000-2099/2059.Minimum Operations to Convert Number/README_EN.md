@@ -80,7 +80,9 @@ Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+BFS from $start$, applying add, subtract, and xor with each number until $goal$ is reached.
 
 <!-- tabs:start -->
 
@@ -257,7 +259,9 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: BFS (Level Order)
+
+The same BFS, expanding one layer at a time.
 
 <!-- tabs:start -->
 
@@ -407,7 +411,9 @@ func minimumOperations(nums []int, start int, goal int) int {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Bidirectional BFS
+
+Search from both $start$ and $goal$ until the two sides meet.
 
 <!-- tabs:start -->
 
