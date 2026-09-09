@@ -231,8 +231,6 @@ function maxProfit(prices: number[], fee: number): number {
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
 
-我们注意到，状态 $f[i][]$ 的转移只与 $f[i - 1][]$ 和 $f[i - 1][]$ 有关，因此我们可以用两个变量 $f_0, f_1$ 代替数组 $f$，将空间复杂度优化到 $O(1)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -321,7 +319,9 @@ function maxProfit(prices: number[], fee: number): number {
 
 <!-- solution:start -->
 
-### 方法三
+### 方法三：动态规划（空间优化）
+
+$f[i]$ 只与上一天有关，用两个变量滚动即可，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
