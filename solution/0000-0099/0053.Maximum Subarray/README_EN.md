@@ -208,7 +208,11 @@ public class Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Divide and Conquer
+
+Split the array at the midpoint. The answer is the max of the left half, the right half, and the best subarray that crosses the midpoint (max suffix of the left plus max prefix of the right).
+
+The time complexity is $O(n \log n)$ and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
