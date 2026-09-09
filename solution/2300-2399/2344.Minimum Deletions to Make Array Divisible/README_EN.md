@@ -66,7 +66,11 @@ There is no way to delete elements from nums to allow this.</pre>
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Math + Sorting
+
+If an element can divide every value in `numsDivide`, it is a divisor of their GCD $x$. Compute $x$, sort `nums`, and return the index of the first divisor of $x$.
+
+The time complexity is $O(m + \log M + n \times \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
 
 <!-- tabs:start -->
 
@@ -161,7 +165,11 @@ func gcd(a, b int) int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Math + Enumeration (No Sorting)
+
+After computing the GCD $x$ of `numsDivide`, scan `nums` for the smallest valid divisor $y$, then count how many elements are smaller than $y$. No sort is required.
+
+The time complexity is $O(m + \log M + n)$, and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -171,8 +179,8 @@ func gcd(a, b int) int {
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
         x = gcd(*numsDivide)
-        nums.sort()
-        return next((i for i, v in enumerate(nums) if x % v == 0), -1)
+        y = min((v for v in nums if x % v == 0), default=0)
+        return sum(v < y for v in nums) if y else -1
 ```
 
 #### Java
@@ -268,26 +276,6 @@ func gcd(a, b int) int {
 	}
 	return gcd(b, a%b)
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 3
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = gcd(*numsDivide)
-        y = min((v for v in nums if x % v == 0), default=0)
-        return sum(v < y for v in nums) if y else -1
 ```
 
 <!-- tabs:end -->

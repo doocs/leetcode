@@ -72,10 +72,6 @@ tags:
 
 时间复杂度 $O(m + \log M + n \times \log n)$，其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
 
-实际上，我们也可以不用排序数组 `nums`，而是直接遍历数组 `nums`，找到最小的能整除 $x$ 的元素，然后我们再遍历一次数组 `nums`，统计小于等于这个元素的元素个数即可。
-
-时间复杂度 $O(m + \log M + n)$。
-
 <!-- tabs:start -->
 
 #### Python3
@@ -169,7 +165,11 @@ func gcd(a, b int) int {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：数学 + 枚举（无需排序）
+
+求出 `numsDivide` 的最大公约数 $x$ 后，直接遍历 `nums` 找到能整除 $x$ 的最小元素 $y$，再统计小于 $y$ 的元素个数。无需排序。
+
+时间复杂度 $O(m + \log M + n)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是数组 `nums` 和 `numsDivide` 的长度，而 $M$ 是数组 `numsDivide` 中的最大值。
 
 <!-- tabs:start -->
 
@@ -179,8 +179,8 @@ func gcd(a, b int) int {
 class Solution:
     def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
         x = gcd(*numsDivide)
-        nums.sort()
-        return next((i for i, v in enumerate(nums) if x % v == 0), -1)
+        y = min((v for v in nums if x % v == 0), default=0)
+        return sum(v < y for v in nums) if y else -1
 ```
 
 #### Java
@@ -276,26 +276,6 @@ func gcd(a, b int) int {
 	}
 	return gcd(b, a%b)
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法三
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def minOperations(self, nums: List[int], numsDivide: List[int]) -> int:
-        x = gcd(*numsDivide)
-        y = min((v for v in nums if x % v == 0), default=0)
-        return sum(v < y for v in nums) if y else -1
 ```
 
 <!-- tabs:end -->
