@@ -178,7 +178,13 @@ func (h *hp) Pop() any {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Dynamic Programming + Multi-pointer Heap
+
+Store the first $n$ super ugly numbers in $ugly[1..n]$, and keep a min-heap. Each heap entry belongs to one prime $p$ and records the next candidate $p \times ugly[\textit{index}]$.
+
+Initialize $ugly[1] = 1$ and push $(p, p, 2)$ for every prime. Repeatedly pop the heap minimum into $ugly$, then advance that prime's pointer and push it back. Each prime keeps a single pointer, so we do not expand every generated ugly number against the whole prime list.
+
+The time complexity is $O(n \times \log m)$, and the space complexity is $O(n + m)$, where $m$ is the length of $\textit{primes}$.
 
 <!-- tabs:start -->
 
