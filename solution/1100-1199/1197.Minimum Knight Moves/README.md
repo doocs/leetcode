@@ -279,7 +279,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：双向 BFS
+
+从起点和终点同时广搜骑士跳，两侧相遇即最少步数。
 
 <!-- tabs:start -->
 
