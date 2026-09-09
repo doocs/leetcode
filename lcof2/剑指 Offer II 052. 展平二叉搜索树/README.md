@@ -52,7 +52,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：迭代
+
+中序遍历用栈展开，把结点依次接到右侧。
 
 <!-- tabs:start -->
 
@@ -378,9 +380,11 @@ class Solution {
 
 <!-- solution:end -->
 
-<!-- solution:start-->
+<!-- solution:start -->
 
-### 方法二
+### 方法二：DFS
+
+递归中序遍历，把结点依次接到右侧。
 
 <!-- tabs:start -->
 
