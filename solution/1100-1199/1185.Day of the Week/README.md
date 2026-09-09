@@ -63,23 +63,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：蔡勒公式
+### 方法一：库函数
 
-我们可以使用蔡勒公式来计算星期几，蔡勒公式如下：
-
-$$
-w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
-$$
-
-其中：
-
-- `w`: 星期（从 Sunday 开始）
-- `c`: 年份前两位
-- `y`: 年份后两位
-- `m`: 月（m 的取值范围是 3 至 14，即在蔡勒公式中，某年的 1、2 月要看作上一年的 13、14 月来计算，比如 2003 年 1 月 1 日要看作 2002 年的 13 月 1 日来计算）
-- `d`: 日
-- `⌊⌋`: 向下取整
-- `mod`: 取余
+最简单的做法是直接调用语言提供的日期库，根据给定的年、月、日得到对应的星期几。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
@@ -106,6 +92,74 @@ class Solution {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month - 1, day);
         return WEEK[calendar.get(Calendar.DAY_OF_WEEK) - 1];
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：蔡勒公式
+
+我们可以使用蔡勒公式来计算星期几，蔡勒公式如下：
+
+$$
+w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
+$$
+
+其中：
+
+- `w`: 星期（从 Sunday 开始）
+- `c`: 年份前两位
+- `y`: 年份后两位
+- `m`: 月（m 的取值范围是 3 至 14，即在蔡勒公式中，某年的 1、2 月要看作上一年的 13、14 月来计算，比如 2003 年 1 月 1 日要看作 2002 年的 13 月 1 日来计算）
+- `d`: 日
+- `⌊⌋`: 向下取整
+- `mod`: 取余
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
+        if m < 3:
+            m += 12
+            y -= 1
+        c = y // 100
+        y = y % 100
+        w = (c // 4 - 2 * c + y + y // 4 + 13 * (m + 1) // 5 + d - 1) % 7
+        return [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+        ][w]
+```
+
+#### Java
+
+```java
+class Solution {
+    public String dayOfTheWeek(int d, int m, int y) {
+        if (m < 3) {
+            m += 12;
+            y -= 1;
+        }
+        int c = y / 100;
+        y %= 100;
+        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
+        return new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+            "Saturday"}[(w + 7) % 7];
     }
 }
 ```
@@ -166,56 +220,6 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
         'Saturday',
     ];
     return weeks[(w + 7) % 7];
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
-        if m < 3:
-            m += 12
-            y -= 1
-        c = y // 100
-        y = y % 100
-        w = (c // 4 - 2 * c + y + y // 4 + 13 * (m + 1) // 5 + d - 1) % 7
-        return [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-        ][w]
-```
-
-#### Java
-
-```java
-class Solution {
-    public String dayOfTheWeek(int d, int m, int y) {
-        if (m < 3) {
-            m += 12;
-            y -= 1;
-        }
-        int c = y / 100;
-        y %= 100;
-        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
-        return new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-            "Saturday"}[(w + 7) % 7];
-    }
 }
 ```
 

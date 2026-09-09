@@ -61,23 +61,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Zeller's Congruence
+### Solution 1: Library Functions
 
-We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
-
-$$
-w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
-$$
-
-Where:
-
-- `w`: Day of the week (starting from Sunday)
-- `c`: First two digits of the year
-- `y`: Last two digits of the year
-- `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
-- `d`: Day
-- `⌊⌋`: Floor function (round down)
-- `mod`: Modulo operation
+The simplest approach is to use the date library provided by the language to get the day of the week for the given year, month, and day.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
 
@@ -104,6 +90,74 @@ class Solution {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month - 1, day);
         return WEEK[calendar.get(Calendar.DAY_OF_WEEK) - 1];
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Zeller's Congruence
+
+We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
+
+$$
+w = (\left \lfloor \frac{c}{4} \right \rfloor - 2c + y + \left \lfloor \frac{y}{4} \right \rfloor + \left \lfloor \frac{13(m+1)}{5} \right \rfloor + d - 1) \bmod 7
+$$
+
+Where:
+
+- `w`: Day of the week (starting from Sunday)
+- `c`: First two digits of the year
+- `y`: Last two digits of the year
+- `m`: Month (the range of m is from 3 to 14, that is, in Zeller's Congruence, January and February of a certain year are considered as the 13th and 14th month of the previous year. For example, January 1, 2003 is considered as the 1st day of the 13th month of 2002)
+- `d`: Day
+- `⌊⌋`: Floor function (round down)
+- `mod`: Modulo operation
+
+The time complexity is $O(1)$, and the space complexity is $O(1)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
+        if m < 3:
+            m += 12
+            y -= 1
+        c = y // 100
+        y = y % 100
+        w = (c // 4 - 2 * c + y + y // 4 + 13 * (m + 1) // 5 + d - 1) % 7
+        return [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+        ][w]
+```
+
+#### Java
+
+```java
+class Solution {
+    public String dayOfTheWeek(int d, int m, int y) {
+        if (m < 3) {
+            m += 12;
+            y -= 1;
+        }
+        int c = y / 100;
+        y %= 100;
+        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
+        return new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+            "Saturday"}[(w + 7) % 7];
     }
 }
 ```
@@ -164,56 +218,6 @@ function dayOfTheWeek(d: number, m: number, y: number): string {
         'Saturday',
     ];
     return weeks[(w + 7) % 7];
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def dayOfTheWeek(self, d: int, m: int, y: int) -> str:
-        if m < 3:
-            m += 12
-            y -= 1
-        c = y // 100
-        y = y % 100
-        w = (c // 4 - 2 * c + y + y // 4 + 13 * (m + 1) // 5 + d - 1) % 7
-        return [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-        ][w]
-```
-
-#### Java
-
-```java
-class Solution {
-    public String dayOfTheWeek(int d, int m, int y) {
-        if (m < 3) {
-            m += 12;
-            y -= 1;
-        }
-        int c = y / 100;
-        y %= 100;
-        int w = (c / 4 - 2 * c + y + y / 4 + 13 * (m + 1) / 5 + d - 1) % 7;
-        return new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-            "Saturday"}[(w + 7) % 7];
-    }
 }
 ```
 
