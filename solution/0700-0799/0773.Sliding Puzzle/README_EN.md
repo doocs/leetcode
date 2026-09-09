@@ -78,7 +78,9 @@ After move 5: [[1,2,3],[4,5,0]]
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+Encode the board as a string and BFS legal moves until `123450` is reached.
 
 <!-- tabs:start -->
 
@@ -306,7 +308,9 @@ public:
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: A* Search
+
+Check inversion parity, then search with a Manhattan-distance heuristic.
 
 <!-- tabs:start -->
 
