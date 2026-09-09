@@ -73,7 +73,29 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 
 <!-- solution:start -->
 
-### Solution 1: Simulation
+### Solution 1: String Split
+
+Split the sentence by spaces, then join the first $k$ words.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        return ' '.join(s.split()[:k])
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Simulation
 
 We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
 
@@ -88,7 +110,11 @@ The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignori
 ```python
 class Solution:
     def truncateSentence(self, s: str, k: int) -> str:
-        return ' '.join(s.split()[:k])
+        for i, c in enumerate(s):
+            k -= c == ' '
+            if k == 0:
+                return s[:i]
+        return s
 ```
 
 #### Java
@@ -167,28 +193,6 @@ var truncateSentence = function (s, k) {
     }
     return s;
 };
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def truncateSentence(self, s: str, k: int) -> str:
-        for i, c in enumerate(s):
-            k -= c == ' '
-            if k == 0:
-                return s[:i]
-        return s
 ```
 
 <!-- tabs:end -->
