@@ -161,7 +161,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Monotonic Deques for Maximums and Minimums
+### Solution 1: Monotonic Stack (Contribution Counting)
 
 The goal is to calculate total sum $S = \sum_i (\text{MaxSum}_i + \text{MinSum}_i)$, where:
 
