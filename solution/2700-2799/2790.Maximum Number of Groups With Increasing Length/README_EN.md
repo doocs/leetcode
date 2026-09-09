@@ -86,7 +86,11 @@ So, the output is 1.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Greedy
+
+Sort the limits in increasing order and accumulate them. Each extra unit of remaining quota is used to try opening one more group; if it succeeds, subtract that group's cost from the running sum. The final group count is the answer.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.
 
 <!-- tabs:start -->
 
@@ -180,31 +184,6 @@ function maxIncreasingGroups(usageLimits: number[]): number {
     }
     return k;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
-        usageLimits.sort()
-        k = s = 0
-        for x in usageLimits:
-            s += x
-            if s > k:
-                k += 1
-                s -= k
-        return k
 ```
 
 <!-- tabs:end -->
