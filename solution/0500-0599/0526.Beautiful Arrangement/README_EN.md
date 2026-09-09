@@ -64,7 +64,9 @@ The second beautiful arrangement is [2,1]:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Backtracking
+
+Assign unused numbers to each position when the divisibility condition holds.
 
 <!-- tabs:start -->
 
@@ -289,7 +291,9 @@ impl Solution {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: State Compression DP
+
+$f[i]$ is the number of ways to form the chosen-number mask $i$.
 
 <!-- tabs:start -->
 
