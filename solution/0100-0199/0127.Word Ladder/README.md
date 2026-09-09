@@ -355,7 +355,9 @@ function ladderLength(beginWord: string, endWord: string, wordList: string[]): n
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：双向 BFS
+
+从起点和终点同时广搜，两侧相遇即得到最短转换序列长度。
 
 <!-- tabs:start -->
 
