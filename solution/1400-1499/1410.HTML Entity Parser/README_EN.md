@@ -263,7 +263,11 @@ function entityParser(text: string): string {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Regular Expression Replacement
+
+Store the entity-to-character mapping in a hash table, then build a regular expression and replace all entities in one pass.
+
+The time complexity is $O(n)$, and the space complexity is $O(l)$, where $n$ is the length of the string and $l$ is the total length of the entities.
 
 <!-- tabs:start -->
 

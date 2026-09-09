@@ -284,7 +284,11 @@ function entityParser(text: string): string {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：正则替换
+
+用哈希表保存字符实体到字符的映射，再构造正则一次性替换所有实体。
+
+时间复杂度 $O(n)$，空间复杂度 $O(l)$。其中 $n$ 是字符串的长度，而 $l$ 是字符实体的总长度。
 
 <!-- tabs:start -->
 
