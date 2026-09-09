@@ -298,17 +298,26 @@ func unequalTriplets(nums []int) (ans int) {
 
 ```ts
 function unequalTriplets(nums: number[]): number {
+    nums.sort((a, b) => a - b);
     const n = nums.length;
-    const cnt = new Map<number, number>();
-    for (const num of nums) {
-        cnt.set(num, (cnt.get(num) ?? 0) + 1);
-    }
     let ans = 0;
-    let a = 0;
-    for (const b of cnt.values()) {
-        const c = n - a - b;
-        ans += a * b * c;
-        a += b;
+    const search = (x: number, left: number, right: number): number => {
+        while (left < right) {
+            const mid = (left + right) >> 1;
+            if (nums[mid] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
+    for (let j = 1; j < n - 1; ++j) {
+        const i = search(nums[j], 0, j) - 1;
+        const k = search(nums[j] + 1, j + 1, n);
+        if (i >= 0 && k < n) {
+            ans += (i + 1) * (n - k);
+        }
     }
     return ans;
 }
@@ -317,22 +326,19 @@ function unequalTriplets(nums: number[]): number {
 #### Rust
 
 ```rust
-use std::collections::HashMap;
 impl Solution {
-    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
-        let mut cnt = HashMap::new();
-        for num in nums.iter() {
-            *cnt.entry(num).or_insert(0) += 1;
-        }
+    pub fn unequal_triplets(mut nums: Vec<i32>) -> i32 {
+        nums.sort_unstable();
         let n = nums.len();
         let mut ans = 0;
-        let mut a = 0;
-        for v in cnt.values() {
-            let b = n - a - v;
-            ans += v * a * b;
-            a += v;
+        for j in 1..n - 1 {
+            let i = nums[..j].partition_point(|&x| x < nums[j]) as i32 - 1;
+            let k = j + 1 + nums[j + 1..].partition_point(|&x| x <= nums[j]);
+            if i >= 0 && k < n {
+                ans += (i + 1) * (n - k) as i32;
+            }
         }
-        ans as i32
+        ans
     }
 }
 ```
@@ -448,59 +454,6 @@ impl Solution {
             let c = n - a - b;
             ans += a * b * c;
             a += b;
-        }
-
-        ans as i32
-    }
-}
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法四
-
-<!-- tabs:start -->
-
-#### Rust
-
-```rust
-impl Solution {
-    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
-        let mut ans = 0;
-        let mut nums = nums;
-        nums.sort();
-        let n = nums.len();
-
-        for i in 1..n - 1 {
-            let mut l = 0;
-            let mut r = i;
-            while l < r {
-                let mid = (l + r) >> 1;
-                if nums[mid] >= nums[i] {
-                    r = mid;
-                } else {
-                    l = mid + 1;
-                }
-            }
-            let j = r;
-
-            let mut l = i + 1;
-            let mut r = n;
-            while l < r {
-                let mid = (l + r) >> 1;
-                if nums[mid] > nums[i] {
-                    r = mid;
-                } else {
-                    l = mid + 1;
-                }
-            }
-            let k = r;
-
-            ans += j * (n - k);
         }
 
         ans as i32

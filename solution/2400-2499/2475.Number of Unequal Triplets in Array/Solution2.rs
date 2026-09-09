@@ -1,18 +1,15 @@
-use std::collections::HashMap;
 impl Solution {
-    pub fn unequal_triplets(nums: Vec<i32>) -> i32 {
-        let mut cnt = HashMap::new();
-        for num in nums.iter() {
-            *cnt.entry(num).or_insert(0) += 1;
-        }
+    pub fn unequal_triplets(mut nums: Vec<i32>) -> i32 {
+        nums.sort_unstable();
         let n = nums.len();
         let mut ans = 0;
-        let mut a = 0;
-        for v in cnt.values() {
-            let b = n - a - v;
-            ans += v * a * b;
-            a += v;
+        for j in 1..n - 1 {
+            let i = nums[..j].partition_point(|&x| x < nums[j]) as i32 - 1;
+            let k = j + 1 + nums[j + 1..].partition_point(|&x| x <= nums[j]);
+            if i >= 0 && k < n {
+                ans += (i + 1) * (n - k) as i32;
+            }
         }
-        ans as i32
+        ans
     }
 }
