@@ -62,7 +62,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Bucketing
 
 <!-- tabs:start -->
 
@@ -166,7 +166,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Bucketing (Index Pointers)
 
 <!-- tabs:start -->
 
@@ -274,7 +274,7 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Binary Search
 
 <!-- tabs:start -->
 
