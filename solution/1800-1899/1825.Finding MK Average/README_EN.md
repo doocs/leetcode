@@ -443,7 +443,13 @@ func (this *MKAverage) CalculateMKAverage() int {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Single Ordered Set + Sliding Window
+
+Use a queue for insertion order and one ordered set for the current window of length $m$. When the window first becomes full, build the set and sum the middle segment after dropping the smallest and largest $k$ elements. Later insertions and deletions update that middle sum from the element's rank in the set.
+
+Unlike method 1, which partitions the window into three sets, this approach keeps a single ordered sequence.
+
+Each `addElement` call takes $O(\log m)$ time, and each `calculateMKAverage` call takes $O(1)$ time. The space complexity is $O(m)$.
 
 <!-- tabs:start -->
 
