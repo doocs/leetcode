@@ -72,7 +72,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Enumeration
+
+Enumerate candidate prefixes $t$ from the shorter string length downward, and check whether repeating $t$ can produce $\textit{str1}$ and $\textit{str2}$. The first valid $t$ is the longest gcd string.
+
+The time complexity is $O((m + n) \times \min(m, n))$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two strings.
 
 <!-- tabs:start -->
 
@@ -92,6 +96,31 @@ class Solution:
             if check(t, str1) and check(t, str2):
                 return t
         return ''
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Math
+
+If a gcd string exists, then $s_1+s_2=s_2+s_1$. In that case the length of the longest gcd string is $\gcd(|s_1|,|s_2|)$.
+
+The time complexity is $O(m + n)$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two strings.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1 + str2 != str2 + str1:
+            return ''
+        n = gcd(len(str1), len(str2))
+        return str1[:n]
 ```
 
 #### Java
@@ -163,27 +192,6 @@ impl Solution {
         str1[..gcd(m, n)].to_string()
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def gcdOfStrings(self, str1: str, str2: str) -> str:
-        if str1 + str2 != str2 + str1:
-            return ''
-        n = gcd(len(str1), len(str2))
-        return str1[:n]
 ```
 
 <!-- tabs:end -->
