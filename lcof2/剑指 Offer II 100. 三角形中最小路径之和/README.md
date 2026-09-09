@@ -66,7 +66,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+从三角形底部向上推。$dp[i][j]$ 表示从底部走到位置 $(i,j)$ 的最小路径和：$dp[i][j]=\min(dp[i+1][j], dp[i+1][j+1]) + \textit{triangle}[i][j]$。答案为 $dp[0][0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。其中 $n$ 是三角形的行数。
 
 <!-- tabs:start -->
 
@@ -138,7 +142,9 @@ func minimumTotal(triangle [][]int) int {
 
 <!-- solution:start-->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+每一行只依赖下一行，用一维数组从下往上覆盖即可，空间复杂度 $O(n)$。
 
 <!-- tabs:start -->
 
