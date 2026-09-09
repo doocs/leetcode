@@ -78,9 +78,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：字符映射
+### 方法一：集合判断
 
-我们将每个键盘行的字符映射到对应的行数，然后遍历字符串数组，判断每个字符串是否都在同一行即可。
+把三行键盘分别做成集合。对每个单词，把它的字母集合与三行比较，若是其中某一行的子集，则加入答案。
 
 时间复杂度 $O(L)$，空间复杂度 $O(C)$。其中 $L$ 为所有字符串的长度之和；而 $C$ 为字符集的大小，本题中 $C = 26$。
 
@@ -98,6 +98,34 @@ class Solution:
         for w in words:
             s = set(w.lower())
             if s <= s1 or s <= s2 or s <= s3:
+                ans.append(w)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法二：字符映射
+
+将每个键盘行的字符映射到对应的行号，再判断单词中所有字母是否落在同一行。
+
+时间复杂度 $O(L)$，空间复杂度 $O(C)$。其中 $L$ 为所有字符串的长度之和；而 $C$ 为字符集的大小，本题中 $C = 26$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        ans = []
+        s = "12210111011122000010020202"
+        for w in words:
+            x = s[ord(w[0].lower()) - ord('a')]
+            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
                 ans.append(w)
         return ans
 ```
@@ -223,30 +251,6 @@ public class Solution {
         return ans.ToArray();
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
-        ans = []
-        s = "12210111011122000010020202"
-        for w in words:
-            x = s[ord(w[0].lower()) - ord('a')]
-            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
-                ans.append(w)
-        return ans
 ```
 
 <!-- tabs:end -->

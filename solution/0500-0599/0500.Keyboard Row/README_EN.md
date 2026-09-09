@@ -74,7 +74,11 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Set Check
+
+Put the three keyboard rows into sets. For each word, if its letter set is a subset of one row, add it to the answer.
+
+The time complexity is $O(L)$, and the space complexity is $O(C)$, where $L$ is the total length of all words and $C$ is the size of the alphabet ($C = 26$ here).
 
 <!-- tabs:start -->
 
@@ -90,6 +94,34 @@ class Solution:
         for w in words:
             s = set(w.lower())
             if s <= s1 or s <= s2 or s <= s3:
+                ans.append(w)
+        return ans
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Character Mapping
+
+Map each letter to its keyboard row, then check whether every letter of a word falls on the same row.
+
+The time complexity is $O(L)$, and the space complexity is $O(C)$, where $L$ is the total length of all words and $C$ is the size of the alphabet ($C = 26$ here).
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        ans = []
+        s = "12210111011122000010020202"
+        for w in words:
+            x = s[ord(w[0].lower()) - ord('a')]
+            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
                 ans.append(w)
         return ans
 ```
@@ -215,30 +247,6 @@ public class Solution {
         return ans.ToArray();
     }
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def findWords(self, words: List[str]) -> List[str]:
-        ans = []
-        s = "12210111011122000010020202"
-        for w in words:
-            x = s[ord(w[0].lower()) - ord('a')]
-            if all(s[ord(c.lower()) - ord('a')] == x for c in w):
-                ans.append(w)
-        return ans
 ```
 
 <!-- tabs:end -->
