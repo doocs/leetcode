@@ -71,9 +71,7 @@ $$
 
 其中 $p$ 表示第 $i$ 枚硬币正面朝上的概率。
 
-我们注意到，状态 $f[i][j]$ 只与状态 $f[i - 1][j]$ 和 $f[i - 1][j - 1]$ 有关，因此，我们可以将二维空间优化为一维空间。
-
-时间复杂度 $O(n \times target)$，空间复杂度 $O(target)$。其中 $n$ 为硬币的数量。
+时间复杂度 $O(n \times target)$，空间复杂度 $O(n \times target)$。其中 $n$ 为硬币的数量。
 
 <!-- tabs:start -->
 
@@ -184,7 +182,9 @@ function probabilityOfHeads(prob: number[], target: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+$f[i][j]$ 只与上一行有关。内层对 $j$ 从大到小更新，空间复杂度降为 $O(target)$。
 
 <!-- tabs:start -->
 
