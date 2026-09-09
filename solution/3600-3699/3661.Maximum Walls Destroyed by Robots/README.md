@@ -128,6 +128,8 @@ tags:
 
 时间复杂度 $O(n \times \log n + m \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是机器人和墙壁的数量。
 
+<!-- tabs:start -->
+
 #### Python3
 
 ```python
