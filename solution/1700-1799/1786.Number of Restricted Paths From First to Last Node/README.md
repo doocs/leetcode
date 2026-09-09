@@ -302,7 +302,9 @@ func countRestrictedPaths(n int, edges [][]int) int {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：堆优化 Dijkstra + 动态规划
+
+先求出每个点到 $n$ 的最短路，再按距离从小到大递推限制路径数。
 
 <!-- tabs:start -->
 
