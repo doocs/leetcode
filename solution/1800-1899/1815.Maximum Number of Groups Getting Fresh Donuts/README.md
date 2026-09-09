@@ -226,7 +226,13 @@ func maxHappyGroups(batchSize int, groups []int) (ans int) {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：记忆化搜索（按组排列）
+
+先把人数为 $batchSize$ 整数倍的组贪心计入答案，再只保留其余组对 $batchSize$ 取模后的余数。
+
+用二进制状态表示哪些组已经安排，设计函数 $dfs(state, x)$：当前已安排集合为 $state$、前缀余数为 $x$ 时，还能再让多少组开心。枚举尚未安排的组，对相同余数去重后递归；若 $x = 0$，当前这一步会让一组开心。
+
+时间复杂度 $O(2^m \times m)$，空间复杂度 $O(2^m)$。其中 $m$ 为余数非 $0$ 的组数。
 
 <!-- tabs:start -->
 
