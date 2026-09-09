@@ -225,8 +225,6 @@ When $i \geq 1$, if we currently do not hold a stock, then $f[i][0]$ can be obta
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
 
-We notice that the transition of state $f[i][]$ is only related to $f[i - 1][]$ and $f[i - 2][0]$, so we can use three variables $f$, $f_0$, $f_1$ to replace the array $f$, optimizing the space complexity to $O(1)$.
-
 <!-- tabs:start -->
 
 #### Python3
@@ -319,7 +317,9 @@ function maxProfit(prices: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: Dynamic Programming (Space Optimization)
+
+The transition only needs the previous two days, so three variables are enough and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
