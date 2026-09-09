@@ -324,8 +324,8 @@ public class Solution {
 }
 ```
 
-<!-- solution:end -->
-
 <!-- tabs:end -->
+
+<!-- solution:end -->
 
 <!-- problem:end -->
