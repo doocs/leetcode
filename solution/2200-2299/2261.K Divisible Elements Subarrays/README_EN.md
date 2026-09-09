@@ -219,7 +219,9 @@ function countDistinct(nums: number[], k: number, p: number): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Enumeration + String Concatenation
+
+Enumerate every subarray and store a joined string in a set. The time and space complexity are $O(n^2)$.
 
 <!-- tabs:start -->
 

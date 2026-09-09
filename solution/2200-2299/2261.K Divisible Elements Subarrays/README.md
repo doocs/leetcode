@@ -222,7 +222,9 @@ function countDistinct(nums: number[], k: number, p: number): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：枚举 + 字符串拼接
+
+同样枚举每个子数组，把元素拼成字符串放入集合去重。时间复杂度 $O(n^2)$，空间复杂度 $O(n^2)$。
 
 <!-- tabs:start -->
 
