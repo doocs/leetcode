@@ -61,17 +61,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Monotonic Stack Simulation
+### Solution 1: Monotonic Stack (Array)
 
-We can first store the node values of the linked list into an array $nums$. Then, we traverse the array $nums$, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. If the current element is larger than the top element of the stack, we pop the top element of the stack until the current element is less than or equal to the top element, and then we push the current element into the stack.
-
-Finally, we construct the resulting linked list from the bottom to the top of the stack, which is the answer.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
-
-We can also directly traverse the linked list without using the array $nums$, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. If the current element is larger than the top element of the stack, we pop the top element of the stack until the current element is less than or equal to the top element. Then, if the stack is not empty, we set the $next$ pointer of the top element of the stack to the current element. Otherwise, we set the $next$ pointer of the dummy head node of the answer linked list to the current element. Finally, we push the current element into the stack and continue to traverse the linked list.
-
-After the traversal, we return the $next$ pointer of the dummy head node as the answer.
+Store the node values in an array $nums$, then scan $nums$ with a monotonically decreasing stack. Pop while the current value is larger than the top, then push. Rebuild the list from the bottom of the stack.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
@@ -257,7 +249,11 @@ function removeNodes(head: ListNode | null): ListNode | null {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Monotonic Stack (In-place List)
+
+Traverse the list directly with a monotonically decreasing stack of nodes. When the current value is larger, pop; then link the new top's $next$ (or the dummy head) to the current node and push it. Return the dummy head's $next$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
 
 <!-- tabs:start -->
 
