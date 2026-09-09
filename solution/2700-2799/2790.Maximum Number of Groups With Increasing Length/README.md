@@ -88,7 +88,11 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
+
+将限额从小到大排序后依次累加。每多出一个可用额度，就尝试多开一组；能开则把该组消耗从累计中扣掉。最终组数即为答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组长度。
 
 <!-- tabs:start -->
 
@@ -182,31 +186,6 @@ function maxIncreasingGroups(usageLimits: number[]): number {
     }
     return k;
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### 方法二
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def maxIncreasingGroups(self, usageLimits: List[int]) -> int:
-        usageLimits.sort()
-        k = s = 0
-        for x in usageLimits:
-            s += x
-            if s > k:
-                k += 1
-                s -= k
-        return k
 ```
 
 <!-- tabs:end -->
