@@ -65,7 +65,9 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：BFS
+
+从结点 $0$ 出发，用队列保存路径，到达 $n-1$ 时记入答案。
 
 <!-- tabs:start -->
 
@@ -255,7 +257,9 @@ function allPathsSourceTarget(graph: number[][]): number[][] {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：DFS
+
+从结点 $0$ 出发深度优先搜索，到达终点后回溯继续枚举。
 
 <!-- tabs:start -->
 

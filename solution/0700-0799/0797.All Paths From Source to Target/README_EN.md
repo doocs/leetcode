@@ -58,7 +58,9 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: BFS
+
+Start from node $0$, keep paths in a queue, and record a path when it reaches $n-1$.
 
 <!-- tabs:start -->
 
@@ -248,7 +250,9 @@ function allPathsSourceTarget(graph: number[][]): number[][] {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: DFS
+
+DFS from node $0$ and backtrack after each path that reaches the target.
 
 <!-- tabs:start -->
 
