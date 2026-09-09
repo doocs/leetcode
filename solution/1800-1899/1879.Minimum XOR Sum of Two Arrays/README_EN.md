@@ -310,7 +310,9 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 3
+### Solution 3: State Compression DP (Space Optimization)
+
+$f[i][j]$ depends only on the previous row, so a 1D array of length $2^n$ is enough.
 
 <!-- tabs:start -->
 
