@@ -65,7 +65,9 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：滑动窗口
+
+用哈希表维护窗口内字符，每次收缩后检查是否覆盖 $t$。
 
 <!-- tabs:start -->
 
@@ -188,7 +190,9 @@ func check(need, window map[byte]int) bool {
 
 <!-- solution:start-->
 
-### 方法二
+### 方法二：滑动窗口（计数）
+
+额外用覆盖种类计数，避免每次收缩都扫描整张表。
 
 <!-- tabs:start -->
 
