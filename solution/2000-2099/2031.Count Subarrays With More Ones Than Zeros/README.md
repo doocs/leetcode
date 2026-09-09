@@ -316,7 +316,9 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 
 <!-- solution:start -->
 
-### 方法二
+### 方法二：前缀和 + 有序集合
+
+把 $0$ 看成 $-1$ 后，用有序集合维护前缀和，二分统计小于当前前缀和的历史个数。
 
 <!-- tabs:start -->
 

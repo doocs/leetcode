@@ -317,7 +317,9 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 
 <!-- solution:start -->
 
-### Solution 2
+### Solution 2: Prefix Sum + Ordered Set
+
+Treat $0$ as $-1$, keep prefix sums in a sorted list, and binary-search how many earlier sums are smaller.
 
 <!-- tabs:start -->
 
