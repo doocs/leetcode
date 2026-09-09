@@ -51,7 +51,11 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
+
+将问题转化为能否选出若干个数使其和为总和的一半。用二维 $01$ 背包：$dp[i][j]$ 表示前 $i$ 个数能否凑出 $j$。
+
+时间复杂度 $O(n \times s)$，空间复杂度 $O(n \times s)$。其中 $s$ 为数组元素和的一半。
 
 <!-- tabs:start -->
 
@@ -184,7 +188,9 @@ class Solution {
 
 <!-- solution:start-->
 
-### 方法二
+### 方法二：动态规划（空间优化）
+
+每个数最多选一次，内层对容量从大到小更新，空间复杂度降为 $O(s)$。
 
 <!-- tabs:start -->
 
@@ -215,7 +221,11 @@ class Solution:
 
 <!-- solution:start-->
 
-### 方法三
+### 方法三：记忆化搜索
+
+枚举每个数选或不选，用记忆化避免重复状态。
+
+时间复杂度 $O(n \times s)$，空间复杂度 $O(n \times s)$。
 
 <!-- tabs:start -->
 
