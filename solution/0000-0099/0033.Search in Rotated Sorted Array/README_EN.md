@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+**Thinking**
+
+The first idea is a left-to-right scan. Correct, but $n \le 5000$ and the problem requires $O(\log n)$.
+
+After the rotation the array is no longer fully sorted, so ordinary binary search cannot tell which half holds $target$.
+
+The key is that any cut leaves at least one half monotonic. Comparing $nums[0]$ with $nums[mid]$ tells us whether the left half is sorted; then we check whether $target$ lies in that sorted range and discard the other half.
+
+So we can still binary-search: the sorted half decides keep-or-drop, and the unsorted half is cut again in the next round.
+
 We use binary search to divide the array into two parts, $[left,.. mid]$ and $[mid + 1,.. right]$. At this point, we can find that one part must be sorted.
 
 Therefore, we can determine whether $target$ is in this part based on the sorted part:

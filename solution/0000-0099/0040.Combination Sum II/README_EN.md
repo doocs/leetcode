@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Sorting + Pruning + Backtracking
 
+**Thinking**
+
+Unlike the previous problem, each number may be used only once, and $candidates$ may contain duplicates. Without deduping, the same multiset is found via different index combinations. $n \le 100$ and $target \le 30$ make pruning even more important.
+
+Sort so equal values sit together. At the same depth, if $j \gt i$ and $candidates[j]$ equals the previous value, that value has already been tried as “this level’s choice” and we skip it.
+
+The recursive call is $dfs(j+1,\ldots)$: this index cannot be reused. If the remainder $s$ is already smaller than the current value, the whole branch stops.
+
 We can first sort the array to facilitate pruning and skipping duplicate numbers.
 
 Next, we design a function $dfs(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $ans$.
@@ -342,6 +350,10 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Pruning + Backtracking(Another Form)
+
+**Thinking**
+
+Method 1 skips same-depth duplicates inside the loop. We can instead choose or skip: taking $x$ advances the index by one; skipping jumps over the whole run of $x$, so the same combination cannot reappear via different indices. Complexity is unchanged; deduping just moves onto the “skip” branch.
 
 We can also change the implementation logic of the function $dfs(i, s)$ to another form. If we choose the current number, we add the current number to the search path $t$, then recursively call the function $dfs(i + 1, s - candidates[i])$, and after the recursion ends, we remove the current number from the search path $t$. If we do not choose the current number, we can skip all numbers that are the same as the current number, then recursively call the function $dfs(j, s)$, where $j$ is the index of the first number that is different from the current number.
 

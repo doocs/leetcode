@@ -77,6 +77,16 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ### Solution 1: Single Pass
 
+**Thinking**
+
+The first idea is a hash set of seen values, then write them back. $n \le 3\times 10^4$ would pass, but the problem wants an in-place rewrite, so the extra table is wasteful.
+
+The bottleneck is the "have we seen this" query. The array is non-decreasing, so equals sit next to each other and a global lookup is unnecessary.
+
+Compare $x$ with the last value already written. If it differs (or nothing has been written yet), write it at index $k$; otherwise skip.
+
+$k$ is both the write pointer and the unique length. One pass, $O(1)$ extra space.
+
 We use a variable $k$ to record the current length of the processed array. Initially, $k=0$ represents an empty array.
 
 Then we traverse the array from left to right. For each element $x$ we encounter, if $k=0$ or $x \neq nums[k-1]$, we place $x$ in the position of $nums[k]$, and then increment $k$ by $1$. Otherwise, $x$ is the same as $nums[k-1]$, so we skip this element. Continue to traverse until the entire array is traversed.

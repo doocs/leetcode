@@ -74,6 +74,16 @@ merging them into one sorted linked list:
 
 ### Solution 1: Priority Queue (Min Heap)
 
+**Thinking**
+
+The first idea is pairwise merge: merge list $1$ with $2$, then fold in $3$, and so on. With $N \le 10^4$ nodes and $k \le 10^4$ lists, the worst case is $O(Nk)$ and can time out. Dumping every node into an array and sorting also works, but ignores that each list is already sorted.
+
+The bottleneck is finding the smallest among $k$ heads at every step. A linear scan is $O(k)$ per node and does not fit.
+
+At any moment the next node is just the minimum of the current heads. A min-heap of those $k$ heads pops the smallest and pushes its successor.
+
+Each node enters and leaves the heap once, so the time is $O(N\log k)$ and the heap holds at most $k$ pointers.
+
 We can create a min heap $pq$ to maintain the head nodes of all linked lists. Each time, we take out the node with the smallest value from the min heap, add it to the end of the result linked list, and then add the next node of this node to the heap. Repeat the above steps until the heap is empty.
 
 The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$. Here, $n$ is the total number of all linked list nodes, and $k$ is the number of linked lists given in the problem.
