@@ -61,11 +61,15 @@ tags:
 
 ### Solution 1: Recursion
 
-**Thinking**
+<!-- thinking:start -->
 
-Checking only “left < root < right” is not enough: the maximum in the left subtree must also be less than the root. We can pass an allowed range, or use the BST fact that inorder is strictly increasing.
+> **Thinking**
+>
+> Checking only “left < root < right” is not enough: the maximum in the left subtree must also be less than the root. We can pass an allowed range, or use the BST fact that inorder is strictly increasing.
+>
+> During inorder, remember the previous value; the current one must be larger. Recurse left, compare, recurse right — one pass finds a violation. An empty tree is valid.
 
-During inorder, remember the previous value; the current one must be larger. Recurse left, compare, recurse right — one pass finds a violation. An empty tree is valid.
+<!-- thinking:end -->
 
 We can perform a recursive in-order traversal on the binary tree. If the result of the traversal is strictly ascending, then this tree is a binary search tree.
 

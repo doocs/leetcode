@@ -77,11 +77,15 @@ Since s3 can be obtained by interleaving s1 and s2, we return true.
 
 ### Solution 1: Memoization Search
 
-**Thinking**
+<!-- thinking:start -->
 
-An interleaving keeps the relative order of $s_1$ and $s_2$, so lengths must match first. Brute force chooses the next char from $s_1$ or $s_2$ at every step and explodes.
+> **Thinking**
+>
+> An interleaving keeps the relative order of $s_1$ and $s_2$, so lengths must match first. Brute force chooses the next char from $s_1$ or $s_2$ at every step and explodes.
+>
+> The state is only “how much of $s_1$ and $s_2$ we have used”: $s_3$’s index is $k=i+j$. A choice is legal iff $s_1[i]$ or $s_2[j]$ equals $s_3[k]$. Memoize $(i,j)$ and there are $O(mn)$ subproblems.
 
-The state is only “how much of $s_1$ and $s_2$ we have used”: $s_3$’s index is $k=i+j$. A choice is legal iff $s_1[i]$ or $s_2[j]$ equals $s_3[k]$. Memoize $(i,j)$ and there are $O(mn)$ subproblems.
+<!-- thinking:end -->
 
 Let's denote the length of string $s_1$ as $m$ and the length of string $s_2$ as $n$. If $m + n \neq |s_3|$, then $s_3$ is definitely not an interleaving string of $s_1$ and $s_2$, so we return `false`.
 
@@ -379,9 +383,13 @@ public class Solution {
 
 ### Solution 2: Dynamic Programming
 
-**Thinking**
+<!-- thinking:start -->
 
-Solution 1 already has the transition. Bottom-up: $f[i][j]$ means the first $i$ chars of $s_1$ and first $j$ of $s_2$ can form the first $i+j$ of $s_3$. Empty-empty is true; fill by increasing $i,j$ and drop the recursion stack.
+> **Thinking**
+>
+> Solution 1 already has the transition. Bottom-up: $f[i][j]$ means the first $i$ chars of $s_1$ and first $j$ of $s_2$ can form the first $i+j$ of $s_3$. Empty-empty is true; fill by increasing $i,j$ and drop the recursion stack.
+
+<!-- thinking:end -->
 
 We can convert the memoization search in Solution 1 into dynamic programming.
 
@@ -568,9 +576,13 @@ public class Solution {
 
 ### Solution 3: Rolling Array Optimization
 
-**Thinking**
+<!-- thinking:start -->
 
-The follow-up asks for $O(|s_2|)$ extra space. $f[i][j]$ depends only on the previous row and the left cell, so one rolling array is enough — the $O(n)$ bound in the problem.
+> **Thinking**
+>
+> The follow-up asks for $O(|s_2|)$ extra space. $f[i][j]$ depends only on the previous row and the left cell, so one rolling array is enough — the $O(n)$ bound in the problem.
+
+<!-- thinking:end -->
 
 We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - 1]$. Therefore, we can use a rolling array to reduce the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
 

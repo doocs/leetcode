@@ -57,11 +57,15 @@ tags:
 
 ### Solution 1: In-order Traversal
 
-**Thinking**
+<!-- thinking:start -->
 
-Inorder of a BST is strictly increasing. After swapping two nodes, the sequence has one or two inversions: adjacent swap yields one; non-adjacent yields two (the earlier node of the first inversion and the later node of the second).
+> **Thinking**
+>
+> Inorder of a BST is strictly increasing. After swapping two nodes, the sequence has one or two inversions: adjacent swap yields one; non-adjacent yields two (the earlier node of the first inversion and the later node of the second).
+>
+> Walk inorder, record those two nodes, and swap their values. No need to rebuild the tree. This solution uses recursive inorder ($O(n)$ stack); Morris would meet the $O(1)$ follow-up. The point of this method is to identify the swapped pair.
 
-Walk inorder, record those two nodes, and swap their values. No need to rebuild the tree. This solution uses recursive inorder ($O(n)$ stack); Morris would meet the $O(1)$ follow-up. The point of this method is to identify the swapped pair.
+<!-- thinking:end -->
 
 In-order traversal of a binary search tree results in an increasing sequence. If two nodes' values are mistakenly swapped, there will definitely be two reverse pairs in the sequence obtained from the in-order traversal. We use `first` and `second` to record the smaller and larger values of these two reverse pairs, respectively. Finally, swapping the values of these two nodes will correct the mistake.
 

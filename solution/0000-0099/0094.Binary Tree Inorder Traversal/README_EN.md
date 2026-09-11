@@ -81,9 +81,13 @@ tags:
 
 ### Solution 1: Recursive Traversal
 
-**Thinking**
+<!-- thinking:start -->
 
-Inorder is left, root, right. A tree is already recursive, so the first idea is recursion: finish the left subtree, record the root, then walk the right. $n \le 100$, so an $O(n)$ call stack is fine. The follow-up is what asks for iteration.
+> **Thinking**
+>
+> Inorder is left, root, right. A tree is already recursive, so the first idea is recursion: finish the left subtree, record the root, then walk the right. $n \le 100$, so an $O(n)$ call stack is fine. The follow-up is what asks for iteration.
+
+<!-- thinking:end -->
 
 We first recursively traverse the left subtree, then visit the root node, and finally recursively traverse the right subtree.
 
@@ -321,9 +325,13 @@ var inorderTraversal = function (root) {
 
 ### Solution 2: Stack Implementation for Non-recursive Traversal
 
-**Thinking**
+<!-- thinking:start -->
 
-Solution 1 is correct; the follow-up drops the call stack. Recursion is “go left until you cannot, then pop, visit, and turn right”. An explicit stack simulates that: push while a left child exists, otherwise pop, visit, and move to the right child. Same order as inorder, still $O(n)$ space.
+> **Thinking**
+>
+> Solution 1 is correct; the follow-up drops the call stack. Recursion is “go left until you cannot, then pop, visit, and turn right”. An explicit stack simulates that: push while a left child exists, otherwise pop, visit, and move to the right child. Same order as inorder, still $O(n)$ space.
+
+<!-- thinking:end -->
 
 The non-recursive approach is as follows:
 
@@ -577,9 +585,13 @@ var inorderTraversal = function (root) {
 
 ### Solution 3: Morris Implementation for In-order Traversal
 
-**Thinking**
+<!-- thinking:start -->
 
-A stack still costs $O(h)$. Morris notices that the successor of the rightmost node in the left subtree is the current root, and that right pointer is unused. Temporarily thread it to the root, walk down the left chain, then undo the link on the way back. The tree’s null pointers become the stack, inorder is preserved, and extra space is $O(1)$.
+> **Thinking**
+>
+> A stack still costs $O(h)$. Morris notices that the successor of the rightmost node in the left subtree is the current root, and that right pointer is unused. Temporarily thread it to the root, walk down the left chain, then undo the link on the way back. The tree’s null pointers become the stack, inorder is preserved, and extra space is $O(1)$.
+
+<!-- thinking:end -->
 
 Morris traversal does not require a stack, so the space complexity is $O(1)$. The core idea is:
 
