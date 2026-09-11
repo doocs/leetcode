@@ -55,6 +55,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+**Thinking**
+
+The first idea is, for each $i$, scan left and right for the tallest bars; water is $\min(\textit{leftMax}, \textit{rightMax}) - \textit{height}[i]$. Correct, but $O(n^2)$. $n \le 2 \times 10^4$ can time out.
+
+The bottleneck is recomputing left/right maxima at every $i$. Those maxima only depend on one side and can be precomputed in linear time.
+
+Store, at each index, the highest bar to the left (inclusive) and to the right (inclusive), then sum. The water level is the shorter of the two walls — that is the DP state.
+
 We define $left[i]$ as the height of the highest bar to the left of and including the position at index $i$, and $right[i]$ as the height of the highest bar to the right of and including the position at index $i$. Therefore, the amount of rainwater that can be trapped at index $i$ is $min(left[i], right[i]) - height[i]$. We traverse the array to calculate $left[i]$ and $right[i]$, and the final answer is $\sum_{i=0}^{n-1} \min(left[i], right[i]) - height[i]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.

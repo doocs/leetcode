@@ -53,6 +53,14 @@ tags:
 
 ### Solution 1: Simulation
 
+**Thinking**
+
+The first idea is to peel layers: four loops per layer for top, right, bottom, left, then shrink the bounds. $m, n \le 10$ would pass, but a leftover single row or column is easy to get wrong.
+
+The waste is hand-managing four edges. A spiral is: keep the current direction, and turn right when the next cell is out of bounds or already visited.
+
+So we cycle four directions and mark visited cells in $\textit{vis}$, taking $m \times n$ steps.
+
 We can simulate the entire traversal process. We use $i$ and $j$ to represent the row and column of the current element being visited, and $k$ to represent the current direction. We use an array or hash table $\textit{vis}$ to record whether each element has been visited. Each time we visit an element, we mark it as visited, then move one step forward in the current direction. If moving forward results in an out-of-bounds condition or the element has already been visited, we change direction and continue moving forward until the entire matrix has been traversed.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.
@@ -273,6 +281,12 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
+
+**Thinking**
+
+Solution 1 already walks the matrix in linear time, but $\textit{vis}$ still costs $O(mn)$ extra space. Values lie in $[-100, 100]$, so the visit mark can be written back into the cell.
+
+What it lacks is an in-place mark: add $300$ to a visited cell, and treat $> 100$ as seen. Subtract $300$ afterwards. Extra space drops to $O(1)$.
 
 Notice that the range of matrix element values is $[-100, 100]$. Therefore, we can add a large value, such as $300$, to the visited elements. This way, we only need to check if the visited element is greater than $100$, without needing extra space to record whether it has been visited. If we need to restore the original values of the visited elements, we can traverse the matrix again after the traversal is complete and subtract $300$ from all elements.
 

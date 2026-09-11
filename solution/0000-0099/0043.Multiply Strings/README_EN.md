@@ -47,6 +47,14 @@ tags:
 
 ### Solution 1: Simulating Mathematical Multiplication
 
+**Thinking**
+
+The first idea is convert both strings to integers and multiply. Lengths go to $200$, so native integers overflow; the problem also forbids converting directly.
+
+The bottleneck is big-integer multiplication. Grade-school arithmetic says the product of digit $i$ and digit $j$ contributes to a fixed place; carries can wait.
+
+The product is at most $m+n$ digits, so an array of that length is the scratch paper: accumulate, then carry. That is cheaper than a full bigint library.
+
 Assume the lengths of $num1$ and $num2$ are $m$ and $n$ respectively, then the length of their product can be at most $m + n$.
 
 The proof is as follows:

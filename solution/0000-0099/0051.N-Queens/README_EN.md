@@ -55,6 +55,14 @@ tags:
 
 ### Solution 1: DFS (Backtracking)
 
+**Thinking**
+
+The first idea is to try every column permutation: put the queen in row $i$ at column $p_i$, then check diagonals. $n \le 9$, so $9!$ is searchable, but we only discover a conflict after the board is full, and we still have to build the string grid.
+
+The waste is placing everything, then validating. One queen per row is mandatory; conflicts are only the same column or the same diagonal. Column, $i+j$, and $n-i+j$ can all be marked in $O(1)$.
+
+So we DFS row by row: place and mark only when legal, then backtrack. The board $g$ flips `'Q'`/`'.'` in lockstep; at row $n$ we copy one answer.
+
 We define three arrays $col$, $dg$, and $udg$ to represent whether there is a queen in the column, the main diagonal, and the anti-diagonal, respectively. If there is a queen at position $(i, j)$, then $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ are all $1$. In addition, we use an array $g$ to record the current state of the chessboard, where all elements in $g$ are initially `'.'`.
 
 Next, we define a function $dfs(i)$, which represents placing queens starting from the $i$th row.

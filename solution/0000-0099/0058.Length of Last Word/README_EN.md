@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Reverse Traversal + Two Pointers
 
+**Thinking**
+
+The first idea is to split on spaces and take the last token. $n \le 10^4$ would pass, but we scan the whole string and allocate substrings.
+
+The waste is every earlier word. The last word sits at the end (possibly behind trailing spaces).
+
+So scan from the right: skip trailing spaces to get $i$, then walk to the word's left edge $j$; the length is $i-j$.
+
 We start traversing from the end of the string $s$, find the first character that is not a space, which is the last character of the last word, and mark the index as $i$. Then continue to traverse forward, find the first character that is a space, which is the character before the first character of the last word, and mark it as $j$. Then the length of the last word is $i - j$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
