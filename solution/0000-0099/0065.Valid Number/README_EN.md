@@ -82,13 +82,17 @@ For example, all the following are valid numbers: <code>&quot;2&quot;, &quot;008
 
 ### Solution 1: Case Discussion
 
-**Thinking**
+<!-- thinking:start -->
 
-A valid number has many shapes: an optional sign, an integer or decimal, then an optional exponent. $n \le 20$, so a regex or a language parser would pass, but we must decide ourselves.
+> **Thinking**
+>
+> A valid number has many shapes: an optional sign, an integer or decimal, then an optional exponent. $n \le 20$, so a regex or a language parser would pass, but we must decide ourselves.
+>
+> The bottleneck is how the rules cross: a decimal point cannot appear in the exponent, `e` needs digits on both sides, the exponent may have its own sign, and a lone `.` or `+` is illegal.
+>
+> One left-to-right scan is enough: eat a leading sign, then count $dot$ and $e$ so each appears at most once, and reject as soon as a character or position is illegal. Linear time, constant extra space.
 
-The bottleneck is how the rules cross: a decimal point cannot appear in the exponent, `e` needs digits on both sides, the exponent may have its own sign, and a lone `.` or `+` is illegal.
-
-One left-to-right scan is enough: eat a leading sign, then count $dot$ and $e$ so each appears at most once, and reject as soon as a character or position is illegal. Linear time, constant extra space.
+<!-- thinking:end -->
 
 First, we check if the string starts with a positive or negative sign. If it does, we move the pointer $i$ one step forward. If the pointer $i$ has reached the end of the string at this point, it means the string only contains a positive or negative sign, so we return `false`.
 

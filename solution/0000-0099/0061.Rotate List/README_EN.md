@@ -51,13 +51,17 @@ tags:
 
 ### Solution 1: Fast and Slow Pointers + Link List Concatenation
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to dump the list into an array, rotate, and rebuild. $n \le 500$ is fine, but $k$ can be $2 \times 10^9$, so we cannot rotate one step at a time.
+> **Thinking**
+>
+> The first idea is to dump the list into an array, rotate, and rebuild. $n \le 500$ is fine, but $k$ can be $2 \times 10^9$, so we cannot rotate one step at a time.
+>
+> The bottleneck is both the huge $k$ and locating the new head without random access. Right-rotating $k$ times equals rotating $k \bmod n$ times; the new head is the $k$-th node from the tail.
+>
+> A gap of $k$ between fast and slow pointers puts slow just before the new head when fast reaches the tail, so we never recount $n-k$. We only rewire a few pointers, in $O(1)$ extra space.
 
-The bottleneck is both the huge $k$ and locating the new head without random access. Right-rotating $k$ times equals rotating $k \bmod n$ times; the new head is the $k$-th node from the tail.
-
-A gap of $k$ between fast and slow pointers puts slow just before the new head when fast reaches the tail, so we never recount $n-k$. We only rewire a few pointers, in $O(1)$ extra space.
+<!-- thinking:end -->
 
 First, we check whether the number of nodes in the linked list is less than $2$. If so, we directly return $head$.
 

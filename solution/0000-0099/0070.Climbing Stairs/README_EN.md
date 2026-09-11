@@ -59,13 +59,17 @@ tags:
 
 ### Solution 1: Recursion
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is recursion: the last step is $1$ or $2$, so $f(n) = f(n-1) + f(n-2)$. $n \le 45$, and a naive recursion re-expands the same subproblems, which explodes.
+> **Thinking**
+>
+> The first idea is recursion: the last step is $1$ or $2$, so $f(n) = f(n-1) + f(n-2)$. $n \le 45$, and a naive recursion re-expands the same subproblems, which explodes.
+>
+> The bottleneck is overlap. This is the Fibonacci sequence, so we can compute it bottom-up.
+>
+> $f[i]$ depends only on the previous two terms, so two rolling variables suffice: $O(n)$ time and $O(1)$ extra space.
 
-The bottleneck is overlap. This is the Fibonacci sequence, so we can compute it bottom-up.
-
-$f[i]$ depends only on the previous two terms, so two rolling variables suffice: $O(n)$ time and $O(1)$ extra space.
+<!-- thinking:end -->
 
 We define $f[i]$ to represent the number of ways to climb to the $i$-th step, then $f[i]$ can be transferred from $f[i - 1]$ and $f[i - 2]$, that is:
 
@@ -216,11 +220,15 @@ class Solution {
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
 
-**Thinking**
+<!-- thinking:start -->
 
-Solution 1 is already $O(n)$, which is enough for $n \le 45$, but a linear recurrence is still slow when $n$ grows.
+> **Thinking**
+>
+> Solution 1 is already $O(n)$, which is enough for $n \le 45$, but a linear recurrence is still slow when $n$ grows.
+>
+> A linear homogeneous recurrence is matrix multiplication: $F_n$ comes from $F_{n-1}$ times a fixed $2 \times 2$ transition. Fast matrix exponentiation compresses $n$ steps into $O(\log n)$. Constants are larger; use it when the same recurrence needs to be sped up.
 
-A linear homogeneous recurrence is matrix multiplication: $F_n$ comes from $F_{n-1}$ times a fixed $2 \times 2$ transition. Fast matrix exponentiation compresses $n$ steps into $O(\log n)$. Constants are larger; use it when the same recurrence needs to be sped up.
+<!-- thinking:end -->
 
 We set $Fib(n)$ to represent a $1 \times 2$ matrix $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$, where $F_n$ and $F_{n - 1}$ are the $n$-th and $(n - 1)$-th Fibonacci numbers respectively.
 

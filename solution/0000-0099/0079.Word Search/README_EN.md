@@ -68,11 +68,15 @@ tags:
 
 ### Solution 1: DFS (Backtracking)
 
-**Thinking**
+<!-- thinking:start -->
 
-From every cell, walk length-$|word|$ paths and compare. At most $36$ cells and $|word| \le 15$, unpruned search explodes. Match while walking, abort on mismatch, and never reuse a cell.
+> **Thinking**
+>
+> From every cell, walk length-$|word|$ paths and compare. At most $36$ cells and $|word| \le 15$, unpruned search explodes. Match while walking, abort on mismatch, and never reuse a cell.
+>
+> Enumerate starts; $dfs(i,j,k)$ means $(i,j)$ should match $word[k]$. On match, write `'0'` to block re-entry, try four neighbors at $k+1$, then restore. Letters are never `'0'`, so no extra vis. Any successful start is enough.
 
-Enumerate starts; $dfs(i,j,k)$ means $(i,j)$ should match $word[k]$. On match, write `'0'` to block re-entry, try four neighbors at $k+1$, then restore. Letters are never `'0'`, so no extra vis. Any successful start is enough.
+<!-- thinking:end -->
 
 We can enumerate each position $(i, j)$ in the grid as the starting point of the search, and then start a depth-first search from the starting point. If we can search to the end of the word, it means the word exists, otherwise, it means the word does not exist.
 

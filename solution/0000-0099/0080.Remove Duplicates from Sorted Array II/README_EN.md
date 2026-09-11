@@ -79,11 +79,15 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ### Solution 1: Single Pass
 
-**Thinking**
+<!-- thinking:start -->
 
-Copy into a new array, at most two of each value: correct, but the problem wants in-place $O(1)$ extra space. $n \le 3\times 10^4$, so one pass.
+> **Thinking**
+>
+> Copy into a new array, at most two of each value: correct, but the problem wants in-place $O(1)$ extra space. $n \le 3\times 10^4$, so one pass.
+>
+> Sorted runs are contiguous; problem 26 keeps one copy, here we keep two. Let $k$ be the length of the kept prefix: $x$ may be written iff fewer than two are kept, or it differs from the second-to-last kept value — otherwise it would be a third copy. Write at $nums[k]$, bump $k$, return $k$.
 
-Sorted runs are contiguous; problem 26 keeps one copy, here we keep two. Let $k$ be the length of the kept prefix: $x$ may be written iff fewer than two are kept, or it differs from the second-to-last kept value — otherwise it would be a third copy. Write at $nums[k]$, bump $k$, return $k$.
+<!-- thinking:end -->
 
 We use a variable $k$ to record the current length of the array that has been processed. Initially, $k=0$, representing an empty array.
 

@@ -68,11 +68,15 @@ exection -&gt; execution (insert &#39;u&#39;)
 
 ### Solution 1: Dynamic Programming
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is recursion: at each position of $word1$ try insert, delete, or replace, then take the best. Correct, but exponential. $m,n \le 500$ needs a polynomial.
+> **Thinking**
+>
+> The first idea is recursion: at each position of $word1$ try insert, delete, or replace, then take the best. Correct, but exponential. $m,n \le 500$ needs a polynomial.
+>
+> The bottleneck is overlapping subproblems — converting prefix $i$ into prefix $j$ is solved many times. Let $f[i][j]$ be that minimum. Equal last characters inherit the diagonal; otherwise the three operations map to three neighbors, take $\min$ plus one. Empty-string borders are delete-all / insert-all. The answer is $f[m][n]$.
 
-The bottleneck is overlapping subproblems — converting prefix $i$ into prefix $j$ is solved many times. Let $f[i][j]$ be that minimum. Equal last characters inherit the diagonal; otherwise the three operations map to three neighbors, take $\min$ plus one. Empty-string borders are delete-all / insert-all. The answer is $f[m][n]$.
+<!-- thinking:end -->
 
 We define $f[i][j]$ as the minimum number of operations to convert $word1$ of length $i$ to $word2$ of length $j$. $f[i][0] = i$, $f[0][j] = j$, $i \in [1, m], j \in [0, n]$.
 

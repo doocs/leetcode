@@ -117,11 +117,15 @@ tags:
 
 ### Solution 1: Stack
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is repeated string replace of `'//'`, `'/./'`, and `'/../'`. $n \le 3000$ might pass, but stacked slashes and `'..'` interact, so the replace order is hard to get right.
+> **Thinking**
+>
+> The first idea is repeated string replace of `'//'`, `'/./'`, and `'/../'`. $n \le 3000$ might pass, but stacked slashes and `'..'` interact, so the replace order is hard to get right.
+>
+> What we need is undo: a valid name must be erasable by `'..'`, while empty segments and `'.'` do not move us. That is last-in, first-out, so a stack holds the directories from the root to here. Split on `'/'`, process each piece, then join into the canonical path. We must not pop above the root, so the stack is checked before popping.
 
-What we need is undo: a valid name must be erasable by `'..'`, while empty segments and `'.'` do not move us. That is last-in, first-out, so a stack holds the directories from the root to here. Split on `'/'`, process each piece, then join into the canonical path. We must not pop above the root, so the stack is checked before popping.
+<!-- thinking:end -->
 
 We first split the path into a number of substrings split by `'/'`. Then, we traverse each substring and perform the following operations based on the content of the substring:
 
