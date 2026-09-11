@@ -235,7 +235,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-**思考**
+<!-- thinking:start -->
+
+> **思考**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -279,7 +283,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### Solution 1
 
-**Thinking**
+<!-- thinking:start -->
+
+> **Thinking**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -323,7 +331,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-**思考**
+<!-- thinking:start -->
+
+> **思考**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -385,7 +397,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### Solution 1
 
-**Thinking**
+<!-- thinking:start -->
+
+> **Thinking**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -447,7 +463,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-**思考**
+<!-- thinking:start -->
+
+> **思考**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -491,7 +511,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### Solution 1
 
-**Thinking**
+<!-- thinking:start -->
+
+> **Thinking**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -535,7 +559,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-**思考**
+<!-- thinking:start -->
+
+> **思考**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -579,7 +607,11 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### Solution 1
 
-**Thinking**
+<!-- thinking:start -->
+
+> **Thinking**
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

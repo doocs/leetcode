@@ -103,7 +103,7 @@ GitHub Actions automatically run:
 
 Each method in `README.md` / `README_EN.md` must teach the path to the solution, not only the finished algorithm.
 
-- Insert `**思考**` (Chinese) / `**Thinking**` (English) immediately after `### 方法X` / `### Solution X`, before the existing algorithm write-up.
+- Insert a blockquote labeled `**思考**` / `**Thinking**` immediately after `### 方法X` / `### Solution X`, wrapped in `<!-- thinking:start -->` / `<!-- thinking:end -->`, before the existing algorithm write-up. Do not add a page-level or `####` heading — the quote box is what separates path-to-answer from the formal write-up.
 - Keep the original algorithm steps, complexity, and code tabs unchanged. Do not add a page-level `## 思考` heading.
 - Walk in four beats: naive first idea and whether it fits the constraints; the bottleneck; the key observation that reshapes the problem; why this method's data structure and operation order follow from that observation.
 - Write against the code that is actually in the repo. Do not describe a different algorithm. Do not restate the step-by-step that already follows.
