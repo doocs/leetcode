@@ -98,3 +98,13 @@ GitHub Actions automatically run:
 - Each solution file is named `Solution.{ext}` (capital S)
 - README files use special HTML comment markers for templating (e.g., `<!-- problem:start -->`, `<!-- solution:start -->`)
 - Solutions should match the problem's required class/method signature from LeetCode
+
+## Thinking section (how we arrive at the answer)
+
+Each method in `README.md` / `README_EN.md` must teach the path to the solution, not only the finished algorithm.
+
+- Insert `**思考**` (Chinese) / `**Thinking**` (English) immediately after `### 方法X` / `### Solution X`, before the existing algorithm write-up.
+- Keep the original algorithm steps, complexity, and code tabs unchanged. Do not add a page-level `## 思考` heading.
+- Walk in four beats: naive first idea and whether it fits the constraints; the bottleneck; the key observation that reshapes the problem; why this method's data structure and operation order follow from that observation.
+- Write against the code that is actually in the repo. Do not describe a different algorithm. Do not restate the step-by-step that already follows.
+- For later methods, only explain what the previous method still lacks (space, constants, implementation). Typical length is 3–6 sentences; hard problems may be longer. Match the existing voice (`我们`, LaTeX variables).
