@@ -54,6 +54,14 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 
 ### Solution 1: Monotonic Stack
 
+**Thinking**
+
+The first idea is enumerate every interval $[l, r]$, take the min height, area $(r - l + 1) \times \min$. Correct, but $O(n^2)$. $n \le 10^5$ will time out.
+
+The bottleneck is recomputing the min over every range. Flip the enumeration: let bar $i$ be the shortest bar of the rectangle; the width is the span to the nearest strictly shorter bars on both sides.
+
+“Nearest smaller on left/right” is the monotonic-stack model. Indices in the stack have increasing heights; a shorter bar pops others and becomes their right bound, while the new top is the left bound. Each bar enters and leaves once, so one linear pass.
+
 We can enumerate the height $h$ of each bar as the height of the rectangle. Using a monotonic stack, we find the index $left_i$, $right_i$ of the first bar with a height less than $h$ to the left and right. The area of the rectangle at this time is $h \times (right_i-left_i-1)$. We can find the maximum value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ represents the length of $heights$.

@@ -46,6 +46,14 @@ tags:
 
 ### Solution 1: Sorting + DFS
 
+**Thinking**
+
+The first idea is the same DFS as Subsets: take or skip each index. Correct, but duplicates make $[1, 2]$ appear twice. $n \le 10$ is small, yet the solution set must be unique.
+
+The bottleneck is treating equal values at different indices as distinct choices. Sort so equals sit together; skip the same value on the “not take” branch so each multiset is generated once.
+
+After sorting, DFS: take $i$, then on the skip path jump over every later equal $\textit{nums}[i]$. How many copies we take is decided by recursion depth, never as two identical subsets side by side.
+
 We can first sort the array $\textit{nums}$ to facilitate deduplication.
 
 Then, we design a function $\textit{dfs}(i)$, which represents the current search for subsets starting from the $i$-th element. The execution logic of the function $\textit{dfs}(i)$ is as follows:
@@ -294,6 +302,12 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Binary Enumeration
+
+**Thinking**
+
+Solution 1 already deduplicates, but recursion pays a stack and the skip logic is easy to get wrong. $n \le 10$, so we can enumerate all $2^n$ masks.
+
+What it lacks is “take or skip” as bits. Bit $i$ of $\textit{mask}$ means taking $\textit{nums}[i]$; taking $i$ without $i - 1$ when the values are equal skips an earlier copy — a duplicate, drop it. Same asymptotics, one loop.
 
 Similar to Solution 1, we first sort the array $\textit{nums}$ to facilitate deduplication.
 

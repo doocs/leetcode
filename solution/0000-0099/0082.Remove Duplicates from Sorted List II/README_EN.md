@@ -51,6 +51,14 @@ tags:
 
 ### Solution 1: Single Pass
 
+**Thinking**
+
+The first idea is count frequencies, then rebuild a list of values that appear once. Correct, and $n \le 300$ is tiny, but that wastes “already sorted, so duplicates are adjacent” and uses extra $O(n)$ space.
+
+The bottleneck is not using adjacency. Equal values form a contiguous run; one pass decides whether the whole run stays.
+
+The head may be deleted, so we need a dummy. And when a run is dropped, the predecessor must not advance into it. Keep $pre$ on the last kept node and slide $cur$ over the current value: if $pre.next$ is still $cur$, the run has length one and $pre$ moves; otherwise skip the whole run.
+
 First, we create a dummy head node $dummy$, and set $dummy.next = head$. Then we create a pointer $pre$ pointing to $dummy$, and a pointer $cur$ pointing to $head$, and start traversing the linked list.
 
 When the node value pointed by $cur$ is the same as the node value pointed by $cur.next$, we let $cur$ keep moving forward until the node value pointed by $cur$ is different from the node value pointed by $cur.next$. At this point, we check whether $pre.next$ is equal to $cur$. If they are equal, it means there are no duplicate nodes between $pre$ and $cur$, so we move $pre$ to the position of $cur$; otherwise, it means there are duplicate nodes between $pre$ and $cur$, so we set $pre.next$ to $cur.next$. Then we continue to move $cur$ forward. Continue the above operation until $cur$ is null, and the traversal ends.

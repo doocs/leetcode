@@ -50,6 +50,14 @@ tags:
 
 ### Solution 1: Single Pass
 
+**Thinking**
+
+The first idea is dump values into a set and rebuild. Correct, and $n \le 300$ is tiny, but that ignores sorted adjacency and uses extra space.
+
+The bottleneck is not rewriting links in place. Duplicates sit next to each other, so skipping $cur.next$ when values match is enough.
+
+Unlike the previous problem, we keep the first occurrence. A single pointer walk: drop the next node when equal, advance only when different. The head is always kept, so no dummy is needed.
+
 We use a pointer $cur$ to traverse the linked list. If the element corresponding to the current $cur$ is the same as the element corresponding to $cur.next$, we set the $next$ pointer of $cur$ to point to the next node of $cur.next$. Otherwise, it means that the element corresponding to $cur$ in the linked list is not duplicated, so we can move the $cur$ pointer to the next node.
 
 After the traversal ends, return the head node of the linked list.

@@ -63,6 +63,12 @@ tags:
 
 ### Solution 1: DFS
 
+**Thinking**
+
+An IP is exactly four segments, each $0$–$255$ with no leading zeros. $n \le 20$, so enumerating three cuts works, but leading zeros, overflow, and segment count scatter across nested loops.
+
+Backtracking is the natural shape: from index $i$, try $1$–$3$ digits as the next segment, and recurse if valid. Collect only when we have four segments and the string is consumed; stop if we already have four or run past the end. Prune illegal prefixes early.
+
 We define a function $dfs(i)$, which represents the list of IP addresses that can be formed starting from the $i$th position of string $s$.
 
 The execution steps of function $dfs(i)$ are as follows:

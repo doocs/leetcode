@@ -80,6 +80,14 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 
 ### Solution 1: Memorized Search
 
+**Thinking**
+
+The first idea is recurse on the definition: try every split, swap or not, recurse on both sides. Correct, but the same substring pair is asked many times. $n \le 30$ explodes without memo.
+
+The bottleneck is overlapping subproblems. The state is only “can $s_1[i:i+k]$ scramble into $s_2[j:j+k]$.”
+
+A scramble only chooses to swap or not after a cut. Enumerate cut length $h$: either the two pieces line up, or they cross. Cache $dfs(i, j, k)$: $O(n^3)$ states, $O(n)$ cuts each, $O(n^4)$ total.
+
 We design a function $dfs(i, j, k)$, which means whether the substring starting from $i$ with length $k$ in $s_1$ can be converted into the substring starting from $j$ with length $k$ in $s_2$. If it can be converted, return `true`, otherwise return `false`. The answer is $dfs(0, 0, n)$, where $n$ is the length of the string.
 
 The calculation method of function $dfs(i, j, k)$ is as follows:
@@ -289,6 +297,12 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Interval DP)
+
+**Thinking**
+
+Solution 1 is already $O(n^4)$, but recursion pays a call stack and cache constants. At $n = 30$ both hurt.
+
+What it lacks is the same transition written bottom-up. $f[i][j][k]$ is the table form of $dfs(i, j, k)$: fill length $1$ first, then increasing $k$. Same asymptotics, more stable constants.
 
 We define $f[i][j][k]$ as whether the substring of length $k$ starting from $i$ of string $s_1$ can be transformed into the substring of length $k$ starting from $j$ of string $s_2$. Then the answer is $f[0][0][n]$, where $n$ is the length of the string.
 

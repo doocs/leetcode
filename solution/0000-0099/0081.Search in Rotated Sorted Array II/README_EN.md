@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: Binary Search
 
+**Thinking**
+
+The first idea is a linear scan: compare each element with $\textit{target}$. Correct, but the problem asks to minimize operations, and the array is two sorted halves after rotation. $n \le 5000$ would pass a scan, yet that ignores the order.
+
+The bottleneck is not using “at least one half is sorted.” Ordinary binary search needs a fully sorted range; comparing $\textit{nums}[\textit{mid}]$ with $\textit{nums}[r]$ tells us which side is ordered, then whether $\textit{target}$ lies in that half.
+
+Unlike Search in Rotated Sorted Array, duplicates are allowed. When $\textit{nums}[\textit{mid}] = \textit{nums}[r]$ we cannot tell which side is ordered, so we only decrement $r$. If the whole range is equal this degrades to $O(n)$ — the unavoidable cost of duplicates.
+
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n - 1$, where $n$ is the length of the array.
 
 Each time during the binary search, we get the current midpoint $\textit{mid} = (l + r) / 2$.

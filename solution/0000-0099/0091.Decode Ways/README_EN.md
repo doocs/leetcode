@@ -94,6 +94,14 @@ Given a string s containing only digits, return the <strong>number of ways</stro
 
 ### Solution 1: Dynamic Programming
 
+**Thinking**
+
+The first idea is recursion: at index $i$, decode $s[i]$ alone (if not $0$), or pair it with the previous digit into $10$–$26$. $n \le 100$, but without memoization the tree is exponential because the same prefix is decoded again and again.
+
+The bottleneck is that the number of ways to decode the first $i$ characters depends only on shorter prefixes, and a valid split is only “one digit / two digits”. That is climbing stairs with encoding constraints.
+
+So let $f[i]$ be the number of ways for the first $i$ characters. The empty string has one way; $0$ cannot stand alone; only $10$–$26$ can be a pair. Scan once instead of enumerating every partition.
+
 We define $f[i]$ to represent the number of decoding methods for the first $i$ characters of the string. Initially, $f[0]=1$, and the rest $f[i]=0$.
 
 Consider how $f[i]$ transitions.
@@ -230,6 +238,10 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+**Thinking**
+
+Solution 1 is already correct. Each $f[i]$ only needs $f[i-1]$ and $f[i-2]$, so the full array is unnecessary. Two rolling variables cut space to $O(1)$; time is still a single pass.
 
 We notice that the state $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. Therefore, we can use two variables to replace these states, reducing the space complexity from $O(n)$ to $O(1)$. The time complexity remains $O(n)$.
 
