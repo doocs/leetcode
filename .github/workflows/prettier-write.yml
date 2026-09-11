@@ -70,4 +70,4 @@ jobs:
         with:
           commit_message: "style: format code and docs with prettier"
           commit_user_name: idoocs
-          commit_user_email: doocs-bot@outlook.com
+          commit_user_email: botdoocs@gmail.com
