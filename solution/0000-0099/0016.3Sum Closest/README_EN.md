@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Sorting + Two Pointers
 
+**Thinking**
+
+The first idea is to try every triplet and keep the sum closest to $target$. That is $O(n^3)$. $n\le 1000$ is about $10^9$ operations and will not pass.
+
+The bottleneck is still brute-forcing the other two numbers after fixing one. We do not need every triplet, only the sum nearest $target$. After sorting, a sum that is too large can only get closer by moving the right end left; one that is too small must move the left end right. An exact hit is already optimal.
+
+So we enumerate the first number and squeeze the rest with two pointers, tracking the smallest deviation. The answer is unique, so we need not skip duplicates.
+
 We sort the array first, then traverse the array. For each element $nums[i]$, we use pointers $j$ and $k$ to point to $i+1$ and $n-1$ respectively, calculate the sum of the three numbers. If the sum of the three numbers equals $target$, we directly return $target$. Otherwise, we update the answer based on the difference from $target$. If the sum of the three numbers is greater than $target$, we move $k$ one place to the left, otherwise, we move $j$ one place to the right.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.

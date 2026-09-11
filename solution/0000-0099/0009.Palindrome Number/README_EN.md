@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Reverse Half of the Number
 
+**Thinking**
+
+Converting to a string and comparing with its reverse is the obvious idea; the follow-up asks us not to. Reversing the whole $x$ and comparing would also overflow 32-bit integers.
+
+We only need half: keep appending $x$’s last digit onto $y$ until $y$ is no longer smaller than the remaining prefix. A negative number cannot be a palindrome; a nonzero number ending in $0$ would drop that zero when reversed, so those are false as well.
+
+The loop stops when the two halves have the same length. Even length compares $x$ with $y$; odd length leaves the middle digit on $y$, so we compare $x$ with $y/10$.
+
 First, we determine special cases:
 
 - If $x < 0$, then $x$ is not a palindrome, directly return `false`;

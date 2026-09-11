@@ -63,6 +63,14 @@ tags:
 
 ### 方法一：分治
 
+**思考**
+
+合并两条有序数组再取中位数最直接，时间 $O(m+n)$。$m,n \le 10^3$ 能过，题目却要求 $O(\log(m+n))$，线性扫不可用。
+
+瓶颈是：中位数只关心合并后正中间的一两个位置，前面那些更小的数只需知道「有多少个」，不必列出来。两条都有序，比较各自第 $\left\lfloor k/2 \right\rfloor$ 个数，就能判断哪一侧的前一半绝不可能是第 $k$ 小，从而一次丢掉一半候选。
+
+因此不建合并数组，而是在剩余区间里求第 $k$ 小；中位数统一成第 $\left\lfloor (m+n+1)/2 \right\rfloor$ 与第 $\left\lfloor (m+n+2)/2 \right\rfloor$ 的平均，奇偶同一套。某一侧不够 $\left\lfloor k/2 \right\rfloor$ 个时，把该侧当成 $+\infty$，只会丢掉另一侧。
+
 题目要求算法的时间复杂度为 $O(\log (m + n))$，因此不能直接遍历两个数组，而是需要使用二分查找的方法。
 
 如果 $m + n$ 是奇数，那么中位数就是第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 个数；如果 $m + n$ 是偶数，那么中位数就是第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 和第 $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$ 个数的平均数。实际上，我们可以统一为求第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 个数和第 $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$ 个数的平均数。

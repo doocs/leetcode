@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: Sorting + Double Pointers
 
+**Thinking**
+
+The first idea is four nested loops plus a set. With $n\le 200$, $O(n^4)$ is tight, and deduplication is messy.
+
+The bottleneck is the same as 3Sum: after fixing two numbers, the rest is two-sum. Brute force is $O(n^2)$; sorted two pointers are $O(n)$. After sorting, duplicates sit together, so skipping equal $i$ and $j$ keeps quadruplets unique.
+
+So we enumerate two indices and squeeze the rest with a pair of pointers, $O(n^3)$, with no hash table.
+
 We notice that the problem requires us to find non-repeating quadruplets. Therefore, we can first sort the array, which makes it easy to skip duplicate elements.
 
 Next, we enumerate the first two elements of the quadruplet, $nums[i]$ and $nums[j]$, where $i \lt j$. During the enumeration process, we skip duplicate $nums[i]$ and $nums[j]$. Then, we use two pointers $k$ and $l$ to point to the two ends behind $nums[i]$ and $nums[j]$. Let $x = nums[i] + nums[j] + nums[k] + nums[l]$, we compare $x$ with $target$ and perform the following operations:

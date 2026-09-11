@@ -135,6 +135,14 @@ Step 3: &quot;<u>0</u>-1&quot; (&quot;0&quot; is read in; reading stops because 
 
 ### Solution 1: Traverse the String
 
+**Thinking**
+
+A single left-to-right scan is enough; $n \le 200$ is not a complexity issue. The easy mistakes are the order of rules: skip leading spaces, consume at most one sign, then take consecutive digits, stop at the first non-digit, and clamp to 32 bits.
+
+Without 64-bit integers we cannot finish the product and clip later. We accumulate the absolute value, comparing against $\lfloor (2^{31}-1)/10 \rfloor$ before multiplying by $10$, and saturate to $2^{31}-1$ or $-2^{31}$ on overflow.
+
+Both signs share that upper bound; the sign is applied at the end. An empty string or all spaces has no digits, so we return $0$.
+
 First, we determine whether the string is empty. If it is, we directly return $0$.
 
 Otherwise, we need to traverse the string, skip the leading spaces, and determine whether the first non-space character is a positive or negative sign.

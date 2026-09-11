@@ -53,6 +53,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+**Thinking**
+
+Checking every $s[i..j]$ from the ends is $O(n^3)$. $n \le 10^3$ is tight and often times out.
+
+The waste is rescanning each substring. A palindrome has optimal substructure: $s[i..j]$ is a palindrome iff the two ends match and the inner $s[i+1..j-1]$ already is one. Single characters are palindromes for free.
+
+So we fill an interval table in dependency order instead of scanning repeatedly. $f[i][j]$ reads a shorter inner cell, so that cell must already be known; while filling, $k$ and $mx$ remember the start and length of the best palindrome so far.
+
 We define $f[i][j]$ to represent whether the string $s[i..j]$ is a palindrome, initially $f[i][j] = true$.
 
 Next, we define variables $k$ and $mx$, where $k$ represents the starting position of the longest palindrome, and $mx$ represents the length of the longest palindrome. Initially, $k = 0$, $mx = 1$.
@@ -345,6 +353,14 @@ proc longestPalindrome(s: string): string =
 <!-- solution:start -->
 
 ### Solution 2: Enumerate Palindrome Midpoint
+
+**Thinking**
+
+Solution 1 is already $O(n^2)$ time, but it still pays $O(n^2)$ space. Each check only needs the inner layer, not the whole table.
+
+A palindrome expands symmetrically from a center: grow while the two ends match. We must try both odd centers $(i,i)$ and even centers $(i,i+1)$, or we miss strings like `"bb"`.
+
+After expanding, recover the start from center $i$ and length $t$. Extra space drops to $O(1)$.
 
 We can enumerate the midpoint of the palindrome, spread to both sides, and find the longest palindrome.
 
