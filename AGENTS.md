@@ -108,3 +108,4 @@ Each method in `README.md` / `README_EN.md` must teach the path to the solution,
 - Walk in four beats: naive first idea and whether it fits the constraints; the bottleneck; the key observation that reshapes the problem; why this method's data structure and operation order follow from that observation.
 - Write against the code that is actually in the repo. Do not describe a different algorithm. Do not restate the step-by-step that already follows.
 - For later methods, only explain what the previous method still lacks (space, constants, implementation). Typical length is 3–6 sentences; hard problems may be longer. Match the existing voice (`我们`, LaTeX variables).
+- Chinese **思考** must read as the same formal written prose as the algorithm section that follows. Vary sentence openings; use complete paragraphs (`若…则…`, `因此`, `为此`, `注意到`). Do not use template slogans such as `最容易想到的是`, `正确，但`, `慢在`, `卡点是`, `于是我们`, `必超时`, `指数爆炸`.
