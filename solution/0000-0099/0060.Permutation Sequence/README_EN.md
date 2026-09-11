@@ -59,13 +59,17 @@ tags:
 
 ### Solution 1: Enumeration
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to generate all $n!$ permutations and pick the $k$-th. $n \le 9$, so $9!$ would pass, but we never need the other permutations.
+> **Thinking**
+>
+> The first idea is to generate all $n!$ permutations and pick the $k$-th. $n \le 9$, so $9!$ would pass, but we never need the other permutations.
+>
+> The waste is listing then selecting. After the first digit is fixed, the rest form $(n-1)!$ permutations; comparing $k$ with that block size tells us which unused number goes here.
+>
+> So we enumerate each position left to right, skip whole blocks with factorials, and mark used numbers in $\textit{vis}$. Time $O(n^2)$.
 
-The waste is listing then selecting. After the first digit is fixed, the rest form $(n-1)!$ permutations; comparing $k$ with that block size tells us which unused number goes here.
-
-So we enumerate each position left to right, skip whole blocks with factorials, and mark used numbers in $\textit{vis}$. Time $O(n^2)$.
+<!-- thinking:end -->
 
 We know that the set $[1,2,..n]$ has a total of $n!$ permutations. If we determine the first digit, the number of permutations that the remaining digits can form is $(n-1)!$.
 

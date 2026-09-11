@@ -50,13 +50,17 @@ tags:
 
 ### Solution 1: Simulation
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to fill by layers: four edges per layer, then shrink. $n \le 20$ would pass, with the same boundary bugs.
+> **Thinking**
+>
+> The first idea is to fill by layers: four edges per layer, then shrink. $n \le 20$ would pass, with the same boundary bugs.
+>
+> The waste is hand-managing four edges. As in spiral read: keep the direction, turn right when the next cell is out of bounds or already filled. Empty cells are $0$, filled cells are nonzero, so no extra $\textit{vis}$.
+>
+> So cycle directions and write $1$ through $n^2$.
 
-The waste is hand-managing four edges. As in spiral read: keep the direction, turn right when the next cell is out of bounds or already filled. Empty cells are $0$, filled cells are nonzero, so no extra $\textit{vis}$.
-
-So cycle directions and write $1$ through $n^2$.
+<!-- thinking:end -->
 
 We can directly simulate the process of generating the spiral matrix.
 

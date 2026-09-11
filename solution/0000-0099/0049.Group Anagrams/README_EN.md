@@ -71,13 +71,17 @@ tags:
 
 ### Solution 1: Hash Table
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is pairwise anagram checks: sort each string and compare. Correct, but $n \le 10^4$ and $k \le 100$ make $O(n^2 \cdot k \log k)$ too slow.
+> **Thinking**
+>
+> The first idea is pairwise anagram checks: sort each string and compare. Correct, but $n \le 10^4$ and $k \le 100$ make $O(n^2 \cdot k \log k)$ too slow.
+>
+> Pairwise comparison is the bottleneck. Anagrams share one sorted form — that string is the group id.
+>
+> Use the sorted string as key and a list of originals as value. One pass into a hash table clusters them; no pairwise matching.
 
-Pairwise comparison is the bottleneck. Anagrams share one sorted form — that string is the group id.
-
-Use the sorted string as key and a list of originals as value. One pass into a hash table clusters them; no pairwise matching.
+<!-- thinking:end -->
 
 1. Traverse the string array, sort each string in **character dictionary order** to get a new string.
 2. Use the new string as `key` and `[str]` as `value`, and store them in the hash table (`HashMap<String, List<String>>`).
@@ -226,11 +230,15 @@ public class Solution {
 
 ### Solution 2: Counting
 
-**Thinking**
+<!-- thinking:start -->
 
-Solution 1 sorts every string, $O(k \log k)$ each. The alphabet is $26$ lowercase letters; with $k \le 100$ the $\log k$ factor is waste.
+> **Thinking**
+>
+> Solution 1 sorts every string, $O(k \log k)$ each. The alphabet is $26$ lowercase letters; with $k \le 100$ the $\log k$ factor is waste.
+>
+> What it lacks is a cheaper key. Count each letter and use the length-$26$ tuple as the key. Same hash grouping, linear per string.
 
-What it lacks is a cheaper key. Count each letter and use the length-$26$ tuple as the key. Same hash grouping, linear per string.
+<!-- thinking:end -->
 
 We can also change the sorting part in Solution 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and use the string $s$ as `value` to store in the hash table.
 

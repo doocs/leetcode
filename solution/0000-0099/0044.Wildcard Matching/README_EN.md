@@ -70,13 +70,17 @@ tags:
 
 ### Solution 1: Memoization Search
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is recurse character by character: literals and `?` match one, `*` eats empty or more. Correct, but without memo the `*` branches explode. $|s|, |p| \le 2000$ will time out.
+> **Thinking**
+>
+> The first idea is recurse character by character: literals and `?` match one, `*` eats empty or more. Correct, but without memo the `*` branches explode. $|s|, |p| \le 2000$ will time out.
+>
+> The bottleneck is asking the same suffix pair $(i, j)$ over and over. The state is only “does $s[i:]$ match $p[j:]$”; subproblems overlap heavily.
+>
+> Cache $dfs(i, j)$. The three `*` moves (consume one, advance both, skip `*`) are transitions on that state. Memoization turns exponential search into $O(mn)$.
 
-The bottleneck is asking the same suffix pair $(i, j)$ over and over. The state is only “does $s[i:]$ match $p[j:]$”; subproblems overlap heavily.
-
-Cache $dfs(i, j)$. The three `*` moves (consume one, advance both, skip `*`) are transitions on that state. Memoization turns exponential search into $O(mn)$.
+<!-- thinking:end -->
 
 We design a function $dfs(i, j)$, which represents whether the string $s$ starting from the $i$-th character matches the string $p$ starting from the $j$-th character. The answer is $dfs(0, 0)$.
 
@@ -294,11 +298,15 @@ public class Solution {
 
 ### Solution 2: Dynamic Programming
 
-**Thinking**
+<!-- thinking:start -->
 
-Solution 1 is already $O(mn)$, but recursion pays a call stack and cache constants. At length $2000$, both hurt.
+> **Thinking**
+>
+> Solution 1 is already $O(mn)$, but recursion pays a call stack and cache constants. At length $2000$, both hurt.
+>
+> What it lacks is the same transition written bottom-up. $f[i][j]$ is the table form of $dfs(i, j)$: fill the empty-string/`*` border first, then the rest. Same asymptotics, more stable constants.
 
-What it lacks is the same transition written bottom-up. $f[i][j]$ is the table form of $dfs(i, j)$: fill the empty-string/`*` border first, then the rest. Same asymptotics, more stable constants.
+<!-- thinking:end -->
 
 We can convert the memoization search in Solution 1 into dynamic programming.
 

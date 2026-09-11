@@ -61,13 +61,17 @@ tags:
 
 ### Solution 1: Mathematics (Fast Powering)
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is multiply $x$ by itself $|n|$ times. $|n|$ reaches $2^{31}$, so a linear loop times out; negative $n$ also needs a reciprocal.
+> **Thinking**
+>
+> The first idea is multiply $x$ by itself $|n|$ times. $|n|$ reaches $2^{31}$, so a linear loop times out; negative $n$ also needs a reciprocal.
+>
+> The bottleneck is multiplying by one $x$ at a time. $x^{2k} = (x^k)^2$ and $x^{2k+1} = x \cdot (x^k)^2$ — the exponent halves each step.
+>
+> Walk the bits of $n$: square the base, and when a bit is $1$ multiply into the answer. For negative $n$, compute the positive power then take the reciprocal. Fast powering drops $O(|n|)$ to $O(\log |n|)$.
 
-The bottleneck is multiplying by one $x$ at a time. $x^{2k} = (x^k)^2$ and $x^{2k+1} = x \cdot (x^k)^2$ — the exponent halves each step.
-
-Walk the bits of $n$: square the base, and when a bit is $1$ multiply into the answer. For negative $n$, compute the positive power then take the reciprocal. Fast powering drops $O(|n|)$ to $O(\log |n|)$.
+<!-- thinking:end -->
 
 The core idea of the fast powering algorithm is to decompose the exponent $n$ into the sum of $1$s on several binary bits, and then transform the $n$th power of $x$ into the product of several powers of $x$.
 
