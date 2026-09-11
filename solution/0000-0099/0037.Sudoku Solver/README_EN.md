@@ -62,13 +62,17 @@ tags:
 
 ### Solution 1: Backtracking
 
-**Thinking**
+<!-- thinking:start -->
 
-There can be dozens of empty cells and $9$ choices each, so brute force is impossible. We must stop as soon as a row, column, or box is violated.
+> **Thinking**
+>
+> There can be dozens of empty cells and $9$ choices each, so brute force is impossible. We must stop as soon as a row, column, or box is violated.
+>
+> As in Valid Sudoku, the bottleneck is repeatedly asking whether a digit is already used. Record the given digits in $row$, $col$, and $block$, then search only the empty-cell list $t$.
+>
+> $dfs(k)$ fills the $k$-th empty cell: try each unused $v$, write it, and recurse. When a solution is found, $ok$ cuts off further tries. Backtracking restores the occupancy flags; digits on the successful path stay on the board.
 
-As in Valid Sudoku, the bottleneck is repeatedly asking whether a digit is already used. Record the given digits in $row$, $col$, and $block$, then search only the empty-cell list $t$.
-
-$dfs(k)$ fills the $k$-th empty cell: try each unused $v$, write it, and recurse. When a solution is found, $ok$ cuts off further tries. Backtracking restores the occupancy flags; digits on the successful path stay on the board.
+<!-- thinking:end -->
 
 We use arrays $\textit{row}$, $\textit{col}$, and $\textit{box}$ to record whether each number has appeared in each row, each column, and each 3x3 sub-box, respectively. If the number $i$ has appeared in row $r$, column $c$, or the $b$-th 3x3 sub-box, then $\text{row[r][i]}$, $\text{col[c][i]}$, and $\text{box[b][i]}$ are all set to $true$.
 

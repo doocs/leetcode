@@ -77,15 +77,19 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ### Solution 1: Single Pass
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is a hash set of seen values, then write them back. $n \le 3\times 10^4$ would pass, but the problem wants an in-place rewrite, so the extra table is wasteful.
+> **Thinking**
+>
+> The first idea is a hash set of seen values, then write them back. $n \le 3\times 10^4$ would pass, but the problem wants an in-place rewrite, so the extra table is wasteful.
+>
+> The bottleneck is the "have we seen this" query. The array is non-decreasing, so equals sit next to each other and a global lookup is unnecessary.
+>
+> Compare $x$ with the last value already written. If it differs (or nothing has been written yet), write it at index $k$; otherwise skip.
+>
+> $k$ is both the write pointer and the unique length. One pass, $O(1)$ extra space.
 
-The bottleneck is the "have we seen this" query. The array is non-decreasing, so equals sit next to each other and a global lookup is unnecessary.
-
-Compare $x$ with the last value already written. If it differs (or nothing has been written yet), write it at index $k$; otherwise skip.
-
-$k$ is both the write pointer and the unique length. One pass, $O(1)$ extra space.
+<!-- thinking:end -->
 
 We use a variable $k$ to record the current length of the processed array. Initially, $k=0$ represents an empty array.
 

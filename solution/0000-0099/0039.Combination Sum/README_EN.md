@@ -67,13 +67,17 @@ These are the only two combinations.
 
 ### Solution 1: Sorting + Pruning + Backtracking
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to use each number any number of times and collect every sequence that sums to $target$. With $n \le 30$ and $target \le 40$, an unpruned search wastes paths that already exceed the target, and different orders of the same multiset would be counted twice.
+> **Thinking**
+>
+> The first idea is to use each number any number of times and collect every sequence that sums to $target$. With $n \le 30$ and $target \le 40$, an unpruned search wastes paths that already exceed the target, and different orders of the same multiset would be counted twice.
+>
+> A combination ignores order, so each multiset should appear once. Sort first, and only take candidates from the current index rightward.
+>
+> After sorting, if the remainder $s$ is already smaller than $candidates[i]$, everything after is larger and the branch dies. $dfs(i,s)$ enumerates $j$ from $i$, and the recursive call stays at $j$ so the same value may be reused.
 
-A combination ignores order, so each multiset should appear once. Sort first, and only take candidates from the current index rightward.
-
-After sorting, if the remainder $s$ is already smaller than $candidates[i]$, everything after is larger and the branch dies. $dfs(i,s)$ enumerates $j$ from $i$, and the recursive call stays at $j$ so the same value may be reused.
+<!-- thinking:end -->
 
 We can first sort the array to facilitate pruning.
 
@@ -297,9 +301,13 @@ public class Solution {
 
 ### Solution 2: Sorting + Pruning + Backtracking(Another Form)
 
-**Thinking**
+<!-- thinking:start -->
 
-Method 1 already prunes correctly by looping over “who is next”. The other writing is choose-or-skip at the current index: skip goes to $i+1$; take stays at $i$ so the same value may be reused. The search tree looks different; the answers do not. It is the same algorithm unfolded as a binary tree.
+> **Thinking**
+>
+> Method 1 already prunes correctly by looping over “who is next”. The other writing is choose-or-skip at the current index: skip goes to $i+1$; take stays at $i$ so the same value may be reused. The search tree looks different; the answers do not. It is the same algorithm unfolded as a binary tree.
+
+<!-- thinking:end -->
 
 We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.
 

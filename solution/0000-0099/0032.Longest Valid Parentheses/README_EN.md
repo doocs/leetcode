@@ -61,15 +61,19 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to test every substring with a stack. Correct, but $n \le 3 \times 10^4$ makes $O(n^2)$ or $O(n^3)$ too slow.
+> **Thinking**
+>
+> The first idea is to test every substring with a stack. Correct, but $n \le 3 \times 10^4$ makes $O(n^2)$ or $O(n^3)$ too slow.
+>
+> The bottleneck is overlap: the longest valid run ending at a position can be built from shorter valid runs.
+>
+> A valid substring can only end with `)`. If it pairs with the previous character, the length is that of the prefix before this pair plus $2$. If the previous character is also `)`, we skip the already-valid chunk ending there and check whether a `(` sits just before that chunk.
+>
+> So we let $f[i]$ be the longest valid length ending at $s[i-1]$, transfer on those two pairing cases, and take $\max f[i]$.
 
-The bottleneck is overlap: the longest valid run ending at a position can be built from shorter valid runs.
-
-A valid substring can only end with `)`. If it pairs with the previous character, the length is that of the prefix before this pair plus $2$. If the previous character is also `)`, we skip the already-valid chunk ending there and check whether a `(` sits just before that chunk.
-
-So we let $f[i]$ be the longest valid length ending at $s[i-1]$, transfer on those two pairing cases, and take $\max f[i]$.
+<!-- thinking:end -->
 
 We define $f[i]$ to be the length of the longest valid parentheses that ends with $s[i-1]$, and the answer is $max(f[i])$.
 
@@ -293,13 +297,17 @@ public class Solution {
 
 ### Solution 2: Using Stack
 
-**Thinking**
+<!-- thinking:start -->
 
-Method 1 is already $O(n)$, but the recurrence splits on whether the previous character is `(` and on pairing across an already-valid chunk, so the boundaries are easy to miss.
+> **Thinking**
+>
+> Method 1 is already $O(n)$, but the recurrence splits on whether the previous character is `(` and on pairing across an already-valid chunk, so the boundaries are easy to miss.
+>
+> What we still lack is not a better complexity, but a record that matches pairing more directly: indices of unmatched `(`, and where the last broken prefix starts.
+>
+> Seed the stack with $-1$ as a baseline, push on `(`, pop on `)`. An empty stack means the current `)` is a new baseline; otherwise the top of the stack updates the length. Time and space stay $O(n)$; the matching process is just easier to see.
 
-What we still lack is not a better complexity, but a record that matches pairing more directly: indices of unmatched `(`, and where the last broken prefix starts.
-
-Seed the stack with $-1$ as a baseline, push on `(`, pop on `)`. An empty stack means the current `)` is a new baseline; otherwise the top of the stack updates the length. Time and space stay $O(n)$; the matching process is just easier to see.
+<!-- thinking:end -->
 
 - Maintain a stack to store the indices of left parentheses. Initialize the bottom element of the stack with the value -1 to facilitate the calculation of the length of valid parentheses.
 - Iterate through each element of the string:

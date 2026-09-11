@@ -84,15 +84,19 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 ### Solution 1: One Pass
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is a fresh array of everything not equal to $val$. $n \le 100$ would pass, but the problem asks for an in-place rewrite, so the extra allocation is unnecessary.
+> **Thinking**
+>
+> The first idea is a fresh array of everything not equal to $val$. $n \le 100$ would pass, but the problem asks for an in-place rewrite, so the extra allocation is unnecessary.
+>
+> The bottleneck is "deleting" with something like $erase$: later elements shift again and again, worst case $O(n^2)$.
+>
+> The judge only cares that the first $k$ slots hold every non-$val$ value; order may change. So overwrite the front of the array with the values we keep.
+>
+> $k$ counts how many we have written: when $x \neq val$, store it at $nums[k]$ and increment $k$. One pass, $O(1)$ extra space.
 
-The bottleneck is "deleting" with something like $erase$: later elements shift again and again, worst case $O(n^2)$.
-
-The judge only cares that the first $k$ slots hold every non-$val$ value; order may change. So overwrite the front of the array with the values we keep.
-
-$k$ counts how many we have written: when $x \neq val$, store it at $nums[k]$ and increment $k$. One pass, $O(1)$ extra space.
+<!-- thinking:end -->
 
 We use the variable $k$ to record the number of elements that are not equal to $val$.
 

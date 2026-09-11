@@ -44,15 +44,19 @@ tags:
 
 ### Solution 1: DFS + Pruning
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to enumerate every string of length $2n$ and keep the valid ones. $n \le 8$ gives $2^{16}$ candidates, so it would pass, but most prefixes are already illegal.
+> **Thinking**
+>
+> The first idea is to enumerate every string of length $2n$ and keep the valid ones. $n \le 8$ gives $2^{16}$ candidates, so it would pass, but most prefixes are already illegal.
+>
+> The bottleneck is generate-then-check: once a prefix has more `)` than `(`, or either count exceeds $n$, no suffix can save it.
+>
+> A valid prefix only needs the two counts $l$ and $r$: keep $l \ge r$ and neither above $n$. When $l=r=n$, record the string.
+>
+> DFS therefore tries appending `(` or `)` and prunes on those three inequalities. The search tree is much smaller than full enumeration; extra space is just the current string, $O(n)$.
 
-The bottleneck is generate-then-check: once a prefix has more `)` than `(`, or either count exceeds $n$, no suffix can save it.
-
-A valid prefix only needs the two counts $l$ and $r$: keep $l \ge r$ and neither above $n$. When $l=r=n$, record the string.
-
-DFS therefore tries appending `(` or `)` and prunes on those three inequalities. The search tree is much smaller than full enumeration; extra space is just the current string, $O(n)$.
+<!-- thinking:end -->
 
 The range of $n$ in the problem is $[1, 8]$, so we can directly solve this problem through "brute force search + pruning".
 

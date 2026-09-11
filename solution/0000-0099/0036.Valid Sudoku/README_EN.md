@@ -84,13 +84,17 @@ tags:
 
 ### Solution 1: Traversal once
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is, for each filled digit, to rescan its row, column, and box. The board is only $9 \times 9$, so that would pass.
+> **Thinking**
+>
+> The first idea is, for each filled digit, to rescan its row, column, and box. The board is only $9 \times 9$, so that would pass.
+>
+> The bottleneck is rescanning the same row, column, and box. We only need to remember whether digit $v$ has already appeared in that unit.
+>
+> One pass is enough: three boolean tables $row[i][v]$, $col[j][v]$, and $sub[k][v]$, with box index $k = \lfloor i/3 \rfloor \times 3 + \lfloor j/3 \rfloor$. A second hit of the same digit returns false immediately.
 
-The bottleneck is rescanning the same row, column, and box. We only need to remember whether digit $v$ has already appeared in that unit.
-
-One pass is enough: three boolean tables $row[i][v]$, $col[j][v]$, and $sub[k][v]$, with box index $k = \lfloor i/3 \rfloor \times 3 + \lfloor j/3 \rfloor$. A second hit of the same digit returns false immediately.
+<!-- thinking:end -->
 
 The valid sudoku satisfies the following three conditions:
 
