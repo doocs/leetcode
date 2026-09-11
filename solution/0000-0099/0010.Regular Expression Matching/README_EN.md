@@ -71,13 +71,17 @@ tags:
 
 ### Solution 1: Memoization Search
 
-**Thinking**
+<!-- thinking:start -->
 
-Matching left to right and, at each `*`, trying $0,1,2,\ldots$ repetitions is the natural search. $s$ and $p$ are at most length $20$, so exponential time sometimes passes, but the same pair of positions is recomputed over and over.
+> **Thinking**
+>
+> Matching left to right and, at each `*`, trying $0,1,2,\ldots$ repetitions is the natural search. $s$ and $p$ are at most length $20$, so exponential time sometimes passes, but the same pair of positions is recomputed over and over.
+>
+> A `*` applies only to the preceding token: either match it $0$ times (skip two pattern indices), or the current character fits that token (including `.`) and the same `*` consumes the next character of $s$. A plain character must be consumed one-for-one.
+>
+> The state is therefore “can suffix $i$ of $s$ match suffix $j$ of $p$”. Search with memoization so exponential branches collapse to $O(mn)$ pairs $(i,j)$.
 
-A `*` applies only to the preceding token: either match it $0$ times (skip two pattern indices), or the current character fits that token (including `.`) and the same `*` consumes the next character of $s$. A plain character must be consumed one-for-one.
-
-The state is therefore “can suffix $i$ of $s$ match suffix $j$ of $p$”. Search with memoization so exponential branches collapse to $O(mn)$ pairs $(i,j)$.
+<!-- thinking:end -->
 
 We design a function $dfs(i, j)$, which indicates whether the $i$-th character of $s$ matches the $j$-th character of $p$. The answer is $dfs(0, 0)$.
 
@@ -425,13 +429,17 @@ class Solution {
 
 ### Solution 2: Dynamic Programming
 
-**Thinking**
+<!-- thinking:start -->
 
-Memoized Solution 1 is already $O(mn)$, but it is still recursion: implicit stack depth and larger constants. The transitions have no aftereffect, so we can fill $i,j$ in increasing order.
+> **Thinking**
+>
+> Memoized Solution 1 is already $O(mn)$, but it is still recursion: implicit stack depth and larger constants. The transitions have no aftereffect, so we can fill $i,j$ in increasing order.
+>
+> $f[i][j]$ is whether the first $i$ characters of $s$ match the first $j$ of $p$. Empty matches empty. We also need $i=0$ so patterns like `a*` can match the empty string, which is why the outer loop starts from the empty prefix.
+>
+> The `*` cases are the same as Solution 1: skip two pattern characters, or consume one more character of $s$ when it fits. After filling the table we read $f[m][n]$.
 
-$f[i][j]$ is whether the first $i$ characters of $s$ match the first $j$ of $p$. Empty matches empty. We also need $i=0$ so patterns like `a*` can match the empty string, which is why the outer loop starts from the empty prefix.
-
-The `*` cases are the same as Solution 1: skip two pattern characters, or consume one more character of $s$ when it fits. After filling the table we read $f[m][n]$.
+<!-- thinking:end -->
 
 We can convert the memoization search in Solution 1 into dynamic programming.
 

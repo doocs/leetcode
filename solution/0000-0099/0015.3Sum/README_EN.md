@@ -68,13 +68,17 @@ Notice that the order of the output and the order of the triplets does not matte
 
 ### Solution 1: Sort + Two Pointers
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is three nested loops plus a set for uniqueness. Correct, but $O(n^3)$. $n\le 3000$ will not pass. Hashing two-sum for each $i$ reaches $O(n^2)$, yet duplicates and extra space are messy.
+> **Thinking**
+>
+> The first idea is three nested loops plus a set for uniqueness. Correct, but $O(n^3)$. $n\le 3000$ will not pass. Hashing two-sum for each $i$ reaches $O(n^2)$, yet duplicates and extra space are messy.
+>
+> The bottleneck is finding two numbers that sum to the opposite of a fixed value, without repeating triplets. Sort first so duplicates sit together and are easy to skip; two-sum on a sorted array is two pointers in $O(n)$. If $nums[i]>0$, everything after it is positive, so the sum cannot be $0$ anymore.
+>
+> So we sort, enumerate the first number, and squeeze the rest with two pointers.
 
-The bottleneck is finding two numbers that sum to the opposite of a fixed value, without repeating triplets. Sort first so duplicates sit together and are easy to skip; two-sum on a sorted array is two pointers in $O(n)$. If $nums[i]>0$, everything after it is positive, so the sum cannot be $0$ anymore.
-
-So we sort, enumerate the first number, and squeeze the rest with two pointers.
+<!-- thinking:end -->
 
 We notice that the problem does not require us to return the triplet in order, so we might as well sort the array first, which makes it easy to skip duplicate elements.
 

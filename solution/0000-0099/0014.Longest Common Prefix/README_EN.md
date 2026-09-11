@@ -55,13 +55,17 @@ tags:
 
 ### Solution 1: Character Comparison
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to take the first string as the prefix and shrink it against each later string. $n,m\le 200$, so even a triple loop would pass. A trie works too, but it is heavier than this problem needs.
+> **Thinking**
+>
+> The first idea is to take the first string as the prefix and shrink it against each later string. $n,m\le 200$, so even a triple loop would pass. A trie works too, but it is heavier than this problem needs.
+>
+> The prefix only ever shrinks: once a column disagrees, a longer prefix cannot exist. Align the strings vertically; position $i$ can extend the prefix only if every string matches there.
+>
+> So we compare column by column against $strs[0]$ and return as soon as a string is too short or a character differs. No trie.
 
-The prefix only ever shrinks: once a column disagrees, a longer prefix cannot exist. Align the strings vertically; position $i$ can extend the prefix only if every string matches there.
-
-So we compare column by column against $strs[0]$ and return as soon as a string is too short or a character differs. No trie.
+<!-- thinking:end -->
 
 We use the first string $strs[0]$ as a benchmark, and compare whether the $i$-th character of the subsequent strings is the same as the $i$-th character of $strs[0]$. If they are the same, we continue to compare the next character. Otherwise, we return the first $i$ characters of $strs[0]$.
 

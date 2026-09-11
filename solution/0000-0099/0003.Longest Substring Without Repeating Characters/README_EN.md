@@ -62,13 +62,17 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 
 ### Solution 1: Sliding Window
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is to try every substring and test uniqueness. Correct, but at least $O(n^2)$. $n \le 10^5$ will time out.
+> **Thinking**
+>
+> The first idea is to try every substring and test uniqueness. Correct, but at least $O(n^2)$. $n \le 10^5$ will time out.
+>
+> The waste is overlap: once $[l,r]$ has no repeats, adding a character $c$ on the right only needs to fix whether $c$ broke the window—not a full rescan.
+>
+> A duplicate means the valid answer cannot keep the extra $c$ on the left, so $l$ must move right. A count table telling whether $\textit{cnt}[c] > 1$ is enough to decide shrinking; after $c$ appears once, the window is the longest unique substring ending at $r$.
 
-The waste is overlap: once $[l,r]$ has no repeats, adding a character $c$ on the right only needs to fix whether $c$ broke the window—not a full rescan.
-
-A duplicate means the valid answer cannot keep the extra $c$ on the left, so $l$ must move right. A count table telling whether $\textit{cnt}[c] > 1$ is enough to decide shrinking; after $c$ appears once, the window is the longest unique substring ending at $r$.
+<!-- thinking:end -->
 
 We can use two pointers $l$ and $r$ to maintain a sliding window that always satisfies the condition of having no repeating characters within the window. Initially, both $l$ and $r$ point to the first character of the string. We use a hash table or an array of length $128$ called $\textit{cnt}$ to record the number of occurrences of each character, where $\textit{cnt}[c]$ represents the number of occurrences of character $c$.
 

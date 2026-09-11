@@ -135,13 +135,17 @@ Note: 49 is not 1 (I) less of 50 (L) because the conversion is based on decimal 
 
 ### Solution 1: Greedy
 
-**Thinking**
+<!-- thinking:start -->
 
-The first idea is a per-place lookup (thousands, hundreds, tens, ones), with extra branches for $4$ and $9$. $1 \le num \le 3999$, so it would pass, but the special cases are easy to miss.
+> **Thinking**
+>
+> The first idea is a per-place lookup (thousands, hundreds, tens, ones), with extra branches for $4$ and $9$. $1 \le num \le 3999$, so it would pass, but the special cases are easy to miss.
+>
+> The mess is keeping “additive” and “subtractive” rules apart. If we treat $\textit{CM}=900$, $\textit{CD}=400$, $\textit{XC}=90$, and so on as first-class denominations, Roman numerals become a fixed list of values from large to small.
+>
+> The representation in this range is unique, so taking the largest denomination that still fits is always legal. We scan that table greedily, subtracting and appending until $num$ becomes $0$.
 
-The mess is keeping “additive” and “subtractive” rules apart. If we treat $\textit{CM}=900$, $\textit{CD}=400$, $\textit{XC}=90$, and so on as first-class denominations, Roman numerals become a fixed list of values from large to small.
-
-The representation in this range is unique, so taking the largest denomination that still fits is always legal. We scan that table greedily, subtracting and appending until $num$ becomes $0$.
+<!-- thinking:end -->
 
 We can first list all possible symbols $cs$ and their corresponding values $vs$, then enumerate each value $vs[i]$ from large to small. Each time, we use as many symbols $cs[i]$ corresponding to this value as possible, until the number $num$ becomes $0$.
 
