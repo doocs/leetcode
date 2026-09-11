@@ -69,6 +69,12 @@ Since the largest window of s only has one &#39;a&#39;, return empty string.
 
 ### Solution 1: Counting + Two Pointers
 
+**Thinking**
+
+Enumerate every substring of $s$ and test coverage of $t$: $O(m^2)$ windows, $m \le 10^5$ will TLE. The follow-up wants $O(m+n)$.
+
+Once a window covers, extra characters on the left can go; if it does not cover, only the right end can grow. $\textit{need}$ stores $t$'s quota, $\textit{window}$ stores the window, and $\textit{cnt}$ counts how many required occurrences are met, so coverage is $O(1)$. Scan $s$ with the right pointer; while valid, shrink the left and record the shortest span.
+
 We use a hash table or array $\textit{need}$ to count the occurrences of each character in string $t$, and another hash table or array $\textit{window}$ to count the occurrences of each character in the sliding window. Additionally, we define two pointers $l$ and $r$ to point to the left and right boundaries of the window, a variable $\textit{cnt}$ to represent how many characters from $t$ are already included in the window, and variables $k$ and $\textit{mi}$ to represent the starting position and length of the minimum window substring.
 
 We traverse the string $s$ from left to right. For the current character $s[r]$:

@@ -62,6 +62,12 @@ tags:
 
 ### Solution 1: Binary Search
 
+**Thinking**
+
+A full scan is $O(mn)$. $m,n \le 100$ would pass, but the problem asks for $O(\log(mn))$.
+
+Two dimensions hide a single binary search. Each row increases, and the last of row $i$ is less than the first of row $i+1$, so concatenating rows is a sorted array of length $mn$. Logical index $mid$ maps to $matrix[\lfloor mid/n\rfloor][mid \bmod n]$, so we binary-search $[0,mn-1]$ without materializing the flatten.
+
 We can logically unfold the two-dimensional matrix and then perform binary search.
 
 The time complexity is $O(\log(m \times n))$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
@@ -235,6 +241,10 @@ var searchMatrix = function (matrix, target) {
 <!-- solution:start -->
 
 ### Solution 2: Search from the Bottom Left or Top Right
+
+**Thinking**
+
+Method 1 flattens the matrix and binary-searches, which is $O(\log(mn))$, but it maps $mid$ to coordinates and needs the last of one row to be less than the first of the next. Without that index map, row/column monotonicity lets a corner walk drop a whole row or column per comparison. The code is simpler; the cost is $O(m+n)$ time.
 
 Here, we start searching from the bottom left corner and move towards the top right direction. We compare the current element $matrix[i][j]$ with $target$:
 

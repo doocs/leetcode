@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+**Thinking**
+
+The first idea is to search: only right or down, enumerate every path. With $m, n \le 100$, the path count is combinatorial, so a raw search explodes.
+
+The bottleneck is revisiting the same cell. Paths into $(i, j)$ come only from above or the left and do not overlap, so the subproblems add.
+
+Store that count in $f[i][j]$ and fill in row-major order so the dependencies already exist. Start at $1$; the bottom-right cell is the answer.
+
 We define $f[i][j]$ to represent the number of paths from the top left corner to $(i, j)$, initially $f[0][0] = 1$, and the answer is $f[m - 1][n - 1]$.
 
 Consider $f[i][j]$:
@@ -238,6 +246,12 @@ var uniquePaths = function (m, n) {
 
 ### Solution 2: Dynamic Programming (Prefilled Borders)
 
+**Thinking**
+
+Solution 1 tests “has an above / has a left” on every cell, so the border keeps taking extra branches.
+
+The first row can arrive only from the left, the first column only from above, and both are all $1$. Prefill those borders and the interior adds unconditionally. Same complexity, cleaner code.
+
 Fill the first row and first column with $1$, then only compute interior cells $f[i][j] = f[i-1][j] + f[i][j-1]$. Time and space stay $O(m \times n)$.
 
 <!-- tabs:start -->
@@ -354,6 +368,12 @@ var uniquePaths = function (m, n) {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Rolling Array)
+
+**Thinking**
+
+The first two solutions keep a full $m \times n$ table. $f[i][j]$ only needs the previous row $f[i-1][j]$ and the left cell $f[i][j-1]$, so the first dimension can go.
+
+After compressing to 1D, $f[j]$ is still the previous row until we update it; add $f[j-1]$ to get the current row. Space drops to $O(n)$, time stays the same.
 
 $f[i][j]$ depends only on the previous row and the left cell, so a 1D array of length $n$ is enough. The time complexity is $O(m \times n)$ and the space complexity is $O(n)$.
 

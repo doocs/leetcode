@@ -92,6 +92,14 @@ Note that the second line is also left-justified because it contains only one wo
 
 ### Solution 1: Simulation
 
+**Thinking**
+
+The first idea is to pack as many words as possible into a line, then pad with spaces. There are at most $300$ words and the width is at most $100$, so a linear scan is enough; no backtracking.
+
+The bottleneck is not runtime but the spacing rules: the last line and a one-word line must be left-aligned; every other line must spread extra spaces as evenly as possible, leftover spaces going to the left gaps first.
+
+So we greedily take the words that fit, then branch on “last line / single word” versus even distribution. Process lines from left to right.
+
 We can simulate the process according to the problem's requirements. Note that if it is the last line, or if there is only one word in the line, then we should align to the left. Otherwise, we should distribute the spaces evenly.
 
 The time complexity is $O(L)$, and the space complexity is $O(L)$. Here, $L$ is the sum of the lengths of all words.

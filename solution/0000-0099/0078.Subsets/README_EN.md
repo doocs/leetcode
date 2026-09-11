@@ -54,6 +54,12 @@ tags:
 
 ### Solution 1: DFS (Backtracking)
 
+**Thinking**
+
+A subset is a choose/skip for each element, $2^n$ of them. $n \le 10$, so listing all is fine. We could rebuild from each mask, or recurse.
+
+Recursion is the direct picture: from index $i$, skip $nums[i]$ then take it and pop. At $i=n$ copy the path into the answer. Distinct elements mean no duplicate subsets.
+
 We design a function $dfs(i)$, which represents starting the search from the $i$th element of the array for all subsets. The execution logic of the function $dfs(i)$ is as follows:
 
 - If $i = n$, it means the current search has ended. Add the current subset $t$ to the answer array $ans$, and then return.
@@ -208,6 +214,10 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Binary Enumeration
+
+**Thinking**
+
+Method 1 expands choose/skip on the call stack. $n$ is tiny, so each subset can be a mask in $[0,2^n)$: bit $i$ includes $nums[i]$. No recursion; the same $O(n \times 2^n)$ work.
 
 We can also use the method of binary enumeration to get all subsets.
 
