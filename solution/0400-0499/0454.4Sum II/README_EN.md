@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0454.4Sum%20II/README_EN.md
 tags:
     - Array
     - Hash Table
