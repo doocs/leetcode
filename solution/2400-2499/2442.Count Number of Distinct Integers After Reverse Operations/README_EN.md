@@ -62,6 +62,14 @@ The number of distinct integers in this array is 1 (The number 2).
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every original number and its digit reversal must be counted. With $n\le 10^5$ and values $\le 10^6$, reverse by slicing the decimal string. Insert the array into a set, then add each reversal; the size is the answer.
+
+<!-- thinking:end -->
+
 First, we use a hash table to record all integers in the array. Then, we traverse each integer in the array, reverse it, and add the reversed integer to the hash table. Finally, we return the size of the hash table.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.

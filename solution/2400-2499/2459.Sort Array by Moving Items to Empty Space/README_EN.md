@@ -83,6 +83,16 @@ It can be proven that 2 is the minimum number of operations needed.
 
 ### Solution 1: Permutation Cycle
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swaps with the blank are permutation-cycle sorting. A cycle of length $m$ costs $m-1$ if it contains the blank and $m+1$ otherwise. The target may be $0,1,\ldots,n-1$ or $1,\ldots,n-1,0$.
+>
+> Walk cycles counting $m+1$ (blank outside), then subtract $2$ if the blank is misplaced. Take the minimum of the two targets.
+
+<!-- thinking:end -->
+
 For a permutation cycle of length $m$, if $0$ is in the cycle, the number of swaps is $m-1$; otherwise, the number of swaps is $m+1$.
 
 We find all permutation cycles, first calculate the total number of swaps assuming each cycle requires $m+1$ swaps, then check if $0$ is misplaced. If it is, it means $0$ is in a permutation cycle, so we subtract $2$ from the total number of swaps.

@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Direct Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 10^3$, fix the left end $i$ and extend right, keeping a running GCD. The GCD is nonincreasing, so the double loop plus $gcd$ is acceptable. Count whenever $g=k$.
+
+<!-- thinking:end -->
+
 We can enumerate $nums[i]$ as the left endpoint of the subarray, and then enumerate $nums[j]$ as the right endpoint of the subarray, where $i \le j$. During the enumeration of the right endpoint, we can use a variable $g$ to maintain the greatest common divisor of the current subarray. Each time we enumerate a new right endpoint, we update the greatest common divisor $g = \gcd(g, nums[j])$. If $g=k$, then the greatest common divisor of the current subarray equals $k$, and we increase the answer by $1$.
 
 After the enumeration ends, return the answer.

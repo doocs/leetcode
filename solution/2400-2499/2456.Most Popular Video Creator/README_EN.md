@@ -85,6 +85,14 @@ Since &quot;b&quot; is lexicographically smaller than &quot;c&quot;, it is inclu
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 10^5$, aggregate views per creator and keep that creator's most viewed video (lexicographically smallest id on ties). $cnt$ sums views; $d$ stores the best video index. Then take the maximum total and emit every creator that matches it.
+
+<!-- thinking:end -->
+
 We traverse the three arrays, use a hash table $cnt$ to count the total play count for each creator, and use a hash table $d$ to record the index of the video with the highest play count for each creator.
 
 Then, we traverse the hash table $cnt$ to find the maximum play count $mx$; then we traverse the hash table $cnt$ again to find the creators with a play count of $mx$, and add them to the answer array.

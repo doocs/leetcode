@@ -81,6 +81,16 @@ We return [-1,-1] since neither integer has any integer greater than it.
 
 ### Solution 1: Sorting + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The second greater is the second strictly larger value to the right. At $n\le 10^5$, processing from large to small means every index already stored is a larger value. The second index to the right of $i$ in a sorted set is the answer.
+>
+> Sort $(value,index)$ descending. For each index, bisect the ordered index set and read the element two positions later.
+
+<!-- thinking:end -->
+
 We can convert the elements in the array into pairs $(x, i)$, where $x$ is the value of the element and $i$ is the index of the element. Then sort by the value of the elements in descending order.
 
 Next, we traverse the sorted array, maintaining an ordered set that stores the indices of the elements. When we traverse to the element $(x, i)$, the indices of all elements greater than $x$ are already in the ordered set. We only need to find the index $j$ of the next element after $i$ in the ordered set, then the element corresponding to $j$ is the second largest element of $x$. Then, we add $i$ to the ordered set. Continue to traverse the next element.
@@ -831,6 +841,14 @@ class TreeMultiSet<T = number> {
 <!-- solution:end -->
 
 ### Solution 2: Double Stacks
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 pays an extra log for the ordered set. Two decreasing stacks suffice: stack one waits for the first greater, stack two for the second. The current value pops stack two into the answer and moves stack-one pops into stack two, each index a constant number of times.
+
+<!-- thinking:end -->
 
 We maintain two decreasing monotonic stacks:
 

@@ -73,6 +73,16 @@ After processing the queries, there are one red node (node with value 1): 2.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query flips a node and its whole subtree in a perfect binary heap. Even queries cancel, so keep a node only when it is queried an odd number of times.
+>
+> DFS from each remaining root to flip its subtree, then count ones. Each query root is processed once.
+
+<!-- thinking:end -->
+
 According to the problem description, we can simulate the process of each query, that is, reverse the values of the query node and its subtree nodes. Finally, count the number of nodes with a value of 1.
 
 There is an optimization point here. If a node and its corresponding subtree have been queried an even number of times, the node value will not change. Therefore, we can record the number of queries for each node, and only reverse the nodes and their subtrees that have been queried an odd number of times.
