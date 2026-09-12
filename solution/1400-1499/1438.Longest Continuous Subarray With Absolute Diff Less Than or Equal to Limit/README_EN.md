@@ -77,6 +77,16 @@ Therefore, the size of the longest subarray is 2.
 
 ### Solution 1: Ordered Set + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The max–min gap of a subarray does not decrease as the window grows. $n\le 10^5$ rules out all intervals. For each right end, move the left end until $\max-\min\le limit$.
+>
+> An ordered multiset exposes the current extrema; remove the leftmost value when the window is illegal. The longest valid window is the answer.
+
+<!-- thinking:end -->
+
 We can enumerate each position as the right endpoint of the subarray, and find the leftmost left endpoint corresponding to it, such that the difference between the maximum and minimum values in the interval does not exceed $limit$. During the process, we use an ordered set to maintain the maximum and minimum values within the window.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array `nums`.
@@ -809,6 +819,16 @@ class TreapMultiSet<T = number> implements ITreapMultiSet<T> {
 
 ### Solution 2: Binary Search + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 shrinks per right end. Length is monotone: if some window of length $mid$ is valid, shorter ones exist. Binary-search the length and test a candidate with two monotonic queues.
+>
+> The time is still $O(n\log n)$; the longest-window search becomes a decision problem.
+
+<!-- thinking:end -->
+
 We notice that if a subarray of length $k$ satisfies the condition, then a subarray of length $k' < k$ also satisfies the condition. This shows a monotonicity, therefore, we can use binary search to find the longest subarray that satisfies the condition.
 
 We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each $mid = \frac{l + r + 1}{2}$, we check whether there exists a subarray of length $mid$ that satisfies the condition. If it exists, we update $l = mid$, otherwise we update $r = mid - 1$. The problem is transformed into whether there exists a subarray of length $mid$ in the array that satisfies the condition, which is actually to find the difference between the maximum and minimum values in the sliding window does not exceed $limit$. We can use two monotonic queues to maintain the maximum and minimum values in the window respectively.
@@ -1187,6 +1207,14 @@ class Deque<T> {
 <!-- solution:start -->
 
 ### Solution 3: Sliding Window + Deque
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Methods 1 and 2 pay a logarithmic factor. Two monotonic deques maintain the window max and min in amortized $O(1)$, so expanding the right end and shrinking the left end is linear.
+
+<!-- thinking:end -->
 
 We can use a deque to maintain the maximum and minimum values within the window. We maintain two deques, one for storing the indices of the maximum values and the other for the minimum values within the window. Define two pointers $l$ and $r$ to point to the left and right boundaries of the window, respectively.
 

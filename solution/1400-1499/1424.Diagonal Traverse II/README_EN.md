@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows have unequal lengths and there are up to $10^5$ entries, so walking diagonals with raw indices is awkward. Entries on one diagonal share $i+j$; diagonals increase by $i+j$, and within a diagonal $j$ increases.
+>
+> Store triples $(i+j,j,v)$, sort, and emit the values.
+
+<!-- thinking:end -->
+
 We observe that:
 
 - The value of $i + j$ is the same for each diagonal;

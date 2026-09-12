@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The search cost is how many times the prefix maximum is updated. $n\le 50$, $m\le 100$, so we DP on length, cost, and current maximum.
+>
+> If position $i$ does not raise the maximum, it has $j$ choices and stays at the same cost. If it writes a new maximum $j$, we sum states whose previous maximum is smaller and whose cost is one less.
+>
+> $k=0$ is impossible. Sum $dp[n][k][\cdot]$ for the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

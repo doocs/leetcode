@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Taking $k$ cards from the two ends means $i$ from the left and $k-i$ from the right. $n\le 10^5$, so we cannot resumm each $i$.
+>
+> Start with the rightmost $k$ cards, then replace the leftmost of those with the next left-end card, updating the sum in $O(1)$ and keeping the maximum.
+
+<!-- thinking:end -->
+
 We can use a sliding window of length $k$ to simulate this process.
 
 Initially, we place the window at the end of the array, i.e., the $k$ positions from index $n-k$ to index $n-1$. The sum of the points of the cards in the window is denoted as $s$, and the initial value of the answer $ans$ is also $s$.

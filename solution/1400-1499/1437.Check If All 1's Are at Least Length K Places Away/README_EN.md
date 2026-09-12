@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$. Remember the previous $1$ at index $j$. On a new $1$, the gap is $i-j-1$; reject if it is less than $k$. One pass suffices.
+
+<!-- thinking:end -->
+
 We can iterate through the array $\textit{nums}$ and use a variable $j$ to record the index of the previous $1$. When the element at the current position $i$ is $1$, we just need to check if $i - j - 1$ is less than $k$. If it is less than $k$, it means there exists a pair of $1$s with fewer than $k$ zeros between them, so we return $\text{false}$. Otherwise, we update $j$ to $i$ and continue iterating through the array.
 
 After the iteration is complete, we return $\text{true}$.

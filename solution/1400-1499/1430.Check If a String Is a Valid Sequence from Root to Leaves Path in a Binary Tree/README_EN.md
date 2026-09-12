@@ -75,6 +75,16 @@ Other valid sequences are:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a root-to-leaf path that equals $arr$ exactly. Both the tree and $arr$ have size at most $5000$, so a DFS that tries left and right is enough.
+>
+> $dfs(\textit{root},u)$ requires the node value to match $arr[u]$. At the last index the node must be a leaf; otherwise recurse. A null node or a mismatch fails.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

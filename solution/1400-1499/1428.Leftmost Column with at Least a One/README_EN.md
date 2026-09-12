@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is non-decreasing and `get` calls are limited, so we cannot scan the matrix. The first $1$ in a row is found with binary search in $O(\log n)$ calls.
+>
+> The answer is the minimum such column over all rows, or $-1$ if no row contains a $1$.
+
+<!-- thinking:end -->
+
 First, we call `BinaryMatrix.dimensions()` to get the number of rows $m$ and columns $n$ of the matrix. Then for each row, we use binary search to find the column number $j$ where the leftmost $1$ is located. The smallest $j$ value that satisfies all rows is the answer. If there is no such column, return $-1$.
 
 The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. We need to traverse each row, and use binary search within each row, which has a time complexity of $O(\log n)$. The space complexity is $O(1)$.

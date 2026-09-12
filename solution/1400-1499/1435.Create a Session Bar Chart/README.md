@@ -79,6 +79,14 @@ Sessions 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要按时长分成四个半开区间，即使某档次数为 $0$ 也要输出。一条 `CASE` 分组可能丢掉空档，因此对四个区间各写一条带 `COUNT` 的查询再 `UNION`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

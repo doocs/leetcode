@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Left and right shifts cancel. Sum them as a signed offset, reduce modulo $n$, and rotate with one slice. $n,m\le 100$, so even stepwise shifts would pass; combining them is $O(n+m)$.
+
+<!-- thinking:end -->
+
 We can denote the length of the string $s$ as $n$. Next, we traverse the array $shift$, accumulate to get the final offset $x$, then take $x$ modulo $n$, the final result is to move the first $n - x$ characters of $s$ to the end.
 
 The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of the string $s$ and the array $shift$ respectively. The space complexity is $O(1)$.

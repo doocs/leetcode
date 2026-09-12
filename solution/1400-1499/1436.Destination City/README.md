@@ -74,6 +74,14 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 路径构成一条从某城出发、终点不再出发的链。$n\le 100$，把所有起点放入集合，再找不在集合中的终点，即为唯一汇点。
+
+<!-- thinking:end -->
+
 根据题目描述，终点一定不会出现在所有 $\textit{cityA}$ 中，因此，我们可以先遍历一遍 $\textit{paths}$，将所有 $\textit{cityA}$ 放入一个集合 $\textit{s}$ 中，然后再遍历一遍 $\textit{paths}$，找到不在 $\textit{s}$ 中的 $\textit{cityB}$ 即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{paths}$ 的长度。
