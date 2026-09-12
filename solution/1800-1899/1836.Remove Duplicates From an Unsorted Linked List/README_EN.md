@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every value that occurs more than once must be removed from an unsorted list. A single pass cannot know global frequencies, and the list is not random-access.
+>
+> Count values in one walk, then walk again skipping nodes with $cnt>1$. A dummy head covers deletions at the front.
+
+<!-- thinking:end -->
+
 We can use a hash table $cnt$ to count the number of occurrences of each element in the linked list, and then traverse the linked list to delete elements that appear more than once.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.

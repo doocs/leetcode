@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only increment elements, and the array must become strictly increasing at minimum cost. Searching final values at each index is unnecessary.
+>
+> From left to right the prefix maximum already fixes the next lower bound. If $v$ is below $mx+1$ we pay the difference and raise it; then $mx$ becomes the new prefix maximum. Extra increments would only raise later bounds, so one greedy pass is optimal.
+
+<!-- thinking:end -->
+
 We use a variable $mx$ to record the maximum value of the current strictly increasing array, initially $mx = 0$.
 
 Traverse the array `nums` from left to right. For the current element $v$, if $v \lt mx + 1$, we need to increase it to $mx + 1$ to ensure the array is strictly increasing. Therefore, the number of operations we need to perform this time is $max(0, mx + 1 - v)$, which is added to the answer, and then we update $mx=max(mx + 1, v)$. Continue to traverse the next element until the entire array is traversed.

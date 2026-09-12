@@ -72,6 +72,16 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks how many given points lie in a circle. Both arrays have size at most $500$, and a squared-distance test is $O(1)$, so nested enumeration is enough.
+>
+> No spatial index is required: for every circle scan every point and test $dx^2+dy^2\le r^2$ to avoid square roots. The $O(mn)$ cost fits the limits.
+
+<!-- thinking:end -->
+
 Enumerate all the circles $(x, y, r)$. For each circle, calculate the number of points within the circle to get the answer.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the lengths of the arrays `queries` and `points` respectively. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

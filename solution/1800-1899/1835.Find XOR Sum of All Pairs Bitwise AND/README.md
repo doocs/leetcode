@@ -65,6 +65,16 @@ tags:
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要求 $\bigoplus_{i,j}(arr1[i]\wedge arr2[j])$。若枚举全部数对，$n,m$ 达 $10^5$ 时不可行。
+>
+> 按位看，与运算相当于乘法、异或相当于不进位加法，因而整个式子等于 $(\bigoplus arr1)\wedge(\bigoplus arr2)$。分别求两数组的异或再取与即可。
+
+<!-- thinking:end -->
+
 假设数组 $arr1$ 的元素分别为 $a_1, a_2, \cdots, a_n$，数组 $arr2$ 的元素分别为 $b_1, b_2, \cdots, b_m$，那么题目答案为：
 
 $$

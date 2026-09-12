@@ -66,6 +66,16 @@ The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $\bigoplus_{i,j}(arr1[i]\wedge arr2[j])$. Enumerating pairs is impossible for lengths up to $10^5$.
+>
+> Bitwise, AND behaves like multiplication and XOR like addition without carry, so the expression equals $(\bigoplus arr1)\wedge(\bigoplus arr2)$. XOR each array and AND the two results.
+
+<!-- thinking:end -->
+
 Assume that the elements of array $arr1$ are $a_1, a_2, ..., a_n$, and the elements of array $arr2$ are $b_1, b_2, ..., b_m$. Then, the answer to the problem is:
 
 $$

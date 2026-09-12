@@ -86,6 +86,16 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 
 ### Solution 1: Ordered Set + Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the average of an $m$-length window after dropping the smallest and largest $k$ values, with frequent insertions. Sorting the window every time is $O(m\log m)$ and too slow.
+>
+> A queue stores insertion order. Three ordered multisets hold the lowest $k$, the middle segment, and the highest $k$, together with the middle sum $s$. After each insert or pop we move overflow elements so both ends have size $k$. The average is $s/(m-2k)$.
+
+<!-- thinking:end -->
+
 We can maintain the following data structures or variables:
 
 - A queue $q$ of length $m$, where the head of the queue is the earliest added element, and the tail of the queue is the most recently added element;
@@ -444,6 +454,14 @@ func (this *MKAverage) CalculateMKAverage() int {
 <!-- solution:start -->
 
 ### Solution 2: Single Ordered Set + Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 juggles three trees and their size invariants. A single ordered list of the window is enough: build it when the window first fills, then adjust $s$ by the rank of the inserted and deleted values. The structure is simpler and each update remains logarithmic.
+
+<!-- thinking:end -->
 
 Use a queue for insertion order and one ordered set for the current window of length $m$. When the window first becomes full, build the set and sum the middle segment after dropping the smallest and largest $k$ elements. Later insertions and deletions update that middle sum from the element's rank in the set.
 
