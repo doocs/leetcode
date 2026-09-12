@@ -74,6 +74,14 @@ Views table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Self-views are rows with `author_id = viewer_id`. Filter them, `DISTINCT` the author ids, and sort.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

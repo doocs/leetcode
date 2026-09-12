@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With one swap, the longest run is either a block extended by a distant same character, or two same-character blocks separated by one other character. Two pointers take each run length $l$ and the run $r$ after one skip; the candidate is $\min(l+r+1,\textit{global count of that character})$ so we never invent a character.
+
+<!-- thinking:end -->
+
 First, we use a hash table or array $cnt$ to count the occurrence of each character in the string $text$.
 
 Next, we define a pointer $i$, initially $i = 0$. Each time, we set the pointer $j$ to $i$, and continuously move $j$ to the right until the character pointed by $j$ is different from the character pointed by $i$. At this time, we get a substring $text[i..j-1]$ of length $l = j - i$, where all characters are the same.

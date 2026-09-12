@@ -75,6 +75,14 @@ Views 表:
 
 ### 方法一：DISTINCT + GROUP BY + HAVING
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一天浏览不少于两篇不同文章的人。按 `viewer_id, view_date` 分组，`HAVING COUNT(DISTINCT article_id) > 1` 即满足，外层再 `DISTINCT` 观看者以免跨日重复。
+
+<!-- thinking:end -->
+
 我们将数据按照 `viewer_id` 和 `view_date` 分组，然后利用 `HAVING` 子句来筛选出浏览文章数大于 $1$ 的记录，最后按照 `id` 去重排序即可。
 
 <!-- tabs:start -->

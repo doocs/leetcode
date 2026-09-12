@@ -65,6 +65,14 @@ There are 6 ways to get a sum of 7: 1+6, 2+5, 3+4, 4+3, 5+2, 6+1.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Naively assigning $n$ $k$-faced dice to sum to $target$ is $k^n$. Let $f[i][j]$ be the ways for $i$ dice to sum to $j$; face $h$ on the last die comes from $f[i-1][j-h]$. One way uses zero dice to make $0$. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of ways to get a sum of $j$ using $i$ dice. Then, we can obtain the following state transition equation:
 
 $$
@@ -207,6 +215,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Rolling Array)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ of method 1 depends only on row $i-1$. Two rolling arrays cut space from $O(n\times target)$ to $O(target)$ with the same transition.
+
+<!-- thinking:end -->
 
 $f[i][j]$ depends only on the previous row, so two arrays $f$ and $g$ of length $target+1$ are enough. The space complexity becomes $O(target)$.
 

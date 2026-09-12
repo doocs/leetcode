@@ -124,6 +124,14 @@ Items 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每位用户都要输出，即使 $2019$ 年没有订单。`Users` 左连「买家且年份为 $2019$」的 `Orders`，再按用户分组计数；无匹配订单的用户计数为 $0$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -147,6 +155,14 @@ GROUP BY user_id;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一把年份写进连接条件。方法二先连全部订单，再用 `SUM(YEAR(order_date)=2019)` 计数，$2019$ 以外的行贡献 $0$，`IFNULL` 处理无订单用户。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

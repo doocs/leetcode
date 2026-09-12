@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chunked palindrome needs equal left and right chunks. The maximum number of chunks comes from always cutting the shortest matching prefix/suffix; a longer pair can be split further. Two pointers grow $k$ until `text[i:i+k]` matches the right end, then advance by $k$ on both sides and add $2$, or add $1$ for a leftover middle.
+
+<!-- thinking:end -->
+
 We can start from both ends of the string, looking for the shortest, identical, and non-overlapping prefixes and suffixes:
 
 - If such prefixes and suffixes cannot be found, then the entire string is treated as a segmented palindrome, and the answer is incremented by $1$;
@@ -241,6 +249,14 @@ function longestDecomposition(text: string): number {
 <!-- solution:start -->
 
 ### Solution 2: String Hash
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 compares slices and can be $O(n^2)$. Prefix hashes make equal-length substrings an $O(1)$ test. The greedy cuts stay the same; only the equality check changes.
+
+<!-- thinking:end -->
 
 **String hash** is to map a string of any length to a non-negative integer, and its collision probability is almost $0$. String hash is used to calculate the hash value of a string and quickly determine whether two strings are equal.
 

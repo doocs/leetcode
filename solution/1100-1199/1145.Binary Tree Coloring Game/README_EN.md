@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After the first player takes $x$, the tree splits into the left subtree, the right subtree, and the parent side. The second player colors the root of the largest of the three and owns that component. More than $n/2$ nodes there is a win. Finding $x$ and counting the two subtrees yields all three sizes.
+
+<!-- thinking:end -->
+
 First, we use DFS to find the node where player 1's colored point $x$ is located, denoted as $node$.
 
 Next, we count the number of nodes in the left and right subtrees of $node$, denoted as $l$ and $r$ respectively, and the number of nodes in the direction of $node$'s parent node is $n - l - r - 1$. As long as $\max(l, r, n - l - r - 1) > \frac{n}{2}$, player 2 has a winning strategy.

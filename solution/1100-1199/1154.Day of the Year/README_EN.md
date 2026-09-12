@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: Direct Calculation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The day-of-year is the sum of previous month lengths plus the day. Split $y,m,d$, set February from the leap-year rule, and add $days[0..m-2]$ and $d$. No full date object is required.
+
+<!-- thinking:end -->
+
 According to the problem, the given date is in the Gregorian calendar, so we can directly calculate which day of the year it is.
 
 First, calculate the year, month, and day from the given date, denoted as $y$, $m$, $d$.

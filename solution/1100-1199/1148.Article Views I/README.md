@@ -76,6 +76,14 @@ Views 表：
 
 ### 方法一：DISTINCT + WHERE
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 作者阅读自己文章即 `author_id = viewer_id`。`WHERE` 筛出这些行，`DISTINCT` 去掉同一作者的重复浏览，再按 id 排序。
+
+<!-- thinking:end -->
+
 我们利用 `WHERE` 子句来筛选出 `author_id` 和 `viewer_id` 相等的记录，然后利用 `DISTINCT` 来去重，最后按照 `id` 排序即可。
 
 <!-- tabs:start -->

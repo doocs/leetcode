@@ -82,6 +82,14 @@ Activity table:
 
 ### 方法一：GROUP BY + HAVING
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计截止 `2019-07-27` 的 $30$ 天内每日去重用户数。`WHERE` 同时约束上界与日差，再按日期 `GROUP BY` 并对 `user_id` 做 `COUNT(DISTINCT ...)`。
+
+<!-- thinking:end -->
+
 我们查询出所有在 `2019-07-27` 且在 $30$ 天内的所有活动记录，然后按照日期分组，统计每天的去重活跃用户数。
 
 <!-- tabs:start -->

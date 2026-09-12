@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Enumeration + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only decrease values. A zigzag is either “even indices smaller” or “odd indices smaller”; compute both and keep the cheaper. For an index that must become smaller, the needed decrease is determined by its two neighbors, and those positions do not interfere.
+
+<!-- thinking:end -->
+
 We can separately enumerate the even and odd positions as the elements "smaller than adjacent elements", and then calculate the required number of operations. The minimum of the two is taken.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

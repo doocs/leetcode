@@ -82,6 +82,14 @@ Activity table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct users per day in the $30$ days ending `2019-07-27`. The `WHERE` clause bounds the date window, then `GROUP BY` the day and `COUNT(DISTINCT user_id)`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
