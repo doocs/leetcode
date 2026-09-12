@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2241.Design%20an%20ATM%20Machine/README.md
 rating: 1616
 source: 第 76 场双周赛 Q3
 tags:

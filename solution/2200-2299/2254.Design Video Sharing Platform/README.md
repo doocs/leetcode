@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2254.Design%20Video%20Sharing%20Platform/README.md
 tags:
     - 设计
     - 哈希表
