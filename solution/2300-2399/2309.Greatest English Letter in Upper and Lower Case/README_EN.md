@@ -69,6 +69,16 @@ There is no letter that appears in both lower and upper case.
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ has length at most $1000$; we need the greatest letter that appears in both cases. Put every character in a set, then scan $Z$ down to $A$. The first hit is the answer.
+>
+> The set answers each case check in expected constant time. If none succeed, return the empty string.
+
+<!-- thinking:end -->
+
 First, we use a hash table $ss$ to record all the letters that appear in the string $s$. Then we start enumerating from the last letter of the uppercase alphabet. If both the uppercase and lowercase forms of the current letter are in $ss$, we return that letter.
 
 At the end of the enumeration, if no letter that meets the conditions is found, we return an empty string.
@@ -210,6 +220,14 @@ var greatestLetter = function (s) {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses space linear in the alphabet. Twenty-six letters fit in two integer masks; their intersection’s highest set bit is the greatest letter, so extra space becomes $O(1)$.
+
+<!-- thinking:end -->
 
 We can use two integers $mask1$ and $mask2$ to record the lowercase and uppercase letters that appear in the string $s$, respectively. The $i$-th bit of $mask1$ indicates whether the $i$-th lowercase letter appears, and the $i$-th bit of $mask2$ indicates whether the $i$-th uppercase letter appears.
 

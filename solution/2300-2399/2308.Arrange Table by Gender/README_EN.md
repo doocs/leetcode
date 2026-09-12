@@ -88,6 +88,16 @@ Note that the IDs of each gender are sorted in ascending order.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows must alternate by gender, and each gender must stay ordered by $user\_id$. Sorting by gender alone yields three contiguous blocks.
+>
+> Rank $user\_id$ inside each gender, and map female / other / male to $0,1,2$. Order by that rank, then by the mapping, so the three genders at the same rank appear in the required sequence.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -121,6 +131,14 @@ ORDER BY rk1, rk2;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 materializes two sort keys in a CTE. The same window rank can sit in $ORDER\ BY$: partition by gender, rank by $user\_id$, then use gender’s lexicographic order (female, male, other) as the second key, dropping the explicit $CASE$ and the extra $WITH$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

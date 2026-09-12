@@ -81,6 +81,16 @@ Now sub = &quot;l33tb&quot; is a substring of s, so we return true.
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each mapping is a single replacement, so we only need to try every alignment of $sub$ inside $s$ and check characters one by one. $|s| \le 5000$, so the product of alignments and substring length is about $2.5 \times 10^7$, which is acceptable.
+>
+> A character may map to several replacements; scanning the mapping list at every position repeats work. Store the reachable set of each old character in a hash table, then test “equal or replaceable” in $O(1)$ per pair.
+
+<!-- thinking:end -->
+
 First, we use a hash table $d$ to record the set of characters that each character can be replaced with.
 
 Then we enumerate all substrings of length $sub$ in $s$, and judge whether the string $sub$ can be obtained by replacement. If it can, return `true`, otherwise enumerate the next substring.
@@ -194,6 +204,14 @@ func matchReplacement(s string, sub string, mappings [][]byte) bool {
 <!-- solution:start -->
 
 ### Solution 2: Array + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores mappings in hash sets, so constants follow hashing. The alphabet is only letters and digits, so a $128 \times 128$ boolean table records reachability and turns each query into an index lookup. The alignment order is unchanged.
+
+<!-- thinking:end -->
 
 Since the character set only contains uppercase and lowercase English letters and numbers, we can directly use a $128 \times 128$ array $d$ to record the set of characters that each character can be replaced with.
 

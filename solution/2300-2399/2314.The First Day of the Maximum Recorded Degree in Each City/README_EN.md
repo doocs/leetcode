@@ -78,6 +78,16 @@ For city 3, the maximum degree was recorded on 2022-12-07 with -6 degrees.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each city needs the day of its highest temperature, breaking ties by the earliest date. A sort per group works, but a window ranks temperature and date together.
+>
+> Partition by $city\_id$, order by degree descending and day ascending, and keep rank $1$. Output cities in increasing id.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -75,6 +75,16 @@ Since the third equation is code / et = 0.5, we get a contradiction.
 
 ### Solution 1: Weighted Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each equation gives a ratio of two variables. Different paths between the same pair may disagree. There are at most a few hundred variables and $100$ equations, so a union-find structure can keep the components.
+>
+> Map names to integers and let $w[x]$ be the ratio from $x$ to its root. On union, update weights by multiplication. If two variables already share a root, compare $v \cdot w[a]$ with $w[b]$ within the allowed error. A mismatch is a contradiction.
+
+<!-- thinking:end -->
+
 First, we convert the strings into integers starting from $0$. Then, we traverse all the equations, map the two strings in each equation to the corresponding integers $a$ and $b$. If these two integers are not in the same set, we merge them into the same set and record the weights of the two integers, which is the ratio of $a$ to $b$. If these two integers are in the same set, we check whether their weights satisfy the equation. If not, we return `true`.
 
 The time complexity is $O(n \times \log n)$ or $O(n \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of equations.

@@ -67,6 +67,16 @@ There are 2 asterisks considered. Therefore, we return 2.</pre>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bars come in pairs; we count stars that lie outside every pair. $|s| \le 1000$, so one scan is enough.
+>
+> A flag $\textit{ok}$ tells whether we are outside a pair. Toggle it on `|`, and count `*` only while it is on. There is no need to split the string.
+
+<!-- thinking:end -->
+
 We define an integer variable $\textit{ok}$ to indicate whether we can count when encountering `*`. Initially, $\textit{ok}=1$, meaning we can count.
 
 Traverse the string $s$. If we encounter `*`, we decide whether to count based on the value of $\textit{ok}$. If we encounter `|`, we toggle the value of $\textit{ok}$.

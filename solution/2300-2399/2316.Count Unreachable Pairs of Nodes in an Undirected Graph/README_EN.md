@@ -64,6 +64,16 @@ Therefore, we return 14.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unreachable pairs sit in different components. $n \le 10^5$, so we cannot enumerate pairs. The count is the product of component sizes.
+>
+> DFS yields each component size $t$. Multiply by the sum $s$ of earlier sizes, then add $t$ into $s$. Each vertex and edge is visited once.
+
+<!-- thinking:end -->
+
 For any two nodes in an undirected graph, if there is a path between them, then they are mutually reachable.
 
 Therefore, we can use depth-first search to find the number of nodes $t$ in each connected component, and then multiply the current number of nodes $t$ in the connected component by the number of nodes $s$ in all previous connected components to obtain the number of unreachable node pairs in the current connected component, which is $s \times t$. Then, we add $t$ to $s$ and continue to search for the next connected component until all connected components have been searched, and we can obtain the final answer.

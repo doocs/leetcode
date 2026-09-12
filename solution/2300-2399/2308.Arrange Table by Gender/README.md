@@ -87,6 +87,16 @@ Genders 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要按性别轮流输出，且同一性别内部按 $user\_id$ 升序。直接按性别排序会把三类人分成三段，无法交错。
+>
+> 在每种性别内用窗口函数按 $user\_id$ 编号，再把 female、other、male 映成 $0,1,2$。先按组内名次、再按该映射排序，同一名次下三人恰好按题目要求的性别顺序出现。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -120,6 +130,14 @@ ORDER BY rk1, rk2;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一借助中间表存放两个排序键。窗口函数可直接写在 $ORDER\ BY$ 中：仍按性别分区、按 $user\_id$ 取 $RANK$，再以性别字典序（female、male、other）作为第二键，省去显式 $CASE$ 与额外一层 $WITH$。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

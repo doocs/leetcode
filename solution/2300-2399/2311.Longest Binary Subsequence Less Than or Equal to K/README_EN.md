@@ -70,6 +70,16 @@ The length of this subsequence is 6, so 6 is returned.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The subsequence must encode a value $\le k$. $|s| \le 1000$, so subset enumeration is impossible. Zeros never increase the value and should all be kept.
+>
+> A $1$ in a higher place costs more, so scan from the right and try to take each $1$. Treat the current length as its bit index; keep it if the new value stays $\le k$. Beyond about $30$ bits the value exceeds $k$, so those ones are skipped.
+
+<!-- thinking:end -->
+
 The longest binary subsequence must include all the $0$s in the original string. On this basis, we traverse $s$ from right to left. If we encounter a $1$, we check if adding this $1$ to the subsequence keeps the binary number $v \leq k$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
