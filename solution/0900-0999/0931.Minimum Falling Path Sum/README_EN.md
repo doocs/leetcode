@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md
 tags:
     - Array
     - Dynamic Programming

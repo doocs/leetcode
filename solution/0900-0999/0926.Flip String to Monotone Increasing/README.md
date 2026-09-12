@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README.md
 tags:
     - 字符串
     - 动态规划
