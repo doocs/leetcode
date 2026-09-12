@@ -87,6 +87,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shorter sentence must become the longer one by inserting one contiguous block of words, i.e. it is a prefix of the longer sentence glued to a suffix. Trying every insertion point is messy and easy to confuse with inserting in several places.
+>
+> Split both sentences and swap so the first is no shorter. Count the shared prefix from the left and the shared suffix from the right. If those two lengths cover the shorter sentence, the unmatched gap is a single interval and one insertion suffices.
+
+<!-- thinking:end -->
+
 We split the two sentences into two word arrays `words1` and `words2` by spaces. Let the lengths of `words1` and `words2` be $m$ and $n$, respectively, and assume that $m \ge nn.
 
 We use two pointers $i$ and $j$, initially $i = j = 0$. Next, we loop to check whether `words1[i]` is equal to `words2[i]`, and if so, pointer $i$ continues to move right; then we loop to check whether `words1[m - 1 - j]` is equal to `words2[n - 1 - j]`, and if so, pointer $j$ continues to move right.

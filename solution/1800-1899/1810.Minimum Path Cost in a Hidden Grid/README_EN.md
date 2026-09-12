@@ -114,6 +114,16 @@ We now know that the target is the cell (1, 0), and the minimum total cost to re
 
 ### Solution 1: DFS Graph Construction + Heap-Optimized Dijkstra Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is hidden; we may only probe with $\textit{canMove}$, $\textit{move}$, and $\textit{isTarget}$, and each step has a cost. Searching for a shortest path while exploring would mix exploration cost with true path cost.
+>
+> The grid is at most $100\times 100$, so place the start at $(100,100)$, DFS with reverse moves to reconstruct the graph, store the enter-cost of each cell, and record the target. Edge weights are non-negative, so Dijkstra from the start yields the minimum cost; if DFS never sees the target, return $-1$.
+
+<!-- thinking:end -->
+
 We observe that the grid size is $m \times n$, where $m, n \leq 100$. Therefore, we can initialize the starting coordinates as $(sx, sy) = (100, 100)$ and assume the grid size is $200 \times 200$. Then, we can use depth-first search (DFS) to explore the entire grid and construct a 2D array $g$ representing the grid, where $g[i][j]$ represents the movement cost from the starting point $(sx, sy)$ to coordinates $(i, j)$. If a cell is unreachable, we set its value to $-1$. We store the target coordinates in $\textit{target}$, and if the target cannot be reached, then $\textit{target} = (-1, -1)$.
 
 Next, we can use the heap-optimized Dijkstra algorithm to calculate the minimum cost path from the starting point $(sx, sy)$ to the target $\textit{target}$. We use a priority queue to store the current path cost and coordinates, and use a 2D array $\textit{dist}$ to record the minimum cost from the starting point to each cell. When we pop a node from the priority queue, if that node is the target, we return the current path cost as the answer. If the path cost of that node is greater than the value recorded in $\textit{dist}$, we skip that node. Otherwise, we traverse the four neighbors of that node. If a neighbor is reachable and the path cost to reach the neighbor through this node is smaller, we update the neighbor's path cost and add it to the priority queue.

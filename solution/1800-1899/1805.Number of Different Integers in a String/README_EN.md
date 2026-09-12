@@ -68,6 +68,16 @@ the leading zeros are ignored when comparing their decimal values.
 
 ### Solution 1: Double Pointers + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must count distinct integers formed by digit runs, treating leading zeros as the same value. Converting each run to an integer can overflow, because a run may be as long as the whole string.
+>
+> Two pointers isolate each contiguous digit block, skip leading zeros, and insert the remaining substring (empty when the run is all zeros) into a hash set. The set size is the number of distinct integers, and we never convert a token to a numeric type.
+
+<!-- thinking:end -->
+
 Traverse the string `word`, find the start and end positions of each integer, cut out this substring, and store it in the hash set $s$.
 
 After the traversal, return the size of the hash set $s$.

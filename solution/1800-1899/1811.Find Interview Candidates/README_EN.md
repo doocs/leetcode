@@ -120,6 +120,16 @@ Quarz won a medal in 5 consecutive contests (190, 191, 192, 193, and 194), so we
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A candidate must win any medal in three consecutive contests or collect at least three golds. Medals sit in three columns, so filtering the raw table cannot express both conditions at once.
+>
+> Unpivot gold, silver, and bronze into $(contest\_id,user\_id,type)$. Gold counts are a grouped $COUNT$. Consecutive contests are found by sorting each user by contest id and subtracting the row number: a constant difference marks a consecutive block. Users with a block of length at least $3$, or at least three golds, are joined back to Users for name and mail.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

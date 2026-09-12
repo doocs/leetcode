@@ -64,6 +64,16 @@ tags:
 
 ### 方法一：式子变换 + 哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好数对满足 $nums[i]+rev(nums[j])=nums[j]+rev(nums[i])$。直接枚举 $(i,j)$ 再计算翻转，时间为 $O(n^2\log M)$。$n\le 10^5$，无法通过。
+>
+> 移项后条件变为 $nums[i]-rev(nums[i])=nums[j]-rev(nums[j])$。对每个数计算该差值并计数，答案即各差值出现次数的组合数 $C(v,2)$，再对 $10^9+7$ 取模。
+
+<!-- thinking:end -->
+
 对于下标对 $(i, j)$，如果满足条件，那么有 $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$，即 $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$。
 
 因此，我们可以将 $nums[i] - rev(nums[i])$ 作为哈希表的键，统计每个键出现的次数。最后计算每个键对应的值的组合数，相加得到最终的答案。
@@ -259,6 +269,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一先完整计数再求组合数，需要两次遍历哈希表。本题只需无序对数目，可以在从左到右扫描时，用当前差值已经出现的次数累加答案，再把该差值写入表中，避免事后再算 $C(v,2)$。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: 0-1 Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the number of pairs whose XOR lies in $[low,high]$. Checking every pair is $O(n^2)$. With $n \le 2 \times 10^4$ this will not pass.
+>
+> The range count equals the number of pairs with XOR less than $high+1$ minus those with XOR less than $low$. Insert processed numbers into a $0$-$1$ trie from the high bit down, storing subtree sizes. When querying a limit, a $1$-bit lets us add the entire same-bit subtree of $x$ and then walk the opposite child; a $0$-bit forces the same-bit child. Query each $x$ before inserting it so a number is never paired with itself.
+
+<!-- thinking:end -->
+
 For this kind of problem that counts the interval $[low, high]$, we can consider converting it into counting $[0, high]$ and $[0, low - 1]$, and then subtracting the latter from the former to get the answer.
 
 In this problem, we can count how many pairs of numbers have an XOR value less than $high+1$, and then count how many pairs of numbers have an XOR value less than $low$. The difference between these two counts is the number of pairs whose XOR value is in the interval $[low, high]$.
