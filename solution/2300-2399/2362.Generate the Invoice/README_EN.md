@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2362.Generate%20the%20Invoice/README_EN.md
 tags:
     - Database
 ---

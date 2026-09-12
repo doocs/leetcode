@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2370.Longest%20Ideal%20Subsequence/README_EN.md
 rating: 1834
 source: Weekly Contest 305 Q4
 tags:

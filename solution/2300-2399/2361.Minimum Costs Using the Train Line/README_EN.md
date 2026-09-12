@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2361.Minimum%20Costs%20Using%20the%20Train%20Line/README_EN.md
 tags:
     - Array
     - Dynamic Programming
