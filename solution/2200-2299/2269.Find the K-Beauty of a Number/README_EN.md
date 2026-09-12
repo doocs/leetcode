@@ -80,6 +80,16 @@ Therefore, the k-beauty is 2.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-beauty counts length-$k$ substrings that divide the number. $num \le 10^9$ has few digits, so converting every window of length $k$ is enough; skip a zero divisor.
+>
+> Stringify $num$ and take $s[i:i+k]$ at each start.
+
+<!-- thinking:end -->
+
 We can convert $num$ to a string $s$, then enumerate all substrings of $s$ with length $k$, convert them to an integer $t$, and check if $t$ is divisible by $num$. If it is, we increment the answer.
 
 The time complexity is $O(\log num \times k)$, and the space complexity is $O(\log num + k)$.
@@ -174,6 +184,16 @@ function divisorSubstrings(num: number, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rebuilds an integer from a slice each time. A decimal window can drop the low digit and insert a new high digit in $O(1)$.
+>
+> Extract the lowest $k$ digits as $x$, then repeatedly divide $x$ by $10$ and add the next digit at the top, testing divisibility as we go.
+
+<!-- thinking:end -->
 
 We can maintain a sliding window of length $k$. Initially, the window contains the lowest $k$ digits of $num$. Then, for each iteration, we move the window one digit to the right, update the number in the window, and check if the number in the window is divisible by $num$. If it is, we increment the answer.
 

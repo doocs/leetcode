@@ -69,6 +69,16 @@ It covers 2 white tiles, so we return 2.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A carpet of length $\textit{carpetLen}$ covers disjoint tile intervals. Placing the left end inside a tile never beats aligning it with some tile's left endpoint, so we only try those placements.
+>
+> Sort tiles by left end. A pointer $j$ keeps the farthest fully covered tile and $s$ their total length. A partially covered next tile adds $li+\textit{carpetLen}-tiles[j][0]$. $j$ only moves forward.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

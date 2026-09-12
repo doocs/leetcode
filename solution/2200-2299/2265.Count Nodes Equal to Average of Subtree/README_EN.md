@@ -67,6 +67,16 @@ For the node with value 6: The average of its subtree is 6 / 1 = 6.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count nodes whose value equals the floor average of their subtree. $n \le 10^3$ would allow a fresh scan per node, but that repeats work. One post-order walk can return the subtree sum and size.
+>
+> $\textit{dfs}$ returns $(s, n)$; compare $\lfloor s/n \rfloor$ with the node value and increment. A null tree returns $(0,0)$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}$, which calculates the sum and the number of nodes of the subtree rooted at the current node.
 
 The execution process of the function $\textit{dfs}$ is as follows:

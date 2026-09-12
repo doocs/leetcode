@@ -79,6 +79,16 @@ countIntervals.count();    // return 8
 
 ### Solution 1: Segment Tree (Dynamic Opening)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We maintain possibly overlapping integer intervals, adding a range and querying how many integers are covered. Coordinates reach $10^9$ and there are $10^5$ operations, so a dense array is impossible. Only coverage matters, not multiplicity.
+>
+> A dynamically allocated segment tree on $[1,10^9]$ creates nodes on demand. An update paints a range as fully covered with a lazy tag; a query reads the covered length at the root.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to maintain a set of intervals that supports adding intervals and querying operations. For adding intervals, we can use a segment tree to maintain the interval set.
 
 The segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(width)$. To update the value of an element, we only need to update $\log(width)$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.

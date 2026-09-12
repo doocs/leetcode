@@ -55,6 +55,16 @@ The percentage of characters in s that equal the letter &#39;k&#39; is 0%, so we
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the floor percentage of a letter in $s$. The length is at most $100$, so a count plus integer division is enough.
+>
+> $s.\textit{count}(\textit{letter})\times 100 // |s|$ avoids floating point.
+
+<!-- thinking:end -->
+
 We can traverse the string $\textit{s}$ and count the number of characters that are equal to $\textit{letter}$. Then, we calculate the percentage using the formula $\textit{count} \times 100 \, / \, \textit{len}(\textit{s})$.
 
 Time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. Space complexity is $O(1)$.

@@ -63,6 +63,16 @@ Therefore, we return the maximum number which is 3 floors.
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Special floors split $[\textit{bottom},\textit{top}]$ into empty runs; we want the longest. Floor numbers reach $10^9$, so we cannot walk them. Empty runs sit between adjacent specials and at the two ends.
+>
+> Sort the specials; the answer is the max of $special[0]-bottom$, $top-special[-1]$, and $y-x-1$ for adjacent pairs.
+
+<!-- thinking:end -->
+
 We can sort the special floors in ascending order, then calculate the number of floors between each pair of adjacent special floors. Finally, we calculate the number of floors between the first special floor and $\textit{bottom}$, as well as the number of floors between the last special floor and $\textit{top}$. The maximum of these floor counts is the answer.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{special}$.
