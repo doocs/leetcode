@@ -76,6 +76,16 @@ Our score is 1 + 2 + 2 = 5.
 
 ### Solution 1: Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly add the unmarked minimum (leftmost on ties) to the score and mark it with its neighbours. Scanning for the minimum each time is quadratic.
+>
+> A min-heap of $(value,index)$ pops the next unmarked global minimum. After marking the neighbourhood, discard heap tops that are already marked. Each element is pushed once.
+
+<!-- thinking:end -->
+
 We use a priority queue to maintain the unmarked elements in the array, and each item in the queue is a tuple $(x, i)$, where $x$ and $i$ represent the element value and index of the array respectively. An array $vis$ is used to record whether the element in the array is marked.
 
 Each time we take out the smallest element $(x, i)$ from the queue, we add $x$ to the answer, and then mark the element at the $i$ position, and the left and right adjacent elements at the $i$ position, that is, the elements at the $i-1$ and $i+1$ positions. Then we determine whether the top element of the heap is marked. If it is marked, pop the top element of the heap until the top element is unmarked or the heap is empty.
@@ -256,6 +266,14 @@ function findScore(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 finds the next minimum dynamically. The order is exactly the static order of $(value,index)$, so sort indices once and skip those already marked by a neighbour. No heap drain is needed.
+
+<!-- thinking:end -->
 
 We can create an index array $idx$ where $idx[i]=i$, and then we sort the index array $idx$ according to the element values in the array $nums$. If the element values are the same, then sort them according to the index values.
 

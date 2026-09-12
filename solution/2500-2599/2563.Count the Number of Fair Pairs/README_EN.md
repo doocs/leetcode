@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count unordered pairs whose sum lies in $[\textit{lower},\textit{upper}]$. A double loop fails at $n\le 10^5$.
+>
+> Only values matter, so sorting is safe. For a fixed $x=nums[i]$ the partner must lie in $[\textit{lower}-x,\textit{upper}-x]$; the gap between two lower bounds is the count, starting at $i+1$ to avoid double-counting.
+
+<!-- thinking:end -->
+
 First, we sort the array `nums` in ascending order. Then, for each `nums[i]`, we use binary search to find the lower bound `j` of `nums[j]`, i.e., the first index that satisfies `nums[j] >= lower - nums[i]`. Then, we use binary search again to find the lower bound `k` of `nums[k]`, i.e., the first index that satisfies `nums[k] >= upper - nums[i] + 1`. Therefore, `[j, k)` is the index range for `nums[j]` that satisfies `lower <= nums[i] + nums[j] <= upper`. The count of these indices corresponding to `nums[j]` is `k - j`, and we can add this to the answer. Note that $j > i$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `nums`.

@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $(1,1)$ we may go to $(x+y,y)$, $(x,x+y)$, or double one coordinate. Coordinates reach $10^9$, so search is impossible.
+>
+> The first two moves preserve $\gcd$; doubling only multiplies it by a power of two. Hence the target gcd must be a power of two. Conversely, repeatedly dividing out twos and replacing the larger odd coordinate by $(x+y)/2$ shrinks any such pair to $(1,1)$. It suffices to test $x\&(x-1)=0$ on $\gcd(x,y)$.
+
+<!-- thinking:end -->
+
 We notice that the first two types of moves do not change the greatest common divisor (gcd) of the horizontal and vertical coordinates, while the last two types of moves can multiply the gcd of the horizontal and vertical coordinates by a power of $2$. In other words, the final gcd of the horizontal and vertical coordinates must be a power of $2$. If the gcd is not a power of $2$, then it is impossible to reach.
 
 Next, we prove that any $(x, y)$ that satisfies $gcd(x, y)=2^k$ can be reached.

@@ -65,6 +65,14 @@ The array answer is [|0 - 0|] = [0].
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index wants the absolute difference of the left sum and the right sum. Two prefix arrays work, but one pass is enough: start with the total on the right, subtract $x$ before recording $|l-r|$, then add $x$ to the left.
+
+<!-- thinking:end -->
+
 We define a variable $l$ to represent the sum of elements to the left of index $i$ in the array $\textit{nums}$, and a variable $r$ to represent the sum of elements to the right of index $i$ in the array $\textit{nums}$. Initially, $l = 0$, $r = \sum_{i = 0}^{n - 1} \textit{nums}[i]$.
 
 We traverse the array $\textit{nums}$. For the current number $x$, we update $r = r - x$. At this point, $l$ and $r$ represent the sum of elements to the left and right of index $i$ in the array $\textit{nums}$, respectively. We add the absolute difference of $l$ and $r$ to the answer array $\textit{ans}$, then update $l = l + x$.

@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Two DFS Traversals
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are only right or down. We may flip at most one non-endpoint cell to disconnect $(0,0)$ from the exit. Trying every flip is cubic.
+>
+> Two internally vertex-disjoint paths cannot be cut by a single flip. DFS once, zeroing visited cells (then restore the two ends), and DFS again: a second success means a disjoint path remains, so one flip is not enough.
+
+<!-- thinking:end -->
+
 First, we perform a DFS traversal to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $a$. During the DFS process, we set the value of the visited cells to $0$ to prevent revisiting.
 
 Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and perform another DFS traversal to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $b$. During the DFS process, we set the value of the visited cells to $0$ to avoid revisiting.

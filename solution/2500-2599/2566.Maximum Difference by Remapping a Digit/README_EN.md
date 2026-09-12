@@ -68,6 +68,16 @@ Thus, we return 99.</pre>
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Remap one digit throughout the number to maximize one value and minimize the other, then subtract. Few digits would allow enumerating pairs, but the optimal remaps are unique.
+>
+> The minimum replaces every copy of the leading digit by $0$. The maximum replaces every copy of the leftmost non-$9$ by $9$. An all-$9$ number is already maximal.
+
+<!-- thinking:end -->
+
 First, we convert the number to a string $s$.
 
 To get the minimum value, we just need to find the first digit $s[0]$ in the string $s$, and then replace all $s[0]$ in the string with $0$.

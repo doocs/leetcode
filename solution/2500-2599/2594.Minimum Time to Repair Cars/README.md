@@ -72,6 +72,16 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 第 $i$ 名工人修 $x$ 辆车耗时 $r_i x^2$，工人并行，求修完 $\textit{cars}$ 辆的最短时间。分配方案很多，时间范围达 $r\cdot cars^2$。
+>
+> 时间越长能修的车越多，故对 $t$ 二分。时刻 $t$ 时工人 $r$ 能修 $\lfloor\sqrt{t/r}\rfloor$ 辆，总和达到 $\textit{cars}$ 则可行。$\textit{bisect\_left}$ 给出最小 $t$。
+
+<!-- thinking:end -->
+
 我们注意到，修车时间越长，修理的汽车数目也越多。因此，我们可以将修车时间作为二分查找的目标，二分查找修车时间的最小值。
 
 我们定义二分查找的左右边界分别为 $left=0$, $right=ranks[0] \times cars \times cars$。接下来二分枚举修车时间 $mid$，每个机械工可以修理的汽车数目为 $\lfloor \sqrt{\frac{mid}{r}} \rfloor$，其中 $\lfloor x \rfloor$ 表示向下取整。如果修理的汽车数目大于等于 $cars$，则说明修车时间 $mid$ 可行，我们将右边界缩小至 $mid$，否则将左边界增大至 $mid+1$。

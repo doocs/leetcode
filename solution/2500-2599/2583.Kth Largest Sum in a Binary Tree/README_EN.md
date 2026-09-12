@@ -69,6 +69,14 @@ The 2<sup>nd</sup> largest level sum is 13.
 
 ### Solution 1: BFS + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the $k$-th largest level sum, or $-1$ if there are fewer than $k$ levels. BFS accumulates each level, then selects the $k$-th largest.
+
+<!-- thinking:end -->
+
 We can use BFS to traverse the binary tree, while recording the sum of nodes at each level, then sort the array of node sums, and finally return the $k$th largest node sum. Note that if the number of levels in the binary tree is less than $k$, then return $-1$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
@@ -276,6 +284,14 @@ function kthLargestLevelSum(root: TreeNode | null, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: DFS + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a queue. DFS with a depth index fills the same per-level totals; only the traversal differs before the $k$-th largest is taken.
+
+<!-- thinking:end -->
 
 We can also use DFS to traverse the binary tree, while recording the sum of nodes at each level, then sort the array of node sums, and finally return the $k$th largest node sum. Note that if the number of levels in the binary tree is less than $k$, then return $-1$.
 

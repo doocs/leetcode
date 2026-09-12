@@ -70,6 +70,16 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mechanic $i$ repairs $x$ cars in $r_i x^2$ minutes; they work in parallel. Assignments are many and the time horizon is $r\cdot cars^2$.
+>
+> More time only repairs more cars, so binary-search $t$. At time $t$ mechanic $r$ finishes $\lfloor\sqrt{t/r}\rfloor$ cars; feasibility is their sum versus $\textit{cars}$. $\textit{bisect\_left}$ returns the minimal $t$.
+
+<!-- thinking:end -->
+
 We notice that the longer the repair time, the more cars are repaired. Therefore, we can use the repair time as the target of binary search, and binary search for the minimum repair time.
 
 We define the left and right boundaries of the binary search as $left=0$, $right=ranks[0] \times cars \times cars$. Next, we binary search for the repair time $mid$, and the number of cars each mechanic can repair is $\lfloor \sqrt{\frac{mid}{r}} \rfloor$, where $\lfloor x \rfloor$ represents rounding down. If the number of cars repaired is greater than or equal to $cars$, it means that the repair time $mid$ is feasible, we reduce the right boundary to $mid$, otherwise we increase the left boundary to $mid+1$.

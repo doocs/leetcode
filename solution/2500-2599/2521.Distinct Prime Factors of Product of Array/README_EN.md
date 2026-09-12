@@ -73,6 +73,16 @@ There is 1 distinct prime factor so we return 1.
 
 ### Solution 1: Hash Table + Prime Factorization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the number of distinct prime factors of $\prod nums[i]$. Forming the product first overflows and is unnecessary: the primes of the product are the union of the primes of each element.
+>
+> Trial-divide every $n$, insert factors into a set, and return the set size. Each factorization is $O(\sqrt{m})$.
+
+<!-- thinking:end -->
+
 For each element in the array, first perform prime factorization on it, and then add the decomposed prime factors to the hash table. Finally, return the size of the hash table.
 
 The time complexity is $O(n \times \sqrt{m})$, and the space complexity is $O(\frac{m}{\log m})$. Where $n$ and $m$ are the length of the array and the maximum value in the array, respectively.

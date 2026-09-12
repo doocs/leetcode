@@ -70,6 +70,16 @@ It can be shown that every subsequence of length 4 is not a square streak.
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square streak requires each next term to be the square of the previous one. Enumerating all subsequences is impossible at $n\le 10^5$; even walking ordered chains with a linear search for the successor wastes the unique successor structure.
+>
+> The next value is determined by $x\mapsto x^2$, so membership of the square is enough. After putting $\textit{nums}$ in a set, repeatedly square from each start to obtain that chain's length. Squares grow so fast that a chain is only $O(\log\log M)$ long. Lengths of at most $1$ are reported as $-1$.
+
+<!-- thinking:end -->
+
 We first use a hash table to record all elements in the array. Then, we enumerate each element in the array as the first element of the subsequence, square this element continuously, and check whether the squared result is in the hash table. If it is, we use the squared result as the next element and continue checking until the squared result is not in the hash table. At this point, we check whether the length of the subsequence is greater than $1$. If it is, we update the answer.
 
 The time complexity is $O(n \times \log \log M)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$, and $M$ is the maximum value of the elements in the array $\textit{nums}$.
@@ -223,6 +233,16 @@ var longestSquareStreak = function (nums) {
 <!-- solution:start -->
 
 ### Solution 2: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 extends every start independently, so overlapping suffixes such as $2,4,16$ and $4,16$ are recomputed.
+>
+> Let $\textit{dfs}(x)$ be the streak length from $x$, with recurrence $1+\textit{dfs}(x^2)$ and $0$ when $x$ is absent. Memoization evaluates each value once and makes the pass linear. The answer is the maximum over starts, or $-1$ if it is less than $2$.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first use a hash table to record all elements in the array. Then, we design a function $\textit{dfs}(x)$, which represents the length of the square wave starting with $x$. The answer is $\max(\textit{dfs}(x))$, where $x$ is an element in the array $\textit{nums}$.
 

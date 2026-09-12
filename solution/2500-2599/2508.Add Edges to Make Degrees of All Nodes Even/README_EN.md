@@ -71,6 +71,16 @@ Every node in the resulting graph is connected to an even number of edges.
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most two new edges may be added, and they cannot duplicate existing ones, while every degree must become even. The handshaking lemma forces an even number of odd-degree vertices; one edge flips two parities, so more than four odd vertices is impossible.
+>
+> Build adjacency sets and collect odd-degree vertices $vs$. Size $0$ is already fine. For two vertices, connect them if they are not adjacent; otherwise look for a third vertex adjacent to neither. For four vertices, try the three perfect matchings and accept if one pairing uses two missing edges.
+
+<!-- thinking:end -->
+
 We first build the graph $g$ using `edges`, and then find all nodes with odd degrees, denoted as $vs$.
 
 If the length of $vs$ is $0$, it means all nodes in the graph $g$ have even degrees, so we return `true`.

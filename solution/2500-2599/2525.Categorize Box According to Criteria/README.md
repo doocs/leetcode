@@ -79,6 +79,16 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 箱子按边长、体积是否达到“笨重”阈值以及质量是否达到“沉重”阈值分成四类。判断条件均为常数次比较。
+>
+> 把 $\textit{bulky}$、$\textit{heavy}$ 作成 $0/1$，用 $\textit{heavy}\ll 1\mid \textit{bulky}$ 作为下标，在 $[\textit{Neither},\textit{Bulky},\textit{Heavy},\textit{Both}]$ 中取值，避免多层分支。
+
+<!-- thinking:end -->
+
 根据题意模拟即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
@@ -191,6 +201,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用位组合映射四类。若更看重可读性，则按“同时成立 / 仅笨重 / 仅沉重 / 皆否”依次判断，结果与映射表一致。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

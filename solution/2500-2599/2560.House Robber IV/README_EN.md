@@ -70,6 +70,16 @@ Therefore, we return min(5, 9, 9) = 5.
 
 ### Solution 1: Binary Search + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Capability is the maximum value among robbed houses; houses cannot be adjacent, at least $k$ must be robbed, and that maximum should be minimized. Subset search fails at $n\le 10^5$.
+>
+> Larger $x$ only makes the quota easier, so binary-search $x$. When checking, rob left to right whenever the value is $\le x$ and the previous pick is not adjacent. Filling $k$ houses witnesses feasibility; $\textit{bisect\_left}$ returns the smallest such $x$.
+
+<!-- thinking:end -->
+
 The problem is asking for the minimum stealing ability of the thief. We can use binary search to enumerate the stealing ability of the thief. For the enumerated ability $x$, we can use a greedy approach to determine whether the thief can steal at least $k$ houses. Specifically, we traverse the array from left to right. For the current house $i$ we are traversing, if $nums[i] \leq x$ and the difference between the index of $i$ and the last stolen house is greater than $1$, then the thief can steal house $i$. Otherwise, the thief cannot steal house $i$. We accumulate the number of stolen houses. If the number of stolen houses is greater than or equal to $k$, it means that the thief can steal at least $k$ houses, and at this time, the stealing ability $x$ of the thief might be the minimum. Otherwise, the stealing ability $x$ of the thief is not the minimum.
 
 The time complexity is $O(n \times \log m)$, and the space complexity is $O(1)$. Where $n$ and $m$ are the length of the array $nums$ and the maximum value in the array $nums$, respectively.

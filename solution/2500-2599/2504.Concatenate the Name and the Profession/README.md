@@ -77,6 +77,16 @@ Person 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要把姓名与职业首字母拼成 $\textit{name}(\textit{X})$ 的形式，并按 $\textit{person\_id}$ 降序输出。逐行在应用层拼接亦可，但题目只需一条查询。
+>
+> 用 $\operatorname{CONCAT}$ 连接姓名、括号以及 $\operatorname{SUBSTRING}(\textit{profession},1,1)$ 取出的首字母，再按 $\textit{person\_id}$ 降序排列即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

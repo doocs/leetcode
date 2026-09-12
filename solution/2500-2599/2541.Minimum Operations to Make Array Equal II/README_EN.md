@@ -67,6 +67,16 @@ One can prove that it is impossible to make arrays equal in fewer operations.</p
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation adds $k$ to one index and subtracts $k$ from another, so the total is conserved. A residue not divisible by $k$, or $k=0$ with a mismatch, cannot be fixed.
+>
+> Count how many times we must add $k$ ($a$) and how many times we must subtract it ($b$). Operations come in pairs, so the arrays match iff $a=b$, and the answer is $a$.
+
+<!-- thinking:end -->
+
 We use two variables $a$ and $b$ to record the number of times elements in $\textit{nums1}$ are increased by $k$ and decreased by $k$, respectively.
 
 We iterate over both arrays. If the two elements at the current position are equal, we continue. Otherwise, if $k$ equals $0$ or the difference between the two elements is not divisible by $k$, we return $-1$. Otherwise, we compute $t = (x - y) / k$. If $t < 0$, we add $-t$ to $a$; otherwise, we add $t$ to $b$.

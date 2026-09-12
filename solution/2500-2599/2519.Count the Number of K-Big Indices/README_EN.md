@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Index $i$ is $k$-big iff at least $k$ strictly smaller values lie to its left and the same holds on the right. Scanning both sides for every $i$ is quadratic at $n\le 10^5$.
+>
+> Values can be treated as up to $n$. Two Fenwick trees store frequencies. Insert every value into the right tree first; when scanning left to right, remove the current value from the right, query how many stored values are $<v$ on each side, then insert $v$ on the left. Each index costs $O(\log n)$.
+
+<!-- thinking:end -->
+
 We maintain two binary indexed trees, one records the number of elements smaller than the current position on the left, and the other records the number of elements smaller than the current position on the right.
 
 We traverse the array, and for the current position, if the number of elements smaller than the current position on the left is greater than or equal to $k$, and the number of elements smaller than the current position on the right is greater than or equal to $k$, then the current position is a `k-big`, and we increment the answer by one.

@@ -82,6 +82,16 @@ It can be shown that we cannot partition the string into less than 4 substrings.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the digit string into substrings whose integer values are at most $k$, using as few pieces as possible. Full partitions are impossible at $n\le 10^5$, but a valid piece is at most the number of digits of $k$ long, so each start extends only a constant number of ways.
+>
+> Let $\textit{dfs}(i)$ be the fewest pieces from index $i$. Accumulate the value to the right, stop once it exceeds $k$, and take $1+\textit{dfs}(j+1)$ over legal ends. Memoization evaluates each start once; impossibility is $\infty$, reported as $-1$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$ of string $s$. The answer is $dfs(0)$.
 
 The calculation process of the function $dfs(i)$ is as follows:

@@ -76,6 +76,16 @@ nums 的 MEX 是 2 。可以证明 2 是可以取到的最大 MEX 。
 
 ### 方法一：计数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个数可加减任意次 $\textit{value}$，即可以变成与它同余的任意整数。求操作后能达到的最小 $mex$。
+>
+> 同余类 $r$ 能提供 $r,r+\textit{value},r+2\textit{value},\ldots$。从 $0$ 起依次需要余数 $0,1,\ldots$，某余数用尽时该整数即为 $mex$。统计各余数个数后线性扫描即可。
+
+<!-- thinking:end -->
+
 我们用哈希表 $\textit{cnt}$ 统计数组中每个数对 $\textit{value}$ 取模后的余数的个数。
 
 然后从 $0$ 开始遍历，对于当前遍历到的数 $i$，如果 $\textit{cnt}[i \bmod \textit{value}]$ 为 $0$，说明数组中不存在一个数对 $\textit{value}$ 取模后的余数为 $i$，那么 $i$ 就是数组的 MEX，直接返回即可。否则，将 $\textit{cnt}[i \bmod \textit{value}]$ 减 $1$，继续遍历。

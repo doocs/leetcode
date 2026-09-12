@@ -71,6 +71,16 @@ The computer will be on for a total of 4 seconds.
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each task needs $\textit{duration}$ integer times inside its closed interval, and the computer runs one task at a time. The timeline is only $2000$ long, but the assignments are many.
+>
+> Sort by end time and occupy the rightmost still-free instants, which later tasks are more likely to reuse. Subtract already taken points in the interval, then fill the remainder from the right.
+
+<!-- thinking:end -->
+
 We observe that the problem is equivalent to selecting $duration$ integer time points in each interval $[start,..,end]$, so that the total number of selected integer time points is minimized.
 
 Therefore, we can first sort $tasks$ in ascending order of end time $end$. Then we greedily make selections. For each task, we start from the end time $end$ and choose the points as late as possible from back to front. This way, these points are more likely to be reused by later tasks.

@@ -74,6 +74,16 @@ tags:
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好串由长度为 $\textit{oneGroup}$ 的全 $1$ 段与长度为 $\textit{zeroGroup}$ 的全 $0$ 段拼接而成，总长落在 $[\textit{minLength},\textit{maxLength}]$。段的拼接顺序任意，枚举切分方式数量过大。
+>
+> 令 $f[i]$ 为长度为 $i$ 的好串个数。最后一段只能是一组 $1$ 或一组 $0$，故 $f[i]=f[i-\textit{oneGroup}]+f[i-\textit{zeroGroup}]$（下标合法时），$f[0]=1$。答案为 $f[\textit{minLength}]$ 到 $f[\textit{maxLength}]$ 之和。
+
+<!-- thinking:end -->
+
 我们定义 $f[i]$ 表示长度为 $i$ 的字符串中满足条件的个数。状态转移方程为：
 
 $$

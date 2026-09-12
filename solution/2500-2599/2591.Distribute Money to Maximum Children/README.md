@@ -69,6 +69,16 @@ tags:
 
 ### 方法一：分类讨论
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每人至少 $1$ 美元，得到 $8$ 美元的人数尽量多，且不能有人恰好得到 $4$ 美元。钱不够每人 $1$ 美元则无解。
+>
+> 总额超过 $8\times \textit{children}$ 时必须有人多于 $8$，最多只能让 $\textit{children}-1$ 人拿满 $8$。总额恰为 $8n-4$ 时，若已有 $n-1$ 人拿 $8$，剩下的人会拿到 $4$，故再少一人。其余情形每人先拿 $1$，剩余每 $7$ 美元可多造一个 $8$，即 $\lfloor(\textit{money}-\textit{children})/7\rfloor$。
+
+<!-- thinking:end -->
+
 如果 $money \lt children$，那么一定存在儿童没有分到钱，返回 $-1$。
 
 如果 $money \gt 8 \times children$，那么有 $children-1$ 个儿童获得了 $8$ 美元，剩下的一个儿童获得了 $money - 8 \times (children-1)$ 美元，返回 $children-1$。

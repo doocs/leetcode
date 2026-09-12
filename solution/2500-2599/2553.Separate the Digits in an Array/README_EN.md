@@ -66,6 +66,14 @@ answer = [7,1,3,9].
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split every integer into decimal digits, preserving order. Division by ten yields digits in reverse, so reverse each buffer before appending.
+
+<!-- thinking:end -->
+
 Split each number in the array into digits, then put the split numbers into the answer array in order.
 
 The time complexity is $O(n \times \log_{10} M)$, and the space complexity is $O(n \times \log_{10} M)$. Where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$.
@@ -222,6 +230,14 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 splits arithmetically. Converting to a string walks digits from high to low and avoids the reverse; the output is the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

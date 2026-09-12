@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Greedy + Construction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rebuild the lexicographically smallest string from an $lcp$ matrix. $lcp[i][j]>0$ iff $s[i]=s[j]$, so equality classes should receive letters from `'a'` onward.
+>
+> Whenever an unfilled index is met, paint every $j$ with $lcp[i][j]\ne 0$ with the current letter. Leftover blanks after `'z'` are impossible. Then verify the $lcp$ recurrence from the back: equal letters must equal the suffix $lcp$ plus one; unequal letters must store $0$.
+
+<!-- thinking:end -->
+
 Since the constructed string requires the lexicographically smallest order, we can start by filling the string $s$ with the character `'a'`.
 
 If the current position $i$ has not been filled with a character, then we can fill the character `'a'` at position $i$. Then we enumerate all positions $j > i$. If $lcp[i][j] > 0$, then position $j$ should also be filled with the character `'a'`. Then we add one to the ASCII code of the character `'a'` and continue to fill the remaining unfilled positions.

@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alternate signs from the most significant digit. There are few digits: convert to a decimal string and weight each index by its parity.
+
+<!-- thinking:end -->
+
 We can directly simulate the process as described in the problem.
 
 We define an initial symbol $sign=1$. Starting from the most significant digit, we take out one digit $x$ each time, multiply it by $sign$, add the result to the answer, then negate $sign$, and continue to process the next digit until all digits are processed.
@@ -193,6 +201,14 @@ int alternateDigitSum(int n) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 builds the sign as $(-1)^i$. A running $\textit{sign}$ flipped between $+1$ and $-1$ avoids exponentiation and yields the same sum.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -79,6 +79,16 @@ The shortest distance to reach &quot;leetcode&quot; is 1.</pre>
 
 ### Solution 1: Single Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is circular; we want the fewest steps from $\textit{startIndex}$ to an index whose word equals $\textit{target}$. Expanding both ways works for $n\le 100$, but the circular distance to each occurrence has a closed form.
+>
+> For every index $i$ with $\textit{words}[i]=\textit{target}$, the distance is $\min(|i-\textit{startIndex}|,\,n-|i-\textit{startIndex}|)$. Take the minimum, or $-1$ if $\textit{target}$ never appears.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{words}$$,$ find the words equal to $\textit{target}$, and compute their distance $t$ from $\textit{startIndex}$. The shortest distance in this case is $\min(t, n - t)$, so we only need to keep updating the minimum value.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

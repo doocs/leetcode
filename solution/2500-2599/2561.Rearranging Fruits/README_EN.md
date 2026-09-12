@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Greedy + Construction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swap fruits between two baskets until the multisets match; a swap costs the smaller value. Frequency differences tell what must move; an odd difference is impossible.
+>
+> Values that must leave, sorted, pair the cheaper half with the expensive half. A direct swap costs the smaller fruit; routing through the global minimum $mi$ costs $2mi$. Sum $\min(x,2mi)$ over the cheaper half.
+
+<!-- thinking:end -->
+
 First, we can remove the common elements from both arrays. For the remaining numbers, the occurrence of each number must be even, otherwise, it is impossible to construct identical arrays. Let's denote the arrays after removing common elements as $a$ and $b$.
 
 Next, we consider how to perform the swaps.

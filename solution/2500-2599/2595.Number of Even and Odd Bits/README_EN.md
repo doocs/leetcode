@@ -72,6 +72,14 @@ tags:
 
 ### Solution 1: Enumerate
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most $10^3$, so walking bits from low to high is enough. Flip the index with $i\oplus 1$ and increment the matching counter when the bit is set.
+
+<!-- thinking:end -->
+
 According to the problem description, enumerate the binary representation of $n$ from the low bit to the high bit. If the bit is $1$, add $1$ to the corresponding counter according to whether the index of the bit is odd or even.
 
 The time complexity is $O(\log n)$ and the space complexity is $O(1)$. Where $n$ is the given integer.
@@ -172,6 +180,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is linear in the bit length. Even indices are exactly the mask $0\texttt{x}5555$; $\textit{bit\_count}(n\&\textit{mask})$ is the even tally, and the complement mask yields the odd tally in constant time.
+
+<!-- thinking:end -->
 
 We can define a mask $\textit{mask} = \text{0x5555}$, which is represented in binary as $\text{0101 0101 0101 0101}_2$. Then, performing a bitwise AND operation between $n$ and $\textit{mask}$ will give us the bits at even indices in the binary representation of $n$. Performing a bitwise AND operation between $n$ and the complement of $\textit{mask}$ will give us the bits at odd indices in the binary representation of $n$. We can count the number of 1s in these two results.
 

@@ -76,6 +76,16 @@ The final answer = 10.
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation deletes the current maximum of every row and adds the largest among those deleted values. Scanning for maxima each round costs $O(mn)$ per pass and $n$ passes; $m,n\le 50$ would allow it, yet the values deleted from one row are exactly that row in decreasing order.
+>
+> Sort each row ascending. The $j$-th operation then corresponds to the $j$-th entry of every row (from the right), so the answer is the sum of column-wise maxima. After sorting, $\textit{zip}$ aggregates columns and no further deletion is needed.
+
+<!-- thinking:end -->
+
 Since each operation involves removing the maximum value from each row and then adding the maximum value to the answer, we can first sort each row.
 
 Next, we traverse each column, take the maximum value from each column, and add it to the answer.

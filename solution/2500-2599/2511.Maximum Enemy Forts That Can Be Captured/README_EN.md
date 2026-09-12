@@ -74,6 +74,16 @@ Since 4 is the maximum number of enemy forts that can be captured, we return 4.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move starts at a friendly fort, crosses a run of empty cells, and stops at an enemy fort; the captured count is the zeros in between. $n\le 1000$ allows enumerating endpoints, but each $i$ need not rescan to the right.
+>
+> Park $i$ on a nonzero cell and let $j$ skip the following zeros to the next nonzero. Opposite signs mean $j-i-1$ zeros can update the answer; then set $i$ to $j$ so the array is walked once.
+
+<!-- thinking:end -->
+
 We use a pointer $i$ to traverse the array $forts$, and a pointer $j$ to start traversing from the next position of $i$ until it encounters the first non-zero position, i.e., $forts[j] \neq 0$. If $forts[i] + forts[j] = 0$, then we can move the army between $i$ and $j$, destroying $j - i - 1$ enemy forts. We use the variable $ans$ to record the maximum number of enemy forts that can be destroyed.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Where $n$ is the length of the array `forts`.

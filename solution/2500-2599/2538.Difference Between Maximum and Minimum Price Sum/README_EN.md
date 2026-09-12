@@ -75,6 +75,16 @@ The difference between the maximum and minimum price sum is 2. It can be proved 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path costs the sum of node prices minus the smaller endpoint; we want the maximum over all paths. Prices are positive, so this is the path sum minus one endpoint. Enumerating paths is $O(n^2)$.
+>
+> Tree DP keeps two values per subtree: the longest downward chain $a$ that still includes the far endpoint, and the longest chain $b$ after dropping that endpoint. Combining $a$ with a child's $d$, or $b$ with a child's $c$, covers the best path through the current node.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

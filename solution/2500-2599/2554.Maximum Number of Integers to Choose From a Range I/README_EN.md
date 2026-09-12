@@ -77,6 +77,16 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 
 ### Solution 1: Greedy + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick as many distinct integers from $[1,n]$ as possible, skipping $\textit{banned}$, with sum at most $\textit{maxSum}$. Smaller values leave more room, so take them first.
+>
+> For $n\le 10^4$, walk $i=1,2,\ldots$, skip banned values via a set, and stop when the next $i$ would exceed the remaining sum.
+
+<!-- thinking:end -->
+
 We use the variable $s$ to represent the sum of the currently selected integers, and the variable $ans$ to represent the number of currently selected integers. We convert the array `banned` into a hash table for easy determination of whether a certain integer is not selectable.
 
 Next, we start enumerating the integer $i$ from $1$. If $s + i \leq maxSum$ and $i$ is not in `banned`, then we can select the integer $i$, and add $i$ and $1$ to $s$ and $ans$ respectively.
@@ -242,6 +252,14 @@ int maxCount(int* banned, int bannedSize, int n, int maxSum) {
 <!-- solution:start -->
 
 ### Solution 2: Greedy + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is linear in $n$ and fails when $n$ is huge. Banned values split $[1,n]$ into contiguous gaps whose prefix sums are arithmetic; binary search finds how many we can still afford. Fill gaps from the left until the budget is gone.
+
+<!-- thinking:end -->
 
 If $n$ is very large, the enumeration in Method One will time out.
 

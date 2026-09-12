@@ -70,6 +70,16 @@ There is no valid split.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the leftmost $i$ such that the prefix product is coprime to the suffix product. The products overflow; coprimality means the two sides share no prime.
+>
+> The first and last occurrences of each prime must lie on the same side of the cut. Record the first index of every prime and extend that index's cover to the last occurrence. Scan these covers: if the running right end ends before index $i$, $i-1$ is a valid split.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

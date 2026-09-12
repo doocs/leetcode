@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reorder students by the $k$-th exam score, descending. Rows are independent, so one sort with key $-x[k]$ suffices.
+
+<!-- thinking:end -->
+
 We directly sort $\textit{score}$ in descending order based on the scores in the $k$-th column, and then return the result.
 
 The time complexity is $O(m \times \log m)$, and the space complexity is $O(\log m)$. Here, $m$ is the number of rows in $\textit{score}$.

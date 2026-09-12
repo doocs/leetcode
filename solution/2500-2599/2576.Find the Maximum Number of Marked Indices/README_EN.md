@@ -86,6 +86,16 @@ Since there is no other operation, the answer is 4.
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair may be marked when twice the smaller value does not exceed the larger; each index is used at most once. At most $\lfloor n/2\rfloor$ pairs exist, so the smaller half should try to match the larger half.
+>
+> After sorting, the left pointer sits on the cheap half while the right half is scanned from the median onward. A value at least twice the left one scores a pair and advances the left pointer. The answer is twice the number of successes.
+
+<!-- thinking:end -->
+
 According to the problem description, the problem can generate at most $n / 2$ pairs of indices, where $n$ is the length of the array $\textit{nums}$.
 
 To mark as many indices as possible, we can sort the array $\textit{nums}$. Next, we traverse each element $\textit{nums}[j]$ in the right half of the array, using a pointer $\textit{i}$ to point to the smallest element in the left half. If $\textit{nums}[i] \times 2 \leq \textit{nums}[j]$, we can mark the indices $\textit{i}$ and $\textit{j}$, and move $\textit{i}$ one position to the right. Continue traversing the elements in the right half until reaching the end of the array. At this point, the number of indices we can mark is $\textit{i} \times 2$.

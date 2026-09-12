@@ -74,6 +74,16 @@ After a billion days, the only two distinct numbers on the board are 2 and 3.
 
 ### Solution 1: Lateral Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If $x$ is on the board and $0<y<x$ with $x\bmod y=1$, we may write $y$. For $n>1$, $n\bmod(n-1)=1$, so $n-1$ appears, then $n-2,\ldots,2$; $1$ never does.
+>
+> The distinct count is therefore $n-1$, or $1$ when $n=1$. The process need not be simulated.
+
+<!-- thinking:end -->
+
 Since every operation on the number $n$ on the desktop will also cause the number $n-1$ to appear on the desktop, the final numbers on the desktop are $[2,...n]$, that is, $n-1$ numbers.
 
 Note that $n$ could be $1$, so it needs to be specially judged.

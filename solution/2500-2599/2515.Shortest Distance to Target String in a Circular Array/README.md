@@ -81,6 +81,16 @@ tags:
 
 ### 方法一：一次遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组首尾相接，求从 $\textit{startIndex}$ 走到某个等于 $\textit{target}$ 的下标的最少步数。双向逐步扩散在 $n\le 100$ 时可行，但每个 $\textit{target}$ 出现位置与起点的环上距离都可闭式求出。
+>
+> 遍历所有等于 $\textit{target}$ 的下标 $i$，环距为 $\min(|i-\textit{startIndex}|,\,n-|i-\textit{startIndex}|)$，取最小者；若从未出现则返回 $-1$。
+
+<!-- thinking:end -->
+
 我们遍历数组 $\textit{words}$，找到与 $\textit{target}$ 相等的单词，计算其与 $\textit{startIndex}$ 的距离 $t$，则此时的最短距离为 $\min(t, n - t)$，我们只需要不断更新最小值即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。

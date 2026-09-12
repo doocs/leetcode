@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Prefix XOR + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray is beautiful iff we can turn it to zeros by repeatedly subtracting $2^k$ from two set bits — i.e. every bit appears an even number of times, i.e. the XOR is $0$. Checking every interval is quadratic.
+>
+> Equal prefix XORs bound a zero-XOR segment. A hash map counts prefixes; the current $\textit{mask}$ adds the number of earlier equals. A leading $0$ accounts for segments that start at the beginning.
+
+<!-- thinking:end -->
+
 We observe that a subarray can become an array of all $0$s if and only if the number of $1$s on each binary bit of all elements in the subarray is even.
 
 If there exist indices $i$ and $j$ such that $i \lt j$ and the subarrays $nums[0,..,i]$ and $nums[0,..,j]$ have the same parity of the number of $1$s on each binary bit, then we can turn the subarray $nums[i + 1,..,j]$ into an array of all $0$s.

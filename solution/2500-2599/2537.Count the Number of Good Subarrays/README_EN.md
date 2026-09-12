@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Hash Table + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray is good when it contains at least $k$ equal pairs. Checking every $[l,r]$ is quadratic or worse at $n\le 10^5$.
+>
+> The pair count is monotone in the window size. Inserting $x$ adds the current $\textit{cnt}[x]$ pairs. Advance the left pointer while the count would remain at least $k$ after removal. Then every index in $[0,i]$ is a valid left end, so add $i+1$.
+
+<!-- thinking:end -->
+
 If a subarray contains $k$ pairs of identical elements, then this subarray must contain at least $k$ pairs of identical elements.
 
 We use a hash table $\textit{cnt}$ to count the occurrences of elements within the sliding window, a variable $\textit{cur}$ to count the number of identical pairs within the window, and a pointer $i$ to maintain the left boundary of the window.

@@ -71,6 +71,16 @@ It can be proved that 55.0 is the maximum total price that we can achieve.
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Items may be taken in any fraction of their weight. We maximize price and return $-1$ if the capacity cannot be filled. This is the fractional knapsack: higher unit price first.
+>
+> Sorting by $w/p$ ascending is unit price descending. Take $\min(w,\textit{capacity})$ of each item and add the proportional price. Leftover capacity means the total weight is insufficient.
+
+<!-- thinking:end -->
+
 We sort the items in descending order by unit price, and then take out the items one by one until the backpack is full.
 
 If the backpack is not full in the end, return $-1$, otherwise return the total price.

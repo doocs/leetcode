@@ -69,6 +69,16 @@ It can be proven that no distribution exists such that number of children gettin
 
 ### Solution 1: Case analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Everyone gets at least $1$, as many as possible get exactly $8$, and nobody may get $4$. Less than one dollar per child is impossible.
+>
+> More than $8\times \textit{children}$ forces someone above $8$, so at most $\textit{children}-1$ eights. Exactly $8n-4$ would leave a $4$ if $n-1$ people already have $8$, so drop one more. Otherwise give everyone $1$ first; each leftover $7$ creates one eight, i.e. $\lfloor(\textit{money}-\textit{children})/7\rfloor$.
+
+<!-- thinking:end -->
+
 If $money \lt children$, then there must be a child who did not receive money, return $-1$.
 
 If $money \gt 8 \times children$, then there are $children-1$ children who received $8$ dollars, and the remaining child received $money - 8 \times (children-1)$ dollars, return $children-1$.

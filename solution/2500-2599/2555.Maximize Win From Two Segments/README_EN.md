@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Dynamic Programming + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two segments of length at most $k$ cover prize positions; they may overlap. Enumerating both endpoints is too slow.
+>
+> Positions are sorted. Fix the second segment's right end at prize $i$; binary search gives the leftmost prize still inside length $k$, covering $i-j$ prizes. The first segment must lie entirely among the first $j$ prizes, whose best is the prefix DP $f[j]$. While scanning, $f[i]$ stores the best single segment whose right end is at most $i$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the maximum number of prizes that can be obtained by selecting a segment of length $k$ from the first $i$ prizes. Initially, $f[0] = 0$. We define the answer variable as $ans = 0$.
 
 Next, we enumerate the position $x$ of each prize, and use binary search to find the leftmost prize index $j$ such that $prizePositions[j] \geq x - k$. At this point, we update the answer $ans = \max(ans, f[j] + i - j)$, and update $f[i] = \max(f[i - 1], i - j)$.

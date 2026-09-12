@@ -67,6 +67,16 @@ It can be proved that there is only 1 beautiful subset in the array [1].
 
 ### Solution 1: Counting + Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subset is beautiful when no two values differ by $k$; the empty set is excluded. $n\le 20$, so $2^n$ subsets are enumerable.
+>
+> Backtrack with take-or-skip. Taking $x$ is allowed only when neither $x-k$ nor $x+k$ is already chosen. A counter stores frequencies; the answer starts at $-1$ to drop the empty set.
+
+<!-- thinking:end -->
+
 We use a hash table or array $\textit{cnt}$ to record the currently selected numbers and their counts, and use $\textit{ans}$ to record the number of beautiful subsets. Initially, $\textit{ans} = -1$ to exclude the empty set.
 
 For each number $x$ in the array $\textit{nums}$, we have two choices:

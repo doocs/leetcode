@@ -73,6 +73,16 @@ So, the total gifts remaining are 4.
 
 ### Solution 1: Priority Queue (Max Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step replaces the richest pile with $\lfloor\sqrt{\,\cdot\,}\rfloor$, $k$ times, then sums what remains. Scanning for the max each time works for the limits, but a heap yields it directly.
+>
+> A max-heap pops the top and pushes its integer square root, $k$ times, then sums the heap. Python stores negations.
+
+<!-- thinking:end -->
+
 We can store the array $gifts$ in a max heap, and then loop $k$ times, each time taking out the top element of the heap, taking the square root of it, and putting the result back into the heap.
 
 Finally, we add up all the elements in the heap as the answer.

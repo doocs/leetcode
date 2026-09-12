@@ -67,6 +67,16 @@ tags:
 
 ### 方法一：排序 + 二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计满足 $\textit{lower}\le nums[i]+nums[j]\le \textit{upper}$ 的无序对。双重循环在 $n\le 10^5$ 时不可行。
+>
+> 和只与取值有关，排序不改变答案。固定 $x=nums[i]$ 后，另一侧落在 $[\textit{lower}-x,\textit{upper}-x]$，两次下界之差即个数，下标从 $i+1$ 起以免重复。
+
+<!-- thinking:end -->
+
 我们先对数组 `nums` 按照升序排序，然后枚举 `nums[i]`，对于每个 `nums[i]`，我们通过二分查找找到 `nums[j]` 的下界 `j`，即第一个满足 `nums[j] >= lower - nums[i]` 的下标，然后再通过二分查找找到 `nums[k]` 的下界 `k`，即第一个满足 `nums[k] >= upper - nums[i] + 1` 的下标，那么 `[j, k)` 即为 `nums[j]` 满足 `lower <= nums[i] + nums[j] <= upper` 的下标范围，这些下标对应的 `nums[j]` 的个数即为 `k - j`，将其累加到答案中即可。注意 $j \gt i$。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 `nums` 的长度。

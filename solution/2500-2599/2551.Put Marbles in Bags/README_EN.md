@@ -72,6 +72,16 @@ Since both the maximal and minimal score are the same, we return 0.
 
 ### Solution 1: Problem Transformation + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the marble sequence into $k$ contiguous bags; a bag costs the sum of its endpoints. We want max score minus min score. The first and last weights are always counted; each cut adds a pair $w_i+w_{i+1}$.
+>
+> Cuts do not interact. Sort all adjacent sums; the difference between the $k-1$ largest and the $k-1$ smallest is the answer after the shared endpoints cancel.
+
+<!-- thinking:end -->
+
 We can transform the problem into: dividing the array `weights` into $k$ consecutive subarrays, that is, we need to find $k-1$ splitting points, each splitting point's cost is the sum of the elements on the left and right of the splitting point. The difference between the sum of the costs of the largest $k-1$ splitting points and the smallest $k-1$ splitting points is the answer.
 
 Therefore, we can process the array `weights` and transform it into an array `arr` of length $n-1$, where `arr[i] = weights[i] + weights[i+1]`. Then we sort the array `arr`, and finally calculate the difference between the sum of the costs of the largest $k-1$ splitting points and the smallest $k-1$ splitting points.

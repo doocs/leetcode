@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Counting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the digits of $num$ into two integers whose sum is minimized. High places should be small, so the cheapest digits should fill those places on both numbers in turn.
+>
+> After counting digits $0$–$9$, append them in increasing order alternately to the two numbers, keeping their lengths close and their leading digits small.
+
+<!-- thinking:end -->
+
 First, we use a hash table or array $cnt$ to count the occurrences of each digit in $num$, and use a variable $n$ to record the number of digits in $num$.
 
 Next, we enumerate all the digits $i$ in $nums$, and alternately allocate the digits in $cnt$ to $num1$ and $num2$ in ascending order, recording them in an array $ans$ of length $2$. Finally, we return the sum of the two numbers in $ans$.
@@ -233,6 +243,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 counts by hand for a linear pass. There are at most ten digits, so sorting the decimal string and joining even and odd positions yields the same split with less code.
+
+<!-- thinking:end -->
 
 We can convert $num$ to a string or character array, then sort it, and then alternately allocate the digits in the sorted array to $num1$ and $num2$ in ascending order. Finally, we return the sum of $num1$ and $num2$.
 

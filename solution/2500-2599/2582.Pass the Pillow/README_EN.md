@@ -64,6 +64,14 @@ After two seconds, the 3<sup>r</sup><sup>d</sup> person is holding the pillow.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pillow walks back and forth on $1..n$; we want the holder after $\textit{time}$ seconds. $\textit{time}\le 1000$, so flipping direction each second is enough.
+
+<!-- thinking:end -->
+
 We can simulate the process of passing the pillow, and each time the pillow is passed, if the pillow reaches the front or the end of the queue, the direction of the pillow will change, and the queue will continue to pass the pillow along the opposite direction.
 
 The time complexity is $O(time)$ and the space complexity is $O(1)$, where $time$ is the given time.
@@ -177,6 +185,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is linear in $\textit{time}$. One sweep has $n-1$ steps; division gives the round and the remainder. Even rounds walk right from $1$, odd rounds walk left from $n$.
+
+<!-- thinking:end -->
 
 We notice that there are $n - 1$ passes in each round. Therefore, we can divide $time$ by $n - 1$ to get the number of rounds $k$ that the pillow is passed, and then take the remainder of $time$ modulo $n - 1$ to get the remaining passes $mod$ in the current round.
 

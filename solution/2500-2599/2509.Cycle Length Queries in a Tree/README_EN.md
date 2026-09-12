@@ -88,6 +88,16 @@ tags:
 
 ### Solution 1: Finding the Lowest Common Ancestor
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a perfect binary tree the cycle created by edge $(a,b)$ has length equal to the path $a$–$b$ plus one. Building the tree for $n$ up to $30$ would materialize $2^n-1$ nodes.
+>
+> A parent is $\lfloor x/2\rfloor$, i.e. a right shift. Walk both nodes upward, always moving the larger label, until they meet; the number of steps plus one is the cycle length. That walk is exactly the LCA computation on this numbering.
+
+<!-- thinking:end -->
+
 For each query, we find the lowest common ancestor of the two nodes $a$ and $b$, and record the number of steps taken upwards. The answer to the query is the number of steps plus one.
 
 To find the lowest common ancestor, if $a > b$, we move $a$ to its parent node; if $a < b$, we move $b$ to its parent node. We accumulate the number of steps until $a = b$.

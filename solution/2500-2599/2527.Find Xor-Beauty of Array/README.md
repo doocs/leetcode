@@ -79,6 +79,16 @@ tags:
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 三重循环枚举 $(i,j,k)$ 并异或 $(\textit{nums}[i]\mid \textit{nums}[j])\&\textit{nums}[k]$，在 $n\le 10^5$ 下不可行。异或满足交换律，成对相同的项会抵消。
+>
+> $i\neq j$ 时 $(i,j,k)$ 与 $(j,i,k)$ 贡献相同，异或为 $0$。$i=j$ 且 $i\neq k$ 时 $(\textit{nums}[i]\&\textit{nums}[k])$ 与对换后的项再次抵消。剩下 $i=j=k$，答案即全体元素的异或。
+
+<!-- thinking:end -->
+
 我们首先考虑 $i$ 与 $j$ 不相等的情况，此时 `((nums[i] | nums[j]) & nums[k])` 与 `((nums[j] | nums[i]) & nums[k])` 的结果是相同的，两者的异或结果为 $0$。
 
 因此，我们只需要考虑 $i$ 与 $j$ 相等的情况。此时 `((nums[i] | nums[j]) & nums[k]) = (nums[i] & nums[k])`，如果 $i \neq k$，那么与 `nums[k] & nums[i]` 的结果是相同的，这些值的异或结果为 $0$。
