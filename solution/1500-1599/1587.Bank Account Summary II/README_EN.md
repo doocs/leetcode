@@ -102,6 +102,17 @@ Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 
 ### Solution 1: Equi-Join + Group By + Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List users whose balance exceeds $10000$. Names and transactions live in two tables, so they must be joined on the account before we aggregate.
+>
+> After the equi-join, sum $amount$ per account and keep groups whose balance is greater than $10000$, projecting the name.
+
+<!-- thinking:end -->
+
+
 We can use an equi-join to join the `Users` table and the `Transactions` table on the condition of `account`, and then group by `account` to calculate the balance for each account using the `SUM` function. Finally, we can filter out the users whose balance is less than or equal to $10000$.
 
 <!-- tabs:start -->

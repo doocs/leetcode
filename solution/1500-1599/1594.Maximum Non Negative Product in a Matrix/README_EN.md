@@ -71,6 +71,17 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths may only go right or down; we want the largest nonnegative product. Negatives mean the best product can come from the most negative product times another negative. Keeping only a maximum misses that path.
+>
+> Store both the min and max product reaching each cell, updating from the two extrema above and to the left. If the final maximum is negative return $-1$; otherwise reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
+
 We define a 3D array $f$, where $f[i][j][0]$ and $f[i][j][1]$ represent the minimum and maximum product of all paths from the top-left corner $(0, 0)$ to position $(i, j)$, respectively. For each position $(i, j)$, we can transition from above $(i - 1, j)$ or from the left $(i, j - 1)$, so we need to consider the results of multiplying the minimum and maximum products of these two paths by the value of the current cell.
 
 Finally, we need to return $f[m - 1][n - 1][1]$ modulo $10^9 + 7$. If $f[m - 1][n - 1][1]$ is less than $0$, return $-1$.

@@ -85,6 +85,17 @@ Note that there are multiple points connected to point 2 in the first group and 
 
 ### Solution 1: Bitmask Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Connect two groups so that every point has at least one edge, minimizing total cost. Each side has at most $12$ points; enumerating edge subsets is impossible, but the second group fits in an $n$-bit mask of which points are already incident.
+>
+> Let $f[i][j]$ be the min cost after the first $i$ points of group one, with group two's mask equal to $j$. For each bit $k$ set in $j$, transition from “just connected $k$ this round”, “already $j$ last round”, or “$k$ missing last round”. The answer is $f[m][2^n-1]$.
+
+<!-- thinking:end -->
+
+
 Let $m$ and $n$ denote the number of points in the first group and the second group, respectively.
 
 Since $1 \leq n \leq m \leq 12$, we can use an integer to represent the state of points in the second group — specifically, a binary integer of length $n$, where bit $k$ being $1$ means the $k$-th point in the second group is connected to some point in the first group, and $0$ means it is not.
@@ -274,6 +285,15 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bitmask Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Layer $i$ reads only layer $i-1$ and values already filled in the same layer, so two rolling arrays drop the memory from $O(m\cdot 2^n)$ to $O(2^n)$ without changing the recurrence.
+
+<!-- thinking:end -->
+
 
 We notice that the transition of $f[i][j]$ only depends on $f[i - 1][\cdot]$ and $f[i][\cdot]$, so we can use a rolling array to optimize the space complexity down to $O(2^n)$.
 

@@ -138,6 +138,17 @@ John (customer 5) 没有订购过商品, 所以我们并没有把 John 包含在
 
 ### 方法一：分组 + 窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对每位顾客找出订购次数最多的商品，并列第一都要输出。先按人与商品计数，再在分组内取最大次数。
+>
+> 按 $customer\_id,product\_id$ 分组后，用 $RANK$ 按次数降序编号，保留 $rk=1$ 的行，再连接商品表取出名称。$RANK$ 保证并列最高频都留下。
+
+<!-- thinking:end -->
+
+
 我们将 `Orders` 表按照 `customer_id` 和 `product_id` 进行分组，然后利用窗口函数 `rank()`，按照 `customer_id` 分区，并且按照 `count(1)` 降序排列，得到每个 `customer_id` 下对应的 `product_id` 的排名，排名为 $1$ 的就是该 `customer_id` 下最经常订购的商品。
 
 <!-- tabs:start -->

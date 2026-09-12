@@ -75,6 +75,17 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 ### Solution 1: Preprocessing + Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boxes may enter from either end and still cannot pass a shorter room. $n\le 10^5$ forbids assigning ends by brute force. Room $i$'s usable height is itself capped by the shortest room on the better of the two approach paths.
+>
+> Precompute the running minima $left[i]$ and $right[i]$, then set the capacity to $\min(warehouse[i],\max(left[i],right[i]))$. Sort capacities with the boxes and match the smallest box to the shortest still-tall-enough room.
+
+<!-- thinking:end -->
+
+
 First, we preprocess the warehouse to get the maximum height of each room. Then, we sort both the boxes and the warehouse. Starting with the smallest box and the smallest room, if the current room's height is greater than or equal to the current box's height, we can place the current box in the current room; otherwise, we continue to the next room.
 
 Finally, we return the number of boxes that can be placed.

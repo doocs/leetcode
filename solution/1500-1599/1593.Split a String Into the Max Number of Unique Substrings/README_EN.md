@@ -71,6 +71,17 @@ tags:
 
 ### Solution 1: Backtracking + Pruning
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the string into as many distinct pieces as possible. $n\le 16$ allows full backtracking, yet if the pieces so far plus the leftover characters cannot beat the best answer, the branch is useless.
+>
+> From index $i$ try every end $j$, accept $s[i:j]$ only when it is new, and recurse. A set tests uniqueness; $len(st)+n-i\le ans$ prunes hopeless prefixes.
+
+<!-- thinking:end -->
+
+
 We define a hash table $\textit{st}$ to store the currently split substrings. Then we use a depth-first search approach to try to split the string $\textit{s}$ into several unique substrings.
 
 Specifically, we design a function $\text{dfs}(i)$, which means we are considering splitting $\textit{s}[i:]$.
