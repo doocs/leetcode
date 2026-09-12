@@ -80,6 +80,16 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按 $\textit{removable}$ 的前缀依次删 $s$ 中的字符，求仍使 $p$ 为 $s$ 子序列的最长前缀。删除越多越难保持子序列，具有单调性。
+>
+> 对删除个数 $k$ 二分：标记前 $k$ 个下标后双指针判断 $p$ 是否仍为子序列。可行则增大 $k$。
+
+<!-- thinking:end -->
+
 我们注意到，如果移除 $\textit{removable}$ 前 $k$ 个下标对应的字符后，满足 $p$ 仍然是 $s$ 的一个子序列，那么移除 $k \lt k' \leq \textit{removable.length}$ 个下标对应的字符后，依然满足条件，这存在着单调性。因此，我们可以使用二分查找，找到最大的 $k$。
 
 我们定义二分查找的左边界 $l = 0$，右边界 $r = \textit{removable.length}$，然后进行二分查找。在每次查找中，我们取中间值 $mid = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$，然后检查移除 $\textit{removable}$ 的前 $mid$ 个下标对应的字符后，是否满足 $p$ 仍然是 $s$ 的一个子序列。如果满足，我们更新左边界 $l = mid$，否则更新右边界 $r = mid - 1$。

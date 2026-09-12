@@ -70,6 +70,16 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 
 ### Solution 1: Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest word whose every prefix is also in the list, breaking ties lexicographically. Rechecking the list for each prefix would square the total length.
+>
+> Insert every word into a trie and mark terminals. A word is valid iff every node on its path is a terminal. Compare valid words by length and then lexicographic order.
+
+<!-- thinking:end -->
+
 We define a Trie where each node has two attributes: a child node array $\textit{children}$ of length $26$, and a flag $\textit{isEnd}$ indicating whether the node marks the end of a word.
 
 We iterate over $\textit{words}$, and for each word $w$, we traverse from the root node. If the child node array of the current node does not contain the first character of $w$, we create a new node, then continue traversing the next character of $w$. After traversing all characters of $w$, we set the $\textit{isEnd}$ flag of the current node to $\texttt{true}$.

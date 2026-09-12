@@ -75,6 +75,16 @@ The values are in descending order with adjacent values differing by 1.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string must split into at least two parts whose integer values decrease by exactly $1$. Leading zeros are allowed but do not change the value. The number of cuts is exponential, yet $n\le 20$ makes search feasible.
+>
+> Extend the current part from the left, accumulating $y$. The first part is free; later parts must be exactly one less than the previous value. The first part must not consume the whole string. DFS succeeds if we reach the end.
+
+<!-- thinking:end -->
+
 We can start from the first character of the string and try to split it into one or more substrings, then recursively process the remaining part.
 
 Specifically, we design a function $\textit{dfs}(i, x)$, where $i$ represents the current position being processed, and $x$ represents the last split value. Initially, $x = -1$, indicating that we have not split out any value yet.

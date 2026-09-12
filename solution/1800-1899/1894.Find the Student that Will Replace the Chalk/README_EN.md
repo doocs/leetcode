@@ -78,6 +78,16 @@ Student number 1 does not have enough chalk, so they will have to replace it.
 
 ### Solution 1: Sum and Modulo + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students use chalk in a cycle and $k$ can be huge, while one full round has a modest sum. Simulating every round is too slow.
+>
+> Reduce $k$ modulo the sum of one round, then walk from index $0$; the first student who needs more than the remainder is the answer.
+
+<!-- thinking:end -->
+
 Since the students' answers are conducted in rounds, we can add up the chalk needed by all students to get a total $s$. Then we take the remainder of $k$ by $s$, which can tell us the remaining number of chalks after the last round.
 
 Next, we just need to simulate the last round. Initially, the remaining number of chalks is $k$, and the student with the number $0$ starts to answer the question. When the remaining number of chalks is less than the current student needs, the current student needs to replenish the chalk, and we directly return the current student's number $i$. Otherwise, we subtract the chalk needed by the current student from the remaining chalk, and add one to the current student's number $i$ for the next simulation.

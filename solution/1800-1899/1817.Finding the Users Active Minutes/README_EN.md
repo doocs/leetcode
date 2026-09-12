@@ -71,6 +71,16 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user's UAM is the number of distinct minutes they were active; we must count how many users have each UAM. Duplicate $(user,time)$ pairs must not inflate the count.
+>
+> Map each user to a set of timestamps; the set size is that user's UAM. Increment $\textit{ans}[UAM-1]$ in a length-$k$ array. One pass over the logs is enough.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to record all the unique operation times of each user, and then traverse the hash table to count the number of active minutes for each user. Finally, we count the distribution of the number of active minutes for each user.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $logs$ array.

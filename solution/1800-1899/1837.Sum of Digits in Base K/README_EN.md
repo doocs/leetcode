@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of digits of $n$ in base $k$. Materializing the digit string is unnecessary.
+>
+> Repeatedly add $n\bmod k$ and replace $n$ by $n/k$ until $n=0$. That is the base-$k$ expansion.
+
+<!-- thinking:end -->
+
 We divide $n$ by $k$ and take the remainder until it is $0$. The sum of the remainders gives the result.
 
 The time complexity is $O(\log_{k}n)$, and the space complexity is $O(1)$.

@@ -78,6 +78,16 @@ Hence, the maximum k is 2.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We delete $s[\textit{removable}[0..k))$ in order and want the largest $k$ such that $p$ remains a subsequence. More deletions only make the test harder.
+>
+> Binary-search $k$, mark the first $k$ indices, and scan $s$ against $p$. If $p$ still matches, try a larger $k$.
+
+<!-- thinking:end -->
+
 We notice that if removing the characters at the first $k$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$, then removing the characters at $k \lt k' \leq \textit{removable.length}$ indices will also satisfy the condition. This monotonicity allows us to use binary search to find the maximum $k$.
 
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \textit{removable.length}$. Then we perform binary search. In each search, we take the middle value $mid = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ and check if removing the characters at the first $mid$ indices in $\textit{removable}$ still makes $p$ a subsequence of $s$. If it does, we update the left boundary $l = mid$; otherwise, we update the right boundary $r = mid - 1$.

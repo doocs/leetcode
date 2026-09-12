@@ -62,6 +62,16 @@ All the strings are now equal to &quot;abc&quot;, so return <code>true</code>.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters may move freely among the words. The words can become equal iff every character's total count is divisible by the number of words.
+>
+> Count frequencies over the whole list and test that each count is a multiple of $n$.
+
+<!-- thinking:end -->
+
 According to the problem description, as long as the occurrence count of each character can be divided by the length of the string array, it is possible to redistribute the characters to make all strings equal.
 
 Therefore, we use a hash table or an integer array of length $26$ $\textit{cnt}$ to count the occurrences of each character. Finally, we check if the occurrence count of each character can be divided by the length of the string array.

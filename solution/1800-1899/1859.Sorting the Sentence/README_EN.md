@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: String Splitting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Shuffled words carry their original index as a trailing digit. The indices form a permutation of $1..n$, so one placement suffices.
+>
+> Split on spaces, write each word (without the digit) to index $\textit{digit}-1$, then join in order.
+
+<!-- thinking:end -->
+
 First, we split the string $s$ by spaces to get the array of strings $\textit{ws}$. Then, we iterate through the array $\textit{ws}$, subtracting the character '1' from the last character of each word to get the result as the index of the word. We take the prefix of the word as the content of the word. Finally, we concatenate the words in index order.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.

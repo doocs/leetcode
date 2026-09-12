@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must test whether every lowercase letter appears. A linear scan is enough; only the presence set matters.
+>
+> Insert characters into a set and check whether its size is $26$.
+
+<!-- thinking:end -->
+
 Traverse the string `sentence`, use an array or hash table to record the letters that have appeared, and finally check whether there are $26$ letters in the array or hash table.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string `sentence`, and $C$ is the size of the character set. In this problem, $C = 26$.
@@ -170,6 +180,14 @@ bool checkIfPangram(char* sentence) {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores a hash set. With only $26$ letters, bit $i$ of an integer $mask$ can mark letter $i$. The sentence is a pangram iff $mask=2^{26}-1$, using constant extra space.
+
+<!-- thinking:end -->
 
 We can also use an integer $mask$ to record the letters that have appeared, where the $i$-th bit of $mask$ indicates whether the $i$-th letter has appeared.
 

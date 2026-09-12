@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Sorting + Offline Query + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the shortest interval covering that point. Both arrays can have size $10^5$, so scanning all intervals per query is impossible.
+>
+> Sort queries offline by coordinate and intervals by left endpoint. A min-heap stores $(\textit{length},\textit{right})$ of intervals that already started: push those whose left is at most the query, pop those whose right is too small. The heap top is the shortest cover of the current point.
+
+<!-- thinking:end -->
+
 We notice that the order of queries does not affect the answer, and the intervals involved do not change. Therefore, we consider sorting all queries in ascending order, and sorting all intervals in ascending order of the left endpoint.
 
 We use a priority queue (min heap) $pq$ to maintain all current intervals. Each element in the queue is a pair $(v, r)$, representing an interval with length $v$ and right endpoint $r$. Initially, the priority queue is empty. In addition, we define a pointer $i$ that points to the current interval being traversed, and initially $i=0$.

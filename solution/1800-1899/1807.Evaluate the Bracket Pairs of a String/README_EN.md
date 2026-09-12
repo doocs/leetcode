@@ -92,6 +92,16 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 
 ### Solution 1: Hash Table + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each parenthesized key must be replaced by its knowledge value, or `'?'` if missing. Scanning $\textit{knowledge}$ for every pair is too slow when both the string and the dictionary can reach $10^5$ entries.
+>
+> Build a hash map from $\textit{knowledge}$, then scan $s$ from left to right. On `'('`, locate the matching `')'`, look up the key, and append the replacement; other characters are copied as is. Every character is visited a constant number of times.
+
+<!-- thinking:end -->
+
 First, we use a hash table $d$ to record the key-value pairs in `knowledge`.
 
 Then we traverse the string $s$. If the current character is an open parenthesis `'('`, we start traversing from the current position until we encounter a close parenthesis `')'`. At this point, the string within the parentheses is the key. We look for the corresponding value of this key in the hash table $d$. If found, we replace the value within the parentheses with it, otherwise, we replace it with `'?'`.

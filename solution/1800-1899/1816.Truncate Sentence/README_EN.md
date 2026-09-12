@@ -75,6 +75,16 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 
 ### Solution 1: String Split
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must keep the first $k$ words of a sentence. Splitting on spaces and joining them back is direct, at the cost of an intermediate word list.
+>
+> The language's $\textit{split}$ already tokenizes on whitespace; taking the first $k$ tokens and joining with spaces matches the statement exactly.
+
+<!-- thinking:end -->
+
 Split the sentence by spaces, then join the first $k$ words.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
@@ -96,6 +106,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 allocates an intermediate array. If we only need the cut position, scan left to right and decrement $k$ on each space; when $k$ hits $0$ the current index is the space after the $k$-th word. If the scan ends with $k>0$, the sentence has fewer than $k$ words and we return it unchanged. Extra space drops to $O(1)$.
+
+<!-- thinking:end -->
 
 We traverse the string $s$ from the beginning. For the current character $s[i]$, if it is a space, we decrement $k$. When $k$ becomes $0$, it means that we have extracted $k$ words, so we return the substring $s[0..i)$.
 

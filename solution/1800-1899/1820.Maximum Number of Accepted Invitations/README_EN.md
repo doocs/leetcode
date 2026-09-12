@@ -79,6 +79,16 @@ Explanation:</strong> The invitations are sent as follows:
 
 ### Solution 1: Hungarian Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boys and girls form a bipartite invitation graph; each person matches at most once. Enumerating matchings is exponential and $m,n\le 200$ forbids it.
+>
+> This is maximum bipartite matching. The Hungarian algorithm searches an augmenting path from each unmatched left vertex: DFS over unused right vertices, and rematch the previous partner if needed. Each left vertex is searched once, which is fast enough here.
+
+<!-- thinking:end -->
+
 This problem belongs to the maximum matching problem of bipartite graphs, which is suitable for solving with the Hungarian algorithm.
 
 The core idea of the Hungarian algorithm is to continuously start from unmatched points, look for augmenting paths, and stop when there are no augmenting paths. This gives the maximum match.

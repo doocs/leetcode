@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Equation Transformation + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A nice pair satisfies $nums[i]+rev(nums[j])=nums[j]+rev(nums[i])$. Checking every pair is $O(n^2\log M)$. With $n\le 10^5$ this will not pass.
+>
+> Rearrangement yields $nums[i]-rev(nums[i])=nums[j]-rev(nums[j])$. Count each difference; the answer is $\sum C(v,2)$ over those frequencies, modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 For the index pair $(i, j)$, if it satisfies the condition, then we have $nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])$, which means $nums[i] - nums[j] = rev(nums[j]) - rev(nums[i])$.
 
 Therefore, we can use $nums[i] - rev(nums[i])$ as the key of a hash table and count the number of occurrences of each key. Finally, we calculate the combination of values corresponding to each key, add them up, and get the final answer.
@@ -259,6 +269,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 finishes the histogram first and then sums combinations, which needs a second pass. The pairs are unordered, so while scanning we can add the current count of the same difference to the answer and then increment that key, avoiding an explicit $C(v,2)$ afterwards.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

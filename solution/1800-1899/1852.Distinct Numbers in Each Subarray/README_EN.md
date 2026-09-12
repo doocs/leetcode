@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Sliding Window + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the number of distinct values in every window of length $k$. Rebuilding a set for each window is too slow for $n\le 10^5$.
+>
+> Keep a frequency map of the window: increment on enter, decrement on leave and erase keys that hit $0$. The map size is the distinct count; one slide over the array suffices.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to record the occurrence times of each number in the subarray of length $k$.
 
 Next, we first traverse the first $k$ elements of the array, record the occurrence times of each element, and after the traversal, we take the size of the hash table as the first element of the answer array.
@@ -190,6 +200,14 @@ function distinctNumbers(nums: number[], k: number): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window + Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a hash map with larger constants. Values are at most $10^5$, so an array can replace the map. The window updates stay the same; only the index of a count is the value itself.
+
+<!-- thinking:end -->
 
 We can also use an array to replace the hash table, which can improve performance to some extent.
 

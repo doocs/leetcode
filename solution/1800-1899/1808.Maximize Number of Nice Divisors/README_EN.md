@@ -64,6 +64,16 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 ### Solution 1: Problem Transformation + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A nice divisor must include every prime at least once, so the count equals the product of the exponents, whose sum is at most $\textit{primeFactors}$. Enumerating partitions grows too quickly.
+>
+> The task is to split an integer into positive parts with maximum product. The classic split uses as many $3$s as possible and avoids a leftover $1$ (replace $3+1$ by $2+2$). Return $n$ itself when $n<4$; otherwise branch on $n\bmod 3$ and compute the power of $3$ with fast exponentiation modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We can factorize $n$ into prime factors, i.e., $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$, where $a_i$ is a prime factor and $k_i$ is the exponent of the prime factor $a_i$. Since the number of prime factors of $n$ does not exceed `primeFactors`, we have $k_1 + k_2 + \cdots + k_m \leq primeFactors$.
 
 According to the problem description, we know that a good factor of $n$ must be divisible by all prime factors, which means that a good factor of $n$ needs to include $a_1 \times a_2 \times \cdots \times a_m$ as a factor. Then the number of good factors $k= k_1 \times k_2 \times \cdots \times k_m$, i.e., $k$ is the product of $k_1, k_2, \cdots, k_m$. To maximize the number of good factors, we need to split `primeFactors` into $k_1, k_2, \cdots, k_m$ to make $k_1 \times k_2 \times \cdots \times k_m$ the largest. Therefore, the problem is transformed into: split the integer `primeFactors` into the product of several integers to maximize the product.

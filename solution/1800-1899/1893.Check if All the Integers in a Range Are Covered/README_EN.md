@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether every integer in $[left,right]$ lies in some given interval. The domain is at most $50$, so a difference array suffices.
+>
+> Add $1$ at each left endpoint and $-1$ just after the right. The prefix sum is the coverage at that point; a zero inside $[left,right]$ means the range is not fully covered.
+
+<!-- thinking:end -->
+
 We can use the idea of a difference array to create a difference array $\textit{diff}$ of length $52$.
 
 Next, we iterate through the array $\textit{ranges}$. For each interval $[l, r]$, we increment $\textit{diff}[l]$ by $1$ and decrement $\textit{diff}[r + 1]$ by $1$.

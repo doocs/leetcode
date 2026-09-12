@@ -84,6 +84,16 @@ This yields an absolute sum difference of <code>|10-9| + |10-3| + |4-5| + |4-1| 
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may replace at most one entry of $nums1$ to minimize $\sum|nums1[i]-nums2[i]|$. Trying every replacement value at every index is $O(n^2)$. With $n\le 10^5$ this will not pass.
+>
+> Compute the unreplaced sum $s$. The gain of replacing index $i$ is the drop from $|nums1[i]-nums2[i]|$ to the distance between $nums2[i]$ and the closest value that already occurs in $nums1$. Sort a copy of $nums1$, binary-search the two neighbors of each $nums2[i]$, keep the best gain $mx$, and return $s-mx$.
+
+<!-- thinking:end -->
+
 According to the problem, we can first calculate the absolute difference sum of `nums1` and `nums2` without any replacements, denoted as $s$.
 
 Next, we enumerate each element $nums1[i]$ in `nums1`, replacing it with the element closest to $nums2[i]$ that also exists in `nums1`. Therefore, before the enumeration, we can make a copy of `nums1`, resulting in the array `nums`, and sort `nums`. Then, we perform a binary search in `nums` for the element closest to $nums2[i]$, denoted as $nums[j]$, and calculate $|nums1[i] - nums2[i]| - |nums[j] - nums2[i]|$, updating the maximum value of the difference $mx$.

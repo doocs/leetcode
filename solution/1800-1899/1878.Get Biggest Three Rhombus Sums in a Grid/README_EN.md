@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: Enumerate Diamond Center + Prefix Sum + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the three largest distinct sums of rhombuses in the grid, including single cells. Summing every rhombus by walking its border is slow.
+>
+> Prefix sums on both diagonals let us evaluate a rhombus from its center and side length in $O(1)$, correcting double-counted vertices. An ordered set keeps only the three largest distinct sums.
+
+<!-- thinking:end -->
+
 We can preprocess to get two prefix sum arrays $s_1$ and $s_2$, where $s_1[i][j]$ represents the sum of the elements on the upper left diagonal ending at $(i, j)$, and $s_2[i][j]$ represents the sum of the elements on the upper right diagonal ending at $(i, j)$.
 
 Next, we enumerate each position $(i, j)$, first add $grid[i][j]$ to the ordered set $ss$, and then enumerate the length $k$ of the diamond. The sum of the diamond with $(i, j)$ as the center and a side length of $k$ is:

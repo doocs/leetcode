@@ -66,6 +66,16 @@ The string is now alternating.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap bits to reach $0101\ldots$ or $1010\ldots$. The two targets demand different $0/1$ counts, so a mismatch of more than one is impossible.
+>
+> Compare $n_0$ and $n_1$: if they differ by more than $1$, return $-1$; if equal, try both starting bits; otherwise start with the majority bit. Each swap fixes two mismatches, so the answer is half the number of wrong positions.
+
+<!-- thinking:end -->
+
 First, we count the number of characters $0$ and $1$ in the string $\textit{s}$, denoted as $n_0$ and $n_1$ respectively.
 
 If the absolute difference between $n_0$ and $n_1$ is greater than $1$, it is impossible to form an alternating string, so we return $-1$.

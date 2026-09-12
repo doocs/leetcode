@@ -82,6 +82,16 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three lanes have obstacles and we may only jump sideways at the same point. Searching every path without memoization repeats the $O(n)$ states.
+>
+> Let $f[j]$ be the fewest side jumps to be on lane $j$ at the current point. A blocked lane becomes infinity; otherwise we either stay or jump from the cheapest lane at this point. A length-$3$ array rolls from the start to the finish.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum number of sidesteps for the frog to reach the $i$-th point and be on the $j$-th lane (index starts from $0$).
 
 Note that the frog starts on the second lane (the problem index starts from $1$), so the value of $f[0][1]$ is $0$, and the values of $f[0][0]$ and $f[0][2]$ are both $1$. The answer is $min(f[n][0], f[n][1], f[n][2])$.

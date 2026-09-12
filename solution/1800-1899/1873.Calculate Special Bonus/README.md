@@ -77,6 +77,16 @@ Employees 表:
 
 ### 方法一：IF 语句 + ORDER BY 子句
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 奇数学工号且姓名不以 $M$ 开头的雇员拿全额奖金，其余为 $0$，并按工号排序。规则可在投影时直接写出。
+>
+> 用 $\textit{IF}$ 把「工号为偶数或姓名以 $M$ 开头」映射为 $0$，否则取 $salary$，再 $\textit{ORDER BY}$ $employee\_id$。
+
+<!-- thinking:end -->
+
 我们可以使用 `IF` 语句来判断奖金的计算方式，然后使用 `ORDER BY` 将结果按照 `employee_id` 排序。
 
 <!-- tabs:start -->

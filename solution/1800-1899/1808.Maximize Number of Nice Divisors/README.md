@@ -66,6 +66,16 @@ tags:
 
 ### 方法一：问题转换 + 快速幂
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好因子必须含全部质因子各至少一次，其个数等于各质因子指数的乘积，且指数之和不超过 $\textit{primeFactors}$。直接枚举分拆方案的数量随 $n$ 增长过快。
+>
+> 问题化为：把整数拆成若干正整数使乘积最大。由整数拆分的经典结论，应尽量拆成 $3$，并避开单独的 $1$（余 $1$ 时改为两个 $2$）。对 $n<4$ 直接返回；否则按 $n\bmod 3$ 分类，用快速幂计算 $3$ 的幂并对 $10^9+7$ 取模。
+
+<!-- thinking:end -->
+
 我们可以将 $n$ 进行质因数分解，即 $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$，其中 $a_i$ 为质因子，而 $k_i$ 为质因子 $a_i$ 的指数。由于 $n$ 的质因子个数不超过 $primeFactors$ 个，因此 $k_1 + k_2 + \cdots + k_m \leq primeFactors$。
 
 而根据题意描述，我们知道 $n$ 的好因子要满足能被所有的质因子整除，也即是说 $n$ 的好因子需要包含 $a_1 \times a_2 \times \cdots \times a_m$ 作为因数。那么好因子的个数 $k= k_1 \times k_2 \times \cdots \times k_m$，即 $k$ 为 $k_1, k_2, \cdots, k_m$ 的乘积。要最大化好因子的个数，也即是说我们要将 `primeFactors` 拆分成 $k_1, k_2, \cdots, k_m$，使得 $k_1 \times k_2 \times \cdots \times k_m$ 最大。因此问题转换为：将整数 `primeFactors` 拆分成若干个整数的乘积，使得乘积最大。

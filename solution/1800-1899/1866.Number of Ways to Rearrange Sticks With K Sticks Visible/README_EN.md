@@ -71,6 +71,16 @@ The visible sticks are underlined.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count permutations of $n$ sticks where exactly $k$ are visible from the left. A stick is visible iff it is the tallest so far. $n\le 1000$ forbids listing permutations.
+>
+> Let $f[i][j]$ be the ways among $i$ sticks with $j$ visible. Placing the tallest last always adds a visible stick; otherwise the last height is one of the other $i-1$ values and the visible count stays the same. The recurrence yields $f[n][k]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the number of permutations of length $i$ in which exactly $j$ sticks can be seen. Initially, $f[0][0]=1$ and the rest $f[i][j]=0$. The answer is $f[n][k]$.
 
 Consider whether the last stick can be seen. If it can be seen, it must be the longest. Then there are $i - 1$ sticks in front of it, and exactly $j - 1$ sticks can be seen, which is $f[i - 1][j - 1]$. If the last stick cannot be seen, it can be any one except the longest stick. Then there are $i - 1$ sticks in front of it, and exactly $j$ sticks can be seen, which is $f[i - 1][j] \times (i - 1)$.
@@ -183,6 +193,14 @@ function rearrangeSticks(n: number, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1's $f[i][j]$ depends only on the previous row. Compress to one array and update $j$ downward so $f[j-1]$ is still the old value. Extra space becomes $O(k)$.
+
+<!-- thinking:end -->
 
 We notice that $f[i][j]$ is only related to $f[i - 1][j - 1]$ and $f[i - 1][j]$, so we can use a one-dimensional array to optimize the space complexity.
 

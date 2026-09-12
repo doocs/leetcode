@@ -82,6 +82,16 @@ tags:
 
 ### 方法一：位运算 + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次要选 $k<2^{\textit{maximumBit}}$ 使当前前缀异或与 $k$ 的异或最大，再删掉末尾元素。若对每个查询重新扫描数组，时间为 $O(n^2)$。$n\le 10^5$，无法通过。
+>
+> 先求出全数组异或 $xs$。从后往前删除时，$k$ 应在 $maximumBit$ 位内尽量把 $xs$ 的 $0$ 翻成 $1$。按位检查 $xs$ 即可构造 $k$，再用 $xs\oplus x$ 回退末尾。
+
+<!-- thinking:end -->
+
 我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$。
 
 接下来，我们从后往前枚举数组 `nums` 中的每个元素 $x$，当前的异或和为 $xs$，我们需要找到一个数 $k$，使得 $xs \oplus k$ 的值尽可能大，并且 $k \lt 2^{maximumBit}$。
@@ -276,6 +286,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### 方法二：枚举优化
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一按位构造 $k$，内层循环依赖 $maximumBit$。注意到目标是让 $xs\oplus k$ 在低 $maximumBit$ 位全为 $1$，故 $k=xs\oplus(2^{\textit{maximumBit}}-1)$。一次异或即可，总时间降为线性。
+
+<!-- thinking:end -->
 
 与方法一类似，我们先预处理出数组 `nums` 的异或和 $xs$，即 $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$。
 

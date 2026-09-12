@@ -79,6 +79,16 @@ Customers
 
 ### 方法一：WHERE 子句
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只需列出 $2021$ 年收入为正的客户。表中已有 $year$ 与 $revenue$ 两列，不必聚合或连接。
+>
+> 用 $\textit{WHERE}$ 同时约束年份与收入符号，投影 $customer\_id$ 即可。
+
+<!-- thinking:end -->
+
 我们可以直接使用 `WHERE` 子句来筛选出 `year` 为 `2021` 且 `revenue` 大于 $0$ 的客户。
 
 <!-- tabs:start -->

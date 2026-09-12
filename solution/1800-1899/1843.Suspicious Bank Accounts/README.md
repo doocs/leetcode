@@ -113,6 +113,16 @@ Transactions 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 连续两个月的贷方合计都超过账户收入上限即为可疑。需要先按账户与月份汇总，再判断相邻月。
+>
+> 把贷方交易按账户、月份开窗口求和，与 $max\_income$ 比较得到标记，再自连接相差一个月且均被标记的记录。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -148,6 +158,14 @@ ORDER BY s1.tx;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用窗口函数标月，再按月差连接。也可以按账户与 $\textit{YYYYMM}$ 分组，用 $\textit{HAVING}$ 筛出超限月份，再判断 $(account\_id,\textit{下月})$ 是否仍在该集合中，语义更贴近「连续两个超限月」。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

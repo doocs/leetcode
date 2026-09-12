@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Two Pointers + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful substring must contain $a,e,i,o,u$ in order, each at least once, with no regression. Checking every interval is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> Compress equal-letter runs into $(\textit{letter},\textit{length})$ pairs. A beautiful string is exactly five consecutive runs spelling $\textit{aeiou}$; their length sum is a candidate. One scan over the runs is enough.
+
+<!-- thinking:end -->
+
 We can first transform the string `word`. For example, for `word="aaaeiouu"`, we can transform it into data items `('a', 3)`, `('e', 1)`, `('i', 1)`, `('o', 1)`, `('u', 2)` and store them in an array `arr`. Each data item's first element represents a vowel, and the second element represents the number of times the vowel appears consecutively. This transformation can be implemented using two pointers.
 
 Next, we traverse the array `arr`, each time taking $5$ adjacent data items, and judge whether the vowels in these data items are `'a'`, `'e'`, `'i'`, `'o'`, `'u'` respectively. If so, calculate the total number of times the vowels appear in these $5$ data items, which is the length of the current beautiful substring, and update the maximum value of the answer.

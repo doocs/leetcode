@@ -78,6 +78,16 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must update one entry of $nums2$ and count pairs summing to $tot$. $nums2$ is long, so a nested scan on each query is impossible.
+>
+> $nums1$ has length at most $10^3$, so we enumerate it. A frequency map of $nums2$ lets $\textit{count}$ add $cnt[tot-x]$ for each $x\in nums1$, while $\textit{add}$ decrements the old value and increments the new one.
+
+<!-- thinking:end -->
+
 We note that the length of the array $\textit{nums1}$ does not exceed ${10}^3$, while the length of the array $\textit{nums2}$ reaches ${10}^5$. Therefore, if we directly enumerate all index pairs $(i, j)$ and check whether $\textit{nums1}[i] + \textit{nums2}[j]$ equals the specified value $\textit{tot}$, it will exceed the time limit.
 
 Can we only enumerate the shorter array $\textit{nums1}$? The answer is yes. We use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums2}$, then enumerate each element $x$ in the array $\textit{nums1}$ and calculate the sum of $\textit{cnt}[\textit{tot} - x]$.

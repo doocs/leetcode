@@ -76,6 +76,16 @@ The segment of 1s is not longer, so return false.
 
 ### Solution 1: Two Passes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compare the longest run of ones with the longest run of zeros. One pass can track both, but two helpers are clearer.
+>
+> $f(x)$ scans $s$ and records the longest consecutive $x$. The answer is whether $f(1)>f(0)$.
+
+<!-- thinking:end -->
+
 We design a function $f(x)$, which represents the length of the longest consecutive substring in string $s$ composed of $x$. If $f(1) > f(0)$, then return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)`.

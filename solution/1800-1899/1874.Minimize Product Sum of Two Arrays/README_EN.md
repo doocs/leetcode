@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may reorder one array and want the minimum of $\sum nums1[i]\cdot nums2[i]$. For positive numbers, large values should pair with small ones.
+>
+> Sort $nums1$ ascending and $nums2$ descending, then sum the pairwise products.
+
+<!-- thinking:end -->
+
 Since both arrays consist of positive integers, to minimize the sum of products, we can multiply the largest value in one array with the smallest value in the other array, the second largest with the second smallest, and so on.
 
 Therefore, we sort the array $\textit{nums1}$ in ascending order and the array $\textit{nums2}$ in descending order. Then, we multiply the corresponding elements of the two arrays and sum the results.

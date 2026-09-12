@@ -81,6 +81,16 @@ Transactions table:
 
 ### 方法一：窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要找出每一天金额最大的交易，并列时全部保留。先按日分组再比较，用自连接同样可行，但窗口函数更直接。
+>
+> 按 $DAY(day)$ 分区、按 $amount$ 降序做 $\textit{RANK}$，取名为 $1$ 的行，再按 $transaction\_id$ 排序。
+
+<!-- thinking:end -->
+
 我们可以使用窗口函数 `RANK`，按照每天的交易金额 `amount` 降序排列，然后选择排名为 $1$ 的交易。
 
 <!-- tabs:start -->

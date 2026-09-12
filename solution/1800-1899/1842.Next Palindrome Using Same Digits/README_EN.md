@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Find the Next Permutation of the First Half
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the next strictly larger palindrome that uses the same digits. The next permutation of the whole string need not stay palindromic.
+>
+> A palindrome is determined by its first half. Compute the next permutation of that half; if none exists there is no answer. Mirror the half to the suffix to restore the palindrome.
+
+<!-- thinking:end -->
+
 According to the problem description, we only need to find the next permutation of the first half of the string, then traverse the first half and symmetrically assign values to the second half.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.

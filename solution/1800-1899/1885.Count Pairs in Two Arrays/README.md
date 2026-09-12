@@ -63,6 +63,16 @@ tags:
 
 ### 方法一：排序 + 双指针
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计 $i<j$ 且 $nums1[i]+nums1[j]>nums2[i]+nums2[j]$ 的对数。移项后即 $a[i]+a[j]>0$，其中 $a=nums1-nums2$。双层枚举为 $O(n^2)$，$n\le 10^5$ 不可行。
+>
+> 对 $a$ 排序后，右指针从大到小：左指针推进到 $a[l]+a[r]>0$，则 $[l,r)$ 均可与 $r$ 配对。每个指针只走一遍。
+
+<!-- thinking:end -->
+
 我们可以将题目的不等式转化为 $\textit{nums1}[i] - \textit{nums2}[i] + \textit{nums1}[j] - \textit{nums2}[j] > 0$，即 $\textit{nums}[i] + \textit{nums}[j] > 0$，其中 $\textit{nums}[i] = \textit{nums1}[i] - \textit{nums2}[i]$。
 
 即对于数组 $\textit{nums}$，我们要找到所有满足 $\textit{nums}[i] + \textit{nums}[j] > 0$ 的数对 $(i, j)$。

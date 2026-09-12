@@ -72,6 +72,16 @@ The different GCDs are 6, 10, 3, 2, and 1.
 
 ### Solution 1: Enumeration + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every subsequence GCD is at most the array maximum $mx$, yet there are $2^n$ subsequences and $n\le 10^5$, so we cannot enumerate them.
+>
+> A value $x$ is some subsequence GCD iff the GCD of the multiples of $x$ that appear in the array is exactly $x$. For each $x\in[1,mx]$ walk those multiples, updating a running gcd, and count $x$ as soon as the gcd becomes $x$. The harmonic sum of multiples is $O(mx\log mx)$.
+
+<!-- thinking:end -->
+
 For all sub-sequences of the array $nums$, their greatest common divisor (GCD) will not exceed the maximum value $mx$ in the array.
 
 Therefore, we can enumerate each number $x$ in $[1,.. mx]$, and determine whether $x$ is the GCD of a sub-sequence of the array $nums$. If it is, then we increment the answer by one.

@@ -133,6 +133,16 @@ You can recommend pages for users 2, 3, 4, and 5 using a similar process.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recommend pages that a user's friends like but the user does not, and count those friends. Friendship is undirected, yet the table stores one directed pair.
+>
+> Union Friendship with its reverse, join Likes to obtain pages liked by friends, drop pages the user already likes with $\textit{NOT EXISTS}$, and count by user and page.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

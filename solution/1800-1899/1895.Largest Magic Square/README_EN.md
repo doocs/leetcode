@@ -62,6 +62,16 @@ Every row sum, column sum, and diagonal sum of this magic square is equal to 12.
 
 ### Solution 1: Prefix Sum + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A magic square has equal row, column, and diagonal sums. The grid is at most $50\times 50$, so we may try side lengths from large to small, but summing a square from scratch is wasteful.
+>
+> Row and column prefix sums give each line in $O(k)$; the two diagonals are walked once. Searching $k$ downward returns the first magic square.
+
+<!-- thinking:end -->
+
 We define $\text{rowsum}[i][j]$ as the sum of elements in the $i$-th row up to the $j$-th column of the matrix, and $\text{colsum}[i][j]$ as the sum of elements in the $j$-th column up to the $i$-th row. Thus, for any submatrix from $(x_1, y_1)$ to $(x_2, y_2)$, the sum of its $i$-th row can be expressed as $\text{rowsum}[i+1][y_2+1] - \text{rowsum}[i+1][y_1]$, and the sum of its $j$-th column can be expressed as $\text{colsum}[x_2+1][j+1] - \text{colsum}[x_1][j+1]$.
 
 We enumerate all possible submatrices and check if they are magic squares. For each submatrix, we calculate the sum of each row, each column, and both diagonals to determine if they are all equal.

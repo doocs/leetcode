@@ -93,6 +93,16 @@ The difference between their scores is (-22) - 0 = -22.
 
 ### Solution 1: Prefix Sum + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move merges a prefix of at least two piles and scores the new prefix sum; both players maximize the score difference. $n\le 10^5$ forbids searching every cut.
+>
+> Merging leaves the prefix-sum array $s$ unchanged. From index $i$ the current player may take $s[i]$ and leave $i+1$ to the opponent, or postpone the cut. $dfs(i)=\max(dfs(i+1),s[i]-dfs(i+1))$, starting at $i=1$. Memoization yields linearly many states.
+
+<!-- thinking:end -->
+
 According to the problem description, each time we take the leftmost $x$ stones, add their sum to our score, and then put a stone with this sum value on the leftmost side, it is equivalent to merging these $x$ stones into a stone with this sum value, and the prefix sum remains unchanged.
 
 We can use a prefix sum array $s$ of length $n$ to represent the prefix sum of the array $stones$, where $s[i]$ represents the sum of the elements $stones[0..i]$.
@@ -238,6 +248,14 @@ function stoneGameVIII(stones: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Prefix Sum + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 only looks one step to the right. Iterate from the end: $f$ starts as $s[n-1]$, then $f=\max(f,s[i]-f)$ for $i=n-2,\ldots,1$. Extra space becomes constant.
+
+<!-- thinking:end -->
 
 We can also use dynamic programming to solve this problem.
 

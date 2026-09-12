@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tasks arrive at times $0,1,2,\ldots$. A free server with the smallest weight (then smallest index) is chosen; if none is free we wait for the earliest one. Scanning all servers per task is too slow.
+>
+> An idle heap stores $(\textit{weight},\textit{index})$; a busy heap stores $(\textit{free time},\textit{weight},\textit{index})$. At task $j$ move finished servers back, or if none are idle take the earliest busy server and chain the new task onto it.
+
+<!-- thinking:end -->
+
 We use a min-heap $\textit{idle}$ to maintain all idle servers, where each element is a tuple $(x, i)$ representing the $i$-th server with weight $x$. We use another min-heap $\textit{busy}$ to maintain all busy servers, where each element is a tuple $(w, s, i)$ representing the $i$-th server that will be idle at time $w$ with weight $s$. Initially, we add all servers to $\textit{idle}$.
 
 Next, we iterate through all tasks. For the $j$-th task, we first remove all servers from $\textit{busy}$ that will be idle at or before time $j$ and add them to $\textit{idle}$. Then we take the server with the smallest weight from $\textit{idle}$, add it to $\textit{busy}$, and assign it to the $j$-th task. If $\textit{idle}$ is empty, we take the server with the earliest idle time from $\textit{busy}$, add it to $\textit{busy}$, and assign it to the $j$-th task.

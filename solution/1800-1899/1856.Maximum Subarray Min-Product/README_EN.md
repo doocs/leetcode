@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Monotonic Stack + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The min-product of a subarray is its minimum times its sum. Enumerating intervals is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> When $nums[i]$ is the minimum, the interval runs to the previous strictly smaller value on the left and the next smaller-or-equal value on the right. A monotonic stack finds those bounds; prefix sums give the range sum in $O(1)$. Maximize over every such candidate.
+
+<!-- thinking:end -->
+
 We can enumerate each element $nums[i]$ as the minimum value of the subarray, and find the left and right boundaries $left[i]$ and $right[i]$ of the subarray. Where $left[i]$ represents the first position strictly less than $nums[i]$ on the left side of $i$, and $right[i]$ represents the first position less than or equal to $nums[i]$ on the right side of $i$.
 
 To conveniently calculate the sum of the subarray, we can preprocess the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of $nums$.

@@ -83,6 +83,16 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 
 ### Solution 1: Priority Queue (Max-Min Heap) + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each order may match against better-priced opposite orders already in the backlog, with the leftover entering the backlog. Scanning the entire backlog linearly for every match is $O(n)$ per order and $O(n^2)$ overall. With $n \le 10^5$ this is not acceptable.
+>
+> A buy only cares about the cheapest sell at or below its price; a sell only cares about the most expensive buy at or above its price. Maintain sells in a min-heap and buys in a max-heap so the best counterparty is at the top. Process orders in input order, popping and reducing amounts, then push any remainder. The answer is the total leftover amount modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We can use a priority queue (max-min heap) to maintain the current backlog of orders, where the max heap `buy` maintains the backlog of purchase orders, and the min heap `sell` maintains the backlog of sales orders. Each element in the heap is a tuple $(price, amount)$, indicating that the number of orders at price `price` is `amount`.
 
 Next, we traverse the order array `orders`, and simulate according to the problem's requirements.

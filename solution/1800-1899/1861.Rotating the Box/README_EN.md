@@ -93,6 +93,16 @@ tags:
 
 ### Solution 1: Queue Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rotate $90^\circ$ clockwise, then let stones fall until they hit an obstacle or the floor. Moving each stone step by step can revisit the same cells.
+>
+> After the rotation, scan each column from the bottom: enqueue empty rows, swap a stone with the first empty slot, and clear the queue at an obstacle. Each cell is handled once and stones settle in the lowest reachable empties.
+
+<!-- thinking:end -->
+
 We first rotate the matrix 90 degrees clockwise, then simulate the falling process of stones in each column.
 
 Specifically, we use a queue $q$ to store the row indices of empty positions in the current column. When traversing each column, we scan from bottom to top. If we encounter a stone, we drop it to the first empty position in $q$, remove that empty position from $q$, and add the current position's row index to $q$ since it becomes empty. If we encounter an obstacle, we clear $q$ because stones cannot pass through obstacles. If we encounter an empty position, we add its row index to $q$.

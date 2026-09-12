@@ -72,6 +72,16 @@ trie.countWordsStartingWith(&quot;app&quot;); // return 0
 
 ### Solution 1: Implement Trie with Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A standard trie only answers existence. Here we also need the count of a word, the count of words with a given prefix, and deletion. Scanning every inserted string on each query would be too slow given the operation limits.
+>
+> Store two counters on every node: $v$ for words ending here and $pv$ for words that pass through. Insertion increments $pv$ along the path and $v$ at the end; queries walk to the node and read the corresponding counter; erasure decrements along the same path. Each operation stays linear in the word length.
+
+<!-- thinking:end -->
+
 Each node in the Trie includes three parts:
 
 1. An array of pointers `children` pointing to child nodes. For this problem, the array length is 26, which is the number of lowercase English letters. `children[0]` corresponds to the lowercase letter a, ..., `children[25]` corresponds to the lowercase letter z.

@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The target is guaranteed to appear; we need the closest index to $\textit{start}$. No auxiliary structure is required.
+>
+> Scan every index equal to $\textit{target}$ and take the minimum of $|i-\textit{start}|$.
+
+<!-- thinking:end -->
+
 Traverse the array, find all indices equal to $target$, then calculate $|i - start|$, and take the minimum value.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

@@ -66,6 +66,16 @@ In the second step, move from index 3 to index 5.
 
 ### Solution 1: Prefix Sum + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From index $0$ we may jump to a `'0'` whose distance lies in $[minJump,maxJump]$. Checking the jump window from every index is too slow for $n\le 10^5$.
+>
+> $f[i]$ is true iff $s[i]='0'$ and some reachable index sits in $[i-maxJump,i-minJump]$. A prefix sum of $f$ answers that range in $O(1)$, so we fill $f$ from left to right.
+
+<!-- thinking:end -->
+
 We define a prefix sum array $pre$ of length $n+1$, where $pre[i]$ represents the number of reachable positions in the first $i$ positions of $s$. We define a boolean array $f$ of length $n$, where $f[i]$ indicates whether $s[i]$ is reachable. Initially, $pre[1] = 1$ and $f[0] = true$.
 
 Consider $i \in [1, n)$, if $s[i] = 0$, then we need to determine whether there exists a position $j$ in the first $i$ positions of $s$, such that $j$ is reachable and the distance from $j$ to $i$ is within $[minJump, maxJump]$. If such a position $j$ exists, then we have $f[i] = true$, otherwise $f[i] = false$. When determining whether $j$ exists, we can use the prefix sum array $pre$ to determine whether such a position $j$ exists in $O(1)$ time.

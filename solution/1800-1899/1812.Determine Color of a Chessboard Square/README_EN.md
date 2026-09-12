@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Pattern Recognition
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Squares alternate in color. Building the whole board for one query is unnecessary.
+>
+> Adjacent squares have opposite colors, which is exactly the parity of the sum of the file and rank indices. Convert the letter and digit to integers and test whether their sum is odd (white) or even (black).
+
+<!-- thinking:end -->
+
 Observing the chessboard, we find that two squares $(x_1, y_1)$ and $(x_2, y_2)$ with the same color satisfy that both $x_1 + y_1$ and $x_2 + y_2$ are either odd or even.
 
 Therefore, we can get the corresponding coordinates $(x, y)$ from $\textit{coordinates}$. If $x + y$ is odd, the square is white, and we return $\textit{true}$; otherwise, we return $\textit{false}$.

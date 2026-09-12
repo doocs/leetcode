@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Direct Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the maximum sum of a contiguous, strictly increasing subarray. Enumerating every subarray and checking the increasing condition costs $O(n^2)$. With $n \le 100$ this would pass, yet most intervals are discarded as soon as a descent appears.
+>
+> Once two adjacent values break the order, no interval that crosses that pair can be valid. It is enough to scan from left to right and keep the sum $t$ of the current ascending run: extend and update the answer when the next value is larger, otherwise restart from the current element. A single pass yields the global maximum.
+
+<!-- thinking:end -->
+
 We use a variable $t$ to record the current sum of the ascending subarray, and a variable $ans$ to record the maximum sum of the ascending subarray.
 
 Traverse the array $nums$:

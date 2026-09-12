@@ -67,6 +67,16 @@ There are no arrays that satisfy all the conditions and have nums[2] == 3, so 2 
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must maximize $nums[\textit{index}]$ subject to adjacent differences of at most $1$ and a sum cap $\textit{maxSum}$. Trying every candidate value and building the array costs $O(n)$ per check, and the value can be as large as $\textit{maxSum}$, which is too slow.
+>
+> Once $nums[\textit{index}]=x$ is fixed, the cheapest array decreases as $x-1,x-2,\ldots$ on both sides and stays at $1$ afterwards. That minimum sum grows with $x$, so we binary-search $x$ and test the closed-form sum against $\textit{maxSum}$. The helper $\textit{sum}(x,\textit{cnt})$ distinguishes whether $x$ is large enough to fill all $\textit{cnt}$ positions.
+
+<!-- thinking:end -->
+
 According to the problem description, if we determine the value of $nums[index]$ as $x$, we can find a minimum array sum. That is, the elements on the left side of $index$ in the array decrease from $x-1$ to $1$, and if there are remaining elements, the remaining elements are all $1$; similarly, the elements at $index$ and on the right side of the array decrease from $x$ to $1$, and if there are remaining elements, the remaining elements are all $1$.
 
 In this way, we can calculate the sum of the array. If the sum is less than or equal to $maxSum$, then the current $x$ is valid. As $x$ increases, the sum of the array will also increase, so we can use the binary search method to find the maximum $x$ that meets the conditions.

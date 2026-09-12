@@ -67,6 +67,16 @@ Days table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Dates must be printed as weekday, month day, year. No join or filter is required.
+>
+> $\textit{DATE\_FORMAT}$ with `%W, %M %e, %Y` yields the full weekday, full month, day without a leading zero, and a four-digit year.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

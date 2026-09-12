@@ -103,6 +103,16 @@ We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did n
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need sessions that never overlap an ad from the same customer. Scanning every ad for every session in application code would be expensive on large tables.
+>
+> A subquery joins Playback to Ads on the same $customer\_id$ with the ad timestamp inside $[start\_time,end\_time]$. The outer query keeps $session\_id$ values that do not appear in that set, so every interrupted session is excluded in one pass.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

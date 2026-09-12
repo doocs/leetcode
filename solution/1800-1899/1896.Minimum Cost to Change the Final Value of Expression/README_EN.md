@@ -89,6 +89,16 @@ The new expression evaluates to 0.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid boolean expression uses $0/1$, $\&$, $|$, and parentheses. One edit flips a digit or an operator. The expression can have length $10^5$, so reevaluating every edit is impossible.
+>
+> Each subexpression only needs its current value and the cost of flipping it. A leaf costs $1$ to flip. When two sides are joined by $\&$ or $|$, the flip cost follows from changing the operator, one child, or both. A stack parses parentheses and operators and merges these pairs from the bottom up.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

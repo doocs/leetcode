@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Topological Sort + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the maximum count of any single color on a directed path, or $-1$ if a cycle exists. There are exponentially many paths and $n,m\le 10^5$.
+>
+> A topological order processes a node after all predecessors. $dp[i][c]$ is the best count of color $c$ on a path ending at $i$; we take a coordinate-wise maximum over in-edges and add the node's own color. If fewer than $n$ nodes leave the queue, the graph has a cycle.
+
+<!-- thinking:end -->
+
 Calculate the in-degree of each node and perform a topological sort.
 
 Define a 2D array $dp$, where $dp[i][j]$ represents the number of nodes with color $j$ on the path from the start node to node $i$.
