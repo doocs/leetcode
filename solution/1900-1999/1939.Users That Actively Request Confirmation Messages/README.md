@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README.md
 tags:
     - 数据库
 ---
