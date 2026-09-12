@@ -61,6 +61,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个数至多用一次，且结果不能含重复组合。若不排序，相同值会出现在不同分支里。
+>
+> 先排序，再在同一层跳过与前一个相同且未使用的值，使相等元素只以一种相对次序进入路径。递归传入 $i+1$，保证每个下标只用一次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -66,6 +66,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求最长的斐波那契式子序列。枚举前两项再向后查找，最坏接近立方。
+>
+> $dp[j][i]$ 表示以 $arr[j],arr[i]$ 结尾的最长长度。若 $arr[i]-arr[j]$ 在 $j$ 左侧出现过，则可在对应状态上加一。哈希表把值映射到下标，转移为常数时间。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

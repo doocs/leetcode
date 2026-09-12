@@ -53,6 +53,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组含重复值，仍要列出不重复的排列。只按方法一的 $\textit{used}$ 会把相同值的不同下标当成不同排列。
+>
+> 先排序，使得相等元素相邻。同一层若 $nums[i]=nums[i-1]$ 且前一个尚未使用，则跳过，强制相等元素按原相对次序选取。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
