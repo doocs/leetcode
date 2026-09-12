@@ -79,6 +79,18 @@ The last day where it is possible to cross from top to bottom is on day 3.
 
 ### Solution 1: Binary Search + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The last day one can walk from the top row to the bottom is monotone: if day $k$ works, so does every earlier day. Binary-search $k$ and BFS on the remaining land.
+>
+> For mid $k$, flood the first $k$ cells, start from every dry cell in row $0$, and test whether row $row-1$ is reached.
+>
+> Each check is linear in the grid; the number of checks is logarithmic.
+
+<!-- thinking:end -->
+
 We note that if we can walk from the top row to the bottom row on day $k$, then for any $0 < k' < k$, we can also walk from the top row to the bottom row on day $k'$. This exhibits monotonicity, so we can use binary search to find the largest $k$ such that we can walk from the top row to the bottom row on day $k$.
 
 We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = |cells|$, where $|cells|$ represents the length of the array $\textit{cells}$. Then, we perform binary search on $k$. For each $k$, we take the first $k$ elements of $\textit{cells}$, turn the corresponding cells into water, and then use breadth-first search (BFS) to try to walk from the top row to the bottom row. If we can reach the bottom row, it means we can walk from the top row to the bottom row on day $k$, so we update the left boundary $l$ to $k$. Otherwise, we update the right boundary $r$ to $k - 1$.
@@ -389,6 +401,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rebuilding the grid each mid is wasteful. Process cells in reverse, union adjacent land, and attach two virtual nodes for the top and bottom.
+>
+> The first time those sentinels share a component, the previous day is the latest crossing. One linear pass replaces the binary searches.
+
+<!-- thinking:end -->
 
 We can first initialize all land cells as $1$, then traverse the array $\textit{cells}$ in reverse order, turning each corresponding land cell into $0$ and merging it with the adjacent land cells (up, down, left, right). We also need to maintain two virtual nodes $s$ and $t$, representing the virtual nodes for the top row and the bottom row, respectively. If $s$ and $t$ are connected in the union-find set, it means we can walk from the top row to the bottom row on day $i$.
 

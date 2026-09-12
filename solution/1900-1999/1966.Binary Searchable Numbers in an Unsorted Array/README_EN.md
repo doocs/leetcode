@@ -89,6 +89,16 @@ Because only -1 is guaranteed to be found, you should return 1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Binary search discards one side of the midpoint. A value is searchable only if it exceeds every left neighbor and is below every right neighbor; otherwise the wrong half may be dropped.
+>
+> A left-to-right prefix-max pass and a right-to-left suffix-min pass mark failures; the remaining ones are counted.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

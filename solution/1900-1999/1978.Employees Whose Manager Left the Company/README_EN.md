@@ -76,6 +76,14 @@ Joziah&#39;s manager is employee 6, who left the company because there is no row
 
 ### Solution 1: Left Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want employees paid under $30000$ whose manager id is set but no longer in the table. A self left-join that fails to match the manager row detects a departed manager.
+
+<!-- thinking:end -->
+
 We can use a left join to connect the employee table with itself, and then filter out the employees whose salary is less than $30000$ and have a superior manager who has left the company.
 
 <!-- tabs:start -->
@@ -99,6 +107,14 @@ ORDER BY 1;
 <!-- solution:start -->
 
 ### Solution 2: Subquery
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The join can be replaced by $\texttt{NOT IN}$: the manager id is absent from $\texttt{employee\_id}$. The meaning is the same and the query is shorter.
+
+<!-- thinking:end -->
 
 We can also use a subquery to first find all the managers who have left the company, and then find the employees whose salary is less than $30000$ and whose superior manager is not in the list of managers who have left the company.
 

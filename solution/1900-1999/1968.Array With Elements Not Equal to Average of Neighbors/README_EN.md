@@ -65,6 +65,16 @@ Note that the original array [6,2,0,9,7] also satisfies the conditions.</pre>
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must avoid $2\cdot a[i]=a[i-1]+a[i+1]$. Values are distinct, so sorting and interleaving the smaller half with the larger half works.
+>
+> Even indices take the first half and odd indices the second; each middle value then has neighbors from opposite extremes and cannot be their average.
+
+<!-- thinking:end -->
+
 Since the elements in the array are distinct, we can first sort the array, then divide the array into two parts. Place the first half of the elements in the even positions of the answer array, and the second half of the elements in the odd positions of the answer array. In this way, for each element, its two adjacent elements will not be equal to its average value.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.

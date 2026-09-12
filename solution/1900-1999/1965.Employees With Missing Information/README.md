@@ -97,6 +97,16 @@ Salaries table:
 
 ### 方法一：子查询 + 合并
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 缺失信息指只出现在一张表中的员工。两侧反连接后合并，再按编号排序。
+>
+> $\texttt{NOT IN}$ 子查询找出仅在 $\texttt{Employees}$ 或仅在 $\texttt{Salaries}$ 的编号，$\texttt{UNION}$ 去重后 $\texttt{ORDER BY}$。
+
+<!-- thinking:end -->
+
 我们可以先从 `Employees` 表中找出所有不在 `Salaries` 表中的 `employee_id`，再从 `Salaries` 表中找出所有不在 `Employees` 表中的 `employee_id`，最后将两个结果合并，然后按照 `employee_id` 排序即可。
 
 <!-- tabs:start -->

@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1: Binary Indexed Tree (Fenwick Tree)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each obstacle continues the longest non-decreasing course to its left. A linear scan of the prefix is $O(n^2)$.
+>
+> After compressing heights, a Fenwick tree stores the best length among heights $\le h$. Query that prefix max, add one, and write back.
+>
+> Each index costs $O(\log n)$.
+
+<!-- thinking:end -->
+
 We can use a Binary Indexed Tree to maintain an array of the lengths of the longest increasing subsequences.
 
 Then for each obstacle, we query in the Binary Indexed Tree for the length of the longest increasing subsequence that is less than or equal to the current obstacle, suppose it is $l$. Then the length of the longest increasing subsequence of the current obstacle is $l+1$. We add $l+1$ to the answer array, and update $l+1$ in the Binary Indexed Tree.

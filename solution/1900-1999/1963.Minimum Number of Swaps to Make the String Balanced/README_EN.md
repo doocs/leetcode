@@ -84,6 +84,16 @@ The resulting string is &quot;[[][]]&quot;.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any two brackets may be swapped. After matching, the leftover is some `]`s followed by `[`s.
+>
+> If $x$ left brackets remain unmatched, each swap of the two ends removes two of them, so $\lfloor(x+1)/2\rfloor$ swaps suffice. One counter computes $x$.
+
+<!-- thinking:end -->
+
 We use a variable $x$ to record the current number of unmatched left brackets. We traverse the string $s$, for each character $c$:
 
 - If $c$ is a left bracket, then we increment $x$ by one;

@@ -68,6 +68,14 @@ tags:
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 无向图上判断两点是否连通。建邻接表后 DFS，用访问集合避免环路，到达终点即成功。时间与点数边数线性。
+
+<!-- thinking:end -->
+
 我们首先将 $\textit{edges}$ 转换成邻接表 $g$，然后使用 DFS，判断是否存在从 $\textit{source}$ 到 $\textit{destination}$ 的路径。
 
 过程中，我们用数组 $\textit{vis}$ 记录已经访问过的顶点，避免重复访问。
@@ -262,6 +270,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### 方法二：BFS
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 递归深度在链状图上可能过大。改为队列 BFS，同样标记访问，层序扩展至终点或队列空。
+
+<!-- thinking:end -->
 
 我们也可以使用 BFS，判断是否存在从 $\textit{source}$ 到 $\textit{destination}$ 的路径。
 
@@ -470,6 +486,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### 方法三：并查集
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只需连通性、不要路径本身时，并查集把每条边两端合并，最后比较两点根是否相同，实现更短且无递归。
+
+<!-- thinking:end -->
 
 并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的**合并**及**查询**问题。 它支持两种操作：
 

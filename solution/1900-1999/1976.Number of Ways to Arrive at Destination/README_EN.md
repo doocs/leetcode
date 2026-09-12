@@ -72,6 +72,16 @@ The four ways to get there in 7 minutes are:
 
 ### Solution 1: Naive Dijkstra Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need both the shortest path and the number of such paths. $n\le 200$ makes dense Dijkstra $O(n^2)$ acceptable.
+>
+> When a strictly better distance appears, copy the predecessor's count; when the distance ties, add it. The destination count is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define the following arrays:
 
 - `g` represents the adjacency matrix of the graph. `g[i][j]` represents the shortest path length from point `i` to point `j`. Initially, all are infinity, while `g[0][0]` is 0. Then we traverse `roads` and update `g[u][v]` and `g[v][u]` to `t`.

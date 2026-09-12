@@ -81,6 +81,16 @@ The array product is 1 * 6 * 1 * 6 * 1 * 6 * 7 = 1512, which is the minimum poss
 
 ### Solution 1: Greedy + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap bits between two numbers, preserving the total sum. For a fixed sum the product is minimized by polarizing values without creating a zero.
+>
+> Leave $2^p-1$ unchanged and pair the rest into $(1,2^p-2)$ repeated $2^{p-1}-1$ times. The product is $(2^p-1)(2^p-2)^{2^{p-1}-1}$ via modular fast exponentiation.
+
+<!-- thinking:end -->
+
 We notice that each operation does not change the sum of the elements. When the sum of the elements remains unchanged, to minimize the product, we should maximize the difference between the elements as much as possible.
 
 Since the largest element is $2^p - 1$, no matter which element it exchanges with, it will not increase the difference. Therefore, we do not need to consider the case of exchanging with the largest element.
