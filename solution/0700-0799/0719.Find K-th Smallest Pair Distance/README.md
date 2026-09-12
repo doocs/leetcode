@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README.md
 tags:
     - 数组
     - 双指针

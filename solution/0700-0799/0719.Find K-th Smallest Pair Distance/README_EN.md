@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README_EN.md
 tags:
     - Array
     - Two Pointers
