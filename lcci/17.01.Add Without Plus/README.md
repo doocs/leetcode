@@ -38,6 +38,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不用加减乘除做加法。循环里用加减会直接违背题意；把加数转成字符串再模拟竖式，实现偏长。
+>
+> 无进位和是异或，进位是与再左移一位。重复「无进位和 + 进位」直至进位为 $0$。
+>
+> 代码用 $sum=a\oplus b$、$carry=(a\& b)\ll 1$，再写回 $a$、$b$。符号位随算术移位自然处理，循环次数与位数同阶。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Java

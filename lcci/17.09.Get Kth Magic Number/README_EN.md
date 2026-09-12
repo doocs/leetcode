@@ -30,6 +30,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.09.Get%20Kth%20Mag
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-th number whose prime factors lie in $\{3,5,7\}$. Multiplying from $1$ repeats values; a set plus a sort is heavier than needed.
+>
+> A min-heap pops the smallest, multiplies by $3,5,7$, and $vis$ blocks duplicate pushes.
+>
+> After $k-1$ pops the heap top is the $k$-th number. Each value expands at most three times, $O(k\log k)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -254,6 +266,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The heap holds many unused multiples, paying both space and a log factor.
+>
+> Three pointers mark the next source to multiply by $3/5/7$. Take the min and advance every pointer that produced it, generating each value once in linear time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

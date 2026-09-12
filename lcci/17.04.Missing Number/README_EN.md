@@ -46,6 +46,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Numbe
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One number is missing from $0\ldots n$. A boolean mark array works but uses linear extra space.
+>
+> After sorting, index should equal value; the first mismatch is the missing number, or $n$ if none.
+>
+> `sort` then scan is the shortest correct solution, in $O(n\log n)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -169,6 +181,16 @@ class Solution {
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The log factor of sorting is unnecessary: the closed sum is $n(n+1)/2$, minus the array sum.
+>
+> One accumulation and constant extra space, with no comparisons.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -278,6 +300,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum may overflow in a narrow integer type.
+>
+> XOR of $0\ldots n$ with the array cancels pairs and leaves the missing value, without carry or a table.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

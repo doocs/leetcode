@@ -38,6 +38,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.11.Find%20Closest/
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Closest distance between two words. Pairing every index of each word can be quadratic.
+>
+> The closest pair always uses some occurrence and the latest occurrence of the other word, so one scan suffices.
+>
+> $i$ and $j$ store the latest indices; each step updates $|i-j|$. Only the most recent sighting of each word is kept.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to record the most recent occurrences of the two words $\textit{word1}$ and $\textit{word2}$, respectively. Initially, $i = \infty$ and $j = -\infty$.
 
 Next, we traverse the entire text file. For each word $w$, if $w$ equals $\textit{word1}$, we update $i = k$, where $k$ is the index of the current word; if $w$ equals $\textit{word2}$, we update $j = k$. Then we update the answer $ans = \min(ans, |i - j|)$.
@@ -196,6 +208,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A single pass fits one query; many queries on the same text would rescan everything.
+>
+> Precompute index lists and, per query, two-pointer the two sorted lists. Time follows the number of hits.
+
+<!-- thinking:end -->
 
 We can use a hash table $d$ to record the positions of each word. Then, for each pair of $\textit{word1}$ and $\textit{word2}$, we can find their shortest distance using the two-pointer method.
 

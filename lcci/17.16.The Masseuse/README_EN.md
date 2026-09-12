@@ -64,6 +64,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.16.The%20Masseuse/
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Non-adjacent appointments, maximize total time — house robber. Recursion without memo repeats suffixes.
+>
+> At $i$ only two states matter: take it (so skip $i-1$) or skip it.
+>
+> $f$ takes the current, $g$ skips it: roll $f,g = g+x, \max(f,g)$. The answer is the larger, in constant space.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

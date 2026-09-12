@@ -37,6 +37,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/RE
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$ smallest values, in any order. A full sort plus a prefix is optimal when $k$ is close to $n$.
+>
+> `sorted(arr)[:k]` is short and has a good constant in Python.
+>
+> The statement allows any order, so no extra heap is required here.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -110,6 +122,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A full sort wastes work when $k\ll n$.
+>
+> A max-heap of size $k$ keeps the current $k$ smallest while scanning the rest, in $O(n\log k)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -41,6 +41,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%2
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add without $+,-,*,/$. A loop that adds would break the rule; simulating pencil-and-paper on strings is longer.
+>
+> XOR is the sum without carry; AND shifted left is the carry. Repeat until the carry vanishes.
+>
+> $sum=a\oplus b$ and $carry=(a\& b)\ll 1$ are written back into $a$ and $b$. The sign bit follows arithmetic shift; the loop is $O$(bit width).
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Java

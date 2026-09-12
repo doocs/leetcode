@@ -54,6 +54,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A majority occurs more than half the time, or the answer is $-1$. A frequency map is correct but uses linear space.
+>
+> Boyer–Moore pairs off distinct values; if a majority exists, it is the final candidate.
+>
+> The first pass produces $m$; `count` checks the threshold. The counter resets the candidate at zero, as usual.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

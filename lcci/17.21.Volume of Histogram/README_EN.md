@@ -36,6 +36,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.21.Volume%20of%20H
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trapping rain on a histogram. Scanning bounds per bar can be quadratic.
+>
+> Water at $i$ is the min of the tallest bars on each side minus $height[i]$; those extrema can be precomputed.
+>
+> $left[i]$ and $right[i]$ are inclusive prefix/suffix maxima; sum $\min(l,r)-h$. Length less than $3$ stores nothing.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

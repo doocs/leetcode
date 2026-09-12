@@ -48,6 +48,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/R
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two numbers are missing from $1\ldots n$. Sum and sum-of-squares work but squares overflow easily.
+>
+> XOR of everything is $a\oplus b$. `lowbit` splits them into different groups (that bit is $1$ in one and $0$ in the other); XOR inside a group isolates each.
+>
+> Compute $xor$, then XOR values with $diff=xor\&(-xor)$ set to get $a$, and $b=xor\oplus a$. Linear time, constant space.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
