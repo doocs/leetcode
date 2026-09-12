@@ -69,6 +69,14 @@ tags:
 
 ### 方法一：维护前缀最大值和最大差值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 三元组值为 $(nums[i]-nums[j])\times nums[k]$ 且 $i<j<k$。$n$ 虽小，仍可一次扫描：枚举 $k$ 时维护此前的最大值 $mx$ 与最大差值 $mx-nums[j]$，当前贡献即为该差值乘以 $nums[k]$。
+
+<!-- thinking:end -->
+
 我们用两个变量 $\textit{mx}$ 和 $\textit{mxDiff}$ 分别维护前缀最大值和最大差值，用一个变量 $\textit{ans}$ 维护答案。初始时，这些变量都为 $0$。
 
 接下来，我们枚举数组的每个元素 $x$ 作为 $\textit{nums}[k]$，首先更新答案 $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$，然后我们更新最大差值 $\textit{mxDiff} = \max(\textit{mxDiff}, \textit{mx} - x)$，最后更新前缀最大值 $\textit{mx} = \max(\textit{mx}, x)$。

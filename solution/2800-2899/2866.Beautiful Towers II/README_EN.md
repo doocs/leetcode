@@ -89,6 +89,14 @@ It can be shown that there exists no other beautiful configuration with a sum of
 
 ### Solution 1: Dynamic Programming + Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is larger, so a linear expansion from every peak is too slow. The same monotonic-stack DP as the optimized towers problem computes left and right beauties; adding them at $i$ and subtracting $maxHeights[i]$ once yields the answer.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the height sum of the beautiful tower scheme with the last tower as the tallest tower among the first $i+1$ towers. We can get the following state transition equation:
 
 $$

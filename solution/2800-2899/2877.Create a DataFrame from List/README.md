@@ -56,6 +56,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 二维列表已按行给出学生编号与年龄，直接交给 `DataFrame` 并指定列名即可，无需逐行手工插入。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

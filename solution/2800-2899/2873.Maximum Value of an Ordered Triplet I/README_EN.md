@@ -67,6 +67,14 @@ It can be shown that there are no ordered triplets of indices with a value great
 
 ### Solution 1: Maintaining Prefix Maximum and Maximum Difference
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The value is $(nums[i]-nums[j])\times nums[k]$ with $i<j<k$. Even though $n$ is small, one pass suffices: while treating the current element as $k$, keep the prefix maximum $mx$ and the best difference $mx-nums[j]$, then multiply that difference by $nums[k]$.
+
+<!-- thinking:end -->
+
 We use two variables $\textit{mx}$ and $\textit{mxDiff}$ to maintain the prefix maximum value and maximum difference, respectively, and use a variable $\textit{ans}$ to maintain the answer. Initially, these variables are all $0$.
 
 Next, we iterate through each element $x$ in the array as $\textit{nums}[k]$. First, we update the answer $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$. Then we update the maximum difference $\textit{mxDiff} = \max(\textit{mxDiff}, \textit{mx} - x)$. Finally, we update the prefix maximum value $\textit{mx} = \max(\textit{mx}, x)$.

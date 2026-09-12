@@ -66,6 +66,14 @@ DataFrame: <code>employees</code>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只需前三行，`head(3)` 按存储顺序截取，不必再按条件筛选。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

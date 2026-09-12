@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd binary number must end with $1$, and the remaining ones should sit in the highest bits. After counting ones, emit $cnt-1$ leading ones, then the zeros, then a final $1$.
+
+<!-- thinking:end -->
+
 First, we count the number of '1's in the string $s$, denoted as $cnt$. Then, we place $cnt - 1$ '1's at the highest position, followed by the remaining $|s| - cnt$ '0's, and finally add one '1'.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.

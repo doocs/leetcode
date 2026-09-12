@@ -74,6 +74,14 @@ It can be shown that we cannot split the array into more than 1 subarray with a 
 
 ### Solution 1: Greedy + Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray's score is the bitwise AND of its elements, so the sum of scores after splitting equals the AND of the whole array. The sum is minimized by cutting as many zero-score pieces as possible. Accumulate AND from the left and cut whenever it becomes $0$; if it never does, the array stays one piece.
+
+<!-- thinking:end -->
+
 We initialize a variable $score$ to record the score of the current subarray, and set $score=-1$ initially. Then we traverse the array, for each element $num$, we perform a bitwise AND operation between $score$ and $num$, and assign the result to $score$. If $score=0$, it means the score of the current subarray is 0, so we can split the current subarray and reset $score$ to $-1$. Finally, we return the number of split subarrays.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

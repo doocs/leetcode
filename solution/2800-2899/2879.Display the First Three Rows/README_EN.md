@@ -65,6 +65,14 @@ Only the first 3 rows are displayed.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the first three rows are needed. `head(3)` takes them in stored order without extra filters.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -69,6 +69,14 @@ tags:
 
 ### 方法一：维护前缀最大值和最大差值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 与上一题公式相同而 $n$ 更大，三重枚举不可行。仍在一次扫描中维护前缀最大值与最大差值，按 $k$ 更新答案后再更新差值和最大值，保证下标顺序。
+
+<!-- thinking:end -->
+
 我们用两个变量 $\textit{mx}$ 和 $\textit{mxDiff}$ 分别维护前缀最大值和最大差值，用一个变量 $\textit{ans}$ 维护答案。初始时，这些变量都为 $0$。
 
 接下来，我们枚举数组的每个元素 $x$ 作为 $\textit{nums}[k]$，首先更新答案 $\textit{ans} = \max(\textit{ans}, \textit{mxDiff} \times x)$，然后我们更新最大差值 $\textit{mxDiff} = \max(\textit{mxDiff}, \textit{mx} - x)$，最后更新前缀最大值 $\textit{mx} = \max(\textit{mx}, x)$。

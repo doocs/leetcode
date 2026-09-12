@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A set of indices is complete iff every pairwise product is a square, i.e. they share the same square-free kernel. Enumerate kernel $k$ and sum $nums[k\cdot j^2-1]$ over admissible $j$.
+
+<!-- thinking:end -->
+
 We note that if a number can be expressed in the form of $k \times j^2$, then all numbers of this form have the same $k$.
 
 Therefore, we can enumerate $k$ in the range $[1,..n]$, and then start enumerating $j$ from $1$, each time adding the value of $nums[k \times j^2 - 1]$ to $t$, until $k \times j^2 > n$. At this point, update the answer to $ans = \max(ans, t)$.
