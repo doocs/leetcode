@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1435.Create%20a%20Session%20Bar%20Chart/README_EN.md
 tags:
     - Database
 ---

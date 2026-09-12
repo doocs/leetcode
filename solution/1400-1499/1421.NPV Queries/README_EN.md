@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1421.NPV%20Queries/README_EN.md
 tags:
     - Database
 ---
