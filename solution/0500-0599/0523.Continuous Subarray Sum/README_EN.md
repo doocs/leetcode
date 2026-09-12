@@ -79,6 +79,16 @@ tags:
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a subarray of length at least $2$ whose sum is a multiple of $k$. Checking all pairs is $O(n^2)$ and too slow for $n \le 10^5$.
+>
+> Equal prefix sums modulo $k$ mean the interior sum is divisible by $k$. Store the first index of each remainder; a later repeat with gap greater than $1$ is a hit. Remainder $0$ is seeded at $-1$ so prefixes from the start are covered.
+
+<!-- thinking:end -->
+
 According to the problem description, if there exist two positions $i$ and $j$ ($j < i$) where the remainders of the prefix sums modulo $k$ are the same, then the sum of the subarray $\textit{nums}[j+1..i]$ is a multiple of $k$.
 
 Therefore, we can use a hash table to store the first occurrence of each remainder of the prefix sum modulo $k$. Initially, we store a key-value pair $(0, -1)$ in the hash table, indicating that the remainder $0$ of the prefix sum $0$ appears at position $-1$.

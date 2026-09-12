@@ -80,6 +80,16 @@ Activity table:
 
 ### 方法一：使用窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要对每位玩家按日期求游戏局数的前缀和。自连接可以做，但窗口函数一次扫描即可。
+>
+> `SUM(games_played) OVER (PARTITION BY player_id ORDER BY event_date)` 按玩家分区、按日期有序累加，得到截止当日的总局数。无需分组后再回表。
+
+<!-- thinking:end -->
+
 我们可以使用窗口函数 `SUM() OVER()`，按照 `player_id` 分组，按照 `event_date` 排序，计算每个用户截止到当前日期的游戏总数。
 
 <!-- tabs:start -->
@@ -105,6 +115,16 @@ FROM Activity;
 <!-- solution:start -->
 
 ### 方法二：使用自连接 + 分组
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 若环境缺少窗口函数，可用自连接：把每个玩家当日与「不晚于当日」的历史行配在一起，再按玩家与日期分组求和。
+>
+> 连接条件 `t1.event_date >= t2.event_date` 保证只累加过去与当天。结果与窗口前缀和相同，代价是配对行数更多。
+
+<!-- thinking:end -->
 
 我们也可以使用自连接，将 `Activity` 表自连接，连接条件为 `t1.player_id = t2.player_id AND t1.event_date >= t2.event_date`，然后按照 `t1.player_id` 和 `t1.event_date` 分组，累计 `t2.games_played`，得到每个用户截止到当前日期的游戏总数。
 
@@ -132,6 +152,16 @@ GROUP BY 1, 2;
 <!-- solution:start -->
 
 ### 方法三
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法二用隐式逗号连接写出同一谓词。改成 `CROSS JOIN ... ON` 只是把过滤条件放到连接子句，语义不变。
+>
+> 选择哪种写法取决于风格与引擎对 ANSI JOIN 的偏好，聚合结果与方法二一致。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -44,6 +44,16 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The minimum gap is between adjacent times after sorting, plus the wrap from last to first across midnight. Only $1440$ distinct minutes exist, so more than $1440$ points imply a duplicate and answer $0$.
+>
+> Convert to minutes, sort, append the first value plus $1440$, and take the minimum adjacent difference.
+
+<!-- thinking:end -->
+
 We notice that there can be at most $24 \times 60 = 1440$ distinct time points. Therefore, if the length of $timePoints$ exceeds $1440$, it implies there are duplicate time points, and we can return $0$ early.
 
 Next, we iterate through the list of time points and convert it into a list of minutes $nums$. For example, for the time point `13:14`, we convert it into $13 \times 60 + 14$.

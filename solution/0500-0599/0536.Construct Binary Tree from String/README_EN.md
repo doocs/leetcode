@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The encoding is a value, then an optional parenthesized left subtree, then an optional right subtree. A linear scan must split the number from matched parenthesis blocks.
+>
+> If there is no `'('`, the whole token is a leaf. Otherwise the value is the prefix before the first parenthesis; a depth counter finds the first balanced block (left) and the next (right), each parsed recursively. Depth tracks nesting.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
