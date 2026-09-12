@@ -110,6 +110,17 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 
 ### 方法一：等值连接 + 分组求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求每个仓库存货的总体积。体积是商品长宽高与件数的乘积，件数在仓库表、尺寸在商品表，必须先对齐。
+>
+> 按 $product\_id$ 连接后，以仓库名为组，对 $width\times length\times height\times units$ 求和，即得各仓库体积。
+
+<!-- thinking:end -->
+
+
 我们可以使用等值连接将 `Warehouse` 表和 `Products` 表按照 `product_id` 进行连接，并按照仓库名称进行分组，然后使用 `SUM` 函数计算每个仓库的存货量。
 
 <!-- tabs:start -->

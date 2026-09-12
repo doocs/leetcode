@@ -81,6 +81,17 @@ tags:
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count walks from $start$ to $finish$ that spend at most $fuel$. Cities and fuel are modest, but a walk may revisit a city, so we cannot list simple paths.
+>
+> A state is the current city $i$ and remaining fuel $k$. If $k$ cannot even reach the finish, the count is zero; otherwise add one when $i$ is already the finish, then recurse to every other city with the spent distance. Memoization keeps $O(n\cdot fuel)$ states.
+
+<!-- thinking:end -->
+
+
 We design a function $dfs(i, k)$, which represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $dfs(start, fuel)$.
 
 The process of calculating the function $dfs(i, k)$ is as follows:
@@ -260,6 +271,15 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization expands on demand and still uses a recursion stack bounded by fuel. The same recurrence fills a table by increasing $k$: $f[i][k]$ is the number of walks from $i$ with fuel $k$, the finish column starts at $1$, and we add transitions whose cost does not exceed $k$. The implementation is iterative with the same asymptotics.
+
+<!-- thinking:end -->
+
 
 We can also convert the memoization of solution 1 into dynamic programming.
 

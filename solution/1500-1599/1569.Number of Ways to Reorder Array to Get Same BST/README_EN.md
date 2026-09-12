@@ -85,6 +85,17 @@ tags:
 
 ### Solution 1: Combination Counting + Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count reorderings that build the same BST as $nums$, excluding the original sequence. $n\le 1000$ forbids listing permutations. The root must be the first value; the left and right sets are fixed by comparison, and their internal orders recurse.
+>
+> The two sides may interleave freely, contributing $C_{m+n}^{m}$ times each side's count. After precomputing binomials we recurse, then subtract one to drop the original array.
+
+<!-- thinking:end -->
+
+
 We design a function $dfs(nums)$, which is used to calculate the number of solutions of the binary search tree with $nums$ as nodes. Then the answer is $dfs(nums)-1$, because $dfs(nums)$ calculates the number of solutions of the binary search tree with $nums$ as nodes, while the problem requires the number of solutions of the binary search tree with $nums$ as nodes after reordering, so the answer needs to be subtracted by one.
 
 Next, let's take a look at how $dfs(nums)$ is calculated.

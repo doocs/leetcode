@@ -81,6 +81,17 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boxes may only be pushed in from the left and cannot pass a shorter room. $n\le 10^5$, so we cannot try permutations. Room $i$ is limited by the shortest room on its left.
+>
+> Precompute $left[i]=\min(warehouse[0..i])$ and sort the boxes. Smaller boxes go as deep as they still fit: a right pointer walks left to the first $left[j]\ge boxes[i]$, then both pointers advance. Taller leftover rooms stay available for larger boxes.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

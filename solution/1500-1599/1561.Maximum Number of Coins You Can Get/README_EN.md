@@ -79,6 +79,17 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three players each take one pile per round: Alice the current largest, we the next, Bob the smallest. $n$ reaches $10^5$, so we should not simulate comparisons.
+>
+> After sorting, Bob always receives the smallest third. The remaining piles alternate between Alice and us; ours are every other value starting at index $n/3$. Sum them.
+
+<!-- thinking:end -->
+
+
 To maximize the number of coins we get, we can greedily let Bob take the smallest $n$ piles of coins. Each time, we let Alice take the largest pile of coins, then we take the second largest pile of coins, and so on, until there are no more coins to take.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of piles of coins.

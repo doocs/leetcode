@@ -68,6 +68,17 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 
 ### Solution 1: Considering the Relationship Between Start and End Positions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk a circular track along given segments and want the most visited sectors. Full laps add the same count to every sector; only the leftover walk from the first start to the last end creates a difference.
+>
+> If the start index is at most the end, that leftover is the closed interval $[rounds[0],rounds[-1]]$. Otherwise it wraps past $n$ and is the union of $[1,rounds[-1]]$ and $[rounds[0],n]$. Listing the union avoids simulating laps.
+
+<!-- thinking:end -->
+
+
 Since the end position of each stage is the start position of the next stage, and each stage is in a counterclockwise direction, we can determine the number of times each sector is passed based on the relationship between the start and end positions.
 
 If $\textit{rounds}[0] \leq \textit{rounds}[m]$, then the sectors from $\textit{rounds}[0]$ to $\textit{rounds}[m]$ are passed the most times, and we can directly return all sectors within this interval.

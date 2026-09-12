@@ -70,6 +70,17 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the string into three pieces with equally many ones. $n\le 10^5$, so we cannot try every pair of cuts. Each piece must contain exactly one third of the ones.
+>
+> If the total is not divisible by three there is no split; if there is no one at all, any two cuts work and the count is $C_{n-1}^{2}$. Otherwise the first cut may sit anywhere between the $cnt$-th and $(cnt+1)$-th one, and the second cut between the $2cnt$-th and $(2cnt+1)$-th. The product of those two gap lengths is the answer.
+
+<!-- thinking:end -->
+
+
 First, we traverse the string $s$ and count the number of characters $1$, denoted as $cnt$. If $cnt$ cannot be divided by $3$, then it is impossible to split the string, so we directly return $0$. If $cnt$ is $0$, it means there are no characters $1$ in the string. We can choose any two positions out of $n-1$ positions to split the string into three substrings, so the number of ways is $C_{n-1}^2$.
 
 If $cnt \gt 0$, we update $cnt$ to $\frac{cnt}{3}$, which is the number of characters $1$ in each substring.

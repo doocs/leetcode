@@ -76,6 +76,17 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 
 ### Solution 1: Hash Map
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sparse dot product only needs indices that are nonzero in both vectors. Multiplying full length-$n$ arrays wastes work on zeros, and $n\le 10^5$.
+>
+> The constructor stores only nonzero entries as index $\to$ value. The product walks the smaller map and $get$s the other side. When nonzeros are few, this is much faster than a dense loop.
+
+<!-- thinking:end -->
+
+
 We use a hash map $d$ to store non-zero elements, where the key is the index, and the value is the corresponding value. We iterate through $\textit{nums}$, and if $\textit{nums}[i]$ is not $0$, we add $(i, \textit{nums}[i])$ to the hash map $d$.
 
 When calculating the dot product, we iterate through the hash map with fewer non-zero elements and check if the other hash map contains the corresponding key. If it exists, we multiply the corresponding values and add them to the result.

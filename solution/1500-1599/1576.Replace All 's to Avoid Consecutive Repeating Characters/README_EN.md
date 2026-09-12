@@ -57,6 +57,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace every question mark by a lowercase letter so that no two adjacent characters are equal. A hole has at most two distinct neighbors, so one of $\texttt{a},\texttt{b},\texttt{c}$ always works.
+>
+> Fill left to right: try the three candidates and skip any that equals $s[i-1]$ or the still-unreplaced $s[i+1]$. Writing the left side first makes the next hole see a determined neighbor.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

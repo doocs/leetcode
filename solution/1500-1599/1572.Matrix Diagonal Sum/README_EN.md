@@ -69,6 +69,17 @@ Notice that element mat[1][1] = 5 is counted only once.
 
 ### Solution 1: Row-by-Row Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum both diagonals of a square matrix; the center of an odd order would be counted twice. $n$ is small: take the two diagonal entries per row and skip the duplicate center.
+>
+> Row $i$ contributes $row[i]$ and $row[n-i-1]$. When those indices coincide, add once; otherwise add both. A single row scan finishes the sum.
+
+<!-- thinking:end -->
+
+
 We can traverse each row $\textit{row}[i]$ of the matrix. For each row, we calculate the elements on the two diagonals, i.e., $\textit{row}[i][i]$ and $\textit{row}[i][n - i - 1]$, where $n$ is the number of rows in the matrix. If $i = n - i - 1$, it means there is only one element on the diagonals of the current row; otherwise, there are two elements. We add these elements to the answer.
 
 After traversing all rows, we get the answer.
