@@ -74,6 +74,14 @@ Therefore, we return &quot;ponter&quot;.</pre>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each `i` reverses the current screen text. With a modest $n$, a list that appends and reverses in place is enough; a deque is unnecessary for this constraint.
+
+<!-- thinking:end -->
+
 We directly simulate the keyboard input process, using a character array $t$ to record the text on the screen, initially $t$ is empty.
 
 For each character $c$ in string $s$, if $c$ is not the character $'i'$, then we add $c$ to the end of $t$; otherwise, we reverse all characters in $t$.

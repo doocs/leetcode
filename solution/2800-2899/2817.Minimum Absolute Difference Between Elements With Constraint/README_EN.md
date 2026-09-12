@@ -76,6 +76,14 @@ It can be shown that 3 is the optimal answer.
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the minimum $|nums[i]-nums[j]|$ over pairs with $|i-j|\ge x$. Scanning the prefix of length $i-x$ for every $i$ is too slow. An ordered set stores values that are already at least $x$ behind; predecessor and successor queries give the closest value in logarithmic time.
+
+<!-- thinking:end -->
+
 We create an ordered set to store the elements whose distance to the current index is at least $x$.
 
 Next, we enumerate from index $i = x$, each time we add $nums[i - x]$ into the ordered set. Then we find the two elements in the ordered set which are closest to $nums[i]$, and the minimum absolute difference between them is the answer.

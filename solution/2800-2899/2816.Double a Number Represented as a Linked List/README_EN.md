@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Reverse Linked List + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list stores digits from high to low, so doubling left to right makes carries awkward. Reverse the list, simulate multiplication by two with a carry, then reverse again.
+
+<!-- thinking:end -->
+
 First, we reverse the linked list, then simulate the multiplication operation, and finally reverse the linked list back.
 
 Time complexity is $O(n)$, where $n$ is the length of the linked list. Ignoring the space taken by the answer linked list, the space complexity is $O(1)$.

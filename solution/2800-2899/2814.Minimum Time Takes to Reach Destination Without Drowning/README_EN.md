@@ -89,6 +89,14 @@ So the answer would be -1.
 
 ### Solution 1: Two BFS Traversals
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Water spreads one step per second, and the walker cannot enter a flooded cell. A first multi-source BFS stores the flood time $g[i][j]$ of every cell. A second BFS from the start advances to a neighbor only when $g[x][y]>t+1$, turning the flood constraint into a static comparison.
+
+<!-- thinking:end -->
+
 First, we run a BFS (Breadth-First Search) to calculate the shortest distance from each cell to the water, and record it in the array $g$. Then, we run another BFS starting from the cell $(s_i, s_j)$ to find the shortest distance to the target cell $(d_i, d_j)$. During this process, if the adjacent cell $(x, y)$ of the current cell $(i, j)$ satisfies $g[x][y] > t + 1$, then we can move from $(x, y)$ to $(i, j)$.
 
 The time complexity is $O(m \times n)$ and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the array $land$, respectively.

@@ -66,6 +66,14 @@ There are no pairs of adjacent nodes, so we return the initial linked list.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need to insert $\gcd(pre,cur)$ between every adjacent pair, which a single scan can do. Keep two pointers, splice in a new node, then advance $pre$ to the original $cur$ until the list ends.
+
+<!-- thinking:end -->
+
 We use two pointers $pre$ and $cur$ to point to the current node and the next node respectively. We only need to insert a new node between $pre$ and $cur$. Therefore, each time we calculate the greatest common divisor $x$ of $pre$ and $cur$, we insert a new node with value $x$ between $pre$ and $cur$. Then we update $pre = cur$ and $cur = cur.next$, and continue to traverse the linked list until $cur$ is null.
 
 The time complexity is $O(n \times \log M)$, where $n$ is the length of the linked list, and $M$ is the maximum value of the nodes in the linked list. Ignoring the space consumption of the result linked list, the space complexity is $O(1)$.

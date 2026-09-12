@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, every pair can be enumerated and accepted when the two numbers share the same maximum decimal digit. Grouping by that digit is unnecessary under this constraint.
+
+<!-- thinking:end -->
+
 First, we initialize the answer variable $ans=-1$. Next, we directly enumerate all pairs $(nums[i], nums[j])$ where $i \lt j$, and calculate their sum $v=nums[i] + nums[j]$. If $v$ is greater than $ans$ and the largest digit of $nums[i]$ and $nums[j]$ are the same, then we update $ans$ with $v$.
 
 The time complexity is $O(n^2 \times \log M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.

@@ -87,6 +87,14 @@ It can be shown that these are the minimum possible relative losses.
 
 ### Solution 1: Sorting + Binary Search + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query buys $m$ chocolates at threshold $k$. Relative loss is the price itself when $price\le k$, and $2k-price$ when $price>k$. An optimal mix takes some cheapest bars and some most expensive ones. After sorting and prefix sums, a binary search finds the split for every query.
+
+<!-- thinking:end -->
+
 Based on the problem description, we know:
 
 If $prices[i] \leq k$, then Bob needs to pay $prices[i]$, and Alice doesn't need to pay. Therefore, Bob's relative loss is $prices[i]$. In this case, Bob should choose the chocolate with a lower price to minimize the relative loss.

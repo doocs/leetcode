@@ -102,6 +102,14 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each split requires both sides to have length $1$ or sum at least $m$. There are $O(n^2)$ intervals, so memoization is viable. With prefix sums, $dfs(i,j)$ tries every cut $k$, checks the two sides, and recurses.
+
+<!-- thinking:end -->
+
 First, we preprocess to get the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.
 
 Next, we design a function $dfs(i, j)$, which represents whether there is a way to split the index range $[i, j]$ of the array $nums$ that meets the conditions. If it exists, return `true`, otherwise return `false`.
@@ -312,6 +320,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Quick Thinking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization still enumerates cuts. Values are nonnegative, so repeated splits eventually leave a length-$2$ piece, and longer pieces only have larger sums. For $n>2$ it is necessary and sufficient that some adjacent pair sums to at least $m$; if $n\le 2$, no split is required.
+
+<!-- thinking:end -->
 
 No matter how you operate, there will always be a `length == 2` subarray left in the end. Since there are no negative numbers in the elements, as the split operation proceeds, the length and sum of the subarray will gradually decrease. The sum of other `length > 2` subarrays must be larger than the sum of this subarray. Therefore, we only need to consider whether there is a `length == 2` subarray with a sum greater than or equal to `m`.
 

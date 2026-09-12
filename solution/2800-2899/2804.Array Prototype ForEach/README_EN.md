@@ -89,6 +89,14 @@ context = {&quot;context&quot;: 5}
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must implement `forEach` with index order and an optional `this` binding. Iterate $i$ over $[0,n)$ and invoke `callback.call(context, this[i], i, this)` so the value, index, and array are passed as specified.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

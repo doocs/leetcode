@@ -85,6 +85,14 @@ tags:
 
 ### Solution 1: Enumeration + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The purchase amount lies in $[0,100]$ and must be rounded to the nearest multiple of $10$ (the larger one on a tie); the balance is $100$ minus that multiple. The eleven candidates can be enumerated. Scanning from $100$ downward and updating only on a strictly smaller distance keeps the larger multiple when distances are equal.
+
+<!-- thinking:end -->
+
 We enumerate all multiples of 10 within the range $[0, 100]$, and find the one that is closest to `purchaseAmount`, denoted as $x$. The answer is $100 - x$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

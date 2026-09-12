@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $low$ and $high$ are given as digit strings, so enumerating every integer in the range is infeasible. The count on $[low,high]$ equals $F(high)-F(low-1)$. A stepping number only constrains adjacent digits, which is a standard digit-DP setting. We memoize on position $pos$, previous digit $pre$, leading-zero flag $lead$, and upper-bound flag $limit$: leading zeros skip the adjacency check, and a nonzero digit $i$ is allowed only when there is no previous digit or $|i-pre|=1$.
+
+<!-- thinking:end -->
+
 We notice that the problem is asking for the number of stepping numbers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
 
 We design a function $dfs(pos, pre, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the previous digit is $pre$, whether the current number only contains leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$. The range of $pos$ is $[0, len(num))$.
