@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1132.Reported%20Posts%20II/README.md
 tags:
     - 数据库
 ---

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1113.Reported%20Posts/README.md
 tags:
     - 数据库
 ---

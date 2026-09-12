@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md
 rating: 1569
 source: 第 144 场周赛 Q2
 tags:
