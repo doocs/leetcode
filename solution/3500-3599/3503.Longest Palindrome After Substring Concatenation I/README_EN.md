@@ -92,6 +92,16 @@ tags:
 
 ### Solution 1: Enumerate Palindrome Centers + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest palindrome inside $s$ or $t$ alone can be found by expanding around centers, but a concatenation may take a piece from each string and then grow a palindromic core on one side.
+>
+> After reversing $t$, a common prefix of $s$ and the reversed $t$ is a symmetric pair from the two originals. $f[i][j]$ stores that matched length; appending the longest palindrome starting at $i$ in $s$ or at $j$ in the reversed $t$ covers both “one side only” and “match then extend”.
+
+<!-- thinking:end -->
+
 According to the problem description, the concatenated palindrome string can be composed entirely of string $s$, entirely of string $t$, or a combination of both strings $s$ and $t$. Additionally, there may be extra palindromic substrings in either string $s$ or $t$.
 
 Therefore, we first reverse string $t$ and preprocess arrays $\textit{g1}$ and $\textit{g2}$, where $\textit{g1}[i]$ represents the length of the longest palindromic substring starting at index $i$ in string $s$, and $\textit{g2}[i]$ represents the length of the longest palindromic substring starting at index $i$ in string $t$.

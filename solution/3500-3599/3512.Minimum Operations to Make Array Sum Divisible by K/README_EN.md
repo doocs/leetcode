@@ -89,6 +89,16 @@ tags:
 
 ### Solution 1: Sum and Modulo
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation decreases one element by $1$, hence the total sum by $1$. The sum is divisible by $k$ after exactly $S \bmod k$ operations.
+>
+> A single pass that sums and reduces modulo $k$ is enough; there is no need to simulate each decrement.
+
+<!-- thinking:end -->
+
 The problem essentially asks for the result of the sum of the array elements modulo $k$. Therefore, we only need to iterate through the array, calculate the sum of all elements, and then take the modulo $k$. Finally, return this result.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

@@ -165,6 +165,16 @@ tags:
 
 ### Solution 1: Sparse Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every `'0'` run inside a query is $\Theta(q \cdot n)$ in the worst case, and both $n$ and $q$ can be $10^5$. A legal trade’s net gain is the sum of two `'0'` runs separated by `'1'`s, so the answer is the global number of `'1'`s plus the best gain inside the query.
+>
+> Adjacent pairs that lie wholly inside the interval can be queried in $O(1)$ with a sparse table on the sums of neighboring run lengths. Residual runs that straddle $l$ or $r$ pair with the next full run or with each other. After storing each run as $(\textit{start},\textit{len})$, each query needs only a constant number of comparisons.
+
+<!-- thinking:end -->
+
 A valid trade picks two consecutive `'0'` runs separated by `'1'`s, flips the `'1'`s to `'0'`s, then flips the merged `'0'` run back to `'1'`s. The net gain is the sum of the two `'0'` run lengths, and the original number of `'1'`s stays the same. Thus the answer for each query is the total number of `'1'`s in $s$, plus the maximum gain obtainable inside that query range.
 
 Query $[l, r]$ may only operate on $s[l..r]$, treated as $t = \texttt{'1'} + s[l..r] + \texttt{'1'}$. Therefore:

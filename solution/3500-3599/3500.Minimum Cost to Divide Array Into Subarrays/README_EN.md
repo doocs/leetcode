@@ -85,6 +85,16 @@ The minimum total cost possible can be achieved by dividing <code>nums</code> in
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $2^{n-1}$ partitions and $n \le 1000$, so enumerating every cut is infeasible. The cost of the $i$-th segment $[l,r]$ is $(\textit{prefN}[r] + k \cdot i) \cdot (\textit{prefC}[r] - \textit{prefC}[l-1])$, which depends only on prefix sums and the segment index.
+>
+> Define the minimum cost of partitioning the first $j$ elements and enumerate the previous cut; the recurrence is $O(n^2)$. The $k \cdot i$ term is linear in the number of segments and stays inside the same prefix-sum framework.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -121,6 +121,16 @@ router.forwardPacket(); // There are no packets left, return <code>[]</code>.</d
 
 ### Solution 1: Hash Map + Queue + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The router must reject duplicates, evict the oldest packet by arrival, and count by destination and time window. Pack a triple into an integer for $O(1)$ membership; keep the cache in a queue and pop the front when full.
+>
+> Timestamps for one destination are appended in order, and forwarding only advances a left pointer, so $\textit{getCount}$ is a binary search on the unforwarded suffix.
+
+<!-- thinking:end -->
+
 We use a hash map $\textit{vis}$ to store the hash values of packets that have already been added, a queue $\textit{q}$ to store the packets currently in the router, a hash map $\textit{idx}$ to record the number of packets already forwarded for each destination, and a hash map $\textit{d}$ to store the list of timestamps for each destination.
 
 For the $\textit{addPacket}$ method, we compute the hash value of the packet. If it already exists in $\textit{vis}$, we return $\text{false}$; otherwise, we add it to $\textit{vis}$, check if the current queue size exceeds the memory limit, and if so, call the $\textit{forwardPacket}$ method to remove the oldest packet. Then, we add the new packet to the queue and append its timestamp to the corresponding destination's timestamp list, finally returning $\text{true}$. The time complexity is $O(1)$.

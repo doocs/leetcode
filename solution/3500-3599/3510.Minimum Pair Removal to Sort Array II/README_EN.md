@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Sorted Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $O(n^2)$ simulation of the previous problem fails at $n \le 10^5$. We still merge the adjacent pair with the smallest sum, but a full scan each time is too slow.
+>
+> A sorted set keyed by $(\textit{sum}, i)$ yields the minimum pair; another stores live indices so the left and right neighbors are $O(\log n)$. An $\textit{inv}$ counter tracks descending adjacent pairs and is updated only at the two or three affected places, stopping when $\textit{inv}=0$.
+
+<!-- thinking:end -->
+
 We define a sorted set $\textit{sl}$ to store tuples $(\textit{s}, i)$ of the sum of all adjacent element pairs and their left index, define another sorted set $\textit{idx}$ to store the indices of remaining elements in the current array, and use the variable $\textit{inv}$ to record the number of inversions in the current array. Initially, we traverse the array $\textit{nums}$, add tuples of the sum of all adjacent element pairs and their left index to the sorted set $\textit{sl}$, and calculate the number of inversions $\textit{inv}$.
 
 In each operation, we retrieve the element pair $(\textit{s}, i)$ with the minimum sum from the sorted set $\textit{sl}$. Then we can determine that the element pair corresponding to indices $i$ and $j$ (where $j$ is the next index after $i$ in the sorted set $\textit{idx}$) is the adjacent element pair with the minimum sum in the current array. If $nums[i] > nums[j]$, this element pair is an inversion, and after merging and replacing, the number of inversions $\textit{inv}$ decreases by one.

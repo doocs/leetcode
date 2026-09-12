@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^5$ and $k \le 15$, so we cannot brute-force every window of length $x$ and then search combinations. The cost of equalizing a window is the sum of distances to its median, which can be precomputed for every start.
+>
+> Choosing $k$ non-overlapping windows is a grouped knapsack: $f[i][j]$ is the minimum cost using the first $i$ positions and $j$ windows. Either skip, or place a window ending at $i$. Small $k$ keeps the DP feasible.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

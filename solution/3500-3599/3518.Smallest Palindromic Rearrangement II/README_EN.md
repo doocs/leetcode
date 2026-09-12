@@ -92,6 +92,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem asked only for the smallest palindrome. Here we need the $k$-th distinct one, with $|s| \le 10^4$ and $k \le 10^6$, so listing every first-half permutation is impossible.
+>
+> The number of permutations of the remaining half-multiset is a product of binomial coefficients, capped above $k$. Try letters from left to right: keep a letter if the suffix still contains at least the remaining rank, otherwise subtract that count and try the next. Mirror the half and insert the middle character.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
