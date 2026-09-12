@@ -76,6 +76,14 @@ Weather 表：
 
 ### 方法一：自连接 + DATEDIFF/SUBDATE 函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 找出比「前一天」更热的日期，要求日期恰好相差一天，而不是表中的上一行。自连接两行天气，用 $\textit{DATEDIFF}$ 或日期差约束为 $1$，再比较温度。
+
+<!-- thinking:end -->
+
 我们可以通过自连接的方式，将 `Weather` 表中的每一行与它的前一行进行比较，如果温度更高，并且日期相差一天，那么就是我们要找的结果。
 
 <!-- tabs:start -->
@@ -111,6 +119,14 @@ FROM
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用日期差函数。连接条件写成 $\textit{SUBDATE}(w1.\textit{recordDate},1)=w2.\textit{recordDate}$，直接对齐「昨天」那一行，语义相同，便于走日期上的等值连接。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

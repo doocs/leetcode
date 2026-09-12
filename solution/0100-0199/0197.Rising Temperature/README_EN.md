@@ -73,6 +73,14 @@ In 2015-01-04, the temperature was higher than the previous day (20 -&gt; 30).
 
 ### Solution 1: Self-Join + DATEDIFF/SUBDATE Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Days hotter than the previous calendar day — not merely the previous row. Self-join two weather rows, require a date difference of $1$, and compare temperatures.
+
+<!-- thinking:end -->
+
 We can use self-join to compare each row in the `Weather` table with its previous row. If the temperature is higher and the date difference is one day, then it is the result we are looking for.
 
 <!-- tabs:start -->
@@ -108,6 +116,14 @@ FROM
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a date-difference function. Joining on $\textit{SUBDATE}(w1.\textit{recordDate},1)=w2.\textit{recordDate}$ lines up “yesterday” as an equality, which some planners handle more easily.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

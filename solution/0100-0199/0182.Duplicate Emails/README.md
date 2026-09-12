@@ -69,6 +69,14 @@ Person 表:
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 找出出现超过一次的邮箱。按 $\textit{email}$ 分组后用 $\textit{HAVING}\,\textit{COUNT}>1$ 留下重复项，语义就是「出现次数」。
+
+<!-- thinking:end -->
+
 我们可以使用 `GROUP BY` 语句，按照 `email` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于 $1$ 的 `email`。
 
 <!-- tabs:start -->
@@ -104,6 +112,14 @@ HAVING COUNT(1) > 1;
 <!-- solution:start -->
 
 ### 方法二：自连接
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用聚合。自连接同一邮箱、不同 $\textit{id}$ 的两行，也能证明该邮箱至少出现两次，再去重。不依赖 $\textit{GROUP BY}$。
+
+<!-- thinking:end -->
 
 我们可以使用自连接的方法，将 `Person` 表自身连接一次，然后筛选出 `id` 不同，但 `email` 相同的记录。
 

@@ -87,6 +87,14 @@ Orders table:
 
 ### 方法一：NOT IN
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 没有下过单的客户，即 $\textit{id}$ 不在订单表的 $\textit{customerId}$ 集合里。$\textit{NOT IN}$ 直接表达这个集合差；注意订单表为空时部分引擎对 $\textit{NOT IN}$ 的空集语义。
+
+<!-- thinking:end -->
+
 列举所有已存在订单的客户 ID，使用 `NOT IN` 找到不存在其中的客户。
 
 <!-- tabs:start -->
@@ -127,6 +135,14 @@ WHERE
 <!-- solution:start -->
 
 ### 方法二：LEFT JOIN
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一在子查询很大时不够友好。左连接订单表后保留 $\textit{customerId}$ 为空的行，避免 $\textit{NOT IN}$ 对 $\textit{NULL}$ 的陷阱，也便于走连接计划。
+
+<!-- thinking:end -->
 
 使用 `LEFT JOIN` 连接表格，返回 `CustomerId` 为 `NULL` 的数据。
 

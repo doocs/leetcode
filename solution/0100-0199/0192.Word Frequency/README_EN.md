@@ -59,6 +59,14 @@ day 1
 
 ### Solution 1: awk
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Word frequencies, most common first. Squeeze spaces to newlines so each word is a line, sort, then $\textit{uniq}\,-c$. Sort those counts numerically descending, and $\textit{awk}$ swaps “count word” into “word count”.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Shell

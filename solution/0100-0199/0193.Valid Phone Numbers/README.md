@@ -49,6 +49,14 @@ tags:
 
 ### 方法一：awk
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 合法号码只有 $xxx-xxx-xxxx$ 与 $(xxx)\,xxx-xxxx$ 两种。整行匹配即可，不必拆字段。$\textit{awk}$ 的正则锚定首尾：三位数字加连字符，或括号三位加空格，后面都是三位-四位数字。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Shell

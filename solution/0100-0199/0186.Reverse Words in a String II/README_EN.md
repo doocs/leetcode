@@ -50,6 +50,14 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse the word order in a character array in place; words are separated by a single space. $n\le 10^5$, $O(1)$ extra space. Reverse each word, then reverse the whole array: word order flips and letters inside a word return to normal. Two pointers mark each word.
+
+<!-- thinking:end -->
+
 We can iterate through the character array $s$, using two pointers $i$ and $j$ to find the start and end positions of each word, then reverse each word, and finally reverse the entire character array.
 
 The time complexity is $O(n)$, where $n$ is the length of the character array $s$. The space complexity is $O(1)$.

@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count set bits. Checking every bit always looks at $32$ positions. $n\mathbin{\&}(n-1)$ clears the lowest $1$, so the loop runs once per set bit.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -209,6 +217,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses $n\mathbin{\&}(n-1)$. $\textit{lowbit}=n\mathbin{\&}-n$ isolates the lowest $1$; subtract and repeat. Same idea, the form used in Fenwick trees.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

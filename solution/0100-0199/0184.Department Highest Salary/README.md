@@ -94,6 +94,14 @@ Department 表:
 
 ### 方法一：等值连接 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个部门薪水最高的员工，并列都要留下。先按部门求出 $\textit{MAX}(\textit{salary})$，再把员工与部门连接后筛出薪水落在该最大值上的行。
+
+<!-- thinking:end -->
+
 我们可以使用等值连接，将 `Employee` 表和 `Department` 表连接起来，连接条件为 `Employee.departmentId = Department.id`，然后使用子查询来找到每个部门的最高工资，最后使用 `WHERE` 子句来筛选出每个部门中薪资最高的员工。
 
 <!-- tabs:start -->
@@ -146,6 +154,14 @@ def department_highest_salary(
 <!-- solution:start -->
 
 ### 方法二：等值连接 + 窗口函数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一要写子查询再连接。窗口 $\textit{RANK}$ 按部门分区、薪水降序，名为 $1$ 的行即该部门最高（含并列），一次扫描完成排名。
+
+<!-- thinking:end -->
 
 我们可以使用等值连接，将 `Employee` 表和 `Department` 表连接起来，连接条件为 `Employee.departmentId = Department.id`，然后使用窗口函数 `rank()`，它可以为每个部门的每个员工分配一个排名，然后我们可以选择排名为 $1$ 的行即可。
 

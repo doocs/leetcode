@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Length-$10$ substrings that appear at least twice. $n\le 10^5$, so pairwise comparison of all windows is impossible. Slide $s[i..i+9]$, count in a hash map, and append a string the second time it appears.
+
+<!-- thinking:end -->
+
 We define a hash table $cnt$ to store the occurrence count of all substrings of length $10$.
 
 We iterate through all substrings of length $10$ in the string $s$. For the current substring $t$, we update its count in the hash table. If the count of $t$ is $2$, we add it to the answer.
@@ -227,6 +235,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Rabin-Karp String Matching Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 hashes a length-$10$ slice every step. The alphabet has four letters, so the window is an integer; rolling it in and out is $O(1)$ per step and the total time is $O(n)$.
+
+<!-- thinking:end -->
 
 This method essentially combines sliding window and hash. Similar to 0028. Find the Index of the First Occurrence in a String, this problem can use a hash function to reduce the time complexity of counting subsequences to $O(1)$.
 

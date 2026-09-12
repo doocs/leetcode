@@ -72,6 +72,14 @@ Person 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一邮箱只留 $\textit{id}$ 最小的那一行。按邮箱分组取 $\textit{MIN}(\textit{id})$，删除不在这个集合里的行。子查询再包一层是为了让 MySQL 允许对正在删除的表做聚合。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -104,6 +112,14 @@ WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email)
 
 ### 方法二
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用聚合子查询。窗口 $\textit{ROW\_NUMBER}$ 按邮箱分区、按 $\textit{id}$ 排序，编号大于 $1$ 的即重复行，删除它们，语义更直观。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -135,6 +151,14 @@ WHERE
 <!-- solution:start -->
 
 ### 方法三
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不必先算出保留集合。自连接同一邮箱且 $p1.\textit{id}<p2.\textit{id}$，直接删掉 $\textit{id}$ 较大的那一侧，一条 $\textit{DELETE}\,\textit{JOIN}$ 完成。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

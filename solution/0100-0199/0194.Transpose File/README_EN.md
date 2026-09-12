@@ -45,6 +45,14 @@ age 21 30
 
 ### Solution 1: awk
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Transpose whitespace-separated text. While reading a row, append field $i$ to result string $i$; after the file, print those strings. $\textit{awk}$'s $\textit{NF}/\textit{NR}$ give the column index and whether this is the first row, so we know when to insert a space.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Shell
