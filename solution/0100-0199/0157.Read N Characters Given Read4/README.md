@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md
 tags:
     - 数组
     - 交互

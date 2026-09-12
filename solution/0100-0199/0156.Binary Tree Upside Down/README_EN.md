@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README_EN.md
 tags:
     - Tree
     - Depth-First Search

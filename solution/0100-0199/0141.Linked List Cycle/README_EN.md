@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md
 tags:
     - Hash Table
     - Linked List

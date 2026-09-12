@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md
 tags:
     - Stack
     - Tree

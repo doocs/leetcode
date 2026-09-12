@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README.md
 tags:
     - 树
     - 深度优先搜索
