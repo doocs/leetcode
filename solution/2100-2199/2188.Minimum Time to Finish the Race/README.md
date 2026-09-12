@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README.md
 rating: 2315
 source: 第 282 场周赛 Q4
 tags:
