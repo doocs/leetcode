@@ -78,6 +78,16 @@ RequestAccepted 表：
 
 ### 方法一：合并 + 分组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好友关系无向，表中只记录一次接受。若只按 `requester_id` 或只按 `accepter_id` 分组，会漏掉另一侧的度数。
+>
+> 将 `(requester, accepter)` 与对向再 `UNION ALL` 一次，每人作为起点出现的次数即好友数。再按人数降序取一行即可。
+
+<!-- thinking:end -->
+
 我们可以将 `requester_id` 和 `accepter_id` 两列合并成一列，表示每个人的好友关系。然后对合并后的结果进行分组统计，找出拥有最多好友的人和好友数目。
 
 <!-- tabs:start -->

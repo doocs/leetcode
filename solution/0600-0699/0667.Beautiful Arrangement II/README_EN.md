@@ -57,6 +57,16 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation of $1..n$ should use exactly $k$ distinct adjacent differences. Random search is unreliable.
+>
+> Zigzag $1,n,2,n-1,\ldots$ for the first $k$ entries to create $k-1$ differences; fill the rest monotonically from the remaining left or right end so no new difference appears.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

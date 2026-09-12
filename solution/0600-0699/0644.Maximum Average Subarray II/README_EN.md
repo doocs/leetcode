@@ -60,6 +60,16 @@ Note that we do not consider the subarrays of length &lt; 4.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum average over subarrays of length at least $k$ is quadratic to enumerate. Feasibility of average $\ge v$ is monotone in $v$.
+>
+> Binary-search $v$, subtract $v$ from every element, and test for a length-$\ge k$ subarray with nonnegative sum via prefix minima.
+
+<!-- thinking:end -->
+
 We note that if the average value of a subarray with length greater than or equal to $k$ is $v$, then the maximum average number must be greater than or equal to $v$, otherwise the maximum average number must be less than $v$. Therefore, we can use binary search to find the maximum average number.
 
 What are the left and right boundaries of binary search? The left boundary $l$ must be the minimum value in the array, and the right boundary $r$ is the maximum value in the array. Next, we binary search the midpoint $mid$, and judge whether there exists a subarray with length greater than or equal to $k$ whose average value is greater than or equal to $mid$. If it exists, then we update the left boundary $l$ to $mid$, otherwise we update the right boundary $r$ to $mid$. When the difference between the left and right boundaries is less than a very small non-negative number, i.e., $r - l < \epsilon$, we can get the maximum average number, where $\epsilon$ represents a very small positive number, which can be $10^{-5}$.

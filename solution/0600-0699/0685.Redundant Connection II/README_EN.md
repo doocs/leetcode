@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rooted tree plus one directed edge may create a node of in-degree $2$, a cycle into the root, or both. Undirected union-find alone misses the double-parent case.
+>
+> Collect the two edges into an in-degree-$2$ node. Skip the later one and union-find: a cycle means the earlier edge must go. With no double parent, delete the first edge that closes a cycle.
+
+<!-- thinking:end -->
+
 According to the problem description, for a rooted tree, the in-degree of the root node is $0$, and the in-degree of other nodes is $1$. After adding an edge to the tree, there can be the following three scenarios:
 
 1. The added edge points to a non-root node, and the in-degree of that node becomes $2$. In this case, there is no directed cycle in the graph:
@@ -382,6 +392,14 @@ var findRedundantDirectedConnection = function (edges) {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find (Template Approach)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same case split, with path compression and union-by-size in a `UnionFind` class. The driver only handles `dup` and a failed union.
+
+<!-- thinking:end -->
 
 Here is a template approach using Union-Find for your reference.
 

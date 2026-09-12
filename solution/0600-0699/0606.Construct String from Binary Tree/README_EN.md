@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A preorder walk with parentheses can recover the tree, but the empty-parenthesis rule is asymmetric: a missing right child may omit `()`, a missing left child may not.
+>
+> Recurse in three cases: a leaf is just the value; no right child wraps only the left; otherwise wrap both. That matches the required omission rule.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

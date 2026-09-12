@@ -72,6 +72,16 @@ Cinema 表:
 
 ### 方法一：自连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 空座需与左右至少一侧相邻且亦空。对每个座位再查邻居可用相关子查询，但会重复探邻。
+>
+> 自连接 `ABS(id 差)=1` 且两侧都 `free`，自然得到所有「有空邻座」的座位，去重后即答案。
+
+<!-- thinking:end -->
+
 我们可以使用自连接的方式，将相邻的两个座位连接起来，然后筛选出连续空余的座位并去重排序即可。
 
 <!-- tabs:start -->
@@ -94,6 +104,14 @@ ORDER BY 1;
 <!-- solution:start -->
 
 ### 方法二：窗口函数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 自连接会生成配对行。窗口 `LAG`/`LEAD` 可在一行内读到前后座位的 `free`，若自身与前或后之和为 $2$，则该座属于连续空座。
+
+<!-- thinking:end -->
 
 我们也可以使用 `LAG` 和 `LEAD` 函数（或者 `SUM() OVER(ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)`）来获取相邻的座位信息，然后筛选出连续空余的座位并去重排序即可。
 
@@ -123,6 +141,14 @@ WHERE a = 2 OR b = 2;
 <!-- solution:start -->
 
 ### 方法三
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 亦可不对前后分别取 `LAG`/`LEAD`，而用 `SUM(free) OVER (ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)` 一次看三连。当前座空且窗口和大于 $1$，说明邻座至少一个为空。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

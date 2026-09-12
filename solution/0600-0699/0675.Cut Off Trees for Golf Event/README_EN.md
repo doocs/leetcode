@@ -80,6 +80,16 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trees must be cut in increasing unique height. The total walk is the sum of shortest paths between consecutive targets.
+>
+> Sort trees by height, then A* each pair: heap key is distance plus Manhattan estimate. The first time the target pops is optimal; unreachable yields $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

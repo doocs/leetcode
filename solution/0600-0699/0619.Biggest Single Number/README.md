@@ -105,6 +105,16 @@ MyNumbers table:
 
 ### 方法一：分组 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只要出现一次的数中的最大者；出现多次的数应丢弃。分组即可得到频次。
+>
+> `GROUP BY num HAVING COUNT=1` 得到所有「单一数」，外层再 `MAX`。没有这样的数时 `MAX` 自然为 `NULL`。
+
+<!-- thinking:end -->
+
 我们可以先将 `MyNumbers` 表按照 `num` 进行分组统计，找出只出现一次的数字，然后使用子查询找出最大的数字即可。
 
 <!-- tabs:start -->
@@ -130,6 +140,14 @@ FROM
 <!-- solution:start -->
 
 ### 方法二：分组 + `CASE` 表达式
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不必子查询套 `MAX`：分组后用 `CASE WHEN COUNT=1 THEN num`，再按该值降序取第一行，空组自然得到 `NULL`。
+
+<!-- thinking:end -->
 
 与方法一类似，我们可以先将 `MyNumbers` 表按照 `num` 进行分组统计，然后使用 `CASE` 表达式，找出只出现一次的数字，然后按数字降序排序，取第一个即可。
 

@@ -75,6 +75,16 @@ Note that if the number of students is odd, there is no need to change the last 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent odd/even seats swap, and a leftover last seat stays. A self-join can fetch the partner's name.
+>
+> `(id+1)^1-1` maps an odd id to the next even and an even id to the previous odd. `COALESCE` keeps the original name when the join misses.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -95,6 +105,14 @@ ORDER BY 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Instead of joining, rewrite `id`: odd (not last) plus one, even minus one, last odd unchanged, then sort by the new id.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -124,6 +142,14 @@ ORDER BY 1;
 
 ### Solution 3
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> XOR-flipping the $0$-based index and taking `RANK` over that order swaps each pair in one expression; a leftover last row keeps its relative place.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -143,6 +169,14 @@ FROM Seat;
 <!-- solution:start -->
 
 ### Solution 4
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 probes `MAX(id)` with a subquery. Comparing `ROW_NUMBER()` with a window `COUNT` detects the last row without a second scan.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

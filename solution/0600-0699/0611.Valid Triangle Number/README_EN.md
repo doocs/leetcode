@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A triple loop is acceptable for $n\le 10^3$ but sorting reduces the check: after $a\le b\le c$ only $a+b>c$ remains.
+>
+> Fix the two smaller sides $i,j$ and binary-search the first index $\ge nums[i]+nums[j]$; every $k$ in between is a valid third side.
+
+<!-- thinking:end -->
+
 A valid triangle must satisfy: **the sum of any two sides is greater than the third side**. That is:
 
 $$a + b \gt c \tag{1}$$

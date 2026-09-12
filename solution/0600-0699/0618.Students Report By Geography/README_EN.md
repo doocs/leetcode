@@ -73,6 +73,16 @@ Student table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students of three continents must appear side by side, sorted by name. Conditional aggregation needs a shared row index.
+>
+> `ROW_NUMBER()` within each continent, then `GROUP BY` that rank with `MAX(IF(continent=...))`, pivots the names into three columns.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

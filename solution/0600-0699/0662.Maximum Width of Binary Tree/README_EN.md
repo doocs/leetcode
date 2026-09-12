@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Width is the span between the leftmost and rightmost positions on a level, counting holes. Storing nodes alone hides those holes.
+>
+> Number the root $1$, left $i\ll 1$, right $i\ll 1|1$. In BFS the width is last index minus first plus one; keep the maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -217,6 +227,14 @@ type pair struct {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS needs a queue. DFS records the first index seen at each depth and updates the width as $i - t[depth] + 1$ with the same numbering.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

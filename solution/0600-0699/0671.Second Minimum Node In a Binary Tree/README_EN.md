@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every internal node equals the smaller child, so the root is the global minimum. We only need the strict second minimum.
+>
+> DFS and keep the smallest value strictly larger than the root; return $-1$ if none exists.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

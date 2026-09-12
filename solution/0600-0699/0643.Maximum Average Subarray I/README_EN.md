@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum average of a window of length $k$ is the maximum sum. Recomputing each window is $O(nk)$ for $n\le 10^5$.
+>
+> Slide a length-$k$ sum: add the entering value, drop the leaving one, and divide the best sum by $k$.
+
+<!-- thinking:end -->
+
 We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$ of the numbers within the window. We take the maximum sum $s$ as the answer.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

@@ -112,6 +112,16 @@ Since the record is empty, the total sum is 0.
 
 ### Solution 1: Stack + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation refers to the last score, the last two, or an undo, so recent values must stay accessible.
+>
+> A stack stores rounds: `+` sums the top two, `D` doubles the top, `C` pops, a number pushes. Sum the stack at the end.
+
+<!-- thinking:end -->
+
 We can use a stack to simulate this process.
 
 Traverse $\textit{operations}$, for each operation:

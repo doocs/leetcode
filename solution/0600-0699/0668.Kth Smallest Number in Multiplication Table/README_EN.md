@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-th smallest entry of an $m\times n$ multiplication table cannot be materialized when sides reach $3\cdot 10^4$.
+>
+> Binary-search the value $x$. Row $i$ contributes $\min(\lfloor x/i\rfloor, n)$ entries $\le x$. The answer is the smallest $x$ with count $\ge k$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

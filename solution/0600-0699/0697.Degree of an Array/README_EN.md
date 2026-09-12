@@ -60,6 +60,16 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The degree is the maximum frequency. A shortest subarray with the same degree must cover the first and last occurrence of some mode.
+>
+> Count frequencies and record endpoints. For values that attain the degree, take the minimum $right-left+1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -185,6 +195,14 @@ func findShortestSubArray(nums []int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 records endpoints in one pass. We can also collect the modes first and scan first/last indices per mode. The helpers are longer, the complexity is the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find two nodes summing to $k$. Inorder plus two pointers works after collecting values.
+>
+> A set of seen values during a walk is enough: if $k-val$ is present, return true. The BST order is not required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -269,6 +279,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS can be replaced by BFS with the same seen-set test; only the traversal order changes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

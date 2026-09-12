@@ -80,6 +80,16 @@ Follow table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 二度关注者是「自己关注了某人、且自己也被关注」的人，直接扫单表无法同时看到两跳。
+>
+> 自连接 `f1.follower = f2.followee` 得到其关注列表，再按 `follower` 对 `followee` 去重计数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

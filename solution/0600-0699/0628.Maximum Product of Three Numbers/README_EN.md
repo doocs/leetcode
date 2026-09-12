@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Sorting + Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum product of three numbers is either the three largest values or the two smallest (possibly negative) times the largest. Sorting is cheap for $n\le 10^4$.
+>
+> After sorting, compare $nums[-1]\times nums[-2]\times nums[-3]$ with $nums[-1]\times nums[0]\times nums[1]$.
+
+<!-- thinking:end -->
+
 First, we sort the array $\textit{nums}$, and then discuss two cases:
 
 - If $\textit{nums}$ contains all non-negative or all non-positive numbers, the answer is the product of the last three numbers, i.e., $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$;
@@ -160,6 +170,14 @@ function maximumProduct(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Single Pass
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting is more than we need: only the two smallest and three largest values matter. A linear pass (or `nlargest`) keeps those five extrema.
+
+<!-- thinking:end -->
 
 We can avoid sorting the array by maintaining five variables: $\textit{mi1}$ and $\textit{mi2}$ represent the two smallest numbers in the array, while $\textit{mx1}$, $\textit{mx2}$, and $\textit{mx3}$ represent the three largest numbers in the array.
 

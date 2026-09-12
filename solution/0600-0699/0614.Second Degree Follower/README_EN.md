@@ -80,6 +80,16 @@ User Alice has 1 follower. Alice is not a second-degree follower because she doe
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A second-degree follower follows someone and is also followed. One scan of the table cannot see both hops.
+>
+> Join `f1.follower = f2.followee` to list their followees, then `COUNT(DISTINCT followee)` per follower.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

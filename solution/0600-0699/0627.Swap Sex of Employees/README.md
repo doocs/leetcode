@@ -80,6 +80,16 @@ Salary 表：
 
 ### 方法一：使用单个 update 语句交换性别
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只需把 `'f'`/`'m'` 对调，且要求一条 `UPDATE`。
+>
+> `SET sex = IF(sex='f','m','f')` 对每一行就地翻转即可。
+
+<!-- thinking:end -->
+
 根据题目要求，我们只需要使用一条 update 语句来交换所有员工的性别。我们可以使用 SQL 中的条件表达式来实现这一点。
 
 <!-- tabs:start -->

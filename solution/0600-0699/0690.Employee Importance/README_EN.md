@@ -72,6 +72,16 @@ Thus, the total importance value of employee 5 is -3.
 
 ### Solution 1: Hash Table + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Importance is the employee plus every subordinate. Looking up ids in the raw list is linear per hop.
+>
+> Map id to the object, then DFS from the given id: `importance` plus the sum of recursive calls on subordinates.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to store all employee information, where the key is the employee's ID, and the value is the employee object. Then we start a depth-first search from the given employee ID. Each time we traverse to an employee, we add the employee's importance to the answer, and recursively traverse all the subordinates of the employee, adding the importance of the subordinates to the answer as well.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of employees.

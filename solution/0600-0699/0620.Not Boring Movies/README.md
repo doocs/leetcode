@@ -74,6 +74,16 @@ id 是该表的主键(具有唯一值的列)。
 
 ### 方法一：条件筛选 + 排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 筛选条件相互独立：描述不是 `boring`，且 `id` 为奇数，再按评分降序。
+>
+> `WHERE description != 'boring' AND id & 1 = 1` 一次过滤，`ORDER BY rating DESC` 即可。
+
+<!-- thinking:end -->
+
 我们可以使用 `WHERE` 子句筛选出 `description` 不为 `boring`，并且 `id` 为奇数的记录，然后使用 `ORDER BY` 子句对结果按照 `rating` 降序排序。
 
 <!-- tabs:start -->

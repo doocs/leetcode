@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $b$ must appear inside some repetition of $a$. At least $\lceil |b|/|a|\rceil$ copies are required, and a few extra copies cover a wrap-around match.
+>
+> Start from that lower bound and append $a$ at most three more times. If `b` is a substring, return the count; otherwise $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

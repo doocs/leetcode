@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Islands are equal iff a translation matches them; rotation does not count. Absolute coordinates need a common origin.
+>
+> DFS records both the step direction and the backtrack. Distinct shapes yield distinct strings; a set of those strings is the answer. Mark land as $0$ when visited.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

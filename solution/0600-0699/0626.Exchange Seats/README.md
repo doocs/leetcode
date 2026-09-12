@@ -75,6 +75,16 @@ Seat 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相邻奇偶座位互换，最后一人若落单则不动。自连接可按「配对 id」取对方姓名。
+>
+> `(id+1)^1-1` 把奇数映到下一偶数、偶数映到上一奇数。左连接后 `COALESCE` 在没有搭档时保留原名。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -95,6 +105,14 @@ ORDER BY 1;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 也可不连表，直接改 `id`：非末奇数加一、偶数减一、末奇数不变，再按新 `id` 排序，效果与换人相同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -124,6 +142,14 @@ ORDER BY 1;
 
 ### 方法三
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把 $0$ 起始的下标做异或翻转，再用 `RANK` 得到新座位号，一行即可表达成对交换，末位因没有配对自然保持相对顺序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -143,6 +169,14 @@ FROM Seat;
 <!-- solution:start -->
 
 ### 方法四
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法二用子查询取最大 `id` 判断末行。亦可用 `ROW_NUMBER` 与窗口 `COUNT` 比较是否最后一行，避免再扫一遍表。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

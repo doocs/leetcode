@@ -74,6 +74,16 @@ Student table:
 
 ### 方法一：窗口函数 + GROUP BY
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把三大洲学生按姓名排成并排三列，行数由人数最多的洲决定。条件聚合需要先对齐行号。
+>
+> `ROW_NUMBER() PARTITION BY continent ORDER BY name` 得到行号，再 `GROUP BY rk` 配 `MAX(IF(continent=...))` 透视到三列。
+
+<!-- thinking:end -->
+
 我们可以使用窗口函数 `row_number()` 来为每个大洲的学生编号，然后使用 `GROUP BY` 来将同一编号的学生聚合到一行中。
 
 <!-- tabs:start -->

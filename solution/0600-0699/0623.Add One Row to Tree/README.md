@@ -71,6 +71,16 @@ tags:
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要在第 $\textit{depth}$ 层插入新行，原第 $\textit{depth}$ 层变为新节点的孩子。整树重建代价过高。
+>
+> $\textit{depth}=1$ 时新节点直接作为根。否则 DFS 走到深度 $\textit{depth}-1$，把原左右孩子挂到新建节点上即可，更深的子树不用动。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -271,6 +281,14 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 <!-- solution:start -->
 
 ### 方法二：BFS
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一递归到目标层。若希望按层推进、避免递归栈，可用队列 BFS 走到第 $\textit{depth}-1$ 层，再对队中节点同样挂接左右新节点。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

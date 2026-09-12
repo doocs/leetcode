@@ -52,6 +52,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete one edge so the two sides have equal sums. Re-summing for every edge is quadratic.
+>
+> One postorder pass yields the total $s$. If $s$ is odd it is impossible. Store every subtree sum except the whole tree; $s/2$ among them means that cut works.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

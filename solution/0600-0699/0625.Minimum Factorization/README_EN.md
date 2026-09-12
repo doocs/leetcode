@@ -43,6 +43,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must write $num$ as a product of digits $2..9$ and form the smallest integer. Searching all factorizations is unnecessary.
+>
+> Fewer digits and smaller high digits win, so divide by $9$ down to $2$ and write factors from the low end. If a remainder greater than $1$ remains or the value overflows $32$ bits, return $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

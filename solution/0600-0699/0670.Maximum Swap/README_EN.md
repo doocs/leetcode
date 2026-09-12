@@ -53,6 +53,16 @@ tags:
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swap at most two digits to maximize the number. Trying every pair is unnecessary.
+>
+> From the right, record the index of the largest digit to the right (inclusive). From the left, swap at the first $s[i]<s[d[i]]$. That raises the highest possible place.
+
+<!-- thinking:end -->
+
 First, we convert the number into a string $s$. Then, we traverse the string $s$ from right to left, using an array or hash table $d$ to record the position of the maximum number to the right of each number (it can be the position of the number itself).
 
 Next, we traverse $d$ from left to right. If $s[i] < s[d[i]]$, we swap them and exit the traversal process.
@@ -242,6 +252,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Space Optimized Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores a right-max index array. One right-to-left scan can keep the best seen digit and the leftmost profitable swap, without the extra array.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: DFS + Pruning
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Partition into $k$ equal-sum subsets. If the total is not divisible by $k$, fail. $n\le 16$ allows DFS if we cut symmetric fillings.
+>
+> Target $s$, array $cur$ holds bucket sums. Place numbers largest-first: skip a bucket that would exceed $s$ or that matches the previous bucket. Success when every number is placed.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to partition the array $\textit{nums}$ into $k$ subsets such that the sum of each subset is equal. Therefore, we first sum all the elements in $\textit{nums}$. If the total sum cannot be divided by $k$, it means we cannot partition the array into $k$ subsets, and we return $\textit{false}$ early.
 
 If the total sum can be divided by $k$, let's denote the expected sum of each subset as $s$. Then, we create an array $\textit{cur}$ of length $k$ to represent the current sum of each subset.
@@ -245,6 +255,14 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 <!-- solution:start -->
 
 ### Solution 2: State Compression + Memoization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bucket DFS can still revisit the same used set. A mask $\textit{state}$ plus the current bucket remainder $t$ memoizes the search. Sorting ascending lets us break once $t+v>s$.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first check whether the array $\textit{nums}$ can be partitioned into $k$ subsets. If it cannot be divided by $k$, we directly return $\textit{false}$.
 
@@ -475,6 +493,14 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization is top-down. Bottom-up, $f[i]$ says whether mask $i$ is reachable and $cur[i]$ is the current bucket fill. Try unused $j$ to set $f[i|2^j]$ without recursion.
+
+<!-- thinking:end -->
 
 We can use dynamic programming to solve this problem.
 

@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One print paints a contiguous segment with the same letter. $n\le 100$ suits interval DP.
+>
+> $f[i][j]$ is the fewest prints for $s[i..j]$. Equal endpoints reuse the last stroke; otherwise try every split. Fill shorter intervals first.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum operations to print $s[i..j]$, with the initial value $f[i][j]=\infty$, and the answer is $f[0][n-1]$, where $n$ is the length of string $s$.
 
 Consider $f[i][j]$, if $s[i] = s[j]$, we can print $s[j]$ when print $s[i]$, so we can ignore $s[j]$ and continue to print $s[i+1..j-1]$. If $s[i] \neq s[j]$, we need to print the substring separately, i.e. $s[i..k]$ and $s[k+1..j]$, where $k \in [i,j)$. So we can have the following transition equation:

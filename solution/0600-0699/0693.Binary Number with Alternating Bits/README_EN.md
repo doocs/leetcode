@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check that neighboring bits strictly alternate. A bit-by-bit scan is enough.
+>
+> Read the lowest bit, shift, and fail if it equals the previous bit.
+
+<!-- thinking:end -->
+
 We cyclically right-shift $n$ until it becomes $0$, checking whether the binary bits of $n$ appear alternately. If during the loop we find that $0$ and $1$ do not appear alternately, we directly return $\textit{false}$. Otherwise, when the loop ends, we return $\textit{true}$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
@@ -178,6 +188,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The scan is $O(\log n)$. $n\oplus(n\gg 1)$ becomes a run of ones iff bits alternate; then $n\&(n+1)=0$ confirms it in constant time.
+
+<!-- thinking:end -->
 
 Assuming $\text{01}$ appears alternately, we can convert all trailing bits to $\text{1}$ through misaligned XOR. Adding $\text{1}$ gives us a power of $2$, which is a number $n$ (where $n$ has only one bit that is $\text{1}$). Then, using $\text{n} \& (\text{n} + 1)$ can eliminate the last $\text{1}$ bit.
 

@@ -56,6 +56,16 @@ increasing.
 
 ### Solution 1: One-pass Scan
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The subsequence must be contiguous, so a classic LIS is unnecessary.
+>
+> Track the current run length: extend on $nums[i-1]<nums[i]$, otherwise reset to $1$.
+
+<!-- thinking:end -->
+
 We can traverse the array $nums$, using a variable $cnt$ to record the length of the current consecutive increasing sequence. Initially, $cnt = 1$.
 
 Then, we start from index $i = 1$ and traverse the array $nums$ to the right. Each time we traverse, if $nums[i - 1] < nums[i]$, it means that the current element can be added to the consecutive increasing sequence, so we set $cnt = cnt + 1$, and then update the answer to $ans = \max(ans, cnt)$. Otherwise, it means that the current element cannot be added to the consecutive increasing sequence, so we set $cnt = 1$.
@@ -201,6 +211,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same runs can be walked with two pointers: advance $j$ while the array increases, record $j-i$, then set $i=j$.
+
+<!-- thinking:end -->
 
 We can also use two pointers $i$ and $j$ to find each consecutive increasing sequence, and find the length of the longest consecutive increasing sequence as the answer.
 

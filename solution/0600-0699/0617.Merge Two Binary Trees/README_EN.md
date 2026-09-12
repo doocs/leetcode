@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Aligned nodes add their values; a missing side keeps the other subtree intact. That is exactly a recursive definition.
+>
+> If one root is null, return the other; otherwise create a node with the sum and merge the left and right children.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

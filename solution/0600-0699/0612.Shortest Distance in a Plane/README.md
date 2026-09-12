@@ -74,6 +74,16 @@ Point2D table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 平面最短距离对应所有点对的欧氏距离最小值。点数很少，自连接排除同一点后算距离即可。
+>
+> 用 `SQRT(POW 差)` 求距离并 `ROUND` 到两位，`ORDER BY` 取最小一行。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
