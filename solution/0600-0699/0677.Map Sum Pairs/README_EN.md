@@ -70,6 +70,17 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 ### Solution 1: Hash Table + Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `sum(prefix)` needs the total of keys with that prefix, and `insert` overwrites. Scanning every key is linear in the map size.
+>
+> Trie nodes store subtree sums. Insert adds $\Delta=val-old$ along the path; `sum` returns the node at the prefix. A hash map keeps the previous value.
+
+<!-- thinking:end -->
+
+
 We use a hash table $d$ to store key-value pairs and a trie $t$ to store the prefix sums of the key-value pairs. Each node in the trie contains two pieces of information:
 
 - `val`: the total sum of the values of the key-value pairs with this node as the prefix

@@ -57,6 +57,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Drop BST nodes outside $[low,high]$. Order lets us discard a whole left or right subtree at once.
+>
+> If the root is too large, recurse only left; if too small, only right; otherwise trim both children and keep the root.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -329,6 +340,15 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursion uses linear stack. Slide the root into range, then walk each side: replace an undersized left child by its right, an oversized right child by its left. Extra memory is constant.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

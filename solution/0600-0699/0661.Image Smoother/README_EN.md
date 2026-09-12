@@ -62,6 +62,17 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cell becomes the floor-average of itself and its (up to eight) neighbors. A $200\times 200$ grid can be scanned directly.
+>
+> For $(i,j)$ sum the in-bound cells of $[i-1,i+1]\times[j-1,j+1]$ into a new matrix so in-place writes do not affect neighbors.
+
+<!-- thinking:end -->
+
+
 We create a 2D array $\textit{ans}$ of size $m \times n$, where $\textit{ans}[i][j]$ represents the smoothed value of the cell in the $i$-th row and $j$-th column of the image.
 
 For $\textit{ans}[i][j]$, we traverse the cell in the $i$-th row and $j$-th column of $\textit{img}$ and its surrounding 8 cells, calculate their sum $s$ and count $cnt$, then compute the average value $s / cnt$ and store it in $\textit{ans}[i][j]$.

@@ -54,6 +54,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Change at most one value to make the array non-decreasing. Two descents fail; one descent can be fixed on either side.
+>
+> At the first $a>b$, try setting $a$ to $b$ and $b$ to $a$, then test sortedness. No descent means it already works.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

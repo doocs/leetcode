@@ -52,6 +52,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After dropping every natural number that contains a digit $9$, find the $n$-th remaining value. Scanning until the $n$-th valid number is too slow for large $n$.
+>
+> Numbers without a $9$ are exactly base-$9$ numerals written with digits $0..8$. Convert $n$ to base $9$. The solution tabs are still empty.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

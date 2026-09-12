@@ -59,6 +59,17 @@ tags:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> BST 中删掉不在 $[low,high]$ 的节点并保持 BST。因有序，整棵左/右子树可一次性丢弃。
+>
+> 根偏大则答案全在左子树，偏小则全在右；落在区间内则递归修剪左右并接回。
+
+<!-- thinking:end -->
+
+
 判断 `root.val` 与 `low` 和 `high` 的大小关系：
 
 - 若 `root.val` 大于 `high`，说明当前 `root` 节点与其右子树所有节点的值均大于 `high`，那么递归修剪 `root.left` 即可；
@@ -341,6 +352,15 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 <!-- solution:start -->
 
 ### 方法二：迭代
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 递归最坏线性栈。先把根沿 BST 滑到区间内，再分别沿左右链：过小的左孩子用其右子替换，过大的右孩子用其左子替换，额外空间为常数。
+
+<!-- thinking:end -->
+
 
 我们先循环判断 `root`，若 `root.val` 不在 `[low, high]` 之间，那么直接将 `root` 置为对应的左孩子或右孩子，循环直至 `root` 为空或者 `root.val` 在 `[low, high]` 之间。
 
