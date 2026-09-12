@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3570.Find%20Books%20with%20No%20Available%20Copies/README_EN.md
 tags:
     - Database
 ---
