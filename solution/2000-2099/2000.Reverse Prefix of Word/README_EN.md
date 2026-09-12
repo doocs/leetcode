@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2000.Reverse%20Prefix%20of%20Word/README_EN.md
 rating: 1199
 source: Weekly Contest 258 Q1
 tags:

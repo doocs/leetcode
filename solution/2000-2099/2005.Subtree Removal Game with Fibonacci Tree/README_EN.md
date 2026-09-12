@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2005.Subtree%20Removal%20Game%20with%20Fibonacci%20Tree/README_EN.md
 tags:
     - Tree
     - Math
