@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three axis-aligned rectangles must cover every $1$. Enumerating three independent boxes is a high-degree polynomial in the coordinates.
+>
+> Their dissection of the grid has six topologies: two horizontal cuts, two vertical cuts, and four “cut once, then split one side”.
+>
+> Let $f$ be the bounding-box area of ones inside a sub-rectangle. Enumerate the cut lines, sum the three areas, and keep the minimum.
+
+<!-- thinking:end -->
+
 According to the problem description, we can use two dividing lines to split the rectangle into three parts. We calculate the minimum rectangular area containing all $1$s for each part and then take the minimum sum of the areas of the three parts.
 
 We can enumerate the positions of the two dividing lines, which have $6$ possibilities:

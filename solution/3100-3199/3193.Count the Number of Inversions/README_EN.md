@@ -117,6 +117,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count permutations whose prefix inversion counts match given constraints. Placing value $i$ may add $0..i$ inversions, so DP tracks how many numbers are placed and how many inversions they hold.
+>
+> A constraint pins one prefix; other layers still enumerate $j$. With $m\le 400$ the triple loop passes.
+>
+> Let $f[i][j]$ be the ways to fill $[0..i]$ with $j$ inversions. A required prefix fills only that column; otherwise add $f[i-1][j-k]$ for $k\le\min(i,j)$. The first prefix must have zero inversions.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of permutations of $[0..i]$ with $j$ inversions. Consider the relationship between the number $a_i$ at index $i$ and the previous $i$ numbers. If $a_i$ is smaller than $k$ of the previous numbers, then each of these $k$ numbers forms an inversion pair with $a_i$, contributing to $k$ inversions. Therefore, we can derive the state transition equation:
 
 $$

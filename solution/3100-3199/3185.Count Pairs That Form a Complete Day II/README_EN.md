@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The predicate matches part I but $n$ reaches $10^5$, so a double loop fails. Counts of seen remainders still suffice.
+>
+> The complementary residue is unchanged; a map or a length-$24$ array works.
+>
+> Scan left to right, add $cnt[(24-x\bmod 24)\bmod 24]$, then increment $cnt[x\bmod 24]$.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $\textit{cnt}$ of length $24$ to record the occurrence count of each hour modulo $24$.
 
 Iterate through the array $\textit{hours}$. For each hour $x$, we can find the number that, when added to $x$, results in a multiple of $24$, and after modulo $24$, this number is $(24 - x \bmod 24) \bmod 24$. We then accumulate the occurrence count of this number from the hash table or array. After that, we increment the occurrence count of $x$ modulo $24$ by one.

@@ -174,6 +174,18 @@ The smallest element of averages, 5.5, is returned.</div>
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step averages the current minimum and maximum; the answer is the smallest of those averages. A multiset simulation works, but the endpoints after sorting already form the pairs.
+>
+> The $i$-th smallest pairs with the $i$-th largest, averaging $(nums[i]+nums[n-1-i])/2$.
+>
+> Take the minimum of those sums for $i=0..n/2-1$ and divide by two.
+
+<!-- thinking:end -->
+
 First, we sort the array $\textit{nums}$. Then, we start taking elements from both ends of the array, calculating the sum of the two elements, and taking the minimum value. Finally, we return the minimum value divided by 2 as the answer.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.

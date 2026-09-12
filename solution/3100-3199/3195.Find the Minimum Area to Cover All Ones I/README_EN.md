@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1: Find Minimum and Maximum Boundaries
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One axis-aligned rectangle must cover every $1$. Trying every rectangle is $O(m^2n^2)$.
+>
+> The optimum is the bounding box of all ones, fixed by the extreme rows and columns.
+>
+> One scan tracks $x_1,y_1,x_2,y_2$; the area is $(x_2-x_1+1)(y_2-y_1+1)$.
+
+<!-- thinking:end -->
+
 We can traverse `grid`, finding the minimum boundary of all `1`s, denoted as $(x_1, y_1)$, and the maximum boundary, denoted as $(x_2, y_2)$. Then, the area of the minimum rectangle is $(x_2 - x_1 + 1) \times (y_2 - y_1 + 1)$.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in `grid`, respectively. The space complexity is $O(1)$.

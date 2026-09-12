@@ -90,6 +90,18 @@ Each row of this table contains the state name and the city name within that sta
 
 ### Solution 1: Grouping and Aggregation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cities of each state must be listed in dictionary order, joined by comma-space. That is a grouped aggregate with an inner sort.
+>
+> SQL uses `GROUP_CONCAT(... ORDER BY city)`; pandas `groupby`s and `join`s a `sorted` city series.
+>
+> Name the columns $state$ and $cities$, one row per state.
+
+<!-- thinking:end -->
+
 We can first group by the `state` field, then sort the `city` field within each group, and finally use the `GROUP_CONCAT` function to concatenate the sorted city names into a comma-separated string.
 
 <!-- tabs:start -->

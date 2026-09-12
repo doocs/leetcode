@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1: Binary Search + Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Taking damage $x$ forbids every other value in $[x-2,x+2]$, while equal $x$ may all be taken. Subsets of distinct damages are exponential.
+>
+> After sorting the choice is: skip every copy of the current value, or take them all and jump to the first value $>x+2$. That jump is a binary search.
+>
+> Memoize $dfs(i)=\max(dfs(i+cnt[x]),\,x\cdot cnt[x]+dfs(nxt[i]))$. Each distinct damage expands once.
+
+<!-- thinking:end -->
+
 We can first sort the array $\textit{power}$, use a hash table $\textit{cnt}$ to record the occurrence count of each damage value, and then iterate through the array $\textit{power}$. For each damage value $x$, we can determine the index of the next damage value that can be used when using a spell with damage value $x$, which is the index of the first damage value greater than $x + 2$. We can use binary search to find this index and record it in the array $\textit{nxt}$.
 
 Next, we define a function $\textit{dfs}$ to calculate the maximum damage value that can be obtained starting from the $i$-th damage value.

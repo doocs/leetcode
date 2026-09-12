@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation adds or subtracts one from a single value. Remainder $1$ needs a decrement, remainder $2$ an increment, remainder $0$ nothing.
+>
+> Elements never interact, so the answer is the count of non-multiples of $3$.
+>
+> Sum the predicate $x\bmod 3\neq 0$.
+
+<!-- thinking:end -->
+
 We directly iterate through the array $\textit{nums}$. For each element $x$, if $x \bmod 3 \neq 0$, there are two cases:
 
 - If $x \bmod 3 = 1$, we can decrease $x$ by $1$ to make it $x - 1$, which is divisible by $3$.

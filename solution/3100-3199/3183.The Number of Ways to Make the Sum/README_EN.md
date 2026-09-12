@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Dynamic Programming (Complete Knapsack)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coins are $1,2,4,6$ with at most two coins of $4$. A four-denomination knapsack would still need to cap $4$.
+>
+> Complete-knapsack $1,2,6$ into $f[j]$, then add the $0/1/2$ copies of $4$ as $f[n]+f[n-4]+f[n-8]$.
+>
+> The inner loop runs upward for an unbounded knapsack. Accumulate the extra terms when $n$ reaches $4$ or $8$, modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We can start by ignoring coin $4$, defining the coin array `coins = [1, 2, 6]`, and then using the idea of the complete knapsack problem. We define $f[j]$ as the number of ways to make up amount $j$ using the first $i$ types of coins, initially $f[0] = 1$. Then, we iterate through the coin array `coins`, and for each coin $x$, we iterate through amounts from $x$ to $n$, updating $f[j] = f[j] + f[j - x]$.
 
 Finally, $f[n]$ is the number of ways to make up amount $n$ using coins $1, 2, 6$. Then, if $n \geq 4$, we consider choosing one coin $4$, so the number of ways becomes $f[n] + f[n - 4]$, and if $n \geq 8$, we consider choosing two coins $4$, so the number of ways becomes $f[n] + f[n - 4] + f[n - 8]$.
@@ -218,6 +230,18 @@ function numberOfWays(n: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Preprocessing + Dynamic Programming (Complete Knapsack)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 rebuilds $f$ per query. The domain is a fixed $10^5$, so many queries would recompute the same table.
+>
+> Precompute $f[1..10^5]$ and answer with a few index lookups.
+>
+> Return $f[n]$, $f[n]+f[n-4]$, or also $f[n-8]$ according to the size of $n$.
+
+<!-- thinking:end -->
 
 We can start by preprocessing the number of ways to make up every amount from $1$ to $10^5$, and then return the corresponding number of ways based on the value of $n$:
 

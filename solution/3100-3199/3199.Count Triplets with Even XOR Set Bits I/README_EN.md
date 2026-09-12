@@ -66,6 +66,18 @@ Given three integer arrays <code>a</code>, <code>b</code>, and <code>c</code>, r
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples whose XOR has an even popcount. A triple loop is $O(n^3)$.
+>
+> The parity of the XOR popcount is the parity of the three individual popcounts, so each array collapses to two buckets.
+>
+> Count $bit\_count\bmod 2$ in $a,b,c$, then add $cnt1[i]cnt2[j]cnt3[k]$ over even $i+j+k$.
+
+<!-- thinking:end -->
+
 For two integers, the parity of the number of $1$s in the XOR result depends on the parity of the number of $1$s in the binary representations of the two integers.
 
 We can use three arrays `cnt1`, `cnt2`, `cnt3` to record the parity of the number of $1$s in the binary representations of each number in arrays `a`, `b`, `c`, respectively.
