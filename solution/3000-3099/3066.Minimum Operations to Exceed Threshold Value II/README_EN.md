@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step replaces the two smallest $x \le y$ by $2x+y$ until the minimum is at least $k$. $n \le 2 \times 10^5$, so linear scans for the minima are too slow.
+>
+> The operation always uses the current two smallest, which a min-heap maintains.
+>
+> After heapifying we pop two, push $2x+y$, and stop when the top is at least $k$.
+
+<!-- thinking:end -->
+
 We can use a priority queue (min heap) to simulate this process.
 
 Specifically, we first add the elements in the array to the priority queue `pq`. Then we continuously take out the two smallest elements `x` and `y` from the priority queue, and put `min(x, y) * 2 + max(x, y)` back into the priority queue. After each operation, we increase the operation count by one. We stop the operation when the number of elements in the queue is less than 2 or the smallest element in the queue is greater than or equal to `k`.

@@ -92,6 +92,18 @@ It can be shown that 9 is the maximum achievable sum of values.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> XORing $k$ onto every edge of a path flips only the two endpoints. After any sequence of operations an even number of nodes are flipped.
+>
+> The tree edges can be ignored: choose an even number of values to XOR with $k$ to maximize the sum.
+>
+> $f_0,f_1$ store the best sum after an even/odd number of flips. Each $x$ may stay or become $x \oplus k$, and we return the even state.
+
+<!-- thinking:end -->
+
 For any number $x$, its value remains unchanged after being XORed with $k$ an even number of times. Therefore, for any path in a tree, if we perform the operation on all edges in the path, the values of all nodes on the path except the start and end nodes will not change.
 
 Additionally, no matter how many operations are performed, there will always be an even number of elements XORed with $k$, and the remaining elements will remain unchanged.

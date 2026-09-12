@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ and $m \le 20$, so each string has $O(m^2)$ substrings. Testing each against the other strings is acceptable.
+>
+> We want the shortest string and, on ties, the lexicographically smallest, so we enumerate by increasing length and then by start, and stop a string once a candidate exists.
+>
+> A triple loop builds $\textit{sub}$ and keeps it when no other string contains it.
+
+<!-- thinking:end -->
+
 Given the small data scale, we can directly enumerate all substrings of each string and then determine whether it is a substring of other strings.
 
 Specifically, we first enumerate each string `arr[i]`, then enumerate the length $j$ of each substring from small to large, and then enumerate the starting position $l$ of each substring. We can get the current substring as `sub = arr[i][l:l+j]`. Then we determine whether `sub` is a substring of other strings. If it is, we skip the current substring; otherwise, we update the answer.

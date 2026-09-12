@@ -78,6 +78,18 @@ Heights table:
 
 ### 方法一：窗口函数 + 求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 经典接雨水：每位水量为左右最高柱的较小者减去自身。行式数据可用窗口或累计最大代替双指针。
+>
+> 从左累计最大与从右累计最大分别给出 $l$、$r$，逐行取 $\min(l,r)-h$ 再求和。
+>
+> 用 $\texttt{cummax}$ 与反向 $\texttt{cummax}$ 实现两侧最高。
+
+<!-- thinking:end -->
+
 我们使用窗口函数 `MAX(height) OVER (ORDER BY id)` 来计算每个位置及其左边的最大高度，使用 `MAX(height) OVER (ORDER BY id DESC)` 来计算每个位置及其右边的最大高度，分别记为 `l` 和 `r`。那么每个位置上的蓄水量就是 `min(l, r) - height`，最后求和即可。
 
 <!-- tabs:start -->

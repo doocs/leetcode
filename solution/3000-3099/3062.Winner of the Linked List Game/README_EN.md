@@ -101,6 +101,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On an even-length list, adjacent odd/even nodes score a point for the larger value. Length is at most $100$, so we walk by pairs.
+>
+> Each pair awards the odd or even side, and we compare the two totals.
+>
+> One pass with a two-node stride is enough.
+
+<!-- thinking:end -->
+
 Traverse the linked list, each time taking out two nodes, compare their values, and then update the scores of odd and even numbers based on the comparison results. Finally, compare the scores of odd and even numbers and return the result.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.

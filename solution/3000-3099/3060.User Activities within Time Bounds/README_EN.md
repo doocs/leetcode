@@ -82,6 +82,18 @@ Output table is ordered by user_id in increasing order.
 
 ### Solution 1: Window Function + Time Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user qualifies when two sessions of the same type have the later start within $12$ hours of the earlier end.
+>
+> After sorting by user and type, the previous end is a shift, which we compare to the current start.
+>
+> A grouped shift builds $\textit{prev\_session\_end}$; a $12$-hour timedelta filter then unique-ifies users.
+
+<!-- thinking:end -->
+
 First, we use the `LAG` window function to find the end time of the previous session of the same type for each user, denoted as `prev_session_end`. Then we use the `TIMESTAMPDIFF` function to calculate the time difference between the start time of the current session and the end time of the previous session. If the time difference is less than or equal to 12 hours, then this user meets the requirements of the problem.
 
 <!-- tabs:start -->

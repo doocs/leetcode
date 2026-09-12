@@ -89,6 +89,18 @@ Hence, the array result formed by concatenation is [3,3,3,3].
 
 ### Solution 1: Discretization + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule now compares how many existing values are strictly greater, and $n \le 10^5$, so scanning each array is too slow.
+>
+> The greater-count is the length minus the number of values $\le x$, which a Fenwick tree maintains after coordinate compression.
+>
+> Two Fenwick trees serve the two arrays; we insert $x$ according to the comparison, breaking ties by length.
+
+<!-- thinking:end -->
+
 We can use two binary indexed trees `tree1` and `tree2` to maintain the number of elements in `arr1` and `arr2` that are less than or equal to a certain number. Each time, we query the number of elements that are less than or equal to the current number in the binary indexed tree, then the number of elements that are greater than the current number is the length of the current array minus the query result. Then we can decide which array to add the current number to based on this difference.
 
 Since the range of numbers given in the problem is very large, we need to discretize these numbers. We can sort these numbers and remove duplicates, then use binary search to find the position of each number in the sorted array.

@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1: Suffix Maximum + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximize $nums[i]-nums[j]+nums[k]$ over $i<j<k$ with $nums[i]<nums[j]<nums[k]$. $n \le 10^5$.
+>
+> For fixed $j$, $k$ should be the maximum on the right (and larger than $nums[j]$), and $i$ the maximum on the left that is still $< nums[j]$.
+>
+> A suffix-max array handles the right; a sorted list of the left side binary-searches the largest value below $nums[j]$.
+
+<!-- thinking:end -->
+
 We can consider enumerating $nums[j]$. Then, we need to find the largest $nums[i]$ on the left of $j$ such that $nums[i] < nums[j]$, and find the largest $nums[k]$ on the right of $j$ such that $nums[k] > nums[j]$.
 
 Therefore, we can preprocess an array $right$, where $right[i]$ represents the maximum value to the right of $nums[i]$. Then, we can use an ordered set to maintain the values on the left of $nums[j]$, so that we can find the largest $nums[i]$ less than $nums[j]$ in $O(\log n)$ time.
