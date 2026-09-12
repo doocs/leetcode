@@ -63,6 +63,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is a sorted subset of the positives; we want the $k$-th missing one. A linear scan works when $n$ and $k$ are moderate, but the missing count $arr[i]-i-1$ is monotone in $i$, so we can binary-search.
+>
+> If $arr[0]>k$ the answer is $k$. Otherwise search for the first index whose missing count is at least $k$. Just before that index, $arr[left-1]$ has already skipped $arr[left-1]-(left-1)-1$ positives; adding the remaining gap yields the $k$-th missing value.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

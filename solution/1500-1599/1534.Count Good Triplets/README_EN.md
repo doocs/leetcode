@@ -68,6 +68,17 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count index triples that satisfy three absolute-value bounds. $n\le 100$, so a triple loop is about $10^6$ comparisons and fits the limit.
+>
+> Enumerate $i<j<k$ and apply the three inequalities directly. The constraints are independent; there is no monotone structure that would justify a heavier data structure.
+
+<!-- thinking:end -->
+
+
 We can enumerate all $i$, $j$, and $k$ where $i \lt j \lt k$, and check if they simultaneously satisfy $|\textit{arr}[i] - \textit{arr}[j]| \le a$, $|\textit{arr}[j] - \textit{arr}[k]| \le b$, and $|\textit{arr}[i] - \textit{arr}[k]| \le c$. If they do, we increment the answer by one.
 
 After enumerating all possible triplets, we get the answer.

@@ -50,6 +50,17 @@ tags:
 
 ### 方法一：前缀和思想
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计闭区间 $[low,high]$ 中的奇数个数。区间长度可达 $10^9$，不能逐个数判断奇偶。
+>
+> $[0,x]$ 中奇数的个数为 $\lfloor (x+1)/2\rfloor$。因此答案等于 $[0,high]$ 的奇数个数减去 $[0,low-1]$ 的奇数个数，即 $\lfloor(high+1)/2\rfloor-\lfloor low/2\rfloor$，可用移位在常数时间内求出。
+
+<!-- thinking:end -->
+
+
 我们知道，在 $[0, x]$ 范围内奇数的个数为 $\lfloor\frac{x+1}{2}\rfloor$。因此，$[low, high]$ 范围内奇数的个数为 $\lfloor\frac{high+1}{2}\rfloor - \lfloor\frac{low}{2}\rfloor$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。

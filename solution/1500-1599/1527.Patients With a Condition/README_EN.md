@@ -72,6 +72,17 @@ Patients table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need patients whose condition list contains a code with prefix $DIAB1$. Codes are space-separated; a bare $LIKE\ \%DIAB1\%$ would also match $DIAB10$.
+>
+> A matching code is either at the start ($DIAB1\%$) or after a space ($\%\ DIAB1\%$). The disjunction of those two prefix tests keeps the intended rows without catching a longer code.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -68,6 +68,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After at most $k$ deletions we want the run-length encoding as short as possible. Both $n$ and $k$ are at most $100$, so a state “start at $i$ with $k$ deletions left” is memoizable, but we cannot enumerate deletion subsets.
+>
+> One encoded block is $s[i..j]$ forced onto a single letter: keep the most frequent character and delete the rest, $j-i+1-maxFreq$ of them. The block length is a function of that frequency. Try every right end $j$ and add $compression(j+1, k')$. If deletions run out, or the suffix is no longer than $k$, return the corresponding sentinel.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Java

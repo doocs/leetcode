@@ -76,6 +76,17 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation increments a contiguous range; we must turn zeros into $target$. Both $n$ and $target[i]$ can be $10^5$, so building the array layer by layer is impossible.
+>
+> An increment covering $[i,j]$ contributes to the prefix $target[0..i]$ only when $target[i]$ exceeds its left neighbor. Hence $f[i]=f[i-1]+\max(0,target[i]-target[i-1])$ with $f[0]=target[0]$. The recurrence depends on the previous value alone, so a scan of adjacent rises is enough.
+
+<!-- thinking:end -->
+
+
 We define $f[i]$ as the minimum number of operations required to obtain $target[0,..i]$, initially setting $f[0] = target[0]$.
 
 For $target[i]$, if $target[i] \leq target[i-1]$, then $f[i] = f[i-1]$; otherwise, $f[i] = f[i-1] + target[i] - target[i-1]$.

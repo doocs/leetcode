@@ -59,6 +59,17 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Character $s[i]$ belongs at index $indices[i]$. In-place swaps must follow permutation cycles, which is fussier than necessary; $n$ is small enough for an extra array.
+>
+> Allocate a result of the same length, write each character once at $indices[i]$, then join. Every slot is assigned exactly once, independent of visit order.
+
+<!-- thinking:end -->
+
+
 We create a character array or string $\textit{ans}$ of the same length as the input string, then iterate through the string $\textit{s}$ and place each character $\textit{s}[i]$ at position $\textit{indices}[i]$ in $\textit{ans}$. Finally, we join the character array or string $\textit{ans}$ to form the final result and return it.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string.

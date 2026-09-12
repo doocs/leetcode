@@ -68,6 +68,17 @@ tags:
 
 ### Solution 1: DFS (Post-order Diameter)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The diameter of an $N$-ary tree is the longest distance between two nodes. The tree can have thousands of nodes, so careless double walks waste work. The diameter through a node is the sum of its two deepest child heights.
+>
+> A post-order DFS gathers child heights, updates a global answer with the sum of the two largest, and returns the node's own height. One traversal examines every candidate without building another graph.
+
+<!-- thinking:end -->
+
+
 Traverse each node in post-order, record the two deepest child heights $m_1$ and $m_2$, and update the diameter with $m_1+m_2$. The height of a subtree is one plus the deepest child height.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
@@ -259,6 +270,15 @@ func diameter(root *Node) int {
 <!-- solution:start -->
 
 ### Solution 2: Build Graph + Two DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 folds the diameter into a tree DP. If we only have adjacency, or want the classic graph algorithm, that coupling is inconvenient. Build an undirected graph, walk from an arbitrary node to a farthest node, then walk again from there; the second distance is the diameter. The two DFS passes match the tree DP asymptotically and differ only in implementation.
+
+<!-- thinking:end -->
+
 
 Convert the $N$-ary tree into an undirected graph. DFS from an arbitrary node to find the farthest node, then DFS again from that node. The farthest distance of the second search is the diameter of the tree.
 
