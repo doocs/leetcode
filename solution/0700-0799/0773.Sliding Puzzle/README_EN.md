@@ -80,6 +80,16 @@ After move 5: [[1,2,3],[4,5,0]]
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $2\times 3$ puzzle has $720$ states. Unweighted moves mean BFS. Encode the board as six characters.
+>
+> Restore the board, slide the zero, and enqueue unseen strings. The first time we see `123450` is the distance.
+
+<!-- thinking:end -->
+
 Encode the board as a string and BFS legal moves until `123450` is reached.
 
 <!-- tabs:start -->
@@ -309,6 +319,16 @@ public:
 <!-- solution:start -->
 
 ### Solution 2: A* Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS is already tiny. Inversion parity rejects unreachable boards; Manhattan distance of the tiles is an admissible heuristic.
+>
+> A* pops the target first with key $f+\textit{dist}$.
+
+<!-- thinking:end -->
 
 Check inversion parity, then search with a Manhattan-distance heuristic.
 

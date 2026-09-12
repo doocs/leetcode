@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether global inversions equal adjacent ones. $n\le 10^5$. Equivalently, there is no inversion of distance greater than $1$.
+>
+> No $i\le j-2$ with $nums[i]>nums[j]$. Track the prefix max of $nums[0..i-2]$ and fail if it exceeds $nums[i]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -140,6 +150,16 @@ func isIdealPermutation(nums []int) bool {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses the closed form. Counting instead: adjacent pairs for local inversions, a Fenwick tree for global ones.
+>
+> Maintain their difference and fail when the global count pulls ahead. An extra $\log n$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

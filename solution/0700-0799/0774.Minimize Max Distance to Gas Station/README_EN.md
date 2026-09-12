@@ -51,6 +51,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert at most $k$ stations to minimize the maximum gap. $k$ can be $10^6$, so we cannot try every allocation.
+>
+> Feasibility is monotone in the cap $x$: a gap $d$ needs $\lfloor d/x\rfloor$ inserts. Smaller $x$ needs more inserts.
+>
+> Binary-search $x$ on floats until the width is $10^{-6}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

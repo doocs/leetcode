@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Math + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The interval has length $\le 10^4$ and values $\le 10^6$, so at most twenty $1$-bits. Counting bits per integer is fine.
+>
+> Only eight primes lie in $[1,20]$. A set membership test on $\textit{bit\_count}$ avoids trial division.
+
+<!-- thinking:end -->
+
 In the problem, both $\textit{left}$ and $\textit{right}$ are within the range of $10^6$, and since $2^{20} = 1048576$, the number of $1$s in binary representation can be at most $20$. The prime numbers within $20$ are $[2, 3, 5, 7, 11, 13, 17, 19]$.
 
 We enumerate each number in the range $[\textit{left},.. \textit{right}]$, count the number of $1$s in its binary representation, and then check if this count is a prime number. If it is, we increment the answer by one.

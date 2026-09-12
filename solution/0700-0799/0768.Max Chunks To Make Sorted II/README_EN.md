@@ -63,6 +63,18 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split a (possibly duplicate) array into the most chunks that sort independently into a sorted array. $n\le 2000$.
+>
+> Chunk maxima must be non-decreasing. A new value smaller than the stack top must merge previous chunks: pop while the top exceeds it, then push back the old maximum.
+>
+> Each remaining stack value is one chunk; the length is the answer.
+
+<!-- thinking:end -->
+
 According to the problem, we can find that from left to right, each chunk has a maximum value, and these maximum values are monotonically increasing (non-strictly increasing). We can use a stack to store these maximum values of the chunks. The size of the final stack is the maximum number of chunks that can be sorted.
 
 Time complexity is $O(n)$, where $n$ represents the length of $\textit{arr}$.
@@ -204,6 +216,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Prefix Maximums + Suffix Minimums
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stack hides the cut condition. An index $i$ is a cut iff $\max(arr[:i])\le\min(arr[i:])$.
+>
+> Prefix maxima and a right-to-left suffix min test that inequality. Start from one chunk for the whole array.
+
+<!-- thinking:end -->
 
 We would like to partition the array of length $n$ into several chunks such that
 after sorting each chunk individually, the entire array remains sorted.

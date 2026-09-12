@@ -73,6 +73,18 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 
 ### Solution 1: Union Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At time $t$ we may walk cells $\le t$. Heights are a permutation of $0..n^2-1$, so add cells in height order.
+>
+> When the cell of height $t$ is unioned with already-present neighbors, the first time start meets end is the answer.
+>
+> Map height to id, then union as $t$ grows. $O(n^2\alpha)$.
+
+<!-- thinking:end -->
+
 We can map each position $(i, j)$ to an ID $id = i \times n + j$, and use a union-find data structure to maintain connected components.
 
 First, we use a one-dimensional array $hi$ to record the position ID corresponding to each height, i.e., $hi[h]$ represents the position ID with height $h$.

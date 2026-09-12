@@ -68,6 +68,16 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 
 ### Solution 1: Single Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A Toeplitz matrix has equal diagonals, i.e. every cell equals its upper-left neighbor. The grid is at most $20\times 20$.
+>
+> Scan from $(1,1)$; fail if $matrix[i][j]\ne matrix[i-1][j-1]$. The first row and column have no predecessor.
+
+<!-- thinking:end -->
+
 According to the problem description, the characteristic of a Toeplitz matrix is that each element is equal to the element in its upper left corner. Therefore, we only need to iterate through each element in the matrix and check if it is equal to the element in its upper left corner.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.

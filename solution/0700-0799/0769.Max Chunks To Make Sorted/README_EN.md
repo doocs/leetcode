@@ -65,6 +65,16 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 
 ### Solution 1: Greedy + One Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is a permutation of $0..n-1$. A cut after $i$ is legal iff the prefix is exactly $\{0,\ldots,i\}$.
+>
+> That is the prefix maximum equaling $i$. One pass counting those hits.
+
+<!-- thinking:end -->
+
 Since $\textit{arr}$ is a permutation of $[0,..,n-1]$, if the maximum value $\textit{mx}$ among the numbers traversed so far is equal to the current index $i$, it means a split can be made, and the answer is incremented.
 
 Time complexity is $O(n)$, and space complexity is $O(1)$. Where $n$ is the length of the array $\textit{arr}$.
@@ -192,6 +202,16 @@ int maxChunksToSorted(int* arr, int arrSize) {
 <!-- solution:start -->
 
 ### Solution 2: Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses $value=index$, which fails with duplicates. The monotonic stack of chunk maxima is the same as problem 768.
+>
+> A smaller new value merges earlier chunks; the stack length is the answer.
+
+<!-- thinking:end -->
 
 The solution of method one has certain limitations. If there are duplicate elements in the array, the correct answer cannot be obtained.
 
