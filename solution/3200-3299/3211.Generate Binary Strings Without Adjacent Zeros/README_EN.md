@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 18$, so there are $2^n$ binary strings and generate-then-filter would fit, but illegal prefixes need not be expanded.
+>
+> DFS position $i$ trying $0$ or $1$, and allow $0$ only when $i=0$ or the previous bit is $1$. A string of length $n$ is recorded. After this prune the search tree is exactly the set of valid strings.
+
+<!-- thinking:end -->
+
 We can enumerate each position $i$ of a binary string of length $n$, and for each position $i$, we can enumerate the possible value $j$ it can take. If $j$ is $0$, then we need to check if its previous position is $1$. If it is $1$, we can continue to recurse further; otherwise, it is invalid. If $j$ is $1$, then we directly recurse further.
 
 The time complexity is $O(n \times 2^n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer array, the space complexity is $O(n)$.

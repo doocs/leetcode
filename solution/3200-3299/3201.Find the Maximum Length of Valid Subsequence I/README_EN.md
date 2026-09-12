@@ -81,6 +81,16 @@ You are given an integer array <code>nums</code>.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Validity only constrains consecutive pair-sums modulo $k$. Here $k=2$ and $n\le 2\times 10^5$, so enumerating subsequences or rescanning every predecessor is too slow.
+>
+> $(a+b)\equiv(b+c)\pmod 2$ implies $a\equiv c\pmod 2$: odd positions share one residue and even positions share another. The shape of a valid sequence is therefore captured by the last two residues $(x,y)$. Maintain $f[x][y]$ as the longest length ending with residue $x$ after a previous residue $y$. On each $x$, enumerate the target pair-sum $j$, recover $y=(j-x)\bmod 2$, and transfer from $f[y][x]$. One linear pass suffices.
+
+<!-- thinking:end -->
+
 We set $k = 2$.
 
 Based on the problem description, we know that for a subsequence $a_1, a_2, a_3, \cdots, a_x$, if it satisfies $(a_1 + a_2) \bmod k = (a_2 + a_3) \bmod k$. Then $a_1 \bmod k = a_3 \bmod k$. This means that the result of taking modulo $k$ for all odd-indexed elements is the same, and the result for all even-indexed elements is the same as well.

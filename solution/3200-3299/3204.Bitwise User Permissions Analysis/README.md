@@ -102,6 +102,16 @@ user_id 是主键。
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每位权限在全体用户上「同时拥有」对应按位与，「至少一人拥有」对应按位或。逐行用语言循环累积亦可，但聚合函数一次扫描即可完成。
+>
+> `BIT_AND(permissions)` 给出所有用户都具备的位，`BIT_OR(permissions)` 给出至少一名用户具备的位，无需自连接或窗口函数。
+
+<!-- thinking:end -->
+
 我们可以使用 `BIT_AND` 和 `BIT_OR` 函数来计算 `common_perms` 和 `any_perms`。
 
 <!-- tabs:start -->

@@ -76,6 +76,16 @@ We cannot perform any operations, so we return the length of the original string
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation deletes one matching character on each side of a chosen letter. $n\le 2\times 10^5$, so editing the string in place would move too much. Deletions of one letter never depend on another, so the remainder is determined by that letter's frequency alone.
+>
+> An odd count leaves $1$ after symmetric deletes; an even count leaves $2$. Summing the $26$ counts is the shortest length; the delete order need not be simulated.
+
+<!-- thinking:end -->
+
 We can count the occurrences of each character in the string, and then iterate through the count array. If a character appears an odd number of times, then $1$ of that character remains in the end; if a character appears an even number of times, then $2$ of that character remain. We can sum the remaining counts of all characters to get the final length of the string.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set, which is $26$ in this problem.

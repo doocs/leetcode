@@ -110,6 +110,16 @@ tags:
 
 ### 方法一：BFS + 状态压缩 + 记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 马要轮流吃光至多 $15$ 个兵，Alice 最大化总步、Bob 最小化。棋盘 $50\times 50$，对每个兵做一次 BFS 得到马步距离；吃兵顺序是 $15!$ 量级，需状态压缩博弈。
+>
+> $\textit{dfs}(last,state,k)$：$last$ 为上一个被吃的兵（初值为马的位置），$state$ 为剩余兵集合，$k$ 为是否 Alice。Alice 取最大、Bob 取最小，边权用预处理的 $dist[last][x][y]$。记忆化后状态 $O(n\cdot 2^n)$。
+
+<!-- thinking:end -->
+
 我们首先预处理出每个兵到棋盘上任意一个位置的马的最短距离，记录在数组 $\textit{dist}$ 中，即 $\textit{dist}[i][x][y]$ 表示第 $i$ 个兵到 $(x, y)$ 位置的马的最短距离。
 
 接下来，我们设计一个函数 $\text{dfs}(\textit{last}, \textit{state}, \textit{k})$，其中 $\textit{last}$ 表示上一个吃掉的兵的编号，而 $\textit{state}$ 表示当前还剩下的兵的状态，而 $\textit{k}$ 表示当前是 Alice 还是 Bob 的回合。函数的返回值表示当前回合的最大移动次数。那么答案为 $\text{dfs}(n, 2^n-1, 1)$。这里我们初始时上一个吃掉的兵的编号记为 $n$，这也是马所在的位置。

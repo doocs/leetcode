@@ -100,6 +100,16 @@ tags:
 
 ### Solution 1: DFS + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk from $(0,0)$ to the opposite corner without touching a circle. Coordinates reach $10^9$, so a grid is impossible; there are at most $10^3$ circles, and the obstacle is their intersection graph inside the rectangle.
+>
+> If the start or end lies in a circle, we fail. Circles that meet inside the rectangle and jointly touch “left or top” and “right or bottom” cut the path. DFS from a circle that hits left/top, walking edges that intersect inside the rectangle; reaching a circle that hits right/bottom fails. Geometry decides whether a merge is inside.
+
+<!-- thinking:end -->
+
 According to the problem description, we discuss the following cases:
 
 When there is only one circle in `circles`:

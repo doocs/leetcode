@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so enumerating every subarray AND is $O(n^2)$ and too slow. With the right end fixed, moving the left end only decreases the AND, and values are at most $10^9$, so at most about $30$ distinct ANDs appear.
+>
+> A counter stores “AND ending at the previous index $\to$ frequency”. On $x$, AND each old key with $x$ to form a new map, add the singleton $x$, and add the count of key $k$ to the answer. Each right end touches only a logarithmic number of keys.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to find the result of the bitwise AND operation of elements from index $l$ to $r$ in the array $\textit{nums}$, that is, $\textit{nums}[l] \land \textit{nums}[l + 1] \land \cdots \land \textit{nums}[r]$, where $\land$ represents the bitwise AND operation.
 
 If we fix the right endpoint $r$, then the range of the left endpoint $l$ is $[0, r]$. Since the sum of bitwise AND decreases monotonically as $l$ decreases, and the value of $nums[i]$ does not exceed $10^9$, the interval $[0, r]$ can have at most $30$ different values. Therefore, we can use a set to maintain all the values of $\textit{nums}[l] \land \textit{nums}[l + 1] \land \cdots \land \textit{nums}[r]$ and the number of times these values occur.

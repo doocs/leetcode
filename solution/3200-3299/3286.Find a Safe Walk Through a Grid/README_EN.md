@@ -94,6 +94,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $1$-cell costs one health; we must reach the end with health left. $m,n\le 50$. A visited-only BFS is not enough, because a cheaper path may arrive later.
+>
+> $dist[i][j]$ is the least cost to that cell; a successful relaxation enqueues. Weights are $0/1$, so the queue BFS is valid. The end is safe iff that cost is strictly below $\textit{health}$.
+
+<!-- thinking:end -->
+
 We define a 2D array $\textit{dist}$, where $\textit{dist}[i][j]$ represents the minimum health value required to reach position $(i, j)$ from the top-left corner. Initially, we set $\textit{dist}[0][0]$ to $\textit{grid}[0][0]$ and add $(0, 0)$ to the queue $\textit{q}$.
 
 Then, we continuously take elements $(x, y)$ from the queue and try to move in four directions. If we move to a valid position $(nx, ny)$ and the health value required to move from $(x, y)$ to $(nx, ny)$ is smaller, we update $\textit{dist}[nx][ny] = \textit{dist}[x][y] + \textit{grid}[nx][ny]$ and add $(nx, ny)$ to the queue $\textit{q}$.

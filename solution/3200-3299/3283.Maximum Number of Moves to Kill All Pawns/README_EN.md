@@ -108,6 +108,16 @@ tags:
 
 ### Solution 1: BFS + State Compression + Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A knight eats at most $15$ pawns, Alice maximizing total steps and Bob minimizing. The board is $50\times 50$; BFS from each pawn gives knight distances. The $15!$ orders need a subset game.
+>
+> $\textit{dfs}(last,state,k)$: $last$ is the last eaten pawn (initially the knight), $state$ the remaining set, $k$ whose turn. Alice maxes, Bob mins, using $dist[last][x][y]$. Memoized states are $O(n\cdot 2^n)$.
+
+<!-- thinking:end -->
+
 First, we preprocess the shortest distance for each pawn to any position on the chessboard and record it in the array $\textit{dist}$, where $\textit{dist}[i][x][y]$ represents the shortest distance for the $i$-th pawn to the position $(x, y)$.
 
 Next, we design a function $\text{dfs}(\textit{last}, \textit{state}, \textit{k})$, where $\textit{last}$ represents the number of the last pawn eaten, $\textit{state}$ represents the current state of the remaining pawns, and $\textit{k}$ represents whether it is Alice's or Bob's turn. The function returns the maximum number of moves for the current turn. The answer is $\text{dfs}(n, 2^n-1, 1)$. Here, initially, the number of the last pawn eaten is $n$, which is also the position of the knight.

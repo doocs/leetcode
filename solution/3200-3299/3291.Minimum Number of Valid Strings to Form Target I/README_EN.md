@@ -97,6 +97,16 @@ tags:
 
 ### Solution 1: Trie + Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenate prefixes of $\textit{words}$ to form $\textit{target}$ with as few pieces as possible. $|target|\le 5\times 10^3$ and total word length $10^5$; trying every word at every index repeats prefixes.
+>
+> Store every word in a trie. From $i$, walk $\textit{target}$ down the trie; each existing node is a cut, plus $\textit{dfs}(j+1)$. After memoization each start walks at most $O(n)$.
+
+<!-- thinking:end -->
+
 We can use a trie to store all valid strings and then use memoization to calculate the answer.
 
 We design a function $\textit{dfs}(i)$, which represents the minimum number of strings needed to concatenate starting from the $i$-th character of the string $\textit{target}$. The answer is $\textit{dfs}(0)$.

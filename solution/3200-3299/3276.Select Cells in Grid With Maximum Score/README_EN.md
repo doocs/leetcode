@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: State Compression Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick at most one cell per row with distinct values, maximizing the sum. At most $10$ rows and values $\le 100$; choosing by row entangles “which values remain”. Decide values from large to small and bit-mask the used rows.
+>
+> $f[i][S]$ is the best score using values $\le i$ and row set $S$. Skip $i$ to copy $f[i-1][S]$; take $i$ from a row $k\in S$ that contains it. A map from value to rows is built first.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the maximum score when selecting numbers from $[1,..i]$ and the state of the rows corresponding to the selected numbers is $j$. Initially, $f[i][j] = 0$, and the answer is $f[\textit{mx}][2^m - 1]$, where $\textit{mx}$ represents the maximum value in the matrix, and $m$ represents the number of rows in the matrix.
 
 First, we preprocess the matrix using a hash table $g$ to record the set of rows corresponding to each number. Then, we can use state compression dynamic programming to solve the problem.

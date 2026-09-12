@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Traverse the Linked List
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We are given an arbitrary node of a doubly linked list and must emit the whole list left to right. Walk `prev` to the head, then collect to the right.
+>
+> After reaching a null `prev`, walk `next` as in I. At most $500$ nodes, two linear passes.
+
+<!-- thinking:end -->
+
 We can start from the given node and traverse the linked list backward until we reach the head node. Then, we traverse the linked list forward from the head node, adding the values of the nodes we encounter to the answer array.
 
 After the traversal is complete, return the answer array.

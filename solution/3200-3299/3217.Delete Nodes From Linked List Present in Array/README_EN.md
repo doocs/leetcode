@@ -85,6 +85,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must delete list nodes whose values appear in $\textit{nums}$. With $n,m\le 10^5$, scanning the array at every node is quadratic.
+>
+> Put $\textit{nums}$ in a hash set for expected $O(1)$ tests. A dummy points at $\textit{head}$; if the successor's value is in the set, skip it, otherwise advance. One pass also covers a deleted head.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{s}$ to store all the elements in the array $\textit{nums}$. Then, we define a dummy node $\textit{dummy}$ and point it to the head node of the list $\textit{head}$.
 
 Next, we traverse the list starting from the dummy node $\textit{dummy}$. If the value of the next node of the current node is in the hash table $\textit{s}$, we make the current node point to the next next node; otherwise, we move the current node pointer to the next node.

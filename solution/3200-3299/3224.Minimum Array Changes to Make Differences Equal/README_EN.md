@@ -86,6 +86,16 @@ We can perform the following operations:</p>
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs $(\textit{nums}[i],\textit{nums}[n-1-i])$ must share one difference $s$, each value movable into $[0,k]$. With $n,k\le 10^5$, recomputing cost for every $s$ is $O(nk)$.
+>
+> For a pair $(x,y)$ ($x\le y$) the cost in $s$ is piecewise constant: $0$ at $s=y-x$, $1$ up to $\max(y,k-x)$, and $2$ beyond. A difference array records each pair's pieces once; the prefix minimum is the best total.
+
+<!-- thinking:end -->
+
 Assume that in the final array, the difference between the pair $\textit{nums}[i]$ and $\textit{nums}[n-i-1]$ is $s$.
 
 Let's denote $x$ as the smaller value between $\textit{nums}[i]$ and $\textit{nums}[n-i-1]$, and $y$ as the larger value.

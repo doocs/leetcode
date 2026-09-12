@@ -108,6 +108,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Worker $i$ spends $wt_i\cdot h(h+1)/2$ to remove $h$ layers; they work in parallel. $H\le 10^5$ and $10^4$ workers forbid enumerating time. More time means more height removed, so we binary-search.
+>
+> $\textit{check}(t)$ solves each worker's quadratic for the layers they can remove in $t$ and sums them. The search upper bound is a large constant such as $10^{16}$; `bisect_left` yields the least feasible $t$.
+
+<!-- thinking:end -->
+
 We notice that if all workers can reduce the mountain height to $0$ in $t$ seconds, then for any $t' > t$, the workers can also reduce the mountain height to $0$ in $t'$ seconds. Therefore, we can use binary search to find the minimum $t$ such that the workers can reduce the mountain height to $0$ in $t$ seconds.
 
 We define a function $\textit{check}(t)$, which indicates whether the workers can reduce the mountain height to $0$ in $t$ seconds. Specifically, we iterate through each worker. For the current worker $\textit{workerTimes}[i]$, assuming they reduce the height by $h'$ in $t$ seconds, we can derive the inequality:

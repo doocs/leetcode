@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two arrays must become strictly increasing with prescribed parities, minimizing the final maximum. $m,n\le 1000$ would allow guessing that maximum, but filling has optimal substructure.
+>
+> $f[i][j]$ is the smallest achievable maximum after $i$ values of $nums1$ and $j$ of $nums2$. The next write attaches to one array the least integer larger than the current maximum with the right parity. Boundaries follow one array; the interior takes the better of the two attachments.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the minimum of the maximum values among the first $i$ elements of array $\textit{nums1}$ and the first $j$ elements of array $\textit{nums2}$. Initially, $f[i][j] = 0$, and the answer is $f[m][n]$, where $m$ and $n$ are the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$, respectively.
 
 If $j = 0$, then the value of $f[i][0]$ can only be derived from $f[i - 1][0]$, with the transition equation $f[i][0] = \textit{nxt}(f[i - 1][0], \textit{nums1}[i - 1])$, where $\textit{nxt}(x, y)$ represents the smallest integer greater than $x$ that has the same parity as $y$.

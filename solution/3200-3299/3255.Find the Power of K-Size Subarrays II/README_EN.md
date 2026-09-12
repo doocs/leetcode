@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same statement as I, but $n\le 10^5$ forbids scanning $k$ cells per window. The consecutive-increasing length ending at $i$ still decides $[i-k+1,i]$.
+>
+> $f[i]$ follows I: increment when $\textit{nums}[i]=\textit{nums}[i-1]+1$, else reset to $1$. If $f[i]\ge k$ at a right end, emit $\textit{nums}[i]$. Linear time matches the limit.
+
+<!-- thinking:end -->
+
 We define an array $f$, where $f[i]$ represents the length of the continuous increasing subsequence ending at the $i$-th element. Initially, $f[i] = 1$.
 
 Next, we traverse the array $\textit{nums}$ to calculate the values of the array $f$. If $nums[i] = nums[i - 1] + 1$, then $f[i] = f[i - 1] + 1$; otherwise, $f[i] = 1$.

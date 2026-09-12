@@ -107,6 +107,16 @@ manager_id 是 employee_id 对应员工的经理。首席执行官的 manager_id
 
 ### 方法一：递归 CTE + 连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 组织是以 CEO 为根的树，需要每名下属的层数及其与 CEO 的薪资差。层数未知时反复自连接次数不定。
+>
+> 递归 CTE 从 `manager_id IS NULL` 出发沿经理边向下，层数加一；再与 CEO 薪资交叉相减，去掉第 $0$ 层后按层与编号排序。
+
+<!-- thinking:end -->
+
 首先，我们使用递归 CTE 计算出每个员工的层级，其中 CEO 的层级为 0，将 `employee_id`、`employee_name`、`hierarchy_level`、`manager_id` 和 `salary` 保存到临时表 `T` 中。
 
 然后，我们查询出 CEO 的薪资，将其保存到临时表 `P` 中。

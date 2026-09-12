@@ -166,6 +166,16 @@ tags:
 
 ### Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring needs $c_1\ge c_0^2$. $n\le 4\times 10^4$, so testing every pair of ends is quadratic. The inequality forces $c_0\le\sqrt{n}$, so after fixing the left end we only hop through a few zeros.
+>
+> $\textit{nxt}[i]$ is the first zero at or after $i$. From each $i$, jump along zeros, update $c_0$, and when $c_1$ is large enough add the number of valid right ends. Each start hops $O(\sqrt{n})$ times.
+
+<!-- thinking:end -->
+
 According to the problem description, a dominant string satisfies $\textit{cnt}_1 \geq \textit{cnt}_0^2$, which means the maximum value of $\textit{cnt}_0$ does not exceed $\sqrt{n}$, where $n$ is the length of the string. Therefore, we can enumerate the value of $\textit{cnt}_0$ and then calculate the number of substrings that satisfy the condition.
 
 We first preprocess the position of the first $0$ starting from each position in the string, storing it in the array $\textit{nxt}$, where $\textit{nxt}[i]$ represents the position of the first $0$ starting from position $i$, or $n$ if it doesn't exist.

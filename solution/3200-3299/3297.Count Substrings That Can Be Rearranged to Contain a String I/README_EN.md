@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring can be rearranged to contain $\textit{word2}$ iff it is a supermultiset of $\textit{word2}$. Comparing counts on every substring is too slow on a long string. Coverage is monotone: a valid window stays valid when the right end grows, and shrinking the left finds the shortest cover.
+>
+> Track how many character types are still missing. The right end may decrement that count; while it is $0$, move the left. Every start to the left of that left end paired with the current right is valid, so add the left index. One slide.
+
+<!-- thinking:end -->
+
 The problem is essentially to find how many substrings in $\textit{word1}$ contain all the characters in $\textit{word2}$. We can use a sliding window to handle this.
 
 First, if the length of $\textit{word1}$ is less than the length of $\textit{word2}$, then it is impossible for $\textit{word1}$ to contain all the characters of $\textit{word2}$, so we directly return $0$.

@@ -122,6 +122,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The XOR score of a subarray is defined recursively; $q\le 10^5$ and $n\le 2000$ forbid computing a query from scratch. The score is the interval DP $f[i][j]=f[i][j-1]\oplus f[i+1][j]$, and a query wants the max score among subintervals of $[l,r]$.
+>
+> Also keep $g[i][j]=\max(f[i][j],g[i][j-1],g[i+1][j])$. Fill by decreasing $i$ and increasing $j$, then each query is $g[l][r]$ in $O(1)$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the XOR value of $\textit{nums}[i..j]$. According to the problem description, we can derive the state transition equation:
 
 $$

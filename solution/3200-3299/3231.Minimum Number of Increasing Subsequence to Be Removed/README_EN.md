@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Greedy + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation deletes a strictly increasing subsequence; we want the fewest operations. $n\le 10^5$ rules out enumerating partitions. The minimum equals the number of chains formed by always appending to the increasing tail that still fits, which is the length of a longest non-increasing subsequence.
+>
+> Keep chain tails (non-increasing). For each $x$, binary-search the first tail $< x$, or open a new chain. The number of tails is the answer.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{nums}$ from left to right. For each element $x$, we need to greedily append it after the last element of the preceding sequence that is smaller than $x$. If no such element is found, it means the current element $x$ is smaller than all elements in the preceding sequences, and we need to start a new sequence with $x$.
 
 From this analysis, we can observe that the last elements of the preceding sequences are in a monotonically decreasing order. Therefore, we can use binary search to find the position of the first element in the preceding sequences that is smaller than $x$, and then place $x$ in that position.

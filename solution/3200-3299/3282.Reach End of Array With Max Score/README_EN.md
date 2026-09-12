@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A jump $i\to j$ scores $(j-i)\times nums[i]$, i.e. $nums[i]$ for every skipped step. $n\le 10^5$. Jumping to a smaller $nums[j]$ cannot beat staying on $nums[i]$ for those steps, so we never jump to a smaller value.
+>
+> Keep the prefix maximum $mx$ and add it for every index except the last. That is the score of always riding the running maximum. Linear time.
+
+<!-- thinking:end -->
+
 Suppose we jump from index $i$ to index $j$, then the score is $(j - i) \times \text{nums}[i]$. This is equivalent to taking $j - i$ steps, and each step earns a score of $\text{nums}[i]$. Then we continue to jump from $j$ to the next index $k$, and the score is $(k - j) \times \text{nums}[j]$, and so on. If $\text{nums}[i] \gt \text{nums}[j]$, then we should not jump from $i$ to $j$, because the score obtained this way is definitely less than the score obtained by jumping directly from $i$ to $k$. Therefore, each time we should jump to the next index with a value greater than the current index.
 
 We can maintain a variable $mx$ to represent the maximum value of $\text{nums}[i]$ encountered so far. Then we traverse the array from left to right until the second-to-last element, updating $mx$ each time and accumulating the score.

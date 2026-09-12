@@ -91,6 +91,16 @@ Sum of their values would be: <code>7 + 6 + 1 + 2 + 13 + 3 = 32</code>.</p>
 
 ### Solution 1: Recurrence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A consecutive subarray is a run whose adjacent differences are $\pm 1$; we sum all of them, including singletons. Large $n$ forbids listing runs. The length and sum of the increasing (resp. decreasing) run ending at $i$ recur.
+>
+> Difference $1$ extends the increasing run; $-1$ extends the decreasing run; otherwise add the singleton only. When the difference is $\pm 1$ the singleton already sits in that run sum. Four rolling variables suffice.
+
+<!-- thinking:end -->
+
 We define two variables $f$ and $g$, representing the length of the increasing subarray ending at the current element and the length of the decreasing subarray ending at the current element, respectively. We use two other variables $s$ and $t$ to represent the sum of the increasing subarray ending at the current element and the sum of the decreasing subarray ending at the current element, respectively. Initially, $f = g = 1$, and $s = t = \textit{nums}[0]$.
 
 Next, we traverse the array starting from the second element. For the current element $\textit{nums}[i]$, we consider the increasing subarray and the decreasing subarray ending at $\textit{nums}[i]$.

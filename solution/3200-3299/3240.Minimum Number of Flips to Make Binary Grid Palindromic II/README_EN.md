@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows and columns must all be palindromes and the number of $1$s must be a multiple of $4$. Each four-cycle of symmetric cells must become all $0$ or all $1$. Mid-row or mid-column pairs affect the count modulo $4$.
+>
+> Fix $2\times 2$ orbits first. If both dimensions are odd, the center must become $0$. On the middle axis, mismatched pairs add $\textit{diff}$ and equal $1$-pairs add to $\textit{cnt1}$. If $\textit{cnt1}\equiv 0\pmod 4$ or some $\textit{diff}$ exists, $\textit{diff}$ flips finish the modulus; otherwise two extra flips are required.
+
+<!-- thinking:end -->
+
 If both rows and columns are palindromic, then for any $i \in [0, m / 2)$ and $j \in [0, n / 2)$, it must satisfy $\text{grid}[i][j] = \text{grid}[m - i - 1][j] = \text{grid}[i][n - j - 1] = \text{grid}[m - i - 1][n - j - 1]$. They must either all become $0$ or all become $1$. The number of changes to $0$ is $c_0 = \text{grid}[i][j] + \text{grid}[m - i - 1][j] + \text{grid}[i][n - j - 1] + \text{grid}[m - i - 1][n - j - 1]$, and the number of changes to $1$ is $c_1 = 4 - c_0$. We take the minimum of the two and add it to the answer.
 
 Next, we discuss the parity of $m$ and $n$:

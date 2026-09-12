@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation adds or subtracts one on a subarray to turn $\textit{nums}$ into $\textit{target}$. $n\le 10^5$ forbids trying intervals. On $d_i=\textit{target}_i-\textit{nums}_i$, a same-sign run can share a prefix of operations.
+>
+> While the sign stays, we only pay the extra absolute increase; a sign change must pay $|d_i|$ anew. A left-to-right scan that compares with the previous difference is enough, in $O(1)$ extra space.
+
+<!-- thinking:end -->
+
 We can first calculate the difference between the arrays $\textit{nums}$ and $\textit{target}$. For a difference array, we find continuous intervals where the signs of the differences are the same. For each interval, we add the absolute value of the first element to the result. For the subsequent elements, if the absolute value of the difference is greater than the absolute value of the previous difference, we add the difference of the absolute values to the result.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

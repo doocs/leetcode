@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each block of $k$ characters becomes one letter: $\sum (s_j-\texttt{a}) \bmod 26$. $n\le 1000$ and $k$ divides $n$, so a direct block scan is enough.
+>
+> Step by $k$, sum codes in the block, reduce modulo $26$, and convert back. One linear pass.
+
+<!-- thinking:end -->
+
 We can simulate the process according to the steps described in the problem.
 
 Traverse the string $s$, and each time take $k$ characters, calculate the sum of their hash values, denoted as $t$. Then, take $t$ modulo $26$ to find the corresponding character and add it to the end of the result string.

@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Greedy + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap adjacent same-parity digits at most once. $n\le 100$ would allow trying every legal swap, but the lexicographically best swap is the leftmost one.
+>
+> Scan left to right for the first adjacent pair with the same parity and a larger left digit, then swap and stop: a later swap cannot improve an already better prefix. If no such pair exists, the string is already minimal.
+
+<!-- thinking:end -->
+
 We can traverse the string $\textit{s}$ from left to right. For each pair of adjacent digits, if they have the same parity and the previous digit is greater than the next digit, then we swap these two digits to make the lexicographical order of the string $\textit{s}$ smaller, and then return the swapped string.
 
 After the traversal, if no swappable pair of digits is found, it means the string $\textit{s}$ is already in its smallest lexicographical order, and we can return it directly.

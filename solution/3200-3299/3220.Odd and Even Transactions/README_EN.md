@@ -107,6 +107,16 @@ Each row of this table contains the transaction id, amount and transaction date.
 
 ### Solution 1: Grouping and Summing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need daily sums of odd and even amounts. A per-day loop would work, but splitting parity into two columns and grouping is cleaner.
+>
+> Keep `amount` when it is odd or even and write $0$ otherwise, then sum by `transaction_date` and sort ascending. Parity is decided per row; one aggregation finishes the query.
+
+<!-- thinking:end -->
+
 We can group the data by `transaction_date`, and then calculate the sum of transaction amounts for odd and even dates separately. Finally, sort by `transaction_date` in ascending order.
 
 <!-- tabs:start -->

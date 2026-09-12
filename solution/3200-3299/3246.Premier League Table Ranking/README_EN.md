@@ -101,6 +101,16 @@ This table contains team id, team name, matches_played, wins, draws, and losses.
 
 ### Solution 1: Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Points are $3\times\textit{wins}+\textit{draws}$; rank is by points descending with ties sharing a place. A manual sort plus a tie scan would work; a window does it in one step.
+>
+> After computing `points`, `rank(method='min')` yields the position, then sort by points and name. Min-rank matches the sporting convention.
+
+<!-- thinking:end -->
+
 We can use the `RANK()` window function to calculate the ranking of the teams, and then sort by score and team name.
 
 <!-- tabs:start -->

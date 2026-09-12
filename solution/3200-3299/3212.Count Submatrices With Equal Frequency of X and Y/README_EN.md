@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: 2D Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every counted submatrix must include the top-left cell $(0,0)$, so there are only $O(mn)$ candidates, with $m,n\le 10^3$. Rescanning each submatrix would be cubic and too slow.
+>
+> A 2D prefix sum answers the `X`/`Y` counts of $[0,0]$–$(i,j)$ in $O(1)$. At each cell, update by inclusion–exclusion and count when the `X` count is positive and equals the `Y` count. One $O(mn)$ pass suffices.
+
+<!-- thinking:end -->
+
 According to the problem description, we only need to calculate the prefix sums $s[i][j][0]$ and $s[i][j][1]$ for each position $(i, j)$, which represent the number of characters `X` and `Y` in the submatrix from $(0, 0)$ to $(i, j)$, respectively. If $s[i][j][0] > 0$ and $s[i][j][0] = s[i][j][1]$, it means the condition is met, and we increment the answer by one.
 
 After traversing all positions, return the answer.

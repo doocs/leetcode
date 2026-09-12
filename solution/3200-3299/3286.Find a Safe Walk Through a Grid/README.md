@@ -98,6 +98,16 @@ tags:
 
 ### 方法一：BFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 格子 $1$ 消耗 $1$ 点生命，需以剩余生命为正走到终点。$m,n\le 50$，普通 BFS 只记到达与否不够，因为更少消耗的路径可能后到。
+>
+> $dist[i][j]$ 为到达该格的最小消耗，松弛成功则入队。边权为 $0/1$，队列 BFS 仍正确。终点消耗小于 $\textit{health}$ 则可行。
+
+<!-- thinking:end -->
+
 我们定义一个二维数组 $\textit{dist}$，其中 $\textit{dist}[i][j]$ 表示从左上角到达 $(i, j)$ 位置的最小健康值。初始时，我们将 $\textit{dist}[0][0]$ 设为 $\textit{grid}[0][0]$，并将 $(0, 0)$ 加入队列 $\textit{q}$ 中。
 
 随后我们不断取出队列中的元素 $(x, y)$，并尝试向四个方向移动。如果移动到了一个合法的位置 $(nx, ny)$，且从 $(x, y)$ 移动到 $(nx, ny)$ 的健康值消耗更小，那么我们就可以更新 $\textit{dist}[nx][ny] = \textit{dist}[x][y] + \textit{grid}[nx][ny]$，并将 $(nx, ny)$ 加入队列 $\textit{q}$ 中。

@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Place three rooks on distinct rows and columns to maximize the sum of cell values. $m,n\le 100$, so trying every triple of cells is $O((mn)^3)$. Each row only needs a few largest candidates, then we enumerate row triples and skip column clashes.
+>
+> Keep the top cells of every row and try three rows with those columns. There is no implementation in the tree yet; the reasoning follows this “top-per-row, then enumerate rows” outline.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

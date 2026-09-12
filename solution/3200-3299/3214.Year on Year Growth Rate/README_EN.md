@@ -127,6 +127,16 @@ Each row of this table contains the transaction ID, product ID, the spend amount
 
 ### Solution 1: Grouping Statistics + Left Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must sum spend by product and year, then align each year with the previous one. An application-side group loop would work, but set operations are direct.
+>
+> Aggregate by `product_id` and `YEAR(transaction_date)` for the current-year spend, left-join the row of the same product whose year is one less, and compute $(\textit{curr}-\textit{prev})/\textit{prev}$. Years without a predecessor stay null.
+
+<!-- thinking:end -->
+
 We can first group by `product_id` and `year(transaction_date)` to perform the statistics, then use a left join to associate the statistics of the current year with those of the previous year, and finally calculate the year-on-year growth rate.
 
 <!-- tabs:start -->

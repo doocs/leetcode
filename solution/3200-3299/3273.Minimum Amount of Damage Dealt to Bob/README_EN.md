@@ -88,6 +88,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each second all living enemies deal damage, then Bob hits one enemy for $power$. $n\le 10^5$ forbids searching kill orders. Enemy $i$ dies in $t_i=\lceil health_i/power\rceil$ hits; total damage is each $damage_j$ times the seconds that enemy stays alive.
+>
+> Swapping adjacent $i,j$ compares $damage_i\cdot t_j$ with $damage_j\cdot t_i$ and tells who should die first. Sort by $damage/t$ descending, then prefix the remaining damage rate. There is no implementation in the tree yet; the reasoning is this comparator sort.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

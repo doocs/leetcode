@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Sliding Window + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One $k$-constraint count is a linear slide as in I, but there are $10^5$ queries on a string of length $10^5$. For each left end the legal right ends form a prefix; a slide stores the first illegal index $d[i]$.
+>
+> $\textit{pre}[j]$ is the number of legal substrings with right end $\le j$. A query $[l,r]$ splits into the triangle of strings starting at $l$ with right end $<\min(r+1,d[l])$, plus $\textit{pre}[r+1]-\textit{pre}[p]$. Preprocess in $O(n)$, answer in $O(1)$.
+
+<!-- thinking:end -->
+
 We use two variables $\textit{cnt0}$ and $\textit{cnt1}$ to record the number of $0$s and $1$s in the current window, respectively. Pointers $i$ and $j$ mark the left and right boundaries of the window. We use an array $d$ to record the first position to the right of each position $i$ that does not satisfy the $k$ constraint, initially setting $d[i] = n$. Additionally, we use a prefix sum array $\textit{pre}[i]$ of length $n + 1$ to record the number of substrings that satisfy the $k$ constraint with the right boundary at position $i$.
 
 When we move the window to the right, if the number of $0$s and $1$s in the window both exceed $k$, we update $d[i]$ to $j$, indicating that the first position to the right of $i$ that does not satisfy the $k$ constraint is $j$. Then we move $i$ one position to the right until the number of $0$s and $1$s in the window are both less than or equal to $k$. At this point, we can calculate the number of substrings that satisfy the $k$ constraint with the right boundary at $j$, which is $j - i + 1$, and update this in the prefix sum array.

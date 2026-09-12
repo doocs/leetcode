@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and the group length is fixed at $3$, so we could test every start for an alternating triple. The circular wrap needs modular indices and is a bit clumsy.
+>
+> Unrolling the ring to a $2n$ scan, $\textit{cnt}$ tracks the current alternating run and resets on equal neighbors. Count only when $i\ge n$ and $\textit{cnt}\ge 3$, so each original index is counted once as a group's right end, in $O(1)$ extra space.
+
+<!-- thinking:end -->
+
 We set $k = 3$, indicating that the length of the alternating group is $3$.
 
 For convenience, we can unfold the ring into an array of length $2n$ and then traverse this array from left to right. We use a variable $\textit{cnt}$ to record the current length of the alternating group. If we encounter the same color, we reset $\textit{cnt}$ to $1$; otherwise, we increment $\textit{cnt}$. If $\textit{cnt} \ge k$ and the current position $i$ is greater than or equal to $n$, then we have found an alternating group, and we increment the answer by one.

@@ -89,6 +89,16 @@ The only possible arrangement is shown above.</p>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A triangle of height $h$ uses $h(h+1)/2$ balls, so $h$ is at most $O(\sqrt{\textit{red}+\textit{blue}})$. With $1\le \textit{red},\textit{blue}\le 100$ we could enumerate heights and row colors, yet adjacent rows must differ, so the whole coloring is fixed once the first row is chosen.
+>
+> It therefore suffices to try red-first and blue-first, then subtract $1,2,\ldots$ balls from the two colors in alternation. Stop when the next row exceeds the remaining count of that color, and keep the larger feasible height. Flipping the color index by XOR keeps the simulation in constant extra space.
+
+<!-- thinking:end -->
+
 We can enumerate the color of the first row, then simulate the construction of the triangle, calculating the maximum height.
 
 The time complexity is $O(\sqrt{n})$, where $n$ is the number of red and blue balls. The space complexity is $O(1)$.

@@ -88,6 +88,16 @@ tags:
 
 ### Solution 1: Priority Queue (Max-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Obstacles arrive one by one; after each we want the current $k$-th nearest Manhattan distance. $q\le 2\times 10^5$ forbids sorting every time. We only need the $k$ smallest distances; the largest among them is the $k$-th.
+>
+> A max-heap stores those $k$ distances (as negatives). Before $k$ points the answer is $-1$; afterwards the heap top is the answer. Each update is $O(\log k)$.
+
+<!-- thinking:end -->
+
 We can use a priority queue (max-heap) to maintain the $k$ obstacles closest to the origin.
 
 Traverse $\textit{queries}$, and for each query, calculate the sum of the absolute values of $x$ and $y$, then add it to the priority queue. If the size of the priority queue exceeds $k$, pop the top element. If the current size of the priority queue is equal to $k$, add the top element to the answer array; otherwise, add $-1$ to the answer array.

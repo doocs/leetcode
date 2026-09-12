@@ -79,6 +79,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array holds $0\ldots n-1$ once each, plus two extra repeats. $n\le 100$, so a count of frequencies equal to $2$ is enough.
+>
+> A map or a length-$n$ array records occurrences; the two values with count $2$ are the answer.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{cnt}$ to record the number of occurrences of each number.
 
 Traverse the array $\textit{nums}$, and when a number appears for the second time, add it to the answer array.
@@ -193,6 +203,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses linear extra space. The XOR of the two repeats is the XOR of the array with $0\ldots n-1$. The highest bit where they differ splits every number into two groups; XOR inside each group isolates one answer in $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 Let the length of array $\textit{nums}$ be $n + 2$, which contains integers from $0$ to $n - 1$, with two numbers appearing twice.
 

@@ -90,6 +90,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每秒所有存活敌人先造成伤害，再打掉一名敌人 $power$ 点生命。$n\le 10^5$，搜索击杀顺序不可行。敌人 $i$ 的击杀时间 $t_i=\lceil health_i/power\rceil$ 固定，总伤害是各 $damage_j$ 乘上「该敌人仍存活的秒数」。
+>
+> 交换相邻两人 $i,j$ 的顺序，比较 $damage_i\cdot t_j$ 与 $damage_j\cdot t_i$ 即可决定谁应先被消灭。按 $damage/t$ 降序排列后，前缀累加剩余总伤害。题面暂无实现代码，思考依此比较器排序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

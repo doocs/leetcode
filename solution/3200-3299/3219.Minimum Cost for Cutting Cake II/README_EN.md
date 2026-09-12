@@ -101,6 +101,16 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The problem matches Cutting Cake I, but $m,n\le 10^5$, so exponential or quadratic DP is gone; we must keep the “cut large costs first” merge.
+>
+> Sort both cost arrays descending and always cut the currently larger side, adding $h$ or $v$ times that cost. Sorting is $O((m+n)\log(m+n))$ and the merge is linear, which matches the limits.
+
+<!-- thinking:end -->
+
 For a given position, the earlier you cut, the fewer cuts are needed, so it is clear that positions with higher costs should be cut earlier.
 
 Therefore, we can sort the arrays $\textit{horizontalCut}$ and $\textit{verticalCut}$ in descending order, and then use two pointers $i$ and $j$ to point to the costs in $\textit{horizontalCut}$ and $\textit{verticalCut}$, respectively. Each time, we choose the position with the larger cost to cut, while updating the corresponding number of rows and columns.

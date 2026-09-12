@@ -88,6 +88,16 @@ tags:
 
 ### 方法一：差分数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 成对 $(\textit{nums}[i],\textit{nums}[n-1-i])$ 要变成同一差值 $s$，每次可把一个数改到 $[0,k]$。$n,k\le 10^5$，对每个候选 $s$ 重算代价为 $O(nk)$。
+>
+> 一对 $(x,y)$（$x\le y$）对各个 $s$ 的代价是分段常数：$s=y-x$ 为 $0$，不超过 $\max(y,k-x)$ 为 $1$，更大则为 $2$。差分数组把每对的分段一次写入，前缀和后取最小即最优 $s$ 的总代价。
+
+<!-- thinking:end -->
+
 假设最终的数组中，数对 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的差值为 $s$。
 
 我们不妨设 $x$ 为 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的较小值，设 $y$ 为 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的较大值。

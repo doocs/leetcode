@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1: Hash Table + Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query brings a window to the front. $n,q\le 10^5$, so moving an element to the head of an array each time is quadratic. The final order is the last-bring-to-front order: later queries sit further left.
+>
+> Scan queries backward, append each unseen id, then append original windows that never appeared. Each window is enqueued at most once.
+
+<!-- thinking:end -->
+
 According to the problem description, the later the query, the earlier it appears in the result. Therefore, we can traverse the $\textit{queries}$ array in reverse order, using a hash table $\textit{s}$ to record the windows that have already appeared. For each query, if the current window is not in the hash table, we add it to the answer array and also add it to the hash table. Finally, we traverse the $\textit{windows}$ array again, adding the windows that are not in the hash table to the answer array.
 
 The time complexity is $O(n + m)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the lengths of the $\textit{windows}$ and $\textit{queries}$ arrays, respectively.

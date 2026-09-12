@@ -98,6 +98,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $10\times 10$ and queries are few, so a four-neighbor scan would work, but finding the cell of $\textit{value}$ each time is still linear.
+>
+> Build a value-to-coordinate map at init. Adjacent and diagonal sums share the same helper and differ only by the offset set. A query is $O(1)$ after the lookup, summing at most four neighbors.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{d}$ to store the coordinates of each element. Then, according to the problem description, we separately calculate the sum of adjacent elements and diagonally adjacent elements.
 
 In terms of time complexity, initializing the hash table has a time complexity of $O(m \times n)$, and calculating the sum of adjacent elements and diagonally adjacent elements has a time complexity of $O(1)$. The space complexity is $O(m \times n)$.

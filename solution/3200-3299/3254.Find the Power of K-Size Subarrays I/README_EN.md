@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window's power is its maximum iff the entries are consecutive increasing, otherwise $-1$. $n\le 500$ would allow rescanning each window, but consecutive windows share the same run.
+>
+> Let $f[i]$ be the consecutive-increasing length ending at $i$. Then $f[i]\ge k$ iff $[i-k+1,i]$ is valid, and the power is $\textit{nums}[i]$. One recurrence, then emit by right end.
+
+<!-- thinking:end -->
+
 We define an array $f$, where $f[i]$ represents the length of the continuous increasing subsequence ending at the $i$-th element. Initially, $f[i] = 1$.
 
 Next, we traverse the array $\textit{nums}$ to calculate the values of the array $f$. If $nums[i] = nums[i - 1] + 1$, then $f[i] = f[i - 1] + 1$; otherwise, $f[i] = 1$.
@@ -205,6 +215,14 @@ function resultsArray(nums: number[], k: number): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores an $O(n)$ array $f$. The run only needs its left end $j$: reset $j$ to $i$ when the adjacent difference is not $1$. The window is valid iff its left index is still $\ge j$. A rolling pointer uses $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 Let pointer $j$ be the start of the current segment whose adjacent differences are all exactly $1$. Traverse the array from left to right: if $i > 0$ and $\textit{nums}[i] \neq \textit{nums}[i - 1] + 1$, update $j$ to $i$.
 

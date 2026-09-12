@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same statement as I with larger limits, so the linear slide stays and substring enumeration does not. Coverage is still “at least as many of every character as $\textit{word2}$”, and it is still monotone.
+>
+> The same $need$ and window counts: extend the right, shrink the left while covered, add the left index. Return $0$ if $\textit{word1}$ is shorter. Linear time.
+
+<!-- thinking:end -->
+
 The problem is essentially to find how many substrings in $\textit{word1}$ contain all the characters in $\textit{word2}$. We can use a sliding window to handle this.
 
 First, if the length of $\textit{word1}$ is less than the length of $\textit{word2}$, then it is impossible for $\textit{word1}$ to contain all the characters of $\textit{word2}$, so we directly return $0$.

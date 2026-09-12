@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build the largest $n$-digit palindrome divisible by $k$, with $n\le 10^5$ and $k\le 9$. Listing palindromes downward is impossible; the first half determines the rest, and we only need the value modulo $k$.
+>
+> Case on $k$ (last digits for $2,4,5,8$, digit sum for $3,9$, both for $6,7$), greedily fill nines and fix the lowest positions so the whole number is $0\bmod k$. There is no implementation in the tree yet; the reasoning is “fix the first half, repair the tail for $k$”.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
