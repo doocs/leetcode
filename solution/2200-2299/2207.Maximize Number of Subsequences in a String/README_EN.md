@@ -67,6 +67,18 @@ Some of the strings which can be obtained from text and have 6 subsequences &quo
 
 ### Solution 1: Traversal + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may insert one character of $pattern$ anywhere to maximize the number of $pattern$ subsequences. $|text| \le 10^5$, so recounting after every insertion is impossible.
+>
+> Without insertion, a left-to-right scan works: $x$ counts $pattern[0]$ seen so far, and each $pattern[1]$ adds $x$. A single insertion only helps as a new prefix or a new suffix: inserting at the front adds the current number of $pattern[1]$, inserting at the end adds the current number of $pattern[0]$.
+>
+> One scan yields the base answer together with $x$ and $y$; then add $\max(x, y)$. When the two characters are equal, count $pattern[1]$ before incrementing $x$, so the current position is not paired with itself.
+
+<!-- thinking:end -->
+
 We can use two variables $x$ and $y$ to record the current counts of $\textit{pattern}[0]$ and $\textit{pattern}[1]$ in the string, respectively.
 
 Then, traverse the string $\textit{text}$. For the current character $c$:

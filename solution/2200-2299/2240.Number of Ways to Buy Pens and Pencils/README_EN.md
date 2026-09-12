@@ -59,6 +59,16 @@ The total number of ways to buy pens and pencils is 5 + 3 + 1 = 9.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We have budget $\textit{total}$ and two fixed prices; any non-negative counts are allowed. A full knapsack table is unnecessary: after the number of pens is fixed, the legal pencil counts form a prefix.
+>
+> Enumerate pens $x$ from $0$ to $\lfloor \textit{total}/\textit{cost1} \rfloor$. The leftover budget buys $0$ through $\lfloor (\textit{total}-x\cdot\textit{cost1})/\textit{cost2} \rfloor$ pencils, which contributes that value plus one.
+
+<!-- thinking:end -->
+
 We can enumerate the number of pens to buy, denoted as $x$. For each $x$, the maximum number of pencils we can buy is $\frac{\textit{total} - x \times \textit{cost1}}{\textit{cost2}}$. The number of ways for each $x$ is this value plus 1. We sum up the number of ways for all $x$ to get the answer.
 
 The time complexity is $O(\frac{\textit{total}}{\textit{cost1}})$, and the space complexity is $O(1)$.

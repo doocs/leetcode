@@ -77,6 +77,16 @@ Out of the three users, only User 3 is eligible for a discount.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must count users who have at least one purchase in $[\textit{startDate}, \textit{endDate}]$ with amount at least $\textit{minAmount}$. Summing a user's purchases would treat several small orders as one large one, which the statement forbids.
+>
+> Filter at row level: the timestamp lies in the interval and $\textit{amount} \ge \textit{minAmount}$. Deduplicate with $\textit{COUNT}(\textit{DISTINCT user\_id})$ and return that scalar from the function.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

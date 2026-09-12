@@ -78,6 +78,16 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 
 ### 方法一：使用 count(distinct) 函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要统计在闭区间 $[\textit{startDate}, \textit{endDate}]$ 内、单笔金额不小于 $\textit{minAmount}$ 的用户个数，同一用户多笔只计一次。若先按用户分组再对金额求和，会把多笔小额误判为达标，与题意不符。
+>
+> 因此过滤条件应写在行级：时间戳落在区间内且 $\textit{amount} \ge \textit{minAmount}$。去重交给 $\textit{COUNT}(\textit{DISTINCT user\_id})$，函数直接返回该标量。
+
+<!-- thinking:end -->
+
 注意需要判断的是单次购买金额是否大于等于 `minAmount`，而不是累计购买金额是否大于等于 `minAmount`。
 
 <!-- tabs:start -->

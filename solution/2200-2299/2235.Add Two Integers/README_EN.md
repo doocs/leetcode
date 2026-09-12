@@ -49,6 +49,14 @@ Given two integers <code>num1</code> and <code>num2</code>, return <em>the <stro
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add two integers in $[-100,100]$. The language's addition operator already does this in constant time; no carry handling is required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -121,6 +129,16 @@ int sum(int num1, int num2) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses the addition operator. Without it we simulate grade-school addition on bits: xor is the sum without carry, and the carry is the bitwise and shifted left, repeated until the carry vanishes.
+>
+> Python integers are unbounded, so we mask to $32$ bits with $0\texttt{xFFFFFFFF}$. A set sign bit is converted back to a negative Python int via two's complement.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -57,6 +57,16 @@ tags:
 
 ### 方法一：计数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求某字母在串中所占百分比的向下取整。长度不超过 $100$，计数后做整数除法即可。
+>
+> $s.\textit{count}(\textit{letter})\times 100 // |s|$ 避免浮点。
+
+<!-- thinking:end -->
+
 我们可以遍历字符串 $\textit{s}$，统计其中等于 $\textit{letter}$ 的字符的个数，然后根据公式 $\textit{count} \times 100 \, / \, \textit{len}(\textit{s})$ 计算百分比。
 
 时间复杂度 $O(n)$，其中 $n$ 为字符串 $\textit{s}$ 的长度。空间复杂度 $O(1)$。

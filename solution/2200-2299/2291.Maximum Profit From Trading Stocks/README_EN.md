@@ -72,6 +72,16 @@ It can be shown that the maximum profit you can make is 0.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each stock may be bought once: pay the present price, earn $\textit{future}-\textit{present}$, within a budget. $n$ and the budget are $10^3$, a $0$-$1$ knapsack whose item size is the present price and whose value is the profit (only if positive).
+>
+> $f[i][j]$ is the best profit from the first $i$ stocks with budget $j$. Skip copies the previous row; buying requires $j\ge present[i]$ and a higher future price.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the maximum profit when considering the first $i$ stocks with a budget of $j$. The answer is $f[n][\textit{budget}]$.
 
 For the $i$-th stock, we have two choices:
@@ -185,6 +195,14 @@ function maximumProfit(present: number[], future: number[], budget: number): num
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 only reads the previous row, so $f$ flattens to one dimension. Enumerate budget $j$ downwards so a stock is not used twice. Time is unchanged; extra space is $O(\textit{budget})$.
+
+<!-- thinking:end -->
 
 We can observe that for each row, we only need the values from the previous row, so we can optimize the space complexity to $O(\text{budget})$.
 

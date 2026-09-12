@@ -78,6 +78,16 @@ Note that there may be other valid parentheses string paths.
 
 ### Solution 1: DFS + Pruning
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only move right or down, and the path must be a valid parentheses string. The path length is $m+n-1$. An odd length, a starting $')'$, or an ending $'('$ is impossible. Full search is exponential, but a legal prefix balance $k$ cannot exceed the number of remaining cells.
+>
+> Memoized $\textit{dfs}(i,j,k)$ updates $k$ at the current cell, prunes if $k<0$ or $k$ exceeds leftover steps, and requires $k=0$ at the end.
+
+<!-- thinking:end -->
+
 Let $m$ be the number of rows and $n$ be the number of columns in the matrix.
 
 If $m + n - 1$ is odd, or the parentheses in the top-left and bottom-right corners do not match, then there is no valid path, and we directly return $\text{false}$.

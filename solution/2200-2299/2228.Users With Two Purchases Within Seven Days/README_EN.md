@@ -75,6 +75,16 @@ User 7 had two purchases on the same day so we add their ID.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need users who have two purchases at most $7$ days apart. A self-join on every pair of a user's rows overcounts when someone buys often. Adjacent purchases after sorting already contain any window of length $7$.
+>
+> $\textit{LAG}(\textit{purchase\_date})$ partitioned by $\textit{user\_id}$ and ordered by date yields the gap to the previous buy. Keep rows with $d \le 7$ and take distinct user ids.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

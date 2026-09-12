@@ -58,6 +58,16 @@ There does not exist any integer present both in nums[0] and nums[1], so we retu
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need values that appear in every subarray, in increasing order. Values inside a subarray are unique and lie in $[1,1000]$. Repeated set intersections would work but allocate needlessly.
+>
+> A count array of length $1001$ increments $cnt[x]$ once per subarray. Those $x$ whose count equals the number of subarrays form the intersection and are already ordered by index.
+
+<!-- thinking:end -->
+
 Traverse the array `nums`. For each sub-array `arr`, count the occurrence of each number in `arr`. Then traverse the count array, count the numbers that appear as many times as the length of the array `nums`, which are the answers.
 
 The time complexity is $O(N)$, and the space complexity is $O(1000)$. Where $N$ is the total number of numbers in the array `nums`.
@@ -191,6 +201,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 waits until the end to collect answers. We can append $x$ as soon as $cnt[x]$ reaches the number of subarrays, then sort once. The domain is small, so both versions have the same order.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

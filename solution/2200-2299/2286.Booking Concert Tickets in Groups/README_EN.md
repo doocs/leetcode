@@ -84,6 +84,16 @@ bms.scatter(5, 1); // return False
 
 ### Solution 1: Segment Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{gather}$ needs $k$ consecutive seats in the lowest possible row; $\textit{scatter}$ only needs any $k$ seats in the lowest rows. There are $5\times 10^4$ rows of size $10^9$, so a seat array or a linear scan per call is too slow.
+>
+> A segment tree on rows stores remaining-seat sums $s$ and per-row maxima $mx$. $\textit{gather}$ finds the leftmost row with $mx\ge k$ and subtracts $k$. $\textit{scatter}$ checks the range sum, then walks rows from the left deducting seats.
+
+<!-- thinking:end -->
+
 From the problem description, we can deduce the following:
 
 - For the `gather(k, maxRow)` operation, the goal is to seat $k$ people on the same row with consecutive seats. In other words, we need to find the smallest row where the remaining seats are greater than or equal to $k$.

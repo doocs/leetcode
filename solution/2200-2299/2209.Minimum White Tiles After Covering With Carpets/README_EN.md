@@ -69,6 +69,18 @@ Note that the carpets are able to overlap one another.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We have $m$ carpets of length $L$ and want as few uncovered white tiles as possible. Enumerating placements is exponential; $n, m \le 10^3$ forbids that. Decisions can be made left to right.
+>
+> Let $\textit{dfs}(i, j)$ be the fewest uncovered white tiles from index $i$ with $j$ carpets left. A black tile is skipped. With no carpet left, the remainder is the prefix-sum difference $s[n]-s[i]$. On a white tile we either leave it ($1 + \textit{dfs}(i+1, j)$) or cover it ($\textit{dfs}(i+L, j-1)$).
+>
+> There are $O(nm)$ states and constant work each; memoization yields $\textit{dfs}(0, m)$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, j)$ to represent the minimum number of white tiles that are not covered starting from index $i$ using $j$ carpets. The answer is $\textit{dfs}(0, \textit{numCarpets})$.
 
 For index $i$, we discuss the following cases:

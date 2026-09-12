@@ -74,6 +74,16 @@ The total sum is 4 + 6 + 6 + 4 = 20.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring's appeal is its number of distinct letters; we want the sum over all substrings. $n \le 10^5$ forbids enumerating them. For suffixes that end at $i$, a new letter $c$ increases appeal of every substring that starts after the previous $c$.
+>
+> Store the last index $pos[c]$ (initially $-1$). At $i$, add $i-pos[c]$ into a running $t$, then add $t$ to the answer. $t$ is the total appeal of substrings ending here.
+
+<!-- thinking:end -->
+
 We can enumerate all the substrings that end with each character $s[i]$ and calculate their gravitational value sum $t$. Finally, we add up all the $t$ to get the total gravitational value sum.
 
 When we reach $s[i]$, which is added to the end of the substring that ends with $s[i-1]$, we consider the change of the gravitational value sum $t$:

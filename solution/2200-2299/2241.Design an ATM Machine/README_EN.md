@@ -84,6 +84,16 @@ atm.withdraw(550);        // Returns [0,1,0,0,1]. The machine uses 1 $50 banknot
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are five denominations, up to $5000$ operations, and amounts up to $10^9$. Searching combinations is impossible; the machine must prefer larger bills, which is greedy division.
+>
+> A length-$5$ array stores the stock. Deposits add in place. Withdrawals take $\min(\lfloor \textit{amount}/d_i \rfloor, \textit{cnt}[i])$ of each bill from $500$ down to $20$. If any amount remains the request fails and the stock is left untouched; otherwise the counts are subtracted.
+
+<!-- thinking:end -->
+
 We use an array $\textit{d}$ to record the denominations of the bills and an array $\textit{cnt}$ to record the number of bills for each denomination.
 
 For the `deposit` operation, we simply add the number of bills to the corresponding denomination. The time complexity is $O(1)$.

@@ -67,6 +67,16 @@ Hence, we return [0,1,2,3,4].
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every index within distance $k$ of some occurrence of $key$. Checking a window of width $2k$ around each $i$, or scanning the whole array for a valid $j$, is $O(n^2)$. With $n \le 10^3$ this bound is acceptable.
+>
+> Only existence of a $key$ in $[i-k, i+k]$ matters. Fix $i$, scan $j$, and as soon as $|i-j| \le k$ and $nums[j] = key$, record $i$ and leave the inner loop.
+
+<!-- thinking:end -->
+
 We enumerate the index $i$ in the range $[0, n)$, and for each index $i$, we enumerate the index $j$ in the range $[0, n)$. If $|i - j| \leq k$ and $nums[j] = key$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array, then break the inner loop and enumerate the next index $i$.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -195,6 +205,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Preprocessing + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescan the array for every $i$ and never reuses the known positions of $key$. Those positions can be collected once and queried in logarithmic time.
+>
+> Store every index of $key$ in a sorted list $idx$. For each $i$, binary-search $idx$ for a value in $[i-k, i+k]$ via $\textit{bisect\_left}$ and $\textit{bisect\_right}$. If $l \le r$, then $i$ is valid. The time becomes $O(n \log n)$.
+
+<!-- thinking:end -->
 
 We can preprocess to get the indices of all elements equal to $key$, recorded in the array $idx$. All index elements in the array $idx$ are sorted in ascending order.
 
@@ -374,6 +394,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 already avoids rescanning $key$, but still stores an index array and binary-searches twice per $i$. As $i$ increases, the leftmost $j$ with $j \ge i-k$ and $nums[j] = key$ only moves right.
+>
+> Advance a pointer $j$ monotonically: increment while $j < i-k$ or the current cell is not $key$. If afterwards $j \le i+k$, then $i$ is a K-distant index. One pass, $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 We enumerate the index $i$, and use a pointer $j$ to point to the smallest index that satisfies $j \geq i - k$ and $nums[j] = key$. If $j$ exists and $j \leq i + k$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.
 

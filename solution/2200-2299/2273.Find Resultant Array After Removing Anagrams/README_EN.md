@@ -70,6 +70,16 @@ No two adjacent strings in words are anagrams of each other, so no operations ar
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We keep deleting a word that is an anagram of the previous one. There are few short words; a left-to-right pass that keeps a word only when it is not an anagram of the last kept word is enough, because earlier pairs stay valid.
+>
+> Start with $words[0]$ and append $t$ when $\textit{check}(s,t)$ says they differ. The helper compares counts and treats unequal lengths as non-anagrams.
+
+<!-- thinking:end -->
+
 We first add $\textit{words}[0]$ to the answer array, then traverse from $\textit{words}[1]$. If $\textit{words}[i - 1]$ and $\textit{words}[i]$ are not anagrams, we add $\textit{words}[i]$ to the answer array.
 
 The problem is converted to determining whether two strings are anagrams. We define a helper function $\textit{check}(s, t)$ to achieve this. If $s$ and $t$ are not anagrams, we return $\text{true}$; otherwise, we return $\text{false}$.

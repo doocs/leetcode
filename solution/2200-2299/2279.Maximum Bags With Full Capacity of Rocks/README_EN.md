@@ -72,6 +72,16 @@ Note that we did not use all of the additional rocks.
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Extra rocks should fill as many bags as possible. Gaps are independent and $n \le 5\times 10^4$, so smaller gaps should be filled first.
+>
+> Sort $capacity[i]-rocks[i]$ and subtract from $\textit{additionalRocks}$ in increasing order; stop when the next gap does not fit.
+
+<!-- thinking:end -->
+
 First, we calculate the remaining capacity of each bag, then sort the remaining capacities. Next, we traverse the remaining capacities from smallest to largest, putting the extra stones into the bags until the extra stones are used up or the remaining capacities of the bags are exhausted. Finally, we return the number of bags at this point.
 
 Time complexity is $O(n \times \log n)$, and space complexity is $O(\log n)$. Here, $n$ is the number of bags.

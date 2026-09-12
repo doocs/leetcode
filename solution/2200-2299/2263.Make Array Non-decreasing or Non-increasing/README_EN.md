@@ -79,6 +79,16 @@ It can be proven that 4 is the minimum number of operations needed.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may increment or decrement an element by one and want a non-decreasing or non-increasing array at minimum total cost. $n$ and the value range are both $10^3$, so we can DP on the final value of position $i$. Non-increasing is non-decreasing on the reversed array.
+>
+> $f[i][j]$ is the cost of the first $i$ positions with the $i$-th equal to $j$. Then $f[i][j] = \min_{k\le j} f[i-1][k] + |j-nums[i-1]|$, and the running min is maintained as $j$ grows. Take the better of the array and its reverse.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

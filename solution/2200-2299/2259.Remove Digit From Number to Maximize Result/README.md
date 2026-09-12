@@ -71,6 +71,16 @@ tags:
 
 ### 方法一：暴力枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 必须删去恰好一个给定数字，使剩下的十进制串最大。长度不超过 $100$，每种删除位置拼出新串再取最大即可。
+>
+> 枚举所有等于 $\textit{digit}$ 的下标 $i$，比较 $number[:i]+number[i+1:]$。字符串比较与数值比较一致。
+
+<!-- thinking:end -->
+
 我们可以枚举字符串 $\textit{number}$ 的所有位置 $\textit{i}$，如果 $\textit{number}[i] = \textit{digit}$，那么我们取 $\textit{number}$ 的前缀 $\textit{number}[0:i]$ 和后缀 $\textit{number}[i+1:]$ 拼接起来，即为移除 $\textit{number}[i]$ 后的结果。我们取所有可能的结果中最大的即可。
 
 时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $\textit{number}$ 的长度。
@@ -194,6 +204,16 @@ class Solution {
 <!-- solution:start -->
 
 ### 方法二：贪心
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一要生成并比较多段字符串。从左到右看，若某次出现的 $\textit{digit}$ 小于它的下一位，删掉它会立刻让高位变大，这就是最优。若不存在这样的下降，则删最后一次出现，以免高位变小。
+>
+> 一遍记下最后位置 $last$，遇到 $d < number[i+1]$ 即可提前结束。时间降为线性。
+
+<!-- thinking:end -->
 
 我们可以枚举字符串 $\textit{number}$ 的所有位置 $\textit{i}$，如果 $\textit{number}[i] = \textit{digit}$，记录 $\textit{digit}$ 最后一次出现的位置 $\textit{last}$，并且如果 $\textit{i} + 1 < \textit{n}$ 且 $\textit{number}[i] < \textit{number}[i + 1]$，那么我们可以直接返回 $\textit{number}[0:i] + \textit{number}[i+1:]$，即为移除 $\textit{number}[i]$ 后的结果。这是因为如果 $\textit{number}[i] < \textit{number}[i + 1]$，那么移除 $\textit{number}[i]$ 后，结果一定会更大。
 

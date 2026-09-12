@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tree has exactly three nodes. Compare the root with the sum of its two children; no traversal is needed.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

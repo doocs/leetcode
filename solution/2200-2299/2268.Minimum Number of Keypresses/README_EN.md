@@ -78,6 +78,16 @@ A total of 15 button presses are needed, so return 15.
 
 ### Solution 1: Counting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nine keys, each with up to three letters; the press count is the letter's position on its key. $|s| \le 10^5$, so frequent letters should take the first slots.
+>
+> Sort frequencies decreasingly: the first nine letters cost $1$, the next nine cost $2$, and so on. Multiply the $i$-th frequency by the current layer $k$, incrementing $k$ every nine letters.
+
+<!-- thinking:end -->
+
 First, we count the occurrence of each character in the string $s$, and record it in an array or hash table $\textit{cnt}$.
 
 The problem requires minimizing the number of key presses, so the $9$ most frequent characters should correspond to keys $1$ to $9$, the $10$th to $18$th most frequent characters should correspond to keys $1$ to $9$ again, and so on.

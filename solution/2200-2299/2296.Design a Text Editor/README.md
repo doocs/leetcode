@@ -102,6 +102,16 @@ textEditor.cursorRight(6); // 返回 "practi"
 
 ### 方法一：左右栈
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 文本编辑器要在光标处插入、删除，并左右移动，总操作量 $2\times 10^4$，单次文本长 $40$。若用字符串每次拼接，移动光标会反复复制。光标把文本分成左右两段，栈（或数组）在两端摊还 $O(1)$ 增删。
+>
+> $\textit{left}$ 存光标左侧，$\textit{right}$ 存右侧（栈顶靠近光标）。插入、删除只动 $\textit{left}$；左右移动则在两栈之间倒 $k$ 个字符。返回左侧末尾至多 $10$ 个字符。
+
+<!-- thinking:end -->
+
 我们可以使用两个栈 $\textit{left}$ 和 $\textit{right}$，其中栈 $\textit{left}$ 存储光标左边的字符，另一个栈 $\textit{right}$ 存储光标右边的字符。
 
 - 当调用 $\text{addText}$ 方法时，我们将 $\text{text}$ 中的字符依次入栈 $\text{left}$。时间复杂度 $O(|\text{text}|)$。

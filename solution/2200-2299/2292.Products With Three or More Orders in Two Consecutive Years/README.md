@@ -76,6 +76,16 @@ Orders 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要找出连续两年都至少有三笔订单的商品。按商品和年份分组后，需要判断相邻两年是否都达标。自连接比窗口函数更直观：先打上「该年是否 $\ge 3$ 笔」的标记，再把年份相差 $1$ 且两边标记都为真的行连起来。
+>
+> CTE 按 $(\textit{product\_id}, \textit{YEAR})$ 聚合得到 $\textit{mark}$，然后 $p_1.y = p_2.y-1$ 且同一商品、两行 $\textit{mark}$ 均为真，最后对商品去重。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -102,6 +112,14 @@ WHERE p1.mark AND p2.mark;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一把所有年份都留在 CTE 里再用 $\textit{mark}$ 过滤。也可以在分组时用 $\textit{HAVING COUNT}(1)\ge 3$ 只保留达标年份，自连接条件更短，语义相同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

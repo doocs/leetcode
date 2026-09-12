@@ -75,6 +75,16 @@ Note that there may be other ways to remove 2 obstacles to create a path.
 
 ### Solution 1: Double-Ended Queue BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk from the top-left to the bottom-right; entering an obstacle costs one removal. $mn \le 10^5$ forbids searching subsets. Empty cells have weight $0$ and obstacles weight $1$, so this is a $0$-$1$ shortest path for a deque BFS.
+>
+> Push a neighbor to the front when the cell is empty, and to the back when it is an obstacle. The first time we reach the exit is the minimum number of removals.
+
+<!-- thinking:end -->
+
 This problem is essentially a shortest path model, but we need to find the minimum number of obstacles to remove.
 
 In an undirected graph with edge weights of only $0$ and $1$, we can use a double-ended queue to perform BFS. The principle is that if the weight of the current point that can be expanded is $0$, it is added to the front of the queue; if the weight is $1$, it is added to the back of the queue.

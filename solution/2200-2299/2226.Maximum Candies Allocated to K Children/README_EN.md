@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every child gets the same positive count, each portion cut from a single pile. $k$ can be $10^{12}$, so we cannot simulate children. Feasibility is monotone in $v$: if $v$ works, every smaller positive $v$ works.
+>
+> Binary-search $v$ in $[0, \max(\textit{candies})]$. A pile of size $x$ yields $\lfloor x/v \rfloor$ portions; the allocation is valid when the sum is at least $k$. The lower bound $0$ covers the empty assignment.
+
+<!-- thinking:end -->
+
 We notice that if each child can receive $v$ candies, then for any $v' \lt v$, each child can also receive $v'$ candies. Therefore, we can use binary search to find the maximum $v$ such that each child can receive $v$ candies.
 
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = \max(\text{candies})$, where $\max(\text{candies})$ represents the maximum value in the array $\text{candies}$. During the binary search, we take the middle value $v = \left\lfloor \frac{l + r + 1}{2} \right\rfloor$ each time, and then calculate the total number of candies each child can receive. If the total is greater than or equal to $k$, it means each child can receive $v$ candies, so we update the left boundary $l = v$. Otherwise, we update the right boundary $r = v - 1$. Finally, when $l = r$, we have found the maximum $v$.

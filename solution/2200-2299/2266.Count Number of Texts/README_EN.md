@@ -78,6 +78,16 @@ Since we need to return the answer modulo 10<sup>9</sup> + 7, we return 20828761
 
 ### Solution 1: Grouping + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A run of the same key can be split into groups no longer than that key's letter count. $n \le 10^5$ forbids searching the whole string. Runs are independent, so we multiply their ways. A run of length $m$ is a staircase: keys other than $7$ and $9$ take steps $1..3$, those two take $1..4$.
+>
+> Precompute $f[i]$ and $g[i]$ up to $10^5$, then multiply per $\textit{groupby}$ run modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 According to the problem description, for consecutive identical characters in the string $\textit{pressedKeys}$, we can group them together and then calculate the number of ways for each group. Finally, we multiply the number of ways for all groups.
 
 The key problem is how to calculate the number of ways for each group.

@@ -73,6 +73,18 @@ Since it is not possible to obtain a non-empty pile after one move, we return -1
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move pops the top or pushes back a previously popped value. $k$ can be $10^9$, so simulating step by step is impossible. The top after exactly $k$ moves falls into a few comparable cases.
+>
+> If $k = 0$, the top is $nums[0]$. A singleton array yields $-1$ after an odd number of moves (the only value is gone) and itself after an even number.
+>
+> When $n \ge 2$, any of the first $k-1$ popped values can be pushed back on the last move, so one candidate is $\max(nums[0..k-2])$. If $k < n$, the $k$-th pop can also expose $nums[k]$. Take the larger of the two.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

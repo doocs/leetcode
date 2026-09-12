@@ -75,6 +75,16 @@ s becomes &quot;0&quot; + &quot;0&quot; + &quot;0&quot; = &quot;000&quot;, whose
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly replace each block of $k$ digits by the sum of those digits until the string is at most $k$ long. $|s| \le 100$, so simulating the rounds is enough.
+>
+> While the length exceeds $k$, slice with step $k$, sum each slice, and join the decimal representations. Each sum has at most three digits, so the string shrinks.
+
+<!-- thinking:end -->
+
 According to the problem statement, we can simulate the operations described in the problem until the length of the string is less than or equal to $k$. Finally, return the string.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.

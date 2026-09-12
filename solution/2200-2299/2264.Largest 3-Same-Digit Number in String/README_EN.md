@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the largest three-equal-digit substring of $num$. The length is $10^3$, so testing $999,\ldots,000$ from large to small finds the maximum as soon as one occurs.
+>
+> For $i$ from $9$ down to $0$, check whether $\texttt{str}(i)*3$ is a substring; otherwise return empty.
+
+<!-- thinking:end -->
+
 We can enumerate each digit $i$ from large to small, where $0 \le i \le 9$, and then check whether the string $s$ consisting of three consecutive $i$ is a substring of $num$. If it is, we directly return $s$.
 
 If we have enumerated all the possible values of $i$ and still haven't found a substring that satisfies the condition, we return an empty string.

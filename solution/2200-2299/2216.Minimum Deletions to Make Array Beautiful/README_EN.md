@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful array has even length and $nums[2k] \neq nums[2k+1]$ for every pair. $n \le 10^5$ forbids searching deletion subsets. Pairing left to right, a pair with $nums[i]=nums[i+1]$ cannot be kept, so one element must go.
+>
+> Delete the current $nums[i]$ (advance one step and count a deletion); if the two values differ, keep the pair and skip two indices. If the leftover length is odd, delete one more at the end.
+
+<!-- thinking:end -->
+
 According to the problem description, we know that a beautiful array has an even number of elements, and if we divide every two adjacent elements in this array into a group, then the two elements in each group are not equal. This means that the elements within a group cannot be repeated, but the elements between groups can be repeated.
 
 Therefore, we consider traversing the array from left to right. As long as we encounter two adjacent elements that are equal, we delete one of them, that is, the deletion count increases by one; otherwise, we can keep these two elements.
@@ -198,6 +208,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 decides deletion on each adjacent pair. We can instead collapse a run of equal values: extras inside the run must be deleted, one copy stays as the even index, and it pairs with the next different value.
+>
+> The inner loop skips equals and counts those deletions, then the pointer jumps past the paired partner. The same parity cleanup applies. Still $O(n)$, advancing by equal runs.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -71,6 +71,16 @@ There are 0 hills and valleys so we return 0.
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Hills and valleys are defined against the closest unequal neighbors, so a run of equal values is one plateau. $n \le 100$ would allow a two-sided scan at each $i$, but that rereads the same plateau.
+>
+> A pointer $j$ remembers the last settled distinct height. If $nums[i] = nums[i+1]$ we are still inside a plateau and skip; otherwise compare $nums[i]$ with $nums[j]$ and $nums[i+1]$, then set $j = i$. One linear pass counts the hills and valleys.
+
+<!-- thinking:end -->
+
 We initialize a pointer $j$ to point to the position with index $0$, and then traverse the array in the range $[1, n-1]$. For each position $i$:
 
 - If $nums[i] = nums[i+1]$, then skip.

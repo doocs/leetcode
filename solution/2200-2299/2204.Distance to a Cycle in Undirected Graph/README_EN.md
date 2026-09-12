@@ -84,6 +84,18 @@ The distance from 8 to 2 is 2.
 
 ### Solution 1: Topological Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The graph is one cycle with trees attached. BFS from every vertex to find the cycle would be $O(n^2)$. Cycle vertices have distance $0$; a tree vertex's distance is the unique path length to the cycle.
+>
+> Degree-$1$ vertices are never on the cycle, so they can be peeled like leaves. Collect them in a queue, record the parent $f[i]$ when a vertex is removed, and decrease neighbor degrees. What remains is the cycle.
+>
+> Fill distances in reverse deletion order: cycle vertices stay $0$, and a removed vertex $i$ gets $ans[f[i]]+1$.
+
+<!-- thinking:end -->
+
 We can first convert the edges in $edges$ into an adjacency list $g$, where $g[i]$ represents all adjacent nodes of node $i$, represented as a set.
 
 Next, we delete nodes layer by layer from the outside to the inside until only a cycle remains. The specific method is as follows:

@@ -64,6 +64,16 @@ The maximum total we can obtain is 101.
 
 ### Solution 1: Dynamic Programming (Grouped Knapsack)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coins must be taken as a prefix of each pile, at most $k$ in total. Searching allocations would recompute the same prefixes; $n$ and $k$ are up to a thousand and there are $2000$ coins. Piles are independent groups: taking the first $h$ coins of a pile is one item of size $h$.
+>
+> Let $f[i][j]$ be the best value from the first $i$ piles using $j$ coins. Prefix-sum pile $i$ into $s[h]$ and relax $f[i][j]$ by $f[i-1][j-h]+s[h]$. The work is proportional to $k$ times the total number of coins.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the maximum value sum of taking $j$ coins from the first $i$ piles. The answer is $f[n][k]$, where $n$ is the number of piles.
 
 For the $i$-th pile, we can choose to take the first $0$, $1$, $2$, $\cdots$, $k$ coins. We can use a prefix sum array $s$ to quickly calculate the value sum of taking the first $h$ coins.
@@ -205,6 +215,16 @@ function maxValueOfCoins(piles: number[][], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 only reads the previous row $f[i-1][\cdot]$, so the full table is unnecessary. After flattening $f$, capacity $j$ must be enumerated downwards so the same pile is not used twice.
+>
+> Each pile is still prefix-summed, then $j$ and $h$ update $f[j]$ in place. Time is unchanged; extra space drops to $O(k)$.
+
+<!-- thinking:end -->
 
 We can observe that for the $i$-th pile, we only need to use $f[i - 1][j]$ and $f[i][j - h]$, so we can optimize the two-dimensional array to a one-dimensional array.
 

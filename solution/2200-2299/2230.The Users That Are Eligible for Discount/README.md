@@ -77,6 +77,16 @@ startDate = 2022-03-08, endDate = 2022-03-20, minAmount = 1000
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 存储过程要返回时间落在闭区间、且单笔金额不小于阈值的用户，按 $\textit{user\_id}$ 升序且去重。与按用户汇总金额不同，过滤发生在每一行。
+>
+> $\textit{WHERE}$ 同时约束 $\textit{amount}$ 与 $\textit{time\_stamp}$，再用 $\textit{DISTINCT}$ 与 $\textit{ORDER BY}$ 得到所需列表。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

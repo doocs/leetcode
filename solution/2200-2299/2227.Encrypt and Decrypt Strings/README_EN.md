@@ -93,6 +93,16 @@ encrypter.decrypt(&quot;eizfeiam&quot;); // return 2.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Encryption replaces each character by a fixed length-$2$ string. Decryption asks how many dictionary words encrypt to a given string. The dictionary has at most $100$ words, but decrypt may be called often, so recomputing mappings per query is wasteful.
+>
+> Build a char-to-cipher map and count the encryption of every dictionary word in $\textit{cnt}$. $\textit{encrypt}$ concatenates mappings (or returns empty on a missing key); $\textit{decrypt}$ is a single lookup in $\textit{cnt}$.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{mp}$ to record the encryption result of each character, and another hash table $\textit{cnt}$ to record the number of occurrences of each encryption result.
 
 In the constructor, we traverse $\textit{keys}$ and $\textit{values}$, storing each character and its corresponding encryption result in $\textit{mp}$. Then, we traverse $\textit{dictionary}$ to count the occurrences of each encryption result. The time complexity is $O(n + m)$, where $n$ and $m$ are the lengths of $\textit{keys}$ and $\textit{dictionary}$, respectively.

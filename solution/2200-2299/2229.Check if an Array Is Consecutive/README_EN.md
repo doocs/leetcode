@@ -72,6 +72,16 @@ Therefore, nums is consecutive.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether the array is a permutation of some contiguous range. Sorting and checking adjacent gaps is $O(n\log n)$ and would pass, but a cheaper criterion exists: all values are distinct and $\max-\min+1$ equals the length.
+>
+> A set gives uniqueness; together with the min and max this is necessary and sufficient.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{s}$ to store all the elements in the array $\textit{nums}$, and use two variables $\textit{mi}$ and $\textit{mx}$ to represent the minimum and maximum values in the array, respectively.
 
 If all elements in the array are distinct and the length of the array equals the difference between the maximum and minimum values plus $1$, then the array is consecutive, and we return $\textit{true}$; otherwise, we return $\textit{false}$.

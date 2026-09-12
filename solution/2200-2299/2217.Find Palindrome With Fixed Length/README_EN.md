@@ -62,6 +62,16 @@ The first six palindromes of length 4 are:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the $q$-th palindrome of length $\textit{intLength}$. $q$ can be $10^9$ and the length up to $15$, so listing palindromes is impossible. A palindrome is determined by its first half; the second half is the mirror.
+>
+> The first half has length $\lceil \textit{intLength}/2 \rceil$ and ranges from $10^{l-1}$ to $10^l-1$. Query $q$ maps to $v = 10^{l-1}+q-1$; if $v$ overflows the answer is $-1$, otherwise mirror $v$'s digits (dropping the middle copy when the length is odd).
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

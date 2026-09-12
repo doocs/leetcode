@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Simulation + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A password needs length at least $8$, all four character classes, and no two equal neighbors. The length is at most $100$, so one scan can check everything. A four-bit mask records which classes appeared.
+>
+> Reject a short string or an equal adjacent pair; set the mask bit for the current class. A final mask of $15$ means all four classes are present.
+
+<!-- thinking:end -->
+
 According to the problem description, we can simulate the process of checking whether the password meets the requirements.
 
 First, we check if the length of the password is less than $8$. If it is, we return $\textit{false}$.

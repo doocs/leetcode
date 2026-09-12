@@ -79,6 +79,16 @@ Therefore, we return [1, 3].
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Axis-aligned rectangles start at the origin; we count how many contain each query point. Both lists can have $5\times 10^4$ entries, heights are at most $100$, widths up to $10^9$. Scanning every rectangle per point is too slow. The tiny height range lets us bucket by height.
+>
+> Store widths of rectangles of each height in a sorted list. A point $(x,y)$ is covered by height $h \ge y$ and width $\ge x$, so we lower-bound each list from $h=y$ to $100$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -76,6 +76,16 @@ The driver with ID = 11 was never a passenger.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every driver that appears, count how many times that person rode as a passenger; the count is $0$ if they never did. Grouping $\textit{Rides}$ by passenger would drop people who only drove.
+>
+> Take distinct $\textit{driver\_id}$ values and left-join $\textit{Rides}$ on $\textit{driver\_id} = \textit{passenger\_id}$. Counting $\textit{passenger\_id}$ keeps the zeros.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
