@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether two trees become identical after flipping children. Values are unique and the trees have at most $100$ nodes. Roots must match; a flip only swaps the two children of one node, so the recursion may compare children in order or swapped, and either branch may succeed.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

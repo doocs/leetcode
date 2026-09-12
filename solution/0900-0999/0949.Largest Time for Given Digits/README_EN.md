@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Enumerate Hours and Minutes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Form the latest valid time from four digits. There are only $24\times 60$ legal hour-minute pairs. Enumerate them from large to small and accept the first whose digit counts match the input.
+
+<!-- thinking:end -->
+
 Enumerate valid hours $h \in [0,23]$ and minutes $m \in [0,59]$ from large to small, and use a count array to check whether the four digits match the input. The first hit is the latest valid time.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
@@ -91,6 +99,14 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Brute Force (Permutations)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating times is constant work; we may instead permute the four indices, build an hour and a minute, and keep the maximum legal value. $4!=24$ permutations are equally affordable.
+
+<!-- thinking:end -->
 
 Enumerate all permutations of the four digits, check whether they form a valid time, and keep the maximum.
 

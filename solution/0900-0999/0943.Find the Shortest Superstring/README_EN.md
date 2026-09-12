@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest superstring is a Hamiltonian path on the words that maximizes overlap. $n\le 12$, so subsets fit. Precompute $g[i][j]$, the longest suffix-prefix overlap from $i$ to $j$, then DP: $dp[S][j]$ is the best overlap after visiting $S$ and ending at $j$. Reconstruct via predecessors and append any leftover words.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

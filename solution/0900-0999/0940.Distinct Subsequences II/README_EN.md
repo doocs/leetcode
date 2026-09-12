@@ -60,6 +60,14 @@ A <strong>subsequence</strong> of a string is a new string that is formed from t
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct nonempty subsequences. $n\le 2000$, so listing subsets is impossible. Classify by last letter: $f[c]$ is the number of distinct subsequences now ending with $c$. On reading $c$, it may follow any previous subsequence or stand alone, so $f[c]\leftarrow \sum f+1$; a repeated $c$ overwrites the old family that ended with $c$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the number of distinct subsequences ending with the $i$-th lowercase letter. Initially, all elements in $f$ are $0$.
 
 Traverse the string $s$. For the current character $c$, update $f[c]$ to $\sum_{i=0}^{25} f[i] + 1$. Here $\sum_{i=0}^{25} f[i]$ is the number of distinct subsequences obtained so far, and $+1$ means the character $c$ itself can also be a subsequence.
@@ -210,6 +218,14 @@ int distinctSubseqII(char* s) {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 rescans $26$ cells on every update. Keep the running sum $\textit{ans}$; the increment is $\textit{ans}-f[i]+1$, so both $f[i]$ and $\textit{ans}$ update in $O(1)$.
+
+<!-- thinking:end -->
 
 Based on Solution 1, we can maintain a variable $\textit{ans}$ as the sum of all elements in $f$. Each time we update $f[i]$, the number of newly added distinct subsequences is $\textit{ans} - f[i] + 1$. We then update both $\textit{ans}$ and $f[i]$ accordingly.
 

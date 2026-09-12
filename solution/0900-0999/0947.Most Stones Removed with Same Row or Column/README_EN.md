@@ -78,6 +78,14 @@ Stones [0,0] and [1,1] cannot be removed since they do not share a row/column wi
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stones that share a row or column can reach each other. One stone remains per component, so the answer is $n$ minus the number of components. Union every pair that shares a row or column; each successful union is one removable stone.
+
+<!-- thinking:end -->
+
 We can use a union-find data structure to maintain the relationships between stones. If two stones are in the same row or column, we consider them to be connected and use the union-find to link them together. In the end, we count how many connected components there are in the union-find, which corresponds to the number of stones that can remain. Therefore, the total number of stones that can be removed is the total number of stones minus the number of stones that can remain. We can also record the number of successful unions during the merge process, which equals the number of stones that can be removed.
 
 The time complexity is $O(n^2 \times \alpha(n))$, and the space complexity is $O(n)$. Here, $n$ is the number of stones.
@@ -344,6 +352,14 @@ function removeStones(stones: number[][]): number {
 
 ### Solution 2: Union-Find (Optimized)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 links stone pairs and is quadratic. Treat rows and columns as elements: shift columns by an offset and union each stone's row with its column, so a shared row or column connects automatically. Remaining components equal the number of distinct row roots.
+
+<!-- thinking:end -->
+
 We can add an offset to the y-coordinates of the stones, allowing us to unify the x-coordinates and y-coordinates. Then, we use a union-find data structure to maintain the relationship between x-coordinates and y-coordinates.
 
 We iterate through each stone, merging its x-coordinate with its y-coordinate.
@@ -606,6 +622,14 @@ function removeStones(stones: number[][]): number {
 <!-- solution:start -->
 
 ### Solution 3: Breadth-First Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Without union-find, build a graph on shared rows or columns and BFS to count components. The implementation is direct; the worst-case number of edges is still quadratic.
+
+<!-- thinking:end -->
 
 Connect stones that share a row or a column. Each connected component can keep only one stone, so the answer is the number of stones minus the number of components.
 

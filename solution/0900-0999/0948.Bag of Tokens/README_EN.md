@@ -133,6 +133,14 @@ tags:
 
 ### Solution 1: Greedy + Sorting + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cheap tokens buy score, expensive tokens buy energy; we want the peak score. Spend the least energy for a point, and when needed cash a point for the most energy. After sorting, the left pointer buys the cheapest, and if power is short but score remains, the right pointer sells the dearest, tracking the maximum score.
+
+<!-- thinking:end -->
+
 There are two ways to use tokens: one is to consume energy to gain points, and the other is to consume points to gain energy. Obviously, we should consume as little energy as possible to gain as many points as possible.
 
 Therefore, we can sort the tokens by the amount of energy they consume, and then use two pointers: one moving from left to right and the other from right to left. In each iteration, we try to consume energy to gain points as much as possible, and then update the maximum score. If the current energy is not enough to consume the current token, we try to consume the current token using points. If the points are not enough to consume the current token, we stop the iteration.

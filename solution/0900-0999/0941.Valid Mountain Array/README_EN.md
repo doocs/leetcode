@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mountain strictly rises then strictly falls, and needs length at least $3$. Walk inward from both ends until the sequence stops rising or falling; the two peaks must meet and cannot sit on an endpoint. Each pointer moves once.
+
+<!-- thinking:end -->
+
 First, we check if the length of the array is less than $3$. If it is, then it definitely is not a mountain array, so we return `false` directly.
 
 Then, we use a pointer $i$ to move from the left end of the array to the right, until we find a position $i$ such that $arr[i] > arr[i + 1]$. After that, we use a pointer $j$ to move from the right end of the array to the left, until we find a position $j$ such that $arr[j] > arr[j - 1]$. If the condition $i = j$ is satisfied, then it means that the array $arr$ is a mountain array.
