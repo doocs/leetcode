@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Dynamic Programming + Prefix Sum Optimization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recurrence is the same as in I; only the value cap is $1000$. Scanning every $j'$ for each $j$ would be $O(n m^2)$, tight when $m=10^3$.
+>
+> Prefix sums still answer “$j'$ at most some bound” in $O(1)$, so the time stays $O(nm)$ after the larger range.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the number of monotonic array pairs for the subarray $[0, \ldots, i]$ where $arr1[i] = j$. Initially, $f[i][j] = 0$, and the answer is $\sum_{j=0}^{\textit{nums}[n-1]} f[n-1][j]$.
 
 When $i = 0$, we have $f[0][j] = 1$ for $0 \leq j \leq \textit{nums}[0]$.

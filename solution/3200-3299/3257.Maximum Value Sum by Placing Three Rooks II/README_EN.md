@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same as I, but the side length is $500$, so even a few candidates per row make row-triple enumeration tight. We further keep top cells per column, or enumerate only globally large cells.
+>
+> The rooks still need distinct rows and columns; candidates come from the top few of each row or column. There is no implementation in the tree yet; the reasoning is to shrink candidates, then check conflicts.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

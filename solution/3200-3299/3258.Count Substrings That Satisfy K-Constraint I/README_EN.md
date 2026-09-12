@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-constraint asks that a substring has at most $k$ zeros or at most $k$ ones. $n\le 50$ would allow listing substrings, but the constraint is monotone in the right end: once both counts exceed $k$, the left end must move.
+>
+> A sliding window keeps $c_0,c_1$ and shrinks on overflow. Every substring ending at $r$ with left end in $[l,r]$ is then valid, hence $r-l+1$ of them. One linear pass.
+
+<!-- thinking:end -->
+
 We use two variables $\textit{cnt0}$ and $\textit{cnt1}$ to record the number of $0$s and $1$s in the current window, respectively. We use $\textit{ans}$ to record the number of substrings that satisfy the $k$ constraint, and $l$ to record the left boundary of the window.
 
 When we move the window to the right, if the number of $0$s and $1$s in the window both exceed $k$, we need to move the window to the left until the number of $0$s and $1$s in the window are both no greater than $k$. At this point, all substrings in the window satisfy the $k$ constraint, and the number of such substrings is $r - l + 1$, where $r$ is the right boundary of the window. We add this count to $\textit{ans}$.

@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Dynamic Programming + Prefix Sum Optimization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $nums[i]$ into $arr1[i]+arr2[i]$ with $arr1$ non-decreasing and $arr2$ non-increasing. $n\le 2000$ and $nums[i]\le 50$, so enumerating splits is exponential. The state is “up to $i$ with $arr1[i]=j$”.
+>
+> Monotonicity of $arr1$ needs a previous $j'\le j$; of $arr2$, $j'\le j+nums[i-1]-nums[i]$. The feasible $j'$ form a prefix, so a prefix sum of $f[i-1]$ transfers in $O(1)$. The answer is the sum of the last row.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the number of monotonic array pairs for the subarray $[0, \ldots, i]$ where $arr1[i] = j$. Initially, $f[i][j] = 0$, and the answer is $\sum_{j=0}^{\textit{nums}[n-1]} f[n-1][j]$.
 
 When $i = 0$, we have $f[0][j] = 1$ for $0 \leq j \leq \textit{nums}[0]$.

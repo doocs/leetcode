@@ -74,6 +74,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3253.Co
 
 ### 方法一：字典树 + 记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{target}$ 长 $2000$、单词至多 $50$ 个，朴素对每个位置枚举每个词做匹配可以过，但重复前缀会被反复比较。把单词放进字典树后，从 $i$ 一次走下去即可得到所有匹配终点。
+>
+> $\textit{dfs}(i)$ 为拼出后缀 $\textit{target}[i:]$ 的最小代价，沿字典树走到带代价的节点就加上 $\textit{dfs}(j+1)$。记忆化后状态 $n$ 个，每状态沿树走 $O(n)$。
+
+<!-- thinking:end -->
+
 我们首先创建一个字典树 $\textit{trie}$，字典树的每个节点包含一个长度为 $26$ 的数组 $\textit{children}$，数组中的每个元素都是一个指向下一个节点的指针。字典树的每个节点还包含一个 $\textit{cost}$ 变量，表示从根节点到当前节点的最小花费。
 
 我们遍历 $\textit{words}$ 数组，将每个单词插入到字典树中，同时更新每个节点的 $\textit{cost}$ 变量。

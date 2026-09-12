@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is good when all of its subtrees have equal size. $n\le 10^5$ forbids recomputing subtrees at every node. One DFS can compare child sizes on the way back and count the node itself.
+>
+> $\textit{dfs}(a,\textit{fa})$ returns the subtree size; $a$ is good if every child returns the same value. Root an unrooted tree at $0$. The time is linear.
+
+<!-- thinking:end -->
+
 First, we construct the adjacency list $\textit{g}$ of the tree based on the given edges $\textit{edges}$, where $\textit{g}[a]$ represents all the neighboring nodes of node $a$.
 
 Next, we design a function $\textit{dfs}(a, \textit{fa})$ to calculate the number of nodes in the subtree rooted at node $a$ and to accumulate the count of good nodes. Here, $\textit{fa}$ represents the parent node of node $a$.

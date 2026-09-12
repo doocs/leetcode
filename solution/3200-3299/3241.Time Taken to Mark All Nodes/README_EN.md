@@ -126,6 +126,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From every node we mark the tree, spending $1$ or $2$ on even or odd nodes, and want each start's time. $n\le 10^5$ forbids a DFS per start.
+>
+> The longest time inside a subtree comes from one bottom-up pass; rerooting then combines the parent's side to form the longest chain that leaves the current subtree. After two traversals every answer is known. There is no implementation in the tree yet; the reasoning follows this reroot outline.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

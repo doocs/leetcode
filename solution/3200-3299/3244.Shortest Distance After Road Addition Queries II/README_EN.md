@@ -93,6 +93,16 @@ tags:
 
 ### Solution 1: Greedy + Recording Jump Positions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same setting as the previous problem, but new edges do not nest across one another and the limits rule out BFS per query. An edge $u\to v$ swallows the cities that had to be visited in between, so the distance drops by the number of covered nodes.
+>
+> $\textit{nxt}[i]$ is the city currently reached from $i$. If the new edge actually shortens, walk $\textit{nxt}$ through $[u,v)$, clear those jumps, and decrease $\textit{cnt}$. Each index is deleted at most once, so the total time is linear.
+
+<!-- thinking:end -->
+
 We define an array $\textit{nxt}$ of length $n - 1$, where $\textit{nxt}[i]$ represents the next city that can be reached from city $i$. Initially, $\textit{nxt}[i] = i + 1$.
 
 For each query $[u, v]$, if $u'$ and $v'$ have already been connected before, and $u' \leq u < v \leq v'$, then we can skip this query. Otherwise, we need to set the next city number for cities from $\textit{nxt}[u]$ to $\textit{nxt}[v - 1]$ to $0$, and set $\textit{nxt}[u]$ to $v$.

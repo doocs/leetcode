@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subsequences whose sum is odd. $n\le 10^5$ forbids enumeration. Parity of the sum depends only on how many odds were taken, so two rolling states suffice.
+>
+> $f[0],f[1]$ are even-sum and odd-sum counts so far. An odd swaps the two classes and adds the singleton; an even lets each class keep or append, and the even class also gains the singleton. The answer is the final odd class.
+
+<!-- thinking:end -->
+
 We define $f[0]$ to represent the number of subsequences with an even sum so far, and $f[1]$ to represent the number of subsequences with an odd sum so far. Initially, $f[0] = 0$ and $f[1] = 0$.
 
 Traverse the array $\textit{nums}$, for each number $x$:
