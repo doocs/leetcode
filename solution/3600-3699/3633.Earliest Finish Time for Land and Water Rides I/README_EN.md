@@ -136,6 +136,19 @@ tags:
 
 ### Solution 1: Enumeration + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One land ride and one water ride are required, in either order. Pairwise enumeration is quadratic. The first category only needs the ride that finishes earliest.
+>
+> That earliest finish is $\textit{minEnd}=\min(s+d)$. A ride in the second category then ends at $\max(s,\textit{minEnd})+d$; take the minimum over those.
+>
+> Evaluate land-then-water and water-then-land and keep the smaller. Each side is a linear scan.
+
+<!-- thinking:end -->
+
+
 We can consider two orders of rides: first land rides then water rides, or first water rides then land rides.
 
 For each order, we first calculate the earliest end time $\textit{minEnd}$ of the first type of ride, then enumerate the second type of ride and calculate the earliest end time of the second type of ride as $\max(\textit{minEnd}, \textit{startTime}) + \textit{duration}$, where $\textit{startTime}$ is the start time of the second type of ride. We take the minimum value among all possible earliest end times as the answer.

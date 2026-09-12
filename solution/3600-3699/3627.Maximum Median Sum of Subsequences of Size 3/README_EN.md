@@ -76,6 +76,19 @@ source: Weekly Contest 460 Q1
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each triple contributes its median. Maximizing the sum of medians means making large values medians and pairing them with smaller fillers. $n\le 5\times 10^5$ forbids searching partitions.
+>
+> After sorting, the smallest $n/3$ values can only be fillers. From the remaining $2n/3$ values, take every other smaller one as a median: the sum from index $n/3$ with step $2$.
+>
+> Each triple then has a strictly smaller partner, and the medians are the largest half of what remains.
+
+<!-- thinking:end -->
+
+
 To maximize the sum of medians, we need to select larger elements as medians whenever possible. Since each operation can only select three elements, we can sort the array and then start from index $n / 3$, selecting every other element (skipping one) until the end of the array. This ensures that we select the largest possible medians.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.

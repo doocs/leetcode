@@ -136,6 +136,19 @@ tags:
 
 ### Solution 1: Enumeration + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The constraints match the previous problem at a larger size, and the optimum is unchanged: the first category contributes only its earliest finish, then the second category is scanned once.
+>
+> For each order compute $\textit{minEnd}$ and $\min(\max(s,\textit{minEnd})+d)$, then keep the smaller of the two orders.
+>
+> Pairwise matching of rides is unnecessary; the time stays linear in the two lengths.
+
+<!-- thinking:end -->
+
+
 We can consider two orders of rides: first land rides then water rides, or first water rides then land rides.
 
 For each order, we first calculate the earliest end time $\textit{minEnd}$ of the first type of ride, then enumerate the second type of ride and calculate the earliest end time of the second type of ride as $\max(\textit{minEnd}, \textit{startTime}) + \textit{duration}$, where $\textit{startTime}$ is the start time of the second type of ride. We take the minimum value among all possible earliest end times as the answer.

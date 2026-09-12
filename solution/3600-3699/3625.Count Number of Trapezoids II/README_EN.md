@@ -78,6 +78,19 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A general trapezoid is two pairs of parallel sides. Four-point enumeration is $O(n^4)$; pairing points is $O(n^2)$ and acceptable for $n\le 500$.
+>
+> A line is identified by slope $k$ and intercept $b$. Pairs of segments with the same $k$ and distinct $b$ form trapezoids; each parallelogram is counted twice, once per pair of sides, and must be subtracted.
+>
+> A parallelogram has coinciding diagonal midpoints. $\textit{cnt1}[k][b]$ stores lines through point pairs; $\textit{cnt2}[p][k]$ stores midpoint and slope. Multiply counts of distinct $b$ for each $k$, then subtract products of distinct slopes that share a midpoint.
+
+<!-- thinking:end -->
+
+
 We can combine all points pairwise, calculate the slope and intercept of the line corresponding to each pair of points, record them using a hash table, and calculate the sum of the number of pairs formed by lines with the same slope but different intercepts. Note that for parallelograms, we will count them twice in the above calculation, so we need to subtract them.
 
 The diagonals of a parallelogram share the same midpoint. Therefore, we also combine all points pairwise, calculate the midpoint coordinates and slope of each pair of points, record them using a hash table, and calculate the sum of the number of pairs formed by point pairs with the same slope and the same midpoint coordinates.

@@ -95,6 +95,19 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced shipment ends with a package strictly lighter than the segment maximum. Segments are contiguous and we want as many as possible.
+>
+> Cut as soon as possible: keep the running maximum and close the shipment when a strictly smaller $x$ appears, then reset the maximum.
+>
+> Early cuts free later elements for further shipments and never decrease the count. One pass suffices.
+
+<!-- thinking:end -->
+
+
 We maintain the maximum value $\text{mx}$ of the currently traversed array, and iterate through each element $x$ in the array. If $x < \text{mx}$, it means the current element can serve as the last parcel of a balanced shipment, so we increment the answer by one and reset $\text{mx}$ to 0. Otherwise, we update $\text{mx}$ to the value of the current element $x$.
 
 After the traversal, we return the answer.
