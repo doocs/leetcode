@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2118.Build%20the%20Equation/README.md
 tags:
     - 数据库
 ---
