@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2687.Bikes%20Last%20Time%20Used/README.md
 tags:
     - 数据库
 ---

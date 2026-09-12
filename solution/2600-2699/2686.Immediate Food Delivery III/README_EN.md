@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2686.Immediate%20Food%20Delivery%20III/README_EN.md
 tags:
     - Database
 ---
