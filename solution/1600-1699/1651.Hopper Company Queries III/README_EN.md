@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1651.Hopper%20Company%20Queries%20III/README_EN.md
 tags:
     - Database
 ---

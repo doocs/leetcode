@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1649.Create%20Sorted%20Array%20through%20Instructions/README_EN.md
 rating: 2207
 source: Weekly Contest 214 Q4
 tags:
