@@ -104,6 +104,18 @@ Based on that, we return true.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The program repeats forever, so we cannot simulate infinitely many steps. One cycle’s net displacement and heading decide boundedness: back at the origin, or no longer facing north, later cycles stay in a loop.
+>
+> $k\in[0,3]$ is the heading and $\textit{dist}$ counts steps on the four axes. Left adds one, right adds three, and a go increments the current axis.
+>
+> After one cycle we accept if north equals south and east equals west, or if $k\neq 0$.
+
+<!-- thinking:end -->
+
 We can simulate the robot's movement. Use a variable $k$ to represent the robot's direction, initialized to $0$, which means the robot is facing north. The variable $k$ can take values in the range $[0, 3]$, representing the robot facing north, west, south, and east, respectively. Additionally, we use an array $dist$ of length $4$ to record the distance the robot travels in the four directions, initialized to $[0, 0, 0, 0]$.
 
 Traverse the instruction string $\textit{instructions}$. If the current instruction is `'L'`, the robot turns west, i.e., $k = (k + 1) \bmod 4$; if the instruction is `'R'`, the robot turns east, i.e., $k = (k + 3) \bmod 4$; otherwise, the robot moves one step in the current direction, i.e., $dist[k]++$.

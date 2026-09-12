@@ -91,6 +91,18 @@ Product 表：
 
 ### 方法一：分组统计 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要找出买过产品表中每一种商品的顾客。按顾客分组后，其去重产品数应等于产品表的总行数。
+>
+> 对 `Customer` 按 `customer_id` 分组，`HAVING` 中用 `COUNT(DISTINCT product_key)` 与子查询 `COUNT` 产品表比较。
+>
+> 子查询只算一次全局总量，避免把产品表与每位顾客做逐行配对。
+
+<!-- thinking:end -->
+
 我们将 `Customer` 表按照 `customer_id` 进行分组，然后使用 `HAVING` 子句筛选出购买了所有产品的客户。
 
 <!-- tabs:start -->

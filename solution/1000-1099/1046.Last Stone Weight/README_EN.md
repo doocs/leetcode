@@ -68,6 +68,18 @@ we combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the val
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each smash uses the two heaviest stones. Scanning for the maximum every time repeats comparisons; a heap extracts them in logarithmic time.
+>
+> Negating the weights turns a min-heap into a max-heap. Pop $y\ge x$ and push $y-x$ when they differ, until fewer than two stones remain.
+>
+> An empty heap is $0$; otherwise the answer is the negated top.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

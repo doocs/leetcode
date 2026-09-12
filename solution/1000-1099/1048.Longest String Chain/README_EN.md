@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chain grows by one character. $n\le 1000$ and length $\le 16$ allow DP after sorting by length. The best chain ending at $i$ comes from some predecessor $j$ whose length is one smaller.
+>
+> Two pointers test whether $a$ becomes $b$ by inserting one letter. Each $i$ tries earlier $j$ and sets $f[i]=\max(f[i],f[j]+1)$ on a hit.
+>
+> The answer is the maximum of $f$.
+
+<!-- thinking:end -->
+
 First, sort $\textit{words}$ by string length in ascending order. Define $f[i]$ as the length of the longest word chain ending with $\textit{words}[i]$. Initially, $f[i] = 1$.
 
 For each $i$, enumerate $j \in [0, i)$. If $\textit{words}[j]$ is a predecessor of $\textit{words}[i]$, update $f[i] = \max(f[i], f[j] + 1)$. Two strings form a predecessor pair if their lengths differ by $1$ and the shorter one can be obtained by deleting exactly one character from the longer one.
@@ -290,6 +302,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans every shorter word even when the length gap is not $1$. A predecessor is $w$ with one character deleted, so there are at most $L$ candidates and a hash map can store scores by word.
+>
+> Still sorting by length, we delete each index of $w$ and take $f[p]+1$. The time becomes $O(nL^2)$.
+
+<!-- thinking:end -->
 
 Sort $\textit{words}$ by length as well. Use a hash table $f$ to record the longest word chain length ending at each word.
 

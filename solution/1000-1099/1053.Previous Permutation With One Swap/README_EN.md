@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A single swap must produce the lexicographically largest permutation that is still smaller. The first descent $arr[i-1]>arr[i]$ from the right is the value that should become something smaller on its right.
+>
+> The replacement should be the largest right-hand value below $arr[i-1]$; ties take the leftmost copy, so a right-to-left scan skips a value equal to its predecessor.
+>
+> Swap and return; if there is no descent the array is already minimal.
+
+<!-- thinking:end -->
+
 First, we traverse the array from right to left, find the first index $i$ that satisfies $arr[i - 1] > arr[i]$, then $arr[i - 1]$ is the number we need to swap. Next, we traverse the array from right to left again, find the first index $j$ that satisfies $arr[j] < arr[i - 1]$ and $arr[j] \neq arr[j - 1]$. Now, we swap $arr[i - 1]$ and $arr[j]$ and return the array.
 
 If we traverse the entire array and do not find an index $i$ that meets the conditions, it means the array is already the smallest permutation, so we just return the original array.

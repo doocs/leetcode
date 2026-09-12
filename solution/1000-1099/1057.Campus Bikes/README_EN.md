@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each worker gets the closest unused bike, breaking ties by smaller worker index then smaller bike index. $n,m\le 1000$, so all $nm$ pairs can be sorted and assigned in that order.
+>
+> Triples $(\textit{dist},i,j)$ are sorted; the first time both sides are free they are matched.
+>
+> Two visited arrays ensure each worker and bike is used once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

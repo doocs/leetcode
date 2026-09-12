@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inserting every substring into a set is quadratic and fails for $n\le 3\times 10^4$. If a duplicate of length $L$ exists, shorter duplicates exist as well, so length is monotonic.
+>
+> Binary search the length. The check inserts every slice of length $\textit{mid}$ into a set and returns on the first collision. A hit tries a longer length; a miss shortens it.
+>
+> The implementation uses ordinary Python slices and a hash set, remembering the last hit as the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

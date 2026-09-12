@@ -92,6 +92,18 @@ The customers who bought all the products (5 and 6) are customers with IDs 1 and
 
 ### Solution 1: Grouping and Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need customers who bought every product in the catalog. After grouping by customer, the number of distinct products should equal the size of the product table.
+>
+> Group `Customer` by `customer_id` and compare `COUNT(DISTINCT product_key)` to a subquery that counts `Product`.
+>
+> The subquery evaluates the global total once, instead of pairing the catalog with each customer row.
+
+<!-- thinking:end -->
+
 We can group the `Customer` table by `customer_id`, and then use the `HAVING` clause to filter out the customers who have not purchased all products. To do this, we can use a subquery to find the total number of distinct products, and then compare it with the number of distinct products purchased by each customer.
 
 <!-- tabs:start -->

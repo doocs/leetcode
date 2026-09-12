@@ -51,6 +51,18 @@ tags:
 
 ### Solution 1: Counting + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent values must differ. When the mode appears at most $\lceil n/2\rceil$ times a layout exists. Spreading high-frequency values onto even indices, then filling odd indices, keeps them apart.
+>
+> Sort by frequency descending and value ascending so equal numbers stay together and frequent ones come first. Write the first half to even slots and the rest to odd slots.
+>
+> The mode occupies every other even index and never sits next to itself.
+
+<!-- thinking:end -->
+
 First, we use a hash table or array $cnt$ to count the number of occurrences of each number in the array $barcodes$. Then, we sort the numbers in $barcodes$ according to their occurrence times in $cnt$ from large to small. If the occurrence times are the same, we sort them from small to large (to ensure the same numbers are adjacent).
 
 Next, we create an answer array $ans$ of length $n$. We traverse the sorted $barcodes$, and sequentially fill the elements into the even index positions $0, 2, 4, \cdots$ of the answer array. Then, we fill the remaining elements into the odd index positions $1, 3, 5, \cdots$ of the answer array.
