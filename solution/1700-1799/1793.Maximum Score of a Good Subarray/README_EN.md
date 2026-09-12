@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subarray must cover index $k$; its score is length times the minimum. $n\le 10^5$ forbids trying every window that covers $k$.
+>
+> Treat each index as the minimum: a monotonic stack finds the first strictly smaller values on both sides. If that span still covers $k$, update with $v\times\textit{width}$.
+
+<!-- thinking:end -->
+
 We can enumerate each element $nums[i]$ in $nums$ as the minimum value of the subarray, and use a monotonic stack to find the first position $left[i]$ on the left that is less than $nums[i]$ and the first position $right[i]$ on the right that is less than or equal to $nums[i]$. Then, the score of the subarray with $nums[i]$ as the minimum value is $nums[i] \times (right[i] - left[i] - 1)$.
 
 It should be noted that the answer can only be updated when the left and right boundaries $left[i]$ and $right[i]$ satisfy $left[i]+1 \leq k \leq right[i]-1$.
@@ -271,6 +281,14 @@ function maximumScore(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stack uses linear extra memory. Two pointers starting at $k$ can grow the window, always extending toward the larger neighbour so the running minimum falls as slowly as possible, updating $\textit{min}\times\textit{len}$ as they go. Extra space is $O(1)$.
+
+<!-- thinking:end -->
 
 We can initialize two pointers at the core index `k` and expand outward to the left and right.
 By maintaining the minimum value within current window, we can find maximum score in strict linear time.

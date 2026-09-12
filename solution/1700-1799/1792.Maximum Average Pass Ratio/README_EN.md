@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Priority Queue (Max-Heap of Increment)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each extra passing student joins one class; we maximize the average of pass ratios. The gain $\frac{a+1}{b+1}-\frac{a}{b}$ decreases as a class grows, so always give the next student to the class with the largest current gain.
+>
+> A heap keyed by that gain (or its negation) pops a class, increments both counts, and pushes it back. Average the final ratios.
+
+<!-- thinking:end -->
+
 Suppose a class currently has a pass rate of $\frac{a}{b}$. If we arrange a smart student into this class, then the pass rate of the class will become $\frac{a+1}{b+1}$. We can find that the increment of the pass rate is $\frac{a+1}{b+1} - \frac{a}{b}$.
 
 We maintain a max-heap, which stores the increment of the pass rate for each class.

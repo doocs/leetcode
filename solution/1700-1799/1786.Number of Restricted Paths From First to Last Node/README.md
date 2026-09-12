@@ -73,6 +73,16 @@ tags:
 
 ### 方法一：堆优化 Dijkstra + 记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 限制路径要求沿途到 $n$ 的最短路严格下降。先要求出每个点到 $n$ 的距离，再在这张「距离递减」的 DAG 上计数。
+>
+> 从 $n$ 做堆优化 Dijkstra 得到 $\textit{dist}$。记忆化 $\textit{dfs}(i)$：走向 $\textit{dist}$ 更小的邻居，到达 $n$ 计 $1$，对 $10^9+7$ 取模。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -303,6 +313,14 @@ func countRestrictedPaths(n int, edges [][]int) int {
 <!-- solution:start -->
 
 ### 方法二：堆优化 Dijkstra + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用记忆化沿距离下降边搜索。也可按 $\textit{dist}$ 升序递推路径数：距离更小的点先算完，再更新指向它的点。消除递归，结果相同。
+
+<!-- thinking:end -->
 
 先求出每个点到 $n$ 的最短路，再按距离从小到大递推限制路径数。
 

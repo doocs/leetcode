@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Enumeration + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Beauty is the gap between the most and least frequent letters in a substring. $n\le 500$ allows all $O(n^2)$ windows.
+>
+> Fix the left end, extend right while updating a counter, and add $\max-\min$ each time.
+
+<!-- thinking:end -->
+
 Enumerate the starting position $i$ of each substring, find all substrings with the character at this starting position as the left endpoint, then calculate the beauty value of each substring, and accumulate it to the answer.
 
 The time complexity is $O(n^2 \times C)$, and the space complexity is $O(C)$. Here, $n$ is the length of the string, and $C$ is the size of the character set. In this problem, $C = 26$.
@@ -233,6 +243,14 @@ var beautySum = function (s) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescans the counter for min and max. Tracking frequency-of-frequencies plus running $mi,mx$ updates both ends in $O(1)$ after each insertion.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

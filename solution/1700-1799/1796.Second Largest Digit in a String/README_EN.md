@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: One Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the strict second-largest digit, or $-1$. One scan keeping the largest $a$ and second $b$ is enough.
+>
+> A new maximum shifts the old maximum into second place; a value strictly between them updates only the second.
+
+<!-- thinking:end -->
+
 We define $a$ and $b$ to represent the largest and second largest numbers in the string, initially $a = b = -1$.
 
 We traverse the string $s$. If the current character is a digit, we convert it to a number $v$. If $v > a$, it means that $v$ is the largest number currently appearing, we update $b$ to $a$, and update $a$ to $v$; if $v < a$, it means that $v$ is the second largest number currently appearing, we update $b$ to $v$.
@@ -217,6 +227,14 @@ int secondHighest(char* s) {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A 10-bit mask of seen digits also works: walk bits from high to low and return the second set bit.
+
+<!-- thinking:end -->
 
 We can use an integer $mask$ to mark the numbers that appear in the string, where the $i$-th bit of $mask$ indicates whether the number $i$ has appeared.
 

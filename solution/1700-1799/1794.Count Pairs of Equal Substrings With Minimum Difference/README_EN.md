@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Greedy + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid quadruple needs equal substrings and minimal $j-a$. Equality collapses to a single character: the leftmost occurrence in $firstString$ paired with the rightmost same character in $secondString$.
+>
+> Map each character of $secondString$ to its last index. Walk $firstString$ and update the global minimum of $i-\textit{last}[c]$ together with its multiplicity.
+
+<!-- thinking:end -->
+
 The problem actually asks us to find a smallest index $i$ and a largest index $j$ such that $firstString[i]$ equals $secondString[j]$, and the value of $i - j$ is the smallest among all index pairs that meet the conditions.
 
 Therefore, we first use a hash table $last$ to record the index of the last occurrence of each character in $secondString$. Then we traverse $firstString$. For each character $c$, if $c$ has appeared in $secondString$, we calculate $i - last[c]$. If the value of $i - last[c]$ is less than the current minimum value, we update the minimum value and set the answer to 1. If the value of $i - last[c]$ equals the current minimum value, we increment the answer by 1.

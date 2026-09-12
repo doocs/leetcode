@@ -97,6 +97,16 @@ Player 3 (Novak)  没有赢得，因此不包含在结果集中。</pre>
 
 ### 方法一：合并 + 等值连接 + 分组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 四项大满贯冠军存在宽表里，要按球员统计冠军次数。先把四列竖成一列再与球员表连接。
+>
+> $\mathrm{UNION\ ALL}$ 四次选出冠军 $\textit{player\_id}$，等值连接 $\textit{Players}$ 后按人 $\mathrm{COUNT}$。
+
+<!-- thinking:end -->
+
 我们可以使用 `UNION ALL`，将所有赢得大满贯比赛的球员 ID 合并到一张表 `T` 中，然后使用等值连接 `JOIN`，将 `T` 表与 `Players` 表按照 `player_id` 进行连接，最后使用 `GROUP BY` 和 `COUNT` 统计每个球员赢得大满贯比赛的次数。
 
 <!-- tabs:start -->
@@ -133,6 +143,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 也可以不拆行：球员与赛事表交叉连接，用四个 $\mathrm{CASE}$ 对号入座后求和，再 $\mathrm{HAVING}$ 滤掉零冠。避免中间表，语义是按人扫四列。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: State Compression + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move picks two remaining numbers and scores $i\cdot\gcd$ on the $i$-th move. $n\le 7$ so $m=2n\le 14$, and subset DP can try pairings.
+>
+> Precompute pairwise $\gcd$. $f[k]$ is the best score using the elements in mask $k$. When the popcount is even, try removing a pair $i,j$ and add $\textit{cnt}/2\cdot g[i][j]$.
+>
+> The full mask $f[2^m-1]$ is the answer.
+
+<!-- thinking:end -->
+
 We can preprocess to get the greatest common divisor of any two numbers in the array `nums`, stored in the two-dimensional array $g$, where $g[i][j]$ represents the greatest common divisor of $nums[i]$ and $nums[j]$.
 
 Then define $f[k]$ to represent the maximum score that can be obtained when the state after the current operation is $k$. Suppose $m$ is the number of elements in the array `nums`, then there are a total of $2^m$ states, that is, the range of $k$ is $[0, 2^m - 1]$.

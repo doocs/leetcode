@@ -62,6 +62,16 @@ tags:
 
 ### 方法一：单调栈
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好子数组必须覆盖下标 $k$，分数为长度乘区间最小值。$n\le 10^5$，不能枚举所有覆盖 $k$ 的区间。
+>
+> 改以每个位置作为最小值：单调栈求出左右第一个更小元，得到它能控制的最大区间；若该区间仍覆盖 $k$，则用 $v\times\textit{width}$ 更新答案。
+
+<!-- thinking:end -->
+
 我们可以枚举 $nums$ 中的每个元素 $nums[i]$ 作为子数组的最小值，利用单调栈找出其左边第一个小于 $nums[i]$ 的位置 $left[i]$ 和右边第一个小于等于 $nums[i]$ 的位置 $right[i]$，则以 $nums[i]$ 为最小值的子数组的分数为 $nums[i] \times (right[i] - left[i] - 1)$。
 
 需要注意的是，只有当左右边界 $left[i]$ 和 $right[i]$ 满足 $left[i]+1 \leq k \leq right[i]-1$ 时，答案才有可能更新。
@@ -270,6 +280,14 @@ function maximumScore(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### 方法二：双指针
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 单调栈需要额外线性空间。从 $k$ 出发双指针向外扩，始终把下一次纳入的较大一侧先扩进去，使窗口最小值下降尽可能慢，边走边更新 $\textit{min}\times\textit{len}$。额外空间为常数。
+
+<!-- thinking:end -->
 
 我们可从核心索引 `k` 出发，利用双指针向左右两侧交替扩展，
 动态维护当前窗口内的最小值，从而求解最大得分。

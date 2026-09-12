@@ -78,6 +78,16 @@ The answers for each of the queries are as follows:
 
 ### Solution 1: Hash Table + Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The incident-edge count of $(a,b)$ is $\deg(a)+\deg(b)$ minus the multiplicity between them. Many queries and a mid-sized $n$ forbid enumerating every pair per query.
+>
+> Sort degrees and, for each $a$, binary-search how many $b$ have $\deg(a)+\deg(b)>q$. Then subtract pairs whose degree sum clears $q$ only before removing the shared edges.
+
+<!-- thinking:end -->
+
 From the problem, we know that the number of edges connected to the point pair $(a, b)$ is equal to the "number of edges connected to $a$" plus the "number of edges connected to $b$", minus the number of edges connected to both $a$ and $b$.
 
 Therefore, we can first use the array $cnt$ to count the number of edges connected to each point, and use the hash table $g$ to count the number of each point pair.

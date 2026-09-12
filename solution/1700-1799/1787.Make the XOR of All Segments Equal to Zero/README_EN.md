@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every window of length $k$ XORing to $0$ implies $nums[i]=nums[i+k]$: the answer is periodic with period $k$ and one period XORs to $0$. Values fit in $10$ bits, so DP by residue class.
+>
+> $f[j]$ is the fewest changes so that processed groups XOR to $j$. A group is rewritten to a fresh value (cost $=$ group size) or to an existing $v$ (saving $cnt[v]$). After $k$ groups take $f[0]$.
+
+<!-- thinking:end -->
+
 Notice that after modifying the array `nums`, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:
 
 $$

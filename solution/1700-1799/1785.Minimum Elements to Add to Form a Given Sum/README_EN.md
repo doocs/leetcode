@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may append integers of absolute value at most $\textit{limit}$ so the sum becomes $\textit{goal}$, using as few appends as possible.
+>
+> The gap $d=|\sum nums-\textit{goal}|$ shrinks by at most $\textit{limit}$ each time, so the fewest appends are $\lceil d/\textit{limit}\rceil$.
+
+<!-- thinking:end -->
+
 First, we calculate the sum of the array elements $s$, and then calculate the difference $d$ between $s$ and $goal$.
 
 The number of elements to be added is the absolute value of $d$ divided by $limit$ and rounded up, that is, $\lceil \frac{|d|}{limit} \rceil$.

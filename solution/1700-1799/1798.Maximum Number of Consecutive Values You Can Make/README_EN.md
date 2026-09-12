@@ -76,6 +76,16 @@ You can make 8 consecutive integer values starting from 0.</pre>
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Subset sums of the coins should cover a prefix of the nonnegative integers. If $[0,ans)$ is already feasible, a coin $v\le ans$ extends it to $[0,ans+v)$.
+>
+> Sort the coins and absorb them from small to large; stop at the first $v>ans$, which would leave a hole. The final $ans$ is the length of the prefix.
+
+<!-- thinking:end -->
+
 First, we sort the array. Then we define $ans$ as the current number of consecutive integers that can be constructed, initialized to $1$.
 
 We traverse the array, for the current element $v$, if $v > ans$, it means that we cannot construct $ans+1$ consecutive integers, so we directly break the loop and return $ans$. Otherwise, it means that we can construct $ans+v$ consecutive integers, so we update $ans$ to $ans+v$.

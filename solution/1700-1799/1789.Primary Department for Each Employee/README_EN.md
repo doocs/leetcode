@@ -83,6 +83,16 @@ Employee table:
 
 ### Solution 1: Merging
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If a primary flag is set, take that row; an employee in only one department is reported even when the flag is $N$. Union the two sets.
+>
+> Select rows with $\textit{primary\_flag}='Y'$, then $\mathrm{UNION}$ employees whose group count is $1$.
+
+<!-- thinking:end -->
+
 We can first query all employees who already have a direct department, and then query all employees who belong to only one department. Finally, we can merge the two results using `UNION`.
 
 <!-- tabs:start -->
