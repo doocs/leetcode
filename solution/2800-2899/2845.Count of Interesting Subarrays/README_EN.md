@@ -84,6 +84,14 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 
 ### Solution 1: Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the count of indices with $nums[i]\bmod modulo=k$ itself congruent to $k$ on a subarray. Mapping those indices to $1$ reduces the condition to $(s_r-s_{l-1})\bmod modulo=k$. A hash map of prefix sums modulo $modulo$ counts the matching left ends in one pass.
+
+<!-- thinking:end -->
+
 The problem requires the number of indices $i$ in an interval that satisfy $nums[i] \bmod modulo = k$. We can transform the array $nums$ into a $0-1$ array $arr$, where $arr[i] = 1$ indicates $nums[i] \bmod modulo = k$, otherwise $arr[i] = 0$.
 
 For an interval $[l, r]$, we can calculate the number of $1$s in $arr[l..r]$ through the prefix sum array $s$, i.e., $s[r] - s[l - 1]$, where $s[0] = 0$.

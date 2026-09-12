@@ -75,6 +75,14 @@ Hence, the answer is nums[3] = 1.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is small enough that we can test `bit_count` of every index against $k$ and sum the matching values.
+
+<!-- thinking:end -->
+
 We directly traverse each index $i$, and check whether the number of $1$s in its binary representation is equal to $k$. If it is, we add the corresponding element to the answer $ans$.
 
 After the traversal ends, we return the answer.

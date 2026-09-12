@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distance is $(x_1\oplus x_2)+(y_1\oplus y_2)=k$. With $k\le 100$, enumerate the $x$-xor $a$ and set the $y$-xor to $k-a$; the partner is recovered by xor. A hash map of earlier points counts pairs without double-counting.
+
+<!-- thinking:end -->
+
 We can use a hash table $cnt$ to count the occurrence of each point in the array $coordinates$.
 
 Next, we enumerate each point $(x_2, y_2)$ in the array $coordinates$. Since the range of $k$ is $[0, 100]$, and the result of $x_1 \oplus x_2$ or $y_1 \oplus y_2$ is always greater than or equal to $0$, we can enumerate the result $a$ of $x_1 \oplus x_2$ in the range $[0,..k]$. Then, the result of $y_1 \oplus y_2$ is $b = k - a$. In this way, we can calculate the values of $x_1$ and $y_1$, and add the occurrence of $(x_1, y_1)$ to the answer.

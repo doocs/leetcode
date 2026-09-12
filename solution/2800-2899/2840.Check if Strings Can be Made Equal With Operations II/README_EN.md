@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swaps still mix only same-parity indices, now on a longer string. Even and odd positions remain two independent multisets; matching their counts is enough.
+
+<!-- thinking:end -->
+
 We observe the operation in the problem, and find that if the parity of the two indices $i$ and $j$ of the string is the same, then their order can be changed by swapping.
 
 Therefore, we can count the occurrence times of the characters at odd indices and even indices in the two strings. If the counting results of the two strings are the same, then we can make the two strings equal through the operation.

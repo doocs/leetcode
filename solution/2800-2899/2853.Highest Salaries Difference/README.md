@@ -75,6 +75,14 @@ Salaries table:
 
 ### 方法一：GROUP BY 分组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要两个部门最高薪之差。按部门 `GROUP BY` 取 `MAX(salary)`，外层再对这两个最大值做差；`MAX-MIN` 同时覆盖部门顺序。
+
+<!-- thinking:end -->
+
 我们可以先分别计算出每个部门的最高工资，然后再计算两个最高工资的差值。
 
 <!-- tabs:start -->

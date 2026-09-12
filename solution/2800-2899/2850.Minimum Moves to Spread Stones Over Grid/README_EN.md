@@ -74,6 +74,14 @@ It can be shown that 4 is the minimum number of moves required to place one ston
 
 ### Solution 1: Naive BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is $3\times 3$, so the state space is tiny. Moving an extra stone to an adjacent empty cell is a shortest-path problem; BFS from the start grid to the all-ones grid suffices.
+
+<!-- thinking:end -->
+
 The problem is essentially finding the shortest path from the initial state to the target state in a state graph, so we can use BFS to solve it. The initial state is `grid`, and the target state is `[[1, 1, 1], [1, 1, 1], [1, 1, 1]]`. In each operation, we can move a stone greater than $1$ from a cell to an adjacent cell that does not exceed $1$. If the target state is found, we can return the current layer number, which is the minimum number of moves.
 
 <!-- tabs:start -->
@@ -385,6 +393,14 @@ function g(s: string): number[][] {
 <!-- solution:start -->
 
 ### Solution 2: State Compression Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS still expands adjacent moves. Empties and surplus stones form a min-cost assignment. With at most eight empties, a bit mask of matched surplus stones and Manhattan costs yields a DP that skips the step-by-step walk.
+
+<!-- thinking:end -->
 
 We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.
 

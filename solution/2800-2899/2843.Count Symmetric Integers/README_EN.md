@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $high\le 10^4$, every integer in the range can be tested: even length and equal digit sums on the two halves. Digit DP is unnecessary.
+
+<!-- thinking:end -->
+
 We enumerate each integer $x$ in the range $[low, high]$, and check whether it is a palindromic number. If it is, then the answer $ans$ is increased by $1$.
 
 The time complexity is $O(n \times \log m)$, and the space complexity is $O(\log m)$. Here, $n$ is the number of integers in the range $[low, high]$, and $m$ is the maximum integer given in the problem.

@@ -86,6 +86,14 @@ tags:
 
 ### 方法一：哈希表 + 前缀和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 子数组中满足 $nums[i]\bmod modulo=k$ 的下标个数再模 $modulo$ 后等于 $k$。把满足条件的位置看成 $1$，问题化为前缀和 $s$ 满足 $(s_r-s_{l-1})\bmod modulo=k$。哈希表统计前缀和模 $modulo$ 的出现次数，即可在扫描时累加配对。
+
+<!-- thinking:end -->
+
 题目要求一个区间内满足 $nums[i] \bmod modulo = k$ 的索引 $i$ 的数量，我们可以将数组 $nums$ 转换为一个 $0-1$ 数组 $arr$，其中 $arr[i] = 1$ 表示 $nums[i] \bmod modulo = k$，否则 $arr[i] = 0$。
 
 那么对于一个区间 $[l, r]$，我们可以通过前缀和数组 $s$ 来计算 $arr[l..r]$ 中 $1$ 的数量，即 $s[r] - s[l - 1]$，其中 $s[0] = 0$。

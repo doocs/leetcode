@@ -103,6 +103,14 @@ Hence, the answer is 2.
 
 ### Solution 1: Greedy + Combinatorial Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Beauty is the sum of frequencies of $k$ distinct characters. The largest frequencies should be chosen. After sorting frequencies decreasingly, every value strictly above the $k$-th must be taken; characters tied at that threshold are chosen by a binomial coefficient and contribute that frequency to the power of the remaining slots.
+
+<!-- thinking:end -->
+
 First, we use a hash table $f$ to count the occurrence of each character in the string $s$, i.e., $f[c]$ represents the number of times character $c$ appears in the string $s$.
 
 Since a $k$-subsequence is a subsequence of length $k$ in the string $s$ with unique characters, if the number of different characters in $f$ is less than $k$, then there is no $k$-subsequence, and we can directly return $0$.
