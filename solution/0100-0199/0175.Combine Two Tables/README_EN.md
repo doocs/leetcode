@@ -94,6 +94,14 @@ addressId = 1 contains information about the address of personId = 2.
 
 ### Solution 1: LEFT JOIN
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One row per person; city and state should be $\textit{NULL}$ when the address is missing. An inner join would drop people without an address. A left join driven by $\textit{Person}$ on $\textit{personId}$ keeps every person and leaves the address columns null when there is no match.
+
+<!-- thinking:end -->
+
 We can use a left join to join the `Person` table with the `Address` table on the condition `Person.personId = Address.personId`, which will give us the first name, last name, city, and state of each person. If the address of a `personId` is not in the `Address` table, it will be reported as `null`.
 
 <!-- tabs:start -->

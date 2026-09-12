@@ -86,6 +86,14 @@ Employee 表：
 
 ### 方法一：使用 LIMIT 语句和子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 第二高薪水在去重之后的降序序列中取第二项，不足两项则返回 $\textit{NULL}$。$\textit{ORDER BY}$ 加 $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ 直接取出该位置；外层再包一层是为了「没有第二名」时仍得到一行 $\textit{NULL}$，而不是空结果集。
+
+<!-- thinking:end -->
+
 我们可以按照薪水降序排列，然后使用 `LIMIT` 语句来获取第二高的薪水，如果不存在第二高的薪水，那么就返回 `null`。
 
 <!-- tabs:start -->
@@ -136,6 +144,14 @@ SELECT
 
 ### 方法二：使用 MAX() 函数和子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖排序与偏移。严格小于最高薪水的那些值里再取最大，就是第二高，空集上 $\textit{MAX}$ 自然为 $\textit{NULL}$，不必写 $\textit{LIMIT}$。
+
+<!-- thinking:end -->
+
 我们也可以使用 `MAX()` 函数，从小于 `MAX()` 的薪水中挑选一个最大的薪水即可。
 
 <!-- tabs:start -->
@@ -156,6 +172,14 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 <!-- solution:start -->
 
 ### 方法三：使用 DISTINCT 和窗口函数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 去重后用 $\textit{DENSE_RANK}$ 按薪水降序编号，筛出名为 $2$ 的那一行。并列最高不会占掉第二名，语义与「第 $k$ 高」一致，便于推广。
+
+<!-- thinking:end -->
 
 我们还可以先通过 `DENSE_RANK()` 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。
 

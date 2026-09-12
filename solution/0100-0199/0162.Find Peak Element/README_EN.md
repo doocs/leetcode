@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Neighbors differ and the sentinels are $-\infty$, so a peak exists. A linear scan works for $n\le 1000$; the problem wants $O(\log n)$. Compare mid to its right neighbor: a smaller right side means a peak in the left half (including mid), otherwise in the right half. Shrink until the two ends meet.
+
+<!-- thinking:end -->
+
 We define the left boundary of binary search as $left=0$ and the right boundary as $right=n-1$, where $n$ is the length of the array. In each step of binary search, we find the middle element $mid$ of the current interval, and compare the values of $mid$ and its right neighbor $mid+1$:
 
 - If the value of $mid$ is greater than the value of $mid+1$, there exists a peak element on the left side, and we update the right boundary $right$ to $mid$.
