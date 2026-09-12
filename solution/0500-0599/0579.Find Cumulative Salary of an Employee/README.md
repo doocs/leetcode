@@ -126,6 +126,16 @@ Employee table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每位员工排除最近一个月后，对每个剩下的月份求当月及前两个月的工资和。窗口的 `RANGE 2 PRECEDING` 正好按月份值取近三个月，而不是按行数。
+>
+> 先用子查询去掉每人的 `MAX(month)`，再按 `id` 分区、按 `month` 排序做范围累加。最后按 id、月份降序输出。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -159,6 +169,16 @@ ORDER BY id, month DESC;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用 `NOT IN` 去掉最近月。也可以先算出累计工资与按月份倒序的排名，再过滤 $rk>1$。
+>
+> `RANK() OVER (... ORDER BY month DESC)` 把最近月标成 $1$。累计窗口与方法一相同，过滤写法更直观。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

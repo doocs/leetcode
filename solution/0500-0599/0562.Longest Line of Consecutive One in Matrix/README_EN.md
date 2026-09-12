@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest run of ones may go horizontally, vertically, or on either diagonal. Extending from every start is $O(mn \cdot (m+n))$.
+>
+> Four tables store the run ending at $(i,j)$ in each direction, taking the cell above, left, upper-left, or upper-right plus one. Zeros stay zero. A one-cell border avoids bounds checks. Track the global maximum.
+
+<!-- thinking:end -->
+
 We define $f[i][j][k]$ to represent the length of the longest consecutive $1$s ending at $(i, j)$ in direction $k$. The value range of $k$ is $0, 1, 2, 3$, representing horizontal, vertical, diagonal, and anti-diagonal directions, respectively.
 
 > We can also use four 2D arrays to represent the length of the longest consecutive $1$s in the four directions.

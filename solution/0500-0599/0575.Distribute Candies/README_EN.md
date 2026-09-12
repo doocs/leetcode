@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice receives half the candies and wants as many types as possible. Extra types beyond $n/2$ cannot be taken.
+>
+> The number of distinct types is the set size; the answer is $\min(\textit{types},\ n/2)$. No need to simulate the split.
+
+<!-- thinking:end -->
+
 We use a hash table to store the types of candies. If the number of candy types is less than $n / 2$, then the maximum number of candy types that Alice can eat is the number of candy types. Otherwise, the maximum number of candy types that Alice can eat is $n / 2$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of candies.

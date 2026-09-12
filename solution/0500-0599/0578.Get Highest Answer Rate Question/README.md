@@ -82,6 +82,16 @@ SurveyLog table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 答题率是 `answer` 次数除以 `show` 次数，取最高者，并列取最小 `question_id`。按题分组即可。
+>
+> `SUM(action = 'answer') / SUM(action = 'show')` 在分组内算出比率，按比率降序、id 升序，`LIMIT 1` 取出题目。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -102,6 +112,16 @@ LIMIT 1;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用 `GROUP BY` 聚合。窗口也可以按题目分区算出同一比率，再排序取第一。
+>
+> `SUM(...) OVER (PARTITION BY question_id)` 给每一行都带上该题的比率，外层去重排序。结果与分组聚合相同，便于与其他窗口列一起用。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

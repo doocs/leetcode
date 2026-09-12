@@ -95,6 +95,16 @@ Vote table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 得票最多的候选人获胜。先按 `CandidateId` 计数排序取第一，再连接姓名。
+>
+> 内层分组计数、`ORDER BY COUNT DESC LIMIT 1` 得到胜者 id，外层与 `Candidate` 连接出 `Name`。票数相同时题目保证唯一胜者。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -122,6 +132,16 @@ FROM
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一先聚合成临时表再连接。也可以从候选人出发左连接选票，按候选人分组，直接按票数排序取第一。
+>
+> `COUNT(1)` 在左连接后统计每个候选人的行数，无票者为 $0$。少一层子查询，结果与方法一相同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
