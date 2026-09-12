@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md
 tags:
     - 数据库
 ---

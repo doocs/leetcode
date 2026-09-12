@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1538.Guess%20the%20Majority%20in%20a%20Hidden%20Array/README_EN.md
 tags:
     - Array
     - Math

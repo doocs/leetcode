@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README.md
 rating: 2362
 source: 第 198 场周赛 Q3
 tags:

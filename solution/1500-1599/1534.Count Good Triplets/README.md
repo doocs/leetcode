@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1534.Count%20Good%20Triplets/README.md
 rating: 1279
 source: 第 200 场周赛 Q1
 tags:

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search

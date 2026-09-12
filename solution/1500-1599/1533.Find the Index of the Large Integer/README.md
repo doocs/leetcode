@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README.md
 tags:
     - 数组
     - 二分查找
