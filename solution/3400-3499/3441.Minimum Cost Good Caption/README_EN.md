@@ -106,6 +106,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good caption partitions the string into runs of identical letters of length at least $3$. Changing a letter costs alphabet distance, and $n\le 5\times 10^4$.
+>
+> A run may be longer than $3$, but an overly long run can be split. The decision at $i$ is the next run's letter $c$ and length $L\ge 3$.
+>
+> DP $f[i][c]$ is the minimum cost from $i$ onward with the current run letter $c$. Transitions enumerate the next run; predecessors reconstruct the lexicographically smallest string.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

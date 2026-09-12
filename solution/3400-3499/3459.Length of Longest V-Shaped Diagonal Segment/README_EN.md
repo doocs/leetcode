@@ -112,6 +112,18 @@ tags:
 
 ### Solution 1: Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A V-shaped diagonal starts at $1$, follows $2,0,2,0,\ldots$, and may turn clockwise at most once. A $500\times 500$ grid would revisit the same state if every polyline were searched from scratch.
+>
+> A state is the previous cell, the direction, and whether a turn remains. Memoization yields a linear number of states.
+>
+> $\textit{dfs}(i,j,k,\textit{cnt})$ continues in direction $k$, or turns to $(k+1)\bmod 4$ when $\textit{cnt}>0$. We start from every $1$ in four directions and add one for the start cell.
+
+<!-- thinking:end -->
+
 We design a function $\text{dfs}(i, j, k, \textit{cnt})$ that returns the length of the longest V-shaped diagonal segment, where $(i, j)$ is the previous position, $k$ is the current direction, and $\textit{cnt}$ is the remaining number of allowed turns.
 
 The logic of the $\text{dfs}$ function is as follows:

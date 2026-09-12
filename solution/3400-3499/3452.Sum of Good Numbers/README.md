@@ -66,6 +66,18 @@ tags:
 
 ### 方法一：遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好数须严格大于两侧距离为 $k$ 的邻居（若存在）。$n\le 100$，逐个检查即可。
+>
+> 越界的一侧视为没有约束，不能把它当成 $0$ 去比较。
+>
+> 对每个 $i$，若左侧存在且 $x\le \textit{nums}[i-k]$，或右侧存在且 $x\le \textit{nums}[i+k]$，则跳过；否则累加 $x$。
+
+<!-- thinking:end -->
+
 我们可以遍历数组 $\textit{nums}$，对于每个元素 $\textit{nums}[i]$，检查是否满足条件：
 
 - 如果 $i \ge k$ 且 $\textit{nums}[i] \le \textit{nums}[i - k]$，则 $\textit{nums}[i]$ 不是好数字；

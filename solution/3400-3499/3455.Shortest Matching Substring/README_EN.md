@@ -94,6 +94,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $p$ contains exactly two stars and splits into three literals $a$, $b$, $c$. $|s|,|p|\le 10^5$ forbids a naive search from every start.
+>
+> The shortest match is determined by occurrence positions: after one $a$, take the earliest later $b$, then the earliest later $c$.
+>
+> KMP or Z-algorithm lists every occurrence of the three pieces. A two-pointer sweep over $a$'s starts advances $b$ and $c$. The length is the right end of $c$ minus the left end of $a$, or $-1$ if none exists.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

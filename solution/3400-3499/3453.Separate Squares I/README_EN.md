@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A horizontal line must bisect the total area of the squares. Area below the line grows monotonically; the total area is up to $10^{12}$ and coordinates are large, so heights cannot be enumerated.
+>
+> Monotonicity on the reals suggests binary search. The predicate asks whether the area strictly below $y=y_1$ already reaches half.
+>
+> A square whose bottom is under $y_1$ contributes side length times the clipped depth. We search until the gap is $10^{-5}$ and return the right end.
+
+<!-- thinking:end -->
+
 According to the problem, we need to find a horizontal line such that the total area of squares above the line equals the total area of squares below the line. Since as the $y$ coordinate increases, the area below the line increases and the area above the line decreases, we can use binary search to find the $y$ coordinate of this horizontal line.
 
 We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = \max(y_i + l_i)$, which is the highest point of all squares. Then we calculate the midpoint $mid = (l + r) / 2$ and calculate the area below this horizontal line. If this area is greater than or equal to half of the total area, it means we need to move the right boundary $r$ downward; otherwise, we move the left boundary $l$ upward. We repeat this process until the difference between the left and right boundaries is less than a very small value (e.g., $10^{-5}$).

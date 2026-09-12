@@ -95,6 +95,18 @@ Each row contains server access log information including IP address and HTTP st
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count invalid IPv4 addresses in the logs. A valid address has four octets, each a $0..255$ integer with no leading zeros.
+>
+> A SQL regex can express this, but leading zeros plus ranges are awkward; splitting in Pandas is clearer.
+>
+> Split on `.`, check that each piece is a digit string in range and equals $\textit{str}(\textit{int})$. Count invalid IPs and sort by count then address, both descending.
+
+<!-- thinking:end -->
+
 We can determine if an IP address is invalid based on the following conditions:
 
 1. The number of `.` in the IP address is not equal to $3$;

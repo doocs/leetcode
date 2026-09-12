@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day we eat four pizzas: the max on odd days, the second max on even days. $n$ is a multiple of $4$ up to $2\times 10^5$, so groupings cannot be searched.
+>
+> Odd days should claim the largest pizzas; even days must “waste” one larger pizza to take the second largest. After sorting, those contributions sit at fixed indices.
+>
+> Let $\textit{odd}=\lceil\textit{days}/2\rceil$. Add the largest $\textit{odd}$ pizzas, then from the remainder take every other pizza as an even-day second maximum.
+
+<!-- thinking:end -->
+
 According to the problem description, we can eat $4$ pizzas each day. On odd days, we get the maximum value among these $4$ pizzas, and on even days, we get the second largest value among these $4$ pizzas.
 
 Therefore, we can sort the pizzas by weight in ascending order. We can eat for $\textit{days} = n / 4$ days, with $\textit{odd} = (\textit{days} + 1) / 2$ days being odd days and $\textit{even} = \textit{days} - \textit{odd}$ days being even days.
