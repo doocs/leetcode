@@ -74,6 +74,16 @@ It can be proven that 3 is the minimum score that we can achieve.
 
 ### Solution 1: Prefix and Suffix Preprocessing + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete one segment of $t$ (possibly empty or the whole string) so the leftover prefix and suffix are disjoint subsequences of $s$, and minimize the deleted length. Trying every segment is more than quadratic.
+>
+> Larger deletions only help, so binary-search the length $x$. $f[j]$ is the leftmost $s$ index used when matching $t[0..j]$; $g[j]$ is the rightmost index used for $t[j..]$. After deleting $[k,k+x)$, the two pieces are compatible iff $f[k-1]<g[k+x]$.
+
+<!-- thinking:end -->
+
 According to the problem, we know that the range of the index to delete characters is `[left, right]`. The optimal approach is to delete all characters within the range `[left, right]`. In other words, we need to delete a substring from string $t$, so that the remaining prefix of string $t$ can match the prefix of string $s$, and the remaining suffix of string $t$ can match the suffix of string $s$, and the prefix and suffix of string $s$ do not overlap. Note that the match here refers to subsequence matching.
 
 Therefore, we can preprocess to get arrays $f$ and $g$, where $f[i]$ represents the minimum number of characters in the prefix $t[0,..i]$ of string $t$ that match the first $[0,..f[i]]$ characters of string $s$; similarly, $g[i]$ represents the maximum number of characters in the suffix $t[i,..n-1]$ of string $t$ that match the last $[g[i],..n-1]$ characters of string $s$.

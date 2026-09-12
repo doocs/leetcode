@@ -71,6 +71,16 @@ It can be proven that there is no more than 1 square-free subset in the given ar
 
 ### Solution 1: State Compression Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count nonempty subsets whose product is square-free. Values lie in $[1,30]$, so $2^n$ is unnecessary: only thirty distinct numbers exist, and any number with a squared factor is forbidden.
+>
+> Ten primes sit below $30$, so a subset's prime set is a $10$-bit mask. $f[\textit{state}]$ is the number of ways to form that mask; ones may be taken freely, hence $f[0]=2^{\textit{cnt}[1]}$. Each square-free $x$ is a $0$-$1$ item transferred from high masks down. Sum every state and drop the empty subset.
+
+<!-- thinking:end -->
+
 Note that in the problem, the range of $nums[i]$ is $[1, 30]$. Therefore, we can preprocess all prime numbers less than or equal to $30$, which are $[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]$.
 
 In the subset without square numbers, the product of all elements can be represented as the product of one or more distinct prime numbers, that is, each prime factor can appear at most once. Therefore, we can use a binary number to represent the prime factors in a subset, where the $i$-th bit of the binary number indicates whether the prime number $primes[i]$ appears in the subset.

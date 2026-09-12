@@ -88,6 +88,16 @@ The final time is 7. It can be shown that it is the minimum time possible.
 
 ### Solution 1: Shortest Path + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cell may be entered only at time at least its value; each step costs $1$, and we may walk back and forth to wait. If both neighbours of the start exceed $1$, the first step is impossible.
+>
+> Otherwise parity can always be adjusted by oscillating. Dijkstra on a min-heap of arrival times: if $t+1$ is already large enough, go then; else wait until $grid[x][y]$, plus one extra second when that instant has the wrong parity relative to $t+1$.
+
+<!-- thinking:end -->
+
 We observe that if we cannot move at the cell $(0, 0)$, i.e., $grid[0][1] > 1$ and $grid[1][0] > 1$, then we cannot move at the cell $(0, 0)$ anymore, and we should return $-1$. For other cases, we can move.
 
 Next, we define $dist[i][j]$ to represent the earliest arrival time at $(i, j)$. Initially, $dist[0][0] = 0$, and the $dist$ of other positions are all initialized to $\infty$.

@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merge two $id$-sorted lists of pairs, adding values that share an $id$. A two-pointer merge works, but ids are at most $1000$, so a counter plus a sort of its items is enough.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array `cnt` to count the frequency of each number in the two arrays.
 
 Then we enumerate each number in `cnt` from small to large. If the frequency of a number is greater than $0$, we add it to the answer array.

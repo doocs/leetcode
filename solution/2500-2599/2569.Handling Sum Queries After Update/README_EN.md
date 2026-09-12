@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Segment Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three operations: flip a range of $nums1$; add $p\times\sum nums1$ to every element of $nums2$; report $\sum nums2$. $n,q\le 10^5$ forbids walking a range on every flip.
+>
+> $\sum nums2$ is a single running total; only the range sum of $nums1$ matters for the second operation. A segment tree stores how many ones sit in each interval, with a lazy flip that replaces a sum $s$ by $\textit{length}-s$. The third operation just records the current total.
+
+<!-- thinking:end -->
+
 According to the problem description:
 
 - Operation $1$ is to reverse all numbers in the index range $[l,..r]$ of array `nums1`, that is, change $0$ to $1$ and $1$ to $0$.
