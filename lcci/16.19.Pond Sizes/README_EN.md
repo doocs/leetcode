@@ -53,6 +53,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.19.Pond%20Sizes/RE
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ponds are 8-connected zeros; report sorted areas. Union-find or BFS both work; one grid pass is enough.
+>
+> Each unused $0$ starts a DFS that counts and paints cells nonzero so they are not revisited.
+>
+> The eight neighbors are the $[-1,1]\times[-1,1]$ box (the center is already painted). Sort the areas at the end.
+
+<!-- thinking:end -->
+
 We can traverse each point $(i, j)$ in the integer matrix $land$. If the value of the point is $0$, we start a depth-first search from this point until we reach a point with a non-zero value. The number of points searched during this process is the size of the pond, which is added to the answer array.
 
 > Note: To avoid duplicate searches, we set the value of the searched points to $1$.

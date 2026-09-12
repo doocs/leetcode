@@ -48,6 +48,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.17.Contiguous%20Se
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum subarray sum. Trying every pair of ends is cubic or quadratic.
+>
+> The best segment ending at $i$ either extends the best ending at $i-1$ or starts over, which is Kadane’s recurrence.
+>
+> Roll $f=\max(f,0)+x$ and track the global maximum. Extra space is constant.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the maximum sum of a continuous subarray that ends with $nums[i]$. The state transition equation is:
 
 $$

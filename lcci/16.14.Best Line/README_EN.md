@@ -40,6 +40,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/REA
 
 ### Solution 1: Brute Force
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the two smallest indices on a line that covers the most points. $n$ is small enough for $O(n^3)$.
+>
+> Two points fix a line; a third is collinear when $(y_2-y_1)(x_3-x_1)=(y_3-y_1)(x_2-x_1)$, avoiding division.
+>
+> Enumerate $i<j<k$, update the best count and pair $(i,j)$. Smaller indices first already match the tie-break.
+
+<!-- thinking:end -->
+
 We can enumerate any two points $(x_1, y_1), (x_2, y_2)$, connect these two points into a line, and the number of points on this line is 2. Then we enumerate other points $(x_3, y_3)$, and determine whether they are on the same line. If they are, the number of points on the line increases by 1; otherwise, the number of points on the line remains the same. Find the maximum number of points on a line, and the corresponding smallest two point indices are the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array `points`.
@@ -206,6 +218,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Enumeration + Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cubic loop recounts the same line many times when $n$ grows.
+>
+> Fix one point and hash reduced slopes of the others; equal keys are collinear, in $O(n^2\log m)$.
+
+<!-- thinking:end -->
 
 We can enumerate a point $(x_1, y_1)$, store the slope of the line connecting $(x_1, y_1)$ and all other points $(x_2, y_2)$ in a hash table. Points with the same slope are on the same line, and the key of the hash table is the slope, and the value is the number of points on the line. Find the maximum value in the hash table, which is the answer. To avoid precision issues, we can reduce the slope $\frac{y_2 - y_1}{x_2 - x_1}$, and the reduction method is to find the greatest common divisor, and then divide the numerator and denominator by the greatest common divisor. The resulting numerator and denominator are used as the key of the hash table.
 

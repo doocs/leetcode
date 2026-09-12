@@ -28,6 +28,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README.
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不用比较运算求 $\max(a,b)$。条件分支或 `if` 通常会编译成比较。
+>
+> $a-b$ 的符号位标明谁更大：符号为 $1$ 则 $a<b$。
+>
+> 取出 $64$ 位视图下的符号位 $k$，返回 $a(k\oplus 1)+b k$。用位运算与乘法选择，而不写关系运算符。
+
+<!-- thinking:end -->
+
 我们可以提取 $a-b$ 的符号位 $k$，如果符号位为 $1$，说明 $a \lt b$；如果符号位为 $0$，说明 $a \ge b$。
 
 那么最后的结果就是 $a \times (k \oplus 1) + b \times k$。

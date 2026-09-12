@@ -47,6 +47,18 @@ death = {1948, 1951, 2000}
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Years lie in $1900$–$2000$; find the earliest year with the most people alive. Scanning everyone for each year is $O(nC)$.
+>
+> A life is a range increment. A difference array updates endpoints in $O(1)$ and prefix sums recover the yearly counts.
+>
+> Add one at birth, subtract one the year after death (death year still counts). The prefix of the difference array tracks the best year.
+
+<!-- thinking:end -->
+
 The problem is actually about performing addition and subtraction operations on a continuous interval, and then finding the maximum value. This can be solved using a difference array.
 
 Since the year range in the problem is fixed, we can use an array of length $102$ to represent the population changes from 1900 to 2000. Each element in the array represents the population change in that year, with positive numbers indicating the number of births and negative numbers indicating the number of deaths.

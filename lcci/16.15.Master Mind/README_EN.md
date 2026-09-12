@@ -44,6 +44,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.15.Master%20Mind/R
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Hits are right color and slot; pseudo-hits are right color only. Four positions need no heavier matching.
+>
+> Hits $x$ are pairwise equals; pseudo-hits are the sum of per-color mins minus $x$.
+>
+> `zip` counts $x$; the `Counter` intersection is the color overlap $y$; return $[x,y-x]$. The alphabet has size $4$.
+
+<!-- thinking:end -->
+
 We simultaneously traverse both strings, count the number of corresponding characters that are the same, and accumulate them in $x$. Then we record the characters and their frequencies in both strings in hash tables $cnt1$ and $cnt2$, respectively.
 
 Next, we traverse both hash tables, count the number of common characters, and accumulate them in $y$. The answer is then $[x, y - x]$.

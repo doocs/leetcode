@@ -32,6 +32,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.07.Maximum/README_
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\max(a,b)$ without comparison operators. An `if` typically becomes a compare.
+>
+> The sign bit of $a-b$ tells which is larger: $1$ means $a<b$.
+>
+> Extract that bit $k$ in a $64$-bit view and return $a(k\oplus 1)+b k$, selecting with arithmetic instead of a relational test.
+
+<!-- thinking:end -->
+
 We can extract the sign bit $k$ of $a-b$. If the sign bit is $1$, it means $a \lt b$; if the sign bit is $0$, it means $a \ge b$.
 
 Then the final result is $a \times (k \oplus 1) + b \times k$.

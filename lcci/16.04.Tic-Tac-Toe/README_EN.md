@@ -67,6 +67,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.04.Tic-Tac-Toe/REA
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide a win, a draw, or an unfinished board. Recounting every line after the fact is correct but redundant.
+>
+> Score `X` as $+1$ and `O` as $-1$; an absolute sum of $n$ on a row, column, or diagonal is a full line.
+>
+> Accumulate $rows$, $cols$, $dg$, and $udg$ while scanning; return the cell’s character when some absolute value hits $n$. No spaces means a draw, otherwise `Pending`.
+
+<!-- thinking:end -->
+
 For each cell, if it is `X`, we can add $1$ to the count; if it is `O`, we can subtract $1$ from the count. When the absolute value of the count of a row, column, or diagonal equals $n$, it means that the current player has placed $n$ identical characters in that row, column, or diagonal, and the game is over. We can return the corresponding character.
 
 Specifically, we use a one-dimensional array $rows$ and $cols$ of length $n$ to represent the count of each row and column, and use $dg$ and $udg$ to represent the count of the two diagonals. When a player places a character at $(i, j)$, we update the corresponding elements in the arrays $rows$, $cols$, $dg$, and $udg$ based on whether the character is `X` or `O`. After each update, we check whether the absolute value of the corresponding element equals $n$. If it does, it means that the current player has placed $n$ identical characters in that row, column, or diagonal, and the game is over. We can return the corresponding character.
