@@ -65,6 +65,16 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating four indices is $O(n^4)$. Maximizing $ab-cd$ means taking the largest product minus the smallest product.
+>
+> After sorting, that is the product of the two largest minus the product of the two smallest, which uses four distinct indices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

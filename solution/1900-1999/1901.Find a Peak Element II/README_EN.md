@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every cell against its four neighbors finds a peak in $O(mn)$, but the required bound is $O(n\log m)$ or $O(m\log n)$.
+>
+> Let $mat[i][j]$ be the maximum of row $i$. Comparing it with $mat[i+1][j]$ tells which half must contain a peak: a drop keeps the upper half, a rise keeps the lower half. If that half had no peak, the row-max at the border would contradict the sentinel $-1$ outside the matrix.
+>
+> We therefore binary-search the row index, each time taking the max column $j$ of the mid row and shrinking by that vertical comparison, for $O(n\log m)$ time.
+
+<!-- thinking:end -->
+
 Let $m$ and $n$ be the number of rows and columns of the matrix, respectively.
 
 The problem asks us to find a peak, and the time complexity should be $O(m \times \log n)$ or $O(n \times \log m)$. Therefore, we can consider using binary search.

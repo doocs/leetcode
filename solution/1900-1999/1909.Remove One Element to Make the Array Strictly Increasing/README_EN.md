@@ -69,6 +69,18 @@ No resulting array is strictly increasing, so return false.</pre>
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every deletion and rechecking order is $O(n^2)$. At most one deletion is allowed, so there is at most one descent.
+>
+> Scan to the first $i$ with $\textit{nums}[i]\ge \textit{nums}[i+1]$. It suffices to test deleting $i$ or deleting $i+1$.
+>
+> Each test walks the array once while skipping that index. If no descent exists either deletion still works.
+
+<!-- thinking:end -->
+
 We can traverse the array to find the first position $i$ where $\textit{nums}[i] < \textit{nums}[i+1]$ is not satisfied. Then, we check if the array is strictly increasing after removing either $i$ or $i+1$. If it is, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

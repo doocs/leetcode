@@ -113,6 +113,18 @@ Friendship table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 「相似好友」是已经存在的好友对，且某天共同听过至少三首不同的歌。不必再考虑非好友。
+>
+> 将 $\texttt{Friendship}$ 与双方的 $\texttt{Listens}$ 按用户连接，限制同一天、同一首歌，再按好友对与日期分组。
+>
+> 去重歌曲数不少于 $3$ 即保留该对；$\texttt{DISTINCT}$ 去掉跨天重复。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

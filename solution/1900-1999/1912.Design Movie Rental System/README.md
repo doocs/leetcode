@@ -89,6 +89,18 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 
 ### 方法一：有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{search}$ 与 $\textit{report}$ 都要按价格、店铺、影片的字典序取前五，且租还会频繁改集合。每次全表排序在 $n,m$ 达 $10^5$ 时不可行。
+>
+> 未租出影片按 $\textit{movie}$ 分桶，桶内以 $(\textit{price},\textit{shop})$ 有序；已租出影片放在全局有序集 $(\textit{price},\textit{shop},\textit{movie})$。价格另用哈希记下，以便 $O(1)$ 取到排序键。
+>
+> 租出即从对应桶删除并插入全局集，归还则反向操作。前五元素可直接切片，单次更新为对数时间。
+
+<!-- thinking:end -->
+
 我们定义一个有序集合 $\textit{available}$，其中 $\textit{available}[movie]$ 存储所有未借出的电影 $movie$ 的商店列表，列表中的元素为 $(\textit{price}, \textit{shop})$，并按照 $\textit{price}$ 升序排序，如果 $\textit{price}$ 相同，则按照 $\textit{shop}$ 升序排序。
 
 另外定义一个哈希表 $\textit{price\_map}$，其中 $\textit{price\_map}[f(\textit{shop}, \textit{movie})]$ 存储商店 $\textit{shop}$ 中电影 $\textit{movie}$ 的租借价格。

@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inserting from the root each time costs $O(n)$ per value and $O(n^2)$ overall. That fails for $n\le 10^5$.
+>
+> A new key attaches under the nearest already-inserted predecessor or successor, so its depth is one plus the larger of those two depths. Pointers are unnecessary if neighbor depths can be queried in a sorted set.
+>
+> A sorted map stores inserted values and depths, with sentinels $0$ and $+\infty$. Each $v$ looks up its two neighbors, records the new depth, and updates the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

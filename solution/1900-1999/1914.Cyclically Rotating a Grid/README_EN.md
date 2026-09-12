@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Layer-by-Layer Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Layers are disjoint cycles and $k$ may exceed a cycle length, so stepping cell by cell wastes work. Flatten each layer clockwise, reduce $k$ modulo its length, then write back.
+>
+> Collect top, right, bottom, and left in that order and restore in the same order. Layers are independent, so the total time is linear in the grid size.
+
+<!-- thinking:end -->
+
 First, we compute the number of layers in the matrix, denoted by $p$, and then simulate the cyclic rotation layer by layer from the outside to the inside.
 
 For each layer, we traverse clockwise and append the elements on the top, right, bottom, and left edges to an array $nums$ in order. Let the length of $nums$ be $l$. Next, we take $k \bmod l$. Then, starting from index $k$ in the array, we write the elements back to the matrix along the top, right, bottom, and left edges in order.
