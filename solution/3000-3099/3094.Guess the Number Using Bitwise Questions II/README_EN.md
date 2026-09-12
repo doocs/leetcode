@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3094.Guess%20the%20Number%20Using%20Bitwise%20Questions%20II/README_EN.md
 tags:
     - Bit Manipulation
     - Interactive

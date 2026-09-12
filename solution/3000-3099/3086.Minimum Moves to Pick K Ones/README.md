@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3086.Minimum%20Moves%20to%20Pick%20K%20Ones/README.md
 rating: 2672
 source: 第 389 场周赛 Q4
 tags:
