@@ -1,0 +1,25 @@
+name: trigger-sync-gitee
+
+on:
+  push:
+    branches:
+      - docs
+
+concurrency:
+  group: trigger-sync-gitee
+  cancel-in-progress: true
+
+jobs:
+  trigger:
+    if: github.repository == 'doocs/leetcode'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Dispatch sync-gitee for docs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh workflow run sync-gitee.yml --ref main --repo "${REPO}" -f branch=docs
