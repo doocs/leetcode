@@ -67,6 +67,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.23.Max%20Black%20S
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Largest square with a black border. Enumerating the side and scanning four edges is $O(n^4)$.
+>
+> With downward and rightward runs of zeros, a side $k$ is valid when four rays from the corners are at least $k$.
+>
+> Fill $down$ and $right$ from the bottom-right; try $k$ from large to small and the top-left cell; the first hit is maximal, return $[i,j,k]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -55,6 +55,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.25.Word%20Rectangl
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows are equal-length dictionary words and every column must be a word; maximize area. A raw matrix search is huge.
+>
+> Rows of one rectangle share a length, so group by length; a trie prunes columns while the rectangle grows.
+>
+> `check` walks each column in the trie: $0$ if impossible, $1$ if every column is a word, $2$ if only a prefix. Backtracking adds rows and stops when area cannot beat the best or the row count exceeds the longest word.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

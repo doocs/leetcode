@@ -60,6 +60,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.26.Sparse%20Simila
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Documents are sparse. Building a set per pair and intersecting wastes time on empty intersections.
+>
+> Invert: word $\mapsto$ document ids. Only pairs that share a word increment the intersection size.
+>
+> $d[x]$ lists documents; each inverted list adds one to $cnt[(i,j)]$ for every pair. Similarity is $|\cap|/(|A|+|B|-|\cap|)$, plus $10^{-9}$ before a four-decimal format.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

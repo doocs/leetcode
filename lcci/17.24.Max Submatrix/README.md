@@ -44,6 +44,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.24.Max%20Submatrix
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最大子矩阵和及其坐标。四重枚举再求和是 $O(n^4)$ 以上。
+>
+> 固定上下行后，各列压缩成一维，问题化为 Kadane 最大子段和，并可同时记下左右端。
+>
+> 列前缀和 $s$ 使一段行的列和为 $O(1)$。对每对 $(i_1,i_2)$ 跑 Kadane，用 $start$ 记录段首，刷新全局 $mx$ 与 $[i_1,start,i_2,j]$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
