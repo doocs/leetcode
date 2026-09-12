@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3656.Determine%20if%20a%20Simple%20Graph%20Exists/README.md
 tags:
     - 图
     - 数组

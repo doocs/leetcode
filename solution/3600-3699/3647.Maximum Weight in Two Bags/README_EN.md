@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3647.Maximum%20Weight%20in%20Two%20Bags/README_EN.md
 tags:
     - Array
     - Dynamic Programming
