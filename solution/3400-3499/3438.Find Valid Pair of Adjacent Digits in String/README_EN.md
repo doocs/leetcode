@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3438.Find%20Valid%20Pair%20of%20Adjacent%20Digits%20in%20String/README_EN.md
 rating: 1225
 source: Biweekly Contest 149 Q1
 tags:

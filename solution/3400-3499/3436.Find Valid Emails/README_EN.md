@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3436.Find%20Valid%20Emails/README_EN.md
 tags:
     - Database
 ---
