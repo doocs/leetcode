@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After $k$ deletions we want as few distinct values as possible, so delete the rarest first. Sort frequencies and spend $k$ on them; when $k$ runs out, the leftover distinct count is the answer.
+
+<!-- thinking:end -->
+
 We use the hash table $cnt$ to count the number of times each integer in the array $arr$ appears, and then sort the values in $cnt$ in ascending order, and record them in the array $nums$.
 
 Next, we traverse the array $nums$. For the current value that we traverse to $nums[i]$, we subtract $k$ by $nums[i]$. If $k \lt 0$, it means that we have removed $k$ elements, and the minimum number of different integers in the array is the length of $nums$ minus the index $i$ that we traverse to at the current time. Return directly.

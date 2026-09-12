@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each output entry is a prefix sum. $n\le 1000$, so one `accumulate` pass is enough.
+
+<!-- thinking:end -->
+
 We directly traverse the array. For the current element $nums[i]$, we add it with the prefix sum $nums[i-1]$ to get the prefix sum $nums[i]$ of the current element.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

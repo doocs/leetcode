@@ -59,6 +59,14 @@ Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and salaries are unique. Subtract the min and max from the sum and divide by $n-2$.
+
+<!-- thinking:end -->
+
 Simulate according to the problem's requirements.
 
 Traverse the array, find the maximum and minimum values, and accumulate the sum. Then calculate the average value after removing the maximum and minimum values.

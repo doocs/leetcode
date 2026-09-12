@@ -78,6 +78,14 @@ For 2020-06-02, the Sold item is (Mask), we just return it.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per day we need the number of distinct products and a sorted name list. `GROUP BY sell_date` with `COUNT(DISTINCT product)` and `GROUP_CONCAT(DISTINCT product)` produces both.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

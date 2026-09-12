@@ -76,6 +76,16 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides left and right there is a $\textit{random}$ pointer that may form cycles, so a naive recursion can loop or copy a node twice.
+>
+> Map each original node to its copy: create the copy first, then recurse on left, right, and $\textit{random}$. A hit in the map returns the existing copy.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

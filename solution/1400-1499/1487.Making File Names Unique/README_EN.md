@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 5\times 10^4$. Assign names in order without clashes. A map stores the next suffix $k$ to try; on a collision, probe $name(k),name(k+1),\ldots$ until free, then bump $k$.
+
+<!-- thinking:end -->
+
 We can use a hash table $d$ to record the minimum available index for each folder name, where $d[name] = k$ means the minimum available index for the folder $name$ is $k$. Initially, $d$ is empty since there are no folders.
 
 Next, we iterate through the folder names array. For each file name $name$:

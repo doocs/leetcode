@@ -73,6 +73,16 @@ Number of valid subsequences (63 - 2 = 61).
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence is judged only by its min and max, so sorting does not change those pairs. $n\le 10^5$. Fix the minimum $nums[i]$, binary-search the largest legal $nums[j]$, and multiply by $2^{j-i}$ for free choices in between.
+>
+> Precompute powers of two. Once $2\cdot nums[i]>target$, larger minima are impossible.
+
+<!-- thinking:end -->
+
 Since the problem is about subsequences and involves the sum of the minimum and maximum elements, we can first sort the array $\textit{nums}$.
 
 Then we enumerate the minimum element $\textit{nums}[i]$. For each $\textit{nums}[i]$, we can find the maximum element $\textit{nums}[j]$ in $\textit{nums}[i + 1]$ to $\textit{nums}[n - 1]$ such that $\textit{nums}[i] + \textit{nums}[j] \leq \textit{target}$. The number of valid subsequences in this case is $2^{j - i}$, where $2^{j - i}$ represents all possible subsequences from $\textit{nums}[i + 1]$ to $\textit{nums}[j]$. We sum up the counts of all such subsequences.

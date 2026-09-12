@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Counting Remainders
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two values sum to a multiple of $k$ iff their remainders sum to $0$ or $k$. $n\le 10^5$. Count $x\bmod k$: remainder $0$ must be even, and remainder $i$ must match $k-i$ (including $k/2$ when $k$ is even).
+
+<!-- thinking:end -->
+
 The sum of two numbers $a$ and $b$ is divisible by $k$ if and only if the sum of their remainders when divided by $k$ is divisible by $k$.
 
 Therefore, we can count the remainder of each number in the array when divided by $k$, and record them in an array $\textit{cnt}$. Then we traverse the array $\textit{cnt}$. For each number $i$ in the range $[1,..k-1]$, if the values of $\textit{cnt}[i]$ and $\textit{cnt}[k-i]$ are not equal, it means we cannot divide the numbers in the array into $n/2$ pairs such that the sum of each pair is divisible by $k$. Similarly, if the value of $\textit{cnt}[0]$ is not even, it also means we cannot divide the numbers in the array into $n/2$ pairs such that the sum of each pair is divisible by $k$.

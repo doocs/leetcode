@@ -74,6 +74,16 @@ In the fourth semester, you can take course 5.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 15$. At most $k$ courses per term, prerequisites respected. A bit mask is the set of finished courses; BFS gives the fewest terms.
+>
+> A course is ready when all its prerequisite bits are on. If at most $k$ are ready, take them all; otherwise enqueue every $k$-subset. The target is all courses bits set.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

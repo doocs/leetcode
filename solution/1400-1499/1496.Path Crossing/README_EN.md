@@ -55,6 +55,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $|path|\le 10^4$. Walk the path and store visited cells. A step that lands on a stored cell crosses the path.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

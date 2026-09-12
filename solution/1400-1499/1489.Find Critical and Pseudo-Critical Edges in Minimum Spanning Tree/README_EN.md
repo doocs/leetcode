@@ -76,6 +76,16 @@ The edges 2, 3, 4, and 5 are only part of some MSTs, therefore they are consider
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and at most $200$ edges, so we can run MST many times. Kruskal first yields the MST weight $v$.
+>
+> An edge is critical iff deleting it disconnects the graph or raises the weight above $v$. Otherwise it is pseudo-critical iff forcing it in still achieves $v$. Test both for every edge.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -105,6 +105,14 @@ Content table:
 
 ### Solution 1: Equi-Join + Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Join `TVProgram` to `Content` on `content_id`, keep June $2020$ kids movies, and `DISTINCT` the titles.
+
+<!-- thinking:end -->
+
 We can first use an equi-join to join the two tables based on the `content_id` field, and then use conditional filtering to select the child-friendly movies that were played in June 2020.
 
 <!-- tabs:start -->
