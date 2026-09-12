@@ -71,6 +71,16 @@ The longest subarray with that value is [4], so we return 1.
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bitwise AND never increases a value, so the maximum AND of any subarray is the global maximum $\textit{mx}$. A subarray AND equals $\textit{mx}$ iff every element is $\textit{mx}$.
+>
+> The task is the longest run of $\textit{mx}$. Find the maximum, then scan once for its longest streak.
+
+<!-- thinking:end -->
+
 Since the bitwise AND operation does not increase the number, the maximum value is the maximum value in the array.
 
 The problem can be converted to finding the maximum number of consecutive occurrences of the maximum value in the array.

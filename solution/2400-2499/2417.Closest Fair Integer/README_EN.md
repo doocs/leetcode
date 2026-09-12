@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A fair integer needs equally many even and odd digits, so its length must be even. $n$ itself may already be fair; otherwise we want the nearest integer that is at least $n$.
+>
+> If the current length $k$ is odd, no $k$-digit number works; build the smallest $(k+1)$-digit fair number ($1$ followed by zeros, then ones on the lower half). If $k$ is even and $n$ is not yet fair, recurse on $n+1$ until one of these cases applies.
+
+<!-- thinking:end -->
+
 We denote the number of digits of $n$ as $k$, and the number of odd and even digits as $a$ and $b$ respectively.
 
 - If $a = b$, then $n$ itself is `fair`, and we can directly return $n$;

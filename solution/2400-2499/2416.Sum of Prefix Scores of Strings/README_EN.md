@@ -81,6 +81,16 @@ Each prefix has a score of one, so the total is answer[0] = 1 + 1 + 1 + 1 = 4.
 
 ### Solution 1: Prefix Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word's score is the sum of occurrence counts of all its prefixes. Scanning every word for every prefix is heavy when the total length reaches $10^6$. Shared prefixes belong on a trie.
+>
+> Insert every word, incrementing $\textit{cnt}$ on each node. Then walk each word again and sum $\textit{cnt}$. Time is linear in the total number of characters.
+
+<!-- thinking:end -->
+
 We can use a prefix tree to maintain all prefixes of the strings and count the occurrences of each prefix.
 
 Define the prefix tree node structure `Trie`, which includes two properties:

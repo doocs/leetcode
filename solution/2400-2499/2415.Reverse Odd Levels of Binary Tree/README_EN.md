@@ -81,6 +81,16 @@ The nodes at level 3 were 1, 1, 1, 1, 2, 2, 2, 2, and are 2, 2, 2, 2, 1, 1, 1, 1
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A perfect tree has contiguous nodes on each level, so reversing an odd level is swapping values from both ends. Level-order traversal already yields each level as a sequence; pointers need not move.
+>
+> BFS with a queue: on an odd level, swap $\textit{val}$ from the two ends of the queue, then enqueue children. Time is linear in the number of nodes.
+
+<!-- thinking:end -->
+
 We can use the Breadth-First Search (BFS) method, using a queue $q$ to store the nodes of each level, and a variable $i$ to record the current level. If $i$ is odd, we reverse the values of the nodes at the current level.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.

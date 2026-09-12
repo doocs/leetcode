@@ -69,6 +69,16 @@ Each player can only be matched with one trainer, so the maximum answer is 1.
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair enumeration fails at $n,m\le 10^5$. Each player should take the weakest trainer who can still train them, so stronger trainers remain for later players.
+>
+> Sort both arrays and walk with two pointers: skip trainers below the current player, then consume one match. The trainer pointer never moves left, so the cost is dominated by sorting.
+
+<!-- thinking:end -->
+
 According to the problem description, each athlete should be matched with the trainer whose ability value is as close as possible. Therefore, we can sort the ability values of both athletes and trainers, and then use the two-pointer method for matching.
 
 We use two pointers $i$ and $j$ to point to the arrays of athletes and trainers, respectively, both initially pointing to the start of the arrays. Then we traverse the ability values of the athletes one by one. If the current trainer's ability value is less than the current athlete's ability value, we move the trainer's pointer to the right by one position until we find a trainer whose ability value is greater than or equal to the current athlete's. If no such trainer is found, it means the current athlete cannot be matched with any trainer, and we return the current athlete's index. Otherwise, we can match the current athlete with the trainer, and then move both pointers to the right by one position. Continue this process until all athletes have been traversed.

@@ -89,6 +89,16 @@ Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
 
 ### Solution 1: Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$ and $m\le 10^5$, scanning every room for each meeting is $O(mn)$ and tight. Start times are distinct, so meetings must be assigned in time order.
+>
+> Idle rooms are chosen by the smallest index; busy rooms leave by earliest end time. Two heaps maintain these sets. After sorting meetings by start, return finished rooms to the idle heap; take the smallest idle index if any, otherwise delay the earliest-ending room by the meeting length.
+
+<!-- thinking:end -->
+
 We define two priority queues to represent idle meeting rooms and busy meeting rooms respectively. The idle meeting rooms $\textit{idle}$ are sorted by **index**; the busy meeting rooms $\textit{busy}$ are sorted by **end time and index**.
 
 First, sort the meetings by start time, then iterate through the meetings. For each meeting:

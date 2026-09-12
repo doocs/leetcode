@@ -90,6 +90,16 @@ It can be proven that 6 is the minimum number of days needed.
 
 ### Solution 1: State Compression + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n!$ kill orders; $n\le 17$ forbids listing them. Daily damage equals one plus the number already slain, so the optimum on a live set is a function of that set alone.
+>
+> Let $\textit{mask}$ be the live monsters and $dfs(\textit{mask})$ the minimum days to clear it. Gain is determined by how many are already dead. Try each set bit as the next kill and memoize: $2^n$ states, $O(n)$ transitions.
+
+<!-- thinking:end -->
+
 We note that the number of monsters is at most $17$, which means we can use a 17-bit binary number to represent the state of the monsters. The $i$-th bit being $1$ indicates that the $i$-th monster is still alive, and $0$ indicates that the $i$-th monster has been defeated.
 
 We design a function $\textit{dfs}(\textit{mask})$ to represent the minimum number of days needed to defeat all monsters when the current state of the monsters is $\textit{mask}$. The answer is $\textit{dfs}(2^n - 1)$, where $n$ is the number of monsters.
@@ -261,6 +271,14 @@ function bitCount(i: number): number {
 <!-- solution:start -->
 
 ### Solution 2: State Compression + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already costs $O(2^n n)$ but uses recursion and a cache. The same transitions fill a table in increasing $\textit{mask}$: $f[\textit{mask}]$ is the minimum days after killing exactly those bits, coming from a predecessor that drops one monster. Asymptotics stay the same; a bit of $1$ now means already slain, the opposite of method 1.
+
+<!-- thinking:end -->
 
 We can convert the memoization search in Solution 1 to dynamic programming. Define $f[\textit{mask}]$ to represent the minimum number of days needed to defeat all monsters when the current state of the monsters is $\textit{mask}$. Here, $\textit{mask}$ is an $n$-bit binary number, where the $i$-th bit being $1$ indicates that the $i$-th monster has been defeated, and $0$ indicates that the $i$-th monster is still alive. Initially, $f[0] = 0$, and the rest $f[\textit{mask}] = +\infty$. The answer is $f[2^n - 1]$.
 
