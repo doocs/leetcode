@@ -95,6 +95,18 @@ A <strong>subarray</strong> is a contiguous sequence of elements within an array
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An almost-missing integer occurs in exactly one window of length $k$. Counting global frequencies ignores how windows overlap.
+>
+> When $k=1$ every element is a window, so we take the maximum unique value. When $k=n$ there is one window, so we take the global maximum.
+>
+> When $1<k<n$, interior values sit in at least two windows; only the two ends can occur once. We check that $\textit{nums}[0]$ and $\textit{nums}[n-1]$ do not reappear, and return the larger, or $-1$.
+
+<!-- thinking:end -->
+
 If $k = 1$, then each element in the array forms a subarray of size $1$. In this case, we only need to find the maximum value among the elements that appear exactly once in the array.
 
 If $k = n$, then the entire array forms a subarray of size $n$. In this case, we only need to return the maximum value in the array.

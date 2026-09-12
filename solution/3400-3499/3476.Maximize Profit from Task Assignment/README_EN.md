@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1: Hash Table + Priority Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A worker may take one same-skill task, and we may assign one extra leftover task to anyone. $n,m\le 10^5$, so we should always take the current best profit.
+>
+> Each worker first pops the best task of that skill; the extra slot then takes the global leftover maximum. Workers go first so their best task is not reserved for the extra slot.
+>
+> A hash map stores profits in a sorted list per skill. Workers pop the max; a final scan of leftover tops adds the global maximum.
+
+<!-- thinking:end -->
+
 Since each task can only be completed by a worker with a specific skill, we can group the tasks by skill requirements and store them in a hash table $\textit{d}$, where the key is the skill requirement and the value is a priority queue sorted by profit in descending order.
 
 Then, we iterate through the workers. For each worker, we find the corresponding priority queue in the hash table $\textit{d}$ based on their skill requirement, take the front element (i.e., the maximum profit the worker can earn), and remove it from the priority queue. If the priority queue is empty, we remove it from the hash table.

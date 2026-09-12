@@ -155,6 +155,18 @@ Each row contains a DNA sequence represented as a string of characters (A, T, G,
 
 ### Solution 1: Fuzzy Matching + Regular Expressions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four flags detect a start codon, a stop codon, $\textit{ATAT}$, and at least three $G$s in a row. String methods are shorter and safer than a manual scan.
+>
+> $\textit{startswith}/\textit{endswith}$ cover the ends; containment and `GGG+` cover the interior patterns.
+>
+> The four columns are $0/1$, then the frame is sorted by $\textit{sample\_id}$, matching a SQL `LIKE`/`REGEXP` solution.
+
+<!-- thinking:end -->
+
 We can use `LIKE` and `REGEXP` for pattern matching, where:
 
 - LIKE `'ATG%'` checks if it starts with ATG

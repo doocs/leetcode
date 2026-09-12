@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may delete at most one character from $s$ to maximize the common prefix with $t$. $n,m\le 10^5$ forbids trying every deletion.
+>
+> A single skip is available, so a two-pointer scan spends that skip on the first mismatch and must stop on the next.
+>
+> $i$ walks $s$ and $j$ walks $t$. Equal characters advance both; a mismatch with $\textit{rem}$ still unused advances only $i$. The final $j$ is the prefix length.
+
+<!-- thinking:end -->
+
 We record the lengths of the strings $s$ and $t$ as $n$ and $m$, respectively. Then, we use two pointers $i$ and $j$ to point to the beginning of the strings $s$ and $t$, and use a boolean variable $\textit{rem}$ to record whether a character has been removed.
 
 Next, we start traversing the strings $s$ and $t$. If $s[i]$ is not equal to $t[j]$, we check if a character has already been removed. If a character has been removed, we exit the loop; otherwise, we mark that a character has been removed and skip $s[i]$. Otherwise, we skip both $s[i]$ and $t[j]$. Continue traversing until $i \geq n$ or $j \geq m$.

@@ -80,6 +80,18 @@ source: Biweekly Contest 151 Q3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move removes three elements (per the statement) at cost equal to their maximum, until the array is gone. $n\le 1000$ makes the order of deletions exponential.
+>
+> The remainder is a prefix still in play plus at most one held-back value, which is a compact state.
+>
+> Memoized DP enumerates which indices go next and adds their maximum. The last one or two elements are base cases.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -156,6 +156,18 @@ sample_id 是这张表的唯一主键。
 
 ### 方法一：模糊匹配 + 正则表达式
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 四列标志分别检测起始密码子、终止密码子、$\textit{ATAT}$ 与连续至少三个 $G$。用字符串方法比手写扫描更短且不易越界。
+>
+> $\textit{startswith}/\textit{endswith}$ 处理端点，包含关系与 `GGG+` 处理中间模式。
+>
+> 四列写成 $0/1$ 后按 $\textit{sample\_id}$ 排序，与 SQL 的 `LIKE`/`REGEXP` 方案对应。
+
+<!-- thinking:end -->
+
 我们可以利用 `LIKE` 和 `REGEXP` 来进行模式匹配，其中：
 
 - LIKE `'ATG%'` 检测是否以 ATG 开头

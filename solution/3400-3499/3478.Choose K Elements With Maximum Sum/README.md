@@ -80,6 +80,18 @@ tags:
 
 ### 方法一：排序 + 优先队列（小根堆）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对每个下标 $i$，在 $\textit{nums1}[j]<\textit{nums1}[i]$ 的下标中选至多 $k$ 个 $\textit{nums2}[j]$ 求最大和。$n\le 10^5$，不能对每个 $i$ 单独筛选。
+>
+> 按 $\textit{nums1}$ 排序后，可用的 $j$ 只增不减，适合用大小为 $k$ 的小根堆维护当前最大 $k$ 元之和。
+>
+> 指针 $j$ 把所有严格更小的 $\textit{nums1}$ 对应的 $\textit{nums2}$ 入堆，堆溢出则减去堆顶。当前堆和写入该 $i$ 的答案。
+
+<!-- thinking:end -->
+
 我们可以将数组 $\textit{nums1}$ 转换成一个数组 $\textit{arr}$，其中每个元素是一个二元组 $(x, i)$，表示 $\textit{nums1}[i]$ 的值为 $x$。然后对数组 $\textit{arr}$ 按照 $x$ 进行升序排序。
 
 我们使用一个小根堆 $\textit{pq}$ 来维护数组 $\textit{nums2}$ 中的元素，初始时 $\textit{pq}$ 为空。用一个变量 $\textit{s}$ 来记录 $\textit{pq}$ 中的元素之和。另外，我们用一个指针 $j$ 来维护当前需要添加到 $\textit{pq}$ 中的元素在数组 $\textit{arr}$ 中的位置。

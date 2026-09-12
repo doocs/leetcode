@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation moves a letter to an adjacent letter on the cycle, at most $k$ times; we want the longest palindromic subsequence. Pairing the two ends costs the circular alphabet distance.
+>
+> Classic LPS plus a remaining-budget dimension. State $(i,j,k)$ has size $n^2(k+1)$ and memoizes well.
+>
+> Transitions drop the left or right character, or spend $t=\min(|s_i-s_j|,26-|s_i-s_j|)$ to pair them. Empty and singleton intervals are the base.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, j, k)$, which represents the length of the longest palindromic subsequence that can be obtained in the substring $s[i..j]$ with at most $k$ operations. The answer is $\textit{dfs}(0, n - 1, k)$.
 
 The calculation process of the function $\textit{dfs}(i, j, k)$ is as follows:
