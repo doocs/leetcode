@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README.md
 tags:
     - 深度优先搜索
     - 广度优先搜索
