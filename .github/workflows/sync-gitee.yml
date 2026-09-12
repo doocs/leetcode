@@ -1,0 +1,68 @@
+name: sync-gitee
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: GitHub branch to mirror onto Gitee
+        required: true
+        type: choice
+        options:
+          - main
+          - docs
+
+concurrency:
+  group: sync-gitee-${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    if: github.repository == 'doocs/leetcode'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push branch to Gitee
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.ref_name }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITEE_TOKEN}" ]; then
+            echo "GITEE_TOKEN secret is not set."
+            exit 1
+          fi
+          case "${BRANCH}" in
+            main|docs) ;;
+            *)
+              echo "refusing to sync ${BRANCH}"
+              exit 1
+              ;;
+          esac
+
+          git init --bare
+          git remote add github "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          git fetch --depth=50 github "${BRANCH}"
+
+          ASKPASS="$(mktemp)"
+          trap 'rm -f "$ASKPASS"' EXIT
+          printf '%s\n' '#!/bin/sh' 'echo "$GITEE_TOKEN"' > "$ASKPASS"
+          chmod 700 "$ASKPASS"
+
+          push_branch() {
+            GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
+              git push --force https://oauth2@gitee.com/Doocs/leetcode.git \
+                "refs/remotes/github/${BRANCH}:refs/heads/${BRANCH}"
+          }
+
+          if ! push_branch; then
+            echo "shallow push failed; fetching full ${BRANCH} history"
+            git fetch --unshallow github "${BRANCH}"
+            push_branch
+          fi
