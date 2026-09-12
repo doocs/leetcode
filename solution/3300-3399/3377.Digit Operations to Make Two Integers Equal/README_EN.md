@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may increment or decrement one digit (no leading zero) and must avoid primes. The cost is the sum of visited values from $n$ to $m$. Values stay below $10^4$, so this is a shortest path on an implicit graph.
+>
+> Sieve primes up to $10^5$. If $n$ or $m$ is prime there is no path. Each digit $\pm 1$ is an edge whose weight is the newly reached number.
+>
+> Dijkstra on the running sum pops $m$ with the minimum total.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

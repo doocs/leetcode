@@ -110,6 +110,16 @@ Each row contains a unique ID and the corresponding text content.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word should start with a capital and continue in lowercase. Split on spaces, $\textit{capitalize}$ every token, and join them back.
+>
+> Consecutive spaces must be preserved, so we split on $\texttt{' '}$ rather than on arbitrary whitespace.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

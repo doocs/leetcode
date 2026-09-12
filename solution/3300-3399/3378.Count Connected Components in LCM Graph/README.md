@@ -84,6 +84,18 @@ tags:
 
 ### 方法一：并查集
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两数 $\operatorname{lcm} \le \textit{threshold}$ 则连边，求连通块数。$n \le 10^5$ 且 $\textit{threshold} \le 2 \times 10^5$，不能枚举数对。
+>
+> 若 $a,b$ 的倍数都落在阈值内，它们会通过这些倍数相通。把每个 $\textit{num}$ 与其不超过阈值的倍数合并即可。
+>
+> 大于阈值的数无法与任何数连边，各自成块。对剩余数取并查集根的去重个数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -328,6 +340,18 @@ func countComponents(nums []int, threshold int) int {
 <!-- solution:start -->
 
 ### 方法二：DFS
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 并查集需要按秩合并与路径压缩；若只需计数连通块，显式建图再 DFS 即可。
+>
+> 对每个 $\textit{num}$，向 $2\textit{num},3\textit{num},\ldots$ 连无向边，大于阈值的点直接计入答案并跳过。
+>
+> 对未访问且不超过阈值的 $\textit{num}$ 做 DFS，每棵新树计一块。连通性与方法一相同，实现更直观。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

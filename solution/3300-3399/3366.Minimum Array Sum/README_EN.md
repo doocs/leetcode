@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value may be halved (rounding up) or decreased by $d$, with budgets $\textit{op1}$ and $\textit{op2}$. With $n \le 100$ a 3D DP fits.
+>
+> $f[i][j][k]$ is the minimum sum after $i$ numbers using $j$ halvings and $k$ subtractions. Both orders of applying the two operations to one number must be tried.
+>
+> The answer is the minimum over the last layer.
+
+<!-- thinking:end -->
+
 For convenience, we denote the given $k$ as $d$.
 
 Next, we define $f[i][j][k]$ to represent the minimum sum of the first $i$ numbers using $j$ operations of type 1 and $k$ operations of type 2. Initially, $f[0][0][0] = 0$, and the rest $f[i][j][k] = +\infty$.

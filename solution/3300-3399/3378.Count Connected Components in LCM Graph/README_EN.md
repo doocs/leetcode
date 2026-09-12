@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Union Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two values are joined when their LCM is at most $\textit{threshold}$. With $n \le 10^5$ and $\textit{threshold} \le 2 \times 10^5$ we cannot try every pair.
+>
+> Numbers that share a multiple inside the threshold become connected through that multiple. Union each $\textit{num}$ with every multiple up to the threshold.
+>
+> Values larger than the threshold have no edge and form singleton components. The remaining answer is the number of distinct DSU roots.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -328,6 +340,18 @@ func countComponents(nums []int, threshold int) int {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Union-find needs ranks and compression. If we only count components, an explicit graph plus DFS is enough.
+>
+> Each $\textit{num}$ is joined to $2\textit{num},3\textit{num},\ldots$; values above the threshold add one component and are skipped.
+>
+> DFS from every unvisited $\textit{num}$ inside the threshold counts one component per tree. Connectivity matches method one with a simpler implementation.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

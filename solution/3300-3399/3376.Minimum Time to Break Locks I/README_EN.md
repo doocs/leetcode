@@ -183,6 +183,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The order of locks changes the energy: $x$ starts at $1$ and grows by $K$ after each break. With $n \le 8$ we may DP over subsets.
+>
+> $\textit{dfs}(i)$ is the remaining time after set $i$ is broken. Energy is $1+|i|\cdot K$; an unbroken lock $s$ costs $\lceil s/x \rceil$.
+>
+> The full set returns $0$. There are $2^n$ states and $n$ transitions, which fits the limits.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

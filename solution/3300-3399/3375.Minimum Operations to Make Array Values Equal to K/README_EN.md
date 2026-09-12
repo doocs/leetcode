@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation rewrites every value above the current second-maximum $h$ to $h$, and we want everything equal to $k$. Values only shrink, so an entry below $k$ is impossible.
+>
+> Each operation removes one distinct value above $k$. If the minimum is already $k$, that bucket needs no operation.
+>
+> After taking the set of values, the answer is the set size minus $[\textit{mi}=k]$.
+
+<!-- thinking:end -->
+
 According to the problem description, we can choose the second largest value in the current array as the valid integer $h$ each time, and change all numbers greater than $h$ to $h$. This minimizes the number of operations. Additionally, since the operation reduces the numbers, if there are numbers in the current array smaller than $k$, we cannot make all numbers equal to $k$, so we directly return -1.
 
 We iterate through the array $\textit{nums}$. For the current number $x$, if $x < k$, we directly return -1. Otherwise, we add $x$ to the hash table and update the minimum value $\textit{mi}$ in the current array. Finally, we return the size of the hash table minus 1 (if $\textit{mi} = k$, we need to subtract 1).

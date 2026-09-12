@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, distance is replaced by parity and $n,m \le 10^5$, so per-node DFS is too slow.
+>
+> Targets are nodes of the same color as $i$, plus the larger color class of the second tree. A tree is bipartite, so two colorings yield both class sizes.
+>
+> The answer at $i$ is $\textit{cnt1}[c1[i]]$ plus the larger class of the second tree.
+
+<!-- thinking:end -->
+
 The number of target nodes for node $i$ can be divided into two parts:
 
 - The number of nodes in the first tree with the same depth parity as node $i$.

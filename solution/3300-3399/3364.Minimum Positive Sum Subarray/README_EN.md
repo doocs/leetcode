@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the minimum positive sum among subarrays whose length lies in $[l,r]$. With $n \le 100$ we may enumerate both ends.
+>
+> Fix the left end and accumulate $s$ to the right; update the answer when the length is allowed and $s>0$.
+>
+> If no positive sum appears, return $-1$.
+
+<!-- thinking:end -->
+
 We can enumerate the left endpoint $i$ of the subarray, then enumerate the right endpoint $j$ from $i$ to $n$ within the interval $[i, n)$. We calculate the sum $s$ of the interval $[i, j]$. If $s$ is greater than $0$ and the interval length is between $[l, r]$, we update the answer.
 
 Finally, if the answer is still the initial value, it means no subarray meets the conditions, so we return $-1$. Otherwise, we return the answer.
