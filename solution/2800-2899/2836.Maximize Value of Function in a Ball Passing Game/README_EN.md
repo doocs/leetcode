@@ -139,6 +139,14 @@ tags:
 
 ### Solution 1: Dynamic Programming + Binary Lifting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walking $k$ steps from every player is too slow for large $k$. The receiver map is a functional graph, so binary lifting applies: $f[i][j]$ is the node after $2^j$ passes and $g[i][j]$ is the sum of ids on that segment (excluding the last). Compose those jumps along the bits of $k$.
+
+<!-- thinking:end -->
+
 The problem asks us to find the maximum sum of the player IDs who have touched the ball within $k$ passes starting from each player $i$. If we solve it by brute force, we need to traverse upwards $k$ times starting from $i$, with a time complexity of $O(k)$, which will obviously time out.
 
 We can use dynamic programming combined with binary lifting to handle this.

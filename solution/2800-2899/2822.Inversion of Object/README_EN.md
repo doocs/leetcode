@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inverting key–value pairs can map one value to several original keys. Store a scalar on the first occurrence and promote it to an array when the same value appears again.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

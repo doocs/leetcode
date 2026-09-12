@@ -69,6 +69,14 @@ Note that (0, 3) is not counted since nums[0] + nums[3] is not strictly less tha
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A double loop is acceptable for small $n$, yet after sorting we can, for each right index $j$, binary-search how many $i<j$ satisfy $nums[i]+nums[j]<target$.
+
+<!-- thinking:end -->
+
 First, we sort the array $nums$. Then, for each $j$, we use binary search in the range $[0, j)$ to find the first index $i$ that is greater than or equal to $target - nums[j]$. All indices $k$ in the range $[0, i)$ meet the condition, so the answer increases by $i$.
 
 After the traversal, we return the answer.

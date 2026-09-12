@@ -59,6 +59,14 @@ It can be proven that there is no k-avoiding array with a sum less than 3.
 
 ### Solution 1: Greedy + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $n$ distinct positive integers with no pair summing to $k$, and the sum should be minimal. Starting from $1$, take the next unused value and immediately forbid its partner $k-i$, so each choice is the smallest still allowed.
+
+<!-- thinking:end -->
+
 Starting from the positive integer $i = 1$, we sequentially determine if $i$ can be added to the array. If it can be added, we add $i$ to the array, accumulate it to the answer, and then mark $k - i$ as visited, indicating that $k-i$ cannot be added to the array. We continue this process until the array's length reaches $n$.
 
 The time complexity is $O(n + k)$, and the space complexity is $O(n + k)$. Where $n$ is the length of the array.

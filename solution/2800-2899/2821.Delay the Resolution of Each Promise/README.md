@@ -70,6 +70,14 @@ ms = 70
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要让每个函数在 $ms$ 毫秒之后才开始执行。先 `await` 定时器再调用原函数，用 `map` 包一层即可，不必改动原函数内部。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

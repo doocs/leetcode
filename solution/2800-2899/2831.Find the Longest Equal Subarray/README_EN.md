@@ -69,6 +69,14 @@ It can be proven that no longer equal subarrays can be created.
 
 ### Solution 1: Hash Table + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An equal subarray may delete at most $k$ other values. A window is illegal once the count of non-majority elements exceeds $k$. A frequency map tracks the peak count $mx$; shrink from the left when $r-l+1-mx>k$. The answer is that peak.
+
+<!-- thinking:end -->
+
 We use two pointers to maintain a monotonically variable length window, and a hash table to maintain the number of occurrences of each element in the window.
 
 The number of all elements in the window minus the number of the most frequently occurring element in the window is the number of elements that need to be deleted from the window.
@@ -180,6 +188,14 @@ function longestEqualSubarray(nums: number[], k: number): number {
 <!-- source:start -->
 
 ### Solution 2: Hash Table + Two Pointers (Method 2)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 keeps frequencies of every value in one window. Grouping indices by value lets each two-pointer scan count only the gaps between occurrences of that value, with the same linear bound.
+
+<!-- thinking:end -->
 
 We can use a hash table $g$ to maintain the index list of each element.
 

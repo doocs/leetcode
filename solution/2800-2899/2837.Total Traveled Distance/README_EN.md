@@ -102,6 +102,14 @@ Returning the table orderd by user_id in ascending order.</pre>
 
 ### Solution 1: Left Join + Group By Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user's total ride distance, counting users with no rides as $0$. A left join keeps every user; `SUM(distance)` grouped by `user_id` with `IFNULL` turns a null sum into zero.
+
+<!-- thinking:end -->
+
 We can use a left join to connect the two tables, and then use group by sum to calculate the total distance for each user. Note that if a user has not completed any rides, their distance should be considered as $0$.
 
 <!-- tabs:start -->
