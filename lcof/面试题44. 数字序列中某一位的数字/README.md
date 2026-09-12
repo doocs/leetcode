@@ -47,6 +47,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：数学
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 无限序列按位数分段：$k$ 位数共 $9\times 10^{k-1}$ 个、占 $k$ 倍长度。先减去整段，定位到所在数字及该数字内的偏移。
+>
+> 算出数字后转成字符串取对应位。
+
+<!-- thinking:end -->
+
 位数为 $k$ 的最小整数和最大整数分别为 $10^{k-1}$ 和 $10^k-1$，因此 $k$ 位数的总位数为 $k \times 9 \times 10^{k-1}$。
 
 我们用 $k$ 表示当前数字的位数，用 $cnt$ 表示当前位数的数字的总数，初始时 $k=1$, $cnt=9$。
@@ -204,6 +214,14 @@ extension Double {
 <!-- solution:start-->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一从 $1$ 位数起扣。本写法先单独处理不足 $10$ 的下标，再从 $2$ 位数起扣 $9k\times 10^{k-1}$，定位公式相同，只是起点不同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

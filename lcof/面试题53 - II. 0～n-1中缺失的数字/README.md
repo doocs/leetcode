@@ -40,6 +40,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 缺失前 $nums[i]=i$，缺失后 $nums[i]=i+1$。对半分：中点值大于下标则缺失在左半（含中点），否则在右半。收缩到 $l$ 即为缺失值。
+
+<!-- thinking:end -->
+
 我们可以使用二分查找的方法找到这个缺失的数字。初始化左边界 $l=0$，右边界 $r=n$，其中 $n$ 是数组的长度。
 
 每次计算中间元素的下标 $mid$，如果 $nums[mid] \gt mid$，则缺失的数字一定在区间 $[l,..mid]$ 中，否则缺失的数字一定在区间 $[mid+1,..r]$ 中。
