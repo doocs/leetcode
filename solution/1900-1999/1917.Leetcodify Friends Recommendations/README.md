@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README.md
 tags:
     - 数据库
 ---

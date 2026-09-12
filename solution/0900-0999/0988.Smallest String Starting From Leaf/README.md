@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README.md
 tags:
     - 树
     - 深度优先搜索

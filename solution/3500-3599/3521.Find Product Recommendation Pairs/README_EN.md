@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3521.Find%20Product%20Recommendation%20Pairs/README_EN.md
 tags:
     - Database
 ---

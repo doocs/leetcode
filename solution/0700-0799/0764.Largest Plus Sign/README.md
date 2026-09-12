@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0764.Largest%20Plus%20Sign/README.md
 tags:
     - 数组
     - 动态规划

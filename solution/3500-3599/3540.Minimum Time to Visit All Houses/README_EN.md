@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3540.Minimum%20Time%20to%20Visit%20All%20Houses/README_EN.md
 tags:
     - Array
     - Prefix Sum

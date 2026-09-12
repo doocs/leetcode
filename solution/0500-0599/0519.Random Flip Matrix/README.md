@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md
 tags:
     - 水塘抽样
     - 哈希表

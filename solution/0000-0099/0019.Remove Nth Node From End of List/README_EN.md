@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0019.Remove%20Nth%20Node%20From%20End%20of%20List/README_EN.md
 tags:
     - Linked List
     - Two Pointers

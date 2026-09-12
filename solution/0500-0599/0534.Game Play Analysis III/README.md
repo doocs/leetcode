@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md
 tags:
     - 数据库
 ---

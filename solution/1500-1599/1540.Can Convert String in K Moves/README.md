@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1540.Can%20Convert%20String%20in%20K%20Moves/README.md
 rating: 1631
 source: 第 32 场双周赛 Q2
 tags:

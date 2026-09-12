@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0740.Delete%20and%20Earn/README.md
 tags:
     - 数组
     - 哈希表

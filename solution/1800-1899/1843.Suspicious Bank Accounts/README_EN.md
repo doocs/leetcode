@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README_EN.md
 tags:
     - Database
 ---

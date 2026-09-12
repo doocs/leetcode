@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1127.User%20Purchase%20Platform/README_EN.md
 tags:
     - Database
 ---

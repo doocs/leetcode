@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0115.Distinct%20Subsequences/README_EN.md
 tags:
     - String
     - Dynamic Programming

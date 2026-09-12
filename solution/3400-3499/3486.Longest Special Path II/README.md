@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3486.Longest%20Special%20Path%20II/README.md
 rating: 2924
 source: 第 152 场双周赛 Q4
 tags:

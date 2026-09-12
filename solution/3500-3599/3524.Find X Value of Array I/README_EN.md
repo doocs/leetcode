@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3524.Find%20X%20Value%20of%20Array%20I/README_EN.md
 rating: 2008
 source: Weekly Contest 446 Q3
 tags:

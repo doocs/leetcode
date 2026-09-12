@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README_EN.md
 tags:
     - Array
     - Hash Table

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3708.Longest%20Fibonacci%20Subarray/README.md
 rating: 1380
 source: 第 167 场双周赛 Q2
 tags:

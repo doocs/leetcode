@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3496.Maximize%20Score%20After%20Pair%20Deletions/README.md
 tags:
     - 贪心
     - 数组

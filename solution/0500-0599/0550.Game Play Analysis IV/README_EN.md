@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0550.Game%20Play%20Analysis%20IV/README_EN.md
 tags:
     - Database
 ---

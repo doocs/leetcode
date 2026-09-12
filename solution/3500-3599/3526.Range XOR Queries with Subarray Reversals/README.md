@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3526.Range%20XOR%20Queries%20with%20Subarray%20Reversals/README.md
 tags:
     - 树
     - 二叉搜索树

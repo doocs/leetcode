@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README.md
 tags:
     - 树
     - 二叉搜索树

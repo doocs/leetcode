@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README_EN.md
 ---
 
 <!-- problem:start -->

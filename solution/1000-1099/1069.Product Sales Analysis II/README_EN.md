@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README_EN.md
 tags:
     - Database
 ---

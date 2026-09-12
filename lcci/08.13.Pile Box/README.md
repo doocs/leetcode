@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/README.md
 ---
 
 <!-- problem:start -->

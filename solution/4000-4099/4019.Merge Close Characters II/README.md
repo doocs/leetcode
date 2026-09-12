@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4019.Merge%20Close%20Characters%20II/README.md
 tags:
     - 哈希表
     - 字符串

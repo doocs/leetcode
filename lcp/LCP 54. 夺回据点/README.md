@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2054.%20%E5%A4%BA%E5%9B%9E%E6%8D%AE%E7%82%B9/README.md
 ---
 
 <!-- problem:start -->

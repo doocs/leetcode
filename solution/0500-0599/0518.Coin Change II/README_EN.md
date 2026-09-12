@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0518.Coin%20Change%20II/README_EN.md
 tags:
     - Array
     - Dynamic Programming

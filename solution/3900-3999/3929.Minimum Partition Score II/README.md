@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3929.Minimum%20Partition%20Score%20II/README.md
 tags:
     - 数组
     - 二分查找

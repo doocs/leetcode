@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3475.DNA%20Pattern%20Recognition/README.md
 tags:
     - 数据库
 ---

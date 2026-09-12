@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2051.%20%E7%83%B9%E9%A5%AA%E6%96%99%E7%90%86/README.md
 ---
 
 <!-- problem:start -->

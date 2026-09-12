@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1949.Strong%20Friendship/README.md
 tags:
     - 数据库
 ---

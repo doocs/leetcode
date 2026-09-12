@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2514.Count%20Anagrams/README_EN.md
 rating: 2069
 source: Biweekly Contest 94 Q4
 tags:

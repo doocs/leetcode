@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3237.Alt%20and%20Tab%20Simulation/README.md
 tags:
     - 数组
     - 哈希表

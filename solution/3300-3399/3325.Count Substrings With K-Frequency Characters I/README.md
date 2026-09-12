@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3325.Count%20Substrings%20With%20K-Frequency%20Characters%20I/README.md
 rating: 1454
 source: 第 420 场周赛 Q2
 tags:

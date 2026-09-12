@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2199.Finding%20the%20Topic%20of%20Each%20Post/README.md
 tags:
     - 数据库
 ---

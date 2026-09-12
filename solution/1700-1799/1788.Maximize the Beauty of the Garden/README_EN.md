@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1788.Maximize%20the%20Beauty%20of%20the%20Garden/README_EN.md
 tags:
     - Greedy
     - Array

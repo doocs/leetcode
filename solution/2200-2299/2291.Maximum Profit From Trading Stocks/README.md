@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2291.Maximum%20Profit%20From%20Trading%20Stocks/README.md
 tags:
     - 数组
     - 动态规划

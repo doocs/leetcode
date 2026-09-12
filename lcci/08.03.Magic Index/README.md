@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/README.md
 ---
 
 <!-- problem:start -->

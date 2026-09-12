@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search

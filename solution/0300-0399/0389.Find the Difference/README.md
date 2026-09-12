@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0389.Find%20the%20Difference/README.md
 tags:
     - 位运算
     - 哈希表

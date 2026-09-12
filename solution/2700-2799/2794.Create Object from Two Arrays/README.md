@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2794.Create%20Object%20from%20Two%20Arrays/README.md
 tags:
     - JavaScript
 ---

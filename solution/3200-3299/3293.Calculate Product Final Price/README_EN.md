@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3293.Calculate%20Product%20Final%20Price/README_EN.md
 tags:
     - Database
 ---

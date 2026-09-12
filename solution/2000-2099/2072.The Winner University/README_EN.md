@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2072.The%20Winner%20University/README_EN.md
 tags:
     - Database
 ---

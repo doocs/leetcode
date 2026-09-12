@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md
 tags:
     - Geometry
     - Array

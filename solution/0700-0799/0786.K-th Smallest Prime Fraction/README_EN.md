@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md
 tags:
     - Array
     - Two Pointers

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3384.Team%20Dominance%20by%20Pass%20Success/README.md
 tags:
     - 数据库
 ---

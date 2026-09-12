@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md
 tags:
     - Array
     - Binary Search

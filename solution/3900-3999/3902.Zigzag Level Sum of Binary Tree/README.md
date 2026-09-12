@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3902.Zigzag%20Level%20Sum%20of%20Binary%20Tree/README.md
 tags:
     - 树
     - 广度优先搜索

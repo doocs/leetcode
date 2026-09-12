@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README.md
 tags:
     - 数组
     - 二分查找

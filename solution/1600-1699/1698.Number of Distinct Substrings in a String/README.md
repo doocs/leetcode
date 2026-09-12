@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1698.Number%20of%20Distinct%20Substrings%20in%20a%20String/README.md
 tags:
     - 字典树
     - 字符串

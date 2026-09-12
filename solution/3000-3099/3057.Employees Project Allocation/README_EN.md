@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3057.Employees%20Project%20Allocation/README_EN.md
 tags:
     - Database
 ---

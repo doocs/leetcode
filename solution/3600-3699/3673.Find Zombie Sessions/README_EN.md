@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3673.Find%20Zombie%20Sessions/README_EN.md
 tags:
     - Database
 ---

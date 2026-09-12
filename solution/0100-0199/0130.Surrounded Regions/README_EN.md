@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search

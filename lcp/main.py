@@ -150,11 +150,9 @@ for question in questions:
     if not os.path.exists(path):
         os.makedirs(path)
     path = path + "/README.md"
-    relative_path = quote(f"/lcp/{sub_folder}/README.md")
 
     metadata = {
         "comments": True,
-        "edit_url": "https://github.com/doocs/leetcode/edit/main" + relative_path,
         "difficulty": diff,
     }
     yaml_metadata = yaml.dump(metadata, default_flow_style=False, allow_unicode=True)

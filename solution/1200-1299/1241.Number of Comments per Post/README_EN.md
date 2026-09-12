@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README_EN.md
 tags:
     - Database
 ---

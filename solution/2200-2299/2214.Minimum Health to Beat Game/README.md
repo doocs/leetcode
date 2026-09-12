@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2214.Minimum%20Health%20to%20Beat%20Game/README.md
 tags:
     - 贪心
     - 数组

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3949.Subtree%20Inversion%20Sum%20II/README.md
 tags:
     - 树
     - 深度优先搜索

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README.md
 tags:
     - 数组
     - 哈希表

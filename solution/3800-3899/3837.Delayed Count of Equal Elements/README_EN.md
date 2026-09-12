@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3837.Delayed%20Count%20of%20Equal%20Elements/README_EN.md
 tags:
     - Array
     - Hash Table

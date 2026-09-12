@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/README_EN.md
 ---
 
 <!-- problem:start -->

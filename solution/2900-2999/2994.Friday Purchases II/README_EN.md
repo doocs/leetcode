@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2994.Friday%20Purchases%20II/README_EN.md
 tags:
     - Database
 ---

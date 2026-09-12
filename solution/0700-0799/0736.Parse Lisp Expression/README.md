@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0736.Parse%20Lisp%20Expression/README.md
 tags:
     - 栈
     - 递归

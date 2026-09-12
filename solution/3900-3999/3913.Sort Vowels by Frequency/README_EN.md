@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3913.Sort%20Vowels%20by%20Frequency/README_EN.md
 rating: 1524
 source: Weekly Contest 499 Q2
 ---

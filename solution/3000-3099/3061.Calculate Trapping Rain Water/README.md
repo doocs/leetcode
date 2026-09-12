@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3061.Calculate%20Trapping%20Rain%20Water/README.md
 tags:
     - 数据库
 ---

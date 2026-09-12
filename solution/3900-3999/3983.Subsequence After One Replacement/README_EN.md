@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3983.Subsequence%20After%20One%20Replacement/README_EN.md
 rating: 1754
 source: Weekly Contest 509 Q2
 tags:

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2860.Happy%20Students/README_EN.md
 rating: 1625
 source: Weekly Contest 363 Q2
 tags:

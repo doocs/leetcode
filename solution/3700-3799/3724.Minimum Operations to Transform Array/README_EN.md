@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3724.Minimum%20Operations%20to%20Transform%20Array/README_EN.md
 rating: 1789
 source: Biweekly Contest 168 Q3
 tags:

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3727.Maximum%20Alternating%20Sum%20of%20Squares/README_EN.md
 rating: 1454
 source: Weekly Contest 473 Q2
 tags:

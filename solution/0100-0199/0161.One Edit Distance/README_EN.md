@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md
 tags:
     - Two Pointers
     - String

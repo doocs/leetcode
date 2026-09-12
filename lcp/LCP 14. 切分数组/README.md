@@ -1,6 +1,5 @@
 ---
 comments: true
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2014.%20%E5%88%87%E5%88%86%E6%95%B0%E7%BB%84/README.md
 ---
 
 <!-- problem:start -->

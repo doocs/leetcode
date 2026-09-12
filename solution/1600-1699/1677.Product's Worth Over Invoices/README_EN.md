@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1677.Product%27s%20Worth%20Over%20Invoices/README_EN.md
 tags:
     - Database
 ---

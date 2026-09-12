@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0382.Linked%20List%20Random%20Node/README_EN.md
 tags:
     - Reservoir Sampling
     - Linked List

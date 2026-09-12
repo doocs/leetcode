@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0243.Shortest%20Word%20Distance/README_EN.md
 tags:
     - Array
     - String

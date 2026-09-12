@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2782.Number%20of%20Unique%20Categories/README.md
 tags:
     - 并查集
     - 计数

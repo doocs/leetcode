@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README_EN.md
 tags:
     - Bit Manipulation
     - Array

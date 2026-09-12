@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3087.Find%20Trending%20Hashtags/README_EN.md
 tags:
     - Database
 ---

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1127.User%20Purchase%20Platform/README.md
 tags:
     - 数据库
 ---

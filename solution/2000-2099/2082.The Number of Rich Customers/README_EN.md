@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README_EN.md
 tags:
     - Database
 ---

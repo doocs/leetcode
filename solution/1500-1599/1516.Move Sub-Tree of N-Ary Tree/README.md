@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README.md
 tags:
     - 树
     - 深度优先搜索

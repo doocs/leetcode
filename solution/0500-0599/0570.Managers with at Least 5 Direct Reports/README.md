@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0570.Managers%20with%20at%20Least%205%20Direct%20Reports/README.md
 tags:
     - 数据库
 ---

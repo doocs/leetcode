@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3060.User%20Activities%20within%20Time%20Bounds/README.md
 tags:
     - 数据库
 ---

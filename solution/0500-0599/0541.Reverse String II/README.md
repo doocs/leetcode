@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0541.Reverse%20String%20II/README.md
 tags:
     - 双指针
     - 字符串

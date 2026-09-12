@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1490.Clone%20N-ary%20Tree/README.md
 tags:
     - 树
     - 深度优先搜索

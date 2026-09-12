@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0561.Array%20Partition/README.md
 tags:
     - 贪心
     - 数组

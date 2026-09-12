@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md
 tags:
     - Breadth-First Search
     - Array

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2062.%20%E4%BA%A4%E9%80%9A%E6%9E%A2%E7%BA%BD/README.md
 ---
 
 <!-- problem:start -->

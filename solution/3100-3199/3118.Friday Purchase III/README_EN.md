@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3118.Friday%20Purchase%20III/README_EN.md
 tags:
     - Database
 ---

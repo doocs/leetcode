@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0596.Classes%20With%20at%20Least%205%20Students/README.md
 tags:
     - 数据库
 ---

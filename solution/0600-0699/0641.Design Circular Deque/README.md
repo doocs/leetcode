@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0641.Design%20Circular%20Deque/README.md
 tags:
     - 设计
     - 队列

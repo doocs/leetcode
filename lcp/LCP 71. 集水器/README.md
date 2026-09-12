@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2071.%20%E9%9B%86%E6%B0%B4%E5%99%A8/README.md
 ---
 
 <!-- problem:start -->

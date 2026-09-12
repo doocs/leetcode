@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1100-1199/1159.Market%20Analysis%20II/README_EN.md
 tags:
     - Database
 ---

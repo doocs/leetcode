@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0326.Power%20of%20Three/README_EN.md
 tags:
     - Recursion
     - Math

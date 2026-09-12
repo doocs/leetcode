@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3764.Most%20Common%20Course%20Pairs/README_EN.md
 tags:
     - Database
 ---

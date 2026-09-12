@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2417.Closest%20Fair%20Integer/README.md
 tags:
     - 数学
     - 枚举

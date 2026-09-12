@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2802.Find%20The%20K-th%20Lucky%20Number/README.md
 tags:
     - 位运算
     - 数学

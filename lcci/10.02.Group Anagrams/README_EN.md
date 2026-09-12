@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.02.Group%20Anagrams/README_EN.md
 ---
 
 <!-- problem:start -->

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0216.Combination%20Sum%20III/README_EN.md
 tags:
     - Array
     - Backtracking

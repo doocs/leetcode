@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3219.Minimum%20Cost%20for%20Cutting%20Cake%20II/README.md
 rating: 1789
 source: 第 406 场周赛 Q4
 tags:

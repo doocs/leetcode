@@ -1,6 +1,5 @@
 ---
 comments: true
-edit_url: https://github.com/doocs/leetcode/edit/main/lcof/README_EN.md
 ---
 
 # [_Coding Interviews, 2nd Edition_](https://www.researchgate.net/file.PostFileLoader.html?id=5631f4596307d977348b4567&assetKey=AS:289838927499264@1446114393339)

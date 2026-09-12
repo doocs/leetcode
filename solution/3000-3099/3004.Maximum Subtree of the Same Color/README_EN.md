@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3004.Maximum%20Subtree%20of%20the%20Same%20Color/README_EN.md
 tags:
     - Tree
     - Depth-First Search

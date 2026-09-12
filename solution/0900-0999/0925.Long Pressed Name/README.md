@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0925.Long%20Pressed%20Name/README.md
 tags:
     - 双指针
     - 字符串

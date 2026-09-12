@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0796.Rotate%20String/README.md
 tags:
     - 字符串
     - 字符串匹配

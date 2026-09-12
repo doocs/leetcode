@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0754.Reach%20a%20Number/README_EN.md
 tags:
     - Math
     - Binary Search

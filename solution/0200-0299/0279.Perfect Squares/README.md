@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0279.Perfect%20Squares/README.md
 tags:
     - 广度优先搜索
     - 数学

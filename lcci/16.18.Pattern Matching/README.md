@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Matching/README.md
 ---
 
 <!-- problem:start -->

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3279.Maximum%20Total%20Area%20Occupied%20by%20Pistons/README.md
 tags:
     - 数组
     - 哈希表

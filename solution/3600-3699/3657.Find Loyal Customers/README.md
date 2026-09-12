@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3657.Find%20Loyal%20Customers/README.md
 tags:
     - 数据库
 ---

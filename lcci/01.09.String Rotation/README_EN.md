@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotation/README_EN.md
 ---
 
 <!-- problem:start -->

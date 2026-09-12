@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md
 tags:
     - Bit Manipulation
     - Hash Table

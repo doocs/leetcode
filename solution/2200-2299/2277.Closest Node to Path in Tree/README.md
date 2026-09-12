@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2277.Closest%20Node%20to%20Path%20in%20Tree/README.md
 tags:
     - 树
     - 深度优先搜索

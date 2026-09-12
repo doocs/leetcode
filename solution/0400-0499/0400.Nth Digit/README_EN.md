@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0400.Nth%20Digit/README_EN.md
 tags:
     - Math
     - Binary Search

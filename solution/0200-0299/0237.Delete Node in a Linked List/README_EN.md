@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md
 tags:
     - Linked List
 ---

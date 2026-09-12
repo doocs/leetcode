@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3284.Sum%20of%20Consecutive%20Subarrays/README_EN.md
 tags:
     - Array
     - Two Pointers

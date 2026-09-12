@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0742.Closest%20Leaf%20in%20a%20Binary%20Tree/README.md
 tags:
     - 树
     - 深度优先搜索

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3595.Once%20Twice/README.md
 tags:
     - 位运算
     - 数组

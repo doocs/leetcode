@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3453.Separate%20Squares%20I/README.md
 rating: 1735
 source: 第 150 场双周赛 Q2
 tags:

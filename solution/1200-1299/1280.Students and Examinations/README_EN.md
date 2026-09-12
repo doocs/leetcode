@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1280.Students%20and%20Examinations/README_EN.md
 tags:
     - Database
 ---

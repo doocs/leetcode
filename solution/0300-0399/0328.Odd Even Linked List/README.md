@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md
 tags:
     - 链表
 ---

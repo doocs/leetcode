@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3817.Good%20Indices%20in%20a%20Digit%20String/README.md
 ---
 
 <!-- problem:start -->

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3088.Make%20String%20Anti-palindrome/README.md
 tags:
     - 贪心
     - 字符串

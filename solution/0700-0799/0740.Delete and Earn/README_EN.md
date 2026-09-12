@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md
 tags:
     - Array
     - Hash Table
