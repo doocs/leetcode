@@ -47,6 +47,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：双栈
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 栈只能后进先出，队列要先进先出。单个栈无法同时满足两端操作，需要第二个栈把顺序反过来。
+>
+> `stk1` 收尾部入队；出队时若 `stk2` 为空，则把 `stk1` 倒入 `stk2`，栈顶即队头。每个元素至多进出两次。
+
+<!-- thinking:end -->
+
 我们可以使用两个栈来实现队列，其中一个栈 `stk1` 用来存储输入的元素，另一个栈 `stk2` 用来输出元素。
 
 当调用 `appendTail()` 方法时，我们将元素压入 `stk1` 中。
