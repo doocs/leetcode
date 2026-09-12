@@ -113,6 +113,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Elements may only increase, so the common target is at least the current maximum. $n\le 10^5$ forbids simulating each increment.
+>
+> When $2\cdot cost1\le cost2$ the pairwise operation never helps and the cost is the total gap times $cost1$. Otherwise gaps should be paired, except when the largest gap is too big to pair freely.
+>
+> Raising the target further can improve pairing and only a bounded number of extra levels matter. For each candidate, turn the total gap and the largest gap into operation counts and keep the minimum cost modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

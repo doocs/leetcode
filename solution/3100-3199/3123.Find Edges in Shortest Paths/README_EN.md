@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Heap Optimized Dijkstra
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each edge must be tested for membership in some shortest $0$–$n-1$ path. Rerunning Dijkstra per edge repeats the same search $m$ times.
+>
+> Undirected edge $(a,b,w)$ lies on a shortest path iff walking backward from $n-1$ along $dist[a]=dist[b]+w$ reaches it. One backward BFS marks every such edge.
+>
+> Compute $dist$ with heap Dijkstra, then BFS from $n-1$ and flag edges that satisfy the equality. If $n-1$ is unreachable every answer is false.
+
+<!-- thinking:end -->
+
 First, we create an adjacency list $g$ to store the edges of the graph. Then we create an array $dist$ to store the shortest distance from node $0$ to other nodes. We initialize $dist[0] = 0$, and the distance of other nodes is initialized to infinity.
 
 Then, we use the Dijkstra algorithm to calculate the shortest distance from node $0$ to other nodes. The specific steps are as follows:

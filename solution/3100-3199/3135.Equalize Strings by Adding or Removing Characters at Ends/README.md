@@ -112,6 +112,18 @@ tags:
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只能删前缀/后缀或在两端添加，本质上是保留一段公共连续子串。枚举 $initial$ 每个子串在 $target$ 中查找，时间为 $O(m^2n)$。
+>
+> 操作次数等于两端丢掉的字符数加上补齐 $target$ 其余部分，即 $m+n-2\cdot mx$，其中 $mx$ 为最长公共子串长度。
+>
+> 经典 DP：$f[i][j]$ 表示以 $initial[i-1]$ 与 $target[j-1]$ 结尾的公共子串长，相等则由 $f[i-1][j-1]+1$ 转移。取全局最大 $mx$ 即可。
+
+<!-- thinking:end -->
+
 我们不妨假设字符串 `initial` 和 `target` 的长度分别为 $m$ 和 $n$。
 
 根据题目描述，我们只需要求出 `initial` 和 `target` 的最长公共子串的长度 $mx$，那么我们可以从 `initial` 中删除 $m - mx$ 个字符，然后再添加 $n - mx$ 个字符，即可将 `initial` 转换为 `target`，因此答案为 $m + n - 2 \times mx$。

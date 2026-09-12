@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ is a concatenation of equal anagram blocks; we want the shortest block. Its length must divide $n$, so only a handful of candidates exist.
+>
+> A length-$k$ block is valid when each segment's counts times $n/k$ recover the global counts. One $O(n)$ pass verifies a candidate.
+>
+> Count the whole string, then try every divisor $k$ and inspect each segment. The first success is the minimum $t$.
+
+<!-- thinking:end -->
+
 Based on the problem description, the length of string $\textit{t}$ must be a factor of the length of string $\textit{s}$. We can enumerate the length $k$ of string $\textit{t}$ from small to large, and then check if it meets the requirements of the problem. If it does, we return. Thus, the problem is transformed into how to check whether the length $k$ of string $\textit{t}$ meets the requirements.
 
 First, we count the occurrence of each character in string $\textit{s}$ and record it in an array or hash table $\textit{cnt}$.

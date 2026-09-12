@@ -122,6 +122,18 @@ The accumulated runtime for all servers totals approximately 44.46 hours, equiva
 
 ### Solution 1: Using Window Functions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Start/stop rows pair into uptime intervals; the answer is their total seconds divided by $86400$. A self-join must be ordered carefully per server.
+>
+> `LEAD(status_time)` partitioned by $server\_id$ yields the next timestamp without a self-join.
+>
+> Compute the next time, keep intervals whose status is `start`, sum the second differences, and floor-divide by a day's length.
+
+<!-- thinking:end -->
+
 We can use the window function `LEAD` to get the time of the next status for each server. The time difference between two statuses is the running time of the server. Finally, we add up the running time of all servers, then divide by the number of seconds in a day to get the total running days of the servers.
 
 <!-- tabs:start -->

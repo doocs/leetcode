@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid word has length at least $3$, only alphanumerics, and at least one vowel and one consonant. The checks are independent and fit in one scan.
+>
+> No automaton is required. A non-alphanumeric character fails immediately; letters are classified by a vowel set.
+>
+> Reject short strings, then track $has\_vowel$ and $has\_consonant$. Both flags must be true at the end.
+
+<!-- thinking:end -->
+
 First, we check if the length of the string is less than 3. If it is, we return `false`.
 
 Next, we iterate through the string, checking if each character is a letter or a number. If it's not, we return `false`. Otherwise, we check if the character is a vowel. If it is, we set `has_vowel` to `true`. If it's not, we set `has_consonant` to `true`.
