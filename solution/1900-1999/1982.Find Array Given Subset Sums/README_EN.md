@@ -80,6 +80,16 @@ Note that any permutation of [1,2,-3] and also any permutation of [-1,-2,3] will
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We are given all $2^n$ subset sums and must recover the array. Shift so the smallest sum is $0$; the next smallest in a sorted multiset is a still-unknown positive element.
+>
+> Each new value deletes every old sum plus that value. If the shift itself is a subset sum, negate those elements to undo the translation.
+
+<!-- thinking:end -->
+
 Shift subset sums to be non-negative, then repeatedly take the smallest remaining sum as the next value.
 
 <!-- tabs:start -->
@@ -281,6 +291,14 @@ func recoverArray(n int, sums []int) []int {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorted-list deletions cost a log factor. After sorting, the gap of the two largest sums is the current absolute value $d$; a counter splits sums into those without and with $d$, and the half that contains $0$ fixes the sign.
+
+<!-- thinking:end -->
 
 Recover the next absolute value from adjacent differences and split subset sums with a counter.
 

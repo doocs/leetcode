@@ -71,6 +71,14 @@ tags:
 
 ### 方法一：暴力枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n\le 50$，四重循环枚举 $a<b<c<d$ 并判断和式，时间可接受。
+
+<!-- thinking:end -->
+
 四重循环枚举 $a < b < c < d$。
 
 <!-- tabs:start -->
@@ -157,6 +165,14 @@ func countQuadruplets(nums []int) int {
 
 ### 方法二：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 四重循环常数偏大。从右固定 $c$，哈希统计其右侧 $d$ 的值，再枚举 $a,b$ 查询 $nums[a]+nums[b]+nums[c]$ 的出现次数，降为 $O(n^3)$。
+
+<!-- thinking:end -->
+
 从右往左枚举 $c$，用哈希表统计右侧 $d$ 的取值，再枚举 $a,b$。
 
 <!-- tabs:start -->
@@ -242,6 +258,14 @@ func countQuadruplets(nums []int) int {
 <!-- solution:start -->
 
 ### 方法三：哈希表（枚举优化）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 仍可再降一重：从右枚举 $b$，把所有 $d-c$（$c=b+1$）计入哈希，再枚举 $a$ 查询 $nums[a]+nums[b]$，总时间 $O(n^2)$。
+
+<!-- thinking:end -->
 
 枚举 $b$，维护 $nums[d]-nums[c]$ 的出现次数，将复杂度再降一维。
 

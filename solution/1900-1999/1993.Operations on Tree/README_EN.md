@@ -94,6 +94,16 @@ lockingTree.lock(0, 1); // return false because node 0 is already locked.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Lock and unlock are point updates. Upgrade needs the node and its ancestors unlocked and at least one locked descendant, then unlocks the subtree and locks the node. $n\le 2000$ allows walking the parent chain and DFS.
+>
+> An array stores the locking user and adjacency lists store children. Upgrade climbs parents first, then DFS-unlocks descendants.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

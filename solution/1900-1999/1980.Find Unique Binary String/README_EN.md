@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n$ strings of length $n$ but $2^n$ possible ones. Among $n+1$ possible Hamming weights only $n$ appear, so one weight is missing.
+>
+> A bit mask records seen counts of ones; we return that many ones padded with zeros.
+
+<!-- thinking:end -->
+
 Since the number of `'1'`s in a binary string of length $n$ can be $0, 1, 2, \cdots, n$ (a total of $n + 1$ possibilities), we can always find a new binary string whose count of `'1'`s differs from every string in $\textit{nums}$.
 
 We use an integer $\textit{mask}$ to record the counts of `'1'`s across all strings, where the $i$-th bit of $\textit{mask}$ being $1$ indicates that a binary string of length $n$ with exactly $i$ occurrences of `'1'` exists in $\textit{nums}$, and $0$ otherwise.
@@ -214,6 +224,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Construction
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting bits walks every character. Cantor diagonalization flips $\textit{nums}[i][i]$ so the result differs from each input in at least one position.
+
+<!-- thinking:end -->
 
 We can construct a binary string $\textit{ans}$ of length $n$, where the $i$-th bit of $\textit{ans}$ differs from the $i$-th bit of $\textit{nums}[i]$. Since all strings in $\textit{nums}$ are distinct, $\textit{ans}$ will not appear in $\textit{nums}$.
 

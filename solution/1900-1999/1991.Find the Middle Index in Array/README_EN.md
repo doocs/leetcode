@@ -73,6 +73,16 @@ The sum of the numbers after index 2 is: 0
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A middle index balances left and right sums. After taking the total, walk left to right: subtract the current value from the right, compare, then add it to the left.
+>
+> No prefix array is required.
+
+<!-- thinking:end -->
+
 We define two variables $l$ and $r$, representing the sum of elements to the left and right of index $i$ in the array $\textit{nums}$, respectively. Initially, $l = 0$ and $r = \sum_{i = 0}^{n - 1} \textit{nums}[i]$.
 
 We traverse the array $\textit{nums}$, and for the current number $x$, we update $r = r - x$. If $l = r$ at this point, it means the current index $i$ is the middle index, and we return it directly. Otherwise, we update $l = l + x$ and continue to the next number.
