@@ -100,6 +100,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$, so listing subsets is impossible. Counting independent sets (no parent-child pair) by residue modulo $k$ is a tree knapsack: each subtree stores ways to take or skip its root with a given sum modulo $k$.
+>
+> Children are merged by convolution. Skipping the root lets every child use any legal state; taking the root forces every child into its “skip that child” state. Reduce modulo $10^9+7$.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that tree knapsack.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

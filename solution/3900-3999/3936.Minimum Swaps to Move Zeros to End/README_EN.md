@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$, so simulating swaps of a zero with a later nonzero is fine. The goal is to send every zero to the suffix; order among zeros or among nonzeros does not matter.
+>
+> Two pointers from the ends: the left seeks a $0$, the right seeks a nonzero, and a crossing pair is one swap. Each index is chosen at most once.
+>
+> The swap count is the number of such zero–nonzero pairs, obtained in one scan.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ pointing to the beginning and end of the array respectively. Each time, we move $i$ to the right until we find a 0, and move $j$ to the left until we find a non-zero number. If $i < j$, we swap the two elements and increment the answer by 1. We repeat this process until $i \geq j$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string is at most length $100$; we only need every pair of adjacent digits to differ by at most $2$. Map characters to integers and test $\textit{pairwise}$ absolute differences.
+>
+> No extra structure is required beyond one linear scan.
+
+<!-- thinking:end -->
+
 We can simulate the process described in the problem: iterate through each pair of adjacent digits in the string and compute their absolute difference. If any pair has an absolute difference greater than 2, return $\text{false}$. If no such pair is found after the traversal, return $\text{true}$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

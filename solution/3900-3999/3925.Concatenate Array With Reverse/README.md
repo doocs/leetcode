@@ -85,6 +85,16 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n\le 100$，直接构造长度为 $2n$ 的数组即可。前半复制原数组，后半按对称下标写入逆序元素。
+>
+> 对每个 $i$，同时赋值 $\textit{ans}[i]=\textit{nums}[i]$ 与 $\textit{ans}[i+n]=\textit{nums}[n-i-1]$，一次遍历完成拼接。
+
+<!-- thinking:end -->
+
 我们创建一个长度为 $2 \times n$ 的数组 $\textit{ans}$，前 $n$ 个元素与 $\textit{nums}$ 相同，后 $n$ 个元素为 $\textit{nums}$ 的逆序。
 
 具体而言，对于 $0 \leq i \leq n - 1$，我们将 $\textit{ans}[i]$ 赋值为 $\textit{nums}[i]$，将 $\textit{ans}[i + n]$ 赋值为 $\textit{nums}[n - i - 1]$。

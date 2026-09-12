@@ -114,6 +114,18 @@ source: Biweekly Contest 182 Q4
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n,m\le 10^3$, so trying every edge weight as a threshold and running a shortest path is in range, but the decision is cleaner. Relative to a threshold an edge is light or heavy, and a valid path uses at most $k$ heavy edges.
+>
+> Fix $T$, treat $w\le T$ as cost $0$ and $w>T$ as cost $1$: a valid path exists iff the $0$–$1$ shortest path is at most $k$. That predicate is monotone in $T$, so we can binary-search the edge weights.
+>
+> This directory has no implemented solution yet; the walkthrough stops at “binary search plus a heavy-edge shortest path”.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

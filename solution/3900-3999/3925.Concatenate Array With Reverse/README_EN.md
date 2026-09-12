@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$, so we simply allocate an array of length $2n$. The first half copies $\textit{nums}$; the second half writes it reversed.
+>
+> For each $i$ we set $\textit{ans}[i]=\textit{nums}[i]$ and $\textit{ans}[i+n]=\textit{nums}[n-i-1]$ in one pass.
+
+<!-- thinking:end -->
+
 We create an array $\textit{ans}$ of length $2 \times n$. The first $n$ elements are the same as $\textit{nums}$, and the next $n$ elements are $\textit{nums}$ in reverse order.
 
 Specifically, for $0 \leq i \leq n - 1$, we set $\textit{ans}[i] = \textit{nums}[i]$ and $\textit{ans}[i + n] = \textit{nums}[n - i - 1]$.
