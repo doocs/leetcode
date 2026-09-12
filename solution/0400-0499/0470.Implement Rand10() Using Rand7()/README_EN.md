@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must turn uniform $rand7$ into uniform $rand10$. $\textit{rand7}\bmod 10$ is biased. Two calls give a uniform integer in $[1,49]$.
+>
+> Rejection sampling keeps $[1,40]$ and returns $x\bmod 10+1$; values $41$–$49$ retry. $40$ is a multiple of $10$, so each residue appears four times.
+>
+> The expected number of calls is constant. Rejecting the tail is what keeps every outcome equally likely.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

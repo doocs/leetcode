@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The island is 4-connected; perimeter is $4$ per land cell minus twice every shared edge. Checking all four neighbors needs bounds tests.
+>
+> Add $4$ for each land cell; if the cell below or to the right is also land, that edge is shared, so subtract $2$. Looking only down and right counts each inner edge once.
+>
+> No graph or DFS is required; one grid scan yields the perimeter.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

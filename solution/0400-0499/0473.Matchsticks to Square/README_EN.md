@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square needs a total divisible by $4$ and no stick longer than a side. Assigning $n\le 15$ sticks to four sides is $4^n$ without pruning.
+>
+> Place large sticks first: try each side that would not overflow, and skip a side equal to the previous one. Fail immediately on a bad total or a too-long stick.
+>
+> Large sticks overflow sooner; equal-side skipping removes symmetric states.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -230,6 +242,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Side-by-side backtracking still repeats partitions. A bit mask of used sticks plus the current side sum $t$ is enough: a legal stick updates $t\gets (t+v)\bmod s$. After sorting, $t+v>s$ cuts the rest of the loop.
+>
+> Memoizing $(\textit{mask},t)$ folds duplicate partitions into $O(n\,2^n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

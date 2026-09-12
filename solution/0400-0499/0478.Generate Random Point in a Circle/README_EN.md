@@ -62,6 +62,18 @@ solution.randPoint(); // return [0.36572, 0.17248]
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a uniform point in a disk. A uniform radius plus a uniform angle piles points near the center. The area element is $r\,dr\,d\theta$, so $r^2$ should be uniform.
+>
+> Draw $\textit{length}=\sqrt{U(0,R^2)}$ and an angle $U(0,2\pi)$, convert to Cartesian, and add the center.
+>
+> The square root of a uniform square-radius makes ring area proportional to probability.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

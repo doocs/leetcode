@@ -63,6 +63,18 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Selecting the most strings under budgets of zeros and ones is $0$-$1$ knapsack with two weights. Subset search is too large.
+>
+> $f[i][j][k]$ is the best count using the first $i$ strings, at most $j$ zeros and $k$ ones. Skip copies the previous row; take adds $1$ when the budgets allow.
+>
+> Count $0/1$ in the current string before filling the row so the transition uses that item's cost.
+
+<!-- thinking:end -->
+
 We define $f[i][j][k]$ as the maximum number of strings that can be obtained from the first $i$ strings using $j$ zeros and $k$ ones. Initially, $f[i][j][k]=0$, and the answer is $f[sz][m][n]$, where $sz$ is the length of the array $strs$.
 
 For $f[i][j][k]$, we have two choices:
@@ -251,6 +263,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ depends only on row $i-1$. Update $j$ and $k$ downward and drop the first dimension. Space becomes $O(mn)$, and a string cannot be taken twice.
+
+<!-- thinking:end -->
 
 We notice that the calculation of $f[i][j][k]$ only depends on $f[i-1][j][k]$ and $f[i-1][j-a][k-b]$. Therefore, we can eliminate the first dimension and optimize the space complexity to $O(m \times n)$.
 

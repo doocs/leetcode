@@ -50,6 +50,18 @@ Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest palindrome that is a product of two $n$-digit integers, modulo $1337$. $n\le 8$, so listing every product is heavy.
+>
+> Enumerate the first half $a$ downward, mirror it to a palindrome $x$, and test for an $n$-digit factor $t$ (from $10^n-1$ down while $t^2\ge x$). The first hit is the maximum.
+>
+> Building palindromes first meets the largest candidates sooner than enumerating products. $n=1$ falls through to $9$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
