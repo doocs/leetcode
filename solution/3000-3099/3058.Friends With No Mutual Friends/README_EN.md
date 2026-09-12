@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3058.Friends%20With%20No%20Mutual%20Friends/README_EN.md
 tags:
     - Database
 ---

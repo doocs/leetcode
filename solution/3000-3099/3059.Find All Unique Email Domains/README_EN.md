@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3059.Find%20All%20Unique%20Email%20Domains/README_EN.md
 tags:
     - Database
 ---

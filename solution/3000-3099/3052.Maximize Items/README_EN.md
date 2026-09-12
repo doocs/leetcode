@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3052.Maximize%20Items/README_EN.md
 tags:
     - Database
 ---
