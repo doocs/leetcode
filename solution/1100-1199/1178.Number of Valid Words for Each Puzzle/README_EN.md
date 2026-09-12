@@ -75,6 +75,14 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 
 ### Solution 1: State Compression + Hash Table + Subset Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid word's letter set is a subset of the puzzle and must contain the first puzzle letter. Short strings over a tiny alphabet compress to bit masks. Count word masks, then enumerate the $2^7$ subsets of each puzzle and add counts whose masks include the first letter. Testing every word against every puzzle is larger.
+
+<!-- thinking:end -->
+
 According to the problem description, for each puzzle $p$ in the puzzle array $puzzles$, we need to count how many words $w$ contain the first letter of the puzzle $p$, and every letter in $w$ can be found in $p$.
 
 Since each repeated letter in a word only needs to be counted once, we can use the method of binary state compression to convert each word $w$ into a binary number $mask$, where the $i$th bit of $mask$ is $1$ if and only if the letter $i$ appears in the word $w$. We use a hash table $cnt$ to count the number of times each compressed state of all words appears.

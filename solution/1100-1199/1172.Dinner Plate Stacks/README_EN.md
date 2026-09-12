@@ -95,6 +95,14 @@ D.pop()            // Returns -1.  There are still no stacks.
 
 ### Solution 1: Stack Array + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `push` must hit the leftmost non-full stack and `pop` the rightmost non-empty one, plus `popAtStack`. Scanning from the left each time is slow under many operations. An array of stacks plus a sorted set of non-full indices makes the leftmost hole the set minimum; a pop that creates a hole reinserts the index, and trailing empty stacks are trimmed so `pop` sees the last live stack.
+
+<!-- thinking:end -->
+
 We define the following data structures or variables:
 
 - `capacity`: The capacity of each stack;

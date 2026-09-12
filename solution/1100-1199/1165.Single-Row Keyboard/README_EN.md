@@ -60,6 +60,14 @@ Total time = 2 + 1 + 1 = 4.
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move costs the absolute index difference on the keyboard. Map characters to positions, start at index $0$, add $|\textit{pos}[c]-i|$ and move the finger. There is no need to scan the keyboard string on every letter.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $pos$ of length $26$ to store the position of each character on the keyboard, where $pos[c]$ represents the position of character $c$ on the keyboard.
 
 Then we traverse the string $word$, using a variable $i$ to record the current position of the finger, initially $i = 0$. Each time, we calculate the position $j$ of the current character $c$ on the keyboard, and increase the answer by $|i - j|$, then update $i$ to $j$. Continue to traverse the next character until the entire string $word$ is traversed.

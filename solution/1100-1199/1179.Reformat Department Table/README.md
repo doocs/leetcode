@@ -74,6 +74,14 @@ Department table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 行式的「部门—月份—收入」要展成每个部门一行、十二月各一列。按 `id` 分组，对每个月用 `CASE` 取出对应 `revenue` 再 `SUM`：每月至多一行，`SUM` 即该月收入，无记录则为空。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

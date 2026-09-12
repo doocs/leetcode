@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zero-sum stretch is two equal prefix sums. Deleting one stretch and rescanning can walk the list many times. A first pass stores the last node of each prefix sum; a second pass sets $cur.next$ to that last node's successor, dropping the middle in one go. A dummy covers a zero-sum prefix at the head.
+
+<!-- thinking:end -->
+
 If two prefix sums of the linked list are equal, it means that the sum of the continuous node sequence between the two prefix sums is $0$, so we can remove this part of the continuous nodes.
 
 We first traverse the linked list and use a hash table $last$ to record the prefix sum and the corresponding linked list node. For the same prefix sum $s$, the later node overwrites the previous node.

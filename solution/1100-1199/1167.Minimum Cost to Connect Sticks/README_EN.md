@@ -74,6 +74,14 @@ There is only one stick left, so you are done. The total cost is 4 + 9 + 17 = 30
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cost of joining two sticks is their sum, and the new stick is merged again, so longer sticks are charged repeatedly. Always joining the two shortest lengths limits how often large values reappear. A min-heap pops two sticks, pushes their sum, and accumulates the cost until one stick remains.
+
+<!-- thinking:end -->
+
 We can use a greedy approach, each time choosing the shortest two sticks to connect, which ensures the minimum cost of connection.
 
 Therefore, we can use a priority queue (min heap) to maintain the current stick lengths. Each time, we take out two sticks from the priority queue to connect, then put the connected stick back into the priority queue, until there is only one stick left in the priority queue.

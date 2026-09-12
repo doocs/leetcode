@@ -80,6 +80,14 @@ Hence, half the customers have immediate first orders.
 
 ### Solution 1: Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only each customer's first order counts. A subquery takes `MIN(order_date)` per `customer_id`; the outer query keeps those rows and averages the date-equality flag times $100$.
+
+<!-- thinking:end -->
+
 We can use a subquery to first find the first order of each user, and then calculate the proportion of instant orders.
 
 <!-- tabs:start -->
@@ -106,6 +114,14 @@ WHERE
 <!-- solution:start -->
 
 ### Solution 2: Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses a pairwise `IN` subquery. `RANK() OVER (PARTITION BY customer_id ORDER BY order_date)` marks first orders; filter $rk=1$ and average, without the subquery.
+
+<!-- thinking:end -->
 
 We can use the `RANK()` window function to rank the orders of each user in ascending order by order date, and then filter out the orders with a rank of $1$, which are the first orders of each user. After that, we can calculate the proportion of instant orders.
 

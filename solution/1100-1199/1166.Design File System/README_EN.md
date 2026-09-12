@@ -84,6 +84,14 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 
 ### Solution 1: Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths split on `/`. Create requires the parent to exist and the path to be new; get walks the segments. A trie stores segments as edges: insert demands every prefix child except the last, and rejects a duplicate last segment; get returns $-1$ if any segment is missing. Hash children make each hop expected constant time.
+
+<!-- thinking:end -->
+
 We can use a trie to store the paths, where each node stores a value, representing the value of the path corresponding to the node.
 
 The structure of the trie node is defined as follows:

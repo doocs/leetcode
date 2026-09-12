@@ -81,6 +81,14 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $k$-day calorie sum is compared with the two bounds. Prefix sums make $s[i+k]-s[i]$ $O(1)$, so we only enumerate window starts.
+
+<!-- thinking:end -->
+
 First, we preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the total calories of the first $i$ days.
 
 Then we traverse the prefix sum array $s$. For each position $i$, we calculate $s[i+k]-s[i]$, which is the total calories for the consecutive $k$ days starting from the $i$th day. According to the problem description, for each $s[i+k]-s[i]$, we judge its value with $lower$ and $upper$, and update the answer accordingly.
@@ -207,6 +215,14 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores an $O(n)$ prefix array. A fixed window only needs the running sum: add the incoming day and drop the outgoing one. Space becomes constant; the scoring rule is unchanged.
+
+<!-- thinking:end -->
 
 We maintain a sliding window of length $k$, and the sum of the elements in the window is denoted as $s$. If $s \lt lower$, the score decreases by $1$; if $s > upper$, the score increases by $1$.
 

@@ -61,6 +61,14 @@ So we return the level with the maximum sum which is level 2.
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Level index and level sum match a level-order scan. BFS sums every node in the current queue, records the level when the sum strictly improves, and leaves ties untouched so the smaller index remains. The tree is visited once.
+
+<!-- thinking:end -->
+
 We use BFS to traverse level by level, calculating the sum of nodes at each level, and find the level with the maximum sum. If there are multiple levels with the maximum sum, return the smallest level number.
 
 Specifically, we use a queue $q$ to store the nodes of the current level. During each traversal, we record the sum of nodes at the current level as $s$, then add all child nodes of the current level to the queue to prepare for the next level. We use variable $mx$ to record the current maximum sum, and variable $ans$ to record the corresponding level number. After calculating the sum of each level, if $s$ is greater than $mx$, we update $mx$ and $ans$. Finally, we return $ans$.
@@ -344,6 +352,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 holds a whole level in a queue. DFS adds each node's value into $s[i]$ by depth; the stack follows tree height. The smallest index of the maximum in $s$ is the same answer.
+
+<!-- thinking:end -->
 
 We can also use DFS to solve this problem. We use an array $s$ to store the sum of nodes at each level. The index of the array represents the level, and the value of the array represents the sum of nodes. We use DFS to traverse the binary tree, adding the value of each node to the sum of nodes at the corresponding level. Finally, we return the index corresponding to the maximum value in $s$.
 

@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word is formable iff no letter exceeds the supply in $chars$. Recounting $chars$ for every word repeats work. Count $chars$ once, then compare each word's frequencies: reject if any letter overflows, otherwise add the word length. The alphabet is constant, so each comparison is linear in the word.
+
+<!-- thinking:end -->
+
 We can use an array $cnt$ of length $26$ to count the occurrence of each letter in the string $chars$.
 
 Then we traverse the string array $words$. For each string $w$, we use an array $wc$ of length $26$ to count the occurrence of each letter in the string $w$. If for each letter $c$, $wc[c] \leq cnt[c]$, then we can spell the string $w$ with the letters in $chars$, otherwise we cannot spell the string $w$. If we can spell the string $w$, then we add the length of the string $w$ to the answer.

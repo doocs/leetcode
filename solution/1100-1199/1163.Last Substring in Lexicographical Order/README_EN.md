@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: Two pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The lexicographically last substring is some suffix; comparing every suffix is quadratic. Pointers $i$ and $j$ mark the current best and a candidate, with $k$ comparing characters: equal extends $k$; a better candidate jumps $i$ over the compared span; a worse candidate jumps $j$. Skipped starts cannot win, so the best suffix is found in linear time.
+
+<!-- thinking:end -->
+
 We notice that if a substring starts from position $i$, then the largest substring with the largest dictionary order must be $s[i,..n-1]$, which is the longest suffix starting from position $i$. Therefore, we only need to find the largest suffix substring.
 
 We use two pointers $i$ and $j$, where pointer $i$ points to the starting position of the current largest substring with the largest dictionary order, and pointer $j$ points to the starting position of the current substring being considered. In addition, we use a variable $k$ to record the current position being compared. Initially, $i = 0$, $j=1$, $k=0$.
