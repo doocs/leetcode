@@ -93,6 +93,16 @@ Department 表:
 
 ### 方法一：左连接 + 分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要每个系的学生人数，没有学生的系也应为 $0$。内连接会丢掉空系。
+>
+> `Department` 左连 `Student`，按系分组 `COUNT` 学生，再按人数降序、系名升序。左连接保证空系留下一行，`COUNT` 计为 $0$。
+
+<!-- thinking:end -->
+
 我们可以使用左连接，将 `Department` 表与 `Student` 表按照 `dept_id` 进行连接，然后按照 `dept_id` 分组统计学生人数，最后按照 `student_number` 降序、`dept_name` 升序排序即可。
 
 <!-- tabs:start -->

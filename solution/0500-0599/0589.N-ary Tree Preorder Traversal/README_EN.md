@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> N-ary preorder is the root, then children from left to right. Recursion matches the definition.
+>
+> Append the root, then recurse on each child. An empty tree yields an empty list. Each node is visited once.
+
+<!-- thinking:end -->
+
 We can recursively traverse the entire tree. For each node, we first add the node's value to the answer, then recursively call the function for each of the node's children.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
@@ -276,6 +286,16 @@ int* preorder(struct Node* root, int* returnSize) {
 <!-- solution:start -->
 
 ### Solution 2: Iteration (Stack Implementation)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursion uses the call stack. An explicit stack must push children from right to left so the leftmost child pops first.
+>
+> Pop-and-visit, then push children reversed. The order matches recursive preorder without call-stack limits.
+
+<!-- thinking:end -->
 
 We can also solve this problem iteratively.
 

@@ -75,6 +75,16 @@ customer_number 为 '3' 的顾客有两个订单，比顾客 '1' 或者 '2' 都�
 
 ### 方法一：分组 + 排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 下单次数最多的客户。按客户分组计数，再按次数降序取第一。
+>
+> `GROUP BY customer_number` 后 `ORDER BY COUNT(*) DESC`，限制一行。题目保证答案唯一。
+
+<!-- thinking:end -->
+
 我们可以使用 `GROUP BY` 将数据按照 `customer_number` 进行分组，然后按照 `count(1)` 进行降序排序，最后取第一条记录的 `customer_number` 即可。
 
 <!-- tabs:start -->
@@ -98,6 +108,16 @@ LIMIT 1;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用 `LIMIT 1`。T-SQL 没有同样的 `LIMIT`，改用 `TOP 1` 表达相同的「按计数取第一」。
+>
+> 分组与排序不变，只是限制行数的语法不同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

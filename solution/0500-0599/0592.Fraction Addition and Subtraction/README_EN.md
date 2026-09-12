@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add and subtract fractions with denominators from $2$ to $10$. A common denominator plus a gcd is enough; a fraction type is unnecessary.
+>
+> Use $y = \mathrm{lcm}(2,\ldots,10)$ as the denominator and scan signed $a/b$ terms into the numerator $x$. Reduce by $\gcd(x,y)$. Prefix a `+` when the expression starts with a digit so parsing is uniform.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

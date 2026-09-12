@@ -77,6 +77,16 @@ Courses 表:
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 班级至少五名学生。按课分组计数，用 `HAVING` 过滤即可，不必先子查询。
+>
+> `GROUP BY class` 后 `HAVING COUNT(*) >= 5`。`HAVING` 作用在分组结果上，与 `WHERE` 过滤行的时机不同。
+
+<!-- thinking:end -->
+
 我们可以使用 `GROUP BY` 语句，按照班级分组，然后使用 `HAVING` 语句，筛选出学生数量大于等于 $5$ 的班级。
 
 <!-- tabs:start -->

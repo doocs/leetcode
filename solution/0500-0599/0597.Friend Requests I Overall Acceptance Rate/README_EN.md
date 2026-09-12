@@ -111,6 +111,16 @@ There are 4 unique accepted requests, and there are 5 requests in total. So the 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The accept rate is distinct accepted pairs over distinct request pairs, or $0$ when there are no requests. Two distinct counts suffice.
+>
+> `COUNT(DISTINCT ...)` on each table, `IFNULL` for a zero denominator, then `ROUND` to two places. No join is required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

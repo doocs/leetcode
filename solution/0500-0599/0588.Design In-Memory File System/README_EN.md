@@ -82,6 +82,16 @@ fileSystem.readContentFromFile(&quot;/a/b/c/d&quot;); // return &quot;hello&quot
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A file system is hierarchical: list, mkdir, append, read. A flat map of full paths works, but sharing prefixes and listing a directory is awkward.
+>
+> A trie keyed by path segments stores children, a file flag, and content chunks. `insert` creates nodes; `search` walks to the target. `ls` returns a file name or the sorted child names. Cost follows path depth.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

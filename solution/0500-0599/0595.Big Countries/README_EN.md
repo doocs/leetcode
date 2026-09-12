@@ -79,6 +79,16 @@ World table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A big country meets an area or a population threshold. One filter is enough.
+>
+> `WHERE area >= 3000000 OR population >= 25000000` keeps a row that satisfies either predicate. Disjunction avoids dropping one-sided matches.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -97,6 +107,16 @@ WHERE area >= 3000000 OR population >= 25000000;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses `OR`. Two separate queries unioned together also work and remove duplicates.
+>
+> If `OR` defeats an index, two range scans plus `UNION` can be stabler. The row set matches Solution 1.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

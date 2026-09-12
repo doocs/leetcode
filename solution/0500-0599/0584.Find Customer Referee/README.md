@@ -75,6 +75,16 @@ Customer 表:
 
 ### 方法一：条件过滤
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 筛出推荐人不是 $2$ 的客户。`referee_id` 为 `NULL` 时，`<> 2` 在 SQL 中不是真，会把这些人丢掉。
+>
+> 条件写成 `referee_id != 2 OR referee_id IS NULL`（或 `IFNULL`）。显式保留未知推荐人。
+
+<!-- thinking:end -->
+
 我们可以直接筛选出 `referee_id` 不为 `2` 的客户姓名。注意，`referee_id` 为 `NULL` 的客户也应该被筛选出来。
 
 <!-- tabs:start -->

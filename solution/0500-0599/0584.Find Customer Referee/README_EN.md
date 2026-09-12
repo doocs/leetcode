@@ -78,6 +78,16 @@ Customer table:
 
 ### Solution 1: Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep customers whose referee is not $2$. In SQL, `NULL <> 2` is unknown, so those rows would disappear.
+>
+> Write `referee_id != 2 OR referee_id IS NULL` (or `IFNULL`). Missing referees stay in the result.
+
+<!-- thinking:end -->
+
 We can directly filter out the customer names whose `referee_id` is not `2`. Note that the customers whose `referee_id` is `NULL` should also be filtered out.
 
 <!-- tabs:start -->

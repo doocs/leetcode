@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only deletions are allowed, so the minimum steps equal $|s|+|t|-2\cdot\mathrm{LCS}$. We can also write the deletion recurrence directly.
+>
+> $f[i][j]$ is the fewest deletions to make the two prefixes equal. Matching letters copy $f[i-1][j-1]$; otherwise delete one side and add one. The border is the length of the other prefix. $f[m][n]$ is the answer.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum number of deletions required to make the first $i$ characters of the string $\textit{word1}$ and the first $j$ characters of the string $\textit{word2}$ the same. The answer is $f[m][n]$, where $m$ and $n$ are the lengths of the strings $\textit{word1}$ and $\textit{word2}$, respectively.
 
 Initially, if $j = 0$, then $f[i][0] = i$; if $i = 0$, then $f[0][j] = j$.

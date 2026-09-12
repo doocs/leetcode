@@ -73,6 +73,16 @@ So the result is customer_number 3.
 
 ### Solution 1: Group By + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The customer with the most orders. Group-count, then take the top row.
+>
+> `GROUP BY customer_number` and `ORDER BY COUNT(*) DESC` with a one-row limit. The winner is unique.
+
+<!-- thinking:end -->
+
 We can use `GROUP BY` to group the data by `customer_number`, and then sort the groups in descending order by `count(1)`. Finally, we can take the `customer_number` of the first record as the result.
 
 <!-- tabs:start -->
@@ -96,6 +106,16 @@ LIMIT 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses `LIMIT 1`. T-SQL writes the same “first by count” with `TOP 1`.
+>
+> The grouping and ordering stay; only the row-limit syntax changes.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

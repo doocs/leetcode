@@ -111,6 +111,16 @@ RequestAccepted 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 接受率是「不同的接受对」除以「不同的请求对」，没有请求时为 $0$。两表各去重计数再相除。
+>
+> `COUNT(DISTINCT ...)` 分别统计接受与请求，`IFNULL(..., 0)` 处理除数为 $0$，再 `ROUND` 到两位。不必连接两表。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
