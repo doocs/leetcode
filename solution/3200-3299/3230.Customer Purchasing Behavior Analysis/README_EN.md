@@ -142,6 +142,16 @@ Each row of this table contains information about a product, including its categ
 
 ### Solution 1: Grouping + Window Functions + Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must aggregate amount, count, and distinct categories per customer, plus the category that is most frequent and then most recent. Doing this in application code scatters the logic.
+>
+> Join transactions to products, count per customer and category with the latest date, take rank $1$ per customer by that order, then aggregate loyalty on the detail rows. The window encodes the tie-break exactly.
+
+<!-- thinking:end -->
+
 First, we join the `Transactions` table with the `Products` table, recording the result in a temporary table `T`.
 
 Next, we use the `T` table to calculate the transaction count and the most recent transaction date for each user in each category, saving the results in a temporary table `P`.

@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Dynamic Programming + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each column is painted black from the top for some height; a white cell scores only if a neighbor column is black there. $n\le 100$, so enumerating height tuples is $(n+1)^n$. Column $j$'s score depends only on its height and its two neighbors, which suggests a column DP.
+>
+> $f[h_1][h_2]$ is the best score with current height $h_1$ and previous height $h_2$. When enumerating the next height, $\max(h_2,h_p)$ makes the addend piecewise, so prefix/suffix maxima over $h_2$ drop a column from $O(n^3)$ to $O(n^2)$. Column prefix sums precompute white-range totals.
+
+<!-- thinking:end -->
+
 For each column $j$, let $k[j] \in \{0, 1, \ldots, n\}$ be the number of cells colored black from the top. A white cell $(i, j)$ scores if and only if at least one horizontally adjacent cell is black, and it is counted only once. The contribution of column $j$ is therefore:
 
 $$

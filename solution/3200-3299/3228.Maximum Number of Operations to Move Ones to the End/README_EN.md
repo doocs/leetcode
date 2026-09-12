@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation turns a $10$ into $01$, shifting a $1$ one step right. $n\le 10^5$, so simulating every shift may be quadratic. An operation is “some $1$ crossing the next $0$”, and every $1$ already seen can cross each later $0$-run.
+>
+> Count ones in $\textit{cnt}$; at a $1\to 0$ boundary those $\textit{cnt}$ ones can each move once more, so add $\textit{cnt}$. One linear pass.
+
+<!-- thinking:end -->
+
 We use a variable $\textit{ans}$ to record the answer and another variable $\textit{cnt}$ to count the current number of $1$s.
 
 Then, we iterate through the string $s$. If the current character is $1$, then we increment $\textit{cnt}$. Otherwise, if there is a previous character and the previous character is $1$, then the previous $\textit{cnt}$ number of $1$s can be moved backward, and we add $\textit{cnt}$ to the answer.

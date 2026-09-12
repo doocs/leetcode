@@ -91,6 +91,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Player $x$ wins if some color exceeds count $x$. $n\le 10$ and $\textit{pick}$ has length at most $100$, so direct counting is enough.
+>
+> A table stores each player's count per color; hitting the threshold inserts the player into a set so we do not double-count. The set size is the number of winners.
+
+<!-- thinking:end -->
+
 We can use a 2D array $\textit{cnt}$ to record the number of balls of each color obtained by each player, and a hash table $\textit{s}$ to record the IDs of the winning players.
 
 Traverse the $\textit{pick}$ array, for each element $[x, y]$, we increment $\textit{cnt}[x][y]$ by one. If $\textit{cnt}[x][y]$ is greater than $x$, we add $x$ to the hash table $\textit{s}$.

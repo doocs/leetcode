@@ -82,6 +82,16 @@ There is no valid play for Alice in her first turn, so Alice loses the game.</p>
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players delete a substring with an odd vowel count; the one who cannot move loses. $n\le 10^5$ rules out a game tree, but the vowel count $k$ already decides the winner.
+>
+> If $k=0$ the first player cannot move; if $k$ is odd she deletes the whole string; if $k$ is even she deletes $k-1$ vowels and leaves one, so the second player cannot move. Hence any vowel wins for Alice; one scan suffices.
+
+<!-- thinking:end -->
+
 Let's denote the number of vowels in the string as $k$.
 
 If $k = 0$, meaning there are no vowels in the string, then Little Red cannot remove any substring, and Little Ming wins directly.

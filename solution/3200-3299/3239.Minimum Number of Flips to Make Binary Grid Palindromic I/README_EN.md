@@ -87,6 +87,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may make every row a palindrome or every column a palindrome, and want the fewer flips. $mn\le 2\times 10^5$, so count both costs and take the min.
+>
+> A row needs one flip per mismatched pair; columns are analogous. The two counts are independent. The matrix need not be rewritten.
+
+<!-- thinking:end -->
+
 We separately count the number of flips for rows and columns, denoted as $\textit{cnt1}$ and $\textit{cnt2}$, respectively. Finally, we take the minimum of the two.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively.

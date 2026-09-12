@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The jump score is the same as Maximum Array Hopping Score I, but the limits rule out quadratic DP. The optimum is still to jump to the next value no smaller than the current one.
+>
+> A decreasing stack extracts that index chain; from $0$, add $\textit{nums}[j]\times(j-i)$ along the stack. The time is linear and needs no memoization.
+
+<!-- thinking:end -->
+
 We observe that for the current position $i$, we should jump to the next position $j$ with the maximum value to obtain the maximum score.
 
 Therefore, we traverse the array $\textit{nums}$, maintaining a stack $\textit{stk}$ that is monotonically decreasing from the bottom to the top of the stack. For the current position $i$ being traversed, if the value corresponding to the top element of the stack is less than or equal to $\textit{nums}[i]$, we continuously pop the top element of the stack until the stack is empty or the value corresponding to the top element of the stack is greater than $\textit{nums}[i]$, and then push $i$ into the stack.

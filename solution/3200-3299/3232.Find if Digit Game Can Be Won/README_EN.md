@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Summation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice picks either all one-digit numbers or all two-digit numbers and wins if that sum is strictly larger. $n\le 100$ needs no search: the two choices are complementary, so she wins iff the two sums differ.
+>
+> Sum values $<10$ and values $\ge 10$ and compare. One linear scan.
+
+<!-- thinking:end -->
+
 According to the problem description, as long as the sum of the units digits is not equal to the sum of the tens digits, Alice can always choose a larger sum to win.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.
