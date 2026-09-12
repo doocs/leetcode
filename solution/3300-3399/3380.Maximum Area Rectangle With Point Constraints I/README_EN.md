@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An axis-aligned rectangle is two opposite corners, and no other point may lie inside or on the boundary except the four corners. With $n \le 10$ we try every pair and scan the rest.
+>
+> The pair yields a box via $\min/\max$. A point on a non-corner boundary or in the interior rejects the box; we count corner hits.
+>
+> Exactly four corners update the area. If none succeed, return $-1$.
+
+<!-- thinking:end -->
+
 We can enumerate the bottom-left corner $(x_3, y_3)$ and the top-right corner $(x_4, y_4)$ of the rectangle. Then, we enumerate all points $(x, y)$ and check if the point is inside or on the boundary of the rectangle. If it is, it does not meet the condition. Otherwise, we exclude the points outside the rectangle and check if there are 4 remaining points. If there are, these 4 points can form a rectangle. We calculate the area of the rectangle and take the maximum value.
 
 The time complexity is $O(n^3)$, where $n$ is the length of the array $\textit{points}$. The space complexity is $O(1)$.

@@ -164,6 +164,18 @@ pass_to is the player_id of the player receiving the pass.
 
 ### Solution 1: Equi-Join + Group By and Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pass is $+1$ inside a team and $-1$ across teams, aggregated by team and half. Timestamps up to $45{:}00$ are the first half.
+>
+> Join the pass list to the team table on both player ids so the two team names can be compared.
+>
+> Group by the sender's team and the half, sum dominance, and sort by team then half.
+
+<!-- thinking:end -->
+
 We can use an equi-join to find the teams of both the passer and the receiver for each pass. Then, based on the timestamp, we determine whether the pass occurred in the first half or the second half. By checking if the passer and receiver belong to the same team, we calculate the advantage value for each pass. Finally, we group by team name and half number, and sum the advantage values to get the advantage value for each team in the first and second halves.
 
 <!-- tabs:start -->

@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$5$ subsequence is counted when its middle value is the unique mode. With $n \le 1000$ we fix the middle index and pick two indices on each side.
+>
+> A raw $O(n^5)$ search fails. After fixing $x=\textit{nums}[i]$, we classify left/right frequencies so that $x$ occurs strictly more often than every other value.
+>
+> Combine left and right frequency tables, subtracting cases where $x$ is tied or not the mode. With $O(n)$ prefix maps at $i$, each middle is $O(1)$ or $O(|\Sigma|)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

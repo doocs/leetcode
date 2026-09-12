@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $x$ may become any integer in $[x-k,x+k]$; we want as many distinct results as possible. With $n \le 10^5$ we sort and greedily take the smallest still-available integer.
+>
+> $\textit{pre}$ is the last used value. $x$ becomes $\min(x+k,\max(x-k,\textit{pre}+1))$ and counts if that is still above $\textit{pre}$.
+>
+> Using smaller integers first leaves room for later, larger intervals, which is why we sort.
+
+<!-- thinking:end -->
+
 We can sort the array $\textit{nums}$ and then consider each element $x$ from left to right.
 
 For the first element, we can greedily change it to $x - k$, making $x$ as small as possible to leave more space for subsequent elements. We use the variable $\textit{pre}$ to track the maximum value of the elements used so far, initialized to negative infinity.

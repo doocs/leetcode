@@ -96,6 +96,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> By inserting, deleting, or changing letters we want every frequency to be $0$ or a common $t$. With $|s| \le 2 \times 10^4$ we try each $t$ and assign the $26$ counts.
+>
+> A change moves one count to another; inserts and deletes are charged separately. For a fixed $t$ we match each frequency to “keep $t$ or drop to zero”.
+>
+> The answer is the best $t$. $t$ need not exceed the largest frequency, so the enumeration is small.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -90,6 +90,18 @@ tags:
 
 ### Solution 1: Hash Table + Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation drops the first three elements until the remainder is unique. With $n \le 100$ we find the longest duplicate-free suffix from the right.
+>
+> Insert values into a set while walking left. The first duplicate means indices $0..i$ must go, which takes $\lfloor i/3 \rfloor+1$ operations.
+>
+> If the whole array stays unique, the answer is $0$.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums}$ in reverse order and use a hash table $\textit{s}$ to record the elements that have already been traversed. When we encounter an element $\textit{nums}[i]$, if $\textit{nums}[i]$ is already in the hash table $\textit{s}$, it means we need to remove all elements from $\textit{nums}[0..i]$. The number of operations required is $\left\lfloor \frac{i}{3} \right\rfloor + 1$. Otherwise, we add $\textit{nums}[i]$ to the hash table $\textit{s}$ and continue to the next element.
 
 After traversing, if no duplicate elements are found, the elements in the array are already distinct, and no operations are needed, so the answer is $0$.

@@ -147,6 +147,18 @@ pass_to 是接收传球队员的 player_id。
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计每支球队连续同队传球的最长长度。跨队传球会打断该队的当前 streak。
+>
+> 连接球队表得到每次传球是否同队后，按队内时间戳把「跨队」当作分组键：对 $\textit{same\_team}=0$ 做累加和，得到 streak 分组号。
+>
+> 只保留同队传球，按 $(\textit{team},\textit{group\_id})$ 计数，再取每队最大值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

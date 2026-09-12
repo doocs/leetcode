@@ -184,6 +184,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in part I, lock $i$ in position $j+1$ costs $\lceil a[i]/(j+1) \rceil$, but $n \le 80$ rules out subset DP. This is a min-cost matching between locks and order slots.
+>
+> The left part is locks, the right part is orders $1..n$, and an edge weight is the time of that assignment. Source and sink edges have capacity $1$.
+>
+> A min-cost max-flow of $n$ units is the minimum total time.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

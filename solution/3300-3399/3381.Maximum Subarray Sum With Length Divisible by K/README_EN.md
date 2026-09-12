@@ -77,6 +77,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray length is a multiple of $k$ iff the two prefix indices share a residue modulo $k$. With $n \le 2 \times 10^5$ we keep the minimum prefix of each residue.
+>
+> $f[r]$ is the smallest prefix whose index is $r$ modulo $k$. At $j$ we update the answer by $s-f[j \bmod k]$, then write $s$ into that slot.
+>
+> The sentinel $f[k-1]=0$ stands for the empty prefix at index $-1$.
+
+<!-- thinking:end -->
+
 According to the problem description, for a subarray's length to be divisible by $k$, it is equivalent to requiring that for subarray $\textit{nums}[i+1 \ldots j]$, we have $i \bmod k = j \bmod k$.
 
 We can enumerate the right endpoint $j$ of the subarray and use an array $\textit{f}$ of length $k$ to record the minimum prefix sum for each modulo $k$. Initially, $\textit{f}[k-1] = 0$, indicating that the prefix sum at index $-1$ is $0$.
