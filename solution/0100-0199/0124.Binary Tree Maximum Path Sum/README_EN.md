@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path may start anywhere, need not pass the root, and may bend at a node to take both children. Enumerating paths is impossible at $n \le 3\times 10^4$.
+>
+> The value a node can pass upward is its value plus the better non-negative child chain. The sum that uses both children only updates the global answer and cannot propagate. Negative contributions are dropped by taking $\max(0,\cdot)$ before returning.
+
+<!-- thinking:end -->
+
 When thinking about the classic routine of recursion problems in binary trees, we consider:
 
 1. Termination condition (when to terminate recursion)

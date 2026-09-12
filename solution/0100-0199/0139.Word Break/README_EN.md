@@ -70,6 +70,14 @@ Note that you are allowed to reuse a dictionary word.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Can $s$ be segmented into dictionary words? $|s|\le 300$; backtracking repeats the same suffixes. $f[i]$ means the prefix $s[0..i)$ can be split: try a cut $j$ where $f[j]$ is true and $s[j..i)$ is in the dictionary. A hash set makes the membership test expected $O(1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -221,6 +229,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 slices a substring and hashes it at every cut, which is $O(n)$ per test. A trie lets us walk from index $i$ along existing edges only, so useless slices disappear and the time becomes $O(n^2)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

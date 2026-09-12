@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every number appears twice except one; we need linear time and constant space. A frequency map uses $O(n)$ space. XOR has $x\oplus x=0$, $x\oplus 0=x$, and is commutative, so pairing cancels and the leftover is the unique number.
+
+<!-- thinking:end -->
+
 The XOR operation has the following properties:
 
 - Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
@@ -191,6 +199,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already an XOR fold. This variant uses the language's reduction to do the same operation.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

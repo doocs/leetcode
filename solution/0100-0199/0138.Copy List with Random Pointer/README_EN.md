@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Copy a list whose random pointer may refer to any node or null. If we copy $\textit{next}$ first, the random target may not exist yet. $n\le 1000$.
+>
+> A first pass builds the new list along $\textit{next}$ and maps each original node to its copy; a second pass wires $\textit{random}$ through that map.
+
+<!-- thinking:end -->
+
 We can define a dummy head node $\textit{dummy}$ and use a pointer $\textit{tail}$ to point to the dummy head node. Then, we traverse the linked list, copying each node and storing the mapping between each node and its copy in a hash table $\textit{d}$, while also connecting the $\textit{next}$ pointers of the copied nodes.
 
 Next, we traverse the linked list again and use the mappings stored in the hash table to connect the $\textit{random}$ pointers of the copied nodes.
@@ -338,6 +348,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1's map is $O(n)$ space. Insert each copy after its original so the pair is adjacent; the matching random node is $\textit{cur.random.next}$. Split the list afterwards. No hash table.
+
+<!-- thinking:end -->
 
 In Solution 1, we used an additional hash table to store the mapping between the original nodes and the copied nodes. We can also achieve this without using extra space, as follows:
 

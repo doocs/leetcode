@@ -63,6 +63,16 @@ The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above)
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step may only move to an adjacent cell on the next row; enumerating paths grows exponentially with the number of rows. Subproblems overlap: the best path from a cell depends only on the two cells below.
+>
+> Define $f[i][j]$ bottom-up as the min path from that cell to the last row. Each cell takes the min of the two below plus itself; $f[0][0]$ is the answer.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum path sum from the bottom of the triangle to position $(i, j)$. Here, position $(i, j)$ refers to the position in row $i$ and column $j$ of the triangle (both indexed from $0$). We have the following state transition equation:
 
 $$
@@ -178,6 +188,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In Solution 1, $f[i][j]$ depends only on the next row. Rolling a one-dimensional array upward cuts space from $O(n^2)$ to $O(n)$, which matches the follow-up.
+
+<!-- thinking:end -->
 
 We notice that the state $f[i][j]$ only depends on states $f[i + 1][j]$ and $f[i + 1][j + 1]$. Therefore, we can use a one-dimensional array instead of a two-dimensional array, reducing the space complexity from $O(n^2)$ to $O(n)$.
 

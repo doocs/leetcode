@@ -44,6 +44,16 @@ tags:
 
 ### Solution 1: Preprocessing + DFS (Backtracking)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List every way to cut $s$ into palindromic pieces. $n\le 16$, so at most $2^{n-1}$ partitions; backtracking is fine. Checking palindromes at each cut rescans the same spans.
+>
+> Precompute $f[i][j]$ whether $s[i..j]$ is a palindrome, then try the next cut only when $f[i][j]$ is true.
+
+<!-- thinking:end -->
+
 We can use dynamic programming to preprocess whether any substring in the string is a palindrome, i.e., $f[i][j]$ indicates whether the substring $s[i..j]$ is a palindrome.
 
 Next, we design a function $dfs(i)$, which represents starting from the $i$-th character of the string and partitioning it into several palindromic substrings, with the current partition scheme being $t$.

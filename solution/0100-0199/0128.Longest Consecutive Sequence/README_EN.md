@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting and scanning runs is $O(n\log n)$; the problem asks for $O(n)$. $n \le 10^5$. Put the values in a hash set. From each $x$ still in the set, walk right until the run breaks, store that length at the start, and let earlier starts concatenate. Each number enters and leaves the set once.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{s}$ to store all the elements in the array, a variable $\textit{ans}$ to record the length of the longest consecutive sequence, and a hash table $\textit{d}$ to record the length of the consecutive sequence each element $x$ belongs to.
 
 Next, we iterate through each element $x$ in the array, using a temporary variable $y$ to record the maximum value of the current consecutive sequence, initially $y = x$. Then, we continuously try to match $y+1, y+2, y+3, \dots$ until we can no longer match. During this process, we remove the matched elements from the hash table $\textit{s}$. The length of the consecutive sequence that the current element $x$ belongs to is $d[x] = d[y] + y - x$, and then we update the answer $\textit{ans} = \max(\textit{ans}, d[x])$.
@@ -231,6 +239,14 @@ var longestConsecutive = function (nums) {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table (Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores each run's length so later starts can concatenate. If we only grow a run when $x-1$ is absent, $x$ is already a start, so the extra map $d$ is unnecessary. The code is shorter and still touches each number a constant number of times.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we use a hash table $\textit{s}$ to store all the elements in the array and a variable $\textit{ans}$ to record the length of the longest consecutive sequence. However, we no longer use a hash table $\textit{d}$ to record the length of the consecutive sequence each element $x$ belongs to. During the iteration, we skip elements where $x-1$ is also in the hash table $\textit{s}$. If $x-1$ is in the hash table $\textit{s}$, then $x$ is definitely not the start of a consecutive sequence, so we can directly skip $x$.
 
