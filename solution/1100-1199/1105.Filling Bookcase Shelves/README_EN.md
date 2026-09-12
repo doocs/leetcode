@@ -68,6 +68,16 @@ Notice that book number 2 does not have to be on the first shelf.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each book may start a new shelf or share one with a prefix of earlier books; the partition count grows exponentially. With $n\le 1000$, an $O(n^2)$ DP fits.
+>
+> Let $f[i]$ be the minimum height for the first $i$ books. The last shelf ends at $books[i-1]$; extend it backward, accumulating width, and stop once it exceeds $shelfWidth$. The shelf height is the max book height on that shelf, added to $f[j-1]$. Scanning backward keeps width monotonic.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum height for placing the first $i$ books, initially $f[0] = 0$, and the answer is $f[n]$.
 
 Consider $f[i]$, the last book is $books[i - 1]$, its thickness is $w$, and its height is $h$.

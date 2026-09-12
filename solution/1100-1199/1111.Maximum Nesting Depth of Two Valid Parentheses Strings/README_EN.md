@@ -87,6 +87,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Splitting a valid parenthesis string into two valid strings while minimizing the larger depth means sharing nesting as evenly as possible. A balance $x$ tracks the current depth: on `'('` assign by the parity of $x$ then increment; on `')'` decrement first, then assign by the new parity.
+>
+> Adjacent levels go to different groups, so each group's depth is about half of the original, and each group stays a valid matching.
+
+<!-- thinking:end -->
+
 We use a variable $x$ to maintain the current balance of parentheses, which is the number of left parentheses minus the number of right parentheses.
 
 We traverse the string $seq$, updating the value of $x$. If $x$ is odd, we assign the current left parenthesis to $A$, otherwise we assign it to $B$.

@@ -86,6 +86,16 @@ ID 为 5 的用户第一次登陆于 2019-03-01，因此他不算在 2019-06-21 
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 「新用户」指该用户在 `Traffic` 中最早一次 `login`。窗口函数 `MIN(activity_date) OVER (PARTITION BY user_id)` 可在一行内得到每人的首次登录日，再筛出距 `2019-06-30` 不超过 $90$ 天的日期，按日 `COUNT(DISTINCT user_id)`。
+>
+> 先取首次登录再聚合，避免把同一用户日后的 login 重复计入某日。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Sorting + Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score of a path is its minimum cell, and we want the maximum such score from the top-left to the bottom-right. Enumerating all paths is not viable.
+>
+> Insert cells in decreasing value and union each with already-inserted neighbors. The value just inserted is the lowest score allowed so far; the first time the start and end share a component, no smaller cell can raise that minimum, so that value is the answer.
+
+<!-- thinking:end -->
+
 First, we construct a triplet $(v, i, j)$ for each element in the matrix, where $v$ represents the element value, and $i$ and $j$ represent the row and column of the element in the matrix, respectively. Then we sort these triplets in descending order by element value and store them in a list $q$.
 
 Next, we take out the triplets from $q$ in order, use the corresponding element value as the score of the path, and mark the position as visited. Then we check the four adjacent positions (up, down, left, and right) of this position. If an adjacent position has been visited, we merge this position with the current position. If we find that the position $(0, 0)$ and the position $(m - 1, n - 1)$ have been merged, we can directly return the score of the current path as the answer.
@@ -366,6 +376,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 path-compresses on a raw parent array. Method 2 uses a union-by-size `UnionFind`, which keeps trees shallower and the API regular. Cells are still inserted in decreasing order, stopping when start and end become connected.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

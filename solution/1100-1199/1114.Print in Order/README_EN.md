@@ -64,6 +64,14 @@ public class Foo {
 
 ### Solution 1: Multithreading + Lock or Semaphore
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `first`, `second`, and `third` may run on any threads in any order, yet the prints must be sequential. Two locks (or zero-count permits) start acquired and block `second` and `third`: `first` releases the second lock after printing, and `second` releases the third, forming a one-way chain.
+
+<!-- thinking:end -->
+
 We can use three semaphores $a$, $b$, and $c$ to control the execution order of the three threads. Initially, the count of semaphore $a$ is $1$, and the counts of $b$ and $c$ are $0$.
 
 When thread $A$ executes the `first()` method, it first needs to acquire semaphore $a$. After acquiring successfully, it executes the `first()` method, and then releases semaphore $b$. This allows thread $B$ to acquire semaphore $b$ and execute the `second()` method.
@@ -172,6 +180,14 @@ public:
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 simulates permits with mutexes. Method 2 uses three semaphores with initial counts $1,0,0$, matching “`first` then `second` then `third`” as counting permits.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

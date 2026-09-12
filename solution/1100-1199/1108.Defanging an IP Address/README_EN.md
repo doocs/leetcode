@@ -45,6 +45,14 @@ tags:
 
 ### Solution 1: Direct Replacement
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The task is only to replace every `.` with `[.]`; the address need not be parsed or validated. A single linear `replace` suffices and runs in time proportional to the string length.
+
+<!-- thinking:end -->
+
 We can directly replace the `'.'` in the string with `'[.]'`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

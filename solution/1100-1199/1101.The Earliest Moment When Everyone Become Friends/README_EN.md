@@ -71,6 +71,16 @@ The sixth event occurs at timestamp = 20190301, and after 0 and 3 become friends
 
 ### Solution 1: Sorting + Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the earliest time when all $n$ people lie in one connected component. Logs arrive unordered, so sort them by timestamp and process in order.
+>
+> If the two people are still in different sets, union them and decrement the component count. Union-find makes the find/merge step nearly constant. When the count reaches $1$, everyone is connected and that timestamp is the answer; if logs run out first, return $-1$.
+
+<!-- thinking:end -->
+
 We sort all the logs in ascending order by timestamp, then traverse the sorted logs. Using a union-find set, we check whether the two people in the current log are already friends. If they are not friends, we merge them into one friend circle, until everyone is in one friend circle, then return the timestamp of the current log.
 
 If we have traversed all the logs and not everyone is in one friend circle, then return $-1$.
@@ -289,6 +299,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 inlines path compression and does not union by size. Method 2 wraps a `UnionFind` with path compression and union-by-size; `union` reports whether a merge happened, and the main loop only tracks the component count. The moment everyone becomes friends is unchanged, with shallower trees.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

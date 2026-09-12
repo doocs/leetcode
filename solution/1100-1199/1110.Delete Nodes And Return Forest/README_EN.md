@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting nodes splits the tree into a forest. A new root is a surviving node whose parent was deleted (or the original root if it survives). A post-order DFS processes both children first, then deletes the current node if required, promoting any surviving children to new roots.
+>
+> A hash set makes the delete-test expected constant time. If the original root survives, it is appended last.
+
+<!-- thinking:end -->
+
 First, we use a hash table or an array of length 1001, `s`, to record all nodes that need to be deleted.
 
 Next, we design a function `dfs(root)` that returns the root of the subtree with `root` as the root after deleting all nodes that need to be deleted. The execution logic of the function `dfs(root)` is as follows:
@@ -347,6 +357,14 @@ var delNodes = function (root, to_delete) {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 relies on the recursion stack for post-order deletion. BFS walks top-down: sever a child that must be deleted, and if the current node is deleted, record its still-linked children as new roots. Level order finishes the cuts without a return value; the original root is appended if it survives.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

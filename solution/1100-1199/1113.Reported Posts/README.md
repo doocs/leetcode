@@ -83,6 +83,14 @@ Actions table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计指定日期上 `action = 'report'` 的每种 `extra`（举报原因）对应多少不同帖子。`WHERE` 先限定日期与动作，再按 `extra` 分组并对 `post_id` 做 `COUNT(DISTINCT ...)`，同一帖子被重复举报只计一次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

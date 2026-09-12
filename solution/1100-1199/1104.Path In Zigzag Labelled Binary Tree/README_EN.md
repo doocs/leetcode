@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a normal complete binary tree the parent is $\lfloor \textit{label}/2\rfloor$, but here odd and even rows are labeled in opposite directions, so that formula fails. Row $i$ occupies $[2^{i-1},2^i-1]$; on a reversed row the complement is $2^{i-1}+2^i-1-\textit{label}$, and the true parent is that complement divided by $2$.
+>
+> Find the row of $\textit{label}$, then walk upward by complement-and-shift, writing each label into its row index so the path from the root appears in order.
+
+<!-- thinking:end -->
+
 For a complete binary tree, the number of nodes in the $i$th row is $2^{i-1}$, and the range of node labels in the $i$th row is $[2^{i-1}, 2^i - 1]$. In the problem, for odd-numbered rows, the nodes are labeled from left to right, while for even-numbered rows, the nodes are labeled from right to left. Therefore, for the node $label$ in the $i$th row, its complementary node label is $2^{i-1} + 2^i - 1 - label$. So the actual parent node label of node $label$ is $(2^{i-1} + 2^i - 1 - label) / 2$. We can find the path from the root node to node $label$ by continuously finding the complementary node label and the parent node label until we reach the root node.
 
 Finally, we need to reverse the path, because the problem requires the path from the root node to node $label$.

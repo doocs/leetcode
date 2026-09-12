@@ -72,6 +72,16 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 第 $i$ 次（从 $0$ 计）应发给第 $i\bmod \textit{num\_people}$ 个人 $\min(\textit{candies}, i+1)$ 颗糖。发放次数由三角数决定，约为 $\sqrt{2\cdot\textit{candies}}$，直接模拟即可在约束内结束。
+>
+> 无需对整轮发放推导闭式：每次用剩余糖数截断，糖发完即停。
+
+<!-- thinking:end -->
+
 我们可以直接模拟每一个人分到糖果的过程，按照题目描述的规则模拟即可。
 
 时间复杂度 $O(\max(\sqrt{candies}, num\_people))$，空间复杂度 $O(num\_people)$。其中 $candies$ 为糖果数量。

@@ -73,6 +73,14 @@ Enrollments table:
 
 ### Solution 1: RANK() OVER() Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each student keeps the highest grade, breaking ties by the smallest `course_id`. `RANK() OVER (PARTITION BY student_id ORDER BY grade DESC, course_id)` encodes that order in one pass; rows with rank $1$ are the answer, then sort by `student_id`.
+
+<!-- thinking:end -->
+
 We can use the `RANK() OVER()` window function to sort the grades of each student in descending order. If the grades are the same, we sort them in ascending order by course number, and then select the record with a rank of $1$ for each student.
 
 <!-- tabs:start -->
@@ -104,6 +112,14 @@ ORDER BY student_id;
 <!-- solution:start -->
 
 ### Solution 2: Subquery
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 needs a window function. Otherwise aggregate `MAX(grade)` per student, then keep those grades in the base table and take `MIN(course_id)`. The two aggregations implement “highest grade” and “smallest course among ties.”
+
+<!-- thinking:end -->
 
 We can first query the highest grade of each student, and then query the minimum course number corresponding to the highest grade of each student.
 

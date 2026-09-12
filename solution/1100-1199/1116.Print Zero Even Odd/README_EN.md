@@ -74,6 +74,14 @@ One of them calls zero(), the other calls even(), and the last one calls odd().
 
 ### Solution 1: Multithreading + Semaphore
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stream is $010203\ldots$: a zero precedes every number, and odd/even prints are exclusive. Only semaphore $z$ starts at $1$. After `zero` prints, it wakes `odd` or `even` by parity; that thread prints and wakes `zero` again, rotating control among the three threads.
+
+<!-- thinking:end -->
+
 We use three semaphores $z$, $e$, and $o$ to control the execution order of the three threads, where $z$ is initially set to $1$, and $e$ and $o$ are set to $0$.
 
 - Semaphore $z$ controls the execution of the `zero` function. When the value of semaphore $z$ is $1$, the `zero` function can be executed. After execution, the value of semaphore $z$ is set to $0$, and the value of semaphore $e$ or $o$ is set to $1$, depending on whether the `even` function or the `odd` function needs to be executed next.

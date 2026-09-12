@@ -51,6 +51,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Dropping vowels is a per-character test: one scan that skips `aeiou` builds the answer. Repeated replace calls would walk the string several times for no gain.
+
+<!-- thinking:end -->
+
 We can directly traverse the string according to the requirements of the problem, and append characters that are not vowels to the result string.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
