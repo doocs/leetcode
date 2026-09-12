@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md
 tags:
     - String
 ---

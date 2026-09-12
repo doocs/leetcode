@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md
 tags:
     - 动态规划
 ---

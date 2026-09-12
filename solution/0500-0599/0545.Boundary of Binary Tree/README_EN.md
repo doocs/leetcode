@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
