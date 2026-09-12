@@ -75,6 +75,14 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Workers may split, costing $split$, then work in parallel. Forward search over split plans is awkward. In reverse, merge two blocks into one whose time is $split+\max(t_i,t_j)$, matching a split plus parallel builds. Always merge the two shortest remaining times so large jobs absorb fewer splits; a min-heap repeats this until one time remains.
+
+<!-- thinking:end -->
+
 First, consider the case where there is only one block. In this case, there is no need to split the worker, just let him build the block directly. The time cost is $block[0]$.
 
 If there are two blocks, you need to split the worker into two, and then let them build the blocks separately. The time cost is $split + \max(block[0], block[1])$.

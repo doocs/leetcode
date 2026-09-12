@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two distinct phrases join iff the first's last word equals the second's first word, keeping that word once. $n$ is small: store head/tail words, try pairs $(i,j)$, insert successful joins into a set, and sort.
+
+<!-- thinking:end -->
+
 First, we traverse the `phrases` list, storing the first and last words of each phrase in the array $ps$, where $ps[i][0]$ and $ps[i][1]$ represent the first and last words of the $i$th phrase, respectively.
 
 Next, we enumerate all $(i, j)$, where $i, j \in [0, n)$ and $i \neq j$. If $ps[i][1] = ps[j][0]$, then we can concatenate the $i$th phrase and the $j$th phrase to get a new phrase $phrases[i] + phrases[j][len(ps[j][0]):]$, and add the new phrase to the hash table $s$.

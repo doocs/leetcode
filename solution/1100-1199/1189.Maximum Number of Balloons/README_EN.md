@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `balloon` needs $b,a$, two $l$, two $o$, and $n$. After counting `text`, halve $l$ and $o$ and take the min over $b,a,l,o,n$. There is no need to delete letters from the string repeatedly.
+
+<!-- thinking:end -->
+
 We count the frequency of each letter in the string `text`, and then divide the frequency of the letters 'o' and 'l' by 2, because the word `balloon` contains the letters 'o' and 'l' twice.
 
 Next, we traverse each letter in the word `balon`, and find the minimum frequency of each letter in the string `text`. This minimum frequency is the maximum number of times the word `balloon` can appear in the string `text`.

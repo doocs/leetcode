@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The basket holds weight $5000$, so the maximum count uses the lightest apples first. Sort, add from small to large, and return the count when the sum exceeds the cap, or $n$ if everything fits.
+
+<!-- thinking:end -->
+
 To maximize the number of apples, we should try to minimize the weight of the apples. Therefore, we can sort the weights of the apples, and then put them into the basket in ascending order until the weight of the basket exceeds $5000$. We then return the number of apples in the basket at this point.
 
 If all the apples can be put into the basket, then we return the total number of apples.

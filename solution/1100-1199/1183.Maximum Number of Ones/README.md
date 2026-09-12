@@ -69,6 +69,14 @@ tags:
 
 ### 方法一：统计等效位置
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 矩阵由 $sideLength\times sideLength$ 的图案平铺，且每个图案中 $1$ 的个数不超过 $maxOnes$。位置 $(i,j)$ 与 $(i\bmod x, j\bmod x)$ 同步，该 residual 在全图中出现的次数即放 $1$ 的收益。统计 $x^2$ 个 residual 的出现次数，取最大的 $maxOnes$ 个之和。
+
+<!-- thinking:end -->
+
 为了方便说明，我们不妨令 $x = sideLength$。
 
 考虑一个 $x\times x$ 的正方形，我们需要在正方形里面取最多 $maxOnes$ 个点，将其置为 1。注意到当坐标 $(i, j)$ 处的点被选取后，所有坐标为 $(i\pm k_1 \times x, j\pm k_2 \times x)$ 的点都可以等效地置为 1。因此，我们算出坐标 $(i, j)$ 在矩阵中的等效位置的数量，取数量最多的前 $maxOnes$ 个即可。

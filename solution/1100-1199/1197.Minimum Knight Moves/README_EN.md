@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A knight has eight jumps; the minimum number of moves is a grid shortest path. BFS from $(0,0)$ returns the layer that first hits $(x,y)$. The coordinate range is bounded; a visited set prevents requeueing. Quadrant symmetry can shrink the search, but plain BFS already passes.
+
+<!-- thinking:end -->
+
 This problem can be solved using the BFS shortest path model. The search space for this problem is not large, so we can directly use the naive BFS. The solution below also provides the code for bidirectional BFS for reference.
 
 Bidirectional BFS is a common optimization method for BFS. The main implementation ideas are as follows:
@@ -277,6 +285,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bidirectional BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 grows from one side and the frontier widens far from the origin. Bidirectional BFS expands from both ends, always stepping the smaller queue; the first shared cell is the shortest path and typically visits fewer cells.
+
+<!-- thinking:end -->
 
 Search knight jumps from both ends until the two sides meet.
 

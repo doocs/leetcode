@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four threads print `fizz`, `buzz`, `fizzbuzz`, and numbers, in order $1..n$. The `number` thread holds the main permit and, by divisibility of $i$ by $3$ and $5$, releases the matching thread; that thread prints and returns the permit. Otherwise `number` prints $i$ itself, so only one output proceeds at a time.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Java

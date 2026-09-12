@@ -104,6 +104,14 @@ Players 表</code>:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每组取总分最高的选手，并列取较小 `player_id`。把比赛双方拆成两行得分，按选手求和后再按组对 `(scores DESC, player_id)` 排名，留下 $rk=1$。`UNION ALL` 保证主客场得分都被计入。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

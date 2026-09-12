@@ -73,6 +73,14 @@ Transactions</code> table:
 
 ### 方法一：分组求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按年—月与国家汇总事务笔数、批准笔数及对应金额。`DATE_FORMAT` 取出月份，`GROUP BY` 这两维后，`COUNT` 与条件 `SUM` 分别统计全部与 `approved` 行。
+
+<!-- thinking:end -->
+
 我们可以先按照月份和国家分组，然后利用 `COUNT` 和 `SUM` 函数分别求出每个分组的事务数、已批准的事务数、总金额和已批准的总金额。
 
 <!-- tabs:start -->
