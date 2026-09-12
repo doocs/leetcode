@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Calculate Overlapping Area
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The union area is the two areas minus their overlap. Overlap width is the smaller right edge minus the larger left edge (and likewise for height); a negative value means no intersection.
+>
+> Compute both areas, then subtract $\max(\textit{width},0)\times\max(\textit{height},0)$.
+
+<!-- thinking:end -->
+
 First, we calculate the area of the two rectangles separately, denoted as $a$ and $b$. Then we calculate the overlapping width $width$ and height $height$. The overlapping area is $max(width, 0) \times max(height, 0)$. Finally, we subtract the overlapping area from $a$ and $b$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

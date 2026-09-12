@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Node assignment
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We are given only the node to delete, so the predecessor’s $next$ cannot be rewritten. Copy the successor’s value into the current node and skip the successor, which is equivalent to deleting it.
+
+<!-- thinking:end -->
+
 We can replace the value of the current node with the value of the next node, and then delete the next node. This can achieve the purpose of deleting the current node.
 
 Time complexity $O(1)$, space complexity $O(1)$.

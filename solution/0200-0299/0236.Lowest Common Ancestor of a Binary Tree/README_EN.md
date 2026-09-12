@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A general binary tree has no key order, so we cannot walk by value. The LCA is the deepest node that covers both $p$ and $q$.
+>
+> A postorder recursion returns a found node from a subtree. If both sides are non-empty the current root is the LCA; otherwise we pass up the non-empty side.
+
+<!-- thinking:end -->
+
 We recursively traverse the binary tree:
 
 If the current node is null or equals to $p$ or $q$, then we return the current node;

@@ -75,6 +75,16 @@ myQueue.empty(); // return false
 
 ### Solution 1: Double Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stack is LIFO and a queue is FIFO, so one stack cannot serve both ends. Push into $stk1$ and pop from $stk2$.
+>
+> When $stk2$ is empty, pour $stk1$ into it so the oldest value sits on top. Each element moves at most once, and dequeue is amortized constant.
+
+<!-- thinking:end -->
+
 We use two stacks, where `stk1` is used for enqueue, and another stack `stk2` is used for dequeue.
 
 When enqueueing, we directly push the element into `stk1`. The time complexity is $O(1)$.

@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking a square above every bottom-right cell revisits many cells. The largest side ending at $(i,j)$ is limited by the three sides ending at its left, upper, and upper-left neighbors.
+>
+> Let $dp[i+1][j+1]$ be that side: $0$ on a $0$ cell, otherwise one plus the min of those three. The answer is the square of the largest side.
+
+<!-- thinking:end -->
+
 We define $dp[i + 1][j + 1]$ as the maximum square side length with the lower right corner at index $(i, j)$. The answer is the maximum value among all $dp[i + 1][j + 1]$.
 
 The state transition equation is:

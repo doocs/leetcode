@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most two values can appear more than $\lfloor n/3\rfloor$ times. Hashing works but uses extra memory. Boyer–Moore can keep two candidates and their offsetting counts.
+>
+> A match increments a count; otherwise both counts decrement when they are positive. A second pass verifies the true frequencies.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

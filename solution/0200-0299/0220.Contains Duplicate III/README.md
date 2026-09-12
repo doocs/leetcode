@@ -73,6 +73,16 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 
 ### 方法一：滑动窗口 + 有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 除下标差不超过 $\textit{indexDiff}$ 外，还要求值差不超过 $\textit{valueDiff}$。哈希只能判相等，无法在窗口内找“最接近”的数。
+>
+> 维护长度为 $\textit{indexDiff}$ 的有序集合：对 $v$ 查找不小于 $v-\textit{valueDiff}$ 的最小元，若它也不超过 $v+\textit{valueDiff}$ 则成功。随后插入 $v$，并删去滑出窗口的元素。
+
+<!-- thinking:end -->
+
 我们维护一个大小为 $k$ 的滑动窗口，窗口中的元素保持有序。
 
 遍历数组 `nums`，对于每个元素 $nums[i]$，我们在有序集合中查找第一个大于等于 $nums[i] - t$ 的元素，如果元素存在，并且该元素小于等于 $nums[i] + t$，说明找到了一对符合条件的元素，返回 `true`。否则，我们将 $nums[i]$ 插入到有序集合中，并且如果有序集合的大小超过了 $k$，我们需要将最早加入有序集合的元素删除。

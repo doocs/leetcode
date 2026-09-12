@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Iteration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a BST the LCA of $p$ and $q$ is the fork between their values. Walk from the root: go left if both are smaller, right if both are larger, otherwise the current node is the fork.
+>
+> The walk is iterative and needs no call stack.
+
+<!-- thinking:end -->
+
 Starting from the root node, we traverse the tree. If the current node's value is less than both $\textit{p}$ and $\textit{q}$ values, it means that $\textit{p}$ and $\textit{q}$ should be in the right subtree of the current node, so we move to the right child. If the current node's value is greater than both $\textit{p}$ and $\textit{q}$ values, it means that $\textit{p}$ and $\textit{q}$ should be in the left subtree, so we move to the left child. Otherwise, it means the current node is the lowest common ancestor of $\textit{p}$ and $\textit{q}$, so we return the current node.
 
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree. The space complexity is $O(1)$.
@@ -249,6 +259,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same fork rule is a recursion: recurse into the side that contains both, otherwise return the current root. The idea matches the iteration with a shorter implementation.
+
+<!-- thinking:end -->
 
 We can also use a recursive approach to solve this problem.
 

@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Plus, minus, and parentheses prevent a single left-to-right sum. A parenthesized fragment is its own accumulation, so the outer total and sign must be saved on entry.
+>
+> A stack stores $ans$ and $sign$ at $($ and resets them; at $)$ we pop and add the inner result times the outer sign. Digits join $ans$ with the current sign.
+
+<!-- thinking:end -->
+
 We use a stack $stk$ to save the current calculation result and operator, a variable $sign$ to save the current sign, and a variable $ans$ to save the final calculation result.
 
 Next, we traverse each character of the string $s$:

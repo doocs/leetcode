@@ -66,6 +66,16 @@ Window position                Max
 
 ### Solution 1: Priority Queue (Max-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear scan inside every window is $O(nk)$. A max-heap reports the current maximum in logarithmic time; stale indices are popped only when they reach the top.
+>
+> Load the first $k-1$ values, then push each new index, drop expired tops, and record the top.
+
+<!-- thinking:end -->
+
 We can use a priority queue (max-heap) to maintain the maximum value in the sliding window.
 
 First, add the first $k-1$ elements to the priority queue. Then, starting from the $k$-th element, add the new element to the priority queue and check if the top element of the heap is out of the window. If it is, remove the top element. Then, add the top element of the heap to the result array.
@@ -177,6 +187,16 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 <!-- solution:start -->
 
 ### Solution 2: Monotonic Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The heap may hold stale indices and still pays a log factor. Only a decreasing sequence of candidates can become the window maximum.
+>
+> A monotonic queue of indices drops the front when it leaves the window and the back when it is $\le$ the new value; the front is the maximum, in linear time.
+
+<!-- thinking:end -->
 
 To find the maximum value in a sliding window, a common method is to use a monotonic queue.
 

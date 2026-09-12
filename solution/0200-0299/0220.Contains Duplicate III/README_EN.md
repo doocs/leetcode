@@ -71,6 +71,16 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 
 ### Solution 1: Sliding Window + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a pair whose indices differ by at most $\textit{indexDiff}$ and values by at most $\textit{valueDiff}$. A hash set only tests equality, not nearest neighbors.
+>
+> Keep an ordered set of the last $\textit{indexDiff}$ values. For $v$, look up the least element $\ge v-\textit{valueDiff}$; if it is also $\le v+\textit{valueDiff}$, we are done. Then insert $v$ and drop the value that leaves the window.
+
+<!-- thinking:end -->
+
 We maintain a sliding window of size $k$, and the elements in the window are kept in order.
 
 We traverse the array `nums`. For each element $nums[i]$, we look for the first element in the ordered set that is greater than or equal to $nums[i] - t$. If the element exists, and this element is less than or equal to $nums[i] + t$, it means we have found a pair of elements that meet the conditions, and we return `true`. Otherwise, we insert $nums[i]$ into the ordered set, and if the size of the ordered set exceeds $k$, we need to remove the earliest added element from the ordered set.
