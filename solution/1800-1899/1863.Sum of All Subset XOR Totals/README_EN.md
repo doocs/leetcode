@@ -90,6 +90,16 @@ tags:
 
 ### Solution 1: Binary Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of XOR totals over all subsets. With $n\le 12$ there are only $2^n$ subsets, so enumeration is acceptable.
+>
+> Let mask $i\in[0,2^n)$ be a subset, XOR the selected elements, and add the total. No recursion is required.
+
+<!-- thinking:end -->
+
 We can use binary enumeration to enumerate all subsets, and then calculate the XOR sum of each subset.
 
 Specifically, we enumerate $i$ in the range $[0, 2^n)$, where $n$ is the length of the array $nums$. If the $j$th bit of the binary representation of $i$ is $1$, it means that the $j$th element of $nums$ is in the current subset; if the $j$th bit is $0$, it means that the $j$th element of $nums$ is not in the current subset. We can get the XOR sum of the current subset according to the binary representation of $i$, and add it to the answer.
@@ -246,6 +256,14 @@ var subsetXORSum = function (nums) {
 <!-- solution:start -->
 
 ### Solution 2: DFS (Depth-First Search)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 inspects every bit of a mask. DFS can instead skip or XOR-in $nums[i]$ and add the running XOR at the leaves. The complexity is the same; the choose-or-not form is more direct.
+
+<!-- thinking:end -->
 
 We can also use depth-first search to enumerate all subsets, and then calculate the XOR sum of each subset.
 

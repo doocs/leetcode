@@ -72,6 +72,16 @@ The XOR sum is (1 XOR 5) + (0 XOR 4) + (3 XOR 3) = 4 + 4 + 0 = 8.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We permute $nums2$ to minimize $\sum nums1[i]\oplus nums2[\pi(i)]$. $n\le 14$ makes $n!$ tight; subset DP fits.
+>
+> $f[i][j]$ is the minimum XOR-sum after pairing the first $i$ values of $nums1$ using the index set $j$ of $nums2$. Try each bit $k$ in $j$ as the partner of $nums1[i-1]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -196,6 +206,14 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many masks in Solution 1 have the wrong popcount. Drop the $i$ dimension, update one $nums1$ value at a time, and iterate $j$ downward so transitions read the previous round. The asymptotic bound stays $O(n^2 2^n)$ with a better constant.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -311,6 +329,14 @@ function minimumXORSum(nums1: number[], nums2: number[]): number {
 <!-- solution:start -->
 
 ### Solution 3: State Compression DP (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerate the mask $i$ itself: let $k=\mathrm{popcount}(i)-1$ be the $nums1$ index being placed, and try each bit of $i$ as the chosen $nums2[j]$. Each state is filled once in $O(n\,2^n)$ time and $O(2^n)$ space.
+
+<!-- thinking:end -->
 
 $f[i][j]$ depends only on the previous row, so a 1D array of length $2^n$ is enough.
 

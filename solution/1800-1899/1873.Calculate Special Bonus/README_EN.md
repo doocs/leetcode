@@ -77,6 +77,16 @@ The rest of the employees get a 100% bonus.
 
 ### Solution 1: IF Statement + ORDER BY Clause
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Employees with an odd id whose name does not start with $M$ receive their salary as a bonus; others get $0$. The rule belongs in the select list.
+>
+> $\textit{IF}$ maps an even id or a name starting with $M$ to $0$, otherwise $salary$, then $\textit{ORDER BY}$ $employee\_id$.
+
+<!-- thinking:end -->
+
 We can use the `IF` statement to determine the calculation method of the bonus, and then use `ORDER BY` to sort the results by `employee_id`.
 
 <!-- tabs:start -->

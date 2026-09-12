@@ -73,6 +73,16 @@ The maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair the array so the maximum pair-sum is minimized. Pairing two large numbers forces a large sum.
+>
+> After sorting, pair the smallest with the largest, the next-smallest with the next-largest, and take the maximum of those sums.
+
+<!-- thinking:end -->
+
 To minimize the maximum pair sum in the array, we can pair the smallest number with the largest number, the second smallest with the second largest, and so on.
 
 Therefore, we can first sort the array, then use two pointers to point to the two ends of the array. Calculate the sum of the numbers pointed to by the two pointers, update the maximum pair sum, then move the left pointer one step to the right and the right pointer one step to the left. Continue this process until the two pointers meet, and we will get the minimum maximum pair sum.

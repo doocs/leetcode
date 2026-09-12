@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Second $i$ consumes $i$ units from the currently larger stick until both are too small. Capacities reach $2^{31}-1$, but the consumed sum is quadratic, so the crash time is about $\sqrt{m_1+m_2}$ and direct simulation is fine.
+>
+> Start from $i=1$, subtract $i$ from the larger remaining stick while possible, and return the crash second together with the leftovers.
+
+<!-- thinking:end -->
+
 We directly simulate the allocation of memory.
 
 Assume $t$ is the moment of unexpected exit, then the two memory sticks can definitely accommodate the memory consumed at the moment $t-1$ and before, so we have:

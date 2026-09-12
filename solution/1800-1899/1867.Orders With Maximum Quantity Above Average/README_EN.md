@@ -100,6 +100,16 @@ Orders 1 and 3 are imbalanced because they have a maximum quantity that exceeds 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need orders whose maximum line quantity is strictly larger than the maximum of all per-order averages. Both the max and the average are aggregates by $order\_id$.
+>
+> Compute $MAX(quantity)$ and $SUM/COUNT$ per order, take $MAX(avg\_quantity)$ in a subquery as the threshold, and keep orders whose max quantity exceeds it.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

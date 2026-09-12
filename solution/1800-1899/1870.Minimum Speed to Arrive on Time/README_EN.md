@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All but the last ride are rounded up; we want the smallest integer speed that finishes within $hour$. Larger speed only helps. If there are more trains than $\lceil hour\rceil$, even one hour per ride is too slow.
+>
+> Binary-search speed in $[1,10^7]$: sum $d/v$ (ceil except the last ride) and test against $hour$. Return $-1$ if no speed works.
+
+<!-- thinking:end -->
+
 We notice that if a speed value $v$ allows us to arrive within the stipulated time, then for any $v' > v$, we can also definitely arrive within the stipulated time. This exhibits monotonicity, hence we can use binary search to find the smallest speed value that meets the condition.
 
 Before conducting the binary search, we need to first determine if it is possible to arrive within the stipulated time. If the number of trains is greater than the ceiling of the stipulated time, then it is definitely impossible to arrive within the stipulated time, and we should directly return $-1$.

@@ -80,6 +80,16 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要支持修改 $nums2$ 的一个元素，并查询 $nums1[i]+nums2[j]=tot$ 的对数。$nums2$ 很长，每次查询双层枚举不可行。
+>
+> $nums1$ 长度不超过 $10^3$，对其枚举即可。用哈希表维护 $nums2$ 的频次：$\textit{count}$ 对每个 $x\in nums1$ 累加 $cnt[tot-x]$；$\textit{add}$ 时先减旧值再加新值。
+
+<!-- thinking:end -->
+
 我们注意到，数组 $\textit{nums1}$ 的长度不超过 ${10}^3$，数组 $\textit{nums2}$ 的长度达到 ${10}^5$，因此，如果直接暴力枚举所有下标对 $(i, j)$，计算 $\textit{nums1}[i] + \textit{nums2}[j]$ 是否等于指定值 $\textit{tot}$，那么会超出时间限制。
 
 能否只枚举长度较短的数组 $\textit{nums1}$ 呢？答案是可以的。我们用一个哈希表 $\textit{cnt}$ 统计数组 $\textit{nums2}$ 中每个元素出现的次数，然后枚举数组 $\textit{nums1}$ 中的每个元素 $x$，计算 $\textit{cnt}[\textit{tot} - x]$ 的值之和即可。

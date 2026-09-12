@@ -64,6 +64,16 @@ The good substrings are &quot;abc&quot;, &quot;bca&quot;, &quot;cab&quot;, and &
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count length-$3$ substrings with distinct characters. Checking every triple works; a sliding window generalizes to any $k$.
+>
+> Keep a duplicate-free window: $mask$ marks letters inside it, and the left end advances on a repeat. When the window is at least length $3$, the triple ending at the right end is distinct and we add one.
+
+<!-- thinking:end -->
+
 We can maintain a sliding window such that the characters within the window are not repeated. Initially, we use a binary integer $\textit{mask}$ of length $26$ to represent the characters within the window, where the $i$-th bit being $1$ indicates that character $i$ has appeared in the window, otherwise it indicates that character $i$ has not appeared in the window.
 
 Then, we traverse the string $s$. For each position $r$, if $\textit{s}[r]$ has appeared in the window, we need to move the left boundary $l$ of the window to the right until there are no repeated characters in the window. After this, we add $\textit{s}[r]$ to the window. At this point, if the length of the window is greater than or equal to $3$, then we have found a good substring of length $3$ ending at $\textit{s}[r]$.

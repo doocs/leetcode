@@ -65,6 +65,16 @@ We calculate the floor of the division for every pair of indices in the array th
 
 ### Solution 1: Prefix Sum of Value Range + Optimized Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $\sum_{i,j}\lfloor nums[i]/nums[j]\rfloor$. Pair enumeration is $O(n^2)$ and too slow for $n\le 10^5$.
+>
+> Values are at most $10^5$, so build a prefix of frequencies. For each denominator $y$ and quotient $d$, the count of numerators in $[dy,dy+y)$ is a prefix difference, multiplied by $cnt[y]\cdot d$. The harmonic enumeration is $O(M\log M)$.
+
+<!-- thinking:end -->
+
 First, we count the occurrences of each element in the array $nums$ and record them in the array $cnt$. Then, we calculate the prefix sum of the array $cnt$ and record it in the array $s$, i.e., $s[i]$ represents the count of elements less than or equal to $i$.
 
 Next, we enumerate the denominator $y$ and the quotient $d$. Using the prefix sum array, we can calculate the count of the numerator $s[\min(mx, d \times y + y - 1)] - s[d \times y - 1]$, where $mx$ represents the maximum value in the array $nums$. Then, we multiply the count of the numerator by the count of the denominator $cnt[y]$, and then multiply by the quotient $d$. This gives us the value of all fractions that meet the conditions. By summing these values, we can get the answer.
