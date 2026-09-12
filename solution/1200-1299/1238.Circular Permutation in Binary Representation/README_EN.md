@@ -62,6 +62,16 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 
 ### Solution 1: Binary Code to Gray Code
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent values (including the wrap-around) differ by one bit, which is a Gray code. $i\oplus(i\gg 1)$ builds a Gray cycle on $0\ldots 2^n-1$. $n \le 16$ lets us list every codeword.
+>
+> After generating the sequence we locate $start$ and rotate so it comes first; circular adjacency is preserved.
+
+<!-- thinking:end -->
+
 We observe the arrangement in the problem, and find that in its binary representation, only one bit is different between any two (including the first and last) adjacent numbers. This kind of coding method is Gray code, which is a coding method we will encounter in engineering.
 
 The rule for converting binary code to binary Gray code is to keep the highest bit of the binary code as the highest bit of the Gray code, and the second highest bit of the Gray code is the XOR of the highest bit and the second highest bit of the binary code. The rest of the Gray code is similar to the second highest bit.
@@ -172,6 +182,14 @@ function circularPermutation(n: number, start: number): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Conversion Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 generates then rotates. $gray(i)\oplus start$ still differs by one bit between neighbors, and equals $start$ at $i=0$, so we map $i$ directly and skip the search-and-concat step.
+
+<!-- thinking:end -->
 
 Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.
 

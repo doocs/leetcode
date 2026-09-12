@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 1000$ it suffices to count each value and test that those frequencies are unique. One pass builds the counts; a set of the frequencies has the same size as the number of distinct values iff every frequency appears once.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to count the frequency of each number in the array $arr$, and then use another hash table $vis$ to count the types of frequencies. Finally, we check whether the sizes of $cnt$ and $vis$ are equal.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.

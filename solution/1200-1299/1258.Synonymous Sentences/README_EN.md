@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Union-Find + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Synonymy is transitive, so classes are components. There are few words and pairs: union-find merges them, then we group by root and sort lexicographically.
+>
+> When building a sentence, a word outside every class stays; otherwise we DFS over every word in its class. Components supply the replacements; DFS expands the Cartesian product by position.
+
+<!-- thinking:end -->
+
 We can notice that the synonyms in the problem are transitive, i.e., if `a` and `b` are synonyms, and `b` and `c` are synonyms, then `a` and `c` are also synonyms. Therefore, we can use a union-find set to find the connected components of synonyms, where all the words in each connected component are synonyms and are sorted in lexicographical order.
 
 Next, we split the string `text` into a word array `sentence` by spaces. For each word `sentence[i]`, if it is a synonym, we replace it with all the words in the connected component, otherwise, we do not replace it. In this way, we can get all the sentences. This can be implemented by DFS search.

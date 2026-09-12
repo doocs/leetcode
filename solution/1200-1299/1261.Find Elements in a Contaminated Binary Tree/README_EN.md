@@ -107,6 +107,16 @@ findElements.find(5); // return True
 
 ### Solution 1: DFS + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After contamination every value is $-1$, but children still obey $left=2x+1$ and $right=2x+2$ with root $0$. $find$ may run $10^4$ times, so we should not recompute a root-to-node path each query.
+>
+> Construction DFS restores every value into a hash set; $find$ is a set lookup. One traversal buys constant-time queries.
+
+<!-- thinking:end -->
+
 First, we traverse the binary tree using DFS, restore the node values to their original values, and store all node values in a hash table. Then, when searching, we only need to check if the target value exists in the hash table.
 
 In terms of time complexity, it takes $O(n)$ time to traverse the binary tree during initialization, and $O(1)$ time to check if the target value exists in the hash table during search. The space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.

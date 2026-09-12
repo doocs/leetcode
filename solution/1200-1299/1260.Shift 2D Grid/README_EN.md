@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Flattening the 2D Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move takes the last cell to the front and shifts the rest, i.e. a right rotation of the row-major flattening by $k$. $m,n \le 50$, so we compute each element's final index instead of rotating $k$ times.
+>
+> The flat index $i\cdot n+j$ plus $k$ modulo $mn$ converts back to a row and column in a new matrix. One pass finishes the map.
+
+<!-- thinking:end -->
+
 According to the problem description, if we flatten the 2D array into a 1D array, then each shift operation is to move the elements in the array one position to the right, with the last element moving to the first position of the array.
 
 Therefore, we can flatten the 2D array into a 1D array, then calculate the final position $idx = (x, y)$ of each element, and update the answer array `ans[x][y] = grid[i][j]`.

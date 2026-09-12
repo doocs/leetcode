@@ -76,6 +76,16 @@ Maximum length is 4.
 
 ### Solution 1: State Compression + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenated subsequences must have unique letters. $|arr|\le 16$, so $2^{16}$ subsets are enumerable. Twenty-six letters fit in one integer mask.
+>
+> Starting from the empty mask, each internally unique string is merged with an existing mask only when their bitwise AND is zero. The answer is the maximum popcount among reachable masks. Bit operations make set algebra constant-time.
+
+<!-- thinking:end -->
+
 Since the problem requires that the characters in the subsequence must not be repeated and all characters are lowercase letters, we can use a binary integer of length $26$ to represent a subsequence. The $i$-th bit being $1$ indicates that the subsequence contains the $i$-th character, and $0$ indicates that it does not contain the $i$-th character.
 
 We can use an array $s$ to store the states of all subsequences that meet the conditions. Initially, $s$ contains only one element $0$.

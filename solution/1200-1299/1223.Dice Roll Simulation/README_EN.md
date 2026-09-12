@@ -65,6 +65,18 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A face may repeat only $rollMax$ times in a row. $n$ reaches $5000$, so listing sequences is impossible. The count depends only on remaining rolls, the last face, and its current streak.
+>
+> Memoized $dfs(i,j,x)$ starts at roll $i$ after face $j$ with streak $x$. The next face $k$ resets the streak if $k\ne j$, or may continue if the cap allows. The start state $(0,0,0)$ means no roll yet.
+>
+> There are $O(n\times 6\times 15)$ states and $6$ transitions; memoization shares subproblems.
+
+<!-- thinking:end -->
+
 We can design a function $dfs(i, j, x)$ to represent the number of schemes starting from the $i$-th dice roll, with the current dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. The range of $j$ is $[1, 6]$, and the range of $x$ is $[1, rollMax[j - 1]]$. The answer is $dfs(0, 0, 0)$.
 
 The calculation process of the function $dfs(i, j, x)$ is as follows:
@@ -200,6 +212,14 @@ func dieSimulator(n int, rollMax []int) int {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization follows the same transition in recursive order. Bottom-up, $f[i][j][x]$ is the count after $i$ rolls ending with face $j$ and streak $x$, accumulated from layer $i-1$ by the same rules. This removes the call stack and invites a rolling array.
+
+<!-- thinking:end -->
 
 We can change the memoization search in Solution 1 to dynamic programming.
 

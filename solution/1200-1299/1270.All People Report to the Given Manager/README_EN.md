@@ -84,6 +84,14 @@ The employees with employee_id 3, 8, and 9 do not report their work to the head 
 
 ### Solution 1: Two Joins
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The hierarchy is at most three levels and the CEO is id $1$. Two self-joins walk $manager\_id$ to the manager's manager; if that is $1$ and the employee is not $1$, the employee reports to the CEO. The number of joins matches the depth bound.
+
+<!-- thinking:end -->
+
 We can use two joins to find all employees who report directly or indirectly to the company CEO.
 
 Specifically, we first use a join to find the `manager_id` of the superior manager for each `manager_id`, and then use another join to find the `manager_id` of the higher-level manager. Finally, if the `manager_id` of the higher-level manager is $1$ and the `employee_id` of the employee is not $1$, it means that the employee reports directly or indirectly to the company CEO.

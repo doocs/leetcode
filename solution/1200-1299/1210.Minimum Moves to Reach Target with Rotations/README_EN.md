@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The snake translates and rotates; a state is the tail cell plus orientation. $n \le 100$ gives $O(n^2)$ states, so shortest path is a BFS.
+>
+> Each step may shift right or down (both ends move, stay in bounds, and avoid walls). A horizontal snake may stand up clockwise; a vertical one may lie down counterclockwise, provided the swept cell is empty. Flattening coordinates, we mark $(tail, orientation)$ visited.
+>
+> The queue stores $(tail, head)$ and expands by layers. The layer that first reaches $(n^2-2, n^2-1)$ is the answer. BFS yields the shortest path.
+
+<!-- thinking:end -->
+
 The problem asks for the minimum number of moves for the snake to reach the target position from the starting position. We consider using Breadth-First Search (BFS) to solve it.
 
 We define the following data structures or variables:

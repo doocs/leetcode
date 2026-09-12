@@ -89,6 +89,14 @@ Submissions table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 帖子是 $parent\_id$ 为空的提交，评论指向某帖的 $sub\_id$。自连接把每条帖子与其子提交配成一行，空评论用左连接保留。去重后按帖分组计数，避免同一评论因重复提交被算两次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

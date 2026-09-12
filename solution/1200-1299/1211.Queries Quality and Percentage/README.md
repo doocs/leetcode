@@ -95,6 +95,14 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 质量是 $rating/position$ 的均值，劣质占比是 $rating < 3$ 的比例。二者都是按查询名聚合的标量，直接 $GROUP\ BY\ query\_name$，用 $AVG$ 分别计算比值与布尔均值，再 $ROUND$ 到两位。空查询名按题意排除。
+
+<!-- thinking:end -->
+
 按 `query_name` 分组，用 `AVG(rating / position)` 计算 `quality`，用 `AVG(rating < 3)` 计算劣质查询占比，再以 `ROUND` 保留两位小数。`WHERE query_name IS NOT NULL` 用来去掉空查询名。
 
 <!-- tabs:start -->
@@ -119,6 +127,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### 方法二：分组统计（CASE 表达式）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 部分环境下布尔参与 $AVG$ 的语义不直观。方法二用 $CAST$ 保证除法为小数，并用 $CASE$ 对劣质行计数再除以总行数，结果与方法一相同，表达更易移植。
+
+<!-- thinking:end -->
 
 同样按 `query_name` 分组并去掉空查询名。`quality` 用 `CAST` 做小数除法；劣质查询占比改用 `CASE` 计数再除以总行数。
 

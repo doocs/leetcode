@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Mathematics (Bézout's Identity)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bézout's identity: $a_1 x_1+\cdots+a_n x_n=1$ has integer solutions iff $\gcd(a_1,\ldots,a_n)=1$. $n \le 10^5$ forbids subset search.
+>
+> One gcd over the whole array suffices. If any coprime subset exists, the gcd of all numbers is $1$ as well, so we need not isolate that subset.
+
+<!-- thinking:end -->
+
 First, consider the situation where we select two numbers. If the selected numbers are $a$ and $b$, then according to the problem's requirements, we need to satisfy $a \times x + b \times y = 1$, where $x$ and $y$ are any integers.
 
 According to Bézout's Identity, if $a$ and $b$ are coprime, then the above equation definitely has a solution. In fact, Bézout's Identity can also be extended to the case of multiple numbers. That is, if $a_1, a_2, \cdots, a_i$ are coprime, then $a_1 \times x_1 + a_2 \times x_2 + \cdots + a_i \times x_i = 1$ definitely has a solution, where $x_1, x_2, \cdots, x_i$ are any integers.

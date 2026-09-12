@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index becomes the maximum to its right; the last is $-1$. Scanning the suffix from the left repeats work. Walking right to left, we keep a suffix max $mx$, write the old $mx$ into the cell, then update $mx$ with the original value. One reverse pass, $O(1)$ extra space.
+
+<!-- thinking:end -->
+
 We use a variable $mx$ to record the maximum value to the right of the current position, initially $mx = -1$.
 
 Then we traverse the array from right to left. For each position $i$, we denote the current value as $x$, update the current position's value to $mx$, and then update $mx = \max(mx, x)$.

@@ -86,6 +86,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list is immutable: only $getNext$ and $printValue$, length at most $1000$. Reverse order means we must visit the successor before printing the current node. Recursing and printing after the call emits tail-to-head; the stack holds the prefix.
+
+<!-- thinking:end -->
+
 We can use recursion to implement reverse printing of a linked list. In the function, we check whether the current node is null. If it is not null, we get the next node, then recursively call the function itself, and finally print the value of the current node.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the linked list.

@@ -77,6 +77,14 @@ Number 10 is contained in the table.
 
 ### Solution 1: Group By + Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Consecutive logs differ by $1$. A $0/1$ from “difference from the previous row is $1$”, then a prefix sum, puts a run in one group. $MIN$/$MAX$ $log\_id$ per that id are the range ends.
+
+<!-- thinking:end -->
+
 We need to find a way to group a continuous sequence of logs into the same group, and then aggregate each group to obtain the start and end logs of each group.
 
 There are two ways to implement grouping:
@@ -115,6 +123,14 @@ GROUP BY pid;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 discretizes gaps then prefix-sums. $log\_id$ minus row number is constant on a consecutive run, so that difference is the island key and we drop $LAG$ and the conditional $delta$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

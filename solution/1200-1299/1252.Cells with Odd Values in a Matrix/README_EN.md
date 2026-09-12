@@ -71,6 +71,14 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $m,n \le 50$ we may allocate the matrix, add one to a whole row and column per operation, then count odds. The simulation follows the statement and is the baseline for later optimizations.
+
+<!-- thinking:end -->
+
 We create a matrix $g$ to store the result of operations. For each pair $(r_i, c_i)$ in $\textit{indices}$, we add $1$ to all numbers in the $r_i$-th row of the matrix and add $1$ to all elements in the $c_i$-th column.
 
 After the simulation ends, we traverse the matrix and count the number of odd numbers.
@@ -181,6 +189,14 @@ func oddCells(m int, n int, indices [][]int) int {
 
 ### Solution 2: Space Optimization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 writes $O(m+n)$ cells per operation and stores the full matrix. Cell $(i,j)$ ends at (row-$i$ hits) plus (column-$j$ hits). Two arrays store those increments; we then test each cell's parity. Extra space is $O(m+n)$.
+
+<!-- thinking:end -->
+
 We can use a row array $\textit{row}$ and a column array $\textit{col}$ to record the number of times each row and column is incremented. For each pair $(r_i, c_i)$ in $\textit{indices}$, we add $1$ to $\textit{row}[r_i]$ and $\textit{col}[c_i]$ respectively.
 
 After the operations are completed, the count at position $(i, j)$ can be calculated as $\textit{row}[i] + \textit{col}[j]$. We traverse the matrix and count the number of odd numbers.
@@ -277,6 +293,14 @@ func oddCells(m int, n int, indices [][]int) int {
 <!-- solution:start -->
 
 ### Solution 3: Mathematical Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 still visits every cell. $(i,j)$ is odd iff the row and column increments have opposite parity. With $cnt1$ odd rows and $cnt2$ odd columns, the odd count is $cnt1(n-cnt2)+cnt2(m-cnt1)$, in $O(k+m+n)$ time.
+
+<!-- thinking:end -->
 
 We notice that a number at position $(i, j)$ in the matrix will be odd only when exactly one of $\textit{row}[i]$ and $\textit{col}[j]$ is odd and the other is even.
 

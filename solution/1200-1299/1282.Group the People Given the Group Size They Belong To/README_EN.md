@@ -65,6 +65,14 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> People sharing a group size must fill complete groups of that size. $n \le 500$: bucket indices by $groupSize$, then slice each bucket into contiguous chunks of that length. A solution is guaranteed, so the slices are the groups.
+
+<!-- thinking:end -->
+
 We use a hash table $g$ to store which people are in each group size $groupSize$. Then we partition each group size into $k$ equal parts, with each part containing $groupSize$ people.
 
 Since the range of $n$ in the problem is small, we can also directly create an array of size $n+1$ to store the data, which is more efficient.

@@ -95,6 +95,16 @@ tags:
 
 ### Solution 1: Double-ended Queue + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We minimize box pushes; the person's walks are free. A state is the pair of positions. $m,n \le 20$ keeps the state space tractable. Walking to the box costs $0$, a push costs $1$, so 0-1 BFS applies.
+>
+> A deque: a lone person move keeps $d$ and goes to the front; stepping onto the box and shoving it the same way costs $d+1$ and goes to the back. The $d$ when the box sits on $T$ is the answer. 0-1 BFS processes free edges first.
+
+<!-- thinking:end -->
+
 We consider the player's position and the box's position as a state, i.e., $(s_i, s_j, b_i, b_j)$, where $(s_i, s_j)$ is the player's position, and $(b_i, b_j)$ is the box's position. In the code implementation, we define a function $f(i, j)$, which maps the two-dimensional coordinates $(i, j)$ to a one-dimensional state number, i.e., $f(i, j) = i \times n + j$, where $n$ is the number of columns in the grid. So the player and the box's state is $(f(s_i, s_j), f(b_i, b_j))$.
 
 First, we traverse the grid to find the initial positions of the player and the box, denoted as $(s_i, s_j)$ and $(b_i, b_j)$.

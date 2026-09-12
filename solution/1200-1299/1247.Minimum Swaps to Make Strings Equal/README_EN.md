@@ -67,6 +67,16 @@ Note that you cannot swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;, ca
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Matching positions need no swap. Mismatches are only $xy$ and $yx$. Two mismatches of the same kind swap in one move; one of each kind needs two; an odd total is impossible.
+>
+> We count both kinds, reject an odd sum, and otherwise take each count halved plus at most one cross-type pair. The pairing does not depend on positions.
+
+<!-- thinking:end -->
+
 According to the problem description, both strings $s_1$ and $s_2$ contain only the characters $x$ and $y$, and they have the same length. Therefore, we can match the characters in $s_1$ and $s_2$ one by one, i.e., $s_1[i]$ and $s_2[i]$.
 
 If $s_1[i] = s_2[i]$, no swap is needed, and we can skip to the next character. If $s_1[i] \neq s_2[i]$, a swap is needed. We count the combinations of $s_1[i]$ and $s_2[i]$: if $s_1[i] = x$ and $s_2[i] = y$, we denote it as $xy$; if $s_1[i] = y$ and $s_2[i] = x$, we denote it as $yx$.

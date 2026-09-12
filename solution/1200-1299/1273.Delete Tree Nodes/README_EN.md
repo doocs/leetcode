@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree whose values sum to $0$ is deleted. $n \le 10^4$, so one bottom-up DFS: sum children's values and surviving sizes, then zero the size if this subtree sums to $0$. The root's surviving size is the answer. Post-order deletes children before the parent decides.
+
+<!-- thinking:end -->
+
 First, we convert the tree into a graph $g$, where $g[i]$ represents all the child nodes of node $i$.
 
 Then we design a function $dfs(i)$, which represents the number of nodes and the sum of the weights in the subtree rooted at node $i$. The answer is $dfs(0)[1]$.

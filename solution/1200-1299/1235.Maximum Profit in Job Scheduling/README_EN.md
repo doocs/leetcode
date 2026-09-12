@@ -76,6 +76,16 @@ Profit obtained 150 = 20 + 70 + 60.
 
 ### Solution 1: Memoization Search + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Jobs must not overlap. $n \le 5\times 10^4$ rules out subset search. Whether we take job $i$ only affects jobs that start no earlier than its end.
+>
+> After sorting by start, $dfs(i)$ takes the better of skipping $i$ and taking $i$ then jumping to the first job with $start\ge end_i$. That index is a binary search on the sorted starts. Memoization evaluates each $i$ once.
+
+<!-- thinking:end -->
+
 First, we sort the jobs by start time in ascending order, then design a function $dfs(i)$ to represent the maximum profit that can be obtained starting from the $i$-th job. The answer is $dfs(0)$.
 
 The calculation process of function $dfs(i)$ is as follows:
@@ -259,6 +269,14 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization jumps forward by start time. Sorting by end time instead, $dp[i]$ is the best profit among the first $i$ jobs: skip inherits $dp[i-1]$; take adds $dp[j]$ for the last job that ends before this start, with $j$ still from binary search. Bottom-up removes recursion; the meaning matches Solution 1.
+
+<!-- thinking:end -->
 
 We can also change the memoization search in Solution 1 to dynamic programming.
 

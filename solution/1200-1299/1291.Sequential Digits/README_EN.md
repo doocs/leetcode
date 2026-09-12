@@ -45,6 +45,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sequential digits are contiguous increasing digit runs; there are only the substrings of $123456789$. $low$ and $high$ reach $10^9$, so scanning values is wasteful. We enumerate start $i$ and end $j$, build $i\ldots j$, keep those in range, and sort.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We cut $[x,y)$ out of sorted disjoint intervals. Each interval is disjoint from the cut, fully covered, or split into a left and a right piece. Scanning left to right, we keep a disjoint interval as is and maybe emit $[a,x)$ and $[y,b)$ when they overlap. One linear pass; no extra sort.
+
+<!-- thinking:end -->
+
 We denote the interval to be removed as $[x, y)$. We traverse the interval list, and for each interval $[a, b)$, there are three cases:
 
 - $a \geq y$ or $b \leq x$, which means that this interval does not intersect with the interval to be removed. We directly add this interval to the answer.

@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We partition into consecutive runs of length $k$. If $n$ is not a multiple of $k$ there is no solution. $n \le 10^5$: from the smallest remaining value, greedily take $k$ consecutive numbers; a missing count fails.
+>
+> After counting we scan values in order; a still-positive $x$ decrements $[x,x+k)$. Sorting always starts at the current smallest gap so later runs stay intact.
+
+<!-- thinking:end -->
+
 First, we check if the length of the array $\textit{nums}$ is divisible by $\textit{k}$. If it is not divisible, it means the array cannot be divided into subarrays of length $\textit{k}$, and we return $\text{false}$ directly.
 
 Next, we use a hash table $\textit{cnt}$ to count the occurrences of each number in the array $\textit{nums}$, and then we sort the array $\textit{nums}$.
@@ -215,6 +225,14 @@ function isPossibleDivide(nums: number[], k: number): boolean {
 <!-- solution:start -->
 
 ### Solution 2: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts the whole array and probes a hash map. A sorted dict stores remaining counts by key; each run starts at the smallest key and deletes a key when its count hits zero. We do not sort duplicates; the minimum is $O(\log n)$.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first check if the length of the array $\textit{nums}$ is divisible by $\textit{k}$. If it is not divisible, it means the array cannot be divided into subarrays of length $\textit{k}$, and we return $\text{false}$ directly.
 

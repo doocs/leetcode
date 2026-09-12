@@ -81,6 +81,16 @@ Letter &quot;e&quot; can only be used once.</pre>
 
 ### Solution 1: Binary Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $14$ words, so $2^{14}$ subsets are enumerable. A subset is legal iff it does not exceed the stock in $letters$.
+>
+> We count the letter bank, then for each nonempty mask concatenate the chosen words, check the counts, and score legal ones. The masks exhaust the choices; the count test enforces the bank.
+
+<!-- thinking:end -->
+
 Given the small data range in the problem, we can use binary enumeration to enumerate all word combinations for the given word list. Then, we check whether each word combination meets the requirements of the problem. If it does, we calculate its score and finally take the word combination with the highest score.
 
 First, we use a hash table or array $cnt$ to record the number of occurrences of each letter in the alphabet $letters$.

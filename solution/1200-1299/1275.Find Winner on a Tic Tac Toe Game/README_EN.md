@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Determine if the last player to move can win
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are legal and play stops at a win, so we only test whether the last player already has three in a row. Walking backward every other move, we tally that player's rows, columns, and diagonals; a $3$ is a win. Otherwise nine moves is a draw, fewer is pending.
+
+<!-- thinking:end -->
+
 Since all `moves` are valid, that is, there is no situation where a person continues to play after someone has won. Therefore, we only need to determine whether the last player to move can win.
 
 We use an array `cnt` of length $8$ to record the number of moves in rows, columns, and diagonals. Where $cnt[0, 1, 2]$ represent the number of moves in the $0, 1, 2$ rows respectively, and $cnt[3, 4, 5]$ represent the number of moves in the $0, 1, 2$ columns respectively. Additionally, $cnt[6]$ and $cnt[7]$ represent the number of moves on the two diagonals respectively. During the game, if a player makes $3$ moves in a row, column, or diagonal, that player wins.

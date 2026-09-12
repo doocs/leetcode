@@ -127,6 +127,14 @@ Morocco 11 月的平均 weather_state 为 (25 + 27 + 31) / 3 = 27.667 所以天�
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按国家统计 $2019$ 年 $11$ 月平均气温并分成 Cold/Warm/Hot。连接天气与国家，过滤该月，按国家求 $AVG$，再用 $CASE$ 分箱。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

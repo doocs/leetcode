@@ -68,6 +68,18 @@ tags:
 
 ### 方法一：二分查找 + 容斥原理
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按从小到大枚举丑数需要生成约 $n$ 个候选，$n$ 可达 $10^9$，无法在时限内完成。
+>
+> 小于等于 $x$ 的丑数个数随 $x$ 单调不减，因此第 $n$ 个丑数是使该计数至少为 $n$ 的最小 $x$。计数本身可用容斥在 $O(1)$ 内求出：并上 $a,b,c$ 的倍数，再减去两两最小公倍数的倍数，加上三者最小公倍数的倍数。
+>
+> 为此在 $[1, 2\times 10^9]$ 上二分 $x$，中点用容斥判断是否已覆盖至少 $n$ 个丑数。答案范围由题目保证，无需枚举具体丑数。
+
+<!-- thinking:end -->
+
 我们可以将题目转换为：找到最小的正整数 $x$，使得小于等于 $x$ 的丑数个数恰好为 $n$ 个。
 
 对于一个正整数 $x$，能被 $a$ 整除的数有 $\left\lfloor \frac{x}{a} \right\rfloor$ 个，能被 $b$ 整除的数有 $\left\lfloor \frac{x}{b} \right\rfloor$ 个，能被 $c$ 整除的数有 $\left\lfloor \frac{x}{c} \right\rfloor$ 个，能被 $a$ 和 $b$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(a, b)} \right\rfloor$ 个，能被 $a$ 和 $c$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(a, c)} \right\rfloor$ 个，能被 $b$ 和 $c$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(b, c)} \right\rfloor$ 个，能被 $a$, $b$ 和 $c$ 同时整除的数有 $\left\lfloor \frac{x}{lcm(a, b, c)} \right\rfloor$ 个。根据容斥原理，小于等于 $x$ 的丑数个数为：

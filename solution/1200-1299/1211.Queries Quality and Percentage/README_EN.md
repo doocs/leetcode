@@ -94,6 +94,14 @@ Cat queries poor_ query_percentage is (1 / 3) * 100 = 33.33
 
 ### Solution 1: Grouping and Aggregation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Quality is the average of $rating/position$; the poor-query rate is the fraction with $rating < 3$. Both are scalars per query name, so we $GROUP\ BY\ query\_name$, take $AVG$ of the ratio and of the boolean, and $ROUND$ to two decimals. Null query names are dropped.
+
+<!-- thinking:end -->
+
 Group by `query_name`, compute `quality` with `AVG(rating / position)`, and compute the poor-query rate with `AVG(rating < 3)`. Round both values to two decimal places, and drop null query names with `WHERE query_name IS NOT NULL`.
 
 <!-- tabs:start -->
@@ -118,6 +126,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### Solution 2: Grouping and Aggregation (CASE Expression)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boolean $AVG$ is not equally clear in every dialect. Solution 2 $CAST$s for decimal division and counts poor rows with $CASE$ over $COUNT(*)$. The result matches Solution 1 and is more portable.
+
+<!-- thinking:end -->
 
 The grouping is the same, and null query names are still dropped. `quality` uses `CAST` so the division is decimal, and the poor-query rate is counted with a `CASE` expression.
 
