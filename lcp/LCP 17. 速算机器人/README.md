@@ -50,6 +50,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2017.%20%E9%80%9F%
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 指令长度不超过 $10$，按 $A$、$B$ 的定义从 $x=1$、$y=0$ 依次更新即可。无需寻找通项或回溯。
+>
+> 遍历 $s$，遇 $A$ 则 $x\leftarrow 2x+y$，遇 $B$ 则 $y\leftarrow 2y+x$，最后返回 $x+y$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
