@@ -89,6 +89,18 @@ source: Weekly Contest 516 Q2
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The missing pieces are the contiguous gaps of $[\textit{lower},\textit{upper}]$ that never appear. Testing every integer in that range would follow the value range rather than $n$.
+>
+> After sorting and uniquifying the present values, each gap between two consecutive in-range numbers is a missing interval; the two ends relative to $\textit{lower}$ and $\textit{upper}$ are filled in the same way.
+>
+> Scanning with $\textit{prev}=\textit{lower}-1$, we emit $[\textit{prev}+1,x-1]$ whenever $x-\textit{prev}>1$.
+
+<!-- thinking:end -->
+
 We sort $\textit{nums}$ and then scan it. Let $\textit{prev}$ be the previous number that appears in $[\textit{lower}, \textit{upper}]$, initially $\textit{lower} - 1$.
 
 Iterate over the sorted array and skip values outside $[\textit{lower}, \textit{upper}]$. If there is a gap between the current number $x$ and $\textit{prev}$, i.e. $x - \textit{prev} > 1$, append the missing range $[\textit{prev} + 1, x - 1]$ to the answer, then set $\textit{prev}$ to $x$.

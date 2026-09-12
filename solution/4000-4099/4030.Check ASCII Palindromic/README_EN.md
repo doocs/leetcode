@@ -72,6 +72,16 @@ source: Weekly Contest 516 Q1
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each character expands to a fixed $8$-bit string, including leading zeros, and we test whether the concatenation is a palindrome. $n$ is small enough that we need not rewrite the test in terms of character pairs.
+>
+> Build $t$ in order and compare it with its reverse.
+
+<!-- thinking:end -->
+
 Following the problem statement, we replace each character of $s$ with the $8$-bit binary representation of its ASCII value (including leading zeros), concatenate them in order to obtain a binary string $t$, and then check whether $t$ is a palindrome.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $s$.

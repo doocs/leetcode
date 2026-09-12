@@ -74,6 +74,18 @@ source: Weekly Contest 517 Q1
 
 ### Solution 1: Count the Blocks of Each Integer
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special integer is one that forms exactly one contiguous equal block. Collecting every index of each value just to test contiguity would store extra lists.
+>
+> A scan increments a counter at the start of each block; afterwards we count how many values have counter $1$.
+>
+> The universe has size $100$, so a frequency table suffices.
+
+<!-- thinking:end -->
+
 Call each maximal run of consecutive equal elements a **block**. An integer $x$ is special if and only if it forms exactly one block.
 
 So we traverse the array, and whenever $i = 0$ or $\textit{nums}[i] \neq \textit{nums}[i - 1]$, position $i$ starts a new block, and we increment $\textit{cnt}[\textit{nums}[i]]$. After the traversal, the answer is the number of integers whose count in $\textit{cnt}$ is exactly $1$.

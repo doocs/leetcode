@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$ can be huge, so we cannot materialise the infinite string. Numbers are grouped by digit length, and each group's length has a closed form, so we subtract whole groups of short lengths until $k$ falls into one length and one block.
+>
+> Block $b$ holds ten $d$-digit integers, increasing on even $b$ and decreasing on odd $b$. The offset inside the block recovers the integer, and we read the requested digit.
+>
+> The whole location uses only division and remainders of $k$, in $O(\log k)$ time.
+
+<!-- thinking:end -->
+
 The infinite string is formed by concatenating blocks: block $b$ contains the positive integers from $10b$ to $10b+9$ (block $0$ starts from $1$). Even blocks are appended in increasing order, and odd blocks in decreasing order.
 
 We first handle $1$ through $9$ ($9$ digits in total). Then we group by the number of digits $d = 2, 3, \ldots$: $d$-digit numbers correspond to blocks $b \in [10^{d-2}, 10^{d-1} - 1]$, i.e., $9 \times 10^{d-2}$ blocks. Each block has $10$ numbers of $d$ digits, so each block contributes $10d$ digits.

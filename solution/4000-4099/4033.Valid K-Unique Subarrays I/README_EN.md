@@ -140,6 +140,18 @@ source: Weekly Contest 516 Q4
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks whether a subarray has exactly $k$ distinct values and even frequencies. Both $n$ and the number of queries are $10^5$, so we cannot scan every range.
+>
+> All-even frequencies mean every value appears an even number of times, which a prefix XOR-hash tests in $O(1)$; the distinct-count constraint needs a second prefix or counter structure.
+>
+> Combined, each query can be answered in logarithmic or near-constant time.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

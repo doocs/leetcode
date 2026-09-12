@@ -104,6 +104,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Floor indices reach $10^9$, but there are only $m\le 1500$ distinct requests, so the path lives on those floors. The elevator moves one floor per second and the penalty is the sum of visit times, which the visit order determines.
+>
+> $m$ is already too large for a subset TSP, yet the points lie on a line, so an optimal route is a sequence of one-way sweeps.
+>
+> After sorting requests by floor, an $O(m^2)$ interval DP enumerates the next swept segment and never builds a graph on $10^9$ floors.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

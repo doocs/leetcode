@@ -97,6 +97,18 @@ source: Weekly Contest 516 Q3
 
 ### Solution 1: Preprocessing + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray is legal if and only if it has at most $k$ distinct prime factors. That constraint is monotone in the window, so a sliding window applies.
+>
+> Factoring every value online would multiply $n$ by $M=10^5$. A sieve stores the prime-factor lists on $[2,M]$; the window updates a hash table from those lists as it expands or shrinks.
+>
+> Whenever the number of distinct primes is again at most $k$, the window length updates the answer.
+
+<!-- thinking:end -->
+
 First, we preprocess the list of prime factors for every number in $[2, 10^5]$ and store them in $\textit{primes}$. Specifically, we enumerate $i = 2, 3, \cdots, M$. If $\textit{primes}[i]$ is empty, then $i$ is a prime, and we add $i$ to the prime-factor list of every multiple of $i$.
 
 Then we use a sliding window to find the longest valid subarray. A hash table $\textit{cnt}$ records the occurrence count of each prime factor in the current window. When the right pointer $r$ expands, we add all prime factors of $\textit{nums}[r]$ to the window. When the number of distinct prime factors in the window exceeds $k$, the left pointer $l$ shrinks and we remove the prime factors of $\textit{nums}[l]$. Whenever the window is valid, we update the answer with the window length.

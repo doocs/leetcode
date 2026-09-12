@@ -106,6 +106,16 @@ source: Weekly Contest 517 Q2
 
 ### Solution 1: Simulation + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each element decodes independently: the width is the last digit, the remaining digits split into $x$ and $y$, and we compute $x^y$. Elements do not share state.
+>
+> $y$ can reach $10^9$, so multiplying in a loop is impossible. Fast exponentiation yields $x^y\bmod(10^9+7)$ in $O(\log y)$, and we add the results modulo the same prime.
+
+<!-- thinking:end -->
+
 We decode each element exactly as the statement describes. For each element $v$ in $\textit{nums}$, its width is $w = v \bmod 10$, and the number left after dropping the last digit is $d = \lfloor v / 10 \rfloor$. Converting $d$ to its decimal string $s$, the value $x$ is the integer formed by the first $w$ characters of $s$, and $y$ is the integer formed by the remaining characters.
 
 Since $y$ can be as large as $10^9$, multiplying repeatedly would be too slow, so we use fast power to compute $x^y \bmod (10^9 + 7)$ in $O(\log y)$ time, then accumulate the decoded values modulo $10^9 + 7$.
