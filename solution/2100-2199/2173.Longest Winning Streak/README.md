@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2173.Longest%20Winning%20Streak/README.md
 tags:
     - 数据库
 ---

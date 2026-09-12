@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2100-2199/2161.Partition%20Array%20According%20to%20Given%20Pivot/README.md
 rating: 1337
 source: 第 71 场双周赛 Q2
 tags:
