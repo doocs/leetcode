@@ -85,6 +85,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each piece must start with a distinct character, so there are at most $|\Sigma|$ pieces and each character that appears can start at most one of them. Every distinct character can form its own piece, hence the answer is the number of distinct letters in $s$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

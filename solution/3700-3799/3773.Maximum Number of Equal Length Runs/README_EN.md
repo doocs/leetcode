@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may keep only runs of one common length, so the answer is the most frequent run length. One `groupby` pass counts lengths and we take the maximum frequency.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to record the number of occurrences of each run length. We traverse the string $s$, and for each run, we calculate its length $m$ and increment $\textit{cnt}[m]$ by $1$. Finally, the answer is the maximum value in $\textit{cnt}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.

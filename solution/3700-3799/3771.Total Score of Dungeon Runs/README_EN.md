@@ -96,6 +96,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $score(j)$ is the total collected from room $j$ through $n$, and we want the sum of $score$ over all starts. HP decreases along the path, and a room scores iff the remaining HP is at least $requirement[i]$. Walking from the right, we maintain the HP threshold needed at each room and count how many starts still score there.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

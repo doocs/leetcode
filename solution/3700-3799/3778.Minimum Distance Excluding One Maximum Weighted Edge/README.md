@@ -92,6 +92,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3778.Mi
 
 ### 方法一：Dijkstra 算法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 路径代价是边权和去掉一条最大边，等价于有一次机会把某条边权当作 $0$。在状态中增加「是否已使用这次机会」，对 $(\textit{node},\textit{used})$ 做 Dijkstra 即可。
+
+<!-- thinking:end -->
+
 题目实际上等价于从节点 $0$ 到节点 $n-1$ 寻找一条路径，可以有一次机会将经过的某条边的权重视为 $0$，使得路径权重和最小。
 
 我们首先将 $\textit{edges}$ 转化为邻接表 $\textit{g}$，其中 $\textit{g}[u]$ 存储所有与节点 $u$ 相连的边 $(v, w)$，表示节点 $u$ 与节点 $v$ 之间有一条权重为 $w$ 的边。

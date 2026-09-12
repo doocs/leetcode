@@ -98,6 +98,14 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 镜像对要求 $\mathrm{reverse}(nums[i])=nums[j]$。最近的 $j$ 一定来自该反转值最近一次出现的位置，从左到右扫描并用哈希表记下 $\mathrm{reverse}(x)$ 的最后下标即可。
+
+<!-- thinking:end -->
+
 我们可以用一个哈希表 $\textit{pos}$ 来记录每个反转后的数字最后一次出现的位置。
 
 我们首先初始化答案 $\textit{ans} = n + 1$，其中 $n$ 是数组 $\textit{nums}$ 的长度。

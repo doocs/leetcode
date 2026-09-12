@@ -82,6 +82,14 @@ Note that 3 and 6 have the same reflection, so we arrange them in increasing ord
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sort key is the binary reversal that ignores leading zeros, with the original value as a tie-breaker. With $n\le 100$ we peel the lowest bit of each integer to form its reflection and sort by $(f(x),x)$.
+
+<!-- thinking:end -->
+
 We define a function $f(x)$ to calculate the binary reflection value of integer $x$. Specifically, we continuously extract the lowest bit of $x$ and add it to the end of the result $y$ until $x$ becomes $0$.
 
 Then, we sort the array $\textit{nums}$ with the sorting key being the tuple $(f(x), x)$ of each element's binary reflection value and original value. This ensures that when two elements have the same binary reflection value, the smaller original value will be placed first.

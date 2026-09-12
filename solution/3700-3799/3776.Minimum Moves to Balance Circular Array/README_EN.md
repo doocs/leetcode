@@ -102,6 +102,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one balance is negative, and a unit transfer on the ring costs its circular distance. A negative total is impossible; otherwise we fill the unique deficit from the nearest positive neighbors outward, adding $\textit{amount}\times\textit{distance}$ each time.
+
+<!-- thinking:end -->
+
 We first calculate the sum of the array $\textit{balance}$. If the sum is less than $0$, it is impossible to make all balances non-negative, so we directly return $-1$. Then we find the minimum balance in the array and its index. If the minimum balance is greater than or equal to $0$, all balances are already non-negative, so we directly return $0$.
 
 Next, we calculate the amount of balance needed $\textit{need}$, which is the opposite of the minimum balance. Then starting from the index of the minimum balance, we traverse the array to the left and right, taking as much balance as possible from each position to fill $\textit{need}$, and calculate the number of moves. We continue until $\textit{need}$ becomes $0$, and return the total number of moves.

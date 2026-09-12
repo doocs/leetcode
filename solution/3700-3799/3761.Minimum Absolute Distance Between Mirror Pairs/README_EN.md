@@ -95,6 +95,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mirror pair satisfies $\mathrm{reverse}(nums[i])=nums[j]$. The closest $j$ is the latest previous index of that reversed value, so a left-to-right scan with a map from $\mathrm{reverse}(x)$ to its last index suffices.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{pos}$ to record the last occurrence position of each reversed number.
 
 We first initialize the answer $\textit{ans} = n + 1$, where $n$ is the length of the array $\textit{nums}$.
