@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0299.Bulls%20and%20Cows/README_EN.md
 tags:
     - Hash Table
     - String

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0289.Game%20of%20Life/README.md
 tags:
     - 数组
     - 矩阵
