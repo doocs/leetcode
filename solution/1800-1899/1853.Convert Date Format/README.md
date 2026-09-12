@@ -67,6 +67,16 @@ Days table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把日期格式化为「星期, 月份 日, 年」。无需表连接或过滤。
+>
+> $\textit{DATE\_FORMAT}$ 的格式串 `%W, %M %e, %Y` 分别对应星期全称、月份全称、不补零的日与四位年。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

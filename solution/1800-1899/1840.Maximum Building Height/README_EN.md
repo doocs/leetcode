@@ -82,6 +82,16 @@ We can build the buildings with heights [0,1,2,3,3,4,4,5,4,3], and the tallest b
 
 ### Solution 1: Sorting + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent heights differ by at most $1$ and some buildings have caps. $n$ can be $10^9$, so we cannot simulate every building.
+>
+> The restrictions split the line into $O(m)$ segments. Sort them, then propagate the distance constraint from both ends to tighten each cap. Between two consecutive restrictions the optimal skyline rises then falls; the peak has a closed form from the two caps and the gap. The global maximum of those peaks is the answer.
+
+<!-- thinking:end -->
+
 First, we sort all the constraints by the building number in ascending order.
 
 Then we traverse all the constraints from left to right. For each constraint, we can get an upper bound on the maximum height, i.e., $r_i[1] = \min(r_i[1], r_{i-1}[1] + r_i[0] - r_{i-1}[0])$, where $r_i$ represents the $i$-th constraint, and $r_i[0]$ and $r_i[1]$ represent the building number and the upper bound on the maximum height of the building, respectively.

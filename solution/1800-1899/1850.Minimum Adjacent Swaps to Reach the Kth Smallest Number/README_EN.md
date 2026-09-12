@@ -90,6 +90,16 @@ tags:
 
 ### Solution 1: Find Next Permutation + Inversion Pairs
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We first obtain the $k$-th next permutation, then ask how many adjacent swaps turn the original string into it. Repeated digits mean we cannot treat positions as an arbitrary permutation.
+>
+> Apply next-permutation $k$ times to get $s$. Record the original indices of each digit in order, then assign them greedily while reading $s$. The number of adjacent swaps equals the number of inversions of that index sequence.
+
+<!-- thinking:end -->
+
 We can call the `next_permutation` function $k$ times to get the $k$th smallest permutation $s$.
 
 Next, we just need to calculate how many swaps are needed for $num$ to become $s$.

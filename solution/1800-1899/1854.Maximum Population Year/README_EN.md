@@ -60,6 +60,16 @@ The earlier year between them is 1960.</pre>
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the earliest year with the maximum population; years lie in $[1950,2050]$. Recounting every life for every year repeats work.
+>
+> The domain is tiny, so a difference array adds $1$ at birth and subtracts $1$ at death. A prefix-sum scan yields the population of each year; the first maximum, shifted back by $1950$, is the answer.
+
+<!-- thinking:end -->
+
 We notice that the range of years is $[1950,..2050]$. Therefore, we can map these years to an array $d$ of length $101$, where the index of the array represents the value of the year minus $1950$.
 
 Next, we traverse $logs$. For each person, we increment $d[birth_i - 1950]$ by $1$ and decrement $d[death_i - 1950]$ by $1$. Finally, we traverse the array $d$, find the maximum value of the prefix sum, which is the year with the most population, and add $1950$ to get the answer.

@@ -113,6 +113,16 @@ We can see that the income exceeded the max income in May and July, but not in J
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An account is suspicious if two consecutive months both have creditor totals above its income cap. We must aggregate by account and month, then test adjacency.
+>
+> Window-sum creditor amounts by account and month, mark those exceeding $max\_income$, and self-join rows one month apart that are both marked.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -148,6 +158,14 @@ ORDER BY s1.tx;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 marks months with a window and joins on a one-month gap. We can also $\textit{GROUP BY}$ account and $\textit{YYYYMM}$, keep overflowing months with $\textit{HAVING}$, and test whether $(account\_id,\textit{next month})$ still sits in that set.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

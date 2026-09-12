@@ -70,6 +70,16 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 
 ### Solution 1: Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must always reserve the smallest free seat and later release seats. Scanning a boolean array for the minimum free index is $O(n)$ per call.
+>
+> Store free seat numbers in a min-heap: $\textit{reserve}$ pops the top, $\textit{unreserve}$ pushes the number back. Both updates are logarithmic.
+
+<!-- thinking:end -->
+
 We define a priority queue (min-heap) $\textit{q}$ to store all the available seat numbers. Initially, we add all seat numbers from $1$ to $n$ into $\textit{q}$.
 
 When calling the `reserve` method, we pop the top element from $\textit{q}$, which is the smallest available seat number.
