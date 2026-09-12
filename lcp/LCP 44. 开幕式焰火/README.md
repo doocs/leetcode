@@ -44,6 +44,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2044.%20%E5%BC%80%
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 节点数不超过 $10^3$，颜色种类等于树中不同点值的个数。遍历一次即可收集全部取值。
+>
+> 深度优先访问每个节点，将 $val$ 放入集合，答案为集合大小。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

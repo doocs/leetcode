@@ -58,6 +58,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2022.%20%E9%BB%91%
 
 ### 方法一：组合计数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n\le 6$，涂黑只能整行或整列进行。枚举涂黑的行数 $i$ 与列数 $j$，格子数 $n(i+j)-ij$ 可在 $O(n^2)$ 内穷尽。
+>
+> 若该式等于 $k$，方案数为 $\binom{n}{i}\binom{n}{j}$。全盘涂黑时行列选择不唯一但结果只有一种，单独返回 $1$。
+
+<!-- thinking:end -->
+
 我们可以选择涂黑 $n$ 行中的任意 $i$ 行，涂黑 $n$ 列中的任意 $j$ 列。那么涂黑的格子数为 $n \times (i + j) - i \times j$。如果满足 $n \times (i + j) - i \times j = k$，则方案数为 $\binom{n}{i} \times \binom{n}{j}$。累加所有满足条件的方案数即可。
 
 注意，如果 $k = n \times n$，则只有一种方案，直接返回 $1$ 即可。

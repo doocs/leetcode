@@ -48,6 +48,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2028.%20%E9%87%87%
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n\le 10^5$，统计和不超过 $target$ 的无序数对，双重循环不可行。排序后，若 $nums[i]+nums[j]$ 已超过阈值，则更大的右端点更不可行。
+>
+> 为此两指针自两端向内：和过大则右指针左移，否则 $[i+1,j]$ 均可与 $i$ 配对，将 $j-i$ 累入答案后再右移左指针。最后取模。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

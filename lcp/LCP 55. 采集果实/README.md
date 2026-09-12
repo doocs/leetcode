@@ -66,6 +66,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2055.%20%E9%87%87%
 
 ### 方法一：贪心
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 各采集任务彼此独立，一次至多摘 $limit$ 个同类果实。完成数量为 $num$ 的任务需要 $\lceil num/limit\rceil$ 次，再乘以该类型的耗时。
+>
+> 对每个任务计算上述时间并求和。无需在任务之间调整顺序。
+
+<!-- thinking:end -->
+
 对于每个任务，我们贪心地按照 $limit$ 的大小来采集，那么每个任务需要的时间为 $\lceil \frac{num}{limit} \rceil \times time[type]$，其中 $\lceil x \rceil$ 表示对 $x$ 向上取整。我们将所有任务需要的时间求和即为答案。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $fruits$ 的长度。空间复杂度 $O(1)$。

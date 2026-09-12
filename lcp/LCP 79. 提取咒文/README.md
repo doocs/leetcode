@@ -54,6 +54,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2079.%20%E6%8F%90%
 
 ### 方法一：BFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 矩阵与咒文长度均不超过 $100$。状态是「位置 $(i,j)$ 以及已经取出的前缀长度 $k$」，移动与提取各算一步，求最少操作。三维状态数约为 $10^6$，适合按层 BFS。
+>
+> 当前格字母等于 $mantra[k]$ 时可提取并令 $k$ 加一（位置不变）；否则向四邻移动且 $k$ 不变。$k$ 达到咒文长度时返回层数；队列空则无法完成。
+
+<!-- thinking:end -->
+
 时间复杂度 $O(m \times n \times l)$，空间复杂度 $O(m \times n \times l)$。
 
 <!-- tabs:start -->
