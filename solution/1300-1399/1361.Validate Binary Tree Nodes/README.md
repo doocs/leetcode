@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md
 rating: 1464
 source: 第 177 场周赛 Q2
 tags:

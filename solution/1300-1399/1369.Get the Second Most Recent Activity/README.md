@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md
 tags:
     - 数据库
 ---
