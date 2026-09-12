@@ -74,6 +74,16 @@ The total cost is 2. Note that you cannot jump directly from index 0 to index 2 
 
 ### Solution 1: Monotonic Stack + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $i$ we may jump to the next index that is $\ge nums[i]$ or the next that is $< nums[i]$, and we want the minimum cost to the end. Scanning right from every $i$ is too slow. Those two successors are exactly what monotonic stacks compute in linear time.
+>
+> Build $g[i]$ with an increasing stack and a non-increasing stack from the right, then relax $f[j] = \min(f[j], f[i]+costs[j])$ in index order. There are $O(n)$ edges.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to find the next position $j$ where $\textit{nums}[j]$ is greater than or equal to $\textit{nums}[i]$, and the next position $j$ where $\textit{nums}[j]$ is less than $\textit{nums}[i]$. We can use a monotonic stack to find these two positions in $O(n)$ time, and then construct an adjacency list $g$, where $g[i]$ represents the indices that index $i$ can jump to.
 
 Then we use dynamic programming to find the minimum cost. Let $f[i]$ represent the minimum cost to jump to index $i$. Initially, $f[0] = 0$ and the rest $f[i] = \infty$. We enumerate the indices $i$ from small to large. For each $i$, we enumerate each index $j$ in $g[i]$ and perform the state transition $f[j] = \min(f[j], f[i] + \textit{costs}[j])$. The answer is $f[n - 1]$.

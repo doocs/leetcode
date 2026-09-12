@@ -99,6 +99,16 @@ textEditor.cursorRight(6); // return &quot;practi&quot;
 
 ### Solution 1: Left and Right Stacks
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The editor inserts, deletes, and moves a cursor; there are $2\times 10^4$ calls and each text is short. Concatenating a whole string on every move would copy too much. The cursor splits the text into two stacks with amortized $O(1)$ edits at the split.
+>
+> $\textit{left}$ is left of the cursor, $\textit{right}$ is right of it (tops face the cursor). Insert and delete touch only $\textit{left}$; moves pour up to $k$ characters between the stacks. The last ten characters of $\textit{left}$ are returned.
+
+<!-- thinking:end -->
+
 We can use two stacks, $\textit{left}$ and $\textit{right}$, where the stack $\textit{left}$ stores the characters to the left of the cursor, and the stack $\textit{right}$ stores the characters to the right of the cursor.
 
 - When calling the $\text{addText}$ method, we push the characters in $\text{text}$ onto the $\text{left}$ stack one by one. The time complexity is $O(|\text{text}|)$.

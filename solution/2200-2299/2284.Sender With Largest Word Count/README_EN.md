@@ -77,6 +77,16 @@ Since there is a tie for the largest word count, we return the sender with the l
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We total words per sender and want the maximum, breaking ties toward the lexicographically larger name. There are $10^4$ messages; splitting on spaces is enough.
+>
+> The word count is the number of spaces plus one. A hash map accumulates totals; a linear scan keeps the current best name.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to record the word count for each sender. Then, we traverse the hash table to find the sender with the highest word count. If there are multiple senders with the highest word count, we return the name that is lexicographically largest.
 
 The time complexity is $O(n + L)$, and the space complexity is $O(n)$, where $n$ is the number of messages and $L$ is the total length of all messages.

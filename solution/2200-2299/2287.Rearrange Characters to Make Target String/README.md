@@ -81,6 +81,16 @@ tags:
 
 ### 方法一：计数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 用 $s$ 中的字母复制 $target$ 尽量多次，字母不能重复使用。$|s|\le 100$，瓶颈是 $target$ 中需求最多、相对供给最少的那个字母。
+>
+> 分别计数后，对 $target$ 的每种字母取 $\lfloor cnt_1[c]/cnt_2[c] \rfloor$ 的最小值。
+
+<!-- thinking:end -->
+
 我们统计字符串 $\textit{s}$ 和 $\textit{target}$ 中每个字符出现的次数，记为 $\textit{cnt1}$ 和 $\textit{cnt2}$。对于 $\textit{target}$ 中的每个字符，我们计算 $\textit{cnt1}$ 中该字符出现的次数除以 $\textit{cnt2}$ 中该字符出现的次数，取最小值即可。
 
 时间复杂度 $O(n + m)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 和 $m$ 分别是字符串 $\textit{s}$ 和 $\textit{target}$ 的长度。而 $|\Sigma|$ 是字符集的大小，本题中 $|\Sigma|=26$。

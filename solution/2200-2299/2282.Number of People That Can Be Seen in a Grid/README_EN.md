@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person looks right and down; a strictly taller person blocks the rest, and an equal person is visible only as the nearest one. Rows and columns are independent, the same as counting visible people in a queue. A decreasing stack from the right (or bottom) solves one line.
+>
+> Pop shorter people and count them; if the stack is non-empty add one more; then pop equals. Run the helper on every row and every column and add.
+
+<!-- thinking:end -->
+
 We observe that for the $i$-th person, the people he can see must have heights that are strictly monotonically increasing from left to right (or from top to bottom).
 
 Therefore, for each row, we can use a monotonic stack to find the number of people each person can see.

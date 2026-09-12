@@ -78,6 +78,16 @@ We return the array [2,1].
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces $x$ in the array by a fresh $y$; there are $10^5$ operations. Linear search for $x$ is too slow. Values are unique, so a hash map from value to index is enough.
+>
+> On $[x,y]$ write $y$ at $nums[d[x]]$ and set $d[y]$ to that index. The old key $d[x]$ can stay; it will not be queried again.
+
+<!-- thinking:end -->
+
 First, we use a hash table $d$ to record the indices of each number in the array $\textit{nums}$. Then, we iterate through the operation array $\textit{operations}$. For each operation $[x, y]$, we replace the number at index $d[x]$ in $\textit{nums}$ with $y$, and update the index of $y$ in $d$ to $d[x]$.
 
 Finally, we return $\textit{nums}$.
