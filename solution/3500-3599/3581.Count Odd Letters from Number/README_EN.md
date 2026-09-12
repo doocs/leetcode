@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Simulation + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Spell each digit of $n$ in English and count letters that occur an odd number of times. Twenty-six letters fit in a bit mask of parities.
+>
+> XOR the bit of every letter; the popcount is the number of odd letters. The words need not be concatenated into one string.
+
+<!-- thinking:end -->
+
 We can convert each number into its corresponding English word, then count the frequency of each letter. Since the number of letters is limited, we can use an integer $\textit{mask}$ to represent the occurrence of each letter. Specifically, we can map each letter to a binary bit of the integer. If a letter appears an odd number of times, the corresponding binary bit is 1; otherwise, it's 0. Finally, we only need to count the number of bits that are 1 in $\textit{mask}$, which is the answer.
 
 The time complexity is $O(\log n)$, where $n$ is the input integer. And the space complexity is $O(1)$.

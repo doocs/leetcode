@@ -113,6 +113,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 12$, $k \le 5$, $m \le 5$, a state is (bit mask of people still in camp, which side the boat is on, current phase). Crossing time is the max $\textit{time}$ on board times the phase multiplier; the phase advances by $\lfloor d \rfloor$.
+>
+> Dijkstra computes the earliest time on that graph. When the boat is away, someone must return. If the camp mask can never become empty, return $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -120,6 +120,16 @@ tags:
 
 ### 方法一：枚举中间数字 + 哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 特殊三元组满足 $nums[i]=nums[k]=2\cdot nums[j]$。枚举两端为 $O(n^2)$；改为枚举中间 $j$，左右 $2x$ 的出现次数之积即贡献。
+>
+> 先把全体计入 $\textit{right}$，从左扫 $x$：先从右侧减去当前，累加 $\textit{left}[2x]\cdot\textit{right}[2x]$，再把 $x$ 加入左侧。模 $10^9+7$。
+
+<!-- thinking:end -->
+
 我们可以枚举中间数字 $\textit{nums}[j]$，用两个哈希表 $\textit{left}$ 和 $\textit{right}$ 分别记录 $\textit{nums}[j]$ 左侧和右侧的数字出现次数。
 
 我们首先将所有数字加入 $\textit{right}$ 中，然后从左到右遍历每个数字 $\textit{nums}[j]$，在遍历过程中：

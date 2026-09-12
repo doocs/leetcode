@@ -82,6 +82,16 @@ tags:
 
 ### 方法一：枚举 + 维护前缀最值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 长为 $m$ 的子序列，乘积是首尾两元素之积。枚举右端 $i$，左端只能在 $i-m+1$ 及更左，乘积的极值由该前缀的最小、最大决定。
+>
+> 扫描时把 $nums[i-m+1]$ 纳入前缀最值，再用当前 $x$ 乘 $\textit{mi}$、$\textit{mx}$ 更新答案。负数使最小与最大都可能最优。
+
+<!-- thinking:end -->
+
 我们可以枚举子序列的最后一个元素，假设它是 $\textit{nums}[i]$，那么子序列的第一个元素可以是 $\textit{nums}[j]$，其中 $j \leq i - m + 1$。因此，我们用两个变量 $\textit{mi}$ 和 $\textit{mx}$ 分别维护前缀最小值和最大值，遍历到 $\textit{nums}[i]$ 时，更新 $\textit{mi}$ 和 $\textit{mx}$，然后计算 $\textit{nums}[i]$ 和 $\textit{mi}$ 以及 $\textit{mx}$ 的乘积，取最大值即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。

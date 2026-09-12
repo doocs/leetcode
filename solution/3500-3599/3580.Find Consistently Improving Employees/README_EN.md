@@ -163,6 +163,16 @@ Each row represents a performance review for an employee. The rating is on a sca
 
 ### Solution 1: Using Window Functions and Aggregate Functions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only care whether an employee’s last three ratings are strictly increasing; the score is last minus first. Number reviews per employee by date descending and shift to get adjacent deltas.
+>
+> Keep ranks $2$ and $3$ (two deltas versus the latest review), require exactly two rows and a positive minimum delta, join names, and sort by score then name.
+
+<!-- thinking:end -->
+
 First, we extract the most recent three performance review records for each employee and calculate the difference in rating between each review and the previous one. Next, we filter out employees whose ratings are strictly increasing, and compute their improvement score (i.e., the last rating minus the first rating among the last three reviews). Finally, we sort the results by improvement score in descending order and by name in ascending order.
 
 <!-- tabs:start -->

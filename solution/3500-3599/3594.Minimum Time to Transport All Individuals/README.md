@@ -116,6 +116,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n \le 12$、$k \le 5$、$m \le 5$，状态可压成「营地侧人员掩码 × 船在哪一侧 × 当前阶段」。过河时间是上船者的最大 $\textit{time}$ 乘阶段倍率，阶段按 $\lfloor d \rfloor$ 前进。
+>
+> Dijkstra 在该状态图上求最短时间；船不在营地时必须派一人送回。无法使营地掩码为空则返回 $-1$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

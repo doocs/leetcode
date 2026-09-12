@@ -99,6 +99,16 @@ tags:
 
 ### Solution 1: Case Analysis + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating-parity permutation has at most two templates: even indices even, or even indices odd. If the two counts differ by more than $1$, it is impossible.
+>
+> Store the current indices of each parity and match them to the template slots $0,2,4,\ldots$. Adjacent swaps equal the sum of index gaps. When the counts are equal, try both templates and keep the smaller sum.
+
+<!-- thinking:end -->
+
 For a valid arrangement, the number of odd and even numbers can only differ by 1 or be equal. Therefore, if the difference between the number of odd and even numbers is greater than 1, it is impossible to form a valid arrangement, and we should return -1 directly.
 
 We use an array $\text{pos}$ to store the indices of odd and even numbers, where $\text{pos}[0]$ stores the indices of even numbers and $\text{pos}[1]$ stores the indices of odd numbers.

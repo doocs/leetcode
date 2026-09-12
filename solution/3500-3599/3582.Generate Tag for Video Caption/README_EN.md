@@ -90,6 +90,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tag is `#` plus camel case: the first word lowercased, later words capitalized, total length at most $100$. Split on whitespace, `capitalize` each word, lower the first, join, and keep $99$ letters after `#`.
+>
+> An empty caption yields `#` alone. One split is enough.
+
+<!-- thinking:end -->
+
 We first split the title string into words, then process each word. The first word should be all lowercase, while for the subsequent words, the first letter is capitalized and the rest are lowercase. Next, we concatenate all the processed words and add a # symbol at the beginning. Finally, if the generated tag exceeds 100 characters in length, we truncate it to the first 100 characters.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the title string.

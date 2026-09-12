@@ -173,6 +173,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{numWays}[i]$ is the number of unrestricted combinations that sum to $i+1$ with unknown denominations. Scan amounts from $1$ to $n$: if the complete-knapsack count with the coins found so far is one less than $\textit{numWays}$, the amount itself must be a new coin; any other gap is impossible.
+>
+> When a coin is accepted, update later amounts with the unbounded knapsack recurrence. The scan yields the increasing list, or an empty array on contradiction.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

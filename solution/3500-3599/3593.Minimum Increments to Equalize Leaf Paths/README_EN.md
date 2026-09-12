@@ -119,6 +119,16 @@ Only one node is increased, so the output is 1.</p>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only increase node costs so that every root-to-leaf path sums to the same value, using as few increased nodes as possible. The common sum is at least the current longest path, and raising an ancestor affects a whole subtree.
+>
+> Compute bottom-up the maximum root-to-leaf sum in each subtree. Children whose path sum is below that maximum can each be raised once at that child, rather than at many leaves. Count those children.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
