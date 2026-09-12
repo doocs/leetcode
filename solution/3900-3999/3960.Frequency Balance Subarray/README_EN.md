@@ -92,6 +92,16 @@ tags:
 
 ### Solution 1: Enumeration + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^3$, so enumerating both ends in $O(n^2)$ is acceptable. Balance means either a single value, or exactly two values whose frequencies are in ratio $2:1$.
+>
+> Fix $l$ and extend $r$, keeping value counts in $\textit{cnt}$ and “how many values have this frequency” in $\textit{freq}$. Each extension checks the two shapes in $O(1)$ and updates the longest length.
+
+<!-- thinking:end -->
+
 We can enumerate the left endpoint $l$ of the subarray in the range $[0, n)$, then enumerate the right endpoint $r$ from left to right starting from $l$. During the enumeration, we use two hash tables $\textit{cnt}$ and $\textit{freq}$ to record the frequency of each element in the subarray and the frequency of each frequency value, respectively.
 
 When either of the following conditions is satisfied, update the answer $\textit{ans} = \max(\textit{ans}, r - l + 1)$:

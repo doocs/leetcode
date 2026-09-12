@@ -112,6 +112,18 @@ source: Weekly Contest 506 Q3
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A device’s rating is the smallest unit it keeps. Moving someone’s minimum onto another device can only replace the receiver’s second-smallest. When $n=1$ nothing can move, so the answer is the sum of minima.
+>
+> For $n\ge 2$ each device keeps at least two units: sort each row and start from the sum of second-smallest values. The one useful adjustment merges the global minimum into the device whose second-smallest is tiniest, replacing that second-smallest.
+>
+> The closed form is $\sum x[1]-(mn_2-mn)$.
+
+<!-- thinking:end -->
+
 Adding a unit to a device can only decrease or keep its rating unchanged. Therefore, if $n = 1$, we can directly return the sum of all device ratings.
 
 Otherwise, we sort the units of each device in ascending order, take the smallest unit from each device, and concentrate them into one device with rating $\textit{mn}$. If we concentrate them into device $i$, the rating of device $i$ changes from the second smallest value $\textit{mn2}$ to $\textit{mn}$, so the total rating decreases by $\textit{mn2} - \textit{mn}$. To maximize the total rating, we should choose the device with the smallest decrease, i.e., the device with the smallest $\textit{mn2}$.

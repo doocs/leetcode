@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1500$, so enumerating subarrays in $O(n^2)$ is fine. Fix the left end, accumulate $s$, and test whether both the last and first digits of $s$ equal $x$.
+>
+> The last digit is $s\bmod 10$; the first is the leading character of $\mathrm{str}(s)$. Count with the double loop.
+
+<!-- thinking:end -->
+
 We can enumerate the left endpoint $l$ of the subarray, and for each $l$, we enumerate the right endpoint $r$ in the range $[l, n)$, and calculate the sum of $nums[l..r]$. If it satisfies the conditions, the answer is increased by one.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.

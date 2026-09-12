@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $l$ and $r$ reach $10^{15}$, so we cannot list integers. A good number has adjacent digits differing by at most $k$ — a digit-DP constraint.
+>
+> Count $[0,r]$ minus $[0,l-1]$. The state stores position, previous digit, tightness, and leading-zero. A new digit must differ from the previous by at most $k$ once leading zeros have ended.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that digit DP.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -224,6 +224,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person climbs independently to the LCA, spending one usable gate per step; a white gate flips the card. Many queries on a fixed tree forbid per-query simulation.
+>
+> Precompute, for each node, how far a red or blue card can climb and in how many gate sequences, merging counts on a binary-lifting table. A query multiplies Alice’s and Bob’s path counts.
+>
+> This directory has no implemented solution yet; the walkthrough stops at lifting gate combinations.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

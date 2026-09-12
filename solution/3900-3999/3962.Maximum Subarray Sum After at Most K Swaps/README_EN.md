@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $k$ arbitrary swaps means we may replace the smallest entries of some subarray by the largest entries outside it. $n\le 1500$ lets us enumerate $[l,r]$ and swap up to $k$ inside-minima with outside-maxima.
+>
+> For each segment take those two $k$-sets, sort, and apply the improving prefix. A heap can maintain them while the right end grows.
+>
+> This directory has no implemented solution yet; the walkthrough stops at “enumerate a segment plus a top-$k$ exchange”.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

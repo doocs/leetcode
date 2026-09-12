@@ -111,6 +111,16 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each pick multiplies by the current $\textit{mul}$ and then decrements it, so multipliers decrease. Larger array values should meet larger multipliers.
+>
+> Sort $\textit{nums}$ and take the $k$ largest; the $i$-th of them multiplies $\max(1,\textit{mul})$ before $\textit{mul}$ drops by one. Sorting is $O(n\log n)$.
+
+<!-- thinking:end -->
+
 We can sort the array $\textit{nums}$ and then select the $k$ largest elements from the sorted array. For the $i$-th element, we can choose to multiply it by $\max(1, \textit{mul})$ and add it to the total sum, and then $\textit{mul}$ decreases by $1$. Finally, we return the total sum.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $\textit{nums}$.

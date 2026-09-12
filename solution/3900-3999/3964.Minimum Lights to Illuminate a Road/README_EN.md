@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Difference Array + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Existing lamps are range coverage; each dark run needs new lamps that light at most three consecutive empties. $n\le 10^5$, so a difference array records every lamp’s $[i-v,i+v]$ and a prefix sum yields coverage.
+>
+> Then scan maximal zero-runs of length $k$ and add $\lceil(k+2)/3\rceil$. The difference array keeps coverage linear.
+
+<!-- thinking:end -->
+
 We notice that for each position $i$, if $lights[i] = v$ where $v > 0$, then position $i$ is illuminated, and the illumination range is $[i - v, i + v]$. We can use a difference array to maintain the illumination range at each position.
 
 We define an array $d$ of length $n$. For each position $i$, if $lights[i] = v$ where $v > 0$, we add $1$ to $d[i - v]$ and subtract $1$ from $d[i + v + 1]$.

@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The length is odd, so the middle index is unique. The middle value is unique in the whole array iff $\textit{count}$ returns $1$.
+>
+> $n\le 100$, so one linear tally suffices.
+
+<!-- thinking:end -->
+
 We take the element at the middle index of the array and count how many times it appears. If the count is $1$, return $\textit{true}$; otherwise return $\textit{false}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$.

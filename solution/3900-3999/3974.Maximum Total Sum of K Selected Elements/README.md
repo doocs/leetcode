@@ -113,6 +113,16 @@ tags:
 
 ### 方法一：贪心 + 排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次选一个元素乘上当前 $\textit{mul}$ 再把 $\textit{mul}$ 减一，乘数序列是递减的。为使总和最大，较大的数组元素应匹配较大的乘数。
+>
+> 将 $\textit{nums}$ 排序后从大到小取 $k$ 个，第 $i$ 大乘 $\max(1,\textit{mul})$，然后 $\textit{mul}$ 减一。$O(n\log n)$ 排序即可。
+
+<!-- thinking:end -->
+
 我们不妨对数组 $\textit{nums}$ 排序，然后从大到小依次选择 $k$ 个元素。对于当前第 $i$ 个元素，我们可以选择将其乘以 $\max(1, \textit{mul})$ 并加到总和中，然后 $\textit{mul}$ 减 $1$。最后返回总和即可。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。

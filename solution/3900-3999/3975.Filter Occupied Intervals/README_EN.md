@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Merge Intervals
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort occupied intervals by left endpoint and merge overlaps into disjoint busy segments. Intersect those with $[\textit{freeStart},\textit{freeEnd}]$: drop segments outside the window and clip those that cross it.
+>
+> Merging keeps the clipping pass linear.
+
+<!-- thinking:end -->
+
 We first sort all occupied intervals by their left endpoints, and then traverse all intervals. If the left endpoint of the current interval is greater than the right endpoint of the last interval plus $1$, we add the current interval to the result. Otherwise, we merge the current interval with the last interval, and update the right endpoint of the last interval to the larger value of the current interval and the last interval.
 
 Next, we traverse all occupied intervals. If the right endpoint of the current interval is less than the left endpoint of the free interval or the left endpoint of the current interval is greater than the right endpoint of the free interval, we add the current interval to the result. Otherwise, we check if the left endpoint of the current interval is less than the left endpoint of the free interval. If it is, we update the left endpoint of the current interval to the left endpoint of the free interval minus $1$, and add it to the result. Then, we check if the right endpoint of the current interval is greater than the right endpoint of the free interval. If it is, we update the right endpoint of the current interval to the right endpoint of the free interval plus $1$, and add it to the result.
