@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.11.Peaks%20and%20Valleys/README.md
 ---
 
 <!-- problem:start -->

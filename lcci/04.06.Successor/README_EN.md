@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/README_EN.md
 ---
 
 <!-- problem:start -->

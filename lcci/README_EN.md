@@ -1,6 +1,5 @@
 ---
 comments: true
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/README_EN.md
 ---
 
 # [_Cracking the Coding Interview, 6th Edition_](http://ahmed-badawy.com/blog/wp-content/uploads/2018/10/Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf)

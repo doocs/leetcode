@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelter/README_EN.md
 ---
 
 <!-- problem:start -->

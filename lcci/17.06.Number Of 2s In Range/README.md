@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202s%20In%20Range/README.md
 ---
 
 <!-- problem:start -->

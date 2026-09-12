@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate%20Array/README.md
 ---
 
 <!-- problem:start -->

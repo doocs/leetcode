@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.04.Missing%20Number/README.md
 ---
 
 <!-- problem:start -->

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README_EN.md
 ---
 
 <!-- problem:start -->

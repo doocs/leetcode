@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20Sum/README_EN.md
 ---
 
 <!-- problem:start -->

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.05.Sort%20of%20Stacks/README.md
 ---
 
 <!-- problem:start -->

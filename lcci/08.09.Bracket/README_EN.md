@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README_EN.md
 ---
 
 <!-- problem:start -->

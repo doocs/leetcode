@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.01.Sorted%20Merge/README_EN.md
 ---
 
 <!-- problem:start -->

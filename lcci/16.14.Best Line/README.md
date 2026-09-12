@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.14.Best%20Line/README.md
 ---
 
 <!-- problem:start -->

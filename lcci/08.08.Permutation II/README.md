@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20II/README.md
 ---
 
 <!-- problem:start -->

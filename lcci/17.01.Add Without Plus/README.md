@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.01.Add%20Without%20Plus/README.md
 ---
 
 <!-- problem:start -->

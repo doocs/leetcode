@@ -1,6 +1,5 @@
 ---
 comments: true
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/README.md
 ---
 
 # 《程序员面试金典（第 6 版）》系列

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.05.Sum%20Lists/README.md
 ---
 
 <!-- problem:start -->

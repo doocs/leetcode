@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.10.Find%20Majority%20Element/README_EN.md
 ---
 
 <!-- problem:start -->

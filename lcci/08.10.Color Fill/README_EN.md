@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.10.Color%20Fill/README_EN.md
 ---
 
 <!-- problem:start -->
