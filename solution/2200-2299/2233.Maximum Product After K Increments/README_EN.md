@@ -63,6 +63,16 @@ Note that there may be other ways to increment nums to have the maximum product.
 
 ### Solution 1: Greedy + Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may increment one element per operation, $k$ times, and want the maximum product. $n$ and $k$ are up to $10^5$. For a positive $x$, the relative gain $\frac{x+1}{x}$ shrinks as $x$ grows, so each increment should hit the current minimum.
+>
+> A min-heap stores the array; $k$ times we replace the top $x$ by $x+1$. The product of the heap, taken modulo, is the answer. Zeros are incremented first, so the product does not stay zero.
+
+<!-- thinking:end -->
+
 According to the problem description, to maximize the product, we need to increase the smaller numbers as much as possible. Therefore, we can use a min-heap to maintain the array $\textit{nums}$. Each time, we take the smallest number from the min-heap, increase it by $1$, and then put it back into the min-heap. After repeating this process $k$ times, we multiply all the numbers currently in the min-heap to get the answer.
 
 The time complexity is $O(k \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.

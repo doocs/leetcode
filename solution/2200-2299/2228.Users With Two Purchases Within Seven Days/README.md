@@ -75,6 +75,16 @@ Purchases 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要找出存在两次购买日期相差不超过 $7$ 天的用户。若对每个用户做自连接比较全部购买对，同一用户购买次数较多时会重复计数。只需看按时间排序后的相邻两次是否已经落入窗口。
+>
+> 窗口函数 $\textit{LAG}(\textit{purchase\_date})$ 按 $\textit{user\_id}$ 分区、按日期排序，得到与上一笔的天数差。筛选 $d \le 7$ 后再对 $\textit{user\_id}$ 去重即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

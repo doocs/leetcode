@@ -68,6 +68,16 @@ Since there is only one element in nums, the triangular sum is the value of that
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each round replaces the array with adjacent sums modulo $10$ until one value remains. $n \le 10^3$, so $O(n^2)$ simulation is fine. A closed form is unnecessary.
+>
+> For remaining length $k = n-1,\ldots,1$, write $nums[i] = (nums[i]+nums[i+1]) \bmod 10$. The surviving $nums[0]$ is the triangular sum.
+
+<!-- thinking:end -->
+
 We can directly simulate the operations described in the problem. Perform $n - 1$ rounds of operations on the array $\textit{nums}$, updating the array $\textit{nums}$ according to the rules described in the problem for each round. Finally, return the only remaining element in the array $\textit{nums}$.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

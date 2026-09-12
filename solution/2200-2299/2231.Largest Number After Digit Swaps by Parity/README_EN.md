@@ -60,6 +60,16 @@ Note that there may be other sequences of swaps but it can be shown that 87655 i
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap digits of the same parity and want the largest decimal value. $num \le 10^9$ has few digits, yet searching permutations is unnecessary: digits of one parity may be rearranged freely, so each position should take the largest remaining digit of that parity.
+>
+> Count digits $0$ through $9$. Walking the original number left to right, pick the next unused even or odd digit starting from $8$ or $9$.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{cnt}$ of length $10$ to count the occurrences of each digit in the integer $\textit{num}$. We also use an index array $\textit{idx}$ to record the largest available even and odd digits, initially set to $[8, 9]$.
 
 Next, we traverse each digit of the integer $\textit{num}$. If the digit is odd, we take the digit corresponding to index $1$ in $\textit{idx}$; otherwise, we take the digit corresponding to index $0$. If the count of the digit is $0$, we decrement the digit by $2$ and continue checking until we find a digit that meets the condition. Then, we update the answer and the count of the digit, and continue traversing until we have processed all digits of the integer $\textit{num}$.

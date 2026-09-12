@@ -79,6 +79,16 @@ Out of the three users, only User 3 is eligible for a discount.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The procedure must list users who have a purchase in the closed time window with amount at least the threshold, unique and sorted by $\textit{user\_id}$. Aggregation by user would mix several small orders; the filter is per row.
+>
+> $\textit{WHERE}$ restricts $\textit{amount}$ and $\textit{time\_stamp}$, then $\textit{DISTINCT}$ and $\textit{ORDER BY}$ produce the list.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

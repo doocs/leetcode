@@ -78,6 +78,16 @@ The sum of the scores is 2 + 3 + 9 = 14, so we return 14.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $s_i$ is the length-$i$ suffix of $s$, and its score is the LCP of that suffix with $s$ itself. Comparing every suffix naively is $O(n^2)$ and fails for $n \le 10^5$.
+>
+> Those LCPs are the Z-array: $z[i]$ is the LCP of $s[i:]$ with $s$, and $z[0]=n$. Summing the Z-array after a linear construction is enough. String hashing plus binary search on each start is an $O(n\log n)$ alternative. The tabs in this problem have no implementation; either approach fits the limits.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -73,6 +73,16 @@ It can be shown that 170 is the smallest possible value.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression is $A{+}B$. We insert one pair of parentheses to minimize $a(c)b$, where $c$ is the inner sum. The string has length at most $10$, so there are only $O(|A|\cdot|B|)$ placements.
+>
+> The left parenthesis sits before index $i$ of $A$, the right after index $j$ of $B$. The inside is $l[i:]+r[:j+1]$; an empty side contributes a factor of $1$. Keep the placement with the smallest product.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -74,6 +74,16 @@ Positions 0, 1, 2, and 4 meet the requirement so we return 4.
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each lamp lights a contiguous range; we count positions whose brightness meets the requirement. Painting every cell of every lamp can be quadratic. Range increment is the difference-array primitive.
+>
+> Add one at $d[\max(0,p-r)]$ and subtract one just past the right end, prefix-sum $d$, and compare each cell with $\textit{requirement}$.
+
+<!-- thinking:end -->
+
 To add a value $v$ to a continuous interval $[i, j]$ simultaneously, we can use a difference array.
 
 We define an array $\textit{d}$ of length $n + 1$. For each streetlight, we calculate its left boundary $i = \max(0, p - r)$ and right boundary $j = \min(n - 1, p + r)$, then add $1$ to $\textit{d}[i]$ and subtract $1$ from $\textit{d}[j + 1]$.
