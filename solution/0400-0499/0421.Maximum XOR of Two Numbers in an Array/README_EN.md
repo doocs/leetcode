@@ -53,6 +53,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every pair is $O(n^2)$ and $n$ can be $2\times 10^5$. A large XOR wants the opposite bit as early as possible.
+>
+> Insert each number into a binary trie from the high bit. When querying $x$, prefer the child with the flipped bit so that bit of the answer becomes $1$. Thirty-one bits cover the value range.
+>
+> Each query walks the trie once and is equivalent to choosing the best partner among the inserted numbers.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

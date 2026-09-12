@@ -65,6 +65,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mutation flips one character and must land in the bank; we want the fewest steps. That is unweighted shortest path, so depth-first search does not give the minimum.
+>
+> BFS from the start. Each step scans unused bank strings that differ in exactly one position. The first time the end gene is dequeued is the answer; an empty queue means unreachable.
+>
+> The bank is tiny, so pairwise Hamming distance $1$ is enough. A visited set prevents enqueueing a gene twice.
+
+<!-- thinking:end -->
+
 We define a queue `q` to store the current gene sequence and the number of changes, and a set `vis` to store the visited gene sequences. Initially, we add the starting gene sequence `start` to the queue `q` and the set `vis`.
 
 Then, we continuously take out a gene sequence from the queue `q`. If this gene sequence equals the target gene sequence, we return the current number of changes. Otherwise, we iterate through the gene bank `bank`, calculate the difference value between the current gene sequence and the gene sequence in the gene bank. If the difference value is $1$ and the gene sequence in the gene bank has not been visited, we add it to the queue `q` and the set `vis`.

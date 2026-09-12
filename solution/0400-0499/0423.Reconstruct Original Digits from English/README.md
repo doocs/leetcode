@@ -54,6 +54,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 英文数字的字母互相重叠，不能按单词顺序贪心匹配。若干字母却只属于一个数字。
+>
+> $\texttt{z}$ 只在 zero，$\texttt{w}$ 只在 two，$\texttt{u}$ 只在 four，$\texttt{x}$ 只在 six，$\texttt{g}$ 只在 eight。扣掉这些之后，$\texttt{h}$、$\texttt{f}$、$\texttt{s}$ 分别确定 three、five、seven，最后用 $\texttt{o}$、$\textit{i}$ 确定 one、nine。
+>
+> 按「唯一字母」的偏序计数，每个数字的个数被线性方程组唯一确定，再按 $0$ 到 $9$ 拼回字符串。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

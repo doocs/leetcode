@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A strong password constrains length, character classes, and runs of three identical letters. Insert, delete, and replace help those gaps differently, so one operation type is not enough.
+>
+> Split by length. If $n<6$, inserts cover both length and missing classes. If $6\le n\le 20$, replacements break runs of length $3$, then take the max with missing classes. If $n>20$, deletions are mandatory; spend them first on runs whose length is $0\bmod 3$, because one delete removes one later replacement.
+>
+> The case split isolates the operation that is actually required for each length.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

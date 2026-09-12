@@ -67,6 +67,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> BST 的中序遍历即为升序。若先收集节点再连边，需要额外数组。题目要求原地，用 $\textit{left}/\textit{right}$ 充当前驱后继。
+>
+> 中序遍历时把 $\textit{prev}$ 与当前节点互指，并记下第一个节点为 $\textit{head}$；遍历结束后再把 $\textit{head}$ 与最后一个节点连成环。
+>
+> 先左后根再右，保证链接顺序与有序序列一致；哑元或空 $\textit{prev}$ 用来识别链表头。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

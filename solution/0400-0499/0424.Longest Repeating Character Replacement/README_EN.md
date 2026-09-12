@@ -57,6 +57,18 @@ There may exists other ways to achieve this answer too.</pre>
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window can be made uniform with at most $k$ changes iff its length minus the majority count is at most $k$. Trying every pair of ends is $O(n^2)$.
+>
+> Expand the right end while tracking the maximum frequency $\textit{mx}$. When $r-l+1-\textit{mx}>k$, shift the left end by one. The longest legal window has length $n-l$.
+>
+> There is no need to decrease $\textit{mx}$ on a left move: we only want the maximum length, and an overestimate of $\textit{mx}$ only makes the test stricter.
+
+<!-- thinking:end -->
+
 We use a hash table `cnt` to count the occurrence of each character in the string, and two pointers `l` and `r` to maintain a sliding window, such that the size of the window minus the count of the most frequent character does not exceed $k$.
 
 We iterate through the string, updating the right boundary `r` of the window each time, updating the count of characters within the window, and updating the maximum count `mx` of the characters that have appeared. When the size of the window minus `mx` is greater than $k$, we need to shrink the left boundary `l` of the window, updating the count of characters within the window, until the size of the window minus `mx` is no longer greater than $k$.
