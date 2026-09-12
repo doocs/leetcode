@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2568.Minimum%20Impossible%20OR/README.md
 rating: 1754
 source: 第 98 场双周赛 Q3
 tags:
