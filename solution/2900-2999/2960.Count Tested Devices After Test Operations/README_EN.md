@@ -82,6 +82,16 @@ So, the answer is 2.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing a still-positive device decrements every later battery. The number already tested, $ans$, is exactly the total subtracted before the current device, so it is testable iff $x>ans$.
+>
+> $n \le 100$; accumulate the predicate without rewriting the array.
+
+<!-- thinking:end -->
+
 Assume that the current number of devices we have tested is $ans$. When testing a new device $i$, its remaining battery is $\max(0, batteryPercentages[i] - ans)$. If the remaining battery is greater than $0$, it means this device can be tested, and we need to increase $ans$ by $1$.
 
 Finally, return $ans$.

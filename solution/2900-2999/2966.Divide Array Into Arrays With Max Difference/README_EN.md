@@ -93,6 +93,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split into triples whose max-min is at most $k$. After sorting, adjacent triples minimize the range; reaching farther only widens it.
+>
+> Every three elements, test $t[2]-t[0]$ and fail if it exceeds $k$. $n$ is a multiple of $3$ up to $10^5$, so sort then group linearly.
+
+<!-- thinking:end -->
+
 First, we sort the array. Then, we take out three elements each time. If the difference between the maximum and minimum values of these three elements is greater than $k$, then the condition cannot be satisfied, and we return an empty array. Otherwise, we add the array composed of these three elements to the answer array.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.

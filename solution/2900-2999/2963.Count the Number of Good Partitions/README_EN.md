@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Hash Table + Grouping + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good partition keeps equal values in one part, so each value’s first-to-last span must lie inside a single piece. Last-occurrence map $last$ cuts the array into unsplittable blocks; each boundary between blocks may be cut or not.
+>
+> While scanning, $j$ tracks the current block’s right end; $i=j$ increments the block count $k$. $k$ blocks give $k-1$ optional cuts, i.e. $2^{k-1}$ modulo the prime.
+
+<!-- thinking:end -->
+
 According to the problem description, we know that the same number must be in the same subarray. Therefore, we use a hash table $last$ to record the index of the last occurrence of each number.
 
 Next, we use an index $j$ to mark the index of the last element that has appeared among the elements, and use a variable $k$ to record the number of subarrays that can currently be divided.

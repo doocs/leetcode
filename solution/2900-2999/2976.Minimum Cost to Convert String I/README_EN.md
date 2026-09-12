@@ -80,6 +80,16 @@ It can be shown that this is the minimum possible cost.
 
 ### Solution 1: Floyd Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A letter may be rewritten into another at a given cost; we want the cheapest map from $source$ to $target$. There are $26$ letters and rewrites compose, so we need all-pairs shortest paths. Floyd finishes $g[x][y]$ in $26^3$.
+>
+> Sum per position; an unreachable pair fails the instance. Parallel edges keep the lighter cost. The string length is $10^5$, so preprocessing is separate from the scan.
+
+<!-- thinking:end -->
+
 According to the problem description, we can consider each letter as a node, and the conversion cost between each pair of letters as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting letter $i$ to letter $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$.
 
 Next, we traverse the arrays $original$, $changed$, and $cost$. For each index $i$, we update the cost $cost[i]$ of converting $original[i]$ to $changed[i]$ to $g[original[i]][changed[i]]$, taking the minimum value.

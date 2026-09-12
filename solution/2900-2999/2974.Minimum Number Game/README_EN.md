@@ -66,6 +66,14 @@ At the begining of round two, nums = [5,4]. Now, first Alice removes 4 and then 
 
 ### Solution 1: Simulation + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each round pops the two current minima but appends the larger first. That is two heap pops with the order swapped. $n \le 100$ is even, so the heap follows the statement.
+
+<!-- thinking:end -->
+
 We can put the elements of the array $\textit{nums}$ into a min heap one by one. Each time, we take out two elements $a$ and $b$ from the min heap, and then sequentially put $b$ and $a$ into the answer array until the min heap is empty.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{nums}$.
@@ -214,6 +222,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Swapping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 keeps a heap, yet the global minima are known after sorting: each adjacent pair $(a_{2i},a_{2i+1})$ is one round. Swap the two entries in place; no dynamic structure is required. Sorting still dominates.
+
+<!-- thinking:end -->
 
 We can sort the array $\textit{nums}$, and then iterate through the array, swapping adjacent elements each time until the iteration is complete, and return the swapped array.
 

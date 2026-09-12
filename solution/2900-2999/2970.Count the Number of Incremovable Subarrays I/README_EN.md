@@ -73,6 +73,16 @@ It can be shown that there are only 7 incremovable subarrays in nums.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After a deletion the remainder must be strictly increasing: a rising prefix, a rising suffix, or both joined with a still-increasing seam. Find the longest strictly rising prefix ending at $i$; if it is the whole array, every subarray is removable and the count is $n(n+1)/2$.
+>
+> Otherwise walk a rising suffix from the right, rewind $i$ until $nums[i]<nums[j]$, and add $i+2$ prefixes (including empty) per suffix start. $n \le 50$; the same two pointers serve part II.
+
+<!-- thinking:end -->
+
 According to the problem description, after removing a subarray, the remaining elements are strictly increasing. Therefore, there are several situations:
 
 1. The remaining elements only include the prefix of the array $nums$ (which can be empty);

@@ -75,6 +75,16 @@ It can be shown that the largest possible perimeter is 12.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A polygon needs the longest side shorter than the sum of the others. After sorting, if the longest side is $a_k$, the other sides should be the smaller $k-1$ values, so only prefixes matter.
+>
+> When $s[k-1]>nums[k-1]$, update the perimeter $s[k]$. Scan $k$ from $3$ to $n$ for $n \le 10^5$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

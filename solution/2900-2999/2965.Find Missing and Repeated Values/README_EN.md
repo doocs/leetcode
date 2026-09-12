@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $n \times n$ matrix should hold $1 \ldots n^2$ once each, but one value repeats and one is missing. $n \le 50$, so a count array of length $n^2+1$ and two scans suffice.
+>
+> Frequency $2$ is the repeat, frequency $0$ the missing value. No closed form is required.
+
+<!-- thinking:end -->
+
 We create an array $cnt$ of length $n^2 + 1$ to count the frequency of each number in the matrix.
 
 Next, we traverse $i \in [1, n^2]$. If $cnt[i] = 2$, then $i$ is the duplicated number, and we set the first element of the answer to $i$. If $cnt[i] = 0$, then $i$ is the missing number, and we set the second element of the answer to $i$.

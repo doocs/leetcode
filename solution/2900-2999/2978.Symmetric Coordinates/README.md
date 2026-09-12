@@ -76,6 +76,16 @@ Coordinates table:
 
 ### 方法一：窗口函数 + 自连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对称点对满足 $(x,y)$ 与 $(y,x)$ 都出现且不是同一行。表中可能有重复坐标，需用行号区分。$ROW_NUMBER$ 生成 $id$ 后自连接：$p1.x=p2.y$ 且 $p1.y=p2.x$，并限制 $p1.x \le p1.y$、$id$ 不同，以免重复输出与自配对。
+>
+> 最后对坐标去重排序。
+
+<!-- thinking:end -->
+
 我们可以使用窗口函数 `ROW_NUMBER()` 来为每一行添加一个自增的序号，然后再自连接两张表，连接条件为 `p1.x = p2.y AND p1.y = p2.x AND p1.x <= p1.y AND p1.id != p2.id`，最后再排序去重即可。
 
 <!-- tabs:start -->
