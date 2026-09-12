@@ -79,6 +79,17 @@ The rows with ids 2 and 3 are not included because we need at least three consec
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need at least three consecutive days with `people >= 100`. A 3-way self-join covers windows of length exactly $3$, but longer streaks become awkward.
+>
+> After filtering qualifying rows, consecutive `id`s share a constant `id - ROW_NUMBER()`. Group by that difference, count each group, and keep groups of size at least $3$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -107,6 +118,15 @@ ORDER BY 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already counts group size with a window. The same difference `id_diff` can be aggregated with `HAVING COUNT(*) > 2` and used as an `IN` filter. The meaning is unchanged; only the counting style differs.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

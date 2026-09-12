@@ -81,6 +81,17 @@ tags:
 
 ### 方法一：前缀树 + 区间合并
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 单词集合要在 $s$ 中标出所有出现区间并加粗，区间可能重叠。对每个词做朴素匹配是 $O(|s|\sum|w|)$，且合并区间还要另写一遍。
+>
+> 把单词插入字典树，从每个起点沿树走可一次扫出该起点的全部结束位置。得到区间后按左端合并，再与原文拼接 `<b>`。
+
+<!-- thinking:end -->
+
+
 相似题目：
 
 - [1065. 字符串的索引对](https://github.com/doocs/leetcode/blob/main/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README.md)

@@ -107,6 +107,17 @@ Tree table:
 
 ### Solution 1: Conditional Statements + Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node's type depends on whether it has a parent and whether it is someone else's parent.
+>
+> `CASE` labels `p_id IS NULL` as Root, `id IN (SELECT p_id)` as Inner, and the rest as Leaf.
+
+<!-- thinking:end -->
+
+
 We can use the `CASE WHEN` conditional statement to determine the type of each node as follows:
 
 - If a node's `p_id` is `NULL`, then it is a root node.

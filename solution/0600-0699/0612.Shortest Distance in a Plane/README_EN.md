@@ -68,6 +68,17 @@ Point2D table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest planar distance is the minimum Euclidean distance over distinct pairs. The table is small enough for a self-join.
+>
+> Exclude identical points, compute `SQRT` of squared differences, `ROUND` to two decimals, and take the minimum.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### MySQL

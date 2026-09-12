@@ -104,6 +104,17 @@ With he same formula for the average salary comparison in February, the result i
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each month we compare a department average with the company average. Two separate aggregations work but are verbose.
+>
+> Window averages partitioned by pay date (and by date plus department) give both means at once; `CASE` compares them and `DISTINCT` drops duplicated window rows.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -139,6 +150,15 @@ FROM t;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 relies on `DISTINCT` to collapse window duplicates. Grouping by month and department and averaging the already-computed window means yields the same comparison.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

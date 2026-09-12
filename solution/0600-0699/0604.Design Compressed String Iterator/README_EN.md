@@ -69,6 +69,17 @@ stringIterator.hasNext(); // return True
 
 ### Solution 1: Parsing and Storing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `next` may be called many times; parsing the compressed string on the fly repeats the same scan and is easy to get wrong.
+>
+> Parse once into a list of $(c, x)$ pairs and keep an index $p$ that decrements the current count. Each query is then $O(1)$.
+
+<!-- thinking:end -->
+
+
 Parse the `compressedString` into characters $c$ and their corresponding repetition counts $x$, and store them in an array or list $d$. Use $p$ to point to the current character.
 
 Then perform operations in `next` and `hasNext`.

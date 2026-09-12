@@ -102,6 +102,17 @@ Employee 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需按月比较部门均薪与公司均薪。先按月聚合再关联，要写两套分组。
+>
+> 窗口 `AVG(...) OVER (PARTITION BY pay_date)` 与再按部门划分，一次取出两均值，`CASE` 比较后 `DISTINCT` 去重窗口重复行。
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -137,6 +148,15 @@ FROM t;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用 `DISTINCT` 去重窗口重复行。也可对部门再 `GROUP BY`，用 `AVG` 聚合已算好的窗口均值后比较，结果相同。
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

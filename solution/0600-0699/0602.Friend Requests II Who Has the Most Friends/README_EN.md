@@ -73,6 +73,17 @@ The person with id 3 is a friend of people 1, 2, and 4, so he has three friends 
 
 ### Solution 1: Union All + Group By
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Friendship is undirected, but each acceptance is stored once. Grouping only requesters or only accepters undercounts the other side.
+>
+> `UNION ALL` both directions so each person appears as a source once per friend, then `GROUP BY` and take the maximum count.
+
+<!-- thinking:end -->
+
+
 We can merge the `requester_id` and `accepter_id` columns into a single column, representing each person's friend relationships. Then we group the merged result and count, finding the person with the most friends and the number of friends.
 
 <!-- tabs:start -->
