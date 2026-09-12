@@ -83,6 +83,18 @@ There are no 1&#39;s to remove so return 0.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation picks a $1$ and clears its whole row and column. The grid is at most $8\times 8$, so configurations fit in an integer. Order among a set of moves does not matter; BFS finds the shortest sequence.
+>
+> Pack the matrix into $\textit{state}$. From a $1$ cell, clear every bit on its row and column. Distance in this graph is the number of operations.
+>
+> Start from the initial mask and stop at $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -54,6 +54,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three consecutive integers sum to $3x$, so $\textit{num}$ must be a multiple of $3$, and the middle value is $\textit{num}/3$.
+>
+> On a zero remainder return $[x-1,x,x+1]$; otherwise return an empty list.
+>
+> The test and the construction are $O(1)$.
+
+<!-- thinking:end -->
+
 Assume the three consecutive integers are $x-1$, $x$, and $x+1$. Their sum is $3x$, so $\textit{num}$ must be a multiple of $3$. If $\textit{num}$ is not a multiple of $3$, it cannot be represented as the sum of three consecutive integers, and we return an empty array. Otherwise, let $x = \frac{\textit{num}}{3}$, then $x-1$, $x$, and $x+1$ are the three consecutive integers whose sum is $\textit{num}$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

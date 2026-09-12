@@ -79,6 +79,18 @@ bs.toString(); // return &quot;01010&quot;, which is the composition of bitset.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bitset must fix a bit, flip all bits, and answer all-ones / any-one / count / stringify. Flipping a plain array is $O(n)$ and too slow when both $n$ and the operation count reach $10^5$.
+>
+> Keep the current string $a$ and its complement $b$. A flip swaps them and replaces $\textit{cnt}$ by $n-\textit{cnt}$. Point updates maintain $a$, $b$, and $\textit{cnt}$ together.
+>
+> $\texttt{toString}$ joins $a$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

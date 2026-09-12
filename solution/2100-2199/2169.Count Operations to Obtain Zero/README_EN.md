@@ -69,6 +69,18 @@ So the total number of operations required is 1.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step subtracts the smaller number from the larger until one is zero — Euclidean subtraction. Values are at most $10^4$, so simulating every subtraction is fine.
+>
+> Compare $\textit{num1}$ and $\textit{num2}$, subtract, and count.
+>
+> Stop when either side is $0$.
+
+<!-- thinking:end -->
+
 We can directly simulate this process by repeatedly performing the following operations:
 
 - If $\textit{num1} \ge \textit{num2}$, then $\textit{num1} = \textit{num1} - \textit{num2}$;
@@ -212,6 +224,18 @@ var countOperations = function (num1, num2) {
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 subtracts many times when one number dwarfs the other. Replacing repeated subtraction by division adds the quotient at once and continues with the remainder.
+>
+> The number of iterations becomes $O(\log m)$, as in the Euclidean algorithm.
+>
+> The English write-up repeats this formulation under two headings; both match the modulo implementation.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -237,6 +261,18 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 subtracts many times when one number dwarfs the other. Replacing repeated subtraction by division adds the quotient at once and continues with the remainder.
+>
+> The number of iterations becomes $O(\log m)$, as in the Euclidean algorithm.
+>
+> This heading is the named write-up of the same modulo loop.
+
+<!-- thinking:end -->
 
 Following the simulation process in Solution 1, we notice that if $\textit{num1}$ is much larger than $\textit{num2}$, each operation will only reduce the value of $\textit{num1}$ slightly, leading to an excessive number of operations. We can optimize this process by directly adding the quotient of $\textit{num1}$ divided by $\textit{num2}$ to the answer in each operation, then taking the remainder of $\textit{num1}$ divided by $\textit{num2}$. This reduces the number of operations.
 

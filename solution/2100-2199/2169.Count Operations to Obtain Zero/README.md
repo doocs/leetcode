@@ -71,6 +71,18 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次从较大数中减去较小数，直到一方为 $0$，这与辗转相减相同。数值不超过 $10^4$，直接模拟步数可接受。
+>
+> 循环中比较 $\textit{num1}$ 与 $\textit{num2}$，减去较小者并计数。
+>
+> 任一方为 $0$ 时返回计数。
+
+<!-- thinking:end -->
+
 我们可以直接模拟这个过程，循环执行以下操作：
 
 - 如果 $\textit{num1} \ge \textit{num2}$，则 $\textit{num1} = \textit{num1} - \textit{num2}$；
@@ -213,6 +225,18 @@ var countOperations = function (num1, num2) {
 <!-- solution:start -->
 
 ### 方法二：数学
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一在两数相差很大时会减许多次。辗转相减可改成辗转相除：一次加上商、把被减数换成余数。
+>
+> 步数降到 $O(\log m)$，与欧几里得算法同阶。
+>
+> 英文题解中同一写法出现了两节，内容一致。
+
+<!-- thinking:end -->
 
 如果按照方法一的模拟过程，我们会发现，如果 $\textit{num1}$ 远大于 $\textit{num2}$，那么每次操作我们都会减少 $\textit{num1}$ 的值，这样会导致操作数过多。我们可以优化这个过程，每次操作时，我们可以直接将 $\textit{num1}$ 除以 $\textit{num2}$ 的商加到答案中，然后将 $\textit{num1}$ 对 $\textit{num2}$ 取余，这样可以减少操作数。
 

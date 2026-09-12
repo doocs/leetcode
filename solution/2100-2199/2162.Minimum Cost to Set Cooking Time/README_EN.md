@@ -88,6 +88,18 @@ Note other possible ways are 0076, 076, 0116, and 116, but none of them produces
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cooker shows four digits of minutes and seconds. The same duration may be $m$ minutes $s$ seconds or $m-1$ minutes $s+60$ seconds, provided both stay in two-digit ranges. Cost is finger moves plus key presses, so we evaluate the legal encodings.
+>
+> For a pair $(\textit{m},\textit{s})$, drop leading zeros and walk the digits from $\textit{startAt}$, adding $\textit{moveCost}$ on a change and $\textit{pushCost}$ every press.
+>
+> Return the smaller of $\texttt{f}(m,s)$ and $\texttt{f}(m-1,s+60)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

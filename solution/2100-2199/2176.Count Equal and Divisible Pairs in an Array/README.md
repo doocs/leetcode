@@ -58,6 +58,18 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计 $i<j$、$\textit{nums}[i]=\textit{nums}[j]$ 且 $i\cdot j$ 能被 $k$ 整除的对数。$n\le 100$，二重枚举即可。
+>
+> 固定 $j$ 再扫前面的 $i$，同时检查值相等与乘积取模。
+>
+> 无需额外下标结构。
+
+<!-- thinking:end -->
+
 我们先在 $[0, n)$ 的范围内枚举下标 $j$，然后在 $[0, j)$ 的范围内枚举下标 $i$，统计满足 $\textit{nums}[i] = \textit{nums}[j]$ 且 $(i \times j) \bmod k = 0$ 的数对个数。
 
 时间复杂度 $O(n^2)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。空间复杂度 $O(1)$。

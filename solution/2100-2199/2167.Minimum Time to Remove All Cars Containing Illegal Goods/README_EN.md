@@ -92,6 +92,18 @@ There are no other ways to remove them with less time.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Illegal cars may be removed as a left prefix, a right suffix, or individually at cost $2$. We need the cheapest mix. Enumerating the two cuts and rescanning the middle is at least quadratic.
+>
+> $\textit{pre}[i]$ is the min cost for the prefix of length $i$: a `'0'` copies the previous value, a `'1'` takes $\min(\textit{pre}[i-1]+2,i)$. $\textit{suf}$ is the symmetric suffix DP.
+>
+> The answer is $\min_i(\textit{pre}[i]+\textit{suf}[i])$ over splits that cover the whole string.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -62,6 +62,18 @@ The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split four digits into two integers with minimum sum. Leading zeros are allowed. Trying all partitions is possible, but the optimum uses the two smallest digits as tens.
+>
+> Extract and sort the four digits; tens come from the two smallest, units from the rest.
+>
+> The sum is $10(a+b)+c+d$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

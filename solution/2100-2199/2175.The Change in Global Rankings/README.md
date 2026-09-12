@@ -129,6 +129,18 @@ New Zealand 没有获得或丢失分数，他们的排名也没有发生变化�
 
 ### 方法一：窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 排名按积分降序、名称升序。积分变动后要比较新旧名次之差。窗口函数 $\texttt{RANK}$ 可直接得到两次排序下的名次。
+>
+> 先按队伍汇总积分变化，再与原积分表连接，分别对 $\textit{points}$ 与 $\textit{points}+\textit{delta}$ 计算名次。名次相减前转为有符号整数，以免无符号类型下溢。
+>
+> 输出 $\textit{team\_id}$、$\textit{name}$ 与 $\textit{rank\_diff}$。
+
+<!-- thinking:end -->
+
 利用 `rank()` 函数求出新老排名，然后用 `CAST` 将字段类型改为 `signed`，保证两个排名可以进行减法操作。
 
 <!-- tabs:start -->
