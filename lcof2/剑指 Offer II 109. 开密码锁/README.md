@@ -80,6 +80,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 四位转盘每次转动一位，避开死亡数字，求最少步数。状态空间 $10^4$，适合最短路。
+>
+> 每个状态有 $8$ 个邻居（四位各加减一）。从 $0000$ 出发 BFS，死亡数字与已访问状态不入队，首次到达 $\textit{target}$ 的层数即答案。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

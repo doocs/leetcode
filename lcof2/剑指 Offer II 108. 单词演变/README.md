@@ -65,6 +65,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次改一个字母，求从 $\textit{beginWord}$ 到 $\textit{endWord}$ 的最短变换。若对词表线性找邻居，边数可达 $n^2$。
+>
+> 单词长度很短，枚举每一位换成 $26$ 个字母，用集合 $O(1)$ 判断是否在词表中。BFS 层次即变换次数，访问过的词从集合删除以免回头。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -68,6 +68,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两有序数组中取和最小的 $k$ 对数。枚举全部数对再排序，在 $k$ 与长度较大时浪费。
+>
+> 只需前 $k$ 小，因此各自至多取前 $k$ 个元素。用大小为 $k$ 的大根堆（存负和）动态淘汰较大的数对，最后堆中即为答案。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -59,6 +59,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 右侧视图是每层最右结点。从右向左入队后，队首即为该层最右。
+>
+> 层序时先把右孩子入队，再把左孩子入队，则每层队首就是从右侧看到的那个结点。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

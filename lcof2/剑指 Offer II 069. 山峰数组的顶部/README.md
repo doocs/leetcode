@@ -88,6 +88,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 严格先增后减的数组有唯一峰顶。线性找最大值即可，但没有利用单峰。
+>
+> 比较 $\textit{arr}[mid]$ 与右侧：若已下降，峰在中点或更左；若仍上升，峰在更右。搜索区间避开两端，因为峰不在边界。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

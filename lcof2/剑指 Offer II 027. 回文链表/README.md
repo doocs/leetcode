@@ -59,6 +59,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 判断链表是否回文。复制到数组再双指针比较需要线性空间。
+>
+> 快慢指针找到中点，反转后半再与前半逐一比较。只需改写后半指针，空间为常数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

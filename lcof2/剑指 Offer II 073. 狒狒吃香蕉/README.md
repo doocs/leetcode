@@ -67,6 +67,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求最小吃速使 $h$ 小时内吃完。速度越大耗时越少，具有单调性。线性枚举速度在 $\max(piles)$ 较大时过慢。
+>
+> 对速度 $mid$ 计算总小时数：不超过 $h$ 则还可以更慢，否则必须更快。二分下界即为最小可行速度。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

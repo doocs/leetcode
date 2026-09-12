@@ -57,6 +57,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 网格只能向右或向下，求最小路径和。若搜索全部路径，条数随格子数指数增长。
+>
+> 到达 $(i,j)$ 的最小和只来自上方或左方。先处理第一行、第一列的唯一来源，再对其余格子取两侧较小者加上自身。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

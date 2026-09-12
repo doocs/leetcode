@@ -76,6 +76,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 选出若干数（可重复使用同一候选）使和为 $\textit{target}$。需要列出全部组合而非计数。
+>
+> 回溯时从当前下标 $u$ 起枚举，递归仍传入 $i$ 而非 $i+1$，从而允许重复选取同一个数；和超过目标则剪枝。按下标递增枚举，避免 $[2,3]$ 与 $[3,2]$ 被当成不同组合。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

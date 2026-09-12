@@ -60,6 +60,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相邻房屋颜色不同，求最小总费用。若对每间枚举颜色再递归，会重复计算同一前缀。
+>
+> 刷到当前房屋某色的最小费用，等于上一间另外两色的较小者加上本色费用。三个变量滚动即可记下上一间的三种颜色。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

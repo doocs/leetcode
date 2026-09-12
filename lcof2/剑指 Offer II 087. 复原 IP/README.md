@@ -75,6 +75,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把数字串分成四段合法 IP。段数固定为 $4$，每段至多三位，搜索树很小。
+>
+> 深度优先枚举当前段的结束位置，用 $\textit{check}$ 排除前导零与超过 $255$ 的值。已满四段且恰好用完字符串则收录。
+
+<!-- thinking:end -->
+
 我们定义一个函数 $dfs(i)$，表示从字符串 $s$ 的第 $i$ 位开始，搜索能够组成的 IP 地址列表。
 
 函数 $dfs(i)$ 的执行步骤如下：

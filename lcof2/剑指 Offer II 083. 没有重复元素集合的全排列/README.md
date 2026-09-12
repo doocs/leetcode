@@ -58,6 +58,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 生成无重复数组的全部排列。$n\le 6$，共 $n!$ 种，可以全部构造。
+>
+> 用 $\textit{used}$ 标记已选下标，按位置从左到右填入路径。回溯撤销标记，使每个下标在不同排列中复用。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

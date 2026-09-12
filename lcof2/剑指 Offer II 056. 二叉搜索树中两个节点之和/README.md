@@ -54,6 +54,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在二叉搜索树中找两数之和为 $k$。中序得到有序数组再双指针需要线性额外空间。
+>
+> 遍历时用集合记下已访问的值，当前结点检查 $k-\textit{val}$ 是否出现过。不必利用有序性，一次深度优先即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

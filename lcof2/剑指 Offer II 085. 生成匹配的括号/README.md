@@ -49,6 +49,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 生成 $n$ 对括号的全部合法串。若先生成再检验，非法前缀也会被展开。
+>
+> 回溯时维护已放左、右括号个数：左括号未用尽则可放左；右括号少于左括号则可放右。这样生成的每一条路径都合法。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

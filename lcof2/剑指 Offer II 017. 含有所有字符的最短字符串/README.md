@@ -67,6 +67,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一：滑动窗口
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求覆盖 $t$ 全部字符（含重复）的最短子串。枚举左右端再统计是平方级的。
+>
+> 窗口扩张直到覆盖成立，再尽量收缩左端以缩短。覆盖判定写成对 $\textit{need}$ 的扫描：窗口内每个必需字符的计数都不低于需求时即可更新答案。
+
+<!-- thinking:end -->
+
 用哈希表维护窗口内字符，每次收缩后检查是否覆盖 $t$。
 
 <!-- tabs:start -->
@@ -191,6 +201,14 @@ func check(need, window map[byte]int) bool {
 <!-- solution:start-->
 
 ### 方法二：滑动窗口（计数）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每次收缩都扫描整张需求表。额外维护已满足的字符种类 $\textit{windowCount}$，某字符计数刚好达到需求时加一、刚好失去时减一，用 $\textit{windowCount}=\textit{needCount}$ 代替整表比较。
+
+<!-- thinking:end -->
 
 额外用覆盖种类计数，避免每次收缩都扫描整张表。
 

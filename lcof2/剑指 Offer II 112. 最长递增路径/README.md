@@ -66,6 +66,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 矩阵中严格递增的最长路径。朴素 DFS 会在同一格子上重复搜索。
+>
+> $dfs(i,j)$ 表示从该格出发的最长递增长度，只走向更大的四邻接。记忆化后每个格子计算一次，答案取所有起点的最大。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

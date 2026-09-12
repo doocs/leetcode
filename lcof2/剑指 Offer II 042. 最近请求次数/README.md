@@ -63,6 +63,16 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次询问 $[t-3000,t]$ 内的请求数。若每次扫描全部历史，请求次数增多后会变慢。
+>
+> 时间戳单调递增，过期请求只出现在队列头部。新请求入队后弹出所有早于 $t-3000$ 的时间戳，队列长度即答案。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -54,6 +54,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一：迭代
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 二叉搜索树中序遍历即为升序。先收集结点再重连需要额外列表。
+>
+> 用栈把中序迭代出来，访问时把左指针置空、右指针接到上一结点之后，边遍历边改指针。
+
+<!-- thinking:end -->
+
 中序遍历用栈展开，把结点依次接到右侧。
 
 <!-- tabs:start -->
@@ -383,6 +393,14 @@ class Solution {
 <!-- solution:start -->
 
 ### 方法二：DFS
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一显式维护栈。递归中序同样按升序访问，用哑结点记录当前尾部，实现更短。
+
+<!-- thinking:end -->
 
 递归中序遍历，把结点依次接到右侧。
 

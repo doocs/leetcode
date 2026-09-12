@@ -60,6 +60,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两个异构词若至多两位不同则相似，相似关系可传递。求连通块个数。
+>
+> 对每对字符串统计不同位置，不超过两处则在并查集中合并。最后统计根的个数。串长与个数均不大，两两比较可以接受。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

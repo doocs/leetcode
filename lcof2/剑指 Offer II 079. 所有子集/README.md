@@ -53,6 +53,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举全部子集。每个元素可选可不选，共 $2^n$ 种，$n\le 10$ 可以全部列出。
+>
+> 深度优先时先把当前路径记为一种子集，再从 $i$ 起依次选后续元素并递归。回溯弹出，保证每种组合只生成一次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

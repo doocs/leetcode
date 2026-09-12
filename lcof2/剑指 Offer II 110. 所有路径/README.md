@@ -81,6 +81,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有向无环图上列出从 $0$ 到 $n-1$ 的全部路径。图是 DAG，不必担心环。
+>
+> 深度优先沿出边前进，到达终点则复制当前路径。回溯弹出，以枚举其余分支。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
