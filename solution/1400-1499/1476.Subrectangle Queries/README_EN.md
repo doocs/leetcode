@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1476.Subrectangle%20Queries/README_EN.md
 rating: 1326
 source: Biweekly Contest 28 Q2
 tags:
