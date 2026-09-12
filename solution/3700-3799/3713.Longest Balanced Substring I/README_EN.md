@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3713.Longest%20Balanced%20Substring%20I/README_EN.md
 rating: 1490
 source: Weekly Contest 471 Q2
 tags:
