@@ -73,6 +73,14 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letter-logs sort by content then identifier; digit-logs keep their relative order and come last. A stable key does this in one sort: letter-logs use $(0,\textit{content},\textit{id})$, digit-logs use $(1,)$.
+
+<!-- thinking:end -->
+
 We can use a custom sorting method to divide the logs into two categories: letter logs and digit logs.
 
 For letter logs, we need to sort them according to the problem requirements, i.e., first by content and then by identifier.

@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even indices must hold evens and odd indices odds, and the two kinds are equally many. An extra array would work, but we can swap in place. $i$ walks even indices; when that slot is odd, $j$ walks odd indices until an even is found and they swap. $j$ only increases, so the pass is linear.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to point to even and odd indices, respectively. Initially, $i = 0$ and $j = 1$.
 
 When $i$ points to an even index, if $\textit{nums}[i]$ is odd, we need to find an odd index $j$ such that $\textit{nums}[j]$ is even, and then swap $\textit{nums}[i]$ and $\textit{nums}[j]$. Continue traversing until $i$ reaches the end of the array.

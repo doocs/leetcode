@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An axis-aligned rectangle is spanned by two pairs of matching $y$-coordinates. $n\le 500$, so four-nested loops are too slow, but pairs on the same vertical line are manageable. Group by $x$ and scan left to right. For each pair $(y_1,y_2)$ on the current line, a previous occurrence of that pair yields a rectangle. A map stores the latest $x$ of every $y$-pair.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

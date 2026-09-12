@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A playlist of length $goal$ must use exactly $n$ distinct songs, and a repeat of the same song needs a gap of at least $k$. $goal,n\le 100$, so DP fits. $f[i][j]$ is the number of lists of $i$ songs using $j$ distinct ones: $n-j+1$ choices for a new song, and $j-k$ for a repeat when $j>k$. The answer is $f[goal][n]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to be the number of playlists that can be made from $i$ songs with exactly $j$ different songs. We have $f[0][0] = 1$ and the answer is $f[goal][n]$.
 
 For $f[i][j]$, we can choose a song that we have not listened before, so the previous state is $f[i - 1][j - 1]$, and there are $n - (j - 1) = n - j + 1$ options. Thus, $f[i][j] += f[i - 1][j - 1] \times (n - j + 1)$. We can also choose a song that we have listened before, so the previous state is $f[i - 1][j]$, and there are $j - k$ options. Thus, $f[i][j] += f[i - 1][j] \times (j - k)$, where $j \geq k$.
@@ -232,6 +240,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Layer $i$ depends only on $f[i-1][j-1]$ and $f[i-1][j]$, so the table rolls into one dimension and extra space becomes $O(n)$.
+
+<!-- thinking:end -->
 
 We notice that $f[i][j]$ is only related to $f[i - 1][j - 1]$ and $f[i - 1][j]$. Therefore, we can use a rolling array to optimize the space complexity, reducing the space complexity to $O(n)$.
 
