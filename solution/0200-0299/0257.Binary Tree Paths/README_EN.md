@@ -52,7 +52,7 @@ tags:
 
 <!-- solution:start -->
 
-## Solution 1: DFS
+### Solution 1: DFS
 
 <!-- thinking:start -->
 

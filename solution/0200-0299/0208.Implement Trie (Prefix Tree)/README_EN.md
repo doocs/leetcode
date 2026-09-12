@@ -64,7 +64,7 @@ trie.search(&quot;app&quot;);     // return True
 
 <!-- solution:start -->
 
-## Solution 1: Trie (Prefix Tree)
+### Solution 1: Trie (Prefix Tree)
 
 <!-- thinking:start -->
 
