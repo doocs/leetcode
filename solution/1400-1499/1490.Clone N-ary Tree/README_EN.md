@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1490.Clone%20N-ary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search

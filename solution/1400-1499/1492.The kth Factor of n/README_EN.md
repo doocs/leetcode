@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1492.The%20kth%20Factor%20of%20n/README_EN.md
 rating: 1231
 source: Biweekly Contest 29 Q2
 tags:

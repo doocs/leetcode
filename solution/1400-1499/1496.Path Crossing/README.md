@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1496.Path%20Crossing/README.md
 rating: 1508
 source: 第 195 场周赛 Q1
 tags:

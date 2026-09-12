@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1495.Friendly%20Movies%20Streamed%20Last%20Month/README.md
 tags:
     - 数据库
 ---

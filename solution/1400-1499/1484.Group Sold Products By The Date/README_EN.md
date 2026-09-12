@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1484.Group%20Sold%20Products%20By%20The%20Date/README_EN.md
 tags:
     - Database
 ---
