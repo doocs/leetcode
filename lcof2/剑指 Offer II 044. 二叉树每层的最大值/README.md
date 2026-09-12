@@ -85,6 +85,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要每层的最大值。若只做深度优先搜索，还需额外按深度汇总。
+>
+> 层序遍历天然按层分组：每一层弹出固定个数的结点，同步维护该层最大值，并把子女入队供下一层使用。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

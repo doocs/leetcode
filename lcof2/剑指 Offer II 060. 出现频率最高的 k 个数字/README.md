@@ -54,6 +54,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一：哈希表 + 优先队列（小根堆）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求出现次数最高的 $k$ 个数。全排序后取前 $k$ 个是 $O(n\log n)$。
+>
+> 先计数，再取频次最高的 $k$ 项。语言自带的 $\textit{most\_common}$ 即按频次选出前 $k$。
+
+<!-- thinking:end -->
+
 使用哈希表统计每个元素出现的次数，然后使用优先队列（小根堆）维护前 $k$ 个出现次数最多的元素。
 
 时间复杂度 $O(n\log k)$。
@@ -246,6 +256,14 @@ struct FreqElement: Comparable {
 <!-- solution:start-->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖库函数。显式维护大小为 $k$ 的小根堆，堆中按频次比较，超出 $k$ 则弹出，复杂度为 $O(n\log k)$。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

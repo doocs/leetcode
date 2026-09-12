@@ -73,6 +73,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 根到叶的路径构成十进制数，求和。先列出全部路径再转换，需要保存整条路径。
+>
+> 深度优先时把「到达当前结点的前缀」乘 $10$ 再加结点值向下传递。到达叶子则返回该数，否则返回左右子树之和。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -56,6 +56,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最底层最左结点即最后一层的第一个结点。记录深度再比较也可以，但层序更直接。
+>
+> 逐层遍历时，每层第一个弹出的结点覆盖答案；遍历结束后答案停留在最深一层的最左值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

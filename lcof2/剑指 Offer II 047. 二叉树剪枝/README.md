@@ -70,6 +70,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删除所有不含 $1$ 的子树。是否可删取决于子树内部，必须先处理后代。
+>
+> 后序递归：左右子树剪完后，若当前值为 $0$ 且两侧皆空，则整棵子树可删，返回空；否则保留。这样保证被删的是整段不含 $1$ 的连通块。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

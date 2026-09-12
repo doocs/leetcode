@@ -61,6 +61,16 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 ### 方法一：循环数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要维护最近至多 $size$ 个元素的平均值。每次重建窗口再求和，代价与窗口长度成正比。
+>
+> 循环数组按下标 $\textit{cnt}\bmod size$ 覆盖最旧元素，并用变量 $s$ 同步加减。元素个数未满时除以实际个数，满后除以容量。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -209,6 +219,14 @@ class MovingAverage {
 <!-- solution:start-->
 
 ### 方法二：队列
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一自行管理环形下标。队列在长度达到 $size$ 时弹出队首，语义与滑动窗口一致，实现更直观。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
