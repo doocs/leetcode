@@ -67,6 +67,18 @@ Note that [5, 1] may also be returned.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A lonely number occurs once and neither neighbor value appears. Sorting and inspecting adjacent entries must handle ties; a frequency map checks all three conditions at once.
+>
+> Count occurrences, then keep keys with $v=1$ and no $x-1$ or $x+1$.
+>
+> Time and extra memory are $O(n)$.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to record the occurrence count of each number. Then, we iterate through the hash table. For each number and its occurrence count $(x, v)$, if $v = 1$ and $\textit{cnt}[x - 1] = 0$ and $\textit{cnt}[x + 1] = 0$, then $x$ is a lonely number, and we add it to the answer array.
 
 After finishing the iteration, we return the answer array.

@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> While $\textit{original}$ occurs in the array, replace it by twice itself. The value grows quickly, so only a few multiplications occur. A hash set makes each membership test expected $O(1)$.
+>
+> Insert $\textit{nums}$ into a set and left-shift $\textit{original}$ until it is absent.
+>
+> That final value is the answer.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{s}$ to record all the numbers in the array $\textit{nums}$.
 
 Next, starting from $\textit{original}$, if $\textit{original}$ is in $\textit{s}$, we multiply $\textit{original}$ by $2$ until $\textit{original}$ is not in $\textit{s}$ anymore, then return $\textit{original}$.

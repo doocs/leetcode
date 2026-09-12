@@ -88,6 +88,18 @@ Thus, we return 4.
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The adjacent differences fix the hidden array up to a translation; the start must keep every value inside $[\textit{lower},\textit{upper}]$. Trying every start and replaying the differences is unnecessary.
+>
+> Build prefix sums from a dummy start of $0$ and record $\textit{mi}$ and $\textit{mx}$. A real start $x$ must satisfy $\textit{lower}-\textit{mi}\le x\le \textit{upper}-\textit{mx}$; the count is that length, or zero if empty.
+>
+> One pass maintains the prefix extrema.
+
+<!-- thinking:end -->
+
 Since the array $\textit{differences}$ is already determined, the difference between the maximum and minimum values of the elements in the array $\textit{hidden}$ is also fixed. We just need to ensure that this difference does not exceed $\textit{upper} - \textit{lower}$.
 
 Let's assume the first element of the array $\textit{hidden}$ is $0$. Then, $\textit{hidden}[i] = \textit{hidden}[i - 1] + \textit{differences}[i - 1]$, where $1 \leq i \leq n$. Let the maximum value of the array $\textit{hidden}$ be $mx$ and the minimum value be $mi$. If $mx - mi \leq \textit{upper} - \textit{lower}$, then we can construct a valid $\textit{hidden}$ array. The number of possible constructions is $\textit{upper} - \textit{lower} - (mx - mi) + 1$. Otherwise, it is impossible to construct a valid $\textit{hidden}$ array, and we return $0$.

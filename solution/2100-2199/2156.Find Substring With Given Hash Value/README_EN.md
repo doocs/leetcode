@@ -75,6 +75,18 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 
 ### Solution 1: Sliding Window + Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the rightmost length-$k$ substring whose hash equals the given value. Sliding forward requires dividing by $p$ modulo $m$, which needs an inverse. $n\le 10^5$ demands a linear window.
+>
+> A reverse Rabin–Karp drops the old high digit, multiplies by $p$, and adds the new low digit — only multiplications and mods.
+>
+> Hash the last $k$ characters, keep $p^{k-1}$, slide left, and update the start on every hit.
+
+<!-- thinking:end -->
+
 We can maintain a sliding window of length $k$ to calculate the hash value of the substring. Considering that if we traverse the string in the forward order, the calculation of the hash value involves division and modulo operations, which are relatively complicated to handle. Therefore, we can traverse the string in reverse order, so that when calculating the hash value, only multiplication and modulo operations are needed.
 
 First, we calculate the hash value of the last $k$ characters of the string, and then start to traverse the string in reverse order from the end of the string. Each time we calculate the hash value of the current window, if it is equal to the given hash value, we find a substring that meets the conditions and update the starting position of the answer string.

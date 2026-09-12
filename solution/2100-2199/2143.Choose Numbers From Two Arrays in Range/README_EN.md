@@ -86,6 +86,18 @@ In the second balanced range, we choose nums2[1] and in the third balanced range
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced subarray picks one side at each index so the two sums are equal. There are $O(n^2)$ subarrays and exponentially many assignments. Values are small enough to DP on the difference of sums.
+>
+> Let $f[i][j]$ be the number of balanced ranges ending at $i$ whose difference is $j$ (shifted by $s_2=\sum\textit{nums2}$). Item $i$ may start a new range on either side, or extend a range from $i-1$ by $+a$ or $-b$.
+>
+> Sum $f[i][s_2]$ over $i$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -73,6 +73,18 @@ Data 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两列需分别排序：第一列升序，第二列降序，再按行对齐。不能按原行绑定排序。
+>
+> 用窗口函数分别给两列打名次，再按名次连接，即可把独立排序后的值配到同一行。
+>
+> $\textit{first\_col}$ 升序编号，$\textit{second\_col}$ 降序编号，等值连接 $\textit{rk}$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

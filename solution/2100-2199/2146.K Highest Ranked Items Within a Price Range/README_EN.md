@@ -116,6 +116,18 @@ Note that k = 3 but there are only 2 reachable items within the price range.
 
 ### Solution 1: BFS + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rank is distance, then price, then row, then column. All-pairs shortest paths are too heavy. BFS from the start yields obstacle-aware distance, and the first visit is shortest.
+>
+> Collect cells whose price lies in $[\textit{low},\textit{high}]$ together with their distance, sort the quadruples, and take the first $k$.
+>
+> Mark visited cells as $0$ so they are not enqueued twice.
+
+<!-- thinking:end -->
+
 We can start from $(\textit{row}, \textit{col})$ and use breadth-first search to find all items with prices in the range $[\textit{low}, \textit{high}]$. Store the distance, price, row coordinate, and column coordinate of these items in the array $\textit{pq}$.
 
 Finally, sort $\textit{pq}$ by distance, price, row coordinate, and column coordinate, and return the coordinates of the first $k$ items.

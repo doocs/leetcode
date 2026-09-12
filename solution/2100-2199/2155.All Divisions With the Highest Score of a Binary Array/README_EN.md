@@ -87,6 +87,18 @@ Only index 0 has the highest possible division score 2.
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score at $i$ is zeros on the left plus ones on the right. Rescanning both sides for every $i$ is $O(n^2)$.
+>
+> Moving the cut one step updates those two counts by the current bit. We roll $\textit{l0}$ and $\textit{r1}$ and keep the best score together with its indices.
+>
+> Add $x\oplus 1$ to $\textit{l0}$, subtract $x$ from $\textit{r1}$, and refresh the list when $t$ ties or beats $\textit{mx}$.
+
+<!-- thinking:end -->
+
 We start from $i = 0$, using two variables $\textit{l0}$ and $\textit{r1}$ to respectively record the number of $1$s to the left and right of $i$. Initially, $\textit{l0} = 0$, while $\textit{r1} = \sum \textit{nums}$.
 
 We iterate through the array $\textit{nums}$. For each $i$, we update $\textit{l0}$ and $\textit{r1}$, calculate the current grouping score $t = \textit{l0} + \textit{r1}$. If $t$ equals the current maximum grouping score $\textit{mx}$, then we add $i$ to the answer array. If $t$ is greater than $\textit{mx}$, we update $\textit{mx}$ to $t$, clear the answer array, and then add $i$ to the answer array.

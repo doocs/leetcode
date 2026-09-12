@@ -73,6 +73,18 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只要 $\textit{original}$ 仍在数组中就乘 $2$。数组长度与值域有限，乘二很快超出集合。线性查找每次 $O(n)$，最坏乘若干次仍可接受，但哈希可把存在性降到均摊 $O(1)$。
+>
+> 把 $\textit{nums}$ 放入集合，循环左移 $\textit{original}$ 直到不在集合中。
+>
+> 答案即最终的 $\textit{original}$。
+
+<!-- thinking:end -->
+
 我们用一个哈希表 $\textit{s}$ 记录数组 $\textit{nums}$ 中的所有数字。
 
 接下来，我们从 $\textit{original}$ 开始，如果 $\textit{original}$ 在 $\textit{s}$ 中，我们将 $\textit{original}$ 乘以 $2$，直到 $\textit{original}$ 不在 $\textit{s}$ 中，返回 $\textit{original}$。

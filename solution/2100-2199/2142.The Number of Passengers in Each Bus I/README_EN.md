@@ -105,6 +105,18 @@ Passengers table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each bus takes passengers who arrived no later than it and have not boarded yet. Scanning every passenger per bus is awkward in SQL and repeats work.
+>
+> Join every passenger to every bus that does not leave before the passenger arrives; the difference of running counts along bus arrival time is the number of new riders.
+>
+> After a left join and a per-bus count, $\texttt{LAG}$ subtracts the previous cumulative total, ordered by $\textit{bus\_id}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
