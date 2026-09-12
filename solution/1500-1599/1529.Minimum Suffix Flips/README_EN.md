@@ -75,6 +75,16 @@ We need at least 3 flip operations to form target.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation flips a suffix; we must turn zeros into $target$. $n\le 10^5$, so we cannot simulate every suffix. Once a prefix already matches, the next flip should start at the first later mismatch.
+>
+> Scan left to right: the parity of the flip count is the current bit. If it differs from $target[i]$, we must flip the suffix at $i$. Each flip repairs the leftmost bit that earlier operations cannot change, so the count is minimal.
+
+<!-- thinking:end -->
+
 We traverse the string $\textit{target}$ from left to right, using a variable $\textit{ans}$ to record the number of flips. When we reach index $i$, if the parity of the current flip count $\textit{ans}$ is different from $\textit{target}[i]$, we need to perform a flip operation at index $i$ and increment $\textit{ans}$ by $1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

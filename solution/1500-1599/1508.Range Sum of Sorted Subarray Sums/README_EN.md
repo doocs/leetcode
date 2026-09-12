@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must sort every subarray sum and add the entries from index $\textit{left}$ to $\textit{right}$. There are $O(n^2)$ subarrays and $n\le 10^3$. Recomputing that list per query would waste work, but here there is a single query.
+>
+> Enumerate the left endpoint and accumulate a running sum to the right to list all subarray sums in $O(n^2)$. After sorting, sum the requested closed range and reduce modulo $10^9+7$. An $n^2\log n$ sort fits the limits.
+
+<!-- thinking:end -->
+
 We can generate the array $\textit{arr}$ according to the problem's requirements, then sort the array, and finally calculate the sum of all elements in the range $[\textit{left}-1, \textit{right}-1]$ to get the result.
 
 The time complexity is $O(n^2 \times \log n)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the array given in the problem.

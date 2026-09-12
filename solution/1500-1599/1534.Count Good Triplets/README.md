@@ -68,6 +68,16 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计满足三组绝对值约束的下标三元组。$n\le 100$，三重循环约 $10^6$ 次比较，足以通过。
+>
+> 按 $i<j<k$ 枚举即可直接套用三个不等式，不必预处理。约束彼此独立，没有值得再换数据结构的单调性。
+
+<!-- thinking:end -->
+
 我们可以枚举所有的 $i$, $j$ 和 $k$，其中 $i \lt j \lt k$，判断是否同时满足 $|\textit{arr}[i] - \textit{arr}[j]| \le a$，$|\textit{arr}[j] - \textit{arr}[k]| \le b$ 和 $|\textit{arr}[i] - \textit{arr}[k]| \le c$，如果满足则将答案加一。
 
 枚举结束后，即可得到答案。

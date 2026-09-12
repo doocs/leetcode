@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Place $m$ balls to maximize the minimum gap. Positions reach $10^9$, so we cannot enumerate layouts by gap; $n\le 10^5$ still allows a fast feasibility test.
+>
+> Larger gaps admit fewer balls, which is monotone. After sorting, binary-search a gap $f$ and scan left to right, placing a ball only when it is at least $f$ from the previous one. Treat “cannot place $m$ balls” as the search key; the predecessor of the first failing $f$ is the largest feasible gap.
+
+<!-- thinking:end -->
+
 We notice that the greater the minimum magnetic force between any two balls, the fewer balls can be placed, which exhibits monotonicity. We can use binary search to find the maximum minimum magnetic force that allows the number of balls not less than $m$ to be placed.
 
 First, we sort the positions of the baskets, and then use binary search with the left boundary $l = 1$ and the right boundary $r = \textit{position}[n - 1]$, where $n$ is the number of baskets. In each binary search iteration, we calculate the midpoint $m = (l + r + 1) / 2$, and then determine if there is a way to place the balls such that the number of balls placed is not less than $m$.

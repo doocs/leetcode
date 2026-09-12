@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Bubble Sort
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting arbitrary substrings of $s$ should produce $t$. Each sort is bubble-sort on adjacent pairs: a larger digit cannot pass a smaller one on its left. $n\le 10^5$, so we cannot simulate the sorts.
+>
+> Store index queues per digit of $s$. To place the next digit $x$ of $t$, take its leftmost leftover index; if any smaller digit still sits to its left, $x$ cannot move here. Otherwise pop that index. Missing frequency also fails.
+
+<!-- thinking:end -->
+
 The problem is essentially equivalent to determining whether any substring of length 2 in string $s$ can be swapped using bubble sort to obtain $t$.
 
 Therefore, we use an array $pos$ of length 10 to record the indices of each digit in string $s$, where $pos[i]$ represents the list of indices where digit $i$ appears, sorted in ascending order.

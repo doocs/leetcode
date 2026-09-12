@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Choose as few vertices as possible so that every node is reachable from the set in a DAG. $n$ and the number of edges reach $10^5$, so we cannot enumerate subsets.
+>
+> A vertex of in-degree $0$ cannot be reached from anyone else and must be chosen. Every other vertex has an in-edge and is therefore reachable from some source in the DAG. The answer is exactly the set of in-degree-zero vertices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -76,6 +76,16 @@ No group of size 2 exists during any step.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Zeros flip to ones in the order of $arr$; we want the last time a contiguous block of length $m$ exists. $n\le 10^5$, so rebuilding the string each step is impossible. If $m=n$ the whole array fills at step $n$.
+>
+> A disjoint-set forest stores the size of each ones-component. Before a new index merges with a filled neighbor, if that neighbor's component has size exactly $m$, the group still exists at this step and we record it. Then union and update the size.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -326,6 +336,14 @@ const findLatestStep = function (arr, m) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The union-find lookups add a log factor, yet merges only touch interval endpoints. Store each ones-run's length at its two ends; a new point reads the neighboring end lengths, writes $l+r+1$ to the new ends, and checks whether $l$ or $r$ equals $m$. Updates are $O(1)$, so the total time is linear.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

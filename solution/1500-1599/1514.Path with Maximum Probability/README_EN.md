@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: Heap-Optimized Dijkstra Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum success probability from start to end on an undirected graph whose edge weights multiply. $n\le 10^4$ and $m\le 2\times 10^4$, so listing simple paths is impossible.
+>
+> Treating weights as the opposite of a cost, the problem is isomorphic to a shortest path: probabilities multiply and lie in $(0,1]$, so the optimum has optimal substructure. A max-heap Dijkstra relaxes neighbors by the product of the current probability and the edge; storing negated values simulates the max-heap. The first time the destination is settled is the answer.
+
+<!-- thinking:end -->
+
 We can use Dijkstra's algorithm to find the shortest path, but here we modify it slightly to find the path with the maximum probability.
 
 We use a priority queue (max-heap) $\textit{pq}$ to store the probability from the starting point to each node and the node's identifier. Initially, we set the probability of the starting point to $1$ and the probabilities of the other nodes to $0$, then add the starting point to $\textit{pq}$.

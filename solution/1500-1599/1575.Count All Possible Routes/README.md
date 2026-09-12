@@ -84,6 +84,16 @@ tags:
 
 ### 方法一：记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $start$ 出发、油量不超过 $fuel$，统计到达 $finish$ 的路径数，中途可停留。城市数与油量都不大，但路径可反复经过同一城，不能按简单路径枚举。
+>
+> 状态只需当前城市 $i$ 与剩余油量 $k$。若 $k$ 已不够直达终点则无解；否则当前若已在终点先计入一条「到此为止」的路径，再枚举下一城 $j$ 并递归 $k-|locations[i]-locations[j]|$。记忆化后状态数为 $O(n\cdot fuel)$。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $dfs(i, k)$，表示从城市 $i$ 出发，剩余汽油量为 $k$ 时，到达目的地 $finish$ 的路径数。那么答案就是 $dfs(start, fuel)$。
 
 函数 $dfs(i, k)$ 的计算过程如下：
@@ -263,6 +273,14 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 <!-- solution:start -->
 
 ### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 记忆化按需展开，递归深度受油量限制。同一转移可按剩余油量从小到大填表：$f[i][k]$ 表示从 $i$ 带油 $k$ 走到终点的方案，终点列预置为 $1$，再枚举边权不超过 $k$ 的转移。实现去掉递归，渐近复杂度相同。
+
+<!-- thinking:end -->
 
 我们也可以将方法一的记忆化搜索转换为动态规划。
 

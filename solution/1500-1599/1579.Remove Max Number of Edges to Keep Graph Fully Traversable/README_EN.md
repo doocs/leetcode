@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete as many edges as possible while both Alice and Bob can still traverse the graph. $n$ and the edge count reach $10^5$. Type-$3$ edges serve both and should be kept first; exclusive edges only patch each person's graph.
+>
+> Two disjoint-set forests track the two reachability relations. Add type $3$ first and discard a shared edge that would close a cycle. Then add types $1$ and $2$ the same way. A solution exists only when both forests have a single component.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

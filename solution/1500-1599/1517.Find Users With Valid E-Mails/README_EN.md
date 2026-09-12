@@ -85,6 +85,16 @@ The mail of user 7 starts with a period.
 
 ### Solution 1: REGEXP Pattern Matching
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid address must start with a letter, continue with letters, digits, underscores, dots, or hyphens, and end with $\texttt{@leetcode.com}$. Hand-written character checks branch heavily and miss edge cases, while the rule is a regular language.
+>
+> The pattern $\texttt{^[A-Za-z][A-Za-z0-9_.-]*@leetcode\\.com$}$ matches the whole string. In SQL a case-sensitive suffix check guards the domain; the Pandas path applies the same full-string match to the $mail$ column.
+
+<!-- thinking:end -->
+
 We can use a regular expression to match valid email formats. The expression ensures that the username part meets the required rules and that the domain is fixed as `@leetcode.com`.
 
 <!-- tabs:start -->

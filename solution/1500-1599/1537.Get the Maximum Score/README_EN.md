@@ -81,6 +81,16 @@ Maximum sum is obtained with the path [6,7,8,9,10].
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two increasing arrays may switch at equal values; the score is the sum of visited numbers, counting a shared value once. $n\le 10^5$, so we cannot enumerate switch sequences.
+>
+> Shared values split the routes into segments, and between two shares we must follow exactly one array. Two pointers advance together: the side with the smaller head adds it to its own sum; on a tie both add that value and restart from the better sum so far. The answer is the larger of the two final sums.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

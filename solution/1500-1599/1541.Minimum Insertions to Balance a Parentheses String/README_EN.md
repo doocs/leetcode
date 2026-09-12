@@ -79,6 +79,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid string pairs each '(' with two consecutive ')' . $n\le 10^5$, so repeatedly rescanning insertion sites is the wrong tool; one greedy pass is enough.
+>
+> Keep $x$, the number of unmatched left parentheses. A '(' increments $x$. On a ')', insert a mate if the next character is not also ')' . Then either insert a '(' when $x=0$, or consume one pending left. After the scan, each leftover left needs two right parentheses.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

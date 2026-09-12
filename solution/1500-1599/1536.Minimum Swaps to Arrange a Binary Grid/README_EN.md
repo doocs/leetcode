@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent row swaps must make every row $i$ all zeros to the right of the diagonal. Only the rightmost $1$ in a row matters: it is legal for row $i$ iff that index is at most $i$. $n\le 200$ allows a per-row greedy.
+>
+> For each $i$, among unused rows take the first whose rightmost $1$ is at most $i$, then bubble it to position $i$ at cost $k-i$. If none exists the instance is impossible. Satisfying upper rows first does not block later ones, which require fewer trailing zeros.
+
+<!-- thinking:end -->
+
 We process row by row. For the $i$-th row, the position of the last '1' must be less than or equal to $i$. We find the first row that meets the condition in $[i, n)$, denoted as $k$. Then, starting from the $k$-th row, we swap the adjacent two rows upwards until the $i$-th row.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the side length of the grid.

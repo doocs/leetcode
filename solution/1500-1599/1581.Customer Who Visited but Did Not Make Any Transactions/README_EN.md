@@ -105,6 +105,16 @@ As we can see, users with IDs 30 and 96 visited the mall one time without making
 
 ### Solution 1: Subquery + Grouping
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count, per customer, visits that have no transaction. Purchases live in another table, so we need visits without a matching row.
+>
+> A subquery lists every $visit\_id$ that appears in $Transactions$; the outer query keeps the complement and groups by customer.
+
+<!-- thinking:end -->
+
 We can use a subquery to first find all `visit_id`s that have not made any transactions, and then group by `customer_id` to count the number of times each customer has not made any transactions.
 
 <!-- tabs:start -->
@@ -126,6 +136,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### Solution 2: Left Join + Grouping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $NOT\ IN$ is awkward with nulls on some engines. A left join from $Visits$ to $Transactions$ leaves $amount$ null on unmatched visits; filtering those rows and grouping yields the same counts and composes more easily with extra columns.
+
+<!-- thinking:end -->
 
 We can also use a left join to join the `Visits` table and the `Transactions` table on `visit_id`, and then filter out the records where `amount` is `NULL`. After that, we can group by `customer_id` to count the number of times each customer has not made any transactions.
 

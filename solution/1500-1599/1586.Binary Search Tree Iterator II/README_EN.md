@@ -84,6 +84,16 @@ bSTIterator.prev(); // state becomes [3, 7, <u>9</u>, 15, 20], return 9
 
 ### Solution 1: In-order Traversal + Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The iterator must support both $next$ and $prev$ for up to $10^5$ calls. A stack that only stores the path to the current node can walk forward, but stepping back needs a predecessor search.
+>
+> An inorder walk flattens the BST into a sorted array; an index $i$ is the cursor. Next and prev become $i\pm 1$, and emptiness is a bound check. Initialization is linear; each later call is constant time.
+
+<!-- thinking:end -->
+
 We can use in-order traversal to store the values of all nodes in the binary search tree into an array $nums$, and then use the array to implement the iterator. We define a pointer $i$, initially $i = -1$, which points to an element in the array $nums$. Each time we call $next()$, we add $1$ to the value of $i$ and return $nums[i]$; each time we call $prev()$, we subtract $1$ from the value of $i$ and return $nums[i]$.
 
 In terms of time complexity, initializing the iterator requires $O(n)$ time, where $n$ is the number of nodes in the binary search tree. Each call to $next()$ and $prev()$ requires $O(1)$ time. In terms of space complexity, we need $O(n)$ space to store the values of all nodes in the binary search tree.

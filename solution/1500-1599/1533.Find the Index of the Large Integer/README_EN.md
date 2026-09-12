@@ -83,6 +83,16 @@ Notice that we made only 3 calls, so the answer is valid.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All entries but one larger value are equal. We may only compare two range sums, and the length can be $5\times 10^5$, so we must shrink the interval logarithmically.
+>
+> Split the current range into three nearly equal parts and compare $[t_1,t_2]$ with $[t_2+1,t_3]$. Equal sums put the large value in the leftover right third; a larger left sum puts it on the left; otherwise it is in the middle. Each step discards about one third until the ends meet.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

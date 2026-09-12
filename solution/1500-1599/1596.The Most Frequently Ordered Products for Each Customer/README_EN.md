@@ -138,6 +138,16 @@ John (customer 5) did not order anything, so we do not include them in the resul
 
 ### Solution 1: Group By + Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each customer, list every product tied for the highest order count. We must aggregate by person and product, then keep the top frequency inside each group.
+>
+> Group by $customer\_id,product\_id$, $RANK$ by count descending, keep $rk=1$, and join $Products$ for the name. $RANK$ preserves every tied winner.
+
+<!-- thinking:end -->
+
 We group the `Orders` table by `customer_id` and `product_id`, and then use the window function `rank()`, which assigns a rank to each `product_id` in each `customer_id` group based on its frequency in descending order. Finally, we select the `product_id` with a rank of $1$ for each `customer_id`, which is the most frequently ordered product for that `customer_id`.
 
 <!-- tabs:start -->

@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether two words differ in exactly one position. The total number of characters is at most $10^5$, so pairwise scans are quadratic.
+>
+> Replace each index of a word by a wildcard to form a pattern that ignores that position. If the pattern is already in a set, another word differs from this one only there. A hash set makes the lookup expected constant time.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

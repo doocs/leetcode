@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Single Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether a pattern of length $m$ repeats at least $k$ times. $n$ is tiny, so trying every start would work, yet one scan is enough.
+>
+> $k$ repeats mean $(k-1)m$ consecutive indices satisfy $a_i=a_{i-m}$. From index $m$ onward accumulate that equality and succeed at the target count; a mismatch resets the counter.
+
+<!-- thinking:end -->
+
 First, if the length of the array is less than $m \times k$, then there is definitely no pattern of length $m$ that repeats at least $k$ times, so we directly return $\textit{false}$.
 
 Next, we define a variable $\textit{cnt}$ to record the current count of consecutive repetitions. If there are $(k - 1) \times m$ consecutive elements $a_i$ in the array such that $a_i = a_{i - m}$, then we have found a pattern of length $m$ that repeats at least $k$ times, and we return $\textit{true}$. Otherwise, we reset $\textit{cnt}$ to $0$ and continue traversing the array.

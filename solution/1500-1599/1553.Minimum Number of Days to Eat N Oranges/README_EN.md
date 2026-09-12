@@ -72,6 +72,16 @@ You need at least 3 days to eat the 6 oranges.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day we may eat one orange, or half / two-thirds when the count divides. $n$ reaches $2\times 10^9$, so a DP array over remainders does not fit, and decrementing one by one is hopeless.
+>
+> An optimum first eats $n\bmod 2$ or $n\bmod 3$ oranges so that a divide-by-two or divide-by-three is legal. Hence $dfs(n)=1+\min(n\bmod 2+dfs(\lfloor n/2\rfloor), n\bmod 3+dfs(\lfloor n/3\rfloor))$. Division shrinks $n$ quickly; memoization keeps about $O(\log^2 n)$ states.
+
+<!-- thinking:end -->
+
 According to the problem description, for each $n$, we can choose one of three ways:
 
 1. Decrease $n$ by $1$;

@@ -130,6 +130,16 @@ Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
 
 ### Solution 1: Join + Group By + Having
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need customers who spent at least $100$ in both June and July of $2020$. Orders, prices, and names live in three tables, so they must be joined before we can aggregate spend per person.
+>
+> Equi-join $Orders$, $Product$, and $Customers$, keeping year $2020$. Group by customer and use conditional sums of $quantity\times price$ for June and for July; $HAVING$ retains those whose both months meet the threshold.
+
+<!-- thinking:end -->
+
 We can use the `JOIN` statement to join the `Orders` table and the `Product` table, and then join the result with the `Customers` table. We can filter out the records where the `order_date` is not in the year $2020$, and then use the `GROUP BY` statement to group the data by `customer_id`. Finally, we can use the `HAVING` statement to filter out the customers whose spending in June and July is greater than or equal to $100$.
 
 <!-- tabs:start -->

@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: State Compression + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An awesome substring can be rearranged into a palindrome, so at most one digit has an odd count. $n\le 10^5$ rules out enumerating substrings. Ten digits fit in a 10-bit parity mask.
+>
+> The prefix mask $st$ stores each digit's parity. $s[j+1..i]$ is awesome iff $st_i$ and $st_j$ differ in at most one bit. A map records the first index of every mask: the same mask yields an all-even segment, and flipping one bit yields exactly one odd digit. Keep the longest such interval.
+
+<!-- thinking:end -->
+
 According to the problem description, the characters in the "super awesome substring" can be swapped to obtain a palindrome string. Therefore, there is at most one digit character in the "super awesome substring" that appears an odd number of times, and the rest of the digit characters appear an even number of times.
 
 We can use an integer $st$ to represent the parity of the digit characters in the current prefix string, where the $i$-th bit of $st$ represents the parity of the digit character $i$, i.e., the $i$-th bit of $st$ is $1$ means that the digit character $i$ appears an odd number of times, and $0$ means that the digit character $i$ appears an even number of times.

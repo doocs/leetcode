@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count splits where the two sides have equally many distinct characters. $n\le 10^5$, so rescanning both sides at every cut is quadratic.
+>
+> The right-hand alphabet starts as a global frequency map; the left-hand set only grows. Moving the cut to the right inserts the current character on the left and decrements it on the right, dropping the key when the count hits zero. Whenever the two maps have the same size, the split is good. One pass suffices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Greedy + Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Select as many non-overlapping subarrays of sum $target$ as possible. $n\le 10^5$ rules out interval DP. When two candidates overlap, keeping the one that ends further left never hurts later choices.
+>
+> Scan with a prefix-sum set, take the earliest subarray that hits $target$, then restart after it. The greedy always finishes a piece as soon as possible and leaves more room to the right.
+
+<!-- thinking:end -->
+
 We traverse the array $nums$, using the method of prefix sum + hash table, to find subarrays with a sum of $target$. If found, we increment the answer by one, then we set the prefix sum to $0$ and continue to traverse the array $nums$ until the entire array is traversed.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.

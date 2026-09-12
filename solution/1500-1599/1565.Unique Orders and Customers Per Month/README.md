@@ -84,6 +84,16 @@ Orders</code>
 
 ### 方法一：条件筛选 + 分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按月统计发票额大于 $20$ 的订单数与去重顾客数。日期带日，直接分组会按天拆开。
+>
+> 先过滤 $invoice>20$，再把日期格式化到年月，按月分组：$COUNT$ 订单，$COUNT(DISTINCT\ customer\_id)$ 顾客。Pandas 路径用 $to\_period$ 与 $nunique$ 表达同一聚合。
+
+<!-- thinking:end -->
+
 我们可以先筛选出金额大于 $20$ 的订单，然后按月份进行分组统计订单数和顾客数。
 
 <!-- tabs:start -->

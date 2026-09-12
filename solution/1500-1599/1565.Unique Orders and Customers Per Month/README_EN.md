@@ -84,6 +84,16 @@ In January 2021 we have two orders from 2 different customers, but only one of t
 
 ### Solution 1: Conditional Filtering + Grouping Statistics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per month, count orders with invoice above $20$ and distinct customers. Grouping the raw date would split a month into days.
+>
+> Filter $invoice>20$, format the date as year-month, and aggregate: $COUNT$ of orders and $COUNT(DISTINCT\ customer\_id)$. The Pandas path uses $to\_period$ and $nunique$ for the same grouping.
+
+<!-- thinking:end -->
+
 We can first filter out orders with an amount greater than $20$, and then group by month to count the number of orders and customers.
 
 <!-- tabs:start -->

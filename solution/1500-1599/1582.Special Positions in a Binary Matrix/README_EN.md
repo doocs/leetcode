@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count ones that are the unique one in their row and column. Rechecking the whole row and column per one is $O(mn(m+n))$.
+>
+> First tally ones per row and per column, then scan again: a cell contributes when it is $1$ and both counts equal $1$.
+
+<!-- thinking:end -->
+
 We can use two arrays, $\textit{rows}$ and $\textit{cols}$, to record the number of $1$s in each row and each column, respectively.
 
 Then, we traverse the matrix. For each $1$, we check whether there is only one $1$ in its row and column. If so, we increment the answer by one.

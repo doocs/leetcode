@@ -73,6 +73,16 @@ Type 2: (3,0,1).  nums2[3]<sup>2</sup> = nums1[0] * nums1[1].
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples with $nums1[i]^2=nums2[j]\cdot nums2[k]$ and the symmetric case. Lengths are typically about $100$, so a triple loop would pass, yet the same product is requested many times.
+>
+> Hash every unordered pair-product on one side, then query $x^2$ for each $x$ on the other side. Swap the two roles and add the counts.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt1}$ to count the occurrences of each pair $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums1}$, where $0 \leq j < k < m$, and $m$ is the length of the array $\textit{nums1}$. Similarly, we use a hash table $\textit{cnt2}$ to count the occurrences of each pair $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums2}$, where $0 \leq j < k < n$, and $n$ is the length of the array $\textit{nums2}$.
 
 Next, we enumerate each number $x$ in the array $\textit{nums1}$ and calculate the value of $\textit{cnt2}[x^2]$, which is the number of pairs $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums2}$ that satisfy $\textit{nums}[j] \times \textit{nums}[k] = x^2$. Similarly, we enumerate each number $x$ in the array $\textit{nums2}$ and calculate the value of $\textit{cnt1}[x^2]$, which is the number of pairs $(\textit{nums}[j], \textit{nums}[k])$ in $\textit{nums1}$ that satisfy $\textit{nums}[j] \times \textit{nums}[k] = x^2$. Finally, we return the sum of the two results.
@@ -224,6 +234,14 @@ function cal(cnt: Map<number, number>, nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Enumeration Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores every pair product and uses $O(n^2)$ memory. Storing frequencies instead, we enumerate $x$ and a value $y$, set $z=x^2/y$ when it divides, and add $v_y(v_z-[y=z])$, then divide by two to drop the $(y,z)/(z,y)$ swap. Time becomes $O(mn)$ with linear space.
+
+<!-- thinking:end -->
 
 We use a hash table $\textit{cnt1}$ to count the occurrences of each number in $\textit{nums1}$, and a hash table $\textit{cnt2}$ to count the occurrences of each number in $\textit{nums2}$.
 

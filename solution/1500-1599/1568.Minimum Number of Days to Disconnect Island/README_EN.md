@@ -68,6 +68,16 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each day one land cell may turn to water; we want the grid to stop containing exactly one island. The grid is small, and a stronger fact holds: any island can be split by removing at most two cells (for example two adjacent corner lands).
+>
+> Hence the answer is $0$, $1$, or $2$. A DFS count that is not exactly one returns $0$. Temporarily deleting each land cell and recounting returns $1$ as soon as the island splits. Otherwise two deletions are required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

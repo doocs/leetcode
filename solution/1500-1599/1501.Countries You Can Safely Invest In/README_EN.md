@@ -135,6 +135,16 @@ Since Peru is the only country where the average call duration is greater than t
 
 ### Solution 1: Equi-Join + Group By + Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need countries whose average call duration is strictly above the global average. Calls only store two person ids, while the country lives in the first three digits of the phone number, so person, call, and country tables must be aligned before we can aggregate by country.
+>
+> Join $Person$ to $Calls$ when the person is the caller or the callee, then match $Country$ by the number prefix. Grouping by country yields each country's mean duration, which we compare with the global mean of $Calls$. A subquery supplies that global mean; the outer query keeps the qualifying countries.
+
+<!-- thinking:end -->
+
 We can use an equi-join to join the `Person` table and the `Calls` table on the condition of `Person.id = Calls.caller_id` or `Person.id = Calls.callee_id`, and then join the result with the `Country` table on the condition of `left(phone_number, 3) = country_code`. After that, we can group by country and calculate the average call duration for each country. Finally, we can use a subquery to find the countries whose average call duration is greater than the global average call duration.
 
 <!-- tabs:start -->
@@ -163,6 +173,14 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The nested subquery in Solution 1 already computes country averages and compares them with the global mean, but the intermediate relation is wrapped once more. A CTE materializes those country averages as $T$, so the outer filter reads more directly while the joins and grouping stay the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

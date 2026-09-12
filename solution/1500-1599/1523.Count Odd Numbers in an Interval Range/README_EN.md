@@ -50,6 +50,16 @@ tags:
 
 ### Solution 1: Prefix Sum Concept
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count the odds in the closed interval $[low,high]$. The span can reach $10^9$, so we cannot test each integer.
+>
+> The range $[0,x]$ contains $\lfloor(x+1)/2\rfloor$ odds. Subtracting the count for $[0,low-1]$ from that for $[0,high]$ gives $\lfloor(high+1)/2\rfloor-\lfloor low/2\rfloor$, which a shift computes in constant time.
+
+<!-- thinking:end -->
+
 We know that the count of odd numbers in the range $[0, x]$ is $\lfloor\frac{x+1}{2}\rfloor$. Therefore, the count of odd numbers in the range $[low, high]$ is $\lfloor\frac{high+1}{2}\rfloor - \lfloor\frac{low}{2}\rfloor$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
