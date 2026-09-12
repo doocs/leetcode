@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3544.Subtree%20Inversion%20Sum/README_EN.md
 rating: 2544
 source: Biweekly Contest 156 Q4
 tags:
