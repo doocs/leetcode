@@ -81,6 +81,18 @@ bs.toString(); // 返回 "01010" ，即 bitset 的当前组成情况。
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要支持单点置位、翻转全体、查询全 $1$ / 存在 $1$ / 计数以及输出。朴素数组在频繁 $\texttt{flip}$ 时要扫 $n$ 位，$n$ 与操作次数都可达 $10^5$。
+>
+> 同时维护当前串 $a$ 与其补串 $b$，翻转改为交换二者，并把计数改成 $n-\textit{cnt}$。单点修改同步更新 $a$、$b$ 与 $\textit{cnt}$。
+>
+> $\texttt{toString}$ 直接拼接 $a$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

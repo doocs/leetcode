@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each start index $i$ we execute the suffix $s[i:]$ from $\textit{startPos}$ until we leave the grid or run out of instructions. With $m\le 500$, simulating every suffix is $O(m^2)$ and acceptable.
+>
+> Moves are determined by the next character; leaving the $n\times n$ board stops the walk. Suffixes share a start cell but not a path, so there is little shared state to reuse.
+>
+> The outer loop picks $i$, the inner loop walks from $i$ to the end and counts in-bound steps.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

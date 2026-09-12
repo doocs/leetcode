@@ -93,6 +93,18 @@ Thus, the size of the largest group is 3.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two words are related if one insert, delete, or substitution turns one into the other. Words are 26-bit masks; comparing strings as neighbors is too slow. With $n\le 2\times 10^4$ we union masks.
+>
+> Union each mask with every one-bit flip (insert/delete) and every “clear one bit, set another” (substitution). Duplicate masks already share a component and inflate its size.
+>
+> Iterate existing masks, union neighbors, and track the number of components and the largest size.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -69,6 +69,18 @@ Note that slots 2, 5, 6, and 8 are empty which is permitted.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of $k$ slots holds at most two numbers; the score is $\sum(a\mathbin{\&}\textit{slot})$. Split every basket into two unit slots so a bit mask can mark occupancy. $k\le 9$ gives at most $18$ slots.
+>
+> $f[S]$ is the best AND-sum using slot set $S$, placing the first $|S|$ numbers. The last occupied slot $j$ transitions from $S\setminus\{j\}$ plus $\textit{nums}[|S|-1]\mathbin{\&}(j/2+1)$.
+>
+> The answer is the maximum $f$ value.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -79,6 +79,18 @@ Total points earned: 2 + 5 = 7. There is no other way to earn 7 or more points.
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each question may be solved or skipped; solving it jumps $\textit{brainpower}$ questions ahead. Paths overlap, so a bare search is exponential. With $n\le 10^5$ we need a linear recurrence.
+>
+> The optimum from index $i$ is the better of solving $i$ and continuing at $i+b+1$, or skipping to $i+1$. Memoized DFS stores that value.
+>
+> $\textit{dfs}(i)$ is the answer from $i$; we return $\textit{dfs}(0)$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$, which represents the maximum score that can be obtained starting from the $i$-th question. The answer is $\textit{dfs}(0)$.
 
 The function $\textit{dfs}(i)$ is calculated as follows:
@@ -234,6 +246,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already linear but uses a recursion stack. The same transition fills a table from the back.
+>
+> Let $f[i]$ be the best score from $i$. Then $f[i]=\max(f[i+1],p+f[i+b+1])$, treating out-of-range as $0$.
+>
+> Compute from $n-1$ down to $0$ and return $f[0]$.
+
+<!-- thinking:end -->
 
 We define $f[i]$ as the maximum score that can be obtained starting from the $i$-th problem. Therefore, the answer is $f[0]$.
 

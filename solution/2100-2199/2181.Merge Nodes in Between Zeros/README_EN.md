@@ -67,6 +67,18 @@ The above figure represents the given linked list. The modified list contains
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values between neighboring zeros must become one node. A single forward scan of the list suffices.
+>
+> A dummy tail accumulates $s$ between zeros and appends a node with value $s$ when a zero arrives.
+>
+> Return the list after the dummy.
+
+<!-- thinking:end -->
+
 We define a dummy head node $\textit{dummy}$, a pointer $\textit{tail}$ pointing to the current node, and a variable $\textit{s}$ to record the sum of the values of the current nodes.
 
 Next, we traverse the linked list starting from the second node. If the value of the current node is not 0, we add it to $\textit{s}$. Otherwise, we add $\textit{s}$ to the node after $\textit{tail}$, set $\textit{s}$ to 0, and update $\textit{tail}$ to the next node.

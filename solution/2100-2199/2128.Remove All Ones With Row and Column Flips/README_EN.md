@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row and column may be flipped at most once in effect, and the target is the all-zero matrix. Two rows that share one column-flip pattern must be equal or complementary. Enumerating $2^{m+n}$ flip sets is too large.
+>
+> Normalizing every row so that it starts with $0$ (flip it if it disagrees with the first entry of row $0$) collapses equivalent rows to one pattern. A second pattern in the hash set cannot be cleared by the same column flips.
+>
+> We therefore XOR a row when needed, insert the tuple, and succeed iff the set has size $1$.
+
+<!-- thinking:end -->
+
 We observe that if two rows in the matrix satisfy one of the following conditions, they can be made equal by flipping certain columns:
 
 1. The corresponding elements of the two rows are equal, i.e., if one row is $1,0,0,1$, the other row is also $1,0,0,1$;

@@ -76,6 +76,18 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相对 $\textit{pivot}$ 分成小于、等于、大于三段，且各段保持原相对顺序。稳定划分一次扫描即可。
+>
+> 三个列表按出现顺序收集，再拼接。
+>
+> 额外空间与 $n$ 同阶。
+
+<!-- thinking:end -->
+
 我们可以遍历数组 $\textit{nums}$，按顺序找出所有小于 $\textit{pivot}$ 的元素，所有等于 $\textit{pivot}$ 的元素，以及所有大于 $\textit{pivot}$ 的元素，然后将它们按照题目要求的顺序拼接起来。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。
@@ -207,6 +219,18 @@ function pivotArray(nums: number[], pivot: number): number[] {
 <!-- solution:start -->
 
 ### 方法二：双指针
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一使用了三个辅助数组。若先把答案初始化为 $\textit{pivot}$，则等于段无需写入。
+>
+> 从左向右填小于者，从右向左填大于者，相遇于中间的等于段。两侧同时扫描仍保持各自内部的相对顺序。
+>
+> 该写法只在 TypeScript / JavaScript 中给出，作为原地下标填充的对照。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -74,6 +74,18 @@ The relative ordering of the elements less than and greater than pivot is also m
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Partition relative to $\textit{pivot}$ into less, equal, and greater parts, preserving order inside each part. A stable one-pass split suffices.
+>
+> Collect three lists in encounter order and concatenate them.
+>
+> Extra memory is linear.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums}$, sequentially finding all elements less than $\textit{pivot}$, all elements equal to $\textit{pivot}$, and all elements greater than $\textit{pivot}$, then concatenate them in the order required by the problem.
 
 Time complexity $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
@@ -206,6 +218,18 @@ function pivotArray(nums: number[], pivot: number): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Two pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses three buffers. Initializing the answer with $\textit{pivot}$ avoids writing the equal part.
+>
+> Fill lesser values from the left and greater values from the right; the middle stays equal. Two opposing scans keep each side’s relative order.
+>
+> This fill-in-place variant is shown in TypeScript / JavaScript.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

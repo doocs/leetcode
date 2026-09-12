@@ -60,6 +60,18 @@ tags:
 
 ### 方法一：一次遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计以 $\textit{pref}$ 开头的单词个数。单词数量与长度都不大，对每个词做前缀判断即可。
+>
+> $\texttt{startswith}$ 比较至多 $|\textit{pref}|$ 个字符。
+>
+> 答案为真值之和。
+
+<!-- thinking:end -->
+
 根据题目描述，我们遍历字符串数组 `words` 中的每个字符串 $w$，判断其是否以 $pref$ 作为前缀，如果是，则答案加一。
 
 时间复杂度 $O(n \times m)$，空间复杂度 $O(1)$。其中 $n$ 和 $m$ 分别是字符串数组 `words` 和字符串 $pref$ 的长度。
@@ -156,6 +168,18 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 <!-- solution:start -->
 
 ### 方法二：前缀树
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一已线性扫过所有字符。若同一词表上还有多次前缀询问，可先建字典树，把前缀计数存在结点上。
+>
+> 插入时沿路径增加 $\textit{cnt}$，查询则走到 $\textit{pref}$ 对应结点读取 $\textit{cnt}$，中途缺失则返回 $0$。
+>
+> 本题只有一次查询，字典树作为可扩展的第二种写法。
+
+<!-- thinking:end -->
 
 我们还可以使用前缀树来查询答案。
 

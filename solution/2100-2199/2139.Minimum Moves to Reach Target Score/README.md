@@ -82,6 +82,18 @@ tags:
 
 ### 方法一：倒推 + 贪心
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $1$ 加到 $\textit{target}$，加倍次数至多为 $\textit{maxDoubles}$。正向搜索加与乘的交错顺序分支很多。倒着看：偶数且仍有加倍次数时应优先折半，否则只能减一，因为加倍对应倒推时的除二，应尽量用在较大的偶数上。
+>
+> $\textit{target}$ 很大而加倍次数很少，倒推步数约为 $O(\min(\log \textit{target},\textit{maxDoubles}))$。无加倍次数时答案就是 $\textit{target}-1$。
+>
+> 递归处理：偶数且 $\textit{maxDoubles}>0$ 则除二并消耗一次加倍，否则减一。
+
+<!-- thinking:end -->
+
 我们不妨从最终的状态开始倒推，假设最终的状态为 $target$，那么我们可以得到 $target$ 的前一个状态为 $target - 1$ 或者 $target / 2$，这取决于 $target$ 的奇偶性以及 $maxDoubles$ 的值。
 
 如果 $target=1$，那么不需要任何操作，直接返回 $0$ 即可。
@@ -192,6 +204,18 @@ function minMoves(target: number, maxDoubles: number): number {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一的递归深度与倒推步数相同，可改成迭代以去掉栈空间。
+>
+> 当仍有加倍次数且 $\textit{target}>1$ 时，奇数先减一，偶数则右移并消耗加倍；加倍用尽后把剩余的 $\textit{target}-1$ 一次加上。
+>
+> 逻辑与方法一相同，只是写成循环。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

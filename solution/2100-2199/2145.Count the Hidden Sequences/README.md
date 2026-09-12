@@ -87,6 +87,18 @@ tags:
 
 ### 方法一：前缀和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相邻差已给定，隐数组在平移意义下形状固定，合法起点必须使全程落在 $[\textit{lower},\textit{upper}]$。若枚举起点再模拟，值域可达 $10^5$ 量级以外的平移，且 $n$ 也大。
+>
+> 设首项为 $0$ 做前缀和，记最小、最大前缀为 $\textit{mi}$、$\textit{mx}$。真实首项 $x$ 需满足 $\textit{lower}-\textit{mi}\le x\le \textit{upper}-\textit{mx}$，个数为区间长度与 $0$ 的较大者。
+>
+> 一遍扫描维护前缀极值即可。
+
+<!-- thinking:end -->
+
 由于数组 $\textit{differences}$ 已经确定，那么数组 $\textit{hidden}$ 的元素最大值与最小值之差也是固定的，我们只要确保差值不超过 $\textit{upper} - \textit{lower}$ 即可。
 
 我们不妨假设数组 $\textit{hidden}$ 的第一个元素为 $0$，那么 $\textit{hidden}[i] = \textit{hidden}[i - 1] + \textit{differences}[i - 1]$，其中 $1 \leq i \leq n$。记数组 $\textit{hidden}$ 的最大值为 $mx$，最小值为 $mi$，如果 $mx - mi \leq \textit{upper} - \textit{lower}$，那么我们就可以构造出一个合法的 $\textit{hidden}$ 数组，可以构造的个数为 $\textit{upper} - \textit{lower} - (mx - mi) + 1$。否则，无法构造出合法的 $\textit{hidden}$ 数组，返回 $0$。

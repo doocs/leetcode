@@ -55,6 +55,18 @@ Note that although the substring &quot;12&quot; appears twice, it is only counte
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct substrings whose present digits all share one frequency. $n\le 1000$ gives $O(n^2)$ substrings; scanning each from scratch is cubic.
+>
+> Prefix counts of the ten digits give a frequency vector in $O(1)$; we then check that the nonempty frequencies form a singleton. A set stores the substrings themselves.
+>
+> Enumerate $[i,j]$ and insert $s[i:j+1]$ when the prefix-difference test passes.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

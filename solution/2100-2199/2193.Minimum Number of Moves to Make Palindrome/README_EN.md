@@ -71,6 +71,18 @@ It can be shown that it is not possible to obtain a palindrome in less than 2 mo
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent swaps must turn the string into a palindrome; a solution is guaranteed. The cost is the total distance that paired letters travel to symmetric positions. Searching all swap sequences is too large; $n\le 2000$ allows an $O(n^2)$ greedy.
+>
+> Fix the leftmost letter $a$, find the nearest $a$ from the right, swap it to the right end, and recurse on the inner substring. If $a$ has no right match (the unique odd letter), move it to the center at cost equal to the distance to the midpoint.
+>
+> Pairing the outermost letter is never worse than pairing an inner one first, so the greedy is optimal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

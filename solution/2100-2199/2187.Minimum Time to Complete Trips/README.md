@@ -67,6 +67,18 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 时刻 $t$ 内完成的旅途数为 $\sum \lfloor t/\textit{time}_i\rfloor$，该函数对 $t$ 单调，求最小的 $t$ 使得其不小于 $\textit{totalTrips}$。枚举 $t$ 的上界可达 $\min(\textit{time})\times\textit{totalTrips}$，线性扫描不可行。
+>
+> 在 $[0,\textit{mx})$ 上对「完成趟数」做二分，库函数 $\texttt{bisect\_left}$ 即找到最小可行时刻。
+>
+> 每次判定为对数组的一次线性求和。
+
+<!-- thinking:end -->
+
 我们注意到，如果我们能在 $t$ 时间内至少完成 $totalTrips$ 趟旅途，那么在 $t' > t$ 时间内也能至少完成 $totalTrips$ 趟旅途。因此我们可以使用二分查找的方法来找到最小的 $t$。
 
 我们定义二分查找的左边界 $l = 1$，右边界 $r = \min(time) \times \textit{totalTrips}$。每一次二分查找，我们计算中间值 $\textit{mid} = \frac{l + r}{2}$，然后计算在 $\textit{mid}$ 时间内能完成的旅途数目。如果这个数目大于等于 $\textit{totalTrips}$，那么我们将右边界缩小到 $\textit{mid}$，否则我们将左边界扩大到 $\textit{mid} + 1$。

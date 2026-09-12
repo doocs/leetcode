@@ -72,6 +72,18 @@ We can run the two computers simultaneously for at most 2 minutes, so we return 
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If $n$ computers can run for $t$ minutes, they can run for any shorter time. $t$ is bounded by the total charge, so it cannot be enumerated.
+>
+> A battery contributes at most $t$ minutes toward a run of length $t$, so feasibility is $\sum_i \min(b_i,t)\ge n\cdot t$. Binary search $t$ in $[0,\sum b_i]$.
+>
+> Each mid value is checked with a linear scan; the largest feasible $t$ is the answer.
+
+<!-- thinking:end -->
+
 We notice that if we can run $n$ computers simultaneously for $t$ minutes, then we can also run $n$ computers simultaneously for $t' \le t$ minutes, which shows monotonicity. Therefore, we can use the binary search method to find the maximum $t$.
 
 We define the left boundary of the binary search as $l=0$ and the right boundary as $r=\sum_{i=0}^{n-1} batteries[i]$. During each binary search iteration, we use a variable $mid$ to represent the current middle value, i.e., $mid = (l + r + 1) >> 1$. We check if there exists a scheme that allows $n$ computers to run simultaneously for $mid$ minutes. If such a scheme exists, then we update $l$ to $mid$; otherwise, we update $r$ to $mid - 1$. Finally, we return $l$ as the answer.

@@ -77,6 +77,18 @@ There are no other solutions that removes 7 beans or fewer.
 
 ### Solution 1: Sorting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nonempty bags must share one final count $x$; we may empty a bag or reduce it. Bags below $x$ are emptied and bags above $x$ drop to $x$. An optimal $x$ equals some original count, otherwise $x$ could increase without extra empties.
+>
+> Sort and try $\textit{beans}[i]$ as $x$, leaving $(n-i)x$ beans and removing $s-(n-i)x$.
+>
+> The answer is the minimum of those removals.
+
+<!-- thinking:end -->
+
 We can sort all the beans in the bags in ascending order, and then enumerate the number of beans $beans[i]$ in each bag as the final number of beans in the bag. The total remaining number of beans is $beans[i] \times (n - i)$, so the number of beans that need to be taken out is $s - beans[i] \times (n - i)$, where $s$ is the total number of beans in all bags. We need to find the minimum number of beans that need to be taken out among all schemes.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the number of bags.

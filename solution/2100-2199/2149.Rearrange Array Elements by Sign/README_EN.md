@@ -75,6 +75,18 @@ It is not required to do the modifications in-place.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are equally many positives and negatives; they must alternate and keep their relative order. Splitting into two lists and merging works; we can also write directly to the target indices.
+>
+> Even indices take positives and odd indices take negatives, advanced by pointers $i$ and $j$ in the original order.
+>
+> One pass fills the new array.
+
+<!-- thinking:end -->
+
 First, we create an array $\textit{ans}$ of length $n$. Then, we use two pointers $i$ and $j$ to point to the even and odd indices of $\textit{ans}$, respectively, with initial values $i = 0$, $j = 1$.
 
 We iterate through the array $\textit{nums}$. If the current element $x$ is a positive integer, then we place $x$ into $\textit{ans}[i]$ and increase $i$ by $2$; otherwise, we place $x$ into $\textit{ans}[j]$ and increase $j$ by $2$.

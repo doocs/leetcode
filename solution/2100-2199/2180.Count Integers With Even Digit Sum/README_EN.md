@@ -58,6 +58,18 @@ The 14 integers less than or equal to 30 whose digit sums are even are
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count integers in $[1,\textit{num}]$ whose digits sum to an even number. $\textit{num}\le 1000$, so we may sum digits of every value.
+>
+> Repeatedly add $x\bmod 10$ and increment when the sum is even.
+>
+> The extra factor is the number of digits.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -156,6 +168,18 @@ function countEven(num: number): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is linear in $\textit{num}$. Among every ten consecutive integers exactly five have an even digit sum, so full decades can be closed in $O(1)$.
+>
+> Decades contribute $\lfloor\textit{num}/10\rfloor\times 5$, minus one to drop $0$. The leftover units depend on the parity of the higher digit sum $s$, which shifts the closed-form count.
+>
+> Only the digits of $\textit{num}/10$ are walked.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

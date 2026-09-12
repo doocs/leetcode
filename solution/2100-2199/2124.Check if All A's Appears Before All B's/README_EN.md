@@ -66,6 +66,18 @@ There are no &#39;a&#39;s, hence, every &#39;a&#39; appears before every &#39;b&
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string contains only `a` and `b`. All `a`s precede all `b`s iff no `a` appears after a `b`, i.e., the substring `ba` is absent.
+>
+> A linear scan or a substring test decides this in $O(n)$.
+>
+> Return whether `"ba"` does not occur in $s$.
+
+<!-- thinking:end -->
+
 According to the problem statement, the string $s$ consists only of characters `a` and `b`.
 
 To ensure that all `a`s appear before all `b`s, the condition that must be met is that `b` should not appear before `a`. In other words, the substring "ba" should not be present in the string $s$.

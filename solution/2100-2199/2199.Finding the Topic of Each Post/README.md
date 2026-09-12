@@ -119,6 +119,18 @@ Posts 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 一篇帖子的主题是内容里作为整词出现的关键词；没有匹配则为 `Ambiguous!`。需要避免把关键词当作更长单词的子串。
+>
+> 左右补空格后用 $\texttt{INSTR}$ 做整词匹配，左连接保证没有关键词的帖子仍保留。按 $\textit{post\_id}$ 分组，把去重后的 $\textit{topic\_id}$ 拼成列表，空则用 $\texttt{IFNULL}$ 填默认值。
+>
+> $\texttt{GROUP\_CONCAT(DISTINCT\ldots)}$ 完成主题列表。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

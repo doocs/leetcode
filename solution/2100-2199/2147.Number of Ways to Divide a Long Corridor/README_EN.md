@@ -73,6 +73,18 @@ Installing any would create some section that does not have exactly two seats.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each section must contain exactly two seats, and a divider may sit on plants between sections. The corridor is long; choosing whether to close a section after two seats yields overlapping subproblems.
+>
+> State $(i,k)$ is the number of ways at position $i$ with $k$ seats in the open section. A seat increments $k$; $k>2$ is invalid; when $k=2$ we may cut (reset $k$) or continue. Memoization makes the state space $O(n)$.
+>
+> Return $\textit{dfs}(0,0)$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, k)$, which represents the number of ways to partition the corridor at the $i$-th position, having already placed $k$ screens. Then the answer is $\textit{dfs}(0, 0)$.
 
 The calculation process of the function $\textit{dfs}(i, k)$ is as follows:
@@ -304,6 +316,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses linear memory. Seats must pair, and the plants between consecutive pairs multiply independently.
+>
+> A single pass tracks the seat count and the previous seat; each time a new pair starts, multiply by the gap after the previous pair. Zero or an odd number of seats yields $0$.
+>
+> The extra memory is constant.
+
+<!-- thinking:end -->
 
 We can divide every two seats into a group. Between two adjacent groups of seats, if the distance between the last seat of the previous group and the first seat of the next group is $x$, then there are $x$ ways to place the screen.
 

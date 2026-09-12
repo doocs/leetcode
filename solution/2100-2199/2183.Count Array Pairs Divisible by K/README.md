@@ -66,6 +66,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计 $i<j$ 且 $\textit{nums}[i]\cdot\textit{nums}[j]$ 能被 $k$ 整除的对数。$n\le 10^5$，二重循环不可行。乘积对 $k$ 取模只取决于 $\gcd(\textit{nums}[i],k)$ 与 $\gcd(\textit{nums}[j],k)$ 能否拼满 $k$ 的全部素因子。
+>
+> 将每个数换成 $\gcd(x,k)$，取值不过 $k$ 的约数个数。对约数计数后，枚举约数对 $(a,b)$，若 $a\cdot b$ 被 $k$ 整除则按频次组合成对。
+>
+> 哈希表统计约数频次，两重枚举约数即可在可接受时间内完成。题面代码栏留空，思考按该数论计数给出。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

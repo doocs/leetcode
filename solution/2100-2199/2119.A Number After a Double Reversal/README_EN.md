@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reversing an integer drops leading zeros, so a second reverse returns the original number iff the first reverse did not drop trailing zeros. Performing both reversals works, but the digit rule is immediate.
+>
+> Zero stays zero. Otherwise the first reverse loses trailing zeros iff $num$ is divisible by $10$, i.e., its last digit is $0$.
+>
+> Hence the answer is true iff $num=0$ or $num\bmod 10\neq 0$.
+
+<!-- thinking:end -->
+
 If the number is $0$, or the last digit of the number is not $0$, then the number after reversing twice will be the same as the original number.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

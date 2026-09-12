@@ -92,6 +92,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 微波炉用四位分钟与秒显示，同一秒数可写成 $m$ 分 $s$ 秒或 $m-1$ 分 $s+60$ 秒（需仍在两位范围内）。代价由指针移动与按键组成，枚举合法四位序列即可。
+>
+> 对一种 $(\textit{m},\textit{s})$ 去掉前导零后，从 $\textit{startAt}$ 起模拟每位是否换指并累加 $\textit{moveCost}$、$\textit{pushCost}$。
+>
+> 取 $\texttt{f}(m,s)$ 与 $\texttt{f}(m-1,s+60)$ 的较小值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

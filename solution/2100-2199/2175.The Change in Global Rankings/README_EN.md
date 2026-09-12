@@ -128,6 +128,18 @@ New Zealand did not gain or lose points and their rank did not change.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rank is by points descending, then name ascending. After point changes we need the difference of the two ranks. $\texttt{RANK}$ window functions give both orderings.
+>
+> Sum the deltas per team, join to the original points, and rank on $\textit{points}$ versus $\textit{points}+\textit{delta}$. Cast the ranks to signed integers before subtracting so the difference cannot underflow.
+>
+> Select $\textit{team\_id}$, $\textit{name}$, and $\textit{rank\_diff}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

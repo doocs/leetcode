@@ -109,6 +109,18 @@ Note that there is more than one way to arrive at this conclusion.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person is good or bad; a good person’s statements must match the hypothesis, a bad person’s may not. With $n\le 15$ we may enumerate $2^n$ subsets of good people.
+>
+> For every bit set in a mask, check that each $0/1$ statement about others agrees with the mask; a contradiction rejects the mask, otherwise its popcount is a candidate.
+>
+> Take the maximum popcount over all masks.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

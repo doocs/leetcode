@@ -73,6 +73,18 @@ Note that the array cannot be converted to [<u><strong>2</strong></u>,2,2,2,2] b
 
 ### Solution 1: Maintain Count of Odd and Even Positions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating array is constant on even indices, constant on odd indices, and the two values differ. An operation rewrites one cell, so the minimum edits equal the positions not equal to the chosen targets. We must pick a frequent even-value and a frequent odd-value that are not the same.
+>
+> Count the top two frequencies on even and odd indices. If the modes differ, keep both; if they coincide, keep the better of “even mode + odd runner-up” and the swapped pair.
+>
+> $f$ finds those two keys; the answer is $n$ minus the kept frequencies.
+
+<!-- thinking:end -->
+
 According to the problem description, if an array $\textit{nums}$ is an alternating array, then the elements at odd positions and even positions must be different, and the elements at odd positions are the same, as well as the elements at even positions.
 
 To minimize the number of operations required to transform the array $\textit{nums}$ into an alternating array, we can count the occurrence of elements at odd and even positions. We find the two elements with the highest occurrence at even positions, $a_0$ and $a_2$, and their corresponding counts $a_1$ and $a_3$; similarly, we find the two elements with the highest occurrence at odd positions, $b_0$ and $b_2$, and their corresponding counts $b_1$ and $b_3$.

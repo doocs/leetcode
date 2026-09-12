@@ -75,6 +75,18 @@ Note that &quot;ll&quot; is another longest palindrome that can be created, and 
 
 ### Solution 1: Greedy + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindrome is built by pairing a word with its reverse, with at most one `aa`-shaped word in the center. Searching concatenation orders is too large; only frequencies and reverses matter.
+>
+> After counting, `ab` pairs with `ba` $\min$ times for $4$ characters each pair; same-letter words contribute even counts first, and one leftover odd copy may sit in the center.
+>
+> We accumulate pairing length from the counter and add $2$ if any symmetric word remains. Opposite words are charged via $\min(v,\textit{cnt}[k[::-1]])$ on both sides, which yields $2\min\times 2$ in total.
+
+<!-- thinking:end -->
+
 First, we use a hash table $\textit{cnt}$ to count the occurrences of each word.
 
 Iterate through each word $k$ and its count $v$ in $\textit{cnt}$:

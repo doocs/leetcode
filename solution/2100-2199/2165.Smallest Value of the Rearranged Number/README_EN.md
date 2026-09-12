@@ -59,6 +59,18 @@ The arrangement with the smallest value that does not contain any leading zeros 
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We rearrange digits: a negative number should be as small as possible (digits descending), a positive number as small as possible without a leading zero. Full permutations are unnecessary.
+>
+> Count digits $0$–$9$. For a negative value emit $9$ down to $0$; for a positive value place the smallest nonzero digit first, then the rest ascending (including zeros).
+>
+> Count on the absolute value and restore the sign.
+
+<!-- thinking:end -->
+
 We first use an array $\textit{cnt}$ to record the number of occurrences of each digit in $\textit{num}$.
 
 If $\textit{num}$ is negative, the digits should be arranged in descending order. Therefore, we traverse $\textit{cnt}$ from $9$ to $0$ and arrange the digits in descending order according to their occurrences.

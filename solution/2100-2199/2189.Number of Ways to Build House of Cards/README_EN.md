@@ -73,6 +73,18 @@ The third house of cards uses 2 cards.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A floor uses $3k+2$ cards and floors have distinct sizes. We need the number of ways to write $n$ as a sum of such terms. Wider floors must sit below, so the order is fixed and we only choose a subset summing to $n$.
+>
+> For increasing $k$ we take or skip the floor, prune when $3k+2>n$, and count $1$ when it hits $n$ exactly. Memoization turns this into a 2-D knapsack.
+>
+> $\textit{dfs}(n,0)$ is the entry.
+
+<!-- thinking:end -->
+
 We notice that the number of cards in each layer is $3 \times k + 2$, and the number of cards in each layer is different. Therefore, the problem can be transformed into: how many ways can the integer $n$ be expressed as the sum of numbers of the form $3 \times k + 2$. This is a classic knapsack problem that can be solved using memoization search.
 
 We design a function $\text{dfs}(n, k)$, which represents the number of ways to build different houses of cards when the remaining number of cards is $n$ and the current layer is $k$. The answer is $\text{dfs}(n, 0)$.

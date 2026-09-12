@@ -74,6 +74,18 @@ The red arrow denotes the order in which the cells should be presented.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A range such as `A1:F2` should list cells column-major, then by row. Both spans are tiny, so a double loop is enough.
+>
+> Iterate column characters in the outer loop and row numbers in the inner loop, concatenating each cell.
+>
+> The start and end columns are the first and last letters of $s$; the rows are the two digits.
+
+<!-- thinking:end -->
+
 We directly traverse all the cells within the range and add them to the answer array.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the range of rows and columns, respectively.

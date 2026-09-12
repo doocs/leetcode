@@ -79,6 +79,18 @@ This is because the 2<sup>nd</sup> row contains security devices, which breaks t
 
 ### Solution 1: Row by Row Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beam exists between two device-rows only when every row between them is empty. Enumerating row pairs and scanning the middle is quadratic in the number of rows.
+>
+> The beams between two consecutive nonempty rows are exactly the product of their device counts; empty rows can be skipped. We therefore count `'1'` per row and remember the previous nonempty count.
+>
+> For each row with $\textit{cur}>0$, add $\textit{pre}\times\textit{cur}$ and replace $\textit{pre}$.
+
+<!-- thinking:end -->
+
 We can count the number of safety devices row by row. If the current row does not have any safety devices, we skip it. Otherwise, we multiply the number of safety devices in the current row by the number of safety devices in the previous row, and add it to the answer. Then we update the number of safety devices in the previous row to be the number of safety devices in the current row.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns, respectively. The space complexity is $O(1)$.

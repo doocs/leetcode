@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cover at most $10$ points with as few lines as possible. Partition search is exponential, but the point count is tiny enough for a subset DP.
+>
+> $\textit{state}$ is the set of covered points. From an uncovered $i$, pair it with $j$, include every other colinear point, and recurse. A leftover singleton uses a line by itself.
+>
+> Memoized $dfs(\textit{state})$ adds one line per transition; colinearity is a cross-product test.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

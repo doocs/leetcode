@@ -69,6 +69,18 @@ target = 2 has the maximum number of occurrences following an occurrence of key,
 
 ### Solution 1: Traversal and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count values that immediately follow $\textit{key}$ and return the unique mode. One scan of adjacent pairs suffices.
+>
+> Whenever a pair’s left value equals $\textit{key}$, increment the right value and remember the current best.
+>
+> The map is bounded by the value range.
+
+<!-- thinking:end -->
+
 We use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each $\textit{target}$, and use a variable $\textit{mx}$ to maintain the maximum number of occurrences of $\textit{target}$. Initially, $\textit{mx} = 0$.
 
 Traverse the array $\textit{nums}$. If $\textit{nums}[i] = \textit{key}$, increment the count of $\textit{nums}[i + 1]$ in $\textit{cnt}[\textit{nums}[i + 1]]$. If $\textit{mx} \lt \textit{cnt}[\textit{nums}[i + 1]]$, update $\textit{mx} = \textit{cnt}[\textit{nums}[i + 1]]$ and update the answer $\textit{ans} = \textit{nums}[i + 1]$.

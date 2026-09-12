@@ -91,6 +91,18 @@ Hence, the abbreviated product is &quot;399168e2&quot;.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The product of the range may have tens of thousands of digits, so a full big-integer multiply is unnecessary if we only need leading digits, trailing digits, and the exponent of trailing zeros.
+>
+> The number of trailing zeros is $\min$ of the counts of factors $2$ and $5$. After removing those factors, the suffix can be kept modulo $10^{10}$, while the prefix is scaled (dividing by $10$ when it grows) so that a few leading digits remain.
+>
+> We first deduct $\min(\textit{cnt}_2,\textit{cnt}_5)$ factors, then sweep the range updating $\textit{pre}$ and $\textit{suf}$. If the suffix ever exceeded $10^{10}$, emit the abbreviated form; otherwise emit the exact zero-stripped product.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

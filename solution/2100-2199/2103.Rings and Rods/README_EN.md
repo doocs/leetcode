@@ -83,6 +83,18 @@ Only one ring is given. Thus, no rods have all three colors.
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each rod only needs to know whether red, green, and blue have all appeared. Scanning $rings$ separately for every rod repeats the same pairs; the string is even-length color–index pairs and can be processed in one pass.
+>
+> The three colors are independent flags and fit in three bits. Mapping `'R','G','B'` to $1,2,4$ and OR-ing into rod $j$ makes a rod complete exactly when its mask equals $7$.
+>
+> We therefore keep a length-$10$ array $\textit{mask}$, consume $rings$ two characters at a time, and count entries equal to $7$.
+
+<!-- thinking:end -->
+
 We can use an array $mask$ of length $10$ to represent the color situation of the rings on each rod, where $mask[i]$ represents the color situation of the ring on the $i$th rod. If there are red, green, and blue rings on the $i$th rod, then the binary representation of $mask[i]$ is $111$, that is, $mask[i] = 7$.
 
 We traverse the string $rings$. For each color position pair $(c, j)$, where $c$ represents the color of the ring and $j$ represents the number of the rod where the ring is located, we set the corresponding binary bit of $mask[j]$, that is, $mask[j] |= d[c]$, where $d[c]$ represents the binary bit corresponding to color $c$.
@@ -252,6 +264,16 @@ int countPoints(char* rings) {
 <!-- solution:start -->
 
 ### Solution 2: Brute Force
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already scans the string once. A more literal version enumerates rods $0$ through $9$ and searches the string for `'B'`, `'R'`, and `'G'` on that rod.
+>
+> Each search is still linear and the rod count is only $10$, so the complexity stays the same; this write-up records that brute-force check.
+
+<!-- thinking:end -->
 
 Enumerate rod numbers $0$ through $9$, and use string search to check whether that rod has appeared with blue, red, and green.
 

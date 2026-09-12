@@ -68,6 +68,18 @@ This is less than 23, so a collision would not destroy the last asteroid.</pre>
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The planet may absorb an asteroid of mass at most its own and then grow. Hitting a large asteroid first can fail even when smaller ones would have raised the mass enough. Both the total mass and the order matter.
+>
+> Absorbing smaller asteroids first only increases $mass$, so it never blocks a later comparison; sorting by mass is safe. With $n\le 10^5$, one sorted scan suffices.
+>
+> Sort $\textit{asteroids}$ and fail if $mass<x$ is ever seen; otherwise add $x$ to $mass$.
+
+<!-- thinking:end -->
+
 According to the problem description, we can sort the asteroids by mass in ascending order, and then iterate through the asteroids. If the planet's mass is less than the asteroid's mass, the planet will be destroyed, and we return `false`. Otherwise, the planet will gain the mass of the asteroid.
 
 If all asteroids can be destroyed, return `true`.

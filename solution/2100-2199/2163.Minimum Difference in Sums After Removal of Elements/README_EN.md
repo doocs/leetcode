@@ -80,6 +80,18 @@ It can be shown that it is not possible to obtain a difference smaller than 1.
 
 ### Solution 1: Priority Queue (Max and Min Heap) + Prefix and Suffix Sum + Enumeration of Split Points
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After dropping $n$ elements, we want the smallest difference between the sum of the first $n$ remaining and the last $n$. That is a split where the left keeps its $n$ smallest and the right its $n$ largest. Choosing the dropped set by brute force is impossible.
+>
+> A max-heap maintains the sum $\textit{pre}[i]$ of the $n$ smallest in a prefix; a min-heap maintains $\textit{suf}[i]$ of the $n$ largest in a suffix. At split $i\in[n,2n]$ the difference is $\textit{pre}[i]-\textit{suf}[i+1]$.
+>
+> Build both arrays with heaps, then minimize over the split.
+
+<!-- thinking:end -->
+
 The problem is essentially equivalent to finding a split point in $nums$, dividing the array into two parts. In the first part, select the smallest $n$ elements, and in the second part, select the largest $n$ elements, so that the difference between the sums of the two parts is minimized.
 
 We can use a max heap to maintain the smallest $n$ elements in the prefix, and a min heap to maintain the largest $n$ elements in the suffix. We define $pre[i]$ as the sum of the smallest $n$ elements among the first $i$ elements of the array $nums$, and $suf[i]$ as the sum of the largest $n$ elements from the $i$-th element to the last element of the array. During the process of maintaining the max and min heaps, update the values of $pre[i]$ and $suf[i]$.

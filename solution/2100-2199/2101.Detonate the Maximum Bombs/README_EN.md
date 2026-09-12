@@ -83,6 +83,18 @@ Thus all 5 bombs are detonated.
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Detonation propagates along the “inside radius” relation, so we need the largest reachable set starting from one bomb. Treating the relation as undirected would miss one-way reachability when radii differ; rescanning all bombs on every detonation repeats the same distance work.
+>
+> With $n\le 100$, building a directed graph $g$ from every pair costs $O(n^2)$. A chain detonation is then a reachability search, which BFS solves in $O(n^2)$ per source.
+>
+> We therefore add edges by pairwise distance checks, then BFS from each bomb, returning $n$ as soon as some search visits every vertex.
+
+<!-- thinking:end -->
+
 We define an array $g$ of length $n$, where $g[i]$ represents the indices of all bombs that can be triggered by bomb $i$ within its explosion range.
 
 Next, we iterate over all bombs. For two bombs $(x_1, y_1, r_1)$ and $(x_2, y_2, r_2)$, we calculate the distance between them $\textit{dist} = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$. If $\textit{dist} \leq r_1$, then bomb $i$ can trigger bomb $j$ within its explosion range, so we add $j$ to $g[i]$. If $\textit{dist} \leq r_2$, then bomb $j$ can trigger bomb $i$ within its explosion range, so we add $i$ to $g[j]$.
