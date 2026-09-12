@@ -58,6 +58,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有序数组中除一个元素外均成对相邻出现。异或全部元素也能得到答案，但没有用上有序。
+>
+> 成对元素占据偶数与随后的奇数下标。若 $mid$ 与它对偶位置（$mid\oplus 1$）上的值不同，则单独元素在左半含中点；否则在右半。二分即可定位。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

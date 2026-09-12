@@ -82,6 +82,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 用词根替换句子中的派生词，优先最短词根。对每个单词枚举全部词根做前缀判断，词表较大时偏慢。
+>
+> 词根放入集合后，按长度递增检查单词的前缀是否在集合中，命中即替换。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -203,6 +213,14 @@ class Solution {
 <!-- solution:start-->
 
 ### 方法二：前缀树
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一对每个前缀都做一次哈希查询。前缀树沿单词向下走，第一次走到带词根标记的结点即可返回该词根，避免枚举全部前缀长度。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

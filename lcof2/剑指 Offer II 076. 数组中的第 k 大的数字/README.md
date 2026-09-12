@@ -51,6 +51,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求第 $k$ 大。全排序后取下标是 $O(n\log n)$，题目进阶希望平均线性。
+>
+> 快速选择把数组按基准划分后，第 $k$ 大只可能落在其中一段，递归该段即可。实现里按降序划分，目标下标为 $n-k$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

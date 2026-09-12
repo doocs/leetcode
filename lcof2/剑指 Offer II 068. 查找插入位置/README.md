@@ -75,6 +75,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在有序数组中找 $\textit{target}$ 的下标，不存在则返回应插入的位置。线性扫描是 $O(n)$。
+>
+> 所求即第一个不小于 $\textit{target}$ 的位置，也就是下界。二分维护左闭右开区间，中点值不小于目标则收右端，否则左端越过中点。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -71,6 +71,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 合并 $k$ 条有序链表。两两顺序合并时，前面的链会被反复扫描，总代价偏高，但实现直接。
+>
+> 依次把 $\textit{lists}[i]$ 与 $\textit{lists}[i+1]$ 按有序链表方式合并，最终留在末尾的即全集。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

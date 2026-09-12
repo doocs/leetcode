@@ -68,6 +68,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对单链表排序。随机访问代价高，不适于普通快排或堆排。
+>
+> 归并排序只需顺序访问：快慢指针断开中点，递归排序两半再合并。自顶向下，时间 $O(n\log n)$，空间为递归深度。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

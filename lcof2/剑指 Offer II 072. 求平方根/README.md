@@ -41,6 +41,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求 $\lfloor\sqrt{x}\rfloor$。从 $1$ 累加到答案是 $O(\sqrt{x})$。
+>
+> 所求是满足 $mid\le x/mid$ 的最大整数。二分时用除法代替乘法，避免溢出；取上中位数以便在左闭右闭区间上收缩到该最大值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -56,6 +56,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $1..n$ 中选 $k$ 个数。组合数不大，回溯即可。
+>
+> 按升序枚举下一个数，路径长度达到 $k$ 时收录。下标只向前推进，避免生成排列意义上的重复。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
