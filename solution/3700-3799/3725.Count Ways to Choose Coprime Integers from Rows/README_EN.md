@@ -101,6 +101,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick exactly one integer from each row and must count ways modulo $10^9+7$; enumerating tuples grows exponentially with the number of rows. Only the overall $\gcd$ matters, so we DP row by row with state equal to the $\gcd$ so far, and sum the ways whose final $\gcd$ is $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

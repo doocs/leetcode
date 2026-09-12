@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be as large as $10^{15}$. Converting to a string works, but we can stay in integers: peel the last digit, keep nonzero digits with a running place value $k$, skip zeros, and multiply $k$ by $10$ only when a digit is written.
+
+<!-- thinking:end -->
+
 We start from the lowest digit of $n$ and check each digit one by one. If the digit is not zero, we add it to the result. We also need a variable to keep track of the current digit position in order to correctly construct the final integer.
 
 Specifically, we can use a variable $k$ to represent the current digit position, then check each digit from the lowest to the highest. If the digit is not zero, we multiply it by $k$ and add it to the result, and then multiply $k$ by 10 for the next digit.

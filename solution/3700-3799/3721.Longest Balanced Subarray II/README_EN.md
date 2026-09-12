@@ -90,6 +90,14 @@ tags:
 
 ### Solution 1: Segment Tree + Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The quadratic scan of the previous problem does not scale. Mapping odds to $+1$ and evens to $-1$, balance becomes a zero-sum segment; a repeated value must undo its earlier contribution. Those updates are range adds, and we query the earliest prefix equal to the current sum, which a segment tree with min/max and lazy tags supports.
+
+<!-- thinking:end -->
+
 We can transform the problem into a prefix sum problem. Define a prefix sum variable $\textit{now}$, representing the difference between odd and even numbers in the current subarray:
 
 $$

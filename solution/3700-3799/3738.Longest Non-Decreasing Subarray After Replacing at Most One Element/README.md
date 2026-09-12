@@ -75,6 +75,14 @@ tags:
 
 ### 方法一：前后缀分解 + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 至多改一个位置，最长非递减段可能跨过该点。先预处理以 $i$ 结尾、以 $i$ 开头的非递减长度；枚举被替换的下标 $i$，若 $nums[i-1]\le nums[i+1]$ 则可把左右两段接起来，否则只能接其中一段再加 $1$。
+
+<!-- thinking:end -->
+
 我们可以使用两个数组 $\textit{left}$ 和 $\textit{right}$ 分别记录以每个位置结尾和开始的最长非递减子数组的长度。初始时 $\textit{left}[i] = 1$ 和 $\textit{right}[i] = 1$。
 
 然后，我们在 $[1, n-1]$ 范围内遍历数组，如果 $\textit{nums}[i] \geq \textit{nums}[i-1]$，则将 $\textit{left}[i]$ 更新为 $\textit{left}[i-1] + 1$。类似地，我们在 $[n-2, 0]$ 范围内反向遍历数组，如果 $\textit{nums}[i] \leq \textit{nums}[i+1]$，则将 $\textit{right}[i]$ 更新为 $\textit{right}[i+1] + 1$。
