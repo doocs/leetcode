@@ -161,6 +161,20 @@ The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</str
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build $\textit{prefixGcd}$ from prefix maxima, sort, and sum $\gcd$ of min-max pairs. $n \le 10^5$, so follow the definition.
+>
+> A prefix maximum is maintained in one scan while computing $\gcd(nums[i],mx)$.
+>
+> After sorting, pair the $i$-th smallest with the $i$-th largest; the middle element is dropped when $n$ is odd.
+>
+> There are $\lfloor n/2 \rfloor$ pairs.
+
+<!-- thinking:end -->
+
 We simulate according to the problem description.
 
 We create an array $\textit{prefixGcd}$ to store the value for each index $i$. We also maintain a variable $mx$ to track the current maximum value. For each element $nums[i]$, we update $mx$ and compute the value of $\textit{prefixGcd}[i]$. Then we sort $\textit{prefixGcd}$ and calculate the sum of GCDs of the formed pairs.

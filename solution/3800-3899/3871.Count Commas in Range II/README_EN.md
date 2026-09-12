@@ -69,6 +69,20 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same comma count, now with $n \le 10^{15}$, so a number may contain several commas.
+>
+> Each time a threshold $10^{3t}$ is crossed, every later integer gains one more comma.
+>
+> Start from $x=1000$, multiply by $1000$, and add $n-x+1$ until $x>n$.
+>
+> The loop runs $O(\log_{1000} n)$ times.
+
+<!-- thinking:end -->
+
 Based on the problem description, we can observe the following pattern:
 
 - Numbers in the range [1, 999] contain no commas;

@@ -97,6 +97,20 @@ tags:
 
 ### Solution 1: Enumerate the Center Position of the Palindrome
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An almost-palindrome becomes a palindrome after deleting exactly one character. $n \le 2500$ makes a cubic check of all substrings too heavy.
+>
+> Ordinary palindromes expand from a center; an almost-palindrome skips the left or the right index at the first mismatch and continues.
+>
+> Enumerate centers $(i,i)$ and $(i,i+1)$, expand to the first mismatch, then skip left or right once more, taking the longest cover (at most $n$).
+>
+> Each center is $O(n)$, overall $O(n^2)$.
+
+<!-- thinking:end -->
+
 Let's denote the length of string $s$ as $n$.
 
 We define a function $f(l, r)$, which represents calculating the length of the longest almost-palindromic substring that can be obtained by starting from $l$ and $r$, expanding towards both sides of the string, and deleting one character.

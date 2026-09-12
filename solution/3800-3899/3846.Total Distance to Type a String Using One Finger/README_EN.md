@@ -116,6 +116,20 @@ There is a special keyboard where keys are arranged in a rectangular grid as fol
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One finger starts at $\texttt{a}$ and types $s$ in order, paying Manhattan distance on the keyboard grid. $|s| \le 10^4$ and the layout is fixed.
+>
+> The distance between two successive keys depends only on those two coordinates.
+>
+> Precompute the three-row positions, then accumulate adjacent Manhattan distances from an implicit start at $\texttt{a}$.
+>
+> One scan is the total travel.
+
+<!-- thinking:end -->
+
 We define a hash table $\textit{pos}$ to store the position of each character on the keyboard. For each character in string $s$, we calculate the distance from the previous character to the current character and accumulate it to the answer. Finally, we return the answer.
 
 The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which here is 26 lowercase English letters.

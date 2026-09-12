@@ -167,6 +167,20 @@ tags:
 
 ### Solution 1: Hash Table + Reverse Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $ans[i]$ counts indices $j > i+k$ with $nums[j]=nums[i]$. $n \le 10^5$ forbids a rightward scan per $i$.
+>
+> The window $(i+k,n-1]$ grows as $i$ decreases; the newly included index is $i+k+1$.
+>
+> Enumerate $i$ downward from $n-k-2$, add $nums[i+k+1]$ to a hash map, then read the count of $nums[i]$.
+>
+> Each index is inserted once, so all answers are linear.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to record the number of occurrences of each number within the index range $(i + k, n - 1]$. We enumerate index $i$ in reverse order starting from index $n - k - 2$. During the enumeration, we first add the number at index $i + k + 1$ to the hash table $\textit{cnt}$, then assign the value of $\textit{cnt}[nums[i]]$ to the answer array $\textit{ans}[i]$.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.

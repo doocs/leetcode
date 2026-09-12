@@ -108,6 +108,20 @@ tags:
 
 ### Solution 1: Preprocessing + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even indices must be prime and odd indices composite; we may only add $1$. $n \le 10^5$ and values $\le 10^5$, so primes should be sieved.
+>
+> An even index rises to the next prime $\ge x$, found by binary search on the prime list.
+>
+> An odd index already composite stays; prime $2$ needs $+2$ to reach $4$, any other prime needs $+1$.
+>
+> An Eratosthenes sieve up to $2 \times 10^5$ keeps the raised values inside the table.
+
+<!-- thinking:end -->
+
 We can first preprocess a sufficiently large list of prime numbers, denoted as $\textit{primes}$, and a boolean array $\textit{isPrime}$, where $\textit{isPrime}[i]$ indicates whether $i$ is a prime number.
 
 Then we traverse each element in the array:

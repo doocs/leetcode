@@ -90,6 +90,20 @@ eventManager.pollHighest(); // no events remain, return -1</div>
 
 ### Solution 1: Sorted Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Poll the highest-priority live event, breaking ties by smallest $\textit{eventId}$, and support priority updates. Up to $10^5$ operations.
+>
+> The max is an ordered-set endpoint; an update must erase the old key and insert the new one.
+>
+> Store $(-\textit{priority},\textit{eventId})$ so higher priority and smaller id come first, and a hash map remembers the current priority for deletion.
+>
+> A poll also drops the hash entry.
+
+<!-- thinking:end -->
+
 We define a sorted set $\textit{sl}$ to store tuples of priority and id $(-\textit{priority}, \textit{eventId})$ for all active events, and a hash map $\textit{d}$ to store the priority of each event.
 
 During initialization, we iterate over the given event list, add the tuple of priority and id for each event into the sorted set $\textit{sl}$, and store each event's priority in the hash map $\textit{d}$.

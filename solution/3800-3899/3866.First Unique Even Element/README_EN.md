@@ -67,6 +67,20 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the first even value that occurs exactly once. Length $\le 100$, two passes.
+>
+> Count first, then scan in original order so the earliest index wins.
+>
+> The predicate is even and frequency $1$.
+>
+> If none exists, return $-1$.
+
+<!-- thinking:end -->
+
 We can use a hash table or array $\textit{cnt}$ to count the number of occurrences of each integer in the array. Then we traverse the array again to find and return the first even number that satisfies the condition. If no such even number exists, we return -1.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(M)$, where $M$ is the range of integers in the array (100 in this problem).

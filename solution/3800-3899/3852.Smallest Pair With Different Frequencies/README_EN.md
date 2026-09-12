@@ -91,6 +91,20 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want $x<y$ with different frequencies, minimizing $x$ then $y$. Both length and values are at most $100$.
+>
+> The smallest array value must be $x$, because $x$ is minimized first.
+>
+> Count frequencies, take the smallest key as $x$, then among other keys pick the smallest $y$ with a different count.
+>
+> If none exists, return $[-1,-1]$.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to count the frequency of each value in the array. Then we find the smallest value $x$, and the smallest value $y$ that is greater than $x$ and has a different frequency from $x$. If no such $y$ exists, return $[-1, -1]$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.

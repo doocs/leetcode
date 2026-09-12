@@ -131,6 +131,20 @@ Each row represents a user performing a specific action on a given date.
 
 ### Solution 1: Filtering + Grouping + Aggregation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stable user has at least five consecutive days with exactly one action, always the same. Several streaks may exist; only the longest is kept.
+>
+> Days with more than one action must be dropped, or consecutiveness is ill-defined.
+>
+> After sorting each $(\textit{user\_id},\textit{action})$ by date, date minus row number groups contiguous days into one $\textit{grp}$.
+>
+> Aggregate lengths, keep those $\ge 5$, rank one streak per user, and sort by length then id.
+
+<!-- thinking:end -->
+
 We first need to filter user dates with only a single action per day, then identify consecutive intervals among these dates, and finally aggregate these intervals to calculate the streak length and filter records that meet the criteria.
 
 <!-- tabs:start -->

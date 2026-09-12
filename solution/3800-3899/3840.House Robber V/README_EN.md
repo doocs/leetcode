@@ -91,6 +91,20 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent houses of the same color cannot both be robbed; different colors have no such ban. $n \le 10^5$ needs a linear DP.
+>
+> The usual rob/skip transition still holds for equal colors; for different colors the current house may follow a robbed previous house.
+>
+> Let $f,g$ be the best skip/rob amounts after the previous house. Same color: $g$ comes only from old $f$. Different colors: $g$ comes from $\max(f,g)$.
+>
+> Two rolling variables suffice; the answer is their maximum.
+
+<!-- thinking:end -->
+
 We define two variables $f$ and $g$, where $f$ represents the maximum amount when the current house is not robbed, and $g$ represents the maximum amount when the current house is robbed. Initially, $f = 0$ and $g = nums[0]$. The answer is $\max(f, g)$.
 
 Next, we traverse starting from the second house:

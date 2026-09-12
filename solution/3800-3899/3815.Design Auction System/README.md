@@ -77,6 +77,20 @@ auctionSystem.getHighestBidder(3); // 返回 -1，因为商品 3 没有任何出
 
 ### 方法一：哈希表 + 有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需支持增改删出价，并查询某商品的最高出价者；并列取更大 $\textit{userId}$。调用达 $5 \times 10^4$，线性扫商品出价不可行。
+>
+> 最高价查询要在有序结构上取端点；改删则必须能定位该用户的旧出价并移除。
+>
+> 为此用 $\textit{items}[\textit{itemId}]$ 存 $(\textit{bidAmount},\textit{userId})$ 的有序集合，用 $\textit{users}$ 记下每个用户对商品的当前金额以便 $O(\log m)$ 删除。
+>
+> 添加时若已有旧价先删除再插入；最高者即有序集合末元的用户。两表同步，保证每次操作对数时间。
+
+<!-- thinking:end -->
+
 我们定义两个哈希表，其中 $\textit{items}$ 用于存储每个商品的所有出价信息，即 $\textit{items}[\textit{itemId}]$ 存储一个有序集合，集合中的每个元素为一个二元组 $(\textit{bidAmount}, \textit{userId})$，表示某个用户对该商品的出价金额。由于我们需要快速获取出价最高的用户，因此该有序集合需要按照出价金额从小到大排序，如果出价金额相同，则按照用户 ID 从小到大排序；另一个哈希表 $\textit{users}$ 用于存储每个用户对各个商品的出价信息，即 $\textit{users}[\textit{userId}][\textit{itemId}]$ 存储该用户对该商品的出价金额。
 
 对于 `addBid(userId, itemId, bidAmount)` 操作，我们首先检查该用户是否已经对该商品出过价，如果是，则调用 `removeBid(userId, itemId)` 方法移除原有出价；然后将新的出价信息添加到 $\textit{users}$ 和 $\textit{items}$ 中。

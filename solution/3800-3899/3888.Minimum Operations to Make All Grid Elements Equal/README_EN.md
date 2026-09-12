@@ -88,6 +88,20 @@ A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that forms by choosing all
 
 ### Solution 1: 2D Difference Array + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation adds $1$ to a $k \times k$ submatrix. We want every cell equal, with as few operations as possible. Operations only increase, so the target $T$ is at least the current maximum.
+>
+> Scan from the top-left: later operations whose top-left is further right or down cannot cover $(i,j)$, so any deficit versus $T$ must be applied now at $(i,j)$.
+>
+> A 2-D difference array records a $k \times k$ increment in $O(1)$ and prefix sums recover the running add. Overflowing $T$ or leaving the grid fails.
+>
+> If both $T=\max$ and $T=\max+1$ fail, the grid cannot be flattened.
+
+<!-- thinking:end -->
+
 Since the operation can only increase the value of elements, all elements in the final grid must be equal to some target value $T$, and $T \ge \max(\textit{grid})$.
 
 Start traversing the grid from the top-left corner $(0, 0)$. For any position $(i, j)$, if its current value is less than $T$, since subsequent operations (with a more rightward or downward position as the top-left corner) cannot cover $(i, j)$, it is necessary to perform $T - \text{current\_val}$ operations at the current position, each using $(i, j)$ as the top-left corner of a $k \times k$ increment operation.

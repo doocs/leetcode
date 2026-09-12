@@ -71,6 +71,20 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A monobit integer has all bits equal: $0$ or a number of the form $2^{t}-1$. $n \le 1000$ allows scanning $[0,n]$, but it is enough to generate these values.
+>
+> Start from $1$ and repeatedly add the next higher $1$-bit, producing $1,3,7,\ldots$ until the value exceeds $n$.
+>
+> Counting $0$ as well gives the size of the range.
+>
+> The loop runs $O(\log n)$ times.
+
+<!-- thinking:end -->
+
 According to the problem description, a Monobit integer is either $0$, or its binary representation consists of all $1$s.
 
 Therefore, we first include $0$ in the answer, then starting from $1$, we sequentially generate integers whose binary representations consist of all $1$s, until the integer exceeds $n$.

@@ -98,6 +98,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into exactly $k$ pieces, each scoring $\textit{sum}(\textit{sum}+1)/2$, and minimize the total. $n \le 1000$ makes $O(n^2 k)$ borderline; constants matter.
+>
+> The partition has optimal substructure: the best $t$-piece split of a prefix depends only on $(t-1)$-piece splits of shorter prefixes.
+>
+> The piece cost is convex in the prefix sum, so adjacent decisions are monotone and a deque can reduce each layer from quadratic to linear.
+>
+> We therefore DP by number of pieces, evaluate a piece from prefix sums, and maintain the decision queue implied by convexity.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

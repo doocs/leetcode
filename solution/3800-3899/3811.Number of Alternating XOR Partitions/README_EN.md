@@ -104,6 +104,20 @@ tags:
 
 ### Solution 1: Recurrence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid partition's block XORs must alternate between $\textit{target1}$ and $\textit{target2}$, starting with $\textit{target1}$. $n \le 10^5$ forbids enumerating cuts.
+>
+> With prefix XOR $pre$, a block $[l,r]$ has XOR $pre_r \oplus pre_{l-1}$. Alternation becomes a count over past prefixes.
+>
+> Let $\textit{cnt1}[x]$ and $\textit{cnt2}[x]$ be ways to end with $\textit{target1}$ or $\textit{target2}$ at prefix XOR $x$. The empty prefix is $\textit{cnt2}[0]=1$.
+>
+> After each value we update $pre$, read the opposite map for legal attachments, and write back. A linear scan yields the ways ending at the current index.
+
+<!-- thinking:end -->
+
 We define two hash tables $\textit{cnt1}$ and $\textit{cnt2}$, where $\textit{cnt1}[x]$ represents the number of partition schemes where the bitwise XOR result is $x$ and the partition ends with $\textit{target1}$, while $\textit{cnt2}[x]$ represents the number of partition schemes where the bitwise XOR result is $x$ and the partition ends with $\textit{target2}$. Initially, $\textit{cnt2}[0] = 1$, representing an empty partition.
 
 We use the variable $\textit{pre}$ to record the bitwise XOR result of the current prefix, and the variable $\textit{ans}$ to record the final answer. Then we traverse the array $\textit{nums}$. For each element $x$, we update $\textit{pre}$ and calculate:

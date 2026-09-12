@@ -110,6 +110,20 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick $k$ index-increasing pairs from two arrays and maximize the sum of products. $n,m \le 100$ and $k \le \min(n,m)$ fit a 3-D DP.
+>
+> A pair consumes one element from each side and cannot go backwards. The choices are skip $nums1$, skip $nums2$, or pair both.
+>
+> Let $f[i][j][k]$ be the best score using the two prefixes and exactly $k$ pairs, with those three transitions.
+>
+> The empty prefixes with zero pairs score $0$; other states start at $-\infty$. The answer is $f[n][m][K]$.
+
+<!-- thinking:end -->
+
 We denote the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ as $n$ and $m$ respectively, and denote $k$ in the problem as $K$.
 
 We define a three-dimensional array $f$, where $f[i][j][k]$ represents the maximum score of selecting exactly $k$ index pairs from the first $i$ elements of $\textit{nums1}$ and the first $j$ elements of $\textit{nums2}$. Initially, $f[0][0][0] = 0$, and all other values of $f[i][j][k]$ are negative infinity.

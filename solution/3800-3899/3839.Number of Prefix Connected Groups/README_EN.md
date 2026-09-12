@@ -112,6 +112,20 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words of length at least $k$ that share the first $k$ characters form a group; we count groups of size at least two. $n \le 5000$ makes pairwise prefix tests unnecessary.
+>
+> A group is completely determined by the length-$k$ prefix, independent of the suffix.
+>
+> For every word with length $\ge k$ we count $w[:k]$ in a hash map, then count keys whose frequency exceeds $1$.
+>
+> Shorter words are ignored.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to count the number of occurrences of the prefix composed of the first $k$ characters of each string with length greater than or equal to $k$. Finally, we count the number of keys in $\textit{cnt}$ with values greater than $1$, which is the number of connected groups.
 
 The time complexity is $O(n \times k)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{words}$.

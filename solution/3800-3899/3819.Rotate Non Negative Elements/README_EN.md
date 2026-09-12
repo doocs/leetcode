@@ -96,6 +96,20 @@ source: Weekly Contest 486 Q2
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Non-negative values rotate left by $k$; negatives stay put. $n \le 10^5$, and in-place interleaving is error-prone and unnecessary.
+>
+> Non-negatives form their own sequence; negatives are only placeholders. Extract, rotate that sequence, then write it back into the old non-negative slots.
+>
+> The new index is $((i-k)\bmod m+m)\bmod m$ for $m$ non-negative entries.
+>
+> A second scan fills only those slots; negatives keep their original values.
+
+<!-- thinking:end -->
+
 We first extract all non-negative elements from the array and store them in a new array $t$.
 
 Then, we create an array $d$ of the same size as $t$ to store the rotated non-negative elements. For each element $t[i]$ in $t$, we place it in $d$ at position $((i - k) \bmod m + m) \bmod m$, where $m$ is the number of non-negative elements.

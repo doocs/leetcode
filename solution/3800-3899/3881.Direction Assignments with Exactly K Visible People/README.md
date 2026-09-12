@@ -107,6 +107,20 @@ tags:
 
 ### 方法一：组合数学 + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每人选 L/R，使位置 $\textit{pos}$ 恰好看见 $k$ 人。$n \le 10^5$，枚举 $2^n$ 不可行。
+>
+> 左边可见当且仅当选 L，右边可见当且仅当选 R，与 $\textit{pos}$ 自己的朝向无关；$\textit{pos}$ 仍有两种选法。
+>
+> 枚举左边可见人数 $a$，则右边需 $k-a$，方案为 $2\binom{\textit{pos}}{a}\binom{n-\textit{pos}-1}{k-a}$。
+>
+> 预处理阶乘与逆元以 $O(1)$ 取组合数。
+
+<!-- thinking:end -->
+
 位置 $\textit{pos}$ 左边有 $\textit{pos}$ 个人，右边有 $n - \textit{pos} - 1$ 个人。
 
 我们枚举左边可见的人数 $a$，则右边可见的人数为 $b = k - a$。如果 $a$ 和 $b$ 都合法，那么答案增加 $2 \cdot \binom{\textit{pos}}{a} \cdot \binom{n - \textit{pos} - 1}{b}$。其中 $2$ 是因为位于下标 $\textit{pos}$ 的人可以选择 'L' 或 'R'。

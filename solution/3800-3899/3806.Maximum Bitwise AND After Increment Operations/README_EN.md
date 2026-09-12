@@ -97,6 +97,20 @@ tags:
 
 ### Solution 1: Greedy Bit Construction + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After at most $k$ increments we pick $m$ numbers to maximize their AND. $n \le 5 \times 10^4$ rules out subset enumeration.
+>
+> A larger AND prefers high bits set. We try bits from high to low: given higher bits already chosen, ask whether the current bit can be $1$.
+>
+> Raising a value to at least $\textit{target}$ only needs to fix the first conflicting bit and below; the cost is a low-bit mask difference.
+>
+> For each candidate we sort costs and test whether the cheapest $m$ sum to at most $k$. Keeping a bit when the test passes yields a greedy high-bit-first answer.
+
+<!-- thinking:end -->
+
 We enumerate each bit from the highest bit, attempting to include that bit in the final bitwise AND result. For the currently attempted bitwise AND result $\textit{target}$, we calculate the minimum number of operations required to increase each element in the array to at least $\textit{target}$.
 
 Specifically, we find the position $j - 1$ where $\textit{target}$ has the first bit set to $1$ from high to low, while the current element has the corresponding bit set to $0$. Then we only need to increase the current element to the value of $\textit{target}$ in the lower $j$ bits. The required number of operations is $(\textit{target} \& 2^{j} - 1) - (\textit{nums}[i] \& 2^{j} - 1)$. We store the required number of operations for all elements in the array $\textit{cost}$, sort it, and take the sum of the first $m$ elements. If it does not exceed $k$, it means we can include this bit in the final bitwise AND result.

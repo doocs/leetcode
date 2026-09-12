@@ -90,6 +90,20 @@ tags:
 
 ### Solution 1: Math + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum all $k$-digit strings whose digits lie in $[l,r]$, leading zeros allowed. $k \le 10^9$ forbids enumeration.
+>
+> Positions are symmetric: on place $10^i$ each allowed digit appears $n^{k-1}$ times for $n=r-l+1$.
+>
+> The digit sum is $(l+r)n/2$, times the geometric factor $(10^k-1)/9$. Fast pow handles the exponents; division by $9$ uses a modular inverse.
+>
+> Everything is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We enumerate each digit $x$ from the lowest position to the highest. Suppose the current position is the $i$-th digit (0-indexed), which contributes $x \cdot 10^i$ to the number. The remaining $k - 1$ digits each have $r - l + 1$ choices, so the contribution of the current position is $x \cdot 10^i \cdot (r - l + 1)^{k - 1}$. Since $x$ ranges over $[l, r]$, the sum of all values of $x$ is $\frac{(l + r) \cdot (r - l + 1)}{2}$. Therefore, the total sum of all such numbers is:
 
 $$

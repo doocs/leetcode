@@ -85,6 +85,20 @@ tags:
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation sorts a proper substring. We want the fewest operations to make $s$ nondecreasing. $|s| \le 10^5$ forbids simulating sorts.
+>
+> One operation can sort any proper substring, so the answer depends only on whether the min and max letters can be moved to the ends in one or two steps.
+>
+> Already sorted yields $0$. A disordered length-$2$ string has no proper substring covering both letters, hence $-1$. Min already first or max already last needs one operation; one of them in the interior needs two; otherwise three.
+>
+> The case split is exhaustive and checked in linear time.
+
+<!-- thinking:end -->
+
 We first check whether the string is already sorted in ascending order; if so, return 0.
 
 Otherwise, if the string has length 2, since we cannot choose the entire string to sort, it is impossible to sort the string, so we return -1.

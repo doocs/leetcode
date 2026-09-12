@@ -100,6 +100,20 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid subarray contains exactly one peak, and that peak lies within $k$ of both ends. $n \le 10^5$ forbids enumerating intervals.
+>
+> Peaks separate one another. For a unique peak $p$, the left end cannot reach the previous peak, the right end cannot reach the next, and both stay inside $[p-k,p+k]$.
+>
+> Collect all peaks, then for each peak multiply the number of legal left ends by the number of legal right ends.
+>
+> Neighboring-peak clamps enforce uniqueness.
+
+<!-- thinking:end -->
+
 We first traverse the array to find all peak positions and store them in a list $\textit{peaks}$.
 
 For each peak position, we calculate the left and right boundaries centered at the peak with a distance not exceeding $k$. Note that if there are multiple peaks, we need to ensure the calculated subarray does not contain other peaks. Then, based on the left and right boundaries, we calculate the number of valid subarrays centered at each peak and accumulate it into the answer.

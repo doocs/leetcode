@@ -106,6 +106,20 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Activation spreads along equal $x$ or $y$. We may add one extra point and want the most activated points. $n \le 10^5$.
+>
+> Points that share an $x$ or a $y$ lie in one component. Union-find treats coordinates as nodes: $(x,y)$ unions $x$ with $y$.
+>
+> The new point can join two components. Take the two largest component sizes and add one for the new point.
+>
+> Shift $y$ by $3 \times 10^9$ so $x$ and $y$ identifiers never collide.
+
+<!-- thinking:end -->
+
 We can use a Union-Find data structure to solve this problem.
 
 First, we map the $x$ coordinates and $y$ coordinates of all points into the same Union-Find structure. Specifically, we add a sufficiently large constant $m$ (e.g., $3 \times 10^9$) to each $y$ coordinate to ensure that the $x$ and $y$ coordinates do not conflict.

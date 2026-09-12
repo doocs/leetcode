@@ -79,6 +79,20 @@ orderManagementSystem.getOrdersAtPrice(&quot;buy&quot;, 1); // There are no acti
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $2000$ orders, and we must list live $\textit{orderId}$s by type and price. A full scan on every query would work, yet modify and cancel still need to find the current key.
+>
+> The query key is $(\textit{orderType},\textit{price})$, while each id must map back to that pair.
+>
+> Store id $\to (\textit{type},\textit{price})$ in $\textit{orders}$ and the reverse lists in $\textit{t}$. Add writes both; modify removes from the old list and appends to the new one.
+>
+> List removal is linear, which is acceptable for $n \le 2000$. A query returns the list as is.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{orders}$ to store the type and price information of each order, where the key is the order ID and the value is a tuple $(\textit{orderType}, \textit{price})$. Additionally, we use another hash table $\textit{t}$ to store the list of order IDs corresponding to each $(\textit{orderType}, \textit{price})$, where the key is a tuple $(\textit{orderType}, \textit{price})$ and the value is the list of order IDs.
 
 When calling $\texttt{addOrder}$, we add the order information to $\textit{orders}$ and append the order ID to the corresponding list in $\textit{t}$.

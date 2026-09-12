@@ -75,6 +75,20 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into $k$ equal pieces and reverse each. $n$ is divisible by $k$, so we simulate by segments.
+>
+> Each piece has length $m=n/k$; reverse slices stepping by $m$.
+>
+> In-place writes need no extra structure.
+>
+> Total movement is $O(n)$.
+
+<!-- thinking:end -->
+
 Since we need to partition the array into $k$ subarrays of equal length, the length of each subarray is $m = \frac{n}{k}$. We can use a loop to traverse the array with a step size of $m$, and in each iteration, reverse the current subarray.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$, as we only use a constant amount of extra space.

@@ -103,6 +103,20 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Toggling an edge flips both endpoints. $n \le 10^5$ rules out subset search. On a tree the need inside a subtree is determined bottom-up.
+>
+> A leaf that mismatches the target must toggle the edge to its parent, which then flips the parent's remaining need, so the demand travels upward.
+>
+> DFS returns whether the subtree still needs the parent edge: each chosen child edge negates the current node's demand.
+>
+> If the root still needs a flip, there is no solution; otherwise the sorted chosen edge indices form a shortest valid sequence.
+
+<!-- thinking:end -->
+
 We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all adjacent nodes of node $a$ and the indices of the corresponding edges.
 
 We design a function $\text{dfs}(a, \text{fa})$, which indicates whether the edge between node $a$ and $\text{fa}$ needs to be toggled in the subtree rooted at node $a$ with parent $\text{fa}$. The logic of the function $\text{dfs}(a, \text{fa})$ is as follows:

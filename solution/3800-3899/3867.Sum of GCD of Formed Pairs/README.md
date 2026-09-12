@@ -165,6 +165,20 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 先由前缀最大值构造 $\textit{prefixGcd}$，排序后最小与最大配对应的 $\gcd$ 之和。$n \le 10^5$，按定义做即可。
+>
+> 前缀最大值可在一次扫描中维护，同时算 $\gcd(nums[i],mx)$。
+>
+> 排序后第 $i$ 小与第 $i$ 大配对，奇数中间元丢弃。
+>
+> 配对次数为 $\lfloor n/2 \rfloor$。
+
+<!-- thinking:end -->
+
 根据题目描述模拟即可。
 
 我们创建一个数组 $\textit{prefixGcd}$ 来存储每个下标 $i$ 的值。我们还维护一个变量 $mx$ 来记录当前的最大值。对于每个元素 $nums[i]$，我们更新 $mx$ 并计算 $\textit{prefixGcd}[i]$ 的值。然后我们对 $\textit{prefixGcd}$ 进行排序，并计算数对的最大公约数之和。

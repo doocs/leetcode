@@ -131,6 +131,20 @@ Each row represents a reaction given by a user to a piece of content.
 
 ### Solution 1: Grouping Statistics + Join Query
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must count reactions per user, find the dominant type and its ratio, and drop users with fewer than $5$ reactions or a ratio below $0.60$. Repeated scans of the raw table recompute the same aggregates.
+>
+> Several reaction types of one user must feed both the maximum count and the total, then we look up which type attains that maximum.
+>
+> Group by $(\textit{user\_id},\textit{reaction})$ into $t$, then aggregate $t$ by user into $s$ with the max count and ratio filter.
+>
+> Join $s$ back to $t$ on the user, keep rows whose count equals the maximum, and sort by ratio then id. Grouping before the join avoids filtering the detail rows over and over.
+
+<!-- thinking:end -->
+
 We first count the number of each reaction for every user and record it in a temporary table $t$. Then, based on the temporary table $t$, we calculate the maximum reaction count and total reaction count for each user, compute the reaction ratio, and filter out the users who meet the conditions, recording them in a temporary table $s$. Finally, we join the temporary tables $s$ and $t$ to find the dominant reaction for each user and sort the results as required.
 
 <!-- tabs:start -->

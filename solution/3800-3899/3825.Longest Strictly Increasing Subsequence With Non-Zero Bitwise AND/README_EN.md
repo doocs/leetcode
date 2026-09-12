@@ -73,6 +73,20 @@ source: Biweekly Contest 175 Q3
 
 ### Solution 1: Enumeration + Longest Increasing Subsequence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest strictly increasing subsequence whose AND is nonzero. $n \le 10^5$, and a plain LIS ignores the AND.
+>
+> A nonzero AND means some bit is $1$ in every chosen value.
+>
+> Enumerate that bit, keep numbers with the bit set, and run LIS on the filtered sequence.
+>
+> About $30$ bits, each an $O(n \log n)$ LIS, and we take the maximum.
+
+<!-- thinking:end -->
+
 A non-zero bitwise AND result means that all numbers in the subsequence have a $1$ at a certain bit position. We can enumerate that bit position, then find the longest strictly increasing subsequence among all numbers that have a $1$ at that bit position, and take the maximum value across all enumerations as the answer.
 
 The time complexity is $O(\log M \times n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.

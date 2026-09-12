@@ -102,6 +102,20 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The graph is an adjacency matrix; degree is the number of $1$s in a row. $n \le 100$, so sum each row.
+>
+> There are no loops, the diagonal is $0$, and a plain sum is correct.
+>
+> Symmetry already encodes the undirected edges; the lower triangle need not be read separately.
+>
+> $O(n^2)$ reads the whole matrix.
+
+<!-- thinking:end -->
+
 We can directly simulate the process of computing the degree of each vertex.
 
 For each vertex $i$, we traverse its corresponding row $\text{matrix}[i]$ and count the number of elements equal to 1, which is exactly the degree of vertex $i$.

@@ -99,6 +99,20 @@ tags:
 
 ### Solution 1: DFS + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path may start and end anywhere and must have distinct values; we want the maximum value sum. At most $1000$ nodes, values may repeat.
+>
+> Paths need not go through the root, so treat the tree as an undirected graph. DFS from every start, using a set to keep values unique.
+>
+> Build adjacency (parent, left, right), search from each node, and undo the visit on backtrack.
+>
+> $O(n^2)$ starts are acceptable for $n \le 1000$.
+
+<!-- thinking:end -->
+
 We can treat the tree as an undirected graph, using a hash table $g$ to store the adjacent nodes of each node, where $g[node]$ contains the parent node, left child node, and right child node of $node$.
 
 We use depth-first search to traverse the tree and build the hash table $g$. For each node, we add its parent node, left child node, and right child node to $g[node]$.

@@ -65,6 +65,20 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how often $\textit{digit}$ appears in the decimals of $\textit{nums}$. Length and values are modest; divide by ten and take remainders.
+>
+> Order of digits does not matter, so no string conversion is needed.
+>
+> The loop stops at $0$; $nums[i] \ge 1$ so leading zeros are not an issue.
+>
+> Accumulate matches.
+
+<!-- thinking:end -->
+
 We traverse each element in the array and count how many times $\textit{digit}$ appears. For each element, we can obtain each of its digits by repeatedly taking the modulo and dividing by 10, and compare each digit with $\textit{digit}$. If they are equal, we increment the answer by 1.
 
 Finally, return the answer.

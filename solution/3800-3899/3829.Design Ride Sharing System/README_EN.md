@@ -93,6 +93,20 @@ rideSharingSystem.matchDriverWithRider(); // returns [-1, -1]</div>
 
 ### Solution 1: Sorted Set + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We match the earliest driver to the earliest rider and may cancel an unmatched rider. At most $1000$ calls, yet order queries need the smallest timestamp.
+>
+> A plain FIFO queue would scan on mid-list cancellations. Store by timestamp instead.
+>
+> Ordered sets hold $(t,\textit{id})$ with a global increasing clock; a hash map remembers each rider's $t$ for $O(\log n)$ cancel.
+>
+> A match fails if either side is empty; otherwise both minima are popped.
+
+<!-- thinking:end -->
+
 We use two sorted sets $\textit{riders}$ and $\textit{drivers}$ to store waiting riders and available drivers respectively. Each element is a tuple $(t, \textit{id})$, representing the ID of the rider/driver and their timestamp $t$ when they joined the system. The timestamp $t$ is used to distinguish the order of arrival. Initially, $t = 0$, and each time a rider or driver is added, $t$ is incremented by $1$.
 
 Additionally, we use a hash table $\textit{d}$ to store the mapping between each rider's ID and their timestamp, which facilitates lookup when canceling a rider's request.

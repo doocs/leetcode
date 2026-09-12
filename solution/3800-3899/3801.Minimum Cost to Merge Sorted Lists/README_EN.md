@@ -136,6 +136,20 @@ tags:
 
 ### Solution 1: State Compression DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $n \le 12$ lists, so enumerating merge orders as Catalan trees repeats the same subsets. Total length is modest, but the order itself cannot be searched.
+>
+> Length and median of a merge depend only on the multiset of values, not on the intermediate merge sequence. Each subset therefore has a unique length and median.
+>
+> We represent unused lists as a bit mask, precompute each nonempty subset's count and left median, then DP by splitting a set into two nonempty proper subsets, adding the median gap and the total length.
+>
+> The $2^n$ subset DP covers every collection; the answer is the cost of the full mask.
+
+<!-- thinking:end -->
+
 The number of lists satisfies $n \le 12$, so a bitmask can represent any subset of lists.
 
 Merging two sorted lists yields the sorted union of their elements, so the length and median of a set of lists depend only on the set itself, not on the merge order. The median is the left middle element after sorting, i.e. the $\lfloor (len + 1)/2 \rfloor$-th smallest value.

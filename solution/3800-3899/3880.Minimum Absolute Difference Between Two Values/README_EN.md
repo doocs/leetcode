@@ -75,6 +75,20 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array contains only $0,1,2$; we want the minimum index distance between a $1$ and a $2$. Length $\le 100$, one scan.
+>
+> The closest opposite value is the last occurrence of $3-x$.
+>
+> Remember the latest indices of $1$ and $2$; on a nonzero, subtract the opposite last index.
+>
+> If no pair ever formed, return $-1$.
+
+<!-- thinking:end -->
+
 We use an array $\textit{last}$ of length $3$ to record the last occurrence index of digits $0$, $1$, and $2$. Initially, $\textit{last} = [-(n+1), -(n+1), -(n+1)]$. We iterate through the array $\textit{nums}$. For the current number $x$, if $x$ is not equal to $0$, we update the answer $\textit{ans} = \min(\textit{ans}, i - \textit{last}[3 - x])$, where $i$ is the index of the current number $x$. Then we update $\textit{last}[x] = i$.
 
 After the iteration, if $\textit{ans}$ is greater than the length of the array $\textit{nums}$, it means no valid index pair exists, so we return -1; otherwise, we return $\textit{ans}$.

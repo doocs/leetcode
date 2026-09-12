@@ -80,6 +80,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray must satisfy $\max-\min \le k$ while maximizing its XOR. $n \le 4 \times 10^4$ and values lie below $2^{15}$.
+>
+> A subarray XOR is the XOR of two prefix XORs. For a fixed right end the legal left ends form a $\max-\min$ window, inside which we query the best prefix XOR.
+>
+> Monotonic deques shrink the window; a binary trie inserts and deletes prefix XORs and greedily takes the opposite bit.
+>
+> As the right end advances, the window and the trie slide together; each prefix enters and leaves once.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

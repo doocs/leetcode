@@ -75,6 +75,20 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may delete one occurrence of any letter that still appears twice, seeking the lexicographically smallest string. $|s| \le 10^5$ forbids enumerating deletions.
+>
+> Each letter must remain at least once. While a letter still has surplus, a larger stack top should be popped in favor of the current character.
+>
+> Count frequencies, then scan left to right with a monotonic stack: pop a larger top if that letter still occurs later. After the scan, drop leftover duplicates at the tail.
+>
+> The stack is the smallest sequence that keeps every letter at least once.
+
+<!-- thinking:end -->
+
 We can use a stack $\textit{stk}$ to store the characters of the result string, and a hash table $\textit{cnt}$ to record the number of occurrences of each character in string $s$.
 
 First, we initialize $\textit{cnt}$ to count the occurrences of each character in string $s$. Then, we iterate through each character $c$ in string $s$:

@@ -95,6 +95,20 @@ tags:
 
 ### Solution 1: Sorting + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Buy at most two machines with total cost strictly below $\textit{budget}$, maximizing capacity. $n \le 10^5$ forbids all pairs.
+>
+> A machine whose own cost is already at least the budget can never be bought; drop it. The best single machine is the max remaining capacity.
+>
+> For two machines, sort by cost. For each cheaper $i$, partners are those costing less than $\textit{budget}-\textit{cost}_i$. That right bound moves left as $i$ grows.
+>
+> An ordered set of capacities on the feasible right side, after removing $i$ itself, gives the best partner. Shrinking the right pointer keeps updates logarithmic.
+
+<!-- thinking:end -->
+
 We first filter out all machines with costs less than the budget and sort them by cost in ascending order, recording them in the array $\textit{arr}$, where $\textit{arr}[i] = (\textit{costs}[i], \textit{capacity}[i])$. If $\textit{arr}$ is empty, we cannot buy any machine, so we return $0$.
 
 Otherwise, we can obtain the machine with the maximum capacity in $\textit{arr}$ and initialize the answer with this capacity.

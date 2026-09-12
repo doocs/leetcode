@@ -86,6 +86,20 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete as few entries as possible so the XOR of the rest is $\textit{target}$. $n \le 40$ and values $\le 10^4$, so the XOR universe is about $2^{14}$.
+>
+> Equivalently, select as many entries as possible with XOR $\textit{target}$, then invert to deletions.
+>
+> Let $f[i][j]$ be the most items among the first $i$ whose XOR is $j$, choosing or skipping the current value.
+>
+> If $\textit{target}$ already exceeds the value-bit universe, it is impossible; otherwise the answer is $n-f[n][\textit{target}]$.
+
+<!-- thinking:end -->
+
 We define a 2D array $f$, where $f[i][j]$ represents the maximum number of elements we can select from the first $i$ elements such that their XOR sum equals $j$. Initially, $f[0][0] = 0$ and all other $f[0][j]$ are negative infinity.
 
 For each element $nums[i - 1]$, we can choose not to use it, in which case $f[i][j]$ equals $f[i - 1][j]$; or we can choose to use it, in which case $f[i][j]$ equals $f[i - 1][j \oplus nums[i - 1]] + 1$. Thus, the transition equation is:
