@@ -88,6 +88,16 @@ See the picture below for a better understanding.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is great enough iff its subtree contains at least $k$ strictly smaller values. Sorting every subtree wastes work when $k$ is small.
+>
+> A post-order DFS merges at most $k$ smallest child values in a heap of size $k$. If the heap is full and its top (the negated $k$-th smallest) is still less than the node, the node is counted.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

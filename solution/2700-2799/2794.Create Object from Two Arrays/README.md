@@ -66,6 +66,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 用 $keysArr$ 与 $valuesArr$ 组对象，键转为字符串，重复键保留首次。直接 $Object.fromEntries$ 会让后者覆盖前者。
+>
+> 按下落下标：键字符串化后，仅当对象上尚不存在该键时写入对应值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Vowels should be sorted by ASCII while consonants stay put. Sorting the whole string would move consonants.
+>
+> Extract the vowels, sort them, and write them back into the vowel slots from left to right.
+
+<!-- thinking:end -->
+
 First, we store all the vowels in the string into an array or list $vs$, then we sort $vs$.
 
 Next, we traverse the string $s$, keeping the consonants unchanged. If it is a vowel, we replace it in order with the letters in the $vs$ array.

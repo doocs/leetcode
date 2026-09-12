@@ -66,6 +66,16 @@ There are 0 employees who met the target.
 
 ### Solution 1: Iteration and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count employees whose hours are at least $target$. One linear scan is enough; no sort or extra structure is required.
+>
+> Sum the predicate $x\ge target$ over $hours$.
+
+<!-- thinking:end -->
+
 We can iterate through the array $hours$. For each employee, if their working hours $x$ is greater than or equal to $target$, then we increment the counter $ans$ by one.
 
 After the iteration, we return the answer.

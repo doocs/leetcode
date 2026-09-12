@@ -103,6 +103,16 @@ Passengers 表:
 
 ### 方法一：Rank() 窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一航班按预订时间先后确认座位，不超过容量则为 Confirmed，否则 Waitlist；同一时刻只要还有空位都可确认。
+>
+> 按 $flight\_id$ 分区、$booking\_time$ 排序做 $RANK()$，名次不超过 $capacity$ 则确认。不必处理并列名次的特殊打断，因为并列时容量判断仍然按名次上界截断。
+
+<!-- thinking:end -->
+
 注意，如果多个人在同一时间预定了同一个航班，只要有空位，就都可以确认预定。
 
 <!-- tabs:start -->

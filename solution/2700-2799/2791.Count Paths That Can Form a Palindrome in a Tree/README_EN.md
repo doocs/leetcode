@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count simple paths whose characters can be rearranged into a palindrome. There are quadratically many paths and the labels are letters, so enumeration is impossible.
+>
+> XOR-pack the parity of letters from the root to a node in a $20$-bit mask; a path is the XOR of its ends. A palindrome permutation allows at most one bit set. During a DFS, a counter looks up the same mask and the twenty masks that differ by one bit, then records the current mask.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
