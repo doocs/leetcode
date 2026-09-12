@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4009.Minimum%20Possible%20Maximum%20Waiting%20Time/README.md
 rating: 2498
 source: 第 188 场双周赛 Q4
 tags:
