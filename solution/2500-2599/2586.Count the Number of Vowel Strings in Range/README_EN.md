@@ -70,6 +70,14 @@ The number of vowel strings in the mentioned range is 3.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count words whose indices lie in $[\textit{left},\textit{right}]$ and that start and end with a vowel. The range is $O(n)$, so testing the slice is enough; a prefix sum is unnecessary.
+
+<!-- thinking:end -->
+
 We just need to traverse the string in the interval $[left,.. right]$, and check if it starts and ends with a vowel. If so, the answer plus one.
 
 After the traversal, return the answer.

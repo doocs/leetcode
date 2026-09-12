@@ -63,6 +63,16 @@ The array after the operation is [3,-2,6,-5]. The prefix sum array is [3, 1, 7, 
 
 ### Solution 1: Greedy + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An element may be moved to the end; every prefix sum must stay non-negative, and we want the fewest moves. The set of moves cannot be enumerated.
+>
+> Only negatives can drag a prefix below zero. When the running sum becomes negative, remove the smallest remaining negative seen so far — that restores the sum with the least damage. A min-heap stores those negatives; popping subtracts them from the sum and counts a move.
+
+<!-- thinking:end -->
+
 We use a variable $s$ to record the prefix sum of the current array.
 
 Traverse the array $nums$, add the current element $x$ to the prefix sum $s$. If $x$ is a negative number, add $x$ to the min heap. If $s$ is negative at this time, greedily take out the smallest negative number and subtract it from $s$, and add one to the answer. Finally, return the answer.

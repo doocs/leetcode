@@ -81,6 +81,16 @@ Thus, there are four possible ways to group them:
 
 ### Solution 1: Sorting + Counting + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Overlapping ranges must share a group; we count ways to split into two groups. $2^n$ assignments are impossible at $n\le 10^5$.
+>
+> Overlap is transitive: after sorting and merging, each connected component must go entirely into one group. Components are independent, so the count is $2^{\textit{cnt}}$ modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We can first sort the intervals in the range, merge the overlapping intervals, and count the number of non-overlapping intervals, denoted as $cnt$.
 
 Each non-overlapping interval can be chosen to be put in the first group or the second group, so the number of plans is $2^{cnt}$. Note that $2^{cnt}$ may be very large, so we need to take modulo $10^9 + 7$. Here, we can use fast power to solve this problem.
@@ -216,6 +226,14 @@ function countWays(ranges: number[][]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 counts then exponentiates. Multiplying the answer by $2$ whenever a new component starts avoids a separate power, with the same merge.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

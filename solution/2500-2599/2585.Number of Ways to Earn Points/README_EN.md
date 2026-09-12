@@ -89,6 +89,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each question type has a count cap and a fixed score; we want the number of ways to total exactly $\textit{target}$. An unbounded knapsack would overcount.
+>
+> This is a bounded knapsack: $f[i][j]$ is the number of ways to score $j$ with the first $i$ types. Type $i$ may be taken $0..\textit{count}$ times, adding $f[i-1][j-k\cdot\textit{marks}]$. Start from $f[0][0]=1$; the answer is $f[n][\textit{target}]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the number of methods to get $j$ points exactly from the first $i$ types of questions. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$. The answer is $f[n][target]$.
 
 We can enumerate the $i$th type of questions, suppose the number of questions of this type is $count$, and the score is $marks$. Then we can get the following state transition equation:

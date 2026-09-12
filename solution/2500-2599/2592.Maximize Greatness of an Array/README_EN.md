@@ -61,6 +61,16 @@ At indices = 0, 1, and 2, perm[i] &gt; nums[i]. Hence, we return 3.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Greatness is how many positions satisfy $perm[i]>nums[i]$; $perm$ is a rearrangement of $nums$. The same multiset should pair larger values against as many smaller ones as possible.
+>
+> After sorting, scan candidates $x$ from the left and pair $x$ with the next unmatched $nums[i]$ whenever $x$ is strictly larger. The number of successful pairs is the answer.
+
+<!-- thinking:end -->
+
 We can sort the array $nums$ first.
 
 Then we define a pointer $i$ pointing to the first element of the array $nums$. We traverse the array $nums$, and for each element $x$ we encounter, if $x$ is greater than $nums[i]$, then we move the pointer $i$ to the right.
