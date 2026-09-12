@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README.md
 tags:
     - 贪心
     - 数组

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md
 tags:
     - 数组
     - 哈希表

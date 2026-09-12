@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0836.Rectangle%20Overlap/README.md
 tags:
     - 几何
     - 数学

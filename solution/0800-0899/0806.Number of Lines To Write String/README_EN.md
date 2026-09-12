@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README_EN.md
 tags:
     - Array
     - String
