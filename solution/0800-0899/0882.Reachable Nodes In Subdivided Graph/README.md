@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0882.Reachable%20Nodes%20In%20Subdivided%20Graph/README.md
 tags:
     - 图
     - 最短路

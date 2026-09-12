@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md
 tags:
     - 数组
     - 哈希表
