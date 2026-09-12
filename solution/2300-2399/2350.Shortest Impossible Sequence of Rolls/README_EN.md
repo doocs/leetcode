@@ -73,6 +73,16 @@ Note that there are other sequences that cannot be taken from rolls but [4] is t
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sequence of length $L$ is a subsequence of $rolls$ iff we can pick $L$ successive covers of $1..k$. $n \le 10^5$ forbids listing sequences.
+>
+> Scan left to right and collect unseen faces. When the set reaches size $k$, one more “any next face” is possible: increment the answer and clear. The answer is completed rounds plus one — the first length we cannot finish.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

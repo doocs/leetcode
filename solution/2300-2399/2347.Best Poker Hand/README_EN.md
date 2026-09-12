@@ -80,6 +80,16 @@ Note that we cannot make a &quot;Flush&quot; or a &quot;Three of a Kind&quot;.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Five cards yield Flush, Three of a Kind, Pair, or High Card, in that order. The hand is tiny, so counting suffices.
+>
+> Test a uniform suit first, then rank frequencies for $\ge 3$ or exactly $2$. Otherwise it is High Card.
+
+<!-- thinking:end -->
+
 We first traverse the array $\textit{suits}$ to check if adjacent elements are equal. If they are, we return `"Flush"`.
 
 Next, we use a hash table or array $\textit{cnt}$ to count the quantity of each card:

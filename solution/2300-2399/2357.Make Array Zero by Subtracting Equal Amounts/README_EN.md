@@ -68,6 +68,16 @@ In the third operation, choose x = 2. Now, nums = [0,0,0,0,0].
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move picks a positive $x$ and subtracts it from every entry $\ge x$, which removes one distinct positive value. $n \le 100$, so counting those values is enough.
+>
+> Zeros never change and never create new positives. The answer is the size of $\{x \in nums: x>0\}$.
+
+<!-- thinking:end -->
+
 We observe that in each operation, all identical nonzero elements in the array $\textit{nums}$ can be reduced to $0$. Therefore, we only need to count the number of distinct nonzero elements in $\textit{nums}$, which is the minimum number of operations required. To count the distinct nonzero elements, we can use a hash table or an array.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.

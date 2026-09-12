@@ -97,6 +97,16 @@ foodRatings.highestRated("japanese"); // 返回 "ramen"
 
 ### 方法一：哈希表 + 有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要按菜系查询评分最高、字典序最小的食物，并支持改分。调用达 $2 \times 10^4$，每次线性扫描过慢。
+>
+> 每个菜系用有序集合存 $(-rating, food)$，另用哈希表记下食物的当前评分与菜系。改分时删除旧二元组、插入新二元组；查询取集合首元的食物名。
+
+<!-- thinking:end -->
+
 我们可以使用哈希表 $\textit{d}$ 来存储每种烹饪方式下的食物，其中键是烹饪方式，值是一个有序集合，有序集合的每个元素是一个二元组 $(\textit{rating}, \textit{food})$，按照评分从高到低排序，如果评分相同，则按照食物名字的字典序从小到大排序。
 
 我们还可以使用哈希表 $\textit{g}$ 来存储每种食物的评分和烹饪方式。即 $\textit{g}[\textit{food}] = (\textit{rating}, \textit{cuisine})$。

@@ -77,6 +77,16 @@ No more pairs can be formed. A total of 1 pair has been formed, and there are 0 
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal values pair up; we need the number of pairs and leftovers. $n \le 100$, so a frequency count suffices.
+>
+> Sum $\lfloor v/2 \rfloor$ over frequencies for the pair count; leftovers are $n-2s$.
+
+<!-- thinking:end -->
+
 We can count the occurrences of each number $x$ in the array $\textit{nums}$ and record them in a hash table or array $\textit{cnt}$.
 
 Then, we traverse $\textit{cnt}$. For each number $x$, if the occurrence count $v$ of $x$ is greater than $1$, we can select two $x$'s from the array to form a pair. We divide $v$ by $2$ and take the floor value to get the number of pairs that can be formed by the current number $x$. We then add this number to the variable $s$.
