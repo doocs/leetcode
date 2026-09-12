@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3798.Largest%20Even%20Number/README_EN.md
 rating: 1365
 source: Weekly Contest 483 Q1
 tags:

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3793.Find%20Users%20with%20High%20Token%20Usage/README.md
 tags:
     - 数据库
 ---
