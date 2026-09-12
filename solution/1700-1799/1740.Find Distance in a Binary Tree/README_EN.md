@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
