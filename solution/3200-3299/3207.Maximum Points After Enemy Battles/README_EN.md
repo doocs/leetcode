@@ -96,6 +96,16 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation either scores $\lfloor\textit{energy}/e\rfloor$ on an unmarked enemy or spends one point to absorb that enemy's energy. With $n\le 10^5$ and energies up to $10^9$, simulating one action at a time is too many rounds.
+>
+> Scoring should always target the cheapest enemy, while energy should come from the largest. Sort first; if the current energy is already below the minimum, the answer is $0$. Otherwise absorb enemies from large to small, scoring as many times as possible against the minimum before each absorb. One pass after sorting is enough.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to score by defeating enemies with the lowest energy value and increase our energy value by defeating enemies with the highest energy value and marking them.
 
 Therefore, we can sort the enemies by their energy values, then start from the enemy with the highest energy value, always choose the enemy with the lowest energy value to score and consume energy. Next, we add the energy value of the enemy with the highest energy to our current energy and mark that enemy. Repeat the above steps until all enemies are marked.

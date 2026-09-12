@@ -101,6 +101,16 @@ Each row of this table contains the user ID and their permissions encoded as an 
 
 ### Solution 1: Bitwise Operations
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bit that every user holds is the bitwise AND of the column; a bit that anyone holds is the bitwise OR. A procedural loop would work, but a single aggregate scan is enough.
+>
+> `BIT_AND(permissions)` yields bits common to all users and `BIT_OR(permissions)` yields bits present in at least one user, with no self-join or window function.
+
+<!-- thinking:end -->
+
 We can use the `BIT_AND` and `BIT_OR` functions to calculate `common_perms` and `any_perms`.
 
 <!-- tabs:start -->

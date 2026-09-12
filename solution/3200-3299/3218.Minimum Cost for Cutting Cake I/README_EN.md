@@ -103,6 +103,16 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cut is multiplied by how many pieces already exist in the other direction, so later cuts cost more. $m,n\le 20$ would allow DP, but the optimum has a simple order.
+>
+> Expensive cuts should happen early, while the multiplier is still small. Sort both cost arrays descending and always take the currently larger cut: a horizontal cut multiplies by the vertical piece count $v$, a vertical cut by $h$, then update that count. The greedy order matches the simulation.
+
+<!-- thinking:end -->
+
 For a given position, the earlier you cut, the fewer cuts are needed, so it is clear that positions with higher costs should be cut earlier.
 
 Therefore, we can sort the arrays $\textit{horizontalCut}$ and $\textit{verticalCut}$ in descending order, and then use two pointers $i$ and $j$ to point to the costs in $\textit{horizontalCut}$ and $\textit{verticalCut}$, respectively. Each time, we choose the position with the larger cost to cut, while updating the corresponding number of rows and columns.

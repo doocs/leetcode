@@ -94,6 +94,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The group length is now a given $k$ and $n\le 10^5$. Checking $k$ cells at every start is $O(nk)$ and too slow.
+>
+> As in the length-$3$ case, alternation is a contiguous property: unroll the ring to $2n$, keep the current alternating run $\textit{cnt}$, and count when $i\ge n$ and $\textit{cnt}\ge k$. Each right end is $O(1)$, so the scan is linear.
+
+<!-- thinking:end -->
+
 We can unfold the ring into an array of length $2n$ and then traverse this array from left to right. We use a variable $\textit{cnt}$ to record the current length of the alternating group. If we encounter the same color, we reset $\textit{cnt}$ to $1$; otherwise, we increment $\textit{cnt}$. If $\textit{cnt} \ge k$ and the current position $i$ is greater than or equal to $n$, then we have found an alternating group, and we increment the answer by one.
 
 After the traversal, we return the answer.

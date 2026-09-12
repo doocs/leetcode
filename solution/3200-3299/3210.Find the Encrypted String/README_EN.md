@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$, so we can replace each character by the one $k$ steps ahead. $k$ may reach $10^4$, so stepping $k$ times would wrap many times, yet a cyclic shift depends only on $k\bmod n$.
+>
+> Write $s[(i+k)\bmod n]$ into a new string for every $i$. One linear pass builds the answer without rotating $k$ rounds.
+
+<!-- thinking:end -->
+
 We can use the simulation method. For the $i^{th}$ character of the string, we replace it with the character at position $(i + k) \bmod n$ of the string.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.

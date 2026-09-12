@@ -128,6 +128,16 @@ transaction_id 列唯一标识了表中的每一列。
 
 ### 方法一：分组统计 + 左连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要按商品与年份汇总花费，再与上一年对齐计算同比。逐行用应用层循环分组亦可，但集合运算更直接。
+>
+> 先按 `product_id` 与 `YEAR(transaction_date)` 聚合得到当年花费，再自左连接「同一商品且年份差 $1$」的行，用 $(\textit{curr}-\textit{prev})/\textit{prev}$ 得到增长率。无上一年的行自然留下空值。
+
+<!-- thinking:end -->
+
 我们可以先按照 `product_id` 和 `year(transaction_date)` 进行分组统计，然后使用左连接将当前年份的统计结果与上一年份的统计结果进行关联，最后计算年同比增长率。
 
 <!-- tabs:start -->

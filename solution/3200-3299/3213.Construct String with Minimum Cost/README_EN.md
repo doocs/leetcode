@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: String Hashing + Dynamic Programming + Enumerating Length
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We concatenate $\textit{words}$ to form $\textit{target}$ at minimum cost; $n$ and the total word length are both $5\times 10^4$. A DP that tries every word at every position is too heavy.
+>
+> There are only $O(\sqrt{L})$ distinct word lengths. Hash each word to its minimum cost, let $f[i]$ be the cheapest way to build the first $i$ characters, and try only those lengths $j$, testing $\textit{target}[i-j+1..i]$ in $O(1)$ via the prefix hash. Transfers become $O(n\sqrt{L})$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum cost to construct the first $i$ characters of $\textit{target}$, with the initial condition $f[0] = 0$ and all other values set to infinity. The answer is $f[n]$, where $n$ is the length of $\textit{target}$.
 
 For the current $f[i]$, consider enumerating the length $j$ of the word. If $j \leq i$, then we can consider the hash value of the segment from $i - j + 1$ to $i$. If this hash value corresponds to an existing word, then we can transition from $f[i - j]$ to $f[i]$. The state transition equation is as follows:
