@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2854.Rolling%20Average%20Steps/README_EN.md
 tags:
     - Database
 ---
