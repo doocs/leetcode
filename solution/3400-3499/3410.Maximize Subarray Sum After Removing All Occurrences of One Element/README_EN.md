@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ordinary maximum subarray sum is linear via Kadane. Here we may delete every occurrence of one value, i.e. pretend those positions are gone and then take a maximum subarray.
+>
+> With $n\le 10^5$ we cannot rebuild the array for every distinct value. Deleting $x$ must be expressed as a modification of the original contributions.
+>
+> Deleting a nonnegative $x$ cannot help. Deleting a negative $x$ removes several negative contributions. Group indices by value and merge the Kadane segments that $x$ used to split, then take the best over all choices of $x$ (including deleting nothing).
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

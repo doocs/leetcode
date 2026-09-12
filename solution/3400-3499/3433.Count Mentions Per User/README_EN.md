@@ -128,6 +128,18 @@ tags:
 
 ### Solution 1: Sorting + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Events are timestamped, and an offline user is invisible to HERE for $60$ seconds. Processing in input order can apply a MESSAGE before the same-time OFFLINE.
+>
+> Sort by time, and on ties put OFFLINE before MESSAGE, then update by type.
+>
+> $\textit{online\_t}[i]$ is when user $i$ comes back. ALL increments a lazy counter applied to everyone at the end; HERE scans users already online; named mentions add one directly.
+
+<!-- thinking:end -->
+
 We sort the events in ascending order of timestamps. If the timestamps are the same, we place OFFLINE events before MESSAGE events.
 
 Then we simulate the occurrence of events, using the `online_t` array to record the next online time for each user and a variable `lazy` to record the number of mentions that need to be applied to all users.

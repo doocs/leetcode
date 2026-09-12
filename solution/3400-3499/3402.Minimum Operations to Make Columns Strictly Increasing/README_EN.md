@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Column-wise Calculation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only increase cells, and columns are independent. Searching over every feasible final value in a column is unnecessary: a single pass over the grid already fits the size.
+>
+> Strict increase raises the lower bound for later cells. Once a cell is forced up, every subsequent cell in that column inherits a higher floor.
+>
+> We therefore scan each column from top to bottom, keeping the previous final value $\textit{pre}$. If the current value already exceeds $\textit{pre}$, we keep it; otherwise we raise it to $\textit{pre}+1$ and add the gap to the answer. This assigns the minimum increment per column independently.
+
+<!-- thinking:end -->
+
 We can traverse the matrix column by column. For each column, we calculate the minimum number of operations required to make it strictly increasing. Specifically, for each column, we maintain a variable $\textit{pre}$ to represent the value of the previous element in the current column. Then, we traverse the current column from top to bottom. For the current element $\textit{cur}$, if $\textit{pre} < \textit{cur}$, it means the current element is already greater than the previous element, so we only need to update $\textit{pre} = \textit{cur}$. Otherwise, we need to increase the current element to $\textit{pre} + 1$ and add the number of increases to the answer.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix $\textit{grid}$, respectively. The space complexity is $O(1)$.

@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Without rearranging, the cost is the sum of absolute differences at each index. Rearranging costs $k$ first, after which $\textit{arr}$ may be matched to $\textit{brr}$ arbitrarily.
+>
+> Searching permutations is impossible for $n\le 10^5$. Sorting both arrays and pairing them in order minimizes $\sum|a_i-b_i|$.
+>
+> We compute $c_1$ with no split, and $c_2=k$ plus the sorted pairing, then take the minimum. A partial rearrangement cannot beat “no rearrange” or “pay $k$ and fully rearrange”.
+
+<!-- thinking:end -->
+
 If splitting the array is not allowed, we can directly calculate the sum of absolute differences between the two arrays as the total cost $c_1$. If splitting is allowed, we can divide the array $\textit{arr}$ into $n$ subarrays of length 1, then rearrange them in any order, and compare with array $\textit{brr}$, calculating the sum of absolute differences as the total cost $c_2$. To minimize $c_2$, we can sort both arrays and then calculate the sum of absolute differences. The final result is $\min(c_1, c_2 + k)$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{arr}$.

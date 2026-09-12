@@ -106,6 +106,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, only one meeting may move, and it must fit into an existing gap. $n\le 10^5$ needs a linear pass.
+>
+> Sliding meeting $i$ inside its own neighborhood yields free time $r_i-l_i-w_i$. If the whole block fits in some gap strictly to the left or right, the interval $[l_i,r_i]$ becomes free.
+>
+> Prefix and suffix maxima $\textit{pre}[i]$, $\textit{suf}[i]$ store the largest gap on each side. For each $i$ we take $r_i-l_i$ when a move is possible, otherwise $r_i-l_i-w_i$.
+
+<!-- thinking:end -->
+
 According to the problem description, for meeting $i$, let $l_i$ be the non-free position to its left, $r_i$ be the non-free position to its right, and let the duration of meeting $i$ be $w_i = \text{endTime}[i] - \text{startTime}[i]$. Then:
 
 $$

@@ -105,6 +105,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every node must be able to reach $0$, each node may keep at most $\textit{threshold}$ outgoing edges, and the maximum kept weight should be minimized. $n\le 10^5$ forbids enumerating subsets of edges.
+>
+> Minimizing a maximum calls for binary search. For a candidate $x$ we keep only edges of weight $\le x$ and ask whether some subgraph with the degree cap still lets every node reach $0$.
+>
+> Reverse the edges and BFS/DFS from $0$, giving each node at most $\textit{threshold}$ incoming reversed edges. If every node is reached, $x$ is feasible; we binary-search the smallest such $x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

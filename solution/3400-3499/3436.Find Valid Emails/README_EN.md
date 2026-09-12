@@ -92,6 +92,18 @@ Each row contains a user&#39;s unique ID and email address.
 
 ### Solution 1: Regular Expression
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement fixes the email shape: the local part is alphanumerics and underscores; the domain starts with a letter and ends with `.com`. Manual splits miss edge cases.
+>
+> A fully anchored regular expression enforces both ends and the character classes at once.
+>
+> We keep rows matching `^[A-Za-z0-9_]+@[A-Za-z][A-Za-z0-9]*\.com$` and sort by $\textit{user\_id}$.
+
+<!-- thinking:end -->
+
 We can use a regular expression with `REGEXP` to match valid email addresses.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the input string.

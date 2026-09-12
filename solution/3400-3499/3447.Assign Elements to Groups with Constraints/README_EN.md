@@ -96,6 +96,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $\textit{groups}[i]$ wants the smallest index $j$ such that $\textit{elements}[j]$ divides it. Scanning every element per group is too slow for $n,m\le 10^5$.
+>
+> Values are at most $10^5$. Marking multiples from each factor, sieve-style, touches each integer a harmonic number of times.
+>
+> From left to right, an unmarked $x$ writes its index onto $x,2x,\ldots\le M$. The answer for a group is $\textit{d}[\textit{groups}[i]]$. Later duplicates of $x$ are skipped so a larger index cannot overwrite.
+
+<!-- thinking:end -->
+
 First, we find the maximum value in the array $\textit{groups}$, denoted as $\textit{mx}$. We use an array $\textit{d}$ to record the index corresponding to each element. Initially, $\textit{d}[x] = -1$ indicates that the element $x$ has not been assigned yet.
 
 Then, we traverse the array $\textit{elements}$. For each element $x$, if $x > \textit{mx}$ or $\textit{d}[x] \neq -1$, it means that the element $x$ cannot be assigned or has already been assigned, so we skip it directly. Otherwise, starting from $x$, we increment by $x$ each time and set $\textit{d}[y]$ to $j$, indicating that the element $y$ is assigned to the index $j$.

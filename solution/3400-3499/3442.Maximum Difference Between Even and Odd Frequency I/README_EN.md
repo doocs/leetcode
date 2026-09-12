@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the largest odd frequency minus the smallest even frequency. A single count over lowercase letters suffices.
+>
+> The statement is about the whole string, not a substring.
+>
+> Scan a counter, take the max odd and the min even, and return their difference.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $\textit{cnt}$ to record the occurrences of each character in the string $s$. Then, we traverse $\textit{cnt}$ to find the maximum frequency $a$ of characters that appear an odd number of times and the minimum frequency $b$ of characters that appear an even number of times. Finally, we return $a - b$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.

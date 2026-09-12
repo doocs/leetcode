@@ -90,6 +90,18 @@ tags:
 
 ### Solution 1: Hash Table + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two nodes are adjacent iff their property sets share at least $k$ values. $n,m\le 100$, so we build the graph and count components.
+>
+> Lists may repeat; converting to sets keeps the intersection from being over-counted.
+>
+> Compare every pair, add undirected edges, and DFS/BFS to count components.
+
+<!-- thinking:end -->
+
 We first convert each attribute array into a hash table and store them in a hash table array $\textit{ss}$. We define a graph $\textit{g}$, where $\textit{g}[i]$ stores the indices of attribute arrays that are connected to $\textit{properties}[i]$.
 
 Then, we iterate through all attribute hash tables. For each pair of attribute hash tables $(i, j)$ where $j < i$, we check whether the number of common elements between them is at least $k$. If so, we add an edge from $i$ to $j$ in the graph $\textit{g}$, as well as an edge from $j$ to $i$.

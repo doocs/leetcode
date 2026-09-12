@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid pair uses two distinct digits whose global frequencies equal the digits themselves. $|s|\le 100$, so a count plus one adjacent scan is enough.
+>
+> Counting while scanning would miss occurrences to the right of the pair.
+>
+> We fill a length-$10$ frequency array first, then return the leftmost adjacent pair with $x\neq y$, $cnt[x]=x$ and $cnt[y]=y$.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{cnt}$ of length $10$ to record the occurrences of each digit in the string $\textit{s}$.
 
 Then, we traverse the adjacent digit pairs in the string $\textit{s}$. If the two digits are not equal and the occurrences of these two digits are equal to the digits themselves, we have found a valid pair of adjacent digits and return it.

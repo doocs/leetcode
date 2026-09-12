@@ -94,6 +94,18 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array contains only $1,2,3$, and adjacent swaps are gated by $\textit{locked}$. Simulating every inversion is impossible for $n\le 10^5$.
+>
+> Only $1$ with $2$ and $2$ with $3$ can pass. A $3$ can never pass a $1$, so a $3$ appearing before some $1$ is impossible.
+>
+> The indices that must be unlocked are the still-locked positions in $[\textit{first2},\textit{last1})$ and $[\textit{first3},\textit{last2})$. One scan records the four endpoints and counts them.
+
+<!-- thinking:end -->
+
 According to the problem description, to make $\textit{nums}$ a sortable array, the position of the number $3$ must be after the position of the number $1$. If the position of the number $3$ is before the position of the number $1$, no matter how we swap, the number $3$ cannot reach the position of the number $1$, so it is impossible to make $\textit{nums}$ a sortable array.
 
 We use $\textit{first2}$ and $\textit{first3}$ to represent the first occurrence positions of the numbers $2$ and $3$, and $\textit{last1}$ and $\textit{last2}$ to represent the last occurrence positions of the numbers $1$ and $2$.

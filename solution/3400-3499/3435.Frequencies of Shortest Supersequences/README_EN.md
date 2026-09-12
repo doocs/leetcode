@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word has length $2$ and uses at most $16$ letters. A shortest common supersequence's frequencies are $1$ or $2$ per letter and must cover every length-$2$ constraint.
+>
+> Letters are vertices and words are directed edges. Letters on a cycle must appear twice; on a DAG once is enough and the length follows the longest chain.
+>
+> With at most $16$ vertices we enumerate which letters are doubled (a feedback vertex set), check that the rest is a DAG, and collect frequency arrays of all shortest supersequences.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

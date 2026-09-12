@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: String Matching
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $p$ contains a single $*$, and both strings are at most length $50$, so even backtracking would pass. We only need the literal pieces on both sides of the star to appear in order in $s$, with any (possibly empty) gap between them.
+>
+> Matching $p$ as a regex against the entire $s$ would confuse “substring” with “whole-string match”. The star-expanded pattern only has to be some substring of $s$.
+>
+> We therefore split $p$ on $*$, then $\textit{find}$ each literal from left to right, moving the start pointer forward only. If any piece is missing, the answer is false.
+
+<!-- thinking:end -->
+
 According to the problem description, `*` can be replaced by any sequence of zero or more characters, so we can split the pattern string $p$ by `*` into several substrings. If these substrings appear in order in the string $s$, then $p$ can become a substring of $s$.
 
 Therefore, we first initialize a pointer $i$ to the start of string $s$, then iterate over each substring $t$ obtained by splitting the pattern string $p$ by `*`. For each $t$, we search for it in $s$ starting from position $i$. If it is found, we move the pointer $i$ to the end of $t$ and continue searching for the next substring. If it is not found, it means the pattern string $p$ cannot become a substring of $s$, and we return $\text{false}$. If all substrings are found, we return $\text{true}$.

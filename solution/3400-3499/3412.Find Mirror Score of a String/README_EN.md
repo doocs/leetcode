@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An unmarked character pairs with the nearest unmarked mirror to its left; the score is the index gap. A leftward scan at every position is quadratic for $n\le 10^5$.
+>
+> Mirroring is an involution. Pairing with the closest unused mirror is exactly a pop from a per-character stack.
+>
+> We keep a stack of unused indices for each letter. On seeing $x$, if the stack of its mirror $y$ is nonempty we pop $j$ and add $i-j$; otherwise we push $i$ onto the stack of $x$.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{d}$ to store the index list of each unmarked character, where the key is the character and the value is the list of indices.
 
 We traverse the string $\textit{s}$, and for each character $\textit{x}$, we find its mirror character $\textit{y}$. If $\textit{d}$ contains $\textit{y}$, we take out the index list $\textit{ls}$ corresponding to $\textit{y}$, take out the last element $\textit{j}$ from $\textit{ls}$, and remove $\textit{j}$ from $\textit{ls}$. If $\textit{ls}$ becomes empty, we remove $\textit{y}$ from $\textit{d}$. At this point, we have found a pair of indices $(\textit{j}, \textit{i})$ that meet the condition, and we add $\textit{i} - \textit{j}$ to the answer. Otherwise, we add $\textit{x}$ to $\textit{d}$.

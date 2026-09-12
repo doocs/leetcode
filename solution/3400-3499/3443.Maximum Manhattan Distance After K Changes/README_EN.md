@@ -117,6 +117,18 @@ The <strong>Manhattan Distance</strong> between two cells <code>(x<sub>i</sub>, 
 
 ### Solution 1: Enumeration + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may change at most $k$ steps and want the maximum Manhattan distance of any prefix. Searching which steps to change is exponential.
+>
+> The distance is governed by a dominant quadrant. After fixing one of the four diagonal targets, steps already toward it add one; other steps are rewritten while $k$ remains, then subtract.
+>
+> We run that greedy for $\textit{SE}/\textit{SW}/\textit{NE}/\textit{NW}$ and keep the best $\textit{mx}$ seen along the way.
+
+<!-- thinking:end -->
+
 We can enumerate four cases: $\textit{SE}$, $\textit{SW}$, $\textit{NE}$, and $\textit{NW}$, and then calculate the maximum Manhattan distance for each case.
 
 We define a function $\text{calc}(a, b)$ to calculate the maximum Manhattan distance when the effective directions are $\textit{a}$ and $\textit{b}$.

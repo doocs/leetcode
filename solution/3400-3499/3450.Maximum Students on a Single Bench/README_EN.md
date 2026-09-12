@@ -102,6 +102,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A student may appear several times on the same bench; we want the maximum number of distinct students. There are at most $100$ rows.
+>
+> A set deduplicates more directly than sorting and counting.
+>
+> A hash map from bench id to a set of student ids, then the maximum set size, or $0$ on empty input.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to store the students on each bench, where the key is the bench number and the value is a set containing the student IDs on that bench.
 
 Traverse the student array $\textit{students}$ and store the student IDs and bench numbers in the hash table $d$.

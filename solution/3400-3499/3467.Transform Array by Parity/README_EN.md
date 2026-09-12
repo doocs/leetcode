@@ -77,6 +77,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Evens become $0$, odds become $1$, then the array is sorted non-decreasing. That is just all zeros in front. $n\le 100$, so a count suffices.
+>
+> No sort is required: the even count $\textit{even}$ is the length of the zero prefix.
+>
+> Count evens in one pass and write the two segments back.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums}$ and count the number of even elements $\textit{even}$. Then, we set the first $\textit{even}$ elements of the array to $0$ and the remaining elements to $1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

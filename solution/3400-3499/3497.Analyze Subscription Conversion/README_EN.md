@@ -142,6 +142,18 @@ Each row represents a user&#39;s activity on a specific date.
 
 ### Solution 1: Grouping + Conditional Filtering + Equi-Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need users who have both a trial and a paid activity, with the mean duration of each. Cancelled rows are ignored.
+>
+> Drop $\textit{cancelled}$, average by user and type, and inner-join so both sides exist.
+>
+> A tiny increment before rounding to two decimals avoids float-edge cases; then sort by $\textit{user\_id}$.
+
+<!-- thinking:end -->
+
 First, we filter the data in the table to exclude all records where `activity_type` is equal to `cancelled`. Then, we group the remaining data by `user_id` and `activity_type`, calculate the duration `duration` for each group, and store the results in table `T`.
 
 Next, we filter table `T` to extract records where `activity_type` is `free_trial` and `paid`, storing them in tables `F` and `P`, respectively. Finally, we perform an equi-join on these two tables using `user_id`, filter the required fields as per the problem statement, and sort the results to produce the final output.

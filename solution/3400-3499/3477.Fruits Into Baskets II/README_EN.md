@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each fruit goes into the leftmost unused basket that can hold it. The limits allow a scan of every basket per fruit.
+>
+> Used baskets must be marked, or the same basket would be reused.
+>
+> A boolean array $\textit{vis}$ records occupancy. Fruits and baskets are both tried from the left; a miss increments the unplaced count.
+
+<!-- thinking:end -->
+
 We use a boolean array $\textit{vis}$ of length $n$ to record the baskets that have already been used, and a variable $\textit{ans}$ to record the number of fruits that have not been placed, initially $\textit{ans} = n$.
 
 Next, we traverse each fruit $x$. For the current fruit, we traverse all the baskets to find the first unused basket $i$ with a capacity greater than or equal to $x$. If found, we decrement $\textit{ans}$ by $1$.

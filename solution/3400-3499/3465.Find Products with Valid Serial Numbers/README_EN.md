@@ -96,6 +96,18 @@ Each row in the table represents a product with its unique ID, name, and descrip
 
 ### Solution 1: Regex Matching
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A description must contain a serial of the form $\textit{SN}$, four digits, a hyphen, and four more digits. A raw substring search can glue that pattern to neighboring alphanumerics.
+>
+> Word boundaries $\b$ keep the serial a standalone token.
+>
+> Filter with `\bSN[0-9]{4}-[0-9]{4}\b` and sort by $\textit{product\_id}$.
+
+<!-- thinking:end -->
+
 According to the problem statement, we need to find all products that contain a valid serial number, and the rules for a valid serial number are:
 
 - Starts with `SN` (case-sensitive).

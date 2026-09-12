@@ -61,6 +61,18 @@ tags:
 
 ### Solution 1: Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need permutations of $1..n$ whose adjacent values have opposite parity. $n\le 10$ makes a full search feasible if same-parity prefixes are pruned.
+>
+> Backtracking fills positions and a visit array keeps each number unique.
+>
+> A candidate is skipped when it shares parity with the last chosen value. The first position has no predecessor. A copy is stored at $i=n$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$, which represents filling the $i$-th position, with position indices starting from $0$.
 
 In $\textit{dfs}(i)$, if $i \geq n$, it means all positions have been filled, and we add the current permutation to the answer array.

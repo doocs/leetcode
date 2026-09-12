@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation rewrites a subarray to $k$; we want the maximum frequency of $k$ afterwards. $n\le 10^5$ but values are at most $50$.
+>
+> The new frequency is the original count of $k$ plus how many non-$k$ cells in the subarray become $k$. That is a Kadane problem on a $+1/-1$ encoding.
+>
+> For each original value $x\neq k$, run maximum subarray on $+1$ for $x$ and $-1$ for $k$, then add the global count of $k$. The tiny alphabet makes $O(50n)$ acceptable.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

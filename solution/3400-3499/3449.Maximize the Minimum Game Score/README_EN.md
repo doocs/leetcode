@@ -143,6 +143,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk back and forth for $m$ steps on a line; visiting $i$ adds $\textit{points}[i]$. Maximize the minimum score. $m$ can be $10^9$, so steps cannot be simulated.
+>
+> Maximizing a minimum is a binary search. Feasibility for $x$ means point $i$ is visited at least $\lceil x/\textit{points}[i]\rceil$ times.
+>
+> A left-to-right greedy covers leftover visits by walking to the point and turning back, accumulating extra steps, then compares with $m$. The smallest feasible $x$ is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -75,6 +75,18 @@ spreadsheet.getValue(&quot;=A1+B2&quot;); // returns 15 (0+15)</div>
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells are addressed by reference; a formula is always $=X+Y$ with references or integers. $10^4$ calls fit a hash map; a full grid is unnecessary.
+>
+> A missing reference is $0$; reset deletes the key.
+>
+> $\textit{getValue}$ strips the equals sign and splits on $+$: a digit token is parsed, a reference uses $\textit{d.get}(\textit{cell},0)$.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{d}$ to record the values of all cells, where the key is the cell reference and the value is the cell's value.
 
 When calling the `setCell` method, we store the cell reference and value in the hash table.

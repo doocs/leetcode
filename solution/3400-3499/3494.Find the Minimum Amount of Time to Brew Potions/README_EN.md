@@ -128,6 +128,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Wizards brew in a pipeline; a potion is handed on immediately. $n,m\le 5000$. The state is each wizard’s finish time for the previous potion.
+>
+> The current potion cannot start before this wizard finished the last one, nor before the previous wizard finished this one. A forward scan yields the bottle’s completion time.
+>
+> No idle gaps means finish times roll back from the last wizard: $f[i]=f[i+1]-\textit{skill}[i+1]\cdot x$. After every bottle, $f[n-1]$ is the answer.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the time when wizard $i$ completes the previous potion.
 
 For the current potion $x$, we need to calculate the completion time for each wizard. Let $\textit{tot}$ represent the completion time of the current potion, initially $\textit{tot} = 0$.

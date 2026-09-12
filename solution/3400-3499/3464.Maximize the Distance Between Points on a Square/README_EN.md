@@ -99,6 +99,18 @@ tags:
 
 ### Solution 1: Binary Search + Coordinate Mapping + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick $k$ points on the square boundary and maximize the minimum adjacent arc, including the wrap-around. The side is huge, there are at most $1.5\times 10^4$ points, and $k\le 25$.
+>
+> Maximizing a minimum is a binary search. Unfolding the boundary to a circle of length $4\cdot\textit{side}$ turns distances into one-dimensional gaps.
+>
+> For a candidate $\textit{lo}$ we try each start and greedily jump $k-1$ times by binary search, keeping the last point at most $\textit{start}+4\textit{side}-\textit{lo}$ so the cycle closes. Feasibility raises $\textit{lo}$.
+
+<!-- thinking:end -->
+
 Since the problem asks to maximize the minimum distance, we can use binary search on the answer to find the optimal solution.
 
 First, to simplify the logic, we map the 2D coordinates $(x, y)$ on the square's boundary to a 1D axis $[0, 4 \times \text{side})$. The mapping rules are as follows:

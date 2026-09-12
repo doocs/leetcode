@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1: Simulation + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10$ and each diagonal is independent. The lower triangle including the main diagonal is non-increasing; the upper triangle is non-decreasing.
+>
+> Collect, sort, and write back; no heavier structure is required.
+>
+> We extract each lower diagonal, sort, and pop largest-first; the upper diagonals are symmetric. The main diagonal is covered by the first loop.
+
+<!-- thinking:end -->
+
 We can simulate the diagonal sorting process as described in the problem.
 
 First, we sort the diagonals of the lower-left triangle, including the main diagonal, in non-increasing order. Then, we sort the diagonals of the upper-right triangle in non-decreasing order. Finally, we return the sorted matrix.

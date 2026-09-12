@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good number is strictly larger than the neighbors $k$ away, when they exist. $n\le 100$, so we test each index.
+>
+> A missing side imposes no constraint and must not be treated as $0$.
+>
+> Skip $i$ when a left neighbor exists and $x\le \textit{nums}[i-k]$, or a right neighbor exists and $x\le \textit{nums}[i+k]$; otherwise add $x$.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums}$ and check each element $\textit{nums}[i]$ to see if it meets the conditions:
 
 - If $i \ge k$ and $\textit{nums}[i] \le \textit{nums}[i - k]$, then $\textit{nums}[i]$ is not a good number.

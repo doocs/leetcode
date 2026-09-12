@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count length-$5$ subsequences whose middle value is a unique mode. $n\le 10^5$ rules out enumerating $C(n,5)$.
+>
+> The middle of the five positions must occur strictly more often than every other value. Fixing the center index $i$ reduces the task to choosing two indices on each side.
+>
+> Frequency maps on the left and right classify cases by how often the center value appears ($3/4/5$) and whether another value ties it. Inclusion or a complement subtracts the invalid ones. A single scan of $i$ keeps the cost near linearithmic.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

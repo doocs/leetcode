@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The deck has $n^2$ cells, one box per cell, each of weight $w$, under a total cap $\textit{maxWeight}$.
+>
+> The count is limited by both cells and weight, hence $\min(n^2,\lfloor \textit{maxWeight}/w\rfloor)=\lfloor\min(n^2 w,\textit{maxWeight})/w\rfloor$.
+>
+> A constant-time min and integer division suffice; no loading simulation is required.
+
+<!-- thinking:end -->
+
 First, we calculate the maximum weight the boat can carry, which is $n \times n \times w$. Then, we take the minimum of this value and $\text{maxWeight}$, and divide it by $w$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Sweep Line
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We still bisect area, but squares may overlap, so summing clipped areas double-counts. The area bound rises to $10^{15}$.
+>
+> The union area needs a sweep line: horizontal edges sorted by $y$, and a segment tree of covered $x$-length.
+>
+> Each slab between consecutive sweep lines contributes height times the covered length. We then search those slabs for the height where the prefix union reaches half.
+
+<!-- thinking:end -->
+
 This problem can be solved using the sweep line algorithm to calculate the total area of all squares.
 
 We treat the top and bottom boundaries of each square as event points for the sweep line, sorted by $y$ coordinate in ascending order. For each event point, we use a segment tree to maintain the length of the covered $x$-axis interval below the current sweep line, allowing us to calculate the area increment between the current sweep line and the previous one.

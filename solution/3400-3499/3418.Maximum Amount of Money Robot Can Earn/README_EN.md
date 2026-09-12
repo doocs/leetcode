@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The robot walks from the top-left to the bottom-right, moving only right or down, and may neutralize at most two robberies (treat a negative cell as $0$). A $500\times 500$ grid times three remaining chances is small enough for memoization.
+>
+> A path DP that ignores how many neutralizations remain would mix optima that are not comparable.
+>
+> State $(i,j,k)$ is the best profit from that cell with $k$ chances left. We add the cell and move down or right; if the cell is negative and $k>0$, we may skip its value and spend one chance. At the sink we clamp a negative cell to $0$ only when a chance remains.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, j, k)$, which represents the maximum amount of coins the robot can collect starting from $(i, j)$ with $k$ conversion opportunities left. The robot can only move right or down, so the value of $\textit{dfs}(i, j, k)$ depends only on $\textit{dfs}(i + 1, j, k)$ and $\textit{dfs}(i, j + 1, k)$.
 
 - If $i \geq m$ or $j \geq n$, it means the robot has moved out of the grid, so we return a very small value.

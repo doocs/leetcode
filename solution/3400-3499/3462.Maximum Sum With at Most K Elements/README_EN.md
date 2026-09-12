@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Greedy + Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row may contribute at most $\textit{limits}[i]$ entries, and we take at most $k$ in total. The largest admissible cells should be chosen.
+>
+> Sort each row, keep its $\textit{limit}$ largest values, then pick the $k$ largest among those candidates.
+>
+> A min-heap of size $k$ receives the row candidates from large to small and evicts the smallest when it overflows. The heap sum is the answer.
+
+<!-- thinking:end -->
+
 We can use a priority queue (min-heap) $\textit{pq}$ to maintain the largest $k$ elements.
 
 Traverse each row, sort the elements in each row, and then take the largest $\textit{limit}$ elements from each row and add them to $\textit{pq}$. If the size of $\textit{pq}$ exceeds $k$, pop the top element of the heap.

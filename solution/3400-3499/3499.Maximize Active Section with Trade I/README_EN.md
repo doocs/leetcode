@@ -114,6 +114,18 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One trade flips the $0$-runs on both sides of a $1$-run to $1$. The gain is the sum of those two $0$-runs, plus every original $1$. $n\le 10^5$, so we scan runs.
+>
+> Non-adjacent $0$-runs cannot be merged by a single trade, so only neighboring $0$-pairs matter.
+>
+> Two pointers cut runs: $1$-runs add to the base answer; neighboring $0$-runs update $\textit{mx}$ by $\textit{pre}+\textit{cur}$. The answer is the number of $1$s plus $\textit{mx}$.
+
+<!-- thinking:end -->
+
 The problem is essentially equivalent to finding the number of `'1'` characters in the string $\textit{s}$, plus the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments.
 
 Thus, we can use two pointers to traverse the string $\textit{s}$. Use a variable $\textit{mx}$ to record the maximum number of `'0'` characters in two adjacent consecutive `'0'` segments. We also need a variable $\textit{pre}$ to record the number of `'0'` characters in the previous consecutive `'0'` segment.

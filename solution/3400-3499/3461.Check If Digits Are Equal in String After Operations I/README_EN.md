@@ -96,6 +96,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step replaces the string by adjacent sums modulo $10$ until two digits remain. $n\le 100$ makes an $O(n^2)$ simulation fine.
+>
+> History strings are unnecessary: write $(t[i]+t[i+1])\bmod 10$ in place while the length drops from $n-1$ to $2$.
+>
+> Compare $t[0]$ with $t[1]$ at the end.
+
+<!-- thinking:end -->
+
 We can simulate the operations described in the problem until the string $s$ contains exactly two digits, and then check if these two digits are the same.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.

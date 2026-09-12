@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Sorting + Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each $i$ we pick at most $k$ values $\textit{nums2}[j]$ among indices with $\textit{nums1}[j]<\textit{nums1}[i]$. $n\le 10^5$ forbids a fresh filter per $i$.
+>
+> After sorting by $\textit{nums1}$, the eligible $j$ only grow, so a min-heap of size $k$ can keep the current top-$k$ sum.
+>
+> Pointer $j$ pushes $\textit{nums2}$ of strictly smaller $\textit{nums1}$ keys; overflow pops the heap minimum. The heap sum is the answer at that $i$.
+
+<!-- thinking:end -->
+
 We can convert the array $\textit{nums1}$ into an array $\textit{arr}$, where each element is a tuple $(x, i)$, representing the value $x$ at index $i$ in $\textit{nums1}$. Then, we sort the array $\textit{arr}$ in ascending order by $x$.
 
 We use a min-heap $\textit{pq}$ to maintain the elements from the array $\textit{nums2}$. Initially, $\textit{pq}$ is empty. We use a variable $\textit{s}$ to record the sum of the elements in $\textit{pq}$. Additionally, we use a pointer $j$ to maintain the current position in the array $\textit{arr}$ that needs to be added to $\textit{pq}$.

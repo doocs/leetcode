@@ -116,6 +116,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s[i]=\texttt{T}$ forces $ans[i..i+m)=t$; $\texttt{F}$ forbids equality. The string has length $n+m-1$ and should be lexicographically smallest, so we start from all $\texttt{a}$.
+>
+> T-constraints may conflict and must be written first, marking $\textit{fixed}$. An F-constraint that still equals $t$ must flip one unfixed cell.
+>
+> We change the rightmost unfixed cell to $\texttt{b}$ to keep earlier $\texttt{a}$s. If no unfixed cell exists, the instance is impossible.
+
+<!-- thinking:end -->
+
 Let $str1$ be $s$ and $str2$ be $t$.
 
 We can use a string $ans$ of length $n + m - 1$ to store the generated string, where each character of $ans$ is initially set to $'a'$. We also need a boolean array $fixed$ of length $n + m - 1$ to record which positions in $ans$ have already been fixed.
