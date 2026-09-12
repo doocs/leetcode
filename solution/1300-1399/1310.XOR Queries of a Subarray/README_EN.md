@@ -70,6 +70,14 @@ The XOR values for queries are:
 
 ### Solution 1: Prefix XOR
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for a range XOR. XORing from $l$ to $r$ on the fly is quadratic in the number of queries. Because $x \oplus x = 0$, a prefix $s[i]=\textit{arr}[0]\oplus\cdots\oplus\textit{arr}[i-1]$ yields $[l,r]$ as $s[r+1]\oplus s[l]$. One linear build, then $O(1)$ per query.
+
+<!-- thinking:end -->
+
 We can use a prefix XOR array $s$ of length $n+1$ to store the prefix XOR results of the array $\textit{arr}$, where $s[i] = s[i-1] \oplus \textit{arr}[i-1]$. That is, $s[i]$ represents the XOR result of the first $i$ elements of $\textit{arr}$.
 
 For a query $[l, r]$, we can obtain:

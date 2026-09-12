@@ -97,6 +97,14 @@ Scores表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一性别下按日期的累计得分，若对每个 $(\textit{gender},\textit{day})$ 再扫一遍历史行，会重复聚合。窗口 $\mathrm{SUM}$ 按性别分区、按日期排序后，当前行之前（含自身）的得分会自动累加，一次扫描即可得到 $\textit{total}$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

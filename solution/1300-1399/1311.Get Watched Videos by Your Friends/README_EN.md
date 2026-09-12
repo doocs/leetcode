@@ -77,6 +77,16 @@ You have id = 0 (green color in the figure) and the only friend of your friends 
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need videos watched by friends exactly $\textit{level}$ hops away, ordered by frequency then name. Unbounded DFS does not stop on a precise layer and revisits people. $\textit{level}$ rounds of BFS from $\textit{id}$ leave exactly that layer in the queue.
+>
+> A counter tallies their videos; sorting by $(\textit{cnt}[v], v)$ produces the names. A visited set keeps a person from entering more than once.
+
+<!-- thinking:end -->
+
 We can use the Breadth-First Search (BFS) method to start from $\textit{id}$ and find all friends at a distance of $\textit{level}$, then count the videos watched by these friends.
 
 Specifically, we can use a queue $\textit{q}$ to store the friends at the current level. Initially, add $\textit{id}$ to the queue $\textit{q}$. Use a hash table or a boolean array $\textit{vis}$ to record the friends that have already been visited. Then, perform $\textit{level}$ iterations, in each iteration dequeue all friends from the queue and enqueue their friends until all friends at distance $\textit{level}$ are found.

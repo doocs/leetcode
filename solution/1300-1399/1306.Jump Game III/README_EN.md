@@ -71,6 +71,16 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $\textit{start}$ we jump to $i \pm \textit{arr}[i]$ and ask whether a $0$ is reachable. With $n \le 5 \times 10^4$, revisiting the same index loops forever. Each index needs to enter the queue at most once.
+>
+> The search is ordinary BFS on that graph: a dequeued $0$ succeeds; otherwise we mark the cell visited (write $-1$) and enqueue the two in-range, unvisited jumps. The mark is the prune that keeps the work $O(n)$.
+
+<!-- thinking:end -->
+
 We can use BFS to determine whether we can reach the index with a value of $0$.
 
 Define a queue $q$ to store the currently reachable indices. Initially, enqueue the $start$ index.

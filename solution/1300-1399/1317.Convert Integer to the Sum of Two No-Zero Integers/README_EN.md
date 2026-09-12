@@ -64,6 +64,14 @@ Note that there are other valid answers as [8, 3] that can be accepted.
 
 ### Solution 1: Direct Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For $n \le 10^4$ a split $a+b=n$ with no zero digits always exists. Increment $a$ from $1$, set $b=n-a$, and test the concatenation of their decimal forms for a `'0'`. The first hit is a valid pair.
+
+<!-- thinking:end -->
+
 Starting from $1$, we enumerate $a$, then $b = n - a$. For each $a$ and $b$, we convert them to strings and concatenate them, then check if they contain the character '0'. If they do not contain '0', we have found the answer and return $[a, b]$.
 
 The time complexity is $O(n \times \log n)$, where $n$ is the integer given in the problem. The space complexity is $O(\log n)$.
@@ -161,6 +169,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Direct Enumeration (Alternative Approach)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first method builds a string to detect a zero. Checking remainders while dividing $a$ and $b$ by ten avoids that allocation; extra space is constant and the enumeration order is unchanged.
+
+<!-- thinking:end -->
 
 In Solution 1, we converted $a$ and $b$ into strings and concatenated them, then checked if they contained the character '0'. Here, we can use a function $f(x)$ to check whether $x$ contains the character '0', and then directly enumerate $a$, checking whether both $a$ and $b = n - a$ do not contain the character '0'. If they do not, we have found the answer and return $[a, b]$.
 

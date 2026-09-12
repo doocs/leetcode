@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mapping has two widths: a single digit for $1$–$9$, and three characters with `#` for $10$–$26$. Reading every token as one digit splits `10#` incorrectly. At each index we look two steps ahead: a `#` consumes two digits, otherwise one digit, and the cursor advances by $3$ or $1$.
+
+<!-- thinking:end -->
+
 We can directly simulate the process.
 
 Traverse the string $s$. For the current index $i$, if $i + 2 < n$ and $s[i + 2]$ is `#`, then convert the substring formed by $s[i]$ and $s[i + 1]$ to an integer, add the ASCII value of `a` minus 1, convert it to a character, add it to the result array, and increment $i$ by 3. Otherwise, convert $s[i]$ to an integer, add the ASCII value of `a` minus 1, convert it to a character, add it to the result array, and increment $i$ by 1.
