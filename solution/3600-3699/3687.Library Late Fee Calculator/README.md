@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3687.Library%20Late%20Fee%20Calculator/README.md
 tags:
     - 数组
     - 模拟
