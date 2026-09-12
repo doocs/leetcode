@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2754.Bind%20Function%20to%20Context/README_EN.md
 tags:
     - JavaScript
 ---
