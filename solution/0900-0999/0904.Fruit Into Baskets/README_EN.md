@@ -73,6 +73,16 @@ If we had started at the first tree, we would only pick from trees [1,2].
 
 ### Solution 1: Hash Table + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the longest subarray with at most two fruit types. $n\le 10^5$, so enumerating endpoints and recounting types is too slow. After the right end absorbs a fruit, the left end must move if the window has more than two types.
+>
+> A counter tracks frequencies; the number of keys is the number of types. Shrink from the left while that exceeds $2$, and keep the maximum window length.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to maintain the types and corresponding quantities of fruits in the current window, and use two pointers $j$ and $i$ to maintain the left and right boundaries of the window.
 
 We traverse the $\textit{fruits}$ array, add the current fruit $x$ to the window, i.e., $cnt[x]++$, then judge whether the types of fruits in the current window exceed $2$. If it exceeds $2$, we need to move the left boundary $j$ of the window to the right until the types of fruits in the window do not exceed $2$. Then we update the answer, i.e., $ans = \max(ans, i - j + 1)$.
@@ -275,6 +285,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Monotonic Variable-Length Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 shrinks the window and updates the answer on every step, yet only the maximum length is required, so shorter historical windows can be ignored. Grow the window monotonically: when a third type appears, advance the left end once. The final $n-j$ is the largest feasible window.
+
+<!-- thinking:end -->
 
 In Solution 1, we find that the window size sometimes increases and sometimes decreases, which requires us to update the answer each time.
 

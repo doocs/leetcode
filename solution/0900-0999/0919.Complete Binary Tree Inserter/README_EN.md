@@ -67,6 +67,14 @@ cBTInserter.get_root(); // return [1, 2, 3, 4]
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insertion into a complete binary tree always fills the leftmost vacancy. Searching from the root every time repeats work on already-full nodes. After a BFS stores nodes in an array, heap indexing applies: the parent of a new node is at $(sz-1)//2$. Insert and `get_root` are then constant time.
+
+<!-- thinking:end -->
+
 We can use an array $tree$ to store all nodes of the complete binary tree. During initialization, we use a queue $q$ to perform level-order traversal of the given tree and store all nodes into the array $tree$.
 
 When inserting a node, we can find the parent node $p$ of the new node through the array $tree$. Then we create a new node $node$, insert it into the array $tree$, and make $node$ as the left child or right child of $p$. Finally, we return the value of $p$.

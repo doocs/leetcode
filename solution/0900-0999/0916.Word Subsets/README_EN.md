@@ -73,6 +73,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a$ must cover every word of $words2$. Checking each $b$ against each $a$ works, but the constraints merge: for every letter take the maximum demand over $words2$, then compare that single counter $\textit{cnt}$ with the count of $a$.
+
+<!-- thinking:end -->
+
 Traverse each word `b` in `words2`, count the maximum occurrence of each letter, and record it as `cnt`.
 
 Then traverse each word `a` in `words1`, count the occurrence of each letter, and record it as `t`. If the occurrence of each letter in `cnt` is not greater than the occurrence in `t`, then `a` is a universal word, and add it to the answer.

@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1: Maintain Prefix Maximum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular maximum subarray is either a normal Kadane segment, or the total sum minus a minimum segment that wraps around. One scan maintains the prefix minimum and prefix maximum to obtain both quantities, then returns the larger of $ans$ and $s-smi$.
+
+<!-- thinking:end -->
+
 The maximum sum of a circular subarray can be divided into two cases:
 
 - Case 1: The subarray with the maximum sum does not include the circular part, which is the ordinary maximum subarray sum;

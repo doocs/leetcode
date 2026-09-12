@@ -56,6 +56,16 @@ Sum is 17.
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Summing the minimum of every subarray is quadratic if we enumerate intervals. Switch to contribution: multiply $arr[i]$ by how often it is the minimum.
+>
+> Monotonic stacks find the previous strictly smaller value on the left and the next smaller-or-equal on the right, so equal values are credited once. The product of the two spans is the number of subarrays.
+
+<!-- thinking:end -->
+
 The problem asks for the sum of the minimum values of each subarray, which is equivalent to finding the number of subarrays for which each element $arr[i]$ is the minimum, then multiplying by $arr[i]$, and finally summing these up.
 
 Therefore, the focus of the problem is to find the number of subarrays for which $arr[i]$ is the minimum. For $arr[i]$, we find the first position $left[i]$ to its left that is less than $arr[i]$, and the first position $right[i]$ to its right that is less than or equal to $arr[i]$. The number of subarrays for which $arr[i]$ is the minimum is $(i - left[i]) \times (right[i] - i)$.

@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value may move by at most $k$, and the final score is the gap between the new maximum and minimum. A uniform shift does not change the gap. The best we can do is decrease the max and increase the min, which yields $\max(0,\max(nums)-\min(nums)-2k)$.
+
+<!-- thinking:end -->
+
 According to the problem description, we can subtract $k$ from the maximum value in the array and add $k$ to the minimum value in the array, which can reduce the difference between the maximum and minimum values in the array.
 
 Therefore, the final answer is the larger value between $\max(\textit{nums}) - \min(\textit{nums}) - 2 \times k$ and $0$.

@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 5\times 10^4$ needs an $O(n\log n)$ sort; a naive quadratic pass is too slow. Three-way quicksort partitions around a random pivot into $<$, $=$, and $>$ segments so duplicate keys do not degenerate, then recurses on the two sides.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -324,6 +332,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Quicksort is fast on average but can unbalance and is not stable. Mergesort halves the range and merges in linear time, giving a guaranteed $O(n\log n)$ bound at the cost of a linear buffer.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
