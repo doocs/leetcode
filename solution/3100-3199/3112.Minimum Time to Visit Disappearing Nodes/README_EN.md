@@ -103,6 +103,18 @@ tags:
 
 ### Solution 1: Heap-Optimized Dijkstra
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nodes vanish at given times, so an arrival must be strictly earlier. Searching separately from the source to each node repeats the same relaxations.
+>
+> The problem remains single-source shortest paths with nonnegative weights, plus the extra constraint $dist[u]+w < \textit{disappear}[v]$ when relaxing $v$.
+>
+> Build the undirected graph and run heap Dijkstra from $0$. Keep $dist[i]$ when it is smaller than $\textit{disappear}[i]$, otherwise report $-1$.
+
+<!-- thinking:end -->
+
 First, we create an adjacency list $\textit{g}$ to store the edges of the graph. Then, we create an array $\textit{dist}$ to store the shortest distances from node $0$ to other nodes. Initialize $\textit{dist}[0] = 0$, and the distances for the rest of the nodes are initialized to infinity.
 
 Next, we use the Dijkstra algorithm to calculate the shortest distances from node $0$ to other nodes. The specific steps are as follows:

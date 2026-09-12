@@ -128,6 +128,18 @@ Each row of this table indicates the user_id, membership type.
 
 ### Solution 1: Recursion + Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Friday spend must be reported for every week-of-month and membership, including combinations with no rows. Scanning purchases alone drops those empty groups.
+>
+> Weeks are $1$ through $4$ and memberships are only Premium and VIP, so a recursive CTE plus `UNION` can build the full grid before a left join to actual Friday rows.
+>
+> Build `T`, `M`, and the filtered `P`, cross `T` with `M`, left-join `P`, and sum `amount_spend` by week and membership, replacing nulls with $0$.
+
+<!-- thinking:end -->
+
 First, we create a recursive table `T` that includes a `week_of_month` column, representing the week of the month. Then we create a table `M` that includes a `membership` column, representing the type of membership, with values `'Premium'` and `'VIP'`.
 
 Next, we create a table `P` that includes `week_of_month`, `membership`, and `amount_spend` columns, filtering out the amount spent by each member on Fridays of each week of the month. Finally, we join tables `T` and `M`, then left join table `P`, and group by `week_of_month` and `membership` columns to calculate the total spending of each type of member each week.

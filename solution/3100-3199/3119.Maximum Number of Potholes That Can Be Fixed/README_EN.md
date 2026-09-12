@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Counting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A run of $k$ potholes costs $k+1$ to fix and the budget is limited. Choosing a repair length for every run independently explodes with the number of runs.
+>
+> Longer runs yield more fixed holes per unit leftover. After fixing as many length-$k$ runs as the budget allows, unused runs become length $k-1$ runs.
+>
+> Count runs by length, then from large $k$ downward take $t=\min(\textit{budget}/(k+1),cnt[k])$, add $t\cdot k$ to the answer, and fold the rest into $cnt[k-1]$ until the budget is gone.
+
+<!-- thinking:end -->
+
 First, we count the number of each continuous pothole, recorded in the array $cnt$, i.e., $cnt[k]$ represents there are $cnt[k]$ continuous potholes of length $k$.
 
 Since we want to repair as many potholes as possible, and for a continuous pothole of length $k$, we need to spend a cost of $k + 1$, we should prioritize repairing longer potholes to minimize the cost.

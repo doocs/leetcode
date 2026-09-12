@@ -105,6 +105,18 @@ All of the coins combined produce: 2, 4, 5, 6, 8, 10, <u><strong>12</strong></u>
 
 ### Solution 1: Binary Search + Inclusion-Exclusion Principle
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each amount is a positive multiple of a single coin. Generating multiples in order is impossible: $k$ can be $10^{15}$ and least-common multiples make the sequence huge.
+>
+> The number of valid amounts at most $x$ is monotone in $x$, so binary search the smallest $x$ whose count is at least $k$. The count is inclusion-exclusion over least common multiples of coin subsets.
+>
+> There are at most $15$ coins, so every subset can be enumerated and $\lfloor x/\mathrm{lcm}\rfloor$ accumulated with the proper sign. Searching up to about $10^{11}$ yields the $k$-th amount.
+
+<!-- thinking:end -->
+
 We can transform the problem into: find the smallest positive integer $x$ such that the number of numbers less than or equal to $x$ and satisfying the condition is exactly $k$. If $x$ satisfies the condition, then for any $x' > x$, $x'$ also satisfies the condition. This shows monotonicity, so we can use binary search to find the smallest $x$ that satisfies the condition.
 
 We define a function `check(x)` to determine whether the number of numbers less than or equal to $x$ and satisfying the condition is greater than or equal to $k$. We need to calculate how many numbers can be obtained from the array $coins$.

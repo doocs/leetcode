@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer is the index gap between the leftmost and rightmost primes. Comparing every prime pair only rediscovers those two ends.
+>
+> Primality of a single value is $O(\sqrt{M})$, and both length and magnitude are modest, so locating the two ends is enough.
+>
+> Scan left for the first prime index $i$ and right for the last prime index $j$, then return $j-i$. Interior values never affect the distance.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to find the index $i$ of the first prime number, then find the index $j$ of the last prime number, and return $j - i$ as the answer.
 
 Therefore, we can traverse the array from left to right to find the index $i$ of the first prime number, then traverse the array from right to left to find the index $j$ of the last prime number. The answer is $j - i$.

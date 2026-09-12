@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A character may move around the alphabet ring at a total cost of at most $k$, and the string should become lexicographically smallest. A global search over remaining budget grows with both position and $k$.
+>
+> Lexicographic order is decided from the left, so shrinking a prefix as much as possible never hurts later positions. The cheapest ring distance from $c_1$ to a smaller $c_2$ is $\min(c_1-c_2,\,26-(c_1-c_2))$.
+>
+> From left to right, try letters smaller than the current one and take the cheapest feasible change, then subtract its cost from $k$. The alphabet has size $26$, so the inner enumeration is constant.
+
+<!-- thinking:end -->
+
 We can traverse each position of the string $s$. For each position, we enumerate all characters less than the current character, calculate the cost $d$ to change to this character. If $d \leq k$, we change the current character to this character, subtract $d$ from $k$, end the enumeration, and continue to the next position.
 
 After the traversal, we get a string that meets the conditions.

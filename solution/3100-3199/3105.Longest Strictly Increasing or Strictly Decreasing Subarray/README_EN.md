@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Two Passes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer is the longest contiguous strictly increasing or strictly decreasing run. Tracking both directions in one pass requires careful resets at turning points and is easy to get wrong.
+>
+> The array is short enough for two linear scans. Increasing and decreasing runs are independent, so they can be measured separately and compared.
+>
+> Scan once for strictly rising length and once for strictly falling length, resetting to $1$ when monotonicity breaks. The larger of the two maxima is the answer.
+
+<!-- thinking:end -->
+
 We first perform a pass to find the length of the longest strictly increasing subarray, and update the answer. Then we perform another pass to find the length of the longest strictly decreasing subarray, and update the answer again.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

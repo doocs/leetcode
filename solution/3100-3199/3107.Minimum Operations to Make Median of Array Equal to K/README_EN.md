@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The median is the middle value after sorting. Enumerating which elements to change without ordering the array explodes combinatorially; $n$ allows an $O(n\log n)$ sort.
+>
+> The middle element must become $k$. If it is larger than $k$, only values to its left that still exceed $k$ need to be lowered; if it is not larger, only values to its right that are still below $k$ need to be raised.
+>
+> Sort, take the middle index $m$, add $|nums[m]-k|$, then scan the appropriate side until every value already respects $k$. The total increment is the minimum number of operations.
+
+<!-- thinking:end -->
+
 First, we sort the array $nums$ and find the position $m$ of the median. The initial number of operations we need is $|nums[m] - k|$.
 
 Next, we discuss in two cases:
