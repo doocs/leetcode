@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Topological sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After collecting every coin we must return to the start, and each edge is traversed at most twice. A full Euler tour of the tree would count coin-free branches and leaves that are already within distance $2$ of a coin. With $n \le 10^5$ we need a linear peeling.
+>
+> Coin-free leaves are never needed, so we delete them until every remaining leaf holds a coin. Collection works from distance $2$, so two further leaf layers can be dropped; the leftover component is the skeleton we must traverse both ways.
+>
+> A queue peels leaves in topological fashion: first coin-free leaves, then two rounds of current leaves. The answer is twice the number of edges whose both ends still sit on that skeleton.
+
+<!-- thinking:end -->
+
 We first convert the edges in $edges$ to the adjacency list $g$, where $g[i]$ represents all the adjacent nodes of node $i$, represented by a set.
 
 Then we traverse all nodes and find the nodes where $coins[i]=0$ and $g[i]$ only has one node (that is, the leaf node where the coin is $0$), and add them to the queue $q$.

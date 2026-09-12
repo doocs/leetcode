@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Math + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the two diagonals matter. The order is at most $300$ and values at most $4\times 10^6$, so trial division on diagonal entries, $O(n\sqrt{M})$, is enough.
+>
+> Integers below $2$ are not prime; others are tested up to the square root. We scan both diagonals and keep the largest prime.
+
+<!-- thinking:end -->
+
 We implement a function `is_prime` to check whether a number is prime.
 
 Then we iterate the array and check whether the numbers on the diagonals are prime. If so, we update the answer.

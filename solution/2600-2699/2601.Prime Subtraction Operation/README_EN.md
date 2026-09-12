@@ -75,6 +75,18 @@ After the second operation, nums is sorted in strictly increasing order, so the 
 
 ### Solution 1: Preprocessing prime numbers + binary search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index may subtract a prime at most once, and the array must become strictly increasing. Greedy left-to-right may compress a value too far for later positions. Enumerating primes at every index is feasible for $n \le 1000$ and values at most $1000$, but the scan direction still matters.
+>
+> The rightmost value $nums[n-1]$ is freer when larger, so we process from right to left. When $nums[i] \ge nums[i+1]$, we must subtract a prime strictly larger than $nums[i]-nums[i+1]$ and smaller than $nums[i]$, taking the smallest such prime so the left side keeps as much room as possible.
+>
+> We therefore sieve primes up to $1000$ into $p$ and binary-search the least prime above that lower bound. If none exists, the array cannot be made strictly increasing.
+
+<!-- thinking:end -->
+
 We first preprocess all the primes within $1000$ and record them in the array $p$.
 
 For each element $nums[i]$ in the array $nums$, we need to find a prime $p[j]$ such that $p[j] \gt nums[i] - nums[i + 1]$ and $p[j]$ is as small as possible. If there is no such prime, it means that it cannot be strictly increased by subtraction operations, return `false`. If there is such a prime, we will subtract $p[j]$ from $nums[i]$ and continue to process the next element.
@@ -274,6 +286,16 @@ function primeSubOperation(nums: number[]): boolean {
 <!-- solution:start -->
 
 ### Solution 2: Preprocessing prime numbers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 binary-searches the prime table each time. With values at most $1000$, we can index directly: let $p[x]$ be the least prime that is at least $x$. The lower bound $nums[i]-nums[i+1]$ then becomes a single array access, removing the search.
+>
+> The rest is unchanged: still right-to-left, still subtracting that smallest prime.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -68,6 +68,18 @@ When i = 4, arr[4] = 0 because there is no other index with value 2.
 
 ### Solution 1: Hash Map + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index needs the sum of distances to all equal values. Scanning every peer from every position is quadratic when $n \le 10^5$.
+>
+> Indices of one value are already sorted. When we move to the next index, the left contribution grows by the left count times the gap, and the right contribution shrinks by the right count; two running totals scan the group in linear time.
+>
+> Group indices by value, then apply that prefix transfer on each group.
+
+<!-- thinking:end -->
+
 First, use a hash map $d$ to record the list of indices for each element in the array $nums$, that is, $d[x]$ represents the list of all indices in $nums$ where the value is $x$.
 
 For each list of indices $idx$ in the hash map $d$, we can calculate the value of $arr[i]$ for each index $i$ in $idx$. For the first index $idx[0]$, the sum of distances to all indices on the right is $right = \sum_{i=0}^{m-1} - idx[0] \times m$. Then, we iterate through $idx$, and for each iteration, compute $ans[idx[i]] = left + right$, then update $left$ and $right$ as follows: $left = left + (idx[i+1] - idx[i]) \times (i+1)$, and $right = right - (idx[i+1] - idx[i]) \times (m-i-1)$.

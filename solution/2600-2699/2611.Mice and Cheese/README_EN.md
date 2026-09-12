@@ -72,6 +72,18 @@ It can be proven that 2 is the maximum total points that the mice can achieve.
 
 ### Solution 1: Greedy + Sort
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first mouse eats exactly $k$ pieces. Choosing a $k$-subset is impossible for $n \le 10^5$.
+>
+> Give every piece to the second mouse first, then switch $k$ pieces to the first; the delta is $reward1[i]-reward2[i]$. Larger deltas should be switched.
+>
+> Sort indices by that difference descending; the first $k$ use $reward1$, the rest $reward2$.
+
+<!-- thinking:end -->
+
 We can first give all the cheese to the second mouse. Next, consider giving $k$ pieces of cheese to the first mouse. How should we choose these $k$ pieces of cheese? Obviously, if we give the $i$-th piece of cheese from the second mouse to the first mouse, the change in the score is $reward1[i] - reward2[i]$. We hope that this change is as large as possible, so that the total score is maximized.
 
 Therefore, we sort the cheese in decreasing order of `reward1[i] - reward2[i]`. The first $k$ pieces of cheese are eaten by the first mouse, and the remaining cheese is eaten by the second mouse to obtain the maximum score.
@@ -181,6 +193,14 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts an index array. Writing the deltas into $reward1$ and sorting it in place yields $\sum reward2$ plus the $k$ largest deltas, without an index map.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

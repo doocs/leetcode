@@ -65,6 +65,18 @@ Dog 是 Animal 的子类。因此，Dog 对象同时是 Dog 和 Animal 的实例
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 题目要求判断对象是否位于构造函数的原型链上，且须覆盖基本类型装箱、`null`/`undefined` 等边界。直接写 `obj instanceof classFunction` 在基本类型上会失败，也不处理非法构造函数。
+>
+> 沿 `Object.getPrototypeOf` 上溯即可复现 `instanceof` 的判定：一旦原型等于 `classFunction.prototype` 则成立。构造函数缺失时直接返回假。
+>
+> 因此先拒绝空的 `classFunction`，再循环提升原型直至尽头。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

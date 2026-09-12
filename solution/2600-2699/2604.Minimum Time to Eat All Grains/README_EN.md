@@ -71,6 +71,18 @@ So, the maximum time needed is 1.
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several hens eat all grains concurrently; one hen's time is the length of a possibly folded walk. Assigning contiguous grain segments to hens explodes with the number of hens. $n,m \le 2\times 10^4$ rules out search.
+>
+> Time $t$ is monotone: if everything can be eaten in $t$, a larger time also works. After sorting, left grains should go to left hens, so a two-pointer check decides a candidate $t$.
+>
+> For each hen we compute the fold cost according to whether the next grain lies left or right, and keep eating rightward until the next grain would exceed $t$. Binary search yields the minimal feasible $t$.
+
+<!-- thinking:end -->
+
 First, sort the chickens and grains by their position from left to right. Then enumerate the time $t$ using binary search to find the smallest $t$ such that all the grains can be eaten up in $t$ seconds.
 
 For each chicken, we use the pointer $j$ to point to the leftmost grain that has not been eaten, and the current position of the chicken is $x$ and the position of the grain is $y$. There are the following cases:
