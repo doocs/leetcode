@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I, but values and $k$ reach $10^9$, so the difference array must be a sorted map rather than a dense table.
+>
+> Coverage is unchanged: we still mark $x-k$, $x+k+1$, and $x$, then sweep the prefix sums.
+>
+> The frequency is again $\min(s,\textit{cnt}[x]+\textit{numOperations})$, so the code is the same as part I.
+
+<!-- thinking:end -->
+
 According to the problem description, for each element $x$ in the array $\textit{nums}$, we can change it to any integer within the range $[x-k, x+k]$. We want to perform operations on some elements in $\textit{nums}$ to maximize the frequency of a certain integer in the array.
 
 The problem can be transformed into merging all elements in the interval $[x-k, x+k]$ corresponding to each element $x$, and finding the integer that contains the most original elements in the merged intervals. This can be implemented using a difference array.

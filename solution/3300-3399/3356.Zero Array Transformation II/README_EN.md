@@ -109,6 +109,18 @@ tags:
 
 ### Solution 1: Difference Array + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Queries now have weights and must be taken as a prefix. Longer prefixes are easier, so the feasible length is monotone.
+>
+> A check for $k$ writes the first $k$ weighted ranges into a difference array and tests whether every index is covered.
+>
+> Binary search yields the smallest feasible $k$, or $-1$ if even $m$ queries are not enough.
+
+<!-- thinking:end -->
+
 We notice that the more queries we use, the easier it is to turn the array into a zero array, which shows monotonicity. Therefore, we can use binary search to enumerate the number of queries and check whether the array can be turned into a zero array after the first $k$ queries.
 
 We define the left boundary $l$ and right boundary $r$ for binary search, initially $l = 0$, $r = m + 1$, where $m$ is the number of queries. We define a function $\text{check}(k)$ to indicate whether the array can be turned into a zero array after the first $k$ queries. We can use a difference array to maintain the value of each element.

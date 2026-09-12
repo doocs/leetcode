@@ -94,6 +94,18 @@ tags:
 
 ### 方法一：Dijkstra 算法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 进入格子 $(x,y)$ 不得早于 $\textit{moveTime}[x][y]$，且每步耗时 $1$。边权非负但依赖到达时间，BFS 不再正确。
+>
+> $n,m \le 50$，以时间为关键字的 Dijkstra 足够。松弛式为 $t=\max(\textit{moveTime}[x][y],\textit{dist}[i][j])+1$。
+>
+> 优先队列弹出终点时即为最短时间。
+
+<!-- thinking:end -->
+
 我们定义一个二维数组 $\textit{dist}$，其中 $\textit{dist}[i][j]$ 表示从起点到达房间 $(i, j)$ 所需的最少时间。初始时，我们将 $\textit{dist}$ 数组中的所有元素设为无穷大，然后将起点 $(0, 0)$ 的 $\textit{dist}$ 值设为 $0$。
 
 我们使用优先队列 $\textit{pq}$ 存储每一个状态，其中每个状态由三个值 $(d, i, j)$ 组成，表示从起点到达房间 $(i, j)$ 所需的时间为 $d$。初始时，我们将起点 $(0, 0, 0)$ 加入到 $\textit{pq}$ 中。

@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $x$ may become any integer in $[x-k,x+k]$, and we may change at most $\textit{numOperations}$ entries. With $n \le 10^5$ we cannot test every target by a full scan.
+>
+> A target $y$ can attract every value whose interval covers $y$; entries already equal to $y$ need no operation. A difference map adds $1$ at $x-k$, subtracts $1$ at $x+k+1$, and inserts $0$ at $x$ so original values appear.
+>
+> A sorted prefix sum yields the coverage $s$; the frequency is $\min(s,\textit{cnt}[y]+\textit{numOperations})$, and we keep the maximum.
+
+<!-- thinking:end -->
+
 According to the problem description, for each element $x$ in the array $\textit{nums}$, we can change it to any integer within the range $[x-k, x+k]$. We want to perform operations on some elements in $\textit{nums}$ to maximize the frequency of a certain integer in the array.
 
 The problem can be transformed into merging all elements in the interval $[x-k, x+k]$ corresponding to each element $x$, and finding the integer that contains the most original elements in the merged intervals. This can be implemented using a difference array.

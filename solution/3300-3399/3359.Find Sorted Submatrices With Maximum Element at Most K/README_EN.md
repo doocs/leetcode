@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count submatrices that are nonincreasing down each column and whose entries are at most $k$. With $m,n \le 10^3$ each bottom-right corner must be handled in nearly linear time.
+>
+> Discard cells larger than $k$, then store in each column the upward nonincreasing height. Across a row those heights form a histogram.
+>
+> A monotonic stack counts rectangles whose right border is the current column; summing over all cells is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

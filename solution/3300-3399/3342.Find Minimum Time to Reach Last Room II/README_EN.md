@@ -92,6 +92,18 @@ tags:
 
 ### Solution 1: Dijkstra's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compared with part I, odd and even steps cost $1$ and $2$, and the grid is larger. The shortest-path model is unchanged; the edge weight is $\max(\textit{moveTime}[x][y],d)+(i+j)\bmod 2+1$.
+>
+> $(i+j)\bmod 2$ is the parity of the next step after arriving at $(i,j)$: from $(0,0)$ the first step costs $1$ and the next costs $2$.
+>
+> Dijkstra still relaxes on time; the first pop of the destination is the answer.
+
+<!-- thinking:end -->
+
 We define a two-dimensional array $\textit{dist}$, where $\textit{dist}[i][j]$ represents the minimum time required to reach room $(i, j)$ from the starting point. Initially, we set all elements in the $\textit{dist}$ array to infinity, and then set the $\textit{dist}$ value of the starting point $(0, 0)$ to $0$.
 
 We use a priority queue $\textit{pq}$ to store each state, where each state consists of three values $(d, i, j)$, representing the time $d$ required to reach room $(i, j)$ from the starting point. Initially, we add the starting point $(0, 0, 0)$ to $\textit{pq}$.

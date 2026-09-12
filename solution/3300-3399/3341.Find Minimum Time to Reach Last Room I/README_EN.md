@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1: Dijkstra's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move into $(x,y)$ cannot happen before $\textit{moveTime}[x][y]$, and every step costs $1$. Weights are nonnegative but depend on arrival time, so BFS is wrong.
+>
+> With $n,m \le 50$, Dijkstra on time is enough. The relaxation is $t=\max(\textit{moveTime}[x][y],\textit{dist}[i][j])+1$.
+>
+> The first time the priority queue pops the destination is the answer.
+
+<!-- thinking:end -->
+
 We define a two-dimensional array $\textit{dist}$, where $\textit{dist}[i][j]$ represents the minimum time required to reach room $(i, j)$ from the starting point. Initially, we set all elements in the $\textit{dist}$ array to infinity, and then set the $\textit{dist}$ value of the starting point $(0, 0)$ to $0$.
 
 We use a priority queue $\textit{pq}$ to store each state, where each state consists of three values $(d, i, j)$, representing the time $d$ required to reach room $(i, j)$ from the starting point. Initially, we add the starting point $(0, 0, 0)$ to $\textit{pq}$.

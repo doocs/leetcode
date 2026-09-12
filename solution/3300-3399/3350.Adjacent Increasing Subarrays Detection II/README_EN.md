@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Part I only tested a given $k$; here we need the maximum $k$. With $n \le 2 \times 10^5$ the same break scan must keep the answer.
+>
+> The candidates remain “split one run in half” and “take the shorter of two neighboring runs”.
+>
+> The running maximum at the end is the largest feasible $k$.
+
+<!-- thinking:end -->
+
 We can use a single pass to calculate the maximum length of adjacent increasing subarrays $\textit{ans}$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $\textit{ans}$ represents the maximum length of adjacent increasing subarrays.
 
 Whenever we encounter a non-increasing position, we update $\textit{ans}$, assign $\textit{cur}$ to $\textit{pre}$, and reset $\textit{cur}$ to $0$. The update formula for $\textit{ans}$ is $\textit{ans} = \max(\textit{ans}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$, meaning the adjacent increasing subarrays come from either half the length of the current increasing subarray, or the smaller value between the previous increasing subarray and the current increasing subarray.

@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subsequence has consecutive absolute differences equal to $1$. With $n \le 10^5$ we cannot list subsequences; we DP on values.
+>
+> Let $g[x]$ be the number of good subsequences ending with $x$ and $f[x]$ their element sum. A new $x$ starts a singleton or appends to existing $x-1$ or $x+1$.
+>
+> Appending adds “old sum + old count $\times x$”. Updates follow input order so earlier copies of $x$ are included. The answer is the sum of all $f$, modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
