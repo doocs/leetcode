@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1416.Restore%20The%20Array/README.md
 rating: 1919
 source: 第 24 场双周赛 Q4
 tags:
