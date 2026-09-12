@@ -74,6 +74,14 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may drop any columns so that the remainder is nondecreasing in every row, and we want the fewest deletions. That is a longest subsequence of columns that is nondecreasing for every row; deletions equal $n$ minus that length. $f[i]$ ends at column $i$ and grows from any $j<i$ with $s[j]\le s[i]$ in every row.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the length of the longest non-decreasing subsequence ending at column $i$. Initially, $f[i] = 1$, and the final answer is $n - \max(f)$.
 
 To compute $f[i]$, we iterate over all $j < i$. If for all strings $s$, we have $s[j] \leq s[i]$, then we update $f[i]$ as follows:

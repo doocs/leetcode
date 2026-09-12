@@ -60,6 +60,14 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sides $a\le b\le c$ form a triangle iff $a+b>c$, and we want the largest perimeter. All triples are cubic. After sorting, try $c$ from large to small with the two neighboring sides; the first triple that satisfies the inequality is optimal, otherwise that $c$ cannot work.
+
+<!-- thinking:end -->
+
 Suppose the three sides of the triangle are $a \leq b \leq c$. The triangle has non-zero area if and only if $a + b \gt c$.
 
 We can enumerate the largest side $c$, then select the two largest remaining sides $a$ and $b$. If $a + b \gt c$, a triangle with non-zero area can be formed, and its perimeter will be the largest possible; otherwise, continue to enumerate the next largest side $c$.

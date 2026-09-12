@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A powerful integer is $x^i+y^j\le bound$. $bound\le 10^6$, so a base of at least $2$ needs an exponent of at most about $20$. Nested loops enumerate the powers and insert sums into a set; when $x=1$ or $y=1$ the power never grows and that loop runs once.
+
+<!-- thinking:end -->
+
 According to the description of the problem, a powerful integer can be represented as $x^i + y^j$, where $i \geq 0$, $j \geq 0$.
 
 The problem requires us to find all powerful integers that do not exceed $bound$. We notice that the value range of $bound$ does not exceed $10^6$, and $2^{20} = 1048576 \gt 10^6$. Therefore, if $x \geq 2$, then $i$ is at most $20$ to make $x^i + y^j \leq bound$ hold. Similarly, if $y \geq 2$, then $j$ is at most $20$.

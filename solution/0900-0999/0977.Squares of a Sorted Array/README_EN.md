@@ -57,6 +57,14 @@ After sorting, it becomes [0,1,9,16,100].
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sorted array may contain negatives, so the squares must be reordered. Squaring then sorting is $O(n\log n)$. After squaring, the ends are large and the middle is small, so two pointers pick the larger square and write from the back (or append then reverse), in linear time.
+
+<!-- thinking:end -->
+
 Since the array $nums$ is already sorted in non-decreasing order, the square values of the negative numbers in the array are decreasing, and the square values of the positive numbers are increasing. We can use two pointers, each pointing to the ends of the array. Each time we compare the square values of the elements pointed to by the two pointers, we put the larger square value at the end of the result array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.

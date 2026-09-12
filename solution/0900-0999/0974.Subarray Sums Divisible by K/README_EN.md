@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray sum is divisible by $k$ iff the two prefix sums are congruent modulo $k$. Enumerating intervals is quadratic. While scanning, a counter of residues tells how many earlier prefixes share the current $s$, which is the number of good subarrays ending here. Start with $cnt[0]=1$ for the empty prefix.
+
+<!-- thinking:end -->
+
 Suppose there exists $i \leq j$ such that the sum of $\textit{nums}[i,..j]$ is divisible by $k$. If we let $s_i$ represent the sum of $\textit{nums}[0,..i]$ and $s_j$ represent the sum of $\textit{nums}[0,..j]$, then $s_j - s_i$ is divisible by $k$, i.e., $(s_j - s_i) \bmod k = 0$, which means $s_j \bmod k = s_i \bmod k$. Therefore, we can use a hash table to count the number of prefix sums modulo $k$, allowing us to quickly determine if there exists a subarray that meets the condition.
 
 We use a hash table $\textit{cnt}$ to count the number of prefix sums modulo $k$, where $\textit{cnt}[i]$ represents the number of prefix sums with a modulo $k$ value of $i$. Initially, $\textit{cnt}[0] = 1$. We use a variable $s$ to represent the prefix sum, initially $s = 0$.

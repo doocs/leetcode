@@ -53,6 +53,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build $n$-digit numbers whose adjacent digits differ by $k$. $n\le 9$, so DFS from a leading $1..9$ is enough. The next digit is $last\pm k$ inside $0..9$; when $k=0$ take only one branch to avoid duplicates. Collect a number once it has $n$ digits.
+
+<!-- thinking:end -->
+
 We can enumerate the first digit of all numbers of length $n$, and then use the depth-first search method to recursively construct all numbers that meet the conditions.
 
 Specifically, we first define a boundary value $\textit{boundary} = 10^{n-1}$, which represents the minimum value of the number we need to construct. Then, we enumerate the first digit from $1$ to $9$. For each digit $i$, we recursively construct the number of length $n$ with $i$ as the first digit.

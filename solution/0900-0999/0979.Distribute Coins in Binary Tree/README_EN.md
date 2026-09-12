@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moving one coin across an edge counts as one step, until every node has exactly one coin. Routing globally is messy, yet a subtree's surplus must cross the edge to its parent: surplus $=\text{coins}-\text{nodes}$, and its absolute value is the traffic on that edge. DFS adds the absolute left and right surpluses and returns the combined surplus.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs(node)}$, which represents the coin overload in the subtree rooted at $\textit{node}$, i.e., the number of coins minus the number of nodes. If $\textit{dfs(node)}$ is positive, it means the subtree has more coins than nodes, and the excess coins need to be moved out of the subtree; if $\textit{dfs(node)}$ is negative, it means the subtree has fewer coins than nodes, and the shortfall needs to be moved into the subtree.
 
 In the function $\textit{dfs(node)}$, we first traverse the left and right subtrees to obtain the coin overload $\textit{left}$ and $\textit{right}$ of the left and right subtrees, respectively. Then, the current number of moves needs to be increased by $|\textit{left}| + |\textit{right}|$, which means moving the coins from the left and right subtrees to the current node. After that, we return the coin overload of the entire subtree, which is $\textit{left} + \textit{right} + \textit{node.val} - 1$.

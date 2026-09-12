@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check that every node shares one value. Remember the root $x$ and DFS, requiring each node to equal $x$. A null child is vacuously true.
+
+<!-- thinking:end -->
+
 We denote the value of the root node as $x$, and then design a function $\text{dfs}(\text{root})$, which indicates whether the current node's value is equal to $x$ and its left and right subtrees are also univalued binary trees.
 
 In the function $\text{dfs}(\text{root})$, if the current node is null, return $\text{true}$; otherwise, if the current node's value is equal to $x$ and its left and right subtrees are also univalued binary trees, return $\text{true}$; otherwise, return $\text{false}$.

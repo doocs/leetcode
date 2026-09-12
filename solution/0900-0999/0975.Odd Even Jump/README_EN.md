@@ -94,6 +94,14 @@ number of jumps.
 
 ### Solution 1: Ordered Set + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd jump goes to the smallest value on the right that is at least the current one; an even jump goes to the largest that is at most the current. Counting starts that reach the end by simulating each path would repeat states. Walking right to left, an ordered map of seen values yields the next index $g[i][0/1]$ in $O(\log n)$. Reachability depends only on $(i,\text{parity})$, so memoized DFS suffices.
+
+<!-- thinking:end -->
+
 We first use an ordered set to preprocess the positions that can be jumped to from each position, recorded in array $g$, where $g[i][1]$ and $g[i][0]$ represent the positions that can be jumped to when the current position is an odd jump or an even jump, respectively. If no position can be jumped to, then both $g[i][1]$ and $g[i][0]$ are $-1$.
 
 Then using memoization search, starting from each position with the current being an odd jump, we determine whether we can jump to the end of the array. If we can, then increment the result by one.

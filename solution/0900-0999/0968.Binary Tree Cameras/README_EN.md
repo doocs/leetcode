@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Dynamic Programming (Tree DP)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A camera covers itself, its parent, and its children; we want as few as possible. The optimum at a node depends on the children, so we distinguish “has a camera / covered by a child / uncovered”. Tree DP returns the three minima bottom-up; the root may not stay uncovered.
+
+<!-- thinking:end -->
+
 For each node, we define three states:
 
 - `a`: The current node has a camera
