@@ -391,7 +391,6 @@ def generate_question_readme(result):
         difficulty: 简单
         rating: 1234
         comments: true
-        edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0001.Two%20Sum/README.md
         ---
         """
         cat = category_dict.get(category, category)
@@ -401,7 +400,6 @@ def generate_question_readme(result):
             "difficulty": item["difficulty_cn"],
             "rating": rating,
             "comments": True,
-            "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_cn"]}',
             "source": source,
         }
         if not item["tags_cn"] or metadata["tags"] == ["Algorithms"]:
@@ -442,7 +440,6 @@ def generate_question_readme(result):
             "difficulty": item["difficulty_en"],
             "rating": rating,
             "comments": True,
-            "edit_url": f'https://github.com/doocs/leetcode/edit/main{item["relative_path_en"]}',
             "source": source,
         }
         if not tags_en or metadata["tags"] == ["Algorithms"]:
@@ -589,7 +586,6 @@ def refresh(result):
             "difficulty": question["difficulty_cn"],
             "rating": rating,
             "comments": True,
-            "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_cn"]}',
             "source": source,
         }
 
@@ -630,7 +626,6 @@ def refresh(result):
             "difficulty": question["difficulty_en"],
             "rating": rating,
             "comments": True,
-            "edit_url": f'https://github.com/doocs/leetcode/edit/main{question["relative_path_en"]}',
             "source": source,
         }
         if (not tags_en and not [category]) or metadata["tags"] == ["Algorithms"]:
