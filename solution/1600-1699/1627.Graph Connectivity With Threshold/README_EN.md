@@ -91,6 +91,18 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two cities are connected if a path exists using edges whose $\gcd$ exceeds $\textit{threshold}$. Testing $\gcd$ on every pair is too slow when both $n$ and the number of queries are large.
+>
+> Each $z$ above the threshold links all of its multiples, so unioning along multiples covers every direct edge.
+>
+> A disjoint-set unions $z,2z,3z,\ldots$ for $z \in (\textit{threshold}, n]$, and each query tests whether the two cities share a root.
+
+<!-- thinking:end -->
+
 We can enumerate $z$ and its multiples, and use union-find to connect them. In this way, for each query $[a, b]$, we only need to determine whether $a$ and $b$ are in the same connected component.
 
 The time complexity is $O(n \times \log n \times (\alpha(n) + q))$, and the space complexity is $O(n)$. Here, $n$ and $q$ are the number of nodes and queries, respectively, and $\alpha$ is the inverse function of the Ackermann function.

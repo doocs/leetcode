@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The width of a vertical gap depends only on consecutive $x$-coordinates. With $n$ up to $10^5$, sort by $x$ and scan adjacent differences.
+>
+> $y$ does not matter; the answer is $\max(x_{i+1}-x_i)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -152,6 +162,16 @@ var maxWidthOfVerticalArea = function (points) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts in $O(n\log n)$. The max gap is at least $(\textit{max}-\textit{min})/(n-1)$; with that bucket width the answer can only lie between consecutive nonempty buckets.
+>
+> Each bucket stores its min and max $x$; a linear scan of buckets is expected $O(n)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

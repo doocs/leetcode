@@ -79,6 +79,18 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path's cost is the maximum adjacent height difference; we want the minimum such bottleneck. Binary search would still need a connectivity check; equivalently, treat cells as vertices and differences as edge weights and add edges in increasing order.
+>
+> A disjoint-set unions edges by weight; the first time start and end meet, that weight is the min-max effort.
+>
+> Collect 4-neighbor edges, sort them, and $\texttt{union}$ until $\texttt{connected}(0,mn-1)$.
+
+<!-- thinking:end -->
+
 For this problem, we can treat each cell as a node in a graph, and the absolute difference in height between two adjacent cells as the weight of the edge. Therefore, this problem is to solve the connectivity problem from the top-left node to the bottom-right node.
 
 We first construct a set of edges, then sort them in ascending order of edge weight, and add edges one by one until the top-left node and the bottom-right node are connected. At this point, the weight of the edge is the minimum physical consumption value required by the problem.
@@ -437,6 +449,16 @@ function minimumEffortPath(heights: number[][]): number {
 
 ### Solution 2: Binary Search + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts every edge. A candidate $h$ works iff start reaches end using only differences $\le h$, and that predicate is monotone in $h$.
+>
+> Binary-search $h$ in $[0,10^6]$ and BFS each mid, without a disjoint-set.
+
+<!-- thinking:end -->
+
 We notice that if the maximum physical consumption value of a path is $x$, then for any $y > x$, this path also meets the conditions. This shows monotonicity, so we can use the binary search method to find the minimum physical consumption value that meets the conditions.
 
 We define the left boundary of the binary search as $l=0$, and the right boundary as $r=10^6$. Each time we take $mid=(l+r)/2$, then use BFS to determine whether there is a path from the top-left corner to the bottom-right corner, so that the absolute difference in height between adjacent nodes on the path is not greater than $mid$. If it exists, it means that $mid$ may still be the minimum physical consumption value that meets the conditions, so we set $r=mid$, otherwise we set $l=mid+1$.
@@ -660,6 +682,16 @@ function minimumEffortPath(heights: number[][]): number {
 <!-- solution:start -->
 
 ### Solution 3: Heap-optimized Dijkstra Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first two methods sort globally or search repeatedly. Treating a move as the new bottleneck $\max(\textit{so far}, \lvert \Delta h \rvert)$ is a shortest-path problem with $\max$ instead of $+$.
+>
+> Dijkstra with a heap stores the best bottleneck $dist$ to each cell and relaxes four neighbors; the bottom-right entry is the answer.
+
+<!-- thinking:end -->
 
 We can treat each cell as a node in a graph, and the absolute difference in height between two adjacent cells as the weight of the edge. Therefore, this problem is to solve the shortest path problem from the top-left node to the bottom-right node.
 

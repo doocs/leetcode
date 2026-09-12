@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The input is postfix, so an operator always follows its two operands and a stack rebuilds the tree.
+>
+> Digits are pushed; an operator pops the right then left child, attaches them, and pushes the new node. The remaining node is the root.
+>
+> Evaluation returns the integer at a leaf and applies the operator to the two children, using integer division.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

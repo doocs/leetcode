@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A conflict is an older player with a strictly lower score. Sorting by score, then age, reduces the constraint to a nondecreasing age subsequence.
+>
+> With $n \le 1000$, the best score ending at a player is an $O(n^2)$ LIS-style DP: take the best $f[j]$ among earlier players who are no older, then add the current score.
+>
+> The answer is the maximum $f[i]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -219,6 +231,16 @@ var bestTeamScore = function (scores, ages) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans every predecessor in $O(n^2)$. After the same sort we only need the best score among ages up to the current one — a prefix maximum.
+>
+> A Fenwick tree stores those maxima: query $[1,\textit{age}]$, add $\textit{score}$, and update that age, for $O(n\log m)$ time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

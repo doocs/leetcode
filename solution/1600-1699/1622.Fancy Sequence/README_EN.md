@@ -76,6 +76,18 @@ fancy.getIndex(2); // return 20
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must append, add to or multiply the whole current prefix, and query one index, up to $10^5$ times. Updating every element on each call is too slow.
+>
+> Append writes a new rightmost position; add and multiply are affine range updates on $[1,\textit{idx}]$. A segment tree stores a value and lazy tags $(\textit{mul},\textit{add})$, composing multiply before add.
+>
+> Nodes are created on demand over $[1,10^5]$: append is a point write, `addAll`/`multAll` update a prefix, and `getIndex` is a point query, all modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

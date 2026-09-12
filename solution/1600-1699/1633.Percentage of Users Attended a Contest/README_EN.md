@@ -106,6 +106,16 @@ Bob registered in contest 207 and the percentage is ((1/3) * 100) = 33.33%
 
 ### Solution 1: Grouping and Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The percentage is registrants of one contest over the number of users. The denominator does not depend on the group, so a scalar subquery is enough.
+>
+> Group $\texttt{Register}$ by $\texttt{contest\_id}$, divide by $(\texttt{SELECT COUNT}(1)\ \texttt{FROM Users})$, round to two decimals, and order by percentage descending then id ascending.
+
+<!-- thinking:end -->
+
 We can group the `Register` table by `contest_id` and count the number of registrations for each contest. The registration rate of each contest is the number of registrations divided by the total number of registrations.
 
 <!-- tabs:start -->

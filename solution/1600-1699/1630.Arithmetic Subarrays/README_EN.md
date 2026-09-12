@@ -77,6 +77,18 @@ In the 2<sup>nd</sup> query, the subarray is <code>[5,9,3,7]. This</code> can be
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks whether a subarray can be rearranged into an arithmetic progression. $n,m \le 500$ allow sorting every slice, but the min and max already determine the common difference.
+>
+> Those extrema are the first and last terms. If $a_n-a_1$ is not divisible by $n-1$ it is impossible; otherwise every $a_1+(i-1)d$ must appear in the set.
+>
+> Build a set for each $[l,r]$ and apply that test to fill the boolean array.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

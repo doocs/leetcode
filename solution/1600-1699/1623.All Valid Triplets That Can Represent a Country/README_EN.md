@@ -130,6 +130,16 @@ Let us see all the possible triplets.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick one student from each school with pairwise-distinct ids and names. The tables are small, so a three-way Cartesian product plus filters is enough.
+>
+> The $\texttt{WHERE}$ clause requires all three id pairs and all three name pairs to differ; the selected names are every valid triplet.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1: Preprocessing + Memory Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words share one length, letters in the same column are interchangeable, and columns must be taken left to right. Backtracking over words repeats work.
+>
+> Count letter $c$ in column $j$ as $\textit{cnt}[j][c]$. The state is “match $\textit{target}[i:]$ starting at column $j$”.
+>
+> Memoized $dfs(i,j)$ either skips column $j$ or uses it for $\textit{target}[i]$ multiplied by the count. Finish $i$ yields $1$; run out of columns yields $0$.
+
+<!-- thinking:end -->
+
 We noticed that the length of each string in the string array $words$ is the same, so let's remember $n$, then we can preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the string array $words$ The number of characters $c$ in the $j$-th position of.
 
 Next, we design a function $dfs(i, j)$, which represents the number of schemes that construct $target[i,..]$ and the currently selected character position from $words$ is $j$. Then the answer is $dfs(0, 0)$.
@@ -272,6 +284,16 @@ function numWays(words: string[], target: string): number {
 <!-- solution:start -->
 
 ### Solution 2: Preprocessing + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recursion in Solution 1 becomes an explicit table and drops the call stack. $f[i][j]$ is ways to build the first $i$ characters of $\textit{target}$ from the first $j$ columns.
+>
+> Skip column $j$ as $f[i][j-1]$, or take it as $f[i-1][j-1]\times \textit{cnt}[j-1][\textit{target}[i-1]]$, with $f[0][\cdot]=1$.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we can first preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the number of characters $c$ in the $j$-th position of the string array $words$.
 
