@@ -76,6 +76,16 @@ Since 2 is the only occupied position, we return [2].
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move sends every marble from one position to another; we want the occupied positions at the end. Stacks at a position make an array scan costly.
+>
+> Store occupied coordinates in a set: delete the source and insert the destination. Sort the set for the answer.
+
+<!-- thinking:end -->
+
 Let's use a hash table $pos$ to record all stone positions. Initially, $pos$ contains all elements of $nums$. Then we iterate through $moveFrom$ and $moveTo$. Each time, we remove $moveFrom[i]$ from $pos$ and add $moveTo[i]$ to $pos$. Finally, we sort the elements in $pos$ and return.
 
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. Here, $n$ is the length of array $nums$.

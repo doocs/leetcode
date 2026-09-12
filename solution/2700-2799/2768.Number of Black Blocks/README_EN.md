@@ -74,6 +74,16 @@ Therefore, we return [0,2,2,0,0].
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many $2\times 2$ blocks contain $0$ through $4$ black cells. There are $(m-1)(n-1)$ blocks and the grid can be $10^5$ on a side, so the blocks cannot all be visited.
+>
+> A black cell touches at most four blocks. Increment those blocks in a hash map, fill $ans[1..4]$ from the map values, and set $ans[0]$ to the number of blocks minus the map size.
+
+<!-- thinking:end -->
+
 For each $2 \times 2$ submatrix, we can use its upper-left corner coordinate $(x, y)$ to represent it.
 
 For each black cell $(x, y)$, its contribution to the 4 submatrices is $1$, namely the matrices $(x - 1, y - 1)$, $(x - 1, y)$, $(x, y - 1)$, $(x, y)$.

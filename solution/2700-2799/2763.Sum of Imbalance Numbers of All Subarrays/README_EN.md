@@ -77,6 +77,16 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
 
 ### Solution 1: Enumeration + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The imbalance of a subarray is the number of adjacent gaps greater than $1$ after sorting unique values; we need the sum over all subarrays. Sorting each subarray is tight at $n\le 1000$ unless the gaps are maintained incrementally.
+>
+> Fix the left end and insert the right-end value into a sorted list. Compare it with its predecessor and successor to see whether new gaps of size greater than $1$ appear and whether an old gap is split. $cnt$ tracks the imbalance and is added to the answer.
+
+<!-- thinking:end -->
+
 We can first enumerate the left endpoint $i$ of the subarray. For each $i$, we enumerate the right endpoint $j$ of the subarray from small to large, and maintain all the elements in the current subarray with an ordered list. We also use a variable $cnt$ to maintain the unbalanced number of the current subarray.
 
 For each number $nums[j]$, we find the first element $nums[k]$ in the ordered list that is greater than or equal to $nums[j]$, and the last element $nums[h]$ that is less than $nums[j]$:

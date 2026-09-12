@@ -75,6 +75,16 @@ g.next().value // &#39;2023-04-10&#39;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Yield every date in a closed range with a fixed step. Manual Julian-day arithmetic is easy to get wrong at month ends; $Date.setDate$ carries automatically.
+>
+> Walk from the start through the end, $yield$ the ISO date, then add $step$ days. The generator pauses, so the whole range need not be materialized.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

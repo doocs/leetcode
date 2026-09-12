@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Difference Array + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation subtracts one from a window of length $k$; we ask whether the array can become all zeros. Subtracting one at a time is too slow, and the number of hits at each index is forced from the left.
+>
+> The leftmost nonzero index $i$ can be cleared only by windows that cover $i$, exactly equal to its current value. A difference array records that range decrement; a prefix sum restores the live value. A negative value or a window past the end fails.
+
+<!-- thinking:end -->
+
 First, let's consider the first element of $nums$, $nums[0]$:
 
 - If $nums[0] = 0$, we don't need to do anything.

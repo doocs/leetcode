@@ -76,6 +76,16 @@ The beauty of the array nums is 4 (whole array).
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value may become any integer in $[x-k,x+k]$; beauty is how many elements can share one value. Testing every target against every element is heavy when both the range and $n$ reach $10^5$.
+>
+> After a shift by $k$, an element covers $[x,x+2k]$. A difference array adds $1$ at the left and $-1$ past the right; the maximum prefix sum is the heaviest overlap.
+
+<!-- thinking:end -->
+
 We notice that for each operation, all elements within the interval $[nums[i]-k, nums[i]+k]$ will increase by $1$. Therefore, we can use a difference array to record the contributions of these operations to the beauty value.
 
 In the problem, $nums[i]-k$ might be negative. We add $k$ to all elements to ensure the results are non-negative. Thus, we can create a difference array $d$ with a length of $\max(nums) + k \times 2 + 2$.

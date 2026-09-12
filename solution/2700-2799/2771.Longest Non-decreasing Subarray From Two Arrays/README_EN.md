@@ -76,6 +76,16 @@ The entire array forms a non-decreasing subarray of length 2, making it the maxi
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At each index we pick from $nums1$ or $nums2$ and want the longest non-decreasing contiguous run. The choice sequence is exponential, but the run is contiguous, so only how adjacent columns connect matters.
+>
+> Let $f$ and $g$ be the longest lengths ending at this column in $nums1$ and $nums2$, transferred from the previous column’s two choices when the values are non-decreasing. Roll the pair and keep a global maximum.
+
+<!-- thinking:end -->
+
 We define two variables $f$ and $g$, which represent the length of the longest non-decreasing subarray at the current position. Here, $f$ represents the length of the longest non-decreasing subarray ending with an element from $nums1$, and $g$ represents the length of the longest non-decreasing subarray ending with an element from $nums2$. Initially, $f = g = 1$, and the initial answer $ans = 1$.
 
 Next, we iterate over the array elements in the range $i \in [1, n)$, and for each $i$, we define two variables $ff$ and $gg$, which represent the length of the longest non-decreasing subarray ending with $nums1[i]$ and $nums2[i]$ respectively. When initialized, $ff = gg = 1$.
