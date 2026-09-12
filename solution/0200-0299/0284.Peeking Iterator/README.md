@@ -74,6 +74,16 @@ peekingIterator.hasNext(); // 返回 False
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 底层迭代器的 $next$ 会消耗元素，peek 却不能前进。缓存一次预读即可。
+>
+> $peek$ 在尚未缓存时调用底层 $next$ 并记下；$next$ 优先返回缓存；$hasNext$ 看缓存或底层是否还有。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

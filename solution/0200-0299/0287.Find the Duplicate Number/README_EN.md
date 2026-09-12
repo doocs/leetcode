@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We cannot mutate the array or use a hash table. By pigeonhole, if more than $x$ values lie in $[1,x]$, the duplicate is there.
+>
+> Binary-search the value range: count how many entries are $\le mid$; if that count exceeds $mid$, search the left half, otherwise the right.
+
+<!-- thinking:end -->
+
 We can observe that if the number of elements in $[1,..x]$ is greater than $x$, then the duplicate number must be in $[1,..x]$, otherwise the duplicate number must be in $[x+1,..n]$.
 
 Therefore, we can use binary search to find $x$, and check whether the number of elements in $[1,..x]$ is greater than $x$ at each iteration. This way, we can determine which interval the duplicate number is in, and narrow down the search range until we find the duplicate number.

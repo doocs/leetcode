@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each empty room wants the distance to the nearest gate. A BFS from every room repeats work. A multi-source BFS from all gates reaches each room first at its shortest distance.
+>
+> Enqueue every gate and expand level by level, writing only into rooms that are still empty.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

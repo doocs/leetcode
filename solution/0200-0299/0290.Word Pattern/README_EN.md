@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pattern and the words must be bijections; unequal lengths fail. As with isomorphic strings, two maps record char-to-word and word-to-char.
+>
+> A conflict with an existing mapping fails.
+
+<!-- thinking:end -->
+
 First, we split the string $s$ into a word array $ws$ with spaces. If the length of $pattern$ and $ws$ is not equal, return `false` directly. Otherwise, we use two hash tables $d_1$ and $d_2$ to record the correspondence between each character and word in $pattern$ and $ws$.
 
 Then, we traverse $pattern$ and $ws$. For each character $a$ and word $b$, if there is a mapping for $a$ in $d_1$, and the mapped word is not $b$, or there is a mapping for $b$ in $d_2$, and the mapped character is not $a$, return `false`. Otherwise, we add the mapping of $a$ and $b$ to $d_1$ and $d_2$ respectively.
@@ -283,6 +293,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two maps can be replaced by checking that the number of distinct pattern characters equals the number of distinct words, then keeping a one-way map.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

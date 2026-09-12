@@ -79,6 +79,16 @@ medianFinder.findMedian(); // return 2.0
 
 ### Solution 1: Min Heap and Max Heap (Priority Queue)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting after every insertion is too slow for a running median. A max-heap holds the lower half and a min-heap the upper half; the tops form the median.
+>
+> A new value goes into the max-heap then is moved to the min-heap, keeping the min-heap at most one larger. Even counts average the two tops; odd counts take the min-heap top.
+
+<!-- thinking:end -->
+
 We can use two heaps to maintain all the elements, a min heap $\textit{minQ}$ and a max heap $\textit{maxQ}$, where the min heap $\textit{minQ}$ stores the larger half, and the max heap $\textit{maxQ}$ stores the smaller half.
 
 When calling the `addNum` method, we first add the element to the max heap $\textit{maxQ}$, then pop the top element of $\textit{maxQ}$ and add it to the min heap $\textit{minQ}$. If at this time the size difference between $\textit{minQ}$ and $\textit{maxQ}$ is greater than $1$, we pop the top element of $\textit{minQ}$ and add it to $\textit{maxQ}$. The time complexity is $O(\log n)$.

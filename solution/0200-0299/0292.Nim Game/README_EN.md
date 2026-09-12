@@ -74,6 +74,14 @@ In all outcomes, your friend wins.
 
 ### Solution 1: Finding the Pattern
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each turn takes $1$ to $3$ stones. A multiple of $4$ cannot be cleared in one move, and the opponent can always restore a multiple of $4$. The first player wins iff $n$ is not divisible by $4$.
+
+<!-- thinking:end -->
+
 The first player who gets a multiple of $4$ (i.e., $n$ can be divided by $4$) will lose the game.
 
 Proof:

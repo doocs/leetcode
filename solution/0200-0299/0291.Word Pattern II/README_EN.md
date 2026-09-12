@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pattern character may match a substring of any length, so we cannot split on spaces. We enumerate those substrings under a bijection.
+>
+> $dfs(i,j)$ tries $s[j..k]$ for $pattern[i]$: reuse an existing mapping if it matches, otherwise bind an unused substring and backtrack on failure.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

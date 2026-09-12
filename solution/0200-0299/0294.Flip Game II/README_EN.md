@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players flip $++$ in turn; the one who cannot move loses. A bit mask of length $n$ records pluses; we try each legal flip and see whether the opponent loses.
+>
+> Masks repeat, so we memoize $dfs(\textit{mask})$: the position is winning if some move returns false for the opponent.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -200,6 +210,14 @@ func canWin(currentState string) bool {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memoized search has $2^n$ states. Consecutive plus-runs are independent games. The Sprague–Grundy number of the position is the XOR of the runs; a nonzero XOR is a first-player win.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

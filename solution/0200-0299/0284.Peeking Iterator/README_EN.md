@@ -71,6 +71,16 @@ peekingIterator.hasNext(); // return False
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The wrapped iterator’s $next$ consumes a value, but peek must not. One cached lookahead is enough.
+>
+> $peek$ fills the cache from the inner $next$; $next$ returns the cache if present; $hasNext$ is true if the cache or the inner iterator still has an item.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
