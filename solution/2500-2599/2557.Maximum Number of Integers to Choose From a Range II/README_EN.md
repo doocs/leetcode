@@ -66,6 +66,16 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 
 ### Solution 1: Deduplication + Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same selection rules as Range I, but $n$ and $\textit{maxSum}$ are far too large to scan from $1$ to $n$.
+>
+> Insert $0$ and $n+1$ into the banned set and sort. Each gap is a contiguous interval; the sum of its first $t$ integers is arithmetic, so binary search finds the largest affordable $t$. Fill gaps left to right until the budget runs out.
+
+<!-- thinking:end -->
+
 We can add $0$ and $n + 1$ to the array `banned`, then deduplicate and sort the array `banned`.
 
 Next, we enumerate every two adjacent elements $i$ and $j$ in the array `banned`. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $ans$. At the same time, we subtract the sum of these elements from `maxSum`. If `maxSum` is less than $0$, we break the loop. Return the answer.

@@ -68,6 +68,16 @@ There are no other quadruplets, so we return 2.
 
 ### Solution 1: Enumeration + Preprocessing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count quadruples $i<j<k<l$ with $nums[i]<nums[k]<nums[j]<nums[l]$. A four-fold loop fails at $n\le 4000$, and naive side counts for each $(j,k)$ can still be cubic.
+>
+> Fix $j$ and sweep $k$ rightward while decrementing the number of later values $>nums[j]$, storing $f[j][k]$. Symmetrically sweep $j$ left of each $k$ for $g[j][k]$. Multiply the two only when $nums[j]>nums[k]$. The whole pass is $O(n^2)$.
+
+<!-- thinking:end -->
+
 We can enumerate $j$ and $k$ in the quadruplet, then the problem is transformed into, for the current $j$ and $k$:
 
 - Count how many $l$ satisfy $l > k$ and $nums[l] > nums[j]$;

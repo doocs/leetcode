@@ -67,6 +67,16 @@ Since we can make s equal to target, we return true.
 
 ### Solution 1: Lateral Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Allowed writes are $s[i]\lor s[j]$ and $s[i]\oplus s[j]$ into one of the two bits. Two zeros cannot create a one, but a single one can be copied anywhere or XOR-ed into a zero.
+>
+> Hence $s$ and $\textit{target}$ are convertible iff they both contain a $1$ or both contain none.
+
+<!-- thinking:end -->
+
 We notice that $1$ is actually a "tool" for number conversion. Therefore, as long as both strings either have $1$ or neither have $1$, we can make the two strings equal through operations.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

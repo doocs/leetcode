@@ -67,6 +67,16 @@ Two ways such that they collide at some point are:</p>
 
 ### Solution 1: Mathematics (Fast Power)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Monkeys on a regular $n$-gon each step clockwise or counterclockwise; we count walks that collide. There are $2^n$ assignments, and only the two unanimous directions are collision-free.
+>
+> $n$ reaches $10^9$, so enumerate nothing. Modular exponentiation gives $2^n$, then subtract $2$ with a borrow-safe modulo.
+
+<!-- thinking:end -->
+
 According to the problem description, each monkey has two ways of moving, either clockwise or counterclockwise. Therefore, there are a total of $2^n$ ways to move. The non-collision ways of moving are only two, that is, all monkeys move clockwise or all monkeys move counterclockwise. Therefore, the number of collision ways of moving is $2^n - 2$.
 
 We can use fast power to calculate the value of $2^n$, then use $2^n - 2$ to calculate the number of collision ways of moving, and finally take the remainder of $10^9 + 7$.

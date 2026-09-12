@@ -66,6 +66,14 @@ answer = [7,1,3,9] 。
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按原顺序把每个整数拆成十进制数位。除十得到的是逆序数位，收集后反转再拼到答案即可。
+
+<!-- thinking:end -->
+
 将数组中的每个数字进行数位分割，然后将分割后的数字依次放入答案数组中。
 
 时间复杂度 $O(n \times \log_{10} M)$，空间复杂度 $O(n \times \log_{10} M)$，其中 $n$ 为数组 $nums$ 的长度，而 $M$ 为数组 $nums$ 中的最大值。
@@ -222,6 +230,14 @@ int* separateDigits(int* nums, int numsSize, int* returnSize) {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用切片反转缓冲。改为按下标从高位到低位依次写入答案，拆位过程不变，只是拼装方式不同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
