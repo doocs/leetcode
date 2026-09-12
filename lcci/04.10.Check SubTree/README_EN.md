@@ -52,6 +52,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.10.Check%20SubTree
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether $t_2$ equals some subtree of $t_1$. Serialization plus substring search works if empties are encoded carefully.
+>
+> Every node of $t_1$ can be tried as a root aligned with $t_2$; both structure and values must match.
+>
+> Inner $dfs$ compares two trees in lockstep; the outer call retries on the left and right of $t_1$ after a mismatch. An empty $t_2$ is true; an empty $t_1$ is false.
+
+<!-- thinking:end -->
+
 First, we check if $t_2$ is null. If it is, then $t_2$ is definitely a subtree of $t_1$, so we return `true`.
 
 Otherwise, we check if $t_1$ is null. If it is, then $t_2$ is definitely not a subtree of $t_1$, so we return `false`.

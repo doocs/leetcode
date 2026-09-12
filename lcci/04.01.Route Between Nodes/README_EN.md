@@ -52,6 +52,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.01.Route%20Between
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The question is whether $start$ can reach $target$ in a directed graph. Listing simple paths is unnecessary; one $O(n+m)$ traversal is enough.
+>
+> Only reachability matters, so DFS works: recurse on out-edges and mark $vis$ to cut cycles.
+>
+> Build adjacency lists $g$, then DFS from $start$: return true on $target$, false if already seen, otherwise mark and `any` over neighbors. Marking before expanding prevents infinite recursion on cycles.
+
+<!-- thinking:end -->
+
 First, we construct an adjacency list $g$ based on the given graph, where $g[i]$ represents all the neighboring nodes of node $i$. We use a hash table or array $vis$ to record the visited nodes, and then start a depth-first search from node $start$. If we search to node $target$, we return `true`, otherwise we return `false`.
 
 The process of depth-first search is as follows:
@@ -254,6 +266,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS already decides reachability, but the call stack can be $n$ deep on a long path.
+>
+> BFS expands with a queue and the same $vis$ set, using heap space instead of the call stack, with the same yes/no answer.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first construct an adjacency list $g$ based on the given graph, where $g[i]$ represents all the neighboring nodes of node $i$. We use a hash table or array $vis$ to record the visited nodes, and then start a breadth-first search from node $start$. If we search to node $target$, we return `true`, otherwise we return `false`.
 

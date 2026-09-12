@@ -48,6 +48,18 @@ One possible answer is: [0,-3,9,-10,null,5]，which represents the following tre
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sorted array must become a minimum-height BST. Always picking the smallest or largest key yields a chain of height $n$.
+>
+> Height is minimized when the two subtrees are as equal in size as possible, so the root should be the midpoint of the range.
+>
+> $dfs(l,r)$ returns null when $l>r$, otherwise builds the node at $mid=(l+r)//2$. Inorder matches the array, so the tree is a BST of height $\Theta(\log n)$.
+
+<!-- thinking:end -->
+
 We design a function `dfs(l, r)`, which constructs a subtree from `l` to `r`. Therefore, the answer is `dfs(0, len(nums) - 1)`.
 
 The execution process of the function `dfs(l, r)` is as follows:

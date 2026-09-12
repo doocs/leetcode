@@ -44,6 +44,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把 $A$ 变成 $B$，即翻转不相同的位。逐位比较 $32$ 次可行。
+>
+> 不相同的位恰是 $A\oplus B$ 中的 $1$，故问题化为求异或的汉明重量。
+>
+> 先与 $0xFFFFFFFF$ 截成无符号 $32$ 位，避免语言中负数算术移位的差异，再 `bit_count`。
+
+<!-- thinking:end -->
+
 我们将 A 和 B 进行异或运算，得到的结果的二进制表示中 $1$ 的个数即为需要改变的位数。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为 A 和 B 的最大值。空间复杂度 $O(1)$。

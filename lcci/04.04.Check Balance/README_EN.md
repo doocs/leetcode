@@ -68,6 +68,18 @@ return&nbsp;false.</pre>
 
 ### Solution 1: Recursion (Post-order Traversal)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Balance requires every node’s two heights to differ by at most $1$. Recomputing height at every node revisits subtrees and can be quadratic.
+>
+> A post-order walk already knows both heights, so it can also report “already unbalanced”.
+>
+> $dfs$ returns a height, or $-1$ for imbalance; a $-1$ child or $|l-r|>1$ propagates $-1$. The root answer is whether that value is nonnegative, in one pass.
+
+<!-- thinking:end -->
+
 We design a function $dfs(root)$, which returns the height of the tree with $root$ as the root node. If the tree with $root$ as the root node is balanced, it returns the height of the tree, otherwise, it returns $-1$.
 
 The execution logic of the function $dfs(root)$ is as follows:

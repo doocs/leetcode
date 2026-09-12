@@ -40,6 +40,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.01.Insert%20Into%2
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $M$ must occupy bits $i$ through $j$ of $N$. A raw OR leaves leftover $1$s in that range that overwrite $M$’s zeros.
+>
+> Clear $[i,j]$ first, then OR $M$ shifted up by $i$.
+>
+> For each $k\in[i,j]$ do $N \&= \sim(1\ll k)$, then return $N \mid (M \ll i)$. The interval is at most a word wide.
+
+<!-- thinking:end -->
+
 First, we clear the bits from the $i$-th to the $j$-th in $N$, then we left shift $M$ by $i$ bits, and finally perform a bitwise OR operation on $M$ and $N$.
 
 The time complexity is $O(\log n)$, where $n$ is the size of $N$. The space complexity is $O(1)$.

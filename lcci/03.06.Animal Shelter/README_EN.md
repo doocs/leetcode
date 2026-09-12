@@ -66,6 +66,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.06.Animal%20Shelte
 
 ### Solution 1: Array of Queues
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adoption is oldest-first, with filters for cat, dog, or either. One queue cannot skip the other species in $O(1)$.
+>
+> Cat order and dog order are independent, so two queues suffice; increasing ids make the older animal the smaller front.
+>
+> $q[0]$ and $q[1]$ store cat and dog ids. `dequeueAny` compares the two fronts and falls back if one queue is empty.
+
+<!-- thinking:end -->
+
 We define an array $q$ of length $2$ to store the queues of cats and dogs.
 
 In the `enqueue` operation, assuming the animal number is $i$ and the animal type is $j$, we enqueue $i$ into $q[j]$.

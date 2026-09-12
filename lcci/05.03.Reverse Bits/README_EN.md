@@ -40,6 +40,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.03.Reverse%20Bits/
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After flipping at most one $0$ to $1$, maximize a run of ones. Trying every flip and expanding is $O(32^2)$ and repeats work.
+>
+> That is the longest window containing at most one $0$, which a sliding window finds in one pass.
+>
+> Right end $i$ walks $32$ bits; $cnt$ is the number of zeros. When $cnt>1$, advance $j$. `num>>i & 1 ^ 1` increments exactly on a zero bit.
+
+<!-- thinking:end -->
+
 We can use two pointers $i$ and $j$ to maintain a sliding window, where $i$ is the right pointer and $j$ is the left pointer. Each time the right pointer $i$ moves one bit to the right, if the number of $0$s in the window exceeds $1$, then the left pointer $j$ moves one bit to the right, until the number of $0$s in the window does not exceed $1$. Then calculate the length of the window at this time, compare it with the current maximum length, and take the larger value as the current maximum length.
 
 Finally, return the maximum length.

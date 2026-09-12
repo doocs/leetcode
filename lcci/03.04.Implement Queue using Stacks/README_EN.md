@@ -56,6 +56,18 @@ queue.empty(); // return false</pre>
 
 ### Solution 1: Double Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stack is LIFO and a queue is FIFO. Reversing through an auxiliary stack on every enqueue is correct but makes `push` linear.
+>
+> Enqueue and dequeue want opposite orders, so one extra reversal on the dequeue side is enough. `stk1` accepts pushes; `stk2` serves pops; `stk1` is poured into `stk2` only when `stk2` is empty.
+>
+> `move` transfers each element at most once, so pop and peek are amortized $O(1)$. Emptiness is both stacks empty.
+
+<!-- thinking:end -->
+
 We use two stacks, where `stk1` is used for enqueue, and another stack `stk2` is used for dequeue.
 
 When enqueueing, we directly push the element into `stk1`. The time complexity is $O(1)$.

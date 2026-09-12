@@ -48,6 +48,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.01.Three%20Steps%2
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A step of $1$, $2$, or $3$ is allowed. Bare recursion over the three choices recomputes the same suffixes many times.
+>
+> The count at $i$ depends only on $i-1,i-2,i-3$, so a linear recurrence with a modulus is enough.
+>
+> Three rolling variables $a,b,c$ hold consecutive terms; after $n-1$ updates $a$ is $f(n)$. Extra space is constant.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the number of ways to reach the $i$-th step, initially $f[1]=1$, $f[2]=2$, $f[3]=4$. The answer is $f[n]$.
 
 The recursion formula is $f[i] = f[i-1] + f[i-2] + f[i-3]$.
@@ -200,6 +212,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Matrix Quick Power to Accelerate Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The linear scan is $\Theta(n)$ and spends most of its time on modular adds when $n$ is large.
+>
+> The order-$3$ recurrence is a $1\times 3$ state times a $3\times 3$ matrix, which matrix exponentiation evaluates in $O(\log n)$ multiplications.
+
+<!-- thinking:end -->
 
 We set $F(n)$ to represent a $1 \times 3$ matrix $\begin{bmatrix} F_{n - 1} & F_{n - 2} & F_{n - 3} \end{bmatrix}$, where $F_{n - 1}$, $F_{n - 2}$ and $F_{n - 3}$ respectively represent the number of ways to reach the $n - 1$-th, $n - 2$-th and $n - 3$-th steps.
 

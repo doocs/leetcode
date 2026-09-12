@@ -60,6 +60,18 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 
 ### Solution 1: Hash Table + Prefix Sum + Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path may start and end at any ancestor–descendant pair. Restarting a downward search at every node recounts edges and can be quadratic.
+>
+> A path sum is a difference of prefix sums. With current prefix $s$, the useful ancestors are those with prefix $s-sum$.
+>
+> $cnt$ stores prefix frequencies from the root, with $cnt[0]=1$ for the empty prefix. Query $cnt[s-sum]$, increment $s$, recurse, then decrement so sibling branches stay clean.
+
+<!-- thinking:end -->
+
 We can use the idea of prefix sum to recursively traverse the binary tree, and use a hash table $cnt$ to count the occurrence of each prefix sum on the path from the root node to the current node.
 
 We design a recursive function $dfs(node, s)$, where the current node being traversed is $node$, and the prefix sum on the path from the root node to the current node is $s$. The return value of the function is the number of paths with the path sum equal to $sum$ and the path ends at the $node$ node or its subtree nodes. Therefore, the answer is $dfs(root, 0)$.
