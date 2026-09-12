@@ -8,7 +8,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.09.BST%20Sequences
 
 # [04.09. BST Sequences](https://leetcode.cn/problems/bst-sequences-lcci)
 
-[中文文档](/lcci/04.09.BST%20Sequences/README.md)
+[Chinese Version](/lcci/04.09.BST%20Sequences/README.md)
 
 ## Description
 
@@ -44,6 +44,16 @@ Given the following tree:</p>
 ## Solutions
 
 <!-- solution:start -->
+
+### Solution 1: Recursively Weave Subsequences
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating permutations of the node values and simulating insertions would verify each of $n!$ orders, which does not scale. The root must be inserted first, so every valid array starts with the root. Sequences for the left and right subtrees are independent except that each must keep its own relative order. Recurse to obtain every valid sequence of each subtree, then weave them after the root prefix: at each step take the next unused value from one side. An empty tree yields an empty sequence.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

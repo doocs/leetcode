@@ -69,4 +69,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2043.%20%E5%8D%81%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

@@ -60,4 +60,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2016.%20%E6%B8%B8%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

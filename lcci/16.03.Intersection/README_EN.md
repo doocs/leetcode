@@ -64,4 +64,6 @@ line2 = {1, 0}, {2, 1}
 
 <!-- solution:start -->
 
+No solution yet. Contributions welcome.
+
 <!-- problem:end -->
