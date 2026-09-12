@@ -109,6 +109,16 @@ Product 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个用户需要花费最高的商品，并列则都保留。先按用户与商品汇总 $quantity \times price$，再用窗口按花费降序编号。
+>
+> 联结 $Sales$ 与 $Product$ 后分组，取 $rk=1$ 的行即该用户的最佳商品。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

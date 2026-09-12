@@ -65,6 +65,16 @@ The last space in the matrix is set to -1.</pre>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Fill a $m \times n$ matrix in spiral order from a list, leaving $-1$ elsewhere. At most $10^5$ cells, so a walk is enough.
+>
+> Prefill $-1$, then step right, down, left, up. Turn when the next cell is out of range or already written. Stop when the list ends; untouched cells stay $-1$.
+
+<!-- thinking:end -->
+
 We define a two-dimensional array $\textit{ans}$ to store the elements in the linked list, initially all filled with $-1$. We define three variables $i, j, k$, representing the current row, column, and direction respectively. We define an array $\textit{dirs}$ to represent the offsets of the four directions.
 
 Then we start traversing the linked list. Each time we traverse a node, we fill the current node's value into $\textit{ans}[i][j]$, then update the linked list pointer. If the linked list is empty, it means all elements have been filled and we exit the loop.

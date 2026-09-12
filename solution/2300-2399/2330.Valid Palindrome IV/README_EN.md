@@ -67,6 +67,16 @@ Two operations could be performed to make s a palindrome so return true.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may change at most two characters to make a palindrome. $n \le 10^5$, so we cannot try edit positions. One edit fixes at most one mirrored pair.
+>
+> Two pointers count pairs with $s[i] \ne s[j]$. At most two mismatches can be fixed in two operations.
+
+<!-- thinking:end -->
+
 We can use two pointers $i$ and $j$, pointing to the beginning and end of the string, respectively, and then move towards the center, counting the number of different characters. If the number of different characters is greater than $2$, return $\textit{false}$; otherwise, return $\textit{true}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the string $s$.

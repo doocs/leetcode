@@ -72,6 +72,16 @@ It is obtained by taking the first appearance of each letter in &quot;<u><strong
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The key maps letters, in order of first appearance, to $a,b,c,\ldots$. Both strings are at most $2000$ long, so a substitution table is enough.
+>
+> Record the plaintext assigned at each letter’s first occurrence; keep spaces. Decode $message$ by table lookup instead of rescanning the key.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

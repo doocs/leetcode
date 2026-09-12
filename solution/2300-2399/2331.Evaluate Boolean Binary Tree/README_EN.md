@@ -78,6 +78,16 @@ The root node evaluates to True, so we return true.</pre>
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Leaves are booleans; inner nodes are OR or AND. At most $1000$ nodes, so evaluate by definition.
+>
+> A missing left child is a leaf. Otherwise recurse on both children and apply $or$ or $and$ from the node value. Each node is visited once.
+
+<!-- thinking:end -->
+
 We can use recursion to solve this problem.
 
 For the current node $\textit{root}$:

@@ -70,6 +70,16 @@ smallestInfiniteSet.popSmallest(); // return 5, and remove it from the set.
 
 ### Solution 1: Ordered Set + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The set starts as all positive integers, but values and operations stay within $1000$, so only $[1,1000]$ matters.
+>
+> Keep present numbers in an ordered set. Pop deletes the minimum; add inserts it back. Order gives the minimum in $O(\log n)$.
+
+<!-- thinking:end -->
+
 We note that the range of elements in the set given by the problem is $[1, 1000]$, and the operations we need to support are:
 
 - `popSmallest`: Pop the smallest element from the set
