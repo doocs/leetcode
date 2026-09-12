@@ -71,6 +71,18 @@ output[i] = [a, b, c] (three integers)
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Five philosophers share five forks. Neighbors contend for the same fork; inconsistent lock order can deadlock. A meal touches only the left and right forks of that philosopher.
+>
+> $scoped\_lock$ acquires two mutexes in the given order and releases them in reverse at the end of the scope, so the critical section on that pair is exclusive without blocking non-adjacent philosophers.
+>
+> Philosopher $i$ takes forks $i$ and $(i+1)\bmod 5$; pick, eat, and put all run under the lock, which prevents a wait cycle.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### C++

@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the longest prefix from which deleting one element equalizes remaining frequencies. $n \le 10^5$, so we cannot recount every prefix.
+>
+> Keep value frequencies $cnt$, the frequency-of-frequencies $ccnt$, and the maximum frequency $mx$. A prefix works iff all frequencies are $1$; or they are only $mx$ and $mx-1$ with a unique value at $mx$; or all are $mx$ except one singleton.
+>
+> We update both maps left to right and test the three shapes in $O(1)$ from $ccnt$ and $mx$, recording the largest valid index.
+
+<!-- thinking:end -->
+
 We use $cnt$ to record the number of times each element $v$ appears in $nums$, and $ccnt$ to record the number of times each count appears. The maximum number of times an element appears is represented by $mx$.
 
 While traversing $nums$:

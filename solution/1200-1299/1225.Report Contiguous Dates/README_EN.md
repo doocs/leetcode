@@ -102,6 +102,18 @@ From 2019-01-06 to 2019-01-06 all tasks succeeded and the system state was &quot
 
 ### Solution 1: Union + Window Function + Group By
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Success and failure live in two tables, yet contiguous ranges share one timeline. We union $2019$ fail and success dates into a single event stream with a state flag.
+>
+> For a run of the same state, date minus in-group rank is constant, and that difference labels the island. Grouping by state and that label, $MIN$/$MAX$ dates form each range.
+>
+> $UNION\ ALL$ aligns the tables, $RANK$ builds the island key, and $GROUP\ BY$ collapses each range.
+
+<!-- thinking:end -->
+
 We can merge the two tables into one table with a field `st` representing the status, where `failed` indicates failure and `succeeded` indicates success. Then, we can use a window function to group the records with the same status into one group, and calculate the difference between each date and its rank within the group as `pt`, which serves as the identifier for the same continuous status. Finally, we can group by `st` and `pt`, and calculate the minimum and maximum dates for each group, and sort by the minimum date.
 
 <!-- tabs:start -->

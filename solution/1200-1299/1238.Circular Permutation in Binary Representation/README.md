@@ -64,6 +64,16 @@ tags:
 
 ### 方法一：二进制码转格雷码
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相邻（含首尾）只差一位，这正是格雷码的定义。标准构造 $i\oplus(i\gg 1)$ 给出 $0\ldots 2^n-1$ 的一条格雷码回路。$n \le 16$，枚举全部码字可行。
+>
+> 生成完整序列后找到 $start$ 的位置并旋转，使首项为 $start$ 且圆形相邻关系不变。
+
+<!-- thinking:end -->
+
 我们观察题目中的排列，可以发现，它的二进制表示中，任意两个（包括首尾）相邻的数只有一位二进制数不同。这种编码方式就是格雷码，它是我们在工程中会遇到的一种编码方式。
 
 二进制码转换成二进制格雷码，其法则是保留二进制码的最高位作为格雷码的最高位，而次高位格雷码为二进制码的高位与次高位相异或，而格雷码其余各位与次高位的求法相类似。
@@ -174,6 +184,14 @@ function circularPermutation(n: number, start: number): number[] {
 <!-- solution:start -->
 
 ### 方法二：转换优化
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一先生成再旋转。$gray(i)\oplus start$ 仍相邻只差一位，且 $i=0$ 时恰为 $start$，故可直接按 $i$ 映射，省去查找与拼接。
+
+<!-- thinking:end -->
 
 由于 $gray(0) = 0$，那么 $gray(0) \oplus start = start$，而 $gray(i)$ 与 $gray(i-1)$ 只有一个二进制位不同，所以 $gray(i) \oplus start$ 与 $gray(i-1) \oplus start$ 也只有一个二进制位不同。
 

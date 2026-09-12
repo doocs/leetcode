@@ -110,6 +110,16 @@ startUrl = &quot;http://news.google.com&quot;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may visit only URLs on the start host; there are at most $1000$ pages. Expanding $getUrls$ from the start is a graph walk, and a URL must not be fetched twice.
+>
+> A set records visits. DFS enters an unseen URL and follows only same-host edges. The host is the segment after $http://$ up to the next slash. The set deduplicates; the host test bounds the search.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

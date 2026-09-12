@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Direct Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is $8\times 8$ with fewer than $64$ queens. A queen attacks the king only on the same row, column, or diagonal, with no queen in between. Walking outward from the king, the first queen on each of the eight rays is the unique attacker on that ray.
+>
+> We store queen cells in a set for $O(1)$ tests, then step from the king along the eight unit vectors, recording a hit and stopping that ray. The walk encodes blocking; the set keeps each step constant-time.
+
+<!-- thinking:end -->
+
 First, we store all the positions of the queens in a hash table or a two-dimensional array $s$.
 
 Next, starting from the position of the king, we search in the eight directions: up, down, left, right, upper left, upper right, lower left, and lower right. If there is a queen in a certain direction, we add its position to the answer and stop continuing to search in that direction.

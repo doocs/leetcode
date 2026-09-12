@@ -74,6 +74,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subfolder is lexicographically after its parent and starts with the parent path plus $/$. $n$ reaches $4\times 10^4$, so pairwise prefix tests are too slow.
+>
+> After sorting we only compare with the last kept folder: a descendant is dropped, otherwise the path is a new root. Sorting turns parent-child into an adjacent-prefix relation, so one scan suffices.
+
+<!-- thinking:end -->
+
 First, we sort the array `folder` in lexicographical order, then traverse the array. For the current folder $f$ we are traversing, if its length is greater than or equal to the length of the last folder in the answer array, and its prefix includes the last folder in the answer array plus a `/`, then $f$ is a subfolder of the last folder in the answer array, and we don't need to add it to the answer array. Otherwise, we add $f$ to the answer array.
 
 After the traversal ends, the folders in the answer array are the answer required by the problem.
@@ -179,6 +189,14 @@ function removeSubfolders(folder) {
 <!-- solution:start -->
 
 ### Solution 2: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting relies on global lexicographic order and pays string-prefix comparisons. A trie inserts path segments and marks folder ends; a search that hits an end can skip the whole subtree as nested folders. Time follows total path length and avoids sorting.
+
+<!-- thinking:end -->
 
 We can use a trie to store all the folders in the array `folder`. Each node of the trie contains a `children` field, used to store the child nodes of the current node, and a `fid` field, used to store the index of the folder corresponding to the current node in the array `folder`.
 

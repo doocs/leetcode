@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Sorting + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person has up to $10^4$ slots; checking every pair is $O(mn)$. After sorting by start, an overlap can only involve the two current slots: start is the max of starts, end the min of ends.
+>
+> If the overlap is long enough, we return the earliest such interval. Otherwise the slot that ends first cannot form an earlier feasible overlap with later slots of the other person, so we advance that pointer.
+>
+> Sorting walks candidates in time order; two pointers discard a hopeless slot each step, for a linear number of comparisons.
+
+<!-- thinking:end -->
+
 We can sort the free time intervals of both people, then use two pointers to traverse the two arrays and find the intersection of the free time intervals of both people. If the length of the intersection is greater than or equal to `duration`, return the start time of the intersection and the start time plus `duration`. Otherwise, if the end time of the first person's free time interval is less than the end time of the second person's free time interval, move the first person's pointer; otherwise, move the second person's pointer. Continue traversing until a suitable time interval is found or the traversal ends.
 
 The time complexity is $O(m \times \log m + n \times \log n)$, and the space complexity is $O(\log m + \log n)$. Here, $m$ and $n$ are the lengths of the two arrays, respectively.

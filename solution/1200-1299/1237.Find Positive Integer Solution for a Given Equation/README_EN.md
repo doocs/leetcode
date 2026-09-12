@@ -92,6 +92,16 @@ x=5, y=1 -&gt; f(5, 1) = 5 * 1 = 5.
 
 ### Solution 1: Enumeration + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f$ is strictly increasing in both arguments, $z \le 100$, and solutions lie in $1\ldots 1000$. A double linear scan is at most $10^6$ calls, which works but can be reduced. For fixed $x$, $f(x,\cdot)$ is monotone, so $y$ can be binary-searched.
+>
+> We search $y$ for each $x$ and record hits. Monotonicity turns the inner loop logarithmic.
+
+<!-- thinking:end -->
+
 According to the problem, we know that the function $f(x, y)$ is a monotonically increasing function. Therefore, we can enumerate $x$, and then binary search $y$ in $[1,...z]$ to make $f(x, y) = z$. If found, add $(x, y)$ to the answer.
 
 The time complexity is $O(n \log n)$, where $n$ is the value of $z$, and the space complexity is $O(1)$.
@@ -261,6 +271,14 @@ function findSolution(customfunction: CustomFunction, z: number): number[][] {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A binary search per $x$ still pays a log factor. Starting at $(1,1000)$: a small value can only increase $x$ (shrinking $y$ would be smaller still); a large value can only decrease $y$. Equality records the pair and moves both ends. Calls are $O(z)$ and use both monotonicities.
+
+<!-- thinking:end -->
 
 We can define two pointers $x$ and $y$, initially $x = 1$, $y = z$.
 

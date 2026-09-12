@@ -72,6 +72,16 @@ Note that s cannot be split into &quot;RL&quot;, &quot;RR&quot;, &quot;RL&quot;,
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The whole string is balanced; we want as many balanced pieces as possible. Cutting as soon as a prefix balances never blocks later cuts: each cut adds one to the answer and leaves a balanced suffix.
+>
+> A counter tracks the $L$/$R$ difference and hits zero on each balanced prefix. We increment the answer and continue. The greedy cuts stay in lockstep with the counter in one linear pass.
+
+<!-- thinking:end -->
+
 We use a variable $l$ to maintain the current balance of the string, i.e., the value of $l$ is the number of 'L's minus the number of 'R's in the current string. When the value of $l$ is 0, we have found a balanced string.
 
 We traverse the string $s$. When we traverse to the $i$-th character, if $s[i] = L$, then the value of $l$ is increased by 1, otherwise, the value of $l$ is decreased by 1. When the value of $l$ is 0, we increase the answer by 1.

@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Points are collinear iff every vector from the first point is parallel to the first edge. Comparing slopes hits vertical lines and floating error. The cross product $(x-x_1)(y_2-y_1)=(y-y_1)(x_2-x_1)$ avoids division.
+>
+> We fix the first two points and test the identity on the rest. $n \le 1000$ allows one linear pass. Points are distinct, so there is no zero vector.
+
+<!-- thinking:end -->
+
 The time complexity is $O(n)$, where $n$ is the length of the `coordinates` array. The space complexity is $O(1)$.
 
 <!-- tabs:start -->
