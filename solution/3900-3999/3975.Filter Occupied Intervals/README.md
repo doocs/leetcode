@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3975.Filter%20Occupied%20Intervals/README.md
 rating: 1533
 source: 第 508 场周赛 Q2
 tags:

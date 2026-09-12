@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3976.Maximum%20Subarray%20Sum%20After%20Multiplier/README.md
 rating: 1981
 source: 第 508 场周赛 Q3
 tags:
