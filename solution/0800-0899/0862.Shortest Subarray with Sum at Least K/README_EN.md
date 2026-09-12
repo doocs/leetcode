@@ -54,6 +54,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest subarray whose sum is at least $k$. Negatives break a sliding window, and $n\le 10^5$ forbids quadratic enumeration. On prefix sums we want the smallest $j-i$ with $s[j]-s[i]\ge k$.
+>
+> Keep a monotone increasing deque of indices: pop the front when it already yields $\ge k$, and drop a tail that is at least the current prefix, because a later, smaller prefix is a better start.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

@@ -61,6 +61,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may flip any rows or columns to maximize the binary score. $m,n\le 20$ allow enumerating row flips, but the MSB of every row should be $1$, otherwise that row is halved.
+>
+> Flip rows so the first column is all ones. Each later column contributes $\max(\text{ones},\text{zeros})$ times its place value. Column flips do not interact.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
