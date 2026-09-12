@@ -1,6 +1,14 @@
+import html
 import re
 
-from mkdocs import plugins
+try:
+    from mkdocs import plugins
+except ImportError:  # unittest without site deps
+
+    class plugins:
+        @staticmethod
+        def event_priority(_priority):
+            return lambda fn: fn
 
 # https://www.mkdocs.org/dev-guide/plugins/#events
 
@@ -29,6 +37,15 @@ code_dict = {
 mapping = {lang: name for name, lang in code_dict.values()}
 
 
+def _badge(title, value):
+    return (
+        '<span class="lc-badge">'
+        f'<span class="lc-badge__label">{html.escape(str(title))}</span>'
+        f'<span class="lc-badge__value">{html.escape(str(value))}</span>'
+        "</span>"
+    )
+
+
 def add_difficulty_info(markdown, page):
     difficulty = page.meta.get("difficulty")
     rating = page.meta.get("rating")
@@ -36,24 +53,17 @@ def add_difficulty_info(markdown, page):
         return markdown
     source = page.meta.get("source")
     is_cn_problem_page = (page.edit_url or "").endswith("README.md")
-    images = []
+    badges = []
     if source:
         title = "来源" if is_cn_problem_page else "Source"
-        images.append(
-            f'<img src="https://img.shields.io/badge/{title}-{source}-4051B5?style=flat-square">'
-        )
+        badges.append(_badge(title, source))
     if difficulty:
         title = "难度" if is_cn_problem_page else "Difficulty"
-        images.append(
-            f'<img src="https://img.shields.io/badge/{title}-{difficulty}-4051B5?style=flat-square">'
-        )
+        badges.append(_badge(title, difficulty))
     if rating:
         title = "分数" if is_cn_problem_page else "Rating"
-        images.append(
-            f'<img src="https://img.shields.io/badge/{title}-{rating}-4051B5?style=flat-square">'
-        )
-    # 将 images 放到 <p> 标签中
-    images_html = "<p>" + " ".join(images) + "</p>"
+        badges.append(_badge(title, rating))
+    badges_html = f'<p class="lc-badges">{"".join(badges)}</p>'
     heading_pattern = re.compile(r"(^# .+?$)", re.MULTILINE)
     match = heading_pattern.search(markdown)
     if match:
@@ -61,7 +71,7 @@ def add_difficulty_info(markdown, page):
         markdown = (
             markdown[:insert_position]
             + "\n\n"
-            + images_html
+            + badges_html
             + "\n\n"
             + markdown[insert_position:]
         )
