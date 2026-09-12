@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0969.Pancake%20Sorting/README.md
 tags:
     - 贪心
     - 数组

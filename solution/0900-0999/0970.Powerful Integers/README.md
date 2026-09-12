@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0970.Powerful%20Integers/README.md
 tags:
     - 哈希表
     - 数学

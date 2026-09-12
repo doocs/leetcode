@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0944.Delete%20Columns%20to%20Make%20Sorted/README_EN.md
 tags:
     - Array
     - String

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md
 tags:
     - 并查集
     - 数组
