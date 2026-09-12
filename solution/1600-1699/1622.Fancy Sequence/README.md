@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1622.Fancy%20Sequence/README.md
 rating: 2476
 source: 第 37 场双周赛 Q4
 tags:

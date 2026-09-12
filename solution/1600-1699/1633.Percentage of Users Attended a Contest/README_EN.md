@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1633.Percentage%20of%20Users%20Attended%20a%20Contest/README_EN.md
 tags:
     - Database
 ---
