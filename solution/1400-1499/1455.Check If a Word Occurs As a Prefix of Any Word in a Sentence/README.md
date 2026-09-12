@@ -71,6 +71,14 @@ tags:
 
 ### 方法一：字符串分割
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 句子很短。按空格拆成单词后，检查 $\textit{searchWord}$ 是否为某个词的前缀，返回 $1$ 起始下标。
+
+<!-- thinking:end -->
+
 我们将 $\textit{sentence}$ 按空格分割为 $\textit{words}$，然后遍历 $\textit{words}$，检查 $\textit{words}[i]$ 是否是 $\textit{searchWord}$ 的前缀，是则返回 $i+1$。若遍历结束，所有单词都不满足，返回 $-1$。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m)$。其中 $m$ 和 $n$ 分别是 $\textit{sentence}$ 和 $\textit{searchWord}$ 的长度。

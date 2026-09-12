@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a=b$ iff the XOR of $[i,k]$ is $0$, in which case any $j\in(i,k]$ works ($k-i$ triples). $n\le 300$, so enumerate $i$ and $k$ while maintaining the running XOR.
+
+<!-- thinking:end -->
+
 According to the problem description, to find triplets $(i, j, k)$ that satisfy $a = b$, which means $s = a \oplus b = 0$, we only need to enumerate the left endpoint $i$, and then calculate the prefix XOR sum $s$ of the interval $[i, k]$ with $k$ as the right endpoint. If $s = 0$, then for any $j \in [i + 1, k]$, the condition $a = b$ is satisfied, meaning $(i, j, k)$ is a valid triplet. There are $k - i$ such triplets, which we can add to our answer.
 
 After the enumeration is complete, we return the answer.

@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digits $1$–$9$ have costs and may be reused to reach `target`. The lexicographically largest integer first maximizes length, then prefers larger digits.
+>
+> $f[i][j]$ is the maximum length using the first $i$ digits and exact cost $j$ (unbounded knapsack). $g[i][j]$ records whether digit $i$ was taken so we can reconstruct from $9$ downward. Impossible yields `0`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

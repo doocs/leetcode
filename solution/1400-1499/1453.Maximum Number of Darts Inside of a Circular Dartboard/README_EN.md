@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. A maximum covering disk of radius $r$ can be assumed to pass through two points. For each pair at distance $\le 2r$, compute the two candidate centers and count covered darts.
+>
+> A single dart already gives $1$. Compare distances against $r$ with a small epsilon so boundary points are kept.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

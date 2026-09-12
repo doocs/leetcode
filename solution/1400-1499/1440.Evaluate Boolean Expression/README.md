@@ -104,6 +104,16 @@ Expressions 表:
 
 ### 方法一：等值连接 + CASE 表达式
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 表达式表只存变量名，数值在 `Variables` 中。需要把左右操作数都换成具体值再比较。对 `Variables` 做两次等值连接，分别绑定左、右操作数。
+>
+> `CASE` 按 `=`、`>`、`<` 三种运算符判断，成立则输出 `true`，否则 `false`。
+
+<!-- thinking:end -->
+
 我们可以通过等值连接，将 `Expressions` 表中的每一行与 `Variables` 表中的两行进行关联，关联的条件是 `left_operand = name` 和 `right_operand = name`，然后通过 `CASE` 表达式来判断布尔表达式的值。如果 `operator` 为 `=`，则判断两个值是否相等；如果 `operator` 为 `>`，则判断左值是否大于右值；如果 `operator` 为 `<`，则判断左值是否小于右值。若是，那么布尔表达式的值为 `true`，否则为 `false`。
 
 <!-- tabs:start -->

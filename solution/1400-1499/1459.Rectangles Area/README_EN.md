@@ -78,6 +78,14 @@ Note that the rectangle formed by p1 = 1 and p2 = 3 is invalid because the area 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any two points with distinct $x$ and distinct $y$ determine a positive-area axis-aligned rectangle. Self-join with $p1.id<p2.id$, drop collinear pairs, and emit $|\Delta x|\cdot|\Delta y|$ ordered by area then ids.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

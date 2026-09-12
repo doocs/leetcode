@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We start at $0$, collect every apple, and return, so each used edge is traversed twice. $n\le 10^5$ allows one DFS.
+>
+> A subtree with no apple and no further work can be skipped. Sum the children's costs (entering a child costs $2$), and add the incoming edge only if this node has an apple or a child contributed a positive cost. The root's incoming cost is $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

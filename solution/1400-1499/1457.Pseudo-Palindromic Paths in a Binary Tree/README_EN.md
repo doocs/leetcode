@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: DFS + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path is pseudo-palindromic iff at most one value occurs an odd number of times. Values are $1$–$9$ and $n\le 10^5$, so XOR a 10-bit mask along the path.
+>
+> At a leaf, count the path when $mask$ has at most one bit set. Recurse with the updated mask and sum both children.
+
+<!-- thinking:end -->
+
 A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.
 
 Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $mask$ to represent the occurrence status of the node values in the current path. The $i$th bit of $mask$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $mask \&(mask - 1) = 0$, where $\&$ represents the bitwise AND operation.

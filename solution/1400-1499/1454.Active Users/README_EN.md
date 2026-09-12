@@ -102,6 +102,16 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 
 ### Solution 1: Using Window Functions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An active user logged in on at least five consecutive days; duplicate same-day logins must be removed. Subtracting `ROW_NUMBER()` (per user, by date) from the login date yields a constant $g$ on a consecutive run.
+>
+> Group by $(id,g)$ and keep users with at least five rows, then output distinct ids and names.
+
+<!-- thinking:end -->
+
 First, we join the `Logins` table and the `Accounts` table, and remove duplicates to get the temporary table `T`.
 
 Then, we use the window function `ROW_NUMBER()` to calculate the base login date `g` for each user `id`. If a user logs in for 5 consecutive days, their `g` values are the same.

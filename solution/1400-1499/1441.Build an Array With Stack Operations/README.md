@@ -97,6 +97,16 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 流是 $1,2,\ldots,n$，`target` 严格递增。对 `target` 中未出现的数必须 `Push` 再立刻 `Pop`，出现的数只 `Push`。
+>
+> 用指针 $\textit{cur}$ 表示下一个读入的数，对每个目标值 $x$，先把空隙填成 Push/Pop，再 Push $x$。$n\le 100$，模拟即可。
+
+<!-- thinking:end -->
+
 我们定义一个变量 $\textit{cur}$ 表示当前待读取的数字，初始时 $\textit{cur} = 1$，用一个数组 $\textit{ans}$ 存储答案。
 
 接下来，我们遍历数组 $\textit{target}$ 中的每个数字 $x$：

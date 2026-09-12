@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: 2D Prefix Sum + Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cut is horizontal or vertical and the piece we give away must contain an apple. $rows,cols\le 50$, $k\le 10$, so the cutting tree recomputes the same leftover rectangle and remaining cuts.
+>
+> A 2D prefix sum tests apples in $O(1)$. $dfs(i,j,k)$ is ways to cut the pizza with top-left $(i,j)$ another $k$ times: try legal cuts and recurse on the remaining piece. When $k=0$, count $1$ if any apple remains.
+
+<!-- thinking:end -->
+
 We can use a 2D prefix sum to quickly calculate the number of apples in each sub-rectangle. Define $s[i][j]$ to represent the number of apples in the sub-rectangle that includes the first $i$ rows and the first $j$ columns. Then $s[i][j]$ can be derived from the number of apples in the three sub-rectangles $s[i-1][j]$, $s[i][j-1]$, and $s[i-1][j-1]$. The specific calculation method is as follows:
 
 $$
