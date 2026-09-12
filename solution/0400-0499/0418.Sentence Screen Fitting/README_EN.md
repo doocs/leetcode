@@ -77,6 +77,18 @@ The character &#39;-&#39; signifies an empty space on the screen.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing word by word on each row is clumsy: there can be $10^4$ rows and the sentence repeats.
+>
+> Join the words with a trailing space into a cyclic string $s$, and let $\textit{cur}$ be the number of characters already covered. Each row adds $\textit{cols}$: if that landing is a space, the row ended on a word boundary and we advance one more; otherwise we rewind to the previous space, i.e. push the unfinished word to the next row.
+>
+> The number of full sentences is $\lfloor \textit{cur}/|s| \rfloor$. The trailing space encodes the mandatory gap, and the rewind forbids splitting a word.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Enumerate Combinations
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Hours lie in $[0,12)$ and minutes in $[0,60)$, so only $720$ readings exist. The number of lit LEDs is the total number of $1$-bits, so we enumerate each pair $(i,j)$ and count bits.
+>
+> The search space is constant. Enumerating valid clock readings and matching $\textit{turnedOn}$ is shorter than choosing LED subsets and then checking that the time is legal.
+
+<!-- thinking:end -->
+
 The problem can be converted to finding all possible combinations of $i \in [0, 12)$ and $j \in [0, 60)$.
 
 A valid combination must satisfy the condition that the number of 1s in the binary representation of $i$ plus the number of 1s in the binary representation of $j$ equals $\textit{turnedOn}$.
@@ -190,6 +200,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 enumerates legal hours and minutes. The ten LEDs are also a mask in $[0,2^{10})$: the high $4$ bits are the hour and the low $6$ bits the minute. Keep those with $h<12$, $m<60$, and popcount equal to $\textit{turnedOn}$.
+>
+> A single loop mirrors the hardware layout; the asymptotic cost stays $O(1)$.
+
+<!-- thinking:end -->
 
 We can use $10$ binary bits to represent the watch, where the first $4$ bits represent hours and the last $6$ bits represent minutes. Enumerate each number in $[0, 2^{10})$, check if the number of 1s in its binary representation equals $\textit{turnedOn}$, and if so, convert it to time format and add it to the answer.
 

@@ -54,6 +54,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal partition means a subset sums to half the total. An odd total is impossible. Subset enumeration is too large for $n\le 200$.
+>
+> This is $0$-$1$ knapsack with capacity $m=s/2$: $f[i][j]$ is whether the first $i$ numbers can make $j$, taking or skipping $x$. The $n\times m$ table fits the limits.
+>
+> Reject an odd sum first. The empty subset gives $f[0][0]=\textit{true}$, which seeds the recurrence.
+
+<!-- thinking:end -->
+
 First, we calculate the total sum $s$ of the array. If the total sum is odd, it cannot be divided into two subsets with equal sums, so we directly return `false`. If the total sum is even, we set the target subset sum to $m = \frac{s}{2}$. The problem is then transformed into: does there exist a subset whose element sum is $m$?
 
 We define $f[i][j]$ to represent whether it is possible to select several numbers from the first $i$ numbers so that their sum is exactly $j$. Initially, $f[0][0] = true$ and the rest $f[i][j] = false$. The answer is $f[n][m]$.
@@ -249,6 +261,14 @@ var canPartition = function (nums) {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ depends only on row $i-1$, and an item must not be reused, so update $j$ downward and keep a one-dimensional array. Space drops from $O(nm)$ to $O(m)$.
+
+<!-- thinking:end -->
 
 We notice that in Solution 1, $f[i][j]$ is only related to $f[i - 1][\cdot]$. Therefore, we can compress the two-dimensional array into a one-dimensional array.
 

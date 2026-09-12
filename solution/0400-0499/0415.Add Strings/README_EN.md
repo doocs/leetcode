@@ -61,6 +61,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The addends are decimal strings and may not fit in a machine integer. Addition still starts at the least significant digit.
+>
+> Two pointers walk from the ends, add the digits plus carry, store the units digit, and keep the tens as the new carry. A missing digit is $0$. Reverse the buffer at the end.
+>
+> Low digits first propagate carry correctly; appending then reversing avoids inserts at the front.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to point to the end of the two strings respectively, and start adding bit by bit from the end. Each time we take out the corresponding digits $a$ and $b$, calculate their sum $a + b + c$, where $c$ represents the carry from the last addition. Finally, we append the units digit of $a + b + c$ to the end of the answer string, and then take the tens digit of $a + b + c$ as the value of the carry $c$, and loop this process until the pointers of both strings have pointed to the beginning of the string and the value of the carry $c$ is $0$.
 
 Finally, reverse the answer string and return it.

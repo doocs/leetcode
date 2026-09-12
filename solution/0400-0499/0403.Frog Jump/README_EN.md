@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Hash Table + Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying jumps of $k-1,k,k+1$ from every stone revisits the same (stone, last jump). With $n\le 1100$ the pair $(i,k)$ has at most $O(n^2)$ states.
+>
+> Map positions to indices, memoize $dfs(i,k)$, and expand only onto stones that exist. The hash table makes the landing test $O(1)$.
+
+<!-- thinking:end -->
+
 We use a hash table $pos$ to record the index of each stone. Next, we design a function $dfs(i, k)$, which means that the frog jumps from the $i$-th stone and the last jump distance is $k$. If the frog can reach the end, the function returns `true`, otherwise it returns `false`.
 
 The calculation process of function $dfs(i, k)$ is as follows:
@@ -294,6 +304,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recursive search can grow a deep stack. Let $f[i][k]$ mean we can reach stone $i$ with last jump $k$, transferring from an earlier $j$ with $k=\textit{stones}[i]-\textit{stones}[j]$.
+>
+> If $k-1>j$, farther stones cannot supply that jump, so the inner loop may stop. Filling the table bottom-up removes the recursion.
+
+<!-- thinking:end -->
 
 We define $f[i][k]$ to be true if and only if it is possible to reach stone $i$ with last jump of size $k$. Initially $f[0][0] = true$, and all other elements of $f$ are false.
 

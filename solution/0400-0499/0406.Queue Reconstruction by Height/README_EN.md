@@ -64,6 +64,18 @@ Hence [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] is the reconstructed queue.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each person $[h,k]$ must have exactly $k$ people of height at least $h$ in front. Inserting shorter people first lets later taller people change those $k$ counts.
+>
+> Sort by height descending, then $k$ ascending, and insert each person at index $k$. Everyone already in the queue is taller or equal, so that index is exactly the required count, and earlier people are unaffected.
+>
+> Taller people occupy their slots first; a shorter insertion is invisible to them.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

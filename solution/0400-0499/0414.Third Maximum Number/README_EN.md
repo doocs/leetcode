@@ -74,6 +74,18 @@ The third distinct maximum is 1.
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the third distinct maximum. Sorting and unique-ing works, but the follow-up asks for a linear scan and constant extra memory.
+>
+> Keep $m_1>m_2>m_3$, skip a value already stored, and shift the triple when inserting. If $m_3$ stays at the sentinel, fewer than three distinct values exist and the maximum is the answer.
+>
+> Duplicates must be skipped, or one number would occupy all three slots.
+
+<!-- thinking:end -->
+
 We can use three variables $m_1$, $m_2$, and $m_3$ to represent the first, second, and third largest numbers in the array respectively. Initially, we set these three variables to negative infinity.
 
 Then, we iterate through each number in the array. For each number:

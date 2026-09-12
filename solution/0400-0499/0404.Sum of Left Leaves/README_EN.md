@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A left leaf is a left child with no children, not an arbitrary left subtree. Scanning a subtree from every node would revisit nodes.
+>
+> One recursion suffices: always walk the right child; if the left child is a leaf, add its value, otherwise recurse. An empty tree contributes $0$. Treating a leaf as both children being null avoids an extra walk.
+
+<!-- thinking:end -->
+
 First, we check if `root` is null. If it is, we return $0$.
 
 Otherwise, we recursively call the `sumOfLeftLeaves` function to calculate the sum of all left leaves in `root`'s right subtree, and assign the result to the answer variable $ans$. Then we check if `root`'s left child exists. If it does, we check if it is a leaf node. If it is a leaf node, we add its value to the answer variable $ans$. Otherwise, we recursively call the `sumOfLeftLeaves` function to calculate the sum of all left leaves in `root`'s left subtree, and add the result to the answer variable $ans$.
@@ -297,6 +307,16 @@ int sumOfLeftLeaves(struct TreeNode* root) {
 <!-- solution:start -->
 
 ### Solution 2: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same classification, implemented with an explicit stack: pop a node, add a left leaf or push the left child, and push a right child when it exists.
+>
+> Asymptotics are unchanged; the call stack is no longer implicit.
+
+<!-- thinking:end -->
 
 We can also convert the recursion in Solution 1 to iteration, using a stack to simulate the recursion process.
 
