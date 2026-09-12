@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README_EN.md
 tags:
     - Bit Manipulation
 ---
