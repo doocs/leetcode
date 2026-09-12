@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/README_EN.md
 tags:
     - Depth-First Search
     - Breadth-First Search
