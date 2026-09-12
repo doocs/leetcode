@@ -68,6 +68,16 @@ solution.flip();  // 返回 [2, 0]，此时返回 [0,0]、[1,0] 和 [2,0] 的概
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次在尚未翻转的格子中均匀抽样。若维护全部未翻转坐标，空间为 $O(mn)$，在 $mn$ 很大时浪费。
+>
+> 把矩阵看成 $[0,\textit{total})$ 的一维池，用 Fisher–Yates：在 $[0,\textit{total})$ 中随机下标 $x$，把 $x$ 与最后一个未用下标交换，并缩减 $\textit{total}$。实际交换用哈希表记录「被换入」的下标，缺省则下标等于自身。`reset` 清空映射并恢复 $\textit{total}$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -56,6 +56,16 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A naive rightward scan for the next greater value is $O(n^2)$, tight for a circular array with $n \le 10^4$. Indices wrap after $n$.
+>
+> Walk right to left with a decreasing stack of candidates that have not yet been beaten. Two passes unroll the circle; modulo maps back to the original index. Each value enters and leaves the stack at most once.
+
+<!-- thinking:end -->
+
 The problem requires us to find the next greater element for each element. Therefore, we can traverse the array from back to front, which effectively turns the problem into finding the previous greater element. Additionally, since the array is circular, we can traverse the array twice.
 
 Specifically, we start traversing the array from index $n \times 2 - 1$, where $n$ is the length of the array. Then, we let $j = i \bmod n$, where $\bmod$ represents the modulo operation. If the stack is not empty and the top element of the stack is less than or equal to $nums[j]$, then we continuously pop the top element of the stack until the stack is empty or the top element of the stack is greater than $nums[j]$. At this point, the top element of the stack is the previous greater element for $nums[j]$, and we assign it to $ans[j]$. Finally, we push $nums[j]$ onto the stack. We continue to the next element.

@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ranks follow scores from high to low, with the top three shown as medals. Sorting the scores themselves drops the original indices.
+>
+> Sort the indices by descending score, then write medals for the first three places and numeric ranks for the rest. One sort recovers both rank and position.
+
+<!-- thinking:end -->
+
 We use an array $\textit{idx}$ to store the indices from $0$ to $n-1$, then sort $\textit{idx}$ based on the values in $\textit{score}$ in descending order.
 
 Next, we define an array $\textit{top3} = [\text{Gold Medal}, \text{Silver Medal}, \text{Bronze Medal}]$. We traverse $\textit{idx}$, and for each index $j$, if $j$ is less than $3$, then $\textit{ans}[j]$ is $\textit{top3}[j]$; otherwise, it is $j+1$.

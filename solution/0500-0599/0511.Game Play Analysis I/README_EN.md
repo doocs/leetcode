@@ -73,6 +73,16 @@ Activity table:
 
 ### Solution 1: Group By + Min Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A player may appear on many days; we need the earliest `event_date` per player. A linear scan works, but the relational form is a group aggregate.
+>
+> `GROUP BY player_id` with `MIN(event_date)` (or the equivalent `groupby` minimum) yields the first login. One aggregation, no self-join.
+
+<!-- thinking:end -->
+
 We can use `GROUP BY` to group the `player_id` and then take the minimum `event_date` in each group as the date when the player first logged into the platform.
 
 <!-- tabs:start -->

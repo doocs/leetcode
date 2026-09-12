@@ -52,6 +52,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bottom-left value is the first node of the last level in a level-order walk. In BFS the queue front is the leftmost node of the current level.
+>
+> Record the front at the start of each level and enqueue children. When the queue drains, the last recorded value is the answer. Level order processes the deepest level last.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -272,6 +282,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS uses an $O(w)$ queue. DFS only needs to remember the first time a greater depth appears.
+>
+> A left-then-right preorder meets the leftmost node of each depth first; update the answer only when the depth is strictly larger. Extra space is the recursion stack, and the result matches level order.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

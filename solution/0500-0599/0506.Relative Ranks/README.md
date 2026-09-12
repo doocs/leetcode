@@ -67,6 +67,16 @@ tags:
 
 ### 方法一：排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 名次由分数从高到低决定，前三名要换成奖牌字符串。直接对分数排序会丢失下标，无法写回原顺序。
+>
+> 为此对下标按分数降序排序，再按排名填入对应位置：前三名用固定奖牌，其余写成名次数字。一次排序即可同时得到名次与原下标。
+
+<!-- thinking:end -->
+
 我们使用一个数组 $\textit{idx}$ 存储 $0$ 到 $n-1$ 的下标，然后对 $\textit{idx}$ 进行排序，排序规则为：按照 $\textit{score}$ 的值从大到小排序。
 
 然后我们定义一个数组 $\textit{top3} = [\text{Gold Medal}, \text{Silver Medal}, \text{Bronze Medal}]$，遍历 $\textit{idx}$，对于每个下标 $j$，如果 $j$ 小于 $3$，则 $\textit{ans}[j]$ 为 $\textit{top3}[j]$，否则为 $j+1$。

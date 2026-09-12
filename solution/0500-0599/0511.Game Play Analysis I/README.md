@@ -68,6 +68,16 @@ Result 表：
 
 ### 方法一：分组求最小值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每位玩家可能有多条登录记录，需要的是每人最早的 `event_date`。逐行比较可以做，但关系上这就是分组聚合。
+>
+> 按 `player_id` 分组并取 `MIN(event_date)`（或等价的 `groupby` 最小值）即可得到首次登录日期。聚合一次扫描全表，无需自连接。
+
+<!-- thinking:end -->
+
 我们可以用 `GROUP BY` 对 `player_id` 进行分组，然后取每一组中最小的 `event_date` 作为玩家第一次登录平台的日期。
 
 <!-- tabs:start -->

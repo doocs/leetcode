@@ -70,6 +70,16 @@ Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of the $k$ choices should take the most profitable project we can afford. Scanning all $n$ projects every time is $O(kn)$, which is heavy for $n,k \le 10^5$.
+>
+> Capital never decreases, so keep locked projects in a min-heap by capital and move those we can afford into a max-heap by profit. Each round pops the best profit and updates capital. Both heaps expose the next unlock and the best pick at the top.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

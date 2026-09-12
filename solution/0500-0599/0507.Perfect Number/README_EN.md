@@ -52,6 +52,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A perfect number equals the sum of its proper divisors. Scanning $1$ through $num-1$ is too slow for $num \le 10^8$.
+>
+> Divisors come in pairs: if $i$ divides $num$, so does $num/i$, so the loop can stop at $\sqrt{num}$. The number $1$ has proper-divisor sum $0$ and is excluded. Compare the accumulated sum with $num$.
+
+<!-- thinking:end -->
+
 First, we check if $\textit{num}$ is 1. If it is, then $\textit{num}$ is not a perfect number, and we return $\text{false}$.
 
 Next, we enumerate all positive divisors of $\textit{num}$ starting from 2. If $\textit{num}$ is divisible by a positive divisor $i$, we add $i$ to the sum $\textit{s}$. If the quotient of $\textit{num}$ divided by $i$ is not equal to $i$, we also add the quotient to the sum $\textit{s}$.

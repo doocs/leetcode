@@ -67,6 +67,16 @@ solution.flip();  // return [2, 0], [0,0], [1,0], and [2,0] should be equally li
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Uniformly sampling an unflipped cell is easy if we store every remaining coordinate, but that is $O(mn)$ memory.
+>
+> Treat the grid as the interval $[0,\textit{total})$ and apply Fisher–Yates: draw $x$ in $[0,\textit{total})$, swap it with the last unused index, and shrink $\textit{total}$. A hash map stores only remapped indices; an absent key is the identity. `reset` clears the map and restores $\textit{total}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Hash Table + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree sum is left + right + root, so both children must be known first. Rescanning each subtree repeats work.
+>
+> A post-order DFS returns the current sum and a hash map counts frequencies. After the walk, keep the sums whose frequency is maximal. One traversal both sums and counts.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to record the frequency of each subtree sum. Then, we use depth-first search (DFS) to traverse the entire tree, calculate the sum of elements for each subtree, and update $\textit{cnt}$.
 
 Finally, we traverse $\textit{cnt}$ to find all subtree sums that appear most frequently.

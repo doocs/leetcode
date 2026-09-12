@@ -69,6 +69,16 @@ So the final output is 4.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each key character may be reached clockwise or counterclockwise, then confirmed. Branching over every ring position for every key character grows with $|key|$.
+>
+> Let $f[i][j]$ be the minimum steps to spell the first $i+1$ key characters and stop at index $j$. Precompute positions of each letter. A transition adds the shorter arc plus one press. The answer is the minimum among positions of the last key character.
+
+<!-- thinking:end -->
+
 First, we preprocess the positions of each character $c$ in the string $ring$, and record them in the array $pos[c]$. Suppose the lengths of the strings $key$ and $ring$ are $m$ and $n$, respectively.
 
 Then we define $f[i][j]$ as the minimum number of steps to spell the first $i+1$ characters of the string $key$, and the $j$-th character of $ring$ is aligned with the $12:00$ direction. Initially, $f[i][j]=+\infty$. The answer is $\min_{0 \leq j < n} f[m - 1][j]$.
