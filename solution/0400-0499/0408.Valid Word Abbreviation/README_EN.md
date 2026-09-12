@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README_EN.md
 tags:
     - Two Pointers
     - String

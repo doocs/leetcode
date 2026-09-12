@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0425.Word%20Squares/README.md
 tags:
     - 字典树
     - 数组
