@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README.md
 tags:
     - 设计
     - 哈希表
