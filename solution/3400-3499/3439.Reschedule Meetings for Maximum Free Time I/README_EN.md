@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Meetings are already sorted and disjoint. Rescheduling at most $k$ of them packs those meetings together and merges the free gaps on both sides.
+>
+> $n\le 10^5$ forbids choosing the moved subset explicitly. There are $n+1$ adjacent gaps, and moving $k$ meetings concatenates at most $k+1$ consecutive gaps.
+>
+> We store gap lengths in $\textit{nums}$ and take the maximum sum of a window of length $k+1$. That sum is the longest free time a legal reschedule can create.
+
+<!-- thinking:end -->
+
 The problem is essentially about merging adjacent free time intervals into a longer free interval. There are $n + 1$ free intervals in total:
 
 - The first free interval is from the start of the event to the start of the first meeting;
@@ -261,6 +273,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already computes the correct window sums in linear time, but it stores every gap.
+>
+> The $i$-th gap is a closed formula of the endpoints, so the array is unnecessary.
+>
+> Evaluating $f(i)$ inside the sliding window drops the extra space to $O(1)$ without changing the time or the answer.
+
+<!-- thinking:end -->
 
 In Solution 1, we used an array to store the lengths of the free intervals. In fact, we do not need to store the entire array; we can use a function $f(i)$ to represent the length of the $i$-th free interval. This way, we can save space.
 

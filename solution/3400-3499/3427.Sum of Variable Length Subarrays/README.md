@@ -132,6 +132,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个下标 $i$ 对应子数组 $\textit{nums}[\max(0,i-\textit{nums}[i]):i]$，求这些子数组之和。$n\le 100$，即便朴素双重循环也可过。
+>
+> 每个询问都是一段前缀和之差。若每次现场累加，会重复访问同一前缀。
+>
+> 预处理 $s[i]=\textit{nums}[0]+\cdots+\textit{nums}[i-1]$，则第 $i$ 段的和为 $s[i+1]-s[\max(0,i-x)]$。全部相加即答案。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -129,6 +129,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Index $i$ contributes the subarray $\textit{nums}[\max(0,i-\textit{nums}[i]):i]$. $n\le 100$, so a double loop would pass.
+>
+> Each query is a difference of prefix sums. Adding on the fly revisits the same prefix many times.
+>
+> With $s[i]=\textit{nums}[0]+\cdots+\textit{nums}[i-1]$, the $i$-th piece is $s[i+1]-s[\max(0,i-x)]$. Summing these values is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

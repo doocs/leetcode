@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular array also compares the first and last elements. $n\le 100$, so one scan is enough.
+>
+> Appending $\textit{nums}[0]$ turns the wrap-around pair into an ordinary adjacent pair.
+>
+> We take the maximum absolute difference over $\textit{pairwise}(\textit{nums}+[\textit{nums}[0]])$.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{nums}$, calculate the absolute difference between adjacent elements, and maintain the maximum absolute difference. Finally, we compare it with the absolute difference between the first and last elements and take the maximum value.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

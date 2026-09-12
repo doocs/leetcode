@@ -99,6 +99,18 @@ tags:
 
 ### 方法一：窗口函数 + 子连接 + 条件过滤
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要同一学生同一科目下「最后一次分数高于第一次」。若只用 $\textit{MIN}/\textit{MAX}(\textit{exam\_date})$ 再回表，两次聚合容易把分数与日期对错。
+>
+> 窗口函数可以在一次扫描里同时标出按日期升序的第一名与按日期降序的第一名。
+>
+> 因此用 $\textit{ROW\_NUMBER}()$ 按 $(\textit{student\_id},\textit{subject})$ 分区，得到 $\textit{rn\_first}$ 与 $\textit{rn\_latest}$，自连接取出两次分数，再筛 $\textit{latest\_score}>\textit{first\_score}$，最后按题面排序。
+
+<!-- thinking:end -->
+
 首先，我们使用窗口函数 `ROW_NUMBER()` 计算每个学生在每个科目中的考试日期的排名，分别计算出每个学生在每个科目中的第一次考试和最近一次考试的排名。
 
 然后，我们使用子连接 `JOIN` 操作将第一次考试和最近一次考试的分数连接在一起，最后根据题目要求筛选出最近一次考试的分数比第一次考试的分数高的学生。

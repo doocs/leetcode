@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special path is a tree path whose node values are unique (or, per the statement, allow at most one kind of repeat). $n\le 5\times 10^4$ forbids enumerating paths.
+>
+> A path window is described by DFS depth and the last depth of each value: a repeated value forces the left end past its previous occurrence.
+>
+> We walk from the root, keep prefix edge weights and last positions, and two-pointer the legal start on the stack. Length and node count are updated together to obtain the longest special path with the fewest nodes.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
