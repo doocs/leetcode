@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md
 rating: 2104
 source: 第 66 场双周赛 Q4
 tags:
