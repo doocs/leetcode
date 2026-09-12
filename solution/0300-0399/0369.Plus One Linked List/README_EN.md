@@ -46,6 +46,16 @@ tags:
 
 ### Solution 1: Linked List Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add one to a non-negative integer stored as a list. Materializing an array uses extra $O(n)$ space. Carry only touches a trailing run of nines.
+>
+> A dummy head covers a new high digit. One scan remembers the last non-nine, increments it, and zeros the rest. If the dummy becomes $1$, it is the new head.
+
+<!-- thinking:end -->
+
 We first set a dummy head node $\textit{dummy}$, initially with a value of $0$, and the successor node of $\textit{dummy}$ is the linked list $\textit{head}$.
 
 Next, we traverse the linked list starting from the dummy head node, find the last node that is not $9$, increment its value by $1$, and set the values of all nodes after this node to $0$.

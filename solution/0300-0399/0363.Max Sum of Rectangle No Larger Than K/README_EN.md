@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Enumerate Boundaries + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum sub-rectangle sum no larger than $k$. Four nested loops are $O(m^2n^2)$. Fix the top and bottom, compress columns, and the problem is a 1D max subarray sum $\le k$.
+>
+> An ordered set of prefixes: for sum $s$ find the least $t\ge s-k$, so $s-t$ is $\le k$ and as large as possible. $O(m^2)$ row pairs and $O(n\log n)$ per pair.
+
+<!-- thinking:end -->
+
 We can enumerate the upper and lower boundaries $i$ and $j$ of the rectangle, then calculate the sum of the elements in each column within this boundary, and record it in the array $nums$. The problem is transformed into how to find the maximum subarray sum not exceeding $k$ in the array $nums$.
 
 We can use an ordered set to quickly find the maximum value less than or equal to $x$, thereby obtaining a subarray with the maximum subarray sum not exceeding $k$.

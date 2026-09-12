@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many range-add updates, then the final array. Touching each range in $O(n)$ does not scale. A difference array turns a range add into two point writes.
+>
+> Add $c$ at $l$ and $-c$ at $r+1$, then prefix-sum. Each update is $O(1)$.
+
+<!-- thinking:end -->
+
 This is a template problem for difference arrays.
 
 We define $d$ as the difference array. To add $c$ to each number in the interval $[l,..r]$, we set $d[l] += c$ and $d[r+1] -= c$. Finally, we compute the prefix sum of the difference array to obtain the original array.
@@ -187,6 +197,14 @@ var getModifiedArray = function (length, updates) {
 <!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree + Difference Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The difference array is already linear. A Fenwick tree encodes the same two-point updates; a prefix query recovers the value. An extra $\log n$ buys online queries later.
+
+<!-- thinking:end -->
 
 The time complexity is $O(n \times \log n)$.
 

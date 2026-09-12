@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows and columns increase; find the $k$-th smallest. Flattening and sorting is $O(n^2\log n)$. The answer lies in $[matrix[0][0], matrix[n-1][n-1]]$, so binary-search the value.
+>
+> `check(mid)` counts entries $\le mid$ from the bottom-left in $O(n)$ by monotonicity. If the count is $\ge k$, shrink the right bound. The smallest feasible $mid$ is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

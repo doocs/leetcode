@@ -91,6 +91,16 @@ The worst case is that you pay $1.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A wrong guess costs that number; we want the min-max cost to guarantee a win. Searching guess orders is a game tree. The optimum on $[i,j]$ depends only on shorter intervals.
+>
+> $f[i][j]$ is that min-max cost. Guessing $k$ costs $k+\max(left,right)$; minimize over $k$. Fill by interval length; the answer is $f[1][n]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum cost required to guess any number in the interval $[i, j]$. Initially, $f[i][i] = 0$ because there is no cost to guess the only number, and for $i > j$, we also have $f[i][j] = 0$. The answer is $f[1][n]$.
 
 For $f[i][j]$, we can enumerate any number $k$ in $[i, j]$, divide the interval $[i, j]$ into two parts, $[i, k - 1]$ and $[k + 1, j]$, choose the larger value of the two parts plus the cost of $k$,

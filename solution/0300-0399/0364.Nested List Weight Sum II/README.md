@@ -65,6 +65,16 @@ tags:
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 与 339 相反，权重为 $maxDepth-depth+1$。先求最大深度再二次遍历亦可。一次 DFS 同时累加所有整数之和 $s$ 与带深度加权和 $ws$。
+>
+> 目标为 $\sum a_i(maxDepth-d_i+1)=(maxDepth+1)s-ws$。DFS 更新 $maxDepth$，遇整数则累加 $s$ 与 $ws$。
+
+<!-- thinking:end -->
+
 我们不妨假设整数分别为 $a_1, a_2, \cdots, a_n$，它们的深度分别为 $d_1, d_2, \cdots, d_n$，最大深度为 $\textit{maxDepth}$，那么答案就是：
 
 $$
