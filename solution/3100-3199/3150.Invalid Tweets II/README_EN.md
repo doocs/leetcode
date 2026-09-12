@@ -87,6 +87,18 @@ Output table is ordered by tweet_id in ascending order.</div>
 
 ### Solution 1: LENGTH() Function + REPLACE() Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A tweet is invalid if it is longer than $140$ or contains more than three `@` or `#`. The three predicates are independent.
+>
+> SQL can count symbols via `LENGTH` minus `LENGTH(REPLACE(...))`; pandas counts them on the string column.
+>
+> Filter by the disjunction of the three tests, keep $tweet\_id$, and sort ascending.
+
+<!-- thinking:end -->
+
 We can use the `LENGTH()` function to calculate the length of the string, calculate the length after excluding `@` or `#`, then use the `OR` operator to connect these three conditions, filter out the corresponding tweet_id, and sort by tweet_id in ascending order.
 
 <!-- tabs:start -->

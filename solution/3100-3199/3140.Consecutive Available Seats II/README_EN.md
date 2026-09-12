@@ -87,6 +87,18 @@ Output table is ordered by first_seat_id in ascending order.</div>
 
 ### Solution 1: Using Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every longest run of free seats is required. A procedural scan works, but SQL groups consecutive ids more naturally.
+>
+> Subtracting a free seat's rank from $seat\_id$ yields a constant on each contiguous run, which becomes the group key.
+>
+> Keep $free=1$, group by $seat\_id-\mathrm{RANK}()$, compute min, max, and length, then keep the maximum-length groups ordered by the left seat.
+
+<!-- thinking:end -->
+
 First, we find all the vacant seats, and then group the seats. The grouping is based on the seat number minus its ranking. In this way, consecutive vacant seats will be grouped together. Then we find the minimum seat number, maximum seat number, and length of consecutive seats in each group. Finally, we find the group with the longest length of consecutive seats, and output the minimum seat number, maximum seat number, and length of consecutive seats in this group.
 
 <!-- tabs:start -->

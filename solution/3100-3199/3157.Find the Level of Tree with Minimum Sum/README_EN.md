@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the shallowest level whose values sum to the minimum. DFS needs extra bookkeeping; BFS matches level order.
+>
+> A level sum is known only after the whole level is read, at which point the running best can be updated.
+>
+> Expand the queue level by level and replace the answer when the sum improves. Each node is enqueued once.
+
+<!-- thinking:end -->
+
 We can use Breadth-First Search (BFS) to traverse the binary tree level by level, record the sum of the node values at each level, and find the level with the smallest sum of node values, then return the level number.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.

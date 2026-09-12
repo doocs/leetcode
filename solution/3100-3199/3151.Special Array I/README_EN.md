@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special array needs adjacent elements of opposite parity. One equal-parity pair already fails.
+>
+> A single neighbor pass is enough at the given length.
+>
+> Return whether every adjacent pair differs modulo $2$.
+
+<!-- thinking:end -->
+
 We traverse the array from left to right. For each pair of adjacent elements, if their parity is the same, then the array is not a special array, return `false`; otherwise, the array is a special array, return `true`.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)`.

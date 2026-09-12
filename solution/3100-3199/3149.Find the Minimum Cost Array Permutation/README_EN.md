@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score sums $|perm[i]-nums[perm[i+1]]|$ around the cycle and the permutation must be lexicographically smallest. $n\le 14$ makes $14!$ impossible.
+>
+> A rotation leaves the score unchanged, so the first value can be fixed as $0$. The rest is DP on the used subset $mask$ and the previous value $pre$.
+>
+> Memoize $dfs(mask,pre)$ over unused $cur$, adding $|pre-nums[cur]|$, and close the cycle to $0$. Reconstruct the lexicographically smallest path from the same optima.
+
+<!-- thinking:end -->
+
 We notice that for any permutation $\textit{perm}$, if we cyclically shift it to the left any number of times, the score of the permutation remains the same. Since the problem requires returning the lexicographically smallest permutation, we can determine that the first element of the permutation must be $0$.
 
 Also, since the data range of the problem does not exceed $14$, we can consider using the method of state compression to represent the set of numbers selected in the current permutation. We use a binary number $\textit{mask}$ of length $n$ to represent the set of numbers selected in the current permutation, where the $i$-th bit of $\textit{mask}$ is $1$ indicates that the number $i$ has been selected, and $0$ indicates that the number $i$ has not been selected yet.

@@ -114,6 +114,18 @@ tags:
 
 ### 方法一：二分查找 + 位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 强数组把每个正整数的置位幂次顺次拼接，$\textit{bignums}[L..R]$ 的乘积是 $2$ 的幂次和。区间可达 $10^{15}$，不能物化数组。
+>
+> 幂次前缀和 $f(i)$ 满足区间和 $f(R+1)-f(L)$。$1..x$ 的强数组长度与幂次和可由最高位分段闭式累加，从而对下标二分出对应的 $x$。
+>
+> 预处理到 $50$ 位的前缀计数 $cnt$ 与幂次和 $s$，二分最大的 $x$ 使其强数组长度小于 $i$，再补上剩余若干低位。每个询问返回 $2^{f(R+1)-f(L)}\bmod \textit{mod}$。
+
+<!-- thinking:end -->
+
 连续的正整数数字对应的强整数数组连接得到数组 $\textit{bignums}$，题目需要我们求出对于每个查询 $[\textit{left}, \textit{right}, \textit{mod}]$，子数组 $\textit{bignums}[\textit{left}..\textit{right}]$ 的乘积对 $\textit{mod}$ 取模的结果。由于子数组每个元素都是 $2$ 的幂，这等价于求子数组的幂次之和 $\textit{power}$，然后计算 $2^{\textit{power}} \bmod \textit{mod}$。例如，对于子数组 $[1, 4, 8]$，即 $[2^0, 2^2, 2^3]$，其幂次之和为 $0 + 2 + 3 = 5$，所以 $2^5 \bmod \textit{mod}$ 就是我们要求的结果。
 
 因此，我们不妨将 $\textit{bignums}$ 转换为幂次数组，即对于子数组 $[1, 4, 8]$，我们将其转换为 $[0, 2, 3]$。这样，问题转换为求幂次数组的子数组之和，即 $\textit{power} = \textit{f}(\textit{right} + 1) - \textit{f}(\textit{left})$，其中 $\textit{f}(i)$ 表示 $\textit{bignums}[0..i)$ 的幂次之和，也即是前缀和。

@@ -110,6 +110,18 @@ Each row in this table contains the task identifier, the employee identifier, an
 
 ### Solution 1: Merge + Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each employee needs unique covered hours and peak concurrency. Pairwise overlap tests are awkward in SQL.
+>
+> The distinct start/end instants of an employee split time into atoms. Coverage of an atom is concurrency; summed lengths are unique hours.
+>
+> Union endpoints, `LEAD` the next instant, join back to `Tasks` to count covering rows, then aggregate hours and the maximum count per employee.
+
+<!-- thinking:end -->
+
 First, we merge the `start_time` and `end_time` for each `employee_id` into a new table `T`. Then, using the `LEAD` function, we calculate the start time of the next task for each employee. Next, we join table `T` with the `Tasks` table to compute the concurrent task count for each employee. Finally, we group by `employee_id` to calculate the total task duration and the maximum concurrent tasks for each employee.
 
 Similar Problem:

@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Memoized Search + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ must be split into as few balanced pieces as possible, each with equal character frequencies. Full partitions are exponential; $n\le 1000$ allows quadratic DP.
+>
+> From index $i$, extending $j$ can test balance with frequency maps: a piece is legal when only one frequency remains. The optimum depends only on the start index.
+>
+> Memoize $dfs(i)$: maintain $cnt$ and $freq$, and when $freq$ has size $1$ take $1+dfs(j+1)$. The empty suffix returns $0$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$, which represents the minimum number of substrings starting from $s[i]$. The answer is $\textit{dfs}(0)$.
 
 The calculation process of the function $\textit{dfs}(i)$ is as follows:
@@ -278,6 +290,18 @@ function minimumSubstringsInPartition(s: string): number {
 
 ### Solution 2: Memoized Search (Optimization)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 keeps a second map of frequency-of-frequencies, which adds constants and fiddly updates.
+>
+> Balance is equivalent to length equaling (maximum frequency) times (number of distinct letters). Only $cnt$ and that maximum $m$ are required.
+>
+> While extending $j$, update $m$ and recurse when $j-i+1=m\cdot|cnt|$. The state is still the start index, with a shorter inner loop.
+
+<!-- thinking:end -->
+
 We can optimize Solution 1 by not maintaining the $\textit{freq}$ hash table. Instead, we only need to maintain a hash table $\textit{cnt}$, which represents the frequency of each character in the current substring. Additionally, we maintain two variables $k$ and $m$ to represent the number of distinct characters in the current substring and the maximum frequency of any character, respectively. For a substring $s[i..j]$, if $j-i+1 = m \times k$, then this substring is a balanced substring.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ is the length of the string $s$, and $|\Sigma|$ represents the size of the character set, which is $26$ in this problem.
@@ -453,6 +477,18 @@ function minimumSubstringsInPartition(s: string): number {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization still pays recursion and cache overhead. The same transition has no aftereffect.
+>
+> Let $f[i]$ be the fewest pieces for the prefix of length $i$. For each right end $i$, expand left to $j$ and relax $f[i+1]$ with $f[j]+1$ when the piece is balanced.
+>
+> The table yields $f[n]$, using linear DP memory plus one count map.
+
+<!-- thinking:end -->
 
 We can convert the memoized search into dynamic programming. Define the state $f[i]$ as the minimum number of substrings required to partition the first $i$ characters. Initially, $f[0] = 0$, and the rest $f[i] = +\infty$ or $f[i] = n$.
 
