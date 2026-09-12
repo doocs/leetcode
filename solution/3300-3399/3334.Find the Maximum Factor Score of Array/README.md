@@ -79,6 +79,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 因子得分为全数组（或删去一个元素后）的 $\gcd$ 与 $\operatorname{lcm}$ 之积。$n \le 100$，枚举删除位置时若每次重算 $\gcd/\operatorname{lcm}$，常数偏大但可接受；用前后缀可做到每次 $O(1)$ 合并。
+>
+> 预处理后缀 $\gcd$、后缀 $\operatorname{lcm}$，再从左扫过前缀，删除 $i$ 时合并 $\textit{pre}$ 与 $\textit{suf}[i+1]$。
+>
+> 同时比较「一个都不删」的 $\textit{suf}[0]$，取最大乘积。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

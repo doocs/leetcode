@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may insert one interval of length at most $k$ to minimize the number of connected groups. With $n \le 10^5$ we first merge overlaps, then ask how many merged pieces one bridge can join.
+>
+> After merging, pieces are disjoint. From the right end $e$ of piece $i$, every piece whose left end is less than $e+k+1$ can be covered by that bridge.
+>
+> Binary search finds the first index $j$ beyond the bridge; the new count is $|\textit{merged}|-(j-i-1)$, and we keep the minimum.
+
+<!-- thinking:end -->
+
 First, we sort the given set of intervals $\textit{intervals}$ by their left endpoints, then merge all overlapping intervals to obtain a new set of intervals $\textit{merged}$.
 
 We can then set the initial answer to the length of $\textit{merged}$.

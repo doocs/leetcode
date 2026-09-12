@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: Preprocessing + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation divides $x$ by a proper divisor. A prime cannot shrink; a composite becomes its least prime factor after one such division. With $n \le 10^5$ and $M \le 10^6$ we precompute least prime factors.
+>
+> Editing from the left would fight constraints that are still unknown. From the right, the next value is already final, so a larger left neighbor must become $\textit{lpf}[x]$ immediately.
+>
+> If even the least prime factor exceeds the right neighbor, the array cannot become non-decreasing. Each index is operated on at most once, so one right-to-left pass counts the answer.
+
+<!-- thinking:end -->
+
 According to the problem description,
 
 If an integer $x$ is a prime number, then its largest proper divisor is $1$, so $x / 1 = x$, meaning $x$ cannot be divided further.

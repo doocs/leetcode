@@ -117,6 +117,18 @@ Each row of this table contains information about an employee including their ID
 
 ### Solution 1: Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each department needs every employee with the second-highest salary. Ties should share a rank, so we use a dense rank rather than a row number.
+>
+> Rank $\textit{salary}$ descending within $\textit{dept}$, keep $\textit{rk}=2$, and sort by $\textit{emp\_id}$.
+>
+> Every employee tied for second in a department then appears in the result.
+
+<!-- thinking:end -->
+
 We can use the `DENSE_RANK()` window function to rank employees in each department by salary in descending order, and then filter out the employees with a rank of $2$.
 
 <!-- tabs:start -->
