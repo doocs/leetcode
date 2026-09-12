@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3523.Make%20Array%20Non-decreasing/README.md
 rating: 1435
 source: 第 446 场周赛 Q2
 tags:
