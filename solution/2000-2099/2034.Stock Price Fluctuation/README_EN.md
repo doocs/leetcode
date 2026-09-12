@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2000-2099/2034.Stock%20Price%20Fluctuation/README_EN.md
 rating: 1831
 source: Weekly Contest 262 Q3
 tags:
