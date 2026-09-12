@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0638.Shopping%20Offers/README_EN.md
 tags:
     - Bit Manipulation
     - Memoization

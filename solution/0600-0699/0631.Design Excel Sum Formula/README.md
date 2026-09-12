@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README.md
 tags:
     - 图
     - 设计

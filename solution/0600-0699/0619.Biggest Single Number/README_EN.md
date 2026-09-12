@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0619.Biggest%20Single%20Number/README_EN.md
 tags:
     - Database
 ---

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md
 tags:
     - 数据库
 ---

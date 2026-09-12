@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README_EN.md
 tags:
     - Tree
     - Depth-First Search

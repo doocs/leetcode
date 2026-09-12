@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
