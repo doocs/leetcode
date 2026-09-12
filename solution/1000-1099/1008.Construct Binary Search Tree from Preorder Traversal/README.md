@@ -69,6 +69,18 @@ tags:
 
 ### 方法一：DFS + 二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 先序首元素为根，其后线性扫描找到第一个更大的值即可划分左右子树，$n\le 100$ 时 $O(n^2)$ 可过，但每次划分都重复走过多段。
+>
+> 先序在 BST 上的片段仍保持「左子树键均小于根、右子树键均大于根」，且左段之后的元素单调地大于根，因此第一个大于根的下标可以用二分找到。
+>
+> 递归 $\textit{dfs}(i,j)$ 以 $\textit{preorder}[i]$ 为根，二分得到右子树起点后再构造两侧，总时间 $O(n\log n)$。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $\textit{dfs}(i, j)$，表示构造出从 $\textit{preorder}[i]$ 到 $\textit{preorder}[j]$ 这些节点构成的二叉搜索树。那么答案就是 $\textit{dfs}(0, n - 1)$。
 
 在 $\textit{dfs}(i, j)$ 中，我们首先构造根节点，即 $\textit{preorder}[i]$。然后使用二分查找的方法找到第一个大于 $\textit{preorder}[i]$ 的节点的下标 $\textit{mid}$，将 $\textit{dfs}(i + 1, \textit{mid} - 1)$ 作为根节点的左子树，将 $\textit{dfs}(\textit{mid}, j)$ 作为根节点的右子树。

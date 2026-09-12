@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Building $1,11,111,\ldots$ until divisibility overflows integers, and $k\le 10^5$ forbids an unbounded search. Divisibility depends only on the remainder modulo $k$.
+>
+> $(10n+1)\bmod k$ is determined by $n\bmod k$. There are only $k$ remainders; if $0$ never appears within $k$ steps, later values cycle and no such number exists.
+>
+> Starting from $1\bmod k$ we iterate at most $k$ times. The first zero remainder gives the number of digits; otherwise the answer is $-1$.
+
+<!-- thinking:end -->
+
 We observe that the positive integer $n$ starts with an initial value of $1$, and each time it is multiplied by $10$ and then $1$ is added, i.e., $n = n \times 10 + 1$. Since $(n \times 10 + 1) \bmod k = ((n \bmod k) \times 10 + 1) \bmod k$, we can determine whether $n$ is divisible by $k$ by calculating $n \bmod k$.
 
 We start from $n = 1$ and calculate $n \bmod k$ each time until $n \bmod k = 0$. At this point, $n$ is the smallest positive integer we are looking for, and its length is the number of digits in $n$. Otherwise, we update $n = (n \times 10 + 1) \bmod k$. If after looping $k$ times we still haven't found $n \bmod k = 0$, it means no such $n$ exists, and we return $-1$.

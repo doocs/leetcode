@@ -50,6 +50,18 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be $10^9$, so testing every binary representation in $[1,n]$ is impossible. $s$ has length at most $1000$, so it cannot cover more than a thousand distinct values and $n>1000$ is immediately false.
+>
+> If the binary form of $x$ occurs in $s$, then $\lfloor x/2\rfloor$ (drop the last bit) occurs as well. It is enough to check the upper half $[\lfloor n/2\rfloor+1,n]$.
+>
+> Under $n\le 1000$ we test those integers with ordinary substring search.
+
+<!-- thinking:end -->
+
 We observe that the length of string $s$ does not exceed $1000$, so string $s$ can represent at most $1000$ binary integers. Therefore, if $n \gt 1000$, then $s$ definitely cannot represent the binary representation of all integers in the range $[1,.. n]$.
 
 Additionally, for an integer $x$, if the binary representation of $x$ is a substring of $s$, then the binary representation of $\lfloor x / 2 \rfloor$ is also a substring of $s$. Therefore, we only need to check whether the binary representations of integers in the range $[\lfloor n / 2 \rfloor + 1,.. n]$ are substrings of $s$.

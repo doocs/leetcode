@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Stack + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Applying $\times,\div,+, -$ from $n$ downward matches the definition, but multiplication and division bind tighter than addition and subtraction, so a left-to-right running total is wrong. $N\le 10^4$ allows a linear scan; the issue is separating the priorities.
+>
+> Multiplication and division must combine with the previous operand immediately. Addition and subtraction only contribute signed terms and can wait until the end.
+>
+> A stack stores pending terms and $k\bmod 4$ cycles the four operators: $\times$ and $\div$ replace the top, $+$ and $-$ push $x$ or $-x$, and the answer is the sum of the stack.
+
+<!-- thinking:end -->
+
 The calculation process of clumsy factorial can be seen as a simulation of a stack.
 
 We define a stack `stk`, initially we push $n$ into the stack, and define a variable $k$ to represent the current operator, initially $k = 0$.

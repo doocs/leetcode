@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Greedy + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly negating the current minimum $k$ times is optimal. Both $n$ and $k$ are at most $10^4$, but finding the minimum each time needs an extra selection structure. Values lie in $[-100,100]$, so we need not sort the original array.
+>
+> To maximize the sum we should flip the most negative numbers first. If an odd number of flips remain and there is no zero, the smallest positive value must be flipped once more.
+>
+> A frequency map consumes flips from $-100$ to $-1$, optionally flips the smallest positive, and finally sums value times count.
+
+<!-- thinking:end -->
+
 We observe that to maximize the sum of the array, we should try to turn the smallest negative numbers into positive numbers.
 
 Given that the range of elements is $[-100, 100]$, we can use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums}$. Then, starting from $-100$, we iterate through $x$. If $x$ exists in the hash table, we take $m = \min(\textit{cnt}[x], k)$ as the number of times to negate the element $x$. We then subtract $m$ from $\textit{cnt}[x]$, add $m$ to $\textit{cnt}[-x]$, and subtract $m$ from $k$. If $k$ becomes $0$, the operation is complete, and we exit the loop.

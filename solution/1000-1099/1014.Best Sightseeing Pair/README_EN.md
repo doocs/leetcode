@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Evaluating $values[i]+values[j]+i-j$ for every $i<j$ is quadratic. Rewriting it as $(values[i]+i)+(values[j]-j)$ shows that a fixed $j$ only needs the best $values[i]+i$ to its left.
+>
+> Scanning $j$ from left to right, one variable stores that prefix maximum, giving the best pair at $j$ in constant time before we fold in $values[j]+j$.
+>
+> Each index is used once as a right endpoint and once as a left candidate, so the scan is linear.
+
+<!-- thinking:end -->
+
 We can enumerate $j$ from left to right while maintaining the maximum value of $values[i] + i$ for elements to the left of $j$, denoted as $mx$. For each $j$, the maximum score is $mx + values[j] - j$. The answer is the maximum of these maximum scores for all positions.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{values}$. The space complexity is $O(1)$.

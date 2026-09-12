@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ordinary conversion to a positive base yields negative remainders for $-2$ and cannot be used as-is. $n\le 10^9$ gives $O(\log n)$ bits, so a digit-by-digit simulation is enough.
+>
+> The least bit is $n\bmod 2$. When it is $1$ we subtract the current place value $k$ (a power of $-1$ on odd positions) so the rest stays even, then divide by $2$ and flip the sign of $k$.
+>
+> Bits are collected from low to high and reversed. The number $0$ maps to $\texttt{0}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
