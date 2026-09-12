@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation takes the first two remaining numbers and must keep the first score. $n \le 100$, so we simulate the rule.
+>
+> The first sum $s$ locks every later operation. We stop when fewer than two elements remain or the sum is not $s$.
+>
+> A scan with step $2$ counts the operations.
+
+<!-- thinking:end -->
+
 First, we calculate the sum of the first two elements, denoted as $s$. Then we traverse the array, taking two elements at a time. If their sum is not equal to $s$, we stop the traversal. Finally, we return the number of operations performed.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

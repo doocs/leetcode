@@ -72,6 +72,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n$ 升至 $10^6$，I 中对每个窗口验证模式会超时。
+>
+> 相邻关系序列长度为 $n-1$，在其上做模式匹配等价于字符串匹配，KMP 为线性。
+>
+> 先把 $\textit{nums}$ 转成 $-1/0/1$ 序列，再对 $\textit{pattern}$ 跑 KMP，匹配次数即答案。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

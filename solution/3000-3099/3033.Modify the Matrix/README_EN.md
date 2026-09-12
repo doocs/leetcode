@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $-1$ is replaced by the maximum of its column. Dimensions are at most $50$, so two passes per column suffice.
+>
+> A column’s maximum is independent of the replacements, so we compute it first and then write it into every $-1$.
+
+<!-- thinking:end -->
+
 We can follow the problem description, traverse each column, find the maximum value of each column, and then traverse each column again, replacing the elements with a value of -1 with the maximum value of that column.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.

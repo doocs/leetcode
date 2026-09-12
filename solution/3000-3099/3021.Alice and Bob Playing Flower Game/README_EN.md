@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move picks one flower from a lane, and the first player wins iff $x+y$ is odd. $n,m \le 10^5$ forbids enumerating cells.
+>
+> Odd–even and even–odd pairs are exactly the winning positions. The counts of odds and evens on each side multiply and add.
+>
+> Integer division yields those four counts, which we cross-multiply.
+
+<!-- thinking:end -->
+
 According to the problem description, in each move, the player will choose to move in a clockwise or counterclockwise direction and then pick a flower. Since Alice moves first, when $x + y$ is odd, Alice will definitely win the game.
 
 Therefore, the number of flowers $x$ and $y$ meet the following conditions:
@@ -187,6 +199,16 @@ var flowerGame = function (n, m) {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics (Optimized)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expanding the cross product by the parities of $n$ and $m$ collapses all four cases to $\lfloor nm/2 \rfloor$.
+>
+> A single integer multiply-and-divide therefore replaces the four-term formula.
+
+<!-- thinking:end -->
 
 The result obtained from Solution 1 is $\lfloor \frac{n + 1}{2} \rfloor \times \lfloor \frac{m}{2} \rfloor + \lfloor \frac{n}{2} \rfloor \times \lfloor \frac{m + 1}{2} \rfloor$.
 

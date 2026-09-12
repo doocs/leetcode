@@ -79,6 +79,18 @@ The ant never returned to the boundary, so the answer is 0.
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The ant starts at the origin and $n \le 100$. It is on the boundary after a step iff the position is $0$.
+>
+> Position is the prefix sum, so we count how often that sum is zero.
+>
+> A single accumulation is enough; we do not simulate the line geometrically.
+
+<!-- thinking:end -->
+
 Based on the problem description, we only need to calculate how many zeros are in all prefix sums of `nums`.
 
 The time complexity is $O(n)$, where $n$ is the length of `nums`. The space complexity is $O(1)$.

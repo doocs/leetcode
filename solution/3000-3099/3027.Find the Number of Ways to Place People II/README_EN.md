@@ -87,6 +87,18 @@ Note that it does not matter if the fence encloses any area, the first and secon
 
 ### Solution 1: Sorting and Classification
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 1000$, so an $O(n^3)$ interior check would time out.
+>
+> The observation that a sorted scan needs a strictly increasing $y$ does not depend on $n$. Pair enumeration is $O(n^2)$ and fits the new limit.
+>
+> We keep the same sort and $\textit{maxY}$ scan and never test other points inside the rectangle.
+
+<!-- thinking:end -->
+
 First, we sort the array. Then, we can classify the results based on the properties of a triangle.
 
 - If the sum of the two smaller numbers is less than or equal to the largest number, it cannot form a triangle. Return "Invalid".

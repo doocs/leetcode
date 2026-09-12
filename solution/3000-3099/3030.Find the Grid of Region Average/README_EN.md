@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $3 \times 3$ block is a region when every adjacent pair differs by at most the threshold; a cell becomes the average of the regions that cover it. $n,m \le 500$, so enumerating blocks is $O(nm)$.
+>
+> Legality depends on the twelve interior edges. A valid block adds its mean to every cell and increments a cover count.
+>
+> A cell with count zero keeps its original value; otherwise we divide the accumulated sum by the count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

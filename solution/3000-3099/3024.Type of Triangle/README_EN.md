@@ -69,6 +69,18 @@ As all the sides are of different lengths, it will form a scalene triangle.
 
 ### Solution 1: Sorting + Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three side lengths are given and tiny. We first test the triangle inequality, then distinguish equilateral, isosceles, and scalene.
+>
+> After sorting, the inequality is $a+b>c$; equilateral is $\min=\max$; isosceles is any adjacent pair equal.
+>
+> Sort, then branch in that order.
+
+<!-- thinking:end -->
+
 First, we sort the array, and then we can classify and discuss according to the definition of a triangle.
 
 - If the sum of the smallest two numbers is less than or equal to the largest number, then it cannot form a triangle, return "none".

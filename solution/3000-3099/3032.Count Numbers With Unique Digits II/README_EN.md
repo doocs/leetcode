@@ -59,6 +59,18 @@ Given two <strong>positive</strong> integers <code>a</code> and <code>b</code>, 
 
 ### Solution 1: State Compression + Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count integers in $[a,b]$ with distinct digits, i.e. $f(b)-f(a-1)$. Digit enumeration must handle leading zeros and repeats.
+>
+> A bit mask of used digits plus a tight flag is a standard digit DP. $b \le 1000$ keeps the state tiny.
+>
+> We memoize $\textit{dfs}(\textit{pos}, \textit{mask}, \textit{limit})$. Leading zeros do not occupy the mask; a zero mask means no digit has been placed yet.
+
+<!-- thinking:end -->
+
 The problem asks to count how many numbers in the range $[a, b]$ have unique digits. We can solve this problem using state compression and digit DP.
 
 We can use a function $f(n)$ to count how many numbers in the range $[1, n]$ have unique digits. Then the answer is $f(b) - f(a - 1)$.
@@ -287,6 +299,16 @@ function numberCount(a: number, b: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a,b \le 1000$, so the digit-DP tables are unnecessary.
+>
+> Enumerating every integer in the range and testing digit uniqueness with a set is shorter and fast enough.
+
+<!-- thinking:end -->
 
 Since $1 \le a \le b \le 1000$, we can enumerate every integer in $[a, b]$ and check whether its digits are unique.
 

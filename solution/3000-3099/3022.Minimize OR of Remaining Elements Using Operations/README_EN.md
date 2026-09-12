@@ -78,6 +78,18 @@ It can be shown that 15 is the minimum possible value of the bitwise OR of the r
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation replaces two adjacent values by their bitwise AND, at most $k$ times, with $n \le 10^5$. We want the OR of what remains to be as small as possible.
+>
+> High OR bits cost more than low ones, so we try to turn bits off from high to low. Turning a bit off means the $1$-segments of that bit can be merged away with at most $k$ ANDs.
+>
+> For each bit we build a probe mask and count extra merges. If the count is at most $k$ the bit can be cleared; otherwise it stays in the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
