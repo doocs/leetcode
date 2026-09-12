@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BST inorder is sorted, so the $k$ closest values form a window on that sequence. Fill a deque of size $k$ during inorder.
+>
+> Once the window is full and the current value is no closer, the right side only gets farther and we can stop.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -59,6 +59,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 英文读法按千分位分组：Billion、Million、Thousand。每组至多三位数，可用二十以内、整十与 Hundred 拼出。
+>
+> $0$ 单独返回 Zero；从高到低取每组非零块，调用 $transfer$ 后再接单位。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

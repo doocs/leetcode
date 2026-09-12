@@ -59,6 +59,16 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 版本一旦变坏则之后全坏，具有单调性。对 $isBadVersion(\textit{mid})$ 为真则答案在左侧含 $\textit{mid}$，否则在右侧。
+>
+> 二分收缩到 $l=r$ 即为第一个坏版本。
+
+<!-- thinking:end -->
+
 我们定义二分查找的左边界 $l = 1$，右边界 $r = n$。
 
 当 $l < r$ 时，我们计算中间位置 $\textit{mid} = \left\lfloor \frac{l + r}{2} \right\rfloor$，然后调用 `isBadVersion(mid)` 接口，如果返回 $\textit{true}$，则说明第一个错误的版本在 $[l, \textit{mid}]$ 之间，我们令 $r = \textit{mid}$；否则第一个错误的版本在 $[\textit{mid} + 1, r]$ 之间，我们令 $l = \textit{mid} + 1$。

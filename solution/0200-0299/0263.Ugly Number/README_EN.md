@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An ugly number’s prime factors are only $2,3,5$. Reject non-positives; otherwise divide out those three primes and test whether $1$ remains.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -66,6 +66,16 @@ Note that painting all the posts red or all the posts green is invalid because t
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most two adjacent posts share a color. Post $i$ is either a new color, or the same as $i-1$ provided $i-1$ differed from $i-2$.
+>
+> $f[i]$ counts endings with different last colors and $g[i]$ with the same: $f[i]=(f[i-1]+g[i-1])(k-1)$, $g[i]=f[i-1]$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the number of ways to paint the fence posts from $[0..i]$ such that the last two posts have different colors, and $g[i]$ to represent the number of ways to paint the fence posts from $[0..i]$ such that the last two posts have the same color. Initially, $f[0] = k$ and $g[0] = 0$.
 
 When $i > 0$, we have the following state transition equations:
@@ -169,6 +179,14 @@ function numWays(n: number, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each state uses only the previous pair, so two scalars suffice.
+
+<!-- thinking:end -->
 
 We notice that $f[i]$ and $g[i]$ are only related to $f[i - 1]$ and $g[i - 1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i - 1]$ and $g[i - 1]$ respectively, thus optimizing the space complexity to $O(1)$.
 

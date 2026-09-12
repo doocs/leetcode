@@ -56,6 +56,14 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $h$-index is the largest $h$ such that at least $h$ papers have $\ge h$ citations. After sorting descending, $citations[h-1]\ge h$ is the test; search $h$ from large to small.
+
+<!-- thinking:end -->
+
 We can sort the array `citations` in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $citations[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.
 
 Time complexity $O(n \times \log n)$, space complexity $O(\log n)$. Here $n$ is the length of the array `citations`.
@@ -167,6 +175,14 @@ impl Solution {
 
 ### Solution 2: Counting + Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting is $O(n\log n)$. $h\le n$, so cap citations at $n$, count, and accumulate from high to low until $s\ge h$.
+
+<!-- thinking:end -->
+
 We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number of papers with the reference count of $i$. We traverse the array `citations` and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $cnt$ for each paper. In this way, we have counted the number of papers for each reference count.
 
 Then we enumerate the value $h$ from large to small, and add the element value of $cnt$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.
@@ -276,6 +292,14 @@ function hIndex(citations: number[]): number {
 <!-- solution:start -->
 
 ### Solution 3: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The predicate “at least $h$ papers have $\ge h$ citations” is monotone, so we binary-search the largest feasible $h$ by counting values $\ge mid$.
+
+<!-- thinking:end -->
 
 We notice that if there is a $h$ value that satisfies at least $h$ papers are cited at least $h$ times, then for any $h'<h$, at least $h'$ papers are cited at least $h'$ times. Therefore, we can use the binary search method to find the largest $h$ such that at least $h$ papers are cited at least $h$ times.
 
