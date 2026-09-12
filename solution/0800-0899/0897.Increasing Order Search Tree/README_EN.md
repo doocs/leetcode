@@ -53,6 +53,17 @@ tags:
 
 ### Solution 1: DFS In-order Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flatten a BST into a right-only increasing list. Inorder is already sorted, and there are at most $100$ nodes, so we can rewire pointers during the walk.
+>
+> A dummy heads the list. Visiting a node appends it to $\textit{prev}$, clears its left child, then continues inorder. The answer is the dummy’s right child.
+
+<!-- thinking:end -->
+
+
 We define a virtual node $dummy$, initially the right child of $dummy$ points to the root node $root$, and a pointer $prev$ points to $dummy$.
 
 We perform an in-order traversal on the binary search tree. During the traversal, each time we visit a node, we point the right child of $prev$ to it, then set the left child of the current node to null, and assign the current node to $prev$ for the next traversal.

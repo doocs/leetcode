@@ -75,6 +75,17 @@ The nodes that are reachable are highlighted in yellow.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each original edge is subdivided into $\textit{cnt}$ nodes; we count how many nodes are reachable from $0$ within $\textit{maxMoves}$. The subdivided graph is too large to build.
+>
+> Treat an edge as weight $\textit{cnt}+1$ and Dijkstra on the original vertices. Reachable original nodes count as one each; subdivided nodes on an edge are the leftover steps from both ends, capped by $\textit{cnt}$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

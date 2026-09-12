@@ -61,6 +61,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> People who dislike each other cannot share a group, i.e. the dislike graph must be bipartite. $n\le 2000$, so a coloring DFS is enough: neighbors get opposite colors.
+>
+> Color each unseen node $1$ and recurse with $3-c$. If every component succeeds, a partition exists.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -257,6 +268,17 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coloring uses a recursion stack. Union-find encodes “must be in the same group”: all people disliked by $i$ should share a group, and none of them may share $i$’s group.
+>
+> If $i$ is already unioned with a neighbor, fail; otherwise merge those neighbors under one representative.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

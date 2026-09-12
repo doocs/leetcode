@@ -60,6 +60,17 @@ tags:
 
 ### Solution 1: Single Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the array is monotone non-decreasing or non-increasing. $n\le 10^5$, so one pass can test both directions.
+>
+> Compare adjacent pairs for all $\le$ and all $\ge$; either holds iff the array is monotonic.
+
+<!-- thinking:end -->
+
+
 We traverse the array, and if an increasing or decreasing situation occurs, we record it. We then check whether both increasing and decreasing situations have occurred. If both have occurred, it means that the array is not monotonic, and we return `false`.
 
 Otherwise, if we reach the end of the traversal, it means that the array is monotonic, and we return `true`.

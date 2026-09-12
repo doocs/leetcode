@@ -75,6 +75,17 @@ Note that in particular, &quot;zzxy&quot; is not special equivalent to &quot;zzy
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Odd and even positions may be permuted independently, so a class is the pair of multisets on those positions. At most $1000$ words of length $20$, so normalize and insert into a set.
+>
+> Sort the even-index letters and the odd-index letters, concatenate them as a signature, and count distinct signatures.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

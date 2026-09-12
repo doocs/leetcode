@@ -60,6 +60,17 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Preorder plus postorder determine the tree (uniqueness is given). The next preorder value is the left root; its index in postorder splits the left interval. At most $30$ nodes, so recurse.
+>
+> Map postorder values to indices. Each call splits left and right intervals with that left root. A single node or an empty range returns immediately.
+
+<!-- thinking:end -->
+
+
 The order of pre-order traversal is: root node -> left subtree -> right subtree, and the order of post-order traversal is: left subtree -> right subtree -> root node.
 
 Therefore, the root node of the binary tree must be the first node of the pre-order traversal and the last node of the post-order traversal.
@@ -284,6 +295,17 @@ function constructFromPrePost(preorder: number[], postorder: number[]): TreeNode
 <!-- solution:start -->
 
 ### Solution 2: Another Recursive Approach
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses four endpoints. Three parameters — preorder start, postorder start, and size — also suffice; the left size still comes from the left root’s postorder index.
+>
+> The recursion is the same. The right child starts at $i+m+1$, $k+1$ with size $n-m-1$.
+
+<!-- thinking:end -->
+
 
 We can design a recursive function $dfs(i, j, n)$, where $i$ and $j$ represent the starting points of the pre-order and post-order traversals, respectively, and $n$ represents the number of nodes. This function constructs the root node of the binary tree based on the pre-order traversal $[i, i + n - 1]$ and post-order traversal $[j, j + n - 1]$. The answer is $dfs(0, 0, n)$, where $n$ is the length of the pre-order traversal.
 
