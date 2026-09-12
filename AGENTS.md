@@ -13,9 +13,9 @@ This is [doocs/leetcode](https://github.com/doocs/leetcode) — a large collecti
     - `Solution.{py,java,cpp,go,ts,cs,rs,...}` — Solution files in each language
     - Follow standard LeetCode class-based structure: `class Solution` with the method
 
-- **`lcof/`** — 剑指 Offer (Coding Interviews, 2nd Edition) — problem directories named with Chinese titles
-- **`lcof2/`** — 剑指 Offer 专项突击版 (Coding Interviews, Special Edition)
-- **`lcci/`** — 程序员面试金典 (Cracking the Coding Interview, 6th Edition) — `01.01.Is Unique` format
+- **`lcof/`** — Coding Interviews (2nd Edition); problem directories use Chinese titles
+- **`lcof2/`** — Coding Interviews (Special Edition)
+- **`lcci/`** — Cracking the Coding Interview (6th Edition) — `01.01.Is Unique` format
 - **`lcp/`** — LeetCode Contest Problems
 - **`lcs/`** — LeetCode Contest (separate series)
 - **`basic/`** — Basic algorithm implementations (sorting algorithms like BubbleSort, QuickSort, etc.)
@@ -35,9 +35,10 @@ Dependabot updates npm, GitHub Actions, and pip on `main`, and pip on `docs`.
 
 1. Create a new problem directory under the appropriate parent (e.g., `solution/0000-0099/0042.My Problem/`)
 2. Add `Solution.py`, `Solution.java`, `Solution.cpp`, `Solution.go`, `Solution.ts`, `Solution.rs`, `Solution.cs`, etc.
-3. Add `README.md` and `README_EN.md` with problem description and solution explanations
-4. Follow the existing templates in `solution/template.md` for README formatting
+3. Add `README.md` and `README_EN.md` from `solution/template.md` (problem statement, methods, complexity, code tabs)
+4. After every method heading, write a Thinking block before the algorithm write-up (see [Thinking section](#thinking-section-how-we-arrive-at-the-answer))
 5. All language solutions must implement the same algorithm logic
+6. Open the PR with `.github/pull_request_template.md` and complete the checklist (see also `CONTRIBUTING.md`)
 
 ### Code Formatting
 
@@ -96,16 +97,18 @@ GitHub Actions automatically run:
 
 - Problem directories follow naming convention: `{NUMBER}.{Problem Name with Spaces}`
 - Each solution file is named `Solution.{ext}` (capital S)
-- README files use special HTML comment markers for templating (e.g., `<!-- problem:start -->`, `<!-- solution:start -->`)
+- README files use special HTML comment markers for templating (e.g., `<!-- problem:start -->`, `<!-- solution:start -->`, `<!-- thinking:start -->`)
+- Each method heading is followed by a Thinking block; see below
 - Solutions should match the problem's required class/method signature from LeetCode
+- New and updated solution PRs use `.github/pull_request_template.md`
 
 ## Thinking section (how we arrive at the answer)
 
-Each method in `README.md` / `README_EN.md` must teach the path to the solution, not only the finished algorithm.
+Required for every new or updated method in `README.md` / `README_EN.md`. Teach the path to the solution, not only the finished algorithm.
 
-- Insert a blockquote labeled `**思考**` / `**Thinking**` immediately after `### 方法X` / `### Solution X`, wrapped in `<!-- thinking:start -->` / `<!-- thinking:end -->`, before the existing algorithm write-up. Do not add a page-level or `####` heading — the quote box is what separates path-to-answer from the formal write-up.
-- Keep the original algorithm steps, complexity, and code tabs unchanged. Do not add a page-level `## 思考` heading.
+- Insert a `**Thinking**` blockquote (use the matching Chinese label from `solution/template.md` in `README.md`) immediately after the method heading, wrapped in `<!-- thinking:start -->` / `<!-- thinking:end -->`, before the existing algorithm write-up. Do not add a page-level or `####` heading — the quote box is what separates path-to-answer from the formal write-up.
+- Keep the original algorithm steps, complexity, and code tabs unchanged. Do not add a page-level Thinking heading.
 - Walk in four beats: naive first idea and whether it fits the constraints; the bottleneck; the key observation that reshapes the problem; why this method's data structure and operation order follow from that observation.
 - Write against the code that is actually in the repo. Do not describe a different algorithm. Do not restate the step-by-step that already follows.
-- For later methods, only explain what the previous method still lacks (space, constants, implementation). Typical length is 3–6 sentences; hard problems may be longer. Match the existing voice (`我们`, LaTeX variables).
-- Chinese **思考** must read as the same formal written prose as the algorithm section that follows. Vary sentence openings; use complete paragraphs (`若…则…`, `因此`, `为此`, `注意到`). Do not use template slogans such as `最容易想到的是`, `正确，但`, `慢在`, `卡点是`, `于是我们`, `必超时`, `指数爆炸`.
+- For later methods, only explain what the previous method still lacks (space, constants, implementation). Typical length is 3–6 sentences; hard problems may be longer. Match the existing voice (first-person plural in Chinese READMEs, LaTeX variables).
+- The Chinese walkthrough must read as the same formal written prose as the algorithm section that follows. Vary sentence openings and use complete paragraphs. Do not use template slogans.
