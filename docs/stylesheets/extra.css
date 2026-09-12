@@ -35,3 +35,36 @@
     background-color: var(--pre-bg);
     border-radius: .1rem;
 }
+
+.md-typeset .lc-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    margin: .4em 0 .8em;
+}
+
+.md-typeset .lc-badge {
+    display: inline-flex;
+    overflow: hidden;
+    font-family: Verdana, Geneva, DejaVu Sans, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.md-typeset .lc-badge__label,
+.md-typeset .lc-badge__value {
+    padding: 0 6px;
+    color: #fff;
+}
+
+.md-typeset .lc-badge__label {
+    background: #555;
+}
+
+.md-typeset .lc-badge__value {
+    background: #4051b5;
+}
