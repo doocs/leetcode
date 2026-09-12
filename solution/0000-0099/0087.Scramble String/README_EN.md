@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0087.Scramble%20String/README_EN.md
 tags:
     - String
     - Dynamic Programming

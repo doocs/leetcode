@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
