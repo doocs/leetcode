@@ -96,6 +96,18 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An axis-aligned square centered at the origin must contain distinct labels. Trying every side length and rechecking labels follows the coordinate range.
+>
+> Point $(x,y)$ lies in the square of half-side $d$ iff $\max(|x|,|y|)\le d$. Adding points by increasing $d$ must stop at the first duplicate label.
+>
+> Bucket indices by $d$ and walk buckets in order. If a label in the current layer was already seen, return the previous count; otherwise accept the whole layer.
+
+<!-- thinking:end -->
+
 For a point $(x, y)$, we can map it to the first quadrant with the origin as the center, i.e., $(\max(|x|, |y|), \max(|x|, |y|))$. In this way, we can map all points to the first quadrant and then sort them according to the distance from the point to the origin.
 
 We can use a hash table $g$ to store the distance from all points to the origin, and then sort them according to the distance. For each distance $d$, we put all points with a distance of $d$ together, and then traverse these points. If there are two points with the same label, then this square is illegal, and we directly return the answer. Otherwise, we add these points to the answer.

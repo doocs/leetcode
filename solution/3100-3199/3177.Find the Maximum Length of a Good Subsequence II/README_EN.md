@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition matches part I, but $n$ rules out $O(n^2k)$. The recurrence itself is unchanged.
+>
+> Equal values take the historical best of that value; a change takes the best at $h-1$, or the second best when that best is the current value.
+>
+> Read $f[i][h]$ from $mp$ and $g$, then write the new extrema back. The answer is the global maximum $f[i][h]$.
+
+<!-- thinking:end -->
+
 We define $f[i][h]$ as the length of the longest good subsequence ending with $nums[i]$ and having no more than $h$ indices satisfying the condition. Initially, $f[i][h] = 1$. The answer is $\max(f[i][k])$, where $0 \le i < n$.
 
 We consider how to calculate $f[i][h]$. We can enumerate $0 \le j < i$, if $nums[i] = nums[j]$, then $f[i][h] = \max(f[i][h], f[j][h] + 1)$; otherwise, if $h > 0$, then $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$. That is:

@@ -102,6 +102,18 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid subarray has equal endpoints that are also the maximum. Checking the middle maximum for every pair is $O(n^2)$ and too slow for large $n$.
+>
+> When both ends equal $x$, nothing larger may appear in between. The previous strictly greater value cuts every longer candidate ending at the current $x$.
+>
+> Keep a decreasing stack of values and how many times they can extend. After popping smaller runs, either increment the top when it equals $x$ or start a new run. Adding the top count at each step enumerates every valid subarray ending here.
+
+<!-- thinking:end -->
+
 We consider each element $x$ in the array $nums$ as the boundary element and the maximum value of the subarray.
 
 Each subarray of length $1$ meets the condition, and for subarrays with length greater than $1$, all elements in the subarray cannot be greater than the boundary element $x$. We can implement this with a monotonic stack.

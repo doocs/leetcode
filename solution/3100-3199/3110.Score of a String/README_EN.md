@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the sum of absolute ASCII differences of adjacent characters, which is already a single linear scan.
+>
+> No preprocessing is needed at the given length. Adjacent pairs are independent.
+>
+> Map $s$ to code points, take absolute differences of neighbors, and sum them. Time is linear and extra space is constant.
+
+<!-- thinking:end -->
+
 We directly traverse the string $s$, calculating the sum of the absolute differences of the ASCII codes of adjacent characters.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.

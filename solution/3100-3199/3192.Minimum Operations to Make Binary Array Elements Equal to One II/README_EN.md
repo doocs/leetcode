@@ -82,6 +82,18 @@ We can do the following operation:</p>
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation flips the suffix starting at $i$. The parity of later flips can be stored in one bit instead of rewriting the array.
+>
+> The true value is $x\oplus v$. A $0$ forces one more suffix flip and toggles $v$.
+>
+> One pass accumulates the number of toggles. Each index is inspected once.
+
+<!-- thinking:end -->
+
 We notice that whenever we change an element at a certain position to 1, all the elements to its right are flipped. Therefore, we can use a variable $v$ to record whether the current position and all elements to its right have been flipped. If flipped, the value of $v$ is 1, otherwise, it is 0.
 
 We iterate through the array $\textit{nums}$. For each element $x$, we perform an XOR operation between $x$ and $v$. If $x$ is 0, then we need to change $x$ to 1, which requires a flip operation. We increment the answer by one and flip the value of $v$.

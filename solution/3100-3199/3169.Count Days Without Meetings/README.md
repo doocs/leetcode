@@ -82,6 +82,18 @@ tags:
 
 ### 方法一：排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计 $[1,days]$ 中未被任何会议覆盖的天数。会议可重叠，逐日标记在 $days$ 很大时不可行。
+>
+> 按开始时间排序后合并区间，相邻间隙即为空闲。维护已覆盖的最右端 $last$。
+>
+> 若 $last<st$ 则加上 $st-last-1$ 天空，并更新 $last=\max(last,ed)$。最后补上 $days-last$。
+
+<!-- thinking:end -->
+
 我们不妨将所有会议按照开始时间排序，用一个变量 $\textit{last}$ 记录此前会议的最晚结束时间。
 
 然后我们遍历所有会议，对于每一个会议 $(\textit{st}, \textit{ed})$，如果 $\textit{last} < \textit{st}$，说明 $\textit{last}$ 到 $\textit{st}$ 之间的时间段是员工可以工作且没有安排会议的时间，我们将这段时间加入答案。然后我们更新 $\textit{last} = \max(\textit{last}, \textit{ed})$。

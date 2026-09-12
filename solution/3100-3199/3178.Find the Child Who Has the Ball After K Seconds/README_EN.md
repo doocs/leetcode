@@ -166,6 +166,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The ball travels back and forth on $0..n-1$ one step per second. Simulating $k$ seconds is linear in $k$.
+>
+> A half-trip has $n-1$ steps. The quotient of $k$ by $n-1$ is even on the way right and odd on the way left.
+>
+> Write $k,mod=divmod(k,n-1)$ and return $n-mod-1$ on an odd quotient, otherwise $mod$.
+
+<!-- thinking:end -->
+
 We notice that there are $n - 1$ passes in each round. Therefore, we can take $k$ modulo $n - 1$ to get the number of passes $mod$ in the current round. Then we divide $k$ by $n - 1$ to get the current round number $k$.
 
 Next, we judge the current round number $k$:

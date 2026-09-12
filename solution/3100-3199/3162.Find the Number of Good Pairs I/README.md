@@ -69,6 +69,18 @@ tags:
 
 ### 方法一：暴力枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数对满足 $nums1[i]$ 能被 $nums2[j]\cdot k$ 整除。两数组长度至多 $50$，双重枚举即可。
+>
+> 不必预处理倍数。对每对 $(x,y)$ 判断 $x\bmod(y\cdot k)=0$。
+>
+> 一层生成器求和即答案，时间为 $O(mn)$。
+
+<!-- thinking:end -->
+
 我们直接枚举所有的数位 $(x, y)$，判断是否满足 $x \bmod (y \times k) = 0$，如果满足则答案加一。
 
 枚举结束后，返回答案即可。
@@ -160,6 +172,18 @@ function numberOfPairs(nums1: number[], nums2: number[], k: number): number {
 <!-- solution:start -->
 
 ### 方法二：哈希表 + 枚举倍数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖 $mn$ 很小。同一题的 II 中长度更大，需要按倍数聚合。
+>
+> 把 $nums1$ 中能被 $k$ 整除的商计数，再对 $nums2$ 的每种 $x$ 枚举其倍数 $y$，累加 $cnt1[y]$。
+>
+> 哈希去重后内层按步长 $x$ 扫描到 $mx$，再乘 $x$ 的出现次数。为 II 的线性倍数枚举做铺垫。
+
+<!-- thinking:end -->
 
 我们用一个哈希表 $\textit{cnt1}$ 记录数组 $\textit{nums1}$ 中每个数除以 $k$ 的商的出现次数，用一个哈希表 $\textit{cnt2}$ 记录数组 $\textit{nums2}$ 中每个数的出现次数。
 

@@ -109,6 +109,18 @@ Each row of this table contains the text ID, email ID, signup action, and action
 
 ### Solution 1: Joining Two Tables
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Users who verified on the day after signup are required. Emails and texts live in two tables.
+>
+> Inner-join on $email\_id$ with $DATEDIFF=1$ and `signup_action='Verified'` applies every constraint at once.
+>
+> Select $user\_id$ in ascending order. No grouping is needed.
+
+<!-- thinking:end -->
+
 We can join the two tables and then use the `DATEDIFF` function to calculate whether the difference between the registration date and the operation date is equal to 1, and whether the registration operation is `Verified`, to filter out the user IDs that meet the conditions.
 
 <!-- tabs:start -->

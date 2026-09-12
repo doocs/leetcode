@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compression writes a count (at most $9$) plus the character for each run. Manual indices often mishandle splits at $9$.
+>
+> `groupby` already yields runs; each run is then cut into chunks of size at most $9$.
+>
+> For a run of length $k$ append `str(x)+c` with $x=\min(9,k)$ until $k$ is exhausted.
+
+<!-- thinking:end -->
+
 We can use two pointers to count the consecutive occurrences of each character. Suppose the current character $c$ appears consecutively $k$ times, then we divide $k$ into several $x$, each $x$ is at most $9$, then we concatenate $x$ and $c$, and append each $x$ and $c$ to the result.
 
 Finally, return the result.
@@ -240,6 +252,18 @@ var compressedString = function (word) {
 
 ### Solution 2: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses a grouping helper. Two pointers can cut on a letter change or when the run reaches $9$, without intermediate lists.
+>
+> Keep the run start $j$. When $i$ hits the end, a new letter, or length $9$, emit $i-j$ and $word[j]$ and set $j=i$.
+>
+> The scan ends at $n$. Same linear bound, closer to the “at most nine” wording.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript
@@ -283,6 +307,18 @@ function compressedString(word) {
 <!-- solution:start -->
 
 ### Solution 3: RegExp
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two pointers still encode the split by hand. The pattern `(.)\1{0,8}` matches one to nine equal characters.
+>
+> A global search swallows each such run; the count is the match length.
+>
+> Append `len(m[0])` and the captured letter. The result matches the previous methods with less arithmetic.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

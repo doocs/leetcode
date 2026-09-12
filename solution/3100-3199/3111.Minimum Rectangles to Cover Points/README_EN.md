@@ -154,6 +154,18 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rectangle height is unlimited, so coverage depends only on $x$-coordinates and width $w$. Assigning points to rectangles by search grows exponentially.
+>
+> After sorting by $x$, each rectangle should extend as far right as $w$ allows. A point beyond the current cover forces a new rectangle whose left side is that point.
+>
+> Sort, keep the current right border $x_1$, and when $x>x_1$ start a new rectangle at $x$ with $x_1=x+w$. The number of starts is the minimum rectangle count.
+
+<!-- thinking:end -->
+
 According to the problem description, we do not need to consider the height of the rectangles, only the width.
 
 We can sort all the points by their x-coordinates and use a variable $x_1$ to record the rightmost x-coordinate that the current rectangle can cover. Initially, $x_1 = -1$.

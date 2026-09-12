@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Greedy + Union Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk cost is the bitwise AND of edge weights, and revisiting edges can only decrease it. Searching from scratch for every query repeats work inside the same component when $q$ is large.
+>
+> AND of positive integers is monotone decreasing, so the minimum cost inside a component is the AND of every edge in that component. Distinct components have no walk between them.
+>
+> Union all edges, then AND every edge weight into $g[\textit{root}]$ of its component. A query returns that value when the endpoints share a root, $0$ when they coincide, and $-1$ otherwise.
+
+<!-- thinking:end -->
+
 We note that a positive integer performing bitwise AND operation with several other positive integers will only get smaller. Therefore, to minimize the cost of the journey, we should perform bitwise AND operation on the weights of all edges in the same connected component, and then perform the query.
 
 So, the problem is transformed into how to find all the edges in the same connected component and perform bitwise AND operation.

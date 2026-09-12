@@ -91,6 +91,18 @@ tags:
 
 ### 方法一：分组聚合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按州列出城市名，字典序并以逗号空格连接。分组后在组内排序再拼接是标准聚合。
+>
+> SQL 用 `GROUP_CONCAT(... ORDER BY city)`；pandas 则 `groupby` 后对城市列 `sorted` 再 `join`。
+>
+> 输出列命名为 $state$ 与 $cities$。每个州一行。
+
+<!-- thinking:end -->
+
 我们可以先按照 `state` 字段进行分组，然后对每个分组内的 `city` 字段进行排序，最后使用 `GROUP_CONCAT` 函数将排序后的城市名连接成一个逗号分隔的字符串。
 
 <!-- tabs:start -->

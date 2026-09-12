@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Dynamic Programming + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I with a larger domain, so a Boolean array in $O(nM)$ fails.
+>
+> The update remains “shift the low $v$ bits by $v$ and OR them back”, which a bitset performs a word at a time.
+>
+> After unique sort, start from $f=1$, apply $f\mathrel{|}=(f\&((1\ll v)-1))\ll v$, and return $f.bit\_length()-1$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \textit{True}$, and all other values are $\textit{False}$.
 
 We consider the $i$-th reward value $v$. If we do not choose it, then $f[i][j] = f[i - 1][j]$; if we choose it, then $f[i][j] = f[i - 1][j - v]$, where $0 \leq j - v < v$. Thus, the state transition equation is:

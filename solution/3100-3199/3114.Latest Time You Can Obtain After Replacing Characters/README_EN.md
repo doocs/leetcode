@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only $12\times 60$ valid times. Enumerating hour and minute from large to small and matching the pattern on non-`?` positions yields the latest feasible clock at the first hit.
+>
+> The search space is constant, so backtracking is unnecessary. Walking from $11{:}59$ down to $00{:}00$ guarantees the lexicographically latest time.
+>
+> Generate each `HH:MM` in that order, compare against $s$ while treating `?` as wild, and return the first match.
+
+<!-- thinking:end -->
+
 We can enumerate all times from large to small, where the hour $h$ ranges from $11$ to $0$, and the minute $m$ ranges from $59$ to $0$. For each time $t$, we check whether each digit of $t$ matches the corresponding digit in $s$ (if the corresponding digit in $s$ is not "?"). If it does, then we have found the answer and return $t$.
 
 The time complexity is $O(h \times m)$, where $h = 12$ and $m = 60$. The space complexity is $O(1)$.
@@ -185,6 +197,18 @@ function findLatestTime(s: string): string {
 <!-- solution:start -->
 
 ### Solution 2: Judge Each Digit
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Full enumeration is constant-time yet still formats hundreds of candidates. Each digit's range under the 12-hour clock can be written down directly.
+>
+> The hour tens digit is $0$ or $1$, the ones digit is at most $1$ when the tens digit is $1$, the minute tens digit is at most $5$, and the ones digit may be $9$.
+>
+> Replace each `?` from left to right by the largest still-valid digit: decide $s[0]$ then $s[1]$, and fill the minute digits with $5$ and $9$. One pass suffices.
+
+<!-- thinking:end -->
 
 We can judge each digit of $s$ one by one. If it is "?", we determine the value of this digit based on the characters before and after it. Specifically, we have the following rules:
 

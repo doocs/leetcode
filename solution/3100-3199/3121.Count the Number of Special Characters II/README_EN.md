@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Here every lowercase occurrence must also precede the first uppercase of that letter. Existence alone would accept a late lowercase.
+>
+> It suffices to compare the last lowercase index with the first uppercase index, both obtainable in one scan.
+>
+> Record $first$ and $last$ while walking $word$, then count letters whose last lower index is strictly left of the first upper index.
+
+<!-- thinking:end -->
+
 We define two hash tables or arrays `first` and `last` to store the positions where each letter first appears and last appears respectively.
 
 Then we traverse the string `word`, updating `first` and `last`.

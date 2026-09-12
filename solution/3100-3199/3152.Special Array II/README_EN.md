@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Record the Leftmost Special Array Position for Each Position
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many queries ask whether a subarray is special. Scanning each range is $O(nq)$.
+>
+> A range is special iff every adjacent pair flips parity. If $d[i]$ is the leftmost start of the special run covering $i$, query $[f,t]$ holds iff $d[t]\le f$.
+>
+> One left-to-right pass sets $d[i]=d[i-1]$ on a flip and $d[i]=i$ otherwise. Each query is then $O(1)$.
+
+<!-- thinking:end -->
+
 We can define an array $d$ to record the leftmost special array position for each position, initially $d[i] = i$. Then we traverse the array $nums$ from left to right. If $nums[i]$ and $nums[i - 1]$ have different parities, then $d[i] = d[i - 1]$.
 
 Finally, we traverse each query and check whether $d[to] <= from$ holds.

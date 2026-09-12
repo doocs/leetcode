@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells must equal the one below and differ from the one to the right. The definition is already a local check.
+>
+> A single violation rejects the grid, so the scan may exit early.
+>
+> Walk every cell, compare it with its bottom and right neighbors, and return true only if all pairs obey the rule.
+
+<!-- thinking:end -->
+
 We can iterate through each cell and determine whether it meets the conditions specified in the problem. If there is a cell that does not meet the conditions, we return `false`, otherwise, we return `true`.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix `grid` respectively. The space complexity is $O(1)`.

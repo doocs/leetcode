@@ -65,6 +65,18 @@ The 5 good pairs are <code>(0, 0)</code>, <code>(1, 0)</code>, <code>(1, 1)</cod
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair is good when $nums1[i]$ is divisible by $nums2[j]\cdot k$. Both lengths are at most $50$, so a double loop is fine.
+>
+> No sieve is required. Test $x\bmod(y\cdot k)=0$ for every pair.
+>
+> Sum the predicate over the product of the two arrays in $O(mn)$.
+
+<!-- thinking:end -->
+
 We directly enumerate all digit pairs $(x, y)$ and check whether $x \bmod (y \times k) = 0$. If it satisfies the condition, increment the answer by one.
 
 After the enumeration is complete, return the answer.
@@ -156,6 +168,18 @@ function numberOfPairs(nums1: number[], nums2: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Enumerate Multiples
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 relies on tiny $mn$. Part II needs a faster aggregation.
+>
+> Count quotients $x/k$ for values of $nums1$ divisible by $k$, then for each distinct $x$ in $nums2$ walk its multiples $y$ and add $cnt1[y]$.
+>
+> After hashing, the inner loop steps by $x$ up to $mx$ and multiplies by the frequency of $x$.
+
+<!-- thinking:end -->
 
 We use a hash table `cnt1` to record the occurrence times of each number divided by $k$ in array `nums1`, and a hash table `cnt2` to record the occurrence times of each number in array `nums2`.
 

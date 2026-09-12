@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Sorting + Memoization + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A reward may be taken only when it strictly exceeds the current total. Subset enumeration is exponential; searching by the current score fits the limits.
+>
+> Rewards $\le x$ are dead forever. After sorting, the first reward larger than $x$ is a binary search.
+>
+> Memoize $dfs(x)$ over those $v$ and recurse to $x+v$. Scores stay below about twice the maximum reward.
+
+<!-- thinking:end -->
+
 We can sort the `rewardValues` array and then use memoization to solve for the maximum total reward.
 
 We define a function $\textit{dfs}(x)$, representing the maximum total reward that can be obtained when the current total reward is $x$. Thus, the answer is $\textit{dfs}(0)$.
@@ -228,6 +240,18 @@ function maxTotalReward(rewardValues: number[]): number {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The search still pays recursion. Reachability of score $j$ depends only on which rewards were used.
+>
+> Taking $v$ requires the previous score to be $<v$, so $f[j]$ becomes true from $f[j-v]$ when $0\le j-v<v$.
+>
+> After sorting unique values, roll a Boolean array from $f[0]=\mathrm{True}$. The largest true index is the answer.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as whether it is possible to obtain a total reward of $j$ using the first $i$ reward values. Initially, $f[0][0] = \textit{True}$, and all other values are $\textit{False}$.
 
 We consider the $i$-th reward value $v$. If we do not choose it, then $f[i][j] = f[i - 1][j]$. If we choose it, then $f[i][j] = f[i - 1][j - v]$, where $0 \leq j - v < v$. Thus, the state transition equation is:
@@ -374,6 +398,18 @@ function maxTotalReward(rewardValues: number[]): number {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 scans every $j$ in $O(nM)$. The same update is “OR the low $v$ bits of $f$ shifted left by $v$”.
+>
+> Store reachability as bits of an integer.
+>
+> For each $v$ do $f\mathrel{|}=(f\bmod 2^v)\ll v$. The highest set bit is the maximum total, and word parallelism cuts the factor $w$.
+
+<!-- thinking:end -->
 
 We can optimize Solution 2 by defining a binary number $f$ to save the current state, where the $i$-th bit of $f$ being $1$ indicates that a total reward of $i$ is reachable.
 

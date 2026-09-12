@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count days in $[1,days]$ that no meeting covers. Marking each day fails when $days$ is huge and meetings overlap.
+>
+> Sort by start and merge, so gaps between the running right end $last$ and the next start are free.
+>
+> When $last<st$ add $st-last-1$, then $last=\max(last,ed)$. After the last meeting add $days-last$.
+
+<!-- thinking:end -->
+
 We can sort all the meetings by their start time, and use a variable `last` to record the latest end time of the previous meetings.
 
 Then we traverse all the meetings. For each meeting $(st, ed)$, if `last < st`, it means that the time period from `last` to `st` is a time period when employees can work and no meetings are scheduled. We add this time period to the answer. Then we update `last = max(last, ed)`.

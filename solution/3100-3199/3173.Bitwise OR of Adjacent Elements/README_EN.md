@@ -60,6 +60,18 @@ tags:
 
 ### Solution 1: Iteration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Entry $i$ is $nums[i]\lor nums[i+1]$ and does not depend on farther elements.
+>
+> Each adjacent pair can be evaluated independently.
+>
+> Map `pairwise(nums)` through OR to obtain an array of length $n-1$.
+
+<!-- thinking:end -->
+
 We iterate through the first $n - 1$ elements of the array. For each element, we calculate the bitwise OR value of it and its next element, and store the result in the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.

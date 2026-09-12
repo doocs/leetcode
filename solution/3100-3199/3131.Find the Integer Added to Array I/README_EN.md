@@ -98,6 +98,18 @@ tags:
 
 ### Solution 1: Calculate Minimum Difference
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums2$ is $nums1$ after adding one common integer. Matching permutations to recover the shift needs a sort or a map.
+>
+> A uniform add does not change which elements are smallest, so the shift equals the difference of minima.
+>
+> Return $\min(nums2)-\min(nums1)$ after a linear scan.
+
+<!-- thinking:end -->
+
 We can find the minimum value of each array, then return the difference between the two minimum values.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

@@ -93,6 +93,18 @@ It is guaranteed that all tweet_date are valid dates in February 2024.
 
 ### Solution 1: Regular Expression Matching
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The task is to extract every hashtag from February tweets and return the top three by frequency and name. A hand-written character scan works but easily mishandles tag boundaries and repeats.
+>
+> Hashtags start with `#` and consist of word characters, so a regular expression can capture them in one pass. Date filtering first restricts the rows to February $2024$.
+>
+> Filter the February tweets, run `findall` to extract tags, flatten and count them, then sort by count and tag name descending and keep the first three rows.
+
+<!-- thinking:end -->
+
 We can use regular expressions to match all tags in each tweet, and then count the occurrence of each tag. Finally, we can sort the tags in descending order by the number of occurrences. If the number of occurrences is the same, we sort them in descending order by the tag name, and return the top three tags.
 
 <!-- tabs:start -->

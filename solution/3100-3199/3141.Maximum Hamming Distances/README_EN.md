@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Reverse Thinking + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value needs its maximum Hamming distance to some array element. Pairwise comparison is too slow when $m$ reaches $17$.
+>
+> That maximum is $m$ minus the minimum distance to an array element. BFS on the hypercube, flipping one bit at a time from the array values, yields every mask's nearest neighbor in the array.
+>
+> Set $dist[x]=0$ for $x$ in $nums$ and expand. For a query $x$ the answer is $m-dist[x\oplus(2^m-1)]$, converting distance-to-complement into maximum distance.
+
+<!-- thinking:end -->
+
 The problem requires us to find the maximum Hamming distance between each element and other elements in the array. We can think in reverse: for each element, we take its complement and find the minimum Hamming distance to other elements in the array. Then, the maximum Hamming distance we are looking for is $m$ minus this minimum Hamming distance.
 
 We can use Breadth-First Search (BFS) to find the minimum Hamming distance from each complemented element to other elements.

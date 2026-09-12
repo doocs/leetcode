@@ -161,6 +161,18 @@ Each row contains the student ID, course ID, semester, and grade received.
 
 ### Solution 1: Joining + Grouping + Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides GPA, every mandatory course must be $A$ and at least two electives must be $A$ or $B$. Splitting these into separate queries misses null enrollments.
+>
+> A CTE keeps students with GPA $\ge 2.5$, then joins major courses and left-joins grades so conditional sums can state every rule.
+>
+> `HAVING` equates mandatory $A$s with mandatory courses, requires electives to be present and in $\{A,B\}$, and demands at least two electives.
+
+<!-- thinking:end -->
+
 First, we filter out students with an average GPA greater than or equal to 2.5 and record them in table `T`.
 
 Next, we join the `T` table with the `students` table based on `student_id`, then join with the `courses` table based on `major`, and finally perform a left join with the `enrollments` table based on `student_id` and `course_id`.

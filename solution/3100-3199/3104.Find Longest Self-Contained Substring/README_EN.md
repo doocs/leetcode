@@ -74,6 +74,18 @@ Let&#39;s check the substring <code>&quot;<span class="example-io">abac</span>&q
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A self-contained substring must contain every occurrence of each of its characters and cannot be the whole string. Checking every interval against $26$ first/last positions is $O(n^2|\Sigma|)$ and too heavy.
+>
+> A valid left endpoint must be some character's first occurrence: extending further left only adds a new character or an earlier copy. With at most $26$ letters the candidate starts are few.
+>
+> Record each character's first and last index, enumerate left endpoint $i$, and walk $j$ rightward while tracking the farthest cover $mx$. Stop if a character first appears before $i$; when $mx=j$ and the interval is proper, update the longest length.
+
+<!-- thinking:end -->
+
 We notice that the start of a substring that meets the conditions must be the position where a character appears for the first time.
 
 Therefore, we can use two arrays or hash tables `first` and `last` to record the positions where each character appears for the first time and the last time, respectively.

@@ -103,6 +103,18 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array must be split into $m$ segments whose AND equals $\textit{andValues}[j]$, minimizing the sum of segment endpoints. Enumerating every cut is exponential.
+>
+> AND only loses bits, so a segment can be abandoned once it drops below the target. The state (index, finished segments, running AND) is unique, and distinct AND values are $O(\log M)$.
+>
+> Memoize $dfs(i,j,a)$: AND in $nums[i]$, then either extend the segment or, when the AND matches the target, cut and add $nums[i]$. Return infinity when too few elements remain or the AND undershoots.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j, a)$, which represents the possible minimum sum of subarray values that can be obtained starting from the $i$-th element, with $j$ subarrays already divided, and the bitwise AND result of the current subarray to be divided is $a$. The answer is $dfs(0, 0, -1)$.
 
 The execution process of the function $dfs(i, j, a)$ is as follows:

@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition matches part I, but $zero$ and $one$ are larger, so backtracking is impossible. Stability still depends only on remaining counts and the next bit.
+>
+> Overflow is again subtracted as the branch that writes $limit+1$ equal bits. The state space stays $O(zero\cdot one)$.
+>
+> Reuse memoized $dfs(i,j,k)$, reduce modulo $10^9+7$, and clear the cache before returning.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j, k)$ to represent the number of stable binary arrays that satisfy the problem conditions when there are $i$ $0$s and $j$ $1$s left, and the next number to be filled is $k$. The answer is $dfs(zero, one, 0) + dfs(zero, one, 1)$.
 
 The calculation process of the function $dfs(i, j, k)$ is as follows:
@@ -309,6 +321,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization is already polynomial, yet recursion and cache overhead grow with the larger limits.
+>
+> Fill $f[i][j][k]$ iteratively in increasing $i$ and $j$, with the same base cases as part I.
+>
+> Apply the modulus in the recurrence and return $f[zero][one][0]+f[zero][one][1]$ without a call stack.
+
+<!-- thinking:end -->
 
 We can also convert the memoization search of Solution 1 into dynamic programming.
 

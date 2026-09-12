@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Binary Search + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The uniqueness array stores the distinct count of every subarray. Materializing $O(n^2)$ values to take a median is impossible.
+>
+> The number of subarrays with at most $x$ distinct values grows with $x$, so the median is the least $x$ whose count reaches half of $m=n(n+1)/2$. A sliding window counts those subarrays in linear time.
+>
+> Binary search $x$. Extend $r$, shrink $l$ while the window has more than $mx$ distinct values, and add $r-l+1$. The check succeeds once the count reaches $\lceil m/2\rceil$.
+
+<!-- thinking:end -->
+
 Let the length of the array $\textit{nums}$ be $n$. The length of the uniqueness array is $m = \frac{(1 + n) \times n}{2}$, and the median of the uniqueness array is the $\frac{m + 1}{2}$-th smallest number among these $m$ numbers.
 
 Consider how many numbers in the uniqueness array are less than or equal to $x$. As $x$ increases, there will be more and more numbers less than or equal to $x$. This property is monotonic, so we can use binary search to enumerate $x$ and find the first $x$ such that the number of elements in the uniqueness array less than or equal to $x$ is greater than or equal to $\frac{m + 1}{2}$. This $x$ is the median of the uniqueness array.

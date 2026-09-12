@@ -74,6 +74,18 @@ The bitwise <code>AND</code> of <code>[3, 4, 5, 6, 7]</code> is 0.</p>
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the largest $x\le n$ such that $x$ AND $x+1$ is $0$. Trying $n-1,n-2,\ldots$ is linear in the worst case.
+>
+> $x$ and $x+1$ are consecutive, so their AND vanishes only when $x$ is a string of low ones. The largest such value below $n$ is the mask under $n$'s highest bit.
+>
+> Return $2^{\textit{bit\_length}(n)-1}-1$. It ANDs with its successor to zero and is maximal under $n$.
+
+<!-- thinking:end -->
+
 We can find the highest bit of $1$ in the binary representation of $n$. The maximum $x$ must be less than $n$ and this bit is $0$, and all other lower bits are $1$, i.e., $x = 2^{\textit{number of the highest bit}} - 1$. This is because $x \textit{ and } (x + 1) = 0$ must hold.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
