@@ -67,6 +67,16 @@ trie.search(&quot;app&quot;);     // return True
 
 ## Solution 1: Trie (Prefix Tree)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every inserted word for each prefix query repeats work on shared prefixes. Letters are lowercase, so a $26$-way tree can layer characters.
+>
+> Insertion walks (and creates) nodes and marks $isEnd$ at the last one. Prefix search follows the same path; full-word search also checks the end flag.
+
+<!-- thinking:end -->
+
 Each node in the trie contains two parts:
 
 1. An array of pointers to child nodes `children`. For this problem, the array length is 26, representing the number of lowercase English letters. `children[0]` corresponds to lowercase letter 'a', ..., and `children[25]` corresponds to lowercase letter 'z'.

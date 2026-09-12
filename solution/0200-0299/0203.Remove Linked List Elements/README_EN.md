@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing nodes with value $val$ is a predecessor-pointer update, but the head itself may be deleted, so special-casing $head$ is messy.
+>
+> A dummy node in front lets $pre$ inspect its successor: skip it when the value matches, otherwise advance. Return $\textit{dummy.next}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

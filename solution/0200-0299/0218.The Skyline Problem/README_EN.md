@@ -75,6 +75,16 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Buildings occlude one another, so comparing every height at every $x$ is not viable. The skyline can change only at left and right edges, which become sweep events.
+>
+> We sort those $x$-coordinates and keep a max-heap of buildings that still cover the sweep line. A key point is emitted when the height changes; adjacent equal heights are merged.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

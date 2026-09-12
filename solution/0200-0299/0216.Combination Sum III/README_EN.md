@@ -73,6 +73,16 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 
 ### Solution 1: Pruning + Backtracking (Two Approaches)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We choose $k$ numbers from $1$ through $9$ that sum to $n$. The universe is tiny, so we can enumerate. Decide include-or-skip in increasing order, and prune when the remaining sum, the count, or the next integer is invalid.
+>
+> $dfs(i,s)$ considers integer $i$ with remaining sum $s$: take it via $dfs(i+1,s-i)$, or skip via $dfs(i+1,s)$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, s)$, which represents that we are currently enumerating the number $i$, and there are still numbers with a sum of $s$ to be enumerated. The current search path is $t$, and the answer is $ans$.
 
 The execution logic of the function $dfs(i, s)$ is as follows:
@@ -549,6 +559,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Backtracking uses a call stack. There are only $2^9$ subsets of $\{1,\ldots,9\}$, so a $9$-bit mask can list them all.
+>
+> If the mask has $k$ bits set and those integers sum to $n$, we record the subset.
+
+<!-- thinking:end -->
 
 We can use a binary integer of length $9$ to represent the selection of numbers $1$ to $9$, where the $i$-th bit of the binary integer represents whether the number $i + 1$ is selected. If the $i$-th bit is $1$, it means that the number $i + 1$ is selected, otherwise, it means that the number $i + 1$ is not selected.
 

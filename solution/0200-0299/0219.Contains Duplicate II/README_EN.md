@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need equal values whose indices differ by at most $k$. Sorting would scramble indices.
+>
+> A hash map stores the last index of each value; on a repeat we only check the gap.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{d}$ to store the recently traversed numbers and their corresponding indices.
 
 Traverse the array $\textit{nums}$. For the current element $\textit{nums}[i]$, if it exists in the hash table and the difference between the indices is no more than $k$, return $\text{true}$. Otherwise, add the current element to the hash table.
