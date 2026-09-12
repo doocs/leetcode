@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3500-3599/3580.Find%20Consistently%20Improving%20Employees/README_EN.md
 tags:
     - Database
 ---
