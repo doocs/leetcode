@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3863.Minimum%20Operations%20to%20Sort%20a%20String/README.md
 rating: 1859
 source: 第 492 场周赛 Q3
 tags:

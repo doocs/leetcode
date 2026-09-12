@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR/README.md
 rating: 1745
 source: 第 494 场周赛 Q3
 tags:
