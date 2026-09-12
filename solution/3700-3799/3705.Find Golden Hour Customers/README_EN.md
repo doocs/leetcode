@@ -157,6 +157,14 @@ order_timestamp contains both date and time information.
 
 ### Solution 1: Grouping and Statistics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The predicate depends on each customer's order count, peak-hour share, rated-order ratio, and average rating; a manual loop is easy to get wrong. Grouping by `customer_id` produces those aggregates in one pass, after which we filter by the given thresholds and sort by average rating and customer id.
+
+<!-- thinking:end -->
+
 We can group the orders by `customer_id` and calculate the total number of orders, number of orders during peak hours, number of rated orders, and average rating for each customer. Then we filter based on the conditions in the problem and sort by average rating in descending order, followed by customer ID in descending order.
 
 <!-- tabs:start -->

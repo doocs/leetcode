@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$ rules out enumerating subsequences. The XOR of a subsequence is the XOR of the whole array after deleting some elements. If the total XOR is already nonzero, the full array is optimal. If every element is $0$, no nonzero XOR exists. Otherwise the total XOR is $0$ but a nonzero value remains, so deleting one nonzero element makes the XOR nonzero. A single scan of the total XOR and the zero count decides the three cases.
+
+<!-- thinking:end -->
+
 If the bitwise XOR of all elements in the array is non-zero, then the entire array is the desired longest subsequence, with length equal to the array length.
 
 If all elements in the array are zero, then there is no subsequence with non-zero bitwise XOR, so we return $0$.

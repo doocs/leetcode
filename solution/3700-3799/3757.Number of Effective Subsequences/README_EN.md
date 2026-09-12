@@ -134,6 +134,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence is effective iff deleting it strictly decreases the array OR, i.e. it covers some bit that nothing outside provides. With $n\le 10^5$ we count how many values supply each bit, then count subsequences whose deletion leaves every bit still covered, and subtract from $2^n-1$. The answer is taken modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

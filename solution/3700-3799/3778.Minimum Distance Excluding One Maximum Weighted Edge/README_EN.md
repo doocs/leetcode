@@ -90,6 +90,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3778.Mi
 
 ### Solution 1: Dijkstra's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cost of a path is its weight sum after dropping one heaviest edge, i.e. we may treat one edge as weight $0$. Extending the state with a used/unused bit, Dijkstra on $(\textit{node},\textit{used})$ computes the minimum.
+
+<!-- thinking:end -->
+
 The problem is essentially equivalent to finding a path from node $0$ to node $n-1$, where we have one opportunity to treat the weight of a traversed edge as $0$, in order to minimize the sum of path weights.
 
 We first convert $\textit{edges}$ into an adjacency list $\textit{g}$, where $\textit{g}[u]$ stores all edges $(v, w)$ connected to node $u$, indicating that there is an edge with weight $w$ between node $u$ and node $v$.

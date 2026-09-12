@@ -71,6 +71,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A binary string equals its reverse iff mirrored positions match. $n$ has only $O(\log n)$ bits, so we convert it and compare symmetric positions; each mismatch requires flipping both ends, and the answer is twice the number of mismatched pairs.
+
+<!-- thinking:end -->
+
 We first convert the integer $n$ into a binary string $s$. Then we use two pointers to traverse from both ends of the string towards the center, counting the number of positions where the characters differ, denoted as $cnt$. Since each flip can only affect one bit, the total number of flips is $cnt \times 2$.
 
 The time complexity is $O(\log n)$ and the space complexity is $O(\log n)$, where $n$ is the input integer.

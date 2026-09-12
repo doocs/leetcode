@@ -71,6 +71,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An element qualifies iff at least $k$ values are strictly larger. If $k=0$ every element qualifies; otherwise, after sorting, the value at index $n-k$ is the threshold, and only strictly smaller entries to its left count.
+
+<!-- thinking:end -->
+
 If $k = 0$, then all elements in the array are qualified elements, and we can directly return the length of the array.
 
 Otherwise, we sort the array, and let $n$ be the length of the sorted array. For each index $i$ satisfying $0 \leq i < n - k$, if the element at index $i$ is strictly less than the element at index $n - k$, then it is a qualified element. We just need to count the number of such elements and return it.

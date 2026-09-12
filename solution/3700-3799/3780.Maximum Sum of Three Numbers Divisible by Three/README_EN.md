@@ -75,6 +75,14 @@ tags:
 
 ### Solution 1: Sorting + Grouping + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three numbers sum to a multiple of $3$ iff their residues are $(0,0,0)$, $(1,1,1)$, $(2,2,2)$, or $(0,1,2)$. After grouping by residue and sorting each group descending, we try pairs of groups and take the best available value from the third.
+
+<!-- thinking:end -->
+
 We first sort the array $\textit{nums}$, then divide the elements in the array into three groups based on their modulo $3$ results, denoted as $\textit{g}[0]$, $\textit{g}[1]$, and $\textit{g}[2]$. Where $\textit{g}[i]$ stores all elements that satisfy $\textit{nums}[j] \bmod 3 = i$.
 
 Next, we enumerate the cases of selecting one element each from $\textit{g}[a]$ and $\textit{g}[b]$, where $a, b \in \{0, 1, 2\}$. Based on the modulo $3$ results of the two selected elements, we can determine which group the third element should be selected from to ensure that the sum of the triplet is divisible by $3$. Specifically, the third element should be selected from $\textit{g}[c]$, where $c = (3 - (a + b) \bmod 3) \bmod 3$.

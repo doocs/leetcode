@@ -75,6 +75,14 @@ tags:
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only $n-1$ split points, yet recomputing both sides from scratch repeats work. Letter scores are prefix-additive: start with the total as the right score and move one letter at a time from right to left; equality means a valid split.
+
+<!-- thinking:end -->
+
 We first calculate the total score of the string, denoted as $r$. Then we traverse the first $n-1$ characters from left to right, calculating the prefix score $l$ and updating the suffix score $r$. If at some position $i$, the prefix score $l$ equals the suffix score $r$, it means there exists an index $i$ that can split the string into two substrings with equal scores, so we return $\textit{true}$. If we finish traversing without finding such an index, we return $\textit{false}$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

@@ -87,6 +87,14 @@ The maximum product is 1200000.</div>
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exactly one entry may be replaced by any integer in $[-10^5,10^5]$. The best product is one of: the two smallest values times $10^5$, the two largest times $10^5$, or the smallest times the largest times $-10^5$. Sorting exposes those four endpoints.
+
+<!-- thinking:end -->
+
 According to the problem description, we can replace one element in the array with any integer in the range $[-10^5, 10^5]$. To maximize the product of three elements, we can consider the following cases:
 
 1. Select the two smallest elements in the array and replace the third element with $10^5$.

@@ -150,6 +150,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths start on the last row and end on the first, each step has Euclidean length at most $d$ and must go upward. When the grid is modest we precompute the legal upward neighbors of every free cell, then DP from the bottom row, summing ways modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

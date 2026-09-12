@@ -108,6 +108,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only ten number words, all short. Scanning left to right, if the current position matches a word we append its digit and skip that length; otherwise we advance by one. With $n\le 10^5$, trying the ten words at each index is enough.
+
+<!-- thinking:end -->
+
 We first establish a mapping relationship between number words and their corresponding digits, recorded in array $d$, where $d[i]$ represents the word corresponding to digit $i$.
 
 Then we traverse the string $s$ from left to right. For each position $i$, we enumerate the number words $d[j]$ in order and check whether the substring starting from position $i$ matches $d[j]$. If a match is found, we add digit $j$ to the result and move position $i$ forward by $|d[j]|$ positions. Otherwise, we move position $i$ forward by 1 position.

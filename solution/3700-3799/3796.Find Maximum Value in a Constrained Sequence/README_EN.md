@@ -86,6 +86,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sequence starts at $0$, neighboring values differ by at most $\textit{diff}[i]$, and some indices have caps. We first form the unconstrained peak heights, then propagate every restriction left and right through the $\textit{diff}$ limits and take the pointwise minimum; the answer is the maximum of those heights.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

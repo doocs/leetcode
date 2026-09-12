@@ -100,6 +100,14 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With a fixed digit sum, the sum of squares is maximized by using as many $9$s as possible. If $9\times num<sum$ there is no solution; otherwise we write as many $9$s as we can, place the remainder in the next digit, and pad with zeros to length $num$, which also yields the numerically largest such integer.
+
+<!-- thinking:end -->
+
 If $\text{num} \times 9 < \text{sum}$, then there is no valid good integer, so we return an empty string.
 
 Otherwise, we can use as many digits $9$ as possible to form the good integer, since $9^2$ is the largest and will maximize the score. Specifically, we calculate how many $9$s are contained in $\text{sum}$, denoted as $k$, and the remaining part $s = \text{sum} - 9 \times k$. Then, we construct the good integer with the first $k$ digits as $9$. If $s > 0$, we append a digit $s$ at the end, and finally pad with $0$s to reach a total of $\text{num}$ digits.

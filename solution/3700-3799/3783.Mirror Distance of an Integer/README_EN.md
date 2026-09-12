@@ -87,6 +87,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mirror distance is the absolute difference between $n$ and the integer obtained by reversing its digits (leading zeros vanish). Reversing the decimal string, or peeling the lowest digit into a new integer, both implement that reverse.
+
+<!-- thinking:end -->
+
 We define a function $\text{reverse}(x)$ to reverse the digits of integer $x$. Specifically, we initialize a variable $y$ to $0$, then repeatedly append the last digit of $x$ to the end of $y$, and remove the last digit from $x$, until $x$ becomes $0$. Finally, $y$ is the reversed integer.
 
 Next, we compute the mirror distance of integer $n$, which is $\text{abs}(n - \text{reverse}(n))$, and return the result.

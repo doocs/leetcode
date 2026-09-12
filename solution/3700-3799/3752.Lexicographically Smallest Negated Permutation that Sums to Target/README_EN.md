@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The absolute values must be a permutation of $1\ldots n$ summing to $\textit{target}$. The all-positive sum is $S=n(n+1)/2$; negating $x$ decreases the sum by $2x$, so $S-\textit{target}$ must be a nonnegative even number. Negating from large to small leaves the smallest positives in front and yields the lexicographically smallest array.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

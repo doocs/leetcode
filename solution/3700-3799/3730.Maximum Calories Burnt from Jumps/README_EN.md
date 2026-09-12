@@ -108,6 +108,14 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cost is the squared height difference, starting from $0$ and never returning to the ground. Squared gaps favor extremes, so after sorting we jump back and forth between the current tallest and shortest unused blocks to keep each drop large.
+
+<!-- thinking:end -->
+
 According to the problem statement, the order of jumps affects the total calories burned. To maximize calorie consumption, we can use a greedy strategy by prioritizing jumps with the largest height differences.
 
 Therefore, we can first sort the block heights, then start jumping from the highest block, then to the lowest block, and so on, until all blocks have been jumped on.

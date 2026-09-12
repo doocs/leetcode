@@ -206,6 +206,14 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first $n$ positions must become the matching $\textit{nums2}$ values at a cost of absolute differences; the last value can only be created by an append, which costs at least $1$. If some pair $(\textit{nums1}[i],\textit{nums2}[i])$ already covers $\textit{nums2}[n]$, the append needs no extra change; otherwise we also move the nearer endpoint onto that last value.
+
+<!-- thinking:end -->
+
 We define an answer variable $\text{ans}$ to record the minimum number of operations, with an initial value of $1$, representing the operation needed to append the last element to the end of the array.
 
 Then we iterate through the first $n$ elements of the array. For each pair of corresponding elements $(\text{nums1}[i], \text{nums2}[i])$, we calculate their difference and add it to $\text{ans}$.

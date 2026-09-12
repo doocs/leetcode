@@ -99,6 +99,14 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 主要元素要求 $\textit{target}$ 的次数严格大于长度的一半。约束允许枚举全部子数组：固定左端点向右扫描并维护 $\textit{target}$ 的出现次数，用 $2\cdot\textit{cnt}>\textit{len}$ 判定。
+
+<!-- thinking:end -->
+
 我们可以枚举所有子数组，并维护一个计数器 $\textit{cnt}$ 来记录子数组中 $\textit{target}$ 出现的次数，然后判断 $\textit{target}$ 是否为该子数组的主要元素。
 
 具体地，我们枚举子数组的起始位置 $i$，范围为 $[0, n-1]$，然后枚举子数组的结束位置 $j$，范围为 $[i, n-1]$。对于每个子数组 $nums[i..j]$，我们更新计数器 $\textit{cnt}$。如果 $\textit{cnt} \times 2 > j - i + 1$，说明 $\textit{target}$ 是该子数组的主要元素，我们将答案加 $1$。

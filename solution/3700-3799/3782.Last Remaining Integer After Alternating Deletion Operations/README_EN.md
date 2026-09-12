@@ -95,6 +95,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be $10^{15}$, so we cannot simulate the deletions. The process is a Josephus variant that alternately drops every other number from the left then the right. We keep the first term and common difference of the surviving arithmetic progression until one value remains.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

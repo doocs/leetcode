@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only one drone may deliver in a given hour, and drone $i$ must charge at multiples of $r_i$. The feasible time grows with the demand, so we binary-search the total hours $t$. Drone $i$ has $t-\lfloor t/r_i\rfloor$ free hours; we check that the two supplies cover $d_1+d_2$ and each covers its own $d_i$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

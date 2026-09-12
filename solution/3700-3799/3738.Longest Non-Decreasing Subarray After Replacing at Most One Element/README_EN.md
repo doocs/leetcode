@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Prefix and Suffix Decomposition + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After changing at most one index, the longest nondecreasing run may cross that index. We precompute the nondecreasing length ending or starting at each $i$. Replacing index $i$ concatenates the left and right runs when $nums[i-1]\le nums[i+1]$; otherwise we keep the longer side plus the replaced cell.
+
+<!-- thinking:end -->
+
 We can use two arrays $\textit{left}$ and $\textit{right}$ to record the length of the longest non-decreasing subarray ending and starting at each position, respectively. Initially, $\textit{left}[i] = 1$ and $\textit{right}[i] = 1$.
 
 Then, we traverse the array in the range $[1, n-1]$. If $\textit{nums}[i] \geq \textit{nums}[i-1]$, we update $\textit{left}[i]$ to $\textit{left}[i-1] + 1$. Similarly, we traverse the array backwards in the range $[n-2, 0]$. If $\textit{nums}[i] \leq \textit{nums}[i+1]$, we update $\textit{right}[i]$ to $\textit{right}[i+1] + 1$.

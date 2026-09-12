@@ -96,6 +96,14 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At least $k$ tasks must use technique $1$; the rest may use either. Assign every task to technique $2$ first, then force the $k$ largest differences $\textit{technique1}-\textit{technique2}$ onto technique $1$, and also switch any remaining nonnegative difference.
+
+<!-- thinking:end -->
+
 We can first assign all tasks to technique 2, so the initial total score is $\sum_{i=0}^{n-1} technique2[i]$.
 
 Then, we calculate the score increase for each task if it were completed using technique 1 instead, denoted as $\text{diff}[i] = technique1[i] - technique2[i]$. We sort this in descending order to obtain a sorted array of task indices $\text{idx}$.

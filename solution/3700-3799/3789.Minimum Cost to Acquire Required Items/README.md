@@ -96,6 +96,14 @@ tags:
 
 ### 方法一：分情况讨论
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两种需求可用单品或捆绑满足，$need$ 很大不能逐件模拟。方案只有三类：全买单品、全买捆绑、先买 $\min(need1,need2)$ 个捆绑再补单品。三种花费取最小。
+
+<!-- thinking:end -->
+
 我们可以将购买物品的方案分为三种情况：
 
 1. 只购买类型 1 和类型 2 的物品，那么总花费为 $a = \textit{need1} \times \textit{cost1} + \textit{need2} \times \textit{cost2}$。

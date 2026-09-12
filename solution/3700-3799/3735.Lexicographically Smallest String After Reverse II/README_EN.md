@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in the one-reverse-prefix-or-suffix problem, we perform exactly one operation and $k$ has only $n$ values. For each $k$ we compare reversing the first $k$ characters with reversing the last $k$, and keep the lexicographically smallest string.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

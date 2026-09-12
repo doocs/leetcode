@@ -79,6 +79,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alternating score depends only on squared magnitudes and the parity of the index, not on the original signs. Larger squares should take the plus slots and smaller ones the minus slots; after sorting by square, the second half minus the first half is optimal.
+
+<!-- thinking:end -->
+
 We can sort the elements of the array by their squared values, then place the elements with larger squared values at even indices and those with smaller squared values at odd indices.
 
 The final alternating score is the sum of the squared values of the larger elements minus the sum of the squared values of the smaller elements, that is, the sum of the squares of the latter half of the sorted array $\text{nums}$ minus the sum of the squares of the first half.

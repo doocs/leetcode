@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Math + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expanded string can be much longer than $k$, so we must not build it. The $i$-th letter of a word is repeated $i+1$ times, and a word's expanded length is triangular. We subtract each word (and its trailing space) from $k$ until the remainder falls inside a word, then walk that word's repeats.
+
+<!-- thinking:end -->
+
 We first split the string $\textit{s}$ into multiple words by spaces. For each word $\textit{w}$, we can calculate the length it occupies in the expanded string $\textit{t}$ as $m=\frac{(1+|\textit{w}|)\cdot |\textit{w}|}{2}$.
 
 If $k = m$, it means the $k$-th character is a space, and we can directly return a space.

@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Hash Table + Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation drops the first three elements, i.e. we cut prefixes of length $3$. Scanning from the right, the first repeated value means everything at or before that index must go, which takes $\lfloor i/3\rfloor+1$ operations.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums}$ in reverse order and use a hash table $\textit{st}$ to record the elements we have already traversed. When we traverse to element $\textit{nums}[i]$, if $\textit{nums}[i]$ is already in the hash table $\textit{st}$, it means we need to remove all elements in $\textit{nums}[0..i]$, and the number of operations required is $\left\lfloor \frac{i}{3} \right\rfloor + 1$. Otherwise, we add $\textit{nums}[i]$ to the hash table $\textit{st}$ and continue to traverse the next element.
 
 After the traversal is complete, if no duplicate elements are found, then all elements in the array are already distinct, no operations are needed, and the answer is $0$.

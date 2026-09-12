@@ -94,6 +94,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The condition depends only on whether each value's frequency is divisible by $k$, not on positions. With $n\le 100$, a frequency map is enough; each qualifying value is added as many times as it occurs.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to record the frequency of each number. We traverse the array $\textit{nums}$, and for each number $x$, we increment $\textit{cnt}[x]$ by $1$.
 
 Then, we traverse the hash table $\textit{cnt}$. For each element $x$, if its frequency $\textit{cnt}[x]$ is divisible by $k$, we add $x$ multiplied by its frequency to the result.

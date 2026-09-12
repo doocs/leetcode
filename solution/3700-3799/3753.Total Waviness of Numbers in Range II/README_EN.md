@@ -100,6 +100,14 @@ Return the total sum of waviness for all numbers in the range <code>[num1, num2]
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bound is $10^{15}$, so per-number simulation no longer works. The range sum is $calc(num2)-calc(num1-1)$. Filling digits from the high end, peaks and valleys depend only on the last two written digits. The DP state stores the position, those two digits, whether the number has started, and whether it is tight, and it accumulates both the count and the waviness.
+
+<!-- thinking:end -->
+
 We need the total waviness of all numbers in $[num1, num2]$. Convert the range query to $calc(num2) - calc(num1 - 1)$, where $calc(x)$ is the total waviness in $[1, x]$.
 
 Use digit DP from the most significant digit. Let $dfs(pos, prev2, prev1, started, limit)$ be the number of valid numbers and their total waviness when we are filling position $pos$, the previous two digits are $prev2$ and $prev1$ (use $10$ if a digit is not yet filled), $started$ indicates whether a non-leading zero has been placed, and $limit$ indicates whether we are still bounded by the upper limit.

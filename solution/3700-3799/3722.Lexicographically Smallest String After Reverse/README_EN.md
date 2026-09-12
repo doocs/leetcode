@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must reverse exactly one prefix or suffix, so there are only $n$ choices of $k$. Enumerating each $k$, building both candidates, and taking the lexicographically smallest string is enough.
+
+<!-- thinking:end -->
+
 We can enumerate all possible values of $k$ ($1 \leq k \leq n$). For each $k$, we compute the string obtained by reversing the first $k$ characters and the string obtained by reversing the last $k$ characters, then take the lexicographically smallest string among them as the final answer.
 
 The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the length of the string.

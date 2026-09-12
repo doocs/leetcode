@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1: Find Maximum, Second Maximum, and Minimum Values
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a+b-c$ is maximized by the two largest values as $a,b$ and the smallest as $c$. One scan that tracks the maximum, second maximum, and minimum is enough; sorting is unnecessary.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to choose three elements $a$, $b$, and $c$ at distinct indices such that the value of the expression $a + b - c$ is maximized.
 
 We only need to traverse the array to find the largest two elements $a$ and $b$ and the smallest element $c$. Then we can calculate the value of the expression.

@@ -97,6 +97,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A later word is reversed iff it has the same vowel count as the first word. After splitting, we count vowels in the first word and apply that test to every following word before joining.
+
+<!-- thinking:end -->
+
 We first split the string by spaces into a word list $\textit{words}$. Then we calculate the number of vowels $\textit{cnt}$ in the first word. Next, we iterate through each subsequent word, calculate its number of vowels, and if it equals $\textit{cnt}$, reverse the word. Finally, we rejoin the processed word list into a string and return it.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.

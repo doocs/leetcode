@@ -104,6 +104,14 @@ tags:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 表达式是嵌套的 $\mathrm{op}(a,b)$，结构由括号决定，适合递归下降。从当前位置若见到数字则解析字面量，否则读出操作符，再递归解析两个子表达式并按 $\mathrm{add}/\mathrm{sub}/\mathrm{mul}/\mathrm{div}$ 计算。
+
+<!-- thinking:end -->
+
 我们定义一个递归函数 $\text{parse}(i)$，用于解析从索引 $i$ 开始的子表达式并返回计算结果以及下一个未处理的索引位置。那么答案为 $\text{parse}(0)[0]$。
 
 函数 $\text{parse}(i)$ 的实现如下：

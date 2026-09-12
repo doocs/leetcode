@@ -122,6 +122,14 @@ Each row represents a completed course by a user with their rating (1-5 scale).
 
 ### Solution 1: Grouping and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Course paths count consecutive completions of top students only. We first keep students with at least five courses and average rating at least $4$, then emit adjacent pairs from each such student's time-ordered list, and finally aggregate and sort those pairs.
+
+<!-- thinking:end -->
+
 We first filter out all top students, denoted as `top_students`, i.e., students who have completed at least 5 courses with an average rating of at least 4. Then for each top student, we sort by completion time and find all consecutive course pairs, denoted as `course_pairs`. Finally, we group and count all course pairs, calculate the occurrence count of each course pair, and output the results sorted as required.
 
 <!-- tabs:start -->

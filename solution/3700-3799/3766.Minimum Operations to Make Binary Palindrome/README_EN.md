@@ -161,6 +161,14 @@ tags:
 
 ### Solution 1: Preprocessing + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums[i]\le 5000$, so the nearest binary palindrome stays in a modest range. We precompute every binary palindrome below $2^{14}$ and, for each $x$, binary-search the two neighbors and take the smaller absolute difference.
+
+<!-- thinking:end -->
+
 We observe that the range of numbers given in the problem is only $[1, 5000]$. Therefore, we directly preprocess all binary palindromic numbers in the range $[0, 2^{14})$ and store them in an array, denoted as $\textit{p}$.
 
 Next, for each number $x$, we use binary search to find the first palindromic number greater than or equal to $x$ in the array $\textit{p}$, denoted as $\textit{p}[i]$, as well as the first palindromic number less than $x$, denoted as $\textit{p}[i - 1]$. Then, we calculate the number of operations required to convert $x$ to these two palindromic numbers and take the minimum value as the answer.

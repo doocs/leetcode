@@ -73,6 +73,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is nondecreasing and $n\le 10^5$. Prefix sums modulo $k$ count every subarray whose sum is divisible by $k$, but identical value sequences are over-counted. We then walk equal-value runs and subtract the extra copies whose length makes the run-sum divisible by $k$, leaving distinct sequences.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

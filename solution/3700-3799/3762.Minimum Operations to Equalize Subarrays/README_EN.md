@@ -159,6 +159,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adding or subtracting $k$ can equalize a range iff every value shares the same residue modulo $k$; the cheapest target is a median. With many queries we group indices by residue, then answer each range with prefix sums on the sorted values of that group.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

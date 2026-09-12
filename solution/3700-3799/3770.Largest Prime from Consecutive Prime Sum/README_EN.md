@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1: Preprocessing + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 5\times 10^5$ and the sum must start from $2$. After sieving primes up to the limit, we accumulate prefix sums and keep those that remain prime; a query is a binary search for the largest such sum that does not exceed $n$.
+
+<!-- thinking:end -->
+
 We can preprocess a list of all prime numbers less than or equal to $5 \times 10^5$, then calculate the consecutive prime sums starting from 2, and store those sums that are prime numbers in an array $s$.
 
 For each query, we simply need to use binary search in array $s$ to find the maximum value less than or equal to $n$.

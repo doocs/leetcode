@@ -107,6 +107,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score of a connected subgraph containing $i$ is good vertices minus bad ones, so we keep only children with positive contribution. A tree DP computes the downward score at every root; rerooting then folds in the positive contribution from the parent side to obtain each vertex's global maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

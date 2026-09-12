@@ -82,6 +82,14 @@ tags:
 
 ### Solution 1: Grouping + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The leftover string must be nonempty and monochromatic, i.e. we delete every other character. The cost of keeping letter $c$ is the total cost minus the cost of all $c$s; we take the minimum over $c$.
+
+<!-- thinking:end -->
+
 We calculate the total deletion cost for each character in the string and store it in a hash table $g$, where the key is the character and the value is the corresponding total deletion cost. We also calculate the total cost $\textit{tot}$ of deleting all characters.
 
 Next, we iterate through the hash table $g$. For each character $c$, we calculate the minimum deletion cost required to keep that character, which is $\textit{tot} - g[c]$. The final answer is the minimum of all the minimum deletion costs corresponding to each character.

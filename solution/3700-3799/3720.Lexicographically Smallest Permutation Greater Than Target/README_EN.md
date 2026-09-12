@@ -90,6 +90,14 @@ tags:
 
 ### Solution 1: Greedy + Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation strictly larger than $\textit{target}$ has the form “common prefix + a larger letter + the rest in sorted order”, and a longer prefix is lexicographically smaller. Match $\textit{target}$ as far as the letter counts allow, then walk back and at the first feasible position place the smallest remaining letter larger than $\textit{target}[i]$.
+
+<!-- thinking:end -->
+
 To be strictly greater than $\textit{target}$, the answer must look like this: it matches some prefix of $\textit{target}$ exactly, places a character greater than the corresponding character of $\textit{target}$ at the next position, and arranges the remaining characters in ascending order. The longer this common prefix is, the smaller the resulting permutation, so we want the common prefix to be as long as possible.
 
 We first count the occurrences of every character of $s$ in $\textit{cnt}$, then match $\textit{target}$ from left to right as far as we can: as long as the current character is still available we take it and append it to the answer, stopping once some character runs out. This yields the longest common prefix.

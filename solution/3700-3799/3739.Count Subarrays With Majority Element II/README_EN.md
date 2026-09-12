@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The quadratic count of the previous problem does not scale. Mapping $\textit{target}$ to $+1$ and everything else to $-1$, a majority becomes a subarray sum strictly greater than $0$. For each right end we need the number of smaller prefix sums, which a Fenwick tree maintains on the shifted range $[-n,n]$.
+
+<!-- thinking:end -->
+
 According to the problem description, we can treat elements equal to $\textit{target}$ in the array as $1$, and elements not equal to $\textit{target}$ as $-1$. This way, $\textit{target}$ being the majority element of a subarray is equivalent to the number of $1$s in the subarray being strictly greater than the number of $-1$s, i.e., the sum of the subarray is strictly greater than $0$.
 
 We can enumerate subarrays ending at each position. Let the prefix sum at the current position be $\textit{s}$. Then the number of subarrays ending at this position with a sum greater than $0$ is equivalent to the count of prefix sums that are less than $\textit{s}$. We can use a Binary Indexed Tree to maintain the occurrence count of prefix sums, allowing us to efficiently calculate the answer. The range of prefix sums is $[-n, n]$. We can shift all prefix sums right by $n+1$ units to transform the range to $[1, 2n+1]$.

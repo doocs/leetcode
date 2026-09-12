@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Later entries may only increase and must become multiples of the previous one. With $n\le 100$ and $nums[i]\le 50$, the raised values stay in a small range. DP stores the value written at the previous index and its cost; from each such value we try multiples of it that are at least $x$ and within a constant cap.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

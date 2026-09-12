@@ -90,6 +90,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is circular and we may use at most $k$ segments; the score is the sum of $\max-\min$ over segments. With $n\le 1000$ we can cut the cycle at each start, then run an interval DP that partitions the linear array into at most $k$ pieces maximizing the sum of ranges.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

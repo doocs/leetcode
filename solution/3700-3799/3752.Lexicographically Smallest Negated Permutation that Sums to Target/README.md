@@ -98,6 +98,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 绝对值必须是 $1\ldots n$ 的排列，和为 $\textit{target}$。全体取正时和为 $S=n(n+1)/2$，把 $x$ 改成 $-x$ 会使总和减少 $2x$，故需 $S-\textit{target}$ 为非负偶数。从大到小尽量翻转，可使剩下的正数靠前，从而字典序最小。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -103,6 +103,14 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At step $t$ we may pick an unused index whose threshold is at most $t$, and we want the largest $nums[i]$. Sorting indices by threshold, we insert newly unlocked values into an ordered set as $t$ grows and always take the current maximum; an empty set ends the process.
+
+<!-- thinking:end -->
+
 We observe that at each step, we want to select the largest number among those that satisfy the condition to add to the total sum. Therefore, we can use a greedy approach to solve this problem.
 
 We first sort an index array $\textit{idx}$ of length $n$ in ascending order by their corresponding thresholds. Then, we use a sorted set or priority queue (max heap) to maintain the numbers that currently satisfy the condition. At each step, we add all numbers whose thresholds are less than or equal to the current step number into the sorted set or priority queue, and then select the largest number among them to add to the total sum. If the sorted set or priority queue is empty at this point, it means there are no numbers that satisfy the condition, and we end the process.

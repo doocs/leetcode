@@ -96,6 +96,14 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A complete prime needs every prefix and every suffix to be prime. $num\le 10^9$ yields only $O(\log n)$ prefixes and suffixes, each tested in $O(\sqrt{x})$. Prefixes are built by appending digits from the left; suffixes by accumulating from the right with place value.
+
+<!-- thinking:end -->
+
 We define a function $\text{is\_prime}(x)$ to determine whether a number $x$ is prime. Specifically, if $x < 2$, then $x$ is not prime; otherwise, we check all integers $i$ from $2$ to $\sqrt{x}$. If there exists some $i$ that divides $x$, then $x$ is not prime; otherwise, $x$ is prime.
 
 Next, we convert the integer $\textit{num}$ to a string $s$, and sequentially check whether the integer corresponding to each prefix and suffix of $s$ is prime. For prefixes, we construct the integer $x$ from left to right; for suffixes, we construct the integer $x$ from right to left. If during the checking process we find that the integer corresponding to some prefix or suffix is not prime, we return $\text{false}$; if all integers corresponding to prefixes and suffixes are prime, we return $\text{true}$.

@@ -107,6 +107,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The endpoints of a tree diameter are found by two BFS passes: a farthest vertex $a$ from an arbitrary start, then a farthest vertex $b$ from $a$. Vertex $u$ is an endpoint of some diameter iff its distance to $a$ or to $b$ equals the diameter length.
+
+<!-- thinking:end -->
+
 We first convert the array $\text{edges}$ into an adjacency list representation of an undirected graph, where $g[u]$ represents all nodes adjacent to node $u$.
 
 Next, we can use Breadth-First Search (BFS) to find the diameter endpoints of the tree. The specific steps are as follows:

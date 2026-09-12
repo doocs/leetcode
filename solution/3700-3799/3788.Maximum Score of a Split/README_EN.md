@@ -89,6 +89,14 @@ tags:
 
 ### Solution 1: Prefix Sum + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is a prefix sum minus a suffix minimum. Prefix sums accumulate while we scan split points from the left; suffix minima are precomputed from the right, and a linear pass takes the maximum.
+
+<!-- thinking:end -->
+
 We first define an array $\textit{suf}$ of length $n$, where $\textit{suf}[i]$ represents the minimum value of the array $\textit{nums}$ from index $i$ to index $n - 1$. We can traverse the array $\textit{nums}$ from back to front to compute the array $\textit{suf}$.
 
 Next, we define a variable $\textit{pre}$ to represent the prefix sum of the array $\textit{nums}$. We traverse the first $n - 1$ elements of the array $\textit{nums}$. For each index $i$, we add $\textit{nums}[i]$ to $\textit{pre}$ and calculate the split score $\textit{score}(i) = \textit{pre} - \textit{suf}[i + 1]$. We use a variable $\textit{ans}$ to maintain the maximum value among all split scores.

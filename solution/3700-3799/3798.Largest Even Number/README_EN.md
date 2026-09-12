@@ -77,6 +77,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string contains only `1` and `2`, so an even integer must end with `2`. Keeping every character maximizes the value, hence we strip trailing `1`s until a `2` remains; if none exists the result is empty.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

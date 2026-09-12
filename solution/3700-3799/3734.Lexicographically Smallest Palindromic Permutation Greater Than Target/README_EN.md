@@ -98,6 +98,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindromic permutation is determined by its left half and at most one odd center; more than one odd frequency is impossible. We want the smallest palindrome strictly larger than $\textit{target}$, so the left half is built like the next permutation: match the first half of $\textit{target}$ as far as possible, raise the first feasible position, and mirror the left half to the right.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

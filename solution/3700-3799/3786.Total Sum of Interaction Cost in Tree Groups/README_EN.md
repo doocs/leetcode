@@ -123,6 +123,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of path lengths over unordered pairs in the same group, and there are at most $20$ groups. Pairwise distance is the sum of depths minus twice the LCA depth. A per-group tree DP that counts how many group mates lie inside and outside each subtree accumulates the intra-group distances in near-linear time.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

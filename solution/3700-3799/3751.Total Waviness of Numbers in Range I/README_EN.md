@@ -99,6 +99,14 @@ In the range <code>[198, 202]</code>:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The upper bound is only $10^5$, so we may strip digits of every integer. Numbers shorter than $3$ digits contribute $0$; each interior digit is a peak or valley when it differs strictly from both neighbors, and we sum over $[num1,num2]$.
+
+<!-- thinking:end -->
+
 We define a helper function $f(x)$ to calculate the waviness value of integer $x$. In this function, we store each digit of integer $x$ in an array $\textit{nums}$. If the number has fewer than 3 digits, the waviness value is 0. Otherwise, we iterate through each non-leading and non-trailing digit in the array $\textit{nums}$, determine whether it is a peak or valley, and count the waviness value.
 
 Then, we iterate through each integer $x$ in the range $[\textit{num1}, \textit{num2}]$ and accumulate its waviness value $f(x)$ to obtain the final result.

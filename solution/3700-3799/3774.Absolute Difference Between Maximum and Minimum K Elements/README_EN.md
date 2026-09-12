@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The gap between the sum of the $k$ largest and the $k$ smallest values is, after sorting, the last $k$ entries minus the first $k$. With $n\le 100$ a full sort is enough.
+
+<!-- thinking:end -->
+
 We first sort the array $\textit{nums}$. Then we calculate the sum of the first $k$ elements and the sum of the last $k$ elements in the array, and finally return the difference between them.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.

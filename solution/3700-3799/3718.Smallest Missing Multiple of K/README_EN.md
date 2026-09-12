@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the smallest positive multiple $k,2k,\ldots$ that is absent. Both $n$ and $k$ are at most $100$, so a set of the array plus an increasing scan of multiples suffices.
+
+<!-- thinking:end -->
+
 We first use a hash table $\textit{s}$ to store the numbers that appear in the array $\textit{nums}$. Then, starting from the first positive multiple of $k$, which is $k \times 1$, we enumerate each positive multiple in sequence until we find the first multiple that does not appear in the hash table $\textit{s}$, which is the answer.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.

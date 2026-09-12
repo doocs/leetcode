@@ -81,6 +81,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The range is determined by the minimum and maximum of the array; missing values are the integers inside that interval that never appear. With $n\le 100$, a set plus a scan of $(\textit{mn},\textit{mx})$ lists them in order.
+
+<!-- thinking:end -->
+
 We first find the minimum and maximum values in the array $\textit{nums}$, denoted as $\textit{mn}$ and $\textit{mx}$. Then we use a hash table to store all elements in the array $\textit{nums}$.
 
 Next, we iterate through the interval $[\textit{mn} + 1, \textit{mx} - 1]$. For each integer $x$, if $x$ is not in the hash table, we add it to the answer list.
