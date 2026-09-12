@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decode nested $k[encoded]$ repeats. Recursion works; a stack can store the multiplier and the outer string together.
+>
+> Digits build `num`; `[` pushes the count and the current result; `]` pops and concatenates the repeated segment; letters append. The stack expands inside-out.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

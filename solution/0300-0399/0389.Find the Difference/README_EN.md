@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $t$ is $s$ shuffled plus one letter. A count difference finds it.
+>
+> Count $s$, decrement along $t$; the first negative frequency is the extra letter.
+
+<!-- thinking:end -->
+
 We can use a hash table or array $cnt$ to count the occurrence of each character in string $s$, then traverse string $t$. For each character, we subtract its occurrence in $cnt$. If the corresponding count is negative, it means that the occurrence of this character in $t$ is greater than in $s$, so this character is the added character.
 
 The time complexity is $O(n)$, and the space complexity is $O(|\Sigma|)$, where $n$ is the length of the string, and $\Sigma$ represents the character set. Here the character set is all lowercase letters, so $|\Sigma|=26$.
@@ -196,6 +206,14 @@ char findTheDifference(char* s, char* t) {
 <!-- solution:start -->
 
 ### Solution 2: Summation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting uses $O(\Sigma)$ space. The difference of ASCII sums is the extra code point, in $O(1)$ space.
+
+<!-- thinking:end -->
 
 We can sum the ASCII values of each character in string $t$, then subtract the sum of the ASCII values of each character in string $s$. The final result is the ASCII value of the added character.
 

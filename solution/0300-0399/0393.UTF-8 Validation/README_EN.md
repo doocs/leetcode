@@ -79,6 +79,16 @@ But the second continuation byte does not start with 10, so it is invalid.
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Validate a UTF-8 byte stream given as integers. The leading prefix dictates how many `10xxxxxx` bytes follow. One pass is enough.
+>
+> `cnt` is remaining continuation bytes, which must be `10xxxxxx`. Otherwise decode a 1–4-byte header and set `cnt`. Fail on a bad prefix; success requires `cnt=0` at the end.
+
+<!-- thinking:end -->
+
 We use a variable $cnt$ to record the current number of bytes that need to be filled starting with $10$, initially $cnt = 0$.
 
 For each integer $v$ in the array:

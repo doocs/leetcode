@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Parse a nested-list string into `NestedInteger`. The grammar is an integer or `[elem,…,elem]`; recursive descent matches it.
+>
+> Empty or `[]` is an empty list; no leading `[` means a single integer. Otherwise split at depth-$0$ commas (or the end), recurse, and `add`. Depth tracks brackets so cuts stay at the top level.
+
+<!-- thinking:end -->
+
 We first judge whether the string $s$ is empty or an empty list. If so, simply return an empty `NestedInteger`. If $s$ is an integer, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. If the current depth is $0$ and we encounter a comma or the end of the string $s$, we take a substring and recursively call the function to parse the substring and add the return value to the list. Otherwise, if the current encounter is a left parenthesis, we increase the depth by $1$ and continue to traverse. If we encounter a right parenthesis, we decrease the depth by $1$ and continue to traverse.
 
 After the traversal is over, return the answer.
@@ -373,6 +383,14 @@ function deserialize(s: string): NestedInteger {
 <!-- solution:start -->
 
 ### Solution 2: Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursion uses the call stack. An explicit stack: `[` pushes a new list, digits accumulate, `,`/`]` attach the integer or child to the top. A `]` with depth $>1$ pops into the parent. No recursive depth.
+
+<!-- thinking:end -->
 
 We can use a stack to simulate the recursive process.
 

@@ -78,6 +78,16 @@ randomizedCollection.getRandom(); // getRandom should return 1 or 2, both equall
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike 380, duplicates are allowed. One value may occupy many indices, so the map stores a set of positions.
+>
+> Insert adds the new index to that set. Delete takes any index, swaps with the tail, and updates both values’ sets. Random still samples the array, so duplicates are naturally heavier.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -44,6 +44,16 @@ tags:
 
 ### Solution 1: Iteration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List $[1,n]$ in lexicographic order. Sorting strings is $O(n\log n\cdot \log n)$. Preorder on the 10-ary trie is that order.
+>
+> Start at $1$: go to $v\times 10$ when it stays $\le n$; otherwise back up while the last digit is $9$ or $v+1>n$, then increment. $n$ iterations emit each value once.
+
+<!-- thinking:end -->
+
 We first define a variable $v$, initially $v = 1$. Then we start iterating from $1$, adding $v$ to the answer array each time. Then, if $v \times 10 \leq n$, we update $v$ to $v \times 10$; otherwise, if $v \bmod 10 = 9$ or $v + 1 > n$, we loop to divide $v$ by $10$. After the loop ends, we increment $v$. Continue iterating until we have added $n$ numbers to the answer array.
 
 The time complexity is $O(n)$, where $n$ is the given integer $n$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.

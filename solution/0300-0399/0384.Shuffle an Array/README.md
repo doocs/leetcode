@@ -66,6 +66,16 @@ solution.shuffle();    // 随机返回数组 [1, 2, 3] 打乱后的结果。例�
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 实现重置与均匀乱序。重置须保留原数组副本。Fisher–Yates 从左到右把 $i$ 与 $[i,n)$ 中随机位置交换，每个排列等概。
+>
+> `reset` 从副本拷回；`shuffle` 就地洗牌后返回。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

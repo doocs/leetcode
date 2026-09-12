@@ -73,6 +73,16 @@ solution.getRandom(); // return 3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A list of unknown length; return a node uniformly. Counting then indexing needs two passes. Reservoir sampling needs one.
+>
+> At the $n$-th node replace the answer with probability $1/n$. Every position ends with probability $1/n$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
