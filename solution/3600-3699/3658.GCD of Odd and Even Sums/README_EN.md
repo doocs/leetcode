@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first $n$ odds sum to $n^2$ and the first $n$ evens sum to $n(n+1)$. Any common divisor is a multiple of $n$.
+>
+> Since $n$ and $n+1$ are coprime, $\gcd(n^2,n(n+1))=n$. A generic gcd loop is unnecessary.
+>
+> Return $n$.
+
+<!-- thinking:end -->
+
 The sum of the first $n$ odd numbers is $n^2$, while the sum of the first $n$ even numbers is $n(n + 1)$. The greatest common divisor of these two is at least $n$. Since $n$ and $n + 1$ are coprime, the answer is $n$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

@@ -158,6 +158,18 @@ source: Biweekly Contest 166 Q1
 
 ### Solution: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group characters by frequency, keep the largest group, and on a tie keep the larger frequency. Two maps suffice.
+>
+> $\textit{cnt}$ counts characters; $f[v]$ collects those with count $v$. A scan of $f$ tracks the best group size and its frequency.
+>
+> Concatenate that group. Internal order is irrelevant.
+
+<!-- thinking:end -->
+
 We first use an array or hash table $\textit{cnt}$ to count the frequency of each character in the string. Then, we use another hash table $\textit{f}$ to group characters with the same frequency $k$ into the same list, i.e., $\textit{f}[k]$ stores all characters with frequency $k$.
 
 Next, we iterate through the hash table $\textit{f}$ to find the frequency group with the maximum group size. If multiple frequency groups have the same maximum size, we choose the one with the larger frequency $k$. Finally, we concatenate all characters in that frequency group into a string and return it.

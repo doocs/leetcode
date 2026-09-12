@@ -79,6 +79,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bitwise-OR the even numbers. If none exist the answer is $0$, the identity of OR.
+>
+> Filter evens and $\textit{reduce}$ with initial $0$. $n\le 100$ is one pass.
+
+<!-- thinking:end -->
+
 We define a variable $\textit{ans}$ with an initial value of 0. Then, we iterate through each element $x$ in the array $\textit{nums}$; if $x$ is even, we update $\textit{ans}$ with the bitwise OR of $\textit{ans}$ and $x$.
 
 Finally, we return $\textit{ans}$.

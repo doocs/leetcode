@@ -81,6 +81,18 @@ tags:
 
 ### Solution: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distance is $j-i+1$ with $\textit{words}[i]\ne\textit{words}[j]$. If both ends of an optimum avoided the boundary, a longer unequal pair with an endpoint would exist.
+>
+> Hence an optimum uses index $0$ or $n-1$. Scan each $i$, compare with the first and last words, and update $i+1$ and $n-i$.
+>
+> $n\le 100$ is one pass. An array of identical words yields $0$.
+
+<!-- thinking:end -->
+
 We can observe that at least one of the two words with maximum distance must be at either end of the array (i.e., at index $0$ or $n - 1$). Otherwise, suppose the two words with maximum distance are at indices $i$ and $j$ where $0 < i < j < n - 1$. Then $\textit{words}[0]$ must be the same as $\textit{words}[j]$, and $\textit{words}[n - 1]$ must be the same as $\textit{words}[i]$ (otherwise the distance would be greater). This means $\textit{words}[0]$ and $\textit{words}[n - 1]$ are different, and their distance $n - 1 - 0 + 1 = n$ is definitely greater than $j - i + 1$, which contradicts our assumption. Therefore, at least one of the two words with maximum distance must be at either end of the array.
 
 So, we only need to traverse the array, calculate the distance between each word and the words at both ends of the array, and update the maximum distance.

@@ -171,6 +171,18 @@ tags:
 
 ### Solution 1: Binary Search + Heap-optimized Dijkstra
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path's score is its lightest edge. We maximize that minimum under a total-cost cap $k$ and online vertices only. Enumerating paths is impossible.
+>
+> A larger threshold leaves fewer edges and feasibility is monotone, so binary-search the minimum edge weight. For $\textit{mid}$, drop edges lighter than $\textit{mid}$ and run heap Dijkstra from $0$ to $n-1$, comparing the distance with $k$.
+>
+> Skip any edge whose endpoint is offline. If even the smallest candidate fails, return $-1$.
+
+<!-- thinking:end -->
+
 The path score is defined as the minimum edge cost along the path. We seek the maximum score among all valid paths.
 
 For a candidate minimum edge weight $mid$, we only keep edges with cost at least $mid$, then check whether there exists a path from node $0$ to node $n - 1$ with total cost at most $k$. This reduces to running heap-optimized Dijkstra on the filtered graph.

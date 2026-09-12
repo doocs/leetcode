@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From each $i$, jump by the stated rule and report the largest reachable value. Simulating every chain is quadratic.
+>
+> The prefix maximum $\textit{preMax}[i]$ is the lift available to the left; the suffix minimum $\textit{sufMin}$ decides whether $i$ can step past itself to the right.
+>
+> Scanning right to left, if $\textit{preMax}[i]>\textit{sufMin}$ then $i$ reaches whatever $i+1$ reaches, so $\textit{ans}[i]=\textit{ans}[i+1]$; otherwise the answer is $\textit{preMax}[i]$. Then update $\textit{sufMin}$.
+
+<!-- thinking:end -->
+
 If $i = n - 1$, then it can jump to the maximum value in $\textit{nums}$, so $\textit{ans}[i] = \max(\textit{nums})$. For other positions $i$, we can calculate by maintaining a prefix maximum array and a suffix minimum variable.
 
 The specific steps are as follows:

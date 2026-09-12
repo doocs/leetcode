@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An island is a 4-connected component of positive cells. We need each island's value sum modulo $k$, not its shape. DFS accumulates the sum while zeroing visited cells, so a cell is never expanded twice.
+>
+> Scan the grid and start $\textit{dfs}$ from every still-positive cell; increment the answer when the returned sum is divisible by $k$. The packed offsets $(-1,0,1,0,-1)$ generate the four neighbors.
+>
+> Each cell is entered once, so the time matches the grid size.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}(i, j)$, which performs DFS traversal starting from position $(i, j)$ and returns the total value of that island. We add the current position's value to the total value, then mark that position as visited (for example, by setting its value to 0). Next, we recursively visit the adjacent positions in four directions (up, down, left, right). If an adjacent position has a value greater than 0, we continue the DFS and add its value to the total value. Finally, we return the total value.
 
 In the main function, we traverse the entire grid. For each unvisited position $(i, j)$, if its value is greater than 0, we call $\textit{dfs}(i, j)$ to calculate the total value of that island. If the total value is divisible by $k$, we increment the answer by one.

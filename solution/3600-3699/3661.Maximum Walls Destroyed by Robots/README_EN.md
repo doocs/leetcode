@@ -107,6 +107,18 @@ tags:
 
 ### Solution 1: Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each robot fires left or right, clipped by its $\textit{distance}$ and by neighbors. $2^n$ assignments are impossible.
+>
+> After sorting by position, robot $i$'s choice depends only on robot $i+1$'s direction. $\textit{dfs}(i,j)$ is the best destruction after deciding $i$ with the next direction equal to $j$.
+>
+> A left shot is blocked by the previous robot; a right shot is blocked by the next robot and, if that one also fires left, by its range. Binary search counts walls in the surviving interval; memoization removes duplicate states.
+
+<!-- thinking:end -->
+
 We first store each robot with its range in an array and sort them by robot position. We also sort the wall positions. Next, we use depth-first search (DFS) to calculate the number of walls each robot can destroy, and use memoized search to avoid redundant calculations.
 
 We design a function $\text{dfs}(i, j)$, where $i$ represents the index of the current robot being considered, and $j$ represents the firing direction of the next robot (0 for left, 1 for right), and returns the number of walls that can be destroyed. The answer is $\text{dfs}(n - 1, 1)$, where $j$ can be 0 or 1 in the boundary state.

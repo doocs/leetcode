@@ -145,6 +145,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the mode of a range among values that occur at least $\textit{threshold}$ times, breaking ties toward the larger value. $n\le 10^4$ and $q\le 5\times 10^4$ make a naive recount tight.
+>
+> After compressing values, Mo's algorithm moves a window while maintaining frequencies and the candidates that meet the threshold. Thresholds differ per query, so bucket by threshold or roll back inside a block.
+>
+> A Fenwick/chairman-tree alternative binary-searches a frequency cutoff. Either way, answers are produced by incrementing and decrementing frequencies as the pointers move.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

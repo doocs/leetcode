@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The remainder is balanced iff its maximum is at most $k$ times its minimum. Deletion is equivalent to keeping a contiguous segment after sorting. Enumerating subsets fails at $n\le 10^5$.
+>
+> After sorting, if $i$ is the left end (the minimum), the right end cannot exceed $k\cdot \textit{nums}[i]$. Binary search finds the first index $j$ past that bound; $[i,j)$ may be kept.
+>
+> Track the longest window; the answer is $n$ minus that length. Sorting makes the extrema of a window its two ends.
+
+<!-- thinking:end -->
+
 We first sort the array, then enumerate each element $\textit{nums}[i]$ from small to large as the minimum value of the balanced array. The maximum value $\textit{max}$ of the balanced array must satisfy $\textit{max} \leq \textit{nums}[i] \times k$. Therefore, we can use binary search to find the index $j$ of the first element greater than $\textit{nums}[i] \times k$. At this point, the length of the balanced array is $j - i$. We record the maximum length $\textit{cnt}$, and the final answer is the array length minus $\textit{cnt}$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.
@@ -222,6 +234,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous method binary-searches every left end and pays an extra $\log n$. The feasible right end is monotone in the left end, so two pointers replace the searches.
+>
+> Advance $r$ while $\textit{nums}[r]\le \textit{nums}[l]\cdot k$. Each increment of $l$ only moves $r$ rightward. The answer is the minimum of $n-(r-l)$.
+>
+> Sorting remains; the scan is linear and avoids overflow handling around a binary-search bound.
+
+<!-- thinking:end -->
 
 We first sort the array, then use two pointers to maintain a sliding window. The left pointer $l$ enumerates each element $\textit{nums}[l]$ from left to right as the minimum value of the balanced array. The right pointer $r$ keeps moving right until $\textit{nums}[r]$ is greater than $\textit{nums}[l] \times k$. At this point, the length of the balanced array is $r - l$, and the number of elements to be removed is $n - (r - l)$. We record the minimum number of removals as the answer.
 

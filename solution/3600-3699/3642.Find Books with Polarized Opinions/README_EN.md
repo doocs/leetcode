@@ -170,6 +170,18 @@ The <em>polarization score</em> should be rounded to 2 decimal places.</p>
 
 ### Solution 1: Join + Group Aggregation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Polarization depends on rating extrema, session count, and the share of extreme scores, so books must be aggregated before filtering. Join $\textit{books}$ to sessions and group by book.
+>
+> One aggregation yields max, min, spread, session count, and the number of ratings $\le 2$ or $\ge 4$, then a half-up rounded polarization ratio.
+>
+> Keep books with at least five sessions, both a high and a low rating, and a ratio of at least $0.6$, ordered by ratio then title, both descending.
+
+<!-- thinking:end -->
+
 We can implement this by joining the `books` table with the `reading_sessions` table, then grouping and aggregating the results.
 
 First, we need to calculate the rating range, the number of extreme ratings, and the proportion of extreme ratings for each book.

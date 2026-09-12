@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort by absolute value. No secondary key is required. $n\le 100$ is a single custom sort.
+>
+> The key is $\lvert x\rvert$. A stable sort keeps equal-absolute ties in their original order, which remains correct.
+
+<!-- thinking:end -->
+
 We can use a custom sorting function to sort the array, where the sorting criterion is the absolute value of each element.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.

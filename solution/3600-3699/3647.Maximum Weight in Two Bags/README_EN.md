@@ -90,6 +90,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each item may go into a bag of capacity $w_1$, a bag of capacity $w_2$, or neither. That is a two-dimensional $0$-$1$ knapsack. $n\le 100$ and $w\le 300$ allow a compressed $f[j][k]$.
+>
+> $f[j][k]$ is the best total when the residual capacities are $j$ and $k$. Capacities are scanned backwards so an item is used at most once.
+>
+> For weight $x$, try $f[j-x][k]+x$ and $f[j][k-x]+x$. The answer is $f[w_1][w_2]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j][k]$ to represent the maximum total weight when placing the first $i$ items into two bags, where bag 1 has a maximum capacity of $j$ and bag 2 has a maximum capacity of $k$. Initially, $f[0][j][k] = 0$, indicating that no items can be placed in the bags.
 
 The state transition equation is:

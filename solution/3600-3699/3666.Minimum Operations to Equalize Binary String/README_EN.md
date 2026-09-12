@@ -92,6 +92,18 @@ tags:
 
 ### Solution 1: BFS + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move flips exactly $k$ positions and we want the all-ones string. The state collapses to the number of zeros: which zeros they are does not change the feasible range.
+>
+> From $\textit{cur}$ zeros we flip $x$ of them, landing on $\textit{cur}+k-2x$ zeros for $x\in[\max(k-n+\textit{cur},0),\min(\textit{cur},k)]$. Those values form a same-parity interval.
+>
+> Store unseen counts in two ordered sets by parity. BFS pops $\textit{cur}$ and enqueues every remaining value in $[l,r]$. The layer that reaches $0$ is the answer; exhaustion means impossible.
+
+<!-- thinking:end -->
+
 We denote the length of string $s$ as $n$, and the current number of '0's in the string as $\textit{cur}$. In each operation, we select $k$ indices to flip, where $x$ indices flip from '0' to '1', and $k-x$ indices flip from '1' to '0'. Then the number of '0's in the string after flipping is $\textit{cur} + k - 2x$.
 
 The value of $x$ needs to satisfy the following conditions:

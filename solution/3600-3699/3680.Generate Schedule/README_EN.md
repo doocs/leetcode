@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build a single round-robin for $n$ teams so that consecutive games share no team. $n\le 50$ allows the circle method plus a reshuffle of rounds.
+>
+> List every pair $(i,j)$, group them into rounds with disjoint teams, then concatenate rounds with a rotation so the boundary does not repeat a team.
+>
+> Tiny $n$ may be impossible and returns empty. The construction meets every pair once and keeps adjacent games disjoint.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

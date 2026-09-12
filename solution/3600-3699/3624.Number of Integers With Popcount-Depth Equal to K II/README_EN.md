@@ -307,6 +307,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Point updates and range counts of a given popcount-depth, with $n,q\le 10^5$ and $k\le 5$, cannot rescan the interval.
+>
+> The depth range is tiny, so one Fenwick tree or segment tree per $k$ stores that depth's occurrences. A query $[l,r]$ is a prefix difference on tree $k$.
+>
+> An update subtracts the old depth and adds the new one. Values reach $10^{15}$, so depth is computed by a short popcount loop.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

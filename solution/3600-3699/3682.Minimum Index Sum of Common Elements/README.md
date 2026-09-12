@@ -90,6 +90,18 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 公共元素的最小下标和。若对 $\textit{nums1}$ 的每个值在 $\textit{nums2}$ 里扫描，$n\le 10^5$ 不可行。
+>
+> 哈希表记下 $\textit{nums2}$ 中每个值的首次下标，再扫 $\textit{nums1}$ 用 $i+d[x]$ 更新最小和。
+>
+> 只存首次出现，保证 $\textit{nums2}$ 一侧下标最小。无公共元素则返回 $-1$。
+
+<!-- thinking:end -->
+
 我们初始化一个变量 $\textit{ans}$ 为无穷大，表示当前的最小索引和，用一个哈希表 $\textit{d}$ 来存储数组 $\textit{nums2}$ 中每个元素第一次出现的索引。
 
 然后我们遍历数组 $\textit{nums1}$，对于每个元素 $\textit{nums1}[i]$，如果它在 $\textit{d}$ 中存在，我们就计算它的索引和 $i + \textit{d}[\textit{nums1}[i]]$，并更新 $\textit{ans}$。

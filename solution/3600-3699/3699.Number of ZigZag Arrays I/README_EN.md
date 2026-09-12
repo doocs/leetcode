@@ -88,6 +88,18 @@ source: Weekly Contest 469 Q3
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zigzag array alternates the sign of consecutive differences. Values lie in $[l,r]$ and $n\le 2000$, so we shift the range to $[0,m-1]$ and DP.
+>
+> $\textit{up}[i]$ and $\textit{down}[i]$ count arrays ending at $i$ whose last step rises or falls. A descent sums all larger $\textit{up}$; an ascent sums all smaller $\textit{down}$.
+>
+> Prefix and suffix sums make each of the $n-1$ rounds $O(m)$. Length $1$ seeds both directions with $1$. Reduce the total modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 Let $m = r - l + 1$ and map the range $[l, r]$ to $[0, m - 1]$.
 
 Let $up[i]$ be the number of arrays of the current length that end with $i$ whose last step is an increase, and $down[i]$ the number whose last step is a decrease. For length $1$ there is no direction, so initialize $up[i] = down[i] = 1$.

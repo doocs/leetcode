@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may swap indices (or values) whose bitwise AND equals $k$ until the permutation is sorted. Misplaced values must remain reachable under that AND.
+>
+> A swap preserves the bits shared with $k$. The AND of every misplaced value is the largest feasible $k$: any larger $k$ would require a $1$-bit that some misplaced value lacks.
+>
+> AND those misplaced values into $\textit{ans}$. If nothing is misplaced, $k=0$. Initializing $\textit{ans}$ to $-1$ starts the AND from all-ones.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

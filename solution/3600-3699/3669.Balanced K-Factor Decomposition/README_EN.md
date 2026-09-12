@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Factor $n$ into $k$ positive integers while minimizing the gap between the largest and the smallest. $k\le 5$ and $n\le 10^5$ allow a factor table and a search.
+>
+> $\textit{dfs}(i,x,\textit{mi},\textit{mx})$ still needs $i$ factors and the remaining product is $x$. Try each factor $y$ of $x$ and recurse on $x/y$.
+>
+> When $i=0$, the last $x$ updates the gap. Keep the path with the smallest gap. The sieve makes every remaining value branch on $O(\sigma(x))$ factors.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

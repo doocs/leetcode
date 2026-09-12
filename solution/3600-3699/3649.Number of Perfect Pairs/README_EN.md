@@ -165,6 +165,18 @@ source: Biweekly Contest 163 Q2
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A perfect pair typically reduces to an inequality on absolute values. Large $n$ calls for a sort and two pointers rather than every pair.
+>
+> Sort the absolute values. For each right end $r$, advance $l$ until the pair condition holds; every index in $[l,r)$ pairs with $r$.
+>
+> Sum the window lengths. The double loop over pairs is avoided.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

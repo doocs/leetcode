@@ -79,6 +79,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The fee is piecewise in the number of late days: $1$ for one day, $2x$ for $2\ldots 5$, and $3x$ beyond. Items are independent.
+>
+> A helper $f$ implements the three branches and is summed over $\textit{daysLate}$. $n\le 100$ needs no extra structure.
+
+<!-- thinking:end -->
+
 We define a function $\text{f}(x)$ to calculate the late fee for each book:
 
 $$

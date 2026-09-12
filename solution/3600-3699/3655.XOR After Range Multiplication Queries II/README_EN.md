@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n,q\le 10^5$, simulating every query as in I becomes quadratic on small strides. Queries with $k>\sqrt{n}$ stay few and may still multiply in place; small $k$ must be batched.
+>
+> A query with $k\le B$ lies on the arithmetic progression of residue $l\bmod k$. Multiply by $v$ at $t=(i-\textit{res})/k$ and by the modular inverse just after the right end, i.e. a difference on that progression.
+>
+> For each $(k,\textit{res})$, merge factors at the same $t$, scan the progression, and apply the prefix product to $\textit{nums}$. XOR the array at the end.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

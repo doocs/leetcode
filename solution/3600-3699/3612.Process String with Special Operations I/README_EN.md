@@ -147,6 +147,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Operations act on the current result: append a letter, pop on `*`, duplicate on `#`, reverse on `%`. $n$ is small enough to simulate with a list.
+>
+> `#` may double the length, which is worst-case exponential yet the intended materialization. Ignore `*` on an empty result so the list is never popped past the start.
+>
+> Apply characters in order and join. One list supports a tail delete, a full copy, and an in-place reverse.
+
+<!-- thinking:end -->
+
 We can directly simulate the operations described in the problem. We use a list $\text{result}$ to store the current result string. For each character in the input string $s$, we perform the corresponding operation based on the character type:
 
 - If the character is a lowercase English letter, add it to $\text{result}$.

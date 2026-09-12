@@ -163,6 +163,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mirrors bend a rightward step downward and conversely. Paths from the top-left to the bottom-right therefore carry a direction. Reduce modulo $10^9+7$.
+>
+> Let $f[i][j][d]$ be the number of ways to reach $(i,j)$ with last direction $d$. An empty cell may continue right or down; a mirror forces a turn.
+>
+> Transfer in increasing $i+j$. Seed the start with one way. The answer is the sum of directions at the destination.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

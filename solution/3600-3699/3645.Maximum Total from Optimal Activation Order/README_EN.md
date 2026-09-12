@@ -225,6 +225,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Activating a value consumes a slot bounded by its $\textit{limit}$, and items that share a limit compete for those slots.
+>
+> Group by $\textit{limit}$. Inside a group at most $\textit{limit}$ values may be kept, so retain the largest ones.
+>
+> Groups are independent: sort each list and sum the last $\textit{lim}$ entries. Distinct limits do not constrain one another.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

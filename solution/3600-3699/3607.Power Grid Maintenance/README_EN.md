@@ -108,6 +108,18 @@ tags:
 
 ### Solution 1: Union-Find + Sorted Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Connections are fixed before queries; later operations only take stations offline. With $2\times 10^5$ queries, a linear scan for the smallest online id in a grid is too slow.
+>
+> Union-find assigns each station to its component. Online ids in a component must support deletion and minimum queries, which an ordered set provides.
+>
+> Insert $1\ldots c$ into the ordered set of their roots. A $[1,x]$ query returns $x$ if it is still present, otherwise the set minimum (or $-1$). A $[2,x]$ query discards $x$ from its root set.
+
+<!-- thinking:end -->
+
 We can use Union-Find to maintain the connection relationships between power stations, thereby determining which grid each station belongs to. For each grid, we use a sorted set (such as `SortedList` in Python, `TreeSet` in Java, or `std::set` in C++) to store all online station IDs in that grid, allowing efficient querying and deletion of stations.
 
 The specific steps are as follows:

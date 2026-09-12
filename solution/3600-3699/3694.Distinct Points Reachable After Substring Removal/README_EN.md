@@ -90,6 +90,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deleting a length-$k$ segment, the endpoint is the full displacement minus that segment's displacement. Resimulating the remainder for every cut is quadratic.
+>
+> Prefix arrays store $(x,y)$ after each step. Deleting $[i-k,i)$ lands at $(f[n]-(f[i]-f[i-k]),\,g[n]-(g[i]-g[i-k]))$.
+>
+> Insert those points into a set; its size is the number of distinct endpoints. Each cut is $O(1)$.
+
+<!-- thinking:end -->
+
 We can use prefix sum arrays to track position changes after each move. Specifically, we use two prefix sum arrays $f$ and $g$ to record the position changes on the $x$-axis and $y$-axis respectively after each move.
 
 Initialize $f[0] = 0$ and $g[0] = 0$, representing the initial position at $(0, 0)$. Then, we iterate through the string $s$, and for each character:

@@ -120,6 +120,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are only right or down, and odd seconds must move while even seconds must wait, so a path from $(0,0)$ to $(m-1,n-1)$ is determined by its move sequence, with waits inserted between consecutive moves.
+>
+> Enumerating paths is impossible, yet $m\cdot n\le 10^5$ allows linear DP. Reaching $(i,j)$ takes exactly $i+j$ moves. Every cell except the start waits before the next move; the destination does not wait after arrival.
+>
+> The entry cost is $(i+1)(j+1)$. Transfer from above or the left, add the entry fee, and add $\textit{waitCost}[i][j]$ on non-destination cells. The start pays only its entry cost. Coordinates fix the wait parity, so optimal substructure holds.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

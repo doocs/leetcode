@@ -85,6 +85,18 @@ The <strong>average</strong> of an array is defined as the sum of all its elemen
 
 ### Solution 1: Hash Map
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the least positive integer absent from the array and strictly above the average. Starting at $\max(1,\lfloor\textit{avg}\rfloor+1)$ is enough: a missing positive cannot lie far away.
+>
+> Store the array in a set and take the integer average as a lower bound. Increment the candidate while it remains in the set.
+>
+> The walk along the value axis is short and still linear in $n$.
+
+<!-- thinking:end -->
+
 We use a hash map $\textit{s}$ to record the elements that appear in the array $\textit{nums}$.
 
 Then, we calculate the average value $\textit{avg}$ of the array $\textit{nums}$, and initialize the answer $\textit{ans}$ as $\max(1, \lfloor \textit{avg} \rfloor + 1)$.

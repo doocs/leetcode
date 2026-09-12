@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We are given a degree sequence and must decide whether a simple undirected graph exists. Havel–Hakimi resorts after every step and is too slow for $n\le 10^5$.
+>
+> The Erdős–Gállai theorem replaces that loop by prefix inequalities together with an even degree sum. After sorting, prefix sums verify the inequalities in linear time.
+>
+> Reject an odd sum or a degree above $n-1$, then compare the sum of the $k$ largest degrees with the truncated right-hand side of the theorem.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

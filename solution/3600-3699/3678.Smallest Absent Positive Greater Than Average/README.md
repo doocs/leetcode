@@ -88,6 +88,18 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要找不在数组中、且严格大于平均值的最小正整数。从 $\max(1,\lfloor\textit{avg}\rfloor+1)$ 起逐个试探即可，因为缺失的正整数不会太远。
+>
+> 先把数组放进集合，平均值用整除得到下界。若候选已出现则加一，直到不在集合中。
+>
+> 最坏沿值域走一小段，仍与 $n$ 同阶。
+
+<!-- thinking:end -->
+
 我们用一个哈希表 $\textit{s}$ 来记录数组 $\textit{nums}$ 中出现过的元素。
 
 然后，我们计算数组 $\textit{nums}$ 的平均值 $\textit{avg}$，并将答案 $\textit{ans}$ 初始化为 $\max(1, \lfloor \textit{avg} \rfloor + 1)$。
