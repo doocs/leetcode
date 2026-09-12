@@ -114,6 +114,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Down/right path counts are the usual grid DP on obstacles. To hit exactly $k$, obstacles can form a funnel whose junctions add Fibonacci- or binomial-like numbers.
+>
+> The largest representable count is the empty-grid binomial; larger $k$ is impossible. This directory has no implemented solution yet; the walkthrough stops at decomposing $k$ with walls.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

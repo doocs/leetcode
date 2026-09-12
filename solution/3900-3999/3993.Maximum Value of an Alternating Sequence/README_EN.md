@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent values differ by at most $m$ and must strictly alternate. To grow some entry, each rise should use the full $m$ and each fall only $1$, leaving room for the next rise.
+>
+> If $n=1$ the answer is $s$. Otherwise rise-then-fall performs $\lfloor n/2\rfloor$ rises and the peak is $s+\lfloor n/2\rfloor(m-1)+1$. Fall-then-rise shrinks first and cannot beat that.
+>
+> $n$ and $s$ reach $10^9$, so the closed form must be $O(1)$.
+
+<!-- thinking:end -->
+
 If $n = 1$, the sequence contains only the starting value $s$, so the answer is $s$.
 
 Otherwise, the sequence length is at least $2$. Since the absolute difference between adjacent elements is at most $m$, and the sequence must strictly alternate up and down, to maximize some element we should repeatedly "rise by $m$, then fall by $1$": the fall step is taken as the minimum value $1$ so that the next rise has the largest possible room.

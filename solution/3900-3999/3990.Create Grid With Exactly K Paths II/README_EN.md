@@ -101,6 +101,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same goal as part I, but the dimensions are chosen (at most $25\times 25$). A spine plus detours of length $t$ can write $k$ as a sum of binary or Fibonacci path-blocks.
+>
+> $k\le 1000$ fits inside a $25$-cell budget. This directory has no implemented solution yet; the walkthrough stops at packing $k$ into chosen dimensions.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

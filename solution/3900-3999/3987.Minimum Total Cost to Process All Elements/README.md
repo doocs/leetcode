@@ -100,6 +100,18 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 第 $i$ 次操作代价为 $i$，总成本是三角形数，故最小化操作次数即可。资源每次操作增加 $k$，处理 $x$ 时若当前资源不足，需补 $\lceil(x-\textit{cur})/k\rceil$ 次。
+>
+> 从左到右维护 $\textit{cur}$ 与次数 $\textit{cnt}$，不足则先补再扣除 $x$。最后对 $\textit{cnt}$ 求 $\textit{cnt}(\textit{cnt}+1)/2$ 并取模。
+>
+> $n\le 10^5$，一次线性模拟。
+
+<!-- thinking:end -->
+
 第 $i$ 次操作的成本为 $i$，因此若一共执行了 $\textit{cnt}$ 次操作，总成本即为 $1 + 2 + \cdots + \textit{cnt} = \dfrac{\textit{cnt}(\textit{cnt}+1)}{2}$。最小化总成本等价于最小化操作次数。
 
 从左到右模拟处理过程，维护当前可用资源 $\textit{cur}$（初始为 $k$）以及已执行的操作次数 $\textit{cnt}$。处理元素 $x$ 时：

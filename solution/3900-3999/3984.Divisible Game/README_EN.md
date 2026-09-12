@@ -114,6 +114,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice picks $k>1$ and a subarray; multiples of $k$ go to her and the rest to Bob. The gap is $2\cdot(\text{sum of multiples})-\text{subarray sum}$.
+>
+> For each $k$, multiples form runs whose prefix sums yield the best gap. Among those $k$ that attain the maximum gap, take the smallest and multiply.
+>
+> This directory has no implemented solution yet; the walkthrough stops at grouping multiples by $k$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

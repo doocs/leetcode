@@ -186,6 +186,16 @@ source: Weekly Contest 511 Q3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting a subsequence of a binary string only left-shifts $0$s among the chosen positions. A `?` in the pattern is free, so each pattern is feasible iff some filling can be reached by repeatedly left-shifting $0$s in $s$.
+>
+> The number of $0$s must match (with `?` flexible), and no $1$ in $s$ may sit too far right of its counterpart. This directory has no implemented solution yet; the walkthrough stops at “subsequence sort = move zeros left, then match the pattern”.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

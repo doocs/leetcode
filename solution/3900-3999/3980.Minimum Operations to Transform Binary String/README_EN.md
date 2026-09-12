@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Operation one turns a single $0$ into $1$; operation two turns adjacent `11` into `00`. $n\le 10^5$ forbids searching operation sequences.
+>
+> Greedy left to right: a bit that already matches is skipped; a $0$ that should be $1$ uses operation one; a $1$ that should be $0$ must pair with the next bit as `11` and flip both, otherwise it is impossible.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that per-bit greedy.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
