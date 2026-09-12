@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3214.Year%20on%20Year%20Growth%20Rate/README_EN.md
 tags:
     - Database
 ---

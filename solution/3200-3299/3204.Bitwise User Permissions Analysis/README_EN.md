@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3204.Bitwise%20User%20Permissions%20Analysis/README_EN.md
 tags:
     - Database
 ---
