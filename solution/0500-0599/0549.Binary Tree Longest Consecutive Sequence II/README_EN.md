@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path may bend at a node and may increase or decrease, so it is not a one-way parent-to-child chain. Restarting a search at every node repeats work.
+>
+> DFS returns the longest increasing and decreasing runs that start at this node and go toward the parent. A child whose value differs by $1$ extends the matching run. The answer is $incr+decr-1$ (the node is counted twice). Only one-sided lengths go upward.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

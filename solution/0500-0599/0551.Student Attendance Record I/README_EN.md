@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid record has at most one `'A'` and no three consecutive `'L'`s. One scan is enough; a regular expression is unnecessary.
+>
+> Count `'A'` and test for the substring `LLL`. Both checks must pass. Lengths are at most $1000$, so a linear pass suffices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

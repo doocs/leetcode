@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $1$ needs its distance to the nearest $0$. A separate BFS from every $1$ repeats $O(mn)$ searches.
+>
+> Multi-source BFS: enqueue every $0$ at distance $0$ and expand to unseen neighbors. The first visit is the nearest $0$. One queue pass covers the grid.
+
+<!-- thinking:end -->
+
 We create a matrix $\textit{ans}$ of the same size as $\textit{mat}$ and initialize all elements to $-1$.
 
 Then, we traverse $\textit{mat}$, adding the coordinates $(i, j)$ of all $0$ elements to the queue $\textit{q}$, and setting $\textit{ans}[i][j]$ to $0$.

@@ -63,6 +63,16 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into four equal-sum parts, discarding the three cut elements. Four nested cuts are $O(n^4)$.
+>
+> Fix the middle cut $j$, store equal-pair sums from the left in a set, and look for the same sum on the right. Prefix sums make each segment $O(1)$. One loop over $j$ plus two linear scans is enough.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

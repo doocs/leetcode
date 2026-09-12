@@ -98,6 +98,16 @@ The resulting matrix is of size 1*1 with also zero.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bitwise OR of two quad-trees. Expanding to pixels and recompressing throws away structure. Leaves short-circuit: a true leaf dominates; two leaves OR to a leaf.
+>
+> Otherwise recurse on the four children. If all four children are leaves of the same value, merge them back into one leaf so the tree stays canonical.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
