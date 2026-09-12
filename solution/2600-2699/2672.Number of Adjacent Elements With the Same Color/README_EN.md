@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query recolors one index and must report the number of equal adjacent pairs. Rescanning the array is $O(nq)$ for $n,q \le 10^5$. Only the neighbors of the edited index change.
+>
+> Subtract existing equal pairs with the old color, write the new color, then add pairs that the new color forms. Zeros are uncolored and do not count. A global $x$ stores the total.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

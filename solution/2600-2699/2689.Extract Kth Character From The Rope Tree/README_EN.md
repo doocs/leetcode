@@ -91,6 +91,16 @@ You can see that S[root] = &quot;ropetree&quot;. So S[root][7], which represents
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rope stores pieces at the leaves and lengths at internal nodes. We need the $k$-th character. The tree is small enough to rebuild the full string, though a length-guided walk would also work.
+>
+> DFS returns `val` at a leaf and the concatenation of both children otherwise; the answer is index $k-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

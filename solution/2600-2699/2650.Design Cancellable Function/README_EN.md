@@ -160,6 +160,18 @@ The first yielded promise immediately rejects. This error is caught. Because the
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The generator yields Promises and must be cancellable. Awaiting the next Promise alone cannot inject cancellation.
+>
+> A second Promise rejects with `Cancelled` and races the yielded value: the winner is passed to `next` or `throw`. The cancel function rejects that race.
+>
+> When the generator finishes, its final value is returned.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -71,6 +71,16 @@ It can be proven that there is no string that is lexicographically larger than t
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful string has no palindrome of length $\ge 2$, so each character differs from the previous two. We want the next larger beautiful string. Changing a left index forces the suffix; the lexicographically smallest successor should change as far right as possible.
+>
+> Scan from the right for the first index that can rise to a larger legal letter, then fill the suffix with the smallest legal letters. If none can rise, there is no answer. $k \le 26$ keeps a constant number of tries per index for $n \le 10^5$.
+
+<!-- thinking:end -->
+
 We can find that a palindrome string of length $2$ must have two adjacent characters equal; and a palindrome string of length $3$ must have two characters at the beginning and end equal. Therefore, a beautiful string does not contain any palindrome substring of length $2$ or longer, which means that each character in the string is different from its previous two adjacent characters.
 
 We can greedily search backwards from the last index of the string, find an index $i$ such that the character at index $i$ can be replaced by a slightly larger character, while ensuring that it is different from its two previous adjacent characters.

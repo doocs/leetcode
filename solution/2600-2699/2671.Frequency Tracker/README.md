@@ -98,6 +98,16 @@ frequencyTracker.hasFrequency(1); // 返回 true ，因为 3 出现 1 次
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> `hasFrequency` 要判断是否存在某频次，若每次扫描全部计数，$q \le 10^5$ 不可行。
+>
+> 用 $cnt$ 记每个数的出现次数，再用 $freq$ 记「该次数出现了几个数」。增删时先把旧频次减一、新频次加一，查询即看 $freq[f]>0$。
+
+<!-- thinking:end -->
+
 我们定义两个哈希表，其中 $cnt$ 用于记录每个数字出现的次数，而 $freq$ 用于记录每个出现次数的数字的个数。
 
 对于 `add` 操作，我们直接将哈希表 $freq$ 中 $cnt[number]$ 对应的值减一，然后将 $cnt[number]$ 加一，再将 $freq[cnt[number]]$ 对应的值加一。

@@ -55,6 +55,14 @@ The returned string should always match the method name.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every property access must return a function that yields that property name. Enumerating infinitely many keys is impossible. A `Proxy` `get` trap captures the name and returns a closure that `toString`s it.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

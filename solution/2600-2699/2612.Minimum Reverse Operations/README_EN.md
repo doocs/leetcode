@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1: Ordered Set + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move reverses a window of length $k$. We want the fewest moves for the $1$ at $p$ to reach every index. There are $n \le 10^5$ states; enumerating every legal window per state is too dense when $k$ is also large.
+>
+> Shifting the window changes the image of $i$ by $2$, so odd and even indices separate. The image range collapses to $[mi,mx]$ from the boundary formulae.
+>
+> Two ordered sets hold unvisited odd and even indices (minus $banned$ and the start). BFS takes the slice inside $[mi,mx]$ and deletes those keys immediately so no index is enqueued twice.
+
+<!-- thinking:end -->
+
 We notice that for any index $i$ in the subarray interval $[l,..r]$, the flipped index $j = l + r - i$.
 
 If the subarray moves one position to the right, then $j = l + 1 + r + 1 - i = l + r - i + 2$, that is, $j$ will increase by $2$.

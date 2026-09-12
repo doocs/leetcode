@@ -63,6 +63,14 @@ generator.next().done; // true
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要按中序（先序扁平）依次给出嵌套数组中的数字。一次性 `flat` 会失去惰性。嵌套深度有限，递归 `yield*` 即可把子生成器接上。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

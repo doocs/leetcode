@@ -73,6 +73,14 @@ obj1 + obj2; // 0
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Addition should yield the element sum and stringification the form `[a,b,...]`. Default object addition does not sum the array. `valueOf` returns a precomputed sum and `toString` joins inside brackets, so the operators take those two paths.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

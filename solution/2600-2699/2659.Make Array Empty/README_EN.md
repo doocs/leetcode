@@ -157,6 +157,16 @@ tags:
 
 ### Solution 1: Hash Table + Sorting + Fenwick Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step rotates left or deletes the current minimum. Simulating rotations fails for $n \le 10^5$. Deletions follow sorted order; the cost is the circular gap between consecutive minima minus already-deleted indices in between.
+>
+> Store original positions, sort the values, and keep deleted indices in an ordered list. The gap $j-i$ drops the deleted count between them; if $j$ wraps before $i$, add the remaining length of this round.
+
+<!-- thinking:end -->
+
 First, we use a hash table $pos$ to record the position of each element in array $nums$. Then, we sort array $nums$. The initial answer is the position of the minimum element in array $nums$ plus 1, which is $ans = pos[nums[0]] + 1$.
 
 Next, we traverse the sorted array $nums$, the indexes of the two adjacent elements $a$ and $b$ are $i = pos[a]$, $j = pos[b]$. The number of operations needed to move the second element $b$ to the first position of the array and delete it is equal to the interval between the two indexes, minus the number of indexes deleted between the two indexes, and add the number of operations to the answer. We can use a Fenwick tree or an ordered list to maintain the deleted indexes between two indexes, so that we can find the number of deleted indexes between two indexes in $O(\log n)$ time. Note that if $i \gt j$, then we need to increase $n - k$ operations, where $k$ is the current position.
@@ -397,6 +407,14 @@ function countOperationsToEmptyArray(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 queries deleted counts in an ordered set. A Fenwick tree offers the same prefix counts: after shifting indices by one, `query(j+1)-query(i+1)` is the deleted amount, and an update is a point add. The wrap-around logic is unchanged.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

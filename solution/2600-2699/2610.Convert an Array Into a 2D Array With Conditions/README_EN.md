@@ -68,6 +68,16 @@ It can be shown that we cannot have less than 3 rows in a valid array.</pre>
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> No row may repeat a value, and we want as few rows as possible. The highest frequency is the minimum row count. Placing greedily row by row would rescan occupancy; $n \le 200$ allows it, but frequencies already tell us the layout.
+>
+> A value $x$ with frequency $v$ must occupy the first $v$ rows once each. Writing $x$ into rows $0,\ldots,v-1$ meets both constraints without search.
+
+<!-- thinking:end -->
+
 We first use an array or hash table $\textit{cnt}$ to count the frequency of each element in the array $\textit{nums}$.
 
 Then we iterate through $\textit{cnt}$. For each element $x$, we add it to the 0th row, 1st row, 2nd row, ..., and $(cnt[x]-1)$th row of the answer list.

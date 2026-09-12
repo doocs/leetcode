@@ -108,6 +108,16 @@ emitter.emit("firstEvent", [5]); // [7]</pre>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一事件可挂多个回调，取消须只去掉自己。数组线性删除在回调多时需找下标。用 `Map<string, Set<Callback>>`：订阅 `add`，退订 `delete`，`emit` 按集合顺序调用并收集返回值。
+>
+> 事件不存在则返回空数组。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

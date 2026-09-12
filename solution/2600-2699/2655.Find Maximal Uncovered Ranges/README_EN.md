@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want maximal contiguous gaps of $[0,n-1]$ outside the given intervals. Unordered intervals are hard to merge; pairwise tests are $O(m^2)$ and fail for $m \le 10^5$.
+>
+> Sort by left endpoint and scan with the covered rightmost $last$: a gap before the next interval is emitted, then $last$ extends. A final gap to $n-1$ is appended if needed.
+
+<!-- thinking:end -->
+
 We sort all intervals by their left endpoints in ascending order, then traverse all intervals from left to right, maintaining a variable $\textit{last}$ to represent the rightmost endpoint that has been covered so far, initially $\textit{last}=-1$.
 
 If the left endpoint of the current interval is greater than $\textit{last}+1$, it means $[\textit{last}+1, l-1]$ is an uncovered interval, and we add it to the answer array. Then we update $\textit{last}$ to the right endpoint of the current interval and continue traversing the next interval. After traversing all intervals, if $\textit{last}+1 < n$, it means $[\textit{last}+1, n-1]$ is an uncovered interval, and we add it to the answer array.

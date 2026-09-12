@@ -72,6 +72,14 @@ id 是该表的主键(具有唯一值的列)。
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计每位艺术家出现次数，按次数降序、姓名升序。`GROUP BY artist` 配 `COUNT`，再 `ORDER BY occurrences DESC, artist` 即满足排序约定。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

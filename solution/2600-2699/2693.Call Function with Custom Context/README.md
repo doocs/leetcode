@@ -79,6 +79,14 @@ args = [{"item": "burger"}, 10, 1,1]
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要实现 `call`：以给定对象为 `this` 执行函数。手动挂临时属性会污染对象。`bind(context)` 产生绑定函数后再传入剩余参数，即可复用引擎的 `this` 绑定。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

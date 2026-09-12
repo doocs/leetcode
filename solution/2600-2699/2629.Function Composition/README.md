@@ -77,6 +77,16 @@ Starting with x = 4.
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 复合函数应从右向左作用。若从左折叠，求值顺序与数学复合相反。函数个数有限，一次扫描即可。
+>
+> `reduceRight` 以 $x$ 为初值依次套用，空列表时恒等，符合约定。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

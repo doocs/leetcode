@@ -70,6 +70,16 @@ It can be shown that it is the maximum number of moves that can be made.</pre>
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves go to a strictly larger cell on the next column, slightly up, level, or down. Separate DFS from every start would revisit cells. Column-wise BFS is enough: the reachable rows in column $j$ generate candidates in column $j+1$.
+>
+> A set stores those rows; an empty next set returns the columns already walked, and reaching the last column yields $n-1$.
+
+<!-- thinking:end -->
+
 We define a queue $q$, and initially add all the row coordinates of the first column to the queue.
 
 Next, we start from the first column and traverse column by column. For each column, we take out all the row coordinates in the queue one by one. For each row coordinate $i$, we get all possible row coordinates $k$ of the next column, and satisfy $grid[i][j] < grid[k][j + 1]$, and add these row coordinates to a new set $t$. If $t$ is empty, it means that we cannot continue to move, so we return the current column number. Otherwise, we assign $t$ to $q$ and continue to traverse the next column.

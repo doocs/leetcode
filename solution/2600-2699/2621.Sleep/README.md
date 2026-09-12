@@ -59,6 +59,18 @@ sleep(100).then(() =&gt; {
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要一个可 `await` 的延时，而 `setTimeout` 本身不返回 Promise。若忙等循环，会阻塞事件循环。
+>
+> 用 Promise 包装定时器：到期后 `resolve`，调用方即可按异步流程继续。
+>
+> 因此 `sleep` 返回 `new Promise(r => setTimeout(r, millis))`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

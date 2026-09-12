@@ -70,6 +70,16 @@ counter.reset(); // 0
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Increment, decrement, and reset must share one counter. Separate globals would collide; a closed-over $val$ keeps state per instance.
+>
+> `increment`/`decrement` update $val$ and return it; `reset` writes the original $init$ back.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

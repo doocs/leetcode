@@ -74,6 +74,14 @@ Falsey values such as 0 should be filtered out
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `Array.filter` is disallowed. One sequential scan keeps elements for which $fn(arr[i],i)$ is truthy, preserving order.
+
+<!-- thinking:end -->
+
 We traverse the array $arr$ and for each element $arr[i]$, if $fn(arr[i], i)$ is true, we add it to the answer array. Finally, we return the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $arr$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

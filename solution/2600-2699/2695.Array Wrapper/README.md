@@ -75,6 +75,14 @@ obj1 + obj2; // 0
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 加法应得到元素和，字符串化应得到 `[a,b,...]`。默认对象加法不能用数组和。重写 `valueOf` 返回预先算好的和，`toString` 套方括号拼接，运算符即可走这两条路径。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

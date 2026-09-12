@@ -60,6 +60,16 @@ gen.next().value; // 3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An infinite Fibonacci stream cannot be materialized as an array and must speak the generator protocol.
+>
+> Keep adjacent terms $a,b$, yield $a$, then roll. The generator advances only when the caller pulls.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

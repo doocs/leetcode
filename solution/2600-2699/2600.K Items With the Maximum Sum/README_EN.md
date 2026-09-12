@@ -68,6 +68,18 @@ It can be proven that 3 is the maximum possible sum.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three labels are fixed. Enumerating how many $1$s, $0$s, and $-1$s we take grows linearly with $k$. The counts are at most $50$, so brute force would pass, but it is unnecessary.
+>
+> The sum is a linear combination of $1$, $0$, and $-1$: taking one more $1$ is strictly better than taking one more $0$, which is better than taking one more $-1$. The unique optimum is therefore to take all $1$s first, then $0$s, and only then $-1$s.
+>
+> Comparing $k$ with $\textit{numOnes}$ and $\textit{numZeros}$ places us in one of those three cases in constant time, without constructing the selection.
+
+<!-- thinking:end -->
+
 According to the problem description, we should take as many items marked as $1$ as possible, then take items marked as $0$, and finally take items marked as $-1$.
 
 Thus:

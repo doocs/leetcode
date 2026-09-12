@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Fast and Slow Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular list must split into a front half at least as long as the back half. Counting length first takes two passes. Fast and slow pointers stop the slow one at the end of the front half in one walk.
+>
+> When the fast pointer is about to re-enter the head, the slow pointer is at the midpoint; then the second half is closed and the first half relinks to the original head.
+
+<!-- thinking:end -->
+
 We define two pointers $a$ and $b$, both initially pointing to the head of the linked list. Each iteration, pointer $a$ moves forward one step, and pointer $b$ moves forward two steps, until pointer $b$ reaches the end of the linked list. At this point, pointer $a$ points to half of the linked list nodes, and we break the linked list from pointer $a$, thus obtaining the head nodes of the two linked lists.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. It requires one traversal of the linked list. The space complexity is $O(1)$.

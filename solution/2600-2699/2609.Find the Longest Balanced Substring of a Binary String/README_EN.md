@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Brute force
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced substring is zeros followed by the same number of ones. $n \le 50$ allows enumerating $O(n^2)$ substrings and scanning each in $O(n)$.
+>
+> For every interval we count ones, require every zero to precede the first one, and require the one-count to be exactly half the length.
+
+<!-- thinking:end -->
+
 Since the range of $n$ is small, we can enumerate all substrings $s[i..j]$ to check if it is a balanced string. If so, update the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(1)$. Where $n$ is the length of string $s$.
@@ -259,6 +269,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Enumeration optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans every interval in cubic time. A valid string is only a run of zeros followed by a run of ones, so we keep those two run lengths.
+>
+> A zero after ones starts a new pair of runs; a one updates the answer with $2\times\min(\textit{zero},\textit{one})$. One pass suffices.
+
+<!-- thinking:end -->
 
 We use variables $zero$ and $one$ to record the number of continuous $0$ and $1$.
 

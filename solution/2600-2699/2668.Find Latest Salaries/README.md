@@ -87,6 +87,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一员工可能有多条薪资记录，只需保留最高工资并按 $emp\_id$ 输出。按员工分组后对 $salary$ 取 $\mathrm{MAX}$，其余字段在组内一致，再排序即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

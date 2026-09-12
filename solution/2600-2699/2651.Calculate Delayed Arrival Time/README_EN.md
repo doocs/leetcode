@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arrival wraps on a 24-hour clock. The raw sum may exceed $23$; reduction modulo $24$ restores a valid hour without simulating carry.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

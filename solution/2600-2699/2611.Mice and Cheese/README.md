@@ -74,6 +74,18 @@ tags:
 
 ### 方法一：贪心 + 排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 第一只老鼠恰吃 $k$ 块，其余归第二只。枚举子集 $C(n,k)$ 在 $n \le 10^5$ 下不可行。
+>
+> 先把全部奶酪记给第二只，再挑选 $k$ 块改给第一只，得分变化为 $reward1[i]-reward2[i]$。变化量越大越应改分。
+>
+> 按下标差降序排序，前 $k$ 块用 $reward1$，其余用 $reward2$。
+
+<!-- thinking:end -->
+
 我们可以先将所有奶酪分给第二只老鼠，因此初始得分为 $\sum_{i=0}^{n-1} reward2[i]$。
 
 接下来，考虑将其中 $k$ 块奶酪分给第一只老鼠，那么我们应该如何选择这 $k$ 块奶酪呢？显然，将第 $i$ 块奶酪从第二只老鼠分给第一只老鼠，得分的变化量为 $reward1[i] - reward2[i]$，我们希望这个变化量尽可能大，这样才能使得总得分最大。
@@ -189,6 +201,14 @@ function miceAndCheese(reward1: number[], reward2: number[], k: number): number 
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一另开下标数组排序。把差值写回 $reward1$ 再原地降序，答案为 $\sum reward2$ 加上最大的 $k$ 个差值，省去下标映射。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

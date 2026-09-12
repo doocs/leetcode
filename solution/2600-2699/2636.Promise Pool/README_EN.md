@@ -101,6 +101,18 @@ At t=900, the 3rd function resolves. Pool size is 0 so the returned promise reso
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $n$ async tasks may run together. `Promise.all` on every function would exceed the cap.
+>
+> Start the first $n$ wrappers and queue the rest; when a task finishes it dequeues the next, until the wait list is empty.
+>
+> `Promise.all` waits only on the initial batch; later work is chained by those `await`s.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

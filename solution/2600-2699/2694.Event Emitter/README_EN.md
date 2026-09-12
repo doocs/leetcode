@@ -109,6 +109,16 @@ emitter.emit(&quot;firstEvent&quot;, [5]); // [7]</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An event may have many callbacks, and unsubscribe must remove only itself. Linear removal from an array needs an index search. A `Map<string, Set<Callback>>` adds on subscribe, deletes on unsubscribe, and `emit` calls the set in insertion order, collecting return values.
+>
+> A missing event yields an empty array.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

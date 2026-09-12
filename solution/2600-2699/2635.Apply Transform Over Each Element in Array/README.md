@@ -69,6 +69,14 @@ const newArray = map(arr, plusone); // [2,3,4]
 
 ### 方法一：遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不能使用 `Array.map`。题目允许原地改写，按线下标调用 $fn$ 写回即可，无需另开数组。
+
+<!-- thinking:end -->
+
 我们遍历数组 $arr$，对于每个元素 $arr[i]$，将其替换为 $fn(arr[i], i)$。最后返回数组 $arr$ 即可。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $arr$ 的长度。空间复杂度 $O(1)$。

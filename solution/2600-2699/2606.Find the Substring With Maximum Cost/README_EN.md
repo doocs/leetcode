@@ -81,6 +81,18 @@ It can be proven that 0 is the maximum cost.
 
 ### Solution 1: Prefix sum + Maintain the minimum prefix sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring cost is a range sum of values; the empty string costs $0$. Enumerating both ends is too slow for $n \le 10^5$.
+>
+> For a fixed right end, the best cost is the current prefix sum minus the smallest prefix seen so far (including the empty prefix $0$). One scan keeps the running sum $tot$ and its minimum $mi$, and updates the answer with $tot-mi$.
+>
+> Values go into a map; letters not listed use their default alphabet index.
+
+<!-- thinking:end -->
+
 According to the description of the problem, we traverse each character $c$ in the string $s$, obtain its corresponding value $v$, and then update the current prefix sum $tot=tot+v$. Then, the cost of the maximum cost substring ending with $c$ is $tot$ minus the minimum prefix sum $mi$, that is, $tot-mi$. We update the answer $ans=max(ans,tot-mi)$ and maintain the minimum prefix sum $mi=min(mi,tot)$.
 
 After the traversal is over, return the answer $ans$.
@@ -203,6 +215,16 @@ function maximumCostSubstring(s: string, chars: string, vals: number[]): number 
 <!-- solution:start -->
 
 ### Solution 2: Convert to the maximum subarray sum problem
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 keeps a global minimum prefix. The same question is a maximum-subarray problem: a negative running sum should be dropped before the next character.
+>
+> Kadane's $f=\max(f,0)+v$ removes the prefix array; initializing the answer at $0$ still covers the empty string.
+
+<!-- thinking:end -->
 
 We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.
 

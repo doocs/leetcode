@@ -59,6 +59,14 @@ f({}, null, 42); // "Hello World"
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 工厂须返回忽略全部参数、恒输出固定字符串的函数。内层函数不读取 `args`，即可满足「任意输入同一结果」。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

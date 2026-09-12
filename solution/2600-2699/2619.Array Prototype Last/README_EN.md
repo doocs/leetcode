@@ -53,6 +53,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arrays need a last-element accessor; the empty case returns $-1$. Copying and popping is wasteful and mutates.
+>
+> The last index is $n-1$, so `at(-1)` reads it; the empty array uses the sentinel.
+>
+> Attaching the method to `Array.prototype` makes it available on every instance.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

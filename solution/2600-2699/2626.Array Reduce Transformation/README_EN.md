@@ -87,6 +87,16 @@ init = 25
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Built-in `reduce` is forbidden; we fold from the initializer. An empty array must return `init`, so the loop may do nothing.
+>
+> Start from $init$ and replace the accumulator with $fn(acc,x)$ for each element, matching native left-fold order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

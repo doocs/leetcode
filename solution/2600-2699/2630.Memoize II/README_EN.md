@@ -81,6 +81,18 @@ Merging two empty objects will always result in an empty object. The 2nd and 3rd
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arguments may be arbitrary objects and must be distinguished by reference. `JSON.stringify` would collapse distinct objects with the same contents.
+>
+> Assign each seen value an increasing id and join those ids into the cache key, so equality is identity, not structure.
+>
+> One map stores value-to-id, the other id-string-to-result.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

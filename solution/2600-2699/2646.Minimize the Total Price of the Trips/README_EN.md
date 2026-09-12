@@ -81,6 +81,16 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trip nodes are priced, and adjacent nodes cannot both be halved. Searching the half-price set after listing paths is exponential; $n \le 50$ allows counting visits, then a tree DP decides the halves.
+>
+> DFS each trip into $cnt$. The DP returns (full price, half price) at a node: children may take either min if this node stays full, and must stay full if this node is halved. The root takes the better of the two.
+
+<!-- thinking:end -->
+
 We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
 
 - If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.

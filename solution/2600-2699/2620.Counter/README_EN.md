@@ -59,6 +59,18 @@ n = -2
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each call must yield the next integer, starting from a captured $n$. A global counter would collide across `createCounter` instances.
+>
+> A closure holds $i$; post-increment returns the current value, so the first call is $n$.
+>
+> The outer function only initializes; the inner function owns the mutable state.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

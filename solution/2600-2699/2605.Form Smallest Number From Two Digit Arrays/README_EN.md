@@ -55,6 +55,16 @@ Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer has at most two digits, one from each array. Both arrays have length at most $9$, so enumerating every pair covers a shared digit and a concatenation of two distinct digits.
+>
+> If $a=b$, the one-digit $a$ beats any two-digit number; otherwise we compare $10a+b$ and $10b+a$, keeping the global minimum.
+
+<!-- thinking:end -->
+
 We observe that if there are the same numbers in the arrays $nums1$ and $nums2$, then the minimum of the same numbers is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$.
@@ -182,6 +192,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table or Array + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 compares every pair. Once a shared digit exists, the smallest shared value is the answer and concatenations are irrelevant; otherwise only the two minima need to be concatenated.
+>
+> An intersection set (or a direct $\min$ on each array) reduces the nested loops to a linear scan.
+
+<!-- thinking:end -->
 
 We can use a hash table or array to record the numbers in the arrays $nums1$ and $nums2$, and then enumerate $1 \sim 9$. If $i$ appears in both arrays, then $i$ is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.
 
@@ -365,6 +385,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3: Bit Operation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digits lie in $1..9$, so sets become bit masks. A nonempty bitwise AND yields the lowest shared digit; otherwise we concatenate the lowest bit of each mask.
+>
+> The observation matches Solution 2; only the set representation shrinks to constant-space bit operations.
+
+<!-- thinking:end -->
 
 Since the range of the numbers is $1 \sim 9$, we can use a binary number with a length of $10$ to represent the numbers in the arrays $nums1$ and $nums2$. We use $mask1$ to represent the numbers in the array $nums1$, and use $mask2$ to represent the numbers in the array $nums2$.
 

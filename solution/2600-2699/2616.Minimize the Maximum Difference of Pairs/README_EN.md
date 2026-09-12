@@ -63,6 +63,18 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 
 ### Solution 1: Binary Search + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We select $p$ disjoint pairs and minimize the maximum pair difference. Searching matchings is combinatorial; $n \le 10^5$ needs a polynomial approach.
+>
+> The threshold $x$ is monotone: if $p$ pairs exist under $x$, a larger $x$ also works. After sorting, adjacent values are the cheapest pairs; taking a feasible pair immediately leaves later indices free.
+>
+> Binary-search $x$ and run that greedy check.
+
+<!-- thinking:end -->
+
 We notice that the maximum difference has monotonicity: if a maximum difference $x$ is feasible, then $x-1$ is also feasible. Therefore, we can use binary search to find the minimal feasible maximum difference.
 
 First, sort the array $\textit{nums}$. Then, for a given maximum difference $x$, check whether it is possible to form $p$ pairs of indices such that the maximum difference in each pair does not exceed $x$. If possible, we can try a smaller $x$; otherwise, we need to increase $x$.

@@ -86,6 +86,14 @@ order_dste 按升序排序。</pre>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按日期统计即时订单占比。即时即 `customer_pref_delivery_date = order_date`。按 `order_date` 分组，用条件求和除以行数并保留两位小数，再按日期排序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

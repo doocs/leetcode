@@ -71,6 +71,14 @@ Each row contains an id, track_name, and artist.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count rows per artist, then sort by count descending and name ascending. `GROUP BY artist` with `COUNT`, followed by `ORDER BY occurrences DESC, artist`, matches the required order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -89,6 +89,16 @@ init = 25
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 禁止使用内置 `reduce`，需从初值开始依次折叠。空数组应返回 `init`，故循环体可以为空。
+>
+> 设累加器为 $init$，对每个元素执行 $fn(acc,x)$ 并写回。顺序与原生 reduce 一致。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -57,6 +57,14 @@ obj['abc123'](); // "abc123"
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 任意属性访问都须返回「给出该属性名」的函数。预先枚举无限键不可能。`Proxy` 的 `get` 捕获属性名并返回闭包，调用时再 `toString`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -73,6 +73,16 @@ For the prefix [1, 1, 2, 4, 8, 16], the conversion array is [2, 2, 4, 8, 16, 32]
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The prefix score is the prefix sum of a conversion where each term is $nums[i]$ plus the maximum up to $i$. Recomputing that maximum per prefix is quadratic for $n \le 10^5$.
+>
+> The running maximum $mx$ updates in one scan; adding the previous score yields $ans[i]$. Conversion and prefix summation happen together.
+
+<!-- thinking:end -->
+
 We use a variable $mx$ to record the maximum value of the first $i$ elements in the array $nums$, and use an array $ans[i]$ to record the score of the first $i$ elements in the array $nums$.
 
 Next, we traverse the array $nums$. For each element $nums[i]$, we update $mx$, i.e., $mx = \max(mx, nums[i])$, and then update $ans[i]$. If $i = 0$, then $ans[i] = nums[i] + mx$, otherwise $ans[i] = nums[i] + mx + ans[i - 1]$.

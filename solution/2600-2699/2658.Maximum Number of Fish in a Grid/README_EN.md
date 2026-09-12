@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One trip may traverse a 4-connected water component and sum its fish. The grid is at most $10 \times 10$, so we start DFS/BFS from every water cell; land separates components.
+>
+> Visited water is zeroed to avoid reuse; the largest component sum is the answer, or $0$ if none exists.
+
+<!-- thinking:end -->
+
 According to the problem description, we only need to find the number of fish in each connected water area and then take the maximum value. Therefore, we can use the depth-first search method to solve this problem.
 
 We define a function $dfs(i, j)$, which indicates the maximum number of fish that can be caught starting from the cell in the $i$-th row and the $j$-th column. The execution logic of the function $dfs(i, j)$ is as follows:

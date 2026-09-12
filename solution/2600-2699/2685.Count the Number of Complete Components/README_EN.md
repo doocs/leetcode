@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A complete component has every pair joined. Checking all pairs after listing a component works for $n \le 50$, but one DFS already yields the vertex and edge counts.
+>
+> Each undirected edge is counted twice, so a clique satisfies $x(x-1)=y$. DFS from every unseen vertex accumulates $(x,y)$ and tests that identity.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -226,6 +236,16 @@ func countCompleteComponents(n int, edges [][]int) (ans int) {
 <!-- solution:start -->
 
 ### Solution 2: Simple Method
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 counts edges explicitly. Storing each closed neighborhood instead: in a complete component those sets are identical and the set size equals how often it appears.
+>
+> Grouping vertices by that set avoids a separate edge check, which suits a small $n$ and an equality-of-neighborhoods view.
+
+<!-- thinking:end -->
 
 Problems needed to solve：
 

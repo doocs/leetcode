@@ -72,6 +72,16 @@ The sum of powers of all groups is 8 + 1 + 64 + 4 + 32 + 16 + 16 = 141.
 
 ### Solution 1: Sorting + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence contributes $\max^2 \cdot \min$. Order does not matter; after sorting, each minimum $a_i$ sees later maxima with powers-of-two coefficients. Enumerating $2^n$ subsequences fails for $n \le 10^5$.
+>
+> A right-to-left weighted square sum $p$ lets $x$ add $x^3$ and $x \cdot p$, then $p \leftarrow 2p+x^2$, accumulating the answer in linear time.
+
+<!-- thinking:end -->
+
 We notice that the problem involves the maximum and minimum values of a subsequence, and the order of elements in the array does not affect the final result. Therefore, we can sort the array first.
 
 Next, we enumerate each element as the minimum value of the subsequence. Let's denote each element of the array as $a_1, a_2, \cdots, a_n$. The contribution of the subsequence with $a_i$ as the minimum value is:

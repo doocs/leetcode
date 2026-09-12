@@ -71,6 +71,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is split into runs of length $size$, the last run possibly shorter. Stepping by $size$ and `slice` lets the method clip the tail, so the last chunk needs no special case.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript
