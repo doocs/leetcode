@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README.md
 rating: 1758
 source: 第 132 场周赛 Q3
 tags:
