@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1400-1499/1445.Apples%20%26%20Oranges/README.md
 tags:
     - 数据库
 ---
