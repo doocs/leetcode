@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Preprocessing the Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rescanning the left and right maxima at every index is $O(n^2)$. That fits $n\le 100$, but legality depends only on those two extrema.
+>
+> Precompute suffix maxima $\textit{right}$ from the right, and maintain a prefix maximum $\textit{left}$ while walking left-to-right. An element is valid iff it is strictly larger than $\textit{left}$, is the last entry, or is strictly larger than the suffix maximum to its right.
+>
+> One preprocessing pass plus one scan collects every valid value.
+
+<!-- thinking:end -->
+
 We can preprocess the array to compute the maximum value to the right of each element and store it in an array $\textit{right}$.
 
 Then, we traverse the array from left to right, using a variable $\textit{left}$ to keep track of the maximum value to the left of the current element. For each element, if it satisfies any of the following conditions, we add it to the answer:

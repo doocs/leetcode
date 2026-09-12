@@ -308,6 +308,18 @@ tags:
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The upper bound is $9\times 10^{15}$, so listing integers is impossible. Six `D`/`R` steps trace a path on a $4\times 4$ grid; digits on the visited cells must be non-decreasing in visit order.
+>
+> Count on $[l,r]$ as $[0,r]$ minus $[0,l-1]$, then run digit DP on a $16$-digit string. The state $(\textit{pos},\textit{last},\textit{lim})$ stores the current position, the last key-cell digit, and whether we are still tight against the upper bound.
+>
+> Non-key cells may start from $0$; a key cell is bounded below by $\textit{last}$. Which cells are keys is precomputed from $\textit{directions}$ into a Boolean array $\textit{key}$.
+
+<!-- thinking:end -->
+
 Since the 6 characters in $\textit{directions}$ determine the path, we can preprocess a boolean array $\textit{key}$ of length 16, where $\textit{key}[i]$ indicates whether the $i$-th cell visited along the path is a key cell (i.e., a cell visited on the path). We can compute the $\textit{key}$ array based on $\textit{directions}$.
 
 Next, we use digit dynamic programming (digit DP) to count the number of integers in the range $[l, r]$ that satisfy the condition. We convert $r$ and $l - 1$ to 16-digit strings $s$, then use a recursive function to count the number of valid integers in $[0, r]$, and subtract the count in $[0, l - 1]$ to get the answer for $[l, r]$.

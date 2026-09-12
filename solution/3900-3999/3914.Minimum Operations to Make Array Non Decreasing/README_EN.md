@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation increments one entry by one. Walking left to right, a descent forces the later value up to the previous height, and that lift cannot break any already-satisfied prefix.
+>
+> Hence each adjacent pair $(a,b)$ contributes $\max(a-b,0)$. The sum of these local gaps is the minimum number of increments.
+>
+> With $n\le 10^5$ a single linear scan suffices.
+
+<!-- thinking:end -->
+
 We can traverse the array from left to right and calculate the difference between each pair of adjacent elements. If the current element is smaller than the previous one, we need to increase the current element so that it is at least equal to the previous element. The amount to increase is the difference between the previous element and the current element.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

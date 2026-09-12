@@ -77,6 +77,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rescanning the rest of the array for opposite parity at every index is $O(n^2)$. That fits $n\le 100$, but the answer depends only on the global odd/even counts.
+>
+> Count evens and odds first as $\textit{cnt}[0]$ and $\textit{cnt}[1]$. When visiting $x$, decrement its own bucket, then write the remaining opposite-parity count.
+>
+> Each index is answered in constant time without a second nested scan.
+
+<!-- thinking:end -->
+
 We first count the number of even and odd elements in the array $\textit{nums}$, denoted as $cnt[0]$ and $cnt[1]$ respectively.
 
 Then, we traverse the array $\textit{nums}$ from left to right. For index $i$, we first decrement $cnt[\textit{nums}[i] \bmod 2]$ by 1, then assign $cnt[\textit{nums}[i] \bmod 2 \oplus 1]$ to $ans[i]$.

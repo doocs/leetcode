@@ -98,6 +98,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is strictly increasing and there are up to $10^5$ queries, so we cannot simulate each walk on $[l,r]$. The cost of one adjacent step is determined by a local triple of gaps, and the left-to-right rule is not the same as the opposite direction.
+>
+> Precompute a rightward cost $c_1$ and a leftward cost $c_2$ on every adjacent edge, then store their prefix sums $s_1$ and $s_2$. A query with $l<r$ reads $s_1[r]-s_1[l]$; otherwise it reads $s_2[l]-s_2[r]$.
+>
+> Each query is then $O(1)$ after an $O(n)$ preprocess.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

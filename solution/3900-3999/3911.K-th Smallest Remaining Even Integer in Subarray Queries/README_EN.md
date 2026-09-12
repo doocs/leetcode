@@ -215,6 +215,18 @@ source: Biweekly Contest 181 Q4
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Listing positive evens and testing membership in each query subarray fails for $n,q\le 10^5$ and $k_i$ up to $10^9$. Because $\textit{nums}$ is strictly increasing, the evens removed from a subarray form a contiguous ordered set.
+>
+> The $k$-th remaining positive even is $2k$ shifted right by the number of removed evens that are at most that candidate. The problem therefore reduces to counting evens inside an index range and adjusting the rank accordingly.
+>
+> This directory has no implemented solution yet, so the walkthrough stops at that reduction; any concrete structure must answer those range counts in near-logarithmic time.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

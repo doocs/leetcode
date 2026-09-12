@@ -184,6 +184,18 @@ The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</str
 
 ### Solution 1: Segment Tree + GCD
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recomputing subsequence GCDs after every update is impossible for $n,q\le 5\times 10^4$. Only multiples of $p$ can appear in a subsequence whose GCD is exactly $p$; other entries can be ignored.
+>
+> Store $nums[i]$ itself when it is a multiple of $p$, and $0$ otherwise, then maintain the GCD $g$ of all candidates in a segment tree. If $g\neq p$ the answer is no; if $g=p$ and not every element is a multiple, the full candidate set already has length less than $n$.
+>
+> Only when $n\le 6$ and every element is a multiple do we delete one index and query the remaining GCD. For $n>6$, a global GCD of $p$ already guarantees that some deletion keeps the GCD equal to $p$.
+
+<!-- thinking:end -->
+
 We only care about numbers that are multiples of $p$, because if a number is not divisible by $p$, it can never belong to a subsequence whose GCD is exactly $p$.
 
 Therefore, we can treat positions whose values are not divisible by $p$ as $0$, and only maintain the following value for each position in the segment tree:

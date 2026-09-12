@@ -155,6 +155,18 @@ tags:
 
 ### Solution 1: Bitmask Enumeration + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting connected induced subgraphs is hard in general, but $n\le 13$ leaves only $2^n-1\le 8191$ nonempty subsets, which we can test one by one.
+>
+> Drop odd node-sums first. For an even subset, mark nodes outside it in a bitmask $\textit{vis}$, then DFS from any included vertex, staying inside the subset. If $\textit{vis}$ ends with all $n$ bits set, the induced subgraph is connected.
+>
+> Adjacency lists keep each DFS $O(n+m)$, so the total is $O(2^n(n+m))$.
+
+<!-- thinking:end -->
+
 Notice that the number of nodes in the problem does not exceed $13$, so we can enumerate all non-empty subsets $s$ of nodes. For each subset, we calculate the total sum of node values and check whether its induced subgraph is connected.
 
 Specifically, we can use an integer $sub$ to represent the subset $s$, where the $i$-th bit of $sub$ is $1$ if node $i$ is in the subset, and $0$ otherwise. For each subset, we first compute the sum of its node values. If the sum is odd, we skip this subset; otherwise, we use DFS to check whether the induced subgraph is connected. We can use an integer $vis$ to represent the visited nodes: initially, the $i$-th bit of $vis$ is $1$ if node $i$ is not in the subset, and $0$ if node $i$ is in the subset. We start DFS from any node in subset $s$, visit all its adjacent nodes, and mark visited nodes in $vis$ as $1$. Finally, if all bits in $vis$ are $1$, it means the induced subgraph of subset $s$ is connected, so we increment the answer by $1$.

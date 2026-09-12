@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating a swap and then scanning every substring is $O(n^3)$, which is impossible for $n\le 10^5$. Even a two-pointer scan of endpoints still pays for the global effect of the swap.
+>
+> A balanced substring has equally many $0$s and $1$s, i.e. the prefix difference (counting $1$ as $+1$ and $0$ as $-1$) is unchanged. One swap can change that difference by $2$, so besides pairs with the same prefix we must also consider prefixes that differ by $\pm 2$, provided the complement character still exists outside the segment.
+>
+> A hash map of all positions of each prefix is enough: the earliest occurrence yields the longest candidate, and if that segment cannot import the needed character we fall back to the next earliest index.
+
+<!-- thinking:end -->
+
 Let the prefix sum $\textit{pre}$ denote the number of `1`s minus the number of `0`s in the current prefix. Then for any substring, if the numbers of `0`s and `1`s are equal, its corresponding prefix sum difference is $0$.
 
 Therefore, if the prefix sum at position $i$ is $x$, and some previous position also has prefix sum $x$, then the substring between these two positions is balanced, and we can directly use it to update the answer.
