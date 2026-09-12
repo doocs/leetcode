@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3941.Password%20Strength/README_EN.md
 rating: 1284
 source: Weekly Contest 503 Q2
 tags:

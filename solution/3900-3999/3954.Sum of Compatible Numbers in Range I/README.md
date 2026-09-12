@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3954.Sum%20of%20Compatible%20Numbers%20in%20Range%20I/README.md
 rating: 1210
 source: 第 505 场周赛 Q1
 tags:

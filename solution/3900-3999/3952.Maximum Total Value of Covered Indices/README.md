@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3952.Maximum%20Total%20Value%20of%20Covered%20Indices/README.md
 rating: 1762
 source: 第 184 场双周赛 Q3
 tags:
