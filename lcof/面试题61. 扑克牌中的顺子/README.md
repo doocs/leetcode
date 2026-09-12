@@ -46,6 +46,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 五张牌成顺的障碍是：非零重复，或去掉大小王后跨度超过 $4$。遍历时跳过 $0$，用集合查重并维护最小、最大，最后看 $mx-mi\le 4$。
+
+<!-- thinking:end -->
+
 我们首先明确顺子不成立的核心条件：
 
 1. 存在非 $0$ 的重复。

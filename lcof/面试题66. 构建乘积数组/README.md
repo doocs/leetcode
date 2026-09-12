@@ -39,6 +39,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：两次遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 若直接对每个位置连乘其余元素，遇 $0$ 还须特判，且为平方级。$ans[i]$ 等于左侧积乘右侧积，可分两次扫描。
+>
+> 先从左累乘写入 $ans$，再从右累乘乘回去，避开使用除法。
+
+<!-- thinking:end -->
+
 我们先创建一个长度为 $n$ 的答案数组 $ans$。
 
 接下来，我们从左到右遍历数组 $a$，过程中维护一个变量 $left$，表示当前元素左边所有元素的乘积，初始时 $left=1$。当遍历到 $a[i]$ 时，我们将 $left$ 赋值给 $ans[i]$，然后 $left$ 乘以 $a[i]$，即 $left \leftarrow left \times a[i]$。
