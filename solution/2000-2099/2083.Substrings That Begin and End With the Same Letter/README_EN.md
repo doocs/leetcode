@@ -72,6 +72,16 @@ The substring of length 1 that starts and ends with the same letter is: &quot;a&
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Substrings whose ends share a letter. Pair enumeration is quadratic for $n \le 10^5$. Those ending at a given $c$ equal the number of $c$s seen so far (including now).
+>
+> Increment the counter for $c$ and add the new frequency to the answer.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $\textit{cnt}$ of length $26$ to record the occurrences of each character.
 
 Traverse the string $\textit{s}$. For each character $\textit{c}$, increment the value of $\textit{cnt}[c]$ by $1$, and then add the value of $\textit{cnt}[c]$ to the answer.

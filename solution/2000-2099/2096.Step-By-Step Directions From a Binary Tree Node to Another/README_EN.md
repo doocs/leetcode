@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Lowest Common Ancestor + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The unique path goes through the LCA. Upward edges become `U`; the descent uses `L`/`R`. Three tree walks are fine for $n \le 10^5$.
+>
+> Find the LCA, DFS both directions from it, replace the start path by `U`s, and concatenate.
+
+<!-- thinking:end -->
+
 We can first find the lowest common ancestor of nodes $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{node}$. Then, starting from $\textit{node}$, we find the paths to $\textit{startValue}$ and $\textit{destValue}$ respectively. The path from $\textit{startValue}$ to $\textit{node}$ will consist of a number of $\textit{U}$s, and the path from $\textit{node}$ to $\textit{destValue}$ will be the $\textit{path}$. Finally, we concatenate these two paths.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
@@ -406,6 +416,16 @@ var getDirections = function (root, startValue, destValue) {
 <!-- solution:start -->
 
 ### Solution 2: Lowest Common Ancestor + DFS (Optimized)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 finds the LCA then walks twice more. Paths from the root share a prefix; stripping it is exactly “up to the LCA then down.” The extra LCA search disappears.
+>
+> Two DFS strings, skip the common prefix of length $i$, emit $(|start|-i)$ `U`s plus the destination suffix.
+
+<!-- thinking:end -->
 
 We can start from $\textit{root}$, find the paths to $\textit{startValue}$ and $\textit{destValue}$, denoted as $\textit{pathToStart}$ and $\textit{pathToDest}$, respectively. Then, remove the longest common prefix of $\textit{pathToStart}$ and $\textit{pathToDest}$. At this point, the length of $\textit{pathToStart}$ is the number of $\textit{U}$s in the answer, and the path of $\textit{pathToDest}$ is the path in the answer. We just need to concatenate these two paths.
 

@@ -79,6 +79,16 @@ We can remove it with 1 deletion.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deletions happen only at the ends; both the minimum and maximum indices must go. Three plans: delete from the left through the righter index, from the right through the lefter, or from both ends.
+>
+> Locate $mi,mx$, order them, and take $\min(mx+1,\,n-mi,\,mi+1+n-mx)$. One scan finds the extrema.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

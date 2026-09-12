@@ -72,6 +72,14 @@ Store 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 富有指存在一笔金额大于 $500$ 的订单。同一顾客多笔只计一次，故 `COUNT(DISTINCT customer_id)` 加 `WHERE amount > 500`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -70,6 +70,16 @@ Thus, there are 2 strings that appear exactly once in each of the two arrays.
 
 ### Solution 1: Hash Table + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count words that occur once in each array. Build two counters and scan one of them, requiring both frequencies to be $1$.
+>
+> Linear in the two lengths.
+
+<!-- thinking:end -->
+
 We can use two hash tables, $cnt1$ and $cnt2$, to count the occurrences of each string in the two string arrays respectively. Then, we traverse one of the hash tables. If a string appears once in the other hash table and also appears once in the current hash table, we increment the answer by one.
 
 The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the two string arrays respectively.

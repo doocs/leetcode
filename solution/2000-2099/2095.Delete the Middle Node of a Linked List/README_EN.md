@@ -75,6 +75,16 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 
 ### Solution 1: Fast and Slow Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the middle node (the later one if even length), which needs its predecessor. Slow starts at a dummy, fast at the head; two steps versus one leaves slow just before the middle.
+>
+> Rewire `slow.next`. Length $1$ is handled because the dummy sits before the only node.
+
+<!-- thinking:end -->
+
 The fast and slow pointer technique is a common method used to solve problems related to linked lists. We can maintain two pointers, a slow pointer $\textit{slow}$ and a fast pointer $\textit{fast}$. Initially, $\textit{slow}$ points to a dummy node, whose $\textit{next}$ pointer points to the head node $\textit{head}$ of the list, while $\textit{fast}$ points to the head node $\textit{head}$.
 
 Then, we move the slow pointer one position backward and the fast pointer two positions backward each time, until the fast pointer reaches the end of the list. At this point, the node next to the node pointed by the slow pointer is the middle node of the list. We can remove the middle node by setting the $\textit{next}$ pointer of the node pointed by the slow pointer to point to the next next node.

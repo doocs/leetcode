@@ -69,6 +69,16 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 
 ### Solution 1: Hash Table + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many range frequency queries on a static array. $n$ and the query count are $10^5$; a segment tree works, but one value only needs its index list.
+>
+> A hash map stores increasing indices; two binary searches on $[left,right]$ yield the count.
+
+<!-- thinking:end -->
+
 We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\textit{arr}$, adding the index corresponding to each value to the hash table.
 
 In the query function, we first check whether the given value exists in the hash table. If it does not exist, it means that the value does not exist in the array, so we directly return $0$. Otherwise, we get the index array $\textit{idx}$ corresponding to the value. Then we use binary search to find the first index $l$ that is greater than or equal to $\textit{left}$, and the first index $r$ that is greater than $\textit{right}$. Finally, we return $r - l$.

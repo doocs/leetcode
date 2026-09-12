@@ -74,6 +74,16 @@ The total cost is 3 + 2 + 6 + 7 = 18</pre>
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Entering a row or column costs that row/column fee. Any monotone path from start to home crosses the same set of rows and columns; detours only add cost.
+>
+> Sum those crossed row fees and column fees. The starting row/column is not paid (we do not enter it).
+
+<!-- thinking:end -->
+
 Let's assume the robot's initial position is $(x_0, y_0)$ and the home position is $(x_1, y_1)$.
 
 If $x_0 < x_1$, the robot needs to move down, passing through rows $[x_0 + 1, x_1]$, with a total cost of $\sum_{i = x_0 + 1}^{x_1} rowCosts[i]$. If $x_0 > x_1$, the robot needs to move up, passing through rows $[x_1, x_0 - 1]$, with a total cost of $\sum_{i = x_1}^{x_0 - 1} rowCosts[i]$. If $x_0 = x_1$, the robot doesn't need to move vertically, and the total cost is $0$.

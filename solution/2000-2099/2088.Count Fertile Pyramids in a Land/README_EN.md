@@ -89,6 +89,16 @@ The total number of plots is 7 + 6 = 13.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pyramid rests on three cells below, so height DP works. $mn \le 10^5$ forbids verifying every apex. $f[i][j]$ is the tallest pyramid peaked there (the cell itself is height $0$ and counts nothing).
+>
+> Bottom-up: a fertile interior cell gets $1+$ the min of the three below, and that height is added (size $h$ yields $h$ pyramids). Inverted pyramids use the same recurrence from the top, reusing $f$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

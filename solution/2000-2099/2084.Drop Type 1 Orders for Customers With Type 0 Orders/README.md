@@ -87,6 +87,16 @@ Orders table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有 0 类订单的顾客，其 1 类订单全部丢弃；其余顾客订单保留。先求出存在 0 类订单的顾客集合，再选「本身是 0 类，或不在该集合」。
+>
+> CTE 加 `NOT EXISTS` 表达该过滤。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -111,6 +121,16 @@ WHERE order_type = 0 OR NOT EXISTS (SELECT 1 FROM T AS t WHERE t.customer_id = o
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖子查询。自连接同一顾客的不同类型订单：若能连上 0 类，则当前 1 类应丢弃。保留「没有异型配对」或「配对那侧是 1 类」（意味着自己是 0 类）的行，再去重。
+>
+> 与方法一结果相同，改用 `LEFT JOIN`。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

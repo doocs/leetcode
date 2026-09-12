@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Windows have fixed length $2k+1$; incomplete edges stay $-1$. For $n \le 10^5$, slide a running sum.
+>
+> Add the right, drop the left, write the average at center $i-k$.
+
+<!-- thinking:end -->
+
 The length of a subarray with radius $k$ is $k \times 2 + 1$, so we can maintain a window of size $k \times 2 + 1$ and denote the sum of all elements in the window as $s$.
 
 We create an answer array $\textit{ans}$ of length $n$, initially setting each element to $-1$.

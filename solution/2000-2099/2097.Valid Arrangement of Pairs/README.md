@@ -85,6 +85,16 @@ end<sub>1</sub> = 1 == 1 = start<sub>2</sub>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数对首尾相接，即有向图的欧拉路径：边为 $(start \to end)$。$m \le 10^5$，Hierholzer 算法一次走完。起点取「出度比入度多 $1$」的点，否则任取。
+>
+> 后序将边加入答案再反转，得到合法排列。题面代码栏为空，思考按欧拉路径书写。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
