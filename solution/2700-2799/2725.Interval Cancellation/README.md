@@ -128,6 +128,16 @@ setTimeout(cancelFn, cancelTimeMs)
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要立即执行一次 $fn$，此后每隔 $t$ 毫秒再执行，并允许随时取消。只用 $setTimeout$ 递归预约，取消时要清掉下一拍，逻辑更绕。
+>
+> 先同步调用一次，再用 $setInterval$ 重复同一调用；返回的函数对同一句柄 $clearInterval$，即可停掉后续触发。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

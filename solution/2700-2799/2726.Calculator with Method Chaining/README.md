@@ -87,6 +87,16 @@ new Calculator(20).divide(0).getResult() // 20 / 0
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 计算器要在同一实例上连续加减乘除与幂运算，最后取出结果；除数为 $0$ 时抛出指定错误。每次运算若返回新对象，链式调用仍可用，但会丢失「一份状态」的语义。
+>
+> 内部保存当前值 $x$，每个运算更新 $x$ 并返回 $this$；$divide$ 在除数为 $0$ 时抛错。$getResult$ 读出 $x$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

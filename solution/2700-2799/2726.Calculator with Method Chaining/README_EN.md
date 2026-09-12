@@ -88,6 +88,16 @@ The error should be thrown because we cannot divide by zero.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The calculator must chain add, subtract, multiply, divide, and power on one instance and expose the result; division by zero throws a fixed error. Returning a new object each time would still chain, but would not keep a single piece of state.
+>
+> Store the running value $x$, update it in each method, and return $this$. $divide$ throws when the divisor is $0$. $getResult$ reads $x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

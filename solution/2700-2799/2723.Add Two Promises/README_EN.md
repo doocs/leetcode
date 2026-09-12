@@ -53,6 +53,16 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After both promises fulfill, return the sum of their numbers. $Promise.all$ plus a sum is correct but wraps an extra array.
+>
+> Awaiting the two promises in turn and adding the values is enough; the second is already in flight, so the wait is still the slower of the two.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

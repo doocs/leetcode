@@ -71,6 +71,16 @@ tags:
 
 ### 方法一：遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 判断对象或数组是否没有任何可枚举键。取 $Object.keys$ 再比长度可以得到答案，同时会先物化全部键。
+>
+> 用 $for\cdots in$ 一旦碰到第一个自有或继承的可枚举键即返回 $false$，否则为空。对 JSON 解析得到的普通对象与数组，这一遍历即为是否为空。
+
+<!-- thinking:end -->
+
 我们可以遍历对象或数组，如果遍历到了第一个元素，就返回 `false`，否则返回 `true`。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。
@@ -110,6 +120,14 @@ var isEmpty = function (obj) {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖遍历短路。直接比较 $Object.keys(obj).length$ 与 $0$，语义更直观，代价是先收集键名。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

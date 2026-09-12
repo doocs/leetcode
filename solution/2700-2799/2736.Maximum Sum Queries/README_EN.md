@@ -85,6 +85,16 @@ Therefore, we return&nbsp;<code node="[object Object]">[6,10,7]</code>.
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the maximum $nums1+nums2$ among points with $nums1\ge x$ and $nums2\ge y$. Both arrays have length $10^5$, so scanning every point per query is impossible.
+>
+> This is a two-dimensional dominance maximum. Process points and queries in decreasing first coordinate so that when $(x,y)$ arrives, every point with $nums1\ge x$ is already inserted. A Fenwick tree stores prefix maxima of the sums on reversed, discretized $nums2$, which answers $nums2\ge y$.
+
+<!-- thinking:end -->
+
 This problem belongs to the category of two-dimensional partial order problems.
 
 A two-dimensional partial order problem is defined as follows: given several pairs of points $(a_1, b_1)$, $(a_2, b_2)$, ..., $(a_n, b_n)$, and a defined partial order relation, now given a point $(a_i, b_i)$, we need to find the number/maximum value of point pairs $(a_j, b_j)$ that satisfy the partial order relation. That is:
@@ -413,6 +423,14 @@ function maximumSumQueries(nums1: number[], nums2: number[], queries: number[][]
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Monotonic Stack + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The Fenwick tree needs discretization and index reversal. After popping points in decreasing $nums1$, a monotonic stack keeps candidates in increasing $nums2$ and decreasing sum, dropping a smaller $nums2$ that is not better. A query binary-searches the first stack entry with $nums2\ge y$.
+
+<!-- thinking:end -->
 
 We process queries in descending order of their corresponding $x$ threshold.
 At the same time, we also sort number pairs in descending order of $\textit{nums1}[i]$.

@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return any element that is neither the minimum nor the maximum, or $-1$ if none exists. Sorting and taking a middle value works, but we only need to avoid the two extremes.
+>
+> Compute $mi$ and $mx$, then scan for the first value strictly between them.
+
+<!-- thinking:end -->
+
 First, we find the minimum and maximum values in the array, denoted as $mi$ and $mx$ respectively. Then, we traverse the array and find the first number that is not equal to $mi$ and not equal to $mx$, and return it.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

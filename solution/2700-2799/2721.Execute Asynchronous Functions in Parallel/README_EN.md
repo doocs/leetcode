@@ -85,6 +85,16 @@ The single function was resolved at 200ms with a value of 5.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The semantics match $Promise.all$: resolve with results in the original order, or reject on the first failure. Awaiting one by one would stretch the latency and hide an early rejection.
+>
+> Invoke every factory immediately and store its value at the matching index. A counter tracks fulfilled calls and resolves when it matches the length. Any rejection fails the outer promise; index writes keep the order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript
