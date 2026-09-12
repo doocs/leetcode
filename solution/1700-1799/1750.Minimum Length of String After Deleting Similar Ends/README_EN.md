@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Two pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes a nonempty prefix and suffix of the same character. Afterward the new ends may match again. Two pointers simulate every deletion.
+>
+> While the ends share a character and have not crossed, skip the whole run on both sides and step inward. The remainder is $\max(0,j-i+1)$.
+
+<!-- thinking:end -->
+
 We define two pointers $i$ and $j$ to point to the head and tail of the string $s$ respectively, then move them to the middle until the characters pointed to by $i$ and $j$ are not equal, then $\max(0, j - i + 1)$ is the answer.
 
 The time complexity is $O(n)$ and the space complexity is $O(1)$. Where $n$ is the length of the string $s$.

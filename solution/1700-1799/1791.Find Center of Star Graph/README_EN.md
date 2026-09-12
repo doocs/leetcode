@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Directly Compare the Points of the First Two Edges
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The star center is incident to every edge, so any two edges share it. No graph is needed.
+>
+> Whichever endpoint of the first edge also appears in the second edge is the center.
+
+<!-- thinking:end -->
+
 The characteristic of the center point is that it is connected to all other points. Therefore, as long as we compare the points of the first two edges, if there are the same points, then this point is the center point.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

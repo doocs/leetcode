@@ -76,6 +76,16 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A token expires at $\textit{currentTime}+\textit{timeToLive}$ after generate or renew. The operation count is modest, so a hash map of expiry times suffices.
+>
+> Generate writes an expiry; renew updates only if still valid; count scans how many expiries are still in the future.
+
+<!-- thinking:end -->
+
 We can simply maintain a hash table $d$, where the key is `tokenId` and the value is the expiration time.
 
 - During the `generate` operation, we store `tokenId` as the key and `currentTime + timeToLive` as the value in the hash table $d$.

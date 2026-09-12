@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The degree of a trio is the sum of the three vertex degrees minus $6$. The graph is small enough to enumerate triangles in $O(n^3)$.
+>
+> An adjacency matrix tests edges and $\textit{deg}$ stores degrees. For $i<j<k$ with all three edges, update $\textit{deg}[i]+\textit{deg}[j]+\textit{deg}[k]-6$. Return $-1$ if none exist.
+
+<!-- thinking:end -->
+
 We first store all edges in the adjacency matrix $\textit{g}$, and then store the degree of each node in the array $\textit{deg}$. Initialize the answer $\textit{ans} = +\infty$.
 
 Then enumerate all triplets $(i, j, k)$, where $i \lt j \lt k$. If $\textit{g}[i][j] = \textit{g}[j][k] = \textit{g}[i][k] = 1$, it means these three nodes form a connected trio. In this case, update the answer to $\textit{ans} = \min(\textit{ans}, \textit{deg}[i] + \textit{deg}[j] + \textit{deg}[k] - 6)$.

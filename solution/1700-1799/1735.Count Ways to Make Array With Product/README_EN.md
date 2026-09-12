@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Prime Factorization + Combinatorial Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query writes $k$ as a product of $n$ positive integers. Enumerating factorizations is too slow for many queries with $k\le 10^4$.
+>
+> After factoring $k$, exponents are independent: placing $x$ copies of a prime into $n$ possibly empty slots is $C_{x+n-1}^{n-1}$.
+>
+> Precompute factorials, inverse factorials, and exponent lists. Multiply the combinations for each exponent modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We can perform prime factorization on $k$, i.e., $k = p_1^{x_1} \times p_2^{x_2} \times \cdots \times p_m^{x_m}$, where $p_i$ is a prime number, and $x_i$ is the exponent of $p_i$. The problem is equivalent to: placing $x_1$ $p_1$s, $x_2$ $p_2$s, $\cdots$, $x_m$ $p_m$s into $n$ positions respectively, where a single position can be empty. The question is how many schemes are there.
 
 According to combinatorial mathematics, there are two cases when we put $x$ balls into $n$ boxes:

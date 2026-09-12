@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: Offline Query + Binary Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the maximum $x_i\oplus nums[j]$ among values $\le m_i$. Scanning the array per query is $O(nq)$ and fails for $n,q\le 10^5$.
+>
+> Queries are independent of one another and of the order of $nums$. Sorting by $m_i$ lets us insert eligible numbers monotonically into one structure.
+>
+> Sort $nums$ and insert values $\le m_i$ into a binary trie with a moving pointer. Walking opposite bits on the trie yields the maximum XOR; an empty trie answers $-1$.
+
+<!-- thinking:end -->
+
 From the problem description, we know that each query is independent and the result of the query is irrelevant to the order of elements in $nums$. Therefore, we consider sorting all queries in ascending order of $m_i$, and also sorting $nums$ in ascending order.
 
 Next, we use a binary trie to maintain the elements in $nums$. We use a pointer $j$ to record the current elements in the trie, initially $j=0$. For each query $[x_i, m_i]$, we continuously insert elements from $nums$ into the trie until $nums[j] > m_i$. At this point, we can query all elements not exceeding $m_i$ in the trie, and we take the XOR value of the element with the maximum XOR value with $x_i$ as the answer.

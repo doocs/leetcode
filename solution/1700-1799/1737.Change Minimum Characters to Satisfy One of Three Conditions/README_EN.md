@@ -70,6 +70,18 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three goals: every letter of $a$ strictly less than every letter of $b$, the opposite, or both strings made of one letter. The alphabet has $26$ letters, so we can enumerate the cut or the target letter.
+>
+> Count frequencies. For the third goal, try each letter $c$ and count letters that are not $c$. For the first two, try a cut $c$ and rewrite one string below $c$ and the other at or above $c$.
+>
+> The answer is the minimum of the three.
+
+<!-- thinking:end -->
+
 First, we count the number of occurrences of each letter in strings $a$ and $b$, denoted as $cnt_1$ and $cnt_2$.
 
 Then, we consider condition $3$, i.e., every letter in $a$ and $b$ is the same. We just need to enumerate the final letter $c$, and then count the number of letters in $a$ and $b$ that are not $c$. This is the number of characters that need to be changed.

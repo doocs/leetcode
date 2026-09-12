@@ -71,6 +71,16 @@ Products table:
 
 ### Solution 1: Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need product ids that are both low-fat and recyclable.
+>
+> Filter rows where both $\textit{low\_fats}$ and $\textit{recyclable}$ are $Y$, and project $\textit{product\_id}$.
+
+<!-- thinking:end -->
+
 We can directly filter the product IDs where `low_fats` is `Y` and `recyclable` is `Y`.
 
 <!-- tabs:start -->

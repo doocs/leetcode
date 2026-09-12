@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule key is one of $\textit{type}/\textit{color}/\textit{name}$, i.e. one of the three item fields. A single scan counts matches.
+>
+> Map the key's first letter to $0/1/2$ and count rows whose field equals $\textit{ruleValue}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

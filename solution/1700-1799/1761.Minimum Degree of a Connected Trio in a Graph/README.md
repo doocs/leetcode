@@ -69,6 +69,16 @@ tags:
 
 ### 方法一：暴力枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 连通三元组的度为三结点度数之和减 $6$。图规模允许 $O(n^3)$ 枚举三角形。
+>
+> 邻接矩阵判边、$\textit{deg}$ 存度数。枚举 $i<j<k$ 且三边都在时更新 $\textit{deg}[i]+\textit{deg}[j]+\textit{deg}[k]-6$。无三角形则返回 $-1$。
+
+<!-- thinking:end -->
+
 我们先将所有边存入邻接矩阵 $\textit{g}$ 中，再将每个节点的度数存入数组 $\textit{deg}$ 中。初始化答案 $\textit{ans}=+\infty$。
 
 然后枚举所有的三元组 $(i, j, k)$，其中 $i \lt j \lt k$，如果 $\textit{g}[i][j] = \textit{g}[j][k] = \textit{g}[i][k] = 1$，则说明这三个节点构成了一个连通三元组，此时更新答案为 $\textit{ans} = \min(\textit{ans}, \textit{deg}[i] + \textit{deg}[j] + \textit{deg}[k] - 6)$。

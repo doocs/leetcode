@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum absolute subarray sum is the larger of the maximum subarray sum and the absolute minimum subarray sum.
+>
+> Kadane tracks the best and worst sums $f,g$ ending here; the answer is the global max of $f$ and $|g|$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the maximum value of the subarray ending with $nums[i]$, and define $g[i]$ to represent the minimum value of the subarray ending with $nums[i]$. Then the state transition equation of $f[i]$ and $g[i]$ is as follows:
 
 $$

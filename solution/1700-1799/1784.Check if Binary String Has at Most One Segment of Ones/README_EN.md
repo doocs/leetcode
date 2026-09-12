@@ -52,6 +52,16 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string starts with $1$ and has no leading zeros. A second run of ones appears iff a $0$ is later followed by a $1$, i.e. the substring $01$ occurs.
+>
+> Testing for $01$ is enough; we need not count runs.
+
+<!-- thinking:end -->
+
 Since the string $s$ has no leading zeros, $s$ starts with `'1'`.
 
 If the string $s$ contains the substring `"01"`, then $s$ is of the form `"1...01..."`, which means $s$ has at least two separate segments of consecutive `'1'`s, violating the condition — return $\textit{false}$.

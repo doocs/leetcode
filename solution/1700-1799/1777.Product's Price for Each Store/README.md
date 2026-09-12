@@ -74,6 +74,16 @@ Products 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 行存「商品、店铺、价格」，要转成每个商品一行、三家店各一列。缺货店铺应为空。
+>
+> 按 $\textit{product\_id}$ 分组，用条件求和把三家店的价格摊到三列；$\mathrm{IF}$ 不匹配则贡献 $\mathrm{NULL}$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

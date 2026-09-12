@@ -84,6 +84,16 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Water cells must be height $0$, adjacent heights differ by at most $1$, and land should be as high as possible. The height is the distance to the nearest water.
+>
+> Multi-source BFS: enqueue every water cell at $0$, and set each unseen neighbour to the current height plus one. The distance field is the height map.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -307,6 +317,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 is the same multi-source BFS, popping an explicit layer size. The algorithm and complexity are unchanged.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

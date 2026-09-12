@@ -60,6 +60,16 @@ Notice that the vowel o is counted twice.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need to know whether the two halves contain the same number of vowels. The length is at most $1000$, so a single scan is enough.
+>
+> Keep vowels of both cases in a set and walk the two halves together: increment on a vowel in the left half and decrement on one in the right. The halves match if and only if the counter ends at zero.
+
+<!-- thinking:end -->
+
 Traverse the string. If the number of vowels in the first half of the string is equal to the number of vowels in the second half, return `true`. Otherwise, return `false`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(C)$, where $C$ is the number of vowel characters.

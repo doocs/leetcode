@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Hash Table + Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Popularity is the number of responses that mention a feature (once per response). Sort $\textit{features}$ by that count descending, stably.
+>
+> Dedup words in each response with a set, increment a counter, and sort by $-cnt[w]$ so ties keep the original order.
+
+<!-- thinking:end -->
+
 We traverse `responses`, and for each word in `responses[i]`, we temporarily store it in a hash table `vis`. Next, we record the words in `vis` into the hash table `cnt`, recording the number of times each word appears.
 
 Next, we use custom sorting to sort the words in `features` in descending order of occurrence. If the number of occurrences is the same, we sort them in ascending order of the index where they appear.

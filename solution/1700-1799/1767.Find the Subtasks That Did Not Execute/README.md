@@ -100,6 +100,16 @@ Task 3 被分成了 4 subtasks (1, 2, 3, 4)。所有的subtask都被成功执行
 
 ### 方法一：递归生成数据表 + 左连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个主任务声明了子任务个数，执行表只记录已跑过的子任务。需要列出缺失的 $(\textit{task\_id},\textit{subtask\_id})$。
+>
+> 递归 CTE 从 $\textit{subtasks\_count}$ 递减生成全部子任务编号，再左连 $\textit{Executed}$，保留右表为空的行。
+
+<!-- thinking:end -->
+
 我们可以通过递归生成一个数据表，该数据表包含了所有的（主任务，子任务）对，然后我们通过左连接找到没有被执行的（主任务，子任务）对。
 
 <!-- tabs:start -->

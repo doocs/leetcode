@@ -82,6 +82,18 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
 ### Solution 1: Case Analysis + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A ball is dropped from every top cell and boards steer it left or right. The grid is small enough to simulate each ball independently.
+>
+> A ball gets stuck in four cases: it is on the border and the board pushes it out, or two neighbouring boards form a $V$. Otherwise it slides diagonally to the next row.
+>
+> Let $\textit{dfs}(i,j)$ be the exit column from $(i,j)$: return $-1$ if stuck, otherwise recurse to $(i+1,j\pm 1)$. Reaching row $m$ returns the current column.
+
+<!-- thinking:end -->
+
 We can use DFS to simulate the movement of the ball. Design a function $\textit{dfs}(i, j)$, which represents the column where the ball will fall when it starts from row $i$ and column $j$. The ball will get stuck in the following cases:
 
 1. The ball is in the leftmost column, and the cell's diagonal directs the ball to the left.

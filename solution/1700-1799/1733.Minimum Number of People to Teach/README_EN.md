@@ -72,6 +72,18 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 
 ### Solution 1: Simulation + Statistics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may teach one language, and only friend pairs that currently cannot talk need help. Friendship is not transitive, so indirect links do not matter.
+>
+> Collect both endpoints of pairs whose language sets are disjoint; those people form the set $s$ we must consider.
+>
+> Count how many people in $s$ already know each language. Teaching the most frequent one costs $|s|$ minus that maximum.
+
+<!-- thinking:end -->
+
 For each friendship, if the sets of languages known by the two people do not intersect, we need to teach one language so that they can communicate. We add these people to a hash set $s$.
 
 Then, for each language, we count how many people in set $s$ know that language and find the maximum count, denoted as $mx$. The answer is $|s| - mx$, where $|s|$ is the size of set $s$.

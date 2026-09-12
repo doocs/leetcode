@@ -99,6 +99,16 @@ Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were execut
 
 ### Solution 1: Recursive Table Generation + Left Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each task states how many subtasks it has; the execution table lists only those that ran. We need the missing $(\textit{task\_id},\textit{subtask\_id})$ pairs.
+>
+> A recursive CTE counts down from $\textit{subtasks\_count}$ to $1$, then a left join to $\textit{Executed}$ keeps rows whose match is null.
+
+<!-- thinking:end -->
+
 We can generate a table recursively that contains all pairs of (parent task, child task), and then use a left join to find the pairs that have not been executed.
 
 <!-- tabs:start -->

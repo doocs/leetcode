@@ -78,6 +78,16 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 验证码在生成或续期后于 $\textit{currentTime}+\textit{timeToLive}$ 过期。操作次数有限，用哈希表存过期时刻即可。
+>
+> 生成直接写入；续期仅当尚未过期；计数则扫表统计过期时刻大于查询时刻的条目。
+
+<!-- thinking:end -->
+
 我们可以简单维护一个哈希表 $d$，键为 `tokenId`，值为过期时间。
 
 - `generate` 操作时，将 `tokenId` 作为键，`currentTime + timeToLive` 作为值存入哈希表 $d$ 中。

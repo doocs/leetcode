@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1: Math
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Week $k$ deposits one more each day than the previous week. Full weeks and the leftover days are arithmetic series. $n\le 1000$ allows a loop, but a closed form is immediate.
+>
+> There are $k=\lfloor n/7\rfloor$ full weeks starting from sum $28$ with difference $7$, and $b=n\bmod 7$ leftover days starting at $k+1$.
+>
+> Sum both arithmetic series.
+
+<!-- thinking:end -->
+
 According to the problem description, the deposit situation for each week is as follows:
 
 ```bash

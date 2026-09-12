@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The distance between two nodes is the sum of their depths from the LCA. Values are unique, so find the LCA then measure depths.
+>
+> $\textit{lca}$ returns on $p$, $q$, or null; both children nonempty marks the fork. DFS from that node to $p$ and to $q$ and add the depths.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -69,6 +69,16 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Capacity is measured in boxes, but the objective is units. Boxes of one type share the same unit count, so denser types should be taken first.
+>
+> Sort by units per box descending and load $\min(\textit{truckSize},\textit{count})$ of each type, decreasing remaining capacity until it is gone.
+
+<!-- thinking:end -->
+
 According to the problem, we should choose as many units as possible. Therefore, we first sort `boxTypes` in descending order of the number of units.
 
 Then we traverse `boxTypes` from front to back, choose up to `truckSize` boxes, and accumulate the number of units.
@@ -191,6 +201,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Counting Sort
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 spends $O(n\log n)$ on sorting. Units per box are at most $1000$, so a counting array can store box counts by that value.
+>
+> Scan from $1000$ down to $1$ and load in the same greedy order, now in linear time.
+
+<!-- thinking:end -->
 
 We can also use the idea of counting sort, create an array $cnt$ of length $1001$, where $cnt[b]$ represents the number of boxes with $b$ units.
 

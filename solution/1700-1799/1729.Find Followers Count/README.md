@@ -72,6 +72,16 @@ Followers 表：
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每行是一条关注关系，要按用户统计粉丝数并按 $\textit{user\_id}$ 排序。
+>
+> 对 $\textit{Followers}$ 按 $\textit{user\_id}$ 分组，$\mathrm{COUNT}$ 即粉丝数，再按第一列排序。
+
+<!-- thinking:end -->
+
 我们可以直接对 `Followers` 表按照 `user_id` 进行分组，然后使用 `COUNT` 函数统计每个用户的关注者数量即可。
 
 <!-- tabs:start -->

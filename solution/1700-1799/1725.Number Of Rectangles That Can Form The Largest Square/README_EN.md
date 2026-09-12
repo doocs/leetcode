@@ -61,6 +61,16 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest square from a rectangle has side $\min(l,w)$. We need how many rectangles attain the global maximum side.
+>
+> One scan keeps the current maximum $mx$ and its count: reset on a larger side, increment on a tie. A second pass is unnecessary.
+
+<!-- thinking:end -->
+
 We define a variable $ans$ to record the count of squares with the current maximum side length, and another variable $mx$ to record the current maximum side length.
 
 We traverse the array $rectangles$. For each rectangle $[l, w]$, we take $x = \min(l, w)$. If $mx < x$, it means we have found a larger side length, so we update $mx$ to $x$ and update $ans$ to $1$. If $mx = x$, it means we have found a side length equal to the current maximum side length, so we increase $ans$ by $1$.

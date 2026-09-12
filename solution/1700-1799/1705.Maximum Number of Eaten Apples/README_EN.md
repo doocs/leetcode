@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Greedy + Priority Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one apple may be eaten per day, and it must not have rotted. Eating long-lived apples first wastes those about to expire and reduces the total.
+>
+> Among still-edible apples, always eat the soonest to rot. That policy is a min-heap keyed by expiry.
+>
+> On day $i$, push any new batch as $(\textit{expiry},\textit{count})$. After dropping expired batches, eat one from the heap top and push the remainder back. Continue until both production and the heap are empty.
+
+<!-- thinking:end -->
+
 We can greedily choose the apples that are closest to rotting among the unrotten apples, so that we can eat as many apples as possible.
 
 Therefore, we can use a priority queue (min-heap) to store the rotting time of the apples and the corresponding number of apples. Each time, we take out the apples with the smallest rotting time from the priority queue, then decrement their quantity by one. If the quantity is not zero after decrementing, we put them back into the priority queue. If the apples have already rotted, we remove them from the priority queue.

@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one swap in $s1$ should equal $s2$. The strings may differ in $0$ places (already equal) or $2$ places (exactly those two swapped).
+>
+> Record up to two mismatch pairs: fail if there are more than two, or the second pair is not the reverse of the first. A single mismatch cannot be fixed by one swap.
+
+<!-- thinking:end -->
+
 We use a variable $cnt$ to record the number of characters at the same position in the two strings that are different. If the two strings meet the requirements of the problem, then $cnt$ must be $0$ or $2$. We also use two character variables $c1$ and $c2$ to record the characters that are different at the same position in the two strings.
 
 While traversing the two strings simultaneously, for two characters $a$ and $b$ at the same position, if $a \ne b$, then $cnt$ is incremented by $1$. If at this time $cnt$ is greater than $2$, or $cnt$ is $2$ and $a \ne c2$ or $b \ne c1$, then we directly return `false`. Note to record $c1$ and $c2$.

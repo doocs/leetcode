@@ -61,6 +61,16 @@ tags:
 
 ### 方法一：贪心
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 可向数组追加绝对值不超过 $\textit{limit}$ 的整数，使总和变为 $\textit{goal}$，追加个数尽量少。
+>
+> 差距 $d=|\sum nums-\textit{goal}|$ 每次最多缩小 $\textit{limit}$，最少次数为 $\lceil d/\textit{limit}\rceil$。
+
+<!-- thinking:end -->
+
 我们先计算数组元素总和 $s$，然后计算 $s$ 与 $goal$ 的差值 $d$。
 
 那么需要添加的元素数量为 $d$ 的绝对值除以 $limit$ 向上取整，即 $\lceil \frac{|d|}{limit} \rceil$。

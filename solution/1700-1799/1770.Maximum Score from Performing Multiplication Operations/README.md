@@ -76,6 +76,16 @@ tags:
 
 ### 方法一：记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次只能取 $nums$ 两端之一与 $\textit{multipliers}[k]$ 相乘。$m$ 次操作后 $nums$ 只动两端，状态可用「左取了几个、右取了几个」描述。
+>
+> 记忆化 $f(i,j,k)$：左指针 $i$、右指针 $j$、第 $k$ 个乘数。转移为取左或取右，边界是 $k=m$。状态数 $O(m^2)$。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $dfs(i, j)$，表示从 `nums` 数组头部第 $i$ 个元素开始，从 `nums` 数组尾部第 $j$ 个元素开始，能够获得的最大分数。那么答案就是 $dfs(0, 0)$。
 
 函数 $dfs(i, j)$ 的计算过程如下：
@@ -229,6 +239,14 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 <!-- solution:start -->
 
 ### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 将记忆化改成递推：$f[i][j]$ 表示取了前 $i$ 个与后 $j$ 个的最大得分，按 $i+j$ 递增填表，在 $i+j=m$ 处更新答案。避免递归，复杂度同为 $O(m^2)$。
+
+<!-- thinking:end -->
 
 我们可以将方法一中的记忆化搜索改写为动态规划的形式。
 

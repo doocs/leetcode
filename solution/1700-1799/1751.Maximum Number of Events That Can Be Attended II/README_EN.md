@@ -74,6 +74,16 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 ### Solution 1: Memoization + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Attend at most $k$ non-overlapping events for maximum total value. After sorting by start time, we take or skip the current event and binary-search the next feasible one.
+>
+> $\textit{dfs}(i,k)$ is the best from event $i$ with $k$ slots left. Skipping goes to $i+1$; taking binary-searches the first start after this end and adds the value. Memoize the states.
+
+<!-- thinking:end -->
+
 First, we sort the events by their start time in ascending order. Then, we define a function $\text{dfs}(i, k)$, which represents the maximum total value achievable by attending at most $k$ events starting from the $i$-th event. The answer is $\text{dfs}(0, k)$.
 
 The calculation process of the function $\text{dfs}(i, k)$ is as follows:
@@ -303,6 +313,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is memoized recursion. Sorting by end time lets us tabulate $f[i][j]$ as the best using the first $i$ events and $j$ slots, binary-searching the last non-conflicting event. Same complexity, no recursion stack.
+
+<!-- thinking:end -->
 
 We can convert the memoization approach in Solution 1 to dynamic programming.
 

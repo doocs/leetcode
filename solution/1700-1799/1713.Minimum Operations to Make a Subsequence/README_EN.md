@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Longest Increasing Subsequence + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The fewest insertions equal $|\textit{target}|$ minus the LCS length. Classic LCS is $O(mn)$ and both arrays can have length $10^5$.
+>
+> $\textit{target}$ has distinct values, so tokens of $arr$ that occur in $\textit{target}$ map to indices. The LCS becomes the LIS of that index sequence.
+>
+> A Fenwick tree stores the best LIS ending below the current index: query $x-1$, then update $x$. The answer is $m$ minus that LIS length.
+
+<!-- thinking:end -->
+
 According to the problem statement, the longer the common subsequence between `target` and `arr`, the fewer elements need to be added. Therefore, the minimum number of elements to be added equals the length of `target` minus the length of the longest common subsequence between `target` and `arr`.
 
 However, the time complexity of [finding the longest common subsequence](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md) is $O(m \times n)$, which cannot pass this problem. We need to change our approach.

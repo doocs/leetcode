@@ -73,6 +73,18 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each customer's wait depends on when the chef becomes free and when they arrive. Arrivals are already nondecreasing and the chef cooks in order, so we need not reorder—simulate in sequence.
+>
+> Keep the time $t$ when the previous dish finishes. For arrival $a$ and cook time $b$, work starts at $\max(t,a)$ and finishes at $\max(t,a)+b$, so the wait is that finish time minus $a$.
+>
+> Sum all waits and divide by the number of customers.
+
+<!-- thinking:end -->
+
 We use a variable `tot` to record the total waiting time of the customers, and a variable `t` to record the time when each customer's order is completed. The initial values of both are $0$.
 
 We traverse the customer array `customers`. For each customer:

@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid point shares the $x$ or the $y$ coordinate. We want the smallest index among those with minimal Manhattan distance. $n\le 10^4$ allows one scan.
+>
+> For each valid point compute $|a-x|+|b-y|$ and keep the best distance and index.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

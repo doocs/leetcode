@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Mathematical Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is a sum of distinct powers of three iff every ternary digit is $0$ or $1$—never $2$.
+>
+> Repeatedly inspect $n\bmod 3$; fail if the remainder exceeds $1$, otherwise divide by $3$ until $n$ is $0$.
+
+<!-- thinking:end -->
+
 We find that if a number $n$ can be expressed as the sum of several "different" powers of three, then in the ternary representation of $n$, each digit can only be $0$ or $1$.
 
 Therefore, we convert $n$ to ternary and then check whether each digit is $0$ or $1$. If not, then $n$ cannot be expressed as the sum of several powers of three, and we directly return $\textit{false}$; otherwise, $n$ can be expressed as the sum of several powers of three, and we return $\textit{true}$.

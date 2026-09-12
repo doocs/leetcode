@@ -72,6 +72,16 @@ The followers of 2 are {0,1}
 
 ### Solution 1: Grouping and Aggregation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is a follow edge. We need follower counts per user, ordered by $\textit{user\_id}$.
+>
+> Group $\textit{Followers}$ by $\textit{user\_id}$, $\mathrm{COUNT}$ the rows, and order by the first column.
+
+<!-- thinking:end -->
+
 We can directly group the `Followers` table by `user_id`, and use the `COUNT` function to count the number of followers for each user.
 
 <!-- tabs:start -->
