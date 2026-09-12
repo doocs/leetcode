@@ -73,6 +73,14 @@ tags:
 
 ### Solution 1: Enumeration + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples with $x\& y\& z=0$. $n\le 1000$, so three nested loops are tight. Enumerate the first two values and count each $x\& y$, then pair that mask with every $z$ and add the frequency when the AND is zero. The universe is smaller than $2^{16}$, so the table is affordable.
+
+<!-- thinking:end -->
+
 First, we enumerate any two numbers $x$ and $y$, and use a hash table or array $cnt$ to count the occurrences of their bitwise AND result $x \& y$.
 
 Then, we enumerate the bitwise AND result $xy$, and enumerate $z$. If $xy \& z = 0$, then we add the value of $cnt[xy]$ to the answer.

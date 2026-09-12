@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Append $val$ to the array that built this maximum tree and rebuild. If $val$ exceeds the root it becomes the new root with the old tree on the left; otherwise $val$ can only sit on the right spine. Recurse down the right child.
+
+<!-- thinking:end -->
+
 If $val$ is the maximum number, then make $val$ the new root node, and $root$ the left subtree of the new root node.
 
 If $val$ is not the maximum number, since $val$ is the last appended number, it must be on the right side of $root$. Therefore, we can insert $val$ as a new node into the right subtree of $root$.
@@ -282,6 +290,14 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 <!-- solution:start -->
 
 ### Solution 2: Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursion may follow the full height. Walk the right chain iteratively, stop at the first right child smaller than $val$, and hang the old right subtree on the new node's left, avoiding the call stack.
+
+<!-- thinking:end -->
 
 Search the right subtree, find the node where $curr.val \gt val \gt curr.right.val$, then create a new node $node$, point $node.left$ to $curr.right$, and then point $curr.right$ to $node$.
 

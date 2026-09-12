@@ -69,6 +69,14 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 
 ### 方法一：哈希表 + 有序集合（或二分查找）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> `set` 的时间戳严格递增，同一 key 的历史天然有序。`get` 要不超过给定时间戳的最近一次值，线性扫描在 $2\times 10^5$ 次调用下偏慢。按 key 存 $(timestamp,value)$ 列表，查询时二分上界即可。
+
+<!-- thinking:end -->
+
 我们可以用哈希表 $\textit{kvt}$ 记录键值对，其中键为字符串 $\textit{key}$，值为一个有序集合，集合中的每个元素为一个二元组 $(\textit{timestamp}, \textit{value})$，表示键 $\textit{key}$ 在时间戳 $\textit{timestamp}$ 时对应的值为 $\textit{value}$。
 
 当我们需要查询键 $\textit{key}$ 在时间戳 $\textit{timestamp}$ 时对应的值时，我们可以通过有序集合的方法找到最大的时间戳 $\textit{timestamp}'$，使得 $\textit{timestamp}' \leq \textit{timestamp}$，然后返回对应的值即可。

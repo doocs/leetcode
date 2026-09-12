@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The judge trusts nobody and is trusted by the other $n-1$ people. That is the unique node with out-degree $0$ and in-degree $n-1$. Two count arrays record trusts and trusted-by; after one pass over $trust$, scan every label.
+
+<!-- thinking:end -->
+
 We create two arrays $cnt1$ and $cnt2$ of length $n + 1$, representing the number of people each person trusts and the number of people who trust each person, respectively.
 
 Next, we traverse the array $trust$, for each item $[a_i, b_i]$, we increment $cnt1[a_i]$ and $cnt2[b_i]$ by $1$.

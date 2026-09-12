@@ -73,6 +73,14 @@ Flip nums[5],nums[6],nums[7]: nums becomes [1,1,1,1,1,1,1,1]
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move flips $k$ consecutive bits; we want the array all ones with as few moves as possible. $n\le 10^5$, so simulating flips is too slow. Greedily, if index $i$ is still $0$ after earlier flips, a new flip must start here. A difference array marks $[i,i+k)$ in $O(1)$.
+
+<!-- thinking:end -->
+
 We notice that the result of reversing several consecutive elements is independent of the order of the reversals. Therefore, we can greedily consider the number of reversals needed at each position.
 
 We can process the array from left to right.
@@ -236,6 +244,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The difference array uses linear extra space. A running parity plus a $-1$ mark at each flip start, xor-ed away when the window leaves, performs the same greedy in-place.
+
+<!-- thinking:end -->
 
 We can use a variable $\textit{flipped}$ to indicate whether the current position has been flipped. If $\textit{flipped} = 1$, it means the current position has already been flipped; otherwise, it means the current position has not been flipped. For positions that have been flipped, we can set their value to $-1$, allowing us to distinguish which positions have been flipped.
 

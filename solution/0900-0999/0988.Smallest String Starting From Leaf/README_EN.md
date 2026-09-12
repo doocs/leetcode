@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A leaf-to-root path is a string; we want the lexicographically smallest. At most $8500$ nodes, so every root-to-leaf path can be enumerated. DFS pushes letters, and at a leaf the reversed path is compared with the answer; then the letter is popped.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

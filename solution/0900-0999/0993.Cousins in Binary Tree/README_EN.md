@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cousins share a depth and have different parents. Level-order the tree while carrying the parent; when $x$ or $y$ appears, record parent and depth, then compare after the walk.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -277,6 +285,14 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS proceeds layer by layer. DFS works as well: pass the parent and depth, record them for $x$ and $y$, and test the cousin condition.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

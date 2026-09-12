@@ -68,6 +68,14 @@ tags:
 
 ### 方法一：逆向计算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只能对当前值乘 $2$ 或减 $1$，从 $\textit{startValue}$ 变到 $\textit{target}$，次数最少。两数可达 $10^9$，正向搜索空间过大。倒推时偶数必除以 $2$，奇数只可能由减一的逆运算（加一）而来，直到不大于起点，再补上减法次数。
+
+<!-- thinking:end -->
+
 我们可以采用逆向计算的方式，从 $\textit{target}$ 开始，如果 $\textit{target}$ 是奇数，那么 $\textit{target} = \textit{target} + 1$，否则 $\textit{target} = \textit{target} / 2$，累加操作次数，直到 $\textit{target} \leq \textit{startValue}$，此时的操作次数加上 $\textit{startValue} - \textit{target}$ 即为最终结果。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为 $\textit{target}$。空间复杂度 $O(1)$。

@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add $k$ to an integer stored as an array of digits, including carries. From the least digit, add $k$ into the current place, keep the carry by division, and continue until both the array and $k$ are exhausted. Digits come out low to high and are reversed at the end.
+
+<!-- thinking:end -->
+
 We can start from the last digit of the array and add each digit of the array to $k$. Then, divide $k$ by $10$, and use the remainder as the current digit's value, with the quotient as the carry. Continue this process until the array is fully traversed and $k = 0$. Finally, reverse the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of $\textit{num}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.

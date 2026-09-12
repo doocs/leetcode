@@ -61,6 +61,14 @@ There is no way to assign the variables to satisfy both equations.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A set of $a==b$ / $a!=b$ equations must be simultaneously possible. Equality is transitive, so those edges should be united first. Union-find merges every `==`, then each `!=` is checked; if both sides share a component, the system is impossible.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

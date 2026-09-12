@@ -82,6 +82,14 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 
 ### Solution 1: DFS + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Report nodes left to right by column, and within a column by row then value. DFS records $(col,row,val)$; one sort groups them in the required order.
+
+<!-- thinking:end -->
+
 We design a function $dfs(root, i, j)$, where $i$ and $j$ represent the row and column of the current node. We can record the row and column information of the nodes through depth-first search, store it in an array or list $nodes$, and then sort $nodes$ in the order of column, row, and value.
 
 Next, we traverse $nodes$, putting the values of nodes in the same column into the same list, and finally return these lists.
@@ -309,6 +317,14 @@ function verticalTraversal(root: TreeNode | null): number[][] {
 <!-- solution:start -->
 
 ### Solution 2：BFS + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS still sorts by column, row, and value afterwards. BFS already visits in row order, so we bucket by column and sort each bucket by $(row,val)$. A deque grows new columns on either end so column indices need not be shifted.
+
+<!-- thinking:end -->
 
 We perform a breadth-first search (BFS) on the tree.
 
