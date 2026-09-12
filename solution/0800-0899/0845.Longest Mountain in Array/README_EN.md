@@ -71,7 +71,7 @@ tags:
 
 <!-- solution:start -->
 
-## Solution 1: Preprocessing + Enumeration
+### Solution 1: Preprocessing + Enumeration
 
 <!-- thinking:start -->
 
@@ -227,7 +227,7 @@ function longestMountain(arr: number[]): number {
 
 <!-- solution:start -->
 
-## Solution 2: One Pass (Enumerate Left Base of Mountain)
+### Solution 2: One Pass (Enumerate Left Base of Mountain)
 
 <!-- thinking:start -->
 
