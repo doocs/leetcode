@@ -115,6 +115,18 @@ content_id 是这张表的唯一主键。
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在 I 的按词首字母大写之外，连字符分隔的每一段也要单独首字母大写。
+>
+> 先按空格切词；词内若含 `-`，再按 `-` 切段并分别 $\textit{capitalize}$。
+>
+> 这样 `foo-bar` 变为 `Foo-Bar`，其余规则与 I 相同。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Pandas

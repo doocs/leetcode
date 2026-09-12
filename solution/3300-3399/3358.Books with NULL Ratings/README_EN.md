@@ -89,6 +89,16 @@ The result is ordered by book_id in ascending order</div>
 
 ### Solution 1: Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We list books whose rating is missing, ordered by $\textit{book\_id}$, and keep only the requested columns.
+>
+> Filter with $\textit{isnull}$ on $\textit{rating}$, select the four columns, and sort. No join or aggregation is required.
+
+<!-- thinking:end -->
+
 We directly filter out books where `rating` is `NULL`, then sort them in ascending order by `book_id`.
 
 Note that the result set should only include the fields `book_id`, `title`, `author`, and `published_year`.

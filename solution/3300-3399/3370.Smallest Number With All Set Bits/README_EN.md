@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the smallest number of the form $2^p-1$ that is at least $n$. With $n \le 1000$ we shift until $2^p>n$.
+>
+> Start from $x=1$ and left-shift while $x-1<n$; then $x-1$ is all ones.
+
+<!-- thinking:end -->
+
 We start with $x = 1$ and continuously left shift $x$ until $x - 1 \geq n$. At this point, $x - 1$ is the answer we are looking for.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.

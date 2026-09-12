@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Problem Transformation + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The problem matches part I, but $n \le 2 \times 10^5$, so enumerating substrings is no longer viable.
+>
+> We still express “exactly $k$ consonants” as $f(k)-f(k+1)$. Both thresholds are monotone, so a sliding window stays linear.
+>
+> A map of the five vowels and a consonant counter $x$ are the same as in part I; the total cost is $O(n)$.
+
+<!-- thinking:end -->
+
 We can transform the problem into solving the following two subproblems:
 
 1. Find the total number of substrings where each vowel appears at least once and contains at least $k$ consonants, denoted as $\textit{f}(k)$;

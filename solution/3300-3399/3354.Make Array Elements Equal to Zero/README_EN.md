@@ -99,6 +99,18 @@ tags:
 
 ### Solution 1: Enumeration + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Starting from a $0$, we decrement the next positive value and turn around. We count starts and directions that clear the array. A linear pass over every $0$ is enough.
+>
+> The process succeeds when the two sides match: equal sums allow either direction; a difference of $1$ allows only the larger side first.
+>
+> A prefix $l$ and the total $s$ test every $0$ without simulating the walk.
+
+<!-- thinking:end -->
+
 Suppose we initially move to the left and encounter a non-zero element. In that case, we need to decrement this element by one, then change the direction of movement and continue moving.
 
 Therefore, we can maintain the sum of elements to the left of each zero-value element as $l$, and the sum of elements to the right as $s - l$. If $l = s - l$, meaning the sum of elements on the left equals the sum of elements on the right, we can choose the current zero-value element and move either left or right, adding $2$ to the answer. If $|l - (s - l)| = 1$, and the sum of elements on the left is greater, we can choose the current zero-value element and move left, adding $1$ to the answer. If the sum of elements on the right is greater, we can choose the current zero-value element and move right, adding $1$ to the answer.

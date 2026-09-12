@@ -81,6 +81,18 @@ tags:
 
 ### 方法一：一次遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在 I 的判定之外，要求最大的 $k$。$n \le 2 \times 10^5$，必须在同一次断裂扫描中维护答案。
+>
+> 候选仍是「单段对半切」与「两段取短」，与 I 相同，只是把判定改成取最大。
+>
+> 扫描结束时的 $\textit{ans}$ 即为所求 $k$。
+
+<!-- thinking:end -->
+
 我们可以使用一次遍历来计算最大的相邻递增子数组长度 $\textit{ans}$。具体地，我们维护三个变量 $\textit{cur}$ 和 $\textit{pre}$ 分别表示当前递增子数组和上一个递增子数组的长度，而 $\textit{ans}$ 表示最大的相邻递增子数组长度。
 
 每当遇到一个非递增的位置时，我们就更新 $\textit{ans}$，将 $\textit{cur}$ 赋值给 $\textit{pre}$，并将 $\textit{cur}$ 重置为 $0$。更新 $\textit{ans}$ 的公式为 $\textit{ans} = \max(\textit{ans}, \lfloor \frac{\textit{cur}}{2} \rfloor, \min(\textit{pre}, \textit{cur}))$，表示相邻递增子数组要么来自当前递增子数组长度的一半，要么来自前一个递增子数组和当前递增子数组的较小值。

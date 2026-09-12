@@ -122,6 +122,18 @@ tags:
 
 ### Solution 1: Fast Matrix Exponentiation to Accelerate Recurrence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, $t \le 10^9$ and each letter expands into the next $\textit{nums}[i]$ letters. We cannot walk $t$ steps one by one.
+>
+> One step on the count vector is a fixed $26 \times 26$ matrix: row $i$ has ones on $[i+1, i+\textit{nums}[i]]$ modulo $26$.
+>
+> Fast exponentiation of that matrix, left-multiplied by the initial counts, yields the final length as the sum of the resulting vector.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of times the $j$-th letter appears in the alphabet after $i$ transformations. Initially, $f[0][j]$ corresponds to the frequency of the $j$-th letter in the input string $s$.
 
 Since the frequency of each letter after a transformation affects the next transformation, and the total number of transformations $t$ can be large, we can accelerate this recurrence process using fast matrix exponentiation.

@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice held at most one key, so the original string is either $\textit{word}$ itself or $\textit{word}$ with one run shortened by one.
+>
+> With $n \le 100$ we only need adjacent equal pairs. Each such pair is a place where a long press could have been shorter.
+>
+> The answer is one plus the number of adjacent equal pairs.
+
+<!-- thinking:end -->
+
 According to the problem description, if all adjacent characters are different, there is only 1 possible original input string. If there is 1 pair of adjacent identical characters, such as "abbc", then there are 2 possible original strings: "abc" and "abbc".
 
 By analogy, if there are $k$ pairs of adjacent identical characters, then there are $k + 1$ possible original input strings.

@@ -95,6 +95,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $s$ and $t$ into $k$ equal blocks and ask whether the multisets match. With $n \le 2 \times 10^5$ a counter is enough.
+>
+> Add one for each block of $s$ and subtract one for each block of $t$; all counts must finish at $0$.
+>
+> The input already makes $s$ and $t$ anagrams, so only the block multisets matter.
+
+<!-- thinking:end -->
+
 Let the length of the string $s$ be $n$, then the length of each substring is $m = n / k$.
 
 We use a hash table $\textit{cnt}$ to record the difference between the number of occurrences of each substring of length $m$ in string $s$ and in string $t$.

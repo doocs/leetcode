@@ -95,6 +95,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three children walk $n-1$ steps and meet. The child from $(0,0)$ is forced onto the main diagonal; the other two stay strictly above or below it, so rooms do not overlap.
+>
+> Diagonal fruits are summed as is. The two triangles have their own DP: $f[i][j]$ takes the best of the three incoming cells and adds $\textit{fruits}[i][j]$.
+>
+> They stop on the cells before the corner, so the answer is the diagonal sum plus $f[n-2][n-1]$ and $f[n-1][n-2]$.
+
+<!-- thinking:end -->
+
 According to the problem description, for the child starting from $(0, 0)$ to reach $(n - 1, n - 1)$ in exactly $n - 1$ steps, they can only move through the rooms on the main diagonal $(i, i)$, where $i = 0, 1, \ldots, n - 1$. The child starting from $(0, n - 1)$ can only move through rooms above the main diagonal, while the child starting from $(n - 1, 0)$ can only move through rooms below the main diagonal. This means that except for reaching the destination at $(n - 1, n - 1)$, no other rooms will be visited by multiple children.
 
 We can use dynamic programming to calculate the number of fruits that the children starting from $(0, n - 1)$ and $(n - 1, 0)$ can collect when reaching $(i, j)$. Define $f[i][j]$ as the number of fruits a child can collect when reaching $(i, j)$.

@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Crystals already light their reachable set. We want the fewest extra runes from a lit node that light the whole digraph. With $n \le 10^5$ we first BFS the lit closure.
+>
+> The remaining nodes are processed in reverse DFS finishing order, i.e. sources of the residual DAG first.
+>
+> Each still-dark node in that order needs one new rune; a BFS then extends the closure. Every added edge therefore covers a new residual source.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

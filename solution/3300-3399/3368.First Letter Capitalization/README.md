@@ -111,6 +111,16 @@ content_id 是这张表的唯一主键。
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把每个单词的首字母大写、其余小写。按空格切分后对每个词调用 $\textit{capitalize}$，再拼回即可。
+>
+> 空格分隔的连续空段应保持，因此用 $\textit{split}(\texttt{' '})$ 而不是默认的任意空白切分。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

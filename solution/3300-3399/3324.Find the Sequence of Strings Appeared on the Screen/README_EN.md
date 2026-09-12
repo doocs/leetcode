@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The screen starts empty; each key appends a letter or advances the last one. With $|\textit{target}| \le 400$, we can simulate letter by letter.
+>
+> For each target character we append $\texttt{a}$, then $\texttt{b}$, and so on onto the current prefix until that character appears. Every intermediate string is part of the required sequence.
+>
+> No search over keypresses is needed: walking $\textit{ascii\_lowercase}$ up to the target letter records every screen state.
+
+<!-- thinking:end -->
+
 We can simulate Alice's typing process, starting from an empty string and updating the string after each keystroke until the target string is obtained.
 
 The time complexity is $O(n^2 \times |\Sigma|)$, where $n$ is the length of the target string and $\Sigma$ is the character set, which in this case is the set of lowercase letters, so $|\Sigma| = 26$.

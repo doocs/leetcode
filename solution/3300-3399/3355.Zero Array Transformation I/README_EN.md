@@ -100,6 +100,18 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query covers $[l,r]$ once; we ask whether the queries can reduce $\textit{nums}$ to zero. With $n,m \le 10^5$ we cannot apply queries one by one.
+>
+> Coverage is a range add: $+1$ at $l$ and $-1$ at $r+1$. The prefix sum is the coverage of each index.
+>
+> If $\textit{nums}[i]$ exceeds that coverage, the array cannot become zero.
+
+<!-- thinking:end -->
+
 We can use a difference array to solve this problem.
 
 Define an array $d$ of length $n + 1$, with all initial values set to $0$. For each query $[l, r]$, we add $1$ to $d[l]$ and subtract $1$ from $d[r + 1]$.

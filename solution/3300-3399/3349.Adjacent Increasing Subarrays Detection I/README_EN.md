@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether two adjacent strictly increasing segments of length $k$ exist. With $n \le 100$ we could try every start; one pass also yields the largest feasible $k$.
+>
+> The two segments either split one long increasing run ($\lfloor \textit{cur}/2 \rfloor$) or sit on two neighboring runs ($\min(\textit{pre},\textit{cur})$).
+>
+> At each break we update both candidates and finally test whether the maximum is at least $k$.
+
+<!-- thinking:end -->
+
 According to the problem description, we only need to find the maximum length of adjacent increasing subarrays $\textit{mx}$. If $\textit{mx} \ge k$, then there exist two adjacent strictly increasing subarrays of length $k$.
 
 We can use a single pass to calculate $\textit{mx}$. Specifically, we maintain three variables: $\textit{cur}$ and $\textit{pre}$ represent the length of the current increasing subarray and the previous increasing subarray respectively, while $\textit{mx}$ represents the maximum length of adjacent increasing subarrays.

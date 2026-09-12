@@ -96,6 +96,18 @@ tags:
 
 ### Solution 1: Preprocessing + Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the $q$-th GCD in the sorted list of all unordered pairs. With $n \le 10^5$ we cannot enumerate pairs.
+>
+> Count pairs whose GCD is a multiple of $i$ as $v(v-1)/2$, then subtract $\textit{cntG}[2i],\textit{cntG}[3i],\ldots$ from large $i$ down to small $i$, which isolates pairs whose GCD is exactly $i$.
+>
+> Prefix sums of $\textit{cntG}$ let each query binary-search the first index that exceeds $q$.
+
+<!-- thinking:end -->
+
 We can preprocess to obtain the occurrence count of the greatest common divisor (GCD) of all pairs in the array $\textit{nums}$, recorded in the array $\textit{cntG}$. Then, we calculate the prefix sum of the array $\textit{cntG}$. Finally, for each query, we can use binary search to find the index of the first element in the array $\textit{cntG}$ that is greater than $\textit{queries}[i]$, which is the answer.
 
 Let $\textit{mx}$ denote the maximum value in the array $\textit{nums}$, and let $\textit{cnt}$ record the occurrence count of each number in the array $\textit{nums}$. Let $\textit{cntG}[i]$ denote the number of pairs in the array $\textit{nums}$ whose GCD is equal to $i$. To calculate $\textit{cntG}[i]$, we can follow these steps:

@@ -77,6 +77,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation appends a copy of the current word with every letter shifted by one, doubling the length. Since $k \le 500$, we can simulate until the length is at least $k$.
+>
+> Storing offsets in $0..25$ avoids building strings: the appended half is the old half plus one, modulo $26$.
+>
+> The answer is the letter at index $k-1$ once the array is long enough.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{word}$ to store the string after each operation. When the length of $\textit{word}$ is less than $k$, we continuously perform operations on $\textit{word}$.
 
 Finally, return $\textit{word}[k - 1]$.

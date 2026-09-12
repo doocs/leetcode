@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count substrings in which some character appears at least $k$ times. With $n \le 3000$ a double scan works, but the condition is monotone enough for a linear window.
+>
+> Once a window contains $k$ copies of a letter, every longer window to the left is still valid. We therefore keep the longest suffix of the prefix whose counts all stay below $k$.
+>
+> After adding $c$, if its count reaches $k$ we advance $l$ until every count is again below $k$. Every start in $[0, l)$ is then valid, so we add $l$.
+
+<!-- thinking:end -->
+
 We can enumerate the right endpoint of the substring, and then use a sliding window to maintain the left endpoint of the substring, ensuring that the occurrence count of each character in the sliding window is less than $k$.
 
 We can use an array $\textit{cnt}$ to maintain the occurrence count of each character in the sliding window, then use a variable $\textit{l}$ to maintain the left endpoint of the sliding window, and use a variable $\textit{ans}$ to maintain the answer.

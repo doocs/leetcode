@@ -134,6 +134,18 @@ Each row of this table contains the state name and the city name within that sta
 
 ### Solution 1: Group Aggregation + Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must list cities per state, count how many city names share the state's initial, and keep states with at least three cities and a positive match count.
+>
+> Those figures are group aggregates: a sorted join, a boolean sum, and a count. A match flag plus $\textit{groupby}$ computes them in one pass.
+>
+> After the filter we sort by match count descending and state name ascending, and drop the helper city-count column.
+
+<!-- thinking:end -->
+
 We can group the `cities` table by the `state` field, then apply filtering on each group to retain only the groups that meet the specified conditions.
 
 <!-- tabs:start -->

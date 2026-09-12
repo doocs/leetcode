@@ -112,6 +112,18 @@ tags:
 
 ### 方法一：贪心 + 双指针
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需在 $\textit{word1}$ 中选出下标序列匹配 $\textit{word2}$，至多改一处，且字典序最小。$|\textit{word1}| \le 3 \times 10^5$，枚举修改位置再做子序列匹配代价过高。
+>
+> 字典序最小意味着能匹配则应立刻取更靠左的下标。难点在于：当前失配时，是否应消耗唯一的修改机会。
+>
+> 为此先从右往左算出 $\textit{suf}[i]$，表示从 $i$ 出发还能匹配 $\textit{word2}$ 的起始位置。从左扫描时，相等则收下标；否则仅当尚未修改且 $\textit{suf}[i+1] \le j+1$ 时才改这一位，保证后缀仍能补齐。
+
+<!-- thinking:end -->
+
 我们先用双指针从右到左预处理出一个后缀数组 $\textit{suf}$，其中 $\textit{suf}[i]$ 表示 $\textit{word2}$ 的一个起始下标，使得 $\textit{word2}[\textit{suf}[i]:]$ 是 $\textit{word1}[i:]$ 的子序列。具体地，我们用指针 $j$ 指向 $\textit{word2}$ 中待匹配的最前一个字符，初始时 $j = n - 1$，并且 $\textit{suf}[m] = n$。从 $i = m - 1$ 开始从右往左遍历 $\textit{word1}$，如果 $j \ge 0$ 且 $\textit{word1}[i] = \textit{word2}[j]$，说明 $\textit{word2}[j]$ 可以被匹配，我们将 $j$ 减一，然后令 $\textit{suf}[i] = j + 1$。
 
 接下来从左到右遍历 $\textit{word1}$，用指针 $j$ 表示当前需要匹配 $\textit{word2}$ 的第 $j$ 个字符（初始时 $j = 0$），用一个变量 $\textit{changed}$ 记录是否已经修改过一个字符。对于每个下标 $i$ 对应的字符 $c$：

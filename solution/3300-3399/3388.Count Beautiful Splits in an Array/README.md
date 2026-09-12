@@ -82,6 +82,18 @@ tags:
 
 ### 方法一：LCP + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把数组切成三段，要求第一段是第二段的前缀，或第二段是第三段的前缀。$n \le 5000$，枚举两个切点为 $O(n^2)$，但每次朴素比较前缀会再乘线性。
+>
+> 预处理 $\textit{lcp}[i][j]$ 为两个后缀的最长公共前缀，倒序由 $\textit{lcp}[i+1][j+1]$ 递推，之后比较变为 $O(1)$。
+>
+> 对切点 $(i,j)$ 检查 $\textit{lcp}[0][i] \ge i$ 或 $\textit{lcp}[i][j] \ge j-i$（并满足长度不超过后段）。
+
+<!-- thinking:end -->
+
 我们可以预处理 $\text{LCP}[i][j]$ 表示 $\textit{nums}[i:]$ 和 $\textit{nums}[j:]$ 的最长公共前缀长度。初始时 $\text{LCP}[i][j] = 0$。
 
 接下来，我们倒序枚举 $i$ 和 $j$，对于每一对 $i$ 和 $j$，如果 $\textit{nums}[i] = \textit{nums}[j]$，那么我们可以得到 $\text{LCP}[i][j] = \text{LCP}[i + 1][j + 1] + 1$。

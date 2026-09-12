@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter may move forward or backward around the alphabet with costs $\textit{nextCost}$ and $\textit{previousCost}$. With $n \le 10^5$ both directions must be $O(1)$ per character.
+>
+> Duplicating the cost arrays and taking prefix sums lets us read any circular arc.
+>
+> The forward cost is $s1[y]-s1[x]$ (adding $26$ to $y$ when needed); the backward cost is symmetric. We add the smaller of the two.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node may be reattached under its nearest ancestor with the same letter. With $n \le 10^5$ we should not rebuild the edge list and then recount subtrees.
+>
+> One DFS is enough: stacks $\textit{d}[c]$ store ancestors of letter $c$. Before returning, we add the current subtree size to the previous same-letter ancestor if it exists, otherwise to the parent.
+>
+> Post-order ensures $\textit{ans}[i]$ already includes every descendant; popping the stack restores the ancestor chain.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

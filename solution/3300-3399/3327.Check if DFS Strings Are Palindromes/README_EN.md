@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1: DFS + String Hashing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $\textit{dfsStr}$ of a subtree is a contiguous segment, and we must test whether it is a palindrome. With $n \le 10^5$ we cannot rescan the string at every node.
+>
+> One DFS writes the whole-tree $\textit{dfsStr}$ and records the interval $[l, r]$ of each node.
+>
+> Hashes of the string and of its reverse let us compare the first half of $[l, r]$ with the corresponding half of the reverse in $O(1)$, which decides palindromicity.
+
+<!-- thinking:end -->
+
 We can use Depth-First Search (DFS) to traverse the tree and compute the entire $\textit{dfsStr}$, while also determining the interval $[l, r]$ for each node.
 
 Then, we use string hashing to compute the hash values of both $\textit{dfsStr}$ and the reverse of $\textit{dfsStr}$ to check if it is a palindrome.

@@ -90,6 +90,16 @@ book_id 是这张表的唯一主键。
 
 ### 方法一：条件筛选
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只需列出评分缺失的书，并按 $\textit{book\_id}$ 升序输出指定列。
+>
+> 用 $\textit{isnull}$ 过滤 $\textit{rating}$，再选取四列排序即可，无需连接或聚合。
+
+<!-- thinking:end -->
+
 我们直接筛选出 `rating` 为 `NULL` 的书籍，然后按照 `book_id` 升序排序即可。
 
 注意，结果集中只包含 `book_id`、`title`、`author` 和 `published_year` 四个字段。

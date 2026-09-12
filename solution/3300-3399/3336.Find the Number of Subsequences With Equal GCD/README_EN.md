@@ -103,6 +103,18 @@ tags:
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count pairs of disjoint subsequences with equal GCD. With $n,M \le 200$, memoizing on index and the two running GCDs has about $n M^2$ states.
+>
+> Each value is skipped, folded into the first GCD, or folded into the second; an empty subsequence has GCD $0$.
+>
+> A finished state is valid when the two GCDs are equal. The initial call includes two empty subsequences, so we subtract $1$ before reducing modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}(i, j, k)$ as the number of ways when considering elements with indices $0 \sim i$, where the current GCD of the first subsequence is $j$ and that of the second subsequence is $k$. By convention, the GCD of an empty subsequence is $0$, and $\gcd(x, 0) = x$.
 
 For the element at index $i$, there are three choices:
@@ -294,6 +306,18 @@ function subsequencePairCount(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memoized recursion pays for call depth and a three-dimensional cache. The same transitions fit a rolling table: a new $g$ receives the three choices for $x$.
+>
+> Space drops from $O(n M^2)$ to $O(M^2)$ and there is no recursion. The answer is still the diagonal sum minus one.
+>
+> Skipping zero cells in $f$ further reduces the practical constant.
+
+<!-- thinking:end -->
 
 We can convert the memoization in Solution 1 into an iterative DP.
 

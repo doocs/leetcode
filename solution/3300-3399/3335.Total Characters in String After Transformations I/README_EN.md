@@ -112,6 +112,18 @@ tags:
 
 ### Solution 1: Recurrence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step shifts a letter forward, and $\texttt{z}$ becomes $\texttt{ab}$. With $t \le 10^5$ we cannot rewrite the string.
+>
+> Only the $26$ letter counts matter. $f[i][j]$ is the count of letter $j$ after $i$ steps: $\texttt{z}$ feeds $\texttt{a}$ and $\texttt{b}$, and every other letter comes from the previous one.
+>
+> The answer is the sum of $f[t]$, taken modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the count of the $j$-th letter in the alphabet after $i$ transformations. Initially, $f[0][j]$ is the count of the $j$-th letter in the string $s$.
 
 After each transformation, the count of the $j$-th letter in the alphabet can be calculated as follows:

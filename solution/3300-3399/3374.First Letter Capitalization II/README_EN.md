@@ -121,6 +121,18 @@ Each row contains a unique ID and the corresponding text content.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides capitalizing words as in part I, each hyphen-separated piece must be capitalized on its own.
+>
+> Split on spaces; if a token contains `-`, split again and $\textit{capitalize}$ each piece.
+>
+> Thus `foo-bar` becomes `Foo-Bar`, and the rest follows part I.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Pandas

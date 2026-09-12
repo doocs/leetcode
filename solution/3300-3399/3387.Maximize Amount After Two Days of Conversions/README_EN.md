@@ -118,6 +118,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two days use two rate graphs; we may convert freely and want the most of the starting currency back. The currency set is tiny, so a DFS from the start yields the best amount of every currency that day.
+>
+> Each rate is bidirectional with $r$ and $1/r$. The input has no arbitrage cycle, so one traversal is the maximum multiplier from the start.
+>
+> Day one produces $d1[a]$; day two converts $a$ back with $1/d2[a]$. The answer is the maximum of $d1[a]/d2[a]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

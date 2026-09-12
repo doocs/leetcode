@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is ordinary values, their sum, and one outlier. With $n \le 10^5$ we try each outlier in $O(1)$.
+>
+> Let the total be $s$. If $x$ is the outlier, $s-x$ is even and $(s-x)/2$ must appear among the remaining elements as the sum.
+>
+> A frequency map checks that case; if the sum equals $x$ we need two copies. We keep the largest valid $x$.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to record the frequency of each element in the array $\textit{nums}$.
 
 Next, we enumerate each element $x$ in the array $\textit{nums}$ as a possible outlier. For each $x$, we calculate the sum $t$ of all elements in the array $\textit{nums}$ except $x$. If $t$ is not even, or half of $t$ is not in $\textit{cnt}$, then $x$ does not meet the condition, and we skip this $x$. Otherwise, if $x$ is not equal to half of $t$, or $x$ appears more than once in $\textit{cnt}$, then $x$ is a possible outlier, and we update the answer.

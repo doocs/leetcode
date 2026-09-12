@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deletions every degree is at most $k$, and we want the maximum remaining weight. With $n \le 10^5$ this is a tree DP.
+>
+> Each subtree returns two values: the best score when the parent edge is free (up to $k$ child edges) and when the parent edge already uses one slot (up to $k-1$).
+>
+> A child edge is worth keeping when $w+b-a>0$; we take the largest such gains. The root answer is the better of its two values.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

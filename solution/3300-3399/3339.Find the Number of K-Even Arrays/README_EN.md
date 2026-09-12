@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count length-$n$ arrays over $[1,m]$ with exactly $k$ adjacent even pairs. Only parity matters: there are $\lfloor m/2 \rfloor$ evens and $m-\lfloor m/2 \rfloor$ odds.
+>
+> State $(i,j,\textit{last})$ is the number of ways after $i$ positions, with $j$ even-pairs left and a given previous parity. An even costs one pair only when the previous value was even.
+>
+> Negative $j$ is zero; a finished array scores one iff $j=0$. The dummy previous parity is odd so the first cell cannot form a pair.
+
+<!-- thinking:end -->
+
 Given the numbers $[1, m]$, there are $\textit{cnt0} = \lfloor \frac{m}{2} \rfloor$ even numbers and $\textit{cnt1} = m - \textit{cnt0}$ odd numbers.
 
 We design a function $\textit{dfs}(i, j, k)$, which represents the number of ways to fill up to the $i$-th position, with $j$ remaining positions needing to satisfy the condition, and the parity of the last position being $k$, where $k = 0$ indicates the last position is even, and $k = 1$ indicates the last position is odd. The answer is $\textit{dfs}(0, k, 1)$.
@@ -261,6 +273,18 @@ function countOfArrays(n: number, m: number, k: number): number {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memoized recursion is slower in some languages. The same transition is a layer DP: $f[i][j][0/1]$ after $i$ positions, $j$ even-pairs, and a last parity.
+>
+> An even comes from an odd last cell or from an even last cell with $j-1$ pairs; an odd never increases the pair count. $f[0][0][1]=1$ matches the search base.
+>
+> The answer is $f[n][k][0]+f[n][k][1]$.
+
+<!-- thinking:end -->
+
 We can convert the memoized search from Solution 1 into dynamic programming.
 
 Define $f[i][j][k]$ to represent the number of ways to fill the $i$-th position, with $j$ positions satisfying the condition, and the parity of the previous position being $k$. The answer will be $\sum_{k = 0}^{1} f[n][k]$.
@@ -397,6 +421,18 @@ function countOfArrays(n: number, m: number, k: number): number {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i]$ depends only on $f[i-1]$, so the first index of the table can be dropped.
+>
+> A buffer $g$ receives the new layer and then replaces $f$, cutting space to $O(k)$ without changing the time exponent.
+>
+> The answer is still the sum of the two parities at $j=k$ after $n$ layers.
+
+<!-- thinking:end -->
 
 We observe that the computation of $f[i]$ only depends on $f[i - 1]$, allowing us to optimize the space usage with a rolling array.
 

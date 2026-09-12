@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The rule matches part I with a larger $n$. The check is still $O(n)$, so binary search on $m$ is $O(n \log n)$ and scales.
+>
+> $m=1$ still compares the two alternating patterns; larger $m$ still charges $\lfloor k/(m+1) \rfloor$ flips per run.
+>
+> The implementation is therefore the same as part I.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

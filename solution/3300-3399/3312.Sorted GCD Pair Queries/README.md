@@ -97,6 +97,18 @@ tags:
 
 ### 方法一：预处理 + 前缀和 + 二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 询问的是所有无序对 GCD 升序后的第 $q$ 项。$n \le 10^5$，不能枚举数对。
+>
+> 对数论计数可先算「GCD 为 $i$ 的倍数」再容斥：倍数个数为 $v$ 时先加 $v(v-1)/2$，再从大到小减去 $\textit{cntG}[2i],\textit{cntG}[3i],\ldots$，得到恰为 $i$ 的对数。
+>
+> 对 $\textit{cntG}$ 做前缀和后，每个询问二分第一个超过 $q$ 的位置即为答案。
+
+<!-- thinking:end -->
+
 我们可以预处理得到数组 $\textit{nums}$ 中的所有数对的最大公约数的出现次数，记录在数组 $\textit{cntG}$ 中。然后，我们计算数组 $\textit{cntG}$ 的前缀和。最后，对于每个查询，我们可以通过二分查找在数组 $\textit{cntG}$ 中找到第一个大于 $\textit{queries}[i]$ 的元素的下标，即为答案。
 
 我们用 $\textit{mx}$ 表示数组 $\textit{nums}$ 中的最大值，用 $\textit{cnt}$ 记录数组 $\textit{nums}$ 中每个数的出现次数。我们用 $\textit{cntG}[i]$ 表示数组 $\textit{nums}$ 中最大公约数等于 $i$ 的数对个数。为了计算 $\textit{cntG}[i]$，我们可以按照以下步骤进行：

@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Problem Transformation + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $|\textit{word}| \le 250$, enumerating substrings works, but a window that must contain every vowel and exactly $k$ consonants is not monotone in a single constraint.
+>
+> We rewrite “exactly $k$ consonants” as $f(k)-f(k+1)$, where $f(t)$ counts substrings with all five vowels and at least $t$ consonants. The “at least” form lets the left pointer advance whenever the window is valid.
+>
+> Every substring ending at the current right end and starting in $[0, l)$ is then valid, so we add $l$. A map tracks the five vowels; consonants use a separate counter $x$.
+
+<!-- thinking:end -->
+
 We can transform the problem into solving the following two subproblems:
 
 1. Find the total number of substrings where each vowel appears at least once and contains at least $k$ consonants, denoted as $\textit{f}(k)$;

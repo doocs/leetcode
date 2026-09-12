@@ -87,6 +87,18 @@ matrix3D.largestMatrix(); // Returns 3. All indices from 0 to 3 tie with the sam
 
 ### Solution 1: Counting + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We flip cells in $O(\log n)$ and query the layer with the most ones, breaking ties toward a larger index. With $n \le 100$ a 3D array stores bits and $\textit{cnt}[x]$ stores per-layer totals.
+>
+> An ordered set keyed by $(-\textit{cnt}[x],-x)$ has the answer at the front. Set and unset delete the old pair, update the count, then insert the new pair.
+>
+> A zero count is omitted; an empty set returns $n-1$ as specified.
+
+<!-- thinking:end -->
+
 We use a three-dimensional array $\textit{g}$ to represent the matrix, where $\textit{g}[x][y][z]$ represents the value at coordinate $(x, y, z)$ in the matrix. We use an array $\textit{cnt}$ of length $n$ to record the number of 1s in each layer. We use an ordered set $\textit{sl}$ to maintain the number of 1s and the layer number for each layer. The elements in $\textit{sl}$ are $(\textit{cnt}[x], x)$, so $\textit{sl}$ can be sorted in descending order by the number of 1s, and in descending order by layer number if the number of 1s is the same.
 
 When calling the `setCell` method, we first check if $(x, y, z)$ has already been set to 1. If it has, we return directly. Otherwise, we set $\textit{g}[x][y][z]$ to 1, remove $(\textit{cnt}[x], x)$ from $\textit{sl}$, increment $\textit{cnt}[x]$ by 1, and add $(\textit{cnt}[x], x)$ to $\textit{sl}$.

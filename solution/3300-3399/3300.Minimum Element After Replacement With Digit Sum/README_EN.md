@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We replace each element by the sum of its digits and then take the minimum. With $n \le 100$ and $M \le 10^4$, splitting digits costs only $O(\log M)$ per value, which is acceptable.
+>
+> Digit sums are independent, so there is no need to sort or tabulate. A single scan that keeps the running minimum suffices.
+>
+> For each $x$ we accumulate its decimal digits and return the minimum among those sums.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums}$. For each number $x$, we calculate the sum of its digits $y$. The minimum value among all $y$ is the answer.
 
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $\textit{nums}$ and the maximum value in the array, respectively. The space complexity is $O(1)$.

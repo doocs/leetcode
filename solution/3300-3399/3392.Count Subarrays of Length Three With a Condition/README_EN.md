@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$3$ subarray is counted when twice the sum of the wings equals the middle. With $n \le 100$ we enumerate the middle index.
+>
+> For each $i \in [1,n-2]$ we test $(nums[i-1]+nums[i+1])\times 2 = nums[i]$ and count the successes.
+
+<!-- thinking:end -->
+
 We traverse each subarray of length $3$ in the array $\textit{nums}$ and check if twice the sum of the first and third numbers equals the second number. If it does, we increment the answer by $1$.
 
 After traversing, we return the answer.

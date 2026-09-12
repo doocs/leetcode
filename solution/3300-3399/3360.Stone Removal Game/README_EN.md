@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players remove $10,9,\ldots$ stones in turn. With $n \le 50$ we simulate until a move is impossible.
+>
+> If the number of successful moves $k$ is odd, Alice made the last legal move and wins.
+>
+> Each step decreases $x$ by one, so the loop is $O(\sqrt{n})$ and no game DP is needed.
+
+<!-- thinking:end -->
+
 We simulate the game process according to the problem description until the game can no longer continue.
 
 Specifically, we maintain two variables $x$ and $k$, representing the current number of stones that can be removed and the number of operations performed, respectively. Initially, $x = 10$ and $k = 0$.

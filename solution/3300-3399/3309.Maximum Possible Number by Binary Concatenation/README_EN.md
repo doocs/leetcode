@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array has exactly three numbers, so there are only $6$ permutations to try.
+>
+> The integer value of a concatenation is determined by the concatenated bit string; no extra tie-break is needed.
+>
+> For each permutation we join the numbers' binary representations and parse the result as a binary integer, keeping the maximum.
+
+<!-- thinking:end -->
+
 According to the problem description, the length of the array $\textit{nums}$ is $3$. We can enumerate all permutations of $\textit{nums}$, which has $3! = 6$ permutations. Then, we convert the elements of the permuted array into binary strings, concatenate these binary strings, and finally convert the concatenated binary string into a decimal number to get the maximum value.
 
 The time complexity is $O(\log M)$, where $M$ represents the maximum value of the elements in $\textit{nums}$. The space complexity is $O(1)$.

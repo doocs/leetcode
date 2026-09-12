@@ -134,6 +134,18 @@ This table contains season id, team id, team name, matches played, wins, draws, 
 
 ### Solution 1: Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each season is ranked by points, goal difference, then team name. Points and goal difference follow from wins, draws, and goals.
+>
+> Positions are consecutive inside a season with no rank gaps, so a grouped row number is enough.
+>
+> After sorting by $\textit{season\_id}$, points, goal difference, and team name, $\textit{cumcount}+1$ is the position.
+
+<!-- thinking:end -->
+
 We can use the window function `RANK()` to rank the teams by grouping them by season and sorting based on points, goal difference, and team name.
 
 Finally, we just need to sort by `season_id`, `position`, and `team_name`.

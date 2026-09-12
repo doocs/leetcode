@@ -115,6 +115,18 @@ tags:
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在 $\textit{pattern}$ 仍为子序列的前提下，尽量多删 $\textit{targetIndices}$ 中的下标。$n \le 3 \times 10^3$，适合 $O(mn)$ 的匹配型 DP。
+>
+> 状态需同时记录匹配进度与已删数量。不可行状态用 $-\infty$ 隔开，避免「删光却匹配失败」被当成合法。
+>
+> $f[i][j]$ 由「跳过 $\textit{source}[i-1]$（可删则 $+1$）」与「匹配当前字符」转移，最终 $f[m][n]$ 即最大删除次数。
+
+<!-- thinking:end -->
+
 我们定义 $f[i][j]$ 表示在 $\textit{source}$ 的前 $i$ 个字符串，匹配 $\textit{pattern}$ 的前 $j$ 个字符的最大删除次数。初始时 $f[0][0] = 0$，其余 $f[i][j] = -\infty$。
 
 对于 $f[i][j]$，我们有两种选择：
