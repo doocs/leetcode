@@ -115,6 +115,16 @@ This table contains information about the shifts worked by employees, including 
 
 ### Solution 1: Self-Join + Group Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count pairwise overlapping shifts of the same employee. Sorting per employee would work; a self-join writes “starts earlier and ends after the other start” directly.
+>
+> Join on `employee_id` with $t_1$ starting earlier and ending after $t_2$ starts, count per employee, and drop zeros. Each ordered overlapping pair is counted once.
+
+<!-- thinking:end -->
+
 We first use a self-join to connect the `EmployeeShifts` table to itself. The join condition ensures that we only compare shifts belonging to the same employee and check if there is any overlap between shifts.
 
 1. `t1.start_time < t2.start_time`: Ensures that the start time of the first shift is earlier than the start time of the second shift.

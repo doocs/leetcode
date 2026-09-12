@@ -106,6 +106,16 @@ This table contains information about the shifts worked by employees, including 
 
 ### Solution 1: Merge + Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides pair counts we need the peak concurrency and total overlapping minutes. A self-join yields pairwise duration; concurrency needs the timeline cut at every start and end.
+>
+> Distinct endpoints per employee become atomic intervals via `LEAD`, then join back to count coverage; pairwise minutes stay a self-join. Per employee we take the max concurrency and the total duration.
+
+<!-- thinking:end -->
+
 We can merge all the `start_time` and `end_time` for each `employee_id` and store them in table `T`. Then, by using the `LEAD` function, we calculate the next time period for each `employee_id` and store it in table `P`.
 
 Next, we can join table `P` with the `EmployeeShifts` table to calculate the `concurrent_count` for each `employee_id`, which represents the number of overlapping time periods. This is stored in table `S`.

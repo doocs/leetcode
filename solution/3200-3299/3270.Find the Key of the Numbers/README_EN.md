@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digit $d$ of the key is the minimum of the three numbers' $d$-th digits, missing high digits treated as zero. There are four digits, so take minima and add with place weights.
+>
+> For $k=1,10,100,1000$ add $\min_i (x_i//k)\% 10$ times $k$. No string conversion is required.
+
+<!-- thinking:end -->
+
 We can directly simulate this process by defining a variable $\textit{ans}$ to store the answer and a variable $\textit{k}$ to represent the current digit place, where $\textit{k} = 1$ represents the units place, $\textit{k} = 10$ represents the tens place, and so on.
 
 Starting from the units place, for each digit place, we calculate the current digit of $\textit{num1}$, $\textit{num2}$, and $\textit{num3}$, take the minimum of the three, and then add this minimum value multiplied by $\textit{k}$ to the answer. Then, multiply $\textit{k}$ by 10 and continue to the next digit place.

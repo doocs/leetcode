@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Given the head of a doubly linked list, emit values left to right. The list is finite, so walking `next` is enough; `prev` is unused.
+>
+> Append $\textit{root.val}$ and advance until null. Linear time, constant extra space besides the answer.
+
+<!-- thinking:end -->
+
 We can directly traverse the linked list, adding the values of the nodes to the answer array $\textit{ans}$ one by one.
 
 After the traversal is complete, return the answer array $\textit{ans}$.

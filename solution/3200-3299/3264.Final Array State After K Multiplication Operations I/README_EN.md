@@ -121,6 +121,16 @@ tags:
 
 ### Solution 1: Priority Queue (Min-Heap) + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step multiplies the current minimum by $\textit{multiplier}$, breaking ties by the smaller index. $n$ and $k$ are tiny, so $k$ simulations suffice. A linear scan for the min would pass; a heap matches the rule.
+>
+> Store $(value,index)$, pop the min, multiply in place, and push back. After $k$ rounds the array is the answer.
+
+<!-- thinking:end -->
+
 We can use a min-heap to maintain the elements in the array $\textit{nums}$. Each time, we extract the minimum value from the min-heap, multiply it by $\textit{multiplier}$, and then put it back into the min-heap. During the implementation, we insert the indices of the elements into the min-heap and define a custom comparator function to sort the min-heap based on the values of the elements in $\textit{nums}$ as the primary key and the indices as the secondary key.
 
 Finally, we return the array $\textit{nums}$.
