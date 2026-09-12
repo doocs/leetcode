@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only two alternating targets exist: $0101\ldots$ and $1010\ldots$. If one needs $cnt$ flips, the other needs $n-cnt$.
+>
+> Count mismatches against $0101\ldots$ in one pass and return $\min(cnt,n-cnt)$.
+
+<!-- thinking:end -->
+
 According to the problem, if the number of operations needed to obtain the alternating string `01010101...` is $\textit{cnt}$, then the number of operations needed to obtain the alternating string `10101010...` is $n - \textit{cnt}$.
 
 Therefore, we only need to traverse the string $s$ once, count the value of $\textit{cnt}$, and the answer is $\min(\textit{cnt}, n - \textit{cnt})$.

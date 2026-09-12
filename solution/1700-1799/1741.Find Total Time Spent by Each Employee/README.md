@@ -79,6 +79,16 @@ Employees table:
 
 ### 方法一：分组求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次进出给出 $\textit{in\_time}$ 与 $\textit{out\_time}$，要按员工与日期汇总在办公室的时长。
+>
+> 按 $\textit{event\_day}$ 与 $\textit{emp\_id}$ 分组，对 $\textit{out\_time}-\textit{in\_time}$ 求和。
+
+<!-- thinking:end -->
+
 我们可以先按照 `emp_id` 和 `event_day` 进行分组，然后计算每个分组的总时间。总时间等于每个分组的 `out_time` 减去 `in_time` 的和。
 
 <!-- tabs:start -->

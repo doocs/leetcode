@@ -73,6 +73,16 @@ Products 表：
 
 ### 方法一：条件筛选
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 筛选低脂且可回收的产品编号，两个字段均为标记 $Y$。
+>
+> 对 $\textit{low\_fats}$ 与 $\textit{recyclable}$ 同时为 $Y$ 的行投影 $\textit{product\_id}$。
+
+<!-- thinking:end -->
+
 我们直接筛选出 `low_fats` 为 `Y` 且 `recyclable` 为 `Y` 的产品编号即可。
 
 <!-- tabs:start -->

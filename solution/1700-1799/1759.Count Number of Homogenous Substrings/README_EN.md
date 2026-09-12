@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A homogenous substring lies inside a run of equal characters. A run of length $cnt$ contributes $cnt(cnt+1)/2$. $n\le 10^5$, so scan by runs.
+>
+> Two pointers bound each run, add the triangular number, and reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -238,6 +248,14 @@ int countHomogenous(char* s) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sums each run at once. A linear scan can instead grow a run length while neighbours match, reset to $1$ otherwise, and add the current length each step.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

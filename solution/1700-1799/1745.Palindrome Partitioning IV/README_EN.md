@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the string into three palindromes. Checking each candidate split from scratch is $O(n^3)$ palindrome tests. $n$ can be a few hundred, so precompute palindromes.
+>
+> $f[i][j]$ is whether $s[i..j]$ is a palindrome. After filling it by interval length, try two cuts; the total is $O(n^2)$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to indicate whether the substring of $s$ from the $i$-th character to the $j$-th character is a palindrome, initially $f[i][j] = \textit{true}$.
 
 Then we can calculate $f[i][j]$ using the following state transition equation:

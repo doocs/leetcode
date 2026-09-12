@@ -74,6 +74,16 @@ Box 10 has the most number of balls with 2 balls.
 
 ### Solution 1: Array + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A box is indexed by digit sum. Numbers are at most $10^5$, so digit sums stay below $50$ and fit a fixed counter.
+>
+> Enumerate $[\textit{lowLimit},\textit{highLimit}]$, add digits, increment $cnt[y]$, and return the maximum bucket.
+
+<!-- thinking:end -->
+
 Observing the problem's data range, the maximum number of balls does not exceed $10^5$, so the maximum sum of the digits of each number is less than $50$. Therefore, we can directly create an array $\textit{cnt}$ of length $50$ to count the number of occurrences of each digit sum.
 
 The answer is the maximum value in the array $\textit{cnt}$.

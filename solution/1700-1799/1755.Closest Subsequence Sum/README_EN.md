@@ -75,6 +75,16 @@ The absolute difference is abs(-4 - (-5)) = abs(1) = 1, which is the minimum.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find a subsequence sum closest to $\textit{goal}$. $n\le 40$ makes $2^n$ too large, but $2^{n/2}$ is acceptable.
+>
+> Split the array, DFS all subset sums on each half, and for every left sum binary-search $\textit{goal}-l$ in the sorted right sums, keeping the two nearest candidates.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -273,6 +283,14 @@ func abs(x int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 is the same meet-in-the-middle search; the DFS simply tries skip-then-take. The algorithm is unchanged, the code is tighter.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

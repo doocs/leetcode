@@ -75,6 +75,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Types must be eaten in order, at least one and at most $\textit{dailyCap}$ per day. Many queries forbid day-by-day simulation.
+>
+> Prefix sums $s[t]$ count candies before type $t$. To reach type $t$ on day $\textit{day}$, even the slowest schedule must not exhaust $s[t+1]$ before that day, and the fastest must not finish $s[t]$ first.
+>
+> That is $\textit{day}<s[t+1]$ and $(\textit{day}+1)\cdot mx>s[t]$. Each query is $O(1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
