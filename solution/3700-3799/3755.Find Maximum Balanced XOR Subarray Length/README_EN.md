@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zero XOR together with equally many evens and odds are both prefix-subtractable. Recording the first index of each pair $(\textit{xor},\textit{even}-\textit{odd})$, a repeated state marks a segment that satisfies both conditions.
+
+<!-- thinking:end -->
+
 We use a hash table to record the first occurrence position of each state $(a, b)$, where $a$ represents the prefix XOR sum, and $b$ represents the prefix even count minus the prefix odd count. When we encounter the same state $(a, b)$ while traversing the array, it means that the subarray from the last occurrence of this state to the current position satisfies both bitwise XOR equals 0 and equal counts of even and odd numbers. We can then update the answer by taking the maximum length. Otherwise, we store this state and the current position in the hash table.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array.

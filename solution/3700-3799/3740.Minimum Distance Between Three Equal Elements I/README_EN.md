@@ -84,6 +84,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For sorted indices the triple distance equals $2(k-i)$, so the best triple of one value is three consecutive occurrences. Group indices by value and slide a window of length $3$ on each list; $n\le 100$ is ample.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{g}$ to store the list of indices for each number in the array. While traversing the array, we add each number's index to its corresponding list in the hash table. Define a variable $\textit{ans}$ to store the answer, with an initial value of infinity $\infty$.
 
 Next, we iterate through each index list in the hash table. If the length of an index list for a particular number is greater than or equal to $3$, it means there exists a valid triplet. To minimize the distance, we can choose three consecutive indices $i$, $j$, and $k$ from that number's index list, where $i < j < k$. The distance of this triplet is $j - i + k - j + k - i = 2 \times (k - i)$. We traverse all combinations of three consecutive indices in the list, calculate the distance, and update the answer.

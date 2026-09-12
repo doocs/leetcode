@@ -122,6 +122,14 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only move right or down, the budget is $k$, and cell values are tiny. Searching backward from the end to $(0,0)$, a nonzero cell costs $1$ and adds its value. The state $(i,j,k)$ memoizes well; stepping out of bounds or running out of budget is impossible.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}(i, j, k)$ that represents the maximum score achievable when starting from position $(i, j)$ and reaching the endpoint $(0, 0)$ with remaining cost not exceeding $k$. We use memoization search to avoid redundant calculations.
 
 Specifically, the implementation steps of function $\textit{dfs}(i, j, k)$ are as follows:

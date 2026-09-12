@@ -141,6 +141,14 @@ tags:
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are up to $10^5$ queries, so we cannot rebuild each substring. We precompute digit sums, nonzero counts, and the integer formed by concatenating nonzero digits; $x$ on $[l,r]$ follows from the two prefixes and a power of ten, then multiply by the range digit sum.
+
+<!-- thinking:end -->
+
 We preprocess three prefix arrays:
 
 - `sumD[i]` is the sum of digits in the first $i$ characters of the string;

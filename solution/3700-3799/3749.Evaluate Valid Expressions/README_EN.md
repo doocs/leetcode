@@ -102,6 +102,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression is a nested $\mathrm{op}(a,b)$ whose shape is given by parentheses, so recursive descent fits. At the current index we either parse a literal, or read an operator, recurse on the two operands, and apply $\mathrm{add}/\mathrm{sub}/\mathrm{mul}/\mathrm{div}$.
+
+<!-- thinking:end -->
+
 We define a recursive function $\text{parse}(i)$ to parse the subexpression starting from index $i$ and return the computed result along with the next unprocessed index position. The answer is $\text{parse}(0)[0]$.
 
 The implementation of the function $\text{parse}(i)$ is as follows:

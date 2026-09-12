@@ -84,6 +84,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same distance formula applies, now with $n\le 10^5$. Consecutive triples remain optimal, so grouping indices by value and scanning each list is linear and avoids enumerating all triples.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{g}$ to store the list of indices for each number in the array. While traversing the array, we add each number's index to its corresponding list in the hash table. Define a variable $\textit{ans}$ to store the answer, with an initial value of infinity $\infty$.
 
 Next, we iterate through each index list in the hash table. If the length of an index list for a particular number is greater than or equal to $3$, it means there exists a valid triplet. To minimize the distance, we can choose three consecutive indices $i$, $j$, and $k$ from that number's index list, where $i < j < k$. The distance of this triplet is $j - i + k - j + k - i = 2 \times (k - i)$. We traverse all combinations of three consecutive indices in the list, calculate the distance, and update the answer.
