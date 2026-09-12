@@ -164,6 +164,18 @@ source: Biweekly Contest 182 Q1
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only a few event kinds and the list is at most length $1000$, so a direct simulation is enough.
+>
+> A digit string adds to the score; `W` increments the counter and stops at $10$; `WD` and `NB` each add one to the score. One scan yields the final pair.
+>
+> $\textit{isdigit}$ separates scoring events; the remaining branches handle the wicket counter and extras.
+
+<!-- thinking:end -->
+
 We can directly simulate the process described in the problem to calculate the final score and counter value.
 
 First, we initialize two variables $\textit{score}$ and $\textit{counter}$, representing the current total score and counter value respectively. Then we iterate through each event in the array $\textit{events}$ and update $\textit{score}$ and $\textit{counter}$ based on the event type:

@@ -148,6 +148,18 @@ tags:
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 树已给定根为任务依赖，完成时间由子结点最早/最晚完成时间与自身 $\textit{baseTime}$ 共同决定，必须先得到全部子结点答案。
+>
+> 自底向上 DFS：叶子直接返回 $\textit{baseTime}[i]$；内部结点收集子结点完成时间的最小 $\textit{earliest}$ 与最大 $\textit{latest}$，自身耗时为 $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$，返回 $\textit{latest}$ 加上该耗时。
+>
+> 树边数为 $n-1$，一次 DFS 即根的完成时间。
+
+<!-- thinking:end -->
+
 首先根据边列表 $\textit{edges}$ 建树，用邻接表 $g$ 存储每个节点的子节点。
 
 接着从根节点 $0$ 开始 DFS。定义函数 $\textit{dfs}(i)$ 返回任务 $i$ 的完成时间：

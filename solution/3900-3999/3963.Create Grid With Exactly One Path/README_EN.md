@@ -96,6 +96,16 @@ source: Biweekly Contest 185 Q1
 
 ### Solution 1: Construction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need exactly one down/right path from the top-left to the bottom-right. Fill the grid with walls, then open the first row and the last column, leaving the unique polyline “across the top, then down the right”.
+>
+> $m,n\le 25$, so construction is linear in the grid size.
+
+<!-- thinking:end -->
+
 We construct the grid as follows:
 
 - First, construct a grid filled entirely with `#`.

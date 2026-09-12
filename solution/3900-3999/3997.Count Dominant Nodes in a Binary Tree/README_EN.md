@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A dominant node is one whose value equals the subtree maximum. One bottom-up DFS computes both children’s maxima and compares them with the node.
+>
+> A null child returns $-\infty$; the current maximum is the max of the three. Equality with the node increments the answer, and that maximum is returned to the parent. $n\le 10^5$ forbids rescanning each subtree.
+
+<!-- thinking:end -->
+
 A node is dominant if its value equals the maximum value in the subtree rooted at it. Therefore, for each node, we only need the maximum values of its left and right subtrees, then compare them with the node itself.
 
 Perform a bottom-up DFS: return $-\infty$ for a null node (implemented with the language's minimum integer value), and for the current node compute $\textit{mx} = \max(\textit{leftMax}, \textit{rightMax}, \textit{node.val})$. If $\textit{mx} = \textit{node.val}$, the node is dominant and the answer is incremented by one. Finally return $\textit{mx}$ for the parent node.

@@ -101,6 +101,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each mark moves left by at most one and only once, and two marks cannot share an index. $n\le 10^5$ forces a linear decision.
+>
+> Left to right, a mark either stays or shifts to $i-1$ when that cell is free. Greedy should send a mark toward the larger $\textit{nums}$ value while letting earlier marks claim earlier vacancies first.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that at-most-one-left-shift assignment.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

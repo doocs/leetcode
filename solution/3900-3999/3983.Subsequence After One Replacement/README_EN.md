@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ should be a subsequence of $t$ after at most one substitution. Both strings are length $10^5$, so we cannot try every replacement index.
+>
+> Keep $i_0$ as the match without a substitution and $i_1$ as the match with at most one. Scanning $t$, advance $i_1$ on a hit, raise it to $i_0+1$ to spend the substitution just after $i_0$, then advance $i_0$.
+>
+> Success is $i_1=|s|$.
+
+<!-- thinking:end -->
+
 The problem is equivalent to asking whether we can greedily match $s$ as a subsequence of $t$ while allowing at most one character in $s$ to mismatch, since that character can be replaced with any letter.
 
 We scan $s$ with two pointers $i_0$ and $i_1$, and scan $t$ with pointer $j$:

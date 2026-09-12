@@ -126,6 +126,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We interleave increasing indices from two strings to form $\textit{target}$, using both strings at least once. A subsequence DP state is the prefix of $\textit{target}$ together with how far each word has been consumed, plus flags that each side has been used.
+>
+> Whether a 3D roll fits depends on the product of the lengths. A transition picks which word supplies the next character and jumps to the next match in that word.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that two-string subsequence DP.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

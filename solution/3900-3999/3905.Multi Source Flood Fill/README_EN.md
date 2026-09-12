@@ -101,6 +101,18 @@ tags:
 
 ### Solution 1: Multi-source BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid has size $n\cdot m\le 10^5$, so a separate BFS from each source would recolor overlapping cells many times. When several colors arrive in the same step we must keep the larger one, which forces the sources to expand in lockstep.
+>
+> Multi-source BFS enqueues every source at once. Each time step collects newly reached cells in a map $\textit{vis}$, retains the maximum color per cell, then writes those colors and continues.
+>
+> Already colored cells are never expanded again, so each cell is finalized at most once and the total time is linear in the grid size.
+
+<!-- thinking:end -->
+
 We can use multi-source BFS to simulate this process.
 
 Define a queue $q$ to store the cells that are currently spreading their color. Initially, add all source cells to the queue and set their colors in the answer array $\textit{ans}$.

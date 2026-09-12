@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1: Precompute Primes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$, so the reverse has at most four digits and the interval length is at most about $1000$. Trial division on each entry is acceptable, but repeating primality tests is wasteful.
+>
+> Sieve all primes up to $1000$ once, then sum those that fall in $[\min(n,r),\max(n,r)]$.
+>
+> The sieve is $O(M\log\log M)$ and the query itself is linear in the interval length.
+
+<!-- thinking:end -->
+
 We note that the reversed number $r$ of $n$ will not exceed 1000, so we can precompute all prime numbers up to 1000.
 
 Next, we compute $low = \min(n, r)$ and $high = \max(n, r)$, then iterate through all integers in the range $[low, high]$. If an integer is prime, we add it to the answer.

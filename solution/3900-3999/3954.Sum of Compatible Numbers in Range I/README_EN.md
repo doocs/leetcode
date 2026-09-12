@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The interval $[n-k,n+k]$ has length $O(k)$ and $k\le 100$, so we test $n\&x=0$ for each $x$ and add the hits. The left end is clamped at $1$ to skip non-positive integers.
+>
+> No digit-DP is required.
+
+<!-- thinking:end -->
+
 We iterate through $x$ within the range $[\max(1, n - k), n + k]$. If the bitwise AND result of $n$ and $x$ is $0$, we accumulate $x$ into the answer.
 
 After the iteration ends, simply return the answer.

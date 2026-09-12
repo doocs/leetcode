@@ -101,6 +101,18 @@ source: Weekly Contest 501 Q2
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Chunks and queries each total $10^5$ characters, so we cannot rescan the text per query. A word starts with a letter and ends at a space or an illegal hyphen, so the concatenated text can be tokenized once.
+>
+> Join $\textit{chunks}$ into $s$ and scan: skip separators, extend until a space or a hyphen that is not followed by a letter, and count tokens in a hash map. Each query is a lookup.
+>
+> Tokenization and answering are both linear in the total length.
+
+<!-- thinking:end -->
+
 First, we concatenate all strings in $\textit{chunks}$ to obtain a single string $s$.
 
 Since the first character of a valid word must be a lowercase English letter, we scan $s$ from left to right. When we encounter a lowercase English letter, we continue scanning to the right. If we encounter a space or an invalid hyphen, it means we have found a word. We add this word to a hash table and count its occurrences. Finally, we iterate through each string in $\textit{queries}$, look up its count in the hash table, and append the result to the answer array.

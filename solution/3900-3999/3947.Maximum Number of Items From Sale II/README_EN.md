@@ -92,6 +92,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compared with part I, both the number of items and the budget are huge, so knapsack is gone. Free gifts follow divisibility and each $\textit{factor}$ is at most $n$, so multiples can count how many types a factor unlocks.
+>
+> The shape of an optimum is still “one paid trigger plus leftover budget on the cheapest item”. Each candidate first item’s gift count must be obtained in near-linear time and compared against its price.
+>
+> This directory has no implemented solution yet; the walkthrough stops at replacing the knapsack by a multiples count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

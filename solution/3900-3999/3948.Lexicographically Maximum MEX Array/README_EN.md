@@ -100,6 +100,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step takes a prefix MEX and drops that prefix. $n\le 10^5$, so we cannot recompute the MEX for every $k$. Lexicographic maximality wants the largest possible MEX as early as possible, i.e. cut as soon as the MEX would stop growing.
+>
+> Maintain occurrence counts and the window MEX; cut when extending can no longer increase it (or would decrease it). Repeat until the array is empty.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that greedy cut.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

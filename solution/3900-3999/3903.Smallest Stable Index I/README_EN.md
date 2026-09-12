@@ -99,6 +99,18 @@ tags:
 
 ### Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning the prefix maximum and suffix minimum at every index is $O(n^2)$. That fits $n\le 100$, but the same quantities can be prepared in one pass.
+>
+> The instability at $i$ depends only on the maximum on $[0,i]$ and the minimum on $[i,n-1]$. The latter is independent of the scan of $i$ and can be computed right-to-left; the former grows monotonically as we walk left-to-right.
+>
+> Precompute suffix minima $\textit{right}$, then maintain a running prefix maximum $\textit{left}$ and return the first $i$ with $\textit{left}-\textit{right}[i]\le k$.
+
+<!-- thinking:end -->
+
 First, we preprocess an array $\textit{right}$, where $\textit{right}[i]$ represents the minimum value among the elements in $nums$ from index $i$ to index $n - 1$. We can compute the $\textit{right}$ array by traversing $nums$ from back to front.
 
 Next, we traverse the $nums$ array from front to back, maintaining a variable $\textit{left}$, which represents the maximum value among the elements in $nums$ from index $0$ to index $i$. For each index $i$, we calculate the instability score as $\textit{left} - \textit{right}[i]$. If the instability score is less than or equal to $k$, we return index $i$. If no such index is found after the traversal, we return $-1$.

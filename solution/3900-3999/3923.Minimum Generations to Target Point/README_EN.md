@@ -143,6 +143,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $20$ points and coordinates are at most $6$, yet expanding generations by pairing midpoints repeats many points. The map $\lfloor(a+b)/2\rfloor$ acts independently on each coordinate.
+>
+> In one dimension, $x$ is generable only if it lies in the convex hull of existing coordinates and clears the congruence obstruction created by integer division (low bits are discarded). The answer is the smallest $k$ that works in all three dimensions at once.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that per-axis analysis.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

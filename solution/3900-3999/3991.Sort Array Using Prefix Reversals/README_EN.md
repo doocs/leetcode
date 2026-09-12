@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 8$ gives at most $8!=40320$ permutations, and the allowed prefix flips are few, so BFS on the permutation is the minimum step count.
+>
+> The target is $(0,1,\ldots,n-1)$. From the start tuple, reverse each prefix in $\textit{pre}$; unvisited states are enqueued. Hitting the target is optimal; an empty queue is impossible.
+>
+> Dedup with tuples or an base-$8$ integer.
+
+<!-- thinking:end -->
+
 Since $n \le 8$, the number of permutations is at most $8! = 40320$, so we can use BFS to find the minimum number of operations.
 
 Treat the current array as a state, and the target state is $[0, 1, \ldots, n - 1]$. If the initial state is already the target, return $0$. Otherwise, start BFS from the initial state: each time take a state from the queue, enumerate every prefix length $x$ in $\textit{pre}$, and reverse the first $x$ elements to obtain a new state. If the new state equals the target, return the current number of steps; otherwise, if it has not been visited, enqueue it. If the search finishes without reaching the target, return $-1$.

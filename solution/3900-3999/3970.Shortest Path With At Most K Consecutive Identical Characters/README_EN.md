@@ -95,6 +95,18 @@ The corresponding concatenation of labels is <code>&quot;aab&quot;</code>, which
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A plain shortest path ignores labels and may produce more than $k$ identical characters in a row. The state must remember the current run length.
+>
+> Dijkstra on $(\textit{node},\textit{run})$ with $\textit{run}\le k$ increments the run when the next label matches and resets it otherwise. The product of $n$ and $k$ bounds the state space.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that expanded-state shortest path.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

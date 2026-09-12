@@ -97,6 +97,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deletions, every pair of neighboring kept columns must differ by at most $\textit{limit}$ in every row. Order is fixed, so we want the longest column subsequence meeting that adjacent constraint.
+>
+> When the number of columns is moderate, a LIS-style DP works: $\textit{dp}[j]$ is the longest consistent sequence ending at $j$, and $i\to j$ is legal only if every row satisfies the limit.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that column DP.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

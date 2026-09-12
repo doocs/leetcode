@@ -145,6 +145,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tree is the dependency graph. A node’s finish time needs every child’s finish time, plus its own $\textit{baseTime}$.
+>
+> DFS bottom-up: a leaf returns $\textit{baseTime}[i]$; an internal node takes $\textit{earliest}$ and $\textit{latest}$ among children, spends $\textit{latest}-\textit{earliest}+\textit{baseTime}[i]$, and returns $\textit{latest}$ plus that duration.
+>
+> The tree has $n-1$ edges, so one DFS is the root’s finish time.
+
+<!-- thinking:end -->
+
 First, build the tree from the edge list $\textit{edges}$ and store each node's children in an adjacency list $g$.
 
 Then perform DFS starting from the root node $0$. Define a function $\textit{dfs}(i)$ that returns the finish time of task $i$:

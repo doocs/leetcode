@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 12$, so $2^n$ strings exist, but we also need no two adjacent ones and the sum of one-indices $\le k$. A positional DFS lists every valid string.
+>
+> A position may always take $0$; it takes $1$ only when the previous bit is not $1$ and $tot+i\le k$. At length $n$ the path is recorded.
+>
+> The independent-set constraint keeps the search much smaller than $2^n$.
+
+<!-- thinking:end -->
+
 We want to generate binary strings of length $n$ that satisfy the following conditions:
 
 - The sum of the positions $i$ (0-indexed) of each `1` does not exceed $k$, which can be expressed as:

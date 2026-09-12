@@ -89,6 +89,18 @@ source: Weekly Contest 500 Q4
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deletions shift later indices, so enumerating deletion sets is exponential and impossible for $n\le 10^5$. A value $x$ becomes a fixed point only if it is placed at index $x$, which means exactly $x$ elements remain to its left.
+>
+> Hence each $x$ contributes at most one fixed point, and a candidate must satisfy $\textit{nums}[i]$ being large enough for its final index. The task is to keep as many such placements as possible without breaking the prefix length required by smaller fixed points.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that index-to-value correspondence.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

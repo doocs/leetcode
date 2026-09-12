@@ -75,6 +75,18 @@ Hence, the answer is 3.</div>
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $r\le 10^9$, so we cannot walk every integer in the interval. Perfect $k$-th powers are the values $x^k$ with $l\le x^k\le r$.
+>
+> When $k=1$ the answer is the interval length. Otherwise $x$ is at most about $r^{1/k}$; compute $y=x^k$ for $x=0,1,2,\ldots$, stop past $r$, and count hits in $[l,r]$.
+>
+> The enumeration shrinks quickly as $k$ grows, which covers $k\le 30$.
+
+<!-- thinking:end -->
+
 First, we check if $k$ equals 1. If it does, the count of perfect 1st powers in the range is the count of integers in the range, which is $r - l + 1$.
 
 Otherwise, we enumerate integers $x$, compute $y = x^k$. If $y$ exceeds $r$, we stop enumeration. If $y$ is within the range $[l, r]$, we increment the answer by 1.

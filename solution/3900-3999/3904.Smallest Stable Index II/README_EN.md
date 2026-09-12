@@ -99,6 +99,16 @@ tags:
 
 ### Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition matches Smallest Stable Index I, but now $n\le 10^5$, so recomputing both extrema at every index is too slow.
+>
+> Instability is still determined by a prefix maximum and a suffix minimum, both of which admit linear recurrences. Build $\textit{right}[i]$ from the right, then walk left-to-right with a running $\textit{left}$ and return the first index where $\textit{left}-\textit{right}[i]\le k$.
+
+<!-- thinking:end -->
+
 First, we preprocess an array $\textit{right}$, where $\textit{right}[i]$ represents the minimum value among the elements in $nums$ from index $i$ to index $n - 1$. We can compute the $\textit{right}$ array by traversing $nums$ from back to front.
 
 Next, we traverse the $nums$ array from front to back, maintaining a variable $\textit{left}$, which represents the maximum value among the elements in $nums$ from index $0$ to index $i$. For each index $i$, we calculate the instability score as $\textit{left} - \textit{right}[i]$. If the instability score is less than or equal to $k$, we return index $i$. If no such index is found after the traversal, we return $-1$.

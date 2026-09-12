@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1: Dynamic Programming (0-1 Knapsack)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ and the budget are at most $1500$. The first purchase grants free items by divisibility; later purchases just spend leftover money on the cheapest price. Those two phases must be separated.
+>
+> A $0$-$1$ knapsack models the first purchase: item $i$ costs $\textit{price}$ and yields $1$ plus the number of types it divides. Then for each knapsack spend $i$ we add $\lfloor(\textit{budget}-i)/\textit{mn}\rfloor$ cheapest items.
+>
+> The maximum of those sums is the answer.
+
+<!-- thinking:end -->
+
 Since buying the first item of a type is special and yields free items, we consider the first purchased item separately from the later purchases.
 
 For the first purchased item, suppose we spend a budget of $i$ and obtain $f[i]$ items in total, including both the purchased item and the free items. For the later purchases, we can use the remaining budget $\text{budget} - i$ to buy the cheapest item, obtaining $\lfloor \frac{\text{budget} - i}{\text{mn}} \rfloor$ items, where $\text{mn}$ is the minimum price among all items. Therefore, we enumerate the budget $i$ spent on the first purchase and compute the maximum value of $f[i] + \lfloor \frac{\text{budget} - i}{\text{mn}} \rfloor$, which is the final answer.

@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need the binary representation to contain adjacent ones exactly once. Peel $\textit{cur}$ from the low bit and compare it with $\textit{pre}$: both one records a pair, and a second pair fails.
+>
+> After the scan $\textit{vis}$ is true iff exactly one consecutive-ones pair occurred. $n\le 10^5$, so there are few bits.
+
+<!-- thinking:end -->
+
 We use a variable $\textit{pre}$ to record the digit of the previous bit, initialized to $\textit{pre} = 0$, and another variable $\textit{vis}$ to record whether a pair of consecutive set bits has already been found, initialized to $\textit{vis} = \text{false}$.
 
 Iterate through each binary bit of $n$, and denote the current binary bit as $\textit{cur}$. If $\textit{pre} = \textit{cur} = 1$, and if $\textit{vis} = \text{true}$ at this moment, it indicates that there are multiple pairs of consecutive set bits, so we directly return $\text{false}$. Otherwise, we set $\textit{vis}$ to $\text{true}$. Then, we update $\textit{pre} = \textit{cur}$ and continue to iterate through the next binary bit.

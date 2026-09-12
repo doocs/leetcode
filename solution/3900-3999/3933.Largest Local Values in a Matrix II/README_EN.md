@@ -112,6 +112,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each nonzero cell inspects a neighborhood of radius $x=\textit{matrix}[r][c]$ (omitting the four cells at Chebyshev distance exactly $x$). A naïve scan is $O(nm\cdot x^2)$ and is tight for $x\le 200$. Local maximality means nothing larger lies in that neighborhood.
+>
+> Scanning values from large to small lets bigger entries shadow smaller candidates. Alternatively a 2D sparse table answers rectangle maxima in $O(1)$ after excluding the four ignored corners.
+>
+> This directory has no implemented solution yet; the walkthrough stops at neighborhood-maximum queries.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

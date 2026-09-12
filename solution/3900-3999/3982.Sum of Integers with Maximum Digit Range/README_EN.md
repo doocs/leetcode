@@ -127,6 +127,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Digit range is the largest digit minus the smallest. $n\le 100$, so peel each value, compute $b-a$, and keep the best range $\textit{mx}$: a strictly larger range resets the answer, a tie adds the number.
+>
+> One pass suffices.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{nums}$. For each integer $x$, we extract its digits to find the largest digit $b$ and the smallest digit $a$, then compute the digit range $r = b - a$. If $r$ is greater than the current maximum digit range $\textit{mx}$, we update $\textit{mx} = r$ and reset the answer to $x$; if $r$ equals $\textit{mx}$, we add $x$ to the answer.
 
 The time complexity is $O(n \log M)$, and the space complexity is $O(1)$, where $n$ is the length of the array $\textit{nums}$ and $M$ is the maximum value in the array.

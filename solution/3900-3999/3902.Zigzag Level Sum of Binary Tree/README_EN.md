@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursively gathering each level and then summing a zigzag prefix is heavier than necessary. The required sum stops at the first node that lacks the child implied by the current direction; it is not the sum of the whole level.
+>
+> BFS already yields nodes level by level. A flag $\textit{left}$ records the direction: enqueue the next level first, then scan this level from the left or the right, adding a node only while its corresponding child exists.
+>
+> Flip the flag and replace the queue after each level so a single BFS produces the entire answer.
+
+<!-- thinking:end -->
+
 We use a queue $q$ to perform a level-order traversal, and define a boolean variable $\textit{left}$ to indicate the traversal direction of the current level. For each level, we first add the nodes of the next level to the queue $nq$, and then compute the sum of the node values of the current level, denoted by $s$, according to the value of $\textit{left}$, and append $s$ to the answer array. Finally, we update the value of $\textit{left}$ and assign $nq$ to $q$ to continue traversing the next level.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.

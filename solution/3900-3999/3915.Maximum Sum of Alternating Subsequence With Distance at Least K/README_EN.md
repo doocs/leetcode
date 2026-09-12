@@ -106,6 +106,18 @@ tags:
 
 ### Solution 1: Dynamic Programming + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence DP that enumerates every predecessor at least $k$ away is $O(n^2)$ and fails for $n\le 10^5$. Transfers also require the predecessor to be larger or smaller.
+>
+> Let $f[i][0]$ be the best alternating subsequence ending at $i$ as a valley, and $f[i][1]$ as a peak. A valley may follow only a larger peak, a peak only a smaller valley, and the indices must differ by at least $k$.
+>
+> Two Fenwick trees store prefix maxima of $f[\cdot][0]$ and suffix maxima of $f[\cdot][1]$ over the value domain. At index $i$ we query states up to $i-k$, then insert the state at $i-k+1$, which enforces the distance constraint.
+
+<!-- thinking:end -->
+
 **State Definition**
 
 Let $f[i][0]$ denote the maximum sum of a valid subsequence ending at index $i$ where the last element is a **valley** (the next element must be larger to maintain alternation), and $f[i][1]$ denote the maximum sum where the last element is a **peak** (the next element must be smaller).

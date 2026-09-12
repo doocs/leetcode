@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The value interval can be as long as $10^9$ while $n\le 200$, so we cannot enumerate concrete numbers. Zigzag constraints only care about the rise/fall pattern of three consecutive entries, i.e. relative order.
+>
+> After treating $[l,r]$ as a total order of length $m=r-l+1$, a state is “previous value plus current direction”. $m$ may still be huge, so transitions over values must be written with prefix sums or matrices.
+>
+> This directory has no implemented solution yet; the walkthrough stops at that observation that DP must run on relative order rather than raw values.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

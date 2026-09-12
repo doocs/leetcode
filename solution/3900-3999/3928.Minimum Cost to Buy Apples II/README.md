@@ -264,6 +264,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对每个起点分别枚举买果商店，朴素最短路达 $O(n^2\log n)$ 量级，$n\le 1000$ 偏紧。去程空手、返程乘 $\textit{tax}$，两条方向的边权不同，不能共用同一张距离表。
+>
+> 应分别计算「从各点空手出发」与「从各点负果返回」的最短路：后者等价于在边权改为 $\textit{cost}\cdot\textit{tax}$ 的图上求距离。对商店 $i$，答案为 $\min_j(\mathrm{dist}_{\mathrm{empty}}(i,j)+\textit{prices}[j]+\mathrm{dist}_{\mathrm{load}}(j,i))$。
+>
+> 仓库中该题尚无实现代码，思考止于「去程与返程两套边权、对买果点取最小」。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

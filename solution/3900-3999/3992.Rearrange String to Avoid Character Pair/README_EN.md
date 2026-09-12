@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every $y$ must precede every $x$; other characters are free. Moving all $y$s to the front is enough.
+>
+> A two-pointer swap sends each $y$ to index $i$ and advances $i$, so the prefix is all $y$s. $n\le 100$.
+
+<!-- thinking:end -->
+
 We need to construct a permutation $t$ of $s$ such that every occurrence of $y$ appears before every occurrence of $x$. There are no extra constraints on the other characters.
 
 Therefore, it suffices to move all occurrences of $y$ to the front of the string. Traverse the string with two pointers: $i$ points to the next position where a $y$ should be placed, and $j$ scans from left to right. Whenever $t[j] = y$, swap $t[i]$ with $t[j]$ and increment $i$. After the scan, the prefix of $t$ consists entirely of $y$, which naturally satisfies the requirement that all $y$ appear before all $x$.

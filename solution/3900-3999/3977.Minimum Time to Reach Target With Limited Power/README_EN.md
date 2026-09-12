@@ -124,6 +124,18 @@ tags:
 
 ### Solution 1: Dijkstra
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edge weights are time, but each node also spends power, so remaining power belongs in the state. $n$ and $\textit{power}$ are at most $1000$, so $n\times\textit{power}$ states fit.
+>
+> $\textit{dist}[u][p]$ is the least time to reach $u$ with $p$ power left. Dijkstra pops $(d,p,u)$; equal time prefers more leftover power so the first visit to the target keeps the best reserve. A node with $p<\textit{cost}[u]$ cannot forward.
+>
+> The first time the target is popped is the shortest time together with that maximal leftover.
+
+<!-- thinking:end -->
+
 This is a shortest path problem, but the state must track the remaining power in addition to the current node.
 
 We define $\textit{dist}[u][p]$ as the minimum time required to reach node $u$ with $p$ units of remaining power. Initially, $\textit{dist}[\textit{source}][\textit{power}] = 0$, and all other states are set to infinity.

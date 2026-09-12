@@ -110,6 +110,18 @@ There is at least one subarray of length 2 that is unique, so the smallest uniqu
 
 ### Solution 1: Rolling Hash + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If some unique subarray of length $L$ exists, a unique subarray of every larger length exists as well (extend that core). The minimal unique length is therefore monotone in $L$ and can be binary-searched.
+>
+> To test a candidate $\textit{mid}$, slide every window of that length and count hashes. Rolling hashes make each slide $O(1)$, so one test is $O(n)$.
+>
+> $O(\log n)$ tests give $O(n\log n)$ overall.
+
+<!-- thinking:end -->
+
 At $\textit{mid_len} = \frac{\textit{min_len} + \textit{max_len}}{2}$, for each candidate
 subarray length $\textit{mid_len}$, we slide a rolling hash window along all subarrays
 of such a length, recording how many times each hash value shows up.

@@ -155,6 +155,18 @@ tags:
 
 ### Solution 1: Two Sorted Sets
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent queries change $k$ by less than $10$, so the side that holds the current $k$-th largest can be maintained as a sliding window. Two sorted sets $l$ and $r$ split the values so that $r$ always stores the $k$ largest.
+>
+> A new value enters $r$, then elements move between the two sides until $|r|=k$; $r[0]$ is the $k$-th largest and $p$ is updated by modular exponentiation.
+>
+> Because $k$ barely moves, the amortized number of transfers stays small.
+
+<!-- thinking:end -->
+
 We use two sorted sets, $l$ and $r$, to maintain the current array $nums$. All elements in $l$ are less than or equal to those in $r$, and the number of elements in $r$ is equal to $k_i$.
 
 For each query, we insert $val_i$ into $r$, then move the smallest element in $r$ to $l$ until the size of $r$ becomes $k_i$. At this point, the smallest element in $r$ is the $k_i$-th largest element in the current $nums$. We then use fast exponentiation to update $p$ as $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
@@ -467,6 +479,16 @@ func powerUpdate(nums []int, p int, queries [][]int) []int {
 <!-- solution:start -->
 
 ### Solution 2: Sorted List
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 keeps two ordered sets and shuttles by $k$. The same limits also allow a single sorted list: after each insertion, $sl[-k]$ is already the $k$-th largest.
+>
+> The code is shorter, no longer relies on $k$ changing slowly, and has a smaller implementation footprint.
+
+<!-- thinking:end -->
 
 We use a sorted list $\textit{sl}$ to maintain the current array $nums$. For each query, we insert $val_i$ into $\textit{sl}$, then find the $k_i$-th largest element $x$ in $\textit{sl}$. Using fast exponentiation, we update $p$ to $p^x \bmod (10^9 + 7)$, and append the updated $p$ to the answer array.
 

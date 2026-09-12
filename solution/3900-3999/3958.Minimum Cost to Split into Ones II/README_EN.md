@@ -126,6 +126,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ reaches $5\times 10^7$, so any step-by-step splitting is too slow. Splitting $x$ into $1$ and $x-1$ costs $x-1$; repeating down to all ones sums $1+2+\cdots+(n-1)$.
+>
+> That strategy is the closed form $\dfrac{n(n-1)}{2}$. More balanced splits do not help: every final $1$ still pays a neighboring difference, and the total is unchanged.
+>
+> Return the formula in $O(1)$.
+
+<!-- thinking:end -->
+
 To minimize the cost, we should first split $n$ into $1$ and $n - 1$, which costs $n - 1$; then split $n - 1$ into $1$ and $n - 2$, which costs $n - 2$. Following this pattern, the total cost is accumulated as $1 + 2 + \dots + (n - 1) = \frac{n \times (n - 1)}{2}$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

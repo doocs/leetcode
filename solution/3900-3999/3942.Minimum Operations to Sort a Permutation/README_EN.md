@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The allowed operations are combinations of rotate and reverse, not arbitrary permutations. If the array can be sorted, the cyclic order starting at $0$ must be increasing in one direction or the other.
+>
+> Locate $0$ at $\textit{zero}$ and test step $+1$ and step $-1$. For each valid direction the rotate count and the “reverse–rotate–reverse” count follow from $\textit{zero}$ and $n$; take the minimum, or report impossible if neither direction is sorted.
+>
+> The check is $O(n)$ and never simulates the operations step by step.
+
+<!-- thinking:end -->
+
 We first find the position of `0` in the array, denoted as $\textit{zero}$.
 
 Next, we check whether the sequence is increasing when traversing right from `0`, and whether it is increasing when traversing left from `0`.
