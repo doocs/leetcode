@@ -75,6 +75,14 @@ tags:
 
 ### 方法一：前缀和 + 哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组无限拼接，目标和可为若干整圈加上一段最短子数组（或一段补到整圈的最短缺口）。先用整圈个数消化 $target$，剩余部分在一轮前缀和上用哈希表查找等于剩余值或等于 $s-$剩余值的最短段。
+
+<!-- thinking:end -->
+
 我们先算出数组 $nums$ 的元素总和，记为 $s$。
 
 如果 $target \gt s$，那么我们可以将 $target$ 减去 $\lfloor \frac{target}{s} \rfloor \times s$，这样就可以将 $target$ 减小到 $[0, s)$ 的范围内。那么此时子数组的长度为 $a = \lfloor \frac{target}{s} \rfloor \times n$，其中 $n$ 是数组 $nums$ 的长度。

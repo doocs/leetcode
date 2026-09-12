@@ -63,6 +63,14 @@ The data types of the column grade is converted to int.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `grade` is stored as floats and must become integers. `astype(int)` converts that column without changing the numeric values.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

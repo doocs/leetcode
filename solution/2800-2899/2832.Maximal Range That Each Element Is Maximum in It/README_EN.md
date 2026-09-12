@@ -68,6 +68,14 @@ For nums[4] the longest subarray in which 6 is the maximum is nums[0..4] so ans[
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest range where $nums[i]$ is the maximum is bounded by the nearest strictly larger elements on both sides. Two monotonic-stack passes produce those bounds; the length is $right[i]-left[i]-1$.
+
+<!-- thinking:end -->
+
 This problem is a template for monotonic stack. We only need to use the monotonic stack to find the position of the first element larger than $nums[i]$ on the left and right, denoted as $left[i]$ and $right[i]$. Then, the interval length with $nums[i]$ as the maximum value is $right[i] - left[i] - 1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.

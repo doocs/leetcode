@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Sliding Window + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum sum among length-$k$ windows that contain at least $m$ distinct values. A sliding window with a frequency map and a running sum updates the answer whenever the distinct count is large enough.
+
+<!-- thinking:end -->
+
 We can traverse the array $nums$, maintain a window of size $k$, use a hash table $cnt$ to count the occurrence of each element in the window, and use a variable $s$ to sum all elements in the window. If the number of different elements in $cnt$ is greater than or equal to $m$, then we update the answer $ans = \max(ans, s)$.
 
 After the traversal ends, return the answer.

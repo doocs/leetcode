@@ -77,6 +77,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 10^3$ we may try every peak and walk outward, taking the running minimum against the height cap. Each expansion preserves the unimodal constraint.
+
+<!-- thinking:end -->
+
 We can enumerate each tower as the tallest tower, each time expanding to the left and right, calculating the height of each other position, and then accumulating to get the height sum $t$. The maximum of all height sums is the answer.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $maxHeights$.
@@ -208,6 +216,14 @@ function maximumSumOfHeights(maxHeights: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Monotonic Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(n^2)$ and does not scale. Monotonic stacks find the nearest shorter tower on each side, so the prefix beauty $f[i]$ follows from $f[j]$ in constant time; combining left and right arrays at every peak gives the same answer faster.
+
+<!-- thinking:end -->
 
 Solution 1 is sufficient to pass this problem, but the time complexity is relatively high. We can use "Dynamic Programming + Monotonic Stack" to optimize the enumeration process.
 

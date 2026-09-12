@@ -77,6 +77,14 @@ Since Ryan and Christine received an equal number of votes, we will display thei
 
 ### Solution 1: Window Function + Group Statistics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each voter's ballot is split equally among that voter's non-null candidates. A window `COUNT` yields weight $1/\mathrm{cnt}$, a grouped `SUM` totals each candidate, and `RANK` keeps every first-place name, ordered alphabetically.
+
+<!-- thinking:end -->
+
 We can use the window function `count` to calculate the number of votes each voter gives to the candidates, then use the group statistics function `sum` to calculate the total number of votes for each candidate. Next, we use the window function `rank` to calculate the ranking of each candidate, and finally filter out the candidate who ranks first.
 
 Note that there may be multiple candidates ranking first in the result set, so we need to use `order by` to sort the candidates.

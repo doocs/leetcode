@@ -64,6 +64,14 @@ Toaster 和 Headphones 的数量被填充为 0。</pre>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> `quantity` 的空值应填 $0$。`fillna(0)` 只作用于该列，其它列的缺失保持不动。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

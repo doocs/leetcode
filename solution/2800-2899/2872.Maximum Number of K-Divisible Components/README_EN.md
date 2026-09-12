@@ -73,6 +73,14 @@ It can be shown that no other valid split has more than 3 connected components.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The whole tree sum is divisible by $k$, so deleting a subtree whose sum is also divisible by $k$ leaves valid components. A bottom-up DFS accumulates subtree sums and counts every subtree whose sum is $0$ modulo $k$.
+
+<!-- thinking:end -->
+
 We note that the problem guarantees the sum of all node values in the entire tree is divisible by $k$. Therefore, if we remove a subtree whose sum of elements is divisible by $k$, the sum of node values in each of the remaining connected components must also be divisible by $k$.
 
 Thus, we can use a depth-first search approach, starting from the root node to traverse the entire tree. For each node, we calculate the sum of all node values in its subtree. If this sum is divisible by $k$, we increment the answer by one.

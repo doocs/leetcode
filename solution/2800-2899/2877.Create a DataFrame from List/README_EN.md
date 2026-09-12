@@ -55,6 +55,14 @@ A DataFrame was created on top of student_data, with two columns named <code>stu
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The nested list already holds one student per row. Passing it to `DataFrame` with the two column names builds the table without row-wise insertion.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

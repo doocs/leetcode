@@ -72,6 +72,14 @@ The class teacher selects all the students to form the group.
 
 ### Solution 1: Sorting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A group of size $k$ exists only if every selected student has $nums[i]<k$ and every unselected one has $nums[i]>k$; a value equal to $k$ forbids that $k$. After sorting, the selected students are a prefix, so we test each $k\in[0,n]$ at the cut.
+
+<!-- thinking:end -->
+
 Assume that $k$ students are selected, then the following conditions hold:
 
 - If $nums[i] = k$, then there is no grouping method;

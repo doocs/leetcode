@@ -77,6 +77,14 @@ It can be proven that 2 seconds is the minimum amount of seconds needed for equa
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The final common value must already occur in the array. Each copy of $x$ spreads one step left and right per second, so the time on the circle is half the largest gap between consecutive occurrences, including the wrap-around. Group indices by value and take the minimum $\lfloor t/2\rfloor$.
+
+<!-- thinking:end -->
+
 We assume that all elements eventually become $x$, and $x$ must be an element in the array.
 
 The number $x$ can expand one bit to the left and right every second. If there are multiple identical $x$, then the time required to expand the entire array depends on the maximum distance between two adjacent $x$.

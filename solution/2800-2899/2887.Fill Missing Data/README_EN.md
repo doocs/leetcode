@@ -62,6 +62,14 @@ The quantity for Wristwatch and WirelessEarbuds are filled by 0.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Null quantities should become $0$. `fillna(0)` on that column leaves missing values in other columns untouched.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

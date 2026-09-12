@@ -89,6 +89,14 @@ setTimeout(() =&gt; {
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 第 $count$ 次触发的等待为 $delay+period\cdot count$，并非固定周期，`setInterval` 无法直接表达。用递归 `setTimeout` 在每次回调后按当前 $count$ 计算下一次延迟，并以映射保存标识，从而 `customClearInterval` 可以取消尚未触发的定时器。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

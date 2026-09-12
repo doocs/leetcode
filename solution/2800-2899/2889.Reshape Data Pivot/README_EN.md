@@ -70,6 +70,14 @@ DataFrame <code>weather</code>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Months should become the index, cities the columns, and temperatures the values. `pivot` reshapes those three fields, each (month, city) holding a unique temperature.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

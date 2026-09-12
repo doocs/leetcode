@@ -78,6 +78,14 @@ We return 0 - 15 = -15 as the answer.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is small enough to scan $[1,n]$: subtract a multiple of $m$ and add every other integer, which is exactly $num_1-num_2$.
+
+<!-- thinking:end -->
+
 We traverse every number in the range $[1, n]$. If it is divisible by $m$, we subtract it from the answer. Otherwise, we add it to the answer.
 
 After the traversal, we return the answer.

@@ -81,6 +81,14 @@ nums = [1,3,4] 是美丽数组。
 
 ### 方法一：贪心 + 数学
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 美丽数组不能同时包含和为 $target$ 的一对，且要求和最小。从 $1$ 起贪心选取时，不超过 $\lfloor target/2\rfloor$ 的数均可取；若还不够 $n$ 个，则从 $target$ 起接着取连续整数。两段均为等差数列，可用通项公式在常数时间内求和。
+
+<!-- thinking:end -->
+
 我们可以贪心地从 $x = 1$ 开始构造数组 $nums$，每次选择 $x$，并且排除 $target - x$。
 
 我们不妨记 $m = \left\lfloor \frac{target}{2} \right\rfloor$。

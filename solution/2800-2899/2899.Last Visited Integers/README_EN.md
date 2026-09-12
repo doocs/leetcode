@@ -94,6 +94,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Positive integers append to $seen$; a run of $-1$s means the $k$-th last seen value. A counter $k$ grows on $-1$ and resets on a positive number; if $k$ exceeds the length of $seen$, the answer is $-1$.
+
+<!-- thinking:end -->
+
 We directly simulate according to the problem description.
 
 Define an array $\textit{seen}$ to store the positive integers we have encountered, and an array $\textit{ans}$ to store the answer. We also need a variable $k$ to record the number of consecutive $-1$s.

@@ -88,6 +88,14 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Elegance is total profit plus the square of the number of distinct categories; enumerating $k$-subsequences is infeasible. High-profit items should enter first: take the top $k$ by profit, record categories in a set, and push duplicate-category profits onto a stack. Later, a new category can replace the cheapest duplicate in the stack, trading some profit for a larger category-square term.
+
+<!-- thinking:end -->
+
 We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $tot$. Use a hash table $vis$ to record the categories of these $k$ items, use a stack $dup$ to record the profits of the repeated categories in order, and use a variable $ans$ to record the current maximum elegance.
 
 Next, we consider starting from the $k+1$ item. If its category is already in $vis$, it means that if we choose this category, the number of different categories will not increase, so we can skip this item directly. If there is no duplicate category before, we can also skip this item directly. Otherwise, we can consider replacing the top item of $dup$ stack (the item with the minimum profit in the duplicate category) with the current item, which can increase the total profit by $p - dup.pop()$ and increase the number of different categories by $1$, so we can update $tot$ and $ans$.

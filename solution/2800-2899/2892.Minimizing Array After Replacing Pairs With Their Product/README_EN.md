@@ -64,6 +64,14 @@ Hence, the answer is 4.</pre>
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent values whose product is at most $k$ may merge. A zero makes the whole product $0$, so the array can shrink to length $1$. Otherwise we extend the current product while it stays $\le k$ and start a new piece when it does not, which minimizes the number of pieces.
+
+<!-- thinking:end -->
+
 We use a variable $ans$ to record the current length of the array, and a variable $y$ to record the current product of the array. Initially, $ans = 1$ and $y = nums[0]$.
 
 We start traversing from the second element of the array. Let the current element be $x$:

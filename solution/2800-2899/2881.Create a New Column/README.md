@@ -71,6 +71,14 @@ DataFrame employees
 
 ### 方法一：直接计算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 奖金是工资的两倍，向量化赋值 `salary * 2` 即可生成新列，无需逐行循环。
+
+<!-- thinking:end -->
+
 我们可以直接计算 `salary` 的两倍，然后将结果存入 `bonus` 列。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。

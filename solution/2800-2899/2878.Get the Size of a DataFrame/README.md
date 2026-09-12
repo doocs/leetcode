@@ -71,6 +71,14 @@ DataFrame <code>players:</code>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要返回行数与列数组成的列表。`shape` 恰为这两个量，转为列表即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -94,6 +94,14 @@ It can be proven that we can create at most 2 alloys.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every alloy must come from one machine. Cost grows with the number produced, so for each machine we binary-search the largest $x$ whose extra-metal cost stays within budget, then take the best $x$ over machines.
+
+<!-- thinking:end -->
+
 We note that all alloys need to be made by the same machine, so we can enumerate which machine to use to make the alloy.
 
 For each machine, we can use binary search to find the maximum integer $x$ such that we can use this machine to make $x$ alloys. The maximum of all $x$ is the answer.

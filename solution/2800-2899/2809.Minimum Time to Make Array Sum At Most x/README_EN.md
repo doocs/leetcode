@@ -71,6 +71,14 @@ Now sum of nums1 = 4. It can be shown that these operations are optimal, so we r
 
 ### Solution 1: Sorting + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Operating on the same index more than once only the last time matters, so at most $n$ operations occur. The $j$-th operation on index $i$ reduces the sum by $nums_1[i]+nums_2[i]\cdot j$; to maximize the reduction, larger $nums_2$ should be operated later. After sorting by $nums_2$, $f[i][j]$ is the best reduction using the first $i$ values with $j$ operations, and we take the smallest $j$ whose remaining sum is at most $x$.
+
+<!-- thinking:end -->
+
 We notice that if we operate on the same number multiple times, only the last operation is meaningful, and the rest of the operations on that number will only increase the other numbers. Therefore, we operate on each number at most once, that is to say, the number of operations is within $[0,..n]$.
 
 Let's assume that we have performed $j$ operations, and the indices of the numbers operated on are $i_1, i_2, \cdots, i_j$. For these $j$ operations, the value that each operation can reduce the sum of array elements is:
@@ -268,6 +276,14 @@ function minimumTime(nums1: number[], nums2: number[], x: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i][j]$ depends only on the previous row at $j$ and $j-1$. Rolling the array and iterating $j$ downward reduces the space to $O(n)$ without changing the transitions.
+
+<!-- thinking:end -->
 
 $f[i][j]$ only depends on $f[i-1][j]$ and $f[i-1][j-1]$, so we can drop the first dimension and enumerate $j$ from large to small, reducing the space complexity to $O(n)$.
 

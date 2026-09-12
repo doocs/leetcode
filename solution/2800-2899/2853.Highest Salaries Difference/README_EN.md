@@ -74,6 +74,14 @@ Salaries table:
 
 ### Solution 1: GROUP BY Clause
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The result is the difference of the two departments' maximum salaries. Group by department, take `MAX(salary)`, then subtract the smaller of those two maxima from the larger.
+
+<!-- thinking:end -->
+
 We can first calculate the highest salary for each department, and then calculate the difference between the two highest salaries.
 
 <!-- tabs:start -->

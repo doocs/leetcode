@@ -71,6 +71,14 @@ Alice (customer_id = 4) 和 Finn (customer_id = 5) 都使用 john@example.com，
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 重复以 `email` 为准。`drop_duplicates(subset=['email'])` 保留首次出现的行，符合题意。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

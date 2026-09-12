@@ -86,6 +86,14 @@ It can be shown that there are only 6 valid paths.
 
 ### Solution 1: Preprocessing + Union-Find + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid path contains exactly one prime. After a sieve, union-find merges edges whose both ends are composite, forming prime-free components. For each prime $i$, if the adjacent component sizes are $c_1,c_2,\ldots$, paths that end at $i$ contribute $\sum c$ and paths through $i$ contribute pairwise products.
+
+<!-- thinking:end -->
+
 We can preprocess to get all the prime numbers in $[1, n]$, where $prime[i]$ indicates whether $i$ is a prime number.
 
 Next, we build a graph $g$ based on the two-dimensional integer array, where $g[i]$ represents all the neighbor nodes of node $i$. If both nodes of an edge are not prime numbers, we merge these two nodes into the same connected component.
@@ -516,6 +524,14 @@ function countPaths(n: number, edges: number[][]): number {
 <!-- solution:start -->
 
 ### Solution 2: Depth-First Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Union-find needs those components in advance. A DFS from the root can return the number of prime-free and single-prime paths in a subtree and multiply them at the current node according to whether it is prime.
+
+<!-- thinking:end -->
 
 Build the tree and DFS from the root. Each subtree returns the number of paths with zero or one prime, and a prime node multiplies contributions from adjacent subtrees.
 

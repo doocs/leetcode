@@ -91,6 +91,14 @@ context = {"context": 5}
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要按规范实现 `forEach`：按原数组下标依次回调，并绑定可选的 `this`。在 $[0,n)$ 上遍历，以 `callback.call(context, this[i], i, this)` 传入当前值、下标与数组本身即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coordinates are at most $100$, so a difference array works: increment the start, decrement one past the end, and count positions whose prefix sum is positive.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to add one vehicle to each interval $[\textit{start}_i, \textit{end}_i]$. We can use a difference array to achieve this.
 
 We define an array $d$ of length 102. For each interval $[\textit{start}_i, \textit{end}_i]$, we increment $d[\textit{start}_i]$ by 1 and decrement $d[\textit{end}_i + 1]$ by 1.
@@ -173,6 +181,14 @@ function numberOfPoints(nums: number[][]): number {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Difference Array + Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 needs a known upper bound. Storing only nonzero difference points in a hash map and scanning them in order uses space linear in the number of intervals.
+
+<!-- thinking:end -->
 
 If the range of intervals in the problem is large, we can use a hash table to store the start and end points of the intervals. Then, we sort the keys of the hash table and perform prefix sum statistics.
 

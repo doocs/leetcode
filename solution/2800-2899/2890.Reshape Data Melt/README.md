@@ -70,6 +70,14 @@ DataFrame 已从宽格式重塑为长格式。每一行表示一个季度内产�
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 宽表的各季度列应收成「季度、销量」两列。`melt` 以 `product` 为标识变量，其余列转入长表。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

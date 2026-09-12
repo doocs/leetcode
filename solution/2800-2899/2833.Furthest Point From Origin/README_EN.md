@@ -71,6 +71,14 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each underscore may go either way, and the furthest point puts every blank on the already larger side. The distance is therefore $|\#L-\#R|$ plus the number of underscores.
+
+<!-- thinking:end -->
+
 When encountering the character '_', we can choose to move left or right. The problem requires us to find the farthest point from the origin. Therefore, we can first traverse once, greedily move all '_' to the left, and find the farthest point from the origin at this time. Then traverse again, greedily move all '\_' to the right, and find the farthest point from the origin at this time. Finally, take the maximum of the two traversals.
 
 Further, we only need to calculate the difference between the number of 'L' and 'R' in the string, and then add the number of '\_'.

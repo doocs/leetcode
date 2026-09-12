@@ -87,6 +87,14 @@ So, answer[2] = 1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every root we want the fewest reversals that make the whole tree reachable. A first DFS from $0$ counts backward edges as $ans[0]$. Rerooting along an edge changes the answer by $\pm 1$, so a second DFS fills every root.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

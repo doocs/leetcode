@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1: Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An eight-direction step makes the shortest time the Chebyshev distance $\max(|dx|,|dy|)$. If start equals finish, $t=1$ leaves the cell and cannot return in that single move, so only $t\ne 1$ works; otherwise any $t$ at least that distance is enough, with extra time spent wandering.
+
+<!-- thinking:end -->
+
 If the starting point and the destination are the same, then we can only reach the destination within the given time if $t \neq 1$.
 
 Otherwise, we can calculate the difference in the x and y coordinates between the starting point and the destination, and then take the maximum value. If the maximum value is less than or equal to the given time, then we can reach the destination within the given time.

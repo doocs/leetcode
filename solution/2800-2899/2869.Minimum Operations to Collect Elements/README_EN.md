@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: Traverse in Reverse Order
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation takes the current tail, so the answer is the shortest suffix that contains every integer in $1..k$. A reverse scan with a boolean array stops at the first time $k$ distinct targets are collected.
+
+<!-- thinking:end -->
+
 We can traverse the array in reverse order. For each element encountered during the traversal that is less than or equal to $k$ and has not been added to the set yet, we add it to the set until the set contains elements from $1$ to $k$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(k)$.

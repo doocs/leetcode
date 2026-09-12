@@ -80,6 +80,14 @@ It can be proven that 8 is the minimum possible sum that a beautiful array could
 
 ### Solution 1: Greedy + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful array forbids any pair summing to $target$ and should have minimal sum. Greedy selection from $1$ may take every integer up to $\lfloor target/2\rfloor$; if more values are needed, continue from $target$. Both segments are arithmetic, so closed forms suffice.
+
+<!-- thinking:end -->
+
 We can greedily construct the array `nums` starting from $x = 1$, choosing $x$ each time and excluding $target - x$.
 
 Let's denote $m = \left\lfloor \frac{target}{2} \right\rfloor$.

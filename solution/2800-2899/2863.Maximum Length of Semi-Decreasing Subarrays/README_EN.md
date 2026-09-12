@@ -75,6 +75,14 @@ It can be shown that there aren&#39;t any subarrays with the given condition wit
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A semi-decreasing subarray only needs its first element larger than its last. Scanning values from large to small and keeping the smallest index $k$ seen so far, the rightmost occurrence of the current value together with $k$ is a candidate length.
+
+<!-- thinking:end -->
+
 The problem is essentially finding the maximum length of the inverse pairs. We can use a hash table $d$ to record the index $i$ corresponding to each number $x$ in the array.
 
 Next, we traverse the keys of the hash table in descending order of the numbers. We maintain a number $k$ to keep track of the smallest index that has appeared so far. For the current number $x$, we can get a maximum inverse pair length of $d[x][|d[x]|-1]-k + 1$, where $|d[x]|$ represents the length of the array $d[x]$, i.e., the number of times the number $x$ appears in the original array. We update the answer accordingly. Then, we update $k$ to $d[x][0]$, which is the index where the number $x$ first appears in the original array. We continue to traverse the keys of the hash table until all keys are traversed.

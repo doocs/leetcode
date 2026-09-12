@@ -92,6 +92,14 @@ So Alice wins, and the game ends.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both word lists are sorted. A legal reply is either the same first letter and a larger string, or a first letter exactly one greater. Each player always takes the earliest remaining legal word, so two pointers simulate the game without search.
+
+<!-- thinking:end -->
+
 We use $k$ to record whose turn it is, where $k=0$ means it is Alice's turn, and $k=1$ means it is Bob's turn. We use $i$ to record Alice's index, $j$ to record Bob's index, and $w$ to record the current word. Initially, we set $i=1$, $j=0$, and $w=a[0]$.
 
 We perform the following steps repeatedly:

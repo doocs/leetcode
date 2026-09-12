@@ -71,6 +71,14 @@ DataFrame <code>weather</code>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把月份作行、城市作列、气温作值。`pivot` 按这三维重塑，每个（月份，城市）对应唯一温度。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

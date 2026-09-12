@@ -80,6 +80,14 @@ It can be shown that there is only 1 beautiful integer in the given range.
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful integer has equally many even and odd digits and is divisible by $k$. The range is large, so we compute $F(high)-F(low-1)$ with digit DP on remainder $mod$, odd-even difference $diff$ (offset by $10$), leading zeros, and the upper bound. Leading zeros do not affect $diff$.
+
+<!-- thinking:end -->
+
 We notice that the problem is asking for the number of beautiful integers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.
 
 We design a function $dfs(pos, mod, diff, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the result of the current number modulo $k$ is $mod$, the difference between the odd and even digits of the current number is $diff$, whether the current number has leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$.

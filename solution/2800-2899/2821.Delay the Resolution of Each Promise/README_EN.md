@@ -82,6 +82,14 @@ ms = 30
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each function should start only after $ms$ milliseconds. Map every function to an async wrapper that awaits a timer and then calls the original, leaving the original body unchanged.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

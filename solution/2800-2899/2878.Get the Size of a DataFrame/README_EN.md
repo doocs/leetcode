@@ -70,6 +70,14 @@ This DataFrame contains 10 rows and 5 columns.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The required pair is the number of rows and columns. `shape` already stores both; converting it to a list is enough.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

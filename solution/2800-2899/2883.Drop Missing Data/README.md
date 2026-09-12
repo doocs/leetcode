@@ -66,6 +66,14 @@ DataFrame students
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 缺失指 `name` 为空。用 `notnull()` 过滤该列即可删去这些行，不必对整表 `dropna`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

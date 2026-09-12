@@ -78,6 +78,14 @@ fn = (x) =&gt; Array.isArray(x)
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Filtering must recurse through nested arrays and objects, with $fn$ deciding each leaf. Drop children that return `undefined`; an array or object that becomes empty is itself discarded.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

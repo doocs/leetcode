@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful array is nondecreasing over $\{1,2,3\}$. Assigning a final value to each position must keep the sequence nondecreasing. $f[j]$ is the minimum cost for the current prefix to end with $j+1$, taking a previous state at most $j$, and only three states are kept.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum number of operations to turn the first $i$ numbers into a beautiful array, and the $i$th number is changed to $j+1$. The answer is $\min(f[n][0], f[n][1], f[n][2])$.
 
 We can enumerate all cases where the $i$th number is changed to $j+1$, and then take the minimum value. Here, we can use a rolling array to optimize the space complexity.

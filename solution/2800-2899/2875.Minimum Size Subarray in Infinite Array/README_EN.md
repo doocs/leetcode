@@ -74,6 +74,14 @@ It can be proven that there is no subarray with sum equal to target = 3.
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array repeats forever, so $target$ is some number of full cycles plus a shortest leftover (or a shortest wrap that complements a cycle). Strip as many full sums as possible, then on one prefix-sum pass a hash map finds the shortest segment equal to the remainder or to $s$ minus the remainder.
+
+<!-- thinking:end -->
+
 First, we calculate the sum of all elements in the array $nums$, denoted as $s$.
 
 If $target \gt s$, we can reduce $target$ to the range $[0, s)$ by subtracting $\lfloor \frac{target}{s} \rfloor \times s$ from it. Then, the length of the subarray is $a = \lfloor \frac{target}{s} \rfloor \times n$, where $n$ is the length of the array $nums$.

@@ -64,6 +64,14 @@ Given three strings <code>a</code>, <code>b</code>, and <code>c</code>, your tas
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each string has length at most $100$, so all six concatenation orders can be tried. The answer must be shortest and then lexicographically smallest, so containment and overlap both matter. If one string already sits inside another, it need not be appended; otherwise an optimal superstring corresponds to some permutation merged in order. Function $f$ handles containment first, then searches the longest suffix–prefix overlap, and we keep the best string by length and order.
+
+<!-- thinking:end -->
+
 We enumerate all permutations of the three strings, and for each permutation, we merge the three strings to find the shortest string with the smallest lexicographical order.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the maximum length of the three strings.
@@ -290,6 +298,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Enumeration + KMP
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 scans overlap lengths in $O(n^2)$ per merge. The KMP prefix function of $t\#s$ yields the longest prefix of $t$ that is a suffix of $s$, so each merge is linear while the permutation enumeration stays the same.
+
+<!-- thinking:end -->
 
 We can use the KMP algorithm to optimize the string merging process.
 

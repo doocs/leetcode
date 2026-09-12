@@ -84,6 +84,14 @@ df1</strong>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two frames share columns and should be stacked. `concat` with `ignore_index=True` rebuilds the index instead of keeping the original row labels.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

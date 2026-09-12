@@ -81,6 +81,14 @@ So the answer would be [5,16,10].</pre>
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A hero collects coins from every monster whose power is at most the hero's. Sort monsters by power, prefix-sum their coins, and binary-search the last monster each hero can beat.
+
+<!-- thinking:end -->
+
 We can sort the monsters and coins in ascending order of the monsters' combat power, and then use prefix sum to calculate the total number of coins each hero can get by defeating the first $i$ monsters.
 
 Next, for each hero, we can use binary search to find the strongest monster he can defeat, and then use prefix sum to calculate the total number of coins he can get.

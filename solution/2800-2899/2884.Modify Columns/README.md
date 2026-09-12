@@ -67,6 +67,14 @@ DataFrame <code>employees</code>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 工资列须整体翻倍。对 `salary` 做就地乘法，其它列保持不变。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -73,6 +73,14 @@ The column names are changed accordingly.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four column names must be remapped. A single `rename(columns=...)` applies the mapping without relying on positional order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
