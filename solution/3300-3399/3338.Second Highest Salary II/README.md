@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3338.Second%20Highest%20Salary%20II/README.md
 tags:
     - 数据库
 ---
