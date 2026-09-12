@@ -105,6 +105,18 @@ Each row represents a record of a gift exchange between two employees, giver_id 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each employee gives and receives exactly one gift, so the exchanges form disjoint directed cycles. Walking the edges in application code would leave the cycle grouping outside SQL, but the task is a single query that reports each cycle's length and total gift value.
+>
+> The graph is only as large as the exchange table. The difficulty is to assign every edge of the same cycle to one group and to emit each cycle once.
+>
+> A recursive CTE can follow $\textit{giver\_id}\to\textit{receiver\_id}$, take the minimum employee id on the cycle as $\textit{chain\_id}$, aggregate length and $\textit{gift\_value}$, and sort by length and total value descending.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

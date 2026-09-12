@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bag indices reach $10^9$ and $k$ is large, so we cannot expand bags one by one. Coins come as disjoint segments $[l_i,r_i]$ with $c_i$ each, and we want the maximum sum over any $k$ consecutive bags.
+>
+> An optimal window can be shifted until its left or right end touches a segment endpoint. After sorting segments, the problem is a fixed-length window over those pieces.
+>
+> Prefix sums evaluate the profit of taking $k$ bags from a given start. We try windows that snap to some $l_i$ on the left or some $r_i$ on the right, and keep the maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

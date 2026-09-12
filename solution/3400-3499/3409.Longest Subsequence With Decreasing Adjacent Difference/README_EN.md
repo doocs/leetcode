@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent absolute differences in the subsequence must strictly decrease. $n\le 10^4$ rules out subset enumeration, but values lie in $[1,300]$, so differences are at most $299$.
+>
+> A state only needs the last value and the last difference; transitions can run over that small domain.
+>
+> Let $f[v][d]$ be the longest subsequence ending with value $v$ whose last difference is $d$. When inserting $x$, we enumerate a previous value $y$ and a larger difference $d>|x-y|$, and update $f[x][|x-y|]$ from $f[y][d]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

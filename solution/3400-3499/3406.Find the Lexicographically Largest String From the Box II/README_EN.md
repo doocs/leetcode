@@ -79,6 +79,18 @@ If the first <code>min(a.length, b.length)</code> characters do not differ, then
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in Box I, the lexicographically largest piece is a prefix of some suffix, of length at most $n-\textit{numFriends}+1$. Comparing every left endpoint pairwise is the same idea with a worse constant.
+>
+> Once the lexicographically largest suffix of the whole string is known, its prefix of the allowed length is the answer.
+>
+> We therefore compute $\textit{lastSubstring}$ with two pointers: the current best start $i$ and a challenger $j$, advancing over the shared prefix and discarding the weaker side on a mismatch. If $\textit{numFriends}=1$, we still return the original word.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

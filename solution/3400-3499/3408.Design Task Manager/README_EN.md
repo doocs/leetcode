@@ -86,6 +86,18 @@ taskManager.execTop(); // return 5. Executes task 105 for User 5.</div>
 
 ### Solution 1: Hash Map + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Up to $2\times 10^5$ operations require fetching the highest-priority (then highest-id) task and editing or deleting by $\textit{taskId}$. Scanning every task on $\textit{execTop}$ is too slow.
+>
+> A hash map finds a task's user and priority in $O(1)$ but not the global maximum. A heap or ordered set keeps the maximum, but edits must locate the old tuple.
+>
+> We store $\textit{taskId}\mapsto(\textit{userId},\textit{priority})$ in a hash map $\textit{d}$, and $(-\textit{priority},-\textit{taskId})$ in an ordered set so the best task sits at the front. Each update touches both structures; $\textit{execTop}$ pops the first set element.
+
+<!-- thinking:end -->
+
 We use a hash map $\text{d}$ to store task information, where the key is the task ID and the value is a tuple $(\text{userId}, \text{priority})$ representing the user ID and the priority of the task.
 
 We use an ordered set $\text{st}$ to store all tasks currently in the system, where each element is a tuple $(-\text{priority}, -\text{taskId})$ representing the negative priority and negative task ID. We use negative values so that the task with the highest priority and largest task ID appears first in the ordered set.

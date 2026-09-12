@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the maximum number of index-wise matches after some cyclic right shifts of $\textit{nums1}$. Materializing a rotated copy for every offset does not reduce the number of comparisons.
+>
+> With $n \le 3000$, enumerating all $n$ offsets and comparing element-wise is $O(n^2)$ and fits the limits. Matching depends only on the relative offset, so an explicit rotation is unnecessary.
+>
+> After $k$ right shifts, the value originally at $(i+k)\bmod n$ lands at index $i$. We therefore enumerate $k$, compare $\textit{nums1}[(i+k)\bmod n]$ with $\textit{nums2}[i]$, and keep the maximum count.
+
+<!-- thinking:end -->
+
 We can enumerate the number of right shifts $k$, where $0 \leq k < n$. For each $k$, we can calculate the number of matching indices between the array $\textit{nums1}$ after right shifting $k$ times and $\textit{nums2}$. The maximum value is taken as the answer.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array $\textit{nums1}$. The space complexity is $O(1)$.

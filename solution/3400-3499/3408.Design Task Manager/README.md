@@ -88,6 +88,18 @@ taskManager.execTop(); // 返回 5 。执行用户 5 的任务 105 。</div>
 
 ### 方法一：哈希表 + 有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 操作次数达 $2\times 10^5$，需要按优先级与任务编号取最大者，同时按 $\textit{taskId}$ 修改或删除。若每次 $\textit{execTop}$ 都扫描全部任务，无法满足时限。
+>
+> 哈希表能 $O(1)$ 找到任务的用户与优先级，但不能单独给出全局最值；堆或有序集合能维护最值，但修改时必须能定位旧元组。
+>
+> 因此用哈希表 $\textit{d}$ 存 $\textit{taskId}\mapsto(\textit{userId},\textit{priority})$，用有序集合存 $(-\textit{priority},-\textit{taskId})$，使高优先级、大编号排在最前。增删改都先改表再同步集合，$\textit{execTop}$ 弹出集合首元即可。
+
+<!-- thinking:end -->
+
 我们用一个哈希表 $\text{d}$ 来存储任务信息，键为任务 ID，值为一个二元组 $(\text{userId}, \text{priority})$，表示该任务所属的用户 ID 以及任务的优先级。
 
 我们用一个有序集合 $\text{st}$ 来存储当前系统中的所有任务，元素为一个二元组 $(-\text{priority}, -\text{taskId})$，表示任务的优先级和任务 ID 的相反数。我们将优先级和任务 ID 取相反数是为了让优先级最高且任务 ID 最大的任务在有序集合中排在最前面。

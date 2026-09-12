@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick at most four non-overlapping weighted intervals to maximize the total weight, breaking ties by the lexicographically smallest index tuple. $n\le 5\times 10^4$ forbids subset search.
+>
+> This is weighted interval scheduling with a cap of four. After sorting by right endpoint, the next non-overlapping interval is a binary search.
+>
+> State $(i,\textit{left})$ starts at interval $i$ with $\textit{left}$ picks remaining. We either skip $i$ or take it and jump to $\textit{next}[i]$, comparing both weight and the index list so the lexicographically smallest optimum is kept.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

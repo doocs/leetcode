@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1: Enumerate Substring Left Endpoints
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split $word$ into $\textit{numFriends}$ nonempty pieces and keep the lexicographically largest piece. When $\textit{numFriends}=1$, the whole string is the only piece.
+>
+> $n$ is modest, but enumerating every partition would compare the same substring many times. For a fixed left endpoint, a longer string is never lexicographically smaller.
+>
+> The other friends take at least one character each, so a piece starting at $i$ has length at most $n-(\textit{numFriends}-1)$. We enumerate left endpoints, take that slice, and return the maximum among them.
+
+<!-- thinking:end -->
+
 If we fix the left endpoint of the substring, the longer the substring, the larger its lexicographical order. Suppose the left endpoint of the substring is $i$, and the minimum length of the remaining substrings is $\text{numFriends} - 1$, then the right endpoint of the substring can be up to $\min(n, i + n - (\text{numFriends} - 1))$, where $n$ is the length of the string. Note that we are talking about left-closed, right-open intervals.
 
 We enumerate all possible left endpoints, extract the corresponding substrings, compare their lexicographical order, and finally obtain the lexicographically largest substring.
