@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3700-3799/3749.Evaluate%20Valid%20Expressions/README.md
 tags:
     - 栈
     - 哈希表
