@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2300-2399/2318.Number%20of%20Distinct%20Roll%20Sequences/README.md
 rating: 2090
 source: 第 81 场双周赛 Q4
 tags:
