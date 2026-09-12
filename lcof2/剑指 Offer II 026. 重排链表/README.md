@@ -59,6 +59,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把结点按 $L_0,L_n,L_1,L_{n-1},\ldots$ 重排，且只能调整指针。先把结点装入数组再按序串起，需要线性额外空间。
+>
+> 中点把链分成前后两段，后半反转后再与前半交替合并，即可得到目标次序。快慢指针找中点、原地反转与合并都是线性、常数空间。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

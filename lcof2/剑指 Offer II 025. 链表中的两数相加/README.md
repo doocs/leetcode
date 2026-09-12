@@ -66,6 +66,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两数按高位在前存放，相加需从低位开始。若先反转链表，需要改写结点结构。
+>
+> 栈恰好逆序弹出。两链入栈后按弹出顺序累加进位，并用头插法把新结点接到答案链前端，使结果仍保持高位在前。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

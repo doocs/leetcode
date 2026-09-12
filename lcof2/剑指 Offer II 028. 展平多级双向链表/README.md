@@ -109,6 +109,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 多级双向链表需要按先序摊平成单层。若对每个 $\textit{child}$ 现场找到子链尾再拼接，最坏在长链上反复扫描。
+>
+> 先序遍历的访问次序正是摊平次序。遍历时把当前结点接到结果链尾，并先递归 $\textit{child}$ 再递归原 $\textit{next}$，同时清空 $\textit{child}$。哑结点简化头部处理。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

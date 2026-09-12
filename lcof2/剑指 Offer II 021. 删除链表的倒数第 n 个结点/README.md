@@ -65,6 +65,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删除倒数第 $n$ 个结点。先走一遍得到长度再定位，需要两次遍历。
+>
+> 快指针先走 $n$ 步，再与慢指针同步前进，快指针到末尾时慢指针恰在待删结点前驱。哑结点接在头部，使删除头结点与删除中间结点同一套指针操作。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

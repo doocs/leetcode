@@ -65,6 +65,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 就地反转单链表。额外数组记下结点再倒序重连需要线性空间。
+>
+> 迭代时保存后继，把当前 $\textit{next}$ 改向前驱，再整体前移。遍历结束后前驱即为新头。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -257,6 +267,14 @@ public class Solution {
 <!-- solution:start-->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一已在原地完成反转。递归先把后半段反转，再把当前结点接到后半段尾部并断开原后继，语义更贴近「先处理子问题」。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
