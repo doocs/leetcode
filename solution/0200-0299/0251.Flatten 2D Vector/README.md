@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0200-0299/0251.Flatten%202D%20Vector/README.md
 tags:
     - 设计
     - 数组
