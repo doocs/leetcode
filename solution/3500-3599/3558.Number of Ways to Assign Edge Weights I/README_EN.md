@@ -87,6 +87,16 @@ tags:
 
 ### Solution 1: DFS + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The path from $1$ to a deepest leaf has $d$ edges. Each edge is $1$ or $2$, and the cost is odd iff an odd number of them are $1$. Other edges are free.
+>
+> The number of odd-sized subsets of $d$ elements is $2^{d-1}$ ($0$ when $d=0$). DFS finds $d$; a fast power finishes the count.
+
+<!-- thinking:end -->
+
 First, we build an adjacency list $g$ from the edges, where $g[u]$ contains all neighbors of node $u$.
 
 Next, we use a function $\textit{dfs}$ to compute the depth $d$ of the tree. The answer is the number of ways to choose an odd number of elements from $d$. According to a well-known combinatorial identity, the number of ways to choose an odd number of elements from a set of size $d$ is $2^{d-1}$. Therefore, we can compute the answer using fast exponentiation.

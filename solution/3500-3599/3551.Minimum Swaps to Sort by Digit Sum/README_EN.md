@@ -92,6 +92,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The target order is uniquely given by $(\textit{digitSum}(x), x)$. The minimum number of swaps in a permutation is $n$ minus the number of cycles.
+>
+> Map each value to its index in the sorted array and walk those pointers, marking visits. Each cycle of length $\ell$ needs $\ell-1$ swaps, so the total is $n$ minus the cycle count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

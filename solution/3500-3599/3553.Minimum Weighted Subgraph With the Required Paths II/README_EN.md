@@ -94,6 +94,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query wants the lightest subtree that covers both $src1 \to dest$ and $src2 \to dest$, i.e. the union of three paths. $n,q \le 10^5$ forbid a BFS per query.
+>
+> The union of two paths has weight $(\textit{dist}(a,b)+\textit{dist}(a,c)+\textit{dist}(b,c))/2$. After depths, weighted prefixes, and LCA, each distance is $O(\log n)$, and the triple formula answers the query.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

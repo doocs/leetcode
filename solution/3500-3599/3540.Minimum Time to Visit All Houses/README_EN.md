@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Houses sit on a cycle with different forward and backward weights, and $\textit{queries}$ must be visited in order. $n,q \le 10^5$ forbid searching the cycle each time.
+>
+> Prefix sums of the two directions give the shorter arc between any pair. Sum those arcs along the query sequence.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

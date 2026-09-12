@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Enumeration + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A string of modest length has $O(n^2)$ substring integers, so we can enumerate them and test primality. The answer is the sum of the three largest distinct primes.
+>
+> Store primes in a set, sort, and add the last three (or all of them if fewer). Grow the integer from each start by $x = 10x + \textit{digit}$ instead of reparsing strings.
+
+<!-- thinking:end -->
+
 We can enumerate all substrings and check whether they are prime numbers. Since the problem requires us to return the sum of the largest 3 distinct primes, we can use a hash table to store all the primes.
 
 After traversing all substrings, we sort the primes in the hash table in ascending order, and then take the largest 3 primes to calculate the sum.

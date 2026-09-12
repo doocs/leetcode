@@ -123,6 +123,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Inverting a subtree multiplies every value by $-1$, and two inversions on an ancestor–descendant pair must be at least $k$ apart. $n \le 5 \cdot 10^4$ and $k \le 50$ suggest a tree DP that keeps the distance dimension.
+>
+> At each node store the best subtree sum under the current sign and the remaining distance since the last ancestor inversion. The transition decides whether to invert here (if the distance allows) and sums the children.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

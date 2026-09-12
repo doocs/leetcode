@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Enumeration + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A single horizontal or vertical cut must split the grid into two blocks of equal sum. An odd total is impossible.
+>
+> Scan row prefix sums; a cut after a row is legal when the prefix is half the total and the row is not the last. Repeat on columns. A running sum is enough — no full prefix matrix is required.
+
+<!-- thinking:end -->
+
 First, we calculate the sum of all elements in the matrix, denoted as $s$. If $s$ is odd, it is impossible to divide the matrix into two parts with equal sums, so we directly return `false`.
 
 If $s$ is even, we can enumerate all possible partition lines to check if there exists a line that divides the matrix into two parts with equal sums.

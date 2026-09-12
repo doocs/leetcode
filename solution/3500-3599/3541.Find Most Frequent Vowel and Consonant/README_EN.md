@@ -82,6 +82,16 @@ The <strong>frequency</strong> of a letter <code>x</code> is the number of times
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the highest vowel frequency plus the highest consonant frequency, independent of which letter achieves it. One counting pass and two running maxima suffice.
+>
+> Treat a missing class as frequency $0$ and add the two maxima.
+
+<!-- thinking:end -->
+
 We first use a hash table or an array of length $26$, $\textit{cnt}$, to count the frequency of each letter. Then, we iterate through this table to find the most frequent vowel and consonant, and return the sum of their frequencies.
 
 We can use a variable $\textit{a}$ to record the maximum frequency of vowels and another variable $\textit{b}$ to record the maximum frequency of consonants. During the iteration, if the current letter is a vowel, we update $\textit{a}$; otherwise, we update $\textit{b}$.

@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Enumeration + Digit Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the smallest index $i$ whose digit sum equals $i$. Scanning from $0$ yields the minimum.
+>
+> Sum digits by dividing by $10$; if none match, return $-1$. A linear scan is enough.
+
+<!-- thinking:end -->
+
 We can start from index $i = 0$ and iterate through each element $x$ in the array, calculating the digit sum $s$ of $x$. If $s = i$, return the index $i$. If no such index is found after traversing all elements, return -1.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$, as only constant extra space is used.

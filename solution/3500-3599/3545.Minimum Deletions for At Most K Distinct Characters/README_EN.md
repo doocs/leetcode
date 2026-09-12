@@ -95,6 +95,16 @@ tags:
 
 ### Solution 1: Counting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $k$ distinct characters may remain, so deletions equal the total frequency of the discarded kinds. To minimize deletions, drop the rarest kinds.
+>
+> Count, sort the frequencies, and sum all but the largest $k$. The alphabet size $26$ makes the sort constant-time.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{cnt}$ to count the frequency of each character. Then, we sort this array and return the sum of the first $26 - k$ elements.
 
 The time complexity is $O(|\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$, where $|\Sigma|$ is the size of the character set. In this problem, $|\Sigma| = 26$.
