@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2978.Symmetric%20Coordinates/README_EN.md
 tags:
     - Database
 ---
