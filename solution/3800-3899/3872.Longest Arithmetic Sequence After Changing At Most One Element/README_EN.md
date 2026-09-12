@@ -74,6 +74,19 @@ tags:
 
 ### Solution 1: Prefix and Suffix Decomposition + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After changing at most one entry, find the longest contiguous arithmetic subarray. $n \le 10^5$ forbids expanding from every change.
+>
+> Without a change the longest run is a streak of equal adjacent differences. Changing $i$ may extend the left run, the right run, or join both on one common difference.
+>
+> Precompute arithmetic lengths $f,g$ ending or starting at $i$, then try each change in those three ways.
+>
+> Joining both sides requires $nums[i+1]-nums[i-1]$ even, and extra length is added only when that difference matches the neighboring runs.
+
+<!-- thinking:end -->
 We first compute the differences between adjacent elements of the array, stored as array $d$, where $d[i] = nums[i] - nums[i - 1]$.
 
 Next, we define two arrays $f$ and $g$, where $f[i]$ represents the length of the longest arithmetic subarray ending at the $i$-th element, and $g[i]$ represents the length of the longest arithmetic subarray starting at the $i$-th element. Initially, $f[0] = 1$, $g[n - 1] = 1$, and all other elements are initialized to $2$.

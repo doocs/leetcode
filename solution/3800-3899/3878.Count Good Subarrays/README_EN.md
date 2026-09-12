@@ -114,6 +114,19 @@ tags:
 
 ### Solution 1: Monotonic Stack + Contribution Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subarray's OR equals some element inside it. $n \le 10^5$ forbids enumerating intervals.
+>
+> If the OR equals $nums[i]$, every value in the interval is a bit-subset of $nums[i]$ and the interval contains $i$. Treat $i$ as the OR witness.
+>
+> Monotonic stacks find the farthest left and right bounds where interior values remain subsets of $nums[i]$. The contribution is $(i-l[i])\cdot(r[i]-i)$.
+>
+> Each element is counted on the intervals for which it is the stack-wise controller of the OR.
+
+<!-- thinking:end -->
 We can enumerate each element $\textit{nums}[i]$ as the bitwise OR result of a subarray, and count how many subarrays have a bitwise OR exactly equal to $\textit{nums}[i]$.
 
 If the bitwise OR of a subarray is $\textit{nums}[i]$, then every element in the subarray must satisfy:

@@ -112,6 +112,19 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In-array swaps are free; a same-index cross swap costs $1$. We want the two arrays equal as sequences after those moves. $n \le 8 \times 10^4$.
+>
+> Free swaps permute each array arbitrarily, so only the multisets must match. One cross swap exchanges one leftover value on each side.
+>
+> Cancel equal values first. Remaining counts must all be even (two crosses to pair a value with itself); the cost is half the leftovers.
+>
+> An odd remainder on either side is impossible.
+
+<!-- thinking:end -->
 We can use two hash tables $\textit{cnt1}$ and $\textit{cnt2}$ to count the occurrences of each integer in the two arrays. During the counting process, we can directly cancel out the occurrences of integers that appear in both arrays. Finally, we check whether the occurrence count of every integer in both hash tables is even. If any integer has an odd count, we return -1. Otherwise, we compute the sum of half the occurrence counts of all integers in $\textit{cnt1}$, which gives the minimum cost.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the arrays.

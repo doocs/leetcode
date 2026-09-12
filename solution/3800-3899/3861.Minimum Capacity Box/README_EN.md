@@ -80,6 +80,19 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among boxes with capacity $\ge \textit{itemSize}$, pick the smallest capacity, breaking ties by smallest index. Length $\le 100$, one pass.
+>
+> No sort is required: keep the current best index.
+>
+> Update when $x \ge \textit{itemSize}$ and (nothing chosen yet or $x$ is smaller). Left-to-right order already prefers the smaller index on equal capacity.
+>
+> If nothing was chosen, return $-1$.
+
+<!-- thinking:end -->
 We initialize a variable $\textit{ans}$ to represent the index of the box with the smallest capacity that can hold the item, with an initial value of $-1$. We iterate over the array $\textit{capacity}$, and for each box, if its capacity is greater than or equal to $\textit{itemSize}$, it can hold the item. At this point, we check whether it is the smallest-capacity box found so far; if so, we update $\textit{ans}$. Finally, we return $\textit{ans}$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{capacity}$. The space complexity is $O(1)$.

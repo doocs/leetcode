@@ -69,6 +69,19 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count thousands-separator commas used when writing $[1,n]$. $n \le 10^5$, so numbers have at most six digits and at most one comma each.
+>
+> $1$ through $999$ have none; each integer from $1000$ to $n$ has exactly one.
+>
+> The answer is $\max(0,n-999)$.
+>
+> Constant time, no enumeration.
+
+<!-- thinking:end -->
 Numbers from 1 to 999 contain no commas, so when $n$ is less than or equal to 999, the answer is 0.
 
 Since the range of $n$ is $[1, 10^5]$, when $n$ is greater than or equal to 1000, each number contains exactly one comma, so the answer is $n - 999$.
