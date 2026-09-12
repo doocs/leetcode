@@ -154,6 +154,16 @@ It can be shown that there are no other substrings of word that are divisible.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters map to $1 \ldots 9$; we count substrings whose mapped sum is divisible by the length. For modest $n$, enumerate ends, accumulate the map, and test $s \bmod (j-i+1)=0$.
+>
+> Build the map once so the inner loop does not recompute it.
+
+<!-- thinking:end -->
+
 First, we use a hash table or array $mp$ to record the number corresponding to each letter.
 
 Then, we enumerate the starting position $i$ of the substring, and then enumerate the ending position $j$ of the substring, calculate the numerical sum $s$ of the substring $s[i..j]$. If $s$ can be divided by $j-i+1$, then a divisible substring is found, and the answer is increased by one.
@@ -326,6 +336,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Prefix Sum + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(n^2)$ on longer strings. The average of a valid piece is an integer in $1 \ldots 9$, so enumerate that average $t$, subtract $t$ from every mapped value, and count subarrays summing to $0$.
+>
+> Prefix sums plus a hash map of frequencies do this in one pass per $t$, i.e. $O(9n)$.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first use a hash table or array $mp$ to record the number corresponding to each letter.
 

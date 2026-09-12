@@ -68,6 +68,16 @@ It can be shown that we can not select any other subarray with a gcd-sum greater
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score of a subarray is its sum times its GCD, and the length is at least $k$. Trying every subarray is too slow for large $n$. Extending the right end only shrinks previous GCDs, and the number of distinct values is $O(\log A)$.
+>
+> Store in $f$ the leftmost index of each GCD. After reading $v$, take $gcd$ with the old pairs, deduplicate into $g$, and append $(i,v)$. For segments of length at least $k$, multiply the prefix sum by that GCD and update the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Infected indices cut the healthy children into gaps. Orders of infecting all gaps are multinomial $s! / \prod x_i!$. End gaps grow from only one side; an interior gap of length $x$ may always expand at either end, giving $2^{x-1}$ ways.
+>
+> Factorials are precomputed, division uses inverses, and powers are binary exponentiation. $n \le 10^5$ needs a linear preprocess.
+
+<!-- thinking:end -->
+
 According to the problem description, the children who have a cold have divided the children who have not yet caught a cold into several continuous segments. We can use an array $nums$ to record the number of children who are not cold in each segment, and there are a total of $s = \sum_{i=0}^{k} nums[k]$ children who are not cold. We can find that the number of cold sequences is the number of permutations of $s$ different elements, that is, $s!$.
 
 Assuming that there is only one transmission scheme for each segment of children who are not cold, there are $\frac{s!}{\prod_{i=0}^{k} nums[k]!}$ cold sequences in total.

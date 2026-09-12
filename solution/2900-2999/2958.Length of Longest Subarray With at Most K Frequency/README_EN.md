@@ -75,6 +75,16 @@ It can be shown that there are no good subarrays with length more than 4.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest subarray in which no value occurs more than $k$ times. $n \le 10^5$ forbids enumerating ends. The constraint is monotone: moving $r$ can only break it, moving $l$ can only restore it.
+>
+> A hash map counts frequencies; after inserting $x$, shrink $l$ while $cnt[x]>k$. Update the length on a valid window.
+
+<!-- thinking:end -->
+
 We can use two pointers $l$ and $r$ to represent the left and right endpoints of the subarray, initially both pointers point to the first element of the array.
 
 Next, we iterate over each element $x$ in the array $nums$. For each element $x$, we increment the occurrence count of $x$, then check if the current subarray meets the requirements. If the current subarray does not meet the requirements, we move the pointer $l$ one step to the right, and decrement the occurrence count of $nums[l]$, until the current subarray meets the requirements. Then we update the answer $ans = \max(ans, r - l + 1)$. Continue the iteration until $r$ reaches the end of the array.

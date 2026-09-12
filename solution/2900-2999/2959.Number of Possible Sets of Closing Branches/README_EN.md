@@ -100,6 +100,16 @@ It can be proven, that there are only 2 possible sets of closing branches.
 
 ### Solution 1: Binary Enumeration + Floyd Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After closing a subset of branches, remaining pairwise shortest paths must be at most $maxDistance$. $n \le 10$ yields $2^n$ masks. For each mask run Floyd on the surviving edges and test distances inside the subset.
+>
+> Parallel edges keep the lighter one. The empty set and singletons are valid (diagonals are set to $0$).
+
+<!-- thinking:end -->
+
 We notice that $n \leq 10$, so we might as well consider using the method of binary enumeration to enumerate all subsets of departments.
 
 For each subset of departments, we can use the Floyd algorithm to calculate the shortest distance between the remaining departments, and then judge whether it meets the requirements of the problem. Specifically, we first enumerate the middle point $k$, then enumerate the starting point $i$ and the ending point $j$. If $g[i][k] + g[k][j] < g[i][j]$, then we update $g[i][j]$ with the shorter distance $g[i][k] + g[k][j]$.

@@ -68,6 +68,16 @@ So the answer is [1,3].
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A peak is an interior index strictly larger than both neighbors. $n \le 100$, so a scan from $1$ to $n-2$ comparing triples suffices.
+>
+> The endpoints are never peaks by definition.
+
+<!-- thinking:end -->
+
 We directly traverse the index $i \in [1, n-2]$. For each index $i$, if $mountain[i-1] < mountain[i]$ and $mountain[i + 1] < mountain[i]$, then $mountain[i]$ is a peak, and we add index $i$ to the answer array.
 
 After the traversal ends, we return the answer array.

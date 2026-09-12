@@ -96,6 +96,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Odd rows shift right by $k$ and even rows left by $k$; the matrix must stay unchanged. $k$ may be reduced modulo the width, but comparing the cell that would land on $(i,j)$ avoids rotating.
+>
+> On odd rows inspect $mat[i][(j+k)\bmod n]$, on even rows $mat[i][(j-k+n)\bmod n]$. One mismatch rejects. The matrix is at most $25 \times 25$.
+
+<!-- thinking:end -->
+
 We iterate over each element of the matrix and check whether its position after the cyclic shift is the same as the element at the original position.
 
 For odd-indexed rows, we shift elements to the right by $k$ positions, so element $(i, j)$ moves to position $(i, (j + k) \bmod n)$ after the cyclic shift, where $n$ is the number of columns.

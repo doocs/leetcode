@@ -81,6 +81,16 @@ For ans[i] == -1, It can be shown that there is no building where Alice and Bob 
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> They meet at some $j \ge \max(a,b)$ strictly taller than the shorter one (or simply at the right building when it is already taller). Scanning the suffix per query is too slow for $n,q \le 5 \times 10^4$.
+>
+> Process queries by decreasing right endpoint and insert buildings to the right of $r$ into a Fenwick tree keyed by compressed height and storing the smallest index. A query for the smallest index taller than $heights[l]$ is the meeting building.
+
+<!-- thinking:end -->
+
 Let's denote $queries[i] = [l_i, r_i]$, where $l_i \le r_i$. If $l_i = r_i$ or $heights[l_i] < heights[r_i]$, then the answer is $r_i$. Otherwise, we need to find the smallest $j$ among all $j > r_i$ and $heights[j] > heights[l_i]$.
 
 We can sort $queries$ in descending order of $r_i$, and use a pointer $j$ to point to the current index of $heights$ being traversed.

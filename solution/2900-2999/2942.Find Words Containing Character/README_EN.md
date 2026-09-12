@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the indices of words that contain $x$. Both the list and each word are at most length $50$, so a membership test per word suffices.
+>
+> A comprehension collects indices in order; no extra index is required.
+
+<!-- thinking:end -->
+
 We directly traverse each string `words[i]` in the string array `words`. If `x` appears in `words[i]`, we add `i` to the answer array.
 
 After the traversal, we return the answer array.

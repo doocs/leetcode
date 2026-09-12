@@ -78,6 +78,16 @@ We cannot obtain a lexicographically smaller array by applying any more operatio
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values differing by at most $limit$ may be swapped, and transitivity yields connected components. After sorting, a run whose adjacent gaps are $\le limit$ is a component; different runs cannot mix.
+>
+> Values inside a component may be reassigned to that component’s original indices. Sort $(value,index)$ pairs, cut runs, sort the indices, and write values back in increasing order. $n \le 10^5$.
+
+<!-- thinking:end -->
+
 According to the problem description, the sorted array $\textit{nums}$ can be partitioned into several subarrays such that the difference between adjacent elements in each subarray does not exceed $\textit{limit}$.
 
 The lexicographically smallest array obtainable through swapping is thus the one where the elements within each subarray are sorted and placed back into their original positions in order.
