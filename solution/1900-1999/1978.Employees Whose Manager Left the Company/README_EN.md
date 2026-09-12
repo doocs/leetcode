@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1978.Employees%20Whose%20Manager%20Left%20the%20Company/README_EN.md
 tags:
     - Database
 ---

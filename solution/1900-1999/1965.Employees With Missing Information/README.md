@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1965.Employees%20With%20Missing%20Information/README.md
 tags:
     - 数据库
 ---
