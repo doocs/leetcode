@@ -86,6 +86,19 @@ tags:
 
 ### Solution 1: Simple Observation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray's value is its max minus its min. We pick $k$ (possibly overlapping) subarrays. No subarray exceeds the global $\max-\min$, and any segment that covers both extrema attains that bound.
+>
+> Selecting that covering segment $k$ times therefore yields $k$ copies of $\max-\min$.
+>
+> The answer is $k\cdot(\max(\textit{nums})-\min(\textit{nums}))$.
+
+<!-- thinking:end -->
+
+
 We can observe that the value of a subarray only depends on the global maximum and minimum values. Therefore, we just need to find the global maximum and minimum, then multiply their difference by $k$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

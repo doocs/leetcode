@@ -88,6 +88,19 @@ tags:
 
 ### Solution 1: Hash Map
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the minimum index sum over shared values. Scanning $\textit{nums2}$ for every entry of $\textit{nums1}$ fails at $n\le 10^5$.
+>
+> Store the first index of each value in $\textit{nums2}$, then walk $\textit{nums1}$ and update with $i+d[x]$.
+>
+> Keeping only the first occurrence minimizes the $\textit{nums2}$ side. If nothing is shared, return $-1$.
+
+<!-- thinking:end -->
+
+
 We initialize a variable $\textit{ans}$ as infinity, representing the current minimum index sum, and use a hash map $\textit{d}$ to store the first occurrence index of each element in array $\textit{nums2}$.
 
 Then we iterate through array $\textit{nums1}$. For each element $\textit{nums1}[i]$, if it exists in $\textit{d}$, we calculate the index sum $i + \textit{d}[\textit{nums1}[i]]$ and update $\textit{ans}$.

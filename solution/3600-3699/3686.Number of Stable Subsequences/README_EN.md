@@ -74,6 +74,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stable subsequence forbids a too-long run of the same parity. $n\le 10^5$ needs a linear DP.
+>
+> Let states distinguish the last parity and whether the current run has length $1$ or $2$; a run of $3$ is illegal.
+>
+> A new $x$ may follow the opposite parity, or the same parity when the run is still shorter than $2$. Reduce modulo $10^9+7$ and sum every legal state.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

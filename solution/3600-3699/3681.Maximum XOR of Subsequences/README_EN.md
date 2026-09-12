@@ -93,6 +93,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence XOR is a subset XOR. The maximum is given by a linear basis: insert every value, then greedy from the high bit. $n\le 10^5$ is fine.
+>
+> From the high bit downward, XOR the basis vector in when it enlarges the answer. The empty subset is $0$ and a singleton is available, so the result is nonnegative.
+>
+> Each bit keeps at most one basis vector; insert and query are $O(\log A)$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

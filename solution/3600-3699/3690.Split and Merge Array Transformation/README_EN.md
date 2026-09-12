@@ -75,6 +75,19 @@ source: Weekly Contest 468 Q3
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move cuts a segment and inserts it elsewhere. $n\le 6$ yields at most $n!$ states, so BFS finds the shortest sequence.
+>
+> Store arrays as tuples in a visited set. From a state, enumerate every cut $[l,r]$ and every insertion slot.
+>
+> The BFS layer that first matches $\textit{nums2}$ is the answer. States are the permutations of the shared multiset.
+
+<!-- thinking:end -->
+
+
 We can use Breadth-First Search (BFS) to solve this problem. Since the array length is at most 6, we can enumerate all possible split and merge operations to find the minimum number of operations.
 
 First, we define a queue $\textit{q}$ to store the current array states, and use a set $\textit{vis}$ to record the visited array states to avoid duplicate computations. Initially, the queue contains only the array $\textit{nums1}$.

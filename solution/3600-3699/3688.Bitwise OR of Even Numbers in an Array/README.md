@@ -81,6 +81,17 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只对偶数做按位或。没有偶数时答案为 $0$，与或的单位元一致。
+>
+> 过滤偶数后 $\textit{reduce}$ 求或，初值 $0$。$n\le 100$，一次遍历。
+
+<!-- thinking:end -->
+
+
 我们定义一个答案变量 $\textit{ans}$，初始值为 0。然后我们遍历数组 $\textit{nums}$ 中的每个元素 $x$，如果 $x$ 是偶数，则将 $\textit{ans}$ 更新为 $\textit{ans}$ 与 $x$ 的按位或运算结果。
 
 最后返回 $\textit{ans}$。
