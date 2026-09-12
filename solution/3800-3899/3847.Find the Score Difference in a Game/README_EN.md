@@ -100,6 +100,19 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The active player scores; an odd value or every sixth game swaps roles. We want the first player's score minus the second's. $n \le 1000$, so we simulate.
+>
+> A sign $k=\pm 1$ records whether the first player is currently active; we add $k$ times the points.
+>
+> Flip $k$ on an odd value, flip again when $i \bmod 6=5$, then accumulate $k \cdot x$.
+>
+> That order matches the statement: odd check, sixth-game check, then score.
+
+<!-- thinking:end -->
 We use a variable $k$ to represent the role of the current player. Initially $k = 1$, when $k = 1$ it means the first player is the active player, and when $k = -1$ it means the second player is the active player. For each game, we update the value of $k$ according to the problem description, and add the score of the current game multiplied by $k$ to the answer. Finally, we return the answer.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

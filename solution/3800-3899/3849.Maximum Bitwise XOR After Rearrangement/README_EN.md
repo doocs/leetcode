@@ -88,6 +88,19 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may reorder $t$ to maximize the integer $s \oplus t$. $s$ is fixed, so a $1$ in a higher bit is better.
+>
+> Bit $i$ becomes $1$ if we still have a $t$ character opposite $s[i]$. Those opposite characters should be spent on the leftmost bits.
+>
+> Count $0$s and $1$s in $t$. Left to right, spend an opposite character when one remains; otherwise spend a matching one and leave a $0$.
+>
+> Greedy consumption prefers $1$s in high positions.
+
+<!-- thinking:end -->
 We use an array $\textit{cnt}$ of length $2$ to count the number of character '0' and character '1' in string $t$.
 
 Then we iterate through string $s$. For each character $s[i]$, we want to find a character in string $t$ that is different from $s[i]$ to perform the XOR operation, in order to get a larger result. If we find such a character, we set the $i$-th bit of the answer to '1' and decrement the count of that character by one; otherwise, we can only use a character that is the same as $s[i]$ for the XOR operation, the $i$-th bit of the answer remains '0', and we decrement the count of that character by one. Finally, we return the answer.

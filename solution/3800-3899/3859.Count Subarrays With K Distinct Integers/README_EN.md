@@ -127,6 +127,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray must contain exactly $k$ distinct values, each appearing at least $m$ times. $n \le 10^5$ forbids enumerating intervals.
+>
+> Exactly $k$ kinds equals at least $k$ minus at least $k+1$, together with a window constraint that at least $k$ values have frequency $m$.
+>
+> Two pointers track distinct count and how many values have reached $m$. Once both $\textit{lim}$ kinds and $t \ge k$ hold, move the left end. Every start before that left end is valid.
+>
+> $f(k)-f(k+1)$ is the exact-$k$ count.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3
