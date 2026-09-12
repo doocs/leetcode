@@ -87,6 +87,18 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $\textit{search}$ and $\textit{report}$ need the first five tuples in a fixed order while rent/drop mutate the sets. Sorting from scratch under $n,m\le 10^5$ is too slow.
+>
+> Unrented copies of each movie live in a sorted list of $(\textit{price},\textit{shop})$; all rented copies live in one sorted list of $(\textit{price},\textit{shop},\textit{movie})$. A hash map stores prices for $O(1)$ key lookup.
+>
+> Rent moves an entry from the movie bucket to the rented list; drop does the reverse. The first five rows are a slice, and each update is logarithmic.
+
+<!-- thinking:end -->
+
 We define an ordered set $\textit{available}$, where $\textit{available}[movie]$ stores a list of all shops that have not rented out the movie $movie$. Each element in the list is $(\textit{price}, \textit{shop})$, sorted in ascending order by $\textit{price}$, and if prices are equal, by $\textit{shop}$ in ascending order.
 
 Additionally, we define a hash map $\textit{price\_map}$, where $\textit{price\_map}[f(\textit{shop}, \textit{movie})]$ stores the rental price of movie $\textit{movie}$ in shop $\textit{shop}$.

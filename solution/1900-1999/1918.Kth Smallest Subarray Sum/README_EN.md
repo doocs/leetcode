@@ -75,6 +75,18 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 
 ### Solution 1: Binary Search + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^2)$ subarrays; materializing them is too heavy for $n\le 2\times 10^4$. All values are positive, so subarray sums are monotone in length.
+>
+> The number of subarrays with sum $\le s$ is non-decreasing in $s$. Binary-search $s$ and count that quantity with a two-pointer window in linear time.
+>
+> The search range is $[\min nums,\sum nums]$; the final left bound is the $k$-th smallest sum.
+
+<!-- thinking:end -->
+
 We observe that all elements in the array are positive integers. The larger the subarray sum $s$, the more subarrays there are with sums less than or equal to $s$. This monotonicity allows us to use binary search to solve the problem.
 
 We perform binary search on the subarray sum, initializing the left and right boundaries as the minimum value in the array $\textit{nums}$ and the sum of all elements in the array, respectively. Each time, we calculate the number of subarrays with sums less than or equal to the current middle value. If the count is greater than or equal to $k$, it means the current middle value $s$ might be the $k$-th smallest subarray sum, so we shrink the right boundary. Otherwise, we increase the left boundary. After the binary search ends, the left boundary will be the $k$-th smallest subarray sum.

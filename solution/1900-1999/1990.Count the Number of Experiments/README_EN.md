@@ -84,6 +84,14 @@ On the platform &quot;Web&quot;, we had two &quot;Reading&quot; experiments and 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every platform–experiment pair must appear, including zeros. A cartesian product of the three platforms and three names left-joins the fact table and counts rows per pair.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

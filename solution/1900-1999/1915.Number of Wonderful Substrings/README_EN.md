@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1: Prefix XOR + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting odd frequencies for every substring is $O(n^2\cdot\Sigma)$ and fails for $n\le 10^5$.
+>
+> Ten letters fit in a 10-bit parity mask. Equal prefix xors give an even-count interval; xor differing by one bit gives exactly one odd letter.
+>
+> At each position we add the historical prefixes whose mask equals the current one or differs by one bit, then record the current mask.
+
+<!-- thinking:end -->
+
 Since the string contains only $10$ lowercase letters, we can use a $10$-bit integer to represent the parity of each letter count in the current prefix. The $i$-th bit is $1$ if the $i$-th letter appears an odd number of times, and $0$ if it appears an even number of times.
 
 We iterate through each character in the string. Use a variable $st$ to maintain the current prefix XOR state, and an array $cnt$ to record how many times each prefix state has appeared. Initially, $st = 0$ and $cnt[0] = 1$.

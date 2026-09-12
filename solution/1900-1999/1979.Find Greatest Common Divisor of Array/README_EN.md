@@ -76,6 +76,14 @@ The greatest common divisor of 3 and 3 is 3.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The GCD of the whole array equals the GCD of its maximum and minimum. One pass finds both ends, then $\gcd$ finishes.
+
+<!-- thinking:end -->
+
 We can simulate according to the problem description. First, find the maximum and minimum values in the array $\textit{nums}$, then find the greatest common divisor of the maximum and minimum values.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

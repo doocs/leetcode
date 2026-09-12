@@ -77,6 +77,16 @@ There are no groups of farmland.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each farmland is a filled rectangle. BFS works, but the corners can be read off the border.
+>
+> A cell whose up and left neighbors are not land is a top-left corner; we then extend down and right to the opposite corner and emit that rectangle once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

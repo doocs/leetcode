@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Classic Nim uses xor, but here there are at most $7$ piles of size at most $7$, so only $7^7$ states. Searching the game graph is enough.
+>
+> A position is winning iff some move leaves a losing position. We memoize a tuple of pile sizes and try subtracting $1\ldots x$ from one pile.
+>
+> If every successor is winning, the state is losing. The answer is that predicate on the input tuple.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

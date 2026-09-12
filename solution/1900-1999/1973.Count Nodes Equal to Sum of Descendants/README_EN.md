@@ -66,6 +66,16 @@ For the node with value 0: The sum of its descendants is 0 since it has no desce
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node is compared with the sum of its descendants. A fresh walk per node is quadratic.
+>
+> A post-order DFS returns the subtree sum: if left plus right equals the node, increment the answer, then return the node plus both children. One traversal suffices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

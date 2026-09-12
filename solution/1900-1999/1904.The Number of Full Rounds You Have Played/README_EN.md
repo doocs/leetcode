@@ -76,6 +76,18 @@ You did not play the full round from 10:00 to 10:15 because you logged out at 10
 
 ### Solution 1: Convert to Minutes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Full rounds snap to $15$-minute marks, and a logout before login wraps past midnight. Converting both clocks to minutes, then adding $1440$ when needed, avoids string-level date logic.
+>
+> The start must be rounded up to the next round boundary and the end rounded down to the previous one; their difference in units of $15$ is the count.
+>
+> Adding $14$ before dividing the start by $15$, dividing the end directly, and clamping at zero handles a session that contains no complete round.
+
+<!-- thinking:end -->
+
 We can convert the input strings to minutes $a$ and $b$. If $a > b$, it means that it crosses midnight, so we need to add one day's minutes $1440$ to $b$.
 
 Then we round $a$ up to the nearest multiple of $15$, and round $b$ down to the nearest multiple of $15$. Finally, we return the difference between $b$ and $a$. Note that we should take the larger value between $0$ and $b - a$.

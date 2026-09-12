@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: State Compression + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent cells need different colors. Cell-by-cell coloring is too large, but $m\le 5$ so a column has only $3^m$ colorings.
+>
+> We keep masks whose vertical neighbors differ, then precompute pairs of masks that also differ horizontally. $f[j]$ is the number of ways the previous column equals $j$, rolled forward.
+>
+> The first column counts valid masks; $n-1$ transitions follow, and the answer is the sum modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We notice that the number of rows in the grid does not exceed $5$, so there are at most $3^5=243$ different color schemes in a column.
 
 Therefore, we define $f[i][j]$ to represent the number of schemes in the first $i$ columns, where the coloring state of the $i$th column is $j$. The state $f[i][j]$ is transferred from $f[i - 1][k]$, where $k$ is the coloring state of the $i - 1$th column, and $k$ and $j$ meet the requirement of different colors being adjacent. That is:

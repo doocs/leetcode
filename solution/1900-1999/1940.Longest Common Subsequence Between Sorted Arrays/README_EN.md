@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Multi-pointer merging is clumsy with many arrays. Values lie in $[1,100]$ and each row is strictly increasing, so a value appears at most once per row.
+>
+> Count how many rows contain each value; those whose count equals the number of arrays form the LCS, already in increasing order.
+
+<!-- thinking:end -->
+
 We note that the range of elements is $[1, 100]$, so we can use an array $\textit{cnt}$ of length $101$ to record the number of occurrences of each element.
 
 Since each array in $\textit{arrays}$ is strictly increasing, the elements of the common subsequence must be monotonically increasing, and the number of occurrences of these elements must be equal to the length of $\textit{arrays}$.

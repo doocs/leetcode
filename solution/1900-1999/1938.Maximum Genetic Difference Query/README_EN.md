@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks for the node on the path to the root that maximizes xor with a given value. Walking to the root per query is too slow for $n,q\le 10^5$.
+>
+> A binary trie answers maximum xor. Attach queries to their nodes; DFS inserts a value on enter and deletes it on exit, so the trie holds exactly the root path.
+>
+> Preferring the opposite bit at each level answers a query in $O(\log V)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

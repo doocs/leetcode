@@ -105,6 +105,16 @@ Confirmations 表:
 
 ### 方法一：左连接 + 分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 确认率是该用户 $\texttt{confirmed}$ 次数除以确认记录总数，无记录者应为 $0.00$。内连接会丢掉从未确认的注册用户。
+>
+> 因此以 $\texttt{Signups}$ 左连接 $\texttt{Confirmations}$，按 $\texttt{user\_id}$ 分组，用条件求和比上计数，空组由 $\texttt{IFNULL}$ 置零并保留两位小数。
+
+<!-- thinking:end -->
+
 我们可以使用左连接，将 `Signups` 表和 `Confirmations` 表按照 `user_id` 进行连接，然后使用 `GROUP BY` 对 `user_id` 进行分组统计。
 
 <!-- tabs:start -->

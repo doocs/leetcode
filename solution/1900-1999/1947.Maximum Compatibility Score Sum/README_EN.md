@@ -83,6 +83,18 @@ The compatibility score sum is 3 + 2 + 3 = 8.
 
 ### Solution 1: Preprocessing + Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students and mentors form a bijection maximizing the sum of scores. $m\le 8$ so $8!$ permutations are fine.
+>
+> Precompute the number of equal answers $g[i][j]$, then backtrack over unused mentors and keep the best sum.
+>
+> A $\textit{vis}$ array prevents double booking; finishing $m$ students updates the answer.
+
+<!-- thinking:end -->
+
 We can first preprocess the compatibility score $g[i][j]$ between each student $i$ and mentor $j$, and then use a backtracking algorithm to solve the problem.
 
 Define a function $\textit{dfs}(i, s)$, where $i$ represents the current student being processed, and $s$ represents the current sum of compatibility scores.

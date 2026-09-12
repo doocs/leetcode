@@ -88,6 +88,18 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alice wants the two halves unequal. The game tree is exponential in the number of question marks, yet optimal play collapses to parity and the numeric gap.
+>
+> An odd number of `?` lets Alice fill one extra cell and force inequality. When the count is even the remaining marks can be paired; Bob can equalize iff the current sum difference equals $9$ times half the difference of the two question-mark counts.
+>
+> Counting `?` and digits on each half decides the winner without simulating moves.
+
+<!-- thinking:end -->
+
 If the number of `'?'` is odd, Alice will definitely win because she can choose to replace the last `'?'` with any digit, making the sum of the first half different from the sum of the second half.
 
 If the number of `'?'` is even, Alice will try to make the sums of the two halves different by placing $9$ in the half with the larger current sum and $0$ in the half with the smaller current sum. Bob, on the other hand, will try to make the sums equal by placing a digit in the other half that matches the digit Alice placed.

@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating subsequences is exponential. With $n\le 10^5$ we need a linear DP on the parity of the last chosen index.
+>
+> Let $f[i]$ be the best alternating sum of the first $i$ elements whose last pick sits on an odd slot (subtracted), and $g[i]$ the best whose last pick sits on an even slot (added). Element $x$ is either appended to the opposite parity or skipped.
+>
+> The recurrences are $f[i]=\max(g[i-1]-x,f[i-1])$ and $g[i]=\max(f[i-1]+x,g[i-1])$; the answer is the larger of $f[n]$ and $g[n]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -161,6 +173,14 @@ function maxAlternatingSum(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the previous $f$ and $g$ are read, so two scalars updated left to right replace the arrays and drop extra space to $O(1)$.
+
+<!-- thinking:end -->
 
 $f[i]$ and $g[i]$ depend only on the previous index, so two variables are enough and the space complexity is $O(1)$.
 

@@ -113,6 +113,18 @@ Users 2 and 5 are friends and listened to songs 10, 11, and 12, but they did not
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Similar friends are already friends who share at least three distinct songs on some day. Non-friends are irrelevant.
+>
+> Join $\texttt{Friendship}$ to both users' $\texttt{Listens}$ rows with the same day and song, then group by the friend pair and the day.
+>
+> Pairs whose distinct-song count is at least $3$ are kept; $\texttt{DISTINCT}$ removes duplicates across days.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

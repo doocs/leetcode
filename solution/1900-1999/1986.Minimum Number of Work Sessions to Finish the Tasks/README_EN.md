@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: State Compression Dynamic Programming + Subset Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tasks must fill sessions of capacity $\textit{sessionTime}$, using as few sessions as possible. $n\le 14$ admits subset DP.
+>
+> Mark subsets that fit in one session, then for each mask $i$ try every submask $j$: if $j$ is feasible, $f[i]=\min(f[i\oplus j]+1)$.
+>
+> $f[2^n-1]$ is the session count.
+
+<!-- thinking:end -->
+
 We note that $n$ does not exceed $14$, so we can consider using state compression dynamic programming to solve this problem.
 
 We use a binary number $i$ of length $n$ to represent the current task state, where the $j$-th bit of $i$ is $1$ if and only if the $j$-th task is completed. We use $f[i]$ to represent the minimum number of work sessions needed to complete all tasks with state $i$.

@@ -86,6 +86,14 @@ Experiments table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要输出三个平台与三种实验的全部组合次数，缺测组合应为 $0$。先笛卡尔积出九行模板，再左连接实验表按组合计数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Sorting + Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A character is weak if another beats it in both attack and defense. Pairwise checks are quadratic. Sort by attack descending and defense ascending so earlier characters have strictly larger attack, or equal attack that cannot be a strict win.
+>
+> Track the maximum defense seen; a smaller current defense is weak.
+
+<!-- thinking:end -->
+
 We can sort all characters in descending order of attack power and ascending order of defense power.
 
 Then, traverse all characters. For the current character, if its defense power is less than the previous maximum defense power, it is a weak character, and we increment the answer by one. Otherwise, update the maximum defense power.

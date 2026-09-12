@@ -81,6 +81,16 @@ High Salary: Accounts 3, 6, and 8.
 
 ### Solution 1: Temporary Table + Grouping + Left Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A plain $\texttt{GROUP BY}$ on the income bucket drops a category that has no accounts, but the result must always contain all three rows with zeros.
+>
+> We therefore build a three-row category table, aggregate $\texttt{Accounts}$ with a $\texttt{CASE}$, and left-join so missing buckets become $0$ via $\texttt{IFNULL}$.
+
+<!-- thinking:end -->
+
 We can first create a temporary table containing all salary categories, and then count the number of bank accounts for each salary category. Finally, we use a left join to connect the temporary table with the result table to ensure that the result table contains all salary categories.
 
 <!-- tabs:start -->
@@ -121,6 +131,14 @@ FROM
 <!-- solution:start -->
 
 ### Solution 2: Filtering + Merging
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The temporary table plus join scans the data twice. The three buckets are disjoint, so three conditional $\texttt{SUM}$s unioned into three rows give the same zeros with a shorter query.
+
+<!-- thinking:end -->
 
 We can filter out the number of bank accounts for each salary category separately, and then merge the results. Here, we use `UNION` to merge the results.
 

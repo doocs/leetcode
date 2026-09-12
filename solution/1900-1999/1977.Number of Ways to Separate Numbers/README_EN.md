@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1: Dynamic Programming + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the digit string into non-decreasing integers without leading zeros. Exponential cuts become an $O(n^2)$ DP for $n\le 3500$.
+>
+> $dp[i][j]$ is the number of ways for the first $i$ digits whose last part has length $j$. A shorter previous part is always smaller and is added via a prefix sum; equal lengths use an LCP table to compare.
+>
+> $dp[i][j]$ also stores that prefix, so the answer is $dp[n][n]$.
+
+<!-- thinking:end -->
+
 Define $dp[i][j]$ to represent the number of ways to partition the first $i$ characters of the string `num` such that the length of the last number is $j$. Clearly, the answer is $\sum_{j=0}^{n} dp[n][j]$. The initial value is $dp[0][0] = 1$.
 
 For $dp[i][j]$, the end of the previous number should be $i-j$. We can enumerate $dp[i-j][k]$, where $k \le j$. For the part where $k < j$, i.e., the number of ways with a length less than $j$ can be directly added to $dp[i][j]$, i.e., $dp[i][j] = \sum_{k=0}^{j-1} dp[i-j][k]$. Because the previous number is shorter, it means it is smaller than the current number. Here, prefix sum can be used for optimization.

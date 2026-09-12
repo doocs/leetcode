@@ -119,6 +119,18 @@ Friendship 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 推荐条件是「同一天至少三首相同的歌」且尚非好友。$\texttt{Friendship}$ 无向，而 $\texttt{Listens}$ 按用户记录，直接连接会漏掉反向边。
+>
+> 先把好友关系展开成有序对并集，再自连接 $\texttt{Listens}$，要求同一天、同一首歌、不同用户，并用 $\texttt{NOT EXISTS}$ 排除已是好友的对。
+>
+> 按天与用户对分组，对歌曲去重计数，不少于 $3$ 即输出。$\texttt{DISTINCT}$ 避免同一对在多天重复出现。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

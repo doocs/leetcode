@@ -78,6 +78,16 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 
 ### Solution 1: Sorting or Quickselect
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The entries are decimal strings and must not be compared lexicographically. After parsing as integers we want the $k$-th largest; a heap selection is enough.
+>
+> $\texttt{nlargest}(k,\cdot)$ keyed by $\texttt{int}$ returns that element at position $k-1$.
+
+<!-- thinking:end -->
+
 We can sort the strings in the $\textit{nums}$ array in descending order as integers, and then take the $k$-th element. Alternatively, we can use the quickselect algorithm to find the $k$-th largest integer.
 
 The time complexity is $O(n \times \log n)$ or $O(n)$, where $n$ is the length of the $\textit{nums}$ array. The space complexity is $O(\log n)$ or $O(1)$.

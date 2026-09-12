@@ -82,6 +82,18 @@ Thus, the nearest exit is [1,2], which is 2 steps away.
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The nearest exit is an unweighted shortest path. DFS does not guarantee minimality. The entrance is not an exit even if it lies on the border.
+>
+> BFS from the entrance, painting visited empty cells as walls. The first time a border empty cell is reached, the current distance is the answer; an empty queue means unreachable.
+>
+> Expanding four-neighbors level by level keeps the step count equal to distance.
+
+<!-- thinking:end -->
+
 We can start from the entrance and perform a breadth-first search (BFS). Each time we reach a new empty cell, we mark it as visited and add it to the queue until we find an empty cell on the boundary, then return the number of steps.
 
 Specifically, we define a queue $q$, initially adding $\textit{entrance}$ to the queue. We define a variable $\textit{ans}$ to record the number of steps, initially set to $1$. Then we start the BFS. In each round, we take out all elements from the queue and traverse them. For each element, we try to move in four directions. If the new position is an empty cell, we add it to the queue and mark it as visited. If the new position is an empty cell on the boundary, we return $\textit{ans}$. If the queue is empty, we return $-1$. After this round of search, we increment $\textit{ans}$ by one and continue to the next round of search.

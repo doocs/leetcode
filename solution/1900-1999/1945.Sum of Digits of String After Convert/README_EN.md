@@ -94,6 +94,16 @@ Thus the resulting integer is 6.</p>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Map letters to their alphabet indices, then apply digit-sum $k$ times. The statement is already an algorithm.
+>
+> The mapped string has length $O(n)$; each digit-sum shrinks the value, and after $k$ rounds we convert back to an integer.
+
+<!-- thinking:end -->
+
 We can simulate the process described in the problem.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.

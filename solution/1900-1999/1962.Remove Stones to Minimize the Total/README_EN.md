@@ -73,6 +73,16 @@ The total number of stones in [2,3,3,4] is 12.
 
 ### Solution 1: Greedy + Priority Queue (Max Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation halves a pile (rounding down). Minimizing the remainder means always hitting the current largest pile, which a max-heap maintains.
+>
+> Store negated sizes, replace the top with half of itself $k$ times, then negate the sum.
+
+<!-- thinking:end -->
+
 According to the problem description, in order to minimize the total number of remaining stones, we need to remove as many stones as possible from the stone piles. Therefore, we should always choose the pile with the most stones for removal.
 
 We create a priority queue (max heap) $pq$ to store the number of stones in each pile. Initially, we add the number of stones in all piles to the priority queue.

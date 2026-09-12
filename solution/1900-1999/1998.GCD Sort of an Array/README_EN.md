@@ -79,6 +79,16 @@ We can sort [10,5,9,3,15] by performing the following operations:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two numbers may be swapped if their gcd exceeds $1$; we ask whether the array can become sorted. Numbers that share a prime factor lie in one swap component. Pairwise gcd is too slow for values up to $10^5$.
+>
+> Sieve each value's primes and union the value with those primes. After sorting, a mismatch whose two numbers are in different components cannot be swapped into place.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

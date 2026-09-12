@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum product of lengths of two disjoint odd palindromic substrings. Re-running a quadratic palindrome search on each split is too slow.
+>
+> Manacher yields the odd radius at every center. From those radii we derive the longest palindrome ending at or starting at each index, then prefix/suffix maxima for each split.
+>
+> The answer is the max product of the left prefix max and the right suffix max over all cuts.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

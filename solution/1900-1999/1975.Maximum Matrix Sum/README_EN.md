@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping two adjacent signs moves a minus around the grid. A zero or an even number of minuses can be cleared; an odd count leaves exactly one.
+>
+> The answer is the sum of absolute values, minus twice the smallest absolute value when the minus count is odd.
+
+<!-- thinking:end -->
+
 If there is a zero in the matrix, or the number of negative numbers in the matrix is even, then the maximum sum is the sum of the absolute values of all elements in the matrix.
 
 Otherwise, if there are an odd number of negative numbers in the matrix, there will be one negative number left in the end. We choose the number with the smallest absolute value and make it negative, so that the final sum is maximized.

@@ -93,6 +93,16 @@ The characters are printed as follows:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pointer moves on a circular alphabet and each letter still costs one second to type. The shorter arc is always better.
+>
+> From `'a'`, add $\min(|c-a|,26-|c-a|)$ between successive letters, then add the word length.
+
+<!-- thinking:end -->
+
 We initialize the answer variable $\textit{ans}$ to the length of the string, indicating that we need at least $\textit{ans}$ seconds to type the string.
 
 Next, we traverse the string. For each character, we calculate the minimum distance between the current character and the previous character, and add this distance to the answer. Then we update the current character to the previous character and continue traversing.

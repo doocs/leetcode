@@ -109,6 +109,14 @@ Exam table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each school wants the lowest exam score whose student count fits its capacity, or $-1$. Left-joining $\texttt{Exam}$ keeps schools with no feasible score, then $\texttt{MIN}$ with $\texttt{IFNULL}(\cdot,-1)$ per school.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -90,6 +90,18 @@ i=3:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each length $k$ we want the maximum window minimum. A deque per $k$ is $O(n^2)$ overall.
+>
+> The longest interval where $nums[i]$ is the minimum is bounded by the nearest strictly smaller values; that length $m$ lets $nums[i]$ compete for every answer of length $\le m$.
+>
+> Monotone stacks find those bounds, we write into $ans[m-1]$, then sweep from the right so longer answers also fill shorter lengths.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

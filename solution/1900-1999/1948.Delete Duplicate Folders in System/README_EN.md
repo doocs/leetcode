@@ -105,6 +105,18 @@ Note that the returned array can be in a different order as the order does not m
 
 ### Solution 1: Trie + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Identical folder subtrees (including names) must all be deleted. Comparing every pair of serializations is too slow.
+>
+> Insert every path into a trie, then DFS-encode each node as the sorted concatenation of child names and encodings. Nodes that share an encoding mark each other deleted.
+>
+> A second DFS skips deleted nodes and emits surviving root-to-node paths.
+
+<!-- thinking:end -->
+
 We can use a trie to store the folder structure, where each node in the trie contains the following data:
 
 - `children`: A dictionary where the key is the name of the subfolder and the value is the corresponding child node.

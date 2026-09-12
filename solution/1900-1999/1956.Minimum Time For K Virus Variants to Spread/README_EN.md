@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each virus grows in Manhattan distance; we want the first day some cell meets $k$ of them. $n\le 50$ allows binary search on the day.
+>
+> Day $t$ yields diamonds of radius $t$. Whether a point lies in at least $k$ diamonds can be tested after rotating to $(x+y,x-y)$ via a sweep or by enumerating intersection candidates.
+>
+> Binary-search the least $t$; each check is affordable for this $n$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -86,6 +86,18 @@ Friendship table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 强好友是彼此为好友且至少有三名共同好友。$\texttt{Friendship}$ 无向，单向存表会漏掉反向邻居。
+>
+> 先把边展开为双向，再三次自连接：沿 $u\to v$、$v\to w$、$u\to w$ 形成三角形，并限制 $u<v$ 以免重复。
+>
+> 按好友对计数公共邻居，不少于 $3$ 即输出。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

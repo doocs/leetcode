@@ -80,6 +80,16 @@ Result 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两两用户的共同关注者数量取最大后输出所有并列者。若在应用层枚举用户对，连接次数过多。
+>
+> 将 $\texttt{Relations}$ 按 $\textit{follower\_id}$ 自连接，限制 $user_1<user_2$，按用户对计数，再用窗口函数按计数降序排名，取名为 $1$ 的行。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

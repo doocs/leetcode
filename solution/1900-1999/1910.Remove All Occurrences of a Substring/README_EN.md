@@ -73,6 +73,18 @@ Now s has no occurrences of &quot;xy&quot;.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $s$ and $\textit{part}$ are at most $10^3$ long, so repeatedly locating and erasing one occurrence is acceptable.
+>
+> Each step replaces the leftmost $\textit{part}$. A later concatenation may recreate $\textit{part}$, so the loop continues until none remain.
+>
+> Every replacement shortens $s$, so the process terminates and matches the required leftmost-first order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

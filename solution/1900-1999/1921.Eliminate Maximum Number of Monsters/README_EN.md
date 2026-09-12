@@ -81,6 +81,18 @@ You can only eliminate 1 monster.
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One shot per minute means the order of kills matters. Each monster has a latest feasible kill time determined by distance and speed.
+>
+> After sorting those deadlines, the $i$-th shot occurs at minute $i$. If the $i$-th deadline is strictly smaller than $i$, that monster (and every later one) cannot be killed.
+>
+> $\lfloor(d-1)/s\rfloor$ is the last minute before arrival; a linear scan after sorting yields the count.
+
+<!-- thinking:end -->
+
 We use the $\textit{times}$ array to record the latest time each monster can be eliminated. For the $i$-th monster, the latest time it can be eliminated is:
 
 $$\textit{times}[i] = \left\lfloor \frac{\textit{dist}[i]-1}{\textit{speed}[i]} \right\rfloor$$

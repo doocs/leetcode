@@ -67,6 +67,16 @@ The minimum possible difference is 2.</pre>
 
 ### Solution 1: Sorting + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We choose $k$ scores minimizing max minus min. After sorting, an optimal $k$-set is contiguous; skipping values only widens the ends.
+>
+> The answer is the minimum of $\textit{nums}[i+k-1]-\textit{nums}[i]$.
+
+<!-- thinking:end -->
+
 We can sort the students' scores in ascending order, then use a sliding window of size $k$ to calculate the difference between the maximum and minimum values in the window, and finally take the minimum of the differences of all windows.
 
 Why do we take the scores of $k$ consecutive students? Because if they are not consecutive, the difference between the maximum and minimum values may remain the same or increase, but it will definitely not decrease. Therefore, we only need to consider the scores of $k$ consecutive students after sorting.

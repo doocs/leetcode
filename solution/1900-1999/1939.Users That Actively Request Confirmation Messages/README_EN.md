@@ -104,6 +104,16 @@ User 7 requested two messages within 24 hours and 1 second of each other, so we 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user is active if two confirmation timestamps fall within $24$ hours. A self-join states that condition directly.
+>
+> Join $\texttt{Confirmations}$ to itself on $\texttt{user\_id}$ with $c_1$ earlier than $c_2$ and a second difference of at most one day, then take distinct users.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -74,6 +74,16 @@ tags:
 
 ### 方法一：数学 + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 边长为 $2x$ 的正方形内苹果数为 $2x(x+1)(2x+1)$，周长为 $8x$。$neededApples$ 很大，但 $x$ 只需立方根量级。
+>
+> 自 $x=1$ 递增直到公式达到需求，返回 $8x$。
+
+<!-- thinking:end -->
+
 假设正方形右上角坐标为 $(n, n)$，那么它的边长为 $2n$，周长为 $8n$，里面的苹果总数为：
 
 $$
@@ -171,6 +181,14 @@ function minimumPerimeter(neededApples: number): number {
 <!-- solution:start -->
 
 ### 方法二：二分查找
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 线性递增在最坏情况下步数仍随立方根增长。公式对 $x$ 单调，可在 $[1,10^5]$ 上二分最小可行 $x$，再乘 $8$。
+
+<!-- thinking:end -->
 
 我们也可以二分枚举 $n$，时间复杂度 $O(\log m)$。
 

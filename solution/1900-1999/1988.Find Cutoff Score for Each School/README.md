@@ -108,6 +108,14 @@ Exam 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每所学校要在容量允许的分数线中选最低者，没有可行分数则 $-1$。左连接 $\texttt{Exam}$ 保留容量不足的学校，再按学校取 $\texttt{MIN}$，空值用 $-1$ 填。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -75,6 +75,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the patterns and the word are short, so testing $p$ as a substring of $\textit{word}$ and summing the hits is enough.
+
+<!-- thinking:end -->
+
 Traverse each string $p$ in the array $\textit{patterns}$ and check if it is a substring of $\textit{word}$. If it is, increment the answer by one.
 
 After traversing, return the answer.

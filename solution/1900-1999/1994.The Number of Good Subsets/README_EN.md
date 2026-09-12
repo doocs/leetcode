@@ -87,6 +87,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subset is square-free and values lie in $[1,30]$. Multiples of squares are skipped; remaining numbers have distinct prime factors that fit in a $10$-bit mask.
+>
+> $f[\textit{state}]$ counts subsets with that prime set. For each $x$ we update states containing its mask from high to low. Any number of ones scales the empty set, and we sum the nonempty states.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

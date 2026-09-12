@@ -65,6 +65,18 @@ tags:
 
 ### Solution 1: Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest odd number as a substring must be a prefix of $num$ that ends on an odd digit. Converting every prefix to an integer is unnecessary and $n\le 10^5$ forbids heavy arithmetic.
+>
+> A right-to-left scan finds the first odd digit; the prefix ending there is both odd and longest, hence largest.
+>
+> If no odd digit exists the answer is empty. One pass and constant extra space suffice.
+
+<!-- thinking:end -->
+
 We can traverse the string from the end to the beginning, find the first odd number, and then return the substring from the beginning to this odd number. If there is no odd number, return an empty string.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $num$. Ignoring the space consumption of the answer string, the space complexity is $O(1)$.

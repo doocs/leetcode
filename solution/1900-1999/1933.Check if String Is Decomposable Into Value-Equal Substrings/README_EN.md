@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equal-value pieces must have length $2$ or $3$, and exactly one piece of length $2$ is required. Searching cuts is exponential, but equal characters form contiguous runs.
+>
+> Two pointers measure each run: remainder $1$ modulo $3$ cannot be packed; remainder $2$ spends the unique length-$2$ piece and a second such run fails.
+>
+> After the scan we accept only if that remainder-$2$ run occurred once.
+
+<!-- thinking:end -->
+
 We traverse the string $s$, using two pointers $i$ and $j$ to count the length of each equal substring. If the length modulo $3$ is $1$, it means that the length of this substring does not meet the requirements, so we return `false`. If the length modulo $3$ is $2$, it means that a substring of length $2$ has appeared. If a substring of length $2$ has appeared before, return `false`, otherwise assign the value of $j$ to $i$ and continue to traverse.
 
 After the traversal, check whether a substring of length $2$ has appeared. If not, return `false`, otherwise return `true`.
