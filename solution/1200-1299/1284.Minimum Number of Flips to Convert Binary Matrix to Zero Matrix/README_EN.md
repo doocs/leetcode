@@ -73,6 +73,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping a cell also flips its neighbors. $m,n \le 3$, so there are at most $2^9$ states. Fewest flips is a shortest path. Pack the matrix into an integer; each move XORs a cell and its neighbors. The BFS layer that reaches $0$ is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

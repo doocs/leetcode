@@ -61,6 +61,14 @@ Only 1771 contains an even number of digits.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 500$ we convert each number to a decimal string and test the length's parity. Repeated division by $10$ also counts digits; the string form is shorter.
+
+<!-- thinking:end -->
+
 We traverse each element $x$ in the array $\textit{nums}$. For the current element $x$, we directly convert it to a string and then check if its length is even. If it is, we increment the answer by one.
 
 After the traversal is complete, we return the answer.

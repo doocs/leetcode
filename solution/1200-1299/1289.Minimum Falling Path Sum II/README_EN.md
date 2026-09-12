@@ -62,6 +62,16 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 
 ### Solution 1: Dynamic Programming (Rolling Array)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A falling path cannot reuse a column on the next row. $n \le 200$ allows $O(n^3)$. The best way to end row $i$ in column $j$ is the previous row's minimum excluding $j$, plus $grid[i][j]$.
+>
+> We keep only the previous $n$ values and add “min except this column” in place. A rolling array drops the row dimension.
+
+<!-- thinking:end -->
+
 Let $f[i][j]$ be the minimum path sum using the first $i$ rows and ending in column $j$:
 
 $$

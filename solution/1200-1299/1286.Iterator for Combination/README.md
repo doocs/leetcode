@@ -68,6 +68,14 @@ iterator.hasNext(); // 返回 false
 
 ### 方法一：DFS 回溯
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 字符互异且长度不超过 $15$，组合数有限。预生成全部长度为 $combinationLength$ 的组合后，$next$/$hasNext$ 只做下标移动。DFS 按从左到右选或不选，保证字典序。
+
+<!-- thinking:end -->
+
 我们通过 $DFS$ 枚举，预处理生成所有长度为 $combinationLength$ 的字符串，存放到 $cs$ 数组中。
 
 <!-- tabs:start -->
@@ -263,6 +271,14 @@ func (this *CombinationIterator) HasNext() bool {
 <!-- solution:start -->
 
 ### 方法二：二进制编码
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一占用与组合数成正比的数组。用长度为 $n$ 的二进制掩码表示子集，从满掩码向下扫，只输出恰有 $combinationLength$ 个 $1$ 的掩码，按位还原字符。按需生成，不必存下全部串。
+
+<!-- thinking:end -->
 
 我们看个例子，对于 $abcd$，若 $combinationLength$ 为 2，则 $cs$ 就是 $ab, ac, ad, bc, bd, cd, ...$。
 

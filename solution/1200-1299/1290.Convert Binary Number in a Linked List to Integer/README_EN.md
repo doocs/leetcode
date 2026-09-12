@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Traverse the Linked List
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list is a binary number from high bit to low. Shifting the running value left and ORing the current bit accumulates the integer. Length is at most $30$, so it fits. We need not collect bits first.
+
+<!-- thinking:end -->
+
 We use a variable $\textit{ans}$ to record the current decimal value, with an initial value of $0$.
 
 Traverse the linked list. For each node, left-shift $\textit{ans}$ by one bit, then perform a bitwise OR with the current node's value. After traversal, $\textit{ans}$ is the decimal value.

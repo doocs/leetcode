@@ -51,6 +51,14 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a sorted array some value occurs more than $25\%$, i.e. spans at least $\lfloor n/4 \rfloor$. If $arr[i]=arr[i+\lfloor n/4 \rfloor]$, that value already covers enough length. The first hit from the left is the answer; sorted order turns counting into an index comparison.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{arr}$ from the beginning. For each element $\textit{arr}[i]$, we check if $\textit{arr}[i]$ is equal to $\textit{arr}[i + \left\lfloor \frac{n}{4} \right\rfloor]$, where $n$ is the length of the array. If they are equal, then $\textit{arr}[i]$ is the element we are looking for, and we return it directly.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{arr}$. The space complexity is $O(1)$.

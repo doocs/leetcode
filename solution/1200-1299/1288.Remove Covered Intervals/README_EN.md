@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We drop intervals covered by another. Sorting by rising left end and, on ties, falling right end, an earlier interval cannot be covered by a later narrower one. We keep the largest right end seen: a strictly larger current right end is not covered. Sorting reduces 2-D containment to a 1-D right-end test.
+
+<!-- thinking:end -->
+
 We can sort the intervals in ascending order by their left endpoints, and if the left endpoints are the same, sort them in descending order by their right endpoints.
 
 After sorting, we can traverse the intervals. If the right endpoint of the current interval is greater than the previous right endpoint, it means the current interval is not covered, and we increment the answer by one.

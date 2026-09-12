@@ -59,6 +59,14 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A larger divisor only decreases the sum of ceilings, so the predicate is monotone. $n \le 5\times 10^4$ forbids trying every divisor. We binary-search the smallest $v$ in $[1,\max nums]$ such that $\sum \lceil nums_i/v \rceil \le threshold$. Each check is one linear scan.
+
+<!-- thinking:end -->
+
 Notice that for number $v$, if the sum of results of dividing each number in $nums$ by $v$ is less than or equal to $threshold$, then all values greater than $v$ satisfy the condition. There is a monotonicity, so we can use binary search to find the smallest $v$ that satisfies the condition.
 
 We define the left boundary of the binary search $l=1$, $r=\max(nums)$. Each time we take $mid=(l+r)/2$, calculate the sum of the results of dividing each number in $nums$ by $mid$ $s$, if $s$ is less than or equal to $threshold$, then it means that $mid$ satisfies the condition, we will update $r$ to $mid$, otherwise we will update $l$ to $mid+1$.

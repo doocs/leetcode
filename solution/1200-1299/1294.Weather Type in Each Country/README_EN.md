@@ -126,6 +126,14 @@ We know nothing about the average weather_state in Spain in November so we do no
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want each country's November $2019$ average temperature as Cold/Warm/Hot. Join weather to countries, filter that month, $AVG$ by country, and bin with $CASE$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

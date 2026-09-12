@@ -67,6 +67,14 @@ itr.hasNext(); // return False
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters are distinct and length is at most $15$, so there are few combinations. Precomputing every string of length $combinationLength$ makes $next$/$hasNext$ an index bump. DFS takes or skips each character left to right, which is lexicographic order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -260,6 +268,14 @@ func (this *CombinationIterator) HasNext() bool {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores every combination. A bitmask of length $n$ is a subset; scanning downward from the full mask, we emit masks with exactly $combinationLength$ ones and rebuild the string from bits. Combinations are produced on demand without storing them all.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

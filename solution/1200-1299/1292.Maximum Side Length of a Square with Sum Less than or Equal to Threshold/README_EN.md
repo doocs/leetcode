@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: 2D Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square's sum grows with its side (entries are non-negative), so feasibility is monotone. $m,n \le 300$; enumerating sides and corners with an $O(k^2)$ sum is too slow. A 2-D prefix makes every square $O(1)$, and we binary-search the side.
+>
+> The check scans top-left corners and compares the prefix sum to the threshold. The search returns the largest feasible side.
+
+<!-- thinking:end -->
+
 We can precompute a 2D prefix sum array $s$, where $s[i + 1][j + 1]$ represents the sum of elements in the matrix $mat$ from $(0, 0)$ to $(i, j)$. With this, we can calculate the sum of elements in any square region in $O(1)$ time.
 
 Next, we can use binary search to find the maximum side length. We enumerate the side length $k$ of the square, and then iterate through all possible top-left positions $(i, j)$ of the square. We can calculate the sum of elements $v$ for the square. If $v \leq threshold$, it indicates that there exists a square region with side length $k$ whose sum is less than or equal to the threshold; otherwise, no such square exists for the current $k$.
