@@ -111,6 +111,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{nums1}$ has length at most $5$, yet there are $5\times 10^4$ range-adds and pair-count queries. Enumerating $\textit{nums1}$ per type-$2$ query is fine; we still need the number of $\textit{nums2}$ entries equal to $tot-a$ under range increments.
+>
+> Maintain a frequency structure on $\textit{nums2}$ (Fenwick or segment tree) that supports range add — lazy tags or a shifting difference. Each query walks the short array and looks up $tot-a$.
+>
+> This directory has no implemented solution yet; the walkthrough stops at “enumerate the short array plus a range-add frequency map”.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is the sum of decimal digits. Repeatedly take $n\bmod 10$ and divide by $10$ until $n$ becomes $0$.
+>
+> That is $O(\log n)$ and needs no string conversion.
+
+<!-- thinking:end -->
+
 The problem is equivalent to finding the sum of each digit of a number. We can obtain each digit by repeatedly taking the modulus and dividing by 10, and accumulate the result.
 
 The time complexity is $O(\log n)$, where $\log n$ is the number of digits in $n$. The space complexity is $O(1)$.

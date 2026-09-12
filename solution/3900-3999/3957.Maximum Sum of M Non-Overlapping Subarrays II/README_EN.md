@@ -118,6 +118,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I with tighter limits, so a DP that enumerates segment length is no longer enough. The last segment length in $[l,r]$ must become a sliding-window maximum over prefix sums, making each layer $O(n)$.
+>
+> A monotonic queue of $f[j][t-1]-s_j$ on the legal $j$-window yields $O(nm)$. This directory has no implemented solution yet; the walkthrough stops at accelerating part I’s transfer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

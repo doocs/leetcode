@@ -114,6 +114,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After choosing $v$, every entry not coprime to $v$ must be changed; the score is $v$ minus that count. $v\le\textit{maxVal}$, so we need how many array values share a prime with $v$.
+>
+> Factor the array into smallest-prime or multiple counts, then inclusion-exclusion on $v$ yields the non-coprime tally. Whether we enumerate all values up to $\textit{maxVal}$ depends on that bound.
+>
+> This directory has no implemented solution yet; the walkthrough stops at enumerating $v$ plus a coprimality count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

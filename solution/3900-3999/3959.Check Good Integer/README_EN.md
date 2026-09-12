@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good integer is one whose digits $d$ contribute $d(d-1)$ and the sum is at least $50$. Peel digits and add $x(x-1)$, then compare with $50$.
+>
+> $n\le 10^9$ has few digits, so one loop suffices.
+
+<!-- thinking:end -->
+
 We use a variable $s$ to record the result of the square sum minus the digit sum of $n$. If $s$ is greater than or equal to 50, we return $\textit{true}$; otherwise, we return $\textit{false}$.
 
 The time complexity is $O(\log n)$, where $\log n$ is the number of digits in $n$. The space complexity is $O(1)$.
