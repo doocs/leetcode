@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must delete as few parentheses as possible and list every optimal string. Choosing delete-or-keep at each parenthesis branches too widely, and most paths are not minimal.
+>
+> A scan first yields lower bounds $l$ and $r$ on deletions. The search tracks remaining quotas and the current left/right counts; prune when leftover characters cannot finish the deletions or a prefix has more right parentheses than left. Try deleting (if quota remains) then keeping, and deduplicate with a set. Only paths that delete exactly the minimum survive.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

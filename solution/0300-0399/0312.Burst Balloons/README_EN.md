@@ -57,6 +57,16 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The burst order changes neighbors, so searching by burst sequence revisits the same open intervals. Padding $1$ at both ends fixes the multipliers on the boundary.
+>
+> If $k$ is the last balloon burst in the open interval $(i,j)$, the two sides do not interact and we add $arr[i]\cdot arr[k]\cdot arr[j]$. Let $f[i][j]$ be the best score of clearing $(i,j)$; fill by increasing width ($i$ decreasing, $j$ increasing). The answer is $f[0][n+1]$.
+
+<!-- thinking:end -->
+
 Let's denote the length of the array `nums` as $n$. According to the problem description, we can add a $1$ to both ends of the array `nums`, denoted as `arr`.
 
 Then, we define $f[i][j]$ as the maximum number of coins we can get by bursting all the balloons in the interval $[i, j]$. Therefore, the answer is $f[0][n+1]$.

@@ -77,6 +77,16 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectang
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix needs both point updates and sub-rectangle sums. Scanning a rectangle per query, or rebuilding a 2D prefix after every write, cannot keep both cheap.
+>
+> The code builds one Fenwick tree per row: a row range is a prefix difference, then those rows in $[row1,row2]$ are added. An update touches only that row. With a modest number of rows this is simpler than a true 2D Fenwick tree.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -357,6 +367,16 @@ func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 still walks every involved row. Replacing each Fenwick tree with a segment tree keeps point updates and in-row ranges at $O(\log n)$ with the same meaning.
+>
+> A sub-rectangle is still the sum of per-row interval sums. Explicit interval nodes make the column-range aggregation easier to read.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

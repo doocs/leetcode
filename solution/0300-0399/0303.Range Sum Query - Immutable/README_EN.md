@@ -66,6 +66,16 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array never changes, yet many range sums are requested. Summing $[left,right]$ from scratch is $O(n)$ per query and does not scale.
+>
+> A prefix array $s$ stores the sum of the first $i$ elements, so $sum(left,right)=s[right+1]-s[left]$. One linear build makes every later query $O(1)$. Because the array is immutable, no update structure is needed.
+
+<!-- thinking:end -->
+
 We create a prefix sum array $s$ of length $n + 1$, where $s[i]$ represents the prefix sum of the first $i$ elements, that is, $s[i] = \sum_{j=0}^{i-1} nums[j]$. Therefore, the sum of the elements between the indices $[left, right]$ can be expressed as $s[right + 1] - s[left]$.
 
 The time complexity for initializing the prefix sum array $s$ is $O(n)$, and the time complexity for querying is $O(1)$. The space complexity is $O(n)$.
