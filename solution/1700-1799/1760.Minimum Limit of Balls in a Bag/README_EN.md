@@ -78,6 +78,16 @@ The bag with the most number of balls has 2 balls, so your penalty is 2, and you
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation splits a bag into two positive piles. We minimize the final maximum under a budget of $\textit{maxOperations}$. Larger maxima are easier, so the feasibility is monotone.
+>
+> Binary-search the cap $mx$: a bag of $x$ needs $(x-1)//mx$ splits. If the total is within budget, try a smaller $mx$. The answer is the least feasible cap.
+
+<!-- thinking:end -->
+
 This problem requires us to minimize the cost, which is the maximum number of balls in a single bag. As the maximum value increases, the number of operations decreases, making it easier to meet the condition.
 
 Therefore, we can use binary search to enumerate the maximum number of balls in a single bag and determine if it can be achieved within $\textit{maxOperations}$ operations.

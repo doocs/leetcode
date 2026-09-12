@@ -80,6 +80,16 @@ The total score is 50 + 15 - 9 + 4 + 42 = 102.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step multiplies one end of $nums$ by $\textit{multipliers}[k]$. After $m$ moves only the two ends change, so a state is how many were taken from the left and from the right.
+>
+> Memoize $f(i,j,k)$ with left index $i$, right index $j$, and multiplier $k$. Recur on taking left or right; stop at $k=m$. There are $O(m^2)$ states.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -222,6 +232,14 @@ function maximumScore(nums: number[], multipliers: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tabulate the same idea: $f[i][j]$ is the best after taking $i$ from the front and $j$ from the back. Fill by increasing $i+j$ and record answers at $i+j=m$. Same $O(m^2)$ without recursion.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

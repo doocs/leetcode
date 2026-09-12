@@ -108,6 +108,18 @@ The robot is initially standing on cell (1, 0), denoted by the -1.
 
 ### 方法一：DFS 建图 + BFS 求最短路
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 网格不可见，只能通过 $\textit{canMove}/\textit{move}/\textit{isTarget}$ 探路。最短路需要先知道哪些格子可达以及终点在哪。
+>
+> 假设起点为 $(0,0)$，DFS 向四向尝试并回溯（反向再 $\textit{move}$），把可达格放入 $\textit{vis}$，同时记下终点。
+>
+> 找不到终点则返回 $-1$；否则在已知可达集合上 BFS，边权为 $1$，得到最短格距。
+
+<!-- thinking:end -->
+
 我们不妨假设机器人从坐标 $(0, 0)$ 出发，那么我们可以通过 DFS，找到所有可达的坐标，记录在哈希表 $vis$ 中。另外，我们还需要记录终点的坐标 $target$。
 
 如果找不到终点，那么直接返回 $-1$。否则，我们可以通过 BFS，求出最短路。

@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1: Preprocessing + Enumeration + Stack + Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each node we want the closest ancestor whose value is coprime with it. $n\le 10^5$ but values lie in $[1,50]$, so one stack per value is enough.
+>
+> Precompute coprime pairs in $1..50$. During DFS, look at the stack top of every value coprime to $nums[i]$ and take the deepest.
+>
+> Push $(i,\textit{depth})$ onto the stack of $nums[i]$ before recursing and pop afterward, so the top is always the nearest ancestor.
+
+<!-- thinking:end -->
+
 Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.
 
 Next, we can use a backtracking method to traverse the entire tree from the root node. For each node $i$, we can get all the coprime numbers of $nums[i]$ through the array $f$. Then we enumerate all the coprime numbers of $nums[i]$, find the ancestor node $t$ that has appeared and has the maximum depth, which is the nearest coprime ancestor node of $i$. Here we can use a stack array $stks$ of length $51$ to get each appeared value $v$ and its depth. The top element of each stack $stks[v]$ is the nearest ancestor node with the maximum depth.

@@ -108,6 +108,18 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 
 ### Solution 1: DFS for Graph Construction + BFS for Shortest Path
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is hidden; we only have $\textit{canMove}/\textit{move}/\textit{isTarget}$. A shortest path needs the reachable cells and the target.
+>
+> Treat the start as $(0,0)$. DFS tries four directions and backtracks with the opposite $\textit{move}$, recording reachable cells in $\textit{vis}$ and the target.
+>
+> If the target was never seen, return $-1$; otherwise BFS on the discovered cells for the unweighted distance.
+
+<!-- thinking:end -->
+
 We can assume that the robot starts from the coordinate $(0, 0)$. Then, we can use DFS to find all reachable coordinates and record them in the hash table $vis$. In addition, we also need to record the coordinates of the endpoint $target$.
 
 If the endpoint cannot be found, we directly return $-1$. Otherwise, we can use BFS to find the shortest path.

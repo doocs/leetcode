@@ -69,6 +69,16 @@ tags:
 
 ### 方法一：计数模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 规则键只有 $\textit{type}/\textit{color}/\textit{name}$ 三种，对应物品三元组的三个下标。扫一遍计数匹配即可。
+>
+> 用键的首字母映射到 $0/1/2$，统计 $v[i]=\textit{ruleValue}$ 的个数。
+
+<!-- thinking:end -->
+
 由于 `ruleKey` 只可能是 `"type"`、`"color"` 或 `"name"`，我们可以直接取 `ruleKey` 的第一个字符来确定 `item` 的下标 $i$。然后遍历 `items` 数组，统计 `item[i] == ruleValue` 的个数即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为 `items` 的长度。
