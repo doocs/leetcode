@@ -90,6 +90,16 @@ In total, 1 + 3 + 0 + 0 = 4 moves were used.
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Seats and students form a matching; cost is the $L_1$ distance. Crossing pairs cannot improve, so the $i$-th seat matches the $i$-th student after sorting.
+>
+> With $n \le 100$, sort both arrays and sum absolute differences.
+
+<!-- thinking:end -->
+
 Sort both arrays, then traverse the two arrays, calculate the distance between each student's seat and their actual seat, and add all the distances to get the answer.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the arrays `seats` and `students`.

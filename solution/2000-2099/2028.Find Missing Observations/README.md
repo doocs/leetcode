@@ -82,6 +82,16 @@ tags:
 
 ### 方法一：构造
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 缺失 $n$ 个骰子，每个在 $[1,6]$，且全体平均为 $mean$。总和被唯一确定，故只需判断缺失和 $s$ 是否落在 $[n,6n]$。$n,m \le 10^5$，构造而非搜索。
+>
+> 可行时把 $s$ 尽量均分：先人人 $s//n$，再给前 $s \bmod n$ 个各加一，均不超过 $6$。
+
+<!-- thinking:end -->
+
 根据题目描述，所有数字之和为 $(n + m) \times \textit{mean}$，已知的数字之和为 $\sum_{i=0}^{m-1} \textit{rolls}[i]$，那么缺失的数字之和为 $s = (n + m) \times \textit{mean} - \sum_{i=0}^{m-1} \textit{rolls}[i]$。
 
 如果 $s \gt n \times 6$ 或者 $s \lt n$，说明不存在满足条件的答案，返回空数组。

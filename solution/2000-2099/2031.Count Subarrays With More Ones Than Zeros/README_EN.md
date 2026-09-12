@@ -75,6 +75,16 @@ The subarrays of size 1 that have more ones than zeros are: [1]
 
 ### Solution 1: Prefix Sum + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Treating $0$ as $-1$, a subarray has more ones iff the prefix sum strictly increases. For each right end we count earlier prefixes smaller than the current $s$. That needs a logarithmic structure.
+>
+> Prefix sums lie in $[-n,n]$; shifting by $n+1$ lets a Fenwick tree store frequencies. Insert $0$ first, query then update, modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 The problem requires us to count the number of subarrays where the count of $1$ is greater than the count of $0$. If we treat $0$ in the array as $-1$, then the problem becomes counting the number of subarrays where the sum of elements is greater than $0$.
 
 To calculate the sum of elements in a subarray, we can use the prefix sum. To count the number of subarrays where the sum of elements is greater than $0$, we can use a binary indexed tree to maintain the occurrence count of each prefix sum. Initially, the occurrence count of the prefix sum $0$ is $1$.
@@ -318,6 +328,16 @@ function subarraysWithMoreZerosThanOnes(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Prefix Sum + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs an index shift for the Fenwick tree. A sorted list binary-searches the raw prefix: `bisect_left(s)` is the count of strictly smaller earlier sums.
+>
+> The recurrence is the same; an ordered multiset replaces the tree.
+
+<!-- thinking:end -->
 
 Treat $0$ as $-1$, keep prefix sums in a sorted list, and binary-search how many earlier sums are smaller.
 

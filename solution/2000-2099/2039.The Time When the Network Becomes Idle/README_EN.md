@@ -102,6 +102,18 @@ From the beginning of the second 3, the network becomes idle.
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges have unit weight, so latency is the shortest-path distance. BFS from $0$ yields $d$; a round trip is $2d$. Servers resend every $patience$ until the reply arrives.
+>
+> The last send is $(2d-1)//patience \times patience$, plus the return and one processing second. Take the maximum over nodes.
+>
+> The graph is undirected and connected, so one BFS suffices.
+
+<!-- thinking:end -->
+
 First, we construct an undirected graph $g$ based on the 2D array $edges$, where $g[u]$ represents all neighboring nodes of node $u$.
 
 Then, we can use breadth-first search (BFS) to find the shortest distance $d_i$ from each node $i$ to the main server. The earliest time that node $i$ can receive a reply after sending a message is $2 \times d_i$. Since each data server $i$ resends a message every $patience[i]$ seconds, the last time that each data server sends a message is $(2 \times d_i - 1) / patience[i] \times patience[i]$. Therefore, the latest time that the network becomes idle is $(2 \times d_i - 1) / patience[i] \times patience[i] + 2 \times d_i$, plus 1 second for processing time. We find the latest of these times, which is the earliest time that the computer network becomes idle.

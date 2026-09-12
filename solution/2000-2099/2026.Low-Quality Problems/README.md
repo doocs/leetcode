@@ -81,6 +81,16 @@ Problems 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 质量定义为 $likes/(likes+dislikes)$，筛出严格小于 $0.6$ 的题目并按编号排序。聚合与连接都不必，单表过滤即可。
+>
+> `WHERE` 写出该比值条件，`ORDER BY problem_id` 满足输出顺序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

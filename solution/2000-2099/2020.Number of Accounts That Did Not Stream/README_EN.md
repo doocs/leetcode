@@ -99,6 +99,18 @@ User 11 did not subscribe in 2021.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count accounts subscribed in 2021 that have no valid 2021 stream. A left join on account id keeps subscriptions without streams.
+>
+> A subscription covers 2021 iff $start \le 2021 \le end$. A stream is invalid if its year is not 2021 or it falls after `end_date`.
+>
+> `COUNT` then tallies rows passing the `WHERE`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

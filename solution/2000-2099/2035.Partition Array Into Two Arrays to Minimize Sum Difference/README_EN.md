@@ -75,6 +75,18 @@ The absolute difference between the sums of the arrays is abs((2 + 4 + -9) - (-1
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split $2n \le 30$ elements into equal halves minimizing the sum gap. Full $C(30,15)$ is tight; meet-in-the-middle leaves $n \le 15$ per half.
+>
+> For each half, group by chosen count the signed sums (chosen minus unchosen). Left count $i$ pairs with right count $n-i$, aiming for opposite sums.
+>
+> Sort both groups and binary-search partners to minimize $|a+b|$. The $2^{15}$ enumeration fits.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

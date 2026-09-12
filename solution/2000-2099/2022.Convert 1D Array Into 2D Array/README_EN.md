@@ -72,6 +72,16 @@ It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D arra
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reshaping is possible iff $mn$ equals the source length. With length $\le 5 \times 10^4$, slicing by rows is enough.
+>
+> Return empty on mismatch; otherwise take slices of width $n$.
+
+<!-- thinking:end -->
+
 According to the problem description, we know that to construct an $m$-row and $n$-column two-dimensional array, it needs to satisfy that $m \times n$ equals the length of the original array. If it does not satisfy, return an empty array directly.
 
 If it does satisfy, we can follow the process described in the problem, and put the elements from the original array into the two-dimensional array in order.

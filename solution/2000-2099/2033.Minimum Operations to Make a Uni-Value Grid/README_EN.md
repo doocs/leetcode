@@ -75,6 +75,16 @@ A total of 4 operations were used.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only $\pm x$ is allowed, so all cells must share a residue modulo $x$. With up to $10^5$ cells, the cost of target $t$ is $\sum |a_i-t|/x$.
+>
+> That sum is minimized at the median. Flatten, sort, take the middle, and add absolute deviations over $x$.
+
+<!-- thinking:end -->
+
 Firstly, to make the grid a single-value grid, the remainder of all elements of the grid with $x$ must be the same.
 
 Therefore, we can first traverse the grid to check whether the remainder of all elements with $x$ is the same. If not, return $-1$. Otherwise, we put all elements into an array, sort the array, take the median, then traverse the array, calculate the difference between each element and the median, divide it by $x$, and add all the differences to get the answer.
