@@ -115,6 +115,7 @@ tags:
 > $O(n^2)$ reads the whole matrix.
 
 <!-- thinking:end -->
+
 We can directly simulate the process of computing the degree of each vertex.
 
 For each vertex $i$, we traverse its corresponding row $\text{matrix}[i]$ and count the number of elements equal to 1, which is exactly the degree of vertex $i$.

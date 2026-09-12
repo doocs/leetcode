@@ -97,6 +97,7 @@ tags:
 > 无需查看具体数值。
 
 <!-- thinking:end -->
+
 如果 $\textit{nums1}$ 中的所有元素全是奇数或者全是偶数，那么我们可以直接将 $\textit{nums2}$ 设为 $\textit{nums1}$，满足条件。
 
 如果 $\textit{nums1}$ 中既有奇数又有偶数，那么我们可以将 $\textit{nums2}$ 中的每个元素都设为 $\textit{nums1}$ 的当前元素减去 $\textit{nums1}$ 中的一个与当前元素奇偶性不同的元素。由于奇数减偶数和偶数减奇数的结果都是奇数，因此 $\textit{nums2}$ 中的所有元素都是奇数，满足条件。

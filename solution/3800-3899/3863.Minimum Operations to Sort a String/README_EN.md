@@ -98,6 +98,7 @@ tags:
 > The case split is exhaustive and checked in linear time.
 
 <!-- thinking:end -->
+
 We first check whether the string is already sorted in ascending order; if so, return 0.
 
 Otherwise, if the string has length 2, since we cannot choose the entire string to sort, it is impossible to sort the string, so we return -1.

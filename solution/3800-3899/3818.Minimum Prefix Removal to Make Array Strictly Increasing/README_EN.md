@@ -90,6 +90,7 @@ tags:
 > If no descent appears, the whole array is increasing and the answer is $0$.
 
 <!-- thinking:end -->
+
 We can traverse the array backwards from the end to find the first position $i$ that does not satisfy the strictly increasing condition, i.e., $nums[i-1] \geq nums[i]$. At this point, the minimum length of the prefix to remove is $i$.
 
 If the entire array is strictly increasing, we do not need to remove any prefix, so we return $0$.

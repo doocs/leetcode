@@ -94,6 +94,7 @@ orderManagementSystem.getOrdersAtPrice("buy", 1); // 在价格 1 没有剩余的
 > 列表删除为线性，但 $n \le 2000$ 足够。查询直接返回对应列表。
 
 <!-- thinking:end -->
+
 我们用一个哈希表 $\textit{orders}$ 来存储每个订单的类型和价格信息，键为订单 ID，值为一个二元组 $(\textit{orderType}, \textit{price})$。另外，我们用另一个哈希表 $\textit{t}$ 来存储每个 $(\textit{orderType}, \textit{price})$ 对应的订单 ID 列表，键为一个二元组 $(\textit{orderType}, \textit{price})$，值为订单 ID 列表。
 
 调用 $\texttt{addOrder}$ 时，我们将订单信息添加到 $\textit{orders}$ 中，并将订单 ID 添加到 $\textit{t}$ 中对应的列表中。

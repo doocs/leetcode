@@ -108,6 +108,7 @@ tags:
 > If there is no odd, the array is already all even and succeeds.
 
 <!-- thinking:end -->
+
 If all elements in $\textit{nums1}$ are either all odd or all even, we can directly set $\textit{nums2}$ equal to $\textit{nums1}$, which satisfies the condition.
 
 If $\textit{nums1}$ contains both odd and even numbers, we need to find the minimum odd number $mn$, and check whether there exists an even number $x$ in $\textit{nums1}$ such that $x < mn$. If such an even number exists, we cannot construct a valid $\textit{nums2}$, so we return $\text{false}$; otherwise we return $\text{true}$.

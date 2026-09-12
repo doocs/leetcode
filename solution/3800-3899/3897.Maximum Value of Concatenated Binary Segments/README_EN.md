@@ -106,6 +106,7 @@ tags:
 > After sorting, add precomputed powers of two for each $1$; the bit string need not be built.
 
 <!-- thinking:end -->
+
 Let the binary string corresponding to the $i$-th segment be $1^{x_i}0^{y_i}$, where $x_i = \textit{nums1}[i]$ and $y_i = \textit{nums0}[i]$.
 
 The problem allows us to rearrange these segments arbitrarily, and the goal is to maximize the integer value represented by the final concatenated binary string. Since comparing binary strings by value is essentially equivalent to comparing them lexicographically, we want as many `1`s as possible to appear earlier.

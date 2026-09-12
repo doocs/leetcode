@@ -113,6 +113,7 @@ tags:
 > A set of those original values has size equal to the minimum number of operations.
 
 <!-- thinking:end -->
+
 According to the problem description, we only need to count the number of distinct $\text{nums}[i]$ where $\text{nums}[i] \ne \text{target}[i]$. Therefore, we can use a hash table to store these distinct $\text{nums}[i]$ and finally return the size of the hash table.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.

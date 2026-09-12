@@ -88,6 +88,7 @@ tags:
 > Total movement is $O(n)$.
 
 <!-- thinking:end -->
+
 Since we need to partition the array into $k$ subarrays of equal length, the length of each subarray is $m = \frac{n}{k}$. We can use a loop to traverse the array with a step size of $m$, and in each iteration, reverse the current subarray.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$, as we only use a constant amount of extra space.

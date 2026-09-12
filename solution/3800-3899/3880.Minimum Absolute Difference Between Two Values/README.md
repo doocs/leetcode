@@ -90,6 +90,7 @@ tags:
 > 若从未配对成功则 $-1$。
 
 <!-- thinking:end -->
+
 我们用一个长度为 $3$ 的数组 $\textit{last}$ 来记录数字 $0$, $1$ 和 $2$ 最后一次出现的下标。初始时 $\textit{last} = [-(n+1), -(n+1), -(n+1)]$。我们遍历数组 $\textit{nums}$，对于当前遍历到的数字 $x$，如果 $x$ 不等于 $0$，则更新答案 $\textit{ans} = \min(\textit{ans}, i - \textit{last}[3 - x])$，其中 $i$ 是当前遍历到的数字 $x$ 的下标。然后更新 $\textit{last}[x] = i$。
 
 遍历结束后，如果 $\textit{ans}$ 大于数组 $\textit{nums}$ 的长度，则说明不存在有效下标对，返回 -1；否则返回 $\textit{ans}$。

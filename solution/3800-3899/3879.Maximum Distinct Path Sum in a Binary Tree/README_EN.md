@@ -112,6 +112,7 @@ tags:
 > $O(n^2)$ starts are acceptable for $n \le 1000$.
 
 <!-- thinking:end -->
+
 We can treat the tree as an undirected graph, using a hash table $g$ to store the adjacent nodes of each node, where $g[node]$ contains the parent node, left child node, and right child node of $node$.
 
 We use depth-first search to traverse the tree and build the hash table $g$. For each node, we add its parent node, left child node, and right child node to $g[node]$.

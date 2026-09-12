@@ -109,6 +109,7 @@ source: Weekly Contest 486 Q2
 > A second scan fills only those slots; negatives keep their original values.
 
 <!-- thinking:end -->
+
 We first extract all non-negative elements from the array and store them in a new array $t$.
 
 Then, we create an array $d$ of the same size as $t$ to store the rotated non-negative elements. For each element $t[i]$ in $t$, we place it in $d$ at position $((i - k) \bmod m + m) \bmod m$, where $m$ is the number of non-negative elements.

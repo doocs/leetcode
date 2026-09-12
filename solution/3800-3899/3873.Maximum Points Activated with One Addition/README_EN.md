@@ -119,6 +119,7 @@ tags:
 > Shift $y$ by $3 \times 10^9$ so $x$ and $y$ identifiers never collide.
 
 <!-- thinking:end -->
+
 We can use a Union-Find data structure to solve this problem.
 
 First, we map the $x$ coordinates and $y$ coordinates of all points into the same Union-Find structure. Specifically, we add a sufficiently large constant $m$ (e.g., $3 \times 10^9$) to each $y$ coordinate to ensure that the $x$ and $y$ coordinates do not conflict.

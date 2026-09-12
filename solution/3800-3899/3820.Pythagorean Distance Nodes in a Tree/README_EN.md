@@ -136,6 +136,7 @@ tags:
 > Three linear traversals plus one $O(n)$ check suffice.
 
 <!-- thinking:end -->
+
 We first construct an adjacency list $g$ based on the edges given in the problem, where $g[u]$ stores all nodes adjacent to node $u$.
 
 Next, we define a function $\text{bfs}(i)$ to calculate the distances from node $i$ to all other nodes. We use a queue to implement Breadth-First Search (BFS) and maintain a distance array $\text{dist}$, where $\text{dist}[j]$ represents the distance from node $i$ to node $j$. Initially, $\text{dist}[i] = 0$, and the distances to all other nodes are set to infinity. During the BFS process, we continuously update the distance array until all reachable nodes have been traversed.

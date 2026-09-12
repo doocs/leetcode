@@ -106,6 +106,7 @@ tags:
 > A hash map keyed by the canonical form, then summing those binomials, is enough.
 
 <!-- thinking:end -->
+
 We can transform each string into a unified form. Specifically, we convert the first character of the string to `'z'`, and then transform the other characters in the string with the same offset. This way, all similar strings will be transformed into the same form. We use a hash table $\textit{cnt}$ to record the number of occurrences of each transformed string.
 
 Finally, we iterate through the hash table, calculate the combination number $\frac{v(v-1)}{2}$ for each string's occurrence count $v$, and add it to the answer.

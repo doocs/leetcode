@@ -192,6 +192,7 @@ tags:
 > Clear the cache afterwards so later tests do not reuse states.
 
 <!-- thinking:end -->
+
 We define a function $\text{dfs}(i, p, q)$ that represents the number of different choice sequences when processing at index $i$ with the current rational value being $\frac{p}{q}$. Initially, $\text{dfs}(0, 1, 1)$ represents starting from the initial value of $1$.
 
 For each index $i$, we have three choices:

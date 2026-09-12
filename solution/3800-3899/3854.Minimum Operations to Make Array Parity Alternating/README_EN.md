@@ -113,6 +113,7 @@ tags:
 > Evaluate $(\textit{moves},\textit{range})$ for both patterns and take the lexicographically smaller; a singleton needs nothing.
 
 <!-- thinking:end -->
+
 We can try to transform the array into two different parity-alternating forms: one where even numbers are at even indices and odd numbers are at odd indices, and another where odd numbers are at even indices and even numbers are at odd indices.
 
 For each form, we calculate the number of operations needed and the maximum and minimum values of the resulting array. Finally, we choose the plan with fewer operations; if the operation counts are equal, we choose the plan with the smaller difference between the maximum and minimum values.

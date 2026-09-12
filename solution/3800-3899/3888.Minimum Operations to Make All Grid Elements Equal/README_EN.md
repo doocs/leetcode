@@ -101,6 +101,7 @@ A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that forms by choosing all
 > If both $T=\max$ and $T=\max+1$ fail, the grid cannot be flattened.
 
 <!-- thinking:end -->
+
 Since the operation can only increase the value of elements, all elements in the final grid must be equal to some target value $T$, and $T \ge \max(\textit{grid})$.
 
 Start traversing the grid from the top-left corner $(0, 0)$. For any position $(i, j)$, if its current value is less than $T$, since subsequent operations (with a more rightward or downward position as the top-left corner) cannot cover $(i, j)$, it is necessary to perform $T - \text{current\_val}$ operations at the current position, each using $(i, j)$ as the top-left corner of a $k \times k$ increment operation.

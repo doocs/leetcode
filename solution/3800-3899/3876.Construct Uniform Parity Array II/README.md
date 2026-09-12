@@ -111,6 +111,7 @@ tags:
 > 无奇数则已全偶，直接成功。
 
 <!-- thinking:end -->
+
 如果 $\textit{nums1}$ 中的所有元素全是奇数或者全是偶数，那么我们可以直接将 $\textit{nums2}$ 设为 $\textit{nums1}$，满足条件。
 
 如果 $\textit{nums1}$ 中既有奇数又有偶数，我们需要找到一个最小的奇数 $mn$，并检查 $\textit{nums1}$ 中是否存在一个偶数 $x$，使得 $x < mn$。如果存在这样的偶数，那么我们无法构造出满足条件的 $\textit{nums2}$，返回 $\text{false}$；否则返回 $\text{true}$。

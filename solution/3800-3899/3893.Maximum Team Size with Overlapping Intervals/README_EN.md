@@ -106,6 +106,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3893.Ma
 > Take the maximum over employees. An optimal team always has such a center.
 
 <!-- thinking:end -->
+
 We first combine each employee's start and end times into an interval array, $\textit{intervals}$, and sort all start times and end times separately.
 
 For each employee $i$, we use binary search to compute how many employees have end times not earlier than employee $i$'s start time, and how many employees have start times not later than employee $i$'s end time. The difference between these two counts is the number of employees whose intervals overlap with employee $i$. We iterate through all employees, compute the overlap count for each one, and take the maximum as the answer.

@@ -215,6 +215,7 @@ tags:
 > A missing mirror contributes frequency $0$.
 
 <!-- thinking:end -->
+
 We first use a hash table $\textit{freq}$ to count the frequency of each character in string $s$.
 
 Then, we iterate over each key-value pair $(c, v)$ in $\textit{freq}$, where $c$ is the character and $v$ is the number of times character $c$ appears in string $s$. For each character $c$, we compute its mirror character $m$ and calculate $|freq(c) - freq(m)|$. To avoid counting mirror pairs twice, we use a hash set $\textit{vis}$ to track already-visited characters.

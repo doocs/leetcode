@@ -103,6 +103,7 @@ eventManager.pollHighest(); // no events remain, return -1</div>
 > A poll also drops the hash entry.
 
 <!-- thinking:end -->
+
 We define a sorted set $\textit{sl}$ to store tuples of priority and id $(-\textit{priority}, \textit{eventId})$ for all active events, and a hash map $\textit{d}$ to store the priority of each event.
 
 During initialization, we iterate over the given event list, add the tuple of priority and id for each event into the sorted set $\textit{sl}$, and store each event's priority in the hash map $\textit{d}$.

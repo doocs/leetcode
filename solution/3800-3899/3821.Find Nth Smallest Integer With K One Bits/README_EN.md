@@ -92,6 +92,7 @@ tags:
 > This greedy filling uniquely identifies the $n$-th such integer in numerical order.
 
 <!-- thinking:end -->
+
 We need to find the $n$-th smallest positive integer that contains exactly $k$ ones in its binary representation. We can determine each bit from the most significant to the least significant, deciding whether it is $0$ or $1$.
 
 Suppose we are currently processing the $i$-th bit (from $49$ down to $0$). If we set this bit to $0$, then the remaining $k$ ones need to be chosen from the lower $i$ bits, and the number of possible combinations is $C(i, k)$. If $n$ is greater than $C(i, k)$, it implies that the $i$-th bit of the $n$-th number must be $1$. In this case, we set this bit to $1$, subtract $C(i, k)$ from $n$, and decrement $k$ by $1$ (since we have already used one $1$). Otherwise, we set this bit to $0$.

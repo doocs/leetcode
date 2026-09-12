@@ -122,6 +122,7 @@ The <strong>Manhattan Distance</strong> between two cells <code>(x<sub>i</sub>, 
 > If no tower was chosen, return $[-1,-1]$; otherwise return that tower's coordinates.
 
 <!-- thinking:end -->
+
 We define a variable $\textit{idx}$ to record the index of the current best tower, initially $\textit{idx} = -1$. Then, we traverse each tower and calculate the Manhattan distance $\textit{dist}$ between it and $\textit{center}$:
 
 $$

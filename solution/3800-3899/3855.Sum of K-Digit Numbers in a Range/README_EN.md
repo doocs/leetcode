@@ -103,6 +103,7 @@ tags:
 > Everything is taken modulo $10^9+7$.
 
 <!-- thinking:end -->
+
 We enumerate each digit $x$ from the lowest position to the highest. Suppose the current position is the $i$-th digit (0-indexed), which contributes $x \cdot 10^i$ to the number. The remaining $k - 1$ digits each have $r - l + 1$ choices, so the contribution of the current position is $x \cdot 10^i \cdot (r - l + 1)^{k - 1}$. Since $x$ ranges over $[l, r]$, the sum of all values of $x$ is $\frac{(l + r) \cdot (r - l + 1)}{2}$. Therefore, the total sum of all such numbers is:
 
 $$

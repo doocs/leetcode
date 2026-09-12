@@ -86,6 +86,7 @@ source: Biweekly Contest 175 Q3
 > About $30$ bits, each an $O(n \log n)$ LIS, and we take the maximum.
 
 <!-- thinking:end -->
+
 A non-zero bitwise AND result means that all numbers in the subsequence have a $1$ at a certain bit position. We can enumerate that bit position, then find the longest strictly increasing subsequence among all numbers that have a $1$ at that bit position, and take the maximum value across all enumerations as the answer.
 
 The time complexity is $O(\log M \times n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the length of the array and the maximum value in the array, respectively.

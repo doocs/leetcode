@@ -88,6 +88,7 @@ tags:
 > The stack is the smallest sequence that keeps every letter at least once.
 
 <!-- thinking:end -->
+
 We can use a stack $\textit{stk}$ to store the characters of the result string, and a hash table $\textit{cnt}$ to record the number of occurrences of each character in string $s$.
 
 First, we initialize $\textit{cnt}$ to count the occurrences of each character in string $s$. Then, we iterate through each character $c$ in string $s$:

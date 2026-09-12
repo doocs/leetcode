@@ -115,6 +115,7 @@ tags:
 > Raising jumps to $i+2$; a remaining skip may instead go to $i+1$ and spend it. The search starts at $1$ with $j$ opposite $n \bmod 2$.
 
 <!-- thinking:end -->
+
 We observe that if the array length is odd, then increasing all elements at odd indices so that each is $1$ greater than both adjacent elements yields the maximum possible number of special indices. If the array length is even, then among indices in the range $[1, n - 2]$, we skip exactly one index, and for the remaining indices, increase every other element so that each is $1$ greater than both adjacent elements; this also yields the maximum possible number of special indices.
 
 Therefore, we design a function $\text{dfs}(i, j)$, which represents the minimum number of operations needed to obtain the maximum number of special indices starting from index $i$, with $j$ remaining skips. For each index $i$, we can either increase it so that it is $1$ greater than both neighbors, or skip it. We use memoized search to avoid repeated computation.

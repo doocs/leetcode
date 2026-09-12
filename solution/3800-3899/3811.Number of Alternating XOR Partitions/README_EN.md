@@ -117,6 +117,7 @@ tags:
 > After each value we update $pre$, read the opposite map for legal attachments, and write back. A linear scan yields the ways ending at the current index.
 
 <!-- thinking:end -->
+
 We define two hash tables $\textit{cnt1}$ and $\textit{cnt2}$, where $\textit{cnt1}[x]$ represents the number of partition schemes where the bitwise XOR result is $x$ and the partition ends with $\textit{target1}$, while $\textit{cnt2}[x]$ represents the number of partition schemes where the bitwise XOR result is $x$ and the partition ends with $\textit{target2}$. Initially, $\textit{cnt2}[0] = 1$, representing an empty partition.
 
 We use the variable $\textit{pre}$ to record the bitwise XOR result of the current prefix, and the variable $\textit{ans}$ to record the final answer. Then we traverse the array $\textit{nums}$. For each element $x$, we update $\textit{pre}$ and calculate:

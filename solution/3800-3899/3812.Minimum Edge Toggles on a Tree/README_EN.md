@@ -116,6 +116,7 @@ tags:
 > If the root still needs a flip, there is no solution; otherwise the sorted chosen edge indices form a shortest valid sequence.
 
 <!-- thinking:end -->
+
 We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all adjacent nodes of node $a$ and the indices of the corresponding edges.
 
 We design a function $\text{dfs}(a, \text{fa})$, which indicates whether the edge between node $a$ and $\text{fa}$ needs to be toggled in the subtree rooted at node $a$ with parent $\text{fa}$. The logic of the function $\text{dfs}(a, \text{fa})$ is as follows:

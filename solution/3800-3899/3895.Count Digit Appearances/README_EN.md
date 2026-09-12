@@ -78,6 +78,7 @@ tags:
 > Accumulate matches.
 
 <!-- thinking:end -->
+
 We traverse each element in the array and count how many times $\textit{digit}$ appears. For each element, we can obtain each of its digits by repeatedly taking the modulo and dividing by 10, and compare each digit with $\textit{digit}$. If they are equal, we increment the answer by 1.
 
 Finally, return the answer.

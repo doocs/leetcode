@@ -108,6 +108,7 @@ tags:
 > An ordered set of capacities on the feasible right side, after removing $i$ itself, gives the best partner. Shrinking the right pointer keeps updates logarithmic.
 
 <!-- thinking:end -->
+
 We first filter out all machines with costs less than the budget and sort them by cost in ascending order, recording them in the array $\textit{arr}$, where $\textit{arr}[i] = (\textit{costs}[i], \textit{capacity}[i])$. If $\textit{arr}$ is empty, we cannot buy any machine, so we return $0$.
 
 Otherwise, we can obtain the machine with the maximum capacity in $\textit{arr}$ and initialize the answer with this capacity.

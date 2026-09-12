@@ -125,6 +125,7 @@ tags:
 > Shorter words are ignored.
 
 <!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to count the number of occurrences of the prefix composed of the first $k$ characters of each string with length greater than or equal to $k$. Finally, we count the number of keys in $\textit{cnt}$ with values greater than $1$, which is the number of connected groups.
 
 The time complexity is $O(n \times k)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{words}$.

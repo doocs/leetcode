@@ -82,6 +82,7 @@ tags:
 > Constant time, no enumeration.
 
 <!-- thinking:end -->
+
 Numbers from 1 to 999 contain no commas, so when $n$ is less than or equal to 999, the answer is 0.
 
 Since the range of $n$ is $[1, 10^5]$, when $n$ is greater than or equal to 1000, each number contains exactly one comma, so the answer is $n - 999$.

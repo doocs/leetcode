@@ -82,6 +82,7 @@ tags:
 > The loop runs $O(\log_{1000} n)$ times.
 
 <!-- thinking:end -->
+
 Based on the problem description, we can observe the following pattern:
 
 - Numbers in the range [1, 999] contain no commas;

@@ -112,6 +112,7 @@ Therefore, no balanced index exists and the answer is -1.</div>
 > One reverse pass decides the answer.
 
 <!-- thinking:end -->
+
 We first compute the total sum $s$ of all elements in the array. Then we enumerate each index $i$ from right to left, maintaining a variable $p$ to record the product of all elements to the right of index $i$. When we reach index $i$, we first subtract $nums[i]$ from $s$, then check whether $s$ equals $p$; if so, we return index $i$. Next, we multiply $p$ by $nums[i]$. If $p$ is greater than or equal to $s$, the product will only keep growing and no balanced index can be found afterwards, so we can terminate the enumeration early.
 
 If no balanced index is found after the enumeration, we return -1.

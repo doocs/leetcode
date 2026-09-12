@@ -104,6 +104,7 @@ tags:
 > Two rolling variables suffice; the answer is their maximum.
 
 <!-- thinking:end -->
+
 We define two variables $f$ and $g$, where $f$ represents the maximum amount when the current house is not robbed, and $g$ represents the maximum amount when the current house is robbed. Initially, $f = 0$ and $g = nums[0]$. The answer is $\max(f, g)$.
 
 Next, we traverse starting from the second house:

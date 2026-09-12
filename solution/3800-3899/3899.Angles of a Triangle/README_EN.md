@@ -82,6 +82,7 @@ tags:
 > Inverse cosine converted to degrees stays within the allowed error.
 
 <!-- thinking:end -->
+
 We first sort the array $\textit{sides}$ in non-decreasing order, and denote the three side lengths as $a$, $b$, and $c$, where $a \le b \le c$.
 
 According to the triangle inequality, if $a + b \le c$, then these three sides cannot form a triangle with positive area, so we return an empty array directly.

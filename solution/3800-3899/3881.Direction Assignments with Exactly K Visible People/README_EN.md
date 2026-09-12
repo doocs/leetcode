@@ -117,6 +117,7 @@ A person at index <code>pos</code> sees others as follows:
 > Factorials and inverses make each binomial $O(1)$.
 
 <!-- thinking:end -->
+
 There are $\textit{pos}$ people to the left of position $\textit{pos}$, and $n - \textit{pos} - 1$ people to the right.
 
 We enumerate the number of visible people on the left, $a$, so the number of visible people on the right is $b = k - a$. If both $a$ and $b$ are valid, the answer increases by $2 \cdot \binom{\textit{pos}}{a} \cdot \binom{n - \textit{pos} - 1}{b}$. The factor of $2$ comes from the fact that the person at index $\textit{pos}$ can face either 'L' or 'R'.

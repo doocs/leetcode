@@ -121,6 +121,7 @@ tags:
 > An Eratosthenes sieve up to $2 \times 10^5$ keeps the raised values inside the table.
 
 <!-- thinking:end -->
+
 We can first preprocess a sufficiently large list of prime numbers, denoted as $\textit{primes}$, and a boolean array $\textit{isPrime}$, where $\textit{isPrime}[i]$ indicates whether $i$ is a prime number.
 
 Then we traverse each element in the array:

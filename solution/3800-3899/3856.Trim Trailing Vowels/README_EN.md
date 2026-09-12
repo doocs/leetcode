@@ -90,6 +90,7 @@ tags:
 > One pointer and constant extra space.
 
 <!-- thinking:end -->
+
 We traverse the string from the end in reverse order until we encounter the first non-vowel character. Then we return the substring from the beginning of the string up to that position.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

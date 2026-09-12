@@ -106,6 +106,7 @@ eventManager.pollHighest(); // 没有剩余事件，返回 -1</div>
 > 弹出时同步删除哈希项。
 
 <!-- thinking:end -->
+
 我们定义一个有序集合 $\textit{sl}$ 来存储所有活跃事件的优先级和 id 的元组 $(-\textit{priority}, \textit{eventId})$，定义一个哈希表 $\textit{d}$ 来存储每个事件的优先级。
 
 初始时，我们遍历给定的事件列表，将所有事件的优先级和 id 的元组加入有序集合 $\textit{sl}$ 中，并将每个事件的优先级存储在哈希表 $\textit{d}$ 中。

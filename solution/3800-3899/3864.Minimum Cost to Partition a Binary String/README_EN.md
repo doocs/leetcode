@@ -113,6 +113,7 @@ tags:
 > The answer is the value of $[0,n)$.
 
 <!-- thinking:end -->
+
 We define a function $\text{dfs}(l, r)$ that represents the minimum cost for the interval $[l, r)$ of string $s$. We can use the prefix sum array $\text{pre}$ to calculate the number of sensitive elements $x$ in the interval $[l, r)$, thereby computing the cost without splitting.
 
 The calculation process of function $\text{dfs}(l, r)$ is as follows:

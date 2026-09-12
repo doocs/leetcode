@@ -120,6 +120,7 @@ tags:
 > 预处理阶乘与逆元以 $O(1)$ 取组合数。
 
 <!-- thinking:end -->
+
 位置 $\textit{pos}$ 左边有 $\textit{pos}$ 个人，右边有 $n - \textit{pos} - 1$ 个人。
 
 我们枚举左边可见的人数 $a$，则右边可见的人数为 $b = k - a$。如果 $a$ 和 $b$ 都合法，那么答案增加 $2 \cdot \binom{\textit{pos}}{a} \cdot \binom{n - \textit{pos} - 1}{b}$。其中 $2$ 是因为位于下标 $\textit{pos}$ 的人可以选择 'L' 或 'R'。

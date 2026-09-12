@@ -110,6 +110,7 @@ tags:
 > Each center is $O(n)$, overall $O(n^2)$.
 
 <!-- thinking:end -->
+
 Let's denote the length of string $s$ as $n$.
 
 We define a function $f(l, r)$, which represents calculating the length of the longest almost-palindromic substring that can be obtained by starting from $l$ and $r$, expanding towards both sides of the string, and deleting one character.

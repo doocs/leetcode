@@ -95,6 +95,7 @@ tags:
 > The concrete values need not be inspected.
 
 <!-- thinking:end -->
+
 If all elements in $\textit{nums1}$ are either all odd or all even, we can directly set $\textit{nums2}$ equal to $\textit{nums1}$, which satisfies the condition.
 
 If $\textit{nums1}$ contains both odd and even numbers, we can set each element of $\textit{nums2}$ to the current element of $\textit{nums1}$ minus some element in $\textit{nums1}$ with different parity. Since odd minus even and even minus odd both yield an odd number, all elements of $\textit{nums2}$ will be odd, satisfying the condition.

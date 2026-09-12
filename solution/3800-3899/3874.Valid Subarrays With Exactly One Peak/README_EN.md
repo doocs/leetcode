@@ -113,6 +113,7 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 > Neighboring-peak clamps enforce uniqueness.
 
 <!-- thinking:end -->
+
 We first traverse the array to find all peak positions and store them in a list $\textit{peaks}$.
 
 For each peak position, we calculate the left and right boundaries centered at the peak with a distance not exceeding $k$. Note that if there are multiple peaks, we need to ensure the calculated subarray does not contain other peaks. Then, based on the left and right boundaries, we calculate the number of valid subarrays centered at each peak and accumulate it into the answer.

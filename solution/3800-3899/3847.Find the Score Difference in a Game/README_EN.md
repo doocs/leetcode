@@ -113,6 +113,7 @@ tags:
 > That order matches the statement: odd check, sixth-game check, then score.
 
 <!-- thinking:end -->
+
 We use a variable $k$ to represent the role of the current player. Initially $k = 1$, when $k = 1$ it means the first player is the active player, and when $k = -1$ it means the second player is the active player. For each game, we update the value of $k$ according to the problem description, and add the score of the current game multiplied by $k$ to the answer. Finally, we return the answer.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

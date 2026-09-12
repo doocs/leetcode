@@ -111,6 +111,7 @@ tags:
 > Start from the total number of requests and subtract one per drop.
 
 <!-- thinking:end -->
+
 We can group the requests by user and store them in a hash table $g$, where $g[u]$ is the list of request times for user $u$. For each user, we need to remove some requests from the request time list so that within any interval of length $window$, the number of remaining requests does not exceed $k$.
 
 We initialize the answer $\textit{ans}$ to the total number of requests.

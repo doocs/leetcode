@@ -238,6 +238,7 @@ tags:
 > Each address is processed once, matching the stated rules.
 
 <!-- thinking:end -->
+
 We can use a hash set $\textit{st}$ to store the normalized result of each email address. For each email address, we normalize it according to the problem requirements:
 
 - Split the email address into a local name and a domain name.

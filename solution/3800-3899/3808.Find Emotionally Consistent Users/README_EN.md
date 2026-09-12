@@ -144,6 +144,7 @@ Each row represents a reaction given by a user to a piece of content.
 > Join $s$ back to $t$ on the user, keep rows whose count equals the maximum, and sort by ratio then id. Grouping before the join avoids filtering the detail rows over and over.
 
 <!-- thinking:end -->
+
 We first count the number of each reaction for every user and record it in a temporary table $t$. Then, based on the temporary table $t$, we calculate the maximum reaction count and total reaction count for each user, compute the reaction ratio, and filter out the users who meet the conditions, recording them in a temporary table $s$. Finally, we join the temporary tables $s$ and $t$ to find the dominant reaction for each user and sort the results as required.
 
 <!-- tabs:start -->

@@ -84,6 +84,7 @@ tags:
 > The loop runs $O(\log n)$ times.
 
 <!-- thinking:end -->
+
 According to the problem description, a Monobit integer is either $0$, or its binary representation consists of all $1$s.
 
 Therefore, we first include $0$ in the answer, then starting from $1$, we sequentially generate integers whose binary representations consist of all $1$s, until the integer exceeds $n$.

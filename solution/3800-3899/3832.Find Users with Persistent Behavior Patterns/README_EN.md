@@ -144,6 +144,7 @@ Each row represents a user performing a specific action on a given date.
 > Aggregate lengths, keep those $\ge 5$, rank one streak per user, and sort by length then id.
 
 <!-- thinking:end -->
+
 We first need to filter user dates with only a single action per day, then identify consecutive intervals among these dates, and finally aggregate these intervals to calculate the streak length and filter records that meet the criteria.
 
 <!-- tabs:start -->

@@ -123,6 +123,7 @@ tags:
 > The empty prefixes with zero pairs score $0$; other states start at $-\infty$. The answer is $f[n][m][K]$.
 
 <!-- thinking:end -->
+
 We denote the lengths of arrays $\textit{nums1}$ and $\textit{nums2}$ as $n$ and $m$ respectively, and denote $k$ in the problem as $K$.
 
 We define a three-dimensional array $f$, where $f[i][j][k]$ represents the maximum score of selecting exactly $k$ index pairs from the first $i$ elements of $\textit{nums1}$ and the first $j$ elements of $\textit{nums2}$. Initially, $f[0][0][0] = 0$, and all other values of $f[i][j][k]$ are negative infinity.

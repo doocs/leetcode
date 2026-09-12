@@ -127,6 +127,7 @@ tags:
 > Each element is counted on the intervals for which it is the stack-wise controller of the OR.
 
 <!-- thinking:end -->
+
 We can enumerate each element $\textit{nums}[i]$ as the bitwise OR result of a subarray, and count how many subarrays have a bitwise OR exactly equal to $\textit{nums}[i]$.
 
 If the bitwise OR of a subarray is $\textit{nums}[i]$, then every element in the subarray must satisfy:

@@ -124,6 +124,7 @@ tags:
 > 埃氏筛出 $2 \times 10^5$ 以内质数，保证抬升后仍在表内。
 
 <!-- thinking:end -->
+
 我们可以先预处理出一个足够大的素数列表，记为 $\textit{primes}$，以及一个布尔数组 $\textit{isPrime}$，其中 $\textit{isPrime}[i]$ 表示 $i$ 是否为素数。
 
 然后我们遍历数组中的每个元素：

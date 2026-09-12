@@ -174,6 +174,7 @@ The term <code>gcd(a, b)</code> denotes the <strong>greatest common divisor</str
 > There are $\lfloor n/2 \rfloor$ pairs.
 
 <!-- thinking:end -->
+
 We simulate according to the problem description.
 
 We create an array $\textit{prefixGcd}$ to store the value for each index $i$. We also maintain a variable $mx$ to track the current maximum value. For each element $nums[i]$, we update $mx$ and compute the value of $\textit{prefixGcd}[i]$. Then we sort $\textit{prefixGcd}$ and calculate the sum of GCDs of the formed pairs.

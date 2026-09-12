@@ -97,6 +97,7 @@ tags:
 > 双方最优下答案恰为 $\max(nums[0],nums[n-1])$。
 
 <!-- thinking:end -->
+
 由于 Alice 先手，Alice 可以选择移除除第一个元素和最后一个元素之外的所有元素，那么答案至少为 $\max(nums[0], nums[n - 1])$。
 
 而对于 $n = 1,2,..n-2$ 的情况，即便 Alice 想要保留这中间的某个元素，Bob 也可以选择移除它，因此答案至多为 $\max(nums[0], nums[n - 1])$。

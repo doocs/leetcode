@@ -92,6 +92,7 @@ orderManagementSystem.getOrdersAtPrice(&quot;buy&quot;, 1); // There are no acti
 > List removal is linear, which is acceptable for $n \le 2000$. A query returns the list as is.
 
 <!-- thinking:end -->
+
 We use a hash table $\textit{orders}$ to store the type and price information of each order, where the key is the order ID and the value is a tuple $(\textit{orderType}, \textit{price})$. Additionally, we use another hash table $\textit{t}$ to store the list of order IDs corresponding to each $(\textit{orderType}, \textit{price})$, where the key is a tuple $(\textit{orderType}, \textit{price})$ and the value is the list of order IDs.
 
 When calling $\texttt{addOrder}$, we add the order information to $\textit{orders}$ and append the order ID to the corresponding list in $\textit{t}$.
