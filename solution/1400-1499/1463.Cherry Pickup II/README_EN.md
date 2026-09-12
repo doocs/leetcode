@@ -80,6 +80,16 @@ Total of cherries: 17 + 11 = 28.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two robots move down a row together, each stepping left/stay/right. $rows,cols\le 70$. After synchronizing rows, the state is the row and the two columns.
+>
+> $f[i][j_1][j_2]$ is the best score with both robots on row $i$. A shared cell is counted once. Transition from the nine neighboring column pairs. Take the max on the last row.
+
+<!-- thinking:end -->
+
 We define $f[i][j_1][j_2]$ as the maximum number of cherries that can be picked when the two robots are at positions $j_1$ and $j_2$ in the $i$-th row. Initially, $f[0][0][n-1] = grid[0][0] + grid[0][n-1]$, and the other values are $-1$. The answer is $\max_{0 \leq j_1, j_2 < n} f[m-1][j_1][j_2]$.
 
 Consider $f[i][j_1][j_2]$. If $j_1 \neq j_2$, then the number of cherries that the robots can pick in the $i$-th row is $grid[i][j_1] + grid[i][j_2]$. If $j_1 = j_2$, then the number of cherries that the robots can pick in the $i$-th row is $grid[i][j_1]$. We can enumerate the previous state of the two robots $f[i-1][y1][y2]$, where $y_1, y_2$ are the positions of the two robots in the $(i-1)$-th row, then $y_1 \in \{j_1-1, j_1, j_1+1\}$ and $y_2 \in \{j_2-1, j_2, j_2+1\}$. The state transition equation is as follows:
@@ -263,6 +273,14 @@ function cherryPickup(grid: number[][]): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Layer $i$ of method 1 depends only on layer $i-1$. Two $n\times n$ tables rolled in place drop a dimension without changing the transitions.
+
+<!-- thinking:end -->
 
 Notice that the calculation of $f[i][j_1][j_2]$ is only related to $f[i-1][y_1][y_2]$. Therefore, we can use a rolling array to optimize the space complexity. After optimizing the space complexity, the time complexity is $O(n^2)$.
 

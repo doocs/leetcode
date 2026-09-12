@@ -78,6 +78,14 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 
 ### 方法一：双栈
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> `visit` 会丢掉前进历史，`back`/`forward` 在一条时间线上移动。用栈 $stk1$ 保存到当前页的路径，$stk2$ 保存前进页。访问新页时压入 $stk1$ 并清空 $stk2$；后退把页弹到 $stk2$，前进则反向弹回。
+
+<!-- thinking:end -->
+
 我们可以使用两个栈 $\textit{stk1}$ 和 $\textit{stk2}$ 分别存储浏览后退页面和前进页面。初始时 $\textit{stk1}$ 包含 $\textit{homepage}$，而 $\textit{stk2}$ 为空。
 
 调用 $\text{visit}(url)$ 时，我们将 $\textit{url}$ 加入 $\textit{stk1}$，并清空 $\textit{stk2}$。时间复杂度 $O(1)$。

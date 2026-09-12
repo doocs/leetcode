@@ -96,6 +96,14 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strength is distance to the median, ties broken by value. $n\le 10^5$. Sort to read $m=arr[(n-1)//2]$, then sort by $(-|x-m|,-x)$ and take $k$ elements.
+
+<!-- thinking:end -->
+
 We first sort the array $\textit{arr}$ and then find the median $m$ of the array.
 
 Next, we sort the array according to the rules described in the problem, and finally return the first $k$ elements of the array.

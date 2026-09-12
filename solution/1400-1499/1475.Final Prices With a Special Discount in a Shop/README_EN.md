@@ -70,6 +70,14 @@ For items 3 and 4 you will not receive any discount at all.
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The discount is the next price to the right that is at most the current one. $n\le 500$ would allow a double loop; a monotonic stack finds the next smaller-or-equal in linear time. Scan right to left on an increasing stack and subtract in place.
+
+<!-- thinking:end -->
+
 The problem is essentially to find the first element on the right side that is smaller than each element. We can use a monotonic stack to solve this.
 
 We traverse the array $\textit{prices}$ in reverse order, using the monotonic stack to find the nearest smaller element on the left side of the current element, and then calculate the discount.

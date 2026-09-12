@@ -82,6 +82,14 @@ Course 0 is not a prerequisite of course 1, but the opposite is true.
 
 ### Solution 1: Floyd's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks whether $a$ is a prerequisite of $b$, i.e. reachability. With a modest number of courses, Floyd on a Boolean matrix closes the graph; each query is then $O(1)$.
+
+<!-- thinking:end -->
+
 We create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$.
 
 Next, we iterate through the prerequisites array $prerequisites$. For each item $[a, b]$ in it, we set $f[a][b]$ to $true$.
@@ -215,6 +223,14 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 <!-- solution:start -->
 
 ### Solution 2: Topological Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 pays $O(n^3)$ for an all-pairs closure. A topological pass unions each node's reachability into its successors, filling the same $f[i][j]$ along the DAG.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we create a 2D array $f$, where $f[i][j]$ indicates whether node $i$ can reach node $j$. Additionally, we create an adjacency list $g$, where $g[i]$ represents all successor nodes of node $i$, and an array $indeg$, where $indeg[i]$ represents the in-degree of node $i$.
 

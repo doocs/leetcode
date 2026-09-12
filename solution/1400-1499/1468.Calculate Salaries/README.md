@@ -98,6 +98,14 @@ Salaries 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 税率由公司最高工资决定，需先按公司求 $\textit{MAX}(salary)$，再与每位员工连接。按阈值 $1000$、$10000$ 用 `CASE` 打折并 `ROUND`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -110,6 +110,14 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 更新至多 $500$ 次，矩阵至多 $100\times 100$。每次更新若改写子矩形，总写入可达 $500\cdot 10^4$。改为只记录更新矩形，查询时从后往前找最先覆盖该格的更新，没有则返回原值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

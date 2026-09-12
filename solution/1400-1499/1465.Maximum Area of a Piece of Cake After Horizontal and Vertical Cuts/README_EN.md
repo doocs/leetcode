@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest piece is the product of the widest horizontal gap and the widest vertical gap. Sort the cuts, include the borders $0$ and $h$/$w$, take adjacent maxima, multiply, and reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We first sort `horizontalCuts` and `verticalCuts` separately, and then traverse both arrays to calculate the maximum difference between adjacent elements. We denote these maximum differences as $x$ and $y$, respectively. Finally, we return $x \times y$.
 
 Note that we need to consider the boundary cases, i.e., the first and last elements of `horizontalCuts` and `verticalCuts`.

@@ -90,6 +90,14 @@ tags:
 
 ### 方法一：Floyd 算法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 查询多组「$a$ 是否为 $b$ 的先修」，即有向图可达性。课程数通常不大，用布尔邻接矩阵跑 Floyd，枚举中转点闭包全部可达对，查询 $O(1)$。
+
+<!-- thinking:end -->
+
 我们创建一个二维数组 $f$，其中 $f[i][j]$ 表示节点 $i$ 到节点 $j$ 是否可达。
 
 接下来，我们遍历先修课程数组 $prerequisites$，对于其中的每一项 $[a, b]$，我们将 $f[a][b]$ 设为 $true$。
@@ -223,6 +231,14 @@ function checkIfPrerequisite(n: number, prerequisites: number[][], queries: numb
 <!-- solution:start -->
 
 ### 方法二：拓扑排序
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一是 $O(n^3)$ 的全源闭包。按拓扑序把祖先的可达集合并到后继，同样得到 $f[i][j]$，更贴合 DAG 的依赖方向，常数通常更好。
+
+<!-- thinking:end -->
 
 与方法一类似，我们创建一个二维数组 $f$，其中 $f[i][j]$ 表示节点 $i$ 到节点 $j$ 是否可达。另外，我们创建一个邻接表 $g$，其中 $g[i]$ 表示节点 $i$ 的所有后继节点；创建一个数组 $indeg$，其中 $indeg[i]$ 表示节点 $i$ 的入度。
 
