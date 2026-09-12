@@ -81,6 +81,18 @@ n = 3, edges = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
 
 ### 方法一：Bellman Ford 算法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最多 $k$ 次中转的最便宜机票，边权非负但中转限制使普通 Dijkstra 要带上剩余步数。$n\le 100$，限制松弛轮次的 Bellman-Ford 更直接。
+>
+> 最多 $k$ 次中转即最多 $k+1$ 条边。每轮用上一轮的距离备份松弛，避免同一轮内走多条边。
+>
+> $k+1$ 轮后 $dist[dst]$ 若仍为无穷则无解。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -177,6 +189,16 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 <!-- solution:start -->
 
 ### 方法二：DFS + 记忆化搜索
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> Bellman-Ford 枚举全部边。从 $src$ 出发、还剩 $k$ 条边时的最小花费也可记忆化搜索：到达 $dst$ 为 $0$，边用尽为无穷。
+>
+> $dfs(u,k)$ 枚举出边。边数仍是 $k+1$（含出发）。状态 $O(nk)$。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

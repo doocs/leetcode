@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Coloring Method to Determine Bipartite Graph
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether an undirected graph is bipartite. $n\le 100$. DFS from each uncolored vertex with two colors; a neighbor already colored the same fails.
+>
+> The graph may be disconnected, so every component is colored.
+
+<!-- thinking:end -->
+
 Traverse all nodes for coloring. For example, initially color them white, and use DFS to color the adjacent nodes with another color. If the target color to be colored is different from the color that the node has already been colored, it means that it cannot form a bipartite graph.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes.
@@ -240,6 +250,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Coloring is equivalent to union-find: all neighbors of $a$ belong to one part, not $a$'s.
+>
+> If $a$ and a neighbor share a root, fail; otherwise union the neighbors together.
+
+<!-- thinking:end -->
 
 For this problem, if it is a bipartite graph, then all adjacent nodes of each vertex in the graph should belong to the same set and not be in the same set as the vertex. Therefore, we can use the union-find method. Traverse each vertex in the graph, and if it is found that the current vertex and its corresponding adjacent nodes are in the same set, it means that it is not a bipartite graph. Otherwise, merge the adjacent nodes of the current node.
 

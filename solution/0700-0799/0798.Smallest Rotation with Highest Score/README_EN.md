@@ -65,6 +65,18 @@ So we will choose the smallest k, which is 0.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After $k$ rotations, $nums[i]$ sits at $(i-k)\bmod n$ and scores if that index is $\ge nums[i]$. $n\le 10^5$.
+>
+> Each value scores on a circular interval of $k$. A difference array marks $+1$/$ -1$ at the ends; the prefix is the score of each $k$.
+>
+> Pick the smallest $k$ with the maximum score.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

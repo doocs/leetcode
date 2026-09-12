@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f(x)$ is the trailing zeros of $x!$. The preimage of $k$ is empty when $f$ skips $k$, otherwise a run of $x$ (usually length $5$).
+>
+> $g(k)$ is the least $x$ with $f(x)\ge k$; the answer is $g(k+1)-g(k)$. Since $f(x)\ge x/5$, binary-search $g$ in $[0,5k]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

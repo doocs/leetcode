@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subarrays whose maximum lies in $[left,right]$. $n\le 10^5$. That is (max $\le right$) minus (max $\le left-1$).
+>
+> $f(x)$ walks once: grow a valid suffix while $v\le x$ and add its length, else reset.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -135,6 +145,16 @@ func numSubarrayBoundedMax(nums []int, left int, right int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The difference of $f$ hides who the maximum is. A monotonic stack finds the nearest stricter left greater and non-stricter right greater; the span $(i-l)(r-i)$ counts if $nums[i]$ is in range.
+>
+> Asymmetric bounds assign a unique maximum when values tie.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

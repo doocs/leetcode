@@ -53,6 +53,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter may flip case. The string is short, so DFS enumerates.
+>
+> At a letter, first continue unchanged, then xor $32$ and continue; digits have one branch. Collect at the end.
+
+<!-- thinking:end -->
+
 Since each letter in $s$ can be converted to uppercase or lowercase, we can use the DFS (Depth-First Search) method to enumerate all possible cases.
 
 Specifically, traverse the string $s$ from left to right. For each letter encountered, you can choose to convert it to uppercase or lowercase, and then continue to traverse the subsequent letters. When you reach the end of the string, you get a conversion scheme and add it to the answer.
@@ -212,6 +222,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are exactly $2^n$ strings if $n$ letters appear. A bitmask can pick lower/upper for the $j$-th letter.
+>
+> For each mask, rewrite letters by that bit and copy digits.
+
+<!-- thinking:end -->
 
 For a letter, we can convert it to uppercase or lowercase. Therefore, for each letter, we can use a binary bit to represent its conversion scheme, where $1$ represents lowercase and $0$ represents uppercase.
 

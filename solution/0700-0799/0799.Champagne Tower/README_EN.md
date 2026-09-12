@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pour $poured$ cups from the top and read one glass (capped at $1$). At most $99$ rows: simulate overflow.
+>
+> Anything above $1$ splits equally to the two glasses below. Fill, then overflow, through the query row.
+
+<!-- thinking:end -->
+
 We directly simulate the process of pouring champagne.
 
 Define a 2D array $f$, where $f[i][j]$ represents the amount of champagne in the $j$-th glass of the $i$-th layer. Initially, $f[0][0] = poured$.
@@ -209,6 +219,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ depends only on row $i-1$. Roll one array and write overflows into the next. Cap the queried glass at $1$.
+
+<!-- thinking:end -->
 
 Since the amount of champagne in each layer only depends on the amount in the previous layer, we can use a rolling array approach to optimize space complexity, converting the 2D array to a 1D array.
 

@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Bucketing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $|s|\le 5\times 10^4$; a pointer scan per word rereads $s$. Bucket words by their next needed letter and, while scanning $s$, advance only that bucket.
+>
+> A finished word counts; otherwise the remainder goes to the bucket of its new head. Each character of each word is handled once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -167,6 +177,14 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 <!-- solution:start -->
 
 ### Solution 2: Bucketing (Index Pointers)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 slices leftover strings. Store $(word\_index, matched\_len)$ instead; same buckets, less allocation.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -275,6 +293,16 @@ func numMatchingSubseq(s string, words []string) (ans int) {
 <!-- solution:start -->
 
 ### Solution 3: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bucketing keeps all words live. Alternatively, store every index of each letter in $s$ and binary-search the next position for each character of $w$.
+>
+> A test is $O(|w|\log n)$ and needs no queues.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

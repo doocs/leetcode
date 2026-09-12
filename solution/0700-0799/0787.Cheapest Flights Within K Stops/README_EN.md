@@ -80,6 +80,18 @@ The optimal path with no stops from city 0 to 2 is marked in red and has cost 50
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cheapest path with at most $k$ stops. Dijkstra needs an extra “stops” dimension; Bellman-Ford with $k+1$ rounds is enough for $n\le 100$.
+>
+> At most $k$ stops means $k+1$ edges. Each round relaxes from a copy of the previous distances so one round is one edge.
+>
+> After $k+1$ rounds, infinite $dist[dst]$ means unreachable.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -176,6 +188,16 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bellman-Ford scans every edge. Memoized $dfs(u,k)$ is the min cost from $u$ with $k$ edges left: $0$ at $dst$, inf when $k$ runs out.
+>
+> The initial call uses $k+1$ edges. $O(nk)$ states.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

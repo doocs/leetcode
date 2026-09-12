@@ -60,6 +60,18 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 
 ### Solution 1: Greedy + Hash Map
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An answer $x$ means that color has $x+1$ rabbits. Different answers cannot share a color; the same answer fills groups of size $x+1$.
+>
+> The fewest rabbits pack $v$ answers of $x$ into $\lceil v/(x+1)\rceil$ groups.
+>
+> Count, then add $\textit{groups}\times(x+1)$ for each $x$.
+
+<!-- thinking:end -->
+
 According to the problem description, rabbits that give the same answer may belong to the same color, while rabbits that give different answers cannot belong to the same color.
 
 Therefore, we use a hash map $\textit{cnt}$ to record the number of occurrences of each answer. For each answer $x$ and its occurrence $v$, we calculate the minimum number of rabbits based on the principle that each color has $x + 1$ rabbits, and add it to the answer.

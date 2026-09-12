@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether a $3\times 3$ board can arise from X-first play. Nine cells: count marks and who has a line.
+>
+> X has $o$ or $o+1$ marks. A win for X requires $x=o+1$; a win for O requires $x=o$. Those counts also rule out both winning at once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

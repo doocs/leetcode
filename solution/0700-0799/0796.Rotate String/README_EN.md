@@ -49,6 +49,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Is $goal$ a rotation of $s$? Unequal lengths fail; otherwise $goal$ is a substring of $s+s$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

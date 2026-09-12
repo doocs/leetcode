@@ -58,6 +58,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 判断 $goal$ 是否为 $s$ 的旋转。长度不同则否；否则 $goal$ 必是 $s+s$ 的子串，一次查找即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

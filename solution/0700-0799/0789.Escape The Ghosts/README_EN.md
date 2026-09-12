@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> You and the ghosts move at once. A ghost whose Manhattan distance to the target is at most yours can intercept.
+>
+> You escape iff every ghost is strictly farther from the target than you are (from the origin).
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
