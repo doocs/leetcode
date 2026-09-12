@@ -73,6 +73,18 @@ Thus, the 4 groups formed are &quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;,
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $s$ into blocks of length $k$ and pad the last block with $\textit{fill}$. The rule is direct.
+>
+> Take slices with step $k$ and $\texttt{ljust}$ each one.
+>
+> The number of groups is about $n/k$.
+
+<!-- thinking:end -->
+
 We can directly simulate the process described in the problem statement, dividing the string $s$ into groups of length $k$. For the last group, if it contains fewer than $k$ characters, we use the character $\textit{fill}$ to pad it.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.

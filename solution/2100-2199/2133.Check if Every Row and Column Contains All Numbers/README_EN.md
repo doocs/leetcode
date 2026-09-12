@@ -60,6 +60,18 @@ Hence, we return false.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every row and column must contain $1\ldots n$ exactly once. With $n\le 100$, checking that each line’s set has size $n$ is enough.
+>
+> Rows are the matrix itself; columns come from the transpose. A set of size $n$ means no duplicates, hence a permutation of $1\ldots n$ given the value range.
+>
+> Validate every sequence in $\texttt{chain}(\textit{matrix},\texttt{zip}(*\textit{matrix}))$.
+
+<!-- thinking:end -->
+
 Traverse each row and column of the matrix, using a hash table to record whether each number has appeared. If any number appears more than once in a row or column, return `false`; otherwise, return `true`
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the size of the matrix.

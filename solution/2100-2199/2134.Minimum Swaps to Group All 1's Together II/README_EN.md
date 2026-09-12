@@ -76,6 +76,18 @@ Thus, the minimum number of swaps required is 0.
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Grouping all $1$s on a circle is equivalent to a window of length $k=\textit{count}(1)$ that contains as many $1$s as possible; the answer is $k$ minus that maximum. Recounting every window is quadratic.
+>
+> A fixed-length circular window is a modular slide of $k$ extra steps. Count $1$s in the first $k$ cells, then add the entering index and drop the leaving one.
+>
+> After a full pass return $k-\textit{mx}$.
+
+<!-- thinking:end -->
+
 First, we count the number of $1$s in the array, denoted as $k$. The problem is actually asking for a circular subarray of length $k$ that contains the maximum number of $1$s. Therefore, the minimum number of swaps is $k$ minus the maximum number of $1$s in that subarray.
 
 We can solve this problem using a sliding window. First, we count the number of $1$s in the first $k$ elements of the array, denoted as $cnt$. Then, we maintain a sliding window of length $k$. Each time we move the window one position to the right, we update $cnt$ and simultaneously update the maximum $cnt$ value, i.e., $mx = \max(mx, cnt)$. Finally, the answer is $k - mx$.
@@ -247,6 +259,18 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 wraps indices with modulo. Prefix sums on the linear array also count a value $x$ in every window whose length equals the global number of $x$; swaps equal that length minus the window count.
+>
+> Gathering all $1$s on a circle is the complement view of gathering all $0$s, so the implementation takes the minimum of the two prefix-sum answers.
+>
+> This records the prefix-sum formulation of the same window problem.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

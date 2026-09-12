@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Two-Dimensional Prefix Sum + Two-Dimensional Difference
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every stamp must sit on empty cells only, and every empty cell must be covered at least once. Marking each legal placement cell by cell is $O(mn\cdot hw)$ and too slow.
+>
+> A 2-D prefix sum tests an $h\times w$ block in $O(1)$; successful placements are recorded in a 2-D difference array, which is then reconstructed to test coverage of every empty cell.
+>
+> Build the occupied prefix $s$, increment the difference $d$ for each valid top-left, reconstruct $d$, and reject an empty cell whose coverage is still $0$.
+
+<!-- thinking:end -->
+
 According to the problem description, every empty cell must be covered by a stamp, and no occupied cell can be covered. Therefore, we can traverse the two-dimensional matrix, and for each cell, if all cells in the area of $stampHeight \times stampWidth$ with this cell as the upper left corner are empty (i.e., not occupied), then we can place a stamp at this cell.
 
 To quickly determine whether all cells in an area are empty, we can use a two-dimensional prefix sum. We use $s_{i,j}$ to represent the number of occupied cells in the sub-matrix from $(1,1)$ to $(i,j)$ in the two-dimensional matrix. That is, $s_{i, j} = s_{i - 1, j} + s_{i, j - 1} - s_{i - 1, j - 1} + grid_{i-1, j-1}$.

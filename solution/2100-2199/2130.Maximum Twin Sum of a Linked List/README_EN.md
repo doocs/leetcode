@@ -79,6 +79,18 @@ There is only one node with a twin in the linked list having twin sum of 1 + 100
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Twin nodes are values at symmetric indices; we need their maximum sum. A list does not support random access, and walking from the head for every pair would be quadratic.
+>
+> Copying values into an array makes index $i$ pair with $n-1-i$. $n$ is even and at most $10^5$, so linear extra memory is acceptable.
+>
+> Store the values, then take the maximum of $s[i]+s[-(i+1)]$ over the first half.
+
+<!-- thinking:end -->
+
 We can store the values of the nodes in the linked list into an array, then use two pointers pointing to the beginning and end of the array to calculate the twin sum for each pair of twin nodes. The maximum twin sum is the answer.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the linked list.
@@ -257,6 +269,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses an $O(n)$ array. Constant extra memory requires pairing on the list itself.
+>
+> A fast/slow split finds the midpoint; reverse the second half and walk it against the first half, taking pairwise sums.
+>
+> The reversal is in place, so the extra space is $O(1)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

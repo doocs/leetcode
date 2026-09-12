@@ -82,6 +82,18 @@ Double again so x = 10
 
 ### Solution 1: Backtracking + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We start at $1$ and may increment or double, with at most $\textit{maxDoubles}$ doubles. Forward search interleaves the two moves. Backward, an even target with doubles left should be halved; otherwise we subtract one, because doubling is most valuable on large even values.
+>
+> $\textit{target}$ can be huge while the double budget is small, so the backward path is $O(\min(\log \textit{target},\textit{maxDoubles}))$. With no doubles the answer is $\textit{target}-1$.
+>
+> Recurse: divide by two when even and doubles remain, otherwise subtract one.
+
+<!-- thinking:end -->
+
 Let's start by backtracking from the final state. Assuming the final state is $target$, we can get the previous state of $target$ as $target - 1$ or $target / 2$, depending on the parity of $target$ and the value of $maxDoubles$.
 
 If $target=1$, no operation is needed, and we can return $0$ directly.
@@ -192,6 +204,18 @@ function minMoves(target: number, maxDoubles: number): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses recursion of the same depth as the backward walk; an iterative loop removes the call stack.
+>
+> While doubles remain and $\textit{target}>1$, decrement an odd value or shift an even one; then add the leftover $\textit{target}-1$.
+>
+> The policy matches Solution 1, written as a loop.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each $i$ we need $\sum_j |i-j|$ over indices with the same value. Grouping by value and summing pairs is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> Indices of one value are sorted, $v_0,\ldots,v_{m-1}$. Moving from $v_{i-1}$ to $v_i$ by $\Delta$ increases the $i$ left positions by $\Delta$ and decreases the $m-i$ right positions by $\Delta$, so the all-pairs distance can be rolled from the sum relative to $v_0$.
+>
+> Collect indices by value, start from $\sum v-v_0\cdot m$, then sweep the group with that recurrence.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

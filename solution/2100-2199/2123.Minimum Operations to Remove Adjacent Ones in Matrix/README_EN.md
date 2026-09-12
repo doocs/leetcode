@@ -76,6 +76,18 @@ No operations were done so return 0.
 
 ### Solution 1: Hungarian Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation removes one $1$, and we must eliminate every adjacent pair of $1$s — a minimum vertex cover of those edges. The grid is bipartite by the parity of $i+j$.
+>
+> On a bipartite graph the minimum cover equals the maximum matching, which the Hungarian algorithm can compute for this grid size.
+>
+> Connect each odd-cell $1$ to neighboring $1$s and search augmenting paths; the matching size is the minimum number of operations.
+
+<!-- thinking:end -->
+
 We observe that if two $1$s in the matrix are adjacent, they must belong to different groups. Therefore, we can treat all $1$s in the matrix as vertices, and connect an edge between two adjacent $1$s to construct a bipartite graph.
 
 Then, the problem can be transformed into finding the minimum vertex cover of a bipartite graph, which means selecting the minimum number of vertices to cover all edges. Since the minimum vertex cover of a bipartite graph equals the maximum matching, we can use the Hungarian algorithm to find the maximum matching of the bipartite graph.
