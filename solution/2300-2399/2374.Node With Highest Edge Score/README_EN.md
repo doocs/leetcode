@@ -70,6 +70,16 @@ Nodes 0 and 2 both have an edge score of 3. Since node 0 has a smaller index, we
 
 ### Solution 1: Single Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node’s edge score is the sum of indices that point to it. $n \le 10^5$, so one accumulation suffices; ties take the smaller index.
+>
+> Add source $i$ into $cnt[j]$ and compare with the current best on the fly, avoiding a second scan.
+
+<!-- thinking:end -->
+
 We define an array $\textit{cnt}$ of length $n$, where $\textit{cnt}[i]$ represents the edge score of node $i$. Initially, all elements are $0$. We also define an answer variable $\textit{ans}$, initially set to $0$.
 
 Next, we traverse the array $\textit{edges}$. For each node $i$ and its outgoing edge node $j$, we update $\textit{cnt}[j]$ to $\textit{cnt}[j] + i$. If $\textit{cnt}[\textit{ans}] < \textit{cnt}[j]$ or $\textit{cnt}[\textit{ans}] = \textit{cnt}[j]$ and $j < \textit{ans}$, we update $\textit{ans}$ to $j$.

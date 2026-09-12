@@ -70,6 +70,16 @@ tags:
 
 ### 方法一：一次遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 边积分是指向该点的下标之和。$n \le 10^5$，一次累加即可，并列取较小编号。
+>
+> 数组 $cnt[j]$ 加上来源 $i$。边走边与当前最优比较，避免第二遍扫描。
+
+<!-- thinking:end -->
+
 我们定义一个长度为 $n$ 的数组 $\textit{cnt}$，其中 $\textit{cnt}[i]$ 表示节点 $i$ 的边积分，初始时所有元素均为 $0$。定义一个答案变量 $\textit{ans}$，初始时为 $0$。
 
 接下来，我们遍历数组 $\textit{edges}$，对于每个节点 $i$，以及它的出边节点 $j$，我们更新 $\textit{cnt}[j]$ 为 $\textit{cnt}[j] + i$。如果 $\textit{cnt}[\textit{ans}] < \textit{cnt}[j]$ 或者 $\textit{cnt}[\textit{ans}] = \textit{cnt}[j]$ 且 $j < \textit{ans}$，我们更新 $\textit{ans}$ 为 $j$。

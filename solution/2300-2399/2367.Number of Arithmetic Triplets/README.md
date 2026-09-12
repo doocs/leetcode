@@ -72,6 +72,16 @@ tags:
 
 ### 方法一：暴力枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 严格递增数组中数公差为 $diff$ 的三元组。$n \le 200$，三重枚举可以通过。
+>
+> 用组合枚举三个下标，判断两段差是否都等于 $diff$。
+
+<!-- thinking:end -->
+
 我们注意到，数组 $nums$ 的长度只有不超过 $200$，因此可以直接暴力枚举 $i$, $j$, $k$，判断是否满足条件，若满足，累加三元组数目。
 
 时间复杂度 $O(n^3)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。
@@ -173,6 +183,14 @@ function arithmeticTriplets(nums: number[], diff: number): number {
 <!-- solution:start -->
 
 ### 方法二：数组或哈希表
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一为立方。值域与长度都很小，放入集合后枚举 $x$ 并查询 $x+diff$、$x+2diff$，降为线性。
+
+<!-- thinking:end -->
 
 我们可以先将 $nums$ 中的元素存入哈希表或数组 $vis$ 中，然后枚举 $nums$ 中的每个元素 $x$，判断 $x+diff$, $x+diff+diff$ 是否也在 $vis$ 中，若是，累加三元组数目。
 

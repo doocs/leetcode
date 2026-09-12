@@ -63,6 +63,16 @@ There are a total of 5 bad pairs, so we return 5.
 
 ### Solution 1: Equation Transformation + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bad pair has $j-i \ne nums[j]-nums[i]$, i.e. $i-nums[i] \ne j-nums[j]$. $n \le 10^5$, so we count via the complementary good pairs.
+>
+> Scan left to right: index $i$ adds $i$ minus the previous count of $i-nums[i]$ bad pairs, then increment that key. Prefix counts avoid a double loop.
+
+<!-- thinking:end -->
+
 According to the problem description, for any $i \lt j$, if $j - i \neq \textit{nums}[j] - \textit{nums}[i]$, then $(i, j)$ is a bad pair.
 
 We can transform the equation into $i - \textit{nums}[i] \neq j - \textit{nums}[j]$. This suggests using a hash table $cnt$ to count the occurrences of $i - \textit{nums}[i]$.

@@ -63,6 +63,16 @@ tags:
 
 ### 方法一：式子转换 + 哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 坏数对满足 $j-i \ne nums[j]-nums[i]$，即 $i-nums[i] \ne j-nums[j]$。$n \le 10^5$，应统计互补的好对。
+>
+> 从左到右扫描，当前下标 $i$ 与此前同余 $i-nums[i]$ 的个数之差即新增坏对，再把该键加一。前缀计数避免双重循环。
+
+<!-- thinking:end -->
+
 根据题目描述，我们可以得知，对于任意的 $i \lt j$，如果 $j - i \neq \textit{nums}[j] - \textit{nums}[i]$，则 $(i, j)$ 是一个坏数对。
 
 我们可以将式子转换为 $i - \textit{nums}[i] \neq j - \textit{nums}[j]$。这启发我们用哈希表 $cnt$ 来统计 $i - \textit{nums}[i]$ 的出现次数。

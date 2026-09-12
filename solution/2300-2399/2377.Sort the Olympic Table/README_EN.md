@@ -84,6 +84,16 @@ Israel comes before Egypt because it has more bronze medals.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The table is ordered by gold, silver, bronze descending, then country ascending. No extra aggregates are required.
+>
+> $ORDER\ BY$ columns $2,3,4$ descending and column $1$ ascending prints the whole table.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
