@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The graph is promised to be a grid. With $n \le 5 \times 10^4$ we cannot backtrack. Degree identifies the role of a vertex: $1$ is an endpoint of a single row, $2$ is a corner or an interior of a $1 \times n$ grid, $3$ is a border, and $4$ is interior.
+>
+> The first row is recovered from degrees: a degree-$1$ vertex means the whole grid is one row; otherwise we walk from a degree-$2$ corner along vertices of degree less than $4$.
+>
+> Each later row is the unique unused neighbor of the previous row, so we fill the grid row by row.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

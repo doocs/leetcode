@@ -88,6 +88,18 @@ The <code>2<sup>nd</sup></code> largest size is 3.</p>
 
 ### Solution 1: DFS + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A perfect binary subtree needs two perfect children of equal size. With $n \le 2000$, one post-order walk can collect every valid size.
+>
+> An empty tree has size $0$. If both children return the same non-negative size, the current tree is perfect and we record $l+r+1$; otherwise we return $-1$.
+>
+> After sorting the sizes descending, we return the $k$-th or $-1$ if fewer than $k$ exist.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs}$ to calculate the size of the perfect binary subtree rooted at the current node, using an array $\textit{nums}$ to record the sizes of all perfect binary subtrees. If the subtree rooted at the current node is not a perfect binary subtree, it returns $-1$.
 
 The execution process of the function $\textit{dfs}$ is as follows:

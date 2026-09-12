@@ -98,6 +98,18 @@ tags:
 
 ### Solution 1: Find the Diameter of the Tree + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> When marking spreads from $i$, the last marked node is a farthest node from $i$. Computing that for every start is $O(n^2)$, which is too slow for $n \le 10^5$.
+>
+> On a tree, a farthest node always lies at an endpoint of a diameter. It is enough to identify those two endpoints $a$ and $b$.
+>
+> Three DFS passes find $a$, $b$, and distances to both. For each $i$ we compare $\textit{dist}(i,a)$ and $\textit{dist}(i,b)$ and report the farther endpoint.
+
+<!-- thinking:end -->
+
 According to the problem description, the last marked node must be one endpoint of the tree's diameter, because the distance from any node on the diameter to any other node on the diameter is the greatest.
 
 We can start a depth-first search (DFS) from any node to find the farthest node $a$, which is one endpoint of the tree's diameter.

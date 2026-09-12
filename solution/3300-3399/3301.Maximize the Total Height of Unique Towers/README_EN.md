@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Heights must be pairwise distinct and within each tower's cap. With $n \le 10^5$, enumerating assignments is infeasible. Filling short towers first can steal large integers that tall towers still need.
+>
+> To maximize the sum we should assign larger heights to towers with larger caps. After sorting $\textit{maximumHeight}$ descending, $mx$ stores the last assigned height.
+>
+> The current tower takes $\min(x, mx-1)$: it stays within its cap and strictly below the previous height. A non-positive value means no valid assignment exists.
+
+<!-- thinking:end -->
+
 We can sort the maximum heights of the towers in descending order, then allocate the heights one by one starting from the maximum height. Use a variable $mx$ to record the current maximum allocated height.
 
 If the current height $x$ is greater than $mx - 1$, update $x$ to $mx - 1$. If $x$ is less than or equal to $0$, it means the height cannot be allocated, and we directly return $-1$. Otherwise, we add $x$ to the answer and update $mx$ to $x$.

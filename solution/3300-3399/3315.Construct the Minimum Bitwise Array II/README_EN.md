@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bitwise identity is the same as in part I; only the value range grows to $10^9$. The even prime is still $2$, and an odd $x$ is still repaired by flipping the bit below its lowest zero.
+>
+> A loop up to bit $32$ covers the full range, so no extra data structure is required.
+>
+> The implementation matches part I: scan each odd $x$ and XOR $2^{i-1}$.
+
+<!-- thinking:end -->
+
 For an integer $a$, the result of $a \lor (a + 1)$ is always odd. Therefore, if $\text{nums[i]}$ is even, then $\text{ans}[i]$ does not exist, and we directly return $-1$. In this problem, $\textit{nums}[i]$ is a prime number, so to check if it is even, we only need to check if it equals $2$.
 
 If $\text{nums[i]}$ is odd, suppose $\text{nums[i]} = \text{0b1101101}$. Since $a \lor (a + 1) = \text{nums[i]}$, this is equivalent to changing the last $0$ bit of $a$ to $1$. To solve for $a$, we need to change the bit after the last $0$ in $\text{nums[i]}$ to $0$. We start traversing from the least significant bit (index $1$) and find the first $0$ bit. If it is at position $i$, we change the $(i - 1)$-th bit of $\text{nums[i]}$ to $1$, i.e., $\text{ans}[i] = \text{nums[i]} \oplus 2^{i - 1}$.

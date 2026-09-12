@@ -109,6 +109,18 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a subsequence of $\textit{word1}$ that matches $\textit{word2}$ after at most one change, and the index sequence must be lexicographically smallest. With $|\textit{word1}| \le 3 \times 10^5$, trying every change position is too slow.
+>
+> Smaller indices should be taken whenever they match. The remaining question is whether a mismatch should consume the single allowed change.
+>
+> A right-to-left scan builds $\textit{suf}[i]$, the earliest position of $\textit{word2}$ still matchable from $i$. Scanning left to right, we take an index on an exact match; otherwise we change only if no change has been used and $\textit{suf}[i+1] \le j+1$, so the suffix can still finish the pattern.
+
+<!-- thinking:end -->
+
 We first use two pointers to preprocess a suffix array $\textit{suf}$ from right to left, where $\textit{suf}[i]$ represents the smallest starting index in $\textit{word2}$ such that $\textit{word2}[\textit{suf}[i]:]$ is a subsequence of $\textit{word1}[i:]$. Specifically, we use a pointer $j$ pointing to the frontmost unmatched character in $\textit{word2}$, initially $j = n - 1$, and set $\textit{suf}[m] = n$. Starting from $i = m - 1$, we traverse $\textit{word1}$ from right to left. If $j \ge 0$ and $\textit{word1}[i] = \textit{word2}[j]$, it means $\textit{word2}[j]$ can be matched, so we decrement $j$ by one, and then set $\textit{suf}[i] = j + 1$.
 
 Next, we traverse $\textit{word1}$ from left to right, using a pointer $j$ to denote the index of the character in $\textit{word2}$ that we currently need to match (initially $j = 0$), and a variable $\textit{changed}$ to record whether we have already modified a character. For each character $c$ at index $i$:

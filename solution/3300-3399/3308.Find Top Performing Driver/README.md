@@ -147,6 +147,18 @@ tags:
 
 ### 方法一：等值连接 + 分组 + 窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每种燃料类型需要评分最高、里程最大、事故最少的司机；并列时全部保留。连接 $\textit{Drivers}$、$\textit{Vehicles}$、$\textit{Trips}$ 后按燃料与司机聚合，即可得到三项指标。
+>
+> 仅用 $\textit{GROUP BY}$ 加 $\textit{MAX}$ 无法在并列时同时带出 $\textit{driver\_id}$。
+>
+> 因此对聚合结果按评分降序、里程降序、事故升序做 $\textit{RANK}$，筛 $\textit{rk}=1$，再按燃料类型排序输出。
+
+<!-- thinking:end -->
+
 我们可以使用等值连接，将 `Drivers` 表和 `Vehicles` 表按照 `driver_id` 连接，再与 `Trips` 表按照 `vehicle_id` 连接，然后按照 `fuel_type`、`driver_id` 分组，计算每个司机的平均评分、总行驶里程、总事故次数，然后使用 `RANK()` 窗口函数，将每种燃料类型的司机按照评分降序、总行驶里程降序、总事故次数升序排名，最后筛选出每种燃料类型的排名为 1 的司机。
 
 <!-- tabs:start -->
