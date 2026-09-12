@@ -114,7 +114,6 @@ With he same formula for the average salary comparison in February, the result i
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -158,7 +157,6 @@ FROM t;
 > Method 1 relies on `DISTINCT` to collapse window duplicates. Grouping by month and department and averaging the already-computed window means yields the same comparison.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

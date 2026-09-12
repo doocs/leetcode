@@ -67,7 +67,6 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 
 <!-- thinking:end -->
 
-
 We use a sliding window to enumerate the position of the third subarray, while maintaining the maximum sum and its position of the first two non-overlapping subarrays.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -281,7 +280,6 @@ function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
 > Coupled windows are compact but easy to get wrong. Prefix sums plus $pre[i]$ (best $k$-window on the left) and $suf[i]$ (best on the right) let us enumerate only the middle start.
 
 <!-- thinking:end -->
-
 
 We can preprocess to get the prefix sum array $s$ of the array $nums$, where $s[i] = \sum_{j=0}^{i-1} nums[j]$. Then for any $i$, $j$, $s[j] - s[i]$ is the sum of the subarray $[i, j)$.
 

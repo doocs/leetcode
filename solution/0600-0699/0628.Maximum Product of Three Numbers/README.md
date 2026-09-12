@@ -72,7 +72,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们先对数组 $\textit{nums}$ 进行排序，接下来分两种情况讨论：
 
 - 如果 $\textit{nums}$ 中全是非负数或者全是非正数，那么答案即为最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$；
@@ -166,7 +165,6 @@ function maximumProduct(nums: number[]): number {
 > 方法一付出排序的 $O(n\log n)$。乘积只依赖最小两个与最大三个数，一次遍历（或 `nlargest`）维护这五个极值即可降到线性。
 
 <!-- thinking:end -->
-
 
 我们可以不用对数组进行排序，而是维护五个变量，其中 $\textit{mi1}$ 和 $\textit{mi2}$ 表示数组中最小的两个数，而 $\textit{mx1}$, $\textit{mx2}$ 和 $\textit{mx3}$ 表示数组中最大的三个数。
 

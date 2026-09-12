@@ -70,7 +70,6 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -193,7 +192,6 @@ func minSteps(n int) int {
 > Memoization is top-down. The same recurrences fill $dp[i]$ bottom-up over factors, without recursion.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 
@@ -333,7 +331,6 @@ var minSteps = function (n) {
 > The optimum equals the sum of prime factors of $n$: factor $i$ is one copy plus $i-1$ pastes. Factorize $n$ and skip the DP table.
 
 <!-- thinking:end -->
-
 
 Factorize $n$; each prime factor $i$ costs $i$ operations.
 

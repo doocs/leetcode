@@ -119,7 +119,6 @@ Tree table:
 
 <!-- thinking:end -->
 
-
 我们可以使用 `CASE WHEN` 条件判断语句来判断每个节点的类型，具体地：
 
 - 如果一个节点的 `p_id` 为 `NULL`，则该节点为根节点；

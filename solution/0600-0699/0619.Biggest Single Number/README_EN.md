@@ -107,7 +107,6 @@ MyNumbers table:
 
 <!-- thinking:end -->
 
-
 We can first group the `MyNumbers` table by `num` and count the number of occurrences of each number. Then, we can use a subquery to find the maximum number among the numbers that appear only once.
 
 <!-- tabs:start -->
@@ -141,7 +140,6 @@ FROM
 > The extra `MAX` subquery can be avoided: `CASE WHEN COUNT=1 THEN num` after grouping, then order descending and take one row.
 
 <!-- thinking:end -->
-
 
 Similar to Solution 1, we can first group the `MyNumbers` table by `num` and count the number of occurrences of each number. Then, we can use a `CASE` expression to find the numbers that appear only once, sort them in descending order by number, and take the first one.
 

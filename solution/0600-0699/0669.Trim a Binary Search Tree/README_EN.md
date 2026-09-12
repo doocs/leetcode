@@ -67,7 +67,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -348,7 +347,6 @@ struct TreeNode* trimBST(struct TreeNode* root, int low, int high) {
 > Recursion uses linear stack. Slide the root into range, then walk each side: replace an undersized left child by its right, an oversized right child by its left. Extra memory is constant.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -236,7 +235,6 @@ type pair struct {
 > BFS needs a queue. DFS records the first index seen at each depth and updates the width as $i - t[depth] + 1$ with the same numbering.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

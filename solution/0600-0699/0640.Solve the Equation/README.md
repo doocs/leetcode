@@ -75,7 +75,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 将方程 $equation$ 按照等号 “=” 切分为左右两个式子，分别算出左右两个式子中 "x" 的系数 $x_i$，以及常数的值 $y_i$。
 
 那么方程转换为等式 $x_1 \times x + y_1 = x_2 \times x + y_2$。

@@ -90,7 +90,6 @@ User Alice has 1 follower. Alice is not a second-degree follower because she doe
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

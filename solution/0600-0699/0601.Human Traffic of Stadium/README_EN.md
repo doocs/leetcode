@@ -89,7 +89,6 @@ The rows with ids 2 and 3 are not included because we need at least three consec
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -126,7 +125,6 @@ ORDER BY 1;
 > Method 1 already counts group size with a window. The same difference `id_diff` can be aggregated with `HAVING COUNT(*) > 2` and used as an `IN` filter. The meaning is unchanged; only the counting style differs.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

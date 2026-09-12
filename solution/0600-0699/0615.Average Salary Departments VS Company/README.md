@@ -112,7 +112,6 @@ Employee 表:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -156,7 +155,6 @@ FROM t;
 > 方法一用 `DISTINCT` 去重窗口重复行。也可对部门再 `GROUP BY`，用 `AVG` 聚合已算好的窗口均值后比较，结果相同。
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

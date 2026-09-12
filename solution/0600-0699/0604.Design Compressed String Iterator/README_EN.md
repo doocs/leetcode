@@ -79,7 +79,6 @@ stringIterator.hasNext(); // return True
 
 <!-- thinking:end -->
 
-
 Parse the `compressedString` into characters $c$ and their corresponding repetition counts $x$, and store them in an array or list $d$. Use $p$ to point to the current character.
 
 Then perform operations in `next` and `hasNext`.

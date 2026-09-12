@@ -78,7 +78,6 @@ circularQueue.Rear(); &nbsp;// 返回 4</pre>
 
 <!-- thinking:end -->
 
-
 我们可以使用一个长度为 $k$ 的数组 $q$ 来模拟循环队列，用一个指针 $\textit{front}$ 记录队首元素的位置，初始时队列为空，而 $\textit{front}$ 为 $0$。另外，我们用一个变量 $\textit{size}$ 记录队列中元素的个数，初始时 $\textit{size}$ 为 $0$。
 
 调用 `enQueue` 方法时，我们首先检查队列是否已满，即 $\textit{size} = k$，如果满了则直接返回 $\textit{false}$。否则，我们将元素插入到 $(\textit{front} + \textit{size}) \bmod k$ 的位置，然后 $\textit{size} = \textit{size} + 1$，表示队列中元素的个数增加了 $1$。最后返回 $\textit{true}$。

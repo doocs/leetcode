@@ -67,7 +67,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 A valid triangle must satisfy: **the sum of any two sides is greater than the third side**. That is:
 
 $$a + b \gt c \tag{1}$$

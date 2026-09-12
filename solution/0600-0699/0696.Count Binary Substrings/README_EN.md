@@ -66,7 +66,6 @@ Also, &quot;00110011&quot; is not a valid substring because all the 0&#39;s (and
 
 <!-- thinking:end -->
 
-
 We can iterate through the string $s$, using a variable $\textit{pre}$ to record the count of the previous consecutive characters, and another variable $\textit{cur}$ to record the count of the current consecutive characters. The number of valid substrings ending with the current character is $\min(\textit{pre}, \textit{cur})$. We accumulate $\min(\textit{pre}, \textit{cur})$ to the answer, assign the value of $\textit{cur}$ to $\textit{pre}$, and continue iterating through string $s$ until the end.
 
 The time complexity is $O(n)$, where $n$ is the length of string $s$. The space complexity is $O(1)$.

@@ -73,7 +73,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We split the $equation$ by the equal sign `"="` into left and right expressions, and compute the coefficient of `"x"` (denoted $x_i$) and the constant value (denoted $y_i$) for each side.
 
 The equation is then transformed into: $x_1 \times x + y_1 = x_2 \times x + y_2$.

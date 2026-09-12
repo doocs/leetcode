@@ -77,7 +77,6 @@ Triangle table:
 
 <!-- thinking:end -->
 
-
 The condition for whether three sides can form a triangle is that the sum of any two sides is greater than the third side. Therefore, we can use an `IF` statement to determine whether this condition is satisfied. If it is satisfied, we return `Yes`, otherwise we return `No`.
 
 <!-- tabs:start -->

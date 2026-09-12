@@ -125,7 +125,6 @@ excel.get(3, "C"); // 返回 6
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

@@ -67,7 +67,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -288,7 +287,6 @@ impl Solution {
 > DFS can be replaced by BFS with the same seen-set test; only the traversal order changes.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

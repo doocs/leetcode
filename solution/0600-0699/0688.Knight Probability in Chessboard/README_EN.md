@@ -71,7 +71,6 @@ The total probability the knight stays on the board is 0.0625.
 
 <!-- thinking:end -->
 
-
 We define $f[h][i][j]$ to represent the probability that the knight remains on the board after taking $h$ steps starting from position $(i, j)$. The final answer is $f[k][\textit{row}][\textit{column}]$.
 
 When $h=0$, the knight is definitely on the board, so the probability is $1$, i.e., $f[0][i][j]=1$.

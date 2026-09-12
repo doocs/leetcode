@@ -122,7 +122,6 @@ Since the record is empty, the total sum is 0.
 
 <!-- thinking:end -->
 
-
 We can use a stack to simulate this process.
 
 Traverse $\textit{operations}$, for each operation:

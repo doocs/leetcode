@@ -64,7 +64,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$ of the numbers within the window. We take the maximum sum $s$ as the answer.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

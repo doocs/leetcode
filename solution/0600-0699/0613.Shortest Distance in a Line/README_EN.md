@@ -78,7 +78,6 @@ Point table:
 
 <!-- thinking:end -->
 
-
 We can use a self-join to join each point in the table with the larger points, and then calculate the distance between the two points. Finally, we can take the minimum distance.
 
 <!-- tabs:start -->
@@ -108,7 +107,6 @@ FROM
 > The minimum must occur between neighbors after sorting, so a full join is unnecessary. `LAG(x)` yields the previous point; the smallest positive gap is the answer.
 
 <!-- thinking:end -->
-
 
 We can use a window function to sort the points in the table by their $x$ values, and then calculate the distance between adjacent points. Finally, we can take the minimum distance.
 

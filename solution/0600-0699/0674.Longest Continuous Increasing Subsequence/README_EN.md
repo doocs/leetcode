@@ -66,7 +66,6 @@ increasing.
 
 <!-- thinking:end -->
 
-
 We can traverse the array $nums$, using a variable $cnt$ to record the length of the current consecutive increasing sequence. Initially, $cnt = 1$.
 
 Then, we start from index $i = 1$ and traverse the array $nums$ to the right. Each time we traverse, if $nums[i - 1] < nums[i]$, it means that the current element can be added to the consecutive increasing sequence, so we set $cnt = cnt + 1$, and then update the answer to $ans = \max(ans, cnt)$. Otherwise, it means that the current element cannot be added to the consecutive increasing sequence, so we set $cnt = 1$.
@@ -220,7 +219,6 @@ class Solution {
 > The same runs can be walked with two pointers: advance $j$ while the array increases, record $j-i$, then set $i=j$.
 
 <!-- thinking:end -->
-
 
 We can also use two pointers $i$ and $j$ to find each consecutive increasing sequence, and find the length of the longest consecutive increasing sequence as the answer.
 

@@ -88,7 +88,6 @@ RequestAccepted 表：
 
 <!-- thinking:end -->
 
-
 我们可以将 `requester_id` 和 `accepter_id` 两列合并成一列，表示每个人的好友关系。然后对合并后的结果进行分组统计，找出拥有最多好友的人和好友数目。
 
 <!-- tabs:start -->

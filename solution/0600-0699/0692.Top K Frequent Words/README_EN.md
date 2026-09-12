@@ -76,7 +76,6 @@ Note that &quot;i&quot; comes before &quot;love&quot; due to a lower alphabetica
 
 <!-- thinking:end -->
 
-
 We can use a hash table $\textit{cnt}$ to record the frequency of each word. Then, we sort the key-value pairs in the hash table by value, and if the values are the same, we sort by key.
 
 Finally, we take the first $k$ keys.

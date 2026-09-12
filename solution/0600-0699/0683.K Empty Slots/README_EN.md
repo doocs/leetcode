@@ -77,7 +77,6 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
 
 <!-- thinking:end -->
 
-
 We can use a Binary Indexed Tree to maintain the prefix sum of the bulbs. Every time we turn on a bulb, we update the corresponding position in the Binary Indexed Tree. Then we check if the $k$ bulbs to the left or right of the current bulb are all turned off and the $(k+1)$-th bulb is already turned on. If either of these conditions is met, we return the current day.
 
 The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of bulbs.

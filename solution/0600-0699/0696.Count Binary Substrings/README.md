@@ -66,7 +66,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以遍历字符串 $s$，用一个变量 $\textit{pre}$ 记录上一个连续字符的数量，另一个变量 $\textit{cur}$ 记录当前连续字符的数量。那么以当前字符结尾的满足条件的子串数量为 $\min(\textit{pre}, \textit{cur})$。我们将 $\min(\textit{pre}, \textit{cur})$ 累加到答案中，并将 $\textit{cur}$ 的值赋给 $\textit{pre}$，继续遍历字符串 $s$ 直到结束。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串 $s$ 的长度。空间复杂度 $O(1)$。

@@ -87,7 +87,6 @@ Since now the four &lt;b&gt;&#39;s are consecutive, we merge them: &quot;&lt;b&g
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

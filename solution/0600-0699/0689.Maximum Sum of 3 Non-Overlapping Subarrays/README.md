@@ -69,7 +69,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 滑动窗口，枚举第三个子数组的位置，同时维护前两个无重叠子数组的最大和及其位置。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $nums$ 的长度。空间复杂度 $O(1)$。
@@ -283,7 +282,6 @@ function maxSumOfThreeSubarrays(nums: number[], k: number): number[] {
 > 滑动窗口把三端捆在一起，实现要紧。也可预处理：前缀和加 $pre[i]$（左侧最佳 $k$ 段）与 $suf[i]$（右侧最佳 $k$ 段），再枚举中间段起点，和与下标一次取出。
 
 <!-- thinking:end -->
-
 
 我们可以预处理得到数组 $nums$ 的前缀和数组 $s$，其中 $s[i] = \sum_{j=0}^{i-1} nums[j]$，那么对于任意的 $i$，$j$，$s[j] - s[i]$ 就是子数组 $[i, j)$ 的和。
 

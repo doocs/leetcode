@@ -122,7 +122,6 @@ excel.get(3, &quot;C&quot;); // return 6
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

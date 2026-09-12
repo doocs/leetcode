@@ -59,7 +59,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We denote $s_1$ as the sum of all numbers from $[1,..n]$, $s_2$ as the sum of the numbers in the array $nums$ after removing duplicates, and $s$ as the sum of the numbers in the array $nums$.
 
 Then $s - s_2$ is the duplicate number, and $s_1 - s_2$ is the missing number.
@@ -186,7 +185,6 @@ impl Solution {
 > The sum method needs a set. A frequency map makes the duplicate ($2$) and the missing ($0$) explicit.
 
 <!-- thinking:end -->
-
 
 We can also use a more intuitive method, using a hash table $cnt$ to count the occurrence of each number in the array $nums$.
 
@@ -348,7 +346,6 @@ impl Solution {
 > The first two methods use linear extra memory. XOR of $nums$ and $1..n$ yields $a\oplus b$; split by the lowest set bit to recover $a$ and $b$, then see which one appears in the array.
 
 <!-- thinking:end -->
-
 
 According to the properties of the XOR operation, for integer $x$, we have $x \oplus x = 0$ and $x \oplus 0 = x$. Therefore, if we perform the XOR operation on all elements in the array $nums$ and all numbers $i \in [1, n]$, we can eliminate the numbers that appear twice, leaving only the XOR result of the missing number and the duplicate number, i.e., $xs = a \oplus b$.
 

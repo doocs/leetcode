@@ -86,7 +86,6 @@ Salary table:
 
 <!-- thinking:end -->
 
-
 According to the problem requirements, we only need to use a single UPDATE statement to swap the sex of all employees. We can achieve this using conditional expressions in SQL.
 
 <!-- tabs:start -->

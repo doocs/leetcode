@@ -70,7 +70,6 @@ It may be assumed that the returned time is next day&#39;s time since it is smal
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

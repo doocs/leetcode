@@ -63,7 +63,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we convert the number into a string $s$. Then, we traverse the string $s$ from right to left, using an array or hash table $d$ to record the position of the maximum number to the right of each number (it can be the position of the number itself).
 
 Next, we traverse $d$ from left to right. If $s[i] < s[d[i]]$, we swap them and exit the traversal process.
@@ -261,7 +260,6 @@ impl Solution {
 > Method 1 stores a right-max index array. One right-to-left scan can keep the best seen digit and the leftmost profitable swap, without the extra array.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

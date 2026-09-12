@@ -90,7 +90,6 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

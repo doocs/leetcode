@@ -100,7 +100,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以使用栈来模拟这个过程。
 
 遍历 $\textit{operations}$，对于每个操作：

@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Let `dp[i][j]` be true if and only if the interval `s[i], s[i+1], ..., s[j]` can be made valid. Then `dp[i][j]` is true only if:
 
 - `s[i]` is `'*'`, and the interval `s[i+1], s[i+2], ..., s[j]` can be made valid;
@@ -187,7 +186,6 @@ func checkValidString(s string) bool {
 > Cubic DP is more than we need. Scan left treating `(` and `*` as stock for `)`; scan right treating `)` and `*` as stock for `(`. Both passes must succeed.
 
 <!-- thinking:end -->
-
 
 Scan twice, first from left to right to make sure that each of the closing brackets is matched successfully, and second from right to left to make sure that each of the opening brackets is matched successfully.
 

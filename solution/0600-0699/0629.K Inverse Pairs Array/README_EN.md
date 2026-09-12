@@ -63,7 +63,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define $f[i][j]$ as the number of arrays of length $i$ with $j$ inverse pairs. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$.
 
 Next, we consider how to obtain $f[i][j]$.

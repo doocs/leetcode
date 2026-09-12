@@ -78,7 +78,6 @@ Point2D table:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

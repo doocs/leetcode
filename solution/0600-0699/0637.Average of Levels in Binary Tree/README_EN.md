@@ -63,7 +63,6 @@ Hence return [3, 14.5, 11].
 
 <!-- thinking:end -->
 
-
 We can use the Breadth-First Search (BFS) method to traverse the nodes of each level and calculate the average value of each level.
 
 Specifically, we define a queue $q$, initially adding the root node to the queue. Each time, we take out all the nodes in the queue, calculate their average value, add it to the answer array, and then add their child nodes to the queue. Repeat this process until the queue is empty.
@@ -318,7 +317,6 @@ var averageOfLevels = function (root) {
 > BFS needs a queue. DFS can accumulate $(sum, count)$ by depth and divide at the end, with the same result.
 
 <!-- thinking:end -->
-
 
 We can also use the Depth-First Search (DFS) method to calculate the average value of each level.
 

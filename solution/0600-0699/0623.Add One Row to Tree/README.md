@@ -81,7 +81,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -290,7 +289,6 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 > 方法一递归到目标层。若希望按层推进、避免递归栈，可用队列 BFS 走到第 $\textit{depth}-1$ 层，再对队中节点同样挂接左右新节点。
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

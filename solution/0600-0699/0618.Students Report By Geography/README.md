@@ -84,7 +84,6 @@ Student table:
 
 <!-- thinking:end -->
 
-
 我们可以使用窗口函数 `row_number()` 来为每个大洲的学生编号，然后使用 `GROUP BY` 来将同一编号的学生聚合到一行中。
 
 <!-- tabs:start -->

@@ -72,7 +72,6 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

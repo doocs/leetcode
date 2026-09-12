@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can maintain a coordinate $(x, y)$ to represent the robot's movement in the horizontal and vertical directions.
 
 Traverse the string $\textit{moves}$ and update the coordinate $(x, y)$ based on the current character:

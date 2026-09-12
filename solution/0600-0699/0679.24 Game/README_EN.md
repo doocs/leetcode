@@ -86,7 +86,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(nums)$, where $nums$ represents the current number sequence. The function returns a boolean value indicating whether there exists a permutation that makes this number sequence equal to $24$.
 
 If the length of $nums$ is $1$, we return $true$ only when this number is $24$, otherwise we return $false$.

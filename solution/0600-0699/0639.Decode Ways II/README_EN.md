@@ -98,7 +98,6 @@ Hence, there are a total of (6 * 2) + (3 * 1) = 12 + 3 = 15 ways to decode &quot
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

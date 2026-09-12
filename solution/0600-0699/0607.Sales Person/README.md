@@ -140,7 +140,6 @@ Orders 表:
 
 <!-- thinking:end -->
 
-
 我们可以使用左连接将 `SalesPerson` 表与 `Orders` 表连接起来，再与 `Company` 表连接起来，然后按照 `sales_id` 分组，每组统计有多少个公司的名字为 `RED` 的订单，最后筛选出没有这样的订单的销售人员的姓名。
 
 <!-- tabs:start -->

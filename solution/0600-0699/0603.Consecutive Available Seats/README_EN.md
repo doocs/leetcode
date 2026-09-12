@@ -82,7 +82,6 @@ Cinema table:
 
 <!-- thinking:end -->
 
-
 We can use a self-join to join the `Seat` table with itself, and then filter out the records where the `id` of the left seat is equal to the `id` of the right seat minus $1$, and where both seats are empty.
 
 <!-- tabs:start -->
@@ -113,7 +112,6 @@ ORDER BY 1;
 > The self-join materializes pairs. `LAG`/`LEAD` read the neighboring `free` flags on the same row; if the seat plus either neighbor sums to $2$, it belongs to a consecutive free pair.
 
 <!-- thinking:end -->
-
 
 We can use the `LAG` and `LEAD` functions (or `SUM() OVER(ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)`) to obtain the information of adjacent seats, and then filter out the consecutive empty seats and sort them in a unique way.
 
@@ -151,7 +149,6 @@ WHERE a = 2 OR b = 2;
 > A single sliding `SUM(free)` over the previous, current, and next rows replaces separate `LAG`/`LEAD`. A free seat with window sum greater than $1$ has at least one free neighbor.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

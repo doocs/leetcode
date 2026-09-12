@@ -73,7 +73,6 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 
 <!-- thinking:end -->
 
-
 We construct a data item $(x, i)$ for each number $x$ and its group $i$, and store these items in a new array $t$. Then, we sort $t$ by the value of the numbers (similar to merging multiple sorted arrays into a new sorted array).
 
 Next, we traverse each data item in $t$, focusing on the group to which each number belongs. We use a hash table to record the groups of numbers within the sliding window. If the number of groups is $k$, it means the current window meets the problem's requirements. At this point, we calculate the start and end positions of the window and update the answer.
@@ -284,7 +283,6 @@ impl Solution {
 > Method 1 materializes every value. Because each list is sorted, a min-heap of the $k$ current pointers plus a running maximum already describes a candidate range; advance the list that produced the minimum. Space is $O(k)$.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

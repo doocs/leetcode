@@ -134,7 +134,6 @@ font-size: 0.85rem;
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

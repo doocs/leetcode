@@ -75,7 +75,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -205,7 +204,6 @@ impl Solution {
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -334,7 +332,6 @@ impl Solution {
 > Two pointers are linear. The best left bound in $[0,n-k]$ is monotone: compare $x-arr[mid]$ with $arr[mid+k]-x$ and binary-search it.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

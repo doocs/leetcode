@@ -76,7 +76,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -285,7 +284,6 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 > DFS already attaches nodes at the parent layer. BFS reaches depth $\textit{depth}-1$ with a queue and applies the same left/right splice, without recursion.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

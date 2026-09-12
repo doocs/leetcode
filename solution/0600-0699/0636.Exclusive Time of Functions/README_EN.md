@@ -99,7 +99,6 @@ So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1
 
 <!-- thinking:end -->
 
-
 We define a stack $\textit{stk}$ to store the identifiers of the currently executing functions. We also define an array $\textit{ans}$ to store the exclusive time of each function, initially setting the exclusive time of each function to $0$. We use a variable $\textit{pre}$ to record the previous timestamp.
 
 We traverse the log array. For each log entry, we first split it by colons to get the function identifier $\textit{i}$, the operation type $\textit{op}$, and the timestamp $\textit{t}$.

@@ -70,7 +70,6 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -204,7 +203,6 @@ func findShortestSubArray(nums []int) int {
 > Method 1 records endpoints in one pass. We can also collect the modes first and scan first/last indices per mode. The helpers are longer, the complexity is the same.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

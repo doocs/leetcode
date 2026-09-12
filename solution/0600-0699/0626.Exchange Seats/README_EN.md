@@ -85,7 +85,6 @@ Note that if the number of students is odd, there is no need to change the last 
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -114,7 +113,6 @@ ORDER BY 1;
 > Instead of joining, rewrite `id`: odd (not last) plus one, even minus one, last odd unchanged, then sort by the new id.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 
@@ -152,7 +150,6 @@ ORDER BY 1;
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -180,7 +177,6 @@ FROM Seat;
 > Method 2 probes `MAX(id)` with a subquery. Comparing `ROW_NUMBER()` with a window `COUNT` detects the last row without a second scan.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

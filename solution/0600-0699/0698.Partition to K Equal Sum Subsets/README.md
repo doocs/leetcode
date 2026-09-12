@@ -66,7 +66,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 根据题意，我们需要将数组 $\textit{nums}$ 划分为 $k$ 个子集，且每个子集的和相等。因此，先累加 $\textit{nums}$ 中所有元素的和，如果不能被 $k$ 整除，说明无法划分为 $k$ 个子集，提前返回 $\textit{false}$。
 
 如果能被 $k$ 整除，不妨将每个子集期望的和记为 $s$，然后创建一个长度为 $k$ 的数组 $\textit{cur}$，表示当前每个子集的和。
@@ -264,7 +263,6 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 > 按桶放数仍可能重复同一已选集合。改用二进制 $\textit{state}$ 表示已用元素，当前桶余量 $t$。记忆化 $dfs(\textit{state}, t)$，数升序以便 $t+v>s$ 时整段剪枝。
 
 <!-- thinking:end -->
-
 
 与方法一相同，我们依然先判断数组 $\textit{nums}$ 是否有可能被划分为 $k$ 个子集。如果不能被 $k$ 整除，直接返回 $\textit{false}$。
 
@@ -503,7 +501,6 @@ function canPartitionKSubsets(nums: number[], k: number): boolean {
 > 记忆化是自顶向下。自底向上 $f[i]$ 表示掩码 $i$ 能否合法填完若干桶，$cur[i]$ 为当前桶已装量。枚举未选 $j$ 转移，避免递归栈。
 
 <!-- thinking:end -->
-
 
 我们可以使用动态规划的方法求解本题。
 

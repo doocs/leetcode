@@ -84,7 +84,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -354,7 +353,6 @@ struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
 > Each max query in method 1 is linear. A segment tree answers range maxima in $O(\log n)$, so the same recursion becomes $O(n\log n)$.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 
@@ -709,7 +707,6 @@ func (t *segmentTree) pushup(u int) {
 > The segment tree is extra structure. A decreasing stack finds the nearest greater neighbor on the left: the last popped node becomes the left child, and the new top takes the current node as its right child. One pass builds the tree.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

@@ -117,7 +117,6 @@ Tree table:
 
 <!-- thinking:end -->
 
-
 We can use the `CASE WHEN` conditional statement to determine the type of each node as follows:
 
 - If a node's `p_id` is `NULL`, then it is a root node.

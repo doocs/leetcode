@@ -85,7 +85,6 @@ myCircularDeque.getFront();     // return 4
 
 <!-- thinking:end -->
 
-
 We can use an array to implement the circular deque. We maintain a pointer $\textit{front}$ pointing to the front of the queue, a variable $\textit{size}$ representing the number of elements in the queue, and a variable $\textit{capacity}$ representing the queue's capacity. We use an array $\textit{q}$ to store the elements.
 
 When $\textit{insertFront}$ is called, we first check if the queue is full; if so, return $\text{false}$. Otherwise, we move $\textit{front}$ one position forward (using modular arithmetic for circular wrapping), insert the new element at $\textit{front}$, and increment $\textit{size}$ by 1.

@@ -99,7 +99,6 @@ obj.input(&quot;#&quot;); // return []. The user finished the input, the sentenc
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

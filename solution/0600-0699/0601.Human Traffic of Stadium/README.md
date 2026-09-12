@@ -89,7 +89,6 @@ id</strong> 为 5、6、7、8 的四行 id 连续，并且每行都有 &gt;= 100
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -126,7 +125,6 @@ ORDER BY 1;
 > 方法一已用窗口函数得到组内人数。若希望把「组是否足够长」写成集合判断，可对同一差值 `id_diff` 做 `GROUP BY ... HAVING COUNT(*) > 2`，再 `IN` 回表过滤。语义相同，只是把计数从窗口改到聚合子查询。
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

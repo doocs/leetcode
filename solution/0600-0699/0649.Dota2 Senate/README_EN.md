@@ -84,7 +84,6 @@ And in round 2, the third senator can just announce the victory since he is the 
 
 <!-- thinking:end -->
 
-
 We create two queues $qr$ and $qd$ to record the indices of the Radiant and Dire senators, respectively. Then we start the simulation, where in each round we dequeue one senator from each queue and perform different operations based on their factions:
 
 - If the Radiant senator's index is less than the Dire senator's index, the Radiant senator can permanently ban the voting rights of the Dire senator. We add $n$ to the Radiant senator's index and enqueue it back to the end of the queue, indicating that this senator will participate in the next round of voting.

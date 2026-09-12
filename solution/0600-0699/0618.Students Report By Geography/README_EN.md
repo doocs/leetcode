@@ -83,7 +83,6 @@ Student table:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

@@ -85,7 +85,6 @@ Seat 表:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -114,7 +113,6 @@ ORDER BY 1;
 > 也可不连表，直接改 `id`：非末奇数加一、偶数减一、末奇数不变，再按新 `id` 排序，效果与换人相同。
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 
@@ -152,7 +150,6 @@ ORDER BY 1;
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -180,7 +177,6 @@ FROM Seat;
 > 方法二用子查询取最大 `id` 判断末行。亦可用 `ROW_NUMBER` 与窗口 `COUNT` 比较是否最后一行，避免再扫一遍表。
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

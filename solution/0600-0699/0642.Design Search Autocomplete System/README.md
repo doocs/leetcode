@@ -101,7 +101,6 @@ obj.input("#"); // 返回 []。用户完成输入，句子 "i a" 应该被保存
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

@@ -80,7 +80,6 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 <!-- thinking:end -->
 
-
 We use a hash table $d$ to store key-value pairs and a trie $t$ to store the prefix sums of the key-value pairs. Each node in the trie contains two pieces of information:
 
 - `val`: the total sum of the values of the key-value pairs with this node as the prefix

@@ -82,7 +82,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们创建一个大小为 $m \times n$ 的二维数组 $\textit{ans}$，其中 $\textit{ans}[i][j]$ 表示图像中第 $i$ 行第 $j$ 列的单元格的平滑值。
 
 对于 $\textit{ans}[i][j]$，我们遍历 $\textit{img}$ 中第 $i$ 行第 $j$ 列的单元格及其周围的 $8$ 个单元格，计算它们的和 $s$ 以及个数 $cnt$，然后计算平均值 $s / cnt$ 并将其存入 $\textit{ans}[i][j]$ 中。

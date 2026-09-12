@@ -72,7 +72,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We sort all pairs in ascending order by the second number, and use a variable $\textit{pre}$ to maintain the maximum value of the second number of the selected pairs.
 
 We traverse the sorted pairs. If the first number of the current pair is greater than $\textit{pre}$, we can greedily select the current pair, increment the answer by one, and update $\textit{pre}$ to the second number of the current pair.

@@ -72,7 +72,6 @@ For the point (1,1): floor((50+200+200+200+200+100+100+100+100)/9) = floor(138.8
 
 <!-- thinking:end -->
 
-
 We create a 2D array $\textit{ans}$ of size $m \times n$, where $\textit{ans}[i][j]$ represents the smoothed value of the cell in the $i$-th row and $j$-th column of the image.
 
 For $\textit{ans}[i][j]$, we traverse the cell in the $i$-th row and $j$-th column of $\textit{img}$ and its surrounding 8 cells, calculate their sum $s$ and count $cnt$, then compute the average value $s / cnt$ and store it in $\textit{ans}[i][j]$.

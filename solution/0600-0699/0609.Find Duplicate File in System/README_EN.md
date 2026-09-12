@@ -85,7 +85,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We create a hash table $d$, where the key is the file content and the value is a list of file paths with the same content.
 
 Next, we iterate over $\textit{paths}$. For each path, we split it into the directory path and file information. For each file entry, we extract the file name and file content, and append the file path to the corresponding list in hash table $d$.

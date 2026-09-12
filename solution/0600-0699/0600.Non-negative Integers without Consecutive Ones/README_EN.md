@@ -74,7 +74,6 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 
 <!-- thinking:end -->
 
-
 This problem essentially asks for the number of numbers in the given range $[l, ..r]$ whose binary representation does not contain consecutive $1$s. The count is related to the number of digits and the value of each binary digit. We can use the concept of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.
 
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[0, ..r]$ and then subtract the result of $[0, ..l - 1]$, i.e.:

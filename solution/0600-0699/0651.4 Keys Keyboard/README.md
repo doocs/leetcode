@@ -76,7 +76,6 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 <!-- thinking:end -->
 
-
 定义 $dp[i]$ 表示前 $i$ 个按键可以显示的最大个数。
 
 我们可以发现，要显示最多的 `A`，要么一直按 `A`，要么以 `Ctrl-V` 结束。

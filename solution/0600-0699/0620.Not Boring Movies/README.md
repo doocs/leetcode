@@ -84,7 +84,6 @@ id 是该表的主键(具有唯一值的列)。
 
 <!-- thinking:end -->
 
-
 我们可以使用 `WHERE` 子句筛选出 `description` 不为 `boring`，并且 `id` 为奇数的记录，然后使用 `ORDER BY` 子句对结果按照 `rating` 降序排序。
 
 <!-- tabs:start -->

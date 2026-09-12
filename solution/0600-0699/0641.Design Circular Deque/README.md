@@ -87,7 +87,6 @@ circularDeque.getFront();				// 返回 4
 
 <!-- thinking:end -->
 
-
 我们可以使用一个数组来实现循环双端队列。我们维护一个指向队头的指针 $\textit{front}$ 和一个表示队列中元素个数的变量 $\textit{size}$，以及一个表示队列容量的变量 $\textit{capacity}$。我们使用一个数组 $\textit{q}$ 来存储队列中的元素。
 
 调用 $\textit{insertFront}$ 时，首先检查队列是否已满，如果已满则返回 $\text{false}$。如果队列不为空，则将 $\textit{front}$ 向前移动一个位置（使用模运算实现循环），然后将新元素插入到 $\textit{front}$ 位置，并将 $\textit{size}$ 加 1。

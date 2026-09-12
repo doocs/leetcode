@@ -80,7 +80,6 @@ stringIterator.hasNext(); // 返回 True</pre>
 
 <!-- thinking:end -->
 
-
 将 `compressedString` 解析成字符 $c$ 和对应的重复次数 $x$，存储在数组或列表 $d$ 中，用 $p$ 指向当前字符。
 
 然后在 `next` 和 `hasNext` 中进行操作。
