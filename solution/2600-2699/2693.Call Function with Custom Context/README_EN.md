@@ -77,6 +77,14 @@ args = [{&quot;item&quot;: &quot;burger&quot;}, 10, 1.1]
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must implement `call`: run the function with a given `this`. Hanging a temporary property would mutate the object. `bind(context)` builds a bound function; applying the remaining arguments reuses the engine's `this` binding.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

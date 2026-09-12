@@ -79,6 +79,14 @@ ride_id 是该表的主键。
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每辆车可能有多段租期，只要最后归还时刻。按 `bike_number` 分组取 `MAX(end_time)`，再按该时间降序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

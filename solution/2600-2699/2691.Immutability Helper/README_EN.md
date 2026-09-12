@@ -121,6 +121,16 @@ mutators = [
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mutations should look in-place yet produce a new object without touching the original. Deep-cloning the whole tree on every `produce` wastes unchanged branches under $10^5$ calls and large payloads.
+>
+> A proxy records written paths and copy-on-writes those spines, sharing untouched subtrees. The mutator never deletes keys, calls methods, or assigns objects, so the proxy only traps reads and writes.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

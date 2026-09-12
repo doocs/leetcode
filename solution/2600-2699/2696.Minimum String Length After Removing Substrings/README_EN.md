@@ -65,6 +65,16 @@ It can be shown that it is the minimum length that we can obtain.</pre>
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `AB` and `CD` may be deleted and can cascade. Repeated `replace` is quadratic in the worst case. The rule matches parentheses: pop when the top and the current character form one of those pairs, otherwise push.
+>
+> A dummy empty top avoids an empty-stack test; the leftover length minus one is the answer.
+
+<!-- thinking:end -->
+
 We traverse the string $s$. For the current character $c$ we are traversing, if the stack is not empty and the top element of the stack $top$ can form $AB$ or $CD$ with $c$, then we pop the top element of the stack, otherwise we push $c$ into the stack.
 
 The number of remaining elements in the stack is the length of the final string.
@@ -208,6 +218,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: One-liner
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses an explicit stack. With length $\le 100$, we may also strip `AB|CD` with a regular expression until the length stabilizes, written as a one-line recursion. Extra scans remain acceptable at this size.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -107,6 +107,16 @@ fn = (obj) =&gt; {
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Objects and arrays must reject assignment, and arrays must also reject mutating methods. `Object.freeze` fails silently and does not wrap `push`.
+>
+> Recursively wrap nested values: object `set` throws, arrays additionally trap `pop`/`push` and kin with `apply`. Children are wrapped first, then the root proxy is returned.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

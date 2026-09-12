@@ -82,6 +82,16 @@ derived[1] = original[1] ⊕ original[0] = 1
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 由 $derived[i]=a[i]\oplus a[i+1]$ 反推是否存在 $a$。枚举 $a[0]$ 再推一遍，$n \le 10^5$ 可行，但全部异或后每项出现两次，故 $\bigoplus derived=0$ 是充要条件。
+>
+> 一次异或折叠即可判定。
+
+<!-- thinking:end -->
+
 我们不妨假设原始二进制数组为 $a$，派生数组为 $b$，那么有：
 
 $$

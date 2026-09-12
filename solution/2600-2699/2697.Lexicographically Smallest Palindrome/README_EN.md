@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only decrease letters, and the result must be a palindrome. Symmetric ends should both become the smaller of the two characters. $n \le 10^5$ allows one two-pointer pass; we need not search which indices to change.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to point to the beginning and end of the string, initially $i = 0$, $j = n - 1$.
 
 Next, each time we greedily modify $s[i]$ and $s[j]$ to their smaller value to make them equal. Then we move $i$ one step forward and $j$ one step backward, and continue this process until $i \ge j$. At this point, we have obtained the smallest palindrome string.

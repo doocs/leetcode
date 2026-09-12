@@ -84,6 +84,14 @@ order_date is sorted in ascending order.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the daily share of immediate orders, i.e. rows with `customer_pref_delivery_date = order_date`. Group by `order_date`, divide the conditional count by the group size, round to two decimals, and sort by date.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

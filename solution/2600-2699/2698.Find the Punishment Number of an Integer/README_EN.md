@@ -69,6 +69,16 @@ Hence, the punishment number of 37 is 1 + 81 + 100 + 1296 = 1478
 
 ### Solution 1: Enumeration + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether the decimal digits of $i^2$ split into parts summing to $i$. $n \le 1000$ gives at most seven digits, so enumerating $i$ and DFS-splitting is enough.
+>
+> Grow the current part from the left and stop if it exceeds the remaining target; a finished split with remainder $0$ is valid and adds that square.
+
+<!-- thinking:end -->
+
 We enumerate $i$, where $1 \leq i \leq n$. For each $i$, we split the decimal representation string of $x = i^2$, and then check whether it meets the requirements of the problem. If it does, we add $x$ to the answer.
 
 After the enumeration ends, we return the answer.

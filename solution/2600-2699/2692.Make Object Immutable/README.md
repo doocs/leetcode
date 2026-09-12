@@ -108,6 +108,16 @@ fn = (obj) =&gt; {
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对象与数组须拒绝赋值，数组还须拒绝会改动自身的方法。`Object.freeze` 静默失败且不覆盖 `push` 等。
+>
+> 递归给嵌套值套 `Proxy`：对象 `set` 抛修改错误，数组再对 `pop`/`push` 等方法套 `apply` 陷阱。深层先处理后，根上返回代理。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

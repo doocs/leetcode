@@ -85,6 +85,18 @@ tags:
 
 ### Solution 1: Shortest Path (Dijkstra's Algorithm)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must replace $-1$ edges with positive weights so the $source$–$destination$ shortest path equals $target$. Searching weight tuples is huge; $n \le 100$ allows repeated Dijkstra.
+>
+> Ignore $-1$ edges first: a positive-weight shortest path already below $target$ is impossible; equality lets us set the rest to the cap so no shortcut appears. If it is still larger, try each $-1$ edge as weight $1$; once the distance is $\le target$, raise that edge to hit $target$ exactly and cap the remaining $-1$ edges.
+>
+> If the path never becomes short enough, return an empty list.
+
+<!-- thinking:end -->
+
 First, we ignore the edges with a weight of $-1$ and use Dijkstra's algorithm to find the shortest distance $d$ from $source$ to $destination$.
 
 - If $d < target$, it means there is a shortest path composed entirely of positive weight edges. No matter how we modify the edges with a weight of $-1$, we cannot make the shortest distance from $source$ to $destination$ equal to $target$. Therefore, there is no modification scheme that satisfies the problem, and we can return an empty array.
