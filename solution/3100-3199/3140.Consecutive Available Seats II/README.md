@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README.md
 tags:
     - 数据库
 ---

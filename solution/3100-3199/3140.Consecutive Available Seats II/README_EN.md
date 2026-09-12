@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3140.Consecutive%20Available%20Seats%20II/README_EN.md
 tags:
     - Database
 ---
