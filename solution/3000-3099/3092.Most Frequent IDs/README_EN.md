@@ -79,6 +79,18 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
 
 ### Solution 1: Hash Table + Priority Queue (Max Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Frequencies of IDs change online and we report the current maximum after each update. $n \le 10^5$, so a full scan each time is too slow.
+>
+> Counts both grow and shrink, so a heap cannot edit old entries. Stale counts go into a lazy-deletion map and are popped when they reach the top.
+>
+> One hash map stores live frequencies, another stores how often a count was retired; we push the new count onto a max-heap and clean the top.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to record the occurrence times of each ID, a hash table $lazy$ to record the number of times each occurrence needs to be deleted, and a priority queue $pq$ to maintain the maximum occurrence times.
 
 For each operation $(x, f)$, we need to update the occurrence times $cnt[x]$ of $x$, which means the value of $cnt[x]$ in $lazy$ needs to increase by $1$, indicating that the number of times this occurrence needs to be deleted increases by $1$. Then we update the value of $cnt[x]$, adding $f$ to $cnt[x]$. Then we add the updated value of $cnt[x]$ to the priority queue $pq$. Then we check the top element of the priority queue $pq$. If the number of times the corresponding occurrence needs to be deleted in $lazy$ is greater than $0$, we pop the top element. Finally, we judge whether the priority queue is empty. If it is not empty, the top element is the maximum occurrence times, and we add it to the answer array.

@@ -59,6 +59,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring must start and end with the same given character. $n \le 10^5$, so we cannot enumerate ends.
+>
+> Every occurrence of $c$ is a singleton, and every pair of occurrences determines one more substring.
+>
+> If $c$ appears $\textit{cnt}$ times the answer is $\textit{cnt}+\textit{cnt}(\textit{cnt}-1)/2$.
+
+<!-- thinking:end -->
+
 First, we can count the number of character $c$ in string $s$, denoted as $cnt$.
 
 Each character $c$ can form a substring on its own, so there are $cnt$ substrings that meet the condition. Each character $c$ can form a substring with other $c$ characters, so there are $\frac{cnt \times (cnt - 1)}{2}$ substrings that meet the condition.

@@ -91,6 +91,18 @@ Each row of this table contains post_id, user_id, and post_date.
 
 ### Solution 1: Self-Join + Group Count
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A burst means some $7$-day window has at least twice the user’s average weekly posts in February $2024$. Both figures come from the same post table.
+>
+> A self-join on user with dates in $[d,d+6]$ counts each window; February posts divided by $4$ is the weekly average. We join them and keep the maximum window.
+>
+> The code builds the dated self-join, computes the February average, inner-joins, filters by the threshold, and aggregates.
+
+<!-- thinking:end -->
+
 We can use self-join to connect the `Posts` table with itself. The connection condition is `p1.user_id = p2.user_id` and `p2.post_date` is between `p1.post_date` and 6 days after `p1.post_date`. Then we group the connection results by `p1.user_id` and `p1.post_id` to count the number of posts for each user within 7 days of each day. We save this result in table `P`.
 
 Next, we count the average number of posts per week for each user in February 2024 and save it in table `T`. Note that we need to find records where `post_date` is between `2024-02-01` and `2024-02-28`, group the records by `user_id`, then count the number of posts for each user, and finally divide by `4` to get the average number of posts per week. We save this result in table `T`.

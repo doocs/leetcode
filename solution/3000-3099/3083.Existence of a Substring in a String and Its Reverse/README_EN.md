@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ and there are few length-$2$ substrings. We only need some pair of adjacent characters to appear in both $s$ and its reverse.
+>
+> Store every adjacent pair of the reversed string, then query the pairs of $s$.
+>
+> One build and one query are both linear.
+
+<!-- thinking:end -->
+
 We can use a hash table or a two-dimensional array $st$ to store all substrings of length $2$ of the reversed string $s$.
 
 Then we traverse the string $s$. For each substring of length $2$, we check whether it has appeared in $st$. If it has, we return `true`. Otherwise, we return `false` after the traversal.

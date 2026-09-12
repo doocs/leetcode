@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the container word with the longest common suffix, then the shortest word, then the smallest index. Total length is far too large for pairwise suffix checks.
+>
+> A common suffix is a common prefix of the reversed strings, which a trie stores. Each node keeps the best (shortest length, smallest index) under that suffix.
+>
+> We insert container words reversed, updating the best pair along the path, and walk a query reversed until the next edge is missing.
+
+<!-- thinking:end -->
+
 The problem requires us to find the longest common suffix, so we can consider using a Trie.
 
 We define the structure of the Trie node as follows:

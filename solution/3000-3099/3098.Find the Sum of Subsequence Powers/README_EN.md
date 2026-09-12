@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The power of a subsequence is the minimum pairwise difference; we sum that over subsequences of length $k$. $n \le 50$.
+>
+> After sorting, only differences of consecutively chosen values can be the minimum, so a state is the current index, the last chosen index, how many picks remain, and the current minimum.
+>
+> Memoized $\textit{dfs}(i,j,k,\textit{mi})$ skips $i$ or takes it and updates the minimum by $\textit{nums}[i]-\textit{nums}[j]$. Sorting keeps those differences non-negative.
+
+<!-- thinking:end -->
+
 Given the problem involves the minimum difference between elements of a subsequence, we might as well sort the array $\textit{nums}$, which facilitates the calculation of the minimum difference between subsequence elements.
 
 Next, we design a function $dfs(i, j, k, mi)$, representing the value of the energy sum when processing the $i$-th element, the last selected element is the $j$-th element, $k$ more elements need to be selected, and the current minimum difference is $mi$. Therefore, the answer is $dfs(0, n, k, +\infty)$ (If the last selected element is the $n$-th element, it indicates that no element has been selected before).

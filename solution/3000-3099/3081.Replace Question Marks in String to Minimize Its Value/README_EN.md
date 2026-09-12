@@ -91,6 +91,18 @@ tags:
 
 ### Solution 1: Greedy + Priority Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Question marks become lowercase letters to minimize $\sum \textit{freq}(\textit{freq}-1)/2$, then the lexicographically smallest such string. $n \le 10^5$.
+>
+> The quadratic cost is smallest when frequencies are balanced, so each `?` should go to a currently rarest letter. The resulting multiset is written back into the `?` slots in sorted order.
+>
+> A min-heap of $26$ pairs $(\textit{cnt},c)$ yields the multiset; we sort it and replace question marks from left to right.
+
+<!-- thinking:end -->
+
 According to the problem, we can find that if a letter $c$ appears $v$ times, then the score it contributes to the answer is $1 + 2 + \cdots + (v - 1) = \frac{v \times (v - 1)}{2}$. To make the answer as small as possible, we should replace the question marks with those letters that appear less frequently.
 
 Therefore, we can use a priority queue to maintain the occurrence times of each letter, take out the letter with the least occurrence times each time, record it in the array $t$, then increase its occurrence times by one, and put it back into the priority queue. Finally, we sort the array $t$, and then traverse the string $s$, replacing each question mark with the letters in the array $t$ in turn.

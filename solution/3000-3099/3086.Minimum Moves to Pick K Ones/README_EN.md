@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1: Greedy + Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We collect $k$ ones while standing at $i$, using adjacent ones, up to $\textit{maxChanges}$ created neighbors, or farther ones. $n \le 10^5$.
+>
+> The stand position is worth enumerating. Adjacent ones and the change budget are used greedily; farther ones should arrive nearest-first, and both their count and cost are prefix sums that a binary-searched radius can query.
+>
+> For each $i$ we take the cell and its neighbors, spend the quota, then binary-search a radius $d$ so that ones in $[i-d,i-2]\cup[i+2,i+d]$ finish the demand, costing a weighted prefix sum.
+
+<!-- thinking:end -->
+
 We consider enumerating Alice's standing position $i$. For each $i$, we follow the strategy below:
 
 - First, if the number at position $i$ is $1$, we can directly pick up a $1$ without needing any moves.

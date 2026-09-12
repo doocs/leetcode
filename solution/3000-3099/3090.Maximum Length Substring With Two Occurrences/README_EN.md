@@ -58,6 +58,18 @@ The following substring has a length of 2 and contains at most two occurrences o
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every character in the substring may appear at most twice. $n \le 100$ would allow enumeration, but the constraint is a classic sliding window.
+>
+> After the right end absorbs a character, if some count exceeds $2$ the left end must advance until that count is back to $2$. A valid window updates the maximum length.
+>
+> A hash of counts plus two pointers does this in one pass.
+
+<!-- thinking:end -->
+
 We use two pointers $l$ and $r$ to maintain a sliding window, and an array $cnt$ to record the occurrence times of each character in the window.
 
 In each iteration, we add the character $c$ at the pointer $r$ into the window, then check if $cnt[c]$ is greater than $2$. If it is, we move the pointer $l$ to the right until $cnt[c]$ is less than or equal to $2$. At this point, we update the answer $ans = \max(ans, r - l + 1)$.
