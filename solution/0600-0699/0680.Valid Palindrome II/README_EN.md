@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0680.Valid%20Palindrome%20II/README_EN.md
 tags:
     - Greedy
     - Two Pointers

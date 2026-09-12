@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md
 tags:
     - 位运算
     - 记忆化
