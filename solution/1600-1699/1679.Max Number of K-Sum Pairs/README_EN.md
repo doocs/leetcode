@@ -64,6 +64,14 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs must sum to $k$ and each value is used once. $n$ is $10^5$; after sorting, two pointers pair on sum $k$, move the right end when too large, and the left when too small.
+
+<!-- thinking:end -->
+
 We sort $nums$. Then $l$ and $r$ point to the first and last elements of $nums$ respectively, and we compare the sum $s$ of the two integers with $k$.
 
 - If $s = k$, it means that we have found two integers whose sum is $k$. We increment the answer and then move $l$ and $r$ towards the middle;
@@ -221,6 +229,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts. A frequency map of unpaired values pairs $x$ with $k-x$ when a leftover exists, otherwise stores $x$, in linear time.
+
+<!-- thinking:end -->
 
 We use a hash table $cnt$ to record the current remaining integers and their occurrence counts.
 

@@ -65,6 +65,16 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenate the binary forms of $1..n$ modulo $10^9+7$. $n$ is $10^5$, so we cannot build a string. Appending $i$ is a left shift by the bit length of $i$, then OR with $i$.
+>
+> The loop is $\textit{ans} = (\textit{ans} \ll i.\texttt{bit\_length()} \mid i) \bmod (10^9+7)$.
+
+<!-- thinking:end -->
+
 By observing the pattern of number concatenation, we can find that when concatenating to the $i$-th number, the result $ans$ formed by concatenating the previous $i-1$ numbers is actually shifted to the left by a certain number of bits, and then $i$ is added. The number of bits shifted is the number of binary digits in $i$.
 
 The time complexity is $O(n)$, where $n$ is the given integer. The space complexity is $O(1)$.
@@ -195,6 +205,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation (Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 calls $\texttt{bit\_length}$ every step. The width increases only when $i$ crosses a power of two, so a $\textit{shift}$ counter incremented at those $i$ avoids the extra length query.
+
+<!-- thinking:end -->
 
 In Solution 1, we need to calculate the number of binary digits of $i$ each time, which adds some extra computation. We can use a variable $\textit{shift}$ to record the current number of bits to shift. When $i$ is a power of $2$, $\textit{shift}$ needs to be incremented by $1$.
 

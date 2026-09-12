@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The most competitive subsequence of length $k$ is the lexicographically smallest subsequence of that length. $n$ is $10^5$, so a monotone stack pops a larger top while enough elements remain to fill $k$.
+>
+> Push the current value when the stack is shorter than $k$; the stack is the answer.
+
+<!-- thinking:end -->
+
 We traverse the array `nums` from left to right, maintaining a stack `stk`. During the traversal, if the current element `nums[i]` is less than the top element of the stack, and the number of elements in the stack plus $n-i$ is greater than $k$, then we pop the top element of the stack until the above condition is no longer satisfied. At this point, if the number of elements in the stack is less than $k$, then we push the current element into the stack.
 
 After the traversal, the elements in the stack are the answer.

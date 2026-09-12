@@ -79,6 +79,18 @@ No subtree has two nodes where the max distance between them is 3.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 15$ cities give $2^n$ subsets. A subset is a subtree iff the induced subgraph is connected; the maximum distance is that tree's diameter.
+>
+> Connectivity is a DFS/BFS that clears visited bits of the mask — a zero mask means every chosen city was reached. Diameter is the usual two searches: farthest from an arbitrary start, then farthest from that vertex.
+>
+> Skip single-bit masks. For every other $\textit{mask}$, run the test and add one to $\textit{ans}[mx-1]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -327,6 +339,16 @@ function numberOfLeadingZeros(i: number): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 finds the diameter with recursive DFS. The same “clear the mask, then two farthest-point searches” works as a layered BFS, which makes distance equal to the number of layers and avoids recursion depth.
+>
+> The algorithm is unchanged; only the search uses a queue.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

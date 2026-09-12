@@ -86,6 +86,18 @@ The grid happiness is 90 + 80 + 90 = 260.
 
 ### Solution 1: Ternary State Compression + Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $5\times 5$ and each cell is empty, introvert, or extrovert, with a fixed happiness delta between neighbors. Full $3^{mn}$ search is too large, but one row has only $3^n \le 243$ fillings.
+>
+> Precompute each row's own happiness $f$, the bonus $g$ between two consecutive rows, and how many introverts/extroverts that row uses.
+>
+> Memoize $dfs(i,pre,ic,ec)$ over the current row: try every row mask, subtract people, add $f+g$, and keep the maximum.
+
+<!-- thinking:end -->
+
 We notice that in the problem, $1 \leq m, n \leq 5$, and each grid cell has three states: no personnel assigned, introverted personnel assigned, and extroverted personnel assigned. Therefore, we can use $0$, $1$, $2$ to represent these three states, and each row in the grid can be represented by a ternary number of length $n$.
 
 We define a function $dfs(i, pre, ic, ec)$, which represents the maximum happiness of the grid starting from the $i$-th row, with the state of the previous row being $pre$, $ic$ introverted people left, and $ec$ extroverted people left. The answer is $dfs(0, 0, introvertsCount, extrovertsCount)$.
@@ -458,6 +470,16 @@ function getMaxGridHappiness(
 <!-- solution:start -->
 
 ### Solution 2: Contour Line Memorized Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 transitions whole rows; $3^n$ grows quickly with width. Filling cell by cell, a contour of the last $n$ ternary digits is enough to score the left and upper neighbors.
+>
+> $dfs(pos,pre,ic,ec)$ tries $0/1/2$ at the current cell, rolls the contour, and adds $h[up][i]+h[left][i]$ plus $120$ or $40$ for the cell itself.
+
+<!-- thinking:end -->
 
 We can consider searching each grid cell, each time searching a position $(i, j)$, we denote $pos = i \times n + j$. Then its left and upper adjacent grids will affect their happiness contribution.
 

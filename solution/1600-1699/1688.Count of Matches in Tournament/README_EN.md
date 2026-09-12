@@ -69,6 +69,14 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 
 ### Solution 1: Quick Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each match eliminates one team. Crowning a champion eliminates $n-1$ teams, so the number of matches is always $n-1$; we need not simulate even/odd rounds.
+
+<!-- thinking:end -->
+
 From the problem description, we know that there are $n$ teams in total. Each pairing will eliminate one team. Therefore, the number of pairings is equal to the number of teams eliminated, which is $n - 1$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

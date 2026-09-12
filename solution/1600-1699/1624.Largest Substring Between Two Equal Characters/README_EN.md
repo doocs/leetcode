@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The length between two equal letters is the gap between that letter's first and a later occurrence. The string is short, but keeping only the first index of each letter already yields a linear solution.
+>
+> On seeing $c$ again, update the answer with $i - d[c] - 1$ and do not overwrite the first index, so the span stays maximal.
+>
+> A hash table (or a length-$26$ array) stores first positions; if nothing pairs, the answer stays $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

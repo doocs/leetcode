@@ -82,6 +82,16 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 
 ### 方法一：数组模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 插入带编号的值，只有从当前指针起连续已填的一段才能输出。$n$ 次插入各用不同编号，数组下标即编号。
+>
+> 写入 $\textit{data}[\textit{idKey}]$ 后，只要 $\textit{ptr}$ 处非空就弹出并右移指针，返回这段列表。
+
+<!-- thinking:end -->
+
 我们可以使用一个长度为 $n + 1$ 的数组 $\textit{data}$ 来模拟这个流，其中 $\textit{data}[i]$ 表示 $\textit{id} = i$ 的值。同时，我们使用一个指针 $\textit{ptr}$ 来表示当前的位置。初始时 $\textit{ptr} = 1$。
 
 在插入一个新的 $(\textit{idKey}, \textit{value})$ 对时，我们将 $\textit{data}[\textit{idKey}]$ 更新为 $\textit{value}$。然后，我们从 $\textit{ptr}$ 开始，依次将 $\textit{data}[\textit{ptr}]$ 加入答案中，直到 $\textit{data}[\textit{ptr}]$ 为空。

@@ -98,6 +98,18 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 
 ### Solution 1: Preorder Traversal of a Multi-branch Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The given $\textit{Successor}$ walks to the oldest child not yet listed, then backtracks to the parent. Simulating that definition on every query rescans children lists; with up to $10^5$ births the family can be large enough that each query becomes quadratic.
+>
+> The same recurrence is a preorder walk of a multi-way tree: output the person, then recurse on children in birth order. Death does not reshape the tree — it only omits a name from the final list — so it suffices to store adjacency lists and a death set.
+>
+> A hash table $g$ records children in insertion order and a set $\textit{dead}$ marks deaths. Birth and death are amortized $O(1)$; $\texttt{getInheritanceOrder}$ DFS from the king and appends living nodes in preorder.
+
+<!-- thinking:end -->
+
 According to the problem description, we can find that the order of throne inheritance is actually a preorder traversal of a multi-branch tree. We can use a hash table $g$ to store the children of each person, and a set $dead$ to store the people who have died.
 
 - When calling `birth(parentName, childName)`, we add `childName` to the child list of `parentName`.

@@ -76,6 +76,18 @@ nums[3] + nums[0] = 3 + 1 = 4.
 
 ### 方法一：差分数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把每对 $\textit{nums}[i]+\textit{nums}[n-1-i]$ 都变成同一个和 $s$，每次把一个数改到 $[1,\textit{limit}]$。$n$ 与 $\textit{limit}$ 都可达 $10^5$，不能对每个 $s$ 再扫一遍数对。
+>
+> 一对 $(x,y)$（$x\le y$）对 $s$ 的代价在若干区间上分别是 $2$、$1$、$0$、$1$、$2$，用差分数组把这些区间更新叠在 $[2,2\cdot\textit{limit}]$ 上。
+>
+> 前缀和后取最小即最少修改次数。
+
+<!-- thinking:end -->
+
 假设最终的数组中，数对 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的和为 $s$。
 
 我们不妨设 $x$ 为 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的较小值，设 $y$ 为 $\textit{nums}[i]$ 和 $\textit{nums}[n-i-1]$ 的较大值。

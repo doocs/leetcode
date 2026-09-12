@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the node on the same level immediately to the right of $u$. Computing $u$'s depth and then scanning that level would take two passes or extra per-level storage.
+>
+> Level-order already lists a level left to right: when $u$ is dequeued, the front of the queue is its right neighbor if the level has not ended.
+>
+> BFS by levels; after seeing $u$, return the queue front or $\textit{null}$ according to how many nodes remain on that level.
+
+<!-- thinking:end -->
+
 We can use Breadth-First Search, starting from the root node. When we reach node $u$, we return the next node in the queue.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
@@ -241,6 +253,16 @@ var findNearestRightNode = function (root, u) {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 keeps an entire level in the queue. A preorder DFS visits same-level nodes left to right.
+>
+> Record depth $d$ when $u$ is first seen; the next node at that depth is the right neighbor, so we need not store layers explicitly.
+
+<!-- thinking:end -->
 
 DFS performs a pre-order traversal of the binary tree. The first time we search to node $u$, we mark the current depth $d$. The next time we encounter a node at the same level, it is the target node.
 

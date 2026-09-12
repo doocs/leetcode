@@ -66,6 +66,14 @@ Users table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 姓名需首字母大写、其余小写。用 $\texttt{UPPER}(\texttt{LEFT}(name,1))$ 与 $\texttt{LOWER}(\texttt{SUBSTRING}(name,2))$ 拼接，再按 $\texttt{user\_id}$ 排序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -87,6 +95,14 @@ ORDER BY
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一的 $\texttt{SUBSTRING}(name,2)$ 取到串尾。某些引擎可用 $\texttt{SUBSTRING}(name,2,\texttt{DATALENGTH}(name))$ 显式给出长度，结果相同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

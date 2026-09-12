@@ -170,6 +170,18 @@ By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one acc
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need active drivers and accepted rides for every month of $2020$. Months without rides must still appear, so we materialize all twelve months first.
+>
+> A recursive CTE builds $1..12$, left-joins drivers whose join date is on or before that month (including pre-$2020$ hires), and left-joins monthly accepted-ride counts.
+>
+> Group by month to count drivers and fill missing ride counts with $\texttt{IFNULL}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

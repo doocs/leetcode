@@ -70,6 +70,18 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 
 ### Solution 1: Offline Queries + Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks whether two vertices are connected by a path whose edges are all strictly below $\textit{limit}$. Rebuilding a graph per query is too slow; queries are independent, so we go offline.
+>
+> Sort edges and queries by weight/limit. A two-pointer union-find adds every edge lighter than the current $\textit{limit}$, then tests whether the two vertices share a root.
+>
+> Remember original query indices when writing the answer array.
+
+<!-- thinking:end -->
+
 According to the problem requirements, we need to judge each query $queries[i]$, that is, to determine whether there is a path with edge weight less than or equal to $limit$ between the two points $a$ and $b$ of the current query.
 
 The connectivity of two points can be determined by a union-find set. Moreover, since the order of queries does not affect the result, we can sort all queries in ascending order by $limit$, and also sort all edges in ascending order by edge weight.

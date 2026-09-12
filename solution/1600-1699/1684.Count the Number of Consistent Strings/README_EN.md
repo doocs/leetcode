@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A consistent word uses only letters from $\textit{allowed}$. Put $\textit{allowed}$ in a set and test that every character of each word is inside it.
+
+<!-- thinking:end -->
+
 A straightforward approach is to use a hash table or array $s$ to record the characters in `allowed`. Then iterate over the `words` array, for each string $w$, determine whether it is composed of characters in `allowed`. If so, increment the answer.
 
 The time complexity is $O(m)$, and the space complexity is $O(C)$. Here, $m$ is the total length of all strings, and $C$ is the size of the character set `allowed`. In this problem, $C \leq 26$.
@@ -232,6 +240,14 @@ int countConsistentStrings(char* allowed, char** words, int wordsSize) {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a hash set. With $26$ letters a bit mask encodes the alphabet: a word is allowed iff the OR of the two masks equals the $\textit{allowed}$ mask.
+
+<!-- thinking:end -->
 
 We can also use a single integer to represent the occurrence of characters in each string. In this integer, each bit in the binary representation indicates whether a character appears.
 

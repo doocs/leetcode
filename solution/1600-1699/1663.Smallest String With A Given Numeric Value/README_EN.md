@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among length-$n$ strings with numeric sum $k$, the lexicographically smallest puts `a`s on the left and large letters on the right. $n$ can be $10^5$, so fill `z` from the tail.
+>
+> Start with all `a`s and leftover $d=k-n$. While $d>25$, write `z` and subtract $25$; add the remainder to the current position.
+
+<!-- thinking:end -->
+
 First, we initialize each character of the string to `'a'`, leaving a remaining value of $d=k-n$.
 
 Then, we traverse the string from back to front. In each iteration, we greedily replace the current character with the character `'z'` that can minimize the remaining number, until the remaining number does not exceed $25$. Finally, we add the remaining number to the position we have traversed.

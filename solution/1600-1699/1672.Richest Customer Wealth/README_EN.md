@@ -71,6 +71,14 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 
 ### Solution 1: Summation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Wealth is a row sum. The matrix is at most $50\times 50$, so sum each row and take the maximum.
+
+<!-- thinking:end -->
+
 We traverse `accounts` and find the maximum sum of each row.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns in the grid, respectively. The space complexity is $O(1)$.

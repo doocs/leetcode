@@ -70,6 +70,18 @@ Another possible matrix is: [[1,2],
 
 ### Solution 1: Greedy + Construction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must fill a nonnegative matrix whose row and column sums match the given arrays, with $\sum \textit{rowSum} = \sum \textit{colSum}$. Searching cell by cell is impossible for $m,n \le 500$.
+>
+> Putting $x=\min(\textit{rowSum}[i],\textit{colSum}[j])$ at $(i,j)$ and subtracting from both remainders leaves a smaller instance that is still consistent, so the greedy choice is safe.
+>
+> A single row-major scan constructs a valid matrix without backtracking.
+
+<!-- thinking:end -->
+
 We can first initialize an $m$ by $n$ answer matrix $ans$.
 
 Next, we traverse each position $(i, j)$ in the matrix, set the element at this position to $x = \min(rowSum[i], colSum[j])$, and subtract $x$ from $rowSum[i]$ and $colSum[j]$ respectively. After traversing all positions, we can get a matrix $ans$ that meets the requirements of the problem.

@@ -71,6 +71,18 @@ Customers</code> 表:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 缺失编号是小于最大 $\texttt{customer\_id}$ 且未出现在表中的正整数。SQL 没有现成的连续整数表，需要先构造候选全集。
+>
+> 题面保证编号不超过 $100$，用递归 CTE 生成 $1$ 到 $100$，再去掉已出现的编号并限制小于最大值。
+>
+> 外层查询选取 $n < \texttt{MAX}(\texttt{customer\_id})$ 且 $n \texttt{ NOT IN }$ 已有编号的行作为 $\texttt{ids}$。
+
+<!-- thinking:end -->
+
 利用 `recursive` 关键字，递归生成 `[1, 100]` 的序列，然后排除已有的 `customer_id`，即可得到结果。
 
 <!-- tabs:start -->

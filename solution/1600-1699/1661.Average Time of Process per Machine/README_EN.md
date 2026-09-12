@@ -95,6 +95,16 @@ Machine 2&#39;s average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2 = 1.456
 
 ### Solution 1: Grouping and Aggregation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Processes come in start/end pairs per machine; the mean duration is the average of $(\textit{end}-\textit{start})$. Grouping by $\texttt{machine\_id}$, negating starts and averaging, yields half the difference, so we multiply by $2$.
+>
+> A $\texttt{CASE WHEN}$ supplies the sign; $\texttt{AVG}$ is then $\texttt{ROUND}$ed to three decimals.
+
+<!-- thinking:end -->
+
 We can group by `machine_id` and use the `AVG` function to calculate the average time consumption of all process tasks on each machine. Since each process task on the machine has a pair of start and end timestamps, the time consumption of each process task can be calculated by subtracting the `start` timestamp from the `end` timestamp. Therefore, we can use the `CASE WHEN` or `IF` function to calculate the time consumption of each process task, and then use the `AVG` function to calculate the average time consumption of all process tasks on each machine.
 
 Note that each machine has $2$ process tasks, so we need to multiply the calculated average time consumption by $2$.
@@ -127,6 +137,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 branches with $\texttt{CASE}$. The same sign trick is $\texttt{IF}(\textit{start},-1,1)*\textit{timestamp}$, a shorter expression with the same meaning.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

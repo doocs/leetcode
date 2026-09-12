@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exactly one right pointer wrongly aims at a same-level node to its right; we delete that bad node and its subtree. In a left-to-right visit the target of the bad edge is seen before its source.
+>
+> A preorder that goes right then left: if the current right child is already in the visited set, this node is the error and we return null to cut it off.
+>
+> A set $\textit{vis}$ records visited nodes; the recursion writes back the (possibly null) children.
+
+<!-- thinking:end -->
+
 We design a function `dfs(root)` to handle the subtree with `root` as the root. If `root` is `null` or `root.right` has been visited, `root` is an invalid node, so we return `null`. Otherwise, we recursively process `root.right` and `root.left`, and return `root`.
 
 Finally, we return `dfs(root)`.

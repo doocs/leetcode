@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct substrings. $n$ is small, so put all $O(n^2)$ slices into a set. Slicing makes the time about $O(n^3)$, which is acceptable here.
+
+<!-- thinking:end -->
+
 Enumerate all substrings and use a hash table to record the count of different substrings.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n^2)$. Here, $n$ is the length of the string.
@@ -132,6 +140,14 @@ func countDistinct(s string) int {
 <!-- solution:start -->
 
 ### Solution 2: String Hashing
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 compares whole slices. Polynomial hashes give any substring fingerprint in $O(1)$; enumerating endpoints and storing hashes compares integers in $O(n^2)$.
+
+<!-- thinking:end -->
 
 **String hashing** is a method to map a string of any length to a non-negative integer, and the probability of collision is almost zero. String hashing is used to calculate the hash value of a string, which can quickly determine whether two strings are equal.
 

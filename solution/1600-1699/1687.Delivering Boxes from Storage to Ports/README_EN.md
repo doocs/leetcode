@@ -100,6 +100,16 @@ So the total number of trips is 2 + 2 + 2 = 6.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boxes must be taken in contiguous prefix segments with count and weight caps. A trip includes the warehouse round-trip plus jumps between distinct adjacent ports. $f[i]$ is the fewest trips to finish $i$ boxes, enumerating the previous cut $j$.
+>
+> Port jumps are a prefix $cs$ plus $2$ for the round-trip. At $n=10^5$ this $O(n^2)$ transition is only a correct baseline.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum number of trips required to transport the first $i$ boxes from the warehouse to the corresponding docks, so the answer is $f[n]$.
 
 The boxes need to be transported in the order of the array. Each time, the truck will take out several consecutive boxes in order, then deliver them to the corresponding docks one by one. After all are delivered, it returns to the warehouse.
@@ -241,6 +251,16 @@ func boxDelivering(boxes [][]int, portsCount int, maxBoxes int, maxWeight int) i
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming + Monotonic Queue Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 seeks the minimum $f[j]-cs[j]$ in $[i-\textit{maxBoxes},i)$ under a weight prefix constraint. A monotone queue holds candidate $j$ so each transfer is amortized $O(1)$.
+>
+> Pop the front when count or weight is violated and keep $f-cs$ increasing at the back, for $O(n)$ total time.
+
+<!-- thinking:end -->
 
 The data scale of this problem reaches $10^5$, and the time complexity of Solution 1 is $O(n^2)$, which exceeds the time limit. If we observe carefully:
 

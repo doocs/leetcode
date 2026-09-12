@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distribute $n$ candies into $k$ nonempty unlabeled bags — a Stirling-second-kind count. $n,k \le 1000$ fits a 2-D DP.
+>
+> $f[i][j]$ is ways to place $i$ candies in $j$ bags: open a new bag $f[i-1][j-1]$, or drop into one of the $j$ existing bags $f[i-1][j]\times j$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of different ways to distribute $i$ candies to $j$ bags. Initially, $f[0][0]=1$, and the answer is $f[n][k]$.
 
 We consider how to distribute the $i$-th candy. If the $i$-th candy is distributed to a new bag, then $f[i][j]=f[i-1][j-1]$. If the $i$-th candy is distributed to an existing bag, then $f[i][j]=f[i-1][j]\times j$. Therefore, the state transition equation is:

@@ -79,6 +79,16 @@ Hence, nums = [0,1,1,2,1,3,2,3], and the maximum is max(0,1,1,2,1,3,2,3) = 3.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is defined by a parity recurrence and $n$ is tiny, so fill it and take the maximum.
+>
+> For $n<2$ return $n$. Otherwise set $\textit{nums}[0]=0,\textit{nums}[1]=1$, copy $\textit{nums}[i/2]$ on even $i$, and add the two half-indices on odd $i$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

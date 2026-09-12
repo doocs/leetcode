@@ -85,6 +85,16 @@ tags:
 
 ### Solution 1: Greedy + Priority Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An odd value may be doubled once; an even value may be halved repeatedly. We want the smallest $\max-\min$. $n$ can be $5\times 10^4$, so we cannot list every reachable value of every element.
+>
+> Double every odd first so only halving remains. A max-heap holds the current maximum and we track the global minimum; repeatedly halve the top and update the deviation until the top is odd and cannot shrink.
+
+<!-- thinking:end -->
+
 Intuitively, to get the minimum offset of the array, we need to decrease the maximum value of the array and increase the minimum value of the array.
 
 Since there are two operations that can be performed each time: multiply an odd number by $2$; divide an even number by $2$, the situation is more complex. We can multiply all odd numbers by $2$ to convert them into even numbers, which is equivalent to having only one division operation. The division operation can only reduce a certain number, and only by reducing the maximum value can the result be more optimal.

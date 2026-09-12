@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Array or Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum sum of a contiguous subarray of distinct values. $n$ is $10^5$; the last-seen index pushes the left end $j$ past duplicates, and prefix sums give the range sum.
+>
+> Array $d$ stores the latest index of each value. On $v$, set $j=\max(j,d[v])$ and update with $s[i]-s[j]$.
+
+<!-- thinking:end -->
+
 We use an array or hash table $\text{d}$ to record the last occurrence position of each number, and use a prefix sum array $\text{s}$ to record the sum from the starting point to the current position. We use a variable $j$ to record the left endpoint of the current non-repeating subarray.
 
 We iterate through the array. For each number $v$, if $\text{d}[v]$ exists, we update $j$ to $\max(j, \text{d}[v])$, which ensures that the current non-repeating subarray does not contain $v$. Then we update the answer to $\max(\text{ans}, \text{s}[i] - \text{s}[j])$, and finally update $\text{d}[v]$ to $i$.
@@ -205,6 +215,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers (Sliding Window)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses prefix sums and an index table. A sliding window can store the live distinct sum: shrink from the left on a duplicate and skip the prefix array.
+
+<!-- thinking:end -->
 
 The problem is essentially asking us to find the longest subarray where all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$ and $j = 0$. Additionally, we use a hash table $\text{vis}$ to record the elements in the subarray.
 

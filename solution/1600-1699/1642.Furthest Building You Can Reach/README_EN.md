@@ -79,6 +79,18 @@ It is impossible to go beyond building 4 because you do not have any more bricks
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only upward climbs cost bricks or ladders, and ladders should cover the largest climbs. The input can be large, so the choice must be online.
+>
+> A min-heap stores climbs currently covered by ladders. When the heap exceeds the ladder count, pay the smallest climb with bricks. If bricks run out, stop.
+>
+> If bricks last the whole way, we reach the last building.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

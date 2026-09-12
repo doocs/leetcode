@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $10^5$ records, enumerating every triple per employee is heavier than needed. “Three uses in one hour” is equivalent, after sorting, to some three consecutive times spanning at most $60$ minutes.
+>
+> Group times by name, convert $\texttt{HH:MM}$ to minutes, sort, and test $\textit{ts}[i+2]-\textit{ts}[i] \le 60$.
+>
+> A hash table $d$ stores each person's times; skip anyone with fewer than three stamps, then sort the alerted names lexicographically.
+
+<!-- thinking:end -->
+
 First, we use a hash table $d$ to record all the clock-in times of each employee.
 
 Then we traverse the hash table. For each employee, we first check whether the number of clock-in times is greater than or equal to 3. If not, we skip this employee. Otherwise, we sort all the clock-in times of this employee in chronological order, and then traverse the sorted clock-in times to check whether the two times at a distance of 2 indices are within the same hour. If so, we add this employee to the answer array.

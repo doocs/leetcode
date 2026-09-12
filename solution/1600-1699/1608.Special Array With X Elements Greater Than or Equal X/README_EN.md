@@ -71,6 +71,18 @@ x cannot be greater since there are only 2 numbers in nums.
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special value $x$ can only lie in $[1,n]$, and $n \le 100$, so counting how many elements are $\ge x$ for each candidate is an acceptable $O(n^2)$.
+>
+> If no such $x$ exists, return $-1$.
+>
+> Enumerate $x$ and compare the linear count with $x$.
+
+<!-- thinking:end -->
+
 We enumerate $x$ in the range of $[1..n]$, and then count the number of elements in the array that are greater than or equal to $x$, denoted as $cnt$. If there exists $cnt$ equal to $x$, return $x$ directly.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array. The space complexity is $O(1)$.
@@ -188,6 +200,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescans the array for every $x$. After sorting, the count of values $\ge x$ is $n$ minus the first index not less than $x$, which binary search finds in $O(\log n)$.
+>
+> The total becomes $O(n \log n)$. Both approaches pass the given limits.
+
+<!-- thinking:end -->
 
 We can also sort `nums` first.
 

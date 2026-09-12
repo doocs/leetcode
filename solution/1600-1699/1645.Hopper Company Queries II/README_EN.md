@@ -167,6 +167,18 @@ By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one acc
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Working percentage is distinct drivers who accepted a ride over drivers already hired that month. Every month must appear, and a month with no drivers is $0$.
+>
+> A recursive month list left-joins drivers, then left-joins $2020$ accepted rides, and $\texttt{COUNT}(\texttt{DISTINCT})$ forms the ratio.
+>
+> The join also requires $\texttt{join\_date} \le \texttt{requested\_at}$ so a driver is not counted before being hired.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -105,6 +105,16 @@ Bob 注册了 207 赛事，注册率为 ((1/3) * 100) = 33.33%</pre>
 
 ### 方法一：分组统计 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 注册率是某场比赛的报名人数除以用户总数。用户总数与分组无关，适合子查询一次求出。
+>
+> 对 $\texttt{Register}$ 按 $\texttt{contest\_id}$ 分组计数，除以 $(\texttt{SELECT COUNT}(1)\ \texttt{FROM Users})$，再保留两位小数，按百分比降序、编号升序排列。
+
+<!-- thinking:end -->
+
 我们可以将 `Register` 表按照 `contest_id` 分组，统计每个赛事的注册人数，每个赛事的注册人数除以总注册人数即为该赛事的注册率。
 
 <!-- tabs:start -->

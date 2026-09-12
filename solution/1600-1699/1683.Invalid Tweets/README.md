@@ -70,6 +70,16 @@ Tweets 表：
 
 ### 方法一：使用 `CHAR_LENGTH` 函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 无效推文是内容长度大于 $15$。应统计字符个数而非字节数，因而用 $\texttt{CHAR\_LENGTH}$ 而非 $\texttt{LENGTH}$。
+>
+> 筛选 $\texttt{CHAR\_LENGTH}(\texttt{content})>15$ 的 $\texttt{tweet\_id}$。
+
+<!-- thinking:end -->
+
 `CHAR_LENGTH()` 函数返回字符串的长度，其中中文、数字、字母都是 $1$ 字节。
 
 `LENGTH()` 函数返回字符串的长度，其中 utf8 编码下，中文 $3$ 字节，数字、字母 $1$ 字节；gbk 编码下，中文 $2$ 字节，数字、字母 $1$ 字节。

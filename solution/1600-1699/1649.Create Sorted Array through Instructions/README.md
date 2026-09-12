@@ -96,6 +96,18 @@ tags:
 
 ### 方法一：树状数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次插入的代价是已有序列中严格更小与严格更大个数的较小值，插入次数 $10^5$，朴素统计是平方级。
+>
+> 值域也是 $10^5$，树状数组可在 $O(\log M)$ 内查询前缀个数并单点加一。
+>
+> 插入 $x$ 前，代价为 $\min(\texttt{query}(x-1),\, i-\texttt{query}(x))$，再 $\texttt{update}(x,1)$，总和取模。
+
+<!-- thinking:end -->
+
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
 1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；
@@ -335,6 +347,16 @@ function createSortedArray(instructions: number[]): number {
 <!-- solution:start -->
 
 ### 方法二：线段树
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用树状数组维护频次。同一前缀计数也可用线段树的区间和完成，便于理解区间结构。
+>
+> 单点加、查 $[1,x)$ 与 $(x,M]$ 的个数，语义与树状数组相同；Python 常数较大，本题官方题解标明会 TLE，Java/C++ 可通过。
+
+<!-- thinking:end -->
 
 线段树将整个区间分割为多个不连续的子区间，子区间的数量不超过 `log(width)`。更新某个元素的值，只需要更新 `log(width)` 个区间，并且这些区间都包含在一个包含该元素的大区间内。
 

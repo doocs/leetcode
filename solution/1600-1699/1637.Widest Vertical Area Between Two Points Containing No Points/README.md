@@ -61,6 +61,16 @@ tags:
 
 ### 方法一：排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 竖直区域的宽度只取决于相邻点的横坐标之差，$n$ 达 $10^5$，按 $x$ 排序后扫一遍相邻差即可。
+>
+> 纵坐标不影响宽度，排序后取 $\max(x_{i+1}-x_i)$。
+
+<!-- thinking:end -->
+
 我们可以对数组 $points$ 按照 $x$ 升序排列，获取相邻点之间 $x$ 的差值的最大值。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $points$ 的长度。
@@ -158,6 +168,16 @@ var maxWidthOfVerticalArea = function (points) {
 <!-- solution:start -->
 
 ### 方法二：桶排序
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一排序是 $O(n\log n)$。最大间隙至少为 $(\textit{max}-\textit{min})/(n-1)$，用该值作桶宽时，答案只可能出现在相邻非空桶的「后桶最小减前桶最大」。
+>
+> 桶内维护最小、最大横坐标，线性扫桶即可，期望 $O(n)$。
+
+<!-- thinking:end -->
 
 方法一中排序的时间复杂度为 $O(n \times \log n)$，其实我们可以利用桶排序的思想，将时间复杂度降低到 $O(n)$。
 

@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The order is increasing frequency, then decreasing value on ties. $n \le 100$, so count then sort with a key.
+>
+> A counter (or a shifted array) yields $\textit{cnt}$; the sort key is $(\textit{cnt}[x], -x)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

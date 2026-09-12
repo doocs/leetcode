@@ -132,6 +132,16 @@ student_id 是该表具有唯一值的列
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要从三所学校各选一名学生，且三人学号互不相同、姓名互不相同。表规模很小，三重笛卡尔积再过滤即可。
+>
+> 在 $\texttt{WHERE}$ 中同时限制三对 $\texttt{student\_id}$ 与三对 $\texttt{student\_name}$ 均不相等，选出的 $(\texttt{member\_A},\texttt{member\_B},\texttt{member\_C})$ 即为全部合法三人组。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

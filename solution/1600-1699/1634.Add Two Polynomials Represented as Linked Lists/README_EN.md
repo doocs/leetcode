@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both lists decrease strictly by power, so the merge is the same as merging sorted lists: take the larger power, or add coefficients when powers match.
+>
+> A zero sum must omit the term. When one list ends, append the other remainder.
+>
+> A dummy node keeps the head case identical to the middle.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

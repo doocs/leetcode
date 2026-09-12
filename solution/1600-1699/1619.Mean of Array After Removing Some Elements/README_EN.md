@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We drop the lowest and highest $5\%$ and average the rest. The length is a multiple of $20$ and small enough that sorting then slicing is enough.
+>
+> After sorting, discard $0.05n$ elements at each end, average the middle, and round to five decimals.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

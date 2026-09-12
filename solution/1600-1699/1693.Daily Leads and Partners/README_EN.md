@@ -82,6 +82,14 @@ For 2020-12-7, toyota gets leads = [0] and partners = [1, 2] while honda gets le
 
 ### Solution 1: Group By + Count Distinct
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct leads and partners per date and brand: $\texttt{GROUP BY date\_id, make\_name}$ and $\texttt{COUNT}(\texttt{DISTINCT})$ on the two columns.
+
+<!-- thinking:end -->
+
 We can use the `GROUP BY` statement to group the data by the `date_id` and `make_name` fields, and then use the `COUNT(DISTINCT)` function to count the number of distinct values for `lead_id` and `partner_id`.
 
 <!-- tabs:start -->

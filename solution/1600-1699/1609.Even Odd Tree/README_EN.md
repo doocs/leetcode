@@ -80,6 +80,18 @@ Node values in level 2 must be in strictly increasing order, so the tree is not 
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even levels must be strictly increasing odds, odd levels strictly decreasing evens. That check needs left-to-right neighbors on one level, which BFS supplies.
+>
+> With up to $10^5$ nodes, a single BFS suffices; we need not materialize each level as an array.
+>
+> Process the queue by levels, keep the previous value $\textit{prev}$ and a parity flag $\textit{even}$, and reject as soon as parity or monotonicity fails.
+
+<!-- thinking:end -->
+
 BFS traverses level by level. Each level is judged by its parity. The node values at each level are either all even or all odd, and they are strictly increasing or decreasing.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.
@@ -258,6 +270,16 @@ func isEvenOddTree(root *TreeNode) bool {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores a full level in a queue. Preorder DFS also visits a level left to right if we remember the last value seen at each depth.
+>
+> A map $d$ keyed by depth stores that predecessor; the recursion checks parity and monotonicity, using the call stack instead of an explicit queue.
+
+<!-- thinking:end -->
 
 DFS performs a pre-order traversal of the binary tree, and similarly judges whether it meets the conditions based on the parity of the layer where the node is located. During the traversal, a hash table is used to record the node value that was most recently visited at each layer.
 

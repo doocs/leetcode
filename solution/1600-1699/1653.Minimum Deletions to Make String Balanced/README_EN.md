@@ -61,6 +61,16 @@ Delete the characters at 0-indexed positions 3 and 6 (&quot;aab<u>a</u>bb<u>a</u
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced string is some `a`s followed by some `b`s. $n$ can be $10^5$, so we cannot try every deletion set. After a prefix, the number of `b`s seen is the cost of deleting them versus deleting the current `a`.
+>
+> $f[i]$ is the min deletions to balance the first $i$ characters: on `b` keep $f[i-1]$ and increment $b$; on `a` take $\min(f[i-1]+1,b)$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum number of characters to be deleted in the first $i$ characters to make the string balanced. Initially, $f[0]=0$. The answer is $f[n]$.
 
 We traverse the string $s$, maintaining a variable $b$, which represents the number of character 'b' in the characters before the current position.
@@ -215,6 +225,16 @@ var minimumDeletions = function (s) {
 <!-- solution:start -->
 
 ### Solution 2: Enumeration + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is a prefix DP. We can also pick a cut: delete every `b` on the left and every `a` on the right; their sum is the deletion cost.
+>
+> Track left-hand `b`s and right-hand `a`s and take the minimum sum in one pass, still $O(1)$ extra space.
+
+<!-- thinking:end -->
 
 We can enumerate each position $i$ in the string $s$, dividing the string $s$ into two parts, namely $s[0,..,i-1]$ and $s[i+1,..n-1]$. To make the string balanced, the number of characters we need to delete at the current position $i$ is the number of character 'b' in $s[0,..,i-1]$ plus the number of character 'a' in $s[i+1,..n-1]$.
 

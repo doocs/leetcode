@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace indices $[a,b]$ of $list1$ with $list2$. Find the predecessor of $a$ and node $b$, link the predecessor to $list2$'s head, then $list2$'s tail to $b$'s successor.
+>
+> Two pointers walk the needed steps, a third scan finds $list2$'s end, and $b.\textit{next}$ is cleared.
+
+<!-- thinking:end -->
+
 We can directly simulate the operations described in the problem.
 
 In the implementation, we use two pointers $p$ and $q$, both initially pointing to the head node of `list1`.

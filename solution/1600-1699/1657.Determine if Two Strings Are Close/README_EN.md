@@ -88,6 +88,18 @@ Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 
 ### Solution 1: Counting + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swapping two characters and renaming one letter globally preserve the set of letters and the multiset of frequencies (the latter up to permuting values among those letters).
+>
+> Hence the strings are close iff they use the same letters and their frequency lists match after sorting.
+>
+> Count both strings and compare key sets plus sorted value lists.
+
+<!-- thinking:end -->
+
 According to the problem description, two strings are close if they meet the following two conditions simultaneously:
 
 1. The strings `word1` and `word2` must contain the same types of letters.
