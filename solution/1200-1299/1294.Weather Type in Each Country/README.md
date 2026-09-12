@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1200-1299/1294.Weather%20Type%20in%20Each%20Country/README.md
 tags:
     - 数据库
 ---
