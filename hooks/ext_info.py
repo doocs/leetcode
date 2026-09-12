@@ -1,7 +1,14 @@
 import html
 import re
 
-from mkdocs import plugins
+try:
+    from mkdocs import plugins
+except ImportError:  # unittest without site deps
+
+    class plugins:
+        @staticmethod
+        def event_priority(_priority):
+            return lambda fn: fn
 
 # https://www.mkdocs.org/dev-guide/plugins/#events
 
