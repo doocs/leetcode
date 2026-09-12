@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2207.Maximize%20Number%20of%20Subsequences%20in%20a%20String/README.md
 rating: 1550
 source: 第 74 场双周赛 Q2
 tags:

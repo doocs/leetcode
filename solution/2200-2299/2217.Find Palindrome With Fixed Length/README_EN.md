@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README_EN.md
 rating: 1822
 source: Weekly Contest 286 Q3
 tags:

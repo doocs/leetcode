@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2204.Distance%20to%20a%20Cycle%20in%20Undirected%20Graph/README.md
 tags:
     - 深度优先搜索
     - 广度优先搜索

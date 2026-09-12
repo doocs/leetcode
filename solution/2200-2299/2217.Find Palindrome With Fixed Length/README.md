@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2217.Find%20Palindrome%20With%20Fixed%20Length/README.md
 rating: 1822
 source: 第 286 场周赛 Q3
 tags:
