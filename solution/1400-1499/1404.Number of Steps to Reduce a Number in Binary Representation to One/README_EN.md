@@ -81,6 +81,18 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Simulating add-one / right-shift on a 500-bit string is correct, but a naive add can rescan the whole string on every carry.
+>
+> From the low end: a $0$ costs one shift; a $1$ must be incremented to become even, then shifted, and the carry may propagate. A Boolean $\textit{carry}$ records a pending increment without rewriting $s$.
+>
+> Scan $s$ from the right (except the leading bit). A $1$ costs two steps and sets carry; a $0$ costs one. A leftover carry after the loop adds one more step on the leading bit.
+
+<!-- thinking:end -->
+
 We simulate operations $1$ and $2$, while maintaining a carry $\textit{carry}$ to indicate whether there is a current carry. Initially, $\textit{carry} = \text{false}$.
 
 We traverse the string $s$ from the end toward the beginning:

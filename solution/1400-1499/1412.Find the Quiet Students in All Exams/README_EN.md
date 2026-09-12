@@ -107,6 +107,16 @@ So, we only return the information of Student 2.
 
 ### Solution 1: Using RANK() Window Function + Group By
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A quiet student is never the unique highest or lowest score in any exam they took. Ranking both ends per exam is simpler than filtering extrema exam by exam.
+>
+> `RANK()` over each `exam_id` in both directions marks the min and max. After joining `Student`, keep people whose count of rank $1$ in either direction is zero.
+
+<!-- thinking:end -->
+
 We can use the `RANK()` window function to calculate the ascending rank $rk1$ and descending rank $rk2$ of each student in each exam, and obtain the table $T$.
 
 Next, we can perform an inner join between the table $T$ and the table $Student$, and then group by student ID to obtain the number of times each student has a rank of $1$ in ascending order $cnt1$ and descending order $cnt2$ in all exams. If both $cnt1$ and $cnt2$ are $0$, it means that the student is in the middle of the pack in all exams.

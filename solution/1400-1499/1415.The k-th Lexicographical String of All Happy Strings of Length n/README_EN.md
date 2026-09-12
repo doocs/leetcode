@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10$, so there are at most $3\cdot 2^{n-1}\le 1536$ happy strings. A lexicographic DFS can generate them and return the $k$-th.
+>
+> Record a string when its length is $n$, and stop once $k$ strings are found. Adjacent characters must differ; the alphabet is $a,b,c$.
+
+<!-- thinking:end -->
+
 We use a string $\textit{s}$ to record the current string, initially an empty string. Then, we design a function $\text{dfs}$ to generate all happy strings of length $n$.
 
 The implementation of the function $\text{dfs}$ is as follows:
@@ -340,6 +350,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 materializes up to every happy string. After a prefix, the remaining $n-i-1$ positions have $2$ choices each, so we can skip a block of size $2^{n-i-1}$ using $k$.
+>
+> If $k$ exceeds $3\cdot 2^{n-1}$, return empty. Otherwise, left to right, try letters different from the previous one and either emit or subtract the block size from $k$.
+
+<!-- thinking:end -->
 
 We can directly calculate what the $k$-th happy string is, without generating all happy strings.
 

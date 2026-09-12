@@ -79,6 +79,16 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Orders arrive as triples, but the output is a table sorted by table number and dish name. $n\le 5\times 10^4$, so aggregate first and sort once.
+>
+> Map each table to its dishes and collect the global dish set. Sort dish names for the header, then for each table emit counts aligned to that header.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{tables}$ to store the dishes ordered at each table, and a set $\textit{items}$ to store all the dishes.
 
 Traverse $\textit{orders}$, storing the dishes ordered at each table in $\textit{tables}$ and $\textit{items}$.

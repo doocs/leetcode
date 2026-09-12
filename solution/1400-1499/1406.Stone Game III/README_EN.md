@@ -79,6 +79,18 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each player takes $1$–$3$ piles. Plain recursion on $n\le 5\times 10^4$ recomputes the same suffixes many times.
+>
+> The current player maximizes “stones taken this turn minus the opponent's best difference on the rest”. Let $dfs(i)$ be that value from index $i$, trying the three prefixes.
+>
+> Memoizing $dfs(i)$ evaluates each start once. The sign of $dfs(0)$ decides Alice, Bob, or a tie.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents the maximum score difference that the current player can obtain when playing the game in the range $[i, n)$. If $dfs(0) > 0$, it means that the first player Alice can win; if $dfs(0) < 0$, it means that the second player Bob can win; otherwise, it means that the two players tie.
 
 The execution logic of the function $dfs(i)$ is as follows:

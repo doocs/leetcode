@@ -71,6 +71,18 @@ Each dish is prepared in one unit of time.</pre>
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every subset and every cooking order is impossible for $n\le 500$. Satisfaction can be negative and the empty menu scores $0$, so we only need the maximum like-time coefficient sum.
+>
+> Within a chosen set, larger values should receive larger time multipliers, so the optimal order is increasing. Adding the next-highest dish increases the total by the sum of dishes already chosen.
+>
+> Sort descending, maintain the prefix sum $s$, and add $s$ to the answer while $s>0$. Once the prefix is non-positive, smaller dishes cannot help.
+
+<!-- thinking:end -->
+
 Suppose we only choose one dish, then we should choose the dish with the highest satisfaction $s_0$, and check whether $s_0$ is greater than 0. If $s_0 \leq 0$, then we don't cook any dishes, otherwise, we cook this dish, and the total satisfaction is $s_0$.
 
 If we choose two dishes, then we should choose the two dishes with the highest satisfaction $s_0$ and $s_1$, and the satisfaction is $s_1 + 2 \times s_0$. At this time, we need to ensure that the satisfaction after the selection is greater than the satisfaction before the selection, that is, $s_1 + 2 \times s_0 > s_0$, which means as long as $s_1 + s_0 > 0$, we can choose these two dishes.
