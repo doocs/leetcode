@@ -52,6 +52,16 @@ tags:
 
 ### Solution 1: Sliding Window + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest substring with at most $k$ distinct characters. Checking every pair of ends is $O(n^2)$. Distinctness grows with the right end and shrinks when the left advances, so a sliding window works.
+>
+> Admit the right character; while the map has more than $k$ keys, drop the left. The window is always the longest legal suffix of the prefix, and the length is $n-l$.
+
+<!-- thinking:end -->
+
 We can use the idea of a sliding window, with a hash table $\textit{cnt}$ to record the occurrence count of each character within the window, and $\textit{l}$ to denote the left boundary of the window.
 
 Iterate through the string, adding the character at the right boundary to the hash table each time. If the number of distinct characters in the hash table exceeds $k$, remove the character at the left boundary from the hash table, then update the left boundary $\textit{l}$.

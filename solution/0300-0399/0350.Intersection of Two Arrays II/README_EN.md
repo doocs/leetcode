@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The intersection must keep multiplicities, the min of the two counts. Unlike 349, we cannot unique the values.
+>
+> Count $nums1$, then scan $nums2$: while a remainder exists, emit it and decrement. The length is the sum of those minima.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to count the occurrences of each element in the array $\textit{nums1}$. Then, we iterate through the array $\textit{nums2}$. If an element $x$ is in $\textit{cnt}$ and the occurrence of $x$ is greater than $0$, we add $x$ to the answer and then decrement the occurrence of $x$ by one.
 
 After the iteration is finished, we return the answer array.

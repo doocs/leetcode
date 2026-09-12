@@ -76,6 +76,16 @@ return res
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flatten nested integers into an iterator. Searching for the next leaf on every `next` complicates the cursor. Depth is bounded, so we can flatten in the constructor.
+>
+> DFS appends integers and recurses into lists. `next`/`hasNext` only move an index. Extra space buys $O(1)$ per call.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

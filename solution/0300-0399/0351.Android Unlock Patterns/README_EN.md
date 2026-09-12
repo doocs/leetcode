@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Android unlock patterns of length in $[m,n]$; a knight jump’s midpoint must already be used. Nine keys give $9\times 2^9$ states, so DFS is fine.
+>
+> `cross[i][j]` is the required midpoint. From $i$ try unused $j$ whose midpoint is free or already visited. Count lengths in $[m,n]$. Symmetry: start at $1$ and $2$ times four, plus center $5$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

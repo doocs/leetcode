@@ -67,6 +67,16 @@ logger.shouldPrintMessage(11, &quot;foo&quot;); // 11 &gt;= 11, return true, nex
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same message prints at most once per $10$ seconds; timestamps are nondecreasing. Scanning a log each time is unnecessary.
+>
+> A map stores the next allowed time. Reject if `timestamp` is still before that; otherwise set it to $t+10$ and print.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{ts}$ to store the next available print timestamp for each message. When the `shouldPrintMessage` method is called, we check whether the current timestamp is greater than or equal to the next available print timestamp for the message. If so, we update the next available print timestamp to the current timestamp plus 10 and return `true`; otherwise, we return `false`.
 
 The time complexity is $O(1)$. The space complexity is $O(m)$, where $m$ is the number of distinct messages.
