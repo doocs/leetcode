@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4045.Count%20Robot%20Groups/README_EN.md
 ---
 
 <!-- problem:start -->

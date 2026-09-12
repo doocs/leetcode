@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4042.Valid%20K-Unique%20Subarrays%20II/README.md
 ---
 
 <!-- problem:start -->
