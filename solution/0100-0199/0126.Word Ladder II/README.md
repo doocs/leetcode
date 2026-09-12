@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0126.Word%20Ladder%20II/README.md
 tags:
     - 广度优先搜索
     - 哈希表

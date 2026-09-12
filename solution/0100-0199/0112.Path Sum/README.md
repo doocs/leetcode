@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0112.Path%20Sum/README.md
 tags:
     - 树
     - 深度优先搜索

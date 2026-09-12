@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0100-0199/0126.Word%20Ladder%20II/README_EN.md
 tags:
     - Breadth-First Search
     - Hash Table
