@@ -47,6 +47,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2003.%20%E4%B8%BB%
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 网格可达 $500\times 500$。主题空间是四连通的相同字符块；与走廊（含外围视为走廊）相邻的块全部无效，要求剩余块的最大面积。
+>
+> 并查集把连通块连在一起，边界格子与字符 $\texttt{0}$ 一并连到虚拟节点。相邻且字符相同、或邻居为走廊时合并，并维护块大小。最后在未连到虚拟节点的块中取最大 $size$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
