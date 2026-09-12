@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README.md
 tags:
     - 数据库
 ---

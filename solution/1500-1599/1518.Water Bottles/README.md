@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1518.Water%20Bottles/README.md
 rating: 1245
 source: 第 198 场周赛 Q1
 tags:

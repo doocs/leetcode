@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1500-1599/1516.Move%20Sub-Tree%20of%20N-Ary%20Tree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
