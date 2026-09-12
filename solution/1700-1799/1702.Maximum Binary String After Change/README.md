@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md
 rating: 1825
 source: 第 42 场双周赛 Q3
 tags:

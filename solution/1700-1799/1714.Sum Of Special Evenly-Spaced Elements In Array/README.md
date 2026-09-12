@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1714.Sum%20Of%20Special%20Evenly-Spaced%20Elements%20In%20Array/README.md
 tags:
     - 数组
     - 动态规划
