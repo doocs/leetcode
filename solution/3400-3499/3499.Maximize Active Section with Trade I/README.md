@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3499.Maximize%20Active%20Section%20with%20Trade%20I/README.md
 rating: 1729
 source: 第 153 场双周赛 Q2
 tags:

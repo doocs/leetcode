@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3497.Analyze%20Subscription%20Conversion/README.md
 tags:
     - 数据库
 ---
