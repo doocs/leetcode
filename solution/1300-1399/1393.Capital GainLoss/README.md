@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1300-1399/1393.Capital%20GainLoss/README.md
 tags:
     - 数据库
 ---
