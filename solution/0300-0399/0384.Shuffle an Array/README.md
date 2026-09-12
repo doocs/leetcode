@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0384.Shuffle%20an%20Array/README.md
 tags:
     - 设计
     - 数组

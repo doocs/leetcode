@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0397.Integer%20Replacement/README.md
 tags:
     - 贪心
     - 位运算

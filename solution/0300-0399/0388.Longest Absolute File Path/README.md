@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README.md
 tags:
     - 栈
     - 深度优先搜索

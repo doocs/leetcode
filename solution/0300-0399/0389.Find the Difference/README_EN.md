@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0389.Find%20the%20Difference/README_EN.md
 tags:
     - Bit Manipulation
     - Hash Table
