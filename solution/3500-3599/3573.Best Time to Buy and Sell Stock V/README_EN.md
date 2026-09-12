@@ -87,6 +87,16 @@ We can make $36 of profit through 3 transactions:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in the stock series we may complete at most $k$ trades, but a trade may be a long or a short. The state must distinguish flat, long, and short.
+>
+> $f[i][j][0/1/2]$ is the best profit after $i$ days, at most $j$ trades, in that holding. Opening spends one trade; closing returns to flat. The answer is $f[n-1][k][0]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j][k]$ to represent the maximum profit on the first $i$ days, with at most $j$ transactions, and the current state $k$. Here, the state $k$ has three possibilities:
 
 - If $k = 0$, it means we do not hold any stock.

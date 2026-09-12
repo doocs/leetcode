@@ -96,6 +96,16 @@ tags:
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent letters that are consecutive in the alphabet (including `a`/`z`) vanish in pairs and may cascade, as in bracket matching. A stack holds the suffix that has not yet been cancelled.
+>
+> For each character, pop if it is $1$ or $25$ away from the top; otherwise push. The stack is the string that remains.
+
+<!-- thinking:end -->
+
 We can use a stack to simulate the process of removing adjacent characters. Iterate through each character in the string. If the character at the top of the stack and the current character are consecutive (i.e., their ASCII values differ by 1 or 25), pop the top character from the stack; otherwise, push the current character onto the stack. Finally, the characters remaining in the stack are those that can no longer be removed. Join the characters in the stack into a string and return it.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string.

@@ -66,6 +66,16 @@ A <strong>subset</strong> of an array is a selection of elements of the array.
 
 ### Solution 1: Binary Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is tiny. We partition into two subsets whose products both equal $\textit{target}$, so $2^n$ assignments suffice.
+>
+> For each mask multiply the two sides; both equaling $\textit{target}$ is success. The empty and full sets fail unless the products happen to match, which the same check covers.
+
+<!-- thinking:end -->
+
 We can use binary enumeration to check all possible subset partitions. For each subset partition, we can calculate the product of the two subsets and check whether both are equal to the target value.
 
 Specifically, we can use an integer $i$ to represent the state of the subset partition, where the binary bits of $i$ indicate whether each element belongs to the first subset. For each possible $i$, we calculate the product of the two subsets and check whether both are equal to the target value.

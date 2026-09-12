@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: State Compression + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $6 \times 6$ and we need a Hamiltonian path that visits the special values in order $1,2,\ldots$. A bit mask can store the visited set.
+>
+> DFS from every cell that is $0$ or $1$. A neighbor is legal if it is unvisited and equal to $0$ or the expected $v$; hitting $v$ increments $v$. Backtrack and try every start.
+
+<!-- thinking:end -->
+
 Note that the matrix size does not exceed $6 \times 6$, so we can use state compression to represent the visited cells. We can use an integer $\textit{st}$ to represent the visited cells, where the $i$-th bit being 1 means cell $i$ has been visited, and 0 means it has not been visited.
 
 Next, we iterate through each cell as a starting point. If the cell is 0 or 1, we start a depth-first search (DFS) from that cell. In the DFS, we add the current cell to the path and mark it as visited. Then, we check the value of the current cell. If it equals $v$, we increment $v$ by 1. Next, we try to move in four directions to adjacent cells. If the adjacent cell has not been visited and its value is 0 or $v$, we continue the DFS.

@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most one log is longer than $k$, and a single cut must make both pieces at most $k$. Let $x$ be the longer log; if $x \le k$ there is nothing to cut.
+>
+> Cutting into $k$ and $x-k$ costs $k \cdot (x-k)$, which is the only legal cut. The value is $O(1)$.
+
+<!-- thinking:end -->
+
 If the lengths of both logs do not exceed the truck's maximum load $k$, then no cutting is needed, and we simply return $0$.
 
 Otherwise, it means that only one log has a length greater than $k$, and we need to cut it into two pieces. Let the longer log have length $x$, then the cutting cost is $k \times (x - k)$.

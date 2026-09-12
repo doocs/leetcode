@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Enumerate Overlapping Parts
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest superstring is the longer string when it already contains the shorter one, or a concatenation that overlaps a prefix of one with a suffix of the other. The strings are short, so every overlap length can be tried.
+>
+> Assume $s_1$ is shorter. If it occurs inside $s_2$, return $s_2$. Otherwise test whether a suffix of $s_1$ is a prefix of $s_2$ or a prefix of $s_1$ is a suffix of $s_2$, and concatenate on the first hit; if none match, return $s_1+s_2$.
+
+<!-- thinking:end -->
+
 We can construct the shortest string containing both `s1` and `s2` as substrings by enumerating the overlapping parts of the two strings.
 
 Our goal is to build the shortest string that contains both `s1` and `s2` as substrings. Since substrings must be contiguous, we try to overlap the **suffix** of one string with the **prefix** of the other, thereby reducing the total length when concatenating.

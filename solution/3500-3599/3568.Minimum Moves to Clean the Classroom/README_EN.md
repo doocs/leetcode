@@ -115,6 +115,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is small and there are few litter cells, so a state is (position, remaining energy, mask of uncollected litter). Energy $0$ blocks a step; an $R$ cell refills to the initial energy.
+>
+> A level-order BFS increases the step count; mask $0$ is the answer. Visit each state once.
+
+<!-- thinking:end -->
+
 We can use Breadth-First Search (BFS) to solve this problem. First, we need to find the student's starting position and record the locations of all garbage. Then, we can use BFS to explore all possible paths starting from the initial position, while tracking the current energy and the collected garbage.
 
 In BFS, we need to maintain a state that includes the current position, remaining energy, and a bitmask representing the collected garbage. We can use a queue to store these states and a set to record visited states to avoid revisiting them.

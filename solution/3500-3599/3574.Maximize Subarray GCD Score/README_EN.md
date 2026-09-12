@@ -100,6 +100,16 @@ tags:
 
 ### Solution 1: Enumeration + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 1500$, so every subarray can be enumerated. Each value may be doubled once, so the GCD at most doubles, and it does so only when the positions with the fewest factors of $2$ number at most $k$.
+>
+> Precompute the $2$-adic valuation of each entry. Expand $r$ from each $l$, keep the running GCD, the minimum valuation and its multiplicity, and score $g$ or $2g$ times the length.
+
+<!-- thinking:end -->
+
 We notice that the length of the array in this problem is $n \leq 1500$, so we can enumerate all subarrays. For each subarray, calculate its GCD score and find the maximum value as the answer.
 
 Since each number can be doubled at most once, the GCD of a subarray can be multiplied by at most $2$. Therefore, we need to count the minimum number of factors of $2$ among all numbers in the subarray, as well as the number of times this minimum occurs. If the count is greater than $k$, the GCD score is the GCD itself; otherwise, the GCD score is the GCD multiplied by $2$.

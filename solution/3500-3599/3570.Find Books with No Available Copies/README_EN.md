@@ -158,6 +158,16 @@ Each row represents a borrowing transaction and return_date is NULL if the book 
 
 ### Solution 1: Group Aggregation + Join Query
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A book has no available copy when the number of open loans equals $\textit{total\_copies}$. Count rows with a null $\textit{return\_date}$ by $\textit{book\_id}$ and inner-join the book table.
+>
+> Keep $\textit{current\_borrowers} = \textit{total\_copies}$, sort by that count descending and title ascending, and project the requested columns.
+
+<!-- thinking:end -->
+
 First, we count the current number of borrowers for each book, then join this result with the book information table to filter out books where the current number of borrowers equals the total number of copies. Finally, we sort the results by the number of current borrowers in descending order, and if there is a tie, by book title in ascending order.
 
 <!-- tabs:start -->
