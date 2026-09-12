@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0651.4%20Keys%20Keyboard/README.md
 tags:
     - 数学
     - 动态规划

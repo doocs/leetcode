@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0660.Remove%209/README.md
 tags:
     - 数学
 ---

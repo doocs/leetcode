@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md
 tags:
     - Array
     - Math

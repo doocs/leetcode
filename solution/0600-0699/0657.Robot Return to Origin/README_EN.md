@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0600-0699/0657.Robot%20Return%20to%20Origin/README_EN.md
 tags:
     - String
     - Simulation
