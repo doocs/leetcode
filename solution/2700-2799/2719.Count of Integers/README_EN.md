@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count integers in $[num1,num2]$ whose digit sums lie in $[min\_sum,max\_sum]$. The interval can be as long as $10^{22}$, so enumeration is impossible.
+>
+> Subtract the answer for $[0,num1-1]$ from $[0,num2]$. A digit DP walks from the high end with state $(pos,s,limit)$ — position, digit sum, and whether we are against the upper bound. At the end we test the sum interval and reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 The problem is actually asking for the number of integers in the range $[num1,..num2]$ whose digit sum is in the range $[min\_sum,..max\_sum]$. For this kind of range $[l,..r]$ problem, we can consider transforming it into finding the answers for $[1,..r]$ and $[1,..l-1]$, and then subtracting the latter from the former.
 
 For the answer to $[1,..r]$, we can use digit DP to solve it. We design a function $dfs(pos, s, limit)$, which represents the number of schemes when we are currently processing the $pos$th digit, the digit sum is $s$, and whether the current number has an upper limit $limit$. Here, $pos$ is enumerated from high to low.

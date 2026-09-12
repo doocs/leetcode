@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Binary Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strength is the product of a nonempty subset, and we want the maximum. With $n\le 13$ there are $2^n-1$ subsets, so every mask can be multiplied out.
+>
+> The empty set is skipped; negatives and zeros participate in the product, so no prior case split is required.
+
+<!-- thinking:end -->
+
 The problem is actually to find the maximum product of all subsets. Since the length of the array does not exceed $13$, we can consider using the method of binary enumeration.
 
 We enumerate all subsets in the range of $[1, 2^n)$, and for each subset, we calculate its product, and finally return the maximum value.
@@ -171,6 +181,14 @@ function maxStrength(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Binary enumeration is exponential in $n$. After grouping by sign, zeros should be avoided and negatives help only in pairs. Sort, then scan: multiply two consecutive negatives together, skip a leftover negative or a zero, and take every positive. Singleton and all-zero arrays are handled separately.
+
+<!-- thinking:end -->
 
 First, we can sort the array. Based on the characteristics of the array, we can draw the following conclusions:
 

@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Hash Table + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a partition of $s$ that covers as many dictionary words as possible. Enumerating partitions is tolerable for $n\le 50$, but identical prefixes would be recomputed.
+>
+> The fewest extra characters among the first $i$ letters depend only on shorter prefixes: treat $s[i-1]$ as extra, or jump from some $j$ whose slice $s[j..i)$ is in the dictionary. A hash set answers membership in $O(1)$, and we fill $f[i]$ in increasing order.
+
+<!-- thinking:end -->
+
 We can use a hash table $ss$ to record all words in the dictionary, which allows us to quickly determine whether a string is in the dictionary.
 
 Next, we define $f[i]$ to represent the minimum number of extra characters in the first $i$ characters of string $s$, initially $f[0] = 0$.
@@ -242,6 +252,14 @@ var minExtraChar = function (s, dictionary) {
 <!-- solution:start -->
 
 ### Solution 2: Trie + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 enumerates every $j$ for each $i$ and builds slices, which cubes the time. Inserting reversed words into a trie lets us walk left from $i-1$ and stop at the first miss, removing the slices and folding the lookup into the edges.
+
+<!-- thinking:end -->
 
 We can use a trie to optimize the time complexity of Solution 1.
 

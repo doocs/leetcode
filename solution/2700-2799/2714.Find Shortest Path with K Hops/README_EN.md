@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Dijkstra Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a shortest $s$–$d$ path in which at most $k$ edges may be treated as free. A vertex-only shortest-path state cannot remember how many hops remain. Since $k$ is small, the hop count joins the state.
+>
+> Dijkstra on pairs $(u,t)$: an edge $(u,v,w)$ may pay $w$ and stay at $t$, or, if $t<k$, move to $v$ at cost $0$ with $t+1$. The answer is the minimum distance among all $t$ at $d$.
+
+<!-- thinking:end -->
+
 First, we construct a graph $g$ based on the given edges, where $g[u]$ represents all neighboring nodes of node $u$ and their corresponding edge weights.
 
 Then, we use Dijkstra's algorithm to find the shortest path from node $s$ to node $d$. However, we need to make some modifications to Dijkstra's algorithm:

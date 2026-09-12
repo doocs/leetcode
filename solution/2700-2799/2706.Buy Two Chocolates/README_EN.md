@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must buy exactly two chocolates without exceeding $money$ and maximize the leftover. Enumerating pairs is fine for $n\le 50$, but the answer depends only on the two cheapest prices.
+>
+> Sort and take the sum $cost$ of the first two. If $cost>money$ we buy nothing; otherwise the leftover is $money-cost$.
+
+<!-- thinking:end -->
+
 We can sort the prices of the chocolates in ascending order, and then add the first two prices to get the minimum cost $cost$ of buying two chocolates. If this cost is greater than the money we have, then we return `money`. Otherwise, we return `money - cost`.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array `prices`.
@@ -146,6 +156,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: One-pass Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting costs $O(n\log n)$ when only the two smallest values are needed. A single scan that tracks the current minimum and second minimum yields the same $cost$ in linear time.
+
+<!-- thinking:end -->
 
 We can find the two smallest prices in one pass, and then calculate the cost.
 
