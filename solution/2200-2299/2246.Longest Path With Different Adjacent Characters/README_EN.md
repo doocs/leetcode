@@ -67,6 +67,16 @@ It can be proven that there is no longer path that satisfies the conditions.
 
 ### Solution 1: Tree-shaped DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest tree path whose adjacent labels differ. $n \le 10^5$ forbids pairing endpoints. A path either stays in one subtree or is the join of two downward chains at a vertex.
+>
+> DFS returns the longest downward chain whose first step has a different character. For each child, join the current best chain with the new one when labels differ, and keep the best downward length. Adding one at the end counts the node itself.
+
+<!-- thinking:end -->
+
 First, we construct an adjacency list $g$ based on the array $parent$, where $g[i]$ represents all child nodes of node $i$.
 
 Then we start DFS from the root node. For each node $i$, we traverse each child node $j$ in $g[i]$. If $s[i] \neq s[j]$, then we can start from node $i$, pass through node $j$, and reach a leaf node. The length of this path is $x = 1 + \textit{dfs}(j)$. We use $mx$ to record the longest path length starting from node $i$. At the same time, we update the answer $ans = \max(ans, mx + x)$ during the traversal process.

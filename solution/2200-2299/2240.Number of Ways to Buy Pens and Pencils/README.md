@@ -59,6 +59,16 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 总金额为 $\textit{total}$，两种商品单价固定，购买数量不限，求方案数。完全背包在 $\textit{total} \le 10^6$ 时空间偏大，且只需计数。固定钢笔数量后，铅笔的可行个数是一段前缀。
+>
+> 枚举钢笔支数 $x \in [0, \lfloor \textit{total}/\textit{cost1} \rfloor]$，剩余金额能买 $0$ 到 $\lfloor (\textit{total}-x\cdot\textit{cost1})/\textit{cost2} \rfloor$ 支铅笔，贡献该值加一。循环长度约为 $\textit{total}/\textit{cost1}$。
+
+<!-- thinking:end -->
+
 我们可以枚举购买钢笔的数量 $x$，对于每个 $x$，我们最多可以购买铅笔的数量为 $\frac{\textit{total} - x \times \textit{cost1}}{\textit{cost2}}$，那么数量加 $1$ 即为 $x$ 的方案数。我们累加所有的 $x$ 的方案数，即为答案。
 
 时间复杂度 $O(\frac{total}{cost1})$，空间复杂度 $O(1)$。

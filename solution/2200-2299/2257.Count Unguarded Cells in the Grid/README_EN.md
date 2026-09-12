@@ -67,6 +67,16 @@ There are a total of 4 unguarded cells, so we return 4.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Guards see along a row or column until a wall. $mn \le 10^5$, so a guard must not rescan a whole line from scratch every time. Walking four rays from each guard until a wall covers each cell a constant number of times.
+>
+> Mark walls and guards as $2$, seen cells as $1$, and stop a ray on a $2$. The answer is the number of remaining zeros.
+
+<!-- thinking:end -->
+
 We create a two-dimensional array $g$ of size $m \times n$, where $g[i][j]$ represents the cell in row $i$ and column $j$. Initially, the value of $g[i][j]$ is $0$, indicating that the cell is not guarded.
 
 Then, we traverse all guards and walls, and set the value of $g[i][j]$ to $2$, indicating that these positions cannot be accessed.

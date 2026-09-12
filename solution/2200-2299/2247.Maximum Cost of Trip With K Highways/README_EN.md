@@ -69,6 +69,16 @@ Note that the trip 4 -&gt; 1 -&gt; 0 -&gt; 1 is not allowed because you visit th
 
 ### Solution 1: State Compression Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a simple path of exactly $k$ edges with maximum cost. If $k \ge n$ there are not enough distinct cities. $n \le 15$ invites a subset DP.
+>
+> Let $f[S][j]$ be the best cost of visiting $S$ and ending at $j$, with singletons initialized to $0$. Relax from a neighbor $h$ by $f[S\setminus\{j\}][h]+\textit{cost}(h,j)$. When $|S|=k+1$, update the answer.
+
+<!-- thinking:end -->
+
 We notice that the problem requires exactly $k$ roads to be passed, and each city can only be visited once. The number of cities is $n$, so we can pass at most $n - 1$ roads. Therefore, if $k \ge n$, we cannot meet the requirements of the problem, and we can directly return $-1$.
 
 In addition, we can also find that the number of cities $n$ does not exceed $15$, which suggests that we can consider using the method of state compression dynamic programming to solve this problem. We use a binary number of length $n$ to represent the cities that have been passed, where the $i$-th bit is $1$ indicates that the $i$-th city has been passed, and $0$ indicates that the $i$-th city has not been passed yet.

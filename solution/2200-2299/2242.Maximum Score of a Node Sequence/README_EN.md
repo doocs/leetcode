@@ -80,6 +80,16 @@ There are no valid node sequences of length 4, so we return -1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want four distinct consecutive vertices with maximum score sum. $n \le 5\times 10^4$ forbids listing every path of length $3$. The middle of the path is some edge $(a,b)$; the ends $c$ and $d$ are neighbors of $a$ and $b$ respectively, all distinct.
+>
+> Keep only the three highest-scoring neighbors of each vertex. Enumerating an edge then tries a constant number of $(c,d)$ pairs after dropping conflicts with $a$ and $b$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

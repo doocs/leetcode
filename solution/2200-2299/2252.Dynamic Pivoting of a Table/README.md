@@ -83,6 +83,16 @@ Products 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 商店名事先未知，要把 $(\textit{product\_id}, \textit{store}, \textit{price})$ 行转成每个商店一列。静态 $\textit{CASE WHEN}$ 写不出不固定的列名，需要先查出全部商店再拼 SQL。
+>
+> $\textit{GROUP\_CONCAT}$ 按商店名生成 $\textit{MAX}(\textit{CASE WHEN store}=\ldots)$ 片段，再包进 $\textit{SELECT product\_id},\ldots\ \textit{GROUP BY product\_id}$，预处理后执行。$\textit{group\_concat\_max\_len}$ 调大以免列名被截断。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

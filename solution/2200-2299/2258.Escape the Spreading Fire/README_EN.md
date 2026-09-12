@@ -87,6 +87,16 @@ Thus, 10<sup>9</sup> is returned.
 
 ### Solution 1: Binary Search + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may wait $t$ minutes before moving while fire spreads each minute; we want the largest feasible $t$. The grid has at most about $2\times 10^4$ cells. Feasibility is monotone in $t$, so we binary-search it.
+>
+> For a candidate $t$, spread fire for $t$ minutes; if the start burns, fail. Then BFS the person in lockstep with the fire, stepping only onto unburned grass. Reaching the exit before or with the fire succeeds. If even $t=mn$ works, return $10^9$.
+
+<!-- thinking:end -->
+
 We notice that if a stay time $t$ satisfies the condition, then all stay times less than $t$ also satisfy the condition. Therefore, we can consider using binary search to find the maximum stay time that satisfies the condition.
 
 We define the left boundary of binary search as $l=-1$ and the right boundary as $r=m \times n$. In each iteration of binary search, we take the midpoint $mid$ of $l$ and $r$ as the current stay time and check if it satisfies the condition. If it does, we update $l$ to $mid$, otherwise we update $r$ to $mid-1$. Finally, if $l=m \times n$, it means there is no stay time that satisfies the condition, so we return $10^9$, otherwise we return $l$.
