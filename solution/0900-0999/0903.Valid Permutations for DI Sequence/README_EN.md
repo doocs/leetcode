@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A DI string of length $n$ asks for permutations of $0..n$. $n$ can be $200$, so listing permutations is impossible. After $i$ numbers are placed, only the rank $j$ among the remaining values matters for the next rise or fall.
+>
+> Let $f[i][j]$ be the number of ways for the first $i$ characters ending at rank $j$. `'D'` sums from larger ranks and `'I'` from smaller ones, after ranks are compressed into $[0,i]$. The resulting recurrence is cubic.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of permutations that satisfy the problem's requirements with the first $i$ characters of the string ending with the number $j$. Initially, $f[0][0]=1$, and the rest $f[0][j]=0$. The answer is $\sum_{j=0}^n f[n][j]$.
 
 Consider $f[i][j]$, where $j \in [0, i]$.
@@ -249,6 +259,14 @@ function numPermsDISequence(s: string): number {
 
 ### Solution 2: Prefix Sum Optimization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 scans a range of $k$ for every $j$, and adjacent $j$ share almost the same interval sum. A directional prefix sum evaluates $\sum f[i-1][k]$ in constant time, dropping the time to quadratic without changing the state.
+
+<!-- thinking:end -->
+
 We can optimize the state transitions with prefix sums, reducing the time complexity to $O(n^2)$. The space complexity remains $O(n^2)$.
 
 <!-- tabs:start -->
@@ -412,6 +430,14 @@ function numPermsDISequence(s: string): number {
 <!-- solution:start -->
 
 ### Solution 3: Rolling Array Optimization
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i]$ depends only on $f[i-1]$, so the second dimension of the table can be discarded. Roll a one-dimensional array and write the next layer from a running sum in the `'D'` or `'I'` direction, using linear extra space.
+
+<!-- thinking:end -->
 
 Based on Solution 2, we use a rolling array to reduce the space complexity to $O(n)$. The time complexity remains $O(n^2)$.
 

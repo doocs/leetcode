@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{typed}$ is a long-press of $\textit{name}$ if every run of identical letters may only grow, never shrink or change letter. Lengths are at most $1000$, so a linear scan of runs suffices.
+>
+> Two pointers walk both strings: the current letters must match, then each run is measured; if $\textit{name}$'s run is longer, reject. Both pointers must finish together.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to point to the first character of the strings `typed` and `name` respectively, and then start traversing. If `typed[j]` is not equal to `name[i]`, it means the two strings do not match, and we directly return `False`. Otherwise, we find the next position of the continuous identical characters, denoted as $x$ and $y$ respectively. If $x - i > y - j$, it means the number of characters in `typed` is less than the number of characters in `name`, and we directly return `False`. Otherwise, we update $i$ and $j$ to $x$ and $y$ respectively, continue traversing, until $i$ and $j$ have traversed `name` and `typed` respectively, and return `True`.
 
 The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the strings `name` and `typed` respectively. The space complexity is $O(1)`.

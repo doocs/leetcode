@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check that the words are nondecreasing in an alien alphabet. Adjacent pairwise compares work; a column scan also decides it: position $i$ must be nondecreasing in alien order, treating a missing letter as smaller. If every adjacent pair already differs at this column, later columns can be ignored.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

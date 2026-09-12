@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the local part is rewritten: dots are dropped, and everything from the first `+` onward is ignored. Addresses that become identical after this rule should count once. Normalize each email into a set; the set size is the answer.
+
+<!-- thinking:end -->
+
 We can use a hash table $s$ to store all unique email addresses. Then, we traverse the array $\textit{emails}$. For each email address, we split it into the local part and the domain part. We process the local part by removing all dots and ignoring characters after a plus sign. Finally, we concatenate the processed local part with the domain part and add it to the hash table $s$.
 
 In the end, we return the size of the hash table $s$.

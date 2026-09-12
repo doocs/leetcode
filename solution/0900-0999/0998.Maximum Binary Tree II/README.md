@@ -86,6 +86,14 @@ tags:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在最大二叉树对应的数组末尾追加 $val$ 再重建。$val$ 若大于根则成为新根，原树作左子树；否则 $val$ 只可能落在右脊上。沿右子树递归插入即可。
+
+<!-- thinking:end -->
+
 如果 $val$ 是最大数，那么将 $val$ 作为新的根节点，$root$ 作为新的根节点的左子树。
 
 如果 $val$ 不是最大数，由于 $val$ 是在最后追加的数，那么一定是在 $root$ 的右边，所以将 $val$ 作为新节点插入 $root$ 的右子树即可。
@@ -288,6 +296,14 @@ struct TreeNode* insertIntoMaxTree(struct TreeNode* root, int val) {
 <!-- solution:start -->
 
 ### 方法二：迭代
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 递归深度最坏为树高。改为沿右链迭代，找到第一个右孩子小于 $val$ 的位置，把旧右子树接到新结点左侧，避免递归栈。
+
+<!-- thinking:end -->
 
 搜索右子树，找到 $curr.val \gt val \gt curr.right.val$ 的节点，然后创建新的节点 $node$，把 $node.left$ 指向 $curr.right$，然后 $curr.right$ 指向 $node$。
 

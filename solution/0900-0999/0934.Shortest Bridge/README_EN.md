@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are exactly two islands; the fewest flips equal the shortest distance between them. DFS dumps one island into a queue and marks it visited, then BFS expands over water. The first time the other island is reached, the layer count is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

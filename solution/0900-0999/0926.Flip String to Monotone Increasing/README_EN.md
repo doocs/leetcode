@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Prefix Sum + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A monotone string is zeros then ones, so some cut has all $0$s on the left and all $1$s on the right. $n\le 10^5$, so rescaning at every cut is too slow. Let $\textit{tot}$ be the number of zeros. At cut $i$, the prefix zero count $\textit{cur}$ yields the flips $i-\textit{cur}+\textit{tot}-\textit{cur}$; take the minimum.
+
+<!-- thinking:end -->
+
 First, we count the number of '0's in string $s$, denoted as $tot$. We define a variable $ans$ for the answer, initially set $ans = tot$, which represents the number of flips to change all '0's to '1's.
 
 Then, we can enumerate each position $i$, change all '1's to the left of position $i$ (including $i$) to '0', and change all '0's to the right of position $i$ to '1'. We calculate the number of flips in this case, which is $i + 1 - cur + tot - cur$, where $cur$ represents the number of '0's to the left of position $i$ (including $i$). We update the answer $ans = \min(ans, i + 1 - cur + tot - cur)$.

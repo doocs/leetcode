@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two lists of closed intervals are each sorted and internally disjoint; we want every intersection. Two pointers hold the current intervals. Their overlap is $[\max(s_1,s_2),\min(e_1,e_2)]$ and is recorded when nonempty. Advance the pointer whose interval ends first.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

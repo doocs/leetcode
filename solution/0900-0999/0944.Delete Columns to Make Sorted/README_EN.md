@@ -90,6 +90,14 @@ All 3 columns are not sorted, so you will delete all 3.
 
 ### Solution 1: Compare Column by Column
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the fewest columns so each remaining column is nondecreasing top to bottom. Columns are independent: any adjacent inversion forces a deletion. Scan each column and count it as soon as a descent appears.
+
+<!-- thinking:end -->
+
 We denote the number of rows in the string array $\textit{strs}$ as $n$, and the number of columns as $m$.
 
 We traverse each column, starting from the second row, and compare the character of the current row with that of the previous row column by column. If the character of the current row is less than that of the previous row, it indicates that the current column is not arranged in non-strictly increasing lexicographical order, and we need to delete it, incrementing the result by one, then break out of the inner loop.

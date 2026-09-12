@@ -80,6 +80,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A turbulent subarray alternates strict comparisons. Checking every subarray is quadratic. Ending at $i$, we only need the longest rise-ending and fall-ending lengths, each extending the opposite state of $i-1$, or resetting to $1$ on a tie. Two rolling variables suffice.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the length of the longest turbulent subarray ending at $\textit{nums}[i]$ with an increasing state, and $g[i]$ as the length of the longest turbulent subarray ending at $\textit{nums}[i]$ with a decreasing state. Initially, $f[0] = 1$, $g[0] = 1$. The answer is $\max(f[i], g[i])$.
 
 For $i \gt 0$, if $\textit{nums}[i] \gt \textit{nums}[i - 1]$, then $f[i] = g[i - 1] + 1$, otherwise $f[i] = 1$; if $\textit{nums}[i] \lt \textit{nums}[i - 1]$, then $g[i] = f[i - 1] + 1$, otherwise $g[i] = 1$.

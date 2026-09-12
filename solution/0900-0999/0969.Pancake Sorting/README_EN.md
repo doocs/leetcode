@@ -73,6 +73,14 @@ Note that other answers, such as [3, 3], would also be accepted.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pancake flip reverses a prefix. The array is a permutation of $1..n$, so we can place values from large to small: flip $k$ to the front, then flip it to its final index $k$. Record the two prefix lengths. A suffix that is already placed is left untouched.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

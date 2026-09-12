@@ -76,6 +76,14 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells update from their neighbors and $n$ can be $10^9$, so a day-by-day loop is impossible. There are only $8$ cells, and both ends become empty after the first day, so at most $2^6$ states appear and the evolution cycles. Record each state with its day; on a repeat, reduce $n$ modulo the period and jump to day $n$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

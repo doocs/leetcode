@@ -84,6 +84,16 @@ This is the lowest possible number of moves to reach the last square, so return 
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is at most $20\times 20$. The fewest die rolls is an unweighted shortest path. Labels snake through the grid; a snake or ladder teleports to its destination.
+>
+> BFS from $1$ by layers, visiting each cell once. The layer that first reaches $n^2$ is the answer; if the queue empties, return $-1$.
+
+<!-- thinking:end -->
+
 We can use the Breadth-First Search (BFS) method, starting from the starting point, moving forward 1 to 6 steps each time, and then checking for snakes or ladders. If there are any, move to the destination of the snake or ladder; otherwise, move to the next square.
 
 Specifically, we use a queue $\textit{q}$ to store the current reachable square numbers, initially putting number $1$ into the queue. At the same time, we use a set $\textit{vis}$ to record the squares that have been reached to avoid revisiting them, initially adding number $1$ to the set $\textit{vis}$.

@@ -59,6 +59,14 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次给某一项加 $v$ 后询问偶数和。若每次重扫数组则偏慢。维护当前偶数和 $s$：修改前若该项为偶则先从 $s$ 中减去，修改后再视奇偶加回。
+
+<!-- thinking:end -->
+
 我们用一个整型变量 $\textit{s}$ 记录数组 $\textit{nums}$ 中所有偶数的和，初始时 $\textit{s}$ 为数组 $\textit{nums}$ 中所有偶数的和。
 
 对于每次查询 $(v, i)$，我们首先判断 $\textit{nums}[i]$ 是否为偶数，若 $\textit{nums}[i]$ 为偶数，则将 $\textit{s}$ 减去 $\textit{nums}[i]$；然后将 $\textit{nums}[i]$ 加上 $v$；若 $\textit{nums}[i]$ 为偶数，则将 $\textit{s}$ 加上 $\textit{nums}[i]$，然后将 $\textit{s}$ 加入答案数组。

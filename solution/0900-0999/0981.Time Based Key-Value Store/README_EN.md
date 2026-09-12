@@ -68,6 +68,14 @@ timeMap.get(&quot;foo&quot;, 5);         // return &quot;bar2&quot;
 
 ### Solution 1: Hash Table + Ordered Set (or Binary Search)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `set` timestamps are strictly increasing, so each key's history is already sorted. `get` wants the latest value at a time $\le$ the query. A linear scan is too slow over $2\times 10^5$ calls. Store $(timestamp,value)$ lists per key and binary-search the upper bound.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{kvt}$ to record key-value pairs, where the key is the string $\textit{key}$ and the value is an ordered set. Each element in the set is a tuple $(\textit{timestamp}, \textit{value})$, representing the value $\textit{value}$ corresponding to the key $\textit{key}$ at the timestamp $\textit{timestamp}$.
 
 When we need to query the value corresponding to the key $\textit{key}$ at the timestamp $\textit{timestamp}$, we can use the ordered set to find the largest timestamp $\textit{timestamp}'$ such that $\textit{timestamp}' \leq \textit{timestamp}$, and then return the corresponding value.

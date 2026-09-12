@@ -72,6 +72,14 @@ tags:
 
 ### 方法一：BFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 堂兄弟深度相同且父结点不同。层序时一并带上父结点，遇到 $x,y$ 记下父与层，整层扫完后比较即可。
+
+<!-- thinking:end -->
+
 我们定义一个队列 $q$，队列中存储的是节点和其父节点。初始时，将根节点和空节点放入队列中。
 
 每次从队列中取出一个节点，如果该节点的值为 $x$ 或 $y$，则记录该节点的父节点和深度。如果该节点的左右子节点不为空，则将左右子节点和该节点放入队列中。
@@ -291,6 +299,14 @@ function isCousins(root: TreeNode | null, x: number, y: number): boolean {
 <!-- solution:start -->
 
 ### 方法二：DFS
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> BFS 按层推进。DFS 同样可以：递归时传入父结点与深度，找到 $x,y$ 后比较父与深度是否满足堂兄弟定义。
+
+<!-- thinking:end -->
 
 我们设计一个函数 $dfs(root, parent, depth)$，表示从根节点 $root$ 出发，其父节点为 $parent$，深度为 $depth$，进行深度优先搜索。
 

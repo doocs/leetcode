@@ -63,6 +63,14 @@ tags:
 
 ### 方法一：排序 + 贪心
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次只能把某个数加一，使最终互不相同，求最少次数。排序后应让每个数不小于“当前已占用的下一个空位” $y$。令 $y\leftarrow\max(y+1,x)$，增量 $y-x$ 累加即为代价。
+
+<!-- thinking:end -->
+
 我们首先对数组 $\textit{nums}$ 进行排序，用一个变量 $\textit{y}$ 记录当前的最大值，初始时 $\textit{y} = -1$。
 
 然后遍历数组 $\textit{nums}$，对于每个元素 $x$，我们将 $y$ 更新为 $\max(y + 1, x)$，并将操作次数 $y - x$ 累加到结果中。
@@ -154,6 +162,14 @@ function minIncrementForUnique(nums: number[]): number {
 <!-- solution:start -->
 
 ### 方法二：计数 + 贪心
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 排序需要 $O(n\log n)$。值域加上长度后上界为 $m$，可用计数：从低到高，多余的 $cnt[i]-1$ 个 $i$ 全部挪到 $i+1$，线性扫完值域。
+
+<!-- thinking:end -->
 
 根据题目描述，结果数组的最大值 $m = \max(\textit{nums}) + \textit{len}(\textit{nums})$，我们可以使用一个计数数组 $\textit{cnt}$ 来记录每个元素出现的次数。
 

@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1: Reverse Calculation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $\textit{startValue}$ we may double or subtract one to reach $\textit{target}$, using as few operations as possible. Both values can be $10^9$, so searching forward is too wide. Working backward, an even target must be halved and an odd one can only come from the inverse of subtract-one (add one), until it is at most the start; the remaining difference is extra subtractions.
+
+<!-- thinking:end -->
+
 We can use a reverse calculation method, starting from $\textit{target}$. If $\textit{target}$ is odd, then $\textit{target} = \textit{target} + 1$, otherwise $\textit{target} = \textit{target} / 2$. We accumulate the number of operations until $\textit{target} \leq \textit{startValue}$. The final result is the number of operations plus $\textit{startValue} - \textit{target}$.
 
 The time complexity is $O(\log n)$, where $n$ is $\textit{target}$. The space complexity is $O(1)$.

@@ -60,6 +60,14 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 ### 方法一：栈模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 判断 $\textit{popped}$ 是否为某次入栈顺序下的合法出栈。元素互不相同，按 $\textit{pushed}$ 入栈，栈顶与下一个应出元素相等就弹出。能弹出全部则序列合法。
+
+<!-- thinking:end -->
+
 我们遍历 $\textit{pushed}$ 数组，对于当前遍历到的元素 $x$，我们将其压入栈 $\textit{stk}$ 中，然后判断栈顶元素是否和 $\textit{popped}$ 数组中下一个要弹出的元素相等，如果相等，我们就将栈顶元素弹出并将 $\textit{popped}$ 数组中下一个要弹出的元素的索引 $i$ 加一。最后，如果要弹出的元素都能按照 $\textit{popped}$ 数组的顺序弹出，返回 $\textit{true}$，否则返回 $\textit{false}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 $\textit{pushed}$ 数组的长度。

@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the widest $i<j$ with $nums[i]\le nums[j]$. All pairs are quadratic. Useful left ends form a strictly decreasing sequence from the start; a later larger value is never a better left. A monotonic stack stores those candidates, then $j$ walks from the right and pops every stack top that forms a ramp, keeping the maximum width.
+
+<!-- thinking:end -->
+
 According to the problem, we can find that the subsequence formed by all possible $\textit{nums}[i]$ must be monotonically decreasing. Why is that? Let's prove it by contradiction.
 
 Suppose there exist $i_1<i_2$ and $\textit{nums}[i_1]\leq\textit{nums}[i_2]$, then actually $\textit{nums}[i_2]$ cannot be a candidate value, because $\textit{nums}[i_1]$ is more to the left and would be a better value. Therefore, the subsequence formed by $\textit{nums}[i]$ must be monotonically decreasing, and $i$ must start from 0.

@@ -78,6 +78,14 @@ Since all the cards revealed are in increasing order, the answer is correct.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Revealing takes the front card and moves the new front to the back. Simulating forward needs the unknown start order, while the reveal should be increasing. Invert the process: from large to small, rotate the current back to the front (if the queue is nonempty) and insert the card at the front. The queue is the initial deck.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

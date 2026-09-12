@@ -59,6 +59,14 @@ It can be shown that it is impossible for the array to have all unique values wi
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move increments one element; we want all values distinct at minimum cost. After sorting, each $x$ should occupy the next free slot $y$. Set $y\leftarrow\max(y+1,x)$ and add $y-x$.
+
+<!-- thinking:end -->
+
 First, we sort the array $\textit{nums}$, and use a variable $\textit{y}$ to record the current maximum value, initially $\textit{y} = -1$.
 
 Then, we iterate through the array $\textit{nums}$. For each element $x$, we update $y$ to $\max(y + 1, x)$, and accumulate the operation count $y - x$ into the result.
@@ -150,6 +158,14 @@ function minIncrementForUnique(nums: number[]): number {
 <!-- source:start -->
 
 ### Solution 2: Counting + Greedy
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting costs $O(n\log n)$. With an upper bound $m=\max+n$, a count array works: from low to high, the surplus $cnt[i]-1$ copies of $i$ move to $i+1$, a linear sweep of the range.
+
+<!-- thinking:end -->
 
 According to the problem description, the maximum value of the result array $m = \max(\textit{nums}) + \textit{len}(\textit{nums})$. We can use a counting array $\textit{cnt}$ to record the occurrence count of each element.
 

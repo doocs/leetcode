@@ -72,6 +72,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rot spreads to four-neighbors each minute; we want the time until every orange is rotten. Simultaneous multi-source spread is an unweighted shortest path. Enqueue every rotten orange and count the fresh ones, then BFS by layers. The layer that zeroes the fresh count is the answer; leftover fresh oranges yield $-1$.
+
+<!-- thinking:end -->
+
 First, we traverse the entire grid once, count the number of fresh oranges, denoted as $\textit{cnt}$, and add the coordinates of all rotten oranges to the queue $q$.
 
 Next, we perform a breadth-first search. In each round of the search, we let all the rotten oranges in the queue rot the fresh oranges in four directions, until the queue is empty or the number of fresh oranges is $0$.

@@ -75,6 +75,14 @@ i.e., it is NOT necessarily true that (strs[0][0] &lt;= strs[0][1] &lt;= ...)
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete the fewest columns so the rows are lexicographically nondecreasing. Lexicographic order is decided by the first differing column, so a pair already ordered is immune to later columns. Scan left to right: if an undecided pair descends in this column, the column must go; otherwise mark pairs that become strictly increasing.
+
+<!-- thinking:end -->
+
 When comparing strings in lexicographical order, we compare from left to right, and the first unequal character determines the ordering relationship between two strings. Therefore, we can traverse each column from left to right and determine whether the current column needs to be deleted.
 
 We maintain a boolean array $\textit{st}$ of length $n - 1$, indicating whether the ordering relationship between adjacent string pairs has been determined. If the ordering relationship has been determined, then any subsequent character comparison between these two strings will not change their ordering relationship.

@@ -72,6 +72,16 @@ but the second term did not exist. Since the last term exhausted does not exist,
 
 ### Solution 1: Maintain Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Run lengths reach $10^9$, so expanding the encoding into a flat list is impossible, and consuming `next` one element at a time is equally infeasible when $n$ is that large.
+>
+> We therefore consume on the compressed form. The leftover in the current run is $\textit{encoding}[i]-j$; if it is smaller than $n$, skip the whole run and advance $i$ by $2$, otherwise only increment $j$. Both pointers move forward, so all queries together scan the encoding once.
+
+<!-- thinking:end -->
+
 We define two pointers $i$ and $j$, where pointer $i$ points to the current run-length encoding being read, and pointer $j$ points to which character in the current run-length encoding is being read. Initially, $i = 0$, $j = 0$.
 
 Each time we call `next(n)`, we judge whether the remaining number of characters in the current run-length encoding $encoding[i] - j$ is less than $n$. If it is, we subtract $n$ by $encoding[i] - j$, add $2$ to $i$, and set $j$ to $0$, then continue to judge the next run-length encoding. If it is not, we add $n$ to $j$ and return $encoding[i + 1]$.

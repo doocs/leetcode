@@ -55,6 +55,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a complete tree, no non-null node may follow a null in level order. Enqueue null children as well; after the first null is popped, the rest of the queue must be null. The tree has at most $100$ nodes, so one BFS decides it.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

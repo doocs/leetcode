@@ -85,6 +85,14 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 查询按“完全匹配、忽略大小写、元音视为相同”三级规则映射到词表，同级取词表中最先出现者。预处理三张表：原词集合、小写首次出现、元音替换为 `*` 后的首次出现。查询依次查三张表。
+
+<!-- thinking:end -->
+
 我们遍历 $\textit{wordlist}$，将单词按照大小写不敏感、元音不敏感的规则分别存入哈希表 $\textit{low}$ 和 $\textit{pat}$ 中，其中 $\textit{low}$ 的键为单词的小写形式，$\textit{pat}$ 的键为将单词的元音字母替换为 `*` 后的字符串，值为单词本身。用哈希表 $\textit{s}$ 存储 $\textit{wordlist}$ 中的单词。
 
 遍历 $\textit{queries}$，对于每个单词 $\textit{q}$，如果 $\textit{q}$ 在 $\textit{s}$ 中，说明 $\textit{q}$ 在 $\textit{wordlist}$ 中，直接将 $\textit{q}$ 加入答案数组 $\textit{ans}$ 中。

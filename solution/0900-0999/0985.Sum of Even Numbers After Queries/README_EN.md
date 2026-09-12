@@ -62,6 +62,14 @@ After adding 2 to nums[3], the array is [-2,-1,3,6], and the sum of even values 
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After adding $v$ to one entry, report the sum of evens. Rescanning the array every time is too slow. Keep the even sum $s$: subtract the old value if it was even, apply the update, then add the new value if it is even.
+
+<!-- thinking:end -->
+
 We use an integer variable $\textit{s}$ to record the sum of all even numbers in the array $\textit{nums}$. Initially, $\textit{s}$ is the sum of all even numbers in the array $\textit{nums}$.
 
 For each query $(v, i)$, we first check if $\textit{nums}[i]$ is even. If $\textit{nums}[i]$ is even, we subtract $\textit{nums}[i]$ from $\textit{s}$. Then, we add $v$ to $\textit{nums}[i]$. If $\textit{nums}[i]$ is even, we add $\textit{nums}[i]$ to $\textit{s}$, and then add $\textit{s}$ to the answer array.

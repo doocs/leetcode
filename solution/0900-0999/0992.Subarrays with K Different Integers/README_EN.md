@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subarrays with exactly $k$ distinct values. $n\le 2\times 10^4$, so enumeration is too slow. The number of distinct values is monotone in the window, so “at most $k$” is a sliding window. Exactly $k$ equals the leftmost index for “at most $k$” minus that for “at most $k-1$”, summed over every right end.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

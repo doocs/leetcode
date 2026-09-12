@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Dynamic Programming (Rolling Array)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A falling path may step only to the three adjacent cells in the next row, and $n\le 100$. Enumerating paths is impossible. The best way to $(i,j)$ depends only on the previous row at $j-1,j,j+1$. Compute this row by row and roll a one-dimensional array, using $O(n)$ extra space.
+
+<!-- thinking:end -->
+
 Let $f[i][j]$ be the minimum falling path sum that ends at row $i$, column $j$:
 
 $$

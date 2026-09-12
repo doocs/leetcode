@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1: Recurrence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A knight hops $n-1$ times on a phone pad, $n\le 5000$. Each digit has a fixed set of predecessors, so the count of length-$i$ numbers ending at $d$ depends only on the previous hop. Roll a $10$-wide array for $n-1$ steps and sum modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to calculate the number of different phone numbers of length $n$. Each digit can only follow certain fixed digits, which we can list as follows:
 
 | Current Digit | Previous Digits |
@@ -269,6 +277,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Matrix Exponentiation to Accelerate Recurrence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is linear in $n$. The same recurrence is a constant linear map, written as a $10\times 10$ matrix, and matrix exponentiation yields $T(n)$ in $O(\log n)$ multiplications.
+
+<!-- thinking:end -->
 
 Let's denote $T(n)$ as a $1 \times 10$ matrix $\begin{bmatrix} F_0 & F_1 & F_2 \cdots F_9 \end{bmatrix}$, where $F_i$ represents the number of phone numbers ending with digit $i$. We want to derive $T(n)$ from $T(n - 1)$. In other words, we need a matrix $\textit{base}$ such that $T(n - 1) \times \textit{base} = T(n)$, i.e.:
 

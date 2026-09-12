@@ -78,6 +78,14 @@ In total, you spent $17 and covered all the days of your travel.
 
 ### Solution 1: Memoization Search + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each travel day must be covered by a $1$-, $7$-, or $30$-day pass at minimum cost. After buying a pass on trip $i$, the next uncovered trip is found by binary search. $dfs(i)$ takes the best of the three options. There are at most $365$ trips, so memoization is enough.
+
+<!-- thinking:end -->
+
 We define a function $\textit{dfs(i)}$, which represents the minimum cost required from the $i$-th trip to the last trip. Thus, the answer is $\textit{dfs(0)}$.
 
 The execution process of the function $\textit{dfs(i)}$ is as follows:
@@ -246,6 +254,14 @@ function mincostTickets(days: number[], costs: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Searching by trip index needs binary search. We can instead DP on calendar days: $f[i]$ is the cheapest way to finish day $i$. A non-travel day copies $f[i-1]$; a travel day takes the min over the three pass starts. The last day is at most $365$.
+
+<!-- thinking:end -->
 
 Let's denote the last day in the $\textit{days}$ array as $m$. We can define an array $f$ of length $m + 1$, where $f[i]$ represents the minimum cost from day $1$ to day $i$.
 

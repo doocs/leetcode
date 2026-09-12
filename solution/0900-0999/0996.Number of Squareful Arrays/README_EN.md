@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count permutations where every adjacent sum is a perfect square. $n\le 12$, so subset DP fits. $f[S][j]$ is the number of ways to use $S$ and end at $j$; transfer from $k$ only when $nums[j]+nums[k]$ is square. Identical values are over-counted by index, so divide by the factorial of each frequency.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

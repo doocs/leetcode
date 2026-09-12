@@ -77,6 +77,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A query maps to the word list by exact match, then case-insensitive match, then vowel-insensitive match, taking the earliest word at that level. Build three tables: the original set, the first lowercase occurrence, and the first occurrence after vowels become `*`. Each query probes the tables in that order.
+
+<!-- thinking:end -->
+
 We traverse the $\textit{wordlist}$ and store the words in hash tables $\textit{low}$ and $\textit{pat}$ according to case-insensitive and vowel-insensitive rules, respectively. The key of $\textit{low}$ is the lowercase form of the word, and the key of $\textit{pat}$ is the string obtained by replacing the vowels of the word with `*`, with the value being the word itself. We use the hash table $\textit{s}$ to store the words in $\textit{wordlist}$.
 
 We traverse $\textit{queries}$, for each word $\textit{q}$, if $\textit{q}$ is in $\textit{s}$, it means $\textit{q}$ is in $\textit{wordlist}$, and we directly add $\textit{q}$ to the answer array $\textit{ans}$; otherwise, if the lowercase form of $\textit{q}$ is in $\textit{low}$, it means $\textit{q}$ is in $\textit{wordlist}$ and is case-insensitive, and we add $\textit{low}[q.\text{lower}()]$ to the answer array $\textit{ans}$; otherwise, if the string obtained by replacing the vowels of $\textit{q}$ with `*` is in $\textit{pat}$, it means $\textit{q}$ is in $\textit{wordlist}$ and is vowel-insensitive, and we add $\textit{pat}[f(q)]$ to the answer array $\textit{ans}$; otherwise, it means $\textit{q}$ is not in $\textit{wordlist}$, and we add an empty string to the answer array $\textit{ans}$.

@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1: Topological Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A state is (mouse, cat, whose turn). $n\le 50$, and searching forward struggles to classify draws. Work backward from terminals: the mouse wins in the hole, the cat wins on a coincidence.
+>
+> If the player to move in a previous state can step into their own winning state, mark it a win; otherwise decrease the out-degree and, when it hits zero, mark a loss. After this topological sweep, read the start state $(1,2,\text{mouse turn})$.
+
+<!-- thinking:end -->
+
 According to the problem description, the state of the game is determined by the position of the mouse, the position of the cat, and the player who is moving. The outcome can be directly determined in the following situations:
 
 - When the positions of the cat and the mouse are the same, the cat wins. This is a winning state for the cat and a losing state for the mouse.

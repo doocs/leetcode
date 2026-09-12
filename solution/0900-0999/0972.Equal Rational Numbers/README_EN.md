@@ -91,6 +91,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two decimals with repeating parts may look different yet denote the same rational, e.g. $0.9(9)=1$. Each part has length at most $4$, so converting to fractions is reliable: write the integer, non-repeating, and repeating pieces as numerators and denominators, reduce, and compare, including the case where a repeating $9$ carries into the integer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
