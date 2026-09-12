@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $|word|\le 100$, we can try deleting each distinct letter. Equality of remaining frequencies depends only on $26$ counts.
+>
+> Count letters, then for each key decrement once and test whether the positive frequencies form a singleton set. Restore and try the next letter.
+
+<!-- thinking:end -->
+
 First, we use a hash table or an array of length $26$ named $cnt$ to count the number of occurrences of each letter in the string.
 
 Next, we enumerate the $26$ letters. If letter $c$ appears in the string, we decrement its count by one, then check whether the counts of the remaining letters are the same. If they are, return `true`. Otherwise, increment the count of $c$ by one and continue to enumerate the next letter.

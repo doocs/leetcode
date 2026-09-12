@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every common factor divides $g=\gcd(a,b)$. With $a,b\le 1000$, test each integer in $[1,g]$ against $g$; there is no need to test $a$ and $b$ separately.
+
+<!-- thinking:end -->
+
 We can first calculate the greatest common divisor $g$ of $a$ and $b$, then enumerate each number in $[1,..g]$, check whether it is a factor of $g$, if it is, then increment the answer by one.
 
 The time complexity is $O(\min(a, b))$, and the space complexity is $O(1)$.
@@ -157,6 +165,14 @@ function gcd(a: number, b: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already scans up to $g$. Factors come in pairs, so enumerate to $\sqrt{g}$ and count both $x$ and $g/x$ (once when they coincide), in $O(\sqrt{g})$.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we can first calculate the greatest common divisor $g$ of $a$ and $b$, then enumerate all factors of the greatest common divisor $g$, and accumulate the answer.
 

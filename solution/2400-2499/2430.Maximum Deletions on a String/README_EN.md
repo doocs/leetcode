@@ -83,6 +83,16 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 4000$, an operation deletes a prefix that equals the next block of the same length. Search states collapse to the start $i$ of the remaining suffix. From $i$, try lengths $j$ and compare slices $s[i:i+j]$ and $s[i+j:i+2j]$; a match moves to $i+j$ with one extra deletion. Deleting everything at once is always legal, so the answer is at least $1$.
+>
+> Memoize $dfs(i)$. Slice comparison is linear in $j$, and the total time $O(n^2)$ fits the limit.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents the maximum number of operations needed to delete all characters from $s[i..]$. The answer is $dfs(0)$.
 
 The calculation process of the function $dfs(i)$ is as follows:
@@ -264,6 +274,14 @@ function deleteString(s: string): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 compares slices repeatedly and pays recursion overhead. Precompute LCP $g[i][j]$ so equality is $g[i][i+j]\ge j$ in $O(1)$. Fill $f[i]$ from the back; besides the LCP table the DP is one-dimensional.
+
+<!-- thinking:end -->
 
 We can change the memoization search in Solution 1 to dynamic programming. Define $f[i]$ to represent the maximum number of operations needed to delete all characters from $s[i..]$. Initially, $f[i]=1$, and the answer is $f[0]$.
 

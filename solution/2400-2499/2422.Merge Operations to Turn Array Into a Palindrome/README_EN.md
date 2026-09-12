@@ -71,6 +71,16 @@ It can be shown that 2 is the minimum number of operations needed.
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merges add adjacent values and should be few; the array must become a palindrome. The two ends must finish equal, so pair from the outside: merge on the side whose running sum is smaller.
+>
+> Two pointers hold sums $a$ and $b$. Advance the smaller side and count a merge; on equality, move both inward. Each element is absorbed at most once.
+
+<!-- thinking:end -->
+
 Define two pointers $i$ and $j$, pointing to the beginning and end of the array respectively, use variables $a$ and $b$ to represent the values of the first and last elements, and variable $ans$ to represent the number of operations.
 
 If $a < b$, we move the pointer $i$ one step to the right, i.e., $i \leftarrow i + 1$, then add the value of the element pointed to by $i$ to $a$, i.e., $a \leftarrow a + nums[i]$, and increment the operation count by one, i.e., $ans \leftarrow ans + 1$.

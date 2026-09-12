@@ -68,6 +68,16 @@ Note that the index 4 is not good because [4,1] is not non-decreasing.</pre>
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 10^5$, checking $k$ neighbors on each side per index can reach $O(nk)$. The two sides are independent, so precompute the non-increasing run ending at $i-1$ and the one starting at $i+1$.
+>
+> Fill $\textit{decr}$ left to right and $\textit{incr}$ right to left, then accept $i\in[k,n-k)$ when both runs are at least $k$. Both sides are non-increasing, matching the two $\le$ comparisons in the code.
+
+<!-- thinking:end -->
+
 We define two arrays `decr` and `incr`, which represent the longest non-increasing and non-decreasing subarray lengths from left to right and from right to left, respectively.
 
 We traverse the array, updating the `decr` and `incr` arrays.

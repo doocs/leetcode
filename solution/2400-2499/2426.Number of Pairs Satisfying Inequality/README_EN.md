@@ -74,6 +74,16 @@ Since there does not exist any pair that satisfies the conditions, we return 0.
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The inequality $nums1[i]-nums2[i]\le nums1[j]-nums2[j]+\textit{diff}$ for $i<j$ cannot be double-looped at $n\le 10^5$. With $v=a-b$ we count prior $v_i\le v_j+\textit{diff}$.
+>
+> After a shift, a Fenwick tree stores seen $v$. For each $j$ from left to right, query the prefix up to $v_j+\textit{diff}$, then insert $v_j$.
+
+<!-- thinking:end -->
+
 We can transform the inequality in the problem to $nums1[i] - nums2[i] \leq nums1[j] - nums2[j] + diff$. Therefore, if we calculate the difference between the corresponding elements of the two arrays and get another array $nums$, the problem is transformed into finding the number of pairs in $nums$ that satisfy $nums[i] \leq nums[j] + diff$.
 
 We can enumerate $j$ from small to large, find out how many numbers before it satisfy $nums[i] \leq nums[j] + diff$, and thus calculate the number of pairs. We can use a binary indexed tree to maintain the prefix sum, so we can find out how many numbers before it satisfy $nums[i] \leq nums[j] + diff$ in $O(\log n)$ time.

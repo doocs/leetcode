@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $pref[i]$ is the XOR of $arr[0..i]$. Then $pref[i]\oplus pref[i-1]=arr[i]$ with $pref[-1]=0$, so the original array is the adjacent-prefix XOR. One linear pass at $n\le 10^5$.
+
+<!-- thinking:end -->
+
 According to the problem statement, we have equation one:
 
 $$

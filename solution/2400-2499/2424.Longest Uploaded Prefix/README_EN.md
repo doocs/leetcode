@@ -77,6 +77,16 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Up to $2\times 10^5$ uploads and queries forbid scanning $[1,n]$ each time. The longest prefix is the largest $r$ such that $1..r$ are all uploaded; only uploading $r+1$ can extend it.
+>
+> Store uploaded ids in a set and keep $r$. After an upload, increment $r$ while $r+1$ is present. Each id advances $r$ at most once, so the extra work is linear overall.
+
+<!-- thinking:end -->
+
 We use a variable $r$ to record the current longest prefix of uploaded videos, and an array or hash table $s$ to record the videos that have been uploaded.
 
 Each time a video is uploaded, we set `s[video]` to `true`, then loop to check whether `s[r + 1]` is `true`. If it is, we update $r$.

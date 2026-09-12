@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An hourglass is a $3\times 3$ block minus the two side cells of the middle row. The grid is at most $150\times 150$, so enumerate every center $(i,j)$ and sum the seven cells in $O(mn)$.
+
+<!-- thinking:end -->
+
 We observe from the problem statement that each hourglass is a $3 \times 3$ matrix with the first and last elements of the middle row removed. Therefore, we can start from the top left corner, enumerate the middle coordinate $(i, j)$ of each hourglass, then calculate the sum of the elements in the hourglass, and take the maximum value.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.
