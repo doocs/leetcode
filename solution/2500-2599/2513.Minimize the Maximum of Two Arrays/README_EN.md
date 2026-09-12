@@ -81,6 +81,16 @@ It can be shown that it is not possible to obtain a lower maximum satisfying all
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must pick $\textit{uniqueCnt1}$ and $\textit{uniqueCnt2}$ distinct positives for the two arrays, forbidding multiples of $\textit{divisor1}$ and $\textit{divisor2}$ respectively, while minimizing the largest integer used. That maximum can be huge, so assigning from $1$ upward is impractical.
+>
+> Feasibility is monotone in the upper bound $x$, so binary-search $x$. The count of integers in $[1,x]$ not divisible by $d$ is $x-\lfloor x/d\rfloor$. Each array needs enough non-multiples of its divisor, and together they cannot exceed the count of integers not divisible by $\operatorname{lcm}(\textit{divisor1},\textit{divisor2})$. $\textit{bisect\_left}$ returns the smallest feasible $x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

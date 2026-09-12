@@ -79,6 +79,16 @@ tags:
 
 ### Solution 1: Hash Table + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two strings are similar iff they use the same set of letters. Pairwise set comparison is feasible at $n\le 100$, but building sets repeatedly ignores that equal sets are interchangeable.
+>
+> Twenty-six letters fit in an integer bitmask. While scanning, a hash map stores how many times each mask has occurred; the current string pairs with every previous one that shares its mask, then increments that count.
+
+<!-- thinking:end -->
+
 For each string, we can convert it into a binary number of length $26$, where the $i$-th bit being $1$ indicates that the string contains the $i$-th letter.
 
 If two strings contain the same letters, their binary numbers are the same. Therefore, for each string, we use a hash table to count the occurrences of its binary number. Each time we add the count to the answer, then increment the count of its binary number by $1$.

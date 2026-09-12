@@ -62,6 +62,16 @@ It can be proven that 8 is the minimum number of minutes needed.
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters may be taken only from the current left or right end. We need at least $k$ of each of $a,b,c$ and want the fewest takes. Enumerating prefix and suffix lengths is quadratic at $n\le 10^5$.
+>
+> What is taken is a prefix plus a suffix, so the remainder is a middle window. Equivalently, maximize a window such that every letter still occurs at least $k$ times outside it. If the global counts are already short, there is no answer. Otherwise slide the window: extend the right end and shrink the left whenever some count falls below $k$. The longest valid window yields the fewest deletions.
+
+<!-- thinking:end -->
+
 First, we use a hash table or an array of length $3$, denoted as $cnt$, to count the number of each character in string $s$. If any character appears less than $k$ times, it cannot be obtained, so we return $-1$ in advance.
 
 The problem asks us to remove characters from the left and right sides of the string, so that the number of each remaining character is not less than $k$. We can consider the problem in reverse: remove a substring of certain size in the middle, so that in the remaining string on both sides, the number of each character is not less than $k$.

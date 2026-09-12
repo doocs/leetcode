@@ -72,6 +72,16 @@ It can be proven that 2 is the maximum tastiness that can be achieved.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tastiness is the minimum pairwise difference among $k$ chosen prices, and we want that minimum as large as possible. Subset enumeration fails at $n\le 10^5$.
+>
+> If tastiness $x$ is achievable, every smaller value is too, so binary-search $x$. After sorting, pick greedily from the left whenever the gap from the last pick is at least $x$; $k$ picks witness feasibility. The search upper bound is $\max\textit{price}-\min\textit{price}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

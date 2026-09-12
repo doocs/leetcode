@@ -69,6 +69,16 @@ The great partitions will be ([6], [6]) and ([6], [6]).
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each element goes to exactly one of two groups, and both group sums must be at least $k$. There are $2^n$ assignments; $n$ and $k$ are up to $10^3$, so listing them is impossible, but a group whose sum is already below $k$ is exactly the forbidden case.
+>
+> If the total sum is less than $2k$, both sides cannot succeed and the answer is $0$. Otherwise subtract the bad partitions from $2^n$. A bad partition is a subset with sum $<k$ used as one side — a $0$-$1$ knapsack of capacity $k-1$. Either side may be the small one, so the bad count is twice the number of such subsets.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

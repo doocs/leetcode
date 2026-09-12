@@ -58,6 +58,16 @@ And we have 0 OR 1 OR 2 OR 3 OR 4 OR 5 OR 6 = 7, so we return 7.
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $2^n$ subsequence sums, which cannot be enumerated at $n\le 10^5$. The answer is their bitwise OR, so it suffices to know whether each bit can appear in some sum.
+>
+> A $1$ at bit $i$ may come from an original number or from pairwise carries of lower bits. After counting ones per bit, scan upward: if the count is positive, OR that bit into the answer and add $\lfloor cnt[i]/2\rfloor$ to the next bit, thereby accounting for every possible carry.
+
+<!-- thinking:end -->
+
 We first use an array $cnt$ to count the number of 1s in each bit position. Then, from the lowest bit to the highest bit, if the number of 1s in that bit position is greater than 0, we add the value represented by that bit to the answer. Then, we check if there can be a carry-over, and if so, we add it to the next bit.
 
 The time complexity is $O(n \times \log M)$, where $n$ is the length of the array and $M$ is the maximum value in the array.

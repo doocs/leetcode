@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths from the top-left to the bottom-right only move right or down, so their length is $m+n-1$. An odd length cannot split equally between $0$s and $1$s. Full path enumeration is too large for $m,n\le 100$.
+>
+> The target is $s=(m+n-1)/2$ ones (and the same number of zeros). State $(i,j,k)$ is position $(i,j)$ with $k$ ones so far; prune when $k$ or the zero count already exceeds $s$. Memoization yields $O(mn(m+n))$ states.
+
+<!-- thinking:end -->
+
 According to the problem description, we know that the number of 0s and 1s on the path from the top-left corner to the bottom-right corner is equal, and the total number is $m + n - 1$, which means the number of 0s and 1s are both $(m + n - 1) / 2$.
 
 Therefore, we can use memoization search, starting from the top-left corner and moving right or down until reaching the bottom-right corner, to check if the number of 0s and 1s on the path is equal.

@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Brute Force Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace $n$ by the sum of its prime factors until the value stops changing. Direct simulation is fine for $n\le 10^5$: the sum is strictly smaller on composites and equals $n$ on primes, so the process terminates.
+>
+> Trial-divide the current value and add the factors. If the sum equals the original, the fixed point is reached; otherwise continue. Each factorization is $O(\sqrt{n})$ and few iterations occur.
+
+<!-- thinking:end -->
+
 According to the problem statement, we can perform a process of prime factorization, i.e., continuously decompose a number into its prime factors until it can no longer be decomposed. During the process, add the prime factors each time they are decomposed, and perform this recursively or iteratively.
 
 The time complexity is $O(\sqrt{n})$.

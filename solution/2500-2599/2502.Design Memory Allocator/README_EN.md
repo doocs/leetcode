@@ -85,6 +85,16 @@ loc.freeMemory(7); // Free all memory units with mID 7. The memory array remains
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Allocation must occupy $\textit{size}$ consecutive free units at the leftmost feasible index; freeing returns every unit held by a given $\textit{mID}$. With $n,q\le 10^3$, a full scan per call is only $O(nq)$.
+>
+> Mark occupancy in an array of length $n$: $0$ means free. Allocation counts consecutive zeros and writes $\textit{mID}$ once $\textit{size}$ is reached; freeing walks the array, clears cells equal to $\textit{mID}$, and counts them.
+
+<!-- thinking:end -->
+
 The data range of the problem is not large, so we can directly use an array to simulate the memory space.
 
 During initialization, set each element in the array to $0$, indicating it's free.
@@ -316,6 +326,16 @@ class Allocator {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans the whole memory on every call. If we store only occupied intervals, free segments are the gaps between adjacent blocks.
+>
+> Keep occupied ranges in a sorted list, with sentinels $(-1,-1)$ and $(n,n)$. Allocation first-fits a gap of sufficient length; a hash map records the intervals of each $\textit{mID}$ so freeing deletes those blocks. Each call is logarithmic in the number of occupied blocks.
+
+<!-- thinking:end -->
 
 We can use an ordered set to maintain the start and end indices of all allocated memory units, where the start index is the key and the end index is the value. Additionally, we use a hash table to maintain the `mID` and its corresponding start index of the memory unit.
 
