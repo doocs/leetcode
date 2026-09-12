@@ -69,6 +69,16 @@ phoneDirectory.check(2);   // Number 2 is available again, return true.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pool of numbers: allocate, query free, release, all in expected constant time. Scanning an array for a free slot is slow.
+>
+> A hash set holds unused numbers. `get` pops any element, `check` tests membership, `release` inserts. An empty set yields $-1$.
+
+<!-- thinking:end -->
+
 We can use a hash set `available` to store unallocated phone numbers. Initially, the hash set contains `[0, 1, 2, ..., maxNumbers - 1]`.
 
 When the `get` method is called, we take an unallocated phone number from `available`. If `available` is empty, we return `-1`. The time complexity is $O(1)$.

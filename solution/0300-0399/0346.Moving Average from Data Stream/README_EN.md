@@ -63,6 +63,16 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 
 ### Solution 1: Circular Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A moving average over a fixed window. Resumming the window is $O(size)$. Keep the running sum for $O(1)$ updates.
+>
+> A circular buffer overwrites index $cnt\bmod size$: subtract the old value, add the new one. The average is $s/\min(cnt,size)$.
+
+<!-- thinking:end -->
+
 We define a variable $\textit{s}$ to calculate the sum of the last $\textit{size}$ elements, and a variable $\textit{cnt}$ to record the total number of current elements. Additionally, we use an array $\textit{data}$ of length $\textit{size}$ to record the value of each element at each position.
 
 When calling the $\textit{next}$ function, we first calculate the index $i$ where $\textit{val}$ should be stored, then update the sum $s$, set the value at index $i$ to $\textit{val}$, and increment the element count by one. Finally, we return the value of $\frac{s}{\min(\textit{cnt}, \textit{size})}$.
@@ -217,6 +227,14 @@ class MovingAverage {
 <!-- solution:start -->
 
 ### Solution 2: Queue
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Modular indexing is easy to get wrong. A queue stores the window: when full, pop the front and subtract, then append. Same meaning, clearer code.
+
+<!-- thinking:end -->
 
 We can use a queue $\textit{q}$ to store the last $\textit{size}$ elements, and a variable $\textit{s}$ to record the sum of these $\textit{size}$ elements.
 

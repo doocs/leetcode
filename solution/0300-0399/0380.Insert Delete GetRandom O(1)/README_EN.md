@@ -69,6 +69,16 @@ randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom()
 
 ### Solution 1: Hash Table + Dynamic List
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A set with insert, delete, and uniform random, all $O(1)$. A hash map alone has no index; an array alone deletes in $O(n)$.
+>
+> The array holds values, the map holds indices. Insert appends; delete swaps with the last element, pops, and repairs that index. Random is `choice` on the array.
+
+<!-- thinking:end -->
+
 We define a dynamic list $q$ to store the elements in the set, and a hash table $d$ to store the index of each element in $q$.
 
 When inserting an element, if the element already exists in the hash table $d$, return `false` directly; otherwise, we insert the element into the end of the dynamic list $q$, and insert the element and its index in $q$ into the hash table $d$ at the same time, and finally return `true`.

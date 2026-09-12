@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Guess a number in $[1,n]$; `guess` says higher or lower. Linear probes take $n$ tries. The range is sorted, so binary search.
+>
+> Find the first $x$ with `guess(x)\le 0`. The code uses key $-guess(x)$ and a single `bisect`.
+
+<!-- thinking:end -->
+
 We perform a binary search in the interval $[1,..n]$, and find the first number that satisfies `guess(x) <= 0`, which is the answer.
 
 The time complexity is $O(\log n)$, where $n$ is the upper limit given in the problem. The space complexity is $O(1)$.

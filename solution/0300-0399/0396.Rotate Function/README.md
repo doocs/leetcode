@@ -70,6 +70,16 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $F(k)=\sum i\cdot \textit{nums}[(i+k)\bmod n]$，求最大 $F$。每次旋转后重算为 $O(n^2)$。相邻 $F$ 有线性关系。
+>
+> $F(k+1)=F(k)+\sum nums-n\cdot nums[n-1-k]$。先算 $F(0)$，再滚 $n-1$ 次取最大。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

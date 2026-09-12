@@ -65,6 +65,16 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 ### 方法一：循环数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数据流上固定窗口的平均值。每次重算窗口和为 $O(size)$。维护和即可 $O(1)$ 更新。
+>
+> 循环数组记下窗口，下标 $cnt\bmod size$ 覆盖最旧值：和先减旧加新。平均值为 $s/\min(cnt,size)$。
+
+<!-- thinking:end -->
+
 我们定义一个变量 $\textit{s}$，用于计算当前最后 $\textit{size}$ 个元素的和，用一个变量 $\textit{cnt}$ 记录当前元素的总数。另外，我们用一个长度为 $\textit{size}$ 的数组 $\textit{data}$ 记录每个位置的元素对应的值。
 
 调用 $\textit{next}$ 函数时，我们先计算出 $\textit{val}$ 要存放的下标 $i$，然后我们更新元素和 $s$，并且将下标 $i$ 处的值设置为 $\textit{val}$，同时将元素的个数加一。最后，我们返回 $\frac{s}{\min(\textit{cnt}, \textit{size})}$ 的值即可。
@@ -219,6 +229,14 @@ class MovingAverage {
 <!-- solution:start -->
 
 ### 方法二：队列
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 循环数组需手写取模。队列保存窗口：满则弹出队首并减和，再入队新值。语义相同，实现更直观。
+
+<!-- thinking:end -->
 
 我们可以使用一个队列 $\textit{q}$ 来存储最后 $\textit{size}$ 个元素，同时用一个变量 $\textit{s}$ 来记录这 $\textit{size}$ 个元素的和。
 

@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest subarray summing to $k$. A double loop is $O(n^2)$. The sum is a prefix difference $s_i-s_j=k$, so we want the leftmost $s_j=s_i-k$.
+>
+> Store the first index of each prefix (including $0\mapsto -1$). When $s-k$ exists, update the length by $i-j$; write $s$ only if unseen so the leftmost endpoint stays.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{d}$ to record the first occurrence index of each prefix sum in the array $\textit{nums}$, initializing $\textit{d}[0] = -1$. Additionally, we define a variable $\textit{s}$ to keep track of the current prefix sum.
 
 Next, we iterate through the array $\textit{nums}$. For the current number $\textit{nums}[i]$, we update the prefix sum $\textit{s} = \textit{s} + \textit{nums}[i]$. If $\textit{s} - k$ exists in the hash table $\textit{d}$, let $\textit{j} = \textit{d}[\textit{s} - k]$, then the length of the subarray that ends at $\textit{nums}[i]$ and satisfies the condition is $i - j$. We use a variable $\textit{ans}$ to maintain the length of the longest subarray that satisfies the condition. After that, if $\textit{s}$ does not exist in the hash table, we record $\textit{s}$ and its corresponding index $i$ by setting $\textit{d}[\textit{s}] = i$. Otherwise, we do not update $\textit{d}[\textit{s}]$. It is important to note that there may be multiple positions $i$ with the same value of $\textit{s}$, so we only record the smallest $i$ to ensure the subarray length is the longest.

@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the points are symmetric about some vertical line. Trying every candidate axis is unnecessary: if one exists, it is the midpoint of the extreme $x$-coordinates.
+>
+> Let $s=\min x+\max x$. Every $(x,y)$ must have $(s-x,y)$ in the set. Load the points, then test once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Index of the first unique character. One left-to-right pass cannot know about later repeats.
+>
+> Count, then scan for frequency $1$; else $-1$. Two linear passes, alphabet space.
+
+<!-- thinking:end -->
+
 We use a hash table or an array of length $26$ $\text{cnt}$ to store the frequency of each character. Then, we traverse each character $\text{s[i]}$ from the beginning. If $\text{cnt[s[i]]}$ is $1$, we return $i$.
 
 If no such character is found after the traversal, we return $-1$.

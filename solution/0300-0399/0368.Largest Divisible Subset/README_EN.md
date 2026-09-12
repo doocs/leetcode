@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Any two numbers in the subset must divide each other. Unsorted values do not form a chain. After sorting, a larger value only needs to be a multiple of a smaller one — the same shape as LIS.
+>
+> $f[i]$ is the longest divisible subset ending at $nums[i]$. If $nums[i]\% nums[j]=0$, take $f[j]+1$. Remember the best index and walk backward, peeling length $m,m-1,\ldots$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

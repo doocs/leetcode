@@ -65,6 +65,16 @@ The additive sequence is: 1, 99, 100, 199.&nbsp;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An additive number concatenates at least three numbers, each after the second being the sum of the previous two. Once the first two addends are fixed, the rest of the string is determined.
+>
+> Enumerate the split points of the first two numbers, skip leading zeros, and recursively check that each remaining prefix equals their sum. On a match, roll the pair forward; success means the string is consumed. The length bound keeps the enumeration feasible.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

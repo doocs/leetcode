@@ -73,6 +73,16 @@ hitCounter.getHits(301); // get hits at timestamp 301, return 3.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count hits in the last $300$ seconds. Timestamps increase. A queue that drops stale hits works; a list plus binary search is shorter.
+>
+> `hit` appends; `getHits` bisects the first index $\ge timestamp-299$ and returns the suffix length.
+
+<!-- thinking:end -->
+
 Since `timestamp` is monotonically increasing, we can use an array `ts` to store all `timestamp`s. Then in the `getHits` method, we use binary search to find the first position that is greater than or equal to `timestamp - 300 + 1`, and then return the length of `ts` minus this position.
 
 In terms of time complexity, the time complexity of the `hit` method is $O(1)$, and the time complexity of the `getHits` method is $O(\log n)$. Where $n$ is the length of `ts`.

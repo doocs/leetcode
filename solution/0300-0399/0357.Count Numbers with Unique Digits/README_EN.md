@@ -51,6 +51,16 @@ tags:
 
 ### Solution 1: State Compression + Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count integers with at most $n$ digits and all distinct digits (including $0$). Brute force still works for $n=8$, but digit DP handles leading zeros and used digits uniformly.
+>
+> $dfs(i,mask,lead)$ is the remaining $i+1$ positions, the used-digit mask, and whether we are still leading zeros. A leading zero does not occupy a digit; otherwise $j$ enters the mask. Start at $i=n-1$; the memoized state space is small.
+
+<!-- thinking:end -->
+
 This problem essentially asks for the number of numbers in the given range $[l, ..r]$ that satisfy certain conditions. The conditions are related to the composition of the numbers rather than their size, so we can use the concept of Digit DP to solve it. In Digit DP, the size of the number has little impact on the complexity.
 
 For the range $[l, ..r]$ problem, we generally convert it to the problem of $[1, ..r]$ and then subtract the result of $[1, ..l - 1]$, i.e.:

@@ -53,6 +53,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $n$ into at least two positives maximizing the product. Listing partitions is large. If the last part is $j$, the rest is either kept whole or already optimal.
+>
+> $f[i]=\max_j \max(f[i-j]\cdot j,\,(i-j)\cdot j)$ with $f[1]=1$. Fill by increasing $i$; the answer is $f[n]$. $n\le 58$ allows $O(n^2)$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the maximum product that can be obtained by splitting the positive integer $i$, with an initial condition of $f[1] = 1$. The answer is $f[n]$.
 
 Consider the last number $j$ split from $i$, where $j \in [1, i)$. For the number $j$ split from $i$, there are two cases:
@@ -226,6 +236,14 @@ int integerBreak(int n) {
 <!-- solution:start -->
 
 ### Solution 1: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 does not name the optimal parts. For $n\ge 4$ use as many $3$s as possible; a remainder $1$ becomes $2+2$, a remainder $2$ keeps an extra $2$. For $n<4$ the product is $n-1$. Closed form in $O(1)$.
+
+<!-- thinking:end -->
 
 When $n < 4$, since the problem requires splitting into at least two integers, $n - 1$ yields the maximum product. When $n \geq 4$, we split into as many $3$s as possible. If the last segment remaining is $4$, we split it into $2 + 2$ for the maximum product.
 

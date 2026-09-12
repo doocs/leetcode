@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bomb on an empty cell kills enemies in four directions until a wall. Scanning from every empty cell is $O(mn(m+n))$. Cells in the same wall-bounded run share a count.
+>
+> Sweep each row both ways and each column both ways, adding enemies in the current run onto every cell. An empty cell’s four-way sum is the kill count; take the max, or $0$ if none.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

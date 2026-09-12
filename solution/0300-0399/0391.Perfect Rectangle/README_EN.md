@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Can the small rectangles tile a large one without gaps or overlaps? Sweep lines are heavy. A perfect cover has equal area, and every vertex except the four outer corners appears an even number of times ($2$ or $4$).
+>
+> Sum areas and count vertices. The bounding-box corners must appear once; every other vertex $2$ or $4$ times; area equals the bounding box.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

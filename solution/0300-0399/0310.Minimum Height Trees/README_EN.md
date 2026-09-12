@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Topological Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Height is the distance from the root to the farthest leaf. BFS from every node is $O(n^2)$. The center of the tree diameter — one or two nodes — is exactly the set of minimum-height roots.
+>
+> Leaves have degree $1$. Peel them inward together (a topological peel): each layer decrements neighbors, and new degree-$1$ nodes enqueue. The last remaining layer is the center. A single node is returned as-is.
+
+<!-- thinking:end -->
+
 If the tree only has one node, then this node is the root of the minimum height tree. We can directly return this node.
 
 If the tree has multiple nodes, there must be leaf nodes. A leaf node is a node that only has one adjacent node. We can use topological sorting to peel off the leaf nodes from the outside to the inside. When we reach the last layer, the remaining nodes are the root nodes of the minimum height tree.

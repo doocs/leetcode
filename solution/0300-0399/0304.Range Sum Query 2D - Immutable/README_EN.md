@@ -72,6 +72,16 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 
 ### Solution 1: Two-dimensional Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix is immutable and many sub-rectangle sums are requested. Adding cells on the fly per query does not scale.
+>
+> A 2D prefix $s[i+1][j+1]$ stores the sum of the rectangle from the origin to $(i,j)$. Inclusion-exclusion then yields any target in four lookups: add the bottom-right prefix, subtract the top and left strips, and add back the overlapping corner. After an $O(mn)$ build each query is $O(1)$.
+
+<!-- thinking:end -->
+
 We use $s[i + 1][j + 1]$ to represent the sum of all elements in the upper left part of the $i$th row and $j$th column, where indices $i$ and $j$ both start from $0$. We can get the following prefix sum formula:
 
 $$

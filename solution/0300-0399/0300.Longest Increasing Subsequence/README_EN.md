@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subsequence must keep relative order and increase strictly. Enumerating all subsequences explodes with $n$; $n \le 2500$ still allows an $O(n^2)$ transfer by ending index.
+>
+> The LIS ending at $nums[i]$ depends only on smaller values to its left. Define $f[i]$ as that length, and for each $j < i$ with $nums[j] < nums[i]$ take $\max(f[j]+1)$. A singleton has length $1$, and the answer is $\max f$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -186,6 +196,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 scans the left side linearly for the best $f[j]$ below $x$, which costs $O(n^2)$. After discretizing values, that query is a prefix maximum on ranks, which a Fenwick tree maintains in $O(\log n)$.
+>
+> Scan each $x$ in original order: query the prefix max strictly below $x$, then write $x$. Only left-hand information is used, so the recurrence matches Method 1 in $O(n \log n)$ time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

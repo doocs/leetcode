@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Vertical order lists columns left to right and, within a column, top to bottom. DFS is not level order, so a column may see a deep node first.
+>
+> Record depth and horizontal offset, bucket by column, then sort each bucket by depth. Sorting column keys yields left-to-right order.
+
+<!-- thinking:end -->
+
 DFS traverses the binary tree, recording the value, depth, and horizontal offset of each node. Then sort all nodes by horizontal offset from small to large, then by depth from small to large, and finally group by horizontal offset.
 
 The time complexity is $O(n\log \log n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
@@ -236,6 +246,14 @@ func verticalOrder(root *TreeNode) [][]int {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 still sorts each column by depth. BFS visits shallower nodes first, so a column is already top-down; only column keys need sorting. Enqueue left/right with offsets $-1$ and $+1$.
+
+<!-- thinking:end -->
 
 A better approach to this problem should be BFS, traversing from top to bottom level by level.
 

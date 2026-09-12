@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest substring in which every present character occurs at least $k$ times. A distinct-count window does not capture “all $\ge k$”. A character that appears fewer than $k$ times in the whole range cannot appear in any legal substring, so it is a split point.
+>
+> Count the range, split on a rare character, and recurse; if none exists the range is legal. Depth is at most $26$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

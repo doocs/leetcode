@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Eulerian Path
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Use every ticket once and produce the lexicographically smallest itinerary: an Eulerian path starting at `JFK`.
+>
+> Store destinations in reverse order so the last pop is the smallest next hop. Append nodes in postorder and reverse; dead ends are recorded first. A tour is guaranteed.
+
+<!-- thinking:end -->
+
 The problem is essentially about finding a path that starts from a specified starting point, passes through all the edges exactly once, and has the smallest lexicographical order among all such paths, given $n$ vertices and $m$ edges. This is a classic Eulerian path problem.
 
 Since the problem guarantees that there is at least one feasible itinerary, we can directly use the Hierholzer algorithm to output the Eulerian path starting from the starting point.

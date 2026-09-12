@@ -76,6 +76,16 @@ tags:
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两壶容量 $x,y$，问能否得到总量 $z$。贝祖定理给出 $z$ 为 $\gcd$ 的倍数即可，也可用状态搜索验证。状态数为 $O(xy)$，容量不大时可行。
+>
+> $dfs(i,j)$ 表示两壶当前水量。已访问则失败；某一壶或总和为 $z$ 则成功。否则尝试加满、倒空、相互倾倒。从 $(0,0)$ 出发。
+
+<!-- thinking:end -->
+
 我们不妨记 $\textit{jug1Capacity}$ 为 $x$, $\textit{jug2Capacity}$ 为 $y$, $\textit{targetCapacity}$ 为 $z$。
 
 接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水，$jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。

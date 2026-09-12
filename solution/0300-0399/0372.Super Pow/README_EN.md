@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a$ is raised to a huge decimal $b$ given as digits; return $a^b\bmod 1337$. Building $b$ as one integer is awkward. Write $b=\cdots+e_i\cdot 10^i$.
+>
+> From low digit to high: multiply by $a^{e}$, then replace the base with $a^{10}$. Modular fast pow keeps each step $O(\log e)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -76,6 +76,16 @@ So return 7.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find an empty cell minimizing the sum of distances to every building, without crossing buildings or obstacles. BFS from every empty cell repeats work when buildings are few and empties are many.
+>
+> BFS from each building instead, adding the distance into $dist$ and incrementing $cnt$. Among empties with $cnt$ equal to the building total, take the smallest $dist$; if none is reached by every building, return $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

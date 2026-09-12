@@ -81,6 +81,16 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Simulate snake: out of bounds or self-bite ends the game; food grows the body. The body is a queue with frequent head/tail updates.
+>
+> A deque stores the body (head at the front) and a set tests collisions. Compute the new head: $-1$ if out of bounds; on food, score and keep the tail, otherwise pop the tail. Then reject a body hit and push the head. Removing the tail first makes the old tail cell legal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

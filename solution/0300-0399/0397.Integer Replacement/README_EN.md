@@ -68,6 +68,16 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even: divide by $2$; odd: $\pm 1$. Minimize steps to $1$. BFS works; a bit greedy is shorter. Evens must shift; odds with suffix $11$ (except $3$) increment to clear more ones, otherwise decrement.
+>
+> Treat $3$ as decrement so we do not go $3\to 4$. Loop until $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

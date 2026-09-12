@@ -71,6 +71,16 @@ twitter.getNewsFeed(1);  // User 1&#39;s news feed should return a list with 1 t
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Post, follow, and fetch the ten most recent tweets from a user and followees. A full scan of all tweets is wasteful.
+>
+> Store each user’s tweets and follow set, and stamp tweets with a global clock. A feed gathers the latest ten from each relevant user and keeps the ten newest. Follow/unfollow only edit the set.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

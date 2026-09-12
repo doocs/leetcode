@@ -68,6 +68,16 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $F(k)=\sum i\cdot \textit{nums}[(i+k)\bmod n]$; maximize $F$. Recomputing each rotation is $O(n^2)$. Consecutive $F$ values differ by a closed form.
+>
+> $F(k+1)=F(k)+\sum nums-n\cdot nums[n-1-k]$. Compute $F(0)$, then roll $n-1$ times and keep the max.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

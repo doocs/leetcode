@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Trial Division
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether $n$ is a power of three. Repeated multiplication works, but trial division is direct: while $n>2$, reject a non-multiple of $3$, otherwise divide by $3$. The last residue must be $1$.
+
+<!-- thinking:end -->
+
 If $n \gt 2$, we can continuously divide $n$ by $3$. If it's not divisible, it means $n$ is not a power of $3$, otherwise we continue dividing by $3$ until $n$ is less than or equal to $2$. If $n$ equals $1$, it means $n$ is a power of $3$, otherwise it's not a power of $3$.
 
 Time complexity $O(\log_3n)$, space complexity $O(1)$.
@@ -184,6 +192,14 @@ var isPowerOfThree = function (n) {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trial division takes $O(\log n)$ steps. The largest power of three in $32$ bits is $3^{19}=1162261467$; a positive $n$ is a power of three iff it divides that constant. One modulo suffices.
+
+<!-- thinking:end -->
 
 If $n$ is a power of $3$, then the maximum value of $n$ is $3^{19} = 1162261467$. Therefore, we only need to check if $n$ is a divisor of $3^{19}$.
 

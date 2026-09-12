@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep odd-positioned nodes before even-positioned ones, preserving order. An extra list is easy; $O(1)$ space is required.
+>
+> Let $a$ and $b$ trail the odd and even chains, and $c$ remember the even head. Repeatedly splice $b.next$ after $a$, then the new successor after $b$, until the even chain ends. Set $a.next=c$.
+
+<!-- thinking:end -->
+
 We can use two pointers $a$ and $b$ to represent the tail nodes of the odd and even nodes respectively. Initially, pointer $a$ points to the head node $head$ of the list, and pointer $b$ points to the second node $head.next$ of the list. In addition, we use a pointer $c$ to point to the head node $head.next$ of the even nodes, which is the initial position of pointer $b$.
 
 We traverse the list, set pointer $a$ to point to the next node of $b$, i.e., $a.next = b.next$, then move pointer $a$ back by one position, i.e., $a = a.next$; set pointer $b$ to point to the next node of $a$, i.e., $b.next = a.next$, then move pointer $b$ back by one position, i.e., $b = b.next$. Continue to traverse until $b$ reaches the end of the list.

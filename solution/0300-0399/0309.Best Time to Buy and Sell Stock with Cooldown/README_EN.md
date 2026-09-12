@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may trade many times, but a sell forces a one-day cooldown. A raw decision tree over day, holding, and cooldown revisits the same states.
+>
+> Compress to $(i,j)$: starting at day $i$, whether we hold. Skip the day; if holding, sell and jump to $i+2$; if free, buy and start holding. Memoization evaluates each state once; the extra day after a sell is the cooldown.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$, which represents the maximum profit that can be obtained starting from the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. The answer is $dfs(0, 0)$.
 
 The execution logic of the function $dfs(i, j)$ is as follows:
@@ -217,6 +227,16 @@ function maxProfit(prices: number[]): number {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memoized recursion is the same recurrence filled forward. Let $f[i][0/1]$ be the best profit after day $i$ free or holding. Free comes from staying free or selling today; holding comes from staying put or buying after cooldown, i.e. from $f[i-2][0]$.
+>
+> Fill left to right; the answer is free on the last day. Time stays $O(n)$ without recursion.
+
+<!-- thinking:end -->
+
 We can also use dynamic programming to solve this problem.
 
 We define $f[i][j]$ to represent the maximum profit that can be obtained on the $i$th day with state $j$. The values of $j$ are $0$ and $1$, respectively representing currently not holding a stock and holding a stock. Initially, $f[0][0] = 0$, $f[0][1] = -prices[0]$.
@@ -318,6 +338,14 @@ function maxProfit(prices: number[]): number {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 only reads $i-1$ and $i-2$, so the full table is unnecessary. Three rolling variables (free two days ago, free yesterday, holding yesterday) implement the same transfers in $O(1)$ space.
+
+<!-- thinking:end -->
 
 The transition only needs the previous two days, so three variables are enough and the space complexity is $O(1)$.
 

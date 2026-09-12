@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A product counts only when two words share no letter. Set intersection is $O(\sigma)$ per pair; we need a cheaper disjointness test.
+>
+> Pack each word into a $26$-bit mask; bitwise AND zero means disjoint. Check every pair $i>j$ and keep the max product. $n\le 1000$ allows $O(n^2)$.
+
+<!-- thinking:end -->
+
 The problem requires us to find two strings without common letters, so that their length product is maximized. We can represent each string with a binary number $mask[i]$, where each bit of this binary number indicates whether the string contains a certain letter. If two strings do not have common letters, then the bitwise AND result of the two binary numbers corresponding to these strings is $0$, that is, $mask[i] \& mask[j] = 0$.
 
 We traverse each string. For the current string $words[i]$ we are traversing, we first calculate the corresponding binary number $mask[i]$, and then traverse all strings $words[j]$ where $j \in [0, i)$. We check whether $mask[i] \& mask[j] = 0$ holds. If it holds, we update the answer to $\max(ans, |words[i]| \times |words[j]|)$.
@@ -184,6 +194,14 @@ function maxProduct(words: string[]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 compares words that share a mask many times. Store the longest word per mask and compare only against seen masks. Duplicate alphabets collapse to one length.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

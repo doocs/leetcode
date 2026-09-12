@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Hash Table + Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$ most frequent values. Full sort is $O(n\log n)$. Only the top $k$ frequencies matter.
+>
+> Count, then select the $k$ largest frequencies. `Counter.most_common(k)` is a heap selection in $O(n\log k)$.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to count the occurrence of each element, and then use a min heap (priority queue) to store the top $k$ frequent elements.
 
 First, we traverse the array once to count the occurrence of each element. Then, we iterate through the hash table, storing each element and its count into the min heap. If the size of the min heap exceeds $k$, we pop the top element of the heap to ensure the heap size is always $k$.

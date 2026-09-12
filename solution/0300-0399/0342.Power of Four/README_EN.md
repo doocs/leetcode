@@ -51,6 +51,16 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether $n$ is a power of four. Dividing by four works; a bit test is closed form. $4^x=2^{2x}$, so $n$ must be positive, have a single $1$, and that $1$ must sit on an even bit.
+>
+> $n\&(n-1)=0$ forces a power of two; $n\&\texttt{0xAAAAAAAA}=0$ rejects a $1$ on an odd bit. All three checks together suffice.
+
+<!-- thinking:end -->
+
 If a number is a power of $4$, then it must be greater than $0$. Suppose this number is $4^x$, which is $2^{2x}$. Therefore, its binary representation has only one $1$, and this $1$ appears at an even position.
 
 First, we check if the number is greater than $0$. Then, we verify if the number is $2^{2x}$ by checking if the bitwise AND of $n$ and $n-1$ is $0$. Finally, we check if the $1$ appears at an even position by verifying if the bitwise AND of $n$ and $\textit{0xAAAAAAAA}$ is $0$. If all three conditions are met, then the number is a power of $4$.

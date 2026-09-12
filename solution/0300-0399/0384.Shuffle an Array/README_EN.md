@@ -67,6 +67,16 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reset and a uniform shuffle. Reset needs a copy of the original. Fisher–Yates swaps $i$ with a uniform index in $[i,n)$, so every permutation is equally likely.
+>
+> `reset` copies from the backup; `shuffle` permutes in place.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
