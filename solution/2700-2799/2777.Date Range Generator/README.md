@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2777.Date%20Range%20Generator/README.md
 tags:
     - JavaScript
 ---

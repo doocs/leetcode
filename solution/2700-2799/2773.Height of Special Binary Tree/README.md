@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2773.Height%20of%20Special%20Binary%20Tree/README.md
 tags:
     - 树
     - 深度优先搜索
