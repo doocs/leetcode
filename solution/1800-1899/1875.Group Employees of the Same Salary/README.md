@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README.md
 tags:
     - 数据库
 ---
