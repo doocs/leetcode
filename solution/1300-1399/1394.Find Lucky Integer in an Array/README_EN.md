@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A lucky integer occurs as many times as its value; we want the largest. After counting, keep the maximum $x$ with $x=v$, or $-1$ if none exists.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each number in $\textit{arr}$. Then, we iterate through $\textit{cnt}$ to find the largest $x$ such that $\textit{cnt}[x] = x$. If there is no such $x$, return $-1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the $\textit{arr}$.

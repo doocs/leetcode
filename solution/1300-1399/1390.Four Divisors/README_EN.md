@@ -66,6 +66,14 @@ The answer is the sum of divisors of 21 only.
 
 ### Solution 1: Factor Decomposition
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum the divisors of every integer that has exactly four divisors. Values are at most $10^5$, so trial division up to $\sqrt{x}$ lists them all. We count and sum together and keep the sum only when the count is $4$.
+
+<!-- thinking:end -->
+
 We can perform factor decomposition on each number. If the number of factors is $4$, then this number meets the requirements of the problem, and we can add its factors to the answer.
 
 The time complexity is $O(n \times \sqrt{n})$, where $n$ is the length of the array. The space complexity is $O(1)$.

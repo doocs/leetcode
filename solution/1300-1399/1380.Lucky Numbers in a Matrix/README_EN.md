@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Maintain Row Minimum and Column Maximum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A lucky number is the minimum of its row and the maximum of its column. All entries are distinct, so the intersection of the set of row minima and the set of column maxima is exactly the answer.
+
+<!-- thinking:end -->
+
 We can use two arrays $rows$ and $cols$ to record the minimum value of each row and the maximum value of each column in the matrix. Then, we traverse each element in the matrix, checking whether this element is the minimum value of its row and the maximum value of its column. If it is, then this element is a lucky number, and we add it to the answer array.
 
 After the traversal is finished, we return the answer array.

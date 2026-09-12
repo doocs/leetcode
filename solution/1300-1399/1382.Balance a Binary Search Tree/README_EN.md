@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1: In-order Traversal + Construct Balanced Binary Search Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rebalance a BST without changing the inorder sequence. An inorder walk yields a sorted array; recursively taking the midpoint as the root builds a tree of height $\log n$ that is still a BST.
+
+<!-- thinking:end -->
+
 Since the original tree is a binary search tree, we can save the result of the in-order traversal in an array $nums$. Then we design a function $build(i, j)$, which is used to construct a balanced binary search tree within the index range $[i, j]$ in $nums$. The answer is $build(0, |nums| - 1)$.
 
 The execution logic of the function $build(i, j)$ is as follows:

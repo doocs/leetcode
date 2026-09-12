@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick $n$ slices from a circle of $3n$ without taking neighbors, maximizing the sum. The problem reduces to selecting $n$ non-adjacent values on a cycle. The first and last conflict, so we solve the linear problem twice (drop the first, or drop the last). $f[i][j]$ is the best sum picking $j$ from the first $i$: skip $i$, or take it with $f[i-2][j-1]$. The answer is the better of the two linear results.
+
+<!-- thinking:end -->
+
 We can transform this problem into: In a circular array of length $3n$, select $n$ non-adjacent numbers so that the sum of these $n$ numbers is maximized.
 
 The proof is as follows:

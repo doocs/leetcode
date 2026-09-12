@@ -119,6 +119,14 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Check-in, check-out, and the average time between two stations must be $O(1)$. Map each $\textit{id}$ to its check-in time and station; on check-out, add the duration into a $(\textit{start},\textit{end})\mapsto(\textit{total},\textit{count})$ table. The average is that ratio.
+
+<!-- thinking:end -->
+
 We use two hash tables to store data:
 
 - `ts`: Stores the passenger's id, check-in time, and check-in station. The key is the passenger's id, and the value is a tuple `(t, stationName)`.

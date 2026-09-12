@@ -86,6 +86,14 @@ Corona Masks 股票在第1天以10美元的价格买入，在第3天以1010美�
 
 ### 方法一：GROUP BY + SUM(IF())
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按股票汇总资本损益：卖出加价、买入减价。对 $\textit{stock\_name}$ 分组后，$\mathrm{SUM}(\mathrm{IF}(\textit{operation}=\texttt{'Buy'},-\textit{price},\textit{price}))$ 一次求出净额。
+
+<!-- thinking:end -->
+
 我们使用 `GROUP BY` 将同一支股票的买卖操作分组，然后使用 `SUM(IF())` 计算每支股票的资本损益。
 
 <!-- tabs:start -->

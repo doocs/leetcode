@@ -97,6 +97,14 @@ Orders table:
 
 ### Solution 1: LEFT JOIN + GROUP BY + HAVING
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers who bought $A$ and $B$ but never $C$. Left-join customers to orders, group by customer, and require $\mathrm{SUM}(\textit{product}=A)>0$, the same for $B$, and a zero sum for $C$.
+
+<!-- thinking:end -->
+
 We can use `LEFT JOIN` to join the `Customers` table and the `Orders` table, then group them by `customer_id`, and finally filter out the customers who have purchased products A and B but not product C.
 
 <!-- tabs:start -->

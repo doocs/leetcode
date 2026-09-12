@@ -75,6 +75,14 @@ The fourth number in the sorted array is 7.
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort $[lo,hi]$ by Collatz steps to $1$, then by the value, and return the $k$-th. The range has at most $1000$ integers, so simulating each $x$ is enough; a cache avoids repeating a chain. Sorting by $f$ and indexing $k-1$ is the answer.
+
+<!-- thinking:end -->
+
 First, we define a function $\textit{f}(x)$, which represents the number of steps required to transform the number $x$ into $1$, i.e., the power value of the number $x$.
 
 Then, we sort all the numbers in the interval $[\textit{lo}, \textit{hi}]$ in ascending order based on their power values. If the power values are the same, we sort them in ascending order based on the numbers themselves.

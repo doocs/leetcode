@@ -120,6 +120,14 @@ undergroundSystem.getAverageTime("Leyton", "Paradise"); // 返回 6.66667 ，(5 
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 进站、出站、查询两站平均耗时，均需 $O(1)$。用 $\textit{id}$ 映射到进站时刻与站名；出站时把耗时累加到 $(\textit{start},\textit{end})$ 对应的（总时间，次数）。查询即相除。
+
+<!-- thinking:end -->
+
 我们用两个哈希表来存储数据，其中：
 
 - `ts`：存储乘客的 id 和乘客的进站时间和进站站点。其中键为乘客的 id，值为元组 `(t, stationName)`。

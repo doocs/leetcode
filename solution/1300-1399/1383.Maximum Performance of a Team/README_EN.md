@@ -74,6 +74,14 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A team of at most $k$ people scores (sum of speeds) times (minimum efficiency). $n \le 10^5$ forbids subsets. Scanning engineers from high efficiency to low makes the current efficiency the team's floor; we only keep the $k$ fastest so far. A min-heap drops the slowest when the size hits $k$, and the speed sum times the current efficiency updates the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -82,6 +82,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of six street types links a specific pair of sides; we ask whether the top-left cell reaches the bottom-right. Cells are nodes, joined only when both streets open toward each other. Union-find merges those legal neighbors; the start and end must share a component.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

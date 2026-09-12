@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: String Hashing
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest proper prefix that is also a suffix. Comparing every length from short to long is quadratic for $n \le 10^5$. Starting from the longest proper prefix, $s[:-i]==s[i:]$ yields that prefix as soon as it holds; otherwise the answer is empty.
+
+<!-- thinking:end -->
+
 **String Hashing** is a method to map a string of any length to a non-negative integer, with the probability of collision being almost zero. String hashing is used to calculate the hash value of a string, which allows for quick determination of whether two strings are equal.
 
 We choose a fixed value BASE, and consider the string as a number in BASE radix, assigning a value greater than 0 to represent each character. Generally, the values we assign are much smaller than BASE. For example, for strings composed of lowercase letters, we can assign a=1, b=2, ..., z=26. We choose a fixed value MOD, and calculate the remainder of the BASE radix number divided by MOD, which is used as the hash value of the string.
@@ -200,6 +208,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: KMP Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Comparing whole slices still scans $\Theta(n)$ characters per length. KMP's $\textit{next}$ table is exactly the longest proper prefix that equals a suffix. Appending a sentinel and reading $\textit{next}[-1]$ returns that length in linear time.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to find the longest happy prefix of a string, which is the longest prefix of the string that is also a suffix of the string. We can use the KMP algorithm to solve this problem.
 
