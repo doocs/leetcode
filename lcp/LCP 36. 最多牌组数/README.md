@@ -48,4 +48,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2036.%20%E6%9C%80%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

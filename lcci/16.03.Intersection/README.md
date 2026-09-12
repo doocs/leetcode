@@ -46,4 +46,6 @@ line2 = {1, 0}, {2, 1}
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

@@ -55,4 +55,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

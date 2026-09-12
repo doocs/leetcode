@@ -54,4 +54,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2035.%20%E7%94%B5%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

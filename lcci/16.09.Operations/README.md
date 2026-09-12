@@ -40,4 +40,6 @@ operations.divide(5, -2); //返回-2
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

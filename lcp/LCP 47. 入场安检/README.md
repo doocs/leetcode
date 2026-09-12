@@ -72,4 +72,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2047.%20%E5%85%A5%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->

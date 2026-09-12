@@ -235,12 +235,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-<!-- thinking:start -->
-
-> **思考**
-
-<!-- thinking:end -->
-
 <!-- tabs:start -->
 
 #### Shell
@@ -283,12 +277,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### Solution 1
 
-<!-- thinking:start -->
-
-> **Thinking**
-
-<!-- thinking:end -->
-
 <!-- tabs:start -->
 
 #### Shell
@@ -330,12 +318,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 <!-- solution:start -->
 
 ### 方法一
-
-<!-- thinking:start -->
-
-> **思考**
-
-<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -397,12 +379,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### Solution 1
 
-<!-- thinking:start -->
-
-> **Thinking**
-
-<!-- thinking:end -->
-
 <!-- tabs:start -->
 
 #### Python3
@@ -463,12 +439,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-<!-- thinking:start -->
-
-> **思考**
-
-<!-- thinking:end -->
-
 <!-- tabs:start -->
 
 #### MySQL
@@ -510,12 +480,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 <!-- solution:start -->
 
 ### Solution 1
-
-<!-- thinking:start -->
-
-> **Thinking**
-
-<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -559,12 +523,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ### 方法一
 
-<!-- thinking:start -->
-
-> **思考**
-
-<!-- thinking:end -->
-
 <!-- tabs:start -->
 
 #### TypeScript
@@ -606,12 +564,6 @@ If you want to estimate your score changes after the contest ends, you can visit
 <!-- solution:start -->
 
 ### Solution 1
-
-<!-- thinking:start -->
-
-> **Thinking**
-
-<!-- thinking:end -->
 
 <!-- tabs:start -->
 

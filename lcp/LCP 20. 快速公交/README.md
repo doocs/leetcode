@@ -89,4 +89,6 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2020.%20%E5%BF%AB%
 
 <!-- solution:start -->
 
+本题暂无题解，欢迎补充。
+
 <!-- problem:end -->
