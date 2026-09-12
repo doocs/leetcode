@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2604.Minimum%20Time%20to%20Eat%20All%20Grains/README.md
 tags:
     - 数组
     - 双指针
