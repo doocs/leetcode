@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Hash Table + Sliding Window + Fast Power
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window of length $k$ scores $\sum x^{\textit{freq}(x)}\bmod (10^9+7)$; we want the maximum over all such windows. Recomputing each window with modular exponentiation is heavy when there are $n-k+1$ of them.
+>
+> Adjacent windows differ by one insertion and one deletion. Keep frequencies in a hash map and update the score by $x^{c+1}-x^c=(x-1)x^c$ (add $x$ when a value appears, subtract $x$ when its count hits zero). Equal enter/leave leaves the score unchanged.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to maintain the elements of the window of size $k$ and their frequencies.
 
 First, calculate the score of all elements in the initial window of size $k$. Then, use a sliding window to add one element at a time and remove the leftmost element, while updating the score using fast power.

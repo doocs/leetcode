@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1: Queue + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The door lets one person through per second. When both sides wait, it keeps the previous direction; after idle time it prefers exit. Arrival times are $O(n)$, so a second-by-second loop stays linear.
+>
+> Two queues hold enter and exit requests. At time $t$, enqueue everyone who has arrived. If both queues are nonempty, pop the side $st$; if only one is nonempty, switch $st$ to that side; if both are empty, reset $st$ to exit. Record each person's crossing time.
+
+<!-- thinking:end -->
+
 We define two queues, where $q[0]$ stores the indices of people who want to enter, and $q[1]$ stores the indices of people who want to exit.
 
 We maintain a variable $t$ to represent the current time, and a variable $st$ to represent the current state of the door. When $st = 1$, it means the door is not in use or someone exited in the previous second. When $st = 0$, it means someone entered in the previous second. Initially, $t = 0$ and $st = 1$.

@@ -70,6 +70,16 @@ dataStream.consec(3); // 最后 k 个整数分别是 [4,4,3] 。
 
 ### 方法一：计数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数据流中要判断最近 $k$ 个整数是否都等于给定 $\textit{value}$。保存整段历史再每次切片检查，空间随调用次数增长。
+>
+> 只需连续相等的长度。维护计数器：当前值等于 $\textit{value}$ 则加一，否则清零，再与 $k$ 比较。单次 $O(1)$。
+
+<!-- thinking:end -->
+
 我们可以维护一个计数器 $\textit{cnt}$，记录当前连续整数为 $\textit{value}$ 的个数。
 
 调用 `consec` 方法时，如果 $\textit{num}$ 与 $\textit{value}$ 相等，我们将 $\textit{cnt}$ 自增 1，否则将 $\textit{cnt}$ 重置为 0。然后判断 $\textit{cnt}$ 是否大于等于 $\textit{k}$ 即可。

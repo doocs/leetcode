@@ -77,6 +77,16 @@ Xor-beauty of array will be bitwise XOR of all beauties = 1 ^ 0 ^ 1 ^ 4 ^ 1 ^ 4 
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> XORing $(\textit{nums}[i]\mid \textit{nums}[j])\&\textit{nums}[k]$ over all triples is impossible at $n\le 10^5$. XOR cancels equal pairs.
+>
+> When $i\neq j$, $(i,j,k)$ matches $(j,i,k)$ and they cancel. When $i=j$ but $i\neq k$, $\textit{nums}[i]\&\textit{nums}[k]$ cancels with the swapped pair. Only $i=j=k$ remains, so the answer is the XOR of every element.
+
+<!-- thinking:end -->
+
 We first consider the case where $i$ and $j$ are not equal. In this case, `((nums[i] | nums[j]) & nums[k])` and `((nums[j] | nums[i]) & nums[k])` produce the same result, and their XOR result is $0$.
 
 Therefore, we only need to consider the case where $i$ and $j$ are equal. In this case, `((nums[i] | nums[j]) & nums[k]) = (nums[i] & nums[k])`. If $i \neq k$, then this is the same as the result of `nums[k] & nums[i]`, and the XOR result of these values is $0$.

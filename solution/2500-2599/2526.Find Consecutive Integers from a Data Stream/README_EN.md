@@ -68,6 +68,16 @@ dataStream.consec(3); // The last k integers parsed in the stream are [4,4,3].
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query asks whether the last $k$ integers all equal a fixed $\textit{value}$. Storing the whole stream and slicing it on every call grows with the number of calls.
+>
+> Only the run length of $\textit{value}$ matters. Increment a counter when the next number matches, reset it otherwise, and compare with $k$. Each call is $O(1)$.
+
+<!-- thinking:end -->
+
 We can maintain a counter $\textit{cnt}$ to record the current number of consecutive integers equal to $\textit{value}$.
 
 When calling the `consec` method, if $\textit{num}$ is equal to $\textit{value}$, we increment $\textit{cnt}$ by 1; otherwise, we reset $\textit{cnt}$ to 0. Then we check whether $\textit{cnt}$ is greater than or equal to $\textit{k}$.

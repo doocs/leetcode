@@ -73,6 +73,14 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the larger of the positive count and the negative count; zeros are ignored. A single pass at $n\le 10^5$ is enough.
+
+<!-- thinking:end -->
+
 We can directly traverse the array, count the number of positive and negative integers $a$ and $b$, and return the larger of $a$ and $b$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
@@ -204,6 +212,14 @@ int maximumCount(int* nums, int numsSize) {
 <!-- solution:start -->
 
 ### Solution 2: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 does not use that the array is non-decreasing. Positives are the suffix of values $\ge 1$, negatives the prefix of values $<0$, i.e. the lower bounds of $1$ and $0$. Two $\textit{bisect\_left}$ calls obtain both counts in logarithmic time.
+
+<!-- thinking:end -->
 
 Since the array is sorted in non-decreasing order, we can use binary search to find the index $i$ of the first element that is greater than or equal to $1$, and the index $j$ of the first element that is greater than or equal to $0$. The number of positive integers is $a = n - i$, and the number of negative integers is $b = j$. We return the larger of $a$ and $b$.
 
