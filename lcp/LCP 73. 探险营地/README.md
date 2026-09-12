@@ -75,6 +75,59 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%
 
 <!-- solution:start -->
 
-本题暂无题解，欢迎补充。
+### 方法一：哈希集合
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要找出新发现营地最多且索引最小的那次探险。最直接的想法是维护一个已见营地的集合，每次探险统计其中未出现过的营地个数。瓶颈在于同一次探险里可能重复到访同一个新营地（如示例 3），若直接计数会把它重复统计。关键观察到：一旦某个营地被「发现」，它就应当立刻进入已见集合，这样同一探险内再次出现时集合已含有它，`add` 返回 `false`，自然只计一次。因此用哈希集合模拟「发现即记录」，一趟遍历即可。
+
+<!-- thinking:end -->
+
+首先将 `expeditions[0]` 中所有营地（按 `->` 分割后忽略空串）加入哈希集合 `known`，表示初始已知营地。
+
+然后从 `i = 1` 开始遍历每次探险：对当前记录按 `->` 分割，遍历其中的营地，若营地非空且通过 `known.add(camp)` 成功加入集合（即之前未出现），说明发现新营地，将计数 `cnt` 加一。由于加入后同一探险内重复出现的营地会因已存在而不再计数，天然满足「每处新营地只算一次」。
+
+维护 `bestIdx` 与 `bestCnt`，当 `cnt > bestCnt` 时更新。最终若 `bestCnt == 0`（没有任何新营地），返回 `-1`；否则返回 `bestIdx`。
+
+时间复杂度 $O(\sum |expeditions[i]|)$，空间复杂度 $O(\sum |expeditions[i]|)$。其中 $|expeditions[i]|$ 为第 $i$ 次探险记录的字符串长度。
+
+<!-- tabs:start -->
+
+#### Java
+
+```java
+class Solution {
+    public int adventureCamp(String[] expeditions) {
+        java.util.Set<String> known = new java.util.HashSet<>();
+        for (String camp : expeditions[0].split("->")) {
+            if (!camp.isEmpty()) {
+                known.add(camp);
+            }
+        }
+
+        int bestIdx = -1;
+        int bestCnt = 0;
+        for (int i = 1; i < expeditions.length; i++) {
+            int cnt = 0;
+            for (String camp : expeditions[i].split("->")) {
+                if (!camp.isEmpty() && known.add(camp)) {
+                    cnt++;
+                }
+            }
+            if (cnt > bestCnt) {
+                bestCnt = cnt;
+                bestIdx = i;
+            }
+        }
+        return bestIdx;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
 
 <!-- problem:end -->
