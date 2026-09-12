@@ -52,6 +52,17 @@ tags:
 
 ### Solution 1: Determine Non-Overlap Cases
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We decide whether two axis-aligned rectangles have positive-area overlap. Describing the intersection box is messy; the complement is simpler: they miss if they are separated vertically or horizontally.
+>
+> If any of the four separations holds they are disjoint; negating that test is the overlap predicate. Areas are nonzero, so degenerate edges do not arise.
+
+<!-- thinking:end -->
+
+
 Let the coordinates of rectangle $\text{rec1}$ be $(x_1, y_1, x_2, y_2)$, and the coordinates of rectangle $\text{rec2}$ be $(x_3, y_3, x_4, y_4)$.
 
 The rectangles $\text{rec1}$ and $\text{rec2}$ do not overlap if any of the following conditions are met:

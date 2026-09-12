@@ -72,6 +72,17 @@ Hence, answer[0] = 8, and so on.
 
 ### Solution 1: Tree DP (Re-rooting)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the sum of distances from every node. $n\le 3\cdot 10^4$, so a DFS from each root is quadratic. After rerooting, neighboring answers differ only by subtree size versus the rest of the tree.
+>
+> Root at $0$ to get $ans[0]$ and subtree sizes, then a second DFS pushes $t-\textit{size}[j]+n-\textit{size}[j]$ to each child. Two traversals fill every answer.
+
+<!-- thinking:end -->
+
+
 First, we run a DFS to calculate the size of each node's subtree, recorded in the array $size$, and compute the sum of distances from node $0$ to all other nodes, recorded in $ans[0]$.
 
 Next, we run another DFS to enumerate the sum of distances from each node when it is considered as the root. Suppose the answer for the current node $i$ is $t$. When we move from node $i$ to node $j$, the sum of distances changes to $t - size[j] + n - size[j]$, meaning the sum of distances to node $j$ and its subtree nodes decreases by $size[j]$, while the sum of distances to other nodes increases by $n - size[j]$.

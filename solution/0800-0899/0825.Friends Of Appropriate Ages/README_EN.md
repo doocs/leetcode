@@ -77,6 +77,17 @@ tags:
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Whether $x$ may request $y$ depends only on the two ages, which lie in $1\ldots 120$, while $n$ can be $2\cdot 10^4$. Pairing people repeats the same age pairs.
+>
+> Count people per age, then enumerate age pairs and test the three inequalities. Requests within the same age exclude self-requests, so the product is $x\cdot(y-[x=y])$.
+
+<!-- thinking:end -->
+
+
 We can use an array $\textit{cnt}$ of length $121$ to record the number of people of each age.
 
 Next, we enumerate all possible age pairs $(\textit{ax}, \textit{ay})$. If $\textit{ax}$ and $\textit{ay}$ satisfy the conditions given in the problem, these age pairs $(\textit{ax}, \textit{ay})$ can send friend requests to each other.

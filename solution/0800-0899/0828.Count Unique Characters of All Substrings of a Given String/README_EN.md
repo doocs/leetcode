@@ -70,6 +70,17 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 
 ### Solution 1: Calculate the Contribution of Each Character
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^2)$ substrings and $n\le 10^5$, so we cannot enumerate them. A character is unique in a substring iff that substring covers this occurrence and neither neighboring occurrence of the same letter.
+>
+> Record indices of each letter, with sentinels at both ends. The $i$-th occurrence combines freely with the left gap and the right gap, contributing the product of those gaps. Sum over all letters.
+
+<!-- thinking:end -->
+
+
 For each character $c_i$ in the string $s$, when it appears only once in a substring, it contributes to the count of unique characters in that substring.
 
 Therefore, we only need to calculate for each character $c_i$, how many substrings contain this character only once.

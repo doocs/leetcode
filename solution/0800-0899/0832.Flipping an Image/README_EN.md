@@ -71,6 +71,17 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is reversed then inverted. $n\le 20$, so two pointers can do both steps in place.
+>
+> Equal ends stay equal after reverse, so both bits flip. Unequal ends swap under reverse-and-invert, so they need no write. A middle cell is inverted alone.
+
+<!-- thinking:end -->
+
+
 We can traverse the matrix, and for each row $\textit{row}$, we use two pointers $i$ and $j$ pointing to the first and last elements of the row, respectively. If $\textit{row}[i] = \textit{row}[j]$, swapping them will keep their values unchanged, so we only need to XOR invert $\textit{row}[i]$ and $\textit{row}[j]$, then move $i$ and $j$ one position towards the center until $i \geq j$. If $\textit{row}[i] \neq \textit{row}[j]$, swapping and then inverting their values will also keep them unchanged, so no operation is needed.
 
 Finally, if $i = j$, we directly invert $\textit{row}[i]$.

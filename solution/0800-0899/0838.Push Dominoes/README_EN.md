@@ -69,6 +69,17 @@ tags:
 
 ### Solution 1: Multi-Source BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Dominoes fall simultaneously; opposing forces cancel. $n\le 10^5$, so a full-board tick simulation is slow. Force spreads from already-fallen tiles, which is a multi-source BFS.
+>
+> Enqueue every initial $L$ and $R$. A cell falls only if it receives a single force at that time; both directions in the same second leave it upright. Layering by time yields the final string.
+
+<!-- thinking:end -->
+
+
 Treat all initially pushed dominoes (`L` or `R`) as **sources**, which simultaneously propagate their forces outward. Use a queue to perform BFS layer by layer (0, 1, 2, ...):
 
 We define $\text{time[i]}$ to record the first moment when the _i_-th domino is affected by a force, with `-1` indicating it has not been affected yet. We also define $\text{force[i]}$ as a variable-length list that stores the directions (`'L'`, `'R'`) of forces acting on the domino at the same moment. Initially, push all indices of `L/R` dominoes into the queue and set their `time` to 0.

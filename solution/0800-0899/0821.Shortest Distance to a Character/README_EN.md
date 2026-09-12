@@ -59,6 +59,17 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index needs its distance to the nearest $c$. Scanning both sides from every position is quadratic and unnecessary for $n\le 10^4$. The nearest $c$ is either to the left or to the right.
+>
+> A left-to-right pass records the latest $c$; a right-to-left pass keeps the closer of the two. Two linear sweeps fill the answer.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
