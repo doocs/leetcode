@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3073.Maximum%20Increasing%20Triplet%20Value/README.md
 tags:
     - 数组
     - 有序集合

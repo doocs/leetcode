@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3078.Match%20Alphanumerical%20Pattern%20in%20Matrix%20I/README_EN.md
 tags:
     - Array
     - Hash Table
