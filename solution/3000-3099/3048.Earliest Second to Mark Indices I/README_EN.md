@@ -97,6 +97,18 @@ Hence, the answer is -1.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Second $s$ may decrement $\textit{changeIndices}[s]$ or mark it once it is $0$. $n,m \le 2000$. Feasibility is monotone in $t$.
+>
+> Each index should be marked at its last occurrence among the first $t$ seconds, so earlier seconds can decrement other values.
+>
+> We binary-search $t$ and simulate with those last-occurrence times: other seconds become decrement tokens, and a last occurrence must have enough tokens for $nums[i]$.
+
+<!-- thinking:end -->
+
 We notice that if we can mark all indices within $t$ seconds, then we can also mark all indices within $t' \geq t$ seconds. Therefore, we can use binary search to find the earliest seconds.
 
 We define the left and right boundaries of binary search as $l = 1$ and $r = m + 1$, where $m$ is the length of the array `changeIndices`. For each $t = \frac{l + r}{2}$, we check whether we can mark all indices within $t$ seconds. If we can, we move the right boundary to $t$, otherwise we move the left boundary to $t + 1$. Finally, we judge whether the left boundary is greater than $m$, if it is, return $-1$, otherwise return the left boundary.

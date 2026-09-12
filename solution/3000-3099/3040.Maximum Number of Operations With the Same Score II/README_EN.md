@@ -74,6 +74,18 @@ It can be proven that we can perform at most 2 operations.
 
 ### Solution 1: Memorization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, an operation may delete two from the front, two from the back, or one from each end, but the score must stay constant. $n \le 2000$.
+>
+> The first operation has three choices and therefore three possible scores $s$. After that, the best number of operations on $[i,j]$ depends only on $s$.
+>
+> For each $s$ we memoize $\textit{dfs}(i,j)$ over the three deletions that match $s$. The answer is $1$ plus the best of the three first moves.
+
+<!-- thinking:end -->
+
 There are three possible values for the score $s$, which are $s = nums[0] + nums[1]$, $s = nums[0] + nums[n-1]$, and $s = nums[n-1] + nums[n-2]$. We can perform memorization search for these three cases separately.
 
 We design a function $dfs(i, j)$, which represents the maximum number of operations from index $i$ to index $j$ when the score is $s$. The execution process of function $dfs(i, j)$ is as follows:

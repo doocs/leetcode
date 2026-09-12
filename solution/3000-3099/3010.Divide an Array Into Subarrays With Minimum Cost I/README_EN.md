@@ -74,6 +74,18 @@ It can be shown that 12 is the minimum cost achievable.
 
 ### Solution 1: Traverse to Find the Smallest and Second Smallest Values
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$ and we split into three subarrays whose cost is the sum of their first elements. The first of those is always $\textit{nums}[0]$.
+>
+> The other two starts are distinct elements from indices $[1,n)$. The minimum sum uses the smallest and second-smallest values there.
+>
+> A single scan that tracks those two values is enough; we never materialize the cuts.
+
+<!-- thinking:end -->
+
 We set the first element of the array $nums$ as $a$, the smallest element among the remaining elements as $b$, and the second smallest element as $c$. The answer is $a+b+c$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

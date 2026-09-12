@@ -101,6 +101,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The prefix goes to player one and the suffix to player two; a clear is $+1$ and a fail is $-1$. Player one must score strictly more and leave at least one level. $n \le 10^5$.
+>
+> The total $s$ is fixed. After $i$ levels player one has $t$ and the opponent has $s-t$, so we need $t>s-t$.
+>
+> Compute $s$, then accumulate $t$ over the first $n-1$ positions and test the inequality.
+
+<!-- thinking:end -->
+
 First, we calculate the sum of the scores that both players can get, denoted as $s$.
 
 Then, we enumerate the number of levels that player 1 can complete, denoted as $i$, in ascending order. We calculate the sum of the scores that player 1 gets, denoted as $t$. If $t > s - t$, then the number of levels that player 1 needs to complete is $i$.

@@ -72,6 +72,18 @@ Hence, the array result formed by concatenation is [5,3,4,8].
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first two values seed the two arrays; later values go to the array whose current tail is larger. $n \le 50$, so we follow the rule.
+>
+> Only the two tails matter; earlier history is irrelevant.
+>
+> After the scan we concatenate $\textit{arr}_1+\textit{arr}_2$.
+
+<!-- thinking:end -->
+
 We create two arrays $\textit{arr1}$ and $\textit{arr2}$ to store the elements of $\textit{nums}$. Initially, $\textit{arr1}$ contains only $\textit{nums[0]}$, and $\textit{arr2}$ contains only $\textit{nums[1]}$.
 
 Then we iterate over the elements of $\textit{nums}$ starting from index $2$. If the last element of $\textit{arr1}$ is greater than the last element of $\textit{arr2}$, we append the current element to $\textit{arr1}$; otherwise, we append it to $\textit{arr2}$.

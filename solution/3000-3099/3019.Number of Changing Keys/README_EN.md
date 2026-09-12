@@ -63,6 +63,16 @@ From s[4] = &#39;c&#39; to s[5] = &#39;C&#39;, there is no change of key as caps
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Case is ignored and $n \le 100$. A change occurs when two adjacent characters differ after lowercasing.
+>
+> Lowercase the string once and count unequal adjacent pairs; no keyboard simulation is required.
+
+<!-- thinking:end -->
+
 We can traverse the string, each time checking whether the lowercase form of the current character is the same as the lowercase form of the previous character. If they are different, it means that the key has been changed, and we can increment the answer accordingly.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.

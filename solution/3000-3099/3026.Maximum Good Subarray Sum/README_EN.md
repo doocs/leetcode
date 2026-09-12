@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subarray has endpoints differing by $k$ in absolute value, and we want the maximum sum. $n \le 10^5$ forbids enumerating ends.
+>
+> The sum is a difference of prefix sums. For a right end $x$ the left end is $x-k$ or $x+k$, and we want the smallest prefix at that value.
+>
+> A hash map stores the minimum prefix (excluding the element itself). We update the answer from the current prefix, then offer that prefix to the next value.
+
+<!-- thinking:end -->
+
 We use a hash table $p$ to record the sum $s$ of the prefix array $nums[0..i-1]$ for $nums[i]$. If there are multiple identical $nums[i]$, we only keep the smallest $s$. Initially, we set $p[nums[0]]$ to $0$. In addition, we use a variable $s$ to record the current prefix sum, initially $s = 0$. Initialize the answer $ans$ to $-\infty$.
 
 Next, we enumerate $nums[i]$, and maintain a variable $s$ to represent the sum of $nums[0..i]$. If $nums[i] - k$ is in $p$, then we have found a good subarray, and update the answer to $ans = \max(ans, s - p[nums[i] - k])$. Similarly, if $nums[i] + k$ is in $p$, then we have also found a good subarray, and update the answer to $ans = \max(ans, s - p[nums[i] + k])$. Then, if $i + 1 \lt n$ and $nums[i + 1]$ is not in $p$, or $p[nums[i + 1]] \gt s$, we set $p[nums[i + 1]]$ to $s$.

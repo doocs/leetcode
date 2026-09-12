@@ -82,6 +82,18 @@ tags:
 
 ### Solution 1: Two Pointers + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the shortest subarray whose bitwise OR is at least $k$. $n \le 50$ would allow a triple loop, but OR grows monotonically with the right end, so two pointers apply.
+>
+> The right end can only turn bits on; the left end may turn a bit off only when its count drops to $0$.
+>
+> We keep $32$ bit counts and the current OR $s$, expand and shrink, and record the shortest window with $s \ge k$.
+
+<!-- thinking:end -->
+
 We can observe that if we fix the left endpoint of the subarray, as the right endpoint moves to the right, the bitwise OR value of the subarray will only increase, not decrease. Therefore, we can use the double pointers method to maintain a subarray that meets the conditions.
 
 Specifically, we use two pointers $i$ and $j$ to represent the left and right endpoints of the subarray, respectively. Initially, both pointers are at the first element of the array. We use a variable $s$ to represent the bitwise OR value of the subarray, and initially, the value of $s$ is $0$. We also need to maintain an array $cnt$ of length $32$, which represents the occurrence times of each bit in the binary representation of each element in the subarray.

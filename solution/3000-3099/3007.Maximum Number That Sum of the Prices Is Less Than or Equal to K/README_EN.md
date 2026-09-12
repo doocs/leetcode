@@ -252,6 +252,18 @@ tags:
 
 ### Solution 1: Binary Search + Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The price sum is monotone in $\textit{num}$, and $k$ can be $10^{15}$, so we cannot accumulate one by one.
+>
+> Checking whether the sum up to $\textit{mid}$ is at most $k$ is a digit-count problem: a bit is priced only when its $1$-based index is a multiple of $x$.
+>
+> We binary-search $\textit{num}$ and memoize over bit positions, accumulating how many priced bits are already set under a tight constraint.
+
+<!-- thinking:end -->
+
 We notice that if $\textit{num}$ increases, the total value from $1$ to $\textit{num}$ also increases. Therefore, we can use a binary search method to find the largest cheap number.
 
 We define the left boundary of the binary search as $l = 1$. Since there is at least one valuable number in every $2^x + 1$ numbers, and the total value does not exceed $10^{15}$, we can set the right boundary of the binary search as $r = 10^{18}$.

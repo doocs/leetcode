@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Two Pointers + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 2 \times 10^5$, so enumerating subarrays is gone.
+>
+> Part I’s monotone OR plus per-bit counts for deletions is already $O(n \log M)$ and carries over unchanged.
+>
+> The same two pointers and $32$ counters maintain the current OR.
+
+<!-- thinking:end -->
+
 We can observe that if we fix the left endpoint of the subarray, as the right endpoint moves to the right, the bitwise OR value of the subarray will only increase, not decrease. Therefore, we can use the double pointers method to maintain a subarray that meets the conditions.
 
 Specifically, we use two pointers $i$ and $j$ to represent the left and right endpoints of the subarray, respectively. Initially, both pointers are at the first element of the array. We use a variable $s$ to represent the bitwise OR value of the subarray, and initially, the value of $s$ is $0$. We also need to maintain an array $cnt$ of length $32$, which represents the occurrence times of each bit in the binary representation of each element in the subarray.

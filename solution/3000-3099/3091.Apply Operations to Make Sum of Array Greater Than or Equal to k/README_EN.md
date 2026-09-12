@@ -79,6 +79,18 @@ The total number of operations performed is <code>3 + 2 = 5</code>.</p>
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array starts as $[1]$. We may increment an element or append a copy of one, aiming for a sum of at least $k \le 10^5$.
+>
+> Appending copies the current value, so we should increment one element to $x$ and then copy $x$. The cost is $(x-1)+(\lceil k/x \rceil-1)$.
+>
+> Enumerate the number of increments $a$ (so $x=a+1$), compute the matching number of copies, and minimize $a+b$.
+
+<!-- thinking:end -->
+
 We should put the copy operation (i.e., operation $2$) at the end to reduce the number of operations.
 
 Therefore, we enumerate the number of times $a$ for operation $1$ in the range $[0, k]$, then the number of times $b$ for operation $2$ is $\left\lceil \frac{k}{a+1} \right\rceil - 1$. We take the minimum of $a+b$.

@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the array into two equal-sized subsets of distinct elements. $n \le 100$.
+>
+> A value may appear at most twice, once in each subset; a third copy forces a repeat on one side.
+>
+> It is enough to test that the maximum frequency is less than $3$.
+
+<!-- thinking:end -->
+
 According to the problem, we need to divide the array into two parts, and the elements in each part are all distinct. Therefore, we can count the occurrence of each element in the array. If an element appears three or more times, it cannot satisfy the problem's requirements. Otherwise, we can divide the array into two parts.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.

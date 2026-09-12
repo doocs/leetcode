@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is now $10^5$, so the $O(n^2)$ enumeration of part I is gone. The graph is still a path plus one edge, and the distance histogram has a closed form.
+>
+> If $|x-y| \le 1$ the extra edge is useless and we count distances on a path. Otherwise a cycle of length $|x-y|+1$ appears, with a tail on each side.
+>
+> We add the histograms of path pairs, cycle pairs, and tail-to-cycle pairs, treating even/odd cycle length so the diameter is not double-counted.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

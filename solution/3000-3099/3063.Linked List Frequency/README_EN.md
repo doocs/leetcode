@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each distinct value’s frequency becomes a node of a new list. Frequencies are known only after a full scan.
+>
+> Count in a hash map, then build the list from those counts. Order is free, so we insert at the head.
+
+<!-- thinking:end -->
+
 We use a hash table `cnt` to record the occurrence times of each element value in the linked list, then traverse the values of the hash table to construct a new linked list.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.

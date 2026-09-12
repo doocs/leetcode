@@ -74,6 +74,18 @@ tags:
 
 ### 方法一：数学
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每步从某一行摘一朵，先手在 $x+y$ 为奇数时获胜。$n,m \le 10^5$，枚举格子不可行。
+>
+> 奇数对偶数、偶数对奇数各构成合法对。两侧奇数个数为 $\lceil n/2 \rceil$ 等，乘积相加即得。
+>
+> 因此用整除直接计算四类奇偶个数再交叉相乘。
+
+<!-- thinking:end -->
+
 根据题目描述，每一次行动，玩家都会选择顺时针或者逆时针方向，然后摘一朵鲜花。由于 Alice 先行动，因此当 $x + y$ 为奇数时，Alice 一定会赢得游戏。
 
 因此，鲜花数目 $x$ 和 $y$ 满足以下条件：
@@ -189,6 +201,16 @@ var flowerGame = function (n, m) {
 <!-- solution:start -->
 
 ### 方法二：数学（优化）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一的交叉乘积按 $n,m$ 的奇偶展开后，四种情形均可写成 $\lfloor nm/2 \rfloor$。
+>
+> 因此不必再分奇偶，一次整除乘法即可。
+
+<!-- thinking:end -->
 
 方法一得出的结果为 $\lfloor \frac{n + 1}{2} \rfloor \times \lfloor \frac{m}{2} \rfloor + \lfloor \frac{n}{2} \rfloor \times \lfloor \frac{m + 1}{2} \rfloor$。
 

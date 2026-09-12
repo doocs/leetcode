@@ -76,6 +76,18 @@ Output table is ordered by user_id1 in ascending order.</pre>
 
 ### Solution 1: Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep an undirected friendship when the two users share no friend. The table stores each edge once, so we first add the reverse edges.
+>
+> A self-join on the middle user lists every pair that shares a neighbor. Edges of the original table outside that set are the answer.
+>
+> Concatenate both directions, self-join, and filter the original pairs by membership.
+
+<!-- thinking:end -->
+
 First, we list all the friend relationships and record them in table `T`. Then we find the pairs of friends who do not have common friends.
 
 Next, we can use a subquery to find pairs of friends who do not have common friends, i.e., this pair of friends does not belong to any other person's friends.

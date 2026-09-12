@@ -81,6 +81,18 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^6$, so comparing suffixes with prefixes naively times out.
+>
+> The hashed check from part I’s second method is now mandatory.
+>
+> After a prefix-hash table is built, we try multiples of $k$ and compare $\textit{word}[1..n-i]$ with $\textit{word}[i+1..n]$ in $O(1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

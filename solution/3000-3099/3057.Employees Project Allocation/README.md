@@ -98,6 +98,18 @@ Employees 表：
 
 ### 方法一：分组统计 + 等值连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 找出工作量高于其所在团队平均值的员工项目。团队均值不能只用员工表，必须结合项目工作量。
+>
+> 员工与项目按 $\textit{employee\_id}$ 连接后，按 $\textit{team}$ 求平均工作量，再筛出高于该均值的行。
+>
+> 两次合并（先算均值，再回连）后按员工与项目编号排序。
+
+<!-- thinking:end -->
+
 我们先根据 `employee_id` 连接 `Project` 表和 `Employees` 表，然后再根据 `team` 分组统计每个团队的平均工作量，记录在临时表 `T` 中。
 
 然后，我们再次连接 `Project` 表和 `Employees` 表，同时连接 `T` 表，找出工作量大于团队平均工作量的员工，并且按照 `employee_id` 和 `project_id` 排序。

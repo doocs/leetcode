@@ -102,6 +102,18 @@ tags:
 
 ### Solution 1: Sorting and Classification
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$. Enumerating an upper-left and a lower-right corner and scanning the box is $O(n^3)$ and would pass, but repeats a lot of work.
+>
+> After sorting by increasing $x$ and, on ties, decreasing $y$, a valid lower-right $y$ must strictly increase as $x$ grows, or the new point would sit inside an earlier rectangle.
+>
+> For each upper-left point we keep the largest chosen $y_2$ and count a pair only when $\textit{maxY} < y_2 \le y_1$.
+
+<!-- thinking:end -->
+
 First, we sort the array. Then, we can classify the results based on the properties of a triangle.
 
 - If the sum of the two smaller numbers is less than or equal to the largest number, it cannot form a triangle. Return "Invalid".

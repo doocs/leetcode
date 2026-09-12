@@ -81,6 +81,18 @@ Output table is ordered by the total cost in descending order.</pre>
 
 ### Solution 1: Window Function + Conditional Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every three-topping combination and its cost, with names concatenated in lexicographic order. A plain triple self-join would emit permutations.
+>
+> Ranking names and joining on $r_1<r_2<r_3$ yields each combination once, already in name order.
+>
+> A window rank plus two inequality joins, then sort by cost descending and name ascending.
+
+<!-- thinking:end -->
+
 First, we use a window function to sort the table by the `topping_name` field and add a `rk` field to each row, representing the ranking of the current row.
 
 Then we use conditional join to join the table `T` three times, named as `t1`, `t2`, `t3` respectively. The join conditions are `t1.rk < t2.rk` and `t2.rk < t3.rk`. After that, we calculate the total price of the three toppings, sort by total price in descending order, and then sort by topping name in ascending order.

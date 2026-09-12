@@ -70,6 +70,18 @@ Hence, there are 2 subarrays in nums that match the pattern.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pattern encodes adjacent up/down/equal relations and $n \le 100$. Every window of length $m+1$ can be checked directly.
+>
+> Mapping each adjacent pair to $-1,0,1$ makes a window a match iff it equals the pattern.
+>
+> We enumerate starts and verify each in $O(m)$.
+
+<!-- thinking:end -->
+
 We can enumerate all subarrays of array `nums` with a length of $m + 1$, and then check whether they match the pattern array `pattern`. If they do, we increment the answer by one.
 
 The time complexity is $O(n \times m)$, where $n$ and $m$ are the lengths of the arrays `nums` and `pattern` respectively. The space complexity is $O(1)$.

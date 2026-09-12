@@ -61,6 +61,18 @@ So the number of elements in the array with maximum frequency is 5.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$, so counting frequencies and summing is enough. The required quantity is the sum of those maximum frequencies, not the number of distinct values that attain them.
+>
+> After the counts are known we take $\textit{mx}$ and add every count equal to $\textit{mx}$.
+>
+> One counting pass and one scan of the values suffice.
+
+<!-- thinking:end -->
+
 We can use a hash table or array $cnt$ to record the occurrence of each element.
 
 Then we traverse $cnt$ to find the element with the most occurrences, and let its occurrence be $mx$. We sum up the occurrences of elements that appear $mx$ times, which is the answer.

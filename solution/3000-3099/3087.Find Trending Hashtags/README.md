@@ -90,6 +90,16 @@ tweet_id 是这张表的主键 (值互不相同的列)。
 
 ### 方法一：提取子串 + 分组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计 $2024$ 年 $2$ 月推文中的标签，按次数与字典序取前三。每条推文取第一个 `#` 词即可。
+>
+> 先按月份过滤，再用正则抽出标签并加上 `#`，最后 $\texttt{value\_counts}$ 排序取头三行。
+
+<!-- thinking:end -->
+
 我们可以查询得到 2024 年 2 月的所有 tweet，利用 `SUBSTRING_INDEX` 函数提取 Hashtag，然后使用 `GROUP BY` 和 `COUNT` 函数统计每个 Hashtag 出现的次数，最后按照出现次数降序、Hashtag 降序排序，取前三个热门 Hashtag。
 
 <!-- tabs:start -->

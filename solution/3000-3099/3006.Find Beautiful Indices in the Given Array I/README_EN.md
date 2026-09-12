@@ -83,6 +83,18 @@ Thus we return [0] as the result.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $|s| \le 10^5$ and $|a|,|b| \le 10$, so finding occurrences is cheap, but pairing every $i$ with every $j$ is quadratic.
+>
+> KMP lists all starts of $a$ and $b$ in linear time. Both lists are sorted, so each $i$ only needs a advancing pointer on the $b$ list to find some $j$ with $|i-j| \le k$.
+>
+> The code builds prefix functions, searches, then walks the two occurrence lists with two pointers.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

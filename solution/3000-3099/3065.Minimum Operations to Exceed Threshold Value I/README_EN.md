@@ -70,6 +70,16 @@ It can be shown that 3 is the minimum number of operations needed so that all el
 
 ### Solution 1: Traversal and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation deletes a value smaller than $k$; we want every remaining value $\ge k$. Order does not change the count.
+>
+> The answer is the number of elements smaller than $k$, obtained in one pass.
+
+<!-- thinking:end -->
+
 We only need to traverse the array once, counting the number of elements less than $k$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

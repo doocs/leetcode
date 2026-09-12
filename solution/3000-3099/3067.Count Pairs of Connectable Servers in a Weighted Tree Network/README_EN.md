@@ -75,6 +75,18 @@ It can be shown that no two servers are connectable through servers other than 0
 
 ### Solution 1: Enumeration + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A pair is counted at a hub when the two paths are edge-disjoint and both distances are divisible by $\textit{signalSpeed}$. $n \le 1000$.
+>
+> Fixing hub $a$, valid nodes in distinct subtrees pair with each other. A DFS counts nodes whose distance from $a$ is divisible.
+>
+> For each child of $a$ the DFS yields $t$; we add $s \cdot t$ and then fold $t$ into $s$.
+
+<!-- thinking:end -->
+
 First, we construct an adjacency list `g` based on the edges given in the problem, where `g[a]` represents all the neighbor nodes of node `a` and their corresponding edge weights.
 
 Then, we can enumerate each node `a` as the connecting intermediate node, and calculate the number of nodes `t` that start from the neighbor node `b` of `a` and whose distance to node `a` can be divided by `signalSpeed` through depth-first search. Then, the number of connectable node pairs of node `a` increases by `s * t`, where `s` represents the cumulative number of nodes that start from the neighbor node `b` of `a` and whose distance to node `a` cannot be divided by `signalSpeed`. Then we update `s` to `s + t`.

@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n \le 10^5$ segments, so pairing every two segments is too slow. We need the horizontal line $y=k+0.5$ that crosses the most segments.
+>
+> Projecting each segment onto a half-open vertical interval turns this into maximum interval overlap. Coordinates are doubled and non-terminal endpoints shrink by $1$ so integer $y$ values are not double-counted.
+>
+> A TreeMap difference array records $+1/-1$ at the endpoints; a prefix scan yields the maximum overlap.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

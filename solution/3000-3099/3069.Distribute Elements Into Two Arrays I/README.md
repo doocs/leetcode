@@ -74,6 +74,18 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 前两个元素分到两数组，之后总是追加到当前末项较大的那一边。$n \le 50$，按规则模拟。
+>
+> 只需比较两数组的最后一个元素，不必回顾历史。
+>
+> 扫完后拼接 $\textit{arr}_1+\textit{arr}_2$。
+
+<!-- thinking:end -->
+
 我们创建两个数组 $\textit{arr1}$ 和 $\textit{arr2}$，分别存放数组 $\textit{nums}$ 中的元素，初始时 $\textit{arr1}$ 中只有 $\textit{nums[0]}$，$\textit{arr2}$ 中只有 $\textit{nums[1]}$。
 
 然后遍历 $\textit{nums}$ 下标从 $2$ 开始的元素，如果 $\textit{arr1}$ 的最后一个元素大于 $\textit{arr2}$ 的最后一个元素，就将当前元素追加到 $\textit{arr1}$，否则追加到 $\textit{arr2}$。

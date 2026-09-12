@@ -99,6 +99,18 @@ Hence, the answer is -1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On top of part I we may set an index to zero in one second, and $n,m \le 5000$. Feasibility stays monotone, but each index may be cleared either by a reset or by ordinary decrements.
+>
+> A reset is better for a large $nums[i]$, and each index uses at most its earliest reset slot. Checking a candidate $t$ needs a heap to trade “saved decrements” against “seconds spent on resets”.
+>
+> We binary-search $t$ and scan the first $t$ seconds backward. The first occurrence of a positive $nums[i]$ enters the heap; we pop the heap when we would rather decrement, so that the remaining seconds can mark every index.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

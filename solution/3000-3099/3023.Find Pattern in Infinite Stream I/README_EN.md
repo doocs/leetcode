@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1: Bit Manipulation + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pattern has length at most $100$ and the stream is unbounded, so we cannot buffer everything. A naive compare at every start can do about $10^7$ comparisons.
+>
+> Length $100$ fits in two $64$-bit integers. The stream keeps a sliding window of the same width.
+>
+> Each new bit shifts the right half; the overflow bit enters the left half. Once the window is full we compare both integers.
+
+<!-- thinking:end -->
+
 We notice that the length of the array $pattern$ does not exceed $100$, therefore, we can use two $64$-bit integers $a$ and $b$ to represent the binary numbers of the left and right halves of $pattern$.
 
 Next, we traverse the data stream, also maintaining two $64$-bit integers $x$ and $y$ to represent the binary numbers of the current window of the length of $pattern$. If the current length reaches the window length, we compare whether $a$ and $x$ are equal, and whether $b$ and $y$ are equal. If they are, we return the index of the current data stream.

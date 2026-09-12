@@ -81,6 +81,18 @@ It can be shown that 4 seconds is the minimum time greater than zero required fo
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation drops the first $k$ characters and appends arbitrary ones. The word returns to its start iff the leftover suffix equals the equally long prefix. $n \le 50$ allows enumerating the number of operations.
+>
+> After $i$ operations the leftover is $\textit{word}[ik:]$, which must equal $\textit{word}[:n-ik]$. If it never matches, $\lceil n/k \rceil$ operations empty the string.
+>
+> We try $k,2k,\ldots$ with direct string comparison and otherwise return the ceiling.
+
+<!-- thinking:end -->
+
 Let's assume that if we can restore `word` to its initial state with only one operation, it means that `word[k:]` is a prefix of `word`, i.e., `word[k:] == word[:n-k]`.
 
 If there are multiple operations, let's assume $i$ is the number of operations, then it means that `word[k*i:]` is a prefix of `word`, i.e., `word[k*i:] == word[:n-k*i]`.
@@ -171,6 +183,16 @@ function minimumTimeToInitialState(word: string, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Enumeration + String Hash
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Part I compares $O(n)$-length strings and costs $O(n^2)$. That passes here, but equality can be preprocessed to $O(1)$.
+>
+> String hashing fingerprints every substring, so a prefix check is a single query and the whole scan is linear.
+
+<!-- thinking:end -->
 
 Based on Solution 1, we can also use string hashing to determine whether two strings are equal.
 

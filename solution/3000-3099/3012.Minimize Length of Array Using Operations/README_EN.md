@@ -93,6 +93,18 @@ It can be shown that 1 is the minimum achievable length.</pre>
 
 ### Solution 1: Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces two positives by a remainder and shortens the array. With $n \le 10^5$ we cannot simulate down to a few elements.
+>
+> A remainder is strictly smaller than the larger operand. If some value is not a multiple of the global minimum $\textit{mi}$, we can create a positive smaller than $\textit{mi}$ and then erase everything else, leaving length $1$.
+>
+> If every value is a multiple of $\textit{mi}$, no smaller positive appears. Only copies of $\textit{mi}$ remain, and pairing them leaves $\lceil \textit{cnt}/2 \rceil$ elements.
+
+<!-- thinking:end -->
+
 Let's denote the smallest element in the array $nums$ as $mi$.
 
 If $mi$ appears only once, we can perform operations with $mi$ and the other elements in the array $nums$ to eliminate all other elements, leaving only $mi$. The answer is $1$.

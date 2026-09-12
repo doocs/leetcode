@@ -87,6 +87,18 @@ Inventory 表：
 
 ### 方法一：连接查询 + 合并
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 仓库容量 $500000$，优先装满所有 prime 套装，剩余再装非 prime。套装定义为该类型全部物品各一份。
+>
+> prime 套装面积为该类面积之和 $s$，可装 $\lfloor 500000/s \rfloor$ 套；余数再按非 prime 总面积整除。
+>
+> 先求出 $s$，再分别对两类计数并乘上可装套数，用 $\texttt{UNION ALL}$ 拼成两行。
+
+<!-- thinking:end -->
+
 我们先计算出所有 prime_eligible 类型的物品的总面积，记录在 `T` 表的 `s` 字段中。
 
 接下来，我们分别计算 prime_eligible 和 not_prime 类型的物品的数量。对于 prime_eligible 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000}{s} \rfloor$，对于 not_prime 类型的物品，我们可以存储的份数是 $\lfloor \frac{500000 \mod s}{\sum \textit{s1}} \rfloor$。其中 $\sum \textit{s1}$ 是所有 not_prime 类型的物品的总面积。再分别乘上 prime_eligible 和 not_prime 类型的物品的数量，就是我们的结果。

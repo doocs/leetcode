@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An anti-palindrome has $s[i] \ne s[n-1-i]$, and we want the lexicographically smallest reachable string. $n$ is even and at most $10^5$.
+>
+> Sorting yields the smallest sequence. If the two middle characters already differ, every mirrored pair differs as well; if they are equal, a run in the second half collides with the first and must be swapped with a later different letter.
+>
+> After sorting, when $s[m]=s[m-1]$ we find the next distinct letter in the second half and swap it onto the conflicting middle positions; exhausting that letter means impossible.
+
+<!-- thinking:end -->
+
 The problem asks us to transform the string $s$ into the lexicographically smallest non-palindrome string. We might as well sort the string $s$ first.
 
 Next, we only need to compare whether the two middle characters $s[m]$ and $s[m-1]$ are equal. If they are equal, we find the first character $s[i]$ in the second half that is not equal to $s[m]$, use a pointer $j$ to point to $m$, and then swap $s[i]$ and $s[j]$. If we can't find such a character $s[i]$, it means that the string $s$ cannot be transformed into a non-palindrome string, return `"1"`. Otherwise, perform the swap operation, move $i$ and $j$ to the right, compare whether $s[j]$ and $s[n-j-1]$ are equal, if they are equal, continue to perform the swap operation until $i$ exceeds the length of the string.

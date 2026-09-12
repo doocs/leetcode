@@ -86,6 +86,18 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次删去前 $k$ 个字符并在末尾补任意字符。恢复原串意味着剩余后缀必须等于原串的等长前缀。$n \le 50$，枚举操作次数即可。
+>
+> 第 $i$ 次操作后剩余为 $\textit{word}[ik:]$，只需与 $\textit{word}[:n-ik]$ 比较。若一直不等，则最多 $\lceil n/k \rceil$ 次必能清空。
+>
+> 按 $k,2k,\ldots$ 枚举并做字符串比较，否则返回上取整。
+
+<!-- thinking:end -->
+
 我们不妨假设，如果只操作一次，就能使得 `word` 恢复到初始状态，那么意味着 `word[k:]` 是 `word` 的前缀，即 `word[k:] == word[:n-k]`。
 
 如果有多次操作，不妨设 $i$ 为操作次数，那么意味着 `word[k*i:]` 是 `word` 的前缀，即 `word[k*i:] == word[:n-k*i]`。
@@ -176,6 +188,16 @@ function minimumTimeToInitialState(word: string, k: number): number {
 <!-- solution:start -->
 
 ### 方法二：枚举 + 字符串哈希
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每次比较长度为 $O(n)$ 的串，总代价 $O(n^2)$。本范围可过，但比较本身可以预处理成常数。
+>
+> 字符串哈希给出任意子串的指纹，判断前缀是否相等只需一次查询，时间降为线性。
+
+<!-- thinking:end -->
 
 我们也可以在方法一的基础上，利用字符串哈希来判断两个字符串是否相等。
 

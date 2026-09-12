@@ -90,6 +90,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We pick $k$ disjoint subarrays; the $j$-th has weight $k-j+1$ and alternating sign. $n \cdot k \le 10^6$ allows an $O(nk)$ DP.
+>
+> Each position may skip, continue the current segment, or open a new one. Only a new segment changes the index and the sign.
+>
+> $f[i][j][0/1]$ is the best value using the first $i$ numbers, $j$ segments, and whether index $i$ is taken. Transitions use $\textit{sign}$ and the factor $k-j+1$.
+
+<!-- thinking:end -->
+
 For the $i$th number $nums[i - 1]$, if it is selected and is in the $j$th subarray, then its contribution to the answer is $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$. We denote $(-1)^{j+1}$ as $sign$, so its contribution to the answer is $sign \times nums[i - 1] \times (k - j + 1)$.
 
 We define $f[i][j][0]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is not selected. We define $f[i][j][1]$ as the maximum energy value when selecting $j$ subarrays from the first $i$ numbers, and the $i$th number is selected. Initially, $f[0][0][1] = 0$, and the rest of the values are $-\infty$.

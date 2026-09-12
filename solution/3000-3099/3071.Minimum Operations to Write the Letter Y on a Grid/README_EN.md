@@ -77,6 +77,18 @@ It can be shown that 12 is the minimum number of operations needed to write Y on
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells on the Y must share a value $a$ and the rest share $b \ne a$. $n \le 49$ is odd, so the Y’s shape is fixed.
+>
+> Once we know each color’s count on and off the Y, there are only $3 \times 2$ pairs $(a,b)$, and the edits are $n^2$ minus the two kept counts.
+>
+> One pass splits Y versus non-Y; we then minimize $n^2-\textit{cnt}_1[i]-\textit{cnt}_2[j]$ over $i \ne j$.
+
+<!-- thinking:end -->
+
 We use two arrays of length 3, `cnt1` and `cnt2`, to record the counts of cell values that belong to `Y` and do not belong to `Y`, respectively. Then we enumerate `i` and `j`, which represent the values of cells that belong to `Y` and do not belong to `Y`, respectively, to calculate the minimum number of operations.
 
 The time complexity is $O(n^2)$, where $n$ is the size of the matrix. The space complexity is $O(1)$.

@@ -187,6 +187,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters in the pattern are unknown digits that must match both ways; digits must equal the board. Both matrices are at most $50$, so every alignment can be tried.
+>
+> Each top-left corner uses two maps to enforce a bijection between letters and digits, and compares numeric cells directly.
+>
+> We enumerate $(i,j)$ row-major and return the first match.
+
+<!-- thinking:end -->
+
 Let's denote $m$ and $n$ as the number of rows and columns in the matrix `board`, and $r$ and $c$ as the number of rows and columns in the matrix `pattern`.
 
 We can enumerate each possible sub-matrix's top-left position $(i, j)$ in the `board` from small to large, and then determine whether the $r \times c$ sub-matrix with $(i, j)$ as the top-left corner matches `pattern`. If we find a matching sub-matrix, we return $(i, j)$. Otherwise, we return $(-1, -1)$.

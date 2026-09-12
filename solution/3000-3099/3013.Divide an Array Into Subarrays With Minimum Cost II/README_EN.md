@@ -77,6 +77,18 @@ It can be shown that there is no possible way to divide nums into 3 subarrays at
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, $k$ and $\textit{dist}$ vary and $n \le 10^5$. The first subarray still costs $\textit{nums}[0]$; the other $k-1$ starts must lie in a window of length $\textit{dist}+1$.
+>
+> Each window needs the sum of its $k-1$ smallest values. Sorting every window is too slow.
+>
+> Two sorted lists keep the $k-1$ smallest window values and the rest, together with the sum of the former. A slide inserts into the left or right list by magnitude and rebalances the sizes.
+
+<!-- thinking:end -->
+
 The problem requires us to divide the array $\textit{nums}$ into $k$ consecutive and non-overlapping subarrays, and the distance between the first element of the second subarray and the first element of the $k$-th subarray should not exceed $\textit{dist}$. This is equivalent to finding a subarray of size $\textit{dist}+1$ starting from the element at index $1$ in $\textit{nums}$, and calculating the sum of the smallest $k-1$ elements in it. We subtract $1$ from $k$, so we only need to find the sum of the smallest $k$ elements and add $\textit{nums}[0]$ to it.
 
 We can use two ordered sets $\textit{l}$ and $\textit{r}$ to maintain the elements of the window of size $\textit{dist} + 1$. The set $\textit{l}$ maintains the smallest $k$ elements, while the set $\textit{r}$ maintains the remaining elements of the window. We maintain a variable $\textit{s}$ to represent the sum of $\textit{nums}[0]$ and the elements in $\textit{l}$. Initially, we add the sum of the first $\textit{dist}+2$ elements to $\textit{s}$ and add all elements with indices $[1, \textit{dist} + 1]$ to $\textit{l}$. If the size of $\textit{l}$ is greater than $k$, we repeatedly move the largest element from $\textit{l}$ to $\textit{r}$ until the size of $\textit{l}$ equals $k$, updating the value of $\textit{s}$ in the process.

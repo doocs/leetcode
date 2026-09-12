@@ -85,6 +85,18 @@ Therefore, the answer is 0.</pre>
 
 ### Solution 1: Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ and the total length reach $10^5$, so part I’s double loop is gone and the trie from its second method is required.
+>
+> Pairs $(s[i], s[m-1-i])$ are the edges. Inserting in input order, the counts already on the path are earlier strings for which the current one is a prefix and a suffix.
+>
+> We increment the terminal node afterwards so that only pairs with $i<j$ are counted.
+
+<!-- thinking:end -->
+
 We can treat each string $s$ in the string array as a list of character pairs, where each character pair $(s[i], s[m - i - 1])$ represents the $i$th character pair of the prefix and suffix of string $s$.
 
 We can use a trie to store all the character pairs, and then for each string $s$, we search for all the character pairs $(s[i], s[m - i - 1])$ in the trie, and add their counts to the answer.

@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A Harshad number is divisible by the sum of its digits; we return that sum or $-1$. $x \le 100$, so peeling digits is enough.
+>
+> A temporary accumulates the digits so that the original $x$ can be tested against the sum.
+
+<!-- thinking:end -->
+
 We can calculate the sum of the digits of $x$, denoted as $s$, by simulation. If $x$ can be divided evenly by $s$, then we return $s$, otherwise, we return $-1$.
 
 The time complexity is $O(\log x)$, where $x$ is the input integer. The space complexity is $O(1)$.
