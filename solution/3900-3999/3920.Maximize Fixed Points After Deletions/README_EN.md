@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3920.Maximize%20Fixed%20Points%20After%20Deletions/README_EN.md
 rating: 2263
 source: Weekly Contest 500 Q4
 ---

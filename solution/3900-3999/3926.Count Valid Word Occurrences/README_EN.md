@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3900-3999/3926.Count%20Valid%20Word%20Occurrences/README_EN.md
 rating: 1608
 source: Weekly Contest 501 Q2
 ---
