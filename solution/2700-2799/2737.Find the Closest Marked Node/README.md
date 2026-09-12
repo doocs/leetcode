@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2737.Find%20the%20Closest%20Marked%20Node/README.md
 tags:
     - 图
     - 数组

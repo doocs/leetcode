@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2739.Total%20Distance%20Traveled/README.md
 rating: 1262
 source: 第 350 场周赛 Q1
 tags:
