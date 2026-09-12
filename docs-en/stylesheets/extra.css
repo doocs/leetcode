@@ -57,7 +57,11 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 4px;
-    margin: .4em 0 .8em;
+    margin: .8em 0 0;
+}
+
+.md-typeset .lc-badges + h2 {
+    margin-top: 1.4em;
 }
 
 .md-typeset .lc-badge {
