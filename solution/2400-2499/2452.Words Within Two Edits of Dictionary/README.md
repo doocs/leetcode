@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2452.Words%20Within%20Two%20Edits%20of%20Dictionary/README.md
 rating: 1459
 source: 第 90 场双周赛 Q2
 tags:

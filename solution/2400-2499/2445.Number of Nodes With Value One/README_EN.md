@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2445.Number%20of%20Nodes%20With%20Value%20One/README_EN.md
 tags:
     - Tree
     - Depth-First Search
