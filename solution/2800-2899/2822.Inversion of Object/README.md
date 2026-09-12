@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2822.Inversion%20of%20Object/README.md
 tags:
     - JavaScript
 ---

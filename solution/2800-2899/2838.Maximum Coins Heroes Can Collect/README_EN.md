@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2838.Maximum%20Coins%20Heroes%20Can%20Collect/README_EN.md
 tags:
     - Array
     - Two Pointers

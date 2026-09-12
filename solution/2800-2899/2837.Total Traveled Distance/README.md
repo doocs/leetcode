@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2837.Total%20Traveled%20Distance/README.md
 tags:
     - 数据库
 ---
