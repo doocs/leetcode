@@ -80,6 +80,19 @@ tags:
 
 ### Solution 1: Preprocessing + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good integer has at least two writings $a^3+b^3$ with $1 \le a \le b$. We want all such values $\le n$, and $n \le 10^9$.
+>
+> If $a$ or $b$ exceeds $1000$ the sum already exceeds $10^9$, so the search range is finite and can be precomputed.
+>
+> A double loop counts representations of each sum of cubes; values with more than one representation are sorted.
+>
+> A query binary-searches the upper bound and returns that prefix.
+
+<!-- thinking:end -->
 We observe that when $a$ or $b$ is greater than $1000$, the expression $a^3 + b^3 > 10^9$. Therefore, we only need to enumerate $1 \leq a \leq b \leq 1000$ and count the occurrences of each integer $x = a^3 + b^3$. Finally, we filter out the integers that appear more than once and sort them in ascending order to obtain all good integers.
 
 We preprocess all good integers and store them in an array $\textit{GOOD}$. For each query, we use binary search to find the index $idx$ of the first integer in $\textit{GOOD}$ that is greater than $n$, then return the first $idx$ integers in $\textit{GOOD}$.

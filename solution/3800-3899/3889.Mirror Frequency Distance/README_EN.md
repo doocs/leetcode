@@ -202,6 +202,19 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters and digits mirror inside their own alphabets; we sum absolute frequency gaps over unordered mirror pairs. One count pass suffices.
+>
+> $(c,m)$ and $(m,c)$ are the same pair, so visited characters must be marked.
+>
+> Count frequencies, then for each unseen $c$ add $|freq(c)-freq(m)|$ and mark $c$.
+>
+> A missing mirror contributes frequency $0$.
+
+<!-- thinking:end -->
 We first use a hash table $\textit{freq}$ to count the frequency of each character in string $s$.
 
 Then, we iterate over each key-value pair $(c, v)$ in $\textit{freq}$, where $c$ is the character and $v$ is the number of times character $c$ appears in string $s$. For each character $c$, we compute its mirror character $m$ and calculate $|freq(c) - freq(m)|$. To avoid counting mirror pairs twice, we use a hash set $\textit{vis}$ to track already-visited characters.

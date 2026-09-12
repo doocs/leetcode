@@ -93,6 +93,19 @@ eventManager.pollHighest(); // 没有剩余事件，返回 -1</div>
 
 ### 方法一：有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需按最高优先级取事件，并列取最小 $\textit{eventId}$，并支持改优先级。操作达 $10^5$。
+>
+> 取最高等价于有序集合的端点；改优先级必须先删旧键再插新键。
+>
+> 存 $(-\textit{priority},\textit{eventId})$ 使「优先级高、编号小」排在最前，哈希表记下当前优先级以便定位删除。
+>
+> 弹出时同步删除哈希项。
+
+<!-- thinking:end -->
 我们定义一个有序集合 $\textit{sl}$ 来存储所有活跃事件的优先级和 id 的元组 $(-\textit{priority}, \textit{eventId})$，定义一个哈希表 $\textit{d}$ 来存储每个事件的优先级。
 
 初始时，我们遍历给定的事件列表，将所有事件的优先级和 id 的元组加入有序集合 $\textit{sl}$ 中，并将每个事件的优先级存储在哈希表 $\textit{d}$ 中。

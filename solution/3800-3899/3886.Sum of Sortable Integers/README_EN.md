@@ -98,6 +98,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$ is sortable iff $k$ divides $n$ and each block of length $k$ can be rotated so the concatenation is nondecreasing. $n \le 10^5$.
+>
+> There are few divisors; enumerate them. For each $k$, a block must be a rotation, and neighboring blocks must join monotonically.
+>
+> Global monotonicity means the chosen rotations concatenate in order. Check each position against the cyclic order, or compare adjacent blocks after their minimal rotations.
+>
+> Sum the divisors that pass.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

@@ -72,6 +72,19 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the light color from a few discrete tests on $\textit{timer}$, otherwise $\texttt{Invalid}$.
+>
+> The predicates are disjoint; check $0$, then $30$, then $(30,90]$.
+>
+> No extra state is required.
+>
+> Constant time.
+
+<!-- thinking:end -->
 We determine the answer according to the conditions described in the problem and return the corresponding string.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

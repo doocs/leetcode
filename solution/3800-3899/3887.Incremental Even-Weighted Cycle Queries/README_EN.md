@@ -84,6 +84,19 @@ source: Weekly Contest 495 Q4
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add edges in order, keeping an edge only if every cycle weight stays even. Weights are $0/1$ and $n \le 5 \times 10^4$.
+>
+> Even cycle weights mean the graph is $2$-colorable along weight-$1$ edges.
+>
+> A parity union-find stores the XOR to the root. If the endpoints are already connected, the path XOR must match the new weight, or an odd cycle appears.
+>
+> Otherwise unite. Count edges that survive.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3
