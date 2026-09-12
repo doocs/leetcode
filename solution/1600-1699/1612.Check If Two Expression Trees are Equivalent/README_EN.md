@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The trees contain only addition and letter leaves. Addition is commutative and associative, so two expressions are equivalent iff they use each letter the same number of times. About $5000$ nodes makes one traversal enough.
+>
+> Add one for each letter in the first tree and subtract one in the second; all zeros means equivalence.
+>
+> DFS skips `+` nodes and updates a counter $cnt$ only at leaves.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -231,6 +243,16 @@ var checkEquivalence = function (root1, root2) {
 <!-- solution:start -->
 
 ### Solution 2: Recursion (Coefficient Vector)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 handles addition only. With subtraction, letters become signed coefficients rather than raw counts.
+>
+> Recursively build a length-$26$ coefficient vector per tree: $1$ at a leaf, sum on `+`, and negate the right child on `-`. Equal vectors mean equivalence.
+
+<!-- thinking:end -->
 
 Recursively compute a length-$26$ coefficient vector for each tree. A leaf increments the coefficient of its letter; `+` adds the two child vectors, and `-` adds the left vector minus the right vector. The trees are equivalent if and only if the vectors are equal. This also covers the follow-up subtraction operator.
 

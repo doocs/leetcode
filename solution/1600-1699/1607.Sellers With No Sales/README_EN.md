@@ -122,6 +122,18 @@ Frank made 1 sale in 2019 but no sales in 2020.
 
 ### Solution 1: LEFT JOIN + GROUP BY + FILTER
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sellers with no $2020$ orders would disappear under an inner join, so we start from $\texttt{Seller}$ and keep every seller.
+>
+> Left-join $\texttt{Orders}$, group by $\texttt{seller\_id}$, and count rows whose $\texttt{YEAR}(\texttt{sale\_date})$ is $2020$. A seller with no orders yields $\texttt{NULL}$, which must be treated as $0$.
+>
+> $\texttt{IFNULL}(\texttt{SUM}(\texttt{YEAR}(\texttt{sale\_date})=2020),0)=0$ selects the names, then we sort them.
+
+<!-- thinking:end -->
+
 We can use a left join to join the `Seller` table with the `Orders` table on the condition `seller_id`, and then group by `seller_id` to count the number of sales for each seller in the year $2020$. Finally, we can filter out the sellers with zero sales.
 
 <!-- tabs:start -->

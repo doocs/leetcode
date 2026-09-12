@@ -81,6 +81,18 @@ We can achieve all the requests. </pre>
 
 ### Solution 1: Binary Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $m \le 16$ requests, so choosing a subset is $2^m \le 65536$ states; checking that every building has net flow zero fits the limits.
+>
+> A subset is feasible iff each building's incoming count equals its outgoing count — we need not simulate people moving.
+>
+> Enumerate mask $\textit{mask}$ and take $\textit{bit\_count}$ as the number of accepted requests. Only when that count beats the current answer do we verify that every building's counter is zero.
+
+<!-- thinking:end -->
+
 We note that the length of the room change request list does not exceed $16$. Therefore, we can use the method of binary enumeration to enumerate all room change request lists. Specifically, we can use a binary number of length $16$ to represent a room change request list, where the $i$-th bit being $1$ means the $i$-th room change request is selected, and $0$ means the $i$-th room change request is not selected.
 
 We enumerate all binary numbers in the range of $[1, 2^{m})$, for each binary number $mask$, we first calculate how many $1$s are in its binary representation, denoted as $cnt$. If $cnt$ is larger than the current answer $ans$, then we judge whether $mask$ is a feasible room change request list. If it is, then we update the answer $ans$ with $cnt$. To judge whether $mask$ is a feasible room change request list, we only need to check whether the net inflow of each room is $0$.

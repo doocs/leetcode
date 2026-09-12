@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string is valid and at most length $100$. Nesting depth is the maximum number of unmatched opening parentheses during a scan.
+>
+> Digits and operators do not affect depth; only parentheses matter.
+>
+> A counter $d$ increases on `(`, updates the answer, and decreases on `)`. One pass suffices.
+
+<!-- thinking:end -->
+
 We use a variable $d$ to record the current depth, initially $d = 0$.
 
 Traverse the string $s$. When encountering a left parenthesis, increment the depth $d$ by one and update the answer to be the maximum of the current depth $d$ and the answer. When encountering a right parenthesis, decrement the depth $d$ by one.

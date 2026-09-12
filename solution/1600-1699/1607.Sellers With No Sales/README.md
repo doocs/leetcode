@@ -122,6 +122,18 @@ Frank 在 2019 年卖出 1 次, 在 2020 年没有卖出。</pre>
 
 ### 方法一：左连接 + 分组 + 筛选
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要列出 $2020$ 年没有任何订单的卖家，内连接会丢掉全年无单的人，因此必须从 $\texttt{Seller}$ 出发保留全部卖家。
+>
+> 左连接 $\texttt{Orders}$ 后按 $\texttt{seller\_id}$ 分组，用 $\texttt{YEAR}(\texttt{sale\_date})=2020$ 在组内计数；无订单时聚合结果为 $\texttt{NULL}$，需当成 $0$。
+>
+> 条件 $\texttt{IFNULL}(\texttt{SUM}(\texttt{YEAR}(\texttt{sale\_date})=2020),0)=0$ 筛出目标，再按姓名排序。
+
+<!-- thinking:end -->
+
 我们可以使用左连接，将 `Seller` 表与 `Orders` 表按照字段 `seller_id` 连接，然后按照 `seller_id` 分组，统计每个卖家在 $2020$ 年的卖出次数，最后筛选出卖出次数为 $0$ 的卖家。
 
 <!-- tabs:start -->

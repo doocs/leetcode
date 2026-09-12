@@ -86,6 +86,18 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $k$ and the number of requests can be $10^5$, so scanning all servers per request is too slow. We need the idle server with id at least $i \bmod k$, wrapping to the smallest id if none exists.
+>
+> Busy servers should rejoin the idle set when they finish, so a heap stores $(\textit{end},\textit{server})$ and an ordered set stores free ids.
+>
+> On each arrival, release finished jobs, then $\texttt{bisect\_left}(i \bmod k)$ in $\textit{free}$. Array $\textit{cnt}$ records load; the answer is every id that attains the maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

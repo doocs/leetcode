@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Visibility is a sector of angle $\textit{angle}$. With $10^5$ points, trying every pair of polar endpoints is too slow. Points that coincide with the location are visible for every orientation and should be counted separately.
+>
+> Convert the rest to polar angles, sort, and treat a visible set as a circular window of width $\textit{angle}$. Duplicating the sequence shifted by $2\pi$ turns the ring into a linear array.
+>
+> For each left endpoint $v[i]$, binary-search the rightmost angle $\le v[i]+\theta$, take the maximum window size, and add the coincident count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
