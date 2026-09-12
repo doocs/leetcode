@@ -56,6 +56,18 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在升序且无重复的数组中查找 $\textit{target}$。$n \le 10^4$，线性扫描可以通过，但有序数组上每次比较都能丢掉一半候选。
+>
+> 取中点后，若 $\textit{nums}[\textit{mid}] \ge \textit{target}$，答案不会在右侧，将右端收拢到 $\textit{mid}$；否则答案只可能在 $\textit{mid}$ 右侧，左端移到 $\textit{mid}+1$。
+>
+> 循环至 $l=r$ 时落在第一个不小于目标的位置，再与目标比较即可区分命中与缺失。时间 $O(\log n)$，额外空间 $O(1)$。
+
+<!-- thinking:end -->
+
 我们定义二分查找的左边界 $l=0$，右边界 $r=n-1$。
 
 每一次循环，我们计算中间位置 $\textit{mid}=(l+r)/2$，然后比较 $\textit{nums}[\textit{mid}]$ 和 $\textit{target}$ 的大小。

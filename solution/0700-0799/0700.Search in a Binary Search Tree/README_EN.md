@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the subtree rooted at the node whose value is $\textit{val}$. $n \le 5000$ would allow a full scan, but that ignores the BST order.
+>
+> If the current value equals the target, that node is the answer; if it is larger, the target can only lie in the left subtree, otherwise only in the right. One comparison therefore discards an entire side.
+>
+> Recursion matches this walk: return the current node when it is empty or a hit, otherwise descend left or right. A degenerate chain still costs $O(n)$ time and stack space.
+
+<!-- thinking:end -->
+
 We check if the current node is null or if the current node's value equals the target value. If so, we return the current node.
 
 Otherwise, if the current node's value is greater than the target value, we recursively search the left subtree; otherwise, we recursively search the right subtree.

@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count 4-connected islands up to rotation and reflection. The grid is at most $50\times 50$, so we can extract every island and compare shapes.
+>
+> Distinct-islands I only needs a translation-normalized signature. Here the dihedral group identifies eight orientations, so we generate all eight, pin each to the origin, and keep the lexicographically smallest.
+>
+> DFS gathers cells; each $(i,j)$ yields $(\pm i,\pm j)$ and $(\pm j,\pm i)$. Sort each copy, subtract the first point, then insert the best of the eight tuples into a set. The set size is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -67,6 +67,18 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may trade many times and pay $fee$ on each completed sale. $n \le 5\times 10^4$, so an unmemoized search over days repeats states.
+>
+> A day has two modes: flat or holding. From flat we buy or skip; from holding we sell (minus $fee$) or hold. The optimum from day $i$ in mode $j$ depends only on those two successors.
+>
+> Memoize $dfs(i,j)$; past the last day the profit is $0$. The answer is $dfs(0,0)$. There are $O(n)$ states.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$, which represents the maximum profit that can be obtained starting from day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. The answer is $dfs(0, 0)$.
 
 The execution logic of the function $dfs(i, j)$ is as follows:
@@ -227,6 +239,16 @@ function maxProfit(prices: number[], fee: number): number {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already linear, but the recursion still uses an $O(n)$ stack and table. The same transitions can be written forward by day.
+>
+> Let $f[i][0/1]$ be the best profit after day $i$ flat or holding. Each row comes from the previous one; the answer is $f[n-1][0]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the maximum profit that can be obtained up to day $i$ with state $j$. Here, $j$ can take the values $0$ and $1$, representing not holding and holding a stock, respectively. We initialize $f[0][0] = 0$ and $f[0][1] = -prices[0]$.
 
 When $i \geq 1$, if we do not hold a stock at the current day, then $f[i][0]$ can be obtained by transitioning from $f[i - 1][0]$ and $f[i - 1][1] + prices[i] - fee$, i.e., $f[i][0] = \max(f[i - 1][0], f[i - 1][1] + prices[i] - fee)$. If we hold a stock at the current day, then $f[i][1]$ can be obtained by transitioning from $f[i - 1][1]$ and $f[i - 1][0] - prices[i]$, i.e., $f[i][1] = \max(f[i - 1][1], f[i - 1][0] - prices[i])$. The final answer is $f[n - 1][0]$.
@@ -322,6 +344,16 @@ function maxProfit(prices: number[], fee: number): number {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Day $i$ in Solution 2 reads only day $i-1$, so the full table is unnecessary.
+>
+> Roll two scalars $f_0,f_1$. Parallel assignment keeps the previous pair while both updates run, so the new holding state still sees the old flat profit. Space is $O(1)$.
+
+<!-- thinking:end -->
 
 The transition only needs the previous day, so two variables are enough and the space complexity is $O(1)$.
 

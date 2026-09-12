@@ -56,6 +56,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Convert uppercase letters to lowercase; $n \le 100$. A library call works, and so does an ASCII walk.
+>
+> Each uppercase letter is $32$ below its lowercase counterpart, i.e. bit $5$ of the code point. Bitwise-or with $32$ lowercases it; other characters stay unchanged.
+>
+> Map every character: if it is uppercase, emit $\operatorname{ord}(c)\,|\,32$. Time $O(n)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -151,6 +163,16 @@ char* toLowerCase(char* s) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 branches on `isupper`. Lowercase ASCII already has bit $5$ set, so or-ing $32$ is a no-op there and we can apply it uniformly.
+>
+> The TypeScript tab ors every character; the Rust tab still guards $A$–$Z$ so non-letters are untouched. Neither version calls a locale-aware lowercasing API.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

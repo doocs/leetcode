@@ -69,6 +69,18 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a map whose keys and values lie in $[0, 10^6]$, with at most $10^4$ operations. As with the hash set, the key itself is a valid index.
+>
+> Allocate an array of length $10^6+1$ filled with $-1$. $\textit{put}$, $\textit{get}$, and $\textit{remove}$ become an assignment, a read, and a write of $-1$.
+>
+> The sentinel $-1$ is outside the value range, so it cannot collide with a stored value. Space follows the universe, which is acceptable here.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

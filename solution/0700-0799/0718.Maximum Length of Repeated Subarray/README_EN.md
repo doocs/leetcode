@@ -56,6 +56,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the longest common contiguous subarray. Lengths are $1000$, so matching from every pair of starts is too slow, and LCS DP does not enforce contiguity.
+>
+> Contiguity means a suffix grows only when the current pair matches: it is one plus the suffix of the prefixes, otherwise zero.
+>
+> Let $f[i][j]$ be the common suffix ending at $nums1[i-1]$ and $nums2[j-1]$. Take the global maximum. Time $O(mn)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
