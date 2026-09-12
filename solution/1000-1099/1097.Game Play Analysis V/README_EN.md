@@ -79,6 +79,18 @@ Player 2 installed the game on 2017-06-25 but didn&#39;t log back in on 2017-06-
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The install date is each player’s earliest `event_date`. Day-1 retention is the share of those players who also log in the next day, grouped by install date.
+>
+> `MIN(event_date) OVER (PARTITION BY player_id)` tags every row. The outer query counts distinct players per install date and divides `SUM(datediff = 1)` by that count.
+>
+> `ROUND(..., 2)` keeps two decimals.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

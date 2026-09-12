@@ -80,6 +80,18 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Capacity is at least the heaviest package and at most the total weight. Testing every value in that range is too slow: $n\le 5\times 10^4$ and the sum can be in the millions.
+>
+> Larger capacity never increases the number of days, so feasibility is monotonic and the least valid capacity can be found by binary search.
+>
+> For a candidate $x$ we pack left to right and start a new day when $x$ is exceeded. We bisect the first true value of this check on $[\max w_i,\sum w_i]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

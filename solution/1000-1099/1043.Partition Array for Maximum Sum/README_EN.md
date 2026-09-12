@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of partitions is exponential; $n\le 500$ and $k\le n$ forbid listing them. The last piece has length at most $k$ and contributes its maximum times that length; the prefix is the same problem on a smaller array.
+>
+> $f[i]$ is the best sum of the first $i$ elements. Walking $j$ left from $i$ keeps the piece maximum $\textit{mx}$ and tries $f[j-1]+\textit{mx}\cdot(i-j+1)$.
+>
+> Filling $i$ increasingly yields $f[n]$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the maximum element sum of the first $i$ elements of the array after separating them into several subarrays. At the beginning, $f[i]=0$, and the answer is $f[n]$.
 
 We consider how to calculate $f[i]$, where $i \geq 1$.

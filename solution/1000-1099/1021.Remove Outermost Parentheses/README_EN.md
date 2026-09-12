@@ -80,6 +80,18 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Splitting into primitives and stripping each pair of outer parentheses is correct, but a second pass is unnecessary. Those outer parentheses are exactly the steps where the depth leaves $0$ and later returns to $0$.
+>
+> A depth counter therefore keeps a character only when it is not that outer pair: increment first on `'('` and keep it if the depth exceeds $1$; decrement first on `')'` and keep it if the depth stays positive.
+>
+> One scan builds the answer with constant extra space.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -223,6 +235,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 branches on the two bracket kinds. Any character seen while the depth is greater than $1$ belongs inside a primitive.
+>
+> Updating depth on `'('`, appending when the depth exceeds $1$, then stepping back on `')'` is the same counter with a single write.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

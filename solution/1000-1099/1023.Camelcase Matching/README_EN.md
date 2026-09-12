@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query can be matched against the pattern in linear time; both the number of queries and the lengths are at most $100$. Extra letters in a query may only be lowercase insertions, and every pattern character must appear in order.
+>
+> Two pointers walk the query and the pattern. The query pointer skips lowercase mismatches; running off the end or hitting a conflicting letter fails. After the pattern is consumed, the query suffix must be all lowercase.
+>
+> The check is applied to every query.
+
+<!-- thinking:end -->
+
 We can traverse every string in `queries` and check whether it matches `pattern` or not. If it matches, we add `true` to the answer array, otherwise we add `false`.
 
 Next, we implement a function $check(s, t)$ to check whether the string $s$ matches the string $t$.

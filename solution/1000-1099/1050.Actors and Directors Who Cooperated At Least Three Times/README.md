@@ -68,6 +68,18 @@ ActorDirector 表：
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要统计同一对演员与导演的合作次数。按两个编号分组后，组内行数即为合作次数。
+>
+> `GROUP BY actor_id, director_id`，再用 `HAVING COUNT(1) >= 3` 留下不少于三次的对。
+>
+> 无需自连接，一次聚合即可。
+
+<!-- thinking:end -->
+
 我们可以使用 `GROUP BY` 语句，按照 `actor_id` 和 `director_id` 字段进行分组，然后使用 `HAVING` 语句，筛选出现次数大于等于 $3$ 的 `actor_id` 和 `director_id`。
 
 <!-- tabs:start -->

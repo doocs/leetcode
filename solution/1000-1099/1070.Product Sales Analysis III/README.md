@@ -75,6 +75,18 @@ Sales 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个产品只要其最早年份的全部销售行。先按产品求出最小年份，再回表取出该年的数量与价格。
+>
+> 子查询 `GROUP BY product_id` 得到 `(product_id, MIN(year))`，外层用元组 `IN` 过滤 `Sales`。
+>
+> 同一产品同一年可能有多行，因此不能只取一行聚合结果，而应保留所有匹配行。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -104,6 +116,16 @@ WHERE
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相关子查询对每个产品再聚合一次。窗口函数可以在同一趟扫描里标出组内年份名次。
+>
+> `RANK() OVER (PARTITION BY product_id ORDER BY year)` 把最早年份标为 $1$，外层留下 `rk = 1` 的行，并列最早的多行都会保留。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -60,6 +60,18 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Collecting every ancestor at each node repeats paths and is heavy for $n\le 5000$. Only the minimum and maximum on the path matter.
+>
+> DFS carries $(\textit{mi},\textit{mx})$ downward, updates the answer with $|\textit{val}-\textit{mi}|$ and $|\textit{val}-\textit{mx}|$, then includes the current value in the range.
+>
+> One traversal of the tree is enough.
+
+<!-- thinking:end -->
+
 For each node, to find the maximum difference with its ancestor nodes, we only need to find the difference between the maximum and minimum values of the ancestor nodes. The maximum difference among all nodes and their ancestor nodes is the answer.
 
 Therefore, we design a function $dfs(root, mi, mx)$, where the current node being searched is $root$, the maximum value of its ancestor nodes is $mx$, and the minimum value is $mi$. The function updates the maximum difference $ans$.

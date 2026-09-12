@@ -95,6 +95,18 @@ Product table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Total units per product are the sum of `quantity` for that `product_id`.
+>
+> Group by `product_id` and sum `quantity`.
+>
+> `GROUP BY 1` refers to the first selected column; the product table is not needed.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

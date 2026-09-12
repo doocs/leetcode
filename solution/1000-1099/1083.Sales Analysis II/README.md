@@ -99,6 +99,18 @@ id 为 1 的买家购买了一部 S8，但是却没有购买 iPhone，而 id 为
 
 ### 方法一：JOIN + GROUP BY + HAVING
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要找买过 S8 且从未买过 iPhone 的买家。一人多行，需要在买家维度上同时看两种产品是否出现。
+>
+> 连接产品名后按 `buyer_id` 分组，`SUM(product_name = 'S8') > 0` 且 `SUM(product_name = 'iPhone') = 0`。
+>
+> 条件聚合避免先拆成两个买家集合再差集。
+
+<!-- thinking:end -->
+
 我们先将 `Sales` 表和 `Product` 表连接起来，然后根据 `buyer_id` 分组，最后用 `HAVING` 子句筛选出购买了 S8 却没有购买 iPhone 的买家。
 
 <!-- tabs:start -->

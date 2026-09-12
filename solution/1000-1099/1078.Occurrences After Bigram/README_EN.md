@@ -50,6 +50,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the word that follows a given bigram. The text is single-space separated, so splitting and checking triples is enough at length $\le 1000$.
+>
+> Each $i$ looks at $(words[i],words[i+1],words[i+2])$ and collects the third word when the first two match.
+>
+> One linear scan finds every occurrence.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

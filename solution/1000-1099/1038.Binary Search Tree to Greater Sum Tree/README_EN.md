@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node must become the sum of keys no smaller than itself. Reverse inorder (right, root, left) visits a BST from large to small, so a running total can overwrite values in place. $n\le 100$ makes recursion acceptable.
+>
+> Recurse on the right subtree, add the current value into $s$ and write it back, then recurse on the left.
+>
+> One traversal converts the tree.
+
+<!-- thinking:end -->
+
 Traverse the binary search tree in the order of "right-root-left". Accumulate all the node values encountered into $s$, and assign the accumulated value to the corresponding `node`.
 
 Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes in the binary search tree.
@@ -337,6 +349,16 @@ struct TreeNode* bstToGst(struct TreeNode* root) {
 <!-- solution:start -->
 
 ### Solution 2: Morris Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recursive stack grows with height; constant extra space is possible. Morris traversal threads the leftmost node of the right subtree as a temporary successor and walks the same reverse-inorder sequence without a stack.
+>
+> No right child: settle the node and go left. Otherwise find the successor: if unthreaded, thread it and go right; if already threaded, settle, unthread, and go left. The accumulation matches Solution 1.
+
+<!-- thinking:end -->
 
 Morris traversal does not require a stack, with a time complexity of $O(n)$ and a space complexity of $O(1)$. The core idea is as follows:
 

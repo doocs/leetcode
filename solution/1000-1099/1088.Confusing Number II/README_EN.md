@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count confusing numbers in $[1,n]$ for $n\le 10^9$. Only digits $0,1,6,8,9$ survive a rotation, so we build valid numbers digit by digit and then test the rotation.
+>
+> Digit DFS from the high end enumerates mapped digits under the bound of $n$. At a complete number we reuse the rotation check from problem $1056$.
+>
+> The table $d$ is used both while filling and inside `check`; leading zeros are just the integer $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

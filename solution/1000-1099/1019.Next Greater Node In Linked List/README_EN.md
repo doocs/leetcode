@@ -59,6 +59,18 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning rightward from every node is $O(n^2)$ and tight at $n\le 10^4$. The query is the next greater element on the right, the same as the array problem.
+>
+> A decreasing stack from right to left holds candidates. The current value pops every top that is not strictly larger; the new top, if any, is the next greater value.
+>
+> We flatten the list into an array and fill the answer in one reverse pass.
+
+<!-- thinking:end -->
+
 The problem requires finding the next larger node for each node in the linked list, that is, finding the first node to the right of each node in the linked list that is larger than it. We first traverse the linked list and store the values in the linked list in an array $nums$. For each element in the array $nums$, we just need to find the first element to its right that is larger than it. The problem of finding the next larger element can be solved using a monotonic stack.
 
 We traverse the array $nums$ from back to front, maintaining a stack $stk$ that is monotonically decreasing from the bottom to the top. During the traversal, if the top element of the stack is less than or equal to the current element, we loop to pop the top element of the stack until the top element of the stack is larger than the current element or the stack is empty.

@@ -75,6 +75,18 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only endpoint stones may move onto a non-endpoint vacancy. $n\le 10^4$ and coordinates up to $10^9$ rule out a step-by-step search. The maximum is sliding endpoints as slowly as possible; the minimum is packing stones into some window of length $n$.
+>
+> After sorting, moving the left end first skips the gap after $stones[0]$ and yields at most $stones[n-1]-stones[1]+1-(n-1)$ moves; the right end is symmetric. The minimum uses two pointers on windows of $n$ slots; a near-full window that still misses one stone needs two moves.
+>
+> One sort and one sliding window produce $[\textit{mi},\textit{mx}]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

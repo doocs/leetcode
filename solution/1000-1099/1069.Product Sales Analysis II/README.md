@@ -93,6 +93,18 @@ Product 表：
 
 ### 方法一：使用 `GROUP BY`
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个产品的总销量是该 `product_id` 下所有 `quantity` 之和。
+>
+> 按 `product_id` 分组并对 `quantity` 求和。
+>
+> `GROUP BY 1` 与选择列表第一列对应，无需再连接产品表。
+
+<!-- thinking:end -->
+
 我们可以使用 `GROUP BY`，按照 `product_id` 分组，然后每一组对 `quantity` 求和。
 
 <!-- tabs:start -->

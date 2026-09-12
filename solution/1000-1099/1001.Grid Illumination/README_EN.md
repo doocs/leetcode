@@ -77,6 +77,18 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid side $n$ can be $10^9$, so simulating illumination cell by cell is impossible. There are at most $2\times 10^4$ lamps and queries, so only the occupied rows, columns, and diagonals matter.
+>
+> A lamp at $(x,y)$ lights row $x$, column $y$, and the diagonals $x-y$ and $x+y$. A query cell is lit iff any of those four lines still holds a lamp; we then turn off lamps on that cell and its eight neighbors, decreasing the corresponding line counts.
+>
+> A set stores unique lamp coordinates and four hash maps count lamps per line. Each query checks the four counts and updates a constant-size neighborhood, so the time depends on the number of lamps and queries, not on $n$.
+
+<!-- thinking:end -->
+
 Suppose the coordinates of a lamp are $(x, y)$. Then, the row value is $x$, the column value is $y$, the main diagonal value is $x-y$, and the anti-diagonal value is $x+y$. Once we determine the unique value identifier for a line, we can use a hash table to record the number of lamps on that line.
 
 We traverse the array $\textit{lamps}$, and for each lamp, we increment the count of lamps in its row, column, main diagonal, and anti-diagonal by $1$.

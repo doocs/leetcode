@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every difference and scanning for a subsequence is viable: $n\le 1000$ and values lie in $[0,500]$, so differences are a few thousand. The subsequence need not be contiguous, so the state should be “ending at index $i$ with difference $j$”.
+>
+> $f[i][j]$ is that length. Shifting $j$ by $500$ maps differences into $[0,1000]$. A transition enumerates $k<i$ and sets $f[i][j]=\max(f[i][j],f[k][j]+1)$.
+>
+> Every pair of indices updates once; the answer is the maximum over the table.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the maximum length of the arithmetic sequence ending with $nums[i]$ and having a common difference of $j$. Initially, $f[i][j]=1$, that is, each element itself is an arithmetic sequence of length $1$.
 
 > Since the common difference may be negative, and the maximum difference is $500$, we can uniformly add $500$ to the common difference, so the range of the common difference becomes $[0, 1000]$.

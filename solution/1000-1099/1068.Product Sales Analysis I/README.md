@@ -95,6 +95,18 @@ Product 表：
 
 ### 方法一：使用 `JOIN` 内连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 结果需要销售表中的年份、价格以及产品表中的名称，两表通过 `product_id` 关联。
+>
+> 对 `Sales` 与 `Product` 做等值内连接，选出 `product_name, year, price`。
+>
+> `USING (product_id)` 避免写出重复的连接列。
+
+<!-- thinking:end -->
+
 我们直接使用 `JOIN` 连接 `Sales` 和 `Product` 两张表，连接字段为 `product_id`，然后选择需要的字段即可。
 
 <!-- tabs:start -->

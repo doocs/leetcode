@@ -97,6 +97,18 @@ Employee table:
 
 ### Solution 1: Inner Join + Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each project should keep the most experienced employee, including ties. After the join we compare `experience_years` inside a project.
+>
+> `RANK() OVER (PARTITION BY project_id ORDER BY experience_years DESC)` marks the top years as $1$.
+>
+> The outer query returns those `project_id, employee_id` pairs.
+
+<!-- thinking:end -->
+
 We can first perform an inner join between the `Project` table and the `Employee` table, and then use the window function `rank()` to group the `Project` table, sort it in descending order by `experience_years`, and finally select the most experienced employee for each project.
 
 <!-- tabs:start -->

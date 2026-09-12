@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distinct sequences are permutations of a multiset. $n\le 7$ is searchable, but identical letters would be over-counted if we permuted positions. We should recurse on remaining counts.
+>
+> $\textit{dfs}(\textit{cnt})$ tries every letter still available, uses one copy, and counts that choice as a nonempty sequence before recursing.
+>
+> Counts are incremented back on return; the top call uses the bag’s frequencies.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

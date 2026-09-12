@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every path from $source$ must stop at $destination$ and must not loop elsewhere. $n,m\le 10^4$, so each node remembers “visiting” versus “already leads to the destination”.
+>
+> A destination with outgoing edges is invalid. DFS treats state $1$ as a cycle; a sink must be the destination; otherwise mark $1$, require every successor to succeed, then mark $2$.
+>
+> The result of $\textit{dfs}(\textit{source})$ is the answer.
+
+<!-- thinking:end -->
+
 We use a state array $\textit{state}$ to record the status of each node, where:
 
 - State 0 indicates the node has not been visited;

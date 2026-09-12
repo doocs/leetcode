@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers in calm minutes always count; the technique covers only a window of $\textit{minutes}$ angry minutes. $n\le 2\times 10^4$ calls for one pass.
+>
+> Sum the calm flow, then take the maximum angry flow over every window of length $\textit{minutes}$.
+>
+> The window adds $customers[i]\cdot grumpy[i]$ and drops the value that leaves. The answer is the calm sum plus that maximum.
+
+<!-- thinking:end -->
+
 According to the problem description, we only need to count the number of customers when the boss is not angry $tot$, and add the maximum number of customers when the boss is angry within a sliding window of size `minutes` $mx$.
 
 We define a variable $cnt$ to record the number of customers when the boss is angry within the sliding window, the initial value is the number of customers when the boss is angry in the first `minutes`. Then we traverse the array, each time we move the sliding window, we update the value of $cnt$, and at the same time update the value of $mx$.

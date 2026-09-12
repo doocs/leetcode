@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating both segments is $O(n^2)$ and tight at $n\le 1000$. After one segment is fixed, the other only needs the best fixed-length window on the remaining side.
+>
+> Prefix sums give any window sum in $O(1)$. We handle “$\textit{firstLen}$ on the left” and “$\textit{secondLen}$ on the left” separately, keeping the best left window in $t$ as the right window slides.
+>
+> The answer is the larger of the two scans.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

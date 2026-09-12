@@ -73,6 +73,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three distinct positions can be searched, but the optimum depends only on the sorted gaps, so a simulation is unnecessary.
+>
+> Let $x<y<z$. Already consecutive stones need no moves. If $y$ is within two of an endpoint, one move fills the gap; otherwise both ends move once and the minimum is $2$. The maximum is sliding endpoints into interior holes, $z-x-2$ times.
+>
+> After sorting we emit $[\textit{mi},\textit{mx}]$ from this case split.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

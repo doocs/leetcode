@@ -79,6 +79,18 @@ streamChecker.query(&quot;l&quot;); // return True, because &#39;kl&#39; is in t
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Matching the whole stream against every word on each query repeats work: up to $4\times 10^4$ queries and a large total pattern length. We only need to know whether the stream currently ends with some word.
+>
+> Inserting the reversed words into a trie turns suffix queries into prefix walks. Words have length at most $200$, so only a bounded tail of the stream matters.
+>
+> The constructor builds that reverse trie; each query appends the letter and walks at most $201$ steps, succeeding at an end mark.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

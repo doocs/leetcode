@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Writing the binary form and flipping bits yields the complement, but $n$ can be $10^9$, leading zeros must not be flipped, and $n=0$ is defined to be $1$.
+>
+> Processing from low to high only inverts bits that actually appear in $n$. When $n$ becomes $0$ we stop, so higher zero bits stay untouched.
+>
+> Index $i$ marks the current bit; we OR the flipped low bit of $n$ into $\textit{ans}$ and shift $n$ until it vanishes.
+
+<!-- thinking:end -->
+
 First, we check if $n$ is $0$. If it is, we return $1$.
 
 Next, we define two variables $\textit{ans}$ and $i$, both initialized to $0$. Then we iterate through $n$. In each iteration, we set the $i$-th bit of $\textit{ans}$ to the inverse of the $i$-th bit of $n$, increment $i$ by $1$, and right shift $n$ by $1$.

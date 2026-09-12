@@ -96,6 +96,18 @@ Product 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 销售额最高的卖家可能并列。按 `seller_id` 对 `price` 求和后，留下不小于所有组和的那些人。
+>
+> `HAVING SUM(price) >= ALL (分组求和子查询)` 选出全部最大值。
+>
+> 不必再排序取第一行，以免丢掉并列。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -120,6 +132,16 @@ HAVING
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 相关 `ALL` 子查询重复聚合。窗口按总销售额降序排名，名为 $1$ 的即最高（含并列）。
+>
+> CTE 计算 `SUM` 与 `rk`，外层取 `rk = 1`。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

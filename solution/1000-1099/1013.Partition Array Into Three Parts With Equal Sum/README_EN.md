@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Traversal and Summation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every pair of cuts is $O(n^2)$. Three equal parts exist only when the total is divisible by $3$ and we can form at least three contiguous pieces each summing to $s=\textit{sum}/3$.
+>
+> A left-to-right accumulation that resets at every $s$ counts such pieces. Extra pieces may be absorbed into the last part, so a count of at least $3$ is enough.
+>
+> We reject a nonzero remainder modulo $3$, then maintain the running part sum and the part count in one pass.
+
+<!-- thinking:end -->
+
 First, we calculate the sum of the entire array and check if the sum is divisible by 3. If it is not, we directly return $\textit{false}$.
 
 Otherwise, let $\textit{s}$ represent the sum of each part. We use a variable $\textit{cnt}$ to record the number of parts found so far, and another variable $\textit{t}$ to record the current part's sum. Initially, $\textit{cnt} = 0$ and $\textit{t} = 0$.

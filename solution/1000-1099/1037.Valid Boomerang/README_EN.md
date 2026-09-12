@@ -49,6 +49,18 @@ tags:
 
 ### Solution 1: Slope Comparison
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three points form a boomerang iff they are distinct and not collinear. Subtracting slopes hits vertical edges and floating-point noise.
+>
+> Unequal slopes become the cross product $(y_2-y_1)(x_3-x_2)\neq(y_3-y_2)(x_2-x_1)$, which also covers vertical sides and coincident points.
+>
+> One multiplication check on the three coordinates is enough.
+
+<!-- thinking:end -->
+
 Let the three points be $(x_1, y_1)$, $(x_2, y_2)$, and $(x_3, y_3)$. The formula for calculating the slope between two points is $\frac{y_2 - y_1}{x_2 - x_1}$.
 
 To ensure that the three points are not collinear, the condition $\frac{y_2 - y_1}{x_2 - x_1} \neq \frac{y_3 - y_2}{x_3 - x_2}$ must be satisfied. By transforming the equation, we get $(y_2 - y_1) \cdot (x_3 - x_2) \neq (y_3 - y_2) \cdot (x_2 - x_1)$.

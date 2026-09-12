@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mountain is available only through `get`, and $n\le 10^4$ requires logarithmic queries. Find the peak, then binary-search the increasing left and the decreasing right.
+>
+> Comparing $get(mid)$ with $get(mid+1)$ locates the peak. `search` uses $k=\pm 1$ so the same lower-bound loop works on both sides.
+>
+> The left half is tried first so the smallest index is returned.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

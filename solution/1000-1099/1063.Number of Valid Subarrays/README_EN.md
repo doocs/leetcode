@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray is valid iff its left end is the minimum. For each $i$ the right end may extend up to the next strictly smaller value. $n\le 5\times 10^4$ needs a linear next-smaller scan.
+>
+> A decreasing index stack from the right pops every top that is not smaller than $nums[i]$; the new top (or $n$) is the boundary and contributes that index minus $i$.
+>
+> Storing $\textit{right}[i]$ and summing matches the definition.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -193,6 +205,16 @@ function validSubarrays(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores the whole $\textit{right}$ array. The boundary is known immediately while scanning backward.
+>
+> The same stack adds $(stk[-1]\text{ or }n)-i$ to the answer on the fly.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

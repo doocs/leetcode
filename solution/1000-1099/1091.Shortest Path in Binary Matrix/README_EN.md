@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The eight-connected path has unit weights, so BFS by layer is the shortest length. $n\le 100$ lets us mark visited cells in the grid. A blocked origin has no path.
+>
+> Enqueue $(0,0)$ and mark it $1$. Each layer expands the eight neighbors that are still $0$. Reaching $(n-1,n-1)$ yields the current layer index.
+>
+> If the queue empties first, the answer is $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

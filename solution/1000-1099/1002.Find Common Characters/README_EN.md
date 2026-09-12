@@ -47,6 +47,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning every word for each letter is feasible: both the number of words and their lengths are at most $100$. Repeatedly walking the same alphabet still wastes comparisons.
+>
+> A letter appears in the answer as many times as its minimum frequency over all words — the intersection of the multisets.
+>
+> We therefore count the first word, take a pointwise $\min$ with every later word, and expand the counts. The alphabet has size $26$, so extra space is constant.
+
+<!-- thinking:end -->
+
 We use an array $cnt$ of length $26$ to record the minimum number of times each character appears in all strings. Finally, we traverse the $cnt$ array and add characters with a count greater than $0$ to the answer.
 
 The time complexity is $O(n \sum w_i)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string array $words$, $w_i$ is the length of the $i$-th string in the array $words$, and $|\Sigma|$ is the size of the character set, which is $26$ in this problem.

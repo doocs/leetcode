@@ -76,6 +76,18 @@ Hence, [1,2,3] is a valid answer. Other valid answers include [1,2,4], [1,4,2], 
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Degree is at most three and there are four colors, so a greedy coloring works and backtracking is unnecessary.
+>
+> Build the adjacency list. For garden $x$ collect colors already used by neighbors and assign the first free color in $1..4$.
+>
+> A vertex of degree $\le 3$ always has a free color; one pass finishes.
+
+<!-- thinking:end -->
+
 We first construct a graph $g$ based on the array $\textit{paths}$, where $g[x]$ represents the list of gardens adjacent to garden $x$.
 
 Next, for each garden $x$, we first find the gardens $y$ adjacent to $x$ and mark the types of flowers planted in garden $y$ as used. Then, we enumerate the flower types starting from $1$ until we find a flower type $c$ that has not been used. We assign $c$ as the flower type for garden $x$ and continue to the next garden.
