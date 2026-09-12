@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.09.Sorted%20Matrix
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows and columns increase; find $target$. A full scan is $O(mn)$. Each row is sorted, so it admits binary search.
+>
+> $bisect\_left$ on every row returns on a hit. Column monotonicity is unused; the cost is $O(m\log n)$.
+>
+> The implementation walks rows and searches, in $O(1)$ extra space, which is short when $m$ is modest.
+
+<!-- thinking:end -->
+
 Since all elements in each row are sorted in ascending order, we can use binary search to find the first element that is greater than or equal to `target` for each row, and then check if this element is equal to `target`. If it equals `target`, it means the target value has been found, and we directly return `true`. If it does not equal `target`, it means all elements in this row are less than `target`, and we should continue to search the next row.
 
 If all rows have been searched and the target value has not been found, it means the target value does not exist, so we return `false`.
@@ -255,6 +267,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Search from the Bottom Left or Top Right
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 ignores increasing columns and may inspect every row.
+>
+> From the bottom-left (or top-right): a too-large value moves up and drops that column’s larger suffix; a too-small value moves right and drops that row’s smaller prefix. Each step deletes a row or a column, in $O(m+n)$.
+
+<!-- thinking:end -->
 
 Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element `matrix[i][j]` with `target`:
 

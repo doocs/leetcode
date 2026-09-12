@@ -61,6 +61,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.11.Coin/README_EN.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Make amount $n$ with coins $25,10,5,1$, order ignored. Nested loops over counts work, and they are the unbounded knapsack recurrence.
+>
+> $f[i][j]$ is the number of ways with the first $i$ coins. The transition is $f[i][j]=f[i-1][j]+f[i][j-c_i]$ when $j\ge c_i$.
+>
+> Four coin types fit a $5\times(n+1)$ table; $f[0][0]=1$ is the empty way. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of ways to make up the total amount $j$ using only the first $i$ types of coins. Initially, $f[0][0]=1$, and the rest of the elements are $0$. The answer is $f[4][n]$.
 
 Considering $f[i][j]$, we can enumerate the number of the $i$-th type of coin used, $k$, where $0 \leq k \leq j / c_i$, then $f[i][j]$ is equal to the sum of all $f[i−1][j−k \times c_i]$. Since the number of coins is infinite, $k$ can start from $0$. That is, the state transition equation is as follows:
@@ -227,6 +239,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ reads only row $i-1$ and smaller $j$ on the same row, so the first index can be dropped.
+>
+> A one-dimensional array updated in increasing $j$ keeps the same recurrence in $O(n)$ space.
+
+<!-- thinking:end -->
 
 We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$. Therefore, we can remove the first dimension and optimize the space complexity to $O(n)$.
 

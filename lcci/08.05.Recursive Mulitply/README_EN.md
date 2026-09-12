@@ -44,6 +44,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.05.Recursive%20Mul
 
 ### Solution 1: Recursion + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Multiplication of $A$ by $B$ is disallowed. Adding $A$ repeatedly is $O(B)$.
+>
+> $A\times B = 2A \times \lfloor B/2 \rfloor$, plus one extra $A$ when $B$ is odd. Each step halves $B$, so the depth is $O(\log B)$.
+>
+> Shifts replace $\times 2$ and $/2$; $B\&1$ tests oddness. The base $B=1$ returns $A$.
+
+<!-- thinking:end -->
+
 First, we check if $B$ is $1$. If it is, we directly return $A$.
 
 Otherwise, we check if $B$ is an odd number. If it is, we can right shift $B$ by one bit, then recursively call the function, and finally left shift the result by one bit and add $A$. If not, we can right shift $B$ by one bit, then recursively call the function, and finally left shift the result by one bit.

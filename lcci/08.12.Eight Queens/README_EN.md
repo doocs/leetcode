@@ -60,6 +60,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.12.Eight%20Queens/
 
 ### Solution 1: DFS (Backtracking)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ non-attacking queens must be placed. Trying permutations and scanning diagonals is $n!$ times a linear check.
+>
+> Placing row by row, conflicts live only on a column and two diagonals, which arrays can test in $O(1)$.
+>
+> $col[j]$, $dg[i+j]$, and $udg[n-i+j]$ mark occupancy; $dfs(i)$ tries columns of row $i$ and undoes the board. $n$ is small enough to list every solution.
+
+<!-- thinking:end -->
+
 We define three arrays $col$, $dg$, and $udg$ to represent whether there is a queen in the column, the main diagonal, and the anti-diagonal, respectively. If there is a queen at position $(i, j)$, then $col[j]$, $dg[i + j]$, and $udg[n - i + j]$ are all $1$. In addition, we use an array $g$ to record the current state of the chessboard, where all elements in $g$ are initially `'.'`.
 
 Next, we define a function $dfs(i)$, which represents placing queens starting from the $i$th row.

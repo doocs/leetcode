@@ -45,6 +45,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.08.Permutation%20I
 
 ### Solution 1: Sorting + Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters may repeat, so “unused index” alone emits duplicate strings.
+>
+> Sorting clusters equal letters. A later copy may be used only if the previous copy is already in the prefix, so each value is tried once per depth.
+>
+> The guard `j==0 or s[j]!=s[j-1] or vis[j-1]` encodes that order. The rest of the backtracking matches the distinct case.
+
+<!-- thinking:end -->
+
 We can first sort the string by characters, so that duplicate characters are placed together, making it easier to remove duplicates.
 
 Then, we design a function $\textit{dfs}(i)$, which represents the character that needs to be filled at the $i$-th position. The specific implementation of the function is as follows:

@@ -46,6 +46,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.09.Bracket/README_
 
 ### Solution 1: DFS + Pruning
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All valid strings of $n$ pairs are required. $n\le 8$ allows generating $2^{2n}$ strings and filtering, but many prefixes are already illegal.
+>
+> A valid prefix never has more rights than lefts, and neither count exceeds $n$.
+>
+> $dfs(l,r,t)$ prunes when $l<r$ or a count exceeds $n$, and records at $l=r=n$. Trying `'('` then `')'` emits only legal strings.
+
+<!-- thinking:end -->
+
 The range of $n$ in the problem is $[1, 8]$, so we can directly solve this problem quickly through "brute force search + pruning".
 
 We design a function `dfs(l, r, t)`, where $l$ and $r$ represent the number of left and right parentheses respectively, and $t$ represents the current parentheses sequence. Then we can get the following recursive structure:

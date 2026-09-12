@@ -49,6 +49,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.10.Rank%20from%20S
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stream asks how many inserted values are $\le x$. Sorting or scanning on each query is linear.
+>
+> The universe is about $5\times 10^4$, so a Fenwick tree updates and queries prefix counts in $O(\log U)$.
+>
+> `track` adds one at $x+1$ (1-based); `getRankOfNumber` sums $[1,x+1]$. Size $50010$ covers the stated range.
+
+<!-- thinking:end -->
+
 We can use a Binary Indexed Tree (also known as a Fenwick Tree) to maintain the count of numbers that are less than or equal to the current number among the added numbers.
 
 We create a Binary Indexed Tree with a length of $50010$. For the `track` method, we increment the current number and add it to the Binary Indexed Tree. For the `getRankOfNumber` method, we directly query the count of numbers that are less than or equal to $x + 1$ in the Binary Indexed Tree.

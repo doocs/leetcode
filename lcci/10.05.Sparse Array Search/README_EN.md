@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.05.Sparse%20Array%
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sorted string array is punctuated by empties. Binary search still works after skipping blanks, but a midpoint that is empty needs extra probing.
+>
+> The code uses the same divide-and-conquer as the magic-index problem: search the left half first (leftmost hit), then the mid, then the right. Empty strings simply fail the equality test.
+>
+> The worst case is linear, yet the left-first order returns the leftmost match without special-casing empties.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$ to find the target string in the array $nums[i, j]$. If found, return the index of the target string, otherwise return $-1$. So the answer is $dfs(0, n-1)$.
 
 The implementation of the function $dfs(i, j)$ is as follows:

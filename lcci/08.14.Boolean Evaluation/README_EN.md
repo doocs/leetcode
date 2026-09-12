@@ -58,6 +58,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.14.Boolean%20Evalu
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Parenthesize a boolean expression so it equals $result$, and count the ways. Each operator is a split of an interval DP.
+>
+> True and false counts of a substring are independent; memoization evaluates each substring once.
+>
+> $dfs(s)$ returns a pair: ways to obtain false and true. Every operator splits left/right, combined by $\&$, $|$, or $\hat{}$. A single `'0'`/`'1'` is the base case.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
