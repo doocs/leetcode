@@ -81,6 +81,18 @@ There are four ways to partition the array.
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid cut has equal halves, i.e. a prefix equal to half the total. With $n \le 10^5$ and one optional replacement by $k$, rescanning prefixes per edit is too slow.
+>
+> Without edit, if the sum is even, count prefixes equal to the half-sum (excluding the end). Replacing $nums[i]$ by $k$ leaves left prefixes unchanged and shifts right ones by $d=k-nums[i]$, giving two target keys.
+>
+> Maps $left$ and $right$ track those frequencies as the cut pointer moves, so the maximum is obtained in linear time.
+
+<!-- thinking:end -->
+
 We can preprocess to get the prefix sum array $s$ corresponding to the array $nums$, where $s[i]$ represents the sum of the array $nums[0,...i-1]$. Therefore, the sum of all elements in the array is $s[n - 1]$.
 
 If we do not modify the array $nums$, the condition for the sums of the two subarrays to be equal is that $s[n - 1]$ must be even. If $s[n - 1]$ is even, then we calculate $ans = \frac{right[s[n - 1] / 2]}{2}$.

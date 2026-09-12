@@ -111,6 +111,16 @@ Candidates table:
 
 ### 方法一：窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 与 2004 题预算规则相同，但须输出被录取的 $employee\_id$ 而非人数。仍按工资升序用窗口前缀和判断「录取到此人时是否超支」。
+>
+> Senior 先占用预算，Junior 的累计工资叠加上 Senior 已用额度。筛选 $cur \le 70000$ 的编号并 `UNION` 即可。
+
+<!-- thinking:end -->
+
 相似题目：
 
 - [2004. 职员招聘人数](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2004.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company/README.md)

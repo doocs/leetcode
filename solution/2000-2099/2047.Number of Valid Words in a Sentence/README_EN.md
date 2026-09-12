@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sentence is at most $1000$ characters. After splitting, each token must have no digits, punctuation only at the end, and at most one hyphen between letters.
+>
+> A flag tracks a seen hyphen; scan characters against those rules and count valid tokens.
+
+<!-- thinking:end -->
+
 First, we split the sentence into words by spaces, and then check each word to determine if it is a valid word.
 
 For each word, we can use a boolean variable $\textit{st}$ to record whether a hyphen has already appeared, and then traverse each character in the word, judging according to the rules described in the problem.

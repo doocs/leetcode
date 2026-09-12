@@ -154,6 +154,16 @@ California 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 比较两校分数 $\ge 90$ 的人数。两表结构相同，各自 `COUNT` 后用 `CASE` 输出校名或平局。
+>
+> 无需连接，笛卡尔积两个单行结果即可比大小。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

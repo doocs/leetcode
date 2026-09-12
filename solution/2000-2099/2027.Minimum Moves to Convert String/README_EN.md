@@ -68,6 +68,16 @@ Then we select the last 3 characters and convert them so that the final string c
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move covers three consecutive characters. With $n \le 1000$, a scan suffices. To minimize moves, always cover the leftmost remaining `X` together with the next two positions.
+>
+> On `X` increment the answer and skip three indices; on `O` step by one. The blocks are disjoint and optimal.
+
+<!-- thinking:end -->
+
 Traverse the string $s$. Whenever you encounter `'X'`, move the pointer $i$ three steps forward and add $1$ to the answer; otherwise, move the pointer $i$ one step forward.
 
 The time complexity is $O(n)$, where $n$ represents the length of the string $s$.

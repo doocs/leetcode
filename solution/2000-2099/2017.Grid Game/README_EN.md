@@ -77,6 +77,18 @@ The second robot will collect 0 + 1 + 3 + 3 + 0 = 7 points.
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On a $2 \times n$ grid the first robot turns down at a unique column $j$. The second robot then takes the better of the first-row suffix after $j$ and the second-row prefix before $j$.
+>
+> For $n \le 5 \times 10^4$ we need those two sums in $O(1)$. Maintain first-row remaining suffix $s_1$ and second-row prefix $s_2$; the second robot scores $\max(s_1,s_2)$.
+>
+> The first robot minimizes that value over $j$.
+
+<!-- thinking:end -->
+
 We notice that if we determine the position $j$ where the first robot turns down, then the optimal path of the second robot is also determined. The optimal path of the second robot is the prefix sum of the first row from $j+1$ to $n-1$, or the prefix sum of the second row from $0$ to $j-1$, taking the maximum of the two.
 
 First, we calculate the suffix sum of the points in the first row, denoted as $s_1$, and the prefix sum of the points in the second row, denoted as $s_2$. Initially, $s_1 = \sum_{j=0}^{n-1} grid[0][j]$, $s_2 = 0$.

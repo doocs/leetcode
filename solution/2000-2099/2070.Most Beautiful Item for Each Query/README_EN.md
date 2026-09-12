@@ -79,6 +79,16 @@ Hence, the answer to the query is 0.
 
 ### Solution 1: Sorting + Offline Query
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query wants the max beauty among prices $\le q$. Online scans fail for $n,m \le 10^5$. Offline, sort queries and items by price so a pointer only moves forward.
+>
+> While an item is affordable, raise the running beauty and write it back to the query's original index.
+
+<!-- thinking:end -->
+
 For each query, we need to find the maximum beauty value among the items with a price less than or equal to the query price. We can use the offline query method, first sort the items by price, and then sort the queries by price.
 
 Next, we traverse the queries from small to large. For each query, we use a pointer $i$ to point to the item array. If the price of the item is less than or equal to the query price, we update the current maximum beauty value and move the pointer $i$ to the right until the price of the item is greater than the query price. We record the current maximum beauty value, which is the answer to the current query. Continue to traverse the next query until all queries are processed.
@@ -216,6 +226,16 @@ function maximumBeauty(items: number[][], queries: number[]): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 reorders queries. For online answers, sort items by price, build prefix maxima of beauty, and binary-search each $q$.
+>
+> `mx` is monotone; `bisect_right` yields the last affordable index.
+
+<!-- thinking:end -->
 
 We can sort the items by price, and then preprocess the maximum beauty value of the items that are less than or equal to each price, recorded in the array $mx$ or the original $items$ array.
 

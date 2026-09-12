@@ -74,6 +74,16 @@ tags:
 
 ### 方法一：最近公共祖先 + DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从起点到终点的路径必经过 LCA。向上一律走 `U`，再沿 LCA 到终点的左右孩子走 `L`/`R`。$n \le 10^5$，三次遍历可接受。
+>
+> 先求 LCA，再两次 DFS 记录从 LCA 到两端的方向串，把去程改成等长的 `U` 后拼接。
+
+<!-- thinking:end -->
+
 我们可以先找到节点 $\textit{startValue}$ 和 $\textit{destValue}$ 的最近公共祖先，记为 $\textit{node}$，然后分别从 $\textit{node}$ 出发，找到 $\textit{startValue}$ 和 $\textit{destValue}$ 的路径。那么从 $\textit{startValue}$ 到 $\textit{node}$ 的路径就是 $\textit{U}$ 的个数，从 $\textit{node}$ 到 $\textit{destValue}$ 的路径就是 $\textit{path}$ 的路径，最后将这两个路径拼接起来即可。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为二叉树的节点数。
@@ -408,6 +418,16 @@ var getDirections = function (root, startValue, destValue) {
 <!-- solution:start -->
 
 ### 方法二：最近公共祖先 + DFS（优化）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一先找 LCA 再走两遍。从根到两端的路径共享一段前缀，去掉该前缀后剩余即「回到 LCA 再下去」。少一次 LCA 专用搜索。
+>
+> 两次 DFS 得到方向串，对齐公共前缀长度 $i$，答案为 $(|start|-i)$ 个 `U` 加终点后缀。
+
+<!-- thinking:end -->
 
 我们可以从 $\textit{root}$ 出发，找到 $\textit{startValue}$ 和 $\textit{destValue}$ 的路径，记为 $\textit{pathToStart}$ 和 $\textit{pathToDest}$，然后去除 $\textit{pathToStart}$ 和 $\textit{pathToDest}$ 的最长公共前缀，此时 $\textit{pathToStart}$ 的路径长度就是答案中 $\textit{U}$ 的个数，而 $\textit{pathToDest}$ 的路径就是答案中的路径，我们只需要将这两个路径拼接起来即可。
 

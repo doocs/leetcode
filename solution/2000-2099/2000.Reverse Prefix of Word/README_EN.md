@@ -73,6 +73,18 @@ You should not do any reverse operation, the resulting string is &quot;abcd&quot
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The string length satisfies $n \le 250$, so locating $ch$ and reversing the prefix is linear. If $ch$ is absent, the original string is already the answer.
+>
+> Only the segment through the first occurrence should flip; the suffix stays unchanged. A single `find` yields index $i$, or $-1$ when missing.
+>
+> Hence slice $word[i::-1]$ for the reversed prefix and concatenate $word[i+1:]$.
+
+<!-- thinking:end -->
+
 First, we find the index $i$ where the character $ch$ first appears. Then, we reverse the characters from index $0$ to index $i$ (including index $i$). Finally, we concatenate the reversed string with the string starting from index $i + 1$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $word$.

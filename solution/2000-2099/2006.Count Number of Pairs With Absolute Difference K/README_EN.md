@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 200$, enumerating all $i<j$ and testing $|nums[i]-nums[j]|=k$ is about $2 \times 10^4$ pairs, which fits. Values and $k$ are small, so no extra structure is required.
+>
+> The double loop matches the definition directly.
+
+<!-- thinking:end -->
+
 We notice that the length of the array $nums$ does not exceed $200$, so we can enumerate all pairs $(i, j)$, where $i < j$, and check if $|nums[i] - nums[j]|$ equals $k$. If it does, we increment the answer by one.
 
 Finally, we return the answer.
@@ -197,6 +207,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table or Array
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 visits every pair. We only need the count of difference $k$: for current $x$, earlier $x-k$ and $x+k$ pair with it.
+>
+> A running counter adds those hits, then records $x$, giving a linear one-pass tally.
+
+<!-- thinking:end -->
 
 We can use a hash table or array to record the occurrence count of each number in the array $nums$. Then, we enumerate each number $x$ in the array $nums$, and check if $x + k$ and $x - k$ are in the array $nums$. If they are, we increment the answer by the sum of the occurrence counts of $x + k$ and $x - k$.
 

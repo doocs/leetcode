@@ -77,6 +77,18 @@ The 3<sup>rd</sup> smallest product is -6.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are up to $2.5 \times 10^9$ products, so they cannot be listed. The $k$-th is monotone in a threshold $p$: the count of products $\le p$ never decreases.
+>
+> Binary-search $p$ on $[-M,M]$. For each $x$ in $nums1$, positives use $nums2[i] \le p/x$, negatives reverse the inequality, and zeros contribute the whole array when $p \ge 0$. Sortedness lets each count be a binary search.
+>
+> `bisect_left` returns the smallest $p$ whose count is at least $k$.
+
+<!-- thinking:end -->
+
 We can use binary search to enumerate the value of the product $p$, defining the binary search interval as $[l, r]$, where $l = -\textit{max}(|\textit{nums1}[0]|, |\textit{nums1}[n - 1]|) \times \textit{max}(|\textit{nums2}[0]|, |\textit{nums2}[n - 1]|)$, $r = -l$.
 
 For each $p$, we calculate the number of products less than or equal to $p$. If this number is greater than or equal to $k$, it means the $k$-th smallest product must be less than or equal to $p$, so we can reduce the right endpoint of the interval to $p$. Otherwise, we increase the left endpoint of the interval to $p + 1$.

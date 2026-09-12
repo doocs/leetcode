@@ -85,6 +85,16 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only four operations and $n \le 100$, so a linear scan suffices. Both increment forms add one and both decrement forms subtract one; the middle character decides the sign.
+>
+> Sum $+1$ or $-1$ according to whether $s[1]$ is `'+'`.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{operations}$. For each operation $\textit{operations}[i]$, if it contains `'+'`, we increment the answer by $1$, otherwise, we decrement the answer by $1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{operations}$. The space complexity is $O(1)$.

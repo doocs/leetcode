@@ -67,6 +67,16 @@ tags:
 
 ### 方法一：维护前缀最小值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n \le 1000$，双重循环可行，但只需最大的 $nums[j]-nums[i]$（$i<j$ 且递增）。对固定右端，最优左端就是此前的最小值。
+>
+> 维护前缀最小 $mi$：若当前 $x>mi$ 则更新差值，否则把 $mi$ 换成更小的 $x$。无递增对时保持 $-1$。
+
+<!-- thinking:end -->
+
 我们用一个变量 $\textit{mi}$ 表示当前遍历到的元素中的最小值，用一个变量 $\textit{ans}$ 表示最大差值，初始时 $\textit{mi}$ 为 $+\infty$，而 $\textit{ans}$ 为 $-1$。
 
 遍历数组，对于当前遍历到的元素 $x$，如果 $x \gt \textit{mi}$，则更新 $\textit{ans}$ 为 $\max(\textit{ans}, x - \textit{mi})$，否则更新 $\textit{mi} = x$。

@@ -78,6 +78,16 @@ It is also the smallest numerically balanced number strictly greater than 3000.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10^6$ and the next balanced number is at most $1224444$, so testing $x=n+1,n+2,\ldots$ works. Digit $d$ must appear exactly $d$ times if at all.
+>
+> Count decimal digits of $x$ and accept when every nonzero frequency equals its digit. `count` walks upward until a hit.
+
+<!-- thinking:end -->
+
 We note that the range of $n$ in the problem is $[0, 10^6]$, and one of the balanced numbers greater than $10^6$ is $1224444$. Therefore, we directly enumerate $x \in [n + 1, ..]$ and then judge whether $x$ is a balanced number. The enumerated $x$ will definitely not exceed $1224444$.
 
 The time complexity is $O(M - n)$, where $M = 1224444$. The space complexity is $O(1)$.

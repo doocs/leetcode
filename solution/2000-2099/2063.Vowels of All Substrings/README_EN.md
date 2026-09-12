@@ -77,6 +77,16 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
 
 ### Solution 1: Enumerate Contribution
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $O(n^2)$ substrings and $n \le 10^5$, so we cannot list them. A vowel at $i$ appears in $(i+1)(n-i)$ substrings.
+>
+> Sum that product over vowels only.
+
+<!-- thinking:end -->
+
 We can enumerate each character $\textit{word}[i]$ in the string. If $\textit{word}[i]$ is a vowel, then $\textit{word}[i]$ appears in $(i + 1) \times (n - i)$ substrings. We sum up the counts of these substrings.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $\textit{word}$. The space complexity is $O(1)$.

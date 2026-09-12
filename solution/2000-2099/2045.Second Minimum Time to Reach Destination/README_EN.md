@@ -97,6 +97,18 @@ The second minimum time path is 1 -&gt; 2 -&gt; 1 -&gt; 2 with time = 11 minutes
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges have equal weight, yet lights couple waiting with hop count, and we need the strictly second-shortest arrival. Keeping only the minimum distance loses that path.
+>
+> Store each node's shortest and second-shortest hop counts. BFS updates the shortest when beaten, and the second when the new length sits strictly between them. After the hop count to $n$ is known, replay red-light waits with $time$ and $change$.
+>
+> Queue states are (node, hops) so the second path survives.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

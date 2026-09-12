@@ -72,6 +72,16 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 100$, find the least $i$ such that $i \bmod 10 = nums[i]$, or $-1$.
+>
+> A single left-to-right scan is enough.
+
+<!-- thinking:end -->
+
 We directly traverse the array. For each index $i$, we check if it satisfies $i \bmod 10 = \textit{nums}[i]$. If it does, we return the current index $i$.
 
 If we traverse the entire array and do not find a satisfying index, we return $-1$.

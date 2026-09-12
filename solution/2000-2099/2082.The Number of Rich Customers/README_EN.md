@@ -71,6 +71,14 @@ Customer 3 has one bill with an amount strictly greater than 500.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A customer is rich if any order exceeds $500$. Duplicates must not count twice, so `COUNT(DISTINCT customer_id)` with `WHERE amount > 500`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

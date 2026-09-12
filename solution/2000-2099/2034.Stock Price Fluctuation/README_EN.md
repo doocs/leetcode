@@ -85,6 +85,18 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 
 ### Solution 1: Hash Table + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must correct past timestamps and query current, max, and min prices in $10^5$ operations. A hash map alone cannot get extrema; a sorted set alone cannot overwrite by time.
+>
+> Map $d$ stores time$\to$price; ordered multiset $ls$ stores live prices. On update, remove the old price if the time exists, insert the new one, and track the latest time $last$.
+>
+> Current is $d[last]$; extrema are the ends of $ls$.
+
+<!-- thinking:end -->
+
 We define the following data structures or variables:
 
 - `d`: a hash table that stores the timestamp and the corresponding price;

@@ -75,6 +75,16 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sentence is at most $200$ characters. After splitting on spaces, check that numeric tokens strictly increase and ignore the rest.
+>
+> Keep the previous number $pre$; fail if the current value is $\le pre$.
+
+<!-- thinking:end -->
+
 We can split the string $s$ into several words by spaces. Then, for each word, check if it is a number. If it is a number, convert it to an integer, compare it with the previous number. If it is not strictly increasing, return `false`. Otherwise, assign the current number to the previous number and continue the traversal.
 
 If the traversal ends, it means that the numbers in the string are strictly increasing, so return `true`.

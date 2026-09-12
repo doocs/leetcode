@@ -88,6 +88,16 @@ Their sum = 1 + 2 + 4 + 8 + 121 + 151 + 212 = 499.
 
 ### Solution 1: Half Enumeration + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 30$ but $k$-mirrors are sparse, so scanning integers upward is wasteful. A decimal palindrome is fixed by its first half, which is much smaller to enumerate.
+>
+> For each length, mirror the first half, then test the $k$-ary digits. Sum the first $n$ hits.
+
+<!-- thinking:end -->
+
 For a k-mirror number, we can divide it into two parts: the first half and the second half. For numbers with even length, the first and second halves are exactly the same; for numbers with odd length, the first and second halves are the same, but the middle digit can be any digit.
 
 We can enumerate the numbers in the first half, and then construct the complete k-mirror number based on the first half. The specific steps are as follows:

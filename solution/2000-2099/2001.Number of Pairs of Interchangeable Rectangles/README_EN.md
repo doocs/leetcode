@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1: Mathematics + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two rectangles are interchangeable iff they share a width-to-height ratio. With $n \le 10^5$, pairwise comparison is quadratic.
+>
+> Floating-point $w/h$ is unsafe as a key. Dividing $(w,h)$ by $\gcd(w,h)$ maps each ratio to a unique integer pair.
+>
+> A hash table therefore counts each reduced pair; for every rectangle we add the current count, then increment, so combinations accumulate in one pass.
+
+<!-- thinking:end -->
+
 In order to uniquely represent a rectangle, we need to simplify the width-to-height ratio of the rectangle to a simplest fraction. Therefore, we can find the greatest common divisor of the width-to-height ratio of each rectangle, and then simplify the width-to-height ratio to the simplest fraction. Next, we use a hash table to count the number of rectangles for each simplest fraction, and then calculate the combination of the number of rectangles for each simplest fraction to get the answer.
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(n)$. Here, $n$ and $M$ are the number of rectangles and the maximum side length of the rectangles, respectively.

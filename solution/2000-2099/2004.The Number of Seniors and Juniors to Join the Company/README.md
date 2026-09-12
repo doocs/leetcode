@@ -106,6 +106,18 @@ Candidates table:
 
 ### 方法一：窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 预算固定为 $70000$，且 Senior 优先于 Junior。若枚举子集则人数稍大即不可行。在同类内部应按工资升序录取，才能在预算内最大化人数。
+>
+> 窗口函数按工资求前缀和 $cur$，即「录取到该职员时的累计支出」。Senior 中 $cur \le 70000$ 的人数即为录取人数；Junior 的前缀和还须叠加上 Senior 已用额度。
+>
+> 因此用两个 CTE 分别计算两类累计工资，再 `UNION ALL` 统计不超过预算的职员数。
+
+<!-- thinking:end -->
+
 相似题目：
 
 - [2010. 职员招聘人数 🔒 II](https://github.com/doocs/leetcode/blob/main/solution/2000-2099/2010.The%20Number%20of%20Seniors%20and%20Juniors%20to%20Join%20the%20Company%20II/README.md)

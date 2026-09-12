@@ -74,6 +74,16 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing a node scores the product of component sizes. With $n \le 10^5$ we need all scores in one walk. Subtree sizes appear on the DFS unwind; the complement is $n-cnt$.
+>
+> Build child lists and DFS from the root: multiply child sizes, then $n-cnt$ if nonzero. Track the maximum score and its multiplicity.
+
+<!-- thinking:end -->
+
 First, we construct a graph $g$ based on the given parent array `parents`, where $g[i]$ represents all child nodes of node $i$. We define a variable $ans$ to represent the number of nodes with the highest score, and a variable $mx$ to represent the highest score.
 
 Then, we design a function `dfs(i, fa)` to calculate the score of node $i$ and return the number of nodes in the subtree rooted at node $i$.

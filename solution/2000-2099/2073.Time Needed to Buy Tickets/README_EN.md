@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Naively simulating the queue costs $O(\sum tickets)$. When person $k$ finishes, everyone ahead bought at most $tickets[k]$ tickets and everyone behind at most $tickets[k]-1$.
+>
+> Sum $\min$ of that cap and each person's demand in one pass.
+
+<!-- thinking:end -->
+
 According to the problem description, when the $k^{th}$ person finishes buying tickets, all the people in front of the $k^{th}$ person will not buy more tickets than the $k^{th}$ person, and all the people behind the $k^{th}$ person will not buy more tickets than the $k^{th}$ person minus $1$.
 
 Therefore, we can traverse the entire queue. For the $i^{th}$ person, if $i \leq k$, the time to buy tickets is $\min(\textit{tickets}[i], \textit{tickets}[k])$; otherwise, the time to buy tickets is $\min(\textit{tickets}[i], \textit{tickets}[k] - 1)$. We sum the buying time for all people to get the result.

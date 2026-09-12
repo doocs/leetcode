@@ -82,6 +82,16 @@ The maximum number of products given to any store is max(100000) = 100000.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Distribute each product type to stores while minimizing the per-store cap $x$. Larger $x$ is always easier, so the predicate is monotone. Both $m$ and $n$ reach $10^5$, so a check must be $O(m)$.
+>
+> Type $i$ needs $\lceil q_i/x \rceil$ stores; feasibility is their sum $\le n$. Binary-search the least such $x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

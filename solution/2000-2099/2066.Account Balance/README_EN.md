@@ -85,6 +85,16 @@ Account 2:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Transactions need the end-of-day balance per account in date order. Deposits add and withdrawals subtract, a prefix inside each account.
+>
+> A window partitioned by `account_id` and ordered by `day` sums the signed amounts.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

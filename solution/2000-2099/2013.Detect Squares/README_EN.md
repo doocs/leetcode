@@ -80,6 +80,18 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $5000$ calls and coordinates in $[0,1000]$. Enumerating all triples per `count` is clumsy. An axis-aligned square is fixed by one horizontal side.
+>
+> Store frequencies in $cnt[x][y]$. For query $(x_1,y_1)$, enumerate existing $x_2 \ne x_1$ with side $d=x_2-x_1$; the other two vertices of the upper/lower squares follow.
+>
+> The product of the three frequencies is the count. `add` is $O(1)$; `count` is linear in distinct $x$.
+
+<!-- thinking:end -->
+
 We can use a hash table $cnt$ to maintain all the information of the points, where $cnt[x][y]$ represents the count of point $(x, y)$.
 
 When calling the $add(x, y)$ method, we increase the value of $cnt[x][y]$ by $1$.

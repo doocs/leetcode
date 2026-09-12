@@ -153,6 +153,16 @@ Both New York University and California University have 1 excellent student.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compare how many scores are $\ge 90$ at each university. Two identical tables: `COUNT` each, then `CASE` on which count is larger (or a tie).
+>
+> No join; a two-row Cartesian product of the aggregates is enough.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -95,6 +95,16 @@ Thus, Bob wins, so return false.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move deletes a piece between two equals; the players never steal each other's runs. With $n \le 10^5$ we only compare move counts.
+>
+> A run of length $\ell$ yields $\max(\ell-2,0)$ moves. Alice wins iff her total exceeds Bob's.
+
+<!-- thinking:end -->
+
 We count the number of times that the string `colors` contains three consecutive `'A'`s or three consecutive `'B'`s, denoted as $a$ and $b$, respectively.
 
 Finally, we check whether $a$ is greater than $b$. If it is, we return `true`. Otherwise, we return `false`.

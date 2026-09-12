@@ -77,6 +77,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $mn \le 2 \times 10^5$, the word must occupy a `#`-bounded slot, forward or backward. Trying four directions from each cell is linear in the grid size times $|word|$.
+>
+> A start must sit on a border or beside `#`. `check` also requires the cell past the word to be off-board or `#`, and letters to match or be spaces.
+>
+> Any successful direction returns true.
+
+<!-- thinking:end -->
+
 We can enumerate each position $(i, j)$ in the matrix, and judge whether we can place the word `word` from left to right or from right to left, or from top to bottom or from bottom to top, starting from this position.
 
 The following conditions must be met for this position to be used as a starting point:

@@ -67,6 +67,16 @@ Given three integer arrays <code>nums1</code>, <code>nums2</code>, and <code>num
 
 ### Solution 1: Array + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values lie in $[1,100]$ and each array has length $\le 100$. Deduplicate, then test how many of the three sets contain each $i \in [1,100]$. Keep those present at least twice.
+>
+> No bit tricks are required under these bounds.
+
+<!-- thinking:end -->
+
 We can first put each element of the arrays into an array, then enumerate each number $i$ from $1$ to $100$, and check whether $i$ appears in at least two arrays. If so, add $i$ to the answer array.
 
 The time complexity is $O(n_1 + n_2 + n_3)$, and the space complexity is $O(n_1 + n_2 + n_3)$. Here, $n_1, n_2, n_3$ are the lengths of the arrays `nums1`, `nums2`, and `nums3`, respectively.
@@ -205,6 +215,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 hard-codes $1..100$. A bitmask instead records which arrays contain $x$ (bit $i$ for array $i$).
+>
+> $v\&(v-1)\ne 0$ iff at least two bits are set. One pass, independent of the value range.
+
+<!-- thinking:end -->
 
 We can use a hash table `mask` to record which arrays each number appears in. For each array, we add its elements to the hash table and set the corresponding bit to `1`. For example, if it is the first array, set the corresponding bit to `1`; if it is the second array, set it to `2`; if it is the third array, set it to `4`.
 

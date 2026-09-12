@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick at most two non-overlapping events of maximum value. Pairwise search is quadratic for $n \le 10^5$. After sorting by start, the best single event in a suffix is a static array.
+>
+> $f[i]$ is that suffix maximum. For each event as the first, binary-search the first start after its end and add $f[idx]$ (or take the event alone).
+>
+> Sort plus binary search is $O(n \log n)$.
+
+<!-- thinking:end -->
+
 We can sort the events by their start times, and then preprocess the maximum value starting from each event, i.e., $f[i]$ represents the maximum value of choosing one event from the $i$-th event to the last event.
 
 Then we enumerate each event. For each event, we use binary search to find the first event whose start time is greater than the end time of the current event, denoted as $\textit{idx}$. The maximum value starting from the current event is $f[\textit{idx}]$ plus the value of the current event, which is the maximum value that can be obtained by choosing the current event as the first event. We take the maximum value among all these values.

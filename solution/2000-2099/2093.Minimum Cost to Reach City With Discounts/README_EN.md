@@ -83,6 +83,16 @@ It is impossible to go from 0 to 3 so return -1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An undirected weighted graph allows at most $discounts$ half-price uses. The state is (node, discounts used); dropping the second coordinate loses optimality. Nonnegative weights let a heap pop by cost.
+>
+> Relax two edges: full price with the same $k$, or half price with $k+1$. The first time the sink is popped is optimal. `dist[i][k]` blocks worse revisits.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

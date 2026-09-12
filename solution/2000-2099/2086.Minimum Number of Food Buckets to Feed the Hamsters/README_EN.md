@@ -73,6 +73,16 @@ It can be shown that if we place only one food bucket, one of the hamsters will 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each hamster needs an adjacent bucket on an empty cell. A left-to-right greedy prefers the right empty cell, which may feed the next hamster; else the left; else fail.
+>
+> Placing on the right skips one extra index so the bucket is not reused incorrectly. One linear scan.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

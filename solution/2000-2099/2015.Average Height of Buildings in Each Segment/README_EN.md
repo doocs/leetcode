@@ -97,6 +97,18 @@ We cannot group the segments together because an empty space with no buildings s
 
 ### Solution 1: Difference Array + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Endpoints are sparse, so a dense difference array is wasteful. Each building adds height at start and subtracts at end, and the same for building counts.
+>
+> Sweep sorted coordinates, keep height sum $s$ and count $m$, and average $s//m$. Merge adjacent segments with the same average.
+>
+> Hash maps store deltas; one sorted pass emits the answer.
+
+<!-- thinking:end -->
+
 We can use the difference array concept, utilizing a hash table $\textit{cnt}$ to record the change in the number of buildings at each position, and another hash table $\textit{d}$ to record the change in height at each position.
 
 Next, we sort the hash table $\textit{d}$ by its keys, use a variable $\textit{s}$ to record the current total height, and a variable $\textit{m}$ to record the current number of buildings.

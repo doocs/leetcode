@@ -72,6 +72,16 @@ Another possible subsequence is [4, 3].
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum sum with original order means the $k$ largest values, then sorted by index. $n \le 1000$, so sort indices by value.
+>
+> Keep the last $k$ indices and emit `nums` in increasing index order.
+
+<!-- thinking:end -->
+
 First, we create an index array $\textit{idx}$, where each element is an index of the array $\textit{nums}$. Then, we sort the index array $\textit{idx}$ based on the values in $\textit{nums}$, with the sorting rule being $\textit{nums}[i] < \textit{nums}[j]$, where $i$ and $j$ are two indices in the index array $\textit{idx}$.
 
 After sorting, we take the last $k$ elements of the index array $\textit{idx}$. These $k$ elements correspond to the largest $k$ elements in the array $\textit{nums}$. Then, we sort these $k$ indices to get the order of the largest $k$ elements in the array $\textit{nums}$.

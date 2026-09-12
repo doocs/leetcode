@@ -71,6 +71,16 @@ The linked list is already sorted in non-decreasing order.
 
 ### Solution 1: Head Insertion Method
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The list is sorted by absolute value, so negatives must move to the front in reverse of their encounter order. One pass suffices: head-insert a negative node; advance on non-negatives.
+>
+> $O(1)$ extra memory; no array rebuild.
+
+<!-- thinking:end -->
+
 We first assume that the first node is already sorted. Starting from the second node, when we encounter a node with a negative value, we use the head insertion method. For non-negative values, we continue to traverse down.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.

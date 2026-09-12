@@ -72,6 +72,18 @@ The alternating subarray sum is 1.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum alternating subarray sum; $n \le 10^5$ forbids interval enumeration. Classify by the last sign: the new state depends only on the opposite state of the previous index.
+>
+> $f$ ends with $+nums[i]$, $g$ with $-nums[i]$. New $f$ continues $g$ or starts fresh; $g$ continues the just-updated $f$.
+>
+> Roll both in $O(1)$ space and take the global max.
+
+<!-- thinking:end -->
+
 We define $f$ as the maximum sum of the alternating subarray ending with $nums[i]$, and define $g$ as the maximum sum of the alternating subarray ending with $-nums[i]$. Initially, both $f$ and $g$ are $-\infty$.
 
 Next, we traverse the array $nums$. For position $i$, we need to maintain the values of $f$ and $g$, i.e., $f = \max(g, 0) + nums[i]$, and $g = f - nums[i]$. The answer is the maximum value among all $f$ and $g$.

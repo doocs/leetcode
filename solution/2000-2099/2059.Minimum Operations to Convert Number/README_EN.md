@@ -82,6 +82,16 @@ Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step adds, subtracts, or xors a value from $nums$. Intermediate values that we keep expanding live in $[0,1000]$, so at most $1001$ states; unweighted shortest path is BFS.
+>
+> Pop $x$, apply three ops per number; return on $goal$, otherwise enqueue unseen values in range.
+
+<!-- thinking:end -->
+
 BFS from $start$, applying add, subtract, and xor with each number until $goal$ is reached.
 
 <!-- tabs:start -->
@@ -261,6 +271,16 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 ### Solution 2: BFS (Level Order)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores the step on each queue node. Level-order BFS increments $ans$ once per layer and keeps queue entries smaller.
+>
+> `next` lists successors; if the queue drains, return $-1$.
+
+<!-- thinking:end -->
+
 The same BFS, expanding one layer at a time.
 
 <!-- tabs:start -->
@@ -412,6 +432,16 @@ func minimumOperations(nums []int, start int, goal int) int {
 <!-- solution:start -->
 
 ### Solution 3: Bidirectional BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One-sided BFS grows quickly. Searching from both $start$ and $goal$ meets in the middle; always expand the smaller frontier and add the two distances.
+>
+> Intermediates stay in $[0,1000]$; $goal$ may lie outside, so the first expansion from that side can still hit.
+
+<!-- thinking:end -->
 
 Search from both $start$ and $goal$ until the two sides meet.
 

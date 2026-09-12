@@ -79,6 +79,16 @@ In this example, the digit 8 is used twice each time in 288, 828, and 882.
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Form distinct three-digit even numbers from `digits` without a leading zero. There are only $450$ such evens, so enumerate them and test frequencies rather than permuting the input.
+>
+> Count digits $0..9$, then split each even in $[100,998]$ and compare counts.
+
+<!-- thinking:end -->
+
 First, we count the occurrence of each digit in $\textit{digits}$, recording it in an array or hash table $\textit{cnt}$.
 
 Then, we enumerate all even numbers in the range $[100, 1000)$, checking if each digit of the even number does not exceed the corresponding digit's count in $\textit{cnt}$. If so, we add this even number to the answer array.

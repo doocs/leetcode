@@ -70,6 +70,16 @@ The index where nums[i] == 5 is 4.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 100$, sort and collect indices equal to $target$; they already appear in increasing order.
+>
+> A linear count of smaller/equal values could build the same range; the code simply sorts.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -70,6 +70,16 @@ There are no cycles of length 3.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count 3-cycles. Store undirected edges in adjacency sets for $O(1)$ tests. For each vertex, try unordered pairs of neighbors and keep those that are themselves adjacent.
+>
+> Each triangle is counted three times, so divide by $3$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

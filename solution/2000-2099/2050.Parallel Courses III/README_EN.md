@@ -85,6 +85,18 @@ Thus, the minimum time needed to complete all the courses is 7 + 5 = 12 months.
 
 ### Solution 1: Topological Sorting + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Courses have prerequisites and durations; the finish time is the heaviest path in the DAG. With $n \le 5 \times 10^4$ we cannot list paths. Sources start immediately and finish in their own `time`.
+>
+> In topological order, $f[j] = \max(f[j], f[i]+time[j])$ once every predecessor $i$ is done. The answer is the maximum $f$.
+>
+> A queue of zero in-degree nodes updates each course only after all prerequisites.
+
+<!-- thinking:end -->
+
 First, we construct a directed acyclic graph based on the given prerequisite course relationships, perform topological sorting on this graph, and then use dynamic programming to find the minimum time required to complete all courses according to the results of the topological sorting.
 
 We define the following data structures or variables:
