@@ -79,6 +79,14 @@ tags:
 
 ### Solution 1: Enumeration + Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alphabet is only $\{a,b,c\}$ and $n\le 10^5$, so the quadratic scan of the previous problem no longer fits. Balanced substrings fall into one, two, or three distinct letters: a single letter is a longest run; two letters reduce to a zero difference after dropping the third; three letters use the first occurrence of the pair $(c_a-c_b,c_b-c_c)$.
+
+<!-- thinking:end -->
+
 The answer is divided into the following three cases:
 
 1. Balanced substring with only one character, such as `"aaa"`.

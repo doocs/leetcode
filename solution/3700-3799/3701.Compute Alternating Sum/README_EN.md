@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array has length at most $100$, so evaluating the definition in one pass is enough. The alternating sum is the sum of even-indexed entries minus the sum of odd-indexed ones, which the two slices compute directly.
+
+<!-- thinking:end -->
+
 We can directly traverse the array $\textit{nums}$. For each index $i$, if $i$ is even, we add $\textit{nums}[i]$ to the answer; otherwise, we subtract $\textit{nums}[i]$ from the answer.
 
 Finally, we return the answer.

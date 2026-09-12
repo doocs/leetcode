@@ -158,6 +158,14 @@ For cancel events, monthly_amount is 0.
 
 ### Solution 1: Grouping Statistics + Join + Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Churn risk depends on both the latest event and the whole subscription history (start date, peak fee, downgrade count). Sorting by user and taking the last row of each group yields the current state; joining it with the grouped aggregates filters users who have not cancelled, have downgraded, now pay less than half their peak, and have subscribed for at least $60$ days.
+
+<!-- thinking:end -->
+
 We first use a window function to get the last record for each user sorted by event date and event ID in descending order, obtaining the latest event information for each user. Then, we group and aggregate the subscription history information for each user, including the subscription start date, last event date, historical maximum subscription fee, and the number of downgrade events. Finally, we join the latest event information with the historical statistics and filter according to the conditions specified in the problem to get the list of customers at risk of churn.
 
 <!-- tabs:start -->

@@ -97,6 +97,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The partition factor is the minimum intra-group Manhattan distance, and we want to maximize it, so binary search on the answer is natural. For a candidate $d$, two points closer than $d$ cannot share a group; it remains only to test whether the graph of edges shorter than $d$ is bipartite.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

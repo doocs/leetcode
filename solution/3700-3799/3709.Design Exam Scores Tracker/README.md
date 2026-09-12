@@ -82,6 +82,14 @@ examTracker.totalScore(2, 5); // 在时间 2 和时间 5 之间，Alice 参加�
 
 ### 方法一：前缀和 + 二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> `record` 按时间递增插入，`totalScore` 询问一段时间的分数和。时间有序使得区间和等于前缀和之差；左右端点可用二分在时间数组上定位，插入时同步维护前缀和。
+
+<!-- thinking:end -->
+
 我们用一个数组 $\textit{times}$ 来存储每次考试的时间点，另一个数组 $\textit{pre}$ 来存储前缀和，其中 $\textit{pre}[i]$ 表示前 $i$ 次考试的总分数。对于每次调用 $\texttt{record}(time, score)$，我们将 $time$ 添加到 $\textit{times}$ 中，并将 $\textit{pre}$ 的最后一个元素加上 $score$ 后添加到 $\textit{pre}$ 中。
 
 对于每次调用 $\texttt{totalScore}(startTime, endTime)$，我们使用二分查找在 $\textit{times}$ 中找到第一个大于等于 $startTime$ 的位置 $l$ 和第一个大于 $endTime$ 的位置 $r$，然后返回 $\textit{pre}[r-1] - \textit{pre}[l-1]$ 即可。

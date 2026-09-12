@@ -82,6 +82,14 @@ tags:
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating $a$ and checking that $b=n-a$ has no zero digit is impossible for large $n$. Addition proceeds digit by digit with a carry; neither addend may contain a $0$, and their lengths may differ. A digit DP from low to high tracks the carry and whether each number is still alive. An extra leading zero absorbs a final carry so the last carry must be $0$.
+
+<!-- thinking:end -->
+
 We do a digit DP over the decimal representation of $n$ from the least-significant digit to the most-significant digit.
 
 State: `dp[pos][carry][aliveA][aliveB]` = number of ways for the processed suffix.

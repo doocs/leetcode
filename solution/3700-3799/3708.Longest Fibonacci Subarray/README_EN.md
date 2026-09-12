@@ -85,6 +85,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The Fibonacci rule only looks at three consecutive entries, so a break forces a restart and we need not walk back from every right endpoint. A single variable stores the run ending at the current index: extend it when the recurrence holds, otherwise reset it to $2$ (any pair is valid).
+
+<!-- thinking:end -->
+
 We can use a variable $f$ to record the length of the longest Fibonacci subarray ending at the current element. Initially, $f=2$, indicating that any two elements can form a Fibonacci subarray.
 
 Then we traverse the array starting from index $2$. For each element $nums[i]$, if it equals the sum of the previous two elements, i.e., $nums[i] = nums[i-1] + nums[i-2]$, it means the current element can be appended to the previous Fibonacci subarray, so we increment $f$ by $1$. Otherwise, it means the current element cannot be appended to the previous Fibonacci subarray, so we reset $f$ to $2$. During the traversal, we continuously update the answer $\textit{ans} = \max(\textit{ans}, f)$.
