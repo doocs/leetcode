@@ -68,6 +68,16 @@ Stay, Stay
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We walk $steps$ steps on an array of length $arrLen$ and return to the origin. $arrLen$ may be $10^6$, but $steps \le 500$, so reachable cells are at most $steps$. The count depends on position and remaining steps.
+>
+> $dfs(i,j)$ is the number of ways from index $i$ with $j$ steps left to finish at $0$; we may go left, right, or stay. If $i>j$ we cannot return. Memoized states are $O(steps^2)$.
+
+<!-- thinking:end -->
+
 We observe the data range of the problem and find that $steps$ does not exceed $500$, which means that we can only go to the right for up to $500$ steps.
 
 We can design a function $dfs(i, j)$, which represents the number of schemes when we are currently at position $i$ and the remaining steps are $j$. So the answer is $dfs(0, steps)$.

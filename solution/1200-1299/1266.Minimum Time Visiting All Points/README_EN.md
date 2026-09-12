@@ -74,6 +74,14 @@ Total time = 7 seconds</pre>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may step in eight directions each second, so the time between adjacent points is the Chebyshev distance $\max(|\Delta x|,|\Delta y|)$: a diagonal step spends both gaps at once. Points are visited in order, so the total is the sum of those distances. $n \le 100$ is one linear pass.
+
+<!-- thinking:end -->
+
 For two points $p_1=(x_1, y_1)$ and $p_2=(x_2, y_2)$, the distances moved in the horizontal and vertical directions are $d_x = |x_1 - x_2|$ and $d_y = |y_1 - y_2|$ respectively.
 
 If $d_x \ge d_y$, we move diagonally for $d_y$ steps, then move horizontally for $d_x - d_y$ steps; if $d_x < d_y$, we move diagonally for $d_x$ steps, then move vertically for $d_y - d_x$ steps. Therefore, the shortest distance between two points is $\max(d_x, d_y)$.

@@ -110,6 +110,14 @@ Likes table:
 
 ### 方法一：合并 + 等值连接 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 推荐页是好友喜欢而自己未喜欢的页面。好友关系无向，先把与用户 $1$ 相连的两端并成好友表，再连接 $Likes$，最后用子查询排除用户 $1$ 已喜欢的 $page\_id$。
+
+<!-- thinking:end -->
+
 我们先查出所有与 `user_id = 1` 的用户是朋友的用户，记录在 `T` 表中，然后再查出所有在 `T` 表中的用户喜欢的页面，最后排除掉 `user_id = 1` 喜欢的页面即可。
 
 <!-- tabs:start -->
@@ -138,6 +146,14 @@ WHERE page_id NOT IN (SELECT page_id FROM Likes WHERE user_id = 1);
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一先物化好友表再连接。亦可把好友子查询直接写在 $Likes.user\_id$ 的 $IN$ 中，少一张 CTE，语义相同。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

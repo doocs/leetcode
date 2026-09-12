@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the string into $k$ palindromes with the fewest changes. $n \le 100$ suits DP. The cost to make a segment a palindrome is precomputed: one if the ends differ, plus the inner cost.
+>
+> $f[i][j]$ is the fewest changes to split the first $i$ characters into $j$ parts; we try the previous part's end $h$ and add $g[h][i-1]$. Precompute in $O(n^2)$; transitions in $O(n^2 k)$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the minimum number of changes needed to partition the first $i$ characters of the string $s$ into $j$ palindromic substrings. We assume the index $i$ starts from 1, and the answer is $f[n][k]$.
 
 For $f[i][j]$, we can enumerate the position $h$ of the last character of the $(j-1)$-th palindromic substring. Then $f[i][j]$ is equal to the minimum value of $f[h][j-1] + g[h][i-1]$, where $g[h][i-1]$ represents the minimum number of changes needed to turn the substring $s[h..i-1]$ into a palindrome (this part can be preprocessed with a time complexity of $O(n^2)$).

@@ -73,6 +73,16 @@ Total number of squares = 6 + 1 = <b>7</b>.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count all-$1$ squares. $m,n \le 300$, so enumerating squares is $O(n^3)$. The largest square cornered at $(i,j)$ is limited by the squares at the top, left, and top-left cells.
+>
+> $f[i][j]$ is that side length: if the cell is $1$, take the min of those three plus one. Each such square contributes $f[i][j]$ squares (sides $1\ldots f$). DP turns counting into one fill.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the side length of the square submatrix with $(i,j)$ as the bottom-right corner. Initially $f[i][j] = 0$, and the answer is $\sum_{i,j} f[i][j]$.
 
 Consider how to perform state transition for $f[i][j]$.

@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Write the number in hexadecimal, map $0,1$ to $O,I$, and reject any other digit. $N$ reaches $10^{12}$: $hex$, replace, and test membership in $ABCDEFIO$. The simulation is the statement.
+
+<!-- thinking:end -->
+
 Convert the number to a hexadecimal string, then traverse the string, convert the number $0$ to the letter $O$, and the number $1$ to the letter $I$. Finally, check whether the converted string is valid.
 
 The time complexity is $O(\log n)$, where $n$ is the size of the decimal number represented by $num$.

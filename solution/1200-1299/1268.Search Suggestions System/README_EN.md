@@ -69,6 +69,16 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 
 ### Solution 1: Sorting + Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each extra letter we want the three lexicographically smallest products with that prefix. There are $1000$ products: sort, then insert into a trie, each node keeping at most three indices in insertion order — the top three for that prefix.
+>
+> Walking $searchWord$ maps those index lists back to names. Sorting makes insertion order lexicographic; the trie locates prefixes.
+
+<!-- thinking:end -->
+
 The problem requires that after each letter of the input `searchWord`, recommend up to three products from the `products` array that have the same prefix as `searchWord`. If there are more than three products with the same prefix that can be recommended, return the three with the smallest lexicographic order.
 
 To find products with the same prefix, we can use a trie; to return the three products with the smallest lexicographic order, we can first sort the `products` array, and then store the indices of the sorted array in the trie.

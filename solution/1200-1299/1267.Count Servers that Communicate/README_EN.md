@@ -76,6 +76,14 @@ Return the number of servers&nbsp;that communicate with any other server.</p>
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A server communicates iff another server shares its row or column. $m,n \le 250$: count servers per row and column, then scan each server and keep it if its row or column count exceeds $1$. Two passes, $O(m+n)$ extra memory.
+
+<!-- thinking:end -->
+
 We can count the number of servers in each row and each column, then traverse each server. If the number of servers in the current server's row or column exceeds $1$, it means the current server meets the condition, and we increment the result by $1$.
 
 After the traversal, we return the result.

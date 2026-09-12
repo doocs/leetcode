@@ -68,6 +68,14 @@ There will be no remaining ingredients.
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A jumbo takes $4$ tomatoes and $1$ cheese, a small takes $2$ and $1$, and nothing may remain. Two equations in two unknowns; we need a non-negative integer solution. Tomatoes reach $10^7$, so enumerating one burger type is slow; the closed form is $O(1)$.
+
+<!-- thinking:end -->
+
 We set the number of Jumbo Burgers as $x$ and the number of Small Burgers as $y$, then we have:
 
 $$
