@@ -159,6 +159,18 @@ AcceptedRides table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要 $1$ 到 $10$ 月的「当月及随后两月」平均行驶距离与时长，缺失月份仍按 $0$ 计入窗口。
+>
+> 递归生成 $12$ 个月，左连接 $2020$ 年行程与接受记录，按月汇总距离、时长。
+>
+> 窗口函数 $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$ 取三月滑动平均，再 $\texttt{LIMIT}\ 10$ 去掉 $11$、$12$ 月。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

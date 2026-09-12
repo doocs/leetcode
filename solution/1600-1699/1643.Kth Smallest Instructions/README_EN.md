@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every path has $v$ $\texttt{V}$s and $h$ $\texttt{H}$s. Listing all $\binom{h+v}{h}$ paths to take the $k$-th is unnecessary.
+>
+> If the next bit is $\texttt{H}$, there are $C_{h+v-1}^{h-1}$ such paths. If $k$ is larger, the bit must be $\texttt{V}$ and we subtract that count; otherwise it is $\texttt{H}$.
+>
+> Decide bit by bit with binomial coefficients; when $h$ hits zero the rest are $\texttt{V}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

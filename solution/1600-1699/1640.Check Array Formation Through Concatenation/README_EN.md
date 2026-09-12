@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each piece is ordered and values are unique, so we walk $arr$ and match the piece that starts with the current value. $n \le 100$ allows a linear search for that piece.
+>
+> Pointer $i$ scans $arr$ and looks up the piece whose first element is $arr[i]$; a failed match means we cannot form the array.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -248,6 +258,16 @@ var canFormArray = function (arr, pieces) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans every piece at each step. Values are unique, so a map from the first element to the piece makes lookup $O(1)$.
+>
+> Store $d[p[0]]=p$ and compare $arr[i:i+|p|]$ with $p$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

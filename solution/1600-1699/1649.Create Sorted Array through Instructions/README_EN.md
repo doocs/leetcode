@@ -97,6 +97,18 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cost of inserting $x$ is the min of how many existing values are strictly smaller and strictly larger. $10^5$ insertions make a linear scan per step too slow.
+>
+> The value domain is also $10^5$, so a Fenwick tree queries a prefix count and adds one in $O(\log M)$.
+>
+> Before inserting $x$, add $\min(\texttt{query}(x-1),\, i-\texttt{query}(x))$, then $\texttt{update}(x,1)$, and reduce modulo.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -323,6 +335,16 @@ function createSortedArray(instructions: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores frequencies in a Fenwick tree. A segment tree with range sums answers the same prefix counts.
+>
+> Point add plus queries on $[1,x)$ and $(x,M]$ match the Fenwick version. The Python port is marked TLE here; Java and C++ pass.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

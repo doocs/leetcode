@@ -163,6 +163,18 @@ By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need, for months $1$ through $10$, the average distance and duration over that month and the next two, counting missing months as zero.
+>
+> A recursive month list left-joins $2020$ rides and accepted rides, then sums distance and duration per month.
+>
+> A window $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$ is the three-month mean; $\texttt{LIMIT}\ 10$ drops months $11$ and $12$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

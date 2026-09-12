@@ -78,6 +78,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We jump $+a$ or $-b$ (never twice backward) and avoid forbidden cells. A state is (position, whether a backward jump is allowed); all edges have length $1$, so BFS is shortest.
+>
+> We may overshoot $x$ and return, so a right bound is needed. $6000$ covers the useful positions given $a$, $b$, and the forbidden range.
+>
+> The queue stores $(i,k)$ with $k=1$ meaning a backward jump is allowed. Seen pairs $(i,k)$ are skipped; forbidden or out-of-range cells are dropped.
+
+<!-- thinking:end -->
+
 We can use the position and jumping direction of the flea as the state, and use BFS to search for the shortest path. The key point of this problem is to determine the right boundary, that is, how far the flea can jump.
 
 If $a \geq b$, that is, the distance to jump forward is greater than the distance to jump backward, then if the flea is in a position greater than $x+b$, it can no longer jump forward, because the flea cannot jump backward consecutively. If it continues to jump forward, it will never be able to jump to the position $x$. Therefore, if $a \geq b$, the right boundary can be $x+b$.

@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only drop endpoints so the removed sum equals $x$ in as few moves as possible — equivalently, keep the longest subarray whose sum is $\sum nums-x$. $n$ is $10^5$, so that subarray must be found in linear time.
+>
+> A prefix-sum map stores the first index of each sum; when $t-s$ has been seen, update the longest length. The answer is $n$ minus that length.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to remove elements from both ends of the array $nums$ so that the sum of the removed elements equals $x$, and the number of removed elements is minimized. We can transform the problem into: find the longest consecutive subarray in the array $nums$ such that the sum of the subarray $s = \sum_{i=0}^{n} nums[i] - x$. In this way, we can transform the problem into finding the length $mx$ of the longest consecutive subarray in the array $nums$ with a sum of $s$, and the answer is $n - mx$.
 
 We initialize $mx = -1$, and then use a hash table $vis$ to store the prefix sum, where the key is the prefix sum and the value is the index corresponding to the prefix sum.
@@ -229,6 +239,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a hash map. All values are positive, so prefix sums increase and two pointers can shrink the window down to sum $s$ without extra memory.
+
+<!-- thinking:end -->
 
 Based on the analysis of Solution 1, we need to find the length $mx$ of the longest consecutive subarray in the array $nums$ with a sum of $s$. Since all elements in the array $nums$ are positive integers, the prefix sum of the array will only increase monotonically, so we can use two pointers to solve this problem.
 

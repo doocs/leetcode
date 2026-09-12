@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: State Compression Dynamic Programming + Subset Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $10$ customers, and each value's stock must be given entirely to some of them. A bit mask records who is already served.
+>
+> Collect frequencies into $arr$ and precompute subset sums $s[j]$ of $\textit{quantity}$. $f[i][j]$ is whether the first $i$ values can serve customer set $j$.
+>
+> Give a subset $k$ of $j$ to value $i$ when $s[k]\le arr[i]$ and the rest was already feasible. The answer is $f[n-1][2^m-1]$.
+
+<!-- thinking:end -->
+
 First, we count the occurrence of each number in the array `nums`, and record it in the hash table `cnt`. Then we store the values in the hash table into the array `arr`. We denote the length of the array `arr` as `n`.
 
 Note that the length of the array `quantity` does not exceed 10, so we can use a binary number to represent a subset of `quantity`. That is, the number `j` represents a subset of `quantity`, where the `i`-th bit of the binary representation of `j` is `1` means the `i`-th number in `quantity` is selected, and `0` means the `i`-th number is not selected.
