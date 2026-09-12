@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2590.Design%20a%20Todo%20List/README.md
 tags:
     - 设计
     - 数组

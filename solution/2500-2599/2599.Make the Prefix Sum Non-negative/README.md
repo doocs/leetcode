@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2599.Make%20the%20Prefix%20Sum%20Non-negative/README.md
 tags:
     - 贪心
     - 数组

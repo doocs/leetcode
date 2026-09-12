@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2500-2599/2596.Check%20Knight%20Tour%20Configuration/README_EN.md
 rating: 1448
 source: Weekly Contest 337 Q2
 tags:
