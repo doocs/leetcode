@@ -52,6 +52,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2067.%20%E8%A3%85%
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 节点数 $10^5$，只需在每个原有的父子边之间插入值为 $-1$ 的灯饰节点。结构改动是局部的，后序处理可避免破坏尚未访问的子树。
+>
+> 先递归得到左右子树，再若左孩子存在则令 $root.left$ 指向新节点 $(-1,l)$，右孩子同理指向 $(-1,\textit{None},r)$。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $dfs(root)$，表示将灯饰插入以 $root$ 为根节点的树中，返回插入灯饰后的树的根节点。那么答案就是 $dfs(root)$。
 
 函数 $dfs(root)$ 的逻辑如下：

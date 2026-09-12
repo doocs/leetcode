@@ -45,6 +45,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2034.%20%E4%BA%8C%
 
 ### 方法一：动态规划（树形 DP）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 节点数 $10^4$，连续染色长度不超过 $k\le 10$。染色与否影响祖先的连续段，不能对每个节点独立决策。子树内的最优值只依赖「根上连续染色了几个节点」。
+>
+> 后序返回长度为 $k+1$ 的数组：$ans[0]$ 表示根不染色，取左右子树各自最优之和；根染色时枚举左右连续段 $i,j$ 且 $i+j<k$，把 $l[i]+r[j]+root.val$ 写入 $ans[i+j+1]$。整棵树再取最大值。
+
+<!-- thinking:end -->
+
 我们考虑以 $root$ 为根节点的子树，且 $root$ 节点连着 $t$ 个染色节点的最大价值，其中 $t \in [0, k]$。我们用状态 $f[root][t]$ 来表示。
 
 如果我们不染色 $root$ 节点，那么 $root$ 的左右节点可以连着 $t \in [0, k]$ 个染色节点，即 $f[root][0] = \max_{t \in [0, k]} f[root.left][t] + \max_{t \in [0, k]} f[root.right][t]$。
