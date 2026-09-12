@@ -172,6 +172,18 @@ tags:
 
 ### 方法一：BFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 节点权值为 $\textit{nums}[i]\times(h-d_i+1)$。若先单独求树高再按定义累加，需要两遍遍历，且要把每个深度存下来。
+>
+> 把总和拆成 $h\sum\textit{nums}[i]+\sum\textit{nums}[i](1-d_i)$ 后，一次 BFS 即可边走边累加第二项，结束时的层数就是 $h$。
+>
+> 邻接表只保留父指向子的边，层次遍历的顺序与深度定义一致。
+
+<!-- thinking:end -->
+
 节点 $i$ 的权重为 $\textit{nums}[i] \times (h - d_i + 1)$，其中 $d_i$ 是节点 $i$ 的深度，$h$ 是树的高度。因此所有节点的权重之和为：
 
 $$\sum_{i=0}^{n-1} \textit{nums}[i] \times (h - d_i + 1) = h \times \sum_{i=0}^{n-1} \textit{nums}[i] + \sum_{i=0}^{n-1} \textit{nums}[i] \times (1 - d_i)$$

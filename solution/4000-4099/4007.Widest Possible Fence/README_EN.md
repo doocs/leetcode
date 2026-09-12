@@ -83,6 +83,18 @@ tags:
 
 ### Solution 1: Counting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every column of the fence must share one height. A plank may be used alone, two equal planks may be stacked, or two different heights may be stacked. Searching combinations plank by plank grows too quickly in $n$.
+>
+> After counting heights, each target height comes from height $h$ itself, two copies of $h/2$, or a pair $x+y=h$. A plank cannot join two pairings at once, so we may add column counts over height pairs directly.
+>
+> With $n\le 1000$, enumerating ordered height pairs is $O(m^2)$. The answer is the maximum among those column counts.
+
+<!-- thinking:end -->
+
 We first use a hash table $\textit{cnt}$ to count the number of planks of each height.
 
 For a target height $h$, the number of planks of height $h$ we can obtain consists of three parts:

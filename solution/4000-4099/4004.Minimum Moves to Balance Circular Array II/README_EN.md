@@ -93,6 +93,18 @@ tags:
 
 ### Solution 1: Minimum Cost Maximum Flow
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move ships one unit to a neighbor on a cycle, with $n\le 1000$. Searching sequences of moves does not scale.
+>
+> Surplus cells must send units to deficit cells, and the number of steps a unit walks is the operation count. That is min-cost flow with surplus as sources, deficits as sinks, and infinite-capacity cycle edges of cost $1$; the required flow equals the total deficit. A negative total balance is impossible.
+>
+> The cycle is bidirectional and unit-cost, so successive SPFA augmentations suffice. For this $n$ the worst-case $O(n^3)$ bound is acceptable.
+
+<!-- thinking:end -->
+
 Let $n$ be the length of $\textit{balance}$. If the sum of all balances is negative, it is impossible to make everyone's balance non-negative, so we return $-1$ directly.
 
 Otherwise, we model the problem as a **minimum cost flow** problem:

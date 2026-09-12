@@ -92,6 +92,18 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 一对的强度只依赖两数及其 $\gcd$，$n\le 2000$，全部无序对只有约 $2\times 10^6$ 个。
+>
+> 直接枚举 $i<j$，用辗转相除计算 $\frac{\textit{nums}[i]\cdot\textit{nums}[j]}{\gcd^2}$ 并取最大即可。
+>
+> $O(n^2\log M)$ 已符合限制，不必再按公因数对数组分组。
+
+<!-- thinking:end -->
+
 我们直接枚举所有的数对 $(i, j)$，其中 $i < j$，计算每个数对的强度 $\frac{\textit{nums}[i] \times \textit{nums}[j]}{\gcd(\textit{nums}[i], \textit{nums}[j])^2}$，取最大值即可。
 
 其中，最大公约数 $\gcd$ 可以使用辗转相除法求得。

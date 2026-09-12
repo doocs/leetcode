@@ -149,6 +149,18 @@ tags:
 
 ### Solution 1: Combinatorics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of compositions of $n$ into $k$ positive parts is $\binom{n-1}{k-1}$. The product is even if and only if at least one part is even, so we subtract the all-odd compositions from the total.
+>
+> All-odd compositions exist only when $n$ and $k$ have the same parity. Substituting $2a_i+1$ yields $\sum a_i=(n-k)/2$, i.e. $\binom{(n+k)/2-1}{k-1}$; otherwise that term is $0$.
+>
+> With $n$ and $k$ up to $5\times 10^5$, each binomial coefficient needs precomputed factorials and inverse factorials. Queries then subtract modulo $10^9+7$ in $O(1)$.
+
+<!-- thinking:end -->
+
 The number of ordered ways to write $n$ as a sum of $k$ positive integers is $\binom{n-1}{k-1}$. An even product means "at least one even number"; the complement is "all odd".
 
 Therefore the answer is:

@@ -161,6 +161,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cars are released in index order and only two pumps have limited fuel. Assigning each car to a pump is a $2^n$ search, which $n\le 50$ forbids.
+>
+> We first maximize the served prefix, then minimize the maximum waiting time among those assignments. The state must therefore keep both pumps' remaining fuel and their next free times.
+>
+> Demands are at most $20$ and capacities at most $50$, so the fuel dimensions stay small enough for memoized search over the served prefix and the two pump states.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -135,6 +135,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both queries and point updates reach $10^5$, so we cannot scan every queried range for peaks.
+>
+> A subarray $[i,j]$ is a peak subarray if and only if a peak lies in the open interval $(i,j)$, so the answer depends only on peak positions inside the range. A point update changes whether at most three neighboring indices are peaks.
+>
+> A segment tree that stores the peaks and the number of subarrays covering at least one peak can refresh those three positions and merge the answer on $[l,r]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

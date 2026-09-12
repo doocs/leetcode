@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Forming an $n$-digit integer with digit sum $s$ by enumerating every feasible number is possible for $n\le 5$, yet unnecessary.
+>
+> With a fixed digit sum, magnitude is decided by the higher places: increasing a high digit outweighs any rearrangement of the lower ones. We therefore fill from high to low with $\min(s,9)$ and leave the remainder for later digits.
+>
+> If $n\times 9<s$, even a string of nines cannot meet the sum, so the answer is $-1$.
+
+<!-- thinking:end -->
+
 If $n \times 9 < s$, even filling every digit with $9$ cannot reach digit sum $s$, so return $-1$.
 
 Otherwise, to maximize the integer, assign as large a digit as possible to higher places. Construct $n$ digits from high to low: each digit takes $\min(s, 9)$, then subtract that value from $s$. The resulting integer is the answer (if $s = 0$, the result is $0$).

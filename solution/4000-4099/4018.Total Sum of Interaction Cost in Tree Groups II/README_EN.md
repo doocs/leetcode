@@ -126,6 +126,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Summing distances over every same-group pair is impossible on a tree with $n=10^5$.
+>
+> The tree path is unique, so each edge contributes the product of the numbers of same-group vertices on its two sides. One DFS that counts group frequencies in every subtree accumulates those products; pairwise distances are never materialised.
+>
+> Rooting at $0$ and merging subtree maps upward is compatible with group labels in $[1,n]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
