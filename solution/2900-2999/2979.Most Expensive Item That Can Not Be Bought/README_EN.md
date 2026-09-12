@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Chicken McNugget Theorem
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both denominations are primes, hence coprime; representable amounts are $a\cdot primeOne+b\cdot primeTwo$. The Chicken McNugget theorem names the largest non-representable integer $ab-a-b$, so a knapsack is unnecessary.
+>
+> Return the product minus the two primes.
+
+<!-- thinking:end -->
+
 According to the Chicken McNugget Theorem, for two coprime positive integers $a$ and $b$, the largest number that cannot be expressed as a combination of $a$ and $b$ is $ab - a - b$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

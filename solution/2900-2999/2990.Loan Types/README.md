@@ -77,6 +77,16 @@ Loans table:
 
 ### 方法一：分组求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 用户须同时持有 Refinance 与 Mortgage。按 $user_id$ 分组后，用 $SUM(loan_type='Refinance')$ 与对应的 Mortgage 条件判断是否都为正。
+>
+> 比两次存在性子查询或自连接更短，最后按用户排序。
+
+<!-- thinking:end -->
+
 我们可以对 `Loans` 表按照 `user_id` 进行分组，找出既包含 `Refinance` 又包含 `Mortgage` 的用户，然后按照 `user_id` 进行排序。
 
 <!-- tabs:start -->

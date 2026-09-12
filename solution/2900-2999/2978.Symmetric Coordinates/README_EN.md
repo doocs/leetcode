@@ -75,6 +75,16 @@ The output table is sorted by X and Y in ascending order.
 
 ### Solution 1: Window Function + Self Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A symmetric pair is $(x,y)$ together with $(y,x)$ from different rows. Duplicate coordinates need distinct row ids. $ROW_NUMBER$ supplies $id$; the self-join requires $p1.x=p2.y$, $p1.y=p2.x$, $p1.x \le p1.y$, and distinct ids so a point does not pair with itself and each pair is listed once.
+>
+> Distinct sorted coordinates are the result.
+
+<!-- thinking:end -->
+
 We can use the window function `ROW_NUMBER()` to add an auto-incrementing sequence number to each row. Then, we perform a self join on the two tables, with the join conditions being `p1.x = p2.y AND p1.y = p2.x AND p1.x <= p1.y AND p1.id != p2.id`. Finally, we sort and remove duplicates.
 
 <!-- tabs:start -->

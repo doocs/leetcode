@@ -137,6 +137,16 @@ Only bits 0 and 3 qualify. The result is <code>(1001)<sub>2</sub> = 9</code>.</p
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bit $i$ of the K-or is $1$ iff at least $k$ numbers have that bit set; bits are independent. Values are below $2^{31}$, so $32$ bits suffice.
+>
+> Count ones on each bit and OR $2^i$ into the answer when the count is at least $k$. $n \le 50$ needs no extra structure.
+
+<!-- thinking:end -->
+
 We can enumerate each bit $i$ in the range $[0, 32)$, and count the number of numbers in the array $nums$ whose $i$-th bit is $1$, denoted as $cnt$. If $cnt \ge k$, we add $2^i$ to the answer.
 
 After the enumeration, we return the answer.

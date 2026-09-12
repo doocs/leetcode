@@ -89,6 +89,16 @@ Output table is ordered by country in ascending order.
 
 ### Solution 1: Grouping + Window Function + Left Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each country needs its top three wineries by total points, ordered by points then name, with placeholders when fewer than three exist. Sum per country and winery, then $RANK$.
+>
+> Three left joins line up $rk=1,2,3$; $IFNULL$ fills the gaps. Sort by country.
+
+<!-- thinking:end -->
+
 We can first group the `Wineries` table by `country` and `winery`, calculate the total score `points` for each group, then use the window function `RANK()` to group the data by `country` again, sort by `points` in descending order and `winery` in ascending order, and use the `CONCAT()` function to concatenate `winery` and `points`, resulting in the following data, denoted as table `T`:
 
 | country   | winery               | rk  |

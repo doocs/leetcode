@@ -75,6 +75,16 @@ The sum of the squares of the distinct counts in all subarrays is equal to 1<sup
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $\sum \mathrm{distinct}(sub)^2$. $n \le 100$ lets us enumerate all $O(n^2)$ subarrays. Fix the left end $i$ and extend $j$ while inserting into a set, adding $|s|^2$ each time.
+>
+> The value domain is also at most $100$, so set operations are cheap. A closed-form contribution is unnecessary.
+
+<!-- thinking:end -->
+
 We can enumerate the left endpoint index $i$ of the subarray, and for each $i$, we enumerate the right endpoint index $j$ in the range $[i, n)$, and calculate the distinct count of $nums[i..j]$ by adding the count of $nums[j]$ to a set $s$, and then taking the square of the size of $s$ as the contribution of $nums[i..j]$ to the answer.
 
 After the enumeration, we return the answer.

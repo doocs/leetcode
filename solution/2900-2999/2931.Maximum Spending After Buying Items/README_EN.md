@@ -91,6 +91,16 @@ It can be shown that 386 is the maximum amount of money that can be spent buying
 
 ### Solution 1: Greedy + Priority Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One item is bought per day at value times the day index, and each shop is consumed from right to left. Larger days multiply more, so large values should wait: each day take the smallest among the shops’ currently exposed rightmost items.
+>
+> Those right ends form a min-heap. Pop the minimum, add $d \cdot v$, and push the previous item of that shop. There are $m \cdot n$ heap operations with $m \le 10$ and $n \le 10^4$.
+
+<!-- thinking:end -->
+
 According to the problem description, we should prioritize purchasing items with smaller values and leave items with larger values to be purchased later in order to maximize the total cost. Therefore, we use a priority queue (min-heap) to store the smallest value item that has not been purchased in each store. Initially, we add the rightmost item in each store to the priority queue.
 
 Each day, we take out the item with the smallest value from the priority queue, add it to the answer, and add the previous item in the store where the item is located to the priority queue. We repeat the above operation until the priority queue is empty.

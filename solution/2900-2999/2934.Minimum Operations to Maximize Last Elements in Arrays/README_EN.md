@@ -88,6 +88,16 @@ So, the answer is -1.
 
 ### Solution 1: Case Discussion + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maxima of $nums1$ and $nums2$ must sit at the ends, and only same-index swaps are allowed. The last pair is either left or swapped once; that choice fixes how every earlier pair must be oriented.
+>
+> $f(x,y)$ assumes the ends are $(x,y)$. Each previous pair stays, swaps, or is impossible. The answer is the better of “do not swap the ends” and “swap them and add one”.
+
+<!-- thinking:end -->
+
 We can discuss two cases:
 
 1. Do not swap the values of $nums1[n - 1]$ and $nums2[n - 1]$

@@ -77,6 +77,16 @@ Output table is ordered by user_id in ascending order.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user’s third transaction by time, with spend strictly above the previous two. $RANK$ numbers the user’s rows; two $LAG$s fetch the earlier spends and form the boolean $st$.
+>
+> Keep $rk=3$ and $st=1$. A triple self-join is unnecessary.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

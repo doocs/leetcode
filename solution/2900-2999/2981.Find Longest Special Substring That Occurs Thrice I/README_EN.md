@@ -73,6 +73,16 @@ It can be shown that the maximum length achievable is 1.
 
 ### Solution 1: Binary Search + Sliding Window Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special substring is a run of one letter. If length $x$ occurs thrice, so does $x-1$, so binary-search $x$. A run of length $L$ contributes $\max(0, L-x+1)$ substrings of length $x$; sum by letter and test $\ge 3$.
+>
+> $n \le 50$ makes binary search plus a linear count enough.
+
+<!-- thinking:end -->
+
 We notice that if there exists a special substring of length $x$ that appears at least three times, then a special substring of length $x-1$ must also exist. This exhibits a monotonicity, so we can use binary search to find the longest special substring.
 
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n$, where $n$ is the length of the string. In each binary search, we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If a special substring of length $mid$ exists, we update the left boundary to $mid$. Otherwise, we update the right boundary to $mid - 1$. During the binary search, we use a sliding window to count the number of special substrings.
@@ -270,6 +280,16 @@ function maximumLength(s: string): number {
 <!-- solution:start -->
 
 ### Solution 2: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 rescans the string each mid. For such a short $n$ we may, per run, add every length $j \in [1,L]$ into a map $L-j+1$ times, then keep the longest key with count $\ge 3$.
+>
+> That drops the logarithmic rounds and still charges runs, which fits the tiny strings.
+
+<!-- thinking:end -->
 
 The time complexity is $O(n)$
 

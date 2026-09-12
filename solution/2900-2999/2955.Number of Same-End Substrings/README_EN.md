@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Prefix Sum + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A same-end substring is any pair of occurrences of one letter in the range (including singles). There are as many queries as $n$, so each query cannot rescan. Prefix counts per letter turn a range frequency $x$ into $x + C(x,2)$, implemented as the interval length plus $C(x,2)$.
+>
+> $cs=set(s)$ avoids allocating empty alphabets. Each query only walks letters that actually occur.
+
+<!-- thinking:end -->
+
 We can preprocess the prefix sum for each letter and record it in the array $cnt$, where $cnt[i][j]$ represents the number of times the $i$-th letter appears in the first $j$ characters. In this way, for each interval $[l, r]$, we can enumerate each letter $c$ in the interval, quickly calculate the number of times $c$ appears in the interval $x$ using the prefix sum array. We can arbitrarily choose two of them to form a tail-equal substring, the number of substrings is $C_x^2=\frac{x(x-1)}{2}$, plus the situation where each letter in the interval can form a tail-equal substring alone, there are $r - l + 1$ letters in total. Therefore, for each query $[l, r]$, the number of tail-equal substrings that meet the conditions is $r - l + 1 + \sum_{c \in \Sigma} \frac{x_c(x_c-1)}{2}$, where $x_c$ represents the number of times the letter $c$ appears in the interval $[l, r]$.
 
 The time complexity is $O((n + m) \times |\Sigma|)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ and $m$ are the lengths of the string $s$ and the number of queries, respectively, and $\Sigma$ represents the set of letters appearing in the string $s$, in this problem $|\Sigma|=26$.

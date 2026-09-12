@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest sequential prefix starts at index $0$; let $s$ be its sum. We want the least integer $\ge s$ absent from the array. $n \le 50$: scan the prefix sum, then test $s,s+1,\ldots$ against a set.
+>
+> The domain is tiny, so a linear increment hits the gap.
+
+<!-- thinking:end -->
+
 First, we calculate the sum $s$ of the longest sequential prefix of the array $nums$. Then, starting from $s$, we enumerate the integer $x$. If $x$ is not in the array $nums$, then $x$ is the answer.
 
 Since $nums[i] \leq 50$ in this problem, we can use an array of length $51$ (or a hash table) to record the integers that appear in the array, so as to quickly determine whether an integer is in the array $nums$.

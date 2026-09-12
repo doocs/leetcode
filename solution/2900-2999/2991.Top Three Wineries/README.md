@@ -90,6 +90,16 @@ Wineries table:
 
 ### 方法一：分组 + 窗口函数 + 左连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个国家按酒庄总分取前三，并列规则由 $points$ 降序、$winery$ 升序决定，不足三名要填占位串。先按国家与酒庄求和，再 $RANK$ 编号。
+>
+> 三次左连接把 $rk=1,2,3$ 拼到一行，$IFNULL$ 填缺省。按国家排序。
+
+<!-- thinking:end -->
+
 我们可以先对 `Wineries` 表按照 `country` 和 `winery` 进行分组，计算每个分组的总得分 `points`，然后再利用窗口函数 `RANK()` 将数据再按照 `country` 进行分组，按照 `points` 降序、`winery` 升序进行排序，并且用 `CONCAT()` 函数将 `winery` 和 `points` 进行拼接，得到如下形式的数据，记为 `T` 表：
 
 | country   | winery               | rk  |

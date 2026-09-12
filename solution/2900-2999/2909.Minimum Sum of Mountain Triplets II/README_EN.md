@@ -77,6 +77,16 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 
 ### Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^5$ forbids a triple loop. After fixing the peak we still only need the minima on both sides, which can be prepared in linear time.
+>
+> A suffix-minimum array $right$ together with a running $left$ tests each index in constant time. The algorithm is the same as part I; the constraints force this $O(n)$ form.
+
+<!-- thinking:end -->
+
 We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
 
 Next, we enumerate the middle element $nums[i]$ of the mountain triplet from left to right, and use a variable $left$ to represent the minimum value in $ums[0..i-1]$, and a variable $ans$ to represent the current minimum element sum found. For each $i$, we need to find the element $nums[i]$ that satisfies $left < nums[i]$ and $right[i+1] < nums[i]$, and update $ans$.

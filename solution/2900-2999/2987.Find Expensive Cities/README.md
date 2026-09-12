@@ -82,6 +82,16 @@ Listings table:
 
 ### 方法一：分组聚合 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 城市均价高于全国均价。按 $city$ 分组后 $HAVING AVG(price)$ 与标量子查询 $AVG(price)$ 比较，后者对全表只算一次。
+>
+> 结果按城市名排序。
+
+<!-- thinking:end -->
+
 我们将 `Listings` 表按照 `city` 分组，然后计算每个城市的平均房价，最后筛选出平均房价大于全国平均房价的城市即可。
 
 <!-- tabs:start -->

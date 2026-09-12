@@ -72,6 +72,16 @@ It can be shown that there are only 7 incremovable subarrays in nums.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^5$ forbids enumerating deletions. The remainder is still a rising prefix, a rising suffix, or both, and each pointer moves at most once per side.
+>
+> The algorithm is the same as part I: a fully increasing array returns the triangular number; otherwise the suffix pointer walks left, the prefix pointer rewinds, and we accumulate. Total time is $O(n)$.
+
+<!-- thinking:end -->
+
 According to the problem description, after removing a subarray, the remaining elements are strictly increasing. Therefore, there are several situations:
 
 1. The remaining elements only include the prefix of the array $nums$ (which can be empty);

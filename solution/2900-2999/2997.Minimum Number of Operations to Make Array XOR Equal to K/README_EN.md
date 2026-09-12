@@ -69,6 +69,16 @@ It can be shown that we cannot make the XOR equal to k in less than 2 operations
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping one bit of one element flips that bit of the total XOR. The minimum number of flips is the Hamming distance between $\bigoplus nums$ and $k$.
+>
+> XOR $k$ in as well and count set bits. $n \le 10^5$ needs one reduction.
+
+<!-- thinking:end -->
+
 We can perform a bitwise XOR operation on all elements in the array $nums$. The number of bits that differ from the binary representation of $k$ in the result is the minimum number of operations.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.

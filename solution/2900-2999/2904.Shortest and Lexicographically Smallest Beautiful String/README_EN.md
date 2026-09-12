@@ -88,6 +88,16 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful substring contains exactly $k$ ones. $n \le 100$ lets us enumerate all $O(n^2)$ substrings and count ones. Among valid pieces, keep the shorter one, breaking ties by lexicographic order.
+>
+> The inner scan may start at $i+k$, since at least $k$ characters are needed to hold $k$ ones.
+
+<!-- thinking:end -->
+
 We can enumerate all substrings $s[i: j]$, where $i \lt j$, and check if they are beautiful substrings. If so, we update the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.
@@ -265,6 +275,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumeration is acceptable at $n=100$, yet calling $count$ on every slice rescans the same range. Beautiful pieces are windows with exactly $k$ ones; dropping a leading $0$ does not lose a one, so a shortest candidate has no leading zero.
+>
+> Two pointers maintain the window: extend the right end, and shrink while the one-count exceeds $k$ or the left character is $0$. Whenever the count equals $k$, compare length and lexicographic order with the current answer.
+
+<!-- thinking:end -->
 
 We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $cnt$ to record the number of $1$s in the sliding window.
 

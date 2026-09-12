@@ -80,6 +80,16 @@ Because the given array is not non-decreasing, the maximum<!-- notionvc: 3447a50
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent values may be merged into their sum; the final array must be nondecreasing and as long as possible. $n \le 10^5$ forbids trying every partition. Let $f[i]$ be the most parts on the prefix of length $i$, keeping the last part small so later parts can follow; $pre$ stores that last-part information.
+>
+> On prefix sums $s$, the next part is at least the previous one, so binary search the smallest $j$ with $s[j]-s[i] \ge s[i]-s[pre[i]]$. Taking a prefix maximum of $pre$ inherits a better start. One scan plus binary search yields $f[n]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

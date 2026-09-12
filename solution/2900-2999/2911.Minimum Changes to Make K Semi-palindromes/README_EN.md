@@ -102,6 +102,16 @@ tags:
 
 ### Solution 1: Precompute + DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split $s$ into $k$ semi-palindromes with the fewest changes. $n \le 200$ lets us, for every substring, try each factor $d$ and count mismatched semi-palindrome pairs, storing the cost in $g[i][j]$.
+>
+> The partition is a standard $k$-cut DP: $f[i][j]$ is the min cost of the first $i$ characters in $j$ pieces, enumerating the previous cut $h$. The $O(n^3)$-class preprocessing plus the DP still fits.
+
+<!-- thinking:end -->
+
 Precompute semi-palindrome costs, then partition with a 2D DP.
 
 <!-- tabs:start -->
@@ -322,6 +332,16 @@ function minimumChanges(s: string, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: DP (Space Optimized)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores every substring cost in an $O(n^2)$ table and keeps an extra index for the number of cuts. Many substrings never appear in an optimal partition, so costs can be memoized on demand.
+>
+> The cut dimension rolls into a one-dimensional $dp$ over the previous $j-1$ layer, updating from fewer cuts to more and from right to left so live states are not overwritten. Memory becomes linear; the recurrence is unchanged.
+
+<!-- thinking:end -->
 
 Memoize the cost and roll the partition DP into one dimension.
 

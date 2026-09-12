@@ -90,6 +90,16 @@ Hence, the answer is 0.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every window of length $3$ must have a maximum of at least $k$. $n \le 10^5$ forbids charging each window separately. Incrementing index $i$ by $\max(k-nums[i],0)$ covers every window that contains $i$, and each window needs only one such cover.
+>
+> The state therefore tracks the cheapest way to cover using one of the last three positions. Rolling $f,g,h$ store those three optima; reading $x$ advances them by $\min(f,g,h)+\max(k-x,0)$. The answer is the minimum of the three.
+
+<!-- thinking:end -->
+
 We define $f$, $g$, and $h$ as the minimum number of increment operations needed to get the maximum value from the last three items in the first $i$ items, initially $f = 0$, $g = 0$, $h = 0$.
 
 Next, we traverse the array $nums$. For each $x$, we need to update the values of $f$, $g$, and $h$ to meet the requirements of the problem, that is:

@@ -85,6 +85,16 @@ tags:
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many values of $nums1$ occur in $nums2$ and the opposite; this is membership, not index alignment. $n,m \le 100$, so build two sets and scan each array once.
+>
+> The domain is at most $100$, so a boolean array would also work. Return the pair.
+
+<!-- thinking:end -->
+
 We can use two hash tables or arrays $s1$ and $s2$ to record the elements that appear in the two arrays respectively.
 
 Next, we create an array $ans$ of length $2$, where $ans[0]$ represents the number of elements in $nums1$ that appear in $s2$, and $ans[1]$ represents the number of elements in $nums2$ that appear in $s1$.

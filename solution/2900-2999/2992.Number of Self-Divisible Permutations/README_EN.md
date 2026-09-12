@@ -80,6 +80,16 @@ It can be shown that the other 3 permutations are not self-divisible. Hence the 
 
 ### Solution 1: State Compression + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation must satisfy $\gcd(i, perm_i)=1$. $n$ is tiny, so a bit mask records used values. $dfs(mask)$ fills position $bit\_count+1$ with an unused $j$ coprime to that position.
+>
+> $2^n$ states times $n$ choices fit.
+
+<!-- thinking:end -->
+
 We can use a binary number $mask$ to represent the current permutation state, where the $i$-th bit is $1$ indicates that the number $i$ has been used, and $0$ indicates that the number $i$ has not been used yet.
 
 Then, we design a function $dfs(mask)$, which represents the number of permutations that can be constructed from the current permutation state $mask$ and meet the requirements of the problem. The answer is $dfs(0)$.
@@ -246,6 +256,16 @@ function bitCount(i: number): number {
 <!-- solution:start -->
 
 ### Solution 2: State Compression + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 recurses on the used set. Equivalently $f[mask]$ counts ways to reach that set, transitioning by adding one unused $j$ coprime to its position. Start from $f[0]=1$ and read $f[2^n-1]$.
+>
+> Only the evaluation order changes; the recursion disappears.
+
+<!-- thinking:end -->
 
 We can rewrite the memoization search in Solution 1 into the form of dynamic programming, define $f[mask]$ to represent the number of permutations that the current permutation state is $mask$ and meet the requirements of the problem. Initially, $f[0]=1$, and the rest are $0$.
 

@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square needs two horizontal fences (including the borders $1$ and $m$) whose gap equals a vertical gap (including $1$ and $n$). At most $600$ fences, so all pairs of each orientation fit. Put every horizontal gap and every vertical gap in a set and take the maximum of the intersection.
+>
+> $m$ and $n$ may be $10^9$, so the field is never materialized. No common gap yields $-1$; otherwise square modulo the prime.
+
+<!-- thinking:end -->
+
 We can enumerate any two horizontal fences $a$ and $b$ in $\textit{hFences}$, calculate the distance $d$ between $a$ and $b$, and record it in the hash table $hs$. Then, we enumerate any two vertical fences $c$ and $d$ in $\textit{vFences}$, calculate the distance $d$ between $c$ and $d$, and record it in the hash table $vs$. Finally, we traverse the hash table $hs$. If a certain distance $d$ in $hs$ also exists in the hash table $vs$, it indicates that there exists a square field with a side length of $d$, and the area is $d^2$. We just need to take the largest $d$ and calculate $d^2 \bmod 10^9 + 7$.
 
 The time complexity is $O(h^2 + v^2)$, and the space complexity is $O(h^2 + v^2)$. Here, $h$ and $v$ are the lengths of $\textit{hFences}$ and $\textit{vFences}$, respectively.

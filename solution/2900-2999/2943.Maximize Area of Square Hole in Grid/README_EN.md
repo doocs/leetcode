@@ -92,6 +92,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The square hole is limited by the longest run of consecutive removable horizontal bars and of vertical bars; the side is one plus the shorter of those runs. $n$ and $m$ may be $10^9$, so the grid cannot be simulated; at most $100$ bars are removable.
+>
+> Sort $hBars$ and $vBars$, scan the longest adjacent-difference-$1$ run, add one, take the minimum of the two sides, and square it.
+
+<!-- thinking:end -->
+
 The problem essentially asks us to find the length of the longest consecutive increasing subsequence in the array, and then add $1$.
 
 We define a function $f(\textit{nums})$ to represent the length of the longest consecutive increasing subsequence in the array $\textit{nums}$.

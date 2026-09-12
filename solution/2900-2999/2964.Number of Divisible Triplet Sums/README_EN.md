@@ -61,6 +61,16 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count triples $i<j<k$ whose sum is divisible by $d$. A cubic loop is slow for mid-sized $n$. Enumerate the last two indices and query a map for the complementary $nums[i] \bmod d$ already seen.
+>
+> Add to the answer before inserting $nums[j] \bmod d$, so $i<j<k$ is preserved.
+
+<!-- thinking:end -->
+
 We can use a hash table $cnt$ to record the occurrence times of $nums[i] \bmod d$, then enumerate $j$ and $k$, calculate the value of $nums[i] \bmod d$ that makes the equation $(nums[i] + nums[j] + nums[k]) \bmod d = 0$ hold, which is $(d - (nums[j] + nums[k]) \bmod d) \bmod d$, and accumulate its occurrence times to the answer. Then we increase the occurrence times of $nums[j] \bmod d$ by one. Continue to enumerate $j$ and $k$ until $j$ reaches the end of the array.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.

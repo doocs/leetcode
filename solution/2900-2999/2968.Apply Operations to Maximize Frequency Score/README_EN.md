@@ -75,6 +75,16 @@ It can be shown that we cannot achieve a better score.
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $k$ increments or decrements should make as many values equal as possible. After sorting, an optimum is a contiguous segment moved onto its median. Feasibility is monotone in the length, so binary-search that length.
+>
+> Prefix sums cost a median move in $O(1)$. $n \le 10^5$ admits $O(n \log n)$ checks.
+
+<!-- thinking:end -->
+
 The problem asks for the maximum frequency of the mode we can get after performing at most $k$ operations. If we sort the array $nums$ in ascending order, it would be best to turn a continuous segment of numbers into the same number, which can reduce the number of operations and increase the frequency of the mode.
 
 Therefore, we might as well sort the array $nums$ first.

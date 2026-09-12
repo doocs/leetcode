@@ -82,6 +82,16 @@ So the answer is [&quot;ab&quot;,&quot;cd&quot;].</pre>
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> High access means at least three visits in one hour. After grouping by name, convert $HHMM$ to minutes and sort; three consecutive times lie in a $60$-minute window iff $t[i]-t[i-2] < 60$.
+>
+> A hash map stores the timestamps, then one linear pass after sorting decides. $n \le 100$ makes grouping and sorting cheap.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to store all access times of each employee, where the key is the employee's name, and the value is an integer array, representing all access times of the employee, which are the number of minutes from the start of the day at 00:00.
 
 For each employee, we sort all their access times in ascending order. Then we traverse all access times of the employee. If there are three consecutive access times $t_1, t_2, t_3$ that satisfy $t_3 - t_1 < 60$, then the employee is a high-frequency visitor, and we add their name to the answer array.

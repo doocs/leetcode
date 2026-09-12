@@ -60,6 +60,16 @@ tags:
 
 ### 方法一：Chicken McNugget 定理
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两种面值均为质数因而互质，能表示的金额是非负整数组合 $a\cdot primeOne+b\cdot primeTwo$。Chicken McNugget 定理给出最大不能表示数为 $ab-a-b$，无需背包。
+>
+> 直接返回乘积减两质数。
+
+<!-- thinking:end -->
+
 根据 Chicken McNugget 定理，两个互质的正整数 $a$ 和 $b$，最大不能表示的数为 $ab - a - b$。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。

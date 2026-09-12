@@ -74,6 +74,16 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 
 ### Solution 1: Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> This is method 2 of part I: fix the middle item, query the best profit among cheaper items on the left and costlier items on the right. Larger $n$ requires a Fenwick tree rather than an $O(n^2)$ scan.
+>
+> $tree1$ inserts profits left to right and queries $[1,price-1]$; $tree2$ mirrors prices from the right so “greater than $price$” becomes a prefix maximum. Update $left+profit+right$ when both sides are positive.
+
+<!-- thinking:end -->
+
 We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.
 
 The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 5000$.

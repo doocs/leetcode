@@ -68,6 +68,16 @@ So the answer is [[2],[0],[0]].</pre>
 
 ### Solution 1: Prefix and Suffix Decomposition
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cell should store the product of all other entries modulo $12345$. The modulus is not prime, so inverses of $grid[i][j]$ are unavailable, and a multiple of $12345$ would break division. With $n \cdot m \le 10^5$, flattening the matrix reduces to a product-except-self.
+>
+> Sweep from the bottom-right, writing the suffix product $suf$ (excluding self) into $p$, then sweep from the top-left and multiply by the prefix $pre$. Both updates stay in modular arithmetic.
+
+<!-- thinking:end -->
+
 We can preprocess the suffix product (excluding itself) of each element, and then traverse the matrix to calculate the prefix product (excluding itself) of each element. The product of the two gives us the result for each position.
 
 Specifically, we use $p[i][j]$ to represent the result of the element in the $i$-th row and $j$-th column of the matrix. We define a variable $suf$ to represent the product of all elements below and to the right of the current position. Initially, $suf$ is set to $1$. We start traversing from the bottom right corner of the matrix. For each position $(i, j)$, we assign $suf$ to $p[i][j]$, and then update $suf$ to $suf \times grid[i][j] \bmod 12345$. This way, we can obtain the suffix product of each position.

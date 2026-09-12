@@ -78,6 +78,16 @@ The sum of the squares of the distinct counts in all subarrays is equal to 1<sup
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum is the same as part I, but $n \le 10^5$ forbids enumerating subarrays. When the right end moves from $r-1$ to $r$, the new slices are all $[L,r]$. If $x=nums[r]$ last occurred at $p$, every $L \in (p,r]$ gains one distinct value, so the square sum grows by $2 \cdot \mathrm{cnt}+1$.
+>
+> That is a range add on indices together with a sum-of-squares query, which a lazy segment tree can store. Scan by right end, add one on $(last[x], r]$, and accumulate the global square sum. The code tabs in this directory are still empty; the structure above is the intended state and update order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

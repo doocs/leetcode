@@ -93,6 +93,16 @@ It can be shown that there are only 3 beautiful substrings in the given string.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A beautiful substring has equally many vowels and consonants and a product divisible by $k$. $n \le 1000$ lets us enumerate endpoints while counting vowels; consonants are length minus vowels.
+>
+> Both predicates are $O(1)$ per pair, totaling $O(n^2)$. Prefix hashes are unnecessary.
+
+<!-- thinking:end -->
+
 We enumerate the starting position $i$ of the substring in the range $[0, n)$, and the ending position $j$ in the range $[i, n)$, count the number of vowels and consonants in the substring $s[i \dots j]$, and check whether it is a beautiful substring. If so, we increment the answer by $1$.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the string. The space complexity is $O(1)$.

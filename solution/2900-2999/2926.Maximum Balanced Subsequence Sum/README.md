@@ -87,6 +87,16 @@ nums[3] - nums[0] &gt;= 3 - 0 。
 
 ### 方法一：动态规划 + 树状数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 平衡条件 $nums[i]-nums[j] \ge i-j$ 可改写为 $nums[i]-i \ge nums[j]-j$。于是在序列 $arr[t]=nums[t]-t$ 上选取非降下标，使对应 $nums$ 之和最大。朴素 $f[i]=nums[i]+\max_{j<i, arr[j]\le arr[i]} f[j]$（或只取 $nums[i]$）是 $O(n^2)$，而 $n \le 10^5$。
+>
+> 对 $arr$ 离散化后，树状数组维护「$arr$ 值不超过某阈值时的最大 $f$」。按原下标扫描，查询后再插入，全局再取一次前缀最大即得答案。
+
+<!-- thinking:end -->
+
 根据题目描述，我们可以将不等式 $nums[i] - nums[j] \ge i - j$ 转化为 $nums[i] - i \ge nums[j] - j$，因此，我们考虑定义一个新数组 $arr$，其中 $arr[i] = nums[i] - i$，那么平衡子序列满足对于任意 $j \lt i$，都有 $arr[j] \le arr[i]$。即题目转换为求在 $arr$ 中选出一个递增子序列，使得对应的 $nums$ 的和最大。
 
 假设 $i$ 是子序列中最后一个元素的下标，那么我们考虑子序列倒数第二个元素的下标 $j$，如果 $arr[j] \le arr[i]$，我们可以考虑是否要将 $j$ 加入到子序列中。

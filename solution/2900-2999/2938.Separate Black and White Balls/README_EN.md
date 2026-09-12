@@ -73,6 +73,16 @@ It can be proven that the minimum number of steps needed is 2.
 
 ### Solution 1: Counting Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent swaps that send every $1$ to the right (equivalently every $0$ to the left) cost the number of $0$s to the right of each $1$. $n \le 10^5$. Scanning right to left, a $1$ still crosses $n-i-cnt$ empty slots on its right.
+>
+> $cnt$ is the number of ones already seen; summing those gaps is the minimum swap count. The balls need not be moved explicitly.
+
+<!-- thinking:end -->
+
 We consider moving all the '1's to the rightmost side. We use a variable $cnt$ to record the current number of '1's that have been moved to the rightmost side, and a variable $ans$ to record the number of moves.
 
 We traverse the string from right to left. If the current position is '1', then we increment $cnt$ by one, and add $n - i - cnt$ to $ans$, where $n$ is the length of the string. Finally, we return $ans$.

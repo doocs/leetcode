@@ -76,6 +76,16 @@ And the sum of this triplet is nums[1] + nums[3] + nums[5] = 13. It can be shown
 
 ### Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mountain needs $i<j<k$ and $nums[i]<nums[j]>nums[k]$, minimizing the sum. $n \le 50$ allows a triple loop. After fixing the peak $j$, only the left and right minima matter, and both must be strictly smaller than $nums[j]$.
+>
+> Precompute suffix minima in $right$, then scan left to right while tracking $left$. Test each peak and update the triple sum, or return $-1$ if none exists.
+
+<!-- thinking:end -->
+
 We can preprocess the minimum value on the right side of each position and record it in the array $right[i]$, where $right[i]$ represents the minimum value in $nums[i+1..n-1]$.
 
 Next, we enumerate the middle element $nums[i]$ of the mountain triplet from left to right, and use a variable $left$ to represent the minimum value in $ums[0..i-1]$, and a variable $ans$ to represent the current minimum element sum found. For each $i$, we need to find the element $nums[i]$ that satisfies $left < nums[i]$ and $right[i+1] < nums[i]$, and update $ans$.

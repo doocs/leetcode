@@ -95,6 +95,16 @@ If you select substring source[3..7] as the first operation to change &quot;abcd
 
 ### Solution 1: Trie + Floyd Algorithm + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rewrites now replace whole substrings and must hit $source$ and $target$ together. At most $100$ candidates, so a trie assigns ids and Floyd on those ids gives every replacement cost. The rest is a partition: pay $g[p][q]$ when both tries accept a pair, or step one free character when they already match.
+>
+> $dfs(i)$ memoizes the tail from $i$, walking both tries in lockstep. The string length is $1000$, so states are linear and a transition follows the match length.
+
+<!-- thinking:end -->
+
 According to the problem description, we can consider each string as a node, and the conversion cost between each pair of strings as a directed edge. We first initialize a $26 \times 26$ two-dimensional array $g$, where $g[i][j]$ represents the minimum cost of converting string $i$ to string $j$. Initially, $g[i][j] = \infty$, and if $i = j$, then $g[i][j] = 0$. Here, we can use a trie to store the strings in `original` and `changed` along with their corresponding integer identifiers.
 
 Next, we use the Floyd algorithm to calculate the minimum cost between any two strings.

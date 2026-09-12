@@ -79,6 +79,16 @@ Output table is ordered by dep_id in ascending order.
 
 ### Solution 1: Grouping + Equi-Join + Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count employees per department, join to manager rows, and keep departments whose count equals the global maximum. The subquery $MAX(cnt)$ avoids aggregating managers again after the join.
+>
+> Sort by department id.
+
+<!-- thinking:end -->
+
 We can first count the number of employees in each department, denoted as table `T`. Then we join `T` with the `Employees` table, with the join condition being `T.dep_id = Employees.dep_id` and `Employees.position = 'Manager'`. This way, we can get the manager of each department. Finally, we filter out the department with the most employees.
 
 <!-- tabs:start -->

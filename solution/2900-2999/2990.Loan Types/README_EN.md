@@ -76,6 +76,16 @@ Output table is ordered by user_id in ascending order.
 
 ### Solution 1: Grouping and Summation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user must hold both Refinance and Mortgage. Group by $user_id$ and test $SUM(loan_type='Refinance')$ together with the Mortgage analogue.
+>
+> That is shorter than two existence subqueries or a self-join. Sort by user id.
+
+<!-- thinking:end -->
+
 We can group the `Loans` table by `user_id` to find users who have both `Refinance` and `Mortgage`. Then, sort the results by `user_id`.
 
 <!-- tabs:start -->

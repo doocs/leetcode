@@ -74,6 +74,16 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 
 ### Solution 1: Enumerate the Middle Element
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid triplet needs strictly increasing prices. After fixing the middle index $j$, the left side wants the largest profit among cheaper items and the right side the largest among costlier ones; each side is a linear scan. For modest $n$, $O(n^2)$ suffices.
+>
+> If either side is empty, $j$ is unusable. The answer is the maximum of $left+profits[j]+right$ over valid $j$.
+
+<!-- thinking:end -->
+
 We can enumerate the middle element $profits[j]$, and then enumerate the left element $profits[i]$ and the right element $profits[k]$. For each $profits[j]$, we need to find the maximum $profits[i]$ and the maximum $profits[k]$ such that $prices[i] < prices[j] < prices[k]$. We define $left$ as the maximum value on the left of $profits[j]$, and $right$ as the maximum value on the right of $profits[j]$. If they exist, we update the answer as $ans = \max(ans, left + profits[j] + right)$.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array. The space complexity is $O(1)$.
@@ -250,6 +260,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 scans both sides for every middle index, costing $O(n^2)$. “Maximum profit among prices less than $p$” is a prefix-maximum query and can be stored in a Fenwick tree on the value domain.
+>
+> Query then insert from left to right for the left maxima; reverse the price axis and repeat from the right. Enumerating the middle index finishes in $O(n \log U)$.
+
+<!-- thinking:end -->
 
 We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.
 
@@ -624,6 +644,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 indexes the Fenwick tree by raw prices, which wastes space when prices are sparse. Rank-compress the distinct prices and use the ranks as indices; the queries and updates are unchanged and use $O(n)$ memory.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
