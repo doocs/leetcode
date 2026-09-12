@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3295.Report%20Spam%20Message/README.md
 rating: 1198
 source: 第 416 场周赛 Q1
 tags:
