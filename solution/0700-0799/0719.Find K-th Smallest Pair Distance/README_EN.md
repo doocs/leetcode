@@ -68,6 +68,18 @@ Then the 1<sup>st</sup> smallest distance pair is (1,1), and its distance is 0.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the $k$-th smallest pairwise distance. $n\le 10^4$ forbids listing all $O(n^2)$ pairs. Distances lie in $[0,\max-\min]$ and the count of pairs $\le d$ is monotone in $d$.
+>
+> Binary-search $d$ and count pairs with distance $\le d$. After sorting, each right value $b$ has a leftmost partner $b-d$; a lower-bound search counts them in $O(n\log n)$.
+>
+> The smallest $d$ whose count is at least $k$ is the answer, searched in $[0, nums[-1]-nums[0]]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

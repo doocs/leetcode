@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reorder $s$ by the relative order in $order$. Sorting by the index in $order$ does that.
+>
+> Missing letters get key $0$ and gather at the front, which is allowed.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -165,6 +175,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting is $n\log n$. Count $s$, emit each $order$ character that many times, then append the rest. Linear.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

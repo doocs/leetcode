@@ -75,6 +75,18 @@ stk.top();     // return 5, [<strong><u>5</u></strong>] the stack did not change
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Besides a normal stack we must peek the maximum and pop the most recent occurrence of it. One stack cannot delete in the middle; dual stacks find the max but cannot unlink an arbitrary node.
+>
+> A doubly linked list preserves push order and unlinks in $O(1)$. An ordered set of those nodes, keyed by value, finds the current max in logarithmic time. Both structures share nodes, so every delete updates both.
+>
+> $\textit{push}$ appends and inserts; $\textit{pop}$ removes the tail; $\textit{popMax}$ takes the last ordered node and unlinks it. Writes are $O(\log n)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

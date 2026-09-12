@@ -60,6 +60,18 @@ So the last character is not one-bit character.
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The code uses $0$ and $10$/$11$. We ask whether the last bit is a one-bit character. Decoding from the left is unique, so no search is needed.
+>
+> A $0$ is always one bit; a $1$ always consumes the next bit. Simulate until just before the last index and see whether we land on it.
+>
+> Advance $i$ by $\textit{bits}[i]+1$ while $i<n-1$. Then $i=n-1$ if and only if the last bit stands alone.
+
+<!-- thinking:end -->
+
 We can directly traverse the first $n-1$ elements of the array $\textit{bits}$, and each time decide how many elements to skip based on the value of the current element:
 
 - If the current element is $0$, skip $1$ element (representing a one-bit character);

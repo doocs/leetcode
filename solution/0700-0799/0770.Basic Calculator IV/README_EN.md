@@ -103,6 +103,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Expand an expression with variables, $+/-/*$, and parentheses into a polynomial, combining like terms. The language tabs here are empty; the usual model is polynomial arithmetic.
+>
+> Numbers and variables are monomials; addition merges coefficients; multiplication concatenates variable multisets. A stack or recursive descent respects precedence, substituting known variables.
+>
+> Emit nonzero terms by descending degree, then lexicographic variable lists.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

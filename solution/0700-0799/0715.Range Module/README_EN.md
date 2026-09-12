@@ -66,6 +66,18 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 
 ### Solution 1: Segment Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maintain add, remove, and covered-query on half-open ranges with endpoints up to $10^9$ and about $10^4$ operations. Merging an explicit interval list can scan many fragments per update.
+>
+> These are range assign / range query operations. A segment tree handles them in logarithmic time; the universe is too large to allocate fully, so we create nodes on demand and push lazy assign marks.
+>
+> Each node stores whether its segment is fully covered. A fully contained update writes the mark; a query returns $\textit{v}$ on a covered node, otherwise pushes down and ands the two children. Each call is $O(\log n)$.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to maintain a set of intervals, supporting operations of interval addition, deletion, and query. For the addition and deletion of intervals, we can use a segment tree to maintain the set of intervals.
 
 The segment tree divides the entire interval into multiple non-continuous sub-intervals, the number of which does not exceed $\log(width)$. To update the value of an element, only $\log(width)$ intervals need to be updated, and these intervals are all included in a large interval containing the element. When modifying the interval, we need to use **lazy propagation** to ensure efficiency.

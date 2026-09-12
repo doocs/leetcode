@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recolor the 4-connected component of the start pixel. The grid is small. If the start already has the target color we must not recurse, or we loop.
+>
+> The component is a grid graph. DFS recolors every neighbor that still equals the original color $\textit{oc}$; the new color is the visited mark.
+>
+> Record $\textit{oc}$ and recurse from $(\textit{sr},\textit{sc})$ only when it differs from $\textit{color}$.
+
+<!-- thinking:end -->
+
 We denote the initial pixel's color as $\textit{oc}$. If $\textit{oc}$ is not equal to the target color $\textit{color}$, we start a depth-first search from $(\textit{sr}, \textit{sc})$ to change the color of all eligible pixels to the target color.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D array $\textit{image}$, respectively.
@@ -274,6 +286,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is recursive; a large component uses $O(mn)$ stack. The same flood can proceed level by level.
+>
+> BFS from the start: pop a pixel, recolor neighbors that still equal $\textit{oc}$, and enqueue them. Same asymptotics, no call stack.
+
+<!-- thinking:end -->
 
 We first check if the initial pixel's color is equal to the target color. If it is, we return the original image directly. Otherwise, we can use the breadth-first search method, starting from $(\textit{sr}, \textit{sc})$, to change the color of all eligible pixels to the target color.
 

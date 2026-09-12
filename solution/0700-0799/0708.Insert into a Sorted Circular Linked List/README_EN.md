@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert into a non-decreasing circular list. Up to $5 \times 10^4$ nodes, so we must find the gap in one lap. An empty list becomes a self-loop.
+>
+> A sorted ring has a single drop from the maximum back to the minimum. The insert either sits inside a non-decreasing run, or straddles that drop when the value is at least the max or at most the min.
+>
+> Walk adjacent $\textit{prev}$ and $\textit{curr}$ until one of those holds; if the list is globally non-decreasing we land on the last pair. Link the new node and return the original head.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

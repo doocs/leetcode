@@ -67,6 +67,18 @@ myHashSet.contains(2); // return False, (already removed)</pre>
 
 ### Solution 1: Static Array Implementation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Implement a set of keys in $[0, 10^6]$ with at most $10^4$ operations. A library map would work, but the point is to design the store.
+>
+> Keys are already non-negative integers with a fixed bound, so they can be indices. A boolean array of length $10^6+1$ turns add, remove, and contains into a single write or read.
+>
+> Space follows the value range rather than the number of keys; that is acceptable under these limits.
+
+<!-- thinking:end -->
+
 Directly create an array of size $1000001$, initially with each element set to `false`, indicating that the element does not exist in the hash set.
 
 When adding an element to the hash set, set the corresponding position in the array to `true`; when deleting an element, set the corresponding position in the array to `false`; when checking if an element exists, directly return the value at the corresponding position in the array.
@@ -234,6 +246,18 @@ class MyHashSet {
 <!-- solution:start -->
 
 ### Solution 2: Array of Linked Lists
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 buys $O(1)$ with an array as large as the key universe; most of that space stays unused when few keys appear.
+>
+> Hash by a smaller modulus into a fixed number of buckets, and store collisions in a list. Each operation hashes, then scans one short bucket.
+>
+> With $\textit{SIZE}=1000$ the memory follows the bucket count, and the expected cost stays near constant.
+
+<!-- thinking:end -->
 
 We can also create an array of size $SIZE=1000$, where each position in the array is a linked list.
 

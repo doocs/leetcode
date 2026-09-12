@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chemical formula with parentheses and counts must be tallied and printed with atoms in sorted order. Length $\le 1000$, so a stack or a recursive descent both work.
+>
+> A multiplier applies to a whole parenthesized group. Scanning right to left, a count is seen before the group: on `)` push the current multiplier and multiply by the count; on `(` restore it.
+>
+> The Java solution accumulates this way: digits form $\textit{freq}$, and each element name (plus trailing lowercase letters) adds $\textit{freq}\times\textit{multiplier}$. Sort the keys and omit a count of $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

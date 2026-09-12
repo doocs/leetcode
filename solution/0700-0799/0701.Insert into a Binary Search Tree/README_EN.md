@@ -65,6 +65,18 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert a fresh value into a BST and return the new root. $n \le 10^4$, so any correct insertion path is fine.
+>
+> BST order pins down a unique empty slot: walk by comparison and hang a new node there; no rotation is required. An empty tree becomes that single node.
+>
+> Recurse into the left or right child according to $\textit{val}$, then attach the returned subtree. A chain still costs $O(n)$ time and stack.
+
+<!-- thinking:end -->
+
 If the root node is null, we directly create a new node with the value $\textit{val}$ and return it.
 
 If the root node's value is greater than $\textit{val}$, we recursively insert $\textit{val}$ into the left subtree and update the root of the left subtree with the returned root node.

@@ -58,6 +58,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Largest plus of order $k$ on an $n\le 500$ grid. Expanding from every center is $O(n^3)$. The order is the min arm of $1$s in four directions.
+>
+> Those four runs are linear prefixes. Mark mines as $0$, start others at $n$, and take the min with the four counters.
+>
+> One double index walk updates left/right/up/down together. The answer is the max cell. $O(n^2)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

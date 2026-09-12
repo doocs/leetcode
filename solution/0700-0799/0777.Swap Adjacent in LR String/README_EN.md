@@ -57,6 +57,18 @@ XRLXXRRLX
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `XL`/`RX` swaps move `L` left and `R` right; they cannot pass. After dropping `X`, the letter sequences must match.
+>
+> Each aligned `L` cannot have moved right ($i\ge j$), each `R` cannot have moved left ($i\le j$).
+>
+> Two pointers skip `X` and test those inequalities.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

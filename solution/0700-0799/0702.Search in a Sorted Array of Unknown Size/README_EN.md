@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is sorted but its length is hidden; we may only probe indices, and out-of-range reads return a sentinel. A linear scan from $0$ uses $\Theta(M)$ calls and ignores order.
+>
+> Without a known length we cannot binary-search the whole array. Exponentially growing a right bound until the value is at least the target traps the answer in an interval of size $O(M)$.
+>
+> Start from $r=1$, double until the probe is large enough, then binary-search $[r/2, r]$. The number of API calls is $O(\log M)$.
+
+<!-- thinking:end -->
+
 First, we define a pointer $r = 1$. Each time, we check if the value at position $r$ is less than the target value. If it is, we multiply $r$ by $2$, i.e., shift it left by one bit, until the value at position $r$ is greater than or equal to the target value. At this point, we can determine that the target value is within the interval $[r / 2, r]$.
 
 Next, we define a pointer $l = r / 2$, and then we can use the binary search method to find the position of the target value within the interval $[l, r]$.

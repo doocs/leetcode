@@ -67,6 +67,18 @@ The third fraction is 2/5.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-th smallest proper fraction $arr[i]/arr[j]$ over a sorted prime list. $n\le 1000$; listing all pairs is $O(n^2\log n)$.
+>
+> For fixed $j$ the fractions increase with $i$. A min-heap merges these $n-1$ chains.
+>
+> Start with $1/arr[j]$ for each $j$, pop $k-1$ times while pushing the next numerator. The heap top is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

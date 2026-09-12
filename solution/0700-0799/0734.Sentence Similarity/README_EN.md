@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two sentences are similar when they have equal length and each aligned pair is equal or listed. Similarity is not transitive. We only need a fast pair test.
+>
+> Store $\textit{similarPairs}$ in a set. Because pairs are unordered, keep both directions or probe both.
+>
+> Reject unequal lengths; then zip the sentences and fail if a pair is neither equal nor stored.
+
+<!-- thinking:end -->
+
 First, we check if the lengths of $\textit{sentence1}$ and $\textit{sentence2}$ are equal. If they are not equal, return $\text{false}$.
 
 Then we use a hash table $\textit{s}$ to store all similar word pairs. For each word pair $[x, y]$ in $\textit{similarPairs}$, we add $x$ and $y$ to the hash table $\textit{s}$.

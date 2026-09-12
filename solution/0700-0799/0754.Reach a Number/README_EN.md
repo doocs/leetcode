@@ -66,6 +66,18 @@ On the 2<sup>nd</sup> move, we step from 1 to 3 (2 steps).
 
 ### Solution 1: Mathematical Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Step $i$ must have length $i$; we choose the sign. $|\textit{target}|$ can be $10^9$, so searching sequences is impossible.
+>
+> The line is symmetric, so take the absolute value. $k$ steps to the right land on the triangular number $s$. If $s-\textit{target}$ is even, flipping a step of size $(s-\textit{target})/2$ hits the target without extra steps.
+>
+> Increase $k$ until $s\ge \textit{target}$ and the difference is even. $k$ is $O(\sqrt{|\textit{target}|})$.
+
+<!-- thinking:end -->
+
 Due to symmetry, each time we can choose to move left or right, so we can take the absolute value of $\textit{target}$.
 
 Define $s$ as the current position, and use the variable $k$ to record the number of moves. Initially, both $s$ and $k$ are $0$.

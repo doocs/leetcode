@@ -70,6 +70,18 @@ Starting from the bottom (level 4), there are multiple ways to build level 3, bu
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The bottom has length at most $6$. Building layer by layer still repeats the same remaining string.
+>
+> Each adjacent pair lists allowed tops; the Cartesian product of those lists is every possible next row.
+>
+> Memoized $dfs(s)$ succeeds at length $1$, fails if a pair has no candidate, otherwise recurses on each product string.
+
+<!-- thinking:end -->
+
 We define a hash table $d$ to store the allowed triangular patterns, where the key is a pair of two characters and the value is the corresponding list of characters, indicating that the two characters can form a triangular pattern with each item in the value list being the top of the triangle.
 
 Starting from the bottom layer, for every two adjacent characters in each layer, if they can form a triangular pattern, we add the top character of the triangular pattern to the character list at the corresponding position in the next layer, then recursively process the next layer.

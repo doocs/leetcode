@@ -53,6 +53,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tile a $2\times n$ board with dominos and L-trominos. $n\le 1000$; enumerating placements repeats columns.
+>
+> A column is full, top-only, bottom-only, or empty. Those four states at $i-1$ determine $i$ after placing a vertical, two horizontals, or an L.
+>
+> Roll four integers; $f[0]$ is a fully covered prefix. The empty board starts at $1$.
+
+<!-- thinking:end -->
+
 First, we need to understand the problem. The problem is essentially asking us to find the number of ways to tile a $2 \times n$ board, where each square on the board can only be covered by one tile.
 
 There are two types of tiles: `2 x 1` and `L` shapes, and both types of tiles can be rotated. We denote the rotated tiles as `1 x 2` and `L'` shapes.

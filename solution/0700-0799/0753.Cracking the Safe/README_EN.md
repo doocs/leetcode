@@ -81,6 +81,18 @@ Thus &quot;01100&quot; will unlock the safe. &quot;10011&quot;, and &quot;11001&
 
 ### Solution 1: Eulerian Circuit
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A shortest string that contains every length-$n$ password over $k$ digits is a de Bruijn sequence, length $k^n+n-1$.
+>
+> Nodes are $(n-1)$-mers; an extra digit is an edge, i.e. one password. Every degree is $k$, so an Eulerian circuit exists and spells the answer.
+>
+> Hierholzer from $0$: mark edge $u\cdot 10+x$, recurse, then append the digit (post-order), and finally add the $n-1$ zeros of the start.
+
+<!-- thinking:end -->
+
 We can construct a directed graph based on the description in the problem: each point is considered as a length $n-1$ $k$-string, and each edge carries a character from $0$ to $k-1$. If there is a directed edge $e$ from point $u$ to point $v$, and the character carried by $e$ is $c$, then the last $k-1$ characters of $u+c$ form the string $v$. At this point, the edge $u+c$ represents a password of length $n$.
 
 In this directed graph, there are $k^{n-1}$ points, each point has $k$ outgoing edges and $k$ incoming edges. Therefore, this directed graph has an Eulerian circuit, and the path traversed by the Eulerian circuit is the answer to the problem.

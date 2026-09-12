@@ -65,6 +65,18 @@ This is the lexicographically largest string possible after some number of swaps
 
 ### Solution 1: Recursion + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A special binary string is a valid parentheses string with $1$/$0$. Swapping adjacent special pieces increases the lexicographic order. $n\le 50$, but the recursive shape is the real lever.
+>
+> The string is a concatenation of $1+\textit{special}+0$ blocks. Maximize each interior, then sort those blocks descending.
+>
+> A balance counter isolates blocks; recurse on the inside, sort, and join.
+
+<!-- thinking:end -->
+
 We can treat the special binary sequence as "valid parentheses", where $1$ represents an opening parenthesis and $0$ represents a closing parenthesis. For example, "11011000" can be viewed as "(()(()))".
 
 Swapping two consecutive non-empty special substrings is equivalent to swapping two adjacent valid parentheses. We can use recursion to solve this problem.

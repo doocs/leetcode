@@ -73,6 +73,18 @@ tags:
 
 ### 方法一：朴素 Dijkstra 算法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有向带权图上从 $k$ 出发，使所有节点都收到信号的最短时间，即最长那条最短路。$n\le 100$，朴素 Dijkstra 的 $O(n^2)$ 可以通过。
+>
+> 每次在未访问点中取当前距离最小者并松弛其出边，与非负边权的最短路标准过程一致。用邻接矩阵存边，无边为 $+\infty$。
+>
+> 全部松弛后取 $\textit{dist}$ 的最大值；若仍为无穷则有点不可达，返回 $-1$。
+
+<!-- thinking:end -->
+
 我们定义 $\textit{g}[u][v]$ 表示节点 $u$ 到节点 $v$ 的边权，如果节点 $u$ 到节点 $v$ 之间没有边，则 $\textit{g}[u][v] = +\infty$。
 
 我们维护一个数组 $\textit{dist}$，其中 $\textit{dist}[i]$ 表示节点 $k$ 到节点 $i$ 的最短路径长度。初始时，我们将 $\textit{dist}[i]$ 全部初始化为 $+\infty$，但 $\textit{dist}[k - 1] = 0$。定义一个数组 $\textit{vis}$，其中 $\textit{vis}[i]$ 表示节点 $i$ 是否被访问过，初始时，我们将 $\textit{vis}[i]$ 全部初始化为 $\text{false}$。
@@ -256,6 +268,16 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 <!-- solution:start -->
 
 ### 方法二：堆优化 Dijkstra 算法
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每次线性扫点找最小距离，边稀疏时浪费。$m$ 最多 $6000$，用堆按距离弹出可以降到 $O(m\log m)$。
+>
+> 邻接表存边，优先队列弹出 $(d,u)$，若 $d$ 已不是当前最优则跳过，否则松弛邻居并入堆。答案同样取距离最大值。
+
+<!-- thinking:end -->
 
 我们可以使用优先队列（堆）来优化朴素 Dijkstra 算法。
 

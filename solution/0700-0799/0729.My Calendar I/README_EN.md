@@ -65,6 +65,18 @@ myCalendar.book(20, 30); // return True, The event can be booked, as the first e
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bookings must not overlap; endpoints reach $10^9$ and there are about $1000$ calls. A linear scan works, but an ordered map finds the conflict in a log.
+>
+> Sorted by end time, the only interval that can meet $[\textit{start},\textit{end})$ is the first whose end is greater than $\textit{start}$. If that start is still less than $\textit{end}$, they overlap.
+>
+> Store $\textit{end}\mapsto\textit{start}$. $\textit{bisect\_right}(\textit{start})$ yields that candidate; insert on success. $O(\log n)$ per book.
+
+<!-- thinking:end -->
+
 We can use an ordered set to store the schedule. An ordered set can perform insert, delete, and search operations in $O(\log n)$ time. The elements in the ordered set are sorted by the $\textit{endTime}$ of the schedule in ascending order.
 
 When calling the $\text{book}(start, end)$ method, we search for the first schedule in the ordered set with an end time greater than $\textit{start}$. If it exists and its start time is less than $\textit{end}$, it means there is a double booking, and we return $\text{false}$. Otherwise, we insert $\textit{end}$ as the key and $\textit{start}$ as the value into the ordered set and return $\text{true}$.

@@ -49,6 +49,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The range is at most $10^4$, and testing a number against its own digits is a few divisions. Enumerating the interval is fine.
+>
+> A zero digit cannot divide, so those numbers fail immediately; otherwise $x$ must be divisible by each digit.
+>
+> Walk digits of $y=x$; reject on a $0$ or a failed modulo, otherwise keep $x$.
+
+<!-- thinking:end -->
+
 We define a function $\textit{check}(x)$ to determine whether $x$ is a self-dividing number. The implementation idea of the function is as follows:
 
 We use $y$ to record the value of $x$, and then continuously divide $y$ by $10$ until $y$ is $0$. During this process, we check whether the last digit of $y$ is $0$, or whether $x$ cannot be divided by the last digit of $y$. If either of these conditions is met, then $x$ is not a self-dividing number, and we return $\text{false}$. Otherwise, after traversing all the digits, we return $\text{true}$.

@@ -56,6 +56,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split a BST into $\le target$ and $>target$, both still BSTs. The tree is tiny; recurse on the root versus the target.
+>
+> If the root is $\le target$, the whole left tree stays with it and we split the right, reattaching the smaller piece. The other case is symmetric.
+>
+> Return the two roots; null yields two nulls.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

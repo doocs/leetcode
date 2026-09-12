@@ -68,6 +68,18 @@ myCalendarThree.book(25, 55); // return 3
 
 ### Solution 1: Segment Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each booking we must report the current maximum overlap; at most $400$ calls. A difference scan works but still walks every key.
+>
+> This is the same range-add / range-max problem as Calendar II, without the cap at $2$. A dynamic segment tree updates the interval and queries the whole line.
+>
+> Nodes store the max and a lazy add. $O(\log n)$ per book.
+
+<!-- thinking:end -->
+
 A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\text{width})$. To update the value of an element, we only need to update $\log(\text{width})$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we use **lazy propagation** to ensure efficiency.
 
 - Each node of the segment tree represents an interval.

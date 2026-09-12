@@ -61,6 +61,18 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Seat couples side by side with the fewest swaps. The count equals a permutation of couple-ids.
+>
+> Each sofa maps two people to couple numbers; those couples are unioned. A cycle of $y$ couples needs $y-1$ swaps.
+>
+> Union-find on $n$ couple ids; the answer is $n$ minus the number of roots.
+
+<!-- thinking:end -->
+
 We can assign a number to each pair of couples. Person with number $0$ and $1$ corresponds to couple $0$, person with number $2$ and $3$ corresponds to couple $1$, and so on. In other words, the person corresponding to $row[i]$ has a couple number of $\lfloor \frac{row[i]}{2} \rfloor$.
 
 If there are $k$ pairs of couples who are seated incorrectly with respect to each other, i.e., if $k$ pairs of couples are in the same permutation cycle, it will take $k-1$ swaps for all of them to be seated correctly.

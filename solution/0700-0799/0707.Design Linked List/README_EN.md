@@ -69,6 +69,18 @@ myLinkedList.get(1);              // return 3
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must implement index access, head/tail inserts, and indexed deletes without a library list. At most $2000$ calls, so an $O(n)$ walk from the head is fine.
+>
+> A singly linked list can reach index $\textit{index}$ only by walking predecessors. A dummy head unifies empty and non-empty updates; $\textit{cnt}$ makes bounds checks independent of the walk.
+>
+> Head and tail inserts reduce to $\textit{addAtIndex}$: walk to the predecessor, then relink. Deletes do the same. Each operation is $O(n)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -528,6 +540,18 @@ impl MyLinkedList {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 allocates a node on every insert. The limit here is tiny, but repeated allocation dominates once the list grows large.
+>
+> Preallocate two arrays for values and successor indices, and treat an increasing $\textit{idx}$ as a node pool. Inserting claims the next slot and rewrites indices—the same linking as pointers.
+>
+> $\textit{head}$ stores the first index and $\textit{cnt}$ the length. Asymptotics match Solution 1 without per-operation allocation.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

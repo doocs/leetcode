@@ -70,6 +70,18 @@ The second move swaps the second and third row.
 
 ### Solution 1: Pattern Observation + State Compression
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only full row/column swaps are allowed. $n\le 30$. A chessboard has two complementary row patterns (and likewise for columns) and a balanced number of $0/1$.
+>
+> The first row and column masks are those two patterns; every other line must match one of them.
+>
+> $f(\textit{mask},\textit{cnt})$ counts swaps onto $0101\ldots$ or $1010\ldots$ according to parity. Add the row and column answers.
+
+<!-- thinking:end -->
+
 In a valid chessboard, there are exactly two types of "rows".
 
 For example, if one row on the chessboard is "01010011", then any other row can only be "01010011" or "10101100". Columns also satisfy this property.

@@ -104,6 +104,18 @@ a = b + c;
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strip line and block comments while keeping live characters, including those joined across a block. Length is modest; the issue is state: whether we are inside a block, and that `//` consumes the rest of the line.
+>
+> Blocks span lines, so the flag must carry over. Both comment forms start with two characters, so the scanner must recognize `/*`, `*/`, and `//` before treating a character as source.
+>
+> Keep $\textit{blockComment}$ and a buffer $t$. Inside a block, only look for the closer; outside, `//` ends the line, `/*` enters a block, else append. Flush $t$ only when the line ends outside a block and $t$ is non-empty, which also joins split lines.
+
+<!-- thinking:end -->
+
 We use a variable $\textit{blockComment}$ to indicate whether we are currently in a block comment. Initially, $\textit{blockComment}$ is `false`. We use a variable $t$ to store the valid characters of the current line.
 
 Next, we traverse each line and discuss the following cases:

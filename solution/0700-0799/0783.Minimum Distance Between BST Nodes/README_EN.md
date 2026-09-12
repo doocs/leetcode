@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Inorder Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Minimum difference between any two BST values. Inorder is sorted, so the minimum lies between consecutive inorder values.
+>
+> Walk inorder, keep $\textit{pre}$, and update $\textit{ans}$ by $\textit{root.val}-\textit{pre}$.
+
+<!-- thinking:end -->
+
 The problem requires us to find the minimum difference between the values of any two nodes. Since the inorder traversal of a binary search tree is an increasing sequence, we only need to find the minimum difference between the values of two adjacent nodes in the inorder traversal.
 
 We can use a recursive method to implement the inorder traversal. During the process, we use a variable $\textit{pre}$ to save the value of the previous node. This way, we can calculate the minimum difference between the values of two adjacent nodes during the traversal.

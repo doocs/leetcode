@@ -87,6 +87,18 @@ kthLargest.add(9); // return 8</div>
 
 ### Solution 1: Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We insert into a stream and must report the $k$-th largest after each add. Sorting or scanning the whole history on every query is too heavy when both $n$ and the query count reach $10^4$.
+>
+> Only the current top $k$ values matter; anything smaller can never be the answer. In a size-$k$ min-heap the top is the smallest of those $k$, i.e. the $k$-th largest overall.
+>
+> Push each new value and pop if the heap grows past $k$. Seeding from $\textit{nums}$ uses the same $\textit{add}$. Each update is $O(\log k)$.
+
+<!-- thinking:end -->
+
 We maintain a priority queue (min heap) $\textit{minQ}$.
 
 Initially, we add the elements of the array $\textit{nums}$ to $\textit{minQ}$ one by one, ensuring that the size of $\textit{minQ}$ does not exceed $k$. The time complexity is $O(n \times \log k)$.

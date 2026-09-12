@@ -67,6 +67,18 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 
 ### 方法一：有序集合
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 日程不可重叠，端点可达 $10^9$，调用约 $1000$ 次。每次与已预订区间线性比较可以通过，但查找插入点更适合有序结构。
+>
+> 将区间按结束时间排序后，与 $[\textit{start},\textit{end})$ 相交的只可能是「第一个结束时间大于 $\textit{start}$」的那一段：若其开始时间仍小于 $\textit{end}$，则冲突。
+>
+> 有序字典以 $\textit{end}$ 为键、起点为值。$\textit{bisect\_right}(\textit{start})$ 定位后做一次相交判断，通过则写入。单次 $O(\log n)$。
+
+<!-- thinking:end -->
+
 我们可以使用有序集合来存储日程安排，有序集合可以在 $O(\log n)$ 的时间内完成插入、删除、查找操作。有序集合中的元素，按照日程安排的 $\textit{endTime}$ 从小到大排序。
 
 调用 $\text{book}(start, end)$ 方法时，我们在有序集合中查找第一个结束时间大于 $\textit{start}$ 的日程安排，如果存在并且其开始时间小于 $\textit{end}$，则说明存在重复预订，返回 $\text{false}$；否则，将 $\textit{end}$ 作为键，将 $\textit{start}$ 作为值插入有序集合中，返回 $\text{true}$。

@@ -65,6 +65,18 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among non-decreasing letters, find the smallest one strictly greater than $\textit{target}$, wrapping to the front. The array is sorted, so we binary-search.
+>
+> That is an upper bound. If it falls at $n$, the answer is $letters[0]$—index modulo $n$.
+>
+> $\textit{bisect\_right}$ on the code points, then $letters[i\bmod n]$. $O(\log n)$.
+
+<!-- thinking:end -->
+
 Since `letters` is sorted in non-decreasing order, we can use binary search to find the smallest character that is larger than `target`.
 
 We define the left boundary of the binary search as $l = 0$, and the right boundary as $r = n$. For each binary search, we calculate the middle position $mid = (l + r) / 2$. If $letters[mid] > \textit{target}$, it means we need to continue searching in the left half, so we set $r = mid$. Otherwise, we need to continue searching in the right half, so we set $l = mid + 1$.

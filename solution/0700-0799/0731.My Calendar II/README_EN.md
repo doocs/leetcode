@@ -70,6 +70,18 @@ myCalendarTwo.book(25, 55); // return True, The event can be booked, as the time
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Double booking is allowed, triple is not. Endpoints reach $10^9$ with $1000$ calls. Checking every pair plus a second list of doubles is clumsy.
+>
+> Coverage is a difference array: $+1$ at start, $-1$ at end. A prefix scan over sorted times rejects a booking if the sum exceeds $2$, then rolls the two updates back.
+>
+> A sorted map stands in for the huge timeline. Each book scans the keys in $O(n)$, total $O(n^2)$, which is fine for $1000$ calls.
+
+<!-- thinking:end -->
+
 We can use the concept of a difference array to record the booking status at each time point. Then, we traverse all the time points and count the booking status at the current time point. If the number of bookings exceeds $2$, we return $\textit{false}$. Otherwise, we return $\textit{true}$.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the number of bookings.
@@ -292,6 +304,16 @@ MyCalendarTwo.prototype.book = function (startTime, endTime) {
 <!-- solution:start -->
 
 ### Solution 2: Segment Tree
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescans every breakpoint. Range add plus range-max is a lazy segment tree.
+>
+> The universe is $10^9$, so nodes are created on demand and store the max coverage. Query $[\textit{start},\textit{end})$; reject if the max is already $2$, otherwise add one. $O(\log n)$ per book.
+
+<!-- thinking:end -->
 
 A segment tree divides the entire interval into multiple non-contiguous subintervals, with the number of subintervals not exceeding $\log(\textit{width})$. To update the value of an element, only $\log(\textit{width})$ intervals need to be updated, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, a **lazy mark** is used to ensure efficiency.
 

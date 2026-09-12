@@ -49,6 +49,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rearrange so no two adjacent characters match. If one letter exceeds $\lceil n/2\rceil$, it is impossible.
+>
+> Place the most frequent letters on even indices first, then restart at index $1$, which separates copies.
+>
+> Fill from `most_common` into a buffer, wrapping $i$ to $1$ when it passes $n$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -252,6 +264,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Even-index placement is specific to distance $1$. The same greedy as “rearrange $k$ apart” uses a max-heap plus a cooldown queue of length $k=2$.
+>
+> Pop the current most frequent letter, enqueue it, and return it to the heap after $k$ steps. If the built string is short, fail.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
