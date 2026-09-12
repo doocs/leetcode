@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README_EN.md
 tags:
     - Stack
     - Depth-First Search

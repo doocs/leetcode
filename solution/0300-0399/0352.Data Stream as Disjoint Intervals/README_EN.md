@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md
 tags:
     - Union Find
     - Design

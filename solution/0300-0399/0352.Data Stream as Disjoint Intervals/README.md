@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README.md
 tags:
     - 并查集
     - 设计

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0375.Guess%20Number%20Higher%20or%20Lower%20II/README_EN.md
 tags:
     - Minimax
     - Math

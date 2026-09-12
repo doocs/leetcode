@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0379.Design%20Phone%20Directory/README_EN.md
 tags:
     - Design
     - Queue

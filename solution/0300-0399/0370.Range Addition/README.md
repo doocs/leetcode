@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0370.Range%20Addition/README.md
 tags:
     - 数组
     - 前缀和

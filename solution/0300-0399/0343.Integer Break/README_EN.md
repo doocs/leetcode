@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0343.Integer%20Break/README_EN.md
 tags:
     - Math
     - Dynamic Programming

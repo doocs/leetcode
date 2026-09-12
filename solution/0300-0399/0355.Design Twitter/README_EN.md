@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0355.Design%20Twitter/README_EN.md
 tags:
     - Design
     - Hash Table
