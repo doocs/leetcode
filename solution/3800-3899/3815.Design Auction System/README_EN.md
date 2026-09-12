@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3800-3899/3815.Design%20Auction%20System/README_EN.md
 rating: 1853
 source: Weekly Contest 485 Q3
 ---
