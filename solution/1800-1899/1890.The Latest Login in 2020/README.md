@@ -79,6 +79,16 @@ Logins 表:
 
 ### 方法一：分组求最大值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 求每名用户在 $2020$ 年的最后一次登录。过滤年份后按用户取最大时间戳即可。
+>
+> $\textit{WHERE YEAR}(time\_stamp)=2020$，再按 $user\_id$ 分组取 $MAX(time\_stamp)$。
+
+<!-- thinking:end -->
+
 我们可以先筛选出 2020 年的登录记录，并且按照 `user_id` 分组，然后利用 `max` 函数求出每个用户的最大登录时间。
 
 <!-- tabs:start -->

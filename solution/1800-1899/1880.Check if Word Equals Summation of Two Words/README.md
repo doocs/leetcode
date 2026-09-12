@@ -81,6 +81,16 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 
 ### 方法一：字符串转数字
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把字母 $a\ldots j$ 看成数字 $0\ldots 9$，判断两词数值之和是否等于第三词。数值由字母顺序拼接而成，不必借助额外映射表。
+>
+> 函数 $f$ 按十进制累加 $ord(c)-ord('a')$，再比较 $f(first)+f(second)$ 与 $f(target)$。
+
+<!-- thinking:end -->
+
 我们定义一个函数 $\textit{f}(s)$，用来计算字符串 $s$ 的数值。对于字符串 $s$ 中的每个字符 $c$，我们将其转换为对应的数字 $x$，然后将 $x$ 依次连接起来，最后转换为整数。
 
 最后，我们只需要判断 $\textit{f}(\textit{firstWord}) + \textit{f}(\textit{secondWord})$ 是否等于 $\textit{f}(\textit{targetWord})$ 即可。

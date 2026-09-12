@@ -64,6 +64,16 @@ Regardless of the outcome, it takes at most 14 drops to determine f.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With two eggs we must find the critical floor in the worst case. A single fixed first-drop plus a linear scan need not be optimal. $n\le 1000$ allows DP on the number of floors.
+>
+> $f[i]$ is the min-max cost for $i$ floors. Dropping the first egg $j$ floors up costs $1+\max(j-1,f[i-j])$: a break leaves a linear search below, a survive leaves an $i-j$ subproblem. Minimize over $j$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the minimum number of operations to determine $f$ in $i$ floors with two eggs. Initially, $f[0] = 0$, and the rest $f[i] = +\infty$. The answer is $f[n]$.
 
 Considering $f[i]$, we can enumerate the first egg thrown from the $j$-th floor, where $1 \leq j \leq i$. At this point, there are two cases:

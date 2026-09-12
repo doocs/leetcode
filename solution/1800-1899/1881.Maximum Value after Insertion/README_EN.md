@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert digit $x$ into the decimal string $n$ to maximize its value. A positive number wants a larger high digit as early as possible; a negative number wants the opposite.
+>
+> For a positive $n$, insert before the first digit smaller than $x$; for a negative $n$, skip the sign and insert before the first digit larger than $x$.
+
+<!-- thinking:end -->
+
 If $n$ is negative, we need to find the first position greater than $x$ and insert $x$ at that position. If $n$ is positive, we need to find the first position less than $x$ and insert $x$ at that position.
 
 The time complexity is $O(m)$, where $m$ is the length of $n$. The space complexity is $O(1)$.

@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation replaces a current maximum by the next strictly smaller value. Simulating one maximum at a time is slow.
+>
+> After sorting, every newly seen larger value adds one more step that all later elements must take. $cnt$ counts those steps; each element adds the current $cnt$.
+
+<!-- thinking:end -->
+
 We first sort the array $\textit{nums}$, then iterate from the second element of the array. If the current element is not equal to the previous element, we increment $\textit{cnt}$, indicating the number of operations needed to reduce the current element to the minimum value. Then we add $\textit{cnt}$ to $\textit{ans}$ and continue to the next element.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $\textit{nums}$.
