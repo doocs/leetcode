@@ -82,7 +82,6 @@ Hence, answer[0] = 8, and so on.
 
 <!-- thinking:end -->
 
-
 First, we run a DFS to calculate the size of each node's subtree, recorded in the array $size$, and compute the sum of distances from node $0$ to all other nodes, recorded in $ans[0]$.
 
 Next, we run another DFS to enumerate the sum of distances from each node when it is considered as the root. Suppose the answer for the current node $i$ is $t$. When we move from node $i$ to node $j$, the sum of distances changes to $t - size[j] + n - size[j]$, meaning the sum of distances to node $j$ and its subtree nodes decreases by $size[j]$, while the sum of distances to other nodes increases by $n - size[j]$.

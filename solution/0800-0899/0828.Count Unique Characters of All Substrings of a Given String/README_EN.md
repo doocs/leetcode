@@ -80,7 +80,6 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 
 <!-- thinking:end -->
 
-
 For each character $c_i$ in the string $s$, when it appears only once in a substring, it contributes to the count of unique characters in that substring.
 
 Therefore, we only need to calculate for each character $c_i$, how many substrings contain this character only once.

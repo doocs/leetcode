@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 连续正整数构成一个公差 $d = 1$ 的等差数列。我们假设等差数列的第一项为 $a$，项数为 $k$，那么 $n = (a + a + k - 1) \times k / 2$，即 $n \times 2 = (a \times 2 + k - 1) \times k$。这里我们可以得出 $k$ 一定能整除 $n \times 2$，并且 $(n \times 2) / k - k + 1$ 一定是偶数。
 
 由于 $a \geq 1$，所以 $n \times 2 = (a \times 2 + k - 1) \times k \geq k \times (k + 1)$。

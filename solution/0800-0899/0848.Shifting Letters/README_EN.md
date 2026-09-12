@@ -77,7 +77,6 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 
 <!-- thinking:end -->
 
-
 For each character in the string $s$, we need to calculate its final shift amount, which is the sum of $\textit{shifts}[i]$, $\textit{shifts}[i + 1]$, $\textit{shifts}[i + 2]$, and so on. We can use the concept of suffix sum, traversing $\textit{shifts}$ from back to front, calculating the final shift amount for each character, and then taking modulo $26$ to get the final character.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

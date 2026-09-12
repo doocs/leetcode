@@ -90,7 +90,6 @@ So the total probability of A becoming empty first plus half the probability tha
 
 <!-- thinking:end -->
 
-
 In this problem, since each operation is a multiple of $25$, we can consider every $25ml$ of soup as one unit. This reduces the data scale to $\left \lceil \frac{n}{25} \right \rceil$.
 
 We design a function $dfs(i, j)$, which represents the probability result when there are $i$ units of soup $A$ and $j$ units of soup $B$ remaining.

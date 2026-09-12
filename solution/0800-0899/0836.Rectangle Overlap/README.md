@@ -75,7 +75,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们记矩形 $\text{rec1}$ 的坐标点为 $(x_1, y_1, x_2, y_2)$，矩形 $\text{rec2}$ 的坐标点为 $(x_3, y_3, x_4, y_4)$。
 
 那么当满足以下任一条件时，矩形 $\text{rec1}$ 和 $\text{rec2}$ 不重叠：

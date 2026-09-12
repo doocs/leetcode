@@ -77,7 +77,6 @@ There are 3 unique values, so the answer is 3.
 
 <!-- thinking:end -->
 
-
 The problem asks for the number of unique bitwise OR operations results of subarrays. If we enumerate the end position $i$ of the subarray, the number of bitwise OR operations results of the subarray ending at $i-1$ does not exceed $32$. This is because the bitwise OR operation is a monotonically increasing operation.
 
 Therefore, we use a hash table $ans$ to record all the results of the bitwise OR operations of subarrays, and a hash table $s$ to record the results of the bitwise OR operations of subarrays ending with the current element. Initially, $s$ only contains one element $0$.

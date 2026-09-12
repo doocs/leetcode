@@ -71,7 +71,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -278,7 +277,6 @@ impl Solution {
 > If $i$ is already unioned with a neighbor, fail; otherwise merge those neighbors under one representative.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

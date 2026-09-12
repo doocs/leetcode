@@ -75,7 +75,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can first calculate the difference in the total number of candies between Alice and Bob, divide it by two to get the difference in the number of candies to be exchanged $\textit{diff}$, and use a hash table $\textit{s}$ to store the number of candies in Bob's candy boxes. Then, we traverse Alice's candy boxes, and for each candy count $\textit{a}$, we check if $\textit{a} - \textit{diff}$ is in the hash table $\textit{s}$. If it exists, it means we have found a valid answer, and we return it.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(n)$. Where $m$ and $n$ are the number of candy boxes Alice and Bob have, respectively.

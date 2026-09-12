@@ -103,7 +103,6 @@ There is only one car, hence there is only one fleet.</div>
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

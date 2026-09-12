@@ -70,7 +70,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define $f[i][j]$ as the length of the longest Fibonacci-like subsequence, with $\textit{arr}[i]$ as the last element and $\textit{arr}[j]$ as the second to last element. Initially, for any $i \in [0, n)$ and $j \in [0, i)$, we have $f[i][j] = 2$. All other elements are $0$.
 
 We use a hash table $d$ to record the indices of each element in the array $\textit{arr}$.

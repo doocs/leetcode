@@ -92,7 +92,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, we need to start from the initial position, move in four directions (up, down, left, right), collect all keys, and finally return the minimum number of moves required to collect all keys. If it is not possible to collect all keys, return $-1$.
 
 First, we traverse the 2D grid to find the starting position $(si, sj)$ and count the number of keys $k$.

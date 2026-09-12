@@ -79,7 +79,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can calculate the area of the three projections separately.
 
 - Projection area on the xy plane: Each non-zero value will be projected onto the xy plane, so the projection area on the xy plane is the count of non-zero values.

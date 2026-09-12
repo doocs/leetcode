@@ -71,7 +71,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$.
 
 Next, we use a hash table $\textit{cnt}$ to count the occurrences of each number in the array $\textit{hand}$, and then we sort the array $\textit{hand}$.
@@ -228,7 +227,6 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 > The logic matches Method 1; the ordered set simply guarantees the next leftover minimum.
 
 <!-- thinking:end -->
-
 
 Similar to Solution 1, we first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$.
 

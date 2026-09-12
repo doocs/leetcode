@@ -69,7 +69,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Consecutive positive integers form an arithmetic sequence with a common difference $d = 1$. Let's assume the first term of the sequence is $a$, and the number of terms is $k$. Then, $n = (a + a + k - 1) \times k / 2$, which simplifies to $n \times 2 = (a \times 2 + k - 1) \times k$. From this, we can deduce that $k$ must divide $n \times 2$ evenly, and $(n \times 2) / k - k + 1$ must be an even number.
 
 Given that $a \geq 1$, it follows that $n \times 2 = (a \times 2 + k - 1) \times k \geq k \times (k + 1)$.

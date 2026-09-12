@@ -81,7 +81,6 @@ The other answers can be filled out with similar reasoning.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

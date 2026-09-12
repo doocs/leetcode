@@ -80,7 +80,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们设计一个函数 $dfs(i, j)$，表示有 $i$ 层楼以及 $j$ 个鸡蛋时，确定 $f$ 值的最小操作次数，那么答案就是 $dfs(n, k)$。
 
 函数 $dfs(i, j)$ 的执行逻辑如下：
@@ -283,7 +282,6 @@ function superEggDrop(k: number, n: number): number {
 > 内层仍用二分找平衡楼层。答案为 $f[n][k]$，渐近与方法一相同，常数更稳。
 
 <!-- thinking:end -->
-
 
 我们也可以使用动态规划的方法解决这个问题。
 

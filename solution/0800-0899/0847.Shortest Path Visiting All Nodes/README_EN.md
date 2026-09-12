@@ -71,7 +71,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -282,7 +281,6 @@ impl Solution {
 > Relaxation is still unit-weight shortest paths, so optimality is kept; full masks tend to appear earlier once most nodes are visited.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

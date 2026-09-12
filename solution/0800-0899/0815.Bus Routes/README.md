@@ -76,7 +76,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们首先判断 $\textit{source}$ 和 $\textit{target}$ 是否相同，如果相同则直接返回 $0$。
 
 然后我们使用一个哈希表 $\textit{g}$ 来构建站点到公交线路的映射。对于每一条公交线路，我们遍历其经过的所有站点，将每个站点映射到该公交线路，即 $\textit{g}[\textit{stop}]$ 为经过站点 $\textit{stop}$ 的所有公交线路。

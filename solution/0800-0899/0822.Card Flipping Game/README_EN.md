@@ -71,7 +71,6 @@ There are no good integers no matter how we flip the cards, so we return 0.
 
 <!-- thinking:end -->
 
-
 We observe that for position $i$, if $\textit{fronts}[i]$ is equal to $\textit{backs}[i]$, then it certainly does not satisfy the condition.
 
 Therefore, we first identify all elements that appear the same on both the front and back sides and record them in a hash set $s$.

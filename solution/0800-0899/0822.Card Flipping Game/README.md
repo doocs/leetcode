@@ -76,7 +76,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们注意到，对于位置 $i$，若 $\textit{fronts}[i]$ 与 $\textit{backs}[i]$ 元素相同，则一定不满足条件。
 
 因此，我们先找出正面与背面相同的元素，记录在哈希表 $s$ 中。

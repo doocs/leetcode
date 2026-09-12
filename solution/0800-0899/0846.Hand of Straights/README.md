@@ -74,7 +74,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。
 
 接下来，我们用一个哈希表 $\textit{cnt}$ 统计数组 $\textit{hand}$ 中每个数字出现的次数，然后对数组 $\textit{hand}$ 进行排序。
@@ -231,7 +230,6 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 > 逻辑与方法一相同，只是用有序集合保证每次取出的都是剩余牌中的最小值。
 
 <!-- thinking:end -->
-
 
 与方法一类似，我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。
 

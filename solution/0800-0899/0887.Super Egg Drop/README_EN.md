@@ -79,7 +79,6 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -266,7 +265,6 @@ function superEggDrop(k: number, n: number): number {
 > The inner loop still binary-searches the balancing floor. The answer is $f[n][k]$, same asymptotics, flatter constants.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

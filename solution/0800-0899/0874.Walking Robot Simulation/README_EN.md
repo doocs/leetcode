@@ -133,7 +133,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define a direction array $dirs = [0, 1, 0, -1, 0]$ of length $5$, where each pair of adjacent elements represents a direction. That is, $(dirs[0], dirs[1])$ represents north, $(dirs[1], dirs[2])$ represents east, and so on.
 
 We use a hash table $s$ to store the coordinates of all obstacles, so we can determine in $O(1)$ time whether the next step will encounter an obstacle.

@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Let $m$ be the number of rows and $n$ be the number of columns in the matrix $\textit{matrix}$. According to the definition of transpose, the transposed matrix $\textit{ans}$ will have $n$ rows and $m$ columns.
 
 For any position $(i, j)$ in $\textit{ans}$, it corresponds to the position $(j, i)$ in the matrix $\textit{matrix}$. Therefore, we traverse each element in the matrix $\textit{matrix}$ and transpose it to the corresponding position in $\textit{ans}$.

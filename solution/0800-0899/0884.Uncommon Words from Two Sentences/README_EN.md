@@ -73,7 +73,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, as long as a word appears once, it meets the requirements of the problem. Therefore, we use a hash table `cnt` to record all words and their occurrence counts.
 
 Then we traverse the hash table, and take out all strings that appear only once.

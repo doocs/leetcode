@@ -80,7 +80,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们设计一个函数 $dfs(i)$，表示当前分数为 $i$ 时，到最终停止抽取数字时，分数不超过 $n$ 的概率。那么答案就是 $dfs(0)$。
 
 函数 $dfs(i)$ 的计算方法如下：
@@ -291,7 +290,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 > $[k,\min(n,k+\textit{maxPts}))$ 的终止态为 $1$，其余为 $0$。答案即 $f[0]$，线性完成。
 
 <!-- thinking:end -->
-
 
 我们可以将方法一中的记忆化搜索改成动态规划。
 

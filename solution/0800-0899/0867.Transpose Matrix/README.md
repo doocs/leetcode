@@ -70,7 +70,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们记矩阵 $\textit{matrix}$ 的行数为 $m$，列数为 $n$。根据转置的定义，转置后的矩阵 $\textit{ans}$ 的行数为 $n$，列数为 $m$。
 
 对于 $\textit{ans}$ 中的任意位置 $(i,j)$，其对应于矩阵 $\textit{matrix}$ 中的位置 $(j,i)$。因此，我们遍历矩阵 $\textit{matrix}$ 中的每个元素，将其转置到 $\textit{ans}$ 中相应的位置。

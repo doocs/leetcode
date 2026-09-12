@@ -66,7 +66,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 If $n=1$, return a list with a single node directly.
 
 If $n > 1$, we can enumerate the number of nodes $i$ in the left subtree, then the number of nodes in the right subtree is $n-1-i$. For each case, we recursively construct all possible genuine binary trees for the left and right subtrees. Then we combine the left and right subtrees in pairs to get all possible genuine binary trees.

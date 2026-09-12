@@ -72,7 +72,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can enumerate any two strings $s$ and $t$ in the list of strings. Since $s$ and $t$ are anagrams, if the number of differing characters at corresponding positions between $s$ and $t$ does not exceed $2$, then $s$ and $t$ are similar. We can use the union-find data structure to merge $s$ and $t$. If the merge is successful, the number of similar string groups decreases by $1$.
 
 The final number of similar string groups is the number of connected components in the union-find structure.

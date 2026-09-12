@@ -64,7 +64,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Given three points $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ on a plane, the area formula is:
 
 $$S = \frac{1}{2} \left| x_1y_2 + x_2y_3 + x_3y_1 - x_1y_3 - x_2y_1 - x_3y_2 \right|$$

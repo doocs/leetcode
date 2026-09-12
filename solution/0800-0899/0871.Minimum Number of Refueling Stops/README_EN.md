@@ -86,7 +86,6 @@ We made 2 refueling stops along the way, so we return 2.
 
 <!-- thinking:end -->
 
-
 We can use a priority queue (max-heap) $\textit{pq}$ to record the fuel amounts of all the gas stations we have passed. Each time the fuel is insufficient, we greedily take out the maximum fuel amount, which is the top element of $\textit{pq}$, and accumulate the number of refuels $\textit{ans}$. If $\textit{pq}$ is empty and the current fuel is still insufficient, it means we cannot reach the destination, and we return $-1$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ represents the number of gas stations.

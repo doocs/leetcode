@@ -62,7 +62,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Let the coordinates of rectangle $\text{rec1}$ be $(x_1, y_1, x_2, y_2)$, and the coordinates of rectangle $\text{rec2}$ be $(x_3, y_3, x_4, y_4)$.
 
 The rectangles $\text{rec1}$ and $\text{rec2}$ do not overlap if any of the following conditions are met:

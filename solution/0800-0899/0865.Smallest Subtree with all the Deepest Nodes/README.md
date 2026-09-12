@@ -89,7 +89,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们设计一个函数 $\textit{dfs}(\textit{root})$，返回以 $\textit{root}$ 为根的子树中，包含所有最深节点的最小子树，以及以 $\textit{root}$ 为根的子树的深度。
 
 函数 $\textit{dfs}(\textit{root})$ 的执行过程如下：

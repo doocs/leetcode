@@ -73,7 +73,6 @@ The diagram on the right represents the answer.
 
 <!-- thinking:end -->
 
-
 First, we check if the current node is null. If it is, we directly return the null node.
 
 Otherwise, we recursively prune the left and right subtrees and reassign the pruned subtrees to the current node's left and right children. Then, we check if the current node's value is 0 and both its left and right children are null. If so, we return the null node; otherwise, we return the current node.

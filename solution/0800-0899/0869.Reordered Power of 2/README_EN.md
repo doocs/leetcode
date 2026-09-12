@@ -64,7 +64,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can enumerate all powers of 2 in the range $[1, 10^9]$ and check if their digit composition is the same as the given number.
 
 Define a function $f(x)$ that represents the digit composition of number $x$. We can convert the number $x$ into an array of length 10, or a string sorted by digit size.

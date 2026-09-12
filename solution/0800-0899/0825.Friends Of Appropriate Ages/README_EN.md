@@ -87,7 +87,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can use an array $\textit{cnt}$ of length $121$ to record the number of people of each age.
 
 Next, we enumerate all possible age pairs $(\textit{ax}, \textit{ay})$. If $\textit{ax}$ and $\textit{ay}$ satisfy the conditions given in the problem, these age pairs $(\textit{ax}, \textit{ay})$ can send friend requests to each other.

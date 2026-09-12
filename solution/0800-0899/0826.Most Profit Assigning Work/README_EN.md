@@ -80,7 +80,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can sort the jobs in ascending order of ability, and then sort the jobs in ascending order of difficulty.
 
 Then we traverse the workers. For each worker, we find the job with the maximum profit that he can complete, and then add this profit to the answer.
@@ -214,7 +213,6 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 > Each worker is a table lookup. Workers need not be sorted, which is convenient when the difficulty range is modest.
 
 <!-- thinking:end -->
-
 
 Let's denote $m = \max(\textit{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.
 

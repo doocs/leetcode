@@ -77,7 +77,6 @@ gridNew = [ [8, 4, 8, 7],
 
 <!-- thinking:end -->
 
-
 According to the problem description, we can increase the value of each cell $(i, j)$ to the smaller value between the maximum value of the $i$-th row and the $j$-th column, ensuring it does not affect the skyline. Thus, the height added to each cell is $\min(\textit{rowMax}[i], \textit{colMax}[j]) - \textit{grid}[i][j]$.
 
 Therefore, we can first traverse the matrix once to calculate the maximum value of each row and column, storing them in the arrays $\textit{rowMax}$ and $\textit{colMax}$, respectively. Then, we traverse the matrix again to compute the answer.

@@ -80,7 +80,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以将工作按照能力升序排列，然后将工作按照难度升序排列。
 
 然后我们遍历工人，对于每个工人，我们找出他能完成的工作中收益最大的那个，然后将这个收益加到答案中。
@@ -214,7 +213,6 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 > 每个工人直接查表，省去对工人排序，适合难度范围不大的情形。
 
 <!-- thinking:end -->
-
 
 我们不妨记 $m = \max(\textit{difficulty})$，定义一个长度为 $m + 1$ 的数组 $f$，其中 $f[i]$ 表示难度小于等于 $i$ 的工作中收益的最大值，初始时 $f[i] = 0$。
 

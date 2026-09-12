@@ -78,7 +78,6 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(i, j)$ that represents the maximum difference in the number of stones between the current player and the other player when considering piles from the $i$-th to the $j$-th. The answer is then $dfs(0, n - 1) \gt 0$.
 
 The function $dfs(i, j)$ is computed as follows:
@@ -243,7 +242,6 @@ impl Solution {
 > The transition matches Method 1. The answer is whether $f[0][n-1]$ is positive.
 
 <!-- thinking:end -->
-
 
 We can also use dynamic programming. Define $f[i][j]$ as the maximum difference in the number of stones the current player can obtain over the other player from piles $piles[i..j]$. The final answer is then $f[0][n - 1] \gt 0$.
 

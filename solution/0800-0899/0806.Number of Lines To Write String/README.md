@@ -73,7 +73,6 @@ S = &quot;bbbcccdddaaa&quot;
 
 <!-- thinking:end -->
 
-
 我们定义两个变量 `lines` 和 `last`，分别表示行数和最后一行的宽度，初始时 `lines = 1`，`last = 0`。
 
 遍历字符串 $s$，对于每个字符 $c$，计算其宽度 $w$，如果 $last + w \leq 100$，则将 $w$ 加到 `last` 上，否则行数 `lines` 加一，并且 `last` 重置为 $w$。

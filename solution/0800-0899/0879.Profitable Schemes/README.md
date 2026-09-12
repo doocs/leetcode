@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们设计一个函数 $dfs(i, j, k)$，表示从第 $i$ 个工作开始，且当前已经选择了 $j$ 个员工，且当前产生的利润为 $k$，这种情况下的方案数。那么答案就是 $dfs(0, 0, 0)$。
 
 函数 $dfs(i, j, k)$ 的执行过程如下：
@@ -237,7 +236,6 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 > 不选抄上一件，选则从 $f[i-1][j-x][\max(0,k-p)]$ 转移。空方案在利润 $0$ 处为 $1$。答案为 $f[m][n][\textit{minProfit}]$。
 
 <!-- thinking:end -->
-
 
 我们定义 $f[i][j][k]$ 表示前 $i$ 个工作中，选择了不超过 $j$ 个员工，且至少产生 $k$ 的利润的方案数。初始时 $f[0][j][0] = 1$，表示不选择任何工作，且至少产生 $0$ 的利润的方案数为 $1$。答案即为 $f[m][n][minProfit]$。
 

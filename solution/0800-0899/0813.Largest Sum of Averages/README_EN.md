@@ -70,7 +70,6 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 
 <!-- thinking:end -->
 
-
 We can preprocess to obtain the prefix sum array $s$, which allows us to quickly get the sum of subarrays.
 
 Next, we design a function $\textit{dfs}(i, k)$, which represents the maximum sum of averages when dividing the array starting from index $i$ into at most $k$ groups. The answer is $\textit{dfs}(0, k)$.
@@ -259,7 +258,6 @@ function largestSumOfAverages(nums: number[], k: number): number {
 > $f[i][1]$ is the average of the prefix. The answer is $f[n][k]$, still $O(n^2k)$.
 
 <!-- thinking:end -->
-
 
 We can transform the memoized search from Solution 1 into dynamic programming.
 

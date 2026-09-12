@@ -76,7 +76,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we check if $\textit{source}$ and $\textit{target}$ are the same. If they are, we directly return $0$.
 
 Next, we use a hash table $\textit{g}$ to build a mapping from stops to bus routes. For each bus route, we traverse all the stops it passes through and map each stop to that bus route, i.e., $\textit{g}[\textit{stop}]$ represents all bus routes passing through stop $\textit{stop}$.

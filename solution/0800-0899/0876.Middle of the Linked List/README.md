@@ -66,7 +66,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们定义快慢指针 $\textit{fast}$ 和 $\textit{slow}$，初始时均指向链表的头结点。
 
 快指针 $\textit{fast}$ 每次走两步，慢指针 $\textit{slow}$ 每次走一步。当快指针走到链表的尾部时，慢指针所指的结点即为中间结点。

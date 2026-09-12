@@ -83,7 +83,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们定义两个变量 $\textit{first}$ 和 $\textit{last}$ 分别表示第一个人和最后一个人的位置，用变量 $d$ 表示两个人之间的最大距离。
 
 然后遍历数组 $\textit{seats}$，如果当前位置有人，如果此前 $\textit{last}$ 更新过，说明此前有人，此时更新 $d = \max(d, i - \textit{last})$；如果此前 $\textit{first}$ 没有更新过，说明此前没有人，此时更新 $\textit{first} = i$。接下来更新 $\textit{last} = i$。

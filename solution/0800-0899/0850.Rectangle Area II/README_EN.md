@@ -74,7 +74,6 @@ From (1,0) to (2,3), all three rectangles overlap.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

@@ -69,7 +69,6 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

@@ -80,7 +80,6 @@ In 6 out of 10 possibilities, she is at or below 6 points.
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(i)$, which represents the probability that when the current score is $i$, the final score does not exceed $n$ when we stop drawing numbers. The answer is $dfs(0)$.
 
 The calculation method of function $dfs(i)$ is as follows:
@@ -291,7 +290,6 @@ function new21Game(n: number, k: number, maxPts: number): number {
 > Terminals in $[k,\min(n,k+\textit{maxPts}))$ are $1$. The answer is $f[0]$, computed in linear time.
 
 <!-- thinking:end -->
-
 
 We can convert the memoized search in Solution 1 into dynamic programming.
 

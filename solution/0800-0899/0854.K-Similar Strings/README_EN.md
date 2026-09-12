@@ -67,7 +67,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -251,7 +250,6 @@ func kSimilarity(s1 string, s2 string) int {
 > Neighbors match Method 1 and edges still have weight $1$, so optimality remains; strings with fewer mismatches dequeue earlier.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

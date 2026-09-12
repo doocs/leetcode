@@ -69,7 +69,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 根据题目描述，神奇数字是能被 $a$ 或 $b$ 整除的正整数。
 
 而我们知道，对于任意正整数 $x$，在 $[1,..x]$ 范围内，能被 $a$ 整除的数有 $\lfloor \frac{x}{a} \rfloor$ 个，能被 $b$ 整除的数有 $\lfloor \frac{x}{b} \rfloor$ 个，能被 $a$ 和 $b$ 同时整除的数有 $\lfloor \frac{x}{c} \rfloor$ 个，其中 $c$ 是 $a$ 和 $b$ 的最小公倍数。最小公倍数的计算公式为 $c = lcm(a, b) = \frac{a \times b}{gcd(a, b)}$。

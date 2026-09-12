@@ -75,7 +75,6 @@ This is the highest among any shorthand color.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

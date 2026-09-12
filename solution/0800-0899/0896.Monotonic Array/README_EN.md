@@ -70,7 +70,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We traverse the array, and if an increasing or decreasing situation occurs, we record it. We then check whether both increasing and decreasing situations have occurred. If both have occurred, it means that the array is not monotonic, and we return `false`.
 
 Otherwise, if we reach the end of the traversal, it means that the array is monotonic, and we return `true`.

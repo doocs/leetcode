@@ -64,7 +64,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define two pointers $\textit{fast}$ and $\textit{slow}$, both initially pointing to the head of the linked list.
 
 The fast pointer $\textit{fast}$ moves two steps at a time, while the slow pointer $\textit{slow}$ moves one step at a time. When the fast pointer reaches the end of the linked list, the node pointed to by the slow pointer is the middle node.

@@ -68,7 +68,6 @@ The sum of these widths is 6.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

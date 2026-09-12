@@ -72,7 +72,6 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(i, j, k)$, which means that we start from the $i$-th job, and have chosen $j$ employees, and the current profit is $k$, then the number of schemes in this case is $dfs(0, 0, 0)$.
 
 The execution process of function $dfs(i, j, k)$ is as follows:
@@ -231,7 +230,6 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 > Skipping copies the previous item; taking adds $f[i-1][j-x][\max(0,k-p)]$. The empty plan contributes $1$ at profit $0$. The answer is $f[m][n][\textit{minProfit}]$.
 
 <!-- thinking:end -->
-
 
 We define $f[i][j][k]$ to be the number of schemes to make a profit of at least $k$ with $i$ jobs and $j$ workers. Initially, we have $f[0][j][0] = 1$, which means that there is only one scheme to make a profit of $0$ without any jobs.
 

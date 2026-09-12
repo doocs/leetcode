@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can assign a unique identifier to each connected component, using an array $p$ to record the connected component each position belongs to, i.e., $p[i][j]$ represents the connected component number of $(i, j)$. Use an array $cnt$ to record the size of each connected component, i.e., $cnt[root]$ represents the size of the connected component $root$.
 
 First, we traverse the entire matrix. For each position $grid[i][j] = 1$ and $p[i][j] = 0$, we perform a depth-first search on it, mark its connected component as $root$, and count the size of the connected component.

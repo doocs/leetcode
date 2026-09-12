@@ -63,7 +63,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define a virtual node $dummy$, initially the right child of $dummy$ points to the root node $root$, and a pointer $prev$ points to $dummy$.
 
 We perform an in-order traversal on the binary search tree. During the traversal, each time we visit a node, we point the right child of $prev$ to it, then set the left child of the current node to null, and assign the current node to $prev$ for the next traversal.

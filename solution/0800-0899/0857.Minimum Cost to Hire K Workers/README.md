@@ -77,7 +77,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们假设选取了某一个工资组，总工作质量为 `tot`，总支付金额为 `c`。每个工人的工作质量为 $q_i$，工资为 $w_i$。那么，对于此工资组的每个工人，均满足 $c\times \frac{q_i}{tot} \ge w_i$。即 $c\ge tot\times \frac{w_i}{q_i}$。
 
 在总工作质量 `tot` 固定的情况下，支付的金额取决于权重 $\frac{w_i}{q_i}$ 的最大值。

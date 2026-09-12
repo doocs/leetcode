@@ -103,7 +103,6 @@ Hence the result is [0,0].
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

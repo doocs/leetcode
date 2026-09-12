@@ -73,7 +73,6 @@ which are both strictly increasing.
 
 <!-- thinking:end -->
 
-
 Define $a$ and $b$ to represent the minimum number of swaps needed to make the element sequences strictly increasing up to index $[0..i]$, with the $i$-th element not swapped and swapped, respectively. The index starts from $0$.
 
 When $i=0$, we have $a = 0$ and $b = 1$.

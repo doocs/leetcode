@@ -77,7 +77,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We use two pointers $i$ and $j$ to find the start and end positions of each group, then check if the group length is greater than or equal to $3$. If so, we add it to the result array.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$.

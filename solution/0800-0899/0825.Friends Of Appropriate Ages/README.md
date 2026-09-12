@@ -89,7 +89,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以用一个长度为 $121$ 的数组 $\textit{cnt}$ 记录每个年龄的人数。
 
 接下来，枚举所有可能的年龄对 $(\textit{ax}, \textit{ay})$，如果 $\textit{ax}$ 和 $\textit{ay}$ 不满足题目中的任意一个条件，这些年龄对 $(\textit{ax}, \textit{ay})$ 就可以互发好友请求。

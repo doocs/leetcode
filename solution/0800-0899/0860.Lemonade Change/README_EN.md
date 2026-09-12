@@ -74,7 +74,6 @@ Since not every customer received the correct change, the answer is false.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -303,7 +302,6 @@ impl Solution {
 > The meaning is unchanged; only the implementation is a one-liner, still failing when the $5$ count goes negative.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

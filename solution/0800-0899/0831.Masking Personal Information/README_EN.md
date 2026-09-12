@@ -128,7 +128,6 @@ Thus, the resulting masked number is &quot;***-***-7890&quot;.
 
 <!-- thinking:end -->
 
-
 According to the problem description, we can first determine whether the string $s$ is an email or a phone number, and then handle it accordingly.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.

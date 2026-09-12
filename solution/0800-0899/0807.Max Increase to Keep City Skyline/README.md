@@ -79,7 +79,6 @@ gridNew = [ [8, 4, 8, 7],
 
 <!-- thinking:end -->
 
-
 根据题目描述，我们可以将每个单元格 $(i, j)$ 的值增加至第 $i$ 行的最大值和第 $j$ 列的最大值中的较小值，这样可以保证不影响天际线，即每个单元格增加的高度为 $\min(\textit{rowMax}[i], \textit{colMax}[j]) - \textit{grid}[i][j]$。
 
 因此，我们可以先遍历一次矩阵，分别计算出每行和每列的最大值，记录在数组 $\textit{rowMax}$ 和 $\textit{colMax}$ 中，然后再遍历一次矩阵，计算出答案即可。

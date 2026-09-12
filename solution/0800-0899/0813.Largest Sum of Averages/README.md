@@ -72,7 +72,6 @@ nums 的最优分组是[9], [1, 2, 3], [9]. 得到的分数是 9 + (1 + 2 + 3) /
 
 <!-- thinking:end -->
 
-
 我们可以先预处理得到前缀和数组 $s$，方便快速得到子数组的和。
 
 接下来，我们设计一个函数 $\textit{dfs}(i, k)$，表示从数组下标 $i$ 开始，最多分成 $k$ 组的最大平均值和。答案为 $\textit{dfs}(0, k)$。
@@ -263,7 +262,6 @@ function largestSumOfAverages(nums: number[], k: number): number {
 > 边界 $f[i][1]$ 即前 $i$ 个数的平均值。答案为 $f[n][k]$，复杂度同为 $O(n^2k)$。
 
 <!-- thinking:end -->
-
 
 我们可以将方法一的记忆化搜索转化为动态规划。
 

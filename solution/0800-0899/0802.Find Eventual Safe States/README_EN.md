@@ -77,7 +77,6 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -261,7 +260,6 @@ var eventualSafeNodes = function (graph) {
 > No reverse graph is stored. The answer is the nodes whose DFS returns true, still in linear time.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

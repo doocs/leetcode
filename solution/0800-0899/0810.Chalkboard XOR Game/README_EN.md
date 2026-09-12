@@ -82,7 +82,6 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 
 <!-- thinking:end -->
 
-
 According to the game rules, if the XOR result of all numbers on the blackboard is $0$ when it is a player's turn, that player wins. Since Alice goes first, if the XOR result of all numbers in $\textit{nums}$ is $0$, Alice can win.
 
 When the XOR result of all numbers in $\textit{nums}$ is not $0$, let's analyze Alice's winning situation based on the parity of the length of the array $\textit{nums}$.

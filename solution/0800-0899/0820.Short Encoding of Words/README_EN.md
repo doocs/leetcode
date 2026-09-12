@@ -76,7 +76,6 @@ words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to 
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -244,7 +243,6 @@ func dfs(cur *trie, l int) int {
 > The answer is accumulated during insertion, so the second DFS is dropped.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

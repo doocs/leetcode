@@ -85,7 +85,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以遍历矩阵，对于遍历到的每一行 $\textit{row}$，我们使用双指针 $i$ 和 $j$ 分别指向该行的首尾元素，如果 $\textit{row}[i] = \textit{row}[j]$，交换后两者的值仍然保持不变，因此，我们只需要对 $\textit{row}[i]$ 和 $\textit{row}[j]$ 进行异或反转即可，然后将 $i$ 和 $j$ 分别向中间移动一位，直到 $i \geq j$。如果 $\textit{row}[i] \neq \textit{row}[j]$，此时交换后再反转两者的值，仍然保持不变，因此，可以不进行任何操作。
 
 最后，如果 $i = j$，我们直接对 $\textit{row}[i]$ 进行反转即可。

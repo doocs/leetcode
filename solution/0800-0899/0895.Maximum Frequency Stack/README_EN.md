@@ -84,7 +84,6 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 
 <!-- thinking:end -->
 
-
 According to the problem description, we need to design a data structure that supports popping out the element with the highest frequency. If multiple elements have the same frequency, the element closest to the top of the stack should be popped out.
 
 We can use a hash table $cnt$ to record the frequency of each element, and a priority queue (max heap) $q$ to maintain the frequency of elements and their corresponding timestamps.
@@ -248,7 +247,6 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 > Push appends to level $f+1$ and updates the maximum frequency; pop takes the top of the highest level and decreases the maximum when that level empties. Each operation is amortized $O(1)$.
 
 <!-- thinking:end -->
-
 
 In Solution 1, in order to pop out the required element, we maintained a priority queue and had to operate on it each time, which has a time complexity of $O(\log n)$. If we can find the required element in $O(1)$ time, then the time complexity of each operation of the entire data structure can be reduced to $O(1)$.
 

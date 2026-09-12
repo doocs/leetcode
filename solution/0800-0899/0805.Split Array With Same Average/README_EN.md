@@ -72,7 +72,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem requirements, we need to determine if the array $\textit{nums}$ can be divided into two subarrays $A$ and $B$ such that the average values of the two subarrays are equal.
 
 Let the sum of the array $\textit{nums}$ be $s$, and the number of elements be $n$. The sum and number of elements of subarray $A$ are $s_1$ and $k$, respectively. Then the sum of subarray $B$ is $s_2 = s - s_1$, and the number of elements is $n - k$. Thus:

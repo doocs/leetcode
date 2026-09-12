@@ -75,7 +75,6 @@ and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

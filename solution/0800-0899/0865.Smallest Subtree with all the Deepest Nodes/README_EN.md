@@ -88,7 +88,6 @@ Notice that nodes 5, 3 and 2 contain the deepest nodes in the tree but node 2 is
 
 <!-- thinking:end -->
 
-
 We design a function $\textit{dfs}(\textit{root})$ that returns the smallest subtree containing all the deepest nodes in the subtree rooted at $\textit{root}$, as well as the depth of the subtree rooted at $\textit{root}$.
 
 The execution process of the function $\textit{dfs}(\textit{root})$ is as follows:
