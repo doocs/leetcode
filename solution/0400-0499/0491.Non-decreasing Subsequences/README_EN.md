@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0491.Non-decreasing%20Subsequences/README_EN.md
 tags:
     - Bit Manipulation
     - Array

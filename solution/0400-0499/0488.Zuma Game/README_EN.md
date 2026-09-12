@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0488.Zuma%20Game/README_EN.md
 tags:
     - Stack
     - Breadth-First Search

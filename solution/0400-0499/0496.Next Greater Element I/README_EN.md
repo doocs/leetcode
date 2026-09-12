@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md
 tags:
     - Stack
     - Array

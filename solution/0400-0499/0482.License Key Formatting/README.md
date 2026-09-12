@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0482.License%20Key%20Formatting/README.md
 tags:
     - 字符串
 ---

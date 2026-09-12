@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0480.Sliding%20Window%20Median/README_EN.md
 tags:
     - Array
     - Hash Table

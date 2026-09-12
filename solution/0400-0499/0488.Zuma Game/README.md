@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0488.Zuma%20Game/README.md
 tags:
     - 栈
     - 广度优先搜索

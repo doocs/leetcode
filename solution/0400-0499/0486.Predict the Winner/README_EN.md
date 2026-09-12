@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0400-0499/0486.Predict%20the%20Winner/README_EN.md
 tags:
     - Recursion
     - Minimax
