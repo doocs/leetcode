@@ -67,6 +67,19 @@ A <strong>subarray</strong> is a contiguous <b>non-empty</b> sequence of element
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One operation replaces a subarray by its $\gcd$. If every entry is already equal, no operation is needed; otherwise one operation on the whole array equalizes it.
+>
+> The answer is therefore $0$ or $1$. A scan that looks for a value different from the first element decides which.
+>
+> $n\le 100$ is a single pass.
+
+<!-- thinking:end -->
+
+
 If all elements in $\textit{nums}$ are equal, no operations are needed; otherwise, we can select the entire array as a subarray and perform one operation.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

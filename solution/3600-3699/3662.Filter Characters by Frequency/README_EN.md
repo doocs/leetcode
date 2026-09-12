@@ -77,6 +77,19 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep characters whose global frequency is strictly below $k$, in the original order. Count first, then filter, so deletions do not change the frequencies mid-scan.
+>
+> A $\textit{Counter}$ stores the totals; a second pass appends characters with count less than $k$.
+>
+> $n\le 100$ makes two linear scans enough.
+
+<!-- thinking:end -->
+
+
 First, we iterate through the string $s$ and count the frequency of each character, storing the results in a hash table or array $\textit{cnt}$.
 
 Then, we iterate through the string $s$ again, adding characters whose frequency is less than $k$ to the result string. Finally, we return the result string.

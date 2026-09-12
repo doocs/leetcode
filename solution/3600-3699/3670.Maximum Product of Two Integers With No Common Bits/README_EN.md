@@ -79,6 +79,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick two numbers with AND zero and maximize their product. Pair enumeration is quadratic; the bit width is small enough for a subset DP.
+>
+> Let $f[s]$ be the largest input that is a subset of $s$. For each $x$, query the complement mask in $f$ and update the product.
+>
+> Seed $f[x]$ from the input, then SOS-max over bits so $f[s]$ absorbs every submask. A complement query guarantees disjoint ones.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

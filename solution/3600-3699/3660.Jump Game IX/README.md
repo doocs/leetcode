@@ -91,6 +91,19 @@ tags:
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $i$ 出发按规则跳跃，求能到达的最大值。直接模拟每点的跳跃链为平方级。
+>
+> 前缀最大值 $\textit{preMax}[i]$ 是向左能「抬升」到的上界；右侧最小值 $\textit{sufMin}$ 决定能否跨过 $i$ 继续向右。
+>
+> 从右往左：若 $\textit{preMax}[i]>\textit{sufMin}$，则 $i$ 能走到 $i+1$ 所能到的值，故 $\textit{ans}[i]=\textit{ans}[i+1]$；否则停留在 $\textit{preMax}[i]$。再更新 $\textit{sufMin}$。
+
+<!-- thinking:end -->
+
+
 如果 $i = n - 1$，那么它可以跳到 $\textit{nums}$ 中的最大值，因此 $\textit{ans}[i] = \max(\textit{nums})$。对于其他位置 $i$，我们可以通过维护一个前缀最大值数组和一个后缀最小值变量来计算。
 
 具体步骤如下：
