@@ -52,6 +52,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every non-decreasing subsequence of length at least $2$, without duplicate lists. The array is unsorted, so we cannot sort then pick.
+>
+> DFS at index $u$: take $nums[u]$ when it is $\ge last$; skip it only when $nums[u]\ne last$. That second guard drops the duplicate of “skip a value then take the same value later”.
+>
+> $last$ starts at a tiny sentinel so the first number is always eligible. Only sequences longer than $1$ are kept.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

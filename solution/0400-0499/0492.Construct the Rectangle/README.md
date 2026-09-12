@@ -66,6 +66,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 面积固定，要求 $L\ge W$ 且 $L-W$ 最小，即尽量接近正方形。从 $1$ 扫到 $\textit{area}$ 找因子偏慢。
+>
+> 从 $W=\lfloor\sqrt{\textit{area}}\rfloor$ 向下找能整除的 $W$，则 $L=\textit{area}/W$ 自动不小于 $W$，差值最小。
+>
+> 从平方根向下保证第一组因子就是最接近的一对。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

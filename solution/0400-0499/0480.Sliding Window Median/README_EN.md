@@ -71,6 +71,18 @@ Window position                Median
 
 ### Solution 1: Dual Priority Queues (Min-Heap and Max-Heap) + Lazy Deletion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Median of every window. Sorting each window is $O(nk\log k)$. Heaps give the median but cannot delete an arbitrary outgoing value.
+>
+> Two heaps: a max-heap for the lower half, a min-heap for the upper half, plus a lazy-deletion map. After insert or erase, only expired heap tops are popped, then the live sizes are rebalanced.
+>
+> Lazy deletion turns an arbitrary erase into a top pop; live sizes are counted separately so the tops remain the median candidates.
+
+<!-- thinking:end -->
+
 We can use two priority queues (min-heap and max-heap) to maintain the elements in the current window. One priority queue stores the smaller half of the elements, and the other priority queue stores the larger half of the elements. This way, the median of the current window is either the average of the top elements of the two heaps or one of the top elements.
 
 We design a class $\textit{MedianFinder}$ to maintain the elements in the current window. This class includes the following methods:
@@ -457,6 +469,16 @@ func (h *hp) Pop() any {
 <!-- solution:start -->
 
 ### Solution 2: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Lazy heaps are long to implement. An ordered set inserts and deletes in $O(\log k)$. The left set holds the lower half, the right the upper half: insert into the right, move its minimum left, and rebalance. When the window is full, read the ends and remove the outgoing value.
+>
+> The code is shorter if an ordered-set type is available.
+
+<!-- thinking:end -->
 
 We can use two ordered sets to maintain the elements in the current window. The ordered set $l$ stores the smaller half of the elements in the current window, and the ordered set $r$ stores the larger half of the elements.
 

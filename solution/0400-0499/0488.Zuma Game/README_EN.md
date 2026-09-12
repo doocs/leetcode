@@ -90,6 +90,18 @@ There are still balls remaining on the board, and you are out of balls to insert
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert a ball from the hand so runs of three or more vanish; we want the fewest inserts that clear the board. Positions and colors branch a lot, but both the board and the hand are short.
+>
+> BFS on (board, remaining hand). For each distinct color and each index, insert, then repeatedly strip runs of length at least $3$ with a regex. An empty board yields the number of balls used.
+>
+> Trying each color once avoids expanding identical hands. A visited set of boards stops repeats. The strip loop is required because one collapse can chain.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

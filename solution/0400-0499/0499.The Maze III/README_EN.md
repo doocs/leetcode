@@ -87,6 +87,18 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The ball stops at a wall or the hole; we want a shortest path to the hole, breaking ties by the lexicographically smallest move string. Distance-only BFS is not enough.
+>
+> Each stop stores its best distance and path. Roll in four directions and halt if the hole is hit. Update when the new distance is smaller, or equal with a smaller path, and enqueue unless we are in the hole.
+>
+> The hole is not a wall, so the roll loop must test it. Relaxing the path string together with the distance enforces both criteria.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

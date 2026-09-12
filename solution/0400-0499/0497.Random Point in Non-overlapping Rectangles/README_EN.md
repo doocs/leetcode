@@ -76,6 +76,18 @@ solution.pick(); // return [0, 0]
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sample an integer point uniformly from disjoint rectangles. Picking a rectangle uniformly then a point inside it oversamples small rectangles.
+>
+> Prefix sums of cell counts, draw $v$ in $[1,\textit{total}]$, binary-search the rectangle, then draw a lattice point inside it.
+>
+> The prefix sum turns area-weighting into one binary search. Disjointness means each lattice point belongs to one rectangle.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -65,6 +65,18 @@ Finally, player 1 has more score (234) than player 2 (12), so you need to return
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players take from the two ends; the first player wins if her score is at least the second's. The game tree repeats the same interval.
+>
+> $dfs(i,j)$ is the best score gap on $[i,j]$: take the left end for $nums[i]-dfs(i+1,j)$, or the right end symmetrically. The first player wins iff $dfs(0,n-1)\ge 0$.
+>
+> There are $O(n^2)$ intervals; memoization makes every leftover interval optimal for the player to move.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, j)$, which represents the maximum difference in scores between the current player and the other player from the $i$-th number to the $j$-th number. The answer is $\textit{dfs}(0, n - 1) \geq 0$.
 
 The function $\textit{dfs}(i, j)$ is calculated as follows:
@@ -217,6 +229,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same recurrence fills a table: $f[i][j]$ starts from the length-$1$ diagonal, then grows by decreasing $i$ and increasing $j$. No call stack, same asymptotics.
+
+<!-- thinking:end -->
 
 We can also use dynamic programming. Define $f[i][j]$ to represent the maximum score difference the current player can achieve in the range $\textit{nums}[i..j]$. The final answer is $f[0][n - 1] \geq 0$.
 

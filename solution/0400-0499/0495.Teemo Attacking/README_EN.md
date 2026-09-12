@@ -62,6 +62,18 @@ Ashe is poisoned for seconds 1, 2, and 3, which is 3 seconds in total.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each attack refreshes poison for $\textit{duration}$; overlaps count once. Simulating every time tick is unnecessary.
+>
+> The last attack always contributes a full $\textit{duration}$. Between two attacks, the earlier one contributes the gap if it is shorter than $\textit{duration}$, otherwise the full length.
+>
+> Adding $\min(\textit{duration},b-a)$ for each adjacent pair covers every overlap in one pass.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
