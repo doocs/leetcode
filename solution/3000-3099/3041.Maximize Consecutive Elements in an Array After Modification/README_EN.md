@@ -62,6 +62,18 @@ It can be shown that we cannot select more than 3 consecutive elements.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each element may increase by at most one, after which we pick the longest subsequence that becomes consecutive. $n \le 10^5$ and values reach $10^6$.
+>
+> After sorting, neighbors are equal, differ by one, or jump further. Adding one maps a value to $x$ or $x+1$, so the DP only needs whether the current end kept $x$ or became $x+1$.
+>
+> We scan values in order and keep the best consecutive length ending at $x$ and at $x+1$, updating by whether the gap is $0$, $1$, or at least $2$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

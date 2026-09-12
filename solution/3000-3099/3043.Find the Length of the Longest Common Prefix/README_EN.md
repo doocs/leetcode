@@ -69,6 +69,18 @@ Note that common prefixes between elements of the same array do not count.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Integers are read as decimal strings; we want the longest common prefix between the two arrays. $n \le 5 \times 10^4$ forbids comparing every pair.
+>
+> All prefixes of a number are the values obtained by repeated division by $10$. After storing $\textit{arr}_1$ prefixes in a hash set, each value in $\textit{arr}_2$ searches from itself toward shorter prefixes.
+>
+> The largest hit is the integer that encodes the longest prefix; its number of digits is the answer.
+
+<!-- thinking:end -->
+
 We can use a hash table to store all the prefixes of the numbers in `arr1`. Then, we traverse all the numbers $x$ in `arr2`. For each number $x$, we start from the highest bit and gradually decrease, checking whether it exists in the hash table. If it does, we have found a common prefix, and we can update the answer accordingly.
 
 The time complexity is $O(m \times \log M + n \times \log N)$, and the space complexity is $O(m \times \log M)$. Here, $m$ and $n$ are the lengths of `arr1` and `arr2` respectively, and $M$ and $N$ are the maximum values in `arr1` and `arr2` respectively.

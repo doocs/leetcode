@@ -97,6 +97,18 @@ Result table orderd by employee_id, project_id in ascending order.
 
 ### Solution 1: Grouping Statistics + Equi-Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want employee–project rows whose workload exceeds the team average. That average is not in the employee table alone; it uses project workloads.
+>
+> Join projects to employees, average workload by $\textit{team}$, and keep rows above that mean.
+>
+> Two merges (compute the mean, then join it back) followed by a sort on employee and project id.
+
+<!-- thinking:end -->
+
 First, we join the `Project` table and the `Employees` table based on `employee_id`, then group by `team` to calculate the average workload of each team, and record it in the temporary table `T`.
 
 Then, we join the `Project` table and the `Employees` table again, and also join the `T` table, to find employees whose workload is greater than the average workload of the team. Finally, we sort by `employee_id` and `project_id`.

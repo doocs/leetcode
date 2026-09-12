@@ -80,6 +80,18 @@ Candidates 表：
 
 ### 方法一：条件筛选 + 分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 候选人需同时具备 Python、Tableau、PostgreSQL。技能在多行存储，不能用单行的三个等值条件。
+>
+> 先筛出这三种技能，再按候选人分组，计数恰好为 $3$ 即同时具备。
+>
+> 分组后用 $\texttt{HAVING COUNT}=3$，并按编号排序。
+
+<!-- thinking:end -->
+
 我们首先筛选出具备 `Python`, `Tableau`, `PostgreSQL` 这三个技能的候选人，然后按照 `candidate_id` 进行分组统计，统计每个候选人具备的技能数量，最后筛选出具备这三个技能的候选人，并且按照 `candidate_id` 进行升序排序。
 
 <!-- tabs:start -->

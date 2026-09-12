@@ -86,6 +86,18 @@ Output table is ordered by item count in descending order.</pre>
 
 ### Solution 1: Join Query + Union All
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The warehouse holds $500000$ and must be filled with complete prime sets first, then leftover space with non-prime sets. A set is one copy of every item of that type.
+>
+> A prime set has area $s$, the sum of prime items, so we store $\lfloor 500000/s \rfloor$ sets; the remainder is filled by the non-prime total area.
+>
+> Compute $s$, multiply each type’s item count by the number of sets, and return the two rows with $\texttt{UNION ALL}$.
+
+<!-- thinking:end -->
+
 First, we calculate the total area of all items of type `prime_eligible` and record it in the `s` field of table `T`.
 
 Next, we calculate the number of items of type `prime_eligible` and `not_prime` respectively. For items of type `prime_eligible`, the number of portions we can store is $\lfloor \frac{500000}{s} \rfloor$. For items of type `not_prime`, the number of portions we can store is $\lfloor \frac{500000 \mod s}{\sum \textit{s1}} \rfloor$. Where $\sum \textit{s1}$ is the total area of all items of type `not_prime`. Multiplying by the number of items of type `prime_eligible` and `not_prime` respectively gives us our result.

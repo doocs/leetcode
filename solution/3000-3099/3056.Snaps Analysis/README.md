@@ -113,6 +113,18 @@ Age 表：
 
 ### 方法一：等值连接 + 分组求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按年龄段统计 send/open 时间占比。活动与年龄在两张表，需先对齐用户。
+>
+> 按 $(\textit{age\_bucket}, \textit{activity\_type})$ 求和后再透视成两列，避免对 send、open 分别写条件聚合。
+>
+> 合并、分组、透视后用两列之和作分母计算百分比。
+
+<!-- thinking:end -->
+
 我们可以通过等值连接，将 `Activities` 表和 `Age` 表按照 `user_id` 进行连接，然后再按照 `age_bucket` 进行分组，最后计算每个年龄段的发送和打开的百分比。
 
 <!-- tabs:start -->

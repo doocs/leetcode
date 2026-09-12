@@ -83,6 +83,16 @@ Therefore, the answer is 0.</pre>
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$ and each string has length at most $10$, so every $i<j$ can be tested for being both a prefix and a suffix of $\textit{words}[j]$.
+>
+> Library $\textit{startswith}/\textit{endswith}$ already walk the two ends, and the cost is acceptable.
+
+<!-- thinking:end -->
+
 We can enumerate all index pairs $(i, j)$, where $i < j$, and then determine whether `words[i]` is a prefix or suffix of `words[j]`. If it is, we increment the count.
 
 The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the length of `words` and the maximum length of the strings, respectively.
@@ -183,6 +193,16 @@ function countPrefixSuffixPairs(words: string[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair enumeration slows down when $n$ and $m$ grow. A shorter string is a prefix-suffix iff every pair $(s[i], s[m-1-i])$ matches the longer string.
+>
+> Those pairs become trie edges. Inserting in array order and adding the node counts along the path counts the pairs in time linear in the total length.
+
+<!-- thinking:end -->
 
 We can treat each string $s$ in the string array as a list of character pairs, where each character pair $(s[i], s[m - i - 1])$ represents the $i$th character pair of the prefix and suffix of string $s$.
 

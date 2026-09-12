@@ -85,6 +85,16 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n \le 50$ 且串长不超过 $10$，枚举所有 $i<j$ 并检查 $\textit{words}[i]$ 是否同时为 $\textit{words}[j]$ 的前缀与后缀即可。
+>
+> 语言库的 $\textit{startswith}/\textit{endswith}$ 已覆盖两次扫描，总代价可接受。
+
+<!-- thinking:end -->
+
 我们可以枚举所有的下标对 $(i, j)$，其中 $i \lt j$，然后判断 `words[i]` 是否是 `words[j]` 的前缀和后缀，若是则计数加一。
 
 时间复杂度 $O(n^2 \times m)$，其中 $n$ 和 $m$ 分别为 `words` 的长度和字符串的最大长度。
@@ -185,6 +195,16 @@ function countPrefixSuffixPairs(words: string[]): number {
 <!-- solution:start -->
 
 ### 方法二：字典树
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 枚举在 $n$、$m$ 变大后会慢。一对下标成为答案，当且仅当短串的每个前后字符对都与长串对齐。
+>
+> 把 $(s[i], s[m-1-i])$ 压成字典树边，按数组顺序插入时，沿路径累加已有结点计数，即可在总长线性时间内统计。
+
+<!-- thinking:end -->
 
 我们可以把字符串数组中的每个字符串 $s$ 当作一个字符对的列表，其中每个字符对 $(s[i], s[m - i - 1])$ 表示字符串 $s$ 的前缀和后缀的第 $i$ 个字符对。
 

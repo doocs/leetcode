@@ -100,6 +100,18 @@ The most frequent prime number among all the created numbers is 97.
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The matrix is at most $6 \times 6$, so the numbers formed from each cell in eight directions are few. We want the mode among primes greater than $10$, breaking ties by value.
+>
+> Directions and step counts can be enumerated; each formed number is tested for primality by trial division and counted.
+>
+> A final scan of the counts picks the best frequency and value, or $-1$ if no prime appears.
+
+<!-- thinking:end -->
+
 We can use a hash table to count the frequency of each prime number greater than 10.
 
 For each cell, we can start from it, generate a number along one of the 8 directions, and then determine whether the generated number is a prime number greater than 10. If it is, we add it to the hash table.

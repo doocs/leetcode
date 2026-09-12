@@ -88,6 +88,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n \le 10^3$ rectangles, and the square must lie in the intersection of some pair. Its side is limited by the smaller of that intersection’s width and height.
+>
+> The intersection’s width and height are $O(1)$, so we enumerate pairs and take the maximum of $\min(w,h)^2$.
+>
+> A non-positive intersection contributes $0$.
+
+<!-- thinking:end -->
+
 We can enumerate two rectangles, where the coordinates of the bottom left and top right corners of rectangle 1 are $(x_1, y_1)$ and $(x_2, y_2)$ respectively, and the coordinates of the bottom left and top right corners of rectangle 2 are $(x_3, y_3)$ and $(x_4, y_4)$ respectively.
 
 If rectangle 1 and rectangle 2 intersect, then the coordinates of the intersection are:
