@@ -1,6 +1,7 @@
 :root {
     --example-block-bg: #f5f5f5;
     --pre-bg: #f5f5f5;
+    --md-admonition-icon--thinking: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 22a1 1 0 0 1-1-1v-1h8v1a1 1 0 0 1-1 1zm3-20a7 7 0 0 1 4 12.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26A7 7 0 0 1 12 2m0 2a5 5 0 0 0-3.16 8.9l.16.13V16h6v-2.97l.16-.13A5 5 0 0 0 12 4Z"/></svg>');
 }
 
 [data-md-color-scheme="default"] {
@@ -34,4 +35,19 @@
     padding: .3em;
     background-color: var(--pre-bg);
     border-radius: .1rem;
+}
+
+.md-typeset .admonition.thinking,
+.md-typeset details.thinking {
+    border-color: #5c6bc0;
+}
+.md-typeset .thinking > .admonition-title,
+.md-typeset .thinking > summary {
+    background-color: rgba(92, 107, 192, 0.1);
+}
+.md-typeset .thinking > .admonition-title::before,
+.md-typeset .thinking > summary::before {
+    background-color: #5c6bc0;
+    -webkit-mask-image: var(--md-admonition-icon--thinking);
+    mask-image: var(--md-admonition-icon--thinking);
 }

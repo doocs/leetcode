@@ -17,4 +17,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run docs hook tests
-        run: python -m unittest tests.test_stay_on_page tests.test_conditional_mathjax -v
+        run: python -m unittest tests.test_stay_on_page tests.test_conditional_mathjax tests.test_thinking_block -v
