@@ -99,6 +99,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each deleted word we want the LCP of any $k$ remaining strings. The total length is $\le 10^5$, so each query cannot rebuild the trie.
+>
+> The maximum depth of a trie node with count $\ge k$ is the global answer. Deleting a word only hurts ancestors whose count is exactly $k$.
+>
+> A segment tree keyed by depth stores how many nodes still have count $\ge k$. We decrement the fragile depths of the deleted word, query the max surviving depth, and roll back. If $n-1<k$, every answer is $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

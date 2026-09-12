@@ -102,6 +102,18 @@ tags:
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation replaces two positive numbers in the range by $\lfloor x/4\rfloor$. $l,r$ reach $10^9$ with $10^5$ queries, so the range cannot be simulated.
+>
+> A single $x$ needs the smallest $p$ with $4^p>x$, constant on $[4^{i-1},4^i)$. One operation touches two numbers, so the range cost is about half the sum of $p$, except the slowest value may dominate.
+>
+> $f(x)$ is the prefix sum of those $p$ on $[1,x]$. For $[l,r]$ the answer is $\max(\lceil s/2\rceil,mx)$ with $s=f(r)-f(l-1)$ and $mx$ equal to $r$’s own $p$.
+
+<!-- thinking:end -->
+
 According to the problem description, suppose the minimum number of operations required to make an element $x$ become $0$ is $p$, where $p$ is the smallest integer such that $4^p > x$.
 
 Once we know the minimum number of operations for each element, for a range $[l, r]$, let $s$ be the sum of the minimum operations for all elements in $[l, r]$, and let $mx$ be the maximum number of operations, which is the number of operations for element $r$. Then, the minimum number of operations to make all elements in $[l, r]$ become $0$ is $\max(\lceil s / 2 \rceil, mx)$.

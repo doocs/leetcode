@@ -68,6 +68,18 @@ tags:
 
 ### 方法一：数学
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 甲板有 $n^2$ 个格，每格最多一箱，每箱重 $w$，总重不超过 $\textit{maxWeight}$。
+>
+> 箱数还受格子数限制，故为 $\min(n^2,\lfloor \textit{maxWeight}/w\rfloor)$，也就是 $\lfloor\min(n^2 w,\textit{maxWeight})/w\rfloor$。
+>
+> 常数时间取最小再整除即可，无需模拟装载。
+
+<!-- thinking:end -->
+
 我们先计算出船上可以装载的最大重量，即 $n \times n \times w$，然后取其与 $\text{maxWeight}$ 的最小值，再除以 $w$ 即可。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。

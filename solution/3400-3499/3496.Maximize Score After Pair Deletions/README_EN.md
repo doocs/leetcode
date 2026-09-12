@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1: Reverse Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes a pair of endpoints and scores the new ends, until one or two elements remain. Searching the deletion order is exponential.
+>
+> In reverse: an odd array ends with one element, an even array with two adjacent elements. The score equals the total sum minus what stays.
+>
+> Maximizing the score minimizes the remainder. Subtract the global minimum when $n$ is odd, or the minimum adjacent pair when $n$ is even.
+
+<!-- thinking:end -->
+
 According to the problem description, each operation removes the two elements at the endpoints. Therefore, when the number of elements is odd, one element will eventually remain; when the number of elements is even, two consecutive elements in the array will eventually remain.
 
 To maximize the score after deletions, we should minimize the remaining elements.

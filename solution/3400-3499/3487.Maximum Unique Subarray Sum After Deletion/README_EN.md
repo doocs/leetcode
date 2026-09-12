@@ -84,6 +84,18 @@ tags:
 
 ### Solution 1: Greedy + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may delete any elements; the remainder must have distinct values and maximum sum. If everything is non-positive, the best is the single largest value.
+>
+> Once a positive exists, negatives and duplicate positives never help: negatives shrink the sum, duplicates are illegal.
+>
+> If the global max is non-positive, return it. Otherwise sum the distinct positives with a set.
+
+<!-- thinking:end -->
+
 We first find the maximum value $\textit{mx}$ in the array. If $\textit{mx} \leq 0$, then all elements in the array are less than or equal to 0. Since we need to select a non-empty subarray with the maximum element sum, the maximum element sum would be $\textit{mx}$.
 
 If $\textit{mx} > 0$, then we need to find all distinct positive integers in the array such that their sum is maximized. We can use a hash table $\textit{s}$ to record all distinct positive integers, and then iterate through the array, adding up all distinct positive integers.

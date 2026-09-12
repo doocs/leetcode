@@ -65,6 +65,18 @@ tags:
 
 ### 方法一：排序 + 前缀判断
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 判断是否有号码是另一号码的前缀。至多 $50$ 个串，长度 $50$，排序后两两检查即可。
+>
+> 短串才可能成为长串的前缀，先按长度排序，检查时只需看它左边更短的串。
+>
+> 对每个 $s$ 判断 $\textit{numbers}[:i]$ 中是否有 $t$ 使 $s.\textit{startswith}(t)$。有则返回假。
+
+<!-- thinking:end -->
+
 我们可以先对 $\textit{numbers}$ 数组按照字符串长度进行排序，然后遍历数组中的每一个字符串 $\textit{s}$，判断此前是否有字符串 $\textit{t}$ 是 $\textit{s}$ 的前缀，如果有，说明存在一个字符串是另一个字符串的前缀，返回 $\textit{false}$。如果遍历完所有字符串都没有找到前缀关系，返回 $\textit{true}$。
 
 时间复杂度 $(n^2 \times m + n \times \log n)$，空间复杂度 $(m + \log n)$，其中 $n$ 是 $\textit{numbers}$ 数组的长度，而 $m$ 是 $\textit{numbers}$ 数组中字符串的平均长度。

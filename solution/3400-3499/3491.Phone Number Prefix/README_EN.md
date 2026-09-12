@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Sorting + Prefix Checking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether any number is a prefix of another. At most $50$ strings of length $50$, so a sort plus pairwise checks suffice.
+>
+> Only a shorter string can be a prefix, so we sort by length and compare each $s$ with the ones on its left.
+>
+> If any earlier $t$ satisfies $s.\textit{startswith}(t)$, return false.
+
+<!-- thinking:end -->
+
 We can first sort the array $\textit{numbers}$ based on the length of strings. Then, we iterate through each string $\textit{s}$ in the array and check if there is any previous string $\textit{t}$ that is a prefix of $\textit{s}$. If such a string exists, it means there is a string that is a prefix of another string, so we return $\textit{false}$. If we have checked all strings and haven't found any prefix relationships, we return $\textit{true}$.
 
 The time complexity is $O(n^2 \times m + n \times \log n)$, and the space complexity is $O(m + \log n)$, where $n$ is the length of the array $\textit{numbers}$, and $m$ is the average length of strings in the array $\textit{numbers}$.
