@@ -84,6 +84,14 @@ tags:
 
 ### 方法一：数位 DP
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 平衡数至少两位且奇偶位数字和相等。区间计数用数位 DP：$calc(high)-calc(low-1)$，状态为位置、奇偶位差、是否贴上界；长度不足两位的在最后判 $diff=0$ 时再结合下界 $11$ 排除。
+
+<!-- thinking:end -->
+
 首先，如果 $\textit{high} < 11$，则区间内不存在平衡整数，直接返回 $0$。否则，我们将 $\textit{low}$ 更新为 $\max(\textit{low}, 11)$。
 
 然后我们设计一个函数 $\textit{dfs}(\textit{pos}, \textit{diff}, \textit{lim})$，表示当前处理到数字的第 $\textit{pos}$ 位，奇数位置与偶数位置数字之和的差值为 $\textit{diff}$，并且当前位是否受到上界限制 $\textit{lim}$ 的影响，返回从当前状态出发，能够构造出的平衡整数的数量。

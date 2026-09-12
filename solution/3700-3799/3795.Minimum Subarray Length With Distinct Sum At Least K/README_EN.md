@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum of distinct values is monotone in the window, so two pointers apply. A frequency map adds a value to the sum only when its count rises from $0$ to $1$; once the sum reaches $k$ we shrink the left end and record the shortest length.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to record the occurrence count of each element in the current window, and a variable $\textit{s}$ to record the sum of distinct elements in the current window. We use two pointers $l$ and $r$ to represent the left and right boundaries of the current window, both initially pointing to the beginning of the array. We initialize a variable $\textit{ans}$ to record the minimum length of a window that satisfies the condition, with an initial value of $n + 1$, where $n$ is the length of the array.
 
 We continuously move the right pointer $r$, adding new elements into the window and updating $\textit{cnt}$ and $\textit{s}$. When $\textit{s}$ is greater than or equal to $k$, we try to move the left pointer $l$ to shrink the window, updating $\textit{cnt}$ and $\textit{s}$ accordingly, until $\textit{s}$ is less than $k$. During this process, we record the minimum length of windows that satisfy the condition.

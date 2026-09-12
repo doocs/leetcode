@@ -118,6 +118,14 @@ Each row represents a prompt submitted by a user to an AI system along with the 
 
 ### Solution 1: Group By Statistics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user's prompt count, mean token usage, and whether any prompt exceeds that mean. Aggregating those three statistics by `user_id`, we keep users with at least three prompts and $\textit{max}>\textit{mean}$, then sort by mean tokens and user id.
+
+<!-- thinking:end -->
+
 We first group the prompts by `user_id` and calculate for each user the total number of prompts `prompt_count`, the average tokens `avg_tokens`, and the maximum tokens `max_tokens`. Then we filter users who meet the criteria, i.e., those who have submitted at least 3 prompts and have at least one prompt with tokens greater than their average token usage. Finally, we sort the results by `avg_tokens` in descending order and by `user_id` in ascending order.
 
 <!-- tabs:start -->

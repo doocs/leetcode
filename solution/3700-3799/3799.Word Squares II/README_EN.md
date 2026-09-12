@@ -105,6 +105,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The words are distinct $4$-letter strings and there are at most $15$ of them, so we may enumerate four distinct indices. After sorting, four nested loops pick $\textit{top},\textit{left},\textit{right},\textit{bottom}$ and keep a tuple when the four corner letters match.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

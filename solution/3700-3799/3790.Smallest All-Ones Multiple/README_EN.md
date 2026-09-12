@@ -77,6 +77,14 @@ tags:
 
 ### Solution 1: Simulation + Modulo Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An all-ones integer is never a multiple of an even $k$. Otherwise the remainder evolves as $x\leftarrow 10x+1\pmod k$. There are only $k$ remainders, so a zero remainder yields the number of digits, and $k$ unsuccessful steps imply no such integer.
+
+<!-- thinking:end -->
+
 First, if $k$ is even, there is no valid $n$ that satisfies the condition, so we directly return $-1$.
 
 Next, we can simulate the process of constructing an all-ones number $n$ while taking the modulo with $k$ to determine whether a valid $n$ exists.

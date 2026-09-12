@@ -91,6 +91,14 @@ tags:
 
 ### 方法一：前缀和 + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 得分是前缀和减去后缀最小值，拆分点从左到右枚举时前缀和可累加。后缀最小值从右往左预处理后，$O(n)$ 取最大即可。
+
+<!-- thinking:end -->
+
 我们首先定义一个长度为 $n$ 的数组 $\textit{suf}$，其中 $\textit{suf}[i]$ 表示数组 $\textit{nums}$ 从下标 $i$ 到下标 $n - 1$ 的最小值。我们可以从后向前遍历数组 $\textit{nums}$ 来计算数组 $\textit{suf}$。
 
 接下来，我们定义一个变量 $\textit{pre}$ 来表示数组 $\textit{nums}$ 的前缀和。我们遍历数组 $\textit{nums}$ 的前 $n - 1$ 个元素，对于每个下标 $i$，我们将 $\textit{nums}[i]$ 加入到 $\textit{pre}$ 中，并计算分割得分 $\textit{score}(i) = \textit{pre} - \textit{suf}[i + 1]$。我们使用一个变量 $\textit{ans}$ 来维护所有分割得分的最大值。

@@ -81,6 +81,14 @@ tags:
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A balanced integer has at least two digits and equal odd/even place-sums. Range counting is a digit DP $calc(high)-calc(low-1)$ whose state is the position, the running difference, and tightness; numbers shorter than two digits are excluded by raising the lower bound to $11$.
+
+<!-- thinking:end -->
+
 First, if $\textit{high} < 11$, there are no balanced integers in the range, so we directly return $0$. Otherwise, we update $\textit{low}$ to $\max(\textit{low}, 11)$.
 
 Then we design a function $\textit{dfs}(\textit{pos}, \textit{diff}, \textit{lim})$, which represents processing the $\textit{pos}$-th digit of the number, where $\textit{diff}$ is the difference between the sum of digits at odd positions and the sum of digits at even positions, and $\textit{lim}$ indicates whether the current digit is constrained by the upper bound. The function returns the number of balanced integers that can be constructed from the current state.

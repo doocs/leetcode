@@ -88,6 +88,14 @@ Any other valid combination would cost more, so the minimum total cost is 22.</p
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each demand can be filled by a single-type item or by a bundle, and the needs are too large to simulate unit by unit. Only three policies matter: buy only singles, buy only bundles, or buy $\min(need1,need2)$ bundles and finish with singles. We take the cheapest of the three.
+
+<!-- thinking:end -->
+
 We can divide the purchasing strategy into three cases:
 
 1. Only buy Type 1 and Type 2 items. The total cost is $a = \textit{need1} \times \textit{cost1} + \textit{need2} \times \textit{cost2}$.

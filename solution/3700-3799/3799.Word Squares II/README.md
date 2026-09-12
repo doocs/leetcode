@@ -108,6 +108,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 单词互不相同且长度均为 $4$，总数不超过 $15$，可以枚举四个不同下标。排序后四重循环取出 $\textit{top},\textit{left},\textit{right},\textit{bottom}$，检查四个角字母是否分别相等，满足则加入答案。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

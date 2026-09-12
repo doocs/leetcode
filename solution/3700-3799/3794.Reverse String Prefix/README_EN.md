@@ -77,6 +77,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the first $k$ characters are reversed, and $k$ never exceeds the length. We reverse that prefix slice and concatenate the suffix.
+
+<!-- thinking:end -->
+
 We reverse the first $k$ characters of the string according to the problem description, and then concatenate them with the remaining characters.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string.
