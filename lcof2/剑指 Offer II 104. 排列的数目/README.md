@@ -68,6 +68,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 顺序不同视为不同方案，且每个数可重复使用。若按组合背包外层枚举数，会把不同顺序算成同一种。
+>
+> 先枚举和再枚举最后一个数：$dp[i]$ 累加 $dp[i-num]$，这样每种排列都会按其末项被计数一次。$dp[0]=1$ 表示空排列。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

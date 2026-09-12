@@ -66,6 +66,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个数前加正号或负号，使结果等于 $\textit{target}$。$n\le 20$ 时可爆搜，但题目允许用计数 DP。
+>
+> 前 $i$ 个数能形成的和落在 $[-1000,1000]$，用偏移 $1000$ 把下标变为非负。$dp[i][j]$ 由加上或减去 $nums[i]$ 从上一行累加而来。
+
+<!-- thinking:end -->
+
 用偏移量把负数下标映射到数组里。$dp[i][j]$ 表示前 $i$ 个数凑出和 $j-1000$ 的方案数。
 
 时间复杂度 $O(n \times S)$，空间复杂度 $O(n \times S)$。其中 $S$ 为偏移后的和范围。
@@ -204,6 +214,14 @@ class Solution {
 
 ### 方法二：动态规划（转化 01 背包）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一把和的正负都展开。设负号子集的和为 $neg$，则 $s-2\cdot neg=\textit{target}$，化为选出和为 $(s-\textit{target})/2$ 的子集个数，即二维 $01$ 背包计数。
+
+<!-- thinking:end -->
+
 设总和为 $s$，将「部分取负」转化为选出一个子集使其和为 $(s-\textit{target})/2$，再用二维 $01$ 背包计数。
 
 <!-- tabs:start -->
@@ -307,6 +325,14 @@ class Solution {
 
 ### 方法三：动态规划（空间优化）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法二的背包只依赖上一行。倒序更新一维数组即可。
+
+<!-- thinking:end -->
+
 每个数最多选一次，内层倒序更新一维数组。
 
 <!-- tabs:start -->
@@ -336,6 +362,14 @@ class Solution:
 <!-- solution:start-->
 
 ### 方法四：记忆化搜索
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法三仍是递推。直接对每个数枚举取正或取负并记忆化，实现与转移最贴近题意。
+
+<!-- thinking:end -->
 
 枚举每个数取正或取负，记忆化搜索剩余目标和。
 

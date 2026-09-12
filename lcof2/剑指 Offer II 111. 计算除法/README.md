@@ -74,6 +74,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof2/%E5%89%91%E6%8C%87%2
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 等式给出变量比值，查询另一些比值。把变量看作图上的点、比值看作有向边权，每次查询再搜索，会重复走同一连通块。
+>
+> 带权并查集把比值路径压缩到根：$\textit{find}$ 时累乘到根的权。合并 $a/b=v$ 时按两端到根的权算出根之间的比值。查询时若不同根则无解，否则两权相除。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
