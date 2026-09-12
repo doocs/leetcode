@@ -95,6 +95,16 @@ Result table
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 活跃用户是存在两次确认时间差不超过 $24$ 小时。按用户排序再扫窗口可以，但用自连接更直接。
+>
+> 将 $\texttt{Confirmations}$ 按 $\texttt{user\_id}$ 自连接，限制 $c_1$ 早于 $c_2$ 且秒差不超过一天，对用户去重即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

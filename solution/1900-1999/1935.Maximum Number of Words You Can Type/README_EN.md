@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word is typable iff it contains no broken letter. Put broken letters in a set and split $\textit{text}$ on spaces.
+>
+> Count words whose every character misses the set. The alphabet is constant, so the pass is linear in the text length.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $s$ of length $26$ to record all the broken letter keys.
 
 Then, we traverse each word $w$ in the string $text$, and if any letter $c$ in $w$ appears in $s$, it means that the word cannot be typed, and we do not need to add one to the answer. Otherwise, we need to add one to the answer.

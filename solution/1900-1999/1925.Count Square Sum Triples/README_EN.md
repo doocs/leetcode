@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ is at most a few hundred, so enumerating $a,b$ and testing whether $a^2+b^2$ is a perfect square $\le n$ is $O(n^2)$ and acceptable.
+>
+> Take $c=\lfloor\sqrt{a^2+b^2}\rfloor$ and accept when $c^2$ matches and $c\le n$. Independent loops count both $(a,b,c)$ and $(b,a,c)$.
+
+<!-- thinking:end -->
+
 We enumerate $a$ and $b$ in the range $[1, n)$, then calculate $c = \sqrt{a^2 + b^2}$. If $c$ is an integer and $c \leq n$, then we have found a Pythagorean triplet, and we increment the answer by one.
 
 After the enumeration is complete, return the answer.

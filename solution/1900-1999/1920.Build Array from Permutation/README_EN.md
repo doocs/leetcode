@@ -64,6 +64,16 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The definition $\textit{ans}[i]=\textit{nums}[\textit{nums}[i]]$ may use an extra array, so a straightforward comprehension suffices.
+>
+> One pass writes every mapping in $O(n)$ time.
+
+<!-- thinking:end -->
+
 We can directly simulate the process described in the problem by constructing a new array $\textit{ans}$. For each $i$, let $\textit{ans}[i] = \textit{nums}[\textit{nums}[i]]$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.

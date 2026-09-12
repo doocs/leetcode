@@ -67,6 +67,16 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{ans}[i]=\textit{nums}[\textit{nums}[i]]$ 已由题面给出，且允许使用额外数组。直接按定义构造即可，不必原地编码。
+>
+> 一次遍历写下每个映射，时间为 $O(n)$。
+
+<!-- thinking:end -->
+
 我们可以直接模拟题目描述的过程，构建一个新的数组 $\textit{ans}$，对于每个 $i$，令 $\textit{ans}[i] = \textit{nums}[\textit{nums}[i]]$。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。

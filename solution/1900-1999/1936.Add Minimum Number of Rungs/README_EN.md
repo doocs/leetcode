@@ -75,6 +75,18 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
 
 ### Solution 1: Greedy + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A gap larger than $\textit{dist}$ needs extra rungs, each also at most $\textit{dist}$ apart. Heights reach $10^9$, so we cannot step one rung at a time.
+>
+> The fewest inserts from $a$ to $b$ are $\lfloor(b-a-1)/\textit{dist}\rfloor$. Prefixing $0$ and summing adjacent pairs gives the total.
+>
+> Stretching each insert to $\textit{dist}$ is optimal for that closed form.
+
+<!-- thinking:end -->
+
 According to the problem description, we know that every time we plan to climb a new rung, we need to ensure that the height difference between the new rung and the current position does not exceed `dist`. Otherwise, we need to greedily insert a new rung at a distance of $dist$ from the current position, climb a new rung, and the total number of rungs to be inserted is $\lfloor \frac{b - a - 1}{dist} \rfloor$, where $a$ and $b$ are the current position and the height of the new rung, respectively. The answer is the sum of all inserted rungs.
 
 The time complexity is $O(n)$, where $n$ is the length of `rungs`. The space complexity is $O(1)$.

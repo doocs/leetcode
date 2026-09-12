@@ -82,6 +82,18 @@ You cannot take path 0 -&gt; 1 -&gt; 2 -&gt; 5 since it would take too long.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges carry both time and a passing fee. Optimizing only one dimension misses either the deadline or the minimum cost. With $\textit{maxTime}\le 1000$ and $n\le 1000$, time can be a DP index.
+>
+> Let $f[i][j]$ be the cheapest fee to reach city $j$ using exactly $i$ minutes. Increasing $i$ and relaxing every edge is a shortest path on the time–city graph.
+>
+> The answer is the minimum $f[\cdot][n-1]$ over all feasible times, or $-1$ if none exist.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the minimum cost to reach city $j$ from city $0$ after $i$ minutes. Initially, $f[0][0] = \textit{passingFees}[0]$, and the rest $f[0][j] = +\infty$.
 
 Next, within the time range $[1, \textit{maxTime}]$, we traverse all edges. For each edge $(x, y, t)$, if $t \leq i$, then we:
