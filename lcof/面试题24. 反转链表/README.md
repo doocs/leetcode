@@ -39,6 +39,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：头插法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 反转即把每个结点的 `next` 指向上一个。从头依次摘下结点，用头插法接到哑结点后面，遍历结束时哑结点之后即新头。
+
+<!-- thinking:end -->
+
 创建虚拟头节点 $dummy$，遍历链表，将每个节点依次插入 $dummy$ 的下一个节点。遍历结束，返回 $dummy.next$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为链表的长度。
@@ -295,6 +303,14 @@ class Solution {
 <!-- solution:start-->
 
 ### 方法二：递归
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 头插法为迭代。递归先反转后续链表，再把当前结点接到已反转部分的尾部，并断开原 `next`。多用一层调用栈。
+
+<!-- thinking:end -->
 
 递归反转链表的第二个节点到尾部的所有节点，然后 $head$ 插在反转后的链表的尾部。
 
