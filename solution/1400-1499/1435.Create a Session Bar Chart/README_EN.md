@@ -78,6 +78,14 @@ For session_id 5 has a duration greater than or equal to 15 minutes.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sessions must be binned into four half-open intervals, including empty bins. A single `GROUP BY` on a `CASE` can drop empty bins, so we `UNION` four `COUNT` queries, one per range.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

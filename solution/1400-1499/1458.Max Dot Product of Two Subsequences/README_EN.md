@@ -67,6 +67,16 @@ Their dot product is -1.</pre>
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Subsequences must be non-empty and values may be negative. $m,n\le 500$. Taking only positive products like LCS would miss a single negative pair.
+>
+> $f[i][j]$ is the best dot product of the two prefixes: drop one end, or pair them and optionally discard a negative prefix via $\max(0,f[i-1][j-1])+x\cdot y$. $-\infty$ forces at least one pair.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the maximum dot product of two subsequences formed by the first $i$ elements of $\textit{nums1}$ and the first $j$ elements of $\textit{nums2}$. Initially, $f[i][j] = -\infty$.
 
 For $f[i][j]$, we have the following cases:

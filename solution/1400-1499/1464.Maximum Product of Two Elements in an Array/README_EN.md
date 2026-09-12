@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 500$. Enumerate every unordered pair and keep the maximum of $(a-1)(b-1)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -221,6 +229,14 @@ int maxProduct(int* nums, int numsSize) {
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is quadratic. The product grows with the two values, so sort and take the last two.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -291,6 +307,14 @@ function maxProduct(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 still sorts. One pass that keeps the largest and second-largest values is enough.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

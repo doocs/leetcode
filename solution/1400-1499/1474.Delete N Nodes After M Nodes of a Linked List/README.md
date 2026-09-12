@@ -86,6 +86,14 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按「保留 $m$ 个、删除 $n$ 个」重复直到链表结束。用 $\textit{pre}$ 走完要保留的一段，再用 $\textit{cur}$ 跳过要删除的节点，改接 $\textit{pre.next}$。剩余不足时提前结束。
+
+<!-- thinking:end -->
+
 我们可以模拟整个删除过程，首先用 $\textit{pre}$ 指针指向链表头部，然后遍历链表，移动 $m - 1$ 步，如果 $\textit{pre}$ 为空，说明从当前节点开始的节点个数小于 $m$，直接返回头部；否则，用 $\textit{cur}$ 指针指向 $\textit{pre}$，然后移动 $n$ 步，如果 $\textit{cur}$ 为空，说明从 $\textit{pre}$ 开始的节点个数小于 $m + n$，直接将 $\textit{pre}$ 的 $\textit{next}$ 指向 $\text{null}$；否则，将 $\textit{pre}$ 的 $\textit{next}$ 指向 $\textit{cur}$ 的 $\textit{next}$，然后将 $\textit{pre}$ 移动到 $\textit{pre}$ 的 $\textit{next}$。继续遍历链表，直到 $\textit{pre}$ 为空，返回头部。
 
 时间复杂度 $O(n)$，其中 $n$ 是链表中节点的个数。空间复杂度 $O(1)$。

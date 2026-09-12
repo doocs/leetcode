@@ -76,6 +76,14 @@ Output is ordered by length and the new first word starts with capital letter.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort words by length, keep equal lengths in original order, and recapitalize the sentence. Split, lowercase the first word, stable-sort by `len`, then title-case the new first word.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

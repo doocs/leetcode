@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Dynamic Programming + Monotonic Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent indices in the subsequence differ by at most $k$. $n\le 10^5$, so scanning $[i-k,i-1]$ for every $i$ is $O(nk)$.
+>
+> $f[i]=\textit{nums}[i]+\max(0,\max_{i-k\le j<i}f[j])$ is a sliding-window maximum on $f$. A decreasing deque of indices makes each transition amortized $O(1)$.
+>
+> Values may be negative, so we may start a new subsequence at $i$. The answer is the maximum $f[i]$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the maximum sum of the subsequence ending at $\textit{nums}[i]$ that meets the conditions. Initially, $f[i] = 0$, and the answer is $\max_{0 \leq i \lt n} f(i)$.
 
 We notice that the problem requires us to maintain the maximum value of a sliding window, which is a typical application scenario for a monotonic queue. We can use a monotonic queue to optimize the dynamic programming transition.

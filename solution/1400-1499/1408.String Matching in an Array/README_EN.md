@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and each word has length at most $30$, so testing whether each word occurs in another is about $O(n^2\cdot L^2)$ and fits the limits.
+>
+> Words are unique, so a double loop with a substring test is enough; a trie or KMP is unnecessary.
+
+<!-- thinking:end -->
+
 We directly enumerate all strings $words[i]$, and check whether it is a substring of other strings. If it is, we add it to the answer.
 
 The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Where $n$ is the length of the string array.

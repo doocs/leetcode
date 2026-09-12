@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 500$ allows enumerating subsequences, but we also need the shortest one, then the one with the largest sum, written in non-increasing order.
+>
+> To beat the complement with as few elements as possible, take the largest values first. Scan the array in descending order and stop when the running sum $t$ exceeds $s-t$; the collected prefix is already the required subsequence.
+
+<!-- thinking:end -->
+
 We can first sort the array $nums$ in descending order, then add the elements to the array from largest to smallest. After each addition, we check whether the sum of the current elements is greater than the sum of the remaining elements. If it is, we return the current array.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array $nums$.

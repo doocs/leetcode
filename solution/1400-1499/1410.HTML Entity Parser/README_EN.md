@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Hash Table + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Entities are at most $7$ characters and come from a fixed set. For $n\le 10^5$, trying prefixes of length $1$–$7$ at each index is enough.
+>
+> Map each entity to its character. On a hit, emit the replacement and skip ahead; otherwise emit the current character. This also handles overlapping cases such as `&amp;gt;`.
+
+<!-- thinking:end -->
+
 We can use a hash table to store the corresponding character for each character entity. Then, we traverse the string, and when we encounter a character entity, we replace it with the corresponding character.
 
 The time complexity is $O(n \times l)$, and the space complexity is $O(l)$. Here, $n$ is the length of the string, and $l$ is the total length of the character entities.
@@ -264,6 +274,14 @@ function entityParser(text: string): string {
 <!-- solution:start -->
 
 ### Solution 2: Regular Expression Replacement
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 walks prefix lengths by hand. The entity set is tiny, so joining the keys into one regular expression and calling `replace` performs the same mapping with less code.
+
+<!-- thinking:end -->
 
 Store the entity-to-character mapping in a hash table, then build a regular expression and replace all entities in one pass.
 

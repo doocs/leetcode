@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. Enumerate $1\le i<j\le n$ and keep the pair when $\gcd(i,j)=1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

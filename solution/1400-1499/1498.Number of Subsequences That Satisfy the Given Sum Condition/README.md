@@ -76,6 +76,16 @@ tags:
 
 ### 方法一：排序 + 二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 子序列只关心最小与最大，排序不改变可组成的最值对。$n\le 10^5$，枚举最小值 $nums[i]$，二分最大合法 $nums[j]$，中间元素可任意选，方案为 $2^{j-i}$。
+>
+> 预处理二的幂以免重复计算。若 $2\cdot nums[i]>target$，更大的最小值已不可能。
+
+<!-- thinking:end -->
+
 由于题目中描述的是子序列，并且涉及到最小元素与最大元素的和，因此我们可以先对数组 $\textit{nums}$ 进行排序。
 
 然后我们枚举最小元素 $\textit{nums}[i]$，对于每个 $\textit{nums}[i]$，我们可以在 $\textit{nums}[i + 1]$ 到 $\textit{nums}[n - 1]$ 中找到最大元素 $\textit{nums}[j]$，使得 $\textit{nums}[i] + \textit{nums}[j] \leq \textit{target}$，此时满足条件的子序列数目为 $2^{j - i}$，其中 $2^{j - i}$ 表示从 $\textit{nums}[i + 1]$ 到 $\textit{nums}[j]$ 的所有子序列的数目。我们将所有的子序列数目累加即可。

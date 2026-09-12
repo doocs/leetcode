@@ -77,6 +77,14 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 
 ### Solution 1: Two Stacks
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `visit` drops forward history; `back`/`forward` walk a timeline. $stk1$ holds the path to the current page, $stk2$ the forward pages. A visit pushes onto $stk1$ and clears $stk2$; back pops onto $stk2$, forward pops back.
+
+<!-- thinking:end -->
+
 We can use two stacks, $\textit{stk1}$ and $\textit{stk2}$, to store the back and forward pages, respectively. Initially, $\textit{stk1}$ contains the $\textit{homepage}$, and $\textit{stk2}$ is empty.
 
 When calling $\text{visit}(url)$, we add $\textit{url}$ to $\textit{stk1}$ and clear $\textit{stk2}$. The time complexity is $O(1)$.

@@ -118,6 +118,14 @@ There are no sales of T-shirts.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each category needs Monday–Sunday totals, including categories with no orders. Right-join `Orders` to `Items`, bucket `quantity` with `DAYOFWEEK`, and group by category.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

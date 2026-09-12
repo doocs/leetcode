@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $2^k$ binary strings of length $k$, and $k\le 20$. If $s$ has fewer than $2^k$ windows, fail; otherwise collect every length-$k$ substring and test the set size.
+
+<!-- thinking:end -->
+
 First, for a string $s$ of length $n$, the number of substrings of length $k$ is $n - k + 1$. If $n - k + 1 < 2^k$, then there must exist a binary string of length $k$ that is not a substring of $s$, so we return `false`.
 
 Next, we traverse the string $s$ and store all substrings of length $k$ in a set $ss$. Finally, we check if the size of the set $ss$ is equal to $2^k$.
@@ -167,6 +175,14 @@ function hasAllCodes(s: string, k: number): boolean {
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 copies $k$ characters per window. Treat the window as an integer, shift in the new bit and drop the high bit, and insert in $O(1)$.
+
+<!-- thinking:end -->
 
 In Solution 1, we stored all distinct substrings of length $k$, and processing each substring requires $O(k)$ time. We can instead use a sliding window, where each time we add the latest character, we remove the leftmost character from the window. During this process, we use an integer $x$ to store the substring.
 

@@ -110,6 +110,16 @@ Queries 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 查询表中的 $(id,year)$ 可能在 NPV 表中不存在，此时应输出 $0$。内连接会丢掉这些行，因此以 `Queries` 为左表按 $(id,year)$ 连接 `NPV`。
+>
+> `IFNULL(npv, 0)` 把缺失的净现值补成 $0$，并保留查询的全部列。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

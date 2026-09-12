@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: String Splitting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sentence is short. Split on spaces and return the 1-based index of the first word that starts with $\textit{searchWord}$.
+
+<!-- thinking:end -->
+
 We split $\textit{sentence}$ by spaces into $\textit{words}$, then iterate through $\textit{words}$ to check if $\textit{words}[i]$ is a prefix of $\textit{searchWord}$. If it is, we return $i+1$. If the iteration completes and no words satisfy the condition, we return $-1$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m)$. Here, $m$ and $n$ are the lengths of $\textit{sentence}$ and $\textit{searchWord}$, respectively.

@@ -55,6 +55,14 @@ tags:
 
 ### Solution 1: Traversal and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 500$. Scan once, grow $t$ while adjacent characters match, reset on a change, and keep the maximum.
+
+<!-- thinking:end -->
+
 We define a variable $\textit{t}$ to represent the length of the current consecutive characters, initially $\textit{t}=1$.
 
 Next, we traverse the string $s$ starting from the second character. If the current character is the same as the previous character, then $\textit{t} = \textit{t} + 1$, and update the answer $\textit{ans} = \max(\textit{ans}, \textit{t})$; otherwise, set $\textit{t} = 1$.

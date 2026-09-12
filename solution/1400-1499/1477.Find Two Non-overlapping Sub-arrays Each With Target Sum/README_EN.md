@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$ and values are positive, so a prefix-sum map finds every subarray summing to $target$ in linear time. We need two non-overlapping ones with minimal total length.
+>
+> $f[i]$ is the shortest such subarray in the first $i$ elements. When $[j+1,i]$ hits $target$, combine it with $f[j]$ and set $f[i]=\min(f[i-1],i-j)$.
+
+<!-- thinking:end -->
+
 We can use a hash table $d$ to record the most recent position where each prefix sum appears, with the initial value $d[0]=0$.
 
 Define $f[i]$ as the minimum length of a subarray with sum equal to $target$ among the first $i$ elements. Initially, $f[0]=\infty$.

@@ -110,6 +110,16 @@ Donald did not have any rides, the distance traveled by him is 0.
 
 ### Solution 1: LEFT JOIN + GROUP BY
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every user must appear, including those with no rides. An inner join would drop them, so `Users` is the left table joined to `Rides`.
+>
+> Group by user `id` and sum `distance`. `SUM` is `NULL` when there are no rides, so `IFNULL` turns it into $0$. Order by distance descending, then name.
+
+<!-- thinking:end -->
+
 We can use a left join to join the `Users` table with the `Rides` table on the condition of user id, and then group by user id to calculate the travel distance for each user. Note that if a user has no travel records, the travel distance is $0$.
 
 <!-- tabs:start -->

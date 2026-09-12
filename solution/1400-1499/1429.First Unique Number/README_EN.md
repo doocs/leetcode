@@ -102,6 +102,16 @@ firstUnique.showFirstUnique(); // return -1
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After many `add`s we must report the oldest value that still occurs once. A counter alone loses order; a queue alone cannot delete a value that just became duplicate.
+>
+> Count frequencies and keep current uniques in an `OrderedDict`. On `add`, insert when the count becomes $1$ and erase when it becomes $2$. `showFirstUnique` returns the first remaining key.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -250,6 +260,14 @@ func (this *FirstUnique) Add(value int) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 deletes from the ordered map as soon as a value repeats. We can instead append to a deque and, on query, pop front elements whose count is no longer one. Lazy deletion keeps the same answer with less bookkeeping.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

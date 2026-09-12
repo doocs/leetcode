@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$, so we cannot try permutations. One string breaks the other iff some pairing makes every character at least as large.
+>
+> Sort both and compare position-wise: if one side is always $\ge$ or always $\le$, such a permutation exists. Sorted pairing is optimal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

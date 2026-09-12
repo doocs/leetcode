@@ -61,6 +61,14 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把 $[x_1,\ldots,x_n,y_1,\ldots,y_n]$ 交错。`zip` 前半与后半后展平即可。
+
+<!-- thinking:end -->
+
 我们在 $[0, n)$ 的范围内遍历下标 $i$，每次取出 $\textit{nums}[i]$ 和 $\textit{nums}[i+n]$，并将它们依次放入答案数组中。
 
 遍历结束后，返回答案数组即可。

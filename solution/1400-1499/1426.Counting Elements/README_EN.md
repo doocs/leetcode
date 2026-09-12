@@ -52,6 +52,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$ would allow a scan for $x+1$ per element. After counting, for each seen $x$ we add its frequency if $x+1$ also occurs.
+
+<!-- thinking:end -->
+
 We can use a hash table or array $cnt$ to record the frequency of each number in the array $arr$. Then, we traverse each number $x$ in $cnt$. If $x+1$ also exists in $cnt$, we add $cnt[x]$ to the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $arr$.

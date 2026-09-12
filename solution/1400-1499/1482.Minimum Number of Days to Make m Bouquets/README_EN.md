@@ -80,6 +80,14 @@ It is obvious that we can make two bouquets in different ways.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> More days only make it easier to form $m$ bouquets. $n\le 10^5$ and bloom days reach $10^9$, so binary-search the day. The check counts adjacent blooms of length $k$. If no day works, return $-1$.
+
+<!-- thinking:end -->
+
 According to the problem description, if a day $t$ can satisfy making $m$ bouquets, then for any $t' > t$, it can also satisfy making $m$ bouquets. Therefore, we can use binary search to find the minimum day that satisfies making $m$ bouquets.
 
 Let $mx$ be the maximum blooming day in the garden. Next, we define the left boundary of the binary search as $l = 1$ and the right boundary as $r = mx + 1$.

@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sampling grid points or checking only the four corners misses edge and interior intersections. Coordinates go to $10^4$, so we need an exact geometric test.
+>
+> The circle meets the rectangle iff the closest point of the rectangle to the center lies inside the circle. That point's $x$ and $y$ can be clamped independently to $[x_1,x_2]$ and $[y_1,y_2]$.
+>
+> A coordinate that already lies in its interval contributes distance $0$; otherwise we take the nearer endpoint. Compare the sum of squared distances with $radius^2$.
+
+<!-- thinking:end -->
+
 For a point $(x, y)$, its shortest distance to the center of the circle $(xCenter, yCenter)$ is $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$. If this distance is less than or equal to the radius $radius$, then this point is within the circle (including the boundary).
 
 For points within the rectangle (including the boundary), their x-coordinates $x$ satisfy $x_1 \leq x \leq x_2$, and their y-coordinates $y$ satisfy $y_1 \leq y \leq y_2$. To determine whether the circle and rectangle overlap, we need to find a point $(x, y)$ within the rectangle such that $a = |x - xCenter|$ and $b = |y - yCenter|$ are minimized. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.

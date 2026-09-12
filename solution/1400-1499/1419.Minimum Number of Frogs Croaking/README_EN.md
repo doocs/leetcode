@@ -68,6 +68,18 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 
 ### Solution 1: Counting + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several `croak`s interleave and the string can be length $10^5$, so we cannot match frogs one by one. Letters must advance in the order $c\to r\to o\to a\to k$.
+>
+> A 5-slot counter tracks how many calls sit at each stage. A $c$ starts a new unfinished frog; every later letter must consume the previous stage. A $k$ finishes one frog.
+>
+> The answer is the peak number of unfinished frogs. Leftover unfinished calls, or a length not divisible by $5$, yield $-1$.
+
+<!-- thinking:end -->
+
 We note that if the string `croakOfFrogs` is composed of several valid `"croak"` characters mixed together, its length must be a multiple of $5$. Therefore, if the length of the string is not a multiple of $5$, we can directly return $-1$.
 
 Next, we map the letters `'c'`, `'r'`, `'o'`, `'a'`, `'k'` to indices $0$ to $4$, respectively, and use an array $cnt$ of length $5$ to record the number of occurrences of each letter in the string `croakOfFrogs`, where $cnt[i]$ represents the number of occurrences of the letter at index $i$. Additionally, we define an integer variable $x$ to represent the number of frogs that have not completed their croak, and the minimum number of frogs needed $ans$ is the maximum value of $x$.

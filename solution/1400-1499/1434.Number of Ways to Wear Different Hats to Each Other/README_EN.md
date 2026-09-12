@@ -79,6 +79,16 @@ Number of Permutations of (1,2,3,4) = 24.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are $n\le 10$ people and at most $40$ hats. Assigning hats per person is awkward to compress. Enumerate hats instead and bit-mask who already wears one.
+>
+> $f[i][j]$ is the number of ways using the first $i$ hats with assigned set $j$. Hat $i$ may be unused or given to a person $k$ who likes it and is still free. The answer is $f[m][2^n-1]$.
+
+<!-- thinking:end -->
+
 We notice that $n$ is not greater than $10$, so we consider using DP with state compression to solve this problem.
 
 We define $f[i][j]$ as the number of ways to assign the first $i$ hats to the people whose state is $j$. Here $j$ is a binary number, which represents a set of people. We have $f[0][0]=1$ at the beginning, and the answer is $f[m][2^n - 1]$, where $m$ is the maximum number of hats and $n$ is the number of people.

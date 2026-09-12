@@ -60,6 +60,14 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 1000$. Emit $start+2i$ and XOR the values together.
+
+<!-- thinking:end -->
+
 We can directly simulate to calculate the XOR result of all elements in the array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

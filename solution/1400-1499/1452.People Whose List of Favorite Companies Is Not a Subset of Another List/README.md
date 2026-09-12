@@ -70,6 +70,16 @@ favoriteCompanies[3]=[&quot;google&quot;] 是 favoriteCompanies[0]=[&quot;leetco
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n\le 100$、每人至多 $500$ 家公司，公司名较长。把公司映射成整数后用集合表示清单，再双重循环用子集运算判断是否被他人包含。
+>
+> 清单互不相同，因此只需检查是否存在 $j\neq i$ 使 $\textit{nums}[i]\subseteq\textit{nums}[j]$。
+
+<!-- thinking:end -->
+
 我们可以将每个公司映射到一个唯一的整数，然后对于每个人，我们将他们收藏的公司转换为整数集合，最后判断是否存在一个人的收藏公司是另一个人的子集。
 
 时间复杂度 $(n \times m \times k + n^2 \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别是 `favoriteCompanies` 的长度和每个公司清单的平均长度，而 $k$ 是每个公司的平均长度。

@@ -70,6 +70,14 @@ class Node {
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There is no random pointer, so a deep copy clones the value and recurses on every child. At most $10^4$ nodes, one traversal. A null root returns null.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

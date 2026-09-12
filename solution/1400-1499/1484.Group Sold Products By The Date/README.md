@@ -76,6 +76,14 @@ Activities</code> 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按销售日期统计去重后的商品种数，并把名称按字典序拼成串。`GROUP BY sell_date` 后用 `COUNT(DISTINCT product)` 与 `GROUP_CONCAT(DISTINCT product)` 即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

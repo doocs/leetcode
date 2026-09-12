@@ -80,6 +80,14 @@ tags:
 
 ### 方法一：直接遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n\le 100$，对每个学生判断 $\textit{queryTime}$ 是否落在 $[\textit{start},\textit{end}]$ 内并计数。
+
+<!-- thinking:end -->
+
 我们可以直接遍历两个数组，对于每个学生，判断 $\textit{queryTime}$ 是否在他们的作业时间区间内，若是，答案加一。
 
 遍历结束后，返回答案即可。

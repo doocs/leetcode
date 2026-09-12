@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the most vowels in any length-$k$ window. $n\le 10^5$, so count the first $k$ characters, then add/remove one character as the window slides.
+
+<!-- thinking:end -->
+
 First, we count the number of vowels in the first $k$ characters, denoted as $cnt$, and initialize the answer $ans$ as $cnt$.
 
 Then we start traversing the string from $k$. For each iteration, we add the current character to the window. If the current character is a vowel, we increment $cnt$. We remove the first character from the window. If the removed character is a vowel, we decrement $cnt$. Then, we update the answer $ans = \max(ans, cnt)$.

@@ -116,6 +116,14 @@ Orders</code> 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要按品类输出周一至周日的销量，没有订单的品类也应出现。以 `Items` 为右表连接 `Orders`，用 `DAYOFWEEK` 把数量加到对应列，再按品类分组排序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

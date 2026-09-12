@@ -71,6 +71,16 @@ Other lists of favorite companies are not a subset of another list, therefore, t
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ and each list has at most $500$ names. Map company names to integers, store each list as a set, and test subset relations in a double loop.
+>
+> Lists are unique, so person $i$ stays if no $j\neq i$ satisfies $\textit{nums}[i]\subseteq\textit{nums}[j]$.
+
+<!-- thinking:end -->
+
 We can map each company to a unique integer. Then, for each person, we convert their favorite companies into a set of integers. Finally, we check if the favorite companies of one person are a subset of another person's favorite companies.
 
 The time complexity is $(n \times m \times k + n^2 \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of `favoriteCompanies` and the average length of each company's list, respectively, and $k$ is the average length of each company.

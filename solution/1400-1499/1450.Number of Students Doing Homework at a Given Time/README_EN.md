@@ -62,6 +62,14 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 
 ### Solution 1: Direct Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. Count students whose interval contains $\textit{queryTime}$.
+
+<!-- thinking:end -->
+
 We can directly traverse the two arrays. For each student, we check if $\textit{queryTime}$ is within their homework time interval. If it is, we increment the answer by one.
 
 After the traversal, we return the answer.

@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One value per row yields $n^m$ sums, but $k\le 200$. We only need the $k$ smallest partial sums. Rows are sorted, so combining with the next row uses at most its first $k$ entries.
+>
+> Let $pre$ be the $k$ smallest sums so far. Cartesian-add the current row, sort, and keep $k$ values. After the last row, $pre[k-1]$ is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

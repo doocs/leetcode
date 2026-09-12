@@ -71,6 +71,14 @@ There are multiple ways to convert arr to target, this is not the only way to do
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reversing subarrays generates every permutation. $n\le 1000$, so the arrays can be equalized iff they match after sorting.
+
+<!-- thinking:end -->
+
 If two arrays are equal after sorting, then they can be made equal by reversing sub-arrays.
 
 Therefore, we only need to sort the two arrays and then check if the sorted arrays are equal.
@@ -197,6 +205,14 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 <!-- solution:start -->
 
 ### Solution 2: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 sorts. Values lie in $1$–$1000$, so comparing frequencies is enough and runs in linear time.
+
+<!-- thinking:end -->
 
 We note that the range of the array elements given in the problem is $1 \sim 1000$. Therefore, we can use two arrays `cnt1` and `cnt2` of length $1001$ to record the number of times each element appears in the arrays `target` and `arr` respectively. Finally, we just need to check if the two arrays are equal.
 

@@ -72,6 +72,16 @@ treeAncestor.getKthAncestor(6, 3); // returns -1 because there is no such ancest
 
 ### Solution 1: Dynamic Programming + Binary Lifting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both $n$ and the query count are $5\times 10^4$, so walking $k$ parents per query is too slow. Precompute $p[i][j]$ as the $2^j$-th ancestor, using $p[i][j]=p[p[i][j-1]][j-1]$.
+>
+> A query jumps on the bits of $k$ in $O(\log n)$.
+
+<!-- thinking:end -->
+
 The problem asks us to find the $k$-th ancestor node of a node $node$. If we solve it by brute force, we need to traverse upwards from $node$ for $k$ times, which has a time complexity of $O(k)$ and will obviously exceed the time limit.
 
 We can use dynamic programming combined with the idea of binary lifting to handle this.

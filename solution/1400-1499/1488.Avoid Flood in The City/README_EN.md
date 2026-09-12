@@ -95,6 +95,16 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 
 ### Solution 1: Greedy + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 10^5$. A lake that rains a second time must have been dried after the previous rain. A dry day should be spent on the lake that will rain again soonest among those still full.
+>
+> Store dry days in a sorted list and the last rain day of each lake in a map. On a repeat rain, binary-search the first dry day after that last rain; if none exists, fail. Unused dry days become $1$.
+
+<!-- thinking:end -->
+
 We store all sunny days in the $sunny$ array or a sorted set, and use the hash table $rainy$ to record the last rainy day for each lake. We initialize the answer array $ans$ with each element set to $-1$.
 
 Next, we traverse the $rains$ array. For each rainy day $i$, if $rainy[rains[i]]$ exists, it means that the lake has rained before, so we need to find the first date in the $sunny$ array that is greater than $rainy[rains[i]]$, and replace it with the rainy day. Otherwise, it means that the flood cannot be prevented, and we return an empty array. For each non-rainy day $i$, we store $i$ in the $sunny$ array and set $ans[i]$ to $1$.

@@ -72,6 +72,14 @@ Clearly the destination city is &quot;A&quot;.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The paths form a chain that ends at a city with out-degree zero. $n\le 100$. Put every start city in a set and return the unique end city that is not in the set.
+
+<!-- thinking:end -->
+
 According to the problem description, the destination city will not appear in any of the $\textit{cityA}$. Therefore, we can first traverse the $\textit{paths}$ and put all $\textit{cityA}$ into a set $\textit{s}$. Then, we traverse the $\textit{paths}$ again to find the $\textit{cityB}$ that is not in $\textit{s}$.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of $\textit{paths}$.

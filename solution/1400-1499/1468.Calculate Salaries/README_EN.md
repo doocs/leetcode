@@ -98,6 +98,14 @@ For example, Salary for Morninngcat (3, 15) after taxes = 7777 - 7777 * (24 / 10
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tax rate depends on the company's maximum salary. Aggregate `MAX(salary)` per company, join it back, and apply the $1000$/$10000$ brackets with `CASE` and `ROUND`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

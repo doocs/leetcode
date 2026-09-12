@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Interleave $[x_1,\ldots,x_n]$ with $[y_1,\ldots,y_n]$. Zip the two halves and flatten.
+
+<!-- thinking:end -->
+
 We traverse the indices $i$ in the range $[0, n)$. Each time, we take $\textit{nums}[i]$ and $\textit{nums}[i+n]$ and place them sequentially into the answer array.
 
 After the traversal is complete, we return the answer array.

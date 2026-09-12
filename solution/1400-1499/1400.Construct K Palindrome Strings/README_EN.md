@@ -66,6 +66,18 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating partitions of $s$ into $k$ palindromes is exponential. With $n,k\le 10^5$, we can only decide feasibility from counting properties.
+>
+> A palindrome has at most one odd-count character as its center, so $k$ palindromes absorb at most $k$ odd-count characters. Each palindrome also needs at least one character, so $|s|<k$ is impossible.
+>
+> Compare the length with $k$, count frequencies, and check that the number of odd counts is at most $k$. Even pairs can be distributed freely; we never build the strings.
+
+<!-- thinking:end -->
+
 First, we check if the length of string $s$ is less than $k$. If it is, we cannot construct $k$ palindrome strings, so we can directly return `false`.
 
 Otherwise, we use a hash table or an array $cnt$ to count the occurrences of each character in string $s$. Finally, we only need to count the number of characters $x$ that appear an odd number of times in $cnt$. If $x$ is greater than $k$, we cannot construct $k$ palindrome strings, so we return `false`; otherwise, we return `true`.

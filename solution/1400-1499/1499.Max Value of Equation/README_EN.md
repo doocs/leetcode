@@ -66,6 +66,16 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $x$ is strictly increasing and $n\le 10^5$. Rewrite $y_i+y_j+|x_i-x_j|=(y_i-x_i)+(x_j+y_j)$. For each $j$ we need the max $y_i-x_i$ among $x_j-x_i\le k$.
+>
+> A heap of $(x_i-y_i,x_i)$ pops expired points (min-heap on $x-y$ is max $y-x$) and adds the current $x+y$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -254,6 +264,14 @@ class Heap<T = number> {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(\log n)$ per point. A decreasing deque maintains the window max of $y-x$ in amortized $O(1)$: drop expired heads and dominated tails before pushing.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

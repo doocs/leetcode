@@ -69,6 +69,16 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k\le 10^9$ makes an unbounded-knapsack search over Fibonacci numbers unnecessary. Every positive integer has a Zeckendorf representation as a sum of distinct Fibonacci numbers.
+>
+> Repeatedly subtract the largest Fibonacci number $\le k$. If the previous term could still be used, a larger next term would have been chosen instead. Generate up to just past $k$, then walk backward.
+
+<!-- thinking:end -->
+
 We can greedily select the largest Fibonacci number that does not exceed $k$ each time, then subtract this number from $k$ and increment the answer by one. This process is repeated until $k = 0$.
 
 Since we greedily select the largest Fibonacci number that does not exceed $k$ each time, suppose this number is $b$, the previous number is $a$, and the next number is $c$. Subtracting $b$ from $k$ results in a value that is less than $a$, which means that after selecting $b$, we will not select $a$. This is because if we could select $a$, then we could have greedily selected the next Fibonacci number $c$ instead of $b$ earlier, which contradicts our assumption. Therefore, after selecting $b$, we can greedily reduce the Fibonacci number.

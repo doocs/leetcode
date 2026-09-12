@@ -65,6 +65,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exactly one element is deleted, so the answer is the ones immediately left of $i$ plus those immediately right. $n\le 10^5$. Precompute longest ones ending before $i$ and starting after $i$, then maximize over the deleted index.
+
+<!-- thinking:end -->
+
 We can enumerate each position $i$ to be deleted, then calculate the number of consecutive 1s on the left and right, and finally take the maximum value.
 
 Specifically, we use two arrays $left$ and $right$ of length $n+1$, where $left[i]$ represents the number of consecutive 1s ending with $nums[i-1]$, and $right[i]$ represents the number of consecutive 1s starting with $nums[i]$.
@@ -235,6 +243,14 @@ impl Solution {
 
 ### Solution 2: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 stores two arrays. Equivalently, find the longest window with at most one $0$; after deleting that $0$ (or one $1$) the length is $i-j$. Expand the right end and shrink while the zero count exceeds $1$.
+
+<!-- thinking:end -->
+
 The problem is actually asking us to find the longest subarray that contains at most one $0$. The remaining length after deleting one element from this subarray is the answer.
 
 Therefore, we can use two pointers $j$ and $i$ to point to the left and right boundaries of the subarray, initially $j = 0$, $i = 0$. In addition, we use a variable $cnt$ to record the number of $0$s in the subarray.
@@ -361,6 +377,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3: Two Pointers (Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 may shrink the window when zeros exceed one. We only need the maximum length, so move the left end once whenever the count is too large and keep the window non-decreasing. The answer is $n-l-1$.
+
+<!-- thinking:end -->
 
 In Solution 2, we move the left pointer in a loop until $cnt \leq 1$. Since the problem asks for the longest subarray, it means we don't need to reduce the length of the subarray. Therefore, if $\textit{cnt} \gt 1$, we only move the left pointer once, and the right pointer continues to move to the right. This ensures that the length of the subarray does not decrease.
 

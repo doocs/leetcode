@@ -86,6 +86,16 @@ Cost of paint the first and last house (10 + 1) = 11.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paint $m$ houses into exactly $target$ neighborhoods, paying only for unpainted houses. The state is house $i$, color $j$, and neighborhood count $k$.
+>
+> A pre-painted house is free and fixed; otherwise try each color and add $cost$. Same color keeps $k$, a new color increments it. The answer is the min over colors at $f[m-1][\cdot][target]$, or $-1$.
+
+<!-- thinking:end -->
+
 We define $f[i][j][k]$ to represent the minimum cost to paint houses from index $0$ to $i$, with the last house painted in color $j$, and exactly forming $k$ blocks. The answer is $f[m-1][j][\textit{target}]$, where $j$ ranges from $1$ to $n$. Initially, we check if the house at index $0$ is already painted. If it is not painted, then $f[0][j][1] = \textit{cost}[0][j - 1]$, where $j \in [1,..n]$. If it is already painted, then $f[0][\textit{houses}[0]][1] = 0$. All other values of $f[i][j][k]$ are initialized to $\infty$.
 
 Next, we start iterating from index $i=1$. For each $i$, we check if the house at index $i$ is already painted:

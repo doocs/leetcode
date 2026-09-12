@@ -74,6 +74,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 逐步和必须始终至少为 $1$。设起始值为 $x$，则所有前缀和加上 $x$ 都不小于 $1$，即 $x\ge 1-\min\textit{prefix}$。$x$ 本身还至少为 $1$。
+>
+> $n\le 100$，一遍扫描即可同时得到前缀和与其最小值 $t$，答案为 $\max(1,1-t)$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -175,6 +185,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一在扫描中维护最小值。先用 `accumulate` 得到全部前缀，再取 $\min$，判定公式相同，只是把前缀数组显式化。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

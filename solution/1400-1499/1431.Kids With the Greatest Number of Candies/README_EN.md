@@ -72,6 +72,14 @@ Kid 1 will always have the greatest number of candies, even if a different kid i
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$. Compute the current maximum $mx$, then test whether each child plus the extra candies is at least $mx$. No need to simulate giving.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

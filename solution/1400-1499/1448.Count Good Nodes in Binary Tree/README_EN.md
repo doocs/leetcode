@@ -71,6 +71,14 @@ Node 3 -&gt; (3,1,3) is the maximum value in the path.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is good if nothing larger appears on the path from the root. $n\le 10^5$. DFS carries the path maximum $mx$; count the node when its value is at least $mx$, then update $mx$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

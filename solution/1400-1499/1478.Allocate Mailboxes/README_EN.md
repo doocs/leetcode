@@ -63,6 +63,16 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 100$ houses and $k$ mailboxes. One mailbox on a contiguous segment sits at the median; after sorting, the cost satisfies $g[i][j]=g[i+1][j-1]+houses[j]-houses[i]$.
+>
+> $f[i][j]$ is the min cost for the first $i+1$ houses with $j$ mailboxes, enumerating the previous cut $p$ and adding $g[p+1][i]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the minimum total distance between the houses and their nearest mailbox, when placing $j$ mailboxes among the first $i+1$ houses. Initially, $f[i][j] = \infty$, and the final answer will be $f[n-1][k]$.
 
 We can iterate over the last house $p$ controlled by the $j-1$-th mailbox, i.e., $0 \leq p \leq i-1$. The $j$-th mailbox will control the houses in the range $[p+1, \dots, i]$. Let $g[i][j]$ denote the minimum total distance when placing a mailbox for the houses in the range $[i, \dots, j]$. The state transition equation is:
