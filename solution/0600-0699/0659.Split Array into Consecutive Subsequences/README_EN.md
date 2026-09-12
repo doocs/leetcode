@@ -78,6 +78,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into consecutive increasing subsequences of length at least $3$. Always starting a new sequence can leave short ones stranded.
+>
+> A hash map stores min-heaps of lengths ending at each value. Append $v$ to the shortest sequence ending at $v-1$, or start a new one. Every heap minimum must be at least $3$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

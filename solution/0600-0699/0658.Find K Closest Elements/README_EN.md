@@ -65,6 +65,17 @@ tags:
 
 ### Solution 1: Sort
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the $k$ closest values to $x$, reported in sorted order. Sorting by distance then taking $k$ is $O(n\log n)$.
+>
+> Sort by $|v-x|$, keep $k$ elements, and sort those by value.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -186,6 +197,15 @@ impl Solution {
 
 ### Solution 2: Binary search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer is a contiguous slice. Shrink the farther endpoint until the window has length $k$; the slice is already sorted.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -306,6 +326,15 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two pointers are linear. The best left bound in $[0,n-k]$ is monotone: compare $x-arr[mid]$ with $arr[mid+k]-x$ and binary-search it.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

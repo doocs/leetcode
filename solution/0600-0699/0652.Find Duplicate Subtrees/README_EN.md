@@ -63,6 +63,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicate subtrees share structure and values. Pairwise comparison is quadratic.
+>
+> Serialize each subtree in postorder and count the strings. When a serialization first reaches $2$, record that root so each shape is reported once.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

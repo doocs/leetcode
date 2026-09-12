@@ -63,6 +63,17 @@ tags:
 
 ### Solution 1: Trie
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each sentence word should be replaced by the shortest dictionary root. Testing every root on every word repeats prefixes.
+>
+> Insert roots into a trie and walk each word until the first `is_end`; that prefix is the shortest root.
+
+<!-- thinking:end -->
+
+
 We can use a trie to store all the roots in the dictionary. Define the trie node class $\text{Trie}$, which contains an array $\text{children}$ of length $26$ to store child nodes, and a boolean variable $\text{is\_end}$ to mark whether it is a complete root.
 
 For each root, we insert it into the trie. For each word in the sentence, we search for its shortest root in the trie. If found, we replace the word; otherwise, we keep it unchanged.

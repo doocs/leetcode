@@ -62,6 +62,17 @@ tags:
 
 ### Solution 1: Sorting + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A chain is a strictly increasing sequence of pairs. LIS-style DP is $O(n^2)$.
+>
+> Sort by the right end and take a pair whenever it fits. Smaller right ends leave more room, so one greedy pass is optimal.
+
+<!-- thinking:end -->
+
+
 We sort all pairs in ascending order by the second number, and use a variable $\textit{pre}$ to maintain the maximum value of the second number of the selected pairs.
 
 We traverse the sorted pairs. If the first number of the current pair is greater than $\textit{pre}$, we can greedily select the current pair, increment the answer by one, and update $\textit{pre}$ to the second number of the current pair.

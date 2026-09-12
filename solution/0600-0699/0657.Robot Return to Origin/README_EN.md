@@ -58,6 +58,17 @@ tags:
 
 ### Solution 1: Maintain Coordinates
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The robot returns iff the net displacement is zero.
+>
+> Update $(x,y)$ for `UDLR` and test both coordinates at the end.
+
+<!-- thinking:end -->
+
+
 We can maintain a coordinate $(x, y)$ to represent the robot's movement in the horizontal and vertical directions.
 
 Traverse the string $\textit{moves}$ and update the coordinate $(x, y)$ based on the current character:

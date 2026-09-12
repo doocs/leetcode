@@ -60,6 +60,17 @@ In step 3, we use Paste operation to get &#39;AAA&#39;.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Start from one `A` and reach $n$ by copy and paste. The search tree of sequences is wide.
+>
+> If the last step pastes a block of length $n/j$ into $j$ copies, $dfs(n)=\min(dfs(n/j)+j)$. Memoize over factors; $n=1$ costs $0$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -174,6 +185,15 @@ func minSteps(n int) int {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization is top-down. The same recurrences fill $dp[i]$ bottom-up over factors, without recursion.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 
@@ -305,6 +325,15 @@ var minSteps = function (n) {
 <!-- solution:start -->
 
 ### Solution 3: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The optimum equals the sum of prime factors of $n$: factor $i$ is one copy plus $i-1$ pastes. Factorize $n$ and skip the DP table.
+
+<!-- thinking:end -->
+
 
 Factorize $n$; each prime factor $i$ costs $i$ operations.
 

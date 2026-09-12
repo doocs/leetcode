@@ -63,6 +63,17 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear equation must be reduced to $ax+b=0$. Coefficients may be omitted and signs abut, so an ad-hoc scan is error-prone.
+>
+> Split on `=`. On each side, scan signed terms: a trailing `x` updates the coefficient, otherwise the constant. Compare both sides to report infinite, none, or the unique integer root.
+
+<!-- thinking:end -->
+
+
 We split the $equation$ by the equal sign `"="` into left and right expressions, and compute the coefficient of `"x"` (denoted $x_i$) and the constant value (denoted $y_i$) for each side.
 
 The equation is then transformed into: $x_1 \times x + y_1 = x_2 \times x + y_2$.

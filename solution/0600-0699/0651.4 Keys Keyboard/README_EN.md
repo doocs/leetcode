@@ -62,6 +62,17 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With Select-All and Copy, an optimal sequence types some `A`s and then pastes. Enumerating key strings is unnecessary.
+>
+> $dp[i]$ is the most `A`s with $i$ keystrokes: either $i$ typed `A`s, or Ctrl-A at $j$ then paste $i-j$ times, giving $dp[j-1]\times(i-j)$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
