@@ -76,6 +76,18 @@ Please notice that another valid answer is [5,2,6,null,4,null,7] and it&#39;s al
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deletion must keep the BST ordered. A node with one child is replaced by that child; a node with two children needs a successor or predecessor.
+>
+> Recurse left or right by comparison. On a hit: return the right child if there is no left, the left child if there is no right; otherwise hang the whole left subtree off the leftmost node of the right subtree and return the right subtree.
+>
+> That leftmost node is the in-order successor and has no left child, so the in-order sequence stays sorted after one descent.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -53,6 +53,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A general binary serialization stores nulls. A BST is already ordered in in-order, so a preorder list plus value bounds reconstructs the tree without null markers.
+>
+> Serialize the preorder values. Deserialize with a range $[mi,mx]$: the next value becomes a node only if it lies inside, then recurse on $(mi,x)$ and $(x,mx)$.
+>
+> Preorder makes the next in-range value the current root; out of range means an empty child and the cursor stays.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

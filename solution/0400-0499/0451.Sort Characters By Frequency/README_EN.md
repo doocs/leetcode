@@ -69,6 +69,18 @@ Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Characters must be rewritten in decreasing frequency; ties may break arbitrarily. A bucket per count needs a bound on the count; the alphabet is small, so sorting the key–value pairs is enough.
+>
+> Count with a hash map, sort by frequency descending, and repeat each character $v$ times.
+>
+> We sort distinct characters, not the whole string, so the log factor follows the alphabet size.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{cnt}$ to count the occurrences of each character in the string $s$. Then, we sort the key-value pairs in $\textit{cnt}$ in descending order by the number of occurrences. Finally, we concatenate the characters according to the sorted order.
 
 The time complexity is $O(n + k \times \log k)$, and the space complexity is $O(n + k)$, where $n$ is the length of the string $s$, and $k$ is the number of distinct characters.
