@@ -100,6 +100,16 @@ Employees 表：
 
 ### 方法一：自连接 + 分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 员工表用 $\textit{reports\_to}$ 指向经理，要求每位经理的下属人数与平均年龄。
+>
+> 将下属行与经理行自连接，$\mathrm{COUNT}$ 与 $\mathrm{ROUND}(\mathrm{AVG}(\textit{age}))$ 按经理分组即可。
+
+<!-- thinking:end -->
+
 我们可以通过自连接的方式，将每个员工的上级经理信息连接到每个员工的信息上，然后再通过分组统计的方式，统计每个经理的下属员工数量和平均年龄。
 
 <!-- tabs:start -->

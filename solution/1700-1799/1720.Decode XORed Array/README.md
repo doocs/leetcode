@@ -63,6 +63,16 @@ tags:
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{encoded}[i]=\textit{arr}[i]\oplus\textit{arr}[i+1]$，且首元 $\textit{first}$ 已知。异或两边再异或 $\textit{arr}[i]$ 即得后一项。
+>
+> 从 $\textit{first}$ 出发依次做 $\textit{arr}[i+1]=\textit{arr}[i]\oplus\textit{encoded}[i]$，线性还原整个数组。
+
+<!-- thinking:end -->
+
 根据题目描述，有：
 
 $$

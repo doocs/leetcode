@@ -58,6 +58,18 @@ tags:
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{perm}$ 是 $1..n$ 的排列且 $n$ 为奇数，$\textit{encoded}[i]=\textit{perm}[i]\oplus\textit{perm}[i+1]$。缺一个起始值便无法递推。
+>
+> $1\oplus\cdots\oplus n$ 可知。把 $\textit{encoded}$ 的偶数下标异或起来，恰好比全集少了 $\textit{perm}[n-1]$，因此能还原末元。
+>
+> 从末元逆序用 $\textit{perm}[i]=\textit{encoded}[i]\oplus\textit{perm}[i+1]$ 推出整个排列。
+
+<!-- thinking:end -->
+
 我们注意到，数组 $perm$ 是前 $n$ 个正整数的排列，因此 $perm$ 的所有元素的异或和为 $1 \oplus 2 \oplus \cdots \oplus n$，记为 $a$。而 $encode[i]=perm[i] \oplus perm[i+1]$，如果我们将 $encode[0],encode[2],\cdots,encode[n-3]$ 的所有元素的异或和记为 $b$，则 $perm[n-1]=a \oplus b$。知道了 $perm$ 的最后一个元素，我们就可以通过逆序遍历数组 $encode$ 求出 $perm$ 的所有元素。
 
 时间复杂度 $O(n)$，其中 $n$ 为数组 $perm$ 的长度。忽略答案数组的空间消耗，空间复杂度 $O(1)$。

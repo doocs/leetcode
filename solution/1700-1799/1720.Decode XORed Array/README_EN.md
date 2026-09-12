@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{encoded}[i]=\textit{arr}[i]\oplus\textit{arr}[i+1]$ and the first value is given. XORing both sides with $\textit{arr}[i]$ recovers the next entry.
+>
+> Start from $\textit{first}$ and apply $\textit{arr}[i+1]=\textit{arr}[i]\oplus\textit{encoded}[i]$ along the array.
+
+<!-- thinking:end -->
+
 Based on the problem description, we have:
 
 $$

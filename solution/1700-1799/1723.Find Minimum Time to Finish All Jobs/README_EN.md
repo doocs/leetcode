@@ -63,6 +63,18 @@ The maximum working time is 11.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Assign jobs to $k$ workers and minimize the maximum load. The job count is small enough to search, but naive $k^n$ is too large.
+>
+> Abandon a branch once the current max load is already no better than the recorded answer. Assigning longer jobs first triggers that prune sooner.
+>
+> Sort $jobs$ descending and DFS into each worker, then undo. If a worker is still empty, skip later empty workers to cut symmetric assignments.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

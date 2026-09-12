@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1: Two-dimensional Prefix XOR + Sorting or Quick Selection
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The value at $(i,j)$ is the XOR of the prefix rectangle. Recomputing each rectangle is $O(m^2n^2)$ and fails for $m,n\le 1000$.
+>
+> 2D prefix XOR obeys $s[i][j]=s[i-1][j]\oplus s[i][j-1]\oplus s[i-1][j-1]\oplus matrix[i-1][j-1]$, so all values are listed in $O(mn)$.
+>
+> Select the $k$-th largest from that list by sorting or a heap.
+
+<!-- thinking:end -->
+
 We define a two-dimensional prefix XOR array $s$, where $s[i][j]$ represents the XOR result of the elements in the first $i$ rows and the first $j$ columns of the matrix, i.e.,
 
 $$

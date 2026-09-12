@@ -70,6 +70,18 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 ### Solution 1: Preprocessing + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Columns may be reordered; we want the largest all-ones submatrix. $m\cdot n\le 10^5$ forbids trying permutations.
+>
+> Reordering changes column order, not the upward run of ones in a column. After rewriting each $1$ as that height, a row is a histogram.
+>
+> Sort the row descending. The $k$-th largest height $v$ forms a $v\times k$ all-ones block. Take the maximum over rows.
+
+<!-- thinking:end -->
+
 Since the matrix can be rearranged by columns, we can preprocess each column of the matrix first.
 
 For each element with value $1$, we update its value to the maximum number of consecutive $1$s above it (including itself), i.e., $\text{matrix}[i][j] = \text{matrix}[i-1][j] + 1$.

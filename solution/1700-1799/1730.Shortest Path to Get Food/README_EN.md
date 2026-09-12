@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1: BFS (Breadth-First Search)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From the unique $*$ we want the nearest $\#$, avoiding obstacles. Unweighted shortest paths are BFS.
+>
+> Enqueue $*$ and expand four-neighbours level by level: return the depth on $\#$, mark empty cells blocked after enqueue to avoid revisits. An empty queue means unreachable.
+
+<!-- thinking:end -->
+
 According to the problem, we need to start from `*`, find the nearest `#`, and return the shortest path length.
 
 First, we traverse the entire two-dimensional array to find the position of `*`, which will be the starting point for BFS, and put it into the queue.

@@ -58,6 +58,18 @@ tags:
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{perm}$ is a permutation of $1..n$ with $n$ odd, and $\textit{encoded}[i]=\textit{perm}[i]\oplus\textit{perm}[i+1]$. Without one endpoint we cannot recur.
+>
+> $1\oplus\cdots\oplus n$ is known. XOR of even indices of $\textit{encoded}$ omits exactly $\textit{perm}[n-1]$, recovering the last value.
+>
+> Walk backward with $\textit{perm}[i]=\textit{encoded}[i]\oplus\textit{perm}[i+1]$.
+
+<!-- thinking:end -->
+
 We notice that the array $perm$ is a permutation of the first $n$ positive integers, so the XOR of all elements in $perm$ is $1 \oplus 2 \oplus \cdots \oplus n$, denoted as $a$. And $encode[i]=perm[i] \oplus perm[i+1]$, if we denote the XOR of all elements $encode[0],encode[2],\cdots,encode[n-3]$ as $b$, then $perm[n-1]=a \oplus b$. Knowing the last element of $perm$, we can find all elements of $perm$ by traversing the array $encode$ in reverse order.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $perm$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

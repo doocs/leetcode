@@ -73,6 +73,18 @@ distanceLimitedPathsExist.query(0, 5, 6); // return false. There are no paths fr
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Online queries ask whether $p$ and $q$ are connected using only edges of weight strictly less than $\textit{limit}$. Offline Kruskal works for a batch, but queries arrive later and repeat.
+>
+> Union edges in increasing weight and timestamp each union by that weight. A query should follow parent links only when the union time is $<\textit{limit}$.
+>
+> The persistent DSU stores in $\textit{version}[x]$ the weight at which $x$ was attached. $\textit{find}(x,t)$ stops before time $t$; equal roots mean connected.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We swap the values of the $k$-th node from the start and from the end. Measuring the length and walking twice works, but one pass is enough.
+>
+> Advance a fast pointer $k-1$ steps to the $k$-th node $p$, then move fast and slow together. When fast reaches the tail, slow is the $k$-th from the end.
+>
+> Swap the two values and return the head.
+
+<!-- thinking:end -->
+
 We can first use a fast pointer `fast` to find the $k$th node of the linked list, and use a pointer `p` to point to it. Then, we use a slow pointer `slow` to start from the head node of the linked list, and move both pointers forward at the same time. When the fast pointer reaches the last node of the linked list, the slow pointer `slow` points to the $k$th node from the end of the linked list, and we use a pointer `q` to point to it. At this point, we only need to swap the values of `p` and `q`.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.

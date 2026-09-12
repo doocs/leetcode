@@ -103,6 +103,18 @@ tags:
 
 ### Solution 1: Topological Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A state is the mouse cell, cat cell, and whose turn it is, with jumps and stays allowed. Searching forward from the start must handle cycles and a $1000$-move cap.
+>
+> Terminal positions—the hole, coincidence, the cat reaching food—have known winners. Propagating backward along previous positions labels every state as a win or a loss.
+>
+> Store out-degrees: the player to move wins immediately if any successor is already a win for them; if every successor is a loss when the degree hits zero, they lose. Return whether the opening mouse-to-move state is a mouse win.
+
+<!-- thinking:end -->
+
 According to the problem description, the state of the game is determined by the mouse's position, the cat's position, and whose turn it is. The following states can be determined directly:
 
 - When the cat and the mouse are at the same position, the cat wins — this is a winning state for the cat and a losing state for the mouse.

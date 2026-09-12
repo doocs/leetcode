@@ -75,6 +75,18 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 
 ### Solution 1: Union-Find + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Allowed swaps compose, so values may be rearranged freely inside a connected component. With $n\le 10^5$ we must process components, not permutations.
+>
+> A DSU joins swappable indices. Within a component, the multiset of $\textit{source}$ should cover $\textit{target}$ at those positions as much as possible.
+>
+> Count source values per root. Walking $\textit{target}$, increment the distance when the component has no remaining copy of that value.
+
+<!-- thinking:end -->
+
 We can consider each index as a node, and the element corresponding to each index as the value of the node. Then each element `[a_i, b_i]` in the given `allowedSwaps` represents an edge between index `a_i` and `b_i`. Therefore, we can use a union-find set to maintain these connected components.
 
 After obtaining each connected component, we use a two-dimensional hash table $cnt$ to count the number of occurrences of each element in each connected component. Finally, for each element in the array `target`, if its occurrence count in the corresponding connected component is greater than 0, we decrease its count by 1, otherwise, we increase the answer by 1.
