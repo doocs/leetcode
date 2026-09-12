@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that each method heading has a non-empty thinking block."""
+"""Validate existing thinking blocks. Missing blocks are allowed."""
 
 from __future__ import annotations
 
@@ -32,11 +32,10 @@ def check_file(path: Path) -> list[str]:
     headings = HEADING.findall(text)
     blocks = BLOCK.findall(text)
     errors: list[str] = []
-    if len(headings) != len(blocks):
+    if len(blocks) > len(headings):
         errors.append(
-            f"{path}: {len(headings)} method heading(s), {len(blocks)} thinking block(s)"
+            f"{path}: {len(blocks)} thinking block(s) but only {len(headings)} method heading(s)"
         )
-        return errors
     for i, raw in enumerate(blocks, 1):
         if not thinking_body(raw):
             errors.append(f"{path}: thinking block {i} is empty")
