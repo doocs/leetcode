@@ -75,6 +75,18 @@ because the wheels of the lock become stuck after the display becomes the dead e
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A 4-digit lock, one wheel per move, avoiding dead ends. $10^4$ states and $8$ neighbors each: unweighted shortest path is BFS.
+>
+> Dead ends and visited codes share a set. If `0000` is dead the answer is $-1$; if it is the target, $0$.
+>
+> Expand by layer; neighbors flip one digit by $\pm 1$ on a wheel. The first time we see the target is the distance.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -304,6 +316,16 @@ function openLock(deadends: string[], target: string): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One-sided BFS may expand most of the cube. The two ends are known, so bidirectional BFS meets in the middle with smaller fronts.
+>
+> Always extend the smaller queue. A neighbor already seen from the other side yields $step+1+m_2[t]$. Dead ends are skipped on both sides.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -576,6 +598,16 @@ func openLock(deadends []string, target string) int {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bidirectional BFS still expands uniformly. The sum of circular digit distances to the target is an admissible heuristic, so A* pops the target first with $\textit{dist}+f$ as the key.
+>
+> $f$ never exceeds the true remaining moves (ignoring dead ends). Skip dead codes; decrease-key via a $\textit{dist}$ map.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

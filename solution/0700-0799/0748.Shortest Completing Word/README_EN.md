@@ -67,6 +67,18 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A completing word must cover the letters on the plate (case-blind, digits ignored), and we want the shortest, earliest such word. Counting is enough.
+>
+> Tally the plate, then scan words: skip any that are not strictly shorter than the current answer, and accept the first that covers the counts.
+>
+> The alphabet has size $26$; each test is linear in the word.
+
+<!-- thinking:end -->
+
 First, we use a hash table or an array $cnt$ of length $26$ to count the frequency of each letter in the string `licensePlate`. Note that we convert all letters to lowercase for counting.
 
 Then, we traverse each word $w$ in the array `words`. If the length of the word $w$ is longer than the length of the answer $ans$, we directly skip this word. Otherwise, we use another hash table or an array $t$ of length $26$ to count the frequency of each letter in the word $w$. If for any letter, the frequency of this letter in $t$ is less than the frequency of this letter in $cnt$, we can also directly skip this word. Otherwise, we have found a word that meets the conditions, and we update the answer $ans$ to the current word $w$.

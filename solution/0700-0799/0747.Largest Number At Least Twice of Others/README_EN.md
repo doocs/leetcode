@@ -57,6 +57,16 @@ The index of value 6 is 1, so we return 1.
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the unique maximum is at least twice every other value. $n\le 50$; compare the top two.
+>
+> The maximum is unique, so $x\ge 2y$ suffices. `nlargest(2)` then `index` of $x$.
+
+<!-- thinking:end -->
+
 We can traverse the array $nums$ to find the maximum value $x$ and the second largest value $y$ in the array. If $x \ge 2y$, then return the index of $x$, otherwise return $-1$.
 
 We can also first find the maximum value $x$ in the array and find the index $k$ of the maximum value $x$ at the same time. Then traverse the array again. If we find an element $y$ outside of $k$ that satisfies $x < 2y$, then return $-1$. Otherwise, return $k$ after the traversal ends.

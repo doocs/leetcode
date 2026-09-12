@@ -64,6 +64,18 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在非递减的字母数组中找严格大于 $\textit{target}$ 的最小字符，并环形回到开头。$n\le 10^4$，有序故可二分。
+>
+> 这是上界查找：第一个大于目标的位置。若该位置等于 $n$，则应取 $letters[0]$，对下标取模即可。
+>
+> 对码值做 $\textit{bisect\_right}$，返回 $letters[i\bmod n]$。时间 $O(\log n)$。
+
+<!-- thinking:end -->
+
 由于 $\textit{letters}$ 是按照非递减顺序排序的，所以我们可以使用二分查找来找到大于 $\textit{target}$ 的最小字符。
 
 我们定义二分查找的左边界 $l = 0$，右边界 $r = n$。对于每一次二分查找，我们计算中间位置 $mid = (l + r) / 2$，如果 $letters[mid] > \textit{target}$，则说明我们需要在左半部分继续查找，即 $r = mid$；否则我们需要在右半部分继续查找，即 $l = mid + 1$。

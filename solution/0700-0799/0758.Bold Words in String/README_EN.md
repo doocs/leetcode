@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Wrap every occurrence of a dictionary word in bold tags, merging overlaps and adjacent runs. A trie finds all hits in one sweep.
+>
+> From each start, walk the trie and record $[i,j]$ at each word-end. Then merge intervals that touch or overlap.
+>
+> Emit `<b>`/`</b>` around the merged spans while copying $s$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -74,6 +74,18 @@ The total number of cherries picked up is 5, and this is the maximum possible.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walk to the far corner and back; $n\le 50$. Two independent paths explode, and overlapping cherries are hard to charge only once.
+>
+> The round trip is two walks of $k$ steps from the start. With a shared step count, columns are determined by rows, so the state is $(k,i_1,i_2)$. A shared cell is counted once; a thorn is unreachable.
+>
+> $f[k][i_1][i_2]$ comes from the previous rows $i_1$ or $i_1-1$ and $i_2$ or $i_2-1$, plus the current cherries. The answer is $\max(0, f[2n-2][n-1][n-1])$.
+
+<!-- thinking:end -->
+
 According to the problem description, the player starts from $(0, 0)$, reaches $(n-1, n-1)$, and then returns to the starting point $(0, 0)$. We can consider the player as starting from $(0, 0)$ to $(n-1, n-1)$ twice.
 
 Therefore, we define $f[k][i_1][i_2]$ as the maximum number of cherries that can be picked when both have walked $k$ steps and reached $(i_1, k-i_1)$ and $(i_2, k-i_2)$ respectively. Initially, $f[0][0][0] = grid[0][0]$. The initial values of other $f[k][i_1][i_2]$ are negative infinity. The answer is $\max(0, f[2n-2][n-1][n-1])$.

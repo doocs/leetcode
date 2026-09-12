@@ -62,6 +62,18 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Return the largest index whose word has a given prefix and suffix. Words are at most length $7$, so every prefix–suffix pair of every word can be stored, and a query is $O(1)$.
+>
+> Later words overwrite earlier ones, so the map keeps the largest index. Empty prefix and suffix are stored as well.
+>
+> Keys are $(pref,suff)$. $\textit{f}$ looks up or returns $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -197,6 +209,18 @@ func (this *WordFilter) F(pref string, suff string) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 stores every prefix–suffix pair. Two tries—one on the word, one on the reverse—record the indices that pass each node.
+>
+> A query fetches the two index lists (increasing by insert order) and walks them from the right for the largest common index.
+>
+> Lists stay short because words are short, without materializing every pair.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

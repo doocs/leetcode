@@ -77,6 +77,18 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each night uncontained virus spreads one step, and we may wall the most threatening region. The grid is small enough to simulate: find regions, wall one, spread.
+>
+> Threat is the number of distinct uninfected neighbors; the wall cost is the perimeter. DFS records cells, the boundary set, and that perimeter.
+>
+> Wall the region with the largest boundary (mark cells contained, add its perimeter), infect the other boundaries, and repeat until no active virus remains.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

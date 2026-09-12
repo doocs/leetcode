@@ -68,6 +68,18 @@ tags:
 
 ### Solution 1: Naive Dijkstra Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The time for every node to hear a signal from $k$ is the longest shortest-path distance. $n\le 100$ admits naive Dijkstra in $O(n^2)$.
+>
+> Repeatedly pick the unused node with smallest tentative distance and relax its outgoing edges. An adjacency matrix stores weights, missing edges as $+\infty$.
+>
+> The answer is $\max(\textit{dist})$, or $-1$ if that value is still infinite.
+
+<!-- thinking:end -->
+
 We define $\textit{g}[u][v]$ to represent the edge weight from node $u$ to node $v$. If there is no edge between node $u$ and node $v$, then $\textit{g}[u][v] = +\infty$.
 
 We maintain an array $\textit{dist}$, where $\textit{dist}[i]$ represents the shortest path length from node $k$ to node $i$. Initially, we set all $\textit{dist}[i]$ to $+\infty$, except for $\textit{dist}[k - 1] = 0$. We define an array $\textit{vis}$, where $\textit{vis}[i]$ indicates whether node $i$ has been visited. Initially, we set all $\textit{vis}[i]$ to $\text{false}$.
@@ -251,6 +263,16 @@ function networkDelayTime(times: number[][], n: number, k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Heap-Optimized Dijkstra Algorithm
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans all nodes to pick the next vertex; that is wasteful on a sparse graph. A heap pops the current best in $O(m\log m)$.
+>
+> Store an adjacency list. Pop $(d,u)$; skip stale distances; otherwise relax neighbors onto the heap. The answer is still the max finite distance.
+
+<!-- thinking:end -->
 
 We can use a priority queue (heap) to optimize the naive Dijkstra algorithm.
 
