@@ -79,6 +79,14 @@ The business with id=1 has 7 &#39;reviews&#39; events (more than 5) and 11 &#39;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An active business exceeds the global average of `occurences` on more than one `event_type`. Aggregate `AVG(occurences)` per type, join back, keep rows above the average, then `GROUP BY business_id` with `HAVING COUNT > 1`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -108,6 +116,14 @@ HAVING COUNT(1) > 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 computes averages in a derived table and joins. `AVG(...) OVER (PARTITION BY event_type)` marks each row in place; filtering and grouping then need no extra join.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

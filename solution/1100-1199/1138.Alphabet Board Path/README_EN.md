@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters sit on a $5$-column board; we walk from one letter to the next. Ordinary cells have four neighbors, but `z` has only an upward neighbor, so moving down or right first can leave the board.
+>
+> For each letter move in the order left, up, right, down: finish left/up before right/down, so we never step off at `z`, then append `!`.
+
+<!-- thinking:end -->
+
 Starting from the origin point $(0, 0)$, simulate each step of the movement, appending the result of each step to the answer. Note that the direction of movement follows the order "left, up, right, down".
 
 The time complexity is $O(n)$, where $n$ is the length of the string target, as each character in the string target needs to be traversed. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

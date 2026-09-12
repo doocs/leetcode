@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sort key is the relative order in $arr2$; values absent from $arr2$ follow, sorted by themselves. A map stores each $arr2$ index; the comparator uses that index if present and $1000+x$ otherwise, so one sort handles both groups. Values in $arr2$ are unique, so indices are a stable order.
+
+<!-- thinking:end -->
+
 First, we use a hash table $pos$ to record the position of each element in array $arr2$. Then, we map each element in array $arr1$ to a tuple $(pos.get(x, 1000 + x), x)$, and sort these tuples. Finally, we take out the second element of all tuples and return it.
 
 The time complexity is $O(n \times \log n + m)$, and the space complexity is $O(n + m)$. Here, $n$ and $m$ are the lengths of arrays $arr1$ and $arr2$, respectively.
@@ -192,6 +200,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Counting Sort
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1's comparison sort is $O(n\log n)$. When the value range is small, count frequencies in $arr1$, emit values in $arr2$ order, then scan the leftovers by value, which is linear.
+
+<!-- thinking:end -->
 
 We can use the idea of counting sort. First, count the occurrence of each element in array $arr1$. Then, according to the order in array $arr2$, put the elements in $arr1$ into the answer array $ans$ according to their occurrence. Finally, we traverse all elements in $arr1$ and put the elements that do not appear in $arr2$ in ascending order at the end of the answer array $ans$.
 

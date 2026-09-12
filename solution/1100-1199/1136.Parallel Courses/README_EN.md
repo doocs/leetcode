@@ -65,6 +65,14 @@ In the second semester, you can take course 3.
 
 ### Solution 1: Topological Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of semesters is the longest chain of prerequisites; a semester can take every course whose indegree is now $0$. Layered Kahn topology: each layer is one semester. Leftover courses mean a cycle, so return $-1$.
+
+<!-- thinking:end -->
+
 We can first build a graph $g$ to represent the prerequisite relationships between courses, and count the in-degree $indeg$ of each course.
 
 Then we enqueue the courses with an in-degree of $0$ and start topological sorting. Each time, we dequeue a course from the queue, reduce the in-degree of the courses that it points to by $1$, and if the in-degree becomes $0$ after reduction, we enqueue that course. When the queue is empty, if there are still courses that have not been completed, it means that it is impossible to complete all courses, so we return $-1$. Otherwise, we return the number of semesters required to complete all courses.

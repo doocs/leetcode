@@ -81,6 +81,14 @@ Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The LCA of the deepest leaves depends on the two subtree depths: the answer stays on the deeper side, or is the current node if the depths match. One post-order DFS returns both that LCA and the depth, so we never collect deepest leaves and then run a second LCA.
+
+<!-- thinking:end -->
+
 We design a function `dfs(root)` that returns a tuple `(l, d)`, where `l` is the deepest common ancestor of node `root`, and `d` is the depth of node `root`. The execution logic of the function `dfs(root)` is as follows:
 
 - If `root` is null, return the tuple `(None, 0)`;

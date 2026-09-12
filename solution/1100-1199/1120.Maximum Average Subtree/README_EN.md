@@ -62,6 +62,16 @@ So the answer is 6 which is the maximum.
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subtree average needs that subtree's sum and size, both aggregated bottom-up. Rescanning every subtree from each node would be quadratic.
+>
+> One post-order DFS returns $(\textit{sum},\textit{count})$. The current average updates a global answer, and both values are passed to the parent. The tree is visited once.
+
+<!-- thinking:end -->
+
 We can use a recursive method. For each node, we calculate the sum and count of the nodes in the subtree rooted at that node, then calculate the average, compare it with the current maximum, and update the maximum if necessary.
 
 Therefore, we design a function `dfs(root)` that represents the sum and count of nodes in the subtree rooted at `root`. The return value is an array of length 2, where the first element represents the sum of nodes, and the second element represents the count of nodes.

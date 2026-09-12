@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Quick Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is non-decreasing. A strictly increasing subsequence cannot repeat a value, so the most frequent value must occupy distinct subsequences. If it appears $cnt$ times, at least $cnt$ subsequences of length at least $k$ are required, i.e. $cnt\times k\le n$.
+>
+> Equal values already form contiguous runs, so `groupby` yields the longest run without a hash table.
+
+<!-- thinking:end -->
+
 We assume that the array can be divided into $m$ strictly increasing subsequences of length at least $k$. If the number of the most frequent number in the array is $cnt$, then these $cnt$ numbers must be in different subsequences, so $m \geq cnt$. Also, since the length of $m$ subsequences is at least $k$, the fewer the number of subsequences, the better, so $m = cnt$. Therefore, $cnt \times k \leq n$ must be satisfied. Hence, we only need to count the number of the most frequent number $cnt$ in the array, and then judge whether $cnt \times k \leq n$. If it is, return `true`, otherwise return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.
@@ -131,6 +141,14 @@ func canDivideIntoSubsequences(nums []int, k int) bool {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 computes the global maximum frequency first. Method 2 tracks the current run length and returns false as soon as $cnt\times k>n$. The criterion is the same; the implementation becomes a single linear scan.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

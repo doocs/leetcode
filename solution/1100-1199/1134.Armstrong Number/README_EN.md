@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An Armstrong number equals the sum of its digits each raised to $k$, the number of digits. Read $k$ from the decimal length, peel digits by modulo and integer division, and compare the power sum with $n$. The digit count is tiny, so a direct loop suffices.
+
+<!-- thinking:end -->
+
 We can first calculate the number of digits $k$, then calculate the sum $s$ of the $k$th power of each digit, and finally check whether $s$ equals $n$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the given number.

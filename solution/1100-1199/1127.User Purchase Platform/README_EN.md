@@ -80,6 +80,16 @@ On 2019-07-02, user 2 purchased using mobile <strong>only</strong>, user 3 purch
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each user-day is `desktop`, `mobile`, or `both`, and every date must still emit all three platforms. Aggregate by user and date: one platform stays as-is, otherwise `both`.
+>
+> A skeleton of every date times the three labels left-joins that aggregate and fills zeros so each day has three rows.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

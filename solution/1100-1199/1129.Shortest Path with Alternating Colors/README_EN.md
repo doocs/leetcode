@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges are red or blue and consecutive edges must differ, so a node may be visited twice with different incoming colors. The state is $(\textit{node},\textit{last color})$. BFS from $0$ with both virtual colors; the first time a node is reached is the shortest path.
+>
+> Adjacency is stored by color and the color is flipped on each hop so same-color edges are never taken.
+
+<!-- thinking:end -->
+
 The problem is essentially a shortest path problem, which we can consider solving using BFS.
 
 First, we preprocess all the edges, categorizing all the edges by color and storing them in a multi-dimensional array $g$. Where $g[0]$ stores all red edges, and $g[1]$ stores all blue edges.

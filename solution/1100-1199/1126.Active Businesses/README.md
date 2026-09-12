@@ -81,6 +81,14 @@ id=1 的业务有 7 个 'reviews' 事件(多于 5 个)和 11 个 'ads' 事件(�
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 活跃商家指在多于一种事件类型上，出现次数超过该类型全局均值。先按 `event_type` 聚合 `AVG(occurences)`，再与原表按类型连接，筛出高于均值的行，最后按商家分组并要求计数大于 $1$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -110,6 +118,14 @@ HAVING COUNT(1) > 1;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用派生表算均值再连接。窗口函数 `AVG(...) OVER (PARTITION BY event_type)` 可在同一层给每行打上是否超均值的标记，随后过滤并分组，少一次显式 JOIN。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

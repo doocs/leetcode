@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Mathematics + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two layers of absolute value make a double loop $O(n^2)$. Expanding $|x_i-x_j|+|y_i-y_j|+|i-j|$ yields the range of $ax+by+\textit{index}$ under four sign pairs.
+>
+> For each $a,b\in\{\pm 1\}$ scan once for the max and min; the answer is the largest of those ranges, in linear time.
+
+<!-- thinking:end -->
+
 Let's denote $x_i = arr1[i]$, $y_i = arr2[i]$. Since the size relationship between $i$ and $j$ does not affect the value of the expression, we can assume $i \ge j$. Then the expression can be transformed into:
 
 $$
