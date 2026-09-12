@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3200-3299/3247.Number%20of%20Subsequences%20with%20Odd%20Sum/README.md
 tags:
     - 数组
     - 数学
