@@ -65,6 +65,16 @@ Notice that each value in the generated matrix corresponds to the largest value 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each output cell is the max of the $3 \times 3$ whose upper-left is that position. $n \le 100$, so we enumerate windows.
+>
+> For every $(i,j)$ scan nine cells and write the max into an $(n-2)\times(n-2)$ matrix.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -79,6 +79,16 @@ Note that we cannot choose more than one edge because all edges are adjacent to 
 
 ### Solution 1: Tree DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Choose a matching of tree edges with maximum weight. A choice only affects the two endpoints, so a tree DP is enough.
+>
+> $dfs(i)$ returns the best weight when the edge to the parent is taken, and when it is not. The former sums children’s “not taken” values; the latter may switch at most one child to “taken” and add that edge weight.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents the maximum sum of the weights of selected edges in the subtree rooted at node $i$, such that no two selected edges are adjacent. This function returns two values $(a, b)$. The first value $a$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is selected. The second value $b$ represents the sum of the weights of selected edges when the edge between the current node $i$ and its parent node is not selected.
 
 We can observe the following for the current node $i$:

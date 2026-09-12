@@ -81,6 +81,16 @@ For Department 2:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The percentage is $(\textit{rank}-1)$ over $(\textit{size}-1)$. A singleton department has a zero denominator.
+>
+> $RANK$ by mark descending gives the rank; a $COUNT$ window gives department size. $IFNULL$ yields $0$ for a single student, otherwise two decimal places.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

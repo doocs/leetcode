@@ -74,6 +74,16 @@ We have that [0,5,6] are the only nodes that can be reached from node 0 without 
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From node $0$ on a tree we cannot enter restricted nodes. $n \le 10^5$, so one traversal is enough. Treat restricted nodes as already visited.
+>
+> Build the adjacency list and DFS: mark the current node and recurse on unseen neighbors, returning the reachable count.
+
+<!-- thinking:end -->
+
 First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents the list of nodes adjacent to node $i$. Then we define a hash table $vis$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $vis$.
 
 Next, we define a depth-first search function $dfs(i)$, which represents the number of nodes that can be reached starting from node $i$. In the $dfs(i)$ function, we first add node $i$ to $vis$, then traverse the nodes $j$ adjacent to node $i$. If $j$ is not in $vis$, we recursively call $dfs(j)$ and add the return value to the result.
@@ -232,6 +242,14 @@ function reachableNodes(n: number, edges: number[][], restricted: number[]): num
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS may overflow on a deep tree. The same visited set works with a queue BFS and avoids recursion depth.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first construct an adjacency list $g$ based on the given edges, then define a hash table $vis$ to record the restricted nodes or nodes that have been visited, and initially add the restricted nodes to $vis$.
 

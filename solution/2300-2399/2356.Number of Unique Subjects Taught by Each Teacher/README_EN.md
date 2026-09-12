@@ -81,6 +81,16 @@ Teacher 2:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct subjects per teacher. The same subject may repeat across departments and must be unique’d.
+>
+> Group by $teacher\_id$ and $COUNT(DISTINCT subject\_id)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

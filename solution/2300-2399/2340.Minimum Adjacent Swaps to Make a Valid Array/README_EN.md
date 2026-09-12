@@ -70,6 +70,16 @@ It can be shown that 6 swaps is the minimum swaps required to make a valid array
 
 ### Solution 1: Maintain Index of Extremes + Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need the leftmost global minimum at the front and the rightmost global maximum at the back. One scan records those two indices.
+>
+> If they do not cross, add the two distances; if the minimum sits to the right of the maximum, the paths share one swap, so subtract one.
+
+<!-- thinking:end -->
+
 We can use indices $i$ and $j$ to record the index of the first minimum value and the last maximum value in the array $\textit{nums}$, respectively. Traverse the array $\textit{nums}$ to update the values of $i$ and $j$.
 
 Next, we need to consider the number of swaps.

@@ -86,6 +86,16 @@ It takes a total of 7 + 15 + 15 = 37 minutes to collect all the garbage.
 
 ### Solution 1: Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three trucks each collect one type and must drive from house $0$ to that type’s last house. Collection time is the total number of characters; travel depends only on the farthest index. $n \le 10^5$.
+>
+> One scan adds string lengths and records last indices. Prefix sums of $travel$ are added when the prefix ends exactly at a truck’s last house.
+
+<!-- thinking:end -->
+
 According to the problem description, each garbage truck starts from house $0$, collects one type of garbage, and moves forward in order until it reaches the house index where this type of garbage last appears.
 
 Therefore, we can use a hash table $\textit{last}$ to record the house index where each type of garbage last appears. We assume that the $i$-th type of garbage last appears in the $j$-th house, then the driving time required for the $i$-th truck is $\textit{travel}[0] + \textit{travel}[1] + \cdots + \textit{travel}[j-1]$. Note, if $j = 0$, no driving time is needed. We accumulate the driving time of all vehicles, add the total collection time of each type of garbage, and we can get the answer.

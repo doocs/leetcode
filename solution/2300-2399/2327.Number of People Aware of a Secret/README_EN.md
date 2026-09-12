@@ -69,6 +69,16 @@ Day 4: A forgets the secret. B, C, and D share the secret with 3 new people. (6 
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A person shares once per day on $[delay, forget)$ after learning, then forgets. $n \le 1000$, so a day-by-day simulation is fine.
+>
+> Let $cnt[i]$ be new learners on day $i$; they copy themselves on each later share day. A difference array $d$ tracks who still remembers; the prefix through day $n$ is the answer.
+
+<!-- thinking:end -->
+
 We use a difference array $d[i]$ to record the change in the number of people who know the secret on day $i$, and an array $cnt[i]$ to record the number of people who newly learn the secret on day $i$.
 
 For the $cnt[i]$ people who newly learn the secret on day $i$, they can share the secret with another $cnt[i]$ people each day during the interval $[i+\text{delay}, i+\text{forget})$.

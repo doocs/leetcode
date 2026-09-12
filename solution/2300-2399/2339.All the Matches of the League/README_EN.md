@@ -71,6 +71,16 @@ Teams table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The league needs every ordered pair of distinct teams. A self-join of $Teams$ excluding equal names lists them.
+>
+> Take the Cartesian product of $t1$ and $t2$ with $t1.team\_name \ne t2.team\_name$ as home and away.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

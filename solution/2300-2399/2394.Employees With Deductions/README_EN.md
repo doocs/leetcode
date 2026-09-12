@@ -113,6 +113,16 @@ Employee 3:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Hours are summed after each stamp is rounded up to a minute. Employees below $needed\_hours$ are listed, including those with no logs.
+>
+> $TIMESTAMPDIFF$ in seconds, $CEILING$ to minutes, divide by $60$. Left-join employees and treat a missing total as $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

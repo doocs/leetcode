@@ -87,6 +87,16 @@ We cannot obtain a smaller score than 0.
 
 ### Solution 1: DFS + Subtree XOR Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting two edges yields three components; the score is the range of their XORs. $n \le 1000$, so pairing edges and recomputing XOR is heavy. The whole-tree XOR $s$ is fixed, and a component XOR equals a subtree XOR after rooting.
+>
+> Delete one edge first to get the root-side XOR $s_1$. DFS inside that block; each subtree XOR $s_2$ is the second cut. The three values are $s\oplus s_1$, $s_2$, and $s_1\oplus s_2$. Trying every root and neighbor covers all unordered edge pairs.
+
+<!-- thinking:end -->
+
 We denote the XOR sum of the tree as $s$, i.e., $s = \text{nums}[0] \oplus \text{nums}[1] \oplus \ldots \oplus \text{nums}[n-1]$.
 
 Next, we enumerate each node $i$ in $[0..n)$ as the root of the tree, and treat the edge connecting the root node to some child node $j$ as the first edge to be removed. This gives us two connected components. We denote the XOR sum of the connected component containing root node $i$ as $s_1$, then we perform DFS on the connected component containing root node $i$ to calculate the XOR sum of each subtree, denoting each XOR sum calculated by DFS as $s_2$. The XOR sums of the three connected components are $s \oplus s_1$, $s_2$, and $s_1 \oplus s_2$. We need to calculate the maximum and minimum values of these three XOR sums, denoted as $\textit{mx}$ and $\textit{mn}$. For each enumerated case, the score is $\textit{mx} - \textit{mn}$. We find the minimum value among all cases as the answer.

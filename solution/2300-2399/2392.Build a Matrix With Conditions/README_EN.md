@@ -87,6 +87,16 @@ No matrix can satisfy all the conditions, so we return the empty matrix.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of $1..k$ appears once; row and column conditions are order constraints. $k \le 400$, so treat them as directed edges and topological-sort. A cycle means impossible.
+>
+> Topo-sort rows and columns separately, then write each value at the paired indices. If either order is shorter than $k$, return an empty matrix.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

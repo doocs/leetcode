@@ -71,6 +71,16 @@ So the total cost of this path is 5 + 1 = 6.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path must change rows at every step. Searching all paths branches about $n^{m-1}$ ways, which is impossible for $m, n \le 50$.
+>
+> The min cost of $(i,j)$ depends only on the best values in the previous row and the move cost into this cell. Recur row by row: update each column from the $n$ states of the last row, and keep only the previous row with rolling arrays.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the minimum path cost from the first row to the $i$th row and $j$th column. Since we can only move from a column in the previous row to a column in the current row, the value of $f[i][j]$ can be transferred from $f[i - 1][k]$, where the range of $k$ is $[0, n - 1]$. Therefore, the state transition equation is:
 
 $$

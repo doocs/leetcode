@@ -65,6 +65,16 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 
 ### Solution 1: Greedy Approach
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split a number into positive parts so the array becomes non-decreasing, with as few splits as possible. $n \le 10^5$ forces a right-to-left bound.
+>
+> The current maximum $mx$ on the right should not be split down. If $nums[i] \le mx$, replace $mx$; otherwise split into $k=\lceil nums[i]/mx \rceil$ parts, add $k-1$, and set $mx=\lfloor nums[i]/k \rfloor$ so the left side stays as large as possible.
+
+<!-- thinking:end -->
+
 We observe that to make the array $nums$ non-decreasing or monotonically increasing, the elements towards the end of the array should be as large as possible. Therefore, it is unnecessary to replace the last element $nums[n-1]$ of the array $nums$ with multiple smaller numbers.
 
 In other words, we can traverse the array $nums$ from the end to the beginning, maintaining the current maximum value $mx$, initially $mx = nums[n-1]$.

@@ -75,6 +75,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 优秀数对满足 $\mathrm{popcount}(a\land b)+\mathrm{popcount}(a\lor b)\ge k$。该式恒等于 $\mathrm{popcount}(a)+\mathrm{popcount}(b)$。$n \le 10^5$，且数对与顺序、取值集合有关，须先去重。
+>
+> 对去重后的值按位数计数。枚举每个 $v$ 的位数 $t$，累加所有 $i$ 使 $t+i\ge k$ 的个数。每个有序对（含相等）都被计一次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

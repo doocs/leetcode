@@ -74,6 +74,16 @@ The maximum number in the matrix is 2. It can be shown that no smaller value can
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rewrite the grid with positive integers, preserve relative order, and minimize the final maximum. All original values are unique, so assign in that order.
+>
+> After sorting, a cell must exceed values already written in its row and column, so write $\max(row,col)+1$ and update those maxima. Each step is locally minimal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

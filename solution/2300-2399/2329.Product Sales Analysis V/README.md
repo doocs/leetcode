@@ -100,6 +100,16 @@ Product 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要每名用户的总花费并按花费降序、用户升序输出。联结销量与单价后按用户求和即可。
+>
+> $quantity \times price$ 在联结后直接聚合，再 $ORDER\ BY$ 花费与 $user\_id$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

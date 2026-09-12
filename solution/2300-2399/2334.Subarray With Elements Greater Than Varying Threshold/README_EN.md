@@ -65,6 +65,16 @@ Therefore, 2, 3, 4, or 5 may also be returned.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a subarray of length $k$ whose minimum exceeds $\textit{threshold}/k$. $n \le 10^5$, so scanning ranges is too slow. The longest span where a value is the minimum is bounded by nearer smaller elements.
+>
+> Insert values from large to small and union already-present neighbors. Then $v$ is the minimum of its component; if $v > \textit{threshold}/sz$ we are done.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -258,6 +268,14 @@ func validSubarraySize(nums []int, threshold int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Union-find needs a sort and a log factor. A monotonic stack finds each index’s range as a minimum in linear time, yielding $k$ and the same inequality without merging by value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -78,6 +78,16 @@ Second 7: Fill up a hot cup.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each second we fill two different cups or one cup. The total is at most $300$, so we may repeatedly decrement the two current maxima.
+>
+> Sort, decrease the two largest (or one if the second is already $0$), and repeat until all are zero. Each second absorbs as much demand as possible.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -180,6 +190,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 simulates second by second. After sorting $a \le b \le c$, a closed form exists: if $a+b \le c$, the two smaller amounts finish inside $c$ seconds; otherwise we always pair two cups, and the answer is $\lfloor (a+b+c+1)/2 \rfloor$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

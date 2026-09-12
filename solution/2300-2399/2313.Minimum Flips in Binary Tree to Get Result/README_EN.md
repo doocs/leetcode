@@ -83,6 +83,16 @@ The root of the tree already evaluates to false, so 0 nodes have to be flipped.
 
 ### Solution 1: Tree DP + Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Leaves may flip between $0$ and $1$; inner nodes are Boolean operators. Trying flips on every leaf is exponential and fails on trees with up to a thousand nodes.
+>
+> A subtree matters only through the min flips to make it false or true. Return that pair from the bottom up. Combine children according to the node type (leaf, $OR$, $AND$, $XOR$, $NOT$), then take the coordinate that matches the required root value.
+
+<!-- thinking:end -->
+
 We define a function $dfs(root)$, which returns an array of length 2. The first element represents the minimum number of flips needed to change the value of the $root$ node to `false`, and the second element represents the minimum number of flips needed to change the value of the $root$ node to `true`. The answer is $dfs(root)[result]$.
 
 The implementation of the function $dfs(root)$ is as follows:

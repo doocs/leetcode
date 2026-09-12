@@ -69,6 +69,16 @@ Note that the integer returned should not contain leading zeroes.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rearrange the digits into the largest palindrome, discarding some if needed. $n \le 10^5$, so we greedy on digit counts rather than permutations.
+>
+> After counting, the largest odd-count digit becomes the center (leaving an even count). Half of each remaining count is mirrored from $0$ to $9$. Strip zeros; if nothing remains, the answer is $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

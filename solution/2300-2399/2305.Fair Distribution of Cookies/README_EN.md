@@ -71,6 +71,16 @@ It can be shown that there is no distribution with an unfairness less than 7.
 
 ### Solution 1: Backtracking + Pruning
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We assign $n \le 8$ bags to $k \le 8$ children and minimize the maximum load. Unconstrained assignment has $k^n$ states, which is too large near the limits.
+>
+> Unfairness does not depend on bag order, but placing large bags first triggers pruning sooner. Sort bags decreasingly, then backtrack: skip a child if adding the bag is already no better than the known answer; treat equal loads on adjacent children as symmetric. After every bag is placed, update the answer with the current maximum.
+
+<!-- thinking:end -->
+
 First, we sort the array $cookies$ in descending order (to reduce the number of searches), and then create an array $cnt$ of length $k$ to store the number of cookies each child gets. Also, we use a variable $ans$ to maintain the current minimum degree of unfairness, initialized to a very large value.
 
 Next, we start from the first snack pack. For the current snack pack $i$, we enumerate each child $j$. If the cookies $cookies[i]$ in the current snack pack are given to child $j$, making the degree of unfairness greater than or equal to $ans$, or the number of cookies the current child already has is the same as the previous child, then we don't need to consider giving the cookies in the current snack pack to child $j$, just skip it (pruning). Otherwise, we give the cookies $cookies[i]$ in the current snack pack to child $j$, and then continue to consider the next snack pack. When we have considered all the snack packs, we update the value of $ans$, then backtrack to the previous snack pack, and continue to enumerate which child to give the cookies in the current snack pack to.

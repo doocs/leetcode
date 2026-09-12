@@ -67,6 +67,16 @@ Note that &quot;acfgbd&quot; is not ideal because &#39;c&#39; and &#39;f&#39; ha
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent letters in the subsequence may differ by at most $k$. $n \le 10^5$ forbids listing subsequences. The best end at $i$ depends on earlier letters inside $[s[i]-k,s[i]+k]$.
+>
+> $dp[i]$ is the best end at $i$; a map stores the latest index of each letter. Take the max $dp$ among valid predecessors and add one. The alphabet has size $26$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

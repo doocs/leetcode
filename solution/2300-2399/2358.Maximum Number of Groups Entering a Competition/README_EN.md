@@ -67,6 +67,16 @@ It can be shown that it is not possible to form more than 3 groups.
 
 ### Solution 1: Greedy + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Group sizes and score sums must both strictly increase. $n \le 10^5$ rules out searching partitions. After sorting grades, sizes $1,2,\ldots,k$ automatically increase the sums.
+>
+> Only $\frac{k(k+1)}{2}\le n$ remains. Binary-search $k$ (via $bisect$ on $x^2+x$ versus $2n$) for the largest feasible count.
+
+<!-- thinking:end -->
+
 Observing the conditions in the problem, the number of students in the $i$-th group must be less than that in the $(i+1)$-th group, and the total score of students in the $i$-th group must be less than that in the $(i+1)$-th group. We only need to sort the students by their scores in ascending order, and then assign $1$, $2$, ..., $k$ students to each group in order. If the last group does not have enough students for $k$, we can distribute these students to the previous last group.
 
 Therefore, we need to find the largest $k$ such that $\frac{(1 + k) \times k}{2} \leq n$, where $n$ is the total number of students. We can use binary search to solve this.

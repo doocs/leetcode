@@ -70,6 +70,16 @@ so we return 0.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each second every $01$ becomes $10$ at once. $n \le 1000$ and at most $n$ rounds, so repeated replacement passes.
+>
+> Loop $replace(01,10)$ until none remain; the iteration count is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -169,6 +179,14 @@ func secondsToRemoveOccurrences(s string) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is quadratic in the worst case. Each $1$ is moving left through zeros. One scan counts zeros seen: a $1$ finishes at the max of “one more than the previous $1$” and the zero count.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

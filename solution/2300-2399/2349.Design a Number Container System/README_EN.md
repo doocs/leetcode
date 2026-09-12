@@ -74,6 +74,16 @@ nc.find(10); // Number 10 is at the indices 2, 3, and 5. The smallest index that
 
 ### Solution 1: Hash Table + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We change the number at an index and query the smallest index of a number. Up to $10^5$ operations rule out linear scans.
+>
+> Map $d$ stores the value at each index; a sorted set $g[number]$ stores its indices. A change removes the old index and inserts the new one; $find$ reads the first element of the set.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to record the mapping relationship between indices and numbers, and another hash table $g$ to record the set of indices corresponding to each number. Here, we can use an ordered set to store the indices, which allows us to conveniently find the smallest index.
 
 When calling the `change` method, we first check if the index already exists. If it does, we remove the original number from its corresponding index set and then add the new number to the corresponding index set. The time complexity is $O(\log n)$.

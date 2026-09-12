@@ -70,6 +70,16 @@ There is no occurrence of a subarray with a size more than 3 filled with 0. Ther
 
 ### Solution 1: Traversal and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Zero-filled subarrays live inside runs of zeros. $n \le 10^5$, so we count by run instead of endpoints.
+>
+> Keep the current run length $cnt$. A zero increments $cnt$ and adds it to the answer (subarrays ending here); a nonzero resets $cnt$.
+
+<!-- thinking:end -->
+
 We traverse the array $\textit{nums}$ and use a variable $\textit{cnt}$ to record the current number of consecutive $0$s. For the current element $x$ we are traversing, if $x$ is $0$, then $\textit{cnt}$ is incremented by $1$, and the number of all-zero subarrays ending with the current $x$ is $\textit{cnt}$, which we add to the answer. Otherwise, we set $\textit{cnt}$ to $0$.
 
 After the traversal, we return the answer.

@@ -80,6 +80,16 @@ There are a total of 9 + 1 + 1 = 11 distinct ideal arrays.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each next value must be a multiple of the previous. Both $n$ and $\textit{maxValue}$ reach $10^4$, so arrays cannot be listed. A strictly multiplying chain has length at most $\log \textit{maxValue}$.
+>
+> Count chains $f[i][j]$ that end at $i$ with $j$ distinct values, then expand a chain of $j$ values into $n$ positions by stars and bars, multiplying $c_{n-1}^{j-1}$. Combinations are built row-wise; chain length is capped at $16$.
+
+<!-- thinking:end -->
+
 Let $f[i][j]$ represent the number of sequences ending with $i$ and consisting of $j$ distinct elements. The initial value is $f[i][1] = 1$.
 
 Consider $n$ balls, which are eventually divided into $j$ parts. Using the "separator method," we can insert $j-1$ separators into the $n-1$ positions, and the number of combinations is $c_{n-1}^{j-1}$.
@@ -261,6 +271,14 @@ func idealArrays(n int, maxValue int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous write-up already gives the chain DP and the combination factor. This tab repeats that same recurrence without a new state.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

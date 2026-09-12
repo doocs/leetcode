@@ -68,6 +68,16 @@ It can be shown that it is not possible to run more than 3 consecutive robots wi
 
 ### Solution 1: Two Pointers + Monotonic Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A contiguous team costs the window’s max charge time plus length times the sum of running costs. $n \le 5 \times 10^4$; scanning every window for the max is too slow. Cost grows with length, so the left end only moves right.
+>
+> Expand the right end with a monotonic deque for the max charge and a sum $s$ for running costs. When over budget, drop stale indices and move left. The maximum width is the answer.
+
+<!-- thinking:end -->
+
 The problem is essentially finding the maximum value within a sliding window, which can be solved using a monotonic queue.
 
 We only need to use binary search to enumerate the size of the window $k$, and find the largest $k$ that satisfies the problem requirements.

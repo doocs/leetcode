@@ -82,6 +82,16 @@ tags:
 
 ### 方法一：数学 + 枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个加数形如 $10x+k$，故 $n$ 个数之和的个位由 $n\times k$ 决定。$num \le 3000$，枚举个数 $n$ 并检验 $num-n\times k$ 是否为 $10$ 的非负倍数即可。
+>
+> 从小到大尝试 $n$，第一个满足条件者即为最少个数；若直至 $num$ 仍不成立则无解。
+
+<!-- thinking:end -->
+
 符合拆分条件的每个数都可以表示成 $10x_i+k$，若总共有 $n$ 个数，那么 $\textit{num}-n \times k$ 必然是 $10$ 的倍数。
 
 我们从小到达枚举 $n$，找到第一个满足 $\textit{num}-n \times k$ 是 $10$ 的倍数的 $n$。由于 $n$ 不会超过 $\textit{num}$，因此 $n$ 最大枚举至 $\textit{num}$。
@@ -179,6 +189,14 @@ function minimumNumbers(num: number, k: number): number {
 
 ### 方法二：数学 + 枚举（个位）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一最多枚举 $num$ 次。个位以 $10$ 为周期，因此只需检查 $n \le 10$ 是否使 $n\times k$ 与 $num$ 同余且不超过 $num$，常数更小。
+
+<!-- thinking:end -->
+
 只需枚举个数 $n \le 10$，使 $n \times k$ 与 $\textit{num}$ 个位相同且不超过 $\textit{num}$。
 
 <!-- tabs:start -->
@@ -252,6 +270,14 @@ func minimumNumbers(num int, k int) int {
 <!-- solution:start -->
 
 ### 方法三：记忆化搜索
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 前两法依赖整除关系，实现紧凑但不易改成带额外约束的拆分。记忆化搜索按个位为 $k$ 的数递减，子问题只与剩余值有关，可复用中间结果；在本题数据下正确，却比直接枚举更重。
+
+<!-- thinking:end -->
 
 枚举下一个个位为 $k$ 的数，记忆化搜索凑出 $\textit{num}$ 的最少个数。
 

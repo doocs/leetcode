@@ -61,6 +61,16 @@ Possible arrangements:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two sides of the street are independent, and adjacent plots on one side cannot both hold a house. $n \le 10^4$; the answer is the square of one side’s count. A side search only needs whether the previous plot is occupied.
+>
+> Let $f[i]$ and $g[i]$ be ways to fill the first $i+1$ plots with the last one occupied or empty. Occupied forces the previous empty; empty allows either. Multiply the two sides modulo the given constant.
+
+<!-- thinking:end -->
+
 Since the placement of houses on both sides of the street does not affect each other, we can consider the placement on one side only, and then square the number of ways for one side to get the final result modulo.
 
 We define $f[i]$ to represent the number of ways to place houses on the first $i+1$ plots, with the last plot having a house. We define $g[i]$ to represent the number of ways to place houses on the first $i+1$ plots, with the last plot not having a house. Initially, $f[0] = g[0] = 1$.

@@ -62,6 +62,16 @@ It can be shown that 11 is the maximum possible bitwise XOR.</pre>
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation may turn some $1$-bits of $nums[i]$ into $0$, but cannot create a $1$. $n \le 10^5$ calls for a linear observation.
+>
+> The maximum XOR has a bit set if and only if some element already has that bit (we can keep exactly one). The answer is therefore the bitwise OR of the whole array.
+
+<!-- thinking:end -->
+
 In one operation, we can update $\textit{nums}[i]$ to $\textit{nums}[i] \text{ AND } (\textit{nums}[i] \text{ XOR } x)$. Since $x$ is any non-negative integer, the result of $\textit{nums}[i] \oplus x$ can be any value. By performing a bitwise AND operation with $\textit{nums}[i]$, we can change some of the $1$ bits in the binary representation of $\textit{nums}[i]$ to $0$.
 
 The problem requires us to find the maximum bitwise XOR sum of all elements in $\textit{nums}$. For a binary bit, as long as there is an element in $\textit{nums}$ with the corresponding binary bit set to $1$, the contribution of this binary bit to the maximum bitwise XOR sum is $1$. Therefore, the answer is the result of the bitwise OR operation of all elements in $\textit{nums}$.

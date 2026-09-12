@@ -76,6 +76,16 @@ It can be proven that no smaller answer exists.
 
 ### Solution 1: Greedy + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Opponents must be beaten in order, and both energy and experience must be strictly larger at the start of a fight. $n \le 100$, so simulate and top up when short.
+>
+> If energy is not enough, train to the opponent’s energy plus one; likewise for experience. After the fight, energy drops and experience grows. The sum of shortages is the training time.
+
+<!-- thinking:end -->
+
 Let's denote the current energy as $x$ and the current experience as $y$.
 
 Next, we traverse each opponent. For the $i$-th opponent, let their energy be $dx$ and their experience be $dy$.

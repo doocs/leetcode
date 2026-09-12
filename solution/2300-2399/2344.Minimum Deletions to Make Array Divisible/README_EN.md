@@ -68,6 +68,16 @@ There is no way to delete elements from nums to allow this.</pre>
 
 ### Solution 1: Math + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deletions the remaining minimum must divide every entry of $numsDivide$, hence it is a divisor of $x=\gcd(numsDivide)$. $n$ can be $10^5$.
+>
+> Compute $x$, sort $nums$, and return the index of the first divisor of $x$. If none exists, the answer is $-1$.
+
+<!-- thinking:end -->
+
 If an element can divide every value in `numsDivide`, it is a divisor of their GCD $x$. Compute $x$, sort `nums`, and return the index of the first divisor of $x$.
 
 The time complexity is $O(m + \log M + n \times \log n)$, where $n$ and $m$ are the lengths of `nums` and `numsDivide`, and $M$ is the maximum value in `numsDivide`.
@@ -166,6 +176,14 @@ func gcd(a, b int) int {
 <!-- solution:start -->
 
 ### Solution 2: Math + Enumeration (No Sorting)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 sorts only to find the smallest valid divisor. A linear scan can take the minimum $y$ that divides $x$, then count values smaller than $y$.
+
+<!-- thinking:end -->
 
 After computing the GCD $x$ of `numsDivide`, scan `nums` for the smallest valid divisor $y$, then count how many elements are smaller than $y$. No sort is required.
 

@@ -63,6 +63,16 @@ Both mountains are not visible since their peaks lie within each other.
 
 ### Solution 1: Interval Sorting + Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A peak is visible iff no other peak contains it. Peak $(x,y)$ covers $(x-y,x+y)$. Identical intervals hide each other.
+>
+> Sort by left ascending and right descending, then scan: a right end that does not beat the current maximum is contained. Count an interval only if it is unique and extends that maximum.
+
+<!-- thinking:end -->
+
 We first convert each mountain $(x, y)$ into a horizontal interval $(x - y, x + y)$, then sort the intervals by left endpoint in ascending order and right endpoint in descending order.
 
 Next, we initialize the right endpoint of the current interval as $-\infty$. We traverse each mountain. If the right endpoint of the current mountain is less than or equal to the right endpoint of the current interval, we skip this mountain. Otherwise, we update the right endpoint of the current interval to the right endpoint of the current mountain. If the interval of the current mountain appears only once, we increment the answer.

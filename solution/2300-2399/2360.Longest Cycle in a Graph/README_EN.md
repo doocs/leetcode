@@ -67,6 +67,16 @@ The length of this cycle is 3, so 3 is returned.
 
 ### Solution 1: Traverse Starting Points
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node has at most one outgoing edge, so the graph is paths into cycles. $n \le 10^5$; walk the unique successor from every unvisited node.
+>
+> Mark nodes and record the path. Stopping at $-1$ means no cycle; stopping on a node of this path yields a cycle from that index to the end. Track the longest such length.
+
+<!-- thinking:end -->
+
 We can traverse each node in the range $[0,..,n-1]$. If a node has not been visited, we start from this node and search for adjacent nodes until we encounter a cycle or a node that has already been visited. If we encounter a cycle, we update the answer.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes.

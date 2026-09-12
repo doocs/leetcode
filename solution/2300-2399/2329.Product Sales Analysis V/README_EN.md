@@ -101,6 +101,16 @@ Users 102 and 103 spent the same amount and we break the tie by their ID while u
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each user’s total spend, ordered by spend descending and user id ascending. Join sales to prices and aggregate by user.
+>
+> Sum $quantity \times price$ after the join, then $ORDER\ BY$ spend and $user\_id$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

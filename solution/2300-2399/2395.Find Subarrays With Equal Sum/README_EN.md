@@ -67,6 +67,16 @@ Note that even though the subarrays have the same content, the two subarrays are
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ask whether two distinct length-$2$ subarrays share a sum. $n \le 1000$, so store adjacent pair sums.
+>
+> Scan pairwise sums: a repeat is a hit; otherwise insert. Longer subarrays are irrelevant.
+
+<!-- thinking:end -->
+
 We can traverse the array $nums$, and use a hash table $vis$ to record the sum of every two adjacent elements in the array. If the sum of the current two elements has already appeared in the hash table, then return `true`. Otherwise, add the sum of the current two elements to the hash table.
 
 If we finish traversing and haven't found two subarrays that meet the condition, return `false`.

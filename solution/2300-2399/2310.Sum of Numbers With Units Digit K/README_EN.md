@@ -81,6 +81,16 @@ It can be shown that 2 is the minimum possible size of a valid set.
 
 ### Solution 1: Math + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each addend is $10x+k$, so the units digit of a sum of $n$ such numbers is determined by $n\times k$. $num \le 3000$, so we enumerate $n$ and test whether $num-n\times k$ is a non-negative multiple of $10$.
+>
+> Try $n$ from small to large; the first success is minimal. If none works up to $num$, there is no solution.
+
+<!-- thinking:end -->
+
 Each number that meets the splitting condition can be represented as $10x_i + k$. If there are $n$ such numbers, then $\textit{num} - n \times k$ must be a multiple of $10$.
 
 We enumerate $n$ from small to large, and find the first $n$ that satisfies $\textit{num} - n \times k$ being a multiple of $10$. Since $n$ cannot exceed $\textit{num}$, the maximum value of $n$ is $\textit{num}$.
@@ -178,6 +188,14 @@ function minimumNumbers(num: number, k: number): number {
 
 ### Solution 2: Math + Enumeration (Units Digit)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 may try up to $num$ values. Units digits repeat every $10$, so it suffices to test $n \le 10$ with $n\times k$ congruent to $num$ and at most $num$.
+
+<!-- thinking:end -->
+
 Enumerate at most $10$ numbers whose units digit is $k$.
 
 <!-- tabs:start -->
@@ -251,6 +269,14 @@ func minimumNumbers(num int, k int) int {
 <!-- solution:start -->
 
 ### Solution 3: Memoization Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first two methods lean on divisibility and are compact, but do not extend if more constraints appear. Memoized search subtracts numbers with units digit $k$; subproblems depend only on the remainder. It is correct here, yet heavier than direct enumeration.
+
+<!-- thinking:end -->
 
 Memoize the fewest numbers with units digit $k$ that sum to $\textit{num}$.
 

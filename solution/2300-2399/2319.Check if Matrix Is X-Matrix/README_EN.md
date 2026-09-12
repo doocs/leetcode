@@ -66,6 +66,16 @@ Thus, grid is not an X-Matrix.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An X-matrix needs nonzero diagonals and zeros elsewhere. $n \le 100$, so a full scan decides it.
+>
+> If $i=j$ or $i+j=n-1$, reject a zero; otherwise reject a nonzero. Return as soon as a cell fails; no extra structure is required.
+
+<!-- thinking:end -->
+
 We can directly traverse the matrix and check if each element satisfies the conditions of an $X$ matrix. If any element does not satisfy the conditions, return $\textit{false}$ immediately. If all elements satisfy the conditions after traversal, return $\textit{true}$.
 
 The time complexity is $O(n^2)$, where $n$ is the number of rows or columns of the matrix. The space complexity is $O(1)$.

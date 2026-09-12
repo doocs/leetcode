@@ -68,6 +68,16 @@ Therefore, we return 0.
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Painting a window of length $k$ all black costs its number of whites. We only need every window, not a search over colorings.
+>
+> Count whites in the first $k$ cells, then slide, adding and removing the ends, and keep the minimum.
+
+<!-- thinking:end -->
+
 We observe that what the problem actually asks for is the minimum number of white blocks in a sliding window of size $k$.
 
 Therefore, we only need to traverse the string $blocks$, use a variable $cnt$ to count the number of white blocks in the current window, and then use a variable $ans$ to maintain the minimum value.

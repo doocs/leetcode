@@ -80,6 +80,16 @@ Notice if you had arrived any later, then the 6<sup>th</sup> passenger would hav
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the latest arrival that does not collide with another passenger. Both arrays can have $10^5$ entries, so sort and simulate boarding.
+>
+> Fill each bus in arrival order and note leftover seats on the last bus. If a seat remains, walk back from the last departure; otherwise walk back from the last boarded passenger, skipping occupied times.
+
+<!-- thinking:end -->
+
 First, we sort, and then use double pointers to simulate the process of passengers getting on the bus: traverse the bus $bus$, passengers follow the principle of "first come, first served".
 
 After the simulation ends, judge whether the last bus still has seats:

@@ -67,6 +67,16 @@ There are a total of 22 distinct sequences possible, so we return 22.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sequences of length $n \le 10^4$ must have adjacent faces coprime and distinct, and must differ from the face two steps back. Plain recursion repeats suffixes.
+>
+> Legality depends only on the last two faces. Let $dp[k][i][j]$ be the number of length-$k$ sequences ending with $i,j$, transferred from a previous face that meets the gcd and distinctness rules. Six faces keep the table small.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
