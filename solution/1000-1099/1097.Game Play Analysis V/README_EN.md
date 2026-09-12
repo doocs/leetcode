@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1097.Game%20Play%20Analysis%20V/README_EN.md
 tags:
     - Database
 ---
