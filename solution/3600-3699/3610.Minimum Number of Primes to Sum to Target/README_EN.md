@@ -78,6 +78,19 @@ tags:
 
 ### Solution 1: Preprocessing + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Forming $n$ from the first $m$ primes with repetition is an unbounded knapsack. Combinatorial search is unnecessary: $n,m\le 1000$ admits an $O(mn)$ recurrence.
+>
+> Sieve the first $1000$ primes. Let $f[i]$ be the fewest primes that sum to $i$, with $f[0]=0$ and the rest $\infty$.
+>
+> For each prime $p$, scan $i$ upward and set $f[i]=\min(f[i],f[i-p]+1)$ so the same prime may be reused. If $f[n]$ stays $\infty$, return $-1$.
+
+<!-- thinking:end -->
+
+
 We can first preprocess to obtain the first $1000$ prime numbers, and then use dynamic programming to solve the problem.
 
 Define $f[i]$ as the minimum number of primes needed to sum up to $i$. Initially, set $f[0] = 0$ and all other $f[i] = \infty$. For each prime $p$, we can update $f[i]$ from $f[i - p]$ as follows:

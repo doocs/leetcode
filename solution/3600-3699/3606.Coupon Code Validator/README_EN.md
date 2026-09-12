@@ -92,6 +92,17 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, filtering by the stated rules is enough. A valid coupon has a non-empty identifier of letters, digits, and underscores, a business line among the four allowed values, and an active flag.
+>
+> Collect qualifying indices, sort them by $(\textit{businessLine},\textit{code})$, then emit the identifiers. The sort keys match the required category order and lexicographic tie-break.
+
+<!-- thinking:end -->
+
+
 We can directly simulate the conditions described in the problem to filter out valid coupons. The specific steps are as follows:
 
 1. **Check Identifier**: For each coupon's identifier, check whether it is non-empty and contains only letters, digits, and underscores.

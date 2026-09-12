@@ -154,6 +154,19 @@ Each row represents a trip made by a driver, including the distance traveled and
 
 ### Solution 1: Group Aggregation + Join Query
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning each driver's trips and splitting halves by hand easily drops drivers who lack a half-year and confuses a ratio of totals with a mean of per-trip efficiencies. The comparison is between the two half-year averages of the same driver.
+>
+> Record $\textit{distance}/\textit{fuel}$ per trip, then average by $\textit{driver\_id}$ and half-year. After a pivot, drop rows missing a half and keep those whose second-half mean is strictly larger.
+>
+> Join $\textit{drivers}$ for names and sort by improvement descending, then name ascending. Grouping and pivoting turn the half-year into an explicit aggregation key.
+
+<!-- thinking:end -->
+
+
 First, we perform group aggregation on the `trips` table to calculate the average fuel efficiency for each driver in the first half and the second half of the year.
 
 Then, we join the results with the `drivers` table, filter out the drivers whose fuel efficiency has improved, and calculate the amount of improvement.

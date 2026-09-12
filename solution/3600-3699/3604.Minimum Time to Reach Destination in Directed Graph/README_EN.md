@@ -112,6 +112,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges are usable only in $[\textit{start},\textit{end}]$. A BFS that ignores windows yields the wrong arrival time. We need the earliest time to each vertex.
+>
+> Arriving at $u$ at time $t$, an edge $(u,v,s,e)$ is taken at $\max(t,s)$ provided that instant is at most $e$, so $v$ is reached at $\max(t,s)+1$. A missed window discards the edge.
+>
+> This is shortest paths with time windows. A heap pops vertices by arrival time and relaxes legal outgoing edges. The first time $n-1$ is dequeued is the answer; an empty heap means $-1$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

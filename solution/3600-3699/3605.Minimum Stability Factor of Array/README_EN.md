@@ -112,6 +112,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The stability factor is the length of the longest subarray whose $\gcd$ is at least $2$. After at most $\textit{maxC}$ edits we want that length minimized. Enumerating edits is impossible.
+>
+> If a length $L$ can be forced so that every window of length $L+1$ is unstable using at most $\textit{maxC}$ edits, every smaller target is feasible, so the answer is binary-searched.
+>
+> Range $\gcd$ is $O(1)$ with a sparse table. For a candidate $\textit{mid}$, scan windows of length $\textit{mid}+1$ and edit one position in each window whose $\gcd$ is at least $2$. Place the edit as far right as possible to cover later overlapping windows, then compare the edit count with $\textit{maxC}$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

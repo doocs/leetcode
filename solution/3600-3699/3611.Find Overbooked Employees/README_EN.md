@@ -152,6 +152,19 @@ Each row represents a meeting attended by an employee. meeting_type can be &#39;
 
 ### Solution 1: Group Aggregation + Join Query
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A meeting-heavy week is a sum over an ISO year-week, not a single day. Convert dates to year and week, then sum $\textit{duration}$ by $(\textit{employee\_id},\textit{year},\textit{week})$.
+>
+> Keep weeks with at least $20$ hours, count them per employee, join those with at least two such weeks to the employee table, and sort by the count descending then name ascending.
+>
+> The aggregation key must include the year, otherwise the same week number in different years would merge.
+
+<!-- thinking:end -->
+
+
 First, we group the data by `employee_id`, `year`, and `week` to calculate the total meeting hours for each employee in each week. Then, we filter out the weeks where the meeting hours exceed 20 and count the number of meeting-heavy weeks for each employee. Finally, we join the result with the employees table, filter out employees with at least 2 meeting-heavy weeks, and sort the results as required.
 
 <!-- tabs:start -->

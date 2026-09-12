@@ -75,6 +75,19 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need $n^2$ in base $16$ and $n^3$ in base $36$. Built-in converters usually cover only hexadecimal, so the two bases would otherwise diverge.
+>
+> Any base is obtained by repeated modulo and division. Factor $f(x,k)$: write a digit when the remainder is at most $9$, otherwise a letter, then reverse the low-order sequence.
+>
+> With $x=n^2$ and $y=n^3$, return $f(x,16)+f(y,36)$. The loop length is logarithmic in $n$.
+
+<!-- thinking:end -->
+
+
 We define a function $\textit{f}(x, k)$, which converts an integer $x$ to its string representation in base $k$. This function constructs the result string by repeatedly taking the modulus and dividing.
 
 For a given integer $n$, we compute $n^2$ and $n^3$, then convert them to hexadecimal and base-36 strings, respectively. Finally, we concatenate these two strings and return the result.
