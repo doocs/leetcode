@@ -71,6 +71,16 @@ The other answers can be filled out with similar reasoning.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> On the DAG of “richer than”, each person wants the quietest among themselves and all richer people. $n\le 500$, so a fresh search per person retraces the same subgraphs.
+>
+> Point edges from poorer to richer and memoize DFS: start with oneself, then take the quieter answer among richer neighbors. Each node is computed once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

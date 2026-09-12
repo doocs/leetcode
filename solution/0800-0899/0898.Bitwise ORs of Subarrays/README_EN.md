@@ -67,6 +67,16 @@ There are 3 unique values, so the answer is 3.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct bitwise ORs of all subarrays. $n\le 5\cdot 10^4$ forbids enumerating subarrays. The OR-set ending at $i$ is $\{y\lor arr[i]\}$ over the previous set, plus $\{arr[i]\}$.
+>
+> OR only sets bits, so that set has size $O(\log A)$. Roll it with a hash set and union into a global set whose size is the answer.
+
+<!-- thinking:end -->
+
 The problem asks for the number of unique bitwise OR operations results of subarrays. If we enumerate the end position $i$ of the subarray, the number of bitwise OR operations results of the subarray ending at $i-1$ does not exceed $32$. This is because the bitwise OR operation is a monotonically increasing operation.
 
 Therefore, we use a hash table $ans$ to record all the results of the bitwise OR operations of subarrays, and a hash table $s$ to record the results of the bitwise OR operations of subarrays ending with the current element. Initially, $s$ only contains one element $0$.

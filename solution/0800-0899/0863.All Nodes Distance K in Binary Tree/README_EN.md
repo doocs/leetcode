@@ -59,6 +59,16 @@ Explanation: The nodes that are a distance 2 from the target node (with value 5)
 
 ### Solution 1: DFS + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want nodes at distance $k$ from $\textit{target}$. Child pointers alone cannot walk to a parent. With at most $500$ nodes, record parents first, then walk $k$ steps from $\textit{target}$.
+>
+> The first DFS stores each parent; the second explores left, right, and parent, skipping the previous node, and collects values when the remaining distance is $0$.
+
+<!-- thinking:end -->
+
 We first use DFS to traverse the entire tree and save each node's parent node in the hash table $\textit{g}$.
 
 Next, we use DFS again, starting from $\textit{target}$, to search for nodes at a distance of $k$ both upwards and downwards, and add them to the result array.

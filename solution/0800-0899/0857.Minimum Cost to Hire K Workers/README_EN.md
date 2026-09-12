@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Everyone is paid at one ratio, at least their wage expectation; we pick $k$ workers to minimize total pay. The ratio is the max $\textit{wage}/\textit{quality}$ in the group. Subsets are impossible for $n\le 10^4$.
+>
+> Insert workers by increasing ratio so the current ratio covers the group. A max-heap drops the largest quality to keep size $k$. Whenever the group has $k$ people, update with current ratio times total quality.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

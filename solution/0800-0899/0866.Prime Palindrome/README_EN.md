@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the smallest palindromic prime $\ge n$. $n$ can be $10^8$; testing every integer is wasteful because even-length palindromes are divisible by $11$.
+>
+> Skip the range $(10^7,10^8)$ straight to $10^8$. Elsewhere increment, testing palindrome and primality, and return the first hit.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

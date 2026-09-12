@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word is uncommon if it appears once across both sentences. The sentences are short, so a combined counter is enough.
+>
+> Split both sentences into one counter; keys with count $1$ are the answer.
+
+<!-- thinking:end -->
+
 According to the problem description, as long as a word appears once, it meets the requirements of the problem. Therefore, we use a hash table `cnt` to record all words and their occurrence counts.
 
 Then we traverse the hash table, and take out all strings that appear only once.

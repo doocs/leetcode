@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the longest Fibonacci subsequence of a strictly increasing array. $n\le 1000$, so jumping from every pair works but repeats work for the same ending pair.
+>
+> $f[i][j]$ is the longest sequence ending at $arr[j],arr[i]$. If $arr[i]-arr[j]$ occurs before $j$, we extend that pair. Only lengths at least $3$ update the answer.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the length of the longest Fibonacci-like subsequence, with $\textit{arr}[i]$ as the last element and $\textit{arr}[j]$ as the second to last element. Initially, for any $i \in [0, n)$ and $j \in [0, i)$, we have $f[i][j] = 2$. All other elements are $0$.
 
 We use a hash table $d$ to record the indices of each element in the array $\textit{arr}$.

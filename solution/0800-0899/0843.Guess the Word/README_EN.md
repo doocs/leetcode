@@ -84,6 +84,16 @@ We made 5 calls to master.guess, and one of them was the secret, so we pass the 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The secret must be found in at most $30$ guesses, each returning a match count. There are only $100$ length-$6$ words, yet random guesses need not shrink the candidate set.
+>
+> Keep the words still consistent with all answers, and filter by the match count after each guess. Even without implementation code here, the core is using that count to reduce the search to a manageable set.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

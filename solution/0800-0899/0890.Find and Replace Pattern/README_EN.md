@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word matches the pattern iff there is a bijection between letters. Words are few and short, so one mapping check per word is enough.
+>
+> Scan both strings and store the first-binding index of each letter in two arrays; unequal indices mean the mapping disagrees. Recording both directions blocks many-to-one maps.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

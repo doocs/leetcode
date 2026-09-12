@@ -67,6 +67,16 @@ After shifting the first 3 letters of s by 9, we have &quot;rpl&quot;, the answe
 
 ### Solution 1: Suffix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{shifts}[i]$ rotates the prefix of length $i+1$. Applying operations one by one is too slow for $n\le 10^5$ and large shift values. Letter $i$ moves by the suffix sum $\textit{shifts}[i:]$.
+>
+> Accumulate that suffix from the right, reduce modulo $26$, and rewrite the character. One reverse scan finishes every shift.
+
+<!-- thinking:end -->
+
 For each character in the string $s$, we need to calculate its final shift amount, which is the sum of $\textit{shifts}[i]$, $\textit{shifts}[i + 1]$, $\textit{shifts}[i + 2]$, and so on. We can use the concept of suffix sum, traversing $\textit{shifts}$ from back to front, calculating the final shift amount for each character, and then taking modulo $26$ to get the final character.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

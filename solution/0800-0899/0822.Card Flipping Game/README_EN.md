@@ -61,6 +61,16 @@ There are no good integers no matter how we flip the cards, so we return 0.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A number that appears on both sides of the same card can never be the good integer on front. $n\le 1000$, so first collect every value that is equal on front and back.
+>
+> The answer is the minimum among the remaining values, or $0$ if none exist.
+
+<!-- thinking:end -->
+
 We observe that for position $i$, if $\textit{fronts}[i]$ is equal to $\textit{backs}[i]$, then it certainly does not satisfy the condition.
 
 Therefore, we first identify all elements that appear the same on both the front and back sides and record them in a hash set $s$.

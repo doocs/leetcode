@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replacements apply simultaneously, and only when $\textit{source}$ matches $s$ at the given index. Editing while scanning would shift later indices.
+>
+> Mark successful matches on the original indices, then build the result left to right: a hit writes $\textit{target}$ and skips $\textit{source}$; otherwise copy the character.
+
+<!-- thinking:end -->
+
 We iterate through each replacement operation. For the current $k$-th replacement operation $(i, \text{src})$, if $s[i..i+|\text{src}|-1]$ is equal to $\text{src}$, we record that the string at index $i$ needs to be replaced with the $k$-th string in $\text{targets}$; otherwise, no replacement is needed.
 
 Next, we only need to iterate through the original string $s$ and perform the replacements based on the recorded information.

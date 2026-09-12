@@ -77,6 +77,16 @@ There are 2 different transformations: &quot;--...-.&quot; and &quot;--...--.&qu
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each word maps letter-wise to a Morse string; we only need how many distinct encodings appear. With at most $100$ words of length $\le 12$, a direct transform is enough.
+>
+> Store the encodings in a set and return its size. Words that share an encoding count as one transformation.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

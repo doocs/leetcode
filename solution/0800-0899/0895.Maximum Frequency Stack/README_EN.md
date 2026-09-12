@@ -74,6 +74,16 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 
 ### Solution 1: Hash Table + Priority Queue (Max Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pop the current most frequent value, breaking ties by recency. Up to $2\cdot 10^4$ operations, so scanning the stack is too slow. We need both frequency and a timestamp.
+>
+> A map stores frequencies; a heap stores $(-\textit{freq},-\textit{ts},val)$. After popping, decrement that value’s frequency. Stale heap entries are left behind and will not be chosen while a newer, higher frequency exists.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to design a data structure that supports popping out the element with the highest frequency. If multiple elements have the same frequency, the element closest to the top of the stack should be popped out.
 
 We can use a hash table $cnt$ to record the frequency of each element, and a priority queue (max heap) $q$ to maintain the frequency of elements and their corresponding timestamps.
@@ -227,6 +237,16 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 <!-- solution:start -->
 
 ### Solution 2: Double Hash Tables
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The heap retains stale frequency records. Bucketing by frequency is cleaner: level $f$ is a stack of values whose current frequency is $f$.
+>
+> Push appends to level $f+1$ and updates the maximum frequency; pop takes the top of the highest level and decreases the maximum when that level empties. Each operation is amortized $O(1)$.
+
+<!-- thinking:end -->
 
 In Solution 1, in order to pop out the required element, we maintained a priority queue and had to operate on it each time, which has a time complexity of $O(\log n)$. If we can find the required element in $O(1)$ time, then the time complexity of each operation of the entire data structure can be reduced to $O(1)$.
 

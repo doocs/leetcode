@@ -77,6 +77,16 @@ Your position goes from 0 --&gt; 1 --&gt; 3 --&gt; 7 --&gt; 7 --&gt; 6.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Instructions accelerate or reverse on the number line. $target\le 10^4$ makes a raw BFS on (position, speed) bulky. $k$ consecutive A's reach $2^k-1$, and every target is a combination of overshooting then reversing, or reversing earlier and accelerating again.
+>
+> $dp[i]$ is the fewest instructions to reach $i$. If $i=2^k-1$ this is exactly $k$ A's; otherwise we take the min of “go to $2^k-1$ and reverse” and of reversing after $k-1$ A's, driving $j$ steps, then turning back.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

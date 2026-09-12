@@ -80,6 +80,16 @@ So the total probability of A becoming empty first plus half the probability tha
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four operations deplete the soups with equal probability; we want the probability that A empties first (ties count as $1/2$). $n$ can be $10^9$, so a millilitre-level simulation is impossible. Each pour removes at least $25\,\mathrm{ml}$, so states shrink to $\lceil n/25\rceil$.
+>
+> $dfs(i,j)$ is the probability with $i$ and $j$ remaining units, with base cases $1$, $0$, or $1/2$. For large $n$, A almost surely finishes first, so the code returns $1$ when $n>4800$.
+
+<!-- thinking:end -->
+
 In this problem, since each operation is a multiple of $25$, we can consider every $25ml$ of soup as one unit. This reduces the data scale to $\left \lceil \frac{n}{25} \right \rceil$.
 
 We design a function $dfs(i, j)$, which represents the probability result when there are $i$ units of soup $A$ and $j$ units of soup $B$ remaining.

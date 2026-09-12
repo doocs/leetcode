@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We compare two strings after applying backspaces. Building the cleaned strings uses extra linear space; the intended scan works on the originals.
+>
+> Walk right to left, letting a skip counter consume `#` and the characters they delete, then compare the next live characters. If one side runs out first, they differ.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

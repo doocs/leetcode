@@ -68,6 +68,16 @@ This demonstrated that taking the first 5 was a winning move for Alice, so we re
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players take from either end of a zero-sum pile array; we ask whether Alice scores more. With $\le 500$ piles, the state is the net score on interval $[i,j]$.
+>
+> $dfs(i,j)$ is the max of $piles[i]-dfs(i+1,j)$ and $piles[j]-dfs(i,j-1)$. A positive net score wins. Alice always wins under the constraints, but the code still computes the interval DP.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$ that represents the maximum difference in the number of stones between the current player and the other player when considering piles from the $i$-th to the $j$-th. The answer is then $dfs(0, n - 1) \gt 0$.
 
 The function $dfs(i, j)$ is computed as follows:
@@ -222,6 +232,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The memoized recurrence tabulates without recursion. $f[i][j]$ is the net score on $[i,j]$, filled from the length-$1$ diagonal outward.
+>
+> The transition matches Method 1. The answer is whether $f[0][n-1]$ is positive.
+
+<!-- thinking:end -->
 
 We can also use dynamic programming. Define $f[i][j]$ as the maximum difference in the number of stones the current player can obtain over the other player from piles $piles[i..j]$. The final answer is then $f[0][n - 1] \gt 0$.
 

@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Riding one bus reaches every stop on that route; we want the fewest rides. Walking stop-to-stop would expand the same bus many times. The right BFS layer is a transfer.
+>
+> Build a stop-to-routes index. The queue stores a stop and the ride count; each route is expanded once, enqueueing its unseen stops. Every bus is processed at most once.
+
+<!-- thinking:end -->
+
 First, we check if $\textit{source}$ and $\textit{target}$ are the same. If they are, we directly return $0$.
 
 Next, we use a hash table $\textit{g}$ to build a mapping from stops to bus routes. For each bus route, we traverse all the stops it passes through and map each stop to that bus route, i.e., $\textit{g}[\textit{stop}]$ represents all bus routes passing through stop $\textit{stop}$.

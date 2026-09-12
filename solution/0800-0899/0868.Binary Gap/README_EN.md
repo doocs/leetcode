@@ -65,6 +65,16 @@ There are not any adjacent pairs of 1&#39;s in the binary representation of 8, s
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the largest distance between adjacent ones in the binary form. $n\le 10^9$, so a bit scan is enough; no string conversion.
+>
+> Remember the previous $1$’s index and update the gap when the next $1$ appears. If there are fewer than two ones, the answer stays $0$.
+
+<!-- thinking:end -->
+
 We use two pointers $\textit{pre}$ and $\textit{cur}$ to represent the positions of the previous and current $1$ bits, respectively. Initially, $\textit{pre} = 100$ and $\textit{cur} = 0$. Then, we traverse the binary representation of $n$. When we encounter a $1$, we calculate the distance between the current position and the previous $1$ position and update the answer.
 
 The time complexity is $O(\log n)$, where $n$ is the given integer. The space complexity is $O(1)$.

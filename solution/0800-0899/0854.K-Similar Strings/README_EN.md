@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We swap two characters of $s1$ until it equals $s2$. They are anagrams of length $\le 20$, so BFS on the whole string is feasible.
+>
+> From a state, only swap the first mismatch with a later character that belongs there. Useless swaps are skipped; the BFS layer is the swap count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -230,6 +240,16 @@ func kSimilarity(s1 string, s2 string) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Plain BFS expands by layer. Half the number of mismatches is an admissible heuristic: one swap fixes at most two positions. Pop $dist+h$ first.
+>
+> Neighbors match Method 1 and edges still have weight $1$, so optimality remains; strings with fewer mismatches dequeue earlier.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

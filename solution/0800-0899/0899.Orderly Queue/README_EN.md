@@ -60,6 +60,16 @@ In the second move, we move the 3<sup>rd</sup> character &#39;c&#39; to the end,
 
 ### Solution 1: Case-by-case Judgment
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We move one of the first $k$ characters to the end and want the lexicographically smallest string. When $k=1$ this is only rotation, so we try every rotation.
+>
+> When $k\ge 2$, adjacent swaps are possible, so every permutation is reachable and the answer is the sorted string.
+
+<!-- thinking:end -->
+
 If $k = 1$, we can only move the first character of the string to the end of the string each time, resulting in $|s|$ different states. We return the string with the smallest lexicographic order.
 
 If $k > 1$, for a string like $abc[xy]def$, we can move $a$, $b$, and $c$ to the end in order, resulting in $[xy]defabc$. Then we move $y$ and $x$ to the end, resulting in $defabc[yx]$. Finally, we move $d$, $e$, and $f$ to the end, resulting in $abc[yx]def$. This way, we have swapped $y$ and $x$.

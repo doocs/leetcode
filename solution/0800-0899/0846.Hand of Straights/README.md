@@ -64,6 +64,16 @@ tags:
 
 ### 方法一：哈希表 + 排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把手牌分成若干长度为 $\textit{groupSize}$ 的连续组。张数不能整除则失败。$n\le 10^4$，应从最小牌开始贪心取组。
+>
+> 计数后按牌面排序，每张仍剩余的牌作为一组起点，连续 $\textit{groupSize}$ 张各减一，缺牌则失败。
+
+<!-- thinking:end -->
+
 我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。
 
 接下来，我们用一个哈希表 $\textit{cnt}$ 统计数组 $\textit{hand}$ 中每个数字出现的次数，然后对数组 $\textit{hand}$ 进行排序。
@@ -210,6 +220,16 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 <!-- solution:start -->
 
 ### 方法二：有序集合
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 排序整副手牌会扫到计数已为 $0$ 的牌。用有序映射直接取当前最小键作为下一组起点，缺键或减完后删除即可。
+>
+> 逻辑与方法一相同，只是用有序集合保证每次取出的都是剩余牌中的最小值。
+
+<!-- thinking:end -->
 
 与方法一类似，我们首先判断数组 $\textit{hand}$ 的长度是否能被 $\textit{groupSize}$ 整除，如果不能整除，说明无法将数组划分成若干个长度为 $\textit{groupSize}$ 的子数组，直接返回 $\text{false}$。
 

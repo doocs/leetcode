@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compare the left-to-right leaf sequences of two trees. Both trees are tiny, so one DFS per tree is enough.
+>
+> A node with no children is a leaf. Collect both sequences and test equality.
+
+<!-- thinking:end -->
+
 We can use Depth-First Search (DFS) to traverse the leaf nodes of the two trees, storing the values of the leaf nodes in two lists $l_1$ and $l_2$ respectively. Finally, we compare whether the two lists are equal.
 
 Time complexity is $O(n)$, and space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.

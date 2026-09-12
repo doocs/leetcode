@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three projections are the number of nonzero cells, the sum of row maxima, and the sum of column maxima. $n\le 50$, so one pass computes all three.
+>
+> Count $v>0$ for the top view, take $\max$ per row and per column for the other two views, and add them.
+
+<!-- thinking:end -->
+
 We can calculate the area of the three projections separately.
 
 - Projection area on the xy plane: Each non-zero value will be projected onto the xy plane, so the projection area on the xy plane is the count of non-zero values.

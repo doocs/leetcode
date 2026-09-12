@@ -82,6 +82,16 @@ tags:
 
 ### Solution 1: State Compression + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Collect every key; a lock blocks the path without its key. At most $6$ keys on a $30\times 30$ grid, so (position, key mask) is a BFS state.
+>
+> $(i,j,\textit{mask})$ is the cell and keys in hand. Walls and locked doors are skipped; a key sets a bit. The first full mask is the shortest path.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to start from the initial position, move in four directions (up, down, left, right), collect all keys, and finally return the minimum number of moves required to collect all keys. If it is not possible to collect all keys, return $-1$.
 
 First, we traverse the 2D grid to find the starting position $(si, sj)$ and count the number of keys $k$.

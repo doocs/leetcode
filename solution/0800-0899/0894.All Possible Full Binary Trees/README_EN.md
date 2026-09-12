@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A full binary tree has $0$ or $2$ children per node, and $n\le 20$. Even $n$ is impossible; for odd $n$ we enumerate the left subtree’s size.
+>
+> Memoize $dfs(n)$: the root takes one node, the rest split between left and right. Every Cartesian pair of subtrees hangs under a new root. $n=1$ is a single node.
+
+<!-- thinking:end -->
+
 If $n=1$, return a list with a single node directly.
 
 If $n > 1$, we can enumerate the number of nodes $i$ in the left subtree, then the number of nodes in the right subtree is $n-1-i$. For each case, we recursively construct all possible genuine binary trees for the left and right subtrees. Then we combine the left and right subtrees in pairs to get all possible genuine binary trees.

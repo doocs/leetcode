@@ -60,6 +60,16 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 
 ### Solution 1: Prefix Sum + Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the array into at most $k$ contiguous groups and maximize the sum of group averages. The cut positions are unknown; $n,k\le 100$ allow a memoized search on “from index $i$ with $k$ groups left”.
+>
+> Prefix sums make a group average $O(1)$. When $k=1$ the suffix is one group; otherwise we try every end of the first group and recurse.
+
+<!-- thinking:end -->
+
 We can preprocess to obtain the prefix sum array $s$, which allows us to quickly get the sum of subarrays.
 
 Next, we design a function $\textit{dfs}(i, k)$, which represents the maximum sum of averages when dividing the array starting from index $i$ into at most $k$ groups. The answer is $\textit{dfs}(0, k)$.
@@ -238,6 +248,16 @@ function largestSumOfAverages(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same recurrence can be tabulated to drop the recursion overhead. $f[i][j]$ is the best score using the first $i$ numbers in $j$ groups, enumerating the previous cut $h$.
+>
+> $f[i][1]$ is the average of the prefix. The answer is $f[n][k]$, still $O(n^2k)$.
+
+<!-- thinking:end -->
 
 We can transform the memoized search from Solution 1 into dynamic programming.
 

@@ -72,6 +72,16 @@ If Alice erases 2 first, now nums become [1, 1]. The bitwise XOR of all the elem
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A player loses if the remaining XOR is already $0$ after the opponent’s move. Searching the game tree is too deep for $n\le 1000$. If the current XOR is $0$, the starter wins immediately; otherwise, when $n$ is even, there is always a move that leaves an even-length nonzero-XOR position, so the starter still wins.
+>
+> The answer is therefore “even length or total XOR is $0$”, which is one XOR scan.
+
+<!-- thinking:end -->
+
 According to the game rules, if the XOR result of all numbers on the blackboard is $0$ when it is a player's turn, that player wins. Since Alice goes first, if the XOR result of all numbers in $\textit{nums}$ is $0$, Alice can win.
 
 When the XOR result of all numbers in $\textit{nums}$ is not $0$, let's analyze Alice's winning situation based on the parity of the length of the array $\textit{nums}$.

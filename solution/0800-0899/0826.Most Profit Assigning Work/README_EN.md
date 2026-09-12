@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Sorting + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A worker takes the most profitable job whose difficulty is at most their ability. Scanning every job per worker is slow for $n,m\le 10^4$.
+>
+> Sort workers by ability and jobs by difficulty, then advance a pointer: ability is monotone, so we can maintain the best profit so far. Each worker reads that maximum in $O(1)$.
+
+<!-- thinking:end -->
+
 We can sort the jobs in ascending order of ability, and then sort the jobs in ascending order of difficulty.
 
 Then we traverse the workers. For each worker, we find the job with the maximum profit that he can complete, and then add this profit to the answer.
@@ -193,6 +203,16 @@ function maxProfitAssignment(difficulty: number[], profit: number[], worker: num
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two-pointer method sorts both arrays. Difficulty is at most $10^5$, so $f[d]$ can store the best profit of exact difficulty $d$, then a prefix maximum gives the best job of difficulty $\le i$.
+>
+> Each worker is a table lookup. Workers need not be sorted, which is convenient when the difficulty range is modest.
+
+<!-- thinking:end -->
 
 Let's denote $m = \max(\textit{difficulty})$ and define an array $f$ of length $m + 1$, where $f[i]$ represents the maximum profit among jobs with difficulty less than or equal to $i$, initially $f[i] = 0$.
 

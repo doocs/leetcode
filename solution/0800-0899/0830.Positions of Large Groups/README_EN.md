@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A large group is a run of the same letter with length at least $3$. One scan of the lowercase string finds every such interval.
+>
+> Two pointers mark each run; if its length is at least $3$, record the endpoints and jump to the next run.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to find the start and end positions of each group, then check if the group length is greater than or equal to $3$. If so, we add it to the result array.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$.

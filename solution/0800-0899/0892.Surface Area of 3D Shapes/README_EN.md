@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stacked cubes’ exposed surface. $n\le 50$, so each nonempty cell adds $2+4v$, then we subtract faces glued to the north or west neighbor.
+>
+> The glued area is $2\cdot\min(v,\textit{neighbor})$. Empty cells contribute nothing.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
