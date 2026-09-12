@@ -91,6 +91,19 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n,q\le 10^3$, each query multiplies every $k$-stride index in $[l,r]$ by $v$. Direct simulation costs about $O(q\,n/k)$ and fits the limits.
+>
+> Apply $\textit{nums}[\textit{idx}]=\textit{nums}[\textit{idx}]\cdot v\bmod (10^9+7)$ per query, then XOR the array.
+>
+> This smaller variant needs no blocking; the follow-up II classifies queries by stride.
+
+<!-- thinking:end -->
+
+
 We can directly simulate the operations described in the problem by iterating through each query and updating the corresponding elements in the array $\textit{nums}$. Finally, we calculate the bitwise XOR of all elements in the array and return the result.
 
 The time complexity is $O(q \times \frac{n}{k})$, where $n$ is the length of the array $\textit{nums}$ and $q$ is the number of queries. The space complexity is $O(1)$.

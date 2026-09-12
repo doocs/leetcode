@@ -100,6 +100,19 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must partition into groups of $k$ distinct values. If $k$ does not divide $n$, the number of groups is not an integer.
+>
+> There are $m=n/k$ groups. A value cannot appear twice in one group, so no frequency may exceed $m$.
+>
+> The bound is also sufficient: frequencies at most $m$ can be rotated across the $m$ groups. Compare the maximum count with $m$.
+
+<!-- thinking:end -->
+
+
 We denote the length of the array as $n$. If $n$ is not divisible by $k$, then we cannot partition the array into groups where each group contains $k$ elements, so we directly return $\text{false}$.
 
 Next, we calculate the size of each group $m = n / k$ and count the occurrence of each element in the array. If the occurrence count of any element exceeds $m$, then it cannot be distributed to any group, so we directly return $\text{false}$.

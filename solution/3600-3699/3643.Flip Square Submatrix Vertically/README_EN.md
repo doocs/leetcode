@@ -74,6 +74,19 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flip the $k\times k$ square whose top-left is $(x,y)$ across its horizontal midline. $k\le 50$ allows in-place swaps.
+>
+> For $i\in [x,x+\lfloor k/2\rfloor)$, swap the segment $[y,y+k)$ with row $x+k-1-(i-x)$.
+>
+> Columns do not move, so the inner loop stays inside the square.
+
+<!-- thinking:end -->
+
+
 We start from row $x$ and flip a total of $\lfloor \frac{k}{2} \rfloor$ rows.
 
 For each row $i$, we need to swap it with the corresponding row $i_2$, where $i_2 = x + k - 1 - (i - x)$.

@@ -81,6 +81,19 @@ tags:
 
 ### Solution 1: Dijkstra's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A forward traversal costs $w$ and a reversal costs $2w$. We want the cheapest walk from $0$ to $n-1$. Enumerating which edges to reverse is exponential.
+>
+> Materialize the reverse as an extra arc: keep $(u,v,w)$ and add $(v,u,2w)$. The instance becomes an ordinary nonnegative shortest-path problem.
+>
+> Heap Dijkstra from $0$ returns the first time $n-1$ is popped; an empty heap means unreachable. Each original edge yields two directed arcs, so the complexity tracks $m\log m$.
+
+<!-- thinking:end -->
+
+
 According to the problem description, we can construct a directed graph $g$ where each edge $(u, v)$ allows for two types of traversal:
 
 - Direct traversal with cost $w$, corresponding to edge $(u, v)$.

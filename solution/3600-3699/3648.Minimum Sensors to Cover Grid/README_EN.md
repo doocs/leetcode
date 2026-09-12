@@ -68,6 +68,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sensor covers a Chebyshev ball of radius $k$. Covering an $n\times m$ grid is tiling it by squares of side $2k+1$.
+>
+> One sensor spans $2k+1$ consecutive rows and the same number of columns, clipped at the border.
+>
+> The count is $\lceil n/(2k+1)\rceil\cdot\lceil m/(2k+1)\rceil$. When $k=0$ every cell needs its own sensor.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

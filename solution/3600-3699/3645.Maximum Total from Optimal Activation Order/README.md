@@ -228,6 +228,19 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 激活一个元素会占用一个「额度」$\textit{limit}$，且同时处于激活状态的个数不能超过该额度。同类 $\textit{limit}$ 互相竞争。
+>
+> 按 $\textit{limit}$ 分组后，一组内至多保留 $\textit{limit}$ 个最大价值：额度就是组的容量。
+>
+> 各组独立，排序后取后缀 $\textit{lim}$ 个求和。不同额度之间没有交叉约束。
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

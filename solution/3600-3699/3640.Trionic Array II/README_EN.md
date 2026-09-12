@@ -87,6 +87,19 @@ tags:
 
 ### Solution 1: Grouped Loop
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum-sum trionic subarray. Enumerating peaks is quadratic. Adjacent trionic pieces share an ascent, so a grouped scan lists maximal ones in linear time.
+>
+> A pointer cuts a rise, a fall, and a rise; a degenerate middle or end is skipped. The sum of a maximal piece is a fixed middle plus the best leftward suffix of the first rise and the best rightward prefix of the last rise.
+>
+> The third ascent can start the next piece, so the pointer rewinds to the valley $q$. Each index is visited a constant number of times.
+
+<!-- thinking:end -->
+
+
 We can traverse the array to find all possible maximal trionic subarrays, calculate their sums, and update the maximum value.
 
 We define a pointer $i$, initially $i = 0$, representing the current position pointing to the first element of the array. We move $i$ to the right until we find the first element that does not satisfy strict increase, i.e., $nums[i-1] \geq nums[i]$. If at this point $i = l + 1$, it means this segment has only one element and cannot form an increasing sequence, so we continue to the next iteration.
