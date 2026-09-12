@@ -1,0 +1,69 @@
+name: publish-gitee
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: deploy.yml run id that uploaded site-zh and site-en
+        required: true
+        type: string
+      source_sha:
+        description: commit SHA recorded in the Gitee pages commit message
+        required: false
+        type: string
+
+concurrency:
+  group: publish-gitee
+  cancel-in-progress: true
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  publish-gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Chinese site
+        uses: actions/download-artifact@v8
+        with:
+          name: site-zh
+          path: site
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_run_id }}
+
+      - name: Download English site
+        uses: actions/download-artifact@v8
+        with:
+          name: site-en
+          path: site/en
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_run_id }}
+
+      - name: Push orphan pages branch to Gitee
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          SOURCE_SHA: ${{ inputs.source_sha || github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITEE_TOKEN}" ]; then
+            echo "GITEE_TOKEN secret is not set."
+            exit 1
+          fi
+          cd site
+          touch .nojekyll
+          git init
+          git checkout --orphan pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "deploy: ${SOURCE_SHA}"
+
+          ASKPASS="$(mktemp)"
+          trap 'rm -f "$ASKPASS"' EXIT
+          printf '%s\n' '#!/bin/sh' 'echo "$GITEE_TOKEN"' > "$ASKPASS"
+          chmod 700 "$ASKPASS"
+          GIT_ASKPASS="$ASKPASS" GIT_TERMINAL_PROMPT=0 \
+            git push -f https://oauth2@gitee.com/Doocs/leetcode.git HEAD:pages
