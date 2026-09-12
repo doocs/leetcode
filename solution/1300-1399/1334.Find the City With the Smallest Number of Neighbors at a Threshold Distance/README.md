@@ -82,6 +82,14 @@ tags:
 
 ### 方法一：Dijkstra 算法
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 对每个城市统计阈值内可达城市数，取个数最少且编号最大者。$n \le 100$，可对每个起点做最短路。建邻接矩阵后，从编号大到小跑 Dijkstra，统计 $\textit{dist}[j] \le \textit{distanceThreshold}$ 的个数，遇到更小计数就更新答案，从而在并列时保留较大编号。
+
+<!-- thinking:end -->
+
 我们可以枚举每个城市 $i$ 作为起点，使用 Dijkstra 算法求出从 $i$ 到其他城市的最短距离，然后统计距离不超过阈值的城市个数，最后取最小的个数且编号最大的城市。
 
 时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 为城市个数。
@@ -380,6 +388,14 @@ function findTheCity(n, edges, distanceThreshold) {
 <!-- solution:start -->
 
 ### 方法二：Floyd 算法
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 逐源 Dijkstra 要跑 $n$ 遍。Floyd 一次求出全源最短路，之后对每行统计不超过阈值的个数即可，实现更直，渐近仍为 $O(n^3)$。
+
+<!-- thinking:end -->
 
 我们定义 $g[i][j]$ 表示城市 $i$ 到城市 $j$ 的最短距离，初始时 $g[i][j] = \infty$, $g[i][i] = 0$，然后我们遍历所有边，对于每条边 $(f, t, w)$，我们令 $g[f][t] = g[t][f] = w$。
 

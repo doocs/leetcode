@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Construction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Build a string of length $n$ in which every used letter occurs an odd number of times. Odd $n$ is $n$ copies of `'a'`. Even $n$ is $n-1$ `'a'`s plus one `'b'`, so both counts stay odd.
+
+<!-- thinking:end -->
+
 If $n$ is odd, then we can directly construct a string with $n$ `'a'` characters.
 
 If $n$ is even, then we can construct a string with $n-1$ `'a'` characters and $1$ `'b'` character.

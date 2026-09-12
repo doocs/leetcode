@@ -69,6 +69,14 @@ The maximum number is 9969.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may change one $6$ into a $9$ and want the largest number. A higher place value outweighs a lower one, so the leftmost $6$ is the unique best edit; if none exists the number is already maximal. Replacing the first `'6'` in the decimal string is that choice.
+
+<!-- thinking:end -->
+
 We convert the number to a string, then traverse the string from left to right to find the first occurrence of $6$, replace it with $9$, and then return the integer corresponding to the converted string.
 
 Time complexity $O(\log \textit{num})$, space complexity $O(\log \textit{num})$. Where $\textit{num}$ is the given integer.

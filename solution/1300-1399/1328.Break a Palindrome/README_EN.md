@@ -59,6 +59,14 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Change exactly one character so the string is no longer a palindrome and is lexicographically smallest; length $1$ is impossible. Replacing the leftmost non-`'a'` in the first half with `'a'` breaks symmetry as early and as cheaply as possible. If that half is all `'a'`, the last character must become `'b'`, or the string would stay a palindrome.
+
+<!-- thinking:end -->
+
 First, we check if the length of the string is $1$. If it is, we directly return an empty string.
 
 Otherwise, we traverse the first half of the string from left to right, find the first character that is not `'a'`, and change it to `'a'`. If no such character exists, we change the last character to `'b'`.

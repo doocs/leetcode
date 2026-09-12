@@ -110,6 +110,14 @@ Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need product names whose February $2020$ order units are at least $100$. Join orders to products, keep that month with a date format filter, sum $\textit{unit}$ per product, and retain rows whose total meets the threshold via $\mathrm{HAVING}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

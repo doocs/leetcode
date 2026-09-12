@@ -93,6 +93,14 @@ The rows ordered from weakest to strongest are [0,2,3,1].
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows are ordered by soldier count, then by index; we keep the first $k$. Ones sit left of zeros, so the count is the first zero. Bisecting the reversed row for $0$ yields that count; sorting row indices by it and slicing $k$ entries is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

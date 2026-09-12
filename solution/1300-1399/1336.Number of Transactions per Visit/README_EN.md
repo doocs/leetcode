@@ -123,6 +123,14 @@ Transactions table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must count visits by how many transactions they contain, listing every integer from $0$ through the maximum even when a bucket is empty. A recursive CTE builds that axis; visits left-join per-user-date transaction counts (default $0$); grouping by the count yields $\textit{visits\_count}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -60,6 +60,14 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 编码以 $(\textit{freq},\textit{val})$ 成对给出，按题意展开即可。没有重叠或依赖，从左到右每次取出一对，把 $\textit{val}$ 重复 $\textit{freq}$ 次写入答案。
+
+<!-- thinking:end -->
+
 我们可以直接模拟题目描述的过程，从左到右遍历数组 $\textit{nums}$，每次取出两个数 $\textit{freq}$ 和 $\textit{val}$，然后将 $\textit{val}$ 重复 $\textit{freq}$ 次，将这 $\textit{freq}$ 个 $\textit{val}$ 加入答案数组即可。
 
 时间复杂度 $O(n)$，其中 $n$ 是数组 $\textit{nums}$ 的长度。我们只需要遍历一次数组 $\textit{nums}$ 即可。忽略答案数组的空间消耗，空间复杂度 $O(1)$。

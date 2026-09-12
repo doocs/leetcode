@@ -75,6 +75,14 @@ tags:
 
 ### 方法一：排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 先按素食、价格、距离过滤，再按评分、编号降序输出。过滤与排序彼此独立：先按 $(-\textit{rating},-\textit{id})$ 排序，再线性筛掉不满足约束的餐厅，输出顺序即为题面要求。
+
+<!-- thinking:end -->
+
 我们先将数组 `restaurants` 按照 `rating` 和 `id` 两个维度进行排序，然后再按照题目给定的条件进行筛选即可。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 `restaurants` 的长度。

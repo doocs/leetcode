@@ -59,6 +59,14 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The encoding is pairs $(\textit{freq},\textit{val})$; expanding them is the statement itself. There is no overlap. Walking the array two at a time and repeating $\textit{val}$ $\textit{freq}$ times builds the answer.
+
+<!-- thinking:end -->
+
 We can directly simulate the process described in the problem. Traverse the array $\textit{nums}$ from left to right, each time taking out two numbers $\textit{freq}$ and $\textit{val}$, then repeat $\textit{val}$ $\textit{freq}$ times, and add these $\textit{freq}$ $\textit{val}$s to the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. We only need to traverse the array $\textit{nums}$ once. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.

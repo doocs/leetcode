@@ -100,6 +100,14 @@ Jonathan 唯一标识码是 1 。</pre>
 
 ### 方法一：LEFT JOIN
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 用员工表的姓名配上唯一编号表中的 $\textit{unique\_id}$，没有编号则空。左连保证没有编号的员工仍保留一行，$\textit{unique\_id}$ 自然为 $\mathrm{NULL}$。
+
+<!-- thinking:end -->
+
 我们可以使用 `LEFT JOIN` 来连接 `Employees` 和 `EmployeeUNI` 表，然后使用 `SELECT` 语句来选择 `unique_id` 和 `name` 列。
 
 <!-- tabs:start -->

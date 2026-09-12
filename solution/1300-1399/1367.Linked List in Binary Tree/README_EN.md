@@ -72,6 +72,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether the list appears as a downward path. Both structures are small enough to try a match from every tree node. $dfs(\textit{head},\textit{root})$ requires a consecutive equal walk; the wrapper retries from every node via the two children. An empty list succeeds; an empty tree or a value mismatch fails.
+
+<!-- thinking:end -->
+
 We design a recursive function $dfs(head, root)$, which indicates whether the linked list $head$ corresponds to a subpath on the path starting with $root$ in the binary tree. The logic of the function $dfs(head, root)$ is as follows:
 
 - If the linked list $head$ is empty, it means that the linked list has been traversed, return `true`;

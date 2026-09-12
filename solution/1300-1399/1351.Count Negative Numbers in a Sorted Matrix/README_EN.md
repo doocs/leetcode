@@ -59,6 +59,14 @@ tags:
 
 ### Solution 1: Traverse from the Bottom-Left Corner
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rows and columns are nonincreasing; count the negatives. A full scan is $O(mn)$. The bottom-left cell splits “smallest in this row / largest in this column”: a nonnegative value skips the rest of the row to the left by moving right; a negative adds $n-j$ and moves up. Each index changes once, in $O(m+n)$.
+
+<!-- thinking:end -->
+
 Since the matrix is sorted in non-strictly decreasing order both row-wise and column-wise, we can start traversing from the bottom-left corner of the matrix. Let the current position be $(i, j)$.
 
 If the element at the current position is greater than or equal to $0$, it means all preceding elements in that row are also greater than or equal to $0$. Therefore, we move the column index $j$ one position to the right, i.e., $j = j + 1$.

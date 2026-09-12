@@ -72,6 +72,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计长度 $n$、字典序落在 $[s_1,s_2]$、且不含 $\textit{evil}$ 的串的个数。$n \le 500$，枚举全部串不可行。这是带上界的数位 DP：按位填写，同时用 KMP 自动机记录当前已匹配 $\textit{evil}$ 的前缀长度，一旦到达 $|\textit{evil}|$ 则非法。对 $s_2$ 与 $s_1-1$ 各做一次记忆化，相减取模。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

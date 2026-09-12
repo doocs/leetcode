@@ -69,6 +69,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 偶数除以 $2$，奇数减 $1$，问到 $0$ 的步数。$\textit{num} \le 10^6$，直接模拟即可：奇数则减一，否则右移，计数直到变为 $0$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -174,6 +182,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一规则也可写成递归：偶数递归 $n/2$，奇数递归 $n-1$，每层加一；$n=0$ 停止。语义与循环一致，只是用调用栈表达过程。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

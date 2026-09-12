@@ -128,6 +128,14 @@ Frozen 2 和 Joker 在 2 月的评分都是 3.5，但是 Frozen 2 的字典序�
 
 ### 方法一：Union all
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两问结果竖着拼成一列：评分数最多的用户名（并列取字典序最小），以及 $2020$ 年 $2$ 月均分最高的电影名（并列同样取最小）。分别 $\mathrm{JOIN}$ 后 $\mathrm{GROUP\ BY}$、排序并 $\mathrm{LIMIT}\,1$，再用 $\mathrm{UNION\ ALL}$ 上下拼接。
+
+<!-- thinking:end -->
+
 分别查询两个结果，然后使用 `union all` 合并结果集。
 
 <!-- tabs:start -->

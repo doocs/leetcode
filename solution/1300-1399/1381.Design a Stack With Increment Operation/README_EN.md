@@ -73,6 +73,14 @@ stk.pop();                            // return -1 --&gt; Stack is empty return 
 
 ### Solution 1: Array Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{increment}$ adds $\textit{val}$ to the bottom $k$ entries. Scanning the stack is fine for $10^3$ calls, yet $O(1)$ is possible: $\textit{add}[i]$ is a lazy increment for index $i$ and below. The update lands on $\min(k,\textit{size})-1$; a pop forwards that increment one slot down and clears it.
+
+<!-- thinking:end -->
+
 We can use an array $stk$ to simulate the stack, and an integer $i$ to represent the position of the next element to be pushed into the stack. In addition, we need another array $add$ to record the cumulative increment value at each position.
 
 When calling $push(x)$, if $i < maxSize$, we put $x$ into $stk[i]$ and increment $i$ by one.

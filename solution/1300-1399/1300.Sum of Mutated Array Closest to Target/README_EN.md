@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning the array for every candidate $\textit{value}$ costs $O(n \times M)$. With $n \le 10^4$ and $M \le 10^5$, that is too slow.
+>
+> The mutated sum depends only on keeping values at most $\textit{value}$ and replacing the rest by $\textit{value}$. After sorting, that split is a prefix: binary search finds the cut, and a prefix-sum array evaluates the kept part. Enumerating $\textit{value}$ from $0$ to $\max(\textit{arr})$ then costs $O(\log n)$ per candidate; we keep the value whose mutated sum is closest to $\textit{target}$, breaking ties toward the smaller value.
+
+<!-- thinking:end -->
+
 We notice that the problem requires changing all values greater than `value` to `value` and then summing them up. Therefore, we can consider sorting the array `arr` first, and then calculating the prefix sum array $s$, where $s[i]$ represents the sum of the first $i$ elements of the array.
 
 Next, we can enumerate all `value` values from smallest to largest. For each `value`, we can use binary search to find the index $i$ of the first element in the array that is greater than `value`. At this point, the number of elements in the array greater than `value` is $n - i$, so the number of elements in the array less than or equal to `value` is $i$. The sum of the elements in the array less than or equal to `value` is $s[i]$, and the sum of the elements in the array greater than `value` is $(n - i) \times value$. Therefore, the sum of all elements in the array is $s[i] + (n - i) \times \textit{value}$. If the absolute difference between $s[i] + (n - i) \times \textit{value}$ and `target` is less than the current minimum difference `diff`, update `diff` and `ans`.

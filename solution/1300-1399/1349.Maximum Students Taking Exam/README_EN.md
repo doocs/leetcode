@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1: State Compression + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $8 \times 8$; students cannot sit side by side or diagonally in front. Choosing a subset of all seats is $2^{mn}$, but one row has only $2^n$ masks. Encode empty seats, try masks that fit the empties and have no adjacent bits, then clear diagonally attacked seats on the next row. Memoized $dfs(\textit{seat},i)$ stores the best headcount.
+
+<!-- thinking:end -->
+
 We notice that each seat has two states: selectable and non-selectable. Therefore, we can use a binary number to represent the seat state of each row, where $1$ represents selectable, and $0$ represents non-selectable. For example, for the first row in Example 1, we can represent it as $010010$. Therefore, we convert the initial seats into a one-dimensional array $ss$, where $ss[i]$ represents the seat state of the $i$th row.
 
 Next, we design a function $dfs(seat, i)$, which represents the maximum number of students that can be accommodated starting from the $i$th row, and the seat state of the current row is $seat$.

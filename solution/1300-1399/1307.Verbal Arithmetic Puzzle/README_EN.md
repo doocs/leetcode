@@ -78,6 +78,16 @@ Note that two different characters cannot map to the same digit.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Letters must map to distinct digits so the cryptarithm holds, with no leading zeros. At most $10$ distinct letters means $10!$ assignments if we permute first and only then evaluate the whole equation.
+>
+> Processing columns from low to high prunes with the carry: after adding the addend digits, subtracting the result digit, and applying the old carry, the units digit must be $0$ before we move on. A known mapping is reused; a free letter tries unused digits, forbidding a leading zero on a multi-digit word. When every column is done the leftover carry must be $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

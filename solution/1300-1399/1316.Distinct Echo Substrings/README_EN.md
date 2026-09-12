@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct substrings of the form $xx$. For $n \le 2000$, comparing both halves of every even-length substring character-wise is nearly $O(n^3)$. Equality of two pieces is $O(1)$ with string hashes.
+>
+> After a prefix-hash build, every even interval is tested by hashing its two halves; a set of those hashes is the number of distinct echo substrings.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

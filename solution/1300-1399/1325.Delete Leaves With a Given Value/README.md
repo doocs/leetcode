@@ -75,6 +75,14 @@ tags:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删除值为 $\textit{target}$ 的叶子，删除后新产生的同类叶子也要删。先序直接判断会漏掉「删子树后自身才成为叶子」的节点。因此后序处理：先递归左右子树，再判断当前节点是否变为目标叶子；若是则返回空，否则保留。一次后序即可把连锁删除做完。
+
+<!-- thinking:end -->
+
 我们先判断 $root$ 节点是否为空，若为空，则返回空。
 
 否则，递归地处理 $root$ 的左右子树，即调用 `root.left = removeLeafNodes(root.left, target)` 和 `root.right = removeLeafNodes(root.right, target)`。

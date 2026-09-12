@@ -76,6 +76,14 @@ Bob only has one record, we just take that one.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each user needs their second-most-recent activity, or the only one if they have a single row. A window $\mathrm{RANK}$ partitioned by user and ordered by start date descending, together with a window $\mathrm{COUNT}$, lets us keep rank $2$ or a count of $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

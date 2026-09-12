@@ -71,6 +71,16 @@ The difficulty of the schedule = 6 + 1 = 7
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the job sequence into $d$ contiguous days; a day's difficulty is its max job, and the total should be minimal. Jobs stay in order. $n \le 300$, $d \le 10$ still forbids enumerating all cuts. The best way to finish $i$ jobs in $j$ days depends only on the last day covering $[k..i]$.
+>
+> $f[i][j]$ stores that optimum. Enumerating $k$ backward maintains the segment max and transitions from $f[k-1][j-1]$. Fewer jobs than days is impossible.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum difficulty to finish the first $i$ jobs within $j$ days. Initially $f[0][0] = 0$, and all other $f[i][j]$ are $\infty$.
 
 For the $j$-th day, we can choose to finish jobs $[k,..i]$ on this day. Therefore, we have the following state transition equation:

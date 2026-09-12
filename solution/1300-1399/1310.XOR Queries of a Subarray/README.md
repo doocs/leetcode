@@ -73,6 +73,14 @@ tags:
 
 ### 方法一：前缀异或
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次询问一段异或。若现场从 $l$ 异或到 $r$，在询问数较多时为平方级。异或满足 $x \oplus x = 0$，故前缀异或 $s[i]=\textit{arr}[0]\oplus\cdots\oplus\textit{arr}[i-1]$ 之后，区间 $[l,r]$ 等于 $s[r+1]\oplus s[l]$。先线性建前缀，再对每个询问 $O(1)$ 作答。
+
+<!-- thinking:end -->
+
 我们可以用一个长度为 $n+1$ 的前缀异或数组 $s$ 来存储数组 $\textit{arr}$ 的前缀异或结果，其中 $s[i] = s[i-1] \oplus \textit{arr}[i-1]$，即 $s[i]$ 表示 $\textit{arr}$ 的前 $i$ 个元素的异或结果。
 
 那么对于一个查询 $[l,r]$，我们可以得到：

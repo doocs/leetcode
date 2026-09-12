@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The smaller angle between the hour and minute hands. The hour hand moves $30^\circ$ per hour and an extra $0.5^\circ$ per minute; the minute hand moves $6^\circ$ per minute. The answer is the minimum of the absolute difference and $360^\circ$ minus that difference.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count substrings that contain $a$, $b$, and $c$. $n \le 5 \times 10^4$ rules out both endpoints. With right end $i$, every left end at most the earliest of the three last-seen positions is valid. Tracking those three indices, we add $\min(d[a],d[b],d[c])+1$ at each $i$.
+
+<!-- thinking:end -->
+
 We use an array $d$ of length $3$ to record the most recent occurrence of the three characters, initially all set to $-1$.
 
 We traverse the string $s$. For the current position $i$, we first update $d[s[i]]=i$, then the number of valid strings is $\min(d[0], d[1], d[2]) + 1$, which is accumulated to the answer.
@@ -179,6 +187,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sliding Window
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first method uses last-seen indices. A counting window works as well: after extending $r$, shrink $l$ while all three letters remain, then add the current $l$ as the number of valid left ends. Both are linear; the window never stores last positions.
+
+<!-- thinking:end -->
 
 We can solve this using a sliding window. Maintain a window $[l, r]$ and an array $\textit{cnt}$ recording the frequency of each character in the window.
 

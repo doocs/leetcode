@@ -53,6 +53,16 @@ Given the <code>root</code> of a binary tree, return <em>the sum of values of it
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum of the deepest leaves can be obtained by a height pass plus a second walk, but two traversals are unnecessary. Level-order search already processes nodes by depth, so each layer's sum can be accumulated while dequeuing.
+>
+> The last nonempty layer is exactly the deepest one. We keep a queue of the current level and overwrite $\textit{ans}$ each time; when the queue is empty, $\textit{ans}$ is the answer.
+
+<!-- thinking:end -->
+
 We can use breadth-first search (BFS) to traverse the binary tree level by level, and calculate the sum of the node values at each level. After completing the traversal, return the sum of the node values at the last level.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
@@ -284,6 +294,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS uses extra space proportional to the widest level. A recursive walk only needs the current depth: add the node when the depth matches the recorded maximum, and reset both the sum and the maximum when the depth is larger. One traversal then maintains the deepest-leaf sum.
+
+<!-- thinking:end -->
 
 We can use depth-first search (DFS) to recursively traverse the binary tree while keeping track of the current node's depth, the maximum depth, and the sum of the deepest leaf nodes. When visiting the current node, if the current node's depth equals the maximum depth, add the current node's value to the sum of the deepest leaf nodes. If the current node's depth is greater than the maximum depth, update the maximum depth to the current node's depth and update the sum of the deepest leaf nodes to the current node's value.
 

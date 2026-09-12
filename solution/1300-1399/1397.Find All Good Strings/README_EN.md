@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count length-$n$ strings in $[s_1,s_2]$ that avoid $\textit{evil}$ as a substring. $n \le 500$ forbids listing them. Digit DP fills the string from the left, while a KMP automaton tracks how much of $\textit{evil}$ is already matched; reaching $|\textit{evil}|$ is forbidden. Evaluate the bound $s_2$ and $s_1-1$ with memoization and subtract modulo the prime.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

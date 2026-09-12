@@ -46,6 +46,14 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of days between two valid dates. Adding month lengths by hand misses leap years. Convert each date to days since $1971$-$01$-$01$: add $365$ or $366$ per year, then a month table (February depends on the leap rule), then the day of month. The absolute difference is the answer.
+
+<!-- thinking:end -->
+
 First, we define a function `isLeapYear(year)` to determine whether the given year `year` is a leap year. If it is a leap year, return `true`, otherwise return `false`.
 
 Next, we define another function `daysInMonth(year, month)` to calculate the total number of days in the given year `year` and month `month`. We can use an array `days` to store the number of days in each month, where `days[1]` represents the number of days in February. If it is a leap year, it is $29$ days, otherwise it is $28$ days.

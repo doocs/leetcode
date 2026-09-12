@@ -85,6 +85,14 @@ nums       index     target
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert $\textit{nums}[i]$ at $\textit{index}[i]$; the index is always valid. $n \le 100$ allows a plain $\textit{insert}$, which shifts the tail each time.
+
+<!-- thinking:end -->
+
 We create a list $target$ to store the target array. Since the problem guarantees that the insertion position always exists, we can directly insert in the given order into the corresponding position.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.

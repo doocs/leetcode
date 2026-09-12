@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Prefix XOR + Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest substring in which every vowel occurs evenly. $n \le 5 \times 10^5$ rules out both ends. Even counts mean two prefixes share the same parity mask. A five-bit mask tracks those parities; the first index of each mask plus a later repeat $i$ yields length $i-j$.
+
+<!-- thinking:end -->
+
 According to the problem description, if we use a number to represent the parity of the occurrences of each vowel in a prefix of the string $\textit{s}$, then when two prefixes have the same number, the substring between these two prefixes is a valid substring.
 
 We can use the lower five bits of a binary number to represent the parity of the five vowels, where the $i$-th bit being $1$ means the vowel appears an odd number of times in the substring, and $0$ means it appears an even number of times.

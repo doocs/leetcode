@@ -110,6 +110,14 @@ Orders 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 统计 $2020$ 年 $2$ 月订购量不少于 $100$ 的产品名。订单与产品按编号连接后，用日期格式筛出该月，再按产品聚合 $\mathrm{SUM}(\textit{unit})$，以 $\mathrm{HAVING}$ 留下总量达标的行。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

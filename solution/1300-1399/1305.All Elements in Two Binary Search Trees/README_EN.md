@@ -55,6 +55,14 @@ tags:
 
 ### Solution 1: DFS + Merge
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All values from two BSTs must be returned in nondecreasing order. Collecting them and sorting costs $O((n+m)\log(n+m))$ and ignores the trees' order. An in-order walk of a BST is already sorted, so we produce $\textit{a}$ and $\textit{b}$ separately and merge the two sorted lists in linear time.
+
+<!-- thinking:end -->
+
 Since both trees are binary search trees, we can obtain the node value sequences $\textit{a}$ and $\textit{b}$ of the two trees through in-order traversal. Then, we use two pointers to merge the two sorted arrays to get the final answer.
 
 The time complexity is $O(n+m)$, and the space complexity is $O(n+m)$. Here, $n$ and $m$ are the number of nodes in the two trees, respectively.

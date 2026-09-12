@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Classification Discussion + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array value is the sum of adjacent absolute differences; one subarray may be reversed. $n \le 3 \times 10^4$ rules out enumerating both ends. A reversal only changes the edges that touch the cut.
+>
+> Let $s$ be the unreverted sum. Reversals that include either end are $O(n)$ after enumerating the other end. An interior reversal treats pairs $(x,y)$; the gain is the max gap among four linear forms, obtained by tracking $a-b$ maxima and $a+b$ minima in one pass.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to find the maximum value of the array $\sum_{i=0}^{n-2} |a_i - a_{i+1}|$ when reversing a subarray once.
 
 Next, we discuss the following cases:

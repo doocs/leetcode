@@ -84,6 +84,14 @@ tags:
 
 ### Solution 1: Hash Table + Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A family occupies four consecutive seats ($2$–$5$, $4$–$7$, or $6$–$9$). $n$ reaches $10^9$, so empty rows cannot be scanned. An unreserved row fits two families and contributes $2(n-|d|)$. A reserved row is a $10$-bit mask; we try the three windows in order, claiming a mask when it is free so two families do not share a seat.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to store all the reserved seats, where the key is the row number, and the value is the state of the reserved seats in that row, i.e., a binary number. The $j$-th bit being $1$ means the $j$-th seat is reserved, and $0$ means the $j$-th seat is not reserved.
 
 We traverse $reservedSeats$, for each seat $(i, j)$, we add the state of the $j$-th seat (corresponding to the $10-j$ bit in the lower bits) to $d[i]$.

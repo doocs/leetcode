@@ -67,6 +67,14 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of $n$ orders has a pickup before its delivery. $n \le 500$ forbids listing $(2n)!$ sequences. Treat the last delivery as belonging to some order $i$: its pickup may sit in any of the previous $2i-1$ slots, times the ways to arrange the other $i-1$ orders, times $i$ choices for which order is last. Rolling $f \leftarrow f \cdot i \cdot (2i-1)$ modulo the prime is enough.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the number of all valid pickup/delivery sequences for $i$ orders. Initially, $f[1] = 1$.
 
 We can choose any of these $i$ orders as the last delivery order $D_i$, then its pickup order $P_i$ can be at any position in the previous $2 \times i - 1$, and the number of pickup/delivery sequences for the remaining $i - 1$ orders is $f[i - 1]$, so $f[i]$ can be expressed as:

@@ -78,6 +78,14 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among subtrees that are themselves BSTs, maximize the node sum. Checking BST-ness from the top repeats work. A postorder returns a quadruple: BST flag, min, max, and sum. When both children are BSTs and $l_{mx}<\textit{root}.val<r_{mi}$, the current tree is valid and its sum updates the answer. An empty tree is a BST with min $+\infty$ and max $-\infty$.
+
+<!-- thinking:end -->
+
 To determine whether a tree is a binary search tree, it needs to meet the following four conditions:
 
 - The left subtree is a binary search tree;

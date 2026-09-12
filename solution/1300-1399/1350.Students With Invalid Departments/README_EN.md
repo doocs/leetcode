@@ -102,6 +102,14 @@ John, Daiana, Steve, and Jasmine are enrolled in departments 14, 33, 74, and 77 
 
 ### Solution 1: Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Students whose $\textit{department\_id}$ is missing from the department table. A subquery lists every department id; $\mathrm{NOT\ IN}$ keeps the unmatched students.
+
+<!-- thinking:end -->
+
 We can directly use a subquery to find all students who are not in the `Departments` table.
 
 <!-- tabs:start -->
@@ -122,6 +130,14 @@ WHERE department_id NOT IN (SELECT id FROM Departments);
 <!-- solution:start -->
 
 ### Solution 2: Left Join
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\mathrm{NOT\ IN}$ is sensitive to null keys. A left join from students to departments, keeping rows whose department id is null, states the mismatch without a subquery.
+
+<!-- thinking:end -->
 
 We can also use a left join to join the `Students` table with the `Departments` table on the condition of `Students.department_id = Departments.id`, and then filter out the students whose `Departments.id` is `NULL`.
 

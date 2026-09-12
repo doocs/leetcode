@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells on one diagonal share $j-i$. Extract each diagonal, sort it, and write it back. Mapping by $m-i+j$ gives a nonnegative bucket; sorting those buckets in reverse and popping while scanning restores increasing order from top-left to bottom-right.
+
+<!-- thinking:end -->
+
 We can treat each diagonal of the matrix as an array, sort these arrays, and then fill the sorted elements back into the original matrix.
 
 Specifically, we denote the number of rows in the matrix as $m$ and the number of columns as $n$. Since any two elements $(i_1, j_1)$ and $(i_2, j_2)$ on the same diagonal satisfy $j_1 - i_1 = j_2 - i_2$, we can determine each diagonal based on the value of $j - i$. To ensure the value is positive, we add an offset $m$, that is, $m - i + j$.

@@ -83,6 +83,14 @@ The city 0 has 1 neighboring city at a distanceThreshold = 2.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each city, count others within the distance threshold and pick the smallest count, breaking ties toward the larger id. $n \le 100$ allows a shortest-path run from every source. After building the dense graph, Dijkstra from high ids to low, counting $\textit{dist}[j] \le \textit{distanceThreshold}$, updates the answer only on a strictly smaller count so ties keep the larger id.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -377,6 +385,14 @@ function findTheCity(n, edges, distanceThreshold) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per-source Dijkstra repeats $n$ searches. Floyd–Warshall fills all-pairs distances once; counting cities within the threshold is then a scan of each row. The code is simpler and still $O(n^3)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

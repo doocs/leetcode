@@ -71,6 +71,14 @@ The tree structure of the employees in the company is shown.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In a tree of managers, a message starts at the head; an edge costs that employee's inform time. $n \le 10^5$ forbids summing a path per leaf. After building the child list, $dfs(i)$ is the time for $i$ to inform its whole subtree: $\textit{informTime}[i]$ plus the slowest $dfs(j)$ among direct reports. The answer is $dfs(\textit{headID})$.
+
+<!-- thinking:end -->
+
 We first build an adjacent list $g$ according to the $manager$ array, where $g[i]$ represents all direct subordinates of employee $i$.
 
 Next, we design a function $dfs(i)$, which means the time required for employee $i$ to notify all his subordinates (including direct subordinates and indirect subordinates), and then the answer is $dfs(headID)$.

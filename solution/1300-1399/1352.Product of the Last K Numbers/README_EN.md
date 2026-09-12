@@ -80,6 +80,14 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 
 ### Solution 1: Prefix Product
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Append numbers and query the product of the last $k$. Multiplying on demand is $O(k)$ and there are up to $4 \times 10^4$ calls. Prefix products turn a suffix into a division of two entries. A $0$ zeroes every later window that contains it, so the prefix resets to $[1]$; a list shorter than $k+1$ means the window includes a $0$.
+
+<!-- thinking:end -->
+
 We initialize an array $s$, where $s[i]$ represents the product of the first $i$ numbers.
 
 When calling `add(num)`, we judge whether `num` is $0$. If it is, we set $s$ to `[1]`. Otherwise, we multiply the last element of $s$ by `num` and add the result to the end of $s$.
