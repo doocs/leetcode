@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README.md
 rating: 1712
 source: 第 136 场周赛 Q2
 tags:

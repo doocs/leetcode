@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md
 tags:
     - 字符串
     - 二分查找

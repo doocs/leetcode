@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1076.Project%20Employees%20II/README_EN.md
 tags:
     - Database
 ---

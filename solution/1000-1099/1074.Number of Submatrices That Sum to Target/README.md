@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1074.Number%20of%20Submatrices%20That%20Sum%20to%20Target/README.md
 rating: 2189
 source: 第 139 场周赛 Q4
 tags:

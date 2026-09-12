@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md
 tags:
     - 贪心
     - 双指针

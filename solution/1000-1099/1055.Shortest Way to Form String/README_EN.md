@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README_EN.md
 tags:
     - Greedy
     - Two Pointers
