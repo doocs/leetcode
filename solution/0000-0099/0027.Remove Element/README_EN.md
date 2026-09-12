@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0027.Remove%20Element/README_EN.md
 tags:
     - Array
     - Two Pointers

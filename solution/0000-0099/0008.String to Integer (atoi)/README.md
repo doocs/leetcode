@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md
 tags:
     - 字符串
 ---

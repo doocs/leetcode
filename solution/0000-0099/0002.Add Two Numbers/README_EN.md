@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md
 tags:
     - Recursion
     - Linked List

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README.md
 tags:
     - 哈希表
     - 字符串

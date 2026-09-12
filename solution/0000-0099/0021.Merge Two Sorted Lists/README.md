@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md
 tags:
     - 递归
     - 链表

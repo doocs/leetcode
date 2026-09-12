@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md
 tags:
     - 链表
     - 分治

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0007.Reverse%20Integer/README_EN.md
 tags:
     - Math
 ---

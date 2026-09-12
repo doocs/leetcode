@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0012.Integer%20to%20Roman/README.md
 tags:
     - 哈希表
     - 数学
