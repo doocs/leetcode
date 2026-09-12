@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3450.Maximum%20Students%20on%20a%20Single%20Bench/README_EN.md
 tags:
     - Array
     - Hash Table

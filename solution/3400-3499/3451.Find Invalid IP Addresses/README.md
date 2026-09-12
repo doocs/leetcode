@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3451.Find%20Invalid%20IP%20Addresses/README.md
 tags:
     - 数据库
 ---
