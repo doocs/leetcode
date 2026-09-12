@@ -81,6 +81,14 @@ Returning table orderd by interval_no in ascending order.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each block of six minutes is one interval. A `ROWS 5 PRECEDING` running sum after ordering by `minute`, kept only when `minute` is a multiple of $6$, reports the sum at each interval's right end.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -109,6 +117,14 @@ WHERE minute % 6 = 0;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The window still walks a prefix. When minutes are consecutive, $\lfloor(minute+5)/6\rfloor$ groups rows directly and `SUM` inside each group is the interval total.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

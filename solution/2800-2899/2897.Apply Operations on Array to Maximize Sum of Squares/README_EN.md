@@ -74,6 +74,14 @@ It can be shown that this is the maximum value we can get.
 
 ### Solution 1: Bitwise Operation + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation moves a $1$ onto the same bit of another number; the sum of squares grows when ones concentrate. After counting ones per bit, greedily build the $k$ largest constructible integers (take a bit whenever a one remains) and add their squares.
+
+<!-- thinking:end -->
+
 According to the problem description, for an operation, we can change $nums[i]$ to $nums[i] \textit{ AND } nums[j]$, and change $nums[j]$ to $nums[i] \textit{ OR } nums[j]$. Let's consider the bits of the numbers. If two bits are both $1$ or both $0$, the result of the operation will not change the bits. If two bits are different, the result of the operation will change the bits to $0$ and $1$, respectively. Therefore, we can move $1$ bits to $0$ bits, but not vice versa.
 
 We can use an array $cnt$ to count the number of $1$ bits in each position, and then select $k$ numbers from them. To maximize the sum of squares, we should choose the largest numbers as much as possible. This is because, assuming the sum of squares of two numbers is $a^2 + b^2$ (where $a \gt b$), changing them to $(a + c)^2 + (b - c)^2 = a^2 + b^2 + 2c(a - b) + 2c^2 \gt a^2 + b^2$ will increase the sum of squares. Therefore, to maximize the sum of squares, we should choose the largest number.

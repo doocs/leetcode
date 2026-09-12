@@ -69,6 +69,14 @@ Alic (customer_id = 4) and Finn (customer_id = 5) both use john@example.com, so 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicates are defined by `email`. `drop_duplicates(subset=['email'])` keeps the first occurrence of each address.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

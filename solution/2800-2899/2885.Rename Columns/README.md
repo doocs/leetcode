@@ -75,6 +75,14 @@ DataFrame <code>students</code>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 列名映射是固定的四对。`rename(columns=...)` 一次替换，避免按位置改名导致错列。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

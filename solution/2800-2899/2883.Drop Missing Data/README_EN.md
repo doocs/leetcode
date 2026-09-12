@@ -65,6 +65,14 @@ Student with id 217 havs empty value in the name column, so it will be removed.<
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Missing data means a null `name`. Filtering with `notnull()` on that column drops those rows without a full-frame `dropna`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

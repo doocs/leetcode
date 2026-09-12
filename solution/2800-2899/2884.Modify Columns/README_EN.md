@@ -66,6 +66,14 @@ DataFrame <code>employees</code>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every salary should double. An in-place multiply on the `salary` column leaves the rest of the frame unchanged.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

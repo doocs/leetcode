@@ -72,6 +72,14 @@ The sum of all the elements is 35 which is the maximum possible some out of ever
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear subset has constant $prices[i]-i$. Group prices by that key and sum within each group; the largest group sum is the answer.
+
+<!-- thinking:end -->
+
 We can transform the equation as follows:
 
 $$

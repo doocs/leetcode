@@ -77,6 +77,14 @@ The results should be sorted in descending order of weight.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep animals heavier than $100$, sort by weight descending, and project the name column. Method chaining performs the filter, sort, and projection in one expression.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

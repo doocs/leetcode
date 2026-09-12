@@ -70,6 +70,14 @@ The total cost is 1 + 1 + 2 = 4. It can be shown that it is the minimum cost pos
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each operation flips two bits, so an odd number of mismatches is impossible. Collect mismatch indices and let $dfs(i,j)$ take the best of pairing the two ends at cost $x$, or pairing the two leftmost / two rightmost indices at distance cost.
+
+<!-- thinking:end -->
+
 We notice that since each operation reverses two characters, if the number of different characters in the two strings is odd, it is impossible to make them equal, and we directly return $-1$. Otherwise, we store the indices of the different characters in the two strings in an array $idx$, and let $m$ be the length of $idx$.
 
 Next, we design a function $dfs(i, j)$, which represents the minimum cost of reversing the characters in $idx[i..j]$. The answer is $dfs(0, m - 1)$.
@@ -268,6 +276,14 @@ function minOperations(s1: string, s2: string, x: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The interval memoization is $O(m^2)$. A left-to-right DP with a constant number of states computes the same minimum in one pass.
+
+<!-- thinking:end -->
 
 Keep a few linear states while scanning left to right.
 

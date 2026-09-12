@@ -63,6 +63,14 @@ DataFrame students
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要取出 `student_id` 为 $101$ 的姓名与年龄。先用布尔索引定位该行，再选取 `name` 与 `age` 两列。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

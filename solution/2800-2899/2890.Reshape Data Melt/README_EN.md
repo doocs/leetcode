@@ -69,6 +69,14 @@ The DataFrame is reshaped from wide to long format. Each row represents the sale
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Quarter columns should collapse into a quarter name and a sales value. `melt` keeps `product` as the identifier and unpivots the rest.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

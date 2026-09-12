@@ -85,6 +85,14 @@ df1</strong>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两表列结构相同，需纵向拼接。`concat` 并 `ignore_index=True` 重新编号，避免沿用各自原来的行号。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1: Greedy + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each processor has four cores; its finish time is its free time plus the longest assigned task. Sort free times ascending and tasks descending, give the four longest remaining tasks to the earliest free processor, and take the maximum finish time.
+
+<!-- thinking:end -->
+
 To minimize the time required to process all tasks, the four tasks with the longest processing time should be assigned to the processors that become idle earliest.
 
 Therefore, we sort the processors by their idle time and sort the tasks by their processing time. Then, we assign the four tasks with the longest processing time to the processor that becomes idle earliest, and calculate the maximum end time.

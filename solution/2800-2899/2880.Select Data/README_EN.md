@@ -61,6 +61,14 @@ Input:</strong>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the name and age of student $101$. A boolean mask selects that row, then we keep only the `name` and `age` columns.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -65,6 +65,14 @@ grade 列的数据类型已转换为整数。</pre>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> `grade` 当前为浮点，题目要求整数。`astype(int)` 按列转换类型，不改变数值含义。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
