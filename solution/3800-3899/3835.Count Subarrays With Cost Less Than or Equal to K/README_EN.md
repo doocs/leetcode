@@ -97,6 +97,19 @@ tags:
 
 ### Solution 1: Deque + Enumeration + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray costs $(\max-\min)$ times its length; we count those with cost $\le k$. $n \le 10^5$ forbids enumerating ends.
+>
+> Lengthening a window never decreases $\max-\min$ or the length, so cost is monotone. For a fixed right end the legal left ends form a prefix.
+>
+> Two deques hold the window max and min. Advance $l$ until the cost is legal; that right end contributes $r-l+1$ subarrays.
+>
+> Each index enters and leaves a deque once.
+
+<!-- thinking:end -->
 We notice that if a subarray $\text{nums}[l..r]$ has a cost less than or equal to $k$, then for any $l' \geq l$ and $r' \leq r$, the subarray $\text{nums}[l'..r']$ also has a cost less than or equal to $k$. Therefore, we can enumerate the right endpoint $r$, use two pointers to maintain the minimum left endpoint $l$ that satisfies the condition, then the number of subarrays ending at $r$ that satisfy the condition is $r - l + 1$, which we accumulate to the answer.
 
 We can use two deques to maintain the maximum and minimum values in the current window respectively.

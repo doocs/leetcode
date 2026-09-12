@@ -79,6 +79,19 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move deletes a proper subarray. Alice maximizes and Bob minimizes the last remaining value. $n \le 10^5$ makes the game tree impossible.
+>
+> Alice can delete the entire middle on the first move and leave one endpoint, so the answer is at least the larger endpoint.
+>
+> Any interior value that is not yet last can still be deleted by Bob later, so Alice cannot lock it in.
+>
+> With optimal play the result is exactly $\max(nums[0],nums[n-1])$.
+
+<!-- thinking:end -->
 Since Alice goes first, Alice can choose to remove all elements except the first and last elements, so the answer is at least $\max(nums[0], nums[n - 1])$.
 
 For the cases of elements at indices $1, 2, ..., n-2$ (the middle elements), even if Alice wants to keep any of these middle elements, Bob can choose to remove it, so the answer is at most $\max(nums[0], nums[n - 1])$.

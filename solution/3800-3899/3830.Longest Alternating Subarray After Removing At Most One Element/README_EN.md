@@ -99,6 +99,19 @@ tags:
 
 ### Solution 1: Prefix-Suffix Decomposition + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating subarray switches between $<$ and $>$; we may delete at most one element. $n \le 10^5$ forbids trying every deletion.
+>
+> Without deletion the longest run follows from a left-to-right recurrence on the last comparison. Deleting $i$ tries to join the left run at $i-1$ with the right run at $i+1$.
+>
+> Precompute, for both directions, the longest alternating length ending at $i$ and starting at $i$.
+>
+> Take the no-deletion maximum, then try each deletion and add the matching prefix and suffix only when $nums[i-1]$ and $nums[i+1]$ still alternate.
+
+<!-- thinking:end -->
 We use two arrays $l_1$ and $l_2$ to represent the length of the longest alternating subarray ending at position $i$ with the last comparison being "<" and ">", respectively. Similarly, we use $r_1$ and $r_2$ to represent the length of the longest alternating subarray starting at position $i$ with the first comparison being "<" and ">", respectively.
 
 We can compute $l_1$ and $l_2$ through a single left-to-right traversal, and then compute $r_1$ and $r_2$ through a single right-to-left traversal.

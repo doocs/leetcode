@@ -92,6 +92,19 @@ tags:
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly replace the leftmost adjacent equal pair by their sum. $n \le 10^5$, so rescanning from the left each time is quadratic.
+>
+> A merge only interacts with the new sum's left neighbor; the unprocessed right side is untouched. A stack holds the already-stable prefix.
+>
+> Push left to right; while the top two are equal, pop them and push the sum.
+>
+> Always merging the leftmost pair is equivalent to this left-to-right process, and each value enters and leaves the stack a constant number of times.
+
+<!-- thinking:end -->
 We can use a stack to simulate the process of merging adjacent equal elements.
 
 Define a stack $\textit{stk}$ to store the current processed array elements. Traverse each element $x$ of the input array $\textit{nums}$ and push it onto the stack. Then check if the top two elements of the stack are equal. If they are equal, pop them and push their sum back onto the stack. Repeat this process until the top two elements of the stack are no longer equal. Finally, the elements in the stack are the final merged array.
