@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README.md
 tags:
     - 数组
     - 哈希表

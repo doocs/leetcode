@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0587.Erect%20the%20Fence/README_EN.md
 tags:
     - Geometry
     - Array

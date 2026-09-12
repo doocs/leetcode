@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0584.Find%20Customer%20Referee/README_EN.md
 tags:
     - Database
 ---

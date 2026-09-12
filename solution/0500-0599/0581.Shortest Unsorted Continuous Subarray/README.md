@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README.md
 tags:
     - 栈
     - 贪心

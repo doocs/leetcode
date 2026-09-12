@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0500-0599/0588.Design%20In-Memory%20File%20System/README.md
 tags:
     - 设计
     - 字典树
