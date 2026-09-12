@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2950.Number%20of%20Divisible%20Substrings/README_EN.md
 tags:
     - Hash Table
     - String
