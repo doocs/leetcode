@@ -59,6 +59,17 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete at most one character to make a palindrome. Trying every deletion is quadratic for $n\le 10^5$.
+>
+> Two pointers meet a mismatch at most once: check the remaining interval after skipping the left or the right character. The extra scan is still linear.
+
+<!-- thinking:end -->
+
+
 We use two pointers to point to the left and right ends of the string, respectively. Each time, we check whether the characters pointed to by the two pointers are the same. If they are not the same, we check whether the string is a palindrome after deleting the character corresponding to the left pointer, or we check whether the string is a palindrome after deleting the character corresponding to the right pointer. If the characters pointed to by the two pointers are the same, we move both pointers towards the middle by one position, until the two pointers meet.
 
 If we have not encountered a situation where the characters pointed to by the pointers are different by the end of the traversal, then the string itself is a palindrome, and we return `true`.

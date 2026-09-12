@@ -60,6 +60,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Area is the count of 4-connected land cells. Each cell is visited at most once.
+>
+> DFS a land cell, set it to $0$, and add the four recursive calls. The answer is the maximum over all starts.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

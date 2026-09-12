@@ -70,6 +70,17 @@ Note that square 2 only brushes the right side of square 1, which does not count
 
 ### Solution 1: Segment Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Squares drop onto the current skyline; after each drop we need the global max height. Coordinates reach $10^9$, so an array is impossible.
+>
+> A dynamic segment tree stores range maxima: query $[l,r]$ for the landing height, add the side length, and assign that height back with a lazy tag. Track the running maximum.
+
+<!-- thinking:end -->
+
+
 According to the problem description, we need to maintain a set of intervals that support modification and query operations. In this case, we can use a segment tree to solve the problem.
 
 A segment tree divides the entire interval into multiple non-contiguous sub-intervals, with the number of sub-intervals not exceeding $\log(width)$, where $width$ is the length of the interval. To update the value of an element, we only need to update $\log(width)$ intervals, and these intervals are all contained within a larger interval that includes the element. When modifying intervals, we need to use **lazy propagation** to ensure efficiency.

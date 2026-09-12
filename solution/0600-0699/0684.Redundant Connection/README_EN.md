@@ -61,6 +61,17 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An undirected tree plus one extra edge; delete the last extra edge in the input. Finding the cycle and ranking edges is heavier than needed.
+>
+> Union-Find the edges in order. The first pair already in one component is the redundant edge.
+
+<!-- thinking:end -->
+
+
 According to the problem description, we need to find an edge that can be removed so that the remaining part is a tree with $n$ nodes. We can traverse each edge and determine whether the two nodes of this edge are in the same connected component. If they are in the same connected component, it means this edge is redundant and can be removed, so we directly return this edge. Otherwise, we merge the two nodes connected by this edge into the same connected component.
 
 The time complexity is $O(n \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of edges.
@@ -223,6 +234,15 @@ var findRedundantConnection = function (edges) {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find (Template Approach)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 inlines `find`. A `UnionFind` with union-by-size returns success/failure; the first failed union is the same edge, with slightly better constants.
+
+<!-- thinking:end -->
+
 
 Here is a template approach using Union-Find for your reference.
 
