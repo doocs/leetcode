@@ -62,6 +62,18 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating every way to place $k-1$ cuts is too large. A larger cap on a subarray sum only makes a feasible split easier, so feasibility is monotone in the cap.
+>
+> Binary-search the cap $\textit{mid}$. A greedy left-to-right accumulation starts a new piece whenever adding the next value would exceed $\textit{mid}$, and we ask whether at most $k$ pieces suffice. The search range is $[\max(\textit{nums}),\sum \textit{nums}]$.
+>
+> The minimum feasible cap is the answer; combinatorial search becomes a linear check.
+
+<!-- thinking:end -->
+
 We notice that the larger the maximum sum of the subarrays, the fewer the number of subarrays. When there is a maximum sum of the subarrays that meets the condition, then a larger maximum sum of the subarrays will definitely meet the condition. This means that we can perform a binary search for the maximum sum of the subarrays to find the smallest value that meets the condition.
 
 We define the left boundary of the binary search as $left = \max(nums)$, and the right boundary as $right = sum(nums)$. Then for each step of the binary search, we take the middle value $mid = \lfloor \frac{left + right}{2} \rfloor$, and then determine whether there is a way to split the array so that the maximum sum of the subarrays does not exceed $mid$. If there is, it means that $mid$ might be the smallest value that meets the condition, so we adjust the right boundary to $mid$. Otherwise, we adjust the left boundary to $mid + 1$.

@@ -58,6 +58,18 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sum Hamming distances over every pair. XORing all pairs is $O(n^2)$. Bits contribute independently.
+>
+> On bit $i$, if $a$ numbers have a $1$, then $n-a$ have a $0$, and the bit adds $a(n-a)$. Sum over $32$ bits.
+>
+> After splitting by bit, each pair that differs on that bit is counted once; pairs are never enumerated.
+
+<!-- thinking:end -->
+
 We enumerate each bit in the range $[0, 31]$. For the current enumerated bit $i$, we count the number of numbers where the $i$-th bit is $1$, denoted as $a$. Therefore, the number of numbers where the $i$-th bit is $0$ is $b = n - a$, where $n$ is the length of the array. In this way, the sum of the Hamming distance on the $i$-th bit is $a \times b$. We add the Hamming distances of all bits to get the answer.
 
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array and the maximum value in the array, respectively. The space complexity is $O(1)$.

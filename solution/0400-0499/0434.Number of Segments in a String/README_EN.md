@@ -53,6 +53,16 @@ tags:
 
 ### Solution 1: String Splitting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Segments are blank-separated. A hand-written scan must handle leading, trailing, and repeated spaces. $\texttt{split}$ already drops empty pieces, so its length is the answer.
+>
+> The library walk is a fine first solution.
+
+<!-- thinking:end -->
+
 We split the string $\textit{s}$ by spaces and then count the number of non-empty words.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$.
@@ -147,6 +157,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 allocates the list of words. Counting only, a new segment starts at a non-space whose previous character is a space (or the first index). Extra memory becomes $O(1)$.
+
+<!-- thinking:end -->
 
 We can also directly traverse each character $\text{s[i]}$ in the string. If $\text{s[i]}$ is not a space and $\text{s[i-1]}$ is a space or $i = 0$, then $\text{s[i]}$ marks the beginning of a new word, and we increment the answer by one.
 

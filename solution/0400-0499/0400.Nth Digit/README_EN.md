@@ -50,6 +50,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Building the infinite concatenation and indexing the $n$-th character is impossible: $n$ can reach $2^{31}-1$.
+>
+> Numbers with $k$ digits contribute a closed-form count: $9\times 10^{k-1}$ of them, hence $k\times 9\times 10^{k-1}$ digits. Subtract those blocks while increasing $k$ until $n$ lands inside the current length, then recover the integer and the offset inside it.
+>
+> The subtraction must finish before locating a concrete number; otherwise a global rank cannot become an index inside one integer.
+
+<!-- thinking:end -->
+
 The smallest and largest integers with $k$ digits are $10^{k-1}$ and $10^k-1$ respectively, so the total number of digits for $k$-digit numbers is $k \times 9 \times 10^{k-1}$.
 
 We use $k$ to represent the number of digits of the current number, and $cnt$ to represent the total number of numbers with the current number of digits. Initially, $k=1$, $cnt=9$.

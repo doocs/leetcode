@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Classify IPv4, IPv6, or neither. A regex can work, but leading zeros, empty chunks, and the alphabet are easier after an explicit split.
+>
+> IPv4: four `.`-chunks, no leading zero, each a number in $0$–$255$. IPv6: eight `:`-chunks of length $1$–$4$ in hex. Otherwise $\texttt{Neither}$.
+>
+> Try IPv4 then IPv6; the separators differ, so both cannot hold. Empty chunks fail the length or digit checks.
+
+<!-- thinking:end -->
+
 We can define two functions `isIPv4` and `isIPv6` to determine whether a string is a valid IPv4 address and IPv6 address.
 
 The implementation of the function `isIPv4` is as follows:

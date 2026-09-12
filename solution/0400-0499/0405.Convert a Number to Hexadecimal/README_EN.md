@@ -47,6 +47,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $32$-bit two's-complement integer must be printed in hex, including negatives. Digit-by-digit decimal conversion fights the sign; grouping $4$ bits does not.
+>
+> Eight groups from high to low, each masked with $0\text{xF}$, map through a digit table. Skip leading zeros until a nonzero nibble appears; treat $0$ as a special case.
+>
+> Scanning from the high end lets us drop leading zeros without reversing a buffer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -139,6 +151,14 @@ func toHex(num int) string {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already walks $4$-bit groups. Solution 2 builds the same digits with arithmetic instead of a lookup table.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

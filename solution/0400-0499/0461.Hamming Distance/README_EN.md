@@ -58,6 +58,18 @@ The above arrows point to positions where the corresponding bits are different.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Hamming distance is the number of differing bits. Comparing bit by bit needs a $32$-step loop.
+>
+> The $1$-bits of $x\oplus y$ are exactly those positions; $\textit{bit\_count}$ returns their number.
+>
+> XOR folds the comparison into one word operation; popcount is then a hardware instruction or a short loop.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

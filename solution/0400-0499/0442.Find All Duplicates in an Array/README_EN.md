@@ -51,6 +51,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values lie in $[1,n]$ and appear at most twice; the follow-up wants linear time and constant extra memory. A hash set finds duplicates but uses $O(n)$ space.
+>
+> Swap $v$ into index $v-1$ (cycle sort). Afterwards a value that is not $i+1$ at index $i$ is a leftover duplicate.
+>
+> The swap loop stops when $nums[i]=nums[nums[i]-1]$, so a duplicate collides with the value already in place and never cycles forever.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -65,6 +65,18 @@ You need to output 2.
 
 ### Solution 1: Sorting + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each cookie feeds at most one child; we want as many content children as possible. Small cookies should go to small appetites, otherwise a large cookie is wasted.
+>
+> Sort both arrays. A cookie pointer skips sizes that are too small and advances together with the child when the size is enough. Exhausting the cookies returns how many children were fed.
+>
+> After sorting, the two pointers always try the current cookie on the easiest remaining child.
+
+<!-- thinking:end -->
+
 According to the problem description, we should prioritize giving cookies to children with smaller appetites, so as to satisfy as many children as possible.
 
 Therefore, we first sort the two arrays, and then use two pointers $i$ and $j$ to point to the head of arrays $g$ and $s$ respectively. Each time we compare the size of $g[i]$ and $s[j]$:

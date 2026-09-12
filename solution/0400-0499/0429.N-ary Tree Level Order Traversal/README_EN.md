@@ -56,6 +56,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Level order groups values by depth. A depth-first walk without a layer index would mix levels.
+>
+> A queue holds the current layer: snapshot its length, pop that many nodes into a row, and enqueue their children. An empty root yields an empty list.
+>
+> The snapshot of the queue length isolates one layer and keeps left-to-right order.
+
+<!-- thinking:end -->
+
 First, we check if the root node is null. If it is, we return an empty list directly.
 
 Otherwise, we create a queue $q$ and initially add the root node to the queue.
@@ -266,6 +278,16 @@ function levelOrder(root: Node | null): number[][] {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs a queue. Recursing with a depth $i$ and appending to $\textit{ans}[i]$ (growing the list when needed) produces the same rows.
+>
+> The call stack carries the layer index; children are still written left to right.
+
+<!-- thinking:end -->
 
 We can use the Depth-First Search method to traverse the entire tree.
 

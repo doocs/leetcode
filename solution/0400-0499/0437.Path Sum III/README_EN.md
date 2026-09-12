@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum + Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Paths must go downward. Trying every ancestor then walking down is $O(n^2)$. A path summing to $\textit{targetSum}$ is a current prefix minus some ancestor prefix.
+>
+> Accumulate the prefix $s$ in preorder and store prefix frequencies on the root-to-node path. $\textit{cnt}[s-\textit{targetSum}]$ counts valid paths ending here. Undo $s$ on the way back so another branch does not see it.
+>
+> $\textit{cnt}[0]=1$ accounts for a path that starts at the root. Lookup before insert so the current node is not used twice.
+
+<!-- thinking:end -->
+
 We can use the idea of prefix sums to recursively traverse the binary tree while using a hash table $\textit{cnt}$ to count the occurrences of each prefix sum along the path from the root to the current node.
 
 We design a recursive function $\textit{dfs(node, s)}$, where $\textit{node}$ represents the current node being traversed, and $s$ represents the prefix sum along the path from the root to the current node. The return value of the function is the number of paths ending at $\textit{node}$ or its subtree nodes with a sum equal to $\textit{targetSum}$. The final answer is $\textit{dfs(root, 0)}$.

@@ -59,6 +59,18 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The complement flips bits inside the binary representation without leading zeros. A raw bitwise not would turn those high zeros into ones.
+>
+> XOR with the mask $2^{\textit{bit\_length}}-1$ flips only the significant bits.
+>
+> The mask is exactly as wide as the highest $1$, so leading zeros never appear.
+
+<!-- thinking:end -->
+
 According to the problem description, we can use XOR operation to implement the flipping operation, the steps are as follows:
 
 First, we find the highest bit of $1$ in the binary representation of $\textit{num}$, and the position is denoted as $k$.
@@ -135,6 +147,14 @@ var findComplement = function (num) {
 <!-- solution:start -->
 
 ### Solution 2: Bit Manipulation. Inversion + AND
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses XOR. Bitwise not followed by AND with the same low-ones mask keeps the same width. Different surface syntax, same meaning.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

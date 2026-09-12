@@ -49,6 +49,18 @@ tags:
 
 ### Solution 1: Trie-Based Counting + Greedy Construction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ can be $10^9$, so we cannot list and sort. Lexicographic order is a $10$-ary trie: the children of $x$ are $10x,\ldots,10x+9$ that stay $\le n$.
+>
+> Count the subtree of a prefix $curr$ by intersecting $[curr,curr+1)$ with $[1,n]$ at each extra digit. If that count is $\le k$, skip the whole tree and increment $curr$; otherwise step into $curr\times 10$ and spend one for the prefix itself.
+>
+> Decrement $k$ once at the start because we already stand on $1$. Layered counting never enumerates every integer in the subtree.
+
+<!-- thinking:end -->
+
 The problem asks for the \$k\$-th smallest number in the range $[1, n]$ when all numbers are sorted in **lexicographical order**. Since $n$ can be as large as $10^9$, we cannot afford to generate and sort all the numbers explicitly. Instead, we adopt a strategy based on **greedy traversal over a conceptual Trie**.
 
 We treat the range $[1, n]$ as a **10-ary prefix tree (Trie)**:

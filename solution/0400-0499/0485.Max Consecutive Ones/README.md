@@ -52,6 +52,18 @@ tags:
 
 ### 方法一：一次遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最长连续 $1$。枚举左右端点再检查是 $O(n^2)$，一次扫描即可。
+>
+> 遇 $1$ 则当前长度加一并更新答案，遇 $0$ 则清零。
+>
+> 段与段被 $0$ 隔开，计数器复位后不会把两段接在一起。
+
+<!-- thinking:end -->
+
 我们可以遍历数组，用一个变量 $\textit{cnt}$ 记录当前连续的 1 的个数，用另一个变量 $\textit{ans}$ 记录最大连续 1 的个数。
 
 当遍历到一个 1 时，将 $\textit{cnt}$ 加一，然后更新 $\textit{ans}$ 的值为 $\textit{cnt}$ 和 $\textit{ans}$ 本身的最大值，即 $\textit{ans} = \max(\textit{ans}, \textit{cnt})$。否则，将 $\textit{cnt}$ 重置为 0。

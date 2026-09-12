@@ -60,6 +60,18 @@ tags:
 
 ### Solution 1: Simulate the Construction Process
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The magical string describes its own run lengths: one $1$, two $2$s, then alternating $1$ and $2$ with run sizes taken from the string itself. We need the number of $1$s among the first $n$ characters.
+>
+> Start from the known prefix $122$. Pointer $i$ says how many times the next run appears; the last written value decides whether that run is $1$ or $2$ ($3-\textit{pre}$). Stop when the length reaches $n$.
+>
+> Construction and counting share one pass. Run lengths are characters already written, so $i$ never runs past the current length.
+
+<!-- thinking:end -->
+
 According to the problem, we know that each group of numbers in the string $s$ can be obtained from the digits of the string $s$ itself.
 
 The first two groups of numbers in string $s$ are $1$ and $22$, which are obtained from the first and second digits of string $s$, respectively. Moreover, the first group of numbers contains only $1$, the second group contains only $2$, the third group contains only $1$, and so on.

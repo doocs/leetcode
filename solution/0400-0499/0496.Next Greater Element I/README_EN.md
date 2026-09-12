@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums1$ is a subset of $nums2$; we want each value's next greater element in $nums2$. Scanning rightward from every $nums1$ value is $O(nm)$.
+>
+> Walk $nums2$ right to left with a decreasing stack: after popping smaller tops, the new top is the next greater value, stored in a map. Then look up $nums1$.
+>
+> Each value enters and leaves the stack once. Building the map on $nums2$ first avoids scanning it once per query.
+
+<!-- thinking:end -->
+
 We can traverse the array $\textit{nums2}$ from right to left, maintaining a stack $\textit{stk}$ that is monotonically increasing from top to bottom. We use a hash table $\textit{d}$ to record the next greater element for each element.
 
 When we encounter an element $x$, if the stack is not empty and the top element of the stack is less than $x$, we keep popping the top elements until the stack is empty or the top element is greater than or equal to $x$. At this point, if the stack is not empty, the top element of the stack is the next greater element for $x$. Otherwise, $x$ has no next greater element.

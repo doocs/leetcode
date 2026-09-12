@@ -88,6 +88,18 @@ lfu.get(4);      // return 4
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> LFU must get and put in $O(1)$ and, when full, evict the least frequent key, breaking ties by LRU. One hash map finds a value but cannot track frequency and recency together.
+>
+> A key-to-node map gives lookup. A frequency-to-list map stores nodes of equal frequency, newest at the head. $\textit{minFreq}$ points at the victim list's tail.
+>
+> A hit moves the node onto the $\textit{freq}+1$ list; if the old list is empty and was the minimum, bump $\textit{minFreq}$. A brand-new key has frequency $1$ and resets the minimum to $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

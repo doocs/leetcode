@@ -65,6 +65,18 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The area is fixed; we want $L\ge W$ with $L-W$ minimized, i.e. a near-square. Scanning every divisor from $1$ is slower than needed.
+>
+> Start at $W=\lfloor\sqrt{\textit{area}}\rfloor$ and decrease until $W$ divides the area. Then $L=\textit{area}/W$ is at least $W$ and the gap is the smallest possible.
+>
+> Coming down from the square root makes the first factor pair the closest one.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

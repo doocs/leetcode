@@ -54,6 +54,18 @@ tags:
 
 ### Solution 1: Fixed Point Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Traverse the matrix in zigzag diagonals. Simulating a direction and bouncing off edges needs many boundary cases. There are $m+n-1$ diagonals, each with a closed-form start.
+>
+> Diagonal $k$ is collected top-right to bottom-left, starting at $(0,k)$ when $k<n$ and $(k-n+1,n-1)$ otherwise. Even $k$ is reversed to match the required zigzag.
+>
+> Always walking down-left and flipping on even $k$ avoids switching a direction vector on the border.
+
+<!-- thinking:end -->
+
 For each round $k$, we fix the starting point from the top-right and traverse diagonally to the bottom-left to get $t$. If $k$ is even, we reverse $t$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(1)$. Ignoring the space used for the answer.

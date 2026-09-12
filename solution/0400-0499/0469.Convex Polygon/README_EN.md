@@ -58,6 +58,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A convex polygon turns the same way at every vertex. Checking the orientation of each triple is enough; we need not build a hull.
+>
+> At vertex $i$ compute $\overrightarrow{p_i p_{i+1}}\times \overrightarrow{p_i p_{i+2}}$. A nonzero cross that disagrees in sign with the previous nonzero cross is a reflex turn. A zero cross (collinear) leaves the remembered direction unchanged.
+>
+> Indices wrap modulo $n$. Comparing signs only when a real turn occurs keeps collinear vertices from failing the test.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

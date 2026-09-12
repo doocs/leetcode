@@ -113,6 +113,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 多层双向链表先沿 $\textit{child}$ 再沿 $\textit{next}$ 展开，相当于先序。若先走完 $\textit{next}$ 再接孩子，孩子会落到整条链的末尾。
+>
+> 递归 $\textit{preorder}(\textit{pre},\textit{cur})$：先把当前结点接到前驱后面，保存原来的 $\textit{next}$，再先展开 $\textit{child}$，把孩子链的尾结点作为新前驱，最后展开保存的 $\textit{next}$，并清空 $\textit{child}$。
+>
+> 哑结点承接头结点，展开后把头结点的 $\textit{prev}$ 置空。必须先保存 $\textit{next}$，否则孩子展开时会覆盖后继指针。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

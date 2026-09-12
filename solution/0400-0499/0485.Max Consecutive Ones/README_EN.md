@@ -50,6 +50,18 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest run of ones. Checking every subarray is $O(n^2)$; one scan is enough.
+>
+> A $1$ grows the current run and updates the answer; a $0$ resets the counter.
+>
+> Zeros separate runs, so the counter never joins two blocks.
+
+<!-- thinking:end -->
+
 We can iterate through the array, using a variable $\textit{cnt}$ to record the current number of consecutive 1s, and another variable $\textit{ans}$ to record the maximum number of consecutive 1s.
 
 When we encounter a 1, we increment $\textit{cnt}$ by one, and then update $\textit{ans}$ to be the maximum of $\textit{cnt}$ and $\textit{ans}$ itself, i.e., $\textit{ans} = \max(\textit{ans}, \textit{cnt})$. Otherwise, we reset $\textit{cnt}$ to 0.

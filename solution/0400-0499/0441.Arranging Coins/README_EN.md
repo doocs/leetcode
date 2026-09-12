@@ -53,6 +53,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $x$ costs $x$ coins, so the last full row satisfies $x(x+1)/2\le n$. Scanning $x$ is linear and $n$ can be $2^{31}-1$.
+>
+> The inequality solves to $x\le \sqrt{2}\,\sqrt{n+1/8}-1/2$. Splitting $2n$ this way avoids an overflow of $2n$ in some languages.
+>
+> A closed form evaluates in a constant number of floating-point operations.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -119,6 +131,14 @@ func arrangeCoins(n int) int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a square root; huge $n$ can lose integer precision. Binary-search the row count with the integer test $mid(mid+1)/2\le n$, rounding the mid upward when feasible.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

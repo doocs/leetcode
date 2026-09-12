@@ -75,6 +75,18 @@ Therefore, it is NOT a valid word square.
 
 ### Solution 1: Iterative Check
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A word square needs $words[i][j]=words[j][i]$. Rows may have unequal lengths, so building a transpose first trips over missing columns.
+>
+> Check each character against $words[j][i]$; any out-of-range index or mismatch fails.
+>
+> A missing $words[j][i]$ is a failure: that is exactly a column that does not spell the same word.
+
+<!-- thinking:end -->
+
 We observe that if $words[i][j] \neq words[j][i]$, we can directly return `false`.
 
 Therefore, we only need to iterate through each row, and then check whether each row satisfies $words[i][j] = words[j][i]$. Note that if the index is out of bounds, we also directly return `false`.

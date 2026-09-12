@@ -45,6 +45,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> English digit words overlap, so matching words in order is unsafe. A few letters belong to only one digit.
+>
+> $\texttt{z}$ is unique to zero, $\texttt{w}$ to two, $\texttt{u}$ to four, $\texttt{x}$ to six, $\texttt{g}$ to eight. After subtracting those, $\texttt{h}$, $\texttt{f}$, $\texttt{s}$ give three, five, seven, and finally $\texttt{o}$ and $\textit{i}$ give one and nine.
+>
+> Counting along that unique-letter order solves a triangular system; concatenate digits from $0$ to $9$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

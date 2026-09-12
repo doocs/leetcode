@@ -63,6 +63,18 @@ The two tuples are:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four nested loops are $O(n^4)$ and $n\le 200$ is too large. A zero sum splits as $(a+b)+(c+d)=0$.
+>
+> Count every pair sum from $nums1$ and $nums2$, then enumerate $c,d$ and add $\textit{cnt}[-(c+d)]$.
+>
+> The $O(n^2)$ pair enumeration turns a 4-tuple search into a hash lookup.
+
+<!-- thinking:end -->
+
 We can add the elements $a$ and $b$ in arrays $nums1$ and $nums2$ respectively, and store all possible sums in a hash table $cnt$, where the key is the sum of the two numbers, and the value is the count of the sum.
 
 Then we iterate through the elements $c$ and $d$ in arrays $nums3$ and $nums4$, let $c+d$ be the target value, then the answer is the cumulative sum of $cnt[-(c+d)]$.

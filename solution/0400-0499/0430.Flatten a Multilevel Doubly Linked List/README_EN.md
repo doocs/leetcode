@@ -105,6 +105,18 @@ After flattening the multilevel linked list it becomes:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flattening a multilevel list is a preorder walk: child before the original next. Walking next first would append the child list at the very end.
+>
+> $\textit{preorder}(\textit{pre},\textit{cur})$ links the current node after its predecessor, saves the old next, flattens the child (the returned tail becomes the new predecessor), then flattens the saved next and clears $\textit{child}$.
+>
+> A dummy node holds the head; afterwards the real head's $\textit{prev}$ is cleared. The original next must be saved before the child walk overwrites it.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

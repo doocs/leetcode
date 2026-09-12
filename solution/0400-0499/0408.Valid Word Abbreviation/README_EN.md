@@ -77,6 +77,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An abbreviation interleaves letters and skip lengths, and a number may not have a leading zero. Expanding the abbreviation into a new string is unnecessary and can be large.
+>
+> Two pointers scan $\textit{abbr}$: digits accumulate a skip (rejecting a leading zero); a letter first applies the skip, then compares characters. At the end, the word pointer plus any leftover skip must land exactly on the last index.
+>
+> Skip and compare belong in one pass so overflow, mismatch, and unused length are checked together.
+
+<!-- thinking:end -->
+
 We can directly simulate character matching and replacement.
 
 Assume the lengths of the string $word$ and the string $abbr$ are $m$ and $n$ respectively. We use two pointers $i$ and $j$ to point to the initial positions of the string $word$ and the string $abbr$ respectively, and use an integer variable $x$ to record the current matched number in $abbr$.

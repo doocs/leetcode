@@ -58,6 +58,18 @@ tags:
 
 ### Solution 1: Direct Iteration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ships are horizontal or vertical and never touch. A flood fill can mark a whole ship, but it writes the board or needs extra flags. The follow-up asks for one pass and constant extra memory.
+>
+> Each ship has a unique top-left $\texttt{X}$: the cell above and the cell to the left are not $\texttt{X}$. Count those corners.
+>
+> Because ships do not touch, that corner is unique, so there is neither under-count nor double-count.
+
+<!-- thinking:end -->
+
 We can iterate through the matrix, find the top-left corner of each battleship, i.e., the position where the current position is `X` and both the top and left are not `X`, and increment the answer by one.
 
 After the iteration ends, return the answer.

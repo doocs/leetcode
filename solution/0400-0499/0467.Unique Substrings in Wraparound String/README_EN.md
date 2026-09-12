@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count unique contiguous substrings of the infinite wraparound string. Enumerating and hashing every substring is quadratic. Among runs that end with the same letter, a shorter one is contained in a longer one.
+>
+> Let $f[c]$ be the longest valid run ending at $c$; the answer is the sum of $f$. While scanning, grow $k$ when consecutive letters differ by $1$ modulo $26$, otherwise reset.
+>
+> Keeping only the maximum $k$ per ending letter drops duplicates.
+
+<!-- thinking:end -->
+
 We can define an array $f$ of length $26$, where $f[i]$ represents the length of the longest consecutive substring ending with the $i$th character. The answer is the sum of all elements in $f$.
 
 We define a variable $k$ to represent the length of the longest consecutive substring ending with the current character. We iterate through the string $s$. For each character $c$, if the difference between $c$ and the previous character $s[i - 1]$ is $1$, then we increment $k$ by $1$, otherwise, we reset $k$ to $1$. Then we update $f[c]$ to be the larger value of $f[c]$ and $k$.

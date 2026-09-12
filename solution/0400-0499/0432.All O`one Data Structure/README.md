@@ -74,6 +74,18 @@ allOne.getMinKey(); // 返回 "leet"
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{inc}/\textit{dec}/\textit{getMaxKey}/\textit{getMinKey}$ 都要求均摊常数。哈希表能 $O(1)$ 改计数，却无法 $O(1)$ 取最大最小；单独的有序集合取端点是对数级。
+>
+> 把相同计数的键放在一个双向链表结点里，结点按计数递增排成环。哈希表 $\textit{key}\to$ 所在结点。增加或减少时，键只在相邻计数结点之间移动，必要时插入或删除空桶。
+>
+> 环的后继、前驱分别是最小与最大计数，端点查询为 $O(1)$。键只在相邻桶间移动，才不必扫描整条链。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

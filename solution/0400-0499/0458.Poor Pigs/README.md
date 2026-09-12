@@ -72,6 +72,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每头猪在测试时间内可喝多次，死亡时刻给出多进制信息，而不是简单的「死/活一次」。
+>
+> 一轮等待能区分 $\textit{minutesToTest}/\textit{minutesToDie}+1$ 种状态（含存活）。$x$ 头猪可区分 $\textit{base}^x$ 只桶，求最小 $x$ 使该值不小于桶数。
+>
+> 从 $1$ 累乘 $\textit{base}$ 直到覆盖桶数，即对 $\textit{buckets}$ 取以 $\textit{base}$ 为底的向上对数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

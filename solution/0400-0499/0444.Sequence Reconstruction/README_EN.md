@@ -89,6 +89,18 @@ Since nums is the only shortest supersequence, we return true.
 
 ### Solution 1: Topological Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must decide whether $nums$ is the unique shortest supersequence of the given sequences. Several topological orders would mean several supersequences.
+>
+> Turn consecutive pairs in each $\textit{seq}$ into directed edges and record indegrees. The queue may hold only one zero-indegree node at a time—two candidates mean the order is not unique.
+>
+> An empty queue at the end means every node was forced. We need not compare against $nums$ position-wise: if a unique order exists, it has to be $nums$.
+
+<!-- thinking:end -->
+
 We can first traverse each subsequence `seq`. For each pair of adjacent elements $a$ and $b$, we establish a directed edge $a \to b$. At the same time, we count the in-degree of each node, and finally add all nodes with an in-degree of $0$ to the queue.
 
 When the number of nodes in the queue is equal to $1$, we take out the head node $i$, remove $i$ from the graph, and decrease the in-degree of all adjacent nodes of $i$ by $1$. If the in-degree of the adjacent nodes becomes $0$ after decreasing, add these nodes to the queue. Repeat the above operation until the length of the queue is not $1$. At this point, check whether the queue is empty. If it is not empty, it means there are multiple shortest supersequences, return `false`; if it is empty, it means there is only one shortest supersequence, return `true`.

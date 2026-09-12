@@ -77,6 +77,18 @@ Note that there are other possible paths for these cells to flow to the Pacific 
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Walking downhill from every cell toward an ocean revisits the same cells. With $m,n\le 200$ that duplication is costly.
+>
+> The reverse of flowing down is climbing to a neighbor that is at least as high. BFS from the Pacific border and from the Atlantic border; the intersection can reach both oceans.
+>
+> A neighbor is admissible only when $\textit{heights}[nx][ny]\ge \textit{heights}[x][y]$. Starting at a border guarantees a path back to that ocean.
+
+<!-- thinking:end -->
+
 We can start from the boundaries of the Pacific and Atlantic oceans and perform breadth-first search (BFS) respectively to find all cells that can flow to the Pacific and Atlantic oceans. Finally, we take the intersection of the two results, which represents cells that can flow to both the Pacific and Atlantic oceans.
 
 Specifically, we define a queue $q_1$ to store all cells adjacent to the Pacific ocean, and define a boolean matrix $vis_1$ to record which cells can flow to the Pacific ocean. Similarly, we define queue $q_2$ and boolean matrix $vis_2$ to handle the Atlantic ocean. Initially, we add all cells adjacent to the Pacific ocean to queue $q_1$ and mark them as visited in $vis_1$. Similarly, we add all cells adjacent to the Atlantic ocean to queue $q_2$ and mark them as visited in $vis_2$.

@@ -70,6 +70,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One arrow bursts every balloon covering that $x$-coordinate; we want the fewest arrows. This is piercing all intervals with the fewest points.
+>
+> Sort by the right end. The current arrow sits on the last burst balloon's right end; if the next left end is past that point, shoot again and move the pin.
+>
+> Pinning the rightmost point of a kept interval covers as many later balloons as possible; sorting by the right end makes that greedy choice optimal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

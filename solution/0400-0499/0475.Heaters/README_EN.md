@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Heaters must cover every house; we want the smallest common radius. Trying every radius is huge, yet feasibility grows with the radius.
+>
+> Sort both arrays and binary-search $r$. A two-pointer check lets each heater cover $[h-r,h+r]$: a house to the left fails, a house to the right needs the next heater.
+>
+> Both sequences are sorted, so the pointers only move forward and one check is linear.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
