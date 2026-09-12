@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3401.Find%20Circular%20Gift%20Exchange%20Chains/README.md
 tags:
     - 数据库
 ---
