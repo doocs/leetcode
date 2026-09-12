@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Sorting + Two Pointers + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Order does not matter, so we sort. After fixing the smallest index $i$, two pointers count pairs on the right whose sum is below $\textit{target}$.
+>
+> If $nums[i]+nums[j]+nums[k]<\textit{target}$, every $k'$ in $(j,k]$ works, so we add $k-j$ and move $j$; otherwise we decrement $k$.
+
+<!-- thinking:end -->
+
 Since the order of elements does not affect the result, we can sort the array first and then use the two-pointer method to solve this problem.
 
 First, we sort the array and then enumerate the first element $\textit{nums}[i]$. Within the range $\textit{nums}[i+1:n-1]$, we use two pointers pointing to $\textit{nums}[j]$ and $\textit{nums}[k]$, where $j$ is the next element of $\textit{nums}[i]$ and $k$ is the last element of the array.

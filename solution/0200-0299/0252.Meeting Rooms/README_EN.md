@@ -49,6 +49,14 @@ tags:
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One person cannot attend two overlapping meetings. After sorting by start time, it is enough that each meeting ends no later than the next one starts.
+
+<!-- thinking:end -->
+
 We sort the meetings based on their start times, and then iterate through the sorted meetings. If the start time of the current meeting is less than the end time of the previous meeting, it indicates that there is an overlap between the two meetings, and we return `false`. Otherwise, we continue iterating.
 
 If no overlap is found by the end of the iteration, we return `true`.

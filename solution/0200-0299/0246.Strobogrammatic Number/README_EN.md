@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Two Pointers Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A strobogrammatic number reads the same after a $180^\circ$ turn: $0,1,8$ stay, and $6$ swaps with $9$. Two pointers check that each pair matches this map.
+
+<!-- thinking:end -->
+
 We define an array $d$, where $d[i]$ represents the number after rotating the digit $i$ by 180°. If $d[i]$ is $-1$, it means that the digit $i$ cannot be rotated 180° to get a valid digit.
 
 We define two pointers $i$ and $j$, pointing to the left and right ends of the string, respectively. Then we continuously move the pointers towards the center, checking whether $d[num[i]]$ and $num[j]$ are equal. If they are not equal, it means that the string is not a strobogrammatic number, and we can directly return $false$. If $i > j$, it means that we have traversed the entire string, and we return $true$.

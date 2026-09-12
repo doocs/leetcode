@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rebuilding the BST is heavier than needed. Preorder visits root, left, then right; a decreasing stack holds nodes that have not yet turned to their right subtree.
+>
+> A value below the last popped lower bound is invalid. Otherwise pop every smaller top as the new bound and push the current value.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

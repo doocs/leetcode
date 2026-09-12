@@ -62,6 +62,16 @@ Minimum cost: 2 + 5 + 3 = 10.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent houses cannot share a color, so listing paintings is too large. The best cost of color $c$ on house $i$ depends only on the other two colors on house $i-1$.
+>
+> Three rolling variables store the best totals for the three colors; the answer is their minimum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

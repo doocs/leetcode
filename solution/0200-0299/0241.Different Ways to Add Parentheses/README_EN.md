@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each parenthesization splits at some operator. Evaluating every split naively recomputes the same subexpressions.
+>
+> We cut at each operator, recurse for all left and right values, combine them, and memoize each substring.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

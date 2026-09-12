@@ -48,6 +48,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Testing every integer in the range is slow. As in the previous problem, generate all strobogrammatic numbers by length and keep those inside $[\textit{low},\textit{high}]$.
+>
+> Enumerate lengths from $|\textit{low}|$ to $|\textit{high}|$ and compare the integers.
+
+<!-- thinking:end -->
+
 If the length is $1$, then the strobogrammatic numbers are only $0, 1, 8$; if the length is $2$, then the strobogrammatic numbers are only $11, 69, 88, 96$.
 
 We design a recursive function $dfs(u)$, which returns the strobogrammatic numbers of length $u$.
