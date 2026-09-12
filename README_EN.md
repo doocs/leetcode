@@ -186,8 +186,9 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 1. Fork [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then clone it to your local machine.
 1. Checkout a new branch.
 1. Make some changes to your leetcode repository, then push the changes to your remote GitHub repository.
-1. Create a pull request with your changes!
-1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
+1. For solution write-ups, each `### 方法` / `### Solution` needs a **思考** / **Thinking** walkthrough (how we reach this method). See [`solution/template.md`](/solution/template.md) and [`AGENTS.md`](/AGENTS.md).
+1. Create a pull request and complete the PR template checklist!
+1. See [`CONTRIBUTING.md`](/CONTRIBUTING.md), the org [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md), or [GitHub Help](https://help.github.com/en) for more details.
 
 <div align="center">
   <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/pr-en.svg" width="320px"/>

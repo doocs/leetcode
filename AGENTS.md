@@ -35,9 +35,10 @@ Dependabot updates npm, GitHub Actions, and pip on `main`, and pip on `docs`.
 
 1. Create a new problem directory under the appropriate parent (e.g., `solution/0000-0099/0042.My Problem/`)
 2. Add `Solution.py`, `Solution.java`, `Solution.cpp`, `Solution.go`, `Solution.ts`, `Solution.rs`, `Solution.cs`, etc.
-3. Add `README.md` and `README_EN.md` with problem description and solution explanations
-4. Follow the existing templates in `solution/template.md` for README formatting
+3. Add `README.md` and `README_EN.md` from `solution/template.md` (problem statement, methods, complexity, code tabs)
+4. After every `### 方法` / `### Solution`, write a **思考** / **Thinking** block before the algorithm write-up (see [Thinking section](#thinking-section-how-we-arrive-at-the-answer))
 5. All language solutions must implement the same algorithm logic
+6. Open the PR with `.github/pull_request_template.md` and complete the checklist (see also `CONTRIBUTING.md`)
 
 ### Code Formatting
 
@@ -96,12 +97,14 @@ GitHub Actions automatically run:
 
 - Problem directories follow naming convention: `{NUMBER}.{Problem Name with Spaces}`
 - Each solution file is named `Solution.{ext}` (capital S)
-- README files use special HTML comment markers for templating (e.g., `<!-- problem:start -->`, `<!-- solution:start -->`)
+- README files use special HTML comment markers for templating (e.g., `<!-- problem:start -->`, `<!-- solution:start -->`, `<!-- thinking:start -->`)
+- Each method heading is followed by a **思考** / **Thinking** block; see below
 - Solutions should match the problem's required class/method signature from LeetCode
+- New and updated solution PRs use `.github/pull_request_template.md`
 
 ## Thinking section (how we arrive at the answer)
 
-Each method in `README.md` / `README_EN.md` must teach the path to the solution, not only the finished algorithm.
+Required for every new or updated method in `README.md` / `README_EN.md`. Teach the path to the solution, not only the finished algorithm.
 
 - Insert a blockquote labeled `**思考**` / `**Thinking**` immediately after `### 方法X` / `### Solution X`, wrapped in `<!-- thinking:start -->` / `<!-- thinking:end -->`, before the existing algorithm write-up. Do not add a page-level or `####` heading — the quote box is what separates path-to-answer from the formal write-up.
 - Keep the original algorithm steps, complexity, and code tabs unchanged. Do not add a page-level `## 思考` heading.

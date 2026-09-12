@@ -193,8 +193,9 @@
 1. 将本项目 fork 到你的个人 GitHub 帐户，然后 clone 到你的本地机器；
 1. 进入 leetcode 目录，切换到一个新的分支；
 1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的本地变更提交到你的远程 GitHub 仓库；
-1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
-1. 你也可以参考帮助文档 <https://help.github.com/cn> 了解更多细节。
+1. 提交题解时，每个 `### 方法` / `### Solution` 需包含「思考 / Thinking」段（怎么走到这个方法），格式见 [`solution/template.md`](/solution/template.md) 与 [`AGENTS.md`](/AGENTS.md)；
+1. 将你的变更以 PR 的形式提交过来，并按 PR 模板自检，项目的维护人员会在第一时间对你的变更进行 review！
+1. 你也可以参考 [`CONTRIBUTING.md`](/CONTRIBUTING.md) 或帮助文档 <https://help.github.com/cn> 了解更多细节。
 
 <div align="center">
   <img src="https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/leetcode%40main/images/pr.svg" width="320px"/>
