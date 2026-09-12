@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Bottom-Up Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Computing left and right heights from scratch at every node revisits the same subtrees and can hit $O(n^2)$; $n \le 5000$ is tight.
+>
+> Balance can be decided while computing height. A bottom-up pass returns the height, or a failure sentinel if a subtree is already unbalanced. One postorder walk answers both questions.
+
+<!-- thinking:end -->
+
 We define a function $height(root)$ to calculate the height of a binary tree, with the following logic:
 
 - If the binary tree $root$ is null, return $0$.

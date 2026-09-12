@@ -44,6 +44,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $i$ is formed by adding adjacent entries of row $i-1$, with $1$s on both ends. $\textit{numRows}\le 30$, so building row by row is enough. Each row depends only on the previous one.
+
+<!-- thinking:end -->
+
 We first create an answer array $f$, then set the first row of $f$ to $[1]$. Next, starting from the second row, the first and last elements of each row are $1$, and for other elements $f[i][j] = f[i - 1][j - 1] + f[i - 1][j]$.
 
 The time complexity is $O(n^2)$, where $n$ is the given number of rows. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

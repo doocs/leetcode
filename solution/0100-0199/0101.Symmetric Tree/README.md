@@ -58,6 +58,16 @@ tags:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 镜像对称要求左子树与右子树互为镜像，而不是各自与自身相同。进阶同时要求递归与迭代都能做；$n \le 1000$，一次遍历即可。
+>
+> 一对节点对称，当且仅当取值相同，且一方的左孩子与另一方的右孩子对称、一方的右孩子与另一方的左孩子对称。因此从根的左右孩子出发做交叉递归即可。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $\textit{dfs}(\textit{root1}, \textit{root2})$，用于判断两个二叉树是否对称。答案即为 $\textit{dfs}(\textit{root.left}, \textit{root.right})$。
 
 函数 $\textit{dfs}(\textit{root1}, \textit{root2})$ 的逻辑如下：

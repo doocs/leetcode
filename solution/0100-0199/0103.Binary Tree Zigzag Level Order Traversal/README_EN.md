@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike ordinary level order, odd levels stay left-to-right and even levels go right-to-left. Building each level and reversing some of them is still $O(n)$. $n \le 2000$ is fine.
+>
+> We keep BFS and add a direction flag. After a level is collected, reverse it when the flag says right-to-left, then flip the flag. Children are always enqueued left to right, so the next level's visitation order is unchanged.
+
+<!-- thinking:end -->
+
 To implement zigzag level order traversal, we need to add a flag `left` on the basis of level order traversal. This flag is used to mark the order of the node values in the current level. If `left` is `true`, the node values of the current level are stored in the result array `ans` from left to right. If `left` is `false`, the node values of the current level are stored in the result array `ans` from right to left.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.

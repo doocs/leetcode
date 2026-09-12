@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Hash Table + Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Preorder gives the root order; inorder splits each root into left and right subtrees. Scanning inorder for the root every time can cost $O(n^2)$; $n \le 3000$ is tight.
+>
+> Values are unique, so we map each inorder value to its index once. The first value of the current preorder slice is the root; everything left of it in inorder is the left subtree, the rest the right. Those lengths fix the next two recursive slices.
+
+<!-- thinking:end -->
+
 The first node $preorder[0]$ in the pre-order sequence is the root node. We find the position $k$ of the root node in the in-order sequence, which can divide the in-order sequence into the left subtree $inorder[0..k]$ and the right subtree $inorder[k+1..]$.
 
 Through the intervals of the left and right subtrees, we can calculate the number of nodes in the left and right subtrees, assumed to be $a$ and $b$. Then in the pre-order nodes, the $a$ nodes after the root node are the left subtree, and the $b$ nodes after that are the right subtree.
@@ -344,6 +354,14 @@ var buildTree = function (preorder, inorder) {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Recursion (Duplicate Values)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs unique values so one index locates the root. If values may repeat, a value can have several legal inorder positions. We store every index, try each one that falls in the current interval, recurse on both sides, and take the Cartesian product. This problem does not need that branch; it shows how to enumerate every feasible tree when duplicates are allowed.
+
+<!-- thinking:end -->
 
 This problem guarantees that node values are unique. If duplicates are allowed, the hash table should store every index of each value, and we enumerate every possible root position in the current range to build all valid binary trees.
 

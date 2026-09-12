@@ -63,6 +63,16 @@ As shown below, there are 5 ways you can generate &quot;bag&quot; from s.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count subsequences of $s$ that equal $t$. Choosing to take or skip each character of $s$ explodes when both lengths reach $1000$; naive recursion repeats the same suffix pairs.
+>
+> The state is how much of $s$ and $t$ we have used. $f[i][j]$ is the number of ways the first $i$ characters of $s$ form the first $j$ of $t$. When the current characters match, we add the transition that consumes both. The empty $t$ has exactly one empty subsequence.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of schemes where the first $i$ characters of string $s$ form the first $j$ characters of string $t$. Initially, $f[i][0]=1$ for all $i \in [0,m]$.
 
 When $i > 0$, we consider the calculation of $f[i][j]$:
@@ -236,6 +246,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In Solution 1, $f[i][j]$ depends only on the previous row. After collapsing to one dimension we must update $j$ from the right, so $f[j-1]$ is not overwritten too early. Space becomes $O(|t|)$.
+
+<!-- thinking:end -->
 
 $f[i][j]$ depends only on the previous row, so the first dimension can be dropped. Update $j$ from large to small so $f[j-1]$ is not overwritten. The space complexity becomes $O(n)$.
 

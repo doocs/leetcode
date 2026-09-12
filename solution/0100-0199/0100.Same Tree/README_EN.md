@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Whether two trees are the same depends on matching structure and values at every corresponding position. Collecting both traversals and comparing sequences still needs a sentinel encoding for missing children. $n \le 100$, so recursion is fine.
+>
+> A tree is defined by its root and two subtrees, so we only compare the current pair: both null means equal; one null or unequal values means not; otherwise recurse on the left children and the right children.
+
+<!-- thinking:end -->
+
 We can use the DFS recursive method to solve this problem.
 
 First, determine whether the root nodes of the two binary trees are the same. If both root nodes are null, then the two binary trees are the same. If only one of the root nodes is null, then the two binary trees are definitely different. If both root nodes are not null, then determine whether their values are the same. If they are not the same, then the two binary trees are definitely different. If they are the same, then determine whether the left subtrees of the two binary trees are the same and whether the right subtrees are the same. The two binary trees are the same only when all the above conditions are met.
@@ -302,6 +312,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already produces the answer, at the cost of the call stack. An iterative version must visit both trees in lockstep. A pair of BFS queues can dequeue nodes together, check values and child presence, then enqueue matching children, so we no longer recurse.
+
+<!-- thinking:end -->
 
 We can also use the BFS iterative method to solve this problem.
 
