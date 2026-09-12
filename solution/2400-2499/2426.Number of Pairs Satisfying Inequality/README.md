@@ -74,6 +74,16 @@ tags:
 
 ### 方法一：树状数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不等式 $nums1[i]-nums2[i] \le nums1[j]-nums2[j]+\textit{diff}$（$i<j$）在 $n \le 10^5$ 下不能双重循环。令 $v=a-b$，即统计左侧有多少 $v_i \le v_j+\textit{diff}$。
+>
+> 值域经平移后可用树状数组维护已出现的 $v$。按 $j$ 从左到右：先查询不超过 $v_j+\textit{diff}$ 的个数，再把 $v_j$ 插入。
+
+<!-- thinking:end -->
+
 我们将题目的不等式转换一下，得到 $nums1[i] - nums2[i] \leq nums1[j] - nums2[j] + diff$，因此，如果我们对两个数组对应位置的元素求差值，得到另一个数组 $nums$，那么题目就转换为求 $nums$ 中满足 $nums[i] \leq nums[j] + diff$ 的数对数目。
 
 我们可以从小到大枚举 $j$，找出前面有多少个数满足 $nums[i] \leq nums[j] + diff$，这样就可以求出数对数目。我们可以使用树状数组来维护前缀和，这样就可以在 $O(\log n)$ 的时间内求出前面有多少个数满足 $nums[i] \leq nums[j] + diff$。

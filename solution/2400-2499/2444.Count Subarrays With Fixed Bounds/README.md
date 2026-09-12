@@ -66,6 +66,16 @@ tags:
 
 ### 方法一：枚举右端点
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $n \le 10^5$，定界子数组要求元素落在 $[\textit{minK},\textit{maxK}]$ 且两端极值都出现。以右端 $i$ 统计时，左端必须晚于最近的越界位置，且不晚于最近的 $\textit{minK}$ 与 $\textit{maxK}$ 中较左者。
+>
+> 维护越界下标 $k$ 以及 $j_1$、$j_2$，答案累加 $\max(0,\min(j_1,j_2)-k)$。每个右端 $O(1)$。
+
+<!-- thinking:end -->
+
 由题意，我们可以知道，定界子数组的所有元素都在区间 $[\textit{minK}, \textit{maxK}]$ 中，且最小值一定为 $\textit{minK}$，最大值一定为 $\textit{maxK}$。
 
 我们遍历数组 $\textit{nums}$，统计以 $\textit{nums}[i]$ 为右端点的定界子数组的个数，然后将所有的个数相加即可。

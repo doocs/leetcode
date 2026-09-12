@@ -80,6 +80,16 @@ HallEvents 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 同一大厅内按开始日排序后合并重叠或相接的活动。窗口 $\textit{MAX}(\textit{end_day})$ 得到扫到当前行时的最晚结束日；再与上一行该值比较，若当前开始日仍不超过它则属于同一段。
+>
+> $\textit{LAG}$ 标记段首，$\textit{SUM}$ 得到段号，最后按大厅与段号取最小开始日与最大结束日。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

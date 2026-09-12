@@ -75,6 +75,16 @@ It can be shown that splitting the array into one subarray will make the GCD = 1
 
 ### Solution 1: Greedy + Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each piece needs GCD greater than $1$, and we want as few pieces as possible, so extend a piece until the GCD would become $1$.
+>
+> Keep the running GCD $g$. When $gcd(g,x)=1$, start a new piece at $x$. Cutting later cannot help: adding more elements only shrinks the GCD.
+
+<!-- thinking:end -->
+
 For each element in the array, if its greatest common divisor (gcd) with the previous element is $1$, then it needs to be the first element of a new subarray. Otherwise, it can be placed in the same subarray with the previous elements.
 
 Therefore, we first initialize a variable $g$, representing the gcd of the current subarray. Initially, $g=0$ and the answer variable $ans=1$.

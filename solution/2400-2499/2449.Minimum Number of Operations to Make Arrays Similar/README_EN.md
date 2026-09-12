@@ -80,6 +80,14 @@ It can be shown that 2 is the minimum number of operations needed.
 
 ### Solution 1: Odd-Even Classification + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adding or subtracting $2$ preserves parity, so odds pair with odds. At $n\le 10^5$, sort both arrays by (parity, value), sum absolute differences, and divide by $4$: one operation changes two positions by $2$ each.
+
+<!-- thinking:end -->
+
 Notice that, because each operation will only increase or decrease the value of an element by $2$, the parity of the element will not change.
 
 Therefore, we can divide the arrays $nums$ and $target$ into two groups according to their parity, denoted as $a_1$ and $a_2$, and $b_1$ and $b_2$ respectively.

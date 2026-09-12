@@ -71,6 +71,14 @@ Note that (2, 0, 4) is not a valid triplet because 2 &gt; 0.
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 100$, ordered triples fit in a triple loop that tests pairwise inequality.
+
+<!-- thinking:end -->
+
 We can directly enumerate all triples $(i, j, k)$ and count all the ones that meet the conditions.
 
 The time complexity is $O(n^3)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -201,6 +209,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Enumeration of Middle Elements + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(n^3)$. After sorting, equals sit together. Fix the middle index $j$; the product of how many values are strictly smaller on the left and strictly larger on the right is the contribution. Two binary searches find the borders.
+
+<!-- thinking:end -->
 
 We can also sort the array $nums$ first.
 
@@ -348,6 +364,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 2 still sorts. Only distinct values matter, not indices, so count frequencies: for a middle count $b$, with $a$ already seen and $c=n-a-b$, add $a\cdot b\cdot c$. Linear.
+
+<!-- thinking:end -->
 
 We can also use a hash table $cnt$ to count the number of each element in the array $nums$.
 

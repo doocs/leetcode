@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1: String Comparison
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\texttt{HH:MM}$ strings compare in chronological order. Two intervals are disjoint iff one is completely left of the other: $event1[0]>event2[1]$ or $event1[1]<event2[0]$. The negation is a conflict.
+
+<!-- thinking:end -->
+
 If the start time of $event1$ is later than the end time of $event2$, or the end time of $event1$ is earlier than the start time of $event2$, then the two events will not conflict. Otherwise, the two events will conflict.
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2400-2499/2446.Determine%20if%20Two%20Events%20Have%20Conflict/images/event.png" />

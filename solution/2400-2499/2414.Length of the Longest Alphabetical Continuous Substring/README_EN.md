@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: Single Pass
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Alphabetical runs in a string of length $n\le 10^5$ do not need endpoint enumeration. If consecutive ASCII codes differ by one, extend the current run; otherwise reset its length to $1$. A single pass records the maximum.
+
+<!-- thinking:end -->
+
 We can traverse the string $s$ and use a variable $\textit{ans}$ to record the length of the longest lexicographically consecutive substring, and another variable $\textit{cnt}$ to record the length of the current consecutive substring. Initially, $\textit{ans} = \textit{cnt} = 1$.
 
 Next, we start traversing the string $s$ from the character at index $1$. For each character $s[i]$, if $s[i] - s[i - 1] = 1$, it means the current character and the previous character are consecutive. In this case, $\textit{cnt} = \textit{cnt} + 1$, and we update $\textit{ans} = \max(\textit{ans}, \textit{cnt})$. Otherwise, it means the current character and the previous character are not consecutive, so $\textit{cnt} = 1$.

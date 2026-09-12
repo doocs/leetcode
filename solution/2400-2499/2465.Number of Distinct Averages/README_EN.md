@@ -80,6 +80,14 @@ There is only one average to be calculated after removing 1 and 100, so we retur
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step pairs the current min and max; distinct averages are distinct sums (the factor $1/2$ does not matter). With $n\le 100$, sort and pair ends into a set.
+
+<!-- thinking:end -->
+
 The problem requires us to find the minimum and maximum values in the array $nums$ each time, delete them, and then calculate the average of the two deleted numbers. Therefore, we can first sort the array $nums$, then take the first and last elements of the array each time, calculate their sum, use a hash table or array $cnt$ to record the number of times each sum appears, and finally count the number of different sums.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.
@@ -188,6 +196,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 uses the set size. A counter that increments the answer on a sum's first occurrence counts the same distinct values.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
@@ -315,6 +331,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same sorted pairing as method 2, with a set instead of a counter: insert and increment when new. All three are sort plus linear dedup.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -70,6 +70,14 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 字符串要么是十进制数值，要么含字母则取其长度。长度至多 $9$，对每个串判断是否全为数字后取 $\textit{int}$ 或 $\textit{len}$，再求最大。
+
+<!-- thinking:end -->
+
 我们定义一个函数 $f(s)$，用于计算字符串 $s$ 的值。如果 $s$ 只包含数字，那么 $f(s)$ 就是 $s$ 在十进制下的值；否则 $f(s)$ 就是 $s$ 的长度。
 
 答案为 $\max\limits_{s \in \textit{strs}} f(s)$。
@@ -242,6 +250,14 @@ int maximumValue(char** strs, int strsSize) {
 
 ### 方法二
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖语言的整串转整数。改为逐字符累加：遇字母立即返回长度，否则按十进制拼值。避免一次额外的全数字预检查。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -300,6 +316,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### 方法三
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 与方法一相同的语义，用语言内置 $parse$：成功则取数值，失败则取长度。实现更短，错误路径即「含非数字」。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

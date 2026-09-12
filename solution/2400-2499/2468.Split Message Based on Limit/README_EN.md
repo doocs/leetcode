@@ -68,6 +68,14 @@ Under the given constraints, the string can be split into two parts:
 
 ### Solution 1: Enumerate the Number of Segments + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each part carries a $<j/k>$ suffix inside a length cap $limit$. With $n\le 10^4$, try $k=1,2,\ldots$: the digit lengths of indices and of $k$, plus three symbols per part, accumulate in $O(1)$. When leftover capacity is at least $n$, slice the message and append the tails.
+
+<!-- thinking:end -->
+
 We denote the length of the string `message` as $n$, and the number of segments as $k$.
 
 According to the problem, if $k > n$, it means that we can divide the string into more than $n$ segments. Since the length of the string is only $n$, dividing it into more than $n$ segments will inevitably lead to some segments with a length of $0$, which can be deleted. Therefore, we only need to limit the range of $k$ to $[1,.. n]$.

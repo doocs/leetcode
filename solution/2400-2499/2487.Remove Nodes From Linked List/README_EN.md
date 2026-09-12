@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Monotonic Stack (Array)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete a node if a strictly larger value exists to its right: keep the decreasing right-to-left suffix. At $n\le 10^5$, copy values, maintain a decreasing stack, then rebuild the list.
+
+<!-- thinking:end -->
+
 Store the node values in an array $nums$, then scan $nums$ with a monotonically decreasing stack. Pop while the current value is larger than the top, then push. Rebuild the list from the bottom of the stack.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the linked list.
@@ -250,6 +258,14 @@ function removeNodes(head: ListNode | null): ListNode | null {
 <!-- solution:start -->
 
 ### Solution 2: Monotonic Stack (In-place List)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 allocates a value array and new nodes. The same stack can hold list nodes: pop while the top is smaller, then link the new top to the current node. A dummy of $+\infty$ avoids an empty stack.
+
+<!-- thinking:end -->
 
 Traverse the list directly with a monotonically decreasing stack of nodes. When the current value is larger, pop; then link the new top's $next$ (or the dummy head) to the current node and push it. Return the dummy head's $next$.
 

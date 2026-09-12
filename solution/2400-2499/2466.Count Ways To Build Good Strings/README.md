@@ -67,6 +67,14 @@ tags:
 
 ### 方法一：记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次追加 $zero$ 个 $0$ 或 $one$ 个 $1$，长度落在 $[low,high]$ 即好串。$high \le 10^5$，令 $dfs(i)$ 为已拼出长度 $i$ 时的方案：若 $i$ 已在区间内先计 $1$，再分支 $i+zero$ 与 $i+one$。越界为 $0$。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $dfs(i)$ 表示从第 $i$ 位开始构造的好字符串的个数，答案即为 $dfs(0)$。
 
 函数 $dfs(i)$ 的计算过程如下：
@@ -199,6 +207,14 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 <!-- solution:start -->
 
 ### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一按当前长度向下递归。改为 $f[i]$ 表示拼出长度 $i$ 的方案，$f[0]=1$，由 $f[i-zero]$ 与 $f[i-one]$ 转移，再把 $[low,high]$ 上的 $f$ 求和。避免递归栈。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

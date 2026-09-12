@@ -89,6 +89,14 @@ Nonmetal 元素包括 Cl, O, and N.
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 化学键即金属与非金属的笛卡尔积。两表自连接，分别限制 $\textit{type}$ 为 Metal 与 Nonmetal，选出符号对即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

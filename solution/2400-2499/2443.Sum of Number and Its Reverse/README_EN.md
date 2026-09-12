@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Brute Force Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $num\le 10^5$, try every $k\in[0,num]$ and test $k+reverse(k)=num$. The range is small enough; reverse via the decimal string.
+
+<!-- thinking:end -->
+
 Enumerate $k$ in the range $[0,.., num]$, and check whether $k + reverse(k)$ equals $num$.
 
 The time complexity is $O(n \times \log n)$, where $n$ is the size of $num$.

@@ -66,6 +66,14 @@ We return the smallest one, which is 2.</pre>
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 2000$, one pass can count even frequencies. We need the most frequent even, breaking ties by the smallest value. A hash map of counts plus a linear scan of the pairs is enough; sorting is unnecessary.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to count the occurrence of all even elements, and then find the even element with the highest occurrence and the smallest value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.

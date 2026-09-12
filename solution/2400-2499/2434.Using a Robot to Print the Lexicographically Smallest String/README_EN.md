@@ -81,6 +81,16 @@ Perform second operation four times p=&quot;addb&quot;, s=&quot;&quot;, t=&quot;
 
 ### Solution 1: Greedy + Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At $n\le 10^5$, the paper tape is a stack: a letter must be pushed before it can be printed. For the lexicographically smallest string, pop whenever the top is no larger than the smallest letter still unread.
+>
+> Count remaining letters and keep the smallest leftover $\textit{mi}$. Push each character, then pop while the top is $\le \textit{mi}$.
+
+<!-- thinking:end -->
+
 The problem can be transformed into: given a string sequence, use an auxiliary stack to convert it into the lexicographically smallest string sequence.
 
 We can use an array $\textit{cnt}$ to maintain the count of each character in string $s$, use a stack $\textit{stk}$ as the auxiliary stack mentioned in the problem, and use a variable $\textit{mi}$ to keep track of the smallest character not yet traversed in the string.

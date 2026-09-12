@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Enumeration of Connected Blocks
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deletions every component must have the same sum, so the number of pieces $k$ divides the total $s$ and the target $t=s/k$ is at least the maximum node. Enumerate feasible $k$ from large to small; $n\le 2\times 10^4$.
+>
+> DFS a subtree sum: exactly $t$ is cut and reported as $0$; above $t$ fails. If the root returns $0$, we can delete $k-1$ edges.
+
+<!-- thinking:end -->
+
 Assume the number of connected blocks is $k$, then the number of edges to be deleted is $k-1$, and the value of each connected block is $\frac{s}{k}$, where $s$ is the sum of the values of all nodes in $nums$.
 
 We enumerate $k$ from large to small. If there exists a $k$ such that $\frac{s}{k}$ is an integer, and the value of each connected block obtained is equal, then directly return $k-1$. The initial value of $k$ is $\min(n, \frac{s}{mx})$, where $mx$ is the maximum value in $nums$.

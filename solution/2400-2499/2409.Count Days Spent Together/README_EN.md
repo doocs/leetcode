@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Days together are the length of the intersection of two date intervals. Dates are $\texttt{MM-DD}$, so string order matches calendar order: the intersection starts at the later arrival and ends at the earlier departure.
+>
+> The year is not a leap year. Convert each date to a day-of-year with the month-length table, then subtract and add one. An empty intersection yields zero.
+
+<!-- thinking:end -->
+
 We convert the dates into days, and then calculate the number of days both people are in Rome.
 
 The time complexity is $O(C)$, and the space complexity is $O(C)$. Here, $C$ is a constant.

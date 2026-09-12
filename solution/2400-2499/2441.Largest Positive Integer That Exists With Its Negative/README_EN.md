@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 1000$, test whether $x$ and $-x$ both occur. Put the values in a set and take the largest $x$ whose opposite is present, or $-1$.
+
+<!-- thinking:end -->
+
 We can use a hash table $s$ to record all elements that appear in the array, and a variable $ans$ to record the maximum positive integer that satisfies the problem requirements, initially $ans = -1$.
 
 Next, we traverse each element $x$ in the hash table $s$. If $-x$ exists in $s$, then we update $ans = \max(ans, x)$.
@@ -182,6 +190,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 already uses a set. Iterating the original array and querying $-n$ is the same test, only walking input order instead of the set.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -63,6 +63,16 @@ It can be proven that no other way is possible, so we return 3.</pre>
 
 ### Solution 1: Memorization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step moves left or right by one. Enumerating all length-$k$ walks costs $2^k$; with $k\le 1000$ that is impossible. Memoizing on absolute position and remaining steps already uses $O(k^2)$ states, but the origin can be shifted, so the true coordinate is unnecessary.
+>
+> The count depends only on the distance $i$ to the target and the remaining steps $j$: a step toward the target yields $|i-1|$, a step away yields $i+1$. Hence $dfs(i,j)$ with memoization. If $i>j$, the remaining steps cannot cover the gap and the state is zero.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$, which represents the number of ways to reach the target position when the current position is $i$ distance from the target position and there are $j$ steps left. The answer is $dfs(abs(startPos - endPos), k)$.
 
 The calculation method of the function $dfs(i, j)$ is as follows:

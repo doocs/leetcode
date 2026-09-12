@@ -52,6 +52,14 @@ Given a <strong>positive</strong> integer <code>n</code>, return <em>the smalles
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 150$ we need $\mathrm{lcm}(2,n)$. An even $n$ is already a multiple of $2$; otherwise multiply by $2$. The result is $O(1)$.
+
+<!-- thinking:end -->
+
 If $n$ is even, then the least common multiple (LCM) of $2$ and $n$ is $n$ itself. Otherwise, the LCM of $2$ and $n$ is $n \times 2$.
 
 The time complexity is $O(1)$.

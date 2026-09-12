@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 1000$, a pivot $x$ satisfies $1+\cdots+x=x+\cdots+n$. Try each $x$ and compare $(1+x)x$ with $(x+n)(n-x+1)$.
+
+<!-- thinking:end -->
+
 We can directly enumerate $x$ in the range of $[1,..n]$, and check whether the following equation holds. If it holds, then $x$ is the pivot integer, and we can directly return $x$.
 
 $$
@@ -191,6 +199,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 scans linearly. The identity becomes $x^2=n(n+1)/2$, so test whether that triangular number is a square: $x=\lfloor\sqrt{y}\rfloor$ and $x^2=y$. Constant time.
+
+<!-- thinking:end -->
 
 We can transform the above equation to get:
 

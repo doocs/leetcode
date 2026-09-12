@@ -74,6 +74,16 @@ It can be shown that we cannot make the array equal with a smaller cost.
 
 ### Solution 1: Prefix Sum + Sorting + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cost of forcing every value to $x$ is $\sum |a_i-x|b_i$. At $n\le 10^5$ we cannot try every $x$. After sorting by $a$, the cost splits into left and right weighted sums, available from prefix sums of $a_ib_i$ and $b_i$ when $x$ is some $a_i$.
+>
+> The optimum lies at an $a_i$ (piecewise linear), so evaluate every sorted position.
+
+<!-- thinking:end -->
+
 Let's denote the elements of the array `nums` as $a_1, a_2, \cdots, a_n$ and the elements of the array `cost` as $b_1, b_2, \cdots, b_n$. We can assume that $a_1 \leq a_2 \leq \cdots \leq a_n$, i.e., the array `nums` is sorted in ascending order.
 
 Suppose we change all elements in the array `nums` to $x$, then the total cost we need is:
@@ -264,6 +274,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Median
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 tries every $a_i$. Treating $b_i$ as a multiplicity, the weighted median is optimal: walk until the prefix weight exceeds half of $\sum b$, then compute the cost once.
+
+<!-- thinking:end -->
 
 We can also consider $b_i$ as the occurrence times of $a_i$, then the index of the median is $\frac{\sum_{i=1}^{n} b_i}{2}$. Changing all numbers to the median is definitely optimal.
 

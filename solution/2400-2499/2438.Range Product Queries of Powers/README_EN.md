@@ -67,6 +67,16 @@ The answer to the only query is powers[0] = 2. The answer modulo 10<sup>9</sup> 
 
 ### Solution 1: Bit Manipulation + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n$ as a sum of increasing powers of two is exactly its set bits. With $n\le 10^9$, repeatedly take $n\mathbin{\&}-n$ to build $\textit{powers}$, of length at most $30$.
+>
+> There are $\le 10^5$ queries and each range has length $\le 30$, so multiply the slice modulo $10^9+7$. Prefix products are unnecessary.
+
+<!-- thinking:end -->
+
 We can use bit manipulation (lowbit) to obtain the $\textit{powers}$ array, and then use simulation to find the answer for each query.
 
 First, for a given positive integer $n$, we can quickly obtain the value corresponding to the lowest bit $1$ in the binary representation through $n \& -n$, which is the minimum power of $2$ factor of the current number. By repeatedly performing this operation on $n$ and subtracting this value, we can sequentially obtain all the powers of $2$ corresponding to the set bits, forming the $\textit{powers}$ array. This array is in increasing order, and its length equals the number of $1$s in the binary representation of $n$.

@@ -65,6 +65,16 @@ Thus, starting with money = 3, the transactions can be performed in any order.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Permuting transactions is impossible at $n\le 10^5$. Losing deals contribute a fixed total loss $s$; the cash minimum occurs after paying a cost and before its cashback.
+>
+> Try each transaction as the one that realizes the minimum: a losing deal $[a,b]$ needs $s+b$, because $a-b$ is already inside $s$; a profitable deal still needs the full $s$ plus its cost $a$. The answer is the maximum over these cases.
+
+<!-- thinking:end -->
+
 First, we accumulate all negative profits, denoted as $s$. Then, we enumerate each transaction $\text{transactions}[i] = [a, b]$ as the last transaction. If $a > b$, it means the current transaction is a loss, and this transaction has already been included when we accumulated the negative profits earlier. Therefore, we update the answer with $s + b$. Otherwise, we update the answer with $s + a$.
 
 The time complexity is $O(n)$, where $n$ is the number of transactions. The space complexity is $O(1)$.

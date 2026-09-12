@@ -77,6 +77,16 @@ Therefore, we return [2,1].
 
 ### Solution 1: Reverse Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From each start $i$, scanning right for the shortest maximum-OR subarray is $O(n^2)$ and fails at $n\le 10^5$. The maximum OR from $i$ is fixed by the leftmost $1$ of each bit, all of which lie at or to the right of $i$.
+>
+> Scan backward and keep, for each of $32$ bits, the latest index where that bit is $1$. If the current value already has the bit, update the index; otherwise the window must reach the recorded index. The length is the farthest such reach.
+
+<!-- thinking:end -->
+
 To find the shortest subarray starting at position $i$ that maximizes the bitwise OR operation, we need to maximize the number of $1$s in the result.
 
 We use an array $f$ of size $32$ to record the earliest position of each bit $1$.

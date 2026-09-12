@@ -76,6 +76,14 @@ Hence, we return -5.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A star is a center plus at most $k$ edges. Negative neighbors can be skipped. At $n\le 10^5$, sort positive neighbor values descending, add the first $k$ to the center, and take the best center.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

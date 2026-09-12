@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Traversal + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $nums$ is a permutation. A subarray with median $k$ contains $k$, and the count of values $>k$ minus those $<k$ is $0$ (odd length) or $1$ (even). At $n\le 10^5$, walk right from $k$ recording the balance $x$, then walk left pairing with $-x$ and $-x+1$.
+>
+> A one-sided balance in $\{0,1\}$ also counts. A map stores right-hand frequencies.
+
+<!-- thinking:end -->
+
 First, we find the position $i$ of the median $k$ in the array, and then start traversing from $i$ to both sides, counting the number of subarrays with a median of $k$.
 
 Define an answer variable $ans$, which represents the number of subarrays with a median of $k$. Initially, $ans = 1$, which means that there is currently a subarray of length $1$ with a median of $k$. In addition, define a counter $cnt$, used to count the number of differences between the "number of elements larger than $k$" and the "number of elements smaller than $k$" in the currently traversed array.

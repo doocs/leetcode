@@ -78,6 +78,14 @@ It can be shown that no grouping is possible.
 
 ### Solution 1: BFS + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent group numbers must differ by $1$, so the graph is bipartite and a component's best grouping is its maximum BFS depth. With $n\le 500$, BFS from every start: a distance gap other than $1$ fails. Use the smallest index as the component root, keep the best depth seen, and sum over roots.
+
+<!-- thinking:end -->
+
 Given that the graph provided by the problem may be disconnected, we need to process each connected component, find the maximum number of groups in each connected component, and accumulate them to get the final result.
 
 We can enumerate each node as the node of the first group, then use BFS to traverse the entire connected component, and use an array $d$ to record the maximum number of groups in each connected component. In the code implementation, we use the smallest node in the connected component as the root node of this connected component.

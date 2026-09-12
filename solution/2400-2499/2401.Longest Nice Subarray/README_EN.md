@@ -66,6 +66,18 @@ It can be proven that no longer nice subarray can be obtained, so we return 3.</
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every subarray for pairwise bitwise AND of zero is $O(n^2)$ windows; $n\le 10^5$ cannot pass. Scanning left from each right endpoint is still quadratic in the worst case.
+>
+> Pairwise AND being zero means the $1$-bits of the numbers never overlap, so the bitwise OR of the window is a complete occupancy mask. Once a new value conflicts, elements must leave from the left until the conflict disappears, so the left endpoint only moves right.
+>
+> Maintain the window OR in $\textit{mask}$. Advance the right pointer; on conflict, XOR out the left value. Each index enters and leaves at most once, giving a linear longest nice window.
+
+<!-- thinking:end -->
+
 According to the problem description, the position of the binary $1$ in each element of the subarray must be unique to ensure that the bitwise AND result of any two elements is $0$.
 
 Therefore, we can use two pointers, $l$ and $r$, to maintain a sliding window such that the elements within the window satisfy the problem's conditions.
