@@ -72,6 +72,18 @@ Note that [8,6] is not a smooth descent period as 8 - 6 &ne; 1.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A smooth descent is a contiguous index range whose adjacent values differ by exactly $1$. A run of length $L$ contains $L(L+1)/2$ nonempty subarrays. Checking every subarray is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> Maximal smooth runs are disjoint and can be cut greedily: extend right while the adjacent difference stays $1$, then add the triangular count for that run.
+>
+> Pointers $i$ and $j$ mark each run; after adding $\textit{cnt}(\textit{cnt}+1)/2$ we restart from $j$.
+
+<!-- thinking:end -->
+
 We define an answer variable $\textit{ans}$ with an initial value of $0$.
 
 Next, we use two pointers $i$ and $j$, which point to the first day of the current smooth descent period and the day after the last day, respectively. Initially, $i = 0$ and $j = 0$.

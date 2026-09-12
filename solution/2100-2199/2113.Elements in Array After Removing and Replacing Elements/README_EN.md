@@ -88,6 +88,18 @@ At minute 3, nums[0] does not exist.
 
 ### Solution 1: Direct Calculation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array repeats every $2n$ seconds: the first $n$ seconds delete from the left, the next $n$ restore from the left. Up to $10^5$ queries make materializing each timestamp impossible.
+>
+> After $t\bmod 2n$, we only distinguish the deleting half from the restoring half and map the query index back to $\textit{nums}$. While deleting, length is $n-t$ and index $i$ is original $i+t$; while restoring, length is $t-n$ and index $i$ is $\textit{nums}[i]$.
+>
+> Each query is answered in $O(1)$; out-of-range indices stay $-1$.
+
+<!-- thinking:end -->
+
 First, we initialize an array $ans$ with length $m$ to store the answers, initializing all elements to $-1$.
 
 Next, we iterate through the array $queries$. For each query, we first obtain the current query time $t$ and index $i$. We then take $t$ modulo $2n$ and compare $t$ with $n$:

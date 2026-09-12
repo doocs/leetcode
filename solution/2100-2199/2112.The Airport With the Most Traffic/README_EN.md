@@ -105,6 +105,18 @@ The airports with the most traffic are airports 1, 2, 3, and 4.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each flight adds traffic to both endpoints, but the table stores one directed row. Aggregating only $\textit{departure\_airport}$ misses inbound traffic.
+>
+> Union $\textit{Flights}$ with a copy that swaps the two airports, then sum by departure airport so every airport’s in- and out-counts sit in one column.
+>
+> Filter the aggregated rows whose count equals the global maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -67,6 +67,18 @@ Note that &quot;racecar&quot; is also palindromic, but it is not the first.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the first palindrome in the array. The total length of the words is modest, so a left-to-right check is enough.
+>
+> A word is a palindrome if it equals its reverse, or if two pointers from the ends always match.
+>
+> We scan $\textit{words}$ and return the first $w$ with $w=w[::-1]$, or an empty string if none exists.
+
+<!-- thinking:end -->
+
 We iterate through the array `words`, for each string `w`, we determine if it is a palindrome. If it is, then we return `w`; otherwise, we continue to iterate.
 
 To determine if a string is a palindrome, we can use two pointers, one pointing to the start and the other to the end of the string, moving towards the center, and checking if the corresponding characters are equal. If, after traversing the entire string, no unequal characters are found, then the string is a palindrome.

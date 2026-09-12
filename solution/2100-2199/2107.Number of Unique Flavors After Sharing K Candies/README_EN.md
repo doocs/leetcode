@@ -74,6 +74,18 @@ There are 3 unique flavors, so return 3.
 
 ### Solution 1: Sliding Window + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$ shared candies form a contiguous segment; we keep the complement. Rebuilding the flavor set for every window is $O(n)$ each and $O(n^2)$ overall, which fails for $n\le 10^5$.
+>
+> The window length is fixed, so a shift changes the complement by one candy on each side. A frequency map of flavors outside the window has size equal to the number of unique flavors we keep.
+>
+> Initialize the map with $\textit{candies}[k:]$, slide every window of length $k$, update both ends, and record the maximum map size.
+
+<!-- thinking:end -->
+
 We can maintain a sliding window of size $k$, where the candies outside the window are for ourselves, and the $k$ candies inside the window are shared with our sister and mother. We can use a hash table $cnt$ to record the flavors of the candies outside the window and their corresponding quantities.
 
 Initially, the hash table $cnt$ stores the flavors of the candies from $candies[k]$ to $candies[n-1]$ and their corresponding quantities. At this time, the number of candy flavors is the size of the hash table $cnt$, that is, $ans = cnt.size()$.

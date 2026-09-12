@@ -83,6 +83,18 @@ We can create &quot;burger&quot; since we have the ingredient &quot;meat&quot; a
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A recipe is cookable once every ingredient is available from the initial supplies or from already cooked recipes, which is a directed dependency graph. Rechecking ingredients per recipe repeats work and mishandles chains.
+>
+> Point each ingredient to recipes that need it, with in-degree equal to the number of ingredients. Supplies are the sources; a recipe whose in-degree falls to zero can be cooked and used to unlock others.
+>
+> We build that graph and run Kahn’s algorithm from $\textit{supplies}$, appending a recipe when its in-degree hits zero.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

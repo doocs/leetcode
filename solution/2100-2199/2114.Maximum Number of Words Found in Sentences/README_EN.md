@@ -66,6 +66,18 @@ In this example, the second and third sentences (underlined) have the same numbe
 
 ### Solution 1: Space Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words in a sentence are separated by spaces, so the word count is the number of spaces plus one. The total length is small enough to count spaces per sentence.
+>
+> There is no need to split into a list; take the maximum space count.
+>
+> The answer is $1+\max_s s.\texttt{count}(\text{' '})$.
+
+<!-- thinking:end -->
+
 We iterate through the array `sentences`. For each sentence, we count the number of spaces, then the number of words is the number of spaces plus $1$. Finally, we return the maximum number of words.
 
 The time complexity is $O(L)$, where $L$ is the total length of all strings in the array `sentences`. The space complexity is $O(1)$.

@@ -83,6 +83,18 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sum of ranges is the sum of $\max-\min$ over every subarray. With $n\le 1000$, enumerating endpoints while maintaining the current max and min is $O(n^2)$ and acceptable.
+>
+> The inner scan need not restart: after fixing left index $i$, extending $j$ only updates $\textit{mi}$ and $\textit{mx}$ and adds their difference.
+>
+> A double loop therefore accumulates every range.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -206,6 +218,18 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 becomes heavy for larger $n$. Each value’s contribution as a subarray maximum (or minimum) is its value times the number of subarrays where it attains that extremum, so the range sum is “max contributions minus min contributions”.
+>
+> A monotonic stack finds, for each index, the previous greater-or-equal and the next strictly greater positions, counting those subarrays in linear time. Negating the array and repeating yields the minimum side.
+>
+> We therefore implement $f$ and return $f(\textit{nums})+f([-v])$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

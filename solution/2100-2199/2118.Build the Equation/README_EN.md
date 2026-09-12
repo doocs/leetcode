@@ -114,6 +114,18 @@ Terms table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The polynomial must be printed from highest power to lowest, with different text for the constant, linear, and higher terms, plus signs on positive coefficients. Building that in application code is easy to get wrong.
+>
+> A $\texttt{CASE}$ on $\textit{power}$ formats each term: coefficient only for degree $0$, coefficient and `X` for degree $1$, otherwise `X^` plus the exponent, with a leading `+` when the factor is positive.
+>
+> $\texttt{GROUP\_CONCAT}$ in descending power, then append `=0`, yields the equation.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

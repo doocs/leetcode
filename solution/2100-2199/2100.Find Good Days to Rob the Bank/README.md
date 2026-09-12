@@ -83,6 +83,18 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 若对每个候选日 $i$ 再向左右各扫描 $\textit{time}$ 天以验证单调性，则单次检查为 $O(\textit{time})$，总时间可达 $O(n\cdot \textit{time})$。$n$ 与 $\textit{time}$ 均可到 $10^5$，该做法无法通过。
+>
+> 注意到「连续非递增 / 非递减」可以沿数组递推：若 $\textit{security}[i]\le \textit{security}[i-1]$，则自 $i$ 向左的非递增长度比 $i-1$ 多 $1$，否则清零。向右的非递减长度同理。因此每个位置的左右合法天数均可在一次线性扫描中求出。
+>
+> 为此我们分别维护数组 $\textit{left}$、 $\textit{right}$，再筛选 $\min(\textit{left}[i],\textit{right}[i])\ge \textit{time}$ 的下标；若 $n\le 2\cdot\textit{time}$ 则不可能同时具备左右各 $\textit{time}$ 天，直接返回空数组。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -98,6 +98,18 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tracker must insert attractions while answering queries in strictly increasing rank order. Sorting the whole list on every query costs about $O(n\log n)$ each time and is too heavy under a long operation sequence.
+>
+> Query indices only increase, and the comparison key is $(-\textit{score},\textit{name})$, so a single ordered sequence with direct index access suffices.
+>
+> We therefore keep all attractions in a sorted list under that key and a counter $i$ for how many times $\texttt{get}$ has been called, returning the name at index $i$ after incrementing it.
+
+<!-- thinking:end -->
+
 We can use an ordered set to store the attractions, and a variable $i$ to record the current number of queries, initially $i = -1$.
 
 When calling the `add` method, we take the negative of the attraction's rating, so that we can use the ordered set to sort by rating in descending order. If the ratings are the same, sort by the dictionary order of the attraction names in ascending order.
@@ -174,6 +186,18 @@ private:
 <!-- solution:start -->
 
 ### Solution 2: Double Priority Queue (Min-Max Heap)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 relies on random access into an ordered set. Languages without a balanced-tree container need another structure that exploits the strictly increasing queries.
+>
+> As with the running-median pattern, two heaps can split already published best attractions from the rest: a min-heap $\textit{good}$ holds queried better items, and a max-heap $\textit{bad}$ holds the remainder.
+>
+> $\texttt{add}$ pushes the new item through $\textit{good}$ and moves the worst of $\textit{good}$ into $\textit{bad}$; $\texttt{get}$ promotes the best of $\textit{bad}$ into $\textit{good}$, whose top is the current rank. Names are stored in reverse order so higher score and smaller lexicographic order win.
+
+<!-- thinking:end -->
 
 We notice that the query operations in this problem are performed in strictly increasing order. Therefore, we can use a method similar to the median in the data stream. We define two priority queues `good` and `bad`. `good` is a min-heap, storing the current best attractions, and `bad` is a max-heap, storing the current $i$-th best attraction.
 
