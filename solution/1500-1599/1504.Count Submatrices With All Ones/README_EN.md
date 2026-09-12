@@ -81,7 +81,6 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24.
 
 <!-- thinking:end -->
 
-
 We can enumerate the bottom-right corner $(i, j)$ of the matrix, and then enumerate the first row $k$ upwards. The width of the matrix with $(i, j)$ as the bottom-right corner in each row is $\min_{k \leq i} \textit{g}[k][j]$, where $\textit{g}[k][j]$ represents the width of the matrix with $(k, j)$ as the bottom-right corner in the $k$-th row.
 
 Therefore, we can preprocess a 2D array $g[i][j]$, where $g[i][j]$ represents the number of consecutive $1$s from the $j$-th column to the left in the $i$-th row.

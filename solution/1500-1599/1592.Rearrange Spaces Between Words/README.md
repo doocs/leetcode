@@ -86,7 +86,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们先统计字符串 $\textit{text}$ 中的空格数，记为 $\textit{spaces}$。将 $\textit{text}$ 按空格分割成字符串数组 $\textit{words}$。然后计算相邻字符串之间需要拼接的空格数，进行拼接。最后将剩余的空格拼接在末尾。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 表示字符串 $\textit{text}$ 的长度。

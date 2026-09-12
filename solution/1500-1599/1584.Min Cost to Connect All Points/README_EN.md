@@ -76,7 +76,6 @@ Notice that there is a unique path between every pair of points.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -296,7 +295,6 @@ function minCostConnectPoints(points: number[][]): number {
 > Prim is organized around a cut and an adjacency matrix. Kruskal sorts every edge and unions endpoints until the graph is connected. With $O(n^2)$ edges the sort dominates; the style is convenient when we prefer to iterate edges.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

@@ -91,7 +91,6 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

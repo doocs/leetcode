@@ -140,7 +140,6 @@ Moustafa spent $110 (10 * 2 + 45 * 2) in June and $0 in July 2020.
 
 <!-- thinking:end -->
 
-
 We can use the `JOIN` statement to join the `Orders` table and the `Product` table, and then join the result with the `Customers` table. We can filter out the records where the `order_date` is not in the year $2020$, and then use the `GROUP BY` statement to group the data by `customer_id`. Finally, we can use the `HAVING` statement to filter out the customers whose spending in June and July is greater than or equal to $100$.
 
 <!-- tabs:start -->

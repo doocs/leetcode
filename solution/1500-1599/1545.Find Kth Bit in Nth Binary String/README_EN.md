@@ -85,7 +85,6 @@ The 11<sup>th</sup> bit is &quot;1&quot;.
 
 <!-- thinking:end -->
 
-
 We can observe that for $S_n$, the first half is the same as $S_{n-1}$, and the second half is the reverse and negation of $S_{n-1}$. Therefore, we can design a function $dfs(n, k)$, which represents the $k$-th character of the $n$-th string. The answer is $dfs(n, k)$.
 
 The calculation process of the function $dfs(n, k)$ is as follows:

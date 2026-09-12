@@ -82,7 +82,6 @@ You need at least 3 days to eat the 6 oranges.
 
 <!-- thinking:end -->
 
-
 According to the problem description, for each $n$, we can choose one of three ways:
 
 1. Decrease $n$ by $1$;

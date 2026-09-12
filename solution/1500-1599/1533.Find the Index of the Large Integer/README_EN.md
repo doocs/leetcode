@@ -93,7 +93,6 @@ Notice that we made only 3 calls, so the answer is valid.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

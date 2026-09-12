@@ -79,7 +79,6 @@ All sub-arrays have even sum and the answer is 0.
 
 <!-- thinking:end -->
 
-
 We define an array $\textit{cnt}$ of length 2 as a counter, where $\textit{cnt}[0]$ and $\textit{cnt}[1]$ represent the number of subarrays with even and odd prefix sums, respectively. Initially, $\textit{cnt}[0] = 1$ and $\textit{cnt}[1] = 0$.
 
 Next, we maintain the current prefix sum $s$, initially $s = 0$.

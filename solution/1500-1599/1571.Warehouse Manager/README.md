@@ -120,7 +120,6 @@ Id为4的商品(LC-T-Shirt)的存货量为 4x10x20 = 800
 
 <!-- thinking:end -->
 
-
 我们可以使用等值连接将 `Warehouse` 表和 `Products` 表按照 `product_id` 进行连接，并按照仓库名称进行分组，然后使用 `SUM` 函数计算每个仓库的存货量。
 
 <!-- tabs:start -->

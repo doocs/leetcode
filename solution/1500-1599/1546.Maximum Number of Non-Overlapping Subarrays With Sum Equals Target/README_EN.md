@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We traverse the array $nums$, using the method of prefix sum + hash table, to find subarrays with a sum of $target$. If found, we increment the answer by one, then we set the prefix sum to $0$ and continue to traverse the array $nums$ until the entire array is traversed.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.

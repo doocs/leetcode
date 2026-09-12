@@ -148,7 +148,6 @@ John (customer 5) did not order anything, so we do not include them in the resul
 
 <!-- thinking:end -->
 
-
 We group the `Orders` table by `customer_id` and `product_id`, and then use the window function `rank()`, which assigns a rank to each `product_id` in each `customer_id` group based on its frequency in descending order. Finally, we select the `product_id` with a rank of $1$ for each `customer_id`, which is the most frequently ordered product for that `customer_id`.
 
 <!-- tabs:start -->

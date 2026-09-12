@@ -143,7 +143,6 @@ hard disk 没有被下单, 我们不把它包含在结果表中.</pre>
 
 <!-- thinking:end -->
 
-
 我们可以使用等值连接，将 `Orders` 表和 `Products` 表按照 `product_id` 连接起来，然后使用窗口函数 `rank()`，对 `Orders` 表中的每个 `product_id` 进行分组，按照 `order_date` 降序排列，然后取出每个分组中排名第一的记录。
 
 <!-- tabs:start -->

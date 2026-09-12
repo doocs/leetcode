@@ -82,7 +82,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们先预处理出前缀和数组 $\textit{s}$，其中 $\textit{s}[i]$ 表示数组 $\textit{stoneValue}$ 前 $i$ 个元素的和。
 
 接下来，我们设计一个函数 $\textit{dfs}(i, j)$，表示数组 $\textit{stoneValue}$ 中下标范围 $[i, j]$ 内的石子，Alice 能够获得的最大分数。那么答案就是 $\textit{dfs}(0, n - 1)$。

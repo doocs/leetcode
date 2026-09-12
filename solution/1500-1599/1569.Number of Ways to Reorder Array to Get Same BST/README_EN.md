@@ -95,7 +95,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(nums)$, which is used to calculate the number of solutions of the binary search tree with $nums$ as nodes. Then the answer is $dfs(nums)-1$, because $dfs(nums)$ calculates the number of solutions of the binary search tree with $nums$ as nodes, while the problem requires the number of solutions of the binary search tree with $nums$ as nodes after reordering, so the answer needs to be subtracted by one.
 
 Next, let's take a look at how $dfs(nums)$ is calculated.

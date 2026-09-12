@@ -81,7 +81,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define a hash table $\textit{st}$ to store the currently split substrings. Then we use a depth-first search approach to try to split the string $\textit{s}$ into several unique substrings.
 
 Specifically, we design a function $\text{dfs}(i)$, which means we are considering splitting $\textit{s}[i:]$.

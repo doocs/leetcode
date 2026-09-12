@@ -77,7 +77,6 @@ Notice that we cannot include 0 in the subarray since that&#39;ll make the produ
 
 <!-- thinking:end -->
 
-
 We define two arrays $f$ and $g$ of length $n$, where $f[i]$ represents the length of the longest subarray ending at $\textit{nums}[i]$ with a positive product, and $g[i]$ represents the length of the longest subarray ending at $\textit{nums}[i]$ with a negative product.
 
 Initially, if $\textit{nums}[0] > 0$, then $f[0] = 1$, otherwise $f[0] = 0$; if $\textit{nums}[0] < 0$, then $g[0] = 1$, otherwise $g[0] = 0$. We initialize the answer $ans = f[0]$.
@@ -253,7 +252,6 @@ function getMaxLen(nums: number[]): number {
 > Each state uses only the previous $f$ and $g$, so two scalars replace the arrays. Time stays linear and extra memory becomes constant.
 
 <!-- thinking:end -->
-
 
 We observe that for each $i$, the values of $f[i]$ and $g[i]$ only depend on $f[i - 1]$ and $g[i - 1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i - 1]$ and $g[i - 1]$, respectively, thus optimizing the space complexity to $O(1)$.
 

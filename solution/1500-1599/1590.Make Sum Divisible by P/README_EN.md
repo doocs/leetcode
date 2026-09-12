@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we calculate the sum of all elements in the array $\textit{nums}$ modulo $p$, denoted as $k$. If $k$ is $0$, it means the sum of all elements in the array $\textit{nums}$ is a multiple of $p$, so we directly return $0$.
 
 If $k$ is not $0$, we need to find the shortest subarray such that removing this subarray makes the sum of the remaining elements modulo $p$ equal to $0$.

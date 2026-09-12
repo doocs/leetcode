@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we count the number of spaces in the string $\textit{text}$, denoted as $\textit{spaces}$. Then, we split $\textit{text}$ by spaces into an array of strings $\textit{words}$. Next, we calculate the number of spaces that need to be inserted between adjacent words and perform the concatenation. Finally, we append the remaining spaces to the end.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ represents the length of the string $\textit{text}$.

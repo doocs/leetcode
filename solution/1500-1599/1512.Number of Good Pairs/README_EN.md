@@ -75,7 +75,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Traverse the array, and for each element $x$, count how many elements before it are equal to $x$. This count represents the number of good pairs formed by $x$ and the previous elements. After traversing the entire array, we obtain the answer.
 
 The time complexity is $O(n)$, and the space complexity is $O(C)$. Here, $n$ is the length of the array, and $C$ is the range of values in the array. In this problem, $C = 101$.

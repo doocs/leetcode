@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以直接模拟整个过程。
 
 初始时，我们有 `numBottles` 瓶水，因此可以喝到 `ans = numBottles` 瓶水，然后得到 `numBottles` 个空瓶子。

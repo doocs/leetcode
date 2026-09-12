@@ -95,7 +95,6 @@ The mail of user 7 starts with a period.
 
 <!-- thinking:end -->
 
-
 We can use a regular expression to match valid email formats. The expression ensures that the username part meets the required rules and that the domain is fixed as `@leetcode.com`.
 
 <!-- tabs:start -->

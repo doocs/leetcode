@@ -86,7 +86,6 @@ No group of size 2 exists during any step.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3
@@ -345,7 +344,6 @@ const findLatestStep = function (arr, m) {
 > The union-find lookups add a log factor, yet merges only touch interval endpoints. Store each ones-run's length at its two ends; a new point reads the neighboring end lengths, writes $l+r+1$ to the new ends, and checks whether $l$ or $r$ equals $m$. Updates are $O(1)$, so the total time is linear.
 
 <!-- thinking:end -->
-
 
 <!-- tabs:start -->
 

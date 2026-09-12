@@ -96,7 +96,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们定义 $f[i]$ 表示得到 $target[0,..i]$ 的最少操作次数，初始时 $f[0] = target[0]$。
 
 对于 $target[i]$，如果 $target[i] \leq target[i-1]$，则 $f[i] = f[i-1]$；否则 $f[i] = f[i-1] + target[i] - target[i-1]$。

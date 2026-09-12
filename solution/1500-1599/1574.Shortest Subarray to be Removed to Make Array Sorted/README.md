@@ -88,7 +88,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们先找出数组的最长非递减前缀和最长非递减后缀，分别记为 $\textit{nums}[0..i]$ 和 $\textit{nums}[j..n-1]$。
 
 如果 $i \geq j$，说明数组本身就是非递减的，返回 $0$。
@@ -226,7 +225,6 @@ func findLengthOfShortestSubarray(arr []int) int {
 > 方法一对每个 $l$ 单独二分，多出 $\log n$ 因子。前缀与后缀都有序，随着 $l$ 增大，对应的 $r$ 只增不减，右指针单调右移即可，总时间降为线性。
 
 <!-- thinking:end -->
-
 
 与方法一类似，我们先找出数组的最长非递减前缀和最长非递减后缀，分别记为 $\textit{nums}[0..i]$ 和 $\textit{nums}[j..n-1]$。
 

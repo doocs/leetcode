@@ -80,7 +80,6 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 
 <!-- thinking:end -->
 
-
 First, we preprocess the prefix sum array $\textit{s}$, where $\textit{s}[i]$ represents the sum of the first $i$ elements of the array $\textit{stoneValue}$.
 
 Next, we design a function $\textit{dfs}(i, j)$, which represents the maximum score Alice can get from the stones in the subarray $\textit{stoneValue}$ within the index range $[i, j]$. The answer is $\textit{dfs}(0, n - 1)$.

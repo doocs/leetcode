@@ -89,7 +89,6 @@ The last moment when an ant was on the plank is t = 4 seconds. After that, it fa
 
 <!-- thinking:end -->
 
-
 The key point of the problem is that when two ants meet and then turn around, it is equivalent to the two ants continuing to move in their original directions. Therefore, we only need to find the maximum distance moved by any ant.
 
 Note that the lengths of the $\textit{left}$ and $\textit{right}$ arrays may be $0$.

@@ -94,7 +94,6 @@ In January 2021 we have two orders from 2 different customers, but only one of t
 
 <!-- thinking:end -->
 
-
 We can first filter out orders with an amount greater than $20$, and then group by month to count the number of orders and customers.
 
 <!-- tabs:start -->

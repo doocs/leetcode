@@ -94,7 +94,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们设计一个函数 $dfs(i, k)$，表示从城市 $i$ 出发，剩余汽油量为 $k$ 时，到达目的地 $finish$ 的路径数。那么答案就是 $dfs(start, fuel)$。
 
 函数 $dfs(i, k)$ 的计算过程如下：
@@ -282,7 +281,6 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 > 记忆化按需展开，递归深度受油量限制。同一转移可按剩余油量从小到大填表：$f[i][k]$ 表示从 $i$ 带油 $k$ 走到终点的方案，终点列预置为 $1$，再枚举边权不超过 $k$ 的转移。实现去掉递归，渐近复杂度相同。
 
 <!-- thinking:end -->
-
 
 我们也可以将方法一的记忆化搜索转换为动态规划。
 

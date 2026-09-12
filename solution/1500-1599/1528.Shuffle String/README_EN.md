@@ -69,7 +69,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We create a character array or string $\textit{ans}$ of the same length as the input string, then iterate through the string $\textit{s}$ and place each character $\textit{s}[i]$ at position $\textit{indices}[i]$ in $\textit{ans}$. Finally, we join the character array or string $\textit{ans}$ to form the final result and return it.
 
 The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the string.

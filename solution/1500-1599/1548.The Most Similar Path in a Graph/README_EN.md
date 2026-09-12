@@ -98,7 +98,6 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 
 <!-- thinking:end -->
 
-
 We first build an adjacency list $g$ based on the given roads, where $g[i]$ represents the list of cities directly connected to city $i$.
 
 Then we define $f[i][j]$ to be the minimum edit distance of the first $i$ cities of $targetPath$ and the first $j$ cities of $names$ when city $i$ of $targetPath$ matches city $j$ of $names$.

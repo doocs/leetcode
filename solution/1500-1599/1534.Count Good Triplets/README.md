@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以枚举所有的 $i$, $j$ 和 $k$，其中 $i \lt j \lt k$，判断是否同时满足 $|\textit{arr}[i] - \textit{arr}[j]| \le a$，$|\textit{arr}[j] - \textit{arr}[k]| \le b$ 和 $|\textit{arr}[i] - \textit{arr}[k]| \le c$，如果满足则将答案加一。
 
 枚举结束后，即可得到答案。

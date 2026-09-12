@@ -60,7 +60,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We know that the count of odd numbers in the range $[0, x]$ is $\lfloor\frac{x+1}{2}\rfloor$. Therefore, the count of odd numbers in the range $[low, high]$ is $\lfloor\frac{high+1}{2}\rfloor - \lfloor\frac{low}{2}\rfloor$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

@@ -75,7 +75,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们创建一个与字符串长度相同的字符数组或字符串 $\textit{ans}$，然后遍历字符串 $\textit{s}$，将每个字符 $\textit{s}[i]$ 放置到 $\textit{ans}$ 的 $\textit{indices}[i]$ 位置上。最后将字符数组或字符串 $\textit{ans}$ 拼接成最终结果并返回。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$，其中 $n$ 是字符串的长度。

@@ -67,7 +67,6 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 
 <!-- thinking:end -->
 
-
 According to the problem description, the array $arr$ is an arithmetic sequence with the first term as $1$ and the common difference as $2$. Therefore, the sum of the first $n$ terms of the array is:
 
 $$

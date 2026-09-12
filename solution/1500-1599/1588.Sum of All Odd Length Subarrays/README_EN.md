@@ -85,7 +85,6 @@ If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58</p
 
 <!-- thinking:end -->
 
-
 We define two arrays $f$ and $g$ of length $n$, where $f[i]$ represents the sum of subarrays ending at $\textit{arr}[i]$ with odd lengths, and $g[i]$ represents the sum of subarrays ending at $\textit{arr}[i]$ with even lengths. Initially, $f[0] = \textit{arr}[0]$, and $g[0] = 0$. The answer is $\sum_{i=0}^{n-1} f[i]$.
 
 When $i > 0$, consider how $f[i]$ and $g[i]$ transition:
@@ -243,7 +242,6 @@ int sumOddLengthSubarrays(int* arr, int arrSize) {
 > Each state reads only the previous $f$ and $g$, so two rolling scalars suffice. Time stays linear and the extra arrays disappear.
 
 <!-- thinking:end -->
-
 
 We notice that the values of $f[i]$ and $g[i]$ only depend on $f[i - 1]$ and $g[i - 1]$. Therefore, we can use two variables $f$ and $g$ to record the values of $f[i - 1]$ and $g[i - 1]$, respectively, thus optimizing the space complexity.
 

@@ -97,7 +97,6 @@ The input data and serialized Node(1) are the same, so the test passes.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

@@ -91,7 +91,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们从左到右遍历字符串 $\textit{target}$，用变量 $\textit{ans}$ 记录翻转次数。 当遍历到下标 $i$ 时，如果当前的翻转次数 $\textit{ans}$ 的奇偶性与 $\textit{target}[i]$ 不同，则需要在下标 $i$ 处进行一次翻转操作，将 $\textit{ans}$ 加 $1$。
 
 时间复杂度 $O(n)$，其中 $n$ 是字符串的长度。空间复杂度 $O(1)$。

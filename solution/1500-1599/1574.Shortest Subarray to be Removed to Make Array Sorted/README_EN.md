@@ -80,7 +80,6 @@ Another correct solution is to remove the subarray [3,10,4].
 
 <!-- thinking:end -->
 
-
 First, we find the longest non-decreasing prefix and the longest non-decreasing suffix of the array, denoted as $\textit{nums}[0..i]$ and $\textit{nums}[j..n-1]$, respectively.
 
 If $i \geq j$, it means the array is already non-decreasing, so we return $0$.
@@ -218,7 +217,6 @@ func findLengthOfShortestSubarray(arr []int) int {
 > Solution 1 binary-searches each $l$ and pays an extra $\log n$. Both sides are sorted, so $r$ only moves right as $l$ grows. A monotone right pointer makes the second loop linear.
 
 <!-- thinking:end -->
-
 
 Similar to Solution 1, we first find the longest non-decreasing prefix and the longest non-decreasing suffix of the array, denoted as $\textit{nums}[0..i]$ and $\textit{nums}[j..n-1]$, respectively.
 

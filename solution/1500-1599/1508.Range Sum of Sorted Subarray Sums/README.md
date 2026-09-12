@@ -80,7 +80,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以按照题目的要求，生成数组 $\textit{arr}$，然后对数组进行排序，最后求出 $[\textit{left}-1, \textit{right}-1]$ 范围的所有元素的和，得到结果。
 
 时间复杂度 $O(n^2 \times \log n)$，空间复杂度 $O(n^2)$。其中 $n$ 为题目给定的数组长度。

@@ -138,7 +138,6 @@ Moustafa 在 2020 年 6 月花费了 $110 (10 * 2 + 45 * 2), 在 7 月花费了 
 
 <!-- thinking:end -->
 
-
 我们可以使用 `JOIN` 语句，连接 `Orders` 和 `Product` 表，再连接 `Customers` 表，筛选出 `order_date` 在 $2020$ 年的记录，然后使用 `GROUP BY` 语句，按照 `customer_id` 分组，使用 `HAVING` 语句，筛选出 $6$ 月和 $7$ 月花费大于等于 $100$ 的客户。
 
 <!-- tabs:start -->

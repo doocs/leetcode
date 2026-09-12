@@ -83,7 +83,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们遍历字符串 $s$，用一个变量 $\textit{cur}$ 记录当前连续的 1 的个数，用变量 $\textit{ans}$ 记录答案。当遍历到字符 $s[i]$ 时，如果 $s[i] = 0$，则 $\textit{cur}$ 置 0，否则 $\textit{cur}$ 自增 1，然后 $\textit{ans}$ 自增 $\textit{cur}$，并对 $10^9 + 7$ 取模。
 
 遍历结束，返回 $\textit{ans}$ 即可。

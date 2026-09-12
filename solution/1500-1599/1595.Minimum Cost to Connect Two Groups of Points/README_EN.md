@@ -95,7 +95,6 @@ Note that there are multiple points connected to point 2 in the first group and 
 
 <!-- thinking:end -->
 
-
 Let $m$ and $n$ denote the number of points in the first group and the second group, respectively.
 
 Since $1 \leq n \leq m \leq 12$, we can use an integer to represent the state of points in the second group — specifically, a binary integer of length $n$, where bit $k$ being $1$ means the $k$-th point in the second group is connected to some point in the first group, and $0$ means it is not.
@@ -293,7 +292,6 @@ impl Solution {
 > Layer $i$ reads only layer $i-1$ and values already filled in the same layer, so two rolling arrays drop the memory from $O(m\cdot 2^n)$ to $O(2^n)$ without changing the recurrence.
 
 <!-- thinking:end -->
-
 
 We notice that the transition of $f[i][j]$ only depends on $f[i - 1][\cdot]$ and $f[i][\cdot]$, so we can use a rolling array to optimize the space complexity down to $O(2^n)$.
 

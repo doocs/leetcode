@@ -68,7 +68,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以先将数组 $\textit{arr}$ 排序，然后计算前两项的差值 $d$，接着遍历数组，判断相邻两项的差是否等于 $d$。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
@@ -223,7 +222,6 @@ bool canMakeArithmeticProgression(int* arr, int arrSize) {
 > 方法一依赖排序，时间为 $O(n\log n)$。若等差数列存在，则公差由最小值 $a$ 与最大值 $b$ 唯一确定为 $d=(b-a)/(n-1)$，且须为整数。将元素放入哈希表后，只需检查 $a, a+d, \ldots, a+(n-1)d$ 是否均出现，从而在线性时间内完成判定。
 
 <!-- thinking:end -->
-
 
 我们先找出数组 $\textit{arr}$ 中的最小值 $a$ 和最大值 $b$，如果数组 $\textit{arr}$ 可以重排成等差数列，那么公差 $d = \frac{b - a}{n - 1}$ 必须为整数。
 

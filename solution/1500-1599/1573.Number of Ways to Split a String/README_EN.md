@@ -80,7 +80,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we traverse the string $s$ and count the number of characters $1$, denoted as $cnt$. If $cnt$ cannot be divided by $3$, then it is impossible to split the string, so we directly return $0$. If $cnt$ is $0$, it means there are no characters $1$ in the string. We can choose any two positions out of $n-1$ positions to split the string into three substrings, so the number of ways is $C_{n-1}^2$.
 
 If $cnt \gt 0$, we update $cnt$ to $\frac{cnt}{3}$, which is the number of characters $1$ in each substring.

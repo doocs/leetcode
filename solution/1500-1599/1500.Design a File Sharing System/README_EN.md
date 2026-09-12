@@ -109,7 +109,6 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

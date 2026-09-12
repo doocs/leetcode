@@ -90,7 +90,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can use Dijkstra's algorithm to find the shortest path, but here we modify it slightly to find the path with the maximum probability.
 
 We use a priority queue (max-heap) $\textit{pq}$ to store the probability from the starting point to each node and the node's identifier. Initially, we set the probability of the starting point to $1$ and the probabilities of the other nodes to $0$, then add the starting point to $\textit{pq}$.

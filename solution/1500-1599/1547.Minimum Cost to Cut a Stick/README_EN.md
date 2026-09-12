@@ -78,7 +78,6 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 
 <!-- thinking:end -->
 
-
 We can add two elements to the array $\textit{cuts}$, namely $0$ and $n$, representing the two ends of the stick. Then we sort the $\textit{cuts}$ array, so we can divide the entire stick into several intervals, each with two cut points. Let the length of the $\textit{cuts}$ array be $m$.
 
 Next, we define $\textit{f}[i][j]$ to represent the minimum cost to cut the interval $[\textit{cuts}[i], \textit{cuts}[j]]$.
@@ -224,7 +223,6 @@ function minCost(n: number, cuts: number[]): number {
 > Solution 1 enumerates by length only to compute short intervals first. The same recurrence works if $i$ runs downward and $j$ runs upward, which also evaluates every $i<k<j$ beforehand. The asymptotics are unchanged; only the loop order differs.
 
 <!-- thinking:end -->
-
 
 We can also enumerate $i$ from large to small and $j$ from small to large. This ensures that when calculating $f[i][j]$, the states $f[i][k]$ and $f[k][j]$ have already been computed, where $i \lt k \lt j$.
 

@@ -78,7 +78,6 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 
 <!-- thinking:end -->
 
-
 Since the end position of each stage is the start position of the next stage, and each stage is in a counterclockwise direction, we can determine the number of times each sector is passed based on the relationship between the start and end positions.
 
 If $\textit{rounds}[0] \leq \textit{rounds}[m]$, then the sectors from $\textit{rounds}[0]$ to $\textit{rounds}[m]$ are passed the most times, and we can directly return all sectors within this interval.

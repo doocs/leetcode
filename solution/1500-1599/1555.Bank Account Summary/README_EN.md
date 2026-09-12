@@ -122,7 +122,6 @@ Luis did not received any transfer, credit = $800
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

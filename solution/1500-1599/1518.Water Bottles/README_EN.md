@@ -70,7 +70,6 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

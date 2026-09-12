@@ -91,7 +91,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 The problem is essentially equivalent to determining whether any substring of length 2 in string $s$ can be swapped using bubble sort to obtain $t$.
 
 Therefore, we use an array $pos$ of length 10 to record the indices of each digit in string $s$, where $pos[i]$ represents the list of indices where digit $i$ appears, sorted in ascending order.

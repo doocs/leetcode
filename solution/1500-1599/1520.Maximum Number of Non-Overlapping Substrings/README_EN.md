@@ -84,7 +84,6 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

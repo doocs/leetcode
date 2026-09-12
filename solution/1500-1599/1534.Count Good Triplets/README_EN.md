@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can enumerate all $i$, $j$, and $k$ where $i \lt j \lt k$, and check if they simultaneously satisfy $|\textit{arr}[i] - \textit{arr}[j]| \le a$, $|\textit{arr}[j] - \textit{arr}[k]| \le b$, and $|\textit{arr}[i] - \textit{arr}[k]| \le c$. If they do, we increment the answer by one.
 
 After enumerating all possible triplets, we get the answer.

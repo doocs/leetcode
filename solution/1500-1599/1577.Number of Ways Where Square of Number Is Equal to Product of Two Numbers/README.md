@@ -88,7 +88,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们用哈希表 $\textit{cnt1}$ 统计 $\textit{nums1}$ 中每个数对 $(\textit{nums}[j], \textit{nums}[k])$ 出现的次数，其中 $0 \leq j \lt k < m$，其中 $m$ 为数组 $\textit{nums1}$ 的长度。用哈希表 $\textit{cnt2}$ 统计 $\textit{nums2}$ 中每个数对 $(\textit{nums}[j], \textit{nums}[k])$ 出现的次数，其中 $0 \leq j \lt k < n$，其中 $n$ 为数组 $\textit{nums2}$ 的长度。
 
 接下来，我们枚举数组 $\textit{nums1}$ 中的每个数 $x$，计算 $\textit{cnt2}[x^2]$ 的值，即 $\textit{nums2}$ 中有多少对数 $(\textit{nums}[j], \textit{nums}[k])$ 满足 $\textit{nums}[j] \times \textit{nums}[k] = x^2$。同理，我们枚举数组 $\textit{nums2}$ 中的每个数 $x$，计算 $\textit{cnt1}[x^2]$ 的值，即 $\textit{nums1}$ 中有多少对数 $(\textit{nums}[j], \textit{nums}[k])$ 满足 $\textit{nums}[j] \times \textit{nums}[k] = x^2$，最后将两者相加返回即可。
@@ -248,7 +247,6 @@ function cal(cnt: Map<number, number>, nums: number[]): number {
 > 方法一把全部数对乘积存进表，空间达 $O(n^2)$。改为只存每个值的频次，枚举 $x$ 与一侧的 $y$，令 $z=x^2/y$（须整除），方案为 $v_y(v_z-[y=z])$，最后除以 $2$ 消去 $(y,z)$ 与 $(z,y)$ 的重复。时间变为 $O(mn)$，空间线性。
 
 <!-- thinking:end -->
-
 
 我们用哈希表 $\textit{cnt1}$ 统计 $\textit{nums1}$ 中每个数出现的次数，用哈希表 $\textit{cnt2}$ 统计 $\textit{nums2}$ 中每个数出现的次数。
 

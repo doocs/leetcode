@@ -82,7 +82,6 @@ Patients table:
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

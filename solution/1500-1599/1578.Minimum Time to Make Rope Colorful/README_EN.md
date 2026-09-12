@@ -82,7 +82,6 @@ There are no longer two consecutive balloons of the same color. Total time = 1 +
 
 <!-- thinking:end -->
 
-
 We can use two pointers to point to the beginning and end of the current consecutive balloons with the same color, then calculate the total time $s$ of these consecutive balloons with the same color, as well as the maximum time $mx$. If the number of consecutive balloons with the same color is greater than $1$, we can greedily choose to keep the balloon with the maximum time and remove the other balloons with the same color, which takes time $s - mx$, and add it to the answer. Then we continue to traverse until all balloons are traversed.
 
 The time complexity is $O(n)$ and the space complexity is $O(1)$, where $n$ is the number of balloons.

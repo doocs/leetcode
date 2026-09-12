@@ -79,7 +79,6 @@ Notice that element mat[1][1] = 5 is counted only once.
 
 <!-- thinking:end -->
 
-
 We can traverse each row $\textit{row}[i]$ of the matrix. For each row, we calculate the elements on the two diagonals, i.e., $\textit{row}[i][i]$ and $\textit{row}[i][n - i - 1]$, where $n$ is the number of rows in the matrix. If $i = n - i - 1$, it means there is only one element on the diagonals of the current row; otherwise, there are two elements. We add these elements to the answer.
 
 After traversing all rows, we get the answer.

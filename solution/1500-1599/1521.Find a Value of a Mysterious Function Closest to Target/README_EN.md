@@ -81,7 +81,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, we know that the function $func(arr, l, r)$ is actually the bitwise AND result of the elements in the array $arr$ from index $l$ to $r$, i.e., $arr[l] \& arr[l + 1] \& \cdots \& arr[r]$.
 
 If we fix the right endpoint $r$ each time, then the range of the left endpoint $l$ is $[0, r]$. Since the sum of bitwise ANDs decreases monotonically with decreasing $l$, and the value of $arr[i]$ does not exceed $10^6$, there are at most $20$ different values in the interval $[0, r]$. Therefore, we can use a set to maintain all the values of $arr[l] \& arr[l + 1] \& \cdots \& arr[r]$. When we traverse from $r$ to $r+1$, the value with $r+1$ as the right endpoint is the value obtained by performing bitwise AND with each value in the set and $arr[r + 1]$, plus $arr[r + 1]$ itself. Therefore, we only need to enumerate each value in the set, perform bitwise AND with $arr[r]$, to obtain all the values with $r$ as the right endpoint. Then we subtract each value from $target$ and take the absolute value to obtain the absolute difference between each value and $target$. The minimum value among them is the answer.

@@ -91,7 +91,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(i, k)$, which represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $dfs(start, fuel)$.
 
 The process of calculating the function $dfs(i, k)$ is as follows:
@@ -279,7 +278,6 @@ function countRoutes(locations: number[], start: number, finish: number, fuel: n
 > Memoization expands on demand and still uses a recursion stack bounded by fuel. The same recurrence fills a table by increasing $k$: $f[i][k]$ is the number of walks from $i$ with fuel $k$, the finish column starts at $1$, and we add transitions whose cost does not exceed $k$. The implementation is iterative with the same asymptotics.
 
 <!-- thinking:end -->
-
 
 We can also convert the memoization of solution 1 into dynamic programming.
 

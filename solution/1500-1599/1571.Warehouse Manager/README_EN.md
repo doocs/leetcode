@@ -120,7 +120,6 @@ LCHouse3: 1 unit of LC-T-Shirt.
 
 <!-- thinking:end -->
 
-
 We can use an inner join to join the `Warehouse` table and the `Products` table on the condition of `product_id`, and then group by warehouse name to calculate the inventory of each warehouse using the `SUM` function.
 
 <!-- tabs:start -->

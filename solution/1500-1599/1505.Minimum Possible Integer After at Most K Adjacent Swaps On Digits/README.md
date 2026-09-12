@@ -83,7 +83,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 树状数组，也称作“二叉索引树”（Binary Indexed Tree）或 Fenwick 树。 它可以高效地实现如下两个操作：
 
 1. **单点更新** `update(x, delta)`： 把序列 x 位置的数加上一个值 delta；

@@ -89,7 +89,6 @@ After performing 3 moves, the difference between the minimum and maximum is 7 - 
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

@@ -115,7 +115,6 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 
 <!-- thinking:end -->
 
-
 我们可以使用子查询，先找出所有没有进行交易的 `visit_id`，然后按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
 
 <!-- tabs:start -->
@@ -145,7 +144,6 @@ GROUP BY 1;
 > 子查询的 $NOT\ IN$ 在部分引擎上对空值不友好，且语义是反包含。左连接 $Visits$ 与 $Transactions$ 后，未匹配行的 $amount$ 为 $NULL$，过滤这些行再分组，得到同一统计且更易与其它列一起扩展。
 
 <!-- thinking:end -->
-
 
 我们也可以使用左连接，将 `Visits` 表和 `Transactions` 表按照 `visit_id` 进行连接，然后筛选出 `amount` 为 `NULL` 的记录，按照 `customer_id` 进行分组，统计每个顾客的没有进行交易的次数。
 

@@ -78,7 +78,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We process row by row. For the $i$-th row, the position of the last '1' must be less than or equal to $i$. We find the first row that meets the condition in $[i, n)$, denoted as $k$. Then, starting from the $k$-th row, we swap the adjacent two rows upwards until the $i$-th row.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the side length of the grid.

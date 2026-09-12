@@ -77,7 +77,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 The problem asks for the number of good leaf node pairs in a binary tree. The answer can be divided into three parts: the number of good leaf node pairs in the left subtree, the number of good leaf node pairs in the right subtree, and the number of good leaf node pairs formed by leaf nodes from the left subtree and leaf nodes from the right subtree.
 
 We can solve this recursively.

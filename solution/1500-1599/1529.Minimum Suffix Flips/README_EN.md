@@ -85,7 +85,6 @@ We need at least 3 flip operations to form target.
 
 <!-- thinking:end -->
 
-
 We traverse the string $\textit{target}$ from left to right, using a variable $\textit{ans}$ to record the number of flips. When we reach index $i$, if the parity of the current flip count $\textit{ans}$ is different from $\textit{target}[i]$, we need to perform a flip operation at index $i$ and increment $\textit{ans}$ by $1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

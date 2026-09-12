@@ -90,7 +90,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们定义一个长度为 $2$ 的数组 $\textit{cnt}$ 作为计数器，其中 $\textit{cnt}[0]$ 和 $\textit{cnt}[1]$ 分别表示前缀和为偶数和奇数的子数组的个数。初始时 $\textit{cnt}[0] = 1$，而 $\textit{cnt}[1] = 0$。
 
 接下来，我们维护当前的前缀和 $s$，初始时 $s = 0$。

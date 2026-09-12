@@ -101,7 +101,6 @@ Friends 0 and 2 are happy.
 
 <!-- thinking:end -->
 
-
 We use an array $\textit{d}$ to record the closeness between each pair of friends, where $\textit{d}[i][j]$ represents the closeness of friend $i$ to friend $j$ (the smaller the value, the closer they are). Additionally, we use an array $\textit{p}$ to record the paired friend for each friend.
 
 We enumerate each friend $x$. For $x$'s paired friend $y$, we find the closeness $\textit{d}[x][y]$ of $x$ to $y$. Then, we enumerate other friends $u$ who are closer than $\textit{d}[x][y]$. If there exists a friend $u$ such that the closeness $\textit{d}[u][x]$ of $u$ to $x$ is higher than $\textit{d}[u][y]$, then $x$ is an unhappy friend, and we increment the result by one.

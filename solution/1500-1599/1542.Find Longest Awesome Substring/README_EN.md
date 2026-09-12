@@ -74,7 +74,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, the characters in the "super awesome substring" can be swapped to obtain a palindrome string. Therefore, there is at most one digit character in the "super awesome substring" that appears an odd number of times, and the rest of the digit characters appear an even number of times.
 
 We can use an integer $st$ to represent the parity of the digit characters in the current prefix string, where the $i$-th bit of $st$ represents the parity of the digit character $i$, i.e., the $i$-th bit of $st$ is $1$ means that the digit character $i$ appears an odd number of times, and $0$ means that the digit character $i$ appears an even number of times.

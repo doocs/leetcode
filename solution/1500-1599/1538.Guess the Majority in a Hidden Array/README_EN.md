@@ -96,7 +96,6 @@ Index 2, 4, 6, 7 is also a correct answer.
 
 <!-- thinking:end -->
 
-
 We first call `reader.query(0, 1, 2, 3)` and record the result as $x$.
 
 Next, we iterate from index $4$ onwards. Each time we call `reader.query(0, 1, 2, i)`, if the result is the same as $x$, we increment $a$ by one; otherwise, we increment $b$ by one and update $k$ to $i$.

@@ -90,7 +90,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can traverse each cell in the 2D grid. For each cell, if the cell $grid[i][j]$ has not been visited, we start a breadth-first search (BFS) from that cell. During the search, we need to record the parent node of each cell and the coordinates of the previous cell. If the value of the next cell is the same as the current cell, and it is not the previous cell, and it has already been visited, then it indicates the presence of a cycle, and we return $\textit{true}$. After traversing all cells, if no cycle is found, we return $\textit{false}$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D grid, respectively.
@@ -384,7 +383,6 @@ var containsCycle = function (grid) {
 > BFS needs an explicit queue. DFS uses the call stack for the same parent test and is shorter. The visited mark and the “visited non-parent means a cycle” rule stay unchanged; only the traversal order differs.
 
 <!-- thinking:end -->
-
 
 We can traverse each cell in the 2D grid. For each cell, if the cell $grid[i][j]$ has not been visited, we start a depth-first search (DFS) from that cell. During the search, we need to record the parent node of each cell and the coordinates of the previous cell. If the value of the next cell is the same as the current cell, and it is not the previous cell, and it has already been visited, then it indicates the presence of a cycle, and we return $\textit{true}$. After traversing all cells, if no cycle is found, we return $\textit{false}$.
 

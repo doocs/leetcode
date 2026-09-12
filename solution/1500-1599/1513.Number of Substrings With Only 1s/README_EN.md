@@ -74,7 +74,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We traverse the string $s$, using a variable $\textit{cur}$ to record the current count of consecutive 1s, and a variable $\textit{ans}$ to record the answer. When we traverse to character $s[i]$, if $s[i] = 0$, then set $\textit{cur}$ to 0; otherwise, increment $\textit{cur}$ by 1, then add $\textit{cur}$ to $\textit{ans}$, and take modulo $10^9 + 7$.
 
 After the traversal is complete, return $\textit{ans}$.

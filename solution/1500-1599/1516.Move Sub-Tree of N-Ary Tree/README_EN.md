@@ -105,7 +105,6 @@ Notice that node 4 is the last child of node 1.</pre>
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

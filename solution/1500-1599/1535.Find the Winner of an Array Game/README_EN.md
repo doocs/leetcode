@@ -78,7 +78,6 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 <!-- thinking:end -->
 
-
 We notice that each time the first two elements of the array are compared, regardless of the result, the next comparison will always be between the next element in the array and the current winner. Therefore, if we have looped $n-1$ times, the final winner must be the maximum element in the array. Otherwise, if an element has won consecutively $k$ times, then this element is the final winner.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

@@ -81,7 +81,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We design a function $dfs(i)$, which represents whether the current player can win the game when there are $i$ stones in the pile. If the current player can win, it returns $true$; otherwise, it returns $false$. The answer is $dfs(n)$.
 
 The calculation process of the function $dfs(i)$ is as follows:
@@ -279,7 +278,6 @@ impl Solution {
 > Memoization still pays recursion and cache overhead, while the asymptotic cost matches a bottom-up table. Let $f[i]$ be whether $i$ stones is a win, and fill $i$ in increasing order. A single square that lands on a losing successor makes $f[i]$ true. The implementation is a loop and needs no call stack.
 
 <!-- thinking:end -->
-
 
 We can also use dynamic programming to solve this problem.
 

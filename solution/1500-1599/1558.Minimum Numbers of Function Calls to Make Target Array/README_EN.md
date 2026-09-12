@@ -84,7 +84,6 @@ Total of operations: 2 + 1 = 3.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

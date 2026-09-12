@@ -99,7 +99,6 @@ reader.compareSub(4, 4, 5, 5) // 返回 1。因此，可以确定 arr[4] 是数�
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

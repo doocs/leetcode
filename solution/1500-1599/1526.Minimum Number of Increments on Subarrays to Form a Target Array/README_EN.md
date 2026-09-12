@@ -86,7 +86,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define $f[i]$ as the minimum number of operations required to obtain $target[0,..i]$, initially setting $f[0] = target[0]$.
 
 For $target[i]$, if $target[i] \leq target[i-1]$, then $f[i] = f[i-1]$; otherwise, $f[i] = f[i-1] + target[i] - target[i-1]$.

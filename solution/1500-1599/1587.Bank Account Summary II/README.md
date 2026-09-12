@@ -114,7 +114,6 @@ Charlie 的余额为(6000 + 6000 - 4000) = 8000.
 
 <!-- thinking:end -->
 
-
 我们可以使用等值连接，将 `Users` 和 `Transactions` 表按照 `account` 列连接起来，然后按照 `account` 列分组求和，最后筛选出余额大于 $10000$ 的用户。
 
 <!-- tabs:start -->
