@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/README.md
 tags:
     - 广度优先搜索
     - 数组
