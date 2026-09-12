@@ -109,6 +109,16 @@ Invoice table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We aggregate rest/paid/canceled/refunded per product; products without invoices must still appear with zeros.
+>
+> Left-join $\texttt{Invoice}$ onto $\texttt{Product}$, $\texttt{SUM}$ by $\texttt{product\_id}$, replace null sums with $\texttt{IFNULL}(\ldots,0)$, and order by name.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

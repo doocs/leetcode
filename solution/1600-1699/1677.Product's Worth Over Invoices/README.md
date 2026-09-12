@@ -102,6 +102,16 @@ Result 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按产品汇总发票的 rest/paid/canceled/refunded，没有发票的产品也应出现且金额为 $0$。
+>
+> 从 $\texttt{Product}$ 左连接 $\texttt{Invoice}$，按 $\texttt{product\_id}$ 分组求和，用 $\texttt{IFNULL}$ 把空和变成 $0$，再按名称排序。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -66,6 +66,14 @@ Users table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Names must have a capital first letter and lowercase remainder. Concatenate $\texttt{UPPER}(\texttt{LEFT}(name,1))$ with $\texttt{LOWER}(\texttt{SUBSTRING}(name,2))$, then order by $\texttt{user\_id}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -87,6 +95,14 @@ ORDER BY
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1's $\texttt{SUBSTRING}(name,2)$ runs to the end. Some engines spell the same slice as $\texttt{SUBSTRING}(name,2,\texttt{DATALENGTH}(name))$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

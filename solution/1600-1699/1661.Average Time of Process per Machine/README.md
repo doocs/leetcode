@@ -93,6 +93,16 @@ Activity table:
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每台机器上进程成对出现 start/end，平均耗时是各对 $(\textit{end}-\textit{start})$ 的均值。按 $\texttt{machine\_id}$ 分组后，把 start 取负、end 取正再平均，得到的是一半差值，因而要再乘 $2$。
+>
+> $\texttt{CASE WHEN}$ 写符号，$\texttt{AVG}$ 后 $\texttt{ROUND}$ 到三位小数。
+
+<!-- thinking:end -->
+
 我们可以根据 `machine_id` 分组，然后利用 `AVG` 函数计算每台机器上所有进程任务的平均耗时。由于机器上的每个进程任务都有一对开始时间戳和结束时间戳，完成一个进程任务的时间指进程的 `end` 时间戳 减去 `start` 时间戳，因此我们可以利用 `CASE WHEN` 或者 `IF` 函数来计算每个进程任务的耗时，最后再利用 `AVG` 函数计算每台机器上所有进程任务的平均耗时。
 
 注意，每台机器有 $2$ 个进程任务，因此我们需要将计算出的平均耗时乘以 $2$。
@@ -125,6 +135,14 @@ GROUP BY 1;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用 $\texttt{CASE}$ 分支。等价写法是 $\texttt{IF}(\textit{start},-1,1)*\textit{timestamp}$，语义相同、表达式更短。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

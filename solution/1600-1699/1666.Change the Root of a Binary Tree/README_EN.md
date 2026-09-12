@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Promoting a leaf to the root flips edges along the leaf-to-old-root path: the child becomes the parent, the parent becomes the left child, and an existing left child moves to the right.
+>
+> Walk that chain upward, keeping the current node, parent, and grandparent, rewire pointers, and clear the new root's $\textit{parent}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

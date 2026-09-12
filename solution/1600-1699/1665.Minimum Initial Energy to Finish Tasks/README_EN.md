@@ -90,6 +90,18 @@ Starting with 27 energy, we finish the tasks in the following order:
 
 ### Solution 1: Greedy + Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each task has a spend $a_i$ and a threshold $m_i$; we may choose the order and want the smallest starting energy. $n$ is $10^5$, so we need an optimal order and one scan.
+>
+> Finishing the last task requires $E-\sum_{i<n}a_i \ge m_n$, which is minimized when that last $m-a$ is smallest — sort by $a-m$ ascending.
+>
+> After sorting, top up if energy is below the threshold, then subtract $a$. The total top-up is the answer.
+
+<!-- thinking:end -->
+
 Assume the number of tasks is $n$ and the initial energy level is $E$. Consider completing the last task. This requires that after completing the first $n-1$ tasks, the remaining energy level is not less than the energy level required to complete the last task $m_n$, i.e.,
 
 $$

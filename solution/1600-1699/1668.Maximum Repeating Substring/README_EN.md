@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the largest $k$ such that $word$ repeated $k$ times is a substring of $sequence$. Lengths are at most $100$, so try $k$ from $n/\lvert word \rvert$ downward; the first $word*k$ that occurs is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
