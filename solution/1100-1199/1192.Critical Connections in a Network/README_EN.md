@@ -62,6 +62,14 @@ tags:
 
 ### Solution 1: Tarjan Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A critical connection is a bridge. Testing each edge with union-find or BFS is too slow on a large edge set. Tarjan's DFS keeps discovery time $dfn$ and earliest ancestor $low$; a tree edge with $low[v]>dfn[u]$ is a bridge. Skip the parent in an undirected graph so the tree edge is not treated as a back edge.
+
+<!-- thinking:end -->
+
 The "critical connections" in this problem can be considered as "bridges".
 
 "Bridges": In a connected undirected graph, if removing a certain edge makes the graph disconnected, then this edge can be considered as a "bridge".

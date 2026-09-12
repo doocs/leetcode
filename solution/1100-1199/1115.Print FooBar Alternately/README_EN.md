@@ -76,6 +76,14 @@ class FooBar {
 
 ### Solution 1: Multithreading + Semaphore
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two threads must alternate exactly $n$ times. Semaphores $f$ and $b$ start at $1$ and $0$ so `foo` runs first; each print releases the other and withholds itself until the next turn. $n$ rounds produce `foobar` repeated $n$ times.
+
+<!-- thinking:end -->
+
 We use two semaphores $f$ and $b$ to control the execution order of the two threads, where $f$ is initially set to $1$ and $b$ is set to $0$, indicating that thread $A$ executes first.
 
 When thread $A$ executes, it first performs the $acquire$ operation on $f$, which changes the value of $f$ to $0$. Thread $A$ then gains the right to use $f$ and can execute the $foo$ function. After that, it performs the $release$ operation on $b$, changing the value of $b$ to $1$. This allows thread $B$ to gain the right to use $b$ and execute the $bar$ function.

@@ -71,6 +71,14 @@ Products table:
 
 ### Solution 1: Subquery + Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each product keeps the last price change on or before $2019$-$08$-$16$, or $10$ if none. A subquery takes `MAX(change_date)` in that window per product and joins back for the price. The distinct product list left-joins that result so missing prices become $10$.
+
+<!-- thinking:end -->
+
 We can use a subquery to find the price of the last price change for each product before the given date, and record it in the `P` table. Then, we can find all `product_id`s in the `T` table. Finally, we can left join the `T` table with the `P` table on `product_id` to get the final result.
 
 <!-- tabs:start -->
@@ -105,6 +113,14 @@ FROM
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 finds the last change with an aggregate subquery. Method 2 left-joins in-range changes and `RANK`s them by `change_date` descending, keeping $rk=1$. Rows with no change still rank $1$, and `IFNULL` fills $10$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

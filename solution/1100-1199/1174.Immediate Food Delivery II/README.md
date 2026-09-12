@@ -81,6 +81,14 @@ Delivery 表：
 
 ### 方法一：子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只统计每名顾客的第一笔订单是否即时。子查询按 `customer_id` 取 `MIN(order_date)`，外层留下这些行后对「日期相等」取平均再乘 $100$。
+
+<!-- thinking:end -->
+
 我们可以使用子查询，先找到每个用户的首次订单，然后再计算即时订单的比例。
 
 <!-- tabs:start -->
@@ -107,6 +115,14 @@ WHERE
 <!-- solution:start -->
 
 ### 方法二：窗口函数
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖成对子查询。`RANK() OVER (PARTITION BY customer_id ORDER BY order_date)` 直接标出首次订单，筛 $rk=1$ 后再平均，避免 `IN` 子查询。
+
+<!-- thinking:end -->
 
 我们可以使用 `RANK()` 窗口函数，按照每个用户的订单日期升序排列，获取到每个用户的订单排名，然后我们筛选出排名为 $1$ 的订单，即为首次订单，再计算即时订单的比例。
 

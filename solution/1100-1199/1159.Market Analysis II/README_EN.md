@@ -128,6 +128,14 @@ The answer for the user with id 4 is no because the brand of their second sold i
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We compare each seller's second-order brand with their favorite. Rank `orders` by seller and `order_date`, keep $rk=2$, and left-join users and items; missing second orders become `no`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

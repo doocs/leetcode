@@ -63,6 +63,14 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有序数组中 $target$ 的出现次数等于其左右边界之差。两次二分分别得第一个 $\ge target$ 与第一个 $>target$ 的下标，差大于 $n/2$ 则为多数元素。线性计数在 $n$ 较大时没有必要。
+
+<!-- thinking:end -->
+
 我们注意到，数组 $nums$ 中的元素是非递减的，也就是说，数组 $nums$ 中的元素单调递增。因此，我们可以使用二分查找的方法，找到数组 $nums$ 中第一个大于等于 $target$ 的元素的下标 $left$，以及第一个大于 $target$ 的元素的下标 $right$。如果 $right - left > \frac{n}{2}$，则说明数组 $nums$ 中的元素 $target$ 出现的次数超过了数组长度的一半，因此返回 $true$，否则返回 $false$。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。
@@ -157,6 +165,14 @@ function isMajorityElement(nums: number[], target: number): boolean {
 <!-- solution:start -->
 
 ### 方法二：二分查找（优化）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用两次二分定位区间。若 $target$ 出现超过一半，则 $left+\lfloor n/2\rfloor$ 处仍应等于 $target$。一次 `bisect_left` 后再做一次下标检查即可，少一次二分。
+
+<!-- thinking:end -->
 
 方法一中，我们使用了两次二分查找，分别找到数组 $nums$ 中第一个大于等于 $target$ 的元素的下标 $left$，以及第一个大于 $target$ 的元素的下标 $right$。但是，我们可以使用一次二分查找，找到数组 $nums$ 中第一个大于等于 $target$ 的元素的下标 $left$，然后判断 $nums[left + \frac{n}{2}]$ 是否等于 $target$，如果相等，说明数组 $nums$ 中的元素 $target$ 出现的次数超过了数组长度的一半，因此返回 $true$，否则返回 $false$。
 

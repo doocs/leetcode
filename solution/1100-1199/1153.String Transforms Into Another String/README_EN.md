@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each move rewrites every occurrence of a character, so the mapping must be a function: one source cannot send two targets. Equal strings are already done.
+>
+> Otherwise a free character is needed as a temporary bucket when the mapping contains a cycle; if `str2` uses all $26$ letters, none remains. A map records and checks the mapping.
+
+<!-- thinking:end -->
+
 First, we can check if `str1` and `str2` are equal. If they are, return `true` directly.
 
 Then we count the occurrence of each letter in `str2`. If the occurrence equals $26$, it means `str2` contains all lowercase letters. In this case, no matter how `str1` is transformed, it cannot become `str2`, so return `false` directly.

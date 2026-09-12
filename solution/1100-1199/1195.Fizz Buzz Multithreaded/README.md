@@ -64,6 +64,14 @@ class FizzBuzz {
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 四个线程分别打印 `fizz`、`buzz`、`fizzbuzz` 与数字，且须按 $1..n$ 的顺序。用 `number` 线程持有主许可，按 $i$ 是否被 $3$、$5$ 整除唤醒对应线程；被唤醒者打印后交还主许可。非倍数则 `number` 自己打印并立即释放，保证同一时刻只有一种输出。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Java

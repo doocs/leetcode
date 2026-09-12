@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs treat $[a,b]$ and $[b,a]$ as the same. Scanning all earlier tiles for each new one is quadratic. Pack $\min(a,b)$ in the tens digit and $\max(a,b)$ in the ones, a key in $0..99$. Add the current count of that key to the answer, then increment, so each tile pairs only with equivalents already seen.
+
+<!-- thinking:end -->
+
 We can concatenate the two numbers of each domino in order of size to form a two-digit number, so that equivalent dominoes can be concatenated into the same two-digit number. For example, both `[1, 2]` and `[2, 1]` are concatenated into the two-digit number `12`, and both `[3, 4]` and `[4, 3]` are concatenated into the two-digit number `34`.
 
 Then we traverse all the dominoes, using an array $cnt$ of length $100$ to record the number of occurrences of each two-digit number. For each domino, the two-digit number we concatenate is $x$, then the answer will increase by $cnt[x]$, and then we add $1$ to the value of $cnt[x]$. Continue to traverse the next domino, and we can count the number of all equivalent domino pairs.

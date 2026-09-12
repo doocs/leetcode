@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Library Functions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Mapping a Gregorian date to a weekday is already in the standard library. Build the date and format its weekday name, without hand-rolled leap-year or month-length logic.
+
+<!-- thinking:end -->
+
 The simplest approach is to use the date library provided by the language to get the day of the week for the given year, month, and day.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
@@ -101,6 +109,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Zeller's Congruence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 needs a date library. Zeller's congruence computes the weekday from century, year-of-century, month, and day; January and February are months $13$ and $14$ of the previous year. No date type is required.
+
+<!-- thinking:end -->
 
 We can use Zeller's Congruence to calculate the day of the week. Zeller's Congruence is as follows:
 

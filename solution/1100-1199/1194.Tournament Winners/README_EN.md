@@ -104,6 +104,14 @@ Matches table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each group keeps the player with the highest total, breaking ties by smaller `player_id`. Unpivot both match sides into score rows, sum per player, then `RANK` by `(scores DESC, player_id)` within the group and keep $rk=1$. `UNION ALL` counts home and away points.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

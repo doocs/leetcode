@@ -76,6 +76,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stops form a cycle, so only the clockwise and counterclockwise arcs matter. Sum the circle to $s$, walk one way from $start$ to $destination$ for $t$, and take $\min(t,s-t)$. No graph is required.
+
+<!-- thinking:end -->
+
 We can first calculate the total distance $s$ that the bus travels, then simulate the bus's journey. Starting from the departure point, we move one stop to the right each time until we reach the destination, recording the travel distance $t$ during this process. Finally, we return the minimum value between $t$ and $s - t$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{distance}$. The space complexity is $O(1)$.

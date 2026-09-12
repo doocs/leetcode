@@ -105,6 +105,14 @@ Note that the output is only one number and that we do not care about the remove
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Compute each day's ratio of removed spam posts to spam-reported posts, then average those daily percentages. Group `Actions` with `extra='spam'` by `action_date`, left-join `Removals`, divide two `COUNT(DISTINCT post_id)` values, and `AVG` the daily percents with rounding.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

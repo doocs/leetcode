@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Prefix Sum + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Players take $1..2M$ piles from the remaining prefix; the state is the start index and $M$. Naive search repeats subproblems. A prefix sum is the suffix total from $i$; the current player gets that total minus the opponent's optimum.
+>
+> If $2M$ covers the rest, take it all; otherwise try each $X$ with memoization. Alice starts at $(0,1)$.
+
+<!-- thinking:end -->
+
 Since the player can take all the stones from the first $X$ piles each time, that is, they can take the stones from an interval, we can first preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the sum of the first $i$ elements of the array `piles`.
 
 Then we design a function $dfs(i, m)$, which represents the maximum number of stones that the current player can take when they can start from index $i$ of the array `piles`, and the current $M$ is $m$. Initially, Alice starts from index $0$, and $M=1$, so the answer we need to find is $dfs(0, 1)$.
@@ -240,6 +250,14 @@ function stoneGameII(piles: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 returns the suffix sum when everything can be taken. Method 2 always enumerates $X$ and writes the same optimum as suffix minus the opponent's minimum, with an out-of-range base case of $0$. The state is unchanged; the code is more uniform.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

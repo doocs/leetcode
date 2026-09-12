@@ -47,6 +47,14 @@ tags:
 
 ### Solution 1: Determine Leap Year
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Month lengths are fixed except February. The usual leap-year rule ($\div 4$ but not $\div 100$, or $\div 400$) sets February to $29$ or $28$; a table lookup then returns $days[month]$ without enumerating the month.
+
+<!-- thinking:end -->
+
 We can first determine whether the given year is a leap year. If the year can be divided by $4$ but not by $100$, or can be divided by $400$, then this year is a leap year.
 
 February has $29$ days in a leap year and $28$ days in a common year.

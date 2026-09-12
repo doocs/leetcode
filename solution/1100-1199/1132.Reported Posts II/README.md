@@ -104,6 +104,14 @@ Removals table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 先按日计算「被移除的垃圾帖」占「当日垃圾举报帖」的比例，再对日比例取平均。`Actions` 中 `extra='spam'` 的帖按 `action_date` 分组，左连 `Removals` 后用两个 `COUNT(DISTINCT post_id)` 相除得到每日百分比，外层再 `AVG` 并四舍五入。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

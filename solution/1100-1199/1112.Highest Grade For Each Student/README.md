@@ -70,6 +70,14 @@ Enrollments 表：
 
 ### 方法一：RANK() OVER() 窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每名学生取最高分，并列时取最小 `course_id`。`RANK() OVER (PARTITION BY student_id ORDER BY grade DESC, course_id)` 把这一字典序一次排好，名次为 $1$ 的行即为所求，再按 `student_id` 输出。
+
+<!-- thinking:end -->
+
 我们可以使用 `RANK() OVER()` 窗口函数，按照每个学生的成绩降序排列，如果成绩相同，按照课程号升序排列，然后取每个学生排名为 $1$ 的记录。
 
 <!-- tabs:start -->
@@ -101,6 +109,14 @@ ORDER BY student_id;
 <!-- solution:start -->
 
 ### 方法二：子查询
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖窗口函数。若环境不便使用，可先按学生聚合 `MAX(grade)`，再在原表中筛出该成绩并对 `course_id` 取 `MIN`。两次聚合分别落实「最高分」与「同分课程号最小」两个条件。
+
+<!-- thinking:end -->
 
 我们可以先查询每个学生的最高成绩，然后再查询每个学生的最高成绩对应的最小课程号。
 

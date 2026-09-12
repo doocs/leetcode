@@ -74,6 +74,14 @@ Views table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need viewers who read at least two distinct articles on one day. `GROUP BY viewer_id, view_date` with `HAVING COUNT(DISTINCT article_id) > 1`, then `DISTINCT` the viewer so multi-day hits appear once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

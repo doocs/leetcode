@@ -76,6 +76,14 @@ tags:
 
 ### 方法一：前缀和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 连续 $k$ 天热量与上下界比较后加减分。前缀和使任意窗口和 $s[i+k]-s[i]$ 为 $O(1)$，枚举起点即可。
+
+<!-- thinking:end -->
+
 我们先预处理出长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 天的卡路里总和。
 
 然后遍历前缀和数组 $s$，对于每个位置 $i$，计算 $s[i+k]-s[i]$，即为第 $i$ 天开始的连续 $k$ 天的卡路里总和。根据题意，对于每个 $s[i+k]-s[i]$，判断值与 $lower$ 和 $upper$ 的关系，更新答案即可。
@@ -202,6 +210,14 @@ function dietPlanPerformance(calories: number[], k: number, lower: number, upper
 <!-- solution:start -->
 
 ### 方法二：滑动窗口
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一额外使用 $O(n)$ 前缀数组。定长窗口只需维护当前和：右端加入、左端减去，空间降为常数，判定规则不变。
+
+<!-- thinking:end -->
 
 我们维护一个长度为 $k$ 的滑动窗口，窗口内元素之和记为 $s$。如果 $s \lt lower$，则分数减 $1$；如果 $ s \gt upper$，则分数加 $1$。
 

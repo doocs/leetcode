@@ -108,6 +108,14 @@ Since the number of threads for producer/consumer is greater than 1, we do not k
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bounded queue must block producers when full and consumers when empty under concurrency. A capacity semaphore gates `enqueue` and an item semaphore gates `dequeue`: enqueue acquires a slot then releases an item, dequeue the reverse. The deque is touched only after the matching permit, so capacity and FIFO hold.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

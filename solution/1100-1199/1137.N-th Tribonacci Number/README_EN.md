@@ -60,6 +60,14 @@ T_4 = 1 + 1 + 2 = 4
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tribonacci is a three-term recurrence. With $n\le 37$, a linear scan is enough. Three rolling variables hold the last terms; after $n$ updates the first variable is $T_n$, using constant extra space.
+
+<!-- thinking:end -->
+
 According to the recurrence relation given in the problem, we can use dynamic programming to solve it.
 
 We define three variables $a$, $b$, $c$ to represent $T_{n-3}$, $T_{n-2}$, $T_{n-1}$, respectively, with initial values of $0$, $1$, $1$.
@@ -196,6 +204,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Matrix Exponentiation to Accelerate Recurrence
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is $O(n)$. Writing the recurrence as a $1\times 3$ state times a $3\times 3$ matrix lets binary exponentiation compute $T_n$ with $O(\log n)$ multiplications, which helps when $n$ grows.
+
+<!-- thinking:end -->
 
 We define $Tib(n)$ as a $1 \times 3$ matrix $\begin{bmatrix} T_n & T_{n - 1} & T_{n - 2} \end{bmatrix}$, where $T_n$, $T_{n - 1}$ and $T_{n - 2}$ represent the $n$th, $(n - 1)$th and $(n - 2)$th Tribonacci numbers, respectively.
 

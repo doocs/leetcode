@@ -74,6 +74,14 @@ Note that the result table has 13 columns (1 for the department id + 12 for the 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Month-per-row revenue must become one row per department with twelve columns. `GROUP BY id` and `SUM(CASE month WHEN ...)` picks that month's revenue; at most one row per month makes `SUM` the value, or `NULL` if missing.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

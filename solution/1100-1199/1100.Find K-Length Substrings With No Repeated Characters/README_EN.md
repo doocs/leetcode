@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Sliding Window + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every substring of length $k$ for uniqueness costs $O(nk)$. With $n,k\le 10^4$ this can pass, yet adjacent windows differ by only one character entering and one leaving.
+>
+> Maintain a window of length $k$ and a frequency map: add $s[i]$, drop $s[i-k]$, and remove a key when its count hits zero. The map has exactly $k$ keys if and only if every character in the window appears once, so that test increments the answer.
+
+<!-- thinking:end -->
+
 We maintain a sliding window of length $k$, and use a hash table $cnt$ to count the occurrences of each character in the window.
 
 First, we add the first $k$ characters of the string $s$ to the hash table $cnt$, and check whether the size of $cnt$ is equal to $k$. If it is, it means that all characters in the window are different, and the answer $ans$ is incremented by one.

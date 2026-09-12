@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Prefix Sum + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking four sides of every $k\times k$ square by walking them multiplies the cubic enumeration by $k$. After storing, for each cell, the run of $1$s down and right, each side is an $O(1)$ length test.
+>
+> Enumerate $k$ from large to small and the top-left corner; the first success is the maximum area.
+
+<!-- thinking:end -->
+
 We can use the prefix sum method to preprocess the number of consecutive 1s down and to the right of each position, denoted as `down[i][j]` and `right[i][j]`.
 
 Then we enumerate the side length $k$ of the square, starting from the largest side length. Then we enumerate the upper left corner position $(i, j)$ of the square. If it meets the condition, we can return $k^2$.

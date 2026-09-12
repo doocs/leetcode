@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Parentheses reverse inside-out. A stack pops until the matching `'('` on `')'` and pushes the characters back reversed. Each layer may move $O(n)$ characters, worst-case $O(n^2)$, which is acceptable for $n\le 2000$.
+
+<!-- thinking:end -->
+
 We can directly use a stack to simulate the reversal process.
 
 The time complexity is $O(n^2)$, and the space complexity is $O(n)$, where $n$ is the length of the string $s$.
@@ -215,6 +223,14 @@ var reverseParentheses = function (s) {
 <!-- solution:start -->
 
 ### Solution 2: Brain Teaser
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 reshuffles characters on every pair. A pair is a jump to the match plus a direction flip: precompute counterparts, and on a parenthesis jump and negate the step, writing only letters. One linear pass suffices.
+
+<!-- thinking:end -->
 
 We observe that, when traversing the string, each time we encounter `(` or `)`, we jump to the corresponding `)` or `(` and then reverse the direction of traversal to continue.
 

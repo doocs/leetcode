@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Kruskal's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cheapest way to connect $n$ cities is a minimum spanning tree. Sort edges by cost and union endpoints that are still apart, adding the cost; when one component remains we have a tree. If edges run out first, the graph is disconnected and the answer is $-1$.
+
+<!-- thinking:end -->
+
 Kruskal's algorithm is a greedy algorithm used to compute the minimum spanning tree.
 
 The basic idea of Kruskal's algorithm is to select the smallest edge from the edge set each time. If the two vertices connected by this edge are not in the same connected component, then add this edge to the minimum spanning tree, otherwise discard this edge.

@@ -64,6 +64,14 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 
 ### Solution 1: Array + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Copying the whole array on every `snap` costs space proportional to length times snapshot count. Each index stores a history of $(\textit{snap id},\textit{value})$; `set` appends the current id. `get` binary-searches the last change with id $\le snap\_id$, or $0$ if none.
+
+<!-- thinking:end -->
+
 We maintain an array of length `length`. Each element in the array is a list, which is used to store the value set each time and the corresponding snapshot ID.
 
 When the `set` method is called, we add the value and snapshot ID to the list at the corresponding index. The time complexity is $O(1)$.

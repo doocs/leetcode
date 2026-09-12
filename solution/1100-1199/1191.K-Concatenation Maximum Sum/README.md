@@ -69,6 +69,14 @@ tags:
 
 ### 方法一：前缀和 + 分类讨论
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组重复 $k$ 次后的最大子段和，子段至多跨过整段重复。先在单份上做 Kadane 得 $mxSub$，并记录最大前缀、最小前缀（从而得最大后缀）。$k=1$ 时即为 $mxSub$；否则还可取「前缀+后缀」，若总和为正还可再加中间 $k-2$ 个整段。$k$ 可达 $10^5$，不能真正拼接。
+
+<!-- thinking:end -->
+
 我们记数组 $arr$ 所有元素之和为 $s$，最大前缀和为 $mxPre$，最小前缀和为 $miPre$，最大子数组和为 $mxSub$。
 
 遍历数组 $arr$，对于每个元素 $x$，我们更新 $s = s + x$, $mxPre = \max(mxPre, s)$, $miPre = \min(miPre, s)$, $mxSub = \max(mxSub, s - miPre)$。

@@ -80,6 +80,14 @@ Activity 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 先按用户统计窗口内不同 `session_id` 个数，再对这些会话数取平均，空表时用 `IFNULL` 得到 $0$。窗口条件与上一题相同。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -105,6 +113,14 @@ FROM T;
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一先按用户聚合再平均。若每名用户的会话互不重叠，则 `COUNT(DISTINCT session_id)/COUNT(DISTINCT user_id)` 与「先按人再平均」在本数据下同解，少一层 CTE。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

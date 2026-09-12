@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replacements must come from $arr2$; we want the fewest of them. Trying every substitute at every index is too large. Let $f[i]$ be the fewest changes so the prefix is increasing and index $i$ is kept. Replacing the previous $k$ positions with the $k$ values in $arr2$ just below $arr[i]$ transitions from $f[i-k-1]+k$. Sorted unique $arr2$ supports binary search; sentinels make the last index never replaced.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum number of operations to convert $arr1[0,..,i]$ into a strictly increasing array, and $arr1[i]$ is not replaced. Therefore, we set two sentinels $-\infty$ and $\infty$ at the beginning and end of $arr1$. The last number is definitely not replaced, so $f[n-1]$ is the answer. We initialize $f[0]=0$, and the rest $f[i]=\infty$.
 
 Next, we sort the array $arr2$ and remove duplicates for easy binary search.

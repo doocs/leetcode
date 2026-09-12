@@ -81,6 +81,14 @@ Actions table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct posts per `extra` (report reason) on the given date with `action = 'report'`. Filter date and action first, then `GROUP BY extra` and `COUNT(DISTINCT post_id)` so a post reported twice is counted once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

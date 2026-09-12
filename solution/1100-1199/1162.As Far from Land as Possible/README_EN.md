@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the maximum, over water cells, of the distance to the nearest land. A BFS from every water cell repeats visits. Multi-source BFS from all land cells grows one layer per step; the last water painted is that maximum. All-land or all-water grids have no answer, so return $-1$.
+
+<!-- thinking:end -->
+
 We can add all land cells to the queue $q$. If the queue is empty, or the number of elements in the queue equals the number of cells in the grid, it means that the grid contains only land or ocean, so return $-1$.
 
 Otherwise, we start BFS from the land cells. Define the initial step count $ans=-1$.

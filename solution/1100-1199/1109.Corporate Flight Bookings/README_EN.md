@@ -73,6 +73,16 @@ Hence, answer = [10,25]
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each booking adds the same amount on the closed range $[\textit{first},\textit{last}]$. Updating every flight in the range costs time proportional to the sum of lengths, worst-case $O(nm)$.
+>
+> A difference array adds $\textit{seats}$ at the left endpoint and subtracts it at $\textit{last}+1$, so each range update is two point updates. A final prefix sum restores the booked seats on every flight.
+
+<!-- thinking:end -->
+
 We notice that each booking is for `seats` seats on all flights within a certain interval `[first, last]`. Therefore, we can use the idea of a difference array. For each booking, we add `seats` to the number at the `first` position and subtract `seats` from the number at the `last + 1` position. Finally, we calculate the prefix sum of the difference array to get the total number of seats booked for each flight.
 
 The time complexity is $O(n)$, where $n$ is the number of flights. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
@@ -211,6 +221,14 @@ var corpFlightBookings = function (bookings, n) {
 <!-- solution:start -->
 
 ### Solution 2: Binary Indexed Tree + Difference Idea
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1's difference array needs one final prefix pass and is offline. A Fenwick tree supports point add and prefix query in $O(\log n)$: add at $\textit{first}$, subtract at $\textit{last}+1$, then the prefix at $i$ is flight $i$'s seats. This problem does not need online queries, so the extra log factor is only an alternative implementation.
+
+<!-- thinking:end -->
 
 We can also use a binary indexed tree, combined with the idea of difference, to implement the above operations. We can consider each booking as booking `seats` seats on all flights within a certain interval `[first, last]`. Therefore, for each booking, we add `seats` to the `first` position of the binary indexed tree and subtract `seats` from the `last + 1` position of the binary indexed tree. Finally, we calculate the prefix sum for each position in the binary indexed tree to get the total number of seats booked for each flight.
 

@@ -73,6 +73,14 @@ tags:
 
 ### Solution 1: Hash Table + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A transaction is invalid iff the amount exceeds $1000$, or the same name appears in another city within $60$ minutes. Group $(\textit{time},\textit{city},\textit{index})$ by name and compare a new row with the group to mark both sides. The amount rule is separate. $n$ is small enough for pairwise checks inside a name.
+
+<!-- thinking:end -->
+
 We traverse the transaction list. For each transaction, if the amount is greater than 1000, or if the transaction has the same name but different cities and the time interval does not exceed 60 minutes, then add it to the answer.
 
 Specifically, we use a hash table `d` to record each transaction, where the key is the transaction name, and the value is a list. Each element in the list is a tuple `(time, city, index)`, indicating that a transaction with the number `index` was conducted in the city `city` at the moment `time`. At the same time, we use a hash table `idx` to record the transaction number in the answer.

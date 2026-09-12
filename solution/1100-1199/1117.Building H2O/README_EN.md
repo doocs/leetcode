@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Molecules must be released as $H_2O$; three hydrogens or two oxygens must not go out first. The hydrogen semaphore starts at $2$ and oxygen at $0$: two hydrogens unlock oxygen, and one oxygen restores two hydrogen permits, so each round is exactly two H and one O.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

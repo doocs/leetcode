@@ -58,6 +58,14 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A one-letter substring lies inside a run of equal characters. A run of length $L$ contributes $L(L+1)/2$ substrings. Two pointers measure each run and add the triangular number, instead of listing $O(n^2)$ substrings.
+
+<!-- thinking:end -->
+
 We can use two pointers, where pointer $i$ points to the start of the current substring, and pointer $j$ moves to the right to the first position that is different from $s[i]$. Then, $[i,..j-1]$ is a substring with $s[i]$ as the only character, and its length is $j-i$. Therefore, the number of substrings with $s[i]$ as the only character is $\frac{(j-i+1)(j-i)}{2}$, which is added to the answer. Then, we set $i=j$ and continue to traverse until $i$ exceeds the range of string $s$.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.
@@ -162,6 +170,14 @@ function countLetters(s: string): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 adds a closed triangular number per run. Method 2 adds $1,2,\ldots,L$ while the run grows; the sum is the same triangle and reads as the number of one-letter substrings ending at the current index.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
