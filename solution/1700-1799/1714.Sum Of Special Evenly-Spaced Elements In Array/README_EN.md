@@ -63,6 +63,18 @@ tags:
 
 ### Solution 1: Block Decomposition
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each query sums every $y$-th element starting at $x$. Walking the stride per query is too slow when $q\le 1.5\times 10^5$ and $n\le 5\times 10^4$, especially for small $y$.
+>
+> Large strides are short and can be summed on the fly; small strides are long and should be precomputed. Split at $\sqrt{n}$.
+>
+> $\textit{suf}[i][j]$ is the suffix sum from $j$ with stride $i$. Look it up when $y\le\sqrt{n}$; otherwise scan. The total is $O((n+q)\sqrt{n})$.
+
+<!-- thinking:end -->
+
 This problem is a typical block decomposition problem. For queries with a large step size, we can directly brute force the solution; for queries with a small step size, we can preprocess the suffix sum of each position and then directly query.
 
 In this problem, we limit the step size of the large step size query to $\sqrt{n}$, which can ensure that the time complexity of each query is $O(\sqrt{n})$.

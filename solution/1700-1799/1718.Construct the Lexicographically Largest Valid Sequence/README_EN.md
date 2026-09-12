@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The sequence has length $2n-1$: $1$ once, and each $i\in[2,n]$ twice at distance $i$. $n$ is small enough for backtracking.
+>
+> A lexicographically largest sequence tries larger values first. Fill empty slots from left to right, testing $n$ down to $2$, then $1$.
+>
+> $\textit{path}$ holds placed values and $\textit{cnt}$ remaining counts. Value $i$ occupies $u$ and $u+i$. Completing $2n-1$ slots yields the guaranteed solution.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -92,6 +92,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs encode ancestry: an edge exists iff one node is an ancestor of the other. We must report whether $0$, $1$, or more than one rooted tree fits.
+>
+> Larger pair-degree means closer to the root. Sort nodes by degree; a node's parent candidate is a neighbour of no-smaller degree.
+>
+> The candidate must be adjacent to every neighbour of the node. More than one node without a parent is impossible. Equal degrees on a parent-child pair yield multiple trees; otherwise exactly one.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

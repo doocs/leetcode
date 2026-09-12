@@ -74,6 +74,16 @@ Of these, [4,5,2,3] is the largest.</pre>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among subarrays of length $k$, the lexicographically largest is decided by its first element, since all values are distinct.
+>
+> Valid starts lie in $[0,n-k]$. Take the index $i$ of the maximum in that range; the answer is $nums[i..i+k)$. One scan suffices.
+
+<!-- thinking:end -->
+
 All integers in the array are distinct, so we can first find the index of the maximum element in the range $[0,..n-k]$, and then take $k$ elements starting from this index.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: Quick Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The operations replace $00$ with $10$ and $10$ with $01$. Searching every rewrite grows exponentially with the string length and will not finish under the constraints.
+>
+> Operation 2 can slide any $1$ rightward; operation 1 collapses a run of zeros into ones followed by a single $0$. The optimal string therefore contains at most one $0$, placed as far right as possible.
+>
+> Leading ones before the first $0$ cannot change. All later zeros can be gathered to one index: if the first $0$ is at $k$, add the number of zeros after it to obtain the final $0$ position, and fill the rest with ones.
+
+<!-- thinking:end -->
+
 We observe that operation $2$ can move all $1$s to the end of the string, and operation $1$ can change all `0000..000` strings to `111..110`.
 
 Therefore, to get the maximum binary string, we should move all $1$s that are not at the beginning to the end of the string, making the string in the form of `111..11...000..00..11`. Then, with the help of operation $1$, we change the middle `000..00` to `111..10`. In this way, we can finally get a binary string that contains at most one $0$, which is the maximum binary string we are looking for.

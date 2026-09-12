@@ -76,6 +76,18 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting $\textit{ab}$ scores $x$ and $\textit{ba}$ scores $y$; each deletion changes adjacency. Searching deletion orders is infeasible on long strings.
+>
+> A run of only $a$ and $b$ always ends with a single letter; the number of operations is fixed by the two counts. Higher-scoring pairs should be taken first.
+>
+> Swap letters and scores when $x<y$. While scanning, match the high-score pair against a counter; at a separator or the end, settle the low-score pair with $\min(cnt_a,cnt_b)$.
+
+<!-- thinking:end -->
+
 We can assume that the score of substring "ab" is always no less than the score of substring "ba". If not, we can swap "a" and "b", and simultaneously swap $x$ and $y$.
 
 Next, we only need to consider the case where the string contains only "a" and "b". If the string contains other characters, we can treat them as split points, dividing the string into several substrings that contain only "a" and "b", and then calculate the score for each substring separately.

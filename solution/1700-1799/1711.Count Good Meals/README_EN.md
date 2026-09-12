@@ -60,6 +60,18 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 
 ### Solution 1: Hash Table + Enumeration of Powers of Two
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting unordered pairs whose sum is a power of two by enumerating all index pairs is $O(n^2)$ and fails for $n\le 10^5$.
+>
+> Values are at most $2^{20}$, so only $O(\log M)$ candidate powers exist. For each seen $d$, enumerate a power $s$ and look up $s-d$ in a hash map.
+>
+> Insert $d$ into the counter after querying so each pair is counted once against earlier elements. Reduce the answer modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 According to the problem, we need to count the number of combinations in the array where the sum of two numbers is a power of $2$. Directly enumerating all combinations has a time complexity of $O(n^2)$, which will definitely time out.
 
 We can traverse the array and use a hash table $cnt$ to maintain the number of occurrences of each element $d$ in the array.
@@ -165,6 +177,16 @@ func countPairs(deliciousness []int) (ans int) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 queries while scanning. We may instead count all frequencies first, then enumerate each power $s$ and each key $a$, pairing with $cnt[s-a]$.
+>
+> Use $m(m-1)$ when $a=s-a$ and $m\cdot cnt[s-a]$ otherwise. Each pair is counted twice, so shift right once before taking modulo. The complexity remains $O(n\log M)$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

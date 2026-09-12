@@ -72,6 +72,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need three nonempty parts with $s_{\textit{left}}\le s_{\textit{mid}}\le s_{\textit{right}}$. Two nested cuts are $O(n^2)$ and fail for $n\le 10^5$.
+>
+> Values are nonnegative, so prefix sums are monotone. After fixing the left cut $i$, the mid cut lies in a contiguous range and can be found by binary search.
+>
+> The range is $s[j]\ge 2s[i]$ and $s[k]\le (s[-1]+s[i])/2$. Two binary searches per $i$ count the ways, taken modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i+1$ elements of the array $nums$.
 
 Since all elements of the array $nums$ are non-negative integers, the prefix sum array $s$ is a monotonically increasing array.

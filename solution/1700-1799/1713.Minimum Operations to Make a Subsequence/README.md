@@ -62,6 +62,18 @@ tags:
 
 ### 方法一：最长递增子序列 + 树状数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最少插入次数等于 $|\textit{target}|$ 减去最长公共子序列长度。标准 LCS 为 $O(mn)$，两边长度均达 $10^5$，不可行。
+>
+> $\textit{target}$ 元素互异，因此 $arr$ 中出现在 $\textit{target}$ 里的值可映射为 $\textit{target}$ 下标。LCS 退化为该下标序列的最长递增子序列。
+>
+> 用树状数组维护「小于当前下标的最大 LIS」，每次查询 $x-1$ 再更新 $x$。答案为 $m$ 减去 LIS 长度。
+
+<!-- thinking:end -->
+
 根据题意，`target` 和 `arr` 这两个数组的公共子序列越长，需要添加的元素就越少。因此，最少添加的元素个数等于 `target` 的长度减去 `target` 和 `arr` 的最长公共子序列的长度。
 
 但是，[求最长公共子序列](https://github.com/doocs/leetcode/blob/main/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)的时间复杂度为 $O(m \times n)$，无法通过本题，需要转变思路。

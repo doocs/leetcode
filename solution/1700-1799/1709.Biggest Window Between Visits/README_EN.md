@@ -84,6 +84,16 @@ For the third user, the only window in question is between dates 2020-11-11 and 
 
 ### Solution 1: Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user's largest visit gap is the maximum difference between consecutive visit dates, with the last visit compared against $2021$-$01$-$01$.
+>
+> $\mathrm{LEAD}$ partitioned by $\textit{user\_id}$ and ordered by date yields the next visit (defaulting to $2021$-$1$-$1$). $\mathrm{DATEDIFF}$ produces the gaps; $\mathrm{MAX}$ per user is the answer.
+
+<!-- thinking:end -->
+
 We can use the window function `LEAD` to obtain the date of the next visit for each user (if the date of the next visit does not exist, it is considered as `2021-1-1`), and then use the `DATEDIFF` function to calculate the number of days between two visits. Finally, we can take the maximum value of the number of days between visits for each user.
 
 <!-- tabs:start -->
