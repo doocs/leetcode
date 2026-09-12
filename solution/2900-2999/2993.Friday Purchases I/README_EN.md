@@ -77,6 +77,16 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ### Solution 1: Date Functions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only Fridays in November 2023, rolled up by week-of-month. $DATE_FORMAT$ pins the month, $DAYOFWEEK=6$ selects Friday, and $CEIL(DAYOFMONTH/7)$ is the week index.
+>
+> Group by date, sum, and order by week. Fridays absent from the table do not appear.
+
+<!-- thinking:end -->
+
 The date functions we use include:
 
 - `DATE_FORMAT(date, format)`: Formats a date as a string

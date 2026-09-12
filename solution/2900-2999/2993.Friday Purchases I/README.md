@@ -78,6 +78,16 @@ Purchases table:
 
 ### 方法一：日期函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只要 2023 年 11 月的星期五，并按「月中第几周」汇总。$DATE_FORMAT$ 锁月份，$DAYOFWEEK=6$ 取周五，$CEIL(DAYOFMONTH/7)$ 得到周次。
+>
+> 按日期分组求和，再按周次排序。表中没有的周五不会出现。
+
+<!-- thinking:end -->
+
 我们用到的日期函数有：
 
 - `DATE_FORMAT(date, format)`：将日期格式化为字符串

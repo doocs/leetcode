@@ -78,6 +78,16 @@ Output table is ordered by sessions count and user_id in descending order.
 
 ### Solution 1: Window Function + Equi-Join
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A user’s first session must be Viewer; we then count later Streamer sessions. $RANK$ on $session_start$ isolates the first row per user; joining back to $Sessions$ keeps first-as-Viewer and current-as-Streamer.
+>
+> Order by count then user id, both descending.
+
+<!-- thinking:end -->
+
 We can use the window function `RANK()` to rank each session by `user_id` dimension, and record it in table `T`. Then, we equi-join `T` and the `Sessions` table by `user_id`, and filter out the records in `T` where the rank is 1, and `session_type` is `Viewer`, and `session_type` in the `Sessions` table is `Streamer`. Finally, we group by `user_id` and sum up.
 
 <!-- tabs:start -->

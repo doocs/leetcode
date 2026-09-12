@@ -79,6 +79,16 @@ student_id 321 拥有最高分为 230，而 student_id 896 拥有最低分为 11
 
 ### 方法一：最大值最小值
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 分数差是三项作业之和的极差。对表达式 $assignment1+assignment2+assignment3$ 同时取 $MAX$ 与 $MIN$ 再相减，一次表扫描即可。
+>
+> 无需按学生分组。
+
+<!-- thinking:end -->
+
 我们可以使用 `MAX` 和 `MIN` 函数来分别获取 `assignment1`、`assignment2`、`assignment3` 的和的最大值和最小值，然后相减即可。
 
 <!-- tabs:start -->

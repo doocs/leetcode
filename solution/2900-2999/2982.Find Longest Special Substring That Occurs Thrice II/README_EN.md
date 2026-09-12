@@ -73,6 +73,16 @@ It can be shown that the maximum length achievable is 1.
 
 ### Solution 1: Binary Search + Sliding Window Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 5 \times 10^5$ forbids storing every special substring. Feasibility stays monotone in the length, so binary-search $x$ and charge $\max(0, L-x+1)$ per run, totaling $O(n \log n)$.
+>
+> The code is method 1 of part I; only the bounds force the logarithmic search rather than a hashmap of all pieces.
+
+<!-- thinking:end -->
+
 We notice that if there exists a special substring of length $x$ that appears at least three times, then a special substring of length $x-1$ must also exist. This exhibits a monotonicity, so we can use binary search to find the longest special substring.
 
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = n$, where $n$ is the length of the string. In each binary search, we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$. If a special substring of length $mid$ exists, we update the left boundary to $mid$. Otherwise, we update the right boundary to $mid - 1$. During the binary search, we use a sliding window to count the number of special substrings.

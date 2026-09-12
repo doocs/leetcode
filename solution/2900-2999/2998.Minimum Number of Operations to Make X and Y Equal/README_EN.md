@@ -88,6 +88,16 @@ It can be shown that 5 is the minimum number of operations required to make 25 e
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Operations are $\pm 1$ and, when divisible, division by $5$ or $11$. $x,y \le 10^4$. If $y \ge x$ only decrements remain, costing $y-x$. Otherwise division can jump, but $x$ may need $\pm$ to the next multiple first.
+>
+> $dfs(x)$ compares walking down to $y$ with the four “align then divide by $5$ or $11$” tails. Memoization reuses states; the search only shrinks $x$, so it terminates.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -79,6 +79,16 @@ Output table is ordered by week_of_month in ascending order.</pre>
 
 ### Solution 1: Recursion + Left Join + Date Functions
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, Fridays with no purchase must show $0$. A recursive CTE lists every November day, left-joins $Purchases$, keeps Fridays, and $IFNULL(SUM,0)$.
+>
+> The date spine stays complete, so empty Fridays are not dropped by the group.
+
+<!-- thinking:end -->
+
 We can generate a table `T` that contains all dates in November 2023 using recursion, then use a left join to connect `T` and the `Purchases` table by date. Finally, group and sum according to the requirements of the problem.
 
 <!-- tabs:start -->

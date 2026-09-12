@@ -78,6 +78,16 @@ Transactions table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要每位用户按时间的第三笔，且金额严格大于前两笔。窗口 $RANK$ 给出该用户内的次序，$LAG$ 两次取出前两笔花费，比较得到布尔 $st$。
+>
+> 筛 $rk=3$ 且 $st=1$。不必自连接三次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

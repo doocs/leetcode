@@ -72,6 +72,16 @@ Orders table:
 
 ### 方法一：求和
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 表已按「件数 $\times$ 出现次数」压缩，平均件数是加权平均 $\sum item\_count \cdot order\_occurrences / \sum order\_occurrences$。一次 $SUM$ 后 $ROUND$ 两位即可。
+>
+> 无需展开每一订单。
+
+<!-- thinking:end -->
+
 我们使用 `SUM` 函数求出总的商品数量和总的订单数，然后相除，得到平均值，最后使用 `ROUND` 函数保留两位小数即可。
 
 <!-- tabs:start -->

@@ -79,6 +79,16 @@ Sessions table:
 
 ### 方法一：窗口函数 + 等值连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 用户第一次会话须是 Viewer，之后统计其 Streamer 会话数。$RANK$ 按 $session_start$ 取出每人第一场，再与 $Sessions$ 连接，限制第一场为 Viewer 且当前行为 Streamer。
+>
+> 按次数、用户降序。
+
+<!-- thinking:end -->
+
 我们可以用窗口函数 `RANK()` 按照 `user_id` 维度，对每个会话进行排名，记录在表 `T` 中，然后再将 `T` 与 `Sessions` 表按照 `user_id` 进行等值连接，并且筛选出 `T` 中排名为 1 的记录，并且 `session_type` 为 `Viewer`，`Sessions` 表中 `session_type` 为 `Streamer` 的记录，最后按照 `user_id` 进行分组求和即可。
 
 <!-- tabs:start -->
