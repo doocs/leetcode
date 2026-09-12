@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The fence is the convex hull. Jarvis works for modest $n$; Andrew's monotone chain is linear after sorting. Colinear edge points must stay, so pop only on a strict right turn.
+>
+> Sort, build the lower hull, then the upper hull while skipping already-used vertices, and drop the duplicated start. Fewer than four points return as-is.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

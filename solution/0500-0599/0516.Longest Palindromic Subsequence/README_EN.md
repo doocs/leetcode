@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindromic subsequence need not be contiguous, so center expansion is not enough, and listing all subsequences is too many.
+>
+> Let $f[i][j]$ be the LPS length of $s[i..j]$. Equal ends add $2$ to the inner interval; otherwise drop one end. Fill by increasing interval length ($i$ right to left, $j$ to the right) so dependencies are ready. $f[0][n-1]$ is the answer.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the length of the longest palindromic subsequence from the $i$-th character to the $j$-th character in string $s$. Initially, $f[i][i] = 1$, and the values of other positions are all $0$.
 
 If $s[i] = s[j]$, then $f[i][j] = f[i + 1][j - 1] + 2$; otherwise, $f[i][j] = \max(f[i + 1][j], f[i][j - 1])$.

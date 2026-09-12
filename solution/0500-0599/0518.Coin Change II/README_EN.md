@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1: Dynamic Programming (Complete Knapsack)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We count combinations, not permutations. Generating sequences would overcount the same multiset.
+>
+> This is the unbounded-knapsack counting DP: iterate coins in the outer loop so each coin is added in one order. $f[i][j]$ is the number of ways to make $j$ with the first $i$ coins: skip inherits $f[i-1][j]$, take adds $f[i][j-x]$. $f[0][0]=1$ is the empty combination.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of coin combinations to make up the amount $j$ using the first $i$ types of coins. Initially, $f[0][0] = 1$, and the values of other positions are all $0$.
 
 We can enumerate the quantity $k$ of the last coin used, then we have equation one:
@@ -209,6 +219,16 @@ function change(amount: number, coins: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i][j]$ depends only on the previous row at $j$ and the current row at $j-x$. A one-dimensional array, updated forward from $x$ to `amount` for each coin, reuses the same coin's new states.
+>
+> Space drops to $O(\textit{amount})$; the number of transitions is unchanged.
+
+<!-- thinking:end -->
 
 We notice that $f[i][j]$ is only related to $f[i - 1][j]$ and $f[i][j - x]$. Therefore, we can optimize the two-dimensional array into a one-dimensional array, reducing the space complexity to $O(n)$. The time complexity remains $O(m \times n)$.
 

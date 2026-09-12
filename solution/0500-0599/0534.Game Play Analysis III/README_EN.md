@@ -79,6 +79,16 @@ Note that for each player we only care about the days when the player logged in.
 
 ### Solution 1: Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a running sum of games per player by date. A self-join works, but a window does it in one scan.
+>
+> `SUM(games_played) OVER (PARTITION BY player_id ORDER BY event_date)` accumulates in date order inside each player. No extra group-and-join.
+
+<!-- thinking:end -->
+
 We can use the window function `SUM() OVER()` to group by `player_id`, sort by `event_date`, and calculate the total number of games played by each user up to the current date.
 
 <!-- tabs:start -->
@@ -104,6 +114,16 @@ FROM Activity;
 <!-- solution:start -->
 
 ### Solution 2: Self-Join + Group By
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Without window functions, self-join each player's day to all of that player's days that are not later, then `GROUP BY` player and date.
+>
+> The predicate `t1.event_date >= t2.event_date` keeps past and current rows. The sum matches the window prefix, at the cost of more paired rows.
+
+<!-- thinking:end -->
 
 We can also use a self-join to join the `Activity` table with itself on the condition of `t1.player_id = t2.player_id AND t1.event_date >= t2.event_date`, and then group by `t1.player_id` and `t1.event_date`, and calculate the cumulative sum of `t2.games_played`. This will give us the total number of games played by each user up to the current date.
 
@@ -131,6 +151,16 @@ GROUP BY 1, 2;
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 writes the same predicate with a comma join. `CROSS JOIN ... ON` only moves the filter into the join clause.
+>
+> The choice is stylistic; the grouped sums match Solution 2.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

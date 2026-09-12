@@ -74,6 +74,16 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tilt is the absolute difference of the two subtree sums; the tree tilt is the sum of node tilts. Every node needs both subtree sums, so post-order fits.
+>
+> DFS returns the subtree sum, adds $|l-r|$ to the answer, and returns $l+r+\textit{val}$. One walk computes every tilt.
+
+<!-- thinking:end -->
+
 We design a function $\text{dfs}$ to calculate the sum of nodes in the subtree rooted at the current node. In the $\text{dfs}$ function, we first check if the current node is null. If it is, we return 0. Then we recursively call the $\text{dfs}$ function to calculate the sum of nodes in the left subtree $l$ and the sum of nodes in the right subtree $r$. Next, we calculate the tilt of the current node, which is $|l - r|$, and add it to the answer. Finally, we return the sum of nodes of the current node, which is $l + r + \textit{root.val}$.
 
 In the main function, we initialize the answer to 0, then call the $\text{dfs}$ function to calculate the tilt of the entire tree and return the answer.

@@ -72,6 +72,16 @@ It can be shown that after trying all possibilities, we cannot get an expression
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only division is used, so parentheses change association. To maximize the value we want the denominator as small as possible.
+>
+> Length $1$ or $2$ has no useful parentheses. For longer arrays, take the first number as the numerator and parenthesize the rest as a chain of divisions: $a_0 / (a_1/a_2/\cdots)$. That shrinks the denominator; there is no need to search every bracketing.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -79,6 +79,16 @@ Concatenating everything results in [1] + [2] + [4,7,8,9,10] + [6,3] = [1,2,4,7,
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The boundary is the left side, the leaves, and the right side in counterclockwise order. The root is listed once and leaves must not repeat. One mixed walk struggles with direction and deduplication.
+>
+> Three DFS passes: left edge prefers left (else right) and skips leaves; a second pass collects leaves; the right edge prefers right and is reversed. The root is emitted first if it is not a leaf. A flag $i$ selects the role.
+
+<!-- thinking:end -->
+
 First, if the tree has only one node, we directly return a list with the value of that node.
 
 Otherwise, we can use depth-first search (DFS) to find the left boundary, leaf nodes, and right boundary of the binary tree.

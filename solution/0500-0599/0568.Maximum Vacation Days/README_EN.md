@@ -95,6 +95,16 @@ Ans = 7 + 7 + 7 = 21
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each week is spent in one city, moving only along flights (or staying). $n^K$ assignments are too many.
+>
+> $f[k][j]$ is the best total after $k$ weeks ending in city $j$. Come from staying in $j$ or flying in from $i$, then add $days[j][k-1]$. Week $0$ starts in city $0$ only. The answer is the max over cities in week $K$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

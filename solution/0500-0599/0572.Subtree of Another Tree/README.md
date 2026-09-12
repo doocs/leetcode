@@ -63,6 +63,16 @@ tags:
 
 ### 方法一：DFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 判断 $subRoot$ 是否等于 $root$ 的某一棵子树。对每个节点做一次树相等比较，最坏 $O(mn)$，在本题规模下可接受。
+>
+> `same` 同时走两棵树比较结构与值。外层 DFS 在每个节点调用 `same`，命中即返回真。先比根再比左右，短路失败分支。
+
+<!-- thinking:end -->
+
 我们定义一个辅助函数 $\textit{same}(p, q)$，用于判断以 $p$ 为根节点的树和以 $q$ 为根节点的树是否相等。如果两棵树的根节点的值相等，并且它们的左子树和右子树也分别相等，那么这两棵树是相等的。
 
 在 $\textit{isSubtree}(\textit{root}, \textit{subRoot})$ 函数中，我们首先判断 $\textit{root}$ 是否为空，如果为空，则返回 $\text{false}$。否则，我们判断 $\textit{root}$ 和 $\textit{subRoot}$ 是否相等，如果相等，则返回 $\text{true}$。否则，我们递归地判断 $\textit{root}$ 的左子树和右子树是否包含 $\textit{subRoot}$。

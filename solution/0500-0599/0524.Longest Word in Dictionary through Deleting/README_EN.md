@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Subsequence Judgment
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want the longest dictionary word that is a subsequence of $s$, breaking ties lexicographically. Enumerating subsequences of $s$ is unrealistic.
+>
+> Test each dictionary word as a subsequence of $s$ with two pointers, and keep the best by length then lexicographic order. Dictionary size and word length are modest, so the total cost is acceptable.
+
+<!-- thinking:end -->
+
 We define a function $check(s, t)$ to determine whether string $s$ is a subsequence of string $t$. We can use a two-pointer approach, initializing two pointers $i$ and $j$ to point to the beginning of strings $s$ and $t$ respectively, then continuously move pointer $j$. If $s[i]$ equals $t[j]$, then move pointer $i$. Finally, check if $i$ equals the length of $s$. If $i$ equals the length of $s$, it means $s$ is a subsequence of $t$.
 
 We initialize the answer string $ans$ as an empty string. Then, we iterate through each string $t$ in the array $dictionary$. If $t$ is a subsequence of $s$, and the length of $t$ is greater than the length of $ans$, or the length of $t$ is equal to the length of $ans$ but $t$ is lexicographically smaller than $ans$, then we update $ans$ to $t$.

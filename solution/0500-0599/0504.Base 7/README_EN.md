@@ -42,6 +42,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Base-7 conversion is repeated division by $7$. Handle $0$ directly and convert the absolute value of a negative number, then restore the sign. Remainders come out least-significant first, so reverse before joining.
+>
+> The loop runs once per digit, which is $O(\log |num|)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

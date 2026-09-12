@@ -53,6 +53,16 @@ tags:
 
 ### 方法一：枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 完美数要求真因子之和等于自身。枚举 $1$ 到 $num-1$ 的因子在 $num \le 10^8$ 时过慢。
+>
+> 因子成对出现：若 $i$ 整除 $num$，则 $num/i$ 也是因子，枚举上界可收到 $\sqrt{num}$。$1$ 的真因子之和为 $0$，需单独排除。累加全部真因子后与 $num$ 比较即可。
+
+<!-- thinking:end -->
+
 我们首先判断 $\textit{num}$ 是否为 1，如果为 1，则 $\textit{num}$ 不是完美数，返回 $\text{false}$。
 
 然后，我们从 2 开始枚举 $\textit{num}$ 的所有正因子，如果 $\textit{num}$ 能被 $\textit{num}$ 的某个正因子 $i$ 整除，那么我们将 $i$ 加入到答案 $\textit{s}$ 中。如果 $\textit{num}$ 除以 $i$ 得到的商不等于 $i$，我们也将 $\textit{num}$ 除以 $i$ 得到的商加入到答案 $\textit{s}$ 中。

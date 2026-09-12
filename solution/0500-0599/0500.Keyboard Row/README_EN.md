@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Set Check
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Checking every letter of every word against the three keyboard rows costs linear time in the total number of letters, which the constraints allow. Rebuilding a row's character set on each query repeats the same work.
+>
+> The verdict depends only on whether a word's letters lie on a single row, not on their order. Store the three rows as sets, lowercase the word, and test subset. One pass collects every valid word.
+
+<!-- thinking:end -->
+
 Put the three keyboard rows into sets. For each word, if its letter set is a subset of one row, add it to the answer.
 
 The time complexity is $O(L)$, and the space complexity is $O(C)$, where $L$ is the total length of all words and $C$ is the size of the alphabet ($C = 26$ here).
@@ -105,6 +115,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Character Mapping
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The set test is already linear, but each word allocates a set and runs three subset checks.
+>
+> Map every letter to a row id first, then verify that all letters share the first letter's row. The table is constant size and the scan is still one pass, with a smaller constant.
+
+<!-- thinking:end -->
 
 Map each letter to its keyboard row, then check whether every letter of a word falls on the same row.
 

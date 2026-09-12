@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The mode is the value with the highest frequency. Hashing every node is $O(n)$ time and space and fits $n \le 10^4$, but ignores that the tree is a BST.
+>
+> Inorder yields a non-decreasing sequence, so equal values are adjacent. Track the predecessor, the current run length, and the best frequency: replace the answer when the run grows, append when it ties. One inorder pass collects every mode with $O(h)$ extra space.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

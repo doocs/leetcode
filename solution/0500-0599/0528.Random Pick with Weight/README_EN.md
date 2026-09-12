@@ -88,6 +88,16 @@ and so on.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must sample index $i$ with probability proportional to $w[i]$, many times, so a linear scan per call is wasteful.
+>
+> Prefix sums turn weights into intervals on $[1, S]$. Draw a uniform integer and binary-search the interval. Build is $O(n)$ and each pick is $O(\log n)$. Subtract one because the prefix array is padded with a leading $0$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

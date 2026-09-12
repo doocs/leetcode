@@ -58,6 +58,16 @@ So the maximum possible sum is 4.</pre>
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair numbers and sum the smaller of each pair; maximize that sum. The larger value in a pair is discarded, so it should be as small as possible — pair close values.
+>
+> Sort and pair adjacent elements; the sum of every other number is optimal. Any crossing pair can be uncrossed without decreasing the sum.
+
+<!-- thinking:end -->
+
 For a pair of numbers $(a, b)$, we can assume $a \leq b$, then $\min(a, b) = a$. In order to make the sum as large as possible, the $b$ we choose should be as close to $a$ as possible, so as to retain a larger number.
 
 Therefore, we can sort the array $nums$, then divide every two adjacent numbers into a group, and add the first number of each group.

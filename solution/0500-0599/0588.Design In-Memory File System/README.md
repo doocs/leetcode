@@ -90,6 +90,16 @@ fileSystem.readContentFromFile("/a/b/c/d"); // 返回 "hello"</pre>
 
 ### 方法一：前缀树
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 文件系统要按路径分层：`ls`、`mkdir`、追加与读取。把整棵目录做成哈希表路径可以，但前缀共享与目录列举不自然。
+>
+> 字典树按路径分量向下走：每个节点带 `children`、是否文件、以及文件内容列表。`insert` 沿途建节点，`search` 走到目标。`ls` 对文件返回文件名，对目录返回排序后的子名。路径操作与树深成正比。
+
+<!-- thinking:end -->
+
 哈希表实现前缀树。
 
 <!-- tabs:start -->

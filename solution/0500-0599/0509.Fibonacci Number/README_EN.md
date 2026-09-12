@@ -68,6 +68,16 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 
 ### Solution 1: Recurrence
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Fibonacci obeys $F_n = F_{n-1} + F_{n-2}$. Naive recursion recomputes the same subproblems. Even though $n \le 30$, an iterative recurrence is enough.
+>
+> Roll two variables for consecutive terms and iterate $n$ times. Time is linear and extra space is constant.
+
+<!-- thinking:end -->
+
 We define two variables $a$ and $b$, initially $a = 0$ and $b = 1$.
 
 Next, we perform $n$ iterations. In each iteration, we update the values of $a$ and $b$ to $b$ and $a + b$, respectively.
@@ -207,6 +217,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Matrix Exponentiation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already $O(n)$ and enough here, but the same linear recurrence can be sped up for larger $n$.
+>
+> $F_n$ is a product of a fixed $2 \times 2$ transition matrix. Fast exponentiation reduces $n$ multiplications to $O(\log n)$. The constant is larger; use it when the same recurrence must scale.
+
+<!-- thinking:end -->
 
 We define $\textit{Fib}(n)$ as a $1 \times 2$ matrix $\begin{bmatrix} F_n & F_{n - 1} \end{bmatrix}$, where $F_n$ and $F_{n - 1}$ are the $n$-th and $(n - 1)$-th Fibonacci numbers, respectively.
 

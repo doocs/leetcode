@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ask whether $subRoot$ equals some subtree of $root$. Comparing at every node is $O(mn)$ in the worst case and fits the limits.
+>
+> `same` walks two trees together. The outer DFS invokes `same` at each node and returns on the first hit. Compare the root first so mismatches exit early.
+
+<!-- thinking:end -->
+
 We define a helper function $\textit{same}(p, q)$ to determine whether the tree rooted at $p$ and the tree rooted at $q$ are identical. If the root values of the two trees are equal, and their left and right subtrees are also respectively equal, then the two trees are identical.
 
 In the $\textit{isSubtree}(\textit{root}, \textit{subRoot})$ function, we first check if $\textit{root}$ is null. If it is, we return $\text{false}$. Otherwise, we check if $\textit{root}$ and $\textit{subRoot}$ are identical. If they are, we return $\text{true}$. Otherwise, we recursively check if the left or right subtree of $\textit{root}$ contains $\textit{subRoot}$.

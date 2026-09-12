@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four points form a square if the sides are equal and adjacent sides are perpendicular — equivalently, every triple is an isosceles right triangle. Testing permutations of a quadrilateral is messy.
+>
+> For each triple, check that two squared sides are equal and the Pythagorean identity holds, rejecting zero length. If all four triples pass, the points form a square.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

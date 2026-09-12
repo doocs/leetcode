@@ -69,6 +69,16 @@ If we decompress the Numbers table, we will get [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each value has a frequency; the median is the middle of the expanded sequence. Expanding the rows is unnecessary.
+>
+> Prefix frequencies from the left (`rk1`) and the right (`rk2`), with $s$ the total count. Rows with $rk1 \ge s/2$ and $rk2 \ge s/2$ are the middle value or the two middle values; average them. `ROUND(..., 1)` keeps one decimal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

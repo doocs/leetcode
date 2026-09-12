@@ -66,6 +66,16 @@ Since the third round will generate the final winner, you need to output the ans
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairings are $1$ vs $n$, $2$ vs $n-1$, and so on, nested recursively. $n$ is a power of two, so direct simulation works.
+>
+> Store the current teams (or already built strings). Each round wraps $i$ with $n-1-i$ as `(a,b)` into the first half and halves the length until one string remains.
+
+<!-- thinking:end -->
+
 We can use an array $s$ of length $n$ to store the ID of each team, and then simulate the process of the matches.
 
 In each round of matches, we pair up the first $n$ elements in array $s$ two by two, and then store the ID of the winners in the first $n/2$ positions of array $s$. After that, we halve $n$ and continue to the next round of matches, until $n$ is reduced to $1$. At this point, the first element in array $s$ is the final match-up scheme.

@@ -75,6 +75,16 @@ Although we have two 1s in the input, we should only return the number of <stron
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count distinct value-pairs with $|a-b|=k$. Checking all index pairs is $O(n^2)$.
+>
+> Scan once and store seen values: if $x-k$ or $x+k$ was seen, add the smaller endpoint to an answer set so each pair is stored once. Lookups are expected constant time.
+
+<!-- thinking:end -->
+
 Since $k$ is a fixed value, we can use a hash table $\textit{ans}$ to record the smaller value of the pairs, which allows us to determine the larger value. Finally, we return the size of $\textit{ans}$ as the answer.
 
 We traverse the array $\textit{nums}$. For the current number $x$, we use a hash table $\textit{vis}$ to record all the numbers that have been traversed. If $x-k$ is in $\textit{vis}$, we add $x-k$ to $\textit{ans}$. If $x+k$ is in $\textit{vis}$, we add $x$ to $\textit{ans}$. Then, we add $x$ to $\textit{vis}$. Continue traversing the array $\textit{nums}$ until the end.

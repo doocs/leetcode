@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A permutation of $s1$ is a window of length $|s1|$ with the same counts. Sorting every window is wasteful.
+>
+> A sliding window stores the remaining counts versus $s1$ and $\textit{need}$ is how many letters are still off. Add the right end, drop the left, and succeed when $\textit{need}=0$. Fixed length, one scan.
+
+<!-- thinking:end -->
+
 We use an array $\textit{cnt}$ to record the characters and their counts that need to be matched, and a variable $\textit{need}$ to record the number of different characters that still need to be matched. Initially, $\textit{cnt}$ contains the character counts from the string $\textit{s1}$, and $\textit{need}$ is the number of different characters in $\textit{s1}$.
 
 Then we traverse the string $\textit{s2}$. For each character, we decrement its corresponding value in $\textit{cnt}$. If the decremented value equals $0$, it means the current character's count in $\textit{s1}$ is satisfied, and we decrement $\textit{need}$. If the current index $i$ is greater than or equal to the length of $\textit{s1}$, we need to increment the corresponding value in $\textit{cnt}$ for $\textit{s2}[i-\textit{s1}]$. If the incremented value equals $1$, it means the current character's count in $\textit{s1}$ is no longer satisfied, and we increment $\textit{need}$. During the traversal, if the value of $\textit{need}$ equals $0$, it means all character counts are satisfied, and we have found a valid substring, so we return $\text{true}$.

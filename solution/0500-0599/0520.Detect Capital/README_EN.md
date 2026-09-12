@@ -50,6 +50,16 @@ tags:
 
 ### Solution 1: Count the Number of Uppercase Letters
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Valid capital use is all-lowercase, all-uppercase, or only the first letter uppercase. One pass that counts uppercase letters distinguishes the three.
+>
+> The count is $0$, equal to the length, or exactly $1$ with an uppercase first letter. No extra copies or regular expressions are required.
+
+<!-- thinking:end -->
+
 We can count the number of uppercase letters in the string, and then determine whether it meets the requirements of the problem based on the number of uppercase letters.
 
 - If the number of uppercase letters is 0 or equal to the length of the string, then return `true`.

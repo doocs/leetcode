@@ -94,6 +94,16 @@ Department table:
 
 ### Solution 1: Left Join + Grouping
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the student count per department, including zeros. An inner join would drop empty departments.
+>
+> Left-join `Student` onto `Department`, `COUNT` per department, and order by count descending then name. The left join keeps empty departments at count $0$.
+
+<!-- thinking:end -->
+
 We can use a left join to join the `Department` table and the `Student` table on `dept_id`, and then group by `dept_id` to count the number of students in each department. Finally, we can sort the result by `student_number` in descending order and `dept_name` in ascending order.
 
 <!-- tabs:start -->

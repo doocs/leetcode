@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A province is a connected component. The matrix tells which cities share an edge, so DFS or BFS from each unseen city paints one component.
+>
+> Scan cities, start a DFS at every unvisited index, and increment the answer. The visited array visits each city once.
+
+<!-- thinking:end -->
+
 We create an array $\textit{vis}$ to record whether each city has been visited.
 
 Next, we traverse each city $i$. If the city has not been visited, we start a depth-first search from that city. Using the matrix $\textit{isConnected}$, we find the cities directly connected to this city. These cities and the current city belong to the same province. We continue the depth-first search for these cities until all cities in the same province have been visited. This counts as one province, so we increment the answer $\textit{ans}$ by $1$. Then, we move to the next unvisited city and repeat the process until all cities have been traversed.
@@ -241,6 +251,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS needs a recursion stack and a visited array. Union-find merges along edges: start with $n$ components and decrement when an edge joins two roots.
+>
+> Iterate the upper triangle to avoid duplicate edges. Path compression keeps finds cheap. The remaining roots are the provinces.
+
+<!-- thinking:end -->
 
 We can also use the union-find data structure to maintain each connected component. Initially, each city belongs to a different connected component, so the number of provinces is $n$.
 

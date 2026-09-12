@@ -46,6 +46,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> In every block of $2k$ characters, reverse only the first $k$. A linear pass over blocks is enough.
+>
+> Convert to a list and, with step $2k$, reverse the slice of length $k$. A short tail reverses only what remains. Join back into a string.
+
+<!-- thinking:end -->
+
 We can traverse the string $\textit{s}$, iterating over every $\textit{2k}$ characters, and then use the two-pointer technique to reverse the first $\textit{k}$ characters among these $\textit{2k}$ characters.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{s}$.

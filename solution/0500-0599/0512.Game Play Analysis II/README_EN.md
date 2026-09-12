@@ -73,6 +73,16 @@ Activity table:
 
 ### Solution 1: Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After the first login date we still need that day's `device_id`. Grouping by device would not keep the device aligned with the minimum date.
+>
+> A subquery computes `MIN(event_date)` per player; the outer query matches `(player_id, event_date)` to recover the device. The composite key pins the first-login row.
+
+<!-- thinking:end -->
+
 We can use `GROUP BY` and `MIN` functions to find the first login date for each player, and then use a subquery with a composite key to find the first login device for each player.
 
 <!-- tabs:start -->
@@ -102,6 +112,16 @@ WHERE
 <!-- solution:start -->
 
 ### Solution 2: Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The subquery aggregates and then joins back. A window can rank dates per player on the base table and keep rank $1$.
+>
+> `RANK() OVER (PARTITION BY player_id ORDER BY event_date)` marks the first login; the outer filter drops the rest. Same result as Solution 1 without an explicit self-join.
+
+<!-- thinking:end -->
 
 We can use the window function `rank()`, which assigns a rank to each login date for each player, and then select the rows with a rank of $1$.
 

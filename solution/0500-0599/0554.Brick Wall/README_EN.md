@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Hash Table + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A vertical line that never cuts a brick's interior crosses $(\text{rows} - \text{rows aligned on that gap})$ bricks. Recounting rows per gap repeats work.
+>
+> Prefix-sum each row except the last brick and count gap positions. The most frequent gap is crossed least often; the answer is rows minus that frequency. The wall's edges are excluded, or the line would cross zero bricks.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to record the prefix sum of each row except for the last brick. The key is the value of the prefix sum, and the value is the number of times the prefix sum appears.
 
 Traverse each row, and for each brick in the current row, add it to the current prefix sum and update $\textit{cnt}$.

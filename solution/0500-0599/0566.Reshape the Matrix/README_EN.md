@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reshape is a row-major relayout into $r \times c$. If the product of dimensions differs, return the original matrix.
+>
+> A linear index $i$ reads `mat[i // n][i % n]` and writes `ans[i // c][i % c]`. One pass copies every element.
+
+<!-- thinking:end -->
+
 First, we get the number of rows and columns of the original matrix, denoted as $m$ and $n$ respectively. If $m \times n \neq r \times c$, then the matrix cannot be reshaped, and we return the original matrix directly.
 
 Otherwise, we create a new matrix with $r$ rows and $c$ columns. Starting from the first element of the original matrix, we traverse all elements in row-major order and place the traversed elements into the new matrix in order.
@@ -229,6 +239,16 @@ int** matrixReshape(int** mat, int matSize, int* matColSize, int r, int c, int* 
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already maps through a linear index. Solution 2 writes the same formula while iterating the destination, so only the loop order changes.
+>
+> The correspondence is identical; there is no new asymptotic gain.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

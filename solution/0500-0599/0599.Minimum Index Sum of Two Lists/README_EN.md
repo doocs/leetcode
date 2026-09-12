@@ -75,6 +75,16 @@ The strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Among common strings, keep those with the smallest index sum. Scanning the other list for every common string is $O(nm)$.
+>
+> Map `list2` from string to index, then scan `list1` for sums. Keep the current minimum: append on a tie, reset on a smaller sum. One hash build and one linear scan.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{d}$ to record the strings in $\textit{list2}$ and their indices, and a variable $\textit{mi}$ to record the minimum index sum.
 
 Then, we traverse $\textit{list1}$. For each string $\textit{s}$, if $\textit{s}$ appears in $\textit{list2}$, we calculate the index $\textit{i}$ of $\textit{s}$ in $\textit{list1}$ and the index $\textit{j}$ in $\textit{list2}$. If $\textit{i} + \textit{j} < \textit{mi}$, we update the answer array $\textit{ans}$ to $\textit{s}$ and update $\textit{mi}$ to $\textit{i} + \textit{j}$. If $\textit{i} + \textit{j} = \textit{mi}$, we add $\textit{s}$ to the answer array $\textit{ans}$.
