@@ -74,6 +74,18 @@ Note that there may be other sequences of operations which also sort the array.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$. Two values may be swapped iff they have the same popcount, so each equal-popcount run can be freely reordered.
+>
+> The array is sortable iff the sorted runs concatenate, i.e. the minimum of the current run is at least the maximum of the previous one.
+>
+> Two pointers cut the array by popcount, track each run’s extrema, and compare against the previous maximum.
+
+<!-- thinking:end -->
+
 We can use two pointers to divide the array $\textit{nums}$ into several subarrays, each subarray containing elements with the same number of $1$s in their binary representation. For each subarray, we only need to focus on its maximum and minimum values. If the minimum value is less than the maximum value of the previous subarray, then it is impossible to make the array ordered by swapping.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$. The space complexity is $O(1)$.

@@ -97,6 +97,18 @@ It can be shown that no other mapping can provide a lower cost.
 
 ### Solution 1: Greedy Algorithm + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike part I, letters may repeat and $n \le 10^5$. A letter occupies one key, and its cost is frequency times that key’s press rank.
+>
+> High frequencies should take earlier ranks. After sorting the $26$ counts decreasingly, the letter at position $i$ has rank $\lfloor i/8 \rfloor + 1$.
+>
+> A weighted sum with that formula is the answer.
+
+<!-- thinking:end -->
+
 We use a hash table or array $cnt$ to count the number of occurrences of each letter in the string $word$. Next, we sort the letters in descending order of their counts, and then group every $8$ letters together, assigning each group to the $8$ keys.
 
 The time complexity is $O(n + |\Sigma| \times \log |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of the string $word$, and $\Sigma$ is the set of letters that appear in the string $word$.

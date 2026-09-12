@@ -72,6 +72,18 @@ It can be shown that 6 is the maximum possible size of the set s after the remov
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both arrays have even length $n \le 2 \times 10^4$ and we must drop $n/2$ elements from each. Enumerating deletions is impossible.
+>
+> The union is built from values unique to $\textit{nums}_1$, unique to $\textit{nums}_2$, and the intersection. Each side has only $n/2$ slots.
+>
+> We therefore fill each quota with exclusive values first, then pad with the intersection, and cap the total by $n$. Set difference and intersection give the three counts in one pass.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

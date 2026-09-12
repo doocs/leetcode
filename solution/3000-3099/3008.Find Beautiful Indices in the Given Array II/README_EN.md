@@ -83,6 +83,18 @@ Thus we return [0] as the result.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The problem is the same as part I, except $|a|$ and $|b|$ may be as large as $|s| \le 5 \times 10^5$. Naive matching and pairwise checks fail.
+>
+> KMP is linear for any pattern length, and the occurrence lists stay sorted, so the same KMP-plus-two-pointers scheme still works.
+>
+> The implementation matches part I: prefix functions, searches, then a scan of the two sorted lists.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

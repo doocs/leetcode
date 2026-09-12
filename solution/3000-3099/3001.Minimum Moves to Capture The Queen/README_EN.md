@@ -76,6 +76,18 @@ It is impossible to capture the black queen in less than two moves since it is n
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is $8 \times 8$, so simulating rook and bishop paths is constant time. Each piece can reach any aligned square in at most one move, so the answer is at most $2$.
+>
+> The only one-move cases are a clear rook file/rank or a clear bishop diagonal to the queen.
+>
+> Products such as $(d-b)(d-f)>0$ test that the blocking piece lies outside the open segment. If none of the four alignments is free, the rook captures in two moves.
+
+<!-- thinking:end -->
+
 According to the problem description, we can categorize the scenarios for capturing the black queen as follows:
 
 1. The white rook and the black queen are in the same row with no other pieces in between. In this case, the white rook only needs to move once.
