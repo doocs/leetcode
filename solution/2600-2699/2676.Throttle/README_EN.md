@@ -96,6 +96,16 @@ The 5th is called at 300ms, but it is after 260ms, so it should be called immedi
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Throttle fires immediately on the first call in a window and later replays the latest arguments. Unlike debounce, a `pending` flag marks the cool-down.
+>
+> Calls during the cool-down only refresh `nextArgs`; when the timer ends, leftover arguments recurse into the wrapper and open the next window.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

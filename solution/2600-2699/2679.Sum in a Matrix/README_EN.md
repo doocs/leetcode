@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each round deletes one current row-maximum and adds the largest among them. Repeated linear scans are slower than necessary. Sorting every row aligns the $k$-th largest values in the same column; the sum of column maxima is the score.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

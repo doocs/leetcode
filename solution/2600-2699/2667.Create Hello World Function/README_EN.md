@@ -57,6 +57,14 @@ Any arguments could be passed to the function but it should still always return 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The factory must return a function that ignores every argument and always yields a fixed string. The inner function never reads `args`, so every input produces the same result.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -76,6 +76,16 @@ It can be shown that this is the minimum answer we can achieve.
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may only increase values so every root-to-leaf path sums to the same number. Top-down cannot see how much a subtree still needs; equal path sums hold iff every internal node has equal leaf-path sums in both children.
+>
+> Bottom-up, the absolute difference of the two children must be added on the smaller side; the parent then absorbs the larger child as that subtree's common leaf sum. A perfect binary tree is indexed directly.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to calculate the minimum number of increments to make the path values from the root node to each leaf node equal.
 
 The path values from the root node to each leaf node being equal is actually equivalent to the path values from any node as the root of a subtree to each leaf node of that subtree being equal.

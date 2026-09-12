@@ -68,6 +68,16 @@ For index i = 4, there are 3 distinct elements in the prefix and no elements in 
 
 ### Solution 1: Hash Table + Preprocessed Suffix
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index needs distinct counts of its prefix minus its suffix. Rebuilding two sets per $i$ is wasteful even for $n \le 50$.
+>
+> A right-to-left set fills suffix distinct counts $suf[i]$; a second left-to-right pass yields $|s|-suf[i+1]$.
+
+<!-- thinking:end -->
+
 We can preprocess a suffix array $suf$, where $suf[i]$ represents the number of distinct elements in the suffix $nums[i, ..., n - 1]$. During the preprocessing, we use a hash table $s$ to maintain the elements that have appeared in the suffix, so we can query the number of distinct elements in the suffix in $O(1)$ time.
 
 After preprocessing the suffix array $suf$, we clear the hash table $s$, and then traverse the array $nums$ again, using the hash table $s$ to maintain the elements that have appeared in the prefix. The answer at position $i$ is the number of distinct elements in $s$ minus $suf[i + 1]$, that is, $s.size() - suf[i + 1]$.

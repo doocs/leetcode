@@ -67,6 +67,16 @@ onceFn(4, 6, 8); // undefined, fn 没有被调用
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 包装后的函数只应生效一次。若无标志位，每次都会再进原函数。
+>
+> 闭包布尔 $called$ 在首次调用后置位，其后直接返回 `undefined`。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -72,6 +72,16 @@ counter.reset(); // 0
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要增减与复位三个操作共享同一计数。三个全局函数会冲突，闭包内的 $val$ 把状态关在实例里。
+>
+> `increment`/`decrement` 改 $val$ 并返回新值，`reset` 写回初始 $init$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

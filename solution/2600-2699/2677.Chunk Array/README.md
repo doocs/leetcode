@@ -75,6 +75,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按固定长度切分数组，末块可较短。下标每次加 $size$ 并 `slice`，边界由 `slice` 自动截断，无需特判最后一块。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

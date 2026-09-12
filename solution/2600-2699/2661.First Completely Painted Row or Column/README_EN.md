@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Hash Table + Array Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Cells are painted in $arr$ order; we want the first full row or column. Rescanning a row or column each time is too slow for $mn \le 10^5$.
+>
+> Map every value to its coordinates and increment row and column counts. A count reaching $n$ or $m$ completes that line; the first such index is the answer.
+
+<!-- thinking:end -->
+
 We use a hash table $idx$ to record the position of each element in the matrix $mat$, that is $idx[mat[i][j]] = (i, j)$, and define two arrays $row$ and $col$ to record the number of colored elements in each row and each column respectively.
 
 Traverse the array $arr$. For each element $arr[k]$, we find its position $(i, j)$ in the matrix $mat$, and then add $row[i]$ and $col[j]$ by one. If $row[i] = n$ or $col[j] = m$, it means that the $i$-th row or the $j$-th column has been colored, so $arr[k]$ is the element we are looking for, and we return $k$.

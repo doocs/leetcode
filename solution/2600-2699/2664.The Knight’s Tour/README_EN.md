@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1: Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The knight must visit every cell once. Boards are at most $5 \times 5$, so backtracking is feasible. Try the eight unused neighbors and freeze the board when the step number reaches $mn-1$.
+>
+> Failed branches undo the write. The first Hamiltonian path is enough.
+
+<!-- thinking:end -->
+
 We create a two-dimensional array $g$, used to record the knight's movement order, initially $g[r][c] = -1$, and all other positions are set to $-1$ as well. Additionally, we need a variable $ok$ to record whether a solution has been found.
 
 Next, we start depth-first search from $(r, c)$. Each time we search position $(i, j)$, we first check if $g[i][j]$ equals $m \times n - 1$. If so, it means we have found a solution, then we set $ok$ to `true` and return. Otherwise, we enumerate the knight's eight possible movement directions to position $(x, y)$. If $0 \leq x < m$, $0 \leq y < n$, and $g[x][y]=-1$, then we update $g[x][y]$ to $g[i][j]+1$, and recursively search position $(x, y)$. If after the search, the variable $ok$ is `true`, we return directly. Otherwise, we reset $g[x][y]$ to $-1$ and continue searching in other directions.

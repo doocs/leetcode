@@ -151,6 +151,16 @@ There are no keys so every row is an empty array.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An object array must become a matrix whose columns are dotted paths, with blanks for missing keys. Manual layering misses nested fields. DFS collects leaves as `{path: value}`, then unique sorted paths become the header.
+>
+> Each row looks up those paths and writes an empty string when absent.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

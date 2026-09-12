@@ -99,6 +99,16 @@ frequencyTracker.hasFrequency(1); // Returns true, because 3 occurs once
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `hasFrequency` asks whether any value has a given count; scanning every counter fails for $q \le 10^5$.
+>
+> $cnt$ stores each number's frequency and $freq$ stores how many numbers have that frequency. Updates decrement the old bucket and increment the new one; a query is $freq[f]>0$.
+
+<!-- thinking:end -->
+
 We define two hash tables, where $cnt$ is used to record the occurrence count of each number, and $freq$ is used to record the count of numbers with each frequency.
 
 For the `add` operation, we directly decrement the value corresponding to $cnt[number]$ in the hash table $freq$, then increment $cnt[number]$, and finally increment the value corresponding to $cnt[number]$ in $freq$.

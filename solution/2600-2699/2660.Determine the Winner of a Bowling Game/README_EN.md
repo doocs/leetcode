@@ -114,6 +114,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score only depends on whether a $10$ occurred in the previous two turns. Lengths are at most $1000$, so we accumulate both scores by that rule and compare.
+
+<!-- thinking:end -->
+
 We can define a function $f(arr)$ to calculate the scores of the two players, denoted as $a$ and $b$, respectively, and then return the answer based on the relationship between $a$ and $b$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.
