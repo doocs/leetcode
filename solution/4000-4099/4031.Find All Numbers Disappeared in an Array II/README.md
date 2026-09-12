@@ -92,6 +92,18 @@ source: 第 516 场周赛 Q2
 
 ### 方法一：排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 缺失的是 $[\textit{lower},\textit{upper}]$ 中未出现的连续段。若对范围内每个整数查询是否出现，值域可能远大于 $n$。
+>
+> 将出现值排序去重后，相邻两个落在区间内的数之间的空隙就是一段缺失；再补上相对 $\textit{lower}$ 与 $\textit{upper}$ 的两端空隙。
+>
+> 用 $\textit{prev}=\textit{lower}-1$ 扫描，遇到 $x-\textit{prev}>1$ 就写入 $[\textit{prev}+1,x-1]$。
+
+<!-- thinking:end -->
+
 我们将数组 $\textit{nums}$ 排序后扫描。用 $\textit{prev}$ 记录上一个已经出现在区间 $[\textit{lower}, \textit{upper}]$ 内的数，初始值为 $\textit{lower} - 1$。
 
 遍历排序后的数组，跳过不在 $[\textit{lower}, \textit{upper}]$ 内的元素。若当前数 $x$ 与 $\textit{prev}$ 之间存在空隙，即 $x - \textit{prev} > 1$，则将缺失区间 $[\textit{prev} + 1, x - 1]$ 加入答案，然后将 $\textit{prev}$ 更新为 $x$。

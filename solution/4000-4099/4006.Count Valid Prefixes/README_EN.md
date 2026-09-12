@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A prefix is valid if and only if the absolute difference between the counts of `'0'` and `'1'` is at most $1$. Recounting both characters on every prefix would be quadratic.
+>
+> A single variable $t$ tracks the difference from left to right: increment on `'1'`, decrement on `'0'`. At each index we test $|t|\le 1$.
+>
+> The whole count is therefore a linear scan; we need not store a count array for every prefix.
+
+<!-- thinking:end -->
+
 A string can be rearranged into an alternating string if and only if the counts of `'0'` and `'1'` in it differ by at most $1$.
 
 Therefore, we traverse the string $s$ and maintain a variable $t$ equal to the number of `'1'`s minus the number of `'0'`s in the current prefix (increment by one on `'1'`, decrement by one on `'0'`). If $|t| \leq 1$, the current prefix is valid, and we add one to the answer.

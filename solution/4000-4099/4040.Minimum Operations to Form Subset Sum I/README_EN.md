@@ -90,6 +90,18 @@ source: Weekly Contest 517 Q3
 
 ### Solution 1: 0-1 Knapsack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Multiplying and dividing the same element $a$ and $b$ times can be replaced by $|a-b|$ one-way operations; mixing the two only wastes steps. Each element is therefore scaled only by multiplying by $2$, only by dividing by $2$, or not taken.
+>
+> The resulting (value, cost) pairs are $0$-$1$ knapsack items with capacity $\textit{sum}$. For $n\le 100$ and $S\le 5000$, enumerating $O(\log S)$ scalings is acceptable.
+>
+> Updating capacities backward ensures each element is used at most once. If $f[\textit{sum}]$ stays infinite, there is no solution.
+
+<!-- thinking:end -->
+
 Applying $a$ multiplications followed by $b$ divisions to an element gives $\lfloor x \times 2^a / 2^b \rfloor$, which is exactly $x \times 2^{a-b}$ or $\lfloor x / 2^{b-a} \rfloor$. The same value is reachable with only $|a - b|$ operations instead of $a + b$, so mixing the two directions is never worthwhile. Therefore each element has only two families of reachable values: $x \times 2^i$ or $\lfloor x / 2^i \rfloor$, each costing $i$ operations, while an element left out of the subset costs nothing.
 
 This turns the problem into a 0-1 knapsack: every element contributes at most one (value, cost) pair, and we want the minimum cost to fill a capacity of exactly $\textit{sum}$.

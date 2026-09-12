@@ -102,6 +102,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4045.Co
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 机器人向右匀速，间距不超过 $\textit{distance}$ 就合并，合并后继承最右侧成员的位置与速度。$n=10^5$，不能按连续时间模拟每一次相遇。
+>
+> 一组能否并入右侧组，取决于相对速度以及初始间距能否在有限时间内缩到 $\textit{distance}$ 以内。从右向左扫描，维护当前组代表（最右机器人的位置与速度）：左侧若能赶上则并入，否则形成新组。
+>
+> 这与车队问题同一结构，线性一遍即可得到最终组数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

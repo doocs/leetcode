@@ -80,6 +80,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pair strength depends only on the two values and their $\gcd$. For $n\le 2000$ there are about $2\times 10^6$ unordered pairs.
+>
+> We enumerate $i<j$, compute $\frac{\textit{nums}[i]\cdot\textit{nums}[j]}{\gcd^2}$ by Euclidean algorithm, and keep the maximum.
+>
+> $O(n^2\log M)$ already fits the limits, so grouping the array by common divisors is unnecessary.
+
+<!-- thinking:end -->
+
 We directly enumerate all pairs $(i, j)$ where $i < j$, calculate the strength of each pair $\frac{\textit{nums}[i] \times \textit{nums}[j]}{\gcd(\textit{nums}[i], \textit{nums}[j])^2}$, and take the maximum.
 
 The greatest common divisor $\gcd$ can be computed using the Euclidean algorithm.

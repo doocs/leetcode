@@ -97,6 +97,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4045.Co
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Robots move right at constant speed and merge when they are at most $\textit{distance}$ apart; the new group inherits the rightmost member's position and speed. For $n=10^5$ we cannot simulate every meeting in continuous time.
+>
+> Whether a group catches the one on its right depends on relative speed and on whether the gap can shrink to $\textit{distance}$. A right-to-left scan keeps the current group's representative (the rightmost robot): a left robot joins if it can catch up, otherwise it starts a new group.
+>
+> The structure is the same as the car-fleet problem, and one linear pass yields the final number of groups.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

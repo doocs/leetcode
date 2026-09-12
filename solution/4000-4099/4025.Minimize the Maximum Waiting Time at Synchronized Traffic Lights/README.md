@@ -118,6 +118,18 @@ tags:
 
 ### 方法一：贪心
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 信号灯同步且周期相同，汽车 $j$ 的到达余数为 $r=\textit{arrivalTime}[j]\bmod \textit{period}$。若再为每辆车枚举全部分配，只会重复同一计算。
+>
+> 设最长绿灯为 $\textit{mx}$。若 $r<\textit{mx}$，把该车分给这盏灯则等待为 $0$；若 $r\ge\textit{mx}$，则它对每盏灯都已错过绿灯，等待同为 $\textit{period}-r$。
+>
+> 因此惩罚只由余数不小于 $\textit{mx}$ 的那些车决定，取其等待的最大值；若没有这样的车，答案为 $0$。
+
+<!-- thinking:end -->
+
 设最长绿灯时长为 $\textit{mx} = \max(\textit{lights})$。汽车 $j$ 到达时刻在周期内的余数为 $r = \textit{arrivalTime}[j] \bmod \textit{period}$。
 
 - 若 $r < \textit{mx}$，可以把该车分配给绿灯最长的信号灯，等待时间为 $0$。

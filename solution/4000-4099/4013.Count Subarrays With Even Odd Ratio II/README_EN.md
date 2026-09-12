@@ -195,6 +195,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The quadratic enumeration of the previous problem does not survive $n=10^5$. The condition $y>0$ and $\frac{x}{y}\le\frac{a}{b}$ rewrites as $ay-bx\ge 0$ when $b>0$; an all-even subarray makes the same expression negative, so both constraints merge.
+>
+> Mapping odds to $+a$ and evens to $-b$, we count nonempty subarrays whose sum is at least $0$, i.e. prefix pairs with $s[L]\le s[R]$.
+>
+> Scanning $R$, a Fenwick tree on the compressed prefix values stores how many earlier $s[L]$ have appeared, we query those $\le s[R]$, then insert the current value.
+
+<!-- thinking:end -->
+
 For a subarray, let $x$ be the number of even elements and $y$ be the number of odd elements. The problem requires $y > 0$ and $\frac{x}{y} \le \frac{a}{b}$. Since $b > 0$ and $y > 0$, the inequality is equivalent to $a \cdot y - b \cdot x \ge 0$.
 
 When $y = 0$, since the subarray is non-empty, we must have $x > 0$. In this case, $a \cdot y - b \cdot x = -b \cdot x < 0$, so the inequality does not hold. Therefore, the two conditions in the problem can be merged into a single one: $a \cdot y - b \cdot x \ge 0$.

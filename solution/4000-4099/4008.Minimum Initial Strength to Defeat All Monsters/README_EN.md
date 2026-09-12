@@ -100,6 +100,18 @@ tags:
 
 ### Solution 1: Difference Array + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A larger initial strength always makes it easier to defeat every monster, so the feasibility predicate is monotone and admits binary search.
+>
+> Applying every boost as a range add inside each check would multiply the cost by the number of boosts. A difference array turns each boost into two endpoint updates; a single scan with the monsters then tests a candidate in $O(n)$.
+>
+> An upper bound of $10^{15}$ already covers the sum of all monster strengths, so binary search yields the minimum feasible start.
+
+<!-- thinking:end -->
+
 Each boost adds a value to an entire index range $[l, r]$, so we first apply all boosts using a difference array $d$. The $\textit{bonus}$ when fighting the $i$-th monster is then the prefix sum $\sum_{j=0}^{i} d[j]$.
 
 Next, we binary search the initial strength $v$. For a given $v$, we simulate the fights from left to right: maintain the current $\textit{bonus}$ (the prefix sum of the difference array); if $v + \textit{bonus} < \textit{monsters}[i]$, the monster cannot be defeated and $v$ is infeasible; otherwise, we defeat it, decrease $v$ by $\textit{monsters}[i]$, and reset $v$ to $0$ if it becomes negative. If all monsters can be defeated, $v$ is feasible.

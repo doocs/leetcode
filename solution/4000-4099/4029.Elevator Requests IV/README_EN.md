@@ -98,6 +98,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4029.El
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Requests have arrival times and the elevator may wait. $m\le 500$ rules out a $2^m$ subset DP. A request is finished at $\max(\text{time of arrival at that floor},\textit{arrival})$, and we want the moment when the last request is done.
+>
+> The floors still lie on a line, so an order is a sequence of moves plus mandatory waits. After sorting the requests, an $O(m^2)$ DP that keeps the processed endpoints (or a processed prefix and the current floor) charges travel and waiting on each transition.
+>
+> The raw floor indices need not enter the state—only distances between requests.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

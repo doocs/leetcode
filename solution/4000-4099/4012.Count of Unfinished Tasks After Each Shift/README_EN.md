@@ -106,6 +106,18 @@ tags:
 
 ### Solution 1: Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Shifts consume a cyclic task queue. Simulating each shift by walking tasks one by one would multiply $n$ by $m$.
+>
+> Prefix sums of task times are monotone, so the farthest task a leftover budget can finish can be found by binary search. Those prefix sums answer “how much time is needed to finish several whole tasks after the current one,” and each shift then updates the index and the partial time already spent on the current task.
+>
+> If the leftover time clears the rest of the queue, the pointer returns to the front and that shift ends with zero unfinished tasks.
+
+<!-- thinking:end -->
+
 We first precompute the prefix sum array $s$ of task times, where $s[i]$ represents the total time required for the first $i$ tasks.
 
 Then we use a variable $i$ to record the index of the task currently being processed, and a variable $\textit{cur}$ to record how much time has already been spent on that task. We simulate each shift in order:

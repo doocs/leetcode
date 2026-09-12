@@ -129,6 +129,18 @@ tags:
 
 ### Solution 1: Dijkstra
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A cell allows both a move and a wait. The parity of the next step flips, and a move's cost depends on whether its direction matches that parity. On $mn\le 10^5$, a recurrence over cells alone does not cleanly capture waiting and the direction penalty together.
+>
+> Pairing position with the next-step parity turns waits and the four moves into nonnegative edges: a wait pays $\textit{penalty}$ and flips parity; a move adds the destination cost and, if the direction mismatches the current parity, the same penalty.
+>
+> The shortest path in this state graph is the first time we reach the destination, which Dijkstra computes.
+
+<!-- thinking:end -->
+
 The cost to enter cell $(i, j)$ is $(i+1)(j+1)$. Actions are numbered from $1$: on odd actions you should move right or down, and on even actions left or up; you may also wait in place. Moving against the parity rule costs an extra $\textit{penalty}$ of the current cell, and waiting also costs $\textit{penalty}$. After every action the required parity flips.
 
 Use state $(i, j, k)$ for the minimum cost of being at $(i, j)$ when the next action has parity $k$ ($k = 1$ for an odd action, $k = 0$ for an even action). The start is $(0, 0, 1)$ with cost $1$.

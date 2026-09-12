@@ -85,6 +85,18 @@ source: Biweekly Contest 190 Q3
 
 ### Solution 1: Greedy + Binary Decomposition
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two adjacent equal letters merge into the next letter, so $\texttt{'a'}+j$ is worth $2^j$ letters $\texttt{'a'}$. Strings reachable from $x$ copies of $\texttt{'a'}$ are exactly those whose letter weights sum to $x$.
+>
+> The lexicographically largest string uses heavier letters first. From $j=25$ downward we take $t=\lfloor x/2^j\rfloor$ copies of that letter and set $x\leftarrow x\bmod 2^j$.
+>
+> For $j<25$ we have $t\in\{0,1\}$, so only $\texttt{'z'}$ can repeat, and $\texttt{"zz"}$ cannot merge further. The string is therefore legal and maximal.
+
+<!-- thinking:end -->
+
 Since two adjacent identical letters merge into the next letter of the alphabet, the letter $\texttt{'a'} + j$ is equivalent to $2^j$ copies of $\texttt{'a'}$. In other words, the strings reachable from $x$ copies of $\texttt{'a'}$ are exactly those whose letter weights sum to $x$.
 
 To maximize the lexicographical order, we greedily use the heaviest letters first. The largest letter is $\texttt{'z'}$ with weight $2^{25}$, so we iterate $j$ from $25$ down to $0$, append $t = \left\lfloor x / 2^j \right\rfloor$ copies of the letter $\texttt{'a'} + j$ to the answer, and set $x \leftarrow x \bmod 2^j$.

@@ -155,6 +155,18 @@ source: Biweekly Contest 190 Q4
 
 ### Solution 1: Prefix and Suffix GCD + Enumerate Candidate Removed Indices
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scoring every deletion in $O(n)$ no longer works for $n=10^5$. Each prefix GCD divides the previous one, so the chain changes at most $O(\log M)$ times.
+>
+> If neither the prefix nor the suffix GCD changes at an index, deleting it leaves every other GCD untouched and only merges two split positions, so the score cannot increase. Only indices where a GCD actually changes are worth recomputing.
+>
+> One forward mark and one backward mark produce $O(\log M)$ candidates; we rescore each deletion and take the maximum with the score of the intact array.
+
+<!-- thinking:end -->
+
 Following the idea of the previous problem, for an array $\textit{arr}$ of length $m$ we precompute the prefix GCD array $\textit{pre}$ and the suffix GCD array $\textit{suf}$. A split position $i$ is valid if and only if $\textit{pre}[i] = \textit{suf}[i + 1]$, so the score of $\textit{arr}$ is the number of indices satisfying this condition. However, $n$ can be as large as $10^5$ here, so enumerating every removed index and spending $O(n)$ on each of them is too slow.
 
 Observe that every entry of the prefix GCD sequence divides the previous one, so it is at least halved whenever it changes, meaning the whole sequence changes only $O(\log M)$ times. If the prefix GCD does not change at index $i$, i.e. $\textit{pre}[i] = \textit{pre}[i - 1]$, which is equivalent to $\textit{pre}[i - 1]$ dividing $\textit{nums}[i]$, then removing $\textit{nums}[i]$ leaves every prefix GCD unchanged. Likewise, if the suffix GCD does not change at index $i$ either, removing it leaves every suffix GCD unchanged as well. In that case the only effect of the removal is to merge the split positions $i - 1$ and $i$ into a single one, and those two positions are either both valid or both invalid, so the score can only decrease.

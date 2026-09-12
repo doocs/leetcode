@@ -157,6 +157,18 @@ source: 第 190 场双周赛 Q2
 
 ### 方法一：枚举删除位置 + 前后缀 GCD
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 分割位置 $i$ 有效当且仅当左侧前缀 GCD 等于右侧后缀 GCD。$n\le 1000$，若再对 GCD 链做精细的删除分析并无必要。
+>
+> 枚举被删除的下标（以及一个都不删），对得到的数组预处理前缀、后缀 GCD，统计相等的分割点，取所有情形的最大值。
+>
+> 单次计分为 $O(n\log M)$，总时间 $O(n^2\log M)$ 可以接受。
+
+<!-- thinking:end -->
+
 由于数组长度 $n \leq 1000$，我们可以枚举被移除元素的下标（包括不移除任何元素的情况），得到数组 $\textit{arr}$，再统计 $\textit{arr}$ 的得分，取所有情况的最大值。
 
 对于长度为 $m$ 的数组 $\textit{arr}$，我们预处理出前缀 GCD 数组 $\textit{pre}$ 和后缀 GCD 数组 $\textit{suf}$，其中 $\textit{pre}[i] = \gcd(\textit{arr}[0..i])$，$\textit{suf}[i] = \gcd(\textit{arr}[i..m - 1])$。那么分割位置 $i$ 有效当且仅当 $\textit{pre}[i] = \textit{suf}[i + 1]$，统计满足条件的下标个数即为 $\textit{arr}$ 的得分。

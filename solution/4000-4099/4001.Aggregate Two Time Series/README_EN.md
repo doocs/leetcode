@@ -156,6 +156,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both series are strictly increasing in time and can have length $10^5$. Hashing timestamps and then backfilling missing points adds boundary cases and random access we do not need.
+>
+> Alignment is an ordered merge. Two pointers always emit the earlier timestamp and add the other series' current value; equal timestamps advance both pointers.
+>
+> After one series ends, the leftover points have no further counterpart update and are appended as-is.
+
+<!-- thinking:end -->
+
 Both series are strictly increasing by timestamp, so they can be merged with two pointers. Taking the value of the next later timestamp for a missing timestamp is equivalent to: the value at the current pointer can be used directly for earlier missing timestamps in that series.
 
 Let pointers $i$ and $j$ point to the two series. While both are not exhausted:

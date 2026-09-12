@@ -80,6 +80,18 @@ One optimal solution:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are only $n\le 2000$ left rotations, and pairing characters after each rotation is $O(n^2)$, which fits the limit.
+>
+> Letters may only increment around the alphabet, so the cheapest way to equalise a pair is the shorter arc $\min(d,26-d)$; the optimal target is one of the two letters.
+>
+> Adding the rotation cost $k$ to every pair's increment cost and taking the minimum yields the answer.
+
+<!-- thinking:end -->
+
 We enumerate the number of left rotations $k$ ($0 \leq k < n$), which costs $k$ operations. After $k$ left rotations, index $i$ in the new string corresponds to index $(i + k) \bmod n$ in the original string.
 
 For each pair of symmetric positions, we need to make the two characters the same by increment operations. Since we can only increment forward (`'z'` wraps to `'a'`), the minimum number of increments to make two letters equal is the shorter arc length on the letter ring, i.e., $\min(d, 26 - d)$, where $d$ is the absolute difference of their letter indices. The optimal target letter is always one of the two letters.

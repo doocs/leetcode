@@ -77,6 +77,18 @@ One optimal solution:
 
 ### Solution 1: FFT
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The pairing model is the same as in the rotated-palindrome I problem, but $n$ reaches $5\times 10^4$, so enumerating $k$ and scanning pairs is no longer feasible.
+>
+> After $k$ left rotations, every palindromic pair has original indices summing to the same $c=(2k+n-1)\bmod n$ modulo $n$. The remaining work is the total shorter-arc cost for every index-sum $c$.
+>
+> That cost is an even function on $\mathbb{Z}/26\mathbb{Z}$. Its DFT followed by a circular convolution yields every $c$ at once; we add the rotation count $k$ and take the minimum. Conjugate symmetry leaves only $14$ frequencies.
+
+<!-- thinking:end -->
+
 This problem is the same as "Minimum Operations to Make a Rotated Palindrome I", but $n$ can be as large as $5 \times 10^4$, so enumerating rotations and pairing characters naively is too slow.
 
 After $k$ left rotations, index $i$ in the new string corresponds to index $(i+k) \bmod n$ in the original string. The sum of original indices of a palindrome pair $(i, n-1-i)$ is $2k+n-1$, which is constant for all pairs. Thus, after $k$ rotations, every pair has original-index sum congruent to $c = (2k+n-1) \bmod n$.

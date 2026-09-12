@@ -104,6 +104,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum gap can only lie between some adjacent pair of workers. To widen $(i,i+1)$, workers $0..i$ should take the leftmost feasible stations and workers $i+1..n-1$ the rightmost, subject to skill matching.
+>
+> A right-to-left pass stores the rightmost station worker $i$ can take once later workers have claimed righter stations; a left-to-right pass then seats worker $i$ at the leftmost match and updates the answer by the difference.
+>
+> A single worker has no gap, so the answer is $0$.
+
+<!-- thinking:end -->
+
 The maximum gap must occur between some pair of consecutive workers $(i, i+1)$. To maximize this pair's gap, workers $0, 1, \ldots, i$ should be assigned as far left as possible, and workers $i+1, \ldots, n-1$ as far right as possible.
 
 Thus, we scan from right to left and precompute $\textit{suf}[i]$: the rightmost station worker $i$ can take, assuming workers $i+1, \ldots, n-1$ occupy even righter stations. Then we scan from left to right, assign worker $i$ to the current leftmost matching station $\textit{pre}$, and update the answer with $\textit{suf}[i+1] - \textit{pre}$.
