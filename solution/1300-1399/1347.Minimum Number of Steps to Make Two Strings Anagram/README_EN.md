@@ -68,6 +68,14 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Make equal-length $t$ an anagram of $s$ by changing characters. The number of changes is how many extra characters $t$ has versus $s$. Count $s$, then walk $t$: decrementing below zero means that character is in surplus and costs one change.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each character in the string $\textit{s}$. Then, we traverse the string $\textit{t}$. For each character, we decrement its count in $\textit{cnt}$. If the decremented value is less than $0$, it means that this character appears more times in the string $\textit{t}$ than in the string $\textit{s}$. In this case, we need to replace this character and increment the answer by one.
 
 After the traversal, we return the answer.

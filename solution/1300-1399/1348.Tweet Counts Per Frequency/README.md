@@ -92,6 +92,14 @@ tweetCounts.getTweetCountsPerFrequency("hour", "tweet3", 0, 210);  //&nbsp;返�
 
 ### 方法一：哈希表 + 有序列表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按用户记推文时间，并按分钟/小时/天切分 $[\textit{start},\textit{end}]$ 统计每段条数。次数与跨度均可达 $10^4$，线性扫全部推文偏慢。按用户维护有序时间表，插入 $O(\log n)$；查询时对每段用两次二分得到落在 $[t,\min(t+f,\textit{end}+1))$ 内的个数。
+
+<!-- thinking:end -->
+
 我们用哈希表 `data` 记录每个用户的推文时间，用有序列表记录每个用户的所有推文时间。
 
 对于 `recordTweet` 操作，我们将推文时间加入到用户的推文时间列表中。

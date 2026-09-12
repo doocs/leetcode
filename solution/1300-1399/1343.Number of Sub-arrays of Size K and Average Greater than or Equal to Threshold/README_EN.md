@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count windows of length $k$ whose average is at least $\textit{threshold}$. $n \le 10^5$ forbids rebuilding each window. The average test is the sum versus $k \times \textit{threshold}$. A sliding sum of width $k$ updates in $O(1)$ and counts qualifying windows in one pass.
+
+<!-- thinking:end -->
+
 We can multiply `threshold` by $k$, so that we can directly compare the sum within the window with `threshold`.
 
 We maintain a sliding window of length $k$, and for each window, we calculate the sum $s$. If $s$ is greater than or equal to `threshold`, we increment the answer.

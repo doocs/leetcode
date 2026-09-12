@@ -100,6 +100,14 @@ Singing is performed by 2 friends (Victor J. and Jade W.)
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Activities whose participant count is neither the maximum nor the minimum. Count friends per activity, then keep names whose count is strictly between the global min and max.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

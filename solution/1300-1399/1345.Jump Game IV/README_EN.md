@@ -75,6 +75,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A jump may go to a neighbor or to any equal value; we want the fewest jumps to the last index. $n \le 5 \times 10^4$, so rescanning an equal-value list is too slow. Layered BFS enqueues $i\pm 1$ and the equal indices, then $\textit{pop}$s that value's list so each such edge is used once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

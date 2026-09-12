@@ -64,6 +64,14 @@ Attend the third event on day 3.
 
 ### Solution 1: Hash Table + Greedy + Priority Queue
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One event per day, each event occupying any day in $[s,e]$. $n$ and the day range reach $10^5$, so sorting by end and scanning days naively is tight. Sweep by day: push endings that start today into a min-heap, drop expired ones, and attend the earliest-ending event. Each day is given to the most urgent remaining event.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{g}$ to record the start and end times of each event. The key is the start time of the event, and the value is a list containing the end times of all events that start at that time. Two variables, $\textit{l}$ and $\textit{r}$, are used to record the minimum start time and the maximum end time among all events.
 
 For each time point $s$ from $\textit{l}$ to $\textit{r}$ in increasing order, we perform the following steps:

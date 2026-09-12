@@ -77,6 +77,14 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 
 ### Solution 1: Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> From $i$ we may jump at most $d$ away to a strictly shorter index with nothing taller in between; we want the longest visit from any start. $n \le 1000$ allows memoized $dfs(i)$: scan left and right until we leave the window or meet a bar that is not shorter, recurse, and add one. The answer is the maximum over starts.
+
+<!-- thinking:end -->
+
 We design a function $\text{dfs}(i)$ to represent the maximum number of indices that can be visited starting from index $i$. We enumerate all valid jump targets $j$ for $i$, where $i - d \leq j \leq i + d$ and $\text{arr}[i] > \text{arr}[j]$. For each valid $j$, we recursively compute $\text{dfs}(j)$ and take the maximum among them. The final answer is the maximum value of $\text{dfs}(i)$ over all indices $i$.
 
 We can use memoized search to optimize this process, that is, use an array $f$ to record the value of $\text{dfs}$ for each index and avoid repeated computation.
@@ -303,6 +311,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization expands in call order. Filling $f[i]$ from shorter bars to taller ones makes every legal $j$ already computed, so the same transition becomes iterative DP without a recursion stack.
+
+<!-- thinking:end -->
 
 We can pair each element $x$ in the array $\text{arr}$ with its index $i$ to form a tuple $(x, i)$, and sort these tuples in ascending order by $x$.
 

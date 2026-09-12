@@ -87,6 +87,14 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0.  7<sup>th
 
 ### Solution 1: Hash Table + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every $n$-th customer gets a bill-wide discount. Product ids map to prices once in a hash table. A counter modulo $n$ applies the discount when it wraps to $0$ and returns the raw sum otherwise.
+
+<!-- thinking:end -->
+
 We use a hash table $d$ to store the product ID and unit price, mapping each entry in `products` to the corresponding price in `prices` during initialization.
 
 We also maintain a customer counter $i$, initialized to $0$.

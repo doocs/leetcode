@@ -100,6 +100,14 @@ Singing 活动有两个人参加 (Victor J. and Jade W.)</pre>
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 找出参加人数既不是最多也不是最少的活动。先按活动分组计数，再与全局最小、最大人数比较，留下严格介于两者之间的活动名。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
