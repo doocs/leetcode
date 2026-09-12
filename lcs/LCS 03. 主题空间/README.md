@@ -1,6 +1,5 @@
 ---
 comments: true
-edit_url: https://github.com/doocs/leetcode/edit/main/lcs/LCS%2003.%20%E4%B8%BB%E9%A2%98%E7%A9%BA%E9%97%B4/README.md
 ---
 
 <!-- problem:start -->
