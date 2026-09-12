@@ -70,6 +70,19 @@ auctionSystem.getHighestBidder(3); // return -1 as no bids exist for item 3</div
 
 ### Solution 1: Hash Table + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must add, update, and remove bids, and query the highest bidder of an item, breaking ties by larger $\textit{userId}$. Up to $5 \times 10^4$ calls forbid scanning an item's bids.
+>
+> The max query wants an ordered endpoint; updates and deletes must find and erase that user's previous bid.
+>
+> Store $(\textit{bidAmount},\textit{userId})$ in an ordered set per item, and keep $\textit{users}$ as the current amount so a delete is $O(\log m)$.
+>
+> On add, drop an existing bid first; the highest bidder is the last pair's user. The two maps stay in sync so every operation is logarithmic.
+
+<!-- thinking:end -->
 We define two hash tables. `items` is used to store all bid information for each item, where `items[itemId]` stores an ordered set. Each element in the set is a tuple `(bidAmount, userId)`, representing a user's bid amount for that item. Since we need to quickly retrieve the user with the highest bid, this ordered set needs to be sorted by bid amount in ascending order. If bid amounts are identical, they are sorted by user ID in ascending order. The other hash table `users` is used to store the bid information of each user for each item, where `users[userId][itemId]` stores the user's bid amount for that item.
 
 For the `addBid(userId, itemId, bidAmount)` operation, we first check if the user has already placed a bid on the item. If they have, we call the `removeBid(userId, itemId)` method to remove the original bid; then we add the new bid information to `users` and `items`.

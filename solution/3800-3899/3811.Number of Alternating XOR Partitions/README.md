@@ -107,6 +107,19 @@ tags:
 
 ### 方法一：递推
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有效分割要求各块异或在 $\textit{target1}$ 与 $\textit{target2}$ 之间交替且以 $\textit{target1}$ 开头。$n \le 10^5$，枚举分割点不可行。
+>
+> 前缀异或 $pre$ 下，一块 $[l,r]$ 的异或为 $pre_r \oplus pre_{l-1}$。交替条件因此化为对历史前缀的计数。
+>
+> 用 $\textit{cnt1}[x]$、$\textit{cnt2}[x]$ 分别记录以 $\textit{target1}$、$\textit{target2}$ 结尾且当前前缀异或为 $x$ 的方案数。空前缀记入 $\textit{cnt2}[0]=1$。
+>
+> 每读入一个数更新 $pre$，由对侧计数推出本段合法接法，再写回本侧。线性扫描即可得到以当前为结尾的方案数。
+
+<!-- thinking:end -->
 我们定义两个哈希表 $\textit{cnt1}$ 和 $\textit{cnt2}$，其中 $\textit{cnt1}[x]$ 表示以按位异或结果为 $x$ 且以 $\textit{target1}$ 结尾的分割方案数，而 $\textit{cnt2}[x]$ 表示以按位异或结果为 $x$ 且以 $\textit{target2}$ 结尾的分割方案数。初始时，$\textit{cnt2}[0] = 1$，表示空分割。
 
 我们使用变量 $\textit{pre}$ 来记录当前前缀的按位异或结果，变量 $\textit{ans}$ 来记录最终的答案。然后我们遍历数组 $\textit{nums}$，对于每个元素 $x$，我们更新 $\textit{pre}$ 并计算：

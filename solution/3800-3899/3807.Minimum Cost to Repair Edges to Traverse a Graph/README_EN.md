@@ -97,6 +97,19 @@ tags:
 
 ### Solution 1: Binary Search + BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only edges with repair cost at most $\textit{money}$ may be used, and the $0$–$(n-1)$ path may have at most $k$ edges. $n$ and $m$ are up to $10^5$, so we cannot search every candidate cost.
+>
+> A larger budget unlocks more edges, so feasibility is monotone. The minimal feasible cost is some edge weight.
+>
+> Sort edges by weight and binary-search the index: build the graph from the first $\textit{mid}+1$ edges and BFS to test whether the distance is at most $k$.
+>
+> After the search, re-check the left endpoint; if it fails, return $-1$.
+
+<!-- thinking:end -->
 We observe that the higher the repair cost, the more edges become available, making it easier to satisfy the requirement of reaching node $n - 1$ from node $0$ using at most $k$ edges. Moreover, the minimum repair cost must be among the costs in $\textit{edges}$. Therefore, we first sort $\textit{edges}$ by repair cost, then use binary search to find the minimum repair cost that satisfies the requirement.
 
 We perform binary search on the index of the repair cost, defining the left boundary as $l = 0$ and the right boundary as $r = |\textit{edges}| - 1$. For the middle position $mid = \lfloor (l + r) / 2 \rfloor$, we add all edges with repair cost less than or equal to $\textit{edges}[mid][2]$ to the graph, then use BFS to determine whether we can reach node $n - 1$ from node $0$ using at most $k$ edges. If possible, we update the right boundary to $r = mid$; otherwise, we update the left boundary to $l = mid + 1$. After the binary search completes, we need to perform one more BFS to check if $\textit{edges}[l][2]$ satisfies the requirement. If it does, we return $\textit{edges}[l][2]$; otherwise, we return $-1$.

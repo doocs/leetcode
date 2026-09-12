@@ -95,6 +95,19 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only positions where $s$ and $t$ differ need work. With $n \le 10^5$, searching operation sequences is infeasible.
+>
+> Matching bits can stay as they are. Mismatches fall into two types: $s[i]=\texttt{0}$ and $t[i]=\texttt{1}$, or the reverse. Let their counts be $d_0$ and $d_1$.
+>
+> A flip fixes any mismatch; an in-string swap pairs one type with the other; a cross swap changes the gap between the two counts. The optimum is therefore the cheapest among all-flips, pairing then flipping the leftover, and balancing with cross swaps before pairing.
+>
+> We count the two mismatch types and compare those three closed-form costs, without simulating individual operations.
+
+<!-- thinking:end -->
 <!-- tabs:start -->
 
 #### Python3

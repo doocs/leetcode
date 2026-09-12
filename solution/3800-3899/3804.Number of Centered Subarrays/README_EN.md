@@ -72,6 +72,19 @@ tags:
 
 ### Solution 1: Hash Table + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A centered subarray has sum equal to one of its elements. $n \le 500$ makes a triple loop with a linear search heavier than needed.
+>
+> Fixing the left endpoint and extending right lets both the sum and the value set grow incrementally.
+>
+> We enumerate start $i$, maintain running sum $s$ and a hash set of $nums[i..j]$, and count when $s$ appears in the set.
+>
+> All $O(n^2)$ subarrays are visited; the hash test makes the inner check amortized constant time.
+
+<!-- thinking:end -->
 We enumerate all starting indices $i$ of subarrays, then starting from index $i$, we enumerate the ending index $j$ of the subarray, calculate the sum $s$ of elements in the subarray $nums[i \ldots j]$, and add all elements in the subarray to the hash table $\textit{st}$. After each enumeration, we check if $s$ appears in the hash table $\textit{st}$. If it does, it means the subarray $nums[i \ldots j]$ is a centered subarray, and we increment the answer by $1$.
 
 The time complexity is $O(n^2)$ and the space complexity is $O(n)$, where $n$ is the length of the array $nums$.
