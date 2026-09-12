@@ -72,6 +72,16 @@ The perimeter is 2 * 4 = 8.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A square with corner $(x,x)$ contains $2x(x+1)(2x+1)$ apples and has perimeter $8x$. $x$ is on the order of a cube root.
+>
+> Increment $x$ from $1$ until the formula meets the demand and return $8x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -145,6 +155,14 @@ function minimumPerimeter(neededApples: number): number {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The linear search still walks a cube-root number of steps. The formula is monotone, so we binary-search the least $x$ in $[1,10^5]$ and multiply by $8$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

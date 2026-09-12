@@ -82,6 +82,18 @@ Since friend 0 sat on chair 2, we return 2.
 
 ### Solution 1: Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Friends take the smallest idle chair on arrival and release it on leaving. Scanning all chairs each time adds a linear factor.
+>
+> A min-heap of idle indices and a min-heap of $(\textit{leaving},\textit{chair})$ handle reuse. On arrival we free every expired chair, then pop the smallest idle index.
+>
+> We stop when the target friend is seated. Sorting plus heaps is $O(n\log n)$.
+
+<!-- thinking:end -->
+
 First, we create a tuple for each friend consisting of their arrival time, leaving time, and index, then sort these tuples by arrival time.
 
 We use a min-heap $\textit{idle}$ to store the currently available chair numbers. Initially, we add $0, 1, \ldots, n-1$ to $\textit{idle}$. We also use a min-heap $\textit{busy}$ to store tuples $(\textit{leaving}, \textit{chair})$, where $\textit{leaving}$ represents the leaving time and $\textit{chair}$ represents the chair number.

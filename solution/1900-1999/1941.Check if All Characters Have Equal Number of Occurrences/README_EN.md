@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need all letter frequencies equal. After counting, the set of frequencies should be a singleton.
+>
+> One pass over lowercase letters suffices.
+
+<!-- thinking:end -->
+
 We use a hash table or an array of length $26$ called $\textit{cnt}$ to record the number of occurrences of each character in the string $s$.
 
 Next, we traverse each value in $\textit{cnt}$ and check if all non-zero values are equal.

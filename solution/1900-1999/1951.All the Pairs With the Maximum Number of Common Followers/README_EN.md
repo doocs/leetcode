@@ -80,6 +80,16 @@ Note that we do not have any information about the users that follow users 3, 4,
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need every user pair that attains the maximum number of shared followers. Enumerating pairs outside SQL is unnecessary.
+>
+> Self-join $\texttt{Relations}$ on $\textit{follower\_id}$ with $user_1<user_2$, count per pair, rank by that count descending, and keep rank $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

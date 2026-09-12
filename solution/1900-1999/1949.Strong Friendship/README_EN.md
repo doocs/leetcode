@@ -85,6 +85,18 @@ We did not include the friendship of users 2 and 3 because they only have two co
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A strong pair are friends who share at least three common friends. The table is undirected, so we need both orientations.
+>
+> Union the reverse edges, then join three copies so $u\to v$, $v\to w$, and $u\to w$ form a triangle, keeping $u<v$ to avoid duplicates.
+>
+> Count common neighbors per pair and keep those with count at least $3$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -64,6 +64,18 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A legal move needs a good segment: the played color, one or more opposite cells, then the same color. The board is $8\times 8$, so eight rays suffice.
+>
+> Walk from the move, counting steps. An empty cell or an early same-color cell aborts that ray; more than one step plus a same-color hit succeeds.
+>
+> We never flip discs.
+
+<!-- thinking:end -->
+
 We enumerate all possible directions. For each direction $(a, b)$, we start from $(\textit{rMove}, \textit{cMove})$ and use a variable $\textit{cnt}$ to record the number of cells we have passed. If, during our traversal, we encounter a cell of color $\textit{color}$ and $\textit{cnt} > 1$, then we have found a good line segment and return $\textit{true}$.
 
 If no good line segments are found after the enumeration, we return $\textit{false}$.

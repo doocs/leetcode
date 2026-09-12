@@ -76,6 +76,18 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$ resizes split the array into $k+1$ segments; each wastes $\textit{max}\cdot\textit{len}-\textit{sum}$. Exponential cuts are replaced by DP since $n\le 200$.
+>
+> Precompute every segment waste $g[i][j]$ in $O(n^2)$, then let $f[i][j]$ be the min waste of the first $i$ elements in $j$ segments, enumerating the previous cut.
+>
+> The answer is $f[n][k+1]$.
+
+<!-- thinking:end -->
+
 The problem is equivalent to dividing the array $\textit{nums}$ into $k + 1$ segments. The wasted space for each segment is the maximum value of that segment multiplied by the length of the segment minus the sum of the elements in that segment. By summing the wasted space of each segment, we get the total wasted space. By adding 1 to $k$, we are effectively dividing the array into $k$ segments.
 
 Therefore, we define an array $\textit{g}[i][j]$ to represent the wasted space for the segment $\textit{nums}[i..j]$, which is the maximum value of $\textit{nums}[i..j]$ multiplied by the length of $\textit{nums}[i..j]$ minus the sum of the elements in $\textit{nums}[i..j]$. We iterate over $i$ in the range $[0, n)$ and $j$ in the range $[i, n)$, using a variable $s$ to maintain the sum of the elements in $\textit{nums}[i..j]$ and a variable $\textit{mx}$ to maintain the maximum value of $\textit{nums}[i..j]$. Then we can get:
