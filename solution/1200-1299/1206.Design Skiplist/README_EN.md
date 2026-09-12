@@ -79,6 +79,18 @@ skiplist.search(1); // return False, 1 has already been erased.</pre>
 
 ### Solution 1: Data Structure
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Up to $5\times 10^4$ operations make linear insert/erase on a sorted array too slow. A balanced tree is $O(\log n)$ but heavy to implement. A skip list mimics layered indexes: the bottom list holds every key, higher lists sample sparsely.
+>
+> Search, insert, and erase walk from the top level down to the closest node not exceeding the target, then drop a level. Expected jumps are logarithmic. A new node's height grows with probability $p$ so upper levels stay sparse.
+>
+> We use a multi-level list with a dummy head. $find\_closest$ slides within a level; $random\_level$ draws the new height. Each operation is $O(\log n)$ expected, with space proportional to nodes and height.
+
+<!-- thinking:end -->
+
 The core idea of a skip list is to use multiple "levels" to store data, with each level acting as an index. Data starts from the bottom level linked list and gradually rises to higher levels, eventually forming a multi-level linked list structure. Each level's nodes only contain part of the data, allowing for jumps to reduce search time.
 
 In this problem, we use a $\textit{Node}$ class to represent the nodes of the skip list. Each node contains a $\textit{val}$ field and a $\textit{next}$ array. The length of the array is $\textit{level}$, indicating the next node at each level. We use a $\textit{Skiplist}$ class to implement the skip list operations.

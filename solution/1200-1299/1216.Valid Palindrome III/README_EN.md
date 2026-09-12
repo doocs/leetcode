@@ -56,6 +56,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every way to delete $k$ characters is intractable for $n \le 1000$. Being a palindrome after at most $k$ deletions is equivalent to an LPS of length at least $n-k$.
+>
+> Interval DP: $f[i][j]$ is the LPS of $s[i..j]$. Equal ends add $2$ after shrinking; otherwise take the better one-end deletion. We may return as soon as $f[i][j]+k \ge n$.
+>
+> Filling by increasing interval length (here, decreasing $i$) makes shorter intervals ready for the transition.
+
+<!-- thinking:end -->
+
 The problem requires us to remove at most $k$ characters to make the remaining string a palindrome. This can be transformed into finding the longest palindromic subsequence.
 
 We define $f[i][j]$ as the length of the longest palindromic subsequence in the substring $s[i..j]$. Initially, we have $f[i][i] = 1$ for all $i$, since each single character is a palindrome.

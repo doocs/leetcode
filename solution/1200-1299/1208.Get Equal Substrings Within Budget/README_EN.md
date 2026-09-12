@@ -71,6 +71,18 @@ That costs 3, so the maximum length is 3.
 
 ### Solution 1: Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring's cost is the sum of absolute ASCII differences. $n \le 10^5$ rules out enumerating all $O(n^2)$ substrings.
+>
+> Feasibility is monotone in length: if some string of length $x$ fits the budget, so does length $x-1$. Any interval cost is $O(1)$ from a prefix sum.
+>
+> We build the prefix of pairwise costs, binary-search the length, and scan windows of that length to verify. Monotonicity justifies the search; the prefix sum removes the inner summation.
+
+<!-- thinking:end -->
+
 We can create an array $f$ of length $n + 1$, where $f[i]$ represents the sum of the absolute differences of ASCII values between the first $i$ characters of string $s$ and the first $i$ characters of string $t$. Thus, we can calculate the sum of the absolute differences of ASCII values from the $i$-th character to the $j$-th character of string $s$ by $f[j + 1] - f[i]$, where $0 \leq i \leq j < n$.
 
 Note that the length has monotonicity, i.e., if there exists a substring of length $x$ that satisfies the condition, then a substring of length $x - 1$ must also satisfy the condition. Therefore, we can use binary search to find the maximum length.
@@ -262,6 +274,14 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 
 ### Solution 2: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses an $O(n)$ prefix array and $O(n\log n)$ time. Costs are non-negative, so extending the right end only increases the cost and advancing the left end only decreases it. Two pointers maintain the longest feasible window in one pass, in linear time and constant extra space.
+
+<!-- thinking:end -->
+
 We can maintain two pointers $l$ and $r$, initially $l = r = 0$; maintain a variable $\textit{cost}$, which represents the sum of the absolute values of the ASCII code differences in the index interval $[l,..r]$. In each step, we move $r$ to the right by one position, then update $\textit{cost} = \textit{cost} + |s[r] - t[r]|$. If $\textit{cost} \gt \textit{maxCost}$, then we loop to move $l$ to the right by one position, and decrease the value of $\textit{cost}$, until $\textit{cost} \leq \textit{maxCost}$. Then we update the answer, that is, $\textit{ans} = \max(\textit{ans}, r - l + 1)$.
 
 Finally, return the answer.
@@ -376,6 +396,14 @@ function equalSubstring(s: string, t: string, maxCost: number): number {
 <!-- solution:start -->
 
 ### Solution 3: Another Way of Using Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 may shrink and then grow the window, and it stores the answer explicitly. Only the maximum length is required, so we can let the left pointer move only forward and keep the window monotone. The final $n-l$ is that maximum, without a separate $ans$ variable.
+
+<!-- thinking:end -->
 
 In Solution 2, the interval maintained by the two pointers may become shorter or longer. Since the problem only requires the maximum length, we can maintain a monotonically increasing interval.
 

@@ -73,6 +73,16 @@ Total cost is 1.
 
 ### Solution 1: Quick Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move of $2$ costs $0$, so all even positions communicate for free, and all odd positions do likewise. The only paid move is a step of $1$ between parities.
+>
+> We gather chips onto one even and one odd position at cost $0$, then move the smaller pile to the other. The answer is the minimum of the odd count and the even count.
+
+<!-- thinking:end -->
+
 Move all chips at even indices to position 0, and all chips at odd indices to position 1, all at a cost of 0. Then, choose the position (either 0 or 1) with fewer chips and move these chips to the other position. The minimum cost required is the smaller quantity of chips.
 
 The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the number of chips.

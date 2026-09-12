@@ -71,6 +71,18 @@ tags:
 
 ### Solution 1: Binary Search + Inclusion-Exclusion Principle
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Generating ugly numbers one by one needs about $n$ candidates, and $n$ can be $10^9$.
+>
+> The count of ugly numbers $\le x$ is monotone in $x$, so the $n$-th ugly number is the smallest $x$ whose count is at least $n$. Inclusion-exclusion evaluates that count in $O(1)$: add multiples of $a,b,c$, subtract pairwise LCMs, then add the LCM of all three.
+>
+> We binary-search $x$ on $[1, 2\times 10^9]$ and test the midpoint with inclusion-exclusion. The problem bounds the answer, so we never enumerate individual ugly numbers.
+
+<!-- thinking:end -->
+
 We can transform the problem into: find the smallest positive integer $x$ such that the number of ugly numbers less than or equal to $x$ is exactly $n$.
 
 For a positive integer $x$, there are $\left\lfloor \frac{x}{a} \right\rfloor$ numbers divisible by $a$, $\left\lfloor \frac{x}{b} \right\rfloor$ numbers divisible by $b$, $\left\lfloor \frac{x}{c} \right\rfloor$ numbers divisible by $c$, $\left\lfloor \frac{x}{lcm(a, b)} \right\rfloor$ numbers divisible by both $a$ and $b$, $\left\lfloor \frac{x}{lcm(a, c)} \right\rfloor$ numbers divisible by both $a$ and $c$, $\left\lfloor \frac{x}{lcm(b, c)} \right\rfloor$ numbers divisible by both $b$ and $c$, and $\left\lfloor \frac{x}{lcm(a, b, c)} \right\rfloor$ numbers divisible by $a$, $b$, and $c$ at the same time. According to the inclusion-exclusion principle, the number of ugly numbers less than or equal to $x$ is:

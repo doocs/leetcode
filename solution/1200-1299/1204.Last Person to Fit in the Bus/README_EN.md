@@ -87,6 +87,14 @@ Queue table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Boarding order is fixed by $turn$. A person fits iff the prefix sum of weights up to that person is at most $1000$. A self-join pairs each person with everyone who boarded no later, $HAVING$ keeps those still under the limit, and the largest $turn$ is the last person who fits.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -111,6 +119,14 @@ LIMIT 1;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The self-join materializes a quadratic number of pairs. A window sum ordered by $turn$ yields each person's boarding total in one pass; we then filter and take the name with the largest feasible prefix. Same meaning as Solution 1, with a simpler query.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

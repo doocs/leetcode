@@ -78,6 +78,16 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $15\times 15$ with at most $25$ gold cells, so all simple paths are enumerable. Paths cannot revisit a cell; we may start at any gold cell and want the maximum sum.
+>
+> DFS zeros a cell on entry to mark it used, recurses to four neighbors, then restores on backtrack. Starting from every cell and taking the global maximum uses the grid itself as the visited mark.
+
+<!-- thinking:end -->
+
 We can enumerate each cell as the starting point, and then start a depth-first search from the starting point. During the search process, whenever we encounter a non-zero cell, we turn it into zero and continue the search. When we can no longer continue the search, we calculate the total amount of gold in the current path, then turn the current cell back into a non-zero cell, thus performing backtracking.
 
 The time complexity is $O(m \times n \times 3^k)$, where $k$ is the maximum length of each path. Since each cell can only be visited once at most, the time complexity will not exceed $O(m \times n \times 3^k)$. The space complexity is $O(m \times n)$.
