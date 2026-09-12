@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2927.Distribute%20Candies%20Among%20Children%20III/README_EN.md
 tags:
     - Math
     - Combinatorics
