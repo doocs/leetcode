@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A linear scan finds the least $arr[i]=i$; the follow-up wants $O(\log n)$. The array is strictly increasing, so $arr[i]-i$ is nondecreasing and the first nonnegative value is the candidate.
+>
+> If $arr[mid]\ge mid$ the answer is not to the right; otherwise it lies after $mid$.
+>
+> After the search we test equality at the left end, or return $-1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

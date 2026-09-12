@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A common divisor string must tile both inputs, so its length divides both lengths. Trying prefixes from the shorter length downward is enough for $m,n\le 1000$.
+>
+> Each candidate $t=\textit{str1}[:i]$ is repeated until it matches the target length and compared.
+>
+> The first $t$ that tiles both strings is the longest; otherwise the answer is empty.
+
+<!-- thinking:end -->
+
 Enumerate candidate prefixes $t$ from the shorter string length downward, and check whether repeating $t$ can produce $\textit{str1}$ and $\textit{str2}$. The first valid $t$ is the longest gcd string.
 
 The time complexity is $O((m + n) \times \min(m, n))$, and the space complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two strings.
@@ -105,6 +117,16 @@ class Solution:
 <!-- solution:start -->
 
 ### Solution 2: Math
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumeration still tries many lengths. If a common divisor exists then $s_1+s_2=s_2+s_1$, and the longest length is $\gcd(|s_1|,|s_2|)$.
+>
+> We reject unequal concatenations and otherwise return the prefix of $s_1$ of that gcd length.
+
+<!-- thinking:end -->
 
 If a gcd string exists, then $s_1+s_2=s_2+s_1$. In that case the length of the longest gcd string is $\gcd(|s_1|,|s_2|)$.
 

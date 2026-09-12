@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After some column flips, identical rows become all zeros or all ones. Two rows can become equal iff they are equal or bitwise complements. $m,n\le 300$ rules out enumerating $2^n$ flip masks.
+>
+> Normalize each row so the first bit is $0$ (flip the whole row when it starts with $1$). Complements then share a key.
+>
+> A counter of those tuples; the maximum frequency is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -100,6 +100,18 @@ From sale_id = 7, we can conclude that Apple was sold for 9000 in the year 2011.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The result needs the year and price from sales together with the product name, joined on `product_id`.
+>
+> An inner join of `Sales` and `Product` selects `product_name, year, price`.
+>
+> `USING (product_id)` avoids repeating the join column.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

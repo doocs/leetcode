@@ -80,6 +80,18 @@ Sales table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each product we need every sales row in its earliest year. Compute the minimum year per product, then fetch quantity and price for that year.
+>
+> A grouped subquery yields `(product_id, MIN(year))`; the outer query keeps `Sales` rows whose pair is in that set.
+>
+> A product may have several rows in the same year, so we must not collapse them to a single aggregate row.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -109,6 +121,16 @@ WHERE
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A correlated subquery aggregates once per product. A window can rank years in one scan of the table.
+>
+> `RANK() OVER (PARTITION BY product_id ORDER BY year)` marks the earliest year as $1$; the outer filter keeps `rk = 1`, including ties.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

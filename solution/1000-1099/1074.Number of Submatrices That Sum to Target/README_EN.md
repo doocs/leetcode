@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Four nested loops over a $100\times 100$ matrix are $O(n^4)$. Fixing the top and bottom rows compresses each column to a sum, leaving “subarrays that add to $\textit{target}$” on a 1-D array.
+>
+> That 1-D count uses a prefix-sum map: after adding $x$, look up $s-\textit{target}$. There are $O(n^2)$ row pairs and a linear scan per pair.
+>
+> Sum $f(\textit{col})$ over every pair of bounds.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

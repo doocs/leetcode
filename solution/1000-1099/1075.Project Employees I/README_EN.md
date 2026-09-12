@@ -96,6 +96,18 @@ Employee table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Average years per project come from `experience_years` of its members. The tables join on `employee_id`.
+>
+> After an inner join, group by `project_id` and average the years, rounded to two decimals.
+>
+> `ROUND(AVG(...), 2)` matches the required format.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

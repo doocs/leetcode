@@ -70,6 +70,18 @@ tags:
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 有序且互异，下标 $i$ 之前缺失的个数是 $nums[i]-nums[0]-i$。线性扫到第 $k$ 个缺失即可，但进阶要求对数时间。
+>
+> $\textit{missing}(i)$ 随 $i$ 递增。若 $k$ 大于末尾缺失数，答案在数组右侧；否则二分最小的满足 $\textit{missing}(i)\ge k$ 的 $i$，再从 $nums[i-1]$ 补上剩余缺口。
+>
+> 二分边界为 $[0,n-1]$。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $missing(i)$，表示 $nums[i]$ 与 $nums[0]$ 之间缺失的元素个数。那么 $missing(i)$ 就等于 $nums[i] - nums[0] - i$。我们可以通过二分查找找到最小的 $i$，使得 $missing(i) \geq k$，那么 $nums[i - 1] + k - missing(i - 1)$ 就是第 $k$ 个缺失的元素。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。其中 $n$ 为数组 $nums$ 的长度。

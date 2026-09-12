@@ -96,6 +96,18 @@ Employee 表：
 
 ### 方法一：内连接 + 窗口函数
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个项目要留下工龄最高的雇员，并列则都保留。连接后需要在项目内比较 `experience_years`。
+>
+> `RANK() OVER (PARTITION BY project_id ORDER BY experience_years DESC)` 把最高工龄标为 $1$。
+>
+> 外层选出 `rk = 1` 的 `project_id, employee_id`。
+
+<!-- thinking:end -->
+
 我们先将 `Project` 表和 `Employee` 表进行内连接，然后使用窗口函数 `rank()` 对 `Project` 表进行分组，按照 `experience_years` 降序排列，最后取出每个项目中经验最丰富的雇员。
 
 <!-- tabs:start -->

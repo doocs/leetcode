@@ -98,6 +98,18 @@ Employee 表：
 
 ### 方法一：内连接 + `GROUP BY` 分组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个项目的平均工龄来自其成员在员工表中的 `experience_years`。项目与员工通过 `employee_id` 关联。
+>
+> 内连接后按 `project_id` 分组，对工龄取平均并四舍五入到两位。
+>
+> `ROUND(AVG(...), 2)` 直接满足输出格式。
+
+<!-- thinking:end -->
+
 我们可以通过内连接将两张表连接起来，然后通过 `GROUP BY` 分组，最后使用 `AVG` 函数求工作年限的平均值。
 
 <!-- tabs:start -->

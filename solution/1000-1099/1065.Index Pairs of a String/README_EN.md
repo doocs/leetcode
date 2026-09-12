@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every substring of $text$ can be tested against the word list. Both sides are short, so a set of words plus all slices $[i,j]$ is enough.
+>
+> The set answers in expected constant time, and enumerating indices already yields sorted pairs.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -220,6 +230,16 @@ func indexPairs(text string, words []string) [][]int {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every slice wastes failed lookups on long text. Shared prefixes let us walk a trie from each start and stop at the first mismatch.
+>
+> Insert the words, then from each $i$ extend the node to the right and record $[i,j]$ at end marks.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

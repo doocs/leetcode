@@ -93,6 +93,18 @@ Employee table:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 员工数最多的项目可能有多个并列。按项目计数后，留下不小于所有组计数的那些 `project_id`。
+>
+> `HAVING COUNT(1) >= ALL (子查询各组人数)` 选出最大值对应的全部项目。
+>
+> 子查询只做分组计数，外层再过滤。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -117,6 +129,16 @@ HAVING
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> `ALL` 子查询要再聚合一遍。窗口 `RANK()` 可按人数降序编号，名为 $1$ 的即最大值（含并列）。
+>
+> CTE 中分组并计算 `rk`，外层取 `rk = 1`。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

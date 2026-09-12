@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A longest repeated substring can use a suffix array or hashed binary search; $n\le 2000$ also allows an $O(n^2)$ DP. The common suffix ending at distinct $i>j$ grows by one when $s[i]=s[j]$.
+>
+> $f[i][j]$ is that length. Enumerate $i$ and $j<i$, transfer on equality, and track the global maximum.
+>
+> The answer is the largest $f[i][j]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the length of the longest repeating substring ending with $s[i]$ and $s[j]$. Initially, $f[i][j]=0$.
 
 We enumerate $i$ in the range $[1, n)$ and enumerate $j$ in the range $[0, i)$. If $s[i]=s[j]$, then we have:
