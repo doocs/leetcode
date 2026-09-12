@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Add a method that repeats the string $times$ times. Looping concatenation allocates intermediate strings.
+>
+> Fill an array with $times$ copies of $this$ and $join$ them in one allocation.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

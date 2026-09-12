@@ -55,6 +55,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把对象或数组中的 $undefined$ 换成 $null$，并递归处理嵌套结构。序列化时 $undefined$ 会被丢键，不能靠 $JSON$ 往返。
+>
+> 遍历每个键：值仍是对象则先递归，再把仍然等于 $undefined$ 的槽位写成 $null$。数组下标同样被 $for\cdots in$ 覆盖。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

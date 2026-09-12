@@ -97,6 +97,16 @@ Passengers table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each flight, count confirmed seats and waitlisted passengers. An inner join would drop flights with no passengers, and bookings are capped by capacity.
+>
+> Left-join passengers onto flights and group by $flight\_id$: $LEAST(count, capacity)$ is booked, $GREATEST(count-capacity, 0)$ is waitlisted, then order by flight id.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -67,6 +67,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 给字符串原型增加重复 $times$ 次的方法。循环拼接在 $times$ 较大时反复分配中间串。
+>
+> 用 $times$ 个当前字符串填入数组再 $join$，一次分配即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

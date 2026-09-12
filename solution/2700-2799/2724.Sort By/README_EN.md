@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort the array by the numeric key $fn(item)$. A hand-rolled comparator or an extra stable sort is unnecessary.
+>
+> Passing $fn(a)-fn(b)$ to $sort$ yields the required order.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -100,6 +100,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation deletes occurrences of a character on both sides of a chosen copy. Simulating the deletions would rescan the string, yet a character never disappears entirely.
+>
+> Each distinct character survives exactly once, so the answer is the number of unique characters — the size of a set built from $s$.
+
+<!-- thinking:end -->
+
 The problem can actually be transformed into finding the number of distinct characters in the string. Therefore, we only need to count the number of distinct characters in the string.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $\textit{s}$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set. In this case, it's lowercase English letters, so $|\Sigma|=26$.

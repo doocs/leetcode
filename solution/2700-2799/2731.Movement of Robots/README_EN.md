@@ -89,6 +89,16 @@ The distance between the two robots is abs(-2 - 3) = 5.
 
 ### Solution 1: Quick thinking + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Robots move on a line and reverse on collision; we want the sum of pairwise distances after $d$ seconds. Simulating collisions second by second is impossible on a large coordinate range.
+>
+> Reversing is equivalent to passing through, so each robot walks $d$ in its original direction. After sorting, the $i$-th position contributes $i\cdot x_i$ minus the prefix sum of earlier positions. One scan accumulates the sum modulo the given modulus.
+
+<!-- thinking:end -->
+
 After two robots collide, they will immediately change direction, which is equivalent to the two robots continuing to move in their original direction. Therefore, we traverse the array $nums$, and according to the instructions in the string $s$, we add or subtract $d$ from the position of each robot, and then sort the array $nums$.
 
 Next, we enumerate the position of each robot from small to large, and calculate the sum of the distances between the current robot and all robots in front, which is the answer.

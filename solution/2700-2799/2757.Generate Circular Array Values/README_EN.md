@@ -88,6 +88,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A generator should jump around a circular array by the step it receives and yield the current value. A copied array is unnecessary; an index modulo $n$ is enough.
+>
+> $yield$ $arr[startIndex]$, then add the next $jump$ to the index and reduce modulo $n$ in the positive range so negative steps stay valid.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

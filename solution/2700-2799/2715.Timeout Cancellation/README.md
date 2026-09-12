@@ -88,6 +88,16 @@ setTimeout(cancelFn, cancelTimeMs);
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要在 $t$ 毫秒后调用 $fn$，并允许在触发前取消。若把取消做成轮询标志，定时器仍会到期。
+>
+> 用 $setTimeout$ 预约调用，返回的取消函数对同一句柄 $clearTimeout$。取消发生在触发之后则定时器已执行，符合「超时后取消无效」。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

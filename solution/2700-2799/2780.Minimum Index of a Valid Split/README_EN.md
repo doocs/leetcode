@@ -83,6 +83,16 @@ It can be shown that index 4 is the minimum index of a valid split.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A valid split needs the same dominant element on both sides. The dominant value occurs strictly more than half the time and, if it exists, is unique for the whole array, so both sides must use that same value.
+>
+> Count to obtain the global mode $x$ and its frequency, then scan a prefix count of $x$ and return the first index where both sides are strictly majority $x$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -66,6 +66,16 @@ The number of houses is equal to k, which is 5.
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $k$ houses on a circle, at least one door is open, and we may only move right or close a door. Opening every door as in the previous problem is not available.
+>
+> Walk to an open door as a mark, then step right at most $k$ times. Close every open door and remember the step count. The last still-open door is one full lap from the start, so that count is the number of houses.
+
+<!-- thinking:end -->
+
 We notice that there is at least one door open in the problem. We can first find one of the open doors.
 
 Then, we skip this open door and move to the right. Each time we move, we increment a counter by one. If we encounter an open door, we close it. The answer is the value of the counter the last time we encounter an open door.

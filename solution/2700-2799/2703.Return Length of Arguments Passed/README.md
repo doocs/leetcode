@@ -58,6 +58,16 @@ argumentsLength({}, null, "3"); // 3
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 题目只要求返回调用时实参的个数，不必关心参数类型或取值。收集为数组再取长度会多一次分配。
+>
+> 剩余参数本身已是数组，其 $length$ 即为答案，一次读取即可。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

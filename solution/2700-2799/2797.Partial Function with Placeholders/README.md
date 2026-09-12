@@ -83,6 +83,16 @@ console.log(result) //&nbsp;-10
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 部分应用：预填参数里的 $\_$ 由后到的实参按顺序补齐，多余实参接到末尾。简单 $bind$ 不能表达占位符。
+>
+> 返回的函数扫描预填数组，把 $\_$ 换成 $restArgs$ 的下一项，再用剩余实参 $push$ 到末尾，最后 $apply$ 原函数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

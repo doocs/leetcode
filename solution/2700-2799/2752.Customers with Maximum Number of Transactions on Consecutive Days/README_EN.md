@@ -78,6 +78,16 @@ In total, the highest number of consecutive transactions is 3, achieved by custo
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each customer find the longest run of consecutive transaction days, then keep those who attain the global maximum. Scanning sorted dates per customer works; subtracting the row number from the date collapses a run into one key.
+>
+> Number rows per customer by date, subtract that index from the date to tag the run, group by customer and tag, and keep customers whose count equals the global maximum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

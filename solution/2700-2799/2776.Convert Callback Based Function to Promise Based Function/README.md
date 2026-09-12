@@ -98,6 +98,16 @@ fn 以回调函数作为第一个参数和 args 作为其余参数进行调用�
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把先接收 $next(data, error)$ 的回调函数改写成返回 Promise 的函数。直接调用原函数无法把成功与失败接到 $then/catch$。
+>
+> 返回的异步函数构造 Promise，把 $resolve/reject$ 包进 $next$，再把其余参数传给原 $fn$。有 $error$ 则拒绝，否则兑现 $data$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

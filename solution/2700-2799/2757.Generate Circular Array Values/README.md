@@ -86,6 +86,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 生成器按收到的步长在环上跳转并产出当前值。自行维护取模下标即可，不必每次拷贝数组。
+>
+> 用 $yield$ 给出 $arr[startIndex]$，下一次把传入的 $jump$ 加到下标上，并对 $n$ 做正向取模，以兼容负数步长。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

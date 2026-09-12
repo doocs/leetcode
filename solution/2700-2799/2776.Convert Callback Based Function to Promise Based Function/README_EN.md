@@ -96,6 +96,16 @@ fn is called with a callback as the first argument and args as the rest. As the 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Turn a function that takes $next(data, error)$ first into one that returns a Promise. Calling the original function as-is cannot hook success and failure into $then/catch$.
+>
+> The returned async function builds a Promise, wraps $resolve/reject$ as $next$, and forwards the remaining arguments to $fn$. An $error$ rejects; otherwise $data$ fulfills.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -78,6 +78,16 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest subarray must start on an even value, alternate parity, and stay at most $threshold$. Extending from every left end is acceptable for $n\le 100$.
+>
+> For each valid left index $l$, walk right until parity repeats or a value exceeds the threshold, and update the answer with $r-l$.
+
+<!-- thinking:end -->
+
 We enumerate all $l$ in the range $[0,..n-1]$. If $nums[l]$ satisfies $nums[l] \bmod 2 = 0$ and $nums[l] \leq threshold$, then we start from $l+1$ to find the largest $r$ that meets the condition. At this time, the length of the longest odd-even subarray with $nums[l]$ as the left endpoint is $r - l$. We take the maximum of all $r - l$ as the answer.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -184,6 +194,14 @@ function longestAlternatingSubarray(nums: number[], threshold: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 restarts inside a segment that already failed, rescanning the same range. Legal segments are disjoint, so after one segment the left end jumps to $r$ and the scan becomes linear.
+
+<!-- thinking:end -->
 
 We notice that the problem actually divides the array into several disjoint subarrays that meet the condition. We only need to find the longest one among these subarrays. Therefore, when enumerating $l$ and $r$, we don't need to backtrack, we just need to traverse from left to right once.
 

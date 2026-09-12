@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An alternating subarray starts with a difference of $1$ and then flips between $1$ and $-1$; we want the longest length of at least $2$. $n\le 100$, so extending from every left end is enough.
+>
+> From each start $i$ walk right with expected difference $k=1$ and flip $k$ on a match. Update the answer when the length exceeds $1$; otherwise leave $-1$.
+
+<!-- thinking:end -->
+
 We can enumerate the left endpoint $i$ of the subarray, and for each $i$, we need to find the longest subarray that satisfies the condition. We can start traversing to the right from $i$, and each time we encounter adjacent elements whose difference does not satisfy the alternating condition, we find a subarray that satisfies the condition. We can use a variable $k$ to record whether the difference of the current element should be $1$ or $-1$. If the difference of the current element should be $-k$, then we take the opposite of $k$. When we find a subarray $nums[i..j]$ that satisfies the condition, we update the answer to $\max(ans, j - i + 1)$.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array. We need to enumerate the left endpoint $i$ of the subarray, and for each $i$, we need $O(n)$ time to find the longest subarray that satisfies the condition. The space complexity is $O(1)$.

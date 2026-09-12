@@ -55,6 +55,16 @@ promise2 = new Promise(resolve =&gt; setTimeout(() =&gt; resolve(-12), 30))
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两个 Promise 都兑现后返回其数值之和。写成 $Promise.all$ 再相加可以得到结果，同时会多一次数组包装。
+>
+> 依次 $await$ 两个 Promise 后相加即可；后一个在前一个仍未完成时已在飞行，总等待仍是较慢者。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

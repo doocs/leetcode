@@ -78,6 +78,16 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 
 ### Solution 1: Ordered List + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A subarray is continuous iff its maximum and minimum differ by at most $2$. Checking every pair of ends is quadratic and too slow at length $10^5$.
+>
+> After the right end inserts a value, drop left-end elements from a sorted list until the max–min gap is at most $2$. The number of legal subarrays that end here equals the list size.
+
+<!-- thinking:end -->
+
 We can use two pointers, $i$ and $j$, to maintain the left and right endpoints of the current subarray, and use an ordered list to maintain all elements in the current subarray.
 
 Iterate through the array $nums$. For the current number $nums[i]$ we're iterating over, we add it to the ordered list. If the difference between the maximum and minimum values in the ordered list is greater than $2$, we then loop to move the pointer $i$ to the right, continuously removing $nums[i]$ from the ordered list, until the list is empty or the maximum difference between elements in the ordered list is not greater than $2$. At this point, the number of uninterrupted subarrays is $j - i + 1$, which we add to the answer.
@@ -188,6 +198,14 @@ func continuousSubarrays(nums []int) (ans int64) {
 <!-- solution:start -->
 
 ### Solution 2: Monotonic queue + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sorted list pays a logarithm per update. Only the extrema matter, so two monotonic deques of indices suffice. When the gap exceeds $2$, pop the older extremum and advance the left end. The counting is unchanged, and each index enters and leaves a deque once.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

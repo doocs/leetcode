@@ -66,6 +66,16 @@ These pairs are [3,7] and [5,5], and we return them in the sorted order as descr
 
 ### Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find pairs of primes $x\le y$ with $x+y=n$. Trial division for every $x$ is slow at $n\le 10^6$.
+>
+> Sieve primality on $[2,n)$, then enumerate $x\in[2,n/2]$ and emit the pair when both $x$ and $n-x$ are prime.
+
+<!-- thinking:end -->
+
 First, we pre-process all the prime numbers within the range of $n$, and record them in the array $primes$, where $primes[i]$ is `true` if $i$ is a prime number.
 
 Next, we enumerate $x$ in the range of $[2, \frac{n}{2}]$. In this case, $y = n - x$. If both $primes[x]$ and $primes[y]$ are `true`, then $(x, y)$ is a pair of prime numbers, which is added to the answer.

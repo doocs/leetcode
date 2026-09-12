@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Falsy entries must be dropped from both objects and arrays, including nested ones. Serializing first would lose key semantics and blur the array/object distinction.
+>
+> Non-objects are returned as-is. Arrays filter falsy items then recurse; plain objects keep only truthy values and compact them. Empty objects and arrays are truthy, so they stay, which matches the statement.
+
+<!-- thinking:end -->
+
 If `obj` is not an object or is null, the function will return it as is, because there's no need to check for keys in non-object values.
 
 If `obj` is an array, it will use `obj.filter(Boolean)` to filter out falsy values (like `null`, `undefined`, `false`, 0, ""), then use `map(compactObject)` to recursively call `compactObject` on each element. This ensures that nested arrays are also compacted.

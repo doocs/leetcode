@@ -90,6 +90,16 @@ user1 is sorted in ascending order.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Popularity is the number of friends of a user divided by the number of users. Storing only one direction would miss edges where the user is $user2$, and the same pair could be counted twice.
+>
+> Union $(user2,user1)$ into $F$ to make the graph undirected. The user count is the number of distinct $user1$ in $F$; a window counts each degree, divides by that total, and rounds to two decimals.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -73,6 +73,16 @@ To go from index 0 to index 2, we can just go directly because gcd(nums[0], nums
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Indices $i$ and $j$ are adjacent iff $\gcd(nums[i], nums[j])>1$, and we ask whether the whole graph is connected. Both $n$ and the value bound are $10^5$, so pairwise gcds are impossible.
+>
+> Indices that share a prime factor lie in the same component. After listing prime factors, union index $i$ with a virtual node for each factor $p$. If every index shares one root, every pair is reachable.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

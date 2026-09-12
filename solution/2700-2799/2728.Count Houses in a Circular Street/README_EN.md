@@ -67,6 +67,16 @@ The number of houses is equal to k, which is 5.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are at most $k$ houses on a circle, and we can only open or close doors and step left or right. Closing everything first and counting a lap cannot tell the start door from a finished lap.
+>
+> Walk left $k$ times while opening doors so the whole ring is open. Keep stepping left: close each open door and count, and stop at the first already-closed door. The count is the number of houses.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The assertion object must throw the prescribed errors on the equal and unequal paths and return $true$ on success. Two free-standing helpers would duplicate the comparison.
+>
+> A closure keeps the expected value $val$ and returns $\{toBe, notToBe\}$: the former throws Not Equal on $!==$, the latter throws Equal on $===$. All state needed for chaining lives in that closure.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

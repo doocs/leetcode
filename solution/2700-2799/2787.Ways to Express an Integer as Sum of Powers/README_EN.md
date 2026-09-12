@@ -62,6 +62,16 @@ It can be shown that it is the only way to express 10 as the sum of the 2<sup>nd
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Write $n$ as a sum of distinct $x$-th powers and count the ways. The bases that fit are at most $n$, but the subset of bases is still exponential to list.
+>
+> This is a $0$-$1$ knapsack with items $i^x$ and capacity $n$. $f[i][j]$ is the number of ways using the first $i$ bases to sum to $j$, taking or skipping $i^x$. The answer is $f[n][n]$ modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of ways to select some numbers from the first $i$ positive integers such that the sum of their $x$-th powers equals $j$. Initially, $f[0][0] = 1$, and all others are $0$. The answer is $f[n][n]$.
 
 For each positive integer $i$, we can choose to either include it or not:

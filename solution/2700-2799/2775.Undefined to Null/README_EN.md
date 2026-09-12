@@ -53,6 +53,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace $undefined$ with $null$ in an object or array, including nested values. $JSON$ drops $undefined$ keys, so a serialize/parse round trip would lose them.
+>
+> Walk every key: recurse when the value is still an object, then write $null$ into any slot that remains $undefined$. Array indices are visited by the same $for\cdots in$ loop.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

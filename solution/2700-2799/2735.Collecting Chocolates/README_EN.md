@@ -66,6 +66,16 @@ Thus, the total cost will become (1 + 5 + 1 + 5 + 1) = 13. We can prove that thi
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Chocolate $i$ costs the minimum value seen at that index after some cyclic left shifts, and each shift costs $x$. Searching a separate shift time per type is coupled and intractable.
+>
+> The number of shifts $j$ is global, and $j\ge n$ cannot lower any buy price. Let $f[i][j]$ be the cheapest price of type $i$ after at most $j$ shifts, then minimize $\sum_i f[i][j]+x\cdot j$ over $j$.
+
+<!-- thinking:end -->
+
 We consider enumerating the number of operations, and define $f[i][j]$ as the minimum cost after the $i$-th chocolate has undergone $j$ operations.
 
 For the $i$-th chocolate:

@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only trailing zeros of the decimal representation should be removed; zeros in the middle or at the front stay. A left-to-right scan cannot tell which zeros are trailing until the end is known.
+>
+> Stripping consecutive zeros from the right is exactly $rstrip$.
+
+<!-- thinking:end -->
+
 We can traverse the string from the end to the beginning, stopping when we encounter the first character that is not `0`. Then, we return the substring from the beginning to this character.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. Ignoring the space consumed by the answer string, the space complexity is $O(1)$.

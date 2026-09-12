@@ -76,6 +76,16 @@ It can be proven that 9 is the minimum value out of all partitions.
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into two nonempty groups and minimize the difference of their maxima. Order inside a group does not matter; only how the global extremes are separated does.
+>
+> After sorting, every adjacent pair is a candidate cut between the left maximum and the right minimum, and the partition value is their difference. The answer is the minimum adjacent gap.
+
+<!-- thinking:end -->
+
 The problem requires us to minimize the partition value. Therefore, we can sort the array and then take the minimum difference between two adjacent numbers.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.

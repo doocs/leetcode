@@ -84,6 +84,16 @@ The length of the chosen subset is 1.
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Select rows so that every column sum is at most half the number of selected rows. There can be $10^4$ rows and at most $5$ columns, so enumerating subsets is impossible, yet there are only $2^n$ column masks.
+>
+> Feasible sizes are only $1$ or $2$: an all-zero row works alone; two rows whose bitwise AND is $0$ have at most one $1$ per column. Larger even sizes overfill some column. Pack each row into a mask and test those two cases.
+
+<!-- thinking:end -->
+
 We can consider the number of rows $k$ chosen for the answer from smallest to largest.
 
 - If $k = 1$, the maximum sum of each column is $0$. Therefore, there must be a row where all elements are $0$, otherwise, the condition cannot be met.

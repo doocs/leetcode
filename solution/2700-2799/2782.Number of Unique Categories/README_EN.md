@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Equality of categories is available only through $haveSameCategory(a,b)$; we want the number of distinct categories. Treating each index as its own class and merging is quadratic, which matches $n\le 100$.
+>
+> A disjoint-set union keeps known equals: query every pair and union on a yes. The number of roots that still point to themselves is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

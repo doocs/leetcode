@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Parse a well-formed JSON string without $eval$ or $JSON.parse$. Splitting with regular expressions does not handle nesting or escapes.
+>
+> Keep an index $i$ and dispatch on the current character: recursive parsers for objects, arrays, strings, numbers, and the three literals. Strings honor backslashes; composites stop at commas or closing brackets. One call from the root parses the value.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

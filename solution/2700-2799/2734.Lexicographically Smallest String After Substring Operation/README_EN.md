@@ -92,6 +92,16 @@ tags:
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must decrement every letter in one contiguous substring once ($a$ wraps to $z$) and want the lexicographically smallest result. Trying every substring is impossible at $n\le 10^5$.
+>
+> Decrementing $a$ yields $z$, so $a$ should be avoided. Starting at the leftmost non-$a$ run and stopping before the next $a$ drops the earliest possible position. If the string is all $a$, the mandatory operation turns the last character into $z$.
+
+<!-- thinking:end -->
+
 We can traverse the string $s$ from left to right, find the position $i$ of the first character that is not 'a', and then find the position $j$ of the first 'a' character starting from $i$. We decrement each character in $s[i:j]$, and finally return the processed string.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.

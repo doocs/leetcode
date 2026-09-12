@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: State Compression Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count permutations in which every adjacent pair has one value dividing the other. $n\le 14$ makes $n!$ heavy, but the used set and the last index determine the rest.
+>
+> Let $f[i][j]$ be the number of ways to use mask $i$ and end at index $j$. A singleton mask is $1$; otherwise sum $f[i\oplus 2^j][k]$ over previous indices $k$ that satisfy the divisibility condition. Sum the full mask and reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We notice that the maximum length of the array in the problem does not exceed $14$. Therefore, we can use an integer to represent the current state, where the $i$-th bit is $1$ if the $i$-th number in the array has been selected, and $0$ if it has not been selected.
 
 We define $f[i][j]$ as the number of schemes where the current selected integer state is $i$, and the index of the last selected integer is $j$. Initially, $f[0][0]=0$, and the answer is $\sum_{j=0}^{n-1}f[2^n-1][j]$.

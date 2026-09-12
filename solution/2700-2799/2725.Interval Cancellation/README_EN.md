@@ -126,6 +126,16 @@ Cancelled at 180ms
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Call $fn$ immediately, then every $t$ milliseconds, and allow cancel at any time. Chaining $setTimeout$ would require clearing the next tick by hand.
+>
+> Invoke once synchronously, then $setInterval$ the same call. The returned function $clearInterval$s that handle and stops further firings.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript
