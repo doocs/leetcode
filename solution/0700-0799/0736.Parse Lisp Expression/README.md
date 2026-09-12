@@ -83,6 +83,18 @@ tags:
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 表达式含整数、$\textit{let}$、$\textit{add}$、$\textit{mult}$ 与嵌套作用域，长度 $2000$，需要按语法求值。把整串拆成令牌后再处理也可以，直接在原串上递进下标同样线性。
+>
+> $\textit{let}$ 会引入绑定且内层覆盖外层，求值结束后必须撤销，因此每个变量用栈保存历史值。$\textit{add}$/$\textit{mult}$ 则是对两个子表达式求值后运算。
+>
+> 递归函数 $\textit{eval}$ 看当前记号：非括号则解析变量或整数；否则按 `let`/`add`/`mult` 分派，解析变量名与嵌套 $\textit{eval}$，在 $\textit{let}$ 的绑定表 $\textit{scope}$ 上入栈出栈。一次扫描完成。
+
+<!-- thinking:end -->
+
 时间复杂度 $O(n)$。
 
 <!-- tabs:start -->

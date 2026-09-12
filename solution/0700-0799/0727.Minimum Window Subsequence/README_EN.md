@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the shortest window of $s_1$ that contains $s_2$ as a subsequence. $|s_1|\le 2\times 10^4$ and $|s_2|\le 100$ make “try every window” unattractive.
+>
+> When $s_2$'s last character is matched, the window length is determined by where that match started. Threading the start index through the DP recovers every candidate.
+>
+> $f[i][j]$ is that start: on a match it inherits $f[i-1][j-1]$ (or $i$ when $j=1$), otherwise $f[i-1][j]$. Whenever $f[i][n]>0$ we update the shortest slice.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the starting position of the shortest substring of the first $i$ characters of string $\textit{s1}$ that contains the first $j$ characters of string $\textit{s2}$. If it does not exist, it is $0$.
 
 We can derive the state transition equation:

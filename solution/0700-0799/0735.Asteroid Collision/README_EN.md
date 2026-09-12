@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Collisions happen only when a right-moving rock meets a left-moving one. $n\le 10^4$. A stack holds the still-alive prefix, which is the natural surviving sequence.
+>
+> A positive rock cannot hit anything to its left, so it is pushed. A negative one fights the positive top: smaller tops explode, equal tops both vanish, a larger top destroys the new rock.
+>
+> Each rock is pushed and popped at most once, so the scan is $O(n)$.
+
+<!-- thinking:end -->
+
 We traverse each asteroid $x$ from left to right. Since each asteroid may collide with multiple asteroids before it, we consider using a stack to store.
 
 - For the current asteroid, if $x>0$, it will definitely not collide with the previous asteroid, and we can directly push $x$ into the stack.

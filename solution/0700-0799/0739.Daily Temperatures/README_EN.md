@@ -47,6 +47,18 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each day, the wait until a warmer day. $n\le 10^5$ forbids a rightward scan from every index.
+>
+> This is next-greater-element. A monotonic stack of indices still waiting for a warmer day, scanned right to left, pops every temperature that is not strictly warmer; the new top is the answer.
+>
+> Temperatures increase from top to bottom. Each index is pushed and popped once, $O(n)$.
+
+<!-- thinking:end -->
+
 This problem requires us to find the position of the first element greater than each element to its right, which is a typical application scenario for a monotonic stack.
 
 We traverse the array $\textit{temperatures}$ from right to left, maintaining a stack $\textit{stk}$ that is monotonically increasing from top to bottom in terms of temperature. The stack stores the indices of the array elements. For each element $\textit{temperatures}[i]$, we continuously compare it with the top element of the stack. If the temperature corresponding to the top element of the stack is less than or equal to $\textit{temperatures}[i]$, we pop the top element of the stack in a loop until the stack is empty or the temperature corresponding to the top element of the stack is greater than $\textit{temperatures}[i]$. At this point, the top element of the stack is the first element greater than $\textit{temperatures}[i]$ to its right, and the distance is $\textit{stk.top()} - i$. We update the answer array accordingly. Then we push $\textit{temperatures}[i]$ onto the stack and continue traversing.

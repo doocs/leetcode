@@ -67,6 +67,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Crush every run of three or more equal candies, drop, and repeat until stable. The board is small enough to simulate.
+>
+> Crushing immediately would disturb other runs that should vanish in the same step. The rule is: mark all current runs, then drop once.
+>
+> Mark doomed cells with a negative value (compare by absolute value) using length-$3$ windows on rows and columns. If anything was marked, pack positives downward in each column, fill zeros, and repeat.
+
+<!-- thinking:end -->
+
 We can traverse the matrix row by row and column by column to find three consecutive identical elements and mark them as negative numbers. If marking is successful, we need to move the elements in the matrix down until no elements can move down.
 
 The time complexity is $O(m^2 \times n^2)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.

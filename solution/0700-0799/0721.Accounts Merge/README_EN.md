@@ -67,6 +67,18 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 
 ### Solution 1: Union-Find + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Accounts of the same person share emails and must be merged, then sorted. About $1000$ accounts makes pairwise set comparison awkward, and names must stay attached.
+>
+> The connectivity is among accounts: two indices join if they share an email. Union-find on account ids, plus a map from email to the first account that used it, finds those edges.
+>
+> Group emails by root, take the root account's name, and sort. Path compression keeps the cost near linearithmic.
+
+<!-- thinking:end -->
+
 Based on the problem description, we can use a union-find data structure to merge accounts with the same email address. The specific steps are as follows:
 
 First, we iterate through all the accounts. For the $i$th account, we iterate through all its email addresses. If an email address appears in the hash table $\textit{d}$, we use the union-find to merge the account's index $i$ with the previously appeared account's index; otherwise, we map this email address to the account's index $i$.
