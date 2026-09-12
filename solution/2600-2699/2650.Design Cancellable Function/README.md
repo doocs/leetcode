@@ -162,6 +162,18 @@ cancelledAt = null
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 生成器逐步 `yield` Promise，并要求可在中途取消。只 `await` 下一个 Promise 无法插入取消。
+>
+> 另建一个拒绝值为 `Cancelled` 的 Promise，与当前 `yield` 值竞速：先完成者决定 `next` 或 `throw`。取消函数关闭该竞速。
+>
+> 生成器正常结束则返回最终值。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

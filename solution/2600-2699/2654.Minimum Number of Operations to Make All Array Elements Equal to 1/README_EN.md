@@ -69,6 +69,18 @@ tags:
 
 ### Solution 1: Math
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation overwrites a neighbor with their gcd. If a $1$ already exists, the remaining $n-cnt$ positions each need one overwrite. Otherwise a $1$ must be created first.
+>
+> Gcds drop on longer intervals; the shortest interval whose gcd is $1$ costs $mi-1$ operations, then $n-1$ more spread that $1$.
+>
+> $n \le 50$ lets us scan every interval; if the global gcd exceeds $1$, no solution exists.
+
+<!-- thinking:end -->
+
 We first count the number of $1$s in the array $nums$ as $cnt$. If $cnt \gt 0$, then we only need $n - cnt$ operations to turn the entire array into $1$s.
 
 Otherwise, we need to first turn one element in the array into $1$, and then the minimum number of remaining operations is $n - 1$.

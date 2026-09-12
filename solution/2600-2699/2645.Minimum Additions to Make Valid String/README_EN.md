@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1: Greedy + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The target is concatenations of `abc`, and we may only insert. A DP over split points would pass for $n \le 50$, but the match advances greedily.
+>
+> Walk the repeating pattern `abc`: a mismatch counts as an insertion, a match consumes one character of $word$. After the scan, pad with the missing suffix if the last letter is not `c`.
+
+<!-- thinking:end -->
+
 We define the string $s$ as `"abc"`, and use pointers $i$ and $j$ to point to $s$ and $word$ respectively.
 
 If $word[j] \neq s[i]$, we need to insert $s[i]$, and we add $1$ to the answer; otherwise, it means that $word[j]$ can match with $s[i]$, and we move $j$ one step to the right.

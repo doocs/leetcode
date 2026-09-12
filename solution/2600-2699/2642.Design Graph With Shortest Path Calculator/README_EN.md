@@ -71,6 +71,16 @@ g.shortestPath(0, 3); // return 6. The shortest path from 0 to 3 now is 0 -&gt; 
 
 ### Solution 1: Dijsktra's Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Edges are inserted dynamically and many pairwise distances are queried. $n \le 100$ makes a heap Dijkstra unnecessary; dense $O(n^2)$ Dijkstra is simpler.
+>
+> An adjacency matrix stores weights, missing edges as $\infty$. `addEdge` writes one cell; `shortestPath` runs $n$ extract-min relaxations. Unreachable pairs return $-1$.
+
+<!-- thinking:end -->
+
 In the initialization function, we first use the adjacency matrix $g$ to store the edge weights of the graph, where $g_{ij}$ represents the edge weight from node $i$ to node $j$. If there is no edge between $i$ and $j$, the value of $g_{ij}$ is $\infty$.
 
 In the `addEdge` function, we update the value of $g_{ij}$ to $edge[2]$.

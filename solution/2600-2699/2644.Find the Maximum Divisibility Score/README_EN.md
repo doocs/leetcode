@@ -93,6 +93,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is how many $nums$ are divisible by a candidate; ties take the smaller divisor. Both arrays have length $\le 1000$, so each divisor can scan $nums$.
+>
+> Keep the best count and its divisor; on a tie, replace it with the smaller $div$.
+
+<!-- thinking:end -->
+
 We can enumerate each element $div$ in $divisors$, and calculate how many elements in $nums$ can be divided by $div$, denoted as $cnt$.
 
 - If $cnt$ is greater than the current maximum divisibility score $mx$, then update $mx = cnt$, and update $ans = div$.

@@ -67,6 +67,16 @@ At i = 2: 1, 2, and 3 are common in A and B, so C[2] = 3.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the size of the intersection of two permutation prefixes. Rebuilding sets each time works for $n \le 50$, but a prefix grows by one element.
+>
+> Count occurrences in $A$ and $B$ and sum $\min$ over $[1,n]$ to obtain the current common count.
+
+<!-- thinking:end -->
+
 We can use two arrays $cnt1$ and $cnt2$ to record the occurrence times of each element in arrays $A$ and $B$ respectively, and use an array $ans$ to record the answer.
 
 Traverse arrays $A$ and $B$, increment the occurrence times of $A[i]$ in $cnt1$, and increment the occurrence times of $B[i]$ in $cnt2$. Then enumerate $j \in [1,n]$, calculate the minimum occurrence times of each element $j$ in $cnt1$ and $cnt2$, and accumulate them into $ans[i]$.
@@ -202,6 +212,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Bit Operation (XOR Operation)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 scans the domain every step. Each value appears once per array, so XOR-flipping a $vis$ flag increments the common count on the second sighting, an $O(1)$ update.
+
+<!-- thinking:end -->
 
 We can use an array $vis$ of length $n+1$ to record the occurrence situation of each element in arrays $A$ and $B$, the initial value of array $vis$ is $1$. In addition, we use a variable $s$ to record the current number of common elements.
 
@@ -345,6 +363,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3: Bit Manipulation (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 still uses a linear array. With $n \le 50$, two integer bitsets suffice: prefix OR plus `bit_count(x & y)` is the intersection size in constant extra space.
+
+<!-- thinking:end -->
 
 Since the elements of arrays $A$ and $B$ are in the range $[1, n]$ and do not exceed $50$, we can use an integer $x$ and an integer $y$ to represent the occurrence of each element in arrays $A$ and $B$, respectively. Specifically, we use the $i$-th bit of integer $x$ to indicate whether element $i$ has appeared in array $A$, and the $i$-th bit of integer $y$ to indicate whether element $i$ has appeared in array $B$.
 

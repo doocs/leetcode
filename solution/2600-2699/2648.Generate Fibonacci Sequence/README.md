@@ -62,6 +62,16 @@ gen.next().value; // 3
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需要无限斐波那契流，预先生成数组既无法穷尽也不符合生成器接口。
+>
+> 维护相邻两项 $a,b$，每次 `yield a` 后滚动。生成器在调用方拉取时才前进。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -64,6 +64,14 @@ generator.next().done; // true
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nested numbers must appear in flattened inorder, lazily. A one-shot `flat` loses laziness. Bounded depth lets `yield*` splice recursive generators.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

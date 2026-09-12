@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Two DFS Traversals
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each node becomes the sum of its level minus itself and its sibling. Rescanning a level per node is too slow for $n \le 10^5$. The level sum depends only on depth, so it can be computed once.
+>
+> The first DFS fills $s[depth]$; the second writes, at the parent, the child-level total minus the two siblings. The root has no cousins and becomes $0$.
+
+<!-- thinking:end -->
+
 We create a list $s$ to record the sum of the node values at each level of the binary tree, where $s[depth]$ represents the sum of the node values at the $depth$-th level (the root node is at level $0$).
 
 Next, we perform a DFS traversal to calculate the values in the array $s$. Then, we perform another DFS traversal to update the values of each node's children. The value of a child node is equal to the sum of the node values at its level minus the value of the child node and its sibling nodes.
@@ -336,6 +346,14 @@ function replaceValueInTree(root: TreeNode | null): TreeNode | null {
 <!-- solution:start -->
 
 ### Solution 2: Breadth-First Search (BFS)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses two recursive passes and stores every level sum. In a BFS the current layer is already queued, so we sum the next layer, then subtract sibling pairs at each parent, dropping the extra array and the second DFS.
+
+<!-- thinking:end -->
 
 First, we update the root node's value to $0$, and use a queue $q$ to store all nodes at each level, initially enqueueing the root node.
 

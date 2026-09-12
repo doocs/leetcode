@@ -85,6 +85,16 @@ For <code>[0, -3]</code>, the 1<sup>st</sup> smallest negative integer is -3.</p
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A window reports its $x$-th smallest value if negative, otherwise $0$. Values lie in $[-50,50]$, so sorting every window is unnecessary. $O(nk\log k)$ is tight for $n \le 10^5$.
+>
+> A size-$101$ count array tracks the window. Scanning from the negative side until the prefix count reaches $x$ yields that order statistic; if none is negative, return $0$.
+
+<!-- thinking:end -->
+
 We notice that the range of elements in the array $nums$ is $[-50,50]$. Therefore, we can use an array of length $101$, denoted as $cnt$, to count the occurrences of each number in $[-50,50]$. Due to the presence of negative numbers, we can add $50$ to each number to make them all non-negative, so we can use the array $cnt$ to count the occurrences of each number.
 
 Next, we traverse the array $nums$, maintaining a sliding window of length $k$. The occurrence times of all elements in the window are recorded in the array $cnt$. Then we traverse the array $cnt$ to find the $x$-th smallest number, which is the beauty value of the current sliding window. If there is no $x$-th smallest number, then the beauty value is $0$.
@@ -250,6 +260,16 @@ function getSubarrayBeauty(nums: number[], k: number, x: number): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Double Priority Queue (Min-Max Heap) + Delayed Deletion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs a tiny value range. Twin heaps keep the $x$ smallest values on one side so the heap top is the candidate beauty, with lazy deletion for values that leave the window.
+>
+> The same $x$-th smallest is then $O(n\log k)$ even for a larger domain; here it replaces the count array.
+
+<!-- thinking:end -->
 
 We can use two priority queues (min-max heap) to maintain the elements in the current window, one priority queue stores the smaller $x$ elements in the current window, and the other priority queue stores the larger $k - x$ elements in the current window. We also need a delayed deletion dictionary `delayed` to record whether the elements in the current window need to be deleted.
 
