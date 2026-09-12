@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly replacing a number by the sum of squares of its digits follows the definition, but the sequence may cycle instead of reaching $1$. The values quickly fall into a bounded range, so a hash set can record numbers already seen.
+>
+> A repeat means a cycle (not happy); reaching $1$ means it is happy. Simulation and cycle checks run together.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -225,6 +235,16 @@ bool isHappy(int n) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The hash set is correct but uses extra memory. The square-sum map is a deterministic iteration, so a cycle can be found without storing the full history.
+>
+> Floyd's pointers suffice: the slow pointer moves once and the fast pointer twice; if they meet at $1$, the number is happy, and space becomes constant.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

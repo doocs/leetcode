@@ -59,6 +59,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删除值为 $val$ 的结点只需改前驱指针，但头结点本身可能被删，直接维护 $head$ 要分多种情况。
+>
+> 为此在链表前加哑结点，用 $pre$ 观察后继：若后继值等于 $val$ 则跳过该结点，否则前进。最后返回 $\textit{dummy.next}$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

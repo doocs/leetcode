@@ -57,6 +57,14 @@ Since 2 has only one digit, return it.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeated digit sums yield the digital root. For a non-negative integer it is $0$ when $\textit{num}=0$, and $(\textit{num}-1)\bmod 9+1$ otherwise.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

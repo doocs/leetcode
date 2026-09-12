@@ -62,6 +62,16 @@ Total amount you can rob = 1 + 3 = 4.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Houses form a circle, so the first and last cannot both be robbed, and the linear recurrence does not apply directly.
+>
+> We split into two linear instances—drop the first house, or drop the last—and take the better of the two. A single house is returned as-is.
+
+<!-- thinking:end -->
+
 The circular arrangement means that at most one of the first and last houses can be chosen for theft, so this circular arrangement problem can be reduced to two single-row house problems.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

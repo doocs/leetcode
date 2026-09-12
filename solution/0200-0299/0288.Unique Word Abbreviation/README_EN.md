@@ -80,6 +80,16 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An abbreviation is the first and last letters with the middle length. Queries should reuse a dictionary index: map each abbreviation to the set of words.
+>
+> A word is unique if its abbreviation is unseen, or the set contains only that word.
+
+<!-- thinking:end -->
+
 According to the problem description, we define a function $abbr(s)$, which calculates the abbreviation of the word $s$. If the length of the word $s$ is less than $3$, then its abbreviation is itself; otherwise, its abbreviation is its first letter + (its length - 2) + its last letter.
 
 Next, we define a hash table $d$, where the key is the abbreviation of the word, and the value is a set, the elements of which are all words abbreviated as that key. We traverse the given word dictionary, and for each word $s$ in the dictionary, we calculate its abbreviation $abbr(s)$, and add $s$ to $d[abbr(s)]$.

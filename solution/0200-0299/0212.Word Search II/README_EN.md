@@ -61,6 +61,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A separate DFS per word repeats work on shared prefixes. Building a trie of $words$ lets the board search walk the tree and prune dead branches.
+>
+> From each cell we expand to neighbors whose edge exists in the trie. Reaching a word node records the answer and sets $ref$ to $-1$ so it is not reported again.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

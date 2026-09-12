@@ -48,6 +48,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Zeros must go to the end while nonzeros keep their order. Let $k$ be the next slot for a nonzero.
+>
+> Each nonzero is swapped with $nums[k]$ and $k$ advances, so the prefix of length $k$ is the original nonzero sequence.
+
+<!-- thinking:end -->
+
 We use a pointer $k$ to record the current position to insert, initially $k = 0$.
 
 Then we iterate through the array $\textit{nums}$, and each time we encounter a non-zero number, we swap it with $\textit{nums}[k]$ and increment $k$ by 1.

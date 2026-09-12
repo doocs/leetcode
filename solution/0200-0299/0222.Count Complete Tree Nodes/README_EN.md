@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A complete tree can still be counted by ordinary recursion: the size is $1$ plus the sizes of the two subtrees, visiting every node once.
+
+<!-- thinking:end -->
+
 We recursively traverse the entire tree and count the number of nodes.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
@@ -246,6 +254,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The linear walk ignores that the last level is packed left. If the left and right heights match, the left subtree is perfect and contributes $2^{left}$ nodes (including the root), so we recurse only on the right; otherwise the right subtree is perfect and we recurse on the left.
+>
+> Each height walk is $O(\log n)$ and the recursion depth is $O(\log n)$, for $O(\log^2 n)$ time.
+
+<!-- thinking:end -->
 
 For this problem, we can also take advantage of the characteristics of a complete binary tree to design a faster algorithm.
 

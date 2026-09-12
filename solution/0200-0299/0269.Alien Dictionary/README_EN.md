@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alien order is a DAG whose edges come from the first differing letters of adjacent words. A later word that is a prefix of an earlier one, or a reverse edge, makes the order impossible.
+>
+> Topologically sort the letters that appear: enqueue indegree $0$, and the dequeue order is a valid alphabet. Too few letters means a cycle.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

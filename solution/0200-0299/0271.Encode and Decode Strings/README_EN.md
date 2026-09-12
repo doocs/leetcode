@@ -99,6 +99,16 @@ String[] strs = decoder.decode(msg);
 
 ### Solution 1: Encode String Length
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A raw delimiter can appear inside a string. Prefixing a fixed-width length makes the split unambiguous.
+>
+> Encode writes a $4$-character length then the payload; decode reads that length and slices.
+
+<!-- thinking:end -->
+
 During encoding, we convert the length of the string into a fixed 4-digit string, add the string itself, and append it to the result string in sequence.
 
 During decoding, we first take the first four digits of the string to get the length, and then cut the following string according to the length. We cut it in sequence until we get the list of strings.

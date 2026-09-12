@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting every cell with value $1$ as its own island would double-count 4-connected land. With $m,n \le 300$, a full scan is acceptable, but each connected component must be cleared in one search.
+>
+> Adjacent land cells form one component, so a DFS from any unseen land cell covers the whole island. We scan the grid, start DFS at each $1$, rewrite visited land to $0$, and increment the answer once per search.
+
+<!-- thinking:end -->
+
 We can use depth-first search (DFS) to traverse each island. We iterate through each cell $(i, j)$ in the grid. If the cell's value is '1', it means we have found a new island. We can start a DFS from this cell, marking all connected land cells as '0' to avoid duplicate counting. Each time we find a new island, we increment the island count by 1.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the grid, respectively.
@@ -310,6 +320,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS already counts components, but the recursion depth can reach $O(mn)$. The same 4-connectivity can be expanded with a queue.
+>
+> The scan order stays the same; only the search becomes explicit BFS, and space is bounded by the queue.
+
+<!-- thinking:end -->
 
 We can also use breadth-first search (BFS) to traverse each island. We iterate through each cell $(i, j)$ in the grid. If the cell's value is '1', it means we have found a new island. We can start a BFS from this cell, marking all connected land cells as '0' to avoid duplicate counting. Each time we find a new island, we increment the island count by 1.
 
@@ -555,6 +575,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 3: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If we want adjacency as an explicit partition, treat each land cell as a union-find node and union it with neighboring land.
+>
+> The number of islands is the number of components after the scan. Unions and finds are nearly linear; space remains proportional to the grid.
+
+<!-- thinking:end -->
 
 We can use the Union-Find data structure to solve this problem. We traverse each cell $(i, j)$ in the grid, and if the cell's value is '1', we merge it with adjacent land cells. Finally, we count the number of distinct root nodes in the Union-Find structure, which represents the number of islands.
 

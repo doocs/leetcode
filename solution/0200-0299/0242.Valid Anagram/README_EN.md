@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Anagrams have identical character counts. Unequal lengths fail immediately.
+>
+> Count $s$, then decrement while scanning $t$; a negative count means they differ.
+
+<!-- thinking:end -->
+
 We first determine whether the length of the two strings is equal. If they are not equal, the characters in the two strings must be different, so return `false`.
 
 Otherwise, we use a hash table or an array of length $26$ to record the number of times each character appears in the string $s$, and then traverse the other string $t$. Each time we traverse a character, we subtract the number of times the corresponding character appears in the hash table by one. If the number of times after subtraction is less than $0$, the number of times the character appears in the two strings is different, return `false`. If after traversing the two strings, all the character counts in the hash table are $0$, it means that the characters in the two strings appear the same number of times, return `true`.
@@ -247,6 +257,14 @@ bool isAnagram(char* s, char* t) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first method maintains the table by hand. Comparing two counters is shorter and has the same complexity.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

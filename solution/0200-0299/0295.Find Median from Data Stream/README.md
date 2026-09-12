@@ -74,6 +74,16 @@ medianFinder.findMedian(); // return 2.0</pre>
 
 ### 方法一：大小根堆（优先队列）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 动态求中位数若每次排序则过慢。用大根堆存较小一半、小根堆存较大一半，堆顶即可拼出中位数。
+>
+> 新元素先入大根堆再倒到小根堆，并保持小根堆大小至多大 $1$；偶数个取两顶平均，奇数个取小根堆顶。
+
+<!-- thinking:end -->
+
 我们可以使用两个堆来维护所有的元素，一个小根堆 $\textit{minQ}$ 和一个大根堆 $\textit{maxQ}$，其中小根堆 $\textit{minQ}$ 存储较大的一半，大根堆 $\textit{maxQ}$ 存储较小的一半。
 
 调用 `addNum` 方法时，我们首先将元素加入到大根堆 $\textit{maxQ}$，然后将 $\textit{maxQ}$ 的堆顶元素弹出并加入到小根堆 $\textit{minQ}$。如果此时 $\textit{minQ}$ 的大小与 $\textit{maxQ}$ 的大小差值大于 $1$，我们就将 $\textit{minQ}$ 的堆顶元素弹出并加入到 $\textit{maxQ}$。时间复杂度为 $O(\log n)$。

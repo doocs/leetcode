@@ -47,6 +47,16 @@ tags:
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $word1$ may equal $word2$, in which case the answer is the gap between consecutive occurrences of that word; otherwise it is the usual two-word gap.
+>
+> Track the last index accordingly: one pointer when the words coincide, two pointers when they differ.
+
+<!-- thinking:end -->
+
 First, we check whether $\textit{word1}$ and $\textit{word2}$ are equal:
 
 - If they are equal, iterate through the array $\textit{wordsDict}$ to find two indices $i$ and $j$ of $\textit{word1}$, and compute the minimum value of $i-j$.

@@ -53,6 +53,14 @@ tags:
 
 ### Solution 1: Traversal + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A move flips one occurrence of $++$ to $--$. Scan adjacent pairs, flip each $++$, record the string, and restore.
+
+<!-- thinking:end -->
+
 We traverse the string. If the current character and the next character are both `+`, we change these two characters to `-`, add the result to the result array, and then change these two characters back to `+`.
 
 After the traversal ends, we return the result array.

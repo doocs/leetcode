@@ -72,6 +72,16 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in the decision version, prerequisites form a directed graph; here we also need one valid order. The dequeue order of a topological sort is such a sequence.
+>
+> If fewer than $numCourses$ vertices enter the queue, a cycle exists and we return an empty array.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -65,6 +65,14 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many queries would rescan the whole list. Store every index of each word, then two-pointer the two sorted index lists for the minimum gap.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

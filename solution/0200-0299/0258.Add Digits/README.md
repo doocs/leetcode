@@ -59,6 +59,14 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 反复求各位和最终得到一位数，即数根。对非负整数有闭式：$\textit{num}=0$ 时为 $0$，否则为 $(\textit{num}-1)\bmod 9+1$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

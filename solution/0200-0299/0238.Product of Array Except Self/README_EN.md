@@ -51,6 +51,16 @@ tags:
 
 ### Solution 1: Two Passes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The product except $nums[i]$ is the left product times the right product. Two extra arrays for prefixes and suffixes use more than constant space.
+>
+> Write prefix products into the answer left to right, then multiply a running suffix from the right, using only the output array.
+
+<!-- thinking:end -->
+
 We define two variables $\textit{left}$ and $\textit{right}$ to represent the product of all elements to the left and right of the current element, respectively. Initially, $\textit{left} = 1$ and $\textit{right} = 1$. We define an answer array $\textit{ans}$ of length $n$.
 
 First, we traverse the array from left to right. For the $i$-th element, we update $\textit{ans}[i]$ with $\textit{left}$, then multiply $\textit{left}$ by $\textit{nums}[i]$.

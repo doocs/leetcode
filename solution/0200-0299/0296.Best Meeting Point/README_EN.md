@@ -62,6 +62,16 @@ So return 6.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Manhattan distance splits into a sum of $x$-gaps plus a sum of $y$-gaps. In one dimension the sum of distances is minimized at the median.
+>
+> Collect row indices of every $1$ (already sorted) and column indices (then sort), meet at those medians, and sum absolute deviations.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

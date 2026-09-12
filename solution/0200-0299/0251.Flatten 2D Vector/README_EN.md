@@ -71,6 +71,16 @@ vector2D.hasNext(); // return False
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flattening into a 1-D array is easy but wastes space and is not an iterator. A row index and a column index locate the next value.
+>
+> $forward$ skips empty rows so $(i,j)$ sits on a real element; $next$ reads it and advances, and $hasNext$ tests whether $i$ is still in range.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

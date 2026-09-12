@@ -58,6 +58,16 @@ Then 4 is the first bad version.
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Once a version is bad, every later one is bad. If $isBadVersion(\textit{mid})$ then the first bad version lies in the left half including $\textit{mid}$; otherwise it lies to the right.
+>
+> The search stops at $l=r$, the first bad version.
+
+<!-- thinking:end -->
+
 We define the left boundary of the binary search as $l = 1$ and the right boundary as $r = n$.
 
 While $l < r$, we calculate the middle position $\textit{mid} = \left\lfloor \frac{l + r}{2} \right\rfloor$, then call the `isBadVersion(mid)` API. If it returns $\textit{true}$, it means the first bad version is between $[l, \textit{mid}]$, so we set $r = \textit{mid}$; otherwise, the first bad version is between $[\textit{mid} + 1, r]$, so we set $l = \textit{mid} + 1$.

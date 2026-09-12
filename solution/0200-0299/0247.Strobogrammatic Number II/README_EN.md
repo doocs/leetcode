@@ -45,6 +45,16 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Length-$n$ strobogrammatic numbers are shorter valid strings with a mirrored pair wrapped around them. Length $1$ is $0,1,8$; length $0$ is the empty string.
+>
+> $dfs(u)$ wraps $11,88,69,96$ around $dfs(u-2)$, and wraps $00$ only when $u\neq n$ so the full number has no leading zero.
+
+<!-- thinking:end -->
+
 If the length is $1$, then the strobogrammatic numbers are only $0, 1, 8$; if the length is $2$, then the strobogrammatic numbers are only $11, 69, 88, 96$.
 
 We design a recursive function $dfs(u)$, which returns the strobogrammatic numbers of length $u$. The answer is $dfs(n)$.

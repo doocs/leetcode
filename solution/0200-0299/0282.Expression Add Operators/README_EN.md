@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We insert $+$, $-$, $*$ or concatenate digits. Multiplication binds tighter than addition, and concatenated numbers may not have leading zeros.
+>
+> DFS keeps the last operand $prev$ and the value $curr$. Plus and minus update $curr$ directly; multiply rewinds the last term via $curr-prev+prev\times\textit{next}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

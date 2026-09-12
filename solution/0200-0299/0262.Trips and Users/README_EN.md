@@ -128,6 +128,16 @@ On 2013-10-03:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the daily cancellation rate over three days, counting only trips whose client and driver are not banned. Join $\textit{Users}$ twice to drop banned people.
+>
+> Group by $request\_at$ and take $\mathrm{AVG}(\textit{status}\neq\texttt{completed})$, rounded to two decimals.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

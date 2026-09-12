@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A wiggle only needs $a_0\le a_1\ge a_2\le a_3\cdots$, not a full sort. Scan left to right and swap a pair that violates the local inequality.
+>
+> Odd indices should be $\ge$ the previous value and even indices $\le$; a local swap does not break earlier pairs.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

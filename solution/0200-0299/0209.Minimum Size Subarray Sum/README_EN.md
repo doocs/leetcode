@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Summing every subarray is $O(n^2)$. All elements are positive, so prefix sums are monotone and the shortest right end for a fixed left end can be binary-searched.
+>
+> After building $s$, for each $s[i]$ we find the least $j$ with $s[j] \ge s[i]+\textit{target}$ and update the length by $j-i$.
+
+<!-- thinking:end -->
+
 First, we preprocess the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$. Since all elements in the array $nums$ are positive integers, the array $s$ is also monotonically increasing. Also, we initialize the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
 
 Next, we traverse the prefix sum array $s$. For each element $s[i]$, we can find the smallest index $j$ that satisfies $s[j] \geq s[i] + target$ by binary search. If $j \leq n$, it means that there exists a subarray that satisfies the condition, and we can update the answer, i.e., $ans = min(ans, j - i)$.
@@ -256,6 +266,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Prefix sums still use $O(n)$ space and a log factor. Positivity makes the window sum grow with the right end and shrink when the left end moves right.
+>
+> Two pointers therefore suffice: add on the right, and while the sum is at least $\textit{target}$, shrink from the left and record the shortest length.
+
+<!-- thinking:end -->
 
 We can use two pointers $j$ and $i$ to maintain a window, where the sum of all elements in the window is less than $target$. Initially, $j = 0$, and the answer $ans = n + 1$, where $n$ is the length of the array $nums$.
 

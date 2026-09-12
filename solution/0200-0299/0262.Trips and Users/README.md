@@ -132,6 +132,16 @@ Users 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要按日统计取消率，且乘客、司机均未被封禁，日期限于三天。行程需与用户表各连接一次以过滤封禁。
+>
+> 按 $request\_at$ 分组，用 $\mathrm{AVG}(\textit{status}\neq\texttt{completed})$ 得到取消比例并保留两位小数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

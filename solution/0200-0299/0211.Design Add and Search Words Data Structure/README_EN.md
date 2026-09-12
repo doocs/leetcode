@@ -69,6 +69,16 @@ wordDictionary.search(&quot;b..&quot;); // return True
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Exact lookup could use a hash set, but $.$ matches any letter, so scanning every word is awkward. Words use lowercase letters, which fit a trie.
+>
+> Add walks a $26$-way path. Search follows a fixed edge on a letter and branches over every non-empty child on $.$; a match must end on a word node.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

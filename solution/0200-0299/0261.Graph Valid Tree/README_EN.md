@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An undirected graph is a tree iff it is connected and acyclic, so it has exactly $n-1$ edges. Union-find reports a cycle when an edge joins two nodes already in the same set.
+>
+> Each successful union decreases the component count; it must be $1$ at the end.
+
+<!-- thinking:end -->
+
 To determine whether it is a tree, the following two conditions must be met:
 
 1. The number of edges is equal to the number of nodes minus one;
@@ -205,6 +215,14 @@ var validTree = function (n, edges) {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Union-find checks cycles on edges. We can instead require $|E|=n-1$ and DFS from $0$: visiting $n$ nodes means the graph is connected and has no spare edge.
+
+<!-- thinking:end -->
 
 We can also use depth-first search to determine whether there is a cycle. We can use an array $vis$ to record the visited nodes. During the search, we first mark the node as visited, then traverse the nodes adjacent to this node. If the adjacent node has been visited, we skip it, otherwise we recursively visit the adjacent node. Finally, we check whether all nodes have been visited. If there are nodes that have not been visited, it means that it cannot form a tree, so we return `false`.
 

@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is sorted and unique, so a range is a maximal run of neighbors that differ by $1$. One scan can cut the runs.
+>
+> Pointers $i,j$ mark a segment until $nums[j+1]\neq nums[j]+1$, then format a singleton or $a{\to}b$.
+
+<!-- thinking:end -->
+
 We can use two pointers $i$ and $j$ to find the left and right endpoints of each interval.
 
 Traverse the array, when $j + 1 < n$ and $nums[j + 1] = nums[j] + 1$, move $j$ to the right, otherwise the interval $[i, j]$ has been found, add it to the answer, then move $i$ to the position of $j + 1$, and continue to find the next interval.

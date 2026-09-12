@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: In-place marking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The next state depends on the current eight neighbors; writing immediately would spoil cells not yet processed. Use sentinels: live-to-dead as $2$, dead-to-live as $-1$, and treat positives as live when counting.
+>
+> A second pass maps $2$ to $0$ and $-1$ to $1$, all in place.
+
+<!-- thinking:end -->
+
 Let's define two new states. State $2$ indicates that the living cell becomes dead in the next state, and state $-1$ indicates that the dead cell becomes alive in the next state. Therefore, for the current grid we are traversing, if the grid is greater than $0$, it means that the current grid is a living cell, otherwise it is a dead cell.
 
 So we can traverse the entire board, for each grid, count the number of living neighbors around the grid, and use the variable $live$ to represent it. If the current grid is a living cell, then when $live \lt 2$ or $live \gt 3$, the next state of the current grid is a dead cell, that is, state $2$; if the current grid is a dead cell, then when $live = 3$, the next state of the current grid is an active cell, that is, state $-1$.

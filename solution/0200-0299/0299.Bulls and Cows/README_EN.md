@@ -71,6 +71,16 @@ Note that only one of the two unmatched 1s is counted as a cow since the non-bul
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bulls are equal digits in the same place; cows are matching digits in different places. Count same-position matches as $x$, and tally the remaining digits on each side.
+>
+> Each digit contributes $\min$ of the two leftover counts to $y$.
+
+<!-- thinking:end -->
+
 We create two counters, $cnt1$ and $cnt2$, to count the occurrence of each digit in the secret number and the friend's guess respectively. At the same time, we create a variable $x$ to count the number of bulls.
 
 Then we iterate through the secret number and the friend's guess. If the current digit is the same, we increment $x$ by one. Otherwise, we increment the count of the current digit in the secret number and the friend's guess respectively.

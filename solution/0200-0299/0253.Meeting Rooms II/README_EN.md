@@ -47,6 +47,16 @@ tags:
 
 ### Solution 1: Difference Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of rooms is the peak number of meetings underway. Add $1$ at each start and $-1$ at each end; the prefix sum is the occupancy.
+>
+> A difference array up to the latest end time, then one scan, yields that peak.
+
+<!-- thinking:end -->
+
 We can implement this using a difference array.
 
 First, we find the maximum end time of all the meetings, denoted as $m$. Then, we create a difference array $d$ of length $m + 1$. For each meeting, we add to the corresponding positions in the difference array: $d[l] = d[l] + 1$ for the start time, and $d[r] = d[r] - 1$ for the end time.
@@ -201,6 +211,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Difference (Hash Map)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A large time horizon wastes an $O(m)$ array. A hash map stores updates only at endpoints; sorting the keys and taking a prefix-sum peak is equivalent.
+
+<!-- thinking:end -->
 
 If the meeting times span a large range, we can use a hash map instead of a difference array.
 

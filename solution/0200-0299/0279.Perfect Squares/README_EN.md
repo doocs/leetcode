@@ -56,6 +56,16 @@ tags:
 
 ### Solution 1: Dynamic Programming (Complete Knapsack)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Perfect squares may be reused, so the fewest that sum to $n$ is an unbounded knapsack with items $1^2,\ldots,m^2$ where $m=\lfloor\sqrt{n}\rfloor$.
+>
+> $f[i][j]$ is the fewest squares among the first $i$ kinds that sum to $j$: skip $i^2$, or take one more copy.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -196,6 +206,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i][j]$ depends only on $f[i-1][j]$ and $f[i][j-i^2]$, so a 1-D array updated in increasing $j$ is enough.
+
+<!-- thinking:end -->
 
 $f[i][j]$ depends only on $f[i - 1][j]$ and $f[i][j - i^2]$, so the table can be rolled into a 1D array of space $O(n)$. The time complexity stays $O(m \times n)$.
 

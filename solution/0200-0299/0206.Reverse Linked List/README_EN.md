@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1: Head Insertion Method
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Storing nodes in an array and rebuilding backwards works, but only pointer rewrites are needed. Head insertion reverses the list in one pass: each node is inserted immediately after a dummy.
+>
+> When the scan ends, $\textit{dummy.next}$ is the new head and extra space is constant.
+
+<!-- thinking:end -->
+
 We create a dummy node $\textit{dummy}$, then traverse the linked list and insert each node after the $\textit{dummy}$ node. After traversal, return $\textit{dummy.next}$.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.
@@ -292,6 +302,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Recursion
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Head insertion is already linear. We can instead reverse the suffix recursively, then attach the current node behind the new tail.
+>
+> The pointer updates are shorter, at the cost of $O(n)$ call-stack space.
+
+<!-- thinking:end -->
 
 We recursively reverse all nodes from the second node to the end of the list, then attach the $head$ to the end of the reversed list.
 

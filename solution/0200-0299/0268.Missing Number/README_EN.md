@@ -99,6 +99,14 @@ tags:
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One value from $[0,n]$ is missing. XOR the indices $1..n$ with the array entries; pairs cancel and the missing number remains.
+
+<!-- thinking:end -->
+
 The XOR operation has the following properties:
 
 - Any number XOR 0 is still the original number, i.e., $x \oplus 0 = x$;
@@ -233,6 +241,14 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> XOR avoids addition. Gauss’s formula also works: $n(n+1)/2$ minus the array sum is the missing value.
+
+<!-- thinking:end -->
 
 We can also solve this problem using mathematics. By calculating the sum of $[0,..n]$, subtracting the sum of all numbers in the array, we can obtain the missing number.
 

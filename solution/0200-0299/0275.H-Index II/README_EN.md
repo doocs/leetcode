@@ -58,6 +58,14 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is already sorted, so the previous sort disappears. $citations[n-h]\ge h$ iff $h$ is feasible; binary search yields the largest such $h$ in logarithmic time.
+
+<!-- thinking:end -->
+
 We notice that if there are at least $x$ papers with citation counts greater than or equal to $x$, then for any $y \lt x$, its citation count must also be greater than or equal to $y$. This exhibits monotonicity.
 
 Therefore, we use binary search to enumerate $h$ and obtain the maximum $h$ that satisfies the condition. Since we need to satisfy that $h$ papers are cited at least $h$ times, we have $citations[n - mid] \ge mid$.

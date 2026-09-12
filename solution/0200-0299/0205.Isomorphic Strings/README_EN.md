@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Hash Table or Array
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Isomorphism needs a bijection between characters of $s$ and $t$; a one-way map misses many-to-one collisions. The strings have equal length and a finite alphabet, so one pass suffices.
+>
+> We keep $d_1$ and $d_2$ for $s\to t$ and $t\to s$. A conflict with an existing mapping fails; otherwise we update and continue.
+
+<!-- thinking:end -->
+
 We can use two hash tables or arrays $d_1$ and $d_2$ to record the character mapping relationship between $s$ and $t$.
 
 Traverse $s$ and $t$, if the corresponding character mapping relationships in $d_1$ and $d_2$ are different, return `false`, otherwise update the corresponding character mapping relationships in $d_1$ and $d_2$. After the traversal is complete, it means that $s$ and $t$ are isomorphic, and return `true`.
@@ -236,6 +246,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two hash maps are correct but pay hashing overhead. The alphabet has size $256$, so arrays suffice.
+>
+> Store the last index of each character as a shared timestamp: if the recorded indices differ, the mapping is inconsistent.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

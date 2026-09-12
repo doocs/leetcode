@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A consecutive path is a downward chain whose values increase by $1$. Postorder yields the lengths from each child; we extend only when the child is exactly one larger, otherwise restart at $1$.
+>
+> $dfs$ returns the longest consecutive length starting at the current node and updates a global answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

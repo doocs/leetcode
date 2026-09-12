@@ -83,6 +83,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We emit two vectors in lockstep and skip a side that is exhausted. $cur$ names the active vector and each has its own index; after a read, $cur$ advances modulo $2$.
+>
+> $hasNext$ rotates $cur$ while the current list is spent; returning to the start means both are empty.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

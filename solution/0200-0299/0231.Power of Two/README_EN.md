@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeated division by $2$ works, but one bit test is enough. A power of two has a single $1$ bit, i.e. $n>0$ and $n\mathrel{\&}(n-1)=0$.
+
+<!-- thinking:end -->
+
 According to the properties of bit manipulation, executing $\texttt{n\&(n-1)}$ can eliminate the last bit $1$ in the binary form of $n$. Therefore, if $n > 0$ and $\texttt{n\&(n-1)}$ results in $0$, then $n$ is a power of $2$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.
@@ -144,6 +152,14 @@ var isPowerOfTwo = function (n) {
 <!-- solution:start -->
 
 ### Solution 2: Lowbit
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Clearing the lowest set bit is equivalent to taking $\mathrm{lowbit}$. If $n>0$ and $n=n\mathrel{\&}(-n)$, that single bit is the whole number.
+
+<!-- thinking:end -->
 
 According to the definition of $\text{lowbit}$, we know that $\text{lowbit}(x) = x \& (-x)$, which can get the decimal number represented by the last bit $1$ of $n$. Therefore, if $n > 0$ and $\text{lowbit}(n)$ equals $n$, then $n$ is a power of $2$.
 

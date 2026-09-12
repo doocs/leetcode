@@ -55,6 +55,16 @@ tags:
 
 ### Solution 1: Fast and Slow Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Copying values into an array works, but we want constant extra space. A palindrome is symmetric about the midpoint, so we find the middle, reverse the second half, and compare.
+>
+> Slow/fast pointers locate the mid; the second half is reversed in place and compared with the first half.
+
+<!-- thinking:end -->
+
 We can use fast and slow pointers to find the middle of the linked list, then reverse the right half of the list. After that, we traverse both halves simultaneously, checking if the corresponding node values are equal. If any pair of values is unequal, it's not a palindrome linked list; otherwise, it is a palindrome linked list.
 
 The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.

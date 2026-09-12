@@ -64,6 +64,16 @@ tags:
 
 ### 方法一：状态压缩 + 记忆化搜索
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 双方轮流翻 $++$，无法行动者负。状态可用长度为 $n$ 的位掩码表示 $+$ 的位置，枚举合法翻转后看对手是否必败。
+>
+> 同一掩码会反复出现，记忆化 $dfs(\textit{mask})$：存在一步使对手返回假则先手胜。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -199,6 +209,14 @@ func canWin(currentState string) bool {
 <!-- solution:start -->
 
 ### 方法二：Sprague-Grundy 定理
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 记忆化搜索状态数为 $2^n$。连续的 $+$ 段彼此独立，可用 SG 函数：整局 SG 为各段异或，非零则先手胜。
+
+<!-- thinking:end -->
 
 Sprague-Grundy 定理为游戏的每一个状态定义了一个 Sprague-Grundy 数（简称 SG 数），游戏状态的组合相当于 SG 数的异或运算。
 
