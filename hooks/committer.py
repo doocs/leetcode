@@ -4,8 +4,9 @@ hooks/committer.py - Bulk mtime index + parallel API prefetch
 Optimizations:
 1. on_pre_build: single git log pass builds {file -> last_mtime} index,
    replacing the original per-page subprocess spawn (3000+ pages -> 1 call).
-2. on_files: scan all docs frontmatter to extract edit_url,
-   parallel-prefetch GitHub API for all cache misses before page processing.
+2. on_files: resolve each page's main-branch path from .edit_map.json
+   (frontmatter edit_url is a fallback), then parallel-prefetch GitHub API
+   for all cache misses before page processing.
 3. on_page_context: pure cache lookup, near-zero overhead.
 """
 
@@ -15,14 +16,21 @@ import os
 import re
 import random
 import subprocess
+import sys
 import threading
-import urllib.parse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional
+from urllib.parse import quote
 
 import requests
+
+_HOOKS_DIR = Path(__file__).resolve().parent
+if str(_HOOKS_DIR) not in sys.path:
+    sys.path.insert(0, str(_HOOKS_DIR))
+
+import edit_map  # noqa: E402
 
 
 # --- Logging ---
@@ -73,6 +81,16 @@ def _extract_edit_url(md_path: str) -> Optional[str]:
     return None
 
 
+def _repo_path_for_file(src_path: str, docs_dir: str, md_path: str) -> Optional[str]:
+    repo_path = edit_map.repo_path_for(src_path, docs_dir)
+    if repo_path:
+        return repo_path
+    edit_url = _extract_edit_url(md_path)
+    if edit_url:
+        return edit_map.repo_path_from_edit_url(edit_url)
+    return None
+
+
 # --- Main plugin ---
 class CommitterPlugin:
     def __init__(self):
@@ -113,10 +131,9 @@ class CommitterPlugin:
             if not f.src_path.endswith(".md"):
                 continue
             md_path = os.path.join(docs_dir, f.src_path)
-            edit_url = _extract_edit_url(md_path)
-            if not edit_url:
+            repo_path = _repo_path_for_file(f.src_path, docs_dir, md_path)
+            if not repo_path:
                 continue
-            repo_path = self._repo_path_from_edit_url(edit_url)
             git_mtime = self._mtime_index.get(repo_path, 0)
             cached = self.page_authors.get(repo_path)
             cached_time = cached.get("retrieved") if cached else None
@@ -165,7 +182,7 @@ class CommitterPlugin:
         if not page.edit_url or _exclude(page.file.src_path, []):
             return context
 
-        repo_path = self._repo_path_from_edit_url(page.edit_url)
+        repo_path = edit_map.repo_path_from_edit_url(page.edit_url)
         git_mtime = self._mtime_index.get(repo_path, 0)
         cached = self.page_authors.get(repo_path)
         cached_time = cached.get("retrieved") if cached else None
@@ -264,13 +281,8 @@ class CommitterPlugin:
         return authors
 
     @staticmethod
-    def _repo_path_from_edit_url(edit_url: str) -> str:
-        raw = edit_url.split("/edit/main/")[-1]
-        return urllib.parse.unquote(raw)
-
-    @staticmethod
     def _api_url_from_repo_path(repo_path: str) -> str:
-        quoted = urllib.parse.quote(repo_path)
+        quoted = quote(repo_path)
         return (
             "https://api.github.com/repos/doocs/leetcode/commits"
             f"?path={quoted}&sha=main&per_page=100"

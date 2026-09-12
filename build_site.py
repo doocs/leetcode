@@ -1,8 +1,13 @@
 """Flatten problem READMEs and generate MkDocs nav grouped by number range."""
 
+import json
 import os
+import re
 from collections import defaultdict
 from typing import Dict, List, NamedTuple, Optional, Set, Tuple
+
+EDIT_MAP_NAME = ".edit_map.json"
+_EDIT_URL_LINE = re.compile(r"^edit_url:.*\n?", re.MULTILINE)
 
 
 class NavItem(NamedTuple):
@@ -163,9 +168,48 @@ def load_only_dirs() -> Optional[Set[str]]:
     return only
 
 
-def collect_items() -> Tuple[Dict[str, List[NavItem]], Dict[str, List[NavItem]]]:
+def posix_repo_path(path: str) -> str:
+    return path.replace("\\", "/")
+
+
+def strip_frontmatter_edit_url(content: str) -> str:
+    if not content.startswith("---"):
+        return content
+    end = content.find("\n---", 3)
+    if end == -1:
+        return content
+    front = content[:end]
+    rest = content[end:]
+    stripped, n = _EDIT_URL_LINE.subn("", front, count=1)
+    if not n:
+        return content
+    return stripped + rest
+
+
+def write_edit_maps(edit_maps: Dict[str, Dict[str, str]]) -> None:
+    for docs_root, mapping in edit_maps.items():
+        os.makedirs(docs_root, exist_ok=True)
+        path = os.path.join(docs_root, EDIT_MAP_NAME)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(mapping, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+
+
+def add_static_edit_mappings(edit_maps: Dict[str, Dict[str, str]]) -> None:
+    if os.path.isfile(os.path.join("docs", "contest.md")):
+        edit_maps.setdefault("docs", {})["contest.md"] = "solution/CONTEST_README.md"
+    if os.path.isfile(os.path.join("docs-en", "contest.md")):
+        edit_maps.setdefault("docs-en", {})["contest.md"] = (
+            "solution/CONTEST_README_EN.md"
+        )
+
+
+def collect_items() -> Tuple[
+    Dict[str, List[NavItem]], Dict[str, List[NavItem]], Dict[str, Dict[str, str]]
+]:
     nav_cn: Dict[str, List[NavItem]] = defaultdict(list)
     nav_en: Dict[str, List[NavItem]] = defaultdict(list)
+    edit_maps: Dict[str, Dict[str, str]] = {"docs": {}, "docs-en": {}}
     only = load_only_dirs()
 
     for dir_name, (target_dir, depth) in dirs_mapping.items():
@@ -181,16 +225,18 @@ def collect_items() -> Tuple[Dict[str, List[NavItem]], Dict[str, List[NavItem]]]
             dest = f"{target_dir}/{num}.md"
             item = NavItem(parse_sort_key(num), num, name, dest)
             is_en = "README_EN" in path
+            docs_root = "docs-en" if is_en else "docs"
             (nav_en if is_en else nav_cn)[dir_name].append(item)
-            docs_dir = os.path.join("docs-en" if is_en else "docs", target_dir)
+            edit_maps[docs_root][dest] = posix_repo_path(path)
+            docs_dir = os.path.join(docs_root, target_dir)
             os.makedirs(docs_dir, exist_ok=True)
             with open(os.path.join(docs_dir, f"{num}.md"), "w", encoding="utf-8") as f:
-                f.write(content)
+                f.write(strip_frontmatter_edit_url(content))
 
         nav_cn[dir_name].sort(key=lambda x: x.sort_key)
         nav_en[dir_name].sort(key=lambda x: x.sort_key)
 
-    return nav_cn, nav_en
+    return nav_cn, nav_en, edit_maps
 
 
 def replace_nav(config: str, nav: str) -> str:
@@ -200,7 +246,9 @@ def replace_nav(config: str, nav: str) -> str:
 
 
 def main() -> None:
-    nav_cn, nav_en = collect_items()
+    nav_cn, nav_en, edit_maps = collect_items()
+    add_static_edit_mappings(edit_maps)
+    write_edit_maps(edit_maps)
 
     write_range_indexes(nav_cn["solution"], "docs", "lc", "zh")
     write_range_indexes(nav_en["solution"], "docs-en", "lc", "en")
