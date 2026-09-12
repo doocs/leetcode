@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1900-1999/1911.Maximum%20Alternating%20Subsequence%20Sum/README.md
 rating: 1785
 source: 第 55 场双周赛 Q3
 tags:
