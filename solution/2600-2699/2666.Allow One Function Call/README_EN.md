@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2600-2699/2666.Allow%20One%20Function%20Call/README_EN.md
 tags:
     - JavaScript
 ---
