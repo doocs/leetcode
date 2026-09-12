@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3173.Bitwise%20OR%20of%20Adjacent%20Elements/README_EN.md
 tags:
     - Bit Manipulation
     - Array

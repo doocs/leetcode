@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3100-3199/3169.Count%20Days%20Without%20Meetings/README.md
 rating: 1483
 source: 第 400 场周赛 Q2
 tags:
