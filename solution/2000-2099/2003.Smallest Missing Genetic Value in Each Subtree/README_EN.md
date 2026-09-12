@@ -86,6 +86,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n \le 10^5$, scanning every subtree separately revisits nodes too often. Gene values are unique, so mex $> 1$ can occur only on the path from the node with gene $1$ to the root; every other node answers $1$.
+>
+> Walking that path upward only enlarges the gene set (the parent adds sibling subtrees). Already marked genes need not be rescanned.
+>
+> DFS from $idx$ toward the root fills $has$; a monotone pointer $i$ finds the smallest missing value and writes $ans[idx]$.
+
+<!-- thinking:end -->
+
 We notice that each node has a unique gene value, so we only need to find the node $idx$ with gene value $1$, and all nodes except for those on the path from node $idx$ to the root node $0$ have an answer of $1$.
 
 Therefore, we initialize the answer array $ans$ to $[1,1,...,1]$, and our focus is on finding the answer for each node on the path from node $idx$ to the root node $0$.

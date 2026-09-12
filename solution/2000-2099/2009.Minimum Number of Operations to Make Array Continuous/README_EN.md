@@ -80,6 +80,18 @@ The resulting array is [1,2,3,4], which is continuous.
 
 ### Solution 1: Sorting + Deduplication + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A continuous array spans $n$ distinct values, so duplicates must change. With $n \le 10^5$ we cannot try every target range. After sorting unique values, a valid window is a stretch whose max–min is at most $n-1$.
+>
+> For left endpoint $nums[i]$, the right cannot exceed $nums[i]+n-1$. Binary search finds the first overflow $j$; we keep $j-i$ numbers and perform $n-(j-i)$ operations.
+>
+> Sorting dominates; each query is $O(\log n)$.
+
+<!-- thinking:end -->
+
 First, we sort the array and remove duplicates.
 
 Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use binary search to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.
@@ -248,6 +260,16 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Deduplication + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 binary-searches the right end each time. As $i$ moves right, $j$ is monotone, so binary search is unnecessary.
+>
+> A two-pointer scan advances $j$ once, dropping the extra $\log n$ factor.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we first sort the array and remove duplicates.
 

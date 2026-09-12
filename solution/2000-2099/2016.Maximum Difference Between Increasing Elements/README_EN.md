@@ -68,6 +68,16 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 
 ### Solution 1: Maintaining Prefix Minimum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 1000$ allows a double loop, but we only need the maximum $nums[j]-nums[i]$ with $i<j$. For a fixed right end, the best left is the prefix minimum.
+>
+> Track $mi$: if $x>mi$ update the difference, otherwise replace $mi$ with $x$. Keep $-1$ when no increasing pair exists.
+
+<!-- thinking:end -->
+
 We use a variable $\textit{mi}$ to represent the minimum value among the elements currently being traversed, and a variable $\textit{ans}$ to represent the maximum difference. Initially, $\textit{mi}$ is set to $+\infty$, and $\textit{ans}$ is set to $-1$.
 
 Traverse the array. For the current element $x$, if $x \gt \textit{mi}$, update $\textit{ans}$ to $\max(\textit{ans}, x - \textit{mi})$. Otherwise, update $\textit{mi}$ to $x$.

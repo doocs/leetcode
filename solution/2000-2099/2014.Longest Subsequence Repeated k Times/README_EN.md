@@ -79,6 +79,18 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Since $n < \min(2001, k \cdot 8)$, a $k$-repeated subsequence has length at most $\lfloor n/k \rfloor \le 7$. A letter must occur at least $k$ times to appear in the answer.
+>
+> With short candidates, BFS from short to long makes the last success the longest, and appending letters in order makes it lexicographically largest among that length.
+>
+> The queue starts from `""` and appends letters with count $\ge k$; `check` matches $t$ in $s$ for $k$ rounds.
+
+<!-- thinking:end -->
+
 We can first count the occurrences of each character in the string, and then store the characters that appear at least $k$ times in a list $\textit{cs}$ in ascending order. Next, we can use BFS to enumerate all possible subsequences.
 
 We define a queue $\textit{q}$, initially putting the empty string into the queue. Then, we take out a string $\textit{cur}$ from the queue and try to append each character $c \in \textit{cs}$ to the end of $\textit{cur}$ to form a new string $\textit{nxt}$. If $\textit{nxt}$ is a subsequence that can be repeated $k$ times, we add it to the answer and put $\textit{nxt}$ back into the queue for further processing.

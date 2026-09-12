@@ -96,6 +96,18 @@ The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 
 ### Solution 1: Dynamic Programming (Interval DP)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $15$ operators; wrong answers come from different associations. Parenthesis enumeration is Catalan-sized, but interval DP unions all values. The true answer uses standard precedence separately.
+>
+> $f[i][j]$ is the set of values of digits $i..j$; split at $k$ and apply the operator, dropping results $>1000$.
+>
+> Count $answers$: $5$ if exact, else $2$ if the value lies in $f[0][m-1]$.
+
+<!-- thinking:end -->
+
 First, we design a function $cal(s)$ to calculate the result of a valid mathematical expression that only contains single-digit numbers. The correct answer is $x = cal(s)$.
 
 Let the length of the string $s$ be $n$, then the number of digits in $s$ is $m = \frac{n+1}{2}$.
