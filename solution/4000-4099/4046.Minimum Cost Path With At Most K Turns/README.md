@@ -94,6 +94,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4046.Mi
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 网格不超过 $75\times 75$，转向次数 $k<\min(m,n)$。若忽略转向限制做最短路，得到的路径可能转弯过多；若按路径搜索，又会重复访问格子。
+>
+> 状态需要带上位置、来向以及已经使用的转向次数。边权为格子代价且非负，可用 Dijkstra，或按代价递推的 DP。
+>
+> 到达终点时在转向次数 $0\ldots k$ 上取最小代价；若这些状态均不可达，返回 $-1$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

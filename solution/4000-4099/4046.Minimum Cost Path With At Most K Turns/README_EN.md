@@ -91,6 +91,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4046.Mi
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is at most $75\times 75$ and $k<\min(m,n)$. A shortest path that ignores the turn limit may turn too often; a raw path search would revisit cells.
+>
+> The state must include position, incoming direction, and the number of turns already used. Cell costs are nonnegative, so Dijkstra or a cost DP applies.
+>
+> The answer is the minimum cost among turn counts $0\ldots k$ at the destination, or $-1$ if none of those states is reachable.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

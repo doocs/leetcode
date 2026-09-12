@@ -142,6 +142,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4044.Co
 
 ### Solution 1: Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rotation is good only when the first half-sum is strictly larger than the second. Resumming both halves every time would be quadratic.
+>
+> A left shift drops $\textit{nums}[i]$ from the first half and receives $\textit{nums}[(i+m)\bmod n]$; the second half does the opposite. Both sums therefore update in $O(1)$.
+>
+> Starting from the original array we rotate $n$ times and count how often $l>r$.
+
+<!-- thinking:end -->
+
 Let $n$ be the length of the array and $m = n / 2$. First compute the sum $l$ of the first $m$ elements of the original array and the sum $r$ of the last $m$ elements. If $l > r$, increment the answer by $1$.
 
 Then start from the original array and cyclically shift it left by one position, $n - 1$ times in total. On the $i$-th shift ($i$ starts from $0$), the first half loses $\textit{nums}[i]$ and gains $\textit{nums}[(i + m) \bmod n]$, while the second half does the opposite. Update $l$ and $r$ in $O(1)$ time, and increment the answer whenever $l > r$.
