@@ -120,6 +120,14 @@ Department  表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每部门薪水前三高的员工，相同薪水算同一名。相关子查询统计「该部门有多少个严格更高的不同薪水」，少于 $3$ 即进入前三，再与部门表连接。不必先物化排名表。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -174,6 +182,14 @@ WHERE
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每个员工都要扫一遍同部门薪水。$\textit{DENSE\_RANK}$ 按部门分区、薪水降序，筛 $\textit{rk}\le 3$ 即前三档（含并列），语句更直。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

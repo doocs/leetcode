@@ -80,6 +80,14 @@ Scores 表:
 
 ### 方法一：使用窗口函数 `DENSE_RANK()`
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 分数降序排名，相同分数同名、名次连续（不跳号）。$\textit{RANK}$ 会在并列后留下空洞，$\textit{ROW\_NUMBER}$ 会拆开并列。$\textit{DENSE\_RANK}$ 正好给出连续且允许并列的名次，再按分数降序输出。
+
+<!-- thinking:end -->
+
 使用 `DENSE_RANK()` 函数，语法如下：
 
 ```sql
@@ -131,6 +139,14 @@ FROM Scores;
 <!-- solution:start -->
 
 ### 方法二：变量
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一依赖窗口函数，旧版 MySQL 没有。按分数降序扫一遍，用变量记下上一个分数与当前名次：分数变了才加一，否则沿用，手工实现稠密排名。
+
+<!-- thinking:end -->
 
 MySQL 8 开始才提供了 `ROW_NUMBER()`，`RANK()`，`DENSE_RANK()` 等[窗口函数](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)，在之前的版本，可以使用变量实现类似的功能。
 

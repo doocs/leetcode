@@ -54,6 +54,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A list cannot access the midpoint in $O(1)$. Finding it with two pointers at every recursive step costs $O(n\log n)$. There are up to $2\times 10^4$ nodes.
+>
+> A sorted list is still an inorder sequence. Flatten it into an array, then build a balanced BST as with a sorted array: midpoint as root, recurse on both sides. $O(n)$ extra space buys $O(1)$ midpoint access.
+
+<!-- thinking:end -->
+
 We first convert the linked list to an array $\textit{nums}$, and then use depth-first search to construct the binary search tree.
 
 We define a function $\textit{dfs}(i, j)$, where $i$ and $j$ represent the current interval $[i, j]$. Each time, we choose the number at the middle position $\textit{mid}$ of the interval as the root node, recursively construct the left subtree for the interval $[i, \textit{mid} - 1]$, and the right subtree for the interval $[\textit{mid} + 1, j]$. Finally, we return the node corresponding to $\textit{mid}$ as the root node of the current subtree.

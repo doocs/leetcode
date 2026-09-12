@@ -65,6 +65,14 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most two transactions, so the unlimited-trade state of the previous problem is not enough. A 3D DP over day, trades finished, and hold is heavier than we need. The legal order is buy1, sell1, buy2, sell2. Four variables update in that order, each day using the previous stage. Buying and selling on the same day yields $0$ and does not hurt the optimum.
+
+<!-- thinking:end -->
+
 We define the following variables:
 
 - `f1` represents the maximum profit after the first purchase of the stock;

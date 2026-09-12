@@ -71,6 +71,14 @@ Logs table:
 
 ### Solution 1: Two Joins
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find numbers that appear at least three times in a row. Self-join the log twice, requiring adjacent $\textit{id}$s to differ by $1$ and $\textit{num}$ to match. That pins a window of length $3$; then distinct the values.
+
+<!-- thinking:end -->
+
 We can use two joins to solve this problem.
 
 First, we perform a self-join with the condition `l1.num = l2.num` and `l1.id = l2.id - 1`, so that we can find all numbers that appear at least twice in a row. Then, we perform another self-join with the condition `l2.num = l3.num` and `l2.id = l3.id - 1`, so that we can find all numbers that appear at least three times in a row. Finally, we only need to select the distinct `l2.num`.
@@ -114,6 +122,14 @@ FROM
 
 ### Solution 2: Window Function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses two joins. $\textit{LAG}/\textit{LEAD}$ fetch the neighboring $\textit{num}$s; equality of the three values is a run of length three, with less joining.
+
+<!-- thinking:end -->
+
 We can use the window functions `LAG` and `LEAD` to obtain the `num` of the previous row and the next row of the current row, and record them in the fields $a$ and $b$, respectively. Finally, we only need to filter out the rows where $a = num$ and $b = num$, which are the numbers that appear at least three times in a row. Note that we need to use the `DISTINCT` keyword to remove duplicates from the results.
 
 We can also group the numbers by using the `IF` function to determine whether the `num` of the current row is equal to the `num` of the previous row. If they are equal, we set it to $0$, otherwise we set it to $1$. Then, we use the window function `SUM` to calculate the prefix sum, which is the grouping identifier. Finally, we only need to group by the grouping identifier and filter out the numbers with a row count greater than or equal to $3$ in each group. Similarly, we need to use the `DISTINCT` keyword to remove duplicates from the results.
@@ -144,6 +160,14 @@ WHERE a = num AND b = num;
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 only looks at windows of length $3$, so a longer run is reported in pieces. A flag that toggles when $\textit{num}$ changes, plus a prefix sum, assigns a group id to each run; $\textit{HAVING}\,\textit{COUNT}\ge 3$ keeps every run that is long enough.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

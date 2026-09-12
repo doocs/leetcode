@@ -70,6 +70,14 @@ Employee table:
 
 ### Solution 1: Self-Join + Conditional Filtering
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Employees and managers share one table; $\textit{managerId}$ points at the manager row. A self-join lines up each employee with that manager, then we keep names whose salary is strictly larger.
+
+<!-- thinking:end -->
+
 We can find employees' salaries and their managers' salaries by self-joining the `Employee` table, then filter out employees whose salaries are higher than their managers' salaries.
 
 <!-- tabs:start -->

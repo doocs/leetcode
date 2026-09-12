@@ -94,6 +94,16 @@ Explanation: The two lists do not intersect, so return null.
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the first common node. Storing one list in a set is $O(m+n)$ time and $O(m)$ space; the follow-up wants $O(1)$ memory. $m,n\le 3\times 10^4$.
+>
+> Each pointer walks its list then the other, so both travel $a+b$. They meet at the intersection, or both hit null. No need to measure lengths first.
+
+<!-- thinking:end -->
+
 We use two pointers $a$ and $b$ to point to the heads of the two linked lists $\textit{headA}$ and $\textit{headB}$, respectively.
 
 Traverse the linked lists simultaneously. When $a$ reaches the end of $\textit{headA}$, redirect it to the head of $\textit{headB}$. Similarly, when $b$ reaches the end of $\textit{headB}$, redirect it to the head of $\textit{headA}$.

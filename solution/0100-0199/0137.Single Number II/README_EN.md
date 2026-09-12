@@ -46,6 +46,14 @@ tags:
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Numbers appear three times except one; XOR is no longer enough because $x\oplus x\oplus x=x$. The follow-up still wants constant space. Count $1$s per bit modulo $3$: bits from the triples vanish, and the remainder is the answer. The sign bit is handled separately to avoid overflow.
+
+<!-- thinking:end -->
+
 We can enumerate each binary bit $i$, and for each binary bit, we calculate the sum of all numbers on that bit. If the sum of the numbers on that bit can be divided by 3, then the number that only appears once on that bit is 0, otherwise it is 1.
 
 The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array and the range of elements in the array, respectively. The space complexity is $O(1)$.
@@ -208,6 +216,14 @@ class Solution {
 
 ### Solution 2: Digital Circuit
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 rescans the array for every bit. Two integers $a,b$ store each bit's count modulo $3$; a truth table updates them as each number arrives, so one pass does the same counting.
+
+<!-- thinking:end -->
+
 We can use a more efficient method that uses digital circuits to simulate the above bitwise operation.
 
 Each binary bit of an integer can only represent 2 states, 0 or 1. However, we need to represent the sum of the $i$-th bit of all integers traversed so far modulo 3. Therefore, we can use two integers $a$ and $b$ to represent it. There are three possible cases:
@@ -367,6 +383,14 @@ impl Solution {
 
 ### Solution 3: Set + Math
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> If extra space is allowed, the unique value is $(3\sum_{\mathrm{unique}}-\sum_{\mathrm{all}})/2$. Deduplicate, sum twice, and divide. Direct, but $O(n)$ space.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript
@@ -396,6 +420,14 @@ function singleNumber(nums) {
 <!-- solution:start -->
 
 ### Solution 4: Bit Manipulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The Solution 2 state machine collapses to two masks: $\textit{ans}$ and $\textit{acc}$ hold bits seen once and twice. They stay disjoint as $x$ arrives; $\textit{ans}$ is the number that appeared once. Shorter code.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

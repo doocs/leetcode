@@ -72,6 +72,14 @@ Person table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Keep the smallest $\textit{id}$ per email. $\textit{MIN}(\textit{id})$ grouped by email is the survivor set; delete the rest. The extra subquery wrapper is what lets MySQL aggregate a table that is being deleted.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -104,6 +112,14 @@ WHERE id NOT IN (SELECT MIN(id) FROM (SELECT * FROM Person) AS p GROUP BY email)
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses an aggregate subquery. $\textit{ROW\_NUMBER}$ partitioned by email and ordered by $\textit{id}$ marks duplicates as numbers above $1$; delete those rows.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -135,6 +151,14 @@ WHERE
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need not compute the kept set first. Self-join on the same email with $p1.\textit{id}<p2.\textit{id}$ and delete the larger $\textit{id}$. One $\textit{DELETE}\,\textit{JOIN}$.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

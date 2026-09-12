@@ -60,6 +60,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need the fewest cuts, not the partitions. $n\le 2000$, so enumerating them is impossible. Precompute palindromic spans as before. $f[i]$ is the min cuts of $s[0..i]$: try a last palindrome $s[j..i]$ and take $f[j-1]+1$; if the whole prefix is a palindrome, the answer is $0$.
+
+<!-- thinking:end -->
+
 First, we preprocess the string $s$ to determine whether each substring $s[i..j]$ is a palindrome, and record this in a 2D array $g[i][j]$, where $g[i][j]$ indicates whether the substring $s[i..j]$ is a palindrome.
 
 Next, we define $f[i]$ to represent the minimum number of cuts needed for the substring $s[0..i-1]$. Initially, $f[i] = i$.

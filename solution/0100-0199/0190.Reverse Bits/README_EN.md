@@ -93,6 +93,14 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse the $32$ bits of an unsigned integer. Pull each bit and write it to the mirrored index. Scan $32$ times from the low end: take $n$'s lowest bit, write it at position $31-i$, then shift $n$ right. The width is fixed.
+
+<!-- thinking:end -->
+
 We can extract each bit of $n$ from the lowest bit to the highest bit, and then place it at the corresponding position of $\textit{ans}$.
 
 For example, for the $i$-th bit, we can extract the $i$-th bit of $n$ and place it at the $(31 - i)$-th bit of $\textit{ans}$ by $(n \& 1) \ll (31 - i)$, and then right shift $n$ by one bit.

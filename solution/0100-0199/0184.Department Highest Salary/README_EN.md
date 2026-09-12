@@ -96,6 +96,14 @@ Department table:
 
 ### Solution 1: Equi-Join + Subquery
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Highest-paid employees per department, including ties. Compute $\textit{MAX}(\textit{salary})$ per department, join employees to departments, and keep rows whose salary equals that maximum.
+
+<!-- thinking:end -->
+
 We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use a subquery to find the highest salary for each department. Finally, we can use a `WHERE` clause to filter out the employees with the highest salary in each department.
 
 <!-- tabs:start -->
@@ -148,6 +156,14 @@ def department_highest_salary(
 <!-- solution:start -->
 
 ### Solution 2: Equi-Join + Window Function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs a subquery plus a join. $\textit{RANK}$ partitioned by department and ordered by salary descending marks every top salary (ties included) as rank $1$ in one pass.
+
+<!-- thinking:end -->
 
 We can use an equi-join to join the `Employee` table and the `Department` table based on `Employee.departmentId = Department.id`, and then use the window function `rank()`, which assigns a rank to each employee in each department based on their salary. Finally, we can select the rows with a rank of $1$ for each department.
 

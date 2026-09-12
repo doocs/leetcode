@@ -84,6 +84,14 @@ n = 2
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Generalize “second highest” to the $N$-th: distinct salaries descending, then index $N-1$. $N<1$ or fewer than $N$ distinct values yields $\textit{NULL}$. In SQL, $\textit{LIMIT}\,1\,\textit{OFFSET}\,N-1$ finds that row; an outer query turns an empty result into $\textit{NULL}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

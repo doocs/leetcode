@@ -64,6 +64,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The knight may only move right or down and must stay at least at $1$ HP; we want the minimum starting HP. Enumerating paths on a $200\times 200$ grid is impossible. The HP needed ahead fixes the requirement here, so we work backward from the princess: next-cell need minus this cell's value, then at least $1$. Take the cheaper of the two exits.
+
+<!-- thinking:end -->
+
 We define $dp[i][j]$ as the minimum initial value needed from $(i, j)$ to the end point. The value of $dp[i][j]$ can be obtained from $dp[i+1][j]$ and $dp[i][j+1]$, that is:
 
 $$

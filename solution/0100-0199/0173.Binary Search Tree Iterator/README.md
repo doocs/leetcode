@@ -86,6 +86,14 @@ bSTIterator.hasNext(); // 返回 False
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 中序遍历 BST 得到升序。节点可达 $10^5$，调用次数同阶。构造时一次性递归中序放入数组，$\textit{next}/\textit{hasNext}$ 只移动下标，均摊 $O(1)$，但空间是 $O(n)$。进阶希望空间降到树高。
+
+<!-- thinking:end -->
+
 初始化数据时，递归中序遍历，将二叉搜索树每个结点的值保存在列表 `vals` 中。用 `cur` 指针记录外部即将遍历的位置，初始化为 0。
 
 调用 `next()` 时，返回 `vals[cur]`，同时 `cur` 指针自增。调用 `hasNext()` 时，判断 `cur` 指针是否已经达到 `len(vals)` 个数，若是，说明已经遍历结束，返回 false，否则返回 true。
@@ -440,6 +448,14 @@ BSTIterator.prototype.hasNext = function () {
 <!-- solution:start -->
 
 ### 方法二：栈迭代
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一把整棵树摊平。用栈模拟中序：初始化沿左链压栈，$\textit{next}$ 弹出栈顶后把它的右孩子的左链压入。栈中至多 $h$ 个节点，均摊每个节点入栈出栈各一次。
+
+<!-- thinking:end -->
 
 初始化时，从根节点一路遍历所有左子节点，压入栈 `stack` 中。
 

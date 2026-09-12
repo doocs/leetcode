@@ -67,6 +67,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find the shortest transformation; each step changes one letter and must stay in the word list. With up to $5000$ words of length $10$, enumerating paths is impossible. Unweighted shortest paths are BFS: try $26$ letters at each position, enqueue hits, and remove them from the set so they are not visited twice.
+
+<!-- thinking:end -->
+
 BFS minimum step model. This problem can be solved with naive BFS, or it can be optimized with bidirectional BFS to reduce the search space and improve efficiency.
 
 Bidirectional BFS is a common optimization method for BFS, with the main implementation ideas as follows:
@@ -357,6 +365,14 @@ function ladderLength(beginWord: string, endWord: string, wordList: string[]): n
 <!-- solution:start -->
 
 ### Solution 2: Bidirectional BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1's frontier can grow wide on a large list. Expanding from both ends and always growing the smaller side meets in the middle at the shortest length, and the search is usually smaller.
+
+<!-- thinking:end -->
 
 Search from both ends until the two sides meet.
 

@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $k$ transactions generalizes the two-trade problem. $n\le 1000$, $k\le 100$, so a 3D state is fine. $\textit{dfs}(i,j,\textit{hold})$ starts on day $i$ with $j$ buys left. Skipping is always legal; holding may sell (buy count unchanged); a flat position with remaining buys may buy and consume one. Memoize $(i,j,\textit{hold})$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j, k)$ to represent the maximum profit that can be obtained when starting from day $i$, completing at most $j$ transactions, and holding the stock with the current state $k$ (not holding the stock is represented by $0$, and holding the stock is represented by $1$). The answer is $dfs(0, k, 0)$.
 
 The execution logic of the function $dfs(i, j, k)$ is as follows:
@@ -263,6 +271,14 @@ public class Solution {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is memoized recursion. Bottom-up, $f[i][j][0/1]$ is the best profit after day $i$ with $j$ buys used. Day $0$ buy is $-\textit{prices}[0]$; later transitions are sell, stay flat, buy, or keep holding — the same state space.
+
+<!-- thinking:end -->
+
 We can also use dynamic programming to define $f[i][j][k]$ as the maximum profit that can be obtained when completing at most j transactions (here we define the number of transactions as the number of purchases), and holding the stock with the current state k on the i-th day. The initial value of $f[i][j][k]$ is 0. The answer is $f[n - 1][k][0]$.
 
 When $i = 0$, the stock price is $prices[0]$. For any $j$ \in [1, k]$, we have $f[0][j][1] = -prices[0]$, which means buying the stock on the 0-th day with a profit of $-prices[0]$.
@@ -418,6 +434,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Day $i$ in Solution 2 depends only on day $i-1$. Drop the day dimension and roll $f[j][2]$ in $O(k)$ space.
+
+<!-- thinking:end -->
 
 $f[i][j][k]$ depends only on the previous day, so a table of size $(k+1) \times 2$ is enough. The space complexity is $O(k)$.
 

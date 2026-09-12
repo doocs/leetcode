@@ -66,6 +66,14 @@ tags:
 
 ### Solution 1: Mathematics + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Write a fraction as a decimal and wrap the repeating part. Long division repeats iff a remainder repeats. Handle the sign and the integer part first. During the fraction, map each remainder to the first index it appeared; a repeat inserts parentheses there. Remainder $0$ is a terminating decimal.
+
+<!-- thinking:end -->
+
 First, we check if the $numerator$ is $0$. If it is, we return `"0"` directly.
 
 Next, we check if the $numerator$ and $denominator$ have different signs. If they do, the result is negative, and we set the first character of the result to `"-"`.

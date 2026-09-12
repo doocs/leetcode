@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Merge Sort
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort a list; the follow-up wants $O(n\log n)$ time and constant extra space. There is no random access, so quicksort swaps are awkward. $n\le 5\times 10^4$. Merge sort only needs sequential scans: split at the midpoint, sort both halves, merge. The recursion stack is $O(\log n)$.
+
+<!-- thinking:end -->
+
 We can use the merge sort approach to solve this problem.
 
 First, we use the fast and slow pointers to find the middle of the linked list and break the list from the middle to form two separate sublists $\textit{l1}$ and $\textit{l2}$.

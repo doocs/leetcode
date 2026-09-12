@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reverse the word order and collapse extra spaces. $n\le 10^4$. Two pointers skip spaces, cut out each word, then reverse the list and join. Leading, trailing, and repeated spaces disappear.
+
+<!-- thinking:end -->
+
 We can use two pointers $i$ and $j$ to find each word, add it to the result list, then reverse the result list, and finally concatenate it into a string.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
@@ -269,6 +277,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: String Split
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 splits words by hand. A built-in split on whitespace already drops extra spaces; reverse that list and join. Shorter code, same complexity.
+
+<!-- thinking:end -->
 
 We can use the built-in string split function to split the string into a list of words by spaces, then reverse the list, and finally concatenate it into a string.
 

@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> This is ordinary level order, except the layers must be listed from the bottom up. Collect levels as usual and reverse the answer; there is no need to insert at the front while traversing. $n \le 2000$, so BFS by layer and a final reverse suffice.
+
+<!-- thinking:end -->
+
 We can use the BFS (Breadth-First Search) method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
 
 - Traverse all nodes in the current queue, store their values in a temporary array $t$, and then enqueue their child nodes.

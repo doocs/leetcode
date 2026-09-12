@@ -58,6 +58,14 @@ tags:
 
 ### Solution 1: Hash Table + Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The last postorder value is the root; inorder again splits left and right. Linear search for the root each time can be $O(n^2)$. Values are unique, so we index inorder first. The last value of the current postorder slice is the root; the count of inorder values to its left is the left-subtree size, which splits the remaining postorder into two recursive ranges.
+
+<!-- thinking:end -->
+
 The last node in the post-order traversal is the root node. We can find the position of the root node in the in-order traversal, and then recursively construct the left and right subtrees.
 
 Specifically, we first use a hash table $d$ to store the position of each node in the in-order traversal. Then we design a recursive function $dfs(i, j, n)$, where $i$ and $j$ represent the starting positions of the in-order and post-order traversals, respectively, and $n$ represents the number of nodes in the subtree. The function logic is as follows:

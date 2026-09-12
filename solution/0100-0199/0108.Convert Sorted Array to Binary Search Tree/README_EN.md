@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Binary Search + Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sorted array is already the inorder sequence of some BST. Always picking the leftmost or rightmost value as the root yields a chain of height $n$, which is not height-balanced. $n \le 10^4$.
+>
+> The midpoint of an interval leaves the two sides differing by at most one element, so the height stays balanced. Take the mid of $[l,r]$ as the root and recurse on both halves.
+
+<!-- thinking:end -->
+
 We design a recursive function $\textit{dfs}(l, r)$, which represents that the values of the nodes to be constructed in the current binary search tree are within the index range $[l, r]$ of the array $\textit{nums}$. This function returns the root node of the constructed binary search tree.
 
 The execution process of the function $\textit{dfs}(l, r)$ is as follows:

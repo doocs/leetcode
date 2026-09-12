@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Depth-First Search (DFS)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Surrounded `'O'`s become `'X'`; those connected to the border stay. $m,n\le 200$. Starting from interior cells to ask “am I surrounded?” must flood a whole component and is easy to get wrong on the border.
+>
+> Mark the unsurrounded cells instead. DFS from every border `'O'`, paint those cells with a placeholder, flip remaining `'O'`s to `'X'`, then restore the placeholders.
+
+<!-- thinking:end -->
+
 We can start from the boundary of the matrix, taking each 'O' on the matrix boundary as a starting point, and perform depth-first search. All 'O's found in the search are replaced with '.'.
 
 Then we traverse the matrix again, for each position:
@@ -368,6 +378,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses DFS paint to mark border-connected cells. Union-find links adjacent `'O'`s and hooks every border `'O'` to a dummy node. Any `'O'` not in that component is surrounded. No recursion stack, and the connectivity is explicit.
+
+<!-- thinking:end -->
 
 We can also use a union-find set, connecting each 'O' on the matrix boundary with a super node $m \times n$, and connecting each 'O' in the matrix with the 'O's above, below, left, and right of it.
 

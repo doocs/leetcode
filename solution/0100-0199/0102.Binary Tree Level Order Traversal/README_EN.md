@@ -58,6 +58,16 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We must emit values level by level. DFS can record depth and group later, but then left-to-right order needs extra work. $n \le 2000$, and a level holds at most $O(n)$ nodes.
+>
+> BFS expands by level: the nodes currently in the queue are exactly one level. Dequeue them, collect values, and enqueue children to form the next level from left to right.
+
+<!-- thinking:end -->
+
 We can use the BFS method to solve this problem. First, enqueue the root node, then continuously perform the following operations until the queue is empty:
 
 - Traverse all nodes in the current queue, store their values in a temporary array $t$, and then enqueue their child nodes.

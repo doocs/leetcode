@@ -71,6 +71,16 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need a starting station that completes the loop, if any. $n\le 10^5$, so simulating from every start is $O(n^2)$. If total gas is less than total cost there is no answer.
+>
+> A negative tank means the start must move earlier to cover that deficit. The code grows the end forward and the start backward from the last station, shifting $i$ left whenever the tank drops below zero. Each station is used once; a non-negative tank at the end is the start.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

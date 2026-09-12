@@ -64,6 +64,14 @@ The third child gets 1 candy because it satisfies the above two conditions.
 
 ### Solution 1: Two traversals
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A higher-rated child must get more candy than a neighbor; minimize the total. $n\le 5\times 10^4$. Sorting by rating can work but equal ratings are fiddly. The left and right constraints are independent: a left-to-right pass enforces “more than the left neighbor”, a right-to-left pass enforces the right, and each child takes the max. Both increasing chains survive.
+
+<!-- thinking:end -->
+
 We initialize two arrays $left$ and $right$, where $left[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the left child's score, and $right[i]$ represents the minimum number of candies the current child should get when the current child's score is higher than the right child's score. Initially, $left[i]=1$, $right[i]=1$.
 
 We traverse the array from left to right once, and if the current child's score is higher than the left child's score, then $left[i]=left[i-1]+1$; similarly, we traverse the array from right to left once, and if the current child's score is higher than the right child's score, then $right[i]=right[i+1]+1$.

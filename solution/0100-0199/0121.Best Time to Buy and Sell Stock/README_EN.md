@@ -57,6 +57,14 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 
 ### Solution 1: Enumerate + Maintain the Minimum Value of the Prefix
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One buy and one sell; trying every pair is $O(n^2)$ and $n$ can reach $10^5$. For a fixed sell day the best buy is the minimum price before it. Scan while keeping the prefix minimum, update the answer by today's price minus that minimum, then fold today into the prefix.
+
+<!-- thinking:end -->
+
 We can enumerate each element of the array $nums$ as the selling price. Then we need to find a minimum value in front of it as the purchase price to maximize the profit.
 
 Therefore, we use a variable $mi$ to maintain the prefix minimum value of the array $nums$. Then we traverse the array $nums$ and for each element $v$, calculate the difference between it and the minimum value $mi$ in front of it, and update the answer to the maximum of the difference. Then update $mi = min(mi, v)$. Continue to traverse the array $nums$ until the traversal ends.

@@ -71,6 +71,14 @@ AB -&gt; 28
 
 ### Solution 1: Base Conversion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Title to number is the inverse of problem $168$: each letter is a digit in $1\ldots 26$. Fold left to right with $\textit{ans}=\textit{ans}\times 26 + (c-'A'+1)$, the same pattern as parsing a decimal string.
+
+<!-- thinking:end -->
+
 The column name in Excel is a representation in base 26. For example, "AB" represents the column number $1 \times 26 + 2 = 28$.
 
 Therefore, we can iterate through the string `columnTitle`, convert each character to its corresponding value, and then calculate the result.

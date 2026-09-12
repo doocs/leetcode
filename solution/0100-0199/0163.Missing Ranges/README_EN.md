@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Report the ranges in $[\textit{lower},\textit{upper}]$ that $nums$ does not cover. The array is sorted, distinct, and of length at most $100$, so we simulate the gaps: before the first value, between neighbors, and after the last. A difference greater than $1$ is a missing range.
+
+<!-- thinking:end -->
+
 We can simulate the problem directly according to the requirements.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $nums$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.

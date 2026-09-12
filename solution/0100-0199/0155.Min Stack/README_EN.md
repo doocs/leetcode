@@ -70,6 +70,14 @@ minStack.getMin(); // return -2
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{getMin}$ must be $O(1)$ like $\textit{push}/\textit{pop}$. Scanning the stack is linear, and there are up to $3\times 10^4$ calls. The minimum changes only when a smaller value is pushed or the current min is popped. A parallel min-stack stores $\min(x,$ current min $)$ on each push and pops in lockstep.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

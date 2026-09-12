@@ -72,6 +72,16 @@ lRUCache.get(4);    // return 4
 
 ### Solution 1: Hash Table + Doubly Linked List
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{get}$ and $\textit{put}$ must be $O(1)$, evicting the least recently used key. A hash map finds keys in $O(1)$ but does not keep recency; moving nodes in an array or singly linked list is $O(n)$. Up to $2\times 10^5$ calls.
+>
+> Map keys to nodes, and keep a doubly linked list with most-recent at the head. On access, detach the node and insert it at the head; when over capacity, drop the tail's predecessor. Lookup and pointer updates are $O(1)$.
+
+<!-- thinking:end -->
+
 We can implement an LRU (Least Recently Used) cache using a "hash table" and a "doubly linked list".
 
 - Hash Table: Used to store the key and its corresponding node location.

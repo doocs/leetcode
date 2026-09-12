@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two sum on a sorted array, 1-based indices, exactly one pair. A hash map uses $O(n)$ space. For each $numbers[i]$ binary-search $target-numbers[i]$ on the right. $n\le 3\times 10^4$, so $O(n\log n)$ time and $O(1)$ space.
+
+<!-- thinking:end -->
+
 Note that the array is sorted in non-decreasing order, so for each `numbers[i]`, we can find the position of `target - numbers[i]` by binary search, and return $[i + 1, j + 1]$ if it exists.
 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the array `numbers`. The space complexity is $O(1)$.
@@ -232,6 +240,14 @@ var twoSum = function (numbers, target) {
 <!-- solution:start -->
 
 ### Solution 2: Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 binary-searches at every left index. Two pointers from the ends: a small sum moves the left pointer right, a large sum moves the right pointer left. Sorted order cannot miss the unique pair, and the time becomes $O(n)$.
+
+<!-- thinking:end -->
 
 We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.
 

@@ -53,6 +53,14 @@ Line 10
 
 ### Solution 1: sed
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Print the tenth line, or nothing if the file is shorter. $\textit{sed}\,-n\,10p$ prints line $10$ only; a short file yields empty output, so we need not count lines first.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Shell

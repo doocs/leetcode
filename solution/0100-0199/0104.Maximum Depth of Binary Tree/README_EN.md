@@ -54,6 +54,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Depth is the number of nodes on the longest root-to-leaf path. Level-order counting of layers works, and $n \le 10^4$ is fine. A tree is recursive: the depth is one plus the larger of the two subtree depths, and the empty tree has depth $0$. Recurse on both children and take the max.
+
+<!-- thinking:end -->
+
 Recursively traverse the left and right subtrees, calculate the maximum depth of the left and right subtrees, and then take the maximum value plus $1$.
 
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is traversed only once in the recursion.

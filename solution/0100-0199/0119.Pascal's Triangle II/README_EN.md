@@ -50,6 +50,14 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We only need row $r$, not the whole triangle. The follow-up asks for $O(r)$ space. Updating $f[j] += f[j-1]$ from the right keeps the new row on the right and the old row on the left, so one array rolls forward to $\textit{rowIndex}$.
+
+<!-- thinking:end -->
+
 We create an array $f$ of length $rowIndex + 1$, initially all elements are $1$.
 
 Next, starting from the second row, we calculate the value of the $j$th element in the current row from back to front, $f[j] = f[j] + f[j - 1]$, where $j \in [1, i - 1]$.

@@ -47,6 +47,14 @@ age 21 30
 
 ### 方法一：awk
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把空格分列的文本转置，行变列。按行读入时，第 $i$ 个字段追加到第 $i$ 个结果串；读完后按字段下标输出每一行。$\textit{awk}$ 的 $\textit{NF}/\textit{NR}$ 正好提供列号与是否首行，用来决定要不要先加空格。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Shell

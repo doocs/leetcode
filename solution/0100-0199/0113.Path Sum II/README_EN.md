@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike Path Sum, we must list every root-to-leaf path that sums to $\textit{targetSum}$. $n \le 5000$; copying every path into the answer can cost $O(n^2)$.
+>
+> DFS pushes the node onto a shared path and adds its value. At a matching leaf we copy the path; on the way back we pop, so both children reuse the same buffer.
+
+<!-- thinking:end -->
+
 We start from the root node, recursively traverse all paths from the root node to the leaf nodes, and record the path sum. When we traverse to a leaf node, if the current path sum equals `targetSum`, then we add this path to the answer.
 
 The time complexity is $O(n^2)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(n)$.

@@ -90,6 +90,16 @@ class Node {
 
 ### Solution 1: Hash Table + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deep-copy a connected undirected graph; values are unique and $n\le 100$. Copying values is not enough: neighbor pointers must refer to the new nodes, and cycles would loop if we recurse blindly.
+>
+> A map from original node to clone does it. On the first visit we create the clone and recurse on neighbors; a later visit returns the existing clone, which cuts cycles.
+
+<!-- thinking:end -->
+
 We use a hash table $\textit{g}$ to record the correspondence between each node in the original graph and its copy, and then perform depth-first search.
 
 We define the function $\text{dfs}(node)$, which returns the copy of the $\textit{node}$. The process of $\text{dfs}(node)$ is as follows:

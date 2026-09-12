@@ -56,6 +56,14 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent houses cannot both be robbed; maximize the take. Subset enumeration must enforce the gap, and overlapping suffixes repeat. From index $i$, rob and skip to $i+2$, or skip to $i+1$, and take the better. Memoization evaluates each index once.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$, which represents the maximum amount of money that can be stolen starting from the $i$-th house. Thus, the answer is $\textit{dfs}(0)$.
 
 The execution process of the function $\textit{dfs}(i)$ is as follows:
@@ -223,6 +231,14 @@ function rob(nums) {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is recursive. $f[i]$ is the best total among the first $i$ houses: rob house $i$ and add $f[i-2]$, or take $f[i-1]$. Fill the table bottom-up.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the maximum total amount that can be robbed from the first $i$ houses, initially $f[0]=0$, $f[1]=nums[0]$.
 
 Consider the case where $i \gt 1$, the $i$th house has two options:
@@ -359,6 +375,14 @@ function rob(nums) {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $f[i]$ in Solution 2 depends only on the previous two values, so two rolling variables cut space to $O(1)$.
+
+<!-- thinking:end -->
 
 We notice that when $i \gt 2$, $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. Therefore, we can use two variables instead of an array to reduce the space complexity to $O(1)$.
 

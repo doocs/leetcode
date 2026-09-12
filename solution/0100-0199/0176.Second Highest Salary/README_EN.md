@@ -82,6 +82,14 @@ Employee table:
 
 ### Solution 1: Use Sub Query and LIMIT
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The second highest salary is the second value of the distinct salaries in descending order, or $\textit{NULL}$ if fewer than two exist. $\textit{ORDER BY}$ plus $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ picks that slot; an outer query keeps a single $\textit{NULL}$ row when the offset is empty.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -130,6 +138,14 @@ SELECT
 
 ### Solution 2: Use `MAX()` function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 needs a sort and an offset. The maximum among salaries strictly below the global maximum is the second highest; $\textit{MAX}$ on an empty set is already $\textit{NULL}$, so no $\textit{LIMIT}$ is required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -148,6 +164,14 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 <!-- solution:start -->
 
 ### Solution 3: Use `IFNULL()` and window function
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After deduplicating, $\textit{DENSE_RANK}$ numbers salaries descending and we keep rank $2$. Ties at the top do not consume the second place, which matches “$k$-th highest” and extends cleanly.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

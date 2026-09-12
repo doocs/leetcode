@@ -60,6 +60,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insertion-sort a list. $n\le 5000$, so quadratic time is fine. Sorting an array and rebuilding the list is not insertion sort.
+>
+> $\textit{pre}$ marks the end of the sorted prefix. If the current value is larger, extend the prefix; otherwise walk from a dummy to the first larger node and splice it in. The dummy removes the head-insertion special case.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
