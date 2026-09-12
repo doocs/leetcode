@@ -100,7 +100,7 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2073.%20%E6%8E%A2%
 ```java
 class Solution {
     public int adventureCamp(String[] expeditions) {
-        java.util.Set<String> known = new java.util.HashSet<>();
+        Set<String> known = new HashSet<>();
         for (String camp : expeditions[0].split("->")) {
             if (!camp.isEmpty()) {
                 known.add(camp);

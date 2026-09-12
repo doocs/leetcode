@@ -1,6 +1,6 @@
 class Solution {
     public int adventureCamp(String[] expeditions) {
-        java.util.Set<String> known = new java.util.HashSet<>();
+        Set<String> known = new HashSet<>();
         for (String camp : expeditions[0].split("->")) {
             if (!camp.isEmpty()) {
                 known.add(camp);
