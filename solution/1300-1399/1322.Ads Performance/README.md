@@ -91,6 +91,14 @@ Ads 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按广告统计点击率：点击除以「点击或浏览」，忽略 $\textit{Ignored}$，无线索时视为 $0$。对 $\textit{ad\_id}$ 分组后，用条件求和分别统计点击与曝光，再 $\mathrm{IFNULL}$ 处理除零，最后按点击率降序、编号升序排列。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

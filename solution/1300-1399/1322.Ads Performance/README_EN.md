@@ -88,6 +88,14 @@ Note that we do not care about Ignored Ads.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> CTR is clicks over clicks-or-views; $\textit{Ignored}$ is dropped, and a missing ratio is $0$. Grouping by $\textit{ad\_id}$ with conditional sums yields both counts; $\mathrm{IFNULL}$ covers division by zero, then we sort by CTR descending and id ascending.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

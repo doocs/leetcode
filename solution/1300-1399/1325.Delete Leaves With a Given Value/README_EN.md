@@ -71,6 +71,14 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Leaves equal to $\textit{target}$ must go, including those that become leaves after a child is removed. A preorder check misses a node that turns into a leaf only after its children disappear. Postorder fixes this: recurse on both children, then drop the node if it is now a target leaf. One walk performs the whole cascade.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

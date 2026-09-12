@@ -62,6 +62,14 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 ### Solution 1: Counting + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Delete as few distinct values as possible so at most half the array remains. The greedy choice is the most frequent remaining value. After counting, we add frequencies in decreasing order until at least half the length is covered; the number of values used is the answer.
+
+<!-- thinking:end -->
+
 We can use a hash table or an array $\textit{cnt}$ to count the occurrences of each number in the array $\textit{arr}$. Then, we sort the numbers in $\textit{cnt}$ in descending order. We traverse $\textit{cnt}$ from largest to smallest, adding the current number $x$ to the answer and adding $x$ to $m$. If $m \geq \frac{n}{2}$, we return the answer.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $\textit{arr}$.

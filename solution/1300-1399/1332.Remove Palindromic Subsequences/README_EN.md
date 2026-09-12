@@ -70,6 +70,14 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each deletion removes a palindromic subsequence, and the alphabet is only `'a'` and `'b'`. Any monochromatic subsequence is a palindrome, so two deletions always suffice. If $s$ itself is a palindrome, one deletion is enough. Comparing $s$ with its reverse decides between $1$ and $2$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

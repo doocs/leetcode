@@ -71,6 +71,14 @@ Each word would be put on only one column and that in one column there will be o
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words are read column-wise after a split; the height is the longest word, shorter words are padded, and trailing spaces on each column are removed. After computing that length $n$, column $j$ gathers the $j$-th character of every word (or a space), then pops trailing spaces before joining.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

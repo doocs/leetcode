@@ -69,6 +69,14 @@ tags:
 
 ### Solution 1: Discretization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace each value by its $1$-based rank, sharing a rank on ties. Pairwise comparison is quadratic for $n \le 10^5$. Rank depends only on the position in the sorted unique list $t$; $\mathrm{bisect\_right}$ on $t$ yields that rank for every $x$.
+
+<!-- thinking:end -->
+
 First, we copy an array $t$, then sort and deduplicate it to obtain an array of length $m$ that is strictly monotonically increasing.
 
 Next, we traverse the original array $arr$. For each element $x$ in the array, we use binary search to find the position of $x$ in $t$. The position plus one is the rank of $x$.
@@ -202,6 +210,14 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Hash Map
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A binary search per element repeats the same work. After sorting the unique values, a hash map from value to rank answers every lookup in expected constant time.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

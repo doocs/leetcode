@@ -76,6 +76,16 @@ Total distance = 6
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two fingers type $\textit{word}$ on a $6\times 5$ keyboard; each move costs Manhattan distance, and the first letter is free. Searching every fingering for $n \le 300$ grows exponentially. After letter $i$ we only need where the two fingers rest.
+>
+> Let $f[i][j][k]$ be the min cost after typing $\textit{word}[i]$ with fingers on $j$ and $k$. The first letter sits under one finger at cost $0$. Later we move exactly one finger onto the next letter and add the keyboard distance. The answer is the minimum on the last layer.
+
+<!-- thinking:end -->
+
 We define $f[i][j][k]$ to represent the minimum distance after typing $\textit{word}[i]$, with finger 1 at position $j$ and finger 2 at position $k$. Here, positions $j$ and $k$ represent the numbers corresponding to the letters, ranging from $[0,..25]$. Initially, $f[i][j][k] = \infty$.
 
 We implement a function $\textit{dist}(a, b)$ to represent the distance between positions $a$ and $b$, i.e., $\textit{dist}(a, b) = |\frac{a}{6} - \frac{b}{6}| + |a \bmod 6 - b \bmod 6|$.
