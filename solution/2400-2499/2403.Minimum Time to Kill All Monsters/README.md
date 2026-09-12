@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2400-2499/2403.Minimum%20Time%20to%20Kill%20All%20Monsters/README.md
 tags:
     - 位运算
     - 数组
