@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every degree is at most $2$, so the graph is a disjoint union of paths and cycles. An edge’s value is the product of its ends; larger integers should sit on vertices that touch more edges.
+>
+> Classify each component as a path or a cycle and place $n,\ldots,1$ so large values are adjacent. Distinct components share no edges, so the assignment is local to each block.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

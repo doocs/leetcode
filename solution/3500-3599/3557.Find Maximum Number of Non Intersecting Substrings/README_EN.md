@@ -66,6 +66,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A substring must start and end with the same letter and have length at least $4$; selected ones must be disjoint. $n \le 2 \cdot 10^5$ forbids enumerating intervals.
+>
+> Scan left to right. Remember the last unused start of each letter; when the current index is at least $3$ past that start, take the piece and clear the start. Finishing a short piece early never blocks a later choice, so the count is maximal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

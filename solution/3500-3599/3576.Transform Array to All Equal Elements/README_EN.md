@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: Traversal and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Flipping two adjacent signs is a adjacent transposition of minuses. The only reachable constant arrays are all $nums[0]$ or all $-nums[0]$.
+>
+> Scan left to right: if the current sign disagrees with the target, flip here (which inverts the rest) and increment the counter. Accept if the last element matches and the count is at most $k$. Try both targets.
+
+<!-- thinking:end -->
+
 According to the problem description, to make all elements in the array equal, all elements must be either $\textit{nums}[0]$ or $-\textit{nums}[0]$. Therefore, we design a function $\textit{check}$ to determine whether the array can be transformed into all elements equal to $\textit{target}$ with at most $k$ operations.
 
 The idea of this function is to traverse the array and count the number of operations needed. Each element is either modified once or not at all. If the current element is equal to the target value, no modification is needed and we continue to the next element. If the current element is not equal to the target value, an operation is needed, increment the counter, and flip the sign, indicating that subsequent elements need the opposite operation.

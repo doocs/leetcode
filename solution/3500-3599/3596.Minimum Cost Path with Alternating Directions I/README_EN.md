@@ -80,6 +80,16 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The alternating-direction cost leaves only a few grids reachable. The surviving cases are $1\times 1$ (cost $1$) and $2\times 1$ or $1\times 2$ (cost $3$).
+>
+> Every other size returns $-1$. Three constant checks replace a shortest-path search.
+
+<!-- thinking:end -->
+
 Due to the movement rules given in the problem, in fact, only the following three cases can reach the target cell:
 
 1. A $1 \times 1$ grid, with a cost of $1$.

@@ -96,6 +96,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent consecutive letters may be removed, and we want the lexicographically smallest survivor, not an arbitrary one. $n \le 250$ allows an interval DP that tests whether a segment can vanish, then a reconstruction of the smallest string.
+>
+> $g[i][j]$ is whether $s[i..j]$ can be deleted, by pairing $s[i]$ with a later match. $f[i]$ is the smallest string from $s[i..]$: keep $s[i]$ plus $f[i+1]$, or skip a fully deletable $[i,k]$ to $f[k+1]$, and take the lexicographic minimum.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

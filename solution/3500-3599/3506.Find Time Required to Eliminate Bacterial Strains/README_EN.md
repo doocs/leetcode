@@ -91,6 +91,16 @@ tags:
 
 ### Solution 1: Greedy + Priority Queue (Min-Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Enumerating the order of leukocyte splits branches quickly. Reverse the process: merge two strains at cost $\textit{splitTime} + \max(t_i, t_j)$.
+>
+> Larger times should participate in as few later merges as possible, so we always merge the two current minima — the same structure as Huffman coding. A min-heap yields the last remaining value as the total time.
+
+<!-- thinking:end -->
+
 First, consider the case where there is only one type of bacteria. In this case, there is no need to split the white blood cell (WBC); it can directly eliminate the bacteria, and the time cost is $\textit{timeSeq}[0]$.
 
 If there are two types of bacteria, the WBC needs to split into two, and each WBC eliminates one type of bacteria. The time cost is $\textit{splitTime} + \max(\textit{timeSeq}[0], \textit{timeSeq}[1])$.

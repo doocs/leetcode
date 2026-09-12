@@ -103,6 +103,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Split the array into exactly $k$ subarrays and minimize the maximum subarray XOR. $n$ and $k$ are modest, so $f[i][j]$ — the best max-XOR using the first $i$ values and $j$ parts — is feasible.
+>
+> Prefix XORs $g[i]$ evaluate a piece $[h+1,i]$ as $g[i]\oplus g[h]$. Enumerate the previous cut $h$ and take $\min_h \max(f[h][j-1], g[i]\oplus g[h])$. The answer is $f[n][k]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the minimum possible value of the maximum XOR among all ways to partition the first $i$ elements into $j$ subarrays. Initially, set $f[0][0] = 0$, and all other $f[i][j] = +\infty$.
 
 To quickly compute the XOR of a subarray, we can use a prefix XOR array $g$, where $g[i]$ represents the XOR of the first $i$ elements. For the subarray $[h + 1...i]$ (with indices starting from $1$), its XOR value is $g[i] \oplus g[h]$.

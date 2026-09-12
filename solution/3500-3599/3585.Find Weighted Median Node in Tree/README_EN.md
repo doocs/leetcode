@@ -217,6 +217,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The weighted median is the first vertex on $u \to v$ whose prefix weight from $u$ is at least half the path. $n,q \le 10^5$ call for LCA and weighted prefixes.
+>
+> After $lca$ and the total $W$, binary-lift on $u \to lca$ or $lca \to v$ to the farthest node whose prefix is still $< W/2$, then take one more step.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -152,6 +152,16 @@ Each row assigns a category and price to a product.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need product pairs bought together by at least three users. Deduplicate user–product rows and self-join on $\textit{user\_id}$ to form ordered pairs.
+>
+> Aggregate distinct users per pair, join category information, and sort as required. An equi-join plus grouping replaces a triple nested loop.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

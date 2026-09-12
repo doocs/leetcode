@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1: 0-1 BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A four-neighbor step costs $1$ and a same-letter teleport costs $0$; walls are blocked. Shortest paths on $0$-$1$ weights are a 0-1 BFS rather than a general Dijkstra.
+>
+> Index portals by letter. The first time a letter is reached, push every other portal of that letter to the front of the deque and drop the letter so it is never reused. Ordinary steps go to the back.
+
+<!-- thinking:end -->
+
 We can use 0-1 BFS to solve this problem. We start from the top-left cell and use a double-ended queue to store the coordinates of the current cell. Each time we dequeue a cell, we check its four adjacent cells. If an adjacent cell is an empty cell and has not been visited, we add it to the queue and update its distance.
 
 If an adjacent cell is a portal, we add it to the front of the queue and update its distance. We also need to maintain a dictionary to store the positions of each portal so that we can quickly find them when using a portal.

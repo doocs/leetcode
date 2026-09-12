@@ -94,6 +94,16 @@ tags:
 
 ### Solution 1: LCA + Math
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem used one root-to-leaf path. Each query here is a $u$–$v$ path of $d = \textit{depth}[u]+\textit{depth}[v]-2\cdot\textit{depth}[\textit{lca}]$ edges.
+>
+> The count is still $2^{d-1}$. BFS plus binary lifting prepares LCA, powers of two are precomputed, and each query is $O(\log n)$.
+
+<!-- thinking:end -->
+
 The path $u \to v$ has $d = \textit{depth}[u] + \textit{depth}[v] - 2 \cdot \textit{depth}[\textit{lca}]$ edges, and each edge can be assigned weight $1$ or $2$. The cost is odd if and only if an odd number of edges have weight $1$. The number of ways to choose an odd number of edges out of $d$ is $2^{d-1}$ (or $0$ if $d = 0$).
 
 Use BFS to compute the depth and parent of each node, then binary lifting to preprocess LCAs. Precompute powers of $2$ so each query can be answered in $O(\log n)$.

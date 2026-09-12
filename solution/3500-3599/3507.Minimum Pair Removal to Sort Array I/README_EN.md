@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$, and each step merges the adjacent pair with the smallest sum. At most $n-1$ merges occur, so a direct simulation — scan adjacent sums, replace the left value, delete the right — is enough.
+>
+> Richer data structures are unnecessary; the quadratic scan fits the limits.
+
+<!-- thinking:end -->
+
 We define a function $\text{is\_non\_decreasing}(a)$ to determine whether the array $a$ is a non-decreasing array.
 
 We use a loop until the array $arr$ becomes a non-decreasing array. In each iteration of the loop, we find the minimum sum of adjacent element pairs in the array $arr$ and record the index $k$ of the left element of that pair. Then, we replace the left element with the sum of the pair and remove the right element. Finally, we return the number of operations.

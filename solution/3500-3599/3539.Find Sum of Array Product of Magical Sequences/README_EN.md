@@ -94,6 +94,16 @@ A sequence of integers <code>seq</code> is called <strong>magical</strong> if:
 
 ### Solution 1: Combinatorics + Memoized Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A sequence of length $m$ draws from $\textit{nums}$; the product’s contribution depends on the popcount of the frequency vector after binary carrying. Enumerating sequences is impossible.
+>
+> Assign a multiplicity $t$ to $\textit{nums}[i]$ with weight $\binom{j}{t} \cdot \textit{nums}[i]^t$. The carry and remaining popcount update from $t+\textit{st}$. Memoize $\textit{dfs}(i,j,k,\textit{st})$ and invert factorials for the binomials.
+
+<!-- thinking:end -->
+
 We design a function $\text{dfs}(i, j, k, st)$, which represents the number of ways when we are currently processing the $i$-th element of array $\textit{nums}$, still need to select numbers from the remaining $j$ positions to fill into the magical sequence, still need to satisfy having $k$ set bits in binary form, and the current carry from the previous bit is $st$. Then the answer is $\text{dfs}(0, m, k, 0)$.
 
 The execution process of function $\text{dfs}(i, j, k, st)$ is as follows:

@@ -111,6 +111,16 @@ A submatrix <code>(x1, y1, x2, y2)</code> is a matrix that is formed by choosing
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each $k \times k$ window needs the minimum absolute difference between distinct values. After sorting the $k^2$ entries, that minimum is a gap between adjacent unequal values.
+>
+> Enumerate the top-left corner, collect, sort, and scan adjacent pairs. A constant window has difference $0$.
+
+<!-- thinking:end -->
+
 We can enumerate all possible $k \times k$ submatrices by their top-left coordinates $(i, j)$. For each submatrix, we extract all its elements into a list $\textit{nums}$. Then, we sort $\textit{nums}$ and compute the absolute differences between adjacent distinct elements to find the minimum absolute difference. Finally, we store the result in a 2D array.
 
 The time complexity is $O((m - k + 1) \times (n - k + 1) \times k^2 \log(k))$, where $m$ and $n$ are the number of rows and columns of the matrix, and $k$ is the size of the submatrix. The space complexity is $O(k^2)$, used to store the elements of each submatrix.

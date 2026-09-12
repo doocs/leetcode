@@ -104,6 +104,16 @@ tags:
 
 ### Solution 1: Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deleting $words[i]$ drops the pairs $(i-1,i)$ and $(i,i+1)$ and may add $(i-1,i+1)$. The global maximum adjacent LCP can be stored in an ordered multiset.
+>
+> Precompute every adjacent LCP. For each $i$, remove the affected pairs, insert the bridge pair, read the maximum, then roll back. Skip out-of-range indices at the ends.
+
+<!-- thinking:end -->
+
 We define a function $\textit{calc}(s, t)$, which calculates the length of the longest common prefix between strings $s$ and $t$. We can use an ordered set to maintain the longest common prefix lengths of all adjacent string pairs.
 
 Define a function $\textit{add}(i, j)$, which adds the longest common prefix length of the string pair at indices $i$ and $j$ to the ordered set. Define a function $\textit{remove}(i, j)$, which removes the longest common prefix length of the string pair at indices $i$ and $j$ from the ordered set.

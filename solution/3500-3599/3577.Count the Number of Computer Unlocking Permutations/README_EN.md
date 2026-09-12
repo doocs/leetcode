@@ -96,6 +96,16 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Computer $0$ starts unlocked; every other machine opens only from a strictly easier unlocked one. If some $i>0$ has $\textit{complexity}[i] \le \textit{complexity}[0]$, that machine can never open.
+>
+> Otherwise $0$ can unlock everyone else, and the remaining order is any permutation of $\{1,\ldots,n-1\}$, i.e. $(n-1)!$. Multiply while scanning.
+
+<!-- thinking:end -->
+
 Since the password for computer number $0$ is already unlocked, for any other computer $i$, if $\text{complexity}[i] \leq \text{complexity}[0]$, it is impossible to unlock computer $i$, so we return $0$. Otherwise, any permutation is valid, and there are exactly $(n - 1)!$ possible permutations.
 
 The time complexity is $O(n)$, where $n$ is the length of the $\text{complexity}$ array. The space complexity is $O(1)$.

@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Brain Teaser
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Position $i$ can be reached by paying $\textit{cost}[i]$ or by first boarding some $j < i$ and walking onward at no extra cost. Hence $\textit{ans}[i] = \min_{0 \le j \le i} \textit{cost}[j]$.
+>
+> A left-to-right prefix minimum fills the entire answer; there is no need to build a shortest-path graph.
+
+<!-- thinking:end -->
+
 According to the problem description, the minimum cost for each position $i$ is the minimum cost from $0$ to $i$. We can use a variable $\textit{mi}$ to record the minimum cost from $0$ to $i$.
 
 Starting from $0$, we iterate through each position $i$, updating $\textit{mi}$ as $\text{min}(\textit{mi}, \text{cost}[i])$ at each step, and assign $\textit{mi}$ to the $i$-th position of the answer array.

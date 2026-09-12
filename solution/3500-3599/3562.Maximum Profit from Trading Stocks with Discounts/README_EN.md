@@ -142,6 +142,16 @@ tags:
 
 ### Solution 1: Tree Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The hierarchy is a tree, a discount depends on whether the supervisor bought, and the budget is a knapsack capacity. At $u$ keep $f[j][\textit{pre}]$ — the best profit in $u$’s subtree with budget $j$ and supervisor-purchase flag $\textit{pre}$.
+>
+> Merge children’s knapsacks into $\textit{nxt}$ by budget, then decide whether $u$ buys at cost $\lfloor \textit{present}/(\textit{pre}+1)\rfloor$. The root has no supervisor, so the answer is $f_1[\textit{budget}][0]$.
+
+<!-- thinking:end -->
+
 For each node $u$, we maintain a 2D array $f_u[j][pre]$, representing the maximum profit that can be obtained in the subtree rooted at $u$ with a budget not exceeding $j$ and whether $u$'s manager purchased stocks (where $pre=1$ means purchased, and $pre=0$ means not purchased). The answer is $f_1[\text{budget}][0]$.
 
 For node $u$, the function $\text{dfs}(u)$ returns a $(\text{budget}+1) \times 2$ 2D array $f$, representing the maximum profit that can be obtained in the subtree rooted at $u$ with a budget not exceeding $j$ and whether $u$'s manager purchased stocks.

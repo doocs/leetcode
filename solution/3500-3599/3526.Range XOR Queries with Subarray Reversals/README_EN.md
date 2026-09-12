@@ -116,6 +116,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need point assignment, range XOR, and range reverse at $n,q \le 10^5$. A plain array cannot do reverse and XOR in logarithmic time together.
+>
+> Build a balanced tree (FHQ Treap) on the sequence. Each node stores its value and the XOR of its subtree; reverse is a lazy swap of children. Split, tag, and merge implement the three operations.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

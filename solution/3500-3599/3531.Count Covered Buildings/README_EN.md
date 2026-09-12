@@ -114,6 +114,16 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A building is covered when others stand to its left and right on the same row and above and below on the same column. Scanning a whole row and column per building is slow.
+>
+> Group by $x$ and by $y$ and sort each group. $(x,y)$ is covered iff $y$ lies strictly between the column extrema and $x$ lies strictly between the row extrema.
+
+<!-- thinking:end -->
+
 We can group the buildings by their x-coordinates and y-coordinates, storing them in hash tables $\text{g1}$ and $\text{g2}$, respectively. Here, $\text{g1[x]}$ represents all y-coordinates for buildings with x-coordinate $x$, and $\text{g2[y]}$ represents all x-coordinates for buildings with y-coordinate $y$. Then, we sort these lists.
 
 Next, we iterate through all buildings. For the current building $(x, y)$, we retrieve the corresponding y-coordinate list $l_1$ from $\text{g1}$ and the x-coordinate list $l_2$ from $\text{g2}$. We check the conditions to determine whether the building is covered. A building is covered if $l_2[0] < x < l_2[-1]$ and $l_1[0] < y < l_1[-1]$. If so, we increment the answer by one.

@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicate answers on the same day count once. Across days we want the most frequent remaining string, breaking ties lexicographically.
+>
+> Deduplicate each day with a set, accumulate in a hash map, then scan for the best count and string. The work is linear in the total length.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{cnt}$ to count the occurrences of each response. For the responses of each day, we first remove duplicates, then add each response to the hash table and update its count.
 
 Finally, we iterate through the hash table to find the response with the highest count. If there are multiple responses with the same count, we return the lexicographically smallest one.

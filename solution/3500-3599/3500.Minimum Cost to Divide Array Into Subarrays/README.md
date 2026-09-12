@@ -89,6 +89,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 划分方案数为 $2^{n-1}$，而 $n \le 1000$，枚举全部切分不可行。第 $i$ 段 $[l,r]$ 的代价为 $(\textit{prefN}[r] + k \cdot i) \cdot (\textit{prefC}[r] - \textit{prefC}[l-1])$，只依赖前缀和与段序号。
+>
+> 为此定义将前 $j$ 个元素划分的最小代价，枚举上一段终点即可在 $O(n^2)$ 内递推。代价中与段数线性相关的 $k \cdot i$ 可并入同一前缀和框架，无需另建图模型。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

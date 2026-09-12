@@ -163,6 +163,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 50$ and we must merge exactly $k \le 10$ times, so the merge order cannot be enumerated. After a merge the speed of a segment is the sum of the merged $\textit{time}$ values, and distance is the gap between surviving $\textit{position}$s.
+>
+> DP on the last kept landmark, the number of merges used, and the speed inherited from a contiguous $\textit{time}$ sum. Enumerate how many landmarks the current segment swallows. The three dimensions fit.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

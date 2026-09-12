@@ -76,6 +76,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $l$ and $r$ have up to $100$ digits, so walking the interval is impossible. Count integers whose base-$b$ digits are non-decreasing via $f(r) - f(l-1)$.
+>
+> $f(x)$ is a digit DP: fill from the high digit, never decrease, and track the upper-bound flag. Reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

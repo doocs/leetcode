@@ -96,6 +96,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次询问要一条同时覆盖 $src1 \to dest$ 与 $src2 \to dest$ 的最小权子树，即三条路径的并。$n$、$q \le 10^5$，不能每次 BFS。
+>
+> 树上两条路径的并为 $\textit{dist}(a,b)+\textit{dist}(a,c)+\textit{dist}(b,c)$ 的一半。预处理深度、边权前缀与 LCA 后，$O(\log n)$ 回答 $\textit{dist}$，再对 $(src1,src2,dest)$ 套该公式。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

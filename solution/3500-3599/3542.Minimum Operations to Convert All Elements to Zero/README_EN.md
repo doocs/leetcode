@@ -95,6 +95,16 @@ tags:
 
 ### Solution 1: Monotonic Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation zeroes a whole run of the current minimum. Equal values split by a smaller one need separate operations. Scanning every value’s segments can become quadratic.
+>
+> Keep a strictly increasing stack. A new smaller $x$ pops each larger top as one operation; a duplicate of the top merges without increasing the answer. Leftover stack entries each cost one more operation.
+
+<!-- thinking:end -->
+
 According to the problem description, we should first convert the smallest numbers to $0$, then the second smallest numbers to $0$, and so on. During this process, if two numbers are separated by smaller numbers, they require an additional operation to become $0$.
 
 We can maintain a monotonically increasing stack $\textit{stk}$ from bottom to top, and traverse each number $\textit{x}$ in the array $\textit{nums}$:

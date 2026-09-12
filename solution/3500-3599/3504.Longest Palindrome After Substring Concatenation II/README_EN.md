@@ -91,6 +91,16 @@ tags:
 
 ### Solution 1: Enumerate Palindrome Centers + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The answer still comes from a palindrome in one string, or from pairing a prefix of $s$ with a prefix of reversed $t$ and then extending one side. The constraints are larger, yet center expansion plus an $O(mn)$ matching DP remains sufficient.
+>
+> Reverse $t$, precompute $g_1$ and $g_2$, and let $f[i][j]$ grow equal prefixes before attaching a leftover palindromic core.
+
+<!-- thinking:end -->
+
 According to the problem description, the concatenated palindrome string can be composed entirely of string $s$, entirely of string $t$, or a combination of both strings $s$ and $t$. Additionally, there may be extra palindromic substrings in either string $s$ or $t$.
 
 Therefore, we first reverse string $t$ and preprocess arrays $\textit{g1}$ and $\textit{g2}$, where $\textit{g1}[i]$ represents the length of the longest palindromic substring starting at index $i$ in string $s$, and $\textit{g2}[i]$ represents the length of the longest palindromic substring starting at index $i$ in string $t$.

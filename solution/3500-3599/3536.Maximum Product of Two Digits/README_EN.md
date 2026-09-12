@@ -89,6 +89,16 @@ tags:
 
 ### Solution 1: Find the Largest and Second Largest Digits
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The product of two digits is maximized by the largest and second-largest digits, independent of order. Track $a \ge b$ while peeling digits; there is no need to store and sort them.
+>
+> After $O(\log n)$ digits, return $a \cdot b$.
+
+<!-- thinking:end -->
+
 We keep two variables, $a$ and $b$, to record the current largest and second‑largest digits, respectively. We iterate over every digit of $n$; if the current digit is larger than $a$, we assign $b$ the value of $a$ and then set $a$ to the current digit. Otherwise, if the current digit is larger than $b$, we set $b$ to the current digit. Finally, we return $a \times b$.
 
 The time complexity is $O(\log n)$, where $n$ is the input number, and the space complexity is $O(1)$.

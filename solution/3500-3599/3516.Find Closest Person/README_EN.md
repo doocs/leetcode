@@ -105,6 +105,16 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three people move at the same speed on the number line, so the first to reach $z$ is decided by distance. Compare $|x-z|$ and $|y-z|$.
+>
+> No timeline simulation is required; the answer is $0$, $1$, or $2$ in constant time.
+
+<!-- thinking:end -->
+
 We calculate the distance $a$ between the 1st person and the 3rd person, and the distance $b$ between the 2nd person and the 3rd person.
 
 - If $a = b$, it means both people arrive at the same time, return $0$;

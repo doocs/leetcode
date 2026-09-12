@@ -142,6 +142,16 @@ tags:
 
 ### Solution 1: Greedy + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The conversion splits into segments; each segment may be reversed as a whole and then edited by replacements or paired swaps. $f[i]$ is the minimum for the prefix of length $i$; the previous cut is some $j$.
+>
+> $\textit{calc}(l,r,\textit{rev})$ counts replacements on a segment with or without reverse: a pair $(a,b)$ can cancel a later $(b,a)$ as one swap. $f[i]$ takes the cheaper of “no reverse” and “pay one reverse then calc”.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the minimum number of operations required to convert the first $i$ characters of $\textit{word1}$ to the first $i$ characters of $\textit{word2}$. The answer is $f[n]$, where $n$ is the length of both $\textit{word1}$ and $\textit{word2}$.
 
 We can compute $f[i]$ by enumerating all possible split points. For each split point $j$, we need to calculate the minimum number of operations required to convert $\textit{word1}[j:i]$ to $\textit{word2}[j:i]$.

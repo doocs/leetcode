@@ -86,6 +86,16 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $\textit{nums}$ is a permutation of $[1,n]$ and indices may repeat, so the set of triple XORs is determined by $n$. A cubic enumeration does not match the scale.
+>
+> For $n \le 2$ the answer equals $n$. For $n \ge 3$ the possible XORs fill $[0, 2^{\lfloor \log_2 n \rfloor + 1} - 1]$, which is $1 \ll \textit{bitLength}(n)$.
+
+<!-- thinking:end -->
+
 Since $\textit{nums}$ is a permutation of $[1, n]$, the available values are fixed as $\{1, 2, \ldots, n\}$. With indices satisfying $i \le j \le k$, the same index may be chosen more than once, so a XOR triplet is equivalent to picking three numbers (with replacement) from this set and taking their XOR.
 
 When $n \le 2$, enumeration shows the answers are $1$ ($n = 1$) and $2$ ($n = 2$), i.e., the answer equals $n$.

@@ -85,6 +85,16 @@ tags:
 
 ### Solution 1: Dynamic Programming + Two Pointers + Ordered Set
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every part of a partition must have $\max-\min \le k$. $f[r]$ is the number of ways to partition the prefix of length $r$; the last part is some $[l,r]$, so $f[r]$ sums $f[j]$ over legal last parts.
+>
+> The legal left end only moves right: an ordered set stores the window extrema and advances $l$ when the gap exceeds $k$. A prefix sum $g$ evaluates the range sum in $O(1)$.
+
+<!-- thinking:end -->
+
 We define $f[i]$ as the number of ways to partition the first $i$ elements. If an array satisfies that the difference between its maximum and minimum values does not exceed $k$, then any of its subarrays also satisfies this condition. Therefore, we can use two pointers to maintain a sliding window representing the current subarray.
 
 When we reach the $r$-th element, we need to find the left pointer $l$ such that the subarray from $l$ to $r$ satisfies that the difference between the maximum and minimum values does not exceed $k$. We can use an ordered set to maintain the elements in the current window, so that we can quickly get the maximum and minimum values.

@@ -123,6 +123,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The instructions form a path with jumps; revisiting an index would loop. Mark visited indices and walk from $0$, adding or jumping as specified.
+>
+> Stop on an out-of-range index or a repeat. Each instruction runs at most once, so the scan is linear.
+
+<!-- thinking:end -->
+
 We can simulate the process based on the problem description.
 
 Define a boolean array $\textit{vis}$ of length $n$ to record whether each instruction has been executed. Initially, all elements are set to $\text{false}$.

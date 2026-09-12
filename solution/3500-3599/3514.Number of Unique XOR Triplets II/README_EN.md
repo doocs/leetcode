@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is no longer a permutation, so there is no closed form. Any XOR of two values is less than $2M$ where $M = \max(\textit{nums})$, so a Boolean array suffices.
+>
+> Mark every $a \oplus b$, then XOR each marked value with a third element into $s$, and count nonzero entries. Commutativity of XOR makes the index order irrelevant.
+
+<!-- thinking:end -->
+
 With indices satisfying $i \le j \le k$, the same index may be chosen more than once, and XOR is commutative. Therefore, the answer equals the number of distinct XOR values obtainable by picking any three elements from the array (with replacement).
 
 Let $M = \max(\textit{nums})$. The XOR of any two non-negative integers at most $M$ is less than $2M$, so a boolean array of length $2M$ can be used for marking.

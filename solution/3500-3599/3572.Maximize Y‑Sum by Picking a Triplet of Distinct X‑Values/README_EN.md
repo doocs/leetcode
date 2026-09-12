@@ -81,6 +81,16 @@ tags:
 
 ### Solution 1: Sorting + Greedy + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The three $x$ values must be distinct and the objective is the sum of their $y$’s, so each chosen $x$ should contribute its best $y$. Sort pairs by $y$ descending, record used $x$ in a set, and add the first three new $x$ values.
+>
+> If fewer than three distinct $x$ appear, return $-1$. One sort and one scan suffice.
+
+<!-- thinking:end -->
+
 We pair the elements of arrays $x$ and $y$ into a 2D array $\textit{arr}$, and then sort $\textit{arr}$ in descending order by the value of $y$. Next, we use a hash table to record the $x$ values that have already been selected, and iterate through $\textit{arr}$, each time selecting an $x$ value and its corresponding $y$ value that has not been chosen yet, until we have selected three distinct $x$ values.
 
 If we manage to select three different $x$ values during the iteration, we return the sum of their corresponding $y$ values; if we finish iterating without selecting three distinct $x$ values, we return -1.

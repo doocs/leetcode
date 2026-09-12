@@ -75,6 +75,16 @@ tags:
 
 ### Solution 1: Enumeration + Hash Map
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One side must be axis-aligned; twice the area is base times height. For a vertical base, the span of $y$ at a fixed $x$ is the base, and the height is the horizontal distance to the global minimum or maximum $x$.
+>
+> Hash maps store the $y$ extrema per $x$. Swap coordinates and repeat for horizontal bases. Return $-1$ when the area stays $0$.
+
+<!-- thinking:end -->
+
 The problem asks for twice the area of the triangle, so we can directly calculate the product of the base and height of the triangle.
 
 Since the triangle must have at least one side parallel to the $x$-axis or $y$-axis, we can enumerate sides parallel to the $x$-axis and calculate the double area for all possible triangles, then swap the coordinates in $\textit{coords}$ and repeat the process to calculate the double area for triangles with sides parallel to the $y$-axis.

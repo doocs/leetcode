@@ -90,6 +90,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The flattened horizontal and vertical strings have length $mn \le 10^5$, so sliding $\textit{pattern}$ on the grid is too slow. A cell must belong to at least one horizontal match and one vertical match.
+>
+> Concatenate rows and columns, mark coverage with KMP (or the Z algorithm), map hits back to cells, and count the intersection.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

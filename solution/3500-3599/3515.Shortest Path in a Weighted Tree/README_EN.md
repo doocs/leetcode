@@ -122,6 +122,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Root-to-node distances change with edge updates, and $n,q \le 10^5$ forbid recomputing from the root. The path is unique, so $\textit{dist}(x)$ is the sum of edge weights on the root-to-$x$ path.
+>
+> On the Euler tour, updating an edge adds a value to a contiguous range; a query is a point read. A Fenwick tree or segment tree maintains it.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

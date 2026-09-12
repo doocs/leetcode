@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $s$ is already a palindrome, and any rearrangement that stays a palindrome is determined by the multiset of the first half. Put half of each character on the left, at most one odd character in the middle, and mirror the right.
+>
+> The left half should be filled from `a` to `z` to obtain the lexicographically smallest string.
+
+<!-- thinking:end -->
+
 We first count the occurrence of each character in the string and record it in a hash table or array $\textit{cnt}$. Since the string is a palindrome, the count of each character is either even, or there is exactly one character with an odd count.
 
 Next, starting from the lexicographically smallest character, we sequentially add half of each character's count to the first half of the result string $\textit{t}$. If a character appears an odd number of times, we record it as the middle character $\textit{ch}$. Finally, we concatenate $\textit{t}$, $\textit{ch}$, and the reverse of $\textit{t}$ to obtain the final lexicographically smallest palindromic rearrangement.

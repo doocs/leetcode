@@ -121,6 +121,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We want a $k$-edge path in a DAG whose weight sum is maximized but strictly less than $t$. With $n,k \le 300$ and $t \le 600$, a state of (vertex, edges used, sum) is small enough.
+>
+> DFS or iterate from every start. Among states with $e=k$ and $s<t$, take the largest $s$, or $-1$ if none exist.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
