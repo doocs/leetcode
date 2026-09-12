@@ -36,6 +36,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.04.Palindrome%20Pe
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A palindrome permutation is about symmetry after rearrangement, not about building one. Enumerating permutations is unnecessary.
+>
+> At most one character may have an odd count. It is enough to tally frequencies and count how many odds there are.
+>
+> A hash table (`Counter`) yields all frequencies in one scan; then check that the number of odd counts is less than $2$, matching `sum(v & 1 ...) < 2`.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to store the occurrence count of each character. If more than $1$ character has an odd count, then it is not a palindrome permutation.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
@@ -159,6 +171,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Another Implementation of Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Full frequency counts are discarded after the test; only parity matters.
+>
+> A set of characters that currently have an odd count is enough: delete on a second sighting, insert otherwise. The final set size is the number of odd frequencies, still equivalent to “at most one odd”, with a smaller constant.
+
+<!-- thinking:end -->
 
 We use a hash table $vis$ to store whether each character has appeared. If it has appeared, we remove the character from the hash table; otherwise, we add the character to the hash table.
 

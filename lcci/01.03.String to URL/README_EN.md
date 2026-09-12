@@ -56,6 +56,18 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 ### Solution 1: Using `replace()` function
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Spaces in the first $length$ characters must become `%20`. $S$ may contain trailing padding, so a replace on the whole string is wrong.
+>
+> A library `replace` finishes the substitution in linear time. Slice $S[:length]$ first, then replace spaces, which handles both the live prefix and the padding.
+>
+> That matches the Python code: one slice and one replace, linear in the output length.
+
+<!-- thinking:end -->
+
 Directly use `replace` to replace all ` ` with `%20`:
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string.
@@ -129,6 +141,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A library helper is not portable across languages that the problem may be solved in.
+>
+> Scan the valid prefix character by character: write `%20` for a space and the original character otherwise. The buffer is at most three times as long, still a linear pass.
+
+<!-- thinking:end -->
 
 Traverse each character $c$ in the string. When encountering a space, add `%20` to the result, otherwise add $c$.
 

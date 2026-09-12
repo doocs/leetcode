@@ -24,6 +24,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.02.Min%20Stack/REA
 
 ### 方法一：双栈
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 栈的 `getMin` 若每次扫描全部元素，则该操作为线性，无法与 $O(1)$ 的 `push`/`pop` 匹配。
+>
+> 每个前缀的最小值在压入时即可确定，且随弹出回退到上一前缀的最小值。因此额外维护一条与数据栈同步的「当前最小」栈。
+>
+> `mins` 初始放入 $+\infty$，每次 `push` 写入 $\min(mins[-1], val)$，`pop` 两栈同弹。`getMin` 直接读 `mins` 栈顶，各操作均为 $O(1)$。
+
+<!-- thinking:end -->
+
 我们用两个栈来实现，其中`stk1` 用来存储数据，`stk2` 用来存储当前栈中的最小值。初始时，`stk2` 中存储一个极大值。
 
 - 当我们向栈中压入一个元素 `x` 时，我们将 `x` 压入 `stk1`，并将 `min(x, stk2[-1])` 压入 `stk2`。

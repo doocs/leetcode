@@ -44,6 +44,18 @@ minStack.getMin();   --&gt; return -2.</pre>
 
 ### Solution 1: Double Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Scanning the whole stack for `getMin` is linear and does not match $O(1)$ `push`/`pop`.
+>
+> The minimum of each prefix is known at push time and rolls back on pop, so a second stack can store the running minimum in lockstep.
+>
+> `mins` starts with $+\infty$; each `push` records $\min(mins[-1], val)$, and `pop` pops both stacks. `getMin` reads the top of `mins` in $O(1)$.
+
+<!-- thinking:end -->
+
 We use two stacks to implement this, where `stk1` is used to store data, and `stk2` is used to store the current minimum value in the stack. Initially, `stk2` stores a very large value.
 
 - When we push an element `x` into the stack, we push `x` into `stk1`, and push `min(x, stk2[-1])` into `stk2`.

@@ -52,6 +52,18 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The compressed form concatenates each run’s character and length, and is kept only if it is shorter. Counting a run from every index is still linear but repeats work.
+>
+> Each maximal run needs to be reported once, so the task reduces to locating run boundaries.
+>
+> `groupby` (or explicit two pointers) emits each run as a character plus its length into $t$, then the shorter of $S$ and $t$ is returned. Each character is visited once, which is the two-pointer grouping described in the write-up.
+
+<!-- thinking:end -->
+
 We can use two pointers to find the start and end positions of each consecutive character, calculate the length of the consecutive characters, and then append the character and length to the string $t$.
 
 Finally, we compare the lengths of $t$ and $S$. If the length of $t$ is less than $S$, we return $t$, otherwise we return $S$.

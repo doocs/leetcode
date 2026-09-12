@@ -52,6 +52,18 @@ Could you do it in O(n) time and O(1) space?</p>
 
 ### Solution 1: Fast and Slow Pointers + Reverse List
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Copying values into an array and comparing ends uses $O(n)$ space. With permission to mutate the list, constant extra space is enough.
+>
+> A palindrome is the first half versus the reversed second half. Fast/slow pointers find the mid, the second half is reversed in place, then the two halves are compared.
+>
+> On even length the slow pointer stops on the left mid; reversal starts at its `next`. Clearing `slow.next` keeps the two chains disjoint.
+
+<!-- thinking:end -->
+
 First, we check if the list is empty. If it is, we return `true` directly.
 
 Next, we use fast and slow pointers to find the midpoint of the list. If the length of the list is odd, the slow pointer points to the midpoint. If the length of the list is even, the slow pointer points to the first of the two middle nodes.

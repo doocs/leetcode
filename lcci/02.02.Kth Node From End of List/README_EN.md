@@ -38,6 +38,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.02.Kth%20Node%20Fr
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The $k$-th node from the end is the $(n-k+1)$-th from the front. A counting pass plus a second walk is correct; a single pass is enough.
+>
+> If the fast pointer starts $k$ steps ahead, it hits the end exactly when the slow pointer sits on the $k$-th from the end.
+>
+> Both start at the head; `fast` advances $k$ times, then they move together until `fast` is null, and `slow.val` is returned.
+
+<!-- thinking:end -->
+
 We define two pointers `slow` and `fast`, both initially pointing to the head node `head`. Then the `fast` pointer moves forward $k$ steps first, and then the `slow` and `fast` pointers move forward together until the `fast` pointer points to the end of the list. At this point, the node pointed to by the `slow` pointer is the $k$-th node from the end of the list.
 
 The time complexity is $O(n)$, where $n$ is the length of the list. The space complexity is $O(1)$.

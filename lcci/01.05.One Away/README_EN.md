@@ -52,6 +52,18 @@ second = &quot;pal&quot;
 
 ### Solution 1: Case Analysis + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One edit is a replace, insert, or delete. Enumerating every one-edit neighbor of the shorter string is linear in length but clumsy to implement.
+>
+> A length gap greater than $1$ cannot be bridged by one edit. Assume $m \ge n$: equal lengths allow exactly one replacement; a gap of $1$ means the longer string has exactly one extra character.
+>
+> On equal length, count mismatches; otherwise two pointers skip at most one mismatch on the longer string. Swapping so the first argument is longer implements only the delete case.
+
+<!-- thinking:end -->
+
 Let the lengths of the strings $\textit{first}$ and $\textit{second}$ be $m$ and $n$, respectively. Assume $m \geq n$.
 
 Next, we discuss the following cases:

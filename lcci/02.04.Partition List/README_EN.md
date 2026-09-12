@@ -34,6 +34,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.04.Partition%20Lis
 
 ### Solution 1: Concatenating Lists
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nodes less than $x$ must come first, stably. Collecting into an array uses extra memory; swapping values in place may lose order.
+>
+> Only two relative orders matter: the “less” segment and the “rest” segment, so the list can be split and concatenated.
+>
+> Two dummy-headed lists $left$ and $right$ take tail inserts; then $p1.next = right.next$, $p2.next$ is cleared, and $left.next$ is returned. Only pointers change.
+
+<!-- thinking:end -->
+
 We create two lists, `left` and `right`, to store nodes that are less than `x` and nodes that are greater than or equal to `x`, respectively.
 
 Then we use two pointers `p1` and `p2` to point to the last node of `left` and `right` respectively, initially both `p1` and `p2` point to a dummy head node.

@@ -55,6 +55,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.03.Stack%20of%20Pl
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A stack that is full must start a new plate stack, and `popAt` targets a specific stack. Manual index arithmetic on one array is brittle when a middle stack disappears.
+>
+> Model the structure as a list of bounded stacks, with $stk[-1]$ the current one.
+>
+> `push` appends a new list when the last stack is full; `pop` delegates to `popAt` on the last index; `popAt` pops that stack and removes it if empty. $cap=0$ rejects every push.
+
+<!-- thinking:end -->
+
 We can use a list of stacks $stk$ to simulate this process, initially $stk$ is empty.
 
 - When the `push` method is called, if $cap$ is 0, return directly. Otherwise, if $stk$ is empty or the length of the last stack in $stk$ is greater than or equal to $cap$, then create a new stack. Then add the element $val$ to the last stack in $stk$. The time complexity is $O(1)$.

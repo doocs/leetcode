@@ -64,6 +64,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.07.Rotate%20Matrix
 
 ### 方法一：原地翻转
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 顺时针旋转 $90^\circ$ 将 $(i,j)$ 送到 $(j, n-i-1)$。若另开矩阵按映射填写再拷回，正确但需 $O(n^2)$ 额外空间，与原地要求不符。
+>
+> 该映射可分解为两次对称：先上下翻转，再沿主对角线转置。两次交换之后，原 $(i,j)$ 恰好落到目标位置。
+>
+> 代码先对调第 $i$ 行与第 $n-i-1$ 行，再交换 $i>j$ 的下三角元素完成转置，全程只使用若干临时变量。
+
+<!-- thinking:end -->
+
 根据题目要求，我们实际上需要将 $\text{matrix}[i][j]$ 旋转至 $\text{matrix}[j][n - i - 1]$。
 
 我们可以先对矩阵进行上下翻转，即 $\text{matrix}[i][j]$ 和 $\text{matrix}[n - i - 1][j]$ 进行交换，然后再对矩阵进行主对角线翻转，即 $\text{matrix}[i][j]$ 和 $\text{matrix}[j][i]$ 进行交换。这样就能将 $\text{matrix}[i][j]$ 旋转至 $\text{matrix}[j][n - i - 1]$ 了。

@@ -63,6 +63,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.07.Intersection%20
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Intersection means a shared suffix. Storing one list’s nodes in a set is correct but uses linear space.
+>
+> After the lists are aligned at the tail, a lockstep walk finds the first common node. Concatenating “A then B” and “B then A” makes the two routes the same length.
+>
+> Pointers $a$ and $b$ hop to the other head when they hit null; they meet at the intersection or both become null. Lengths need not be computed first.
+
+<!-- thinking:end -->
+
 We use two pointers $a$ and $b$ to point to two linked lists $headA$ and $headB$ respectively.
 
 We traverse the linked lists simultaneously. When $a$ reaches the end of the linked list $headA$, it is repositioned to the head node of the linked list $headB$. When $b$ reaches the end of the linked list $headB$, it is repositioned to the head node of the linked list $headA$.
