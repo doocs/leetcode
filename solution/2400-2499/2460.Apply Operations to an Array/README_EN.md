@@ -77,6 +77,14 @@ After that, we shift the 0&#39;s to the end, which gives the array [1,4,2,0,0,0]
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 2000$, walk left to right: equal neighbors double the left and zero the right. Then stable-pack nonzero values to the front. Two linear passes.
+
+<!-- thinking:end -->
+
 We can directly simulate according to the problem description.
 
 First, we traverse the array $nums$. For any two adjacent elements $nums[i]$ and $nums[i+1]$, if $nums[i] = nums[i+1]$, then we double the value of $nums[i]$ and change the value of $nums[i+1]$ to $0$.

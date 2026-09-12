@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Kelvin and Fahrenheit are affine in Celsius; apply the two formulas once.
+
+<!-- thinking:end -->
+
 We can directly simulate according to the problem description.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

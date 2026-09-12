@@ -91,6 +91,16 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 
 ### Solution 1: Greedy + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Everyone reaches the capital and cars only move toward the root. At $n\le 10^5$, $sz$ people leaving a child need $\lceil sz/seats\rceil$ liters on that edge, after carpooling inside the subtree.
+>
+> DFS bottom-up: a child of size $t$ costs $\lceil t/seats\rceil$ on the parent edge and adds $t$ to the current size. The root has no outgoing edge.
+
+<!-- thinking:end -->
+
 According to the problem description, we can find that all cars will only drive towards the capital (node $0$).
 
 Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $seats$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{seats} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.

@@ -81,6 +81,16 @@ The total hiring cost is 4.
 
 ### Solution 1: Priority Queue (Min Heap)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each of $k$ hires picks the cheapest among the first and last $\textit{candidates}$ workers; $n\le 10^5$. If those two sides cover the array, just take the $k$ global minima.
+>
+> Otherwise a heap holds both sides (with indices). After popping, push the next unused worker from that side. Stop refilling when the two pointers cross.
+
+<!-- thinking:end -->
+
 First, we check if $candidates \times 2$ is greater than or equal to $n$. If it is, we directly return the sum of the costs of the first $k$ smallest workers.
 
 Otherwise, we use a min heap $pq$ to maintain the costs of the first $candidates$ workers and the last $candidates$ workers.

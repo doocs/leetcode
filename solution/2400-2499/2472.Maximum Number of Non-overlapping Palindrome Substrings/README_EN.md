@@ -68,6 +68,14 @@ It can be shown that we cannot find a selection with more than two valid substri
 
 ### Solution 1: Preprocessing + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick as many non-overlapping palindromes of length at least $k$ as possible; $n\le 2000$. Precompute $dp[i][j]$ in $O(n^2)$. Then $dfs(i)$ is the best from $i$: skip $i$, or take a palindrome $[i,j]$ ($j\ge i+k-1$) plus $dfs(j+1)$.
+
+<!-- thinking:end -->
+
 First, preprocess the string $s$ to get $dp[i][j]$, which represents whether the substring $s[i,..j]$ is a palindrome.
 
 Then, define a function $dfs(i)$ to represent the maximum number of non-overlapping palindrome substrings that can be selected from the substring $s[i,..]$, i.e.,

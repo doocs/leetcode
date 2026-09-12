@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With $n\le 1000$, fix the left end and extend, keeping an LCM. The LCM is nondecreasing; counting the times it equals $k$ is enough.
+
+<!-- thinking:end -->
+
 Enumerate each number as the first number of the subarray, and then enumerate each number as the last number of the subarray. Calculate the least common multiple of this subarray. If the least common multiple equals $k$, then increment the answer by one.
 
 The time complexity is $O(n^2)$. Here, $n$ is the length of the array.

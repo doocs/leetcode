@@ -98,6 +98,16 @@ Customer 3: The first year is 2017, and the last year is 2018
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Customers whose yearly totals are strictly increasing. After summing $price$ per customer and year, a strictly increasing series makes $YEAR-RANK(\textit{total})$ constant.
+>
+> Window $RANK()$ on the yearly total, then keep customers for whom that difference has a single distinct value.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

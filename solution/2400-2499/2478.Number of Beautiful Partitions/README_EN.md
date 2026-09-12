@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each part starts with a prime digit and ends with a composite digit, length at least $\textit{minLength}$, $k$ parts. With $n\le 1000$, $f[i][j]$ is ways to split the first $i$ characters into $j$ parts. A position is a legal end only if it is composite and the next start is prime (or the string ends).
+>
+> Prefix sums $g$ collapse the previous ends to $g[i-\textit{minLength}][j-1]$. If the first digit is composite or the last is prime, the answer is $0$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the number of schemes for dividing the first $i$ characters into $j$ sections. Initialize $f[0][0] = 1$, and the rest $f[i][j] = 0$.
 
 First, we need to determine whether the $i$th character can be the last character of the $j$th section, it needs to meet the following conditions simultaneously:

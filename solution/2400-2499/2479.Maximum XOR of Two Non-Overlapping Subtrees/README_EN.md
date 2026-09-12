@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum XOR of two non-overlapping subtree sums; $n\le 5\times 10^4$. First DFS computes $s[i]$. A second walk queries the trie before inserting: the query sees only finished subtrees that do not overlap the current one; the current sum is inserted after the children return.
+>
+> Sums reach about $10^{14}$, so a $48$-bit binary trie greedy-picks the opposite bit.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
