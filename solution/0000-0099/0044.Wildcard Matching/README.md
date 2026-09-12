@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0044.Wildcard%20Matching/README.md
 tags:
     - 贪心
     - 递归

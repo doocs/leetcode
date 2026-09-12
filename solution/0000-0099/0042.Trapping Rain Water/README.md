@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md
 tags:
     - 栈
     - 数组

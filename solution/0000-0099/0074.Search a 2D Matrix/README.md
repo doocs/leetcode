@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0074.Search%20a%202D%20Matrix/README.md
 tags:
     - 数组
     - 二分查找

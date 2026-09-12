@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0063.Unique%20Paths%20II/README.md
 tags:
     - 数组
     - 动态规划

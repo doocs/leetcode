@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md
 tags:
     - Array
     - Divide and Conquer

@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0056.Merge%20Intervals/README_EN.md
 tags:
     - Array
     - Sorting

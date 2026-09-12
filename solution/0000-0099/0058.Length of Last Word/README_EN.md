@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md
 tags:
     - String
 ---

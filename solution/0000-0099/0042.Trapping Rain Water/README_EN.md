@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md
 tags:
     - Stack
     - Array

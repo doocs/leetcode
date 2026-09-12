@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0000-0099/0067.Add%20Binary/README_EN.md
 tags:
     - Bit Manipulation
     - Math
