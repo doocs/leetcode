@@ -84,6 +84,16 @@ Thus, we return 1.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An artifact can be extracted only when every cell of its rectangle has been dug. Writing each dig into an $n \times n$ grid and then scanning each artifact works for $n \le 10^3$, but every artifact occupies at most four cells, so a full grid is unnecessary.
+>
+> Put the distinct dig cells into a hash set $s$. For each artifact, enumerate $[r_1, r_2] \times [c_1, c_2]$ and count it if every cell lies in $s$. The total cell checks are on the order of the number of artifacts plus digs.
+
+<!-- thinking:end -->
+
 We can use a hash table $s$ to record all the excavated cells, then traverse all the workpieces, and check whether all parts of the workpiece are in the hash table. If so, we can extract the workpiece, and the answer is increased by one.
 
 The time complexity is $O(m + k)$, and the space complexity is $O(k)$. Here, $m$ is the number of workpieces, and $k$ is the number of excavated cells.

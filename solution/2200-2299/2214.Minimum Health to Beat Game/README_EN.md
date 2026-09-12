@@ -82,6 +82,16 @@ Note that you did not use your armor ability.
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Damage is taken in order and health must stay positive after every round. Armor may be used once, replacing that round's damage with $\max(0, d-\textit{armor})$. Trying every round is $O(n)$ and would pass, but the choice collapses to one comparison.
+>
+> Without armor the needed health is the total damage plus one. Armor never blocks more than its own value or the damage of the chosen round, so the saving is $\min(\max(\textit{damage}), \textit{armor})$. Apply it on the heaviest hit.
+
+<!-- thinking:end -->
+
 We can greedily choose to use the armor skill in the round with the highest damage. Suppose the maximum damage is $\textit{mx}$, then we can avoid $\min(\textit{mx}, \textit{armor})$ damage. Therefore, the minimum health required is $\sum(\textit{damage}) - \min(\textit{mx}, \textit{armor}) + 1$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $\textit{damage}$. The space complexity is $O(1)$.

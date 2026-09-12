@@ -70,6 +70,16 @@ The maximum sum score of nums is -3.
 
 ### Solution 1: Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score at $i$ is the larger of the prefix sum through $i$ and the suffix sum through $i$; we want the maximum over $i$. $n \le 10^5$ forbids summing from scratch at each index.
+>
+> Both sums can be kept while scanning: start with total $r$, add $x$ into prefix $l$, update the answer by $\max(l, r)$, then subtract $x$ from $r$. One pass suffices.
+
+<!-- thinking:end -->
+
 We can use two variables $l$ and $r$ to represent the prefix sum and suffix sum of the array, respectively. Initially, $l = 0$ and $r = \sum_{i=0}^{n-1} \textit{nums}[i]$.
 
 Next, we traverse the array $\textit{nums}$. For each element $x$, we add $x$ to $l$ and update the answer $\textit{ans} = \max(\textit{ans}, l, r)$, then subtract $x$ from $r$.

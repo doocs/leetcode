@@ -69,6 +69,16 @@ There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy 
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An array of length $2n$ must split into $n$ equal pairs. The pairing itself is not required. Searching all pairings would be combinatorial even for $n \le 500$.
+>
+> Each pair consumes two copies of a value, so every frequency must be even. Count occurrences and test that every count is even. One pass over a hash map is enough.
+
+<!-- thinking:end -->
+
 According to the problem description, as long as each element in the array appears an even number of times, the array can be divided into $n$ pairs.
 
 Therefore, we can use a hash table or an array $\textit{cnt}$ to record the number of occurrences of each element, then traverse $\textit{cnt}$. If any element appears an odd number of times, return $\textit{false}$; otherwise, return $\textit{true}$.

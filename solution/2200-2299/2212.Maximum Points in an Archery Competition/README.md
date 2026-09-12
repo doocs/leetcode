@@ -91,6 +91,18 @@ Bob 获得总分 8 + 9 + 10 = 27 。
 
 ### 方法一：二进制枚举
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> Bob 要在 $12$ 个环上分配箭，某环得分当且仅当箭数严格多于 Alice。若按每环箭数搜索，$\textit{numArrows}$ 可达 $10^5$，状态过多。环数只有 $12$，真正要决定的是「赢下哪些环」。
+>
+> 赢下第 $i$ 环恰好需要 $aliceArrows[i]+1$ 支箭，得分固定为 $i$。因此用长度为 $12$ 的二进制掩码枚举得分集合，累加所需箭数与得分；箭数不超过限额且得分更优时记下该掩码。
+>
+> 最后按掩码还原各环箭数，剩余箭全部放入 $0$ 环（该环本不得分）。枚举量 $2^{12}$，可以接受。
+
+<!-- thinking:end -->
+
 由于区域数目只有 $12$ 个，因此我们使用二进制枚举的方式，枚举 $\textit{Bob}$ 在哪些区域得分。用一个变量 $\textit{st}$ 表示 $\textit{Bob}$ 获得最大得分的方案，而 $\textit{mx}$ 表示 $\textit{Bob}$ 获得的最大得分。
 
 我们在 $[1, 2^m)$ 的区间内枚举 $\textit{Bob}$ 的得分方案，其中 $m$ 是 $\textit{aliceArrows}$ 的长度。对于每一个方案，我们计算 $\textit{Bob}$ 的得分 $\textit{s}$ 以及射箭的数量 $\textit{cnt}$。如果 $\textit{cnt} \leq \textit{numArrows}$ 且 $\textit{s} > \textit{mx}$，我们就更新 $\textit{mx}$ 和 $\textit{st}$。
