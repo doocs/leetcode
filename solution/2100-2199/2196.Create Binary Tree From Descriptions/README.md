@@ -75,6 +75,18 @@ tags:
 
 ### 方法一：哈希表
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 描述给出每条父—子边及左右，需还原二叉树。结点值唯一，父结点可能尚未出现，需按需创建。根是唯一没有作为孩子出现的结点。
+>
+> 哈希表按值存结点，集合记录所有孩子。扫一遍描述连边，再用结点键集减去孩子集得到根。
+>
+> 时间和空间均为描述条数的线性。
+
+<!-- thinking:end -->
+
 我们可以用一个哈希表 $\textit{nodes}$ 来存储所有节点，其中键为节点的值，值为节点本身，用一个集合 $\textit{children}$ 来存储所有的子节点。
 
 遍历 $\textit{descriptions}$，对于每个描述 $[\textit{parent}, \textit{child}, \textit{isLeft}]$，如果 $\textit{parent}$ 不在 $\textit{nodes}$ 中，我们就将 $\textit{parent}$ 加入 $\textit{nodes}$，并初始化一个值为 $\textit{parent}$ 的节点。如果 $\textit{child}$ 不在 $\textit{nodes}$ 中，我们就将 $\textit{child}$ 加入 $\textit{nodes}$，并初始化一个值为 $\textit{child}$ 的节点。然后我们将 $\textit{child}$ 加入 $\textit{children}$。

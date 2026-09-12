@@ -64,6 +64,18 @@ It can be shown that there is no way to make them anagrams of each other with le
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A step inserts one letter into either string. The minimum number of insertions is the $L_1$ distance between the two frequency vectors — the letters each side still lacks.
+>
+> Subtract $t$’s counts from $s$’s and sum absolute values.
+>
+> One pass over the two strings suffices.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

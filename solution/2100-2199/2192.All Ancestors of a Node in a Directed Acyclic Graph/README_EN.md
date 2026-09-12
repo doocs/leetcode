@@ -81,6 +81,18 @@ The above diagram represents the input graph.
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> List every ancestor of each node in a DAG, sorted by id. Reverse DFS from every node repeats shared in-edges and still needs sorting. With $n\le 1000$ we can walk descendants of each $i$ and append $i$ to those lists, which is already sorted by $i$.
+>
+> Build the adjacency list, BFS from every $i$, and record $i$ on every reachable node. A visited set prevents re-enqueue.
+>
+> Each answer row is increasing because sources are enumerated in order.
+
+<!-- thinking:end -->
+
 First, we construct the adjacency list $g$ based on the two-dimensional array $edges$, where $g[i]$ represents all successor nodes of node $i$.
 
 Then, we enumerate node $i$ as the ancestor node from small to large, use BFS to search all successor nodes of node $i$, and add node $i$ to the ancestor list of these successor nodes.

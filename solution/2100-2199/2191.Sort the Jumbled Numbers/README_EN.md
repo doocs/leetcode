@@ -76,6 +76,18 @@ Thus, the sorted array is [338,38,991].
 
 ### Solution 1: Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sort by the mapped decimal value, keeping the original order on ties. We need a stable comparison on that mapped key.
+>
+> Map each number digit-wise to $y$, sort pairs $(y,i)$, and gather $\textit{nums}[i]$. Zero is mapped on its own so the loop is not skipped.
+>
+> A place weight $k$ rebuilds $y$ from the least significant digit.
+
+<!-- thinking:end -->
+
 We traverse each element $nums[i]$ in the array $nums$, store its mapped value $y$ and index $i$ into the array $arr$, then sort the array $arr$. Finally, we extract the index $i$ from the sorted array $arr$, convert it to the element $nums[i]$ in the original array $nums$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $nums$.

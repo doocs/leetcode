@@ -70,6 +70,18 @@ The resulting binary tree is shown in the diagram.
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each triple is a parent–child edge with a left/right flag. Values are unique; a parent may appear after its child, so nodes are created on demand. The root is the unique value that never occurs as a child.
+>
+> A map stores nodes by value and a set records children. One pass links edges; the root is the map-key set minus the child set.
+>
+> Time and memory are linear in the number of descriptions.
+
+<!-- thinking:end -->
+
 We can use a hash table $\textit{nodes}$ to store all nodes, where the keys are the values of the nodes, and the values are the nodes themselves. Additionally, we use a set $\textit{children}$ to store all child nodes.
 
 We iterate through the $\textit{descriptions}$, and for each description $[\textit{parent}, \textit{child}, \textit{isLeft}]$, if $\textit{parent}$ is not in $\textit{nodes}$, we add $\textit{parent}$ to $\textit{nodes}$ and initialize a node with the value $\textit{parent}$. If $\textit{child}$ is not in $\textit{nodes}$, we add $\textit{child}$ to $\textit{nodes}$ and initialize a node with the value $\textit{child}$. Then, we add $\textit{child}$ to $\textit{children}$.

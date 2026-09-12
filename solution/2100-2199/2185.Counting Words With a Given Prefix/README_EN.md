@@ -60,6 +60,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count words that start with $\textit{pref}$. Both the list and the lengths are small, so a direct prefix test per word is enough.
+>
+> $\texttt{startswith}$ compares at most $|\textit{pref}|$ characters.
+>
+> The answer is the number of true tests.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -152,6 +164,18 @@ int prefixCount(char** words, int wordsSize, char* pref) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already reads every character. If the same vocabulary were queried many times, a trie could store prefix frequencies on the nodes.
+>
+> Insertion increments $\textit{cnt}$ along the path; a query walks $\textit{pref}$ and reads $\textit{cnt}$, or returns $0$ on a missing edge.
+>
+> This problem has a single query; the trie is the extensible alternative.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

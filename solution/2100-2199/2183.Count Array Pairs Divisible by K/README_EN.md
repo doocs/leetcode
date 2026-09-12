@@ -68,6 +68,18 @@ Other pairs such as (0, 2) and (2, 4) have products 3 and 15 respectively, which
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count pairs whose product is divisible by $k$. $n\le 10^5$ forbids a double loop. Whether $a\cdot b$ is $0$ modulo $k$ depends only on $\gcd(a,k)$ and $\gcd(b,k)$ covering every prime power in $k$.
+>
+> Replace each value by $\gcd(x,k)$, whose distinct values are the divisors of $k$. After counting those gcds, enumerate divisor pairs $(a,b)$ whose product is a multiple of $k$ and combine frequencies.
+>
+> A hash map of gcd frequencies plus a double loop over divisors is enough. The code tabs are empty; this write-up follows that number-theoretic count.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
