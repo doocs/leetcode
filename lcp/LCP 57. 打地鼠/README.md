@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2057.%20%E6%89%93%E5%9C%B0%E9%BC%A0/README.md
 ---
 
 <!-- problem:start -->

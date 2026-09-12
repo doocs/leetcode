@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2033.%20%E8%93%84%E6%B0%B4/README.md
 ---
 
 <!-- problem:start -->

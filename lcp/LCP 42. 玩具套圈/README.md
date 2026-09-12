@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/README.md
 ---
 
 <!-- problem:start -->

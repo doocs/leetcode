@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2045.%20%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%82%AB%E6%8A%80%E8%B5%9B%E5%9C%BA/README.md
 ---
 
 <!-- problem:start -->
