@@ -100,6 +100,14 @@ The unique ID of Jonathan is 1.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Attach each employee's name to their $\textit{unique\_id}$, or null if none exists. A left join keeps employees without an id, leaving $\textit{unique\_id}$ null.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

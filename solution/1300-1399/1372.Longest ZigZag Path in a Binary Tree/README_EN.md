@@ -77,6 +77,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zigzag must alternate left and right while descending. Restarting from every node and direction repeats subtrees. DFS carries the length already obtained if the last step was left ($l$) or right ($r$). The left child continues with $r+1$ and resets the right length; the right child is symmetric. A global maximum is kept.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

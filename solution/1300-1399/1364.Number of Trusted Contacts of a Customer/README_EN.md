@@ -140,6 +140,14 @@ John doesn&#39;t have any contacts.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each invoice needs the customer name, the number of contacts, and how many of those emails appear in the customer table. Left-join invoices to customers for the name, to contacts for every email, then to customers again on that email; a successful join is a trusted contact. Grouping by invoice, $\mathrm{COUNT}$ ignores nulls, so the two counts separate automatically.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

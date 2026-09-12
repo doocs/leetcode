@@ -80,6 +80,14 @@ X is the winner due to the tie-breaking rule. X has the same votes as W for the 
 
 ### Solution 1: Counting + Custom Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Teams are ranked by votes at each position, then by letter. Pairwise scans of every ballot are $O(m^2 n)$. Count, for each team, the vote vector over positions, and sort by that vector together with the negated letter so the larger vector comes first.
+
+<!-- thinking:end -->
+
 For each candidate, we can count the number of votes they receive at each rank, then compare the vote counts for different ranks in order. If the vote counts are the same, we compare the letters.
 
 The time complexity is $O(n \times m + m^2 \times \log m)$, and the space complexity is $O(m^2)$. Here, $n$ is the length of $\textit{votes}$, and $m$ is the number of candidates, i.e., the length of $\textit{votes}[0]$.

@@ -73,6 +73,14 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 
 ### Solution 1: Counting + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Repeatedly take one remaining character from $a$ to $z$, then from $z$ to $a$. With a $26$-letter alphabet we count first and walk $a\ldots z$ concatenated with $z\ldots a$, emitting a letter whenever its count is positive, until $n$ characters are used.
+
+<!-- thinking:end -->
+
 First, we use a hash table or an array $cnt$ of length $26$ to count the number of occurrences of each character in the string $s$.
 
 Then, we enumerate the letters $[a,...,z]$. For the current enumerated letter $c$, if $cnt[c] > 0$, we append the letter $c$ to the end of the answer string and decrease $cnt[c]$ by one. We repeat this step until $cnt[c] = 0$. Then we enumerate the letters $[z,...,a]$ in reverse order and perform similar operations. If the length of the answer string equals the length of $s$, then we have completed all the concatenation operations.

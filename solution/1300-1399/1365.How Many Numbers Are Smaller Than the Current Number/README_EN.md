@@ -69,6 +69,14 @@ For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count how many values are strictly smaller than each $x$. A double loop works for $n \le 500$, yet after sorting, that count is $x$'s insertion index. Copy and sort, then $\mathrm{bisect\_left}$ for each $x$ yields the number of smaller elements.
+
+<!-- thinking:end -->
+
 We can make a copy of the array $nums$, denoted as $arr$, and then sort $arr$ in ascending order.
 
 Next, for each element $x$ in $nums$, we can use binary search to find the index $j$ of the first element that is greater than or equal to $x$. Then $j$ is the number of elements that are smaller than $x$. We can store $j$ in the answer array.
@@ -176,6 +184,14 @@ function smallerNumbersThanCurrent(nums: number[]): number[] {
 <!-- solution:start -->
 
 ### Solution 2: Counting Sort + Prefix Sum
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Values lie in $[0,100]$, so comparison sort is unnecessary. A frequency array plus its prefix gives $s[x]$ as the count of values below $x$; one linear pass over the original array answers every query.
+
+<!-- thinking:end -->
 
 We notice that the range of elements in the array $nums$ is $[0, 100]$. Therefore, we can use the counting sort method to first count the number of each element in the array $nums$. Then we calculate the prefix sum of the counting array. Finally, we traverse the array $nums$. For each element $x$, we directly add the value of the element at index $x$ in the counting array to the answer array.
 
