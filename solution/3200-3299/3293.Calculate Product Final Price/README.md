@@ -111,6 +111,16 @@ category 是这张表的主键。
 
 ### 方法一：左连接
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最终价是原价乘 $(100-折扣)/100$，无折扣则视为 $0$。按类别对齐折扣，左连接可保留没有折扣的商品。
+>
+> `Products` 左连 `Discounts`，空折扣填 $0$ 后计算 `final_price`，按 `product_id` 排序输出。
+
+<!-- thinking:end -->
+
 我们可以将 `Products` 表和 `Discounts` 表按照 `category` 列进行左连接，然后计算最终价格。如果某个产品的类别没有关联的折扣，那么它的价格保持不变。
 
 <!-- tabs:start -->

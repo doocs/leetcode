@@ -67,6 +67,16 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Replace each of `yyyy-mm-dd` by its binary representation. The date is valid and fixed-width, so split on `-` and format.
+>
+> Convert each part to `int`, emit binary, and join with `-`. No calendar arithmetic beyond that.
+
+<!-- thinking:end -->
+
 We first split the string $\textit{date}$ by `-`, then convert each part to its binary representation, and finally join these three parts with `-`.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $\textit{date}$.

@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Points must increase in both $x$ and $y$ and the path must contain $\textit{coordinates}[k]$. $n\le 10^5$ forbids an $O(n^2)$ LIS. The answer is the LIS to the left of $k$ plus the LIS to the right, minus one.
+>
+> Sort by $x$ and maintain LIS on $y$ with a Fenwick tree or binary search; the left side only uses points strictly below $k$, the right side strictly above. There is no implementation in the tree yet; the reasoning is this split two-dimensional LIS.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

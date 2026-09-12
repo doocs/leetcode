@@ -65,6 +65,16 @@ We can choose the indices 0, 1, 3, and 4. The score will be <code>(-1) * (-5) + 
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $a$ has four entries; we pick four increasing indices in $b$ and maximize the dot product. $|b|\le 10^5$ forbids $O(n^4)$ index tuples. There are only four stages, so we DP on the position in $b$.
+>
+> $\textit{dfs}(i,j)$: $i$ of $a$ used, at $b[j]$. Skip $b[j]$, or take $a[i]\times b[j]$ and advance both. Memoized states are $4\times n$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, j)$, which represents the maximum score that can be obtained starting from the $i$-th element of array $a$ and the $j$-th element of array $b$. Then the answer is $\textit{dfs}(0, 0)$.
 
 The function $\textit{dfs}(i, j)$ is calculated as follows:

@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Index $i\ge 1$ is stable iff the mountain to its left exceeds the threshold. $n\le 100$, so filter by the definition.
+>
+> Collect every $i$ with $\textit{height}[i-1]>\textit{threshold}$. No prefix structure is required.
+
+<!-- thinking:end -->
+
 We directly traverse the mountains starting from index $1$. If the height of the mountain to its left is greater than $threshold$, we add its index to the result array.
 
 After the traversal, we return the result array.

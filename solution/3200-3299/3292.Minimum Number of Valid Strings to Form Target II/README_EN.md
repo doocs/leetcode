@@ -96,6 +96,16 @@ tags:
 
 ### Solution 1: String Hashing + Binary Search + Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Same statement as I, but lengths reach $5\times 10^4$, so trie plus memoization in $O(n^2)$ is too slow. The longest prefix match from $i$ is monotone in the length, so hashing plus binary search finds it in logarithmic time.
+>
+> Group word hashes by prefix length. $f(i)$ binary-searches the largest $L$ whose $\textit{target}[i..i+L)$ hash sits in that bucket. Those farthest reaches become a jump game: keep the current farthest and jump when the pointer hits it.
+
+<!-- thinking:end -->
+
 Due to the large data scale of this problem, using the "Trie + Memoization" method will time out. We need to find a more efficient solution.
 
 Consider starting from the $i$-th character of the string $\textit{target}$ and finding the maximum matching substring length, denoted as $\textit{dist}$. For any $j \in [i, i + \textit{dist} - 1]$, we can find a string in $\textit{words}$ such that $\textit{target}[i..j]$ is a prefix of this string. This has a monotonic property, so we can use binary search to determine $\textit{dist}$.

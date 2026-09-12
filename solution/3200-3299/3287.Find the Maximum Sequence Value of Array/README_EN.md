@@ -72,6 +72,16 @@ tags:
 
 ### Solution 1: Dynamic Programming + Prefix and Suffix Decomposition + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick $k$ values from a prefix and $k$ from the complementary suffix; maximize OR XOR OR. $n\le 400$, $k\le n/2$, values $<128$, so subset-OR DP at a cut is feasible.
+>
+> $f[i][j][x]$ is whether $j$ elements among the first $i$ can OR to $x$; $g$ is the suffix analogue. At each cut $i\in[k,n-k]$ enumerate reachable $x,y$ and update $x\oplus y$. The $2^7$ universe keeps the tables small.
+
+<!-- thinking:end -->
+
 We consider dividing the sequence into two parts, the first $k$ elements and the last $k$ elements, and calculate all possible XOR values for the prefixes and suffixes.
 
 Define $f[i][j][x]$ to represent whether there exists a subset with an XOR value of $x$ by taking $j$ elements from the first $i$ elements. Define $g[i][j][y]$ to represent whether there exists a subset with an XOR value of $y$ by taking $j$ elements starting from index $i$.

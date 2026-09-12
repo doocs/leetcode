@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick an integer in each $[start_i,start_i+d]$ to maximize the minimum gap between consecutive picks. $n\le 10^5$ forbids enumerating values. After sorting, the gap is monotone: if $x$ works, every smaller gap works.
+>
+> Binary-search $x$ and sweep left to right, taking the earliest point at least $last+x$ inside each interval. The largest feasible $x$ is the answer.
+
+<!-- thinking:end -->
+
 We can first sort the $\textit{start}$ array. Then, we consider selecting integers from left to right, where the score is equal to the minimum difference between any two adjacent selected integers.
 
 If a difference $x$ satisfies the condition, then any $x' < x$ will also satisfy the condition. Therefore, we can use binary search to find the largest difference that satisfies the condition.

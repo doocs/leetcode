@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A message is spam if at least two words lie in the banned list. $n,m\le 10^5$, so scanning the banned list per word is quadratic.
+>
+> Put banned words in a hash set and count hits in the message; return whether the count is at least $2$. Expected linear time.
+
+<!-- thinking:end -->
+
 We use a hash table $s$ to store all the words in $\textit{bannedWords}$. Then, we traverse each word in $\textit{message}$. If the word appears in the hash table $s$, we increment the counter $cnt$ by one. If $cnt$ is greater than or equal to $2$, we return $\text{true}$; otherwise, we return $\text{false}$.
 
 The time complexity is $O((n + m) \times |w|)$, and the space complexity is $O(m \times |w|)$. Here, $n$ is the length of the array $\textit{message}$, and $m$ and $|w|$ are the length of the array $\textit{bannedWords}$ and the maximum length of the words in the array, respectively.
