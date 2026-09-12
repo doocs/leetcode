@@ -1,6 +1,5 @@
 ---
 comments: true
-edit_url: https://github.com/doocs/leetcode/edit/main/lcp/LCP%2005.%20%E5%8F%91%20LeetCoin/README.md
 ---
 
 <!-- problem:start -->
