@@ -68,7 +68,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Sorting + Binary Search + Dynamic Programming
 
 <!-- thinking:start -->
 
@@ -76,11 +76,17 @@ tags:
 >
 > We pick at most four non-overlapping weighted intervals to maximize the total weight, breaking ties by the lexicographically smallest index tuple. $n\le 5\times 10^4$ forbids subset search.
 >
-> This is weighted interval scheduling with a cap of four. After sorting by right endpoint, the next non-overlapping interval is a binary search.
+> This is weighted interval scheduling with a cap of four. After sorting by left endpoint, the next non-overlapping interval is a binary search.
 >
-> State $(i,\textit{left})$ starts at interval $i$ with $\textit{left}$ picks remaining. We either skip $i$ or take it and jump to $\textit{next}[i]$, comparing both weight and the index list so the lexicographically smallest optimum is kept.
+> State $(i,k)$ starts at interval $i$ with $k$ picks remaining. We either skip $i$ or take it and jump to $\textit{nxt}[i]$, comparing both weight and the index list so the lexicographically smallest optimum is kept.
 
 <!-- thinking:end -->
+
+Copy the intervals and record each original index, then sort by left endpoint. For each interval $i$, binary-search the first position $\textit{nxt}[i]$ whose left endpoint is strictly greater than $i$'s right endpoint (shared endpoints count as overlap).
+
+Let $f[i][k]$ be the maximum weight obtainable from interval $i$ onward with at most $k$ picks, and let $g[i][k]$ store the corresponding lexicographically smallest index list. Transition from the back: skipping $i$ inherits $f[i+1][k]$; taking $i$ inserts its original index into $g[\textit{nxt}[i]][k-1]$ and adds the current weight. Keep the larger weight, or the lexicographically smaller index list on a tie. The answer is $g[0][4]$.
+
+The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$. At most $4$ intervals are chosen, so inserting and comparing index lists is constant time.
 
 <!-- tabs:start -->
 
@@ -93,155 +99,131 @@ tags:
 #### Java
 
 ```java
-import java.util.*;
-
 class Solution {
-
-    static class State {
-        long score;
-        int[] ids;
-
-        State(long score, int[] ids) {
-            this.score = score;
-            this.ids = ids;
-        }
-    }
-
     public int[] maximumWeight(List<List<Integer>> intervals) {
         int n = intervals.size();
-
-        // [left, right, weight, originalIndex]
-        long[][] arr = new long[n][4];
-
-        for (int i = 0; i < n; i++) {
-            arr[i][0] = intervals.get(i).get(0);
-            arr[i][1] = intervals.get(i).get(1);
-            arr[i][2] = intervals.get(i).get(2);
-            arr[i][3] = i;
+        int[][] arr = new int[n][4];
+        for (int i = 0; i < n; ++i) {
+            List<Integer> e = intervals.get(i);
+            arr[i] = new int[] {e.get(0), e.get(1), e.get(2), i};
         }
-
-        Arrays.sort(arr, (a, b) -> {
-            if (a[0] != b[0]) {
-                return Long.compare(a[0], b[0]);
-            }
-            return Long.compare(a[1], b[1]);
-        });
-
-        // next[i] = first interval whose left > arr[i].right
-        int[] next = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            int lo = i + 1;
-            int hi = n;
-
-            while (lo < hi) {
-                int mid = lo + (hi - lo) / 2;
-
-                if (arr[mid][0] > arr[i][1]) {
-                    hi = mid;
+        Arrays.sort(arr,
+            (a, b) -> a[0] != b[0] ? Integer.compare(a[0], b[0]) : Integer.compare(a[1], b[1]));
+        int[] nxt = new int[n];
+        for (int i = 0; i < n; ++i) {
+            nxt[i] = search(arr, arr[i][1], i + 1);
+        }
+        long[][] f = new long[n + 1][5];
+        int[][][] g = new int[n + 1][5][];
+        for (int k = 0; k < 5; ++k) {
+            g[n][k] = new int[0];
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            g[i][0] = new int[0];
+            for (int k = 1; k < 5; ++k) {
+                long s1 = f[i + 1][k];
+                int[] a1 = g[i + 1][k];
+                long s2 = f[nxt[i]][k - 1] + arr[i][2];
+                int[] a2 = insert(g[nxt[i]][k - 1], arr[i][3]);
+                if (s2 > s1 || (s2 == s1 && less(a2, a1))) {
+                    f[i][k] = s2;
+                    g[i][k] = a2;
                 } else {
-                    lo = mid + 1;
+                    f[i][k] = s1;
+                    g[i][k] = a1;
                 }
             }
-
-            next[i] = lo;
         }
-
-        /*
-         * dp[c][i] = best answer using intervals from i onward,
-         * while selecting at most c intervals.
-         */
-        State[][] dp = new State[5][n + 1];
-
-        for (int c = 0; c <= 4; c++) {
-            dp[c][n] = new State(0, new int[0]);
-        }
-
-        for (int i = n - 1; i >= 0; i--) {
-
-            dp[0][i] = new State(0, new int[0]);
-
-            for (int c = 1; c <= 4; c++) {
-
-                // Option 1: skip current interval
-                State skip = dp[c][i + 1];
-
-                // Option 2: take current interval
-                State rest = dp[c - 1][next[i]];
-
-                long takeScore = arr[i][2] + rest.score;
-
-                int[] takeIds = insertSorted(
-                    rest.ids,
-                    (int) arr[i][3]
-                );
-
-                State take = new State(takeScore, takeIds);
-
-                dp[c][i] = better(skip, take);
-            }
-        }
-
-        return dp[4][0].ids;
+        return g[0][4];
     }
 
-    private State better(State a, State b) {
-
-        if (a.score > b.score) {
-            return a;
+    private int search(int[][] arr, int x, int l) {
+        int r = arr.length;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (arr[mid][0] > x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
+        return l;
+    }
 
-        if (b.score > a.score) {
-            return b;
+    private int[] insert(int[] a, int x) {
+        int n = a.length;
+        int[] b = new int[n + 1];
+        int i = 0;
+        while (i < n && a[i] < x) {
+            b[i] = a[i];
+            ++i;
         }
-
-        // Same score -> lexicographically smallest
-        if (lexSmaller(a.ids, b.ids)) {
-            return a;
+        b[i] = x;
+        while (i < n) {
+            b[i + 1] = a[i];
+            ++i;
         }
-
         return b;
     }
 
-    private boolean lexSmaller(int[] a, int[] b) {
-        int len = Math.min(a.length, b.length);
-
-        for (int i = 0; i < len; i++) {
+    private boolean less(int[] a, int[] b) {
+        int m = Math.min(a.length, b.length);
+        for (int i = 0; i < m; ++i) {
             if (a[i] != b[i]) {
                 return a[i] < b[i];
             }
         }
-
         return a.length < b.length;
     }
-
-    private int[] insertSorted(int[] arr, int value) {
-        int[] result = new int[arr.length + 1];
-
-        int i = 0;
-
-        while (i < arr.length && arr[i] < value) {
-            result[i] = arr[i];
-            i++;
-        }
-
-        result[i] = value;
-
-        while (i < arr.length) {
-            result[i + 1] = arr[i];
-            i++;
-        }
-
-        return result;
-    }
 }
-
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<int> maximumWeight(vector<vector<int>>& intervals) {
+        int n = intervals.size();
+        vector<array<int, 4>> arr(n);
+        for (int i = 0; i < n; ++i) {
+            arr[i] = {intervals[i][0], intervals[i][1], intervals[i][2], i};
+        }
+        ranges::sort(arr);
+        vector<int> nxt(n);
+        for (int i = 0; i < n; ++i) {
+            int l = i + 1, r = n;
+            while (l < r) {
+                int mid = (l + r) >> 1;
+                if (arr[mid][0] > arr[i][1]) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            nxt[i] = l;
+        }
+        vector<vector<long long>> f(n + 1, vector<long long>(5));
+        vector<vector<vector<int>>> g(n + 1, vector<vector<int>>(5));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 1; k < 5; ++k) {
+                long long s1 = f[i + 1][k];
+                vector<int> a1 = g[i + 1][k];
+                long long s2 = f[nxt[i]][k - 1] + arr[i][2];
+                vector<int> a2 = g[nxt[i]][k - 1];
+                a2.insert(ranges::lower_bound(a2, arr[i][3]), arr[i][3]);
+                if (s2 > s1 || (s2 == s1 && a2 < a1)) {
+                    f[i][k] = s2;
+                    g[i][k] = move(a2);
+                } else {
+                    f[i][k] = s1;
+                    g[i][k] = move(a1);
+                }
+            }
+        }
+        return g[0][4];
+    }
+};
 ```
 
 #### Go
