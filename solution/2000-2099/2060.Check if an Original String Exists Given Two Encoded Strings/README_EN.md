@@ -99,6 +99,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Encoded strings have length $\le 40$ and runs of at most three digits, each standing for a wildcard block. Expanding every original is hopeless. Alignment is a pair of indices plus a length difference: letters consume the difference, digits add or subtract a block length.
+>
+> A digit run may split into several actual lengths, which DFS must try. The difference is bounded, so the state memoizes.
+>
+> The code tabs are empty; the reasoning follows this difference-guided search.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

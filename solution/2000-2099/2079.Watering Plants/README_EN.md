@@ -89,6 +89,16 @@ Steps needed = 1 + 1 + 2 + 2 + 3 + 3 + 4 + 4 + 5 + 5 + 6 + 6 + 7 = 49.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Capacity is at least any single plant; we water in order from the river. When the can cannot cover plant $i$ we refill, costing $2i+1$ steps.
+>
+> Track remaining water: decrement and step if enough, otherwise add $2i+1$ and reset to $capacity-p$.
+
+<!-- thinking:end -->
+
 We can simulate the process of watering the plants. We use a variable $\textit{water}$ to represent the current amount of water in the watering can, initially $\textit{water} = \textit{capacity}$.
 
 We traverse the plants. For each plant:

@@ -97,6 +97,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The robot turns right at obstacles; the room is at most $300 \times 300$. It loops, so we stop when a (cell, facing) repeats. Cleaned empties are marked and counted once.
+>
+> Store states $(i,j,k)$. DFS steps forward if free, otherwise rotates in place. The first visit to an empty cell increments the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -227,6 +237,16 @@ func numberOfCleanRooms(room [][]int) (ans int) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 recurses to depth $O(mn)$. The same transition is a loop: record the triple, step or turn, until a state repeats.
+>
+> The counting rule is unchanged.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -87,6 +87,18 @@ The last pill is not given because it will not make any worker strong enough for
 
 ### Solution 1: Greedy + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of tasks $x$ is monotone. Checks must be near-linear for $n,m \le 5 \times 10^4$. Assign the $x$ hardest tasks to the $x$ strongest workers.
+>
+> Workers go from weakest to strongest among those $x$: if possible, take the easiest remaining task without a pill; otherwise pill the hardest. A deque stores currently affordable tasks.
+>
+> Binary-search the largest feasible $x$.
+
+<!-- thinking:end -->
+
 Sort the tasks in ascending order of completion time and the workers in ascending order of ability.
 
 Suppose the number of tasks we want to assign is $x$. We can greedily assign the first $x$ tasks to the $x$ workers with the highest strength. If it is possible to complete $x$ tasks, then it is also possible to complete $x-1$, $x-2$, $x-3$, ..., $1$, $0$ tasks. Therefore, we can use binary search to find the maximum $x$ such that it is possible to complete $x$ tasks.

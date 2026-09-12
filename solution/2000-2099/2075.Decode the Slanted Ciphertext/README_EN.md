@@ -82,6 +82,16 @@ The blue arrows show how we can find originalText from encodedText.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The plaintext was written by rows and read along diagonals. The column count follows from the length and `rows`, so we replay those diagonals. Each character is visited once for $n \le 10^6$.
+>
+> Start at every top-row column, walk down-right, then `rstrip` the guaranteed trailing spaces.
+
+<!-- thinking:end -->
+
 First, we calculate the number of columns in the matrix $cols = \textit{len}(encodedText) / rows$. Then, following the rules described in the problem, we start traversing the matrix from the top left corner, adding characters to the answer.
 
 Finally, we return the answer, making sure to remove any trailing spaces.

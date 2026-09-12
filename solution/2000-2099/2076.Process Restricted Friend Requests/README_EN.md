@@ -87,6 +87,16 @@ Request 3: Person 3 and person 4 cannot be friends since person 0 and person 1 w
 
 ### Solution 1: Union-Find
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Requests are sequential and a restriction forbids two people from sharing a component. Union-find stores friendship. With $q,m,n \le 1000$, each request may scan all restrictions.
+>
+> Already-united pairs succeed; otherwise reject if some restriction's endpoints lie in the two components, and unite only on success. Path compression keeps finds cheap.
+
+<!-- thinking:end -->
+
 We can use a union-find set to maintain the friend relationships, and then for each request, we determine whether it meets the restriction conditions.
 
 For the two people $(u, v)$ in the current request, if they are already friends, then the request can be directly accepted; otherwise, we traverse the restriction conditions. If there exists a restriction condition $(x, y)$ such that $u$ and $x$ are friends and $v$ and $y$ are friends, or $u$ and $y$ are friends and $v$ and $x$ are friends, then the request cannot be accepted.

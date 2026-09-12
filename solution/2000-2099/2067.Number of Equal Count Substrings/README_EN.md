@@ -76,6 +76,16 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 
 ### Solution 1: Enumeration + Sliding Window
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every letter that appears in the substring occurs exactly $count$ times. For $i \in [1,26]$ types the window length is $i \cdot count$, so we can slide it.
+>
+> Track how many letters currently have frequency $count$; adjust on insert/delete. The window is valid when that number equals $i$.
+
+<!-- thinking:end -->
+
 We can enumerate the number of types of letters in the substring within the range of $[1..26]$, then the length of the substring is $i \times count$.
 
 Next, we take the current substring length as the size of the window, count the number of types of letters in the window size that are equal to $count$, and record it in $t$. If $i = t$ at this time, it means that the number of letters in the current window are all $count$, then we can increment the answer by one.
