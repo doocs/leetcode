@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 困难
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3378.Count%20Connected%20Components%20in%20LCM%20Graph/README.md
 rating: 2532
 source: 第 145 场双周赛 Q4
 tags:

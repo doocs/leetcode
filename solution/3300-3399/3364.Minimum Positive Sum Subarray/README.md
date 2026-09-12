@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3364.Minimum%20Positive%20Sum%20Subarray/README.md
 rating: 1300
 source: 第 425 场周赛 Q1
 tags:

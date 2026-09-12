@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3300-3399/3360.Stone%20Removal%20Game/README.md
 rating: 1267
 source: 第 144 场双周赛 Q1
 tags:
