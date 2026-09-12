@@ -51,6 +51,17 @@ tags:
 
 ### Solution 1: Mathematics + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We ask whether $c=a^2+b^2$. Checking a square root for every $a$ repeats similar work. $c$ is at most $2^{31}-1$, so two pointers from $0$ and $\sqrt{c}$ suffice.
+>
+> Increase $a$ when the sum is short, decrease $b$ when it overshoots. Squares are monotone in each pointer, so no pair is missed.
+
+<!-- thinking:end -->
+
+
 We can use the two-pointer method to solve this problem. Define two pointers $a$ and $b$, pointing to $0$ and $\sqrt{c}$ respectively. In each step, we calculate the value of $s = a^2 + b^2$, and then compare the size of $s$ and $c$. If $s = c$, we have found two integers $a$ and $b$ such that $a^2 + b^2 = c$. If $s < c$, we increase the value of $a$ by $1$. If $s > c$, we decrease the value of $b$ by $1$. We continue this process until we find the answer, or the value of $a$ is greater than the value of $b$, and return `false`.
 
 The time complexity is $O(\sqrt{c})$, where $c$ is the given non-negative integer. The space complexity is $O(1)$.
@@ -194,6 +205,15 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: Mathematics
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two pointers still search pairs. Fermat's theorem on sums of two squares: every prime $4k+3$ must have even exponent. Factor $c$ and test that condition instead of enumerating $(a,b)$.
+
+<!-- thinking:end -->
+
 
 This problem is essentially about the conditions under which a number can be expressed as the sum of two squares. This theorem dates back to Fermat and Euler and is a classic result in number theory.
 

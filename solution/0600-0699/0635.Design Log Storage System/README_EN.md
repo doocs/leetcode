@@ -75,6 +75,17 @@ logSystem.retrieve(&quot;2016:01:01:01:01:01&quot;, &quot;2017:01:01:23:00:00&qu
 
 ### Solution 1: String Comparison
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Queries filter timestamps at a chosen granularity. Parsing into integers and truncating fields is verbose.
+>
+> The stamp is a fixed-length string whose lexicographic order matches time. Slice to the granularity length and compare `start[:i] <= ts[:i] <= end[:i]`. `put` just appends.
+
+<!-- thinking:end -->
+
+
 Store the `id` and `timestamp` of the logs as tuples in an array. Then in the `retrieve()` method, truncate the corresponding parts of `start` and `end` based on `granularity`, and traverse the array, adding the `id` that meets the conditions to the result array.
 
 In terms of time complexity, the time complexity of the `put()` method is $O(1)$, and the time complexity of the `retrieve()` method is $O(n)$, where $n$ is the length of the array.

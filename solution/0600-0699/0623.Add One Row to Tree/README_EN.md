@@ -66,6 +66,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A new row must be inserted at depth $\textit{depth}$, pushing the old nodes one level down. Rebuilding the whole tree is unnecessary.
+>
+> If $\textit{depth}=1$, wrap the old root. Otherwise DFS to depth $\textit{depth}-1$ and hang the previous children under the new nodes.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -266,6 +277,15 @@ function addOneRow(root: TreeNode | null, val: number, depth: number): TreeNode 
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS already attaches nodes at the parent layer. BFS reaches depth $\textit{depth}-1$ with a queue and applies the same left/right splice, without recursion.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

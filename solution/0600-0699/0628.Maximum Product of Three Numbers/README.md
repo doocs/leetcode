@@ -62,6 +62,17 @@ tags:
 
 ### 方法一：排序 + 分类讨论
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 三个数乘积的最大者，可能来自三个最大正数，也可能来自两个绝对值很大的负数再乘最大正数。$n\le 10^4$，排序后分类即可。
+>
+> 排序后比较 $nums[-1]\times nums[-2]\times nums[-3]$ 与 $nums[-1]\times nums[0]\times nums[1]$，覆盖全正、全负与正负并存。
+
+<!-- thinking:end -->
+
+
 我们先对数组 $\textit{nums}$ 进行排序，接下来分两种情况讨论：
 
 - 如果 $\textit{nums}$ 中全是非负数或者全是非正数，那么答案即为最后三个数的乘积，即 $\textit{nums}[n-1] \times \textit{nums}[n-2] \times \textit{nums}[n-3]$；
@@ -147,6 +158,15 @@ function maximumProduct(nums: number[]): number {
 <!-- solution:start -->
 
 ### 方法二：一次遍历
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一付出排序的 $O(n\log n)$。乘积只依赖最小两个与最大三个数，一次遍历（或 `nlargest`）维护这五个极值即可降到线性。
+
+<!-- thinking:end -->
+
 
 我们可以不用对数组进行排序，而是维护五个变量，其中 $\textit{mi1}$ 和 $\textit{mi2}$ 表示数组中最小的两个数，而 $\textit{mx1}$, $\textit{mx2}$ 和 $\textit{mx3}$ 表示数组中最大的三个数。
 

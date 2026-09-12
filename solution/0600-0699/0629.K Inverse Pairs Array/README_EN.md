@@ -53,6 +53,17 @@ tags:
 
 ### Solution 1: Dynamic Programming + Prefix Sum
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Counting permutations of length $n$ with exactly $k$ inversions by enumeration is impossible for $n,k\le 10^3$.
+>
+> Let $f[i][j]$ be that count. Inserting $i$ adds between $0$ and $i-1$ inversions, so $f[i][j]$ is a range sum of the previous row. Prefix sums make each transition $O(1)$; rolling the array keeps $O(k)$ memory.
+
+<!-- thinking:end -->
+
+
 We define $f[i][j]$ as the number of arrays of length $i$ with $j$ inverse pairs. Initially, $f[0][0] = 1$, and the rest $f[i][j] = 0$.
 
 Next, we consider how to obtain $f[i][j]$.

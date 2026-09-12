@@ -76,6 +76,17 @@ Salary table:
 
 ### Solution 1: Swap Sex Using a Single UPDATE Statement
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every `'f'`/`'m'` must flip, and the problem asks for a single `UPDATE`.
+>
+> `SET sex = IF(sex='f','m','f')` rewrites each row in place.
+
+<!-- thinking:end -->
+
+
 According to the problem requirements, we only need to use a single UPDATE statement to swap the sex of all employees. We can achieve this using conditional expressions in SQL.
 
 <!-- tabs:start -->

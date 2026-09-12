@@ -112,6 +112,17 @@ excel.get(3, &quot;C&quot;); // return 6
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The grid is small, but a `sum` formula must stay live: changing a referenced cell must change the sum. A cached number that is never reevaluated goes stale.
+>
+> Store either a constant or a formula on each cell; `get`/`sum` evaluate recursively, and `set` overwrites the formula. The statement forbids cycles. The solution tabs are still empty.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

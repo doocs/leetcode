@@ -124,6 +124,17 @@ font-size: 0.85rem;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Identical tasks must be at least $n$ apart. Simulating the timeline is unnecessary once the bottleneck task is known.
+>
+> The most frequent count $x$ builds $(x-1)$ full gaps plus $s$ tasks of that count at the end. If the total number of tasks is larger, idle slots fill, so the answer is $\max(m, (x-1)(n+1)+s)$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

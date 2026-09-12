@@ -75,6 +75,17 @@ You cannot add more items, though only $9 for 2A ,2B and 1C.
 
 ### Solution 1: State Compression + Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most $6$ item types and $10$ of each, enumerating offer multiplicities revisits the same leftover list.
+>
+> Pack each need into $4$ bits. Memoize on the leftover mask: pay retail, or apply any offer that still fits and recurse.
+
+<!-- thinking:end -->
+
+
 We notice that the number of types of items $n \leq 6$ in the problem, and the quantity of each item needed does not exceed $10$. We can use $4$ binary bits to represent the quantity of each item needed. Thus, we only need at most $6 \times 4 = 24$ binary bits to represent the entire shopping list.
 
 First, we convert the shopping list $\textit{needs}$ into an integer $\textit{mask}$, where the quantity of the $i$-th item needed is stored in the $i \times 4$ to $(i + 1) \times 4 - 1$ bits of $\textit{mask}$. For example, when $\textit{needs} = [1, 2, 1]$, we have $\textit{mask} = 0b0001 0010 0001$.

@@ -59,6 +59,17 @@ tags:
 
 ### Solution 1: Maintain Maximum and Minimum Values
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The distance uses endpoints from two different arrays. Pairing every two arrays is quadratic when there are $10^4$ arrays.
+>
+> The optimum is always a current endpoint versus a previous global min or max. Compare first, then merge the current array's ends into $\textit{mi}$ and $\textit{mx}$ so both ends never come from the same array.
+
+<!-- thinking:end -->
+
+
 We notice that the maximum distance must be the distance between the maximum value in one array and the minimum value in another array. Therefore, we can maintain two variables $\textit{mi}$ and $\textit{mx}$, representing the minimum and maximum values of the arrays we have traversed. Initially, $\textit{mi}$ and $\textit{mx}$ are the first and last elements of the first array, respectively.
 
 Next, we traverse from the second array. For each array, we first calculate the distance between the first element of the current array and $\textit{mx}$, and the distance between the last element of the current array and $\textit{mi}$. Then, we update the maximum distance. At the same time, we update $\textit{mi} = \min(\textit{mi}, \textit{arr}[0])$ and $\textit{mx} = \max(\textit{mx}, \textit{arr}[\textit{size} - 1])$.
