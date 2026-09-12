@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Sorting + Prefix Sum + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest subsequence under a sum cap uses the smallest elements. $n,m \le 1000$, so a sort plus prefix sums is enough.
+>
+> After sorting, prefix $s[j]$ is the sum of the $j+1$ smallest. Binary-search the first prefix exceeding the query; that index is the length.
+
+<!-- thinking:end -->
+
 According to the problem description, for each $\textit{queries[i]}$, we need to find a subsequence such that the sum of its elements does not exceed $\textit{queries[i]}$ and the length of the subsequence is maximized. Obviously, we should choose the smallest possible elements to maximize the length of the subsequence.
 
 Therefore, we can first sort the array $\textit{nums}$ in ascending order, and then for each $\textit{queries[i]}$, we can use binary search to find the smallest index $j$ such that $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j] > \textit{queries[i]}$. At this point, $\textit{nums}[0] + \textit{nums}[1] + \cdots + \textit{nums}[j - 1]$ is the sum of the elements of the subsequence that meets the condition, and the length of this subsequence is $j$. Therefore, we can add $j$ to the answer array.
@@ -214,6 +224,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Offline Query + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 searches each query alone. Sorting queries offline lets a two-pointer add elements only forward, linear after the sorts.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we can first sort the array $nums$ in ascending order.
 

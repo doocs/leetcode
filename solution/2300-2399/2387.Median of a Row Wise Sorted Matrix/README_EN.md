@@ -59,6 +59,16 @@ tags:
 
 ### Solution 1: Two Binary Searches
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each row is sorted; we need the median of the whole matrix without flattening. It is the $\lceil mn/2 \rceil$-th value, so we binary-search the value domain.
+>
+> To test $x$, $bisect$ each row for the count of entries $\le x$. If that count meets the target, the median is at most $x$. An outer search on the domain finishes it.
+
+<!-- thinking:end -->
+
 The median is actually the $target = \left \lceil \frac{m \times n}{2} \right \rceil$-th number after sorting.
 
 We perform a binary search on the elements of the matrix $x$, counting the number of elements in the grid that are greater than $x$, denoted as $cnt$. If $cnt \ge target$, it means the median is on the left side of $x$ (including $x$); otherwise, it is on the right side.

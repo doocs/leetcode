@@ -79,6 +79,16 @@ Note that the rows in the output are the same as in the input.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A null drink should become the last non-null, in table order. A session variable remembers that value while scanning.
+>
+> On a non-null, assign $@cur$; on a null, keep $@cur$. Project that as the new column.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -101,6 +111,14 @@ FROM CoffeeShop;
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Session variables are less portable. $ROW\_NUMBER$ freezes order; a running sum of non-null flags forms groups; $MAX(drink)$ inside each group is its only non-null value.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

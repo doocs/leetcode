@@ -61,6 +61,16 @@ The total number of subarrays is 6 + 3 + 1 = 10.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count contiguous strictly increasing subarrays. Grouped by the right end, the count is the current run length; left ends need not be enumerated.
+>
+> Keep the increasing length $cnt$ ending here: grow it when the value rises, else reset to $1$, and add $cnt$ to the answer.
+
+<!-- thinking:end -->
+
 We can enumerate the number of strictly increasing subarrays ending at each element and then sum them up.
 
 We use a variable $\textit{cnt}$ to record the number of strictly increasing subarrays ending at the current element, initially $\textit{cnt} = 1$. Then we traverse the array starting from the second element. If the current element is greater than the previous element, then $\textit{cnt}$ can be incremented by $1$. Otherwise, $\textit{cnt}$ is reset to $1$. At this point, the number of strictly increasing subarrays ending at the current element is $\textit{cnt}$, and we add it to the answer.

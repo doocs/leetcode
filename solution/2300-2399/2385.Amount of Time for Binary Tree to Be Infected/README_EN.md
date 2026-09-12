@@ -74,6 +74,16 @@ It takes 4 minutes for the whole tree to be infected so we return 4.
 
 ### Solution 1: Two DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Infection travels along tree edges; the time is the eccentricity of $start$. Up to $10^5$ nodes, so parent links must be explicit.
+>
+> The first DFS builds an undirected adjacency list; the second DFS from $start$ returns the farthest depth. Both are linear.
+
+<!-- thinking:end -->
+
 First, we build a graph through one DFS, and get an adjacency list $g$, where $g[node]$ represents all nodes connected to the node $node$.
 
 Then, we use $start$ as the starting point, and search the entire tree through DFS to find the farthest distance, which is the answer.

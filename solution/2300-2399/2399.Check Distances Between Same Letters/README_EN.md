@@ -71,6 +71,16 @@ Because distance[0] = 1, s is not a well-spaced string.
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter appears twice; the gap must match $distance$. $|s| \le 52$, so storing the previous index is enough.
+>
+> Record the first index; on the second occurrence compare the gap and fail on a mismatch. Letters that never appear need no check.
+
+<!-- thinking:end -->
+
 We can use a hash table $d$ to record the indices of each letter's occurrences. Then, traverse the hash table and check if the difference between the indices of each letter equals the corresponding value in the `distance` array. If any discrepancy is found, return `false`. If the traversal completes without discrepancies, return `true`.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(|\Sigma|)$, where $\Sigma$ is the character set, which in this case is the set of lowercase letters.

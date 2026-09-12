@@ -64,6 +64,16 @@ Finally, shift the characters from index 1 to index 1 forward. Now s = &quot;cat
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many range shifts of $\pm 1$ wrap around the alphabet. Both $n$ and the number of operations reach $5 \times 10^4$, so we cannot rewrite a range each time.
+>
+> A difference array adds the direction at $l$ and subtracts it at $r+1$. The prefix is the net shift; reduce modulo $26$ and write the letter.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
