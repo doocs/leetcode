@@ -112,6 +112,16 @@ The function immediately throws an error.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The wrapper must reject if the original function exceeds $t$ milliseconds. A bare `await fn` cannot time out.
+>
+> `Promise.race` pits the function against a rejecting timer; the first to settle wins. The rejection text is the required literal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

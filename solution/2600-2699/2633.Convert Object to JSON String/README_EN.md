@@ -74,6 +74,16 @@ Primitive types are valid inputs.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `JSON.stringify` is forbidden, so each type must emit valid JSON text. Nested objects and arrays require recursion; the input is acyclic.
+>
+> `null`, strings, numbers, and booleans have fixed literals; arrays and objects wrap recursive entries, and keys reuse the string rule.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

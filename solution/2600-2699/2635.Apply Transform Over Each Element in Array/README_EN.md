@@ -66,6 +66,14 @@ The function increases each value in the array by one.
 
 ### Solution 1: traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `Array.map` is forbidden. In-place writes are allowed, so we replace each index with $fn(arr[i],i)$ and return the same array.
+
+<!-- thinking:end -->
+
 We traverse the array $arr$, for each element $arr[i]$, replace it with $fn(arr[i], i)$. Finally, return the array $arr$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $arr$. The space complexity is $O(1)$.

@@ -108,6 +108,16 @@ The selector function splits the array by whether each number is greater than 5.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Elements must be grouped by a callback key. Collecting keys first would take a second pass. One `reduce` computes the key and pushes into that bucket.
+>
+> Create a list on the first sighting of a key and append afterwards.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

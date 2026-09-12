@@ -85,6 +85,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arbitrary JSON values cannot be compared with `===` alone; objects and arrays need recursion. Arrays must not equal plain objects, and key sets must match.
+>
+> Handle `null` and non-objects first; reject a type or array/object mismatch. Recurse by index on arrays and by key on objects, failing on length or key-count differences.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

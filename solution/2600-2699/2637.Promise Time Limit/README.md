@@ -114,6 +114,16 @@ t = 1000
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 原函数若在 $t$ 毫秒内未完成须拒绝。单独 `await fn` 无法限时。
+>
+> `Promise.race` 让函数结果与超时拒绝竞争，先完成者决定包装后的 Promise。超时文案按题面固定。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

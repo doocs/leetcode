@@ -92,6 +92,16 @@ curriedLife() === 42
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Arguments may arrive in several calls and should evaluate only after the original arity is met. Immediate invocation cannot support `csum(1)(2)`.
+>
+> Compare collected arguments with `fn.length`: return another collector if short, otherwise apply the function once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

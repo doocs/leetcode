@@ -56,6 +56,18 @@ sleep(100).then(() =&gt; {
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need an awaitable delay; `setTimeout` is not a Promise. A busy loop would block the event loop.
+>
+> Wrapping the timer in a Promise resolves when it fires, so callers continue asynchronously.
+>
+> Hence `sleep` returns `new Promise(r => setTimeout(r, millis))`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

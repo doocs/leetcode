@@ -75,6 +75,16 @@ The composition of zero functions is the identity function</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Composition applies right to left. A left fold would reverse the mathematical order. A single scan over a short list is enough.
+>
+> `reduceRight` starts from $x$ and applies each function; an empty list is the identity, as required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -106,6 +106,18 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bursts should collapse to one call $t$ milliseconds after the last trigger. Immediate invocation cannot coalesce.
+>
+> Keep the latest timer: a new call clears the previous one and restarts it, then invokes with the newest arguments.
+>
+> The closure also preserves `this` so the wrapper works as a method.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -99,6 +99,18 @@ values = [[5],[]]
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Identical arguments should reuse the previous result. Calling the original function every time would inflate the call count. Primitive tuples can serve as object keys.
+>
+> A map keyed by the argument list returns a hit immediately and stores a miss after computing.
+>
+> `args in cache` stringifies the array, which is enough for the numeric arguments in this problem.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

@@ -67,6 +67,14 @@ In the 2<sup>nd</sup> column, both 12 and -2 are of length 2.
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A column width is the longest decimal representation in that column, including a minus sign. The grid is at most $100 \times 100$, so the maximum `str` length per column is enough.
+
+<!-- thinking:end -->
+
 We denote the number of columns in the matrix as $n$, and create an array $ans$ of length $n$, where $ans[i]$ represents the width of the $i$-th column. Initially, $ans[i] = 0$.
 
 We traverse each row in the matrix. For each element in each row, we calculate its string length $w$, and update the value of $ans[j]$ to be $\max(ans[j], w)$.

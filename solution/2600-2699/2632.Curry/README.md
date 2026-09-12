@@ -94,6 +94,16 @@ curriedLife() === 42
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 参数可分若干次传入，凑满原函数 arity 后再求值。若每次都立即调用，无法支持 `csum(1)(2)` 这种形式。
+>
+> 比较已收集参数个数与 `fn.length`：不足则返回继续收集的函数，足够则一次展开调用。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript
