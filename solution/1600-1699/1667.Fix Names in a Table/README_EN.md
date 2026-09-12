@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README_EN.md
 tags:
     - Database
 ---
