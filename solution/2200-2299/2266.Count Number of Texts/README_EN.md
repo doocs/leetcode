@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2200-2299/2266.Count%20Number%20of%20Texts/README_EN.md
 rating: 1856
 source: Weekly Contest 292 Q3
 tags:
