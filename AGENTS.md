@@ -39,6 +39,7 @@ Dependabot updates npm, GitHub Actions, and pip on `main`, and pip on `docs`.
 4. After every method heading, write a Thinking block before the algorithm write-up (see [Thinking section](#thinking-section-how-we-arrive-at-the-answer))
 5. All language solutions must implement the same algorithm logic
 6. Open the PR with `.github/pull_request_template.md` and complete the checklist (see also `CONTRIBUTING.md`)
+7. The problem-sync spider only inserts an empty Thinking stub from `solution/template.md`. Fill the walkthrough before opening the PR. Pages with no method heading are unsolved stubs and do not need a Thinking block.
 
 ### Code Formatting
 
@@ -83,6 +84,7 @@ GitHub Actions automatically run:
 - **gofmt** lint on changed Go files
 - **rustfmt** lint on changed Rust files
 - **Prettier** on JS/TS/PHP/SQL/Markdown files (auto-format same-repo PRs to `main`; `--check` on all PRs)
+- **thinking-check** on changed `README.md` / `README_EN.md`: each method heading must have a non-empty Thinking block
 - **Deploy** as described under Branch model. Same-repo Prettier uses `pull_request_target` and skips forks so it never installs untrusted `package.json`.
 
 ## Solution Patterns

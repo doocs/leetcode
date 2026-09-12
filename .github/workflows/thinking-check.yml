@@ -1,0 +1,41 @@
+name: thinking-check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/README.md'
+      - '**/README_EN.md'
+      - scripts/check_thinking.py
+      - .github/workflows/thinking-check.yml
+      - .github/scripts/fetch-diff-base.sh
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - name: Fetch diff base
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: bash .github/scripts/fetch-diff-base.sh
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Check thinking blocks
+        run: |
+          set -euo pipefail
+          git config core.quotepath false
+          base="${{ github.event.pull_request.base.sha }}"
+          mapfile -t files < <(git -c core.quotepath=false diff --name-only --diff-filter=ACMR "$base" -- '**/README.md' '**/README_EN.md' || true)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No README files changed."
+            exit 0
+          fi
+          python scripts/check_thinking.py "${files[@]}"
