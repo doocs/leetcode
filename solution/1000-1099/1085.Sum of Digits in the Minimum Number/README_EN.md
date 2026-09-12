@@ -54,6 +54,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Only the parity of the digit sum of the minimum matters: even yields $1$, odd yields $0$. Find the minimum, then peel digits.
+>
+> The low bit of $s$ is the parity; we return $s\&1\oplus 1$.
+>
+> No string conversion is required.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

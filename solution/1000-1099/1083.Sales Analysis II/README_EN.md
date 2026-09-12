@@ -97,6 +97,18 @@ Sales table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need buyers who bought an S8 and never an iPhone. A buyer has many rows, so both products must be tested in one group.
+>
+> Join the product name, group by `buyer_id`, and require `SUM(product_name = 'S8') > 0` together with `SUM(product_name = 'iPhone') = 0`.
+>
+> Conditional sums avoid computing two buyer sets and subtracting.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

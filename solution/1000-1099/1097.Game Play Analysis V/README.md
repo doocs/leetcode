@@ -80,6 +80,18 @@ Activity 表：
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 安装日是每名玩家最早的 `event_date`，次日留存是安装后第一天仍有登录的玩家比例，再按安装日分组。
+>
+> 窗口 `MIN(event_date) OVER (PARTITION BY player_id)` 给每行标上安装日。外层按安装日统计去重玩家数，并用 `SUM(日期差为 1)` 比上去重人数得到留存率。
+>
+> `ROUND(..., 2)` 保留两位小数。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

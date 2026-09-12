@@ -60,6 +60,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The expression is a concatenation of letter runs and a single level of brace alternatives. The expansion is a Cartesian product; backtracking plus a sort is enough.
+>
+> `convert` splits on braces versus plain prefixes into lists of options. `dfs` picks one token from each list.
+>
+> Leaves are collected and sorted lexicographically.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The largest pair sum strictly below $k$ is quadratic if every pair is tested. After sorting, each $x$ needs the largest right value below $k-x$, which is a binary search.
+>
+> For index $i$, `bisect_left` on $(i,n)$ finds $k-x$; the previous index, if still greater than $i$, updates the answer.
+>
+> The answer stays $-1$ when no pair qualifies.
+
+<!-- thinking:end -->
+
 We can first sort the array $nums$, and initialize the answer as $-1$.
 
 Next, we enumerate each element $nums[i]$ in the array, and find the maximum $nums[j]$ in the array that satisfies $nums[j] + nums[i] < k$. Here, we can use binary search to speed up the search process. If we find such a $nums[j]$, then we can update the answer, i.e., $ans = \max(ans, nums[i] + nums[j])$.
@@ -173,6 +185,16 @@ function twoSumLessThanK(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> One binary search per $x$ is $O(n\log n)$. Two pointers use the same monotonicity: a small sum moves the left end right; a sum of at least $k$ moves the right end left.
+>
+> A single pass covers the Pareto front of distinct-index pairs with a smaller constant.
+
+<!-- thinking:end -->
 
 Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.
 

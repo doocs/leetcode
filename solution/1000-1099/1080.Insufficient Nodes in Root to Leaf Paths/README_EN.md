@@ -65,6 +65,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nodes that lie only on root-to-leaf paths summing to less than $\textit{limit}$ must go. A path is decided at the leaf; a parent stays only if a child survives. $n\le 5000$ allows one postorder.
+>
+> Descending subtracts the current value from $\textit{limit}$. A leaf is removed when the remainder is still positive. An internal node is removed only after both children become null.
+>
+> The call returns the new subtree root, which may be empty.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

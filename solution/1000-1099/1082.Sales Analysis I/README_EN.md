@@ -96,6 +96,18 @@ Sales table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Several sellers may share the top revenue. After summing `price` per `seller_id`, keep those whose sum is not below any other group.
+>
+> `HAVING SUM(price) >= ALL (grouped sums)` returns every maximum.
+>
+> Avoid `ORDER BY ... LIMIT 1`, which would drop ties.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL
@@ -120,6 +132,16 @@ HAVING
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The `ALL` subquery aggregates twice. Ranking by total price descending marks every maximum as $1$.
+>
+> A CTE computes the sum and `rk`; the outer query keeps `rk = 1`.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

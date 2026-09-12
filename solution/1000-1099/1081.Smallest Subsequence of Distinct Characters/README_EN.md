@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need each distinct letter once, in the smallest subsequence that preserves order. $n\le 1000$ fits a monotonic stack: a larger top that still appears later can be popped.
+>
+> Record the last index of every letter. Skip a letter already on the stack; otherwise pop tops that are greater and still occur later, then push.
+>
+> A set tracks membership. The stack order is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -192,6 +204,16 @@ function smallestSubsequence(s: string): string {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses a hash set for membership. Twenty-six letters fit in a bit mask, flipped when a letter is pushed or popped.
+>
+> Last-occurrence indices and the monotonic pops stay the same.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

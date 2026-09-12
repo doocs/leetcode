@@ -56,6 +56,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each zero must be duplicated in place and the tail truncated. An extra array is not in-place. Writing from the left overwrites unread values, so we first find the last original index that still fits, then fill from the right.
+>
+> $i$ and a virtual length $k$ advance together: $+1$ for a nonzero, $+2$ for a zero, until $k\ge n$. If a final zero makes $k=n+1$, that zero is written once at the end.
+>
+> Then $j$ walks from $n-1$: a zero occupies two slots, a nonzero one.
+
+<!-- thinking:end -->
+
 Scan from left to right to see how far the original array can go after zeros are duplicated. Pointer $i$ is the last source index that still fits, and $k$ is the virtual length after duplication: add $1$ for a nonzero value and $2$ for a zero. Stop when $k \ge n$.
 
 Let $j = n - 1$ be the write index. If the last kept value is a zero that would overflow ($k = n + 1$), write that single zero at $arr[j]$ and decrement both $i$ and $j$.
