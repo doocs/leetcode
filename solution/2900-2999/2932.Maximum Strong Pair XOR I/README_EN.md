@@ -78,6 +78,16 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A strong pair satisfies $|x-y| \le \min(x,y)$. $n \le 50$ lets us try every pair and keep the largest valid XOR.
+>
+> A double comprehension filters the condition; no extra structure is needed.
+
+<!-- thinking:end -->
+
 We can enumerate each pair of numbers $(x, y)$ in the array. If $|x - y| \leq \min(x, y)$, then this pair is a strong pair. We can calculate the XOR value of this pair and update the answer.
 
 The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.
@@ -174,6 +184,16 @@ function maximumStrongPairXor(nums: number[]): number {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Binary Trie
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 is enough for $n=50$, but part II raises $n$ to $5 \times 10^4$. When $x \le y$ the inequality becomes $y \le 2x$. Sort, enumerate the larger $y$, and keep a window of $x$ with two pointers.
+>
+> The best XOR against $y$ inside the window is a 0-1 trie: insert $y$, drop expired $nums[i]$, then query. The same code serves part II.
+
+<!-- thinking:end -->
 
 Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.
 

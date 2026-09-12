@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same three-way split as part III, with $n,limit \le 50$. A triple loop would pass, yet stars and bars plus inclusion-exclusion still give a closed form: $C_{n+2}^{2}$ minus the three overflow cases, plus the two-variable overflows.
+>
+> There is no solution when $n>3\cdot limit$. The tiny bounds still share the same formula as the large-data variants.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
 
 This is equivalent to placing $n$ balls into $3$ boxes. Since the boxes can be empty, we can add $3$ virtual balls, and then use the method of inserting partitions, i.e., there are a total of $n + 3$ balls, and we insert $2$ partitions among the $n + 3 - 1$ positions, thus dividing the actual $n$ balls into $3$ groups, and allowing the boxes to be empty. Therefore, the initial number of schemes is $C_{n + 2}^2$.

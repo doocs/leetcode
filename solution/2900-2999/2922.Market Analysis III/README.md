@@ -119,6 +119,16 @@ Items table:
 
 ### 方法一：等值连接 + 分组 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要统计每位卖家卖出的、品牌异于其偏好的不同商品数，再取出该数目的最大值对应的卖家。三次等值连接把订单、用户与商品对齐，用 $item_brand \neq favorite_brand$ 过滤后按 $seller_id$ 分组。
+>
+> $COUNT(DISTINCT item_id)$ 得到 $num_items$。外层再与子查询 $MAX(num_items)$ 比较，避免在同一层聚合中既求最大又筛行。最后按卖家编号排序。
+
+<!-- thinking:end -->
+
 我们可以使用等值连接，将 `Orders` 表和 `Users` 表按照 `seller_id` 进行连接，接着再按照 `item_id` 连接 `Items`，筛选出 `item_brand` 不等于 `favorite_brand` 的记录，然后按照 `seller_id` 进行分组，统计每个 `seller_id` 对应的 `item_id` 的个数，最后再使用子查询，找出 `item_id` 个数最多的 `seller_id`。
 
 <!-- tabs:start -->

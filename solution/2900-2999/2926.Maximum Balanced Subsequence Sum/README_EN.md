@@ -85,6 +85,16 @@ It is a balanced subsequence, and its sum is the maximum among the balanced subs
 
 ### Solution 1: Dynamic Programming + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Balance $nums[i]-nums[j] \ge i-j$ rewrites as $nums[i]-i \ge nums[j]-j$. On $arr[t]=nums[t]-t$ we want a nondecreasing index sequence maximizing the sum of $nums$. The naive $f[i]=nums[i]+\max_{j<i, arr[j]\le arr[i]} f[j]$ (or just $nums[i]$) is $O(n^2)$ for $n \le 10^5$.
+>
+> After compressing $arr$, a Fenwick tree stores the best $f$ among values up to a threshold. Scan in index order, query, then insert; a final prefix maximum is the answer.
+
+<!-- thinking:end -->
+
 According to the problem description, we can transform the inequality $nums[i] - nums[j] \ge i - j$ into $nums[i] - i \ge nums[j] - j$. Therefore, we consider defining a new array $arr$, where $arr[i] = nums[i] - i$. A balanced subsequence satisfies that for any $j < i$, $arr[j] \le arr[i]$. The problem is transformed into selecting an increasing subsequence in $arr$ such that the corresponding sum in $nums$ is maximized.
 
 Suppose $i$ is the index of the last element in the subsequence, then we consider the index $j$ of the second to last element in the subsequence. If $arr[j] \le arr[i]$, we can consider whether to add $j$ to the subsequence.

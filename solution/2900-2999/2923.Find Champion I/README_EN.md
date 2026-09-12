@@ -69,6 +69,16 @@ So team 1 will be the champion.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $grid$ is a complete, transitive comparison; the champion is the team that beats every other. $n \le 100$, so it suffices to test whether each row is all ones off the diagonal.
+>
+> The input contains a unique champion, so the first such team may be returned. No graph or in-degree array is required.
+
+<!-- thinking:end -->
+
 We can enumerate each team $i$. If team $i$ has won every match, then team $i$ is the champion, and we can directly return $i$.
 
 The time complexity is $O(n^2)$, where $n$ is the number of teams. The space complexity is $O(1)$.

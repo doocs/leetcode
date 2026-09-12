@@ -83,6 +83,16 @@ So the answer would be 5.</pre>
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array is an interface of length up to $10^{15}$, so a linear scan is impossible. Equal values already form blocks, and each block only needs its right end. Binary search on $[i,n)$ finds the first index whose value differs from $nums.at(i)$.
+>
+> If two adjacent cells already differ, step by one and skip a search. The number of probes follows the number of blocks times a logarithm.
+
+<!-- thinking:end -->
+
 We can use binary search to find the right boundary of each block. Specifically, we traverse the array from left to right. For each index $i$, we use binary search to find the smallest index $j$ such that all elements between $[i,j)$ are equal to $nums[i]$. Then we update $i$ to $j$ and continue to traverse the array until $i$ is greater than or equal to the length of the array.
 
 The time complexity is $O(m \times \log n)$, where $m$ is the number of different elements in the array $num$, and $n$ is the length of the array $num$. The space complexity is $O(1)$.
@@ -229,6 +239,16 @@ function countBlocks(nums: BigArray | null): number {
 <!-- solution:start -->
 
 ### Solution 2: Divide and Conquer
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Binary search needs random access. Splitting an interval in half, the sum of the two halves overcounts by one when the middle values match, so subtract that. Divide-and-conquer also probes only near block edges.
+>
+> Trivial intervals (length $2$ with distinct ends, and the like) return immediately. Compared with method 1, the outer “find the right end” loop becomes a recursive merge.
+
+<!-- thinking:end -->
 
 We can use the divide and conquer method to calculate the answer. Specifically, we divide the array into two subarrays, recursively calculate the answer for each subarray, and then merge the answers. If the last element of the first subarray is equal to the first element of the second subarray, then we need to subtract one from the answer.
 

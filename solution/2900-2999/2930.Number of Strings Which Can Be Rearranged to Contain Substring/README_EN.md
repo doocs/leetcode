@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1: Memorization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$n$ lowercase string must be rearrangeable to contain $leet$, i.e. at least one $l$, two $e$, and one $t$. Building counted strings and multiplying by permutations overcounts. Filling positions while tracking whether those three quotas are met uses $n \times 2 \times 3 \times 2$ states.
+>
+> $dfs(i,l,e,t)$ tries “other”, $l$, $e$, or $t$, capping the last three at $1,2,1$. For $n \le 10^5$ the memo size matches the state space.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, l, e, t)$, which represents the number of good strings that can be formed when the remaining string length is $i$, and there are at least $l$ characters 'l', $e$ characters 'e' and $t$ characters 't'. The answer is $dfs(n, 0, 0, 0)$.
 
 The execution logic of the function $dfs(i, l, e, t)$ is as follows:
@@ -232,6 +242,16 @@ function stringCount(n: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Reverse Thinking + Inclusion-Exclusion Principle
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 walks the length and spends a linear number of transitions. The complement is shorter: $26^n$ minus strings missing $l$, missing $t$, or having fewer than two $e$, with intersections restored by inclusion-exclusion.
+>
+> Each set forbids some letters or limits $e$, so fast powers give $25^n$, $24^n$, and the “zero or one $e$” terms. For large $n$ this is leaner than the stepwise DP.
+
+<!-- thinking:end -->
 
 We can consider reverse thinking, that is, calculate the number of strings that do not contain the substring "leet", and then subtract this number from the total.
 

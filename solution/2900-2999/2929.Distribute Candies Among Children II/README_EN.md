@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Combinatorial Mathematics + Principle of Inclusion-Exclusion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Bounds rise to $10^6$; enumerating two variables is $O(n)$ and tight in some languages. The same inclusion-exclusion as parts I and III applies, and $C_{m}^{2}=m(m-1)/2$ is $O(1)$.
+>
+> Guard $n>3\cdot limit$, then add and subtract the unconstrained, one-overflow, and two-overflow terms. No loop is required.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to distribute $n$ candies to $3$ children, with each child receiving between $[0, limit]$ candies.
 
 This is equivalent to placing $n$ balls into $3$ boxes. Since the boxes can be empty, we can add $3$ virtual balls, and then use the method of inserting partitions, i.e., there are a total of $n + 3$ balls, and we insert $2$ partitions among the $n + 3 - 1$ positions, thus dividing the actual $n$ balls into $3$ groups, and allowing the boxes to be empty. Therefore, the initial number of schemes is $C_{n + 2}^2$.
