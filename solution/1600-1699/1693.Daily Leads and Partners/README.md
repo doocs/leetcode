@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1693.Daily%20Leads%20and%20Partners/README.md
 tags:
     - 数据库
 ---

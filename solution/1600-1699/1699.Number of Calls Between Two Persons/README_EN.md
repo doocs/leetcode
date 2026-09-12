@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1699.Number%20of%20Calls%20Between%20Two%20Persons/README_EN.md
 tags:
     - Database
 ---

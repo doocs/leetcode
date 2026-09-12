@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README.md
 rating: 1288
 source: 第 41 场双周赛 Q1
 tags:
