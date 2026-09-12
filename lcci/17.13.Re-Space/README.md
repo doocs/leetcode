@@ -45,6 +45,18 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在句子中插入空格使未匹配字符尽量少。枚举全部切分是指数级，词表与句长允许 $O(n^2)$ 的区间判定。
+>
+> $dp[i]$ 为前 $i$ 个字符的最少未识别数。最后一字可单独算未匹配，或某 $sentence[j:i]$ 在词典中则转移到 $dp[j]$。
+>
+> 词典放入集合以便 $O(1)$ 查询。$dp[0]=0$，递推到 $n$。未单独做字典树，句长不大时双重循环足够。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

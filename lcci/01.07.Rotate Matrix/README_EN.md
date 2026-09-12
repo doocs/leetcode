@@ -94,6 +94,18 @@ Rotate the matrix <strong>in place. </strong>It becomes:
 
 ### Solution 1: In-Place Rotation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $90^\circ$ clockwise turn sends $(i,j)$ to $(j, n-i-1)$. Writing into a new matrix is correct but uses $O(n^2)$ extra space, against the in-place requirement.
+>
+> The map factors into two symmetries: a vertical flip, then a transpose across the main diagonal. After both swaps, $(i,j)$ sits at the target.
+>
+> The code swaps row $i$ with row $n-i-1$, then swaps the lower triangle $i>j$ to transpose, using only a few temporaries.
+
+<!-- thinking:end -->
+
 According to the problem requirements, we need to rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.
 
 We can first flip the matrix upside down, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[n - i - 1][j]$, and then flip the matrix along the main diagonal, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[j][i]$. This will rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.

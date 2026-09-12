@@ -36,6 +36,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.11.Peaks%20and%20V
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array must alternate peaks and valleys. Fixing adjacent inversions locally can break the other side.
+>
+> After a full sort, swapping each even index with the next puts the larger value on odd indices: small, large, small, large.
+>
+> `nums.sort()` then `nums[i:i+2]=reversed(...)` for even $i$. Sorted pairs become peaks no lower than their neighbors.
+
+<!-- thinking:end -->
+
 We first sort the array, and then traverse the array and swap the elements at even indices with their next element.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array.

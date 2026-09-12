@@ -43,6 +43,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.05.Factorial%20Zer
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trailing zeros of $n!$ come from factors $10=2\times 5$. Twos are plentiful, so the count equals the number of fives in $[1,n]$, including higher powers.
+>
+> Computing $n!$ and counting zeros overflows for large $n$.
+>
+> Repeated $n//=5$ adds the contributions of $5$, $5^2$, $5^3,\ldots$ in $O(\log n)$ time.
+
+<!-- thinking:end -->
+
 The problem is actually asking for the number of factors of $5$ in $[1,n]$.
 
 Let's take $130$ as an example:

@@ -52,6 +52,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.09.String%20Rotati
 
 ### Solution 1: String Matching
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rotation moves a prefix to the end. Trying every cut is $n$ comparisons of length $n$, acceptable but redundant.
+>
+> Unequal lengths cannot be rotations. When lengths match, $s_1+s_1$ contains every rotation of $s_1$, so the question is whether $s_2$ is a substring of that concatenation.
+>
+> The code compares lengths first, then uses `s2 in s1 * 2`, which is exactly that test.
+
+<!-- thinking:end -->
+
 First, if the lengths of strings $s1$ and $s2$ are not equal, they are definitely not rotation strings of each other.
 
 Second, if the lengths of strings $s1$ and $s2$ are equal, then by concatenating two $s1$ together, the resulting string $s1 + s1$ will definitely include all rotation cases of $s1$. At this point, we just need to check whether $s2$ is a substring of $s1 + s1$.

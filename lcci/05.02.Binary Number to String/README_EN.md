@@ -45,6 +45,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.02.Binary%20Number
 
 ### Solution 1: Decimal Fraction to Binary Fraction
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A real in $(0,1)$ must be written in binary. A terminating decimal may repeat in binary; more than $32$ bits is an error.
+>
+> Doubling the fraction yields the next bit; the leftover fraction is doubled again. If $32$ bits are not enough to reach $0$, it cannot be represented.
+>
+> Start from `0.`, loop `num *= 2`, append the integer part and subtract it. A leftover $num$ becomes `ERROR`.
+
+<!-- thinking:end -->
+
 The method of converting a decimal fraction to a binary fraction is as follows: multiply the decimal part by $2$, take the integer part as the next digit of the binary fraction, and take the decimal part as the multiplicand for the next multiplication, until the decimal part is $0$ or the length of the binary fraction exceeds $32$ bits.
 
 Let's take an example, suppose we want to convert $0.8125$ to a binary fraction, the process is as follows:

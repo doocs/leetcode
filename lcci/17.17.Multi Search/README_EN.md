@@ -48,6 +48,18 @@ smalls = [&quot;is&quot;,&quot;ppi&quot;,&quot;hi&quot;,&quot;sis&quot;,&quot;i&
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Find every occurrence of many patterns in $big$. A separate KMP per pattern rescansthe text.
+>
+> Insert all $smalls$ into a trie and walk from every start in $big$; a word end on the path is a hit.
+>
+> `insert` stores the pattern index at the terminal; `search` collects those indices along a suffix. Shared prefixes are built once.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

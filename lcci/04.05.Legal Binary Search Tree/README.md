@@ -24,6 +24,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 只比较每个节点与其左右孩子，会漏掉「右子树中的最小值仍须大于根」这类跨层约束。
+>
+> 二叉搜索树的中序遍历严格递增，因此可在中序过程中与前驱比较。
+>
+> $prev$ 初值为 $-\infty$，左子树合法后再检查 $prev < root.val$，更新 $prev$ 并进入右子树。一次中序即可，无需先物化序列。
+
+<!-- thinking:end -->
+
 我们可以对二叉树进行递归中序遍历，如果遍历到的结果是严格升序的，那么这棵树就是一个二叉搜索树。
 
 因此，我们使用一个变量 $\textit{prev}$ 来保存上一个遍历到的节点，初始时 $\textit{prev} = -\infty$，然后我们递归遍历左子树，如果左子树不是二叉搜索树，直接返回 $\textit{False}$，否则判断当前节点的值是否大于 $\textit{prev}$，如果不是，返回 $\textit{False}$，否则更新 $\textit{prev}$ 为当前节点的值，然后递归遍历右子树。

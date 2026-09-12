@@ -37,6 +37,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.16.Sub%20Sort/READ
 
 ### Solution 1: Two Passes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The shortest subarray that, once sorted, sorts the whole array. Sorting a copy and comparing ends works but uses linear extra space.
+>
+> The right bound is the rightmost index smaller than some left-hand maximum; the left bound is the leftmost index larger than some right-hand minimum.
+>
+> A left-to-right scan of $mx$ updates $right$; a right-to-left scan of $mi$ updates $left$. Two linear passes, constant extra space.
+
+<!-- thinking:end -->
+
 We first traverse the array $array$ from left to right, and use $mx$ to record the maximum value encountered so far. If the current value $x$ is less than $mx$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $right$; otherwise, update $mx$.
 
 Similarly, we traverse the array $array$ from right to left, and use $mi$ to record the minimum value encountered so far. If the current value $x$ is greater than $mi$, it means that $x$ needs to be sorted, and we record the index $i$ of $x$ as $left$; otherwise, update $mi$.

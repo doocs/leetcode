@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.03.Magic%20Index/R
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A magic index satisfies $nums[i]=i$. A left-to-right scan finds the smallest one in linear time.
+>
+> Duplicates block the usual “compare $mid$ to $nums[mid]$ and drop a half” argument, because a match may still sit on the left.
+>
+> Search the left half fully first (that answer is the smallest), then test the midpoint, then the right half. Worst case remains linear, but ordered data often skips ranges.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$ to find the magic index in the array $nums[i, j]$. If found, return the value of the magic index, otherwise return $-1$. So the answer is $dfs(0, n-1)$.
 
 The implementation of the function $dfs(i, j)$ is as follows:

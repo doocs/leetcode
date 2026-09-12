@@ -55,6 +55,18 @@ findMedian() -&gt; 2
 
 ### Solution 1: Min Heap and Max Heap (Priority Queue)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Median of a stream. Sorting each time is $O(n\log n)$; a balanced BST works but is heavy.
+>
+> The median is the max of the lower half and the min of the upper half — two heaps.
+>
+> A max-heap $maxq$ (negated) holds the lower half; a min-heap $minq$ the upper. Insert into the max-heap, pop into the min-heap, and rebalance when sizes differ by more than one. Even counts average the two tops.
+
+<!-- thinking:end -->
+
 We can use two heaps to maintain all the elements, a min heap $\textit{minQ}$ and a max heap $\textit{maxQ}$, where the min heap $\textit{minQ}$ stores the larger half, and the max heap $\textit{maxQ}$ stores the smaller half.
 
 When calling the `addNum` method, we first add the element to the max heap $\textit{maxQ}$, then pop the top element of $\textit{maxQ}$ and add it to the min heap $\textit{minQ}$. If at this time the size difference between $\textit{minQ}$ and $\textit{maxQ}$ is greater than $1$, we pop the top element of $\textit{minQ}$ and add it to $\textit{maxQ}$. The time complexity is $O(\log n)$.

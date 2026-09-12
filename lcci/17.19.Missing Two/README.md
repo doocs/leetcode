@@ -42,6 +42,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.19.Missing%20Two/R
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> $1\ldots n$ 缺两个数。求和与平方和可列方程，但平方容易溢出。
+>
+> 全部异或得到 $a\oplus b$。取 `lowbit` 把两数分到不同组（该位一个为 $1$ 一个为 $0$），组内再异或即分离。
+>
+> 先算总异或 $xor$，再对 $diff=xor\&(-xor)$ 为真的那些数异或出 $a$，$b=xor\oplus a$。线性、常数空间。
+
+<!-- thinking:end -->
+
 利用位运算的性质：
 
 1. 对于任何数 $x$，都有 $x \oplus x = 0$

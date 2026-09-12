@@ -49,6 +49,18 @@ k = 3
 
 ### Solution 1: Case Analysis
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $k$ planks, each short or long. Recursing over $2^k$ assignments overcounts; there are at most $k+1$ distinct sums.
+>
+> $i$ long planks give $i\cdot longer+(k-i)\cdot shorter$. $k=0$ is empty; equal lengths collapse to one value.
+>
+> When the lengths differ, $i=0\ldots k$ is strictly increasing, so the loop needs no deduplication.
+
+<!-- thinking:end -->
+
 If $k=0$, there is no solution, and we can directly return an empty list.
 
 If $shorter=longer$, we can only use a board with length $longer \times k$, so we directly return a list with length $longer \times k$.

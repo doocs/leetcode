@@ -40,6 +40,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.24.Pairs%20With%20
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pairs that sum to $target$, each element used at most once. Sorted two pointers work if duplicates and consumption are handled carefully.
+>
+> A count of unmatched values is enough: if $target-x$ is still available, emit the pair and decrement, otherwise record $x$.
+>
+> Earlier complements are consumed first, and an index is never used twice. One pass.
+
+<!-- thinking:end -->
+
 We can use a hash table to store the elements in the array, with the keys being the elements in the array and the values being the number of times the element appears.
 
 We traverse the array, and for each element $x$, we calculate $y = target - x$. If $y$ exists in the hash table, it means that there is a pair of numbers $(x, y)$ that add up to the target, and we add it to the answer and reduce the count of $y$ by $1$. If $y$ does not exist in the hash table, it means that there is no such pair of numbers, and we increase the count of $x$ by $1$.

@@ -62,6 +62,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/03.01.Three%20in%20On
 
 ### Solution 1: Array Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Three fixed-capacity stacks must share one store. Three separate arrays work, but the problem wants one contiguous buffer.
+>
+> Partition the buffer into three equal slabs and keep a size per stack. Index $cap \times stackNum + size$ is the next free slot.
+>
+> The array has length $3cap+3$; the last three cells store the sizes. Each operation touches one size and one slot in $O(1)$. A full stack rejects `push`; an empty stack returns $-1$.
+
+<!-- thinking:end -->
+
 We use a variable $cap$ to represent the size of each stack, and use an array $stk$ of length $3 \times \textit{cap} + 3$ to simulate three stacks. The first $3 \times \textit{cap}$ elements of the array are used to store the elements of the stack, and the last three elements are used to store the number of elements in each stack.
 
 For the `push` operation, we first check whether the stack is full. If it is not full, we push the element into the stack and update the number of elements in the stack.

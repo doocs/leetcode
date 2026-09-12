@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.02.Check%20Permuta
 
 ### Solution 1: Array or Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two strings are permutations of each other iff they have the same character multiset. Unequal lengths can be rejected immediately; enumerating permutations of $s_1$ is far more expensive than the input size requires.
+>
+> The bottleneck is verifying frequencies in linear time. Count characters in $s_1$, then decrement while scanning $s_2$: a negative count means the frequencies differ.
+>
+> The tests use only lowercase letters, so an array of length $26$ serves as the table. Comparing lengths first avoids counting on inputs that cannot match.
+
+<!-- thinking:end -->
+
 First, we check whether the lengths of the two strings are equal. If they are not equal, we directly return `false`.
 
 Then, we use an array or hash table to count the occurrence of each character in string $s1$.
@@ -246,6 +258,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Frequency counting already answers in $O(n)$ time, but it uses auxiliary space proportional to the alphabet.
+>
+> Sorting both strings and comparing them is equivalent and does not assume a small alphabet, at $O(n \log n)$ cost and with a shorter implementation.
+
+<!-- thinking:end -->
 
 We can also sort the two strings in lexicographical order, and then compare whether the two strings are equal.
 

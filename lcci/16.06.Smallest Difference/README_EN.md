@@ -42,6 +42,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.06.Smallest%20Diff
 
 ### Solution 1: Sorting + Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick one value from each array to minimize the absolute difference. All pairs are $O(nm)$.
+>
+> For a fixed $x$ in $a$, only the closest value in $b$ matters, which a sorted $b$ answers by binary search.
+>
+> Sort $b$, then `bisect_left` each $x$ and check the insertion point and its predecessor. Sorting plus $n$ logarithmic probes dominate.
+
+<!-- thinking:end -->
+
 We can sort the array $b$, and for each element $x$ in array $a$, perform a binary search in array $b$ to find the element $y$ closest to $x$. Then, the absolute difference between $x$ and $y$ is the absolute difference between $x$ and the closest element in $b$.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of array $b$.
@@ -215,6 +227,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Sorting + Two Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per-element binary search still pays a log factor $n$ times.
+>
+> Sorting both arrays lets two pointers advance the smaller side, finishing in one linear pass after the sorts.
+
+<!-- thinking:end -->
 
 We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintain the current positions in the two arrays. Initially, $i$ and $j$ point to the beginning of arrays $a$ and $b$, respectively. At each step, we calculate the absolute difference between $a[i]$ and $b[j]$, and update the answer. If one of the elements pointed to by $i$ and $j$ is smaller than the other, we move the pointer pointing to the smaller element forward by one step. The traversal ends when at least one of the pointers goes beyond the array range.
 

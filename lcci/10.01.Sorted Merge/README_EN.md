@@ -40,6 +40,18 @@ B = [2,5,6],       n = 3
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $B$ must merge into the spare tail of $A$. Writing from the front overwrites unread values of $A$. A third buffer uses linear extra space.
+>
+> The unused suffix of $A$ can hold the whole result, so placing the larger tail element first leaves the unread prefixes intact.
+>
+> Pointers $i$ and $j$ sit at the live ends; $k$ walks $m+n-1$ downward. Write $A[i]$ when $B$ is exhausted or $A[i]$ is larger, otherwise $B[j]$.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ to point to the end of arrays $A$ and $B$ respectively, and a pointer $k$ to point to the end of array $A$. Then we traverse arrays $A$ and $B$ from back to front, each time putting the larger element into $A[k]$, then moving pointer $k$ and the pointer of the array with the larger element forward by one position.
 
 The time complexity is $O(m + n)$, and the space complexity is $O(1)$.

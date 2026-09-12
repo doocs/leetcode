@@ -37,6 +37,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.08.Circus%20Tower/
 
 ### Solution 1: Sorting + Discretization + Binary Indexed Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circus tower needs strictly increasing height and weight. Permutations are impossible; $O(n^2)$ LIS is slow for large $n$.
+>
+> Sort by height, and by decreasing weight on ties, then LIS on weight only. Decreasing ties stop equal heights from stacking.
+>
+> After compressing weights, a Fenwick tree stores the best chain among smaller weights. Query $[1,id(w)-1]$, then update $id(w)$.
+
+<!-- thinking:end -->
+
 First, we sort all people in ascending order by height. If the heights are the same, we sort them in descending order by weight. This way, we can transform the problem into finding the longest increasing subsequence of the weight array.
 
 The longest increasing subsequence problem can be solved using dynamic programming with a time complexity of $O(n^2)$. However, we can optimize the solution process using a Binary Indexed Tree, which reduces the time complexity to $O(n \log n)$.

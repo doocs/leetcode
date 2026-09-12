@@ -86,6 +86,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.08.Zero%20Matrix/R
 
 ### Solution 1: Array Marking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A zero forces its whole row and column to zero. Clearing immediately while scanning treats newly written zeros as original zeros and spreads incorrectly.
+>
+> Rows and columns to clear must be recorded completely before any write.
+>
+> Arrays $rows$ and $cols$ are filled on the first pass and applied on the second. Two linear scans and $O(m+n)$ extra space avoid read/write confusion.
+
+<!-- thinking:end -->
+
 We use arrays `rows` and `cols` to mark the rows and columns to be zeroed.
 
 Then we traverse the matrix again, zeroing the elements corresponding to the rows and columns marked in `rows` and `cols`.
@@ -347,6 +359,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: In-place Marking
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The extra arrays in Solution 1 can be replaced by the matrix’s first row and first column as markers.
+>
+> Those two lines are both markers and data, so $i0$ and $j0$ remember whether they originally contained a zero. Other cells still take two passes: write marks, then apply them, then finish the first row and column from $i0$ and $j0$. Extra space drops to $O(1)$.
+
+<!-- thinking:end -->
 
 In Solution 1, we used additional arrays to mark the rows and columns to be zeroed. In fact, we can directly use the first row and first column of the matrix for marking, without needing to allocate additional array space.
 

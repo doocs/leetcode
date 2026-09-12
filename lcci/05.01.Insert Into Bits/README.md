@@ -38,6 +38,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.01.Insert%20Into%2
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要把 $M$ 插入 $N$ 的第 $i$ 到 $j$ 位。若直接按位或，原区间里残留的 $1$ 会干扰 $M$ 的 $0$ 位。
+>
+> 须先把 $[i,j]$ 清零，再把 $M$ 对齐到第 $i$ 位后并入。
+>
+> 对 $k\in[i,j]$ 执行 $N \&= \sim(1\ll k)$，再返回 $N \mid (M \ll i)$。区间长度不超过字长，操作为位运算常数级。
+
+<!-- thinking:end -->
+
 我们先将 $N$ 的第 $i$ 位到第 $j$ 位清零，然后再将 $M$ 左移 $i$ 位，最后将 $M$ 与 $N$ 进行或运算。
 
 时间复杂度 $O(\log n)$，其中 $n$ 是 $N$ 的大小。空间复杂度 $O(1)$。

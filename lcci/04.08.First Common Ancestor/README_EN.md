@@ -71,6 +71,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The LCA is the deepest node that covers both $p$ and $q$. Storing two root-to-node paths works but uses extra memory.
+>
+> If $p$ and $q$ lie in different subtrees, the current root is the answer; if they lie on one side, the answer is deeper on that side.
+>
+> Recurse: return the node if it is null or equal to $p$/$q$; return the root when both sides are non-null, otherwise the non-null side. One visit per node.
+
+<!-- thinking:end -->
+
 First, we check if the root node is null or if the root node is equal to $\textit{p}$ or $\textit{q}$. If so, we return the root node directly.
 
 Then, we recursively search the left and right subtrees to get $\textit{left}$ and $\textit{right}$, respectively. If both $\textit{left}$ and $\textit{right}$ are not null, it means $\textit{p}$ and $\textit{q}$ are in the left and right subtrees, respectively, so the root node is the lowest common ancestor. Otherwise, if either $\textit{left}$ or $\textit{right}$ is null, it means both $\textit{p}$ and $\textit{q}$ are in the non-null subtree, so the root node of the non-null subtree is the lowest common ancestor.

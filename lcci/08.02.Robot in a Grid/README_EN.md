@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.02.Robot%20in%20a%
 
 ### Solution 1: DFS (Depth-First Search)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path from the top-left to the bottom-right may only step right or down and must avoid obstacles. The grid is small enough to search, but revisiting a cell wastes work.
+>
+> Any feasible path is enough, so DFS tries down then right and backtracks on failure.
+>
+> On entry the cell is appended and marked as an obstacle to block re-entry; success keeps the path, failure pops. In-place marks replace a separate $vis$.
+
+<!-- thinking:end -->
+
 We can use depth-first search to solve this problem. We start from the top left corner and move right or down until we reach the bottom right corner. If at some step, we find that the current position is an obstacle, or the current position is already in the path, then we return. Otherwise, we add the current position to the path and mark the current position as visited, then continue to move right or down.
 
 If we can finally reach the bottom right corner, then we have found a feasible path, otherwise, it means there is no feasible path.

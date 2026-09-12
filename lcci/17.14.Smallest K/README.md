@@ -33,6 +33,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.14.Smallest%20K/RE
 
 ### 方法一：排序
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 找最小的 $k$ 个数，不必有序。一次排序取前缀最直接，在 $n$ 与 $k$ 接近时已是最优量级。
+>
+> Python 中 `sorted(arr)[:k]` 一行完成，常数好、实现短。
+>
+> 这与题面「返回任意次序」相符，不额外维护堆。
+
+<!-- thinking:end -->
+
 直接排序，取前 k 个数即可。
 
 时间复杂度 $O(n\log n)$。其中 $n$ 为数组长度。
@@ -110,6 +122,16 @@ class Solution {
 <!-- solution:start-->
 
 ### 方法二：优先队列（大根堆）
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 当 $k\ll n$ 时，完整排序做了多余工作。
+>
+> 大小为 $k$ 的大根堆只保留当前最小的 $k$ 个，遍历其余元素，时间 $O(n\log k)$。
+
+<!-- thinking:end -->
 
 维护一个大小为 $k$ 的大根堆，遍历数组，将当前元素入堆，如果堆的大小超过 $k$，弹出堆顶元素。
 

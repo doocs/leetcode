@@ -43,6 +43,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.15.Longest%20Word/
 
 ### Solution 1: Hash Table + Sorting + DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest word that concatenates other dictionary words (reuse allowed), breaking ties lexicographically. Per-word segmentation is enough; longer words first can stop early.
+>
+> Sort by decreasing length then increasing lex order; the first concatenable word is the answer.
+>
+> Remove the word itself before the search so it cannot use itself. $dfs$ tries dictionary prefixes. Otherwise return empty.
+
+<!-- thinking:end -->
+
 Note that in the problem, each word can actually be reused.
 
 We can use a hash table $\textit{s}$ to store all the words, then sort the words in descending order of length, and if the lengths are the same, sort them in ascending lexicographical order.

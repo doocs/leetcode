@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.21.Sum%20Swap/READ
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Swap one value from each array so the sums match. Trying every pair is $O(nm)$.
+>
+> Let the sum gap be $diff$. Swapping $a$ and $b$ changes the gap by $2(a-b)$, so $a-b=diff/2$. An odd $diff$ is impossible.
+>
+> Put $array2$ in a set and look up $a-diff/2$ while scanning $array1$. One hash pass, linear time.
+
+<!-- thinking:end -->
+
 We first calculate the sum of the two arrays, and then calculate the difference $diff$ between the sums. If $diff$ is odd, it means that the sums of the two arrays cannot be equal, so we directly return an empty array.
 
 If $diff$ is even, we can traverse one of the arrays. Suppose the current element being traversed is $a$, then we need to find an element $b$ in the other array such that $a - b = diff / 2$, i.e., $b = a - diff / 2$. We can use a hash table to quickly check whether $b$ exists. If it exists, it means that we have found a pair of elements that meet the conditions, and we can return them directly.

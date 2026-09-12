@@ -45,6 +45,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.04.Closed%20Number
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The next larger and smaller integers with the same popcount are required. Incrementing and recounting ones may skip a long empty range.
+>
+> The next larger value swaps a `01` for `10` and packs remaining ones as far right as possible; the next smaller mirrors that on `10`.
+>
+> The two directions share a loop over adjacent-bit patterns $(a,b)$: swap the lowest valid pair, then gather bits below it. Missing neighbors stay $-1$.
+
+<!-- thinking:end -->
+
 First, let's consider how to find the first number that is larger than $num$ and has the same number of $1$s in its binary representation.
 
 We can traverse the adjacent two binary bits of $num$ from low to high. If the lower bit is $1$ and the adjacent higher bit is $0$, then we have found a position where we can change the $0$ at this position to $1$ and change the $1$ at this position to $0$. Then we move all the remaining lower bits of $1$ to the lowest bit, so we get a number that is larger than $num$ and has the same number of $1$s in its binary representation.

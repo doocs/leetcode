@@ -54,6 +54,18 @@ to the starting pixel.</pre>
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The 4-connected component of $(sr,sc)$ must be recolored. A full-image scan would recolor disconnected cells of the same color.
+>
+> Only cells reachable from the start with color $oc$ matter, which DFS visits.
+>
+> Return on out-of-range, a color other than $oc$, or the new color already; otherwise paint and recurse to four neighbors. The new-color test also stops infinite recursion when $oc$ equals $newColor$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$ to start filling color from $(i, j)$. If $(i, j)$ is not within the image range, or the color of $(i, j)$ is not the original color, or the color of $(i, j)$ has been filled with the new color, then return. Otherwise, fill the color of $(i, j)$ with the new color, and then recursively search the four directions: up, down, left, and right of $(i, j)$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.
@@ -261,6 +273,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS uses the call stack, which can be $mn$ deep on a long snake.
+>
+> BFS expands the same four-neighborhood from a queue, with equivalent marks and no deep recursion.
+
+<!-- thinking:end -->
 
 We can use the method of breadth-first search. Starting from the initial point, fill the color of the initial point with the new color, and then add the initial point to the queue. Each time a point is taken from the queue, the points in the four directions: up, down, left, and right are added to the queue, until the queue is empty.
 

@@ -54,6 +54,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.03.List%20of%20Dep
 
 ### Solution 1: BFS Level Order Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each depth must become its own linked list. DFS into a depth-indexed table works but is not the natural order of the levels.
+>
+> A level-order pass yields one whole level at a time, which is exactly one list.
+>
+> A queue holds the current level; popped nodes are appended after a dummy, and children are enqueued. `dummy.next` is stored at the end of the level. Each node is processed once.
+
+<!-- thinking:end -->
+
 We can use the BFS level order traversal method. For each level, we store the values of the current level's nodes into a list, and then add the list to the result array.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the binary tree.

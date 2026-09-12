@@ -62,6 +62,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.06.Convert%20Integ
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Turning $A$ into $B$ flips every bit where they differ. A $32$-step bit walk works.
+>
+> Those bits are exactly the ones in $A\oplus B$, so the answer is the Hamming weight of the XOR.
+>
+> Mask both with $0xFFFFFFFF$ so negative values share a $32$-bit unsigned view, then `bit_count`.
+
+<!-- thinking:end -->
+
 We perform a bitwise XOR operation on A and B. The number of $1$s in the result is the number of bits that need to be changed.
 
 The time complexity is $O(\log n)$, where $n$ is the maximum value of A and B. The space complexity is $O(1)$.

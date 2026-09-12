@@ -54,6 +54,18 @@ Can you solve it without using additional space?</p>
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The cycle entrance can be found with a visited set, using linear space.
+>
+> If fast and slow meet, they meet on the cycle. A third pointer from the head then meets slow at the entrance, because $x = (k-1)(y+z)+z$.
+>
+> Run `fast` at step $2$ and `slow` at step $1$ until they meet (or `fast` ends, no cycle); then walk $ans$ from the head with `slow`. No extra table is used.
+
+<!-- thinking:end -->
+
 We first use the fast and slow pointers to judge whether the linked list has a ring. If there is a ring, the fast and slow pointers will definitely meet, and the meeting node must be in the ring.
 
 If there is no ring, the fast pointer will reach the tail of the linked list first, and return `null` directly.

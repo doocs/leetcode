@@ -53,6 +53,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.26.Calculator/READ
 
 ### Solution 1: Stack
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A $+,-,*,/$ expression with no parentheses. Recursive splits or RPN work but are longer to write.
+>
+> The expression is a sum of terms, and each term has already applied $*$ and $/$.
+>
+> A stack holds terms: `+`/`-` push a signed number; `*`/`/` combine with the top immediately. The answer is the stack sum. Multi-digit numbers accumulate as $x=x*10+d$.
+
+<!-- thinking:end -->
+
 We can use a stack to store numbers. Each time we encounter an operator, we push the number into the stack. For addition and subtraction, since their priority is the lowest, we can directly push the numbers into the stack. For multiplication and division, since their priority is higher, we need to take out the top element of the stack, perform multiplication or division with the current number, and then push the result back into the stack.
 
 Finally, the sum of all elements in the stack is the answer.

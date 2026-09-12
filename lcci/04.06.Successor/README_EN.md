@@ -70,6 +70,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.06.Successor/READM
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The inorder successor is the next key after $p$. A full inorder walk is linear; a BST can do better.
+>
+> The successor is the smallest key strictly greater than $p.val$. If $root.val > p.val$, $root$ is a candidate and the search continues left; otherwise only the right subtree can help.
+>
+> The loop updates $ans$ and steps left or right in $O(h)$ time, without parent pointers.
+
+<!-- thinking:end -->
+
 The in-order traversal of a binary search tree is an ascending sequence, so we can use the binary search method.
 
 The in-order successor node of a binary search tree node $p$ satisfies:

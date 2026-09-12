@@ -51,6 +51,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.07.Permutation%20I
 
 ### Solution 1: DFS (Backtracking)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> All permutations of a string with distinct characters are required. The $n!$ size matches the output lower bound.
+>
+> Fill positions left to right from unused characters, tracked by $vis$.
+>
+> $dfs(i)$ writes an unused index of $S$ into $t[i]$ and records a string at $i=n$. Unmarking on the way back emits each permutation once.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i)$ to represent that the first $i$ positions have been filled, and now we need to fill the $(i+1)$-th position. Enumerate all possible characters, and if the character has not been used, fill in this character and continue to fill the next position until all positions are filled.
 
 The time complexity is $O(n \times n!)$, where $n$ is the length of the string. There are $n!$ permutations in total, and each permutation takes $O(n)$ time to construct.

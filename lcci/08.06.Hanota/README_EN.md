@@ -48,6 +48,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.06.Hanota/README_E
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Tower of Hanoi forbids a larger disk on a smaller one. Searching every legal move explores $3^n$ states.
+>
+> The optimal plan is unique: move $n-1$ to the spare peg, move the largest, then move $n-1$ onto it.
+>
+> $dfs(n,a,b,c)$ follows that order; $n=1$ is a single pop/append. The length is $2^n-1$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(n, a, b, c)$, which represents moving $n$ disks from $a$ to $c$, with $b$ as the auxiliary rod.
 
 First, we move $n - 1$ disks from $a$ to $b$, then move the $n$-th disk from $a$ to $c$, and finally move $n - 1$ disks from $b$ to $c$.
@@ -182,6 +194,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Iteration (Stack)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Recursion already emits the shortest sequence, but some judges limit call depth.
+>
+> An explicit stack of tasks $(n,a,b,c)$ performs the move when $n=1$, otherwise pushes the three subtasks so they pop as “move $n-1$, move the base, move $n-1$”.
+
+<!-- thinking:end -->
 
 We can use a stack to simulate the recursive process.
 

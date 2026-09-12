@@ -42,6 +42,18 @@ smalls = [&quot;is&quot;,&quot;ppi&quot;,&quot;hi&quot;,&quot;sis&quot;,&quot;i&
 
 ### 方法一：前缀树
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 在长串 $big$ 中定位多个模式的全部出现。对每个模式做一次朴素或 KMP，模式一多就重复扫主串。
+>
+> 把所有 $smalls$ 插入一棵前缀树，从 $big$ 的每个起点沿树走，途经的词结束位置即一次命中。
+>
+> `insert` 在词尾记下下标；`search` 沿后缀收集这些下标。主串每个起点走至多词长步，共享前缀只建一次。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

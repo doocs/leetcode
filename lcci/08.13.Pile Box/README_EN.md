@@ -45,6 +45,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/08.13.Pile%20Box/READ
 
 ### Solution 1: Sorting + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A box may sit only on a strictly larger one in all three dimensions. Searching stacking orders is factorial.
+>
+> Sorting by width reduces the problem to a 3D increasing chain, solvable by $O(n^2)$ LIS-style DP. Equal widths are broken by decreasing depth so they are not treated as stackable.
+>
+> $f[i]$ is the best height with box $i$ at the bottom; earlier boxes with smaller depth and height update it, then $box[i]$’s height is added.
+
+<!-- thinking:end -->
+
 First, we sort the boxes in ascending order by width and descending order by depth, then use dynamic programming to solve the problem.
 
 We define $f[i]$ as the maximum height with the $i$-th box at the bottom. For $f[i]$, we enumerate $j \in [0, i)$, if $box[j][1] < box[i][1]$ and $box[j][2] < box[i][2]$, then we can put the $j$-th box on top of the $i$-th box, in which case $f[i] = \max\{f[i], f[j]\}$. Finally, we add the height of the $i$-th box to $f[i]$ to get the final value of $f[i]$.

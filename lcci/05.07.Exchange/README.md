@@ -44,6 +44,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要交换相邻奇偶位。循环里每次抽两位交换，需要约 $16$ 轮。
+>
+> 全部偶数位、奇数位可以一次用掩码取出，再整体错位拼回。
+>
+> $0x55555555$ 取出偶数位后左移，$0xAAAAAAAA$ 取出奇数位后右移，最后按位或。常数次运算，无循环。
+
+<!-- thinking:end -->
+
 我们可以将 $\textit{num}$ 与 $\textit{0x55555555}$ 进行与运算，得到的结果是 $\textit{num}$ 的偶数位，然后将其左移一位。再将 $\textit{num}$ 与 $\textit{0xaaaaaaaa}$ 进行与运算，得到的结果是 $\textit{num}$ 的奇数位，然后将其右移一位。最后将两个结果进行或运算，即可得到答案。
 
 时间复杂度 $O(1)$，空间复杂度 $O(1)$。

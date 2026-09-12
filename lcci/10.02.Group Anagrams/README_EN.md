@@ -51,6 +51,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.02.Group%20Anagram
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Anagrams share a sorted key. Pairwise anagram tests are $O(n^2 k)$.
+>
+> Hashing that sorted string clusters the original words automatically.
+>
+> For each $s$, append it to $d[''.join(sorted(s))]$ and emit the value lists. One $O(k\log k)$ sort per word buys a hash insert.
+
+<!-- thinking:end -->
+
 1. Traverse the string array, sort each string according to **character lexicographical order**, and get a new string.
 2. Use the new string as `key` and `[str]` as `value`, and store them in the hash table (`HashMap<String, List<String>>`).
 3. When the same `key` is encountered in subsequent traversals, add it to the corresponding `value`.
@@ -173,6 +185,16 @@ class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> With a tiny alphabet the sort key can become a frequency tuple, dropping the $O(k\log k)$ factor.
+>
+> A length-$26$ count (or a tuple built from it) is the key; grouping is unchanged and each word is $O(k+C)$.
+
+<!-- thinking:end -->
 
 We can also change the sorting part in Solution 1 to counting, that is, use the characters in each string $s$ and their occurrence times as `key`, and the string $s$ as `value` to store in the hash table.
 

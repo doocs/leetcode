@@ -24,6 +24,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.08.First%20Common%
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最近公共祖先是同时覆盖 $p$、$q$ 的最深节点。先找根到两点的路径再比前缀，需要额外存储。
+>
+> 若 $p$、$q$ 分处左右子树，当前根即为答案；若都在同一侧，答案在那一侧更深处。
+>
+> 递归：空或命中 $p$/$q$ 则返回该节点；左右都非空则返回根，否则返回非空一侧。每个节点访问一次。
+
+<!-- thinking:end -->
+
 我们首先判断根节点是否为空，或者根节点是否等于 $\textit{p}$ 或 $\textit{q}$，如果是的话，直接返回根节点。
 
 然后递归地对左右子树进行查找，分别得到 $\textit{left}$ 和 $\textit{right}$。如果 $\textit{left}$ 和 $\textit{right}$ 都不为空，说明 $\textit{p}$ 和 $\textit{q}$ 分别在左右子树中，那么根节点就是最近公共祖先。否则，如果 $\textit{left}$ 和 $\textit{right}$ 中有一个为空，说明 $\textit{p}$ 和 $\textit{q}$ 都在非空的子树中，那么非空的子树的根节点就是最近公共祖先。

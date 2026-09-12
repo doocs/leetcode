@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/01.01.Is%20Unique/REA
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A hash set of seen characters decides uniqueness in one scan, in $O(n)$ time and space proportional to the alphabet. The constraint $n \le 100$ allows that, but the follow-up asks for no extra data structure.
+>
+> If the string contains only lowercase letters, there are at most $26$ symbols, so each bit of an integer can record whether a letter has appeared. On character $c$, test the corresponding bit: if it is already $1$, a duplicate exists; otherwise set the bit.
+>
+> Bit operations turn membership tests and inserts into constant-time, constant-space work, which is why a mask is used instead of a hash table or boolean array.
+
+<!-- thinking:end -->
+
 Based on the examples, we can assume that the string only contains lowercase letters (which is confirmed by actual verification).
 
 Therefore, we can use each bit of a $32$-bit integer `mask` to represent whether each character in the string has appeared.

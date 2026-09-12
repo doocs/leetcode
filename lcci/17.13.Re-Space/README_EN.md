@@ -52,6 +52,18 @@ sentence = &quot;jesslookedjustliketimherbrother&quot;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert spaces so unrecognized characters are minimized. All segmentations are exponential; $O(n^2)$ interval checks fit the limits.
+>
+> $dp[i]$ is the fewest unknowns in the first $i$ characters. The last piece is either one unknown or a dictionary word $sentence[j:i]$ transferring from $dp[j]$.
+>
+> A set makes membership $O(1)$. $dp[0]=0$ fills up to $n$. No trie is needed while $n$ stays moderate.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

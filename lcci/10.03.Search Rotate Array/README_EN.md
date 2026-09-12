@@ -44,6 +44,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/10.03.Search%20Rotate
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Search $target$ in a rotated sorted array that may contain duplicates. A linear scan finds the leftmost hit but ignores half-sorted structure.
+>
+> The midpoint splits off at least one sorted side; comparing $arr[mid]$ with $arr[r]$ tells which side is sorted and whether $target$ lies there.
+>
+> Equal ends shrink $r$ first so the test is well-defined. After the loop, check $arr[l]$. Duplicates make the worst case nearly linear.
+
+<!-- thinking:end -->
+
 We define the left boundary of the binary search as $l=0$ and the right boundary as $r=n-1$, where $n$ is the length of the array.
 
 In each binary search process, we get the current midpoint $mid=(l+r)/2$.

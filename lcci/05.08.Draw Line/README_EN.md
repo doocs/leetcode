@@ -43,6 +43,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.08.Draw%20Line/REA
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Row $y$ must set bits $[x_1,x_2]$ in a $32$-bit packed screen. Per-pixel writes are correct but awkward at word edges.
+>
+> Fully covered words become all ones ($-1$); only the first and last words need masks.
+>
+> Indices $i,j$ come from $y\cdot w+x$. Fill $[i,j]$ with $-1$, then clear bits before $x_1\bmod 32$ and after $x_2\bmod 32$.
+
+<!-- thinking:end -->
+
 First, we calculate the positions of $x_1$ and $x_2$ in the result array, denoted as $i$ and $j$. Then, we set the elements between $i$ and $j$ to $-1$.
 
 If $x_1 \bmod 32 \neq 0$, we need to set the first $x_1 \bmod 32$ bits of the element at position $i$ to $0$.

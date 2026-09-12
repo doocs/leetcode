@@ -55,6 +55,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.01.Remove%20Duplic
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicate values must be removed while keeping the first occurrence. Scanning the suffix for every node is $O(n^2)$, fine for short lists but linear per query.
+>
+> “Has this value appeared?” is a lookup; a hash table makes it expected constant time.
+>
+> $vis$ stores kept values and a dummy $pre$ simplifies deletion: skip $pre.next$ when its value is already in the set, otherwise record it and advance. One pass removes duplicates.
+
+<!-- thinking:end -->
+
 We create a hash table $vis$ to record the values of the nodes that have been visited.
 
 Then we create a dummy node $pre$ such that $pre.next = head$.

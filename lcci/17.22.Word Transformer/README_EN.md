@@ -66,6 +66,18 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path from $begin$ to $end$ changing one letter at a time inside the word list. The list is small enough to search without a prebuilt graph.
+>
+> DFS tries each unused word that differs in one position, keeps the path on success, and backtracks otherwise.
+>
+> `check` counts mismatches; $vis$ blocks reuse. Hitting $endWord$ returns $ans$, else empty. Any path is accepted.
+
+<!-- thinking:end -->
+
 We define an answer array `ans`, initially containing only `beginWord`. Then we define an array `vis` to mark whether the words in `wordList` have been visited.
 
 Next, we design a function `dfs(s)`, which represents whether we can successfully convert `s` to `endWord` starting from `s`. If successful, return `True`, otherwise return `False`.

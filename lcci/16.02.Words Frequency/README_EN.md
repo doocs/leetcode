@@ -58,6 +58,18 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Many queries ask how often a word appears. Scanning the book each time repeats linear work.
+>
+> One preprocessing pass leaves expected $O(1)$ lookups.
+>
+> `Counter(book)` builds the table; `get` returns $cnt[word]$. Space follows the number of distinct words.
+
+<!-- thinking:end -->
+
 We use a hash table $cnt$ to count the number of occurrences of each word in $book$.
 
 When calling the `get` function, we only need to return the number of occurrences of the corresponding word in $cnt$.

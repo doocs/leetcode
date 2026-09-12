@@ -37,6 +37,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.06.Number%20Of%202
 
 ### Solution 1: Digit DP
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count digit $2$ in $[0,n]$. Closed formulas per place work, but the high/low/current split is easy to get wrong.
+>
+> Digit DP stores remaining positions, how many twos so far, and whether the prefix is tight, so memoization depends only on those.
+>
+> Split $n$ into $a[1..l]$; $dfs(pos,cnt,limit)$ enumerates $0\ldots up$ from the high end. A tight $limit$ caps the digit at $a[pos]$. The answer is $dfs(l,0,True)$.
+
+<!-- thinking:end -->
+
 This problem is essentially about finding the number of occurrences of the digit $2$ in the given interval $[l,..r]$. The count is related to the number of digits and the digit at each position. We can use the idea of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.
 
 For the interval $[l,..r]$, we usually transform it into $[1,..r]$ and then subtract $[1,..l - 1]$, i.e.,

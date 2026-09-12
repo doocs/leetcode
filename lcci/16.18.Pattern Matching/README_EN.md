@@ -64,6 +64,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.18.Pattern%20Match
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> `a` and `b` each stand for a (possibly empty) string. Searching the product of their contents is huge.
+>
+> Once the two lengths are fixed, the match is determined; it remains to check consistency and $a\ne b$.
+>
+> Handle a single-letter pattern first. Enumerate $la$, deduce $lb$ from the total length, and `check` slices along the pattern. Both the enum and each check are linear.
+
+<!-- thinking:end -->
+
 We first count the number of characters `'a'` and `'b'` in the pattern string $pattern$, denoted as $cnt[0]$ and $cnt[1]$, respectively. Let the length of the string $value$ be $n$.
 
 If $cnt[0]=0$, it means that the pattern string only contains the character `'b'`. We need to check whether $n$ is a multiple of $cnt[1]$, and whether $value$ can be divided into $cnt[1]$ substrings of length $n/cnt[1]$, and all these substrings are the same. If not, return $false$ directly.

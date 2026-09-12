@@ -42,6 +42,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README.m
 
 ### 方法一：中序遍历
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> BST 转成只含右孩子的递增链表。先中序放入数组再穿线，额外 $O(n)$ 空间。
+>
+> 中序访问顺序即链表顺序，访问时把 $prev.right$ 指过来并清空左孩子。
+>
+> 哑节点接在链头，$prev$ 跟随已连好的尾。递归左右，原地改指针，最后返回 `dummy.right`。
+
+<!-- thinking:end -->
+
 中序遍历过程中改变指针指向。
 
 时间复杂度 $O(n)$。

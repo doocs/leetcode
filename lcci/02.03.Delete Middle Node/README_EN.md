@@ -36,6 +36,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/02.03.Delete%20Middle
 
 ### Solution 1: Node Assignment
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deletion usually needs the predecessor. Only the target node is given, and it is not the tail, so there is no way to walk backward.
+>
+> The observable effect is that this position’s value and successor link vanish. Copying the next value into the current node and skipping the next node looks like a deletion to the caller.
+>
+> The two assignments `node.val = node.next.val` and `node.next = node.next.next` suffice in constant time and space.
+
+<!-- thinking:end -->
+
 We can replace the value of the current node with the value of the next node, and then delete the next node. This way, we can achieve the purpose of deleting the current node.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

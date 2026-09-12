@@ -45,6 +45,18 @@ square2 = {0, -1, 2}
 
 ### Solution 1: Geometric Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A line that bisects both squares passes through both centers. Intersect that line with the bounding box and order the endpoints as required.
+>
+> A vertical line is handled apart so the slope is finite; otherwise use $k$ and $b$.
+>
+> If $|k|>1$ the line hits the top and bottom, otherwise the left and right. Swap the ends when needed so the first point is leftmost (or bottommost). All work is $O(1)$.
+
+<!-- thinking:end -->
+
 We know that if a line can bisect two squares, then the line must pass through the centers of the two squares. Therefore, we can first calculate the centers of the two squares, denoted as $(x_1, y_1)$ and $(x_2, y_2)$, respectively.
 
 If $x_1 = x_2$, then the line is perpendicular to the $x$-axis, and we only need to find the intersection point of the top and bottom edges of the two squares.

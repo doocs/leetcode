@@ -56,6 +56,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.05.Find%20Longest%
 
 ### Solution 1: Prefix Sum + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest subarray with equally many letters and digits. Counting every pair of ends is quadratic.
+>
+> Letters as $+1$ and digits as $-1$ turn the task into the longest zero-sum subarray, i.e. the farthest pair of equal prefix sums.
+>
+> $vis$ stores the first index of each prefix, including $0\mapsto -1$. A repeat of $s$ yields a zero-sum $(j,i]$; keep the first index so the span is longest.
+
+<!-- thinking:end -->
+
 The problem requires finding the longest subarray with an equal number of characters and digits. We can treat characters as $1$ and digits as $-1$, transforming the problem into finding the longest subarray with a sum of $0$.
 
 We can use the idea of prefix sums and a hash table `vis` to record the first occurrence of each prefix sum. We use variables `mx` and `k` to record the length and the left endpoint of the longest subarray that meets the conditions, respectively.

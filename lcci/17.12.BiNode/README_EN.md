@@ -46,6 +46,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.12.BiNode/README_E
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Convert a BST into a right-only increasing list. An inorder array plus a second pass uses linear extra space.
+>
+> Inorder is already the list order: on visit, attach the node to $prev.right$ and clear the left child.
+>
+> A dummy heads the list and $prev$ tracks the tail. Recurse left/right and return `dummy.right`.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -40,6 +40,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.01.Swap%20Numbers/
 
 ### Solution 1: Bitwise Operation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A temporary usually swaps two numbers; the problem forbids extra storage. Addition and subtraction work but may overflow.
+>
+> XOR satisfies $a\oplus b\oplus b=a$, so three XORs swap without carry.
+>
+> The three assignments $a\oplus=b$, $b\oplus=a$, $a\oplus=b$ are exactly the updates of `numbers[0]` and `numbers[1]`.
+
+<!-- thinking:end -->
+
 We can use the XOR operation $\oplus$ to implement the swap of two numbers.
 
 The XOR operation has the following three properties:

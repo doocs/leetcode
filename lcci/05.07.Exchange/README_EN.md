@@ -51,6 +51,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/05.07.Exchange/README
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Adjacent odd/even bits must be swapped. Sixteen pairwise swaps work but loop.
+>
+> All even bits and all odd bits can be gathered with masks and shifted as two blocks.
+>
+> AND with $0x55555555$ and shift left; AND with $0xAAAAAAAA$ and shift right; OR the two halves. A few operations, no loop.
+
+<!-- thinking:end -->
+
 We can perform a bitwise AND operation between `num` and `0x55555555` to get the even bits of `num`, and then shift them one bit to the left. Then, we perform a bitwise AND operation between `num` and `0xaaaaaaaa` to get the odd bits of `num`, and then shift them one bit to the right. Finally, we perform a bitwise OR operation on the two results to get the answer.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

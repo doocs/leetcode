@@ -35,6 +35,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/16.17.Contiguous%20Se
 
 ### 方法一：动态规划
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 最大子段和。枚举左右端点再求和是立方或平方，数组很长时不合适。
+>
+> 以 $i$ 结尾的最佳段，要么接上 $i-1$ 的最佳段，要么独自从 $i$ 开始，即 Kadane。
+>
+> 滚动 $f=\max(f,0)+x$，并维护全局最大。空间 $O(1)$，与「只依赖上一位置」一致。
+
+<!-- thinking:end -->
+
 我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的连续子数组的最大和，那么状态转移方程为：
 
 $$

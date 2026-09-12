@@ -50,6 +50,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/17.24.Max%20Submatrix
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The maximum-sum submatrix and its corners. Four nested loops plus summing is worse than $O(n^4)$.
+>
+> Fix the top and bottom rows, compress columns to a 1D array, and run Kadane, keeping the left and right ends.
+>
+> Column prefix sums $s$ make a vertical slice $O(1)$. For each $(i_1,i_2)$ Kadane updates $mx$ and $[i_1,start,i_2,j]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

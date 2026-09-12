@@ -62,6 +62,18 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcci/04.05.Legal%20Binary%
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Comparing a node only with its children misses constraints that span levels, such as every key in the right subtree exceeding the root.
+>
+> BST inorder is strictly increasing, so each visit can be checked against the previous value.
+>
+> $prev$ starts at $-\infty$; after a valid left subtree, require $prev < root.val$, update $prev$, and go right. No explicit sequence is stored.
+
+<!-- thinking:end -->
+
 We can perform a recursive in-order traversal on the binary tree. If the result of the traversal is strictly ascending, then this tree is a binary search tree.
 
 Therefore, we use a variable `prev` to save the last node we traversed. Initially, `prev = -∞`. Then we recursively traverse the left subtree. If the left subtree is not a binary search tree, we directly return `False`. Otherwise, we check whether the value of the current node is greater than `prev`. If not, we return `False`. Otherwise, we update `prev` to the value of the current node, and then recursively traverse the right subtree.

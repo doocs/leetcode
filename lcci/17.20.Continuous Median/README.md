@@ -48,6 +48,18 @@ findMedian() -&gt; 2
 
 ### 方法一：大小根堆（优先队列）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数据流中取中位数。每次排序是 $O(n\log n)$；平衡 BST 可做但实现重。
+>
+> 中位数只依赖「较小一半的最大」与「较大一半的最小」，两个堆即可。
+>
+> 大根堆 $maxq$ 存较小半（用负数模拟），小根堆 $minq$ 存较大半。插入先进入大根堆再弹出到小根堆，并在长度差超过 $1$ 时回调。偶数取两顶平均。
+
+<!-- thinking:end -->
+
 我们可以使用两个堆来维护所有的元素，一个小根堆 $\textit{minQ}$ 和一个大根堆 $\textit{maxQ}$，其中小根堆 $\textit{minQ}$ 存储较大的一半，大根堆 $\textit{maxQ}$ 存储较小的一半。
 
 调用 `addNum` 方法时，我们首先将元素加入到大根堆 $\textit{maxQ}$，然后将 $\textit{maxQ}$ 的堆顶元素弹出并加入到小根堆 $\textit{minQ}$。如果此时 $\textit{minQ}$ 的大小与 $\textit{maxQ}$ 的大小差值大于 $1$，我们就将 $\textit{minQ}$ 的堆顶元素弹出并加入到 $\textit{maxQ}$。时间复杂度为 $O(\log n)$。
