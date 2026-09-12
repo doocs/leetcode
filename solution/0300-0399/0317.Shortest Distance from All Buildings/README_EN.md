@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README_EN.md
 tags:
     - Breadth-First Search
     - Array

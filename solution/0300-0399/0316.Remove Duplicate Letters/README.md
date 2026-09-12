@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0316.Remove%20Duplicate%20Letters/README.md
 tags:
     - 栈
     - 贪心

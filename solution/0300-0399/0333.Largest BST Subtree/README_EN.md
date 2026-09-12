@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/0300-0399/0333.Largest%20BST%20Subtree/README_EN.md
 tags:
     - Tree
     - Depth-First Search
