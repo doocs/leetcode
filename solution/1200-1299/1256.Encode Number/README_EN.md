@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1: Bit Manipulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The table is $0,1,00,01,\ldots$, i.e. all binary strings in order. The bits of $num+1$ without the leading $1$ are exactly the $num$-th such string. $num$ reaches $10^9$, so we cannot list them; one bit trick suffices.
+
+<!-- thinking:end -->
+
 We add one to $num$, then convert it to a binary string and remove the highest bit $1$.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Where $n$ is the size of $num$.

@@ -57,6 +57,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An even number of people shake hands on a circle without crossing; the count is Catalan-like. $n \le 1000$ forbids listing matchings. Fix one person: their partner splits the circle into two smaller even instances, and we multiply those counts over every legal partner.
+>
+> $dfs(i)$ tries an even left size $l$ and a right size $i-l-2$. Memoization shares sub-circles. We reduce modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents the number of handshake schemes for $i$ people. The answer is $dfs(n)$.
 
 The execution logic of the function $dfs(i)$ is as follows:

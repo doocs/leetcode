@@ -64,6 +64,16 @@ tags:
 
 ### Solution 1: Two DFS Passes
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The diameter is the longest simple path. $n \le 10^4$ forbids all endpoint pairs. From any vertex the farthest vertex is an end of some diameter; a second walk from that end is the diameter.
+>
+> Two DFS passes: the first from $0$ finds the farthest $a$; the second from $a$ is the length. The graph is a tree, so DFS and BFS both find a farthest vertex.
+
+<!-- thinking:end -->
+
 First, we arbitrarily select a node and start a depth-first search (DFS) from this node to find the farthest node from it, denoted as node $a$. Then, we start another DFS from node $a$ to find the farthest node from node $a$, denoted as node $b$. It can be proven that the path between node $a$ and node $b$ is the diameter of the tree.
 
 Time complexity is $O(n)$, and space complexity is $O(n)$, where $n$ is the number of nodes.

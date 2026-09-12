@@ -75,6 +75,16 @@ Islands in gray are closed because they are completely surrounded by water (grou
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A closed island is a land component that never touches the border. $m,n \le 100$ allows flood fill. From each unseen land cell we DFS, painting water to avoid revisits, and count the component if every cell is interior.
+>
+> The return value ANDs “this cell is not on the border” with all neighbors. In-place writes serve as the visited mark.
+
+<!-- thinking:end -->
+
 We traverse the matrix, and for each piece of land, we perform a depth-first search to find all the land connected to it. Then we check if there is any land on the boundary. If there is, it is not a closed island; otherwise, it is a closed island, and we increment the answer by one.
 
 Finally, we return the answer.
@@ -277,6 +287,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Union-Find
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> DFS uses a call stack and mutates the grid. Union-find links adjacent land and also links border cells to a dummy node; we count land whose root is itself and is not the dummy. Iterative unions avoid recursion; the meaning is still “land components off the border”.
+
+<!-- thinking:end -->
 
 We can use a union-find set to maintain each piece of connected land.
 

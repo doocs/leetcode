@@ -118,6 +118,16 @@ startUrl = &quot;http://news.google.com&quot;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in the single-thread crawler, we collect only same-host URLs. Fetches may run in parallel; the mutex is the visited set.
+>
+> That set must be thread-safe: after a worker parses a link, it hands the URL to other workers only if the host matches and the insert succeeds. The queue and the set together fetch each page at most once; the host filter keeps the crawl on one domain.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

@@ -77,6 +77,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Column sums are given, and the two rows must contain $upper$ and $lower$ ones. $n \le 10^5$ forbids backtracking. A $2$ forces both ones; a $0$ forces both zeros; a $1$ must go to the row with the larger remaining quota, or that row may run out later.
+>
+> We fill left to right; a negative remainder or leftover quota at the end means failure. Giving the singleton one to the tighter row does not create extra conflicts.
+
+<!-- thinking:end -->
+
 First, we create an answer array $ans$, where $ans[0]$ and $ans[1]$ represent the first and second rows of the matrix, respectively.
 
 Next, we traverse the array $colsum$ from left to right. For the current element $colsum[j]$, we have the following cases:
