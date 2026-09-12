@@ -1,5 +1,5 @@
 {
-  "cache_date": 1789198025,
+  "cache_date": 1789203283,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -43160,13 +43160,25 @@
     "solution/3400-3499/3414.Maximum Score of Non-overlapping Intervals/README.md": {
       "authors": [
         {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
+          "login": "SamirCoder16",
+          "name": "SamirCoder16",
+          "url": "https://github.com/SamirCoder16",
+          "avatar": "https://avatars.githubusercontent.com/u/192109895?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789202734
     },
     "solution/3400-3499/3415.Find Products with Three Consecutive Digits/README.md": {
       "authors": [
@@ -110329,13 +110341,25 @@
     "solution/3400-3499/3414.Maximum Score of Non-overlapping Intervals/README_EN.md": {
       "authors": [
         {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
+          "login": "SamirCoder16",
+          "name": "SamirCoder16",
+          "url": "https://github.com/SamirCoder16",
+          "avatar": "https://avatars.githubusercontent.com/u/192109895?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789202741
     },
     "solution/3400-3499/3415.Find Products with Three Consecutive Digits/README_EN.md": {
       "authors": [
