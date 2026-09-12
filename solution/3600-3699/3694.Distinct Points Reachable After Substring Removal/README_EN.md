@@ -102,7 +102,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can use prefix sum arrays to track position changes after each move. Specifically, we use two prefix sum arrays $f$ and $g$ to record the position changes on the $x$-axis and $y$-axis respectively after each move.
 
 Initialize $f[0] = 0$ and $g[0] = 0$, representing the initial position at $(0, 0)$. Then, we iterate through the string $s$, and for each character:

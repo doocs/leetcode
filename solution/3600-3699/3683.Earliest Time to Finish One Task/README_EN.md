@@ -74,7 +74,6 @@ source: Weekly Contest 467 Q1
 
 <!-- thinking:end -->
 
-
 We iterate through the $\textit{tasks}$ array and, for each task, calculate its completion time $s_i + t_i$. The minimum of all task completion times is the earliest time to finish at least one task.
 
 The time complexity is $O(n)$, where $n$ is the length of the $\textit{tasks}$ array. The space complexity is $O(1)$.

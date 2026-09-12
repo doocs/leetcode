@@ -89,7 +89,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define a function $\text{f}(x)$ to calculate the late fee for each book:
 
 $$

@@ -103,7 +103,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can directly simulate the operations described in the problem by iterating through each query and updating the corresponding elements in the array $\textit{nums}$. Finally, we calculate the bitwise XOR of all elements in the array and return the result.
 
 The time complexity is $O(q \times \frac{n}{k})$, where $n$ is the length of the array $\textit{nums}$ and $q$ is the number of queries. The space complexity is $O(1)$.

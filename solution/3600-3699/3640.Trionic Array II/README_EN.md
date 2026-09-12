@@ -99,7 +99,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can traverse the array to find all possible maximal trionic subarrays, calculate their sums, and update the maximum value.
 
 We define a pointer $i$, initially $i = 0$, representing the current position pointing to the first element of the array. We move $i$ to the right until we find the first element that does not satisfy strict increase, i.e., $nums[i-1] \geq nums[i]$. If at this point $i = l + 1$, it means this segment has only one element and cannot form an increasing sequence, so we continue to the next iteration.

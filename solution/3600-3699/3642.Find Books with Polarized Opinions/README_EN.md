@@ -182,7 +182,6 @@ The <em>polarization score</em> should be rounded to 2 decimal places.</p>
 
 <!-- thinking:end -->
 
-
 We can implement this by joining the `books` table with the `reading_sessions` table, then grouping and aggregating the results.
 
 First, we need to calculate the rating range, the number of extreme ratings, and the proportion of extreme ratings for each book.

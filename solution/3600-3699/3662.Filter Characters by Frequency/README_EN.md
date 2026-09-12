@@ -89,7 +89,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we iterate through the string $s$ and count the frequency of each character, storing the results in a hash table or array $\textit{cnt}$.
 
 Then, we iterate through the string $s$ again, adding characters whose frequency is less than $k$ to the result string. Finally, we return the result string.

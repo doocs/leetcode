@@ -92,7 +92,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can first calculate the number of "LCT" subsequences in the original string, then consider the case of inserting one letter.
 
 The number of "LCT" subsequences can be calculated by traversing the string. We can enumerate the middle "C" and use two variables $l$ and $r$ to maintain the counts of "L" on the left and "T" on the right respectively. For each "C", we can calculate the number of "L"s on its left and the number of "T"s on its right, thus obtaining the number of "LCT" subsequences with this "C" as the middle character as $l \times r$, and accumulate it to the total count.

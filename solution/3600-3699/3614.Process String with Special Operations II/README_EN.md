@@ -224,7 +224,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We first calculate the length $m$ of the processed result string $\textit{result}$. If $k \geq m$, it indicates that $k$ exceeds the valid indices of the result string, so we return '.'.
 
 Otherwise, we traverse the string $s$ in reverse order and handle each character based on the following cases:

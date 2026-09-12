@@ -164,7 +164,6 @@ Each row represents a meeting attended by an employee. meeting_type can be &#39;
 
 <!-- thinking:end -->
 
-
 First, we group the data by `employee_id`, `year`, and `week` to calculate the total meeting hours for each employee in each week. Then, we filter out the weeks where the meeting hours exceed 20 and count the number of meeting-heavy weeks for each employee. Finally, we join the result with the employees table, filter out employees with at least 2 meeting-heavy weeks, and sort the results as required.
 
 <!-- tabs:start -->

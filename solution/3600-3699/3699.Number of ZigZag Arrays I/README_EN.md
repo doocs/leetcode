@@ -100,7 +100,6 @@ source: Weekly Contest 469 Q3
 
 <!-- thinking:end -->
 
-
 Let $m = r - l + 1$ and map the range $[l, r]$ to $[0, m - 1]$.
 
 Let $up[i]$ be the number of arrays of the current length that end with $i$ whose last step is an increase, and $down[i]$ the number whose last step is a decrease. For length $1$ there is no direction, so initialize $up[i] = down[i] = 1$.

@@ -84,7 +84,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we build a mapping from the order array to record the finishing position of each ID. Then, we sort the friends array based on the finishing order of these IDs in the order array.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$, where $n$ is the length of the order array.

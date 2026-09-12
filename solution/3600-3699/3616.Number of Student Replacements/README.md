@@ -87,7 +87,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们用一个变量 $\text{cur}$ 来记录当前选中的学生的排名。遍历数组 $\text{ranks}$，如果遇到一个排名更好的学生（即 $\text{ranks}[i] < \text{cur}$），则更新 $\text{cur}$ 并将答案加一。
 
 遍历结束后，返回答案即可。

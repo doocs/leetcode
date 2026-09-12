@@ -90,7 +90,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can combine all points pairwise, calculate the slope and intercept of the line corresponding to each pair of points, record them using a hash table, and calculate the sum of the number of pairs formed by lines with the same slope but different intercepts. Note that for parallelograms, we will count them twice in the above calculation, so we need to subtract them.
 
 The diagonals of a parallelogram share the same midpoint. Therefore, we also combine all points pairwise, calculate the midpoint coordinates and slope of each pair of points, record them using a hash table, and calculate the sum of the number of pairs formed by point pairs with the same slope and the same midpoint coordinates.

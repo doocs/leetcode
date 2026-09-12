@@ -116,7 +116,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 First, we preprocess the list of prime factors for every number up to $10^6$ and store them in $\textit{factors}$.
 
 Then we build a graph $g$. For each index $i$ and each $p \in \textit{factors}[nums[i]]$, we add $i$ to $g[p]$. In this way, we obtain the list of indices that can be reached by teleportation through each prime number $p$.

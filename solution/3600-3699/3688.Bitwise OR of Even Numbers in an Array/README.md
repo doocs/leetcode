@@ -91,7 +91,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们定义一个答案变量 $\textit{ans}$，初始值为 0。然后我们遍历数组 $\textit{nums}$ 中的每个元素 $x$，如果 $x$ 是偶数，则将 $\textit{ans}$ 更新为 $\textit{ans}$ 与 $x$ 的按位或运算结果。
 
 最后返回 $\textit{ans}$。

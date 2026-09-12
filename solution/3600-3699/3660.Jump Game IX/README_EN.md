@@ -100,7 +100,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 If $i = n - 1$, then it can jump to the maximum value in $\textit{nums}$, so $\textit{ans}[i] = \max(\textit{nums})$. For other positions $i$, we can calculate by maintaining a prefix maximum array and a suffix minimum variable.
 
 The specific steps are as follows:

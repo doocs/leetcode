@@ -94,7 +94,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 The sum of the first $n$ odd numbers is $n^2$, while the sum of the first $n$ even numbers is $n(n + 1)$. The greatest common divisor of these two is at least $n$. Since $n$ and $n + 1$ are coprime, the answer is $n$.
 
 The time complexity is $O(1)$, and the space complexity is $O(1)$.

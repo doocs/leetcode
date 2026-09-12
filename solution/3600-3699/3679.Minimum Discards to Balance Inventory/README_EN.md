@@ -110,7 +110,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We use a hash map $\textit{cnt}$ to record the quantity of each item type in the current window, and an array $\textit{marked}$ to record whether each item is kept.
 
 We iterate through the array from left to right. For each item $x$:

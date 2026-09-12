@@ -177,7 +177,6 @@ source: Biweekly Contest 163 Q2
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### Python3

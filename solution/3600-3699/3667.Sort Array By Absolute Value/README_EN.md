@@ -91,7 +91,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can use a custom sorting function to sort the array, where the sorting criterion is the absolute value of each element.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.

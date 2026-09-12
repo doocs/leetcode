@@ -93,7 +93,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, we can construct a directed graph $g$ where each edge $(u, v)$ allows for two types of traversal:
 
 - Direct traversal with cost $w$, corresponding to edge $(u, v)$.

@@ -93,7 +93,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We first sort the array $\textit{nums}$, then iterate from the end to the beginning, selecting the largest $k$ distinct elements. Since we require a strictly decreasing order, we skip duplicate elements during selection.
 
 The time complexity is $O(n \times \log n)$, where $n$ is the length of the $\textit{nums}$ array. Ignoring the space used for the answer, the space complexity is $O(\log n)$.

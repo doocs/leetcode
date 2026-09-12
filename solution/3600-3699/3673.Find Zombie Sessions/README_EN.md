@@ -165,7 +165,6 @@ event_value represents: for purchase - amount in dollars, for scroll - pixels sc
 
 <!-- thinking:end -->
 
-
 We can group the sessions by session_id, calculate the session duration, the number of scroll events, click events, and purchase events for each session, then filter according to the conditions given in the problem. Finally, we sort by the number of scroll events in descending order and by session ID in ascending order.
 
 <!-- tabs:start -->

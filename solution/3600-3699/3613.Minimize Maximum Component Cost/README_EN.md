@@ -97,7 +97,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 If $k = n$, it means all edges can be removed. In this case, all connected components are isolated nodes, and the maximum cost is 0.
 
 Otherwise, we can sort all edges by weight in ascending order, then use a union-find data structure to maintain connected components.

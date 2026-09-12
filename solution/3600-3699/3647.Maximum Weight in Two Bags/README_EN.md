@@ -102,7 +102,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define $f[i][j][k]$ to represent the maximum total weight when placing the first $i$ items into two bags, where bag 1 has a maximum capacity of $j$ and bag 2 has a maximum capacity of $k$. Initially, $f[0][j][k] = 0$, indicating that no items can be placed in the bags.
 
 The state transition equation is:

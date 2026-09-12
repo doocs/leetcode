@@ -166,7 +166,6 @@ Each row represents a trip made by a driver, including the distance traveled and
 
 <!-- thinking:end -->
 
-
 First, we perform group aggregation on the `trips` table to calculate the average fuel efficiency for each driver in the first half and the second half of the year.
 
 Then, we join the results with the `drivers` table, filter out the drivers whose fuel efficiency has improved, and calculate the amount of improvement.

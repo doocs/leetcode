@@ -204,7 +204,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We use a hash map $\textit{cnt}$ to record the frequency of each number in the current window. We use a priority queue $\textit{pq}$ to store the frequency and value of each number in the current window, with priority given to higher frequency, and for equal frequency, to smaller numbers.
 
 We design a function $\textit{get_mode()}$ to obtain the mode and its frequency in the current window. Specifically, we repeatedly pop the top element from the priority queue until its frequency matches the frequency recorded in the hash map; at that point, the top element is the mode and its frequency for the current window.

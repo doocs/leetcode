@@ -104,7 +104,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We denote the length of string $s$ as $n$, and the current number of '0's in the string as $\textit{cur}$. In each operation, we select $k$ indices to flip, where $x$ indices flip from '0' to '1', and $k-x$ indices flip from '1' to '0'. Then the number of '0's in the string after flipping is $\textit{cur} + k - 2x$.
 
 The value of $x$ needs to satisfy the following conditions:

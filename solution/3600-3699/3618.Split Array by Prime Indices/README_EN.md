@@ -96,7 +96,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can use the Sieve of Eratosthenes to preprocess all prime numbers in the range $[0, 10^5]$. Then we iterate through the array $\textit{nums}$. For $\textit{nums}[i]$, if $i$ is a prime number, we add $\textit{nums}[i]$ to the answer; otherwise, we add $-\textit{nums}[i]$ to the answer. Finally, we return the absolute value of the answer.
 
 Ignoring the preprocessing time and space, the time complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$, and the space complexity is $O(1)$.

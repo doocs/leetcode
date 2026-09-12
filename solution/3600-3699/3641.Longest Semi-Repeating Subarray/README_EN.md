@@ -90,7 +90,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We use two pointers $l$ and $r$ to maintain a sliding window, where the right pointer continuously moves to the right, and we use a hash table $\textit{cnt}$ to record the number of occurrences of each element within the current window.
 
 When the occurrence count of an element changes from $1$ to $2$, it indicates that there is a new repeating element, so we increment the repeating element counter $\textit{cur}$ by $1$. When the repeating element counter exceeds $k$, it means the current window does not satisfy the condition, and we need to move the left pointer until the repeating element counter is no greater than $k$. During the process of moving the left pointer, if the occurrence count of an element changes from $2$ to $1$, it indicates that there is one less repeating element, so we decrement the repeating element counter by $1$. Then, we update the answer, i.e., $\textit{ans} = \max(\textit{ans}, r - l + 1)$.

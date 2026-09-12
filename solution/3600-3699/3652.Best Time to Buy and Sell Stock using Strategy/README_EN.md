@@ -167,7 +167,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We use an array $\textit{s}$ to represent the prefix sum, where $\textit{s}[i]$ is the total profit for the first $i$ days, i.e., $\textit{s}[i] = \sum_{j=0}^{i-1} \textit{prices}[j] \times \textit{strategy}[j]$. We also use an array $\textit{t}$ to represent the prefix sum of stock prices, where $\textit{t}[i] = \sum_{j=0}^{i-1} \textit{prices}[j]$.
 
 Initially, the maximum profit is $\textit{s}[n]$. We enumerate the right endpoint $i$ of the subarray to be modified, with the left endpoint being $i-k$. After modification, the first $k/2$ days of the subarray have strategy $0$, and the last $k/2$ days have strategy $1$, so the profit change is:

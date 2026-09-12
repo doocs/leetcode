@@ -156,7 +156,6 @@ transaction_type 可以是 “purchase” 或 “refund”。
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

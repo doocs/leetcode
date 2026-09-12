@@ -92,7 +92,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, we always start from the character 'b' and successively change each character to the next one until it becomes 'a'. Therefore, we only need to find the character in the string that is farthest from 'a' and calculate its distance to 'a' to get the answer.
 
 The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.

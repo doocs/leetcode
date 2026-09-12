@@ -112,7 +112,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We denote the length of the array as $n$. If $n$ is not divisible by $k$, then we cannot partition the array into groups where each group contains $k$ elements, so we directly return $\text{false}$.
 
 Next, we calculate the size of each group $m = n / k$ and count the occurrence of each element in the array. If the occurrence count of any element exceeds $m$, then it cannot be distributed to any group, so we directly return $\text{false}$.

@@ -122,7 +122,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, the stability of a spanning tree is determined by the minimum strength edge in it. If a stability $x$ is feasible, then for any $y < x$, stability $y$ is also feasible. Therefore, we can use binary search to find the maximum stability.
 
 We first add all required edges into the Union-Find and record the minimum strength $mn$ among them. If there is a cycle among the required edges, return $-1$ directly. Then we add all edges into the Union-Find; if the final number of connected components is greater than $1$, it means not all nodes can be connected, and we return $-1$.

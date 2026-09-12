@@ -86,7 +86,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We start from row $x$ and flip a total of $\lfloor \frac{k}{2} \rfloor$ rows.
 
 For each row $i$, we need to swap it with the corresponding row $i_2$, where $i_2 = x + k - 1 - (i - x)$.

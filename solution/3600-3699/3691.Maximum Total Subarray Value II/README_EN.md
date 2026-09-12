@@ -100,7 +100,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 Consider enumerating the left boundary $l$ of the subarray. As the right boundary $r$ moves to the right, the value of the subarray $\textit{nums}[l..r]$ increases monotonically. This is because the maximum value within the interval can only increase (or remain unchanged), while the minimum value can only decrease (or remain unchanged). Thus, their difference, $\max(\textit{nums}[l..r]) - \min(\textit{nums}[l..r])$, possesses a monotonically non-decreasing property.
 
 This implies that for each fixed left endpoint $l$, we have a monotonically increasing sequence of length $n - l$, where the $i$-th element represents the value of $\textit{nums}[l..l+i]$. The problem then transforms into: **Given $n$ monotonically increasing sequences, find the sum of the top $k$ largest elements across all sequences.**

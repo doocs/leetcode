@@ -91,7 +91,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can repeatedly perform modulo and division operations on $n$. Each modulo result multiplied by the current position value $p$ represents a decimal component. If the modulo result is not $0$, we add this component to our answer. Then we multiply $p$ by $10$ and continue processing the next position.
 
 Finally, we reverse the answer to arrange it in descending order.

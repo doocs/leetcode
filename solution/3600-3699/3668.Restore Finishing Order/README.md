@@ -86,7 +86,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们先根据 $\textit{order}$ 数组构建一个映射，记录每个 ID 的完成顺序。然后对 $\textit{friends}$ 数组进行排序，排序的依据就是这些 ID 在 $\textit{order}$ 中的完成顺序。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $\textit{order}$ 的长度。

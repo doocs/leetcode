@@ -93,7 +93,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 According to the problem description, horizontal edges have the same $y$ coordinate. Therefore, we can group points by their $y$ coordinates and count the number of points for each $y$ coordinate.
 
 We use a hash table $\textit{cnt}$ to store the number of points for each $y$ coordinate. For each $y$ coordinate $y_i$, assuming the number of corresponding points is $v$, the number of ways to select two points from these points as a horizontal edge is $\binom{v}{2} = \frac{v(v-1)}{2}$, denoted as $t$.

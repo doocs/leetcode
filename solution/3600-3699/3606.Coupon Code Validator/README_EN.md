@@ -102,7 +102,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can directly simulate the conditions described in the problem to filter out valid coupons. The specific steps are as follows:
 
 1. **Check Identifier**: For each coupon's identifier, check whether it is non-empty and contains only letters, digits, and underscores.

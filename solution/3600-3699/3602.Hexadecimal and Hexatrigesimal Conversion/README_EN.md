@@ -87,7 +87,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define a function $\textit{f}(x, k)$, which converts an integer $x$ to its string representation in base $k$. This function constructs the result string by repeatedly taking the modulus and dividing.
 
 For a given integer $n$, we compute $n^2$ and $n^3$, then convert them to hexadecimal and base-36 strings, respectively. Finally, we concatenate these two strings and return the result.

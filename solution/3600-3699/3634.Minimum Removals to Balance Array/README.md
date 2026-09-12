@@ -107,7 +107,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们首先对数组进行排序，然后我们从小到大枚举每个元素 $\textit{nums}[i]$ 作为平衡数组的最小值，那么平衡数组的最大值 $\textit{max}$ 必须满足 $\textit{max} \leq \textit{nums}[i] \times k$。因此，我们可以使用二分查找来找到第一个大于 $\textit{nums}[i] \times k$ 的元素的下标 $j$，那么此时平衡数组的长度为 $j - i$，我们记录下最大的长度 $\textit{cnt}$，最后的答案就是数组长度减去 $\textit{cnt}$。
 
 时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
@@ -249,7 +248,6 @@ impl Solution {
 > 排序代价仍在，但扫描变为线性，实现上也避免了乘法溢出时对二分上界的处理。
 
 <!-- thinking:end -->
-
 
 我们首先对数组进行排序，然后我们使用双指针来维护一个滑动窗口，左指针 $l$ 从左到右枚举每个元素 $\textit{nums}[l]$ 作为平衡数组的最小值，右指针 $r$ 不断向右移动，直到 $\textit{nums}[r]$ 大于 $\textit{nums}[l] \times k$，此时平衡数组的长度为 $r - l$，需要移除的元素数量为 $n - (r - l)$，我们记录下最小的移除数量作为答案。
 

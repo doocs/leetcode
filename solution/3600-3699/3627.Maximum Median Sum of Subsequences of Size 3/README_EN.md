@@ -88,7 +88,6 @@ source: Weekly Contest 460 Q1
 
 <!-- thinking:end -->
 
-
 To maximize the sum of medians, we need to select larger elements as medians whenever possible. Since each operation can only select three elements, we can sort the array and then start from index $n / 3$, selecting every other element (skipping one) until the end of the array. This ensures that we select the largest possible medians.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array $\textit{nums}$.

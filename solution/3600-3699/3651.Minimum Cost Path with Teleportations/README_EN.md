@@ -153,7 +153,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We define $f[t][i][j]$ as the minimum cost to reach cell $(i, j)$ using exactly $t$ teleportations. Initially, $f[0][0][0] = 0$, and all other states are infinity.
 
 First, we need to initialize $f[0][i][j]$. Without using teleportation, we can only reach cell $(i, j)$ by moving right or down.

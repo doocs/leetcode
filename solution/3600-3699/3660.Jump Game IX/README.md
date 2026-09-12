@@ -103,7 +103,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 如果 $i = n - 1$，那么它可以跳到 $\textit{nums}$ 中的最大值，因此 $\textit{ans}[i] = \max(\textit{nums})$。对于其他位置 $i$，我们可以通过维护一个前缀最大值数组和一个后缀最小值变量来计算。
 
 具体步骤如下：

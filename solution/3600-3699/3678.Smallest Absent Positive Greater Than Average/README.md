@@ -100,7 +100,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们用一个哈希表 $\textit{s}$ 来记录数组 $\textit{nums}$ 中出现过的元素。
 
 然后，我们计算数组 $\textit{nums}$ 的平均值 $\textit{avg}$，并将答案 $\textit{ans}$ 初始化为 $\max(1, \lfloor \textit{avg} \rfloor + 1)$。

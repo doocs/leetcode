@@ -144,7 +144,6 @@ source: Biweekly Contest 166 Q2
 
 <!-- thinking:end -->
 
-
 We define $f[i]$ as the minimum total cost required to reach the $i$-th stair, initially $f[0] = 0$, and all other $f[i] = +\infty$.
 
 For each stair $i$, we can jump from the $(i-1)$-th, $(i-2)$-th, or $(i-3)$-th stair, so we have the following state transition equation:

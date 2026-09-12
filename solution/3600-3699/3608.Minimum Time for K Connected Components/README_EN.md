@@ -118,7 +118,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can sort the edges by time in ascending order, then starting from the edge with the largest time, add edges to the graph one by one, while using a union-find data structure to maintain the number of connected components in the current graph. When the number of connected components is less than $k$, the current time is the minimum time we are looking for.
 
 The time complexity is $O(n \times \alpha(n))$, and the space complexity is $O(n)$, where $\alpha$ is the inverse Ackermann function.

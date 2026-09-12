@@ -119,7 +119,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We first store each robot with its range in an array and sort them by robot position. We also sort the wall positions. Next, we use depth-first search (DFS) to calculate the number of walls each robot can destroy, and use memoized search to avoid redundant calculations.
 
 We design a function $\text{dfs}(i, j)$, where $i$ represents the index of the current robot being considered, and $j$ represents the firing direction of the next robot (0 for left, 1 for right), and returns the number of walls that can be destroyed. The answer is $\text{dfs}(n - 1, 1)$, where $j$ can be 0 or 1 in the boundary state.

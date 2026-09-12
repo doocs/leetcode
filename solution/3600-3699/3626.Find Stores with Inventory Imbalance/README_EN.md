@@ -180,7 +180,6 @@ Each row represents the inventory of a specific product at a specific store.
 
 <!-- thinking:end -->
 
-
 We can use window functions to calculate the most expensive and cheapest products for each store, and use joins to filter out stores with inventory imbalance. The specific steps are as follows:
 
 1. **Calculate the most expensive product for each store**: Use the `RANK()` window function to sort by price in descending order, and in case of the same price, sort by quantity in descending order, selecting the product ranked first.

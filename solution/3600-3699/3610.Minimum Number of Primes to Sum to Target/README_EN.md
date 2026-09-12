@@ -90,7 +90,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can first preprocess to obtain the first $1000$ prime numbers, and then use dynamic programming to solve the problem.
 
 Define $f[i]$ as the minimum number of primes needed to sum up to $i$. Initially, set $f[0] = 0$ and all other $f[i] = \infty$. For each prime $p$, we can update $f[i]$ from $f[i - p]$ as follows:

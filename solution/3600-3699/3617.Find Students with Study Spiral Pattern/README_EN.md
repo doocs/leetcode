@@ -176,7 +176,6 @@ Each row represents a study session by a student for a specific subject.
 
 <!-- thinking:end -->
 
-
 <!-- tabs:start -->
 
 #### MySQL

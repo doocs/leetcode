@@ -100,7 +100,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 我们可以用埃氏筛法预处理出 $[0, 10^5]$ 范围内的所有质数。然后遍历数组 $
 \textit{nums}$，对于 $\textit{nums}[i]$，如果 $i$ 是质数，则将 $\textit{nums}[i]$ 加到答案中，否则将 $-\textit{nums}[i]$ 加到答案中。最后返回答案的绝对值。
 

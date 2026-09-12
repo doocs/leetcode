@@ -159,7 +159,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can directly simulate the operations described in the problem. We use a list $\text{result}$ to store the current result string. For each character in the input string $s$, we perform the corresponding operation based on the character type:
 
 - If the character is a lowercase English letter, add it to $\text{result}$.

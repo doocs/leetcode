@@ -77,7 +77,6 @@ The <strong>frequency</strong> of a digit <code>x</code> is the number of times 
 
 <!-- thinking:end -->
 
-
 We use an array $\textit{cnt}$ to count the frequency of each digit. We iterate through each digit of the number $n$ and update the $\textit{cnt}$ array.
 
 Then, we use a variable $f$ to record the current lowest frequency among the digits, and a variable $\textit{ans}$ to record the corresponding digit.

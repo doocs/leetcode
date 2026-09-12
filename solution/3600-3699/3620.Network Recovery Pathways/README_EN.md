@@ -183,7 +183,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 The path score is defined as the minimum edge cost along the path. We seek the maximum score among all valid paths.
 
 For a candidate minimum edge weight $mid$, we only keep edges with cost at least $mid$, then check whether there exists a path from node $0$ to node $n - 1$ with total cost at most $k$. This reduces to running heap-optimized Dijkstra on the filtered graph.

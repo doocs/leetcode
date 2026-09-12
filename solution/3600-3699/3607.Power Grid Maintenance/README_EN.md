@@ -120,7 +120,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We can use Union-Find to maintain the connection relationships between power stations, thereby determining which grid each station belongs to. For each grid, we use a sorted set (such as `SortedList` in Python, `TreeSet` in Java, or `std::set` in C++) to store all online station IDs in that grid, allowing efficient querying and deletion of stations.
 
 The specific steps are as follows:

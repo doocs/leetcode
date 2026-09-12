@@ -85,7 +85,6 @@ tags:
 
 <!-- thinking:end -->
 
-
 We use a variable $\text{cur}$ to record the rank of the currently selected student. We iterate through the array $\text{ranks}$, and if we encounter a student with a better rank (i.e., $\text{ranks}[i] < \text{cur}$), we update $\text{cur}$ and increment the answer by one.
 
 After the iteration, we return the answer.
