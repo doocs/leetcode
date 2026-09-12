@@ -81,6 +81,16 @@ obj2[&quot;b&quot;][&quot;c&quot;] has key &quot;e&quot; that obj1 doesn&#39;t h
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Deep-merge two values: recurse when both are objects or both are arrays; on a type clash or a scalar, keep $obj2$. A shallow merge would leave nested objects untouched.
+>
+> If either side is not an object, or one is an array and the other is not, return $obj2$. Otherwise walk the keys of $obj2$ and recurse into $obj1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

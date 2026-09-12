@@ -95,6 +95,16 @@ boundFunc(); // &quot;My name is Kathy&quot;
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Implement $bind$: the returned function should invoke the original with a given $this$. A thin wrapper that relies on its own $this$ would not lock the context.
+>
+> Install an arrow function on the prototype that $this.call$s $obj$ with the forwarded arguments, so the bound object stays $obj$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

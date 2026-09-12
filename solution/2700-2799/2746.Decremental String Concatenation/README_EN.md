@@ -90,6 +90,16 @@ It can be shown that the minimum possible length of str<sub>2</sub> is 6.
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Words must be prepended or appended in order; equal touching letters collapse into one, and we want the shortest final length. Two choices per word at $n\le 1000$ make a raw search impossible.
+>
+> The future cost depends only on the current first and last letters. $dfs(i,a,b)$ is the extra length from word $i$ with ends $a,b$: append compares $s[0]$ with $b$, prepend compares $s[-1]$ with $a$. Memoization yields $O(n\cdot 26^2)$ states.
+
+<!-- thinking:end -->
+
 We notice that when concatenating strings, the first and last characters of the string will affect the length of the concatenated string. Therefore, we design a function $dfs(i, a, b)$, which represents the minimum length of the concatenated string starting from the $i$-th string, and the first character of the previously concatenated string is $a$, and the last character is $b$.
 
 The execution process of the function $dfs(i, a, b)$ is as follows:

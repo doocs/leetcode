@@ -74,6 +74,16 @@ For queries[1]: Only server with id 3 gets no request in the duration [2,4].
 
 ### Solution 1: Offline Queries + Sorting + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For each time $q$, count servers with no log in $[q-x,q]$. Scanning the logs per query is $O(qm)$.
+>
+> Sort queries by their right end and logs by time. Two pointers insert logs that enter the window and drop those that leave; a hash map stores distinct servers inside the window. The answer is $n$ minus that count.
+
+<!-- thinking:end -->
+
 We can sort all the queries by time from smallest to largest, and then process each query in chronological order.
 
 For each query $q = (r, i)$, its window left boundary is $l = r - x$, and we need to count how many servers received requests within the window $[l, r]$. We use two pointers $j$ and $k$ to maintain the left and right boundaries of the window, initially $j = k = 0$. Each time, if the log time pointed by $k$ is less than or equal to $r$, we add it to the window, and then move $k$ to the right by one. If the log time pointed by $j$ is less than $l$, we remove it from the window, and then move $j$ to the right by one. During the movement, we need to count how many different servers are in the window, which can be implemented using a hash table. After the movement, the number of servers that did not receive requests in the current time interval is $n$ minus the number of different servers in the hash table.

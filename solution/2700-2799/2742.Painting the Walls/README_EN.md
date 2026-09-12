@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1: Memorization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A paid painter costs $cost[i]$ and takes $time[i]$ on wall $i$, during which a free painter can finish the same number of walls. Enumerating the paid set is $2^n$ and $n\le 500$.
+>
+> Decide wall $i$ from left to right: paying increases the free budget by $time[i]$, using the free painter decreases it by $1$. State $(i,j)$ is the minimum cost from wall $i$ with free time $j$; if the remaining walls fit in $j$, the cost is $0$. Memoization is quadratic in $n$.
+
+<!-- thinking:end -->
+
 We can consider whether each wall is painted by a paid painter or a free painter. Design a function $dfs(i, j)$, which means that from the $i$th wall, and the current remaining free painter working time is $j$, the minimum cost of painting all the remaining walls. Then the answer is $dfs(0, 0)$.
 
 The calculation process of function $dfs(i, j)$ is as follows:

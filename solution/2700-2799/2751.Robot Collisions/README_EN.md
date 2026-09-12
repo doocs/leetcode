@@ -85,6 +85,16 @@ tags:
 
 ### Approach 1: Stack Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Robots on a line collide head-on: the weaker is removed, the stronger loses one health, and equal health removes both. We must report remaining healths in the original order. Simulating by time needs every meeting, and positions are large.
+>
+> Sort by position. Right-moving robots go on a stack; a left-moving one fights the top until it dies or the stack has no right-mover. Survivors are the original indices whose health stayed positive.
+
+<!-- thinking:end -->
+
 We first sort the robots by position in ascending order, storing the sorted robot indices in an array $\textit{idx}$. We then use a stack to simulate the collision process:
 
 1. Traverse the robot indices $i$ in $\textit{idx}$ from left to right. If $directions[i]$ is moving right, push $i$ onto the stack.

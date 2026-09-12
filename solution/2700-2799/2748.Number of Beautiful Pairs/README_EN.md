@@ -71,6 +71,16 @@ Thus, we return 2.
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count index pairs whose first and last digits are coprime. A double loop is acceptable for $n\le 100$, but it rereads every left first digit.
+>
+> Scan left to right. A length-$10$ counter stores first digits already seen. For the current last digit, add the counts of coprime first digits, then increment the current first digit.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{cnt}$ of length $10$ to record the count of the first digit of each number.
 
 Iterate through the array $\textit{nums}$. For each number $x$, we enumerate each digit $y$ from $0$ to $9$. If $\textit{cnt}[y]$ is not $0$ and $\textit{gcd}(x \mod 10, y) = 1$, then the answer is incremented by $\textit{cnt}[y]$. Then, we increment the count of the first digit of $x$ by $1$.

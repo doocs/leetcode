@@ -97,6 +97,16 @@ boundFunc(); // "My name is Kathy"
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 实现 $bind$：返回的函数以给定对象作为 $this$ 调用原函数。包一层普通函数会丢掉箭头函数对 $this$ 的词法绑定需求，这里要用显式 $call$。
+>
+> 在原型上返回箭头函数，内部 $this.call(obj, ...args)$，这样无论外层如何调用，绑定对象都固定为 $obj$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### TypeScript

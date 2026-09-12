@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: Multiplication Principle
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subarray contains exactly one $1$; we count ways to cut the array into such pieces. The cuts are completely determined by the positions of the ones.
+>
+> Between adjacent ones at $j$ and $i$ there are $i-j$ places for a cut, and the segments are independent, so the answer is the product of those gaps. With no one at all the answer is $0$.
+
+<!-- thinking:end -->
+
 Based on the problem description, we can draw a dividing line between two $1$s. Assuming the indices of the two $1$s are $j$ and $i$ respectively, then the number of different dividing lines that can be drawn is $i - j$. We find all the pairs of $j$ and $i$ that meet the condition, and then multiply all the $i - j$ together. If no dividing line can be found between two $1$s, it means there are no $1$s in the array, and the answer is $0$.
 
 The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.

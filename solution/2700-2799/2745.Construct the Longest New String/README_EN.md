@@ -63,6 +63,16 @@ That string has length 14, and we can show that it is impossible to construct a 
 
 ### Solution 1: Case Discussion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Concatenate $x$ copies of $AA$, $y$ of $BB$, and $z$ of $AB$ without $AAA$ or $BBB$, and maximize the length. Searching the order is heavy when the counts reach $50$.
+>
+> $AB$ is safe on both ends and can be placed freely; $AA$ and $BB$ must alternate. The larger of $x$ and $y$ can exceed the other by at most one. The three comparisons close into a constant-time formula.
+
+<!-- thinking:end -->
+
 We observe that the string 'AA' can only be followed by 'BB', and the string 'AB' can be placed at the beginning or end of the string. Therefore:
 
 - If $x < y$, we can first alternately place 'BBAABBAA..BB', placing a total of $x$ 'AA' and $x+1$ 'BB', then place the remaining $z$ 'AB', with a total length of $(x \times 2 + z + 1) \times 2$;
