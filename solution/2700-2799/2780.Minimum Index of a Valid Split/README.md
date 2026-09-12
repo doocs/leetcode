@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2780.Minimum%20Index%20of%20a%20Valid%20Split/README.md
 rating: 1549
 source: 第 354 场周赛 Q3
 tags:

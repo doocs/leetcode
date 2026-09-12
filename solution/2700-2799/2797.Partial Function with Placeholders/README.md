@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2700-2799/2797.Partial%20Function%20with%20Placeholders/README.md
 tags:
     - JavaScript
 ---
