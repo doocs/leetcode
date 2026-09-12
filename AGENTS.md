@@ -25,7 +25,7 @@ This is [doocs/leetcode](https://github.com/doocs/leetcode) — a large collecti
 - **`main`** — problem sources, lint tooling, and deploy workflows.
 - **`docs`** — MkDocs site engine only (`build_site.py`, `mkdocs.yml`, `hooks/`, `overrides/`). Problem pages are generated at deploy time from `main`.
 
-Deploy checks out both branches, overlays a whitelist from `docs` onto `main`, runs `python3 build_site.py`, then builds zh/en in parallel. Content pushes on `main` (problem trees, `worker.js`, and `wrangler.jsonc`) go through `deploy-request.yml` (about 90s quiet period, then `gh workflow run deploy.yml`). Pushes to `docs` use `.github/workflows/trigger-deploy.yml` on the `docs` branch the same way. A started `deploy.yml` run is not cancelled.
+Deploy checks out both branches, overlays a whitelist from `docs` onto `main`, runs `python3 build_site.py`, then builds zh/en in parallel. Content pushes on `main` (problem trees, `worker.js`, and `wrangler.jsonc`) go through `deploy-request.yml` (about 90s quiet period, then `gh workflow run deploy.yml`). Pushes to `docs` use `.github/workflows/trigger-deploy.yml` on the `docs` branch the same way. A started `deploy.yml` run is not cancelled. Gitee Pages publish is a separate `publish-gitee.yml` workflow dispatched after the site build, so a slow Gitee push does not hold the `deploy-site` concurrency group.
 
 Dependabot updates npm, GitHub Actions, and pip on `main`, and pip on `docs`.
 
