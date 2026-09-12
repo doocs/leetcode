@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2900-2999/2991.Top%20Three%20Wineries/README_EN.md
 tags:
     - Database
 ---
