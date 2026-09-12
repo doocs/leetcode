@@ -80,6 +80,17 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> For every node we need how many nodes in its subtree share its label. $n\le 10^5$, so a fresh walk from each node is quadratic. There are only $26$ labels, which a single DFS can count globally.
+>
+> Before entering $i$, remember the current frequency of $labels[i]$; after leaving, read it again. The difference is the count inside that subtree. Storing the entry snapshot in $ans[i]$ (subtract first, add later) avoids an extra array; extra memory is just the alphabet.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

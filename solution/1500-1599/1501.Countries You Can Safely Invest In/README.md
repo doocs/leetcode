@@ -136,6 +136,17 @@ Calls 表:
 
 ### 方法一：等值连接 + 分组 + 子查询
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 题目要求找出平均通话时长严格高于全球平均水平的国家。通话记录只给出双方编号，国家信息藏在电话号码前三位，因此必须把人、通话与国家三张表对齐后才能按国家聚合。
+>
+> 将 $Person$ 与 $Calls$ 按「主叫或被叫等于该人」连接，再用号码前三位对齐 $Country$，即可按国家求平均时长，并与 $Calls$ 上的全局平均比较。子查询承担全局均值，外层过滤即可得到答案。
+
+<!-- thinking:end -->
+
+
 我们可以使用等值连接，将 `Person` 表和 `Calls` 表连接起来，连接的条件是 `Person.id = Calls.caller_id` 或者 `Person.id = Calls.callee_id`，然后再将连接后的表和 `Country` 表连接起来，连接的条件是 `left(phone_number, 3) = country_code`，最后按照国家分组，计算每个国家的平均通话时长，然后再使用子查询，找出平均通话时长大于全球平均通话时长的国家。
 
 <!-- tabs:start -->
@@ -164,6 +175,15 @@ WHERE duration > (SELECT AVG(duration) FROM Calls);
 <!-- solution:start -->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用嵌套子查询完成「按国家聚合再与全局均值比较」，语义无误，只是中间结果还要再包一层。公共表表达式可将国家平均时长物化为 $T$，外层直接筛选，查询结构更清晰，计算关系不变。
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 

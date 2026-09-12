@@ -60,6 +60,17 @@ Number of water bottles you can drink: 15 + 3 + 1 = 19.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Empty bottles exchange for a full one every $numExchange$ empties; we want the total number drunk. The values are small enough to simulate each exchange rather than seek a closed form.
+>
+> Drink the initial $numBottles$ first. Whenever the empty count is at least the rate, spend $numExchange$ empties for one full bottle; after drinking it, the empty count falls by $numExchange-1$ and the answer grows by one. Stop when a further exchange is impossible.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

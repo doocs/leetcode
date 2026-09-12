@@ -79,6 +79,17 @@ After performing 3 moves, the difference between the minimum and maximum is 7 - 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We may change at most three numbers to minimize the gap between the remaining maximum and minimum. $n\le 10^5$, so we cannot enumerate triples. If the length is below $5$, three changes leave at most one meaningful value and the answer is $0$.
+>
+> After sorting, the untouched values form a contiguous window: three changes drop three extrema from the two ends. Try dropping $l\in\{0,1,2,3\}$ from the left and $3-l$ from the right, and take the minimum of $nums[n-1-r]-nums[l]$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

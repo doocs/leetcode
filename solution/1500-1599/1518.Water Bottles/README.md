@@ -68,6 +68,17 @@ tags:
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 喝完的空瓶可按 $numExchange$ 个兑换一瓶新酒，问总共能喝多少瓶。数值上限不大，按轮次模拟兑换即可，无需闭式。
+>
+> 先喝掉手上的 $numBottles$ 瓶。每当空瓶数不少于兑换阈值，就拿出 $numExchange$ 个空瓶换回一瓶，喝完后又多一个空瓶，净减少 $numExchange-1$ 个空瓶并给答案加一。直到不够兑换为止。
+
+<!-- thinking:end -->
+
+
 我们可以直接模拟整个过程。
 
 初始时，我们有 `numBottles` 瓶水，因此可以喝到 `ans = numBottles` 瓶水，然后得到 `numBottles` 个空瓶子。

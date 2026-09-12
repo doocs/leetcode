@@ -64,6 +64,17 @@ tags:
 
 ### Solution 1: Traversal and Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Count substrings that contain only ones. $n\le 10^5$, so we cannot list all $O(n^2)$ substrings. Runs of ones separated by zeros are independent.
+>
+> A run of length $k$ contributes $k(k+1)/2$ substrings, which is the same as maintaining the current run length $cur$: each extra $1$ increments $cur$ and adds $cur$ to the answer; a $0$ resets it. No explicit segmentation is required.
+
+<!-- thinking:end -->
+
+
 We traverse the string $s$, using a variable $\textit{cur}$ to record the current count of consecutive 1s, and a variable $\textit{ans}$ to record the answer. When we traverse to character $s[i]$, if $s[i] = 0$, then set $\textit{cur}$ to 0; otherwise, increment $\textit{cur}$ by 1, then add $\textit{cur}$ to $\textit{ans}$, and take modulo $10^9 + 7$.
 
 After the traversal is complete, return $\textit{ans}$.
