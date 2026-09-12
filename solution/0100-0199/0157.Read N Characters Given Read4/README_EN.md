@@ -115,6 +115,14 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The file is only reachable via $\textit{read4}$, and $\textit{read}$ is invoked once. $n$ need not be a multiple of $4$, and the last call may return fewer. Loop $\textit{read4}$ into a scratch buffer, copy into the destination, and stop at $n$ or EOF.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

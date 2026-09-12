@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every right child is a leaf with a left sibling, so the tree is a left spine plus right leaves. $n\le 10$. After the flip the leftmost leaf is the new root, the old root becomes its right child, and the old right child becomes the left. Recurse down the left spine, rewire on the way back, and clear the old root's children.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

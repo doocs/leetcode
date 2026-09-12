@@ -61,6 +61,14 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Duplicates are allowed, unlike the previous problem. When $\textit{nums}[\textit{mid}]=\textit{nums}[r]$ we cannot tell which side holds the min, so we decrement $r$. All-equal input degenerates to $O(n)$; that is the cost of ties. Other branches still shrink as in rotated-array binary search.
+
+<!-- thinking:end -->
+
 We define the left boundary $l = 0$ and right boundary $r = n - 1$ for binary search. Each iteration, we calculate the middle position $mid = (l + r) \gg 1$ and compare the relationship between $nums[mid]$ and $nums[r]$:
 
 - If $nums[mid] > nums[r]$, the minimum value is to the right of $mid$, so we update $l$ to $mid + 1$.

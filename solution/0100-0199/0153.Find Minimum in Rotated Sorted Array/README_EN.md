@@ -74,6 +74,14 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A rotated sorted array with distinct values; a linear scan is $O(n)$ and $n\le 5000$ is fine, but order allows $\log n$. The minimum splits the array into two increasing runs. Compare the mid to the last value: larger means the min is on the right, otherwise on the left (including mid). Shrink to one index.
+
+<!-- thinking:end -->
+
 We can use binary search to solve this problem.
 
 First, we define two pointers $l$ and $r$ pointing to the start and end of the array respectively. Then we enter a loop until $l$ is no longer less than $r$.

@@ -57,6 +57,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Kadane works for sums; products flip when a negative appears, and a zero resets the run. $n\le 2\times 10^4$. Keep the max and min product ending here; the new value may multiply either or start a new segment. The answer is the best max seen.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

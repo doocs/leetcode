@@ -119,6 +119,14 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Unlike the previous problem, $\textit{read}$ is called many times, so leftover characters from the last $\textit{read4}$ must be kept. Store the 4-slot buffer plus its cursor and size on the instance: refill only when empty, otherwise drain the leftover. The file pointer advances once across calls.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

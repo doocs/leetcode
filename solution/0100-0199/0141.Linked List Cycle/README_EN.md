@@ -70,6 +70,14 @@ tags:
 
 ### Solution 1: Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Detect a cycle. $n\le 10^4$. Store visited nodes in a set; a repeat means a cycle, null means none. Simple, $O(n)$ space. The follow-up asks for constant space.
+
+<!-- thinking:end -->
+
 We can traverse the linked list and use a hash table $s$ to record each node. When a node appears for the second time, it indicates that there is a cycle, and we directly return `true`. Otherwise, when the linked list traversal ends, we return `false`.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the linked list.
@@ -206,6 +214,14 @@ function hasCycle(head: ListNode | null): boolean {
 <!-- solution:start -->
 
 ### Solution 2: Fast and Slow Pointers
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 uses linear extra space. A fast pointer of two steps and a slow pointer of one must meet inside a cycle, or the fast pointer hits the end. Only two pointers.
+
+<!-- thinking:end -->
 
 We define two pointers, $fast$ and $slow$, both initially pointing to $head$.
 

@@ -56,6 +56,14 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Maximum number of collinear points. Points are distinct and $n$ is small. Enumerate two points to fix a line, then test the rest with a cross product so we never divide. $O(n^3)$ is acceptable.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -199,6 +207,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is $O(n^3)$. Fix one point and group the others by slope; equal slopes are collinear. Store a reduced $(\Delta y,\Delta x)$ pair as the key to avoid floats. $O(n)$ work per point, $O(n^2)$ overall.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
