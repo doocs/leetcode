@@ -142,6 +142,16 @@ Purchases table:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The tier is paid visits over all visits; no visit means Bronze. Three tables, and members without visits must remain.
+>
+> Left-join `Visits` and `Purchases`, group by member: zero visits $\to$ Bronze, otherwise Diamond / Gold / Silver by conversion thresholds. `COUNT(charged_amount)` counts only matched purchases.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

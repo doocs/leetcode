@@ -71,6 +71,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the string and the query count reach $10^5$, so each query cannot scan. Plates count only when candles bound them on both sides.
+>
+> A prefix of `*` gives any open-interval count; nearest-left and nearest-right `|` are precomputed. For $[l,r]$ take the first candle $i$ to the right of $l$ and the last $j$ to the left of $r$; if $i<j$ the answer is $presum[j]-presum[i+1]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

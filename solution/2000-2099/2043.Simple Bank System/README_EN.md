@@ -80,6 +80,16 @@ bank.withdraw(10, 50);   // return false, it is invalid because account 10 does 
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are many accounts, yet each call touches one or two balances. Store them in an array; account numbers are $1$-based so we index $account-1$.
+>
+> Transfer and withdraw check bounds and funds; deposit only checks the id. Every operation is $O(1)$.
+
+<!-- thinking:end -->
+
 We can use an array $\textit{balance}$ to store the balance of each account. For each operation, we simply perform the required checks and updates according to the problem statement.
 
 For the $\textit{transfer}$ operation, we need to check whether the account numbers are valid and whether the balance is sufficient. If the conditions are met, we perform the transfer.

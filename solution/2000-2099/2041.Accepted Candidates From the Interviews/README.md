@@ -108,6 +108,16 @@ Rounds table:
 
 ### 方法一：连接表 + 分组 + 过滤
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 录取条件是工龄至少两年且各轮分数之和大于 $15$。候选人与轮次通过 `interview_id` 相连。
+>
+> 先过滤工龄，再按 `candidate_id` 分组求和，`HAVING` 留下总分超 $15$ 者。SQL 与 pandas 路径同一聚合。
+
+<!-- thinking:end -->
+
 我们可以将 `Candidates` 表和 `Rounds` 表按照 `interview_id` 进行连接，筛选出工作年限至少为 2 年的候选人，然后按照 `candidate_id` 进行分组，计算每个候选人的总分，最后筛选出总分大于 15 分的候选人。
 
 <!-- tabs:start -->

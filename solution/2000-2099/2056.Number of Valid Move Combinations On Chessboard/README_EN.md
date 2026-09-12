@@ -89,6 +89,18 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> At most four pieces on an $8 \times 8$ board, each with $\le 8$ directions. The tree is large but DFS works: assign each piece a ray and a stop time, then reject collisions with earlier pieces.
+>
+> `dist[i][x][y]` is the transit time and `end` the stop. A stop needs earlier pieces gone; a pass forbids the same time-cell or a finished piece sitting there.
+>
+> Each complete assignment increments the answer.
+
+<!-- thinking:end -->
+
 The problem has at most $4$ pieces, and each piece can move in up to $8$ directions. We can consider using DFS to search all possible move combinations.
 
 We enumerate each piece in order. For each piece, we can choose not to move or move according to the rules. We use an array $\textit{dist}[i]$ to record the movement of the $i$-th piece, where $\textit{dist}[i][x][y]$ represents the time when the $i$-th piece passes through the coordinate $(x, y)$. We use an array $\textit{end}[i]$ to record the endpoint coordinates and time of the $i$-th piece. During the search, we need to determine whether the current piece can stop moving and whether it can continue moving in the current direction.

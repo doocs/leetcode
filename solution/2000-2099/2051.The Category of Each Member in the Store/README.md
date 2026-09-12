@@ -142,6 +142,16 @@ Purchases 表:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 等级由「有消费的访问 / 总访问」决定，无访问则为 Bronze。会员、访问、消费分三表，需保留从未到店的会员。
+>
+> 左连接 `Visits` 与 `Purchases` 后按会员分组：访问数为 $0$ 则 Bronze，否则按转化率阈值划分为 Diamond / Gold / Silver。`COUNT(charged_amount)` 只统计成功连接的消费行。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

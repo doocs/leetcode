@@ -88,6 +88,16 @@ tags:
 
 ### 方法一：BFS
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次对当前值做加、减或异或 $nums[i]$，目标可达范围实际被限制在继续扩展的中间态 $[0,1000]$。状态数 $\le 1001$，最短操作次数适合 BFS。
+>
+> 从 $start$ 出队，对每个数与三种运算生成 $nx$；命中 $goal$ 即返回步数，合法中间态入队并标记，避免重复。
+
+<!-- thinking:end -->
+
 从 $start$ 出发，对每个数做加减异或，广搜到达 $goal$ 的最少步数。
 
 <!-- tabs:start -->
@@ -267,6 +277,16 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
 
 ### 方法二：BFS（分层）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一在入队时携带步数。改为按层扩展，$ans$ 每层加一，语义相同而队列元素更轻。
+>
+> `next` 集中生成后继，层次循环结束仍未到达则返回 $-1$。
+
+<!-- thinking:end -->
+
 同样广搜，按层扩展下一状态。
 
 <!-- tabs:start -->
@@ -418,6 +438,16 @@ func minimumOperations(nums []int, start int, goal int) int {
 <!-- solution:start -->
 
 ### 方法三：双向 BFS
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 单向 BFS 在分支因子大时队列偏长。$goal$ 也可能作为起点向回走（运算可逆意义下的相遇）。两端同时扩展，每次选更短的一侧，相遇步数相加。
+>
+> 中间态仍限制在 $[0,1000]$，$goal$ 本身可在范围外，故目标侧首次扩展即可命中。
+
+<!-- thinking:end -->
 
 从 $start$ 和 $goal$ 两端同时扩展，相遇即得到最少操作次数。
 
