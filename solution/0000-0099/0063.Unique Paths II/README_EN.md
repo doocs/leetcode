@@ -63,6 +63,18 @@ There are two ways to reach the bottom-right corner:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> As in Unique Paths, a raw search that only moves down or right explodes: $m, n \le 100$. Obstacles also break the “first row and column are all $1$” shortcut.
+>
+> The bottleneck is expanding the same cell $(i, j)$ many times. From here, out-of-bounds or an obstacle is $0$, the destination is $1$, otherwise the two branches add.
+>
+> Memoize $\textit{dfs}(i, j)$ so each cell is computed once; time and space are both $O(mn)$.
+
+<!-- thinking:end -->
+
 We design a function $\textit{dfs}(i, j)$ to represent the number of paths from the grid $(i, j)$ to the grid $(m - 1, n - 1)$. Here, $m$ and $n$ are the number of rows and columns of the grid, respectively.
 
 The execution process of the function $\textit{dfs}(i, j)$ is as follows:
@@ -268,6 +280,16 @@ var uniquePathsWithObstacles = function (obstacleGrid) {
 <!-- solution:start -->
 
 ### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already $O(mn)$ after memoization, but it is still recursive, with a deeper implicit stack and larger constants. Obstacles cut the first row and column, so those borders are no longer all $1$; filling a table bottom-up is more direct.
+>
+> $f[i][j]$ is the number of paths from the start: $0$ on an obstacle, otherwise from above and the left. Prefill the first row and column up to the first obstacle, then fill the interior—no recursion.
+
+<!-- thinking:end -->
 
 We can use a dynamic programming approach by defining a 2D array $f$, where $f[i][j]$ represents the number of paths from the grid $(0,0)$ to the grid $(i,j)$.
 

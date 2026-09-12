@@ -62,6 +62,16 @@ tags:
 
 ### Solution 1: Sorting + Interval Merging
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to insert $\textit{newInterval}$ into the list and reuse ordinary interval merging. $n \le 10^4$, so an $O(n \log n)$ sort will pass.
+>
+> The list is already sorted and non-overlapping, but reusing merge-intervals is the least extra code: append, sort, merge. Correct; it just ignores the given order.
+
+<!-- thinking:end -->
+
 We can first add the new interval `newInterval` to the interval list `intervals`, and then merge according to the regular method of interval merging.
 
 The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of intervals.
@@ -254,6 +264,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: One-pass Traversal
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 sorts again and throws away the existing order, paying an extra $\log n$.
+>
+> What it lacks is a single pass: write a current interval if it lies entirely left of the new one; if it lies entirely right, insert the new interval first; otherwise widen the new interval's ends. Append at the end if it was never inserted. Linear, no sort.
+
+<!-- thinking:end -->
 
 We can traverse the interval list `intervals`, let the current interval be `interval`, and there are three situations for each interval:
 

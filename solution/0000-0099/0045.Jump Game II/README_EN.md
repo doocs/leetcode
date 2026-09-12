@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: Greedy Algorithm
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is DP: $f[i]$ is the fewest jumps to $i$, and from $i$ we relax $i+1..i+\textit{nums}[i]$. Correct, worst-case $O(n^2)$. $n \le 10^4$ may pass, but we only need the end, not a value at every index.
+>
+> The bottleneck is maintaining exact min jumps per position. Jump $k$ covers a contiguous range; the farthest we can see inside it is the right end of jump $k+1$.
+>
+> Scan once, tracking this jump's boundary and the farthest the next jump can reach. Hitting the boundary forces a jump. That is BFS by layers without a queue.
+
+<!-- thinking:end -->
+
 We can use a variable $mx$ to record the farthest position that can be reached from the current position, a variable $last$ to record the position of the last jump, and a variable $ans$ to record the number of jumps.
 
 Next, we traverse each position $i$ in $[0,..n - 2]$. For each position $i$, we can calculate the farthest position that can be reached from the current position through $i + nums[i]$. We use $mx$ to record this farthest position, that is, $mx = max(mx, i + nums[i])$. Then, we check whether the current position has reached the boundary of the last jump, that is, $i = last$. If it has reached, then we need to make a jump, update $last$ to $mx$, and increase the number of jumps $ans$ by $1$.

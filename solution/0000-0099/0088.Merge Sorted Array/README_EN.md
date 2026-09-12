@@ -75,6 +75,18 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is allocate another array, merge from the front, copy back into $\textit{nums1}$. Correct, and $m + n \le 200$ is tiny, but that uses $O(m + n)$ extra space and is not in-place.
+>
+> The bottleneck is writing from the left: it overwrites values in $\textit{nums1}$ we have not consumed. The spare slots sit at the tail.
+>
+> So merge from the back. The tail of $\textit{nums1}$ is empty; placing the current larger value there never steps on unread elements. Pointers $i$, $j$ walk the two ends, $k$ writes the merged end, until $\textit{nums2}$ is exhausted.
+
+<!-- thinking:end -->
+
 We use two pointers $i$ and $j$ pointing to the end of two arrays, and a pointer $k$ pointing to the end of the merged array.
 
 Every time we compare the two elements at the end of the two arrays, and move the larger one to the end of the merged array. Then we move the pointer one step forward, and repeat this process until the two pointers reach the start of the arrays.

@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: In-place Swap
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a hash set of seen numbers, then probe $1, 2, 3, \ldots$. Correct and $O(n)$ time, but $O(n)$ extra space. The problem asks for $O(n)$ time and constant extra space; $n \le 10^5$ makes the set fail the space bound.
+>
+> The bottleneck is recording whether $1..n$ appear with extra memory. The missing positive must lie in $[1, n+1]$, so we only care about $1..n$ — the array indices themselves can be that table.
+>
+> Swap value $x$ to index $x-1$ when $x \in [1, n]$. In-place swap turns the array into a hash; one more scan finds the first hole.
+
+<!-- thinking:end -->
+
 We assume the length of the array $nums$ is $n$, then the smallest positive integer must be in the range $[1, .., n + 1]$. We can traverse the array and swap each number $x$ to its correct position, that is, the position $x - 1$. If $x$ is not in the range $[1, n + 1]$, then we can ignore it.
 
 After the traversal, we traverse the array again. If $i+1$ is not equal to $nums[i]$, then $i+1$ is the smallest positive integer we are looking for.

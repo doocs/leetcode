@@ -58,6 +58,18 @@ tags:
 
 ### Solution 1: Binary Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to scan $i$ from $0$ to $x$ and keep the largest $i$ with $i^2 \le x$. $x$ can be $2^{31}-1$, so a linear scan is too slow, $i^2$ overflows easily, and `pow` is forbidden.
+>
+> The answer is monotone: if $mid^2 \le x$, a larger candidate might still work; otherwise we must go left. So we binary-search $[0, x]$.
+>
+> Compare with $mid > x / mid$ to avoid overflow. Use the upper mid and shrink toward the largest feasible value; the left endpoint is the integer square root.
+
+<!-- thinking:end -->
+
 We define the left boundary of the binary search as $l = 0$ and the right boundary as $r = x$, then we search for the square root within the range $[l, r]$.
 
 In each step of the search, we find the middle value $mid = (l + r + 1) / 2$. If $mid > x / mid$, it means the square root is within the range $[l, mid - 1]$, so we set $r = mid - 1$. Otherwise, it means the square root is within the range $[mid, r]$, so we set $l = mid$.

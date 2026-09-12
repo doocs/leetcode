@@ -59,6 +59,18 @@ tags:
 
 ### Solution 1: Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to try every pair $(i,j)$ and take $\min(height[i],height[j])\times(j-i)$. Correct, but $O(n^2)$. $n \le 10^5$ will time out.
+>
+> The bottleneck is treating every pair independently and ignoring that height is fixed by the shorter line. Start from the widest interval $[0,n-1]$: moving the taller end inward shrinks the width while the height is still capped by the shorter line, so the area cannot improve. We must drop the shorter line and look for a taller one.
+>
+> So we shrink from both ends, always moving the shorter side. Each index is visited at most once.
+
+<!-- thinking:end -->
+
 We use two pointers $l$ and $r$ to point to the left and right ends of the array, respectively, i.e., $l = 0$ and $r = n - 1$, where $n$ is the length of the array.
 
 Next, we use a variable $\textit{ans}$ to record the maximum capacity of the container, initially set to $0$.

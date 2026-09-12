@@ -63,6 +63,18 @@ tags:
 
 ### 方法一：分治
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 若将两个有序数组合并后再取中位数，时间复杂度为 $O(m+n)$。在 $m,n \le 10^3$ 的范围内可以接受，但题目要求 $O(\log(m+n))$，因此不能线性扫描。
+>
+> 注意到中位数只取决于合并后正中间的一两个位置，比它更小的元素只需知道个数，而不必真正列出。两数组均有序，比较各自第 $\left\lfloor k/2 \right\rfloor$ 个数，即可判断其中一侧的前一半不可能是第 $k$ 小，从而一次排除一半候选。
+>
+> 因此我们在剩余区间上求第 $k$ 小，而不构造合并数组。将中位数统一为第 $\left\lfloor (m+n+1)/2 \right\rfloor$ 与第 $\left\lfloor (m+n+2)/2 \right\rfloor$ 个数的平均，奇数与偶数长度可以共用同一套逻辑。若某一侧不足 $\left\lfloor k/2 \right\rfloor$ 个元素，则将该侧视为 $+\infty$，只会排除另一侧。
+
+<!-- thinking:end -->
+
 题目要求算法的时间复杂度为 $O(\log (m + n))$，因此不能直接遍历两个数组，而是需要使用二分查找的方法。
 
 如果 $m + n$ 是奇数，那么中位数就是第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 个数；如果 $m + n$ 是偶数，那么中位数就是第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 和第 $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$ 个数的平均数。实际上，我们可以统一为求第 $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$ 个数和第 $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$ 个数的平均数。

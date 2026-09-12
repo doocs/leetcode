@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: Fast and Slow Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to count the length $L$, then walk $L-n$ steps and delete. $sz\le 30$ would pass, but the follow-up asks for one pass.
+>
+> Until we reach the end we do not know where the $n$-th node from the end is, and deletion still needs its predecessor. Give the fast pointer a head start of $n$ steps, then move both; when fast hits the tail, slow sits on the predecessor. A dummy node makes deleting the head the same as deleting a middle node.
+>
+> So one walk with fast and slow locates and removes the node.
+
+<!-- thinking:end -->
+
 We define two pointers `fast` and `slow`, both initially pointing to the dummy head node of the linked list.
 
 Next, the `fast` pointer moves forward $n$ steps first, then `fast` and `slow` pointers move forward together until the `fast` pointer reaches the end of the linked list. At this point, the node pointed to by `slow.next` is the predecessor of the $n$-th node from the end, and we can delete it.

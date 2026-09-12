@@ -84,6 +84,18 @@ M             1000</pre>
 
 ### Solution 1: Hash Table + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a scan with special cases for the six subtractive pairs ($\textit{IV}$, $\textit{IX}$, …) and addition elsewhere. $|s|\le 15$, so it would pass, but the exceptions are easy to miss.
+>
+> The annoyance is deciding whether the current character is added or subtracted. A character is subtracted if and only if it is smaller than the next one; the last character is always added. We do not need to list the six pairs.
+>
+> So we store each character’s value in a hash table, compare neighbors to choose the sign, and add the last character.
+
+<!-- thinking:end -->
+
 First, we use a hash table $d$ to record the numerical value corresponding to each character. Then, we traverse the string $s$ from left to right. If the numerical value corresponding to the current character is less than the numerical value corresponding to the character on the right, we subtract the numerical value corresponding to the current character. Otherwise, we add the numerical value corresponding to the current character.
 
 The time complexity is $O(n)$, and the space complexity is $O(m)$. Here, $n$ and $m$ are the length of the string $s$ and the size of the character set, respectively.

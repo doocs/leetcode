@@ -64,6 +64,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to enumerate every pair of endpoints and sum, in $O(n^2)$ or $O(n^3)$. $n \le 10^5$ will time out.
+>
+> The waste is recomputing overlapping subarrays. With the right endpoint fixed at $i$, the best left end either continues the previous segment (if its sum is positive) or starts over at $i$.
+>
+> So let $f[i]$ be the best sum ending at $i$. It depends only on $f[i-1]$, so one rolling variable suffices; the answer is the max along the way.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the maximum sum of a contiguous subarray ending at element $\textit{nums}[i]$. Initially, $f[0] = \textit{nums}[0]$. The final answer we seek is $\max_{0 \leq i < n} f[i]$.
 
 Consider $f[i]$ for $i \geq 1$. Its state transition equation is:
@@ -209,6 +221,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: Divide and Conquer
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already $O(n)$ time and $O(1)$ space. The follow-up asks for divide and conquer, but DP's recurrence is linear in the right endpoint and does not split into disjoint halves.
+>
+> What it lacks is another observation: the best subarray lies entirely on the left, entirely on the right, or crosses the midpoint. Crossing means a max suffix on the left plus a max prefix on the right. Time becomes $O(n \log n)$; we use it for the follow-up, not for speed.
+
+<!-- thinking:end -->
 
 Split the array at the midpoint. The answer is the max of the left half, the right half, and the best subarray that crosses the midpoint (max suffix of the left plus max prefix of the right).
 

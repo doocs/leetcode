@@ -72,6 +72,20 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to swap values of adjacent nodes. The problem forbids changing values, so we must rewire pointers. At most $100$ nodes, so any correct linking will pass.
+>
+> The bottleneck is the link order: flip the first pair and then the rest, and it is easy to lose a successor.
+>
+> After one pair is swapped, the suffix starting at the third node is the same problem. The new head is always the original second node.
+>
+> So recurse on $head.next.next$ first, then reverse the current pair onto that result. An empty list or a single node cannot form a pair and is returned as-is.
+
+<!-- thinking:end -->
+
 We can implement swapping two nodes in the linked list through recursion.
 
 The termination condition of recursion is that there are no nodes in the linked list, or there is only one node in the linked list. At this time, swapping cannot be performed, so we directly return this node.
@@ -333,6 +347,18 @@ end
 <!-- solution:start -->
 
 ### Solution 2: Iteration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is correct, but recursion depth tracks the number of pairs, so extra space is $O(n)$. The same three pointer writes inside a pair can run in a loop.
+>
+> A dummy pins the list head. Pointers $pre$ and $cur$ rewrite the two nodes after $pre$, then advance by one pair.
+>
+> Time stays $O(n)$; extra space drops to $O(1)$.
+
+<!-- thinking:end -->
 
 We set a dummy head node $dummy$, initially pointing to $head$, and then set two pointers $pre$ and $cur$, initially $pre$ points to $dummy$, and $cur$ points to $head$.
 

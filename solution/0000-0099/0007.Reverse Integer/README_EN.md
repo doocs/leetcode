@@ -57,6 +57,18 @@ tags:
 
 ### Solution 1: Mathematics
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Reversing via a string is the obvious idea, but the environment is assumed not to hold 64-bit integers. We cannot compute in a wider type and check overflow afterwards.
+>
+> Peeling the last digit and appending it is $\textit{ans} \leftarrow 10\cdot\textit{ans}+y$. Before multiplying by $10$, we must know whether the next value would leave $[-2^{31}, 2^{31}-1]$; if it would, return $0$.
+>
+> That check collapses to whether $\textit{ans}$ still lies in $[\lfloor mi/10 \rfloor, \lfloor mx/10 \rfloor]$. Inside the range, one more digit is safe; outside, it has already overflowed.
+
+<!-- thinking:end -->
+
 Let's denote $mi$ and $mx$ as $-2^{31}$ and $2^{31} - 1$ respectively, then the reverse result of $x$, $ans$, needs to satisfy $mi \le ans \le mx$.
 
 We can continuously take the remainder of $x$ to get the last digit $y$ of $x$, and add $y$ to the end of $ans$. Before adding $y$, we need to check if $ans$ overflows. That is, check whether $ans \times 10 + y$ is within the range $[mi, mx]$.

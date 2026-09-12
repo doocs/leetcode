@@ -52,6 +52,14 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem lists every tree; here we only need the count. The structure is the same: pick a root, multiply left and right counts, sum over roots. Shapes collapse to “how many nodes”: any $i$ consecutive integers yield the same number of BSTs. Let $f[i]$ be the number of trees with $i$ nodes, $f[0]=1$, and build from small $i$ so each size is computed once.
+
+<!-- thinking:end -->
+
 We define $f[i]$ to represent the number of binary search trees that can be generated from $[1, i]$. Initially, $f[0] = 1$, and the answer is $f[n]$.
 
 We can enumerate the number of nodes $i$, then the number of nodes in the left subtree $j \in [0, i - 1]$, and the number of nodes in the right subtree $k = i - j - 1$. The number of combinations of the number of nodes in the left subtree and the right subtree is $f[j] \times f[k]$, so $f[i] = \sum_{j = 0}^{i - 1} f[j] \times f[i - j - 1]$.

@@ -59,6 +59,18 @@ tags:
 
 ### Solution 1: Divide and Conquer
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Merging the two sorted arrays and then reading the median is the direct approach, in $O(m+n)$. $m,n \le 10^3$ would pass, but the problem asks for $O(\log(m+n))$, so a linear scan is out.
+>
+> The bottleneck: the median only cares about the one or two middle positions after a merge. Smaller values need only be counted, not listed. Both arrays are sorted, so comparing each side’s $\left\lfloor k/2 \right\rfloor$-th element tells us which side’s first half cannot contain the $k$-th smallest, and we can drop that half at once.
+>
+> So we never build a merged array; we search for the $k$-th remaining element. The median is the average of the $\left\lfloor (m+n+1)/2 \right\rfloor$-th and the $\left\lfloor (m+n+2)/2 \right\rfloor$-th, covering odd and even length with the same code. If one side has fewer than $\left\lfloor k/2 \right\rfloor$ elements, treat it as $+\infty$ and discard from the other side.
+
+<!-- thinking:end -->
+
 The problem requires the time complexity of the algorithm to be $O(\log (m + n))$, so we cannot directly traverse the two arrays, but need to use the binary search method.
 
 If $m + n$ is odd, then the median is the $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$-th number; if $m + n$ is even, then the median is the average of the $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$-th and the $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$-th numbers. In fact, we can unify it as the average of the $\left\lfloor\frac{m + n + 1}{2}\right\rfloor$-th and the $\left\lfloor\frac{m + n + 2}{2}\right\rfloor$-th numbers.

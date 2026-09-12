@@ -55,6 +55,18 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is DFS/BFS over reachable indices, or DP for whether each index is reachable. Correct, but worst-case $O(n^2)$. $n \le 10^4$ is tight, and we only care about the last index, not the path.
+>
+> The waste is expanding every jump. Reachable indices form a prefix: maintain the farthest reachable $mx$; if some $i > mx$, we are cut off.
+>
+> So we scan left to right, update $mx$ with $i + \textit{nums}[i]$, and finishing the scan means the end is reachable.
+
+<!-- thinking:end -->
+
 We use a variable $mx$ to maintain the farthest index that can currently be reached, initially $mx = 0$.
 
 We traverse the array from left to right. For each position $i$ we traverse, if $mx < i$, it means that the current position cannot be reached, so we directly return `false`. Otherwise, the farthest position that we can reach by jumping from position $i$ is $i+nums[i]$, we use $i+nums[i]$ to update the value of $mx$, that is, $mx = \max(mx, i + nums[i])$.

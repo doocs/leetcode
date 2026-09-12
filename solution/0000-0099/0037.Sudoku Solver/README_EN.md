@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There can be dozens of empty cells and $9$ choices each, so brute force is impossible. We must stop as soon as a row, column, or box is violated.
+>
+> As in Valid Sudoku, the bottleneck is repeatedly asking whether a digit is already used. Record the given digits in $row$, $col$, and $block$, then search only the empty-cell list $t$.
+>
+> $dfs(k)$ fills the $k$-th empty cell: try each unused $v$, write it, and recurse. When a solution is found, $ok$ cuts off further tries. Backtracking restores the occupancy flags; digits on the successful path stay on the board.
+
+<!-- thinking:end -->
+
 We use arrays $\textit{row}$, $\textit{col}$, and $\textit{box}$ to record whether each number has appeared in each row, each column, and each 3x3 sub-box, respectively. If the number $i$ has appeared in row $r$, column $c$, or the $b$-th 3x3 sub-box, then $\text{row[r][i]}$, $\text{col[c][i]}$, and $\text{box[b][i]}$ are all set to $true$.
 
 We iterate over every empty cell in the $\textit{board}$ and enumerate the possible numbers $v$ that can be filled in. If $v$ has not appeared in the current row, column, or 3x3 sub-box, we can try filling in $v$ and continue searching for the next empty cell. If we reach the end and all cells are filled, it means we have found a valid solution.

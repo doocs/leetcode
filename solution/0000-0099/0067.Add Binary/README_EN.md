@@ -46,6 +46,18 @@ tags:
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to convert both binary strings to integers, add, and convert back. Lengths go up to $10^4$, which overflows ordinary integer types.
+>
+> The bottleneck is unequal lengths and a possible extra high carry. This is the same grade-school addition as in decimal: align from the low end and keep a $\textit{carry}$.
+>
+> Two pointers walk from the tails; a missing bit is $0$. The loop must continue while $\textit{carry}$ remains, or a final $1$ such as `"1"+"1"` would be dropped.
+
+<!-- thinking:end -->
+
 We use a variable $\textit{carry}$ to record the current carry, and two pointers $i$ and $j$ to point to the end of $a$ and $b$ respectively, and add them bit by bit from the end to the beginning.
 
 The time complexity is $O(\max(m, n))$, where $m$ and $n$ are the lengths of strings $a$ and $b$ respectively. The space complexity is $O(1)$.

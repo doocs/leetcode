@@ -52,6 +52,18 @@ tags:
 
 ### Solution 1: Backtracking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to generate every board as in N-Queens and count them. $n \le 9$ would pass, but this problem only wants the count—building strings and copying the grid is wasted work.
+>
+> The waste is drawing the solutions. The constraints match N-Queens: one per row, no shared column or diagonal. Column, main diagonal, and anti-diagonal can still be marked in $O(1)$.
+>
+> So we backtrack by row the same way, and at row $n$ we only increment the answer.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents starting the search from the $i$th row, and the results of the search are added to the answer.
 
 In the $i$th row, we enumerate each column of the $i$th row. If the current column does not conflict with the queens placed before, then we can place a queen, and then continue to search the next row, that is, call $dfs(i + 1)$.

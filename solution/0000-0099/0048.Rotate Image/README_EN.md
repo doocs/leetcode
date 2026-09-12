@@ -54,6 +54,18 @@ tags:
 
 ### Solution 1: In-place Rotation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is a new matrix with $\textit{matrix}[j][n-1-i] \gets \textit{matrix}[i][j]$. Correct, $O(n^2)$ time and space. $n \le 20$ fits, but the problem requires in-place.
+>
+> The extra matrix is the bottleneck. A $90^\circ$ clockwise turn factors into two in-place flips: reverse upside-down, then transpose across the main diagonal.
+>
+> $(i, j)$ goes to $(n-1-i, j)$, then to $(j, n-1-i)$ — the target. Two rounds of swaps, $O(1)$ extra space.
+
+<!-- thinking:end -->
+
 According to the problem requirements, we need to rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.
 
 We can first flip the matrix upside down, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[n - i - 1][j]$, and then flip the matrix along the main diagonal, i.e., swap $\text{matrix}[i][j]$ with $\text{matrix}[j][i]$. This way, we can rotate $\text{matrix}[i][j]$ to $\text{matrix}[j][n - i - 1]$.

@@ -54,6 +54,16 @@ Note that combinations are unordered, i.e., [1,2] and [2,1] are considered to be
 
 ### Solution 1: Backtracking (Two Ways)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is all $2^n$ subsets of $\{1,\ldots,n\}$, keep those of length $k$. $n \le 20$ might pass, but most subsets have the wrong size.
+>
+> Order does not matter; each number is in or out, and we can stop a path once its length is $k$. So $dfs(i)$ handles $i$: push, recurse $i+1$, pop, then skip. Enumerating the next $j$ among leftovers is the other tree; both yield the same combinations. The code below is the first form.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which represents starting the search from number $i$, with the current search path as $t$, and the answer as $ans$.
 
 The execution logic of the function $dfs(i)$ is as follows:
@@ -270,6 +280,14 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 walks a choose/skip tree of depth $n$; skip branches still scan the rest of the numbers. Method 2 enumerates the next chosen $j \in [i,n]$, so recursion depth equals how many we have picked, and the tree matches combinations of length $k$ more closely. Same answers; the loop just expands the remaining candidates.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: Sorting + One-pass Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The first idea is to pick an interval and scan the rest for overlaps, merging until nothing changes. Correct, but worst-case $O(n^2)$ with a messy merge order. $n \le 10^4$ is tight.
+>
+> The waste is locating overlaps in unsorted input. After sorting by left endpoint, an interval can overlap only the interval we have not closed yet—later starts are larger, so they cannot skip over the middle and overlap again.
+>
+> So we sort, then scan once, keeping $\textit{st}, \textit{ed}$ as the interval under merge.
+
+<!-- thinking:end -->
+
 We can sort the intervals in ascending order by the left endpoint, and then traverse the intervals for merging operations.
 
 The specific merging operation is as follows.
@@ -295,6 +307,16 @@ class Solution {
 
 ### Solution 2
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 is already $O(n \log n)$ and correct. It still keeps a separate $\textit{st}, \textit{ed}$, writes only when the interval closes, and appends once more at the end.
+>
+> What it lacks is storing the current interval in the answer: put the first interval into $\textit{ans}$ immediately, then either extend $\textit{ans}[-1]$'s right end or append. Fewer variables, no final flush.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
@@ -415,6 +437,16 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 3
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 2 already mutates the last interval in the answer. The loop is still "look at one, patch if needed."
+>
+> What it lacks is merging by groups: fix left $l$, eat every overlapping interval in an inner loop while stretching $r$, then push $[l, r]$ once. Already-written answers are never rewritten.
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 

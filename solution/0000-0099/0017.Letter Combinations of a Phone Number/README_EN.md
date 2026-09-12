@@ -53,6 +53,18 @@ tags:
 
 ### Solution 1: Traversal
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n\le 4$, so at most $4^n$ combinations; any enumeration would pass. The problem is a Cartesian product of letter groups. Nested loops cannot be written when $n$ is not fixed.
+>
+> Start from the empty string: each new digit replaces the current prefixes with every concatenation against that digit’s letters. That is the product expanded layer by layer.
+>
+> So we keep a mapping array and grow from a list that holds only the empty string. An empty input returns an empty list.
+
+<!-- thinking:end -->
+
 First, we use an array or hash table to store the letters corresponding to each digit. Then we traverse each digit, combine its corresponding letters with the previous results to get the new results.
 
 The time complexity is $O(4^n)$, and the space complexity is $O(4^n)$. Here, $n$ is the length of the input digits.
@@ -259,6 +271,18 @@ public class Solution {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 already enumerates every answer, but each layer allocates a new prefix list, so intermediate strings stay $O(4^n)$.
+>
+> If we walk a single path and backtrack, extra space drops to $O(n)$ (depth and path length).
+>
+> So we DFS by index: pick one letter for the current digit, go deeper, then undo. The combinations are the same; only the generation order changes from “expand by layer” to “one path to the end”.
+
+<!-- thinking:end -->
 
 We can use the method of depth-first search to enumerate all possible letter combinations. Suppose that a part of the letter combination has been generated, but some digits have not been exhausted. At this time, we take out the letters corresponding to the next digit, and then enumerate each letter corresponding to this digit one by one, add them to the letter combination that has been generated before, to form all possible combinations.
 
