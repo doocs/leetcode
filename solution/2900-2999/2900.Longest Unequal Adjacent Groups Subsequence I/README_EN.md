@@ -101,6 +101,16 @@ tags:
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$ allows enumerating subsequences or an $O(n^2)$ DP for the longest length. $groups$ is binary, so two adjacent picks are valid only when the group flips; at most one index from each run of equal groups is useful.
+>
+> Keeping the first index of every run both connects to the previous run and does not shorten later choices. Any longest subsequence is accepted, so there is no need to compare $words$ inside a run. A single left-to-right scan builds the answer.
+
+<!-- thinking:end -->
+
 We can traverse the array $groups$, and for the current index $i$, if $i=0$ or $groups[i] \neq groups[i - 1]$, we add $words[i]$ to the answer array.
 
 The time complexity is $O(n)$, where $n$ is the length of the array $groups$. The space complexity is $O(n)$.

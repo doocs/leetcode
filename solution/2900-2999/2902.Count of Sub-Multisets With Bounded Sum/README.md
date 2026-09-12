@@ -80,6 +80,16 @@ tags:
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 需求区间 $[l,r]$ 内的子多重集个数，元素和不超过 $2 \times 10^4$。若按 0-1 背包逐个放入，时间与 $n \cdot r$ 同阶，偏紧；同一数值至多出现多次，宜按多重背包处理。
+>
+> 对每个非零值 $num$ 及其频次 $freq$，先用步长 $num$ 做前缀 $stride$，使 $stride[i]$ 等于 $dp[i]+dp[i-num]+\cdots$。再减去超出 $freq$ 份的部分，即得到「至多选 $freq$ 个 $num$」的方案。$0$ 不改变和，只需把结果乘以 $zeros+1$（含不选）。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

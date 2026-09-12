@@ -81,6 +81,16 @@ Hence, [-1,-1] is returned.</pre>
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The statement matches part I, but $n \le 10^5$ rules out a double loop. For each right index $i$ the admissible left set is still the prefix $[0, i-indexDifference]$, whose extrema grow monotonically.
+>
+> Maintain the indices of the prefix minimum and maximum while scanning, and test the difference against $nums[i]$. The $O(n)$ implementation is the same as part I; only the constraints force this linear form.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

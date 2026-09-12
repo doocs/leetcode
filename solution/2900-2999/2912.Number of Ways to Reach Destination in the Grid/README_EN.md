@@ -78,6 +78,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each step changes the row or the column, and we want to sit at $dest$ after $k$ steps. The grid can be $10^9$ on a side, so per-cell states are impossible. Relative to $source$ there are only four kinds of cells: itself, same column, same row, or neither.
+>
+> A four-vector $f$ stores the number of ways to each kind; one step mixes only these four kinds, with coefficients from $n$ and $m$. After $k$ iterations, pick the component that matches how $dest$ sits relative to $source$.
+
+<!-- thinking:end -->
+
 We define the following states:
 
 - $f[0]$ represents the number of ways to move from `source` to `source` itself;

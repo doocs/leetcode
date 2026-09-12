@@ -69,6 +69,16 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The longest subsequence whose sum is exactly $target$ is a 0-1 knapsack ($n,target \le 1000$). Let $f[i][j]$ be the best length using the first $i$ numbers to make $j$, with unreachable states at $-\infty$.
+>
+> The recurrence takes the better of skipping $x$ and taking it. If $f[n][target]$ is non-positive, no solution exists.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ as the length of the longest subsequence that selects several numbers from the first $i$ numbers and the sum of these numbers is exactly $j$. Initially, $f[0][0]=0$, and all other positions are $-\infty$.
 
 For $f[i][j]$, we consider the $i$th number $x$. If we do not select $x$, then $f[i][j]=f[i-1][j]$. If we select $x$, then $f[i][j]=f[i-1][j-x]+1$, where $j\ge x$. Therefore, we have the state transition equation:
@@ -205,6 +215,14 @@ function lengthOfLongestSubsequence(nums: number[], target: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1’s $f[i][j]$ depends only on the previous row, so the first index drops. Each number is used at most once, therefore the inner loop walks capacities downward. Space becomes $O(target)$ with the same answer.
+
+<!-- thinking:end -->
 
 $f[i][j]$ depends only on the previous row $f[i-1][\cdot]$, so the first dimension can be dropped. Each number is used at most once, so $j$ is updated from large to small. The space complexity becomes $O(target)$.
 
