@@ -64,6 +64,17 @@ From (1,0) to (2,3), all three rectangles overlap.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We need the area of a union of rectangles with coordinates up to $10^9$ and at most $200$ rectangles. Inclusion-exclusion explodes with intersections. A vertical sweep is stabler: left and right edges are events, and the measure between them is the covered $y$-length.
+>
+> Discretize $y$-coordinates and let a segment tree store the length where the cover count is positive. Sorting events by $x$, each gap $\Delta x$ times the tree length is the area of that slab.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

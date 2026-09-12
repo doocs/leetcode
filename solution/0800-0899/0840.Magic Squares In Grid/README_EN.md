@@ -64,6 +64,17 @@ In total, there is only one magic square inside the given grid.
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A magic square uses $1\ldots 9$ once each and equal line sums. The grid is at most $10\times 10$, so every $3\times 3$ window can be checked.
+>
+> Collect the set and the row, column, and diagonal sums. Duplicates, out-of-range values, or unequal sums reject the window. Count the valid ones.
+
+<!-- thinking:end -->
+
+
 We directly enumerate the top-left coordinates $(i, j)$ of each $3 \times 3$ submatrix, then check whether the submatrix satisfies the "magic square" property. If so, we increment the answer by one. After the enumeration, we return the answer.
 
 The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the matrix, respectively. The space complexity is $O(1)$.

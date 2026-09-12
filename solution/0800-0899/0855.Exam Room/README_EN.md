@@ -70,6 +70,17 @@ examRoom.seat(); // return 5, the student sits at the last seat number 5.
 
 ### Solution 1: Ordered Set + Hash Table
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each seat maximizes distance to the nearest person; leave frees a seat. Scanning every seat per operation is too slow. We maintain empty intervals and only split the current best one.
+>
+> An ordered set ranks intervals by the distance they offer and by left endpoint; maps store each endpoint’s neighbors. Seat at the midpoint of the top interval (or $0$/$n-1$ at the ends). Leave merges the two adjacent intervals.
+
+<!-- thinking:end -->
+
+
 Considering that each time we call $\text{seat}()$, we need to find the seat with the maximum distance, we can use an ordered set to store seat intervals. Each element of the ordered set is a tuple $(l, r)$, indicating that the seats between $l$ and $r$ (excluding $l$ and $r$) can be occupied by a student. Initially, the ordered set contains only one element $(-1, n)$, indicating that the seats between $(-1, n)$ can be occupied by a student.
 
 Additionally, we use two hash tables $\textit{left}$ and $\textit{right}$ to maintain the left and right neighbors of each occupied seat, making it easier to merge two seat intervals when calling $\text{leave}(p)$.

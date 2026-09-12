@@ -61,6 +61,17 @@ tags:
 
 ### Solution 1: Hash Table + Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We partition the hand into consecutive groups of length $\textit{groupSize}$. If the length is not divisible, it is impossible. $n\le 10^4$, so greedy from the smallest card is enough.
+>
+> Count frequencies, sort values, and start a group at every remaining card, decrementing the next $\textit{groupSize}$ consecutive ranks. A missing rank fails.
+
+<!-- thinking:end -->
+
+
 We first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$.
 
 Next, we use a hash table $\textit{cnt}$ to count the occurrences of each number in the array $\textit{hand}$, and then we sort the array $\textit{hand}$.
@@ -207,6 +218,17 @@ function isNStraightHand(hand: number[], groupSize: number): boolean {
 <!-- solution:start -->
 
 ### Solution 2: Ordered Set
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Sorting the whole hand revisits ranks whose count is already $0$. An ordered map always yields the current minimum key as the next group start; missing keys fail, and a key is erased when its count hits zero.
+>
+> The logic matches Method 1; the ordered set simply guarantees the next leftover minimum.
+
+<!-- thinking:end -->
+
 
 Similar to Solution 1, we first check whether the length of the array $\textit{hand}$ is divisible by $\textit{groupSize}$. If it is not, this means that the array cannot be partitioned into multiple subarrays of length $\textit{groupSize}$, so we return $\text{false}$.
 

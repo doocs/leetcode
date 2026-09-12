@@ -74,6 +74,17 @@ tags:
 
 ## Solution 1: Preprocessing + Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A mountain rises strictly then falls strictly, and has length at least $3$. $n\le 10^4$, so expanding from every peak works but retraces the same slopes.
+>
+> $f[i]$ is the longest ascent ending at $i$, $g[i]$ the longest descent starting at $i$. A peak exists only when both exceed $1$, and its length is $f[i]+g[i]-1$.
+
+<!-- thinking:end -->
+
+
 We define two arrays $f$ and $g$, where $f[i]$ represents the length of the longest increasing subsequence ending at $arr[i]$, and $g[i]$ represents the length of the longest decreasing subsequence starting at $arr[i]$. Then for each index $i$, if $f[i] \gt 1$ and $g[i] \gt 1$, the length of the mountain with $arr[i]$ as the peak is $f[i] + g[i] - 1$. We only need to enumerate all $i$ and find the maximum value.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $arr$.
@@ -219,6 +230,17 @@ function longestMountain(arr: number[]): number {
 <!-- solution:start -->
 
 ## Solution 2: One Pass (Enumerate Left Base of Mountain)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The two arrays can be dropped. Scan from a left base: climb to a peak, descend to the right base, update the answer, then move the left pointer to the current right end.
+>
+> Positions that cannot form a peak are skipped. Each element is visited a constant number of times.
+
+<!-- thinking:end -->
+
 
 We can enumerate the left base of the mountain and then search to the right for the right base of the mountain. We can use two pointers $l$ and $r$, where $l$ represents the index of the left base and $r$ represents the index of the right base. Initially, $l=0$ and $r=0$. Then we move $r$ to the right to find the position of the peak. At this point, we check if $r$ satisfies $r + 1 \lt n$ and $arr[r] \gt arr[r + 1]$. If so, we continue moving $r$ to the right until we find the position of the right base. At this point, the length of the mountain is $r - l + 1$. We update the answer and then update the value of $l$ to $r$, continuing to search for the next mountain.
 

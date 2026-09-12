@@ -67,6 +67,17 @@ tags:
 
 ### Solution 1: Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score doubles with nesting: an innermost $()$ is $1$. We need not build a tree or fully evaluate on a stack.
+>
+> Scan with depth $d$; when a $()$ pair closes, add $1\ll d$. Other closing parentheses only decrease depth.
+
+<!-- thinking:end -->
+
+
 By observing, we find that `()` is the only structure that contributes to the score, and the outer parentheses just add some multipliers to this structure. So, we only need to focus on `()`.
 
 We use $d$ to maintain the current depth of parentheses. For each `(`, we increase the depth by one, and for each `)`, we decrease the depth by one. When we encounter `()`, we add $2^d$ to the answer.

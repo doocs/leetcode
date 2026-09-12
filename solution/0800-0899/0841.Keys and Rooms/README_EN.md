@@ -66,6 +66,17 @@ Since we were able to visit every room, we return true.
 
 ### Solution 1: Depth-First Search (DFS)
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Rooms form a directed graph whose edges are keys. We ask whether $0$ reaches every room. $n\le 1000$, so one traversal is enough.
+>
+> DFS from $0$ follows keys; success is $|\textit{vis}|=n$.
+
+<!-- thinking:end -->
+
+
 We can use the Depth-First Search (DFS) method to traverse the entire graph, count the number of reachable nodes, and use an array `vis` to mark whether the current node has been visited to prevent repeated visits.
 
 Finally, we count the number of visited nodes. If it is the same as the total number of nodes, it means that all nodes can be visited; otherwise, there are nodes that cannot be reached.
@@ -216,6 +227,17 @@ impl Solution {
 <!-- solution:start -->
 
 ### Solution 2: BFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The same reachability is a queue: BFS from $0$, enqueueing rooms unlocked by the current keys.
+>
+> A visited set still prevents repeats. The only change from DFS is the explicit queue.
+
+<!-- thinking:end -->
+
 
 We can also use the Breadth-First Search (BFS) method to traverse the entire graph. We use a hash table or an array `vis` to mark whether the current node has been visited to prevent repeated visits.
 

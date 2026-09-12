@@ -66,6 +66,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The array rises strictly then falls strictly; we need the peak index. A linear scan works, but $n\le 10^5$ and the peak test is monotone: left of the peak $arr[i]<arr[i+1]$, right of it the opposite.
+>
+> Binary search $[1,n-2]$: if $arr[mid]>arr[mid+1]$ the peak is in the left half (including $mid$), otherwise in the right. The left endpoint is the peak.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

@@ -72,6 +72,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> We split the digit string into a Fibonacci sequence of at least three 32-bit integers. Length $\le 200$: the first two terms determine the rest, so backtracking is natural.
+>
+> Try each end of the next term, forbid leading zeros, and prune when the value exceeds the 32-bit limit or the previous sum. With two terms already chosen, the next must match their sum. Success is reaching the end with more than two terms.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
