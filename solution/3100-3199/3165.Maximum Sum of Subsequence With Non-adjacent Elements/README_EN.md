@@ -75,6 +75,18 @@ After the 1<sup>st</sup> query, <code>nums = [-5,-1]</code> and the maximum sum 
 
 ### Solution 1: Segment Tree
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> After each point update the maximum non-adjacent subsequence sum is required. Recomputing linear DP per query is $O(nq)$.
+>
+> When merging segments it is enough to know whether each endpoint is taken, giving four states $s_{00},s_{01},s_{10},s_{11}$.
+>
+> Build a segment tree, apply each assignment, and query $s_{11}$ on the whole range. Sum those answers modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to perform multiple point updates and range queries. In this scenario, we consider using a segment tree to solve the problem.
 
 First, we define a $\textit{Node}$ class to store the information of the segment tree nodes, including the left and right endpoints $l$ and $r$, as well as four state values $s_{00}$, $s_{01}$, $s_{10}$, and $s_{11}$. Specifically:

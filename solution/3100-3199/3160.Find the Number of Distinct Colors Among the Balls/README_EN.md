@@ -87,6 +87,18 @@ tags:
 
 ### Solution 1: Double Hash Tables
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each update paints one ball and asks how many distinct colors exist. $limit$ may be $10^9$, so an array of balls is impossible, and rescanning after every paint is too slow.
+>
+> Only the painted ball changes: increment the new color, decrement the old one and drop it at zero. The number of keys is the answer.
+>
+> Map balls to colors in $g$ and colors to counts in $cnt$. After each query append $len(cnt)$.
+
+<!-- thinking:end -->
+
 We use a hash table `g` to record the color of each ball, and another hash table `cnt` to record the count of each color.
 
 Next, we traverse the array `queries`. For each query $(x, y)$, we increase the count of color $y$ by $1$, then check whether ball $x$ has been colored. If it has, we decrease the count of the color of ball $x$ by $1$. If the count drops to $0$, we remove it from the hash table `cnt`. Then, we update the color of ball $x$ to $y$, and add the current size of the hash table `cnt` to the answer array.

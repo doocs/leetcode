@@ -102,6 +102,18 @@ Each row of this table contains the ID of the parking lot, the ID of the car, th
 
 ### Solution 1: Grouping + Joining
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each car needs total fees, an hourly average, and the lot where it stayed longest. A second pass would be required after a naive group-by.
+>
+> Sum durations by $(car\_id,lot\_id)$, then rank lots per car by that duration to mark the longest stay.
+>
+> Aggregate fees and seconds from the raw table, left-join the rank-$1$ lot, and divide fee by hours rounded to two decimals.
+
+<!-- thinking:end -->
+
 We can first group by `car_id` and `lot_id` to calculate the parking duration for each car in each parking lot. Then, we use the `RANK()` function to rank the parking duration of each car in each parking lot to find the parking lot where each car has the longest parking duration.
 
 Finally, we can group by `car_id` to calculate the total parking fee, average hourly fee, and the parking lot with the longest parking duration for each car.

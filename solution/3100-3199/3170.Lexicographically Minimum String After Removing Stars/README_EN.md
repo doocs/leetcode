@@ -74,6 +74,18 @@ tags:
 
 ### Solution 1: Record Indices by Character
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each `*` removes itself and the leftmost-smallest letter to its left (breaking ties by rightmost index). A heap works but must store indices for reconstruction.
+>
+> Bucket indices by letter. On a star, scan `a`..`z` and pop the last index of the first nonempty bucket — the rightmost copy of the smallest letter.
+>
+> Mark deletions in $rem$ and join unmarked characters in order. Each star inspects at most $26$ buckets.
+
+<!-- thinking:end -->
+
 We define an array $g$ to record the index list of each character, and a boolean array $rem$ of length $n$ to record whether each character needs to be deleted.
 
 We traverse the string $s$:

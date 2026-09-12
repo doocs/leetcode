@@ -76,6 +76,18 @@ tags:
 
 ### Solution 1: Stack + Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A digit deletes itself and the closest letter to its left. Repeatedly editing the string is quadratic.
+>
+> While scanning left to right the stack top is the nearest surviving character, so a digit simply pops.
+>
+> Push letters and pop on digits, then join the stack. Each character enters at most once.
+
+<!-- thinking:end -->
+
 We use a stack `stk` to simulate this process. We traverse the string `s`. If the current character is a digit, we pop the top element from the stack. Otherwise, we push the current character into the stack.
 
 Finally, we concatenate the elements in the stack into a string and return it.

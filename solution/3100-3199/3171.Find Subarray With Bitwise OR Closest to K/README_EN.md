@@ -81,6 +81,18 @@ tags:
 
 ### Solution 1: Two Pointers + Bitwise Operations
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Minimize the absolute gap between a subarray OR and $k$. A double loop is $O(n^2)$. OR grows as the window expands, so two pointers can keep it near $k$.
+>
+> Extending the right end only adds bits; if $s>k$ the left end advances. A bit is cleared from $s$ only when its count in the window hits zero.
+>
+> Maintain per-bit counts and $s$, updating $|s-k|$ after every move. Each pointer travels $O(n)$ times times the bit width.
+
+<!-- thinking:end -->
+
 According to the problem description, we need to calculate the result of the bitwise OR operation of elements from index $l$ to $r$ in the array $\textit{nums}$, that is, $\textit{nums}[l] \lor \textit{nums}[l + 1] \lor \cdots \lor \textit{nums}[r]$, where $\lor$ represents the bitwise OR operation.
 
 If we fix the right endpoint $r$, then the range of the left endpoint $l$ is $[0, r]$. Each time we move the right endpoint $r$, the result of the bitwise OR operation will only increase. We use a variable $s$ to record the current result of the bitwise OR operation. If $s$ is greater than $k$, we move the left endpoint $l$ to the right until $s$ is less than or equal to $k$. During the process of moving the left endpoint $l$, we need to maintain an array $cnt$ to record the number of $0$s on each binary digit in the current interval. When $cnt[h] = 0$, it means that all elements in the current interval have a $0$ on the $h^{th}$ bit, and we can set the $h^{th}$ bit of $s$ to $0$.
@@ -268,6 +280,18 @@ function minimumDifference(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Hash Table + Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 needs explicit bit counts. For a fixed right end there are only $O(\log M)$ distinct ORs, because moving the left end leftward only turns zeros into ones.
+>
+> Store those OR values in a set. On a new $x$, replace the set by $\{x\mid y : y\in s\}\cup\{x\}$.
+>
+> Update $|y-k|$ for every value in the set. The set stays logarithmic, matching the previous bound with less bookkeeping.
+
+<!-- thinking:end -->
 
 According to the problem description, we need to calculate the result of the bitwise OR operation of elements from index $l$ to $r$ in the array $nums$, that is, $nums[l] \lor nums[l + 1] \lor \cdots \lor nums[r]$. Here, $\lor$ represents the bitwise OR operation.
 

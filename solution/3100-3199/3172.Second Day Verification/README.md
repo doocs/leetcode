@@ -110,6 +110,18 @@ signup_action 是 ('Verified', 'Not Verified') 的枚举类型。
 
 ### 方法一：双表关联
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要找注册次日即验证成功的用户。两表分别存邮箱与短信，条件分散在连接与日期差上。
+>
+> 内连 $email\_id$，并要求 $DATEDIFF=1$ 且操作为 `Verified`，一次即可筛出。
+>
+> 选出 $user\_id$ 并升序排列。无需分组或窗口。
+
+<!-- thinking:end -->
+
 我们可以通过内连接两个表，然后根据 `DATEDIFF` 函数计算出注册日期和操作日期的差值是否等于 1，以及注册操作是否为 `Verified`，来筛选出满足条件的用户 ID。
 
 <!-- tabs:start -->

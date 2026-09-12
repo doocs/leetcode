@@ -66,6 +66,18 @@ tags:
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A good subsequence allows at most $k$ adjacent changes. Both $n$ and $k$ are small enough for DP on the ending index and the number of changes used.
+>
+> Extending from $j$ to $i$ costs nothing when the values match and one change otherwise.
+>
+> Let $f[i][h]$ be the longest subsequence ending at $i$ with at most $h$ changes. Enumerate $j<i$ and take $\max f[i][k]$.
+
+<!-- thinking:end -->
+
 We define $f[i][h]$ as the length of the longest good subsequence ending with $nums[i]$ and having no more than $h$ indices satisfying the condition. Initially, $f[i][h] = 1$. The answer is $\max(f[i][k])$, where $0 \le i < n$.
 
 We consider how to calculate $f[i][h]$. We can enumerate $0 \le j < i$, if $nums[i] = nums[j]$, then $f[i][h] = \max(f[i][h], f[j][h] + 1)$; otherwise, if $h > 0$, then $f[i][h] = \max(f[i][h], f[j][h - 1] + 1)$. That is:
@@ -213,6 +225,18 @@ function maximumLength(nums: number[], k: number): number {
 <!-- solution:start -->
 
 ### Solution 2: Optimized Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 rescans every $j$ for each $(i,h)$, which passes here but is already $O(n^2k)$.
+>
+> An equal-value transition only needs the best $f$ of that value at $h$; a change only needs the best and second-best at $h-1$ (avoiding the current value).
+>
+> Store those extrema in $mp[h][x]$ and a triple $g[h]$, dropping the $j$ loop and preparing the $O(nk)$ solution of part II.
+
+<!-- thinking:end -->
 
 According to the state transition equation in Solution 1, if $nums[i] = nums[j]$, then we only need to get the maximum value of $f[j][h]$. We can maintain this with an array $mp$ of length $k + 1$. If $nums[i] \neq nums[j]$, we need to record the maximum value of $f[j][h - 1]$ corresponding to $nums[j]$, the maximum value and the second maximum value. We can maintain these with an array $g$ of length $k + 1$.
 
