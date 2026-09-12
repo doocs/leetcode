@@ -50,6 +50,17 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Insert a dot every three digits from the right. Converting to a string first requires extra care when the length is a multiple of three; peeling remainders from the low end is simpler.
+>
+> Repeatedly take $n\bmod 10$ and count digits; after every third digit, if a higher place remains, append a dot. Reverse the collected characters at the end. The loop runs once per digit, $O(\log n)$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

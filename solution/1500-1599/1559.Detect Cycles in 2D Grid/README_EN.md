@@ -80,6 +80,17 @@ tags:
 
 ### Solution 1: BFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Detect a cycle of identical letters with length at least $4$. The grid is small enough for one graph search, but stepping straight back to the parent must not count as a cycle.
+>
+> From every unvisited cell run BFS, walking only to same-letter neighbors and remembering the parent. A neighbor that is already visited and is not the parent closes a cycle. Each connected component is searched once.
+
+<!-- thinking:end -->
+
+
 We can traverse each cell in the 2D grid. For each cell, if the cell $grid[i][j]$ has not been visited, we start a breadth-first search (BFS) from that cell. During the search, we need to record the parent node of each cell and the coordinates of the previous cell. If the value of the next cell is the same as the current cell, and it is not the previous cell, and it has already been visited, then it indicates the presence of a cycle, and we return $\textit{true}$. After traversing all cells, if no cycle is found, we return $\textit{false}$.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the 2D grid, respectively.
@@ -365,6 +376,15 @@ var containsCycle = function (grid) {
 <!-- solution:start -->
 
 ### Solution 2: DFS
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> BFS needs an explicit queue. DFS uses the call stack for the same parent test and is shorter. The visited mark and the “visited non-parent means a cycle” rule stay unchanged; only the traversal order differs.
+
+<!-- thinking:end -->
+
 
 We can traverse each cell in the 2D grid. For each cell, if the cell $grid[i][j]$ has not been visited, we start a depth-first search (DFS) from that cell. During the search, we need to record the parent node of each cell and the coordinates of the previous cell. If the value of the next cell is the same as the current cell, and it is not the previous cell, and it has already been visited, then it indicates the presence of a cycle, and we return $\textit{true}$. After traversing all cells, if no cycle is found, we return $\textit{false}$.
 

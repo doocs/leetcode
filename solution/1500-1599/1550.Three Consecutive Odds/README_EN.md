@@ -52,6 +52,17 @@ Given an integer array <code>arr</code>, return <code>true</code>&nbsp;if there 
 
 ### Solution 1: Iteration + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Decide whether three consecutive odds exist. $n$ is small enough for one scan; no index structure is required.
+>
+> A counter tracks the current odd run: increment on an odd value and succeed at $3$; reset on an even value. Only adjacency matters, so extra memory is constant.
+
+<!-- thinking:end -->
+
+
 We use a variable $\textit{cnt}$ to record the current count of consecutive odd numbers.
 
 Next, we iterate through the array. If the current element is odd, then $\textit{cnt}$ is incremented by one. If $\textit{cnt}$ equals 3, then return $\textit{True}$. If the current element is even, then $\textit{cnt}$ is reset to zero.
@@ -163,6 +174,15 @@ function threeConsecutiveOdds(arr: number[]): boolean {
 <!-- solution:start -->
 
 ### Solution 2: Iteration + Bitwise Operation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Solution 1 tests parity one element at a time. Three numbers are all odd iff their bitwise AND has the lowest bit set. AND-ing each window of three replaces the explicit counter.
+
+<!-- thinking:end -->
+
 
 Based on the properties of bitwise operations, the result of a bitwise AND operation between two numbers is odd if and only if both numbers are odd. If there are three consecutive numbers whose bitwise AND result is odd, then these three numbers are all odd.
 

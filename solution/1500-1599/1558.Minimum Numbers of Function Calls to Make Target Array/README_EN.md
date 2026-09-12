@@ -74,6 +74,17 @@ Total of operations: 2 + 1 = 3.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Start from zeros; an operation either increments one entry or doubles the whole array. $n\le 10^5$ and $nums[i]\le 10^9$, so we cannot simulate values. Doubling is a simultaneous left shift; an increment writes one $1$-bit of some number.
+>
+> Each $v$ needs $v.\mathrm{bit\_count}()$ increments, and the shared doublings equal the bit length of the maximum minus one. Their sum is the minimum number of calls.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
