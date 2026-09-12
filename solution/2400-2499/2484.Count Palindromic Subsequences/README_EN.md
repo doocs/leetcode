@@ -71,6 +71,16 @@ Two of them (both equal to &quot;10301&quot;) are palindromic.
 
 ### Solution 1: Enumeration + Counting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A length-$5$ palindromic subsequence is $abxba$. With $n\le 10^4$ and digits, fix the center $i$ and a pair $(j,k)$; multiply how often $jk$ appears on the left by how often it appears on the right.
+>
+> Prefix $\textit{pre}[i][j][k]$ and suffix $\textit{suf}$ count those pairs: on seeing $v$, add $(j,v)$ for every earlier $j$. Sum products modulo $10^9+7$.
+
+<!-- thinking:end -->
+
 The time complexity is $O(100 \times n)$, and the space complexity is $O(100 \times n)$. Where $n$ is the length of the string $s$.
 
 <!-- tabs:start -->

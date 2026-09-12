@@ -89,6 +89,14 @@ Each Metal element pairs with a Nonmetal element in the output table.
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A bond is any metal–nonmetal pair. Self-join $\textit{Elements}$ with types Metal and Nonmetal and project the two symbols.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

@@ -86,6 +86,14 @@ The sentence is <strong>not</strong> circular.</pre>
 
 ### Solution 1: Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A circular sentence needs adjacent words to share the joining letter, and the last word to join the first. Split on spaces and test $s[-1]$ against the next word's first character, wrapping around.
+
+<!-- thinking:end -->
+
 We split the string into words by spaces, then check whether the last character of each word is equal to the first character of the next word. If they are not equal, return `false`. Otherwise, return `true` after traversing all the words.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string.
@@ -220,6 +228,14 @@ var isCircularSentence = function (sentence) {
 <!-- solution:start -->
 
 ### Solution 2: Simulation (Space Optimization)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 allocates the word list. With no leading or trailing spaces, $s[0]=s[-1]$ joins the ends, and every space has equal neighbors. Extra space is $O(1)$.
+
+<!-- thinking:end -->
 
 We can first check whether the first and last characters of the string are equal. If they are not equal, return `false`. Otherwise, traverse the string. If the current character is a space, check whether the previous character and the next character are equal. If they are not equal, return `false`. Otherwise, return `true` after traversing all the characters.
 

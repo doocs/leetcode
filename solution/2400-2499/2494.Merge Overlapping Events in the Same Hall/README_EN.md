@@ -81,6 +81,16 @@ Hall 3:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Per hall, merge events that overlap or touch after ordering by start day. A running $\textit{MAX}(\textit{end_day})$ is the latest end so far; if the next start is still $\le$ that value, it belongs to the same run.
+>
+> $\textit{LAG}$ flags a new run, $\textit{SUM}$ assigns a group id, then $\textit{MIN}$/$\textit{MAX}$ close each group.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### MySQL

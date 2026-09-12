@@ -83,6 +83,14 @@ Closing the shop at 2<sup>nd</sup> or 4<sup>th</sup> hour gives a minimum penalt
 
 ### Solution 1: Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Closing at hour $j$ costs one per earlier `N` and one per later `Y`. At $n\le 10^5$, start from closing at $0$ (all `Y`s). Moving the close one hour later adds $1$ on `N` and subtracts $1$ on `Y`. Keep the earliest $j$ with minimum cost.
+
+<!-- thinking:end -->
+
 If the shop closes at hour $0$, then the cost is the number of character `'Y'` in $\textit{customers}$. We initialize the answer variable $\textit{ans}$ to $0$, and the cost variable $\textit{cost}$ to the number of character `'Y'` in $\textit{customers}$.
 
 Next, we enumerate the shop closing at hour $j$ ($1 \leq j \leq n$). If $\textit{customers}[j - 1]$ is `'N'`, it means no customer arrived during the open period, and the cost increases by $1$; otherwise, it means a customer arrived during the closed period, and the cost decreases by $1$. If the current cost $\textit{cost}$ is less than the minimum cost $\textit{mn}$, we update the answer variable $\textit{ans}$ to $j$, and update the minimum cost $\textit{mn}$ to the current cost $\textit{cost}$.

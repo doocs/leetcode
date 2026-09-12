@@ -74,6 +74,14 @@ There is no way to divide the players into teams such that the total skill of ea
 
 ### Solution 1: Sorting
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every pair must share the same skill sum, which can only be global min plus max. At $n\le 10^5$, sort and pair ends; a mismatched sum fails, otherwise add products.
+
+<!-- thinking:end -->
+
 To make all 2-person teams have equal skill points, the minimum value must match the maximum value. Therefore, we sort the `skill` array, and then use two pointers $i$ and $j$ to point to the beginning and end of the array respectively, match them in pairs, and judge whether their sum is the same number.
 
 If not, it means that the skill points cannot be equal, and we directly return $-1$. Otherwise, we add the chemical reaction to the answer.
@@ -221,6 +229,14 @@ var dividePlayers = function (skill) {
 <!-- solution:start -->
 
 ### Solution 2: Counting
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Method 1 sorts. If the total skill is not divisible by the number of teams, it is impossible; the pair sum is $t=s/m$. Hash $v$ against $t-v$ in linear time.
+
+<!-- thinking:end -->
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the `skill` array.
 
