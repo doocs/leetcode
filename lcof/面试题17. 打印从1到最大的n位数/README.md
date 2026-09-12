@@ -37,6 +37,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 要输出 $1$ 到 $10^n-1$。本题 $n$ 较小，整型不会溢出，直接 `range` 即可。
+>
+> 若需避免大整数，可按位数 DFS 生成数字字符串，从最高位起填 $0\sim 9$，首位避开前导零。
+
+<!-- thinking:end -->
+
 直接根据题意模拟即可。
 
 时间复杂度 $O(10^n)$，空间复杂度 $O(1)$。

@@ -50,6 +50,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：二分查找
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组有序，线性计数未利用有序。`target` 的出现区间是连续的，左端为第一个不小于它的位置，右端为第一个大于它的位置，个数即两者之差。
+
+<!-- thinking:end -->
+
 由于数组 `nums` 已排好序，我们可以使用二分查找的方法找到数组中第一个大于等于 `target` 的元素的下标 $l$，以及第一个大于 `target` 的元素的下标 $r$，那么 `target` 的个数就是 $r - l$。
 
 时间复杂度 $O(\log n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。

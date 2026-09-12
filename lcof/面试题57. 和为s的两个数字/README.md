@@ -49,6 +49,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：双指针
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数组递增，两数之和随左右指针单调变化。左端过小则右移，过大则左移右端，相等即返回这一对。无需哈希表。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

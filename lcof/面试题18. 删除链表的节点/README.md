@@ -49,6 +49,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：模拟
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删除给定值的结点，可能删掉头结点，直接改 `head` 需要特判。加哑结点后，统一看 `cur.next` 是否为目标。
+>
+> 扫到后改 `next` 并停止，返回 `dummy.next`。
+
+<!-- thinking:end -->
+
 我们先创建一个虚拟头节点 `dummy`，令 `dummy.next = head`，然后创建一个指针 `cur` 指向 `dummy`。
 
 遍历链表，当 `cur.next.val == val` 时，将 `cur.next` 指向 `cur.next.next`，然后跳出循环。

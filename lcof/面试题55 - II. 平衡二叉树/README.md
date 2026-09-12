@@ -65,6 +65,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 若先求高度再判断平衡，同一结点会被反复访问。后序时同时返回高度：左右已不平衡或高度差大于 $1$ 则向上传 $-1$，否则返回较大高度加一。根不为 $-1$ 即平衡。
+
+<!-- thinking:end -->
+
 我们设计一个递归函数 $dfs(root)$，函数返回值为 $root$ 节点的深度，如果 $root$ 节点不平衡，返回值为 $-1$。
 
 函数 $dfs(root)$ 的递归过程如下：

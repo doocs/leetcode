@@ -44,6 +44,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 题目禁止乘除与循环判断，等差公式与普通循环都不能直接写。逻辑与运算具有短路性质：当 $n$ 为 $0$ 时不再递归。
+>
+> 因此写成 $n$ 与 $n+sum(n-1)$ 的合取，递归累加至 $0$。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

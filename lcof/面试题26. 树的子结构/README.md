@@ -54,6 +54,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：递归
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 子结构可从 $A$ 的任一结点对齐 $B$ 的根，枚举对齐点后还须核对形态。两树规模乘积可接受。
+>
+> 先写 $dfs$ 判断从当前结点是否完全覆盖 $B$；外层在 $A$ 上递归，对每个结点尝试对齐。$B$ 为空约定不构成子结构。
+
+<!-- thinking:end -->
+
 我们设计一个函数 $\textit{dfs}(A, B)$，用于判断树 A 中以节点 A 为根节点的子树是否包含树 B。
 
 函数 $\textit{dfs}(A, B)$ 的执行步骤如下：

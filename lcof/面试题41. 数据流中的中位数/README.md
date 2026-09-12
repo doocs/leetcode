@@ -60,6 +60,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：大小根堆（优先队列）
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 数据流动态增长，每次排序取中位数偏慢。中位数只依赖“较小一半的最大”与“较大一半的最小”。
+>
+> 用大根堆存较小一半、小根堆存较大一半，加入时先入大根堆再平衡到小根堆，并保持小根堆长度至多多 $1$。查询时看两堆是否等长。
+
+<!-- thinking:end -->
+
 我们可以使用两个堆来维护所有的元素，一个小根堆 $\textit{minQ}$ 和一个大根堆 $\textit{maxQ}$，其中小根堆 $\textit{minQ}$ 存储较大的一半，大根堆 $\textit{maxQ}$ 存储较小的一半。
 
 调用 `addNum` 方法时，我们首先将元素加入到大根堆 $\textit{maxQ}$，然后将 $\textit{maxQ}$ 的堆顶元素弹出并加入到小根堆 $\textit{minQ}$。如果此时 $\textit{minQ}$ 的大小与 $\textit{maxQ}$ 的大小差值大于 $1$，我们就将 $\textit{minQ}$ 的堆顶元素弹出并加入到 $\textit{maxQ}$。时间复杂度为 $O(\log n)$。

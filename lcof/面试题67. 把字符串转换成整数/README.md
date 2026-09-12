@@ -78,6 +78,16 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 须跳过前导空格、读可选符号、再读连续数字，并在溢出时钳到 $32$ 位范围。按这些阶段顺序扫描：空串或全空格返回 $0$，非数字则停止。
+>
+> 累加前判断是否将超过 $2^{31}-1$，按符号返回上界或下界。
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

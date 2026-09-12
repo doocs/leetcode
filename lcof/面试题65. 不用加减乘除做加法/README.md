@@ -38,6 +38,14 @@ edit_url: https://github.com/doocs/leetcode/edit/main/lcof/%E9%9D%A2%E8%AF%95%E9
 
 ### 方法一：位运算
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 不能用四则运算，加法须拆成“无进位和”与“进位”。前者即异或，后者即与后左移。循环至进位为零。Python 整型无限长，需先限制在 $32$ 位并处理符号。
+
+<!-- thinking:end -->
+
 两数字 $a$, $b$ 求和。
 
 假设 $a_i$ 和 $b_i$ 分别表示 $a$ 和 $b$ 的第 $i$ 个二进制位。一共有 $4$ 种情况：
@@ -183,6 +191,14 @@ class Solution {
 <!-- solution:start-->
 
 ### 方法二
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用循环消化进位。同一关系可写成递归：进位为零时返回异或结果，否则对异或与进位再调用自身。
+
+<!-- thinking:end -->
 
 <!-- tabs:start -->
 
