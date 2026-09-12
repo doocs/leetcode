@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README.md
 tags:
     - 设计
     - 字典树
