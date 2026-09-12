@@ -70,6 +70,16 @@ tags:
 
 ### Solution 1: Memoization Search
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Longest strictly increasing four-direction path. Plain DFS restarts from the same cell many times. Strict increase makes the graph acyclic.
+>
+> $dfs(i,j)$ is one plus the best neighbor with a larger value. Memoization evaluates each cell once; the answer is the max over all starts.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i, j)$, which represents the length of the longest increasing path that can be obtained starting from the coordinate $(i, j)$ in the matrix. The answer is $\max_{i, j} \textit{dfs}(i, j)$.
 
 The execution logic of the function $dfs(i, j)$ is as follows:

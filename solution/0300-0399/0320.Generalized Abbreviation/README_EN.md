@@ -65,6 +65,16 @@ tags:
 
 ### Solution 1: DFS
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each letter is kept or folded into a run of omitted counts. $n\le 15$, so every scheme is enumerable.
+>
+> $dfs(i)$ handles the suffix: keep $word[i]$ and recurse, or collapse $[i,j)$ into a number and append $word[j]$ (if any) plus the rest. The empty suffix returns $[""]$ as the join base.
+
+<!-- thinking:end -->
+
 We design a function $dfs(i)$, which returns all possible abbreviations for the string $word[i:]$.
 
 The execution logic of the function $dfs(i)$ is as follows:
@@ -219,6 +229,14 @@ function generateAbbreviations(word: string): string[] {
 <!-- solution:start -->
 
 ### Solution 2: Binary Enumeration
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The recursion matches the $2^n$ keep/omit choices. A bit mask marks omitted positions; runs of $1$s become a count, a $0$ emits the letter. The iterative form drops the call stack.
+
+<!-- thinking:end -->
 
 Since the length of the string $word$ does not exceed $15$, we can use the method of binary enumeration to enumerate all abbreviations. We use a binary number $i$ of length $n$ to represent an abbreviation, where $0$ represents keeping the corresponding character, and $1$ represents deleting the corresponding character. We enumerate all $i$ in the range of $[0, 2^n)$, convert it into the corresponding abbreviation, and add it to the answer list.
 

@@ -63,6 +63,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each integer is multiplied by its depth and summed. The nesting is an $N$-ary tree with depth starting at $1$. One walk suffices.
+>
+> DFS: an integer adds $value\times depth$; a list recurses on children at $depth+1$. The top level starts at depth $1$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

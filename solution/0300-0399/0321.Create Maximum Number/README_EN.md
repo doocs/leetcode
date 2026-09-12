@@ -68,6 +68,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Pick a total of $k$ digits from two arrays, preserving order in each. One monotone stack cannot split the quota across both.
+>
+> Enumerate taking $x$ digits from $nums1$ (in the feasible range), extract the best subsequences of lengths $x$ and $k-x$ with monotone stacks, and merge by lexicographic compare. Keep the best merge. Equal prefixes must look ahead so the merge is not locally greedy.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
