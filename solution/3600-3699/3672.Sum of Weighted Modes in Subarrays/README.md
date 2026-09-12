@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3672.Sum%20of%20Weighted%20Modes%20in%20Subarrays/README.md
 tags:
     - 数组
     - 哈希表

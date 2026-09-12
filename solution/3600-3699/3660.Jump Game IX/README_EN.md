@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3600-3699/3660.Jump%20Game%20IX/README_EN.md
 rating: 2187
 source: Weekly Contest 464 Q3
 tags:
