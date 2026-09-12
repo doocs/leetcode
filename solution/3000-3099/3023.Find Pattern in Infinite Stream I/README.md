@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/3000-3099/3023.Find%20Pattern%20in%20Infinite%20Stream%20I/README.md
 tags:
     - 数组
     - 交互
