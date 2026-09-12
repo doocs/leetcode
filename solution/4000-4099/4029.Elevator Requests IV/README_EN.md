@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Hard
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4029.Elevator%20Requests%20IV/README_EN.md
 ---
 
 <!-- problem:start -->

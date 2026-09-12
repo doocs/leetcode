@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4022.K-th%20Digit%20in%20Infinite%20String/README.md
 rating: 1914
 source: 第 189 场双周赛 Q3
 tags:

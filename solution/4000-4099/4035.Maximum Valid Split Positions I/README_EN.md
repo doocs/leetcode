@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/4000-4099/4035.Maximum%20Valid%20Split%20Positions%20I/README_EN.md
 rating: 1663
 source: Biweekly Contest 190 Q2
 ---
