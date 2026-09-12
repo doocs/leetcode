@@ -84,6 +84,16 @@ tags:
 
 ### Solution 1: DFS + Modular Inverse
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The conversion tree is the same as before, so $\textit{res}[i]$ — how many units of $i$ equal one unit of $0$ — is already known. Queries ask for a ratio between two units.
+>
+> The factor from $\textit{unitA}$ to $\textit{unitB}$ is $\textit{res}[B] \cdot \textit{res}[A]^{-1}$. The modulus is prime, so the inverse is $a^{MOD-2}$.
+
+<!-- thinking:end -->
+
 The conversion relations form a directed tree rooted at $0$. Starting a DFS from node $0$, we maintain `res[i]` as the number of units of type $i$ that equal $1$ unit of type $0$.
 
 For a query $(unitA, unitB)$, the answer is $\frac{res[unitB]}{res[unitA]}$, which modulo $10^9 + 7$ equals `res[unitB] * res[unitA]^(MOD - 2) % MOD`, where `MOD - 2` is used to compute the modular inverse via Fermat's little theorem.

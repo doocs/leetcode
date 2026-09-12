@@ -86,6 +86,16 @@ tags:
 
 ### 方法一：DFS + 模逆元
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 转换树与上一题相同，已能求出 $1$ 个单位 $0$ 对应的 $\textit{res}[i]$。查询是任意两点之比，而非相对 $0$。
+>
+> $\textit{unitA}$ 到 $\textit{unitB}$ 等于 $\textit{res}[B] \cdot \textit{res}[A]^{-1}$。模数为素数，用费马小定理 $a^{MOD-2}$ 求逆。
+
+<!-- thinking:end -->
+
 由题意可知，转换关系构成一棵以 $0$ 为根的有向树。从根节点 $0$ 出发 DFS，维护 `res[i]` 表示 $1$ 个单位 $0$ 等于多少个单位 $i$。
 
 对于查询 $(unitA, unitB)$，答案为 $\frac{res[unitB]}{res[unitA]}$，对 $10^9 + 7$ 取模即 `res[unitB] * res[unitA]^(MOD - 2) % MOD`，其中 `MOD - 2` 利用费马小定理求模逆。

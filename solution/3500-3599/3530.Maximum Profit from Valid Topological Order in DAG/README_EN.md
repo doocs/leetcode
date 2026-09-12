@@ -151,6 +151,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> There are exponentially many topological orders, but $n \le 22$ lets a bit mask represent the processed set. Profit is $\textit{score}[i]$ times the position.
+>
+> Let $f[S]$ be the best profit after processing $S$. Try a vertex $v \notin S$ whose in-neighbors all lie in $S$, and add $\textit{score}[v] \cdot (|S|+1)$. The answer is $f[U]$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

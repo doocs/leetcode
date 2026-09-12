@@ -129,6 +129,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The static count from the previous problem does not survive point updates and a forced prefix deletion. $k \le 5$, so a segment only needs its product modulo $k$ and the number of ways each remainder arises after dropping a suffix.
+>
+> Store that payload in a segment tree and define a merge. After each update, query the target remainder on $[start, n)$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

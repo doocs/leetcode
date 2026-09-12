@@ -122,6 +122,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Removing a prefix and a suffix leaves one subarray; we need how many have product $\equiv x \pmod k$. $n \le 10^5$ and $k \le 5$, so DP on remainders replaces enumeration.
+>
+> Let $f[i][r]$ be the number of subarrays ending at $i$ whose product is $r$ modulo $k$. Transfer from $f[i-1]$ by multiplying $nums[i]$, and start a new subarray at $i$. Summing by remainder fills $\textit{result}$.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

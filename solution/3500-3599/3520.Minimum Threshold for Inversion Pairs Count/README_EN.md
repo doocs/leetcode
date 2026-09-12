@@ -101,6 +101,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A larger threshold only adds inversion pairs whose difference is at most that threshold, so the count is monotone. With $n \le 10^4$, binary-search the threshold.
+>
+> For a candidate $x$, a Fenwick tree (or merge sort) counts pairs with difference in $(0, x]$. The smallest $x$ whose count is at least $k$ is the answer.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3

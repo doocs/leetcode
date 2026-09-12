@@ -73,6 +73,16 @@ tags:
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> An operation collapses a subarray to its maximum, so the final sequence is a non-decreasing chain taken from left to right. $n \le 2 \cdot 10^5$ forbids searching every collapse.
+>
+> Keep every value that is at least the running maximum and update that maximum. Skipped values can merge into a later larger (or equal) segment, so the number kept is optimal.
+
+<!-- thinking:end -->
+
 <!-- tabs:start -->
 
 #### Python3
