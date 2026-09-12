@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-edit_url: https://github.com/doocs/leetcode/edit/main/solution/2800-2899/2887.Fill%20Missing%20Data/README.md
 tags:
     - Pandas
 ---
