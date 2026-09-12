@@ -63,6 +63,17 @@ The diagram on the right represents the answer.
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every subtree that contains no $1$ must be removed. A preorder walk cannot decide before seeing the children, so we prune left and right first, then drop the node if it became empty.
+>
+> After the recursive calls, a $0$ with both children gone is deleted. The tree has at most $200$ nodes, so one DFS suffices.
+
+<!-- thinking:end -->
+
+
 First, we check if the current node is null. If it is, we directly return the null node.
 
 Otherwise, we recursively prune the left and right subtrees and reassign the pruned subtrees to the current node's left and right children. Then, we check if the current node's value is 0 and both its left and right children are null. If so, we return the null node; otherwise, we return the current node.

@@ -70,6 +70,17 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 
 ### Solution 1: Traversal Counting + Two Pointers
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Stretching may only lengthen a run, and a lengthened run must have length at least $3$; letters cannot change. Both $s$ and the query words are short, so one two-pointer scan per word is enough.
+>
+> Align consecutive runs: letters must match, and a longer target run, or a run shorter than $3$ that is not equal, is illegal. Both strings must be consumed together.
+
+<!-- thinking:end -->
+
+
 We can traverse the array $\textit{words}$, and for each word $t$ in the array, check if $t$ can be expanded to obtain $s$. If it can, increment the answer by one.
 
 Therefore, the key problem is to determine if the word $t$ can be expanded to obtain $s$. We use a function $\textit{check}(s, t)$ to determine this. The implementation logic of the function is as follows:

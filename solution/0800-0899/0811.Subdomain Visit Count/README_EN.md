@@ -67,6 +67,17 @@ For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quo
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each count must be added to the domain and every parent domain. There are at most $100$ short records, so splitting on dots is enough.
+>
+> For every suffix after a space or a dot, add the visit count. Format the counter as the required strings.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3

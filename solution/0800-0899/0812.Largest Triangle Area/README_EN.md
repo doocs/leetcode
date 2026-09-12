@@ -54,6 +54,17 @@ tags:
 
 ### Solution: Enumerate Triangle Area Formula
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The area of a triangle is half the absolute cross product of two sides. With at most $50$ points, a triple loop is acceptable.
+>
+> Enumerate every triple, take $|\mathbf{u}\times\mathbf{v}|/2$, and keep the maximum. Collinear triples contribute $0$ and do not affect the answer.
+
+<!-- thinking:end -->
+
+
 Given three points $(x_1, y_1)$, $(x_2, y_2)$, $(x_3, y_3)$ on a plane, the area formula is:
 
 $$S = \frac{1}{2} \left| x_1y_2 + x_2y_3 + x_3y_1 - x_1y_3 - x_2y_1 - x_3y_2 \right|$$

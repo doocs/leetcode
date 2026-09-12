@@ -63,6 +63,17 @@ which are both strictly increasing.
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Each index may be swapped or left as is; enumerating $2^n$ assignments is infeasible for $n\le 10^5$. Whether both sequences stay strictly increasing at a position depends only on the previous index after those two swap decisions.
+>
+> We therefore keep the minimum swaps to reach the current index with this position unswapped or swapped. Transitions follow from whether the pair is already increasing and whether a cross-swap still increases; only the previous two states are needed, so two rolling variables suffice.
+
+<!-- thinking:end -->
+
+
 Define $a$ and $b$ to represent the minimum number of swaps needed to make the element sequences strictly increasing up to index $[0..i]$, with the $i$-th element not swapped and swapped, respectively. The index starts from $0$.
 
 When $i=0$, we have $a = 0$ and $b = 1$.

@@ -62,6 +62,17 @@ tags:
 
 ### Solution 1: Binary Search + Binary Enumeration
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A split with equal averages is a nonempty proper subset whose average matches the rest. $n\le 30$ makes a full $2^n$ scan heavy, but each half has about $15$ numbers, so meet-in-the-middle is fine.
+>
+> Replace $a_i$ by $n\cdot a_i-S$ so we only need a nonempty proper subset summing to $0$. Store left-half sums; a right-half sum of $0$, or a complementary sum already seen (excluding the full/full pair), is a yes.
+
+<!-- thinking:end -->
+
+
 According to the problem requirements, we need to determine if the array $\textit{nums}$ can be divided into two subarrays $A$ and $B$ such that the average values of the two subarrays are equal.
 
 Let the sum of the array $\textit{nums}$ be $s$, and the number of elements be $n$. The sum and number of elements of subarray $A$ are $s_1$ and $k$, respectively. Then the sum of subarray $B$ is $s_2 = s - s_1$, and the number of elements is $n - k$. Thus:

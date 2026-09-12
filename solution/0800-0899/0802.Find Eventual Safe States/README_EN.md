@@ -67,6 +67,17 @@ Only node 4 is a terminal node, and every path starting at node 4 leads to node 
 
 ### Solution 1
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A node is eventually safe if every walk from it ends at a terminal and never enters a cycle. Searching from every node independently retraces the same chains.
+>
+> Reverse the edges so original out-degree becomes in-degree. Kahn deletion from in-degree $0$ removes exactly the nodes that cannot reach a cycle, i.e. the safe nodes. One linear pass is enough for $n\le 10^4$.
+
+<!-- thinking:end -->
+
+
 <!-- tabs:start -->
 
 #### Python3
@@ -240,6 +251,17 @@ var eventualSafeNodes = function (graph) {
 <!-- solution:start -->
 
 ### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The topological approach builds a reverse graph and in-degrees. A three-color DFS on the original graph is enough: gray means the current path has a cycle; black after the recursion means every walk from that node is safe.
+>
+> No reverse graph is stored. The answer is the nodes whose DFS returns true, still in linear time.
+
+<!-- thinking:end -->
+
 
 <!-- tabs:start -->
 
