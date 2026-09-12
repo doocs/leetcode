@@ -72,6 +72,14 @@ tags:
 
 ### 方法一：哈希表或数组
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 一致串的每个字符都出现在 $\textit{allowed}$ 中。把 $\textit{allowed}$ 放进集合，对每个单词检查字符是否都在集合内。
+
+<!-- thinking:end -->
+
 一种比较直接的思路是，用哈希表或数组 $s$ 记录 `allowed` 中的字符。然后遍历 `words` 数组，对于每个字符串 $w$，判断其是否由 `allowed` 中的字符组成。若是，答案加一。
 
 时间复杂度 $O(m)$，空间复杂度 $O(C)$。其中 $m$ 为所有字符串的总长度，而 $C$ 为 `allowed` 字符集的大小。本题中 $C \leq 26$。
@@ -234,6 +242,14 @@ int countConsistentStrings(char* allowed, char** words, int wordsSize) {
 <!-- solution:start -->
 
 ### 方法二：位运算
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一用哈希集合。字母只有 $26$ 个，可用整数位掩码表示出现集合：单词掩码与 $\textit{allowed}$ 掩码按位或后若仍等于后者，则单词被包含。
+
+<!-- thinking:end -->
 
 我们也可以仅用一个整数来表示每个字符串中字符的出现情况。其中，整数的二进制表示中的每一位表示一个字符是否出现。
 

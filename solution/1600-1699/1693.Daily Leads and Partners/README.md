@@ -81,6 +81,14 @@ DailySales 表：
 
 ### 方法一：分组统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 按日期与品牌统计不同线索数、不同合作伙伴数，直接 $\texttt{GROUP BY date\_id, make\_name}$，对两列做 $\texttt{COUNT}(\texttt{DISTINCT})$。
+
+<!-- thinking:end -->
+
 我们可以使用 `GROUP BY` 语句，按照 `date_id` 和 `make_name` 字段进行分组，然后使用 `COUNT(DISTINCT)` 函数，统计 `lead_id` 和 `partner_id` 的不同值的数量。
 
 <!-- tabs:start -->

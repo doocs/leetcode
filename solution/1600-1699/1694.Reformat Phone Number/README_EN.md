@@ -84,6 +84,16 @@ Joining the blocks gives &quot;123-456-78&quot;.
 
 ### Solution 1: Simple Simulation
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Strip spaces and dashes, then group by threes. A leftover of one digit turns the last two groups into $2+2$; a leftover of two digits is its own group.
+>
+> Slice by three after cleaning, fix the remainder, and join with dashes.
+
+<!-- thinking:end -->
+
 First, according to the problem description, we remove all spaces and hyphens from the string.
 
 Let the current string length be $n$. Then we traverse the string from the beginning, grouping every $3$ characters together and adding them to the result string. We take a total of $n / 3$ groups.

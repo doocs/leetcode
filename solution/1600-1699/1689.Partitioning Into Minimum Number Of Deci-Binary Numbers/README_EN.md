@@ -63,6 +63,14 @@ tags:
 
 ### Solution 1: Quick Thinking
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A deci-binary digit is only $0$ or $1$. Summing them to $n$ requires at least $d$ ones in a position whose digit is $d$. The answer is therefore the maximum digit of $n$.
+
+<!-- thinking:end -->
+
 The problem is equivalent to finding the maximum number in the string.
 
 The time complexity is $O(n)$, where $n$ is the length of the string. The space complexity is $O(1)$.

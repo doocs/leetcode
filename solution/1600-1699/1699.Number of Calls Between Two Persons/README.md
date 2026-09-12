@@ -78,6 +78,16 @@ Calls 表：
 
 ### 方法一：分组求和统计
 
+<!-- thinking:start -->
+
+> **思考**
+>
+> 通话无向，$(a,b)$ 与 $(b,a)$ 应算作同一对。把较小编号定为 $\texttt{person1}$、较大者为 $\texttt{person2}$ 再分组。
+>
+> $\texttt{IF}$ 规范化两端，按两列 $\texttt{GROUP BY}$，统计次数与时长之和。
+
+<!-- thinking:end -->
+
 我们可以用 `if` 函数或者 `least` 和 `greatest` 函数来将 `from_id` 和 `to_id` 转换成 `person1` 和 `person2`，然后按照 `person1` 和 `person2` 分组求和统计即可。
 
 <!-- tabs:start -->

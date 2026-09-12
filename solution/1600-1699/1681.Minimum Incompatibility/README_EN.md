@@ -74,6 +74,18 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 
 ### Solution 1: Preprocessing + State Compression + Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Partition into $k$ groups of distinct values, minimizing the sum of $(\max-\min)$. $n \le 16$ allows subset DP.
+>
+> Precompute incompatibility $g[i]$ for every size-$m=n/k$ subset without duplicates. $f[S]$ is the min cost of chosen index set $S$; transition over duplicate-free $m$-subsets of the complement.
+>
+> If $f[2^n-1]$ stays infinite, return $-1$.
+
+<!-- thinking:end -->
+
 Let's assume that the size of each subset after partitioning is $m$, so $m=\frac{n}{k}$, where $n$ is the length of the array.
 
 We can enumerate all subsets $i$, where $i \in [0, 2^n)$, if the binary representation of subset $i$ has $m$ ones, and the elements in subset $i$ are not repeated, then we can calculate the incompatibility of subset $i$, denoted as $g[i]$, i.e., $g[i]=\max_{j \in i} \{nums[j]\} - \min_{j \in i} \{nums[j]\}$.
