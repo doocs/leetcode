@@ -84,6 +84,18 @@ The minimum score is 144.</p>
 
 ### Solution 1: Memoization
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The number of triangulations is Catalan; $n\le 50$ forbids enumerating whole trees. Every triangulation of $(i,j)$ has a triangle with third vertex $k$ and two smaller polygons on the sides.
+>
+> The state is the pair $(i,j)$. Memoized $\textit{dfs}(i,j)$ tries each $k\in(i,j)$ and adds $values[i]\cdot values[k]\cdot values[j]$ to the two subanswers. Adjacent vertices return $0$.
+>
+> The entry is $\textit{dfs}(0,n-1)$.
+
+<!-- thinking:end -->
+
 We design a function $\text{dfs}(i, j)$, which represents the minimum score after triangulating the polygon from vertex $i$ to $j$. The answer is $\text{dfs}(0, n - 1)$.
 
 The calculation process of $\text{dfs}(i, j)$ is as follows:
@@ -229,6 +241,16 @@ function minScoreTriangulation(values: number[]): number {
 
 ### Solution 2: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Memoization still recurses, and dependencies are interval inclusion. The same transition fills a table bottom-up: shorter intervals before longer ones.
+>
+> Decreasing $i$ and increasing $j$ compute $f[i][j]$ with the same $k$ enumeration. The answer is $f[0][n-1]$.
+
+<!-- thinking:end -->
+
 We can convert the memoization approach in Solution 1 into a dynamic programming approach.
 
 Define $f[i][j]$ as the minimum score after triangulating the polygon from vertex $i$ to $j$. Initially, $f[i][j] = 0$, and the answer is $f[0][n-1]$.
@@ -364,6 +386,16 @@ function minScoreTriangulation(values: number[]): number {
 <!-- solution:start -->
 
 ### Solution 3: Dynamic Programming (Alternative Implementation)
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Nested endpoint loops must keep subintervals ready. Enumerating length $l$ from $3$ to $n$, then $i$ and $j=i+l-1$, guarantees both sides are shorter and already filled.
+>
+> The recurrence is unchanged; only the loop order is “length then position”.
+
+<!-- thinking:end -->
 
 In Solution 2, we mentioned two enumeration strategies. Here, we use the second strategy: enumerate the interval length $l$ from small to large, where $3 \leq l \leq n$. Then, enumerate the left endpoint $i$ of the interval, and the right endpoint can be calculated as $j = i + l - 1$.
 

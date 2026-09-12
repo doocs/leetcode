@@ -77,6 +77,18 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 
 ### Solution 1: Greedy
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Both the number of clips and the time bound are at most $100$, so a subset search could cover $[0,\textit{time}]$, but there are exponentially many subsets. For a fixed start we only need the clip with the farthest end, which is the jump-game setting.
+>
+> Store the farthest end $\textit{last}[i]$ of clips starting at $i$. A left-to-right scan keeps the reachable $\textit{mx}$; if $\textit{mx}$ stalls at $i$, coverage is impossible. Crossing the previous segment end $\textit{pre}$ costs one extra clip.
+>
+> The scan yields the minimum number of clips or $-1$.
+
+<!-- thinking:end -->
+
 Note that if there are multiple sub-intervals with the same starting point, it is optimal to choose the one with the largest right endpoint.
 
 Therefore, we can preprocess all sub-intervals. For each position $i$, calculate the largest right endpoint among all sub-intervals starting at $i$, and record it in the array $last[i]$.

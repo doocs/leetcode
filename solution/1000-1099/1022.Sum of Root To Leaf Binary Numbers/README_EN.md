@@ -62,6 +62,18 @@ tags:
 
 ### Solution 1: Recursion
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Listing every root-to-leaf path and converting the bits is fine for $n\le 1000$, but the paths need extra storage. Walking downward, the path value updates as $t\leftarrow 2t+\textit{val}$ and is complete at a leaf.
+>
+> A null node contributes $0$. A node with no children is a leaf and returns the current $t$; otherwise both subtrees receive the same $t$ and we add the results.
+>
+> DFS carries the path value and visits each node once.
+
+<!-- thinking:end -->
+
 We design a recursive function $\text{dfs}(root, t)$, which takes two parameters: the current node $root$ and the binary number $t$ corresponding to the parent node of the current node. The return value of the function is the sum of binary numbers represented by paths from the current node to leaf nodes. The answer is $\textrm{dfs}(root, 0)$.
 
 The logic of the recursive function is as follows:

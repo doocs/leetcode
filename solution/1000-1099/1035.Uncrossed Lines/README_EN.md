@@ -73,6 +73,18 @@ We cannot draw 3 uncrossed lines, because the line from nums1[1] = 4 to nums2[2]
 
 ### Solution 1: Dynamic Programming
 
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Non-crossing equal pairs are a common subsequence, so the problem is LCS. $m,n\le 500$ admits an $O(mn)$ table.
+>
+> $f[i][j]$ is the best score of the two prefixes: equal last elements take $f[i-1][j-1]+1$, otherwise the better of dropping one side.
+>
+> The answer is $f[m][n]$.
+
+<!-- thinking:end -->
+
 We define $f[i][j]$ to represent the maximum number of connections between the first $i$ numbers of $\textit{nums1}$ and the first $j$ numbers of $\textit{nums2}$. Initially, $f[i][j] = 0$, and the answer is $f[m][n]$.
 
 When $\textit{nums1}[i-1] = \textit{nums2}[j-1]$, we can add a connection based on the first $i-1$ numbers of $\textit{nums1}$ and the first $j-1$ numbers of $\textit{nums2}$. In this case, $f[i][j] = f[i-1][j-1] + 1$.
