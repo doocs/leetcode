@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 519 场周赛(2026-09-13 10:30, 90 分钟) 参赛人数 1069
+
+- [4052. 行列循环移位](/solution/4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README.md)
+- [4053. 使每个元素变为回文数的最少操作次数](/solution/4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README.md)
+- [4054. 统计影子数对 I](/solution/4000-4099/4054.Count%20Shadow%20Pairs%20I/README.md)
+- [4055. 统计影子数对 II](/solution/4000-4099/4055.Count%20Shadow%20Pairs%20II/README.md)
+
 #### 第 191 场双周赛(2026-09-12 22:30, 90 分钟) 参赛人数 755
 
 - [4048. 统计等间距出现整数数目 I](/solution/4000-4099/4048.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20I/README.md)
