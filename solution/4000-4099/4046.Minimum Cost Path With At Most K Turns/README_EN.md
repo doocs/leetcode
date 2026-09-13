@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2044
+source: Weekly Contest 518 Q4
 ---
 
 <!-- problem:start -->

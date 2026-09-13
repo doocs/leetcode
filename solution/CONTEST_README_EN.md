@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Biweekly Contest 191
+
+- [4048. Count Values With Equally Spaced Occurrences I](/solution/4000-4099/4048.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20I/README_EN.md)
+- [4049. Count Values With Equally Spaced Occurrences II](/solution/4000-4099/4049.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20II/README_EN.md)
+- [4050. Minimum Days to Score Exactly N Points](/solution/4000-4099/4050.Minimum%20Days%20to%20Score%20Exactly%20N%20Points/README_EN.md)
+- [4051. Count Subarrays with Distant Sums](/solution/4000-4099/4051.Count%20Subarrays%20with%20Distant%20Sums/README_EN.md)
+
 #### Weekly Contest 518
 
 - [4043. Count Rotations With Exactly K Equal Adjacent Pairs](/solution/4000-4099/4043.Count%20Rotations%20With%20Exactly%20K%20Equal%20Adjacent%20Pairs/README_EN.md)

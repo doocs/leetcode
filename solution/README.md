@@ -4057,6 +4057,11 @@
 |  4044  |  [统计好循环移位的数量](/solution/4000-4099/4044.Count%20Good%20Cyclic%20Rotations/README.md)  |    |  中等  |  第 518 场周赛  |
 |  4045  |  [统计机器人组数](/solution/4000-4099/4045.Count%20Robot%20Groups/README.md)  |    |  中等  |  第 518 场周赛  |
 |  4046  |  [至多 K 次转向的最小路径代价](/solution/4000-4099/4046.Minimum%20Cost%20Path%20With%20At%20Most%20K%20Turns/README.md)  |    |  困难  |  第 518 场周赛  |
+|  4047  |  [使所有元素的异或为零所需的最小操作次数](/solution/4000-4099/4047.Minimum%20Operations%20to%20Make%20XOR%20of%20All%20Elements%20Zero/README.md)  |    |  困难  |  🔒  |
+|  4048  |  [统计等间距出现整数数目 I](/solution/4000-4099/4048.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20I/README.md)  |    |  简单  |  第 191 场双周赛  |
+|  4049  |  [统计等间距出现整数数目 II](/solution/4000-4099/4049.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20II/README.md)  |    |  中等  |  第 191 场双周赛  |
+|  4050  |  [得到恰好 N 分的最少天数](/solution/4000-4099/4050.Minimum%20Days%20to%20Score%20Exactly%20N%20Points/README.md)  |    |  中等  |  第 191 场双周赛  |
+|  4051  |  [统计遥远子数组的数目](/solution/4000-4099/4051.Count%20Subarrays%20with%20Distant%20Sums/README.md)  |    |  困难  |  第 191 场双周赛  |
 
 ## 版权
 
