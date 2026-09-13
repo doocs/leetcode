@@ -83,32 +83,154 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The score is a sum of streaks: a streak of length $j$ contributes the triangular number $j(j+1)/2$. Consecutive streaks must be separated by a skip that resets the streak; the last streak needs no trailing skip.
+>
+> $n = 10^5$ rules out day-by-day simulation and searching over partitions. Treat “exactly $i$ points” as an unbounded knapsack whose items are streaks and whose cost is the number of days.
+>
+> Set $f[0] = -1$ and always add $j + 1$ (the extra skip) in the transition. The extra skip on the last streak is cancelled by $f[0] = -1$, so the answer is $f[n]$.
+
+<!-- thinking:end -->
+
+A streak of $j$ days scores the triangular number $s = \frac{j(j+1)}{2}$. Two consecutive streaks must be separated by exactly one skipped day that resets the streak, while the last streak needs no extra skip.
+
+Let $f[i]$ be the minimum number of days needed to score exactly $i$ points. Set $f[0] = -1$ and initialize the remaining entries to $+\infty$. Enumerate the length $j$ of the last streak (with score $s$):
+
+$$
+f[i] = \min\bigl(f[i],\, f[i - s] + j + 1\bigr)
+$$
+
+The $j + 1$ accounts for the $j$ earning days plus one skip. $f[0] = -1$ cancels the extra skip on the last streak: if a single streak of length $j$ already scores $n$, then $f[n] = f[0] + j + 1 = j$.
+
+Since $n \le 10^5$, we precompute up to the limit and answer each query in $O(1)$. The largest useful $j$ is about $\sqrt{2n}$.
+
+The time complexity is $O(n \times \sqrt{n})$ for preprocessing, and the space complexity is $O(n)$. Each query is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
+mx = 10**5 + 1
+f = [inf] * mx
+f[0] = -1
+for i in range(1, mx):
+    j = 1
+    while (s := (1 + j) * j // 2) <= i:
+        f[i] = min(f[i], f[i - s] + j + 1)
+        j += 1
 
+
+class Solution:
+    def minDays(self, n: int) -> int:
+        return f[n]
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int MX = 100001;
+    private static final int[] f = new int[MX];
 
+    static {
+        Arrays.fill(f, Integer.MAX_VALUE);
+        f[0] = -1;
+
+        for (int i = 1; i < MX; i++) {
+            for (int j = 1; j * (j + 1) / 2 <= i; j++) {
+                int s = j * (j + 1) / 2;
+                f[i] = Math.min(f[i], f[i - s] + j + 1);
+            }
+        }
+    }
+
+    public int minDays(int n) {
+        return f[n];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int minDays(int n) {
+        static const auto f = [] {
+            constexpr int mx = 100001;
+            vector<int> f(mx, INT_MAX);
 
+            f[0] = -1;
+
+            for (int i = 1; i < mx; i++) {
+                for (int j = 1; j * (j + 1) / 2 <= i; j++) {
+                    int s = j * (j + 1) / 2;
+                    f[i] = std::min(f[i], f[i - s] + j + 1);
+                }
+            }
+
+            return f;
+        }();
+
+        return f[n];
+    }
+};
 ```
 
 #### Go
 
 ```go
+const mx = 100001
 
+var f = func() []int {
+	f := make([]int, mx)
+
+	for i := range f {
+		f[i] = int(^uint(0) >> 1)
+	}
+
+	f[0] = -1
+
+	for i := 1; i < mx; i++ {
+		for j := 1; j*(j+1)/2 <= i; j++ {
+			s := j * (j + 1) / 2
+			f[i] = min(f[i], f[i-s]+j+1)
+		}
+	}
+
+	return f
+}()
+
+func minDays(n int) int {
+	return f[n]
+}
+```
+
+#### TypeScript
+
+```ts
+const MX = 100001;
+
+const f = new Array<number>(MX).fill(Infinity);
+
+f[0] = -1;
+
+for (let i = 1; i < MX; i++) {
+    for (let j = 1; (j * (j + 1)) / 2 <= i; j++) {
+        const s = (j * (j + 1)) / 2;
+        f[i] = Math.min(f[i], f[i - s] + j + 1);
+    }
+}
+
+function minDays(n: number): number {
+    return f[n];
+}
 ```
 
 <!-- tabs:end -->
