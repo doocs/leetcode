@@ -73,32 +73,150 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Simulation
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 10$, so applying the two shifts exactly as stated is enough. There is no need to fold the mapping into a single index formula first.
+>
+> Rows must move left before columns move up, and the upward shift uses the **new** column index. $\textit{colShift}$ cannot be applied with the original $j$.
+>
+> We therefore keep an intermediate grid for the row shifts, then write the column shifts into the answer.
+
+<!-- thinking:end -->
+
+The problem asks us to cyclically shift each row left according to $\textit{rowShift}$, then cyclically shift each column up according to $\textit{colShift}$.
+
+Create an intermediate matrix $t$. After a left cyclic shift of $\textit{rowShift}[i]$, the entry $\textit{grid}[i][j]$ lands at
+
+$$
+t[i][(j - \textit{rowShift}[i] + n) \bmod n]
+$$
+
+Then create the answer matrix $\textit{ans}$. After an upward cyclic shift of $\textit{colShift}[j]$, $t[i][j]$ lands at
+
+$$
+\textit{ans}[(i - \textit{colShift}[j] + n) \bmod n][j]
+$$
+
+The time complexity is $O(n^2)$ and the space complexity is $O(n^2)$, where $n$ is the side length of the grid.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def cyclicShift(
+        self, n: int, grid: list[list[int]], rowShift: list[int], colShift: list[int]
+    ) -> list[list[int]]:
+        t = [[0] * n for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                t[i][(j - rowShift[i] + n) % n] = grid[i][j]
+        ans = [[0] * n for _ in range(n)]
+        for j in range(n):
+            for i in range(n):
+                ans[(i - colShift[j] + n) % n][j] = t[i][j]
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[][] cyclicShift(int n, int[][] grid, int[] rowShift, int[] colShift) {
+        int[][] t = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                t[i][(j - rowShift[i] + n) % n] = grid[i][j];
+            }
+        }
+        int[][] ans = new int[n][n];
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < n; i++) {
+                ans[(i - colShift[j] + n) % n][j] = t[i][j];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<vector<int>> cyclicShift(int n, vector<vector<int>>& grid, vector<int>& rowShift, vector<int>& colShift) {
+        vector<vector<int>> t(n, vector<int>(n));
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                t[i][(j - rowShift[i] + n) % n] = grid[i][j];
+            }
+        }
+        vector<vector<int>> ans(n, vector<int>(n));
+        for (int j = 0; j < n; j++) {
+            for (int i = 0; i < n; i++) {
+                ans[(i - colShift[j] + n) % n][j] = t[i][j];
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func cyclicShift(n int, grid [][]int, rowShift []int, colShift []int) [][]int {
+	t := make([][]int, n)
+	for i := range t {
+		t[i] = make([]int, n)
+	}
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			t[i][(j-rowShift[i]+n)%n] = grid[i][j]
+		}
+	}
+	ans := make([][]int, n)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	for j := 0; j < n; j++ {
+		for i := 0; i < n; i++ {
+			ans[(i-colShift[j]+n)%n][j] = t[i][j]
+		}
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function cyclicShift(
+    n: number,
+    grid: number[][],
+    rowShift: number[],
+    colShift: number[],
+): number[][] {
+    const t = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            t[i][(j - rowShift[i] + n) % n] = grid[i][j];
+        }
+    }
+    const ans = Array.from({ length: n }, () => Array(n).fill(0));
+    for (let j = 0; j < n; j++) {
+        for (let i = 0; i < n; i++) {
+            ans[(i - colShift[j] + n) % n][j] = t[i][j];
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
