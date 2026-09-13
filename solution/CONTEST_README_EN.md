@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 519
+
+- [4052. Cyclically Shift Rows and Columns](/solution/4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README_EN.md)
+- [4053. Minimum Operations to Make Every Element Palindromic](/solution/4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README_EN.md)
+- [4054. Count Shadow Pairs I](/solution/4000-4099/4054.Count%20Shadow%20Pairs%20I/README_EN.md)
+- [4055. Count Shadow Pairs II](/solution/4000-4099/4055.Count%20Shadow%20Pairs%20II/README_EN.md)
+
 #### Biweekly Contest 191
 
 - [4048. Count Values With Equally Spaced Occurrences I](/solution/4000-4099/4048.Count%20Values%20With%20Equally%20Spaced%20Occurrences%20I/README_EN.md)
