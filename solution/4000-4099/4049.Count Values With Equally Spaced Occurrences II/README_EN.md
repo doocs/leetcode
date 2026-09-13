@@ -81,32 +81,182 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The previous problem only handled exactly three occurrences. Here a value must appear at least three times, and every occurrence must lie on the same common difference. With $n = 10^5$ we cannot rescan the original array for each value.
+>
+> After grouping indices by value, the lists still have total length $n$. If every adjacent gap equals the first gap, the whole sequence is an arithmetic progression.
+>
+> Grouping followed by a linear scan of each list is enough.
+
+<!-- thinking:end -->
+
+We use a hash table to record all indices where each integer appears. Traverse $\textit{nums}$ and append index $i$ to the list of $\textit{nums}[i]$.
+
+Then iterate over each index list $\textit{pos}$ in the hash table. Skip it if its length is less than $3$. Otherwise let $d = \textit{pos}[1] - \textit{pos}[0]$ and check whether every adjacent gap equals $d$. If so, the integer is special and we increment the answer by $1$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countSpecialIntegers(self, nums: list[int]) -> int:
+        g = defaultdict(list)
+        for i, x in enumerate(nums):
+            g[x].append(i)
+        ans = 0
+        for pos in g.values():
+            if len(pos) < 3:
+                continue
+            d = pos[1] - pos[0]
+            if all(j - i == d for i, j in pairwise(pos)):
+                ans += 1
+        return ans
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countSpecialIntegers(int[] nums) {
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            g.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
+        }
 
+        int ans = 0;
+        for (List<Integer> pos : g.values()) {
+            if (pos.size() < 3) {
+                continue;
+            }
+
+            int d = pos.get(1) - pos.get(0);
+            boolean ok = true;
+            for (int i = 1; i < pos.size(); i++) {
+                if (pos.get(i) - pos.get(i - 1) != d) {
+                    ok = false;
+                    break;
+                }
+            }
+
+            if (ok) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countSpecialIntegers(vector<int>& nums) {
+        unordered_map<int, vector<int>> g;
+        for (int i = 0; i < nums.size(); i++) {
+            g[nums[i]].push_back(i);
+        }
 
+        int ans = 0;
+        for (auto& [x, pos] : g) {
+            if (pos.size() < 3) {
+                continue;
+            }
+
+            int d = pos[1] - pos[0];
+            bool ok = true;
+            for (int i = 1; i < pos.size(); i++) {
+                if (pos[i] - pos[i - 1] != d) {
+                    ok = false;
+                    break;
+                }
+            }
+
+            if (ok) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSpecialIntegers(nums []int) int {
+	g := make(map[int][]int)
+	for i, x := range nums {
+		g[x] = append(g[x], i)
+	}
 
+	ans := 0
+	for _, pos := range g {
+		if len(pos) < 3 {
+			continue
+		}
+
+		d := pos[1] - pos[0]
+		ok := true
+		for i := 1; i < len(pos); i++ {
+			if pos[i]-pos[i-1] != d {
+				ok = false
+				break
+			}
+		}
+
+		if ok {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSpecialIntegers(nums: number[]): number {
+    const g = new Map<number, number[]>();
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!g.has(nums[i])) {
+            g.set(nums[i], []);
+        }
+        g.get(nums[i])!.push(i);
+    }
+
+    let ans = 0;
+    for (const pos of g.values()) {
+        if (pos.length < 3) {
+            continue;
+        }
+
+        const d = pos[1] - pos[0];
+        let ok = true;
+        for (let i = 1; i < pos.length; i++) {
+            if (pos[i] - pos[i - 1] !== d) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            ans++;
+        }
+    }
+
+    return ans;
+}
 ```
 
 <!-- tabs:end -->

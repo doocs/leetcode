@@ -81,32 +81,124 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> $n \le 100$, so even scanning the array once per distinct value would pass. A special integer must appear exactly three times, and those three indices must form an arithmetic progression.
+>
+> After collecting the indices of each value, the check reduces to two facts: the list has length $3$, and the first plus the last index equals twice the middle one.
+>
+> A hash table groups the indices in a single pass.
+
+<!-- thinking:end -->
+
+We use a hash table to record all indices where each integer appears. Traverse $\textit{nums}$ and append index $i$ to the list of $\textit{nums}[i]$.
+
+Then iterate over each index list $\textit{pos}$ in the hash table. If $\textit{pos}$ has length $3$ and $\textit{pos}[0] + \textit{pos}[2] = 2 \times \textit{pos}[1]$ (the three occurrences are equally spaced), the integer is special and we increment the answer by $1$.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $\textit{nums}$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def countSpecialIntegers(self, nums: list[int]) -> int:
+        g = defaultdict(list)
+        for i, x in enumerate(nums):
+            g[x].append(i)
+        return sum(
+            len(pos) == 3 and pos[0] + pos[2] == pos[1] * 2 for pos in g.values()
+        )
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public int countSpecialIntegers(int[] nums) {
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            g.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
+        }
 
+        int ans = 0;
+        for (List<Integer> pos : g.values()) {
+            if (pos.size() == 3 && pos.get(0) + pos.get(2) == pos.get(1) * 2) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int countSpecialIntegers(vector<int>& nums) {
+        unordered_map<int, vector<int>> g;
+        for (int i = 0; i < nums.size(); i++) {
+            g[nums[i]].push_back(i);
+        }
 
+        int ans = 0;
+        for (auto& [x, pos] : g) {
+            if (pos.size() == 3 && pos[0] + pos[2] == pos[1] * 2) {
+                ans++;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func countSpecialIntegers(nums []int) int {
+	g := make(map[int][]int)
+	for i, x := range nums {
+		g[x] = append(g[x], i)
+	}
 
+	ans := 0
+	for _, pos := range g {
+		if len(pos) == 3 && pos[0]+pos[2] == pos[1]*2 {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function countSpecialIntegers(nums: number[]): number {
+    const g = new Map<number, number[]>();
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!g.has(nums[i])) {
+            g.set(nums[i], []);
+        }
+        g.get(nums[i])!.push(i);
+    }
+
+    let ans = 0;
+    for (const pos of g.values()) {
+        if (pos.length === 3 && pos[0] + pos[2] === pos[1] * 2) {
+            ans++;
+        }
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
