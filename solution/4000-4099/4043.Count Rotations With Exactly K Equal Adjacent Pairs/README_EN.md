@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Easy
+rating: 1209
+source: Weekly Contest 518 Q1
 ---
 
 <!-- problem:start -->

@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1417
+source: Weekly Contest 518 Q2
 ---
 
 <!-- problem:start -->

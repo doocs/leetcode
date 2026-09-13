@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 中等
+rating: 1888
+source: 第 518 场周赛 Q3
 ---
 
 <!-- problem:start -->
