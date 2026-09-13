@@ -1,5 +1,5 @@
 {
-  "cache_date": 1789208044,
+  "cache_date": 1789260364,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -138886,7 +138886,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789259717
     },
     "solution/4000-4099/4044.Count Good Cyclic Rotations/README_EN.md": {
       "authors": [
@@ -138897,7 +138897,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789259717
     },
     "solution/4000-4099/4045.Count Robot Groups/README_EN.md": {
       "authors": [
@@ -138908,7 +138908,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789259717
     },
     "solution/4000-4099/4046.Minimum Cost Path With At Most K Turns/README_EN.md": {
       "authors": [
@@ -138919,7 +138919,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789259717
     },
     "solution/4000-4099/4042.Valid K-Unique Subarrays II/README.md": {
       "authors": [
@@ -138941,7 +138941,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789259755
     },
     "solution/4000-4099/4045.Count Robot Groups/README.md": {
       "authors": [
@@ -138952,7 +138952,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789259755
     },
     "solution/4000-4099/4046.Minimum Cost Path With At Most K Turns/README.md": {
       "authors": [
@@ -138963,7 +138963,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789259755
     },
     "solution/4000-4099/4044.Count Good Cyclic Rotations/README.md": {
       "authors": [
@@ -138974,7 +138974,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789259755
     },
     "solution/CONTEST_README_EN.md": {
       "authors": [
@@ -138983,15 +138983,9 @@
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
-        },
-        {
-          "login": "acbin",
-          "name": "acbin",
-          "url": "https://github.com/acbin",
-          "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789259717
     },
     "solution/CONTEST_README.md": {
       "authors": [
@@ -139002,7 +138996,117 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789259755
+    },
+    "solution/4000-4099/4049.Count Values With Equally Spaced Occurrences II/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259717
+    },
+    "solution/4000-4099/4047.Minimum Operations to Make XOR of All Elements Zero/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259717
+    },
+    "solution/4000-4099/4048.Count Values With Equally Spaced Occurrences I/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259717
+    },
+    "solution/4000-4099/4050.Minimum Days to Score Exactly N Points/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259717
+    },
+    "solution/4000-4099/4051.Count Subarrays with Distant Sums/README_EN.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259717
+    },
+    "solution/4000-4099/4047.Minimum Operations to Make XOR of All Elements Zero/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259755
+    },
+    "solution/4000-4099/4049.Count Values With Equally Spaced Occurrences II/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259755
+    },
+    "solution/4000-4099/4048.Count Values With Equally Spaced Occurrences I/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259755
+    },
+    "solution/4000-4099/4050.Minimum Days to Score Exactly N Points/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259755
+    },
+    "solution/4000-4099/4051.Count Subarrays with Distant Sums/README.md": {
+      "authors": [
+        {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        }
+      ],
+      "retrieved": 1789259755
     }
   }
 }
