@@ -67,25 +67,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：预处理 + 记忆化搜索
+### 方法一：预处理 + 动态规划
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 选尽量多条长度至少 $k$ 且不重叠的回文子串，$n \le 2000$。先 $O(n^2)$ 预处理 $dp[i][j]$ 是否回文。再令 $dfs(i)$ 为从 $i$ 起能选出的最多条数：跳过 $i$，或枚举 $j\ge i+k-1$ 且 $dp[i][j]$ 为真时取 $1+dfs(j+1)$。
+> 要选出尽量多条长度至少为 $k$ 且互不重叠的回文子串。$n \le 2000$，按切分方案搜索状态过多。子串是否回文可以先用区间 DP 在 $O(n^2)$ 内全部算好，记在 $g[i][j]$。剩下只是在这些合法区间里做不重叠选取：从位置 $i$ 出发，要么丢掉 $s[i]$，要么选一条以 $i$ 开头、长度至少为 $k$ 的回文再跳到它的右端点之后。从右往左填 $f[i]$，每个位置的决策只依赖更大的下标。
 
 <!-- thinking:end -->
 
-预处理字符串 $s$，得到 $dp[i][j]$ 表示字符串 $s[i,..j]$ 是否为回文串。
+我们先预处理字符串 $s$，得到 $g[i][j]$ 表示子串 $s[i..j]$ 是否为回文串。
 
-然后定义函数 $dfs(i)$ 表示从字符串 $s[i,..]$ 中选出最多的不重叠回文子串的个数，即：
+然后定义 $f[i]$ 表示从字符串 $s[i..]$ 中能选出的不重叠回文子串的最大个数。初始时 $f[n] = 0$。对于 $i$ 从 $n - 1$ 倒序遍历到 $0$，可以选择跳过 $s[i]$，即 $f[i] = f[i + 1]$；也可以枚举结束位置 $j$（$j \ge i + k - 1$），若 $g[i][j]$ 为真，则可以选中该回文串，并从 $j + 1$ 继续。即：
 
 $$
 \begin{aligned}
-dfs(i) &= \begin{cases}
+f[i] &= \begin{cases}
 0, & i \geq n \\
-\max\{dfs(i + 1), \max_{j \geq i + k - 1} \{dfs(j + 1) + 1\}\}, & i < n
+\max\bigl\{f[i + 1],\ \max\limits_{\substack{j \ge i + k - 1 \\ g[i][j]}} \{f[j + 1] + 1\}\bigr\}, & i < n
 \end{cases}
 \end{aligned}
 $$
@@ -99,69 +99,45 @@ $$
 ```python
 class Solution:
     def maxPalindromes(self, s: str, k: int) -> int:
-        @cache
-        def dfs(i):
-            if i >= n:
-                return 0
-            ans = dfs(i + 1)
-            for j in range(i + k - 1, n):
-                if dp[i][j]:
-                    ans = max(ans, 1 + dfs(j + 1))
-            return ans
-
         n = len(s)
-        dp = [[True] * n for _ in range(n)]
+        g = [[True] * n for _ in range(n)]
         for i in range(n - 1, -1, -1):
             for j in range(i + 1, n):
-                dp[i][j] = s[i] == s[j] and dp[i + 1][j - 1]
-        ans = dfs(0)
-        dfs.cache_clear()
-        return ans
+                g[i][j] = s[i] == s[j] and g[i + 1][j - 1]
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            f[i] = f[i + 1]
+            for j in range(i + k - 1, n):
+                if g[i][j]:
+                    f[i] = max(f[i], 1 + f[j + 1])
+        return f[0]
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private boolean[][] dp;
-    private int[] f;
-    private String s;
-    private int n;
-    private int k;
-
     public int maxPalindromes(String s, int k) {
-        n = s.length();
-        f = new int[n];
-        this.s = s;
-        this.k = k;
-        dp = new boolean[n][n];
-        for (int i = 0; i < n; ++i) {
-            Arrays.fill(dp[i], true);
-            f[i] = -1;
+        int n = s.length();
+        boolean[][] g = new boolean[n][n];
+        for (var row : g) {
+            Arrays.fill(row, true);
         }
         for (int i = n - 1; i >= 0; --i) {
             for (int j = i + 1; j < n; ++j) {
-                dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
+                g[i][j] = s.charAt(i) == s.charAt(j) && g[i + 1][j - 1];
             }
         }
-        return dfs(0);
-    }
-
-    private int dfs(int i) {
-        if (i >= n) {
-            return 0;
-        }
-        if (f[i] != -1) {
-            return f[i];
-        }
-        int ans = dfs(i + 1);
-        for (int j = i + k - 1; j < n; ++j) {
-            if (dp[i][j]) {
-                ans = Math.max(ans, 1 + dfs(j + 1));
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = f[i + 1];
+            for (int j = i + k - 1; j < n; ++j) {
+                if (g[i][j]) {
+                    f[i] = Math.max(f[i], 1 + f[j + 1]);
+                }
             }
         }
-        f[i] = ans;
-        return ans;
+        return f[0];
     }
 }
 ```
@@ -173,26 +149,24 @@ class Solution {
 public:
     int maxPalindromes(string s, int k) {
         int n = s.size();
-        vector<vector<bool>> dp(n, vector<bool>(n, true));
-        vector<int> f(n, -1);
-        for (int i = n - 1; i >= 0; --i) {
+        bool g[n][n];
+        memset(g, true, sizeof(g));
+        for (int i = n - 1; ~i; --i) {
             for (int j = i + 1; j < n; ++j) {
-                dp[i][j] = s[i] == s[j] && dp[i + 1][j - 1];
+                g[i][j] = s[i] == s[j] && g[i + 1][j - 1];
             }
         }
-        function<int(int)> dfs = [&](int i) -> int {
-            if (i >= n) return 0;
-            if (f[i] != -1) return f[i];
-            int ans = dfs(i + 1);
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 1; ~i; --i) {
+            f[i] = f[i + 1];
             for (int j = i + k - 1; j < n; ++j) {
-                if (dp[i][j]) {
-                    ans = max(ans, 1 + dfs(j + 1));
+                if (g[i][j]) {
+                    f[i] = max(f[i], 1 + f[j + 1]);
                 }
             }
-            f[i] = ans;
-            return ans;
-        };
-        return dfs(0);
+        }
+        return f[0];
     }
 };
 ```
@@ -202,38 +176,52 @@ public:
 ```go
 func maxPalindromes(s string, k int) int {
 	n := len(s)
-	dp := make([][]bool, n)
-	f := make([]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]bool, n)
-		f[i] = -1
-		for j := 0; j < n; j++ {
-			dp[i][j] = true
+	g := make([][]bool, n)
+	for i := range g {
+		g[i] = make([]bool, n)
+		for j := range g[i] {
+			g[i][j] = true
 		}
 	}
 	for i := n - 1; i >= 0; i-- {
 		for j := i + 1; j < n; j++ {
-			dp[i][j] = s[i] == s[j] && dp[i+1][j-1]
+			g[i][j] = s[i] == s[j] && g[i+1][j-1]
 		}
 	}
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i >= n {
-			return 0
-		}
-		if f[i] != -1 {
-			return f[i]
-		}
-		ans := dfs(i + 1)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		f[i] = f[i+1]
 		for j := i + k - 1; j < n; j++ {
-			if dp[i][j] {
-				ans = max(ans, 1+dfs(j+1))
+			if g[i][j] {
+				f[i] = max(f[i], 1+f[j+1])
 			}
 		}
-		f[i] = ans
-		return ans
 	}
-	return dfs(0)
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxPalindromes(s: string, k: number): number {
+    const n = s.length;
+    const g: boolean[][] = Array.from({ length: n }, () => Array(n).fill(true));
+    for (let i = n - 1; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            g[i][j] = s[i] === s[j] && g[i + 1][j - 1];
+        }
+    }
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; ~i; --i) {
+        f[i] = f[i + 1];
+        for (let j = i + k - 1; j < n; ++j) {
+            if (g[i][j]) {
+                f[i] = Math.max(f[i], 1 + f[j + 1]);
+            }
+        }
+    }
+    return f[0];
 }
 ```
 
