@@ -1,8 +1,10 @@
 """Fetch Guardian / Knight contest rating cutoffs.
 
 CN (leetcode.cn)
-    Local ranking is CN-only. The cutoff is the rating of the last user in the
-    top 5% / 25% among users with rating >= 1600.
+    Local ranking is CN-only. The cutoff is the rating of the last user whose
+    published rank is still in the top 5% / 25% among users with rating >= 1600.
+    Ranking pages are positional and may skip ranks, so position N is not always
+    rank N. Current medals are checked via userProfileUserLevelMedal.
 
 US (leetcode.com)
     Global ranking mixes LCCN accounts. A raw 5% / 25% split of that list does
@@ -49,6 +51,10 @@ US_BADGE_QUERY = (
     'query userContestRankingInfo($username: String!) { '
     'userContestRanking(username: $username) { badge { name } } }'
 )
+CN_BADGE_QUERY = (
+    'query contestBadge($userSlug: String!) { '
+    'userProfileUserLevelMedal(userSlug: $userSlug) { current { name } } }'
+)
 CN_WARMUP_QUERY = {
     'operationName': 'questionData',
     'variables': {'titleSlug': 'two-sum'},
@@ -73,6 +79,7 @@ class Cutoff:
     gatekeeper: User
     just_below: Optional[User]
     just_below_badge: str = ''
+    gatekeeper_badge: str = ''
 
 
 @dataclass(frozen=True)
@@ -251,6 +258,7 @@ class Ranking:
         )
 
     def user_at(self, rank: int) -> Optional[User]:
+        """User at 1-indexed list position, which may differ from published rank."""
         if rank < 1:
             return None
         page_no = (rank - 1) // self.user_per_page + 1
@@ -259,6 +267,31 @@ class Ranking:
         if offset >= len(users):
             return None
         return users[offset]
+
+    def last_user_rank_le(self, rank: int) -> Optional[User]:
+        """Last user whose published ranking is <= rank.
+
+        Ranking pages are positional. Skipped ranks mean position N can have
+        ranking > N, so walking back is required.
+        """
+        pos = rank
+        while pos >= 1:
+            user = self.user_at(pos)
+            if user is None:
+                pos -= 1
+                continue
+            if user.rank <= rank:
+                return user
+            pos -= 1
+        return None
+
+    def next_user_after(self, user: User) -> Optional[User]:
+        start = max(1, user.rank - self.user_per_page)
+        for pos in range(start, user.rank + self.user_per_page + 2):
+            cand = self.user_at(pos)
+            if cand and cand.rank > user.rank:
+                return cand
+        return None
 
     def count_rating_ge(self, cutoff: float = RATING_CUTOFF) -> int:
         first = self.load_page(1)
@@ -304,6 +337,21 @@ class Ranking:
         badge = (ranking.get('badge') or {}).get('name') or ''
         self._badges[uid] = badge
         return badge
+
+    def cn_level_medal(self, uid: str) -> str:
+        """Current CN contest medal name, or '' if the user does not hold one now."""
+        data = self.graphql.post(
+            self.ranking_url,
+            {
+                'query': CN_BADGE_QUERY,
+                'variables': {'userSlug': uid},
+                'operationName': 'contestBadge',
+            },
+        )
+        current = ((data or {}).get('data') or {}).get(
+            'userProfileUserLevelMedal'
+        ) or {}
+        return ((current.get('current') or {}).get('name')) or ''
 
     def _evaluable_us(self, rank: int) -> Optional[User]:
         user = self.user_at(rank)
@@ -356,14 +404,19 @@ class Ranking:
         result = []
         for badge, ratio in (('Guardian', GUARDIAN_RATIO), ('Knight', KNIGHT_RATIO)):
             last_rank = max(1, int(total * ratio))
-            gatekeeper = self.user_at(last_rank)
+            gatekeeper = self.last_user_rank_le(last_rank)
             if not gatekeeper:
                 continue
+            just_below = self.next_user_after(gatekeeper)
             result.append(
                 Cutoff(
                     badge=badge,
                     gatekeeper=gatekeeper,
-                    just_below=self.user_at(last_rank + 1),
+                    just_below=just_below,
+                    gatekeeper_badge=self.cn_level_medal(gatekeeper.uid),
+                    just_below_badge=(
+                        self.cn_level_medal(just_below.uid) if just_below else ''
+                    ),
                 )
             )
         return result
@@ -386,6 +439,7 @@ class Ranking:
                     gatekeeper=gatekeeper,
                     just_below=just_below,
                     just_below_badge=below_badge,
+                    gatekeeper_badge=self.contest_badge(gatekeeper.uid) or '',
                 )
             )
         return result
@@ -405,13 +459,22 @@ def print_cutoffs(site_key: str, cutoffs: List[Cutoff]) -> None:
     print(f'\n[{site_key}] 分数线')
     for item in cutoffs:
         g = item.gatekeeper
+        g_note = (
+            f'  badge={item.gatekeeper_badge!r}'
+            if item.gatekeeper_badge or item.just_below_badge
+            else ''
+        )
         print(
-            f'  {item.badge:<9} 守门员  rank={g.rank:<6} rating={g.rating:.3f}  {g.uid}'
+            f'  {item.badge:<9} 守门员  rank={g.rank:<6} rating={g.rating:.3f}  {g.uid}{g_note}'
         )
         b = item.just_below
         if not b:
             continue
-        note = f'  badge={item.just_below_badge!r}' if site_key == 'US' else ''
+        note = (
+            f'  badge={item.just_below_badge!r}'
+            if site_key == 'US' or item.just_below_badge or item.gatekeeper_badge
+            else ''
+        )
         print(
             f'  {item.badge:<9} 差一线  rank={b.rank:<6} rating={b.rating:.3f}  {b.uid}{note}'
         )
