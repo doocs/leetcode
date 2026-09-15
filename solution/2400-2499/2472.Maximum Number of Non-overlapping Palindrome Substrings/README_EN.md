@@ -65,25 +65,25 @@ It can be shown that we cannot find a selection with more than two valid substri
 
 <!-- solution:start -->
 
-### Solution 1: Preprocessing + Memoization Search
+### Solution 1: Preprocessing + Dynamic Programming
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Pick as many non-overlapping palindromes of length at least $k$ as possible; $n\le 2000$. Precompute $dp[i][j]$ in $O(n^2)$. Then $dfs(i)$ is the best from $i$: skip $i$, or take a palindrome $[i,j]$ ($j\ge i+k-1$) plus $dfs(j+1)$.
+> We want as many non-overlapping palindromes of length at least $k$ as possible. With $n \le 2000$, enumerating partitions is too slow. Whether $s[i..j]$ is a palindrome can be precomputed in $O(n^2)$ as $g[i][j]$. The remaining choice at index $i$ is to skip $s[i]$, or take a palindrome starting at $i$ with length at least $k$ and continue after its right end. Filling $f[i]$ from the right makes each transition look only at larger indices.
 
 <!-- thinking:end -->
 
-First, preprocess the string $s$ to get $dp[i][j]$, which represents whether the substring $s[i,..j]$ is a palindrome.
+First, preprocess the string $s$ to get $g[i][j]$, which represents whether the substring $s[i..j]$ is a palindrome.
 
-Then, define a function $dfs(i)$ to represent the maximum number of non-overlapping palindrome substrings that can be selected from the substring $s[i,..]$, i.e.,
+Then, define $f[i]$ as the maximum number of non-overlapping palindrome substrings that can be selected from $s[i..]$. Initially, $f[n] = 0$. For $i$ from $n - 1$ down to $0$, we can skip $s[i]$, i.e., $f[i] = f[i + 1]$; we can also enumerate the ending index $j$ ($j \ge i + k - 1$), and if $g[i][j]$ is true, we take this palindrome and continue from $j + 1$. That is,
 
 $$
 \begin{aligned}
-dfs(i) &= \begin{cases}
+f[i] &= \begin{cases}
 0, & i \geq n \\
-\max\{dfs(i + 1), \max_{j \geq i + k - 1} \{dfs(j + 1) + 1\}\}, & i < n
+\max\bigl\{f[i + 1],\ \max\limits_{\substack{j \ge i + k - 1 \\ g[i][j]}} \{f[j + 1] + 1\}\bigr\}, & i < n
 \end{cases}
 \end{aligned}
 $$
@@ -97,69 +97,45 @@ The time complexity is $O(n^2)$, and the space complexity is $O(n^2)$. Here, $n$
 ```python
 class Solution:
     def maxPalindromes(self, s: str, k: int) -> int:
-        @cache
-        def dfs(i):
-            if i >= n:
-                return 0
-            ans = dfs(i + 1)
-            for j in range(i + k - 1, n):
-                if dp[i][j]:
-                    ans = max(ans, 1 + dfs(j + 1))
-            return ans
-
         n = len(s)
-        dp = [[True] * n for _ in range(n)]
+        g = [[True] * n for _ in range(n)]
         for i in range(n - 1, -1, -1):
             for j in range(i + 1, n):
-                dp[i][j] = s[i] == s[j] and dp[i + 1][j - 1]
-        ans = dfs(0)
-        dfs.cache_clear()
-        return ans
+                g[i][j] = s[i] == s[j] and g[i + 1][j - 1]
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            f[i] = f[i + 1]
+            for j in range(i + k - 1, n):
+                if g[i][j]:
+                    f[i] = max(f[i], 1 + f[j + 1])
+        return f[0]
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private boolean[][] dp;
-    private int[] f;
-    private String s;
-    private int n;
-    private int k;
-
     public int maxPalindromes(String s, int k) {
-        n = s.length();
-        f = new int[n];
-        this.s = s;
-        this.k = k;
-        dp = new boolean[n][n];
-        for (int i = 0; i < n; ++i) {
-            Arrays.fill(dp[i], true);
-            f[i] = -1;
+        int n = s.length();
+        boolean[][] g = new boolean[n][n];
+        for (var row : g) {
+            Arrays.fill(row, true);
         }
         for (int i = n - 1; i >= 0; --i) {
             for (int j = i + 1; j < n; ++j) {
-                dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1];
+                g[i][j] = s.charAt(i) == s.charAt(j) && g[i + 1][j - 1];
             }
         }
-        return dfs(0);
-    }
-
-    private int dfs(int i) {
-        if (i >= n) {
-            return 0;
-        }
-        if (f[i] != -1) {
-            return f[i];
-        }
-        int ans = dfs(i + 1);
-        for (int j = i + k - 1; j < n; ++j) {
-            if (dp[i][j]) {
-                ans = Math.max(ans, 1 + dfs(j + 1));
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            f[i] = f[i + 1];
+            for (int j = i + k - 1; j < n; ++j) {
+                if (g[i][j]) {
+                    f[i] = Math.max(f[i], 1 + f[j + 1]);
+                }
             }
         }
-        f[i] = ans;
-        return ans;
+        return f[0];
     }
 }
 ```
@@ -171,26 +147,24 @@ class Solution {
 public:
     int maxPalindromes(string s, int k) {
         int n = s.size();
-        vector<vector<bool>> dp(n, vector<bool>(n, true));
-        vector<int> f(n, -1);
-        for (int i = n - 1; i >= 0; --i) {
+        bool g[n][n];
+        memset(g, true, sizeof(g));
+        for (int i = n - 1; ~i; --i) {
             for (int j = i + 1; j < n; ++j) {
-                dp[i][j] = s[i] == s[j] && dp[i + 1][j - 1];
+                g[i][j] = s[i] == s[j] && g[i + 1][j - 1];
             }
         }
-        function<int(int)> dfs = [&](int i) -> int {
-            if (i >= n) return 0;
-            if (f[i] != -1) return f[i];
-            int ans = dfs(i + 1);
+        int f[n + 1];
+        memset(f, 0, sizeof(f));
+        for (int i = n - 1; ~i; --i) {
+            f[i] = f[i + 1];
             for (int j = i + k - 1; j < n; ++j) {
-                if (dp[i][j]) {
-                    ans = max(ans, 1 + dfs(j + 1));
+                if (g[i][j]) {
+                    f[i] = max(f[i], 1 + f[j + 1]);
                 }
             }
-            f[i] = ans;
-            return ans;
-        };
-        return dfs(0);
+        }
+        return f[0];
     }
 };
 ```
@@ -200,38 +174,52 @@ public:
 ```go
 func maxPalindromes(s string, k int) int {
 	n := len(s)
-	dp := make([][]bool, n)
-	f := make([]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]bool, n)
-		f[i] = -1
-		for j := 0; j < n; j++ {
-			dp[i][j] = true
+	g := make([][]bool, n)
+	for i := range g {
+		g[i] = make([]bool, n)
+		for j := range g[i] {
+			g[i][j] = true
 		}
 	}
 	for i := n - 1; i >= 0; i-- {
 		for j := i + 1; j < n; j++ {
-			dp[i][j] = s[i] == s[j] && dp[i+1][j-1]
+			g[i][j] = s[i] == s[j] && g[i+1][j-1]
 		}
 	}
-	var dfs func(int) int
-	dfs = func(i int) int {
-		if i >= n {
-			return 0
-		}
-		if f[i] != -1 {
-			return f[i]
-		}
-		ans := dfs(i + 1)
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		f[i] = f[i+1]
 		for j := i + k - 1; j < n; j++ {
-			if dp[i][j] {
-				ans = max(ans, 1+dfs(j+1))
+			if g[i][j] {
+				f[i] = max(f[i], 1+f[j+1])
 			}
 		}
-		f[i] = ans
-		return ans
 	}
-	return dfs(0)
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxPalindromes(s: string, k: number): number {
+    const n = s.length;
+    const g: boolean[][] = Array.from({ length: n }, () => Array(n).fill(true));
+    for (let i = n - 1; ~i; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            g[i][j] = s[i] === s[j] && g[i + 1][j - 1];
+        }
+    }
+    const f: number[] = Array(n + 1).fill(0);
+    for (let i = n - 1; ~i; --i) {
+        f[i] = f[i + 1];
+        for (let j = i + k - 1; j < n; ++j) {
+            if (g[i][j]) {
+                f[i] = Math.max(f[i], 1 + f[j + 1]);
+            }
+        }
+    }
+    return f[0];
 }
 ```
 
