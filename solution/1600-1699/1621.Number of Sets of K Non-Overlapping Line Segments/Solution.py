@@ -9,8 +9,6 @@ class Solution:
                 f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod
                 g[i][j] = g[i - 1][j]
                 if j:
-                    g[i][j] += f[i - 1][j - 1]
+                    g[i][j] += f[i - 1][j - 1] + g[i - 1][j - 1]
                     g[i][j] %= mod
-                    g[i][j] += g[i - 1][j - 1]
-                    g[i][j] %= mod
-        return (f[-1][-1] + g[-1][-1]) % mod
+        return (f[n][k] + g[n][k]) % mod
