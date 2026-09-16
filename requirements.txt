@@ -6,5 +6,5 @@ mkdocs-material[imaging]==9.7.7
 mkdocs-glightbox==0.5.2
 jieba==0.42.1
 beautifulsoup4==4.15.0
-gitpython==3.1.61
+gitpython==3.1.62
 mkdocs-minify-plugin==0.8.0
