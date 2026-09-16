@@ -73,75 +73,78 @@ fancy.getIndex(2); // return 20
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Segment Tree
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> We must append, add to or multiply the whole current prefix, and query one index, up to $10^5$ times. Updating every element on each call is too slow.
+> We keep appending values, then add or multiply every value already in the sequence, and query one index. There are up to $10^5$ operations, so scanning the whole sequence each time is too slow.
 >
-> Append writes a new rightmost position; add and multiply are affine range updates on $[1,\textit{idx}]$. A segment tree stores a value and lazy tags $(\textit{mul},\textit{add})$, composing multiply before add.
+> Both updates hit the prefix that is already present, and a query asks for a single position, so a segment tree fits. Each node stores the range sum and the pending multiply and add that have not been pushed to its children.
 >
-> Nodes are created on demand over $[1,10^5]$: append is a point write, `addAll`/`multAll` update a prefix, and `getIndex` is a point query, all modulo $10^9+7$.
+> The length is at most $10^5$, so we create nodes on demand over $[1,10^5]$. `append` updates one point, `addAll` and `multAll` update the current prefix, and `getIndex` reads one point, all modulo $10^9+7$.
 
 <!-- thinking:end -->
+
+By the problem statement, `append` inserts a number at the end, `addAll` adds the same value to every current number, `multAll` multiplies every current number by the same value, and `getIndex` reads one position. That is range add, range multiply, and a point query, which a segment tree can maintain.
+
+Each node stores:
+
+- `v`: the sum of the numbers in this range;
+- `mul`: a pending multiply not yet pushed to the children, initially $1$;
+- `add`: a pending add not yet pushed to the children, initially $0$.
+
+The two tags mean: every number in the range should first be multiplied by `mul`, then increased by `add`. If two updates land on the same range, we merge the tags instead of walking to the leaves. After “multiply by $m_1$ then add $a_1$” and “multiply by $m_2$ then add $a_2$”:
+
+$$
+(x \cdot m_1 + a_1)\cdot m_2 + a_2 = x\cdot (m_1 m_2) + (a_1 m_2 + a_2)
+$$
+
+so the new multiply is $m_1 m_2$ and the new add is $a_1 m_2 + a_2$.
+
+Hence, multiplying a range by $m$ multiplies the node’s `v`, `mul`, and `add` by $m$; adding $inc$ increases `v` by $\textit{length} \times inc$ and `add` by $inc$. Pushing down applies the same “multiply then add” rule to both children. In the code, add and multiply are one operation: add-only is “multiply by $1$ then add $inc$”, and multiply-only is “multiply by $m$ then add $0$”.
+
+Indices are $1$-based and the length is at most $10^5$, so we create nodes over $[1,10^5]$ on demand. `append` increments $n$ and adds $val$ at position $n$; `addAll` and `multAll` update $[1,n]$; `getIndex` queries position $idx+1$. All arithmetic is modulo $10^9+7$.
+
+The time complexity is $O(m \log n)$, and the space complexity is $O(m \log n)$, where $m$ is the number of operations and $n \le 10^5$ is the length bound.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-MOD = int(1e9 + 7)
+MOD = 10**9 + 7
 
 
 class Node:
+    __slots__ = "left", "right", "l", "r", "mid", "v", "add", "mul"
+
     def __init__(self, l, r):
-        self.left = None
-        self.right = None
-        self.l = l
-        self.r = r
+        self.left = self.right = None
+        self.l, self.r = l, r
         self.mid = (l + r) >> 1
-        self.v = 0
-        self.add = 0
+        self.v = self.add = 0
         self.mul = 1
 
 
 class SegmentTree:
     def __init__(self):
-        self.root = Node(1, int(1e5 + 1))
+        self.root = Node(1, 10**5 + 1)
 
-    def modifyAdd(self, l, r, inc, node=None):
+    def modify(self, l, r, mul, add, node=None):
         if l > r:
             return
         if node is None:
             node = self.root
         if node.l >= l and node.r <= r:
-            node.v = (node.v + (node.r - node.l + 1) * inc) % MOD
-            node.add += inc
+            self.apply(node, mul, add)
             return
         self.pushdown(node)
         if l <= node.mid:
-            self.modifyAdd(l, r, inc, node.left)
+            self.modify(l, r, mul, add, node.left)
         if r > node.mid:
-            self.modifyAdd(l, r, inc, node.right)
-        self.pushup(node)
-
-    def modifyMul(self, l, r, m, node=None):
-        if l > r:
-            return
-        if node is None:
-            node = self.root
-        if node.l >= l and node.r <= r:
-            node.v = (node.v * m) % MOD
-            node.add = (node.add * m) % MOD
-            node.mul = (node.mul * m) % MOD
-            return
-        self.pushdown(node)
-        if l <= node.mid:
-            self.modifyMul(l, r, m, node.left)
-        if r > node.mid:
-            self.modifyMul(l, r, m, node.right)
+            self.modify(l, r, mul, add, node.right)
         self.pushup(node)
 
     def query(self, l, r, node=None):
@@ -159,6 +162,11 @@ class SegmentTree:
             v = (v + self.query(l, r, node.right)) % MOD
         return v
 
+    def apply(self, node, mul, add):
+        node.v = (node.v * mul + (node.r - node.l + 1) * add) % MOD
+        node.add = (node.add * mul + add) % MOD
+        node.mul = node.mul * mul % MOD
+
     def pushup(self, node):
         node.v = (node.left.v + node.right.v) % MOD
 
@@ -167,14 +175,9 @@ class SegmentTree:
             node.left = Node(node.l, node.mid)
         if node.right is None:
             node.right = Node(node.mid + 1, node.r)
-        left, right = node.left, node.right
-        if node.add != 0 or node.mul != 1:
-            left.v = (left.v * node.mul + (left.r - left.l + 1) * node.add) % MOD
-            right.v = (right.v * node.mul + (right.r - right.l + 1) * node.add) % MOD
-            left.add = (left.add * node.mul + node.add) % MOD
-            right.add = (right.add * node.mul + node.add) % MOD
-            left.mul = (left.mul * node.mul) % MOD
-            right.mul = (right.mul * node.mul) % MOD
+        if node.add or node.mul != 1:
+            self.apply(node.left, node.mul, node.add)
+            self.apply(node.right, node.mul, node.add)
             node.add = 0
             node.mul = 1
 
@@ -186,24 +189,16 @@ class Fancy:
 
     def append(self, val: int) -> None:
         self.n += 1
-        self.tree.modifyAdd(self.n, self.n, val)
+        self.tree.modify(self.n, self.n, 1, val)
 
     def addAll(self, inc: int) -> None:
-        self.tree.modifyAdd(1, self.n, inc)
+        self.tree.modify(1, self.n, 1, inc)
 
     def multAll(self, m: int) -> None:
-        self.tree.modifyMul(1, self.n, m)
+        self.tree.modify(1, self.n, m, 0)
 
     def getIndex(self, idx: int) -> int:
         return -1 if idx >= self.n else self.tree.query(idx + 1, idx + 1)
-
-
-# Your Fancy object will be instantiated and called as such:
-# obj = Fancy()
-# obj.append(val)
-# obj.addAll(inc)
-# obj.multAll(m)
-# param_4 = obj.getIndex(idx)
 ```
 
 #### Java
@@ -212,14 +207,10 @@ class Fancy:
 class Node {
     Node left;
     Node right;
-    int l;
-    int r;
-    int mid;
-    long v;
-    long add;
-    long mul = 1;
+    int l, r, mid;
+    long v, add, mul = 1;
 
-    public Node(int l, int r) {
+    Node(int l, int r) {
         this.l = l;
         this.r = r;
         this.mid = (l + r) >> 1;
@@ -227,64 +218,36 @@ class Node {
 }
 
 class SegmentTree {
-    private Node root = new Node(1, (int) 1e5 + 1);
     private static final int MOD = (int) 1e9 + 7;
+    private Node root = new Node(1, (int) 1e5 + 1);
 
-    public SegmentTree() {
+    void modify(int l, int r, int mul, int add) {
+        modify(l, r, mul, add, root);
     }
 
-    public void modifyAdd(int l, int r, int inc) {
-        modifyAdd(l, r, inc, root);
-    }
-
-    public void modifyAdd(int l, int r, int inc, Node node) {
+    void modify(int l, int r, int mul, int add, Node node) {
         if (l > r) {
             return;
         }
         if (node.l >= l && node.r <= r) {
-            node.v = (node.v + (node.r - node.l + 1) * inc) % MOD;
-            node.add = (node.add + inc) % MOD;
+            apply(node, mul, add);
             return;
         }
         pushdown(node);
         if (l <= node.mid) {
-            modifyAdd(l, r, inc, node.left);
+            modify(l, r, mul, add, node.left);
         }
         if (r > node.mid) {
-            modifyAdd(l, r, inc, node.right);
+            modify(l, r, mul, add, node.right);
         }
         pushup(node);
     }
 
-    public void modifyMul(int l, int r, int m) {
-        modifyMul(l, r, m, root);
-    }
-
-    public void modifyMul(int l, int r, int m, Node node) {
-        if (l > r) {
-            return;
-        }
-        if (node.l >= l && node.r <= r) {
-            node.v = (node.v * m) % MOD;
-            node.add = (node.add * m) % MOD;
-            node.mul = (node.mul * m) % MOD;
-            return;
-        }
-        pushdown(node);
-        if (l <= node.mid) {
-            modifyMul(l, r, m, node.left);
-        }
-        if (r > node.mid) {
-            modifyMul(l, r, m, node.right);
-        }
-        pushup(node);
-    }
-
-    public int query(int l, int r) {
+    int query(int l, int r) {
         return query(l, r, root);
     }
 
-    public int query(int l, int r, Node node) {
+    int query(int l, int r, Node node) {
         if (l > r) {
             return 0;
         }
@@ -302,11 +265,17 @@ class SegmentTree {
         return v;
     }
 
-    public void pushup(Node node) {
+    void apply(Node node, long mul, long add) {
+        node.v = (node.v * mul + (node.r - node.l + 1) * add) % MOD;
+        node.add = (node.add * mul + add) % MOD;
+        node.mul = node.mul * mul % MOD;
+    }
+
+    void pushup(Node node) {
         node.v = (node.left.v + node.right.v) % MOD;
     }
 
-    public void pushdown(Node node) {
+    void pushdown(Node node) {
         if (node.left == null) {
             node.left = new Node(node.l, node.mid);
         }
@@ -314,13 +283,8 @@ class SegmentTree {
             node.right = new Node(node.mid + 1, node.r);
         }
         if (node.add != 0 || node.mul != 1) {
-            Node left = node.left, right = node.right;
-            left.v = (left.v * node.mul + (left.r - left.l + 1) * node.add) % MOD;
-            right.v = (right.v * node.mul + (right.r - right.l + 1) * node.add) % MOD;
-            left.add = (left.add * node.mul + node.add) % MOD;
-            right.add = (right.add * node.mul + node.add) % MOD;
-            left.mul = (left.mul * node.mul) % MOD;
-            right.mul = (right.mul * node.mul) % MOD;
+            apply(node.left, node.mul, node.add);
+            apply(node.right, node.mul, node.add);
             node.add = 0;
             node.mul = 1;
         }
@@ -331,35 +295,23 @@ class Fancy {
     private int n;
     private SegmentTree tree = new SegmentTree();
 
-    public Fancy() {
-    }
-
     public void append(int val) {
         ++n;
-        tree.modifyAdd(n, n, val);
+        tree.modify(n, n, 1, val);
     }
 
     public void addAll(int inc) {
-        tree.modifyAdd(1, n, inc);
+        tree.modify(1, n, 1, inc);
     }
 
     public void multAll(int m) {
-        tree.modifyMul(1, n, m);
+        tree.modify(1, n, m, 0);
     }
 
     public int getIndex(int idx) {
         return idx >= n ? -1 : tree.query(idx + 1, idx + 1);
     }
 }
-
-/**
- * Your Fancy object will be instantiated and called as such:
- * Fancy obj = new Fancy();
- * obj.append(val);
- * obj.addAll(inc);
- * obj.multAll(m);
- * int param_4 = obj.getIndex(idx);
- */
 ```
 
 #### C++
@@ -369,81 +321,73 @@ const int MOD = 1e9 + 7;
 
 class Node {
 public:
-    Node* left;
-    Node* right;
-    int l;
-    int r;
-    int mid;
-    long long v;
-    long long add;
-    long long mul;
+    Node* left = nullptr;
+    Node* right = nullptr;
+    int l, r, mid;
+    long long v = 0, add = 0, mul = 1;
 
-    Node(int l, int r) {
-        this->l = l;
-        this->r = r;
-        this->mid = (l + r) >> 1;
-        this->left = this->right = nullptr;
-        v = add = 0;
-        mul = 1;
-    }
+    Node(int l, int r)
+        : l(l)
+        , r(r)
+        , mid((l + r) >> 1) {}
 };
 
 class SegmentTree {
-private:
-    Node* root;
-
 public:
-    SegmentTree() {
-        root = new Node(1, 1e5 + 1);
-    }
+    SegmentTree()
+        : root(new Node(1, 1e5 + 1)) {}
 
-    void modifyAdd(int l, int r, int inc) {
-        modifyAdd(l, r, inc, root);
-    }
-
-    void modifyAdd(int l, int r, int inc, Node* node) {
-        if (l > r) return;
-        if (node->l >= l && node->r <= r) {
-            node->v = (node->v + (node->r - node->l + 1) * inc) % MOD;
-            node->add = (node->add + inc) % MOD;
-            return;
-        }
-        pushdown(node);
-        if (l <= node->mid) modifyAdd(l, r, inc, node->left);
-        if (r > node->mid) modifyAdd(l, r, inc, node->right);
-        pushup(node);
-    }
-
-    void modifyMul(int l, int r, int m) {
-        modifyMul(l, r, m, root);
-    }
-
-    void modifyMul(int l, int r, int m, Node* node) {
-        if (l > r) return;
-        if (node->l >= l && node->r <= r) {
-            node->v = (node->v * m) % MOD;
-            node->add = (node->add * m) % MOD;
-            node->mul = (node->mul * m) % MOD;
-            return;
-        }
-        pushdown(node);
-        if (l <= node->mid) modifyMul(l, r, m, node->left);
-        if (r > node->mid) modifyMul(l, r, m, node->right);
-        pushup(node);
+    void modify(int l, int r, int mul, int add) {
+        modify(l, r, mul, add, root);
     }
 
     int query(int l, int r) {
         return query(l, r, root);
     }
 
+private:
+    Node* root;
+
+    void modify(int l, int r, int mul, int add, Node* node) {
+        if (l > r) {
+            return;
+        }
+        if (node->l >= l && node->r <= r) {
+            apply(node, mul, add);
+            return;
+        }
+        pushdown(node);
+        if (l <= node->mid) {
+            modify(l, r, mul, add, node->left);
+        }
+        if (r > node->mid) {
+            modify(l, r, mul, add, node->right);
+        }
+        pushup(node);
+    }
+
     int query(int l, int r, Node* node) {
-        if (l > r) return 0;
-        if (node->l >= l && node->r <= r) return node->v;
+        if (l > r) {
+            return 0;
+        }
+        if (node->l >= l && node->r <= r) {
+            return node->v;
+        }
         pushdown(node);
         int v = 0;
-        if (l <= node->mid) v = (v + query(l, r, node->left)) % MOD;
-        if (r > node->mid) v = (v + query(l, r, node->right)) % MOD;
+        if (l <= node->mid) {
+            v = (v + query(l, r, node->left)) % MOD;
+        }
+        if (r > node->mid) {
+            v = (v + query(l, r, node->right)) % MOD;
+        }
         return v;
+    }
+
+    void apply(Node* node, long long mul, long long add) {
+        node->v = (node->v * mul + (node->r - node->l + 1) * add) % MOD;
+        node->add = (node->add * mul + add) % MOD;
+        node->mul = node->mul * mul % MOD;
     }
 
     void pushup(Node* node) {
@@ -451,18 +395,15 @@ public:
     }
 
     void pushdown(Node* node) {
-        if (!node->left) node->left = new Node(node->l, node->mid);
-        if (!node->right) node->right = new Node(node->mid + 1, node->r);
+        if (!node->left) {
+            node->left = new Node(node->l, node->mid);
+        }
+        if (!node->right) {
+            node->right = new Node(node->mid + 1, node->r);
+        }
         if (node->add || node->mul != 1) {
-            long add = node->add, mul = node->mul;
-            Node* left = node->left;
-            Node* right = node->right;
-            left->v = (left->v * mul + (left->r - left->l + 1) * add) % MOD;
-            right->v = (right->v * mul + (right->r - right->l + 1) * add) % MOD;
-            left->add = (left->add * mul + add) % MOD;
-            right->add = (right->add * mul + add) % MOD;
-            left->mul = (left->mul * mul) % MOD;
-            right->mul = (right->mul * mul) % MOD;
+            apply(node->left, node->mul, node->add);
+            apply(node->right, node->mul, node->add);
             node->add = 0;
             node->mul = 1;
         }
@@ -471,243 +412,151 @@ public:
 
 class Fancy {
 public:
-    int n;
-    SegmentTree* tree;
-
-    Fancy() {
-        n = 0;
-        tree = new SegmentTree();
-    }
-
     void append(int val) {
         ++n;
-        tree->modifyAdd(n, n, val);
+        tree.modify(n, n, 1, val);
     }
 
     void addAll(int inc) {
-        tree->modifyAdd(1, n, inc);
+        tree.modify(1, n, 1, inc);
     }
 
     void multAll(int m) {
-        tree->modifyMul(1, n, m);
+        tree.modify(1, n, m, 0);
     }
 
     int getIndex(int idx) {
-        return idx >= n ? -1 : tree->query(idx + 1, idx + 1);
+        return idx >= n ? -1 : tree.query(idx + 1, idx + 1);
     }
-};
 
-/**
- * Your Fancy object will be instantiated and called as such:
- * Fancy* obj = new Fancy();
- * obj->append(val);
- * obj->addAll(inc);
- * obj->multAll(m);
- * int param_4 = obj->getIndex(idx);
- */
+private:
+    int n = 0;
+    SegmentTree tree;
+};
 ```
 
 #### Go
 
 ```go
-const MOD int64 = 1e9 + 7
+const mod int64 = 1e9 + 7
 
-type Node struct {
-	left  *Node
-	right *Node
-	l     int
-	r     int
-	mid   int
-	v     int64
-	add   int64
-	mul   int64
+type node struct {
+	left, right *node
+	l, r, mid   int
+	v, add, mul int64
 }
 
-func newNode(l, r int) *Node {
-	return &Node{
-		l:   l,
-		r:   r,
-		mid: (l + r) >> 1,
-		mul: 1,
-	}
+func newNode(l, r int) *node {
+	return &node{l: l, r: r, mid: (l + r) >> 1, mul: 1}
 }
 
-type SegmentTree struct {
-	root *Node
+type segmentTree struct{ root *node }
+
+func newSegmentTree() *segmentTree {
+	return &segmentTree{root: newNode(1, 100001)}
 }
 
-func newSegmentTree() *SegmentTree {
-	return &SegmentTree{
-		root: newNode(1, 100001),
-	}
-}
-
-func (t *SegmentTree) modifyAdd(l, r int, inc int64) {
-	t.modifyAddNode(l, r, inc, t.root)
-}
-
-func (t *SegmentTree) modifyAddNode(l, r int, inc int64, node *Node) {
+func (t *segmentTree) modify(l, r int, mul, add int64, o *node) {
 	if l > r {
 		return
 	}
-
-	if node.l >= l && node.r <= r {
-		node.v = (node.v + int64(node.r-node.l+1)*inc) % MOD
-		node.add = (node.add + inc) % MOD
+	if o.l >= l && o.r <= r {
+		t.apply(o, mul, add)
 		return
 	}
-
-	t.pushdown(node)
-
-	if l <= node.mid {
-		t.modifyAddNode(l, r, inc, node.left)
+	t.pushdown(o)
+	if l <= o.mid {
+		t.modify(l, r, mul, add, o.left)
 	}
-
-	if r > node.mid {
-		t.modifyAddNode(l, r, inc, node.right)
+	if r > o.mid {
+		t.modify(l, r, mul, add, o.right)
 	}
-
-	t.pushup(node)
+	t.pushup(o)
 }
 
-func (t *SegmentTree) modifyMul(l, r int, m int64) {
-	t.modifyMulNode(l, r, m, t.root)
-}
-
-func (t *SegmentTree) modifyMulNode(l, r int, m int64, node *Node) {
-	if l > r {
-		return
-	}
-
-	if node.l >= l && node.r <= r {
-		node.v = node.v * m % MOD
-		node.add = node.add * m % MOD
-		node.mul = node.mul * m % MOD
-		return
-	}
-
-	t.pushdown(node)
-
-	if l <= node.mid {
-		t.modifyMulNode(l, r, m, node.left)
-	}
-
-	if r > node.mid {
-		t.modifyMulNode(l, r, m, node.right)
-	}
-
-	t.pushup(node)
-}
-
-func (t *SegmentTree) query(l, r int) int {
-	return int(t.queryNode(l, r, t.root))
-}
-
-func (t *SegmentTree) queryNode(l, r int, node *Node) int64 {
+func (t *segmentTree) query(l, r int, o *node) int64 {
 	if l > r {
 		return 0
 	}
-
-	if node.l >= l && node.r <= r {
-		return node.v
+	if o.l >= l && o.r <= r {
+		return o.v
 	}
-
-	t.pushdown(node)
-
+	t.pushdown(o)
 	var v int64
-
-	if l <= node.mid {
-		v = (v + t.queryNode(l, r, node.left)) % MOD
+	if l <= o.mid {
+		v = (v + t.query(l, r, o.left)) % mod
 	}
-
-	if r > node.mid {
-		v = (v + t.queryNode(l, r, node.right)) % MOD
+	if r > o.mid {
+		v = (v + t.query(l, r, o.right)) % mod
 	}
-
 	return v
 }
 
-func (t *SegmentTree) pushup(node *Node) {
-	node.v = (node.left.v + node.right.v) % MOD
+func (t *segmentTree) apply(o *node, mul, add int64) {
+	o.v = (o.v*mul + int64(o.r-o.l+1)*add) % mod
+	o.add = (o.add*mul + add) % mod
+	o.mul = o.mul * mul % mod
 }
 
-func (t *SegmentTree) pushdown(node *Node) {
+func (t *segmentTree) pushup(o *node) {
+	o.v = (o.left.v + o.right.v) % mod
+}
 
-	if node.left == nil {
-		node.left = newNode(node.l, node.mid)
+func (t *segmentTree) pushdown(o *node) {
+	if o.left == nil {
+		o.left = newNode(o.l, o.mid)
 	}
-
-	if node.right == nil {
-		node.right = newNode(node.mid+1, node.r)
+	if o.right == nil {
+		o.right = newNode(o.mid+1, o.r)
 	}
-
-	if node.add != 0 || node.mul != 1 {
-
-		add := node.add
-		mul := node.mul
-
-		left := node.left
-		right := node.right
-
-		left.v = (left.v*mul + int64(left.r-left.l+1)*add) % MOD
-		right.v = (right.v*mul + int64(right.r-right.l+1)*add) % MOD
-
-		left.add = (left.add*mul + add) % MOD
-		right.add = (right.add*mul + add) % MOD
-
-		left.mul = left.mul * mul % MOD
-		right.mul = right.mul * mul % MOD
-
-		node.add = 0
-		node.mul = 1
+	if o.add != 0 || o.mul != 1 {
+		t.apply(o.left, o.mul, o.add)
+		t.apply(o.right, o.mul, o.add)
+		o.add, o.mul = 0, 1
 	}
 }
 
 type Fancy struct {
 	n    int
-	tree *SegmentTree
+	tree *segmentTree
 }
 
 func Constructor() Fancy {
-	return Fancy{
-		tree: newSegmentTree(),
-	}
+	return Fancy{tree: newSegmentTree()}
 }
 
 func (f *Fancy) Append(val int) {
 	f.n++
-	f.tree.modifyAdd(f.n, f.n, int64(val))
+	f.tree.modify(f.n, f.n, 1, int64(val), f.tree.root)
 }
 
 func (f *Fancy) AddAll(inc int) {
-	f.tree.modifyAdd(1, f.n, int64(inc))
+	f.tree.modify(1, f.n, 1, int64(inc), f.tree.root)
 }
 
 func (f *Fancy) MultAll(m int) {
-	f.tree.modifyMul(1, f.n, int64(m))
+	f.tree.modify(1, f.n, int64(m), 0, f.tree.root)
 }
 
 func (f *Fancy) GetIndex(idx int) int {
 	if idx >= f.n {
 		return -1
 	}
-	return f.tree.query(idx+1, idx+1)
+	return int(f.tree.query(idx+1, idx+1, f.tree.root))
 }
 ```
 
 #### TypeScript
 
 ```ts
-const MOD = 1000000007n;
+const mod = BigInt(1e9 + 7);
 
 class Node {
     left: Node | null = null;
     right: Node | null = null;
-
     l: number;
     r: number;
     mid: number;
-
     v = 0n;
     add = 0n;
     mul = 1n;
@@ -720,86 +569,60 @@ class Node {
 }
 
 class SegmentTree {
-    root: Node;
+    root = new Node(1, 1e5 + 1);
 
-    constructor() {
-        this.root = new Node(1, 100001);
-    }
-
-    modifyAdd(l: number, r: number, inc: bigint, node: Node = this.root): void {
-        if (l > r) return;
-
-        if (node.l >= l && node.r <= r) {
-            node.v = (node.v + BigInt(node.r - node.l + 1) * inc) % MOD;
-            node.add = (node.add + inc) % MOD;
+    modify(l: number, r: number, mul: bigint, add: bigint, node = this.root): void {
+        if (l > r) {
             return;
         }
-
+        if (node.l >= l && node.r <= r) {
+            this.apply(node, mul, add);
+            return;
+        }
         this.pushdown(node);
-
-        if (l <= node.mid) this.modifyAdd(l, r, inc, node.left!);
-        if (r > node.mid) this.modifyAdd(l, r, inc, node.right!);
-
+        if (l <= node.mid) {
+            this.modify(l, r, mul, add, node.left!);
+        }
+        if (r > node.mid) {
+            this.modify(l, r, mul, add, node.right!);
+        }
         this.pushup(node);
     }
 
-    modifyMul(l: number, r: number, m: bigint, node: Node = this.root): void {
-        if (l > r) return;
-
-        if (node.l >= l && node.r <= r) {
-            node.v = (node.v * m) % MOD;
-            node.add = (node.add * m) % MOD;
-            node.mul = (node.mul * m) % MOD;
-            return;
+    query(l: number, r: number, node = this.root): bigint {
+        if (l > r) {
+            return 0n;
         }
-
+        if (node.l >= l && node.r <= r) {
+            return node.v;
+        }
         this.pushdown(node);
-
-        if (l <= node.mid) this.modifyMul(l, r, m, node.left!);
-        if (r > node.mid) this.modifyMul(l, r, m, node.right!);
-
-        this.pushup(node);
-    }
-
-    query(l: number, r: number, node: Node = this.root): bigint {
-        if (l > r) return 0n;
-
-        if (node.l >= l && node.r <= r) return node.v;
-
-        this.pushdown(node);
-
         let v = 0n;
-
-        if (l <= node.mid) v = (v + this.query(l, r, node.left!)) % MOD;
-        if (r > node.mid) v = (v + this.query(l, r, node.right!)) % MOD;
-
+        if (l <= node.mid) {
+            v = (v + this.query(l, r, node.left!)) % mod;
+        }
+        if (r > node.mid) {
+            v = (v + this.query(l, r, node.right!)) % mod;
+        }
         return v;
     }
 
+    apply(node: Node, mul: bigint, add: bigint): void {
+        node.v = (node.v * mul + BigInt(node.r - node.l + 1) * add) % mod;
+        node.add = (node.add * mul + add) % mod;
+        node.mul = (node.mul * mul) % mod;
+    }
+
     pushup(node: Node): void {
-        node.v = (node.left!.v + node.right!.v) % MOD;
+        node.v = (node.left!.v + node.right!.v) % mod;
     }
 
     pushdown(node: Node): void {
-        if (!node.left) node.left = new Node(node.l, node.mid);
-        if (!node.right) node.right = new Node(node.mid + 1, node.r);
-
+        node.left ??= new Node(node.l, node.mid);
+        node.right ??= new Node(node.mid + 1, node.r);
         if (node.add !== 0n || node.mul !== 1n) {
-            const add = node.add;
-            const mul = node.mul;
-
-            const left = node.left!;
-            const right = node.right!;
-
-            left.v = (left.v * mul + BigInt(left.r - left.l + 1) * add) % MOD;
-            right.v = (right.v * mul + BigInt(right.r - right.l + 1) * add) % MOD;
-
-            left.add = (left.add * mul + add) % MOD;
-            right.add = (right.add * mul + add) % MOD;
-
-            left.mul = (left.mul * mul) % MOD;
-            right.mul = (right.mul * mul) % MOD;
-
+            this.apply(node.left, node.mul, node.add);
+            this.apply(node.right, node.mul, node.add);
             node.add = 0n;
             node.mul = 1n;
         }
@@ -807,36 +630,272 @@ class SegmentTree {
 }
 
 class Fancy {
-    n = 0;
-    tree = new SegmentTree();
+    private n = 0;
+    private tree = new SegmentTree();
 
     append(val: number): void {
         this.n++;
-        this.tree.modifyAdd(this.n, this.n, BigInt(val));
+        this.tree.modify(this.n, this.n, 1n, BigInt(val));
     }
 
     addAll(inc: number): void {
-        this.tree.modifyAdd(1, this.n, BigInt(inc));
+        this.tree.modify(1, this.n, 1n, BigInt(inc));
     }
 
     multAll(m: number): void {
-        this.tree.modifyMul(1, this.n, BigInt(m));
+        this.tree.modify(1, this.n, BigInt(m), 0n);
     }
 
     getIndex(idx: number): number {
-        if (idx >= this.n) return -1;
-        return Number(this.tree.query(idx + 1, idx + 1));
+        return idx >= this.n ? -1 : Number(this.tree.query(idx + 1, idx + 1));
     }
 }
+```
 
-/**
- * Your Fancy object will be instantiated and called as such:
- * var obj = new Fancy()
- * obj.append(val)
- * obj.addAll(inc)
- * obj.multAll(m)
- * var param_4 = obj.getIndex(idx)
- */
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2: Math + Modular Inverse
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The segment tree still walks $O(\log n)$ nodes on every update. `addAll` and `multAll` always hit every number already in the sequence, and a newly appended number is not changed by earlier adds or multiplies.
+>
+> So every number already present will go through the same later adds and multiplies. We only need two global variables: how much those numbers should still be multiplied by, and how much should then be added. The array stores the value before those operations; a query multiplies and adds to recover the true value. The modulus is prime, so division by $a$ becomes multiplication by the modular inverse (Fermat’s little theorem).
+
+<!-- thinking:end -->
+
+Every `addAll` and `multAll` applies to all numbers that exist at that moment, and a number appended later is not affected by earlier updates. Therefore the pending multiply and add for every current number can be described by two global variables: multiply by $a$, then add $b$. Initially $a=1$ and $b=0$.
+
+The array `nums` does not store the current true values. It stores the values before multiplying by $a$ and adding $b$, so that at any time
+
+$$
+\text{true value} = (a \times \textit{nums}[i] + b) \bmod (10^9+7)
+$$
+
+The operations then become:
+
+- `append(val)`: this new number has not gone through the current $a$ and $b$, so we store an $x$ with $a \times x + b = \textit{val}$, i.e. $x = (\textit{val} - b) \times a^{-1}$;
+- `addAll(inc)`: every true value increases by $inc$, so we add $inc$ to $b$;
+- `multAll(m)`: every true value is multiplied by $m$, so both $a$ and $b$ are multiplied by $m$;
+- `getIndex(idx)`: return $-1$ if the index is out of range, otherwise $a \times \textit{nums}[idx] + b$.
+
+Here $a^{-1}$ is the modular inverse of $a$ modulo $10^9+7$. The modulus is prime, so Fermat’s little theorem gives $a^{-1} \equiv a^{MOD-2} \pmod{MOD}$.
+
+All operations except the inverse in `append` run in $O(1)$ time; the inverse is $O(\log MOD)$. The space complexity is $O(n)$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Fancy:
+    def __init__(self):
+        self.mod = 10**9 + 7
+        self.nums = []
+        self.a = 1
+        self.b = 0
+
+    def append(self, val: int) -> None:
+        x = (val - self.b) * pow(self.a, self.mod - 2, self.mod) % self.mod
+        self.nums.append(x)
+
+    def addAll(self, inc: int) -> None:
+        self.b = (self.b + inc) % self.mod
+
+    def multAll(self, m: int) -> None:
+        self.a = self.a * m % self.mod
+        self.b = self.b * m % self.mod
+
+    def getIndex(self, idx: int) -> int:
+        if idx >= len(self.nums):
+            return -1
+        return (self.a * self.nums[idx] + self.b) % self.mod
+```
+
+#### Java
+
+```java
+class Fancy {
+    private static final int MOD = (int) 1e9 + 7;
+    private List<Integer> nums = new ArrayList<>();
+    private long a = 1, b;
+
+    public void append(int val) {
+        long x = (val - b + MOD) % MOD * qpow(a, MOD - 2) % MOD;
+        nums.add((int) x);
+    }
+
+    public void addAll(int inc) {
+        b = (b + inc) % MOD;
+    }
+
+    public void multAll(int m) {
+        a = a * m % MOD;
+        b = b * m % MOD;
+    }
+
+    public int getIndex(int idx) {
+        if (idx >= nums.size()) {
+            return -1;
+        }
+        return (int) ((a * nums.get(idx) + b) % MOD);
+    }
+
+    private long qpow(long x, int n) {
+        long res = 1;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = res * x % MOD;
+            }
+            x = x * x % MOD;
+            n >>= 1;
+        }
+        return res;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Fancy {
+public:
+    void append(int val) {
+        long long x = (val - b + mod) % mod * qpow(a, mod - 2) % mod;
+        nums.push_back(x);
+    }
+
+    void addAll(int inc) {
+        b = (b + inc) % mod;
+    }
+
+    void multAll(int m) {
+        a = a * m % mod;
+        b = b * m % mod;
+    }
+
+    int getIndex(int idx) {
+        if (idx >= nums.size()) {
+            return -1;
+        }
+        return (a * nums[idx] + b) % mod;
+    }
+
+private:
+    const int mod = 1e9 + 7;
+    vector<long long> nums;
+    long long a = 1, b = 0;
+
+    long long qpow(long long x, int n) {
+        long long res = 1;
+        while (n) {
+            if (n & 1) {
+                res = res * x % mod;
+            }
+            x = x * x % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+};
+```
+
+#### Go
+
+```go
+const mod int = 1e9 + 7
+
+func qpow(x, n int) int {
+	res := 1
+	for n > 0 {
+		if n&1 == 1 {
+			res = res * x % mod
+		}
+		x = x * x % mod
+		n >>= 1
+	}
+	return res
+}
+
+type Fancy struct {
+	nums []int
+	a, b int
+}
+
+func Constructor() Fancy {
+	return Fancy{a: 1}
+}
+
+func (f *Fancy) Append(val int) {
+	x := (val - f.b + mod) % mod * qpow(f.a, mod-2) % mod
+	f.nums = append(f.nums, x)
+}
+
+func (f *Fancy) AddAll(inc int) {
+	f.b = (f.b + inc) % mod
+}
+
+func (f *Fancy) MultAll(m int) {
+	f.a = f.a * m % mod
+	f.b = f.b * m % mod
+}
+
+func (f *Fancy) GetIndex(idx int) int {
+	if idx >= len(f.nums) {
+		return -1
+	}
+	return (f.a*f.nums[idx] + f.b) % mod
+}
+```
+
+#### TypeScript
+
+```ts
+class Fancy {
+    private mod = BigInt(1e9 + 7);
+    private nums: bigint[] = [];
+    private a = 1n;
+    private b = 0n;
+
+    append(val: number): void {
+        const x = (((BigInt(val) - this.b) % this.mod) + this.mod) % this.mod;
+        this.nums.push((x * this.qpow(this.a, 1e9 + 5)) % this.mod);
+    }
+
+    addAll(inc: number): void {
+        this.b = (this.b + BigInt(inc)) % this.mod;
+    }
+
+    multAll(m: number): void {
+        this.a = (this.a * BigInt(m)) % this.mod;
+        this.b = (this.b * BigInt(m)) % this.mod;
+    }
+
+    getIndex(idx: number): number {
+        if (idx >= this.nums.length) {
+            return -1;
+        }
+        return Number((this.a * this.nums[idx] + this.b) % this.mod);
+    }
+
+    private qpow(x: bigint, n: number): bigint {
+        let res = 1n;
+        while (n) {
+            if (n & 1) {
+                res = (res * x) % this.mod;
+            }
+            x = (x * x) % this.mod;
+            n >>= 1;
+        }
+        return res;
+    }
+}
 ```
 
 <!-- tabs:end -->
