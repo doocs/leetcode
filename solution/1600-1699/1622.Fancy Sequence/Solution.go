@@ -1,183 +1,106 @@
-const MOD int64 = 1e9 + 7
+const mod int64 = 1e9 + 7
 
-type Node struct {
-	left  *Node
-	right *Node
-	l     int
-	r     int
-	mid   int
-	v     int64
-	add   int64
-	mul   int64
+type node struct {
+	left, right *node
+	l, r, mid   int
+	v, add, mul int64
 }
 
-func newNode(l, r int) *Node {
-	return &Node{
-		l:   l,
-		r:   r,
-		mid: (l + r) >> 1,
-		mul: 1,
-	}
+func newNode(l, r int) *node {
+	return &node{l: l, r: r, mid: (l + r) >> 1, mul: 1}
 }
 
-type SegmentTree struct {
-	root *Node
+type segmentTree struct{ root *node }
+
+func newSegmentTree() *segmentTree {
+	return &segmentTree{root: newNode(1, 100001)}
 }
 
-func newSegmentTree() *SegmentTree {
-	return &SegmentTree{
-		root: newNode(1, 100001),
-	}
-}
-
-func (t *SegmentTree) modifyAdd(l, r int, inc int64) {
-	t.modifyAddNode(l, r, inc, t.root)
-}
-
-func (t *SegmentTree) modifyAddNode(l, r int, inc int64, node *Node) {
+func (t *segmentTree) modify(l, r int, mul, add int64, o *node) {
 	if l > r {
 		return
 	}
-
-	if node.l >= l && node.r <= r {
-		node.v = (node.v + int64(node.r-node.l+1)*inc) % MOD
-		node.add = (node.add + inc) % MOD
+	if o.l >= l && o.r <= r {
+		t.apply(o, mul, add)
 		return
 	}
-
-	t.pushdown(node)
-
-	if l <= node.mid {
-		t.modifyAddNode(l, r, inc, node.left)
+	t.pushdown(o)
+	if l <= o.mid {
+		t.modify(l, r, mul, add, o.left)
 	}
-
-	if r > node.mid {
-		t.modifyAddNode(l, r, inc, node.right)
+	if r > o.mid {
+		t.modify(l, r, mul, add, o.right)
 	}
-
-	t.pushup(node)
+	t.pushup(o)
 }
 
-func (t *SegmentTree) modifyMul(l, r int, m int64) {
-	t.modifyMulNode(l, r, m, t.root)
-}
-
-func (t *SegmentTree) modifyMulNode(l, r int, m int64, node *Node) {
-	if l > r {
-		return
-	}
-
-	if node.l >= l && node.r <= r {
-		node.v = node.v * m % MOD
-		node.add = node.add * m % MOD
-		node.mul = node.mul * m % MOD
-		return
-	}
-
-	t.pushdown(node)
-
-	if l <= node.mid {
-		t.modifyMulNode(l, r, m, node.left)
-	}
-
-	if r > node.mid {
-		t.modifyMulNode(l, r, m, node.right)
-	}
-
-	t.pushup(node)
-}
-
-func (t *SegmentTree) query(l, r int) int {
-	return int(t.queryNode(l, r, t.root))
-}
-
-func (t *SegmentTree) queryNode(l, r int, node *Node) int64 {
+func (t *segmentTree) query(l, r int, o *node) int64 {
 	if l > r {
 		return 0
 	}
-
-	if node.l >= l && node.r <= r {
-		return node.v
+	if o.l >= l && o.r <= r {
+		return o.v
 	}
-
-	t.pushdown(node)
-
+	t.pushdown(o)
 	var v int64
-
-	if l <= node.mid {
-		v = (v + t.queryNode(l, r, node.left)) % MOD
+	if l <= o.mid {
+		v = (v + t.query(l, r, o.left)) % mod
 	}
-
-	if r > node.mid {
-		v = (v + t.queryNode(l, r, node.right)) % MOD
+	if r > o.mid {
+		v = (v + t.query(l, r, o.right)) % mod
 	}
-
 	return v
 }
 
-func (t *SegmentTree) pushup(node *Node) {
-	node.v = (node.left.v + node.right.v) % MOD
+func (t *segmentTree) apply(o *node, mul, add int64) {
+	o.v = (o.v*mul + int64(o.r-o.l+1)*add) % mod
+	o.add = (o.add*mul + add) % mod
+	o.mul = o.mul * mul % mod
 }
 
-func (t *SegmentTree) pushdown(node *Node) {
+func (t *segmentTree) pushup(o *node) {
+	o.v = (o.left.v + o.right.v) % mod
+}
 
-	if node.left == nil {
-		node.left = newNode(node.l, node.mid)
+func (t *segmentTree) pushdown(o *node) {
+	if o.left == nil {
+		o.left = newNode(o.l, o.mid)
 	}
-
-	if node.right == nil {
-		node.right = newNode(node.mid+1, node.r)
+	if o.right == nil {
+		o.right = newNode(o.mid+1, o.r)
 	}
-
-	if node.add != 0 || node.mul != 1 {
-
-		add := node.add
-		mul := node.mul
-
-		left := node.left
-		right := node.right
-
-		left.v = (left.v*mul + int64(left.r-left.l+1)*add) % MOD
-		right.v = (right.v*mul + int64(right.r-right.l+1)*add) % MOD
-
-		left.add = (left.add*mul + add) % MOD
-		right.add = (right.add*mul + add) % MOD
-
-		left.mul = left.mul * mul % MOD
-		right.mul = right.mul * mul % MOD
-
-		node.add = 0
-		node.mul = 1
+	if o.add != 0 || o.mul != 1 {
+		t.apply(o.left, o.mul, o.add)
+		t.apply(o.right, o.mul, o.add)
+		o.add, o.mul = 0, 1
 	}
 }
 
 type Fancy struct {
 	n    int
-	tree *SegmentTree
+	tree *segmentTree
 }
 
 func Constructor() Fancy {
-	return Fancy{
-		tree: newSegmentTree(),
-	}
+	return Fancy{tree: newSegmentTree()}
 }
 
 func (f *Fancy) Append(val int) {
 	f.n++
-	f.tree.modifyAdd(f.n, f.n, int64(val))
+	f.tree.modify(f.n, f.n, 1, int64(val), f.tree.root)
 }
 
 func (f *Fancy) AddAll(inc int) {
-	f.tree.modifyAdd(1, f.n, int64(inc))
+	f.tree.modify(1, f.n, 1, int64(inc), f.tree.root)
 }
 
 func (f *Fancy) MultAll(m int) {
-	f.tree.modifyMul(1, f.n, int64(m))
+	f.tree.modify(1, f.n, int64(m), 0, f.tree.root)
 }
 
 func (f *Fancy) GetIndex(idx int) int {
 	if idx >= f.n {
 		return -1
 	}
-	return f.tree.query(idx+1, idx+1)
+	return int(f.tree.query(idx+1, idx+1, f.tree.root))
 }
