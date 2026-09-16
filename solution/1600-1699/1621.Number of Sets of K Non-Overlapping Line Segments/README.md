@@ -85,32 +85,26 @@ tags:
 
 > **思考**
 >
-> 在 $n$ 个点上画 $k$ 条不相交（可相接）线段，直接枚举端点组合数较大。按点从左到右决策，用是否以当前点作为某条线段的右端来划分状态。
+> 题目要求在 $n$ 个点上画出恰好 $k$ 条互不重叠（端点可以重合）的线段。若直接枚举每条线段的两个端点，即使 $n,k\le 1000$，组合量也会迅速膨胀，还要额外保证线段从左到右有序且不相交。
 >
-> 记 $f[i][j]$ 为前 $i$ 个点已画 $j$ 条且第 $j$ 条不以 $i$ 为右端，$g[i][j]$ 为以 $i$ 为右端，则转移只依赖 $i-1$ 的两类状态：不结束于 $i$ 时继承全部 $j$ 条方案；结束于 $i$ 时，既可延长上一条，也可新开长度为 $1$ 的线段。
+> 线段只能沿数轴依次排列，因此可以按点从左到右决策，并把状态按「当前点是不是某条线段的右端点」拆开。记 $f[i][j]$ 为前 $i$ 个点已画 $j$ 条且不以 $i$ 为右端，$g[i][j]$ 为以 $i$ 为右端。
 >
-> 初值 $f[1][0]=1$，答案为 $f[n][k]+g[n][k]$，对 $10^9+7$ 取模。
+> 这样转移到 $i$ 只依赖 $i-1$ 的两类状态：不以 $i$ 结束时，直接继承前 $i-1$ 个点上的 $j$ 条方案；以 $i$ 结束时，既可以把停在 $i-1$ 的那条线段再延长一格，也可以在 $i-1$ 与 $i$ 之间新开一条长度为 $1$ 的线段。
 
 <!-- thinking:end -->
 
-记 $f[i][j]$ 表示使用前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点不为 $i$ 的方案数；记 $g[i][j]$ 表示使用了前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点为 $i$ 的方案数。初始时 $f[1][0]=1$。
+记 $f[i][j]$ 表示使用前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点不为 $i$ 的方案数；记 $g[i][j]$ 表示使用前 $i$ 个点构造了 $j$ 条线段，且最后一条线段的右端点为 $i$ 的方案数。初始时 $f[1][0]=1$。
 
-考虑 $f[i][j]$，由于第 $j$ 条线段的右端点不为 $i$，因此前 $i-1$ 个点构造了 $j$ 条线段，因此有：
+考虑 $f[i][j]$，由于第 $j$ 条线段的右端点不为 $i$，因此前 $i-1$ 个点已经构造了 $j$ 条线段，有：
 
 $$
 f[i][j] = f[i-1][j] + g[i - 1][j]
 $$
 
-考虑 $g[i][j]$，第 $j$ 条线段的右端点为 $i$，如果第 $j$ 条线段的长度超过 $1$，则前 $i-1$ 个点构造了 $j$ 条线段，且第 $j$ 条线段的右端点一定覆盖了 $i-1$，因此有：
+考虑 $g[i][j]$，第 $j$ 条线段的右端点为 $i$。此时有两种来源，需要累加：将原先以 $i-1$ 为右端点的第 $j$ 条线段延长到 $i$（长度大于 $1$）；或者在前 $i-1$ 个点上已有 $j-1$ 条线段的基础上，新开一条覆盖 $i-1$ 与 $i$ 的线段（长度为 $1$）。当 $j=0$ 时不存在右端点，故第二项不计入。因此当 $j \ge 1$ 时有：
 
 $$
-g[i][j] = g[i - 1][j]
-$$
-
-如果第 $j$ 条线段的长度为 $1$，则前 $i-1$ 个点构造了 $j-1$ 条线段，有：
-
-$$
-g[i][j] = f[i - 1][j - 1] + g[i - 1][j - 1]
+g[i][j] = g[i - 1][j] + f[i - 1][j - 1] + g[i - 1][j - 1]
 $$
 
 答案为 $f[n][k]+g[n][k]$。
@@ -133,36 +127,31 @@ class Solution:
                 f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod
                 g[i][j] = g[i - 1][j]
                 if j:
-                    g[i][j] += f[i - 1][j - 1]
+                    g[i][j] += f[i - 1][j - 1] + g[i - 1][j - 1]
                     g[i][j] %= mod
-                    g[i][j] += g[i - 1][j - 1]
-                    g[i][j] %= mod
-        return (f[-1][-1] + g[-1][-1]) % mod
+        return (f[n][k] + g[n][k]) % mod
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numberOfSets(int n, int k) {
+        final int mod = (int) 1e9 + 7;
         int[][] f = new int[n + 1][k + 1];
         int[][] g = new int[n + 1][k + 1];
         f[1][0] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 0; j <= k; ++j) {
-                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % MOD;
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
                 g[i][j] = g[i - 1][j];
                 if (j > 0) {
-                    g[i][j] += f[i - 1][j - 1];
-                    g[i][j] %= MOD;
-                    g[i][j] += g[i - 1][j - 1];
-                    g[i][j] %= MOD;
+                    g[i][j] = (g[i][j] + f[i - 1][j - 1]) % mod;
+                    g[i][j] = (g[i][j] + g[i - 1][j - 1]) % mod;
                 }
             }
         }
-        return (f[n][k] + g[n][k]) % MOD;
+        return (f[n][k] + g[n][k]) % mod;
     }
 }
 ```
@@ -172,23 +161,18 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int f[1010][1010];
-    int g[1010][1010];
-    const int mod = 1e9 + 7;
-
     int numberOfSets(int n, int k) {
-        memset(f, 0, sizeof(f));
-        memset(g, 0, sizeof(g));
+        const int mod = 1e9 + 7;
+        vector<vector<int>> f(n + 1, vector<int>(k + 1));
+        vector<vector<int>> g(n + 1, vector<int>(k + 1));
         f[1][0] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 0; j <= k; ++j) {
                 f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
                 g[i][j] = g[i - 1][j];
-                if (j > 0) {
-                    g[i][j] += f[i - 1][j - 1];
-                    g[i][j] %= mod;
-                    g[i][j] += g[i - 1][j - 1];
-                    g[i][j] %= mod;
+                if (j) {
+                    g[i][j] = (g[i][j] + f[i - 1][j - 1]) % mod;
+                    g[i][j] = (g[i][j] + g[i - 1][j - 1]) % mod;
                 }
             }
         }
@@ -201,6 +185,7 @@ public:
 
 ```go
 func numberOfSets(n int, k int) int {
+	const mod int = 1e9 + 7
 	f := make([][]int, n+1)
 	g := make([][]int, n+1)
 	for i := range f {
@@ -208,16 +193,13 @@ func numberOfSets(n int, k int) int {
 		g[i] = make([]int, k+1)
 	}
 	f[1][0] = 1
-	var mod int = 1e9 + 7
 	for i := 2; i <= n; i++ {
 		for j := 0; j <= k; j++ {
 			f[i][j] = (f[i-1][j] + g[i-1][j]) % mod
 			g[i][j] = g[i-1][j]
 			if j > 0 {
-				g[i][j] += f[i-1][j-1]
-				g[i][j] %= mod
-				g[i][j] += g[i-1][j-1]
-				g[i][j] %= mod
+				g[i][j] = (g[i][j] + f[i-1][j-1]) % mod
+				g[i][j] = (g[i][j] + g[i-1][j-1]) % mod
 			}
 		}
 	}
@@ -229,23 +211,47 @@ func numberOfSets(n int, k int) int {
 
 ```ts
 function numberOfSets(n: number, k: number): number {
-    const f = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
-    const g = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
-    f[1][0] = 1;
     const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    const g: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    f[1][0] = 1;
     for (let i = 2; i <= n; ++i) {
         for (let j = 0; j <= k; ++j) {
             f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
             g[i][j] = g[i - 1][j];
             if (j) {
-                g[i][j] += f[i - 1][j - 1];
-                g[i][j] %= mod;
-                g[i][j] += g[i - 1][j - 1];
-                g[i][j] %= mod;
+                g[i][j] = (g[i][j] + f[i - 1][j - 1]) % mod;
+                g[i][j] = (g[i][j] + g[i - 1][j - 1]) % mod;
             }
         }
     }
     return (f[n][k] + g[n][k]) % mod;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_sets(n: i32, k: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let n = n as usize;
+        let k = k as usize;
+        let mut f = vec![vec![0i64; k + 1]; n + 1];
+        let mut g = vec![vec![0i64; k + 1]; n + 1];
+        f[1][0] = 1;
+        for i in 2..=n {
+            for j in 0..=k {
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % MOD;
+                g[i][j] = g[i - 1][j];
+                if j > 0 {
+                    g[i][j] = (g[i][j] + f[i - 1][j - 1]) % MOD;
+                    g[i][j] = (g[i][j] + g[i - 1][j - 1]) % MOD;
+                }
+            }
+        }
+        ((f[n][k] + g[n][k]) % MOD) as i32
+    }
 }
 ```
 

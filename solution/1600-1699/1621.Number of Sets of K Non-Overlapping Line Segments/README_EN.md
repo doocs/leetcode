@@ -64,19 +64,37 @@ The image above shows the 5 different ways {(0,2),(2,3)}, {(0,1),(1,3)}, {(0,1),
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Drawing $k$ non-overlapping (but possibly touching) segments on $n$ points is awkward to enumerate by endpoints. Process points left to right and split states by whether the last segment ends at the current point.
+> We need exactly $k$ non-overlapping segments on $n$ points, and adjacent segments may share an endpoint. Enumerating both endpoints of every segment blows up even for $n,k\le 1000$, and we would still have to keep the segments ordered and disjoint.
 >
-> Let $f[i][j]$ be ways to place $j$ segments on the first $i$ points with the last segment not ending at $i$, and $g[i][j]$ the ways where it does. Transitions use only the two kinds of state at $i-1$: inherit $j$ segments, or extend / start a new length-$1$ segment.
+> Segments lie on a line, so we can process points from left to right and split the state by whether the current point is the right endpoint of some segment. Let $f[i][j]$ be the ways to place $j$ segments on the first $i$ points without ending at $i$, and $g[i][j]$ the ways that do end at $i$.
 >
-> Start from $f[1][0]=1$ and return $f[n][k]+g[n][k]$ modulo $10^9+7$.
+> Transitions then use only the two kinds of state at $i-1$: if we do not end at $i$, we inherit every placement of $j$ segments; if we do, we either extend a segment that already ended at $i-1$, or start a new length-$1$ segment covering $i-1$ and $i$.
 
 <!-- thinking:end -->
+
+Let $f[i][j]$ be the number of ways to build $j$ segments using the first $i$ points such that the last segment does not end at $i$, and let $g[i][j]$ be the number of ways where the last segment does end at $i$. Initially $f[1][0]=1$.
+
+For $f[i][j]$, the $j$-th segment does not end at $i$, so the first $i-1$ points already contain $j$ segments:
+
+$$
+f[i][j] = f[i-1][j] + g[i - 1][j]
+$$
+
+For $g[i][j]$, the $j$-th segment ends at $i$. There are two sources, which we add together: extend a $j$-th segment that already ended at $i-1$ (length greater than $1$), or start a new segment covering $i-1$ and $i$ after placing $j-1$ segments on the first $i-1$ points (length $1$). When $j=0$ there is no right endpoint, so the second source is omitted. Thus for $j \ge 1$:
+
+$$
+g[i][j] = g[i - 1][j] + f[i - 1][j - 1] + g[i - 1][j - 1]
+$$
+
+The answer is $f[n][k]+g[n][k]$.
+
+The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$.
 
 <!-- tabs:start -->
 
@@ -94,36 +112,31 @@ class Solution:
                 f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod
                 g[i][j] = g[i - 1][j]
                 if j:
-                    g[i][j] += f[i - 1][j - 1]
+                    g[i][j] += f[i - 1][j - 1] + g[i - 1][j - 1]
                     g[i][j] %= mod
-                    g[i][j] += g[i - 1][j - 1]
-                    g[i][j] %= mod
-        return (f[-1][-1] + g[-1][-1]) % mod
+        return (f[n][k] + g[n][k]) % mod
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private static final int MOD = (int) 1e9 + 7;
-
     public int numberOfSets(int n, int k) {
+        final int mod = (int) 1e9 + 7;
         int[][] f = new int[n + 1][k + 1];
         int[][] g = new int[n + 1][k + 1];
         f[1][0] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 0; j <= k; ++j) {
-                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % MOD;
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
                 g[i][j] = g[i - 1][j];
                 if (j > 0) {
-                    g[i][j] += f[i - 1][j - 1];
-                    g[i][j] %= MOD;
-                    g[i][j] += g[i - 1][j - 1];
-                    g[i][j] %= MOD;
+                    g[i][j] = (g[i][j] + f[i - 1][j - 1]) % mod;
+                    g[i][j] = (g[i][j] + g[i - 1][j - 1]) % mod;
                 }
             }
         }
-        return (f[n][k] + g[n][k]) % MOD;
+        return (f[n][k] + g[n][k]) % mod;
     }
 }
 ```
@@ -133,23 +146,18 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    int f[1010][1010];
-    int g[1010][1010];
-    const int mod = 1e9 + 7;
-
     int numberOfSets(int n, int k) {
-        memset(f, 0, sizeof(f));
-        memset(g, 0, sizeof(g));
+        const int mod = 1e9 + 7;
+        vector<vector<int>> f(n + 1, vector<int>(k + 1));
+        vector<vector<int>> g(n + 1, vector<int>(k + 1));
         f[1][0] = 1;
         for (int i = 2; i <= n; ++i) {
             for (int j = 0; j <= k; ++j) {
                 f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
                 g[i][j] = g[i - 1][j];
-                if (j > 0) {
-                    g[i][j] += f[i - 1][j - 1];
-                    g[i][j] %= mod;
-                    g[i][j] += g[i - 1][j - 1];
-                    g[i][j] %= mod;
+                if (j) {
+                    g[i][j] = (g[i][j] + f[i - 1][j - 1]) % mod;
+                    g[i][j] = (g[i][j] + g[i - 1][j - 1]) % mod;
                 }
             }
         }
@@ -162,6 +170,7 @@ public:
 
 ```go
 func numberOfSets(n int, k int) int {
+	const mod int = 1e9 + 7
 	f := make([][]int, n+1)
 	g := make([][]int, n+1)
 	for i := range f {
@@ -169,16 +178,13 @@ func numberOfSets(n int, k int) int {
 		g[i] = make([]int, k+1)
 	}
 	f[1][0] = 1
-	var mod int = 1e9 + 7
 	for i := 2; i <= n; i++ {
 		for j := 0; j <= k; j++ {
 			f[i][j] = (f[i-1][j] + g[i-1][j]) % mod
 			g[i][j] = g[i-1][j]
 			if j > 0 {
-				g[i][j] += f[i-1][j-1]
-				g[i][j] %= mod
-				g[i][j] += g[i-1][j-1]
-				g[i][j] %= mod
+				g[i][j] = (g[i][j] + f[i-1][j-1]) % mod
+				g[i][j] = (g[i][j] + g[i-1][j-1]) % mod
 			}
 		}
 	}
@@ -190,23 +196,47 @@ func numberOfSets(n int, k int) int {
 
 ```ts
 function numberOfSets(n: number, k: number): number {
-    const f = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
-    const g = Array.from({ length: n + 1 }, _ => new Array(k + 1).fill(0));
-    f[1][0] = 1;
     const mod = 10 ** 9 + 7;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    const g: number[][] = Array.from({ length: n + 1 }, () => Array(k + 1).fill(0));
+    f[1][0] = 1;
     for (let i = 2; i <= n; ++i) {
         for (let j = 0; j <= k; ++j) {
             f[i][j] = (f[i - 1][j] + g[i - 1][j]) % mod;
             g[i][j] = g[i - 1][j];
             if (j) {
-                g[i][j] += f[i - 1][j - 1];
-                g[i][j] %= mod;
-                g[i][j] += g[i - 1][j - 1];
-                g[i][j] %= mod;
+                g[i][j] = (g[i][j] + f[i - 1][j - 1]) % mod;
+                g[i][j] = (g[i][j] + g[i - 1][j - 1]) % mod;
             }
         }
     }
     return (f[n][k] + g[n][k]) % mod;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn number_of_sets(n: i32, k: i32) -> i32 {
+        const MOD: i64 = 1_000_000_007;
+        let n = n as usize;
+        let k = k as usize;
+        let mut f = vec![vec![0i64; k + 1]; n + 1];
+        let mut g = vec![vec![0i64; k + 1]; n + 1];
+        f[1][0] = 1;
+        for i in 2..=n {
+            for j in 0..=k {
+                f[i][j] = (f[i - 1][j] + g[i - 1][j]) % MOD;
+                g[i][j] = g[i - 1][j];
+                if j > 0 {
+                    g[i][j] = (g[i][j] + f[i - 1][j - 1]) % MOD;
+                    g[i][j] = (g[i][j] + g[i - 1][j - 1]) % MOD;
+                }
+            }
+        }
+        ((f[n][k] + g[n][k]) % MOD) as i32
+    }
 }
 ```
 
