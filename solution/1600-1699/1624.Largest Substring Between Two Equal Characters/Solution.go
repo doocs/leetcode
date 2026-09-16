@@ -4,12 +4,12 @@ func maxLengthBetweenEqualCharacters(s string) int {
 		d[i] = -1
 	}
 	ans := -1
-	for i, c := range s {
-		c -= 'a'
-		if d[c] == -1 {
-			d[c] = i
+	for i := range s {
+		j := int(s[i] - 'a')
+		if d[j] == -1 {
+			d[j] = i
 		} else {
-			ans = max(ans, i-d[c]-1)
+			ans = max(ans, i-d[j]-1)
 		}
 	}
 	return ans

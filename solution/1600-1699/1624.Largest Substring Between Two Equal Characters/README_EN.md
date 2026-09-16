@@ -60,19 +60,25 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Array
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> The length between two equal letters is the gap between that letter's first and a later occurrence. The string is short, but keeping only the first index of each letter already yields a linear solution.
+> The length between two equal letters is the gap between that letter's first occurrence and a later one. The string is short, but keeping only the first index of each letter already yields a linear solution.
 >
-> On seeing $c$ again, update the answer with $i - d[c] - 1$ and do not overwrite the first index, so the span stays maximal.
+> On seeing a character again, update the answer with $i - d[j] - 1$ and do not overwrite the first index, so the span stays maximal.
 >
-> A hash table (or a length-$26$ array) stores first positions; if nothing pairs, the answer stays $-1$.
+> Because $s$ contains only lowercase letters, a length-$26$ array is enough; if nothing appears twice, the answer stays $-1$.
 
 <!-- thinking:end -->
+
+Since $s$ contains only lowercase English letters, we can use an array $d$ of length $26$ to store the first index of each character, initially filled with $-1$.
+
+Traverse $s$. For the character $c$ at index $i$, let $j$ be the offset of $c$ from `a`. If $d[j] = -1$, this is the first time we see $c$, so set $d[j] = i$; otherwise update the answer with $i - d[j] - 1$, i.e. $ans = \max(ans, i - d[j] - 1)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(C)$, where $n$ is the length of $s$ and $C = 26$ is the size of the alphabet.
 
 <!-- tabs:start -->
 
@@ -81,13 +87,14 @@ tags:
 ```python
 class Solution:
     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
-        d = {}
+        d = [-1] * 26
         ans = -1
         for i, c in enumerate(s):
-            if c in d:
-                ans = max(ans, i - d[c] - 1)
+            j = ord(c) - ord("a")
+            if d[j] == -1:
+                d[j] = i
             else:
-                d[c] = i
+                ans = max(ans, i - d[j] - 1)
         return ans
 ```
 
@@ -142,12 +149,12 @@ func maxLengthBetweenEqualCharacters(s string) int {
 		d[i] = -1
 	}
 	ans := -1
-	for i, c := range s {
-		c -= 'a'
-		if d[c] == -1 {
-			d[c] = i
+	for i := range s {
+		j := int(s[i] - 'a')
+		if d[j] == -1 {
+			d[j] = i
 		} else {
-			ans = max(ans, i-d[c]-1)
+			ans = max(ans, i-d[j]-1)
 		}
 	}
 	return ans
@@ -158,18 +165,17 @@ func maxLengthBetweenEqualCharacters(s string) int {
 
 ```ts
 function maxLengthBetweenEqualCharacters(s: string): number {
-    const n = s.length;
-    const pos = new Array(26).fill(-1);
-    let res = -1;
-    for (let i = 0; i < n; i++) {
-        const j = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        if (pos[j] === -1) {
-            pos[j] = i;
+    const d = Array(26).fill(-1);
+    let ans = -1;
+    for (let i = 0; i < s.length; ++i) {
+        const j = s.charCodeAt(i) - 97;
+        if (d[j] === -1) {
+            d[j] = i;
         } else {
-            res = Math.max(res, i - pos[j] - 1);
+            ans = Math.max(ans, i - d[j] - 1);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -179,19 +185,17 @@ function maxLengthBetweenEqualCharacters(s: string): number {
 impl Solution {
     pub fn max_length_between_equal_characters(s: String) -> i32 {
         let s = s.as_bytes();
-        let n = s.len();
-        let mut pos = [-1; 26];
-        let mut res = -1;
-        for i in 0..n {
+        let mut d = [-1; 26];
+        let mut ans = -1;
+        for i in 0..s.len() {
             let j = (s[i] - b'a') as usize;
-            let i = i as i32;
-            if pos[j] == -1 {
-                pos[j] = i;
+            if d[j] == -1 {
+                d[j] = i as i32;
             } else {
-                res = res.max(i - pos[j] - 1);
+                ans = ans.max(i as i32 - d[j] - 1);
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -202,20 +206,18 @@ impl Solution {
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
 int maxLengthBetweenEqualCharacters(char* s) {
-    int pos[26];
-    memset(pos, -1, sizeof(pos));
-    int n = strlen(s);
-    int res = -1;
-    for (int i = 0; i < n; i++) {
-        char c = s[i];
-        int j = c - 'a';
-        if (pos[j] == -1) {
-            pos[j] = i;
+    int d[26];
+    memset(d, -1, sizeof(d));
+    int ans = -1;
+    for (int i = 0; s[i]; ++i) {
+        int j = s[i] - 'a';
+        if (d[j] == -1) {
+            d[j] = i;
         } else {
-            res = max(res, i - pos[j] - 1);
+            ans = max(ans, i - d[j] - 1);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
