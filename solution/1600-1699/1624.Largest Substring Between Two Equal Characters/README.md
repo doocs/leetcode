@@ -66,25 +66,25 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：数组或哈希表
+### 方法一：数组
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 子串长度由某字符首次与末次出现的间距决定，字符串很短，但只需对每个字母保留第一次下标即可在线性时间内求最大间距。
+> 两个相同字符之间的子串长度，由这个字符第一次出现和某次更靠后出现的位置差决定。字符串虽然不长，但只要记下每个字母第一次出现的下标，扫一遍就能得到最大间距。
 >
-> 再次遇到字符 $c$ 时，用 $i - d[c] - 1$ 更新答案，且不覆盖第一次下标，以保证跨度最大。
+> 再次遇到某个字符时，用当前位置减去首次下标再减一来更新答案，并且不要覆盖第一次的下标，这样跨度才最大。
 >
-> 哈希表（或长 $26$ 的数组）记录首现位置，从未配对则答案保持 $-1$。
+> 字符串只含小写字母，用长度为 $26$ 的数组记下首次位置即可；如果没有任何字符出现两次，答案保持 $-1$。
 
 <!-- thinking:end -->
 
-用数组或哈希表记录字符串 $s$ 每个字符第一次出现的位置。由于本题中字符串 $s$ 只含小写英文字母，因此可以用一个长度为 $26$ 的数组 $d$ 来记录，初始时数组元素值均为 $-1$。
+由于字符串 $s$ 只含小写英文字母，我们可以用一个长度为 $26$ 的数组 $d$ 记录每个字符第一次出现的位置，初始时数组元素均为 $-1$。
 
-遍历字符串 $s$ 中每个字符 $c$，若 $c$ 在数组中的值为 $-1$，则更新为当前位置 $i$；否则我们将答案更新为当前位置 $i$ 与数组中的值 $d[c]$ 的差值的最大值减一，即 $ans = \max (ans, i - d[c]-1)$。
+遍历字符串 $s$ 中每个下标为 $i$ 的字符 $c$，令 $j$ 为 $c$ 相对字母 `a` 的偏移。若 $d[j] = -1$，说明这是 $c$ 第一次出现，令 $d[j] = i$；否则用 $i - d[j] - 1$ 更新答案，即 $ans = \max(ans, i - d[j] - 1)$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度，而 $C$ 为字符串 $s$ 的字符集大小，本题 $C=26$。
+时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 为字符串长度，$C$ 为字符集大小，本题中 $C = 26$。
 
 <!-- tabs:start -->
 
@@ -93,13 +93,14 @@ tags:
 ```python
 class Solution:
     def maxLengthBetweenEqualCharacters(self, s: str) -> int:
-        d = {}
+        d = [-1] * 26
         ans = -1
         for i, c in enumerate(s):
-            if c in d:
-                ans = max(ans, i - d[c] - 1)
+            j = ord(c) - ord("a")
+            if d[j] == -1:
+                d[j] = i
             else:
-                d[c] = i
+                ans = max(ans, i - d[j] - 1)
         return ans
 ```
 
@@ -154,12 +155,12 @@ func maxLengthBetweenEqualCharacters(s string) int {
 		d[i] = -1
 	}
 	ans := -1
-	for i, c := range s {
-		c -= 'a'
-		if d[c] == -1 {
-			d[c] = i
+	for i := range s {
+		j := int(s[i] - 'a')
+		if d[j] == -1 {
+			d[j] = i
 		} else {
-			ans = max(ans, i-d[c]-1)
+			ans = max(ans, i-d[j]-1)
 		}
 	}
 	return ans
@@ -170,18 +171,17 @@ func maxLengthBetweenEqualCharacters(s string) int {
 
 ```ts
 function maxLengthBetweenEqualCharacters(s: string): number {
-    const n = s.length;
-    const pos = new Array(26).fill(-1);
-    let res = -1;
-    for (let i = 0; i < n; i++) {
-        const j = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        if (pos[j] === -1) {
-            pos[j] = i;
+    const d = Array(26).fill(-1);
+    let ans = -1;
+    for (let i = 0; i < s.length; ++i) {
+        const j = s.charCodeAt(i) - 97;
+        if (d[j] === -1) {
+            d[j] = i;
         } else {
-            res = Math.max(res, i - pos[j] - 1);
+            ans = Math.max(ans, i - d[j] - 1);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
@@ -191,19 +191,17 @@ function maxLengthBetweenEqualCharacters(s: string): number {
 impl Solution {
     pub fn max_length_between_equal_characters(s: String) -> i32 {
         let s = s.as_bytes();
-        let n = s.len();
-        let mut pos = [-1; 26];
-        let mut res = -1;
-        for i in 0..n {
+        let mut d = [-1; 26];
+        let mut ans = -1;
+        for i in 0..s.len() {
             let j = (s[i] - b'a') as usize;
-            let i = i as i32;
-            if pos[j] == -1 {
-                pos[j] = i;
+            if d[j] == -1 {
+                d[j] = i as i32;
             } else {
-                res = res.max(i - pos[j] - 1);
+                ans = ans.max(i as i32 - d[j] - 1);
             }
         }
-        res
+        ans
     }
 }
 ```
@@ -214,20 +212,18 @@ impl Solution {
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 
 int maxLengthBetweenEqualCharacters(char* s) {
-    int pos[26];
-    memset(pos, -1, sizeof(pos));
-    int n = strlen(s);
-    int res = -1;
-    for (int i = 0; i < n; i++) {
-        char c = s[i];
-        int j = c - 'a';
-        if (pos[j] == -1) {
-            pos[j] = i;
+    int d[26];
+    memset(d, -1, sizeof(d));
+    int ans = -1;
+    for (int i = 0; s[i]; ++i) {
+        int j = s[i] - 'a';
+        if (d[j] == -1) {
+            d[j] = i;
         } else {
-            res = max(res, i - pos[j] - 1);
+            ans = max(ans, i - d[j] - 1);
         }
     }
-    return res;
+    return ans;
 }
 ```
 
