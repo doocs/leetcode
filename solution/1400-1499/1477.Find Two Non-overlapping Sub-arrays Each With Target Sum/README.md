@@ -86,21 +86,25 @@ tags:
 
 > **思考**
 >
-> $n\le 10^5$ 且元素为正，和为 $target$ 的子数组可用前缀和在线性时间内定位。要两段不重叠且长度和最小。
+> 最直接的做法是枚举所有和为 $target$ 的子数组，再两两检查是否重叠并取长度和的最小值。$n \le 10^5$，子数组数量达到平方级，无法通过。
 >
-> $f[i]$ 为前 $i$ 个元素中、和为 $target$ 的最短子数组长度。扫到以 $i$ 结尾的一段 $[j+1,i]$ 时，用 $f[j]$ 与当前长度相加更新答案，并把 $f[i]$ 取 $\min(f[i-1],i-j)$。
+> 选定右段之后，左段必须完全落在它左侧的前缀里，而且我们只关心那段前缀中最短的合法子数组。这要求我们在扫描过程中随时能回答「前缀里的最短合法段」。
+>
+> 数组元素均为正整数，前缀和严格递增，每个前缀和只对应一个位置。因此用哈希表记下前缀和出现的下标后，就能在常数时间定位以当前位置结尾、和为 $target$ 的区间 $[j+1,i]$。
+>
+> 于是从左到右维护 $f[i]$：前 $i$ 个元素中和为 $target$ 的最短子数组长度。每当找到 $[j+1,i]$，就用 $f[j]$ 与当前长度相加更新答案，再令 $f[i]=\min(f[i-1], i-j)$。左段始终取自当前段之前，两段自然不重叠。
 
 <!-- thinking:end -->
 
-我们可以使用哈希表 $d$ 记录前缀和最近一次出现的位置，初始时 $d[0]=0$。
+我们用哈希表 $d$ 记录每个前缀和出现的位置，初始时 $d[0]=0$。
 
-定义 $f[i]$ 表示前 $i$ 个元素中，长度和为 $target$ 的最短子数组的长度。初始时 $f[0]= \infty$。
+定义 $f[i]$ 表示数组前 $i$ 个元素中，和为 $target$ 的最短子数组的长度。初始时 $f[0]=\infty$，答案 $ans=\infty$。下标从 $1$ 开始。
 
-遍历数组 $\textit{arr}$，对于当前位置 $i$，计算前缀和 $s$，如果 $s - \textit{target}$ 在哈希表中，记 $j=d[s - \textit{target}]$，则 $f[i]=\min(f[i], i - j)$，答案为 $ans=\min(ans, f[j] + i - j)$。继续遍历下个位置。
+遍历数组 $\textit{arr}$。对于当前位置 $i$，先令 $f[i]=f[i-1]$，并累加得到前缀和 $s$。若 $s-\textit{target}$ 在哈希表中，记 $j=d[s-\textit{target}]$，则区间 $[j+1,i]$ 的和为 $target$，长度为 $i-j$。此时更新 $f[i]=\min(f[i], i-j)$，并用左侧最优长度更新答案 $ans=\min(ans, f[j]+i-j)$。然后将 $d[s]$ 记为 $i$。
 
-最后，如果答案大于数组长度，则返回 $-1$，否则返回答案。
+最后，如果 $ans$ 大于数组长度，则返回 $-1$，否则返回 $ans$。
 
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组长度。
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $\textit{arr}$ 的长度。
 
 <!-- tabs:start -->
 
@@ -232,6 +236,39 @@ function minSumOfLengths(arr: number[], target: number): number {
         d.set(s, i);
     }
     return ans > n ? -1 : ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_sum_of_lengths(arr: Vec<i32>, target: i32) -> i32 {
+        let mut d = HashMap::new();
+        d.insert(0, 0);
+        let n = arr.len();
+        let inf = 1 << 30;
+        let mut f = vec![0; n + 1];
+        f[0] = inf;
+        let mut s = 0;
+        let mut ans = inf;
+        for i in 1..=n {
+            s += arr[i - 1];
+            f[i] = f[i - 1];
+            if let Some(&j) = d.get(&(s - target)) {
+                f[i] = f[i].min((i - j) as i32);
+                ans = ans.min(f[j] + (i - j) as i32);
+            }
+            d.insert(s, i);
+        }
+        if ans > n as i32 {
+            -1
+        } else {
+            ans
+        }
+    }
 }
 ```
 

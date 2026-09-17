@@ -73,21 +73,25 @@ tags:
 
 > **Thinking**
 >
-> $n\le 10^5$ and values are positive, so a prefix-sum map finds every subarray summing to $target$ in linear time. We need two non-overlapping ones with minimal total length.
+> The straightforward approach is to enumerate every subarray that sums to $target$ and pair them while checking overlap. With $n \le 10^5$, the number of subarrays is quadratic, so this does not fit.
 >
-> $f[i]$ is the shortest such subarray in the first $i$ elements. When $[j+1,i]$ hits $target$, combine it with $f[j]$ and set $f[i]=\min(f[i-1],i-j)$.
+> Once the right segment is fixed, the left one must lie entirely in the prefix before it, and only the shortest valid subarray in that prefix matters. We therefore need a running answer to "the shortest valid segment in the prefix so far".
+>
+> All values are positive, so prefix sums are strictly increasing and unique. A hash map from prefix sum to index then finds, in constant time, the unique segment $[j+1,i]$ that ends at the current position and sums to $target$.
+>
+> We scan left to right while maintaining $f[i]$, the shortest such subarray among the first $i$ elements. When $[j+1,i]$ appears, add $f[j]$ to the current length to update the answer, then set $f[i]=\min(f[i-1], i-j)$. The left piece always comes from before the current segment, so the two never overlap.
 
 <!-- thinking:end -->
 
-We can use a hash table $d$ to record the most recent position where each prefix sum appears, with the initial value $d[0]=0$.
+We use a hash table $d$ to record the index of each prefix sum, initially $d[0]=0$.
 
-Define $f[i]$ as the minimum length of a subarray with sum equal to $target$ among the first $i$ elements. Initially, $f[0]=\infty$.
+Define $f[i]$ as the minimum length of a subarray with sum equal to $target$ among the first $i$ elements. Initially, $f[0]=\infty$ and $ans=\infty$. Indices are $1$-based.
 
-Iterate through the array $\textit{arr}$. For the current position $i$, calculate the prefix sum $s$. If $s - \textit{target}$ exists in the hash table, let $j = d[s - \textit{target}]$, then $f[i] = \min(f[i], i - j)$, and the answer is $ans = \min(ans, f[j] + i - j)$. Continue to the next position.
+Iterate through $\textit{arr}$. For the current position $i$, first set $f[i]=f[i-1]$ and accumulate the prefix sum $s$. If $s-\textit{target}$ exists in the hash table, let $j=d[s-\textit{target}]$. Then the interval $[j+1,i]$ sums to $target$ and has length $i-j$. Update $f[i]=\min(f[i], i-j)$, and update the answer with the best length on the left: $ans=\min(ans, f[j]+i-j)$. Then store $d[s]=i$.
 
-Finally, if the answer is greater than the array length, return $-1$; otherwise, return the answer.
+Finally, if $ans$ is greater than the array length, return $-1$; otherwise, return $ans$.
 
-The complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $\textit{arr}$.
 
 <!-- tabs:start -->
 
@@ -219,6 +223,39 @@ function minSumOfLengths(arr: number[], target: number): number {
         d.set(s, i);
     }
     return ans > n ? -1 : ans;
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn min_sum_of_lengths(arr: Vec<i32>, target: i32) -> i32 {
+        let mut d = HashMap::new();
+        d.insert(0, 0);
+        let n = arr.len();
+        let inf = 1 << 30;
+        let mut f = vec![0; n + 1];
+        f[0] = inf;
+        let mut s = 0;
+        let mut ans = inf;
+        for i in 1..=n {
+            s += arr[i - 1];
+            f[i] = f[i - 1];
+            if let Some(&j) = d.get(&(s - target)) {
+                f[i] = f[i].min((i - j) as i32);
+                ans = ans.min(f[j] + (i - j) as i32);
+            }
+            d.insert(s, i);
+        }
+        if ans > n as i32 {
+            -1
+        } else {
+            ans
+        }
+    }
 }
 ```
 
