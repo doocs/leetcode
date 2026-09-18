@@ -214,7 +214,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: LCA + Binary Lifting
 
 <!-- thinking:start -->
 
@@ -226,18 +226,168 @@ tags:
 
 <!-- thinking:end -->
 
+Root the tree at node $0$. Use BFS to compute each node's depth $\textit{depth}$, parent $p$, and weighted distance $\textit{dist}$ from the root, and build the binary lifting table $f[i][j]$ as the $2^j$-th ancestor of $i$.
+
+For a query $(u, v)$: if $u = v$, the answer is $u$. Otherwise let $x = \textit{lca}(u, v)$ and $W = \textit{dist}[u] + \textit{dist}[v] - 2 \cdot \textit{dist}[x]$. The weighted median is the first node on the path starting from $u$ whose prefix weight is at least $W / 2$. We compare $2 \cdot \textit{pref} \ge W$ to avoid floating-point arithmetic.
+
+- If $2 \cdot (\textit{dist}[u] - \textit{dist}[x]) \ge W$, the median lies on $u \to x$ (including $x$). Lift from $u$ to the farthest ancestor $k$ that still satisfies $2 \cdot (\textit{dist}[u] - \textit{dist}[k]) < W$, then take one parent step to $p[k]$.
+- Otherwise the median lies on $x \to v$ (excluding $x$). Lift from $v$ to the highest node whose depth is greater than $x$ and $2 \cdot (\textit{dist}[u] + \textit{dist}[k] - 2 \cdot \textit{dist}[x]) \ge W$.
+
+The time complexity is $O((n + q) \times \log n)$, and the space complexity is $O(n \times \log n)$, where $n$ is the number of nodes and $q$ is the number of queries.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def findMedian(
+        self, n: int, edges: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        m = n.bit_length()
+        g = [[] for _ in range(n)]
+        for u, v, w in edges:
+            g[u].append((v, w))
+            g[v].append((u, w))
+        f = [[0] * m for _ in range(n)]
+        p = [0] * n
+        depth = [0] * n
+        dist = [0] * n
+        q = deque([0])
+        while q:
+            i = q.popleft()
+            f[i][0] = p[i]
+            for j in range(1, m):
+                f[i][j] = f[f[i][j - 1]][j - 1]
+            for j, w in g[i]:
+                if j != p[i]:
+                    p[j] = i
+                    depth[j] = depth[i] + 1
+                    dist[j] = dist[i] + w
+                    q.append(j)
+        ans = []
+        for u, v in queries:
+            if u == v:
+                ans.append(u)
+                continue
+            x, y = u, v
+            if depth[x] < depth[y]:
+                x, y = y, x
+            for j in range(m - 1, -1, -1):
+                if depth[x] - depth[y] >= (1 << j):
+                    x = f[x][j]
+            for j in range(m - 1, -1, -1):
+                if f[x][j] != f[y][j]:
+                    x, y = f[x][j], f[y][j]
+            if x != y:
+                x = p[x]
+            w = dist[u] + dist[v] - 2 * dist[x]
+            if 2 * (dist[u] - dist[x]) >= w:
+                cur = u
+                for j in range(m - 1, -1, -1):
+                    k = f[cur][j]
+                    if depth[k] >= depth[x] and 2 * (dist[u] - dist[k]) < w:
+                        cur = k
+                ans.append(p[cur])
+            else:
+                cur = v
+                for j in range(m - 1, -1, -1):
+                    k = f[cur][j]
+                    if (
+                        depth[k] > depth[x]
+                        and 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w
+                    ):
+                        cur = k
+                ans.append(cur)
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int[] findMedian(int n, int[][] edges, int[][] queries) {
+        int m = 32 - Integer.numberOfLeadingZeros(n);
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].add(new int[] {v, w});
+            g[v].add(new int[] {u, w});
+        }
+        int[][] f = new int[n][m];
+        int[] p = new int[n];
+        int[] depth = new int[n];
+        long[] dist = new long[n];
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(0);
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            f[i][0] = p[i];
+            for (int j = 1; j < m; ++j) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+            }
+            for (var nxt : g[i]) {
+                int j = nxt[0], w = nxt[1];
+                if (j != p[i]) {
+                    p[j] = i;
+                    depth[j] = depth[i] + 1;
+                    dist[j] = dist[i] + w;
+                    q.offer(j);
+                }
+            }
+        }
+        int[] ans = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int u = queries[i][0], v = queries[i][1];
+            if (u == v) {
+                ans[i] = u;
+                continue;
+            }
+            int x = u, y = v;
+            if (depth[x] < depth[y]) {
+                int t = x;
+                x = y;
+                y = t;
+            }
+            for (int j = m - 1; j >= 0; --j) {
+                if (depth[x] - depth[y] >= (1 << j)) {
+                    x = f[x][j];
+                }
+            }
+            for (int j = m - 1; j >= 0; --j) {
+                if (f[x][j] != f[y][j]) {
+                    x = f[x][j];
+                    y = f[y][j];
+                }
+            }
+            if (x != y) {
+                x = p[x];
+            }
+            long w = dist[u] + dist[v] - 2 * dist[x];
+            if (2 * (dist[u] - dist[x]) >= w) {
+                int cur = u;
+                for (int j = m - 1; j >= 0; --j) {
+                    int k = f[cur][j];
+                    if (depth[k] >= depth[x] && 2 * (dist[u] - dist[k]) < w) {
+                        cur = k;
+                    }
+                }
+                ans[i] = p[cur];
+            } else {
+                int cur = v;
+                for (int j = m - 1; j >= 0; --j) {
+                    int k = f[cur][j];
+                    if (depth[k] > depth[x] && 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w) {
+                        cur = k;
+                    }
+                }
+                ans[i] = cur;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
@@ -246,7 +396,81 @@ tags:
 class Solution {
 public:
     vector<int> findMedian(int n, vector<vector<int>>& edges, vector<vector<int>>& queries) {
-        
+        int m = 32 - __builtin_clz(n);
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].emplace_back(v, w);
+            g[v].emplace_back(u, w);
+        }
+        vector<vector<int>> f(n, vector<int>(m));
+        vector<int> p(n), depth(n);
+        vector<long long> dist(n);
+        queue<int> q;
+        q.push(0);
+        while (!q.empty()) {
+            int i = q.front();
+            q.pop();
+            f[i][0] = p[i];
+            for (int j = 1; j < m; ++j) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+            }
+            for (auto [j, w] : g[i]) {
+                if (j != p[i]) {
+                    p[j] = i;
+                    depth[j] = depth[i] + 1;
+                    dist[j] = dist[i] + w;
+                    q.push(j);
+                }
+            }
+        }
+        vector<int> ans;
+        for (auto& qq : queries) {
+            int u = qq[0], v = qq[1];
+            if (u == v) {
+                ans.push_back(u);
+                continue;
+            }
+            int x = u, y = v;
+            if (depth[x] < depth[y]) {
+                swap(x, y);
+            }
+            for (int j = m - 1; ~j; --j) {
+                if (depth[x] - depth[y] >= (1 << j)) {
+                    x = f[x][j];
+                }
+            }
+            for (int j = m - 1; ~j; --j) {
+                if (f[x][j] != f[y][j]) {
+                    x = f[x][j];
+                    y = f[y][j];
+                }
+            }
+            if (x != y) {
+                x = p[x];
+            }
+            long long w = dist[u] + dist[v] - 2 * dist[x];
+            if (2 * (dist[u] - dist[x]) >= w) {
+                int cur = u;
+                for (int j = m - 1; ~j; --j) {
+                    int k = f[cur][j];
+                    if (depth[k] >= depth[x] && 2 * (dist[u] - dist[k]) < w) {
+                        cur = k;
+                    }
+                }
+                ans.push_back(p[cur]);
+            } else {
+                int cur = v;
+                for (int j = m - 1; ~j; --j) {
+                    int k = f[cur][j];
+                    if (depth[k] > depth[x] && 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w) {
+                        cur = k;
+                    }
+                }
+                ans.push_back(cur);
+            }
+        }
+        return ans;
     }
 };
 ```
@@ -254,100 +478,349 @@ public:
 #### Go
 
 ```go
-
+func findMedian(n int, edges [][]int, queries [][]int) []int {
+	m := bits.Len(uint(n))
+	g := make([][][2]int, n)
+	for _, e := range edges {
+		u, v, w := e[0], e[1], e[2]
+		g[u] = append(g[u], [2]int{v, w})
+		g[v] = append(g[v], [2]int{u, w})
+	}
+	f := make([][]int, n)
+	for i := range f {
+		f[i] = make([]int, m)
+	}
+	p := make([]int, n)
+	depth := make([]int, n)
+	dist := make([]int, n)
+	q := []int{0}
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		f[i][0] = p[i]
+		for j := 1; j < m; j++ {
+			f[i][j] = f[f[i][j-1]][j-1]
+		}
+		for _, nxt := range g[i] {
+			j, w := nxt[0], nxt[1]
+			if j != p[i] {
+				p[j] = i
+				depth[j] = depth[i] + 1
+				dist[j] = dist[i] + w
+				q = append(q, j)
+			}
+		}
+	}
+	ans := make([]int, len(queries))
+	for i, qq := range queries {
+		u, v := qq[0], qq[1]
+		if u == v {
+			ans[i] = u
+			continue
+		}
+		x, y := u, v
+		if depth[x] < depth[y] {
+			x, y = y, x
+		}
+		for j := m - 1; j >= 0; j-- {
+			if depth[x]-depth[y] >= 1<<j {
+				x = f[x][j]
+			}
+		}
+		for j := m - 1; j >= 0; j-- {
+			if f[x][j] != f[y][j] {
+				x, y = f[x][j], f[y][j]
+			}
+		}
+		if x != y {
+			x = p[x]
+		}
+		w := dist[u] + dist[v] - 2*dist[x]
+		if 2*(dist[u]-dist[x]) >= w {
+			cur := u
+			for j := m - 1; j >= 0; j-- {
+				k := f[cur][j]
+				if depth[k] >= depth[x] && 2*(dist[u]-dist[k]) < w {
+					cur = k
+				}
+			}
+			ans[i] = p[cur]
+		} else {
+			cur := v
+			for j := m - 1; j >= 0; j-- {
+				k := f[cur][j]
+				if depth[k] > depth[x] && 2*(dist[u]+dist[k]-2*dist[x]) >= w {
+					cur = k
+				}
+			}
+			ans[i] = cur
+		}
+	}
+	return ans
+}
 ```
+
 #### TypeScript
 
 ```ts
 function findMedian(n: number, edges: number[][], queries: number[][]): number[] {
-    const LOG = 17;
-    const adj: number[][][] = Array.from({length: n}, () => []);
+    const m = 32 - Math.clz32(n);
+    const g: number[][][] = Array.from({ length: n }, () => []);
     for (const [u, v, w] of edges) {
-        adj[u].push([v, w]);
-        adj[v].push([u, w]);
+        g[u].push([v, w]);
+        g[v].push([u, w]);
     }
-
-    const depth = new Array<number>(n).fill(0);
-    const dist = new Array<number>(n).fill(0);
-    const up: number[][] = Array.from({length: LOG}, () => new Array<number>(n).fill(-1));
-
-    // BFS from root 0 to compute depth, dist, and parent
-    const visited = new Uint8Array(n);
-    const queue: number[] = [0];
-    visited[0] = 1;
-    let head = 0;
-    while (head < queue.length) {
-        const u = queue[head++];
-        for (const [v, w] of adj[u]) {
-            if (!visited[v]) {
-                visited[v] = 1;
-                depth[v] = depth[u] + 1;
-                dist[v] = dist[u] + w;
-                up[0][v] = u;
-                queue.push(v);
+    const f: number[][] = Array.from({ length: n }, () => Array(m).fill(0));
+    const p: number[] = Array(n).fill(0);
+    const depth: number[] = Array(n).fill(0);
+    const dist: number[] = Array(n).fill(0);
+    const q: number[] = [0];
+    for (let qq = 0; qq < q.length; ++qq) {
+        const i = q[qq];
+        f[i][0] = p[i];
+        for (let j = 1; j < m; ++j) {
+            f[i][j] = f[f[i][j - 1]][j - 1];
+        }
+        for (const [j, w] of g[i]) {
+            if (j !== p[i]) {
+                p[j] = i;
+                depth[j] = depth[i] + 1;
+                dist[j] = dist[i] + w;
+                q.push(j);
             }
         }
     }
-
-    // Build binary lifting table
-    for (let k = 1; k < LOG; k++) {
-        for (let v = 0; v < n; v++) {
-            if (up[k - 1][v] !== -1) up[k][v] = up[k - 1][up[k - 1][v]];
-        }
-    }
-
-    function lca(a: number, b: number): number {
-        if (depth[a] < depth[b]) [a, b] = [b, a];
-        let diff = depth[a] - depth[b];
-        for (let k = 0; diff > 0; k++, diff >>= 1) {
-            if (diff & 1) a = up[k][a];
-        }
-        if (a === b) return a;
-        for (let k = LOG - 1; k >= 0; k--) {
-            if (up[k][a] !== up[k][b]) {
-                a = up[k][a];
-                b = up[k][b];
-            }
-        }
-        return up[0][a];
-    }
-
     const ans: number[] = [];
-
     for (const [u, v] of queries) {
-        if (u === v) { ans.push(u); continue; }
-
-        const l = lca(u, v);
-        const W = dist[u] + dist[v] - 2 * dist[l];
-
-        // Case 1: median is on u → LCA segment
-        if (2 * (dist[u] - dist[l]) >= W) {
-            let cur = u;
-            for (let k = LOG - 1; k >= 0; k--) {
-                const j = up[k][cur];
-                if (j !== -1 && depth[j] >= depth[l] && 2 * (dist[u] - dist[j]) < W) {
-                    cur = j;
-                }
-            }
-            ans.push(up[0][cur]); // one step further = first node with prefix ≥ W/2
+        if (u === v) {
+            ans.push(u);
+            continue;
         }
-        // Case 2: median is on LCA → v segment (below LCA)
-        else {
-            let cur = v;
-            for (let k = LOG - 1; k >= 0; k--) {
-                const j = up[k][cur];
-                if (j !== -1 && depth[j] > depth[l] && 2 * (dist[u] + dist[j] - 2 * dist[l]) >= W) {
-                    cur = j;
+        let x = u,
+            y = v;
+        if (depth[x] < depth[y]) {
+            [x, y] = [y, x];
+        }
+        for (let j = m - 1; j >= 0; --j) {
+            if (depth[x] - depth[y] >= 1 << j) {
+                x = f[x][j];
+            }
+        }
+        for (let j = m - 1; j >= 0; --j) {
+            if (f[x][j] !== f[y][j]) {
+                x = f[x][j];
+                y = f[y][j];
+            }
+        }
+        if (x !== y) {
+            x = p[x];
+        }
+        const w = dist[u] + dist[v] - 2 * dist[x];
+        if (2 * (dist[u] - dist[x]) >= w) {
+            let cur = u;
+            for (let j = m - 1; j >= 0; --j) {
+                const k = f[cur][j];
+                if (depth[k] >= depth[x] && 2 * (dist[u] - dist[k]) < w) {
+                    cur = k;
                 }
             }
-            ans.push(cur); // highest node on v-side where prefix ≥ W/2
+            ans.push(p[cur]);
+        } else {
+            let cur = v;
+            for (let j = m - 1; j >= 0; --j) {
+                const k = f[cur][j];
+                if (depth[k] > depth[x] && 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w) {
+                    cur = k;
+                }
+            }
+            ans.push(cur);
         }
     }
-
     return ans;
 }
 ```
 
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn find_median(n: i32, edges: Vec<Vec<i32>>, queries: Vec<Vec<i32>>) -> Vec<i32> {
+        let n = n as usize;
+        let m = 32 - (n as u32).leading_zeros() as usize;
+        let mut g = vec![vec![]; n];
+        for e in &edges {
+            let u = e[0] as usize;
+            let v = e[1] as usize;
+            let w = e[2] as i64;
+            g[u].push((v, w));
+            g[v].push((u, w));
+        }
+        let mut f = vec![vec![0; m]; n];
+        let mut p = vec![0; n];
+        let mut depth = vec![0; n];
+        let mut dist = vec![0i64; n];
+        let mut q = VecDeque::new();
+        q.push_back(0);
+        while let Some(i) = q.pop_front() {
+            f[i][0] = p[i];
+            for j in 1..m {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+            }
+            for &(j, w) in &g[i] {
+                if j != p[i] {
+                    p[j] = i;
+                    depth[j] = depth[i] + 1;
+                    dist[j] = dist[i] + w;
+                    q.push_back(j);
+                }
+            }
+        }
+        let mut ans = Vec::with_capacity(queries.len());
+        for qq in &queries {
+            let u = qq[0] as usize;
+            let v = qq[1] as usize;
+            if u == v {
+                ans.push(u as i32);
+                continue;
+            }
+            let (mut x, mut y) = (u, v);
+            if depth[x] < depth[y] {
+                std::mem::swap(&mut x, &mut y);
+            }
+            for j in (0..m).rev() {
+                if depth[x] - depth[y] >= (1 << j) {
+                    x = f[x][j];
+                }
+            }
+            for j in (0..m).rev() {
+                if f[x][j] != f[y][j] {
+                    x = f[x][j];
+                    y = f[y][j];
+                }
+            }
+            if x != y {
+                x = p[x];
+            }
+            let w = dist[u] + dist[v] - 2 * dist[x];
+            if 2 * (dist[u] - dist[x]) >= w {
+                let mut cur = u;
+                for j in (0..m).rev() {
+                    let k = f[cur][j];
+                    if depth[k] >= depth[x] && 2 * (dist[u] - dist[k]) < w {
+                        cur = k;
+                    }
+                }
+                ans.push(p[cur] as i32);
+            } else {
+                let mut cur = v;
+                for j in (0..m).rev() {
+                    let k = f[cur][j];
+                    if depth[k] > depth[x] && 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w {
+                        cur = k;
+                    }
+                }
+                ans.push(cur as i32);
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] FindMedian(int n, int[][] edges, int[][] queries) {
+        int m = 32 - BitOperations.LeadingZeroCount((uint)n);
+        List<int[]>[] g = new List<int[]>[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new List<int[]>();
+        }
+        foreach (var e in edges) {
+            int u = e[0], v = e[1], w = e[2];
+            g[u].Add(new int[] { v, w });
+            g[v].Add(new int[] { u, w });
+        }
+        int[][] f = new int[n][];
+        for (int i = 0; i < n; ++i) {
+            f[i] = new int[m];
+        }
+        int[] p = new int[n];
+        int[] depth = new int[n];
+        long[] dist = new long[n];
+        Queue<int> q = new Queue<int>();
+        q.Enqueue(0);
+        while (q.Count > 0) {
+            int i = q.Dequeue();
+            f[i][0] = p[i];
+            for (int j = 1; j < m; ++j) {
+                f[i][j] = f[f[i][j - 1]][j - 1];
+            }
+            foreach (var nxt in g[i]) {
+                int j = nxt[0], w = nxt[1];
+                if (j != p[i]) {
+                    p[j] = i;
+                    depth[j] = depth[i] + 1;
+                    dist[j] = dist[i] + w;
+                    q.Enqueue(j);
+                }
+            }
+        }
+        int[] ans = new int[queries.Length];
+        for (int i = 0; i < queries.Length; ++i) {
+            int u = queries[i][0], v = queries[i][1];
+            if (u == v) {
+                ans[i] = u;
+                continue;
+            }
+            int x = u, y = v;
+            if (depth[x] < depth[y]) {
+                int t = x;
+                x = y;
+                y = t;
+            }
+            for (int j = m - 1; j >= 0; --j) {
+                if (depth[x] - depth[y] >= (1 << j)) {
+                    x = f[x][j];
+                }
+            }
+            for (int j = m - 1; j >= 0; --j) {
+                if (f[x][j] != f[y][j]) {
+                    x = f[x][j];
+                    y = f[y][j];
+                }
+            }
+            if (x != y) {
+                x = p[x];
+            }
+            long w = dist[u] + dist[v] - 2 * dist[x];
+            if (2 * (dist[u] - dist[x]) >= w) {
+                int cur = u;
+                for (int j = m - 1; j >= 0; --j) {
+                    int k = f[cur][j];
+                    if (depth[k] >= depth[x] && 2 * (dist[u] - dist[k]) < w) {
+                        cur = k;
+                    }
+                }
+                ans[i] = p[cur];
+            } else {
+                int cur = v;
+                for (int j = m - 1; j >= 0; --j) {
+                    int k = f[cur][j];
+                    if (depth[k] > depth[x] && 2 * (dist[u] + dist[k] - 2 * dist[x]) >= w) {
+                        cur = k;
+                    }
+                }
+                ans[i] = cur;
+            }
+        }
+        return ans;
+    }
+}
+```
 
 <!-- tabs:end -->
 

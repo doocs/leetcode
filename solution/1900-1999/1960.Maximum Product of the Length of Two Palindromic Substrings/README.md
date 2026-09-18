@@ -277,56 +277,51 @@ func maxProduct(s string) int64 {
 	return res
 }
 ```
+
 #### TypeScript
 
 ```ts
 function maxProduct(s: string): number {
     const n = s.length;
-    const m = new Array(n).fill(0);
-    const r = new Array(n).fill(0);
-    let res = 0;
-
-    // Manacher's algorithm (odd-length palindromes)
-    {
-        let l = 0, right = -1;
-        for (let i = 0; i < n; i++) {
-            let k = i > right ? 1 : Math.min(m[l + right - i], right - i + 1);
-            while (i - k >= 0 && i + k < n && s[i - k] === s[i + k]) k++;
-            m[i] = k--;
-            if (i + k > right) {
-                l = i - k;
-                right = i + k;
-            }
+    const hlen = Array(n).fill(0);
+    let center = 0;
+    let right = 0;
+    for (let i = 0; i < n; ++i) {
+        if (i < right) {
+            hlen[i] = Math.min(right - i, hlen[2 * center - i]);
+        }
+        while (
+            i - 1 - hlen[i] >= 0 &&
+            i + 1 + hlen[i] < n &&
+            s[i - 1 - hlen[i]] === s[i + 1 + hlen[i]]
+        ) {
+            ++hlen[i];
+        }
+        if (right < i + hlen[i]) {
+            center = i;
+            right = i + hlen[i];
         }
     }
-
-    // Compute r[i]: longest palindrome starting at position i
-    {
-        const q: number[][] = [];
-        let front = 0;
-        for (let i = n - 1; i >= 0; i--) {
-            while (front < q.length && q[front][0] - q[front][1] > i - 1) front++;
-            r[i] = 1 + (front >= q.length ? 0 : (q[front][0] - i) * 2);
-            q.push([i, m[i]]);
-        }
+    const prefix = Array(n).fill(0);
+    const suffix = Array(n).fill(0);
+    for (let i = 0; i < n; ++i) {
+        prefix[i + hlen[i]] = Math.max(prefix[i + hlen[i]], 2 * hlen[i] + 1);
+        suffix[i - hlen[i]] = Math.max(suffix[i - hlen[i]], 2 * hlen[i] + 1);
     }
-
-    // Compute running left max & maximize product
-    {
-        const q1: number[][] = [];
-        let front1 = 0;
-        let l = 0;
-        for (let i = 0; i < n - 1; i++) {
-            while (front1 < q1.length && q1[front1][0] + q1[front1][1] < i + 1) front1++;
-            l = Math.max(l, 1 + (front1 >= q1.length ? 0 : (i - q1[front1][0]) * 2));
-            res = Math.max(res, l * r[i + 1]);
-            q1.push([i, m[i]]);
-        }
+    for (let i = 1; i < n; ++i) {
+        prefix[n - i - 1] = Math.max(prefix[n - i - 1], prefix[n - i] - 2);
+        suffix[i] = Math.max(suffix[i], suffix[i - 1] - 2);
     }
-
-    return res;
+    for (let i = 1; i < n; ++i) {
+        prefix[i] = Math.max(prefix[i - 1], prefix[i]);
+        suffix[n - i - 1] = Math.max(suffix[n - i - 1], suffix[n - i]);
+    }
+    let ans = 0;
+    for (let i = 1; i < n; ++i) {
+        ans = Math.max(ans, prefix[i - 1] * suffix[i]);
+    }
+    return ans;
 }
-
 ```
 
 <!-- tabs:end -->
