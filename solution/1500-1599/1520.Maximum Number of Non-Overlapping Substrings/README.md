@@ -73,7 +73,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：贪心
 
 <!-- thinking:start -->
 
@@ -81,34 +81,346 @@ tags:
 >
 > 要选出尽量多段互不重叠的子串，且每段必须覆盖其中每个字符在整个字符串里的全部出现。$n\le 10^5$，不能枚举全部子串再验证。
 >
-> 每个字符有确定的首次与末次出现。从某一左端出发，不断把区间扩大到内部字符的最右出现，得到一条不可再缩的合法段。所有这样的极小段构成区间图，按右端点贪心选取互不重叠者，即可同时达到数量最多且字典序最小的拼接。
+> 每个字符有确定的首次与末次出现。从某一左端出发，不断把区间扩大到内部字符的最右出现，得到一条不可再缩的合法段。所有这样的极小段构成区间图，按右端点贪心选取互不重叠者，即可同时达到数量最多且总长度最短。
 
 <!-- thinking:end -->
+
+我们先用数组或哈希表 $\textit{first}$ 和 $\textit{last}$ 记录每个字母在 $s$ 中首次和末次出现的下标。
+
+接下来枚举每一个出现过的字母 $c$，以 $\textit{first}[c]$ 作为候选左端点 $l$，以 $\textit{last}[c]$ 作为初始右端点 $r$。从 $l$ 向右扫描到 $r$，对扫到的每个字母 $ch$：
+
+- 若 $\textit{first}[ch] < l$，说明该字母在 $l$ 之前还出现过，当前区间无法覆盖其全部出现，这段候选不合法，直接放弃；
+- 否则将 $r$ 更新为 $\max(r, \textit{last}[ch])$，把该字母的全部出现纳入区间。
+
+若扫描能够顺利结束，则得到一段合法子串区间 $[l, r]$。
+
+可以证明，这些合法区间之间只可能互不相交或相互包含，不会部分重叠。因此我们将所有合法区间按右端点升序排序，再贪心选取：用变量 $\textit{end}$ 记录上一个已选区间的右端点，初始为 $-1$。从左到右遍历排序后的区间，若当前区间左端点大于 $\textit{end}$，则将其对应子串加入答案，并更新 $\textit{end}$。
+
+按右端点排序保证了每次选择的都是结束最早的区间，从而可以选出数量最多的互不重叠子串；由于相互包含时更短的区间右端点更小，也会被优先选中，因此总长度同时最短。
+
+时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(|\Sigma|)$。其中 $n$ 是字符串 $s$ 的长度，而 $|\Sigma|$ 是字符集的大小。本题中 $|\Sigma| = 26$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def maxNumOfSubstrings(self, s: str) -> List[str]:
+        first, last = {}, {}
+        for i, c in enumerate(s):
+            if c not in first:
+                first[c] = i
+            last[c] = i
+        segs = []
+        for l in first.values():
+            r, i = last[s[l]], l
+            while i <= r:
+                if first[s[i]] < l:
+                    break
+                r = max(r, last[s[i]])
+                i += 1
+            if i > r:
+                segs.append((l, r))
+        segs.sort(key=lambda x: x[1])
+        ans, end = [], -1
+        for l, r in segs:
+            if l > end:
+                ans.append(s[l : r + 1])
+                end = r
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public List<String> maxNumOfSubstrings(String s) {
+        int n = s.length();
+        int[] first = new int[26];
+        int[] last = new int[26];
+        Arrays.fill(first, -1);
+        for (int i = 0; i < n; ++i) {
+            int x = s.charAt(i) - 'a';
+            if (first[x] == -1) {
+                first[x] = i;
+            }
+            last[x] = i;
+        }
+        List<int[]> segs = new ArrayList<>();
+        for (int x = 0; x < 26; ++x) {
+            if (first[x] == -1) {
+                continue;
+            }
+            int l = first[x], r = last[x];
+            int i = l;
+            for (; i <= r; ++i) {
+                int y = s.charAt(i) - 'a';
+                if (first[y] < l) {
+                    break;
+                }
+                r = Math.max(r, last[y]);
+            }
+            if (i > r) {
+                segs.add(new int[] {l, r});
+            }
+        }
+        segs.sort((a, b) -> a[1] - b[1]);
+        List<String> ans = new ArrayList<>();
+        int end = -1;
+        for (int[] e : segs) {
+            int l = e[0], r = e[1];
+            if (l > end) {
+                ans.add(s.substring(l, r + 1));
+                end = r;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<string> maxNumOfSubstrings(string s) {
+        int n = s.size();
+        int first[26], last[26];
+        memset(first, -1, sizeof(first));
+        for (int i = 0; i < n; ++i) {
+            int x = s[i] - 'a';
+            if (first[x] == -1) {
+                first[x] = i;
+            }
+            last[x] = i;
+        }
+        vector<pair<int, int>> segs;
+        for (int x = 0; x < 26; ++x) {
+            if (first[x] == -1) {
+                continue;
+            }
+            int l = first[x], r = last[x];
+            int i = l;
+            for (; i <= r; ++i) {
+                int y = s[i] - 'a';
+                if (first[y] < l) {
+                    break;
+                }
+                r = max(r, last[y]);
+            }
+            if (i > r) {
+                segs.emplace_back(l, r);
+            }
+        }
+        sort(segs.begin(), segs.end(), [](const auto& a, const auto& b) {
+            return a.second < b.second;
+        });
+        vector<string> ans;
+        int end = -1;
+        for (auto [l, r] : segs) {
+            if (l > end) {
+                ans.emplace_back(s.substr(l, r - l + 1));
+                end = r;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func maxNumOfSubstrings(s string) (ans []string) {
+	first := [26]int{}
+	last := [26]int{}
+	for i := range first {
+		first[i] = -1
+	}
+	for i := range s {
+		x := int(s[i] - 'a')
+		if first[x] == -1 {
+			first[x] = i
+		}
+		last[x] = i
+	}
+	var segs [][2]int
+	for x, l := range first {
+		if l == -1 {
+			continue
+		}
+		r := last[x]
+		i := l
+		for ; i <= r; i++ {
+			y := int(s[i] - 'a')
+			if first[y] < l {
+				break
+			}
+			r = max(r, last[y])
+		}
+		if i > r {
+			segs = append(segs, [2]int{l, r})
+		}
+	}
+	sort.Slice(segs, func(i, j int) bool { return segs[i][1] < segs[j][1] })
+	end := -1
+	for _, e := range segs {
+		l, r := e[0], e[1]
+		if l > end {
+			ans = append(ans, s[l:r+1])
+			end = r
+		}
+	}
+	return
+}
+```
 
+#### TypeScript
+
+```ts
+function maxNumOfSubstrings(s: string): string[] {
+    const n = s.length;
+    const idx = (c: string) => c.charCodeAt(0) - 97;
+    const first = Array(26).fill(-1);
+    const last = Array(26).fill(0);
+    for (let i = 0; i < n; ++i) {
+        const x = idx(s[i]);
+        if (first[x] === -1) {
+            first[x] = i;
+        }
+        last[x] = i;
+    }
+    const segs: number[][] = [];
+    for (let x = 0; x < 26; ++x) {
+        if (first[x] === -1) {
+            continue;
+        }
+        let l = first[x],
+            r = last[x];
+        let i = l;
+        for (; i <= r; ++i) {
+            const y = idx(s[i]);
+            if (first[y] < l) {
+                break;
+            }
+            r = Math.max(r, last[y]);
+        }
+        if (i > r) {
+            segs.push([l, r]);
+        }
+    }
+    segs.sort((a, b) => a[1] - b[1]);
+    const ans: string[] = [];
+    let end = -1;
+    for (const [l, r] of segs) {
+        if (l > end) {
+            ans.push(s.slice(l, r + 1));
+            end = r;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_num_of_substrings(s: String) -> Vec<String> {
+        let n = s.len();
+        let bs = s.as_bytes();
+        let mut first = [-1; 26];
+        let mut last = [0; 26];
+        for i in 0..n {
+            let x = (bs[i] - b'a') as usize;
+            if first[x] == -1 {
+                first[x] = i as i32;
+            }
+            last[x] = i as i32;
+        }
+        let mut segs = vec![];
+        for x in 0..26 {
+            if first[x] == -1 {
+                continue;
+            }
+            let l = first[x];
+            let mut r = last[x];
+            let mut i = l;
+            while i <= r {
+                let y = (bs[i as usize] - b'a') as usize;
+                if first[y] < l {
+                    break;
+                }
+                r = r.max(last[y]);
+                i += 1;
+            }
+            if i > r {
+                segs.push((l, r));
+            }
+        }
+        segs.sort_by_key(|&(_, r)| r);
+        let mut ans = vec![];
+        let mut end = -1;
+        for (l, r) in segs {
+            if l > end {
+                ans.push(s[l as usize..=r as usize].to_string());
+                end = r;
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<string> MaxNumOfSubstrings(string s) {
+        int n = s.Length;
+        int[] first = new int[26];
+        int[] last = new int[26];
+        Array.Fill(first, -1);
+        for (int i = 0; i < n; ++i) {
+            int x = s[i] - 'a';
+            if (first[x] == -1) {
+                first[x] = i;
+            }
+            last[x] = i;
+        }
+        List<int[]> segs = new List<int[]>();
+        for (int x = 0; x < 26; ++x) {
+            if (first[x] == -1) {
+                continue;
+            }
+            int l = first[x], r = last[x];
+            int i = l;
+            for (; i <= r; ++i) {
+                int y = s[i] - 'a';
+                if (first[y] < l) {
+                    break;
+                }
+                r = Math.Max(r, last[y]);
+            }
+            if (i > r) {
+                segs.Add(new int[] { l, r });
+            }
+        }
+        segs.Sort((a, b) => a[1] - b[1]);
+        IList<string> ans = new List<string>();
+        int end = -1;
+        foreach (var e in segs) {
+            int l = e[0], r = e[1];
+            if (l > end) {
+                ans.Add(s.Substring(l, r - l + 1));
+                end = r;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 <!-- tabs:end -->
