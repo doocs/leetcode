@@ -1,5 +1,5 @@
 {
-  "cache_date": 1789725624,
+  "cache_date": 1789732710,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -18868,6 +18868,12 @@
     "solution/1900-1999/1960.Maximum Product of the Length of Two Palindromic Substrings/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -18880,7 +18886,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70163465?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789732170
     },
     "solution/1900-1999/1961.Check If String Is a Prefix of Array/README.md": {
       "authors": [
@@ -86313,6 +86319,12 @@
     "solution/1900-1999/1960.Maximum Product of the Length of Two Palindromic Substrings/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
@@ -86325,7 +86337,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/70163465?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789732169
     },
     "solution/1900-1999/1961.Check If String Is a Prefix of Array/README_EN.md": {
       "authors": [
@@ -128523,13 +128535,19 @@
     "solution/3500-3599/3585.Find Weighted Median Node in Tree/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789732170
     },
     "solution/3500-3599/3581.Count Odd Letters from Number/README_EN.md": {
       "authors": [
@@ -128578,13 +128596,19 @@
     "solution/3500-3599/3585.Find Weighted Median Node in Tree/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789732169
     },
     "solution/3500-3599/3586.Find COVID Recovery Patients/README.md": {
       "authors": [
