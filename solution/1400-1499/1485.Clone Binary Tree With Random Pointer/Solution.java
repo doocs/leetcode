@@ -17,10 +17,10 @@
  */
 
 class Solution {
-    private Map<Node, NodeCopy> mp;
+    private Map<Node, NodeCopy> seen;
 
     public NodeCopy copyRandomBinaryTree(Node root) {
-        mp = new HashMap<>();
+        seen = new HashMap<>();
         return dfs(root);
     }
 
@@ -28,11 +28,11 @@ class Solution {
         if (root == null) {
             return null;
         }
-        if (mp.containsKey(root)) {
-            return mp.get(root);
+        if (seen.containsKey(root)) {
+            return seen.get(root);
         }
         NodeCopy copy = new NodeCopy(root.val);
-        mp.put(root, copy);
+        seen.put(root, copy);
         copy.left = dfs(root.left);
         copy.right = dfs(root.right);
         copy.random = dfs(root.random);
