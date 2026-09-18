@@ -4,7 +4,7 @@ difficulty: Hard
 rating: 2288
 source: Weekly Contest 499 Q4
 tags:
-    - Segment Tree
+    - Binary Indexed Tree
     - Array
     - Dynamic Programming
 ---
@@ -113,7 +113,7 @@ tags:
 >
 > Let $f[i][0]$ be the best alternating subsequence ending at $i$ as a valley, and $f[i][1]$ as a peak. A valley may follow only a larger peak, a peak only a smaller valley, and the indices must differ by at least $k$.
 >
-> Two Fenwick trees store prefix maxima of $f[\cdot][0]$ and suffix maxima of $f[\cdot][1]$ over the value domain. At index $i$ we query states up to $i-k$, then insert the state at $i-k+1$, which enforces the distance constraint.
+> Two Fenwick trees store prefix maxima of $f[\cdot][0]$ and suffix maxima of $f[\cdot][1]$ over the discretized value domain. At index $i$ we first insert the state at $i-k$, then query; every predecessor used in a transition is then at least $k$ away.
 
 <!-- thinking:end -->
 
@@ -140,143 +140,126 @@ The final answer is $\max_{0 \leq i < n}\max(f[i][0],\ f[i][1])$.
 The transitions involve dynamic prefix/suffix maximum queries over a value domain, which can be maintained efficiently with two **Binary Indexed Trees (BITs)**:
 
 - BIT $\text{bit}_0$: indexed by value, maintains the prefix maximum of $f[\cdot][0]$, used to query cases where $\text{nums}[j] < \text{nums}[i]$.
-- BIT $\text{bit}_1$: indexed by $M + 1 - \text{val}$ (reversed, where $M = \max(\text{nums})$ ), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\text{nums}[j] > \text{nums}[i]$.
+- BIT $\text{bit}_1$: indexed by $m + 1 - \textit{rank}$ (reversed, where $m$ is the number of distinct values), maintains the prefix maximum of $f[\cdot][1]$, equivalent to a suffix maximum over the value domain, used to query cases where $\text{nums}[j] > \text{nums}[i]$.
 
-To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we insert the state of index $i - k$ into the BITs using a sliding pointer.
+To ensure only indices $j \leq i - k$ participate in transitions, when processing index $i$, we first insert the state of index $i - k$ into the BITs, then query.
 
-The time complexity is $O(n \log M)$ and the space complexity is $O(M)$, where $n$ is the length of the array and $M = \max(\text{nums})$.
+The time complexity is $O(n \log m)$ and the space complexity is $O(n + m)$, where $n$ is the length of the array and $m$ is the number of distinct values.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-class FenwickTree:
-    def __init__(self, n):
+class BinaryIndexedTree:
+    def __init__(self, n: int):
         self.n = n
-        self.tree = [0] * (n + 1)
+        self.c = [0] * (n + 1)
 
-    def update(self, index: int, val: int) -> None:
-        while index <= self.n:
-            self.tree[index] = max(self.tree[index], val)
-            index += index & (-index)  # 往后更新
+    def update(self, x: int, val: int) -> None:
+        while x <= self.n:
+            self.c[x] = max(self.c[x], val)
+            x += x & -x
 
-    def preSum(self, pos):
-        # 按照预期的方式求前缀最大值
+    def query(self, x: int) -> int:
         ans = 0
-        while pos >= 1:
-            ans = max(ans, self.tree[pos])
-            pos -= pos & (-pos)
+        while x > 0:
+            ans = max(ans, self.c[x])
+            x -= x & -x
         return ans
 
 
 class Solution:
-    def maxAlternatingSum(self, nums: list[int], k: int) -> int:
-        stl = sorted(set(nums))  # 将nums中不同的数字进行排序
-        rank = {
-            v: i + 1 for i, v in enumerate(stl)
-        }  # 将nums中的值快速转换成stl中的索引
-        fwt0 = FenwickTree(len(stl))
-        fwt1 = FenwickTree(len(stl))
-
+    def maxAlternatingSum(self, nums: List[int], k: int) -> int:
+        vals = sorted(set(nums))
+        m = len(vals)
+        rank = {v: i + 1 for i, v in enumerate(vals)}
+        bit0 = BinaryIndexedTree(m)
+        bit1 = BinaryIndexedTree(m)
         n = len(nums)
         f = [[0, 0] for _ in range(n)]
-        res = nums[0]
-        for i in range(n):
-            f[i][0] = f[i][1] = nums[i]
+        ans = 0
+        for i, x in enumerate(nums):
             if i >= k:
-                indx = rank[nums[i]]  # 找到nums[i]在stl中的索引
-                f[i][1] = max(
-                    f[i][1], fwt0.preSum(indx - 1) + nums[i]
-                )  # indx-1即表示小于nums[i]的部分
-                f[i][0] = max(
-                    f[i][0], fwt1.preSum(len(stl) - indx) + nums[i]
-                )  # len(stl)-indx即表示在倒序列表中大于nums[i]的部分
-
-            if i - k + 1 >= 0:
-                indx = rank[nums[i - k + 1]]
-                fwt0.update(indx, f[i - k + 1][0])  # 在正序列表中更新i-k+1位置的值
-                fwt1.update(
-                    len(stl) - indx + 1, f[i - k + 1][1]
-                )  # 在倒序列表中更新i-k+1位置的值
-
-            res = max(res, f[i][0], f[i][1])  # 更新答案
-
-        return res
+                r = rank[nums[i - k]]
+                bit0.update(r, f[i - k][0])
+                bit1.update(m + 1 - r, f[i - k][1])
+            r = rank[x]
+            f[i][0] = x + bit1.query(m - r)
+            f[i][1] = x + bit0.query(r - 1)
+            ans = max(ans, f[i][0], f[i][1])
+        return ans
 ```
 
 #### Java
 
 ```java
-class Solution {
-    public long maxAlternatingSum(int[] nums, int k) {
-        long maxSum = 0;
-        int n = nums.length;
-        int m = Arrays.stream(nums).max().getAsInt();
-        long[][] f = new long[n][2];
-        SegmentTree[] sts = new SegmentTree[2];
-        for (int j = 0; j < 2; j++) {
-            sts[j] = new SegmentTree(m + 1);
+class BinaryIndexedTree {
+    private final int n;
+    private final long[] c;
+
+    BinaryIndexedTree(int n) {
+        this.n = n;
+        this.c = new long[n + 1];
+    }
+
+    void update(int x, long val) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], val);
+            x += x & -x;
         }
-        for (int i = 0; i < n; i++) {
-            if (i >= k) {
-                sts[0].update(nums[i - k], f[i - k][0]);
-                sts[1].update(nums[i - k], f[i - k][1]);
-            }
-            f[i][0] = sts[1].getMax(0, nums[i] - 1) + nums[i];
-            f[i][1] = sts[0].getMax(nums[i] + 1, m) + nums[i];
-            maxSum = Math.max(maxSum, Math.max(f[i][0], f[i][1]));
+    }
+
+    long query(int x) {
+        long ans = 0;
+        while (x > 0) {
+            ans = Math.max(ans, c[x]);
+            x -= x & -x;
         }
-        return maxSum;
+        return ans;
     }
 }
 
-class SegmentTree {
-    private int n;
-    private long[] tree;
-
-    public SegmentTree(int n) {
-        this.n = n;
-        this.tree = new long[n * 4];
+class Solution {
+    public long maxAlternatingSum(int[] nums, int k) {
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
+        int m = 0;
+        for (int i = 0; i < sorted.length; ++i) {
+            if (i == 0 || sorted[i] != sorted[i - 1]) {
+                sorted[m++] = sorted[i];
+            }
+        }
+        BinaryIndexedTree bit0 = new BinaryIndexedTree(m);
+        BinaryIndexedTree bit1 = new BinaryIndexedTree(m);
+        int n = nums.length;
+        long[][] f = new long[n][2];
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k) {
+                int r = rank(sorted, m, nums[i - k]);
+                bit0.update(r, f[i - k][0]);
+                bit1.update(m + 1 - r, f[i - k][1]);
+            }
+            int r = rank(sorted, m, nums[i]);
+            f[i][0] = nums[i] + bit1.query(m - r);
+            f[i][1] = nums[i] + bit0.query(r - 1);
+            ans = Math.max(ans, Math.max(f[i][0], f[i][1]));
+        }
+        return ans;
     }
 
-    public long getMax(int start, int end) {
-        return getMax(start, end, 0, 0, n - 1);
-    }
-
-    public void update(int index, long value) {
-        update(index, value, 0, 0, n - 1);
-    }
-
-    private long getMax(int rangeStart, int rangeEnd, int treeIndex, int treeStart, int treeEnd) {
-        if (rangeStart > rangeEnd) {
-            return 0;
+    private int rank(int[] sorted, int m, int x) {
+        int l = 0, r = m;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (sorted[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        if (rangeStart == treeStart && rangeEnd == treeEnd) {
-            return tree[treeIndex];
-        }
-        int mid = treeStart + (treeEnd - treeStart) / 2;
-        if (rangeEnd <= mid) {
-            return getMax(rangeStart, rangeEnd, treeIndex * 2 + 1, treeStart, mid);
-        } else if (rangeStart > mid) {
-            return getMax(rangeStart, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd);
-        } else {
-            return Math.max(getMax(rangeStart, mid, treeIndex * 2 + 1, treeStart, mid), getMax(mid + 1, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd));
-        }
-    }
-
-    private void update(int rangeIndex, long value, int treeIndex, int start, int end) {
-        if (start == end) {
-            tree[treeIndex] = Math.max(tree[treeIndex], value);
-            return;
-        }
-        int mid = start + (end - start) / 2;
-        if (rangeIndex <= mid) {
-            update(rangeIndex, value, treeIndex * 2 + 1, start, mid);
-        } else {
-            update(rangeIndex, value, treeIndex * 2 + 2, mid + 1, end);
-        }
-        tree[treeIndex] = Math.max(tree[treeIndex * 2 + 1], tree[treeIndex * 2 + 2]);
+        return l + 1;
     }
 }
 ```
@@ -284,47 +267,56 @@ class SegmentTree {
 #### C++
 
 ```cpp
+class BinaryIndexedTree {
+public:
+    explicit BinaryIndexedTree(int n)
+        : n(n)
+        , c(n + 1) {}
+
+    void update(int x, long long val) {
+        while (x <= n) {
+            c[x] = max(c[x], val);
+            x += x & -x;
+        }
+    }
+
+    long long query(int x) {
+        long long ans = 0;
+        while (x > 0) {
+            ans = max(ans, c[x]);
+            x -= x & -x;
+        }
+        return ans;
+    }
+
+private:
+    int n;
+    vector<long long> c;
+};
+
 class Solution {
 public:
-    long long maxAlternatingSum(vector<int>& nums, int K) {
+    long long maxAlternatingSum(vector<int>& nums, int k) {
+        vector<int> sorted = nums;
+        ranges::sort(sorted);
+        sorted.erase(unique(sorted.begin(), sorted.end()), sorted.end());
+        int m = sorted.size();
+        auto rank = [&](int x) {
+            return ranges::lower_bound(sorted, x) - sorted.begin() + 1;
+        };
+        BinaryIndexedTree bit0(m), bit1(m);
         int n = nums.size();
-
-        int idx[n];
-        map<int, int> mp;
-        for (int x : nums) mp[x] = 1;
-        int m = 0;
-        for (auto &p : mp) p.second = ++m;
-        for (int i = 0; i < n; i++) idx[i] = mp[nums[i]];
-
-        const long long INF = 1e18;
-        long long tree[2][m + 1];
-        for (int i = 0; i < 2; i++) for (int j = 0; j <= m; j++) tree[i][j] = -INF;
-
-
-        auto lb = [&](int x) { return x & (-x); };
-
-        auto update = [&](long long *tree, int pos, long long val) {
-            for (; pos <= m; pos += lb(pos)) tree[pos] = max(tree[pos], val);
-        };
-
-        auto query = [&](long long *tree, int pos) {
-            long long ret = -INF;
-            for (; pos; pos -= lb(pos)) ret = max(ret, tree[pos]);
-            return ret;
-        };
-
-
+        vector<array<long long, 2>> f(n);
         long long ans = 0;
-        long long f[n + 1][2];
-        for (int i = 0; i <= n; i++) for (int j = 0; j < 2; j++) f[i][j] = -INF;
-        for (int i = 1, j = 1; i <= n; i++) {
-            while (i - j >= K) {
-                update(tree[0], idx[j - 1], f[j][0]);
-                update(tree[1], m + 1 - idx[j - 1], f[j][1]);
-                j++;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k) {
+                int r = rank(nums[i - k]);
+                bit0.update(r, f[i - k][0]);
+                bit1.update(m + 1 - r, f[i - k][1]);
             }
-            f[i][0] = max(0LL, query(tree[1], m - idx[i - 1])) + nums[i - 1];
-            f[i][1] = max(0LL, query(tree[0], idx[i - 1] - 1)) + nums[i - 1];
+            int r = rank(nums[i]);
+            f[i][0] = nums[i] + bit1.query(m - r);
+            f[i][1] = nums[i] + bit0.query(r - 1);
             ans = max({ans, f[i][0], f[i][1]});
         }
         return ans;
@@ -343,7 +335,7 @@ func (f fenwick) update(i int, val int64) {
 	}
 }
 
-func (f fenwick) preMax(i int) (res int64) {
+func (f fenwick) query(i int) (res int64) {
 	for ; i > 0; i &= i - 1 {
 		res = max(res, f[i])
 	}
@@ -354,30 +346,22 @@ func maxAlternatingSum(nums []int, k int) (ans int64) {
 	sorted := slices.Clone(nums)
 	slices.Sort(sorted)
 	sorted = slices.Compact(sorted)
-
-	n := len(nums)
-	fInc := make([]int64, n)
-	fDec := make([]int64, n)
-
 	m := len(sorted)
-	inc := make(fenwick, m+1)
-	dec := make(fenwick, m+1)
-
+	bit0 := make(fenwick, m+1)
+	bit1 := make(fenwick, m+1)
+	n := len(nums)
+	f := make([][2]int64, n)
 	for i, x := range nums {
 		if i >= k {
-			j := nums[i-k]
-			inc.update(m-j, fInc[i-k])
-			dec.update(j+1, fDec[i-k])
+			r := sort.SearchInts(sorted, nums[i-k]) + 1
+			bit0.update(r, f[i-k][0])
+			bit1.update(m+1-r, f[i-k][1])
 		}
-
-		j := sort.SearchInts(sorted, x)
-		nums[i] = j
-
-		fInc[i] = dec.preMax(j) + int64(x)
-		fDec[i] = inc.preMax(m-1-j) + int64(x)
-		ans = max(ans, fInc[i], fDec[i])
+		r := sort.SearchInts(sorted, x) + 1
+		f[i][0] = int64(x) + bit1.query(m-r)
+		f[i][1] = int64(x) + bit0.query(r-1)
+		ans = max(ans, f[i][0], f[i][1])
 	}
-
 	return
 }
 ```
