@@ -14,18 +14,21 @@
 class Solution {
 public:
     NodeCopy* copyRandomBinaryTree(Node* root) {
-        unordered_map<Node*, NodeCopy*> mp;
-        return dfs(root, mp);
-    }
-
-    NodeCopy* dfs(Node* root, unordered_map<Node*, NodeCopy*>& mp) {
-        if (!root) return nullptr;
-        if (mp.count(root)) return mp[root];
-        NodeCopy* copy = new NodeCopy(root->val);
-        mp[root] = copy;
-        copy->left = dfs(root->left, mp);
-        copy->right = dfs(root->right, mp);
-        copy->random = dfs(root->random, mp);
-        return copy;
+        unordered_map<Node*, NodeCopy*> seen;
+        auto dfs = [&](this auto&& dfs, Node* root) -> NodeCopy* {
+            if (!root) {
+                return nullptr;
+            }
+            if (seen.contains(root)) {
+                return seen[root];
+            }
+            NodeCopy* copy = new NodeCopy(root->val);
+            seen[root] = copy;
+            copy->left = dfs(root->left);
+            copy->right = dfs(root->right);
+            copy->random = dfs(root->random);
+            return copy;
+        };
+        return dfs(root);
     }
 };

@@ -9,17 +9,17 @@
  */
 
 func copyRandomBinaryTree(root *Node) *NodeCopy {
-	mp := make(map[*Node]*NodeCopy)
+	seen := make(map[*Node]*NodeCopy)
 	var dfs func(root *Node) *NodeCopy
 	dfs = func(root *Node) *NodeCopy {
 		if root == nil {
 			return nil
 		}
-		if v, ok := mp[root]; ok {
+		if v, ok := seen[root]; ok {
 			return v
 		}
 		copy := &NodeCopy{Val: root.Val}
-		mp[root] = copy
+		seen[root] = copy
 		copy.Left = dfs(root.Left)
 		copy.Right = dfs(root.Right)
 		copy.Random = dfs(root.Random)
