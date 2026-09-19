@@ -1,5 +1,5 @@
 {
-  "cache_date": 1789734760,
+  "cache_date": 1789823183,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -37547,7 +37547,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789822596
     },
     "solution/3000-3099/3007.Maximum Number That Sum of the Prices Is Less Than or Equal to K/README.md": {
       "authors": [
@@ -37587,7 +37587,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789822596
     },
     "solution/3000-3099/3009.Maximum Number of Intersections on the Chart/README.md": {
       "authors": [
@@ -43166,6 +43166,12 @@
     "solution/3400-3499/3414.Maximum Score of Non-overlapping Intervals/README.md": {
       "authors": [
         {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
           "login": "arifshaikh0462",
           "name": "arifshaikh0462",
           "url": "https://github.com/arifshaikh0462",
@@ -43176,15 +43182,9 @@
           "name": "SamirCoder16",
           "url": "https://github.com/SamirCoder16",
           "avatar": "https://avatars.githubusercontent.com/u/192109895?v=4"
-        },
-        {
-          "login": "yanglbme",
-          "name": "yanglbme",
-          "url": "https://github.com/yanglbme",
-          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789202734
+      "retrieved": 1789822596
     },
     "solution/3400-3499/3415.Find Products with Three Consecutive Digits/README.md": {
       "authors": [
@@ -44162,7 +44162,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/92844674?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789822596
     },
     "solution/3400-3499/3486.Longest Special Path II/README.md": {
       "authors": [
@@ -104800,7 +104800,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789822596
     },
     "solution/3000-3099/3007.Maximum Number That Sum of the Prices Is Less Than or Equal to K/README_EN.md": {
       "authors": [
@@ -104840,7 +104840,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/44314231?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789822596
     },
     "solution/3000-3099/3009.Maximum Number of Intersections on the Chart/README_EN.md": {
       "authors": [
@@ -110353,6 +110353,12 @@
     "solution/3400-3499/3414.Maximum Score of Non-overlapping Intervals/README_EN.md": {
       "authors": [
         {
+          "login": "yanglbme",
+          "name": "yanglbme",
+          "url": "https://github.com/yanglbme",
+          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
+        },
+        {
           "login": "arifshaikh0462",
           "name": "arifshaikh0462",
           "url": "https://github.com/arifshaikh0462",
@@ -110363,15 +110369,9 @@
           "name": "SamirCoder16",
           "url": "https://github.com/SamirCoder16",
           "avatar": "https://avatars.githubusercontent.com/u/192109895?v=4"
-        },
-        {
-          "login": "yanglbme",
-          "name": "yanglbme",
-          "url": "https://github.com/yanglbme",
-          "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789202741
+      "retrieved": 1789822596
     },
     "solution/3400-3499/3415.Find Products with Three Consecutive Digits/README_EN.md": {
       "authors": [
@@ -111349,7 +111349,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/92844674?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789822596
     },
     "solution/3400-3499/3486.Longest Special Path II/README_EN.md": {
       "authors": [
@@ -135718,7 +135718,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789822596
     },
     "solution/3800-3899/3898.Find the Degree of Each Vertex/README_EN.md": {
       "authors": [
@@ -135762,7 +135762,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789822596
     },
     "solution/3900-3999/3902.Zigzag Level Sum of Binary Tree/README.md": {
       "authors": [
@@ -136010,7 +136010,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/200593463?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789822596
     },
     "solution/3900-3999/3914.Minimum Operations to Make Array Non Decreasing/README.md": {
       "authors": [
@@ -136082,7 +136082,7 @@
           "avatar": "https://avatars.githubusercontent.com/u/200593463?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789822596
     },
     "solution/3900-3999/3920.Maximize Fixed Points After Deletions/README.md": {
       "authors": [
