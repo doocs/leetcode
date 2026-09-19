@@ -353,6 +353,106 @@ public:
 };
 ```
 
+#### Java
+
+```java
+class Solution {
+    public long minMaxSubarraySum(int[] nums, int k) {
+        long total = 0, windowMax = 0, windowMin = 0;
+        Deque<long[]> maxStack = new ArrayDeque<>();
+        Deque<long[]> minStack = new ArrayDeque<>();
+        for (int end = 0; end < nums.length; ++end) {
+            int start = Math.max(0, end - k + 1);
+            if (start > 0) {
+                maxStack.peekFirst()[2]--;
+                windowMax -= maxStack.peekFirst()[1];
+                if (maxStack.peekFirst()[0] < start) {
+                    maxStack.pollFirst();
+                }
+                minStack.peekFirst()[2]--;
+                windowMin -= minStack.peekFirst()[1];
+                if (minStack.peekFirst()[0] < start) {
+                    minStack.pollFirst();
+                }
+            }
+            long num = nums[end];
+            long maxShares = 1;
+            windowMax += num;
+            while (!maxStack.isEmpty() && maxStack.peekLast()[1] <= num) {
+                long prevNum = maxStack.peekLast()[1];
+                long prevShares = maxStack.pollLast()[2];
+                maxShares += prevShares;
+                windowMax += (num - prevNum) * prevShares;
+            }
+            maxStack.addLast(new long[] {end, num, maxShares});
+            long minShares = 1;
+            windowMin += num;
+            while (!minStack.isEmpty() && minStack.peekLast()[1] >= num) {
+                long prevNum = minStack.peekLast()[1];
+                long prevShares = minStack.pollLast()[2];
+                minShares += prevShares;
+                windowMin += (num - prevNum) * prevShares;
+            }
+            minStack.addLast(new long[] {end, num, minShares});
+            total += windowMax + windowMin;
+        }
+        return total;
+    }
+}
+```
+
+#### Go
+
+```go
+func minMaxSubarraySum(nums []int, k int) int64 {
+	var total, windowMax, windowMin int64
+	type item struct {
+		idx, num int
+		shares   int64
+	}
+	maxStack, minStack := []item{}, []item{}
+	for end := 0; end < len(nums); end++ {
+		start := end - k + 1
+		if start < 0 {
+			start = 0
+		}
+		if start > 0 {
+			maxStack[0].shares--
+			windowMax -= int64(maxStack[0].num)
+			if maxStack[0].idx < start {
+				maxStack = maxStack[1:]
+			}
+			minStack[0].shares--
+			windowMin -= int64(minStack[0].num)
+			if minStack[0].idx < start {
+				minStack = minStack[1:]
+			}
+		}
+		num := int64(nums[end])
+		maxShares := int64(1)
+		windowMax += num
+		for len(maxStack) > 0 && int64(maxStack[len(maxStack)-1].num) <= num {
+			prev := maxStack[len(maxStack)-1]
+			maxStack = maxStack[:len(maxStack)-1]
+			maxShares += prev.shares
+			windowMax += (num - int64(prev.num)) * prev.shares
+		}
+		maxStack = append(maxStack, item{end, nums[end], maxShares})
+		minShares := int64(1)
+		windowMin += num
+		for len(minStack) > 0 && int64(minStack[len(minStack)-1].num) >= num {
+			prev := minStack[len(minStack)-1]
+			minStack = minStack[:len(minStack)-1]
+			minShares += prev.shares
+			windowMin += (num - int64(prev.num)) * prev.shares
+		}
+		minStack = append(minStack, item{end, nums[end], minShares})
+		total += windowMax + windowMin
+	}
+	return total
+}
+```
+
 #### JavaScript
 
 ```js
