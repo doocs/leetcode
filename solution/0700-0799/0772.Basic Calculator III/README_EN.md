@@ -113,7 +113,51 @@ class Solution:
 #### Java
 
 ```java
+class Solution {
+    public int calculate(String s) {
+        Deque<Character> q = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            q.offer(c);
+        }
+        return dfs(q);
+    }
 
+    private int dfs(Deque<Character> q) {
+        long num = 0;
+        char sign = '+';
+        List<Long> stk = new ArrayList<>();
+        while (!q.isEmpty()) {
+            char c = q.poll();
+            if (Character.isDigit(c)) {
+                num = num * 10 + (c - '0');
+            }
+            if (c == '(') {
+                num = dfs(q);
+            }
+            if ("+-*/)".indexOf(c) >= 0 || q.isEmpty()) {
+                if (sign == '+') {
+                    stk.add(num);
+                } else if (sign == '-') {
+                    stk.add(-num);
+                } else if (sign == '*') {
+                    stk.set(stk.size() - 1, stk.get(stk.size() - 1) * num);
+                } else {
+                    stk.set(stk.size() - 1, stk.get(stk.size() - 1) / num);
+                }
+                num = 0;
+                sign = c;
+            }
+            if (c == ')') {
+                break;
+            }
+        }
+        long ans = 0;
+        for (long x : stk) {
+            ans += x;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
@@ -121,125 +165,46 @@ class Solution:
 ```cpp
 class Solution {
 public:
-    // Define an operation function that performs mathematical operations based on the operator
-    int operate(int b, char ch, int a) {
-        // Note the order of ab
-        switch (ch) {
-        case '+':
-            return a + b; // Addition
-        case '-':
-            return a - b; // Subtraction
-        case '*':
-            return a * b; // Multiplication
-        case '/':
-            return a / b; // Division
-        default:
-            break;
+    int calculate(string s) {
+        queue<char> q;
+        for (char c : s) {
+            q.push(c);
         }
-        return 0; // Default return 0, handle invalid operators
+        return dfs(q);
     }
 
-    // Calculate the value of the string expression
-    int calculate(string s) {
-        int preority[250]; // Operator precedence array
-        preority['+'] = 1;
-        preority['-'] = 1;
-        preority['*'] = 2;
-        preority['/'] = 2;
-        preority['('] = 0;
-        preority[')'] = 0;
-
-        stack<char> op; // Operator stack
-        stack<int> num; // Operand stack
-        int stringsize = s.size(); // Length of the string
-        int i = 0;
-        char ch;
-
-        // Traverse the string
-        for (; i < stringsize; i++) {
-            ch = s[i];
-            if (ch == ' ') {
-                continue; // Skip spaces
+private:
+    int dfs(queue<char>& q) {
+        long long num = 0;
+        char sign = '+';
+        vector<long long> stk;
+        while (!q.empty()) {
+            char c = q.front();
+            q.pop();
+            if (isdigit(c)) {
+                num = num * 10 + (c - '0');
             }
-            if (ch >= '0' && ch <= '9') {
-                int realnum = ch - '0'; // Convert character to number
-                // Handle multi-digit numbers
-                while (s[i + 1] >= '0' && s[i + 1] <= '9') {
-                    i++;
-                    realnum *= 10;
-                    realnum += s[i] - '0';
+            if (c == '(') {
+                num = dfs(q);
+            }
+            if (c == '+' || c == '-' || c == '*' || c == '/' || c == ')' || q.empty()) {
+                if (sign == '+') {
+                    stk.push_back(num);
+                } else if (sign == '-') {
+                    stk.push_back(-num);
+                } else if (sign == '*') {
+                    stk.back() *= num;
+                } else {
+                    stk.back() /= num;
                 }
-                num.push(realnum); // Push the number onto the stack
-            } else {
-                // Handle operators
-                if (op.empty() || ch == '(' || preority[ch] > preority[op.top()]) {
-                    // Special case, handle the first character being '-' or '+'
-                    if (num.empty() && (ch == '-' || ch == '+')) {
-                        num.push(0);
-                    }
-                    op.push(ch); // Push the operator onto the stack
-                    // Handle expressions inside parentheses
-                    if (ch == '(') {
-                        int j = i;
-                        while (j + 1 < stringsize) {
-                            // Preprocess the first operator inside the parentheses
-                            if (s[j + 1] == '-' || s[j + 1] == '+') {
-                                num.push(0);
-                            }
-                            if (s[j + 1] != ' ') {
-                                break;
-                            }
-                            j++;
-                        }
-                    }
-                } else if (ch == ')') {
-                    // Handle right parentheses
-                    char ch2 = ')';
-                    ch2 = op.top();
-                    op.pop();
-                    while (ch2 != '(') {
-                        int a = num.top();
-                        num.pop();
-                        int b = num.top();
-                        num.pop();
-                        num.push(operate(a, ch2, b)); // Calculate and push the result
-                        ch2 = op.top();
-                        op.pop();
-                    }
-                } else if (preority[ch] <= preority[op.top()]) {
-                    // Handle cases where the precedence is less than or equal to the top of the stack
-                    char ch2;
-                    ch2 = op.top();
-                    while (!op.empty() && preority[ch] <= preority[op.top()] && ch2 != '(') {
-                        op.pop();
-                        int a = num.top();
-                        num.pop();
-                        int b = num.top();
-                        num.pop();
-                        num.push(operate(a, ch2, b)); // Calculate and push the result
-                        if (!op.empty()) {
-                            ch2 = op.top();
-                        } else {
-                            break;
-                        }
-                    }
-                    op.push(ch); // Push the current operator onto the stack
-                }
+                num = 0;
+                sign = c;
+            }
+            if (c == ')') {
+                break;
             }
         }
-
-        // Handle the remaining expressions in the stack
-        while (!op.empty()) {
-            ch = op.top();
-            op.pop();
-            int a = num.top();
-            num.pop();
-            int b = num.top();
-            num.pop();
-            num.push(operate(a, ch, b)); // Calculate and push the result
-        }
-
-        return num.top(); // Return the final result
+        return accumulate(stk.begin(), stk.end(), 0LL);
     }
 };
 ```
@@ -247,7 +212,46 @@ public:
 #### Go
 
 ```go
-
+func calculate(s string) int {
+	q := []byte(s)
+	var dfs func() int
+	dfs = func() int {
+		num, sign := 0, byte('+')
+		var stk []int
+		for len(q) > 0 {
+			c := q[0]
+			q = q[1:]
+			if c >= '0' && c <= '9' {
+				num = num*10 + int(c-'0')
+			}
+			if c == '(' {
+				num = dfs()
+			}
+			if c == '+' || c == '-' || c == '*' || c == '/' || c == ')' || len(q) == 0 {
+				switch sign {
+				case '+':
+					stk = append(stk, num)
+				case '-':
+					stk = append(stk, -num)
+				case '*':
+					stk[len(stk)-1] *= num
+				default:
+					stk[len(stk)-1] /= num
+				}
+				num, sign = 0, c
+			}
+			if c == ')' {
+				break
+			}
+		}
+		ans := 0
+		for _, x := range stk {
+			ans += x
+		}
+		return ans
+	}
+	return dfs()
+}
 ```
 
 <!-- tabs:end -->
