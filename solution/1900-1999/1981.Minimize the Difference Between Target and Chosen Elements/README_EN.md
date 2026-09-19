@@ -113,10 +113,15 @@ The time complexity is $O(m^2 \times n \times C)$ and the space complexity is $O
 ```python
 class Solution:
     def minimizeTheDifference(self, mat: List[List[int]], target: int) -> int:
-        f = {0}
+        f = [True]
         for row in mat:
-            f = set(a + b for a in f for b in row)
-        return min(abs(v - target) for v in f)
+            mx = max(row)
+            g = [False] * (len(f) + mx)
+            for x in row:
+                for j in range(x, len(f) + x):
+                    g[j] |= f[j - x]
+            f = g
+        return min(abs(j - target) for j, ok in enumerate(f) if ok)
 ```
 
 #### Java
@@ -124,20 +129,25 @@ class Solution:
 ```java
 class Solution {
     public int minimizeTheDifference(int[][] mat, int target) {
-        Set<Integer> f = new HashSet<>();
-        f.add(0);
+        boolean[] f = {true};
         for (var row : mat) {
-            Set<Integer> g = new HashSet<>();
-            for (int a : f) {
-                for (int b : row) {
-                    g.add(a + b);
+            int mx = 0;
+            for (int x : row) {
+                mx = Math.max(mx, x);
+            }
+            boolean[] g = new boolean[f.length + mx];
+            for (int x : row) {
+                for (int j = x; j < f.length + x; ++j) {
+                    g[j] |= f[j - x];
                 }
             }
             f = g;
         }
         int ans = 1 << 30;
-        for (int v : f) {
-            ans = Math.min(ans, Math.abs(v - target));
+        for (int j = 0; j < f.length; ++j) {
+            if (f[j]) {
+                ans = Math.min(ans, Math.abs(j - target));
+            }
         }
         return ans;
     }

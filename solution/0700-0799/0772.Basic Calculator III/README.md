@@ -115,134 +115,98 @@ class Solution:
 #### Java
 
 ```java
+class Solution {
+    public int calculate(String s) {
+        Deque<Character> q = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            q.offer(c);
+        }
+        return dfs(q);
+    }
 
+    private int dfs(Deque<Character> q) {
+        long num = 0;
+        char sign = '+';
+        List<Long> stk = new ArrayList<>();
+        while (!q.isEmpty()) {
+            char c = q.poll();
+            if (Character.isDigit(c)) {
+                num = num * 10 + (c - '0');
+            }
+            if (c == '(') {
+                num = dfs(q);
+            }
+            if ("+-*/)".indexOf(c) >= 0 || q.isEmpty()) {
+                if (sign == '+') {
+                    stk.add(num);
+                } else if (sign == '-') {
+                    stk.add(-num);
+                } else if (sign == '*') {
+                    stk.set(stk.size() - 1, stk.get(stk.size() - 1) * num);
+                } else {
+                    stk.set(stk.size() - 1, stk.get(stk.size() - 1) / num);
+                }
+                num = 0;
+                sign = c;
+            }
+            if (c == ')') {
+                break;
+            }
+        }
+        long ans = 0;
+        for (long x : stk) {
+            ans += x;
+        }
+        return (int) ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-// 逆波兰表示法求解
 class Solution {
 public:
-    // 定义一个操作函数，根据操作符进行数学运算
-    int operate(int b, char ch, int a) {
-        // 注意ab顺序
-        switch (ch) {
-        case '+':
-            return a + b; // 加法
-        case '-':
-            return a - b; // 减法
-        case '*':
-            return a * b; // 乘法
-        case '/':
-            return a / b; // 除法
-        default:
-            break;
+    int calculate(string s) {
+        queue<char> q;
+        for (char c : s) {
+            q.push(c);
         }
-        return 0; // 默认返回0，处理无效操作符
+        return dfs(q);
     }
 
-    // 计算字符串表达式的值
-    int calculate(string s) {
-        int preority[250]; // 操作符优先级数组
-        preority['+'] = 1;
-        preority['-'] = 1;
-        preority['*'] = 2;
-        preority['/'] = 2;
-        preority['('] = 0;
-        preority[')'] = 0;
-
-        stack<char> op; // 操作符栈
-        stack<int> num; // 操作数栈
-        int stringsize = s.size(); // 字符串长度
-        int i = 0;
-        char ch;
-
-        // 遍历字符串
-        for (; i < stringsize; i++) {
-            ch = s[i];
-            if (ch == ' ') {
-                continue; // 跳过空格
+private:
+    int dfs(queue<char>& q) {
+        long long num = 0;
+        char sign = '+';
+        vector<long long> stk;
+        while (!q.empty()) {
+            char c = q.front();
+            q.pop();
+            if (isdigit(c)) {
+                num = num * 10 + (c - '0');
             }
-            if (ch >= '0' && ch <= '9') {
-                int realnum = ch - '0'; // 将字符转换为数字
-                // 处理多位数字
-                while (s[i + 1] >= '0' && s[i + 1] <= '9') {
-                    i++;
-                    realnum *= 10;
-                    realnum += s[i] - '0';
+            if (c == '(') {
+                num = dfs(q);
+            }
+            if (c == '+' || c == '-' || c == '*' || c == '/' || c == ')' || q.empty()) {
+                if (sign == '+') {
+                    stk.push_back(num);
+                } else if (sign == '-') {
+                    stk.push_back(-num);
+                } else if (sign == '*') {
+                    stk.back() *= num;
+                } else {
+                    stk.back() /= num;
                 }
-                num.push(realnum); // 将数字压入栈
-            } else {
-                // 处理操作符
-                if (op.empty() || ch == '(' || preority[ch] > preority[op.top()]) {
-                    // 特殊情况，处理首个字符为'-'或'+'的情况
-                    if (num.empty() && (ch == '-' || ch == '+')) {
-                        num.push(0);
-                    }
-                    op.push(ch); // 将操作符压入栈
-                    // 处理括号内的表达式
-                    if (ch == '(') {
-                        int j = i;
-                        while (j + 1 < stringsize) {
-                            // 预处理括号内的首个操作符
-                            if (s[j + 1] == '-' || s[j + 1] == '+') {
-                                num.push(0);
-                            }
-                            if (s[j + 1] != ' ') {
-                                break;
-                            }
-                            j++;
-                        }
-                    }
-                } else if (ch == ')') {
-                    // 处理右括号
-                    char ch2 = ')';
-                    ch2 = op.top();
-                    op.pop();
-                    while (ch2 != '(') {
-                        int a = num.top();
-                        num.pop();
-                        int b = num.top();
-                        num.pop();
-                        num.push(operate(a, ch2, b)); // 计算并压入结果
-                        ch2 = op.top();
-                        op.pop();
-                    }
-                } else if (preority[ch] <= preority[op.top()]) {
-                    // 处理优先级小于等于栈顶操作符的情况
-                    char ch2;
-                    ch2 = op.top();
-                    while (!op.empty() && preority[ch] <= preority[op.top()] && ch2 != '(') {
-                        op.pop();
-                        int a = num.top();
-                        num.pop();
-                        int b = num.top();
-                        num.pop();
-                        num.push(operate(a, ch2, b)); // 计算并压入结果
-                        if (!op.empty()) {
-                            ch2 = op.top();
-                        } else {
-                            break;
-                        }
-                    }
-                    op.push(ch); // 将当前操作符压入栈
-                }
+                num = 0;
+                sign = c;
+            }
+            if (c == ')') {
+                break;
             }
         }
-
-        // 处理剩余在栈中的表达式
-        while (!op.empty()) {
-            ch = op.top();
-            op.pop();
-            int a = num.top();
-            num.pop();
-            int b = num.top();
-            num.pop();
-            num.push(operate(a, ch, b)); // 计算并压入结果
-        }
-
-        return num.top(); // 返回最终结果
+        return accumulate(stk.begin(), stk.end(), 0LL);
     }
 };
 ```
@@ -250,7 +214,46 @@ public:
 #### Go
 
 ```go
-
+func calculate(s string) int {
+	q := []byte(s)
+	var dfs func() int
+	dfs = func() int {
+		num, sign := 0, byte('+')
+		var stk []int
+		for len(q) > 0 {
+			c := q[0]
+			q = q[1:]
+			if c >= '0' && c <= '9' {
+				num = num*10 + int(c-'0')
+			}
+			if c == '(' {
+				num = dfs()
+			}
+			if c == '+' || c == '-' || c == '*' || c == '/' || c == ')' || len(q) == 0 {
+				switch sign {
+				case '+':
+					stk = append(stk, num)
+				case '-':
+					stk = append(stk, -num)
+				case '*':
+					stk[len(stk)-1] *= num
+				default:
+					stk[len(stk)-1] /= num
+				}
+				num, sign = 0, c
+			}
+			if c == ')' {
+				break
+			}
+		}
+		ans := 0
+		for _, x := range stk {
+			ans += x
+		}
+		return ans
+	}
+	return dfs()
+}
 ```
 
 <!-- tabs:end -->
