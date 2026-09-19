@@ -469,6 +469,8 @@ func (this *MKAverage) CalculateMKAverage() int {
 
 时间复杂度方面，每次调用 $addElement$ 为 $O(\log m)$，每次调用 $calculateMKAverage$ 为 $O(1)$。空间复杂度为 $O(m)$。
 
+Java、C++、Go 中 $num\le 10^5$，用树状数组维护频次即可在对数时间内完成名次查询与第 $k$ 小查询，语义与有序集合一致。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -515,6 +517,263 @@ class MKAverage:
 # obj = MKAverage(m, k)
 # obj.addElement(num)
 # param_2 = obj.calculateMKAverage()
+```
+
+#### Java
+
+```java
+class MKAverage {
+    private static final int N = 100001;
+    private final int m, k;
+    private long s;
+    private final Deque<Integer> q = new ArrayDeque<>();
+    private final int[] c = new int[N];
+
+    public MKAverage(int m, int k) {
+        this.m = m;
+        this.k = k;
+    }
+
+    public void addElement(int num) {
+        q.offer(num);
+        if (q.size() == m) {
+            for (int x : q) {
+                update(x, 1);
+            }
+            for (int i = k; i < m - k; ++i) {
+                s += kth(i);
+            }
+        } else if (q.size() > m) {
+            int i = rank(num);
+            if (i < k) {
+                s += kth(k - 1);
+            } else if (i <= m - k) {
+                s += num;
+            } else {
+                s += kth(m - k);
+            }
+            update(num, 1);
+
+            int x = q.poll();
+            i = rank(x);
+            if (i < k) {
+                s -= kth(k);
+            } else if (i <= m - k) {
+                s -= x;
+            } else {
+                s -= kth(m - k);
+            }
+            update(x, -1);
+        }
+    }
+
+    public int calculateMKAverage() {
+        return q.size() < m ? -1 : (int) (s / (m - k * 2));
+    }
+
+    private void update(int x, int d) {
+        for (; x < N; x += x & -x) {
+            c[x] += d;
+        }
+    }
+
+    private int query(int x) {
+        int ans = 0;
+        for (; x > 0; x -= x & -x) {
+            ans += c[x];
+        }
+        return ans;
+    }
+
+    private int rank(int x) {
+        return query(x - 1);
+    }
+
+    private int kth(int k) {
+        int need = k + 1;
+        int idx = 0;
+        for (int p = 1 << 16; p > 0; p >>= 1) {
+            int nxt = idx + p;
+            if (nxt < N && c[nxt] < need) {
+                need -= c[nxt];
+                idx = nxt;
+            }
+        }
+        return idx + 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class MKAverage {
+public:
+    MKAverage(int m, int k) {
+        this->m = m;
+        this->k = k;
+    }
+
+    void addElement(int num) {
+        q.push_back(num);
+        if ((int) q.size() == m) {
+            for (int x : q) {
+                update(x, 1);
+            }
+            for (int i = k; i < m - k; ++i) {
+                s += kth(i);
+            }
+        } else if ((int) q.size() > m) {
+            int i = rank(num);
+            if (i < k) {
+                s += kth(k - 1);
+            } else if (i <= m - k) {
+                s += num;
+            } else {
+                s += kth(m - k);
+            }
+            update(num, 1);
+
+            int x = q.front();
+            q.pop_front();
+            i = rank(x);
+            if (i < k) {
+                s -= kth(k);
+            } else if (i <= m - k) {
+                s -= x;
+            } else {
+                s -= kth(m - k);
+            }
+            update(x, -1);
+        }
+    }
+
+    int calculateMKAverage() {
+        return (int) q.size() < m ? -1 : s / (m - k * 2);
+    }
+
+private:
+    static const int N = 100001;
+    int m, k;
+    long long s = 0;
+    deque<int> q;
+    int c[N]{};
+
+    void update(int x, int d) {
+        for (; x < N; x += x & -x) {
+            c[x] += d;
+        }
+    }
+
+    int query(int x) {
+        int ans = 0;
+        for (; x > 0; x -= x & -x) {
+            ans += c[x];
+        }
+        return ans;
+    }
+
+    int rank(int x) {
+        return query(x - 1);
+    }
+
+    int kth(int k) {
+        int need = k + 1, idx = 0;
+        for (int p = 1 << 16; p > 0; p >>= 1) {
+            int nxt = idx + p;
+            if (nxt < N && c[nxt] < need) {
+                need -= c[nxt];
+                idx = nxt;
+            }
+        }
+        return idx + 1;
+    }
+};
+```
+
+#### Go
+
+```go
+type MKAverage struct {
+	m, k int
+	s    int
+	q    []int
+	c    []int
+}
+
+func Constructor(m int, k int) MKAverage {
+	return MKAverage{m: m, k: k, c: make([]int, 100001)}
+}
+
+func (this *MKAverage) AddElement(num int) {
+	this.q = append(this.q, num)
+	if len(this.q) == this.m {
+		for _, x := range this.q {
+			this.update(x, 1)
+		}
+		for i := this.k; i < this.m-this.k; i++ {
+			this.s += this.kth(i)
+		}
+	} else if len(this.q) > this.m {
+		i := this.rank(num)
+		if i < this.k {
+			this.s += this.kth(this.k - 1)
+		} else if i <= this.m-this.k {
+			this.s += num
+		} else {
+			this.s += this.kth(this.m - this.k)
+		}
+		this.update(num, 1)
+
+		x := this.q[0]
+		this.q = this.q[1:]
+		i = this.rank(x)
+		if i < this.k {
+			this.s -= this.kth(this.k)
+		} else if i <= this.m-this.k {
+			this.s -= x
+		} else {
+			this.s -= this.kth(this.m - this.k)
+		}
+		this.update(x, -1)
+	}
+}
+
+func (this *MKAverage) CalculateMKAverage() int {
+	if len(this.q) < this.m {
+		return -1
+	}
+	return this.s / (this.m - this.k*2)
+}
+
+func (this *MKAverage) update(x, d int) {
+	for ; x < len(this.c); x += x & -x {
+		this.c[x] += d
+	}
+}
+
+func (this *MKAverage) query(x int) (ans int) {
+	for ; x > 0; x -= x & -x {
+		ans += this.c[x]
+	}
+	return
+}
+
+func (this *MKAverage) rank(x int) int {
+	return this.query(x - 1)
+}
+
+func (this *MKAverage) kth(k int) int {
+	need, idx := k+1, 0
+	for p := 1 << 16; p > 0; p >>= 1 {
+		nxt := idx + p
+		if nxt < len(this.c) && this.c[nxt] < need {
+			need -= this.c[nxt]
+			idx = nxt
+		}
+	}
+	return idx + 1
+}
 ```
 
 <!-- tabs:end -->
