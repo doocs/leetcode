@@ -124,19 +124,172 @@ class Solution:
 #### Java
 
 ```java
+class Solution {
+    private static final int MOD = 1_000_000_007;
+    private List<Integer>[] g;
+    private long[] fact;
+    private long[] invFact;
+    private long ans = 1;
 
+    public int waysToBuildRooms(int[] prevRoom) {
+        int n = prevRoom.length;
+        g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            g[prevRoom[i]].add(i);
+        }
+        fact = new long[n + 1];
+        invFact = new long[n + 1];
+        fact[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            fact[i] = fact[i - 1] * i % MOD;
+        }
+        invFact[n] = qpow(fact[n], MOD - 2);
+        for (int i = n; i > 0; --i) {
+            invFact[i - 1] = invFact[i] * i % MOD;
+        }
+        dfs(0);
+        return (int) ans;
+    }
+
+    private int dfs(int u) {
+        int merged = 0;
+        for (int v : g[u]) {
+            int cn = dfs(v);
+            if (merged != 0) {
+                ans = ans * comb(merged + cn, cn) % MOD;
+            }
+            merged += cn;
+        }
+        return merged + 1;
+    }
+
+    private long comb(int n, int k) {
+        return fact[n] * invFact[k] % MOD * invFact[n - k] % MOD;
+    }
+
+    private long qpow(long a, long n) {
+        long ans = 1;
+        for (; n > 0; n >>= 1) {
+            if ((n & 1) == 1) {
+                ans = ans * a % MOD;
+            }
+            a = a * a % MOD;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    int waysToBuildRooms(vector<int>& prevRoom) {
+        int n = prevRoom.size();
+        g.assign(n, {});
+        for (int i = 1; i < n; ++i) {
+            g[prevRoom[i]].push_back(i);
+        }
+        fact.assign(n + 1, 1);
+        invFact.assign(n + 1, 1);
+        for (int i = 1; i <= n; ++i) {
+            fact[i] = fact[i - 1] * i % MOD;
+        }
+        invFact[n] = qpow(fact[n], MOD - 2);
+        for (int i = n; i > 0; --i) {
+            invFact[i - 1] = invFact[i] * i % MOD;
+        }
+        ans = 1;
+        dfs(0);
+        return ans;
+    }
 
+private:
+    static constexpr int MOD = 1e9 + 7;
+    vector<vector<int>> g;
+    vector<long long> fact, invFact;
+    int ans;
+
+    int dfs(int u) {
+        int merged = 0;
+        for (int v : g[u]) {
+            int cn = dfs(v);
+            if (merged) {
+                ans = 1LL * ans * comb(merged + cn, cn) % MOD;
+            }
+            merged += cn;
+        }
+        return merged + 1;
+    }
+
+    long long comb(int n, int k) {
+        return fact[n] * invFact[k] % MOD * invFact[n - k] % MOD;
+    }
+
+    long long qpow(long long a, long long n) {
+        long long res = 1;
+        for (; n; n >>= 1) {
+            if (n & 1) {
+                res = res * a % MOD;
+            }
+            a = a * a % MOD;
+        }
+        return res;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func waysToBuildRooms(prevRoom []int) int {
+	const mod = 1_000_000_007
+	n := len(prevRoom)
+	g := make([][]int, n)
+	for i := 1; i < n; i++ {
+		g[prevRoom[i]] = append(g[prevRoom[i]], i)
+	}
+	fact := make([]int, n+1)
+	invFact := make([]int, n+1)
+	fact[0] = 1
+	for i := 1; i <= n; i++ {
+		fact[i] = fact[i-1] * i % mod
+	}
+	qpow := func(a, n int) int {
+		res := 1
+		for ; n > 0; n >>= 1 {
+			if n&1 == 1 {
+				res = res * a % mod
+			}
+			a = a * a % mod
+		}
+		return res
+	}
+	invFact[n] = qpow(fact[n], mod-2)
+	for i := n; i > 0; i-- {
+		invFact[i-1] = invFact[i] * i % mod
+	}
+	comb := func(n, k int) int {
+		return fact[n] * invFact[k] % mod * invFact[n-k] % mod
+	}
+	ans := 1
+	var dfs func(int) int
+	dfs = func(u int) int {
+		merged := 0
+		for _, v := range g[u] {
+			cn := dfs(v)
+			if merged != 0 {
+				ans = ans * comb(merged+cn, cn) % mod
+			}
+			merged += cn
+		}
+		return merged + 1
+	}
+	dfs(0)
+	return ans
+}
 ```
 
 <!-- tabs:end -->
