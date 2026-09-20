@@ -4,7 +4,7 @@ difficulty: Hard
 rating: 2288
 source: Weekly Contest 499 Q4
 tags:
-    - Binary Indexed Tree
+    - Segment Tree
     - Array
     - Dynamic Programming
 ---

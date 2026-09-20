@@ -4064,6 +4064,10 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4053  |  [Minimum Operations to Make Every Element Palindromic](/solution/4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README_EN.md)  |    |  Medium  |  Weekly Contest 519  |
 |  4054  |  [Count Shadow Pairs I](/solution/4000-4099/4054.Count%20Shadow%20Pairs%20I/README_EN.md)  |    |  Medium  |  Weekly Contest 519  |
 |  4055  |  [Count Shadow Pairs II](/solution/4000-4099/4055.Count%20Shadow%20Pairs%20II/README_EN.md)  |    |  Hard  |  Weekly Contest 519  |
+|  4056  |  [Number of Intersecting Interval Pairs I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README_EN.md)  |    |  Easy  |  Weekly Contest 520  |
+|  4057  |  [Number of Intersecting Interval Pairs II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 520  |
+|  4058  |  [Maximum Pulse Value After One Subarray Rotation](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README_EN.md)  |    |  Medium  |  Weekly Contest 520  |
+|  4059  |  [Lexicographically Largest Power Array](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 520  |
 
 ## Copyright
 

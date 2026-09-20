@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2630
+source: Weekly Contest 519 Q4
 ---
 
 <!-- problem:start -->

@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 2113
+source: Weekly Contest 519 Q2
 ---
 
 <!-- problem:start -->

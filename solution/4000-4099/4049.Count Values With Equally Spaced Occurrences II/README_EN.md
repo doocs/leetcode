@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1405
+source: Biweekly Contest 191 Q2
 ---
 
 <!-- problem:start -->
