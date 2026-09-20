@@ -1,5 +1,5 @@
 {
-  "cache_date": 1789904939,
+  "cache_date": 1789906670,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -5270,13 +5270,19 @@
     "solution/0100-0199/0126.Word Ladder II/README.md": {
       "authors": [
         {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789906074
     },
     "solution/1200-1299/1260.Shift 2D Grid/README.md": {
       "authors": [
@@ -72523,13 +72529,19 @@
     "solution/0100-0199/0126.Word Ladder II/README_EN.md": {
       "authors": [
         {
+          "login": "arifshaikh0462",
+          "name": "arifshaikh0462",
+          "url": "https://github.com/arifshaikh0462",
+          "avatar": "https://avatars.githubusercontent.com/u/115051265?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789906089
     },
     "solution/1200-1299/1260.Shift 2D Grid/README_EN.md": {
       "authors": [
