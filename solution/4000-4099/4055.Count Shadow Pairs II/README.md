@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 困难
+rating: 2630
+source: 第 519 场周赛 Q4
 ---
 
 <!-- problem:start -->

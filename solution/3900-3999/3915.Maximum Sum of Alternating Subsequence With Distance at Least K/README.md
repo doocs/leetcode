@@ -4,7 +4,7 @@ difficulty: 困难
 rating: 2288
 source: 第 499 场周赛 Q4
 tags:
-    - 树状数组
+    - 线段树
     - 数组
     - 动态规划
 ---

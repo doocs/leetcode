@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Hard
+rating: 2139
+source: Biweekly Contest 191 Q4
 ---
 
 <!-- problem:start -->
