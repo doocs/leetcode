@@ -110,13 +110,171 @@ tags:
 #### Python3
 
 ```python
+class Solution:
+    def lexPalindromicPermutation(self, s: str, target: str) -> str:
+        def build(left: str, middle: str, n: int) -> str:
+            right = left[::-1]
+            if n % 2:
+                return left + middle + right
+            return left + right
 
+        n = len(s)
+        freq = [0] * 26
+        for c in s:
+            freq[ord(c) - 97] += 1
+        odd = 0
+        middle = ""
+        for i, v in enumerate(freq):
+            if v % 2:
+                odd += 1
+                middle = chr(97 + i)
+        if odd > 1:
+            return ""
+
+        half = [v // 2 for v in freq]
+        half_len = n // 2
+        target_half = target[:half_len]
+        remaining = half[:]
+        prefix = []
+        matched = 0
+        for i in range(half_len):
+            x = ord(target_half[i]) - 97
+            if remaining[x] == 0:
+                break
+            prefix.append(target_half[i])
+            remaining[x] -= 1
+            matched += 1
+
+        if matched == half_len:
+            cand = build("".join(prefix), middle, n)
+            if cand > target:
+                return cand
+
+        last = half_len - 1 if matched == half_len else matched
+        for pos in range(last, -1, -1):
+            rem = half[:]
+            valid = True
+            for i in range(pos):
+                x = ord(target_half[i]) - 97
+                if rem[x] == 0:
+                    valid = False
+                    break
+                rem[x] -= 1
+            if not valid:
+                continue
+            target_char = ord(target_half[pos]) - 97
+            for c in range(target_char + 1, 26):
+                if rem[c] == 0:
+                    continue
+                left = target_half[:pos] + chr(97 + c)
+                rem[c] -= 1
+                for x in range(26):
+                    left += chr(97 + x) * rem[x]
+                    rem[x] = 0
+                cand = build(left, middle, n)
+                if cand > target:
+                    return cand
+                rem = half[:]
+                for i in range(pos):
+                    rem[ord(target_half[i]) - 97] -= 1
+        return ""
 ```
 
 #### Java
 
 ```java
+class Solution {
+    public String lexPalindromicPermutation(String s, String target) {
+        int n = s.length();
+        int[] freq = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++freq[s.charAt(i) - 'a'];
+        }
+        int odd = 0;
+        char middle = 0;
+        for (int i = 0; i < 26; ++i) {
+            if (freq[i] % 2 == 1) {
+                ++odd;
+                middle = (char) ('a' + i);
+            }
+        }
+        if (odd > 1) {
+            return "";
+        }
+        int[] half = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            half[i] = freq[i] / 2;
+        }
+        int halfLen = n / 2;
+        String targetHalf = target.substring(0, halfLen);
+        int[] remaining = half.clone();
+        StringBuilder prefix = new StringBuilder();
+        int matched = 0;
+        for (int i = 0; i < halfLen; ++i) {
+            int x = targetHalf.charAt(i) - 'a';
+            if (remaining[x] == 0) {
+                break;
+            }
+            prefix.append(targetHalf.charAt(i));
+            --remaining[x];
+            ++matched;
+        }
+        if (matched == halfLen) {
+            String cand = build(prefix.toString(), middle, n);
+            if (cand.compareTo(target) > 0) {
+                return cand;
+            }
+        }
+        int last = matched == halfLen ? halfLen - 1 : matched;
+        for (int pos = last; pos >= 0; --pos) {
+            int[] rem = half.clone();
+            boolean valid = true;
+            for (int i = 0; i < pos; ++i) {
+                int x = targetHalf.charAt(i) - 'a';
+                if (rem[x] == 0) {
+                    valid = false;
+                    break;
+                }
+                --rem[x];
+            }
+            if (!valid) {
+                continue;
+            }
+            int targetChar = targetHalf.charAt(pos) - 'a';
+            for (int c = targetChar + 1; c < 26; ++c) {
+                if (rem[c] == 0) {
+                    continue;
+                }
+                StringBuilder left = new StringBuilder(targetHalf.substring(0, pos));
+                left.append((char) ('a' + c));
+                --rem[c];
+                for (int x = 0; x < 26; ++x) {
+                    while (rem[x] > 0) {
+                        left.append((char) ('a' + x));
+                        --rem[x];
+                    }
+                }
+                String cand = build(left.toString(), middle, n);
+                if (cand.compareTo(target) > 0) {
+                    return cand;
+                }
+                rem = half.clone();
+                for (int i = 0; i < pos; ++i) {
+                    --rem[targetHalf.charAt(i) - 'a'];
+                }
+            }
+        }
+        return "";
+    }
 
+    private String build(String left, char middle, int n) {
+        String right = new StringBuilder(left).reverse().toString();
+        if (n % 2 == 1) {
+            return left + middle + right;
+        }
+        return left + right;
+    }
+}
 ```
 
 #### C++
@@ -228,7 +386,100 @@ public:
 #### Go
 
 ```go
+func lexPalindromicPermutation(s string, target string) string {
+	build := func(left string, middle byte, n int) string {
+		b := []byte(left)
+		for i, j := 0, len(b)-1; i < j; i, j = i+1, j-1 {
+			b[i], b[j] = b[j], b[i]
+		}
+		right := string(b)
+		if n%2 == 1 {
+			return left + string(middle) + right
+		}
+		return left + right
+	}
 
+	n := len(s)
+	freq := make([]int, 26)
+	for i := 0; i < n; i++ {
+		freq[s[i]-'a']++
+	}
+	odd := 0
+	var middle byte
+	for i, v := range freq {
+		if v%2 == 1 {
+			odd++
+			middle = byte('a' + i)
+		}
+	}
+	if odd > 1 {
+		return ""
+	}
+	half := make([]int, 26)
+	for i, v := range freq {
+		half[i] = v / 2
+	}
+	halfLen := n / 2
+	targetHalf := target[:halfLen]
+	remaining := append([]int(nil), half...)
+	matched := 0
+	for i := 0; i < halfLen; i++ {
+		x := int(targetHalf[i] - 'a')
+		if remaining[x] == 0 {
+			break
+		}
+		remaining[x]--
+		matched++
+	}
+	if matched == halfLen {
+		cand := build(targetHalf, middle, n)
+		if cand > target {
+			return cand
+		}
+	}
+	last := matched
+	if matched == halfLen {
+		last = halfLen - 1
+	}
+	for pos := last; pos >= 0; pos-- {
+		rem := append([]int(nil), half...)
+		valid := true
+		for i := 0; i < pos; i++ {
+			x := int(targetHalf[i] - 'a')
+			if rem[x] == 0 {
+				valid = false
+				break
+			}
+			rem[x]--
+		}
+		if !valid {
+			continue
+		}
+		targetChar := int(targetHalf[pos] - 'a')
+		for c := targetChar + 1; c < 26; c++ {
+			if rem[c] == 0 {
+				continue
+			}
+			left := targetHalf[:pos] + string(byte('a'+c))
+			rem[c]--
+			for x := 0; x < 26; x++ {
+				for rem[x] > 0 {
+					left += string(byte('a' + x))
+					rem[x]--
+				}
+			}
+			cand := build(left, middle, n)
+			if cand > target {
+				return cand
+			}
+			rem = append([]int(nil), half...)
+			for i := 0; i < pos; i++ {
+				rem[targetHalf[i]-'a']--
+			}
+		}
+	}
+	return ""
+}
 ```
 
 #### Rust

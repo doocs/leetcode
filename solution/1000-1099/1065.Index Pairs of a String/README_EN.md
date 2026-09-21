@@ -87,6 +87,124 @@ class Solution:
 #### Java
 
 ```java
+class Solution {
+    public int[][] indexPairs(String text, String[] words) {
+        Set<String> s = new HashSet<>(Arrays.asList(words));
+        int n = text.length();
+        List<int[]> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i; j < n; ++j) {
+                if (s.contains(text.substring(i, j + 1))) {
+                    ans.add(new int[] {i, j});
+                }
+            }
+        }
+        return ans.toArray(new int[ans.size()][2]);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> indexPairs(string text, vector<string>& words) {
+        unordered_set<string> s(words.begin(), words.end());
+        int n = text.size();
+        vector<vector<int>> ans;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i; j < n; ++j) {
+                if (s.count(text.substr(i, j - i + 1))) {
+                    ans.push_back({i, j});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func indexPairs(text string, words []string) (ans [][]int) {
+	s := map[string]bool{}
+	for _, w := range words {
+		s[w] = true
+	}
+	n := len(text)
+	for i := 0; i < n; i++ {
+		for j := i; j < n; j++ {
+			if s[text[i:j+1]] {
+				ans = append(ans, []int{i, j})
+			}
+		}
+	}
+	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 2
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Trying every slice wastes failed lookups on long text. Shared prefixes let us walk a trie from each start and stop at the first mismatch.
+>
+> Insert the words, then from each $i$ extend the node to the right and record $[i,j]$ at end marks.
+
+<!-- thinking:end -->
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Trie:
+    def __init__(self):
+        self.children = [None] * 26
+        self.is_end = False
+
+    def insert(self, word):
+        node = self
+        for c in word:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
+        node.is_end = True
+
+
+class Solution:
+    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
+        trie = Trie()
+        for w in words:
+            trie.insert(w)
+        n = len(text)
+        ans = []
+        for i in range(n):
+            node = trie
+            for j in range(i, n):
+                idx = ord(text[j]) - ord('a')
+                if node.children[idx] is None:
+                    break
+                node = node.children[idx]
+                if node.is_end:
+                    ans.append([i, j])
+        return ans
+```
+
+#### Java
+
+```java
 class Trie {
     Trie[] children = new Trie[26];
     boolean isEnd = false;
@@ -220,63 +338,6 @@ func indexPairs(text string, words []string) [][]int {
 	}
 	return ans
 }
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-### Solution 2
-
-<!-- thinking:start -->
-
-> **Thinking**
->
-> Trying every slice wastes failed lookups on long text. Shared prefixes let us walk a trie from each start and stop at the first mismatch.
->
-> Insert the words, then from each $i$ extend the node to the right and record $[i,j]$ at end marks.
-
-<!-- thinking:end -->
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Trie:
-    def __init__(self):
-        self.children = [None] * 26
-        self.is_end = False
-
-    def insert(self, word):
-        node = self
-        for c in word:
-            idx = ord(c) - ord('a')
-            if node.children[idx] is None:
-                node.children[idx] = Trie()
-            node = node.children[idx]
-        node.is_end = True
-
-
-class Solution:
-    def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
-        trie = Trie()
-        for w in words:
-            trie.insert(w)
-        n = len(text)
-        ans = []
-        for i in range(n):
-            node = trie
-            for j in range(i, n):
-                idx = ord(text[j]) - ord('a')
-                if node.children[idx] is None:
-                    break
-                node = node.children[idx]
-                if node.is_end:
-                    ans.append([i, j])
-        return ans
 ```
 
 <!-- tabs:end -->

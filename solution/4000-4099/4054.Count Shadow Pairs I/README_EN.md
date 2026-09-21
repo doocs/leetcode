@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1820
+source: Weekly Contest 519 Q3
 ---
 
 <!-- problem:start -->

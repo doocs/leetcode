@@ -121,50 +121,14 @@ class Solution {
 
 ```cpp
 class Solution {
-private:
-    vector<int> Next(string str) {
-        vector<int> n(str.length());
-        n[0] = -1;
-        int i = 0, pre = -1;
-        int len = str.length();
-        while (i < len) {
-            while (pre >= 0 && str[i] != str[pre])
-                pre = n[pre];
-            ++i, ++pre;
-            if (i >= len)
-                break;
-            if (str[i] == str[pre])
-                n[i] = n[pre];
-            else
-                n[i] = pre;
-        }
-        return n;
-    }
-
 public:
     int strStr(string haystack, string needle) {
-        if (0 == needle.length())
-            return 0;
-
-        vector<int> n(Next(needle));
-
-        int len = haystack.length() - needle.length() + 1;
-        for (int i = 0; i < len; ++i) {
-            int j = 0, k = i;
-            while (j < needle.length() && k < haystack.length()) {
-                if (haystack[k] != needle[j]) {
-                    if (n[j] >= 0) {
-                        j = n[j];
-                        continue;
-                    } else
-                        break;
-                }
-                ++k, ++j;
+        int n = haystack.size(), m = needle.size();
+        for (int i = 0; i + m <= n; ++i) {
+            if (haystack.substr(i, m) == needle) {
+                return i;
             }
-            if (j >= needle.length())
-                return k - j;
         }
-
         return -1;
     }
 };
@@ -211,31 +175,14 @@ function strStr(haystack: string, needle: string): number {
 ```rust
 impl Solution {
     pub fn str_str(haystack: String, needle: String) -> i32 {
-        let haystack = haystack.as_bytes();
-        let needle = needle.as_bytes();
-        let m = haystack.len();
-        let n = needle.len();
-        let mut next = vec![0; n];
-        let mut j = 0;
-        for i in 1..n {
-            while j > 0 && needle[i] != needle[j] {
-                j = next[j - 1];
-            }
-            if needle[i] == needle[j] {
-                j += 1;
-            }
-            next[i] = j;
+        let n = haystack.len();
+        let m = needle.len();
+        if m > n {
+            return -1;
         }
-        j = 0;
-        for i in 0..m {
-            while j > 0 && haystack[i] != needle[j] {
-                j = next[j - 1];
-            }
-            if haystack[i] == needle[j] {
-                j += 1;
-            }
-            if j == n {
-                return (i - n + 1) as i32;
+        for i in 0..=n - m {
+            if &haystack[i..i + m] == needle {
+                return i as i32;
             }
         }
         -1
@@ -338,6 +285,94 @@ class Solution {
 
 <!-- tabs:start -->
 
+#### Python3
+
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        mod = (1 << 31) - 1
+        target = sha = 0
+        multi = 1
+        for i in range(m):
+            target = (target * 256 + ord(needle[i])) % mod
+        for _ in range(1, m):
+            multi = multi * 256 % mod
+        left = 0
+        for right in range(n):
+            sha = (sha * 256 + ord(haystack[right])) % mod
+            if right - left + 1 < m:
+                continue
+            if sha == target and haystack[left : right + 1] == needle:
+                return left
+            sha = (sha - ord(haystack[left]) * multi % mod + mod) % mod
+            left += 1
+        return -1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int n = haystack.length(), m = needle.length();
+        final int mod = (1 << 31) - 1;
+        long target = 0, sha = 0, multi = 1;
+        for (int i = 0; i < m; ++i) {
+            target = (target * 256 + needle.charAt(i)) % mod;
+        }
+        for (int i = 1; i < m; ++i) {
+            multi = multi * 256 % mod;
+        }
+        int left = 0;
+        for (int right = 0; right < n; ++right) {
+            sha = (sha * 256 + haystack.charAt(right)) % mod;
+            if (right - left + 1 < m) {
+                continue;
+            }
+            if (sha == target && haystack.substring(left, right + 1).equals(needle)) {
+                return left;
+            }
+            sha = (sha - haystack.charAt(left) * multi % mod + mod) % mod;
+            ++left;
+        }
+        return -1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n = haystack.size(), m = needle.size();
+        const int mod = (1 << 31) - 1;
+        long long target = 0, sha = 0, multi = 1;
+        for (int i = 0; i < m; ++i) {
+            target = (target * 256 + needle[i]) % mod;
+        }
+        for (int i = 1; i < m; ++i) {
+            multi = multi * 256 % mod;
+        }
+        int left = 0;
+        for (int right = 0; right < n; ++right) {
+            sha = (sha * 256 + haystack[right]) % mod;
+            if (right - left + 1 < m) {
+                continue;
+            }
+            if (sha == target && haystack.substr(left, m) == needle) {
+                return left;
+            }
+            sha = (sha - haystack[left] * multi % mod + mod) % mod;
+            ++left;
+        }
+        return -1;
+    }
+};
+```
+
 #### Go
 
 ```go
@@ -374,32 +409,245 @@ func strStr(haystack string, needle string) int {
 
 ```ts
 function strStr(haystack: string, needle: string): number {
-    const m = haystack.length;
-    const n = needle.length;
-    const next = new Array(n).fill(0);
-    let j = 0;
-    for (let i = 1; i < n; i++) {
+    const n = haystack.length;
+    const m = needle.length;
+    const mod = 2 ** 31 - 1;
+    let target = 0;
+    let sha = 0;
+    let multi = 1;
+    for (let i = 0; i < m; ++i) {
+        target = (target * 256 + needle.charCodeAt(i)) % mod;
+    }
+    for (let i = 1; i < m; ++i) {
+        multi = (multi * 256) % mod;
+    }
+    let left = 0;
+    for (let right = 0; right < n; ++right) {
+        sha = (sha * 256 + haystack.charCodeAt(right)) % mod;
+        if (right - left + 1 < m) {
+            continue;
+        }
+        if (sha === target && haystack.slice(left, right + 1) === needle) {
+            return left;
+        }
+        sha = (sha - ((haystack.charCodeAt(left) * multi) % mod) + mod) % mod;
+        ++left;
+    }
+    return -1;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：KMP 算法
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法二把窗口比较降到期望 $O(1)$，但仍依赖取模哈希，冲突时还要核对原串。我们希望最坏情况也是线性，且不引入哈希。
+>
+> 失配后不必把 $\textit{haystack}$ 的指针退回起点。$\textit{needle}$ 的前缀函数给出“当前已匹配前缀的最长真后缀”，从而知道下一次该从模式串的哪一位继续。
+>
+> 先对 $\textit{needle}$ 求 $\textit{next}$，再单次扫描 $\textit{haystack}$，失配只沿 $\textit{next}$ 回退。时间 $O(n+m)$，额外空间 $O(m)$。
+
+<!-- thinking:end -->
+
+先对模式串 $\textit{needle}$ 求前缀函数 $\textit{next}$，其中 $\textit{next}[i]$ 表示 $\textit{needle}[0..i]$ 的最长真前后缀长度。随后在 $\textit{haystack}$ 上扫描：字符相等则匹配长度加一，失配则令匹配长度跳到 $\textit{next}[j-1]$。当匹配长度达到 $m$ 时，返回起始下标 $i-m+1$。
+
+时间复杂度 $O(n+m)$，空间复杂度 $O(m)$。其中 $n$ 和 $m$ 分别为 $\textit{haystack}$ 与 $\textit{needle}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, m = len(haystack), len(needle)
+        nxt = [0] * m
+        j = 0
+        for i in range(1, m):
+            while j and needle[i] != needle[j]:
+                j = nxt[j - 1]
+            if needle[i] == needle[j]:
+                j += 1
+            nxt[i] = j
+        j = 0
+        for i, ch in enumerate(haystack):
+            while j and ch != needle[j]:
+                j = nxt[j - 1]
+            if ch == needle[j]:
+                j += 1
+            if j == m:
+                return i - m + 1
+        return -1
+```
+
+#### Java
+
+```java
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int n = haystack.length(), m = needle.length();
+        int[] nxt = new int[m];
+        for (int i = 1, j = 0; i < m; ++i) {
+            while (j > 0 && needle.charAt(i) != needle.charAt(j)) {
+                j = nxt[j - 1];
+            }
+            if (needle.charAt(i) == needle.charAt(j)) {
+                ++j;
+            }
+            nxt[i] = j;
+        }
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (j > 0 && haystack.charAt(i) != needle.charAt(j)) {
+                j = nxt[j - 1];
+            }
+            if (haystack.charAt(i) == needle.charAt(j)) {
+                ++j;
+            }
+            if (j == m) {
+                return i - m + 1;
+            }
+        }
+        return -1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        int n = haystack.size(), m = needle.size();
+        vector<int> nxt(m);
+        for (int i = 1, j = 0; i < m; ++i) {
+            while (j > 0 && needle[i] != needle[j]) {
+                j = nxt[j - 1];
+            }
+            if (needle[i] == needle[j]) {
+                ++j;
+            }
+            nxt[i] = j;
+        }
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (j > 0 && haystack[i] != needle[j]) {
+                j = nxt[j - 1];
+            }
+            if (haystack[i] == needle[j]) {
+                ++j;
+            }
+            if (j == m) {
+                return i - m + 1;
+            }
+        }
+        return -1;
+    }
+};
+```
+
+#### Go
+
+```go
+func strStr(haystack string, needle string) int {
+	n, m := len(haystack), len(needle)
+	nxt := make([]int, m)
+	for i, j := 1, 0; i < m; i++ {
+		for j > 0 && needle[i] != needle[j] {
+			j = nxt[j-1]
+		}
+		if needle[i] == needle[j] {
+			j++
+		}
+		nxt[i] = j
+	}
+	for i, j := 0, 0; i < n; i++ {
+		for j > 0 && haystack[i] != needle[j] {
+			j = nxt[j-1]
+		}
+		if haystack[i] == needle[j] {
+			j++
+		}
+		if j == m {
+			return i - m + 1
+		}
+	}
+	return -1
+}
+```
+
+#### TypeScript
+
+```ts
+function strStr(haystack: string, needle: string): number {
+    const n = haystack.length;
+    const m = needle.length;
+    const nxt = Array(m).fill(0);
+    for (let i = 1, j = 0; i < m; ++i) {
         while (j > 0 && needle[i] !== needle[j]) {
-            j = next[j - 1];
+            j = nxt[j - 1];
         }
         if (needle[i] === needle[j]) {
-            j++;
+            ++j;
         }
-        next[i] = j;
+        nxt[i] = j;
     }
-    j = 0;
-    for (let i = 0; i < m; i++) {
+    for (let i = 0, j = 0; i < n; ++i) {
         while (j > 0 && haystack[i] !== needle[j]) {
-            j = next[j - 1];
+            j = nxt[j - 1];
         }
         if (haystack[i] === needle[j]) {
-            j++;
+            ++j;
         }
-        if (j === n) {
-            return i - n + 1;
+        if (j === m) {
+            return i - m + 1;
         }
     }
     return -1;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn str_str(haystack: String, needle: String) -> i32 {
+        let haystack = haystack.as_bytes();
+        let needle = needle.as_bytes();
+        let n = haystack.len();
+        let m = needle.len();
+        let mut nxt = vec![0; m];
+        let mut j = 0;
+        for i in 1..m {
+            while j > 0 && needle[i] != needle[j] {
+                j = nxt[j - 1];
+            }
+            if needle[i] == needle[j] {
+                j += 1;
+            }
+            nxt[i] = j;
+        }
+        j = 0;
+        for i in 0..n {
+            while j > 0 && haystack[i] != needle[j] {
+                j = nxt[j - 1];
+            }
+            if haystack[i] == needle[j] {
+                j += 1;
+            }
+            if j == m {
+                return (i - m + 1) as i32;
+            }
+        }
+        -1
+    }
 }
 ```
 

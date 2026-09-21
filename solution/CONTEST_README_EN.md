@@ -38,6 +38,13 @@ If you want to estimate your score changes after the contest ends, you can visit
 
 ## Past Contests
 
+#### Weekly Contest 520
+
+- [4056. Number of Intersecting Interval Pairs I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README_EN.md)
+- [4057. Number of Intersecting Interval Pairs II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README_EN.md)
+- [4058. Maximum Pulse Value After One Subarray Rotation](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README_EN.md)
+- [4059. Lexicographically Largest Power Array](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README_EN.md)
+
 #### Weekly Contest 519
 
 - [4052. Cyclically Shift Rows and Columns](/solution/4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README_EN.md)

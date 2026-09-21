@@ -83,34 +83,110 @@ s<sub>9</sub> == "azbazbzaz" ，最长公共前缀为 "azbazbzaz" ，得分为 9
 >
 > 每个前缀添加过程得到的 $s_i$ 其实是 $s$ 的长度为 $i$ 的后缀，其得分是该后缀与 $s$ 本身的最长公共前缀。对每个后缀暴力比较是 $O(n^2)$，$n \le 10^5$ 不可接受。
 >
-> 这些 LCP 正是 Z 函数：$z[i]$ 表示 $s[i:]$ 与 $s$ 的最长公共前缀，再补上 $z[0]=n$。线性求出 Z 数组后求和即可。若用字符串哈希，也可对每个起点二分 LCP，时间 $O(n\log n)$。题面未附实现代码，按 Z 函数或哈希二分均可在约束内完成。
+> 这些 LCP 正是 Z 函数：$z[i]$ 表示 $s[i:]$ 与 $s$ 的最长公共前缀，再补上 $z[0]=n$。线性求出 Z 数组后求和即可。若用字符串哈希，也可对每个起点二分 LCP，时间 $O(n\log n)$。
 
 <!-- thinking:end -->
+
+对字符串 $s$ 求 Z 函数，$z[i]$ 为 $s[i:]$ 与 $s$ 的最长公共前缀长度。长度为 $i$ 的后缀 $s_i$ 的得分即 $z[n-i]$，整串得分则为 $n$。因此将 Z 数组求和并加上 $n$ 即为答案。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为字符串 $s$ 的长度。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def sumScores(self, s: str) -> int:
+        n = len(s)
+        z = [0] * n
+        l = r = 0
+        for i in range(1, n):
+            if i <= r:
+                z[i] = min(r - i + 1, z[i - l])
+            while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+                z[i] += 1
+            if i + z[i] - 1 > r:
+                l, r = i, i + z[i] - 1
+        return n + sum(z)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long sumScores(String s) {
+        int n = s.length();
+        int[] z = new int[n];
+        for (int i = 1, l = 0, r = 0; i < n; ++i) {
+            if (i <= r) {
+                z[i] = Math.min(r - i + 1, z[i - l]);
+            }
+            while (i + z[i] < n && s.charAt(z[i]) == s.charAt(i + z[i])) {
+                ++z[i];
+            }
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+        }
+        long ans = n;
+        for (int x : z) {
+            ans += x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long sumScores(string s) {
+        int n = s.size();
+        vector<int> z(n);
+        for (int i = 1, l = 0, r = 0; i < n; ++i) {
+            if (i <= r) {
+                z[i] = min(r - i + 1, z[i - l]);
+            }
+            while (i + z[i] < n && s[z[i]] == s[i + z[i]]) {
+                ++z[i];
+            }
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+        }
+        return n + accumulate(z.begin(), z.end(), 0LL);
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func sumScores(s string) int64 {
+	n := len(s)
+	z := make([]int, n)
+	for i, l, r := 1, 0, 0; i < n; i++ {
+		if i <= r {
+			z[i] = min(r-i+1, z[i-l])
+		}
+		for i+z[i] < n && s[z[i]] == s[i+z[i]] {
+			z[i]++
+		}
+		if i+z[i]-1 > r {
+			l, r = i, i+z[i]-1
+		}
+	}
+	ans := int64(n)
+	for _, x := range z {
+		ans += int64(x)
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->

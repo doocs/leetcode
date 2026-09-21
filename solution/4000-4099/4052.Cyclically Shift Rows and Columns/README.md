@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: 简单
+rating: 1246
+source: 第 519 场周赛 Q1
 ---
 
 <!-- problem:start -->

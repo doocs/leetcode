@@ -221,44 +221,6 @@ var countOperations = function (num1, num2) {
 
 <!-- solution:start -->
 
-### Solution 2
-
-<!-- thinking:start -->
-
-> **Thinking**
->
-> Solution 1 subtracts many times when one number dwarfs the other. Replacing repeated subtraction by division adds the quotient at once and continues with the remainder.
->
-> The number of iterations becomes $O(\log m)$, as in the Euclidean algorithm.
->
-> The English write-up repeats this formulation under two headings; both match the modulo implementation.
-
-<!-- thinking:end -->
-
-<!-- tabs:start -->
-
-#### Python3
-
-```python
-class Solution:
-    def countOperations(self, num1: int, num2: int) -> int:
-        ans = 0
-        while num1 and num2:
-            if num1 >= num2:
-                ans += num1 // num2
-                num1 %= num2
-            else:
-                ans += num2 // num1
-                num2 %= num1
-        return ans
-```
-
-<!-- tabs:end -->
-
-<!-- solution:end -->
-
-<!-- solution:start -->
-
 ### Solution 2: Mathematics
 
 <!-- thinking:start -->
@@ -268,8 +230,6 @@ class Solution:
 > Solution 1 subtracts many times when one number dwarfs the other. Replacing repeated subtraction by division adds the quotient at once and continues with the remainder.
 >
 > The number of iterations becomes $O(\log m)$, as in the Euclidean algorithm.
->
-> This heading is the named write-up of the same modulo loop.
 
 <!-- thinking:end -->
 

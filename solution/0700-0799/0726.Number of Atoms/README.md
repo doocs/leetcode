@@ -94,7 +94,7 @@ tags:
 >
 > 括号的倍数作用在整个子式上，从右往左扫描时，先遇到的下标可以立刻乘进当前倍数：遇 `)` 把当前倍数压栈并乘上下标，遇 `(` 再弹出恢复。
 >
-> Java 实现按此逆向累加：数字拼成 $\textit{freq}$，元素名（含后续小写）计入 $\textit{freq}\times\textit{multiplier}$。最后对键排序，个数为 $1$ 时省略数字。
+> 按此逆向累加：数字拼成 $\textit{freq}$，元素名（含后续小写）计入 $\textit{freq}\times\textit{multiplier}$。最后对键排序，个数为 $1$ 时省略数字。
 
 <!-- thinking:end -->
 
@@ -103,7 +103,44 @@ tags:
 #### Python3
 
 ```python
-
+class Solution:
+    def countOfAtoms(self, formula: str) -> str:
+        cnt = defaultdict(int)
+        stack = []
+        multiplier, freq = 1, 0
+        i = len(formula) - 1
+        while i >= 0:
+            c = formula[i]
+            if c.islower():
+                end = i
+                i -= 1
+                while i >= 0 and formula[i].islower():
+                    i -= 1
+                cnt[formula[i : end + 1]] += max(freq, 1) * multiplier
+                freq = 0
+            elif c.isupper():
+                cnt[c] += max(freq, 1) * multiplier
+                freq = 0
+            elif c.isdigit():
+                freq = ord(c) - 48
+                p = 10
+                while i - 1 >= 0 and formula[i - 1].isdigit():
+                    i -= 1
+                    freq += p * (ord(formula[i]) - 48)
+                    p *= 10
+            elif c == ')':
+                stack.append(multiplier)
+                multiplier *= max(freq, 1)
+                freq = 0
+            else:
+                multiplier = stack.pop()
+            i -= 1
+        ans = []
+        for key in sorted(cnt):
+            ans.append(key)
+            if cnt[key] > 1:
+                ans.append(str(cnt[key]))
+        return ''.join(ans)
 ```
 
 #### Java
@@ -157,81 +194,155 @@ class Solution {
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    string countOfAtoms(string formula) {
+        unordered_map<string, int> cnt;
+        vector<int> stk;
+        int multiplier = 1, freq = 0;
+        for (int i = formula.size() - 1; i >= 0; --i) {
+            if (formula[i] >= 'a' && formula[i] <= 'z') {
+                int end = i--;
+                while (i >= 0 && formula[i] >= 'a' && formula[i] <= 'z') {
+                    --i;
+                }
+                cnt[formula.substr(i, end - i + 1)] += max(freq, 1) * multiplier;
+                freq = 0;
+            } else if (formula[i] >= 'A' && formula[i] <= 'Z') {
+                cnt[string(1, formula[i])] += max(freq, 1) * multiplier;
+                freq = 0;
+            } else if (formula[i] >= '0' && formula[i] <= '9') {
+                freq = formula[i] - '0';
+                int p = 10;
+                while (i - 1 >= 0 && formula[i - 1] >= '0' && formula[i - 1] <= '9') {
+                    freq += p * (formula[--i] - '0');
+                    p *= 10;
+                }
+            } else if (formula[i] == ')') {
+                stk.push_back(multiplier);
+                multiplier *= max(freq, 1);
+                freq = 0;
+            } else {
+                multiplier = stk.back();
+                stk.pop_back();
+            }
+        }
+        vector<string> keys;
+        for (auto& [k, _] : cnt) {
+            keys.push_back(k);
+        }
+        sort(keys.begin(), keys.end());
+        string ans;
+        for (auto& key : keys) {
+            ans += key;
+            if (cnt[key] > 1) {
+                ans += to_string(cnt[key]);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func countOfAtoms(formula string) string {
+	cnt := map[string]int{}
+	var stack []int
+	multiplier, freq := 1, 0
+	for i := len(formula) - 1; i >= 0; i-- {
+		c := formula[i]
+		if c >= 'a' && c <= 'z' {
+			end := i
+			i--
+			for i >= 0 && formula[i] >= 'a' && formula[i] <= 'z' {
+				i--
+			}
+			cnt[formula[i:end+1]] += max(freq, 1) * multiplier
+			freq = 0
+		} else if c >= 'A' && c <= 'Z' {
+			cnt[formula[i:i+1]] += max(freq, 1) * multiplier
+			freq = 0
+		} else if c >= '0' && c <= '9' {
+			freq = int(c - '0')
+			p := 10
+			for i-1 >= 0 && formula[i-1] >= '0' && formula[i-1] <= '9' {
+				i--
+				freq += p * int(formula[i]-'0')
+				p *= 10
+			}
+		} else if c == ')' {
+			stack = append(stack, multiplier)
+			multiplier *= max(freq, 1)
+			freq = 0
+		} else {
+			multiplier = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+		}
+	}
+	keys := make([]string, 0, len(cnt))
+	for k := range cnt {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	ans := []byte{}
+	for _, key := range keys {
+		ans = append(ans, key...)
+		if cnt[key] > 1 {
+			ans = append(ans, strconv.Itoa(cnt[key])...)
+		}
+	}
+	return string(ans)
+}
 ```
 
 #### TypeScript
 
 ```ts
 function countOfAtoms(formula: string): string {
-    const getCount = (formula: string, factor = 1) => {
-        const n = formula.length;
-        const cnt: Record<string, number> = {};
-        const s: string[] = [];
-        let [atom, c] = ['', 0];
-
-        for (let i = 0; i <= n; i++) {
-            if (formula[i] === '(') {
-                const stk: string[] = ['('];
-                let j = i;
-                while (stk.length) {
-                    j++;
-                    if (formula[j] === '(') stk.push('(');
-                    else if (formula[j] === ')') stk.pop();
-                }
-
-                const molecule = formula.slice(i + 1, j);
-                const nextFactor: string[] = [];
-
-                while (isDigit(formula[++j])) {
-                    nextFactor.push(formula[j]);
-                }
-
-                const nextC = getCount(molecule, +nextFactor.join('') || 1);
-                for (const [atom, c] of Object.entries(nextC)) {
-                    cnt[atom] = (cnt[atom] ?? 0) + c * factor;
-                }
-
-                i = j - 1;
-                continue;
+    const cnt = new Map<string, number>();
+    const stack: number[] = [];
+    let multiplier = 1;
+    let freq = 0;
+    for (let i = formula.length - 1; i >= 0; --i) {
+        const ch = formula.charCodeAt(i);
+        if (ch >= 97 && ch <= 122) {
+            const end = i--;
+            while (i >= 0 && formula.charCodeAt(i) >= 97 && formula.charCodeAt(i) <= 122) {
+                --i;
             }
-
-            if (s.length && (!formula[i] || isUpper(formula[i]))) {
-                [atom, c] = getAtom(s);
-
-                c *= factor;
-                cnt[atom] = (cnt[atom] ?? 0) + c;
-                s.length = 0;
+            const key = formula.slice(i, end + 1);
+            cnt.set(key, (cnt.get(key) ?? 0) + Math.max(freq, 1) * multiplier);
+            freq = 0;
+        } else if (ch >= 65 && ch <= 90) {
+            const key = formula[i];
+            cnt.set(key, (cnt.get(key) ?? 0) + Math.max(freq, 1) * multiplier);
+            freq = 0;
+        } else if (ch >= 48 && ch <= 57) {
+            freq = ch - 48;
+            let p = 10;
+            while (
+                i - 1 >= 0 &&
+                formula.charCodeAt(i - 1) >= 48 &&
+                formula.charCodeAt(i - 1) <= 57
+            ) {
+                freq += p * (formula.charCodeAt(--i) - 48);
+                p *= 10;
             }
-
-            s.push(formula[i]);
+        } else if (formula[i] === ')') {
+            stack.push(multiplier);
+            multiplier *= Math.max(freq, 1);
+            freq = 0;
+        } else {
+            multiplier = stack.pop()!;
         }
-
-        return cnt;
-    };
-
-    return Object.entries(getCount(formula))
+    }
+    return [...cnt.entries()]
         .sort(([a], [b]) => a.localeCompare(b))
-        .map(([a, b]) => (b > 1 ? a + b : a))
+        .map(([k, v]) => (v > 1 ? k + v : k))
         .join('');
 }
-
-const regex = {
-    atom: /(\D+)(\d+)?/,
-    isUpper: /[A-Z]+/,
-};
-const getAtom = (s: string[]): [string, number] => {
-    const [_, atom, c] = regex.atom.exec(s.join(''))!;
-    return [atom, c ? +c : 1];
-};
-const isDigit = (ch: string) => !Number.isNaN(Number.parseInt(ch));
-const isUpper = (ch: string) => regex.isUpper.test(ch);
 ```
 
 #### JavaScript
@@ -242,68 +353,48 @@ const isUpper = (ch: string) => regex.isUpper.test(ch);
  * @return {string}
  */
 var countOfAtoms = function (formula) {
-    const getCount = (formula, factor = 1) => {
-        const n = formula.length;
-        const cnt = {};
-        const s = [];
-        let [atom, c] = ['', 0];
-
-        for (let i = 0; i <= n; i++) {
-            if (formula[i] === '(') {
-                const stk = ['('];
-                let j = i;
-                while (stk.length) {
-                    j++;
-                    if (formula[j] === '(') stk.push('(');
-                    else if (formula[j] === ')') stk.pop();
-                }
-
-                const molecule = formula.slice(i + 1, j);
-                const nextFactor = [];
-
-                while (isDigit(formula[++j])) {
-                    nextFactor.push(formula[j]);
-                }
-
-                const nextC = getCount(molecule, +nextFactor.join('') || 1);
-                for (const [atom, c] of Object.entries(nextC)) {
-                    cnt[atom] = (cnt[atom] ?? 0) + c * factor;
-                }
-
-                i = j - 1;
-                continue;
+    const cnt = new Map();
+    const stack = [];
+    let multiplier = 1;
+    let freq = 0;
+    for (let i = formula.length - 1; i >= 0; --i) {
+        const ch = formula.charCodeAt(i);
+        if (ch >= 97 && ch <= 122) {
+            const end = i--;
+            while (i >= 0 && formula.charCodeAt(i) >= 97 && formula.charCodeAt(i) <= 122) {
+                --i;
             }
-
-            if (s.length && (!formula[i] || isUpper(formula[i]))) {
-                [atom, c] = getAtom(s);
-
-                c *= factor;
-                cnt[atom] = (cnt[atom] ?? 0) + c;
-                s.length = 0;
+            const key = formula.slice(i, end + 1);
+            cnt.set(key, (cnt.get(key) ?? 0) + Math.max(freq, 1) * multiplier);
+            freq = 0;
+        } else if (ch >= 65 && ch <= 90) {
+            const key = formula[i];
+            cnt.set(key, (cnt.get(key) ?? 0) + Math.max(freq, 1) * multiplier);
+            freq = 0;
+        } else if (ch >= 48 && ch <= 57) {
+            freq = ch - 48;
+            let p = 10;
+            while (
+                i - 1 >= 0 &&
+                formula.charCodeAt(i - 1) >= 48 &&
+                formula.charCodeAt(i - 1) <= 57
+            ) {
+                freq += p * (formula.charCodeAt(--i) - 48);
+                p *= 10;
             }
-
-            s.push(formula[i]);
+        } else if (formula[i] === ')') {
+            stack.push(multiplier);
+            multiplier *= Math.max(freq, 1);
+            freq = 0;
+        } else {
+            multiplier = stack.pop();
         }
-
-        return cnt;
-    };
-
-    return Object.entries(getCount(formula))
+    }
+    return [...cnt.entries()]
         .sort(([a], [b]) => a.localeCompare(b))
-        .map(([a, b]) => (b > 1 ? a + b : a))
+        .map(([k, v]) => (v > 1 ? k + v : k))
         .join('');
 };
-
-const regex = {
-    atom: /(\D+)(\d+)?/,
-    isUpper: /[A-Z]+/,
-};
-const getAtom = s => {
-    const [_, atom, c] = regex.atom.exec(s.join(''));
-    return [atom, c ? +c : 1];
-};
-const isDigit = ch => !Number.isNaN(Number.parseInt(ch));
-const isUpper = ch => regex.isUpper.test(ch);
 ```
 
 <!-- tabs:end -->

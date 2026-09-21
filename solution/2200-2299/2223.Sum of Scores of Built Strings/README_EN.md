@@ -83,34 +83,110 @@ The sum of the scores is 2 + 3 + 9 = 14, so we return 14.
 >
 > Each $s_i$ is the length-$i$ suffix of $s$, and its score is the LCP of that suffix with $s$ itself. Comparing every suffix naively is $O(n^2)$ and fails for $n \le 10^5$.
 >
-> Those LCPs are the Z-array: $z[i]$ is the LCP of $s[i:]$ with $s$, and $z[0]=n$. Summing the Z-array after a linear construction is enough. String hashing plus binary search on each start is an $O(n\log n)$ alternative. The tabs in this problem have no implementation; either approach fits the limits.
+> Those LCPs are the Z-array: $z[i]$ is the LCP of $s[i:]$ with $s$, and $z[0]=n$. Summing the Z-array after a linear construction is enough. String hashing plus binary search on each start is an $O(n\log n)$ alternative.
 
 <!-- thinking:end -->
+
+Compute the Z-array of $s$, where $z[i]$ is the LCP of $s[i:]$ with $s$. The score of the length-$i$ suffix $s_i$ is $z[n-i]$, and the whole string scores $n$. Summing the Z-array and adding $n$ is the answer.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def sumScores(self, s: str) -> int:
+        n = len(s)
+        z = [0] * n
+        l = r = 0
+        for i in range(1, n):
+            if i <= r:
+                z[i] = min(r - i + 1, z[i - l])
+            while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+                z[i] += 1
+            if i + z[i] - 1 > r:
+                l, r = i, i + z[i] - 1
+        return n + sum(z)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long sumScores(String s) {
+        int n = s.length();
+        int[] z = new int[n];
+        for (int i = 1, l = 0, r = 0; i < n; ++i) {
+            if (i <= r) {
+                z[i] = Math.min(r - i + 1, z[i - l]);
+            }
+            while (i + z[i] < n && s.charAt(z[i]) == s.charAt(i + z[i])) {
+                ++z[i];
+            }
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+        }
+        long ans = n;
+        for (int x : z) {
+            ans += x;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    long long sumScores(string s) {
+        int n = s.size();
+        vector<int> z(n);
+        for (int i = 1, l = 0, r = 0; i < n; ++i) {
+            if (i <= r) {
+                z[i] = min(r - i + 1, z[i - l]);
+            }
+            while (i + z[i] < n && s[z[i]] == s[i + z[i]]) {
+                ++z[i];
+            }
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+        }
+        return n + accumulate(z.begin(), z.end(), 0LL);
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func sumScores(s string) int64 {
+	n := len(s)
+	z := make([]int, n)
+	for i, l, r := 1, 0, 0; i < n; i++ {
+		if i <= r {
+			z[i] = min(r-i+1, z[i-l])
+		}
+		for i+z[i] < n && s[z[i]] == s[i+z[i]] {
+			z[i]++
+		}
+		if i+z[i]-1 > r {
+			l, r = i, i+z[i]-1
+		}
+	}
+	ans := int64(n)
+	for _, x := range z {
+		ans += int64(x)
+	}
+	return ans
+}
 ```
 
 <!-- tabs:end -->

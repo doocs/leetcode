@@ -1,43 +1,15 @@
-type Trie struct {
-	children [26]*Trie
-	isEnd    bool
-}
-
-func newTrie() *Trie {
-	return &Trie{}
-}
-
-func (this *Trie) insert(word string) {
-	node := this
-	for _, c := range word {
-		idx := int(c - 'a')
-		if node.children[idx] == nil {
-			node.children[idx] = newTrie()
-		}
-		node = node.children[idx]
-	}
-	node.isEnd = true
-}
-
-func indexPairs(text string, words []string) [][]int {
-	trie := newTrie()
+func indexPairs(text string, words []string) (ans [][]int) {
+	s := map[string]bool{}
 	for _, w := range words {
-		trie.insert(w)
+		s[w] = true
 	}
 	n := len(text)
-	var ans [][]int
-	for i := range text {
-		node := trie
+	for i := 0; i < n; i++ {
 		for j := i; j < n; j++ {
-			idx := int(text[j] - 'a')
-			if node.children[idx] == nil {
-				break
-			}
-			node = node.children[idx]
-			if node.isEnd {
+			if s[text[i:j+1]] {
 				ans = append(ans, []int{i, j})
 			}
 		}
 	}
-	return ans
+	return
 }
