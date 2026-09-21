@@ -124,7 +124,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：动态规划
 
 <!-- thinking:start -->
 
@@ -136,30 +136,119 @@ tags:
 
 <!-- thinking:end -->
 
+去掉任意不重叠前缀与后缀后，剩余部分是一段非空子数组。问题转化为：统计乘积模 $k$ 等于 $0, 1, \ldots, k-1$ 的子数组个数。
+
+设 $f[r]$ 表示当前枚举位置上，以该位置结尾、乘积模 $k$ 为 $r$ 的子数组个数。从左到右扫描 $x = \textit{nums}[i]$，用数组 $g$ 承接以 $i$ 结尾的新状态：将每个 $f[r]$ 转移到 $g[(r \times x) \bmod k]$，再把只含 $x$ 的子数组计入 $g[x \bmod k]$。把 $g$ 累加进答案后令 $f \leftarrow g$。
+
+时间复杂度 $O(n \times k)$，空间复杂度 $O(k)$。其中 $n$ 是数组 $\textit{nums}$ 的长度。
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def resultArray(self, nums: list[int], k: int) -> list[int]:
+        ans = [0] * k
+        f = [0] * k
+        for x in nums:
+            g = [0] * k
+            for r, cnt in enumerate(f):
+                g[r * x % k] += cnt
+            g[x % k] += 1
+            for r, cnt in enumerate(g):
+                ans[r] += cnt
+            f = g
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long[] resultArray(int[] nums, int k) {
+        long[] ans = new long[k];
+        long[] f = new long[k];
+        for (int x : nums) {
+            long[] g = new long[k];
+            for (int r = 0; r < k; ++r) {
+                g[(int) (1L * r * x % k)] += f[r];
+            }
+            g[x % k] += 1;
+            for (int r = 0; r < k; ++r) {
+                ans[r] += g[r];
+            }
+            f = g;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<long long> resultArray(vector<int>& nums, int k) {
+        vector<long long> ans(k);
+        vector<long long> f(k);
+        for (int x : nums) {
+            vector<long long> g(k);
+            for (int r = 0; r < k; ++r) {
+                g[1LL * r * x % k] += f[r];
+            }
+            g[x % k] += 1;
+            for (int r = 0; r < k; ++r) {
+                ans[r] += g[r];
+            }
+            f.swap(g);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func resultArray(nums []int, k int) []int64 {
+	ans := make([]int64, k)
+	f := make([]int64, k)
+	for _, x := range nums {
+		g := make([]int64, k)
+		for r, cnt := range f {
+			g[r*x%k] += cnt
+		}
+		g[x%k]++
+		for r, cnt := range g {
+			ans[r] += cnt
+		}
+		f = g
+	}
+	return ans
+}
+```
 
+#### TypeScript
+
+```ts
+function resultArray(nums: number[], k: number): number[] {
+    const ans = Array(k).fill(0);
+    let f = Array(k).fill(0);
+    for (const x of nums) {
+        const g = Array(k).fill(0);
+        for (let r = 0; r < k; ++r) {
+            g[(r * x) % k] += f[r];
+        }
+        g[x % k] += 1;
+        for (let r = 0; r < k; ++r) {
+            ans[r] += g[r];
+        }
+        f = g;
+    }
+    return ans;
+}
 ```
 
 <!-- tabs:end -->
