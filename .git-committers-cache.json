@@ -1,5 +1,5 @@
 {
-  "cache_date": 1789906670,
+  "cache_date": 1789991267,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -44748,13 +44748,19 @@
     "solution/3500-3599/3524.Find X Value of Array I/README.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193731
+      "retrieved": 1789990724
     },
     "solution/3500-3599/3525.Find X Value of Array II/README.md": {
       "authors": [
@@ -111941,13 +111947,19 @@
     "solution/3500-3599/3524.Find X Value of Array I/README_EN.md": {
       "authors": [
         {
+          "login": "mehdijony",
+          "name": "mehdijony",
+          "url": "https://github.com/mehdijony",
+          "avatar": "https://avatars.githubusercontent.com/u/219469962?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1789990722
     },
     "solution/3500-3599/3525.Find X Value of Array II/README_EN.md": {
       "authors": [
