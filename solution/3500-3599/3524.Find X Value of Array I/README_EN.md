@@ -119,7 +119,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Dynamic Programming
 
 <!-- thinking:start -->
 
@@ -131,65 +131,119 @@ tags:
 
 <!-- thinking:end -->
 
+After removing any non-overlapping prefix and suffix, the remainder is a non-empty subarray. The task is to count subarrays whose product modulo $k$ equals $0, 1, \ldots, k-1$.
+
+Let $f[r]$ be the number of subarrays ending at the current index whose product is $r$ modulo $k$. Scan $x = \textit{nums}[i]$ from left to right and use $g$ for the new ending-at-$i$ state: move each $f[r]$ to $g[(r \times x) \bmod k]$, then add the singleton subarray $[x]$ into $g[x \bmod k]$. Add $g$ into the answer and set $f \leftarrow g$.
+
+The time complexity is $O(n \times k)$ and the space complexity is $O(k)$, where $n$ is the length of $\textit{nums}$.
+
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def resultArray(self, nums: list[int], k: int) -> list[int]:
+        ans = [0] * k
+        f = [0] * k
+        for x in nums:
+            g = [0] * k
+            for r, cnt in enumerate(f):
+                g[r * x % k] += cnt
+            g[x % k] += 1
+            for r, cnt in enumerate(g):
+                ans[r] += cnt
+            f = g
+        return ans
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public long[] resultArray(int[] nums, int k) {
+        long[] ans = new long[k];
+        long[] f = new long[k];
+        for (int x : nums) {
+            long[] g = new long[k];
+            for (int r = 0; r < k; ++r) {
+                g[(int) (1L * r * x % k)] += f[r];
+            }
+            g[x % k] += 1;
+            for (int r = 0; r < k; ++r) {
+                ans[r] += g[r];
+            }
+            f = g;
+        }
+        return ans;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    vector<long long> resultArray(vector<int>& nums, int k) {
+        vector<long long> ans(k);
+        vector<long long> f(k);
+        for (int x : nums) {
+            vector<long long> g(k);
+            for (int r = 0; r < k; ++r) {
+                g[1LL * r * x % k] += f[r];
+            }
+            g[x % k] += 1;
+            for (int r = 0; r < k; ++r) {
+                ans[r] += g[r];
+            }
+            f.swap(g);
+        }
+        return ans;
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func resultArray(nums []int, k int) []int64 {
+	ans := make([]int64, k)
+	f := make([]int64, k)
+	for _, x := range nums {
+		g := make([]int64, k)
+		for r, cnt := range f {
+			g[r*x%k] += cnt
+		}
+		g[x%k]++
+		for r, cnt := range g {
+			ans[r] += cnt
+		}
+		f = g
+	}
+	return ans
+}
 ```
+
 #### TypeScript
 
 ```ts
 function resultArray(nums: number[], k: number): number[] {
-    const n = nums.length;
-    const result = new Array(k).fill(0);
-    
-    // f[r] = count of subarrays ending at previous position with product ≡ r (mod k)
-    let f = new Array(k).fill(0);
-    
-    for (let i = 0; i < n; i++) {
-        const m = nums[i] % k;
-        const newF = new Array(k).fill(0);
-        
-        // Extend all existing subarrays by multiplying with nums[i]
-        for (let r = 0; r < k; r++) {
-            const nr = (r * m) % k;
-            newF[nr] += f[r];
+    const ans = Array(k).fill(0);
+    let f = Array(k).fill(0);
+    for (const x of nums) {
+        const g = Array(k).fill(0);
+        for (let r = 0; r < k; ++r) {
+            g[(r * x) % k] += f[r];
         }
-        
-        // Start a new subarray containing just nums[i]
-        newF[m] += 1;
-        
-        // Add all subarrays ending at i to the result
-        for (let x = 0; x < k; x++) {
-            result[x] += newF[x];
+        g[x % k] += 1;
+        for (let r = 0; r < k; ++r) {
+            ans[r] += g[r];
         }
-        
-        f = newF;
+        f = g;
     }
-    
-    return result;
+    return ans;
 }
-
 ```
 
 <!-- tabs:end -->
