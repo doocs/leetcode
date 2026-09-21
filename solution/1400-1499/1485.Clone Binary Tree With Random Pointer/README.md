@@ -81,7 +81,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：哈希表 + DFS
 
 <!-- thinking:start -->
 
@@ -92,6 +92,19 @@ tags:
 > 用哈希表记下原节点到副本的映射：先建副本并写入表，再递归左、右、$\textit{random}$。已复制的节点直接返回映射，保证同一原节点只生成一份。
 
 <!-- thinking:end -->
+
+我们用哈希表 $\textit{seen}$ 记录原树中每个节点与其拷贝节点的对应关系，然后进行深度优先搜索。
+
+定义函数 $\text{dfs}(root)$，返回节点 $root$ 的拷贝。过程如下：
+
+- 若 $root$ 为空，返回空；
+- 若 $root$ 已在 $\textit{seen}$ 中，返回 $\textit{seen}[root]$；
+- 否则创建拷贝节点 $\textit{copy}$，令 $\textit{seen}[root] = \textit{copy}$，再分别递归处理 $root$ 的左子节点、右子节点和 $\textit{random}$ 指针；
+- 最后返回 $\textit{copy}$。
+
+主函数返回 $\text{dfs}(root)$。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点数量。
 
 <!-- tabs:start -->
 
@@ -108,20 +121,20 @@ tags:
 
 
 class Solution:
-    def copyRandomBinaryTree(self, root: 'Optional[Node]') -> 'Optional[NodeCopy]':
-        def dfs(root):
+    def copyRandomBinaryTree(self, root: "Optional[Node]") -> "Optional[NodeCopy]":
+        def dfs(root: Optional[Node]) -> Optional[NodeCopy]:
             if root is None:
                 return None
-            if root in mp:
-                return mp[root]
+            if root in seen:
+                return seen[root]
             copy = NodeCopy(root.val)
-            mp[root] = copy
+            seen[root] = copy
             copy.left = dfs(root.left)
             copy.right = dfs(root.right)
             copy.random = dfs(root.random)
             return copy
 
-        mp = {}
+        seen = {}
         return dfs(root)
 ```
 
@@ -147,10 +160,10 @@ class Solution:
  */
 
 class Solution {
-    private Map<Node, NodeCopy> mp;
+    private Map<Node, NodeCopy> seen;
 
     public NodeCopy copyRandomBinaryTree(Node root) {
-        mp = new HashMap<>();
+        seen = new HashMap<>();
         return dfs(root);
     }
 
@@ -158,11 +171,11 @@ class Solution {
         if (root == null) {
             return null;
         }
-        if (mp.containsKey(root)) {
-            return mp.get(root);
+        if (seen.containsKey(root)) {
+            return seen.get(root);
         }
         NodeCopy copy = new NodeCopy(root.val);
-        mp.put(root, copy);
+        seen.put(root, copy);
         copy.left = dfs(root.left);
         copy.right = dfs(root.right);
         copy.random = dfs(root.random);
@@ -190,19 +203,22 @@ class Solution {
 class Solution {
 public:
     NodeCopy* copyRandomBinaryTree(Node* root) {
-        unordered_map<Node*, NodeCopy*> mp;
-        return dfs(root, mp);
-    }
-
-    NodeCopy* dfs(Node* root, unordered_map<Node*, NodeCopy*>& mp) {
-        if (!root) return nullptr;
-        if (mp.count(root)) return mp[root];
-        NodeCopy* copy = new NodeCopy(root->val);
-        mp[root] = copy;
-        copy->left = dfs(root->left, mp);
-        copy->right = dfs(root->right, mp);
-        copy->random = dfs(root->random, mp);
-        return copy;
+        unordered_map<Node*, NodeCopy*> seen;
+        auto dfs = [&](this auto&& dfs, Node* root) -> NodeCopy* {
+            if (!root) {
+                return nullptr;
+            }
+            if (seen.contains(root)) {
+                return seen[root];
+            }
+            NodeCopy* copy = new NodeCopy(root->val);
+            seen[root] = copy;
+            copy->left = dfs(root->left);
+            copy->right = dfs(root->right);
+            copy->random = dfs(root->random);
+            return copy;
+        };
+        return dfs(root);
     }
 };
 ```
@@ -221,23 +237,110 @@ public:
  */
 
 func copyRandomBinaryTree(root *Node) *NodeCopy {
-	mp := make(map[*Node]*NodeCopy)
+	seen := make(map[*Node]*NodeCopy)
 	var dfs func(root *Node) *NodeCopy
 	dfs = func(root *Node) *NodeCopy {
 		if root == nil {
 			return nil
 		}
-		if v, ok := mp[root]; ok {
+		if v, ok := seen[root]; ok {
 			return v
 		}
 		copy := &NodeCopy{Val: root.Val}
-		mp[root] = copy
+		seen[root] = copy
 		copy.Left = dfs(root.Left)
 		copy.Right = dfs(root.Right)
 		copy.Random = dfs(root.Random)
 		return copy
 	}
 	return dfs(root)
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for Node.
+ * class Node {
+ *     val: number
+ *     left: Node | null
+ *     right: Node | null
+ *     random: Node | null
+ *     constructor(val?: number, left?: Node | null, right?: Node | null, random?: Node | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *         this.random = (random===undefined ? null : random)
+ *     }
+ * }
+ */
+
+function copyRandomBinaryTree(root: Node | null): NodeCopy | null {
+    const seen = new Map<Node, NodeCopy>();
+    const dfs = (root: Node | null): NodeCopy | null => {
+        if (root === null) {
+            return null;
+        }
+        if (seen.has(root)) {
+            return seen.get(root)!;
+        }
+        const copy = new NodeCopy(root.val);
+        seen.set(root, copy);
+        copy.left = dfs(root.left);
+        copy.right = dfs(root.right);
+        copy.random = dfs(root.random);
+        return copy;
+    };
+    return dfs(root);
+}
+```
+
+#### C#
+
+```cs
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node random;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _random) {
+        val = _val;
+        left = _left;
+        right = _right;
+        random = _random;
+    }
+}
+*/
+
+public class Solution {
+    public NodeCopy CopyRandomBinaryTree(Node root) {
+        var seen = new Dictionary<Node, NodeCopy>();
+        NodeCopy Dfs(Node root) {
+            if (root == null) {
+                return null;
+            }
+            if (seen.ContainsKey(root)) {
+                return seen[root];
+            }
+            var copy = new NodeCopy(root.val);
+            seen[root] = copy;
+            copy.left = Dfs(root.left);
+            copy.right = Dfs(root.right);
+            copy.random = Dfs(root.random);
+            return copy;
+        }
+        return Dfs(root);
+    }
 }
 ```
 

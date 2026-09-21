@@ -132,7 +132,6 @@ class Solution:
         resb = kmp_search(b, s, prefix_b)
 
         res = []
-        print(resa, resb)
         i = 0
         j = 0
         while i < len(resa):

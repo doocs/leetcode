@@ -35,6 +35,13 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 520 场周赛(2026-09-20 10:30, 90 分钟) 参赛人数 930
+
+- [4056. 统计相交区间对 I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README.md)
+- [4057. 统计相交区间对 II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README.md)
+- [4058. 一个子数组循环移动后的最大脉冲值](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README.md)
+- [4059. 字典序最大的答案数组](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README.md)
+
 #### 第 519 场周赛(2026-09-13 10:30, 90 分钟) 参赛人数 1069
 
 - [4052. 行列循环移位](/solution/4000-4099/4052.Cyclically%20Shift%20Rows%20and%20Columns/README.md)

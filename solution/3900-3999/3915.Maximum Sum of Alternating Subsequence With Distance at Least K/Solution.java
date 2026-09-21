@@ -1,72 +1,68 @@
-class Solution {
-    public long maxAlternatingSum(int[] nums, int k) {
-        long maxSum = 0;
-        int n = nums.length;
-        int m = Arrays.stream(nums).max().getAsInt();
-        long[][] f = new long[n][2];
-        SegmentTree[] sts = new SegmentTree[2];
-        for (int j = 0; j < 2; j++) {
-            sts[j] = new SegmentTree(m + 1);
+class BinaryIndexedTree {
+    private final int n;
+    private final long[] c;
+
+    BinaryIndexedTree(int n) {
+        this.n = n;
+        this.c = new long[n + 1];
+    }
+
+    void update(int x, long val) {
+        while (x <= n) {
+            c[x] = Math.max(c[x], val);
+            x += x & -x;
         }
-        for (int i = 0; i < n; i++) {
-            if (i >= k) {
-                sts[0].update(nums[i - k], f[i - k][0]);
-                sts[1].update(nums[i - k], f[i - k][1]);
-            }
-            f[i][0] = sts[1].getMax(0, nums[i] - 1) + nums[i];
-            f[i][1] = sts[0].getMax(nums[i] + 1, m) + nums[i];
-            maxSum = Math.max(maxSum, Math.max(f[i][0], f[i][1]));
+    }
+
+    long query(int x) {
+        long ans = 0;
+        while (x > 0) {
+            ans = Math.max(ans, c[x]);
+            x -= x & -x;
         }
-        return maxSum;
+        return ans;
     }
 }
 
-class SegmentTree {
-    private int n;
-    private long[] tree;
-
-    public SegmentTree(int n) {
-        this.n = n;
-        this.tree = new long[n * 4];
+class Solution {
+    public long maxAlternatingSum(int[] nums, int k) {
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
+        int m = 0;
+        for (int i = 0; i < sorted.length; ++i) {
+            if (i == 0 || sorted[i] != sorted[i - 1]) {
+                sorted[m++] = sorted[i];
+            }
+        }
+        BinaryIndexedTree bit0 = new BinaryIndexedTree(m);
+        BinaryIndexedTree bit1 = new BinaryIndexedTree(m);
+        int n = nums.length;
+        long[][] f = new long[n][2];
+        long ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i >= k) {
+                int r = rank(sorted, m, nums[i - k]);
+                bit0.update(r, f[i - k][0]);
+                bit1.update(m + 1 - r, f[i - k][1]);
+            }
+            int r = rank(sorted, m, nums[i]);
+            f[i][0] = nums[i] + bit1.query(m - r);
+            f[i][1] = nums[i] + bit0.query(r - 1);
+            ans = Math.max(ans, Math.max(f[i][0], f[i][1]));
+        }
+        return ans;
     }
 
-    public long getMax(int start, int end) {
-        return getMax(start, end, 0, 0, n - 1);
-    }
-
-    public void update(int index, long value) {
-        update(index, value, 0, 0, n - 1);
-    }
-
-    private long getMax(int rangeStart, int rangeEnd, int treeIndex, int treeStart, int treeEnd) {
-        if (rangeStart > rangeEnd) {
-            return 0;
+    private int rank(int[] sorted, int m, int x) {
+        int l = 0, r = m;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (sorted[mid] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
-        if (rangeStart == treeStart && rangeEnd == treeEnd) {
-            return tree[treeIndex];
-        }
-        int mid = treeStart + (treeEnd - treeStart) / 2;
-        if (rangeEnd <= mid) {
-            return getMax(rangeStart, rangeEnd, treeIndex * 2 + 1, treeStart, mid);
-        } else if (rangeStart > mid) {
-            return getMax(rangeStart, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd);
-        } else {
-            return Math.max(getMax(rangeStart, mid, treeIndex * 2 + 1, treeStart, mid),
-                getMax(mid + 1, rangeEnd, treeIndex * 2 + 2, mid + 1, treeEnd));
-        }
-    }
-
-    private void update(int rangeIndex, long value, int treeIndex, int start, int end) {
-        if (start == end) {
-            tree[treeIndex] = Math.max(tree[treeIndex], value);
-            return;
-        }
-        int mid = start + (end - start) / 2;
-        if (rangeIndex <= mid) {
-            update(rangeIndex, value, treeIndex * 2 + 1, start, mid);
-        } else {
-            update(rangeIndex, value, treeIndex * 2 + 2, mid + 1, end);
-        }
-        tree[treeIndex] = Math.max(tree[treeIndex * 2 + 1], tree[treeIndex * 2 + 2]);
+        return l + 1;
     }
 }

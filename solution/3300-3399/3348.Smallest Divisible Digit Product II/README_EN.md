@@ -99,19 +99,389 @@ tags:
 #### Python3
 
 ```python
+class Solution:
+    def smallestNumber(self, num: str, t: int) -> str:
+        digit_primes = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [2, 0, 0, 0],
+            [0, 0, 1, 0],
+            [1, 1, 0, 0],
+            [0, 0, 0, 1],
+            [3, 0, 0, 0],
+            [0, 2, 0, 0],
+        ]
 
+        def factorize(target: int):
+            counts = [0, 0, 0, 0]
+            for i, p in enumerate((2, 3, 5, 7)):
+                while target % p == 0:
+                    target //= p
+                    counts[i] += 1
+            return counts, target == 1
+
+        def subtract(a, b):
+            return [max(0, x - y) for x, y in zip(a, b)]
+
+        def to_digits(primes):
+            count8 = primes[0] // 3
+            remaining2 = primes[0] % 3
+            count9 = primes[1] // 2
+            count3 = primes[1] % 2
+            count4 = remaining2 // 2
+            count2 = remaining2 % 2
+            count6 = 0
+            if count2 == 1 and count3 == 1:
+                count2 = count3 = 0
+                count6 = 1
+            if count3 == 1 and count4 == 1:
+                count2 = 1
+                count6 = 1
+                count3 = count4 = 0
+            return [
+                0,
+                0,
+                count2,
+                count3,
+                count4,
+                primes[2],
+                count6,
+                primes[3],
+                count8,
+                count9,
+            ]
+
+        def construct(digits) -> str:
+            return "".join(str(d) * digits[d] for d in range(2, 10))
+
+        required, ok = factorize(t)
+        if not ok:
+            return "-1"
+        need = to_digits(required)
+        if sum(need) > len(num):
+            return construct(need)
+
+        prefix = [0, 0, 0, 0]
+        for ch in num:
+            d = ord(ch) - 48
+            for i in range(4):
+                prefix[i] += digit_primes[d][i]
+        first_zero = num.find("0")
+        if first_zero == -1:
+            first_zero = len(num)
+            if all(r <= p for r, p in zip(required, prefix)):
+                return num
+
+        n = len(num)
+        for i in range(n - 1, -1, -1):
+            d = ord(num[i]) - 48
+            prefix = subtract(prefix, digit_primes[d])
+            space = n - 1 - i
+            if i > first_zero:
+                continue
+            for bigger in range(d + 1, 10):
+                suffix = to_digits(
+                    subtract(subtract(required, prefix), digit_primes[bigger])
+                )
+                if sum(suffix) <= space:
+                    return (
+                        num[:i]
+                        + str(bigger)
+                        + "1" * (space - sum(suffix))
+                        + construct(suffix)
+                    )
+        ext = to_digits(required)
+        return "1" * (n + 1 - sum(ext)) + construct(ext)
 ```
 
 #### Java
 
 ```java
+class Solution {
+    private static final int[][] DIGIT_PRIMES = {
+        {0, 0, 0, 0},
+        {0, 0, 0, 0},
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {2, 0, 0, 0},
+        {0, 0, 1, 0},
+        {1, 1, 0, 0},
+        {0, 0, 0, 1},
+        {3, 0, 0, 0},
+        {0, 2, 0, 0},
+    };
 
+    public String smallestNumber(String num, long t) {
+        int[] required = new int[4];
+        if (!factorize(t, required)) {
+            return "-1";
+        }
+        int[] need = toDigits(required);
+        if (sum(need) > num.length()) {
+            return construct(need);
+        }
+
+        int[] prefix = new int[4];
+        for (int i = 0; i < num.length(); ++i) {
+            add(prefix, DIGIT_PRIMES[num.charAt(i) - '0']);
+        }
+        int firstZero = num.indexOf('0');
+        if (firstZero == -1) {
+            firstZero = num.length();
+            if (isSubset(required, prefix)) {
+                return num;
+            }
+        }
+
+        int n = num.length();
+        for (int i = n - 1; i >= 0; --i) {
+            subtractInPlace(prefix, DIGIT_PRIMES[num.charAt(i) - '0']);
+            int space = n - 1 - i;
+            if (i > firstZero) {
+                continue;
+            }
+            for (int bigger = num.charAt(i) - '0' + 1; bigger < 10; ++bigger) {
+                int[] suffix = toDigits(subtract(subtract(required, prefix), DIGIT_PRIMES[bigger]));
+                if (sum(suffix) <= space) {
+                    StringBuilder ans = new StringBuilder();
+                    ans.append(num, 0, i);
+                    ans.append(bigger);
+                    ans.append("1".repeat(space - sum(suffix)));
+                    ans.append(construct(suffix));
+                    return ans.toString();
+                }
+            }
+        }
+        int[] ext = toDigits(required);
+        return "1".repeat(n + 1 - sum(ext)) + construct(ext);
+    }
+
+    private boolean factorize(long t, int[] counts) {
+        int[] primes = {2, 3, 5, 7};
+        for (int i = 0; i < 4; ++i) {
+            while (t % primes[i] == 0) {
+                t /= primes[i];
+                ++counts[i];
+            }
+        }
+        return t == 1;
+    }
+
+    private int[] toDigits(int[] primes) {
+        int count8 = primes[0] / 3;
+        int remaining2 = primes[0] % 3;
+        int count9 = primes[1] / 2;
+        int count3 = primes[1] % 2;
+        int count4 = remaining2 / 2;
+        int count2 = remaining2 % 2;
+        int count6 = 0;
+        if (count2 == 1 && count3 == 1) {
+            count2 = 0;
+            count3 = 0;
+            count6 = 1;
+        }
+        if (count3 == 1 && count4 == 1) {
+            count2 = 1;
+            count6 = 1;
+            count3 = 0;
+            count4 = 0;
+        }
+        return new int[] {
+            0, 0, count2, count3, count4, primes[2], count6, primes[3], count8, count9};
+    }
+
+    private String construct(int[] digits) {
+        StringBuilder sb = new StringBuilder();
+        for (int d = 2; d < 10; ++d) {
+            sb.append(String.valueOf(d).repeat(digits[d]));
+        }
+        return sb.toString();
+    }
+
+    private boolean isSubset(int[] a, int[] b) {
+        for (int i = 0; i < a.length; ++i) {
+            if (b[i] < a[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int[] subtract(int[] a, int[] b) {
+        int[] res = new int[a.length];
+        for (int i = 0; i < a.length; ++i) {
+            res[i] = Math.max(0, a[i] - b[i]);
+        }
+        return res;
+    }
+
+    private void subtractInPlace(int[] a, int[] b) {
+        for (int i = 0; i < a.length; ++i) {
+            a[i] = Math.max(0, a[i] - b[i]);
+        }
+    }
+
+    private void add(int[] a, int[] b) {
+        for (int i = 0; i < a.length; ++i) {
+            a[i] += b[i];
+        }
+    }
+
+    private int sum(int[] a) {
+        int s = 0;
+        for (int v : a) {
+            s += v;
+        }
+        return s;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
+class Solution {
+public:
+    string smallestNumber(string num, long long t) {
+        int required[4]{};
+        if (!factorize(t, required)) {
+            return "-1";
+        }
+        int need[10]{};
+        toDigits(required, need);
+        if (sum(need, 10) > (int) num.size()) {
+            return construct(need);
+        }
 
+        int prefix[4]{};
+        for (char ch : num) {
+            add(prefix, DIGIT_PRIMES[ch - '0']);
+        }
+        int firstZero = num.find('0');
+        if (firstZero == (int) string::npos) {
+            firstZero = num.size();
+            if (isSubset(required, prefix)) {
+                return num;
+            }
+        }
+
+        int n = num.size();
+        for (int i = n - 1; i >= 0; --i) {
+            subtractInPlace(prefix, DIGIT_PRIMES[num[i] - '0']);
+            int space = n - 1 - i;
+            if (i > firstZero) {
+                continue;
+            }
+            for (int bigger = num[i] - '0' + 1; bigger < 10; ++bigger) {
+                int tmp[4]{}, suffix[10]{};
+                subtract(required, prefix, tmp);
+                subtractInPlace(tmp, DIGIT_PRIMES[bigger]);
+                toDigits(tmp, suffix);
+                if (sum(suffix, 10) <= space) {
+                    return num.substr(0, i) + char('0' + bigger) + string(space - sum(suffix, 10), '1') + construct(suffix);
+                }
+            }
+        }
+        int ext[10]{};
+        toDigits(required, ext);
+        return string(n + 1 - sum(ext, 10), '1') + construct(ext);
+    }
+
+private:
+    static constexpr int DIGIT_PRIMES[10][4] = {
+        {0, 0, 0, 0},
+        {0, 0, 0, 0},
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {2, 0, 0, 0},
+        {0, 0, 1, 0},
+        {1, 1, 0, 0},
+        {0, 0, 0, 1},
+        {3, 0, 0, 0},
+        {0, 2, 0, 0},
+    };
+
+    bool factorize(long long t, int counts[4]) {
+        int primes[4] = {2, 3, 5, 7};
+        for (int i = 0; i < 4; ++i) {
+            while (t % primes[i] == 0) {
+                t /= primes[i];
+                ++counts[i];
+            }
+        }
+        return t == 1;
+    }
+
+    void toDigits(const int primes[4], int digits[10]) {
+        int count8 = primes[0] / 3;
+        int remaining2 = primes[0] % 3;
+        int count9 = primes[1] / 2;
+        int count3 = primes[1] % 2;
+        int count4 = remaining2 / 2;
+        int count2 = remaining2 % 2;
+        int count6 = 0;
+        if (count2 == 1 && count3 == 1) {
+            count2 = 0;
+            count3 = 0;
+            count6 = 1;
+        }
+        if (count3 == 1 && count4 == 1) {
+            count2 = 1;
+            count6 = 1;
+            count3 = 0;
+            count4 = 0;
+        }
+        int vals[10] = {0, 0, count2, count3, count4, primes[2], count6, primes[3], count8, count9};
+        for (int i = 0; i < 10; ++i) {
+            digits[i] = vals[i];
+        }
+    }
+
+    string construct(const int digits[10]) {
+        string res;
+        for (int d = 2; d < 10; ++d) {
+            res.append(digits[d], char('0' + d));
+        }
+        return res;
+    }
+
+    bool isSubset(const int a[4], const int b[4]) {
+        for (int i = 0; i < 4; ++i) {
+            if (b[i] < a[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void subtract(const int a[4], const int b[4], int res[4]) {
+        for (int i = 0; i < 4; ++i) {
+            res[i] = max(0, a[i] - b[i]);
+        }
+    }
+
+    void subtractInPlace(int a[4], const int b[4]) {
+        for (int i = 0; i < 4; ++i) {
+            a[i] = max(0, a[i] - b[i]);
+        }
+    }
+
+    void add(int a[4], const int b[4]) {
+        for (int i = 0; i < 4; ++i) {
+            a[i] += b[i];
+        }
+    }
+
+    int sum(const int* a, int n) {
+        int s = 0;
+        for (int i = 0; i < n; ++i) {
+            s += a[i];
+        }
+        return s;
+    }
+};
 ```
 
 #### Go

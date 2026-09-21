@@ -73,7 +73,7 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Hash Table + DFS
 
 <!-- thinking:start -->
 
@@ -84,6 +84,19 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 > Map each original node to its copy: create the copy first, then recurse on left, right, and $\textit{random}$. A hit in the map returns the existing copy.
 
 <!-- thinking:end -->
+
+We use a hash table $\textit{seen}$ to record the correspondence between each node in the original tree and its copy, then perform a depth-first search.
+
+Define $\text{dfs}(root)$ to return the copy of $root$:
+
+- If $root$ is null, return null;
+- If $root$ is already in $\textit{seen}$, return $\textit{seen}[root]$;
+- Otherwise create a copy node $\textit{copy}$, set $\textit{seen}[root] = \textit{copy}$, then recurse on the left child, right child, and $\textit{random}$ pointer;
+- Finally return $\textit{copy}$.
+
+The main function returns $\text{dfs}(root)$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes.
 
 <!-- tabs:start -->
 
@@ -100,20 +113,20 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 
 
 class Solution:
-    def copyRandomBinaryTree(self, root: 'Optional[Node]') -> 'Optional[NodeCopy]':
-        def dfs(root):
+    def copyRandomBinaryTree(self, root: "Optional[Node]") -> "Optional[NodeCopy]":
+        def dfs(root: Optional[Node]) -> Optional[NodeCopy]:
             if root is None:
                 return None
-            if root in mp:
-                return mp[root]
+            if root in seen:
+                return seen[root]
             copy = NodeCopy(root.val)
-            mp[root] = copy
+            seen[root] = copy
             copy.left = dfs(root.left)
             copy.right = dfs(root.right)
             copy.random = dfs(root.random)
             return copy
 
-        mp = {}
+        seen = {}
         return dfs(root)
 ```
 
@@ -139,10 +152,10 @@ class Solution:
  */
 
 class Solution {
-    private Map<Node, NodeCopy> mp;
+    private Map<Node, NodeCopy> seen;
 
     public NodeCopy copyRandomBinaryTree(Node root) {
-        mp = new HashMap<>();
+        seen = new HashMap<>();
         return dfs(root);
     }
 
@@ -150,11 +163,11 @@ class Solution {
         if (root == null) {
             return null;
         }
-        if (mp.containsKey(root)) {
-            return mp.get(root);
+        if (seen.containsKey(root)) {
+            return seen.get(root);
         }
         NodeCopy copy = new NodeCopy(root.val);
-        mp.put(root, copy);
+        seen.put(root, copy);
         copy.left = dfs(root.left);
         copy.right = dfs(root.right);
         copy.random = dfs(root.random);
@@ -182,19 +195,22 @@ class Solution {
 class Solution {
 public:
     NodeCopy* copyRandomBinaryTree(Node* root) {
-        unordered_map<Node*, NodeCopy*> mp;
-        return dfs(root, mp);
-    }
-
-    NodeCopy* dfs(Node* root, unordered_map<Node*, NodeCopy*>& mp) {
-        if (!root) return nullptr;
-        if (mp.count(root)) return mp[root];
-        NodeCopy* copy = new NodeCopy(root->val);
-        mp[root] = copy;
-        copy->left = dfs(root->left, mp);
-        copy->right = dfs(root->right, mp);
-        copy->random = dfs(root->random, mp);
-        return copy;
+        unordered_map<Node*, NodeCopy*> seen;
+        auto dfs = [&](this auto&& dfs, Node* root) -> NodeCopy* {
+            if (!root) {
+                return nullptr;
+            }
+            if (seen.contains(root)) {
+                return seen[root];
+            }
+            NodeCopy* copy = new NodeCopy(root->val);
+            seen[root] = copy;
+            copy->left = dfs(root->left);
+            copy->right = dfs(root->right);
+            copy->random = dfs(root->random);
+            return copy;
+        };
+        return dfs(root);
     }
 };
 ```
@@ -213,23 +229,110 @@ public:
  */
 
 func copyRandomBinaryTree(root *Node) *NodeCopy {
-	mp := make(map[*Node]*NodeCopy)
+	seen := make(map[*Node]*NodeCopy)
 	var dfs func(root *Node) *NodeCopy
 	dfs = func(root *Node) *NodeCopy {
 		if root == nil {
 			return nil
 		}
-		if v, ok := mp[root]; ok {
+		if v, ok := seen[root]; ok {
 			return v
 		}
 		copy := &NodeCopy{Val: root.Val}
-		mp[root] = copy
+		seen[root] = copy
 		copy.Left = dfs(root.Left)
 		copy.Right = dfs(root.Right)
 		copy.Random = dfs(root.Random)
 		return copy
 	}
 	return dfs(root)
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for Node.
+ * class Node {
+ *     val: number
+ *     left: Node | null
+ *     right: Node | null
+ *     random: Node | null
+ *     constructor(val?: number, left?: Node | null, right?: Node | null, random?: Node | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *         this.random = (random===undefined ? null : random)
+ *     }
+ * }
+ */
+
+function copyRandomBinaryTree(root: Node | null): NodeCopy | null {
+    const seen = new Map<Node, NodeCopy>();
+    const dfs = (root: Node | null): NodeCopy | null => {
+        if (root === null) {
+            return null;
+        }
+        if (seen.has(root)) {
+            return seen.get(root)!;
+        }
+        const copy = new NodeCopy(root.val);
+        seen.set(root, copy);
+        copy.left = dfs(root.left);
+        copy.right = dfs(root.right);
+        copy.random = dfs(root.random);
+        return copy;
+    };
+    return dfs(root);
+}
+```
+
+#### C#
+
+```cs
+/*
+// Definition for a Node.
+public class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node random;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _random) {
+        val = _val;
+        left = _left;
+        right = _right;
+        random = _random;
+    }
+}
+*/
+
+public class Solution {
+    public NodeCopy CopyRandomBinaryTree(Node root) {
+        var seen = new Dictionary<Node, NodeCopy>();
+        NodeCopy Dfs(Node root) {
+            if (root == null) {
+                return null;
+            }
+            if (seen.ContainsKey(root)) {
+                return seen[root];
+            }
+            var copy = new NodeCopy(root.val);
+            seen[root] = copy;
+            copy.left = Dfs(root.left);
+            copy.right = Dfs(root.right);
+            copy.random = Dfs(root.random);
+            return copy;
+        }
+        return Dfs(root);
+    }
 }
 ```
 

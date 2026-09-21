@@ -4066,6 +4066,10 @@
 |  4053  |  [使每个元素变为回文数的最少操作次数](/solution/4000-4099/4053.Minimum%20Operations%20to%20Make%20Every%20Element%20Palindromic/README.md)  |    |  中等  |  第 519 场周赛  |
 |  4054  |  [统计影子数对 I](/solution/4000-4099/4054.Count%20Shadow%20Pairs%20I/README.md)  |    |  中等  |  第 519 场周赛  |
 |  4055  |  [统计影子数对 II](/solution/4000-4099/4055.Count%20Shadow%20Pairs%20II/README.md)  |    |  困难  |  第 519 场周赛  |
+|  4056  |  [统计相交区间对 I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README.md)  |    |  简单  |  第 520 场周赛  |
+|  4057  |  [统计相交区间对 II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README.md)  |    |  中等  |  第 520 场周赛  |
+|  4058  |  [一个子数组循环移动后的最大脉冲值](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README.md)  |    |  中等  |  第 520 场周赛  |
+|  4059  |  [字典序最大的答案数组](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README.md)  |    |  困难  |  第 520 场周赛  |
 
 ## 版权
 
