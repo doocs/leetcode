@@ -362,7 +362,7 @@ class Node {
 public:
     int l = 0, r = 0;
     int prod = 1;
-    vector<int> cnt;
+    int cnt[5]{};
 };
 
 class SegmentTree {
@@ -378,7 +378,7 @@ public:
         if (tr[u].l == tr[u].r) {
             v %= k;
             tr[u].prod = v;
-            fill(tr[u].cnt.begin(), tr[u].cnt.end(), 0);
+            memset(tr[u].cnt, 0, sizeof(tr[u].cnt));
             tr[u].cnt[v] = 1;
             return;
         }
@@ -412,7 +412,7 @@ private:
     Node merge(const Node& a, const Node& b) {
         Node c;
         c.prod = a.prod * b.prod % k;
-        c.cnt = a.cnt;
+        memcpy(c.cnt, a.cnt, sizeof(c.cnt));
         for (int r = 0; r < k; ++r) {
             c.cnt[a.prod * r % k] += b.cnt[r];
         }
@@ -422,13 +422,12 @@ private:
     void pushup(int u) {
         Node p = merge(tr[u << 1], tr[u << 1 | 1]);
         tr[u].prod = p.prod;
-        tr[u].cnt.swap(p.cnt);
+        memcpy(tr[u].cnt, p.cnt, sizeof(tr[u].cnt));
     }
 
     void build(int u, int l, int r, vector<int>& nums) {
         tr[u].l = l;
         tr[u].r = r;
-        tr[u].cnt.assign(k, 0);
         if (l == r) {
             int v = nums[l - 1] % k;
             tr[u].prod = v;
