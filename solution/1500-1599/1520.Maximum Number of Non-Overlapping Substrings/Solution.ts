@@ -1,54 +1,42 @@
 function maxNumOfSubstrings(s: string): string[] {
     const n = s.length;
-    const first = new Array(26).fill(n);
-    const last = new Array(26).fill(-1);
-
-    // Step 1: Find first and last occurrence of each character
-    for (let i = 0; i < n; i++) {
-        const c = s.charCodeAt(i) - 97;
-        first[c] = Math.min(first[c], i);
-        last[c] = Math.max(last[c], i);
+    const idx = (c: string) => c.charCodeAt(0) - 97;
+    const first = Array(26).fill(-1);
+    const last = Array(26).fill(0);
+    for (let i = 0; i < n; ++i) {
+        const x = idx(s[i]);
+        if (first[x] === -1) {
+            first[x] = i;
+        }
+        last[x] = i;
     }
-
-    // Step 2: Build minimal valid intervals
-    const intervals: [number, number][] = [];
-
-    for (let c = 0; c < 26; c++) {
-        if (last[c] === -1) continue;
-
-        let l = first[c];
-        let r = last[c];
-        let valid = true;
-
+    const segs: number[][] = [];
+    for (let x = 0; x < 26; ++x) {
+        if (first[x] === -1) {
+            continue;
+        }
+        let l = first[x],
+            r = last[x];
         let i = l;
-        while (i <= r) {
-            const ch = s.charCodeAt(i) - 97;
-            if (first[ch] < l) {
-                // Must extend left past our start — not a minimal valid substring
-                valid = false;
+        for (; i <= r; ++i) {
+            const y = idx(s[i]);
+            if (first[y] < l) {
                 break;
             }
-            r = Math.max(r, last[ch]);
-            i++;
+            r = Math.max(r, last[y]);
         }
-
-        if (valid) {
-            intervals.push([l, r]);
+        if (i > r) {
+            segs.push([l, r]);
         }
     }
-
-    // Step 3: Greedy interval scheduling — sort by right endpoint
-    intervals.sort((a, b) => a[1] - b[1]);
-
-    const result: string[] = [];
-    let prevEnd = -1;
-
-    for (const [l, r] of intervals) {
-        if (l > prevEnd) {
-            result.push(s.substring(l, r + 1));
-            prevEnd = r;
+    segs.sort((a, b) => a[1] - b[1]);
+    const ans: string[] = [];
+    let end = -1;
+    for (const [l, r] of segs) {
+        if (l > end) {
+            ans.push(s.slice(l, r + 1));
+            end = r;
         }
     }
-
-    return result;
+    return ans;
 }

@@ -217,7 +217,6 @@ func abs(x int) int {
  */
 ```
 
-
 <!-- tabs:end -->
 
 <!-- solution:end -->
