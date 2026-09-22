@@ -2,4 +2,4 @@ black==26.5.1
 clang-format==23.1.1
 PyYAML==6.0.3
 requests==2.34.2
-urllib3==2.7.0
+urllib3==2.8.0
