@@ -1,7 +1,7 @@
 black==26.5.1
 Requests==2.34.2
 sortedcontainers==2.4.0
-urllib3==2.7.0
+urllib3==2.8.0
 mkdocs-material[imaging]==9.7.7
 mkdocs-glightbox==0.5.2
 jieba==0.42.1
