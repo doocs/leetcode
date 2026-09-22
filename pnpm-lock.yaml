@@ -16,7 +16,7 @@ importers:
         version: 21.2.2
       '@prettier/plugin-php':
         specifier: ^0.25.0
-        version: 0.25.0(prettier@3.9.6)
+        version: 0.25.0(prettier@3.9.8)
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -24,8 +24,8 @@ importers:
         specifier: ^17.5.1
         version: 17.5.1
       prettier:
-        specifier: ^3.9.6
-        version: 3.9.6
+        specifier: ^3.9.8
+        version: 3.9.8
       prettier-plugin-sql-cst:
         specifier: ^0.22.1
         version: 0.22.1
@@ -421,8 +421,8 @@ packages:
   prettier-plugin-sql-cst@0.22.1:
     resolution: {integrity: sha512-QEJnqIZ+KRykv+SzZmjwkQ+6qA5Xen+xyvNsMi9shCVqRVOyzz6t51pANy91ih9bZL9cmXAaBgmXp2bOMtZCpg==}
 
-  prettier@3.9.6:
-    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
+  prettier@3.9.8:
+    resolution: {integrity: sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -628,11 +628,11 @@ snapshots:
 
   '@conventional-changelog/template@1.4.0': {}
 
-  '@prettier/plugin-php@0.25.0(prettier@3.9.6)':
+  '@prettier/plugin-php@0.25.0(prettier@3.9.8)':
     dependencies:
       linguist-languages: 8.2.0
       php-parser: 3.7.0
-      prettier: 3.9.6
+      prettier: 3.9.8
 
   '@simple-libs/child-process-utils@2.0.0':
     dependencies:
@@ -836,10 +836,10 @@ snapshots:
 
   prettier-plugin-sql-cst@0.22.1:
     dependencies:
-      prettier: 3.9.6
+      prettier: 3.9.8
       sql-parser-cst: 0.42.1
 
-  prettier@3.9.6: {}
+  prettier@3.9.8: {}
 
   require-from-string@2.0.2: {}
 
