@@ -232,7 +232,7 @@ $$
 \end{bmatrix}
 $$
 
-我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$，那么 $T_n$ 等于 $res$ 乘以 $base^{n - 3}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
+我们定义初始矩阵 $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$，那么 $T_n$ 等于 $res$ 乘以 $base^{n - 3}$ 的结果矩阵中所有元素之和。使用矩阵快速幂求解即可。
 
 时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。
 
