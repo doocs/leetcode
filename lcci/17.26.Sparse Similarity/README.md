@@ -131,11 +131,10 @@ class Solution {
 #### C++
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<string> computeSimilarities(vector<vector<int>>& docs) {
+        using pii = pair<int, int>;
         double eps = 1e-9;
         unordered_map<int, vector<int>> d;
         for (int i = 0; i < docs.size(); ++i) {
