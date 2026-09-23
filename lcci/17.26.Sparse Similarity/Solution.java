@@ -1,30 +1,30 @@
 class Solution {
     public List<String> computeSimilarities(int[][] docs) {
+        int n = docs.length;
         Map<Integer, List<Integer>> d = new HashMap<>();
-        for (int i = 0; i < docs.length; ++i) {
-            for (int v : docs[i]) {
-                d.computeIfAbsent(v, k -> new ArrayList<>()).add(i);
+        for (int i = 0; i < n; ++i) {
+            for (int x : docs[i]) {
+                d.computeIfAbsent(x, k -> new ArrayList<>()).add(i);
             }
         }
-        Map<String, Integer> cnt = new HashMap<>();
-        for (var ids : d.values()) {
-            int n = ids.size();
-            for (int i = 0; i < n; ++i) {
-                for (int j = i + 1; j < n; ++j) {
-                    String k = ids.get(i) + "," + ids.get(j);
-                    cnt.put(k, cnt.getOrDefault(k, 0) + 1);
+        Map<Long, Integer> cnt = new HashMap<>();
+        for (List<Integer> ids : d.values()) {
+            int m = ids.size();
+            for (int i = 0; i < m; ++i) {
+                for (int j = i + 1; j < m; ++j) {
+                    long key = 1L * ids.get(i) * n + ids.get(j);
+                    cnt.merge(key, 1, Integer::sum);
                 }
             }
         }
         List<String> ans = new ArrayList<>();
         for (var e : cnt.entrySet()) {
-            String k = e.getKey();
+            long key = e.getKey();
             int v = e.getValue();
-            String[] t = k.split(",");
-            int i = Integer.parseInt(t[0]), j = Integer.parseInt(t[1]);
+            int i = (int) (key / n), j = (int) (key % n);
             int tot = docs[i].length + docs[j].length - v;
-            double x = (double) v / tot;
-            ans.add(String.format("%s: %.4f", k, x));
+            double x = (double) v / tot + 1e-9;
+            ans.add(String.format("%d,%d: %.4f", i, j, x));
         }
         return ans;
     }
