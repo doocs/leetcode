@@ -4068,6 +4068,7 @@ Press <kbd>Control</kbd> + <kbd>F</kbd>(or <kbd>Command</kbd> + <kbd>F</kbd> on 
 |  4057  |  [Number of Intersecting Interval Pairs II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README_EN.md)  |    |  Medium  |  Weekly Contest 520  |
 |  4058  |  [Maximum Pulse Value After One Subarray Rotation](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README_EN.md)  |    |  Medium  |  Weekly Contest 520  |
 |  4059  |  [Lexicographically Largest Power Array](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README_EN.md)  |    |  Hard  |  Weekly Contest 520  |
+|  4060  |  [Count Evenly Good Integers](/solution/4000-4099/4060.Count%20Evenly%20Good%20Integers/README_EN.md)  |    |  Hard  |  🔒  |
 
 ## Copyright
 

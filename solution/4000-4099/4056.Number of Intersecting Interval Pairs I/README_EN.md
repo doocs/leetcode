@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Easy
-source: Weekly Contest 520 Q1
 ---
 
 <!-- problem:start -->

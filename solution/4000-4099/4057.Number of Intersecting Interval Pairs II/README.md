@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 中等
-source: 第 520 场周赛 Q2
 ---
 
 <!-- problem:start -->
