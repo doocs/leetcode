@@ -5,12 +5,12 @@
     "preview": "node scripts/run-py.js scripts/preview.py"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/config-conventional": "^21.2.2",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
     "@prettier/plugin-php": "^0.25.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
-    "prettier": "^3.9.8",
+    "prettier": "^3.9.9",
     "prettier-plugin-sql-cst": "^0.22.1"
   },
   "lint-staged": {
@@ -20,5 +20,5 @@
     "*.go": "node scripts/run-py.js run_format.py --gofmt",
     "*.rs": "rustfmt --edition 2021"
   },
-  "packageManager": "pnpm@11.25.0"
+  "packageManager": "pnpm@11.27.1"
 }
