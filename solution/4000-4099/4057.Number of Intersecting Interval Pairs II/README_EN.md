@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: Medium
-source: Weekly Contest 520 Q2
 ---
 
 <!-- problem:start -->

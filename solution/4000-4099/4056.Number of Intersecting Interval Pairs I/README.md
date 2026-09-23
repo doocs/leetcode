@@ -1,7 +1,6 @@
 ---
 comments: true
 difficulty: 简单
-source: 第 520 场周赛 Q1
 ---
 
 <!-- problem:start -->

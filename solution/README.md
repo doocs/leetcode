@@ -4070,6 +4070,7 @@
 |  4057  |  [统计相交区间对 II](/solution/4000-4099/4057.Number%20of%20Intersecting%20Interval%20Pairs%20II/README.md)  |    |  中等  |  第 520 场周赛  |
 |  4058  |  [一个子数组循环移动后的最大脉冲值](/solution/4000-4099/4058.Maximum%20Pulse%20Value%20After%20One%20Subarray%20Rotation/README.md)  |    |  中等  |  第 520 场周赛  |
 |  4059  |  [字典序最大的答案数组](/solution/4000-4099/4059.Lexicographically%20Largest%20Power%20Array/README.md)  |    |  困难  |  第 520 场周赛  |
+|  4060  |  [计算偶好数](/solution/4000-4099/4060.Count%20Evenly%20Good%20Integers/README.md)  |    |  困难  |  🔒  |
 
 ## 版权
 
