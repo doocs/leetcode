@@ -48,19 +48,23 @@ difficulty: 困难
 
 > **思考**
 >
-> 文档稀疏，两两 Jaccard 若先建集合再交并，空交的文档对浪费大量时间。
+> 最直接的做法是枚举每一对文档，分别建成集合再求交集和并集。文档个数与单篇长度都达到 $500$，任意两篇的相似度又都接近 $0$，大量空交集仍要被构造和扫描。
 >
-> 倒排：单词 $\mapsto$ 含它的文档号。只对共现单词的文档对累加交集大小。
+> 真正需要计算的文档对不超过 $1000$。时间应当只花在至少共现过一个单词的文档上。
 >
-> $d[x]$ 收集文档，对每个倒排表枚举对并给 $cnt[(i,j)]$ 加一。相似度 $|\cap|/(|A|+|B|-|\cap|)$，加上 $10^{-9}$ 再格式化为四位小数。
+> 某个单词出现在一组文档中，这组文档两两的交集就至少包含它。沿每个单词把共现次数累加，得到交集大小；文档长度已知，并集等于两篇长度之和减去交集，单词本身不必再次遍历。
+>
+> 因此按单词收集文档编号。收集时文档编号从小到大写入，倒排列表有序，枚举出来的编号对已经满足较小者在前。哈希表只保存交集非空的文档对，后面直接用这个键计算相似度。
 
 <!-- thinking:end -->
 
-用哈希表 $d$ 记录每个单词对应了哪些文档。
+我们用哈希表 $d$ 记录每个单词出现过的文档编号。文档按编号从小到大扫描，且每个文档内的整数互不相同，因此 $d[x]$ 中的编号严格递增。
 
-遍历 $d$ 的每一个文档列表，其任意两个文档都有相似度，我们用哈希表 $s$ 累加两个文档同时出现的单词个数。最后遍历 $s$，计算相似度。
+两个文档的相似度大于 $0$，等价于它们至少共有一个单词。对 $d$ 中的每个文档列表，枚举其中的编号对，并在哈希表 $cnt$ 里累加。键是文档编号对 $(i, j)$（$i < j$），值是这两个文档的交集大小。并集大小等于 $|docs[i]| + |docs[j]| - |\cap|$。空文档不会进入任何列表，计算时被自然跳过。
 
-时间复杂度 $O(n^3)$。
+遍历 $cnt$ 时，相似度取交集与并集之比。浮点除法的结果可能略小于真值，先加上 $10^{-9}$，再格式化为小数点后四位。倒排列表已经按编号递增，输出里较小的编号就是键的第一项。
+
+时间复杂度 $O(m \times n^2)$，空间复杂度 $O(S)$。其中 $n$ 为文档个数，$m$ 为单个文档的最大长度，$S$ 为所有文档的长度之和。题目保证相似度大于 $0$ 的文档对不超过 $1000$，内层循环的次数等于这些文档对的交集大小之和，因此实际耗时低于上述上界。
 
 <!-- tabs:start -->
 
@@ -93,31 +97,31 @@ class Solution:
 ```java
 class Solution {
     public List<String> computeSimilarities(int[][] docs) {
+        int n = docs.length;
         Map<Integer, List<Integer>> d = new HashMap<>();
-        for (int i = 0; i < docs.length; ++i) {
-            for (int v : docs[i]) {
-                d.computeIfAbsent(v, k -> new ArrayList<>()).add(i);
+        for (int i = 0; i < n; ++i) {
+            for (int x : docs[i]) {
+                d.computeIfAbsent(x, k -> new ArrayList<>()).add(i);
             }
         }
-        Map<String, Integer> cnt = new HashMap<>();
-        for (var ids : d.values()) {
-            int n = ids.size();
-            for (int i = 0; i < n; ++i) {
-                for (int j = i + 1; j < n; ++j) {
-                    String k = ids.get(i) + "," + ids.get(j);
-                    cnt.put(k, cnt.getOrDefault(k, 0) + 1);
+        Map<Long, Integer> cnt = new HashMap<>();
+        for (List<Integer> ids : d.values()) {
+            int m = ids.size();
+            for (int i = 0; i < m; ++i) {
+                for (int j = i + 1; j < m; ++j) {
+                    long key = 1L * ids.get(i) * n + ids.get(j);
+                    cnt.merge(key, 1, Integer::sum);
                 }
             }
         }
         List<String> ans = new ArrayList<>();
         for (var e : cnt.entrySet()) {
-            String k = e.getKey();
+            long key = e.getKey();
             int v = e.getValue();
-            String[] t = k.split(",");
-            int i = Integer.parseInt(t[0]), j = Integer.parseInt(t[1]);
+            int i = (int) (key / n), j = (int) (key % n);
             int tot = docs[i].length + docs[j].length - v;
-            double x = (double) v / tot;
-            ans.add(String.format("%s: %.4f", k, x));
+            double x = (double) v / tot + 1e-9;
+            ans.add(String.format("%d,%d: %.4f", i, j, x));
         }
         return ans;
     }
@@ -127,11 +131,10 @@ class Solution {
 #### C++
 
 ```cpp
-using pii = pair<int, int>;
-
 class Solution {
 public:
     vector<string> computeSimilarities(vector<vector<int>>& docs) {
+        using pii = pair<int, int>;
         double eps = 1e-9;
         unordered_map<int, vector<int>> d;
         for (int i = 0; i < docs.size(); ++i) {
@@ -188,9 +191,45 @@ func computeSimilarities(docs [][]int) []string {
 		i, j := k.i, k.j
 		tot := len(docs[i]) + len(docs[j]) - v
 		x := float64(v)/float64(tot) + 1e-9
-		ans = append(ans, strconv.Itoa(i)+","+strconv.Itoa(j)+": "+fmt.Sprintf("%.4f", x))
+		ans = append(ans, fmt.Sprintf("%d,%d: %.4f", i, j, x))
 	}
 	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function computeSimilarities(docs: number[][]): string[] {
+    const n = docs.length;
+    const d = new Map<number, number[]>();
+    for (let i = 0; i < n; ++i) {
+        for (const x of docs[i]) {
+            if (!d.has(x)) {
+                d.set(x, []);
+            }
+            d.get(x)!.push(i);
+        }
+    }
+    const cnt = new Map<number, number>();
+    for (const ids of d.values()) {
+        const m = ids.length;
+        for (let i = 0; i < m; ++i) {
+            for (let j = i + 1; j < m; ++j) {
+                const key = ids[i] * n + ids[j];
+                cnt.set(key, (cnt.get(key) ?? 0) + 1);
+            }
+        }
+    }
+    const ans: string[] = [];
+    for (const [key, v] of cnt) {
+        const i = Math.floor(key / n);
+        const j = key % n;
+        const tot = docs[i].length + docs[j].length - v;
+        const x = v / tot + 1e-9;
+        ans.push(`${i},${j}: ${x.toFixed(4)}`);
+    }
+    return ans;
 }
 ```
 
