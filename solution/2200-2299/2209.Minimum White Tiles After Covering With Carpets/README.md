@@ -92,7 +92,7 @@ tags:
 - 如果 $\textit{floor}[i] = 0$，则不需要使用地毯，直接跳过即可，即 $\textit{dfs}(i, j) = \textit{dfs}(i + 1, j)$；
 - 如果 $j = 0$，那么我们可以直接利用前缀和数组 $s$ 计算出剩余未被覆盖的白色砖块的数目，即 $\textit{dfs}(i, j) = s[n] - s[i]$；
 - 如果 $\textit{floor}[i] = 1$，那么我们可以选择使用地毯覆盖，也可以选择不使用地毯覆盖，取两者的最小值即可，即 $\textit{dfs}(i, j) = \min(\textit{dfs}(i + 1,
-    j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$。
+  j), \textit{dfs}(i + \textit{carpetLen}, j - 1))$。
 
 记忆化搜索即可。
 

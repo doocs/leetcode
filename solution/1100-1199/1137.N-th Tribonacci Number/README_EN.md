@@ -232,7 +232,7 @@ $$
 \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$, then $T_n$ is equal to the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 3}$. This can be solved using matrix exponentiation.
+We define the initial matrix $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$, then $T_n$ is equal to the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 3}$. This can be solved using matrix exponentiation.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

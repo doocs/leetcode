@@ -242,7 +242,7 @@ $$
 \end{bmatrix}
 $$
 
-We define the initial matrix $res = \begin{bmatrix} 1 & 1  & 0 \end{bmatrix}$, then $F_n$ equals the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 4}$. It can be solved using matrix quick power.
+We define the initial matrix $res = \begin{bmatrix} 1 & 1 & 0 \end{bmatrix}$, then $F_n$ equals the sum of all elements in the result matrix of $res$ multiplied by $base^{n - 4}$. It can be solved using matrix quick power.
 
 The time complexity is $O(\log n)$, and the space complexity is $O(1)$.
 

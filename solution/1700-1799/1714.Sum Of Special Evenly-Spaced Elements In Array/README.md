@@ -82,7 +82,7 @@ tags:
 - 如果 $y \le \sqrt{n}$，那么我们可以直接查询 $suf[y][x]$；
 - 如果 $y \gt \sqrt{n}$，那么我们可以直接暴力求解。
 
-时间复杂度 $O((n +  m) \times \sqrt{n})$，空间复杂度 $O(n \times \sqrt{n})$。其中 $n$ 是数组的长度，而 $m$ 是查询的个数。
+时间复杂度 $O((n + m) \times \sqrt{n})$，空间复杂度 $O(n \times \sqrt{n})$。其中 $n$ 是数组的长度，而 $m$ 是查询的个数。
 
 <!-- tabs:start -->
 
