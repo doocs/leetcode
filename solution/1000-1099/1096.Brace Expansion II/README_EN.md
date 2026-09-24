@@ -102,6 +102,16 @@ tags:
 
 <!-- thinking:end -->
 
+Define a recursive function $\textit{dfs}(\textit{exp})$ that expands $\textit{exp}$ and stores every word in a set $s$.
+
+Find the index $j$ of the first `}`. If there is none, $\textit{exp}$ is already a single word, so insert it into $s$.
+
+Otherwise search left from $j$ for the matching `{` at index $i$. The prefix $\textit{exp}[:i]$ and the suffix $\textit{exp}[j + 1:]$ are $a$ and $c$. Split the brace body $\textit{exp}[i + 1: j]$ on commas into $b_1, b_2, \cdots, b_k$, and recurse on $\textit{dfs}(a + b_i + c)$ for each $b_i$. The first `}` always closes a brace group with no nested braces, so splitting that body on commas is exact.
+
+Sort $s$ in lexicographical order to obtain the answer.
+
+The time complexity is about $O(n \times 2^{n / 4})$ and the space complexity is about $O(n \times 2^{n / 4})$, where $n$ is the length of $\textit{expression}$. A repeated group `{a,b,c}` yields three branches about every $7$ characters, so the number of recursive calls is $O(2^{n/4})$. Each call spends $O(n)$ time finding braces and concatenating strings. Every stored word also has length at most $n$.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -114,7 +124,7 @@ class Solution:
             if j == -1:
                 s.add(exp)
                 return
-            i = exp.rfind('{', 0, j - 1)
+            i = exp.rfind('{', 0, j)
             a, c = exp[:i], exp[j + 1 :]
             for b in exp[i + 1 : j].split(','):
                 dfs(a + b + c)

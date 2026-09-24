@@ -112,7 +112,7 @@ tags:
 
 最后，我们将集合 $s$ 中的元素按照字典序排序，即可得到答案。
 
-时间复杂度约为 $O(n \times 2^{n / 4})$，其中 $n$ 为表达式 $expression$ 的长度。
+时间复杂度约为 $O(n \times 2^{n / 4})$，空间复杂度约为 $O(n \times 2^{n / 4})$，其中 $n$ 为表达式 $expression$ 的长度。重复的 `{a,b,c}` 大约每 $7$ 个字符产生 $3$ 路分支，递归调用次数为 $O(2^{n/4})$，每次查找括号并拼接字符串需要 $O(n)$ 时间。结果集里每个字符串的长度也不超过 $n$。
 
 <!-- tabs:start -->
 
@@ -126,7 +126,7 @@ class Solution:
             if j == -1:
                 s.add(exp)
                 return
-            i = exp.rfind('{', 0, j - 1)
+            i = exp.rfind('{', 0, j)
             a, c = exp[:i], exp[j + 1 :]
             for b in exp[i + 1 : j].split(','):
                 dfs(a + b + c)
