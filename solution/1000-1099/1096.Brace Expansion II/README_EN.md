@@ -110,7 +110,7 @@ Otherwise search left from $j$ for the matching `{` at index $i$. The prefix $\t
 
 Sort $s$ in lexicographical order to obtain the answer.
 
-The time complexity is about $O(n \times 2^{n / 4})$ and the space complexity is about $O(n \times 2^{n / 4})$, where $n$ is the length of $\textit{expression}$. A repeated group `{a,b,c}` yields three branches about every $7$ characters, so the number of recursive calls is $O(2^{n/4})$. Each call spends $O(n)$ time finding braces and concatenating strings. Every stored word also has length at most $n$.
+The time complexity is $O(3^{n/6})$ and the space complexity is $O(n \times 3^{n/7})$, where $n$ is the length of $\textit{expression}$. The worst-case time comes from a nested three-way union such as $\{\ldots\{a,b,c\},a,b\}$: every extra $6$ characters multiplies the recursion tree by about $3$, and the total length of the strings processed is $\Theta(3^{n/6})$. Concatenating copies of $\{a,b,c\}$ produces $\Theta(3^{n/7})$ words of length $O(n)$. The deduplicated set occupies $O(n \times 3^{n/7})$ space, and sorting it costs $O(n^2 \times 3^{n/7})$, which is within the time bound above. The recursion depth is $O(n)$, so the strings on the stack use $O(n^2)$ extra space.
 
 <!-- tabs:start -->
 
