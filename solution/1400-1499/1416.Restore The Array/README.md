@@ -87,35 +87,114 @@ tags:
 > 将数字串切成若干属于 $[1,k]$ 且无前导零的整数，$n\le 10^5$，枚举所有切法不可行。$k\le 10^9$，从某一位置向后延伸的合法数字长度不超过 $10$。
 >
 > 定义 $f(i)$ 为后缀 $s[i:]$ 的恢复方案数：若 $s[i]='0'$ 则无法开始；否则枚举结束位置 $j$，在数值 $\le k$ 时累加 $f(j+1)$。对 $f(i)$ 记忆化或改写成从右向左的线性 DP。
->
-> 仓库中该题代码页尚未填写实现，上述转移即本题应采用的标准做法。
 
 <!-- thinking:end -->
+
+从右往左计算 $f(i)$，$f(n)=1$。$s[i]='0'$ 时 $f(i)=0$；否则从下标 $i$ 起向右拼数，数值一旦大于 $k$ 就停止，并把每个合法切点后的 $f(j+1)$ 累加进 $f(i)$。答案是 $f(0)$，对 $10^9+7$ 取模。
+
+时间复杂度 $O(n \times d)$，空间复杂度 $O(n)$。其中 $n$ 是 $s$ 的长度，$d$ 是 $k$ 的十进制位数，不超过 $10$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def numberOfArrays(self, s: str, k: int) -> int:
+        mod = 10**9 + 7
+        n = len(s)
+        f = [0] * (n + 1)
+        f[n] = 1
+        for i in range(n - 1, -1, -1):
+            if s[i] == '0':
+                continue
+            x = 0
+            for j in range(i, n):
+                x = x * 10 + int(s[j])
+                if x > k:
+                    break
+                f[i] = (f[i] + f[j + 1]) % mod
+        return f[0]
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int numberOfArrays(String s, int k) {
+        final int mod = 1_000_000_007;
+        int n = s.length();
+        int[] f = new int[n + 1];
+        f[n] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s.charAt(i) == '0') {
+                continue;
+            }
+            long x = 0;
+            for (int j = i; j < n; ++j) {
+                x = x * 10 + s.charAt(j) - '0';
+                if (x > k) {
+                    break;
+                }
+                f[i] = (int) ((f[i] + f[j + 1]) % mod);
+            }
+        }
+        return f[0];
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int numberOfArrays(string s, int k) {
+        const int mod = 1e9 + 7;
+        int n = s.size();
+        vector<int> f(n + 1);
+        f[n] = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[i] == '0') {
+                continue;
+            }
+            long long x = 0;
+            for (int j = i; j < n; ++j) {
+                x = x * 10 + s[j] - '0';
+                if (x > k) {
+                    break;
+                }
+                f[i] = (f[i] + f[j + 1]) % mod;
+            }
+        }
+        return f[0];
+    }
+};
 ```
 
 #### Go
 
 ```go
-
+func numberOfArrays(s string, k int) int {
+	const mod = int(1e9 + 7)
+	n := len(s)
+	f := make([]int, n+1)
+	f[n] = 1
+	for i := n - 1; i >= 0; i-- {
+		if s[i] == '0' {
+			continue
+		}
+		x := 0
+		for j := i; j < n; j++ {
+			x = x*10 + int(s[j]-'0')
+			if x > k {
+				break
+			}
+			f[i] = (f[i] + f[j+1]) % mod
+		}
+	}
+	return f[0]
+}
 ```
 
 <!-- tabs:end -->
