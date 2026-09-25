@@ -88,7 +88,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Recursion
 
 <!-- thinking:start -->
 
