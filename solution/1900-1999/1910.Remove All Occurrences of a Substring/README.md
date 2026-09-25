@@ -154,4 +154,115 @@ function removeOccurrences(s: string, part: string): string {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每删掉一次就要重新扫描整串。$|s|$ 每次至少减少 $1$，轮数可达 $O(n)$，总时间是 $O(n^2)$。
+>
+> 从左往右读时，当前结果里若还有 $\textit{part}$，最左侧的那一次一定贴在当前结果的末尾：更早的出现在读到它的时候就已经删掉了。
+>
+> 因此用一个栈保存还没被删掉的字符。每压入一个字符，若末尾的 $m$ 个字符等于 $\textit{part}$ 就弹出。一遍扫描即按题意完成所有删除。
+
+<!-- thinking:end -->
+
+用字符串 $st$ 模拟栈，从左到右扫描 $s$。把当前字符追加到 $st$ 末尾；若 $st$ 的长度至少为 $m = |\textit{part}|$，且末尾 $m$ 个字符恰好是 $\textit{part}$，则删掉这 $m$ 个字符。扫描结束后，$st$ 就是答案。
+
+这样做与方法一等价：任意时刻 $st$ 中都不含 $\textit{part}$，下一次能匹配上的 $\textit{part}$ 必然以当前字符结尾，也就是剩余字符串中最左侧的一次出现。
+
+时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是 $s$ 和 $\textit{part}$ 的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def removeOccurrences(self, s: str, part: str) -> str:
+        m = len(part)
+        st = []
+        for c in s:
+            st.append(c)
+            if len(st) >= m and ''.join(st[-m:]) == part:
+                del st[-m:]
+        return ''.join(st)
+```
+
+#### Java
+
+```java
+class Solution {
+    public String removeOccurrences(String s, String part) {
+        int m = part.length();
+        StringBuilder st = new StringBuilder();
+        for (int i = 0; i < s.length(); ++i) {
+            st.append(s.charAt(i));
+            if (st.length() >= m && st.substring(st.length() - m).equals(part)) {
+                st.setLength(st.length() - m);
+            }
+        }
+        return st.toString();
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string removeOccurrences(string s, string part) {
+        int m = part.size();
+        string st;
+        for (char c : s) {
+            st.push_back(c);
+            if ((int) st.size() >= m && st.compare(st.size() - m, m, part) == 0) {
+                st.erase(st.size() - m);
+            }
+        }
+        return st;
+    }
+};
+```
+
+#### Go
+
+```go
+func removeOccurrences(s string, part string) string {
+	m := len(part)
+	st := make([]byte, 0, len(s))
+	for i := 0; i < len(s); i++ {
+		st = append(st, s[i])
+		if len(st) >= m && string(st[len(st)-m:]) == part {
+			st = st[:len(st)-m]
+		}
+	}
+	return string(st)
+}
+```
+
+#### TypeScript
+
+```ts
+function removeOccurrences(s: string, part: string): string {
+    const m = part.length;
+    const st: string[] = [];
+    for (const c of s) {
+        st.push(c);
+        if (st.length >= m && st.slice(-m).join('') === part) {
+            st.length -= m;
+        }
+    }
+    return st.join('');
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
