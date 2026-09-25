@@ -70,7 +70,7 @@ Now s has no occurrences of &quot;xy&quot;.
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Brute Force
 
 <!-- thinking:start -->
 
