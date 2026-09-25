@@ -249,4 +249,275 @@ function braceExpansionII(expression: string): string[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：语法分析
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 方法一每选中一个选项，就把还没展开的后缀再复制一份递归处理。像 $\{\ldots\{a,b,c\},a,b\}$ 这样层层嵌套时，同一段后缀被重复扫描，时间达到 $O(3^{n/6})$，不同单词却可能只有常数个。
+>
+> 逗号只出现在花括号里，表示并；括号外相邻的因子表示连接。按这个文法从左到右解析，每个子表达式只求一次集合。
+>
+> 因子是一段连续小写字母，或一对花括号中的表达式。连接把当前集合与因子集合做笛卡尔积，逗号把若干连接结果取并。哈希集合负责去重，全部解析完再按字典序排序。
+
+<!-- thinking:end -->
+
+记表达式为 $s$。从下标 $i$ 出发定义两个函数。
+
+$\textit{expr}(i)$ 解析若干个 $\textit{term}$ 的并集：先解析一个 $\textit{term}$，若后面是逗号，就跳过逗号再解析下一个 $\textit{term}$，把集合并进去，直到遇到 `}` 或结尾。
+
+$\textit{term}(i)$ 解析若干个因子的连接，初始集合为 $\{\varepsilon\}$。若当前字符是 `{`，则递归解析内部的 $\textit{expr}$ 并跳过匹配的 `}`；否则读出一段连续小写字母。然后把当前集合与该因子的集合做笛卡尔积。遇到逗号、`}` 或结尾时返回。
+
+最后对 $\textit{expr}(0)$ 的结果按字典序排序。同一段子表达式只解析一次，方法一里把后缀复制到每一支再重扫的开销不再出现。
+
+时间复杂度 $O(n^2 \times 3^{n/7})$，空间复杂度 $O(n \times 3^{n/7})$，其中 $n$ 为表达式长度。最坏情况是连续拼接的 `{a,b,c}`，需要生成 $\Theta(3^{n/7})$ 个长度为 $O(n)$ 的字符串；构造这些字符串是 $O(n \times 3^{n/7})$，排序是 $O(n^2 \times 3^{n/7})$。嵌套的三路并集在本方法里每层集合大小为 $O(1)$，时间只需 $O(n)$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def braceExpansionII(self, expression: str) -> List[str]:
+        def expr(i: int):
+            res, i = term(i)
+            while i < len(expression) and expression[i] == ',':
+                other, i = term(i + 1)
+                res |= other
+            return res, i
+
+        def term(i: int):
+            res = {''}
+            while i < len(expression) and expression[i] not in ',}':
+                if expression[i] == '{':
+                    cur, i = expr(i + 1)
+                    i += 1
+                else:
+                    j = i + 1
+                    while j < len(expression) and expression[j].islower():
+                        j += 1
+                    cur = {expression[i:j]}
+                    i = j
+                res = {a + b for a in res for b in cur}
+            return res, i
+
+        ans, _ = expr(0)
+        return sorted(ans)
+```
+
+#### Java
+
+```java
+class Solution {
+    private String exp;
+    private int i;
+
+    public List<String> braceExpansionII(String expression) {
+        exp = expression;
+        i = 0;
+        List<String> ans = new ArrayList<>(expr());
+        Collections.sort(ans);
+        return ans;
+    }
+
+    private Set<String> expr() {
+        Set<String> res = term();
+        while (i < exp.length() && exp.charAt(i) == ',') {
+            ++i;
+            res.addAll(term());
+        }
+        return res;
+    }
+
+    private Set<String> term() {
+        Set<String> res = new HashSet<>();
+        res.add("");
+        while (i < exp.length() && exp.charAt(i) != ',' && exp.charAt(i) != '}') {
+            Set<String> cur = new HashSet<>();
+            if (exp.charAt(i) == '{') {
+                ++i;
+                cur = expr();
+                ++i;
+            } else {
+                int j = i + 1;
+                while (j < exp.length() && exp.charAt(j) >= 'a' && exp.charAt(j) <= 'z') {
+                    ++j;
+                }
+                cur.add(exp.substring(i, j));
+                i = j;
+            }
+            Set<String> nxt = new HashSet<>();
+            for (String a : res) {
+                for (String b : cur) {
+                    nxt.add(a + b);
+                }
+            }
+            res = nxt;
+        }
+        return res;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> braceExpansionII(string expression) {
+        exp = std::move(expression);
+        i = 0;
+        set<string> ans = parseExpr();
+        return vector<string>(ans.begin(), ans.end());
+    }
+
+private:
+    string exp;
+    int i = 0;
+
+    set<string> parseExpr() {
+        set<string> res = parseTerm();
+        while (i < exp.size() && exp[i] == ',') {
+            ++i;
+            set<string> other = parseTerm();
+            res.insert(other.begin(), other.end());
+        }
+        return res;
+    }
+
+    set<string> parseTerm() {
+        set<string> res{""};
+        while (i < (int) exp.size() && exp[i] != ',' && exp[i] != '}') {
+            set<string> cur;
+            if (exp[i] == '{') {
+                ++i;
+                cur = parseExpr();
+                ++i;
+            } else {
+                int j = i + 1;
+                while (j < (int) exp.size() && exp[j] >= 'a' && exp[j] <= 'z') {
+                    ++j;
+                }
+                cur.insert(exp.substr(i, j - i));
+                i = j;
+            }
+            set<string> nxt;
+            for (const string& a : res) {
+                for (const string& b : cur) {
+                    nxt.insert(a + b);
+                }
+            }
+            res.swap(nxt);
+        }
+        return res;
+    }
+};
+```
+
+#### Go
+
+```go
+func braceExpansionII(expression string) []string {
+	exp := expression
+	i := 0
+	var parseExpr func() map[string]struct{}
+	var parseTerm func() map[string]struct{}
+	parseExpr = func() map[string]struct{} {
+		res := parseTerm()
+		for i < len(exp) && exp[i] == ',' {
+			i++
+			for w := range parseTerm() {
+				res[w] = struct{}{}
+			}
+		}
+		return res
+	}
+	parseTerm = func() map[string]struct{} {
+		res := map[string]struct{}{"": {}}
+		for i < len(exp) && exp[i] != ',' && exp[i] != '}' {
+			cur := map[string]struct{}{}
+			if exp[i] == '{' {
+				i++
+				cur = parseExpr()
+				i++
+			} else {
+				j := i + 1
+				for j < len(exp) && exp[j] >= 'a' && exp[j] <= 'z' {
+					j++
+				}
+				cur[exp[i:j]] = struct{}{}
+				i = j
+			}
+			nxt := map[string]struct{}{}
+			for a := range res {
+				for b := range cur {
+					nxt[a+b] = struct{}{}
+				}
+			}
+			res = nxt
+		}
+		return res
+	}
+	all := parseExpr()
+	ans := make([]string, 0, len(all))
+	for w := range all {
+		ans = append(ans, w)
+	}
+	sort.Strings(ans)
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function braceExpansionII(expression: string): string[] {
+    let i = 0;
+    const expr = (): Set<string> => {
+        const res = term();
+        while (i < expression.length && expression[i] === ',') {
+            ++i;
+            for (const w of term()) {
+                res.add(w);
+            }
+        }
+        return res;
+    };
+    const term = (): Set<string> => {
+        let res = new Set<string>(['']);
+        while (i < expression.length && expression[i] !== ',' && expression[i] !== '}') {
+            let cur: Set<string>;
+            if (expression[i] === '{') {
+                ++i;
+                cur = expr();
+                ++i;
+            } else {
+                let j = i + 1;
+                while (j < expression.length && expression[j] >= 'a' && expression[j] <= 'z') {
+                    ++j;
+                }
+                cur = new Set([expression.slice(i, j)]);
+                i = j;
+            }
+            const nxt = new Set<string>();
+            for (const a of res) {
+                for (const b of cur) {
+                    nxt.add(a + b);
+                }
+            }
+            res = nxt;
+        }
+        return res;
+    };
+    return Array.from(expr()).sort();
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
