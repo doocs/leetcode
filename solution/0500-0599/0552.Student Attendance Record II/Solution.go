@@ -1,32 +1,21 @@
 func checkRecord(n int) int {
-	f := make([][][]int, n)
-	for i := range f {
-		f[i] = make([][]int, 2)
-		for j := range f[i] {
-			f[i][j] = make([]int, 3)
-			for k := range f[i][j] {
-				f[i][j][k] = -1
+	const mod = int(1e9 + 7)
+	f := [2][3]int{{1, 1, 1}, {1, 1, 1}}
+	for i := 0; i < n; i++ {
+		var g [2][3]int
+		for j := 0; j < 2; j++ {
+			for k := 0; k < 3; k++ {
+				ans := f[j][0]
+				if j == 0 {
+					ans = (ans + f[1][0]) % mod
+				}
+				if k < 2 {
+					ans = (ans + f[j][k+1]) % mod
+				}
+				g[j][k] = ans % mod
 			}
 		}
+		f = g
 	}
-	const mod = 1e9 + 7
-	var dfs func(i, j, k int) int
-	dfs = func(i, j, k int) int {
-		if i >= n {
-			return 1
-		}
-		if f[i][j][k] != -1 {
-			return f[i][j][k]
-		}
-		ans := dfs(i+1, j, 0)
-		if j == 0 {
-			ans = (ans + dfs(i+1, j+1, 0)) % mod
-		}
-		if k < 2 {
-			ans = (ans + dfs(i+1, j, k+1)) % mod
-		}
-		f[i][j][k] = ans
-		return ans
-	}
-	return dfs(0, 0, 0)
+	return f[0][0]
 }

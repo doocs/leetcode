@@ -72,7 +72,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：记忆化搜索
+### 方法一：动态规划
 
 <!-- thinking:start -->
 
@@ -80,24 +80,23 @@ tags:
 >
 > 长度为 $n$ 的合法串要限制缺勤次数与连续迟到。直接枚举 $3^n$ 种串不可行，$n$ 可达 $10^5$。
 >
-> 状态只需「已填天数、已用缺勤、当前连续迟到」，三者都很小。记忆化搜索 $dfs(i,j,k)$：可放一次 `A`（若 $j=0$）、可放 `L`（若 $k<2$）、或放 `P` 并清零连续迟到。模 $10^9+7$ 后返回。
+> 缺勤只用过 $0$ 次或 $1$ 次，连续迟到只有 $0,1,2$ 三档，六个状态就够了。若从第 $0$ 天递归到第 $n$ 天，调用栈深度为 $n$，在上限处会溢出。
+>
+> 因此从最后一天倒着填。$f(j,k)$ 表示已缺勤 $j$ 次、当前连续迟到 $k$ 次时，把剩余记录填完的方案数。没有剩余天数时方案数为 $1$。往前一天可以放 `P`（连续迟到清零）、在 $j=0$ 时放一次 `A`，或在 $k<2$ 时放 `L`。答案是 $f(0,0)$，对 $10^9+7$ 取模。
 
 <!-- thinking:end -->
 
-我们设计一个函数 $dfs(i, j, k)$，表示从第 $i$ 个出勤记录开始，当前缺勤次数为 $j$，目前最后连续迟到次数为 $k$ 时，可获得出勤奖励的情况数量。那么答案就是 $dfs(0, 0, 0)$。
+设 $f(j, k)$ 表示已经缺勤 $j$ 次、当前连续迟到 $k$ 次时，把尚未填写的出勤记录全部填完的方案数。没有剩余天数时，$f(j, k) = 1$。答案是倒推 $n$ 天之后的 $f(0, 0)$。
 
-函数 $dfs(i, j, k)$ 的执行过程如下：
+从最后一天往前推。对于每一个状态 $(j, k)$，新的方案数是三种选择之和：
 
-- 如果 $i \ge n$，说明已经遍历完所有出勤记录，返回 $1$；
-- 如果 $j = 0$，说明当前缺勤次数为 $0$，那么可以选择缺勤，即 $dfs(i + 1, j + 1, 0)$；
-- 如果 $k \lt 2$，说明当前连续迟到次数小于 $2$，那么可以选择迟到，即 $dfs(i + 1, j, k + 1)$；
-- 无论如何，都可以选择到场，即 $dfs(i + 1, j, 0)$。
+- 到场：连续迟到清零，对应 $f(j, 0)$；
+- 若 $j = 0$，可以缺勤一次，对应 $f(1, 0)$；
+- 若 $k \lt 2$，可以迟到，对应 $f(j, k + 1)$。
 
-我们将上述三种情况的结果相加，即为 $dfs(i, j, k)$ 的结果。
+每一天都用新数组接住结果，避免覆盖仍要读取的旧状态。
 
-为了避免重复计算，我们可以使用记忆化搜索。
-
-时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为出勤记录的长度。
+时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为出勤记录的长度。
 
 <!-- tabs:start -->
 
@@ -106,53 +105,46 @@ tags:
 ```python
 class Solution:
     def checkRecord(self, n: int) -> int:
-        @cache
-        def dfs(i, j, k):
-            if i >= n:
-                return 1
-            ans = 0
-            if j == 0:
-                ans += dfs(i + 1, j + 1, 0)
-            if k < 2:
-                ans += dfs(i + 1, j, k + 1)
-            ans += dfs(i + 1, j, 0)
-            return ans % mod
-
         mod = 10**9 + 7
-        ans = dfs(0, 0, 0)
-        dfs.cache_clear()
-        return ans
+        f = [[1] * 3 for _ in range(2)]
+        for _ in range(n):
+            g = [[0] * 3 for _ in range(2)]
+            for j in range(2):
+                for k in range(3):
+                    ans = f[j][0]
+                    if j == 0:
+                        ans += f[1][0]
+                    if k < 2:
+                        ans += f[j][k + 1]
+                    g[j][k] = ans % mod
+            f = g
+        return f[0][0]
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private final int mod = (int) 1e9 + 7;
-    private int n;
-    private Integer[][][] f;
-
     public int checkRecord(int n) {
-        this.n = n;
-        f = new Integer[n][2][3];
-        return dfs(0, 0, 0);
-    }
-
-    private int dfs(int i, int j, int k) {
-        if (i >= n) {
-            return 1;
+        final int mod = (int) 1e9 + 7;
+        int[][] f = {{1, 1, 1}, {1, 1, 1}};
+        for (int i = 0; i < n; ++i) {
+            int[][] g = new int[2][3];
+            for (int j = 0; j < 2; ++j) {
+                for (int k = 0; k < 3; ++k) {
+                    int ans = f[j][0];
+                    if (j == 0) {
+                        ans = (ans + f[1][0]) % mod;
+                    }
+                    if (k < 2) {
+                        ans = (ans + f[j][k + 1]) % mod;
+                    }
+                    g[j][k] = ans % mod;
+                }
+            }
+            f = g;
         }
-        if (f[i][j][k] != null) {
-            return f[i][j][k];
-        }
-        int ans = dfs(i + 1, j, 0);
-        if (j == 0) {
-            ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
-        }
-        if (k < 2) {
-            ans = (ans + dfs(i + 1, j, k + 1)) % mod;
-        }
-        return f[i][j][k] = ans;
+        return f[0][0];
     }
 }
 ```
@@ -163,26 +155,29 @@ class Solution {
 class Solution {
 public:
     int checkRecord(int n) {
-        int f[n][2][3];
-        memset(f, -1, sizeof(f));
         const int mod = 1e9 + 7;
-        auto dfs = [&](this auto&& dfs, int i, int j, int k) -> int {
-            if (i >= n) {
-                return 1;
+        int f[2][3] = {{1, 1, 1}, {1, 1, 1}};
+        for (int i = 0; i < n; ++i) {
+            int g[2][3]{};
+            for (int j = 0; j < 2; ++j) {
+                for (int k = 0; k < 3; ++k) {
+                    int ans = f[j][0];
+                    if (j == 0) {
+                        ans = (ans + f[1][0]) % mod;
+                    }
+                    if (k < 2) {
+                        ans = (ans + f[j][k + 1]) % mod;
+                    }
+                    g[j][k] = ans % mod;
+                }
             }
-            if (f[i][j][k] != -1) {
-                return f[i][j][k];
+            for (int j = 0; j < 2; ++j) {
+                for (int k = 0; k < 3; ++k) {
+                    f[j][k] = g[j][k];
+                }
             }
-            int ans = dfs(i + 1, j, 0);
-            if (j == 0) {
-                ans = (ans + dfs(i + 1, j + 1, 0)) % mod;
-            }
-            if (k < 2) {
-                ans = (ans + dfs(i + 1, j, k + 1)) % mod;
-            }
-            return f[i][j][k] = ans;
-        };
-        return dfs(0, 0, 0);
+        }
+        return f[0][0];
     }
 };
 ```
@@ -191,36 +186,25 @@ public:
 
 ```go
 func checkRecord(n int) int {
-	f := make([][][]int, n)
-	for i := range f {
-		f[i] = make([][]int, 2)
-		for j := range f[i] {
-			f[i][j] = make([]int, 3)
-			for k := range f[i][j] {
-				f[i][j][k] = -1
+	const mod = int(1e9 + 7)
+	f := [2][3]int{{1, 1, 1}, {1, 1, 1}}
+	for i := 0; i < n; i++ {
+		var g [2][3]int
+		for j := 0; j < 2; j++ {
+			for k := 0; k < 3; k++ {
+				ans := f[j][0]
+				if j == 0 {
+					ans = (ans + f[1][0]) % mod
+				}
+				if k < 2 {
+					ans = (ans + f[j][k+1]) % mod
+				}
+				g[j][k] = ans % mod
 			}
 		}
+		f = g
 	}
-	const mod = 1e9 + 7
-	var dfs func(i, j, k int) int
-	dfs = func(i, j, k int) int {
-		if i >= n {
-			return 1
-		}
-		if f[i][j][k] != -1 {
-			return f[i][j][k]
-		}
-		ans := dfs(i+1, j, 0)
-		if j == 0 {
-			ans = (ans + dfs(i+1, j+1, 0)) % mod
-		}
-		if k < 2 {
-			ans = (ans + dfs(i+1, j, k+1)) % mod
-		}
-		f[i][j][k] = ans
-		return ans
-	}
-	return dfs(0, 0, 0)
+	return f[0][0]
 }
 ```
 
@@ -236,9 +220,9 @@ func checkRecord(n int) int {
 
 > **思考**
 >
-> 记忆化已是多项式，但递归常数偏大。同一三维状态可改成自底向上的滚动数组。
+> 上一种做法只保留六个后缀方案数。这里把每一天的前缀方案都记下来，天数下标留在表里。
 >
-> $dp[i][j][k]$ 表示前 $i+1$ 天、缺勤 $j$ 次、连续迟到 $k$ 次的方案数。按放 `A` / `L` / `P` 从上一天转移。最后对最后一天的所有 $(j,k)$ 求和。避免了递归开销。
+> $dp[i][j][k]$ 表示前 $i+1$ 天、缺勤 $j$ 次、连续迟到 $k$ 次的方案数。按放 `A` / `L` / `P` 从上一天转移。最后对最后一天的所有 $(j,k)$ 求和。
 
 <!-- thinking:end -->
 
