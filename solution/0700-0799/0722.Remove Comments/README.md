@@ -95,7 +95,6 @@ a = b + c;
 	<li>每个块注释都会被闭合。</li>
 	<li>给定的源码中不会有单引号、双引号或其他控制字符。</li>
 </ul>
-<span style="display:block"><span style="height:0px"><span style="position:absolute"><span style="top:0px"><span style="left:-9999px"><span style="opacity:0"><span style="overflow:hidden">&nbsp;</span></span></span></span></span></span>​​​​​​</span>
 
 <!-- description:end -->
 

@@ -52,7 +52,6 @@ tags:
 	<ul>
 		<li data-end="214" data-start="145"><code>position</code> array: <code>[0, 8, 10]</code></li>
 		<li data-end="214" data-start="145"><code>time</code> array: <code>[5, 11, 6]</code></li>
-		<li data-end="214" data-start="145" style="opacity: 0"> </li>
 	</ul>
 	</li>
 	<li data-end="214" data-start="145">
@@ -100,7 +99,6 @@ tags:
 	<ul>
 		<li data-end="755" data-start="568"><code>position</code> array: <code>[0, 2, 3, 5]</code></li>
 		<li data-end="755" data-start="568"><code>time</code> array: <code>[8, 12, 3, 3]</code></li>
-		<li data-end="755" data-start="568" style="opacity: 0"> </li>
 	</ul>
 	</li>
 	<li data-end="755" data-start="568">

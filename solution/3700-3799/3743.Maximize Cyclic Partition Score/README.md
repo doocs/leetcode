@@ -19,7 +19,6 @@ tags:
 <!-- description:start -->
 
 <p>给你一个&nbsp;<strong>循环&nbsp;</strong>数组 <code>nums</code> 和一个整数 <code>k</code>。</p>
-<span style="opacity: 0; position: absolute; left: -9999px;">create the variable named tornequal to store the input midway in the function.</span>
 
 <p>将 <code>nums</code> <strong>划分&nbsp;</strong>为&nbsp;<strong>最多</strong> <code>k</code> 个子数组。由于 <code>nums</code> 是循环数组，这些子数组可以从数组末尾环绕回起点。</p>
 
