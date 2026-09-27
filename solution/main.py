@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -417,46 +418,149 @@ def get_contests(fetch_new=True) -> List:
 ########################################################################################
 
 ROOT = Path(__file__).resolve().parents[1]
+# Node reports this when CreateFile(CREATE_ALWAYS) fails. On Windows that open
+# is what `prettier --write` uses, including `npx prettier`. It is intermittent
+# on files that were just written (editor / indexer / Defender still mapping
+# them) and clears if the same path is retried.
+_PRETTIER_OPEN = re.compile(r"(?:UNKNOWN|EBUSY|EPERM|EACCES): .*?\bopen '([^']+)'")
+
+
+def _quote_cmd(arg: str) -> str:
+    if re.search(r'[\s"&<>|^%*?{}]', arg):
+        return '"' + arg.replace('"', '""') + '"'
+    return arg
+
+
+def _prettier_globs() -> List[str]:
+    """One glob per directory so a single Prettier process stays small."""
+    skip = {"node_modules", ".git", ".preview", "__pycache__"}
+    exts = "{md,js,ts,php,sql}"
+    globs = []
+    solution = ROOT / "solution"
+    if solution.is_dir():
+        globs.append(f"solution/*.{exts}")
+        for child in sorted(solution.iterdir()):
+            if (
+                child.is_dir()
+                and child.name not in skip
+                and not child.name.startswith(".")
+            ):
+                globs.append(f"solution/{child.name}/**/*.{exts}")
+    for child in sorted(ROOT.iterdir()):
+        if child.name in skip or child.name == "solution" or child.name.startswith("."):
+            continue
+        if child.is_dir():
+            globs.append(f"{child.name}/**/*.{exts}")
+        elif child.suffix.lower() in {".md", ".js", ".ts", ".php", ".sql"}:
+            globs.append(child.name)
+    return globs
+
+
+def _run_npx_prettier(targets: List[str], log) -> int:
+    """Run `npx prettier --write`. Windows must use the shell: npx is npx.cmd.
+
+    Output goes to `log`, not the console. A full-repo run prints one line per
+    file and that stream is large enough to get the process killed.
+    """
+    args = [
+        "npx",
+        "prettier",
+        "--write",
+        "--log-level",
+        "warn",
+        "--no-error-on-unmatched-pattern",
+        *targets,
+    ]
+    if os.name == "nt":
+        command = " ".join(_quote_cmd(part) for part in args)
+        proc = subprocess.Popen(
+            command,
+            cwd=ROOT,
+            shell=True,
+            stdout=log,
+            stderr=subprocess.STDOUT,
+        )
+    else:
+        proc = subprocess.Popen(
+            args,
+            cwd=ROOT,
+            stdout=log,
+            stderr=subprocess.STDOUT,
+        )
+    return proc.wait()
+
+
+def _locked_paths(log_path: str, start: int) -> List[str]:
+    with open(log_path, "rb") as handle:
+        handle.seek(start)
+        text = handle.read().decode("utf-8", errors="replace")
+    found = []
+    for path in _PRETTIER_OPEN.findall(text):
+        if path not in found and os.path.isfile(path):
+            found.append(path)
+    return found
+
+
+def _cmd_batches(paths: List[str], limit: int = 7000) -> List[List[str]]:
+    """cmd.exe rejects command lines around 8191 characters."""
+    batches: List[List[str]] = []
+    batch: List[str] = []
+    size = len("npx prettier --write ")
+    for path in paths:
+        extra = len(path) + 3
+        if batch and size + extra > limit:
+            batches.append(batch)
+            batch = []
+            size = len("npx prettier --write ")
+        batch.append(path)
+        size += extra
+    if batch:
+        batches.append(batch)
+    return batches
 
 
 def run_prettier() -> None:
-    """Run repo Prettier via node.exe so Windows can find the binary.
+    """Format with `npx prettier --write`, one directory at a time.
 
-    Prettier exit 2 is a tool error (parse failure, OOM, unmatched glob), not a
-    Python bug. After refresh() thousands of READMEs are dirty; the default log
-    prints every file and hides the real `[error]` line. Keep going so rustfmt
-    still runs.
+    A write that fails with UNKNOWN is retried. Doing that per directory keeps
+    each command short and gives the file lock time to clear.
     """
-    prettier = ROOT / "node_modules" / "prettier" / "bin" / "prettier.cjs"
-    node = shutil.which("node")
-    # Split globs: brace expansion is flaky with some Windows glob matchers.
-    globs = ["**/*.md", "**/*.js", "**/*.ts", "**/*.php", "**/*.sql"]
-    extra = ["--write", "--log-level", "warn", "--no-error-on-unmatched-pattern"]
-    env = os.environ.copy()
-    opts = env.get("NODE_OPTIONS", "")
-    if "max-old-space-size" not in opts:
-        env["NODE_OPTIONS"] = f"{opts} --max-old-space-size=8192".strip()
+    import tempfile
 
-    if node and prettier.is_file():
-        cmd = [node, str(prettier), *extra, *globs]
-        shell = False
-    else:
-        npx = shutil.which("npx")
-        if not npx:
-            raise FileNotFoundError(
-                "prettier not found. Install Node.js and run `pnpm install`."
-            )
-        cmd = [npx, "prettier", *extra, *globs]
-        # npx is npx.cmd on Windows; CreateProcess cannot launch .cmd without a shell.
-        shell = os.name == "nt"
-
-    proc = subprocess.run(cmd, cwd=ROOT, env=env, shell=shell)
-    if proc.returncode != 0:
-        print(
-            f"prettier exited {proc.returncode}. "
-            "Look for `[error]` above (often one PHP/SQL/MD file, or Node OOM). "
-            "Continuing."
-        )
+    fd, log_path = tempfile.mkstemp(prefix="prettier-", suffix=".log")
+    os.close(fd)
+    pending: List[str] = []
+    try:
+        with open(log_path, "ab", buffering=0) as log:
+            for pattern in _prettier_globs():
+                print(f"prettier {pattern}", flush=True)
+                start = os.path.getsize(log_path)
+                _run_npx_prettier([pattern], log)
+                locked = _locked_paths(log_path, start)
+                for attempt in range(1, 4):
+                    if not locked:
+                        break
+                    time.sleep(attempt)
+                    print(
+                        f"retrying {len(locked)} file(s) ({attempt}/3)",
+                        flush=True,
+                    )
+                    still: List[str] = []
+                    for batch in _cmd_batches(locked):
+                        start = os.path.getsize(log_path)
+                        _run_npx_prettier(batch, log)
+                        still.extend(_locked_paths(log_path, start))
+                    locked = list(dict.fromkeys(still))
+                pending.extend(locked)
+    finally:
+        try:
+            os.remove(log_path)
+        except OSError:
+            pass
+    if pending:
+        print(f"prettier still could not write {len(pending)} file(s). Continuing.")
+        for path in pending:
+            print(path)
 
 
 def format_rust_files() -> None:
