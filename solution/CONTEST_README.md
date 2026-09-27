@@ -35,6 +35,20 @@ comments: true
 
 ## 往期竞赛
 
+#### 第 521 场周赛(2026-09-27 10:30, 90 分钟) 参赛人数 908
+
+- [4065. 移除不同值重排数组](/solution/4000-4099/4065.Rearrange%20Array%20by%20Removing%20Distinct%20Values/README.md)
+- [4066. 至多一次替换后的最大相邻相等元素对数](/solution/4000-4099/4066.Maximum%20Equal%20Adjacent%20Pairs%20After%20at%20Most%20One%20Replacement/README.md)
+- [4067. 数对和受限的最长子数组](/solution/4000-4099/4067.Longest%20Subarray%20With%20Restricted%20Pair%20Sums/README.md)
+- [4068. 考虑空闲时间的会议最大收益](/solution/4000-4099/4068.Maximize%20Meeting%20Earnings%20with%20Idle%20Gaps/README.md)
+
+#### 第 192 场双周赛(2026-09-26 22:30, 90 分钟) 参赛人数 642
+
+- [4061. 皇后到达目标格子的最少移动步数](/solution/4000-4099/4061.Minimum%20Queen%20Moves%20to%20Reach%20Target/README.md)
+- [4062. 成对操作转化数组](/solution/4000-4099/4062.Transform%20Array%20Using%20Pair%20Operations/README.md)
+- [4063. 至多一次取反能被 K 整除的最长子数组 I](/solution/4000-4099/4063.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20I/README.md)
+- [4064. 至多一次取反能被 K 整除的最长子数组 II](/solution/4000-4099/4064.Longest%20Subarray%20Divisible%20by%20K%20with%20At%20Most%20One%20Negation%20II/README.md)
+
 #### 第 520 场周赛(2026-09-20 10:30, 90 分钟) 参赛人数 930
 
 - [4056. 统计相交区间对 I](/solution/4000-4099/4056.Number%20of%20Intersecting%20Interval%20Pairs%20I/README.md)

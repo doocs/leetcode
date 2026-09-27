@@ -1,6 +1,8 @@
 ---
 comments: true
 difficulty: Medium
+rating: 1899
+source: Weekly Contest 520 Q3
 ---
 
 <!-- problem:start -->
