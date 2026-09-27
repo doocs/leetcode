@@ -7,7 +7,7 @@ public:
         for (int mask = 0; mask < 1 << n; ++mask) {
             int i = __builtin_popcount(mask);
             for (int j = 1; j <= n; ++j) {
-                if (((mask >> (j - 1)) & 1) == 1 && (i % j == 0 || j % i == 0)) {
+                if (((mask >> (j - 1)) & 1) == 1 && __gcd(i, j) == 1) {
                     f[mask] += f[mask ^ (1 << (j - 1))];
                 }
             }

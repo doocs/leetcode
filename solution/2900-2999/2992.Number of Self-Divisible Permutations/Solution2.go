@@ -4,10 +4,17 @@ func selfDivisiblePermutationCount(n int) int {
 	for mask := 0; mask < 1<<n; mask++ {
 		i := bits.OnesCount(uint(mask))
 		for j := 1; j <= n; j++ {
-			if mask>>(j-1)&1 == 1 && (i%j == 0 || j%i == 0) {
+			if mask>>(j-1)&1 == 1 && gcd(i, j) == 1 {
 				f[mask] += f[mask^(1<<(j-1))]
 			}
 		}
 	}
 	return f[(1<<n)-1]
+}
+
+func gcd(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
 }

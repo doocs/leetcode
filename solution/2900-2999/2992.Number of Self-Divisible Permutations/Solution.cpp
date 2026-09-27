@@ -13,7 +13,7 @@ public:
             }
             f[mask] = 0;
             for (int j = 1; j <= n; ++j) {
-                if ((mask >> j & 1) == 0 && (i % j == 0 || j % i == 0)) {
+                if ((mask >> j & 1) == 0 && __gcd(i, j) == 1) {
                     f[mask] += dfs(mask | 1 << j);
                 }
             }

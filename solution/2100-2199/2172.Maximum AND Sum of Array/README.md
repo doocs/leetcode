@@ -213,7 +213,11 @@ function maximumANDSum(nums: number[], numSlots: number): number {
             }
         }
     }
-    return Math.max(...f);
+    let ans = 0;
+    for (const x of f) {
+        ans = Math.max(ans, x);
+    }
+    return ans;
 }
 ```
 
