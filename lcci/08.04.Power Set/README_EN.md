@@ -189,8 +189,11 @@ impl Solution {
         let n = nums.len();
         let mut res: Vec<Vec<i32>> = vec![vec![]];
         for i in 0..n {
-            for j in 0..res.len() {
-                res.push(vec![..res[j].clone(), vec![nums[i]]].concat());
+            let m = res.len();
+            for j in 0..m {
+                let mut subset = res[j].clone();
+                subset.push(nums[i]);
+                res.push(subset);
             }
         }
         res

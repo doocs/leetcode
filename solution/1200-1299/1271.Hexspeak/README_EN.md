@@ -73,7 +73,7 @@ The time complexity is $O(\log n)$, where $n$ is the size of the decimal number 
 
 ```python
 class Solution:
-    def toHexspeak 🔒(self, num: str) -> str:
+    def toHexspeak(self, num: str) -> str:
         s = set('ABCDEFIO')
         t = hex(int(num))[2:].upper().replace('0', 'O').replace('1', 'I')
         return t if all(c in s for c in t) else 'ERROR'
@@ -85,7 +85,7 @@ class Solution:
 class Solution {
     private static final Set<Character> S = Set.of('A', 'B', 'C', 'D', 'E', 'F', 'I', 'O');
 
-    public String toHexspeak 🔒(String num) {
+    public String toHexspeak(String num) {
         String t
             = Long.toHexString(Long.valueOf(num)).toUpperCase().replace("0", "O").replace("1", "I");
         for (char c : t.toCharArray()) {
@@ -103,7 +103,7 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    string toHexspeak 🔒(string num) {
+    string toHexspeak(string num) {
         stringstream ss;
         ss << hex << stol(num);
         string t = ss.str();
@@ -124,7 +124,7 @@ public:
 #### Go
 
 ```go
-func toHexspeak 🔒(num string) string {
+func toHexspeak(num string) string {
 	x, _ := strconv.Atoi(num)
 	t := strings.ToUpper(fmt.Sprintf("%x", x))
 	t = strings.ReplaceAll(t, "0", "O")
