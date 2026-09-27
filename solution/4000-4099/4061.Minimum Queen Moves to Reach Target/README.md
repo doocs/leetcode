@@ -79,32 +79,118 @@ difficulty: 简单
 
 <!-- solution:start -->
 
-### 方法一
+### 方法一：分类讨论
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 棋盘只有 $8\times 8$，从起点出发做 BFS 也能求出最短路。皇后一步可以落到同一行、同一列或同一条对角线上的任意格子，分支很多，但步数只可能是 $0$、$1$ 或 $2$。
+>
+> 起点和终点不同时，先沿行走到 $(s_r, t_c)$，再沿列走到 $(t_r, t_c)$。两步一定到达，而且棋盘上没有棋子阻挡。
+>
+> 中间格和两端重合时，起点与终点已经同行或同列，一步就能到达。因此只需判断位置是否相同，以及是否同行、同列或同对角线。
+
+<!-- thinking:end -->
+
+起点 $(s_r, s_c)$ 与终点 $(t_r, t_c)$ 相同时，答案是 $0$。
+
+皇后一步可以沿同一行、同一列或同一条对角线移动任意格。$s_r=t_r$、$s_c=t_c$ 或 $|s_r-t_r|=|s_c-t_c|$ 时，一步就能落到终点，答案是 $1$。
+
+其余情形分两步。先从 $(s_r, s_c)$ 走到 $(s_r, t_c)$，再从 $(s_r, t_c)$ 走到 $(t_r, t_c)$。此时既不同行也不同列，中间格与起点、终点都不相同。棋盘为空，所以这两步总是合法，答案是 $2$。
+
+时间复杂度 $O(1)$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minQueenMoves(self, source: list[int], target: list[int]) -> int:
+        sr, sc = source
+        tr, tc = target
+        if sr == tr and sc == tc:
+            return 0
+        if sr == tr or sc == tc or abs(sr - tr) == abs(sc - tc):
+            return 1
+        return 2
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minQueenMoves(int[] source, int[] target) {
+        int sr = source[0], sc = source[1];
+        int tr = target[0], tc = target[1];
+        if (sr == tr && sc == tc) {
+            return 0;
+        }
+        if (sr == tr || sc == tc || Math.abs(sr - tr) == Math.abs(sc - tc)) {
+            return 1;
+        }
+        return 2;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minQueenMoves(vector<int>& source, vector<int>& target) {
+        int sr = source[0], sc = source[1];
+        int tr = target[0], tc = target[1];
+        if (sr == tr && sc == tc) {
+            return 0;
+        }
+        if (sr == tr || sc == tc || abs(sr - tr) == abs(sc - tc)) {
+            return 1;
+        }
+        return 2;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minQueenMoves(source []int, target []int) int {
+	sr, sc := source[0], source[1]
+	tr, tc := target[0], target[1]
+	if sr == tr && sc == tc {
+		return 0
+	}
+	if sr == tr || sc == tc || abs(sr-tr) == abs(sc-tc) {
+		return 1
+	}
+	return 2
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minQueenMoves(source: number[], target: number[]): number {
+    const [sr, sc] = source;
+    const [tr, tc] = target;
+    if (sr === tr && sc === tc) {
+        return 0;
+    }
+    if (sr === tr || sc === tc || Math.abs(sr - tr) === Math.abs(sc - tc)) {
+        return 1;
+    }
+    return 2;
+}
 ```
 
 <!-- tabs:end -->

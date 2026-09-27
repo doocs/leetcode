@@ -97,32 +97,97 @@ difficulty: Medium
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Compare Array Sums
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The arrays can have length $10^5$, so searching through sequences of operations does not finish in time. One operation replaces $\textit{source}[j]$ by an arbitrary integer $\textit{delta}$ and adds $\textit{source}[j]-\textit{delta}$ to $\textit{source}[i]$. The two positions keep the same sum, and so does the whole array.
+>
+> For $n\ge 2$, equal sums are enough. Keep the last index as the partner and rewrite the first $n-1$ entries to the corresponding $\textit{target}$ values from left to right. The preserved total then forces the last entry to become $\textit{target}[n-1]$.
+>
+> It is enough to compare the two sums. Each value is at most $10^9$ in absolute value and the length is at most $10^5$, so the sum needs a $64$-bit integer.
+
+<!-- thinking:end -->
+
+One operation chooses distinct indices $i$ and $j$ together with an integer $\textit{delta}$, replaces $\textit{source}[i]$ by $\textit{source}[i]+\textit{source}[j]-\textit{delta}$, and replaces $\textit{source}[j]$ by $\textit{delta}$. The two positions still add up to their old sum, so the array sum is unchanged. Different sums cannot be transformed into each other.
+
+Equal sums can always be transformed. Index $n-1$ stays the partner. For $i=0,1,\ldots,n-2$, choose
+
+$$
+\textit{delta}=\textit{source}[i]+\textit{source}[n-1]-\textit{target}[i].
+$$
+
+After the operation, $\textit{source}[i]=\textit{target}[i]$. Once the first $n-1$ entries match $\textit{target}$, the equal totals force the last entry to equal $\textit{target}[n-1]$.
+
+Accumulate the sum in a $64$-bit integer. The time complexity is $O(n)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def canTransform(self, source: list[int], target: list[int]) -> bool:
+        return sum(source) == sum(target)
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public boolean canTransform(int[] source, int[] target) {
+        long d = 0;
+        for (int i = 0; i < source.length; ++i) {
+            d += source[i] - target[i];
+        }
+        return d == 0;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    bool canTransform(vector<int>& source, vector<int>& target) {
+        long long s = 0;
+        for (int x : source) {
+            s += x;
+        }
+        for (int x : target) {
+            s -= x;
+        }
+        return s == 0;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func canTransform(source []int, target []int) bool {
+	var s, t int64
+	for _, x := range source {
+		s += int64(x)
+	}
+	for _, x := range target {
+		t += int64(x)
+	}
+	return s == t
+}
+```
 
+#### TypeScript
+
+```ts
+function canTransform(source: number[], target: number[]): boolean {
+    return (
+        source.reduce((s, x) => s + BigInt(x), 0n) === target.reduce((s, x) => s + BigInt(x), 0n)
+    );
+}
 ```
 
 <!-- tabs:end -->

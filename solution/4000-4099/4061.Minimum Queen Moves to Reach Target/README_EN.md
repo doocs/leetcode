@@ -77,32 +77,118 @@ difficulty: Easy
 
 <!-- solution:start -->
 
-### Solution 1
+### Solution 1: Case Analysis
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The board is only $8\times 8$, so a BFS from the source also finds the shortest path. One queen move reaches any square on the same row, column, or diagonal, and the distance can only be $0$, $1$, or $2$.
+>
+> When the two squares differ, move along the row to $(s_r, t_c)$ and then along the column to $(t_r, t_c)$. Two moves always arrive, and the board is empty.
+>
+> If that intermediate square coincides with either end, the source and the target already share a row or a column, so one move is enough. It remains only to test equality, a shared row or column, and a shared diagonal.
+
+<!-- thinking:end -->
+
+The answer is $0$ when $(s_r, s_c)$ and $(t_r, t_c)$ are the same square.
+
+A queen moves any number of squares along one row, one column, or one diagonal. The answer is $1$ when $s_r=t_r$, $s_c=t_c$, or $|s_r-t_r|=|s_c-t_c|$.
+
+Every remaining pair takes two moves. Go from $(s_r, s_c)$ to $(s_r, t_c)$, then from $(s_r, t_c)$ to $(t_r, t_c)$. The squares share neither a row nor a column, so the intermediate square differs from both ends. The board is empty, and both moves are legal. The answer is $2$.
+
+The time complexity is $O(1)$ and the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
 #### Python3
 
 ```python
-
+class Solution:
+    def minQueenMoves(self, source: list[int], target: list[int]) -> int:
+        sr, sc = source
+        tr, tc = target
+        if sr == tr and sc == tc:
+            return 0
+        if sr == tr or sc == tc or abs(sr - tr) == abs(sc - tc):
+            return 1
+        return 2
 ```
 
 #### Java
 
 ```java
-
+class Solution {
+    public int minQueenMoves(int[] source, int[] target) {
+        int sr = source[0], sc = source[1];
+        int tr = target[0], tc = target[1];
+        if (sr == tr && sc == tc) {
+            return 0;
+        }
+        if (sr == tr || sc == tc || Math.abs(sr - tr) == Math.abs(sc - tc)) {
+            return 1;
+        }
+        return 2;
+    }
+}
 ```
 
 #### C++
 
 ```cpp
-
+class Solution {
+public:
+    int minQueenMoves(vector<int>& source, vector<int>& target) {
+        int sr = source[0], sc = source[1];
+        int tr = target[0], tc = target[1];
+        if (sr == tr && sc == tc) {
+            return 0;
+        }
+        if (sr == tr || sc == tc || abs(sr - tr) == abs(sc - tc)) {
+            return 1;
+        }
+        return 2;
+    }
+};
 ```
 
 #### Go
 
 ```go
+func minQueenMoves(source []int, target []int) int {
+	sr, sc := source[0], source[1]
+	tr, tc := target[0], target[1]
+	if sr == tr && sc == tc {
+		return 0
+	}
+	if sr == tr || sc == tc || abs(sr-tr) == abs(sc-tc) {
+		return 1
+	}
+	return 2
+}
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+#### TypeScript
+
+```ts
+function minQueenMoves(source: number[], target: number[]): number {
+    const [sr, sc] = source;
+    const [tr, tc] = target;
+    if (sr === tr && sc === tc) {
+        return 0;
+    }
+    if (sr === tr || sc === tc || Math.abs(sr - tr) === Math.abs(sc - tc)) {
+        return 1;
+    }
+    return 2;
+}
 ```
 
 <!-- tabs:end -->
