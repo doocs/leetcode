@@ -14,11 +14,18 @@ func selfDivisiblePermutationCount(n int) int {
 		}
 		f[mask] = 0
 		for j := 1; j <= n; j++ {
-			if mask>>j&1 == 0 && (i%j == 0 || j%i == 0) {
+			if mask>>j&1 == 0 && gcd(i, j) == 1 {
 				f[mask] += dfs(mask | 1<<j)
 			}
 		}
 		return f[mask]
 	}
 	return dfs(0)
+}
+
+func gcd(a, b int) int {
+	for b != 0 {
+		a, b = b, a%b
+	}
+	return a
 }

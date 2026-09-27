@@ -4,12 +4,21 @@ function selfDivisiblePermutationCount(n: number): number {
     for (let mask = 0; mask < 1 << n; ++mask) {
         const i = bitCount(mask);
         for (let j = 1; j <= n; ++j) {
-            if ((mask >> (j - 1)) & 1 && (i % j === 0 || j % i === 0)) {
+            if ((mask >> (j - 1)) & 1 && gcd(i, j) === 1) {
                 f[mask] += f[mask ^ (1 << (j - 1))];
             }
         }
     }
     return f.at(-1)!;
+}
+
+function gcd(a: number, b: number): number {
+    while (b !== 0) {
+        const t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;
 }
 
 function bitCount(i: number): number {
