@@ -103,9 +103,9 @@ difficulty: Medium
 
 After $\textit{nums}[i]$ is negated, every subarray that contains index $i$ loses $2\times\textit{nums}[i]$, and every subarray that misses $i$ keeps its sum. Run the divisible-subarray search on the original array and again after negating each index in turn. The answer is the maximum of those lengths.
 
-The scan keeps the prefix sum modulo $k$, with the residue folded into $[0, k)$. A hash map stores the first index of each residue, and residue $0$ starts at index $-1$. At index $i$, if the current residue was seen at index $j$, then the sum of $\textit{nums}[j+1..i]$ is divisible by $k$ and the length is $i-j$.
+The scan keeps the prefix sum modulo $k$, with the residue folded into $[0, k)$. Each residue keeps the first index where it appears, and residue $0$ starts at index $-1$. At index $i$, if the current residue was seen at index $j$, then the sum of $\textit{nums}[j+1..i]$ is divisible by $k$ and the length is $i-j$. Python, Java, Go, and TypeScript store those indices in a hash map. C++ uses an array of length $k$, indexed by the residue, and passes the negated index as a parameter.
 
-The time complexity is $O(n^2)$ and the space complexity is $O(n)$.
+The time complexity is $O(n^2)$ and the space complexity is $O(n)$. C++ resets that array on every scan, so its time complexity is $O(n(n+k))$ and its space complexity is $O(k)$.
 
 <!-- tabs:start -->
 
@@ -171,16 +171,19 @@ class Solution {
 public:
     int longestSubarray(vector<int>& nums, int k) {
         int n = nums.size();
-        auto f = [&]() {
-            unordered_map<int, int> d;
+        vector<int> d(k, -2);
+
+        auto f = [&](int skip) {
+            fill(d.begin(), d.end(), -2);
             d[0] = -1;
             int s = 0, res = 0;
             for (int i = 0; i < n; ++i) {
-                s = (s + nums[i]) % k;
+                int x = i == skip ? -nums[i] : nums[i];
+                s = (s + x) % k;
                 if (s < 0) {
                     s += k;
                 }
-                if (d.contains(s)) {
+                if (d[s] != -2) {
                     res = max(res, i - d[s]);
                 } else {
                     d[s] = i;
@@ -189,11 +192,9 @@ public:
             return res;
         };
 
-        int ans = f();
+        int ans = f(-1);
         for (int i = 0; i < n; ++i) {
-            nums[i] = -nums[i];
-            ans = max(ans, f());
-            nums[i] = -nums[i];
+            ans = max(ans, f(i));
         }
         return ans;
     }

@@ -105,9 +105,9 @@ difficulty: 中等
 
 把 $\textit{nums}[i]$ 取反后，包含下标 $i$ 的子数组和减少 $2\times\textit{nums}[i]$，不含 $i$ 的子数组和不变。对原数组，以及依次把每一个位置取反后的数组，分别求「和能被 $k$ 整除的最长子数组」，答案是这些长度的最大值。
 
-扫描时维护前缀和模 $k$ 的余数，余数统一落到 $[0, k)$。哈希表记录每个余数第一次出现的下标，余数 $0$ 初始对应下标 $-1$。扫到下标 $i$ 时，若当前余数曾经出现在下标 $j$，则 $\textit{nums}[j+1..i]$ 的和能被 $k$ 整除，长度为 $i-j$。
+扫描时维护前缀和模 $k$ 的余数，余数统一落到 $[0, k)$。每个余数只记录第一次出现的下标，余数 $0$ 初始对应下标 $-1$。扫到下标 $i$ 时，若当前余数曾经出现在下标 $j$，则 $\textit{nums}[j+1..i]$ 的和能被 $k$ 整除，长度为 $i-j$。Python、Java、Go 和 TypeScript 用哈希表保存这些下标。C++ 用长度为 $k$ 的数组，下标就是余数，扫描时用参数标出被取反的位置。
 
-时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。C++ 每次重置这个数组，时间复杂度 $O(n(n+k))$，空间复杂度 $O(k)$。
 
 <!-- tabs:start -->
 
@@ -173,16 +173,19 @@ class Solution {
 public:
     int longestSubarray(vector<int>& nums, int k) {
         int n = nums.size();
-        auto f = [&]() {
-            unordered_map<int, int> d;
+        vector<int> d(k, -2);
+
+        auto f = [&](int skip) {
+            fill(d.begin(), d.end(), -2);
             d[0] = -1;
             int s = 0, res = 0;
             for (int i = 0; i < n; ++i) {
-                s = (s + nums[i]) % k;
+                int x = i == skip ? -nums[i] : nums[i];
+                s = (s + x) % k;
                 if (s < 0) {
                     s += k;
                 }
-                if (d.contains(s)) {
+                if (d[s] != -2) {
                     res = max(res, i - d[s]);
                 } else {
                     d[s] = i;
@@ -191,11 +194,9 @@ public:
             return res;
         };
 
-        int ans = f();
+        int ans = f(-1);
         for (int i = 0; i < n; ++i) {
-            nums[i] = -nums[i];
-            ans = max(ans, f());
-            nums[i] = -nums[i];
+            ans = max(ans, f(i));
         }
         return ans;
     }
