@@ -156,7 +156,7 @@ public:
 
 ```go
 func findLongestWord(s string, dictionary []string) string {
-	ans := ''
+	ans := ""
 	check := func(s, t string) bool {
 		m, n := len(s), len(t)
 		i := 0
