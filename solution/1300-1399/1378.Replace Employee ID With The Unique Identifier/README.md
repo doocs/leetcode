@@ -103,7 +103,7 @@ Jonathan 唯一标识码是 1 。</pre>
 
 > **思考**
 >
-> 用员工表的姓名配上唯一编号表中的 $\textit{unique\_id}$，没有编号则空。左连保证没有编号的员工仍保留一行，$\textit{unique\_id}$ 自然为 $\mathrm{NULL}$。
+> 用员工表的姓名配上唯一编号表中的 $\textit{unique\_id}$，没有编号则空。左连保证没有编号的员工仍保留一行， $\textit{unique\_id}$ 自然为 $\mathrm{NULL}$。
 
 <!-- thinking:end -->
 

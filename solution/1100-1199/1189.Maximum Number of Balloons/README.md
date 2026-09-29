@@ -75,7 +75,7 @@ tags:
 
 > **思考**
 >
-> `balloon` 各字母需求为 $b,a,l\times 2,o\times 2,n$。统计 `text` 频次后把 $l$、$o$ 折半，再在 $b,a,l,o,n$ 上取最小，即最多能拼出的单词数。不必反复从串中删除。
+> `balloon` 各字母需求为 $b,a,l\times 2,o\times 2,n$。统计 `text` 频次后把 $l$、 $o$ 折半，再在 $b,a,l,o,n$ 上取最小，即最多能拼出的单词数。不必反复从串中删除。
 
 <!-- thinking:end -->
 

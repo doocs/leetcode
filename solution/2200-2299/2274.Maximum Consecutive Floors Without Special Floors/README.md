@@ -70,7 +70,7 @@ tags:
 >
 > 特殊楼层把 $[\textit{bottom},\textit{top}]$ 切成若干空段，求最长空段。楼层编号达 $10^9$，不能逐层扫描。空段只出现在相邻特殊楼层之间，以及两端到边界。
 >
-> 排序特殊楼层后，答案是 $special[0]-bottom$、$top-special[-1]$ 以及相邻差减一的最大值。
+> 排序特殊楼层后，答案是 $special[0]-bottom$、 $top-special[-1]$ 以及相邻差减一的最大值。
 
 <!-- thinking:end -->
 

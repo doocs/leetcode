@@ -166,7 +166,7 @@ AcceptedRides table:
 >
 > 递归生成 $12$ 个月，左连接 $2020$ 年行程与接受记录，按月汇总距离、时长。
 >
-> 窗口函数 $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$ 取三月滑动平均，再 $\texttt{LIMIT}\ 10$ 去掉 $11$、$12$ 月。
+> 窗口函数 $\texttt{AVG}(\ldots)\ \texttt{OVER}(\texttt{ROWS BETWEEN CURRENT ROW AND 2 FOLLOWING})$ 取三月滑动平均，再 $\texttt{LIMIT}\ 10$ 去掉 $11$、 $12$ 月。
 
 <!-- thinking:end -->
 

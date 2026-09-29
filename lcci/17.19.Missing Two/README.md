@@ -49,7 +49,7 @@ difficulty: 困难
 >
 > 全部异或得到 $a\oplus b$。取 `lowbit` 把两数分到不同组（该位一个为 $1$ 一个为 $0$），组内再异或即分离。
 >
-> 先算总异或 $xor$，再对 $diff=xor\&(-xor)$ 为真的那些数异或出 $a$，$b=xor\oplus a$。线性、常数空间。
+> 先算总异或 $xor$，再对 $diff=xor\&(-xor)$ 为真的那些数异或出 $a$， $b=xor\oplus a$。线性、常数空间。
 
 <!-- thinking:end -->
 

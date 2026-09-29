@@ -162,7 +162,7 @@ function removeOccurrences(s: string, part: string): string {
 
 > **思考**
 >
-> 方法一每删掉一次就要重新扫描整串。$|s|$ 每次至少减少 $1$，轮数可达 $O(n)$，总时间是 $O(n^2)$。
+> 方法一每删掉一次就要重新扫描整串。 $|s|$ 每次至少减少 $1$，轮数可达 $O(n)$，总时间是 $O(n^2)$。
 >
 > 从左往右读时，当前结果里若还有 $\textit{part}$，最左侧的那一次一定贴在当前结果的末尾：更早的出现在读到它的时候就已经删掉了。
 >
@@ -170,7 +170,7 @@ function removeOccurrences(s: string, part: string): string {
 
 <!-- thinking:end -->
 
-用字符串 $st$ 模拟栈，从左到右扫描 $s$。把当前字符追加到 $st$ 末尾；若 $st$ 的长度至少为 $m = |\textit{part}|$，且末尾 $m$ 个字符恰好是 $\textit{part}$，则删掉这 $m$ 个字符。扫描结束后，$st$ 就是答案。
+用字符串 $st$ 模拟栈，从左到右扫描 $s$。把当前字符追加到 $st$ 末尾；若 $st$ 的长度至少为 $m = |\textit{part}|$，且末尾 $m$ 个字符恰好是 $\textit{part}$，则删掉这 $m$ 个字符。扫描结束后， $st$ 就是答案。
 
 这样做与方法一等价：任意时刻 $st$ 中都不含 $\textit{part}$，下一次能匹配上的 $\textit{part}$ 必然以当前字符结尾，也就是剩余字符串中最左侧的一次出现。
 

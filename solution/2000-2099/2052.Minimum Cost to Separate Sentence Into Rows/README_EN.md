@@ -92,7 +92,7 @@ The cost of the last row is not included in the total cost, and since there is o
 
 > **Thinking**
 >
-> Words are wrapped into lines; every line but the last costs $(k-$width$)^2$. Breaks are exponential, yet the minimum from word $i$ depends only on the suffix.
+> Words are wrapped into lines; every line but the last costs $(k-\textit{width})^2$. Breaks are exponential, yet the minimum from word $i$ depends only on the suffix.
 >
 > Prefix sums give a range length in $O(1)$. If the rest fits the last line, cost $0$; otherwise try the next break $j$ and add $(k-m)^2+dfs(j)$.
 >

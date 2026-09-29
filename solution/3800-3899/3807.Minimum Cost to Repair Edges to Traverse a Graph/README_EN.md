@@ -100,7 +100,7 @@ tags:
 
 > **Thinking**
 >
-> Only edges with repair cost at most $\textit{money}$ may be used, and the $0$–$(n-1)$ path may have at most $k$ edges. $n$ and $m$ are up to $10^5$, so we cannot search every candidate cost.
+> Only edges with repair cost at most $\textit{money}$ may be used, and the $0$– $(n-1)$ path may have at most $k$ edges. $n$ and $m$ are up to $10^5$, so we cannot search every candidate cost.
 >
 > A larger budget unlocks more edges, so feasibility is monotone. The minimal feasible cost is some edge weight.
 >

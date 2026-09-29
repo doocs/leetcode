@@ -136,7 +136,7 @@ New Zealand 没有获得或丢失分数，他们的排名也没有发生变化�
 >
 > 先按队伍汇总积分变化，再与原积分表连接，分别对 $\textit{points}$ 与 $\textit{points}+\textit{delta}$ 计算名次。名次相减前转为有符号整数，以免无符号类型下溢。
 >
-> 输出 $\textit{team\_id}$、$\textit{name}$ 与 $\textit{rank\_diff}$。
+> 输出 $\textit{team\_id}$、 $\textit{name}$ 与 $\textit{rank\_diff}$。
 
 <!-- thinking:end -->
 

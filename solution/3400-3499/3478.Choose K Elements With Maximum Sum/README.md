@@ -83,7 +83,7 @@ tags:
 
 > **思考**
 >
-> 对每个下标 $i$，在 $\textit{nums1}[j]<\textit{nums1}[i]$ 的下标中选至多 $k$ 个 $\textit{nums2}[j]$ 求最大和。$n\le 10^5$，不能对每个 $i$ 单独筛选。
+> 对每个下标 $i$，在 $\textit{nums1}[j]<\textit{nums1}[i]$ 的下标中选至多 $k$ 个 $\textit{nums2}[j]$ 求最大和。 $n\le 10^5$，不能对每个 $i$ 单独筛选。
 >
 > 按 $\textit{nums1}$ 排序后，可用的 $j$ 只增不减，适合用大小为 $k$ 的小根堆维护当前最大 $k$ 元之和。
 >

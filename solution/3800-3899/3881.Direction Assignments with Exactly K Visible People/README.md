@@ -110,9 +110,9 @@ tags:
 
 > **思考**
 >
-> 每人选 L/R，使位置 $\textit{pos}$ 恰好看见 $k$ 人。$n \le 10^5$，枚举 $2^n$ 不可行。
+> 每人选 L/R，使位置 $\textit{pos}$ 恰好看见 $k$ 人。 $n \le 10^5$，枚举 $2^n$ 不可行。
 >
-> 左边可见当且仅当选 L，右边可见当且仅当选 R，与 $\textit{pos}$ 自己的朝向无关；$\textit{pos}$ 仍有两种选法。
+> 左边可见当且仅当选 L，右边可见当且仅当选 R，与 $\textit{pos}$ 自己的朝向无关； $\textit{pos}$ 仍有两种选法。
 >
 > 枚举左边可见人数 $a$，则右边需 $k-a$，方案为 $2\binom{\textit{pos}}{a}\binom{n-\textit{pos}-1}{k-a}$。
 >

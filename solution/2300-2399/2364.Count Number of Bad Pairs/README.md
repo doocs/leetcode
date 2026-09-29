@@ -66,7 +66,7 @@ tags:
 
 > **思考**
 >
-> 坏数对满足 $j-i \ne nums[j]-nums[i]$，即 $i-nums[i] \ne j-nums[j]$。$n \le 10^5$，应统计互补的好对。
+> 坏数对满足 $j-i \ne nums[j]-nums[i]$，即 $i-nums[i] \ne j-nums[j]$。 $n \le 10^5$，应统计互补的好对。
 >
 > 从左到右扫描，当前下标 $i$ 与此前同余 $i-nums[i]$ 的个数之差即新增坏对，再把该键加一。前缀计数避免双重循环。
 

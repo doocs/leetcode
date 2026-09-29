@@ -92,7 +92,7 @@ tags:
 
 > **思考**
 >
-> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$，而零的个数由行宽列高减去一的个数得到。$mn \le 10^5$，先统计每行每列的 $1$，再填每个格子。
+> $diff[i][j]=onesRow_i+onesCol_j-zerosRow_i-zerosCol_j$，而零的个数由行宽列高减去一的个数得到。 $mn \le 10^5$，先统计每行每列的 $1$，再填每个格子。
 
 <!-- thinking:end -->
 

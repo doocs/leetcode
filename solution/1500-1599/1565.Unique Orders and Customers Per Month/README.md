@@ -89,7 +89,7 @@ Orders</code>
 >
 > 按月统计发票额大于 $20$ 的订单数与去重顾客数。日期带日，直接分组会按天拆开。
 >
-> 先过滤 $invoice>20$，再把日期格式化到年月，按月分组：$COUNT$ 订单，$COUNT(DISTINCT\ customer\_id)$ 顾客。Pandas 路径用 $to\_period$ 与 $nunique$ 表达同一聚合。
+> 先过滤 $invoice>20$，再把日期格式化到年月，按月分组： $COUNT$ 订单， $COUNT(DISTINCT\ customer\_id)$ 顾客。Pandas 路径用 $to\_period$ 与 $nunique$ 表达同一聚合。
 
 <!-- thinking:end -->
 

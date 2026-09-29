@@ -89,7 +89,7 @@ abs(0 - 0) &gt;= 0 且 abs(nums[0] - nums[0]) &gt;= 0 。
 >
 > $n \le 100$，枚举全部下标对并检查间距与差值即可。注意到合法对必须满足 $|i-j| \ge indexDifference$，因此对每个右端点 $i$，只需在 $[0, i-indexDifference]$ 中寻找与 $nums[i]$ 差值足够大的值。
 >
-> 该前缀只需维护最小值与最大值的下标 $mi$、$mx$。扫描时先纳入刚进入窗口的 $nums[j]$，再判断 $nums[i]-nums[mi]$ 或 $nums[mx]-nums[i]$ 是否达到 $valueDifference$。一次遍历即可给出任意一组下标。
+> 该前缀只需维护最小值与最大值的下标 $mi$、 $mx$。扫描时先纳入刚进入窗口的 $nums[j]$，再判断 $nums[i]-nums[mi]$ 或 $nums[mx]-nums[i]$ 是否达到 $valueDifference$。一次遍历即可给出任意一组下标。
 
 <!-- thinking:end -->
 

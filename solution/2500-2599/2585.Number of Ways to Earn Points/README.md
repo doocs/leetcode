@@ -88,7 +88,7 @@ tags:
 >
 > 每种题有数量上限与固定分值，求恰好得到 $\textit{target}$ 分的方案数。完全背包若忽略数量上限会多算。
 >
-> 多重背包：令 $f[i][j]$ 为前 $i$ 种题得到 $j$ 分的方案。第 $i$ 种可做 $0..\textit{count}$ 道，从 $f[i-1][j-k\cdot\textit{marks}]$ 累加。$f[0][0]=1$，答案为 $f[n][\textit{target}]$。
+> 多重背包：令 $f[i][j]$ 为前 $i$ 种题得到 $j$ 分的方案。第 $i$ 种可做 $0..\textit{count}$ 道，从 $f[i-1][j-k\cdot\textit{marks}]$ 累加。 $f[0][0]=1$，答案为 $f[n][\textit{target}]$。
 
 <!-- thinking:end -->
 

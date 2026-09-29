@@ -93,7 +93,7 @@ tags:
 >
 > 题意与 I 相同，但 $n\le 10^5$，每个窗口扫描 $k$ 格不可行。仍用「以 $i$ 结尾的连续递增长度」判定窗口 $[i-k+1,i]$。
 >
-> $f[i]$ 递推与 I 一致：$\textit{nums}[i]=\textit{nums}[i-1]+1$ 则加一，否则置 $1$。右端点处 $f[i]\ge k$ 则输出 $\textit{nums}[i]$。线性时间匹配本题规模。
+> $f[i]$ 递推与 I 一致： $\textit{nums}[i]=\textit{nums}[i-1]+1$ 则加一，否则置 $1$。右端点处 $f[i]\ge k$ 则输出 $\textit{nums}[i]$。线性时间匹配本题规模。
 
 <!-- thinking:end -->
 

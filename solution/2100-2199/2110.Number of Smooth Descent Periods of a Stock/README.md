@@ -78,7 +78,7 @@ tags:
 >
 > 最长平滑段互不重叠、可贪心切分：从左端尽量向右延伸，直到相邻差不再为 $1$，该段的子段数可直接用公式计算。
 >
-> 双指针 $i$、$j$ 划出每一段，累加三角形数后再从 $j$ 开始下一段。
+> 双指针 $i$、 $j$ 划出每一段，累加三角形数后再从 $j$ 开始下一段。
 
 <!-- thinking:end -->
 
@@ -86,7 +86,7 @@ tags:
 
 接下来，我们使用双指针 $i$ 和 $j$，分别指向当前平滑下降阶段的第一天和最后一天的下一天。初始时 $i = 0$, $j = 0$。
 
-从左到右遍历数组 $\textit{prices}$，对于每个位置 $i$，我们将 $j$ 向右移动，直到 $j$ 到达数组末尾或者 $\textit{prices}[j - 1] - \textit{prices}[j] \neq 1$ 为止。此时，$\textit{cnt} = j - i$ 即为当前平滑下降阶段的长度，我们累加 $\frac{(1 + \textit{cnt}) \times \textit{cnt}}{2}$ 到答案变量 $\textit{ans}$ 中。接下来将 $i$ 更新为 $j$，继续遍历。
+从左到右遍历数组 $\textit{prices}$，对于每个位置 $i$，我们将 $j$ 向右移动，直到 $j$ 到达数组末尾或者 $\textit{prices}[j - 1] - \textit{prices}[j] \neq 1$ 为止。此时， $\textit{cnt} = j - i$ 即为当前平滑下降阶段的长度，我们累加 $\frac{(1 + \textit{cnt}) \times \textit{cnt}}{2}$ 到答案变量 $\textit{ans}$ 中。接下来将 $i$ 更新为 $j$，继续遍历。
 
 遍历结束后，返回答案变量 $\textit{ans}$ 即可。
 

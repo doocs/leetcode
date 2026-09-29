@@ -150,7 +150,7 @@ tags:
 
 > **思考**
 >
-> 每种燃料类型需要评分最高、里程最大、事故最少的司机；并列时全部保留。连接 $\textit{Drivers}$、$\textit{Vehicles}$、$\textit{Trips}$ 后按燃料与司机聚合，即可得到三项指标。
+> 每种燃料类型需要评分最高、里程最大、事故最少的司机；并列时全部保留。连接 $\textit{Drivers}$、 $\textit{Vehicles}$、 $\textit{Trips}$ 后按燃料与司机聚合，即可得到三项指标。
 >
 > 仅用 $\textit{GROUP BY}$ 加 $\textit{MAX}$ 无法在并列时同时带出 $\textit{driver\_id}$。
 >

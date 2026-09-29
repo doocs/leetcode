@@ -81,7 +81,7 @@ Calls 表：
 
 > **思考**
 >
-> 通话无向，$(a,b)$ 与 $(b,a)$ 应算作同一对。把较小编号定为 $\texttt{person1}$、较大者为 $\texttt{person2}$ 再分组。
+> 通话无向， $(a,b)$ 与 $(b,a)$ 应算作同一对。把较小编号定为 $\texttt{person1}$、较大者为 $\texttt{person2}$ 再分组。
 >
 > $\texttt{IF}$ 规范化两端，按两列 $\texttt{GROUP BY}$，统计次数与时长之和。
 

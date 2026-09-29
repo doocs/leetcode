@@ -105,7 +105,7 @@ LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 3
 
 > **Thinking**
 >
-> Yearly totals may span $2018$–$2020$. Join each sale to the three calendar years it overlaps; the days in that year are the end day-of-year minus the start day-of-year plus one, times the daily average. $2020$ uses $366$ days.
+> Yearly totals may span $2018$– $2020$. Join each sale to the three calendar years it overlaps; the days in that year are the end day-of-year minus the start day-of-year plus one, times the daily average. $2020$ uses $366$ days.
 
 <!-- thinking:end -->
 

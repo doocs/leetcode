@@ -106,7 +106,7 @@ tags:
 >
 > 先统计第 $j$ 列字母 $c$ 的出现次数 $\textit{cnt}[j][c]$，问题化为：匹配 $\textit{target}[i:]$ 且当前列号为 $j$。
 >
-> 记忆化 $dfs(i,j)$：可跳过第 $j$ 列，或用该列匹配 $\textit{target}[i]$ 并乘上计数；边界为 $i$ 走完返回 $1$、$j$ 走完返回 $0$。
+> 记忆化 $dfs(i,j)$：可跳过第 $j$ 列，或用该列匹配 $\textit{target}[i]$ 并乘上计数；边界为 $i$ 走完返回 $1$、 $j$ 走完返回 $0$。
 
 <!-- thinking:end -->
 
@@ -306,7 +306,7 @@ function numWays(words: string[], target: string): number {
 
 > **思考**
 >
-> 方法一的递归可改成递推以去掉调用栈。$f[i][j]$ 表示配完 $\textit{target}$ 前 $i$ 个字符、只用前 $j$ 列的方案数。
+> 方法一的递归可改成递推以去掉调用栈。 $f[i][j]$ 表示配完 $\textit{target}$ 前 $i$ 个字符、只用前 $j$ 列的方案数。
 >
 > 不选第 $j$ 列则 $f[i][j-1]$，选则 $f[i-1][j-1]\times \textit{cnt}[j-1][\textit{target}[i-1]]$，初值 $f[0][\cdot]=1$。
 

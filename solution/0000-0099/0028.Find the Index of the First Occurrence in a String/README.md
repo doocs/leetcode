@@ -451,7 +451,7 @@ function strStr(haystack: string, needle: string): number {
 >
 > 方法二把窗口比较降到期望 $O(1)$，但仍依赖取模哈希，冲突时还要核对原串。我们希望最坏情况也是线性，且不引入哈希。
 >
-> 失配后不必把 $\textit{haystack}$ 的指针退回起点。$\textit{needle}$ 的前缀函数给出“当前已匹配前缀的最长真后缀”，从而知道下一次该从模式串的哪一位继续。
+> 失配后不必把 $\textit{haystack}$ 的指针退回起点。 $\textit{needle}$ 的前缀函数给出“当前已匹配前缀的最长真后缀”，从而知道下一次该从模式串的哪一位继续。
 >
 > 先对 $\textit{needle}$ 求 $\textit{next}$，再单次扫描 $\textit{haystack}$，失配只沿 $\textit{next}$ 回退。时间 $O(n+m)$，额外空间 $O(m)$。
 

@@ -99,7 +99,7 @@ $$
 t[i][(j - \textit{rowShift}[i] + n) \bmod n]
 $$
 
-再创建答案矩阵 $\textit{ans}$。$t[i][j]$ 向上循环 $\textit{colShift}[j]$ 位后，落到
+再创建答案矩阵 $\textit{ans}$。 $t[i][j]$ 向上循环 $\textit{colShift}[j]$ 位后，落到
 
 $$
 \textit{ans}[(i - \textit{colShift}[j] + n) \bmod n][j]

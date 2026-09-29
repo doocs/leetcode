@@ -77,7 +77,7 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 
 > **思考**
 >
-> 图会动态加边，并反复询问两点最短路。$n \le 100$，若每次用堆优化 Dijkstra，实现更重；稠密图上朴素 $O(n^2)$ 更直接。
+> 图会动态加边，并反复询问两点最短路。 $n \le 100$，若每次用堆优化 Dijkstra，实现更重；稠密图上朴素 $O(n^2)$ 更直接。
 >
 > 邻接矩阵存边权，缺失为 $\infty$。`addEdge` 写一格；`shortestPath` 做 $n$ 轮「未访问最近点松弛」，即朴素 Dijkstra。不可达返回 $-1$。
 
@@ -87,7 +87,7 @@ g.shortestPath(0, 3); // 返回 6 。从 0 到 3 的最短路径为 0 -&gt; 1 -&
 
 在 `addEdge` 函数中，我们更新 $g_{ij}$ 的值为 $edge[2]$。
 
-在 `shortestPath` 函数中，我们使用 Dijsktra 算法求从节点 $node1$ 到节点 $node2$ 的最短路径，其中 $dist[i]$ 表示从节点 $node1$ 到节点 $i$ 的最短路径，$vis[i]$ 表示节点 $i$ 是否已经被访问过。我们初始化 $dist[node1]$ 为 $0$，其余的 $dist[i]$ 均为 $\infty$。然后我们遍历 $n$ 次，每次找到当前未被访问过的节点 $t$，使得 $dist[t]$ 最小。然后我们将节点 $t$ 标记为已访问，然后更新 $dist[i]$ 的值为 $min(dist[i], dist[t] + g_{ti})$。最后我们返回 $dist[node2]$，如果 $dist[node2]$ 为 $\infty$，则说明从节点 $node1$ 到节点 $node2$ 不存在路径，返回 $-1$。
+在 `shortestPath` 函数中，我们使用 Dijsktra 算法求从节点 $node1$ 到节点 $node2$ 的最短路径，其中 $dist[i]$ 表示从节点 $node1$ 到节点 $i$ 的最短路径， $vis[i]$ 表示节点 $i$ 是否已经被访问过。我们初始化 $dist[node1]$ 为 $0$，其余的 $dist[i]$ 均为 $\infty$。然后我们遍历 $n$ 次，每次找到当前未被访问过的节点 $t$，使得 $dist[t]$ 最小。然后我们将节点 $t$ 标记为已访问，然后更新 $dist[i]$ 的值为 $min(dist[i], dist[t] + g_{ti})$。最后我们返回 $dist[node2]$，如果 $dist[node2]$ 为 $\infty$，则说明从节点 $node1$ 到节点 $node2$ 不存在路径，返回 $-1$。
 
 时间复杂度 $O(n^2 \times q)$，空间复杂度 $O(n^2)$。其中 $n$ 为节点数，而 $q$ 为 `shortestPath` 函数的调用次数。
 

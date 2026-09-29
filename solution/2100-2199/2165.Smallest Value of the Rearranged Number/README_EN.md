@@ -64,7 +64,7 @@ The arrangement with the smallest value that does not contain any leading zeros 
 >
 > We rearrange digits: a negative number should be as small as possible (digits descending), a positive number as small as possible without a leading zero. Full permutations are unnecessary.
 >
-> Count digits $0$–$9$. For a negative value emit $9$ down to $0$; for a positive value place the smallest nonzero digit first, then the rest ascending (including zeros).
+> Count digits $0$– $9$. For a negative value emit $9$ down to $0$; for a positive value place the smallest nonzero digit first, then the rest ascending (including zeros).
 >
 > Count on the absolute value and restore the sign.
 

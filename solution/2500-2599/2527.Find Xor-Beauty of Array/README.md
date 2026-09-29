@@ -84,7 +84,7 @@ tags:
 >
 > 三重循环枚举 $(i,j,k)$ 并异或 $(\textit{nums}[i]\mid \textit{nums}[j])\&\textit{nums}[k]$，在 $n\le 10^5$ 下不可行。异或满足交换律，成对相同的项会抵消。
 >
-> $i\neq j$ 时 $(i,j,k)$ 与 $(j,i,k)$ 贡献相同，异或为 $0$。$i=j$ 且 $i\neq k$ 时 $(\textit{nums}[i]\&\textit{nums}[k])$ 与对换后的项再次抵消。剩下 $i=j=k$，答案即全体元素的异或。
+> $i\neq j$ 时 $(i,j,k)$ 与 $(j,i,k)$ 贡献相同，异或为 $0$。 $i=j$ 且 $i\neq k$ 时 $(\textit{nums}[i]\&\textit{nums}[k])$ 与对换后的项再次抵消。剩下 $i=j=k$，答案即全体元素的异或。
 
 <!-- thinking:end -->
 

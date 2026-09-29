@@ -113,7 +113,7 @@ difficulty: 中等
 
 <!-- thinking:end -->
 
-一次操作选择不同下标 $i$、$j$ 和整数 $\textit{delta}$，把 $\textit{source}[i]$ 更新为 $\textit{source}[i]+\textit{source}[j]-\textit{delta}$，把 $\textit{source}[j]$ 更新为 $\textit{delta}$。这两个位置的新和仍是原来的和，数组总和不变。总和不同时无法转化。
+一次操作选择不同下标 $i$、 $j$ 和整数 $\textit{delta}$，把 $\textit{source}[i]$ 更新为 $\textit{source}[i]+\textit{source}[j]-\textit{delta}$，把 $\textit{source}[j]$ 更新为 $\textit{delta}$。这两个位置的新和仍是原来的和，数组总和不变。总和不同时无法转化。
 
 总和相同时一定可以转化。下标 $n-1$ 始终作为配合位置。对 $i=0,1,\ldots,n-2$，取
 

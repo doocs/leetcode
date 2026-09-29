@@ -101,7 +101,7 @@ tags:
 
 > **思考**
 >
-> 至多买两台，总成本严格小于 $\textit{budget}$，求容量和最大。$n \le 10^5$，枚举全部配对过慢。
+> 至多买两台，总成本严格小于 $\textit{budget}$，求容量和最大。 $n \le 10^5$，枚举全部配对过慢。
 >
 > 单价不低于预算的机器永远无法单独购买，可先丢掉。单台最优即剩余中的最大容量。
 >
@@ -115,9 +115,9 @@ tags:
 
 否则，我们可以获得 $\textitt{arr}$ 中最大容量的机器，初始化答案为该容量。
 
-接下来，我们使用双指针方法枚举 $\textitt{arr}$ 中的机器对，用一个有序集合 $\textit{remain}$ 来维护当前所有可选的机器容量。初始时，$\textit{remain}$ 包含 $\textitt{arr}$ 中所有机器的容量。
+接下来，我们使用双指针方法枚举 $\textitt{arr}$ 中的机器对，用一个有序集合 $\textit{remain}$ 来维护当前所有可选的机器容量。初始时， $\textit{remain}$ 包含 $\textitt{arr}$ 中所有机器的容量。
 
-我们使用指针 $i$ 和 $j$ 分别指向 $\textitt{arr}$ 的开头和结尾。对于每个 $i$，我们将 $\texttt{arr}[i]$ 从 $\textit{remain}$ 中移除，然后移动指针 $j$，直到 $\texttt{arr}[i].\textit{cost} + \texttt{arr}[j].\textit{cost} < \textit{budget}$。在此过程中，我们将不满足条件的机器从 $\textit{remain}$ 中移除。此时，$\textit{remain}$ 中的机器均可与 $\texttt{arr}[i]$ 组成一对购买，我们取出 $\textit{remain}$ 中容量最大的机器，与 $\texttt{arr}[i]$ 的容量相加，更新答案。最后，返回答案即可。
+我们使用指针 $i$ 和 $j$ 分别指向 $\textitt{arr}$ 的开头和结尾。对于每个 $i$，我们将 $\texttt{arr}[i]$ 从 $\textit{remain}$ 中移除，然后移动指针 $j$，直到 $\texttt{arr}[i].\textit{cost} + \texttt{arr}[j].\textit{cost} < \textit{budget}$。在此过程中，我们将不满足条件的机器从 $\textit{remain}$ 中移除。此时， $\textit{remain}$ 中的机器均可与 $\texttt{arr}[i]$ 组成一对购买，我们取出 $\textit{remain}$ 中容量最大的机器，与 $\texttt{arr}[i]$ 的容量相加，更新答案。最后，返回答案即可。
 
 时间复杂度 $O(n \log n)$，空间复杂度 $O(n)$。其中 $n$ 为机器的数量。
 

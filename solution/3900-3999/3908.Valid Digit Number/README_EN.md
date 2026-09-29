@@ -85,9 +85,9 @@ tags:
 
 > **Thinking**
 >
-> Converting $n$ to a string and checking the leading digit plus occurrence of $x$ works for $n\le 10^5$, but we only need “$x$ appears and the leading digit is not $x$”.
+> Converting $n$ to a string and checking the leading digit plus occurrence of $x$ works for $n\le 10^5$, but we only need “ $x$ appears and the leading digit is not $x$”.
 >
-> Peeling the last digit and dividing by $10$ walks the digits in arithmetic: remember if any equals $x$, and stop at the leading digit. Validity is then exactly “$x$ was seen and the leftover leading digit is not $x$”.
+> Peeling the last digit and dividing by $10$ walks the digits in arithmetic: remember if any equals $x$, and stop at the leading digit. Validity is then exactly “ $x$ was seen and the leftover leading digit is not $x$”.
 >
 > The loop condition $n>9$ leaves $n$ equal to that leading digit.
 

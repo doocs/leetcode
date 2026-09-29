@@ -90,7 +90,7 @@ Orders table:
 
 > **思考**
 >
-> 没有下过单的客户，即 $\textit{id}$ 不在订单表的 $\textit{customerId}$ 集合里。$\textit{NOT IN}$ 直接表达这个集合差；注意订单表为空时部分引擎对 $\textit{NOT IN}$ 的空集语义。
+> 没有下过单的客户，即 $\textit{id}$ 不在订单表的 $\textit{customerId}$ 集合里。 $\textit{NOT IN}$ 直接表达这个集合差；注意订单表为空时部分引擎对 $\textit{NOT IN}$ 的空集语义。
 
 <!-- thinking:end -->
 

@@ -100,7 +100,7 @@ encrypter.decrypt("eizfeiam"); // return 2.
 >
 > 加密是把每个字符换成固定的长度为 $2$ 的串；解密则要数词典里有多少单词加密后等于给定串。词典至多 $100$ 个词，解密却可能被调用多次，若每次对 $\textit{word2}$ 做逆映射再与词典比较，重复加密的开销可以预先消掉。
 >
-> 构造时用哈希表记下字符到密文的映射，并把词典中每个词的加密结果计入 $\textit{cnt}$。$\textit{encrypt}$ 按映射拼接，遇缺失字符返回空串；$\textit{decrypt}$ 直接查 $\textit{cnt}[\textit{word2}]$。解密变为 $O(1)$。
+> 构造时用哈希表记下字符到密文的映射，并把词典中每个词的加密结果计入 $\textit{cnt}$。 $\textit{encrypt}$ 按映射拼接，遇缺失字符返回空串； $\textit{decrypt}$ 直接查 $\textit{cnt}[\textit{word2}]$。解密变为 $O(1)$。
 
 <!-- thinking:end -->
 

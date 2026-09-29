@@ -110,11 +110,11 @@ tags:
 
 - $t[x] \mathrel{+}= \textit{cnt}[x]$，表示直接使用高度为 $x$ 的木板；
 - $t[2x] \mathrel{+}= \lfloor \textit{cnt}[x] / 2 \rfloor$，表示两块高度为 $x$ 的木板两两组合；
-- 对于每种高度 $y > x$，$t[x + y] \mathrel{+}= \min(\textit{cnt}[x], \textit{cnt}[y])$，表示高度 $x$ 与高度 $y$ 的木板组合。
+- 对于每种高度 $y > x$， $t[x + y] \mathrel{+}= \min(\textit{cnt}[x], \textit{cnt}[y])$，表示高度 $x$ 与高度 $y$ 的木板组合。
 
 答案即为 $t$ 中的最大值。
 
-时间复杂度 $O(n + m^2)$，空间复杂度 $O(m)$。其中 $n$ 为木板数量，$m$ 为不同高度的数量，$m \leq n$。
+时间复杂度 $O(n + m^2)$，空间复杂度 $O(m)$。其中 $n$ 为木板数量， $m$ 为不同高度的数量， $m \leq n$。
 
 <!-- tabs:start -->
 

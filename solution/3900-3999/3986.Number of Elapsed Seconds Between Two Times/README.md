@@ -74,7 +74,7 @@ tags:
 
 > **思考**
 >
-> 时间已保证 $\textit{endTime}$ 不早于 $\textit{startTime}$，化为从午夜起的秒数相减即可。$HH\cdot 3600+MM\cdot 60+SS$ 对两个串各算一次。
+> 时间已保证 $\textit{endTime}$ 不早于 $\textit{startTime}$，化为从午夜起的秒数相减即可。 $HH\cdot 3600+MM\cdot 60+SS$ 对两个串各算一次。
 >
 > 无需处理跨日。
 

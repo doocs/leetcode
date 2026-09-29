@@ -216,7 +216,7 @@ tags:
 
 > **思考**
 >
-> 带权中位点是 $u$ 到 $v$ 路径上，从 $u$ 出发累计边权首次达到总权一半的顶点。$n$、$q \le 10^5$，需 LCA 与路径前缀和。
+> 带权中位点是 $u$ 到 $v$ 路径上，从 $u$ 出发累计边权首次达到总权一半的顶点。 $n$、 $q \le 10^5$，需 LCA 与路径前缀和。
 >
 > 求出 $lca$ 与总权 $W$ 后，在 $u \to lca$ 或 $lca \to v$ 上倍增：跳到使前缀和仍 $< W/2$ 的最远点，再走一步即中位点。
 
@@ -229,7 +229,7 @@ tags:
 - 若 $2 \cdot (\textit{dist}[u] - \textit{dist}[x]) \ge W$，中位点落在路径 $u \to x$ 上（含 $x$）。从 $u$ 向上倍增，跳到仍满足 $2 \cdot (\textit{dist}[u] - \textit{dist}[k]) < W$ 的最远祖先 $k$，再沿父亲走一步得到 $p[k]$。
 - 否则中位点落在 $x \to v$ 上（不含 $x$）。从 $v$ 向上倍增，跳到深度大于 $x$ 且 $2 \cdot (\textit{dist}[u] + \textit{dist}[k] - 2 \cdot \textit{dist}[x]) \ge W$ 的最高节点。
 
-时间复杂度 $O((n + q) \times \log n)$，空间复杂度 $O(n \times \log n)$。其中 $n$ 是节点数，$q$ 是询问数。
+时间复杂度 $O((n + q) \times \log n)$，空间复杂度 $O(n \times \log n)$。其中 $n$ 是节点数， $q$ 是询问数。
 
 <!-- tabs:start -->
 

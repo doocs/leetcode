@@ -102,7 +102,7 @@ Salaries table:
 >
 > 缺失信息指只出现在一张表中的员工。两侧反连接后合并，再按编号排序。
 >
-> $\texttt{NOT IN}$ 子查询找出仅在 $\texttt{Employees}$ 或仅在 $\texttt{Salaries}$ 的编号，$\texttt{UNION}$ 去重后 $\texttt{ORDER BY}$。
+> $\texttt{NOT IN}$ 子查询找出仅在 $\texttt{Employees}$ 或仅在 $\texttt{Salaries}$ 的编号， $\texttt{UNION}$ 去重后 $\texttt{ORDER BY}$。
 
 <!-- thinking:end -->
 

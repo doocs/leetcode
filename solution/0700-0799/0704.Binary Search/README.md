@@ -59,7 +59,7 @@ tags:
 
 > **思考**
 >
-> 在升序且无重复的数组中查找 $\textit{target}$。$n \le 10^4$，线性扫描可以通过，但有序数组上每次比较都能丢掉一半候选。
+> 在升序且无重复的数组中查找 $\textit{target}$。 $n \le 10^4$，线性扫描可以通过，但有序数组上每次比较都能丢掉一半候选。
 >
 > 取中点后，若 $\textit{nums}[\textit{mid}] \ge \textit{target}$，答案不会在右侧，将右端收拢到 $\textit{mid}$；否则答案只可能在 $\textit{mid}$ 右侧，左端移到 $\textit{mid}+1$。
 >

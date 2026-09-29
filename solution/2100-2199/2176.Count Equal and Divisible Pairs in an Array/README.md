@@ -61,7 +61,7 @@ tags:
 
 > **思考**
 >
-> 统计 $i<j$、$\textit{nums}[i]=\textit{nums}[j]$ 且 $i\cdot j$ 能被 $k$ 整除的对数。$n\le 100$，二重枚举即可。
+> 统计 $i<j$、 $\textit{nums}[i]=\textit{nums}[j]$ 且 $i\cdot j$ 能被 $k$ 整除的对数。 $n\le 100$，二重枚举即可。
 >
 > 固定 $j$ 再扫前面的 $i$，同时检查值相等与乘积取模。
 >

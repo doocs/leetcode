@@ -91,7 +91,7 @@ tags:
 
 > **Thinking**
 >
-> In a perfect binary tree the cycle created by edge $(a,b)$ has length equal to the path $a$–$b$ plus one. Building the tree for $n$ up to $30$ would materialize $2^n-1$ nodes.
+> In a perfect binary tree the cycle created by edge $(a,b)$ has length equal to the path $a$– $b$ plus one. Building the tree for $n$ up to $30$ would materialize $2^n-1$ nodes.
 >
 > A parent is $\lfloor x/2\rfloor$, i.e. a right shift. Walk both nodes upward, always moving the larger label, until they meet; the number of steps plus one is the cycle length. That walk is exactly the LCA computation on this numbering.
 

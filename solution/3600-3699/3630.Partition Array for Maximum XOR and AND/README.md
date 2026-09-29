@@ -123,7 +123,7 @@ tags:
 
 > **思考**
 >
-> 将数组划成三部分 $A,B,C$，最大化 $(\mathrm{XOR}\,A)+(\mathrm{AND}\,B)+(\mathrm{XOR}\,C)$。$n$ 不大时可用线性基处理 XOR 的可构造性。
+> 将数组划成三部分 $A,B,C$，最大化 $(\mathrm{XOR}\,A)+(\mathrm{AND}\,B)+(\mathrm{XOR}\,C)$。 $n$ 不大时可用线性基处理 XOR 的可构造性。
 >
 > 全体异或为定值。注意到 $\mathrm{AND}\,B$ 是若干元素的按位与，可枚举 $B$ 的与值候选，或枚举一个作为 $B$ 上界的掩码。
 >

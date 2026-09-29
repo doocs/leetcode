@@ -110,7 +110,7 @@ tags:
 
 为方便判重，可将排列编码为以 $8$ 为进制的整数（每个元素均落在 $[0, 7]$ 内）。
 
-时间复杂度 $O(n! \cdot m \cdot n)$，空间复杂度 $O(n! \cdot n)$。其中 $n$ 是数组长度，$m$ 是 $\textit{pre}$ 的长度。
+时间复杂度 $O(n! \cdot m \cdot n)$，空间复杂度 $O(n! \cdot n)$。其中 $n$ 是数组长度， $m$ 是 $\textit{pre}$ 的长度。
 
 <!-- tabs:start -->
 

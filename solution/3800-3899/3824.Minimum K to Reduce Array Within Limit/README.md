@@ -82,7 +82,7 @@ tags:
 
 > **思考**
 >
-> $\textit{nonPositive}(\textit{nums},k)$ 为把每个元素降到非正所需的最少减 $k$ 次数，求满足该值 $\le k^2$ 的最小 $k$。$n \le 10^5$。
+> $\textit{nonPositive}(\textit{nums},k)$ 为把每个元素降到非正所需的最少减 $k$ 次数，求满足该值 $\le k^2$ 的最小 $k$。 $n \le 10^5$。
 >
 > $k$ 增大时每次减得更多，所需次数不增，而 $k^2$ 递增，可行性单调。
 >

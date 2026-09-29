@@ -72,7 +72,7 @@ tags:
 
 > **思考**
 >
-> 三元组值为 $(nums[i]-nums[j])\times nums[k]$ 且 $i<j<k$。$n$ 虽小，仍可一次扫描：枚举 $k$ 时维护此前的最大值 $mx$ 与最大差值 $mx-nums[j]$，当前贡献即为该差值乘以 $nums[k]$。
+> 三元组值为 $(nums[i]-nums[j])\times nums[k]$ 且 $i<j<k$。 $n$ 虽小，仍可一次扫描：枚举 $k$ 时维护此前的最大值 $mx$ 与最大差值 $mx-nums[j]$，当前贡献即为该差值乘以 $nums[k]$。
 
 <!-- thinking:end -->
 

@@ -73,7 +73,7 @@ tags:
 
 > **Thinking**
 >
-> A path is pseudo-palindromic iff at most one value occurs an odd number of times. Values are $1$–$9$ and $n\le 10^5$, so XOR a 10-bit mask along the path.
+> A path is pseudo-palindromic iff at most one value occurs an odd number of times. Values are $1$– $9$ and $n\le 10^5$, so XOR a 10-bit mask along the path.
 >
 > At a leaf, count the path when $mask$ has at most one bit set. Recurse with the updated mask and sum both children.
 

@@ -89,7 +89,7 @@ Employee 表：
 
 > **思考**
 >
-> 第二高薪水在去重之后的降序序列中取第二项，不足两项则返回 $\textit{NULL}$。$\textit{ORDER BY}$ 加 $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ 直接取出该位置；外层再包一层是为了「没有第二名」时仍得到一行 $\textit{NULL}$，而不是空结果集。
+> 第二高薪水在去重之后的降序序列中取第二项，不足两项则返回 $\textit{NULL}$。 $\textit{ORDER BY}$ 加 $\textit{LIMIT}\,1\,\textit{OFFSET}\,1$ 直接取出该位置；外层再包一层是为了「没有第二名」时仍得到一行 $\textit{NULL}$，而不是空结果集。
 
 <!-- thinking:end -->
 

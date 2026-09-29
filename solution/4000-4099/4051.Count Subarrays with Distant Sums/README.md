@@ -190,7 +190,7 @@ source: 第 191 场双周赛 Q4
 
 > **思考**
 >
-> 子数组个数是平方级的，$n = 10^5$ 不能枚举。条件 $|sum - \textit{goal}| \ge k$ 的补集是 $|sum - \textit{goal}| < k$，从总数里减去更干净。
+> 子数组个数是平方级的， $n = 10^5$ 不能枚举。条件 $|sum - \textit{goal}| \ge k$ 的补集是 $|sum - \textit{goal}| < k$，从总数里减去更干净。
 >
 > 前缀和把子数组和变成两点之差。枚举右端点时，要统计已经出现、落在某个数值区间内的左端前缀和。
 >
@@ -198,7 +198,7 @@ source: 第 191 场双周赛 Q4
 
 <!-- thinking:end -->
 
-设 $s$ 为 $\textit{nums}$ 的前缀和数组（$s[0] = 0$）。子数组 $\textit{nums}[L..R-1]$ 的和等于 $s[R] - s[L]$，它是遥远的当且仅当 $|s[R] - s[L] - \textit{goal}| \ge k$。
+设 $s$ 为 $\textit{nums}$ 的前缀和数组（ $s[0] = 0$）。子数组 $\textit{nums}[L..R-1]$ 的和等于 $s[R] - s[L]$，它是遥远的当且仅当 $|s[R] - s[L] - \textit{goal}| \ge k$。
 
 非空子数组的总数为 $\frac{n(n+1)}{2}$。我们统计不满足条件的子数组，即 $|s[R] - s[L] - \textit{goal}| < k$，再从总数中减去。
 

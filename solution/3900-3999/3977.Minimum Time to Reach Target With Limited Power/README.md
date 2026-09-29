@@ -129,7 +129,7 @@ tags:
 
 > **思考**
 >
-> 边权是时间，但每个结点还消耗电量，剩余电量必须进入状态。$n,\textit{power}\le 1000$，状态数 $n\times\textit{power}$ 可接受。
+> 边权是时间，但每个结点还消耗电量，剩余电量必须进入状态。 $n,\textit{power}\le 1000$，状态数 $n\times\textit{power}$ 可接受。
 >
 > $\textit{dist}[u][p]$ 表示到达 $u$ 且剩电 $p$ 的最少时间。堆优化 Dijkstra 弹出 $(d,p,u)$；时间相同则优先剩电更多，以便更早到达目标时保留电量。电量不足 $\textit{cost}[u]$ 则无法转发。
 >
@@ -151,7 +151,7 @@ tags:
 
 若优先队列为空仍未到达目标节点，返回 $[-1, -1]$。
 
-时间复杂度 $O((n + m) \times \textit{power} \times \log (n \times \textit{power}))$，空间复杂度 $O(n \times \textit{power})$。其中 $n$ 和 $m$ 分别是节点数和边数，$\textit{power}$ 是初始电量。
+时间复杂度 $O((n + m) \times \textit{power} \times \log (n \times \textit{power}))$，空间复杂度 $O(n \times \textit{power})$。其中 $n$ 和 $m$ 分别是节点数和边数， $\textit{power}$ 是初始电量。
 
 <!-- tabs:start -->
 

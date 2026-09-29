@@ -80,7 +80,7 @@ tags:
 
 > **Thinking**
 >
-> We want a shortest $s$–$d$ path in which at most $k$ edges may be treated as free. A vertex-only shortest-path state cannot remember how many hops remain. Since $k$ is small, the hop count joins the state.
+> We want a shortest $s$– $d$ path in which at most $k$ edges may be treated as free. A vertex-only shortest-path state cannot remember how many hops remain. Since $k$ is small, the hop count joins the state.
 >
 > Dijkstra on pairs $(u,t)$: an edge $(u,v,w)$ may pay $w$ and stay at $t$, or, if $t<k$, move to $v$ at cost $0$ with $t+1$. The answer is the minimum distance among all $t$ at $d$.
 

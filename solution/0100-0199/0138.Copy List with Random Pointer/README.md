@@ -86,7 +86,7 @@ tags:
 
 > **思考**
 >
-> 复制带随机指针的链表。随机指针可能指向任意节点或空，先复制 $\textit{next}$ 再复制 $\textit{random}$ 时，目标节点可能尚未建出。$n\le 1000$。
+> 复制带随机指针的链表。随机指针可能指向任意节点或空，先复制 $\textit{next}$ 再复制 $\textit{random}$ 时，目标节点可能尚未建出。 $n\le 1000$。
 >
 > 第一遍沿 $\textit{next}$ 建新链，并用哈希表记下原节点到副本的映射；第二遍按映射接好 $\textit{random}$。
 
@@ -360,7 +360,7 @@ public class Solution {
 
 > **思考**
 >
-> 方法一的哈希表是 $O(n)$ 空间。把每个副本插在原节点后面，原节点与副本在链上相邻，$\textit{random}$ 的对应关系变为 $\textit{cur.random.next}$。拆链后得到复制链表，不再需要哈希表。
+> 方法一的哈希表是 $O(n)$ 空间。把每个副本插在原节点后面，原节点与副本在链上相邻， $\textit{random}$ 的对应关系变为 $\textit{cur.random.next}$。拆链后得到复制链表，不再需要哈希表。
 
 <!-- thinking:end -->
 

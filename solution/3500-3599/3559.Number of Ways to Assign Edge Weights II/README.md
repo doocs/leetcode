@@ -100,7 +100,7 @@ tags:
 
 > **思考**
 >
-> 上一题只有一条根到最深叶的路径；此处每次询问一条 $u$–$v$ 路径，条数 $d = \textit{depth}[u]+\textit{depth}[v]-2\cdot\textit{depth}[\textit{lca}]$。
+> 上一题只有一条根到最深叶的路径；此处每次询问一条 $u$– $v$ 路径，条数 $d = \textit{depth}[u]+\textit{depth}[v]-2\cdot\textit{depth}[\textit{lca}]$。
 >
 > 方案数仍为 $2^{d-1}$。BFS 加倍增预处理 LCA，并预处理 $2$ 的幂，每个询问 $O(\log n)$。
 
@@ -110,7 +110,7 @@ tags:
 
 用 BFS 求出每个节点的深度和父亲，再倍增预处理 LCA。同时预处理 $2$ 的幂，即可在 $O(\log n)$ 内回答每个询问。
 
-时间复杂度 $O((n + q) \times \log n)$，空间复杂度 $O(n \times \log n)$。其中 $n$ 是节点数，$q$ 是询问数。
+时间复杂度 $O((n + q) \times \log n)$，空间复杂度 $O(n \times \log n)$。其中 $n$ 是节点数， $q$ 是询问数。
 
 <!-- tabs:start -->
 

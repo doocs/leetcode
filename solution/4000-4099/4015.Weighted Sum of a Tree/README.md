@@ -183,11 +183,11 @@ tags:
 
 <!-- thinking:end -->
 
-节点 $i$ 的权重为 $\textit{nums}[i] \times (h - d_i + 1)$，其中 $d_i$ 是节点 $i$ 的深度，$h$ 是树的高度。因此所有节点的权重之和为：
+节点 $i$ 的权重为 $\textit{nums}[i] \times (h - d_i + 1)$，其中 $d_i$ 是节点 $i$ 的深度， $h$ 是树的高度。因此所有节点的权重之和为：
 
 $$\sum_{i=0}^{n-1} \textit{nums}[i] \times (h - d_i + 1) = h \times \sum_{i=0}^{n-1} \textit{nums}[i] + \sum_{i=0}^{n-1} \textit{nums}[i] \times (1 - d_i)$$
 
-我们可以用 BFS 按层遍历整棵树。遍历过程中维护当前层数 $d$（根节点为第 $1$ 层），并累加每个节点的 $\textit{nums}[i] \times (1 - d)$。遍历结束后，$d$ 即为树的高度 $h$，再加上 $h \times \sum \textit{nums}[i]$ 即为答案。
+我们可以用 BFS 按层遍历整棵树。遍历过程中维护当前层数 $d$（根节点为第 $1$ 层），并累加每个节点的 $\textit{nums}[i] \times (1 - d)$。遍历结束后， $d$ 即为树的高度 $h$，再加上 $h \times \sum \textit{nums}[i]$ 即为答案。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是节点个数。
 

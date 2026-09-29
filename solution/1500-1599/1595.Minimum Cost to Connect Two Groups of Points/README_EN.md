@@ -90,7 +90,7 @@ Note that there are multiple points connected to point 2 in the first group and 
 >
 > Connect two groups so that every point has at least one edge, minimizing total cost. Each side has at most $12$ points; enumerating edge subsets is impossible, but the second group fits in an $n$-bit mask of which points are already incident.
 >
-> Let $f[i][j]$ be the min cost after the first $i$ points of group one, with group two's mask equal to $j$. For each bit $k$ set in $j$, transition from “just connected $k$ this round”, “already $j$ last round”, or “$k$ missing last round”. The answer is $f[m][2^n-1]$.
+> Let $f[i][j]$ be the min cost after the first $i$ points of group one, with group two's mask equal to $j$. For each bit $k$ set in $j$, transition from “just connected $k$ this round”, “already $j$ last round”, or “ $k$ missing last round”. The answer is $f[m][2^n-1]$.
 
 <!-- thinking:end -->
 

@@ -81,7 +81,7 @@ Purchases table:
 
 > **思考**
 >
-> 只要 2023 年 11 月的星期五，并按「月中第几周」汇总。$DATE_FORMAT$ 锁月份，$DAYOFWEEK=6$ 取周五，$CEIL(DAYOFMONTH/7)$ 得到周次。
+> 只要 2023 年 11 月的星期五，并按「月中第几周」汇总。 $DATE_FORMAT$ 锁月份， $DAYOFWEEK=6$ 取周五， $CEIL(DAYOFMONTH/7)$ 得到周次。
 >
 > 按日期分组求和，再按周次排序。表中没有的周五不会出现。
 

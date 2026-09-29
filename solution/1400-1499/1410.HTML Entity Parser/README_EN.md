@@ -71,7 +71,7 @@ tags:
 
 > **Thinking**
 >
-> Entities are at most $7$ characters and come from a fixed set. For $n\le 10^5$, trying prefixes of length $1$–$7$ at each index is enough.
+> Entities are at most $7$ characters and come from a fixed set. For $n\le 10^5$, trying prefixes of length $1$– $7$ at each index is enough.
 >
 > Map each entity to its character. On a hit, emit the replacement and skip ahead; otherwise emit the current character. This also handles overlapping cases such as `&amp;gt;`.
 

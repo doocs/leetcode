@@ -74,7 +74,7 @@ myCalendar.book(20, 30); // return True ，这个日程安排可以添加到日�
 >
 > 将区间按结束时间排序后，与 $[\textit{start},\textit{end})$ 相交的只可能是「第一个结束时间大于 $\textit{start}$」的那一段：若其开始时间仍小于 $\textit{end}$，则冲突。
 >
-> 有序字典以 $\textit{end}$ 为键、起点为值。$\textit{bisect\_right}(\textit{start})$ 定位后做一次相交判断，通过则写入。单次 $O(\log n)$。
+> 有序字典以 $\textit{end}$ 为键、起点为值。 $\textit{bisect\_right}(\textit{start})$ 定位后做一次相交判断，通过则写入。单次 $O(\log n)$。
 
 <!-- thinking:end -->
 

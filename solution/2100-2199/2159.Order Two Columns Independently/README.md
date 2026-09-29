@@ -80,7 +80,7 @@ Data 表：
 >
 > 用窗口函数分别给两列打名次，再按名次连接，即可把独立排序后的值配到同一行。
 >
-> $\textit{first\_col}$ 升序编号，$\textit{second\_col}$ 降序编号，等值连接 $\textit{rk}$。
+> $\textit{first\_col}$ 升序编号， $\textit{second\_col}$ 降序编号，等值连接 $\textit{rk}$。
 
 <!-- thinking:end -->
 

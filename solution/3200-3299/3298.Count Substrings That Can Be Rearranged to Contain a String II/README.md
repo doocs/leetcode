@@ -97,7 +97,7 @@ tags:
 
 接着，我们用一个滑动窗口 $\textit{win}$ 来记录当前窗口中的字符出现的次数。我们用 $\textit{ans}$ 来记录满足条件的子串的个数，用 $\textit{l}$ 来记录窗口的左边界。
 
-遍历 $\textit{word1}$ 中的每个字符，对于当前字符 $c$，我们将其加入到 $\textit{win}$ 中，如果 $\textit{win}[c]$ 的值等于 $\textit{cnt}[c]$，那么说明当前窗口中已经包含了 $\textit{word2}$ 中的所有字符之一，那么 $\textit{need}$ 减一。如果 $\textit{need}$ 等于 $0$，说明当前窗口中包含了 $\textit{word2}$ 中的所有字符，我们需要缩小窗口的左边界，直到 $\textit{need}$ 大于 $0$。具体地，如果 $\textit{win}[\textit{word1}[l]]$ 等于 $\textit{cnt}[\textit{word1}[l]]$，那么说明当前窗口中包含了 $\textit{word2}$ 中的所有字符之一，那么缩小窗口的左边界之后，就不满足条件了，所以 $\textit{need}$ 加一，同时 $\textit{win}[\textit{word1}[l]]$ 减一。然后，我们将 $\textit{l}$ 加一。此时窗口为 $[l, r]$，那么对于任意 $0 \leq l' \lt l$，$[l', r]$ 都是满足条件的子串，一共有 $l$ 个，我们累加到答案中。
+遍历 $\textit{word1}$ 中的每个字符，对于当前字符 $c$，我们将其加入到 $\textit{win}$ 中，如果 $\textit{win}[c]$ 的值等于 $\textit{cnt}[c]$，那么说明当前窗口中已经包含了 $\textit{word2}$ 中的所有字符之一，那么 $\textit{need}$ 减一。如果 $\textit{need}$ 等于 $0$，说明当前窗口中包含了 $\textit{word2}$ 中的所有字符，我们需要缩小窗口的左边界，直到 $\textit{need}$ 大于 $0$。具体地，如果 $\textit{win}[\textit{word1}[l]]$ 等于 $\textit{cnt}[\textit{word1}[l]]$，那么说明当前窗口中包含了 $\textit{word2}$ 中的所有字符之一，那么缩小窗口的左边界之后，就不满足条件了，所以 $\textit{need}$ 加一，同时 $\textit{win}[\textit{word1}[l]]$ 减一。然后，我们将 $\textit{l}$ 加一。此时窗口为 $[l, r]$，那么对于任意 $0 \leq l' \lt l$， $[l', r]$ 都是满足条件的子串，一共有 $l$ 个，我们累加到答案中。
 
 遍历完 $\textit{word1}$ 中的所有字符之后，我们就得到了答案。
 

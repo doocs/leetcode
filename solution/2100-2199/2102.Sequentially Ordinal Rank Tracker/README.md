@@ -196,7 +196,7 @@ private:
 >
 > 与数据流中位数类似，可用两个堆把当前已公布的前若干名与尚未公布的较差景点分开：小根堆 $\textit{good}$ 存已查询过的较好景点，大根堆 $\textit{bad}$ 存其余景点。
 >
-> $\texttt{add}$ 时先将新景点挤入 $\textit{good}$ 再把其中最差者放入 $\textit{bad}$；$\texttt{get}$ 则从 $\textit{bad}$ 取出当前最好者并入 $\textit{good}$，堆顶即为本次名次。比较时对名字取反序，使评分高、字典序小者更优先。
+> $\texttt{add}$ 时先将新景点挤入 $\textit{good}$ 再把其中最差者放入 $\textit{bad}$； $\texttt{get}$ 则从 $\textit{bad}$ 取出当前最好者并入 $\textit{good}$，堆顶即为本次名次。比较时对名字取反序，使评分高、字典序小者更优先。
 
 <!-- thinking:end -->
 

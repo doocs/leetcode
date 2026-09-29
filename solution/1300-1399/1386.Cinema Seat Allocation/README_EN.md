@@ -87,7 +87,7 @@ tags:
 
 > **Thinking**
 >
-> A family occupies four consecutive seats ($2$–$5$, $4$–$7$, or $6$–$9$). $n$ reaches $10^9$, so empty rows cannot be scanned. An unreserved row fits two families and contributes $2(n-|d|)$. A reserved row is a $10$-bit mask; we try the three windows in order, claiming a mask when it is free so two families do not share a seat.
+> A family occupies four consecutive seats ($2$– $5$, $4$– $7$, or $6$– $9$). $n$ reaches $10^9$, so empty rows cannot be scanned. An unreserved row fits two families and contributes $2(n-|d|)$. A reserved row is a $10$-bit mask; we try the three windows in order, claiming a mask when it is free so two families do not share a seat.
 
 <!-- thinking:end -->
 
