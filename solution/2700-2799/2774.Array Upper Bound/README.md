@@ -120,7 +120,7 @@ Array.prototype.upperBound = function (target: number) {
 
 > **思考**
 >
-> 二分换来对数时间，却多了边界判断。$lastIndexOf$ 从右一次扫描即可，实现更短，最坏线性。
+> 二分换来对数时间，却多了边界判断。 $lastIndexOf$ 从右一次扫描即可，实现更短，最坏线性。
 
 <!-- thinking:end -->
 

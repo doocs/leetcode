@@ -78,7 +78,7 @@ It can be shown that no other path has less score.
 
 > **Thinking**
 >
-> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$–$n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$.
+> Edges may be reused and $1$ is connected to $n$. A path's score is its lightest edge, and any $1$– $n$ walk can reach every edge of that component, so the answer is the minimum weight in the component of $1$.
 >
 > DFS from $1$, updating the answer on every edge.
 

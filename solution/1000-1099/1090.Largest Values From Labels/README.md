@@ -93,7 +93,7 @@ tags:
 
 > **思考**
 >
-> 子集大小不超过 $\textit{numWanted}$，同一标签至多 $\textit{useLimit}$ 次，要值和最大。应优先取数值大的项，并用计数卡住标签配额。$n\le 2\times 10^4$，排序后线性挑选即可。
+> 子集大小不超过 $\textit{numWanted}$，同一标签至多 $\textit{useLimit}$ 次，要值和最大。应优先取数值大的项，并用计数卡住标签配额。 $n\le 2\times 10^4$，排序后线性挑选即可。
 >
 > 把 $(value,label)$ 按值降序，扫描时若该标签未达上限则选入，直到选满 $\textit{numWanted}$。
 >

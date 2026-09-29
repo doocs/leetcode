@@ -75,7 +75,7 @@ tags:
 >
 > Classify IPv4, IPv6, or neither. A regex can work, but leading zeros, empty chunks, and the alphabet are easier after an explicit split.
 >
-> IPv4: four `.`-chunks, no leading zero, each a number in $0$–$255$. IPv6: eight `:`-chunks of length $1$–$4$ in hex. Otherwise $\texttt{Neither}$.
+> IPv4: four `.`-chunks, no leading zero, each a number in $0$– $255$. IPv6: eight `:`-chunks of length $1$– $4$ in hex. Otherwise $\texttt{Neither}$.
 >
 > Try IPv4 then IPv6; the separators differ, so both cannot hold. Empty chunks fail the length or digit checks.
 

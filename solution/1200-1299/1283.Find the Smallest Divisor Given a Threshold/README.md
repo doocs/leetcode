@@ -73,7 +73,7 @@ tags:
 
 > **思考**
 >
-> 除数越大，向上取整之和越小，存在单调性。$n \le 5\times 10^4$，枚举除数不可行。在 $[1,\max nums]$ 上二分最小 $v$，使 $\sum \lceil nums_i/v \rceil \le threshold$。判定一遍线性扫描。
+> 除数越大，向上取整之和越小，存在单调性。 $n \le 5\times 10^4$，枚举除数不可行。在 $[1,\max nums]$ 上二分最小 $v$，使 $\sum \lceil nums_i/v \rceil \le threshold$。判定一遍线性扫描。
 
 <!-- thinking:end -->
 

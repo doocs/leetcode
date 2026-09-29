@@ -65,7 +65,7 @@ tags:
 
 > **Thinking**
 >
-> The mapping has two widths: a single digit for $1$–$9$, and three characters with `#` for $10$–$26$. Reading every token as one digit splits `10#` incorrectly. At each index we look two steps ahead: a `#` consumes two digits, otherwise one digit, and the cursor advances by $3$ or $1$.
+> The mapping has two widths: a single digit for $1$– $9$, and three characters with `#` for $10$– $26$. Reading every token as one digit splits `10#` incorrectly. At each index we look two steps ahead: a `#` consumes two digits, otherwise one digit, and the cursor advances by $3$ or $1$.
 
 <!-- thinking:end -->
 

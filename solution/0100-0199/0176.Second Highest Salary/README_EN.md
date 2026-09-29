@@ -168,7 +168,7 @@ WHERE salary < (SELECT MAX(salary) FROM Employee);
 
 > **Thinking**
 >
-> After deduplicating, $\textit{DENSE_RANK}$ numbers salaries descending and we keep rank $2$. Ties at the top do not consume the second place, which matches “$k$-th highest” and extends cleanly.
+> After deduplicating, $\textit{DENSE_RANK}$ numbers salaries descending and we keep rank $2$. Ties at the top do not consume the second place, which matches “ $k$-th highest” and extends cleanly.
 
 <!-- thinking:end -->
 

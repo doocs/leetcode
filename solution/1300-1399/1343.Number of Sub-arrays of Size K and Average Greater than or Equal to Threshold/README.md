@@ -63,7 +63,7 @@ tags:
 
 > **思考**
 >
-> 定长 $k$ 的子数组平均数 $\ge \textit{threshold}$。$n \le 10^5$，不可每次重算窗口。平均数比较等价于窗口和与 $k \times \textit{threshold}$ 比较。维护长为 $k$ 的滑动和，右进左出，线性统计达标窗口。
+> 定长 $k$ 的子数组平均数 $\ge \textit{threshold}$。 $n \le 10^5$，不可每次重算窗口。平均数比较等价于窗口和与 $k \times \textit{threshold}$ 比较。维护长为 $k$ 的滑动和，右进左出，线性统计达标窗口。
 
 <!-- thinking:end -->
 

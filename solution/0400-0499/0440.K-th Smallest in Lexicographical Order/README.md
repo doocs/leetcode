@@ -85,8 +85,8 @@ tags:
 
 每次我们计算当前前缀下有多少个合法数字（即以 $\textit{curr}$ 为前缀、且不超过 $n$ 的整数个数），记作 $\textit{count}(\text{curr})$：
 
-- 如果 $k \ge \text{count}(\text{curr})$：说明目标不在这棵子树中，跳过整棵子树，前缀右移：$\textit{curr} \leftarrow \text{curr} + 1$，并更新 $k \leftarrow k - \text{count}(\text{curr})$；
-- 否则：说明目标在当前前缀的子树中，进入下一层：$\textit{curr} \leftarrow \text{curr} \times 10$，并消耗一个前缀：$k \leftarrow k - 1$。
+- 如果 $k \ge \text{count}(\text{curr})$：说明目标不在这棵子树中，跳过整棵子树，前缀右移： $\textit{curr} \leftarrow \text{curr} + 1$，并更新 $k \leftarrow k - \text{count}(\text{curr})$；
+- 否则：说明目标在当前前缀的子树中，进入下一层： $\textit{curr} \leftarrow \text{curr} \times 10$，并消耗一个前缀： $k \leftarrow k - 1$。
 
 每一层我们将当前区间扩大 $10$ 倍，向下延伸到更长的前缀，直到超出 $n$。
 

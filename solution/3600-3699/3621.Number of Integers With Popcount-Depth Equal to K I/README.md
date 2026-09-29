@@ -140,7 +140,7 @@ tags:
 
 > **思考**
 >
-> popcount-depth 是反复将 $x$ 变为 $\mathrm{popcount}(x)$ 直至 $1$ 的次数。$n$ 的上界很大，不能枚举 $[1,n]$。
+> popcount-depth 是反复将 $x$ 变为 $\mathrm{popcount}(x)$ 直至 $1$ 的次数。 $n$ 的上界很大，不能枚举 $[1,n]$。
 >
 > depth 至多为数次，因为一次 popcount 后值不超过位数。数位 DP 可统计「不超过 $n$ 且二进制中 $1$ 的个数为 $c$」的整数个数，再把 $c$ 的 depth 与 $k$ 对齐。
 >

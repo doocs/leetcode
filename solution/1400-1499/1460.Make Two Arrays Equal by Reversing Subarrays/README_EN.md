@@ -209,7 +209,7 @@ bool canBeEqual(int* target, int targetSize, int* arr, int arrSize) {
 
 > **Thinking**
 >
-> Method 1 sorts. Values lie in $1$–$1000$, so comparing frequencies is enough and runs in linear time.
+> Method 1 sorts. Values lie in $1$– $1000$, so comparing frequencies is enough and runs in linear time.
 
 <!-- thinking:end -->
 

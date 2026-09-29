@@ -249,7 +249,7 @@ function cal(cnt: Map<number, number>, nums: number[]): number {
 
 我们用哈希表 $\textit{cnt1}$ 统计 $\textit{nums1}$ 中每个数出现的次数，用哈希表 $\textit{cnt2}$ 统计 $\textit{nums2}$ 中每个数出现的次数。
 
-接下来，我们枚举数组 $\textit{nums1}$ 中的每个数 $x$，然后枚举 $\textit{cnt2}$ 中的每个数对 $(y, v1)$，其中 $y$ 为 $\textit{cnt2}$ 的键，$v1$ 为 $\textit{cnt2}$ 的值。我们计算 $z = x^2 / y$，如果 $y \times z = x^2$，此时如果 $y = z$，说明 $y$ 和 $z$ 是同一个数，那么 $v1 = v2$，从 $v1$ 个数中任选两个数的方案数为 $v1 \times (v1 - 1) = v1 \times (v2 - 1)$；如果 $y \neq z$，那么 $v1$ 个数中任选两个数的方案数为 $v1 \times v2$。最后将所有方案数相加并除以 $2$ 即可。这里除以 $2$ 是因为我们统计的是对数对 $(j, k)$ 的方案数，而实际上 $(j, k)$ 和 $(k, j)$ 是同一种方案。
+接下来，我们枚举数组 $\textit{nums1}$ 中的每个数 $x$，然后枚举 $\textit{cnt2}$ 中的每个数对 $(y, v1)$，其中 $y$ 为 $\textit{cnt2}$ 的键， $v1$ 为 $\textit{cnt2}$ 的值。我们计算 $z = x^2 / y$，如果 $y \times z = x^2$，此时如果 $y = z$，说明 $y$ 和 $z$ 是同一个数，那么 $v1 = v2$，从 $v1$ 个数中任选两个数的方案数为 $v1 \times (v1 - 1) = v1 \times (v2 - 1)$；如果 $y \neq z$，那么 $v1$ 个数中任选两个数的方案数为 $v1 \times v2$。最后将所有方案数相加并除以 $2$ 即可。这里除以 $2$ 是因为我们统计的是对数对 $(j, k)$ 的方案数，而实际上 $(j, k)$ 和 $(k, j)$ 是同一种方案。
 
 时间复杂度 $O(m \times n)$，空间复杂度 $O(m + n)$。其中 $m$ 和 $n$ 分别为数组 $\textit{nums1}$ 和 $\textit{nums2}$ 的长度。
 

@@ -95,9 +95,9 @@ tags:
 
 > **思考**
 >
-> $f(n)=\sum_{i,j,k<n} (i\cdot(j\lor k))$ 随 $n$ 单调，求最大的 $n$ 使 $f(n)\le s$。$s \le 10^{15}$，直接三重循环不可行，但可估出 $n$ 不超过约 $1320$。
+> $f(n)=\sum_{i,j,k<n} (i\cdot(j\lor k))$ 随 $n$ 单调，求最大的 $n$ 使 $f(n)\le s$。 $s \le 10^{15}$，直接三重循环不可行，但可估出 $n$ 不超过约 $1320$。
 >
-> 将 $i$ 提出后，$f(n)$ 等于 $\big(\sum_{j,k<n}(j\lor k)\big)\cdot n(n-1)/2$ 的同类形式。预处理 $f[i]=\sum_{x=0}^{i-1}\sum_{y=0}^{i}(x\lor y)$ 的递推前缀即可。
+> 将 $i$ 提出后， $f(n)$ 等于 $\big(\sum_{j,k<n}(j\lor k)\big)\cdot n(n-1)/2$ 的同类形式。预处理 $f[i]=\sum_{x=0}^{i-1}\sum_{y=0}^{i}(x\lor y)$ 的递推前缀即可。
 >
 > 二分最大 $m$ 使 $f[m-1]\cdot(m-1)\cdot m/2 \le s$。
 

@@ -120,7 +120,7 @@ Friendship table:
 >
 > 将 $\texttt{Friendship}$ 与双方的 $\texttt{Listens}$ 按用户连接，限制同一天、同一首歌，再按好友对与日期分组。
 >
-> 去重歌曲数不少于 $3$ 即保留该对；$\texttt{DISTINCT}$ 去掉跨天重复。
+> 去重歌曲数不少于 $3$ 即保留该对； $\texttt{DISTINCT}$ 去掉跨天重复。
 
 <!-- thinking:end -->
 

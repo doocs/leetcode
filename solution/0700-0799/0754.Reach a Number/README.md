@@ -75,7 +75,7 @@ tags:
 >
 > 方向关于原点对称，可先取绝对值。连续向右走 $k$ 步到达三角数 $s$；若 $s-\textit{target}$ 为偶数，把其中 $\frac{s-\textit{target}}{2}$ 这一步反向即可，步数不变。
 >
-> 增大 $k$ 直到 $s\ge \textit{target}$ 且差为偶数。$k$ 为 $O(\sqrt{|\textit{target}|})$。
+> 增大 $k$ 直到 $s\ge \textit{target}$ 且差为偶数。 $k$ 为 $O(\sqrt{|\textit{target}|})$。
 
 <!-- thinking:end -->
 

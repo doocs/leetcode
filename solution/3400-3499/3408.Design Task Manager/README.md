@@ -95,7 +95,7 @@ taskManager.execTop(); // 返回 5 。执行用户 5 的任务 105 。</div>
 >
 > 哈希表能 $O(1)$ 找到任务的用户与优先级，但不能单独给出全局最值；堆或有序集合能维护最值，但修改时必须能定位旧元组。
 >
-> 因此用哈希表 $\textit{d}$ 存 $\textit{taskId}\mapsto(\textit{userId},\textit{priority})$，用有序集合存 $(-\textit{priority},-\textit{taskId})$，使高优先级、大编号排在最前。增删改都先改表再同步集合，$\textit{execTop}$ 弹出集合首元即可。
+> 因此用哈希表 $\textit{d}$ 存 $\textit{taskId}\mapsto(\textit{userId},\textit{priority})$，用有序集合存 $(-\textit{priority},-\textit{taskId})$，使高优先级、大编号排在最前。增删改都先改表再同步集合， $\textit{execTop}$ 弹出集合首元即可。
 
 <!-- thinking:end -->
 

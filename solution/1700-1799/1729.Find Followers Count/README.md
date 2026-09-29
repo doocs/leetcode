@@ -77,7 +77,7 @@ Followers 表：
 >
 > 每行是一条关注关系，要按用户统计粉丝数并按 $\textit{user\_id}$ 排序。
 >
-> 对 $\textit{Followers}$ 按 $\textit{user\_id}$ 分组，$\mathrm{COUNT}$ 即粉丝数，再按第一列排序。
+> 对 $\textit{Followers}$ 按 $\textit{user\_id}$ 分组， $\mathrm{COUNT}$ 即粉丝数，再按第一列排序。
 
 <!-- thinking:end -->
 

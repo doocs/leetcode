@@ -97,7 +97,7 @@ tags:
 
 > **Thinking**
 >
-> The previous problem used one root-to-leaf path. Each query here is a $u$–$v$ path of $d = \textit{depth}[u]+\textit{depth}[v]-2\cdot\textit{depth}[\textit{lca}]$ edges.
+> The previous problem used one root-to-leaf path. Each query here is a $u$– $v$ path of $d = \textit{depth}[u]+\textit{depth}[v]-2\cdot\textit{depth}[\textit{lca}]$ edges.
 >
 > The count is still $2^{d-1}$. BFS plus binary lifting prepares LCA, powers of two are precomputed, and each query is $O(\log n)$.
 

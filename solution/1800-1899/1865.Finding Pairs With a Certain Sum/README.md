@@ -83,9 +83,9 @@ findSumPairs.count(7);  // 返回 11 ；下标对 (2,1), (2,2), (2,4), (3,1), (3
 
 > **思考**
 >
-> 要支持修改 $nums2$ 的一个元素，并查询 $nums1[i]+nums2[j]=tot$ 的对数。$nums2$ 很长，每次查询双层枚举不可行。
+> 要支持修改 $nums2$ 的一个元素，并查询 $nums1[i]+nums2[j]=tot$ 的对数。 $nums2$ 很长，每次查询双层枚举不可行。
 >
-> $nums1$ 长度不超过 $10^3$，对其枚举即可。用哈希表维护 $nums2$ 的频次：$\textit{count}$ 对每个 $x\in nums1$ 累加 $cnt[tot-x]$；$\textit{add}$ 时先减旧值再加新值。
+> $nums1$ 长度不超过 $10^3$，对其枚举即可。用哈希表维护 $nums2$ 的频次： $\textit{count}$ 对每个 $x\in nums1$ 累加 $cnt[tot-x]$； $\textit{add}$ 时先减旧值再加新值。
 
 <!-- thinking:end -->
 

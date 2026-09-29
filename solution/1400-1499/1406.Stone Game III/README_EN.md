@@ -82,7 +82,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 > **Thinking**
 >
-> Each player takes $1$–$3$ piles. Plain recursion on $n\le 5\times 10^4$ recomputes the same suffixes many times.
+> Each player takes $1$– $3$ piles. Plain recursion on $n\le 5\times 10^4$ recomputes the same suffixes many times.
 >
 > The current player maximizes “stones taken this turn minus the opponent's best difference on the rest”. Let $dfs(i)$ be that value from index $i$, trying the three prefixes.
 >

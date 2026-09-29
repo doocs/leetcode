@@ -95,7 +95,7 @@ difficulty: 困难
 
 > **思考**
 >
-> $n$ 可以到 $10^5$。若像上一题那样枚举被取反的位置，再对每种情形扫描前缀和，时间是 $O(n^2)$，无法在时限内完成。$k\le 3000$，余数只有这么多种。
+> $n$ 可以到 $10^5$。若像上一题那样枚举被取反的位置，再对每种情形扫描前缀和，时间是 $O(n^2)$，无法在时限内完成。 $k\le 3000$，余数只有这么多种。
 >
 > 子数组和模 $k$ 等于右端前缀减去左端前缀。取反一个元素 $x$ 后，这个差减少 $2x$，右端余数等于左端余数加上 $2(x\bmod k)$。同一个左端余数只需要最早的前缀，更晚的位置得到的子数组更短。
 >
@@ -103,7 +103,7 @@ difficulty: 困难
 
 <!-- thinking:end -->
 
-设 $p[0]=0$，$p[i+1]=(p[i]+\textit{nums}[i])\bmod k$。子数组 $\textit{nums}[L..R]$ 的和模 $k$ 为 $p[R+1]-p[L]$。取反其中的 $\textit{nums}[t]$ 时，令 $a=\textit{nums}[t]\bmod k$，和减少 $2\textit{nums}[t]$。存在 $t\in[L,R]$ 满足
+设 $p[0]=0$， $p[i+1]=(p[i]+\textit{nums}[i])\bmod k$。子数组 $\textit{nums}[L..R]$ 的和模 $k$ 为 $p[R+1]-p[L]$。取反其中的 $\textit{nums}[t]$ 时，令 $a=\textit{nums}[t]\bmod k$，和减少 $2\textit{nums}[t]$。存在 $t\in[L,R]$ 满足
 
 $$
 p[R+1]\equiv p[L]+2a\pmod{k}
@@ -111,17 +111,17 @@ $$
 
 时，该子数组合法。完全不取反时，条件是 $p[R+1]\equiv p[L]$。长度是 $(R+1)-L$，固定右端点时左端点越小越好。
 
-$\textit{first}[q]$ 是余数 $q$ 第一次出现的前缀下标。把出现过的余数按 $\textit{first}$ 从小到大排成 $\textit{order}$。$\textit{best}[s]$ 保存右端前缀余数为 $s$ 时目前可用的最小左端点，初始为 $\textit{first}[s]$；余数尚未出现时写成哨兵。初始值对应完全不取反。
+$\textit{first}[q]$ 是余数 $q$ 第一次出现的前缀下标。把出现过的余数按 $\textit{first}$ 从小到大排成 $\textit{order}$。 $\textit{best}[s]$ 保存右端前缀余数为 $s$ 时目前可用的最小左端点，初始为 $\textit{first}[s]$；余数尚未出现时写成哨兵。初始值对应完全不取反。
 
-从左到右扫描下标 $i$，令 $a=\textit{nums}[i]\bmod k$。指针记下每个 $a$ 已经处理到 $\textit{order}$ 的哪里。$\textit{first}[q]\le i$ 的余数 $q$ 都能把位置 $i$ 包进子数组，于是
+从左到右扫描下标 $i$，令 $a=\textit{nums}[i]\bmod k$。指针记下每个 $a$ 已经处理到 $\textit{order}$ 的哪里。 $\textit{first}[q]\le i$ 的余数 $q$ 都能把位置 $i$ 包进子数组，于是
 
 $$
 t=(q+2a)\bmod k,\qquad \textit{best}[t]=\min(\textit{best}[t],\textit{first}[q]).
 $$
 
-取反位置 $i$ 之后，从 $\textit{first}[q]$ 延伸到任意更右的端点、且右端余数为 $t$ 的子数组都合法。指针只向前移动，每一对 $(a,q)$ 只处理一次。随后的右端点仍然包含 $i$，$\textit{best}$ 中保留的是最小左端点。
+取反位置 $i$ 之后，从 $\textit{first}[q]$ 延伸到任意更右的端点、且右端余数为 $t$ 的子数组都合法。指针只向前移动，每一对 $(a,q)$ 只处理一次。随后的右端点仍然包含 $i$， $\textit{best}$ 中保留的是最小左端点。
 
-$s=p[i+1]$。$\textit{best}[s]$ 不是哨兵时，用 $i+1-\textit{best}[s]$ 更新答案。负数取模后余数落在 $[0,k)$。
+$s=p[i+1]$。 $\textit{best}[s]$ 不是哨兵时，用 $i+1-\textit{best}[s]$ 更新答案。负数取模后余数落在 $[0,k)$。
 
 时间复杂度 $O(n+k^2)$，空间复杂度 $O(n+k)$。
 

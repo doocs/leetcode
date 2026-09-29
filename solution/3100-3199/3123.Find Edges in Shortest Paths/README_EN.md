@@ -85,7 +85,7 @@ tags:
 
 > **Thinking**
 >
-> Each edge must be tested for membership in some shortest $0$–$n-1$ path. Rerunning Dijkstra per edge repeats the same search $m$ times.
+> Each edge must be tested for membership in some shortest $0$– $n-1$ path. Rerunning Dijkstra per edge repeats the same search $m$ times.
 >
 > Undirected edge $(a,b,w)$ lies on a shortest path iff walking backward from $n-1$ along $dist[a]=dist[b]+w$ reaches it. One backward BFS marks every such edge.
 >

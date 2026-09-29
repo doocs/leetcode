@@ -111,7 +111,7 @@ difficulty: 困难
 
 将会议按结束时间升序排序。记 $f[i]$ 为最后一场选第 $i$ 场会议时能得到的最大收益。任意非空方案都有一场结束最晚的会议，所以答案是所有 $f[i]$ 的最大值。
 
-只选第 $i$ 场时，$f[i]=\textit{revenue}_i$。若在它前面再接一场满足 $\textit{end}_j\le\textit{start}_i$ 的会议 $j$，则
+只选第 $i$ 场时， $f[i]=\textit{revenue}_i$。若在它前面再接一场满足 $\textit{end}_j\le\textit{start}_i$ 的会议 $j$，则
 
 $$
 f[i]=f[j]+\textit{revenue}_i+(\textit{start}_i-\textit{end}_j),

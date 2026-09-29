@@ -86,7 +86,7 @@ tags:
 >
 > The recurrence is the same as in I; only the value cap is $1000$. Scanning every $j'$ for each $j$ would be $O(n m^2)$, tight when $m=10^3$.
 >
-> Prefix sums still answer “$j'$ at most some bound” in $O(1)$, so the time stays $O(nm)$ after the larger range.
+> Prefix sums still answer “ $j'$ at most some bound” in $O(1)$, so the time stays $O(nm)$ after the larger range.
 
 <!-- thinking:end -->
 

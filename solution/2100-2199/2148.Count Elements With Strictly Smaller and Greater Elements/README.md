@@ -65,7 +65,7 @@ tags:
 >
 > 一个元素要同时存在严格更小与严格更大者，当且仅当它不是全局最小或最大。统计不等于两端极值的个数即可。
 >
-> 先求 $\textit{mi}$、$\textit{mx}$，再数满足 $\textit{mi}<x<\textit{mx}$ 的元素。
+> 先求 $\textit{mi}$、 $\textit{mx}$，再数满足 $\textit{mi}<x<\textit{mx}$ 的元素。
 >
 > 两遍线性扫描，常数空间。
 

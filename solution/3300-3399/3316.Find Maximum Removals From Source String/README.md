@@ -118,7 +118,7 @@ tags:
 
 > **思考**
 >
-> 在 $\textit{pattern}$ 仍为子序列的前提下，尽量多删 $\textit{targetIndices}$ 中的下标。$n \le 3 \times 10^3$，适合 $O(mn)$ 的匹配型 DP。
+> 在 $\textit{pattern}$ 仍为子序列的前提下，尽量多删 $\textit{targetIndices}$ 中的下标。 $n \le 3 \times 10^3$，适合 $O(mn)$ 的匹配型 DP。
 >
 > 状态需同时记录匹配进度与已删数量。不可行状态用 $-\infty$ 隔开，避免「删光却匹配失败」被当成合法。
 >

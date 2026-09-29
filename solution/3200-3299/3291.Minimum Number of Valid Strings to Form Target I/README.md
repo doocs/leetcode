@@ -102,7 +102,7 @@ tags:
 
 > **思考**
 >
-> 用 $\textit{words}$ 的前缀拼接 $\textit{target}$，求最少段数。$|target|\le 5\times 10^3$、词长总和 $10^5$，对每个位置枚举每个词会重复比较前缀。
+> 用 $\textit{words}$ 的前缀拼接 $\textit{target}$，求最少段数。 $|target|\le 5\times 10^3$、词长总和 $10^5$，对每个位置枚举每个词会重复比较前缀。
 >
 > 字典树存下所有词，从 $i$ 沿 $\textit{target}$ 往下走，每走到一个存在的节点就可以切一刀并加上 $\textit{dfs}(j+1)$。记忆化后每起点沿树走至多 $O(n)$。
 

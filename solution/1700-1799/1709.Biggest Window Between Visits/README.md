@@ -88,7 +88,7 @@ UserVisits 表：
 >
 > 每个用户的最大访问间隔等于相邻访问日之差的最大值，最后一次访问还要与 $2021$-$01$-$01$ 比较。
 >
-> 窗口函数 $\mathrm{LEAD}$ 按 $\textit{user\_id}$ 分区、按日期排序，可取出下一次访问日（缺省为 $2021$-$1$-$1$）。$\mathrm{DATEDIFF}$ 得到间隔后再按用户取 $\mathrm{MAX}$。
+> 窗口函数 $\mathrm{LEAD}$ 按 $\textit{user\_id}$ 分区、按日期排序，可取出下一次访问日（缺省为 $2021$-$1$-$1$）。 $\mathrm{DATEDIFF}$ 得到间隔后再按用户取 $\mathrm{MAX}$。
 
 <!-- thinking:end -->
 

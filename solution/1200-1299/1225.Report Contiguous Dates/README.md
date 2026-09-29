@@ -108,7 +108,7 @@ Succeeded table:
 >
 > 同一状态的连续日期与其组内名次之差为常数，该差可作为岛标识。按状态与该标识分组，取最小、最大日期即一段连续区间。
 >
-> $UNION\ ALL$ 对齐两表，$RANK$ 制造岛键，$GROUP\ BY$ 收成区间。
+> $UNION\ ALL$ 对齐两表， $RANK$ 制造岛键， $GROUP\ BY$ 收成区间。
 
 <!-- thinking:end -->
 

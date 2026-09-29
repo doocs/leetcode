@@ -74,7 +74,7 @@ tags:
 >
 > 连通三元组的度为三结点度数之和减 $6$。图规模允许 $O(n^3)$ 枚举三角形。
 >
-> 邻接矩阵判边、$\textit{deg}$ 存度数。枚举 $i<j<k$ 且三边都在时更新 $\textit{deg}[i]+\textit{deg}[j]+\textit{deg}[k]-6$。无三角形则返回 $-1$。
+> 邻接矩阵判边、 $\textit{deg}$ 存度数。枚举 $i<j<k$ 且三边都在时更新 $\textit{deg}[i]+\textit{deg}[j]+\textit{deg}[k]-6$。无三角形则返回 $-1$。
 
 <!-- thinking:end -->
 

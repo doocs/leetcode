@@ -55,7 +55,7 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 >
 > DFS 尝试每个未用且恰差一位的词，成功则保留路径，失败回溯。
 >
-> `check` 统计不等字符是否恰为 $1$；$vis$ 防止重入。找到 $endWord$ 即返回当前 $ans$，否则空列表。任意一条即可。
+> `check` 统计不等字符是否恰为 $1$； $vis$ 防止重入。找到 $endWord$ 即返回当前 $ans$，否则空列表。任意一条即可。
 
 <!-- thinking:end -->
 

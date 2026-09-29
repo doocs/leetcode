@@ -87,7 +87,7 @@ nums       index     target
 
 > **思考**
 >
-> 按 $\textit{index}[i]$ 把 $\textit{nums}[i]$ 插入目标数组，题面保证下标合法。$n \le 100$，直接 $\textit{insert}$ 即可，每次插入把后续元素右移。
+> 按 $\textit{index}[i]$ 把 $\textit{nums}[i]$ 插入目标数组，题面保证下标合法。 $n \le 100$，直接 $\textit{insert}$ 即可，每次插入把后续元素右移。
 
 <!-- thinking:end -->
 

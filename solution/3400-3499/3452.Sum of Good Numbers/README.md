@@ -69,7 +69,7 @@ tags:
 
 > **思考**
 >
-> 好数须严格大于两侧距离为 $k$ 的邻居（若存在）。$n\le 100$，逐个检查即可。
+> 好数须严格大于两侧距离为 $k$ 的邻居（若存在）。 $n\le 100$，逐个检查即可。
 >
 > 越界的一侧视为没有约束，不能把它当成 $0$ 去比较。
 >
@@ -81,7 +81,7 @@ tags:
 
 - 如果 $i \ge k$ 且 $\textit{nums}[i] \le \textit{nums}[i - k]$，则 $\textit{nums}[i]$ 不是好数字；
 - 如果 $i + k < \textit{len}(\textit{nums})$ 且 $\textit{nums}[i] \le \textit{nums}[i + k]$，则 $\textit{nums}[i]$ 不是好数字。
-- 否则，$\textit{nums}[i]$ 是好数字，我们将其累加到答案中。
+- 否则， $\textit{nums}[i]$ 是好数字，我们将其累加到答案中。
 
 遍历结束后，返回答案即可。
 

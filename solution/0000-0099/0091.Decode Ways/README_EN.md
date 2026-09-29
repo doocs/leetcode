@@ -97,11 +97,11 @@ Given a string s containing only digits, return the <strong>number of ways</stro
 
 > **Thinking**
 >
-> The first idea is recursion: at index $i$, decode $s[i]$ alone (if not $0$), or pair it with the previous digit into $10$–$26$. $n \le 100$, but without memoization the tree is exponential because the same prefix is decoded again and again.
+> The first idea is recursion: at index $i$, decode $s[i]$ alone (if not $0$), or pair it with the previous digit into $10$– $26$. $n \le 100$, but without memoization the tree is exponential because the same prefix is decoded again and again.
 >
 > The bottleneck is that the number of ways to decode the first $i$ characters depends only on shorter prefixes, and a valid split is only “one digit / two digits”. That is climbing stairs with encoding constraints.
 >
-> So let $f[i]$ be the number of ways for the first $i$ characters. The empty string has one way; $0$ cannot stand alone; only $10$–$26$ can be a pair. Scan once instead of enumerating every partition.
+> So let $f[i]$ be the number of ways for the first $i$ characters. The empty string has one way; $0$ cannot stand alone; only $10$– $26$ can be a pair. Scan once instead of enumerating every partition.
 
 <!-- thinking:end -->
 

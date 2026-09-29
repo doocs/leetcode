@@ -82,7 +82,7 @@ tags:
 >
 > We must add one edge between two trees to minimize the new diameter. With $n,m\le 10^5$, trying every pair of endpoints and recomputing the diameter is $nm$ work and is not viable.
 >
-> The new diameter is one of two kinds: it stays inside an original tree, hence $\max(d_1,d_2)$; or it crosses the new edge, in which case the optimum joins points near the two centers and has length equal to the sum of the two radii plus one. It remains only to compute each diameter. From an arbitrary node walk to a farthest node $a$, then from $a$ to a farthest node $b$; the $a$–$b$ path is a diameter. Two DFS passes per tree are linear.
+> The new diameter is one of two kinds: it stays inside an original tree, hence $\max(d_1,d_2)$; or it crosses the new edge, in which case the optimum joins points near the two centers and has length equal to the sum of the two radii plus one. It remains only to compute each diameter. From an arbitrary node walk to a farthest node $a$, then from $a$ to a farthest node $b$; the $a$– $b$ path is a diameter. Two DFS passes per tree are linear.
 
 <!-- thinking:end -->
 

@@ -113,7 +113,7 @@ $$
 \textit{key}=(x\ll 30)\mid y.
 $$
 
-$x,y\le 10^9$，这个键落在 $64$ 位整数里。$\textit{cnt}[\textit{key}]$ 是同一对值作为相邻位置出现的次数。选中这一对时，新增的相等相邻对个数就是 $\textit{cnt}[\textit{key}]$。取所有计数的最大值 $\textit{mx}$；一次都不操作时 $\textit{mx}=0$。答案是 $\textit{ans}+\textit{mx}$。
+$x,y\le 10^9$，这个键落在 $64$ 位整数里。 $\textit{cnt}[\textit{key}]$ 是同一对值作为相邻位置出现的次数。选中这一对时，新增的相等相邻对个数就是 $\textit{cnt}[\textit{key}]$。取所有计数的最大值 $\textit{mx}$；一次都不操作时 $\textit{mx}=0$。答案是 $\textit{ans}+\textit{mx}$。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。
 

@@ -180,7 +180,7 @@ func maximumScore(a int, b int, c int) (ans int) {
 
 > **思考**
 >
-> 方法一按步模拟。设 $a\le b\le c$：若 $a+b\le c$，较小两堆都会先被耗尽，得分为 $a+b$；否则最终得分是 $\lfloor(a+b+c)/2\rfloor$。$O(1)$ 求出。
+> 方法一按步模拟。设 $a\le b\le c$：若 $a+b\le c$，较小两堆都会先被耗尽，得分为 $a+b$；否则最终得分是 $\lfloor(a+b+c)/2\rfloor$。 $O(1)$ 求出。
 
 <!-- thinking:end -->
 

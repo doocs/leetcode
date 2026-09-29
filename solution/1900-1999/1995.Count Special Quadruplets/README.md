@@ -262,7 +262,7 @@ func countQuadruplets(nums []int) int {
 
 > **思考**
 >
-> 仍可再降一重：从右枚举 $b$，把所有 $d-c$（$c=b+1$）计入哈希，再枚举 $a$ 查询 $nums[a]+nums[b]$，总时间 $O(n^2)$。
+> 仍可再降一重：从右枚举 $b$，把所有 $d-c$（ $c=b+1$）计入哈希，再枚举 $a$ 查询 $nums[a]+nums[b]$，总时间 $O(n^2)$。
 
 <!-- thinking:end -->
 

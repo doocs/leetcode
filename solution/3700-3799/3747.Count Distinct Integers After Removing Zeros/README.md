@@ -81,7 +81,7 @@ tags:
 
 函数 $\text{dfs}(i, \text{zero}, \text{lead}, \text{limit})$ 中，如果 $i$ 大于等于数字的长度，那么我们就可以判断 $\text{zero}$ 和 $\text{lead}$，如果 $\text{zero}$ 为假且 $\text{lead}$ 为假，说明当前数字中不含 0，我们就返回 $1$，否则返回 $0$。
 
-对于 $\text{dfs}(i, \text{zero}, \text{lead}, \text{limit})$，我们可以枚举当前数位 $d$ 的值，然后递归计算 $\text{dfs}(i+1, \text{nxt\_zero}, \text{nxt\_lead}, \text{nxt\_limit})$，其中 $\text{nxt\_zero}$ 表示当前数字中是否已经出现过非零数字，$\text{nxt\_lead}$ 表示当前是否还在处理前导零，而 $\text{nxt\_limit}$ 表示当前数字是否受上界限制。如果 $\text{limit}$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。
+对于 $\text{dfs}(i, \text{zero}, \text{lead}, \text{limit})$，我们可以枚举当前数位 $d$ 的值，然后递归计算 $\text{dfs}(i+1, \text{nxt\_zero}, \text{nxt\_lead}, \text{nxt\_limit})$，其中 $\text{nxt\_zero}$ 表示当前数字中是否已经出现过非零数字， $\text{nxt\_lead}$ 表示当前是否还在处理前导零，而 $\text{nxt\_limit}$ 表示当前数字是否受上界限制。如果 $\text{limit}$ 为真，那么 $up$ 就是当前数位的上界，否则 $up$ 为 $9$。
 
 时间复杂度 $O(\log_{10} n \times D)$，空间复杂度 $O(\log_{10} n)$。其中 $D$ 表示数字 0 到 9 的个数。
 

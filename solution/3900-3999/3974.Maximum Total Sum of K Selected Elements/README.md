@@ -118,7 +118,7 @@ tags:
 >
 > 每次选一个元素乘上当前 $\textit{mul}$ 再把 $\textit{mul}$ 减一，乘数序列是递减的。为使总和最大，较大的数组元素应匹配较大的乘数。
 >
-> 将 $\textit{nums}$ 排序后从大到小取 $k$ 个，第 $i$ 大乘 $\max(1,\textit{mul})$，然后 $\textit{mul}$ 减一。$O(n\log n)$ 排序即可。
+> 将 $\textit{nums}$ 排序后从大到小取 $k$ 个，第 $i$ 大乘 $\max(1,\textit{mul})$，然后 $\textit{mul}$ 减一。 $O(n\log n)$ 排序即可。
 
 <!-- thinking:end -->
 

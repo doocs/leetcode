@@ -68,7 +68,7 @@ floor(9 / 5) = 1
 
 > **思考**
 >
-> 求 $\sum_{i,j}\lfloor nums[i]/nums[j]\rfloor$。枚举数对为 $O(n^2)$，$n\le 10^5$ 不可行。
+> 求 $\sum_{i,j}\lfloor nums[i]/nums[j]\rfloor$。枚举数对为 $O(n^2)$， $n\le 10^5$ 不可行。
 >
 > 值域不超过 $10^5$，先对值做频次前缀和。枚举分母 $y$ 与商 $d$，落在 $[dy,dy+y)$ 的分子个数可由前缀和一次取出，再乘 $cnt[y]\cdot d$。调和级数枚举总复杂度 $O(M\log M)$。
 

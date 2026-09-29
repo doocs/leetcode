@@ -82,7 +82,7 @@ Sessions table:
 
 > **思考**
 >
-> 用户第一次会话须是 Viewer，之后统计其 Streamer 会话数。$RANK$ 按 $session_start$ 取出每人第一场，再与 $Sessions$ 连接，限制第一场为 Viewer 且当前行为 Streamer。
+> 用户第一次会话须是 Viewer，之后统计其 Streamer 会话数。 $RANK$ 按 $session_start$ 取出每人第一场，再与 $Sessions$ 连接，限制第一场为 Viewer 且当前行为 Streamer。
 >
 > 按次数、用户降序。
 

@@ -87,7 +87,7 @@ tags:
 
 我们不妨记 $\textit{jug1Capacity}$ 为 $x$, $\textit{jug2Capacity}$ 为 $y$, $\textit{targetCapacity}$ 为 $z$。
 
-接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水，$jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。
+接下来，我们设计一个函数 $dfs(i, j)$，表示当前 $jug1$ 中有 $i$ 升水， $jug2$ 中有 $j$ 升水，是否可以得到 $z$ 升水。
 
 函数 $dfs(i, j)$ 的执行过程如下：
 

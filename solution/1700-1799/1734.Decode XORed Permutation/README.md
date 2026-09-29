@@ -61,7 +61,7 @@ tags:
 
 > **思考**
 >
-> $\textit{perm}$ 是 $1..n$ 的排列且 $n$ 为奇数，$\textit{encoded}[i]=\textit{perm}[i]\oplus\textit{perm}[i+1]$。缺一个起始值便无法递推。
+> $\textit{perm}$ 是 $1..n$ 的排列且 $n$ 为奇数， $\textit{encoded}[i]=\textit{perm}[i]\oplus\textit{perm}[i+1]$。缺一个起始值便无法递推。
 >
 > $1\oplus\cdots\oplus n$ 可知。把 $\textit{encoded}$ 的偶数下标异或起来，恰好比全集少了 $\textit{perm}[n-1]$，因此能还原末元。
 >

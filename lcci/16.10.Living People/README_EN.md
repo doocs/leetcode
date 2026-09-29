@@ -50,7 +50,7 @@ death = {1948, 1951, 2000}
 
 > **Thinking**
 >
-> Years lie in $1900$–$2000$; find the earliest year with the most people alive. Scanning everyone for each year is $O(nC)$.
+> Years lie in $1900$– $2000$; find the earliest year with the most people alive. Scanning everyone for each year is $O(nC)$.
 >
 > A life is a range increment. A difference array updates endpoints in $O(1)$ and prefix sums recover the yearly counts.
 >

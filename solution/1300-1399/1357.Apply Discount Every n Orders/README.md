@@ -96,7 +96,7 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 
 对于 `getBill` 操作：
 
-1. 将计数器加一并取模：$i = (i + 1) \bmod n$，表示当前是第几位顾客结账；
+1. 将计数器加一并取模： $i = (i + 1) \bmod n$，表示当前是第几位顾客结账；
 2. 遍历本次购买的商品编号和数量，计算账单总额 $x = \sum_j d[\textit{product}[j]] \times \textit{amount}[j]$；
 3. 若 $i = 0$，说明当前顾客是第 $n$ 位顾客，应对整单打折，返回 $x - \dfrac{\textit{discount} \times x}{100}$；否则直接返回 $x$。
 

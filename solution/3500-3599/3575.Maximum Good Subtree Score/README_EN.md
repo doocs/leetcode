@@ -135,7 +135,7 @@ tags:
 
 > **Thinking**
 >
-> A good subset’s decimal digits $0$–$9$ appear at most once, which is a $10$-bit mask. With $n \le 500$, pack each subtree: merge children’s disjoint-mask scores with the node’s own value.
+> A good subset’s decimal digits $0$– $9$ appear at most once, which is a $10$-bit mask. With $n \le 500$, pack each subtree: merge children’s disjoint-mask scores with the node’s own value.
 >
 > Subtrees contribute independently to $\textit{maxScore}[u]$; the answer is the sum over $u$. A node whose own digits collide cannot be taken alone.
 

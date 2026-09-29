@@ -93,7 +93,7 @@ tags:
 >
 > 从左到右移动分割点时，左侧 $0$ 与右侧 $1$ 各增减一个当前元素，可用两个计数器滚动。同时维护最高分及其下标列表。
 >
-> $\textit{l0}$ 累加 $x\oplus 1$，$\textit{r1}$ 减去 $x$，比较 $t$ 与 $\textit{mx}$ 以更新答案。
+> $\textit{l0}$ 累加 $x\oplus 1$， $\textit{r1}$ 减去 $x$，比较 $t$ 与 $\textit{mx}$ 以更新答案。
 
 <!-- thinking:end -->
 

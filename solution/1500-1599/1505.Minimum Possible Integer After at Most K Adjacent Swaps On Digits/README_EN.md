@@ -74,7 +74,7 @@ tags:
 >
 > Building the answer from the left, the current place should become the smallest digit that can still reach it with the remaining budget. Moving an unused original index $j$ to position $i$ costs the number of not-yet-taken digits between them.
 >
-> Store original indices of digits $0$–$9$ in deques, and let a Fenwick tree mark which original positions have already been taken. For each candidate digit the tree evaluates the true distance in $O(\log n)$; if it fits the remaining $k$, we take it and update the tree. Each position inspects a constant number of digits, so the total time is $O(n\log n)$.
+> Store original indices of digits $0$– $9$ in deques, and let a Fenwick tree mark which original positions have already been taken. For each candidate digit the tree evaluates the true distance in $O(\log n)$; if it fits the remaining $k$, we take it and update the tree. Each position inspects a constant number of digits, so the total time is $O(n\log n)$.
 
 <!-- thinking:end -->
 

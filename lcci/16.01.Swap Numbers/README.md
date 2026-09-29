@@ -35,11 +35,11 @@ difficulty: 中等
 
 > **思考**
 >
-> 交换两数通常需要临时变量，题目要求不用额外存储。加减法 $a=a+b$、$b=a-b$、$a=a-b$ 可行，但有溢出风险。
+> 交换两数通常需要临时变量，题目要求不用额外存储。加减法 $a=a+b$、 $b=a-b$、 $a=a-b$ 可行，但有溢出风险。
 >
 > 异或满足 $a\oplus b\oplus b=a$，三次异或即可互换且不引入进位。
 >
-> 依次执行 $a\oplus=b$、$b\oplus=a$、$a\oplus=b$，对应代码对 `numbers[0]` 与 `numbers[1]` 的三次赋值。
+> 依次执行 $a\oplus=b$、 $b\oplus=a$、 $a\oplus=b$，对应代码对 `numbers[0]` 与 `numbers[1]` 的三次赋值。
 
 <!-- thinking:end -->
 

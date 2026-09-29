@@ -81,7 +81,7 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 
 > **思考**
 >
-> `visit` 会丢掉前进历史，`back`/`forward` 在一条时间线上移动。用栈 $stk1$ 保存到当前页的路径，$stk2$ 保存前进页。访问新页时压入 $stk1$ 并清空 $stk2$；后退把页弹到 $stk2$，前进则反向弹回。
+> `visit` 会丢掉前进历史，`back`/`forward` 在一条时间线上移动。用栈 $stk1$ 保存到当前页的路径， $stk2$ 保存前进页。访问新页时压入 $stk1$ 并清空 $stk2$；后退把页弹到 $stk2$，前进则反向弹回。
 
 <!-- thinking:end -->
 

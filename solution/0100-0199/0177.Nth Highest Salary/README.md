@@ -87,7 +87,7 @@ n = 2
 
 > **思考**
 >
-> 把「第二高」推广到第 $N$ 高：去重、降序后取下标 $N-1$。$N<1$ 或不足 $N$ 个不同薪水时返回 $\textit{NULL}$。SQL 里用 $\textit{LIMIT}\,1\,\textit{OFFSET}\,N-1$ 定位该行，外层保证空结果变成 $\textit{NULL}$。
+> 把「第二高」推广到第 $N$ 高：去重、降序后取下标 $N-1$。 $N<1$ 或不足 $N$ 个不同薪水时返回 $\textit{NULL}$。SQL 里用 $\textit{LIMIT}\,1\,\textit{OFFSET}\,N-1$ 定位该行，外层保证空结果变成 $\textit{NULL}$。
 
 <!-- thinking:end -->
 

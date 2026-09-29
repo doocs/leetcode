@@ -230,7 +230,7 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 
 > **思考**
 >
-> 同一三维状态可按物品下标递推，避免递归。$f[i][j][k]$ 表示前 $i$ 项、人数 $j$、利润至少 $k$ 的方案数。
+> 同一三维状态可按物品下标递推，避免递归。 $f[i][j][k]$ 表示前 $i$ 项、人数 $j$、利润至少 $k$ 的方案数。
 >
 > 不选抄上一件，选则从 $f[i-1][j-x][\max(0,k-p)]$ 转移。空方案在利润 $0$ 处为 $1$。答案为 $f[m][n][\textit{minProfit}]$。
 

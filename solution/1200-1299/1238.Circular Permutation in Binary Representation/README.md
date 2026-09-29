@@ -67,7 +67,7 @@ tags:
 
 > **思考**
 >
-> 相邻（含首尾）只差一位，这正是格雷码的定义。标准构造 $i\oplus(i\gg 1)$ 给出 $0\ldots 2^n-1$ 的一条格雷码回路。$n \le 16$，枚举全部码字可行。
+> 相邻（含首尾）只差一位，这正是格雷码的定义。标准构造 $i\oplus(i\gg 1)$ 给出 $0\ldots 2^n-1$ 的一条格雷码回路。 $n \le 16$，枚举全部码字可行。
 >
 > 生成完整序列后找到 $start$ 的位置并旋转，使首项为 $start$ 且圆形相邻关系不变。
 
@@ -188,7 +188,7 @@ function circularPermutation(n: number, start: number): number[] {
 
 > **思考**
 >
-> 方法一先生成再旋转。$gray(i)\oplus start$ 仍相邻只差一位，且 $i=0$ 时恰为 $start$，故可直接按 $i$ 映射，省去查找与拼接。
+> 方法一先生成再旋转。 $gray(i)\oplus start$ 仍相邻只差一位，且 $i=0$ 时恰为 $start$，故可直接按 $i$ 映射，省去查找与拼接。
 
 <!-- thinking:end -->
 

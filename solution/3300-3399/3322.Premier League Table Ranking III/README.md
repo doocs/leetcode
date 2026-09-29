@@ -142,7 +142,7 @@ tags:
 >
 > 排名在赛季内连续且不并列跳号，用分组后的行号即可，不必 $\textit{RANK}$。
 >
-> 按 $\textit{season\_id}$、积分、净胜球、队名排序后，$\textit{cumcount}+1$ 即 $\textit{position}$。
+> 按 $\textit{season\_id}$、积分、净胜球、队名排序后， $\textit{cumcount}+1$ 即 $\textit{position}$。
 
 <!-- thinking:end -->
 

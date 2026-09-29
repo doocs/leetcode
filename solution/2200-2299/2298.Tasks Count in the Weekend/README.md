@@ -89,7 +89,7 @@ Task 6 是在周日提交的。
 >
 > 统计周末提交与工作日提交的任务数。日期函数 $\textit{WEEKDAY}$ 把星期一到星期日映射为 $0$ 到 $6$，因此周六、周日对应 $5$ 和 $6$。
 >
-> 对全表做条件求和：$\textit{WEEKDAY}(\textit{submit\_date}) \in (5,6)$ 计入周末，其余计入工作日。一次聚合即可。
+> 对全表做条件求和： $\textit{WEEKDAY}(\textit{submit\_date}) \in (5,6)$ 计入周末，其余计入工作日。一次聚合即可。
 
 <!-- thinking:end -->
 

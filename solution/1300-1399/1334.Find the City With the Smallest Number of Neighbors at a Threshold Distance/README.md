@@ -85,7 +85,7 @@ tags:
 
 > **思考**
 >
-> 对每个城市统计阈值内可达城市数，取个数最少且编号最大者。$n \le 100$，可对每个起点做最短路。建邻接矩阵后，从编号大到小跑 Dijkstra，统计 $\textit{dist}[j] \le \textit{distanceThreshold}$ 的个数，遇到更小计数就更新答案，从而在并列时保留较大编号。
+> 对每个城市统计阈值内可达城市数，取个数最少且编号最大者。 $n \le 100$，可对每个起点做最短路。建邻接矩阵后，从编号大到小跑 Dijkstra，统计 $\textit{dist}[j] \le \textit{distanceThreshold}$ 的个数，遇到更小计数就更新答案，从而在并列时保留较大编号。
 
 <!-- thinking:end -->
 

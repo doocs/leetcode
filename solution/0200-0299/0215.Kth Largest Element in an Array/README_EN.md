@@ -55,7 +55,7 @@ tags:
 >
 > Full sorting finds the $k$-th largest but orders every other position as well. Quickselect only needs the side that contains that rank.
 >
-> After partitioning around a pivot we recurse only into the interval that holds the target. The implementation converts “$k$-th largest” into “$(n-k)$-th smallest”.
+> After partitioning around a pivot we recurse only into the interval that holds the target. The implementation converts “ $k$-th largest” into “ $(n-k)$-th smallest”.
 
 <!-- thinking:end -->
 
