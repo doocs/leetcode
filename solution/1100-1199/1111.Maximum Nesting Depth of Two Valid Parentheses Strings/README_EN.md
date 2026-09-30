@@ -90,17 +90,19 @@ tags:
 
 > **Thinking**
 >
-> Splitting a valid parenthesis string into two valid strings while minimizing the larger depth means sharing nesting as evenly as possible. A balance $x$ tracks the current depth: on `'('` assign by the parity of $x$ then increment; on `')'` decrement first, then assign by the new parity.
+> Every parenthesis has to be assigned a group, and both groups must stay valid. With $n \le 10^4$, enumerating the assignment of each position is not realistic. A greedy scan also works: send each `'('` to the currently shallower group, and send the matching `')'` back with it. That is correct, but the scan has to keep both depths.
 >
-> Adjacent levels go to different groups, so each group's depth is about half of the original, and each group stays a valid matching.
+> Depth grows one nested layer at a time. A chain of depth $d$ has $d$ layers, so one group receives at least $\lceil d/2 \rceil$ of them. Alternating adjacent layers leaves the two groups at depths $\lceil d/2 \rceil$ and $\lfloor d/2 \rfloor$.
+>
+> The group id can just be the parity of the layer, so a single balance $x$ is enough. A `'('` sits on the layer about to be entered, and is labeled by $x$ before the depth increases. The matching `')'` has to follow that same parenthesis, and is labeled by $x$ after the depth decreases. A pair sees the same parity, and both subsequences stay valid.
 
 <!-- thinking:end -->
 
-We use a variable $x$ to maintain the current balance of parentheses, which is the number of left parentheses minus the number of right parentheses.
+We use a variable $x$ to record the current balance, that is, the number of left parentheses not yet matched. It is also the nesting depth at the current position.
 
-We traverse the string $seq$, updating the value of $x$. If $x$ is odd, we assign the current left parenthesis to $A$, otherwise we assign it to $B$.
+Scan $seq$ from left to right. On a left parenthesis, write the parity of $x$ into the answer, $0$ when $x$ is even and $1$ when it is odd, then increment $x$. On a right parenthesis, decrement $x$ first, then write the parity of the updated value. A matching pair sees the same parity and therefore stays in the same group, so both groups remain valid parentheses strings. If the original nesting depth is $d$, the larger of the two depths is $\lceil d/2 \rceil$.
 
-The time complexity is $O(n)$, where $n$ is the length of the string $seq$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.
+The time complexity is $O(n)$, where $n$ is the length of $seq$. Ignoring the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 
@@ -193,6 +195,28 @@ function maxDepthAfterSplit(seq: string): number[] {
         }
     }
     return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_depth_after_split(seq: String) -> Vec<i32> {
+        let n = seq.len();
+        let mut ans = vec![0; n];
+        let mut x = 0;
+        for (i, c) in seq.bytes().enumerate() {
+            if c == b'(' {
+                ans[i] = x & 1;
+                x += 1;
+            } else {
+                x -= 1;
+                ans[i] = x & 1;
+            }
+        }
+        ans
+    }
 }
 ```
 
