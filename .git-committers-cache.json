@@ -1,5 +1,5 @@
 {
-  "cache_date": 1790745165,
+  "cache_date": 1790749661,
   "page_authors": {
     "solution/0000-0099/0001.Two Sum/README.md": {
       "authors": [
@@ -137102,13 +137102,19 @@
     "solution/3900-3999/3962.Maximum Subarray Sum After at Most K Swaps/README.md": {
       "authors": [
         {
+          "login": "Dwivedi-ji143",
+          "name": "Dwivedi-ji143",
+          "url": "https://github.com/Dwivedi-ji143",
+          "avatar": "https://avatars.githubusercontent.com/u/217531473?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1790688691
+      "retrieved": 1790749178
     },
     "solution/3900-3999/3961.Maximize Sum of Device Ratings/README_EN.md": {
       "authors": [
@@ -137146,13 +137152,19 @@
     "solution/3900-3999/3962.Maximum Subarray Sum After at Most K Swaps/README_EN.md": {
       "authors": [
         {
+          "login": "Dwivedi-ji143",
+          "name": "Dwivedi-ji143",
+          "url": "https://github.com/Dwivedi-ji143",
+          "avatar": "https://avatars.githubusercontent.com/u/217531473?v=4"
+        },
+        {
           "login": "yanglbme",
           "name": "yanglbme",
           "url": "https://github.com/yanglbme",
           "avatar": "https://avatars.githubusercontent.com/u/21008209?v=4"
         }
       ],
-      "retrieved": 1789193706
+      "retrieved": 1790749165
     },
     "solution/3900-3999/3966.Count Good Integers in a Range/README.md": {
       "authors": [
