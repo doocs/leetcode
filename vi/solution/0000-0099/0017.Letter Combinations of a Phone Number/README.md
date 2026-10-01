@@ -1,0 +1,616 @@
+---
+comments: true
+difficulty: Medium
+tags:
+    - Hash Table
+    - String
+    - Backtracking
+---
+
+<!-- problem:start -->
+
+# [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)
+
+[中文文档](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README.md)
+
+## Mô tả
+
+<!-- description:start -->
+
+<p>Cho một chuỗi chứa các chữ số từ <code>2-9</code> (bao gồm cả hai đầu), hãy trả về tất cả các tổ hợp chữ cái mà số đó có thể biểu diễn. Trả về đáp án theo <strong>bất kỳ thứ tự nào</strong>.</p>
+
+<p>Bảng ánh xạ các chữ số với các chữ cái (giống như trên các phím điện thoại) được cho bên dưới. Lưu ý rằng 1 không ánh xạ với chữ cái nào.</p>
+<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/images/1200px-telephone-keypad2svg.png" style="width: 300px; height: 243px;" />
+<p>&nbsp;</p>
+<p><strong class="example">Ví dụ 1:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> digits = &quot;23&quot;
+<strong>Đầu ra:</strong> [&quot;ad&quot;,&quot;ae&quot;,&quot;af&quot;,&quot;bd&quot;,&quot;be&quot;,&quot;bf&quot;,&quot;cd&quot;,&quot;ce&quot;,&quot;cf&quot;]
+</pre>
+
+<p><strong class="example">Ví dụ 2:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> digits = &quot;2&quot;
+<strong>Đầu ra:</strong> [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Ràng buộc:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= digits.length &lt;= 4</code></li>
+	<li><code>digits[i]</code> là một chữ số trong khoảng <code>[&#39;2&#39;, &#39;9&#39;]</code>.</li>
+</ul>
+
+<!-- description:end -->
+
+## Lời giải
+
+<!-- solution:start -->
+
+### Lời giải 1: Duyệt
+
+<!-- thinking:start -->
+
+> **Tư duy**
+>
+> $n\le 4$, nên có nhiều nhất $4^n$ tổ hợp; việc liệt kê bất kỳ cách nào cũng sẽ vượt qua. Bài toán là tích Descartes của các nhóm chữ cái. Không thể viết các vòng lặp lồng nhau khi $n$ không cố định.
+>
+> Bắt đầu từ chuỗi rỗng: mỗi chữ số mới thay thế các tiền tố hiện tại bằng mọi phép nối với các chữ cái của chữ số đó. Đây là cách mở rộng tích theo từng lớp.
+>
+> Vì vậy, chúng ta giữ một mảng ánh xạ và xây dựng kết quả từ một danh sách chỉ chứa chuỗi rỗng. Đầu vào rỗng trả về một danh sách rỗng.
+
+<!-- thinking:end -->
+
+Trước hết, chúng ta dùng một mảng hoặc bảng băm để lưu các chữ cái tương ứng với mỗi chữ số. Sau đó, chúng ta duyệt qua từng chữ số, kết hợp các chữ cái tương ứng của nó với các kết quả trước đó để thu được các kết quả mới.
+
+Độ phức tạp thời gian là $O(4^n)$, và độ phức tạp không gian là $O(4^n)$. Trong đó, $n$ là độ dài của các chữ số đầu vào.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:
+            return []
+        d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        ans = [""]
+        for i in digits:
+            s = d[int(i) - 2]
+            ans = [a + b for a in ans for b in s]
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        List<String> ans = new ArrayList<>();
+        if (digits.length() == 0) {
+            return ans;
+        }
+        ans.add("");
+        String[] d = new String[] {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        for (char i : digits.toCharArray()) {
+            String s = d[i - '2'];
+            List<String> t = new ArrayList<>();
+            for (String a : ans) {
+                for (String b : s.split("")) {
+                    t.add(a + b);
+                }
+            }
+            ans = t;
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) {
+            return {};
+        }
+        vector<string> d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        vector<string> ans = {""};
+        for (auto& i : digits) {
+            string s = d[i - '2'];
+            vector<string> t;
+            for (auto& a : ans) {
+                for (auto& b : s) {
+                    t.push_back(a + b);
+                }
+            }
+            ans = move(t);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func letterCombinations(digits string) []string {
+	ans := []string{}
+	if len(digits) == 0 {
+		return ans
+	}
+	ans = append(ans, "")
+	d := []string{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
+	for _, i := range digits {
+		s := d[i-'2']
+		t := []string{}
+		for _, a := range ans {
+			for _, b := range s {
+				t = append(t, a+string(b))
+			}
+		}
+		ans = t
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function letterCombinations(digits: string): string[] {
+    if (digits.length === 0) {
+        return [];
+    }
+    const ans: string[] = [''];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    for (const i of digits) {
+        const s = d[+i - 2];
+        const t: string[] = [];
+        for (const a of ans) {
+            for (const b of s) {
+                t.push(a + b);
+            }
+        }
+        ans.splice(0, ans.length, ...t);
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn letter_combinations(digits: String) -> Vec<String> {
+        let mut ans: Vec<String> = Vec::new();
+        if digits.is_empty() {
+            return ans;
+        }
+        ans.push("".to_string());
+        let d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+        for i in digits.chars() {
+            let s = &d[((i as u8) - b'2') as usize];
+            let mut t: Vec<String> = Vec::new();
+            for a in &ans {
+                for b in s.chars() {
+                    t.push(format!("{}{}", a, b));
+                }
+            }
+            ans = t;
+        }
+        ans
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function (digits) {
+    if (digits.length === 0) {
+        return [];
+    }
+    const ans = [''];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    for (const i of digits) {
+        const s = d[+i - 2];
+        const t = [];
+        for (const a of ans) {
+            for (const b of s) {
+                t.push(a + b);
+            }
+        }
+        ans.splice(0, ans.length, ...t);
+    }
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public IList<string> LetterCombinations(string digits) {
+        var ans = new List<string>();
+        if (digits.Length == 0) {
+            return ans;
+        }
+        ans.Add("");
+        string[] d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        foreach (char i in digits) {
+            string s = d[i - '2'];
+            var t = new List<string>();
+            foreach (string a in ans) {
+                foreach (char b in s) {
+                    t.Add(a + b);
+                }
+            }
+            ans = t;
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Lời giải 2: DFS
+
+<!-- thinking:start -->
+
+> **Tư duy**
+>
+> Lời giải 1 đã liệt kê mọi đáp án, nhưng mỗi lớp lại cấp phát một danh sách tiền tố mới, nên các chuỗi trung gian vẫn chiếm $O(4^n)$.
+>
+> Nếu chúng ta đi theo một đường duy nhất và quay lui, không gian phụ giảm xuống còn $O(n)$ (độ sâu và độ dài đường đi).
+>
+> Vì vậy, chúng ta thực hiện DFS theo chỉ số: chọn một chữ cái cho chữ số hiện tại, đi sâu hơn, sau đó hoàn tác lựa chọn. Các tổ hợp vẫn giống nhau; chỉ có thứ tự sinh chuyển từ “mở rộng theo lớp” sang “đi theo một đường đến cuối”.
+
+<!-- thinking:end -->
+
+Chúng ta có thể dùng phương pháp tìm kiếm theo chiều sâu để liệt kê tất cả các tổ hợp chữ cái có thể có. Giả sử một phần của tổ hợp chữ cái đã được sinh ra, nhưng một số chữ số vẫn chưa được duyệt hết. Khi đó, chúng ta lấy các chữ cái tương ứng với chữ số tiếp theo, rồi lần lượt liệt kê từng chữ cái tương ứng với chữ số này và thêm nó vào tổ hợp chữ cái đã được sinh trước đó để tạo thành tất cả các tổ hợp có thể có.
+
+Độ phức tạp thời gian là $O(4^n)$, và độ phức tạp không gian là $O(n)$. Trong đó, $n$ là độ dài của các chữ số đầu vào.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        def dfs(i: int):
+            if i >= len(digits):
+                ans.append("".join(t))
+                return
+            for c in d[int(digits[i]) - 2]:
+                t.append(c)
+                dfs(i + 1)
+                t.pop()
+
+        if not digits:
+            return []
+        d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+        ans = []
+        t = []
+        dfs(0)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    private final String[] d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private String digits;
+    private List<String> ans = new ArrayList<>();
+    private StringBuilder t = new StringBuilder();
+
+    public List<String> letterCombinations(String digits) {
+        if (digits.length() == 0) {
+            return ans;
+        }
+        this.digits = digits;
+        dfs(0);
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (i >= digits.length()) {
+            ans.add(t.toString());
+            return;
+        }
+        String s = d[digits.charAt(i) - '2'];
+        for (char c : s.toCharArray()) {
+            t.append(c);
+            dfs(i + 1);
+            t.deleteCharAt(t.length() - 1);
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        if (digits.empty()) {
+            return {};
+        }
+        vector<string> d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        vector<string> ans;
+        string t;
+        function<void(int)> dfs = [&](int i) {
+            if (i >= digits.size()) {
+                ans.push_back(t);
+                return;
+            }
+            for (auto& c : d[digits[i] - '2']) {
+                t.push_back(c);
+                dfs(i + 1);
+                t.pop_back();
+            }
+        };
+        dfs(0);
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func letterCombinations(digits string) (ans []string) {
+	d := []string{"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"}
+	t := []rune{}
+	var dfs func(int)
+	dfs = func(i int) {
+		if i >= len(digits) {
+			ans = append(ans, string(t))
+			return
+		}
+		for _, c := range d[digits[i]-'2'] {
+			t = append(t, c)
+			dfs(i + 1)
+			t = t[:len(t)-1]
+		}
+	}
+	if len(digits) == 0 {
+		return
+	}
+	dfs(0)
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function letterCombinations(digits: string): string[] {
+    if (digits.length === 0) {
+        return [];
+    }
+    const ans: string[] = [];
+    const t: string[] = [];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    const dfs = (i: number) => {
+        if (i >= digits.length) {
+            ans.push(t.join(''));
+            return;
+        }
+        const s = d[+digits[i] - 2];
+        for (const c of s) {
+            t.push(c);
+            dfs(i + 1);
+            t.pop();
+        }
+    };
+    dfs(0);
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn letter_combinations(digits: String) -> Vec<String> {
+        let d = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+        let mut ans = Vec::new();
+        let mut t = String::new();
+        if digits.is_empty() {
+            return ans;
+        }
+        Solution::dfs(&digits, &d, &mut t, &mut ans, 0);
+        ans
+    }
+
+    fn dfs(digits: &String, d: &[&str; 8], t: &mut String, ans: &mut Vec<String>, i: usize) {
+        if i >= digits.len() {
+            ans.push(t.clone());
+            return;
+        }
+        let s = d[((digits.chars().nth(i).unwrap() as u8) - b'2') as usize];
+        for c in s.chars() {
+            t.push(c);
+            Solution::dfs(digits, d, t, ans, i + 1);
+            t.pop();
+        }
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function (digits) {
+    if (digits.length === 0) {
+        return [];
+    }
+    const ans = [];
+    const t = [];
+    const d = ['abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+    const dfs = i => {
+        if (i >= digits.length) {
+            ans.push(t.join(''));
+            return;
+        }
+        const s = d[+digits[i] - 2];
+        for (const c of s) {
+            t.push(c);
+            dfs(i + 1);
+            t.pop();
+        }
+    };
+    dfs(0);
+    return ans;
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private readonly string[] d = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private string digits;
+    private List<string> ans = new List<string>();
+    private System.Text.StringBuilder t = new System.Text.StringBuilder();
+
+    public IList<string> LetterCombinations(string digits) {
+        if (digits.Length == 0) {
+            return ans;
+        }
+        this.digits = digits;
+        Dfs(0);
+        return ans;
+    }
+
+    private void Dfs(int i) {
+        if (i >= digits.Length) {
+            ans.Add(t.ToString());
+            return;
+        }
+        string s = d[digits[i] - '2'];
+        foreach (char c in s) {
+            t.Append(c);
+            Dfs(i + 1);
+            t.Remove(t.Length - 1, 1);
+        }
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param string $digits
+     * @return string[]
+     */
+
+    function letterCombinations($digits) {
+        $digitMap = [
+            '2' => ['a', 'b', 'c'],
+            '3' => ['d', 'e', 'f'],
+            '4' => ['g', 'h', 'i'],
+            '5' => ['j', 'k', 'l'],
+            '6' => ['m', 'n', 'o'],
+            '7' => ['p', 'q', 'r', 's'],
+            '8' => ['t', 'u', 'v'],
+            '9' => ['w', 'x', 'y', 'z'],
+        ];
+
+        $combinations = [];
+
+        backtrack($digits, '', 0, $digitMap, $combinations);
+
+        return $combinations;
+    }
+
+    function backtrack($digits, $current, $index, $digitMap, &$combinations) {
+        if ($index === strlen($digits)) {
+            if ($current !== '') {
+                $combinations[] = $current;
+            }
+            return;
+        }
+
+        $digit = $digits[$index];
+        $letters = $digitMap[$digit];
+
+        foreach ($letters as $letter) {
+            backtrack($digits, $current . $letter, $index + 1, $digitMap, $combinations);
+        }
+    }
+}
+```
+
+#### C
+
+```c
+char* d[] = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+char** letterCombinations(char* digits, int* returnSize) {
+    if (!*digits) {
+        *returnSize = 0;
+        return NULL;
+    }
+
+    int size = 1;
+    char** ans = (char**) malloc(sizeof(char*));
+    ans[0] = strdup("");
+
+    for (int x = 0; digits[x]; ++x) {
+        char* s = d[digits[x] - '2'];
+        int len = strlen(s);
+        char** t = (char**) malloc(sizeof(char*) * size * len);
+        int tSize = 0;
+
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < len; ++j) {
+                int oldLen = strlen(ans[i]);
+                char* tmp = (char*) malloc(oldLen + 2);
+                strcpy(tmp, ans[i]);
+                tmp[oldLen] = s[j];
+                tmp[oldLen + 1] = '\0';
+                t[tSize++] = tmp;
+            }
+            free(ans[i]);
+        }
+        free(ans);
+        ans = t;
+        size = tSize;
+    }
+
+    *returnSize = size;
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

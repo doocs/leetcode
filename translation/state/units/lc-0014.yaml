@@ -1,0 +1,111 @@
+schema_version: 1
+unit_id: lc-0014
+attempt_id: lc-0014-a1
+owner: Claude (OpenCode session 2026-10-01)
+state: verified
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: solution/0000-0099/0014.Longest Common Prefix/README_EN.md
+  kind: git-blob
+  git_blob: 082048c1a2d46d37d83d45fa18e392fd1f7d2490
+  sha256: ea987195620fa4237f2ea43cd03538e99d022f05b43956850418cd1b3b61f483
+target:
+  path: vi/solution/0000-0099/0014.Longest Common Prefix/README.md
+  kind: git-blob
+  git_blob: 05ec67895b501e9ce5607317af1d030962f231f2
+  sha256: 6933ea51aa7fe3a806186cb4342a880951f3a37364dae4c7acaf99b7907fb3a0
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+coverage:
+  read_scope:
+    - whole source file (285 lines)
+  translated_scope:
+    - all prose blocks listed in block_map
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+  mode: full
+  block_map:
+    - front matter -> preserved (PROJECT-002)
+    - H1 title, 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)
+    - '## Description -> ## Mô tả'
+    - description <p> x2 and spacer -> translated/preserved
+    - Example 1-2 labels, Input/Output/Explanation labels -> translated; example data preserved
+    - Constraints label -> translated; constraint <code> items preserved; constraint prose translated
+    - '## Solutions, ### Solution 1 heading -> translated (PROJECT-003)'
+    - Thinking block (3 paragraphs) -> translated
+    - write-up (3 paragraphs) -> translated
+    - 11 code tabs -> preserved
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_git_blob: 05ec67895b501e9ce5607317af1d030962f231f2
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Read every source block against its target block in both directions (QA-03 checklist).
+    scope: whole file
+    evidence: All prose blocks map 1:1; prefix termination condition, character comparison, empty-string behavior, example labels/data, and O(n x m)/O(1) complexity checked.
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository
+    evidence: empty output
+  - id: protected_spans
+    status: pass
+    method: python3 translation/tools/check_vi.py vi/solution/0000-0099/0014.Longest Common Prefix/README.md
+    scope: whole file
+    evidence: PASS (front matter, code fences, inline code, math, markers, <pre> example data identical)
+  - id: structure
+    status: pass
+    method: python3 translation/tools/check_vi.py vi/solution/0000-0099/0014.Longest Common Prefix/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0014.Longest Common Prefix/README.md
+    scope: whole file
+    evidence: 'PASS; check_thinking: OK 1 file(s)'
+  - id: links_and_assets
+    status: pass
+    method: python3 vi/site/prepare.py --workdir /tmp/opencode/lc-0014-site --only 14 --no-minify; /tmp/opencode/lc-0014-venv/bin/mkdocs build -f mkdocs-site-vi.yml (in /tmp/opencode/lc-0014-site)
+    scope: whole file + rendered page
+    evidence: 'prepare: Prepared /tmp/opencode/lc-0014-site; mkdocs: Documentation built in 1.58 seconds at /tmp/opencode/lc-0014-site/site/vi'
+  - id: residual_language
+    status: pass
+    method: check_vi.py residual_english warnings + manual classification
+    scope: whole file
+    evidence: No residual prose English; remaining English is the H1 title (PROJECT-001), code-tab labels (PROJECT-003), identifiers/inline code/math, and the 中文文档 switch line (PROJECT-004).
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: null
+  next_action: null
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

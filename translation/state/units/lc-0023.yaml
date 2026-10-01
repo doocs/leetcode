@@ -1,0 +1,121 @@
+schema_version: 1
+unit_id: lc-0023
+attempt_id: lc-0023-a1
+owner: OpenCode (session 2026-10-01)
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: solution/0000-0099/0023.Merge k Sorted Lists/README_EN.md
+  kind: git-blob
+  git_blob: 8cb3a5469022e0f96edec06d0051af3d3fe48afb
+  sha256: 4246e39683ff3cedf6e3d22b7e7792dda0ebf522b18239058eca12c8254cfd87
+target:
+  path: vi/solution/0000-0099/0023.Merge k Sorted Lists/README.md
+  kind: git-blob
+  git_blob: c87ab409a3cb89af5b3f7e9e018edf7b0526b648
+  sha256: a42141cd93844a2a6fd78110458ca18561b01b7650a474c0175ec65a7561fea4
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+    unit-report.yaml: e232b8c99c83341db41635aa4f1ecbf19c9ee963f412143924ac70c07f38d47e
+coverage:
+  read_scope:
+    - whole source file (447 lines), including front matter, HTML problem statement, Thinking block, prose, markers and all code tabs
+  translated_scope:
+    - all translatable prose blocks listed in block_map
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+    - protected spans, HTML tags, markers, URLs, math, example data and code fences
+  mode: full
+  block_map:
+    - front matter -> preserved byte-for-byte (PROJECT-002)
+    - H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)
+    - '## Description -> ## Mô tả'
+    - description paragraphs -> translated; HTML structure and inline code preserved
+    - Examples 1-3 labels, Input/Output/Explanation labels and explanation prose -> translated; example data and HTML structure preserved
+    - Constraints label and six constraint items -> translated; constraint expressions and inline literals preserved
+    - '## Solutions; ### Solution 1: Priority Queue (Min Heap) -> ## Lời giải; ### Lời giải 1: Hàng đợi ưu tiên (Min Heap)'
+    - Thinking block (four paragraphs) -> translated; math preserved
+    - solution write-up and complexity statement -> translated; math preserved
+    - 9 code tabs -> preserved byte-for-byte
+    - HTML/Markdown markers, fence info strings, URLs and structure -> preserved
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_sha256: a42141cd93844a2a6fd78110458ca18561b01b7650a474c0175ec65a7561fea4
+  reviewed_target_git_blob: c87ab409a3cb89af5b3f7e9e018edf7b0526b648
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Read every source block against its target block in both directions using the coverage map and QA-03 checklist.
+    scope: whole file
+    evidence: All description, examples, constraints, Thinking paragraphs, solution prose and complexity statements have counterparts; heap initialization, smallest-head selection, successor insertion, termination and both complexity claims were checked.
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository protected paths
+    evidence: empty output; source blob remains 8cb3a5469022e0f96edec06d0051af3d3fe48afb.
+  - id: protected_spans
+    status: pass
+    method: python3 translation/tools/check_vi.py "vi/solution/0000-0099/0023.Merge k Sorted Lists/README.md"
+    scope: whole file
+    evidence: PASS 1/1; front matter, code fences, inline code, math, markers, URLs, HTML tags and <pre> example data match the source.
+  - id: structure
+    status: pass
+    method: python3 translation/tools/check_vi.py "vi/solution/0000-0099/0023.Merge k Sorted Lists/README.md"; python3 scripts/check_thinking.py "vi/solution/0000-0099/0023.Merge k Sorted Lists/README.md"; git diff --check
+    scope: whole file
+    evidence: check_vi PASS 1/1; check_thinking OK 1 file(s); git diff --check produced no output.
+  - id: links_and_assets
+    status: not_run
+    method: python3 vi/site/prepare.py --only 23 --no-minify; mkdocs build -f mkdocs-site-vi.yml
+    scope: whole file + rendered page
+    evidence: check_vi validated URL preservation; worker did not run site preparation/render per task instruction.
+    reason: Coordinator must run the render/site check.
+  - id: residual_language
+    status: pass
+    method: check_vi.py residual_english warnings plus manual classification.
+    scope: whole file
+    evidence: No residual prose English; remaining English is limited to the official H1 title, code-tab labels, identifiers/inline code/math/code literals and the preserved 中文文档 switch line under configured exceptions.
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: links_and_assets render check
+  next_action: Coordinator runs the render/site check, then recomputes evidence if the target changes.
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

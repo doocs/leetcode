@@ -2,16 +2,58 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `dc991a6b46d6f6b08c9a5f758188454befd036d7`
+- Snapshot nguồn: `8366e377f36a2529ae70cbbb21172c6d172328c4`
 - Tổng số unit trong scope: 4177
-- verified: 3
+- verified: 10
 - stale: 0
 - modified: 0
 - unreviewed: 0
-- pending: 4174
+- pending: 4134
+- blocked: 6
+- translated: 27
 
 ## Đã bắt đầu
 
 - lc-0001 — verified — `vi/solution/0000-0099/0001.Two Sum/README.md`
+- lc-0002 — translated — `vi/solution/0000-0099/0002.Add Two Numbers/README.md`
+- lc-0003 — blocked — `vi/solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md`
+- lc-0004 — verified — `vi/solution/0000-0099/0004.Median of Two Sorted Arrays/README.md`
+- lc-0005 — translated — `vi/solution/0000-0099/0005.Longest Palindromic Substring/README.md`
+- lc-0006 — verified — `vi/solution/0000-0099/0006.Zigzag Conversion/README.md`
+- lc-0007 — blocked — `vi/solution/0000-0099/0007.Reverse Integer/README.md`
+- lc-0008 — blocked — `vi/solution/0000-0099/0008.String to Integer (atoi)/README.md`
+- lc-0009 — translated — `vi/solution/0000-0099/0009.Palindrome Number/README.md`
+- lc-0010 — blocked — `vi/solution/0000-0099/0010.Regular Expression Matching/README.md`
+- lc-0011 — verified — `vi/solution/0000-0099/0011.Container With Most Water/README.md`
+- lc-0012 — blocked — `vi/solution/0000-0099/0012.Integer to Roman/README.md`
+- lc-0013 — translated — `vi/solution/0000-0099/0013.Roman to Integer/README.md`
+- lc-0014 — verified — `vi/solution/0000-0099/0014.Longest Common Prefix/README.md`
+- lc-0015 — blocked — `vi/solution/0000-0099/0015.3Sum/README.md`
+- lc-0016 — translated — `vi/solution/0000-0099/0016.3Sum Closest/README.md`
+- lc-0017 — translated — `vi/solution/0000-0099/0017.Letter Combinations of a Phone Number/README.md`
+- lc-0018 — translated — `vi/solution/0000-0099/0018.4Sum/README.md`
+- lc-0019 — verified — `vi/solution/0000-0099/0019.Remove Nth Node From End of List/README.md`
+- lc-0020 — verified — `vi/solution/0000-0099/0020.Valid Parentheses/README.md`
+- lc-0021 — verified — `vi/solution/0000-0099/0021.Merge Two Sorted Lists/README.md`
+- lc-0022 — translated — `vi/solution/0000-0099/0022.Generate Parentheses/README.md`
+- lc-0023 — translated — `vi/solution/0000-0099/0023.Merge k Sorted Lists/README.md`
+- lc-0024 — translated — `vi/solution/0000-0099/0024.Swap Nodes in Pairs/README.md`
+- lc-0025 — translated — `vi/solution/0000-0099/0025.Reverse Nodes in k-Group/README.md`
+- lc-0026 — translated — `vi/solution/0000-0099/0026.Remove Duplicates from Sorted Array/README.md`
+- lc-0027 — translated — `vi/solution/0000-0099/0027.Remove Element/README.md`
+- lc-0028 — translated — `vi/solution/0000-0099/0028.Find the Index of the First Occurrence in a String/README.md`
+- lc-0029 — translated — `vi/solution/0000-0099/0029.Divide Two Integers/README.md`
+- lc-0030 — translated — `vi/solution/0000-0099/0030.Substring with Concatenation of All Words/README.md`
+- lc-0031 — translated — `vi/solution/0000-0099/0031.Next Permutation/README.md`
+- lc-0032 — translated — `vi/solution/0000-0099/0032.Longest Valid Parentheses/README.md`
+- lc-0033 — translated — `vi/solution/0000-0099/0033.Search in Rotated Sorted Array/README.md`
+- lc-0034 — translated — `vi/solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README.md`
+- lc-0035 — translated — `vi/solution/0000-0099/0035.Search Insert Position/README.md`
+- lc-0036 — translated — `vi/solution/0000-0099/0036.Valid Sudoku/README.md`
+- lc-0037 — translated — `vi/solution/0000-0099/0037.Sudoku Solver/README.md`
+- lc-0038 — translated — `vi/solution/0000-0099/0038.Count and Say/README.md`
+- lc-0039 — translated — `vi/solution/0000-0099/0039.Combination Sum/README.md`
+- lc-0040 — translated — `vi/solution/0000-0099/0040.Combination Sum II/README.md`
+- lc-0041 — translated — `vi/solution/0000-0099/0041.First Missing Positive/README.md`
 - lc-0074 — verified — `vi/solution/0000-0099/0074.Search a 2D Matrix/README.md`
 - lcci-01.01 — verified — `vi/lcci/01.01.Is Unique/README.md`

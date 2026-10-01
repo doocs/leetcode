@@ -1,0 +1,592 @@
+---
+comments: true
+difficulty: Medium
+tags:
+    - Two Pointers
+    - String
+    - Dynamic Programming
+    - Manacher
+---
+
+<!-- problem:start -->
+
+# [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring)
+
+[中文文档](/solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
+
+## Mô tả
+
+<!-- description:start -->
+
+<p>Cho một chuỗi <code>s</code>, hãy trả về <em>dài nhất</em> <span data-keyword="palindromic-string"><em>đối xứng</em></span> <span data-keyword="substring-nonempty"><em>chuỗi con</em></span> trong <code>s</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Ví dụ 1:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> s = &quot;babad&quot;
+<strong>Đầu ra:</strong> &quot;bab&quot;
+<strong>Giải thích:</strong> &quot;aba&quot; cũng là một đáp án hợp lệ.
+</pre>
+
+<p><strong class="example">Ví dụ 2:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> s = &quot;cbbd&quot;
+<strong>Đầu ra:</strong> &quot;bb&quot;
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Ràng buộc:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> chỉ gồm các chữ số và chữ cái tiếng Anh.</li>
+</ul>
+
+<!-- description:end -->
+
+## Lời giải
+
+<!-- solution:start -->
+
+### Lời giải 1: Quy hoạch động
+
+<!-- thinking:start -->
+
+> **Tư duy**
+>
+> Kiểm tra mọi $s[i..j]$ từ hai đầu có độ phức tạp $O(n^3)$. Với $n \le 10^3$, cách này khá nặng và thường bị quá thời gian.
+>
+> Điểm lãng phí là phải quét lại từng chuỗi con. Một chuỗi đối xứng có cấu trúc con tối ưu: $s[i..j]$ là chuỗi đối xứng khi và chỉ khi hai đầu giống nhau và phần bên trong $s[i+1..j-1]$ đã là chuỗi đối xứng. Các ký tự đơn lẻ mặc nhiên là chuỗi đối xứng.
+>
+> Vì vậy, chúng ta điền một bảng các khoảng theo thứ tự phụ thuộc thay vì quét lặp lại. $f[i][j]$ đọc ô bên trong ngắn hơn, nên ô đó phải được biết trước; trong quá trình điền, $k$ và $mx$ ghi nhớ vị trí bắt đầu và độ dài của chuỗi đối xứng tốt nhất hiện tại.
+
+<!-- thinking:end -->
+
+Chúng ta định nghĩa $f[i][j]$ biểu diễn việc chuỗi $s[i..j]$ có phải là chuỗi đối xứng hay không, ban đầu $f[i][j] = true$.
+
+Tiếp theo, chúng ta định nghĩa các biến $k$ và $mx$, trong đó $k$ biểu diễn vị trí bắt đầu của chuỗi đối xứng dài nhất, còn $mx$ biểu diễn độ dài của chuỗi đối xứng dài nhất. Ban đầu, $k = 0$, $mx = 1$.
+
+Xét $f[i][j]$, nếu $s[i] = s[j]$, thì $f[i][j] = f[i + 1][j - 1]$; ngược lại, $f[i][j] = false$. Nếu $f[i][j] = true$ và $mx < j - i + 1$, thì chúng ta cập nhật $k = i$, $mx = j - i + 1$.
+
+Vì $f[i][j]$ phụ thuộc vào $f[i + 1][j - 1]$, chúng ta cần bảo đảm rằng $i + 1$ được xét trước $j - 1$, nên cần liệt kê $i$ từ lớn đến nhỏ, và liệt kê $j$ từ nhỏ đến lớn.
+
+Độ phức tạp thời gian là $O(n^2)$, và độ phức tạp không gian là $O(n^2)$. Trong đó, $n$ là độ dài của chuỗi $s$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        f = [[True] * n for _ in range(n)]
+        k, mx = 0, 1
+        for i in range(n - 2, -1, -1):
+            for j in range(i + 1, n):
+                f[i][j] = False
+                if s[i] == s[j]:
+                    f[i][j] = f[i + 1][j - 1]
+                    if f[i][j] and mx < j - i + 1:
+                        k, mx = i, j - i + 1
+        return s[k : k + mx]
+```
+
+#### Java
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        int n = s.length();
+        boolean[][] f = new boolean[n][n];
+        for (var g : f) {
+            Arrays.fill(g, true);
+        }
+        int k = 0, mx = 1;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = false;
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1];
+                    if (f[i][j] && mx < j - i + 1) {
+                        mx = j - i + 1;
+                        k = i;
+                    }
+                }
+            }
+        }
+        return s.substring(k, k + mx);
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        vector<vector<bool>> f(n, vector<bool>(n, true));
+        int k = 0, mx = 1;
+        for (int i = n - 2; ~i; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i][j] = false;
+                if (s[i] == s[j]) {
+                    f[i][j] = f[i + 1][j - 1];
+                    if (f[i][j] && mx < j - i + 1) {
+                        mx = j - i + 1;
+                        k = i;
+                    }
+                }
+            }
+        }
+        return s.substr(k, mx);
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPalindrome(s string) string {
+	n := len(s)
+	f := make([][]bool, n)
+	for i := range f {
+		f[i] = make([]bool, n)
+		for j := range f[i] {
+			f[i][j] = true
+		}
+	}
+	k, mx := 0, 1
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			f[i][j] = false
+			if s[i] == s[j] {
+				f[i][j] = f[i+1][j-1]
+				if f[i][j] && mx < j-i+1 {
+					mx = j - i + 1
+					k = i
+				}
+			}
+		}
+	}
+	return s[k : k+mx]
+}
+```
+
+#### TypeScript
+
+```ts
+function longestPalindrome(s: string): string {
+    const n = s.length;
+    const f: boolean[][] = Array(n)
+        .fill(0)
+        .map(() => Array(n).fill(true));
+    let k = 0;
+    let mx = 1;
+    for (let i = n - 2; i >= 0; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            f[i][j] = false;
+            if (s[i] === s[j]) {
+                f[i][j] = f[i + 1][j - 1];
+                if (f[i][j] && mx < j - i + 1) {
+                    mx = j - i + 1;
+                    k = i;
+                }
+            }
+        }
+    }
+    return s.slice(k, k + mx);
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn longest_palindrome(s: String) -> String {
+        let (n, mut ans) = (s.len(), &s[..1]);
+        let mut dp = vec![vec![false; n]; n];
+        let data: Vec<char> = s.chars().collect();
+
+        for end in 1..n {
+            for start in 0..=end {
+                if data[start] == data[end] {
+                    dp[start][end] = end - start < 2 || dp[start + 1][end - 1];
+                    if dp[start][end] && end - start + 1 > ans.len() {
+                        ans = &s[start..=end];
+                    }
+                }
+            }
+        }
+        ans.to_string()
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+    const n = s.length;
+    const f = Array(n)
+        .fill(0)
+        .map(() => Array(n).fill(true));
+    let k = 0;
+    let mx = 1;
+    for (let i = n - 2; i >= 0; --i) {
+        for (let j = i + 1; j < n; ++j) {
+            f[i][j] = false;
+            if (s[i] === s[j]) {
+                f[i][j] = f[i + 1][j - 1];
+                if (f[i][j] && mx < j - i + 1) {
+                    mx = j - i + 1;
+                    k = i;
+                }
+            }
+        }
+    }
+    return s.slice(k, k + mx);
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public string LongestPalindrome(string s) {
+        int n = s.Length;
+        bool[,] f = new bool[n, n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; ++j) {
+                f[i, j] = true;
+            }
+        }
+        int k = 0, mx = 1;
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                f[i, j] = false;
+                if (s[i] == s[j]) {
+                    f[i, j] = f[i + 1, j - 1];
+                    if (f[i, j] && mx < j - i + 1) {
+                        mx = j - i + 1;
+                        k = i;
+                    }
+                }
+            }
+        }
+        return s.Substring(k, mx);
+    }
+}
+```
+
+#### C
+
+```c
+char* longestPalindrome(char* s) {
+    int n = strlen(s);
+    bool** f = (bool**) malloc(n * sizeof(bool*));
+    for (int i = 0; i < n; ++i) {
+        f[i] = (bool*) malloc(n * sizeof(bool));
+        for (int j = 0; j < n; ++j) {
+            f[i][j] = true;
+        }
+    }
+    int k = 0, mx = 1;
+    for (int i = n - 2; ~i; --i) {
+        for (int j = i + 1; j < n; ++j) {
+            f[i][j] = false;
+            if (s[i] == s[j]) {
+                f[i][j] = f[i + 1][j - 1];
+                if (f[i][j] && mx < j - i + 1) {
+                    mx = j - i + 1;
+                    k = i;
+                }
+            }
+        }
+    }
+    char* res = (char*) malloc((mx + 1) * sizeof(char));
+    strncpy(res, s + k, mx);
+    res[mx] = '\0';
+    for (int i = 0; i < n; ++i) {
+        free(f[i]);
+    }
+    free(f);
+    return res;
+}
+```
+
+#### Nim
+
+```nim
+import std/sequtils
+
+proc longestPalindrome(s: string): string =
+  let n: int = s.len()
+  var
+    dp = newSeqWith[bool](n, newSeqWith[bool](n, false))
+    start: int = 0
+    mx: int = 1
+
+  for j in 0 ..< n:
+    for i in 0 .. j:
+      if j - i < 2:
+        dp[i][j] = s[i] == s[j]
+      else:
+        dp[i][j] = dp[i + 1][j - 1] and s[i] == s[j]
+
+      if dp[i][j] and mx < j - i + 1:
+        start = i
+        mx = j - i + 1
+
+  result = s[start ..< start+mx]
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Lời giải 2: Liệt kê trung điểm chuỗi đối xứng
+
+<!-- thinking:start -->
+
+> **Tư duy**
+>
+> Lời giải 1 đã có thời gian $O(n^2)$, nhưng vẫn sử dụng không gian $O(n^2)$. Mỗi lần kiểm tra chỉ cần lớp bên trong, không cần toàn bộ bảng.
+>
+> Một chuỗi đối xứng mở rộng đối xứng từ một tâm: mở rộng khi hai đầu còn giống nhau. Chúng ta phải thử cả các tâm lẻ $(i,i)$ và tâm chẵn $(i,i+1)$, nếu không sẽ bỏ sót các chuỗi như `"bb"`.
+>
+> Sau khi mở rộng, khôi phục vị trí bắt đầu từ tâm $i$ và độ dài $t$. Không gian phụ giảm xuống còn $O(1)$.
+
+<!-- thinking:end -->
+
+Chúng ta có thể liệt kê trung điểm của chuỗi đối xứng, mở rộng sang cả hai phía, rồi tìm chuỗi đối xứng dài nhất.
+
+Độ phức tạp thời gian là $O(n^2)$, và độ phức tạp không gian là $O(1)$. Trong đó, $n$ là độ dài của chuỗi $s$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def f(l, r):
+            while l >= 0 and r < n and s[l] == s[r]:
+                l, r = l - 1, r + 1
+            return r - l - 1
+
+        n = len(s)
+        start, mx = 0, 1
+        for i in range(n):
+            a = f(i, i)
+            b = f(i, i + 1)
+            t = max(a, b)
+            if mx < t:
+                mx = t
+                start = i - ((t - 1) >> 1)
+        return s[start : start + mx]
+```
+
+#### Java
+
+```java
+class Solution {
+    private String s;
+    private int n;
+
+    public String longestPalindrome(String s) {
+        this.s = s;
+        n = s.length();
+        int start = 0, mx = 1;
+        for (int i = 0; i < n; ++i) {
+            int a = f(i, i);
+            int b = f(i, i + 1);
+            int t = Math.max(a, b);
+            if (mx < t) {
+                mx = t;
+                start = i - ((t - 1) >> 1);
+            }
+        }
+        return s.substring(start, start + mx);
+    }
+
+    private int f(int l, int r) {
+        while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+            --l;
+            ++r;
+        }
+        return r - l - 1;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        int n = s.size();
+        int start = 0, mx = 1;
+        auto f = [&](int l, int r) {
+            while (l >= 0 && r < n && s[l] == s[r]) {
+                l--, r++;
+            }
+            return r - l - 1;
+        };
+        for (int i = 0; i < n; ++i) {
+            int a = f(i, i);
+            int b = f(i, i + 1);
+            int t = max(a, b);
+            if (mx < t) {
+                mx = t;
+                start = i - (t - 1 >> 1);
+            }
+        }
+        return s.substr(start, mx);
+    }
+};
+```
+
+#### Go
+
+```go
+func longestPalindrome(s string) string {
+	n := len(s)
+	start, mx := 0, 1
+	f := func(l, r int) int {
+		for l >= 0 && r < n && s[l] == s[r] {
+			l, r = l-1, r+1
+		}
+		return r - l - 1
+	}
+	for i := range s {
+		a, b := f(i, i), f(i, i+1)
+		t := max(a, b)
+		if mx < t {
+			mx = t
+			start = i - ((t - 1) >> 1)
+		}
+	}
+	return s[start : start+mx]
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn is_palindrome(s: &str) -> bool {
+        let mut chars = s.chars();
+        while let (Some(c1), Some(c2)) = (chars.next(), chars.next_back()) {
+            if c1 != c2 {
+                return false;
+            }
+        }
+        true
+    }
+
+    pub fn longest_palindrome(s: String) -> String {
+        let size = s.len();
+        let mut ans = &s[..1];
+        for i in 0..size - 1 {
+            for j in (i + 1..size).rev() {
+                if ans.len() > j - i + 1 {
+                    break;
+                }
+                if Solution::is_palindrome(&s[i..=j]) {
+                    ans = &s[i..=j];
+                }
+            }
+        }
+        return ans.to_string();
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    private string s;
+    private int n;
+
+    public String LongestPalindrome(string s) {
+        this.s = s;
+        n = s.Length;
+        int start = 0, mx = 1;
+        for (int i = 0; i < n; ++i) {
+            int a = F(i, i);
+            int b = F(i, i + 1);
+            int t = Math.Max(a, b);
+            if (mx < t) {
+                mx = t;
+                start = i - ((t - 1) >> 1);
+            }
+        }
+        return s.Substring(start, start + mx);
+    }
+
+    private int F(int l, int r) {
+        while (l >= 0 && r < n && s[l] == s[r]) {
+            --l;
+            ++r;
+        }
+        return r - l - 1;
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param string $s
+     * @return string
+     */
+    function longestPalindrome($s) {
+        $start = 0;
+        $maxLength = 0;
+
+        for ($i = 0; $i < strlen($s); $i++) {
+            $len1 = $this->expandFromCenter($s, $i, $i);
+            $len2 = $this->expandFromCenter($s, $i, $i + 1);
+
+            $len = max($len1, $len2);
+
+            if ($len > $maxLength) {
+                $start = $i - intval(($len - 1) / 2);
+                $maxLength = $len;
+            }
+        }
+
+        return substr($s, $start, $maxLength);
+    }
+
+    function expandFromCenter($s, $left, $right) {
+        while ($left >= 0 && $right < strlen($s) && $s[$left] === $s[$right]) {
+            $left--;
+            $right++;
+        }
+
+        return $right - $left - 1;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

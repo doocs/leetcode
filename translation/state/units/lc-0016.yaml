@@ -1,0 +1,122 @@
+schema_version: 1
+unit_id: lc-0016
+attempt_id: lc-0016-a2
+owner: OpenCode (session 2026-10-01)
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: solution/0000-0099/0016.3Sum Closest/README_EN.md
+  kind: git-blob
+  git_blob: 58a24f1b7035616d14e86bee4dbd99583ad8f656
+  sha256: 14ed478986f917be0566248b6815f30b67bf32eaf22f138c95f8842ad6d93c27
+target:
+  path: vi/solution/0000-0099/0016.3Sum Closest/README.md
+  kind: git-blob
+  git_blob: 056b5e3d0e88d28b4d6cb38ddd6cc0c70bde5b5a
+  sha256: c912613294c90c2a879da01ea2d977e085dc0f4b44e8722863d805de0ba55e09
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+coverage:
+  read_scope:
+    - whole source file, lines 1-363
+    - canonical translation read set from translation/INSTRUCTIONS.md
+  translated_scope:
+    - all prose blocks listed in block_map
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+  mode: full
+  block_map:
+    - "lines 1-8 front matter -> preserved byte-for-byte (PROJECT-002)"
+    - "lines 10-14 markers, H1 official title, version-switch line -> preserved"
+    - "lines 16-24 description paragraphs -> translated; inline code preserved"
+    - "lines 26-41 examples 1-2 labels and explanations -> translated; example data and expressions preserved"
+    - "lines 43-50 constraints label -> translated; constraint literals preserved"
+    - "lines 52-60 solution markers and heading -> translated structurally; markers preserved"
+    - "lines 60-70 Thinking block -> translated; markers and math preserved"
+    - "lines 72-74 algorithm write-up and complexity -> translated; formulas preserved"
+    - "lines 76-359 tabs and 11 code blocks -> preserved verbatim; language tab headings preserved"
+    - "lines 361-363 closing markers -> preserved"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_sha256: c912613294c90c2a879da01ea2d977e085dc0f4b44e8722863d805de0ba55e09
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Read every source block against its target block in both directions using the QA-03 checklist.
+    scope: whole file
+    evidence: "All prose blocks map 1:1; distinct-index condition, closest-sum return value, unique-solution assumption, example meanings, constraints, sorting and two-pointer movement conditions, exact-hit early return, duplicate handling, and O(n^2)/O(log n) complexity were checked."
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository protected paths
+    evidence: empty output
+  - id: protected_spans
+    status: pass
+    method: python3 translation/tools/check_vi.py vi/solution/0000-0099/0016.3Sum Closest/README.md
+    scope: whole file
+    evidence: "PASS 1/1; front matter, code fences, inline code, math, markers, HTML tags, URLs, and <pre> example data validated."
+  - id: structure
+    status: pass
+    method: python3 translation/tools/check_vi.py vi/solution/0000-0099/0016.3Sum Closest/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0016.3Sum Closest/README.md
+    scope: whole file
+    evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s)."
+  - id: links_and_assets
+    status: not_run
+    method: python3 vi/site/prepare.py --only 16 && mkdocs build -f mkdocs-site-vi.yml
+    scope: prepared/rendered problem page
+    evidence: "Not run in worker; coordinator render next per task instruction."
+    reason: worker must not run site prepare/mkdocs
+  - id: residual_language
+    status: pass
+    method: check_vi.py residual_english warnings plus manual classification
+    scope: whole file
+    evidence: "No residual_english warnings; remaining English is the official H1 title, code-tab labels, identifiers/inline technical terms/math, version-switch line, and preserved front matter/code content."
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers:
+  - id: B1
+    type: required_check
+    description: "links_and_assets render check is deferred to the coordinator; worker scope excludes site prepare/mkdocs."
+    action: "Coordinator runs render check and updates this report/state."
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: links_and_assets render check
+  next_action: coordinator render next
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

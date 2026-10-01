@@ -1,0 +1,127 @@
+schema_version: 1
+unit_id: lc-0012
+attempt_id: lc-0012-a1
+owner: OpenCode (session 2026-10-01)
+state: blocked
+resume_state: reviewing
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: solution/0000-0099/0012.Integer to Roman/README_EN.md
+  kind: git-blob
+  git_blob: b2e525eec150daa82a5abb2e44eae1ceda0b8807
+  sha256: 949cd1808b58d37e9a0cee6cf87d27e38d855e3af12b309fdc016a9512c386ff
+target:
+  path: vi/solution/0000-0099/0012.Integer to Roman/README.md
+  kind: git-blob
+  git_blob: 6ae12b64b83fec05edee690183d3e087c0a86ce1
+  sha256: 362c7ba9783a93f1025699d9c21c46fa3b6c561433731921b732093198b6e747
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+    unit-report.yaml: e232b8c99c83341db41635aa4f1ecbf19c9ee963f412143924ac70c07f38d47e
+coverage:
+  read_scope:
+    - whole source file, including front matter, HTML, prose, examples, Thinking and all code tabs
+  translated_scope:
+    - all prose blocks listed in block_map
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+  mode: full
+  block_map:
+    - front matter -> preserved (PROJECT-002)
+    - H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)
+    - Description heading, introductory paragraph and table prose -> translated; symbols and values preserved
+    - three description list items -> translated; inline code preserved
+    - request paragraph -> translated
+    - Examples 1-3 labels, Input/Output/Explanation labels -> translated; example data preserved
+    - Example 1 explanation prose in <pre> -> translated; numeric and Roman numeral data preserved
+    - Constraints label -> translated; constraint <code> preserved
+    - Solutions and Solution 1 headings -> translated (PROJECT-003)
+    - Thinking block (3 paragraphs) -> translated; math preserved
+    - solution write-up (2 paragraphs) -> translated; complexity expressions preserved
+    - 9 code tabs -> preserved verbatim
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_git_blob: 6ae12b64b83fec05edee690183d3e087c0a86ce1
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Read every source block against its target block in both directions (QA-03 checklist).
+    scope: whole file
+    evidence: All prose blocks map 1:1; Roman numeral rules, subtractive forms, consecutive-symbol limit, examples, greedy order and both complexity statements checked.
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository
+    evidence: empty output
+  - id: protected_spans
+    status: pass
+    method: python3 translation/tools/check_vi.py vi/solution/0000-0099/0012.Integer to Roman/README.md
+    scope: whole file
+    evidence: PASS 1/1 (front matter, code fences, inline code, math, markers, HTML tags, URLs, blocks and <pre> example data)
+  - id: structure
+    status: pass
+    method: python3 translation/tools/check_vi.py vi/solution/0000-0099/0012.Integer to Roman/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0012.Integer to Roman/README.md; git diff --check
+    scope: whole file
+    evidence: check_vi PASS 1/1; check_thinking OK 1 file(s); git diff --check produced no output
+  - id: links_and_assets
+    status: fail
+    method: python3 vi/site/prepare.py --only 12 --no-minify; mkdocs build -f mkdocs-site-vi.yml; python3 -m mkdocs --version
+    scope: whole file + rendered page
+    evidence: prepare exited 0 but warned the unit had no report at preparation time; mkdocs exited 127 (command not found) and python3 -m mkdocs exited 1 (No module named mkdocs)
+  - id: residual_language
+    status: pass
+    method: check_vi.py residual_english warnings + manual classification
+    scope: whole file
+    evidence: 0 warnings; remaining English is the official H1 title, code-tab labels, identifiers/inline code/math and the 中文文档 switch line under the configured exceptions
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers:
+  - id: B1
+    rule_id: QA-05
+    severity: high
+    source_locator: links_and_assets render check
+    target_locator: vi/solution/0000-0099/0012.Integer to Roman/README.md
+    evidence: MkDocs is unavailable both as a command and as a Python module.
+    status: open
+    fix: Provide the site build dependencies and rerun the render/link check.
+checkpoint:
+  last_complete_source_block: <!-- problem:end -->
+  next_source_locator: links_and_assets render check
+  next_action: Install/provide MkDocs dependencies, rerun the site build, then recompute target hash if the target changes.
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

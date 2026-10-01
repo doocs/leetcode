@@ -1,0 +1,127 @@
+schema_version: 1
+unit_id: lc-0034
+attempt_id: lc-0034-a1
+owner: OpenCode (session 2026-10-01)
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README_EN.md
+  kind: git-blob
+  git_blob: a34151b6b7bd099b8461181da7ead268b4b28823
+  sha256: 97c09dce48a3eaf9bc1c79beb4af4e2e711fa10e29d7331777fc374c374604b6
+target:
+  path: vi/solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README.md
+  kind: git-blob
+  git_blob: 067fe20efe82dc2e113e84c1c230d2feb5d83816
+  sha256: 244c048b22f904ee3b1d03c9d2b8f9dd9f6a60f21be99d8613761b354653c100
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+    unit-report.yaml: e232b8c99c83341db41635aa4f1ecbf19c9ee963f412143924ac70c07f38d47e
+coverage:
+  read_scope:
+    - whole source file (301 lines)
+    - canonical translation read set listed in policy_snapshot
+  translated_scope:
+    - front matter, H1, version-switch line and HTML/pipeline markers preserved
+    - Description prose, example labels and constraints translated
+    - Solutions and method heading translated
+    - Thinking block translated in all 3 paragraphs
+    - solution prose and complexity statements translated
+    - all 10 code tabs preserved verbatim
+  reviewed_scope:
+    - whole source and target, source -> target and target -> source
+    - protected spans, HTML tags, markers, URLs, math, example data and code fences
+  mode: full
+  block_map:
+    - front matter -> preserved byte-for-byte (PROJECT-002)
+    - H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)
+    - '## Description -> ## Mô tả'
+    - description paragraphs x3 -> translated; HTML structure and inline code preserved
+    - Examples 1-3 and Input/Output labels -> translated; example data preserved
+    - Constraints heading and array constraints -> translated; code spans and values preserved
+    - '## Solutions; ### Solution 1 -> ## Lời giải; ### Lời giải 1'
+    - Thinking block x1, 3 paragraphs -> translated; math preserved
+    - solution write-up and complexity statements -> translated; math preserved
+    - 10 code tabs -> preserved byte-for-byte
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_sha256: 244c048b22f904ee3b1d03c9d2b8f9dd9f6a60f21be99d8613761b354653c100
+  reviewed_target_git_blob: 067fe20efe82dc2e113e84c1c230d2feb5d83816
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Read every source block against its target block in both directions using the QA-03 checklist.
+    scope: whole file
+    evidence: All description paragraphs, examples, constraints, Thinking paragraphs, solution prose and complexity statements have counterparts; non-decreasing order, absent-target behavior, two lower-bound searches, boundary formulas and both complexity claims were checked.
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository protected paths
+    evidence: empty output; source blob remains a34151b6b7bd099b8461181da7ead268b4b28823.
+  - id: protected_spans
+    status: pass
+    method: python3 translation/tools/check_vi.py "vi/solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README.md"
+    scope: whole file
+    evidence: PASS 1/1; front matter, code fences, inline code, math, markers, URLs, HTML tags and <pre> example data match the source.
+  - id: structure
+    status: pass
+    method: python3 translation/tools/check_vi.py "vi/solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README.md"; python3 scripts/check_thinking.py "vi/solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README.md"; git diff --no-index --check /dev/null "vi/solution/0000-0099/0034.Find First and Last Position of Element in Sorted Array/README.md"
+    scope: whole file
+    evidence: check_vi PASS 1/1; check_thinking OK 1 file(s); git diff --no-index --check produced no whitespace errors.
+  - id: links_and_assets
+    status: not_run
+    method: "check_vi.py URL multiset plus coordinator-authorized render: python3 vi/site/prepare.py --only lc-0034 and mkdocs build -f mkdocs-site-vi.yml"
+    scope: whole file + rendered page
+    evidence: check_vi validated URL preservation; render/build was not run per task instruction.
+    reason: Required render/build evidence is missing; coordinator must run it before promoting this unit to verified.
+  - id: residual_language
+    status: pass
+    method: check_vi.py residual_english warnings plus manual classification.
+    scope: whole file
+    evidence: One residual_english warning contains only words from the preserved official H1 title (and, in, of); remaining English is the official H1, code-tab labels, identifiers/math/code literals and the preserved 中文文档 switch line.
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers:
+  - Required site render/build check is not run; coordinator must run the authorized render/build workflow before promoting this unit to verified.
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: null
+  next_action: Coordinator runs the authorized render/build check, then recomputes target hashes and promotes only if all required checks pass.
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'
