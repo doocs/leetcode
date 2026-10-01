@@ -1,9 +1,9 @@
 # Version
 
-- Base: **1.0.0**.
-- Ngày: **01/10/2026**.
-- Config/template schema: **1**.
-- Ngôn ngữ mặc định: **vi-VN**, English-first theo meaning.
-- Nguồn tổng hợp: xem `translation/audit/source-inventory.json`.
+- Translation rules: **2.0.0**
+- Ngày: **01/10/2026**
+- Mục tiêu: **nhanh, chuẩn, đúng, hay**
+- Default workflow: lightweight docs translation
+- Unit report/hash/state lifecycle: không còn bắt buộc
 
-Version này mô tả instruction pack, không phải version Java/PostgreSQL hoặc source edition. Snapshot project và glossary có version/hash riêng trong context/report.
+Version 2.0 loại bỏ translation governance nặng của bản 1.x và chuyển sang rule thực dụng cho technical docs.
