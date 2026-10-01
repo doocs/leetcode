@@ -538,61 +538,85 @@ public:
 #### Go
 
 ```go
-type Pair struct {
-	val   int
-	index int
+type node struct {
+	l, r, v int
 }
 
-var (
-	tmp   []Pair
-	count []int
-)
-
-func countSmaller(nums []int) []int {
-	tmp, count = make([]Pair, len(nums)), make([]int, len(nums))
-	array := make([]Pair, len(nums))
-	for i, v := range nums {
-		array[i] = Pair{val: v, index: i}
-	}
-	sorted(array, 0, len(array)-1)
-	return count
+type segmentTree struct {
+	tr []node
 }
 
-func sorted(arr []Pair, low, high int) {
-	if low >= high {
+func newSegmentTree(n int) *segmentTree {
+	t := &segmentTree{tr: make([]node, n<<2)}
+	t.build(1, 1, n)
+	return t
+}
+
+func (t *segmentTree) build(u, l, r int) {
+	t.tr[u].l, t.tr[u].r = l, r
+	if l == r {
 		return
 	}
-	mid := low + (high-low)/2
-	sorted(arr, low, mid)
-	sorted(arr, mid+1, high)
-	merge(arr, low, mid, high)
+	mid := (l + r) >> 1
+	t.build(u<<1, l, mid)
+	t.build(u<<1|1, mid+1, r)
 }
 
-func merge(arr []Pair, low, mid, high int) {
-	left, right := low, mid+1
-	idx := low
-	for left <= mid && right <= high {
-		if arr[left].val <= arr[right].val {
-			count[arr[left].index] += right - mid - 1
-			tmp[idx], left = arr[left], left+1
-		} else {
-			tmp[idx], right = arr[right], right+1
-		}
-		idx++
+func (t *segmentTree) modify(u, x, v int) {
+	if t.tr[u].l == x && t.tr[u].r == x {
+		t.tr[u].v += v
+		return
 	}
-	for left <= mid {
-		count[arr[left].index] += right - mid - 1
-		tmp[idx] = arr[left]
-		idx, left = idx+1, left+1
+	mid := (t.tr[u].l + t.tr[u].r) >> 1
+	if x <= mid {
+		t.modify(u<<1, x, v)
+	} else {
+		t.modify(u<<1|1, x, v)
 	}
-	for right <= high {
-		tmp[idx] = arr[right]
-		idx, right = idx+1, right+1
+	t.pushup(u)
+}
+
+func (t *segmentTree) pushup(u int) {
+	t.tr[u].v = t.tr[u<<1].v + t.tr[u<<1|1].v
+}
+
+func (t *segmentTree) query(u, l, r int) int {
+	if t.tr[u].l >= l && t.tr[u].r <= r {
+		return t.tr[u].v
 	}
-	// 排序
-	for i := low; i <= high; i++ {
-		arr[i] = tmp[i]
+	mid := (t.tr[u].l + t.tr[u].r) >> 1
+	v := 0
+	if l <= mid {
+		v += t.query(u<<1, l, r)
 	}
+	if r > mid {
+		v += t.query(u<<1|1, l, r)
+	}
+	return v
+}
+
+func countSmaller(nums []int) []int {
+	s := map[int]struct{}{}
+	for _, v := range nums {
+		s[v] = struct{}{}
+	}
+	alls := make([]int, 0, len(s))
+	for v := range s {
+		alls = append(alls, v)
+	}
+	sort.Ints(alls)
+	m := map[int]int{}
+	for i, v := range alls {
+		m[v] = i + 1
+	}
+	tree := newSegmentTree(len(alls))
+	ans := make([]int, len(nums))
+	for i := len(nums) - 1; i >= 0; i-- {
+		x := m[nums[i]]
+		tree.modify(1, x, 1)
+		ans[i] = tree.query(1, 1, x-1)
+	}
+	return ans
 }
 ```
 
@@ -757,6 +781,67 @@ public:
         return rightSmallerCounts;
     }
 };
+```
+
+#### Go
+
+```go
+type Pair struct {
+	val   int
+	index int
+}
+
+var (
+	tmp   []Pair
+	count []int
+)
+
+func countSmaller(nums []int) []int {
+	tmp, count = make([]Pair, len(nums)), make([]int, len(nums))
+	array := make([]Pair, len(nums))
+	for i, v := range nums {
+		array[i] = Pair{val: v, index: i}
+	}
+	sorted(array, 0, len(array)-1)
+	return count
+}
+
+func sorted(arr []Pair, low, high int) {
+	if low >= high {
+		return
+	}
+	mid := low + (high-low)/2
+	sorted(arr, low, mid)
+	sorted(arr, mid+1, high)
+	merge(arr, low, mid, high)
+}
+
+func merge(arr []Pair, low, mid, high int) {
+	left, right := low, mid+1
+	idx := low
+	for left <= mid && right <= high {
+		if arr[left].val <= arr[right].val {
+			count[arr[left].index] += right - mid - 1
+			tmp[idx], left = arr[left], left+1
+		} else {
+			tmp[idx], right = arr[right], right+1
+		}
+		idx++
+	}
+	for left <= mid {
+		count[arr[left].index] += right - mid - 1
+		tmp[idx] = arr[left]
+		idx, left = idx+1, left+1
+	}
+	for right <= high {
+		tmp[idx] = arr[right]
+		idx, right = idx+1, right+1
+	}
+	// 排序
+	for i := low; i <= high; i++ {
+		arr[i] = tmp[i]
+	}
+}
 ```
 
 <!-- tabs:end -->

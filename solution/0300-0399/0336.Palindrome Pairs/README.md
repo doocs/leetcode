@@ -73,7 +73,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：字符串哈希
+### 方法一：哈希表
 
 <!-- thinking:start -->
 
@@ -85,13 +85,12 @@ tags:
 
 <!-- thinking:end -->
 
-**字符串哈希**是把一个任意长度的字符串映射成一个非负整数，并且其冲突的概率几乎为 $0$。字符串哈希用于计算字符串哈希值，快速判断两个字符串是否相等。
+用哈希表记下每个单词的下标。枚举单词 $w$ 的切分位置 $j$，记前缀 $a=w[:j]$、后缀 $b=w[j:]$。
 
-取一固定值 $BASE$，把字符串看作是 $BASE$ 进制数，并分配一个大于 $0$ 的数值，代表每种字符。一般来说，我们分配的数值都远小于 $BASE$。例如，对于小写字母构成的字符串，可以令 $a=1$, $b=2$, ..., $z=26$。取一固定值 $MOD$，求出该 $BASE$ 进制对 $M$ 的余数，作为该字符串的 $hash$ 值。
+- 若后缀 $b$ 是回文，且前缀 $a$ 的逆序串在哈希表中，则该逆序串接在 $w$ 左侧后构成回文。
+- 若 $j>0$ 且前缀 $a$ 是回文，且后缀 $b$ 的逆序串在哈希表中，则该逆序串接在 $w$ 右侧后构成回文。$j=0$ 时前缀为空，不再从这一侧配对，避免空串被重复统计。
 
-一般来说，取 $BASE=131$ 或者 $BASE=13331$，此时 $hash$ 值产生的冲突概率极低。只要两个字符串 $hash$ 值相同，我们就认为两个字符串是相等的。通常 $MOD$ 取 $2^{64}$，C++ 里，可以直接使用 `unsigned long long` 类型存储这个 $hash$ 值，在计算时不处理算术溢出问题，产生溢出时相当于自动对 $2^{64}$ 取模，这样可以避免低效取模运算。
-
-除了在极特殊构造的数据上，上述 $hash$ 算法很难产生冲突，一般情况下上述 $hash$ 算法完全可以出现在题目的标准答案中。我们还可以多取一些恰当的 $BASE$ 和 $MOD$ 的值（例如大质数），多进行几组 $hash$ 运算，当结果都相同时才认为原字符串相等，就更加难以构造出使这个 $hash$ 产生错误的数据。
+时间复杂度 $O(\sum |w_i|^2)$，空间复杂度 $O(\sum |w_i|)$。
 
 <!-- tabs:start -->
 
@@ -117,47 +116,29 @@ class Solution:
 
 ```java
 class Solution {
-    private static final int BASE = 131;
-    private static final long[] MUL = new long[310];
-    private static final int MOD = (int) 1e9 + 7;
-    static {
-        MUL[0] = 1;
-        for (int i = 1; i < MUL.length; ++i) {
-            MUL[i] = (MUL[i - 1] * BASE) % MOD;
-        }
-    }
     public List<List<Integer>> palindromePairs(String[] words) {
-        int n = words.length;
-        long[] prefix = new long[n];
-        long[] suffix = new long[n];
-        for (int i = 0; i < n; ++i) {
-            String word = words[i];
-            int m = word.length();
-            for (int j = 0; j < m; ++j) {
-                int t = word.charAt(j) - 'a' + 1;
-                int s = word.charAt(m - j - 1) - 'a' + 1;
-                prefix[i] = (prefix[i] * BASE) % MOD + t;
-                suffix[i] = (suffix[i] * BASE) % MOD + s;
-            }
+        Map<String, Integer> d = new HashMap<>();
+        for (int i = 0; i < words.length; ++i) {
+            d.put(words[i], i);
         }
         List<List<Integer>> ans = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (check(i, j, words[j].length(), words[i].length(), prefix, suffix)) {
-                    ans.add(Arrays.asList(i, j));
+        for (int i = 0; i < words.length; ++i) {
+            String w = words[i];
+            int m = w.length();
+            for (int j = 0; j <= m; ++j) {
+                String a = w.substring(0, j);
+                String b = w.substring(j);
+                String ra = new StringBuilder(a).reverse().toString();
+                String rb = new StringBuilder(b).reverse().toString();
+                if (d.containsKey(ra) && d.get(ra) != i && b.equals(rb)) {
+                    ans.add(Arrays.asList(i, d.get(ra)));
                 }
-                if (check(j, i, words[i].length(), words[j].length(), prefix, suffix)) {
-                    ans.add(Arrays.asList(j, i));
+                if (j > 0 && d.containsKey(rb) && d.get(rb) != i && a.equals(ra)) {
+                    ans.add(Arrays.asList(d.get(rb), i));
                 }
             }
         }
         return ans;
-    }
-
-    private boolean check(int i, int j, int n, int m, long[] prefix, long[] suffix) {
-        long t = ((prefix[i] * MUL[n]) % MOD + prefix[j]) % MOD;
-        long s = ((suffix[j] * MUL[m]) % MOD + suffix[i]) % MOD;
-        return t == s;
     }
 }
 ```
@@ -166,42 +147,34 @@ class Solution {
 
 ```go
 func palindromePairs(words []string) [][]int {
-	base := 131
-	mod := int(1e9) + 7
-	mul := make([]int, 310)
-	mul[0] = 1
-	for i := 1; i < len(mul); i++ {
-		mul[i] = (mul[i-1] * base) % mod
-	}
-	n := len(words)
-	prefix := make([]int, n)
-	suffix := make([]int, n)
-	for i, word := range words {
-		m := len(word)
-		for j, c := range word {
-			t := int(c-'a') + 1
-			s := int(word[m-j-1]-'a') + 1
-			prefix[i] = (prefix[i]*base)%mod + t
-			suffix[i] = (suffix[i]*base)%mod + s
-		}
-	}
-	check := func(i, j, n, m int) bool {
-		t := ((prefix[i]*mul[n])%mod + prefix[j]) % mod
-		s := ((suffix[j]*mul[m])%mod + suffix[i]) % mod
-		return t == s
+	d := map[string]int{}
+	for i, w := range words {
+		d[w] = i
 	}
 	var ans [][]int
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			if check(i, j, len(words[j]), len(words[i])) {
-				ans = append(ans, []int{i, j})
+	for i, w := range words {
+		for j := 0; j <= len(w); j++ {
+			a, b := w[:j], w[j:]
+			ra, rb := reverse(a), reverse(b)
+			if k, ok := d[ra]; ok && k != i && b == rb {
+				ans = append(ans, []int{i, k})
 			}
-			if check(j, i, len(words[i]), len(words[j])) {
-				ans = append(ans, []int{j, i})
+			if j > 0 {
+				if k, ok := d[rb]; ok && k != i && a == ra {
+					ans = append(ans, []int{k, i})
+				}
 			}
 		}
 	}
 	return ans
+}
+
+func reverse(s string) string {
+	b := []byte(s)
+	for i, j := 0, len(b)-1; i < j; i, j = i+1, j-1 {
+		b[i], b[j] = b[j], b[i]
+	}
+	return string(b)
 }
 ```
 

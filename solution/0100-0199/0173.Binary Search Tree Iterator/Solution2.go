@@ -7,32 +7,30 @@
  * }
  */
 type BSTIterator struct {
-	cur  int
-	vals []int
+	stack []*TreeNode
 }
 
 func Constructor(root *TreeNode) BSTIterator {
-	it := BSTIterator{vals: []int{}}
-	var inorder func(*TreeNode)
-	inorder = func(root *TreeNode) {
-		if root != nil {
-			inorder(root.Left)
-			it.vals = append(it.vals, root.Val)
-			inorder(root.Right)
-		}
+	var stack []*TreeNode
+	for ; root != nil; root = root.Left {
+		stack = append(stack, root)
 	}
-	inorder(root)
-	return it
+	return BSTIterator{
+		stack: stack,
+	}
 }
 
 func (this *BSTIterator) Next() int {
-	res := this.vals[this.cur]
-	this.cur++
-	return res
+	cur := this.stack[len(this.stack)-1]
+	this.stack = this.stack[:len(this.stack)-1]
+	for node := cur.Right; node != nil; node = node.Left {
+		this.stack = append(this.stack, node)
+	}
+	return cur.Val
 }
 
 func (this *BSTIterator) HasNext() bool {
-	return this.cur < len(this.vals)
+	return len(this.stack) > 0
 }
 
 /**

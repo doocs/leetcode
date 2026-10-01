@@ -236,30 +236,32 @@ public:
  * }
  */
 type BSTIterator struct {
-	stack []*TreeNode
+	cur  int
+	vals []int
 }
 
 func Constructor(root *TreeNode) BSTIterator {
-	var stack []*TreeNode
-	for ; root != nil; root = root.Left {
-		stack = append(stack, root)
+	it := BSTIterator{vals: []int{}}
+	var inorder func(*TreeNode)
+	inorder = func(root *TreeNode) {
+		if root != nil {
+			inorder(root.Left)
+			it.vals = append(it.vals, root.Val)
+			inorder(root.Right)
+		}
 	}
-	return BSTIterator{
-		stack: stack,
-	}
+	inorder(root)
+	return it
 }
 
 func (this *BSTIterator) Next() int {
-	cur := this.stack[len(this.stack)-1]
-	this.stack = this.stack[:len(this.stack)-1]
-	for node := cur.Right; node != nil; node = node.Left {
-		this.stack = append(this.stack, node)
-	}
-	return cur.Val
+	res := this.vals[this.cur]
+	this.cur++
+	return res
 }
 
 func (this *BSTIterator) HasNext() bool {
-	return len(this.stack) > 0
+	return this.cur < len(this.vals)
 }
 
 /**
@@ -397,29 +399,30 @@ impl BSTIterator {
  * @param {TreeNode} root
  */
 var BSTIterator = function (root) {
-    this.stack = [];
-    for (; root != null; root = root.left) {
-        this.stack.push(root);
-    }
+    this.cur = 0;
+    this.vals = [];
+    const inorder = root => {
+        if (root) {
+            inorder(root.left);
+            this.vals.push(root.val);
+            inorder(root.right);
+        }
+    };
+    inorder(root);
 };
 
 /**
  * @return {number}
  */
 BSTIterator.prototype.next = function () {
-    let cur = this.stack.pop();
-    let node = cur.right;
-    for (; node != null; node = node.left) {
-        this.stack.push(node);
-    }
-    return cur.val;
+    return this.vals[this.cur++];
 };
 
 /**
  * @return {boolean}
  */
 BSTIterator.prototype.hasNext = function () {
-    return this.stack.length > 0;
+    return this.cur < this.vals.length;
 };
 
 /**
@@ -695,6 +698,100 @@ impl BSTIterator {
         self.stack.len() != 0
     }
 }
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+type BSTIterator struct {
+	stack []*TreeNode
+}
+
+func Constructor(root *TreeNode) BSTIterator {
+	var stack []*TreeNode
+	for ; root != nil; root = root.Left {
+		stack = append(stack, root)
+	}
+	return BSTIterator{
+		stack: stack,
+	}
+}
+
+func (this *BSTIterator) Next() int {
+	cur := this.stack[len(this.stack)-1]
+	this.stack = this.stack[:len(this.stack)-1]
+	for node := cur.Right; node != nil; node = node.Left {
+		this.stack = append(this.stack, node)
+	}
+	return cur.Val
+}
+
+func (this *BSTIterator) HasNext() bool {
+	return len(this.stack) > 0
+}
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * obj := Constructor(root);
+ * param_1 := obj.Next();
+ * param_2 := obj.HasNext();
+ */
+```
+
+#### JavaScript
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ */
+var BSTIterator = function (root) {
+    this.stack = [];
+    for (; root != null; root = root.left) {
+        this.stack.push(root);
+    }
+};
+
+/**
+ * @return {number}
+ */
+BSTIterator.prototype.next = function () {
+    let cur = this.stack.pop();
+    let node = cur.right;
+    for (; node != null; node = node.left) {
+        this.stack.push(node);
+    }
+    return cur.val;
+};
+
+/**
+ * @return {boolean}
+ */
+BSTIterator.prototype.hasNext = function () {
+    return this.stack.length > 0;
+};
+
+/**
+ * Your BSTIterator object will be instantiated and called as such:
+ * var obj = new BSTIterator(root)
+ * var param_1 = obj.next()
+ * var param_2 = obj.hasNext()
+ */
 ```
 
 <!-- tabs:end -->
