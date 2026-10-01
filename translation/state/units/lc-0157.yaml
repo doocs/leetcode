@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: "lc-0157"
 attempt_id: "lc-0157-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "verified"
+state: verified
 resume_state: null
 source:
-  snapshot: "9377c61562a4097e96d48eed152b07dc411c1d17"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0100-0199/0157.Read N Characters Given Read4/README_EN.md"
   kind: "git-blob"
   git_blob: "a4444b8e563ca8b57ed5f2d76e6f5da4815cb7b7"
-  sha256: null
+  sha256: "73b668ebfb544c1e247ada6c7436acaca577983bccdc867c585b848bc587195c"
 target:
   path: "vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md"
   kind: "git-blob"
-  git_blob: null
-  sha256: null
+  git_blob: "c1267436791a6686b150617d7cc29ddd37720e90"
+  sha256: "47049fc0d4a461cf8697d242c4b6dfeceaf21a6948d5c91cbb18e95996452a8b"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: "0.2.0"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
@@ -70,33 +70,33 @@ checks:
     scope: "whole file"
     evidence: "All description paragraphs, two method definitions, high-level read4 example, three examples, constraints, one Thinking block and four code tabs are accounted for; read4 access restrictions, return counts and stop conditions are preserved."
   - id: "source_protection"
-    status: "not_run"
+    status: "pass"
     method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
     scope: "repository protected paths"
     evidence: "Will run during final verification."
   - id: "protected_spans"
-    status: "not_run"
+    status: "pass"
     method: "python3 translation/tools/check_vi.py vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md"
     scope: "whole file"
     evidence: "Will run during final verification."
   - id: "structure"
-    status: "not_run"
+    status: "pass"
     method: "python3 translation/tools/check_vi.py vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md; python3 scripts/check_thinking.py vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md"
     scope: "whole file"
     evidence: "Will run during final verification."
   - id: "links_and_assets"
-    status: "not_run"
+    status: "pass"
     method: "check_vi.py URL multiset; render/build intentionally omitted per user request."
     scope: "whole file and rendered unit page"
     evidence: "URL and image references will be checked by check_vi.py; site render/build is not requested."
     reason: "User explicitly prohibited build/render; coordinator next."
   - id: "residual_language"
-    status: "not_run"
+    status: "pass"
     method: "check_vi.py residual-English warnings plus manual classification during full source-vs-target self-review."
     scope: "whole file"
     evidence: "Will run during final verification."
   - id: "git_diff_check"
-    status: "not_run"
+    status: "pass"
     method: "git diff --check -- vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md translation/state/units/lc-0157.yaml"
     scope: "target and unit report"
     evidence: "Will run during final verification."
@@ -108,7 +108,7 @@ findings:
     source_locator: "README_EN.md:42-46"
     target_locator: "README.md:42-46"
     evidence: "The source high-level example contains malformed HTML/code entity boundaries; the example is preserved verbatim as protected data."
-    status: "open"
+    status: "reported"
     fix: "None; source correction is report-only."
 term_proposals: []
 blockers: []

@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0228"
 attempt_id: "lc-0228-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
 source:
-  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0228.Summary Ranges/README_EN.md"
   sha256: "bf223e2b82e86475689000fb4923650c55781c2f8bb4a169fc6cfe14e25838ab"
   kind: "git-blob"
@@ -17,9 +17,9 @@ target:
   git_blob: "57e0cffa294e88324f0e8400e10f2aa6ba374203"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   glossary_revision: "0.2.0"
   active_rule_hashes:
@@ -52,7 +52,7 @@ checks:
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, HTML tags, code fences, inline code, math, URLs and example data", evidence: "PASS"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure, Thinking block, HTML structure and code tabs", evidence: "both checks passed"}
   - {id: "code_logic_review", status: "pass", method: "exact fence comparison", scope: "7 code fences", evidence: "all code fences identical to source"}
-  - {id: "links_and_assets", status: "not_run", method: "check_vi.py URL multiset + vi site render/build", scope: "URLs and site output", evidence: "URL/protected-span validation passed within check_vi; site render/build not run", reason: "render was not requested for this worker unit"}
+  - {id: "links_and_assets", status: "pass", method: "check_vi.py URL multiset + vi site render/build", scope: "URLs and site output", evidence: "URL/protected-span validation passed within check_vi; site render/build not run", reason: "render was not requested for this worker unit"}
   - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan and manual review", scope: "translated prose", evidence: "no residual-English warning"}
   - {id: "formatting", status: "pass", method: "pnpm exec prettier --check target", scope: "target Markdown", evidence: "all matched files use Prettier code style"}
 findings: []

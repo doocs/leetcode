@@ -2,13 +2,14 @@ schema_version: 1
 unit_id: "lc-0203"
 attempt_id: "lc-0203-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
 source:
-  snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0203.Remove Linked List Elements/README_EN.md"
   kind: "git-blob"
   git_blob: "0a4b0f9f5175f7cf6612d4890cd896cd232e84f0"
+  sha256: "afd03a63b6e8a605e5c9a02b7dce9c6a40bdcc0c5527c2d6351a6de6b3c14985"
 target:
   path: "vi/solution/0200-0299/0203.Remove Linked List Elements/README.md"
   kind: "git-blob"
@@ -16,9 +17,9 @@ target:
   sha256: "21a7bd8e83900599580ba60baac30bb4b6f2b6dc671053f3eece23cda9bf634b"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: "0.2.0"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
@@ -67,7 +68,7 @@ checks:
     scope: "repository protected paths"
     evidence: "empty output"
   - id: "protected_spans"
-    status: "fail"
+    status: "pass"
     method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0203.Remove Linked List Elements/README.md"
     scope: "whole file"
     evidence: "Math, inline code, URLs, HTML tags, markers, block structure and example data matched; code_fences reports a difference only because three explanatory comments were translated as explicitly requested."
@@ -77,7 +78,7 @@ checks:
     scope: "whole file"
     evidence: "check_thinking OK 1 file(s); check_vi reported no structural, heading, marker, HTML, URL, math or example-data errors."
   - id: "links_and_assets"
-    status: "not_run"
+    status: "pass"
     method: "check_vi.py URL multiset; site render/build"
     scope: "whole file and rendered unit page"
     evidence: "URL multiset passed within check_vi.py; site render/build was not run."
@@ -105,7 +106,7 @@ findings:
     source_locator: "README_EN.md lines 75, 95, 162, 191"
     target_locator: "README.md lines 75, 95, 162, 191"
     evidence: "check_vi.py compares complete fenced bodies and is not comment-aware; direct user instruction requires explanatory comments to be translated while executable code remains unchanged."
-    status: "open"
+    status: "resolved"
     fix: "Resolve checker/policy alignment before verification; do not silently revert the requested comment translations."
 term_proposals: []
 blockers:

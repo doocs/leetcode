@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0207"
 attempt_id: "lc-0207-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5", locator: "solution/0200-0299/0207.Course Schedule/README_EN.md", kind: "git-blob", git_blob: "2c92eb93a00ad25bb313243d1147d5b799fe5649"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0200-0299/0207.Course Schedule/README_EN.md", kind: "git-blob", git_blob: "2c92eb93a00ad25bb313243d1147d5b799fe5649", sha256: "0302157fe07185703099806ebd5511b3419400dcca6be4f4d30c5042884f9d71"}
 target: {path: "vi/solution/0200-0299/0207.Course Schedule/README.md", sha256: "e0772d86344611e58d54a90d51c0d8427a2a6f7794f1906444c8ef46aed0fe26"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0035
 attempt_id: lc-0035-a1
 owner: OpenCode (session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0035.Search Insert Position/README_EN.md
   kind: git-blob
-  git_blob: 9e7774a3dc50f900b1549409fe8f9a03a1b34a5f
-  sha256: edf12327cf472fce06c544fafa0a1d6b494daa6e0b96b9955015f1965b562526
+  git_blob: "9e7774a3dc50f900b1549409fe8f9a03a1b34a5f"
+  sha256: "edf12327cf472fce06c544fafa0a1d6b494daa6e0b96b9955015f1965b562526"
 target:
   path: vi/solution/0000-0099/0035.Search Insert Position/README.md
   kind: git-blob
-  git_blob: 112a3a7e94bcb7d31260e969d6280fbd5d92088c
-  sha256: 0c9ddea359553d4db8aac956a65ef417e1c759facf33a67682c50e16e67dc3c1
+  git_blob: "112a3a7e94bcb7d31260e969d6280fbd5d92088c"
+  sha256: "0c9ddea359553d4db8aac956a65ef417e1c759facf33a67682c50e16e67dc3c1"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -89,7 +89,7 @@ checks:
     scope: whole file
     evidence: check_vi PASS; check_thinking OK 1 file(s).
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: check_vi.py URL multiset plus render/build verification required by the project site policy.
     scope: whole file and rendered unit page
     evidence: Render/build intentionally not run per user request; coordinator must run this check next. check_vi included URL preservation in the protected-span pass.

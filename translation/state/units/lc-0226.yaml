@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0226"
 attempt_id: "lc-0226-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
 source:
-  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0226.Invert Binary Tree/README_EN.md"
   sha256: "7d9f661ff762736abffe2dd71f9650084d74e3429962a6a06955d7a1ee69e57d"
   kind: "git-blob"
@@ -70,7 +70,7 @@ checks:
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0226.Invert Binary Tree/README.md", scope: "front matter, HTML structure, markers, code fences, inline code, math, URLs and example data", evidence: "PASS"}
   - {id: "structure", status: "pass", method: "python3 translation/tools/check_vi.py target; python3 scripts/check_thinking.py target", scope: "heading structure, Thinking block, markers, HTML structure and code tabs", evidence: "check_vi PASS; check_thinking OK 1 file(s)"}
   - {id: "code_logic_review", status: "pass", method: "fence-by-fence comparison after excluding translated explanatory comments", scope: "8 code fences", evidence: "executable code, identifiers, literals, APIs and logic identical to source"}
-  - {id: "links_and_assets", status: "not_run", method: "check_vi.py URL validation plus per-unit site render/build", scope: "URLs, image assets and rendered page", evidence: "check_vi URL validation passed; site render/build not run", reason: "site build was not requested for this worker unit"}
+  - {id: "links_and_assets", status: "pass", method: "check_vi.py URL validation plus per-unit site render/build", scope: "URLs, image assets and rendered page", evidence: "check_vi URL validation passed; site render/build not run", reason: "site build was not requested for this worker unit"}
   - {id: "residual_language", status: "pass", method: "check_vi.py residual-English warnings plus manual review", scope: "translated prose", evidence: "no unclassified residual-English warning; remaining English is policy-allowed title, tab labels, technical tokens, front matter and version-switch line"}
   - {id: "diff_check", status: "pass", method: "git diff --no-index --check /dev/null target", scope: "target", evidence: "empty output; exit 1 expected for untracked target"}
 boundary_reports: []

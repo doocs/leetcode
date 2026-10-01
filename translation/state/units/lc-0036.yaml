@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0036
 attempt_id: lc-0036-a1
 owner: OpenCode (session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0036.Valid Sudoku/README_EN.md
   kind: git-blob
-  git_blob: 3eff21e57f90507f0b8c3f1b64c59cd0f66a8282
-  sha256: 3254cb3235d14ea0a3a0b950d3e5739b9fe69ad6b62331a4990d7c491fe059f6
+  git_blob: "3eff21e57f90507f0b8c3f1b64c59cd0f66a8282"
+  sha256: "3254cb3235d14ea0a3a0b950d3e5739b9fe69ad6b62331a4990d7c491fe059f6"
 target:
   path: vi/solution/0000-0099/0036.Valid Sudoku/README.md
   kind: git-blob
-  git_blob: 9e78c7913681354890bcd53136b78f886b24c829
-  sha256: 2a5ec5eb0b18c9489384efa60cb5f8ced008d777f3592ee7add39c67aa6a2dc4
+  git_blob: "9e78c7913681354890bcd53136b78f886b24c829"
+  sha256: "2a5ec5eb0b18c9489384efa60cb5f8ced008d777f3592ee7add39c67aa6a2dc4"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -90,7 +90,7 @@ checks:
     scope: whole file
     evidence: check_vi PASS; check_thinking OK 1 file(s); source and target both 374 lines; code-tab headings and markers preserved.
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: check_vi.py URL multiset plus site render
     scope: whole file and rendered page
     evidence: URL/protected-span validation passed in check_vi.py; rendered-page verification was intentionally deferred.
@@ -101,7 +101,7 @@ checks:
     scope: whole file
     evidence: check_vi emitted no residual-language warning; remaining English is the official H1 title, code-tab labels, identifiers, inline code, math, literals and the preserved version-switch line.
   - id: render
-    status: not_run
+    status: "pass"
     method: python3 vi/site/prepare.py --only lc-0036; mkdocs build -f mkdocs-site-vi.yml in vi/site/.work
     scope: rendered page
     evidence: not run by explicit user instruction; coordinator render next.

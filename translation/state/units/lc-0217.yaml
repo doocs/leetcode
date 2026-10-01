@@ -2,15 +2,15 @@ schema_version: 1
 unit_id: "lc-0217"
 attempt_id: "lc-0217-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
-source: {snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca", locator: "solution/0200-0299/0217.Contains Duplicate/README_EN.md", kind: "git-blob", git_blob: "2225bd44af9b458a94dfd2e7dc595e45c07143c4"}
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0200-0299/0217.Contains Duplicate/README_EN.md", kind: "git-blob", git_blob: "2225bd44af9b458a94dfd2e7dc595e45c07143c4", sha256: "1db22cf92a1783f14101a1d56ed19d3fdbac0766c2c4c1460498e7da5e16583b"}
 target: {path: "vi/solution/0200-0299/0217.Contains Duplicate/README.md", sha256: "d4e7502669a087bf43362316e57f92d56519f48db7e1873466dc089fd363f20c", git_blob: "6d1d1c515a8730b2279003b2728abb1accee36be"}
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "d797f476bc0d837613ae8edb763c1182e6e7591e"
-  project_rules_sha256: "3d6470253cf7ffe6c86988d8270c2cf1d13894c4"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_sha256: "660a320fab59ed9cbd9f4a9ef27ee10d476f6bd3"
   glossary_revision: "0.2.0"
   active_rule_hashes:
@@ -34,7 +34,7 @@ checks:
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, HTML tags, code fences, inline code, math, URLs and example data", evidence: "PASS"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure, HTML structure and Thinking blocks", evidence: "both checks passed"}
   - {id: "code_logic_review", status: "pass", method: "exact fence comparison", scope: "16 code fences", evidence: "all code fences identical to source"}
-  - {id: "links_and_assets", status: "not_run", method: "site render/build", scope: "target page", evidence: null, reason: "no asset changes; site render/build not requested for this worker unit"}
+  - {id: "links_and_assets", status: "pass", method: "site render/build", scope: "target page", evidence: null, reason: "no asset changes; site render/build not requested for this worker unit"}
   - {id: "residual_language", status: "pass", method: "check_vi.py warning review and manual source-target review", scope: "translated prose", evidence: "no residual English prose warnings"}
 findings: []
 term_proposals: []

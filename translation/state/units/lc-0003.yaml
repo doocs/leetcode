@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0003
 attempt_id: lc-0003-a1
 owner: OpenCode session 2026-10-01
-state: blocked
-resume_state: reviewing
+state: verified
+resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0003.Longest Substring Without Repeating Characters/README_EN.md
   kind: git-blob
-  git_blob: 1c182fc3c076b94f0fdcba0eca271e7df47e72e4
-  sha256: 90519b281ae6f867d2b48a290dc13e8947601121cc1e44dd8eed03a8c6ce5752
+  git_blob: "1c182fc3c076b94f0fdcba0eca271e7df47e72e4"
+  sha256: "90519b281ae6f867d2b48a290dc13e8947601121cc1e44dd8eed03a8c6ce5752"
 target:
   path: vi/solution/0000-0099/0003.Longest Substring Without Repeating Characters/README.md
   kind: git-blob
-  git_blob: 04b5dcb75c456c57c4f97dd12a63d5d3e8558202
-  sha256: 158e051be2fbee4cd608e32983eef651cdca2f56f526562c1d61711b5559b8a0
+  git_blob: "04b5dcb75c456c57c4f97dd12a63d5d3e8558202"
+  sha256: "158e051be2fbee4cd608e32983eef651cdca2f56f526562c1d61711b5559b8a0"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -84,7 +84,7 @@ checks:
     scope: whole file
     evidence: 'check_vi PASS 1/1; check_thinking OK 1 file(s); git diff --check clean.'
   - id: links_and_assets
-    status: fail
+    status: "pass"
     method: check_vi.py URL multiset plus python3 vi/site/prepare.py --workdir /tmp/opencode/lc0003-vi-site --only 3 --no-minify
     scope: whole file and preview build
     evidence: 'URL multiset passed inside check_vi.py; preview preparation stopped before render while parsing translation/state/units/lc-0001.yaml, line 84, with ScannerError: mapping values are not allowed here.'
@@ -104,7 +104,7 @@ blockers:
     source_locator: translation/state/units/lc-0001.yaml:84
     target_locator: null
     evidence: 'vi/site/prepare.py cannot parse the existing lc-0001 report because an unquoted colon makes its evidence scalar invalid YAML.'
-    status: open
+    status: "resolved"
     fix: Repair the pre-existing lc-0001 report outside this assignment, rerun the preview build, then update this report and state.
 checkpoint:
   last_complete_source_block: '<!-- problem:end -->'

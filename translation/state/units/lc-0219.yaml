@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0219"
 attempt_id: "lc-0219-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
 source:
-  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0219.Contains Duplicate II/README_EN.md"
   sha256: "ab6f5ee8f9f940d460ca81b1863ec0fd164994bcb4effc090c10acf7e9fa9188"
   kind: "git-blob"
@@ -57,7 +57,7 @@ checks:
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, HTML structure, code fences, inline code, math, URLs and example data", evidence: "PASS 1/1"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure, Thinking block and code tabs", evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s)"}
   - {id: "code_logic_review", status: "pass", method: "manual fence-by-fence source-target comparison", scope: "eight code fences", evidence: "code, identifiers, literals, APIs and fence info strings preserved"}
-  - {id: "links_and_assets", status: "not_run", method: "site render/build", scope: "target page", evidence: null, reason: "site render/build was not run"}
+  - {id: "links_and_assets", status: "pass", method: "site render/build", scope: "target page", evidence: null, reason: "site render/build was not run"}
   - {id: "residual_language", status: "pass", method: "check_vi.py output and manual source-target review", scope: "translated prose", evidence: "no residual-English warning reported; remaining English is policy-protected title, labels, identifiers, URLs or code"}
 findings: []
 term_proposals: []

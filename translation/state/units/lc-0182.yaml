@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0182"
 attempt_id: "lc-0182-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674", locator: "solution/0100-0199/0182.Duplicate Emails/README_EN.md", kind: "git-blob", git_blob: "1fe3426953e56a6a141bab422fe7c98a968b8ae2"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0182.Duplicate Emails/README_EN.md", kind: "git-blob", git_blob: "1fe3426953e56a6a141bab422fe7c98a968b8ae2", sha256: "49fd282febcc26b34642355a286db0dd573fc2dd1fa29271550e3617c88b2c06"}
 target: {path: "vi/solution/0100-0199/0182.Duplicate Emails/README.md", sha256: "88352647a1beedf977021e3c086fb322ee8a49785222ceb8384648f18cf0e209"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

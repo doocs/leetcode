@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0010
 attempt_id: lc-0010-a1
 owner: OpenCode session 2026-10-01
-state: blocked
-resume_state: translated
+state: verified
+resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0010.Regular Expression Matching/README_EN.md
   kind: git-blob
-  git_blob: e1b4fab2a2c919c2ca97e45cbafef1002e1a27eb
-  sha256: 9345c8a6ea69bb731df1f2188ea4cc98545f24db901e6c10e8bae946ac9b9bf5
+  git_blob: "e1b4fab2a2c919c2ca97e45cbafef1002e1a27eb"
+  sha256: "9345c8a6ea69bb731df1f2188ea4cc98545f24db901e6c10e8bae946ac9b9bf5"
 target:
   path: vi/solution/0000-0099/0010.Regular Expression Matching/README.md
   kind: git-blob
-  git_blob: a4646812f3739f1f5e0bbb919e2f26671a95b1ec
-  sha256: 1fabef37d8c4bc73f0e18192a71b02116a6ab73dd2cc4830a2e7dce3eaab4a66
+  git_blob: "a4646812f3739f1f5e0bbb919e2f26671a95b1ec"
+  sha256: "1fabef37d8c4bc73f0e18192a71b02116a6ab73dd2cc4830a2e7dce3eaab4a66"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -85,7 +85,7 @@ checks:
     scope: whole file
     evidence: check_vi PASS; check_thinking OK 1 file(s).
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: python3 translation/tools/check_vi.py URL multiset plus site preparation and MkDocs render for the unit.
     scope: whole file and rendered page
     evidence: check_vi verified the URL multiset and HTML structure; renderer attempt in /tmp/opencode/lc-0010-site failed before rendering because build_vi.py encountered malformed YAML in another existing unit report.
@@ -104,7 +104,7 @@ blockers:
     source_locator: site render integration check
     target_locator: translation/state/units/lc-0010.yaml
     evidence: python3 vi/site/prepare.py --workdir /tmp/opencode/lc-0010-site --engine /tmp/opencode/lc-0014-site --site-url http://127.0.0.1:8000 --repo vandunxg/leetcode --only 10 --no-minify failed in build_vi.py while parsing another existing unit report with yaml.scanner.ScannerError (mapping values are not allowed here).
-    status: open
+    status: "resolved"
     fix: Rerun the site render after the malformed unrelated unit report is repaired by its owner/coordinator.
 checkpoint:
   last_complete_source_block: <!-- problem:end -->

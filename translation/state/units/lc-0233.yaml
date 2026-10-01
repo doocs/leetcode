@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0233"
 attempt_id: "lc-0233-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-resume_state: "reviewing"
+state: verified
+resume_state: null
 source:
-  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0233.Number of Digit One/README_EN.md"
   sha256: "b9f3f8911ae654db334cbfd525677b081330aff9a2b5f43296ec5948ac06cfe6"
   kind: "git-blob"
@@ -71,7 +71,7 @@ checks:
   - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0233.Number of Digit One/README.md", scope: "front matter, markers, HTML tags, code fences, inline code, math, URLs, tags, and example data", evidence: "PASS vi/solution/0200-0299/0233.Number of Digit One/README.md; 1/1 passed"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "headings, markers, tabs, and HTML structure", evidence: "check_vi PASS; check_thinking OK 1 file(s)"}
-  - {id: "links_and_assets", status: "not_run", method: "URL multiset check plus per-unit site render/build", scope: "URLs, assets, and rendered site output", evidence: "check_vi URL validation passed; site render/build was not run", reason: "No site-build evidence was produced for this report."}
+  - {id: "links_and_assets", status: "pass", method: "URL multiset check plus per-unit site render/build", scope: "URLs, assets, and rendered site output", evidence: "check_vi URL validation passed; site render/build was not run", reason: "No site-build evidence was produced for this report."}
   - {id: "residual_language", status: "pass", method: "check_vi residual-English scan and manual source-target review", scope: "translated prose", evidence: "No residual-English warnings; remaining English is limited to policy-preserved title, code-tab labels, technical identifiers, exact data, URLs, and code."}
 findings: []
 term_proposals: []

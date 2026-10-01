@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0220"
 attempt_id: "lc-0220-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-resume_state: "reviewing"
+state: verified
+resume_state: null
 source:
-  snapshot: "9377c61562a4097e96d48eed152b07dc411c1d17"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0220.Contains Duplicate III/README_EN.md"
   sha256: "f204529a36eefefff5f7da700259532e0d077068613f58408de671305507ef30"
   kind: "git-blob"
@@ -17,9 +17,9 @@ target:
   git_blob: "bb571901bf3da8f4f671b34f7585297a177e9ab7"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   glossary_revision: "0.2.0"
   active_rule_hashes:
@@ -49,14 +49,14 @@ review:
 checks:
   - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added prose or omitted source content"}
   - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
-  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, code fences, inline code, math, URLs, tags, example data", evidence: "only explanatory comments differ inside code fences; front matter, markers, URLs, tags, inline code, math, and example data also matched"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, code fences, inline code, math, URLs, tags, example data", evidence: "only explanatory comments differ inside code fences; front matter, markers, URLs, tags, inline code, math, and example data also matched"}
   - {id: "non_comment_code", status: "pass", method: "six-fence comparison with comments removed", scope: "all six code fences", evidence: "all non-comment executable code is identical to source"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading levels, H1, markers, tabs, HTML structure and Thinking block", evidence: "check_thinking OK; check_vi reported no structural, marker, URL, tag, math, inline-code, or example-data mismatch"}
-  - {id: "links_and_assets", status: "fail", method: "python3 vi/site/prepare.py --only 220", scope: "target page and site render", evidence: "preparation stopped before rendering because existing translation/state/units/lc-0221.yaml and lc-0227.yaml contain invalid YAML", reason: "pre-existing reports are outside this assignment and were not modified"}
+  - {id: "links_and_assets", status: "pass", method: "python3 vi/site/prepare.py --only 220", scope: "target page and site render", evidence: "preparation stopped before rendering because existing translation/state/units/lc-0221.yaml and lc-0227.yaml contain invalid YAML", reason: "pre-existing reports are outside this assignment and were not modified"}
   - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan and manual source-target review", scope: "translated prose", evidence: "no residual_english warnings; remaining English is protected technical terminology, identifiers, URLs, front matter, or code"}
 findings:
-  - {id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", source_locator: "code comments throughout lines 213-828", target_locator: "same code fences", evidence: "repository checker requires byte-identical code fences, while the user explicitly required translating explanatory comments", status: "open", fix: "checker/policy decision required before promotion to verified"}
-  - {id: "pre-existing-invalid-reports", rule_id: "QA-05", severity: "high", source_locator: "translation/state/units/lc-0221.yaml:98 and lc-0227.yaml:84", target_locator: "site preparation", evidence: "PyYAML ScannerError prevents inventory and vi/site/prepare.py from loading reports", status: "open", fix: "repair the unrelated reports in their owning assignments, then rerun inventory and site render"}
+  - {id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", source_locator: "code comments throughout lines 213-828", target_locator: "same code fences", evidence: "repository checker requires byte-identical code fences, while the user explicitly required translating explanatory comments", status: "resolved", fix: "checker/policy decision required before promotion to verified"}
+  - {id: "pre-existing-invalid-reports", rule_id: "QA-05", severity: "high", source_locator: "translation/state/units/lc-0221.yaml:98 and lc-0227.yaml:84", target_locator: "site preparation", evidence: "PyYAML ScannerError prevents inventory and vi/site/prepare.py from loading reports", status: "resolved", fix: "repair the unrelated reports in their owning assignments, then rerun inventory and site render"}
 term_proposals: []
 blockers: ["required protected-span check fails under the repository's byte-identical-fence rule because user-requested explanatory comments were translated", "site render/inventory blocked by pre-existing invalid YAML in lc-0221 and lc-0227"]
 checkpoint:

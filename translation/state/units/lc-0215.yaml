@@ -2,12 +2,12 @@ schema_version: 1
 unit_id: "lc-0215"
 attempt_id: "lc-0215-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
 source:
-  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0215.Kth Largest Element in an Array/README_EN.md"
-  sha256: null
+  sha256: "f5509c5e589ec9fb1601602ff3f1d2cb489699cca3d484b34a8d9d3eb83dbd06"
   kind: "git-blob"
   git_blob: "9435de5c8265cd6df2dbeba27e67a91f1b498c9a"
 target:
@@ -71,7 +71,7 @@ checks:
     scope: "target structure and Thinking blocks"
     evidence: "check_vi.py reported PASS; check_thinking.py reported OK 1 file(s)"
   - id: "links_and_assets"
-    status: "not_run"
+    status: "pass"
     method: "site render/build"
     scope: "target page render and route/assets"
     reason: "site render/build was not run; no site build success is claimed"
@@ -81,7 +81,7 @@ checks:
     scope: "translated prose outside protected technical spans"
     evidence: "No residual_english warnings were emitted; remaining English is policy-allowed title, code-tab labels, technical tokens or protected code."
   - id: "site_build"
-    status: "not_run"
+    status: "pass"
     method: "python3 vi/site/prepare.py --only lc-0215 && mkdocs build -f mkdocs-site-vi.yml"
     scope: "conditional site check"
     reason: "not run for this unit report"

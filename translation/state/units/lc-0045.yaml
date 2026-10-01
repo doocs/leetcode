@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0045
 attempt_id: lc-0045-a1
 owner: OpenCode (session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0045.Jump Game II/README_EN.md
   kind: git-blob
-  git_blob: 7601bb8dccb00babb4fb0a5d731ad260b6fff429
-  sha256: 34f9072f01d1762672c0535647be04a3f7491dd0f5e3f6efdd68e02f7742342b
+  git_blob: "7601bb8dccb00babb4fb0a5d731ad260b6fff429"
+  sha256: "34f9072f01d1762672c0535647be04a3f7491dd0f5e3f6efdd68e02f7742342b"
 target:
   path: vi/solution/0000-0099/0045.Jump Game II/README.md
   kind: git-blob
-  git_blob: 12cc043b26b1b78844f326b689e708f4e3a8abf8
-  sha256: 933fbb0699e6dac77cb42db3d7dc4a4282587b40aeeccb5f26051472e89a1bfd
+  git_blob: "12cc043b26b1b78844f326b689e708f4e3a8abf8"
+  sha256: "933fbb0699e6dac77cb42db3d7dc4a4282587b40aeeccb5f26051472e89a1bfd"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -85,7 +85,7 @@ checks:
     scope: whole file
     evidence: 'check_vi PASS 1/1; check_thinking: OK 1 file(s).'
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: URL preservation was covered by check_vi.py; configured site render/build was intentionally not run.
     scope: whole file and rendered unit page
     evidence: 'coordinator next: run the configured link/asset render gate before changing state to verified.'

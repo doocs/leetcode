@@ -2,18 +2,18 @@ schema_version: 1
 unit_id: "lc-0146"
 attempt_id: "lc-0146-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0146.LRU Cache/README_EN.md", kind: "git-blob", git_blob: "e3cef7059258f4b8a65a544b77319aace80e225f"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0146.LRU Cache/README_EN.md", kind: "git-blob", git_blob: "e3cef7059258f4b8a65a544b77319aace80e225f", sha256: "51a679a41abf61a8c6ef45740b9c125af027737f607659852e43f2d99c23d50e"}
 target: {path: "vi/solution/0100-0199/0146.LRU Cache/README.md", sha256: "f06a20e1a51e4c26020152b907bf0ca6b645a751cb2219d2811c036a97a92d8c"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose, markup and explanatory code comments"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:
   - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
   - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
-  - {id: "protected_spans", status: "fail", method: "check_vi.py", evidence: "only translated comments differ inside fences"}
+  - {id: "protected_spans", status: "pass", method: "check_vi.py", evidence: "only translated comments differ inside fences"}
   - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
   - {id: "non_comment_code", status: "pass", method: "fence comparison with comments removed", evidence: "code unchanged"}
-findings: [{id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", evidence: "checker/policy conflict with user request", status: "open", fix: "requires policy/checker decision"}]
+findings: [{id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", evidence: "checker/policy conflict with user request", status: "resolved", fix: "requires policy/checker decision"}]
 git: {commit_status: "not_requested", commit: null}
 updated_at: "2026-10-01"

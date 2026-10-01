@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0167"
 attempt_id: "lc-0167-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0167.Two Sum II - Input Array Is Sorted/README_EN.md", kind: "git-blob", git_blob: "f6ba8aa5cb38cf11c6c19146b5ec2bb4ec57c3c5"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0167.Two Sum II - Input Array Is Sorted/README_EN.md", kind: "git-blob", git_blob: "f6ba8aa5cb38cf11c6c19146b5ec2bb4ec57c3c5", sha256: "e70ce50bcc8731a0fcaf1cc4feeb0dfd8da68a7cc1c43a3de3aefed0ad2c2468"}
 target: {path: "vi/solution/0100-0199/0167.Two Sum II - Input Array Is Sorted/README.md", sha256: "eca070e7d1c79faef15179379470ad8beef76ba6c67643b299f15dae9ca6c65f"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

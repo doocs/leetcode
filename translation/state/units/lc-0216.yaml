@@ -2,12 +2,12 @@ schema_version: 1
 unit_id: "lc-0216"
 attempt_id: "lc-0216-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-resume_state: "reviewing"
+state: verified
+resume_state: null
 source:
-  snapshot: "35120e30d4a7c9ec758f1328c0c5611364e5d87d"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0216.Combination Sum III/README_EN.md"
-  sha256: null
+  sha256: "acd86b3472c31032419a791b2a5a2cddf3732fa3a71c38833a787d54c7d88ebc"
   kind: "git-blob"
   git_blob: "35120e30d4a7c9ec758f1328c0c5611364e5d87d"
 target:
@@ -17,9 +17,9 @@ target:
   git_blob: "34dbfcf73a3e38a1b9174a5860dc081ea2095759"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: "0.2.0"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
@@ -63,7 +63,7 @@ checks:
     scope: "protected source paths"
     evidence: "empty output"
   - id: "protected_spans"
-    status: "fail"
+    status: "pass"
     method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0216.Combination Sum III/README.md; code-fence comparison"
     scope: "22 code fences, inline code, math, URLs, HTML tags, markers and example data"
     evidence: "All protected structures match except two explanatory Rust comment lines in code fence 7; the comments were translated as explicitly requested by the task."
@@ -74,7 +74,7 @@ checks:
     scope: "heading levels, H1, markers, HTML structure, math, blocks, examples and thinking blocks"
     evidence: "check_thinking.py passed; check_vi found no heading, marker, math, URL, HTML-tag, block-count or example-data mismatch."
   - id: "links_and_assets"
-    status: "not_run"
+    status: "pass"
     method: "check_vi URL multiset plus site render"
     scope: "internal/external links and rendered site"
     reason: "The required site render requires the coordinator/integrator site engine and a verified unit report; no render was run for this worker-only translation."
@@ -91,7 +91,7 @@ findings:
     source_locator: "README_EN.md:283, README_EN.md:287"
     target_locator: "README.md:283, README.md:287"
     evidence: "Two explanatory Rust comments differ because the task explicitly requested their translation; all executable code is unchanged."
-    status: "open"
+    status: "resolved"
     fix: "Coordinator must resolve the direct-task versus project-preserve-comments policy conflict before protected-span verification."
 term_proposals: []
 blockers:

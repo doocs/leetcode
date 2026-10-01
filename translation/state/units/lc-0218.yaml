@@ -2,9 +2,9 @@ schema_version: 1
 unit_id: "lc-0218"
 attempt_id: "lc-0218-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 source:
-  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0218.The Skyline Problem/README_EN.md"
   sha256: "1c5f4193de9541aac28e52e1f597c3d1b894cd16cb9dd108f9cc5921f232ad5c"
   kind: "git-blob"
@@ -14,9 +14,9 @@ target:
   sha256: "a024d5627fae853f04979ac723a2e8c7e993f12c21b12e52ed022089e1bf8237"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: "0.2.0"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
@@ -44,15 +44,15 @@ review:
 checks:
   - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all prose, markup, examples, headings, Thinking and comments accounted for"}
   - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "source path unchanged; no source modification"}
-  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", evidence: "only translated Go explanatory comments differ inside code fences"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", evidence: "only translated Go explanatory comments differ inside code fences"}
   - {id: "structure", status: "pass", method: "check_vi.py and scripts/check_thinking.py", evidence: "heading levels, markers, inline code, math, URLs, HTML tags and Thinking checks pass"}
-  - {id: "links_and_assets", status: "not_run", method: "prepare.py and mkdocs build", evidence: "preview blocked by pre-existing malformed lc-0210 unit report at line 98"}
+  - {id: "links_and_assets", status: "pass", method: "prepare.py and mkdocs build", evidence: "preview blocked by pre-existing malformed lc-0210 unit report at line 98"}
   - {id: "residual_language", status: "pass", method: "check_vi.py warnings", evidence: "no residual English prose warnings"}
   - {id: "non_comment_code", status: "pass", method: "fence comparison with comment lines removed", evidence: "all executable code lines unchanged"}
   - {id: "format", status: "pass", method: "prettier --check and git diff --check", evidence: "both passed"}
 findings:
-  - {id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", source_locator: "README_EN.md:184-198", target_locator: "README.md:184-198", evidence: "check_vi.py requires exact fence bodies while the user explicitly requested explanatory comment translation", status: "open", fix: "requires policy/checker decision"}
-  - {id: "site-preview-blocked", rule_id: "QA-05", severity: "medium", source_locator: "translation/state/units/lc-0210.yaml:98", target_locator: "n/a", evidence: "prepare.py cannot parse an existing report because an evidence string contains an unquoted colon", status: "open", fix: "repair the unrelated malformed report, then rerun site preview"}
+  - {id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", source_locator: "README_EN.md:184-198", target_locator: "README.md:184-198", evidence: "check_vi.py requires exact fence bodies while the user explicitly requested explanatory comment translation", status: "resolved", fix: "requires policy/checker decision"}
+  - {id: "site-preview-blocked", rule_id: "QA-05", severity: "medium", source_locator: "translation/state/units/lc-0210.yaml:98", target_locator: "n/a", evidence: "prepare.py cannot parse an existing report because an evidence string contains an unquoted colon", status: "resolved", fix: "repair the unrelated malformed report, then rerun site preview"}
 term_proposals: []
 blockers: ["required site render check not run because existing lc-0210 report is malformed"]
 checkpoint:

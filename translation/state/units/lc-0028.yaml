@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0028
 attempt_id: lc-0028-a1
 owner: OpenCode (session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0028.Find the Index of the First Occurrence in a String/README_EN.md
   kind: git-blob
-  git_blob: 34e13e6e6046a01aabaadce48058a8f86a7dac0b
-  sha256: 78443f8ce40efd6fd578f480e128152652efe028ae701f7b241795ed8662b33a
+  git_blob: "34e13e6e6046a01aabaadce48058a8f86a7dac0b"
+  sha256: "78443f8ce40efd6fd578f480e128152652efe028ae701f7b241795ed8662b33a"
 target:
   path: vi/solution/0000-0099/0028.Find the Index of the First Occurrence in a String/README.md
   kind: git-blob
-  git_blob: 2c1aa496502ea89884714801012f4096e48874cc
-  sha256: c207bd09cd6cb25522660cb05d32264cd5acc34d430b853d775151dc45849a8c
+  git_blob: "2c1aa496502ea89884714801012f4096e48874cc"
+  sha256: "c207bd09cd6cb25522660cb05d32264cd5acc34d430b853d775151dc45849a8c"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -85,7 +85,7 @@ checks:
     scope: whole file
     evidence: "PASS; check_thinking: OK 1 file(s)"
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: Deferred to coordinator render; no prepare.py or MkDocs run in this worker.
     scope: whole file and rendered unit page
     evidence: URL multiset and image assets were validated by check_vi.py; rendered-page verification remains pending.

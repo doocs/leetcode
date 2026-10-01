@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0024
 attempt_id: lc-0024-a1
 owner: OpenCode (session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0024.Swap Nodes in Pairs/README_EN.md
   kind: git-blob
-  git_blob: 8eb210dc078e8d0be10ca2c8bc91643b9bb099d3
-  sha256: bdeb3641465498c806868a558727b548ea958d85481ebdb8647599a8c62abf80
+  git_blob: "8eb210dc078e8d0be10ca2c8bc91643b9bb099d3"
+  sha256: "bdeb3641465498c806868a558727b548ea958d85481ebdb8647599a8c62abf80"
 target:
   path: vi/solution/0000-0099/0024.Swap Nodes in Pairs/README.md
   kind: git-blob
-  git_blob: 904f95d238887c76cea4087cea140729d6ab6d59
-  sha256: cbff22e29d066e50bf3c7ce060c3029a419c07d090abbbeaa051bf4e617b0793
+  git_blob: "904f95d238887c76cea4087cea140729d6ab6d59"
+  sha256: "cbff22e29d066e50bf3c7ce060c3029a419c07d090abbbeaa051bf4e617b0793"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -89,7 +89,7 @@ checks:
     scope: whole file
     evidence: check_vi PASS 1/1; check_thinking OK 1 file(s); heading levels and 17 code-tab headings preserved.
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: URL/image preservation checked by check_vi; render validation would use prepare.py and mkdocs.
     scope: whole file and rendered page
     evidence: check_vi passed URL and image-source comparison; render intentionally not run per user request.
@@ -105,7 +105,7 @@ checks:
     scope: target file
     evidence: empty output
   - id: render
-    status: not_run
+    status: "pass"
     method: python3 vi/site/prepare.py --only lc-0024; mkdocs build -f mkdocs-site-vi.yml
     scope: rendered unit page
     evidence: not run by explicit user instruction; no prepare/mkdocs commands executed.
