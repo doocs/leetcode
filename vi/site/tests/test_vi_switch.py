@@ -1,3 +1,4 @@
+import gzip
 import json
 import os
 import re
@@ -15,29 +16,31 @@ from helpers import use_hooks  # noqa: E402
 use_hooks()
 import vi_switch  # noqa: E402
 
-ORIGIN = "https://owner.github.io/leetcode"
+SITE = "https://leetcode-vi.example.com"
+UPSTREAM = "https://leetcode.doocs.org"
 
-HTML = """<html><head>
-<link rel="alternate" href="/en/" hreflang="en">
-<link rel="alternate" href="/" hreflang="zh">
+HTML = f"""<html><head>
+<link rel="alternate" href="{UPSTREAM}/en/" hreflang="en">
+<link rel="alternate" href="{UPSTREAM}/" hreflang="zh">
 <link rel="alternate" href="/vi/" hreflang="vi">
 </head><body>
-<a href="/en/" hreflang="en" class="md-select__link">English</a>
-<a href="/" hreflang="zh" class="md-select__link">中文</a>
+<a href="{UPSTREAM}/en/" hreflang="en" class="md-select__link">English</a>
+<a href="{UPSTREAM}/" hreflang="zh" class="md-select__link">中文</a>
 <a href="/vi/" hreflang="vi" class="md-select__link">Tiếng Việt</a>
 </body></html>"""
 
 MINIFIED = (
-    "<html><head><link rel=alternate href=/vi/ hreflang=vi></head><body>"
+    f"<html><head><link rel=alternate href=/vi/ hreflang=vi></head><body>"
+    f"<a href={UPSTREAM}/ hreflang=zh class=md-select__link>中文</a>"
     "<a href=/vi/ hreflang=vi class=md-select__link>Tiếng Việt</a></body></html>"
 )
 
 SITEMAP = f"""<?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>{ORIGIN}/vi/</loc></url>
-<url><loc>{ORIGIN}/vi/lc/1/</loc></url>
-<url><loc>{ORIGIN}/vi/lc/2/</loc></url>
-<url><loc>{ORIGIN}/vi/contest/</loc></url>
+<url><loc>{SITE}/vi/</loc></url>
+<url><loc>{SITE}/vi/lc/1/</loc></url>
+<url><loc>{SITE}/vi/lc/2/</loc></url>
+<url><loc>{SITE}/vi/contest/</loc></url>
 </urlset>
 """
 
@@ -59,9 +62,15 @@ class ViSwitchTest(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.tmp)
         vi_switch._status_cache.clear()
         pages = {
-            "docs": ["index.md", "lc/1.md", "lc/2.md", "lcof/3.md", "contest.md"],
+            "docs": ["index.md", "lc/1.md", "lc/2.md", "contest.md"],
             "docs-en": ["index.md", "lc/1.md", "lc/2.md", "contest.md"],
-            "docs-vi": ["index.md", "lc/1.md", "lc/2.md", "contest.md"],
+            "docs-vi": [
+                "index.md",
+                "lc/1.md",
+                "lc/2.md",
+                "lcci/index.md",
+                "contest.md",
+            ],
         }
         for docs, files in pages.items():
             for rel in files:
@@ -70,86 +79,67 @@ class ViSwitchTest(unittest.TestCase):
                 path.write_text("# x\n")
         status = {"lc/1.md": "translated", "lc/2.md": "stub", "contest.md": "stub"}
         (self.tmp / "docs-vi" / ".vi_status.json").write_text(json.dumps(status))
-
-    def config(self, lang):
-        prefix = {"zh": "", "en": "/en", "vi": "/vi"}[lang]
-        docs = {"zh": "docs", "en": "docs-en", "vi": "docs-vi"}[lang]
-        return {
-            "site_url": ORIGIN + prefix,
-            "site_dir": str(self.tmp / ("site" + prefix)),
-            "docs_dir": str(self.tmp / docs),
-            "extra": {"site_lang": lang},
+        self.config = {
+            "site_url": f"{SITE}/vi",
+            "site_dir": str(self.tmp / "site" / "vi"),
+            "docs_dir": str(self.tmp / "docs-vi"),
+            "extra": {"upstream_site": UPSTREAM},
         }
 
-    def render(self, lang, url, html=HTML):
-        page = SimpleNamespace(url=url)
-        return vi_switch.on_post_page(html, page, self.config(lang))
+    def render(self, url, html=HTML):
+        return vi_switch.on_post_page(html, SimpleNamespace(url=url), self.config)
 
-    def test_zh_translated_page(self):
-        out = self.render("zh", "lc/1/")
-        self.assertEqual(hrefs(out, "a")["vi"], "../../vi/lc/1/")
-        self.assertEqual(hrefs(out, "link")["vi"], f"{ORIGIN}/vi/lc/1/")
-        # zh/en entries stay for the upstream stay_on_page hook
-        self.assertEqual(hrefs(out, "a")["en"], "/en/")
-        self.assertNotIn("XMLHttpRequest", out)
-
-    def test_zh_page_with_stub(self):
-        out = self.render("zh", "lc/2/")
-        self.assertEqual(hrefs(out, "a")["vi"], "../../vi/lc/2/")
-        self.assertNotIn("vi", hrefs(out, "link"))
-
-    def test_zh_only_page_falls_back_to_vi_home(self):
-        out = self.render("zh", "lcof/3/")
-        self.assertEqual(hrefs(out, "a")["vi"], "../../vi/")
-        self.assertNotIn("vi", hrefs(out, "link"))
-
-    def test_en_page(self):
-        out = self.render("en", "lc/1/")
-        self.assertEqual(hrefs(out, "a")["vi"], "../../../vi/lc/1/")
-
-    def test_vi_translated_page(self):
-        out = self.render("vi", "lc/1/")
+    def test_translated_page(self):
+        out = self.render("lc/1/")
         self.assertEqual(
             hrefs(out, "a"),
-            {"en": "../../../en/lc/1/", "zh": "../../../lc/1/", "vi": "./"},
+            {"en": f"{UPSTREAM}/en/lc/1/", "zh": f"{UPSTREAM}/lc/1/", "vi": "./"},
         )
-        links = hrefs(out, "link")
-        self.assertEqual(links["zh"], f"{ORIGIN}/lc/1/")
-        self.assertEqual(links["en"], f"{ORIGIN}/en/lc/1/")
-        self.assertEqual(links["vi"], f"{ORIGIN}/vi/lc/1/")
-        self.assertEqual(links["x-default"], f"{ORIGIN}/lc/1/")
+        # zh/en alternates would not be reciprocal: only the page itself stays
+        self.assertEqual(hrefs(out, "link"), {"vi": f"{SITE}/vi/lc/1/"})
         self.assertIn("XMLHttpRequest.prototype.open", out)
 
-    def test_vi_stub_drops_alternates(self):
-        out = self.render("vi", "lc/2/")
-        self.assertEqual(hrefs(out, "a")["zh"], "../../../lc/2/")
+    def test_stub_page(self):
+        out = self.render("lc/2/")
+        self.assertEqual(hrefs(out, "a")["en"], f"{UPSTREAM}/en/lc/2/")
         self.assertEqual(hrefs(out, "link"), {})
 
-    def test_vi_home(self):
-        out = self.render("vi", "")
-        self.assertEqual(hrefs(out, "a"), {"en": "../en/", "zh": "../", "vi": "./"})
+    def test_home(self):
+        out = self.render("")
+        self.assertEqual(
+            hrefs(out, "a"), {"en": f"{UPSTREAM}/en/", "zh": f"{UPSTREAM}/", "vi": "./"}
+        )
+
+    def test_vi_only_page_falls_back_to_upstream_home(self):
+        out = self.render("lcci/")
+        self.assertEqual(hrefs(out, "a")["zh"], f"{UPSTREAM}/")
+        self.assertEqual(hrefs(out, "a")["en"], f"{UPSTREAM}/en/")
 
     def test_minified_html(self):
-        out = self.render("zh", "lc/1/", MINIFIED)
-        self.assertEqual(hrefs(out, "a")["vi"], "../../vi/lc/1/")
-        self.assertEqual(hrefs(out, "link")["vi"], f"{ORIGIN}/vi/lc/1/")
+        out = self.render("lc/1/", MINIFIED)
+        self.assertEqual(hrefs(out, "a"), {"zh": f"{UPSTREAM}/lc/1/", "vi": "./"})
+        self.assertEqual(hrefs(out, "link"), {"vi": f"{SITE}/vi/lc/1/"})
+
+    def test_default_upstream(self):
+        del self.config["extra"]["upstream_site"]
+        self.assertEqual(
+            hrefs(self.render("lc/1/"), "a")["zh"], "https://leetcode.doocs.org/lc/1/"
+        )
 
     def test_sitemap_drops_stubs(self):
-        out = vi_switch.drop_stubs_from_sitemap(SITEMAP, self.config("vi"))
-        self.assertIn(f"{ORIGIN}/vi/lc/1/", out)
-        self.assertIn(f"<loc>{ORIGIN}/vi/</loc>", out)
-        self.assertNotIn(f"{ORIGIN}/vi/lc/2/", out)
-        self.assertNotIn(f"{ORIGIN}/vi/contest/", out)
+        out = vi_switch.drop_stubs_from_sitemap(SITEMAP, self.config)
+        self.assertIn(f"{SITE}/vi/lc/1/", out)
+        self.assertIn(f"<loc>{SITE}/vi/</loc>", out)
+        self.assertNotIn(f"{SITE}/vi/lc/2/", out)
+        self.assertNotIn(f"{SITE}/vi/contest/", out)
 
     def test_post_build_rewrites_sitemap_files(self):
-        site = Path(self.config("vi")["site_dir"])
+        site = Path(self.config["site_dir"])
         site.mkdir(parents=True)
         (site / "sitemap.xml").write_text(SITEMAP)
         (site / "sitemap.xml.gz").write_bytes(b"")
-        vi_switch.on_post_build(self.config("vi"))
+        vi_switch.on_post_build(self.config)
         self.assertNotIn("/vi/lc/2/", (site / "sitemap.xml").read_text())
-        import gzip
-
         self.assertNotIn(
             b"/vi/lc/2/", gzip.decompress((site / "sitemap.xml.gz").read_bytes())
         )
@@ -161,19 +151,11 @@ class ViSwitchTest(unittest.TestCase):
         original = vi_switch.rewrite
         self.addCleanup(setattr, vi_switch, "rewrite", original)
         vi_switch.rewrite = boom
-        page = SimpleNamespace(url="lc/1/")
         with mock.patch.dict(os.environ, {"VI_STRICT": ""}):
-            self.assertEqual(
-                vi_switch.on_post_page(HTML, page, self.config("zh")), HTML
-            )
+            self.assertEqual(self.render("lc/1/"), HTML)
         with mock.patch.dict(os.environ, {"VI_STRICT": "1"}):
             with self.assertRaises(ValueError):
-                vi_switch.on_post_page(HTML, page, self.config("zh"))
-
-    def test_site_lang_fallback(self):
-        self.assertEqual(vi_switch.site_lang({"site_dir": "site/vi"}), "vi")
-        self.assertEqual(vi_switch.site_lang({"site_dir": "site/en"}), "en")
-        self.assertEqual(vi_switch.site_lang({"site_dir": "site"}), "zh")
+                self.render("lc/1/")
 
 
 if __name__ == "__main__":

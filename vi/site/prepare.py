@@ -1,15 +1,12 @@
-"""Prepare the build directory for the fork's site (deployed by Vercel).
+"""Prepare the build directory for the Vietnamese site (deployed by Vercel).
 
 Overlays the pinned upstream site engine (doocs/leetcode, docs branch), runs the
-upstream build_site.py for the original zh/en pages (unchanged), generates the
-Vietnamese tree with build_vi.py and writes one MkDocs config per site:
+upstream build_site.py (its flattened zh/en pages tell the language switch which
+counterparts exist; they are not built), generates the Vietnamese tree with
+build_vi.py and writes mkdocs-site-vi.yml -> site/vi/.
 
-    mkdocs-site-zh.yml  ->  site/       (中文, upstream content)
-    mkdocs-site-en.yml  ->  site/en/    (English, upstream content)
-    mkdocs-site-vi.yml  ->  site/vi/    (Tiếng Việt)
-
-The zh/en configs inherit the upstream ones and only change hosting settings:
-site URL, repository link, the language selector, fork hooks and analytics.
+Only Tiếng Việt is hosted. The 中文 and English entries of the language
+selector open the same page on the upstream site (--upstream-url).
 
 Examples:
 
@@ -17,8 +14,6 @@ Examples:
     python3 vi/site/prepare.py --engine .preview/vi-engine \\
         --site-url https://leetcode-vi.example.com --repo owner/leetcode
     python3 vi/site/prepare.py --export-engine .preview/vi-engine
-
-The three sites are served from the root of one domain (see vercel.json).
 """
 
 from __future__ import annotations
@@ -32,7 +27,7 @@ import sys
 import tarfile
 from io import BytesIO
 from pathlib import Path
-from typing import Dict, List, Optional, Set
+from typing import List, Optional, Set
 
 import yaml
 
@@ -62,7 +57,6 @@ DEFAULT_WORKDIR = REPO / ".preview" / "vi-site"
 DEFAULT_SITE_URL = "http://127.0.0.1:8000"
 DEFAULT_REPO = "vandunxg/leetcode"
 
-FORK_HOOKS = ["hooks/fork_site.py", "hooks/vi_switch.py"]
 # Upstream hooks replaced on the vi site: committer.py queries doocs/leetcode
 # history, ext_info.py/thinking_block.py emit zh/en labels (vi_markdown.py
 # reuses their helpers) and stay_on_page.py only knows zh/en (vi_switch.py).
@@ -72,15 +66,10 @@ VI_DROPPED_HOOKS = {
     "thinking_block.py",
     "stay_on_page.py",
 }
-VI_HOOKS = ["hooks/vi_markdown.py"]
+VI_HOOKS = ["hooks/vi_markdown.py", "hooks/fork_site.py", "hooks/vi_switch.py"]
 # Untranslated problems render with overrides/vi_stub.html and stay out of the nav.
 VI_NOT_IN_NAV = "/lc/*.md\n/lcci/*.md\n"
 
-ALTERNATE = [
-    {"name": "English", "link": "/en/", "lang": "en"},
-    {"name": "中文", "link": "/", "lang": "zh"},
-    {"name": "Tiếng Việt", "link": "/vi/", "lang": "vi"},
-]
 VI_DESCRIPTION = (
     "Lời giải LeetCode và Cracking the Coding Interview bằng nhiều ngôn ngữ "
     "lập trình — bản tiếng Việt"
@@ -237,62 +226,50 @@ def load_config(path: Path) -> dict:
     return data
 
 
-def site_configs(
-    zh: dict, en: dict, site_url: str, repo: str, minify: bool = True
-) -> Dict[str, dict]:
-    """Per-site config overrides; zh/en inherit the upstream configs."""
-    base = site_url.rstrip("/")
-    repo_keys = {"repo_name": repo, "repo_url": f"https://github.com/{repo}"}
-    hooks = list(zh.get("hooks") or [])
-    vi_hooks = [h for h in hooks if Path(h).name not in VI_DROPPED_HOOKS]
+def alternate(upstream: str) -> List[dict]:
+    """Language selector entries; vi_switch.py rewrites them per page."""
+    return [
+        {"name": "English", "link": f"{upstream}/en/", "lang": "en"},
+        {"name": "中文", "link": f"{upstream}/", "lang": "zh"},
+        {"name": "Tiếng Việt", "link": "/vi/", "lang": "vi"},
+    ]
 
-    def extra(lang: str) -> dict:
-        return {"site_lang": lang, "alternate": ALTERNATE, "analytics": None}
 
-    configs = {
-        "zh": {
-            "INHERIT": "mkdocs.yml",
-            "site_url": base,
-            **repo_keys,
-            "hooks": hooks + FORK_HOOKS,
-            "extra": extra("zh"),
-        },
-        "en": {
-            "INHERIT": "mkdocs-en.yml",
-            "site_url": f"{base}/en",
-            **repo_keys,
-            "hooks": list(en.get("hooks") or hooks) + FORK_HOOKS,
-            "extra": extra("en"),
-        },
-        "vi": {
-            "INHERIT": "mkdocs.yml",
-            "site_url": f"{base}/vi",
-            "site_description": VI_DESCRIPTION,
-            "site_dir": "site/vi",
-            "docs_dir": build_vi.DOCS_VI,
-            **repo_keys,
-            "copyright": VI_COPYRIGHT.format(repo=repo),
-            "theme": {"language": "vi"},
-            "hooks": vi_hooks + VI_HOOKS + FORK_HOOKS,
-            "not_in_nav": VI_NOT_IN_NAV,
-            "extra": extra("vi"),
+def site_config(
+    zh: dict, site_url: str, repo: str, upstream: str, minify: bool = True
+) -> dict:
+    """Config of the vi site; it inherits the upstream zh config."""
+    hooks = [h for h in zh.get("hooks") or [] if Path(h).name not in VI_DROPPED_HOOKS]
+    config = {
+        "INHERIT": "mkdocs.yml",
+        "site_url": f"{site_url.rstrip('/')}/vi",
+        "site_description": VI_DESCRIPTION,
+        "site_dir": "site/vi",
+        "docs_dir": build_vi.DOCS_VI,
+        "repo_name": repo,
+        "repo_url": f"https://github.com/{repo}",
+        "copyright": VI_COPYRIGHT.format(repo=repo),
+        "theme": {"language": "vi"},
+        "hooks": hooks + VI_HOOKS,
+        "not_in_nav": VI_NOT_IN_NAV,
+        "extra": {
+            "upstream_site": upstream,
+            "alternate": alternate(upstream),
+            "analytics": None,
         },
     }
     if not minify:
-        for lang, parent in (("zh", zh), ("en", en), ("vi", zh)):
-            plugins = parent.get("plugins") or []
-            configs[lang]["plugins"] = [
-                p for p in plugins if not (isinstance(p, dict) and "minify" in p)
-            ]
-    return configs
+        config["plugins"] = [
+            p
+            for p in zh.get("plugins") or []
+            if not (isinstance(p, dict) and "minify" in p)
+        ]
+    return config
 
 
-def write_configs(workdir: Path, configs: Dict[str, dict], vi_nav: str) -> None:
-    for lang, data in configs.items():
-        text = yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=1000)
-        if lang == "vi":
-            text += "\n" + vi_nav
-        (workdir / f"mkdocs-site-{lang}.yml").write_text(text, encoding="utf-8")
+def write_config(workdir: Path, config: dict, nav: str) -> None:
+    text = yaml.safe_dump(config, allow_unicode=True, sort_keys=False, width=1000)
+    (workdir / "mkdocs-site-vi.yml").write_text(text + "\n" + nav, encoding="utf-8")
 
 
 # --- main -------------------------------------------------------------------
@@ -303,6 +280,7 @@ def prepare(
     engine: Optional[Path],
     site_url: str,
     repo: str,
+    upstream: str,
     only: Optional[List[str]],
     minify: bool,
 ) -> None:
@@ -333,6 +311,7 @@ def prepare(
         repo,
         only=only_dirs,
         reports_dir=REPO / "translation" / "state" / "units",
+        upstream=upstream,
     )
     for hook in sorted((HERE / "hooks").glob("*.py")):
         shutil.copy2(hook, workdir / "hooks" / hook.name)
@@ -340,8 +319,7 @@ def prepare(
         shutil.copy2(template, workdir / "overrides" / template.name)
 
     zh = load_config(workdir / "mkdocs.yml")
-    en = load_config(workdir / "mkdocs-en.yml")
-    write_configs(workdir, site_configs(zh, en, site_url, repo, minify), vi_nav)
+    write_config(workdir, site_config(zh, site_url, repo, upstream, minify), vi_nav)
     print(f"Prepared {workdir}")
 
 
@@ -355,7 +333,14 @@ def main() -> None:
         type=Path,
         help="checkout of the upstream docs branch (default: extract ENGINE_REF)",
     )
-    parser.add_argument("--site-url", default=DEFAULT_SITE_URL)
+    parser.add_argument(
+        "--site-url", default=DEFAULT_SITE_URL, help="origin; the site lives at /vi/"
+    )
+    parser.add_argument(
+        "--upstream-url",
+        default=build_vi.DEFAULT_UPSTREAM,
+        help="site opened by the 中文/English entries of the language selector",
+    )
     parser.add_argument("--repo", default=DEFAULT_REPO, help="owner/name for links")
     parser.add_argument(
         "--only", help="comma-separated problems for a quick preview, e.g. 1,lcci/01.01"
@@ -382,7 +367,13 @@ def main() -> None:
         return
     only = [t for t in (args.only or "").split(",") if t.strip()] or None
     prepare(
-        args.workdir, args.engine, args.site_url, args.repo, only, not args.no_minify
+        args.workdir,
+        args.engine,
+        args.site_url,
+        args.repo,
+        args.upstream_url.rstrip("/"),
+        only,
+        not args.no_minify,
     )
 
 

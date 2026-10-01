@@ -19,7 +19,7 @@ Nội dung được dịch dần từ bản tiếng Anh. <!-- vi:progress --> B�
 
 ## Chuyển ngôn ngữ
 
-Dùng biểu tượng ngôn ngữ trên thanh tiêu đề để chuyển giữa 中文, English và Tiếng Việt. Khi chuyển, bạn vẫn ở đúng bài đang đọc.
+Dùng biểu tượng ngôn ngữ trên thanh tiêu đề: mục 中文 và English mở đúng bài đang đọc trên site gốc [LeetCode Wiki](%UPSTREAM%/).
 
 ## Đóng góp
 

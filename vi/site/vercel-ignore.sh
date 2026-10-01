@@ -9,7 +9,7 @@ if [ "${VERCEL_GIT_COMMIT_REF:-}" != "main" ]; then
 fi
 
 if git diff --quiet HEAD^ HEAD -- \
-  vi solution lcci lcof lcof2 lcp lcs translation/state/units vercel.json; then
+  vi solution lcci translation/state/units vercel.json; then
   echo "Skip: no site input changed in this commit."
   exit 0
 fi

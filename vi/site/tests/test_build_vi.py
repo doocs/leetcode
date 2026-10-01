@@ -69,7 +69,8 @@ class BuildViTest(unittest.TestCase):
         self.static = self.tmp / "static"
         self.static.mkdir()
         (self.static / "index.md").write_text(
-            "# Home\n\n<!-- vi:progress -->\n\n[repo](https://github.com/%REPO%)\n",
+            "# Home\n\n<!-- vi:progress -->\n\n[repo](https://github.com/%REPO%)\n"
+            "[gốc](%UPSTREAM%/)\n",
             encoding="utf-8",
         )
 
@@ -102,6 +103,7 @@ class BuildViTest(unittest.TestCase):
                 "owner/leetcode",
                 only=only,
                 reports_dir=self.reports,
+                upstream="https://up.example",
             )
         self.log = out.getvalue()
         return nav
@@ -170,10 +172,10 @@ class BuildViTest(unittest.TestCase):
             "# [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers)",
             text,
         )
-        self.assertIn("[English](../../../en/lc/2/)", text)
-        self.assertIn("[中文](../../../lc/2/)", text)
+        self.assertIn("[English](https://up.example/en/lc/2/)", text)
+        self.assertIn("[中文](https://up.example/lc/2/)", text)
         lcci = self.page("lcci/1.1.md")
-        self.assertIn("[English](../../../en/lcci/1.1/)", lcci)
+        self.assertIn("[English](https://up.example/en/lcci/1.1/)", lcci)
 
     def test_index_pages_list_every_problem(self):
         self.build()
@@ -214,6 +216,7 @@ class BuildViTest(unittest.TestCase):
         index = self.page("index.md")
         self.assertIn("Hiện đã dịch **1** / 4 bài (25.0%).", index)
         self.assertIn("https://github.com/owner/leetcode", index)
+        self.assertIn("[gốc](https://up.example/)", index)
         self.assertTrue((self.work / "docs-vi" / "stylesheets" / "extra.css").is_file())
         self.assertTrue(
             (self.work / "docs-vi" / "javascripts" / "mathjax.js").is_file()
