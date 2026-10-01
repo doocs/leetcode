@@ -1,0 +1,50 @@
+schema_version: 1
+unit_id: "lc-0208"
+attempt_id: "lc-0208-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: null
+source: {snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5", locator: "solution/0200-0299/0208.Implement Trie (Prefix Tree)/README_EN.md", kind: "git-blob", git_blob: "9e21b9692fa36b7b95530dc634a82f74a16ae520"}
+target: {path: "vi/solution/0200-0299/0208.Implement Trie (Prefix Tree)/README.md", sha256: "1e45302e757c4bd478714fb8218cf23e7a5ddcadcb343daedc137fc529839277"}
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  glossary_revision: "0.2.0"
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "translation/rules/00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "translation/rules/01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "translation/rules/02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "translation/rules/03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "translation/rules/04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "translation/rules/05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+coverage:
+  read_scope: ["whole source file"]
+  translated_scope: ["all prose, labels, and explanatory comments"]
+  reviewed_scope: ["whole file"]
+  mode: "full"
+  block_map: ["source README_EN.md:1-582 <-> target README.md:1-582; all blocks accounted for"]
+  exclusions: ["code logic, identifiers, literals, URLs, math, markup structure, and example data preserved"]
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "1e45302e757c4bd478714fb8218cf23e7a5ddcadcb343daedc137fc529839277"
+  required_checks: ["full_semantic_review", "source_protection", "protected_spans", "structure", "links_and_assets", "residual_language"]
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "all 582 lines and all 8 code tabs", evidence: "all prose, labels, comments, code, and structural blocks reviewed; no added or omitted content"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", scope: "solution lcof lcof2 lcci lcp lcs basic images root README files", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, fences, inline code, math, URLs, HTML tags, blocks, example data", evidence: "only code_fences mismatch; explanatory comments were translated as explicitly requested"}
+  - {id: "structure", status: "fail", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure, thinking blocks, and code tabs", evidence: "check_thinking.py passed; check_vi.py failed only on code_fences"}
+  - {id: "code_logic_review", status: "pass", method: "fence-by-fence comparison excluding comment lines", scope: "all 8 code fences", evidence: "all non-comment code lines and fence info strings unchanged"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py warning review", scope: "translated prose", evidence: "no residual_english warnings"}
+  - {id: "links_and_assets", status: "not_run", method: "site render/build", scope: "target page", evidence: null, reason: "not requested and no asset changes"}
+findings:
+  - {id: "F-001", rule_id: "CODE-01", severity: "medium", source_locator: "README_EN.md:108-576", target_locator: "README.md:108-576", evidence: "strict checker requires byte-identical code fences, while the task explicitly requires translating explanatory comments", status: "open", fix: "none without violating the direct task requirement"}
+term_proposals: []
+blockers: ["Required check_vi.py code_fences gate is incompatible with the requested explanatory-comment translation."]
+checkpoint: {last_complete_source_block: "problem:end", next_source_locator: null, next_action: "resolve checker policy conflict before verified status"}
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"

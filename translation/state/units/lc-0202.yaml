@@ -1,0 +1,117 @@
+schema_version: 1
+unit_id: "lc-0202"
+attempt_id: "lc-0202-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: null
+source:
+  snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5"
+  locator: "solution/0200-0299/0202.Happy Number/README_EN.md"
+  kind: "git-blob"
+  git_blob: "dc220e0ed1594a95bb4dc78a8ce4e0fe484e4c17"
+  sha256: "f62028139f64dd49c07c7eb0ae7881a8c1c82c8ac569ee348d6a513bd0c378fd"
+target:
+  path: "vi/solution/0200-0299/0202.Happy Number/README.md"
+  kind: "git-blob"
+  git_blob: "bd80e66ee99042bef5eced89520cfd1a5a026a1a"
+  sha256: "0a8d584c85b49ddc4e7df22cec1d12f2e6dd42e50628fcbcd21b3b6aeb220f8e"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    00-core.md: "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    01-style-and-terminology.md: "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    02-code-and-literals.md: "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    03-structure-links-assets.md: "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    04-quality-gates.md: "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    05-state-and-evidence.md: "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    repo-docs.md: "6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36"
+    markdown-mdx.md: "e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767"
+    html.md: "bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256"
+    algorithms.md: "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+    translation.md: "e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d"
+    upstream-sync.md: "389f1ca08cb29d62b07fd8d12cfd13ad0cd51d2c567b2605b96b2488993e5e10"
+    release.md: "aff958e785da4ae560836f72cd4ac79063a0666faede8c0a40b6f024b417deb3"
+coverage:
+  read_scope:
+    - "whole source file (384 lines)"
+  translated_scope:
+    - "all HTML prose, labels, headings and thinking prose"
+    - "front matter, H1, version-switch line, markers, URLs, math, example data and code preserved"
+    - "all 7 code tabs preserved verbatim"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+    - "protected spans, HTML tags, markers, URLs, math, example data and code fences"
+  mode: "full"
+  block_map:
+    - "front matter -> preserved byte-for-byte (PROJECT-002)"
+    - "H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)"
+    - "Description, example labels, Input/Output/Explanation and Constraints -> translated; HTML structure and data preserved"
+    - "Solutions and Solution 1/2 headings -> translated per PROJECT-003"
+    - "both Thinking blocks -> translated"
+    - "all 7 code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_sha256: "0a8d584c85b49ddc4e7df22cec1d12f2e6dd42e50628fcbcd21b3b6aeb220f8e"
+  required_checks:
+    - "source_protection"
+    - "full_semantic_review"
+    - "protected_spans"
+    - "structure"
+    - "links_and_assets"
+    - "residual_language"
+checks:
+  - id: "full_semantic_review"
+    status: "pass"
+    method: "full source-target comparison using QA-03 checklist"
+    scope: "whole 384-line file"
+    evidence: "All prose blocks, labels, headings and two Thinking blocks have counterparts; no added or omitted content."
+  - id: "source_protection"
+    status: "pass"
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output"
+  - id: "protected_spans"
+    status: "pass"
+    method: "python3 translation/tools/check_vi.py 'vi/solution/0200-0299/0202.Happy Number/README.md'"
+    scope: "front matter, headings, code fences, inline code, math, markers, URLs, HTML tags and <pre> example data"
+    evidence: "PASS 1/1"
+  - id: "structure"
+    status: "pass"
+    method: "check_vi.py; python3 scripts/check_thinking.py target; git diff --no-index --check /dev/null target"
+    scope: "whole file"
+    evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s); no whitespace errors"
+  - id: "links_and_assets"
+    status: "not_run"
+    method: "python3 vi/site/prepare.py --workdir /tmp/opencode/lc-0202-preview --only 202 --no-minify; mkdocs build"
+    scope: "target page and rendered page"
+    evidence: "prepare.py exited 0 and generated docs-vi/lc/202.md; the MkDocs step failed before execution because /usr/bin/python3 has no mkdocs module."
+    reason: "required renderer dependency is unavailable in the environment"
+  - id: "residual_language"
+    status: "pass"
+    method: "check_vi.py residual_english warnings plus manual classification"
+    scope: "whole file"
+    evidence: "No residual_english warnings; remaining English is the official H1, code-tab labels, identifiers/math/code literals, front matter and preserved version-switch line."
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "install or provide the project MkDocs environment, then rerun the isolated site build"
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"

@@ -1,0 +1,19 @@
+schema_version: 1
+unit_id: "lc-0194"
+attempt_id: "lc-0194-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+source: {snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5", locator: "solution/0100-0199/0194.Transpose File/README_EN.md", kind: "git-blob", git_blob: "df20ceb0258335339d4dd4d1ee465d6a8107eefe"}
+target: {path: "vi/solution/0100-0199/0194.Transpose File/README.md", sha256: "219ad84e2eb8e18089ac9fc155149ea383141588457d4a85aae5f2a7590138cf"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose, markup and explanatory comments"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "check_vi.py", evidence: "only translated code comments differ inside fences"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+  - {id: "non_comment_code", status: "pass", method: "fence comparison with comments removed", evidence: "code unchanged"}
+findings: [{id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", evidence: "checker/policy conflict with user request", status: "open", fix: "requires policy/checker decision"}]
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"

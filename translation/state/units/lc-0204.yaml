@@ -1,0 +1,72 @@
+schema_version: 1
+unit_id: "lc-0204"
+attempt_id: "lc-0204-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: "reviewing"
+source:
+  snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5"
+  locator: "solution/0200-0299/0204.Count Primes/README_EN.md"
+  sha256: "9a773c70bdce795f0f85344d8daf4fe5a746b2a7a26782e764165fbb1367bad1"
+  kind: "git-blob"
+  git_blob: "5665ee7fe151ecd9d158641b8dffe07d70939c8d"
+target:
+  path: "vi/solution/0200-0299/0204.Count Primes/README.md"
+  sha256: "b4d408787744d527db9f58c42feaa6f7a42e9bf13a742a19c7ff267209656d78"
+  kind: "git-blob"
+  git_blob: "0b95552d8f39e007f58ea23b8e17d768cec86282"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  glossary_revision: "0.2.0"
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "00-core": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "01-style-and-terminology": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "02-code-and-literals": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "03-structure-links-assets": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "04-quality-gates": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "05-state-and-evidence": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+coverage:
+  read_scope: ["whole source file, 198 lines"]
+  translated_scope: ["all prose and markup text; no explanatory code comments present"]
+  reviewed_scope: ["whole source and target file"]
+  mode: "full"
+  block_map:
+    - {source: "lines 1-12", target: "lines 1-12", disposition: "front matter preserved"}
+    - {source: "lines 14-18", target: "lines 14-18", disposition: "markers, official H1, and version-switch link preserved"}
+    - {source: "lines 20-56", target: "lines 20-56", disposition: "description and labels translated; example data, HTML structure, and constraints literal preserved"}
+    - {source: "lines 58-72", target: "lines 58-72", disposition: "solution heading and Thinking prose translated; math and markers preserved"}
+    - {source: "lines 74-194", target: "lines 74-194", disposition: "code-tab headings, fences, code, and JSDoc comment preserved"}
+    - {source: "lines 196-198", target: "lines 196-198", disposition: "closing markers preserved"}
+  exclusions: ["No source content excluded"]
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "b4d408787744d527db9f58c42feaa6f7a42e9bf13a742a19c7ff267209656d78"
+  required_checks:
+    - "source_protection"
+    - "full_semantic_review"
+    - "protected_spans"
+    - "structure"
+    - "links_and_assets"
+    - "residual_language"
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added prose"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, code fences, inline code, math, URLs, tags, example data", evidence: "PASS 1/1"}
+  - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "headings, markers, tabs, HTML structure", evidence: "check_vi PASS; check_thinking OK 1 file(s)"}
+  - {id: "links_and_assets", status: "not_run", method: "check_vi.py URL multiset + vi site render", scope: "URLs and site output", evidence: "check_vi URL validation passed; site render not run", reason: "render was not requested"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan", scope: "translated prose", evidence: "no residual-English warning"}
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "lines 1-198"
+  next_source_locator: null
+  next_action: "Run vi site render before promoting this unit to verified"
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"

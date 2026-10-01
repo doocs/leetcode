@@ -1,0 +1,58 @@
+schema_version: 1
+unit_id: "lc-0211"
+attempt_id: "lc-0211-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: "reviewing"
+source:
+  snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5"
+  locator: "solution/0200-0299/0211.Design Add and Search Words Data Structure/README_EN.md"
+  sha256: "61f6ee042931b1be88d829ff347b2e34dcf36ec116556abd2ea4d9db60b64df5"
+  kind: "git-blob"
+  git_blob: "357ea45df77804a60f6b263684ee4fcbec88e8a0"
+target:
+  path: "vi/solution/0200-0299/0211.Design Add and Search Words Data Structure/README.md"
+  sha256: "cbec44d235a5741b6bd6f5505e0850a27b6eb2a9f11acf42c04aacb73a28c541"
+  kind: "git-blob"
+  git_blob: "9c4b6abb1abf333fa1bba9ce9f92874740e7d98a"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  glossary_revision: "0.2.0"
+coverage:
+  read_scope: ["whole source file, 393 lines"]
+  translated_scope: ["all prose, markup and explanatory code comments"]
+  reviewed_scope: ["whole source and target file"]
+  mode: "full"
+  block_map:
+    - {source: "lines 1-15", target: "lines 1-15", disposition: "front matter, official H1, and version-switch link preserved"}
+    - {source: "lines 17-63", target: "lines 17-63", disposition: "description, labels, and constraints translated; HTML structure and example data preserved"}
+    - {source: "lines 65-79", target: "lines 65-79", disposition: "solution heading and Thinking prose translated; math and markers preserved"}
+    - {source: "lines 81-389", target: "lines 81-389", disposition: "code-tab headings, fences, non-comment code, identifiers, literals, and APIs preserved; explanatory comments translated"}
+    - {source: "lines 391-393", target: "lines 391-393", disposition: "closing markers preserved"}
+  exclusions: ["No source content excluded"]
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "cbec44d235a5741b6bd6f5505e0850a27b6eb2a9f11acf42c04aacb73a28c541"
+  required_checks: ["source_protection", "full_semantic_review", "protected_spans", "structure", "links_and_assets", "residual_language"]
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added prose"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", scope: "front matter, code fences, inline code, math, URLs, tags, example data", evidence: "only translated explanatory comments differ inside five code fences"}
+  - {id: "non_comment_code", status: "pass", method: "fence comparison with comments removed", scope: "all five code fences", evidence: "non-comment code unchanged"}
+  - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "headings, markers, tabs, HTML structure", evidence: "check_thinking OK; check_vi reported no structural mismatch"}
+  - {id: "links_and_assets", status: "not_run", method: "check_vi.py URL multiset + vi site render", scope: "URLs and site output", evidence: "URL multiset passed within check_vi; site render not run", reason: "render was not requested"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan", scope: "translated prose", evidence: "no residual-English warning"}
+  - {id: "formatting", status: "pass", method: "pnpm exec prettier --check target", scope: "target Markdown", evidence: "all matched files use Prettier code style"}
+findings:
+  - {id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", source_locator: "lines 123-126, 140, 182-187, 254-259, 321-326", target_locator: "same lines", evidence: "repository checker requires byte-identical code fences, while the user explicitly required translating explanatory comments", status: "open", fix: "requires policy/checker decision"}
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "lines 1-393"
+  next_source_locator: null
+  next_action: "Resolve the code-comment protected-span policy before promoting this unit to verified"
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"

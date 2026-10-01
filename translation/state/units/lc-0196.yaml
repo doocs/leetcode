@@ -1,0 +1,131 @@
+schema_version: 1
+unit_id: "lc-0196"
+attempt_id: "lc-0196-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: null
+source:
+  snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5"
+  locator: "solution/0100-0199/0196.Delete Duplicate Emails/README_EN.md"
+  kind: "git-blob"
+  git_blob: "31b2d0a0a0b8673c9ace7786288380a8ee97d21f"
+target:
+  path: "vi/solution/0100-0199/0196.Delete Duplicate Emails/README.md"
+  kind: "git-blob"
+  git_blob: "5635afd3904e6ba159222d8fa6ce461024c6f563"
+  sha256: "0be805839894fccd6c7267e62da3bfaf13dca453edd1092b674e0ba08c09ffd7"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    "repo-docs.md": "6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36"
+    "markdown-mdx.md": "e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767"
+    "html.md": "bc422f61c79e1182cf371e5236d055921120fce138f32f97ca609fda15c256"
+    "algorithms.md": "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+    "translation.md": "e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d"
+    "parallel.md": "6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6"
+coverage:
+  read_scope:
+    - "whole source file (179 lines), including front matter, HTML problem statement, table, example, Thinking blocks, markers and Python/SQL code tabs"
+    - "canonical read set from translation/INSTRUCTIONS.md"
+  translated_scope:
+    - "all translatable prose, headings, labels and explanatory code comments in the whole source file"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: "full"
+  block_map:
+    - "front matter -> preserved verbatim"
+    - "H1 title and 中文文档 switch line -> preserved"
+    - "Description and HTML prose -> translated; tags, attributes, code spans and table/example data preserved"
+    - "Example labels and explanation -> translated; example data preserved"
+    - "Solutions, Thinking blocks and fixed structural labels -> translated; math preserved verbatim"
+    - "Python and MySQL tabs -> executable code preserved; explanatory comments translated per explicit user request"
+  exclusions: []
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: "5635afd3904e6ba159222d8fa6ce461024c6f563"
+  reviewed_target_sha256: "cf9097fb252ad22a81d924866295e3500ad11b315174513d2b31aed6387ffdef"
+  required_checks:
+    - "source_protection"
+    - "full_semantic_review"
+    - "protected_spans"
+    - "structure"
+    - "links_and_assets"
+    - "residual_language"
+    - "diff_check"
+checks:
+  - id: "full_semantic_review"
+    status: "pass"
+    method: "Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist."
+    scope: "whole file"
+    evidence: "All problem prose, table, example, labels, three Thinking blocks, structural markers and code tabs are accounted for; SQL/Python logic, literals, links and math are preserved."
+  - id: "source_protection"
+    status: "pass"
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output"
+  - id: "protected_spans"
+    status: "fail"
+    method: "python3 translation/tools/check_vi.py vi/solution/0100-0199/0196.Delete Duplicate Emails/README.md"
+    scope: "whole file"
+    evidence: "Front matter, math, markers, URLs, HTML structure, inline code and example data are preserved; check_vi reports only code_fences because explanatory comments were translated."
+    reason: "The user explicitly required translating explanatory comments, overriding the project default code-comment preservation policy; no executable code was changed."
+  - id: "structure"
+    status: "pass"
+    method: "python3 translation/tools/check_vi.py target structural checks; python3 scripts/check_thinking.py target"
+    scope: "whole file"
+    evidence: "check_thinking OK 1 file(s); heading levels, H1, code-tab headings, markers and HTML structure match source."
+  - id: "links_and_assets"
+    status: "not_run"
+    method: "check_vi.py URL multiset; python3 vi/site/prepare.py --only lc-0196 && mkdocs build -f mkdocs-site-vi.yml in vi/site/.work"
+    scope: "whole file and rendered unit page"
+    evidence: "check_vi reported no URL or asset mismatch; site prepare/build was not run."
+    reason: "The requested unit checks were limited to translation self-review and repository checks."
+  - id: "residual_language"
+    status: "pass"
+    method: "check_vi.py residual-English warnings plus manual classification during full self-review"
+    scope: "whole file"
+    evidence: "Remaining English is the official H1, preserved switch label, technical identifiers, code/math, example data and language-tab labels."
+  - id: "diff_check"
+    status: "pass"
+    method: "git diff --check -- vi/solution/0100-0199/0196.Delete Duplicate Emails/README.md translation/state/units/lc-0196.yaml"
+    scope: "owned target and report"
+    evidence: "empty output"
+boundary_reports: []
+findings:
+  - id: "comment-fence-override"
+    rule_id: "CODE-02; PROJECT-002"
+    severity: "medium"
+    source_locator: "README_EN.md:90-101, 127"
+    target_locator: "README.md:90-101, 127"
+    evidence: "Four explanatory Python/MySQL comments are Vietnamese in the target, so check_vi's exact code-fence comparison fails despite unchanged executable code."
+    status: "unresolved"
+    fix: "Requires an explicit policy/checker exception or restoring the source comments; the user explicitly requested translated explanatory comments."
+term_proposals: []
+blockers:
+  - "protected_spans check fails only on the explicit comment-translation override"
+  - "links_and_assets site render check not run"
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "Resolve the comment policy/checker exception and run the site render check before verified."
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"

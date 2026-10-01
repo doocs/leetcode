@@ -1,0 +1,17 @@
+schema_version: 1
+unit_id: "lc-0205"
+attempt_id: "lc-0205-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+source: {snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5", locator: "solution/0200-0299/0205.Isomorphic Strings/README_EN.md", kind: "git-blob", git_blob: "afe406d7d517635a82e1f235f081454f327e4a19"}
+target: {path: "vi/solution/0200-0299/0205.Isomorphic Strings/README.md", sha256: "aaaebcd35267aa64e67d79cdda61d5dd67eb5ada03542075770e8d84be06f383"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "check_vi.py", evidence: "PASS"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"
