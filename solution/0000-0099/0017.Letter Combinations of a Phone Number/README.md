@@ -544,7 +544,7 @@ class Solution {
 
         $combinations = [];
 
-        backtrack($digits, '', 0, $digitMap, $combinations);
+        $this->backtrack($digits, '', 0, $digitMap, $combinations);
 
         return $combinations;
     }
@@ -561,7 +561,7 @@ class Solution {
         $letters = $digitMap[$digit];
 
         foreach ($letters as $letter) {
-            backtrack($digits, $current . $letter, $index + 1, $digitMap, $combinations);
+            $this->backtrack($digits, $current . $letter, $index + 1, $digitMap, $combinations);
         }
     }
 }
