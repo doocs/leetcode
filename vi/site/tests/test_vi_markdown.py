@@ -81,9 +81,12 @@ class ViMarkdownTest(unittest.TestCase):
 
     def test_outdated_notice(self):
         p = page({"vi_status": "outdated", "difficulty": "Easy"}, url="lcci/1.1/")
-        out = vi_markdown.on_page_markdown(DOC, p, {}, None)
+        config = {"extra": {"upstream_site": "https://up.example"}}
+        out = vi_markdown.on_page_markdown(DOC, p, config, None)
         self.assertIn('!!! warning "Bản dịch có thể đã cũ"', out)
-        self.assertIn("[bản English](../../../en/lcci/1.1/)", out)
+        self.assertIn("[bản English](https://up.example/en/lcci/1.1/)", out)
+        out = vi_markdown.on_page_markdown(DOC, p, {}, None)
+        self.assertIn("(https://leetcode.doocs.org/en/lcci/1.1/)", out)
         self.assertLess(out.index("lc-badges"), out.index("!!! warning"))
         fresh = vi_markdown.on_page_markdown(DOC, page({}), {}, None)
         self.assertNotIn("!!! warning", fresh)

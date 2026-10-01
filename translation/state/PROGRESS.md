@@ -2,7 +2,7 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `9377c61562a4097e96d48eed152b07dc411c1d17`
+- Snapshot nguồn: `dc991a6b46d6f6b08c9a5f758188454befd036d7`
 - Tổng số unit trong scope: 4177
 - verified: 3
 - stale: 0

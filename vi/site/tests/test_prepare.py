@@ -22,33 +22,29 @@ ZH = {
     "plugins": ["tags", {"search": {}}, {"minify": {"minify_html": True}}],
     "extra": {"analytics": {"provider": "google"}},
 }
+UPSTREAM = "https://leetcode.doocs.org"
 
 
 class PrepareTest(unittest.TestCase):
-    def configs(self, minify=True):
-        return prepare.site_configs(
-            ZH, ZH, "https://owner.github.io/leetcode/", "owner/leetcode", minify
+    def config(self, minify=True):
+        return prepare.site_config(
+            ZH, "https://leetcode-vi.example.com/", "owner/leetcode", UPSTREAM, minify
         )
 
-    def test_site_urls_and_repo(self):
-        c = self.configs()
-        self.assertEqual(c["zh"]["site_url"], "https://owner.github.io/leetcode")
-        self.assertEqual(c["en"]["site_url"], "https://owner.github.io/leetcode/en")
-        self.assertEqual(c["vi"]["site_url"], "https://owner.github.io/leetcode/vi")
-        self.assertEqual(c["vi"]["repo_url"], "https://github.com/owner/leetcode")
-        self.assertEqual(c["zh"]["INHERIT"], "mkdocs.yml")
-        self.assertEqual(c["en"]["INHERIT"], "mkdocs-en.yml")
-        self.assertEqual(c["vi"]["docs_dir"], "docs-vi")
-        self.assertEqual(c["vi"]["site_dir"], "site/vi")
-        self.assertEqual(c["vi"]["theme"], {"language": "vi"})
-        self.assertEqual(c["vi"]["not_in_nav"], "/lc/*.md\n/lcci/*.md\n")
-        self.assertNotIn("not_in_nav", c["zh"])
+    def test_site_settings(self):
+        c = self.config()
+        self.assertEqual(c["INHERIT"], "mkdocs.yml")
+        self.assertEqual(c["site_url"], "https://leetcode-vi.example.com/vi")
+        self.assertEqual(c["site_dir"], "site/vi")
+        self.assertEqual(c["docs_dir"], "docs-vi")
+        self.assertEqual(c["repo_url"], "https://github.com/owner/leetcode")
+        self.assertEqual(c["theme"], {"language": "vi"})
+        self.assertEqual(c["not_in_nav"], "/lc/*.md\n/lcci/*.md\n")
+        self.assertIn("owner/leetcode", c["copyright"])
 
     def test_hooks(self):
-        c = self.configs()
-        self.assertEqual(c["zh"]["hooks"], ZH["hooks"] + prepare.FORK_HOOKS)
         self.assertEqual(
-            c["vi"]["hooks"],
+            self.config()["hooks"],
             [
                 "hooks/edit_url.py",
                 "hooks/tags.py",
@@ -58,17 +54,18 @@ class PrepareTest(unittest.TestCase):
             ],
         )
 
-    def test_language_selector_and_analytics(self):
-        for lang, cfg in self.configs().items():
-            self.assertEqual(cfg["extra"]["site_lang"], lang)
-            self.assertIsNone(cfg["extra"]["analytics"])
-            langs = [a["lang"] for a in cfg["extra"]["alternate"]]
-            self.assertEqual(langs, ["en", "zh", "vi"])
+    def test_language_selector_points_to_upstream(self):
+        extra = self.config()["extra"]
+        self.assertIsNone(extra["analytics"])
+        self.assertEqual(extra["upstream_site"], UPSTREAM)
+        self.assertEqual(
+            [(a["lang"], a["link"]) for a in extra["alternate"]],
+            [("en", f"{UPSTREAM}/en/"), ("zh", f"{UPSTREAM}/"), ("vi", "/vi/")],
+        )
 
     def test_minify_toggle(self):
-        self.assertNotIn("plugins", self.configs()["zh"])
-        plugins = self.configs(minify=False)["vi"]["plugins"]
-        self.assertEqual(plugins, ["tags", {"search": {}}])
+        self.assertNotIn("plugins", self.config())
+        self.assertEqual(self.config(minify=False)["plugins"], ["tags", {"search": {}}])
 
     def test_load_config_resolves_inherit_and_custom_tags(self):
         tmp = Path(tempfile.mkdtemp())

@@ -5,5 +5,6 @@
     "buildCommand": "bash vi/site/vercel-build.sh",
     "outputDirectory": "site",
     "ignoreCommand": "bash vi/site/vercel-ignore.sh",
-    "trailingSlash": true
+    "trailingSlash": true,
+    "redirects": [{ "source": "/", "destination": "/vi/", "permanent": false }]
 }

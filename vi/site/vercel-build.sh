@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Build 中文 (/), English (/en/) and Tiếng Việt (/vi/) into site/ (vercel.json).
+# Build the Tiếng Việt site into site/vi/ (vercel.json outputDirectory: site).
 #
-# On Vercel the site URL and repository come from the system environment
-# variables; set SITE_URL to override. Local run for a few problems:
+# Only the Vietnamese site is built; its 中文 / English links open the upstream
+# site (UPSTREAM_SITE, default https://leetcode.doocs.org). On Vercel the site
+# URL and repository come from the system environment variables; set SITE_URL
+# to override. Local run for a few problems:
 #
 #   VI_ONLY=1,74,lcci/01.01 bash vi/site/vercel-build.sh
-#
-# VI_JOBS=1 builds the three sites one after another (less memory).
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
@@ -38,6 +38,7 @@ fi
 SLUG="${VERCEL_GIT_REPO_OWNER:-vandunxg}/${VERCEL_GIT_REPO_SLUG:-leetcode}"
 
 args=(--workdir "$WORK" --site-url "$SITE_URL" --repo "$SLUG")
+args+=(--upstream-url "${UPSTREAM_SITE:-https://leetcode.doocs.org}")
 if [ -n "${VI_ONLY:-}" ]; then
   args+=(--only "$VI_ONLY")
 fi
@@ -45,37 +46,11 @@ python vi/site/prepare.py "${args[@]}"
 python -m pip install -q -r "$WORK/requirements.txt"
 
 export VI_STRICT=1 NO_MKDOCS_2_WARNING=1
-cd "$WORK"
-build() {
-  # A separate site dir per language: MkDocs cleans its site dir first.
-  mkdocs build -f "mkdocs-site-$1.yml" --site-dir "build-$1" > "build-$1.log" 2>&1
-}
-failed=0
-if [ "${VI_JOBS:-3}" = "1" ]; then
-  for lang in zh en vi; do
-    build "$lang" || failed=1
-  done
-else
-  pids=()
-  for lang in zh en vi; do
-    build "$lang" &
-    pids+=("$!")
-  done
-  for pid in "${pids[@]}"; do
-    wait "$pid" || failed=1
-  done
-fi
-for lang in zh en vi; do
-  echo "== $lang: $(grep -c '^WARNING' "build-$lang.log" || true) warning(s)"
-  grep -E '^(WARNING|ERROR)|Traceback|Error' "build-$lang.log" | head -n 20 || true
-done
-if [ "$failed" -ne 0 ]; then
-  tail -n 40 build-*.log
-  exit 1
-fi
+(cd "$WORK" && mkdocs build -f mkdocs-site-vi.yml --site-dir build-vi)
 
 rm -rf "$OUT"
-mv build-zh "$OUT"
-mv build-en "$OUT/en"
-mv build-vi "$OUT/vi"
-echo "Built $(find "$OUT" -name index.html | wc -l) pages into $OUT"
+mkdir -p "$OUT"
+mv "$WORK/build-vi" "$OUT/vi"
+# Vercel serves /404.html for every missing path; the vi one uses /vi/ assets.
+cp "$OUT/vi/404.html" "$OUT/404.html"
+echo "Built $(find "$OUT/vi" -name index.html | wc -l) pages into $OUT/vi"

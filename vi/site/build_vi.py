@@ -8,7 +8,7 @@ the same relative path as the zh/en sites (lc/{num}.md, lcci/{num}.md):
 - outdated: same, but README_EN.md changed after the review; published with a
   notice pointing to the English page.
 - stub: anything else. A small page (template vi_stub.html, outside the nav)
-  links to the English and Chinese originals.
+  links to the English and Chinese pages on the upstream site.
 
 Parsing helpers (headings, numbering, ranges) come from the upstream
 build_site.py of the pinned site engine so all three sites share page paths.
@@ -45,6 +45,9 @@ ZH_ASSETS = ("javascripts/mathjax.js",)
 
 PROGRESS_MARK = "<!-- vi:progress -->"
 REPO_MARK = "%REPO%"
+UPSTREAM_MARK = "%UPSTREAM%"
+# The original 中文 / English site; only Tiếng Việt is built here.
+DEFAULT_UPSTREAM = "https://leetcode.doocs.org"
 
 _FRONTMATTER = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 _H1 = re.compile(r"^# .+$", re.M)
@@ -54,7 +57,7 @@ class BuildError(RuntimeError):
     pass
 
 
-def load_upstream(workdir: Path):
+def load_engine(workdir: Path):
     """Import build_site.py from the engine copied into the work directory."""
     path = workdir / "build_site.py"
     spec = importlib.util.spec_from_file_location("upstream_build_site", path)
@@ -94,12 +97,6 @@ def with_meta(text: str, extra: Dict[str, object]) -> str:
     return text[:end] + lines + text[end:]
 
 
-def site_root(dest: str) -> str:
-    """Relative path from a vi page (vi/<dest without .md>/) to the site root."""
-    depth = len(Path(dest).with_suffix("").parts) + 1
-    return "../" * depth
-
-
 def load_reports(reports_dir: Optional[Path]) -> Dict[str, dict]:
     """Unit reports keyed by their target path (vi/.../README.md)."""
     reports: Dict[str, dict] = {}
@@ -130,12 +127,11 @@ def publish_state(
     return TRANSLATED, ""
 
 
-def stub_page(en_text: str, target: str, num: str, repo: str) -> str:
+def stub_page(en_text: str, target: str, num: str, repo: str, upstream: str) -> str:
     match = _H1.search(en_text)
     if not match:
         raise BuildError(f"no H1 heading in English page for {target}/{num}")
     meta = frontmatter(en_text)
-    root = site_root(f"{target}/{num}.md")
     head = ["---", f"template: {STUB_TEMPLATE}"]
     if meta.get("difficulty"):
         head.append(f"difficulty: {json.dumps(str(meta['difficulty']))}")
@@ -155,8 +151,8 @@ def stub_page(en_text: str, target: str, num: str, repo: str) -> str:
         "",
         "    Bài này chưa được dịch sang tiếng Việt. Bạn có thể đọc bản gốc:",
         "",
-        f"    - [English]({root}en/{target}/{num}/)",
-        f"    - [中文]({root}{target}/{num}/)",
+        f"    - [English]({upstream}/en/{target}/{num}/)",
+        f"    - [中文]({upstream}/{target}/{num}/)",
         "",
         "    Muốn đóng góp bản dịch? Xem "
         f"[hướng dẫn](https://github.com/{repo}/blob/main/vi/README.md).",
@@ -174,7 +170,9 @@ def iter_en_readmes(workdir: Path, series: str, depth: int):
         yield path, path.parent.relative_to(workdir).as_posix()
 
 
-def copy_static(workdir: Path, docs: Path, static_dir: Path, repo: str) -> None:
+def copy_static(
+    workdir: Path, docs: Path, static_dir: Path, repo: str, upstream: str
+) -> None:
     for item in EN_ASSETS:
         src = workdir / "docs-en" / item
         if src.is_dir():
@@ -193,6 +191,7 @@ def copy_static(workdir: Path, docs: Path, static_dir: Path, repo: str) -> None:
         dst.parent.mkdir(parents=True, exist_ok=True)
         if src.suffix == ".md":
             text = src.read_text(encoding="utf-8").replace(REPO_MARK, repo)
+            text = text.replace(UPSTREAM_MARK, upstream)
             dst.write_text(text, encoding="utf-8")
         else:
             shutil.copy2(src, dst)
@@ -219,7 +218,7 @@ def index_page(title: str, group, status) -> str:
     return "\n".join(lines) + "\n"
 
 
-def write_indexes(upstream, items, docs: Path, status) -> List[Tuple[str, str, list]]:
+def write_indexes(engine, items, docs: Path, status) -> List[Tuple[str, str, list]]:
     """Write one index per 100 LeetCode problems and one for CCI.
 
     Returns (nav label, index page, group) in nav order.
@@ -227,11 +226,11 @@ def write_indexes(upstream, items, docs: Path, status) -> List[Tuple[str, str, l
     sections = []
     buckets = defaultdict(list)
     for item in items["lc"]:
-        buckets[upstream.range_start(item.num)].append(item)
+        buckets[engine.range_start(item.num)].append(item)
     for start in sorted(buckets):
         group = sorted(buckets[start], key=lambda x: x.sort_key)
-        dest = f"lc/{upstream.range_slug(start)}.md"
-        label = upstream.range_label(start)
+        dest = f"lc/{engine.range_slug(start)}.md"
+        label = engine.range_label(start)
         sections.append((label, dest, group))
     if items["lcci"]:
         sections.append(
@@ -287,12 +286,13 @@ def build(
     repo: str,
     only: Optional[Set[str]] = None,
     reports_dir: Optional[Path] = None,
+    upstream: str = DEFAULT_UPSTREAM,
 ) -> str:
     """Write docs-vi/ under workdir and return the nav section for mkdocs."""
-    upstream = load_upstream(workdir)
+    engine = load_engine(workdir)
     docs = workdir / DOCS_VI
     docs.mkdir(parents=True, exist_ok=True)
-    copy_static(workdir, docs, static_dir, repo)
+    copy_static(workdir, docs, static_dir, repo, upstream)
     reports = load_reports(reports_dir)
 
     items: Dict[str, List] = {target: [] for _, target, _ in SERIES}
@@ -302,7 +302,7 @@ def build(
             if only is not None and problem_dir not in only:
                 continue
             en_text = en_path.read_text(encoding="utf-8")
-            num, name = upstream.parse_heading(en_text, series)
+            num, name = engine.parse_heading(en_text, series)
             dest = f"{target}/{num}.md"
             vi_rel = f"vi/{problem_dir}/README.md"
             vi_path = vi_root / problem_dir / "README.md"
@@ -315,28 +315,28 @@ def build(
                     print(f"warning: {vi_rel}: {reason}")
             if state in PUBLISHED:
                 vi_text = vi_path.read_text(encoding="utf-8")
-                vi_num, name = upstream.parse_heading(vi_text, series)
+                vi_num, name = engine.parse_heading(vi_text, series)
                 if vi_num != num:
                     raise BuildError(
                         f"{vi_path}: heading number {vi_num!r} does not match "
                         f"the English source ({num!r})"
                     )
                 page = with_meta(
-                    upstream.strip_frontmatter_edit_url(vi_text),
+                    engine.strip_frontmatter_edit_url(vi_text),
                     {"edit_url": edit_url(repo, vi_rel), "vi_status": state},
                 )
             else:
-                page = stub_page(en_text, target, num, repo)
+                page = stub_page(en_text, target, num, repo, upstream)
             status[dest] = state
             out = docs / dest
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(page, encoding="utf-8")
             items[target].append(
-                upstream.NavItem(upstream.parse_sort_key(num), num, name, dest)
+                engine.NavItem(engine.parse_sort_key(num), num, name, dest)
             )
         items[target].sort(key=lambda x: x.sort_key)
 
-    sections = write_indexes(upstream, items, docs, status)
+    sections = write_indexes(engine, items, docs, status)
     problems = [v for k, v in status.items() if k != "contest.md"]
     write_progress(docs, sum(v in PUBLISHED for v in problems), len(problems))
     (docs / STATUS_FILE).write_text(

@@ -40,6 +40,7 @@ _VI_LABEL = re.compile(r"^(\s*>\s*)\*\*Tư duy\*\*\s*$", re.M)
 _H1 = re.compile(r"^# .+?$", re.M)
 _HEAD_END = re.compile(r"</head>", re.IGNORECASE)
 NOINDEX = '<meta name="robots" content="noindex">'
+DEFAULT_UPSTREAM = "https://leetcode.doocs.org"
 OUTDATED_NOTICE = (
     '!!! warning "Bản dịch có thể đã cũ"\n\n'
     "    Bản gốc tiếng Anh đã thay đổi sau khi bài này được dịch. "
@@ -47,14 +48,15 @@ OUTDATED_NOTICE = (
 )
 
 
-def add_outdated_notice(markdown, page):
+def add_outdated_notice(markdown, page, config):
     if page.meta.get("vi_status") != "outdated":
         return markdown
     match = _H1.search(markdown)
     if not match:
         return markdown
-    rel = page.url.strip("/")
-    href = "../" * (len(rel.split("/")) + 1) + f"en/{rel}/"
+    extra = (config.get("extra") if isinstance(config, dict) else config.extra) or {}
+    upstream = str(extra.get("upstream_site") or DEFAULT_UPSTREAM).rstrip("/")
+    href = f"{upstream}/en/{page.url.strip('/')}/"
     notice = OUTDATED_NOTICE.format(href=href)
     end = match.end()
     return markdown[:end] + "\n\n" + notice + "\n\n" + markdown[end:]
@@ -97,7 +99,7 @@ def on_page_markdown(markdown, page, config, files):
     markdown = ext_info.remove_version_switch(markdown)
     markdown = ext_info.rewrite_repo_problem_links(markdown, page)
     markdown = ext_info.strip_images_without_src(markdown)
-    markdown = add_outdated_notice(markdown, page)
+    markdown = add_outdated_notice(markdown, page, config)
     markdown = add_difficulty_info(markdown, page)
     markdown = ext_info.modify_code_block(markdown)
     return convert_thinking_blocks(markdown)

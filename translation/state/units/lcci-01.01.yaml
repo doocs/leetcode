@@ -18,7 +18,7 @@ target:
 policy_snapshot:
   base_version: 1.0.0
   context_revision: 1
-  context_sha256: a6f4632b7095328bc873cbd9ec3d0cc32a00438f2132ce8818be32916fa75c54
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
   project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
@@ -84,11 +84,12 @@ checks:
   evidence: 'PASS; check_thinking: OK 1 file(s)'
 - id: links_and_assets
   status: pass
-  method: check_vi.py URL multiset + local Vercel-style build (VI_ONLY=... bash vi/site/vercel-build.sh) served at the site
-    root; link crawler over every hreflang link + headless Chromium clicks on the language selector
+  method: check_vi.py URL multiset + full vi build (bash vi/site/vercel-build.sh) served locally; link crawler over every
+    hreflang link (vi links local, 中文/English links to the same page on leetcode.doocs.org, sample checked live) + headless
+    Chromium clicks on the language selector
   scope: whole file + rendered page
   evidence: URLs identical to source; page renders with badges, thinking admonition, code tabs and MathJax; language links
-    resolve to the same problem in zh/en/vi
+    open the same problem on leetcode.doocs.org (zh/en) and stay on the page (vi)
 - id: residual_language
   status: pass
   method: check_vi.py residual_english warnings + manual classification

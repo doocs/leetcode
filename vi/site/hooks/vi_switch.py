@@ -1,13 +1,15 @@
-"""Language switch across the 中文 / English / Tiếng Việt sites of the fork.
+"""Language switch for the Vietnamese site.
 
-Runs on all three sites (config extra.site_lang = zh | en | vi). On zh/en the
-upstream stay_on_page hook keeps handling zh/en, so only the vi entries are
-rewritten here; on the vi site every language entry is rewritten.
+Only Tiếng Việt is built and hosted here (/vi/). The 中文 and English entries
+of the language selector open the same page on the upstream site
+(extra.upstream_site, https://leetcode.doocs.org by default); a page without a
+zh/en counterpart (e.g. /vi/lcci/) falls back to that language's home.
 
-- <a hreflang> (language selector) becomes page-relative so the site works under
-  any base path; a missing counterpart falls back to that language's home.
-- <link rel=alternate hreflang> becomes absolute and is dropped when the
-  counterpart is missing or is an untranslated vi stub.
+- <a hreflang=vi> becomes page-relative; zh/en become absolute upstream URLs.
+- <link rel=alternate hreflang> keeps only the vi page itself (the upstream site
+  does not link back, so zh/en alternates would not be reciprocal) and is
+  dropped on untranslated stubs.
+- Untranslated stubs are removed from sitemap.xml.
 """
 
 import gzip
@@ -27,27 +29,25 @@ import stay_on_page as sop  # noqa: E402
 LANGS = ("zh", "en", "vi")
 _PREFIX = {"zh": "", "en": "en", "vi": "vi"}
 _DOCS = {"zh": "docs", "en": "docs-en", "vi": "docs-vi"}
+DEFAULT_UPSTREAM = "https://leetcode.doocs.org"
 STATUS_FILE = ".vi_status.json"
 STUB = "stub"
 _SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 _status_cache = {}
 
-
-def _tag_href(langs):
-    alt = "|".join(langs)
-    return re.compile(
-        rf"""
-        (?P<prefix>
-            <(?P<tag>a|link)\b
-            (?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>{alt})(?P=lq)(?=[\s>/]))
-            [^>]*\bhref=(?P<hq>["']?)
-        )
-        [^"'\s>]*
-        (?P<suffix>(?P=hq))
-        """,
-        re.IGNORECASE | re.VERBOSE,
+_TAG_HREF = re.compile(
+    r"""
+    (?P<prefix>
+        <(?P<tag>a|link)\b
+        (?=[^>]*\bhreflang=(?P<lq>["']?)(?P<lang>zh|en|vi)(?P=lq)(?=[\s>/]))
+        [^>]*\bhref=(?P<hq>["']?)
     )
+    [^"'\s>]*
+    (?P<suffix>(?P=hq))
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
 
 
 def _link_tag(lang):
@@ -63,27 +63,19 @@ def _config_get(config, key, default=None):
     return getattr(config, key, default)
 
 
-def site_lang(config) -> str:
-    lang = (_config_get(config, "extra") or {}).get("site_lang")
-    if lang in LANGS:
-        return lang
-    site_dir = str(_config_get(config, "site_dir") or "").replace("\\", "/")
-    for code in ("en", "vi"):
-        if site_dir.rstrip("/").endswith(f"/{code}"):
-            return code
-    return "zh"
+def upstream_site(config) -> str:
+    extra = _config_get(config, "extra") or {}
+    return str(extra.get("upstream_site") or DEFAULT_UPSTREAM).rstrip("/")
 
 
 def site_root_url(config) -> str:
+    """Origin (and base path) the /vi/ site is served under."""
     url = str(_config_get(config, "site_url") or "").rstrip("/")
-    prefix = _PREFIX[site_lang(config)]
-    if prefix and url.endswith(f"/{prefix}"):
-        url = url[: -len(prefix) - 1]
-    return url
+    return url[:-3] if url.endswith("/vi") else url
 
 
 def _docs_root(config) -> Path:
-    return Path(str(_config_get(config, "docs_dir") or "docs")).parent
+    return Path(str(_config_get(config, "docs_dir") or "docs-vi")).parent
 
 
 def abs_path(rel: str, lang: str) -> str:
@@ -104,6 +96,7 @@ def vi_status(config) -> dict:
 
 
 def has_page(config, lang: str, rel: str) -> bool:
+    """docs/ and docs-en/ are the upstream pages flattened by build_site.py."""
     return sop._markdown_exists(_docs_root(config) / _DOCS[lang], rel)
 
 
@@ -113,45 +106,28 @@ def is_stub(config, rel: str) -> bool:
     return vi_status(config).get(key) == STUB
 
 
-def _real_alternate(config, lang: str, rel: str) -> bool:
-    """A counterpart worth announcing to search engines."""
-    if not has_page(config, lang, rel):
-        return False
-    return not (lang == "vi" and is_stub(config, rel))
-
-
 def rewrite(output: str, rel: str, config) -> str:
-    here_lang = site_lang(config)
-    here = abs_path(rel, here_lang)
-    origin = site_root_url(config)
-    handled = LANGS if here_lang == "vi" else ("vi",)
-    here_is_stub = here_lang == "vi" and is_stub(config, rel)
+    upstream = upstream_site(config)
+    self_url = site_root_url(config) + abs_path(rel, "vi")
 
     def repl(match):
         lang = match.group("lang").lower()
         if match.group("tag").lower() == "link":
-            href = origin + abs_path(rel, lang)
+            href = self_url  # zh/en <link> tags are removed below
+        elif lang == "vi":
+            href = "./"
         else:
             target = rel if has_page(config, lang, rel) else ""
-            href = sop._relative_href(here, abs_path(target, lang))
+            href = upstream + abs_path(target, lang)
         return f"{match.group('prefix')}{href}{match.group('suffix')}"
 
-    output = _tag_href(handled).sub(repl, output)
-    for lang in handled:
-        if here_is_stub or not _real_alternate(config, lang, rel):
-            output = _link_tag(lang).sub("", output)
-
-    if here_lang == "vi":
-        snippets = []
-        if not here_is_stub and has_page(config, "zh", rel):
-            if not re.search(r"hreflang=[\"']?x-default", output, re.IGNORECASE):
-                href = origin + abs_path(rel, "zh")
-                snippets.append(
-                    f'<link rel="alternate" hreflang="x-default" href="{href}">'
-                )
-        if "XMLHttpRequest.prototype.open" not in output:
-            snippets.append(sop._XHR_PATCH)
-        output = sop._inject_head(output, snippets)
+    output = _TAG_HREF.sub(repl, output)
+    drop = ("zh", "en", "vi") if is_stub(config, rel) else ("zh", "en")
+    for lang in drop:
+        output = _link_tag(lang).sub("", output)
+    if "XMLHttpRequest.prototype.open" not in output:
+        # Same patch as upstream: Material's selector then follows the href.
+        output = sop._inject_head(output, [sop._XHR_PATCH])
     return output
 
 
@@ -175,15 +151,12 @@ def drop_stubs_from_sitemap(xml_text: str, config) -> str:
     base = str(_config_get(config, "site_url") or "").rstrip("/") + "/"
     for url_el in list(root.findall(f"{{{_SITEMAP_NS}}}url")):
         loc = (url_el.findtext(f"{{{_SITEMAP_NS}}}loc") or "").strip()
-        rel = loc[len(base) :] if loc.startswith(base) else ""
-        if loc.startswith(base) and is_stub(config, rel):
+        if loc.startswith(base) and is_stub(config, loc[len(base) :]):
             root.remove(url_el)
     return ET.tostring(root, encoding="utf-8", xml_declaration=True).decode("utf-8")
 
 
 def on_post_build(config):
-    if site_lang(config) != "vi":
-        return
     sitemap = Path(str(_config_get(config, "site_dir") or "")) / "sitemap.xml"
     if not sitemap.is_file():
         return
