@@ -1,0 +1,3 @@
+# Commit of the docs branch of https://github.com/doocs/leetcode used as the site engine.
+# Bump it after checking the upstream engine still works with vi/site (tests + local build).
+67d9367e10c0115aebd95d59aa86d69f579a267e

@@ -1,0 +1,49 @@
+schema_version: 1
+unit_id: null
+attempt_id: null
+owner: null
+state: pending # pending | translating | translated | reviewing | verified | blocked | stale
+resume_state: null
+source:
+  snapshot: null
+  locator: null
+  sha256: null
+target:
+  path: null
+  sha256: null
+policy_snapshot:
+  base_version: 1.0.0
+  context_sha256: null
+  project_rules_sha256: null
+  glossary_sha256: null
+  active_rule_hashes: {}
+coverage:
+  read_scope: []
+  translated_scope: []
+  reviewed_scope: []
+  mode: not_started # not_started | partial | sampling | full
+  block_map: [] # Source locator <-> target locator, disposition, reviewer evidence.
+  exclusions: []
+review:
+  mode: null # sequential-self-review | independent
+  reviewer: null
+  reviewed_target_sha256: null
+  required_checks: []
+checks: [] # id, status(pass|fail|not_run|not_applicable), method, scope, evidence, reason.
+boundary_reports: []
+findings: [] # id, rule_id, severity, source_locator, target_locator, evidence, status, fix.
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: null
+  next_source_locator: null
+  next_action: null
+git:
+  commit_status: not_requested # not_requested | not_done | done
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: null
