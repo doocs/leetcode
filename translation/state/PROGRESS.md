@@ -2,15 +2,15 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `896e6f58f0afa489f66b4bef1320efd0ec1eb02f`
+- Snapshot nguồn: `426ea2e5e3142b7000baab845f33789995123505`
 - Tổng số unit trong scope: 4177
 - verified: 10
 - stale: 0
 - modified: 0
 - unreviewed: 0
-- pending: 4074
+- pending: 4054
 - blocked: 6
-- translated: 87
+- translated: 107
 
 ## Đã bắt đầu
 
@@ -116,4 +116,24 @@ Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 - lc-0100 — translated — `vi/solution/0100-0199/0100.Same Tree/README.md`
 - lc-0101 — translated — `vi/solution/0100-0199/0101.Symmetric Tree/README.md`
 - lc-0102 — translated — `vi/solution/0100-0199/0102.Binary Tree Level Order Traversal/README.md`
+- lc-0103 — translated — `vi/solution/0100-0199/0103.Binary Tree Zigzag Level Order Traversal/README.md`
+- lc-0104 — translated — `vi/solution/0100-0199/0104.Maximum Depth of Binary Tree/README.md`
+- lc-0105 — translated — `vi/solution/0100-0199/0105.Construct Binary Tree from Preorder and Inorder Traversal/README.md`
+- lc-0106 — translated — `vi/solution/0100-0199/0106.Construct Binary Tree from Inorder and Postorder Traversal/README.md`
+- lc-0107 — translated — `vi/solution/0100-0199/0107.Binary Tree Level Order Traversal II/README.md`
+- lc-0108 — translated — `vi/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/README.md`
+- lc-0109 — translated — `vi/solution/0100-0199/0109.Convert Sorted List to Binary Search Tree/README.md`
+- lc-0110 — translated — `vi/solution/0100-0199/0110.Balanced Binary Tree/README.md`
+- lc-0111 — translated — `vi/solution/0100-0199/0111.Minimum Depth of Binary Tree/README.md`
+- lc-0112 — translated — `vi/solution/0100-0199/0112.Path Sum/README.md`
+- lc-0113 — translated — `vi/solution/0100-0199/0113.Path Sum II/README.md`
+- lc-0114 — translated — `vi/solution/0100-0199/0114.Flatten Binary Tree to Linked List/README.md`
+- lc-0115 — translated — `vi/solution/0100-0199/0115.Distinct Subsequences/README.md`
+- lc-0116 — translated — `vi/solution/0100-0199/0116.Populating Next Right Pointers in Each Node/README.md`
+- lc-0117 — translated — `vi/solution/0100-0199/0117.Populating Next Right Pointers in Each Node II/README.md`
+- lc-0118 — translated — `vi/solution/0100-0199/0118.Pascal's Triangle/README.md`
+- lc-0119 — translated — `vi/solution/0100-0199/0119.Pascal's Triangle II/README.md`
+- lc-0120 — translated — `vi/solution/0100-0199/0120.Triangle/README.md`
+- lc-0121 — translated — `vi/solution/0100-0199/0121.Best Time to Buy and Sell Stock/README.md`
+- lc-0122 — translated — `vi/solution/0100-0199/0122.Best Time to Buy and Sell Stock II/README.md`
 - lcci-01.01 — verified — `vi/lcci/01.01.Is Unique/README.md`
