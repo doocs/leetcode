@@ -1,0 +1,16 @@
+schema_version: 1
+boundary_id: null
+owner: null
+unit_interval: [] # Every affected unit, not just a pair if the construct spans more.
+construct_id: null
+kind: null # clean | sentence | paragraph | code | table | list | footnote | figure-caption | query-plan | mixed
+source_locators: []
+target_hashes: {}
+local_wrappers: [] # Fence/header added only for local preview; never code content.
+merge_operation: null
+status: not_run # pass | fail | not_run | not_applicable
+evidence: []
+findings: []
+affected_reports_invalidated: []
+reviewer: null
+reviewed_at: null

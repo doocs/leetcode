@@ -1,0 +1,124 @@
+name: vi-site
+
+# Checks for the Vietnamese mirror (vi/, translation/). Deployment is done by
+# Vercel from vercel.json; see vi/README.md.
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - vi/**
+      - translation/**
+      - scripts/check_thinking.py
+      - vercel.json
+      - .github/workflows/vi-site.yml
+  push:
+    branches:
+      - main
+    paths:
+      - vi/**
+      - translation/**
+      - scripts/check_thinking.py
+      - vercel.json
+      - .github/workflows/vi-site.yml
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: '3.13'
+  ENGINE_DIR: .preview/vi-engine
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Read engine ref
+        id: engine
+        run: echo "ref=$(grep -Em1 '^[0-9a-f]{40}$' vi/site/ENGINE_REF)" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout site engine
+        uses: actions/checkout@v7
+        with:
+          repository: doocs/leetcode
+          ref: ${{ steps.engine.outputs.ref }}
+          path: ${{ env.ENGINE_DIR }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install test dependencies
+        run: python3 -m pip install pyyaml beautifulsoup4
+
+      - name: Unit tests
+        env:
+          VI_ENGINE_DIR: ${{ env.ENGINE_DIR }}
+        run: |
+          python3 -m unittest discover -s vi/site/tests -v
+          python3 -m unittest discover -s translation/tools/tests -v
+
+      - name: Check translations
+        run: |
+          set -euo pipefail
+          python3 translation/tools/check_vi.py --all --quiet
+          python3 translation/tools/inventory.py --check
+          mapfile -d '' files < <(find vi -path vi/site -prune -o -mindepth 2 -name README.md -print0)
+          if [ ${#files[@]} -gt 0 ]; then
+            python3 scripts/check_thinking.py "${files[@]}"
+          fi
+
+  build-vi:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Read engine ref
+        id: engine
+        run: echo "ref=$(grep -Em1 '^[0-9a-f]{40}$' vi/site/ENGINE_REF)" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout site engine
+        uses: actions/checkout@v7
+        with:
+          repository: doocs/leetcode
+          ref: ${{ steps.engine.outputs.ref }}
+          path: ${{ env.ENGINE_DIR }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Build the Vietnamese site
+        env:
+          VI_STRICT: '1'
+          NO_MKDOCS_2_WARNING: '1'
+          MKDOCS_PREVIEW: '1'
+        run: |
+          set -euo pipefail
+          python3 -m pip install pyyaml
+          python3 vi/site/prepare.py --engine "$ENGINE_DIR" --repo "${{ github.repository }}"
+          python3 -m pip install -r .preview/vi-site/requirements.txt
+          cd .preview/vi-site
+          mkdocs build -f mkdocs-site-vi.yml --site-dir build-vi
+          echo "Built $(find build-vi -name index.html | wc -l) Vietnamese pages"

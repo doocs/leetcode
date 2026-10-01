@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page.title | striptags }} - {{ config.site_name }}</title>
+<link rel="icon" href="{{ 'favicon.ico' | url }}">
+<style>
+:root{--fg:#1f2328;--muted:#59636e;--bg:#fff;--line:#d1d9e0;--accent:#4051b5;--note:#eef1fb}
+@media (prefers-color-scheme:dark){:root{--fg:#e6edf3;--muted:#9198a1;--bg:#161b22;--line:#3d444d;--accent:#8c9eff;--note:#1f2540}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--accent)}
+header a{color:#fff;text-decoration:none}
+header .home{font-weight:600}
+header nav a{margin-left:12px;opacity:.85}
+header nav a[hreflang=vi]{opacity:1;font-weight:600}
+main{max-width:46rem;margin:0 auto;padding:24px 16px}
+h1{font-size:1.6rem;line-height:1.3;margin:0 0 12px}
+h1 a{color:inherit}
+.lc-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.lc-badge{display:inline-flex;border:1px solid var(--line);border-radius:4px;font-size:.8rem;overflow:hidden}
+.lc-badge__label{padding:2px 8px;color:var(--muted)}
+.lc-badge__value{padding:2px 8px;border-left:1px solid var(--line)}
+.admonition{border-left:4px solid var(--accent);background:var(--note);border-radius:4px;padding:4px 16px}
+.admonition-title{font-weight:600;margin:12px 0 4px}
+footer{max-width:46rem;margin:0 auto;padding:16px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header>
+<a class="home" href="{{ nav.homepage.url | url }}">{{ config.site_name }}</a>
+<nav>{% for alt in config.extra.alternate %}<a href="{{ alt.link }}" hreflang="{{ alt.lang }}">{{ alt.name }}</a>{% endfor %}</nav>
+</header>
+<main>
+{{ page.content }}
+</main>
+<footer>{{ config.copyright }}</footer>
+</body>
+</html>

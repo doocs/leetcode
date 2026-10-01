@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "access_date": "2026-10-01",
+  "method": "GitHub connector raw-file reads",
+  "scope": "Translation rule, instruction, role prompt and glossary files; not full repositories or books",
+  "snapshot_note": "Observed Git tree SHAs, not commit SHAs. File reads mostly used main; no fully commit-pinned export is claimed.",
+  "source_files_redistributed": false,
+  "repositories": [
+    {
+      "repository": "vandunxg/learn-postgresql",
+      "observed_snapshot_kind": "git-tree",
+      "observed_tree_sha": "31b18fd388a5d58f0628d120e5d01e10746e8833",
+      "file_count": 18,
+      "files": [
+        {
+          "path": "translation/instructions/00-core-rules.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/00-core-rules.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/01-translation-style.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/01-translation-style.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/02-postgresql-glossary.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/02-postgresql-glossary.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/03-pdf-part-workflow.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/03-pdf-part-workflow.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/04-boundary-context.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/04-boundary-context.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/05-markdown-preservation.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/05-markdown-preservation.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/06-sql-code-output-fidelity.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/06-sql-code-output-fidelity.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/07-table-diagram-query-plan.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/07-table-diagram-query-plan.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/08-semantic-review.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/08-semantic-review.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/09-qa-validation.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/09-qa-validation.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/10-progress-atomicity.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/10-progress-atomicity.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/instructions/11-merge-package.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/instructions/11-merge-package.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/prompts/orchestrator-agent.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/prompts/orchestrator-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/prompts/worker-agent.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/prompts/worker-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/prompts/boundary-review-agent.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/prompts/boundary-review-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/prompts/semantic-review-agent.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/prompts/semantic-review-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/prompts/qa-review-agent.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/prompts/qa-review-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "translation/prompts/merge-package-agent.md",
+          "reference_url": "https://github.com/vandunxg/learn-postgresql/blob/main/translation/prompts/merge-package-agent.md",
+          "content_read": true
+        }
+      ]
+    },
+    {
+      "repository": "vandunxg/JavaGuide",
+      "observed_snapshot_kind": "git-tree",
+      "observed_tree_sha": "8a77b7163d6d05d3cecfebc07b4976d401f63f57",
+      "file_count": 2,
+      "files": [
+        {
+          "path": "CLAUDE.md",
+          "reference_url": "https://github.com/vandunxg/JavaGuide/blob/main/CLAUDE.md",
+          "content_read": true
+        },
+        {
+          "path": "vi/GLOSSARY.md",
+          "reference_url": "https://github.com/vandunxg/JavaGuide/blob/main/vi/GLOSSARY.md",
+          "content_read": true
+        }
+      ]
+    },
+    {
+      "repository": "vandunxg/effective-java",
+      "observed_snapshot_kind": "git-tree",
+      "observed_tree_sha": "32a18a04a9b732f15bec50aa4cb1d1567e96723a",
+      "file_count": 14,
+      "files": [
+        {
+          "path": "README.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/README.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/00-core-rules.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/00-core-rules.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/01-translation-style.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/01-translation-style.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/02-glossary.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/02-glossary.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/03-pdf-part-workflow.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/03-pdf-part-workflow.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/04-boundary-rules.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/04-boundary-rules.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/05-markdown-preservation.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/05-markdown-preservation.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/06-qa-validation.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/06-qa-validation.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/07-progress-and-atomicity.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/07-progress-and-atomicity.md",
+          "content_read": true
+        },
+        {
+          "path": "instructions/08-merge-and-package.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/instructions/08-merge-and-package.md",
+          "content_read": true
+        },
+        {
+          "path": "prompts/worker-agent.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/prompts/worker-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "prompts/boundary-review-agent.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/prompts/boundary-review-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "prompts/qa-review-agent.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/prompts/qa-review-agent.md",
+          "content_read": true
+        },
+        {
+          "path": "prompts/merge-package-agent.md",
+          "reference_url": "https://github.com/vandunxg/effective-java/blob/main/prompts/merge-package-agent.md",
+          "content_read": true
+        }
+      ]
+    }
+  ],
+  "total_files_read": 34
+}

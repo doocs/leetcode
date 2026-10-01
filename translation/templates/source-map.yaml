@@ -1,0 +1,16 @@
+# Inventory is authoritative for scope/order; it is not a completion report.
+schema_version: 1
+inventory_status: needs_setup
+source_snapshot:
+  kind: null
+  value: null
+  captured_at: null
+scope:
+  include: []
+  exclude: [] # Each exclusion must have a locator, reason and approval reference.
+units: []
+# Each unit record should include:
+# id, order, source.path_or_url, source.locator, source.sha256,
+# target.path, dependencies, ownership_scope, state_report.
+# Subunits need parent_id and explicit disjoint coverage intervals.
+# Runtime paths must be verified, not inferred from these comments.

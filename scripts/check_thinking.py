@@ -8,12 +8,12 @@ import re
 import sys
 from pathlib import Path
 
-HEADING = re.compile(r"^### (?:方法|Solution\b|Approach\b|Method\b)", re.M)
+HEADING = re.compile(r"^### (?:方法|Solution\b|Approach\b|Method\b|Lời giải\b)", re.M)
 BLOCK = re.compile(
     r"<!-- thinking:start -->(.*?)<!-- thinking:end -->",
     re.S,
 )
-LABEL = re.compile(r"^\*\*(?:思考|Thinking)\*\*$")
+LABEL = re.compile(r"^\*\*(?:思考|Thinking|Tư duy)\*\*$")
 
 
 def thinking_body(raw: str) -> str:

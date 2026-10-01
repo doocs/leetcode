@@ -1,0 +1,417 @@
+---
+comments: true
+difficulty: Easy
+tags:
+    - Array
+    - Hash Table
+---
+
+<!-- problem:start -->
+
+# [1. Two Sum](https://leetcode.com/problems/two-sum)
+
+[中文文档](/solution/0000-0099/0001.Two%20Sum/README.md)
+
+## Mô tả
+
+<!-- description:start -->
+
+<p>Cho một mảng số nguyên <code>nums</code>&nbsp;và một số nguyên <code>target</code>, hãy trả về <em>chỉ số của hai số có tổng bằng <code>target</code></em>.</p>
+
+<p>Bạn có thể giả sử rằng mỗi đầu vào có <strong><em>đúng</em> một lời giải</strong>, và bạn không được dùng <em>cùng một</em> phần tử hai lần.</p>
+
+<p>Bạn có thể trả về đáp án theo thứ tự bất kỳ.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Ví dụ 1:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> nums = [2,7,11,15], target = 9
+<strong>Đầu ra:</strong> [0,1]
+<strong>Giải thích:</strong> Vì nums[0] + nums[1] == 9, ta trả về [0, 1].
+</pre>
+
+<p><strong class="example">Ví dụ 2:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> nums = [3,2,4], target = 6
+<strong>Đầu ra:</strong> [1,2]
+</pre>
+
+<p><strong class="example">Ví dụ 3:</strong></p>
+
+<pre>
+<strong>Đầu vào:</strong> nums = [3,3], target = 6
+<strong>Đầu ra:</strong> [0,1]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Ràng buộc:</strong></p>
+
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+	<li><strong>Chỉ tồn tại một đáp án hợp lệ.</strong></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Câu hỏi mở rộng:&nbsp;</strong>Bạn có thể nghĩ ra một thuật toán có độ phức tạp thời gian nhỏ hơn <code>O(n<sup>2</sup>)</code><font face="monospace">&nbsp;</font>không?
+
+<!-- description:end -->
+
+## Lời giải
+
+<!-- solution:start -->
+
+### Lời giải 1: Bảng băm
+
+<!-- thinking:start -->
+
+> **Tư duy**
+>
+> Ý tưởng đầu tiên là hai vòng lặp lồng nhau: chọn $x$, rồi quét tìm $target-x$. Cách này đúng, nhưng tốn $O(n^2)$. Với $n \le 10^4$ thì có thể vẫn qua được, nhưng câu hỏi mở rộng yêu cầu cách nhanh hơn.
+>
+> Điểm nghẽn nằm ở việc lặp đi lặp lại thao tác tìm phần bù trong các số đã gặp. Bảng băm giúp thao tác tra cứu đó chỉ tốn $O(1)$ kỳ vọng. Ta duyệt một lượt và lưu giá trị $\to$ chỉ số: khi gặp $x$, kiểm tra xem $target-x$ đã xuất hiện hay chưa; nếu có thì trả về hai chỉ số; nếu chưa thì lưu $x$ lại.
+>
+> Tra cứu trước rồi mới thêm vào. Nếu thêm vào trước rồi mới tra cứu thì với $[3,3]$, $target=6$ ta sẽ dùng lại cùng một chỉ số. Tra cứu trước bảo đảm phần tử khớp luôn nằm ở một chỉ số đứng trước.
+
+<!-- thinking:end -->
+
+Chúng ta có thể dùng một bảng băm $\textit{d}$ để lưu mỗi phần tử cùng chỉ số tương ứng của nó.
+
+Duyệt mảng $\textit{nums}$; với phần tử hiện tại $\textit{nums}[i]$, trước tiên ta kiểm tra xem $\textit{target} - \textit{nums}[i]$ có nằm trong bảng băm $\textit{d}$ hay không. Nếu có trong $\textit{d}$, nghĩa là đã tìm được giá trị $\textit{target}$, và ta trả về chỉ số của $\textit{target} - \textit{nums}[i]$ và $i$.
+
+Độ phức tạp thời gian là $O(n)$, và độ phức tạp không gian là $O(n)$, trong đó $n$ là độ dài của mảng $\textit{nums}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        d = {}
+        for i, x in enumerate(nums):
+            if (y := target - x) in d:
+                return [d[y], i]
+            d[x] = i
+```
+
+#### Java
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> d = new HashMap<>();
+        for (int i = 0;; ++i) {
+            int x = nums[i];
+            int y = target - x;
+            if (d.containsKey(y)) {
+                return new int[] {d.get(y), i};
+            }
+            d.put(x, i);
+        }
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> d;
+        for (int i = 0;; ++i) {
+            int x = nums[i];
+            int y = target - x;
+            if (d.contains(y)) {
+                return {d[y], i};
+            }
+            d[x] = i;
+        }
+    }
+};
+```
+
+#### Go
+
+```go
+func twoSum(nums []int, target int) []int {
+	d := map[int]int{}
+	for i := 0; ; i++ {
+		x := nums[i]
+		y := target - x
+		if j, ok := d[y]; ok {
+			return []int{j, i}
+		}
+		d[x] = i
+	}
+}
+```
+
+#### TypeScript
+
+```ts
+function twoSum(nums: number[], target: number): number[] {
+    const d = new Map<number, number>();
+    for (let i = 0; ; ++i) {
+        const x = nums[i];
+        const y = target - x;
+        if (d.has(y)) {
+            return [d.get(y)!, i];
+        }
+        d.set(x, i);
+    }
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut d = HashMap::new();
+        for (i, &x) in nums.iter().enumerate() {
+            let y = target - x;
+            if let Some(&j) = d.get(&y) {
+                return vec![j as i32, i as i32];
+            }
+            d.insert(x, i);
+        }
+        vec![]
+    }
+}
+```
+
+#### JavaScript
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (nums, target) {
+    const d = new Map();
+    for (let i = 0; ; ++i) {
+        const x = nums[i];
+        const y = target - x;
+        if (d.has(y)) {
+            return [d.get(y), i];
+        }
+        d.set(x, i);
+    }
+};
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        var d = new Dictionary<int, int>();
+        for (int i = 0, j; ; ++i) {
+            int x = nums[i];
+            int y = target - x;
+            if (d.TryGetValue(y, out j)) {
+                return new [] {j, i};
+            }
+            if (!d.ContainsKey(x)) {
+                d.Add(x, i);
+            }
+        }
+    }
+}
+```
+
+#### PHP
+
+```php
+class Solution {
+    /**
+     * @param Integer[] $nums
+     * @param Integer $target
+     * @return Integer[]
+     */
+    function twoSum($nums, $target) {
+        $d = [];
+        foreach ($nums as $i => $x) {
+            $y = $target - $x;
+            if (isset($d[$y])) {
+                return [$d[$y], $i];
+            }
+            $d[$x] = $i;
+        }
+    }
+}
+```
+
+#### Scala
+
+```scala
+import scala.collection.mutable
+
+object Solution {
+    def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+        val d = mutable.Map[Int, Int]()
+        var ans: Array[Int] = Array()
+        for (i <- nums.indices if ans.isEmpty) {
+            val x = nums(i)
+            val y = target - x
+            if (d.contains(y)) {
+                ans = Array(d(y), i)
+            } else {
+                d(x) = i
+            }
+        }
+        ans
+    }
+}
+```
+
+#### Swift
+
+```swift
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var d = [Int: Int]()
+        for (i, x) in nums.enumerated() {
+            let y = target - x
+            if let j = d[y] {
+                return [j, i]
+            }
+            d[x] = i
+        }
+        return []
+    }
+}
+```
+
+#### Ruby
+
+```rb
+# @param {Integer[]} nums
+# @param {Integer} target
+# @return {Integer[]}
+def two_sum(nums, target)
+    d = {}
+    nums.each_with_index do |x, i|
+      y = target - x
+      if d.key?(y)
+        return [d[y], i]
+      end
+      d[x] = i
+    end
+end
+```
+
+#### Kotlin
+
+```kotlin
+class Solution {
+    fun twoSum(nums: IntArray, target: Int): IntArray {
+        val m = mutableMapOf<Int, Int>()
+        nums.forEachIndexed { i, x ->
+            val y = target - x
+            val j = m.get(y)
+            if (j != null) {
+                return intArrayOf(j, i)
+            }
+            m[x] = i
+        }
+        return intArrayOf()
+    }
+}
+```
+
+#### Nim
+
+```nim
+import std/enumerate
+import std/tables
+
+proc twoSum(nums: seq[int], target: int): seq[int] =
+  var d = initTable[int, int]()
+  for i, x in nums.pairs():
+    let y = target - x
+    if d.hasKey(y):
+      return @[d[y], i]
+    d[x] = i
+  return @[]
+```
+
+#### Cangjie
+
+```cj
+class Solution {
+    func twoSum(nums: Array<Int64>, target: Int64): Array<Int64> {
+        let d = HashMap<Int64, Int64>()
+        for (i in 0..nums.size) {
+            if (d.contains(target - nums[i])) {
+                return [d[target - nums[i]], i]
+            }
+            d[nums[i]] = i
+        }
+        []
+    }
+}
+```
+
+#### C
+
+```c
+#include <stdlib.h>
+
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+    int capacity = 1;
+    while (capacity < numsSize * 2) capacity <<= 1;
+    int* keys = malloc(capacity * sizeof(int));
+    int* vals = malloc(capacity * sizeof(int));
+    char* used = calloc(capacity, sizeof(char));
+    if (!keys || !vals || !used) {
+        free(keys);
+        free(vals);
+        free(used);
+        *returnSize = 0;
+        return NULL;
+    }
+    for (int i = 0; i < numsSize; ++i) {
+        int x = nums[i];
+        int y = target - x;
+        unsigned int h = (unsigned int) y & (capacity - 1);
+        while (used[h]) {
+            if (keys[h] == y) {
+                int* res = malloc(2 * sizeof(int));
+                res[0] = vals[h];
+                res[1] = i;
+                *returnSize = 2;
+                free(keys);
+                free(vals);
+                free(used);
+                return res;
+            }
+            h = (h + 1) & (capacity - 1);
+        }
+        unsigned int h2 = (unsigned int) x & (capacity - 1);
+        while (used[h2]) h2 = (h2 + 1) & (capacity - 1);
+        used[h2] = 1;
+        keys[h2] = x;
+        vals[h2] = i;
+    }
+    *returnSize = 0;
+    free(keys);
+    free(vals);
+    free(used);
+    return NULL;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- problem:end -->

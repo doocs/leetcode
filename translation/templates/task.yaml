@@ -1,0 +1,29 @@
+# Copy into the configured state/tasks directory and fill with real values.
+schema_version: 1
+task_id: null
+unit_id: null
+attempt_id: null
+role: worker # worker | reviewer | integrator
+owner: null
+assignment_status: pending # pending | assigned | released
+source_snapshot: null
+source:
+  path_or_url: null
+  locator: null
+  sha256: null
+  context_only: []
+target:
+  path: null
+  expected_existing_sha256: null
+write_scope: [] # Intersection with role allowlist; never grants broader permission.
+report_path: null
+policy_snapshot:
+  base_version: 1.0.0
+  context_sha256: null
+  project_rules_sha256: null
+  glossary_sha256: null
+  active_rule_hashes: {}
+dependencies: []
+required_checks: []
+boundary_scope: []
+authorized_git_actions: [] # Must also satisfy project/current user authorization.

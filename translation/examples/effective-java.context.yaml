@@ -1,0 +1,119 @@
+# Bootstrap example only. Verify paths, snapshot, policies and permissions before use.
+# This complete example is not merged automatically with another configuration.
+schema_version: 1
+base_version: 1.0.0
+status: needs_setup
+project:
+  id: effective-java
+  title: Effective Java
+  audience: Developer đọc tài liệu kỹ thuật bằng tiếng Việt
+  source_languages:
+  - en
+  target_language: vi-VN
+source:
+  kind: pdf-parts
+  location: https://github.com/vandunxg/effective-java
+  revision:
+    kind: null
+    value: null
+  edition_or_version: Third Edition (2018); verify against the assigned PDF
+  scope_include:
+  - parts/*.pdf
+  scope_exclude: []
+  inventory: translation/state/source-map.yaml
+  order_policy: document-order
+mapping:
+- source: parts/
+  target: vi/parts/
+  mode: explicit
+  exclusions: []
+modules:
+  source_adapter: translation/adapters/pdf-parts.md
+  format_adapters:
+  - translation/formats/markdown-mdx.md
+  domain_profiles:
+  - translation/domains/java.md
+  workflows:
+  - translation/workflows/translation.md
+  - translation/workflows/release.md
+  - translation/workflows/boundary.md
+policies:
+  fidelity: faithful
+  code_comments: preserve
+  display_strings: preserve
+  string_allowlist: []
+  inline_literals: preserve
+  markup_text_allowlist: []
+  internal_links: verified_mapping
+  external_links: preserve
+  image_text: preserve_and_report
+  terminology: english_first_by_meaning
+  translator_additions: disallow_in_translation
+  language_exceptions: []
+  source_corrections: report_only
+  newline_normalization: none
+execution:
+  mode: sequential
+  max_workers: 1
+  unit_policy: fixed-part-with-boundary
+  review_mode: sequential-self-review
+  semantic_review_scope: full
+  retry_failed_units_only: true
+  state_root: translation/state
+permissions:
+  protected_paths:
+  - parts/**
+  coordinator_write: []
+  worker_write: []
+  reviewer_write: []
+  integrator_write: []
+  authorization_reference: null
+site:
+  enabled: false
+  output_base: null
+  route_mapping: null
+  missing_translation: disable_switch_or_labelled_source_link
+  ui_changes_authorized: false
+validation:
+  checks:
+  - id: source_protection
+    required: true
+    method: null
+  - id: full_semantic_review
+    required: true
+    method: Đối chiếu toàn bộ owned source và target hai chiều theo coverage map.
+  - id: protected_spans
+    required: true
+    method: null
+  - id: structure
+    required: true
+    method: null
+  - id: links_and_assets
+    required: true
+    method: null
+  - id: residual_language
+    required: true
+    method: Phân loại mọi hit trong prose/metadata/comment theo policy và allowlist.
+  conditional_checks:
+  - id: boundary_reconciliation
+    required: true
+    method: null
+  - id: merged_document_review
+    required: true
+    method: null
+git:
+  commit: false
+  push: false
+  deploy: false
+  branch: null
+  remote: null
+  authorization_reference: null
+  unit_commit_policy: after_verified
+release:
+  kind: merged-document
+  output: null
+  archive: null
+  include_source_material: false
+setup_blockers:
+- Chưa khảo sát và pin nguồn thực tế.
+- Chưa xác nhận mapping, module, quyền ghi và phương pháp kiểm tra.
