@@ -82,7 +82,7 @@ The time complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows
 ```python
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
-        return list(zip(*matrix))
+        return [list(row) for row in zip(*matrix)]
 ```
 
 #### Java
