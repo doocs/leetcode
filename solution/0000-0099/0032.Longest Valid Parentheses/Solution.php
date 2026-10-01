@@ -3,26 +3,21 @@ class Solution {
      * @param string $s
      * @return integer
      */
-
     function longestValidParentheses($s) {
-        $stack = [];
-        $maxLength = 0;
-
-        array_push($stack, -1);
-        for ($i = 0; $i < strlen($s); $i++) {
-            if ($s[$i] === '(') {
-                array_push($stack, $i);
-            } else {
-                array_pop($stack);
-
-                if (empty($stack)) {
-                    array_push($stack, $i);
+        $n = strlen($s);
+        $f = array_fill(0, $n + 1, 0);
+        for ($i = 1; $i <= $n; $i++) {
+            if ($s[$i - 1] == ')') {
+                if ($i > 1 && $s[$i - 2] == '(') {
+                    $f[$i] = $f[$i - 2] + 2;
                 } else {
-                    $length = $i - end($stack);
-                    $maxLength = max($maxLength, $length);
+                    $j = $i - $f[$i - 1] - 1;
+                    if ($j && $s[$j - 1] == '(') {
+                        $f[$i] = $f[$i - 1] + 2 + $f[$j - 1];
+                    }
                 }
             }
         }
-        return $maxLength;
+        return max($f);
     }
 }

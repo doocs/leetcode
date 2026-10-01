@@ -88,28 +88,10 @@ class Solution:
 ```java
 class Solution {
     public int strStr(String haystack, String needle) {
-        if ("".equals(needle)) {
-            return 0;
-        }
-
-        int len1 = haystack.length();
-        int len2 = needle.length();
-        int p = 0;
-        int q = 0;
-        while (p < len1) {
-            if (haystack.charAt(p) == needle.charAt(q)) {
-                if (len2 == 1) {
-                    return p;
-                }
-                ++p;
-                ++q;
-            } else {
-                p -= q - 1;
-                q = 0;
-            }
-
-            if (q == len2) {
-                return p - q;
+        int n = haystack.length(), m = needle.length();
+        for (int i = 0; i + m <= n; ++i) {
+            if (haystack.substring(i, i + m).equals(needle)) {
+                return i;
             }
         }
         return -1;
@@ -244,17 +226,14 @@ class Solution {
      * @return Integer
      */
     function strStr($haystack, $needle) {
-        $strNew = str_replace($needle, '+', $haystack);
-        $cnt = substr_count($strNew, '+');
-        if ($cnt > 0) {
-            for ($i = 0; $i < strlen($strNew); $i++) {
-                if ($strNew[$i] == '+') {
-                    return $i;
-                }
+        $n = strlen($haystack);
+        $m = strlen($needle);
+        for ($i = 0; $i + $m <= $n; $i++) {
+            if (substr($haystack, $i, $m) === $needle) {
+                return $i;
             }
-        } else {
-            return -1;
         }
+        return -1;
     }
 }
 ```
