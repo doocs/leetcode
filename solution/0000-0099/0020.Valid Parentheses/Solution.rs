@@ -2,18 +2,18 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn is_valid(s: String) -> bool {
-        let mut map = HashMap::new();
-        map.insert('(', ')');
-        map.insert('[', ']');
-        map.insert('{', '}');
-        let mut stack = vec![];
+        let d: HashMap<char, char> = [('(', ')'), ('[', ']'), ('{', '}')]
+            .iter()
+            .copied()
+            .collect();
+        let mut stk = Vec::new();
         for c in s.chars() {
-            if map.contains_key(&c) {
-                stack.push(map[&c]);
-            } else if stack.pop().unwrap_or(' ') != c {
+            if let Some(&v) = d.get(&c) {
+                stk.push(v);
+            } else if stk.pop() != Some(c) {
                 return false;
             }
         }
-        stack.len() == 0
+        stk.is_empty()
     }
 }
