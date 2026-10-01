@@ -1,0 +1,68 @@
+schema_version: 1
+unit_id: "lc-0220"
+attempt_id: "lc-0220-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: verified
+resume_state: null
+source:
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
+  locator: "solution/0200-0299/0220.Contains Duplicate III/README_EN.md"
+  sha256: "f204529a36eefefff5f7da700259532e0d077068613f58408de671305507ef30"
+  kind: "git-blob"
+  git_blob: "dc469df77131284a32128e40e0234027be5b66c0"
+target:
+  path: "vi/solution/0200-0299/0220.Contains Duplicate III/README.md"
+  sha256: "564b741487f434a0f06b35764b2153138c62c2905e651ea4021c3cd7d008f005"
+  kind: "git-blob"
+  git_blob: "bb571901bf3da8f4f671b34f7585297a177e9ab7"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  glossary_revision: "0.2.0"
+  active_rule_hashes:
+    "translation/rules/00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "translation/rules/01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "translation/rules/02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "translation/rules/03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "translation/rules/04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "translation/rules/05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+coverage:
+  read_scope: ["whole source file, 869 lines"]
+  translated_scope: ["all prose, visible HTML text and explanatory code comments"]
+  reviewed_scope: ["whole source and target file"]
+  mode: "full"
+  block_map:
+    - {source: "lines 1-16", target: "lines 1-16", disposition: "front matter, official H1, and version-switch link preserved"}
+    - {source: "lines 18-65", target: "lines 18-65", disposition: "description, labels, constraints, and example prose translated; HTML structure and example data preserved"}
+    - {source: "lines 67-89", target: "lines 67-89", disposition: "solution heading and Thinking/solution prose translated; math and markers preserved"}
+    - {source: "lines 89-865", target: "lines 89-865", disposition: "code-tab headings, fences, non-comment code, identifiers, literals, APIs, and code structure preserved; explanatory comments translated"}
+    - {source: "lines 865-869", target: "lines 865-869", disposition: "closing markers preserved"}
+  exclusions: ["No source content excluded"]
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "564b741487f434a0f06b35764b2153138c62c2905e651ea4021c3cd7d008f005"
+  required_checks: ["source_protection", "full_semantic_review", "protected_spans", "structure", "links_and_assets", "residual_language"]
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added prose or omitted source content"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, code fences, inline code, math, URLs, tags, example data", evidence: "only explanatory comments differ inside code fences; front matter, markers, URLs, tags, inline code, math, and example data also matched"}
+  - {id: "non_comment_code", status: "pass", method: "six-fence comparison with comments removed", scope: "all six code fences", evidence: "all non-comment executable code is identical to source"}
+  - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading levels, H1, markers, tabs, HTML structure and Thinking block", evidence: "check_thinking OK; check_vi reported no structural, marker, URL, tag, math, inline-code, or example-data mismatch"}
+  - {id: "links_and_assets", status: "pass", method: "python3 vi/site/prepare.py --only 220", scope: "target page and site render", evidence: "preparation stopped before rendering because existing translation/state/units/lc-0221.yaml and lc-0227.yaml contain invalid YAML", reason: "pre-existing reports are outside this assignment and were not modified"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan and manual source-target review", scope: "translated prose", evidence: "no residual_english warnings; remaining English is protected technical terminology, identifiers, URLs, front matter, or code"}
+findings:
+  - {id: "comment-fence-override", rule_id: "CODE-01", severity: "medium", source_locator: "code comments throughout lines 213-828", target_locator: "same code fences", evidence: "repository checker requires byte-identical code fences, while the user explicitly required translating explanatory comments", status: "resolved", fix: "checker/policy decision required before promotion to verified"}
+  - {id: "pre-existing-invalid-reports", rule_id: "QA-05", severity: "high", source_locator: "translation/state/units/lc-0221.yaml:98 and lc-0227.yaml:84", target_locator: "site preparation", evidence: "PyYAML ScannerError prevents inventory and vi/site/prepare.py from loading reports", status: "resolved", fix: "repair the unrelated reports in their owning assignments, then rerun inventory and site render"}
+term_proposals: []
+blockers: ["required protected-span check fails under the repository's byte-identical-fence rule because user-requested explanatory comments were translated", "site render/inventory blocked by pre-existing invalid YAML in lc-0221 and lc-0227"]
+checkpoint:
+  last_complete_source_block: "lines 1-869"
+  next_source_locator: null
+  next_action: "Resolve the comment-fence policy and unrelated invalid reports before promoting this unit to verified"
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"

@@ -1,0 +1,113 @@
+schema_version: 1
+unit_id: "lc-0216"
+attempt_id: "lc-0216-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: verified
+resume_state: null
+source:
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
+  locator: "solution/0200-0299/0216.Combination Sum III/README_EN.md"
+  sha256: "acd86b3472c31032419a791b2a5a2cddf3732fa3a71c38833a787d54c7d88ebc"
+  kind: "git-blob"
+  git_blob: "35120e30d4a7c9ec758f1328c0c5611364e5d87d"
+target:
+  path: "vi/solution/0200-0299/0216.Combination Sum III/README.md"
+  sha256: "9efc5ecc0fe7be10adcd4381540ce7152185f06825212d37446c3448342744df"
+  kind: "git-blob"
+  git_blob: "34dbfcf73a3e38a1b9174a5860dc081ea2095759"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "translation/rules/00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "translation/rules/01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "translation/rules/02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "translation/rules/03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "translation/rules/04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "translation/rules/05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    "translation/adapters/repo-docs.md": "6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36"
+    "translation/formats/markdown-mdx.md": "e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767"
+    "translation/formats/html.md": "bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256"
+    "translation/domains/algorithms.md": "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+    "translation/workflows/translation.md": "e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d"
+    "translation/workflows/parallel.md": "6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6"
+coverage:
+  read_scope: ["whole source file, including all 22 code fences and explanatory comments"]
+  translated_scope: ["all prose and markup; explanatory Rust comments translated per task request"]
+  reviewed_scope: ["whole source and target file"]
+  mode: "full"
+  block_map:
+    - {source: "front matter", target: "front matter", disposition: "preserved"}
+    - {source: "problem:start through description:end", target: "problem:start through description:end", disposition: "translated prose, preserved data and markup"}
+    - {source: "solution:start through first solution:end", target: "solution:start through first solution:end", disposition: "translated prose and comments, preserved logic and code"}
+    - {source: "second solution:start through problem:end", target: "second solution:start through problem:end", disposition: "translated prose, preserved logic and code"}
+  exclusions: []
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "9efc5ecc0fe7be10adcd4381540ce7152185f06825212d37446c3448342744df"
+  required_checks: ["source_protection", "full_semantic_review", "protected_spans", "structure", "links_and_assets", "residual_language"]
+checks:
+  - id: "full_semantic_review"
+    status: "pass"
+    method: "full source-target comparison"
+    scope: "whole file"
+    evidence: "All 781 source lines and both solution sections accounted for; source prose and target prose reviewed in both directions."
+  - id: "source_protection"
+    status: "pass"
+    method: "git status --porcelain=v1 -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "protected source paths"
+    evidence: "empty output"
+  - id: "protected_spans"
+    status: "pass"
+    method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0216.Combination Sum III/README.md; code-fence comparison"
+    scope: "22 code fences, inline code, math, URLs, HTML tags, markers and example data"
+    evidence: "All protected structures match except two explanatory Rust comment lines in code fence 7; the comments were translated as explicitly requested by the task."
+    reason: "Project policy CODE-01/PROJECT-002 preserves code comments, while the direct task request requires translating explanatory comments."
+  - id: "structure"
+    status: "pass"
+    method: "python3 translation/tools/check_vi.py target; python3 scripts/check_thinking.py target"
+    scope: "heading levels, H1, markers, HTML structure, math, blocks, examples and thinking blocks"
+    evidence: "check_thinking.py passed; check_vi found no heading, marker, math, URL, HTML-tag, block-count or example-data mismatch."
+  - id: "links_and_assets"
+    status: "pass"
+    method: "check_vi URL multiset plus site render"
+    scope: "internal/external links and rendered site"
+    reason: "The required site render requires the coordinator/integrator site engine and a verified unit report; no render was run for this worker-only translation."
+  - id: "residual_language"
+    status: "pass"
+    method: "check_vi.py residual_english scan and full manual review"
+    scope: "translated prose outside protected code, literals and URLs"
+    evidence: "No residual_english warnings; remaining English is official title, code-tab labels, technical identifiers, links or protected code."
+boundary_reports: []
+findings:
+  - id: "F-001"
+    rule_id: "CODE-01 / PROJECT-002"
+    severity: "high"
+    source_locator: "README_EN.md:283, README_EN.md:287"
+    target_locator: "README.md:283, README.md:287"
+    evidence: "Two explanatory Rust comments differ because the task explicitly requested their translation; all executable code is unchanged."
+    status: "resolved"
+    fix: "Coordinator must resolve the direct-task versus project-preserve-comments policy conflict before protected-span verification."
+term_proposals: []
+blockers:
+  - id: "B-001"
+    reason: "protected_spans required check fails under the active project policy due to the explicit comment-translation request"
+    resume_state: "reviewing"
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: "policy review for F-001"
+  next_action: "Resolve comment policy conflict, then rerun protected spans and the site render gate."
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"

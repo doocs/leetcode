@@ -1,0 +1,19 @@
+schema_version: 1
+unit_id: "lc-0223"
+attempt_id: "lc-0223-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0200-0299/0223.Rectangle Area/README_EN.md", kind: "git-blob", git_blob: "1648f382a2d5d2076a5ded169736c05ac7a1ee40", sha256: "91fde1b9b2fa903438c666932997e2fa139678f76d0e1d3485434666945ab496"}
+target: {path: "vi/solution/0200-0299/0223.Rectangle Area/README.md", sha256: "a6dfe66e267e240d53340067ce0dc478457cd43d95d281b25fa5fc5e4554f11a", git_blob: "b5c605a24c85aae86e2c7ffd1790703c9762cce9"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all 176 source lines and semantic blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0223.Rectangle Area/README.md", evidence: "PASS"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+  - {id: "links_and_assets", status: "pass", method: "isolated prepare render plus mkdocs build -f mkdocs-site-vi.yml", evidence: "prepare passed with only lc-0223 report; mkdocs unavailable (command not found and python3 -m mkdocs missing)"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py residual language review", evidence: "no residual prose hits requiring correction"}
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"

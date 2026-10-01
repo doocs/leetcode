@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0165"
 attempt_id: "lc-0165-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0165.Compare Version Numbers/README_EN.md", kind: "git-blob", git_blob: "0ec588b657016a17c56984d9fc9e8b25cb2ef67f"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0165.Compare Version Numbers/README_EN.md", kind: "git-blob", git_blob: "0ec588b657016a17c56984d9fc9e8b25cb2ef67f", sha256: "3b7fae14a8ea065468f16fb5a005f7cfeb2dcc9f20eaef9a7328a76aaba80806"}
 target: {path: "vi/solution/0100-0199/0165.Compare Version Numbers/README.md", sha256: "cf5ddac81bab16cb04e9fd26ce2b9e61a48a00062a471e54a1465359d12f3a08"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

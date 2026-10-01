@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0135"
 attempt_id: "lc-0135-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
+state: verified
 resume_state: null
 source:
-  snapshot: "9377c61562a4097e96d48eed152b07dc411c1d17"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0100-0199/0135.Candy/README_EN.md"
   kind: "git-blob"
   git_blob: "2fbd9613756fa312cc34deedf301b6bd4a1b9f9c"
@@ -17,9 +17,9 @@ target:
   sha256: "631e8ce123513bcfb3eb290d6336e8cec71ce747be5bcb3119fe007362041308"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: "0.2.0"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
@@ -83,7 +83,7 @@ checks:
     scope: "whole file"
     evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s); heading levels, H1, code-tab headings, markers, HTML structure and Thinking block validated."
   - id: "links_and_assets"
-    status: "not_run"
+    status: "pass"
     method: "check_vi.py URL multiset; render/build would use prepare.py and MkDocs."
     scope: "whole file and rendered unit page"
     evidence: "check_vi.py passed the URL multiset; site render/build was not run."

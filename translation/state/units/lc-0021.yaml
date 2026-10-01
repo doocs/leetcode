@@ -5,21 +5,21 @@ owner: OpenCode (session 2026-10-01)
 state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0021.Merge Two Sorted Lists/README_EN.md
   kind: git-blob
-  git_blob: 94c2628bcdac2e6f1ef4307090eb3cb08416d321
-  sha256: c84b37828595ae2570d1e1e8e083b083c7e4428d50c059065a211593e47356f8
+  git_blob: "94c2628bcdac2e6f1ef4307090eb3cb08416d321"
+  sha256: "c84b37828595ae2570d1e1e8e083b083c7e4428d50c059065a211593e47356f8"
 target:
   path: vi/solution/0000-0099/0021.Merge Two Sorted Lists/README.md
   kind: git-blob
-  git_blob: 80aef6ec64d9ab313d16dee9a7c07843f9671186
-  sha256: 4e39e56c2c179af0e98b80812c8eed5198503a2ceee41b5613b71148e5e5eed6
+  git_blob: "80aef6ec64d9ab313d16dee9a7c07843f9671186"
+  sha256: "4e39e56c2c179af0e98b80812c8eed5198503a2ceee41b5613b71148e5e5eed6"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:

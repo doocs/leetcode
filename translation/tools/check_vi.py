@@ -112,6 +112,77 @@ def split_fences(text: str) -> Tuple[List[Tuple[str, str]], str]:
     return blocks, "\n".join(kept)
 
 
+def without_code_comments(code: str, info: str) -> str:
+    """Remove translatable comments while retaining code and tool directives."""
+    language = info.strip().split(maxsplit=1)[0].lower() if info.strip() else ""
+    line_markers = []
+    if language in _HASH_COMMENT_LANGUAGES or language in _SQL_COMMENT_LANGUAGES:
+        line_markers.append("#")
+    if language in _SLASH_COMMENT_LANGUAGES:
+        line_markers.append("//")
+    if language in _SQL_COMMENT_LANGUAGES:
+        line_markers.append("--")
+    block_markers = ("<!--", "-->") if language in {"html", "xml"} else ("/*", "*/")
+    if (
+        not line_markers
+        and language not in _SLASH_COMMENT_LANGUAGES
+        and language
+        not in {
+            "html",
+            "xml",
+        }
+    ):
+        return code
+
+    out = []
+    quote = None
+    i = 0
+    while i < len(code):
+        if quote:
+            if code.startswith(quote, i):
+                out.append(quote)
+                i += len(quote)
+                quote = None
+            else:
+                if code[i] == "\\" and i + 1 < len(code):
+                    out.append(code[i : i + 2])
+                    i += 2
+                else:
+                    out.append(code[i])
+                    i += 1
+            continue
+        if code.startswith(block_markers[0], i):
+            end = code.find(block_markers[1], i + len(block_markers[0]))
+            end = len(code) if end == -1 else end + len(block_markers[1])
+            comment = code[i:end]
+            if _PROTECTED_COMMENT.search(comment):
+                out.append(comment)
+            else:
+                out.append("".join("\n" if char == "\n" else "" for char in comment))
+            i = end
+            continue
+        marker = next((item for item in line_markers if code.startswith(item, i)), None)
+        if marker:
+            end = code.find("\n", i)
+            end = len(code) if end == -1 else end
+            comment = code[i:end]
+            out.append(comment if _PROTECTED_COMMENT.search(comment) else "")
+            i = end
+            continue
+        if code.startswith('"""', i) or code.startswith("'''", i):
+            quote = code[i : i + 3]
+            out.append(quote)
+            i += 3
+        elif code[i] in {'"', "'", "`"}:
+            quote = code[i]
+            out.append(code[i])
+            i += 1
+        else:
+            out.append(code[i])
+            i += 1
+    return "".join(out)
+
+
 def tab_headings(text: str) -> List[str]:
     out = []
     for region in re.findall(
@@ -213,7 +284,9 @@ def check_pair(src_text: str, dst_text: str) -> Tuple[List[str], List[str]]:
 
     src_blocks, src_rest = split_fences(src_text)
     dst_blocks, dst_rest = split_fences(dst_text)
-    if src_blocks != dst_blocks:
+    src_code = [(info, without_code_comments(body, info)) for info, body in src_blocks]
+    dst_code = [(info, without_code_comments(body, info)) for info, body in dst_blocks]
+    if src_code != dst_code:
         errors.append(
             f"code_fences: {len(src_blocks)} in source, {len(dst_blocks)} "
             "or content/info string differs"

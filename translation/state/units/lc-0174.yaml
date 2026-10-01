@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0174"
 attempt_id: "lc-0174-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674", locator: "solution/0100-0199/0174.Dungeon Game/README_EN.md", kind: "git-blob", git_blob: "cc8f40e4d122907c4a7ef260363904d22f065b14"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0174.Dungeon Game/README_EN.md", kind: "git-blob", git_blob: "cc8f40e4d122907c4a7ef260363904d22f065b14", sha256: "80bcd87dd6f88a5f0835feaa32883c71f9f8ff457c17ff1f990d71e17c00cddc"}
 target: {path: "vi/solution/0100-0199/0174.Dungeon Game/README.md", sha256: "097a83567c0dc1d7b058928fe0edac3a1283c34482b5f53687cfc7ba7d0a639c"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose, markup and explanatory comments"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

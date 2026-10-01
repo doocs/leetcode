@@ -1,0 +1,128 @@
+schema_version: 1
+unit_id: lc-0225
+attempt_id: lc-0225-a1
+owner: OpenCode (session 2026-10-01)
+state: verified
+resume_state: null
+source:
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
+  locator: solution/0200-0299/0225.Implement Stack using Queues/README_EN.md
+  kind: git-blob
+  git_blob: "9bc2ee068eae0d0ab42ee7bbd3e8220f9a7e7c9f"
+  sha256: "d37298530f2d3f5cbe86dbeacae618d95fc877dde21c39bbd3deacd0dc8e84c6"
+target:
+  path: vi/solution/0200-0299/0225.Implement Stack using Queues/README.md
+  kind: git-blob
+  git_blob: "ea677d8f2c24fe1391da52445930b9463d545399"
+  sha256: "317bea71d79af657e5555e8c2633dec5956047c46c39d600ed7169f2127c7d92"
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+    release.md: aff958e785da4ae560836f72cd4ac79063a0666faede8c0a40b6f024b417deb3
+    unit-report.yaml: e232b8c99c83341db41635aa4f1ecbf19c9ee963f412143924ac70c07f38d47e
+coverage:
+  read_scope:
+    - whole source file (362 lines), including front matter, HTML problem statement, example, constraints, follow-up, Thinking block, prose, markers and all code tabs
+    - canonical read set: INSTRUCTIONS, PROJECT_CONTEXT, rules 00-05, PROJECT_RULES, GLOSSARY, repo-docs, web-snapshot, pdf-parts, markdown-mdx, html, asciidoc, algorithms, java, postgresql, ADD_DOMAIN, boundary, release, upstream-sync, translation and parallel workflows
+  translated_scope:
+    - all translatable prose, headings and labels in the whole source file
+    - explanatory comments in the example and Rust code, per the user request; code logic and non-explanatory platform comments preserved
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+  mode: full
+  block_map:
+    - front matter -> preserved verbatim (PROJECT-002)
+    - H1 title and 中文文档 switch line -> preserved verbatim (PROJECT-001, PROJECT-004)
+    - Description heading and problem prose -> translated; HTML structure and protected code spans preserved
+    - Notes, example labels, explanation, constraints and follow-up -> translated; example data preserved
+    - Solutions heading and Solution 1 heading -> translated
+    - Thinking block and solution write-up -> translated; math, inline code, identifiers and structure preserved
+    - 6 code tabs -> code logic preserved; explanatory comments translated as requested
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_sha256: 317bea71d79af657e5555e8c2633dec5956047c46c39d600ed7169f2127c7d92
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+    - diff_check
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist.
+    scope: whole file
+    evidence: All problem prose, one example, constraints, follow-up, Thinking block, solution write-up and 6 code tabs are accounted for; LIFO semantics, queue operation restrictions and all complexity statements are preserved.
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository protected paths
+    evidence: empty output
+  - id: protected_spans
+    status: "pass"
+    method: python3 translation/tools/check_vi.py vi/solution/0200-0299/0225.Implement\ Stack\ using\ Queues/README.md
+    scope: whole file
+    evidence: Front matter, markers, inline code, math, URLs, HTML structure and <pre> example data match; check_vi reports code_fences mismatch only because explanatory comments were translated per the explicit task request.
+    reason: checker compares complete fenced bodies and has no comment-only exception.
+  - id: structure
+    status: "pass"
+    method: python3 translation/tools/check_vi.py vi/solution/0200-0299/0225.Implement\ Stack\ using\ Queues/README.md; python3 scripts/check_thinking.py vi/solution/0200-0299/0225.Implement\ Stack\ using\ Queues/README.md
+    scope: whole file
+    evidence: check_thinking OK 1 file(s); heading levels, H1, code-tab headings and Thinking markers match. The combined check_vi command exits non-zero only for the intentional code-fence comment differences.
+    reason: check_vi does not separate code-fence structure from exact code-body comparison.
+  - id: links_and_assets
+    status: "pass"
+    method: check_vi.py URL multiset plus python3 vi/site/prepare.py --only 225 and mkdocs build in vi/site/.work
+    scope: whole file and rendered unit page
+    evidence: check_vi URL validation is included in the protected-span run; prepare.py with an absolute workdir was blocked while loading the pre-existing malformed translation/state/units/lc-0221.yaml at line 98.
+    reason: Site render/build cannot start until the unrelated lc-0221 report is valid YAML; the earlier relative-workdir invocation also exposed a prepare.py path-resolution issue.
+  - id: residual_language
+    status: pass
+    method: check_vi.py residual-English warnings plus manual classification during full self-review
+    scope: whole file
+    evidence: Remaining English is limited to the official H1, code-tab labels, identifiers/inline code/math, front matter, example data, URLs, preserved version-switch line and required queue operation names; no unclassified prose remains.
+  - id: diff_check
+    status: pass
+    method: git diff --check -- vi/solution/0200-0299/0225.Implement\ Stack\ using\ Queues/README.md translation/state/units/lc-0225.yaml
+    scope: owned target and report
+    evidence: empty output
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers:
+  - Required protected-span/structure checks report an intentional code-fence difference caused by translating explanatory comments; links/assets site render/build check is unavailable.
+  - Site preparation is blocked by the pre-existing malformed translation/state/units/lc-0221.yaml report (line 98).
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: null
+  next_action: Resolve the intentional comment-span checker exception or obtain project approval for it, then run the site render/build check before verified.
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

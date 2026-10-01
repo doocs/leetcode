@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0187"
 attempt_id: "lc-0187-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674", locator: "solution/0100-0199/0187.Repeated DNA Sequences/README_EN.md", kind: "git-blob", git_blob: "a081eba3b4f1b75eb13e492c412a2e3472e3dd23"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0187.Repeated DNA Sequences/README_EN.md", kind: "git-blob", git_blob: "a081eba3b4f1b75eb13e492c412a2e3472e3dd23", sha256: "44c71c60b5a5d526111e4bae682e23152d3c0a17b95b57ee50c714437da46054"}
 target: {path: "vi/solution/0100-0199/0187.Repeated DNA Sequences/README.md", sha256: "212b7d4283f490a26da63189c2474496c7bb07d554d59a91486ec917ccffe96c"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

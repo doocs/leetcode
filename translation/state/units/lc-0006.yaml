@@ -5,21 +5,21 @@ owner: OpenCode (session 2026-10-01)
 state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0006.Zigzag Conversion/README_EN.md
   kind: git-blob
-  git_blob: 21e197e40128096690a478f537ef0d1d5ca0f81f
-  sha256: f53b157fc60fc59391c7cc673fcb436e99230a4f178bf4368b9f3125788bf055
+  git_blob: "21e197e40128096690a478f537ef0d1d5ca0f81f"
+  sha256: "f53b157fc60fc59391c7cc673fcb436e99230a4f178bf4368b9f3125788bf055"
 target:
   path: vi/solution/0000-0099/0006.Zigzag Conversion/README.md
   kind: git-blob
-  git_blob: 3a9cfd8e5c2a02979e8f078265d75b0cd78f2c6f
-  sha256: 7afab6921ebf0b1ef7a8d0ed9ec3f99c530f734bbca9fc9709ae2196eb531959
+  git_blob: "3a9cfd8e5c2a02979e8f078265d75b0cd78f2c6f"
+  sha256: "7afab6921ebf0b1ef7a8d0ed9ec3f99c530f734bbca9fc9709ae2196eb531959"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:

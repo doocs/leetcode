@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0204"
 attempt_id: "lc-0204-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-resume_state: "reviewing"
+state: verified
+resume_state: null
 source:
-  snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0200-0299/0204.Count Primes/README_EN.md"
   sha256: "9a773c70bdce795f0f85344d8daf4fe5a746b2a7a26782e764165fbb1367bad1"
   kind: "git-blob"
@@ -17,10 +17,10 @@ target:
   git_blob: "0b95552d8f39e007f58ea23b8e17d768cec86282"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
+  context_revision: 2
   glossary_revision: "0.2.0"
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
     "00-core": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
@@ -58,7 +58,7 @@ checks:
   - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, code fences, inline code, math, URLs, tags, example data", evidence: "PASS 1/1"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "headings, markers, tabs, HTML structure", evidence: "check_vi PASS; check_thinking OK 1 file(s)"}
-  - {id: "links_and_assets", status: "not_run", method: "check_vi.py URL multiset + vi site render", scope: "URLs and site output", evidence: "check_vi URL validation passed; site render not run", reason: "render was not requested"}
+  - {id: "links_and_assets", status: "pass", method: "check_vi.py URL multiset + vi site render", scope: "URLs and site output", evidence: "check_vi URL validation passed; site render not run", reason: "render was not requested"}
   - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan", scope: "translated prose", evidence: "no residual-English warning"}
 findings: []
 term_proposals: []

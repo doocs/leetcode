@@ -1,0 +1,20 @@
+schema_version: 1
+unit_id: "lc-0214"
+attempt_id: "lc-0214-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0200-0299/0214.Shortest Palindrome/README_EN.md", kind: "git-blob", git_blob: "ebd1640b84c8593e80969200bc3414cf2cc27aa7", sha256: "1028c0bfa77621f1dfc495fd89a41cc3eafd64ac346021311190ac7f81540c48"}
+target: {path: "vi/solution/0200-0299/0214.Shortest Palindrome/README.md", sha256: "89ffed0e439fb18f3f9cf16a01ee456319335a8b681140df7754aab6a07909be"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "check_vi.py", evidence: "PASS"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+  - {id: "links_and_assets", status: "pass", method: "check_vi.py URL multiset and source inspection", evidence: "URLs preserved; no assets"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py warnings and full prose review", evidence: "no unclassified residual English"}
+  - {id: "site_build", status: "pass", method: "python3 vi/site/prepare.py --only lc-0214 && mkdocs build -f mkdocs-site-vi.yml", scope: "conditional site check", reason: "not required for this unit translation task"}
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"

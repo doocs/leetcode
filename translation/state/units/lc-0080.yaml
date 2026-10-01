@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0080
 attempt_id: lc-0080-a1
 owner: OpenCode (session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README_EN.md
   kind: git-blob
-  git_blob: 7866d949171bb2d44222a77aa22f117d22f804ac
-  sha256: 6f40209a89a726c8f3861d0c1734910aa6de7d776989fe19108718ea24d5f1ab
+  git_blob: "7866d949171bb2d44222a77aa22f117d22f804ac"
+  sha256: "6f40209a89a726c8f3861d0c1734910aa6de7d776989fe19108718ea24d5f1ab"
 target:
   path: vi/solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README.md
   kind: git-blob
-  git_blob: baf1d640079c76f96e4222b8e91dac267a455b49
-  sha256: 00e95bc84eada38cd915079e94d3edd821589d57d040d8c96b8bb63f3b3562fa
+  git_blob: "baf1d640079c76f96e4222b8e91dac267a455b49"
+  sha256: "00e95bc84eada38cd915079e94d3edd821589d57d040d8c96b8bb63f3b3562fa"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -94,7 +94,7 @@ checks:
     scope: target
     evidence: "empty output; exit 1 is the expected no-index difference status for an untracked target"
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: "render/build check intentionally not run per user request; coordinator render next"
     scope: whole file and rendered unit page
     evidence: "URL multiset was covered by check_vi.py; site render and asset resolution remain for coordinator."

@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: lc-0056
 attempt_id: lc-0056-a1
 owner: "OpenCode (session 2026-10-01)"
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: "350711d499ba9e455a6a25cef50dbf7eb658a05a"
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: "solution/0000-0099/0056.Merge Intervals/README_EN.md"
   kind: git-blob
   git_blob: "f6078811f8988cf4255840eba7d1c483c1c0c6c5"
@@ -17,9 +17,9 @@ target:
   sha256: "27837608c50e206a8068bdb3290cc84330a82f8367967f7414ef0ba5fa7785c1"
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: "0.2.0"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   active_rule_hashes:
@@ -94,7 +94,7 @@ checks:
     scope: "whole file"
     evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s)."
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: "check_vi.py URL multiset plus coordinator-authorized render: python3 vi/site/prepare.py --only lc-0056 and mkdocs build -f mkdocs-site-vi.yml"
     scope: "whole file + rendered page"
     evidence: "check_vi validated URL preservation; site render/build was not run per user instruction."

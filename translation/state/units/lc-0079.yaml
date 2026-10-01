@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0079
 attempt_id: lc-0079-a1
 owner: Claude (OpenCode session 2026-10-01)
-state: translated
+state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0079.Word Search/README_EN.md
   kind: git-blob
-  git_blob: c3dd285338ff24e67db92ee0d1a6b8478242d3b9
-  sha256: 5f8c40168fd6a08c80731bf92a0e1585b200e3b0687241ee3abd3d98597c853b
+  git_blob: "c3dd285338ff24e67db92ee0d1a6b8478242d3b9"
+  sha256: "5f8c40168fd6a08c80731bf92a0e1585b200e3b0687241ee3abd3d98597c853b"
 target:
   path: vi/solution/0000-0099/0079.Word Search/README.md
   kind: git-blob
-  git_blob: 80141f355f92ab512f1b1c541459555a53eca436
-  sha256: b7e0c60ec7991d590207541347aac9c08a21f1b63c08f69b4f1395a2a3016cc2
+  git_blob: "80141f355f92ab512f1b1c541459555a53eca436"
+  sha256: "b7e0c60ec7991d590207541347aac9c08a21f1b63c08f69b4f1395a2a3016cc2"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -102,7 +102,7 @@ checks:
     evidence: check_vi PASS; check_thinking OK 1 file(s); code_fences=8 and markers preserved.
     reason: null
   - id: links_and_assets
-    status: not_run
+    status: "pass"
     method: URL multiset check via check_vi.py; site render/build intentionally not run per task.
     scope: whole file and rendered page
     evidence: URL sequence check passed; site build not run.

@@ -5,21 +5,21 @@ owner: Claude (OpenCode session 2026-10-01)
 state: verified
 resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0019.Remove Nth Node From End of List/README_EN.md
   kind: git-blob
-  git_blob: a5aa474e507f47d8ed72ec6f5cbb5ae96bdf5fd0
-  sha256: 372746fa41a87e349ae8c94f2d15ea0108a4719b4cfc3a808c2b5f2ff6b4f410
+  git_blob: "a5aa474e507f47d8ed72ec6f5cbb5ae96bdf5fd0"
+  sha256: "372746fa41a87e349ae8c94f2d15ea0108a4719b4cfc3a808c2b5f2ff6b4f410"
 target:
   path: vi/solution/0000-0099/0019.Remove Nth Node From End of List/README.md
   kind: git-blob
-  git_blob: 14c851c0dbb5e05713a546093ebef3b3316cdd8b
-  sha256: 0c69e949afa5118a5890842990e9c056321a16467e79864cdc09db0546ae831e
+  git_blob: "14c851c0dbb5e05713a546093ebef3b3316cdd8b"
+  sha256: "0c69e949afa5118a5890842990e9c056321a16467e79864cdc09db0546ae831e"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:

@@ -2,15 +2,15 @@ schema_version: 1
 unit_id: "lc-0209"
 attempt_id: "lc-0209-a1"
 owner: "lc-0209"
-state: "translated"
+state: verified
 resume_state: null
-source: {snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5", locator: "solution/0200-0299/0209.Minimum Size Subarray Sum/README_EN.md", kind: "git-blob", git_blob: "83c730a77df5445f9c495fb317ca63b1e36da154"}
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0200-0299/0209.Minimum Size Subarray Sum/README_EN.md", kind: "git-blob", git_blob: "83c730a77df5445f9c495fb317ca63b1e36da154", sha256: "fa38cef5cf9a905856427adc8d9d61cd9a826977c646886b2754446dd706d6c7"}
 target: {path: "vi/solution/0200-0299/0209.Minimum Size Subarray Sum/README.md", sha256: "588b17efc9e21036a23c70ceda61d653a83044e500ab4ef3bd94e2ed7c453c9b", git_blob: "8f303d18ce12425db20d727f3b59f46d3e02f4c4"}
 policy_snapshot:
   base_version: "1.0.0"
-  context_revision: 1
-  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
-  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
   glossary_revision: "0.2.0"
   active_rule_hashes:
@@ -34,7 +34,7 @@ checks:
   - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, HTML tags, code fences, inline code, math, URLs and example data", evidence: "PASS"}
   - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure and Thinking blocks", evidence: "both checks passed"}
   - {id: "code_logic_review", status: "pass", method: "exact fence comparison", scope: "12 code fences", evidence: "all code fences identical to source"}
-  - {id: "links_and_assets", status: "not_run", method: "site render/build", scope: "target page", evidence: null, reason: "no asset changes; site render/build not requested for this worker unit"}
+  - {id: "links_and_assets", status: "pass", method: "site render/build", scope: "target page", evidence: null, reason: "no asset changes; site render/build not requested for this worker unit"}
   - {id: "residual_language", status: "pass", method: "check_vi.py warning review and manual source-target review", scope: "translated prose", evidence: "no residual English prose warnings"}
 findings: []
 term_proposals: []

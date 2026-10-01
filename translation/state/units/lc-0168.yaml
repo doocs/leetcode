@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0168"
 attempt_id: "lc-0168-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0168.Excel Sheet Column Title/README_EN.md", kind: "git-blob", git_blob: "9250eb18f512abebea8c40a12cffad7d1d79dd6f"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0168.Excel Sheet Column Title/README_EN.md", kind: "git-blob", git_blob: "9250eb18f512abebea8c40a12cffad7d1d79dd6f", sha256: "2b733de3f6cfc79cc6e736f3b2cc709a6761bf0522a16f2ee2ae91eb817b5aec"}
 target: {path: "vi/solution/0100-0199/0168.Excel Sheet Column Title/README.md", sha256: "a9a8bc32e44aa138ee0a99a91590bc2c6e03a2c299a56a1ea8526d536b4f95ee"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

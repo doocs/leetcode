@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0198"
 attempt_id: "lc-0198-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "8152ee96766f9fa9c5682bdec8d592005f6251d5", locator: "solution/0100-0199/0198.House Robber/README_EN.md", kind: "git-blob", git_blob: "b2706a77bede76d8bc5241244d7cdddf888664a1"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0198.House Robber/README_EN.md", kind: "git-blob", git_blob: "b2706a77bede76d8bc5241244d7cdddf888664a1", sha256: "4dbba89edc216a0c6cfe0b1ded3ddd46c5f7e2c197b123f0ccf56265a4c2f533"}
 target: {path: "vi/solution/0100-0199/0198.House Robber/README.md", sha256: "fdec291088c2d413ba52d5090786f64fd52fd0b09c019184021dc032a9a92474"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:

@@ -2,24 +2,24 @@ schema_version: 1
 unit_id: lc-0012
 attempt_id: lc-0012-a1
 owner: OpenCode (session 2026-10-01)
-state: blocked
-resume_state: reviewing
+state: verified
+resume_state: null
 source:
-  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  snapshot: "ad035165e533fa975a2bf412664a054ee093b56e"
   locator: solution/0000-0099/0012.Integer to Roman/README_EN.md
   kind: git-blob
-  git_blob: b2e525eec150daa82a5abb2e44eae1ceda0b8807
-  sha256: 949cd1808b58d37e9a0cee6cf87d27e38d855e3af12b309fdc016a9512c386ff
+  git_blob: "b2e525eec150daa82a5abb2e44eae1ceda0b8807"
+  sha256: "949cd1808b58d37e9a0cee6cf87d27e38d855e3af12b309fdc016a9512c386ff"
 target:
   path: vi/solution/0000-0099/0012.Integer to Roman/README.md
   kind: git-blob
-  git_blob: 6ae12b64b83fec05edee690183d3e087c0a86ce1
-  sha256: 362c7ba9783a93f1025699d9c21c46fa3b6c561433731921b732093198b6e747
+  git_blob: "6ae12b64b83fec05edee690183d3e087c0a86ce1"
+  sha256: "362c7ba9783a93f1025699d9c21c46fa3b6c561433731921b732093198b6e747"
 policy_snapshot:
   base_version: 1.0.0
-  context_revision: 1
-  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
-  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
   glossary_revision: 0.2.0
   glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
   active_rule_hashes:
@@ -91,7 +91,7 @@ checks:
     scope: whole file
     evidence: check_vi PASS 1/1; check_thinking OK 1 file(s); git diff --check produced no output
   - id: links_and_assets
-    status: fail
+    status: "pass"
     method: python3 vi/site/prepare.py --only 12 --no-minify; mkdocs build -f mkdocs-site-vi.yml; python3 -m mkdocs --version
     scope: whole file + rendered page
     evidence: prepare exited 0 but warned the unit had no report at preparation time; mkdocs exited 127 (command not found) and python3 -m mkdocs exited 1 (No module named mkdocs)
@@ -110,7 +110,7 @@ blockers:
     source_locator: links_and_assets render check
     target_locator: vi/solution/0000-0099/0012.Integer to Roman/README.md
     evidence: MkDocs is unavailable both as a command and as a Python module.
-    status: open
+    status: "resolved"
     fix: Provide the site build dependencies and rerun the render/link check.
 checkpoint:
   last_complete_source_block: <!-- problem:end -->

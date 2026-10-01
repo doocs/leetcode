@@ -2,10 +2,10 @@ schema_version: 1
 unit_id: "lc-0149"
 attempt_id: "lc-0149-a1"
 owner: "OpenCode (session 2026-10-01)"
-state: "translated"
-source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0149.Max Points on a Line/README_EN.md", kind: "git-blob", git_blob: "a82075bf94e2c407894c365a054c0ff540a0d9d3"}
+state: verified
+source: {snapshot: "ad035165e533fa975a2bf412664a054ee093b56e", locator: "solution/0100-0199/0149.Max Points on a Line/README_EN.md", kind: "git-blob", git_blob: "a82075bf94e2c407894c365a054c0ff540a0d9d3", sha256: "98005d0f50df95db42a38bcae33ea5e3969b9a3ec45be99a5e2c8a7608578094"}
 target: {path: "vi/solution/0100-0199/0149.Max Points on a Line/README.md", sha256: "52a566af4c375b6c12faf308523e58357cc3dd99fe17318ae5f337183cd6bdf9"}
-policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 2, glossary_revision: "0.2.0"}
 coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
 review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
 checks:
