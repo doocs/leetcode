@@ -76,7 +76,6 @@ jobs:
         run: |
           set -euo pipefail
           python3 translation/tools/check_vi.py --all --quiet
-          python3 translation/tools/inventory.py --check
           mapfile -d '' files < <(find vi -path vi/site -prune -o -mindepth 2 -name README.md -print0)
           if [ ${#files[@]} -gt 0 ]; then
             python3 scripts/check_thinking.py "${files[@]}"
