@@ -1,11 +1,45 @@
-# Prompt: dịch unit kế tiếp
+# Prompt: Translate one complete page
 
-Đọc và tuân thủ `translation/INSTRUCTIONS.md` cùng read set được context kích hoạt. Dịch đầy đủ unit pending/stale hợp lệ tiếp theo theo source map, thứ tự và dependencies; nếu đã được giao một unit cụ thể thì chỉ làm unit đó.
+Mỗi invocation của prompt này xử lý **đúng một bài hoàn chỉnh**.
 
-Trước khi ghi, xác minh snapshot/source hash, target mapping, owner, quyền ghi và bản dịch hiện có. Thực hiện `translation/workflows/translation.md` từ đọc nguyên source đến self-check, review và required checks. Neighbor chỉ để hiểu context; không copy content ngoài scope. Code/output/identifier theo policy, không tự modernize hoặc bổ sung giải thích.
+## Input unit
 
-Mỗi lần chỉ ghi target/report thuộc assignment. Các unit trong một task nhiều file vẫn phải có review và evidence riêng; không đánh tất cả done vì đã tạo file. Nếu cần sửa glossary, ghi proposal thay vì sửa trong worker phase.
+Source là một file `README_EN.md` của một bài.
 
-Không xác minh được nguồn hoặc required check thì checkpoint và báo đúng trạng thái, không đoán hoặc tự giảm QA. Nếu context yêu cầu independent review, giao reviewer thực khi công cụ hỗ trợ; chưa có reviewer thì dừng ở translated/reviewing. Cùng agent review lần hai phải ghi đúng sequential-self-review.
+Target là file `vi/.../README.md` tương ứng.
 
-Kết thúc bằng báo cáo ngắn: unit/source pin; target; phạm vi đã đọc/dịch/review; checks thực chạy; trạng thái; blocker; bước tiếp theo. Commit/push chỉ khi được uỷ quyền rõ, không tự làm từ prompt này.
+## Contract
+
+Agent phải:
+
+1. đọc toàn bộ source page;
+2. dịch toàn bộ prose cần dịch của page;
+3. giữ nguyên code, code comments, identifiers, math, URL, front matter và các protected literal;
+4. viết hoàn chỉnh target page;
+5. quick-review source ↔ target;
+6. chạy mechanical check cần thiết;
+7. kết thúc task của bài đó.
+
+## Không được chia nhỏ ownership
+
+Không tạo task phụ kiểu:
+
+- Translate comments 0004;
+- Translate headings 0004;
+- Translate description 0004;
+- Translate solution 0004.
+
+Nếu bài là 0004 thì agent được giao 0004 phải chịu trách nhiệm toàn bộ page 0004.
+
+Code comments mặc định không dịch và không phải một translation unit riêng.
+
+## Batch behavior
+
+Khi có nhiều agent:
+
+- mỗi agent nhận một problem/page khác nhau;
+- không hai agent cùng sửa một target file;
+- 20 agents = tối đa 20 pages song song;
+- agent xong page nào thì trả page đó, không tạo report/hash/state.
+
+Tuân thủ `translation/RULE.md`, `translation/PROJECT_RULES.md` và `translation/GLOSSARY.md`.
