@@ -1,0 +1,86 @@
+schema_version: 1
+unit_id: "lc-0233"
+attempt_id: "lc-0233-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: "reviewing"
+source:
+  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  locator: "solution/0200-0299/0233.Number of Digit One/README_EN.md"
+  sha256: "b9f3f8911ae654db334cbfd525677b081330aff9a2b5f43296ec5948ac06cfe6"
+  kind: "git-blob"
+  git_blob: "7e768c61503807eed60f451191bff0448f2afdb0"
+target:
+  path: "vi/solution/0200-0299/0233.Number of Digit One/README.md"
+  sha256: "f609acb572d1e65cc932e06492767729da4b599de521816b1fafc400e06e6fb4"
+  kind: "git-blob"
+  git_blob: "da4ece0ca560eb1984ebfb9afd9d38a8c81cfb02"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 2
+  glossary_revision: "0.2.0"
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "translation/rules/00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "translation/rules/01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "translation/rules/02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "translation/rules/03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "translation/rules/04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "translation/rules/05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    "translation/adapters/repo-docs.md": "6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36"
+    "translation/formats/markdown-mdx.md": "e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767"
+    "translation/formats/html.md": "bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256"
+    "translation/domains/algorithms.md": "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+    "translation/workflows/translation.md": "e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d"
+    "translation/workflows/upstream-sync.md": "389f1ca08cb29d62b07fd8d12cfd13ad0cd51d2c567b2605b96b2488993e5e10"
+    "translation/workflows/release.md": "aff958e785da4ae560836f72cd4ac79063a0666faede8c0a40b6f024b417deb3"
+coverage:
+  read_scope:
+    - "whole source file, 301 lines, including front matter, HTML problem statement, examples, constraints, Thinking block, similar problems, markers, and all six code tabs"
+    - "whole target file, 301 lines"
+  translated_scope:
+    - "all translatable prose, headings, labels, and visible HTML text"
+    - "front matter, code fences, identifiers, literals, URLs, math, markers, and code-tab headings preserved per policy"
+  reviewed_scope:
+    - "whole source and target file, source-to-target and target-to-source"
+  mode: "full"
+  block_map:
+    - {source: "lines 1-14", target: "lines 1-14", disposition: "front matter, official H1, version-switch link, and markers preserved"}
+    - {source: "lines 16-44", target: "lines 16-44", disposition: "description, labels, examples, constraints, and markers translated or preserved per policy"}
+    - {source: "lines 46-60", target: "lines 46-60", disposition: "Solutions heading and Thinking block translated; markers preserved"}
+    - {source: "lines 62-91", target: "lines 62-91", disposition: "algorithm explanation, steps, complexity, and math translated or preserved per policy"}
+    - {source: "lines 93-102", target: "lines 93-102", disposition: "similar-problem heading and prose translated; links and titles preserved"}
+    - {source: "lines 104-297", target: "lines 104-297", disposition: "six code-tab headings, fences, code, identifiers, literals, and APIs preserved"}
+    - {source: "lines 299-301", target: "lines 299-301", disposition: "closing markers preserved"}
+  exclusions: ["No source content excluded"]
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "f609acb572d1e65cc932e06492767729da4b599de521816b1fafc400e06e6fb4"
+  required_checks:
+    - "source_protection"
+    - "full_semantic_review"
+    - "protected_spans"
+    - "structure"
+    - "links_and_assets"
+    - "residual_language"
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole 301-line source and target", evidence: "all prose, labels, examples, constraints, Thinking block, similar problems, six code tabs, and markers accounted for; no added or omitted source content"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py vi/solution/0200-0299/0233.Number of Digit One/README.md", scope: "front matter, markers, HTML tags, code fences, inline code, math, URLs, tags, and example data", evidence: "PASS vi/solution/0200-0299/0233.Number of Digit One/README.md; 1/1 passed"}
+  - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "headings, markers, tabs, and HTML structure", evidence: "check_vi PASS; check_thinking OK 1 file(s)"}
+  - {id: "links_and_assets", status: "not_run", method: "URL multiset check plus per-unit site render/build", scope: "URLs, assets, and rendered site output", evidence: "check_vi URL validation passed; site render/build was not run", reason: "No site-build evidence was produced for this report."}
+  - {id: "residual_language", status: "pass", method: "check_vi residual-English scan and manual source-target review", scope: "translated prose", evidence: "No residual-English warnings; remaining English is limited to policy-preserved title, code-tab labels, technical identifiers, exact data, URLs, and code."}
+findings: []
+term_proposals: []
+blockers:
+  - "Required site render/build was not run; this unit must remain translated until that check is completed."
+checkpoint:
+  last_complete_source_block: "lines 1-301"
+  next_source_locator: null
+  next_action: "Run the per-unit site render/build, then promote to verified only if it passes."
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"

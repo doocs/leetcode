@@ -1,0 +1,75 @@
+schema_version: 1
+unit_id: "lc-0222"
+attempt_id: "lc-0222-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: null
+source:
+  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  locator: "solution/0200-0299/0222.Count Complete Tree Nodes/README_EN.md"
+  sha256: null
+  kind: "git-blob"
+  git_blob: "0341c57edcdabfb0e0e140f36a05c027234d1aec"
+target:
+  path: "vi/solution/0200-0299/0222.Count Complete Tree Nodes/README.md"
+  sha256: "b70acc3efbf7f29372f196ec255bbb39aa3deda7c14c126e2e004feab5ebbcc9"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  glossary_revision: "0.2.0"
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "translation/rules/00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "translation/rules/01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "translation/rules/02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "translation/rules/03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "translation/rules/04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "translation/rules/05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    "translation/adapters/repo-docs.md": "6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36"
+    "translation/formats/markdown-mdx.md": "e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767"
+    "translation/formats/html.md": "bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256"
+    "translation/domains/algorithms.md": "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+    "translation/workflows/translation.md": "e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d"
+    "translation/workflows/parallel.md": "6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6"
+coverage:
+  read_scope: ["whole source file", "required translation read set"]
+  translated_scope: ["all prose and display labels; code and protected spans preserved"]
+  reviewed_scope: ["whole source and target file"]
+  mode: "full"
+  block_map:
+    - {source: "front matter + H1 + version link", target: "front matter + H1 + version link", disposition: "preserved"}
+    - {source: "description:start..description:end", target: "description:start..description:end", disposition: "translated prose and labels; HTML/data preserved"}
+    - {source: "solution:start..solution:end", target: "solution:start..solution:end", disposition: "translated headings, Thinking, and explanations; code preserved"}
+  exclusions: ["executable code preserved; explanatory comments translated per explicit user instruction"]
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "b70acc3efbf7f29372f196ec255bbb39aa3deda7c14c126e2e004feab5ebbcc9"
+  required_checks: ["full_semantic_review", "source_protection", "protected_spans", "structure", "residual_language"]
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added or omitted prose"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", scope: "front matter, fences, inline code, math, URLs, HTML tags, example data", evidence: "13/13 fences found; checker rejects the 12 translated explanatory comment lines", reason: "explicit user instruction overrides PROJECT-002/code-comments-preserve for explanatory comments"}
+  - {id: "executable_code_preservation", status: "pass", method: "manual source-target review excluding comment lines", scope: "all code fences", evidence: "all executable code, fence info strings, identifiers, literals, and comments' code structure preserved"}
+  - {id: "structure", status: "pass", method: "check_vi.py and scripts/check_thinking.py", scope: "headings, H1, code tabs, markers, HTML structure", evidence: "PASS; OK 1 file(s)"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan plus manual classification", scope: "translated prose", evidence: "no residual-English warnings"}
+  - {id: "links_and_assets", status: "not_run", method: "URL comparison passed in check_vi.py; site render not run", scope: "external image and internal links", evidence: null, reason: "worker self-check did not run the site render workflow"}
+findings:
+  - {id: "f-001", rule_id: "CORE-01", severity: "medium", source_locator: "README_EN.md code fences, 12 explanatory comment lines", target_locator: "README.md code fences, same lines", evidence: "user explicitly requested translation of explanatory comments; check_vi flags only those comment-text differences", status: "accepted_user_override", fix: null}
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "problem:end"
+  next_source_locator: null
+  next_action: "independent review, policy reconciliation, or site render before verified"
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"

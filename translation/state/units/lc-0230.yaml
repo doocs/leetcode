@@ -1,0 +1,139 @@
+schema_version: 1
+unit_id: lc-0230
+attempt_id: lc-0230-a1
+owner: OpenCode (session 2026-10-01)
+state: translated
+resume_state: reviewing
+source:
+  snapshot: 16b57ffbacddef5e58eecb8a3858947837062bca
+  locator: solution/0200-0299/0230.Kth Smallest Element in a BST/README_EN.md
+  kind: git-blob
+  git_blob: d24d953823b3d09083e41ca4dbdb1549e47f1b29
+  sha256: 78b020a04ac0d13a15d8a446da9f5b1aabef14b0c5e63823b6361897807693b7
+target:
+  path: vi/solution/0200-0299/0230.Kth Smallest Element in a BST/README.md
+  kind: git-blob
+  git_blob: 512130cfe64635ae2127963faef5fb7cad26be07
+  sha256: 2f1d0601caefcb242c81c3d7fceb29a9719d08ae90fbc3359df7859529204d75
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    upstream-sync.md: 389f1ca08cb29d62b07fd8d12cfd13ad0cd51d2c567b2605b96b2488993e5e10
+    release.md: aff958e785da4ae560836f72cd4ac79063a0666faede8c0a40b6f024b417deb3
+coverage:
+  read_scope:
+    - whole source file (520 lines), including front matter, HTML problem statement, examples, constraints, Thinking blocks, markers and all code tabs
+    - canonical read set: INSTRUCTIONS, PROJECT_CONTEXT, rules 00-05, PROJECT_RULES, GLOSSARY, repo-docs adapter, markdown-mdx/html adapters, algorithms profile, translation/upstream-sync/release workflows and unit-report template
+  translated_scope:
+    - all translatable prose, headings and labels in the whole source file
+    - explanatory comments in all code tabs, per the explicit task request; executable code unchanged
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+  mode: full
+  block_map:
+    - front matter -> preserved verbatim (PROJECT-002)
+    - H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)
+    - Description prose, labels, constraints and follow-up -> translated; HTML structure, code spans, entities, URLs and example data preserved
+    - Solutions and two Thinking blocks -> translated; math, markers and heading structure preserved
+    - 10 code tabs -> executable code, API, fences, language headings and logic preserved; explanatory comments translated by request
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator
+  reviewed_target_sha256: 2f1d0601caefcb242c81c3d7fceb29a9719d08ae90fbc3359df7859529204d75
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+    - executable_code_identity
+    - diff_check
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: Full source-target comparison in both directions using the coverage map and QA-03 checklist.
+    scope: whole file
+    evidence: All description prose, two examples, constraints, follow-up, two Thinking blocks and 10 code tabs are accounted for; 1-indexing, inorder traversal, subtree-size decisions and executable logic are preserved.
+  - id: source_protection
+    status: pass
+    method: git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md
+    scope: repository protected paths
+    evidence: empty output
+  - id: protected_spans
+    status: fail
+    method: python3 translation/tools/check_vi.py "vi/solution/0200-0299/0230.Kth Smallest Element in a BST/README.md"
+    scope: front matter, code fences, inline code, math, URLs, tags and example data
+    evidence: check_vi reports only code_fences mismatch; 10 source and 10 target fences are present, with comment-only differences requested by the user.
+    reason: Direct task instruction requires translating explanatory comments, while the current checker compares complete code-fence bodies byte-for-byte.
+  - id: structure
+    status: fail
+    method: python3 translation/tools/check_vi.py target; python3 scripts/check_thinking.py target
+    scope: headings, markers, tabs, HTML structure and Thinking blocks
+    evidence: check_thinking OK 1 file(s); check_vi finds no structural error beyond the code-fence comparison failure.
+    reason: The required combined command exits non-zero because of protected_spans.
+  - id: links_and_assets
+    status: not_run
+    method: URL multiset check plus python3 vi/site/prepare.py --only 230 and site build
+    scope: URLs, image assets and rendered unit page
+    evidence: URL multiset identical (4 URLs); prepare ran but emitted a stub because this unit had no report at that time, so translated-page render/build was not evidenced.
+    reason: The page was not published by prepare without a verified report.
+  - id: residual_language
+    status: pass
+    method: check_vi residual-English warnings plus manual classification during full self-review
+    scope: translated prose
+    evidence: No residual-English warnings; remaining English is limited to the official H1, code-tab labels, technical identifiers, front matter, exact example data, URLs and preserved switch line.
+  - id: executable_code_identity
+    status: pass
+    method: Extract all 10 code fences and compare after removing comment-only lines.
+    scope: executable code in all tabs
+    evidence: 10/10 executable listings identical to source; API and logic unchanged.
+  - id: diff_check
+    status: pass
+    method: git diff --no-index --check /dev/null target (exit 1 expected for an untracked file)
+    scope: target
+    evidence: empty output
+boundary_reports: []
+findings:
+  - id: lc-0230-f1
+    rule_id: CODE-01
+    severity: medium
+    source_locator: code fences, lines 73-76, 97-110, 135-144, 169-175, 200-211, 237-253, 301-306, 345-357, 407-415, 463-468
+    target_locator: corresponding code fences
+    evidence: Explanatory comments were translated as explicitly requested; executable code is unchanged, but check_vi compares complete fences.
+    status: open
+    fix: Keep the requested comment translations, or revise the checker/policy before promoting the unit to verified.
+term_proposals: []
+blockers:
+  - Protected-span and combined structure checks cannot pass while explanatory code comments differ from source under the current checker.
+  - Site render/build of the translated page remains unevidenced because prepare.py served a stub without a verified report.
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: protected-span policy/checker resolution and translated-page render
+  next_action: Resolve the explicit comment-translation versus byte-identical-fence policy, then rerun check_vi and site render before verified.
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

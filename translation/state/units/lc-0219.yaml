@@ -1,0 +1,77 @@
+schema_version: 1
+unit_id: "lc-0219"
+attempt_id: "lc-0219-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: null
+source:
+  snapshot: "16b57ffbacddef5e58eecb8a3858947837062bca"
+  locator: "solution/0200-0299/0219.Contains Duplicate II/README_EN.md"
+  sha256: "ab6f5ee8f9f940d460ca81b1863ec0fd164994bcb4effc090c10acf7e9fa9188"
+  kind: "git-blob"
+  git_blob: "a65d7d5aa452af9023952bcb01f455b863f64d72"
+target:
+  path: "vi/solution/0200-0299/0219.Contains Duplicate II/README.md"
+  sha256: "a7a03f214e91293fe2f89947ffe5e6c3564d35fd1178f8e6a67e5c992850a755"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 2
+  context_sha256: "dbd1bf6d7f780fcb1e751428b65b9a5393ef6797f9dccfd9590623f64ddfe312"
+  project_rules_sha256: "0824b5fdfd1cd84a29dc5ed3bbb79ea0822c50cede228fc41104683ebe386348"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "translation/rules/00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "translation/rules/01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "translation/rules/02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "translation/rules/03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "translation/rules/04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "translation/rules/05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    "translation/adapters/repo-docs.md": "6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36"
+    "translation/formats/markdown-mdx.md": "e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767"
+    "translation/formats/html.md": "bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256"
+    "translation/domains/algorithms.md": "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+    "translation/workflows/translation.md": "e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d"
+    "translation/workflows/upstream-sync.md": "389f1ca08cb29d62b07fd8d12cfd13ad0cd51d2c567b2605b96b2488993e5e10"
+    "translation/workflows/release.md": "aff958e785da4ae560836f72cd4ac79063a0666faede8c0a40b6f024b417deb3"
+coverage:
+  read_scope: ["whole source file, 222 lines", "whole target file, 222 lines"]
+  translated_scope: ["all prose, visible HTML text, structural labels and Thinking block"]
+  reviewed_scope: ["whole source and target file, source-to-target and target-to-source"]
+  mode: "full"
+  block_map:
+    - {source: "lines 1-15", target: "lines 1-15", disposition: "front matter, official H1 and version-switch link preserved"}
+    - {source: "lines 17-53", target: "lines 16-53", disposition: "description, labels, constraints and examples translated; HTML structure and example data preserved"}
+    - {source: "lines 55-77", target: "lines 55-77", disposition: "solution heading, Thinking prose and algorithm explanation translated; math and markers preserved"}
+    - {source: "lines 79-218", target: "lines 79-218", disposition: "eight code tabs preserved; identifiers, literals, APIs, code and fence info strings unchanged"}
+    - {source: "lines 220-222", target: "lines 220-222", disposition: "closing markers preserved"}
+  exclusions: []
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "a7a03f214e91293fe2f89947ffe5e6c3564d35fd1178f8e6a67e5c992850a755"
+  required_checks: ["source_protection", "full_semantic_review", "protected_spans", "structure", "links_and_assets", "residual_language"]
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole 222-line source and target", evidence: "all prose, labels, examples, constraints, Thinking block, solution explanation and eight code tabs accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status --short on source locator", scope: "source file", evidence: "source path unchanged; target remains the only reported assignment path change"}
+  - {id: "protected_spans", status: "pass", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, HTML structure, code fences, inline code, math, URLs and example data", evidence: "PASS 1/1"}
+  - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure, Thinking block and code tabs", evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s)"}
+  - {id: "code_logic_review", status: "pass", method: "manual fence-by-fence source-target comparison", scope: "eight code fences", evidence: "code, identifiers, literals, APIs and fence info strings preserved"}
+  - {id: "links_and_assets", status: "not_run", method: "site render/build", scope: "target page", evidence: null, reason: "site render/build was not run"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py output and manual source-target review", scope: "translated prose", evidence: "no residual-English warning reported; remaining English is policy-protected title, labels, identifiers, URLs or code"}
+findings: []
+term_proposals: []
+blockers: ["Site render/build was not run; this unit remains translated and is not verified."]
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "Run the authorized site render/build check, then recompute the target hash before verified."
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"
