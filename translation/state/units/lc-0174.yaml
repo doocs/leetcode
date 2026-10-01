@@ -1,0 +1,17 @@
+schema_version: 1
+unit_id: "lc-0174"
+attempt_id: "lc-0174-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+source: {snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674", locator: "solution/0100-0199/0174.Dungeon Game/README_EN.md", kind: "git-blob", git_blob: "cc8f40e4d122907c4a7ef260363904d22f065b14"}
+target: {path: "vi/solution/0100-0199/0174.Dungeon Game/README.md", sha256: "097a83567c0dc1d7b058928fe0edac3a1283c34482b5f53687cfc7ba7d0a639c"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose, markup and explanatory comments"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "check_vi.py", evidence: "PASS"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"

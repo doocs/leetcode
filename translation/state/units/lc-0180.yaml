@@ -1,0 +1,55 @@
+schema_version: 1
+unit_id: "lc-0180"
+attempt_id: "lc-0180-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: "reviewing"
+source: {snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674", locator: "solution/0100-0199/0180.Consecutive Numbers/README_EN.md", kind: "git-blob", git_blob: "2213635085473ecd2c05f50c07a74bf4739489bf"}
+target: {path: "vi/solution/0100-0199/0180.Consecutive Numbers/README.md", sha256: "92d746f07dcd3b5b12546c7259a91425024fbe39ddc96c8573053471b055a03f"}
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  glossary_revision: "0.2.0"
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "00-core": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "01-style-and-terminology": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "02-code-and-literals": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "03-structure-links-assets": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "04-quality-gates": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "05-state-and-evidence": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+coverage:
+  read_scope: ["whole source file, 198 lines"]
+  translated_scope: ["all prose and markup text; explanatory SQL comments"]
+  reviewed_scope: ["whole source and target file"]
+  mode: "full"
+  block_map:
+    - {source: "lines 1-7", target: "lines 1-7", disposition: "front matter preserved"}
+    - {source: "lines 8-65", target: "lines 8-65", disposition: "description translated; table and example data preserved"}
+    - {source: "lines 67-118", target: "lines 67-118", disposition: "solution 1 translated; code preserved except explanatory comment"}
+    - {source: "lines 120-157", target: "lines 120-157", disposition: "solution 2 translated; code preserved except explanatory comment"}
+    - {source: "lines 159-196", target: "lines 159-196", disposition: "solution 3 structure preserved; code preserved except explanatory comment"}
+    - {source: "lines 198", target: "lines 198", disposition: "closing marker preserved"}
+  exclusions: ["No source content excluded"]
+review: {mode: "sequential-self-review", reviewer: "same agent as translator", reviewed_target_sha256: "f6d13264a34a247ea335a08165162bd2de9e6555da45cf18037feca15de8474d"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added prose"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", scope: "front matter, code fences, inline code, math, URLs, tags, example data", evidence: "only code_fences differs because three explanatory SQL comments were translated by explicit user request; all other protected-span checks pass"}
+  - {id: "structure", status: "pass", method: "check_vi.py structural output and python3 scripts/check_thinking.py target", scope: "whole file", evidence: "check_thinking passed; no heading, marker, tab-label, URL, HTML-tag, block, or example-data errors"}
+  - {id: "non_comment_code", status: "pass", method: "fence comparison after removing comment lines", scope: "all code fences", evidence: "code and fence info strings unchanged"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py residual-English scan", scope: "translated prose", evidence: "no residual-English warning"}
+  - {id: "links_and_assets", status: "not_run", method: "site render", scope: "vi site", evidence: "site render was not requested or run"}
+findings:
+  - {id: "translated-code-comments", rule_id: "CODE-01", severity: "medium", source_locator: "lines 108, 141, 176", target_locator: "lines 108, 141, 176", evidence: "three explanatory SQL comments translated per explicit user instruction; executable SQL unchanged", status: "intentional", fix: "none; checker policy would need an explicit comment-span exception before verified"}
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "lines 1-198"
+  next_source_locator: null
+  next_action: "Resolve the intentional check_vi code-fence/comment policy mismatch if verified state is required"
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"

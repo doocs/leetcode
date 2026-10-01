@@ -1,0 +1,71 @@
+schema_version: 1
+unit_id: "lc-0186"
+attempt_id: "lc-0186-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+source:
+  snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674"
+  locator: "solution/0100-0199/0186.Reverse Words in a String II/README_EN.md"
+  kind: "git-blob"
+  git_blob: "3355b57efa11e62ace92c31d4b7af2c55f41148f"
+  sha256: "e55e8f21827535b3226736fe4bb79de72afb8765bb0d369c90ad7399c8465bd1"
+target:
+  path: "vi/solution/0100-0199/0186.Reverse Words in a String II/README.md"
+  git_blob: "209d36acc35e9174477387a978bcdc07d32b6e72"
+  sha256: "f38d814280fc181d0edec293af17d81c9dc02d2acf712a43f43d5dd002a19848"
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  glossary_revision: "0.2.0"
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    00-core: "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    01-style-and-terminology: "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    02-code-and-literals: "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    03-structure-links-assets: "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    04-quality-gates: "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    05-state-and-evidence: "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+coverage:
+  read_scope: ["whole source file"]
+  translated_scope: ["all prose and markup; explanatory TypeScript comment"]
+  reviewed_scope: ["whole file, source-to-target and target-to-source"]
+  mode: "full"
+  block_map: ["front matter and markers -> preserved", "description HTML -> translated text nodes", "examples and constraints -> translated labels/prose with data preserved", "solution and Thinking -> translated prose", "five code tabs -> executable code preserved; one explanatory comment translated"]
+  exclusions: []
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator"
+  reviewed_target_sha256: "f38d814280fc181d0edec293af17d81c9dc02d2acf712a43f43d5dd002a19848"
+  required_checks: ["full_semantic_review", "source_protection", "protected_spans", "structure"]
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "whole file", evidence: "all source blocks accounted for; no added prose; executable code differs only in the explicitly requested explanatory comment"}
+  - {id: "source_protection", status: "pass", method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md", scope: "protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py <target>", scope: "front matter, fences, inline code, math, markers, HTML, URLs and example data", evidence: "only code_fences mismatch: check_vi compares the full fenced body and detects the explicitly requested localized TypeScript comment; executable-code comparison passed", reason: "explicit user instruction overrides project default code_comments: preserve for explanatory comments"}
+  - {id: "structure", status: "pass", method: "check_vi.py and python3 scripts/check_thinking.py <target>", scope: "headings, markers, HTML structure, blocks and Thinking", evidence: "check_thinking.py: OK 1 file(s); check_vi.py reported no heading, marker, inline-code, math, URL, tag, block-count or example-data errors"}
+  - {id: "executable_code", status: "pass", method: "fenced-code comparison with approved comment span normalized", scope: "five code tabs", evidence: "PASS executable code identical; approved comment localization isolated"}
+findings:
+  - id: "lc-0186-check-vi-comment-exception"
+    rule_id: "CODE-02 / explicit user request"
+    severity: "medium"
+    source_locator: "README_EN.md:163-165"
+    target_locator: "README.md:163-165"
+    evidence: "The explanatory TypeScript comment is translated as requested; check_vi.py treats the whole fence as protected and therefore reports a code_fences mismatch."
+    status: "accepted"
+    fix: "none; retain the requested comment localization and verified executable-code equivalence"
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "Resolve the check_vi code-comment policy mismatch before verified status if the project checker must pass unchanged."
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"

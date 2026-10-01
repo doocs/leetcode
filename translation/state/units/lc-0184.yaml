@@ -1,0 +1,27 @@
+schema_version: 1
+unit_id: "lc-0184"
+attempt_id: "lc-0184-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+resume_state: null
+source: {snapshot: "a216bb1e968d3ffebaffba5d257bc226256ae674", locator: "solution/0100-0199/0184.Department Highest Salary/README_EN.md", kind: "git-blob", git_blob: "d3ae003001533cfcc904d9b2a6f4cda4aad58f86"}
+target: {path: "vi/solution/0100-0199/0184.Department Highest Salary/README.md", sha256: "f6689b2dc1cf206a3d61aedbd1bd003a65b545b6df5da254bd777e65d4de9eb0"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose, labels, and explanatory comments"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator", reviewed_target_sha256: "f6689b2dc1cf206a3d61aedbd1bd003a65b545b6df5da254bd777e65d4de9eb0"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", scope: "all 198 lines and both solution sections", evidence: "all source blocks accounted for; no added or omitted content"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", scope: "solution lcof lcof2 lcci lcp lcs basic images root README files", evidence: "empty output"}
+  - {id: "protected_spans", status: "fail", method: "python3 translation/tools/check_vi.py target", scope: "front matter, markers, fences, inline code, math, URLs, HTML tags, blocks, example data", evidence: "only code_fences mismatch; explanatory comments were translated as explicitly requested"}
+  - {id: "structure", status: "fail", method: "check_vi.py and python3 scripts/check_thinking.py target", scope: "heading structure and thinking blocks", evidence: "check_thinking.py passed; check_vi.py failed only on code_fences"}
+  - {id: "code_logic_review", status: "pass", method: "fence-by-fence comparison excluding comment lines", scope: "all 3 code fences", evidence: "all non-comment code lines and fence info strings unchanged"}
+  - {id: "residual_language", status: "pass", method: "check_vi.py warning review", scope: "translated prose", evidence: "no residual_english warnings"}
+  - {id: "links_and_assets", status: "not_run", method: "site render/build", scope: "target page", evidence: null, reason: "not requested and no asset changes"}
+findings:
+  - {id: "F-001", rule_id: "CODE-01", severity: "medium", source_locator: "README_EN.md:113-145,174", target_locator: "README.md:113-145,174", evidence: "strict checker requires byte-identical code fences, while the task explicitly requires translating explanatory comments", status: "open", fix: "none without violating the direct task requirement"}
+term_proposals: []
+blockers: ["Required check_vi.py code_fences gate remains incompatible with requested explanatory-comment translation."]
+checkpoint: {last_complete_source_block: "problem:end", next_source_locator: null, next_action: "resolve checker policy conflict before verified status"}
+git: {commit_status: "not_requested", commit: null, push_status: "not_requested", remote_ref: null}
+publication: {status: "not_requested", location: null}
+updated_at: "2026-10-01"
