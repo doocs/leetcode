@@ -1,7 +1,7 @@
 # Canonical project configuration. Paths are relative to the repository root.
 schema_version: 1
 base_version: 1.0.0
-context_revision: 1
+context_revision: 2
 status: ready
 project:
   id: leetcode-vi
@@ -56,7 +56,7 @@ modules:
     - translation/workflows/release.md
 policies:
   fidelity: faithful
-  code_comments: preserve
+  code_comments: translate_explanatory
   display_strings: preserve
   string_allowlist: []
   inline_literals: preserve

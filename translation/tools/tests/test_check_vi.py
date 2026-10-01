@@ -92,6 +92,21 @@ class CheckViTest(unittest.TestCase):
             )
         )
 
+    def test_explanatory_comment_translation_passes(self):
+        src = SRC.replace("print(1)", "# Print the answer\nprint(1)")
+        dst = DST.replace("print(1)", "# In ra dap an\nprint(1)")
+        self.assertNotIn("code_fences", " ".join(check_vi.check_pair(src, dst)[0]))
+
+    def test_comment_marker_inside_string_is_protected(self):
+        src = SRC.replace("print(1)", 'print("# source")')
+        dst = DST.replace("print(1)", 'print("# target")')
+        self.assertIn("code_fences", " ".join(check_vi.check_pair(src, dst)[0]))
+
+    def test_tool_directive_comment_is_protected(self):
+        src = SRC.replace("print(1)", "# noqa\nprint(1)")
+        dst = DST.replace("print(1)", "# bo qua\nprint(1)")
+        self.assertIn("code_fences", " ".join(check_vi.check_pair(src, dst)[0]))
+
     def test_example_data_change_fails(self):
         bad = DST.replace("nums = [2,7], target = 9", "nums = [2, 7], target = 9")
         self.assertTrue(any("example data" in e for e in self.errors(bad)))

@@ -18,12 +18,12 @@ File này không chép lại core và không tự cấp quyền vượt core. C�
 - Căn cứ: quyết định D1 của người dùng; tên bài là định danh dùng để tra trên LeetCode và giữ nhất quán giữa trang stub và trang đã dịch.
 - Kiểm tra: `check_vi.py` (`h1`).
 
-### PROJECT-002 — Front matter và code giữ nguyên
+### PROJECT-002 — Front matter và code giữ nguyên, trừ comment giải thích
 
 - Áp dụng: toàn bộ front matter (`comments`, `difficulty`, `tags`, `rating`, `source`, …), mọi code fence, các file `Solution*.*`.
 - Policy liên quan: CODE-01, STRUCT-02, `markup_text_allowlist: []`.
-- Quyết định: front matter giống từng byte với nguồn; giá trị `difficulty`/`source` chỉ được site hiển thị bằng nhãn tiếng Việt (`vi/site/hooks/vi_markdown.py`), không sửa trong file. Comment trong code giữ nguyên (`code_comments: preserve`).
-- Kiểm tra: `check_vi.py` (`frontmatter`, `code_fences`).
+- Quyết định: front matter giống từng byte với nguồn; giá trị `difficulty`/`source` chỉ được site hiển thị bằng nhãn tiếng Việt (`vi/site/hooks/vi_markdown.py`), không sửa trong file. Comment giải thích trong code được dịch; shebang, directive, output và token kỹ thuật trong comment vẫn giữ nguyên (`code_comments: translate_explanatory`).
+- Kiểm tra: `check_vi.py` (`frontmatter`, code fence sau khi loại comment giải thích), `check_thinking.py`.
 
 ### PROJECT-003 — Nhãn cấu trúc cố định
 
