@@ -1,0 +1,17 @@
+schema_version: 1
+unit_id: "lc-0153"
+attempt_id: "lc-0153-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0153.Find Minimum in Rotated Sorted Array/README_EN.md", kind: "git-blob", git_blob: "5bd58a451dbcdb07b6c3c7e554f9690819158020"}
+target: {path: "vi/solution/0100-0199/0153.Find Minimum in Rotated Sorted Array/README.md", sha256: "0751b9e80ff1adbb16367cb49e1fb36ae5c6d07d04df04e669f0b95c15dfefc5"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "check_vi.py", evidence: "PASS"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"

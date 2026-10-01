@@ -1,0 +1,17 @@
+schema_version: 1
+unit_id: "lc-0167"
+attempt_id: "lc-0167-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "translated"
+source: {snapshot: "3e6d51bd84902d5c426def5f805e27e9fec3773f", locator: "solution/0100-0199/0167.Two Sum II - Input Array Is Sorted/README_EN.md", kind: "git-blob", git_blob: "f6ba8aa5cb38cf11c6c19146b5ec2bb4ec57c3c5"}
+target: {path: "vi/solution/0100-0199/0167.Two Sum II - Input Array Is Sorted/README.md", sha256: "eca070e7d1c79faef15179379470ad8beef76ba6c67643b299f15dae9ca6c65f"}
+policy_snapshot: {base_version: "1.0.0", context_revision: 1, glossary_revision: "0.2.0"}
+coverage: {read_scope: ["whole source file"], translated_scope: ["all prose and markup"], reviewed_scope: ["whole file"], mode: "full"}
+review: {mode: "sequential-self-review", reviewer: "same agent as translator"}
+checks:
+  - {id: "full_semantic_review", status: "pass", method: "full source-target comparison", evidence: "all blocks accounted for"}
+  - {id: "source_protection", status: "pass", method: "git status protected paths", evidence: "empty output"}
+  - {id: "protected_spans", status: "pass", method: "check_vi.py", evidence: "PASS"}
+  - {id: "structure", status: "pass", method: "check_vi.py and check_thinking.py", evidence: "passed"}
+git: {commit_status: "not_requested", commit: null}
+updated_at: "2026-10-01"
