@@ -88,23 +88,19 @@ tags:
 
 > **Thinking**
 >
-> The first idea is to keep stripping $()$, $[]$, and $\{\}$ until nothing changes. Correct, but worst-case $O(n^2)$. $n\le 10^4$ might pass, yet the writing is clumsy.
+> Repeatedly deleting adjacent pairs $()$, $[]$, and $\{\}$ until nothing is left is correct, but each pass rescans the string. With $n \le 10^4$, deeply nested input falls to $O(n^2)$ and can easily time out.
 >
-> Matching is last-opened-first-closed, so we need LIFO. A left bracket waits for its right counterpart; a right bracket must pair with the nearest unmatched left. The stack should be empty at the end, or some left bracket never closed.
+> The bottleneck is that a match is more than two neighboring characters. A later opener must close first, while an earlier one stays open. Once the brackets cross, as in $([)]$, deleting neighbors cannot reduce the string to empty.
 >
-> So we push left brackets and, on a right bracket, pop and compare.
+> Matching is therefore last-in, first-out: the only legal partner of the current closer is the most recent unmatched opener. A stack keeps those unfinished matches. An opener pushes its closer, so the closer allowed next sits on top, and a closer is compared only with that top. A mismatch means the type or the order is already wrong, and a non-empty stack at the end means some opener never closed.
 
 <!-- thinking:end -->
 
-Traverse the bracket string $s$. When encountering a left bracket, push the current left bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether it matches. If it does not match, directly return `false`.
+We use a hash table $\textit{d}$ to map each opening bracket to its closing bracket, and a stack $\textit{stk}$ to store closers that have not been matched yet. Scan $s$ from left to right. When the current character is an opening bracket, push the corresponding closer from $\textit{d}$ onto $\textit{stk}$. When it is a closing bracket, return `false` if $\textit{stk}$ is empty or the popped top is different from that character.
 
-Alternatively, when encountering a left bracket, you can push the corresponding right bracket into the stack; when encountering a right bracket, pop the top element of the stack (if the stack is empty, directly return `false`), and judge whether they are equal. If they do not match, directly return `false`.
+After the scan, return `true` if $\textit{stk}$ is empty: every pair has been closed in the right type and order. If the stack still holds a closer, some opening bracket was never matched, so return `false`.
 
-> The difference between the two methods is only the timing of bracket conversion, one is when pushing into the stack, and the other is when popping out of the stack.
-
-At the end of the traversal, if the stack is empty, it means the bracket string is valid, return `true`; otherwise, return `false`.
-
-The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the bracket string $s$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $s$.
 
 <!-- tabs:start -->
 
@@ -114,11 +110,11 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 class Solution:
     def isValid(self, s: str) -> bool:
         stk = []
-        d = {'()', '[]', '{}'}
+        d = {'(': ')', '[': ']', '{': '}'}
         for c in s:
-            if c in '({[':
-                stk.append(c)
-            elif not stk or stk.pop() + c not in d:
+            if c in d:
+                stk.append(d[c])
+            elif not stk or stk.pop() != c:
                 return False
         return not stk
 ```
@@ -129,18 +125,18 @@ class Solution:
 class Solution {
     public boolean isValid(String s) {
         Deque<Character> stk = new ArrayDeque<>();
+        Map<Character, Character> d = new HashMap<>(3);
+        d.put('(', ')');
+        d.put('[', ']');
+        d.put('{', '}');
         for (char c : s.toCharArray()) {
-            if (c == '(' || c == '{' || c == '[') {
-                stk.push(c);
-            } else if (stk.isEmpty() || !match(stk.pop(), c)) {
+            if (d.containsKey(c)) {
+                stk.push(d.get(c));
+            } else if (stk.isEmpty() || stk.pop() != c) {
                 return false;
             }
         }
         return stk.isEmpty();
-    }
-
-    private boolean match(char l, char r) {
-        return (l == '(' && r == ')') || (l == '{' && r == '}') || (l == '[' && r == ']');
     }
 }
 ```
@@ -152,19 +148,17 @@ class Solution {
 public:
     bool isValid(string s) {
         string stk;
+        unordered_map<char, char> d{{'(', ')'}, {'[', ']'}, {'{', '}'}};
         for (char c : s) {
-            if (c == '(' || c == '{' || c == '[')
-                stk.push_back(c);
-            else if (stk.empty() || !match(stk.back(), c))
+            if (d.contains(c)) {
+                stk.push_back(d[c]);
+            } else if (stk.empty() || stk.back() != c) {
                 return false;
-            else
+            } else {
                 stk.pop_back();
+            }
         }
         return stk.empty();
-    }
-
-    bool match(char l, char r) {
-        return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}');
     }
 };
 ```
@@ -173,11 +167,13 @@ public:
 
 ```go
 func isValid(s string) bool {
-	stk := []rune{}
-	for _, c := range s {
-		if c == '(' || c == '{' || c == '[' {
-			stk = append(stk, c)
-		} else if len(stk) == 0 || !match(stk[len(stk)-1], c) {
+	stk := []byte{}
+	d := map[byte]byte{'(': ')', '[': ']', '{': '}'}
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if v, ok := d[c]; ok {
+			stk = append(stk, v)
+		} else if len(stk) == 0 || stk[len(stk)-1] != c {
 			return false
 		} else {
 			stk = stk[:len(stk)-1]
@@ -185,31 +181,26 @@ func isValid(s string) bool {
 	}
 	return len(stk) == 0
 }
-
-func match(l, r rune) bool {
-	return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}')
-}
 ```
 
 #### TypeScript
 
 ```ts
-const map = new Map([
-    ['(', ')'],
-    ['[', ']'],
-    ['{', '}'],
-]);
-
 function isValid(s: string): boolean {
-    const stack = [];
+    const d = new Map<string, string>([
+        ['(', ')'],
+        ['[', ']'],
+        ['{', '}'],
+    ]);
+    const stk: string[] = [];
     for (const c of s) {
-        if (map.has(c)) {
-            stack.push(map.get(c));
-        } else if (stack.pop() !== c) {
+        if (d.has(c)) {
+            stk.push(d.get(c)!);
+        } else if (stk.pop() !== c) {
             return false;
         }
     }
-    return stack.length === 0;
+    return stk.length === 0;
 }
 ```
 
@@ -220,19 +211,19 @@ use std::collections::HashMap;
 
 impl Solution {
     pub fn is_valid(s: String) -> bool {
-        let mut map = HashMap::new();
-        map.insert('(', ')');
-        map.insert('[', ']');
-        map.insert('{', '}');
-        let mut stack = vec![];
+        let d: HashMap<char, char> = [('(', ')'), ('[', ']'), ('{', '}')]
+            .iter()
+            .copied()
+            .collect();
+        let mut stk = Vec::new();
         for c in s.chars() {
-            if map.contains_key(&c) {
-                stack.push(map[&c]);
-            } else if stack.pop().unwrap_or(' ') != c {
+            if let Some(&v) = d.get(&c) {
+                stk.push(v);
+            } else if stk.pop() != Some(c) {
                 return false;
             }
         }
-        stack.len() == 0
+        stk.is_empty()
     }
 }
 ```
@@ -245,22 +236,21 @@ impl Solution {
  * @return {boolean}
  */
 var isValid = function (s) {
-    let stk = [];
+    const d = new Map([
+        ['(', ')'],
+        ['[', ']'],
+        ['{', '}'],
+    ]);
+    const stk = [];
     for (const c of s) {
-        if (c == '(' || c == '{' || c == '[') {
-            stk.push(c);
-        } else if (stk.length == 0 || !match(stk[stk.length - 1], c)) {
+        if (d.has(c)) {
+            stk.push(d.get(c));
+        } else if (stk.pop() !== c) {
             return false;
-        } else {
-            stk.pop();
         }
     }
-    return stk.length == 0;
+    return stk.length === 0;
 };
-
-function match(l, r) {
-    return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}');
-}
 ```
 
 #### C#
@@ -269,13 +259,13 @@ function match(l, r) {
 public class Solution {
     public bool IsValid(string s) {
         Stack<char> stk = new Stack<char>();
-        foreach (var c in s.ToCharArray()) {
-            if (c == '(') {
-                stk.Push(')');
-            } else if (c == '[') {
-                stk.Push(']');
-            } else if (c == '{') {
-                stk.Push('}');
+        Dictionary<char, char> d = new Dictionary<char, char>();
+        d.Add('(', ')');
+        d.Add('[', ']');
+        d.Add('{', '}');
+        foreach (char c in s) {
+            if (d.ContainsKey(c)) {
+                stk.Push(d[c]);
             } else if (stk.Count == 0 || stk.Pop() != c) {
                 return false;
             }
@@ -291,24 +281,16 @@ public class Solution {
 # @param {String} s
 # @return {Boolean}
 def is_valid(s)
-  stack = ''
-  s.split('').each do |c|
-    if ['{', '[', '('].include?(c)
-      stack += c
-    else
-      if c == '}' && stack[stack.length - 1] == '{'
-
-        stack = stack.length > 1 ? stack[0..stack.length - 2] : ""
-      elsif c == ']' && stack[stack.length - 1] == '['
-        stack = stack.length > 1 ? stack[0..stack.length - 2] : ""
-      elsif c == ')' && stack[stack.length - 1] == '('
-        stack = stack.length > 1 ? stack[0..stack.length - 2] : ""
-      else
-        return false
-      end
+  stk = []
+  d = { '(' => ')', '[' => ']', '{' => '}' }
+  s.each_char do |c|
+    if d.key?(c)
+      stk.push(d[c])
+    elsif stk.empty? || stk.pop != c
+      return false
     end
   end
-  stack == ''
+  stk.empty?
 end
 ```
 
@@ -317,30 +299,26 @@ end
 ```php
 class Solution {
     /**
-     * @param string $s
-     * @return boolean
+     * @param String $s
+     * @return Boolean
      */
-
     function isValid($s) {
-        $stack = [];
-        $brackets = [
-            ')' => '(',
-            '}' => '{',
-            ']' => '[',
+        $stk = [];
+        $d = [
+            '(' => ')',
+            '[' => ']',
+            '{' => '}',
         ];
-
-        for ($i = 0; $i < strlen($s); $i++) {
-            $char = $s[$i];
-            if (array_key_exists($char, $brackets)) {
-                if (empty($stack) || $stack[count($stack) - 1] !== $brackets[$char]) {
-                    return false;
-                }
-                array_pop($stack);
-            } else {
-                array_push($stack, $char);
+        $n = strlen($s);
+        for ($i = 0; $i < $n; $i++) {
+            $c = $s[$i];
+            if (isset($d[$c])) {
+                $stk[] = $d[$c];
+            } elseif (empty($stk) || array_pop($stk) !== $c) {
+                return false;
             }
         }
-        return empty($stack);
+        return empty($stk);
     }
 }
 ```
