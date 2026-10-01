@@ -1,0 +1,118 @@
+schema_version: 1
+unit_id: lc-0078
+attempt_id: lc-0078-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: "9377c61562a4097e96d48eed152b07dc411c1d17"
+  locator: "solution/0000-0099/0078.Subsets/README_EN.md"
+  kind: git-blob
+  git_blob: "fa0b08bd731c5262d466896fd54b9f1daf798600"
+  sha256: "a44e19b89eb4f1a23b284f0eada3fce4dc7c1440bd70936647b576b47683cba6"
+target:
+  path: "vi/solution/0000-0099/0078.Subsets/README.md"
+  kind: git-blob
+  git_blob: "c3b5c5034240f33939b5baa640b640e56d654d48"
+  sha256: "d7e3571ffd20c555a70a4310de08cb7f024d6c805659f44e288714cad88a91f2"
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    00-core.md: "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    01-style-and-terminology.md: "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    02-code-and-literals.md: "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    03-structure-links-assets.md: "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    04-quality-gates.md: "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    05-state-and-evidence.md: "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    algorithms.md: "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+coverage:
+  read_scope:
+    - "whole source file (354 lines)"
+  translated_scope:
+    - "all prose and fixed labels listed in block_map"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: full
+  block_map:
+    - "front matter, H1, switch line -> preserved (PROJECT-001, PROJECT-002, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "description paragraphs x2 -> translated; HTML tags and inline code preserved"
+    - "Example 1-2 labels and Input/Output labels -> translated; example data preserved"
+    - "Constraints label and 3 list items -> translated; constraint code spans preserved"
+    - "## Solutions; Solution 1 and Solution 2 headings -> translated (PROJECT-003)"
+    - "Thinking blocks x2 -> translated; math preserved"
+    - "Solution 1 write-up (2 bullets, 3 paragraphs) -> translated; math preserved"
+    - "Solution 2 write-up (1 introduction, 2 paragraphs) -> translated; math preserved"
+    - "code tabs (2 tab groups, 12 code tabs) -> preserved verbatim"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: "c3b5c5034240f33939b5baa640b640e56d654d48"
+  reviewed_target_sha256: "d7e3571ffd20c555a70a4310de08cb7f024d6c805659f44e288714cad88a91f2"
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist."
+    scope: "whole file"
+    evidence: "All description prose, two examples, constraints, two Thinking blocks, both solution write-ups, and 12 code tabs accounted for; requirements, labels, example data, algorithm order, complexity, math, and code-prose relationships checked."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output"
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0078.Subsets/README.md"
+    scope: "whole file"
+    evidence: "PASS; front matter, code fences, inline code, math, markers, HTML tags, URL, and example data match source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0078.Subsets/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0078.Subsets/README.md"
+    scope: "whole file"
+    evidence: "PASS; check_thinking: OK 1 file(s)"
+  - id: links_and_assets
+    status: not_run
+    method: "check_vi.py URL multiset was run; prepare.py and mkdocs render/build were intentionally not run per user instruction."
+    scope: "whole file and rendered unit page"
+    evidence: "URL/protected-span checks passed; render not_run."
+    reason: "User explicitly requested no prepare/mkdocs."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual_english warnings plus manual classification during full self-review."
+    scope: "whole file"
+    evidence: "No unclassified residual English; remaining English is the official H1 title, code-tab labels, front matter tags, identifiers/inline code/math, technical terms mask and pop, and the preserved 中文文档 switch line under project policy."
+  - id: diff_check
+    status: pass
+    method: "git diff --check -- vi/solution/0000-0099/0078.Subsets/README.md translation/state/units/lc-0078.yaml; git diff --no-index --check -- /dev/null <target> and /dev/null <report>"
+    scope: "owned target and report"
+    evidence: "empty output from both checks"
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "coordinator next"
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: "2026-10-01"

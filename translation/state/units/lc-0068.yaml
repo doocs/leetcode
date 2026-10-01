@@ -1,0 +1,120 @@
+schema_version: 1
+unit_id: lc-0068
+attempt_id: lc-0068-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: "solution/0000-0099/0068.Text Justification/README_EN.md"
+  kind: git-blob
+  git_blob: 91e3ae0734a2bfebf81e4e356884d07e49c95de5
+  sha256: fd815ee6651260aacec02288e1216a166e1989c71857d1f88bd80b1083bd9f4f
+target:
+  path: "vi/solution/0000-0099/0068.Text Justification/README.md"
+  kind: git-blob
+  git_blob: b07583af05dfe0424ee589c3759afbb976aa4b16
+  sha256: 9e3103b7a6a61e2e0746cb3d1e1ace9760f6d4cea59f19a55ded0f84e382ad2f
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: "0.2.0"
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+coverage:
+  read_scope:
+    - "whole source file (332 lines), including front matter, HTML problem statement, examples, constraints, Thinking block, prose, markers and all code tabs"
+  translated_scope:
+    - "all translatable prose and fixed labels listed in block_map"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: full
+  block_map:
+    - "front matter -> preserved verbatim (PROJECT-002)"
+    - "H1 title, 中文文档 switch line -> preserved verbatim (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "description prose x4 -> translated; inline code and HTML entities preserved"
+    - "Note label and 3 list items -> translated; constraint code spans preserved"
+    - "Example 1-3 labels and Input/Output labels -> translated; example data preserved"
+    - "Example 2 explanation prose -> translated; quoted output data preserved"
+    - "Constraints label and prose -> translated; constraint code spans and literals preserved"
+    - "## Solutions; ### Solution 1 heading -> translated (PROJECT-003)"
+    - "Thinking block (3 paragraphs) -> translated; math preserved"
+    - "solution write-up (2 paragraphs) -> translated; math and inline literals preserved"
+    - "7 code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: b07583af05dfe0424ee589c3759afbb976aa4b16
+  reviewed_target_sha256: 9e3103b7a6a61e2e0746cb3d1e1ace9760f6d4cea59f19a55ded0f84e382ad2f
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist."
+    scope: "whole file"
+    evidence: "All four description paragraphs, note list, three examples, constraints, three Thinking paragraphs, two solution paragraphs, and 7 code tabs are accounted for; greedy packing, left/right justification, extra-space distribution, last-line behavior, complexity and code-prose relationships checked."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output"
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0068.Text Justification/README.md"
+    scope: "whole file"
+    evidence: "PASS 1/1; front matter, 7 code fences, inline code, math, markers, HTML tags, URL, block structure and example data match source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0068.Text Justification/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0068.Text Justification/README.md"
+    scope: "whole file"
+    evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s)."
+  - id: links_and_assets
+    status: not_run
+    method: "URL multiset was checked by check_vi.py; render/build would use vi/site/prepare.py and mkdocs."
+    scope: "whole file and rendered unit page"
+    evidence: "URL check passed; render/build not_run."
+    reason: "User explicitly requested no render/build; coordinator next."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual_english warnings plus manual classification during full self-review."
+    scope: "whole file"
+    evidence: "No unclassified residual English; remaining English is the official H1 title, code-tab labels, identifiers/inline code/math, front matter, example data, URLs and the preserved 中文文档 switch line under project policy."
+  - id: diff_check
+    status: pass
+    method: "git diff --check -- vi/solution/0000-0099/0068.Text Justification/README.md translation/state/units/lc-0068.yaml"
+    scope: "owned target and report"
+    evidence: "empty output"
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "coordinator next"
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: "2026-10-01"

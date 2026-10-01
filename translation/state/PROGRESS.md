@@ -2,15 +2,15 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `350711d499ba9e455a6a25cef50dbf7eb658a05a`
+- Snapshot nguồn: `ecb9a0f948b3578a12b3238359f9b7ff3fcfaf45`
 - Tổng số unit trong scope: 4177
 - verified: 10
 - stale: 0
 - modified: 0
 - unreviewed: 0
-- pending: 4114
+- pending: 4094
 - blocked: 6
-- translated: 47
+- translated: 67
 
 ## Đã bắt đầu
 
@@ -75,5 +75,25 @@ Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 - lc-0059 — translated — `vi/solution/0000-0099/0059.Spiral Matrix II/README.md`
 - lc-0060 — translated — `vi/solution/0000-0099/0060.Permutation Sequence/README.md`
 - lc-0061 — translated — `vi/solution/0000-0099/0061.Rotate List/README.md`
+- lc-0062 — translated — `vi/solution/0000-0099/0062.Unique Paths/README.md`
+- lc-0063 — translated — `vi/solution/0000-0099/0063.Unique Paths II/README.md`
+- lc-0064 — translated — `vi/solution/0000-0099/0064.Minimum Path Sum/README.md`
+- lc-0065 — translated — `vi/solution/0000-0099/0065.Valid Number/README.md`
+- lc-0066 — translated — `vi/solution/0000-0099/0066.Plus One/README.md`
+- lc-0067 — translated — `vi/solution/0000-0099/0067.Add Binary/README.md`
+- lc-0068 — translated — `vi/solution/0000-0099/0068.Text Justification/README.md`
+- lc-0069 — translated — `vi/solution/0000-0099/0069.Sqrt(x)/README.md`
+- lc-0070 — translated — `vi/solution/0000-0099/0070.Climbing Stairs/README.md`
+- lc-0071 — translated — `vi/solution/0000-0099/0071.Simplify Path/README.md`
+- lc-0072 — translated — `vi/solution/0000-0099/0072.Edit Distance/README.md`
+- lc-0073 — translated — `vi/solution/0000-0099/0073.Set Matrix Zeroes/README.md`
 - lc-0074 — verified — `vi/solution/0000-0099/0074.Search a 2D Matrix/README.md`
+- lc-0075 — translated — `vi/solution/0000-0099/0075.Sort Colors/README.md`
+- lc-0076 — translated — `vi/solution/0000-0099/0076.Minimum Window Substring/README.md`
+- lc-0077 — translated — `vi/solution/0000-0099/0077.Combinations/README.md`
+- lc-0078 — translated — `vi/solution/0000-0099/0078.Subsets/README.md`
+- lc-0079 — translated — `vi/solution/0000-0099/0079.Word Search/README.md`
+- lc-0080 — translated — `vi/solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README.md`
+- lc-0081 — translated — `vi/solution/0000-0099/0081.Search in Rotated Sorted Array II/README.md`
+- lc-0082 — translated — `vi/solution/0000-0099/0082.Remove Duplicates from Sorted List II/README.md`
 - lcci-01.01 — verified — `vi/lcci/01.01.Is Unique/README.md`
