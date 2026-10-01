@@ -456,7 +456,7 @@ function singleNumber(nums: number[]): number {
 
 #### JavaScript
 
-```ts
+```js
 function singleNumber(nums) {
     let [ans, acc] = [0, 0];
 

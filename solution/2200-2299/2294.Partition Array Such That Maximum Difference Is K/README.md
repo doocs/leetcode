@@ -203,9 +203,9 @@ impl Solution {
 }
 ```
 
-#### Rust
+#### C#
 
-```rust
+```cs
 public class Solution {
     public int PartitionArray(int[] nums, int k) {
         Array.Sort(nums);

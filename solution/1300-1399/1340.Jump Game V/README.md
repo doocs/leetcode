@@ -243,7 +243,7 @@ func maxJumps(arr []int, d int) (ans int) {
 
 #### TypeScript
 
-```typescript
+```ts
 function maxJumps(arr: number[], d: number): number {
     const n = arr.length;
     const f: number[] = new Array(n).fill(0);

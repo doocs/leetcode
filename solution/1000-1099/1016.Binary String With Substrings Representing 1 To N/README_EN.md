@@ -153,16 +153,18 @@ function queryString(s: string, n: number): boolean {
 #### Rust
 
 ```rust
-func queryString(s string, n int) bool {
-	if n > 1000 {
-		return false
-	}
-	for i := n; i > n/2; i-- {
-		if !strings.Contains(s, strconv.FormatInt(int64(i), 2)) {
-			return false
-		}
-	}
-	return true
+impl Solution {
+    pub fn query_string(s: String, n: i32) -> bool {
+        if n > 1000 {
+            return false;
+        }
+        for i in (n / 2 + 1..=n).rev() {
+            if !s.contains(&format!("{:b}", i)) {
+                return false;
+            }
+        }
+        true
+    }
 }
 ```
 
