@@ -1,13 +1,53 @@
-# Prompt: điều phối dịch trong scope đã giao
+# Prompt: Orchestrate page-level translation
 
-Đọc `translation/INSTRUCTIONS.md`, context, rule, glossary và các module được bật. Xác nhận scope người dùng giao; bootstrap khi cần rồi thực thi, không chỉ trả kế hoạch.
+Mục tiêu của orchestration là dịch nhiều bài song song với **ownership ở cấp trang/bài**.
 
-Từ source map, tạo assignment có ownership và snapshot rõ cho các unit còn lại. Concurrency theo config và capability thực. Không có subagent thì làm tuần tự, không báo nhiều agent giả. Mọi worker nhận read set, raw source đúng scope, context cần thiết và report path riêng.
+## Unit chuẩn
 
-Điều phối translation → self-check → boundary nếu có → semantic review → integration checks. Một writer cho shared state và Git index. Không package khi worker còn đang sửa output. Kết quả worker phải được xác minh qua artifact/diff/hash/coverage và check evidence trước khi tiến độ thay đổi.
+**1 agent = 1 bài = 1 source page hoàn chỉnh = 1 target page hoàn chỉnh.**
 
-Retry phần fail; giữ unit đã verified còn hợp lệ. Với lỗi nguồn/tool ở một unit, ghi blocker và có thể tiếp tục unit độc lập khác trong scope, không dừng vô cớ toàn corpus cũng không che phần thiếu.
+Ví dụ:
 
-Nếu user yêu cầu từng file review–commit–push, kiểm tra đủ quyền và serialize Git sau verified từng unit. Nếu không có yêu cầu đó thì không commit/push. Main không tự động là đích.
+- Agent A: `solution/.../0004.../README_EN.md` → `vi/solution/.../0004.../README.md`
+- Agent B: `solution/.../0005.../README_EN.md` → `vi/solution/.../0005.../README.md`
 
-Trước khi kết thúc session, ghi checkpoint thật và báo số unit pending/translated/verified/blocked/stale, checks còn thiếu và artifact thực có. Chỉ gọi toàn scope hoàn tất khi mọi điều kiện đạt. Không hứa tác vụ tiếp tục chạy sau khi session đã dừng.
+Không chia một bài thành các task kiểu:
+
+- translate comments;
+- translate headings;
+- translate description;
+- translate solution section;
+- translate examples;
+- review comments.
+
+Các phần trên thuộc cùng ownership của agent đang dịch cả trang.
+
+## Cách điều phối
+
+1. Chọn N bài độc lập chưa dịch hoặc cần update.
+2. Giao mỗi bài cho đúng một agent.
+3. Mỗi agent đọc toàn bộ `README_EN.md` của bài được giao.
+4. Agent tạo/update toàn bộ `README.md` tiếng Việt tương ứng.
+5. Agent tự quick-review và chạy mechanical check cần thiết.
+6. Khi xong, agent trả kết quả của chính bài đó.
+
+Có thể chạy nhiều agent song song nếu các target file khác nhau.
+
+## Không làm
+
+- Không tạo subtask chỉ để dịch code comments.
+- Không chia một trang thành nhiều agent nếu không có yêu cầu đặc biệt từ user.
+- Không tạo source map/report/hash/state/reviewer ceremony cho mỗi bài.
+- Không yêu cầu agent khác review lại mặc định.
+- Không biến translation task thành audit pipeline.
+
+## Code comments
+
+Code và code comments mặc định giữ nguyên theo `translation/RULE.md`.
+Không tạo agent riêng để dịch comments trong code.
+
+## Output mong muốn
+
+Mỗi agent hoàn tất **một trang tiếng Việt đầy đủ**, không phải một mảnh nội dung của trang.
+
+Nếu user yêu cầu 20 agents thì mặc định hiểu là **20 bài khác nhau chạy song song**, không phải 20 agents chia nhau một bài.
