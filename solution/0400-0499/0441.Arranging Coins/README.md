@@ -95,21 +95,10 @@ class Solution {
 #### C++
 
 ```cpp
-using LL = long;
-
 class Solution {
 public:
     int arrangeCoins(int n) {
-        LL left = 1, right = n;
-        while (left < right) {
-            LL mid = left + right + 1 >> 1;
-            LL s = (1 + mid) * mid >> 1;
-            if (n < s)
-                right = mid - 1;
-            else
-                left = mid;
-        }
-        return left;
+        return (int) (sqrt(2) * sqrt(n + 0.125) - 0.5);
     }
 };
 ```
@@ -118,16 +107,7 @@ public:
 
 ```go
 func arrangeCoins(n int) int {
-	left, right := 1, n
-	for left < right {
-		mid := (left + right + 1) >> 1
-		if (1+mid)*mid/2 <= n {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
+	return int(math.Sqrt(2)*math.Sqrt(float64(n)+0.125) - 0.5)
 }
 ```
 
@@ -180,6 +160,45 @@ class Solution {
         }
         return (int) left;
     }
+}
+```
+
+#### C++
+
+```cpp
+using LL = long;
+
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        LL left = 1, right = n;
+        while (left < right) {
+            LL mid = left + right + 1 >> 1;
+            LL s = (1 + mid) * mid >> 1;
+            if (n < s)
+                right = mid - 1;
+            else
+                left = mid;
+        }
+        return left;
+    }
+};
+```
+
+#### Go
+
+```go
+func arrangeCoins(n int) int {
+	left, right := 1, n
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if (1+mid)*mid/2 <= n {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
 }
 ```
 

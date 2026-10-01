@@ -10,30 +10,29 @@
  * @param {TreeNode} root
  */
 var BSTIterator = function (root) {
-    this.cur = 0;
-    this.vals = [];
-    const inorder = root => {
-        if (root) {
-            inorder(root.left);
-            this.vals.push(root.val);
-            inorder(root.right);
-        }
-    };
-    inorder(root);
+    this.stack = [];
+    for (; root != null; root = root.left) {
+        this.stack.push(root);
+    }
 };
 
 /**
  * @return {number}
  */
 BSTIterator.prototype.next = function () {
-    return this.vals[this.cur++];
+    let cur = this.stack.pop();
+    let node = cur.right;
+    for (; node != null; node = node.left) {
+        this.stack.push(node);
+    }
+    return cur.val;
 };
 
 /**
  * @return {boolean}
  */
 BSTIterator.prototype.hasNext = function () {
-    return this.cur < this.vals.length;
+    return this.stack.length > 0;
 };
 
 /**

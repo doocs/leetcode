@@ -121,18 +121,39 @@ class Solution:
 ```java
 class Solution {
     public int findRadius(int[] houses, int[] heaters) {
+        Arrays.sort(houses);
         Arrays.sort(heaters);
-        int res = 0;
-        for (int x : houses) {
-            int i = Arrays.binarySearch(heaters, x);
-            if (i < 0) {
-                i = ~i;
+        int left = 0, right = (int) 1e9;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(houses, heaters, mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
             }
-            int dis1 = i > 0 ? x - heaters[i - 1] : Integer.MAX_VALUE;
-            int dis2 = i < heaters.length ? heaters[i] - x : Integer.MAX_VALUE;
-            res = Math.max(res, Math.min(dis1, dis2));
         }
-        return res;
+        return left;
+    }
+
+    private boolean check(int[] houses, int[] heaters, int r) {
+        int m = houses.length, n = heaters.length;
+        int i = 0, j = 0;
+        while (i < m) {
+            if (j >= n) {
+                return false;
+            }
+            int mi = heaters[j] - r;
+            int mx = heaters[j] + r;
+            if (houses[i] < mi) {
+                return false;
+            }
+            if (houses[i] > mx) {
+                ++j;
+            } else {
+                ++i;
+            }
+        }
+        return true;
     }
 }
 ```
@@ -219,20 +240,39 @@ func findRadius(houses []int, heaters []int) int {
 function findRadius(houses: number[], heaters: number[]): number {
     houses.sort((a, b) => a - b);
     heaters.sort((a, b) => a - b);
-    const m = houses.length,
-        n = heaters.length;
-    let ans = 0;
-    for (let i = 0, j = 0; i < m; i++) {
-        let cur = Math.abs(houses[i] - heaters[j]);
-        while (
-            j + 1 < n &&
-            Math.abs(houses[i] - heaters[j]) >= Math.abs(houses[i] - heaters[j + 1])
-        ) {
-            cur = Math.min(Math.abs(houses[i] - heaters[++j]), cur);
+    const check = (r: number): boolean => {
+        const m = houses.length;
+        const n = heaters.length;
+        let i = 0;
+        let j = 0;
+        while (i < m) {
+            if (j >= n) {
+                return false;
+            }
+            const mi = heaters[j] - r;
+            const mx = heaters[j] + r;
+            if (houses[i] < mi) {
+                return false;
+            }
+            if (houses[i] > mx) {
+                ++j;
+            } else {
+                ++i;
+            }
         }
-        ans = Math.max(cur, ans);
+        return true;
+    };
+    let left = 0;
+    let right = 1e9;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
     }
-    return ans;
+    return left;
 }
 ```
 
