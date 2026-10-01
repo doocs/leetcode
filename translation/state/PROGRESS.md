@@ -2,15 +2,15 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `426ea2e5e3142b7000baab845f33789995123505`
+- Snapshot nguồn: `b5e6b209f5c97f3e787267fac95149e30c4c6a21`
 - Tổng số unit trong scope: 4177
 - verified: 10
 - stale: 0
 - modified: 0
 - unreviewed: 0
-- pending: 4054
+- pending: 4034
 - blocked: 6
-- translated: 107
+- translated: 127
 
 ## Đã bắt đầu
 
@@ -136,4 +136,24 @@ Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 - lc-0120 — translated — `vi/solution/0100-0199/0120.Triangle/README.md`
 - lc-0121 — translated — `vi/solution/0100-0199/0121.Best Time to Buy and Sell Stock/README.md`
 - lc-0122 — translated — `vi/solution/0100-0199/0122.Best Time to Buy and Sell Stock II/README.md`
+- lc-0123 — translated — `vi/solution/0100-0199/0123.Best Time to Buy and Sell Stock III/README.md`
+- lc-0124 — translated — `vi/solution/0100-0199/0124.Binary Tree Maximum Path Sum/README.md`
+- lc-0125 — translated — `vi/solution/0100-0199/0125.Valid Palindrome/README.md`
+- lc-0126 — translated — `vi/solution/0100-0199/0126.Word Ladder II/README.md`
+- lc-0127 — translated — `vi/solution/0100-0199/0127.Word Ladder/README.md`
+- lc-0128 — translated — `vi/solution/0100-0199/0128.Longest Consecutive Sequence/README.md`
+- lc-0129 — translated — `vi/solution/0100-0199/0129.Sum Root to Leaf Numbers/README.md`
+- lc-0130 — translated — `vi/solution/0100-0199/0130.Surrounded Regions/README.md`
+- lc-0131 — translated — `vi/solution/0100-0199/0131.Palindrome Partitioning/README.md`
+- lc-0132 — translated — `vi/solution/0100-0199/0132.Palindrome Partitioning II/README.md`
+- lc-0133 — translated — `vi/solution/0100-0199/0133.Clone Graph/README.md`
+- lc-0134 — translated — `vi/solution/0100-0199/0134.Gas Station/README.md`
+- lc-0135 — translated — `vi/solution/0100-0199/0135.Candy/README.md`
+- lc-0136 — translated — `vi/solution/0100-0199/0136.Single Number/README.md`
+- lc-0137 — translated — `vi/solution/0100-0199/0137.Single Number II/README.md`
+- lc-0138 — translated — `vi/solution/0100-0199/0138.Copy List with Random Pointer/README.md`
+- lc-0139 — translated — `vi/solution/0100-0199/0139.Word Break/README.md`
+- lc-0140 — translated — `vi/solution/0100-0199/0140.Word Break II/README.md`
+- lc-0141 — translated — `vi/solution/0100-0199/0141.Linked List Cycle/README.md`
+- lc-0142 — translated — `vi/solution/0100-0199/0142.Linked List Cycle II/README.md`
 - lcci-01.01 — verified — `vi/lcci/01.01.Is Unique/README.md`
