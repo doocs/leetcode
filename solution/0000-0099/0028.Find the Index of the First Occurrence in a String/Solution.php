@@ -5,16 +5,13 @@ class Solution {
      * @return Integer
      */
     function strStr($haystack, $needle) {
-        $strNew = str_replace($needle, '+', $haystack);
-        $cnt = substr_count($strNew, '+');
-        if ($cnt > 0) {
-            for ($i = 0; $i < strlen($strNew); $i++) {
-                if ($strNew[$i] == '+') {
-                    return $i;
-                }
+        $n = strlen($haystack);
+        $m = strlen($needle);
+        for ($i = 0; $i + $m <= $n; $i++) {
+            if (substr($haystack, $i, $m) === $needle) {
+                return $i;
             }
-        } else {
-            return -1;
         }
+        return -1;
     }
 }

@@ -322,9 +322,9 @@ impl Solution {
 }
 ```
 
-#### Rust
+#### C#
 
-```rust
+```cs
 public class Solution {
     public int[][] MinAbsDiff(int[][] grid, int k) {
         int m = grid.Length, n = grid[0].Length;

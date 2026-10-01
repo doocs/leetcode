@@ -1,22 +1,14 @@
 # @param {String} s
 # @return {Boolean}
 def is_valid(s)
-  stack = ''
-  s.split('').each do |c|
-    if ['{', '[', '('].include?(c)
-      stack += c
-    else
-      if c == '}' && stack[stack.length - 1] == '{'
-
-        stack = stack.length > 1 ? stack[0..stack.length - 2] : ""
-      elsif c == ']' && stack[stack.length - 1] == '['
-        stack = stack.length > 1 ? stack[0..stack.length - 2] : ""
-      elsif c == ')' && stack[stack.length - 1] == '('
-        stack = stack.length > 1 ? stack[0..stack.length - 2] : ""
-      else
-        return false
-      end
+  stk = []
+  d = { '(' => ')', '[' => ']', '{' => '}' }
+  s.each_char do |c|
+    if d.key?(c)
+      stk.push(d[c])
+    elsif stk.empty? || stk.pop != c
+      return false
     end
   end
-  stack == ''
+  stk.empty?
 end

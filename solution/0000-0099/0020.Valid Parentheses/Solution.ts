@@ -1,17 +1,16 @@
-const map = new Map([
-    ['(', ')'],
-    ['[', ']'],
-    ['{', '}'],
-]);
-
 function isValid(s: string): boolean {
-    const stack = [];
+    const d = new Map<string, string>([
+        ['(', ')'],
+        ['[', ']'],
+        ['{', '}'],
+    ]);
+    const stk: string[] = [];
     for (const c of s) {
-        if (map.has(c)) {
-            stack.push(map.get(c));
-        } else if (stack.pop() !== c) {
+        if (d.has(c)) {
+            stk.push(d.get(c)!);
+        } else if (stk.pop() !== c) {
             return false;
         }
     }
-    return stack.length === 0;
+    return stk.length === 0;
 }

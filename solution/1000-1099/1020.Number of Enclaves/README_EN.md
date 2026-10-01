@@ -229,7 +229,7 @@ function numEnclaves(grid: number[][]): number {
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y <= n && grid[x][y] === 1) {
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
                 dfs(x, y);
             }
         }
@@ -452,36 +452,87 @@ func numEnclaves(grid [][]int) (ans int) {
 
 ```ts
 function numEnclaves(grid: number[][]): number {
-    const m = grid.length;
-    const n = grid[0].length;
+    const [m, n] = [grid.length, grid[0].length];
     const dirs = [-1, 0, 1, 0, -1];
     const q: number[][] = [];
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] === 1 && (i === 0 || i === m - 1 || j === 0 || j === n - 1)) {
+    for (let j = 0; j < n; ++j) {
+        for (let i of [0, m - 1]) {
+            if (grid[i][j] === 1) {
                 q.push([i, j]);
                 grid[i][j] = 0;
             }
         }
     }
-    while (q.length) {
-        const [i, j] = q.shift()!;
+    for (let i = 0; i < m; ++i) {
+        for (let j of [0, n - 1]) {
+            if (grid[i][j] === 1) {
+                q.push([i, j]);
+                grid[i][j] = 0;
+            }
+        }
+    }
+    let head = 0;
+    while (head < q.length) {
+        const [i, j] = q[head++];
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y <= n && grid[x][y] === 1) {
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] === 1) {
                 q.push([x, y]);
                 grid[x][y] = 0;
             }
         }
     }
-    let ans = 0;
-    for (const row of grid) {
-        for (const v of row) {
-            ans += v;
+    return grid.flat().reduce((acc, cur) => acc + cur, 0);
+}
+```
+
+#### Rust
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn num_enclaves(mut grid: Vec<Vec<i32>>) -> i32 {
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut q = VecDeque::new();
+        let dirs = [-1, 0, 1, 0, -1];
+
+        for j in 0..n {
+            for &i in &[0, m - 1] {
+                if grid[i][j] == 1 {
+                    q.push_back((i, j));
+                    grid[i][j] = 0;
+                }
+            }
         }
+
+        for i in 0..m {
+            for &j in &[0, n - 1] {
+                if grid[i][j] == 1 {
+                    q.push_back((i, j));
+                    grid[i][j] = 0;
+                }
+            }
+        }
+
+        while let Some((i, j)) = q.pop_front() {
+            for k in 0..4 {
+                let x = i as isize + dirs[k];
+                let y = j as isize + dirs[k + 1];
+                if x >= 0 && x < m as isize && y >= 0 && y < n as isize {
+                    let (x, y) = (x as usize, y as usize);
+                    if grid[x][y] == 1 {
+                        q.push_back((x, y));
+                        grid[x][y] = 0;
+                    }
+                }
+            }
+        }
+
+        grid.into_iter().flatten().sum()
     }
-    return ans;
 }
 ```
 

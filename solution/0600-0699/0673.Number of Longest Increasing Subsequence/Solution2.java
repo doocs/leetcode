@@ -38,9 +38,7 @@ class BinaryIndexedTree {
 
 public class Solution {
     public int findNumberOfLIS(int[] nums) {
-        // int[] arr = Arrays.stream(nums).distinct().sorted().toArray();
-        int[] arr = nums.clone();
-        Arrays.sort(arr);
+        int[] arr = Arrays.stream(nums).distinct().sorted().toArray();
         int m = arr.length;
         BinaryIndexedTree tree = new BinaryIndexedTree(m);
         for (int x : nums) {

@@ -370,9 +370,7 @@ class BinaryIndexedTree {
 
 public class Solution {
     public int findNumberOfLIS(int[] nums) {
-        // int[] arr = Arrays.stream(nums).distinct().sorted().toArray();
-        int[] arr = nums.clone();
-        Arrays.sort(arr);
+        int[] arr = Arrays.stream(nums).distinct().sorted().toArray();
         int m = arr.length;
         BinaryIndexedTree tree = new BinaryIndexedTree(m);
         for (int x : nums) {
@@ -492,9 +490,16 @@ func (bit *BinaryIndexedTree) query(x int) (int, int) {
 }
 
 func findNumberOfLIS(nums []int) int {
-	arr := make([]int, len(nums))
-	copy(arr, nums)
+	arr := append([]int(nil), nums...)
 	sort.Ints(arr)
+	k := 0
+	for _, x := range arr {
+		if k == 0 || arr[k-1] != x {
+			arr[k] = x
+			k++
+		}
+	}
+	arr = arr[:k]
 	m := len(arr)
 	tree := newBinaryIndexedTree(m)
 	for _, x := range nums {
@@ -625,6 +630,7 @@ impl Solution {
     pub fn find_number_of_lis(nums: Vec<i32>) -> i32 {
         let mut arr: Vec<i32> = nums.iter().cloned().collect();
         arr.sort();
+        arr.dedup();
         let m = arr.len();
         let mut tree = BinaryIndexedTree::new(m);
         for x in nums.iter() {

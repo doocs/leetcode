@@ -39,9 +39,16 @@ func (bit *BinaryIndexedTree) query(x int) (int, int) {
 }
 
 func findNumberOfLIS(nums []int) int {
-	arr := make([]int, len(nums))
-	copy(arr, nums)
+	arr := append([]int(nil), nums...)
 	sort.Ints(arr)
+	k := 0
+	for _, x := range arr {
+		if k == 0 || arr[k-1] != x {
+			arr[k] = x
+			k++
+		}
+	}
+	arr = arr[:k]
 	m := len(arr)
 	tree := newBinaryIndexedTree(m)
 	for _, x := range nums {

@@ -4,14 +4,11 @@ class Solution {
      * @return Integer
      */
     function numIdenticalPairs($nums) {
-        $arr = array_values(array_unique($nums));
-        for ($i = 0; $i < count($nums); $i++) {
-            $v[$nums[$i]] += 1;
+        $ans = 0;
+        $cnt = array_fill(0, 101, 0);
+        foreach ($nums as $x) {
+            $ans += $cnt[$x]++;
         }
-        $rs = 0;
-        for ($j = 0; $j < count($arr); $j++) {
-            $rs += ($v[$arr[$j]] * ($v[$arr[$j]] - 1)) / 2;
-        }
-        return $rs;
+        return $ans;
     }
 }

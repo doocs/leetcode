@@ -2,18 +2,16 @@ class Solution {
 public:
     bool isValid(string s) {
         string stk;
+        unordered_map<char, char> d{{'(', ')'}, {'[', ']'}, {'{', '}'}};
         for (char c : s) {
-            if (c == '(' || c == '{' || c == '[')
-                stk.push_back(c);
-            else if (stk.empty() || !match(stk.back(), c))
+            if (d.contains(c)) {
+                stk.push_back(d[c]);
+            } else if (stk.empty() || stk.back() != c) {
                 return false;
-            else
+            } else {
                 stk.pop_back();
+            }
         }
         return stk.empty();
-    }
-
-    bool match(char l, char r) {
-        return (l == '(' && r == ')') || (l == '[' && r == ']') || (l == '{' && r == '}');
     }
 };
