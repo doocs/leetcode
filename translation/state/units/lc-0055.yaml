@@ -1,0 +1,124 @@
+schema_version: 1
+unit_id: lc-0055
+attempt_id: lc-0055-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: 350711d499ba9e455a6a25cef50dbf7eb658a05a
+  locator: "solution/0000-0099/0055.Jump Game/README_EN.md"
+  kind: git-blob
+  git_blob: 3c68e26a986948e56c3fad72c8d06dd9c939757b
+  sha256: 5ff9192ba61844e20667c23088b7c0ac1fbc5e5bcffd1b972d97d53eb986078a
+target:
+  path: "vi/solution/0000-0099/0055.Jump Game/README.md"
+  kind: git-blob
+  git_blob: bf91ccf6ae48dc5341497be781e88158a7a1a163
+  sha256: b6399f51f1a802cacb71d1809e5030ab3109a797ed8c368f05bd8a452b7ef502
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+    unit-report.yaml: e232b8c99c83341db41635aa4f1ecbf19c9ee963f412143924ac70c07f38d47e
+coverage:
+  read_scope:
+    - "whole source file (224 lines)"
+  translated_scope:
+    - "front matter, H1, version-switch line and HTML/pipeline markers preserved"
+    - "Description prose, example labels/explanations and constraints translated"
+    - "Solutions and method heading translated"
+    - "Thinking block translated in all paragraphs"
+    - "solution prose, complexity statement and similar-problem label translated"
+    - "all 9 code tabs preserved verbatim"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+    - "protected spans, HTML tags, markers, URLs, math, example data and code fences"
+  mode: full
+  block_map:
+    - "front matter -> preserved byte-for-byte (PROJECT-002)"
+    - "H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "description paragraphs, example labels/data and constraints -> translated labels/prose; HTML structure and data preserved"
+    - "## Solutions; ### Solution 1 -> ## Lời giải; ### Lời giải 1"
+    - "Thinking block -> translated; math and inline literals preserved"
+    - "solution write-up, complexity statement and similar-problem label -> translated; math and URLs preserved"
+    - "9 code tabs -> preserved byte-for-byte"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_sha256: b6399f51f1a802cacb71d1809e5030ab3109a797ed8c368f05bd8a452b7ef502
+  reviewed_target_git_blob: bf91ccf6ae48dc5341497be781e88158a7a1a163
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read every source block against its target block in both directions using the QA-03 checklist."
+    scope: "whole file"
+    evidence: "All description, examples, constraints, Thinking paragraph, solution prose, complexity statement and similar-problem links have counterparts; reachability condition, farthest-index invariant, scan order and both complexity claims were checked."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output; source blob remains 3c68e26a986948e56c3fad72c8d06dd9c939757b."
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py \"vi/solution/0000-0099/0055.Jump Game/README.md\""
+    scope: "whole file"
+    evidence: "PASS 1/1; front matter, code fences, inline code, math, markers, URLs, HTML tags and <pre> example data match the source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py \"vi/solution/0000-0099/0055.Jump Game/README.md\"; python3 scripts/check_thinking.py \"vi/solution/0000-0099/0055.Jump Game/README.md\"; git diff --check --no-index /dev/null \"vi/solution/0000-0099/0055.Jump Game/README.md\""
+    scope: "whole file"
+    evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s); git diff --check produced no whitespace errors."
+  - id: links_and_assets
+    status: not_run
+    method: "check_vi.py URL multiset plus coordinator-authorized render: python3 vi/site/prepare.py --only lc-0055 and mkdocs build -f mkdocs-site-vi.yml"
+    scope: "whole file + rendered page"
+    evidence: "check_vi validated URL preservation; site render/build was not run per user instruction."
+    reason: "Required render/build evidence is missing; coordinator render is next."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual_english warnings plus manual classification."
+    scope: "whole file"
+    evidence: "One warning is the official English title in the similar-problem link for 1326; remaining English is limited to official problem names, code-tab labels, identifiers/math/code literals and the preserved 中文文档 switch line."
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers:
+  - "Required site render/build check is not run; coordinator must run the authorized render/build workflow before promoting this unit to verified."
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "Coordinator render/build check, then recompute target hashes and promote only if all required checks pass."
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: "2026-10-01"

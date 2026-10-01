@@ -2,15 +2,15 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `8366e377f36a2529ae70cbbb21172c6d172328c4`
+- Snapshot nguồn: `350711d499ba9e455a6a25cef50dbf7eb658a05a`
 - Tổng số unit trong scope: 4177
 - verified: 10
 - stale: 0
 - modified: 0
 - unreviewed: 0
-- pending: 4134
+- pending: 4114
 - blocked: 6
-- translated: 27
+- translated: 47
 
 ## Đã bắt đầu
 
@@ -55,5 +55,25 @@ Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 - lc-0039 — translated — `vi/solution/0000-0099/0039.Combination Sum/README.md`
 - lc-0040 — translated — `vi/solution/0000-0099/0040.Combination Sum II/README.md`
 - lc-0041 — translated — `vi/solution/0000-0099/0041.First Missing Positive/README.md`
+- lc-0042 — translated — `vi/solution/0000-0099/0042.Trapping Rain Water/README.md`
+- lc-0043 — translated — `vi/solution/0000-0099/0043.Multiply Strings/README.md`
+- lc-0044 — translated — `vi/solution/0000-0099/0044.Wildcard Matching/README.md`
+- lc-0045 — translated — `vi/solution/0000-0099/0045.Jump Game II/README.md`
+- lc-0046 — translated — `vi/solution/0000-0099/0046.Permutations/README.md`
+- lc-0047 — translated — `vi/solution/0000-0099/0047.Permutations II/README.md`
+- lc-0048 — translated — `vi/solution/0000-0099/0048.Rotate Image/README.md`
+- lc-0049 — translated — `vi/solution/0000-0099/0049.Group Anagrams/README.md`
+- lc-0050 — translated — `vi/solution/0000-0099/0050.Pow(x, n)/README.md`
+- lc-0051 — translated — `vi/solution/0000-0099/0051.N-Queens/README.md`
+- lc-0052 — translated — `vi/solution/0000-0099/0052.N-Queens II/README.md`
+- lc-0053 — translated — `vi/solution/0000-0099/0053.Maximum Subarray/README.md`
+- lc-0054 — translated — `vi/solution/0000-0099/0054.Spiral Matrix/README.md`
+- lc-0055 — translated — `vi/solution/0000-0099/0055.Jump Game/README.md`
+- lc-0056 — translated — `vi/solution/0000-0099/0056.Merge Intervals/README.md`
+- lc-0057 — translated — `vi/solution/0000-0099/0057.Insert Interval/README.md`
+- lc-0058 — translated — `vi/solution/0000-0099/0058.Length of Last Word/README.md`
+- lc-0059 — translated — `vi/solution/0000-0099/0059.Spiral Matrix II/README.md`
+- lc-0060 — translated — `vi/solution/0000-0099/0060.Permutation Sequence/README.md`
+- lc-0061 — translated — `vi/solution/0000-0099/0061.Rotate List/README.md`
 - lc-0074 — verified — `vi/solution/0000-0099/0074.Search a 2D Matrix/README.md`
 - lcci-01.01 — verified — `vi/lcci/01.01.Is Unique/README.md`

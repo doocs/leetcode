@@ -1,0 +1,119 @@
+schema_version: 1
+unit_id: lc-0047
+attempt_id: lc-0047-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: "9377c61562a4097e96d48eed152b07dc411c1d17"
+  locator: "solution/0000-0099/0047.Permutations II/README_EN.md"
+  kind: git-blob
+  git_blob: "c90c8eeb41989cd58a76cf357970dbb5514ca5a9"
+  sha256: "632c3d274412955317abb1d5941812b9ada430fd69988222af2992a4021834bb"
+target:
+  path: "vi/solution/0000-0099/0047.Permutations II/README.md"
+  kind: git-blob
+  git_blob: "81383ddc70ba5ced18bdf9532654e24e2099b5aa"
+  sha256: "cd865ad2b6911889daf157e8203995dbb224914b60b00c79cda73a4d35795961"
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    00-core.md: "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    01-style-and-terminology.md: "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    02-code-and-literals.md: "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    03-structure-links-assets.md: "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    04-quality-gates.md: "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    05-state-and-evidence.md: "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    algorithms.md: "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+coverage:
+  read_scope:
+    - "whole source file (350 lines)"
+  translated_scope:
+    - "all prose and fixed labels listed in block_map"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: full
+  block_map:
+    - "front matter -> preserved (PROJECT-002)"
+    - "H1 title, 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "description paragraph -> translated"
+    - "Example 1-2 labels and Input/Output labels -> translated; example data preserved"
+    - "Constraints label -> translated; constraint code spans preserved"
+    - "## Solutions; ### Solution 1 heading -> translated (PROJECT-003)"
+    - "Thinking block (3 paragraphs) -> translated"
+    - "solution write-up (4 paragraphs and 2 list items) -> translated"
+    - "Similar problems label -> translated; link preserved"
+    - "9 code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: "81383ddc70ba5ced18bdf9532654e24e2099b5aa"
+  reviewed_target_sha256: "cd865ad2b6911889daf157e8203995dbb224914b60b00c79cda73a4d35795961"
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read the complete source and target, then compare every block in both directions using the QA-03 checklist."
+    scope: "whole file"
+    evidence: "Description, examples, constraints, thinking, solution prose, complexity, similar-problem reference, and code-prose relationships checked; no missing or added semantic block found."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output"
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0047.Permutations II/README.md"
+    scope: "whole file"
+    evidence: "PASS; front matter, 9 code fences, inline code, math, markers, HTML structure, URL multiset, and example data match source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0047.Permutations II/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0047.Permutations II/README.md"
+    scope: "whole file"
+    evidence: "PASS; check_thinking: OK 1 file(s)"
+  - id: links_and_assets
+    status: not_run
+    method: "URL check is covered by check_vi.py; site render/build was intentionally not run per task."
+    scope: "whole file and rendered unit page"
+    evidence: "check_vi URL multiset passed; no site render/build evidence collected."
+    reason: "User explicitly requested no site render/build."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual_english warnings plus manual classification during full self-review."
+    scope: "whole file"
+    evidence: "No unclassified residual English; remaining English is the official H1 title, code-tab labels, identifiers/inline code/math, front matter, and the preserved 中文文档 switch line under project policy."
+  - id: git_diff_check
+    status: pass
+    method: "git diff --check -- vi/solution/0000-0099/0047.Permutations II/README.md"
+    scope: "target file"
+    evidence: "empty output"
+boundary_reports: []
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "coordinator render next"
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: "2026-10-01"

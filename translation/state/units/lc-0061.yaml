@@ -1,0 +1,126 @@
+schema_version: 1
+unit_id: lc-0061
+attempt_id: lc-0061-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: "solution/0000-0099/0061.Rotate List/README_EN.md"
+  kind: git-blob
+  git_blob: fe8a7dbdabc542360b154d35f28b045fb64103f4
+  sha256: 9e884453ab7da65b14a5e198ed1dbb416c43c172d08c250009c9f7f756e92925
+target:
+  path: "vi/solution/0000-0099/0061.Rotate List/README.md"
+  kind: git-blob
+  git_blob: 831ca5728438c38d32ec6a58cea8445b53e029fa
+  sha256: edc99f21b6a709d6477ed2e0d66a72b3c507574f21419563258297e6a4f974c6
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+coverage:
+  read_scope:
+    - "whole source file (387 lines), including front matter, HTML problem statement, Thinking block, prose, markers and all code tabs"
+  translated_scope:
+    - "all translatable prose and fixed labels listed in block_map"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: full
+  block_map:
+    - "front matter -> preserved verbatim (PROJECT-002)"
+    - "H1 title, 中文文档 switch line -> preserved verbatim (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "description paragraph x1 -> translated; inline code and HTML entity preserved"
+    - "Example 1-2 labels and Input/Output labels -> translated; images, URLs and example data preserved"
+    - "Constraints label and prose -> translated; constraint code spans and literals preserved"
+    - "## Solutions; ### Solution 1 heading -> translated (PROJECT-003)"
+    - "Thinking block (3 paragraphs) -> translated; math preserved"
+    - "solution write-up (6 paragraphs) -> translated; math and inline literals preserved"
+    - "8 code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: 831ca5728438c38d32ec6a58cea8445b53e029fa
+  reviewed_target_sha256: edc99f21b6a709d6477ed2e0d66a72b3c507574f21419563258297e6a4f974c6
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+  checks:
+    - id: full_semantic_review
+      status: pass
+      method: "Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist."
+      scope: "whole file"
+      evidence: "All problem prose, two examples, constraints, one Thinking block, solution explanation, complexity claim and 8 code tabs are accounted for; conditions, k modulo n, pointer order, complexity and code-prose relationships checked."
+    - id: source_protection
+      status: pass
+      method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+      scope: "repository protected paths"
+      evidence: "empty output"
+    - id: protected_spans
+      status: pass
+      method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0061.Rotate List/README.md"
+      scope: "whole file"
+      evidence: "PASS 1/1; front matter, 8 code fences, inline code, math, markers, HTML tags, URLs and example data matched the source."
+    - id: structure
+      status: pass
+      method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0061.Rotate List/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0061.Rotate List/README.md"
+      scope: "whole file"
+      evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s)."
+    - id: links_and_assets
+      status: not_run
+      method: "URL multiset was checked by check_vi.py; render/build would use prepare.py and mkdocs."
+      scope: "whole file and rendered unit page"
+      evidence: "check_vi completed successfully and preserved the source URL set; render evidence deferred."
+      reason: "User explicitly requested no prepare/mkdocs; coordinator render next."
+    - id: residual_language
+      status: pass
+      method: "check_vi.py residual_english warnings plus manual classification during full self-review."
+      scope: "whole file"
+      evidence: "No residual-English warnings; remaining English is limited to the official H1, code-tab labels, identifiers/inline code/math, front matter, example data, URLs and the preserved 中文文档 switch line under project policy."
+    - id: diff_check
+      status: pass
+      method: "git diff --check -- vi/solution/0000-0099/0061.Rotate List/README.md translation/state/units/lc-0061.yaml"
+      scope: "target and unit report"
+      evidence: "empty output"
+  boundary_reports: []
+  findings:
+    - id: F1
+      rule_id: CORE-04
+      severity: low
+      source_locator: "Solution 1 heading"
+      target_locator: "Lời giải 1 heading"
+      evidence: "Source names the technique 'Link List Concatenation', which appears to be a wording typo for 'Linked List'; the target renders the intended Vietnamese concept without changing the algorithm."
+      status: reported
+      fix: "No source correction; source_corrections is report_only."
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "coordinator render next"
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'
