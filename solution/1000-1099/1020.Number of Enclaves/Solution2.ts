@@ -19,7 +19,7 @@ function numEnclaves(grid: number[][]): number {
         }
     }
     while (q.length) {
-        const [i, j] = q.pop()!;
+        const [i, j] = q.shift()!;
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
