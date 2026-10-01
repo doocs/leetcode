@@ -373,14 +373,38 @@ class Solution {
      */
 
     function myAtoi($s) {
-        $s = str_replace('e', 'x', $s);
-        if (intval($s) < pow(-2, 31)) {
-            return -2147483648;
+        if ($s === null || $s === '') {
+            return 0;
         }
-        if (intval($s) > pow(2, 31) - 1) {
-            return 2147483647;
+        $n = strlen($s);
+        $i = 0;
+        while ($s[$i] == ' ') {
+            $i++;
+            if ($i == $n) {
+                return 0;
+            }
         }
-        return intval($s);
+        $sign = 1;
+        if ($s[$i] == '-') {
+            $sign = -1;
+        }
+        if ($s[$i] == '-' || $s[$i] == '+') {
+            $i++;
+        }
+        $res = 0;
+        $flag = 214748364;
+        while ($i < $n) {
+            if ($s[$i] < '0' || $s[$i] > '9') {
+                break;
+            }
+            $c = ord($s[$i]) - ord('0');
+            if ($res > $flag || ($res == $flag && $c > 7)) {
+                return $sign > 0 ? 2147483647 : -2147483648;
+            }
+            $res = $res * 10 + $c;
+            $i++;
+        }
+        return $sign * $res;
     }
 }
 ```
