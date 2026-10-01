@@ -1,0 +1,144 @@
+schema_version: 1
+unit_id: lc-0097
+attempt_id: lc-0097-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: "solution/0000-0099/0097.Interleaving String/README_EN.md"
+  kind: git-blob
+  git_blob: efef849d1809d6a6946877d9bd041522357e0231
+  sha256: 20fa0bf0b4e5ae96a95b21bc22bf576425288706382b7562c3fb7a168b12ce18
+target:
+  path: "vi/solution/0000-0099/0097.Interleaving String/README.md"
+  kind: git-blob
+  git_blob: 944fd4960f00c50db7c8b450ab92e7e69b831c20
+  sha256: 08754e7c00161e21f80dcfee0756d2009453c8cbeeace94c734e6e3c99aed0a6
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    INSTRUCTIONS.md: a3cb061559ba2b1485c0c40c79d0b5d19a83bc9dc78b33d607b2af4ac2fb9c48
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    PROJECT_RULES.md: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+    GLOSSARY.md: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+    repo-docs.md: 6c80f9656d0ec3016cf45eb523b3b3e97d36c6af54e0f790e7eaefa5792b8d36
+    markdown-mdx.md: e5315ba7e4bb922d3af9730b3e08ccda9fb8654374cd5231552425e57b680767
+    html.md: bc422f61c79e1182cf371e5236d05592112021fce138f32f97ca609fda15c256
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+    parallel.md: 6bf0335633167312ab20702d71e2c9872cba053f9f3dad2a55fa5a1bf40cc9f6
+    translation.md: e9422392ef3d2e0df690198adc5fd97ba350c6f980a11fd5613270dfb555d58d
+    unit-report.yaml: e232b8c99c83341db41635aa4f1ecbf19c9ee963f412143924ac70c07f38d47e
+coverage:
+  read_scope:
+    - "whole source file (747 lines), including front matter, HTML problem statement, examples, constraints, 3 Thinking blocks, prose, markers and all code tabs"
+  translated_scope:
+    - "all translatable prose, headings and labels in the whole source file"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: full
+  block_map:
+    - "front matter -> preserved verbatim (PROJECT-002)"
+    - "H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "HTML description paragraphs and interleaving definition -> translated; HTML structure, inline code, emphasis and data-keyword attribute preserved"
+    - "Example 1-3 labels and Input/Output/Explanation labels -> translated; image URL, example data and <pre> structure preserved"
+    - "Constraints and Follow up labels/prose -> translated; constraint and complexity code spans preserved"
+    - "## Solutions -> ## Lời giải"
+    - "Solution 1-3 headings -> translated (PROJECT-003)"
+    - "3 Thinking blocks -> translated; math and inline identifiers preserved"
+    - "3 solution write-ups, recurrence equation and complexity claims -> translated; math and inline identifiers preserved"
+    - "19 code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: 944fd4960f00c50db7c8b450ab92e7e69b831c20
+  reviewed_target_sha256: 08754e7c00161e21f80dcfee0756d2009453c8cbeeace94c734e6e3c99aed0a6
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+    - git_diff_check
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist."
+    scope: "whole file"
+    evidence: "All HTML problem prose, three examples, constraints, follow-up, three Thinking blocks, three solution explanations, recurrence equation, complexity claims and 19 code tabs are accounted for; ordering, conditions, negation, quantifiers, memory bounds and source terminology are preserved."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "empty output"
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0097.Interleaving String/README.md"
+    scope: "whole file"
+    evidence: "PASS 1/1; front matter, 19 code fences, inline code, math, markers, HTML tags, URLs and <pre> example data matched the source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0097.Interleaving String/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0097.Interleaving String/README.md"
+    scope: "whole file"
+    evidence: "check_vi PASS 1/1; check_thinking OK 1 file(s); heading levels, H1, code-tab headings, markers, HTML structure and Thinking blocks validated."
+  - id: links_and_assets
+    status: not_run
+    method: "check_vi.py covered the URL multiset; render would use prepare.py and mkdocs."
+    scope: "whole file and rendered unit page"
+    evidence: "Render not run; external image URL and version-switch link are preserved and the check_vi URL multiset passed."
+    reason: "User explicitly requested no prepare/mkdocs; coordinator render next."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual-English warnings plus manual classification during full self-review."
+    scope: "whole file"
+    evidence: "check_vi PASS with no untranslated ordinary prose; remaining English is limited to the official H1, code-tab labels, identifiers/inline code/math, front matter, example data, URLs and the preserved 中文文档 switch line under project policy."
+  - id: git_diff_check
+    status: pass
+    method: "git diff --check -- vi/solution/0000-0099/0097.Interleaving String/README.md"
+    scope: "target"
+    evidence: "empty output"
+boundary_reports: []
+findings: []
+term_proposals:
+  - source_term: "interleaving"
+    context: "Problem definition and solution explanations for combining s1 and s2 while preserving relative order."
+    source_locator: "description and Solutions 1-3"
+    proposed_rendering: "đan xen"
+    ambiguity: "Do not confuse with arbitrary concatenation; the target preserves the source's interleaving definition."
+  - source_term: "memoization search"
+    context: "Solution 1 heading and explanation for caching recursive states."
+    source_locator: "Solution 1 heading and prose"
+    proposed_rendering: "tìm kiếm có ghi nhớ"
+    ambiguity: "The rendering describes memoized search without changing the algorithm or API identifiers."
+  - source_term: "rolling array"
+    context: "Solution 3 optimization using one-dimensional dynamic-programming storage."
+    source_locator: "Solution 3 heading and prose"
+    proposed_rendering: "mảng cuộn"
+    ambiguity: "The rendering refers to the rolling-array technique, not a change to the code's array type."
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "coordinator render next"
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: "2026-10-01"

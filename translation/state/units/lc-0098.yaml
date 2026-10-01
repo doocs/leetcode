@@ -1,0 +1,117 @@
+schema_version: 1
+unit_id: lc-0098
+attempt_id: lc-0098-a1
+owner: OpenCode (session 2026-10-01)
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: solution/0000-0099/0098.Validate Binary Search Tree/README_EN.md
+  kind: git-blob
+  git_blob: 81122e6705220d4be2655ebda9e0fee95ce4bd80
+  sha256: 3f65c7b386ae4c6e38ea133bd9a6025e63718c729e10d48b40455fdc6a45d2cf
+target:
+  path: vi/solution/0000-0099/0098.Validate Binary Search Tree/README.md
+  kind: git-blob
+  git_blob: fbe8c9d6d6711e5f7904652606763a33fad910d8
+  sha256: 1c132f52a2c4d768a60f6228fe86980fc0b6a3e0f56929f2b44a6d44b9ee76d6
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+coverage:
+  read_scope:
+    - whole source file (373 lines)
+  translated_scope:
+    - all translatable prose, headings and labels in the whole source file
+  reviewed_scope:
+    - whole file, source -> target and target -> source
+  mode: full
+  block_map:
+    - front matter -> preserved verbatim (PROJECT-002)
+    - H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)
+    - '## Description -> ## Mô tả'
+    - description paragraphs and constraints -> translated; HTML structure, inline code and tags preserved
+    - Example 1-2 labels, Input/Output/Explanation labels and prose -> translated; images and example data preserved
+    - '## Solutions -> ## Lời giải'
+    - '### Solution 1: Recursion -> ### Lời giải 1: Đệ quy'
+    - Thinking block -> translated with protected expression preserved
+    - solution explanation and complexity -> translated; math preserved
+    - 9 code tabs -> preserved verbatim
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: same agent as translator (not an independent review)
+  reviewed_target_git_blob: fbe8c9d6d6711e5f7904652606763a33fad910d8
+  reviewed_target_sha256: 1c132f52a2c4d768a60f6228fe86980fc0b6a3e0f56929f2b44a6d44b9ee76d6
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read every source block against its target block in both directions using the full-file coverage map and QA-03 checklist."
+    scope: whole file
+    evidence: "All description, examples, constraints, Thinking, solution and complexity prose blocks are represented; BST conditions, strict ordering, traversal order, empty-tree behavior and O(n) time/O(n) space are preserved."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: repository
+    evidence: empty output
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0098.Validate Binary Search Tree/README.md"
+    scope: whole file
+    evidence: "PASS; front matter, 9 code fences, inline code, math, markers, HTML tags, URLs and <pre> example data match source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0098.Validate Binary Search Tree/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0098.Validate Binary Search Tree/README.md"
+    scope: whole file
+    evidence: "check_vi PASS and check_thinking OK 1 file(s); heading levels, H1, code-tab headings, markers and Thinking block validated."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual_english warning review plus manual classification"
+    scope: whole file
+    evidence: "No residual_english warnings; official title, code-tab labels, BST, root, prev and the preserved comparison expression are policy-allowed technical or structural tokens."
+  - id: git_diff_check
+    status: pass
+    method: "git diff --check --no-index /dev/null vi/solution/0000-0099/0098.Validate Binary Search Tree/README.md"
+    scope: target
+    evidence: "empty output; exit 1 is the expected no-index difference status for an untracked target"
+  - id: links_and_assets
+    status: not_run
+    method: "render/build check intentionally not run per user request; coordinator next"
+    scope: whole file and rendered unit page
+    evidence: "URL multiset passed in check_vi.py; site render and asset resolution remain for coordinator."
+    reason: "User explicitly requested links_and_assets not_run and no site build."
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: '<!-- problem:end -->'
+  next_source_locator: 'links_and_assets render check'
+  next_action: 'coordinator next'
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

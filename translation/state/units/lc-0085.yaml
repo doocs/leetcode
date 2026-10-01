@@ -1,0 +1,116 @@
+schema_version: 1
+unit_id: lc-0085
+attempt_id: lc-0085-a1
+owner: "OpenCode (session 2026-10-01)"
+state: translated
+resume_state: null
+source:
+  snapshot: 9377c61562a4097e96d48eed152b07dc411c1d17
+  locator: "solution/0000-0099/0085.Maximal Rectangle/README_EN.md"
+  kind: git-blob
+  git_blob: 9cdfea55797e01d81adb9ac22ef493ef2296b6a1
+  sha256: 5119144cdc79ce6ceba4edd2e89fe4e2610ba5fc4960cba9b8573fd6d6f6bf45
+target:
+  path: "vi/solution/0000-0099/0085.Maximal Rectangle/README.md"
+  kind: git-blob
+  git_blob: 0536d145e5abea137010e1392b4f8cdb837fb611
+  sha256: 7e906cf12e0d8f3afc7b64297a2c7ed5f545cf788bed1f9cf30ae7077c508448
+policy_snapshot:
+  base_version: 1.0.0
+  context_revision: 1
+  context_sha256: 389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af
+  project_rules_sha256: 13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1
+  glossary_revision: 0.2.0
+  glossary_sha256: ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2
+  active_rule_hashes:
+    00-core.md: fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f
+    01-style-and-terminology.md: 53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2
+    02-code-and-literals.md: 3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4
+    03-structure-links-assets.md: b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301
+    04-quality-gates.md: 80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9
+    05-state-and-evidence.md: f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a
+    algorithms.md: 9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f
+coverage:
+  read_scope:
+    - "whole source file (418 lines)"
+  translated_scope:
+    - "all translatable prose, headings and labels in the whole source file"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: full
+  block_map:
+    - "front matter -> preserved verbatim (PROJECT-002)"
+    - "H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "HTML description, example labels/explanation and constraints -> translated; tags, attributes, URL and example data preserved"
+    - "## Solutions -> ## Lời giải"
+    - "### Solution 1: Monotonic Stack -> ### Lời giải 1: Ngăn xếp đơn điệu"
+    - "Thinking block -> translated with math preserved"
+    - "solution explanation and complexity -> translated with technical literals and math preserved"
+    - "7 code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: sequential-self-review
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: 0536d145e5abea137010e1392b4f8cdb837fb611
+  reviewed_target_sha256: 7e906cf12e0d8f3afc7b64297a2c7ed5f545cf788bed1f9cf30ae7077c508448
+  required_checks:
+    - source_protection
+    - full_semantic_review
+    - protected_spans
+    - structure
+    - links_and_assets
+    - residual_language
+checks:
+  - id: full_semantic_review
+    status: pass
+    method: "Read all 418 source lines against the target in both directions using the full-file coverage map and QA-03 checklist."
+    scope: "whole file"
+    evidence: "All description, examples, constraints, Thinking, solution explanation, complexity statement and structural labels are represented; conditions, data values, references, order and O(m x n) claim are preserved."
+  - id: source_protection
+    status: pass
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: repository
+    evidence: "empty output"
+  - id: protected_spans
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0085.Maximal Rectangle/README.md"
+    scope: "whole file"
+    evidence: "PASS; front matter, code fences, inline code, 29 math spans, markers, HTML tags, URLs and <pre> example data match source."
+  - id: structure
+    status: pass
+    method: "python3 translation/tools/check_vi.py vi/solution/0000-0099/0085.Maximal Rectangle/README.md; python3 scripts/check_thinking.py vi/solution/0000-0099/0085.Maximal Rectangle/README.md"
+    scope: "whole file"
+    evidence: "check_vi PASS and check_thinking OK 1 file(s); heading levels, H1, code-tab headings, markers and Thinking block validated."
+  - id: residual_language
+    status: pass
+    method: "check_vi.py residual_english warning review plus manual classification"
+    scope: "whole file"
+    evidence: "check_vi produced no residual-English warning; remaining technical terms and protected identifiers are allowed by the active terminology and code policies, with no untranslated ordinary prose found."
+  - id: git_diff_check
+    status: pass
+    method: "git diff --check"
+    scope: repository tracked diff
+    evidence: "empty output"
+  - id: links_and_assets
+    status: not_run
+    method: "URL multiset covered by check_vi.py; render/build check intentionally not run."
+    scope: "whole file and rendered unit page"
+    evidence: "check_vi URL validation passed; prepare.py and mkdocs were not run per user request."
+    reason: "User explicitly prohibited prepare/mkdocs and requested coordinator next."
+findings: []
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "coordinator next"
+git:
+  commit_status: not_requested
+  commit: null
+  push_status: not_requested
+  remote_ref: null
+publication:
+  status: not_requested
+  location: null
+updated_at: '2026-10-01'

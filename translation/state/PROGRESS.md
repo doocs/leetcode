@@ -2,15 +2,15 @@
 
 Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 
-- Snapshot nguồn: `ecb9a0f948b3578a12b3238359f9b7ff3fcfaf45`
+- Snapshot nguồn: `896e6f58f0afa489f66b4bef1320efd0ec1eb02f`
 - Tổng số unit trong scope: 4177
 - verified: 10
 - stale: 0
 - modified: 0
 - unreviewed: 0
-- pending: 4094
+- pending: 4074
 - blocked: 6
-- translated: 67
+- translated: 87
 
 ## Đã bắt đầu
 
@@ -96,4 +96,24 @@ Sinh bởi `translation/tools/inventory.py`; không sửa tay.
 - lc-0080 — translated — `vi/solution/0000-0099/0080.Remove Duplicates from Sorted Array II/README.md`
 - lc-0081 — translated — `vi/solution/0000-0099/0081.Search in Rotated Sorted Array II/README.md`
 - lc-0082 — translated — `vi/solution/0000-0099/0082.Remove Duplicates from Sorted List II/README.md`
+- lc-0083 — translated — `vi/solution/0000-0099/0083.Remove Duplicates from Sorted List/README.md`
+- lc-0084 — translated — `vi/solution/0000-0099/0084.Largest Rectangle in Histogram/README.md`
+- lc-0085 — translated — `vi/solution/0000-0099/0085.Maximal Rectangle/README.md`
+- lc-0086 — translated — `vi/solution/0000-0099/0086.Partition List/README.md`
+- lc-0087 — translated — `vi/solution/0000-0099/0087.Scramble String/README.md`
+- lc-0088 — translated — `vi/solution/0000-0099/0088.Merge Sorted Array/README.md`
+- lc-0089 — translated — `vi/solution/0000-0099/0089.Gray Code/README.md`
+- lc-0090 — translated — `vi/solution/0000-0099/0090.Subsets II/README.md`
+- lc-0091 — translated — `vi/solution/0000-0099/0091.Decode Ways/README.md`
+- lc-0092 — translated — `vi/solution/0000-0099/0092.Reverse Linked List II/README.md`
+- lc-0093 — translated — `vi/solution/0000-0099/0093.Restore IP Addresses/README.md`
+- lc-0094 — translated — `vi/solution/0000-0099/0094.Binary Tree Inorder Traversal/README.md`
+- lc-0095 — translated — `vi/solution/0000-0099/0095.Unique Binary Search Trees II/README.md`
+- lc-0096 — translated — `vi/solution/0000-0099/0096.Unique Binary Search Trees/README.md`
+- lc-0097 — translated — `vi/solution/0000-0099/0097.Interleaving String/README.md`
+- lc-0098 — translated — `vi/solution/0000-0099/0098.Validate Binary Search Tree/README.md`
+- lc-0099 — translated — `vi/solution/0000-0099/0099.Recover Binary Search Tree/README.md`
+- lc-0100 — translated — `vi/solution/0100-0199/0100.Same Tree/README.md`
+- lc-0101 — translated — `vi/solution/0100-0199/0101.Symmetric Tree/README.md`
+- lc-0102 — translated — `vi/solution/0100-0199/0102.Binary Tree Level Order Traversal/README.md`
 - lcci-01.01 — verified — `vi/lcci/01.01.Is Unique/README.md`
