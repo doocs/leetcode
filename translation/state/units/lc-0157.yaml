@@ -1,0 +1,127 @@
+schema_version: 1
+unit_id: "lc-0157"
+attempt_id: "lc-0157-a1"
+owner: "OpenCode (session 2026-10-01)"
+state: "verified"
+resume_state: null
+source:
+  snapshot: "9377c61562a4097e96d48eed152b07dc411c1d17"
+  locator: "solution/0100-0199/0157.Read N Characters Given Read4/README_EN.md"
+  kind: "git-blob"
+  git_blob: "a4444b8e563ca8b57ed5f2d76e6f5da4815cb7b7"
+  sha256: null
+target:
+  path: "vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md"
+  kind: "git-blob"
+  git_blob: null
+  sha256: null
+policy_snapshot:
+  base_version: "1.0.0"
+  context_revision: 1
+  context_sha256: "389d1d3a9813f62536a3a660329b088d020b849e7a066d3db310c52fd7e106af"
+  project_rules_sha256: "13b067f48a64e1bf48103be1b8187d9023de5160e2e559c0bb24100f785fc7b1"
+  glossary_revision: "0.2.0"
+  glossary_sha256: "ffeb9ea669350d5e4546361e23dc0a31fd3ce8bcf8c5513d5cd5257b888048d2"
+  active_rule_hashes:
+    "00-core.md": "fdb461392d307a1aa0c5c951533dff16bdfa625f6ddc2e74cb799df221cd196f"
+    "01-style-and-terminology.md": "53fd73f0bec93435e16df6801e05f63998f7bfcba19f35de4cb6da6ce4e733a2"
+    "02-code-and-literals.md": "3ce7af34095f94fb375eddd1c89483a5e6b34b9092a047f711b1733ce19264e4"
+    "03-structure-links-assets.md": "b1530fd2ec7b871857e16433c30a5bf6ec6cac98d89c71a97787220405a3c301"
+    "04-quality-gates.md": "80710caa1856ba081327133b85daf2eb1e346b214b9ab830d1d30b48525066c9"
+    "05-state-and-evidence.md": "f1f2e2826952e8ca9da9e52516d33317a85e76ba7f8dd883805a5d2c295afd4a"
+    "algorithms.md": "9e791b5143641a28da9b12d34c97da5b8b597a4f108a65f800c14fbf7c56721f"
+coverage:
+  read_scope:
+    - "whole source file (269 lines), including front matter, HTML problem statement, definition blocks, image, examples, constraints, Thinking block, markers and all code tabs"
+  translated_scope:
+    - "all translatable prose, headings and labels in the whole source file"
+  reviewed_scope:
+    - "whole file, source -> target and target -> source"
+  mode: "full"
+  block_map:
+    - "front matter -> preserved verbatim (PROJECT-002)"
+    - "H1 title and 中文文档 switch line -> preserved (PROJECT-001, PROJECT-004)"
+    - "## Description -> ## Mô tả"
+    - "description paragraphs and method definitions -> translated; HTML structure, inline code and API data preserved"
+    - "high-level read4 example image and preformatted data -> URL, image attributes and example code/data preserved"
+    - "examples 1-3 labels and explanation prose -> translated; input/output data and entities preserved"
+    - "constraints label and prose -> translated; constraint code spans and literals preserved"
+    - "## Solutions -> ## Lời giải"
+    - "### Solution 1 -> ### Lời giải 1"
+    - "Thinking block -> translated; math, read4/read and EOF technical tokens preserved"
+    - "4 solution code tabs -> preserved verbatim"
+  exclusions: []
+review:
+  mode: "sequential-self-review"
+  reviewer: "same agent as translator (not an independent review)"
+  reviewed_target_git_blob: null
+  reviewed_target_sha256: null
+  required_checks:
+    - "source_protection"
+    - "full_semantic_review"
+    - "protected_spans"
+    - "structure"
+    - "links_and_assets"
+    - "residual_language"
+checks:
+  - id: "full_semantic_review"
+    status: "pass"
+    method: "Read the complete source and target, then compare every block in both directions using the coverage map and QA-03 checklist."
+    scope: "whole file"
+    evidence: "All description paragraphs, two method definitions, high-level read4 example, three examples, constraints, one Thinking block and four code tabs are accounted for; read4 access restrictions, return counts and stop conditions are preserved."
+  - id: "source_protection"
+    status: "not_run"
+    method: "git status --porcelain -- solution lcof lcof2 lcci lcp lcs basic images README.md README_EN.md"
+    scope: "repository protected paths"
+    evidence: "Will run during final verification."
+  - id: "protected_spans"
+    status: "not_run"
+    method: "python3 translation/tools/check_vi.py vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md"
+    scope: "whole file"
+    evidence: "Will run during final verification."
+  - id: "structure"
+    status: "not_run"
+    method: "python3 translation/tools/check_vi.py vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md; python3 scripts/check_thinking.py vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md"
+    scope: "whole file"
+    evidence: "Will run during final verification."
+  - id: "links_and_assets"
+    status: "not_run"
+    method: "check_vi.py URL multiset; render/build intentionally omitted per user request."
+    scope: "whole file and rendered unit page"
+    evidence: "URL and image references will be checked by check_vi.py; site render/build is not requested."
+    reason: "User explicitly prohibited build/render; coordinator next."
+  - id: "residual_language"
+    status: "not_run"
+    method: "check_vi.py residual-English warnings plus manual classification during full source-vs-target self-review."
+    scope: "whole file"
+    evidence: "Will run during final verification."
+  - id: "git_diff_check"
+    status: "not_run"
+    method: "git diff --check -- vi/solution/0100-0199/0157.Read N Characters Given Read4/README.md translation/state/units/lc-0157.yaml"
+    scope: "target and unit report"
+    evidence: "Will run during final verification."
+boundary_reports: []
+findings:
+  - id: "source-001"
+    rule_id: "CORE-04"
+    severity: "low"
+    source_locator: "README_EN.md:42-46"
+    target_locator: "README.md:42-46"
+    evidence: "The source high-level example contains malformed HTML/code entity boundaries; the example is preserved verbatim as protected data."
+    status: "open"
+    fix: "None; source correction is report-only."
+term_proposals: []
+blockers: []
+checkpoint:
+  last_complete_source_block: "<!-- problem:end -->"
+  next_source_locator: null
+  next_action: "ready for commit"
+git:
+  commit_status: "not_requested"
+  commit: null
+  push_status: "not_requested"
+  remote_ref: null
+publication:
+  status: "not_requested"
+  location: null
+updated_at: "2026-10-01"
