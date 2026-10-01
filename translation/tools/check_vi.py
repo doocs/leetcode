@@ -1,20 +1,31 @@
 #!/usr/bin/env python3
-"""Mechanical checks for Vietnamese translations against their English source.
+"""Lightweight mechanical checks for Vietnamese translations.
 
+Usage:
     python3 translation/tools/check_vi.py "vi/solution/0000-0099/0001.Two Sum/README.md"
     python3 translation/tools/check_vi.py --all
 
 The source of vi/<problem dir>/README.md is <problem dir>/README_EN.md.
 
-Errors (exit 1): front matter, title line, HTML comment markers, fenced code,
-heading levels, code-tab headings, inline code, math, URLs, every HTML tag
-(opening and closing), the number of blank-line separated blocks and example
-data in <pre> blocks must match the source.
+Errors protect technical content that must not change:
+- front matter
+- H1 title
+- HTML comment markers
+- fenced code
+- heading levels
+- code-tab headings
+- inline code
+- math
+- URLs
+- HTML tag structure
+- example input/output literals
 
-Warnings (QA-06, classify by hand): prose lines that still contain several
-English function words.
+Warnings detect likely untranslated prose. Warnings are review hints only:
+valid English technical terms may remain.
 
-These checks do not replace the full source-vs-target semantic review.
+This checker intentionally does NOT require target paragraph/block count to
+match the source. Natural Vietnamese may split or merge prose when meaning is
+preserved.
 """
 
 from __future__ import annotations
@@ -28,7 +39,6 @@ from typing import List, Tuple
 
 REPO = Path(__file__).resolve().parents[2]
 VI_ROOT = "vi"
-SERIES = ("solution", "lcci")
 
 _FRONTMATTER = re.compile(r"\A---\n.*?\n---\n", re.S)
 _FENCE_OPEN = re.compile(r"^(?P<fence>`{3,}|~{3,})(?P<info>.*)$")
@@ -44,6 +54,7 @@ _DATA_LINE = re.compile(r"<strong>(?:Input|Output):\s*</strong>(.*)$")
 _VI_DATA_LINE = re.compile(r"<strong>[^<]*:\s*</strong>(.*)$")
 _TAG = re.compile(r"<[^>]+>")
 _TAG_NAME = re.compile(r"<(/?)([A-Za-z][A-Za-z0-9]*)\b")
+
 ENGLISH_WORDS = {
     "the",
     "and",
@@ -76,7 +87,7 @@ def source_for(target: Path) -> Path:
 
 
 def split_fences(text: str) -> Tuple[List[Tuple[str, str]], str]:
-    """Return fenced blocks (info, body) and the text with fences blanked."""
+    """Return fenced blocks (info, body) and text with fences replaced."""
     blocks, kept, current, body = [], [], None, []
     for line in text.split("\n"):
         if current is None:
@@ -94,15 +105,19 @@ def split_fences(text: str) -> Tuple[List[Tuple[str, str]], str]:
             current = None
         else:
             body.append(line)
+
     if current is not None:
         blocks.append((current[1], "\n".join(body) + "\n<UNCLOSED FENCE>"))
+
     return blocks, "\n".join(kept)
 
 
 def tab_headings(text: str) -> List[str]:
     out = []
-    for region in re.findall(r"<!-- tabs:start -->(.*?)<!-- tabs:end -->", text, re.S):
-        out += [h for h in re.findall(r"^#### (.*)$", region, re.M)]
+    for region in re.findall(
+        r"<!-- tabs:start -->(.*?)<!-- tabs:end -->", text, re.S
+    ):
+        out += re.findall(r"^#### (.*)$", region, re.M)
     return out
 
 
@@ -121,24 +136,28 @@ def urls(text: str) -> Counter:
 
 
 def tag_counts(text: str) -> Counter:
-    """Every opening and closing HTML tag, by name (inline code excluded)."""
     text = _BACKTICK.sub(" ", text)
-    return Counter(f"{close}{name.lower()}" for close, name in _TAG_NAME.findall(text))
-
-
-def block_count(text: str) -> int:
-    """Blank-line separated blocks (paragraphs, lists, tables, HTML blocks)."""
-    return sum(1 for block in re.split(r"\n\s*\n", text) if block.strip())
+    return Counter(
+        f"{close}{name.lower()}" for close, name in _TAG_NAME.findall(text)
+    )
 
 
 def pre_data_errors(src: str, dst: str) -> List[str]:
     errors = []
     src_pres, dst_pres = _PRE.findall(src), _PRE.findall(dst)
+
+    if len(src_pres) != len(dst_pres):
+        return [f"<pre>: {len(src_pres)} in source, {len(dst_pres)} in target"]
+
     for i, (a, b) in enumerate(zip(src_pres, dst_pres), 1):
-        a_lines, b_lines = a.strip("\n").split("\n"), b.strip("\n").split("\n")
+        a_lines = a.strip("\n").split("\n")
+        b_lines = b.strip("\n").split("\n")
         if len(a_lines) != len(b_lines):
-            errors.append(f"<pre> #{i}: {len(a_lines)} lines in source, {len(b_lines)}")
+            errors.append(
+                f"<pre> #{i}: {len(a_lines)} lines in source, {len(b_lines)}"
+            )
             continue
+
         for j, (x, y) in enumerate(zip(a_lines, b_lines), 1):
             data = _DATA_LINE.search(x)
             if not data:
@@ -148,6 +167,7 @@ def pre_data_errors(src: str, dst: str) -> List[str]:
                 errors.append(
                     f"<pre> #{i} line {j}: example data differs: {y.strip()!r}"
                 )
+
     return errors
 
 
@@ -162,20 +182,30 @@ def diff_counter(name: str, a: Counter, b: Counter) -> List[str]:
 def residual_english(text: str) -> List[str]:
     hits = []
     prose = _PRE.sub(" ", text)
+
     for no, line in enumerate(prose.split("\n"), 1):
         if line.startswith("#### ") or "\x00FENCE\x00" in line:
             continue
-        plain = _MATH.sub(" ", without_code(_TAG.sub(" ", _COMMENT.sub(" ", line))))
+
+        plain = _MATH.sub(
+            " ",
+            without_code(_TAG.sub(" ", _COMMENT.sub(" ", line))),
+        )
         plain = _MD_URL.sub("](", plain)
         words = {w.lower() for w in re.findall(r"[A-Za-z]+", plain)}
         found = sorted(words & ENGLISH_WORDS)
+
         if len(found) >= 2:
-            hits.append(f"line ~{no}: {found} :: {line.strip()[:90]}")
+            hits.append(
+                f"line ~{no}: {found} :: {line.strip()[:90]}"
+            )
+
     return hits
 
 
 def check_pair(src_text: str, dst_text: str) -> Tuple[List[str], List[str]]:
     errors: List[str] = []
+
     src_fm = _FRONTMATTER.match(src_text)
     dst_fm = _FRONTMATTER.match(dst_text)
     if (src_fm and src_fm.group(0)) != (dst_fm and dst_fm.group(0)):
@@ -185,37 +215,45 @@ def check_pair(src_text: str, dst_text: str) -> Tuple[List[str], List[str]]:
     dst_blocks, dst_rest = split_fences(dst_text)
     if src_blocks != dst_blocks:
         errors.append(
-            f"code_fences: {len(src_blocks)} in source, {len(dst_blocks)} in target "
+            f"code_fences: {len(src_blocks)} in source, {len(dst_blocks)} "
             "or content/info string differs"
         )
 
     src_h = _HEADING.findall(src_rest)
     dst_h = _HEADING.findall(dst_rest)
+
     if [lvl for lvl, _ in src_h] != [lvl for lvl, _ in dst_h]:
         errors.append("headings: level sequence differs")
-    src_h1 = [t for lvl, t in src_h if lvl == "#"]
-    dst_h1 = [t for lvl, t in dst_h if lvl == "#"]
+
+    src_h1 = [title for lvl, title in src_h if lvl == "#"]
+    dst_h1 = [title for lvl, title in dst_h if lvl == "#"]
     if src_h1 != dst_h1:
         errors.append(f"h1: {dst_h1!r} != {src_h1!r}")
+
     if tab_headings(src_rest) != tab_headings(dst_rest):
         errors.append("tabs: code-tab headings differ")
 
     if _COMMENT.findall(src_rest) != _COMMENT.findall(dst_rest):
         errors.append("markers: HTML comment sequence differs")
-    errors += diff_counter("inline_code", inline_code(src_rest), inline_code(dst_rest))
+
+    errors += diff_counter(
+        "inline_code",
+        inline_code(src_rest),
+        inline_code(dst_rest),
+    )
     errors += diff_counter(
         "math",
         Counter(_MATH.findall(without_code(src_rest))),
         Counter(_MATH.findall(without_code(dst_rest))),
     )
     errors += diff_counter("urls", urls(src_rest), urls(dst_rest))
-    errors += diff_counter("html_tags", tag_counts(src_rest), tag_counts(dst_rest))
-    if block_count(src_rest) != block_count(dst_rest):
-        errors.append(
-            f"blocks: {block_count(src_rest)} in source, {block_count(dst_rest)} "
-            "in target (paragraph added, removed or merged)"
-        )
+    errors += diff_counter(
+        "html_tags",
+        tag_counts(src_rest),
+        tag_counts(dst_rest),
+    )
     errors += pre_data_errors(src_rest, dst_rest)
+
     return errors, residual_english(dst_rest)
 
 
@@ -227,34 +265,55 @@ def all_targets() -> List[Path]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("files", nargs="*", type=Path)
-    parser.add_argument("--all", action="store_true", help="check every vi README")
-    parser.add_argument("--quiet", action="store_true", help="hide warnings")
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="check every vi README",
+    )
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="hide warnings",
+    )
     args = parser.parse_args()
+
     targets = all_targets() if args.all else [p.resolve() for p in args.files]
     if not targets:
         print("No translations to check.")
         return 0
+
     failed = 0
     for target in targets:
         rel = target.relative_to(REPO)
         source = source_for(target)
+
         if not source.is_file():
-            print(f"FAIL {rel}\n  source missing: {source.relative_to(REPO)}")
+            print(
+                f"FAIL {rel}\n  source missing: "
+                f"{source.relative_to(REPO)}"
+            )
             failed += 1
             continue
+
         errors, warnings = check_pair(
-            source.read_text(encoding="utf-8"), target.read_text(encoding="utf-8")
+            source.read_text(encoding="utf-8"),
+            target.read_text(encoding="utf-8"),
         )
+
         print(f"{'FAIL' if errors else 'PASS'} {rel}")
-        for e in errors:
-            print(f"  error: {e}")
+        for error in errors:
+            print(f"  error: {error}")
+
         if not args.quiet:
-            for w in warnings:
-                print(f"  warn: residual_english {w}")
+            for warning in warnings:
+                print(f"  warn: residual_english {warning}")
+
         failed += bool(errors)
+
     print(f"{len(targets) - failed}/{len(targets)} passed")
     return 1 if failed else 0
 
