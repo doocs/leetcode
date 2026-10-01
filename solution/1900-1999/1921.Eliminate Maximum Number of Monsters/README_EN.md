@@ -223,7 +223,7 @@ var eliminateMaximum = function (dist, speed) {
 };
 ```
 
-#### C
+#### C#
 
 ```cs
 public class Solution {
