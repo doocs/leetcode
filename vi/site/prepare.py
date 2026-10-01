@@ -310,7 +310,6 @@ def prepare(
         HERE / "docs-vi",
         repo,
         only=only_dirs,
-        reports_dir=REPO / "translation" / "state" / "units",
         upstream=upstream,
     )
     for hook in sorted((HERE / "hooks").glob("*.py")):
