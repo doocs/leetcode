@@ -103,20 +103,28 @@ tags:
 
 #### Python3
 
+Python 版本在这里使用迭代动态规划，避免最大输入长度下超过解释器递归限制。
+
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
-        @cache
-        def dfs(i: int, j: int) -> bool:
-            if i >= len(s):
-                return j >= len(p) or (p[j] == "*" and dfs(i, j + 1))
-            if j >= len(p):
-                return False
-            if p[j] == "*":
-                return dfs(i + 1, j) or dfs(i + 1, j + 1) or dfs(i, j + 1)
-            return (p[j] == "?" or s[i] == p[j]) and dfs(i + 1, j + 1)
-
-        return dfs(0, 0)
+        m, n = len(s), len(p)
+        f = [False] * (n + 1)
+        f[0] = True
+        for j in range(1, n + 1):
+            if p[j - 1] == "*":
+                f[j] = f[j - 1]
+        for i in range(1, m + 1):
+            g = [False] * (n + 1)
+            for j in range(1, n + 1):
+                if p[j - 1] == "*":
+                    g[j] = g[j - 1] or f[j] or f[j - 1]
+                else:
+                    g[j] = f[j - 1] and (
+                        p[j - 1] == "?" or s[i - 1] == p[j - 1]
+                    )
+            f = g
+        return f[n]
 ```
 
 #### Java

@@ -58,7 +58,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Recursion
+### Solution 1: Inorder Traversal
 
 <!-- thinking:start -->
 
@@ -66,13 +66,13 @@ tags:
 >
 > Checking only “left < root < right” is not enough: the maximum in the left subtree must also be less than the root. We can pass an allowed range, or use the BST fact that inorder is strictly increasing.
 >
-> During inorder, remember the previous value; the current one must be larger. Recurse left, compare, recurse right — one pass finds a violation. An empty tree is valid.
+> Checking each node only against its parent misses violations from higher ancestors. Inorder traversal turns the full BST rule into a check that each value is larger than the previous one. We keep that previous value and stop at the first violation. Python uses an explicit stack so a 10,000-node skewed tree does not exceed the recursion limit; an empty tree is valid.
 
 <!-- thinking:end -->
 
-We can perform a recursive in-order traversal on the binary tree. If the result of the traversal is strictly ascending, then this tree is a binary search tree.
+We can perform an in-order traversal on the binary tree. If the result of the traversal is strictly ascending, then this tree is a binary search tree.
 
-Therefore, we use a variable `prev` to save the last node we traversed. Initially, `prev = -∞`. Then we recursively traverse the left subtree. If the left subtree is not a binary search tree, we directly return `False`. Otherwise, we check whether the value of the current node is greater than `prev`. If not, we return `False`. Otherwise, we update `prev` to the value of the current node, and then recursively traverse the right subtree.
+Therefore, we use a variable `prev` to save the last node we traversed. Initially, `prev = -∞`. We visit the left subtree first, then check whether the value of the current node is greater than `prev`. If not, we return `False`. Otherwise, we update `prev` to the value of the current node, and then visit the right subtree. The Python solution uses an explicit stack for this traversal.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree.
 
@@ -89,19 +89,19 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def dfs(root: Optional[TreeNode]) -> bool:
-            if root is None:
-                return True
-            if not dfs(root.left):
+        prev = None
+        stack = []
+        cur = root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            if prev is not None and prev >= cur.val:
                 return False
-            nonlocal prev
-            if prev >= root.val:
-                return False
-            prev = root.val
-            return dfs(root.right)
-
-        prev = -inf
-        return dfs(root)
+            prev = cur.val
+            cur = cur.right
+        return True
 ```
 
 #### Java
