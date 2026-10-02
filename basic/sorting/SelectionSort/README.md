@@ -60,6 +60,7 @@ public class SelectionSort {
 #### C++
 
 ```cpp
+#include <cstddef>
 #include <iostream>
 #include <vector>
 
@@ -76,9 +77,9 @@ void printvec(const vector<int>& vec, const string& strbegin = "", const string&
 }
 
 void selectsort(vector<int>& vec) {
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int minidx = i;
-        for (int j = i + 1; j < vec.size(); j++) {
+    for (std::size_t i = 0; i + 1 < vec.size(); ++i) {
+        std::size_t minidx = i;
+        for (std::size_t j = i + 1; j < vec.size(); ++j) {
             if (vec[minidx] > vec[j]) {
                 minidx = j;
             }
@@ -128,7 +129,7 @@ func main() {
 ```rust
 fn selection_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
-    for i in 0..n - 1 {
+    for i in 0..n.saturating_sub(1) {
         let mut min_index = i;
         for j in i..n {
             if nums[j] < nums[min_index] {
