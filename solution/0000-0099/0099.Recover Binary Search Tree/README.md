@@ -64,7 +64,7 @@ tags:
 >
 > 二叉搜索树的中序序列应严格递增。恰好两个结点被交换后，序列里会出现一处或两处逆序：相邻交换只有一处，不相邻则有两处（第一处逆序的前者、第二处逆序的后者）。
 >
-> 因此中序走一遍，记下这两处，最后交换它们的值即可，不必重建树。本题采用递归中序，空间为 $O(n)$ 的递归栈；进阶若要 $O(1)$ 空间，可改用 Morris 遍历。此处先保证错误结点被正确找出。
+> 因此中序走一遍，记下这两处，最后交换它们的值即可，不必重建树。Python 解法使用显式栈，避免 1000 个节点的倾斜树超过 Python 的递归限制；进阶若要 $O(1)$ 空间，可改用 Morris 遍历。此处先保证错误结点被正确找出。
 
 <!-- thinking:end -->
 
@@ -89,20 +89,20 @@ class Solution:
         Do not return anything, modify root in-place instead.
         """
 
-        def dfs(root):
-            if root is None:
-                return
-            nonlocal prev, first, second
-            dfs(root.left)
-            if prev and prev.val > root.val:
+        prev = first = second = None
+        stack = []
+        cur = root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            if prev is not None and prev.val > cur.val:
                 if first is None:
                     first = prev
-                second = root
-            prev = root
-            dfs(root.right)
-
-        prev = first = second = None
-        dfs(root)
+                second = cur
+            prev = cur
+            cur = cur.right
         first.val, second.val = second.val, first.val
 ```
 

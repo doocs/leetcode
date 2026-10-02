@@ -9,19 +9,18 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
-
-        def dfs(root):
-            if root is None:
-                return
-            nonlocal prev, first, second
-            dfs(root.left)
-            if prev and prev.val > root.val:
+        prev = first = second = None
+        stack = []
+        cur = root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            if prev is not None and prev.val > cur.val:
                 if first is None:
                     first = prev
-                second = root
-            prev = root
-            dfs(root.right)
-
-        prev = first = second = None
-        dfs(root)
+                second = cur
+            prev = cur
+            cur = cur.right
         first.val, second.val = second.val, first.val

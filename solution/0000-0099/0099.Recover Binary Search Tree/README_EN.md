@@ -62,7 +62,7 @@ tags:
 >
 > Inorder of a BST is strictly increasing. After swapping two nodes, the sequence has one or two inversions: adjacent swap yields one; non-adjacent yields two (the earlier node of the first inversion and the later node of the second).
 >
-> Walk inorder, record those two nodes, and swap their values. No need to rebuild the tree. This solution uses recursive inorder ($O(n)$ stack); Morris would meet the $O(1)$ follow-up. The point of this method is to identify the swapped pair.
+> Walk inorder, record those two nodes, and swap their values. No need to rebuild the tree. The Python solution uses an explicit stack so a skewed 1,000-node tree does not exceed Python's recursion limit; Morris would meet the $O(1)$ follow-up. The point of this method is to identify the swapped pair.
 
 <!-- thinking:end -->
 
@@ -87,20 +87,20 @@ class Solution:
         Do not return anything, modify root in-place instead.
         """
 
-        def dfs(root):
-            if root is None:
-                return
-            nonlocal prev, first, second
-            dfs(root.left)
-            if prev and prev.val > root.val:
+        prev = first = second = None
+        stack = []
+        cur = root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            if prev is not None and prev.val > cur.val:
                 if first is None:
                     first = prev
-                second = root
-            prev = root
-            dfs(root.right)
-
-        prev = first = second = None
-        dfs(root)
+                second = cur
+            prev = cur
+            cur = cur.right
         first.val, second.val = second.val, first.val
 ```
 
