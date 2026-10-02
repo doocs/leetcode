@@ -233,16 +233,29 @@ func maxPathSum(root *TreeNode) int {
 
 function maxPathSum(root: TreeNode | null): number {
     let ans = -1001;
-    const dfs = (root: TreeNode | null): number => {
-        if (!root) {
-            return 0;
+    if (!root) {
+        return ans;
+    }
+    const stack = [root];
+    const postorder: TreeNode[] = [];
+    while (stack.length > 0) {
+        const node = stack.pop()!;
+        postorder.push(node);
+        if (node.left) {
+            stack.push(node.left);
         }
-        const left = Math.max(0, dfs(root.left));
-        const right = Math.max(0, dfs(root.right));
-        ans = Math.max(ans, left + right + root.val);
-        return Math.max(left, right) + root.val;
-    };
-    dfs(root);
+        if (node.right) {
+            stack.push(node.right);
+        }
+    }
+    const gains = new Map<TreeNode, number>();
+    while (postorder.length > 0) {
+        const node = postorder.pop()!;
+        const left = node.left ? Math.max(0, gains.get(node.left)!) : 0;
+        const right = node.right ? Math.max(0, gains.get(node.right)!) : 0;
+        ans = Math.max(ans, left + right + node.val);
+        gains.set(node, Math.max(left, right) + node.val);
+    }
     return ans;
 }
 ```
@@ -307,16 +320,29 @@ impl Solution {
  */
 var maxPathSum = function (root) {
     let ans = -1001;
-    const dfs = root => {
-        if (!root) {
-            return 0;
+    if (!root) {
+        return ans;
+    }
+    const stack = [root];
+    const postorder = [];
+    while (stack.length > 0) {
+        const node = stack.pop();
+        postorder.push(node);
+        if (node.left) {
+            stack.push(node.left);
         }
-        const left = Math.max(0, dfs(root.left));
-        const right = Math.max(0, dfs(root.right));
-        ans = Math.max(ans, left + right + root.val);
-        return Math.max(left, right) + root.val;
-    };
-    dfs(root);
+        if (node.right) {
+            stack.push(node.right);
+        }
+    }
+    const gains = new Map();
+    while (postorder.length > 0) {
+        const node = postorder.pop();
+        const left = node.left ? Math.max(0, gains.get(node.left)) : 0;
+        const right = node.right ? Math.max(0, gains.get(node.right)) : 0;
+        ans = Math.max(ans, left + right + node.val);
+        gains.set(node, Math.max(left, right) + node.val);
+    }
     return ans;
 };
 ```

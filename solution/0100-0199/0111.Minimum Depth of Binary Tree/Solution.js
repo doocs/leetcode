@@ -14,11 +14,24 @@ var minDepth = function (root) {
     if (!root) {
         return 0;
     }
-    if (!root.left) {
-        return 1 + minDepth(root.right);
+    const queue = [root];
+    let head = 0;
+    let depth = 1;
+    while (head < queue.length) {
+        const end = queue.length;
+        for (; head < end; ++head) {
+            const node = queue[head];
+            if (!node.left && !node.right) {
+                return depth;
+            }
+            if (node.left) {
+                queue.push(node.left);
+            }
+            if (node.right) {
+                queue.push(node.right);
+            }
+        }
+        ++depth;
     }
-    if (!root.right) {
-        return 1 + minDepth(root.left);
-    }
-    return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+    return 0;
 };
