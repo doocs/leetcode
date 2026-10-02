@@ -1,14 +1,8 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        @cache
-        def dfs(i: int, j: int) -> int:
-            if i >= len(prices):
-                return 0
-            ans = dfs(i + 1, j)
-            if j:
-                ans = max(ans, prices[i] + dfs(i + 2, 0))
-            else:
-                ans = max(ans, -prices[i] + dfs(i + 1, 1))
-            return ans
-
-        return dfs(0, 0)
+        next_buy = next_sell = next2_buy = 0
+        for price in reversed(prices):
+            buy = max(next_buy, -price + next_sell)
+            sell = max(next_sell, price + next2_buy)
+            next2_buy, next_buy, next_sell = next_buy, buy, sell
+        return next_buy
