@@ -67,24 +67,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memoization Search
+### Solution 1: Reverse Topological BFS
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Longest strictly increasing four-direction path. Plain DFS restarts from the same cell many times. Strict increase makes the graph acyclic.
+> A strictly increasing path forms a directed acyclic graph. Each cell's outdegree is its number of larger neighbors.
 >
-> $dfs(i,j)$ is one plus the best neighbor with a larger value. Memoization evaluates each cell once; the answer is the max over all starts.
+> Start from local maxima and process cells in reverse topological order. Propagate path lengths to smaller neighbors; a cell is ready after all of its larger neighbors are processed.
 
 <!-- thinking:end -->
 
-We design a function $dfs(i, j)$, which represents the length of the longest increasing path that can be obtained starting from the coordinate $(i, j)$ in the matrix. The answer is $\max_{i, j} \textit{dfs}(i, j)$.
-
-The execution logic of the function $dfs(i, j)$ is as follows:
-
-- If $(i, j)$ has been visited, directly return $\textit{f}(i, j)$;
-- Otherwise, search $(i, j)$, search the coordinates $(x, y)$ in four directions. If $0 \le x < m, 0 \le y < n$ and $matrix[x][y] > matrix[i][j]$, then search $(x, y)$. After the search is over, update $\textit{f}(i, j)$ to $\textit{f}(i, j) = \max(\textit{f}(i, j), \textit{f}(x, y) + 1)$. Finally, return $\textit{f}(i, j)$.
+Orient an edge from each cell to every adjacent cell with a larger value. The resulting graph is acyclic. Count each cell's outgoing edges and enqueue all local maxima, whose outdegree is zero. Process this queue from larger values toward smaller ones. For each lower neighbor, update its longest-path length and decrease its outdegree; enqueue it once all of its larger neighbors have been processed. The maximum length is the answer.
 
 The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
 
@@ -99,55 +94,78 @@ Similar problems:
 ```python
 class Solution:
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
-        @cache
-        def dfs(i: int, j: int) -> int:
-            ans = 0
-            for a, b in pairwise((-1, 0, 1, 0, -1)):
-                x, y = i + a, j + b
-                if 0 <= x < m and 0 <= y < n and matrix[x][y] > matrix[i][j]:
-                    ans = max(ans, dfs(x, y))
-            return ans + 1
-
         m, n = len(matrix), len(matrix[0])
-        return max(dfs(i, j) for i in range(m) for j in range(n))
+        dirs = (-1, 0, 1, 0, -1)
+        outdegree = [[0] * n for _ in range(m)]
+        length = [[1] * n for _ in range(m)]
+        q = []
+        for i in range(m):
+            for j in range(n):
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and matrix[x][y] > matrix[i][j]:
+                        outdegree[i][j] += 1
+                if outdegree[i][j] == 0:
+                    q.append((i, j))
+
+        head = 0
+        while head < len(q):
+            i, j = q[head]
+            head += 1
+            for a, b in pairwise(dirs):
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and matrix[x][y] < matrix[i][j]:
+                    length[x][y] = max(length[x][y], length[i][j] + 1)
+                    outdegree[x][y] -= 1
+                    if outdegree[x][y] == 0:
+                        q.append((x, y))
+        return max(map(max, length))
 ```
 
 #### Java
 
 ```java
 class Solution {
-    private int m;
-    private int n;
-    private int[][] matrix;
-    private int[][] f;
-
     public int longestIncreasingPath(int[][] matrix) {
-        m = matrix.length;
-        n = matrix[0].length;
-        f = new int[m][n];
-        this.matrix = matrix;
-        int ans = 0;
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[][] outdegree = new int[m][n];
+        int[][] length = new int[m][n];
+        Deque<int[]> q = new ArrayDeque<>();
+        int[] dirs = {-1, 0, 1, 0, -1};
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans = Math.max(ans, dfs(i, j));
+                length[i][j] = 1;
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k];
+                    int y = j + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
+                        ++outdegree[i][j];
+                    }
+                }
+                if (outdegree[i][j] == 0) {
+                    q.offer(new int[] {i, j});
+                }
+            }
+        }
+
+        int ans = 1;
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int i = p[0], j = p[1];
+            ans = Math.max(ans, length[i][j]);
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] < matrix[i][j]) {
+                    length[x][y] = Math.max(length[x][y], length[i][j] + 1);
+                    if (--outdegree[x][y] == 0) {
+                        q.offer(new int[] {x, y});
+                    }
+                }
             }
         }
         return ans;
-    }
-
-    private int dfs(int i, int j) {
-        if (f[i][j] != 0) {
-            return f[i][j];
-        }
-        int[] dirs = {-1, 0, 1, 0, -1};
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
-                f[i][j] = Math.max(f[i][j], dfs(x, y));
-            }
-        }
-        return ++f[i][j];
     }
 }
 ```
@@ -159,27 +177,33 @@ class Solution {
 public:
     int longestIncreasingPath(vector<vector<int>>& matrix) {
         int m = matrix.size(), n = matrix[0].size();
-        int f[m][n];
-        memset(f, 0, sizeof(f));
-        int ans = 0;
+        vector<vector<int>> outdegree(m, vector<int>(n));
+        vector<vector<int>> length(m, vector<int>(n, 1));
+        queue<pair<int, int>> q;
         int dirs[5] = {-1, 0, 1, 0, -1};
-
-        function<int(int, int)> dfs = [&](int i, int j) -> int {
-            if (f[i][j]) {
-                return f[i][j];
-            }
-            for (int k = 0; k < 4; ++k) {
-                int x = i + dirs[k], y = j + dirs[k + 1];
-                if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
-                    f[i][j] = max(f[i][j], dfs(x, y));
-                }
-            }
-            return ++f[i][j];
-        };
-
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                ans = max(ans, dfs(i, j));
+                for (int k = 0; k < 4; ++k) {
+                    int x = i + dirs[k], y = j + dirs[k + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
+                        ++outdegree[i][j];
+                    }
+                }
+                if (outdegree[i][j] == 0) q.emplace(i, j);
+            }
+        }
+
+        int ans = 1;
+        while (!q.empty()) {
+            auto [i, j] = q.front();
+            q.pop();
+            ans = max(ans, length[i][j]);
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] < matrix[i][j]) {
+                    length[x][y] = max(length[x][y], length[i][j] + 1);
+                    if (--outdegree[x][y] == 0) q.emplace(x, y);
+                }
             }
         }
         return ans;
@@ -192,28 +216,40 @@ public:
 ```go
 func longestIncreasingPath(matrix [][]int) (ans int) {
 	m, n := len(matrix), len(matrix[0])
-	f := make([][]int, m)
-	for i := range f {
-		f[i] = make([]int, n)
+	outdegree := make([][]int, m)
+	length := make([][]int, m)
+	for i := range outdegree {
+		outdegree[i] = make([]int, n)
+		length[i] = make([]int, n)
 	}
 	dirs := [5]int{-1, 0, 1, 0, -1}
-	var dfs func(i, j int) int
-	dfs = func(i, j int) int {
-		if f[i][j] != 0 {
-			return f[i][j]
-		}
-		for k := 0; k < 4; k++ {
-			x, y := i+dirs[k], j+dirs[k+1]
-			if 0 <= x && x < m && 0 <= y && y < n && matrix[x][y] > matrix[i][j] {
-				f[i][j] = max(f[i][j], dfs(x, y))
-			}
-		}
-		f[i][j]++
-		return f[i][j]
-	}
+	queue := make([][2]int, 0)
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			ans = max(ans, dfs(i, j))
+			length[i][j] = 1
+			for k := 0; k < 4; k++ {
+				x, y := i+dirs[k], j+dirs[k+1]
+				if 0 <= x && x < m && 0 <= y && y < n && matrix[x][y] > matrix[i][j] {
+					outdegree[i][j]++
+				}
+			}
+			if outdegree[i][j] == 0 {
+				queue = append(queue, [2]int{i, j})
+			}
+		}
+	}
+	for head := 0; head < len(queue); head++ {
+		i, j := queue[head][0], queue[head][1]
+		ans = max(ans, length[i][j])
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if 0 <= x && x < m && 0 <= y && y < n && matrix[x][y] < matrix[i][j] {
+				length[x][y] = max(length[x][y], length[i][j]+1)
+				outdegree[x][y]--
+				if outdegree[x][y] == 0 {
+					queue = append(queue, [2]int{x, y})
+				}
+			}
 		}
 	}
 	return
@@ -226,27 +262,33 @@ func longestIncreasingPath(matrix [][]int) (ans int) {
 function longestIncreasingPath(matrix: number[][]): number {
     const m = matrix.length;
     const n = matrix[0].length;
-    const f: number[][] = Array(m)
-        .fill(0)
-        .map(() => Array(n).fill(0));
+    const outdegree: number[][] = Array.from({ length: m }, () => Array(n).fill(0));
+    const length: number[][] = Array.from({ length: m }, () => Array(n).fill(1));
     const dirs = [-1, 0, 1, 0, -1];
-    const dfs = (i: number, j: number): number => {
-        if (f[i][j] > 0) {
-            return f[i][j];
+    const q: [number, number][] = [];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < 4; ++k) {
+                const x = i + dirs[k];
+                const y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
+                    ++outdegree[i][j];
+                }
+            }
+            if (outdegree[i][j] === 0) q.push([i, j]);
         }
+    }
+    let ans = 1;
+    for (let head = 0; head < q.length; ++head) {
+        const [i, j] = q[head];
+        ans = Math.max(ans, length[i][j]);
         for (let k = 0; k < 4; ++k) {
             const x = i + dirs[k];
             const y = j + dirs[k + 1];
-            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
-                f[i][j] = Math.max(f[i][j], dfs(x, y));
+            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] < matrix[i][j]) {
+                length[x][y] = Math.max(length[x][y], length[i][j] + 1);
+                if (--outdegree[x][y] === 0) q.push([x, y]);
             }
-        }
-        return ++f[i][j];
-    };
-    let ans = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            ans = Math.max(ans, dfs(i, j));
         }
     }
     return ans;
