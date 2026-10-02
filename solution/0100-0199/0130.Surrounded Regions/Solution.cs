@@ -10,12 +10,12 @@ public class Solution {
         this.board = board;
 
         for (int i = 0; i < m; ++i) {
-            Dfs(i, 0);
-            Dfs(i, n - 1);
+            MarkConnected(i, 0);
+            MarkConnected(i, n - 1);
         }
         for (int j = 0; j < n; ++j) {
-            Dfs(0, j);
-            Dfs(m - 1, j);
+            MarkConnected(0, j);
+            MarkConnected(m - 1, j);
         }
 
         for (int i = 0; i < m; ++i) {
@@ -29,13 +29,23 @@ public class Solution {
         }
     }
 
-    private void Dfs(int i, int j) {
-        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != 'O') {
+    private void MarkConnected(int i, int j) {
+        if (board[i][j] != 'O') {
             return;
         }
         board[i][j] = '.';
-        for (int k = 0; k < 4; ++k) {
-            Dfs(i + dirs[k], j + dirs[k + 1]);
+        var stack = new Stack<int[]>();
+        stack.Push(new[] {i, j});
+        while (stack.Count > 0) {
+            int[] cell = stack.Pop();
+            for (int k = 0; k < 4; ++k) {
+                int x = cell[0] + dirs[k];
+                int y = cell[1] + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && board[x][y] == 'O') {
+                    board[x][y] = '.';
+                    stack.Push(new[] {x, y});
+                }
+            }
         }
     }
 }
