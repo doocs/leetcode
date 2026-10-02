@@ -1,16 +1,21 @@
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        def dfs(i: int) -> int:
-            if i in vis:
-                return 0
-            vis.add(i)
-            for j in g[i]:
-                dfs(j)
-            return 1
-
         g = [[] for _ in range(n)]
         for a, b in edges:
             g[a].append(b)
             g[b].append(a)
         vis = set()
-        return sum(dfs(i) for i in range(n))
+        ans = 0
+        for i in range(n):
+            if i in vis:
+                continue
+            ans += 1
+            vis.add(i)
+            stack = [i]
+            while stack:
+                node = stack.pop()
+                for neighbor in g[node]:
+                    if neighbor not in vis:
+                        vis.add(neighbor)
+                        stack.append(neighbor)
+        return ans
