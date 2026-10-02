@@ -10,5 +10,6 @@ class Solution {
                 array_splice($nums, $i, 1);
             }
         }
+        return count($nums);
     }
 }
