@@ -172,6 +172,9 @@ func reverse(x int) (ans int) {
 ```rust
 impl Solution {
     pub fn reverse(mut x: i32) -> i32 {
+        if x == i32::MIN {
+            return 0;
+        }
         let is_minus = x < 0;
         match x
             .abs()
