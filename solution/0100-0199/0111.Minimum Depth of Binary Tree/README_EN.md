@@ -235,24 +235,32 @@ function minDepth(root: TreeNode | null): number {
 //   }
 // }
 use std::cell::RefCell;
+use std::collections::VecDeque;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        if root.is_none() {
-            return 0;
-        }
-        let node = root.as_ref().unwrap().borrow();
-        if node.left.is_none() {
-            return 1 + Self::dfs(&node.right);
-        }
-        if node.right.is_none() {
-            return 1 + Self::dfs(&node.left);
-        }
-        1 + Self::dfs(&node.left).min(Self::dfs(&node.right))
-    }
-
     pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        Self::dfs(&root)
+        let Some(root) = root else {
+            return 0;
+        };
+        let mut queue = VecDeque::from([root]);
+        let mut depth = 0;
+        while !queue.is_empty() {
+            depth += 1;
+            for _ in 0..queue.len() {
+                let node = queue.pop_front().unwrap();
+                let node = node.borrow();
+                if node.left.is_none() && node.right.is_none() {
+                    return depth;
+                }
+                if let Some(left) = node.left.as_ref() {
+                    queue.push_back(left.clone());
+                }
+                if let Some(right) = node.right.as_ref() {
+                    queue.push_back(right.clone());
+                }
+            }
+        }
+        depth
     }
 }
 ```
