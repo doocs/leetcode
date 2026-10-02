@@ -173,23 +173,28 @@ class Solution {
 public:
     void solve(vector<vector<char>>& board) {
         int m = board.size(), n = board[0].size();
-        int dirs[5] = {-1, 0, 1, 0, -1};
-        function<void(int, int)> dfs = [&](int i, int j) {
-            if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != 'O') {
-                return;
-            }
-            board[i][j] = '.';
-            for (int k = 0; k < 4; ++k) {
-                dfs(i + dirs[k], j + dirs[k + 1]);
+        vector<pair<int, int>> stack;
+        auto mark = [&](int i, int j) {
+            if (board[i][j] == 'O') {
+                board[i][j] = '.';
+                stack.emplace_back(i, j);
             }
         };
         for (int i = 0; i < m; ++i) {
-            dfs(i, 0);
-            dfs(i, n - 1);
+            mark(i, 0);
+            mark(i, n - 1);
         }
         for (int j = 1; j < n - 1; ++j) {
-            dfs(0, j);
-            dfs(m - 1, j);
+            mark(0, j);
+            mark(m - 1, j);
+        }
+        while (!stack.empty()) {
+            auto [i, j] = stack.back();
+            stack.pop_back();
+            if (i > 0) mark(i - 1, j);
+            if (i + 1 < m) mark(i + 1, j);
+            if (j > 0) mark(i, j - 1);
+            if (j + 1 < n) mark(i, j + 1);
         }
         for (auto& row : board) {
             for (auto& c : row) {
