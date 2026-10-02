@@ -397,7 +397,7 @@ public:
             for (int i = 0; i <= n - k; ++i) {
                 for (int j = 0; j <= n - k; ++j) {
                     for (int h = 1; h < k; ++h) {
-                        if () {
+                        if (f[i][j][h] && f[i + h][j + h][k - h]) {
                             f[i][j][k] = true;
                             break;
                         }
