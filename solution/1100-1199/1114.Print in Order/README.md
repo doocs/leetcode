@@ -101,6 +101,9 @@ public class Foo {
 #### Python3
 
 ```python
+import threading
+
+
 class Foo:
     def __init__(self):
         self.l2 = threading.Lock()
