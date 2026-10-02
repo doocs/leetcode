@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def calculate_team_tiers(team_stats: pd.DataFrame) -> pd.DataFrame:
