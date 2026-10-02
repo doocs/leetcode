@@ -13,19 +13,20 @@
 # More efficient code churning ...
 proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLinkedList[int] =
   var
-    aggregate: SinglyLinkedList
-    psum: seq[char]
-    temp_la, temp_lb: seq[int]
+    aggregate: SinglyLinkedList[int]
+    p = l1.head
+    q = l2.head
+    carry = 0
 
-  while not l1.head.isNil:
-    temp_la.add(l1.head.value)
-    l1.head = l1.head.next
-
-  while not l2.head.isNil:
-    temp_lb.add(l2.head.value)
-    l2.head = l2.head.next
-
-  psum = reversed($(reversed(temp_la).join("").parseInt() + reversed(temp_lb).join("").parseInt()))
-  for i in psum: aggregate.append(($i).parseInt())
+  while not p.isNil or not q.isNil or carry > 0:
+    var sum = carry
+    if not p.isNil:
+      sum += p.value
+      p = p.next
+    if not q.isNil:
+      sum += q.value
+      q = q.next
+    aggregate.append(sum mod 10)
+    carry = sum div 10
 
   result = aggregate
