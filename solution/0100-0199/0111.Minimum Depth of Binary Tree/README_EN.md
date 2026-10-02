@@ -69,6 +69,8 @@ The termination condition for recursion is when the current node is null, at whi
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
+The Python implementation uses breadth-first traversal so a valid deep tree does not exceed the interpreter's recursion limit.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -84,11 +86,15 @@ class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
-        if root.left is None:
-            return 1 + self.minDepth(root.right)
-        if root.right is None:
-            return 1 + self.minDepth(root.left)
-        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+        q = deque([(root, 1)])
+        while q:
+            node, depth = q.popleft()
+            if node.left is None and node.right is None:
+                return depth
+            if node.left:
+                q.append((node.left, depth + 1))
+            if node.right:
+                q.append((node.right, depth + 1))
 ```
 
 #### Java
