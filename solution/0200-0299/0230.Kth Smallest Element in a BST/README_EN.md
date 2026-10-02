@@ -308,28 +308,33 @@ impl Solution {
 
 class BST:
     def __init__(self, root):
-        self.cnt = Counter()
+        self.cnt = {}
         self.root = root
-        self.count(root)
+        if root is not None:
+            stack = [(root, False)]
+            while stack:
+                node, visited = stack.pop()
+                if not visited:
+                    stack.append((node, True))
+                    if node.right:
+                        stack.append((node.right, False))
+                    if node.left:
+                        stack.append((node.left, False))
+                else:
+                    self.cnt[id(node)] = 1 + self.cnt.get(id(node.left), 0) + self.cnt.get(id(node.right), 0)
 
     def kthSmallest(self, k):
         node = self.root
         while node:
-            if self.cnt[node.left] == k - 1:
+            left_count = self.cnt.get(id(node.left), 0)
+            if left_count == k - 1:
                 return node.val
-            if self.cnt[node.left] < k - 1:
-                k -= self.cnt[node.left] + 1
+            if left_count < k - 1:
+                k -= left_count + 1
                 node = node.right
             else:
                 node = node.left
         return 0
-
-    def count(self, root):
-        if root is None:
-            return 0
-        n = 1 + self.count(root.left) + self.count(root.right)
-        self.cnt[root] = n
-        return n
 
 
 class Solution:
