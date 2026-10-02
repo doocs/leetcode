@@ -11,7 +11,7 @@ public:
         vector<vector<int>> skys;
         int city = 0, n = buildings.size();
         for (int line : lines) {
-            while (city < n && buildings[city][0] <= line && buildings[city][1] > line) {
+            while (city < n && buildings[city][0] <= line) {
                 pq.emplace(buildings[city][2], buildings[city][1]);
                 ++city;
             }

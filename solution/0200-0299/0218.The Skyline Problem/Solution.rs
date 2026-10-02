@@ -11,7 +11,7 @@ impl Solution {
         let (mut city, n) = (0, buildings.len());
 
         for line in lines {
-            while city < n && buildings[city][0] <= line && buildings[city][1] > line {
+            while city < n && buildings[city][0] <= line {
                 pq.push((buildings[city][2], buildings[city][1]));
                 city += 1;
             }
