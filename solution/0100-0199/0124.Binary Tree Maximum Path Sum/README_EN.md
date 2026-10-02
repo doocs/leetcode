@@ -88,6 +88,8 @@ In the main function, we call $dfs(root)$ to get the maximum path sum of each no
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
+Python uses an explicit postorder traversal to support a valid 30,000-node chain without exceeding the interpreter's recursion limit.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -101,17 +103,22 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 #         self.right = right
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        def dfs(root: Optional[TreeNode]) -> int:
-            if root is None:
-                return 0
-            left = max(0, dfs(root.left))
-            right = max(0, dfs(root.right))
-            nonlocal ans
-            ans = max(ans, root.val + left + right)
-            return root.val + max(left, right)
-
         ans = -inf
-        dfs(root)
+        gains = {}
+        stack = [(root, False)]
+        while stack:
+            node, visited = stack.pop()
+            if node is None:
+                continue
+            if visited:
+                left = max(0, gains.get(id(node.left), 0))
+                right = max(0, gains.get(id(node.right), 0))
+                ans = max(ans, node.val + left + right)
+                gains[id(node)] = node.val + max(left, right)
+            else:
+                stack.append((node, True))
+                stack.append((node.right, False))
+                stack.append((node.left, False))
         return ans
 ```
 
