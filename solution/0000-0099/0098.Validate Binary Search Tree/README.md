@@ -60,7 +60,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：递归
+### 方法一：中序遍历
 
 <!-- thinking:start -->
 
@@ -68,13 +68,13 @@ tags:
 >
 > 仅检查「左孩子小于根、右孩子大于根」并不充分：左子树里的最大值也必须小于根。可以给每棵子树传入允许取值的区间，也可以利用 BST 的定义——中序序列必须严格递增。
 >
-> 中序时记下上一个值，当前值必须更大。递归左、比较、再递归右，一遍即可发现违规。空树合法。
+> 只比较节点与父节点会漏掉更高祖先造成的违规。中序遍历把 BST 的全局条件转成相邻值递增的检查。我们记下上一个值，遇到首个不递增值就停止。Python 解法使用显式栈，避免 1 万个节点的倾斜树超过递归限制；空树合法。
 
 <!-- thinking:end -->
 
-我们可以对二叉树进行递归中序遍历，如果遍历到的结果是严格升序的，那么这棵树就是一个二叉搜索树。
+我们可以对二叉树进行中序遍历，如果遍历到的结果是严格升序的，那么这棵树就是一个二叉搜索树。
 
-因此，我们使用一个变量 $\textit{prev}$ 来保存上一个遍历到的节点，初始时 $\textit{prev} = -\infty$，然后我们递归遍历左子树，如果左子树不是二叉搜索树，直接返回 $\textit{False}$，否则判断当前节点的值是否大于 $\textit{prev}$，如果不是，返回 $\textit{False}$，否则更新 $\textit{prev}$ 为当前节点的值，然后递归遍历右子树。
+因此，我们使用一个变量 $\textit{prev}$ 来保存上一个遍历到的节点，初始时 $\textit{prev} = -\infty$，先访问左子树，再判断当前节点的值是否大于 $\textit{prev}$；如果不是，返回 $\textit{False}$，否则更新 $\textit{prev}$ 为当前节点的值，然后访问右子树。Python 解法使用显式栈完成遍历，避免倾斜树超过 Python 的递归限制。
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
@@ -91,19 +91,19 @@ tags:
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def dfs(root: Optional[TreeNode]) -> bool:
-            if root is None:
-                return True
-            if not dfs(root.left):
+        prev = None
+        stack = []
+        cur = root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            if prev is not None and prev >= cur.val:
                 return False
-            nonlocal prev
-            if prev >= root.val:
-                return False
-            prev = root.val
-            return dfs(root.right)
-
-        prev = -inf
-        return dfs(root)
+            prev = cur.val
+            cur = cur.right
+        return True
 ```
 
 #### Java
