@@ -334,12 +334,12 @@ public class Solution {
 #         self.next = next
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        if head is None or head.next is None:
-            return head
-        ans = self.reverseList(head.next)
-        head.next.next = head
-        head.next = None
-        return ans
+        prev = None
+        while head:
+            next_node = head.next
+            head.next = prev
+            prev, head = head, next_node
+        return prev
 ```
 
 #### Java
