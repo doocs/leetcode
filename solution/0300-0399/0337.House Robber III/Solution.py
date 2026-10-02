@@ -6,11 +6,21 @@
 #         self.right = right
 class Solution:
     def rob(self, root: Optional[TreeNode]) -> int:
-        def dfs(root: Optional[TreeNode]) -> (int, int):
-            if root is None:
-                return 0, 0
-            la, lb = dfs(root.left)
-            ra, rb = dfs(root.right)
-            return root.val + lb + rb, max(la, lb) + max(ra, rb)
+        if root is None:
+            return 0
+        order = []
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            order.append(node)
+            if node.left:
+                stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
 
-        return max(dfs(root))
+        dp = {}
+        for node in reversed(order):
+            la, lb = dp.get(id(node.left), (0, 0))
+            ra, rb = dp.get(id(node.right), (0, 0))
+            dp[id(node)] = (node.val + lb + rb, max(la, lb) + max(ra, rb))
+        return max(dp[id(root)])

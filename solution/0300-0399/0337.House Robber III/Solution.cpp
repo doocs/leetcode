@@ -12,15 +12,24 @@
 class Solution {
 public:
     int rob(TreeNode* root) {
-        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
-            if (!root) {
-                return make_pair(0, 0);
-            }
-            auto [la, lb] = dfs(root->left);
-            auto [ra, rb] = dfs(root->right);
-            return make_pair(root->val + lb + rb, max(la, lb) + max(ra, rb));
-        };
-        auto [a, b] = dfs(root);
+        if (!root) return 0;
+        vector<TreeNode*> order;
+        stack<TreeNode*> st{{root}};
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            st.pop();
+            order.push_back(node);
+            if (node->left) st.push(node->left);
+            if (node->right) st.push(node->right);
+        }
+        unordered_map<TreeNode*, pair<int, int>> dp;
+        for (auto it = order.rbegin(); it != order.rend(); ++it) {
+            TreeNode* node = *it;
+            auto left = node->left ? dp[node->left] : pair<int, int>{0, 0};
+            auto right = node->right ? dp[node->right] : pair<int, int>{0, 0};
+            dp[node] = {node->val + left.second + right.second, max(left.first, left.second) + max(right.first, right.second)};
+        }
+        auto [a, b] = dp[root];
         return max(a, b);
     }
 };
