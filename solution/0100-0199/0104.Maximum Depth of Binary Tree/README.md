@@ -71,6 +71,8 @@ tags:
 
 时间复杂度 $O(n)$，其中 $n$ 是二叉树的节点数。每个节点在递归中只被遍历一次。
 
+Python 实现使用队列逐层遍历，避免合法的深树超过解释器递归深度。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -86,8 +88,17 @@ class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        l, r = self.maxDepth(root.left), self.maxDepth(root.right)
-        return 1 + max(l, r)
+        q = deque([root])
+        depth = 0
+        while q:
+            depth += 1
+            for _ in range(len(q)):
+                node = q.popleft()
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+        return depth
 ```
 
 #### Java
