@@ -1,6 +1,6 @@
 fn bubble_sort(nums: &mut Vec<i32>) {
     let n = nums.len();
-    for i in 0..n - 1 {
+    for i in 0..n.saturating_sub(1) {
         for j in i..n {
             if nums[i] > nums[j] {
                 let temp = nums[i];
