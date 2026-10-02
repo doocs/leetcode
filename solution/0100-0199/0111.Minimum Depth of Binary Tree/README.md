@@ -71,6 +71,8 @@ tags:
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
+Python 实现使用队列按层遍历，以避免合法深树超过解释器的递归限制。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -86,11 +88,15 @@ class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
-        if root.left is None:
-            return 1 + self.minDepth(root.right)
-        if root.right is None:
-            return 1 + self.minDepth(root.left)
-        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+        q = deque([(root, 1)])
+        while q:
+            node, depth = q.popleft()
+            if node.left is None and node.right is None:
+                return depth
+            if node.left:
+                q.append((node.left, depth + 1))
+            if node.right:
+                q.append((node.right, depth + 1))
 ```
 
 #### Java

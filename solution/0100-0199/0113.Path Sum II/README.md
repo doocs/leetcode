@@ -81,6 +81,8 @@ tags:
 
 时间复杂度 $O(n^2)$，其中 $n$ 是二叉树的节点数。空间复杂度 $O(n)$。
 
+Python 实现使用显式栈遍历路径，避免合法深树超过解释器的递归限制。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -94,20 +96,24 @@ tags:
 #         self.right = right
 class Solution:
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
-        def dfs(root, s):
-            if root is None:
-                return
-            s += root.val
-            t.append(root.val)
-            if root.left is None and root.right is None and s == targetSum:
-                ans.append(t[:])
-            dfs(root.left, s)
-            dfs(root.right, s)
-            t.pop()
-
         ans = []
-        t = []
-        dfs(root, 0)
+        if root is None:
+            return ans
+        path = []
+        stack = [(root, targetSum, False)]
+        while stack:
+            node, remaining, exiting = stack.pop()
+            if exiting:
+                path.pop()
+                continue
+            path.append(node.val)
+            if node.left is None and node.right is None and remaining == node.val:
+                ans.append(path[:])
+            stack.append((node, remaining, True))
+            if node.right:
+                stack.append((node.right, remaining - node.val, False))
+            if node.left:
+                stack.append((node.left, remaining - node.val, False))
         return ans
 ```
 
