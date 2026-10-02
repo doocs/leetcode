@@ -80,6 +80,8 @@ tags:
 
 时间复杂度 $O(n \times k)$，空间复杂度 $O(n \times k)$。其中 $n$ 和 $k$ 分别为数组 $prices$ 的长度和 $k$ 的值。
 
+Python 实现使用迭代动态规划，避免 1000 天的有效输入超过解释器递归限制。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -87,18 +89,15 @@ tags:
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
-        @cache
-        def dfs(i: int, j: int, k: int) -> int:
-            if i >= len(prices):
-                return 0
-            ans = dfs(i + 1, j, k)
-            if k:
-                ans = max(ans, prices[i] + dfs(i + 1, j, 0))
-            elif j:
-                ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1))
-            return ans
-
-        return dfs(0, k, 0)
+        cash = [0] * (k + 1)
+        hold = [-inf] * (k + 1)
+        for price in prices:
+            for transactions in range(1, k + 1):
+                hold[transactions] = max(
+                    hold[transactions], cash[transactions - 1] - price
+                )
+                cash[transactions] = max(cash[transactions], hold[transactions] + price)
+        return cash[k]
 ```
 
 #### Java

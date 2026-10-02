@@ -79,6 +79,8 @@ During the process, we can use memoization search to save the results of each ca
 
 The time complexity is $O(n \times k)$, and the space complexity is $O(n \times k)$, where $n$ and $k$ are the length of the prices array and the value of $k$, respectively.
 
+The Python implementation uses iterative dynamic programming so 1,000-day inputs do not exceed the interpreter's recursion limit.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -86,18 +88,15 @@ The time complexity is $O(n \times k)$, and the space complexity is $O(n \times 
 ```python
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
-        @cache
-        def dfs(i: int, j: int, k: int) -> int:
-            if i >= len(prices):
-                return 0
-            ans = dfs(i + 1, j, k)
-            if k:
-                ans = max(ans, prices[i] + dfs(i + 1, j, 0))
-            elif j:
-                ans = max(ans, -prices[i] + dfs(i + 1, j - 1, 1))
-            return ans
-
-        return dfs(0, k, 0)
+        cash = [0] * (k + 1)
+        hold = [-inf] * (k + 1)
+        for price in prices:
+            for transactions in range(1, k + 1):
+                hold[transactions] = max(
+                    hold[transactions], cash[transactions - 1] - price
+                )
+                cash[transactions] = max(cash[transactions], hold[transactions] + price)
+        return cash[k]
 ```
 
 #### Java
