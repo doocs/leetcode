@@ -56,7 +56,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Memoization Search
+### Solution 1: Memoized Recurrence (Iterative in Python)
 
 <!-- thinking:start -->
 
@@ -82,6 +82,8 @@ To avoid repeated calculations, we use the method of memoization search, and use
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $prices$.
 
+The Python implementation evaluates the same state recurrence in reverse day order to avoid recursive call depth up to the valid limit of 5,000.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -89,18 +91,12 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is 
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        @cache
-        def dfs(i: int, j: int) -> int:
-            if i >= len(prices):
-                return 0
-            ans = dfs(i + 1, j)
-            if j:
-                ans = max(ans, prices[i] + dfs(i + 2, 0))
-            else:
-                ans = max(ans, -prices[i] + dfs(i + 1, 1))
-            return ans
-
-        return dfs(0, 0)
+        next_buy = next_sell = next2_buy = 0
+        for price in reversed(prices):
+            buy = max(next_buy, -price + next_sell)
+            sell = max(next_sell, price + next2_buy)
+            next2_buy, next_buy, next_sell = next_buy, buy, sell
+        return next_buy
 ```
 
 #### Java

@@ -57,7 +57,7 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：记忆化搜索
+### 方法一：记忆化状态转移（Python 使用迭代计算）
 
 <!-- thinking:start -->
 
@@ -83,6 +83,8 @@ tags:
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $prices$ 的长度。
 
+Python 实现按天数逆序计算同一状态转移，避免在合法最大长度 5000 上递归调用过深。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -90,18 +92,12 @@ tags:
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        @cache
-        def dfs(i: int, j: int) -> int:
-            if i >= len(prices):
-                return 0
-            ans = dfs(i + 1, j)
-            if j:
-                ans = max(ans, prices[i] + dfs(i + 2, 0))
-            else:
-                ans = max(ans, -prices[i] + dfs(i + 1, 1))
-            return ans
-
-        return dfs(0, 0)
+        next_buy = next_sell = next2_buy = 0
+        for price in reversed(prices):
+            buy = max(next_buy, -price + next_sell)
+            sell = max(next_sell, price + next2_buy)
+            next2_buy, next_buy, next_sell = next_buy, buy, sell
+        return next_buy
 ```
 
 #### Java
