@@ -69,6 +69,8 @@ The termination condition for recursion is when the current node is null, at whi
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
+The C++ implementation uses breadth-first search so a valid 100,000-node chain does not recurse deeply.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -145,13 +147,25 @@ public:
         if (!root) {
             return 0;
         }
-        if (!root->left) {
-            return 1 + minDepth(root->right);
+        queue<TreeNode*> q{{root}};
+        int depth = 0;
+        while (!q.empty()) {
+            ++depth;
+            for (int n = q.size(); n; --n) {
+                TreeNode* node = q.front();
+                q.pop();
+                if (!node->left && !node->right) {
+                    return depth;
+                }
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
+            }
         }
-        if (!root->right) {
-            return 1 + minDepth(root->left);
-        }
-        return 1 + min(minDepth(root->left), minDepth(root->right));
+        return 0;
     }
 };
 ```
