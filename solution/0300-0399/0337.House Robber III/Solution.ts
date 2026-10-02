@@ -13,13 +13,23 @@
  */
 
 function rob(root: TreeNode | null): number {
-    const dfs = (root: TreeNode | null): [number, number] => {
-        if (!root) {
-            return [0, 0];
-        }
-        const [la, lb] = dfs(root.left);
-        const [ra, rb] = dfs(root.right);
-        return [root.val + lb + rb, Math.max(la, lb) + Math.max(ra, rb)];
-    };
-    return Math.max(...dfs(root));
+    if (root === null) {
+        return 0;
+    }
+    const order: TreeNode[] = [];
+    const stack = [root];
+    while (stack.length > 0) {
+        const node = stack.pop()!;
+        order.push(node);
+        if (node.left) stack.push(node.left);
+        if (node.right) stack.push(node.right);
+    }
+    const dp = new Map<TreeNode, [number, number]>();
+    for (let i = order.length - 1; i >= 0; --i) {
+        const node = order[i];
+        const [la, lb] = node.left ? dp.get(node.left)! : [0, 0];
+        const [ra, rb] = node.right ? dp.get(node.right)! : [0, 0];
+        dp.set(node, [node.val + lb + rb, Math.max(la, lb) + Math.max(ra, rb)]);
+    }
+    return Math.max(...dp.get(root)!);
 }

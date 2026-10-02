@@ -102,14 +102,24 @@ tags:
 #         self.right = right
 class Solution:
     def rob(self, root: Optional[TreeNode]) -> int:
-        def dfs(root: Optional[TreeNode]) -> (int, int):
-            if root is None:
-                return 0, 0
-            la, lb = dfs(root.left)
-            ra, rb = dfs(root.right)
-            return root.val + lb + rb, max(la, lb) + max(ra, rb)
+        if root is None:
+            return 0
+        order = []
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            order.append(node)
+            if node.left:
+                stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
 
-        return max(dfs(root))
+        dp = {}
+        for node in reversed(order):
+            la, lb = dp.get(id(node.left), (0, 0))
+            ra, rb = dp.get(id(node.right), (0, 0))
+            dp[id(node)] = (node.val + lb + rb, max(la, lb) + max(ra, rb))
+        return max(dp[id(root)])
 ```
 
 #### Java
@@ -132,17 +142,31 @@ class Solution:
  */
 class Solution {
     public int rob(TreeNode root) {
-        int[] ans = dfs(root);
-        return Math.max(ans[0], ans[1]);
-    }
-
-    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return new int[2];
+            return 0;
         }
-        int[] l = dfs(root.left);
-        int[] r = dfs(root.right);
-        return new int[] {root.val + l[1] + r[1], Math.max(l[0], l[1]) + Math.max(r[0], r[1])};
+        List<TreeNode> order = new ArrayList<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            order.add(node);
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        Map<TreeNode, int[]> dp = new IdentityHashMap<>();
+        for (int i = order.size() - 1; i >= 0; --i) {
+            TreeNode node = order.get(i);
+            int[] left = node.left == null ? new int[2] : dp.get(node.left);
+            int[] right = node.right == null ? new int[2] : dp.get(node.right);
+            dp.put(node, new int[] {node.val + left[1] + right[1], Math.max(left[0], left[1]) + Math.max(right[0], right[1])});
+        }
+        int[] ans = dp.get(root);
+        return Math.max(ans[0], ans[1]);
     }
 }
 ```
@@ -164,15 +188,24 @@ class Solution {
 class Solution {
 public:
     int rob(TreeNode* root) {
-        function<pair<int, int>(TreeNode*)> dfs = [&](TreeNode* root) -> pair<int, int> {
-            if (!root) {
-                return make_pair(0, 0);
-            }
-            auto [la, lb] = dfs(root->left);
-            auto [ra, rb] = dfs(root->right);
-            return make_pair(root->val + lb + rb, max(la, lb) + max(ra, rb));
-        };
-        auto [a, b] = dfs(root);
+        if (!root) return 0;
+        vector<TreeNode*> order;
+        stack<TreeNode*> st{{root}};
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            st.pop();
+            order.push_back(node);
+            if (node->left) st.push(node->left);
+            if (node->right) st.push(node->right);
+        }
+        unordered_map<TreeNode*, pair<int, int>> dp;
+        for (auto it = order.rbegin(); it != order.rend(); ++it) {
+            TreeNode* node = *it;
+            auto left = node->left ? dp[node->left] : pair<int, int>{0, 0};
+            auto right = node->right ? dp[node->right] : pair<int, int>{0, 0};
+            dp[node] = {node->val + left.second + right.second, max(left.first, left.second) + max(right.first, right.second)};
+        }
+        auto [a, b] = dp[root];
         return max(a, b);
     }
 };
@@ -190,16 +223,31 @@ public:
  * }
  */
 func rob(root *TreeNode) int {
-	var dfs func(*TreeNode) (int, int)
-	dfs = func(root *TreeNode) (int, int) {
-		if root == nil {
-			return 0, 0
-		}
-		la, lb := dfs(root.Left)
-		ra, rb := dfs(root.Right)
-		return root.Val + lb + rb, max(la, lb) + max(ra, rb)
+	if root == nil {
+		return 0
 	}
-	a, b := dfs(root)
+	order := []*TreeNode{}
+	stack := []*TreeNode{root}
+	for len(stack) > 0 {
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		order = append(order, node)
+		if node.Left != nil {
+			stack = append(stack, node.Left)
+		}
+		if node.Right != nil {
+			stack = append(stack, node.Right)
+		}
+	}
+	type pair struct{ rob, skip int }
+	dp := make(map[*TreeNode]pair, len(order))
+	for i := len(order) - 1; i >= 0; i-- {
+		node := order[i]
+		left, right := dp[node.Left], dp[node.Right]
+		dp[node] = pair{node.Val + left.skip + right.skip, max(left.rob, left.skip) + max(right.rob, right.skip)}
+	}
+	result := dp[root]
+	a, b := result.rob, result.skip
 	return max(a, b)
 }
 ```
@@ -222,15 +270,25 @@ func rob(root *TreeNode) int {
  */
 
 function rob(root: TreeNode | null): number {
-    const dfs = (root: TreeNode | null): [number, number] => {
-        if (!root) {
-            return [0, 0];
-        }
-        const [la, lb] = dfs(root.left);
-        const [ra, rb] = dfs(root.right);
-        return [root.val + lb + rb, Math.max(la, lb) + Math.max(ra, rb)];
-    };
-    return Math.max(...dfs(root));
+    if (root === null) {
+        return 0;
+    }
+    const order: TreeNode[] = [];
+    const stack = [root];
+    while (stack.length > 0) {
+        const node = stack.pop()!;
+        order.push(node);
+        if (node.left) stack.push(node.left);
+        if (node.right) stack.push(node.right);
+    }
+    const dp = new Map<TreeNode, [number, number]>();
+    for (let i = order.length - 1; i >= 0; --i) {
+        const node = order[i];
+        const [la, lb] = node.left ? dp.get(node.left)! : [0, 0];
+        const [ra, rb] = node.right ? dp.get(node.right)! : [0, 0];
+        dp.set(node, [node.val + lb + rb, Math.max(la, lb) + Math.max(ra, rb)]);
+    }
+    return Math.max(...dp.get(root)!);
 }
 ```
 
