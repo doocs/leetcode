@@ -219,12 +219,13 @@ impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut ans = 0;
         let mut f = vec![0; s.len() + 1];
+        let chars = s.as_bytes();
         for i in 2..=s.len() {
-            if s.chars().nth(i - 1).unwrap() == ')' {
-                if s.chars().nth(i - 2).unwrap() == '(' {
+            if chars[i - 1] == b')' {
+                if chars[i - 2] == b'(' {
                     f[i] = f[i - 2] + 2;
                 } else if (i as i32) - f[i - 1] - 1 > 0
-                    && s.chars().nth(i - (f[i - 1] as usize) - 2).unwrap() == '('
+                    && chars[i - (f[i - 1] as usize) - 2] == b'('
                 {
                     f[i] = f[i - 1] + 2 + f[i - (f[i - 1] as usize) - 2];
                 }
@@ -425,8 +426,8 @@ impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {
         let mut stack = vec![-1];
         let mut res = 0;
-        for i in 0..s.len() {
-            if let Some('(') = s.chars().nth(i) {
+        for (i, c) in s.bytes().enumerate() {
+            if c == b'(' {
                 stack.push(i as i32);
             } else {
                 stack.pop().unwrap();
