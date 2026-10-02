@@ -38,23 +38,31 @@
  */
 
 function deserialize(s: string): NestedInteger {
-    if (s === '' || s === '[]') {
-        return new NestedInteger();
-    }
     if (s[0] !== '[') {
         return new NestedInteger(+s);
     }
-    const ans: NestedInteger = new NestedInteger();
-    let depth = 0;
-    for (let i = 1, j = 1; i < s.length; ++i) {
-        if (depth === 0 && (s[i] === ',' || i === s.length - 1)) {
-            ans.add(deserialize(s.slice(j, i)));
-            j = i + 1;
-        } else if (s[i] === '[') {
-            ++depth;
-        } else if (s[i] === ']') {
-            --depth;
+    const stack: NestedInteger[] = [];
+    let num = 0;
+    let negative = false;
+    for (let i = 0; i < s.length; ++i) {
+        const c = s[i];
+        if (c === '-') {
+            negative = true;
+        } else if (c >= '0' && c <= '9') {
+            num = num * 10 + c.charCodeAt(0) - '0'.charCodeAt(0);
+        } else if (c === '[') {
+            stack.push(new NestedInteger());
+        } else if (c === ',' || c === ']') {
+            if (s[i - 1] >= '0' && s[i - 1] <= '9') {
+                stack[stack.length - 1].add(new NestedInteger(negative ? -num : num));
+            }
+            num = 0;
+            negative = false;
+            if (c === ']' && stack.length > 1) {
+                const child = stack.pop()!;
+                stack[stack.length - 1].add(child);
+            }
         }
     }
-    return ans;
+    return stack[0];
 }

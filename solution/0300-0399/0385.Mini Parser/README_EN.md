@@ -59,19 +59,19 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Recursion
+### Solution 1: Explicit Stack
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Parse a nested-list string into `NestedInteger`. The grammar is an integer or `[elem,…,elem]`; recursive descent matches it.
+> Parse a nested-list string into `NestedInteger`. The grammar is an integer or `[elem,…,elem]`; recursive descent matches it, but nesting can reach thousands of levels.
 >
-> Empty or `[]` is an empty list; no leading `[` means a single integer. Otherwise split at depth-$0$ commas (or the end), recurse, and `add`. Depth tracks brackets so cuts stay at the top level.
+> Scan once with a stack of open lists. Digits form an integer until a comma or closing bracket; closing a nested list attaches it to its parent. The stack follows input depth without using call frames.
 
 <!-- thinking:end -->
 
-We first judge whether the string $s$ is empty or an empty list. If so, simply return an empty `NestedInteger`. If $s$ is an integer, we simply return a `NestedInteger` containing this integer. Otherwise, we traverse the string $s$ from left to right. If the current depth is $0$ and we encounter a comma or the end of the string $s$, we take a substring and recursively call the function to parse the substring and add the return value to the list. Otherwise, if the current encounter is a left parenthesis, we increase the depth by $1$ and continue to traverse. If we encounter a right parenthesis, we decrease the depth by $1$ and continue to traverse.
+If $s$ represents an integer, we return a `NestedInteger` containing that value. Otherwise, we scan the string from left to right. Each `[` creates a list and pushes it onto a stack; digits and the sign accumulate the current integer. At a comma or `]`, we attach a completed integer to the top list, and at `]` we pop a nested list and attach it to its parent. The explicit stack avoids recursion proportional to input depth.
 
 After the traversal is over, return the answer.
 
@@ -126,21 +126,32 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is 
 #        """
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:
-        if not s or s == '[]':
-            return NestedInteger()
         if s[0] != '[':
             return NestedInteger(int(s))
-        ans = NestedInteger()
-        depth, j = 0, 1
-        for i in range(1, len(s)):
-            if depth == 0 and (s[i] == ',' or i == len(s) - 1):
-                ans.add(self.deserialize(s[j:i]))
-                j = i + 1
-            elif s[i] == '[':
-                depth += 1
-            elif s[i] == ']':
-                depth -= 1
-        return ans
+        stack = []
+        root = None
+        num = 0
+        negative = False
+        for i, c in enumerate(s):
+            if c == '[':
+                node = NestedInteger()
+                if stack:
+                    stack[-1].add(node)
+                else:
+                    root = node
+                stack.append(node)
+            elif c == '-':
+                negative = True
+            elif c.isdigit():
+                num = num * 10 + int(c)
+            elif c in ',]':
+                if s[i - 1].isdigit():
+                    stack[-1].add(NestedInteger(-num if negative else num))
+                num = 0
+                negative = False
+                if c == ']':
+                    stack.pop()
+        return root
 ```
 
 #### Java
@@ -176,25 +187,33 @@ class Solution:
  */
 class Solution {
     public NestedInteger deserialize(String s) {
-        if ("".equals(s) || "[]".equals(s)) {
-            return new NestedInteger();
-        }
         if (s.charAt(0) != '[') {
             return new NestedInteger(Integer.parseInt(s));
         }
-        NestedInteger ans = new NestedInteger();
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.length(); ++i) {
-            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
-                ans.add(deserialize(s.substring(j, i)));
-                j = i + 1;
-            } else if (s.charAt(i) == '[') {
-                ++depth;
-            } else if (s.charAt(i) == ']') {
-                --depth;
+        Deque<NestedInteger> stack = new ArrayDeque<>();
+        int num = 0;
+        boolean negative = false;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == '-') {
+                negative = true;
+            } else if (Character.isDigit(c)) {
+                num = num * 10 + c - '0';
+            } else if (c == '[') {
+                stack.push(new NestedInteger());
+            } else if (c == ',' || c == ']') {
+                if (Character.isDigit(s.charAt(i - 1))) {
+                    stack.peek().add(new NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (c == ']' && stack.size() > 1) {
+                    NestedInteger child = stack.pop();
+                    stack.peek().add(child);
+                }
             }
         }
-        return ans;
+        return stack.peek();
     }
 }
 ```
@@ -234,25 +253,33 @@ class Solution {
 class Solution {
 public:
     NestedInteger deserialize(string s) {
-        if (s == "" || s == "[]") {
-            return NestedInteger();
-        }
         if (s[0] != '[') {
             return NestedInteger(stoi(s));
         }
-        NestedInteger ans;
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i) {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
-                ans.add(deserialize(s.substr(j, i - j)));
-                j = i + 1;
+        stack<NestedInteger> stk;
+        int num = 0;
+        bool negative = false;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '-') {
+                negative = true;
+            } else if (isdigit(s[i])) {
+                num = num * 10 + s[i] - '0';
             } else if (s[i] == '[') {
-                ++depth;
-            } else if (s[i] == ']') {
-                --depth;
+                stk.push(NestedInteger());
+            } else if (s[i] == ',' || s[i] == ']') {
+                if (isdigit(s[i - 1])) {
+                    stk.top().add(NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (s[i] == ']' && stk.size() > 1) {
+                    auto child = stk.top();
+                    stk.pop();
+                    stk.top().add(child);
+                }
             }
         }
-        return ans;
+        return stk.top();
     }
 };
 ```
@@ -286,27 +313,43 @@ public:
  * func (n NestedInteger) GetList() []*NestedInteger {}
  */
 func deserialize(s string) *NestedInteger {
-	ans := &NestedInteger{}
-	if s == "" || s == "[]" {
-		return ans
-	}
 	if s[0] != '[' {
+		ans := &NestedInteger{}
 		v, _ := strconv.Atoi(s)
 		ans.SetInteger(v)
 		return ans
 	}
-	depth := 0
-	for i, j := 1, 1; i < len(s); i++ {
-		if depth == 0 && (s[i] == ',' || i == len(s)-1) {
-			(*ans).Add(*deserialize(s[j:i]))
-			j = i + 1
-		} else if s[i] == '[' {
-			depth++
-		} else if s[i] == ']' {
-			depth--
+	stack := []*NestedInteger{}
+	num := 0
+	negative := false
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if c == '-' {
+			negative = true
+		} else if c >= '0' && c <= '9' {
+			num = num*10 + int(c-'0')
+		} else if c == '[' {
+			stack = append(stack, &NestedInteger{})
+		} else if c == ',' || c == ']' {
+			if s[i-1] >= '0' && s[i-1] <= '9' {
+				value := num
+				if negative {
+					value = -value
+				}
+				child := &NestedInteger{}
+				child.SetInteger(value)
+				stack[len(stack)-1].Add(*child)
+			}
+			num = 0
+			negative = false
+			if c == ']' && len(stack) > 1 {
+				child := stack[len(stack)-1]
+				stack = stack[:len(stack)-1]
+				stack[len(stack)-1].Add(*child)
+			}
 		}
 	}
-	return ans
+	return stack[0]
 }
 ```
 
@@ -353,25 +396,33 @@ func deserialize(s string) *NestedInteger {
  */
 
 function deserialize(s: string): NestedInteger {
-    if (s === '' || s === '[]') {
-        return new NestedInteger();
-    }
     if (s[0] !== '[') {
         return new NestedInteger(+s);
     }
-    const ans: NestedInteger = new NestedInteger();
-    let depth = 0;
-    for (let i = 1, j = 1; i < s.length; ++i) {
-        if (depth === 0 && (s[i] === ',' || i === s.length - 1)) {
-            ans.add(deserialize(s.slice(j, i)));
-            j = i + 1;
-        } else if (s[i] === '[') {
-            ++depth;
-        } else if (s[i] === ']') {
-            --depth;
+    const stack: NestedInteger[] = [];
+    let num = 0;
+    let negative = false;
+    for (let i = 0; i < s.length; ++i) {
+        const c = s[i];
+        if (c === '-') {
+            negative = true;
+        } else if (c >= '0' && c <= '9') {
+            num = num * 10 + c.charCodeAt(0) - '0'.charCodeAt(0);
+        } else if (c === '[') {
+            stack.push(new NestedInteger());
+        } else if (c === ',' || c === ']') {
+            if (s[i - 1] >= '0' && s[i - 1] <= '9') {
+                stack[stack.length - 1].add(new NestedInteger(negative ? -num : num));
+            }
+            num = 0;
+            negative = false;
+            if (c === ']' && stack.length > 1) {
+                const child = stack.pop()!;
+                stack[stack.length - 1].add(child);
+            }
         }
     }
-    return ans;
+    return stack[0];
 }
 ```
 

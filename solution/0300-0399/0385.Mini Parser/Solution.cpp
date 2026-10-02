@@ -30,24 +30,32 @@
 class Solution {
 public:
     NestedInteger deserialize(string s) {
-        if (s == "" || s == "[]") {
-            return NestedInteger();
-        }
         if (s[0] != '[') {
             return NestedInteger(stoi(s));
         }
-        NestedInteger ans;
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i) {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
-                ans.add(deserialize(s.substr(j, i - j)));
-                j = i + 1;
+        stack<NestedInteger> stk;
+        int num = 0;
+        bool negative = false;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '-') {
+                negative = true;
+            } else if (isdigit(s[i])) {
+                num = num * 10 + s[i] - '0';
             } else if (s[i] == '[') {
-                ++depth;
-            } else if (s[i] == ']') {
-                --depth;
+                stk.push(NestedInteger());
+            } else if (s[i] == ',' || s[i] == ']') {
+                if (isdigit(s[i - 1])) {
+                    stk.top().add(NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (s[i] == ']' && stk.size() > 1) {
+                    auto child = stk.top();
+                    stk.pop();
+                    stk.top().add(child);
+                }
             }
         }
-        return ans;
+        return stk.top();
     }
 };

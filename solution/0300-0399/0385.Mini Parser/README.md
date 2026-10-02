@@ -61,19 +61,19 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：递归
+### 方法一：显式栈
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 把嵌套列表的字符串解析成 `NestedInteger`。文法是整数或 `[元素,…,元素]`，可用递归下降。
+> 把嵌套列表字符串解析成 `NestedInteger`。文法是整数或 `[元素,…,元素]`，递归下降直观，但嵌套层数可达数千。
 >
-> 空串或 `[]` 返回空列表；不以 `[` 开头则整段是整数。否则在深度为 $0$ 的逗号（或末尾）处切开，递归解析每段并 `add`。深度随括号增减，保证切在顶层。
+> 用显式栈保存尚未闭合的列表。扫描字符时累积整数，遇到逗号或右括号就加入当前列表；右括号再将子列表挂到父列表。栈随输入深度增长，不占用调用栈。
 
 <!-- thinking:end -->
 
-我们首先判断字符串 $s$ 是否为空或是一个空列表，如果是的话，直接返回一个空的 `NestedInteger` 即可。如果 $s$ 是一个整数，我们直接返回一个包含这个整数的 `NestedInteger`。否则，我们从左到右遍历字符串 $s$，如果当前深度为 $0$，并且遇到了逗号或者字符串 $s$ 的末尾，则我们截取出一个子串并递归调用函数解析该子串，将返回值加入到列表中。否则，如果当前遇到了左括号，我们将深度加 $1$，并继续遍历。如果遇到了右括号，我们将深度减 $1$，继续遍历。
+如果 $s$ 表示整数，我们直接返回包含该值的 `NestedInteger`。否则从左向右扫描：每遇到 `[` 就创建列表并压入栈，数字和符号组成当前整数；遇到逗号或 `]` 时，将已完成的整数加入栈顶列表，遇到 `]` 再弹出子列表并加入父列表。显式栈避免调用深度随输入嵌套增长。
 
 遍历结束后，返回答案。
 
@@ -128,21 +128,32 @@ tags:
 #        """
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:
-        if not s or s == '[]':
-            return NestedInteger()
         if s[0] != '[':
             return NestedInteger(int(s))
-        ans = NestedInteger()
-        depth, j = 0, 1
-        for i in range(1, len(s)):
-            if depth == 0 and (s[i] == ',' or i == len(s) - 1):
-                ans.add(self.deserialize(s[j:i]))
-                j = i + 1
-            elif s[i] == '[':
-                depth += 1
-            elif s[i] == ']':
-                depth -= 1
-        return ans
+        stack = []
+        root = None
+        num = 0
+        negative = False
+        for i, c in enumerate(s):
+            if c == '[':
+                node = NestedInteger()
+                if stack:
+                    stack[-1].add(node)
+                else:
+                    root = node
+                stack.append(node)
+            elif c == '-':
+                negative = True
+            elif c.isdigit():
+                num = num * 10 + int(c)
+            elif c in ',]':
+                if s[i - 1].isdigit():
+                    stack[-1].add(NestedInteger(-num if negative else num))
+                num = 0
+                negative = False
+                if c == ']':
+                    stack.pop()
+        return root
 ```
 
 #### Java
@@ -178,25 +189,33 @@ class Solution:
  */
 class Solution {
     public NestedInteger deserialize(String s) {
-        if ("".equals(s) || "[]".equals(s)) {
-            return new NestedInteger();
-        }
         if (s.charAt(0) != '[') {
             return new NestedInteger(Integer.parseInt(s));
         }
-        NestedInteger ans = new NestedInteger();
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.length(); ++i) {
-            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
-                ans.add(deserialize(s.substring(j, i)));
-                j = i + 1;
-            } else if (s.charAt(i) == '[') {
-                ++depth;
-            } else if (s.charAt(i) == ']') {
-                --depth;
+        Deque<NestedInteger> stack = new ArrayDeque<>();
+        int num = 0;
+        boolean negative = false;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == '-') {
+                negative = true;
+            } else if (Character.isDigit(c)) {
+                num = num * 10 + c - '0';
+            } else if (c == '[') {
+                stack.push(new NestedInteger());
+            } else if (c == ',' || c == ']') {
+                if (Character.isDigit(s.charAt(i - 1))) {
+                    stack.peek().add(new NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (c == ']' && stack.size() > 1) {
+                    NestedInteger child = stack.pop();
+                    stack.peek().add(child);
+                }
             }
         }
-        return ans;
+        return stack.peek();
     }
 }
 ```
@@ -236,25 +255,33 @@ class Solution {
 class Solution {
 public:
     NestedInteger deserialize(string s) {
-        if (s == "" || s == "[]") {
-            return NestedInteger();
-        }
         if (s[0] != '[') {
             return NestedInteger(stoi(s));
         }
-        NestedInteger ans;
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i) {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
-                ans.add(deserialize(s.substr(j, i - j)));
-                j = i + 1;
+        stack<NestedInteger> stk;
+        int num = 0;
+        bool negative = false;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '-') {
+                negative = true;
+            } else if (isdigit(s[i])) {
+                num = num * 10 + s[i] - '0';
             } else if (s[i] == '[') {
-                ++depth;
-            } else if (s[i] == ']') {
-                --depth;
+                stk.push(NestedInteger());
+            } else if (s[i] == ',' || s[i] == ']') {
+                if (isdigit(s[i - 1])) {
+                    stk.top().add(NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (s[i] == ']' && stk.size() > 1) {
+                    auto child = stk.top();
+                    stk.pop();
+                    stk.top().add(child);
+                }
             }
         }
-        return ans;
+        return stk.top();
     }
 };
 ```
@@ -288,27 +315,43 @@ public:
  * func (n NestedInteger) GetList() []*NestedInteger {}
  */
 func deserialize(s string) *NestedInteger {
-	ans := &NestedInteger{}
-	if s == "" || s == "[]" {
-		return ans
-	}
 	if s[0] != '[' {
+		ans := &NestedInteger{}
 		v, _ := strconv.Atoi(s)
 		ans.SetInteger(v)
 		return ans
 	}
-	depth := 0
-	for i, j := 1, 1; i < len(s); i++ {
-		if depth == 0 && (s[i] == ',' || i == len(s)-1) {
-			(*ans).Add(*deserialize(s[j:i]))
-			j = i + 1
-		} else if s[i] == '[' {
-			depth++
-		} else if s[i] == ']' {
-			depth--
+	stack := []*NestedInteger{}
+	num := 0
+	negative := false
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if c == '-' {
+			negative = true
+		} else if c >= '0' && c <= '9' {
+			num = num*10 + int(c-'0')
+		} else if c == '[' {
+			stack = append(stack, &NestedInteger{})
+		} else if c == ',' || c == ']' {
+			if s[i-1] >= '0' && s[i-1] <= '9' {
+				value := num
+				if negative {
+					value = -value
+				}
+				child := &NestedInteger{}
+				child.SetInteger(value)
+				stack[len(stack)-1].Add(*child)
+			}
+			num = 0
+			negative = false
+			if c == ']' && len(stack) > 1 {
+				child := stack[len(stack)-1]
+				stack = stack[:len(stack)-1]
+				stack[len(stack)-1].Add(*child)
+			}
 		}
 	}
-	return ans
+	return stack[0]
 }
 ```
 
@@ -355,25 +398,33 @@ func deserialize(s string) *NestedInteger {
  */
 
 function deserialize(s: string): NestedInteger {
-    if (s === '' || s === '[]') {
-        return new NestedInteger();
-    }
     if (s[0] !== '[') {
         return new NestedInteger(+s);
     }
-    const ans: NestedInteger = new NestedInteger();
-    let depth = 0;
-    for (let i = 1, j = 1; i < s.length; ++i) {
-        if (depth === 0 && (s[i] === ',' || i === s.length - 1)) {
-            ans.add(deserialize(s.slice(j, i)));
-            j = i + 1;
-        } else if (s[i] === '[') {
-            ++depth;
-        } else if (s[i] === ']') {
-            --depth;
+    const stack: NestedInteger[] = [];
+    let num = 0;
+    let negative = false;
+    for (let i = 0; i < s.length; ++i) {
+        const c = s[i];
+        if (c === '-') {
+            negative = true;
+        } else if (c >= '0' && c <= '9') {
+            num = num * 10 + c.charCodeAt(0) - '0'.charCodeAt(0);
+        } else if (c === '[') {
+            stack.push(new NestedInteger());
+        } else if (c === ',' || c === ']') {
+            if (s[i - 1] >= '0' && s[i - 1] <= '9') {
+                stack[stack.length - 1].add(new NestedInteger(negative ? -num : num));
+            }
+            num = 0;
+            negative = false;
+            if (c === ']' && stack.length > 1) {
+                const child = stack.pop()!;
+                stack[stack.length - 1].add(child);
+            }
         }
     }
-    return ans;
+    return stack[0];
 }
 ```
 
