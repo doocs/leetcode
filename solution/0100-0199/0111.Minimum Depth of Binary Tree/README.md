@@ -71,6 +71,8 @@ tags:
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
+C++ 实现使用广度优先搜索，避免处理 100000 个节点的有效单链树时递归过深。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -147,13 +149,25 @@ public:
         if (!root) {
             return 0;
         }
-        if (!root->left) {
-            return 1 + minDepth(root->right);
+        queue<TreeNode*> q{{root}};
+        int depth = 0;
+        while (!q.empty()) {
+            ++depth;
+            for (int n = q.size(); n; --n) {
+                TreeNode* node = q.front();
+                q.pop();
+                if (!node->left && !node->right) {
+                    return depth;
+                }
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
+            }
         }
-        if (!root->right) {
-            return 1 + minDepth(root->left);
-        }
-        return 1 + min(minDepth(root->left), minDepth(root->right));
+        return 0;
     }
 };
 ```
