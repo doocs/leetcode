@@ -82,6 +82,8 @@ The execution process of the function $dfs(i, j, n)$ is as follows:
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
+The Python implementation uses an explicit stack so valid trees with depth 3,000 do not exceed the interpreter's recursion limit.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -95,17 +97,21 @@ The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is 
 #         self.right = right
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
-            if n <= 0:
-                return None
-            v = preorder[i]
-            k = d[v]
-            l = dfs(i + 1, j, k - j)
-            r = dfs(i + 1 + k - j, k + 1, n - k + j - 1)
-            return TreeNode(v, l, r)
-
-        d = {v: i for i, v in enumerate(inorder)}
-        return dfs(0, 0, len(preorder))
+        root = TreeNode(preorder[0])
+        stack = [root]
+        inorder_index = 0
+        for value in preorder[1:]:
+            node = stack[-1]
+            if node.val != inorder[inorder_index]:
+                node.left = TreeNode(value)
+                stack.append(node.left)
+            else:
+                while stack and stack[-1].val == inorder[inorder_index]:
+                    node = stack.pop()
+                    inorder_index += 1
+                node.right = TreeNode(value)
+                stack.append(node.right)
+        return root
 ```
 
 #### Java

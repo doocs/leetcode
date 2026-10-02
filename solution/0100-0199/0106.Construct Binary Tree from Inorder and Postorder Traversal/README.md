@@ -77,6 +77,8 @@ tags:
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。
 
+Python 实现使用显式栈重建树，支持深度达到 3000 的有效输入而不超过解释器递归限制。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -90,17 +92,21 @@ tags:
 #         self.right = right
 class Solution:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
-        def dfs(i: int, j: int, n: int) -> Optional[TreeNode]:
-            if n <= 0:
-                return None
-            v = postorder[j + n - 1]
-            k = d[v]
-            l = dfs(i, j, k - i)
-            r = dfs(k + 1, j + k - i, n - k + i - 1)
-            return TreeNode(v, l, r)
-
-        d = {v: i for i, v in enumerate(inorder)}
-        return dfs(0, 0, len(inorder))
+        root = TreeNode(postorder[-1])
+        stack = [root]
+        inorder_index = len(inorder) - 1
+        for value in reversed(postorder[:-1]):
+            node = stack[-1]
+            if node.val != inorder[inorder_index]:
+                node.right = TreeNode(value)
+                stack.append(node.right)
+            else:
+                while stack and stack[-1].val == inorder[inorder_index]:
+                    node = stack.pop()
+                    inorder_index -= 1
+                node.left = TreeNode(value)
+                stack.append(node.left)
+        return root
 ```
 
 #### Java
