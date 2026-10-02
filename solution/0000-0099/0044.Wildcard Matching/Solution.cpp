@@ -2,8 +2,7 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         int m = s.size(), n = p.size();
-        int f[m + 1][n + 1];
-        memset(f, -1, sizeof(f));
+        vector<vector<int>> f(m + 1, vector<int>(n + 1, -1));
         function<bool(int, int)> dfs = [&](int i, int j) {
             if (i >= m) {
                 return j >= n || (p[j] == '*' && dfs(i, j + 1));
