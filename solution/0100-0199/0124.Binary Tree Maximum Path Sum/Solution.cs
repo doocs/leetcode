@@ -12,20 +12,34 @@
  * }
  */
 public class Solution {
-    private int ans = -1001;
-
     public int MaxPathSum(TreeNode root) {
-        dfs(root);
-        return ans;
-    }
-
-    private int dfs(TreeNode root) {
         if (root == null) {
-            return 0;
+            return -1001;
         }
-        int left = Math.Max(0, dfs(root.left));
-        int right = Math.Max(0, dfs(root.right));
-        ans = Math.Max(ans, left + right + root.val);
-        return root.val + Math.Max(left, right);
+
+        int ans = -1001;
+        var stack = new Stack<TreeNode>();
+        var postorder = new Stack<TreeNode>();
+        stack.Push(root);
+        while (stack.Count > 0) {
+            TreeNode node = stack.Pop();
+            postorder.Push(node);
+            if (node.left != null) {
+                stack.Push(node.left);
+            }
+            if (node.right != null) {
+                stack.Push(node.right);
+            }
+        }
+
+        var gains = new Dictionary<TreeNode, int>();
+        while (postorder.Count > 0) {
+            TreeNode node = postorder.Pop();
+            int left = node.left == null ? 0 : Math.Max(0, gains[node.left]);
+            int right = node.right == null ? 0 : Math.Max(0, gains[node.right]);
+            ans = Math.Max(ans, node.val + left + right);
+            gains[node] = node.val + Math.Max(left, right);
+        }
+        return ans;
     }
 }
