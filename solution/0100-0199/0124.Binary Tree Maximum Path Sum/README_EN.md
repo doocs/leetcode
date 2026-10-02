@@ -88,6 +88,8 @@ In the main function, we call $dfs(root)$ to get the maximum path sum of each no
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.
 
+The Java implementation uses an explicit postorder traversal so a valid 30,000-node chain does not require deep recursion.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -134,21 +136,35 @@ class Solution:
  * }
  */
 class Solution {
-    private int ans = -1001;
-
     public int maxPathSum(TreeNode root) {
-        dfs(root);
-        return ans;
-    }
-
-    private int dfs(TreeNode root) {
         if (root == null) {
-            return 0;
+            return -1001;
         }
-        int left = Math.max(0, dfs(root.left));
-        int right = Math.max(0, dfs(root.right));
-        ans = Math.max(ans, root.val + left + right);
-        return root.val + Math.max(left, right);
+
+        int ans = -1001;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        Deque<TreeNode> postorder = new ArrayDeque<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            postorder.push(node);
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+
+        Map<TreeNode, Integer> gains = new IdentityHashMap<>();
+        while (!postorder.isEmpty()) {
+            TreeNode node = postorder.pop();
+            int left = node.left == null ? 0 : Math.max(0, gains.get(node.left));
+            int right = node.right == null ? 0 : Math.max(0, gains.get(node.right));
+            ans = Math.max(ans, node.val + left + right);
+            gains.put(node, node.val + Math.max(left, right));
+        }
+        return ans;
     }
 }
 ```
