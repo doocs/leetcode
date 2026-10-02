@@ -21,6 +21,8 @@ class Solution:
         :type n: Number of characters to read (int)
         :rtype: The number of actual characters read (int)
         """
+        if n == 0:
+            return 0
         i = 0
         buf4 = [0] * 4
         v = 5
