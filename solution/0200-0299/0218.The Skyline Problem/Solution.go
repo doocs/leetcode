@@ -22,7 +22,7 @@ func getSkyline(buildings [][]int) [][]int {
 	city, n := 0, len(buildings)
 	for _, line := range lines {
 		// 将所有符合条件的矩形加入队列
-		for ; city < n && buildings[city][0] <= line && buildings[city][1] > line; city++ {
+		for ; city < n && buildings[city][0] <= line; city++ {
 			v := Matrix{left: buildings[city][0], right: buildings[city][1], height: buildings[city][2]}
 			heap.Push(pq, v)
 		}

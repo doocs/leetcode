@@ -133,7 +133,7 @@ public:
         vector<vector<int>> skys;
         int city = 0, n = buildings.size();
         for (int line : lines) {
-            while (city < n && buildings[city][0] <= line && buildings[city][1] > line) {
+            while (city < n && buildings[city][0] <= line) {
                 pq.emplace(buildings[city][2], buildings[city][1]);
                 ++city;
             }
@@ -178,7 +178,7 @@ func getSkyline(buildings [][]int) [][]int {
 	city, n := 0, len(buildings)
 	for _, line := range lines {
 		// 将所有符合条件的矩形加入队列
-		for ; city < n && buildings[city][0] <= line && buildings[city][1] > line; city++ {
+		for ; city < n && buildings[city][0] <= line; city++ {
 			v := Matrix{left: buildings[city][0], right: buildings[city][1], height: buildings[city][2]}
 			heap.Push(pq, v)
 		}
@@ -217,7 +217,7 @@ impl Solution {
         let (mut city, n) = (0, buildings.len());
 
         for line in lines {
-            while city < n && buildings[city][0] <= line && buildings[city][1] > line {
+            while city < n && buildings[city][0] <= line {
                 pq.push((buildings[city][2], buildings[city][1]));
                 city += 1;
             }
