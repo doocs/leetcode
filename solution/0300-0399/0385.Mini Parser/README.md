@@ -61,19 +61,19 @@ tags:
 
 <!-- solution:start -->
 
-### 方法一：递归
+### 方法一：显式栈
 
 <!-- thinking:start -->
 
 > **思考**
 >
-> 把嵌套列表的字符串解析成 `NestedInteger`。文法是整数或 `[元素,…,元素]`，可用递归下降。
+> 把嵌套列表字符串解析成 `NestedInteger`。文法是整数或 `[元素,…,元素]`，递归下降直观，但嵌套层数可达数千。
 >
-> 空串或 `[]` 返回空列表；不以 `[` 开头则整段是整数。否则在深度为 $0$ 的逗号（或末尾）处切开，递归解析每段并 `add`。深度随括号增减，保证切在顶层。
+> 用显式栈保存尚未闭合的列表。扫描字符时累积整数，遇到逗号或右括号就加入当前列表；右括号再将子列表挂到父列表。栈随输入深度增长，不占用调用栈。
 
 <!-- thinking:end -->
 
-我们首先判断字符串 $s$ 是否为空或是一个空列表，如果是的话，直接返回一个空的 `NestedInteger` 即可。如果 $s$ 是一个整数，我们直接返回一个包含这个整数的 `NestedInteger`。否则，我们从左到右遍历字符串 $s$，如果当前深度为 $0$，并且遇到了逗号或者字符串 $s$ 的末尾，则我们截取出一个子串并递归调用函数解析该子串，将返回值加入到列表中。否则，如果当前遇到了左括号，我们将深度加 $1$，并继续遍历。如果遇到了右括号，我们将深度减 $1$，继续遍历。
+如果 $s$ 表示整数，我们直接返回包含该值的 `NestedInteger`。否则从左向右扫描：每遇到 `[` 就创建列表并压入栈，数字和符号组成当前整数；遇到逗号或 `]` 时，将已完成的整数加入栈顶列表，遇到 `]` 再弹出子列表并加入父列表。显式栈避免调用深度随输入嵌套增长。
 
 遍历结束后，返回答案。
 
@@ -128,21 +128,32 @@ tags:
 #        """
 class Solution:
     def deserialize(self, s: str) -> NestedInteger:
-        if not s or s == '[]':
-            return NestedInteger()
         if s[0] != '[':
             return NestedInteger(int(s))
-        ans = NestedInteger()
-        depth, j = 0, 1
-        for i in range(1, len(s)):
-            if depth == 0 and (s[i] == ',' or i == len(s) - 1):
-                ans.add(self.deserialize(s[j:i]))
-                j = i + 1
-            elif s[i] == '[':
-                depth += 1
-            elif s[i] == ']':
-                depth -= 1
-        return ans
+        stack = []
+        root = None
+        num = 0
+        negative = False
+        for i, c in enumerate(s):
+            if c == '[':
+                node = NestedInteger()
+                if stack:
+                    stack[-1].add(node)
+                else:
+                    root = node
+                stack.append(node)
+            elif c == '-':
+                negative = True
+            elif c.isdigit():
+                num = num * 10 + int(c)
+            elif c in ',]':
+                if s[i - 1].isdigit():
+                    stack[-1].add(NestedInteger(-num if negative else num))
+                num = 0
+                negative = False
+                if c == ']':
+                    stack.pop()
+        return root
 ```
 
 #### Java
