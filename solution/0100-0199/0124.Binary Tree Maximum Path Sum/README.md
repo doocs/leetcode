@@ -88,6 +88,8 @@ tags:
 
 时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
 
+Python 实现使用显式后序遍历，支持深度为 30000 的有效树而不超过解释器递归限制。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -101,17 +103,22 @@ tags:
 #         self.right = right
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        def dfs(root: Optional[TreeNode]) -> int:
-            if root is None:
-                return 0
-            left = max(0, dfs(root.left))
-            right = max(0, dfs(root.right))
-            nonlocal ans
-            ans = max(ans, root.val + left + right)
-            return root.val + max(left, right)
-
         ans = -inf
-        dfs(root)
+        gains = {}
+        stack = [(root, False)]
+        while stack:
+            node, visited = stack.pop()
+            if node is None:
+                continue
+            if visited:
+                left = max(0, gains.get(id(node.left), 0))
+                right = max(0, gains.get(id(node.right), 0))
+                ans = max(ans, node.val + left + right)
+                gains[id(node)] = node.val + max(left, right)
+            else:
+                stack.append((node, True))
+                stack.append((node.right, False))
+                stack.append((node.left, False))
         return ans
 ```
 

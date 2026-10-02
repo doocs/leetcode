@@ -93,6 +93,8 @@ tags:
 
 时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 是二叉树的节点数。
 
+Python 实现使用显式栈遍历，避免深度为 1000 的有效树超过解释器递归限制。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -106,15 +108,20 @@ tags:
 #         self.right = right
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
-        def dfs(root, s):
-            if root is None:
-                return 0
-            s = s * 10 + root.val
-            if root.left is None and root.right is None:
-                return s
-            return dfs(root.left, s) + dfs(root.right, s)
-
-        return dfs(root, 0)
+        if root is None:
+            return 0
+        ans = 0
+        stack = [(root, root.val)]
+        while stack:
+            node, value = stack.pop()
+            if node.left is None and node.right is None:
+                ans += value
+                continue
+            if node.right:
+                stack.append((node.right, value * 10 + node.right.val))
+            if node.left:
+                stack.append((node.left, value * 10 + node.left.val))
+        return ans
 ```
 
 #### Java
