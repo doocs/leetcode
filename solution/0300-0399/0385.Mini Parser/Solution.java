@@ -28,24 +28,32 @@
  */
 class Solution {
     public NestedInteger deserialize(String s) {
-        if ("".equals(s) || "[]".equals(s)) {
-            return new NestedInteger();
-        }
         if (s.charAt(0) != '[') {
             return new NestedInteger(Integer.parseInt(s));
         }
-        NestedInteger ans = new NestedInteger();
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.length(); ++i) {
-            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
-                ans.add(deserialize(s.substring(j, i)));
-                j = i + 1;
-            } else if (s.charAt(i) == '[') {
-                ++depth;
-            } else if (s.charAt(i) == ']') {
-                --depth;
+        Deque<NestedInteger> stack = new ArrayDeque<>();
+        int num = 0;
+        boolean negative = false;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == '-') {
+                negative = true;
+            } else if (Character.isDigit(c)) {
+                num = num * 10 + c - '0';
+            } else if (c == '[') {
+                stack.push(new NestedInteger());
+            } else if (c == ',' || c == ']') {
+                if (Character.isDigit(s.charAt(i - 1))) {
+                    stack.peek().add(new NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (c == ']' && stack.size() > 1) {
+                    NestedInteger child = stack.pop();
+                    stack.peek().add(child);
+                }
             }
         }
-        return ans;
+        return stack.peek();
     }
 }

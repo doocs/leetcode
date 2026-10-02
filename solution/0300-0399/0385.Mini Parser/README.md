@@ -189,25 +189,33 @@ class Solution:
  */
 class Solution {
     public NestedInteger deserialize(String s) {
-        if ("".equals(s) || "[]".equals(s)) {
-            return new NestedInteger();
-        }
         if (s.charAt(0) != '[') {
             return new NestedInteger(Integer.parseInt(s));
         }
-        NestedInteger ans = new NestedInteger();
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.length(); ++i) {
-            if (depth == 0 && (s.charAt(i) == ',' || i == s.length() - 1)) {
-                ans.add(deserialize(s.substring(j, i)));
-                j = i + 1;
-            } else if (s.charAt(i) == '[') {
-                ++depth;
-            } else if (s.charAt(i) == ']') {
-                --depth;
+        Deque<NestedInteger> stack = new ArrayDeque<>();
+        int num = 0;
+        boolean negative = false;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c == '-') {
+                negative = true;
+            } else if (Character.isDigit(c)) {
+                num = num * 10 + c - '0';
+            } else if (c == '[') {
+                stack.push(new NestedInteger());
+            } else if (c == ',' || c == ']') {
+                if (Character.isDigit(s.charAt(i - 1))) {
+                    stack.peek().add(new NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (c == ']' && stack.size() > 1) {
+                    NestedInteger child = stack.pop();
+                    stack.peek().add(child);
+                }
             }
         }
-        return ans;
+        return stack.peek();
     }
 }
 ```
@@ -247,25 +255,33 @@ class Solution {
 class Solution {
 public:
     NestedInteger deserialize(string s) {
-        if (s == "" || s == "[]") {
-            return NestedInteger();
-        }
         if (s[0] != '[') {
             return NestedInteger(stoi(s));
         }
-        NestedInteger ans;
-        int depth = 0;
-        for (int i = 1, j = 1; i < s.size(); ++i) {
-            if (depth == 0 && (s[i] == ',' || i == s.size() - 1)) {
-                ans.add(deserialize(s.substr(j, i - j)));
-                j = i + 1;
+        stack<NestedInteger> stk;
+        int num = 0;
+        bool negative = false;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '-') {
+                negative = true;
+            } else if (isdigit(s[i])) {
+                num = num * 10 + s[i] - '0';
             } else if (s[i] == '[') {
-                ++depth;
-            } else if (s[i] == ']') {
-                --depth;
+                stk.push(NestedInteger());
+            } else if (s[i] == ',' || s[i] == ']') {
+                if (isdigit(s[i - 1])) {
+                    stk.top().add(NestedInteger(negative ? -num : num));
+                }
+                num = 0;
+                negative = false;
+                if (s[i] == ']' && stk.size() > 1) {
+                    auto child = stk.top();
+                    stk.pop();
+                    stk.top().add(child);
+                }
             }
         }
-        return ans;
+        return stk.top();
     }
 };
 ```
@@ -299,27 +315,43 @@ public:
  * func (n NestedInteger) GetList() []*NestedInteger {}
  */
 func deserialize(s string) *NestedInteger {
-	ans := &NestedInteger{}
-	if s == "" || s == "[]" {
-		return ans
-	}
 	if s[0] != '[' {
+		ans := &NestedInteger{}
 		v, _ := strconv.Atoi(s)
 		ans.SetInteger(v)
 		return ans
 	}
-	depth := 0
-	for i, j := 1, 1; i < len(s); i++ {
-		if depth == 0 && (s[i] == ',' || i == len(s)-1) {
-			(*ans).Add(*deserialize(s[j:i]))
-			j = i + 1
-		} else if s[i] == '[' {
-			depth++
-		} else if s[i] == ']' {
-			depth--
+	stack := []*NestedInteger{}
+	num := 0
+	negative := false
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if c == '-' {
+			negative = true
+		} else if c >= '0' && c <= '9' {
+			num = num*10 + int(c-'0')
+		} else if c == '[' {
+			stack = append(stack, &NestedInteger{})
+		} else if c == ',' || c == ']' {
+			if s[i-1] >= '0' && s[i-1] <= '9' {
+				value := num
+				if negative {
+					value = -value
+				}
+				child := &NestedInteger{}
+				child.SetInteger(value)
+				stack[len(stack)-1].Add(*child)
+			}
+			num = 0
+			negative = false
+			if c == ']' && len(stack) > 1 {
+				child := stack[len(stack)-1]
+				stack = stack[:len(stack)-1]
+				stack[len(stack)-1].Add(*child)
+			}
 		}
 	}
-	return ans
+	return stack[0]
 }
 ```
 
@@ -366,25 +398,33 @@ func deserialize(s string) *NestedInteger {
  */
 
 function deserialize(s: string): NestedInteger {
-    if (s === '' || s === '[]') {
-        return new NestedInteger();
-    }
     if (s[0] !== '[') {
         return new NestedInteger(+s);
     }
-    const ans: NestedInteger = new NestedInteger();
-    let depth = 0;
-    for (let i = 1, j = 1; i < s.length; ++i) {
-        if (depth === 0 && (s[i] === ',' || i === s.length - 1)) {
-            ans.add(deserialize(s.slice(j, i)));
-            j = i + 1;
-        } else if (s[i] === '[') {
-            ++depth;
-        } else if (s[i] === ']') {
-            --depth;
+    const stack: NestedInteger[] = [];
+    let num = 0;
+    let negative = false;
+    for (let i = 0; i < s.length; ++i) {
+        const c = s[i];
+        if (c === '-') {
+            negative = true;
+        } else if (c >= '0' && c <= '9') {
+            num = num * 10 + c.charCodeAt(0) - '0'.charCodeAt(0);
+        } else if (c === '[') {
+            stack.push(new NestedInteger());
+        } else if (c === ',' || c === ']') {
+            if (s[i - 1] >= '0' && s[i - 1] <= '9') {
+                stack[stack.length - 1].add(new NestedInteger(negative ? -num : num));
+            }
+            num = 0;
+            negative = false;
+            if (c === ']' && stack.length > 1) {
+                const child = stack.pop()!;
+                stack[stack.length - 1].add(child);
+            }
         }
     }
-    return ans;
+    return stack[0];
 }
 ```
 
