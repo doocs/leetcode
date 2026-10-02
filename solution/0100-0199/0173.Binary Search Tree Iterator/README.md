@@ -97,6 +97,8 @@ bSTIterator.hasNext(); // 返回 False
 
 调用 `next()` 时，返回 `vals[cur]`，同时 `cur` 指针自增。调用 `hasNext()` 时，判断 `cur` 指针是否已经达到 `len(vals)` 个数，若是，说明已经遍历结束，返回 false，否则返回 true。
 
+Java 实现使用显式栈惰性地进行中序遍历，额外空间为 $O(h)$，并避免在退化树上进行过深的递归。
+
 <!-- tabs:start -->
 
 #### Python3
@@ -154,26 +156,26 @@ class BSTIterator:
  * }
  */
 class BSTIterator {
-    private int cur = 0;
-    private List<Integer> vals = new ArrayList<>();
+    private Deque<TreeNode> stack = new ArrayDeque<>();
 
     public BSTIterator(TreeNode root) {
-        inorder(root);
+        pushLeft(root);
     }
 
     public int next() {
-        return vals.get(cur++);
+        TreeNode node = stack.pop();
+        pushLeft(node.right);
+        return node.val;
     }
 
     public boolean hasNext() {
-        return cur < vals.size();
+        return !stack.isEmpty();
     }
 
-    private void inorder(TreeNode root) {
-        if (root != null) {
-            inorder(root.left);
-            vals.add(root.val);
-            inorder(root.right);
+    private void pushLeft(TreeNode node) {
+        while (node != null) {
+            stack.push(node);
+            node = node.left;
         }
     }
 }
