@@ -65,6 +65,8 @@ Recursively traverse the left and right subtrees, calculate the maximum depth of
 
 The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. Each node is traversed only once in the recursion.
 
+The Python implementation traverses by level with a queue so a valid deep tree does not exceed the interpreter's recursion limit.
+
 <!-- tabs:start -->
 
 #### Python3
@@ -80,8 +82,17 @@ class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        l, r = self.maxDepth(root.left), self.maxDepth(root.right)
-        return 1 + max(l, r)
+        q = deque([root])
+        depth = 0
+        while q:
+            depth += 1
+            for _ in range(len(q)):
+                node = q.popleft()
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+        return depth
 ```
 
 #### Java
