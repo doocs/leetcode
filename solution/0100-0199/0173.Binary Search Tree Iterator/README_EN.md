@@ -597,34 +597,25 @@ public:
  */
 
 class BSTIterator {
-    private stack: TreeNode[];
+    private data: TreeNode[];
 
     constructor(root: TreeNode | null) {
-        this.stack = [];
-        const dfs = (root: TreeNode | null) => {
-            if (root == null) {
-                return;
-            }
-            this.stack.push(root);
-            dfs(root.left);
-        };
-        dfs(root);
+        this.data = [];
+        for (; root != null; root = root.left) {
+            this.data.push(root);
+        }
     }
 
     next(): number {
-        const { val, right } = this.stack.pop();
-        if (right) {
-            let cur = right;
-            while (cur != null) {
-                this.stack.push(cur);
-                cur = cur.left;
-            }
+        const node = this.data.pop()!;
+        for (let cur = node.right; cur != null; cur = cur.left) {
+            this.data.push(cur);
         }
-        return val;
+        return node.val;
     }
 
     hasNext(): boolean {
-        return this.stack.length !== 0;
+        return this.data.length > 0;
     }
 }
 
@@ -771,12 +762,11 @@ var BSTIterator = function (root) {
  * @return {number}
  */
 BSTIterator.prototype.next = function () {
-    let cur = this.stack.pop();
-    let node = cur.right;
-    for (; node != null; node = node.left) {
-        this.stack.push(node);
+    const node = this.stack.pop();
+    for (let cur = node.right; cur != null; cur = cur.left) {
+        this.stack.push(cur);
     }
-    return cur.val;
+    return node.val;
 };
 
 /**
