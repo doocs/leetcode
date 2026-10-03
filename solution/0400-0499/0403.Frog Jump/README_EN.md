@@ -148,8 +148,7 @@ class Solution {
 public:
     bool canCross(vector<int>& stones) {
         int n = stones.size();
-        int f[n][n];
-        memset(f, -1, sizeof(f));
+        vector<vector<int>> f(n, vector<int>(n, -1));
         unordered_map<int, int> pos;
         for (int i = 0; i < n; ++i) {
             pos[stones[i]] = i;
