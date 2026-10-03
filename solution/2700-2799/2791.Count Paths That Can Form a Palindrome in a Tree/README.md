@@ -240,4 +240,182 @@ function countPalindromePaths(parent: number[], s: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 路径上的字符重排后能成回文，当且仅当至多一种字母出现奇数次。$n \le 10^5$，枚举点对是 $O(n^2)$；从根递归进入每个孩子，链上的调用深度就是 $n$，会超出递归栈。
+>
+> 根到点的字母奇偶可以压成掩码，两点间路径的奇偶就是两端掩码的异或，回文要求这个异或至多一位为 $1$。先把根的掩码 $0$ 放进计数器。
+>
+> 显式栈做先序。弹出节点后，对每个孩子用父掩码异或边权得到子掩码，累加计数器里相同掩码以及只差一位的掩码，再把子掩码入库并入栈。每一对节点只在后访问的一端计数一次，所以兄弟的处理顺序不影响答案。
+
+<!-- thinking:end -->
+
+用显式栈从根做先序遍历。根的掩码 $0$ 预先计入哈希表。访问每条边时，用父节点掩码异或该边字母得到子节点掩码，把与已访问节点形成回文的路径数累加进答案，再把子节点掩码入库。
+
+时间复杂度 $O(n \times |\Sigma|)$，空间复杂度 $O(n)$。其中 $|\Sigma|$ 是字母表大小。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append((i, 1 << (ord(s[i]) - ord('a'))))
+        ans = 0
+        cnt = Counter({0: 1})
+        stk = [(0, 0)]
+        while stk:
+            i, xor = stk.pop()
+            for j, v in g[i]:
+                x = xor ^ v
+                ans += cnt[x]
+                for k in range(26):
+                    ans += cnt[x ^ (1 << k)]
+                cnt[x] += 1
+                stk.append((j, x))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long countPalindromePaths(List<Integer> parent, String s) {
+        int n = parent.size();
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            int p = parent.get(i);
+            g[p].add(new int[] {i, 1 << (s.charAt(i) - 'a')});
+        }
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        long ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], xor = cur[1];
+            for (int[] e : g[i]) {
+                int j = e[0], v = e[1];
+                int x = xor ^ v;
+                ans += cnt.getOrDefault(x, 0);
+                for (int k = 0; k < 26; ++k) {
+                    ans += cnt.getOrDefault(x ^ (1 << k), 0);
+                }
+                cnt.merge(x, 1, Integer::sum);
+                stk.push(new int[] {j, x});
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long countPalindromePaths(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<vector<pair<int, int>>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].emplace_back(i, 1 << (s[i] - 'a'));
+        }
+        unordered_map<int, int> cnt;
+        cnt[0] = 1;
+        long long ans = 0;
+        vector<pair<int, int>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, xo] = stk.back();
+            stk.pop_back();
+            for (auto [j, v] : g[i]) {
+                int x = xo ^ v;
+                ans += cnt[x];
+                for (int k = 0; k < 26; ++k) {
+                    ans += cnt[x ^ (1 << k)];
+                }
+                ++cnt[x];
+                stk.emplace_back(j, x);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPalindromePaths(parent []int, s string) (ans int64) {
+	type pair struct{ i, v int }
+	n := len(parent)
+	g := make([][]pair, n)
+	for i := 1; i < n; i++ {
+		p := parent[i]
+		g[p] = append(g[p], pair{i, 1 << (s[i] - 'a')})
+	}
+	cnt := map[int]int{0: 1}
+	stk := []pair{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, e := range g[cur.i] {
+			x := cur.v ^ e.v
+			ans += int64(cnt[x])
+			for k := 0; k < 26; k++ {
+				ans += int64(cnt[x^(1<<k)])
+			}
+			cnt[x]++
+			stk = append(stk, pair{e.i, x})
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countPalindromePaths(parent: number[], s: string): number {
+    const n = parent.length;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push([i, 1 << (s.charCodeAt(i) - 97)]);
+    }
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    let ans = 0;
+    const stk: [number, number][] = [[0, 0]];
+    while (stk.length) {
+        const [i, xor] = stk.pop()!;
+        for (const [j, v] of g[i]) {
+            const x = xor ^ v;
+            ans += cnt.get(x) || 0;
+            for (let k = 0; k < 26; ++k) {
+                ans += cnt.get(x ^ (1 << k)) || 0;
+            }
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+            stk.push([j, x]);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
