@@ -54,7 +54,7 @@ tags:
 
 <!-- solution:start -->
 
-### Solution 1: Discuss Different Cases
+### Solution 1: Bucket Sort
 
 <!-- thinking:start -->
 
@@ -64,18 +64,19 @@ tags:
 
 <!-- thinking:end -->
 
-Let $m$ represent the length of string $s$, and $n$ represent the length of string $t$. We can assume that $m$ is always greater than or equal to $n$.
+Suppose $nums$ has $n$ elements. After sorting them into $nums_0 \le \cdots \le nums_{n-1}$, the maximum adjacent gap $maxGap$ satisfies
 
-If $m-n > 1$, return false directly;
+$$
+nums_{n-1} - nums_0 = \sum_{i=1}^{n-1}(nums_i - nums_{i-1}) \le maxGap \times (n-1).
+$$
 
-Otherwise, iterate through $s$ and $t$, if $s[i]$ is not equal to $t[i]$:
+Hence $maxGap \ge \dfrac{nums_{n-1} - nums_0}{n-1}$.
 
-- If $m \neq n$, compare $s[i+1:]$ with $t[i:]$, return true if they are equal, otherwise return false;
-- If $m = n$, compare $s[i:]$ with $t[i:]$, return true if they are equal, otherwise return false.
+Use that lower bound as the bucket width, and at least $1$ when every value is equal. Values that fall in the same bucket differ by less than $maxGap$, so a gap of size $maxGap$ always crosses two buckets. Each bucket keeps only its minimum and its maximum, initialized to $+\infty$ and $-\infty$ to mark an empty bucket.
 
-If the iteration ends, it means that all the characters of $s$ and $t$ that have been iterated are equal, at this time it needs to satisfy $m=n+1$.
+Place every value $v$ into bucket $\lfloor(v - \min) / \textit{bucketSize}\rfloor$. Smaller indices then hold smaller values. Scan the buckets from left to right. The minimum of the current non-empty bucket and the maximum of the previous non-empty bucket are adjacent in sorted order; their difference updates the answer. There is no gap before the first non-empty bucket.
 
-The time complexity is $O(m)$, where $m$ is the length of string $s$. The space complexity is $O(1)$.
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of $nums$.
 
 <!-- tabs:start -->
 
