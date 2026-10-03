@@ -39,23 +39,24 @@ class LockingTree {
             }
             x = parent[x];
         }
-        boolean[] find = new boolean[1];
-        dfs(num, find);
-        if (!find[0]) {
+        boolean find = false;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.addAll(children[num]);
+        while (!stk.isEmpty()) {
+            int cur = stk.pop();
+            if (locked[cur] != -1) {
+                locked[cur] = -1;
+                find = true;
+            }
+            for (int y : children[cur]) {
+                stk.push(y);
+            }
+        }
+        if (!find) {
             return false;
         }
         locked[num] = user;
         return true;
-    }
-
-    private void dfs(int x, boolean[] find) {
-        for (int y : children[x]) {
-            if (locked[y] != -1) {
-                locked[y] = -1;
-                find[0] = true;
-            }
-            dfs(y, find);
-        }
     }
 }
 

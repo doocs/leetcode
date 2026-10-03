@@ -35,16 +35,18 @@ public:
             x = parent[x];
         }
         bool find = false;
-        function<void(int)> dfs = [&](int x) {
-            for (int y : children[x]) {
-                if (locked[y] != -1) {
-                    find = true;
-                    locked[y] = -1;
-                }
-                dfs(y);
+        vector<int> stk = children[num];
+        while (!stk.empty()) {
+            int x = stk.back();
+            stk.pop_back();
+            if (locked[x] != -1) {
+                find = true;
+                locked[x] = -1;
             }
-        };
-        dfs(num);
+            for (int y : children[x]) {
+                stk.push_back(y);
+            }
+        }
         if (!find) {
             return false;
         }
