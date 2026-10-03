@@ -1,3 +1,6 @@
+import random
+
+
 class Solution:
     def __init__(self, m: int, n: int):
         self.m = m

@@ -82,6 +82,9 @@ solution.flip();  // 返回 [2, 0]，此时返回 [0,0]、[1,0] 和 [2,0] 的概
 #### Python3
 
 ```python
+import random
+
+
 class Solution:
     def __init__(self, m: int, n: int):
         self.m = m
