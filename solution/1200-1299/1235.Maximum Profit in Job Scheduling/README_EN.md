@@ -273,11 +273,11 @@ function jobScheduling(startTime: number[], endTime: number[], profit: number[])
 
 > **Thinking**
 >
-> Memoization jumps forward by start time. Sorting by end time instead, $dp[i]$ is the best profit among the first $i$ jobs: skip inherits $dp[i-1]$; take adds $dp[j]$ for the last job that ends before this start, with $j$ still from binary search. Bottom-up removes recursion; the meaning matches Solution 1.
+> Solution 1 sorts by start and fills one suffix table. Sorting by end instead, $dp[i]$ is the best profit among the first $i$ jobs: skip inherits $dp[i-1]$; take adds $dp[j]$ for the last job that ends before this start, with $j$ still from binary search.
 
 <!-- thinking:end -->
 
-We can also change the memoization search in Solution 1 to dynamic programming.
+Solution 1 sorts by start and fills a suffix table. Here we sort by end and define a prefix table.
 
 First, sort the jobs, this time we sort by end time in ascending order, then define $dp[i]$, which represents the maximum profit that can be obtained from the first $i$ jobs. The answer is $dp[n]$. Initialize $dp[0]=0$.
 
@@ -466,6 +466,163 @@ class Solution {
         }
         return profits.last!
     }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming + Binary Search
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Jobs must not overlap. $n \le 5\times 10^4$ rules out subset search. Whether we take job $i$ only affects jobs that start no earlier than its end.
+>
+> After sorting by start, skipping calls $i+1$ before it returns, so the chain has length $n$ and overflows the stack.
+>
+> Later indices are known if we walk from the end. Let $f[i]$ be the best profit from job $i$, with $f[n]=0$, and binary-search the next compatible job while filling $i$ from $n-1$ down to $0$.
+
+<!-- thinking:end -->
+
+First, we sort the jobs by start time in ascending order. Let $f[i]$ be the maximum profit that can be obtained starting from the $i$-th job. The answer is $f[0]$, and $f[n] = 0$.
+
+Fill $i$ from $n - 1$ down to $0$. For the $i$-th job we can skip it, which keeps $f[i + 1]$, or take it. Binary search finds the first job $j$ that starts at or after $end_i$. Taking it earns $profit[i] + f[j]$. Take the larger of the two:
+
+$$
+f[i]=\max(f[i+1],profit[i]+f[j])
+$$
+
+Where $j$ is the smallest index that satisfies $startTime[j] \ge endTime[i]$. Because $j > i$, $f[j]$ is already filled.
+
+The time complexity is $O(n \times \log n)$, where $n$ is the number of jobs.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
+        jobs = sorted(zip(startTime, endTime, profit))
+        n = len(profit)
+        f = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            _, e, p = jobs[i]
+            j = bisect_left(jobs, e, lo=i + 1, key=lambda x: x[0])
+            f[i] = max(f[i + 1], p + f[j])
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+        int n = profit.length;
+        int[][] jobs = new int[n][3];
+        for (int i = 0; i < n; ++i) {
+            jobs[i] = new int[] {startTime[i], endTime[i], profit[i]};
+        }
+        Arrays.sort(jobs, (a, b) -> a[0] - b[0]);
+        int[] f = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int e = jobs[i][1], p = jobs[i][2];
+            int j = search(jobs, e, i + 1);
+            f[i] = Math.max(f[i + 1], p + f[j]);
+        }
+        return f[0];
+    }
+
+    private int search(int[][] jobs, int x, int i) {
+        int left = i, right = jobs.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (jobs[mid][0] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
+        int n = profit.size();
+        vector<tuple<int, int, int>> jobs(n);
+        for (int i = 0; i < n; ++i) jobs[i] = {startTime[i], endTime[i], profit[i]};
+        sort(jobs.begin(), jobs.end());
+        vector<int> f(n + 1);
+        for (int i = n - 1; i >= 0; --i) {
+            auto [_, e, p] = jobs[i];
+            tuple<int, int, int> t{e, 0, 0};
+            int j = lower_bound(jobs.begin() + i + 1, jobs.end(), t, [&](auto& l, auto& r) -> bool { return get<0>(l) < get<0>(r); }) - jobs.begin();
+            f[i] = max(f[i + 1], p + f[j]);
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func jobScheduling(startTime []int, endTime []int, profit []int) int {
+	n := len(profit)
+	type tuple struct{ s, e, p int }
+	jobs := make([]tuple, n)
+	for i, p := range profit {
+		jobs[i] = tuple{startTime[i], endTime[i], p}
+	}
+	sort.Slice(jobs, func(i, j int) bool { return jobs[i].s < jobs[j].s })
+	f := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		j := sort.Search(n, func(k int) bool { return jobs[k].s >= jobs[i].e })
+		f[i] = max(f[i+1], jobs[i].p+f[j])
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
+    const n = startTime.length;
+    const f = new Array(n + 1).fill(0);
+    const idx = new Array(n).fill(0).map((_, i) => i);
+    idx.sort((i, j) => startTime[i] - startTime[j]);
+    const search = (x: number, left: number) => {
+        let l = left;
+        let r = n;
+        while (l < r) {
+            const mid = (l + r) >> 1;
+            if (startTime[idx[mid]] >= x) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return l;
+    };
+    for (let i = n - 1; i >= 0; --i) {
+        const j = search(endTime[idx[i]], i + 1);
+        f[i] = Math.max(f[i + 1], f[j] + profit[idx[i]]);
+    }
+    return f[0];
 }
 ```
 
