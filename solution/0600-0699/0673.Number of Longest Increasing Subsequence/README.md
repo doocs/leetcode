@@ -178,6 +178,9 @@ func findNumberOfLIS(nums []int) (ans int) {
 	n, mx := len(nums), 0
 	f := make([]int, n)
 	cnt := make([]int, n)
+	for i := range f {
+		f[i], cnt[i] = 1, 1
+	}
 	for i, x := range nums {
 		for j, y := range nums[:i] {
 			if y < x {
