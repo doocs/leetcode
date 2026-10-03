@@ -95,7 +95,7 @@ class Solution {
         long ans = 1;
         for (int i = b.length - 1; i >= 0; --i) {
             ans = ans * qpow(a, b[i]) % mod;
-            a = qpow(a, 10);
+            a = (int) qpow(a, 10);
         }
         return (int) ans;
     }
