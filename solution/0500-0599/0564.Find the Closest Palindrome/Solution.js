@@ -24,8 +24,8 @@ function getCandidates(n) {
     const length = n.length;
     const res = new Set();
 
-    res.add(BigInt(Math.pow(10, length - 1) - 1));
-    res.add(BigInt(Math.pow(10, length) + 1));
+    res.add(10n ** BigInt(length - 1) - 1n);
+    res.add(10n ** BigInt(length) + 1n);
 
     const left = BigInt(n.substring(0, Math.ceil(length / 2)));
 
