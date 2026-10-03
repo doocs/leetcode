@@ -333,4 +333,174 @@ function maxCoins(lane1: number[], lane2: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 两条车道，至多换道两次，可从任意位置起步并随时离开。$n\le 10^5$，枚举路径不可行。
+>
+> 状态是英里、车道和剩余换道次数。继续行驶时总会先调用下一英里，调用链深度为 $n$，栈会溢出。
+>
+> 下一英里与更少的换道次数，在从后往前且换道次数从 $0$ 填到 $2$ 时已经就绪。令 $f[i][j][k]$ 为从第 $i$ 英里、车道 $j$、还剩 $k$ 次换道的最大得分，答案是所有 $f[i][0][2]$ 的最大值。
+
+<!-- thinking:end -->
+
+令 $f[i][j][k]$ 表示从第 $i$ 英里出发、当前在车道 $j$、还可以换道 $k$ 次时最多能获得的硬币数。边界 $f[n][j][k] = 0$。答案是所有起点 $f[i][0][2]$ 的最大值。
+
+我们从 $i = n - 1$ 填到 $0$。每一英里先把换道次数 $k$ 从 $0$ 填到 $2$，再处理两条车道。设 $x$ 为车道 $j$ 在第 $i$ 英里的硬币数。可以在这一英里后离开，也可以留在同一车道，即 $\max(x, f[i + 1][j][k] + x)$。当 $k > 0$ 时，还可以先行驶一英里再换道，或在出发前原地换道：
+
+$$
+\max(f[i + 1][j \oplus 1][k - 1] + x,\ f[i][j \oplus 1][k - 1])
+$$
+
+原地换道读的是同一英里上 $k - 1$ 的状态，该状态已经填完。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 表示车道的长度。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxCoins(self, lane1: List[int], lane2: List[int]) -> int:
+        n = len(lane1)
+        lanes = (lane1, lane2)
+        f = [[[0] * 3 for _ in range(2)] for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for k in range(3):
+                for j in range(2):
+                    x = lanes[j][i]
+                    ans = max(x, f[i + 1][j][k] + x)
+                    if k:
+                        ans = max(ans, f[i + 1][j ^ 1][k - 1] + x, f[i][j ^ 1][k - 1])
+                    f[i][j][k] = ans
+        return max(f[i][0][2] for i in range(n))
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxCoins(int[] lane1, int[] lane2) {
+        int n = lane1.length;
+        long[][][] f = new long[n + 1][2][3];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 0; k < 3; ++k) {
+                for (int j = 0; j < 2; ++j) {
+                    long x = j == 0 ? lane1[i] : lane2[i];
+                    long ans = Math.max(x, f[i + 1][j][k] + x);
+                    if (k > 0) {
+                        ans = Math.max(ans, f[i + 1][j ^ 1][k - 1] + x);
+                        ans = Math.max(ans, f[i][j ^ 1][k - 1]);
+                    }
+                    f[i][j][k] = ans;
+                }
+            }
+        }
+        long ans = f[0][0][2];
+        for (int i = 1; i < n; ++i) {
+            ans = Math.max(ans, f[i][0][2]);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxCoins(vector<int>& lane1, vector<int>& lane2) {
+        int n = lane1.size();
+        vector<vector<vector<long long>>> f(n + 1, vector<vector<long long>>(2, vector<long long>(3)));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 0; k < 3; ++k) {
+                for (int j = 0; j < 2; ++j) {
+                    long long x = j == 0 ? lane1[i] : lane2[i];
+                    long long ans = max(x, f[i + 1][j][k] + x);
+                    if (k > 0) {
+                        ans = max(ans, f[i + 1][j ^ 1][k - 1] + x);
+                        ans = max(ans, f[i][j ^ 1][k - 1]);
+                    }
+                    f[i][j][k] = ans;
+                }
+            }
+        }
+        long long ans = f[0][0][2];
+        for (int i = 1; i < n; ++i) {
+            ans = max(ans, f[i][0][2]);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxCoins(lane1 []int, lane2 []int) int64 {
+	n := len(lane1)
+	f := make([][2][3]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		for k := 0; k < 3; k++ {
+			for j := 0; j < 2; j++ {
+				x := int64(lane1[i])
+				if j == 1 {
+					x = int64(lane2[i])
+				}
+				ans := max(x, f[i+1][j][k]+x)
+				if k > 0 {
+					ans = max(ans, f[i+1][j^1][k-1]+x)
+					ans = max(ans, f[i][j^1][k-1])
+				}
+				f[i][j][k] = ans
+			}
+		}
+	}
+	ans := f[0][0][2]
+	for i := 1; i < n; i++ {
+		ans = max(ans, f[i][0][2])
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxCoins(lane1: number[], lane2: number[]): number {
+    const n = lane1.length;
+    const f: number[][][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: 2 }, () => Array(3).fill(0)),
+    );
+    for (let i = n - 1; i >= 0; --i) {
+        for (let k = 0; k < 3; ++k) {
+            for (let j = 0; j < 2; ++j) {
+                const x = j === 0 ? lane1[i] : lane2[i];
+                let ans = Math.max(x, f[i + 1][j][k] + x);
+                if (k > 0) {
+                    ans = Math.max(ans, f[i + 1][j ^ 1][k - 1] + x, f[i][j ^ 1][k - 1]);
+                }
+                f[i][j][k] = ans;
+            }
+        }
+    }
+    let ans = f[0][0][2];
+    for (let i = 1; i < n; ++i) {
+        ans = Math.max(ans, f[i][0][2]);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->

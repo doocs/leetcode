@@ -331,4 +331,174 @@ function maxCoins(lane1: number[], lane2: number[]): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Two lanes, at most two switches, start anywhere and exit anytime. $n\le 10^5$ forbids listing paths.
+>
+> A state is the mile, the lane, and the switches still left. Continuing always calls the next mile first, so the chain has depth $n$ and overflows the stack.
+>
+> The next mile and a smaller switch budget are known if we walk backward and fill the switch count from $0$ to $2$. Let $f[i][j][k]$ be the best score from mile $i$ on lane $j$ with $k$ switches left. The answer is the maximum of $f[i][0][2]$.
+
+<!-- thinking:end -->
+
+Let $f[i][j][k]$ be the maximum number of coins starting at mile $i$ on lane $j$ with $k$ lane changes left. Set $f[n][j][k] = 0$. The answer is the maximum of $f[i][0][2]$ over every start $i$.
+
+Fill $i$ from $n - 1$ down to $0$. For each mile, fill $k$ from $0$ to $2$ and then both lanes. Let $x$ be the coins on lane $j$ at mile $i$. Mario may stop after this mile or stay on the same lane, which is $\max(x, f[i + 1][j][k] + x)$. When $k > 0$, he may also drive one mile and then switch, or switch in place before driving:
+
+$$
+\max(f[i + 1][j \oplus 1][k - 1] + x,\ f[i][j \oplus 1][k - 1])
+$$
+
+The in-place switch reads $k - 1$ at the same mile, which is already filled.
+
+Time complexity is $O(n)$, and space complexity is $O(n)$. Where $n$ represents the length of the lanes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxCoins(self, lane1: List[int], lane2: List[int]) -> int:
+        n = len(lane1)
+        lanes = (lane1, lane2)
+        f = [[[0] * 3 for _ in range(2)] for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for k in range(3):
+                for j in range(2):
+                    x = lanes[j][i]
+                    ans = max(x, f[i + 1][j][k] + x)
+                    if k:
+                        ans = max(ans, f[i + 1][j ^ 1][k - 1] + x, f[i][j ^ 1][k - 1])
+                    f[i][j][k] = ans
+        return max(f[i][0][2] for i in range(n))
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maxCoins(int[] lane1, int[] lane2) {
+        int n = lane1.length;
+        long[][][] f = new long[n + 1][2][3];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 0; k < 3; ++k) {
+                for (int j = 0; j < 2; ++j) {
+                    long x = j == 0 ? lane1[i] : lane2[i];
+                    long ans = Math.max(x, f[i + 1][j][k] + x);
+                    if (k > 0) {
+                        ans = Math.max(ans, f[i + 1][j ^ 1][k - 1] + x);
+                        ans = Math.max(ans, f[i][j ^ 1][k - 1]);
+                    }
+                    f[i][j][k] = ans;
+                }
+            }
+        }
+        long ans = f[0][0][2];
+        for (int i = 1; i < n; ++i) {
+            ans = Math.max(ans, f[i][0][2]);
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maxCoins(vector<int>& lane1, vector<int>& lane2) {
+        int n = lane1.size();
+        vector<vector<vector<long long>>> f(n + 1, vector<vector<long long>>(2, vector<long long>(3)));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int k = 0; k < 3; ++k) {
+                for (int j = 0; j < 2; ++j) {
+                    long long x = j == 0 ? lane1[i] : lane2[i];
+                    long long ans = max(x, f[i + 1][j][k] + x);
+                    if (k > 0) {
+                        ans = max(ans, f[i + 1][j ^ 1][k - 1] + x);
+                        ans = max(ans, f[i][j ^ 1][k - 1]);
+                    }
+                    f[i][j][k] = ans;
+                }
+            }
+        }
+        long long ans = f[0][0][2];
+        for (int i = 1; i < n; ++i) {
+            ans = max(ans, f[i][0][2]);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxCoins(lane1 []int, lane2 []int) int64 {
+	n := len(lane1)
+	f := make([][2][3]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		for k := 0; k < 3; k++ {
+			for j := 0; j < 2; j++ {
+				x := int64(lane1[i])
+				if j == 1 {
+					x = int64(lane2[i])
+				}
+				ans := max(x, f[i+1][j][k]+x)
+				if k > 0 {
+					ans = max(ans, f[i+1][j^1][k-1]+x)
+					ans = max(ans, f[i][j^1][k-1])
+				}
+				f[i][j][k] = ans
+			}
+		}
+	}
+	ans := f[0][0][2]
+	for i := 1; i < n; i++ {
+		ans = max(ans, f[i][0][2])
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function maxCoins(lane1: number[], lane2: number[]): number {
+    const n = lane1.length;
+    const f: number[][][] = Array.from({ length: n + 1 }, () =>
+        Array.from({ length: 2 }, () => Array(3).fill(0)),
+    );
+    for (let i = n - 1; i >= 0; --i) {
+        for (let k = 0; k < 3; ++k) {
+            for (let j = 0; j < 2; ++j) {
+                const x = j === 0 ? lane1[i] : lane2[i];
+                let ans = Math.max(x, f[i + 1][j][k] + x);
+                if (k > 0) {
+                    ans = Math.max(ans, f[i + 1][j ^ 1][k - 1] + x, f[i][j ^ 1][k - 1]);
+                }
+                f[i][j][k] = ans;
+            }
+        }
+    }
+    let ans = f[0][0][2];
+    for (let i = 1; i < n; ++i) {
+        ans = Math.max(ans, f[i][0][2]);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
