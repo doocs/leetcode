@@ -84,7 +84,7 @@ tweet_id 是这个表的主键（有不同值的列）。
 
 <!-- solution:start -->
 
-### 方法一：LENGTH() 函数 + REPLACE() 函数
+### 方法一：CHAR_LENGTH() 与 LENGTH() 函数
 
 <!-- thinking:start -->
 
@@ -98,7 +98,7 @@ tweet_id 是这个表的主键（有不同值的列）。
 
 <!-- thinking:end -->
 
-我们可以使用 `LENGTH()` 函数计算字符串的长度，计算排除掉 `@` 或 `#` 之后的长度，然后使用 `OR` 运算符连接这三个条件，筛选出对应的 tweet_id，并按照 tweet_id 升序排序。
+字符数用 `CHAR_LENGTH()` 计算，超过 $140$ 即无效。`@` 和 `#` 的个数用 `LENGTH()` 与 `REPLACE()` 的差值得到。再用 `OR` 连接这三个条件，筛选出对应的 tweet_id，并按照 tweet_id 升序排序。
 
 <!-- tabs:start -->
 
@@ -109,7 +109,7 @@ tweet_id 是这个表的主键（有不同值的列）。
 SELECT tweet_id
 FROM Tweets
 WHERE
-    LENGTH(content) > 140
+    CHAR_LENGTH(content) > 140
     OR (LENGTH(content) - LENGTH(REPLACE(content, '@', ''))) > 3
     OR (LENGTH(content) - LENGTH(REPLACE(content, '#', ''))) > 3
 ORDER BY 1;
