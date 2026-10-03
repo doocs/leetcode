@@ -262,4 +262,219 @@ function goodNodes(root: TreeNode | null): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 好节点要求从根到该点的路径上没有更大的值。$n$ 可以到 $10^5$，下传路径最大值 $mx$，当前值不小于 $mx$ 就计数并更新 $mx$，一次遍历就能数完。
+>
+> 搜索先进入左孩子。一条左链的长度可以到 $n$，递归会在计数完成前溢出。每个结点只和自己路径上的最大值比较，左右孩子互不影响。
+>
+> 待访问的结点可以连同到达它之前的 $mx$ 放进显式栈。弹出后若当前值不小于 $mx$ 就计数，并把 $mx$ 更新为当前值，再把右孩子和左孩子连同这个 $mx$ 压栈。左孩子后压入，因此先被处理。
+>
+> 初始 $mx$ 小于结点值的下界 $-10^4$，根一定被算作好节点。每个结点入栈一次。
+
+<!-- thinking:end -->
+
+我们用显式栈从根开始统计好节点。栈中每个元素是一个结点，以及从根到它的父结点路径上的最大值 $mx$。弹出结点后，若结点为空则跳过；若 $mx \le \textit{val}$，答案加一，并把 $mx$ 更新为当前结点的值。随后先压入右孩子，再压入左孩子，二者都带上更新后的 $mx$。初始 $mx$ 小于题目给出的最小结点值 $-10^4$，因此根一定被计入。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def goodNodes(self, root: TreeNode) -> int:
+        ans = 0
+        stk = [(root, -1000000)]
+        while stk:
+            node, mx = stk.pop()
+            if node is None:
+                continue
+            if mx <= node.val:
+                ans += 1
+                mx = node.val
+            stk.append((node.right, mx))
+            stk.append((node.left, mx))
+        return ans
+```
+
+#### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int goodNodes(TreeNode root) {
+        int ans = 0;
+        Deque<TreeNode> nodes = new ArrayDeque<>();
+        Deque<Integer> limits = new ArrayDeque<>();
+        if (root != null) {
+            nodes.push(root);
+            limits.push(-100000);
+        }
+        while (!nodes.isEmpty()) {
+            TreeNode node = nodes.pop();
+            int mx = limits.pop();
+            if (mx <= node.val) {
+                ++ans;
+                mx = node.val;
+            }
+            if (node.right != null) {
+                nodes.push(node.right);
+                limits.push(mx);
+            }
+            if (node.left != null) {
+                nodes.push(node.left);
+                limits.push(mx);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int goodNodes(TreeNode* root) {
+        int ans = 0;
+        vector<pair<TreeNode*, int>> stk;
+        stk.emplace_back(root, -1000000);
+        while (!stk.empty()) {
+            auto [node, mx] = stk.back();
+            stk.pop_back();
+            if (!node) {
+                continue;
+            }
+            if (mx <= node->val) {
+                ++ans;
+                mx = node->val;
+            }
+            stk.emplace_back(node->right, mx);
+            stk.emplace_back(node->left, mx);
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func goodNodes(root *TreeNode) (ans int) {
+	stk := []struct {
+		node *TreeNode
+		mx   int
+	}{{root, -10001}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		node, mx := cur.node, cur.mx
+		if node == nil {
+			continue
+		}
+		if mx <= node.Val {
+			ans++
+			mx = node.Val
+		}
+		stk = append(stk, struct {
+			node *TreeNode
+			mx   int
+		}{node.Right, mx}, struct {
+			node *TreeNode
+			mx   int
+		}{node.Left, mx})
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function goodNodes(root: TreeNode | null): number {
+    let ans = 0;
+    const stk: [TreeNode | null, number][] = [[root, -1e6]];
+    while (stk.length) {
+        const [node, limit] = stk.pop()!;
+        if (!node) {
+            continue;
+        }
+        let mx = limit;
+        if (mx <= node.val) {
+            ++ans;
+            mx = node.val;
+        }
+        stk.push([node.right, mx]);
+        stk.push([node.left, mx]);
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
