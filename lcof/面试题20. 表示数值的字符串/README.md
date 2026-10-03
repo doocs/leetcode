@@ -79,7 +79,7 @@ difficulty: 中等
 <p><strong>示例 4：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "    .1  "
+<strong>输入：</strong>s = "    .1  "
 <strong>输出：</strong>true
 </pre>
 
