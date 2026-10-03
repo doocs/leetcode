@@ -376,4 +376,261 @@ function rootCount(edges: number[][], guesses: number[][], k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：换根 DP + 显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 树的根未知，每条猜测是一条有向边。以某点为根时，猜中条数不少于 $k$ 才算可行。$n\le 10^5$，对每个根各遍历一次是平方级；沿链递归时调用深度等于节点数，链长达到 $1000$ 就会超出 Python 的递归上限。猜中数在换根时只变一条边：从父亲 $i$ 走到孩子 $j$，$(i,j)$ 不再由父指向子，$(j,i)$ 变为由父指向子。第一遍用栈从 $0$ 累加方向与父子关系一致的猜测，得到 $cnt$。第二遍把调整后的计数放进栈帧，弹出时若计数不少于 $k$ 就记一个可行根，再把 $cnt-(i,j)+(j,i)$ 传给孩子。
+
+<!-- thinking:end -->
+
+先把 $edges$ 转成邻接表 $g$，并用哈希表 $gs$ 记录 $guesses$。用显式栈从节点 $0$ 遍历整棵树。走到孩子 $j$ 时，若 $(i,j)$ 在 $gs$ 中，就把 $cnt$ 加上对应次数。遍历结束后，$cnt$ 就是以 $0$ 为根时猜中的条数。
+
+再换根。栈里存放节点、父亲和以该节点为根时的猜中数。初始帧是 $(0,-1,cnt)$。弹出节点 $i$ 时，若当前计数不少于 $k$，答案加 $1$。对于邻居 $j$，以 $j$ 为根时 $(i,j)$ 不再由父指向子，$(j,i)$ 变为由父指向子，所以传给孩子的计数是 $c-gs[(i,j)]+gs[(j,i)]$。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别为 $edges$ 和 $guesses$ 的长度。
+
+相似题目：
+
+- [834. 树中距离之和](https://github.com/doocs/leetcode/blob/main/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def rootCount(
+        self, edges: List[List[int]], guesses: List[List[int]], k: int
+    ) -> int:
+        g = defaultdict(list)
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        gs = Counter((u, v) for u, v in guesses)
+        cnt = 0
+        stk = [(0, -1)]
+        while stk:
+            i, fa = stk.pop()
+            for j in g[i]:
+                if j != fa:
+                    cnt += gs[(i, j)]
+                    stk.append((j, i))
+        ans = 0
+        walk = [(0, -1, cnt)]
+        while walk:
+            i, fa, c = walk.pop()
+            ans += c >= k
+            for j in g[i]:
+                if j != fa:
+                    walk.append((j, i, c - gs[(i, j)] + gs[(j, i)]))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int rootCount(int[][] edges, int[][] guesses, int k) {
+        int n = edges.length + 1;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        Map<Long, Integer> gs = new HashMap<>();
+        for (var e : guesses) {
+            gs.merge(1L * e[0] * n + e[1], 1, Integer::sum);
+        }
+        int cnt = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1];
+            for (int j : g[i]) {
+                if (j != fa) {
+                    cnt += gs.getOrDefault(1L * i * n + j, 0);
+                    stk.push(new int[] {j, i});
+                }
+            }
+        }
+        int ans = 0;
+        Deque<int[]> walk = new ArrayDeque<>();
+        walk.push(new int[] {0, -1, cnt});
+        while (!walk.isEmpty()) {
+            int[] cur = walk.pop();
+            int i = cur[0], fa = cur[1], c = cur[2];
+            if (c >= k) {
+                ++ans;
+            }
+            for (int j : g[i]) {
+                if (j != fa) {
+                    int a = gs.getOrDefault(1L * i * n + j, 0);
+                    int b = gs.getOrDefault(1L * j * n + i, 0);
+                    walk.push(new int[] {j, i, c - a + b});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int rootCount(vector<vector<int>>& edges, vector<vector<int>>& guesses, int k) {
+        int n = edges.size() + 1;
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        unordered_map<long long, int> gs;
+        for (auto& e : guesses) {
+            gs[1LL * e[0] * n + e[1]]++;
+        }
+        auto get = [&](int i, int j) {
+            auto it = gs.find(1LL * i * n + j);
+            return it == gs.end() ? 0 : it->second;
+        };
+        int cnt = 0;
+        vector<pair<int, int>> stk{{0, -1}};
+        while (!stk.empty()) {
+            auto [i, fa] = stk.back();
+            stk.pop_back();
+            for (int j : g[i]) {
+                if (j != fa) {
+                    cnt += get(i, j);
+                    stk.push_back({j, i});
+                }
+            }
+        }
+        int ans = 0;
+        vector<array<int, 3>> walk{{0, -1, cnt}};
+        while (!walk.empty()) {
+            auto [i, fa, c] = walk.back();
+            walk.pop_back();
+            ans += c >= k;
+            for (int j : g[i]) {
+                if (j != fa) {
+                    walk.push_back({j, i, c - get(i, j) + get(j, i)});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func rootCount(edges [][]int, guesses [][]int, k int) (ans int) {
+	n := len(edges) + 1
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	gs := map[int]int{}
+	f := func(i, j int) int {
+		return i*n + j
+	}
+	for _, e := range guesses {
+		a, b := e[0], e[1]
+		gs[f(a, b)]++
+	}
+	cnt := 0
+	type frame struct{ i, fa int }
+	stk := []frame{{0, -1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, j := range g[cur.i] {
+			if j != cur.fa {
+				cnt += gs[f(cur.i, j)]
+				stk = append(stk, frame{j, cur.i})
+			}
+		}
+	}
+	type step struct{ i, fa, c int }
+	walk := []step{{0, -1, cnt}}
+	for len(walk) > 0 {
+		cur := walk[len(walk)-1]
+		walk = walk[:len(walk)-1]
+		if cur.c >= k {
+			ans++
+		}
+		for _, j := range g[cur.i] {
+			if j != cur.fa {
+				walk = append(walk, step{j, cur.i, cur.c - gs[f(cur.i, j)] + gs[f(j, cur.i)]})
+			}
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function rootCount(edges: number[][], guesses: number[][], k: number): number {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    const gs: Map<number, number> = new Map();
+    const f = (i: number, j: number) => i * n + j;
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    for (const [a, b] of guesses) {
+        const x = f(a, b);
+        gs.set(x, (gs.get(x) || 0) + 1);
+    }
+    let cnt = 0;
+    const stk: number[][] = [[0, -1]];
+    while (stk.length) {
+        const [i, fa] = stk.pop()!;
+        for (const j of g[i]) {
+            if (j !== fa) {
+                cnt += gs.get(f(i, j)) || 0;
+                stk.push([j, i]);
+            }
+        }
+    }
+    let ans = 0;
+    const walk: number[][] = [[0, -1, cnt]];
+    while (walk.length) {
+        const [i, fa, c] = walk.pop()!;
+        if (c >= k) {
+            ans++;
+        }
+        for (const j of g[i]) {
+            if (j !== fa) {
+                const a = gs.get(f(i, j)) || 0;
+                const b = gs.get(f(j, i)) || 0;
+                walk.push([j, i, c - a + b]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
