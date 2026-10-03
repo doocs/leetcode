@@ -84,7 +84,7 @@ tags:
 >
 > 任务按时间 $0,1,2,\ldots$ 到达，空闲时选权重最小、下标最小的服务器；若都忙则等最早空闲者。每次线性找服务器为 $O(n)$，任务数达 $10^5$ 不可行。
 >
-> 空闲堆存 $(\textit{权重},\textit{下标})$，忙碌堆存 $(\textit{空闲时刻},\textit{权重},\textit{下标})$。到第 $j$ 个任务时先把已完成的搬回空闲堆；若仍无空闲，则从忙碌堆取出最早结束者并接上该任务。
+> 空闲堆存 $(\textit{权重},\textit{下标})$，忙碌堆存 $(\textit{空闲时刻},\textit{权重},\textit{下标})$。到第 $j$ 个任务时先把已完成的搬回空闲堆；若仍无空闲，则从忙碌堆取出最早结束者并接上该任务。同一台服务器被连续占用时，空闲时刻是任务时长之和，最大约为 $4\times 10^{10}$，因此该字段用 $64$ 位整数。
 
 <!-- thinking:end -->
 
@@ -137,14 +137,14 @@ class Solution {
             }
             return a[1] - b[1];
         });
-        PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> {
+        PriorityQueue<long[]> busy = new PriorityQueue<>((a, b) -> {
             if (a[0] != b[0]) {
-                return a[0] - b[0];
+                return Long.compare(a[0], b[0]);
             }
             if (a[1] != b[1]) {
-                return a[1] - b[1];
+                return Long.compare(a[1], b[1]);
             }
-            return a[2] - b[2];
+            return Long.compare(a[2], b[2]);
         });
         for (int i = 0; i < n; i++) {
             idle.offer(new int[] {servers[i], i});
@@ -154,18 +154,18 @@ class Solution {
         for (int j = 0; j < m; ++j) {
             int t = tasks[j];
             while (!busy.isEmpty() && busy.peek()[0] <= j) {
-                int[] p = busy.poll();
-                idle.offer(new int[] {p[1], p[2]});
+                long[] p = busy.poll();
+                idle.offer(new int[] {(int) p[1], (int) p[2]});
             }
             if (!idle.isEmpty()) {
                 int i = idle.poll()[1];
                 ans[j] = i;
-                busy.offer(new int[] {j + t, servers[i], i});
+                busy.offer(new long[] {(long) j + t, servers[i], i});
             } else {
-                int[] p = busy.poll();
-                int i = p[2];
+                long[] p = busy.poll();
+                int i = (int) p[2];
                 ans[j] = i;
-                busy.offer(new int[] {p[0] + t, p[1], i});
+                busy.offer(new long[] {p[0] + t, p[1], i});
             }
         }
         return ans;
@@ -180,7 +180,7 @@ class Solution {
 public:
     vector<int> assignTasks(vector<int>& servers, vector<int>& tasks) {
         using pii = pair<int, int>;
-        using arr3 = array<int, 3>;
+        using arr3 = array<long long, 3>;
         priority_queue<pii, vector<pii>, greater<pii>> idle;
         priority_queue<arr3, vector<arr3>, greater<arr3>> busy;
         for (int i = 0; i < servers.size(); ++i) {
@@ -193,18 +193,18 @@ public:
             while (!busy.empty() && busy.top()[0] <= j) {
                 auto [_, s, i] = busy.top();
                 busy.pop();
-                idle.push({s, i});
+                idle.push({(int) s, (int) i});
             }
 
             if (!idle.empty()) {
                 auto [s, i] = idle.top();
                 idle.pop();
                 ans[j] = i;
-                busy.push({j + t, s, i});
+                busy.push({(long long) j + t, s, i});
             } else {
                 auto [w, s, i] = busy.top();
                 busy.pop();
-                ans[j] = i;
+                ans[j] = (int) i;
                 busy.push({w + t, s, i});
             }
         }
