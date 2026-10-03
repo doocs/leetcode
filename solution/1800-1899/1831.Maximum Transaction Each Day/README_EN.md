@@ -83,9 +83,9 @@ We order the result table by transaction_id after collecting these IDs.
 
 > **Thinking**
 >
-> We need every transaction that ties for the maximum amount on its day. A self-join works, but a window function states the ranking directly.
+> We need every transaction that ties for the maximum amount on its calendar day. The $day$ column is a datetime, so the day-of-month number repeats across months.
 >
-> Partition by $DAY(day)$, rank by $amount$ descending, keep rank $1$, and sort by $transaction\_id$.
+> Partition by $DATE(day)$, rank by $amount$ descending, keep rank $1$, and sort by $transaction\_id$.
 
 <!-- thinking:end -->
 
@@ -102,7 +102,7 @@ WITH
         SELECT
             transaction_id,
             RANK() OVER (
-                PARTITION BY DAY(day)
+                PARTITION BY DATE(day)
                 ORDER BY amount DESC
             ) AS rk
         FROM Transactions
