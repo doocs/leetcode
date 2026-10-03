@@ -92,7 +92,7 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 >
 > 键值带过期时间，查询与计数都须忽略过期项。若每次操作扫描全表删除， $n$ 增大后常数变差；题目规模允许，但过期判断本身只需看时间戳。
 >
-> 哈希表存 $[value, expire]$，读取时比较 `Date.now()` 与过期时刻。`set` 覆盖已有键并刷新期限，返回写入前是否存在该键。
+> 哈希表存 $[value, expire]$，读取时比较 `Date.now()` 与过期时刻。`set` 始终写入新的值与期限，仅当该键尚未过期时返回 $\text{true}$。
 >
 > `count` 过滤尚未过期的条目即可，无需预先清表。
 
@@ -100,9 +100,9 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 
 我们用哈希表 $cache$ 记录键值对，其中键为整型键 $key$，值为一个数组，数组的第一个元素为整型值 $value$，第二个元素为元素的过期时间 $expire$。
 
-我们实现一个 `removeExpire` 方法，用于删除过期的键值对。在 `set`、`get` 和 `count` 方法中，我们先调用 `removeExpire` 方法，然后再进行相应的操作。
+`set` 直接覆盖该键的值与过期时刻，并返回覆盖前是否存在未过期的同键。`get` 在键不存在或已过期时返回 $-1$。`count` 统计尚未过期的键。过期项留在表中，由后续访问判断。
 
-时间复杂度为 $O(1)$，空间复杂度为 $O(n)$。其中 $n$ 为哈希表 $cache$ 的大小。
+`set` 与 `get` 的时间复杂度为 $O(1)$，`count` 的时间复杂度为 $O(n)$，空间复杂度为 $O(n)$。其中 $n$ 为哈希表 $cache$ 的大小。
 
 <!-- tabs:start -->
 
@@ -113,12 +113,8 @@ class TimeLimitedCache {
     #cache: Map<number, [value: number, expire: number]> = new Map();
 
     set(key: number, value: number, duration: number): boolean {
-        const isExist = this.#cache.has(key);
-
-        if (!this.#isExpired(key)) {
-            this.#cache.set(key, [value, Date.now() + duration]);
-        }
-
+        const isExist = this.#cache.has(key) && !this.#isExpired(key);
+        this.#cache.set(key, [value, Date.now() + duration]);
         return isExist;
     }
 
