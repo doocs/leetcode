@@ -238,4 +238,182 @@ function countPalindromePaths(parent: number[], s: string): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A path can be rearranged into a palindrome exactly when at most one letter has an odd count. With $n \le 10^5$, enumerating pairs is $O(n^2)$, and recursing into each child from the root is too deep: a chain makes the call depth $n$.
+>
+> The parity of letters from the root to a node packs into a bitmask, and the parity on the path between two nodes is the XOR of those masks. A palindrome allows at most one bit set. The root mask $0$ is placed in the counter first.
+>
+> An explicit stack runs a preorder. After a node is popped, each child mask is the parent mask XOR the edge letter. We add the counts of the same mask and of the masks that differ by one bit, then store the child mask and push the child. Each pair is counted only at the node visited later, so the order of siblings does not change the answer.
+
+<!-- thinking:end -->
+
+An explicit stack walks the tree in preorder from the root. The root mask $0$ is stored in the hash map first. For each edge, the child mask is the parent mask XOR the edge letter. Paths that form a palindrome with an already visited node are added to the answer, and the child mask is then recorded.
+
+The time complexity is $O(n \times |\Sigma|)$ and the space complexity is $O(n)$, where $|\Sigma|$ is the alphabet size.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countPalindromePaths(self, parent: List[int], s: str) -> int:
+        n = len(parent)
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parent[i]].append((i, 1 << (ord(s[i]) - ord('a'))))
+        ans = 0
+        cnt = Counter({0: 1})
+        stk = [(0, 0)]
+        while stk:
+            i, xor = stk.pop()
+            for j, v in g[i]:
+                x = xor ^ v
+                ans += cnt[x]
+                for k in range(26):
+                    ans += cnt[x ^ (1 << k)]
+                cnt[x] += 1
+                stk.append((j, x))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long countPalindromePaths(List<Integer> parent, String s) {
+        int n = parent.size();
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 1; i < n; ++i) {
+            int p = parent.get(i);
+            g[p].add(new int[] {i, 1 << (s.charAt(i) - 'a')});
+        }
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        long ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], xor = cur[1];
+            for (int[] e : g[i]) {
+                int j = e[0], v = e[1];
+                int x = xor ^ v;
+                ans += cnt.getOrDefault(x, 0);
+                for (int k = 0; k < 26; ++k) {
+                    ans += cnt.getOrDefault(x ^ (1 << k), 0);
+                }
+                cnt.merge(x, 1, Integer::sum);
+                stk.push(new int[] {j, x});
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long countPalindromePaths(vector<int>& parent, string s) {
+        int n = parent.size();
+        vector<vector<pair<int, int>>> g(n);
+        for (int i = 1; i < n; ++i) {
+            g[parent[i]].emplace_back(i, 1 << (s[i] - 'a'));
+        }
+        unordered_map<int, int> cnt;
+        cnt[0] = 1;
+        long long ans = 0;
+        vector<pair<int, int>> stk{{0, 0}};
+        while (!stk.empty()) {
+            auto [i, xo] = stk.back();
+            stk.pop_back();
+            for (auto [j, v] : g[i]) {
+                int x = xo ^ v;
+                ans += cnt[x];
+                for (int k = 0; k < 26; ++k) {
+                    ans += cnt[x ^ (1 << k)];
+                }
+                ++cnt[x];
+                stk.emplace_back(j, x);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countPalindromePaths(parent []int, s string) (ans int64) {
+	type pair struct{ i, v int }
+	n := len(parent)
+	g := make([][]pair, n)
+	for i := 1; i < n; i++ {
+		p := parent[i]
+		g[p] = append(g[p], pair{i, 1 << (s[i] - 'a')})
+	}
+	cnt := map[int]int{0: 1}
+	stk := []pair{{0, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, e := range g[cur.i] {
+			x := cur.v ^ e.v
+			ans += int64(cnt[x])
+			for k := 0; k < 26; k++ {
+				ans += int64(cnt[x^(1<<k)])
+			}
+			cnt[x]++
+			stk = append(stk, pair{e.i, x})
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countPalindromePaths(parent: number[], s: string): number {
+    const n = parent.length;
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (let i = 1; i < n; ++i) {
+        g[parent[i]].push([i, 1 << (s.charCodeAt(i) - 97)]);
+    }
+    const cnt: Map<number, number> = new Map();
+    cnt.set(0, 1);
+    let ans = 0;
+    const stk: [number, number][] = [[0, 0]];
+    while (stk.length) {
+        const [i, xor] = stk.pop()!;
+        for (const [j, v] of g[i]) {
+            const x = xor ^ v;
+            ans += cnt.get(x) || 0;
+            for (let k = 0; k < 26; ++k) {
+                ans += cnt.get(x ^ (1 << k)) || 0;
+            }
+            cnt.set(x, (cnt.get(x) || 0) + 1);
+            stk.push([j, x]);
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
