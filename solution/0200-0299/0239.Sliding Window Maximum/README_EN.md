@@ -86,6 +86,9 @@ The time complexity is $O(n \times \log k)$, and the space complexity is $O(k)$.
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         q = [(-v, i) for i, v in enumerate(nums[: k - 1])]
@@ -150,6 +153,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := hp{}
 	for i, v := range nums[:k-1] {
@@ -208,6 +213,9 @@ The time complexity is $O(n)$, and the space complexity is $O(k)$. Here, $n$ is 
 #### Python3
 
 ```python
+from collections import deque
+
+
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         q = deque()

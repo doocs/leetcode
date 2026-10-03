@@ -87,6 +87,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         q = [(-v, i) for i, v in enumerate(nums[: k - 1])]
@@ -151,6 +154,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := hp{}
 	for i, v := range nums[:k-1] {
@@ -209,6 +214,9 @@ func (h *hp) Pop() any     { a := *h; v := a[len(a)-1]; *h = a[:len(a)-1]; retur
 #### Python3
 
 ```python
+from collections import deque
+
+
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         q = deque()

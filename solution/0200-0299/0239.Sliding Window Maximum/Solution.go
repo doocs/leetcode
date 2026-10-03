@@ -1,3 +1,5 @@
+import "container/heap"
+
 func maxSlidingWindow(nums []int, k int) (ans []int) {
 	q := hp{}
 	for i, v := range nums[:k-1] {
