@@ -103,6 +103,9 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 #### Python3
 
 ```python
+import random
+
+
 class Solution:
     def __init__(self, w: List[int]):
         self.s = [0]

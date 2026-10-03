@@ -102,6 +102,9 @@ and so on.
 #### Python3
 
 ```python
+import random
+
+
 class Solution:
     def __init__(self, w: List[int]):
         self.s = [0]

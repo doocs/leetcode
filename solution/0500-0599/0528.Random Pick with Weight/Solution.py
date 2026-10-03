@@ -1,3 +1,6 @@
+import random
+
+
 class Solution:
     def __init__(self, w: List[int]):
         self.s = [0]
