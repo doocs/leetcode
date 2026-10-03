@@ -252,15 +252,215 @@ function postorder(root: Node | null): number[] {
 
 > **Thinking**
 >
-> Recursive postorder has the same depth limit. A stack that visits the root then pushes children left-to-right yields root-right-left; reversing that list is left-right-root.
+> Solution 1 already records the root and pushes children from left to right, then reverses the list into postorder.
 >
-> It is the mirror-preorder-then-reverse trick. Only one stack and the answer array are needed.
+> This section is the same walk. Pop a node, record it, push children left to right, and reverse the answer.
 
 <!-- thinking:end -->
 
-We can also solve this problem iteratively.
+This section uses the same explicit stack.
 
 We use a stack to help us get the post-order traversal. We first push the root node into the stack. Since the post-order traversal is left subtree, right subtree, root, and the characteristic of the stack is first in last out, we first add the node's value to the answer, then push each of the node's children into the stack in the order from left to right. This way, we can get the traversal result of root, right subtree, left subtree. Finally, we reverse the answer to get the post-order traversal result.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
+
+
+class Solution:
+    def postorder(self, root: 'Node') -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children:
+                stk.append(child)
+        return ans[::-1]
+```
+
+#### Java
+
+```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public List<Integer> postorder(Node root) {
+        LinkedList<Integer> ans = new LinkedList<>();
+        if (root == null) {
+            return ans;
+        }
+        Deque<Node> stk = new ArrayDeque<>();
+        stk.offer(root);
+        while (!stk.isEmpty()) {
+            root = stk.pollLast();
+            ans.addFirst(root.val);
+            for (Node child : root.children) {
+                stk.offer(child);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> postorder(Node* root) {
+        vector<int> ans;
+        if (!root) {
+            return ans;
+        }
+        stack<Node*> stk{{root}};
+        while (!stk.empty()) {
+            root = stk.top();
+            ans.push_back(root->val);
+            stk.pop();
+            for (Node* child : root->children) {
+                stk.push(child);
+            }
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func postorder(root *Node) []int {
+	var ans []int
+	if root == nil {
+		return ans
+	}
+	stk := []*Node{root}
+	for len(stk) > 0 {
+		root = stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		ans = append([]int{root.Val}, ans...)
+		for _, child := range root.Children {
+			stk = append(stk, child)
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+/**
+ * Definition for node.
+ * class Node {
+ *     val: number
+ *     children: Node[]
+ *     constructor(val?: number) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.children = []
+ *     }
+ * }
+ */
+
+function postorder(root: Node | null): number[] {
+    const ans: number[] = [];
+    if (!root) {
+        return ans;
+    }
+    const stk: Node[] = [root];
+    while (stk.length) {
+        const { val, children } = stk.pop()!;
+        ans.push(val);
+        stk.push(...children);
+    }
+    return ans.reverse();
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> N-ary postorder records children from left to right, then the root. Recursion on a chain of height $1000$ exhausts the call stack, and $1000$ is the height limit.
+>
+> The bottleneck is that chain: the child is visited before the root returns, so the depth tracks the height.
+>
+> Recording the root and pushing children from left to right produces root-right-left. Reversing that list is left-right-root.
+>
+> An explicit stack does that walk. Pop a node, append its value, push its children from left to right, then reverse the answer. An empty tree returns an empty list.
+
+<!-- thinking:end -->
+
+Simulate postorder with a stack. Push the root, and after popping a node append its value, then push its children from left to right. Reverse the answer to obtain left, right, root order.
 
 The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
 
