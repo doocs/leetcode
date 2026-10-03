@@ -3,9 +3,9 @@ public:
     int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
         int dirs[5] = {0, 1, 0, -1, 0};
         auto f = [](int x, int y) {
-            return x * 60010 + y;
+            return 1LL * x * 200001 + y;
         };
-        unordered_set<int> s;
+        unordered_set<long long> s;
         for (auto& e : obstacles) {
             s.insert(f(e[0], e[1]));
         }

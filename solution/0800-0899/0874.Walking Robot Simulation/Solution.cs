@@ -1,9 +1,9 @@
 public class Solution {
     public int RobotSim(int[] commands, int[][] obstacles) {
         int[] dirs = {0, 1, 0, -1, 0};
-        HashSet<int> s = new HashSet<int>();
+        HashSet<long> s = new HashSet<long>();
 
-        int F(int x, int y) => x * 60010 + y;
+        long F(int x, int y) => x * 200001L + y;
 
         foreach (var o in obstacles) {
             s.Add(F(o[0], o[1]));
