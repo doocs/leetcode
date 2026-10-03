@@ -398,4 +398,258 @@ function maxWalls(robots: number[], distance: number[], walls: number[]): number
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每个机器人射向左或向右，射程受自身 $\textit{distance}$ 与相邻机器人阻挡。枚举方向为 $2^n$，在 $n\le 10^5$ 时不可行。
+>
+> 按位置排序后，第 $i$ 个机器人的可达区间只与第 $i+1$ 个的方向有关。$f[i][j]$ 表示处理到第 $i$ 个、且下一个方向为 $j$ 时的最大摧毁数，它取向左一枪加上 $f[i-1][0]$ 与向右一枪加上 $f[i-1][1]$ 中的较大值。
+>
+> 按这个递推做深度优先搜索仍会连成 $n$ 层调用，栈放不下。我们从 $i=0$ 起依次填这两列状态，并用二分统计被截断区间里的墙数。
+
+<!-- thinking:end -->
+
+我们首先将每个机器人与其射程一起存储在一个数组中，并按照机器人的位置进行排序。同时，我们对墙壁的位置进行排序。
+
+定义 $f[i][j]$ 为考虑完下标 $i$ 的机器人、且下一个机器人的发射方向为 $j$（0 表示左，1 表示右）时，所能摧毁的墙壁数量。答案为 $f[n - 1][1]$。当 $i = n - 1$ 时不存在下一个机器人，$j$ 取 0 或 1 结果相同。$i = 0$ 时没有更早的状态，对应的前缀记为 0。
+
+我们按 $i$ 从 $0$ 到 $n - 1$ 填写 $f$。对于当前机器人，有两种发射方向可供选择。
+
+如果选择**向左**发射，我们需要计算左侧的射程范围 $[\text{left}, \text{robot}[i][0]]$，并通过二分查找，计算此范围内可以摧毁的墙壁数量。这种情况下一共可以摧毁 $f[i - 1][0] + \text{count}$ 面墙壁，其中 $\text{count}$ 是当前机器人向左发射时摧毁的墙壁数量。
+
+如果选择**向右**发射，我们需要计算右侧的射程范围 $[\text{robot}[i][0], \text{right}]$，并通过二分查找，计算此范围内可以摧毁的墙壁数量。这种情况下一共可以摧毁 $f[i - 1][1] + \text{count}$ 面墙壁，其中 $\text{count}$ 是当前机器人向右发射时摧毁的墙壁数量。
+
+$f[i][j]$ 取这两种发射方向所能摧毁墙壁数量的最大值。
+
+时间复杂度 $O(n \times \log n + m \times \log m + n \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是机器人和墙壁的数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxWalls(self, robots: List[int], distance: List[int], walls: List[int]) -> int:
+        n = len(robots)
+        arr = sorted(zip(robots, distance), key=lambda x: x[0])
+        walls.sort()
+        f = [[0, 0] for _ in range(n)]
+        for i in range(n):
+            for j in range(2):
+                left = arr[i][0] - arr[i][1]
+                if i:
+                    left = max(left, arr[i - 1][0] + 1)
+                l = bisect_left(walls, left)
+                r = bisect_left(walls, arr[i][0] + 1)
+                ans = (f[i - 1][0] if i else 0) + r - l
+                right = arr[i][0] + arr[i][1]
+                if i + 1 < n:
+                    if j == 0:
+                        right = min(right, arr[i + 1][0] - arr[i + 1][1] - 1)
+                    else:
+                        right = min(right, arr[i + 1][0] - 1)
+                l = bisect_left(walls, arr[i][0])
+                r = bisect_left(walls, right + 1)
+                ans = max(ans, (f[i - 1][1] if i else 0) + r - l)
+                f[i][j] = ans
+        return f[n - 1][1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxWalls(int[] robots, int[] distance, int[] walls) {
+        int n = robots.length;
+        int[][] arr = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            arr[i][0] = robots[i];
+            arr[i][1] = distance[i];
+        }
+        Arrays.sort(arr, Comparator.comparingInt(a -> a[0]));
+        Arrays.sort(walls);
+        int[][] f = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < 2; ++j) {
+                int left = arr[i][0] - arr[i][1];
+                if (i > 0) {
+                    left = Math.max(left, arr[i - 1][0] + 1);
+                }
+                int l = lowerBound(walls, left);
+                int r = lowerBound(walls, arr[i][0] + 1);
+                int ans = (i > 0 ? f[i - 1][0] : 0) + (r - l);
+                int right = arr[i][0] + arr[i][1];
+                if (i + 1 < n) {
+                    if (j == 0) {
+                        right = Math.min(right, arr[i + 1][0] - arr[i + 1][1] - 1);
+                    } else {
+                        right = Math.min(right, arr[i + 1][0] - 1);
+                    }
+                }
+                l = lowerBound(walls, arr[i][0]);
+                r = lowerBound(walls, right + 1);
+                ans = Math.max(ans, (i > 0 ? f[i - 1][1] : 0) + (r - l));
+                f[i][j] = ans;
+            }
+        }
+        return f[n - 1][1];
+    }
+
+    private int lowerBound(int[] arr, int target) {
+        int idx = Arrays.binarySearch(arr, target);
+        if (idx < 0) {
+            return -idx - 1;
+        }
+        return idx;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxWalls(vector<int>& robots, vector<int>& distance, vector<int>& walls) {
+        int n = robots.size();
+        vector<pair<int, int>> arr(n);
+        for (int i = 0; i < n; i++) {
+            arr[i] = {robots[i], distance[i]};
+        }
+        ranges::sort(arr, {}, &pair<int, int>::first);
+        ranges::sort(walls);
+
+        vector<vector<int>> f(n, vector<int>(2));
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < 2; ++j) {
+                int left = arr[i].first - arr[i].second;
+                if (i > 0) {
+                    left = max(left, arr[i - 1].first + 1);
+                }
+                int l = ranges::lower_bound(walls, left) - walls.begin();
+                int r = ranges::lower_bound(walls, arr[i].first + 1) - walls.begin();
+                int ans = (i ? f[i - 1][0] : 0) + (r - l);
+
+                int right = arr[i].first + arr[i].second;
+                if (i + 1 < n) {
+                    if (j == 0) {
+                        right = min(right, arr[i + 1].first - arr[i + 1].second - 1);
+                    } else {
+                        right = min(right, arr[i + 1].first - 1);
+                    }
+                }
+                l = ranges::lower_bound(walls, arr[i].first) - walls.begin();
+                r = ranges::lower_bound(walls, right + 1) - walls.begin();
+                ans = max(ans, (i ? f[i - 1][1] : 0) + (r - l));
+                f[i][j] = ans;
+            }
+        }
+        return f[n - 1][1];
+    }
+};
+```
+
+#### Go
+
+```go
+func maxWalls(robots []int, distance []int, walls []int) int {
+	type pair struct {
+		x, d int
+	}
+	n := len(robots)
+	arr := make([]pair, n)
+	for i := 0; i < n; i++ {
+		arr[i] = pair{robots[i], distance[i]}
+	}
+	sort.Slice(arr, func(i, j int) bool {
+		return arr[i].x < arr[j].x
+	})
+	sort.Ints(walls)
+
+	f := make([][2]int, n)
+	for i := 0; i < n; i++ {
+		for j := 0; j < 2; j++ {
+			left := arr[i].x - arr[i].d
+			if i > 0 {
+				left = max(left, arr[i-1].x+1)
+			}
+			l := sort.SearchInts(walls, left)
+			r := sort.SearchInts(walls, arr[i].x+1)
+			ans := 0
+			if i > 0 {
+				ans = f[i-1][0]
+			}
+			ans += r - l
+
+			right := arr[i].x + arr[i].d
+			if i+1 < n {
+				if j == 0 {
+					right = min(right, arr[i+1].x-arr[i+1].d-1)
+				} else {
+					right = min(right, arr[i+1].x-1)
+				}
+			}
+			l = sort.SearchInts(walls, arr[i].x)
+			r = sort.SearchInts(walls, right+1)
+			prev := 0
+			if i > 0 {
+				prev = f[i-1][1]
+			}
+			ans = max(ans, prev+(r-l))
+			f[i][j] = ans
+		}
+	}
+	return f[n-1][1]
+}
+```
+
+#### TypeScript
+
+```ts
+function maxWalls(robots: number[], distance: number[], walls: number[]): number {
+    type Pair = [number, number];
+    const n = robots.length;
+    const arr: Pair[] = robots.map((r, i) => [r, distance[i]]);
+
+    _.sortBy(arr, p => p[0]).forEach((p, i) => (arr[i] = p));
+    walls.sort((a, b) => a - b);
+    const f: number[][] = Array.from({ length: n }, () => Array(2).fill(0));
+
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < 2; ++j) {
+            let left = arr[i][0] - arr[i][1];
+            if (i > 0) {
+                left = Math.max(left, arr[i - 1][0] + 1);
+            }
+            let l = _.sortedIndex(walls, left);
+            let r = _.sortedIndex(walls, arr[i][0] + 1);
+            let ans = (i > 0 ? f[i - 1][0] : 0) + (r - l);
+
+            let right = arr[i][0] + arr[i][1];
+            if (i + 1 < n) {
+                if (j === 0) {
+                    right = Math.min(right, arr[i + 1][0] - arr[i + 1][1] - 1);
+                } else {
+                    right = Math.min(right, arr[i + 1][0] - 1);
+                }
+            }
+            l = _.sortedIndex(walls, arr[i][0]);
+            r = _.sortedIndex(walls, right + 1);
+            ans = Math.max(ans, (i > 0 ? f[i - 1][1] : 0) + (r - l));
+            f[i][j] = ans;
+        }
+    }
+    return f[n - 1][1];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
