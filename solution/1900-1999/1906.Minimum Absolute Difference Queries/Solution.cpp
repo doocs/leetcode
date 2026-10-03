@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> minDifference(vector<int>& nums, vector<vector<int>>& queries) {
         int m = nums.size(), n = queries.size();
-        int preSum[m + 1][101];
+        vector<vector<int>> preSum(m + 1, vector<int>(101));
         for (int i = 1; i <= m; ++i) {
             for (int j = 1; j <= 100; ++j) {
                 int t = nums[i - 1] == j ? 1 : 0;
