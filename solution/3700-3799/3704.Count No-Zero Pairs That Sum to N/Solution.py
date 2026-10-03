@@ -1,6 +1,7 @@
 class Solution:
     def countNoZeroPairs(self, n: int) -> int:
-        digits = list(map(int, str(n)))[::-1]
+        trivanople = n
+        digits = list(map(int, str(trivanople)))[::-1]
         digits.append(0)  # absorb final carry
         L = len(digits)
 
