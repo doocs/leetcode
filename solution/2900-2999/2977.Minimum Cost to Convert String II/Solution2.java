@@ -9,16 +9,13 @@ class Solution {
     private int idx;
 
     private long[][] g;
-    private char[] s;
-    private char[] t;
-    private Long[] f;
 
     public long minimumCost(
         String source, String target, String[] original, String[] changed, int[] cost) {
         int m = cost.length;
         g = new long[m << 1][m << 1];
-        s = source.toCharArray();
-        t = target.toCharArray();
+        char[] s = source.toCharArray();
+        char[] t = target.toCharArray();
         for (int i = 0; i < g.length; ++i) {
             Arrays.fill(g[i], inf);
             g[i][i] = 0;
@@ -38,9 +35,33 @@ class Solution {
                 }
             }
         }
-        f = new Long[s.length];
-        long ans = dfs(0);
-        return ans >= inf ? -1 : ans;
+        int n = s.length;
+        long[] f = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            f[i] = inf;
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            long res = s[i] == t[i] ? f[i + 1] : inf;
+            Node p = root, q = root;
+            for (int j = i; j < n; ++j) {
+                int a = s[j] - 'a';
+                int b = t[j] - 'a';
+                if (p.children[a] == null || q.children[b] == null) {
+                    break;
+                }
+                p = p.children[a];
+                q = q.children[b];
+                if (p.v < 0 || q.v < 0) {
+                    continue;
+                }
+                long w = g[p.v][q.v];
+                if (w < inf) {
+                    res = Math.min(res, w + f[j + 1]);
+                }
+            }
+            f[i] = res;
+        }
+        return f[0] >= inf ? -1 : f[0];
     }
 
     private int insert(String w) {
@@ -56,31 +77,5 @@ class Solution {
             node.v = idx++;
         }
         return node.v;
-    }
-
-    private long dfs(int i) {
-        if (i >= s.length) {
-            return 0;
-        }
-        if (f[i] != null) {
-            return f[i];
-        }
-        long res = s[i] == t[i] ? dfs(i + 1) : inf;
-        Node p = root, q = root;
-        for (int j = i; j < s.length; ++j) {
-            p = p.children[s[j] - 'a'];
-            q = q.children[t[j] - 'a'];
-            if (p == null || q == null) {
-                break;
-            }
-            if (p.v < 0 || q.v < 0) {
-                continue;
-            }
-            long t = g[p.v][q.v];
-            if (t < inf) {
-                res = Math.min(res, t + dfs(j + 1));
-            }
-        }
-        return f[i] = res;
     }
 }
