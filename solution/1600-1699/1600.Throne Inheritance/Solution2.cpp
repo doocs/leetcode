@@ -13,8 +13,23 @@ public:
     }
 
     vector<string> getInheritanceOrder() {
-        ans.resize(0);
-        dfs(king);
+        vector<string> ans;
+        vector<string> stk{king};
+        while (!stk.empty()) {
+            string x = stk.back();
+            stk.pop_back();
+            if (!dead.contains(x)) {
+                ans.emplace_back(x);
+            }
+            auto it = g.find(x);
+            if (it == g.end()) {
+                continue;
+            }
+            auto& children = it->second;
+            for (int i = (int) children.size() - 1; i >= 0; --i) {
+                stk.push_back(children[i]);
+            }
+        }
         return ans;
     }
 
@@ -22,16 +37,6 @@ private:
     string king;
     unordered_set<string> dead;
     unordered_map<string, vector<string>> g;
-    vector<string> ans;
-
-    void dfs(string& x) {
-        if (!dead.contains(x)) {
-            ans.emplace_back(x);
-        }
-        for (auto& y : g[x]) {
-            dfs(y);
-        }
-    }
 };
 
 /**

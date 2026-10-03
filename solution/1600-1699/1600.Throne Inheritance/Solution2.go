@@ -17,16 +17,18 @@ func (this *ThroneInheritance) Death(name string) {
 }
 
 func (this *ThroneInheritance) GetInheritanceOrder() (ans []string) {
-	var dfs func(string)
-	dfs = func(x string) {
+	stk := []string{this.king}
+	for len(stk) > 0 {
+		x := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
 		if !this.dead[x] {
 			ans = append(ans, x)
 		}
-		for _, y := range this.g[x] {
-			dfs(y)
+		children := this.g[x]
+		for i := len(children) - 1; i >= 0; i-- {
+			stk = append(stk, children[i])
 		}
 	}
-	dfs(this.king)
 	return
 }
 
