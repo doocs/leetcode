@@ -235,9 +235,7 @@ impl Solution {
 
 > **思考**
 >
-> 同一连通性也可用队列实现：从 $0$ 开始 BFS，取出钥匙后把未访问房间入队。
->
-> 与 DFS 一样用访问集合去重，最后比较访问数与 $n$。实现上只是把递归栈换成队列。
+> 方法一用显式栈沿钥匙扩展。同一可达性也可以用队列：从 $0$ 开始，取出一把钥匙后把尚未访问的房间入队。访问标记同样去掉重复钥匙，最后比较访问数与 $n$。
 
 <!-- thinking:end -->
 
@@ -361,6 +359,155 @@ function canVisitAllRooms(rooms: number[][]): boolean {
     }
 
     return vis.size == rooms.length;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 房间构成有向图，每把钥匙是一条出边，问从 $0$ 出发能否到达全部房间。$n \le 1000$，一次遍历就够。沿一条钥匙链递归时，调用深度等于房间数，链长达到 $1000$ 就会超出 Python 的递归上限。因此用栈保存待开的房间：弹出后若尚未访问就标记，再把该房间里的钥匙压入。同一房间可能被多把钥匙重复压入，标记保证只展开一次。访问过的房间数等于 $n$ 时就能打开全部门。
+
+<!-- thinking:end -->
+
+从房间 $0$ 开始，用显式栈遍历能到达的房间。栈里初始只有 $0$。弹出房间 $i$ 时，如果它已经访问过就跳过；否则标记为已访问，并把 $i$ 中的每把钥匙对应的房间压入栈。重复的钥匙只会让同一房间再次入栈，弹出时会被跳过。
+
+最后检查是否每个房间都被访问过。全部访问过就返回 true，否则存在无法到达的房间。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n)$，其中 $n$ 为节点个数，而 $m$ 为边的个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        n = len(rooms)
+        vis = [False] * n
+        stk = [0]
+        while stk:
+            i = stk.pop()
+            if vis[i]:
+                continue
+            vis[i] = True
+            for j in rooms[i]:
+                stk.append(j)
+        return all(vis)
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        int n = rooms.size();
+        boolean[] vis = new boolean[n];
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(0);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            for (int j : rooms.get(i)) {
+                stk.push(j);
+            }
+        }
+        for (boolean v : vis) {
+            if (!v) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        int n = rooms.size();
+        vector<char> vis(n);
+        vector<int> stk = {0};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            if (vis[i]) {
+                continue;
+            }
+            vis[i] = 1;
+            for (int j : rooms[i]) {
+                stk.push_back(j);
+            }
+        }
+        for (char v : vis) {
+            if (!v) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+#### Go
+
+```go
+func canVisitAllRooms(rooms [][]int) bool {
+	n := len(rooms)
+	vis := make([]bool, n)
+	stk := []int{0}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		if vis[i] {
+			continue
+		}
+		vis[i] = true
+		for _, j := range rooms[i] {
+			stk = append(stk, j)
+		}
+	}
+	for _, v := range vis {
+		if !v {
+			return false
+		}
+	}
+	return true
+}
+```
+
+#### TypeScript
+
+```ts
+function canVisitAllRooms(rooms: number[][]): boolean {
+    const n = rooms.length;
+    const vis: boolean[] = Array(n).fill(false);
+    const stk: number[] = [0];
+    while (stk.length) {
+        const i = stk.pop()!;
+        if (vis[i]) {
+            continue;
+        }
+        vis[i] = true;
+        for (const j of rooms[i]) {
+            stk.push(j);
+        }
+    }
+    return vis.every(v => v);
 }
 ```
 
