@@ -1,3 +1,6 @@
+from math import inf
+
+
 class Solution:
     def minOperations(self, s: str) -> int:
         n = len(s)

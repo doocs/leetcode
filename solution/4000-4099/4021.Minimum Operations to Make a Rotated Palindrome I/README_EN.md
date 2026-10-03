@@ -104,6 +104,9 @@ The time complexity is $O(n^2)$, and the space complexity is $O(1)$, where $n$ i
 #### Python3
 
 ```python
+from math import inf
+
+
 class Solution:
     def minOperations(self, s: str) -> int:
         n = len(s)
