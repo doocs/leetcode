@@ -215,4 +215,187 @@ function isPossibleToCutPath(grid: number[][]): boolean {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Two Explicit Stack Passes
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Moves are only right or down. We may flip at most one non-endpoint cell to disconnect $(0,0)$ from the exit. Trying every flip is cubic. Two internally vertex-disjoint paths cannot be cut by a single flip. Search down-first, zero the visited cells, restore the two ends, and search again. There can be $1000$ rows, and the first move is always down, so a recursive search has depth $m$. An explicit stack keeps that order: push the right neighbor, then the cell below.
+
+<!-- thinking:end -->
+
+The search uses an explicit stack, clears a cell when it is entered, and handles the cell below before the cell to the right.
+
+First, we search once with an explicit stack to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $a$. During the search, we set the value of the visited cells to $0$ to prevent revisiting.
+
+Next, we set the values of $(0, 0)$ and $(m - 1, n - 1)$ to $1$, and search once more with an explicit stack to determine whether there is a path from $(0, 0)$ to $(m - 1, n - 1)$, and we denote the result as $b$. During the search, we set the value of the visited cells to $0$ to avoid revisiting.
+
+Finally, if both $a$ and $b$ are `true`, we return `false`, otherwise, we return `true`.
+
+The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the matrix, respectively.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def isPossibleToCutPath(self, grid: List[List[int]]) -> bool:
+        def dfs() -> bool:
+            stk = [(0, 0)]
+            while stk:
+                i, j = stk.pop()
+                if i >= m or j >= n or grid[i][j] == 0:
+                    continue
+                grid[i][j] = 0
+                if i == m - 1 and j == n - 1:
+                    return True
+                stk.append((i, j + 1))
+                stk.append((i + 1, j))
+            return False
+
+        m, n = len(grid), len(grid[0])
+        a = dfs()
+        grid[0][0] = grid[-1][-1] = 1
+        b = dfs()
+        return not (a and b)
+```
+
+#### Java
+
+```java
+class Solution {
+    public boolean isPossibleToCutPath(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean a = dfs(grid, m, n);
+        grid[0][0] = 1;
+        grid[m - 1][n - 1] = 1;
+        boolean b = dfs(grid, m, n);
+        return !(a && b);
+    }
+
+    private boolean dfs(int[][] grid, int m, int n) {
+        int[] stk = new int[m * n * 2];
+        int top = 0;
+        stk[top++] = 0;
+        while (top > 0) {
+            int cur = stk[--top];
+            int i = cur / n;
+            int j = cur % n;
+            if (i >= m || j >= n || grid[i][j] == 0) {
+                continue;
+            }
+            grid[i][j] = 0;
+            if (i == m - 1 && j == n - 1) {
+                return true;
+            }
+            if (j + 1 < n) {
+                stk[top++] = i * n + j + 1;
+            }
+            if (i + 1 < m) {
+                stk[top++] = (i + 1) * n + j;
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    bool isPossibleToCutPath(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        auto dfs = [&]() {
+            vector<pair<int, int>> stk{{0, 0}};
+            while (!stk.empty()) {
+                auto [i, j] = stk.back();
+                stk.pop_back();
+                if (i >= m || j >= n || grid[i][j] == 0) {
+                    continue;
+                }
+                grid[i][j] = 0;
+                if (i == m - 1 && j == n - 1) {
+                    return true;
+                }
+                stk.emplace_back(i, j + 1);
+                stk.emplace_back(i + 1, j);
+            }
+            return false;
+        };
+        bool a = dfs();
+        grid[0][0] = grid[m - 1][n - 1] = 1;
+        bool b = dfs();
+        return !(a && b);
+    }
+};
+```
+
+#### Go
+
+```go
+func isPossibleToCutPath(grid [][]int) bool {
+	m, n := len(grid), len(grid[0])
+	dfs := func() bool {
+		stk := [][2]int{{0, 0}}
+		for len(stk) > 0 {
+			i, j := stk[len(stk)-1][0], stk[len(stk)-1][1]
+			stk = stk[:len(stk)-1]
+			if i >= m || j >= n || grid[i][j] == 0 {
+				continue
+			}
+			grid[i][j] = 0
+			if i == m-1 && j == n-1 {
+				return true
+			}
+			stk = append(stk, [2]int{i, j + 1}, [2]int{i + 1, j})
+		}
+		return false
+	}
+	a := dfs()
+	grid[0][0], grid[m-1][n-1] = 1, 1
+	b := dfs()
+	return !(a && b)
+}
+```
+
+#### TypeScript
+
+```ts
+function isPossibleToCutPath(grid: number[][]): boolean {
+    const m = grid.length;
+    const n = grid[0].length;
+    const dfs = (): boolean => {
+        const stk: number[][] = [[0, 0]];
+        while (stk.length) {
+            const [i, j] = stk.pop()!;
+            if (i >= m || j >= n || grid[i][j] !== 1) {
+                continue;
+            }
+            grid[i][j] = 0;
+            if (i === m - 1 && j === n - 1) {
+                return true;
+            }
+            stk.push([i, j + 1], [i + 1, j]);
+        }
+        return false;
+    };
+    const a = dfs();
+    grid[0][0] = 1;
+    grid[m - 1][n - 1] = 1;
+    const b = dfs();
+    return !(a && b);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
