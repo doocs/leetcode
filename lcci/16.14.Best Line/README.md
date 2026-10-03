@@ -217,13 +217,17 @@ class Solution {
 
 > **思考**
 >
-> 三重循环在 $n$ 接近上限时偏紧，同一直线被重复计数。
+> 若把约分后的 $(\mathrm{d}x,\mathrm{d}y)$ 直接当作键，重合点会使最大公约数为 $0$，相反方向也会把同一条直线拆开。
 >
-> 固定一点，将其余点的斜率（约分后的分数）放入哈希表，相同斜率共线，复杂度降到 $O(n^2\log m)$。
+> 锚点落在线段中部时，左右两侧的最简斜率互为相反数，每一侧的计数都小于真实点数，返回的下标对随之偏离。
+>
+> 重合点落在通过该锚点的每一条直线上，相反方向表示同一条直线，应当共用一个键。
+>
+> 因此我们先把 $(0,0)$ 收进重合列表，再把约分后的方向规范成 $\mathrm{d}x>0$（竖直方向则 $\mathrm{d}y>0$），并用该键收集下标。点数为锚点、该方向上的点与重合点之和，第二下标取其中的最小者。
 
 <!-- thinking:end -->
 
-我们可以枚举一个点 $(x_1, y_1)$，把其他所有点 $(x_2, y_2)$ 与 $(x_1, y_1)$ 连成的直线的斜率存入哈希表中，斜率相同的点在同一条直线上，哈希表的键为斜率，值为直线上的点的个数。找出哈希表中的最大值，即为答案。为了避免精度问题，我们可以将斜率 $\frac{y_2 - y_1}{x_2 - x_1}$ 进行约分，约分的方法是求最大公约数，然后分子分母同时除以最大公约数，将求得的分子分母作为哈希表的键。
+我们可以枚举锚点 $(x_1, y_1)$，把其余点相对它的方向写入哈希表。与锚点重合的点没有斜率，单独记录，并计入每一条通过该锚点的直线。对其余点，将差 $(\mathrm{d}x, \mathrm{d}y)$ 用最大公约数约成最简分数，再把相反方向并到同一个键上：保证 $\mathrm{d}x > 0$，若 $\mathrm{d}x = 0$ 则保证 $\mathrm{d}y > 0$。键相同的点与锚点、重合点共线。该直线上的点数等于 $1$ 加上该键中的点数与重合点数，第二下标取这些点里的最小下标。锚点按下标从小到大枚举，只在点数严格变大，或点数相同且下标对更小时更新答案。
 
 时间复杂度 $O(n^2 \times \log m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是数组 `points` 的长度和数组 `points` 所有横纵坐标差的最大值。
 
@@ -243,18 +247,31 @@ class Solution:
 
         n = len(points)
         mx = 0
+        x = y = 0
         for i in range(n):
             x1, y1 = points[i]
             cnt = defaultdict(list)
+            dup = []
             for j in range(i + 1, n):
-                x2, y2 = points[j]
-                dx, dy = x2 - x1, y2 - y1
+                dx, dy = points[j][0] - x1, points[j][1] - y1
+                if dx == 0 and dy == 0:
+                    dup.append(j)
+                    continue
                 g = gcd(dx, dy)
-                k = (dx // g, dy // g)
-                cnt[k].append((i, j))
-                if mx < len(cnt[k]) or (mx == len(cnt[k]) and (x, y) > cnt[k][0]):
-                    mx = len(cnt[k])
-                    x, y = cnt[k][0]
+                dx //= g
+                dy //= g
+                if dx < 0 or (dx == 0 and dy < 0):
+                    dx, dy = -dx, -dy
+                cnt[(dx, dy)].append(j)
+            groups = (
+                [js + dup for js in cnt.values()] if cnt else ([dup] if dup else [])
+            )
+            for js in groups:
+                c = len(js) + 1
+                b = min(js)
+                if c > mx or (c == mx and (i, b) < (x, y)):
+                    mx = c
+                    x, y = i, b
         return [x, y]
 ```
 
@@ -268,24 +285,53 @@ class Solution {
         int[] ans = new int[2];
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
-            Map<String, List<int[]>> cnt = new HashMap<>();
+            Map<String, List<Integer>> cnt = new HashMap<>();
+            List<Integer> dup = new ArrayList<>();
             for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                int dx = x2 - x1, dy = y2 - y1;
+                int dx = points[j][0] - x1, dy = points[j][1] - y1;
+                if (dx == 0 && dy == 0) {
+                    dup.add(j);
+                    continue;
+                }
                 int g = gcd(dx, dy);
-                String key = (dx / g) + "." + (dy / g);
-                cnt.computeIfAbsent(key, k -> new ArrayList<>()).add(new int[] {i, j});
-                if (mx < cnt.get(key).size()
-                    || (mx == cnt.get(key).size()
-                        && (ans[0] > cnt.get(key).get(0)[0]
-                            || (ans[0] == cnt.get(key).get(0)[0]
-                                && ans[1] > cnt.get(key).get(0)[1])))) {
-                    mx = cnt.get(key).size();
-                    ans = cnt.get(key).get(0);
+                dx /= g;
+                dy /= g;
+                if (dx < 0 || (dx == 0 && dy < 0)) {
+                    dx = -dx;
+                    dy = -dy;
+                }
+                String key = dx + "." + dy;
+                cnt.computeIfAbsent(key, k -> new ArrayList<>()).add(j);
+            }
+            if (cnt.isEmpty()) {
+                if (!dup.isEmpty()) {
+                    int c = dup.size() + 1;
+                    if (better(mx, ans, c, i, dup.get(0))) {
+                        mx = c;
+                        ans[0] = i;
+                        ans[1] = dup.get(0);
+                    }
+                }
+                continue;
+            }
+            for (List<Integer> js : cnt.values()) {
+                int b = js.get(0);
+                if (!dup.isEmpty()) {
+                    b = Math.min(b, dup.get(0));
+                }
+                int c = js.size() + dup.size() + 1;
+                if (better(mx, ans, c, i, b)) {
+                    mx = c;
+                    ans[0] = i;
+                    ans[1] = b;
                 }
             }
         }
         return ans;
+    }
+
+    private boolean better(int mx, int[] ans, int c, int a, int b) {
+        return c > mx || (c == mx && (a < ans[0] || (a == ans[0] && b < ans[1])));
     }
 
     private int gcd(int a, int b) {
@@ -305,17 +351,42 @@ public:
         pair<int, int> ans = {0, 0};
         for (int i = 0; i < n; ++i) {
             int x1 = points[i][0], y1 = points[i][1];
-            unordered_map<string, vector<pair<int, int>>> cnt;
+            unordered_map<string, vector<int>> cnt;
+            vector<int> dup;
             for (int j = i + 1; j < n; ++j) {
-                int x2 = points[j][0], y2 = points[j][1];
-                int dx = x2 - x1, dy = y2 - y1;
-                int g = gcd(dx, dy);
-                string k = to_string(dx / g) + "." + to_string(dy / g);
-                cnt[k].push_back({i, j});
-                if (mx < cnt[k].size() || (mx == cnt[k].size() && ans > cnt[k][0])) {
-                    mx = cnt[k].size();
-                    ans = cnt[k][0];
+                int dx = points[j][0] - x1, dy = points[j][1] - y1;
+                if (dx == 0 && dy == 0) {
+                    dup.push_back(j);
+                    continue;
                 }
+                int g = gcd(dx, dy);
+                dx /= g;
+                dy /= g;
+                if (dx < 0 || (dx == 0 && dy < 0)) {
+                    dx = -dx;
+                    dy = -dy;
+                }
+                string k = to_string(dx) + "." + to_string(dy);
+                cnt[k].push_back(j);
+            }
+            auto consider = [&](int b, int c) {
+                if (c > mx || (c == mx && ans > pair<int, int>{i, b})) {
+                    mx = c;
+                    ans = {i, b};
+                }
+            };
+            if (cnt.empty()) {
+                if (!dup.empty()) {
+                    consider(dup[0], (int) dup.size() + 1);
+                }
+                continue;
+            }
+            for (auto& e : cnt) {
+                int b = e.second[0];
+                if (!dup.empty()) {
+                    b = min(b, dup[0]);
+                }
+                consider(b, (int) e.second.size() + (int) dup.size() + 1);
             }
         }
         return vector<int>{ans.first, ans.second};
@@ -332,22 +403,46 @@ public:
 ```go
 func bestLine(points [][]int) []int {
 	n := len(points)
-	ans := make([]int, 2)
-	type pair struct{ i, j int }
+	ans := []int{0, 0}
+	type pair struct{ x, y int }
 	mx := 0
 	for i := 0; i < n; i++ {
 		x1, y1 := points[i][0], points[i][1]
-		cnt := map[pair][]pair{}
+		cnt := map[pair][]int{}
+		var dup []int
 		for j := i + 1; j < n; j++ {
-			x2, y2 := points[j][0], points[j][1]
-			dx, dy := x2-x1, y2-y1
-			g := gcd(dx, dy)
-			k := pair{dx / g, dy / g}
-			cnt[k] = append(cnt[k], pair{i, j})
-			if mx < len(cnt[k]) || (mx == len(cnt[k]) && (ans[0] > cnt[k][0].i || (ans[0] == cnt[k][0].i && ans[1] > cnt[k][0].j))) {
-				mx = len(cnt[k])
-				ans[0], ans[1] = cnt[k][0].i, cnt[k][0].j
+			dx, dy := points[j][0]-x1, points[j][1]-y1
+			if dx == 0 && dy == 0 {
+				dup = append(dup, j)
+				continue
 			}
+			g := gcd(dx, dy)
+			dx /= g
+			dy /= g
+			if dx < 0 || (dx == 0 && dy < 0) {
+				dx, dy = -dx, -dy
+			}
+			k := pair{dx, dy}
+			cnt[k] = append(cnt[k], j)
+		}
+		consider := func(b, c int) {
+			if c > mx || (c == mx && (i < ans[0] || (i == ans[0] && b < ans[1]))) {
+				mx = c
+				ans[0], ans[1] = i, b
+			}
+		}
+		if len(cnt) == 0 {
+			if len(dup) > 0 {
+				consider(dup[0], len(dup)+1)
+			}
+			continue
+		}
+		for _, js := range cnt {
+			b := js[0]
+			if len(dup) > 0 && dup[0] < b {
+				b = dup[0]
+			}
+			consider(b, len(js)+len(dup)+1)
 		}
 	}
 	return ans
