@@ -296,4 +296,247 @@ function minimumFlips(n: number, edges: number[][], start: string, target: strin
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Toggling an edge flips both endpoints. $n$ can reach $10^5$, so searching subsets of edges is impossible. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> A leaf that mismatches the target must toggle the edge to its parent. That demand is known only after the whole subtree has been finished.
+>
+> An explicit stack walks the tree in postorder. On entry, push the exit marker and then the children. On exit, start from whether the node differs from the target; each child edge that must be toggled negates that demand and is recorded.
+>
+> If the root still needs a flip, there is no solution; otherwise the sorted chosen edge indices form a shortest valid sequence.
+
+<!-- thinking:end -->
+
+We define an adjacency list $g$ to represent the tree, where $g[a]$ stores all adjacent nodes of node $a$ and the indices of the corresponding edges.
+
+An explicit stack walks the tree from node $0$ in postorder. Entering a node pushes that node's exit marker and then its children, so the children finish first. On exit, $\text{rev}$ records whether the edge from the current node to its parent still needs a toggle. It starts as $\text{start}[a] \ne \text{target}[a]$. For each child $b$, if that subtree still needs the edge $[a, b]$ toggled, append the edge index $i$ and negate $\text{rev}$. The root has no parent. If the root's $\text{rev}$ is still true, converting $\text{start}$ to $\text{target}$ is impossible and the result is $[-1]$. Otherwise sort the answer and return it.
+
+The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumFlips(
+        self, n: int, edges: List[List[int]], start: str, target: str
+    ) -> List[int]:
+        g = [[] for _ in range(n)]
+        for i, (a, b) in enumerate(edges):
+            g[a].append((b, i))
+            g[b].append((a, i))
+        ans = []
+        need = [False] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b, _ in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                rev = start[a] != target[a]
+                for b, i in g[a]:
+                    if b != fa and need[b]:
+                        ans.append(i)
+                        rev = not rev
+                need[a] = rev
+        if need[0]:
+            return [-1]
+        ans.sort()
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<Integer> minimumFlips(int n, int[][] edges, String start, String target) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int i = 0; i < n - 1; ++i) {
+            int a = edges[i][0], b = edges[i][1];
+            g[a].add(new int[] {b, i});
+            g[b].add(new int[] {a, i});
+        }
+        List<Integer> ans = new ArrayList<>();
+        boolean[] need = new boolean[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (var e : g[a]) {
+                    int b = e[0];
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                boolean rev = start.charAt(a) != target.charAt(a);
+                for (var e : g[a]) {
+                    int b = e[0], i = e[1];
+                    if (b != fa && need[b]) {
+                        ans.add(i);
+                        rev = !rev;
+                    }
+                }
+                need[a] = rev;
+            }
+        }
+        if (need[0]) {
+            return List.of(-1);
+        }
+        Collections.sort(ans);
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> minimumFlips(int n, vector<vector<int>>& edges, string start, string target) {
+        vector<vector<pair<int, int>>> g(n);
+        for (int i = 0; i < n - 1; ++i) {
+            int a = edges[i][0], b = edges[i][1];
+            g[a].push_back({b, i});
+            g[b].push_back({a, i});
+        }
+        vector<int> ans;
+        vector<char> need(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (auto [b, i] : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                bool rev = start[a] != target[a];
+                for (auto [b, i] : g[a]) {
+                    if (b != fa && need[b]) {
+                        ans.push_back(i);
+                        rev = !rev;
+                    }
+                }
+                need[a] = rev;
+            }
+        }
+        if (need[0]) {
+            return {-1};
+        }
+        ranges::sort(ans);
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumFlips(n int, edges [][]int, start string, target string) []int {
+	g := make([][]struct{ to, idx int }, n)
+	for i := 0; i < n-1; i++ {
+		a, b := edges[i][0], edges[i][1]
+		g[a] = append(g[a], struct{ to, idx int }{b, i})
+		g[b] = append(g[b], struct{ to, idx int }{a, i})
+	}
+	ans := []int{}
+	need := make([]bool, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{a, fa, 1})
+			for _, p := range g[a] {
+				if p.to != fa {
+					stk = append(stk, [3]int{p.to, a, 0})
+				}
+			}
+		} else {
+			rev := start[a] != target[a]
+			for _, p := range g[a] {
+				b, i := p.to, p.idx
+				if b != fa && need[b] {
+					ans = append(ans, i)
+					rev = !rev
+				}
+			}
+			need[a] = rev
+		}
+	}
+	if need[0] {
+		return []int{-1}
+	}
+	sort.Ints(ans)
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumFlips(n: number, edges: number[][], start: string, target: string): number[] {
+    const g: number[][][] = Array.from({ length: n }, () => []);
+    for (let i = 0; i < n - 1; i++) {
+        const [a, b] = edges[i];
+        g[a].push([b, i]);
+        g[b].push([a, i]);
+    }
+    const ans: number[] = [];
+    const need: boolean[] = Array(n).fill(false);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const [b] of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            let rev = start[a] !== target[a];
+            for (const [b, i] of g[a]) {
+                if (b !== fa && need[b]) {
+                    ans.push(i);
+                    rev = !rev;
+                }
+            }
+            need[a] = rev;
+        }
+    }
+    if (need[0]) {
+        return [-1];
+    }
+    ans.sort((x, y) => x - y);
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
