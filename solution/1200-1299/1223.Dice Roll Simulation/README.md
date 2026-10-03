@@ -217,11 +217,11 @@ func dieSimulator(n int, rollMax []int) int {
 
 > **思考**
 >
-> 记忆化是按递归展开的同一转移。改成自底向上： $f[i][j][x]$ 表示掷完 $i$ 次、结尾为 $j$ 且连续 $x$ 次的方案，由 $i-1$ 层按相同规则累加，去掉递归栈，便于改成滚动数组。
+> 方法一已经从最后一次投掷往回填好后缀方案数。同一组选择也可以记成前缀：$f[i][j][x]$ 是掷完前 $i$ 次、结尾为 $j$ 且连续 $x$ 次的方案数，由第 $i-1$ 层按相同规则累加。
 
 <!-- thinking:end -->
 
-我们可以将方法一中的记忆化搜索改为动态规划。
+方法一已经按后缀填好同一组转移。下面把方案数改记成前 $i$ 次投掷的前缀。
 
 定义 $f[i][j][x]$ 表示投掷前 $i$ 次骰子，且第 $i$ 次投掷的点数为 $j$，且连续投掷点数 $j$ 的次数为 $x$ 的方案数。初始时 $f[1][j][1] = 1$，其中 $1 \leq j \leq 6$。答案即是：
 
@@ -362,6 +362,157 @@ func dieSimulator(n int, rollMax []int) (ans int) {
 		}
 	}
 	return
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 连续同一点数受 $rollMax$ 限制，$n$ 达 $5000$，直接枚举序列不可行。方案数只依赖还剩几次、上次点数和该点已连续几次。
+>
+> 下一次点数无论是换面还是续面，读到的都是下一次投掷。从第 $0$ 次走到第 $n$ 次，调用链长度就是 $n$。$n=2000$ 时 Python 抛出 RecursionError，$n=5000$ 时 Java 栈溢出。
+>
+> 因此从最后一次投掷往回填。$f[i][j][x]$ 是从第 $i$ 次起、上一次为 $j$ 且已连续 $x$ 次的方案数。$f[n][\cdot][\cdot]=1$。换面进入 $(k,1)$，续面则要求 $x$ 仍低于上限并进入 $(j,x+1)$。
+
+<!-- thinking:end -->
+
+定义 $f[i][j][x]$ 表示从第 $i$ 次掷骰子开始，上一次掷出的点数为 $j$，且该点数已经连续出现 $x$ 次时，完成剩余投掷的方案数。$j = 0$ 表示还没有掷出过。答案是 $f[0][0][0]$。
+
+先令 $f[n][j][x] = 1$，表示 $n$ 次已经掷完。按 $i$ 从 $n - 1$ 降到 $0$ 填写。枚举下一次的点数 $k$：
+
+- 若 $k \ne j$，可以掷出 $k$，连续次数重置为 $1$，方案数加上 $f[i + 1][k][1]$。
+- 若 $k = j$ 且 $x < rollMax[j - 1]$，可以继续掷出 $j$，连续次数变为 $x + 1$，方案数加上 $f[i + 1][j][x + 1]$。
+
+把这些方案数相加，对 $10^9 + 7$ 取模，得到 $f[i][j][x]$。
+
+时间复杂度 $O(n \times k^2 \times M)$，空间复杂度 $O(n \times k \times M)$。其中 $k$ 为点数的取值范围，而 $M$ 为连续掷出某个点数的最大次数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def dieSimulator(self, n: int, rollMax: List[int]) -> int:
+        mod = 10**9 + 7
+        f = [[[0] * 16 for _ in range(7)] for _ in range(n + 1)]
+        for j in range(7):
+            for x in range(16):
+                f[n][j][x] = 1
+        for i in range(n - 1, -1, -1):
+            for j in range(7):
+                for x in range(16):
+                    ans = 0
+                    for k in range(1, 7):
+                        if k != j:
+                            ans += f[i + 1][k][1]
+                        elif x < rollMax[j - 1]:
+                            ans += f[i + 1][j][x + 1]
+                    f[i][j][x] = ans % mod
+        return f[0][0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int dieSimulator(int n, int[] rollMax) {
+        final int mod = 1000000007;
+        int[][][] f = new int[n + 1][7][16];
+        for (int j = 0; j < 7; ++j) {
+            for (int x = 0; x < 16; ++x) {
+                f[n][j][x] = 1;
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 7; ++j) {
+                for (int x = 0; x < 16; ++x) {
+                    long ans = 0;
+                    for (int k = 1; k <= 6; ++k) {
+                        if (k != j) {
+                            ans += f[i + 1][k][1];
+                        } else if (x < rollMax[j - 1]) {
+                            ans += f[i + 1][j][x + 1];
+                        }
+                    }
+                    f[i][j][x] = (int) (ans % mod);
+                }
+            }
+        }
+        return f[0][0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int dieSimulator(int n, vector<int>& rollMax) {
+        const int mod = 1e9 + 7;
+        vector<vector<vector<int>>> f(n + 1, vector<vector<int>>(7, vector<int>(16)));
+        for (int j = 0; j < 7; ++j) {
+            for (int x = 0; x < 16; ++x) {
+                f[n][j][x] = 1;
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 7; ++j) {
+                for (int x = 0; x < 16; ++x) {
+                    long ans = 0;
+                    for (int k = 1; k <= 6; ++k) {
+                        if (k != j) {
+                            ans += f[i + 1][k][1];
+                        } else if (x < rollMax[j - 1]) {
+                            ans += f[i + 1][j][x + 1];
+                        }
+                    }
+                    f[i][j][x] = ans % mod;
+                }
+            }
+        }
+        return f[0][0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func dieSimulator(n int, rollMax []int) int {
+	const mod = 1e9 + 7
+	f := make([][7][16]int, n+1)
+	for j := 0; j < 7; j++ {
+		for x := 0; x < 16; x++ {
+			f[n][j][x] = 1
+		}
+	}
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j < 7; j++ {
+			for x := 0; x < 16; x++ {
+				ans := 0
+				for k := 1; k <= 6; k++ {
+					if k != j {
+						ans += f[i+1][k][1]
+					} else if x < rollMax[j-1] {
+						ans += f[i+1][j][x+1]
+					}
+				}
+				f[i][j][x] = ans % mod
+			}
+		}
+	}
+	return f[0][0][0]
 }
 ```
 
