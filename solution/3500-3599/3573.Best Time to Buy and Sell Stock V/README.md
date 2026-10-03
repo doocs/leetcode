@@ -188,8 +188,8 @@ class Solution {
 public:
     long long maximumProfit(vector<int>& prices, int k) {
         int n = prices.size();
-        long long f[n][k + 1][3];
-        memset(f, 0, sizeof(f));
+        vector<vector<vector<long long>>> f(
+            n, vector<vector<long long>>(k + 1, vector<long long>(3)));
         for (int j = 1; j <= k; ++j) {
             f[0][j][1] = -prices[0];
             f[0][j][2] = prices[0];
