@@ -9,14 +9,14 @@ public:
             unordered_map<int, ll> cnt;
 
             for (int i = 1; i < n; ++i) {
-                cnt[nums[i - 1]] += 1 + cnt[nums[i - 1] - 1];
+                cnt[nums[i - 1]] = (cnt[nums[i - 1]] + 1 + cnt[nums[i - 1] - 1]) % mod;
                 left[i] = cnt[nums[i] - 1];
             }
 
             cnt.clear();
 
             for (int i = n - 2; i >= 0; --i) {
-                cnt[nums[i + 1]] += 1 + cnt[nums[i + 1] + 1];
+                cnt[nums[i + 1]] = (cnt[nums[i + 1]] + 1 + cnt[nums[i + 1] + 1]) % mod;
                 right[i] = cnt[nums[i] + 1];
             }
 

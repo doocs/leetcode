@@ -8,14 +8,14 @@ func getSum(nums []int) int {
 		cnt := make(map[int]int64)
 
 		for i := 1; i < n; i++ {
-			cnt[nums[i-1]] += 1 + cnt[nums[i-1]-1]
+			cnt[nums[i-1]] = (cnt[nums[i-1]] + 1 + cnt[nums[i-1]-1]) % mod
 			left[i] = cnt[nums[i]-1]
 		}
 
 		cnt = make(map[int]int64)
 
 		for i := n - 2; i >= 0; i-- {
-			cnt[nums[i+1]] += 1 + cnt[nums[i+1]+1]
+			cnt[nums[i+1]] = (cnt[nums[i+1]] + 1 + cnt[nums[i+1]+1]) % mod
 			right[i] = cnt[nums[i]+1]
 		}
 
