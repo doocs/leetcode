@@ -364,4 +364,283 @@ function remainingMethods(n: number, k: number, invocations: number[][]): number
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：两次显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 从 $k$ 沿调用边可达的方法是可疑的，但不能删除仍被干净方法调用的节点。$n \le 10^5$，图上线性遍历即可。
+>
+> 从 $k$ 递归走进被调方法，链上的调用深度就是 $n$，会超出递归栈。可疑集合和后来被撤销的集合都只取决于可达性，与邻居顺序无关。
+>
+> 因此两次都改用显式栈。第一次沿有向边从 $k$ 标记可疑闭包，入栈时打标记。第二次从所有尚未标记的点出发，沿无向边把被干净方法触及的节点撤销标记。两次之后仍可疑的方法删除，其余下标即为答案。
+
+<!-- thinking:end -->
+
+我们可以先用显式栈从 $k$ 出发，沿有向调用边找出所有可疑方法，用数组 $\textit{suspicious}$ 记录，入栈时打上标记。然后再从 $0$ 到 $n - 1$ 遍历，从所有不可疑方法出发，沿无向边用显式栈把可达的方法标回不可疑。最后返回所有不可疑方法。
+
+时间复杂度 $O(n + m)$，空间复杂度 $O(n + m)$。其中 $n$ 和 $m$ 分别表示方法数量和调用关系数量。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def remainingMethods(
+        self, n: int, k: int, invocations: List[List[int]]
+    ) -> List[int]:
+        f = [[] for _ in range(n)]
+        g = [[] for _ in range(n)]
+        for a, b in invocations:
+            f[a].append(b)
+            f[b].append(a)
+            g[a].append(b)
+        suspicious = [False] * n
+        suspicious[k] = True
+        stk = [k]
+        while stk:
+            i = stk.pop()
+            for j in g[i]:
+                if not suspicious[j]:
+                    suspicious[j] = True
+                    stk.append(j)
+        vis = [False] * n
+        for i in range(n):
+            if suspicious[i] or vis[i]:
+                continue
+            vis[i] = True
+            stk = [i]
+            while stk:
+                u = stk.pop()
+                for j in f[u]:
+                    if not vis[j]:
+                        suspicious[j] = False
+                        vis[j] = True
+                        stk.append(j)
+        return [i for i in range(n) if not suspicious[i]]
+```
+
+#### Java
+
+```java
+class Solution {
+    public List<Integer> remainingMethods(int n, int k, int[][] invocations) {
+        List<Integer>[] f = new List[n];
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(f, i -> new ArrayList<>());
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (var e : invocations) {
+            int a = e[0], b = e[1];
+            f[a].add(b);
+            f[b].add(a);
+            g[a].add(b);
+        }
+        boolean[] suspicious = new boolean[n];
+        suspicious[k] = true;
+        Deque<Integer> stk = new ArrayDeque<>();
+        stk.push(k);
+        while (!stk.isEmpty()) {
+            int i = stk.pop();
+            for (int j : g[i]) {
+                if (!suspicious[j]) {
+                    suspicious[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+        boolean[] vis = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            if (suspicious[i] || vis[i]) {
+                continue;
+            }
+            vis[i] = true;
+            stk.push(i);
+            while (!stk.isEmpty()) {
+                int u = stk.pop();
+                for (int j : f[u]) {
+                    if (!vis[j]) {
+                        suspicious[j] = false;
+                        vis[j] = true;
+                        stk.push(j);
+                    }
+                }
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (!suspicious[i]) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) {
+        vector<vector<int>> f(n), g(n);
+        for (const auto& e : invocations) {
+            int a = e[0], b = e[1];
+            f[a].push_back(b);
+            f[b].push_back(a);
+            g[a].push_back(b);
+        }
+        vector<char> suspicious(n), vis(n);
+        suspicious[k] = 1;
+        vector<int> stk{k};
+        while (!stk.empty()) {
+            int i = stk.back();
+            stk.pop_back();
+            for (int j : g[i]) {
+                if (!suspicious[j]) {
+                    suspicious[j] = 1;
+                    stk.push_back(j);
+                }
+            }
+        }
+        for (int i = 0; i < n; ++i) {
+            if (suspicious[i] || vis[i]) {
+                continue;
+            }
+            vis[i] = 1;
+            stk.push_back(i);
+            while (!stk.empty()) {
+                int u = stk.back();
+                stk.pop_back();
+                for (int j : f[u]) {
+                    if (!vis[j]) {
+                        suspicious[j] = 0;
+                        vis[j] = 1;
+                        stk.push_back(j);
+                    }
+                }
+            }
+        }
+        vector<int> ans;
+        for (int i = 0; i < n; ++i) {
+            if (!suspicious[i]) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func remainingMethods(n int, k int, invocations [][]int) []int {
+	suspicious := make([]bool, n)
+	vis := make([]bool, n)
+	f := make([][]int, n)
+	g := make([][]int, n)
+	for _, e := range invocations {
+		a, b := e[0], e[1]
+		f[a] = append(f[a], b)
+		f[b] = append(f[b], a)
+		g[a] = append(g[a], b)
+	}
+	suspicious[k] = true
+	stk := []int{k}
+	for len(stk) > 0 {
+		i := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		for _, j := range g[i] {
+			if !suspicious[j] {
+				suspicious[j] = true
+				stk = append(stk, j)
+			}
+		}
+	}
+	for i := 0; i < n; i++ {
+		if suspicious[i] || vis[i] {
+			continue
+		}
+		vis[i] = true
+		stk = []int{i}
+		for len(stk) > 0 {
+			u := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			for _, j := range f[u] {
+				if !vis[j] {
+					suspicious[j] = false
+					vis[j] = true
+					stk = append(stk, j)
+				}
+			}
+		}
+	}
+	var ans []int
+	for i := 0; i < n; i++ {
+		if !suspicious[i] {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function remainingMethods(n: number, k: number, invocations: number[][]): number[] {
+    const suspicious: boolean[] = Array(n).fill(false);
+    const vis: boolean[] = Array(n).fill(false);
+    const f: number[][] = Array.from({ length: n }, () => []);
+    const g: number[][] = Array.from({ length: n }, () => []);
+
+    for (const [a, b] of invocations) {
+        f[a].push(b);
+        f[b].push(a);
+        g[a].push(b);
+    }
+
+    suspicious[k] = true;
+    let stk: number[] = [k];
+    while (stk.length) {
+        const i = stk.pop()!;
+        for (const j of g[i]) {
+            if (!suspicious[j]) {
+                suspicious[j] = true;
+                stk.push(j);
+            }
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (suspicious[i] || vis[i]) {
+            continue;
+        }
+        vis[i] = true;
+        stk = [i];
+        while (stk.length) {
+            const u = stk.pop()!;
+            for (const j of f[u]) {
+                if (!vis[j]) {
+                    suspicious[j] = false;
+                    vis[j] = true;
+                    stk.push(j);
+                }
+            }
+        }
+    }
+
+    return Array.from({ length: n }, (_, i) => i).filter(i => !suspicious[i]);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
