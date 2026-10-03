@@ -1,3 +1,5 @@
+import "container/heap"
+
 type pair struct {
 	c   byte
 	num int

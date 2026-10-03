@@ -85,6 +85,9 @@ The greedy strategy is to prioritize the selection of characters with the most r
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
         h = []
@@ -205,6 +208,8 @@ public:
 #### Go
 
 ```go
+import "container/heap"
+
 type pair struct {
 	c   byte
 	num int
