@@ -108,7 +108,7 @@ Therefore, we can color the first row according to the above rules, and then sta
 
 <img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2647.Color%20the%20Triangle%20Red/images/demo2.png" style="width: 80%">
 
-The time complexity is $(n^2)$, where $n$ is the parameter given in the problem. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
+The time complexity is $O(n^2)$, where $n$ is the parameter given in the problem. Ignoring the space consumption of the answer array, the space complexity is $O(1)$.
 
 <!-- tabs:start -->
 

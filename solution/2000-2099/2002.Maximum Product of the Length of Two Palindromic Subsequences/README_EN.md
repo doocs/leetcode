@@ -87,7 +87,7 @@ We notice that the length of the string $s$ does not exceed $12$, so we can use 
 
 Next, we enumerate each number $i$ in $p$. If $i$ is a palindrome subsequence, then we can enumerate a number $j$ from the complement of $i$, $mx = (2^n - 1) \oplus i$. If $j$ is also a palindrome subsequence, then $i$ and $j$ are the two palindrome subsequences we are looking for. Their lengths are the number of $1$s in the binary representation of $i$ and $j$, denoted as $a$ and $b$, respectively. Then their product is $a \times b$. We take the maximum of all possible $a \times b$.
 
-The time complexity is $(2^n \times n + 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string $s$.
+The time complexity is $O(2^n \times n + 3^n)$, and the space complexity is $O(2^n)$. Here, $n$ is the length of the string $s$.
 
 <!-- tabs:start -->
 

@@ -106,7 +106,7 @@ tags:
 
 为了避免重复计算，我们使用缓存来存储已经计算过的状态。
 
-时间复杂度 $O(\log^2 M \times D^2)$，空间复杂度 $(\log^2 M \times D)$。其中 $M$ 为 $\textit{high}$ 的值，而 $D = 10$。
+时间复杂度 $O(\log^2 M \times D^2)$，空间复杂度 $O(\log^2 M \times D)$。其中 $M$ 为 $\textit{high}$ 的值，而 $D = 10$。
 
 <!-- tabs:start -->
 

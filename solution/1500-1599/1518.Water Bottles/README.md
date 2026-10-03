@@ -85,7 +85,7 @@ tags:
 
 最后，返回 `ans` 即可。
 
-时间复杂度 $(\frac{numBottles}{numExchange})$，空间复杂度 $O(1)$。
+时间复杂度 $O(\frac{numBottles}{numExchange})$，空间复杂度 $O(1)$。
 
 <!-- tabs:start -->
 

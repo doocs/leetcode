@@ -90,7 +90,7 @@ We can use two pointers $i$ and $j$ to traverse the two strings. If the characte
 
 If the pointer $i$ has reached the end of the string $s$ or the characters pointed to by $i$ and $j$ are not the same, we return `false`. Otherwise, we move both pointers $i$ and $j$ to the next position. When the pointer $j$ reaches the end of the string $t$, we need to check if the remaining characters in the string $s$ are all lowercase letters. If so, we return `true`, otherwise we return `false`.
 
-Time complexity $(n \times m)$, where $n$ and $m$ are the length of the array `queries` and the string `pattern` respectively.
+Time complexity $O(n \times m)$, where $n$ and $m$ are the length of the array `queries` and the string `pattern` respectively.
 
 <!-- tabs:start -->
 

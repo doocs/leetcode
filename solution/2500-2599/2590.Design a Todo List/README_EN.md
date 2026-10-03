@@ -96,7 +96,7 @@ When calling the `getAllTasks` method, we traverse the task set of the correspon
 
 When calling the `getTasksForTag` method, we traverse the task set of the corresponding user and add the description of the unfinished task to the result list, and then return the result list. The time complexity of this operation is $O(n)$.
 
-When calling the `completeTask` method, we traverse the task set of the corresponding user and mark the task whose task ID is $taskId$ as completed. The time complexity of this operation is $(n)$.
+When calling the `completeTask` method, we traverse the task set of the corresponding user and mark the task whose task ID is $taskId$ as completed. The time complexity of this operation is $O(n)$.
 
 The space complexity is $O(n)$. Where $n$ is the number of all tasks.
 
