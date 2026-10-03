@@ -93,6 +93,9 @@ The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$.
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
         s = sum(nums) / 2
@@ -161,6 +164,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func halveArray(nums []int) (ans int) {
 	var s float64
 	pq := &hp{}

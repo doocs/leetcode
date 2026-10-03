@@ -1,3 +1,6 @@
+from heapq import heappop, heappush
+
+
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
         s = sum(nums) / 2

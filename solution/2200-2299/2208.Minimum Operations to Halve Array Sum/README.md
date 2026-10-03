@@ -95,6 +95,9 @@ nums 的和减小了 31 - 14.5 = 16.5 ，减小的部分超过了初始数组和
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def halveArray(self, nums: List[int]) -> int:
         s = sum(nums) / 2
@@ -163,6 +166,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func halveArray(nums []int) (ans int) {
 	var s float64
 	pq := &hp{}
