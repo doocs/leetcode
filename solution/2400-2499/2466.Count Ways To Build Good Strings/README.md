@@ -211,7 +211,9 @@ func countGoodStrings(low int, high int, zero int, one int) int {
 
 > **思考**
 >
-> 方法一按当前长度向下递归。改为 $f[i]$ 表示拼出长度 $i$ 的方案， $f[0]=1$，由 $f[i-zero]$ 与 $f[i-one]$ 转移，再把 $[low,high]$ 上的 $f$ 求和。避免递归栈。
+> 方法一从长度 $high$ 往回填后缀表，$f[i]$ 是当前长度已为 $i$ 时还能得到的好串数。同一批字符串也可以按恰好拼到长度 $i$ 来数：$f[0]=1$，由 $f[i-zero]$ 与 $f[i-one]$ 转入，再把 $[low,high]$ 上的 $f$ 求和。
+>
+> 自左向右填表，时间仍为 $O(n)$。
 
 <!-- thinking:end -->
 
@@ -261,6 +263,121 @@ function countGoodStrings(low, high, zero, one) {
     const ans = f.slice(low, high + 1).reduce((acc, cur) => acc + cur, 0);
 
     return ans % mod;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### 方法三：动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 每次追加 $zero$ 个 $0$ 或 $one$ 个 $1$，长度落在 $[low,high]$ 才是好串。$high \le 10^5$，按追加顺序展开会重复大量长度。
+>
+> 较短的那一档总是先递归。$zero$ 与 $one$ 都不小于 $1$，这次调用一定走向更大的长度，最坏调用链长度为 $high$，栈会溢出。
+>
+> 更长的长度在从 $high$ 往 $0$ 填时已经就绪。令 $f[i]$ 为当前长度已是 $i$ 时的好串数：区间内先计 $1$，再加上 $f[i+zero]$ 与 $f[i+one]$，越过 $high$ 的项视为 $0$。
+
+<!-- thinking:end -->
+
+令 $f[i]$ 表示当前长度已经是 $i$ 时，能够构造出的好字符串个数。答案为 $f[0]$。长度超过 $high$ 的贡献为 $0$。
+
+从 $i = high$ 填到 $0$。若 $low \le i \le high$，当前字符串本身就是好串，先计入 $1$。之后仍可追加 $zero$ 个 $0$ 或 $one$ 个 $1$，把 $f[i + zero]$ 与 $f[i + one]$ 加进来；下标超过 $high$ 时该项为 $0$。每一步都对 $10^9 + 7$ 取模。
+
+时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n = high$。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countGoodStrings(self, low: int, high: int, zero: int, one: int) -> int:
+        mod = 10**9 + 7
+        f = [0] * (high + 1)
+        for i in range(high, -1, -1):
+            ans = int(low <= i <= high)
+            if i + zero <= high:
+                ans += f[i + zero]
+            if i + one <= high:
+                ans += f[i + one]
+            f[i] = ans % mod
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
+
+    public int countGoodStrings(int low, int high, int zero, int one) {
+        int[] f = new int[high + 1];
+        for (int i = high; i >= 0; --i) {
+            long ans = i >= low && i <= high ? 1 : 0;
+            if (i + zero <= high) {
+                ans += f[i + zero];
+            }
+            if (i + one <= high) {
+                ans += f[i + one];
+            }
+            f[i] = (int) (ans % MOD);
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    const int mod = 1e9 + 7;
+
+    int countGoodStrings(int low, int high, int zero, int one) {
+        vector<int> f(high + 1);
+        for (int i = high; i >= 0; --i) {
+            long ans = i >= low && i <= high;
+            if (i + zero <= high) {
+                ans += f[i + zero];
+            }
+            if (i + one <= high) {
+                ans += f[i + one];
+            }
+            f[i] = ans % mod;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func countGoodStrings(low int, high int, zero int, one int) int {
+	const mod int = 1e9 + 7
+	f := make([]int, high+1)
+	for i := high; i >= 0; i-- {
+		ans := 0
+		if i >= low && i <= high {
+			ans++
+		}
+		if i+zero <= high {
+			ans += f[i+zero]
+		}
+		if i+one <= high {
+			ans += f[i+one]
+		}
+		f[i] = ans % mod
+	}
+	return f[0]
 }
 ```
 
