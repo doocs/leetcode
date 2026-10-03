@@ -1,3 +1,6 @@
+import random
+
+
 class Node:
     __slots__ = ['val', 'next']
 

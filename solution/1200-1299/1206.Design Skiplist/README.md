@@ -103,7 +103,7 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 对于 $\textit{erase}$ 操作，类似于查找操作，遍历跳表的每一层，找到需要删除的节点并删除它。删除节点时需要更新每一层的 $\textit{next}$ 指针。如果跳表的最高层没有节点，则需要减少跳表的层数。
 
-另外，我们定义了一个 $\textit{random\_level}$ 方法来随机决定新节点的层数。该方法会生成一个 $[1, \textit{max\_level}]$ 之间的随机数，直到生成的随机数大于等于 $\textit{p}$ 为止。还有一个 $\textit{find\_closest}$ 方法用于查找每一层中最接近目标值的节点。
+另外，我们定义了一个 $\textit{random\_level}$ 方法来随机决定新节点的层数。层数从 $1$ 开始，每次以概率 $\textit{p}$ 再向上增加一层，直到不再增加或达到 $\textit{max\_level}$。还有一个 $\textit{find\_closest}$ 方法用于查找每一层中最接近目标值的节点。
 
 上述操作的时间复杂度为 $O(\log n)$，其中 $n$ 为跳表的节点数。空间复杂度为 $O(n)$。
 
@@ -112,6 +112,9 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 #### Python3
 
 ```python
+import random
+
+
 class Node:
     __slots__ = ['val', 'next']
 
