@@ -160,8 +160,8 @@ func countPairs(coordinates [][]int, k int) (ans int) {
 
 ```ts
 function countPairs(coordinates: number[][], k: number): number {
-    const cnt: Map<number, number> = new Map();
-    const f = (x: number, y: number): number => x * 1000000 + y;
+    const cnt: Map<string, number> = new Map();
+    const f = (x: number, y: number): string => `${x},${y}`;
     let ans = 0;
     for (const [x2, y2] of coordinates) {
         for (let a = 0; a <= k; ++a) {
