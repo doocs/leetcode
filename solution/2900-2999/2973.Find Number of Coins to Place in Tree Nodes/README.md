@@ -321,4 +321,280 @@ function placedCoins(edges: number[][], cost: number[]): number[] {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈 + 排序
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 子树不足三个节点则放 $1$ 枚金币，否则放置三个开销乘积的最大值，乘积为负时放 $0$。最大乘积只可能是三个最大开销，或两个最小开销配上最大开销。子树节点数可达 $n$，不能把全部开销向上传递，因此每个子树只保留最小的两个和最大的三个。沿一条链递归合并这些值时，调用深度等于节点数，$n$ 达到 $1000$ 就会超出 Python 的递归上限，而 $n$ 最大为 $2 \times 10^4$。栈中保存 $(节点, 父节点, 状态)$：状态 $0$ 先压入退出标记再压入子节点，状态 $1$ 在子列表就绪后合并、排序并截断，同时写下当前答案。
+
+<!-- thinking:end -->
+
+根据题目描述，每个节点 $a$ 放置的金币数有两种情况：
+
+- 如果节点 $a$ 对应的子树中的节点数目小于 $3$，那么放 $1$ 个金币；
+- 如果节点 $a$ 对应的子树中的节点数目大于等于 $3$，那么取出子树中 $3$ 个不同节点，计算它们的开销乘积的最大值，并在节点 $a$ 处放置对应数目的金币。如果最大乘积是负数，那么放置 $0$ 个金币。
+
+开销都是正数时，应取最大的 $3$ 个；出现负数时，还要考虑最小的 $2$ 个与最大的 $1$ 个。因此每个子树只维护最小的 $2$ 个开销和最大的 $3$ 个开销。
+
+先根据 $edges$ 建图，并把每个节点的答案初值设为 $1$。用显式栈按后序处理，栈中元素为 $(a, fa, state)$。$state = 0$ 时先压入 $(a, fa, 1)$，再把除父节点以外的邻接点以状态 $0$ 压入。$state = 1$ 时，把 $cost[a]$ 与各子节点已经截好的开销列表合并，排序后得到 $res$，长度记为 $m$：
+
+- 如果 $m \ge 3$，节点 $a$ 的金币数为 $\max(0, res[m - 1] \times res[m - 2] \times res[m - 3], res[0] \times res[1] \times res[m - 1])$，否则保持 $1$；
+- 如果 $m > 5$，只保留 $res$ 的前 $2$ 个元素和后 $3$ 个元素，供父节点合并。
+
+合并之后会重新排序，所以子节点入栈的先后不影响答案。
+
+时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是节点的数目。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def placedCoins(self, edges: List[List[int]], cost: List[int]) -> List[int]:
+        n = len(cost)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        ans = [1] * n
+        sub = [None] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            a, fa, state = stk.pop()
+            if state == 0:
+                stk.append((a, fa, 1))
+                for b in g[a]:
+                    if b != fa:
+                        stk.append((b, a, 0))
+            else:
+                res = [cost[a]]
+                for b in g[a]:
+                    if b != fa:
+                        res.extend(sub[b])
+                res.sort()
+                if len(res) >= 3:
+                    ans[a] = max(
+                        res[-3] * res[-2] * res[-1], res[0] * res[1] * res[-1], 0
+                    )
+                if len(res) > 5:
+                    res = res[:2] + res[-3:]
+                sub[a] = res
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public long[] placedCoins(int[][] edges, int[] cost) {
+        int n = cost.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[] ans = new long[n];
+        Arrays.fill(ans, 1);
+        List<Integer>[] sub = new List[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push(new int[] {b, a, 0});
+                    }
+                }
+            } else {
+                List<Integer> res = new ArrayList<>();
+                res.add(cost[a]);
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        res.addAll(sub[b]);
+                    }
+                }
+                Collections.sort(res);
+                int m = res.size();
+                if (m >= 3) {
+                    long x = (long) res.get(m - 1) * res.get(m - 2) * res.get(m - 3);
+                    long y = (long) res.get(0) * res.get(1) * res.get(m - 1);
+                    ans[a] = Math.max(0, Math.max(x, y));
+                }
+                if (m > 5) {
+                    res = new ArrayList<>(List.of(
+                        res.get(0), res.get(1), res.get(m - 3), res.get(m - 2), res.get(m - 1)));
+                }
+                sub[a] = res;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    vector<long long> placedCoins(vector<vector<int>>& edges, vector<int>& cost) {
+        int n = cost.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<long long> ans(n, 1);
+        vector<vector<int>> sub(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [a, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({a, fa, 1});
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        stk.push_back({b, a, 0});
+                    }
+                }
+            } else {
+                vector<int> res = {cost[a]};
+                for (int b : g[a]) {
+                    if (b != fa) {
+                        res.insert(res.end(), sub[b].begin(), sub[b].end());
+                    }
+                }
+                sort(res.begin(), res.end());
+                int m = res.size();
+                if (m >= 3) {
+                    long long x = 1LL * res[m - 1] * res[m - 2] * res[m - 3];
+                    long long y = 1LL * res[0] * res[1] * res[m - 1];
+                    ans[a] = max({0LL, x, y});
+                }
+                if (m > 5) {
+                    res = {res[0], res[1], res[m - 3], res[m - 2], res[m - 1]};
+                }
+                sub[a] = std::move(res);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func placedCoins(edges [][]int, cost []int) []int64 {
+	n := len(cost)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	ans := make([]int64, n)
+	for i := range ans {
+		ans[i] = 1
+	}
+	sub := make([][]int, n)
+	type frame struct{ a, fa, state int }
+	stk := []frame{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa, state := cur.a, cur.fa, cur.state
+		if state == 0 {
+			stk = append(stk, frame{a, fa, 1})
+			for _, b := range g[a] {
+				if b != fa {
+					stk = append(stk, frame{b, a, 0})
+				}
+			}
+		} else {
+			res := []int{cost[a]}
+			for _, b := range g[a] {
+				if b != fa {
+					res = append(res, sub[b]...)
+				}
+			}
+			sort.Ints(res)
+			m := len(res)
+			if m >= 3 {
+				x := int64(res[m-1]) * int64(res[m-2]) * int64(res[m-3])
+				y := int64(res[0]) * int64(res[1]) * int64(res[m-1])
+				ans[a] = max(x, y, int64(0))
+			}
+			if m > 5 {
+				res = []int{res[0], res[1], res[m-3], res[m-2], res[m-1]}
+			}
+			sub[a] = res
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function placedCoins(edges: number[][], cost: number[]): number[] {
+    const n = cost.length;
+    const ans: number[] = Array(n).fill(1);
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const sub: number[][] = Array(n);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [a, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([a, fa, 1]);
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    stk.push([b, a, 0]);
+                }
+            }
+        } else {
+            const res: number[] = [cost[a]];
+            for (const b of g[a]) {
+                if (b !== fa) {
+                    res.push(...sub[b]);
+                }
+            }
+            res.sort((x, y) => x - y);
+            const m = res.length;
+            if (m >= 3) {
+                const x = res[m - 1] * res[m - 2] * res[m - 3];
+                const y = res[0] * res[1] * res[m - 1];
+                ans[a] = Math.max(0, x, y);
+            }
+            if (m > 5) {
+                sub[a] = [res[0], res[1], res[m - 3], res[m - 2], res[m - 1]];
+            } else {
+                sub[a] = res;
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
