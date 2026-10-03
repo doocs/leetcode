@@ -1,3 +1,5 @@
+import "container/heap"
+
 type Ugly struct{ value, prime, index int }
 type Queue []Ugly
 

@@ -1,3 +1,9 @@
+import (
+	"container/heap"
+	"math"
+	"sort"
+)
+
 func nthSuperUglyNumber(n int, primes []int) (x int) {
 	q := hp{[]int{1}}
 	for n > 0 {

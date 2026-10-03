@@ -78,9 +78,9 @@ tags:
 
 我们用一个优先队列（小根堆）维护所有可能的超级丑数，初始时将 $1$ 放入队列中。
 
-每次从队列中取出最小的超级丑数 $x$，将 $x$ 乘以数组 `primes` 中的每个数，将乘积放入队列中，然后重复上述操作 $n$ 次即可得到第 $n$ 个超级丑数。
+每次从队列中取出最小的超级丑数 $x$，按 `primes` 从前到后计算乘积并放入队列。若 $x$ 能被当前质数整除，则不再乘后面的质数，使每个超级丑数只由它的最小质因子生成一次。重复上述操作 $n$ 次即可得到第 $n$ 个超级丑数。
 
-由于题目保证第 $n$ 个超级丑数在 $32$ 位带符号整数范围内，因此，我们将乘积放入队列之前，可以先判断乘积是否超过 $2^{31} - 1$，如果超过，则不需要将乘积放入队列中。另外，可以使用欧拉筛优化。
+由于题目保证第 $n$ 个超级丑数在 $32$ 位带符号整数范围内，因此，我们将乘积放入队列之前，可以先判断乘积是否超过 $2^{31} - 1$，如果超过，则不需要将乘积放入队列中。
 
 时间复杂度 $O(n \times m \times \log (n \times m))$，空间复杂度 $O(n \times m)$。其中 $m$ 和 $n$ 分别为数组 `primes` 的长度和给定的整数 $n$。
 
@@ -89,6 +89,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         q = [1]
@@ -160,6 +163,12 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"math"
+	"sort"
+)
+
 func nthSuperUglyNumber(n int, primes []int) (x int) {
 	q := hp{[]int{1}}
 	for n > 0 {
@@ -215,6 +224,8 @@ func (h *hp) Pop() any {
 #### Go
 
 ```go
+import "container/heap"
+
 type Ugly struct{ value, prime, index int }
 type Queue []Ugly
 

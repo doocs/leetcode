@@ -71,9 +71,9 @@ tags:
 
 We use a priority queue (min heap) to maintain all possible super ugly numbers, initially putting $1$ into the queue.
 
-Each time we take the smallest super ugly number $x$ from the queue, multiply $x$ by each number in the array `primes`, and put the product into the queue. Repeat the above operation $n$ times to get the $n$th super ugly number.
+Each time we take the smallest super ugly number $x$ from the queue, we multiply it by the primes in order and push the products. Once $x$ is divisible by the current prime, later primes are skipped, so each super ugly number is generated only by its smallest prime factor. Repeat this $n$ times to get the $n$th super ugly number.
 
-Since the problem guarantees that the $n$th super ugly number is within the range of a 32-bit signed integer, before we put the product into the queue, we can first check whether the product exceeds $2^{31} - 1$. If it does, there is no need to put the product into the queue. In addition, the Euler sieve can be used for optimization.
+Since the problem guarantees that the $n$th super ugly number is within the range of a 32-bit signed integer, before we put the product into the queue, we can first check whether the product exceeds $2^{31} - 1$. If it does, there is no need to put the product into the queue.
 
 The time complexity is $O(n \times m \times \log (n \times m))$, and the space complexity is $O(n \times m)$. Where $m$ and $n$ are the length of the array `primes` and the given integer $n$ respectively.
 
@@ -82,6 +82,9 @@ The time complexity is $O(n \times m \times \log (n \times m))$, and the space c
 #### Python3
 
 ```python
+from heapq import heappop, heappush
+
+
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         q = [1]
@@ -153,6 +156,12 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"math"
+	"sort"
+)
+
 func nthSuperUglyNumber(n int, primes []int) (x int) {
 	q := hp{[]int{1}}
 	for n > 0 {
@@ -208,6 +217,8 @@ The time complexity is $O(n \times \log m)$, and the space complexity is $O(n + 
 #### Go
 
 ```go
+import "container/heap"
+
 type Ugly struct{ value, prime, index int }
 type Queue []Ugly
 

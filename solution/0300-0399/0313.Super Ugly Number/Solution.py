@@ -1,3 +1,6 @@
+from heapq import heappop, heappush
+
+
 class Solution:
     def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
         q = [1]
