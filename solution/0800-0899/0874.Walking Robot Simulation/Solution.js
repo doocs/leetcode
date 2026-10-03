@@ -7,7 +7,7 @@ var robotSim = function (commands, obstacles) {
     const dirs = [0, 1, 0, -1, 0];
     const s = new Set();
 
-    const f = (x, y) => x * 60010 + y;
+    const f = (x, y) => x * 200001 + y;
 
     for (const [x, y] of obstacles) {
         s.add(f(x, y));
