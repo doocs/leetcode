@@ -1,0 +1,49 @@
+function maxTargetNodes(edges1: number[][], edges2: number[][], k: number): number[] {
+    const g2 = build(edges2);
+    const m = edges2.length + 1;
+    let t = 0;
+    for (let i = 0; i < m; i++) {
+        t = Math.max(t, dfs(g2, i, -1, k - 1));
+    }
+
+    const g1 = build(edges1);
+    const n = edges1.length + 1;
+    const ans = Array(n).fill(t);
+
+    for (let i = 0; i < n; i++) {
+        ans[i] += dfs(g1, i, -1, k);
+    }
+
+    return ans;
+}
+
+function build(edges: number[][]): number[][] {
+    const n = edges.length + 1;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    return g;
+}
+
+function dfs(g: number[][], a: number, fa: number, d: number): number {
+    if (d < 0) {
+        return 0;
+    }
+    const stk: [number, number, number][] = [[a, fa, d]];
+    let cnt = 0;
+    while (stk.length) {
+        const [u, p, rem] = stk.pop()!;
+        cnt++;
+        if (rem === 0) {
+            continue;
+        }
+        for (const b of g[u]) {
+            if (b !== p) {
+                stk.push([b, u, rem - 1]);
+            }
+        }
+    }
+    return cnt;
+}
