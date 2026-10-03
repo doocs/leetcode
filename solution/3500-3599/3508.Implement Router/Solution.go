@@ -1,6 +1,8 @@
+type routerKey struct{ a, b, c int }
+
 type Router struct {
 	lim int
-	vis map[int64]struct{}
+	vis map[routerKey]struct{}
 	q   [][3]int
 	idx map[int]int
 	d   map[int][]int
@@ -9,15 +11,15 @@ type Router struct {
 func Constructor(memoryLimit int) Router {
 	return Router{
 		lim: memoryLimit,
-		vis: make(map[int64]struct{}),
+		vis: make(map[routerKey]struct{}),
 		q:   make([][3]int, 0),
 		idx: make(map[int]int),
 		d:   make(map[int][]int),
 	}
 }
 
-func (this *Router) f(a, b, c int) int64 {
-	return int64(a)<<46 | int64(b)<<29 | int64(c)
+func (this *Router) f(a, b, c int) routerKey {
+	return routerKey{a, b, c}
 }
 
 func (this *Router) AddPacket(source int, destination int, timestamp int) bool {
