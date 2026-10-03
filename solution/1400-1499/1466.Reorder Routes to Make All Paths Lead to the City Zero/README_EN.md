@@ -244,7 +244,7 @@ impl Solution {
 
 > **Thinking**
 >
-> Method 1 recurses. The same adjacency list can be walked with BFS from $0$, adding the edge cost when a new neighbor is first seen.
+> Method 1 already walks the same adjacency list with an explicit stack. BFS leaves $0$ level by level and adds the edge cost the first time a neighbor is seen, so the visit order differs from the stack.
 
 <!-- thinking:end -->
 
@@ -388,6 +388,196 @@ function minReorder(n: number, connections: number[][]): number {
         }
     }
     return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Ignoring direction, the graph is a tree. Walking outward from $0$, an original forward edge must be reversed. $n$ can reach $5\times 10^4$. On a chain the first recursive call always follows the only child, so the depth is $n$ and exceeds the default recursion limit.
+>
+> The cost of a tree edge is known as soon as the walk leaves its parent, so the total does not have to wait for the subtree to return.
+>
+> An explicit stack starts at $0$. After a node is popped, each neighbor that is not the parent adds its edge cost and is pushed. A forward edge costs $1$ and a reverse edge costs $0$.
+
+<!-- thinking:end -->
+
+The route map given in the problem has $n$ nodes and $n-1$ edges. If we ignore the direction of the edges, then these $n$ nodes form a tree. The problem requires us to change the direction of some edges so that each node can reach node $0$.
+
+We might as well consider starting from node $0$ and reaching all other nodes. The direction is opposite to the problem description, which means that when we build the graph, for the directed edge $[a, b]$, we should regard it as the directed edge $[b, a]$. That is to say, if it is from $a$ to $b$, we need to change the direction once; if it is from $b$ to $a$, no direction change is needed.
+
+An explicit stack walks the tree from node $0$. After a node is popped, each neighbor that is not the parent adds its edge weight to the answer and is pushed. A forward edge has weight $1$, and a reverse edge has weight $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the problem.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minReorder(self, n: int, connections: List[List[int]]) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in connections:
+            g[a].append((b, 1))
+            g[b].append((a, 0))
+        ans = 0
+        stk = [(0, -1)]
+        while stk:
+            a, fa = stk.pop()
+            for b, c in g[a]:
+                if b != fa:
+                    ans += c
+                    stk.append((b, a))
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minReorder(int n, int[][] connections) {
+        List<int[]>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : connections) {
+            int a = e[0], b = e[1];
+            g[a].add(new int[] {b, 1});
+            g[b].add(new int[] {a, 0});
+        }
+        int ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int a = cur[0], fa = cur[1];
+            for (var e : g[a]) {
+                int b = e[0], c = e[1];
+                if (b != fa) {
+                    ans += c;
+                    stk.push(new int[] {b, a});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minReorder(int n, vector<vector<int>>& connections) {
+        vector<vector<pair<int, int>>> g(n);
+        for (auto& e : connections) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b, 1);
+            g[b].emplace_back(a, 0);
+        }
+        int ans = 0;
+        vector<pair<int, int>> stk{{0, -1}};
+        while (!stk.empty()) {
+            auto cur = stk.back();
+            stk.pop_back();
+            int a = cur.first, fa = cur.second;
+            for (auto& [b, c] : g[a]) {
+                if (b != fa) {
+                    ans += c;
+                    stk.emplace_back(b, a);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minReorder(n int, connections [][]int) (ans int) {
+	g := make([][][2]int, n)
+	for _, e := range connections {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], [2]int{b, 1})
+		g[b] = append(g[b], [2]int{a, 0})
+	}
+	stk := [][2]int{{0, -1}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		a, fa := cur[0], cur[1]
+		for _, e := range g[a] {
+			b, c := e[0], e[1]
+			if b != fa {
+				ans += c
+				stk = append(stk, [2]int{b, a})
+			}
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function minReorder(n: number, connections: number[][]): number {
+    const g: [number, number][][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of connections) {
+        g[a].push([b, 1]);
+        g[b].push([a, 0]);
+    }
+    let ans = 0;
+    const stk: [number, number][] = [[0, -1]];
+    while (stk.length) {
+        const [a, fa] = stk.pop()!;
+        for (const [b, c] of g[a]) {
+            if (b !== fa) {
+                ans += c;
+                stk.push([b, a]);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn min_reorder(n: i32, connections: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
+        let mut g: Vec<Vec<(i32, i32)>> = vec![vec![]; n];
+        for e in connections.iter() {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push((b as i32, 1));
+            g[b].push((a as i32, 0));
+        }
+        let mut ans = 0;
+        let mut stk: Vec<(usize, i32)> = vec![(0, -1)];
+        while let Some((a, fa)) = stk.pop() {
+            for &(b, c) in g[a].iter() {
+                if b != fa {
+                    ans += c;
+                    stk.push((b as usize, a as i32));
+                }
+            }
+        }
+        ans
+    }
 }
 ```
 
