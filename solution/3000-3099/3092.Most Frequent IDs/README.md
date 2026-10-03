@@ -103,6 +103,10 @@ tags:
 #### Python3
 
 ```python
+from collections import Counter
+from heapq import heappop, heappush
+
+
 class Solution:
     def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
         cnt = Counter()
@@ -177,6 +181,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func mostFrequentIDs(nums []int, freq []int) []int64 {
 	n := len(nums)
 	cnt := map[int]int{}

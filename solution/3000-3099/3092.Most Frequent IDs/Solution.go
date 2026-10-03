@@ -1,3 +1,8 @@
+import (
+	"container/heap"
+	"sort"
+)
+
 func mostFrequentIDs(nums []int, freq []int) []int64 {
 	n := len(nums)
 	cnt := map[int]int{}

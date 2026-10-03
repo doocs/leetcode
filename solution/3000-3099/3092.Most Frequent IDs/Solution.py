@@ -1,3 +1,7 @@
+from collections import Counter
+from heapq import heappop, heappush
+
+
 class Solution:
     def mostFrequentIDs(self, nums: List[int], freq: List[int]) -> List[int]:
         cnt = Counter()
