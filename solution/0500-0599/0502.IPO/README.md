@@ -91,6 +91,9 @@ tags:
 #### Python3
 
 ```python
+from heapq import heapify, heappop, heappush
+
+
 class Solution:
     def findMaximizedCapital(
         self, k: int, w: int, profits: List[int], capital: List[int]
@@ -166,6 +169,11 @@ public:
 #### Go
 
 ```go
+import (
+	"container/heap"
+	"sort"
+)
+
 func findMaximizedCapital(k int, w int, profits []int, capital []int) int {
 	q1 := hp2{}
 	for i, c := range capital {
