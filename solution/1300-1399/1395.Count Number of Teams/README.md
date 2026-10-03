@@ -171,7 +171,7 @@ func numTeams(rating []int) (ans int) {
 			}
 		}
 		for _, c := range rating[i+1:] {
-			if c < b {
+			if c > b {
 				r++
 			}
 		}
