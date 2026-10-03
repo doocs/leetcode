@@ -119,21 +119,21 @@ The accumulated runtime for all servers totals approximately 44.46 hours, equiva
 
 <!-- solution:start -->
 
-### Solution 1: Using Window Functions
+### Solution 1: Running-Depth Pairing
 
 <!-- thinking:start -->
 
 > **Thinking**
 >
-> Start/stop rows pair into uptime intervals; the answer is their total seconds divided by $86400$. A self-join must be ordered carefully per server.
+> The sample writes two $\texttt{start}$ rows before the matching $\texttt{stop}$ rows. Pairing each $\texttt{start}$ with the next row measures a start-to-start gap and never reaches the outer $\texttt{stop}$.
 >
-> `LEAD(status_time)` partitioned by $server\_id$ yields the next timestamp without a self-join.
+> The listed intervals close the later $\texttt{start}$ first: $23{:}16{:}48$ with $01{:}15{:}48$, and $16{:}29{:}47$ with $01{:}49{:}47$. That is stack order.
 >
-> Compute the next time, keep intervals whose status is `start`, sum the second differences, and floor-divide by a day's length.
+> A running depth treats $\texttt{start}$ as $+1$ and $\texttt{stop}$ as $-1$. Each $\texttt{start}$ matches the earliest later $\texttt{stop}$ whose depth is one smaller. Sum those seconds and floor-divide by $86400$.
 
 <!-- thinking:end -->
 
-We can use the window function `LEAD` to get the time of the next status for each server. The time difference between two statuses is the running time of the server. Finally, we add up the running time of all servers, then divide by the number of seconds in a day to get the total running days of the servers.
+Starts and stops on one server may nest. After a running depth is computed in time order, each $\texttt{start}$ forms an interval with the earliest later $\texttt{stop}$ whose depth is one less. The seconds in those intervals are added and floored to whole days.
 
 <!-- tabs:start -->
 
@@ -144,17 +144,32 @@ We can use the window function `LEAD` to get the time of the next status for eac
 WITH
     T AS (
         SELECT
-            session_status,
+            server_id,
             status_time,
-            LEAD(status_time) OVER (
+            session_status,
+            SUM(IF(session_status = 'start', 1, -1)) OVER (
                 PARTITION BY server_id
-                ORDER BY status_time
-            ) AS next_status_time
+                ORDER BY status_time, session_status
+                ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+            ) AS depth
         FROM Servers
     )
-SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, status_time, next_status_time)) / 86400) AS total_uptime_days
-FROM T
-WHERE session_status = 'start';
+SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, start_time, stop_time)) / 86400) AS total_uptime_days
+FROM
+    (
+        SELECT
+            s.status_time AS start_time,
+            MIN(t.status_time) AS stop_time
+        FROM
+            T AS s
+            JOIN T AS t
+                ON s.server_id = t.server_id
+                AND t.session_status = 'stop'
+                AND t.depth = s.depth - 1
+                AND t.status_time > s.status_time
+        WHERE s.session_status = 'start'
+        GROUP BY s.server_id, s.status_time
+    ) AS p;
 ```
 
 <!-- tabs:end -->
