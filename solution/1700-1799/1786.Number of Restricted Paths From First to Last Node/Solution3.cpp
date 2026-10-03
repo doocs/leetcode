@@ -2,24 +2,17 @@ using pii = pair<int, int>;
 
 class Solution {
 public:
-    const int inf = INT_MAX;
-    const int mod = 1e9 + 7;
-    vector<vector<pii>> g;
-    vector<int> dist;
-    vector<int> f;
-    int n;
-
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
-        this->n = n;
-        g.resize(n + 1);
-        dist.assign(n + 1, inf);
-        f.assign(n + 1, -1);
-        dist[n] = 0;
+        const int inf = INT_MAX;
+        const int mod = 1e9 + 7;
+        vector<vector<pii>> g(n + 1);
         for (auto& e : edges) {
             int u = e[0], v = e[1], w = e[2];
             g[u].emplace_back(v, w);
             g[v].emplace_back(u, w);
         }
+        vector<int> dist(n + 1, inf);
+        dist[n] = 0;
         priority_queue<pii, vector<pii>, greater<pii>> q;
         q.emplace(0, n);
         while (!q.empty()) {
@@ -32,19 +25,18 @@ public:
                 }
             }
         }
-        return dfs(1);
-    }
-
-    int dfs(int i) {
-        if (f[i] != -1) return f[i];
-        if (i == n) return 1;
-        int ans = 0;
-        for (auto [j, _] : g[i]) {
-            if (dist[i] > dist[j]) {
-                ans = (ans + dfs(j)) % mod;
+        vector<int> order(n);
+        iota(order.begin(), order.end(), 1);
+        sort(order.begin(), order.end(), [&](int a, int b) { return dist[a] < dist[b]; });
+        vector<int> f(n + 1);
+        f[n] = 1;
+        for (int i : order) {
+            for (auto [j, _] : g[i]) {
+                if (dist[i] > dist[j]) {
+                    f[i] = (f[i] + f[j]) % mod;
+                }
             }
         }
-        f[i] = ans;
-        return ans;
+        return f[1];
     }
 };

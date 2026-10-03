@@ -1,17 +1,10 @@
 class Solution {
     private static final int INF = Integer.MAX_VALUE;
     private static final int MOD = (int) 1e9 + 7;
-    private List<int[]>[] g;
-    private int[] dist;
-    private int[] f;
-    private int n;
 
     public int countRestrictedPaths(int n, int[][] edges) {
-        this.n = n;
-        g = new List[n + 1];
-        for (int i = 0; i < g.length; ++i) {
-            g[i] = new ArrayList<>();
-        }
+        List<int[]>[] g = new List[n + 1];
+        Arrays.setAll(g, k -> new ArrayList<>());
         for (int[] e : edges) {
             int u = e[0], v = e[1], w = e[2];
             g[u].add(new int[] {v, w});
@@ -19,10 +12,8 @@ class Solution {
         }
         PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         q.offer(new int[] {0, n});
-        dist = new int[n + 1];
-        f = new int[n + 1];
+        int[] dist = new int[n + 1];
         Arrays.fill(dist, INF);
-        Arrays.fill(f, -1);
         dist[n] = 0;
         while (!q.isEmpty()) {
             int[] p = q.poll();
@@ -35,24 +26,21 @@ class Solution {
                 }
             }
         }
-        return dfs(1);
-    }
-
-    private int dfs(int i) {
-        if (f[i] != -1) {
-            return f[i];
+        int[] f = new int[n + 1];
+        f[n] = 1;
+        Integer[] arr = new Integer[n];
+        for (int i = 0; i < n; ++i) {
+            arr[i] = i + 1;
         }
-        if (i == n) {
-            return 1;
-        }
-        int ans = 0;
-        for (int[] ne : g[i]) {
-            int j = ne[0];
-            if (dist[i] > dist[j]) {
-                ans = (ans + dfs(j)) % MOD;
+        Arrays.sort(arr, (i, j) -> dist[i] - dist[j]);
+        for (int i : arr) {
+            for (int[] ne : g[i]) {
+                int j = ne[0];
+                if (dist[i] > dist[j]) {
+                    f[i] = (f[i] + f[j]) % MOD;
+                }
             }
         }
-        f[i] = ans;
-        return ans;
+        return f[1];
     }
 }
