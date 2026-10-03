@@ -472,4 +472,610 @@ public class Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈 + 子树异或和
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 删去两条边会得到三个连通块，分数是这三块异或和的极差。$n \le 1000$，若对每对边都重新遍历整棵树，常数会偏大。整树异或 $s$ 是定值，删去一条边后，一侧连通块的异或等于按该边定向后的子树异或。先枚举第一条被删边，求出含当前根的那一块异或 $s_1$，再把该块里每个子树异或 $s_2$ 当作第二条删除，三块就是 $s \oplus s_1$、$s_2$ 和 $s_1 \oplus s_2$。沿一条链递归计算这些子树异或时，调用深度等于节点数，在 $n = 1000$ 时会超出 Python 的递归上限。因此栈中保存 $(节点, 父节点, 状态)$：状态 $0$ 先压入退出标记再压入子节点，状态 $1$ 在子树异或就绪后写回当前节点。第一次栈求出 $s_1$，第二次栈对每个子树 $s_2$ 更新极差。
+
+<!-- thinking:end -->
+
+我们记树的异或和为 $s$，即 $s = \text{nums}[0] \oplus \text{nums}[1] \oplus \ldots \oplus \text{nums}[n-1]$。
+
+接下来，枚举 $[0..n)$ 的每个点 $i$，并把 $i$ 与某个邻接点 $j$ 之间的边当作第一条被删除的边。这样得到两个连通块。记包含 $i$ 的连通块的异或和为 $s_1$，再在这块里面求出每个子树的异或和 $s_2$。三个连通块的异或和分别是 $s \oplus s_1$、$s_2$ 和 $s_1 \oplus s_2$。它们的最大值与最小值之差就是当前删边方案的分数，答案取所有方案的最小值。枚举每个点及其每条邻边，可以覆盖所有无序边对。
+
+子树异或用显式栈按后序计算。栈中元素是 $(节点, 父节点, 状态)$。状态为 $0$ 时先压入退出标记，再压入除父节点以外的邻接点；状态为 $1$ 时把各子树异或与自身值异或，得到以当前节点为根的子树异或。第一次栈只取包含 $i$、且不经过 $j$ 的那一块异或 $s_1$。第二次栈在算出每个子树异或 $s_2$ 后，用上面的三个值更新答案。子节点的处理顺序不影响极差。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是树的节点数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumScore(self, nums: List[int], edges: List[List[int]]) -> int:
+        n = len(nums)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        s = 0
+        for x in nums:
+            s ^= x
+
+        def component_xor(root: int, ban: int) -> int:
+            sub = [0] * n
+            stk = [(root, ban, 0)]
+            while stk:
+                i, fa, state = stk.pop()
+                if state == 0:
+                    stk.append((i, fa, 1))
+                    for j in g[i]:
+                        if j != fa:
+                            stk.append((j, i, 0))
+                else:
+                    res = nums[i]
+                    for j in g[i]:
+                        if j != fa:
+                            res ^= sub[j]
+                    sub[i] = res
+            return sub[root]
+
+        def collect(root: int, ban: int, s1: int) -> None:
+            nonlocal ans
+            sub = [0] * n
+            stk = [(root, ban, 0)]
+            while stk:
+                i, fa, state = stk.pop()
+                if state == 0:
+                    stk.append((i, fa, 1))
+                    for j in g[i]:
+                        if j != fa:
+                            stk.append((j, i, 0))
+                else:
+                    res = nums[i]
+                    for j in g[i]:
+                        if j != fa:
+                            s2 = sub[j]
+                            res ^= s2
+                            mx = max(s ^ s1, s2, s1 ^ s2)
+                            mn = min(s ^ s1, s2, s1 ^ s2)
+                            ans = min(ans, mx - mn)
+                    sub[i] = res
+
+        ans = inf
+        for i in range(n):
+            for j in g[i]:
+                s1 = component_xor(i, j)
+                collect(i, j, s1)
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumScore(int[] nums, int[][] edges) {
+        int n = nums.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        int s = 0;
+        for (int x : nums) {
+            s ^= x;
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < n; ++i) {
+            for (int j : g[i]) {
+                int s1 = componentXor(nums, g, i, j);
+                ans = Math.min(ans, collect(nums, g, i, j, s, s1));
+            }
+        }
+        return ans;
+    }
+
+    private int componentXor(int[] nums, List<Integer>[] g, int root, int ban) {
+        int n = nums.length;
+        int[] sub = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {root, ban, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                int res = nums[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        res ^= sub[j];
+                    }
+                }
+                sub[i] = res;
+            }
+        }
+        return sub[root];
+    }
+
+    private int collect(int[] nums, List<Integer>[] g, int root, int ban, int s, int s1) {
+        int n = nums.length;
+        int ans = Integer.MAX_VALUE;
+        int[] sub = new int[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {root, ban, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                int res = nums[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        int s2 = sub[j];
+                        res ^= s2;
+                        int mx = Math.max(Math.max(s ^ s1, s2), s1 ^ s2);
+                        int mn = Math.min(Math.min(s ^ s1, s2), s1 ^ s2);
+                        ans = Math.min(ans, mx - mn);
+                    }
+                }
+                sub[i] = res;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumScore(vector<int>& nums, vector<vector<int>>& edges) {
+        int n = nums.size();
+        vector<vector<int>> g(n);
+        for (const auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        int s = 0;
+        for (int x : nums) {
+            s ^= x;
+        }
+        int ans = INT_MAX;
+        for (int i = 0; i < n; ++i) {
+            for (int j : g[i]) {
+                int s1 = componentXor(nums, g, i, j);
+                ans = min(ans, collect(nums, g, i, j, s, s1));
+            }
+        }
+        return ans;
+    }
+
+private:
+    int componentXor(vector<int>& nums, vector<vector<int>>& g, int root, int ban) {
+        int n = nums.size();
+        vector<int> sub(n);
+        vector<array<int, 3>> stk{{root, ban, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                int res = nums[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        res ^= sub[j];
+                    }
+                }
+                sub[i] = res;
+            }
+        }
+        return sub[root];
+    }
+
+    int collect(vector<int>& nums, vector<vector<int>>& g, int root, int ban, int s, int s1) {
+        int n = nums.size();
+        int ans = INT_MAX;
+        vector<int> sub(n);
+        vector<array<int, 3>> stk{{root, ban, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                int res = nums[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        int s2 = sub[j];
+                        res ^= s2;
+                        int mx = max({s ^ s1, s2, s1 ^ s2});
+                        int mn = min({s ^ s1, s2, s1 ^ s2});
+                        ans = min(ans, mx - mn);
+                    }
+                }
+                sub[i] = res;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumScore(nums []int, edges [][]int) int {
+	n := len(nums)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	s := 0
+	for _, x := range nums {
+		s ^= x
+	}
+	componentXor := func(root, ban int) int {
+		sub := make([]int, n)
+		stk := [][3]int{{root, ban, 0}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa, state := cur[0], cur[1], cur[2]
+			if state == 0 {
+				stk = append(stk, [3]int{i, fa, 1})
+				for _, j := range g[i] {
+					if j != fa {
+						stk = append(stk, [3]int{j, i, 0})
+					}
+				}
+			} else {
+				res := nums[i]
+				for _, j := range g[i] {
+					if j != fa {
+						res ^= sub[j]
+					}
+				}
+				sub[i] = res
+			}
+		}
+		return sub[root]
+	}
+	collect := func(root, ban, s1 int) int {
+		ans := math.MaxInt32
+		sub := make([]int, n)
+		stk := [][3]int{{root, ban, 0}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa, state := cur[0], cur[1], cur[2]
+			if state == 0 {
+				stk = append(stk, [3]int{i, fa, 1})
+				for _, j := range g[i] {
+					if j != fa {
+						stk = append(stk, [3]int{j, i, 0})
+					}
+				}
+			} else {
+				res := nums[i]
+				for _, j := range g[i] {
+					if j != fa {
+						s2 := sub[j]
+						res ^= s2
+						mx := max(s^s1, s2, s1^s2)
+						mn := min(s^s1, s2, s1^s2)
+						ans = min(ans, mx-mn)
+					}
+				}
+				sub[i] = res
+			}
+		}
+		return ans
+	}
+	ans := math.MaxInt32
+	for i := 0; i < n; i++ {
+		for _, j := range g[i] {
+			s1 := componentXor(i, j)
+			ans = min(ans, collect(i, j, s1))
+		}
+	}
+	return ans
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumScore(nums: number[], edges: number[][]): number {
+    const n = nums.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const s = nums.reduce((a, b) => a ^ b, 0);
+    const componentXor = (root: number, ban: number): number => {
+        const sub = Array(n).fill(0);
+        const stk: number[][] = [[root, ban, 0]];
+        while (stk.length) {
+            const [i, fa, state] = stk.pop()!;
+            if (state === 0) {
+                stk.push([i, fa, 1]);
+                for (const j of g[i]) {
+                    if (j !== fa) {
+                        stk.push([j, i, 0]);
+                    }
+                }
+            } else {
+                let res = nums[i];
+                for (const j of g[i]) {
+                    if (j !== fa) {
+                        res ^= sub[j];
+                    }
+                }
+                sub[i] = res;
+            }
+        }
+        return sub[root];
+    };
+    const collect = (root: number, ban: number, s1: number): number => {
+        let ans = Number.MAX_SAFE_INTEGER;
+        const sub = Array(n).fill(0);
+        const stk: number[][] = [[root, ban, 0]];
+        while (stk.length) {
+            const [i, fa, state] = stk.pop()!;
+            if (state === 0) {
+                stk.push([i, fa, 1]);
+                for (const j of g[i]) {
+                    if (j !== fa) {
+                        stk.push([j, i, 0]);
+                    }
+                }
+            } else {
+                let res = nums[i];
+                for (const j of g[i]) {
+                    if (j !== fa) {
+                        const s2 = sub[j];
+                        res ^= s2;
+                        const mx = Math.max(s ^ s1, s2, s1 ^ s2);
+                        const mn = Math.min(s ^ s1, s2, s1 ^ s2);
+                        ans = Math.min(ans, mx - mn);
+                    }
+                }
+                sub[i] = res;
+            }
+        }
+        return ans;
+    };
+    let ans = Number.MAX_SAFE_INTEGER;
+    for (let i = 0; i < n; ++i) {
+        for (const j of g[i]) {
+            const s1 = componentXor(i, j);
+            ans = Math.min(ans, collect(i, j, s1));
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn minimum_score(nums: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
+        let n = nums.len();
+        let mut g = vec![vec![]; n];
+        for e in edges.iter() {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        let s = nums.iter().fold(0, |acc, &x| acc ^ x);
+
+        fn component_xor(root: usize, ban: usize, g: &[Vec<usize>], nums: &[i32]) -> i32 {
+            let n = nums.len();
+            let mut sub = vec![0; n];
+            let mut stk = vec![(root, ban, 0)];
+            while let Some((i, fa, state)) = stk.pop() {
+                if state == 0 {
+                    stk.push((i, fa, 1));
+                    for &j in &g[i] {
+                        if j != fa {
+                            stk.push((j, i, 0));
+                        }
+                    }
+                } else {
+                    let mut res = nums[i];
+                    for &j in &g[i] {
+                        if j != fa {
+                            res ^= sub[j];
+                        }
+                    }
+                    sub[i] = res;
+                }
+            }
+            sub[root]
+        }
+
+        fn collect(
+            root: usize,
+            ban: usize,
+            g: &[Vec<usize>],
+            nums: &[i32],
+            s: i32,
+            s1: i32,
+        ) -> i32 {
+            let n = nums.len();
+            let mut ans = i32::MAX;
+            let mut sub = vec![0; n];
+            let mut stk = vec![(root, ban, 0)];
+            while let Some((i, fa, state)) = stk.pop() {
+                if state == 0 {
+                    stk.push((i, fa, 1));
+                    for &j in &g[i] {
+                        if j != fa {
+                            stk.push((j, i, 0));
+                        }
+                    }
+                } else {
+                    let mut res = nums[i];
+                    for &j in &g[i] {
+                        if j != fa {
+                            let s2 = sub[j];
+                            res ^= s2;
+                            let mx = (s ^ s1).max(s2).max(s1 ^ s2);
+                            let mn = (s ^ s1).min(s2).min(s1 ^ s2);
+                            ans = ans.min(mx - mn);
+                        }
+                    }
+                    sub[i] = res;
+                }
+            }
+            ans
+        }
+
+        let mut ans = i32::MAX;
+        for i in 0..n {
+            for &j in &g[i] {
+                let s1 = component_xor(i, j, &g, &nums);
+                ans = ans.min(collect(i, j, &g, &nums, s, s1));
+            }
+        }
+        ans
+    }
+}
+```
+
+#### C#
+
+```cs
+public class Solution {
+    public int MinimumScore(int[] nums, int[][] edges) {
+        int n = nums.Length;
+        List<int>[] g = new List<int>[n];
+        for (int i = 0; i < n; i++) {
+            g[i] = new List<int>();
+        }
+        foreach (var e in edges) {
+            int a = e[0], b = e[1];
+            g[a].Add(b);
+            g[b].Add(a);
+        }
+
+        int s = 0;
+        foreach (int x in nums) {
+            s ^= x;
+        }
+
+        int ComponentXor(int root, int ban) {
+            int[] sub = new int[n];
+            var stk = new Stack<int[]>();
+            stk.Push(new int[] { root, ban, 0 });
+            while (stk.Count > 0) {
+                int[] cur = stk.Pop();
+                int i = cur[0], fa = cur[1], state = cur[2];
+                if (state == 0) {
+                    stk.Push(new int[] { i, fa, 1 });
+                    foreach (int j in g[i]) {
+                        if (j != fa) {
+                            stk.Push(new int[] { j, i, 0 });
+                        }
+                    }
+                } else {
+                    int res = nums[i];
+                    foreach (int j in g[i]) {
+                        if (j != fa) {
+                            res ^= sub[j];
+                        }
+                    }
+                    sub[i] = res;
+                }
+            }
+            return sub[root];
+        }
+
+        int Collect(int root, int ban, int s1) {
+            int best = int.MaxValue;
+            int[] sub = new int[n];
+            var stk = new Stack<int[]>();
+            stk.Push(new int[] { root, ban, 0 });
+            while (stk.Count > 0) {
+                int[] cur = stk.Pop();
+                int i = cur[0], fa = cur[1], state = cur[2];
+                if (state == 0) {
+                    stk.Push(new int[] { i, fa, 1 });
+                    foreach (int j in g[i]) {
+                        if (j != fa) {
+                            stk.Push(new int[] { j, i, 0 });
+                        }
+                    }
+                } else {
+                    int res = nums[i];
+                    foreach (int j in g[i]) {
+                        if (j != fa) {
+                            int s2 = sub[j];
+                            res ^= s2;
+                            int mx = Math.Max(Math.Max(s ^ s1, s2), s1 ^ s2);
+                            int mn = Math.Min(Math.Min(s ^ s1, s2), s1 ^ s2);
+                            best = Math.Min(best, mx - mn);
+                        }
+                    }
+                    sub[i] = res;
+                }
+            }
+            return best;
+        }
+
+        int ans = int.MaxValue;
+        for (int i = 0; i < n; ++i) {
+            foreach (int j in g[i]) {
+                int s1 = ComponentXor(i, j);
+                ans = Math.Min(ans, Collect(i, j, s1));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
