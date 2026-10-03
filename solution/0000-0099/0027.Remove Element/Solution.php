@@ -5,10 +5,12 @@ class Solution {
      * @return Integer
      */
     function removeElement(&$nums, $val) {
-        for ($i = count($nums) - 1; $i >= 0; $i--) {
-            if ($nums[$i] == $val) {
-                array_splice($nums, $i, 1);
+        $k = 0;
+        foreach ($nums as $x) {
+            if ($x != $val) {
+                $nums[$k++] = $x;
             }
         }
+        return $k;
     }
 }
