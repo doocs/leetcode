@@ -274,4 +274,261 @@ function maximumScoreAfterOperations(edges: number[][], values: number[]): numbe
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Tree DP + Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> Every root-to-leaf path must keep at least one unselected node; the remaining values may add to the score. Enumerating select or skip at each vertex while enforcing every path grows with the number of paths and does not fit $n \le 2 \times 10^4$. Once the choice is localized to a subtree, skipping the current node takes each child subtree whole, and taking it requires every child subtree to stay valid; both choices depend only on the subtree sum and the valid score, so child order does not matter. Filling that pair by recursion along a chain uses a call depth equal to the node count and overflows Python's recursion limit. The stack therefore stores $(node, parent, state)$: state $0$ pushes the exit marker and then the children, and state $1$ writes the pair after the children are ready. A leaf stores second value $0$, an internal node takes $\max(values[i]+b, a)$, and the answer is the second value at the root.
+
+<!-- thinking:end -->
+
+The problem asks us to select some nodes so that the sum of their values is maximized, and every path from the root to a leaf keeps at least one node unselected.
+
+We record two quantities for each subtree with tree DP and fill them in postorder on an explicit stack. For node $i$, the first value is the sum of every node in the subtree, and the second value is the maximum score the subtree can obtain while satisfying the path constraint. A leaf has no child, so it can leave an unselected node only by skipping itself: the first value is $values[i]$ and the second value is $0$. An internal node has two choices. Skipping $i$ takes every node in each child subtree, scoring the sum of those subtree sums $a$. Taking $i$ requires each child subtree to stay valid on its own, scoring $values[i]$ plus the sum of the child scores $b$. We keep the larger of the two.
+
+Each stack frame is $(i, fa, state)$. When $state = 0$, we push $(i, fa, 1)$ and then push every neighbor other than the parent with state $0$, so the children finish first. When $state = 1$, we read the finished child results and write node $i$ by the rule above. The order in which children are pushed does not change the answer.
+
+The answer is the second value at the root.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumScoreAfterOperations(
+        self, edges: List[List[int]], values: List[int]
+    ) -> int:
+        n = len(values)
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        sub = [(0, 0)] * n
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                a = b = 0
+                leaf = True
+                for j in g[i]:
+                    if j != fa:
+                        leaf = False
+                        aa, bb = sub[j]
+                        a += aa
+                        b += bb
+                if leaf:
+                    sub[i] = (values[i], 0)
+                else:
+                    sub[i] = (values[i] + a, max(values[i] + b, a))
+        return sub[0][1]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maximumScoreAfterOperations(int[][] edges, int[] values) {
+        int n = values.length;
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, k -> new ArrayList<>());
+        for (var e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[] sum = new long[n];
+        long[] best = new long[n];
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                long a = 0, b = 0;
+                boolean leaf = true;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        leaf = false;
+                        a += sum[j];
+                        b += best[j];
+                    }
+                }
+                if (leaf) {
+                    sum[i] = values[i];
+                    best[i] = 0;
+                } else {
+                    sum[i] = values[i] + a;
+                    best[i] = Math.max(values[i] + b, a);
+                }
+            }
+        }
+        return best[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maximumScoreAfterOperations(vector<vector<int>>& edges, vector<int>& values) {
+        int n = values.size();
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].emplace_back(b);
+            g[b].emplace_back(a);
+        }
+        using ll = long long;
+        vector<pair<ll, ll>> sub(n);
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                ll a = 0, b = 0;
+                bool leaf = true;
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        leaf = false;
+                        a += sub[j].first;
+                        b += sub[j].second;
+                    }
+                }
+                if (leaf) {
+                    sub[i] = {values[i], 0};
+                } else {
+                    sub[i] = {values[i] + a, max(values[i] + b, a)};
+                }
+            }
+        }
+        return sub[0].second;
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumScoreAfterOperations(edges [][]int, values []int) int64 {
+	n := len(values)
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	type pair struct{ sum, best int64 }
+	sub := make([]pair, n)
+	type frame struct{ i, fa, state int }
+	stk := []frame{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur.i, cur.fa, cur.state
+		if state == 0 {
+			stk = append(stk, frame{i, fa, 1})
+			for _, j := range g[i] {
+				if j != fa {
+					stk = append(stk, frame{j, i, 0})
+				}
+			}
+		} else {
+			var a, b int64
+			leaf := true
+			for _, j := range g[i] {
+				if j != fa {
+					leaf = false
+					a += sub[j].sum
+					b += sub[j].best
+				}
+			}
+			if leaf {
+				sub[i] = pair{int64(values[i]), 0}
+			} else {
+				sub[i] = pair{int64(values[i]) + a, max(int64(values[i])+b, a)}
+			}
+		}
+	}
+	return sub[0].best
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumScoreAfterOperations(edges: number[][], values: number[]): number {
+    const n = values.length;
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const sum = Array(n).fill(0);
+    const best = Array(n).fill(0);
+    const stk: number[][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, fa, 1]);
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    stk.push([j, i, 0]);
+                }
+            }
+        } else {
+            let a = 0;
+            let b = 0;
+            let leaf = true;
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    leaf = false;
+                    a += sum[j];
+                    b += best[j];
+                }
+            }
+            if (leaf) {
+                sum[i] = values[i];
+                best[i] = 0;
+            } else {
+                sum[i] = values[i] + a;
+                best[i] = Math.max(values[i] + b, a);
+            }
+        }
+    }
+    return best[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
