@@ -263,7 +263,7 @@ function maximumTotalCost(nums: number[]): number {
 
 > **Thinking**
 >
-> Method 1 is already linear in states but still recurses. The two choices roll into two scalars.
+> Method 1 fills a linear table from the end. The two choices roll into two scalars.
 >
 > $f$ is the best score if the current value stays positive, $g$ if it is negated. A negation requires the previous value to have stayed positive.
 >
@@ -271,7 +271,7 @@ function maximumTotalCost(nums: number[]): number {
 
 <!-- thinking:end -->
 
-We can transform the memoization search from Solution 1 into dynamic programming.
+We can compress the table from Solution 1 into two rolling values.
 
 Define $f$ and $g$ as two states, where $f$ represents the maximum value when the current number is not flipped, and $g$ represents the maximum value when the current number is flipped.
 
@@ -352,6 +352,133 @@ function maximumTotalCost(nums: number[]): number {
         [f, g] = [Math.max(f, g) + x, f - x];
     }
     return Math.max(f, g);
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
+<!-- solution:start -->
+
+### Solution 3: Dynamic Programming
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> A partition scores each piece with alternating signs and a positive first term. All partitions are exponential, and $n\le 10^5$.
+>
+> Whether the current value may be negated depends only on the next suffix: a positive term continues with a negation allowed, and a negation forces the next term positive.
+>
+> Searching that recurrence still calls the next index before it returns, so the chain has depth $n$ and overflows the stack.
+>
+> The next index is known if we walk from the end. Let $f[i][j]$ be the best score from $i$ when $j=1$ allows negating $\textit{nums}[i]$. Fill $i$ from $n-1$ down to $0$ and return $f[0][0]$.
+
+<!-- thinking:end -->
+
+If the current number stays positive, the next one may be negated or stay positive. If the current number is negated, the next one must stay positive.
+
+Let $f[i][j]$ be the best score of the suffix starting at index $i$, where $j = 1$ means $\textit{nums}[i]$ may be negated and $j = 0$ means it must stay positive. The answer is $f[0][0]$. Past the end, $f[n][0] = f[n][1] = 0$.
+
+The number at $i$ can stay positive, which scores $\textit{nums}[i] + f[i + 1][1]$. When $j = 1$ it may also be negated, which scores $-\textit{nums}[i] + f[i + 1][0]$. $f[i][j]$ is the larger of the available choices.
+
+We calculate $f$ from $i = n - 1$ down to $0$.
+
+The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the length of the array $\textit{nums}$.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maximumTotalCost(self, nums: List[int]) -> int:
+        n = len(nums)
+        f = [[0, 0] for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(2):
+                ans = nums[i] + f[i + 1][1]
+                if j == 1:
+                    ans = max(ans, -nums[i] + f[i + 1][0])
+                f[i][j] = ans
+        return f[0][0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public long maximumTotalCost(int[] nums) {
+        int n = nums.length;
+        long[][] f = new long[n + 1][2];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                f[i][j] = nums[i] + f[i + 1][1];
+                if (j == 1) {
+                    f[i][j] = Math.max(f[i][j], -nums[i] + f[i + 1][0]);
+                }
+            }
+        }
+        return f[0][0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    long long maximumTotalCost(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<long long>> f(n + 1, vector<long long>(2));
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j < 2; ++j) {
+                f[i][j] = nums[i] + f[i + 1][1];
+                if (j) {
+                    f[i][j] = max(f[i][j], -nums[i] + f[i + 1][0]);
+                }
+            }
+        }
+        return f[0][0];
+    }
+};
+```
+
+#### Go
+
+```go
+func maximumTotalCost(nums []int) int64 {
+	n := len(nums)
+	f := make([][2]int64, n+1)
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j < 2; j++ {
+			f[i][j] = int64(nums[i]) + f[i+1][1]
+			if j == 1 {
+				f[i][j] = max(f[i][j], int64(-nums[i])+f[i+1][0])
+			}
+		}
+	}
+	return f[0][0]
+}
+```
+
+#### TypeScript
+
+```ts
+function maximumTotalCost(nums: number[]): number {
+    const n = nums.length;
+    const f: number[][] = Array.from({ length: n + 1 }, () => Array(2).fill(0));
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = 0; j < 2; ++j) {
+            f[i][j] = nums[i] + f[i + 1][1];
+            if (j === 1) {
+                f[i][j] = Math.max(f[i][j], -nums[i] + f[i + 1][0]);
+            }
+        }
+    }
+    return f[0][0];
 }
 ```
 
