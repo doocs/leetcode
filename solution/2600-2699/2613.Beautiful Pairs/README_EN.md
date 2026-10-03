@@ -162,7 +162,7 @@ class Solution {
     }
 
     private long f(int x, int y) {
-        return x * 100000L + y;
+        return x * 100001L + y;
     }
 
     private int dist(int x1, int y1, int x2, int y2) {
@@ -268,7 +268,7 @@ public:
     }
 
     long long f(int x, int y) {
-        return x * 100000LL + y;
+        return x * 100001LL + y;
     }
 
     int dist(int x1, int y1, int x2, int y2) {
@@ -414,7 +414,7 @@ function dist(x1: number, y1: number, x2: number, y2: number): number {
 }
 
 function f(x: number, y: number): number {
-    return x * 100000 + y;
+    return x * 100001 + y;
 }
 ```
 
