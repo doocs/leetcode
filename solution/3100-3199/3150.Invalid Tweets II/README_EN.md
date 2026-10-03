@@ -84,7 +84,7 @@ Output table is ordered by tweet_id in ascending order.</div>
 
 <!-- solution:start -->
 
-### Solution 1: LENGTH() Function + REPLACE() Function
+### Solution 1: CHAR_LENGTH() and LENGTH()
 
 <!-- thinking:start -->
 
@@ -98,7 +98,7 @@ Output table is ordered by tweet_id in ascending order.</div>
 
 <!-- thinking:end -->
 
-We can use the `LENGTH()` function to calculate the length of the string, calculate the length after excluding `@` or `#`, then use the `OR` operator to connect these three conditions, filter out the corresponding tweet_id, and sort by tweet_id in ascending order.
+`CHAR_LENGTH()` counts characters, so a tweet longer than $140$ characters is invalid. The number of `@` and `#` is the `LENGTH()` difference after `REPLACE()`. Connect the three conditions with `OR`, keep the matching `tweet_id` values, and sort them in ascending order.
 
 <!-- tabs:start -->
 
@@ -109,7 +109,7 @@ We can use the `LENGTH()` function to calculate the length of the string, calcul
 SELECT tweet_id
 FROM Tweets
 WHERE
-    LENGTH(content) > 140
+    CHAR_LENGTH(content) > 140
     OR (LENGTH(content) - LENGTH(REPLACE(content, '@', ''))) > 3
     OR (LENGTH(content) - LENGTH(REPLACE(content, '#', ''))) > 3
 ORDER BY 1;
