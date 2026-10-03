@@ -277,4 +277,155 @@ function minimumCost(sentence: string, k: number): number {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：前缀和 + 动态规划
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> 把全部断行枚举一遍是指数级的。句子长度可以到 $5000$，单词很多时，下一行总是从下一个词开始试，递归深度就是单词数。从第 $i$ 个词起的最小代价只依赖更靠后的词。于是用前缀和 $O(1)$ 求出一行的宽度，令 $f[i]$ 为从第 $i$ 个词起的最小代价，剩余单词能放进末行则为 $0$，否则从右往左枚举下一行起点 $j$，加上 $(k-m)^2+f[j]$。
+
+<!-- thinking:end -->
+
+用前缀和 $s$ 记录单词长度，$s[i]$ 为前 $i$ 个单词的长度之和，$n$ 为单词个数。设 $f[i]$ 为从第 $i$ 个单词开始排版的最小成本。从 $i=n-1$ 递减到 $0$。若从 $i$ 到末尾的单词长度再加上其间的空格数不超过 $k$，这些词可以放在最后一行，$f[i]=0$。否则枚举下一行的起点 $j$，使第 $i$ 个到第 $j-1$ 个单词连同空格的宽度 $m$ 不超过 $k$，用 $(k-m)^2+f[j]$ 更新 $f[i]$。答案为 $f[0]$。
+
+时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 为单词的个数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def minimumCost(self, sentence: str, k: int) -> int:
+        nums = [len(w) for w in sentence.split()]
+        n = len(nums)
+        s = list(accumulate(nums, initial=0))
+        f = [0] * n
+        for i in range(n - 1, -1, -1):
+            if s[n] - s[i] + n - i - 1 <= k:
+                continue
+            ans = inf
+            j = i + 1
+            while j < n and (m := s[j] - s[i] + j - i - 1) <= k:
+                ans = min(ans, f[j] + (k - m) ** 2)
+                j += 1
+            f[i] = ans
+        return f[0]
+```
+
+#### Java
+
+```java
+class Solution {
+    public int minimumCost(String sentence, int k) {
+        String[] words = sentence.split(" ");
+        int n = words.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + words[i].length();
+        }
+        int[] f = new int[n];
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[n] - s[i] + n - i - 1 <= k) {
+                continue;
+            }
+            int ans = Integer.MAX_VALUE;
+            for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+                int m = s[j] - s[i] + j - i - 1;
+                ans = Math.min(ans, f[j] + (k - m) * (k - m));
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int minimumCost(string sentence, int k) {
+        istringstream iss(sentence);
+        vector<int> s = {0};
+        string w;
+        while (iss >> w) {
+            s.push_back(s.back() + (int) w.size());
+        }
+        int n = s.size() - 1;
+        vector<int> f(n);
+        for (int i = n - 1; i >= 0; --i) {
+            if (s[n] - s[i] + n - i - 1 <= k) {
+                continue;
+            }
+            int ans = INT_MAX;
+            for (int j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+                int m = s[j] - s[i] + j - i - 1;
+                ans = min(ans, f[j] + (k - m) * (k - m));
+            }
+            f[i] = ans;
+        }
+        return f[0];
+    }
+};
+```
+
+#### Go
+
+```go
+func minimumCost(sentence string, k int) int {
+	s := []int{0}
+	for _, w := range strings.Split(sentence, " ") {
+		s = append(s, s[len(s)-1]+len(w))
+	}
+	n := len(s) - 1
+	f := make([]int, n)
+	for i := n - 1; i >= 0; i-- {
+		if s[n]-s[i]+n-i-1 <= k {
+			continue
+		}
+		ans := math.MaxInt32
+		for j := i + 1; j < n && s[j]-s[i]+j-i-1 <= k; j++ {
+			m := s[j] - s[i] + j - i - 1
+			ans = min(ans, f[j]+(k-m)*(k-m))
+		}
+		f[i] = ans
+	}
+	return f[0]
+}
+```
+
+#### TypeScript
+
+```ts
+function minimumCost(sentence: string, k: number): number {
+    const s: number[] = [0];
+    for (const w of sentence.split(' ')) {
+        s.push(s.at(-1)! + w.length);
+    }
+    const n = s.length - 1;
+    const f: number[] = Array(n).fill(0);
+    for (let i = n - 1; i >= 0; --i) {
+        if (s[n] - s[i] + n - i - 1 <= k) {
+            continue;
+        }
+        let ans = Infinity;
+        for (let j = i + 1; j < n && s[j] - s[i] + j - i - 1 <= k; ++j) {
+            const m = s[j] - s[i] + j - i - 1;
+            ans = Math.min(ans, f[j] + (k - m) ** 2);
+        }
+        f[i] = ans;
+    }
+    return f[0];
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
