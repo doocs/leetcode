@@ -6,12 +6,17 @@ func lastMarkedNodes(edges [][]int) (ans []int) {
 		g[u] = append(g[u], v)
 		g[v] = append(g[v], u)
 	}
-	var dfs func(int, int, []int)
-	dfs = func(i, fa int, dist []int) {
-		for _, j := range g[i] {
-			if j != fa {
-				dist[j] = dist[i] + 1
-				dfs(j, i, dist)
+	dfs := func(start int, dist []int) {
+		stk := [][2]int{{start, -1}}
+		for len(stk) > 0 {
+			cur := stk[len(stk)-1]
+			stk = stk[:len(stk)-1]
+			i, fa := cur[0], cur[1]
+			for _, j := range g[i] {
+				if j != fa {
+					dist[j] = dist[i] + 1
+					stk = append(stk, [2]int{j, i})
+				}
 			}
 		}
 	}
@@ -26,15 +31,15 @@ func lastMarkedNodes(edges [][]int) (ans []int) {
 	}
 
 	dist1 := make([]int, n)
-	dfs(0, -1, dist1)
+	dfs(0, dist1)
 	a := maxNode(dist1)
 
 	dist2 := make([]int, n)
-	dfs(a, -1, dist2)
+	dfs(a, dist2)
 	b := maxNode(dist2)
 
 	dist3 := make([]int, n)
-	dfs(b, -1, dist3)
+	dfs(b, dist3)
 
 	for i, x := range dist2 {
 		if x > dist3[i] {
