@@ -124,7 +124,7 @@ class Solution:
                             s.add((sites[i], sites[j], sites[k]))
             for t in s:
                 cnt[t] += 1
-        return sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0]
+        return list(sorted(cnt.items(), key=lambda x: (-x[1], x[0]))[0][0])
 ```
 
 #### Java
