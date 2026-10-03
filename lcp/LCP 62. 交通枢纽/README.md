@@ -111,7 +111,7 @@ class Solution {
         Set<Integer> vis = new HashSet<>();
         for (int[] p : path) {
             int a = p[0], b = p[1];
-            if (vis.add(a * 1000 + b)) {
+            if (vis.add(a * 1001 + b)) {
                 s.add(a);
                 s.add(b);
                 ind[b]++;
@@ -140,10 +140,10 @@ public:
         unordered_set<int> vis;
         for (auto& p : path) {
             int a = p[0], b = p[1];
-            if (vis.count(a * 1000 + b)) {
+            if (vis.count(a * 1001 + b)) {
                 continue;
             }
-            vis.insert(a * 1000 + b);
+            vis.insert(a * 1001 + b);
             s.insert(a);
             s.insert(b);
             ind[b]++;
@@ -169,10 +169,10 @@ func transportationHub(path [][]int) int {
 	vis := map[int]bool{}
 	for _, p := range path {
 		a, b := p[0], p[1]
-		if vis[a*1000+b] {
+		if vis[a*1001+b] {
 			continue
 		}
-		vis[a*1000+b] = true
+		vis[a*1001+b] = true
 		s[a] = struct{}{}
 		s[b] = struct{}{}
 		outd[a]++
@@ -196,10 +196,10 @@ function transportationHub(path: number[][]): number {
     const s: Set<number> = new Set();
     const vis: Set<number> = new Set();
     for (const [a, b] of path) {
-        if (vis.has(a * 1000 + b)) {
+        if (vis.has(a * 1001 + b)) {
             continue;
         }
-        vis.add(a * 1000 + b);
+        vis.add(a * 1001 + b);
         s.add(a);
         s.add(b);
         ind[b]++;
