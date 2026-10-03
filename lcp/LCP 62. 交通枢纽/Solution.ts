@@ -4,10 +4,10 @@ function transportationHub(path: number[][]): number {
     const s: Set<number> = new Set();
     const vis: Set<number> = new Set();
     for (const [a, b] of path) {
-        if (vis.has(a * 1000 + b)) {
+        if (vis.has(a * 1001 + b)) {
             continue;
         }
-        vis.add(a * 1000 + b);
+        vis.add(a * 1001 + b);
         s.add(a);
         s.add(b);
         ind[b]++;
