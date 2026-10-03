@@ -155,8 +155,7 @@ public:
     int numberOfPaths(vector<vector<int>>& grid, int K) {
         const int mod = 1e9 + 7;
         int m = grid.size(), n = grid[0].size();
-        int f[m][n][K];
-        memset(f, 0, sizeof(f));
+        vector<vector<vector<int>>> f(m, vector<vector<int>>(n, vector<int>(K)));
         f[0][0][grid[0][0] % K] = 1;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
