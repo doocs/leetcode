@@ -289,7 +289,7 @@ func beautifulPair(nums1 []int, nums2 []int) []int {
 	}
 	points := [][3]int{}
 	for i := 0; i < n; i++ {
-		k := [2]int{nums2[i], nums1[i]}
+		k := [2]int{nums1[i], nums2[i]}
 		if len(pl[k]) > 1 {
 			return []int{pl[k][0], pl[k][1]}
 		}
