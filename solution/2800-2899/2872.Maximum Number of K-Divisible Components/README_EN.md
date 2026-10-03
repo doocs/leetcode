@@ -277,4 +277,279 @@ impl Solution {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### Solution 2: Explicit Stack
+
+<!-- thinking:start -->
+
+> **Thinking**
+>
+> The whole tree sum is divisible by $k$, so deleting a subtree whose sum is also divisible by $k$ leaves valid components. With $n \le 3 \times 10^4$, one bottom-up accumulation of subtree sums is enough.
+>
+> Recursing from the root into each child reaches depth $n$ on a chain and overflows the call stack. A subtree sum does not depend on the order of its children.
+>
+> An explicit stack of $(node, parent, state)$ therefore runs that postorder. On entry we push the exit marker and then the children; on exit we add each child's subtree sum to this node's value, and count a component when the sum is $0$ modulo $k$.
+
+<!-- thinking:end -->
+
+We note that the problem guarantees the sum of all node values in the entire tree is divisible by $k$. Therefore, if we remove a subtree whose sum of elements is divisible by $k$, the sum of node values in each of the remaining connected components must also be divisible by $k$.
+
+An explicit stack walks the tree in postorder from the root. Each frame is $(node, parent, state)$. When a node is left, we add every child's subtree sum to this node's value. If that sum is divisible by $k$, we increment the answer by one.
+
+The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the number of nodes in the tree.
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def maxKDivisibleComponents(
+        self, n: int, edges: List[List[int]], values: List[int], k: int
+    ) -> int:
+        g = [[] for _ in range(n)]
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+        sub = [0] * n
+        ans = 0
+        stk = [(0, -1, 0)]
+        while stk:
+            i, fa, state = stk.pop()
+            if state == 0:
+                stk.append((i, fa, 1))
+                for j in g[i]:
+                    if j != fa:
+                        stk.append((j, i, 0))
+            else:
+                s = values[i]
+                for j in g[i]:
+                    if j != fa:
+                        s += sub[j]
+                if s % k == 0:
+                    ans += 1
+                sub[i] = s
+        return ans
+```
+
+#### Java
+
+```java
+class Solution {
+    public int maxKDivisibleComponents(int n, int[][] edges, int[] values, int k) {
+        List<Integer>[] g = new List[n];
+        Arrays.setAll(g, i -> new ArrayList<>());
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+        }
+        long[] sub = new long[n];
+        int ans = 0;
+        Deque<int[]> stk = new ArrayDeque<>();
+        stk.push(new int[] {0, -1, 0});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            int i = cur[0], fa = cur[1], state = cur[2];
+            if (state == 0) {
+                stk.push(new int[] {i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push(new int[] {j, i, 0});
+                    }
+                }
+            } else {
+                long s = values[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        s += sub[j];
+                    }
+                }
+                if (s % k == 0) {
+                    ++ans;
+                }
+                sub[i] = s;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int maxKDivisibleComponents(int n, vector<vector<int>>& edges, vector<int>& values, int k) {
+        vector<vector<int>> g(n);
+        for (auto& e : edges) {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        vector<long long> sub(n);
+        int ans = 0;
+        vector<array<int, 3>> stk{{0, -1, 0}};
+        while (!stk.empty()) {
+            auto [i, fa, state] = stk.back();
+            stk.pop_back();
+            if (state == 0) {
+                stk.push_back({i, fa, 1});
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        stk.push_back({j, i, 0});
+                    }
+                }
+            } else {
+                long long s = values[i];
+                for (int j : g[i]) {
+                    if (j != fa) {
+                        s += sub[j];
+                    }
+                }
+                ans += s % k == 0;
+                sub[i] = s;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func maxKDivisibleComponents(n int, edges [][]int, values []int, k int) (ans int) {
+	g := make([][]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+	}
+	sub := make([]int, n)
+	stk := [][3]int{{0, -1, 0}}
+	for len(stk) > 0 {
+		cur := stk[len(stk)-1]
+		stk = stk[:len(stk)-1]
+		i, fa, state := cur[0], cur[1], cur[2]
+		if state == 0 {
+			stk = append(stk, [3]int{i, fa, 1})
+			for _, j := range g[i] {
+				if j != fa {
+					stk = append(stk, [3]int{j, i, 0})
+				}
+			}
+		} else {
+			s := values[i]
+			for _, j := range g[i] {
+				if j != fa {
+					s += sub[j]
+				}
+			}
+			if s%k == 0 {
+				ans++
+			}
+			sub[i] = s
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function maxKDivisibleComponents(
+    n: number,
+    edges: number[][],
+    values: number[],
+    k: number,
+): number {
+    const g: number[][] = Array.from({ length: n }, () => []);
+    for (const [a, b] of edges) {
+        g[a].push(b);
+        g[b].push(a);
+    }
+    const sub: number[] = Array(n).fill(0);
+    let ans = 0;
+    const stk: [number, number, number][] = [[0, -1, 0]];
+    while (stk.length) {
+        const [i, fa, state] = stk.pop()!;
+        if (state === 0) {
+            stk.push([i, fa, 1]);
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    stk.push([j, i, 0]);
+                }
+            }
+        } else {
+            let s = values[i];
+            for (const j of g[i]) {
+                if (j !== fa) {
+                    s += sub[j];
+                }
+            }
+            if (s % k === 0) {
+                ++ans;
+            }
+            sub[i] = s;
+        }
+    }
+    return ans;
+}
+```
+
+#### Rust
+
+```rust
+impl Solution {
+    pub fn max_k_divisible_components(
+        n: i32,
+        edges: Vec<Vec<i32>>,
+        values: Vec<i32>,
+        k: i32,
+    ) -> i32 {
+        let n = n as usize;
+        let mut g = vec![vec![]; n];
+        for e in edges {
+            let a = e[0] as usize;
+            let b = e[1] as usize;
+            g[a].push(b);
+            g[b].push(a);
+        }
+        let mut sub = vec![0_i64; n];
+        let mut ans = 0;
+        let mut stk = vec![(0_usize, -1_i32, 0_i32)];
+        while let Some((i, fa, state)) = stk.pop() {
+            if state == 0 {
+                stk.push((i, fa, 1));
+                for &j in &g[i] {
+                    if j as i32 != fa {
+                        stk.push((j, i as i32, 0));
+                    }
+                }
+            } else {
+                let mut s = values[i] as i64;
+                for &j in &g[i] {
+                    if j as i32 != fa {
+                        s += sub[j];
+                    }
+                }
+                if s % k as i64 == 0 {
+                    ans += 1;
+                }
+                sub[i] = s;
+            }
+        }
+        ans
+    }
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
