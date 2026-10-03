@@ -264,4 +264,240 @@ function countSubIslands(grid1, grid2) {
 
 <!-- solution:end -->
 
+<!-- solution:start -->
+
+### 方法二：显式栈
+
+<!-- thinking:start -->
+
+> **思考**
+>
+> $\textit{grid2}$ 的一座岛是子岛屿，当且仅当其中每个陆地格在 $\textit{grid1}$ 里也是陆地。格子若不按连通块归并，就无法按岛计数。
+>
+> 从一块陆地递归走向下一个邻居时，一条 $1000$ 格的蛇形岛就会超出递归上限，而 $m,n\le 500$ 容得下这条蛇。
+>
+> 判定只要求走完整座岛，把 $\textit{grid2}$ 置零，并把 $\textit{grid1}$ 对应格按位与起来。这不依赖递归返回。
+>
+> 因此遇到仍为 $1$ 的格子就压入显式栈。弹出后与上 $\textit{grid1}$ 的值，再把四个方向上的陆地标零并入栈。每次搜索的结果累加，就是子岛屿个数。
+
+<!-- thinking:end -->
+
+扫描 `grid2` 的每个格子。若它仍为 $1$，就用显式栈走完这座岛，沿途把 `grid2` 置为 $0$，并把 `grid1` 对应格按位与。结果为 $1$ 时这座岛是子岛屿。
+
+时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是矩阵 `grid1` 和 `grid2` 的行数和列数。
+
+<!-- tabs:start -->
+
+#### Python3
+
+```python
+class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        def flood(i: int, j: int) -> int:
+            ok = 1
+            grid2[i][j] = 0
+            stk = [(i, j)]
+            while stk:
+                i, j = stk.pop()
+                ok &= grid1[i][j]
+                for a, b in pairwise(dirs):
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
+                        grid2[x][y] = 0
+                        stk.append((x, y))
+            return ok
+
+        m, n = len(grid1), len(grid1[0])
+        dirs = (-1, 0, 1, 0, -1)
+        return sum(flood(i, j) for i in range(m) for j in range(n) if grid2[i][j])
+```
+
+#### Java
+
+```java
+class Solution {
+    public int countSubIslands(int[][] grid1, int[][] grid2) {
+        int m = grid1.length, n = grid1[0].length;
+        int ans = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        Deque<int[]> stk = new ArrayDeque<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid2[i][j] == 1) {
+                    ans += flood(grid1, grid2, stk, dirs, i, j);
+                }
+            }
+        }
+        return ans;
+    }
+
+    private int flood(int[][] grid1, int[][] grid2, Deque<int[]> stk, int[] dirs, int i, int j) {
+        int m = grid1.length, n = grid1[0].length;
+        int ok = 1;
+        grid2[i][j] = 0;
+        stk.push(new int[] {i, j});
+        while (!stk.isEmpty()) {
+            int[] cur = stk.pop();
+            i = cur[0];
+            j = cur[1];
+            ok &= grid1[i][j];
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1) {
+                    grid2[x][y] = 0;
+                    stk.push(new int[] {x, y});
+                }
+            }
+        }
+        return ok;
+    }
+}
+```
+
+#### C++
+
+```cpp
+class Solution {
+public:
+    int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        int m = grid1.size(), n = grid1[0].size();
+        int ans = 0;
+        int dirs[5] = {-1, 0, 1, 0, -1};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (!grid2[i][j]) {
+                    continue;
+                }
+                int ok = 1;
+                vector<pair<int, int>> stk{{i, j}};
+                grid2[i][j] = 0;
+                while (!stk.empty()) {
+                    auto [a, b] = stk.back();
+                    stk.pop_back();
+                    ok &= grid1[a][b];
+                    for (int k = 0; k < 4; ++k) {
+                        int x = a + dirs[k], y = b + dirs[k + 1];
+                        if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y]) {
+                            grid2[x][y] = 0;
+                            stk.emplace_back(x, y);
+                        }
+                    }
+                }
+                ans += ok;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+#### Go
+
+```go
+func countSubIslands(grid1 [][]int, grid2 [][]int) (ans int) {
+	m, n := len(grid1), len(grid1[0])
+	dirs := [5]int{-1, 0, 1, 0, -1}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid2[i][j] != 1 {
+				continue
+			}
+			ok := 1
+			grid2[i][j] = 0
+			stk := [][2]int{{i, j}}
+			for len(stk) > 0 {
+				cur := stk[len(stk)-1]
+				stk = stk[:len(stk)-1]
+				ok &= grid1[cur[0]][cur[1]]
+				for k := 0; k < 4; k++ {
+					x, y := cur[0]+dirs[k], cur[1]+dirs[k+1]
+					if x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 {
+						grid2[x][y] = 0
+						stk = append(stk, [2]int{x, y})
+					}
+				}
+			}
+			ans += ok
+		}
+	}
+	return
+}
+```
+
+#### TypeScript
+
+```ts
+function countSubIslands(grid1: number[][], grid2: number[][]): number {
+    const [m, n] = [grid1.length, grid1[0].length];
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    const flood = (i: number, j: number): number => {
+        let ok = 1;
+        grid2[i][j] = 0;
+        const stk: number[][] = [[i, j]];
+        while (stk.length) {
+            const [a, b] = stk.pop()!;
+            ok &= grid1[a][b];
+            for (let k = 0; k < 4; ++k) {
+                const x = a + dirs[k];
+                const y = b + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y]) {
+                    grid2[x][y] = 0;
+                    stk.push([x, y]);
+                }
+            }
+        }
+        return ok;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid2[i][j]) {
+                ans += flood(i, j);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+#### JavaScript
+
+```js
+function countSubIslands(grid1, grid2) {
+    const [m, n] = [grid1.length, grid1[0].length];
+    let ans = 0;
+    const dirs = [-1, 0, 1, 0, -1];
+    const flood = (i, j) => {
+        let ok = 1;
+        grid2[i][j] = 0;
+        const stk = [[i, j]];
+        while (stk.length) {
+            const [a, b] = stk.pop();
+            ok &= grid1[a][b];
+            for (let k = 0; k < 4; ++k) {
+                const x = a + dirs[k];
+                const y = b + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y]) {
+                    grid2[x][y] = 0;
+                    stk.push([x, y]);
+                }
+            }
+        }
+        return ok;
+    };
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; j++) {
+            if (grid2[i][j]) {
+                ans += flood(i, j);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+<!-- tabs:end -->
+
+<!-- solution:end -->
+
 <!-- problem:end -->
